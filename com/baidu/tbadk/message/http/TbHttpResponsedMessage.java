@@ -4,38 +4,11 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.network.http.d;
 import com.baidu.adp.lib.network.http.e;
-import com.baidu.adp.lib.util.BdNetUtil;
+import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.ao;
 /* loaded from: classes.dex */
 public class TbHttpResponsedMessage extends HttpResponsedMessage {
-    private static /* synthetic */ int[] $SWITCH_TABLE$com$baidu$adp$lib$util$BdNetUtil$NetworkStateInfo;
-
-    static /* synthetic */ int[] $SWITCH_TABLE$com$baidu$adp$lib$util$BdNetUtil$NetworkStateInfo() {
-        int[] iArr = $SWITCH_TABLE$com$baidu$adp$lib$util$BdNetUtil$NetworkStateInfo;
-        if (iArr == null) {
-            iArr = new int[BdNetUtil.NetworkStateInfo.valuesCustom().length];
-            try {
-                iArr[BdNetUtil.NetworkStateInfo.ThreeG.ordinal()] = 4;
-            } catch (NoSuchFieldError e) {
-            }
-            try {
-                iArr[BdNetUtil.NetworkStateInfo.TwoG.ordinal()] = 3;
-            } catch (NoSuchFieldError e2) {
-            }
-            try {
-                iArr[BdNetUtil.NetworkStateInfo.UNAVAIL.ordinal()] = 1;
-            } catch (NoSuchFieldError e3) {
-            }
-            try {
-                iArr[BdNetUtil.NetworkStateInfo.WIFI.ordinal()] = 2;
-            } catch (NoSuchFieldError e4) {
-            }
-            $SWITCH_TABLE$com$baidu$adp$lib$util$BdNetUtil$NetworkStateInfo = iArr;
-        }
-        return iArr;
-    }
-
     public TbHttpResponsedMessage(int i) {
         super(i);
     }
@@ -67,29 +40,29 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
         return contentType.substring(indexOf + 8, indexOf2);
     }
 
-    private int getMode(BdNetUtil.NetworkStateInfo networkStateInfo) {
-        switch ($SWITCH_TABLE$com$baidu$adp$lib$util$BdNetUtil$NetworkStateInfo()[networkStateInfo.ordinal()]) {
-            case 2:
+    private int getMode(int i) {
+        switch (i) {
+            case 1:
             default:
                 return 1;
-            case 3:
+            case 2:
                 return 2;
-            case 4:
+            case 3:
                 return 3;
         }
     }
 
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage
     public void logStatInBackground(int i, e eVar) {
-        if (eVar.c().size() > 0) {
-            d dVar = eVar.c().get(eVar.c().size() - 1);
-            an.a.addAndGet(eVar.c().size() - 1);
+        if (eVar.dS().size() > 0) {
+            d dVar = eVar.dS().get(eVar.dS().size() - 1);
+            an.EH.addAndGet(eVar.dS().size() - 1);
             ao aoVar = new ao();
-            aoVar.e = getMode(BdNetUtil.getStatusInfo());
-            aoVar.c = dVar.b;
-            aoVar.b = dVar.f;
-            aoVar.d = dVar.e;
-            aoVar.a = eVar.a().a() == HttpMessageTask.HTTP_METHOD.POST ? 1 : 2;
+            aoVar.mMode = getMode(j.fm());
+            aoVar.mSize = dVar.kl;
+            aoVar.mTime = dVar.kp;
+            aoVar.EJ = dVar.retry;
+            aoVar.EI = eVar.dQ().getMethod() == HttpMessageTask.HTTP_METHOD.POST ? 1 : 2;
             an.a(aoVar);
         }
     }

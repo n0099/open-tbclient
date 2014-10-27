@@ -1,93 +1,96 @@
 package com.baidu.tieba.frs;
 
+import android.app.Activity;
+import android.graphics.Rect;
 import android.view.View;
-import android.widget.AdapterView;
+import android.view.ViewGroup;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.util.TiebaStatic;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.atomData.OfficalBarChatActivityConfig;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.coreExtra.act.LoginActivity;
 /* loaded from: classes.dex */
-public class n implements AdapterView.OnItemClickListener {
-    final /* synthetic */ FrsActivity a;
+class n implements be {
+    final /* synthetic */ FrsActivity aBk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(FrsActivity frsActivity) {
-        this.a = frsActivity;
+        this.aBk = frsActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        cv cvVar;
-        cv cvVar2;
+    @Override // com.baidu.tieba.frs.be
+    public void a(int i, int i2, View view, View view2, com.baidu.tbadk.core.data.q qVar) {
+        bu buVar;
+        bu buVar2;
+        bu buVar3;
+        bu buVar4;
+        bu buVar5;
+        b bVar;
+        b bVar2;
+        b bVar3;
         String str;
-        int i2;
-        int i3;
-        int i4;
-        if (i >= 0) {
-            cvVar = this.a.B;
-            long itemId = cvVar.v().getItemId(i);
-            if (itemId == -1) {
-                i3 = this.a.t;
-                if (i3 > 1) {
-                    FrsActivity frsActivity = this.a;
-                    i4 = frsActivity.t;
-                    frsActivity.t = i4 - 1;
-                    this.a.c(2);
-                }
-            } else if (itemId != -2) {
-                cvVar2 = this.a.B;
-                com.baidu.tbadk.core.data.n nVar = (com.baidu.tbadk.core.data.n) cvVar2.v().getItem(i);
-                if (nVar != null) {
-                    if (nVar instanceof com.baidu.tbadk.core.data.a) {
-                        com.baidu.tbadk.core.data.a aVar = (com.baidu.tbadk.core.data.a) nVar;
-                        this.a.a(aVar, "area_click");
-                        this.a.b(aVar, "click");
-                        int i5 = aVar.a;
-                        if (i5 == 0) {
-                            this.a.a(aVar, i);
-                        } else if (i5 == 2) {
-                            this.a.a(aVar);
-                        }
-                        TiebaStatic.eventStat(this.a, "frs_ck_app", null, 1, "app_name", aVar.g);
-                    } else if (!(nVar instanceof com.baidu.tieba.data.ag)) {
-                        com.baidu.tieba.util.p B = com.baidu.tieba.ai.c().B();
-                        if (B != null && !B.b(nVar.h())) {
-                            B.a(nVar.h());
-                        }
-                        boolean z = false;
-                        String t = nVar.t();
-                        if (t != null && !t.equals("")) {
-                            z = true;
-                            new Thread(new o(this, t)).start();
-                        }
-                        String i6 = nVar.i();
-                        if (i6 == null) {
-                            i6 = "";
-                        }
-                        if (nVar.m() == 2 && !i6.startsWith("pb:")) {
-                            com.baidu.tbadk.core.util.bg a = com.baidu.tbadk.core.util.bg.a();
-                            FrsActivity frsActivity2 = this.a;
-                            String[] strArr = new String[3];
-                            strArr[0] = i6;
-                            strArr[1] = "";
-                            a.a(frsActivity2, strArr);
+        boolean z;
+        df dfVar;
+        buVar = this.aBk.aAv;
+        if (i != buVar.GH().EM() || view2 == null || view == null) {
+            buVar2 = this.aBk.aAv;
+            if (i != buVar2.GH().EL()) {
+                buVar3 = this.aBk.aAv;
+                if (i != buVar3.GH().EN()) {
+                    buVar4 = this.aBk.aAv;
+                    if (i != buVar4.GH().FO()) {
+                        buVar5 = this.aBk.aAv;
+                        if (i == buVar5.GH().FP()) {
+                            com.baidu.tbadk.core.i.m(this.aBk.getParent(), "my_service_ck");
+                            bVar = this.aBk.azE;
+                            if (bVar != null) {
+                                bVar2 = this.aBk.azE;
+                                if (bVar2.zJ() != null) {
+                                    bVar3 = this.aBk.azE;
+                                    ForumData zJ = bVar3.zJ();
+                                    MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.aBk, com.baidu.adp.lib.g.c.a(zJ.getId(), 0L), zJ.getName(), zJ.getImage_url(), 0)));
+                                    return;
+                                }
+                                return;
+                            }
                             return;
                         }
-                        if (i6.startsWith("pb:")) {
-                            nVar.a(i6.substring(3));
-                        }
-                        FrsActivity frsActivity3 = this.a;
-                        com.baidu.tbadk.core.atomData.bc bcVar = new com.baidu.tbadk.core.atomData.bc(this.a);
-                        str = this.a.q;
-                        frsActivity3.sendMessage(new CustomMessage(2004001, bcVar.a(nVar, str, null, 18003, true, false, z)));
+                        return;
+                    }
+                    com.baidu.tbadk.core.i.l(this.aBk.getParent(), "forum_fortune_click");
+                    if (TbadkApplication.isLogin()) {
+                        this.aBk.Fy();
+                        return;
+                    } else {
+                        LoginActivity.a((Activity) this.aBk, (String) null, true, 18004);
+                        return;
                     }
                 }
+                FrsActivity frsActivity = this.aBk;
+                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.aBk);
+                str = this.aBk.aAn;
+                frsActivity.sendMessage(new CustomMessage(2004001, pbActivityConfig.createFromThreadCfg(qVar, str, null, 18003, true, false, false)));
+                return;
+            } else if (qVar != null) {
+                this.aBk.aAi = qVar;
+                z = this.aBk.ayt;
+                if (!z) {
+                    this.aBk.ayt = true;
+                    int isLike = qVar.getPraise() == null ? 0 : qVar.getPraise().getIsLike();
+                    dfVar = this.aBk.ayI;
+                    dfVar.a(qVar.getFirst_post_id(), qVar.getTid(), isLike, "frs");
+                    return;
+                }
+                return;
             } else {
-                TiebaStatic.eventStat(this.a, "frs_nextpage", "frsclick", 1, new Object[0]);
-                FrsActivity frsActivity4 = this.a;
-                i2 = frsActivity4.t;
-                frsActivity4.t = i2 + 1;
-                this.a.c(1);
+                return;
             }
         }
+        Rect rect = new Rect();
+        view.getDrawingRect(rect);
+        ((ViewGroup) view2).offsetDescendantRectToMyCoords(view, rect);
+        this.aBk.a(i2, qVar, rect.bottom);
     }
 }

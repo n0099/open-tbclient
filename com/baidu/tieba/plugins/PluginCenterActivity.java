@@ -1,78 +1,85 @@
 package com.baidu.tieba.plugins;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.core.view.o;
+import com.baidu.tbadk.core.view.r;
+import com.baidu.tbadk.core.view.s;
+import com.baidu.tbadk.pluginArch.PluginCenter;
+import com.baidu.tbadk.pluginArch.PluginNameList;
 import com.baidu.tbadk.pluginArch.bean.ConfigInfos;
-import com.baidu.tbadk.pluginArch.p;
-import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.x;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class PluginCenterActivity extends BaseActivity {
-    private a a;
-    private BdListView b;
-    private NavigationBar c;
-    private LinearLayout d;
+    private o ahO;
+    private a bGG;
+    private NavigationBar mNavigationBar;
+    private BdListView vl;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    @SuppressLint({"WrongViewCast"})
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(v.plugin_center_activity);
-        this.b = (BdListView) findViewById(u.list);
-        this.d = (LinearLayout) findViewById(u.empty);
-        this.c = (NavigationBar) findViewById(u.navigation_bar);
-        this.c.a(x.plugin_center);
-        this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.b.setEmptyView(this.d);
+        setContentView(w.plugin_center_activity);
+        this.vl = (BdListView) findViewById(v.list);
+        this.mNavigationBar = (NavigationBar) findViewById(v.navigation_bar);
+        this.mNavigationBar.setTitleText(y.plugin_center);
+        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.ahO = NoDataViewFactory.a(this, findViewById(v.list_layout), r.a(NoDataViewFactory.ImgType.NODATA), s.bL(y.plugin_no_plugins), null);
+        this.vl.setEmptyView(this.ahO);
     }
 
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        this.a = new a(this);
-        ConfigInfos d = com.baidu.tbadk.pluginArch.d.a().d();
-        if (d != null) {
-            if (p.b()) {
-                Iterator<ConfigInfos.PluginConfig> it = d.getConfigs().iterator();
+        this.bGG = new a(this);
+        ConfigInfos netConfigInfos = PluginCenter.getInstance().getNetConfigInfos();
+        if (netConfigInfos != null && netConfigInfos.getConfigs() != null && netConfigInfos.getConfigs().size() > 0) {
+            if (!TbadkApplication.m251getInst().isHao123HelperShouldOpen()) {
+                Iterator<ConfigInfos.PluginConfig> it = netConfigInfos.getConfigs().iterator();
                 while (it.hasNext()) {
-                    if ("live".equals(it.next().name)) {
+                    if (PluginNameList.NAME_HAO123.equals(it.next().name)) {
                         it.remove();
                     }
                 }
             }
-            this.a.a(d.getConfigs());
+            Iterator<ConfigInfos.PluginConfig> it2 = netConfigInfos.getConfigs().iterator();
+            while (it2.hasNext()) {
+                if (PluginNameList.NAME_LIVE.equals(it2.next().name)) {
+                    it2.remove();
+                }
+            }
+            this.bGG.aj(netConfigInfos.getConfigs());
+            PluginCenter.getInstance().setTipUpdateRead();
         }
-        this.b.setAdapter((ListAdapter) this.a);
-        this.b.setOnItemClickListener(this);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onResume() {
-        super.onResume();
+        this.vl.setAdapter((ListAdapter) this.bGG);
+        this.vl.setOnItemClickListener(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.c.c(i);
-        this.a.notifyDataSetChanged();
-        getLayoutMode().a(findViewById(16908290));
+        this.mNavigationBar.onChangeSkinType(i);
+        this.bGG.notifyDataSetChanged();
+        getLayoutMode().h(findViewById(16908290));
+        if (this.ahO != null) {
+            this.ahO.onChangeSkinType(i);
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        PluginDetailActivity.a(this, this.a.getItem(i).name);
+        PluginDetailActivity.startActivity(this, this.bGG.getItem(i).name);
     }
 }

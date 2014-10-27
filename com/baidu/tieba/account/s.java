@@ -7,17 +7,16 @@ import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ae;
 import com.baidu.tieba.data.RegistData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends BdAsyncTask<String, Integer, Boolean> {
-    final /* synthetic */ ActivationActivity a;
-    private ae b;
+    final /* synthetic */ ActivationActivity aeY;
+    private com.baidu.tbadk.core.util.ac mNetWork;
 
     private s(ActivationActivity activationActivity) {
-        this.a = activationActivity;
-        this.b = null;
+        this.aeY = activationActivity;
+        this.mNetWork = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -30,16 +29,16 @@ public class s extends BdAsyncTask<String, Integer, Boolean> {
         ProgressBar progressBar;
         EditText editText;
         RelativeLayout relativeLayout;
-        this.a.m = null;
-        progressBar = this.a.f;
+        this.aeY.aeL = null;
+        progressBar = this.aeY.aeF;
         progressBar.setVisibility(8);
-        editText = this.a.j;
+        editText = this.aeY.aeI;
         if (editText.length() == 6) {
-            relativeLayout = this.a.k;
+            relativeLayout = this.aeY.aeJ;
             relativeLayout.setEnabled(true);
         }
-        if (this.b != null) {
-            this.b.f();
+        if (this.mNetWork != null) {
+            this.mNetWork.dM();
         }
         super.cancel(true);
     }
@@ -47,17 +46,17 @@ public class s extends BdAsyncTask<String, Integer, Boolean> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: l */
     public Boolean doInBackground(String... strArr) {
         RegistData registData;
         boolean z = false;
         try {
-            this.b = new ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/getsmscode");
-            ae aeVar = this.b;
-            registData = this.a.q;
-            aeVar.a("phonenum", registData.getPhone());
-            this.b.h();
-            if (this.b.a().b().b()) {
+            this.mNetWork = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/getsmscode");
+            com.baidu.tbadk.core.util.ac acVar = this.mNetWork;
+            registData = this.aeY.aeP;
+            acVar.k("phonenum", registData.getPhone());
+            this.mNetWork.lA();
+            if (this.mNetWork.mc().nb().jq()) {
                 z = true;
             }
         } catch (Exception e) {
@@ -69,7 +68,7 @@ public class s extends BdAsyncTask<String, Integer, Boolean> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: b */
     public void onPostExecute(Boolean bool) {
         ProgressBar progressBar;
         EditText editText;
@@ -77,24 +76,24 @@ public class s extends BdAsyncTask<String, Integer, Boolean> {
         TextView textView2;
         RelativeLayout relativeLayout;
         super.onPostExecute(bool);
-        this.a.m = null;
-        progressBar = this.a.f;
+        this.aeY.aeL = null;
+        progressBar = this.aeY.aeF;
         progressBar.setVisibility(8);
-        editText = this.a.j;
+        editText = this.aeY.aeI;
         if (editText.length() == 6) {
-            relativeLayout = this.a.k;
+            relativeLayout = this.aeY.aeJ;
             relativeLayout.setEnabled(true);
         }
         if (bool.booleanValue()) {
-            this.a.a();
+            this.aeY.xe();
             return;
         }
-        String e = this.b.e();
-        if (e != null && e.length() > 0) {
-            textView = this.a.i;
+        String errorString = this.mNetWork.getErrorString();
+        if (errorString != null && errorString.length() > 0) {
+            textView = this.aeY.Or;
             textView.setVisibility(0);
-            textView2 = this.a.i;
-            textView2.setText(e);
+            textView2 = this.aeY.Or;
+            textView2.setText(errorString);
         }
     }
 
@@ -105,13 +104,13 @@ public class s extends BdAsyncTask<String, Integer, Boolean> {
         TextView textView;
         TextView textView2;
         RelativeLayout relativeLayout;
-        progressBar = this.a.f;
+        progressBar = this.aeY.aeF;
         progressBar.setVisibility(0);
-        textView = this.a.i;
+        textView = this.aeY.Or;
         textView.setVisibility(4);
-        textView2 = this.a.i;
+        textView2 = this.aeY.Or;
         textView2.setText((CharSequence) null);
-        relativeLayout = this.a.k;
+        relativeLayout = this.aeY.aeJ;
         relativeLayout.setEnabled(false);
         super.onPreExecute();
     }

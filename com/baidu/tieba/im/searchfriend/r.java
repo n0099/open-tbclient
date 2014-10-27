@@ -1,24 +1,24 @@
 package com.baidu.tieba.im.searchfriend;
 
-import android.view.View;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 class r {
-    HeadImageView a;
-    UserIconBox b;
-    TextView c;
-    TextView d;
-    TextView e;
-    TextView f;
-    ImageView g;
-    View h;
-    final /* synthetic */ l i;
+    TextView aDU;
+    TextView aDV;
+    TextView aDW;
+    TextView aDX;
+    TbImageView aDY;
+    TbImageView aDZ;
+    TbImageView aEa;
+    LinearLayout aEb;
+    LinearLayout aEc;
+    final /* synthetic */ l bhU;
+    s bhW;
 
     private r(l lVar) {
-        this.i = lVar;
+        this.bhU = lVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -6,58 +6,58 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class j {
-    private ArrayList<String> c;
-    private int d = 0;
-    private UserData a = new UserData();
-    private AntiData b = new AntiData();
+    private int smsCodeTime = 0;
+    private UserData zP = new UserData();
+    private AntiData zQ = new AntiData();
+    private ArrayList<String> zR;
 
     public j() {
-        this.c = null;
-        this.c = new ArrayList<>();
-        a(0);
+        this.zR = null;
+        this.zR = new ArrayList<>();
+        setSmsCodeTime(0);
     }
 
-    public UserData a() {
-        return this.a;
+    public UserData getUser() {
+        return this.zP;
     }
 
-    public AntiData b() {
-        return this.b;
+    public AntiData jZ() {
+        return this.zQ;
     }
 
-    public void a(String str) {
+    public void parserJson(String str) {
         try {
-            a(new JSONObject(str));
+            parserJson(new JSONObject(str));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         try {
-            this.a.parserJson(jSONObject.optJSONObject("user"));
-            this.b.parserJson(jSONObject.optJSONObject("anti"));
+            this.zP.parserJson(jSONObject.optJSONObject("user"));
+            this.zQ.parserJson(jSONObject.optJSONObject("anti"));
             JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.c.add(optJSONArray.optString(i, null));
+                    this.zR.add(optJSONArray.optString(i, null));
                 }
             }
-            a(jSONObject.optInt("retrytime"));
+            setSmsCodeTime(jSONObject.optInt("retrytime"));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public ArrayList<String> c() {
-        return this.c;
+    public ArrayList<String> ka() {
+        return this.zR;
     }
 
-    public void a(int i) {
-        this.d = i;
+    public void setSmsCodeTime(int i) {
+        this.smsCodeTime = i;
     }
 
-    public int d() {
-        return this.d;
+    public int getSmsCodeTime() {
+        return this.smsCodeTime;
     }
 }

@@ -5,11 +5,11 @@ import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements View.OnLongClickListener {
-    final /* synthetic */ i a;
+    final /* synthetic */ i bcg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(i iVar) {
-        this.a = iVar;
+        this.bcg = iVar;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -17,9 +17,9 @@ public class n implements View.OnLongClickListener {
         UpdatesActivity updatesActivity;
         View view2;
         UpdatesItemData updatesItemData;
-        updatesActivity = this.a.k;
-        view2 = this.a.b;
-        updatesItemData = this.a.l;
+        updatesActivity = this.bcg.bbW;
+        view2 = this.bcg.bbX;
+        updatesItemData = this.bcg.bcf;
         updatesActivity.b(view2, Constants.MEDIA_INFO, 0, 0L, updatesItemData);
         return true;
     }

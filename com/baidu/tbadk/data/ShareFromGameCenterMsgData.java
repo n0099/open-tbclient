@@ -1,7 +1,7 @@
 package com.baidu.tbadk.data;
 
+import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,8 +29,15 @@ public class ShareFromGameCenterMsgData extends ShareFromPBMsgData {
             jSONObject.put("shareSourceUrl", this.shareSourceUrl);
             jSONObject.put("shareUrl", this.shareUrl);
             JSONArray jSONArray = new JSONArray();
-            jSONArray.put(String.valueOf(this.title) + " http://tieba.baidu.com/p/" + this.threadId + "?share=9105");
-            jSONArray.put(TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+            String str = "";
+            if (!TextUtils.isEmpty(this.title)) {
+                str = "【" + this.title + "】";
+            }
+            if (!TextUtils.isEmpty(this.content)) {
+                str = String.valueOf(str) + this.content;
+            }
+            jSONArray.put(str);
+            jSONArray.put("1");
             jSONArray.put(jSONObject);
             return jSONArray.toString();
         } catch (JSONException e) {

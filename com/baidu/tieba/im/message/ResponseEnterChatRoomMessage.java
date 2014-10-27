@@ -33,18 +33,18 @@ public class ResponseEnterChatRoomMessage extends SocketResponsedMessage {
             this.randChatRoomData = new RandChatRoomData();
             DataRes dataRes = enterChatroomResIdl.data;
             if (dataRes != null) {
-                getRandChatRoomData().a(dataRes.groupId.intValue());
-                getRandChatRoomData().c(dataRes.maxUserNum.intValue());
-                getRandChatRoomData().b(dataRes.userNum.intValue());
-                getRandChatRoomData().a(dataRes.durationTime.intValue());
-                getRandChatRoomData().c(dataRes.averageWaitTime.intValue());
-                getRandChatRoomData().b(dataRes.silenceTime.intValue());
-                getRandChatRoomData().d(dataRes.lastMsgId.longValue());
-                getRandChatRoomData().b(new ArrayList());
+                getRandChatRoomData().setGroupId(dataRes.groupId.intValue());
+                getRandChatRoomData().setMaxUserNum(dataRes.maxUserNum.intValue());
+                getRandChatRoomData().setUserNum(dataRes.userNum.intValue());
+                getRandChatRoomData().setDurationTime(dataRes.durationTime.intValue());
+                getRandChatRoomData().setAverageWaitTime(dataRes.averageWaitTime.intValue());
+                getRandChatRoomData().setSilenceTime(dataRes.silenceTime.intValue());
+                getRandChatRoomData().setLastMessageId(dataRes.lastMsgId.longValue());
+                getRandChatRoomData().setUsers(new ArrayList());
                 ChatRoomTopicData chatRoomTopicData = new ChatRoomTopicData();
                 chatRoomTopicData.setTitle(dataRes.title);
                 chatRoomTopicData.setContent(dataRes.content);
-                getRandChatRoomData().a(chatRoomTopicData);
+                getRandChatRoomData().setTopic(chatRoomTopicData);
                 ArrayList arrayList = new ArrayList();
                 List<ChatroomTopic> list = dataRes.topicList;
                 if (list != null) {
@@ -55,7 +55,7 @@ public class ResponseEnterChatRoomMessage extends SocketResponsedMessage {
                         arrayList.add(chatRoomTopicData2);
                     }
                 }
-                getRandChatRoomData().a(arrayList);
+                getRandChatRoomData().setTopicList(arrayList);
                 List<UserInfo> list2 = dataRes.userList;
                 if (list2 != null) {
                     for (UserInfo userInfo : list2) {
@@ -70,7 +70,7 @@ public class ResponseEnterChatRoomMessage extends SocketResponsedMessage {
                         userData.setSex(userInfo.sex.intValue());
                         userData.setUserIdLong(userInfo.userId.intValue());
                         userData.setUserName(userInfo.userName);
-                        getRandChatRoomData().j().add(userData);
+                        getRandChatRoomData().getUsers().add(userData);
                     }
                 }
             }

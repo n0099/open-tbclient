@@ -1,117 +1,142 @@
 package com.baidu.tieba.data;
 
+import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import tbclient.ForumRecommend.DataRes;
 /* loaded from: classes.dex */
 public class o {
-    private boolean d;
-    private boolean e;
-    private int g;
-    private int h;
-    private String i;
-    private com.baidu.tieba.square.ap c = new com.baidu.tieba.square.ap();
-    private long f = 0;
-    private aa a = new aa();
-    private as b = new as();
+    private boolean Lk;
+    private boolean Vd;
+    private int akj;
+    private int akk;
+    private int akl;
+    private String akm;
+    private int akn;
+    private int time = 0;
+    private z akg = new z();
+    private ap akh = new ap();
+    private com.baidu.tieba.square.al aki = new com.baidu.tieba.square.al();
 
-    public boolean a() {
-        return this.d;
+    public boolean yL() {
+        return this.Vd;
     }
 
-    public void a(boolean z) {
-        this.d = z;
+    public void bp(boolean z) {
+        this.Vd = z;
     }
 
     public o() {
-        this.e = true;
-        this.e = false;
+        this.Lk = true;
+        this.Lk = false;
     }
 
-    public as b() {
-        return this.b;
+    public void setTime(int i) {
+        this.time = i;
     }
 
-    public int c() {
-        return this.g;
+    public void dZ(int i) {
+        this.akl = i;
     }
 
-    public int d() {
-        return this.h;
+    public void setIsMem(int i) {
+        this.akn = i;
     }
 
-    public String e() {
-        return this.i;
+    public int yM() {
+        return this.akj;
     }
 
-    public void a(String str) {
-        if (str == null || str.length() < 1) {
-            this.e = false;
-            return;
-        }
-        try {
-            a(new JSONObject(str));
-            this.e = true;
-        } catch (Exception e) {
-            this.e = false;
-            BdLog.detailException(e);
-        }
+    public void ea(int i) {
+        this.akj = i;
     }
 
-    public void a(JSONObject jSONObject) {
-        try {
-            this.g = jSONObject.optInt("msign_valid");
-            this.h = jSONObject.optInt("msign_level");
-            this.i = jSONObject.optString("msign_text");
-            JSONArray optJSONArray = jSONObject.optJSONArray("like_forum");
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("new_recommend");
-            JSONObject optJSONObject = jSONObject.optJSONObject("banner");
-            this.a.a(this.h);
-            this.a.a(optJSONArray);
-            this.b.a(optJSONArray2);
-            this.f = jSONObject.optLong("time");
-            b(optJSONObject);
-        } catch (Exception e) {
-            this.e = false;
-            BdLog.detailException(e);
+    public int yN() {
+        return this.akk;
+    }
+
+    public void eb(int i) {
+        this.akk = i;
+    }
+
+    public String yO() {
+        return this.akm;
+    }
+
+    public void eq(String str) {
+        this.akm = str;
+    }
+
+    public void a(DataRes dataRes) {
+        if (dataRes != null) {
+            a(dataRes, null);
         }
     }
 
-    private void b(JSONObject jSONObject) {
-        if (jSONObject != null) {
+    public void a(DataRes dataRes, Context context) {
+        if (dataRes != null) {
             try {
-                this.c.a(jSONObject.optString("pic_url", ""));
-                this.c.b(jSONObject.optString("link", ""));
+                ea(dataRes.msign_valid.intValue());
+                eb(dataRes.msign_level.intValue());
+                dZ(dataRes.is_login.intValue());
+                eq(dataRes.msign_text);
+                setIsMem(dataRes.is_mem.intValue());
+                setTime(dataRes.time.intValue());
+                this.akg.setLevel(this.akk);
+                if (dataRes.like_forum != null) {
+                    this.akg.A(dataRes.like_forum);
+                }
+                if (dataRes.new_recommend != null) {
+                    this.akh.A(dataRes.new_recommend);
+                }
+                if (dataRes.banner != null) {
+                    this.aki.A(dataRes.banner);
+                }
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
     }
 
-    public com.baidu.tieba.square.ap f() {
-        return this.c;
+    public com.baidu.tieba.square.al yP() {
+        return this.aki;
     }
 
-    public aa g() {
-        return this.a;
+    public void a(com.baidu.tieba.square.al alVar) {
+        this.aki = alVar;
     }
 
-    public void b(boolean z) {
-        this.e = z;
+    public z yQ() {
+        return this.akg;
     }
 
-    public boolean h() {
-        return this.e;
+    public void a(z zVar) {
+        this.akg = zVar;
     }
 
-    public boolean i() {
-        return System.currentTimeMillis() / e.e.longValue() == (this.f * 1000) / e.e.longValue();
+    public ap yR() {
+        return this.akh;
     }
 
-    public boolean j() {
+    public void a(ap apVar) {
+        this.akh = apVar;
+    }
+
+    public void ab(boolean z) {
+        this.Lk = z;
+    }
+
+    public boolean isSuccess() {
+        return this.Lk;
+    }
+
+    public boolean yS() {
+        return System.currentTimeMillis() / e.ajx.longValue() == (((long) this.time) * 1000) / e.ajx.longValue();
+    }
+
+    public boolean isEmpty() {
         boolean z = false;
-        if (this.e) {
-            if (this.a == null || this.a.a() == null || this.a.a().size() < 1) {
+        if (this.Lk) {
+            if (this.akg == null || this.akg.zx() == null || this.akg.zx().size() < 1) {
                 z = true;
             }
             return z;
@@ -119,9 +144,9 @@ public class o {
         return true;
     }
 
-    public boolean k() {
-        if (this.a != null) {
-            return this.a.b();
+    public boolean yT() {
+        if (this.akg != null) {
+            return this.akg.yT();
         }
         return false;
     }

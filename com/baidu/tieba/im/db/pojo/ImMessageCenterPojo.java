@@ -1,11 +1,10 @@
 package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.i;
-import com.baidu.gson.Gson;
+import com.baidu.adp.lib.a.b.a.a.i;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.im.d.j;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class ImMessageCenterPojo implements Serializable {
@@ -30,7 +29,9 @@ public class ImMessageCenterPojo implements Serializable {
     private int mCustomGroupType = 1;
     long orderCol;
     long pulled_msgId;
+    private long read_msgId;
     int send_status;
+    private long sent_msgId;
     int type;
     int unread_count;
 
@@ -191,12 +192,12 @@ public class ImMessageCenterPojo implements Serializable {
         }
         ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
         imMessageCenterPojo.setGid(gid);
-        UserData userData = (UserData) new Gson().fromJson(commonMsgPojo.getUser_info(), (Class<Object>) UserData.class);
-        UserData userData2 = (UserData) new Gson().fromJson(commonMsgPojo.getToUser_info(), (Class<Object>) UserData.class);
+        UserData userData = (UserData) i.objectWithJsonStr(commonMsgPojo.getUser_info(), UserData.class);
+        UserData userData2 = (UserData) i.objectWithJsonStr(commonMsgPojo.getToUser_info(), UserData.class);
         if (userData == null) {
             return null;
         }
-        if (i.c(userData.getUserId()) && (oldUserData2 = (OldUserData) new Gson().fromJson(commonMsgPojo.getUser_info(), (Class<Object>) OldUserData.class)) != null) {
+        if (l.aA(userData.getUserId()) && (oldUserData2 = (OldUserData) i.objectWithJsonStr(commonMsgPojo.getUser_info(), OldUserData.class)) != null) {
             oldUserData2.setToUserData(userData);
         }
         String toUid = commonMsgPojo.getToUid();
@@ -206,7 +207,7 @@ public class ImMessageCenterPojo implements Serializable {
         String uid = commonMsgPojo.getUid();
         if (currentAccount.equals(uid)) {
             if (userData2 != null) {
-                if (i.c(userData2.getUserId()) && (oldUserData = (OldUserData) new Gson().fromJson(commonMsgPojo.getToUser_info(), (Class<Object>) OldUserData.class)) != null) {
+                if (l.aA(userData2.getUserId()) && (oldUserData = (OldUserData) i.objectWithJsonStr(commonMsgPojo.getToUser_info(), OldUserData.class)) != null) {
                     oldUserData.setToUserData(userData2);
                 }
                 imMessageCenterPojo.setGroup_name(userData2.getUserName());
@@ -232,7 +233,7 @@ public class ImMessageCenterPojo implements Serializable {
         if (!z) {
             imMessageCenterPojo.setCustomGroupType(2);
         }
-        imMessageCenterPojo.setLast_content(j.a(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
+        imMessageCenterPojo.setLast_content(com.baidu.tieba.im.util.i.m(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
         imMessageCenterPojo.setLast_user_name(userData.getUserName());
         imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
         imMessageCenterPojo.setSelf(commonMsgPojo.isSelf);
@@ -257,5 +258,21 @@ public class ImMessageCenterPojo implements Serializable {
 
     public void setIsFriend(int i) {
         this.isFriend = i;
+    }
+
+    public long getSent_msgId() {
+        return this.sent_msgId;
+    }
+
+    public void setSent_msgId(long j) {
+        this.sent_msgId = j;
+    }
+
+    public long getRead_msgId() {
+        return this.read_msgId;
+    }
+
+    public void setRead_msgId(long j) {
+        this.read_msgId = j;
     }
 }

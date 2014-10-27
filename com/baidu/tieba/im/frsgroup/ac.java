@@ -1,38 +1,37 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.view.View;
-import java.util.Set;
+import android.content.DialogInterface;
+import com.baidu.tieba.im.model.MembersModel;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ac implements View.OnClickListener {
-    final /* synthetic */ ab a;
+public class ac implements DialogInterface.OnClickListener {
+    final /* synthetic */ MembersActivity aXN;
+    private final /* synthetic */ List aXQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(ab abVar) {
-        this.a = abVar;
+    public ac(MembersActivity membersActivity, List list) {
+        this.aXN = membersActivity;
+        this.aXQ = list;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Set set;
-        ad adVar;
-        ad adVar2;
-        Set set2;
-        Set set3;
-        view.setSelected(!view.isSelected());
-        boolean isSelected = view.isSelected();
-        Long l = (Long) view.getTag();
-        if (isSelected) {
-            set3 = this.a.f;
-            set3.add(l);
-        } else {
-            set = this.a.f;
-            set.remove(l);
-        }
-        adVar = this.a.b;
-        if (adVar != null) {
-            adVar2 = this.a.b;
-            set2 = this.a.f;
-            adVar2.a(set2.size());
-        }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        ah ahVar;
+        ah ahVar2;
+        ah ahVar3;
+        MembersModel membersModel;
+        ah ahVar4;
+        ahVar = this.aXN.aXJ;
+        ahVar.db(false);
+        ahVar2 = this.aXN.aXJ;
+        ahVar2.NO().cZ(false);
+        ahVar3 = this.aXN.aXJ;
+        ahVar3.NP();
+        MembersActivity membersActivity = this.aXN;
+        membersModel = this.aXN.aXK;
+        membersActivity.a(membersModel.getGroupId(), this.aXQ);
+        ahVar4 = this.aXN.aXJ;
+        ahVar4.dc(true);
     }
 }

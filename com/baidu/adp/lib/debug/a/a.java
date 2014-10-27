@@ -1,17 +1,17 @@
 package com.baidu.adp.lib.debug.a;
 /* loaded from: classes.dex */
 public class a {
-    private boolean a = false;
+    private boolean gl = false;
 
-    public boolean a() {
-        return this.a;
+    public boolean cJ() {
+        return this.gl;
     }
 
-    public void b() {
-        this.a = true;
+    public void start() {
+        this.gl = true;
     }
 
-    public void c() {
-        this.a = false;
+    public void stop() {
+        this.gl = false;
     }
 }

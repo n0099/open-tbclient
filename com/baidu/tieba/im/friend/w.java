@@ -1,63 +1,42 @@
 package com.baidu.tieba.im.friend;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import com.baidu.tieba.im.message.RequestCommitInviteMessage;
-import protobuf.CommitInviteMsg.DataReq;
+import com.baidu.tbadk.core.view.TbCheckBox;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w extends com.baidu.adp.base.e {
-    private RequestCommitInviteMessage a;
-    private int b;
-    private int c;
+public class w implements com.baidu.tbadk.core.view.w {
+    final /* synthetic */ s aWf;
 
-    public w(Context context) {
-        super(context);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public w(s sVar) {
+        this.aWf = sVar;
     }
 
-    @Override // com.baidu.adp.base.e
-    protected boolean LoadData() {
-        return false;
-    }
-
-    public void a(Intent intent) {
-        if (intent != null) {
-            this.b = intent.getIntExtra("gid", -1);
-            this.c = intent.getIntExtra("groupid", -1);
+    @Override // com.baidu.tbadk.core.view.w
+    public void a(TbCheckBox tbCheckBox, boolean z, Object obj) {
+        InviteFriendCandidateList inviteFriendCandidateList;
+        InviteFriendListActivity inviteFriendListActivity;
+        InviteFriendListActivity inviteFriendListActivity2;
+        int i;
+        this.aWf.Ni();
+        if (obj != null && (obj instanceof com.baidu.tbadk.coreExtra.relationship.b)) {
+            if (z) {
+                int Nk = this.aWf.Nk();
+                inviteFriendCandidateList = this.aWf.aVZ;
+                if (Nk <= inviteFriendCandidateList.getItemLength()) {
+                    inviteFriendListActivity = this.aWf.aVV;
+                    inviteFriendListActivity2 = this.aWf.aVV;
+                    String string = inviteFriendListActivity2.getString(y.invite_friend_exceed_max_count);
+                    i = this.aWf.aWd;
+                    inviteFriendListActivity.showToast(String.format(string, Integer.valueOf(i)));
+                    tbCheckBox.setChecked(false);
+                    ((com.baidu.tbadk.coreExtra.relationship.b) obj).setChecked(false);
+                    return;
+                }
+                this.aWf.g((com.baidu.tbadk.coreExtra.relationship.b) obj);
+                return;
+            }
+            this.aWf.h((com.baidu.tbadk.coreExtra.relationship.b) obj);
         }
-    }
-
-    public void a(Bundle bundle) {
-        if (bundle != null) {
-            this.b = bundle.getInt("gid", -1);
-            this.c = bundle.getInt("groupid", -1);
-        }
-    }
-
-    public void b(Bundle bundle) {
-        bundle.putInt("gid", this.b);
-        bundle.putInt("groupid", this.c);
-    }
-
-    public void a(String str) {
-        this.a = a(this.b, this.c, str);
-        super.sendMessage(this.a);
-    }
-
-    private RequestCommitInviteMessage a(int i, int i2, String str) {
-        DataReq.Builder builder = new DataReq.Builder();
-        builder.groupId = Integer.valueOf(i);
-        builder.msgType = 5;
-        builder.toUids = str;
-        builder.content = "{\"type\":" + String.valueOf(1) + ",\"groupId\":" + String.valueOf(i2) + "}";
-        RequestCommitInviteMessage requestCommitInviteMessage = new RequestCommitInviteMessage();
-        requestCommitInviteMessage.setReqData(builder.build(false));
-        return requestCommitInviteMessage;
-    }
-
-    @Override // com.baidu.adp.base.e
-    public boolean cancelLoadData() {
-        return true;
     }
 }

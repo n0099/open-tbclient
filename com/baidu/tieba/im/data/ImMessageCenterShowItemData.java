@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.data;
 
 import java.io.Serializable;
-import java.util.LinkedList;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ImMessageCenterShowItemData extends com.baidu.tbadk.core.util.a implements Serializable, Cloneable {
     private static final long serialVersionUID = 3133087680118197014L;
@@ -129,15 +129,15 @@ public class ImMessageCenterShowItemData extends com.baidu.tbadk.core.util.a imp
     }
 
     @Override // com.baidu.tbadk.core.util.a
-    public LinkedList<String> getImageUrl() {
-        LinkedList<String> linkedList = new LinkedList<>();
-        linkedList.add(getFriendPortrait());
-        return linkedList;
+    public ArrayList<String> getImageUrl() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add(getFriendPortrait());
+        return arrayList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public ImMessageCenterShowItemData m254clone() {
+    public ImMessageCenterShowItemData m253clone() {
         try {
             return (ImMessageCenterShowItemData) super.clone();
         } catch (CloneNotSupportedException e) {

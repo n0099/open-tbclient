@@ -22,7 +22,7 @@ public class UserPostPageHttpResponseMessage extends TbHttpResponsedMessage {
 
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) {
-        this.personPostModel = new PersonPostModel();
+        this.personPostModel = new PersonPostModel(null);
         UserPostResIdl parseProtobuf = this.personPostModel.parseProtobuf(bArr);
         setError(parseProtobuf.error.errorno.intValue());
         setErrorString(parseProtobuf.error.usermsg);

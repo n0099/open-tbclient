@@ -1,24 +1,18 @@
 package com.baidu.adp.gif;
-
-import android.os.Build;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e {
-    public static final String[] a = {"ZTE-T U880", "U880"};
+public class e implements Runnable {
+    final /* synthetic */ NSGif dv;
+    private final /* synthetic */ int dw;
 
-    public static boolean a(String str) {
-        for (String str2 : a) {
-            if (str2.equals(str)) {
-                return false;
-            }
-        }
-        return true;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public e(NSGif nSGif, int i) {
+        this.dv = nSGif;
+        this.dw = i;
     }
 
-    private static boolean b() {
-        return Build.VERSION.SDK_INT > 7;
-    }
-
-    public static boolean a() {
-        return a(Build.MODEL) && b() && NSGif.a;
+    @Override // java.lang.Runnable
+    public void run() {
+        NSGif.nativeDestroy(this.dw);
     }
 }

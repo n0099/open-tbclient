@@ -1,50 +1,37 @@
 package com.baidu.adp.lib.debug.a;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.util.Log;
-import java.util.List;
+import java.io.IOException;
+import java.io.InputStream;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l extends a implements Runnable {
-    private ActivityManager a;
-    private String b;
+public class l extends Thread {
+    private boolean gC = false;
+    final /* synthetic */ k gD;
+    private InputStream in;
 
-    public l(Context context) {
-        this.a = null;
-        this.b = null;
-        this.b = context.getPackageName();
-        this.a = (ActivityManager) context.getSystemService("activity");
+    public l(k kVar, InputStream inputStream) {
+        this.gD = kVar;
+        this.in = inputStream;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x003b: IGET  (r0v5 int A[REMOVE]) = (r0v4 android.app.ActivityManager$RunningAppProcessInfo) android.app.ActivityManager.RunningAppProcessInfo.importance int)] */
-    public String d() {
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = this.a.getRunningAppProcesses();
-        for (int i = 0; i < runningAppProcesses.size(); i++) {
-            ActivityManager.RunningAppProcessInfo runningAppProcessInfo = runningAppProcesses.get(i);
-            int i2 = runningAppProcessInfo.pid;
-            String str = runningAppProcessInfo.processName;
-            int i3 = this.a.getProcessMemoryInfo(new int[]{i2})[0].dalvikPrivateDirty;
-            if (this.b.contains(str)) {
-                Log.i("processInfo", new StringBuilder().append(runningAppProcessInfo.importance).toString());
-                return String.valueOf(i3) + "kb";
-            }
-        }
-        return "null";
-    }
-
-    @Override // java.lang.Runnable
+    @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        super.b();
-        while (true) {
+        int read;
+        byte[] bArr = new byte[512];
+        while (!this.gC && (read = this.in.read(bArr)) != -1) {
             try {
-                com.baidu.adp.lib.debug.d.a(d());
-            } catch (InterruptedException e) {
+                String str = new String(bArr, 0, read);
+                if (str != null) {
+                    this.gD.O(str);
+                }
+            } catch (IOException e) {
                 e.printStackTrace();
-            }
-            if (!a()) {
                 return;
             }
-            Thread.sleep(500L);
         }
+    }
+
+    public synchronized void finish() {
+        this.gC = true;
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.data;
 
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.ay;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class RegistData implements Serializable {
@@ -27,7 +27,7 @@ public class RegistData implements Serializable {
 
     public void setPsw(String str) {
         if (str != null) {
-            str = ba.b(str.getBytes());
+            str = ay.k(str.getBytes());
         }
         this.psw = str;
     }
@@ -46,10 +46,6 @@ public class RegistData implements Serializable {
 
     public String getVcode() {
         return this.vcode;
-    }
-
-    public void setActivationCode(String str) {
-        this.activationCode = str;
     }
 
     public String getActivationCode() {

@@ -1,31 +1,49 @@
 package com.baidu.tbadk.core.view;
 
-import android.view.View;
-import android.view.ViewGroup;
+import android.content.Context;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ UserPhotoLayout a;
+public class ac implements com.baidu.adp.lib.e.c<TbImageView> {
+    private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(UserPhotoLayout userPhotoLayout) {
-        this.a = userPhotoLayout;
+    public ac(Context context) {
+        this.val$context = context;
     }
 
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewRemoved(View view, View view2) {
-        com.baidu.adp.lib.d.b bVar;
-        com.baidu.adp.lib.d.b bVar2;
-        if (view2 instanceof HeadImageView) {
-            bVar = this.a.a;
-            if (bVar != null) {
-                bVar2 = this.a.a;
-                bVar2.a((com.baidu.adp.lib.d.b) ((HeadImageView) view2));
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: nB */
+    public TbImageView ee() {
+        return new TbImageView(this.val$context);
     }
 
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewAdded(View view, View view2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: a */
+    public void i(TbImageView tbImageView) {
+        tbImageView.setBackgroundResource(0);
+        tbImageView.setImageDrawable(null);
+        tbImageView.setTag(null);
+        tbImageView.setOnClickListener(null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: b */
+    public TbImageView j(TbImageView tbImageView) {
+        return tbImageView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: c */
+    public TbImageView k(TbImageView tbImageView) {
+        tbImageView.setBackgroundResource(0);
+        tbImageView.setImageDrawable(null);
+        tbImageView.setTag(null);
+        tbImageView.setOnClickListener(null);
+        return tbImageView;
     }
 }

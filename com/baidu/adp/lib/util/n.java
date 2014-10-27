@@ -1,9 +1,16 @@
 package com.baidu.adp.lib.util;
 
-import java.util.UUID;
+import android.widget.Toast;
 /* loaded from: classes.dex */
-public class n {
-    public static String a() {
-        return UUID.randomUUID().toString();
+class n implements Runnable {
+    @Override // java.lang.Runnable
+    public void run() {
+        Toast toast;
+        Toast toast2;
+        toast = m.nr;
+        if (toast != null) {
+            toast2 = m.nr;
+            toast2.cancel();
+        }
     }
 }

@@ -5,57 +5,52 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.widget.ImageView;
+import com.baidu.tbadk.core.util.aw;
 /* loaded from: classes.dex */
 public class a extends ImageView {
-    private static int a = -1;
-    private boolean b;
-    private int c;
-    private int d;
-    private boolean e;
+    private static int VX = -1;
+    private int VY;
+    private int VZ;
+    private boolean Wa;
+    private boolean isSelected;
 
     public void setIsSelected(boolean z) {
-        this.b = z;
+        this.isSelected = z;
         invalidate();
     }
 
     public a(Context context) {
         super(context);
-        this.b = false;
-        this.c = 0;
-        this.d = 0;
-        this.e = false;
+        this.isSelected = false;
+        this.VY = 0;
+        this.VZ = 0;
+        this.Wa = false;
     }
 
     @Override // android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        this.c = (i3 - i) - com.baidu.adp.lib.util.j.a(getContext(), 5.0f);
-        this.d = (i4 - i2) - com.baidu.adp.lib.util.j.a(getContext(), 5.0f);
+        this.VY = (i3 - i) - com.baidu.adp.lib.util.m.dip2px(getContext(), 5.0f);
+        this.VZ = (i4 - i2) - com.baidu.adp.lib.util.m.dip2px(getContext(), 5.0f);
     }
 
     private Bitmap getSelectIcon() {
         int i;
-        if (this.b) {
-            if (a == 1) {
-                i = com.baidu.tieba.t.but_posts_fit_select_s_1;
-            } else {
-                i = com.baidu.tieba.t.but_posts_fit_select_s;
-            }
-        } else if (a == 1) {
-            i = com.baidu.tieba.t.but_posts_fit_select_n_1;
+        if (this.isSelected) {
+            i = com.baidu.tieba.u.but_posts_fit_select_s;
         } else {
-            i = com.baidu.tieba.t.but_posts_fit_select_n;
+            i = com.baidu.tieba.u.but_posts_fit_select_n;
         }
-        return com.baidu.tbadk.core.util.d.a(i);
+        return aw.bA(i);
     }
 
     @Override // android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
         super.setImageBitmap(bitmap);
         if (bitmap != null) {
-            this.e = true;
+            this.Wa = true;
         } else {
-            this.e = false;
+            this.Wa = false;
         }
     }
 
@@ -63,8 +58,8 @@ public class a extends ImageView {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         Bitmap selectIcon = getSelectIcon();
-        if (selectIcon != null && this.e) {
-            canvas.drawBitmap(selectIcon, this.c - selectIcon.getWidth(), this.d - selectIcon.getHeight(), (Paint) null);
+        if (selectIcon != null && this.Wa) {
+            canvas.drawBitmap(selectIcon, this.VY - selectIcon.getWidth(), this.VZ - selectIcon.getHeight(), (Paint) null);
         }
     }
 }

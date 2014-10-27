@@ -1,195 +1,74 @@
 package com.baidu.tbadk.game;
 
-import java.util.List;
-import tbclient.GameInfo;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.e;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class b {
-    private String a;
-    private String b;
-    private int c;
-    private String d;
-    private int e;
-    private String f;
-    private String g;
-    private String h;
-    private int i;
-    private String j;
-    private String k;
-    private String l;
-    private List<String> m;
-    private String n;
-    private int o;
-    private String p;
-    private String q;
-    private long r;
-    private long s;
-    private long t;
+    private static b SZ = new b();
+    private GameInfoData Ta;
+    private final e Tb = new c(this, 303009);
+    private String mUrl;
 
-    public String a() {
-        return this.a;
+    private b() {
+        MessageManager.getInstance().registerListener(this.Tb);
     }
 
-    public void a(String str) {
-        this.a = str;
+    public static b rS() {
+        return SZ;
     }
 
-    public String b() {
-        return this.b;
-    }
-
-    public void b(String str) {
-        this.b = str;
-    }
-
-    public int c() {
-        return this.c;
-    }
-
-    public void a(int i) {
-        this.c = i;
-    }
-
-    public String d() {
-        return this.d;
-    }
-
-    public void c(String str) {
-        this.d = str;
-    }
-
-    public int e() {
-        return this.e;
-    }
-
-    public void a(Integer num) {
-        this.e = num.intValue();
-    }
-
-    public String f() {
-        return this.f;
-    }
-
-    public void d(String str) {
-        this.f = str;
-    }
-
-    public String g() {
-        return this.g;
-    }
-
-    public void e(String str) {
-        this.g = str;
-    }
-
-    public String h() {
-        return this.h;
-    }
-
-    public void f(String str) {
-        this.h = str;
-    }
-
-    public int i() {
-        return this.i;
-    }
-
-    public void b(int i) {
-        this.i = i;
-    }
-
-    public void g(String str) {
-        this.j = str;
-    }
-
-    public void h(String str) {
-        this.k = str;
-    }
-
-    public void i(String str) {
-        this.l = str;
-    }
-
-    public List<String> j() {
-        return this.m;
-    }
-
-    public void a(List<String> list) {
-        this.m = list;
-    }
-
-    public long k() {
-        return this.r;
-    }
-
-    public void a(long j) {
-        this.r = j;
-    }
-
-    public long l() {
-        return this.s;
-    }
-
-    public void b(long j) {
-        this.s = j;
-    }
-
-    public long m() {
-        return this.t;
-    }
-
-    public void c(long j) {
-        this.t = j;
-    }
-
-    public String n() {
-        return this.p;
-    }
-
-    public void j(String str) {
-        this.p = str;
-    }
-
-    public String o() {
-        return this.q;
-    }
-
-    public void k(String str) {
-        this.q = str;
-    }
-
-    public String p() {
-        return this.n;
-    }
-
-    public void l(String str) {
-        this.n = str;
-    }
-
-    public void c(int i) {
-        this.o = i;
-    }
-
-    public static b a(GameInfo gameInfo) {
-        if (gameInfo == null) {
-            return null;
+    public void W(String str, String str2) {
+        this.mUrl = str2;
+        this.Ta = null;
+        if (!TextUtils.isEmpty(str)) {
+            RequestGameDetailMessage requestGameDetailMessage = new RequestGameDetailMessage();
+            requestGameDetailMessage.setGameId(str);
+            MessageManager.getInstance().sendMessage(requestGameDetailMessage);
         }
-        b bVar = new b();
-        bVar.g(gameInfo.apple_id);
-        bVar.h(gameInfo.bundle_id);
-        bVar.a(gameInfo.game_id);
-        bVar.f(gameInfo.game_link);
-        bVar.b(gameInfo.game_name);
-        bVar.a(gameInfo.game_pic);
-        bVar.c(gameInfo.icon_url);
-        bVar.a(gameInfo.game_type.intValue());
-        bVar.b(gameInfo.mark.intValue());
-        bVar.d(gameInfo.package_link);
-        bVar.e(gameInfo.package_size);
-        bVar.a(gameInfo.player_num);
-        bVar.i(gameInfo.schema_url);
-        bVar.l(gameInfo.introduce);
-        bVar.k(gameInfo.launch_component);
-        bVar.j(gameInfo.andr_pk_name);
-        return bVar;
+    }
+
+    private GameInfoData rT() {
+        GameInfoData gameInfoData = new GameInfoData();
+        gameInfoData.setGameName(TbadkApplication.m251getInst().getString(y.default_share_to_game_title));
+        gameInfoData.setGameLink(this.mUrl);
+        gameInfoData.setGameId("default");
+        gameInfoData.setIconUrl("default");
+        gameInfoData.setIntroduce(TbadkApplication.m251getInst().getString(y.default_share_to_game_content));
+        return gameInfoData;
+    }
+
+    public GameInfoData getGameInfoData() {
+        return this.Ta == null ? rT() : this.Ta;
+    }
+
+    public ShareFromGameCenterMsgData rU() {
+        GameInfoData gameInfoData = getGameInfoData();
+        ShareFromGameCenterMsgData shareFromGameCenterMsgData = new ShareFromGameCenterMsgData();
+        shareFromGameCenterMsgData.setTitle(GameShareJsBridge.getInstance().getShareTitle() == null ? gameInfoData.getGameName() : GameShareJsBridge.getInstance().getShareTitle());
+        shareFromGameCenterMsgData.setContent(GameShareJsBridge.getInstance().getShareContent() == null ? gameInfoData.getIntroduce() : GameShareJsBridge.getInstance().getShareContent());
+        shareFromGameCenterMsgData.setImageUrl(GameShareJsBridge.getInstance().getShareImage() == null ? gameInfoData.getIconUrl() : GameShareJsBridge.getInstance().getShareImage());
+        shareFromGameCenterMsgData.setShareSource(GameShareJsBridge.getInstance().getShareName() == null ? gameInfoData.getGameName() : GameShareJsBridge.getInstance().getShareName());
+        shareFromGameCenterMsgData.setShareSourceIcon(GameShareJsBridge.getInstance().getIconUrl() == null ? gameInfoData.getIconUrl() : GameShareJsBridge.getInstance().getIconUrl());
+        String gameId = GameShareJsBridge.getInstance().getGameId() == null ? gameInfoData.getGameId() : GameShareJsBridge.getInstance().getGameId();
+        if ("default".equals(gameId)) {
+            shareFromGameCenterMsgData.setShareSourceUrl(gameId);
+        } else {
+            shareFromGameCenterMsgData.setShareSourceUrl("game:detail:TBCGameID=" + gameId);
+        }
+        String gameLink = gameInfoData.getGameLink();
+        if (gameLink == null) {
+            gameLink = GameShareJsBridge.getInstance().getShareContentUrl();
+        }
+        if (gameLink == null) {
+            gameLink = "";
+        } else if (!gameLink.contains("tbgametype")) {
+            gameLink = gameLink + "&tbgametype=1";
+        }
+        shareFromGameCenterMsgData.setShareUrl(gameLink.toString());
+        return shareFromGameCenterMsgData;
     }
 }

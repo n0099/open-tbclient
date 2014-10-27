@@ -2,15 +2,15 @@ package com.baidu.tieba.app;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.stats.p;
+import com.baidu.adp.lib.util.u;
 import com.baidu.tbadk.TbadkApplication;
 import java.io.UnsupportedEncodingException;
 /* loaded from: classes.dex */
 class c extends BdAsyncTask<Object, Integer, Boolean> {
-    final /* synthetic */ AppInfoUploadService a;
+    final /* synthetic */ AppInfoUploadService aiQ;
 
     private c(AppInfoUploadService appInfoUploadService) {
-        this.a = appInfoUploadService;
+        this.aiQ = appInfoUploadService;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -20,10 +20,10 @@ class c extends BdAsyncTask<Object, Integer, Boolean> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Removed duplicated region for block: B:11:0x0041  */
-    /* JADX WARN: Removed duplicated region for block: B:16:0x005e  */
+    /* JADX WARN: Removed duplicated region for block: B:11:0x0040  */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x005d  */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: e */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -34,24 +34,24 @@ class c extends BdAsyncTask<Object, Integer, Boolean> {
         String encrypt;
         String str3;
         boolean z2 = false;
-        String genPostData = this.a.genPostData();
+        String genPostData = this.aiQ.genPostData();
         if (!TextUtils.isEmpty(genPostData)) {
             try {
-                this.a.mMd5 = p.a(genPostData.getBytes("UTF-8"));
+                this.aiQ.mMd5 = u.n(genPostData.getBytes("UTF-8"));
             } catch (UnsupportedEncodingException e) {
             }
-            str = this.a.mMd5;
+            str = this.aiQ.mMd5;
             if (TextUtils.isEmpty(str)) {
-                str3 = this.a.mMd5;
-                if (str3.equals(TbadkApplication.m252getInst().getAppUploadMd5())) {
+                str3 = this.aiQ.mMd5;
+                if (str3.equals(TbadkApplication.m251getInst().getAppUploadMd5())) {
                     z = false;
                     if (z) {
                         z2 = true;
                     } else {
-                        str2 = this.a.mUid;
+                        str2 = this.aiQ.mUid;
                         if (!TextUtils.isEmpty(str2)) {
-                            AppInfoUploadService appInfoUploadService = this.a;
-                            encrypt = this.a.getEncrypt(genPostData);
+                            AppInfoUploadService appInfoUploadService = this.aiQ;
+                            encrypt = this.aiQ.getEncrypt(genPostData);
                             z2 = appInfoUploadService.Upload(encrypt);
                         }
                     }
@@ -67,16 +67,16 @@ class c extends BdAsyncTask<Object, Integer, Boolean> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: b */
     public void onPostExecute(Boolean bool) {
         String str;
         super.onPostExecute(bool);
         if (bool != null && bool.booleanValue()) {
-            TbadkApplication.m252getInst().setAppUploadDate(System.currentTimeMillis());
-            TbadkApplication m252getInst = TbadkApplication.m252getInst();
-            str = this.a.mMd5;
-            m252getInst.setAppUploadMd5(str);
+            TbadkApplication.m251getInst().setAppUploadDate(System.currentTimeMillis());
+            TbadkApplication m251getInst = TbadkApplication.m251getInst();
+            str = this.aiQ.mMd5;
+            m251getInst.setAppUploadMd5(str);
         }
-        this.a.stopSelf();
+        this.aiQ.stopSelf();
     }
 }

@@ -1,9 +1,8 @@
 package com.baidu.tbadk.img;
 
-import com.baidu.gson.GsonBuilder;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class ImageUploadResult implements Serializable {
+public class ImageUploadResult extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
     public long picId;
     public static int INTER_ERROR_FILE_ERROR = -1;
     public static int INTER_ERROR_SEND_ERROR = -2;
@@ -16,7 +15,7 @@ public class ImageUploadResult implements Serializable {
     public picInfo picInfo = null;
 
     /* loaded from: classes.dex */
-    public class PicDetailedInfo implements Serializable {
+    public class PicDetailedInfo extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
         public int height;
         public String picUrl;
         public int type;
@@ -24,7 +23,7 @@ public class ImageUploadResult implements Serializable {
     }
 
     /* loaded from: classes.dex */
-    public class picInfo implements Serializable {
+    public class picInfo extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
         public PicDetailedInfo bigPic;
         public PicDetailedInfo originPic;
         public PicDetailedInfo smallPic;
@@ -45,6 +44,12 @@ public class ImageUploadResult implements Serializable {
     }
 
     public static ImageUploadResult parser(String str) {
-        return (ImageUploadResult) new GsonBuilder().create().fromJson(str, (Class<Object>) ImageUploadResult.class);
+        ImageUploadResult imageUploadResult = new ImageUploadResult();
+        try {
+            return (ImageUploadResult) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(str, ImageUploadResult.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return imageUploadResult;
+        }
     }
 }

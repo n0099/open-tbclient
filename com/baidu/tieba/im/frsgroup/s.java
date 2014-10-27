@@ -1,35 +1,17 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.message.PushMessage;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class s extends CustomMessageListener {
-    final /* synthetic */ MembersActivity a;
+public class s implements DialogInterface.OnClickListener {
+    final /* synthetic */ MembersActivity aXN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s(MembersActivity membersActivity, int i) {
-        super(i);
-        this.a = membersActivity;
+    public s(MembersActivity membersActivity) {
+        this.aXN = membersActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        GroupNewsPojo p;
-        if (customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null) {
-            String cmd = p.getCmd();
-            if (!TextUtils.isEmpty(cmd)) {
-                if (cmd.equals("apply_join_success")) {
-                    this.a.f();
-                } else if (cmd.equals("kick_out")) {
-                    this.a.f();
-                }
-            }
-        }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
     }
 }

@@ -11,72 +11,72 @@ import android.widget.TextView;
 import com.baidu.tieba.data.InterestFrsData;
 /* loaded from: classes.dex */
 public class i extends Dialog implements a {
-    private Context a;
-    private TextView b;
-    private TextView c;
-    private View d;
-    private View e;
-    private InterestFrsData.Tag f;
-    private g g;
-    private GridView h;
-    private LinearLayout i;
+    private TextView JM;
+    private View aFZ;
+    private TextView aKS;
+    private View aKT;
+    private LinearLayout aKW;
+    private InterestFrsData.Tag aLe;
+    private g aLf;
+    private GridView aLg;
+    private Context mContext;
 
     public i(Context context, int i) {
         super(context, i);
-        this.a = context;
-        b();
+        this.mContext = context;
+        init();
     }
 
-    private void b() {
-        this.e = View.inflate(this.a, com.baidu.tieba.v.new_user_img_box, null);
-        this.g = new g(this.a);
+    private void init() {
+        this.aFZ = View.inflate(this.mContext, com.baidu.tieba.w.new_user_img_box, null);
+        this.aLf = new g(this.mContext);
         setCanceledOnTouchOutside(true);
-        this.i = (LinearLayout) this.e.findViewById(com.baidu.tieba.u.box_close_layout);
-        this.h = (GridView) this.e.findViewById(com.baidu.tieba.u.layout_content);
-        this.h.setAdapter((ListAdapter) this.g);
-        this.h.setSelector(com.baidu.tieba.r.transparent);
-        setContentView(this.e);
-        this.b = (TextView) this.e.findViewById(com.baidu.tieba.u.prompt_title);
-        this.c = (TextView) this.e.findViewById(com.baidu.tieba.u.prompt_sub_title);
-        this.d = this.e.findViewById(com.baidu.tieba.u.view_layout);
-        this.d.setBackgroundDrawable(this.a.getResources().getDrawable(com.baidu.tieba.t.bg_startpage2_card_orange_up));
+        this.aKW = (LinearLayout) this.aFZ.findViewById(com.baidu.tieba.v.box_close_layout);
+        this.aLg = (GridView) this.aFZ.findViewById(com.baidu.tieba.v.layout_content);
+        this.aLg.setAdapter((ListAdapter) this.aLf);
+        this.aLg.setSelector(com.baidu.tieba.s.transparent);
+        setContentView(this.aFZ);
+        this.JM = (TextView) this.aFZ.findViewById(com.baidu.tieba.v.prompt_title);
+        this.aKS = (TextView) this.aFZ.findViewById(com.baidu.tieba.v.prompt_sub_title);
+        this.aKT = this.aFZ.findViewById(com.baidu.tieba.v.view_layout);
+        this.aKT.setBackgroundDrawable(this.mContext.getResources().getDrawable(com.baidu.tieba.u.bg_startpage2_card_orange_up));
     }
 
     @Override // com.baidu.tieba.guide.a
     public void a(InterestFrsData.Tag tag) {
-        this.f = tag;
-        if (this.f != null) {
-            this.b.setText(tag.getBname());
-            this.c.setText(tag.getBdesc());
-            this.g.a(tag.getCard_list());
+        this.aLe = tag;
+        if (this.aLe != null) {
+            this.JM.setText(tag.getBname());
+            this.aKS.setText(tag.getBdesc());
+            this.aLf.setData(tag.getCard_list());
         }
     }
 
     @Override // com.baidu.tieba.guide.a
-    public void a(int i) {
-        this.g.notifyDataSetChanged();
+    public void fk(int i) {
+        this.aLf.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tieba.guide.a
-    public void b(int i) {
-        this.g.notifyDataSetChanged();
+    public void fl(int i) {
+        this.aLf.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tieba.guide.a
-    public void a(View.OnClickListener onClickListener) {
-        this.i.setOnClickListener(onClickListener);
-        this.g.a(onClickListener);
+    public void setOnClickListener(View.OnClickListener onClickListener) {
+        this.aKW.setOnClickListener(onClickListener);
+        this.aLf.setOnClickListener(onClickListener);
     }
 
     @Override // com.baidu.tieba.guide.a
-    public View a() {
-        return this.e;
+    public View getRootView() {
+        return this.aFZ;
     }
 
     @Override // android.app.Dialog, com.baidu.tieba.guide.a
     public void hide() {
-        if (this.a instanceof Activity) {
-            com.baidu.adp.lib.e.e.b(this, (Activity) this.a);
+        if (this.mContext instanceof Activity) {
+            com.baidu.adp.lib.g.j.b(this, (Activity) this.mContext);
         } else {
             super.dismiss();
         }

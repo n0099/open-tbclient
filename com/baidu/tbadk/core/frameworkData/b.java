@@ -14,8 +14,9 @@ class b extends k {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a.f
+    /* renamed from: d */
     public SocketMessage a(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        if (socketMessage != null && socketMessage.getExtra() != null && (socketMessage.getExtra() instanceof NetMessage) && !h.a().a(socketMessage.getCmd())) {
+        if (socketMessage != null && socketMessage.getExtra() != null && (socketMessage.getExtra() instanceof NetMessage) && !h.qz().cw(socketMessage.getCmd())) {
             return null;
         }
         return socketMessage;

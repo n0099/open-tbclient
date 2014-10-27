@@ -1,32 +1,37 @@
 package com.baidu.tieba.square;
 
-import android.content.Context;
+import android.view.KeyEvent;
 import android.view.View;
-import com.baidu.tbadk.core.util.bg;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ListView;
 /* loaded from: classes.dex */
-public class ad implements View.OnClickListener {
-    final /* synthetic */ ac a;
-    private final /* synthetic */ ap b;
-    private final /* synthetic */ int c;
+class ad implements View.OnKeyListener {
+    final /* synthetic */ aa bMQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(ac acVar, ap apVar, int i) {
-        this.a = acVar;
-        this.b = apVar;
-        this.c = i;
+    public ad(aa aaVar) {
+        this.bMQ = aaVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        String b = this.b.b();
-        String a = af.a("forum_topics_recommend", String.valueOf(this.c));
-        bg a2 = bg.a();
-        context = this.a.a;
-        String[] strArr = new String[3];
-        strArr[0] = b;
-        strArr[2] = a;
-        a2.a(context, strArr);
+    @Override // android.view.View.OnKeyListener
+    public boolean onKey(View view, int i, KeyEvent keyEvent) {
+        if (view instanceof ListView) {
+            ListView listView = (ListView) view;
+            if (keyEvent.getAction() == 0) {
+                if (i == 21) {
+                    if (listView.getSelectedView() == null) {
+                        listView.dispatchKeyEvent(new KeyEvent(0, 19));
+                        return true;
+                    }
+                    return false;
+                } else if (i == 22 && listView.getSelectedView() == null) {
+                    listView.dispatchKeyEvent(new KeyEvent(0, 20));
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            return false;
+        }
+        return false;
     }
 }

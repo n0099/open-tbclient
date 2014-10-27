@@ -9,12 +9,12 @@ import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes.dex */
 public class HaloView extends View {
-    Runnable a;
-    private final Paint b;
-    private final Context c;
-    private boolean d;
-    private int e;
-    private boolean f;
+    private boolean Hu;
+    private int Hv;
+    private boolean Hw;
+    private final Paint gs;
+    private final Context mContext;
+    Runnable wb;
 
     public HaloView(Context context) {
         this(context, null);
@@ -22,30 +22,30 @@ public class HaloView extends View {
 
     public HaloView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.d = false;
-        this.e = 0;
-        this.f = false;
-        this.a = new h(this);
-        this.c = context;
-        this.b = new Paint();
-        this.b.setAntiAlias(true);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.z.HaloView);
-        this.d = obtainStyledAttributes.getBoolean(0, false);
+        this.Hu = false;
+        this.Hv = 0;
+        this.Hw = false;
+        this.wb = new h(this);
+        this.mContext = context;
+        this.gs = new Paint();
+        this.gs.setAntiAlias(true);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.aa.HaloView);
+        this.Hu = obtainStyledAttributes.getBoolean(0, false);
         obtainStyledAttributes.recycle();
-        if (this.d) {
-            this.b.setStyle(Paint.Style.FILL);
+        if (this.Hu) {
+            this.gs.setStyle(Paint.Style.FILL);
         } else {
-            this.b.setStyle(Paint.Style.STROKE);
+            this.gs.setStyle(Paint.Style.STROKE);
         }
-        postDelayed(this.a, 800L);
+        postDelayed(this.wb, 800L);
     }
 
     public void setIsBlack(boolean z) {
-        this.d = z;
-        if (this.d) {
-            this.b.setStyle(Paint.Style.FILL);
+        this.Hu = z;
+        if (this.Hu) {
+            this.gs.setStyle(Paint.Style.FILL);
         } else {
-            this.b.setStyle(Paint.Style.STROKE);
+            this.gs.setStyle(Paint.Style.STROKE);
         }
         invalidate();
     }
@@ -54,36 +54,36 @@ public class HaloView extends View {
     protected void onDraw(Canvas canvas) {
         int width = getWidth() / 2;
         int height = getHeight() / 2;
-        if (!this.d) {
-            int c = com.baidu.adp.lib.util.j.c(this.c, com.baidu.tieba.s.ds70);
-            int c2 = com.baidu.adp.lib.util.j.c(this.c, com.baidu.tieba.s.ds90);
-            int c3 = com.baidu.adp.lib.util.j.c(this.c, com.baidu.tieba.s.ds30);
-            int c4 = com.baidu.adp.lib.util.j.c(this.c, com.baidu.tieba.s.ds60);
-            if (this.e >= 1) {
-                this.b.setARGB(25, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK);
-                this.b.setStrokeWidth(c3);
-                canvas.drawCircle(width, height, c, this.b);
+        if (!this.Hu) {
+            int c = com.baidu.adp.lib.util.m.c(this.mContext, com.baidu.tieba.t.ds70);
+            int c2 = com.baidu.adp.lib.util.m.c(this.mContext, com.baidu.tieba.t.ds90);
+            int c3 = com.baidu.adp.lib.util.m.c(this.mContext, com.baidu.tieba.t.ds30);
+            int c4 = com.baidu.adp.lib.util.m.c(this.mContext, com.baidu.tieba.t.ds60);
+            if (this.Hv >= 1) {
+                this.gs.setARGB(25, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK);
+                this.gs.setStrokeWidth(c3);
+                canvas.drawCircle(width, height, c, this.gs);
             }
-            if (this.e >= 2) {
-                this.b.setARGB(20, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK);
-                this.b.setStrokeWidth(c4);
-                canvas.drawCircle(width, height, (c3 / 2) + c, this.b);
+            if (this.Hv >= 2) {
+                this.gs.setARGB(20, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK);
+                this.gs.setStrokeWidth(c4);
+                canvas.drawCircle(width, height, (c3 / 2) + c, this.gs);
             }
-            if (this.e >= 3) {
-                this.b.setARGB(15, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK);
-                this.b.setStrokeWidth(c2);
-                canvas.drawCircle(width, height, c + c3, this.b);
+            if (this.Hv >= 3) {
+                this.gs.setARGB(15, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK);
+                this.gs.setStrokeWidth(c2);
+                canvas.drawCircle(width, height, c + c3, this.gs);
             }
         } else {
-            int c5 = com.baidu.adp.lib.util.j.c(this.c, com.baidu.tieba.s.ds120);
-            this.b.setARGB(102, 0, 0, 0);
-            this.b.setStrokeWidth(c5);
-            canvas.drawCircle(width, height, c5, this.b);
+            int c5 = com.baidu.adp.lib.util.m.c(this.mContext, com.baidu.tieba.t.ds120);
+            this.gs.setARGB(102, 0, 0, 0);
+            this.gs.setStrokeWidth(c5);
+            canvas.drawCircle(width, height, c5, this.gs);
         }
         super.onDraw(canvas);
     }
 
-    public void a() {
-        this.f = true;
+    public void onDestroy() {
+        this.Hw = true;
     }
 }

@@ -5,139 +5,152 @@ import android.text.SpannableStringBuilder;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class c {
-    private int a;
-    private SpannableStringBuilder b = null;
-    private g c = null;
-    private ArrayList<f> d = null;
-    private u e = null;
-    private d f;
-    private e g;
-    private int h;
+public class c extends com.baidu.adp.lib.a.b.a.a.i {
+    private SpannableStringBuilder abt;
+    private g abu;
+    private ArrayList<f> abv;
+    private u abw;
+    private d abx;
+    private e aby;
+    private int abz;
+    private int mType;
+
+    public c() {
+        this.mType = 0;
+        this.abt = null;
+        this.abu = null;
+        this.abv = null;
+        this.abw = null;
+        this.abx = null;
+    }
 
     public c(int i) {
-        this.a = 0;
-        this.f = null;
-        this.a = i;
-        this.f = new d(this);
+        this.mType = 0;
+        this.abt = null;
+        this.abu = null;
+        this.abv = null;
+        this.abw = null;
+        this.abx = null;
+        this.mType = i;
+        this.abx = new d(this);
     }
 
-    public int a() {
-        return this.a;
+    public int getType() {
+        return this.mType;
     }
 
-    public ArrayList<f> b() {
-        if (this.d == null) {
-            this.d = new ArrayList<>();
+    public ArrayList<f> vC() {
+        if (this.abv == null) {
+            this.abv = new ArrayList<>();
         }
-        return this.d;
+        return this.abv;
     }
 
-    public void a(int i, int i2) {
-        if (this.d != null) {
-            Iterator<f> it = this.d.iterator();
+    public void A(int i, int i2) {
+        if (this.abv != null) {
+            Iterator<f> it = this.abv.iterator();
             while (it.hasNext()) {
                 f next = it.next();
                 Rect bounds = next.getBounds();
                 if (bounds != null && i > bounds.bottom - bounds.top) {
-                    next.a(0, i2);
+                    next.C(0, i2);
                 }
             }
         }
     }
 
-    public void b(int i, int i2) {
-        if (this.d != null) {
-            Iterator<f> it = this.d.iterator();
+    public void B(int i, int i2) {
+        if (this.abv != null) {
+            Iterator<f> it = this.abv.iterator();
             while (it.hasNext()) {
                 it.next().setBounds(0, 0, i, i2);
             }
         }
     }
 
-    public void a(CharSequence charSequence) {
-        if ((this.a == 1 || this.a == 768) && charSequence != null) {
-            if (this.b == null) {
-                this.b = new SpannableStringBuilder("");
+    public void append(CharSequence charSequence) {
+        if ((this.mType == 1 || this.mType == 768) && charSequence != null) {
+            if (this.abt == null) {
+                this.abt = new SpannableStringBuilder("");
             }
-            this.b.append(charSequence);
-            this.f.a = this.b.length();
+            this.abt.append(charSequence);
+            this.abx.abA = this.abt.length();
         }
     }
 
-    public void a(String str) {
-        if (this.a == 32 && str != null) {
-            this.b = new SpannableStringBuilder(str);
+    public void dQ(String str) {
+        if (this.mType == 32 && str != null) {
+            this.abt = new SpannableStringBuilder(str);
         }
     }
 
-    public g c() {
-        if (this.a != 8) {
+    public g vD() {
+        if (this.mType != 8) {
             return null;
         }
-        return this.c;
+        return this.abu;
     }
 
     public void a(g gVar) {
-        if (this.a == 8) {
-            this.c = gVar;
+        if (this.mType == 8) {
+            this.abu = gVar;
         }
     }
 
-    public SpannableStringBuilder d() {
-        return this.b;
+    public SpannableStringBuilder vE() {
+        return this.abt;
     }
 
-    public u e() {
-        if (this.a == 512 || this.a == 768) {
-            return this.e;
+    public u vF() {
+        if (this.mType == 512 || this.mType == 768) {
+            return this.abw;
         }
         return null;
     }
 
     public void a(u uVar) {
-        if (this.a == 512 || this.a == 768) {
-            this.e = uVar;
+        if (this.mType == 512 || this.mType == 768) {
+            this.abw = uVar;
         }
     }
 
     public String toString() {
-        if (this.a == 1) {
-            if (this.b != null) {
-                return this.b.toString();
+        if (this.mType == 1) {
+            if (this.abt != null) {
+                return this.abt.toString();
             }
-        } else if (this.a == 8) {
-            if (this.c != null) {
-                return this.c.f();
+        } else if (this.mType == 8) {
+            if (this.abu != null) {
+                return this.abu.vL();
             }
-        } else if (this.a == 17 && this.g != null) {
-            return this.g.b.b;
+        } else if (this.mType == 17 && this.aby != null) {
+            return this.aby.TF.Tf;
         }
         return "";
     }
 
-    public d f() {
-        if (this.a != 1) {
+    public d vG() {
+        if (this.mType != 1) {
             return null;
         }
-        return this.f;
+        return this.abx;
     }
 
     public void a(e eVar) {
-        if (this.a == 17) {
-            this.g = eVar;
+        if (this.mType == 17) {
+            this.aby = eVar;
         }
     }
 
-    public e g() {
-        return this.g;
+    public e vH() {
+        return this.aby;
     }
 
-    public int h() {
-        return this.h;
+    public int vI() {
+        return this.abz;
     }
 
-    public void a(int i) {
-        this.h = i;
+    public void du(int i) {
+        this.abz = i;
     }
 }

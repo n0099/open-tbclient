@@ -1,18 +1,19 @@
 package com.baidu.adp.lib.stats;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class n {
-    final /* synthetic */ m a;
-    private long b;
-    private boolean c;
-    private int d;
-    private long e;
-    private boolean f;
+public class n {
+    private long mLastLogTime;
+    private boolean mp;
+    private int mq;
+    private long mr;
+    private boolean ms;
+    final /* synthetic */ m mt;
 
     private n(m mVar) {
-        this.a = mVar;
-        this.c = false;
-        this.d = 0;
-        this.f = false;
+        this.mt = mVar;
+        this.mp = false;
+        this.mq = 0;
+        this.ms = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -20,43 +21,43 @@ class n {
         this(mVar);
     }
 
-    public boolean a() {
-        return this.f;
+    public boolean eC() {
+        return this.ms;
     }
 
-    public void a(boolean z) {
-        this.f = z;
+    public void w(boolean z) {
+        this.ms = z;
     }
 
-    public long b() {
-        return this.e;
-    }
-
-    public void a(long j) {
-        this.e = j;
-    }
-
-    public int c() {
-        return this.d;
-    }
-
-    public void a(int i) {
-        this.d = i;
-    }
-
-    public long d() {
-        return this.b;
+    public long eD() {
+        return this.mr;
     }
 
     public void b(long j) {
-        this.b = j;
+        this.mr = j;
     }
 
-    public boolean e() {
-        return this.c;
+    public int eE() {
+        return this.mq;
     }
 
-    public void b(boolean z) {
-        this.c = z;
+    public void K(int i) {
+        this.mq = i;
+    }
+
+    public long eF() {
+        return this.mLastLogTime;
+    }
+
+    public void c(long j) {
+        this.mLastLogTime = j;
+    }
+
+    public boolean eG() {
+        return this.mp;
+    }
+
+    public void x(boolean z) {
+        this.mp = z;
     }
 }

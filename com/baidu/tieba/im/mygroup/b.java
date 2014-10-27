@@ -1,46 +1,35 @@
 package com.baidu.tieba.im.mygroup;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.creategroup.CreateGroupStepActivity;
-import com.baidu.tieba.im.data.GroupPermData;
-import com.baidu.tieba.im.message.ResponseUserPermissionMessage;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
+import com.baidu.tieba.im.util.MessageUtils;
+import com.baidu.tieba.y;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class b extends com.baidu.adp.framework.listener.d {
-    final /* synthetic */ MyGroupActivity a;
+public class b implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ PersonGroupActivity bfC;
+    private final /* synthetic */ int bfD;
+    private final /* synthetic */ ShareFromGameCenterMsgData bfE;
+    private final /* synthetic */ a bfF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(MyGroupActivity myGroupActivity, int i) {
-        super(i);
-        this.a = myGroupActivity;
+    public b(PersonGroupActivity personGroupActivity, int i, ShareFromGameCenterMsgData shareFromGameCenterMsgData, a aVar) {
+        this.bfC = personGroupActivity;
+        this.bfD = i;
+        this.bfE = shareFromGameCenterMsgData;
+        this.bfF = aVar;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [59=4] */
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 103008 && (socketResponsedMessage instanceof ResponseUserPermissionMessage)) {
-            try {
-                ResponseUserPermissionMessage responseUserPermissionMessage = (ResponseUserPermissionMessage) socketResponsedMessage;
-                if (responseUserPermissionMessage.getError() > 0) {
-                    this.a.a(responseUserPermissionMessage.getErrorString());
-                    return;
-                }
-                GroupPermData groupPermData = responseUserPermissionMessage.getGroupPermData();
-                if (groupPermData != null) {
-                    if (groupPermData.isCreatePersonal()) {
-                        CreateGroupStepActivity.a(this.a, 2, 0, 1012, groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum());
-                        this.a.finish();
-                    } else if (!TextUtils.isEmpty(groupPermData.getCreatePersonalTip())) {
-                        this.a.a(groupPermData.getCreatePersonalTip());
-                    }
-                }
-            } catch (Exception e) {
-            } finally {
-                this.a.e();
-            }
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        long G = com.baidu.tieba.im.memorycache.c.PK().G(String.valueOf(this.bfD), 1);
+        MessageUtils.createGroupChatMessage(G, 9, this.bfE.toChatMessageContent(), this.bfD);
+        MessageUtils.createGroupChatMessage(G + 1, 1, this.bfF.getLeaveMsg(), this.bfD);
+        aVar.dismiss();
+        this.bfC.setResult(-1);
+        if (UtilHelper.getNetStatusInfo(this.bfC.getApplicationContext()) == UtilHelper.NetworkStateInfo.UNAVAIL) {
+            this.bfC.showToast(this.bfC.getString(y.no_network_guide));
         }
+        this.bfC.finish();
     }
 }

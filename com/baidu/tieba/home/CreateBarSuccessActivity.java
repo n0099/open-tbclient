@@ -5,21 +5,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
-import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.v;
-import com.baidu.tieba.x;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class CreateBarSuccessActivity extends BaseActivity {
-    public NavigationBar b;
-    private String c = null;
-    private TextView d = null;
-    LinearLayout a = null;
+    public NavigationBar mNavigationBar;
+    private String aLY = null;
+    private TextView mTextView = null;
+    LinearLayout Hk = null;
 
-    public static void a(Context context, String str) {
+    public static void startActivity(Context context, String str) {
         if (str != null && str.length() > 0) {
             Intent intent = new Intent(context, CreateBarSuccessActivity.class);
             intent.putExtra("barname", str);
@@ -31,42 +30,37 @@ public class CreateBarSuccessActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(v.create_bar_success_activity);
-        a();
-        b();
+        setContentView(com.baidu.tieba.w.create_bar_success_activity);
+        initData();
+        IF();
     }
 
-    private void a() {
-        this.c = getIntent().getStringExtra("barname");
-        if (this.c == null) {
-            this.c = "";
+    private void initData() {
+        this.aLY = getIntent().getStringExtra("barname");
+        if (this.aLY == null) {
+            this.aLY = "";
         }
     }
 
-    private void b() {
-        this.a = (LinearLayout) findViewById(com.baidu.tieba.u.container);
-        this.b = (NavigationBar) findViewById(com.baidu.tieba.u.view_navigation_bar);
-        this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.b.a(getString(x.create_bar));
-        this.d = (TextView) findViewById(com.baidu.tieba.u.text);
+    private void IF() {
+        this.Hk = (LinearLayout) findViewById(com.baidu.tieba.v.container);
+        this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mNavigationBar.setTitleText(getString(y.create_bar));
+        this.mTextView = (TextView) findViewById(com.baidu.tieba.v.text);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        getLayoutMode().a(i == 1);
-        getLayoutMode().a((View) this.a);
-        String string = getString(x.create_bar_info1);
+        getLayoutMode().L(i == 1);
+        getLayoutMode().h(this.Hk);
+        String string = getString(y.create_bar_info1);
         int length = string.length();
-        SpannableString spannableString = new SpannableString(String.valueOf(string) + this.c + getString(x.create_bar_info2));
-        if (i == 1) {
-            this.d.setTextColor(getResources().getColor(com.baidu.tieba.r.skin_1_common_color));
-            spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.r.noexit_create_bar_name_text_1)), length, this.c.length() + length, 33);
-        } else {
-            spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.r.noexit_create_bar_name_text)), length, this.c.length() + length, 33);
-        }
-        this.d.setText(spannableString);
-        this.b.c(i);
+        SpannableString spannableString = new SpannableString(String.valueOf(string) + this.aLY + getString(y.create_bar_info2));
+        spannableString.setSpan(new ForegroundColorSpan(aw.getColor(com.baidu.tieba.s.noexit_create_bar_name_text)), length, this.aLY.length() + length, 33);
+        this.mTextView.setText(spannableString);
+        this.mNavigationBar.onChangeSkinType(i);
     }
 }

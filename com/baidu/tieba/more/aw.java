@@ -3,16 +3,19 @@ package com.baidu.tieba.more;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.TiebaDatabase;
+import com.baidu.tbadk.pluginArch.Plugin;
+import com.baidu.tbadk.pluginArch.PluginCenter;
+import com.baidu.tbadk.pluginArch.PluginNameList;
 import com.baidu.tbadk.plugins.BaobaoSdkDelegate;
 import com.baidu.tieba.model.MoreModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aw extends BdAsyncTask<String, Integer, String> {
-    final /* synthetic */ av a;
+    final /* synthetic */ av bsM;
 
     private aw(av avVar) {
-        this.a = avVar;
+        this.bsM = avVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -23,33 +26,32 @@ public class aw extends BdAsyncTask<String, Integer, String> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
     public void onPostExecute(String str) {
         BaseActivity.LoadDataCallBack loadDataCallBack;
         BaseActivity.LoadDataCallBack loadDataCallBack2;
-        super.onPostExecute(str);
-        this.a.a = null;
-        loadDataCallBack = this.a.d;
+        super.onPostExecute((aw) str);
+        this.bsM.bsK = null;
+        loadDataCallBack = this.bsM.atj;
         if (loadDataCallBack == null) {
             return;
         }
-        loadDataCallBack2 = this.a.d;
+        loadDataCallBack2 = this.bsM.atj;
         loadDataCallBack2.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: h */
     public String doInBackground(String... strArr) {
         BaobaoSdkDelegate baobaoSdkDelegate;
-        com.baidu.tbadk.j.a().c().c();
-        com.baidu.tbadk.core.voice.a.b.a();
+        TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().R();
+        com.baidu.tbadk.core.voice.a.b.nJ();
         try {
-            az.a().b();
-            az.a().c();
-            com.baidu.tbadk.pluginArch.c a = com.baidu.tbadk.pluginArch.d.a().a("baobao");
-            if (a != null && (baobaoSdkDelegate = (BaobaoSdkDelegate) a.a(BaobaoSdkDelegate.class)) != null) {
+            com.baidu.tbadk.core.util.ax.my().mz();
+            com.baidu.tbadk.core.util.ax.my().mA();
+            Plugin pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_BAOBAO);
+            if (pluginByName != null && (baobaoSdkDelegate = (BaobaoSdkDelegate) pluginByName.getClassInstance(BaobaoSdkDelegate.class)) != null) {
                 baobaoSdkDelegate.clearImage();
                 return null;
             }

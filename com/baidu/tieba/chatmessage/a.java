@@ -5,21 +5,20 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.u;
+import com.baidu.tieba.v;
 /* loaded from: classes.dex */
 class a extends CustomMessageListener {
-    final /* synthetic */ ChatMessageActivity a;
+    final /* synthetic */ ChatMessageActivity ajo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(ChatMessageActivity chatMessageActivity, int i) {
         super(i);
-        this.a = chatMessageActivity;
+        this.ajo = chatMessageActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Fragment fragment;
         FragmentManager fragmentManager;
@@ -32,13 +31,13 @@ class a extends CustomMessageListener {
             fragment = (Fragment) data;
         }
         if (fragment != null) {
-            this.a.g = this.a.getSupportFragmentManager();
-            ChatMessageActivity chatMessageActivity = this.a;
-            fragmentManager = this.a.g;
-            chatMessageActivity.h = fragmentManager.beginTransaction();
-            fragmentTransaction = this.a.h;
-            fragmentTransaction.add(u.content, fragment);
-            fragmentTransaction2 = this.a.h;
+            this.ajo.mFragmentManager = this.ajo.getSupportFragmentManager();
+            ChatMessageActivity chatMessageActivity = this.ajo;
+            fragmentManager = this.ajo.mFragmentManager;
+            chatMessageActivity.ajn = fragmentManager.beginTransaction();
+            fragmentTransaction = this.ajo.ajn;
+            fragmentTransaction.add(v.content, fragment);
+            fragmentTransaction2 = this.ajo.ajn;
             fragmentTransaction2.commitAllowingStateLoss();
         }
     }

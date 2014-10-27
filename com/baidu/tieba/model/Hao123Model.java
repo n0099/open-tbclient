@@ -1,35 +1,45 @@
 package com.baidu.tieba.model;
 
+import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.gson.Gson;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.data.Hao123Data;
+import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import tbclient.ForumRecommend.LikeForum;
 /* loaded from: classes.dex */
 public class Hao123Model extends com.baidu.adp.base.e {
     public static final String HAO123_KEY = "hao123_cache_data_key";
     private static final int LIKES_MAX_SIZE = 19;
+    private static ArrayList<com.baidu.tieba.data.y> likeForums;
+
+    public Hao123Model() {
+    }
+
+    protected Hao123Model(Context context) {
+        super(context);
+    }
 
     public static String getHao123Cache() {
-        com.baidu.adp.lib.cache.t<String> b = com.baidu.tbadk.core.a.a.a().b("tb.hao123");
-        if (b != null) {
-            return b.a(HAO123_KEY);
+        com.baidu.adp.lib.cache.t<String> bd = com.baidu.tbadk.core.a.a.kS().bd("tb.hao123");
+        if (bd != null) {
+            return bd.get(HAO123_KEY);
         }
         return null;
     }
 
     public static void setHao123Cache(String str) {
-        com.baidu.adp.lib.cache.t<String> b = com.baidu.tbadk.core.a.a.a().b("tb.hao123");
-        if (b != null) {
-            b.a(HAO123_KEY, str);
+        com.baidu.adp.lib.cache.t<String> bd = com.baidu.tbadk.core.a.a.kS().bd("tb.hao123");
+        if (bd != null) {
+            bd.c(HAO123_KEY, str);
         }
     }
 
     public static String getHao123JosnStr(Hao123Data hao123Data) {
-        return new Gson().toJson(hao123Data);
+        return com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(hao123Data);
     }
 
     public static Hao123Data parserLikeForums(String str) {
@@ -39,6 +49,86 @@ public class Hao123Model extends com.baidu.adp.base.e {
             BdLog.detailException(e);
             return new Hao123Data();
         }
+    }
+
+    public static Hao123Data parserLikeForumsProtoBuf(List<?> list) {
+        if (list == null) {
+            return null;
+        }
+        try {
+            int size = list.size();
+            likeForums = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                if (!(list.get(i) instanceof LikeForum)) {
+                    return null;
+                }
+                com.baidu.tieba.data.y yVar = new com.baidu.tieba.data.y();
+                yVar.a((LikeForum) list.get(i));
+                likeForums.add(yVar);
+            }
+            return parserLikeForumDataList(likeForums);
+        } catch (Exception e) {
+            BdLog.detailException(e);
+            return new Hao123Data();
+        }
+    }
+
+    public static Hao123Data parserLikeForumDataList(ArrayList<?> arrayList) {
+        Hao123Data hao123Data = new Hao123Data();
+        if (arrayList != null) {
+            try {
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
+            if (TbadkApplication.isLogin()) {
+                hao123Data.login = "yes";
+                parseBarInfoListFromForumDataList(arrayList, hao123Data.myBa);
+                if (hao123Data.myBa.size() >= 19) {
+                    hao123Data.more = "yes";
+                } else {
+                    hao123Data.more = "no";
+                }
+                return hao123Data;
+            }
+        }
+        hao123Data.login = "no";
+        return hao123Data;
+    }
+
+    public static void parseBarInfoListFromForumDataList(ArrayList<?> arrayList, List<Hao123Data.BarInfo> list) {
+        if (arrayList != null) {
+            try {
+                int min = Math.min(19, arrayList.size());
+                for (int i = 0; i < min; i++) {
+                    if (arrayList.get(i) instanceof com.baidu.tieba.data.y) {
+                        list.add(parseBarInfoFromForumData((com.baidu.tieba.data.y) arrayList.get(i)));
+                    } else {
+                        return;
+                    }
+                }
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
+        }
+    }
+
+    private static Hao123Data.BarInfo parseBarInfoFromForumData(com.baidu.tieba.data.y yVar) {
+        Hao123Data.BarInfo barInfo = new Hao123Data.BarInfo();
+        if (yVar != null) {
+            try {
+                barInfo.baID = yVar.getId();
+                barInfo.baName = yVar.getName();
+                if (yVar.zw() != 0) {
+                    barInfo.qianDao = "yes";
+                } else {
+                    barInfo.qianDao = "";
+                }
+                barInfo.level = String.valueOf(yVar.getLevel());
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
+        }
+        return barInfo;
     }
 
     public static Hao123Data parserLikeForums(JSONArray jSONArray) {
@@ -66,21 +156,21 @@ public class Hao123Model extends com.baidu.adp.base.e {
     public static void updateSign(String str, boolean z, int i) {
         String hao123Cache = getHao123Cache();
         if (!TextUtils.isEmpty(hao123Cache)) {
-            Hao123Data hao123Data = (Hao123Data) new Gson().fromJson(hao123Cache, (Class<Object>) Hao123Data.class);
+            Hao123Data hao123Data = (Hao123Data) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(hao123Cache, Hao123Data.class);
             for (Hao123Data.BarInfo barInfo : hao123Data.myBa) {
                 if (barInfo.baID.equals(str) && z) {
                     barInfo.qianDao = "yes";
-                    barInfo.level = String.valueOf(com.baidu.adp.lib.e.c.a(barInfo.level, 0) + i);
+                    barInfo.level = String.valueOf(com.baidu.adp.lib.g.c.f(barInfo.level, 0) + i);
                 }
             }
-            setHao123Cache(new Gson().toJson(hao123Data));
+            setHao123Cache(com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(hao123Data));
         }
     }
 
     public static void addLikeData(String str, String str2, int i) {
         String hao123Cache = getHao123Cache();
         if (!TextUtils.isEmpty(hao123Cache)) {
-            Hao123Data hao123Data = (Hao123Data) new Gson().fromJson(hao123Cache, (Class<Object>) Hao123Data.class);
+            Hao123Data hao123Data = (Hao123Data) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(hao123Cache, Hao123Data.class);
             List<Hao123Data.BarInfo> list = hao123Data.myBa;
             if (list.size() < 19) {
                 boolean z = false;
@@ -101,7 +191,7 @@ public class Hao123Model extends com.baidu.adp.base.e {
                     } else {
                         hao123Data.more = "no";
                     }
-                    setHao123Cache(new Gson().toJson(hao123Data));
+                    setHao123Cache(com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(hao123Data));
                 }
             }
         }
@@ -124,8 +214,8 @@ public class Hao123Model extends com.baidu.adp.base.e {
         Hao123Data.BarInfo barInfo = new Hao123Data.BarInfo();
         if (jSONObject != null) {
             try {
-                barInfo.baID = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.FORUM_ID);
-                barInfo.baName = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME);
+                barInfo.baID = jSONObject.optString("forum_id");
+                barInfo.baName = jSONObject.optString("forum_name");
                 if (jSONObject.optInt("is_sign", 0) != 0) {
                     barInfo.qianDao = "yes";
                 } else {

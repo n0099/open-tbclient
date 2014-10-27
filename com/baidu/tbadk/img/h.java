@@ -2,56 +2,56 @@ package com.baidu.tbadk.img;
 
 import android.graphics.Bitmap;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.u;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ae;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.ac;
 import com.baidu.tbadk.core.util.s;
 import com.baidu.tbadk.img.effect.ImageOperation;
-import com.baidu.tieba.x;
+import com.baidu.tieba.y;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class h {
-    private int b;
-    private int c;
-    private int d;
-    private int e;
-    private String f;
-    private boolean g;
-    private e j;
-    private i k;
-    private Object l;
-    private int a = 102400;
-    private String h = TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK;
-    private ae i = null;
+    private boolean Vh;
+    private e Vi;
+    private i Vj;
+    private Object Vk;
+    private int bigHeight;
+    private int bigWidth;
+    private String from;
+    private int smallHeight;
+    private int smallWidth;
+    private int Vg = 102400;
+    private String groupId = "1";
+    private ac yV = null;
 
     public h(String str) {
-        this.f = str;
+        this.from = str;
     }
 
-    public void a(int i, int i2, int i3, int i4) {
-        this.b = i;
-        this.c = i2;
-        this.d = i3;
-        this.e = i4;
+    public void b(int i, int i2, int i3, int i4) {
+        this.bigWidth = i;
+        this.bigHeight = i2;
+        this.smallWidth = i3;
+        this.smallHeight = i4;
     }
 
     public void a(i iVar, Object obj) {
-        this.k = iVar;
-        this.l = obj;
+        this.Vj = iVar;
+        this.Vk = obj;
         if (iVar != null) {
-            this.a = 10240;
+            this.Vg = 10240;
         }
     }
 
-    public void a() {
-        this.g = true;
-        if (this.i != null) {
-            this.i.f();
+    public void cancel() {
+        this.Vh = true;
+        if (this.yV != null) {
+            this.yV.dM();
         }
     }
 
@@ -65,7 +65,7 @@ public class h {
                 if (i2 < chosedFiles.size()) {
                     ImageFileInfo imageFileInfo = chosedFiles.get(i2);
                     if (!imageFileInfo.isAlreadyUploadedToServer()) {
-                        if (!this.g) {
+                        if (!this.Vh) {
                             ImageUploadResult a = a(imageFileInfo);
                             if (a != null && (uploadedPicInfo = a.getUploadedPicInfo()) != null) {
                                 imageFileInfo.setServerImageCode(uploadedPicInfo.toPostString());
@@ -85,87 +85,73 @@ public class h {
     public ImageUploadResult a(ImageFileInfo imageFileInfo) {
         Bitmap b;
         String a;
-        if (this.j == null) {
-            this.j = new e(TbadkApplication.m252getInst().getApp());
+        if (this.Vi == null) {
+            this.Vi = new e(TbadkApplication.m251getInst().getApp());
         }
         LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
         imageFileInfo.setPageActionsList(null);
-        com.baidu.adp.widget.a.a a2 = this.j.a(imageFileInfo, true);
+        com.baidu.adp.widget.a.a a2 = this.Vi.a(imageFileInfo, true);
         if (a2 != null) {
-            b = a2.h();
+            b = a2.hl();
         } else {
-            b = this.j.b(imageFileInfo, true);
+            b = this.Vi.b(imageFileInfo, true);
         }
         imageFileInfo.setPageActionsList(pageActionsList);
         if (b != null && (a = s.a(TbConfig.IMAGE_RESIZED_FILE, b, 80)) != null) {
-            return a(a);
+            return du(a);
         }
         return null;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:113:0x03a7, code lost:
-        r4 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:114:0x03a8, code lost:
-        r4 = null;
-        r3 = r4;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:117:0x03b8, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:117:0x0396, code lost:
         r3 = r10;
         r4 = r11;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x014a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x013e, code lost:
         r19.append("|startChunk=");
         r19.append(r6);
         r4 = r3;
         r3 = r10;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x0242, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x022a, code lost:
         r19.append("|startChunk=");
         r19.append(r6);
         r19.append("|picNull=");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x0257, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x023d, code lost:
         if (r11 != null) goto L57;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:52:0x0259, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x023f, code lost:
         r3 = true;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x025a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x0240, code lost:
         r19.append(r3);
         r19.append("|picErrNo=");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:54:0x0267, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:54:0x024c, code lost:
         if (r11 == null) goto L56;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x0269, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x024e, code lost:
         r19.append(r11.error_code);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x0270, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x0255, code lost:
         r3 = r10;
         r4 = r11;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:77:0x0305, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:77:0x02e6, code lost:
         r3 = false;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:85:0x0317, code lost:
-        r19.append("|startChunk=");
-        r19.append(r6);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:86:0x0324, code lost:
-        r4 = null;
-        r3 = r10;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x02c7 A[Catch: all -> 0x0386, TryCatch #4 {all -> 0x0386, blocks: (B:15:0x00d2, B:22:0x0144, B:24:0x014a, B:25:0x015b, B:28:0x0164, B:30:0x0190, B:31:0x019f, B:33:0x01a5, B:35:0x01ab, B:36:0x01cf, B:38:0x01d5, B:40:0x01db, B:41:0x01ff, B:43:0x0220, B:44:0x022a, B:46:0x0238, B:48:0x023c, B:78:0x0308, B:80:0x030e, B:82:0x0312, B:87:0x0328, B:88:0x032b, B:90:0x0336, B:85:0x0317, B:72:0x02c1, B:74:0x02c7, B:75:0x02cf, B:98:0x037d, B:91:0x0353, B:93:0x035c, B:94:0x0366, B:96:0x036c, B:50:0x0242, B:53:0x025a, B:55:0x0269, B:68:0x02aa, B:59:0x0279, B:61:0x027f, B:64:0x0284, B:63:0x0282, B:65:0x0296, B:67:0x029b), top: B:119:0x00d2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:98:0x037d A[Catch: all -> 0x0386, TRY_ENTER, TRY_LEAVE, TryCatch #4 {all -> 0x0386, blocks: (B:15:0x00d2, B:22:0x0144, B:24:0x014a, B:25:0x015b, B:28:0x0164, B:30:0x0190, B:31:0x019f, B:33:0x01a5, B:35:0x01ab, B:36:0x01cf, B:38:0x01d5, B:40:0x01db, B:41:0x01ff, B:43:0x0220, B:44:0x022a, B:46:0x0238, B:48:0x023c, B:78:0x0308, B:80:0x030e, B:82:0x0312, B:87:0x0328, B:88:0x032b, B:90:0x0336, B:85:0x0317, B:72:0x02c1, B:74:0x02c7, B:75:0x02cf, B:98:0x037d, B:91:0x0353, B:93:0x035c, B:94:0x0366, B:96:0x036c, B:50:0x0242, B:53:0x025a, B:55:0x0269, B:68:0x02aa, B:59:0x0279, B:61:0x027f, B:64:0x0284, B:63:0x0282, B:65:0x0296, B:67:0x029b), top: B:119:0x00d2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x02ab A[Catch: all -> 0x0364, TryCatch #2 {all -> 0x0364, blocks: (B:15:0x00cb, B:22:0x0138, B:24:0x013e, B:25:0x014e, B:28:0x0157, B:30:0x0181, B:31:0x018f, B:33:0x0195, B:35:0x019b, B:36:0x01bd, B:38:0x01c3, B:40:0x01c9, B:41:0x01eb, B:43:0x0209, B:44:0x0212, B:46:0x0220, B:48:0x0224, B:78:0x02e9, B:80:0x02ef, B:82:0x02f3, B:87:0x0308, B:88:0x030b, B:90:0x0316, B:85:0x02f8, B:72:0x02a5, B:74:0x02ab, B:75:0x02b2, B:98:0x035b, B:91:0x0331, B:93:0x033a, B:94:0x0344, B:96:0x034a, B:50:0x022a, B:53:0x0240, B:55:0x024e, B:68:0x028f, B:59:0x025e, B:61:0x0264, B:64:0x0269, B:63:0x0267, B:65:0x027b, B:67:0x0280), top: B:120:0x00cb }] */
+    /* JADX WARN: Removed duplicated region for block: B:98:0x035b A[Catch: all -> 0x0364, TRY_ENTER, TRY_LEAVE, TryCatch #2 {all -> 0x0364, blocks: (B:15:0x00cb, B:22:0x0138, B:24:0x013e, B:25:0x014e, B:28:0x0157, B:30:0x0181, B:31:0x018f, B:33:0x0195, B:35:0x019b, B:36:0x01bd, B:38:0x01c3, B:40:0x01c9, B:41:0x01eb, B:43:0x0209, B:44:0x0212, B:46:0x0220, B:48:0x0224, B:78:0x02e9, B:80:0x02ef, B:82:0x02f3, B:87:0x0308, B:88:0x030b, B:90:0x0316, B:85:0x02f8, B:72:0x02a5, B:74:0x02ab, B:75:0x02b2, B:98:0x035b, B:91:0x0331, B:93:0x033a, B:94:0x0344, B:96:0x034a, B:50:0x022a, B:53:0x0240, B:55:0x024e, B:68:0x028f, B:59:0x025e, B:61:0x0264, B:64:0x0269, B:63:0x0267, B:65:0x027b, B:67:0x0280), top: B:120:0x00cb }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public ImageUploadResult a(String str) {
+    public ImageUploadResult du(String str) {
         RandomAccessFile randomAccessFile;
+        Throwable th;
         Exception e;
         ImageUploadResult imageUploadResult;
-        Throwable th;
+        int i;
         byte[] bArr;
         long j;
         ImageUploadResult imageUploadResult2 = null;
@@ -175,35 +161,35 @@ public class h {
             try {
                 File file = new File(str);
                 long length = file.length();
-                String a = ba.a(s.a(file));
+                String b = u.b(s.k(file));
                 sb.append("path=");
                 sb.append(str);
                 sb.append("|length=");
                 sb.append(length);
                 sb.append("|md5=");
-                sb.append(a);
-                if (length == 0 || a == null) {
+                sb.append(b);
+                if (length == 0 || b == null) {
                     imageUploadResult = new ImageUploadResult();
                     try {
                         imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_FILE_ERROR;
-                        imageUploadResult.error_msg = TbadkApplication.m252getInst().getApp().getString(x.file_not_exist);
+                        imageUploadResult.error_msg = TbadkApplication.m251getInst().getApp().getString(y.file_not_exist);
                         TiebaStatic.imgError("", TbErrInfo.ERR_IMG_FILE, "file error: " + imageUploadResult.error_msg, sb.toString());
                     } catch (Exception e2) {
                         randomAccessFile = null;
                         e = e2;
-                        if (!this.g) {
+                        if (!this.Vh) {
                             sb.append("|request cancelled.");
                         } else {
                             BdLog.e(e.getMessage());
                         }
-                        TiebaStatic.imgError("", TbErrInfo.ERR_IMG_SEND, String.valueOf(this.f) + "ex: " + e.getMessage(), sb.toString());
-                        com.baidu.adp.lib.e.a.a(randomAccessFile);
-                        this.i = null;
+                        TiebaStatic.imgError("", TbErrInfo.ERR_IMG_SEND, String.valueOf(this.from) + "ex: " + e.getMessage(), sb.toString());
+                        com.baidu.adp.lib.g.a.a(randomAccessFile);
+                        this.yV = null;
                         return imageUploadResult;
                     }
                 } else {
-                    String str2 = String.valueOf(a) + this.a;
-                    long j2 = length % ((long) this.a) == 0 ? length / this.a : (length / this.a) + 1;
+                    String str2 = String.valueOf(b) + this.Vg;
+                    long j2 = length % ((long) this.Vg) == 0 ? length / this.Vg : (length / this.Vg) + 1;
                     sb.append("|chunkNo=");
                     sb.append(j2);
                     randomAccessFile = new RandomAccessFile(str, "r");
@@ -211,67 +197,67 @@ public class h {
                     try {
                         try {
                             sb.append("|width=");
-                            sb.append(this.b);
+                            sb.append(this.bigWidth);
                             sb.append("|height=");
-                            sb.append(this.c);
+                            sb.append(this.bigHeight);
                             sb.append("|smallWidth=");
-                            sb.append(this.d);
+                            sb.append(this.smallWidth);
                             sb.append("|smallHeight=");
-                            sb.append(this.e);
+                            sb.append(this.smallHeight);
                             sb.append("|groupId=");
-                            sb.append(this.h);
-                            int i = 1;
-                            int i2 = 0;
+                            sb.append(this.groupId);
+                            int i2 = 1;
+                            int i3 = 0;
                             long j3 = 0;
                             while (true) {
-                                int i3 = i;
+                                i = i2;
                                 randomAccessFile2 = imageUploadResult2;
-                                if (i3 > j2) {
+                                if (i > j2) {
                                     imageUploadResult = randomAccessFile2;
                                     randomAccessFile2 = randomAccessFile;
                                     break;
                                 }
                                 try {
-                                    if (!this.g) {
+                                    if (!this.Vh) {
                                         int i4 = 0;
-                                        if (i3 > j2) {
+                                        if (i > j2) {
                                             i4 = 0;
                                             bArr = null;
                                         } else {
-                                            if (i3 < j2) {
-                                                i4 = this.a;
-                                            } else if (i3 == j2) {
-                                                i4 = (int) (length - (this.a * (j2 - 1)));
+                                            if (i < j2) {
+                                                i4 = this.Vg;
+                                            } else if (i == j2) {
+                                                i4 = (int) (length - (this.Vg * (j2 - 1)));
                                             }
                                             if (bArr2 == null || bArr2.length != i4) {
                                                 bArr2 = new byte[i4];
                                             }
-                                            randomAccessFile.seek(this.a * (i3 - 1));
+                                            randomAccessFile.seek(this.Vg * (i - 1));
                                             randomAccessFile.read(bArr2, 0, i4);
                                             bArr = bArr2;
                                         }
-                                        this.i = new ae(TbConfig.UPLOAD_IMG_URL);
-                                        this.i.a("resourceId", str2);
-                                        this.i.a("chunkNo", String.valueOf(i3));
-                                        if (i3 >= j2) {
-                                            this.i.a("isFinish", String.valueOf(1));
+                                        this.yV = new ac(TbConfig.UPLOAD_IMG_URL);
+                                        this.yV.k("resourceId", str2);
+                                        this.yV.k("chunkNo", String.valueOf(i));
+                                        if (i >= j2) {
+                                            this.yV.k("isFinish", String.valueOf(1));
                                         } else {
-                                            this.i.a("isFinish", String.valueOf(0));
+                                            this.yV.k("isFinish", String.valueOf(0));
                                         }
-                                        if (this.b > 0 && this.c > 0) {
-                                            this.i.a("width", String.valueOf(this.b));
-                                            this.i.a("height", String.valueOf(this.c));
+                                        if (this.bigWidth > 0 && this.bigHeight > 0) {
+                                            this.yV.k("width", String.valueOf(this.bigWidth));
+                                            this.yV.k("height", String.valueOf(this.bigHeight));
                                         }
-                                        if (this.d > 0 && this.e > 0) {
-                                            this.i.a("smallWidth", String.valueOf(this.d));
-                                            this.i.a("smallHeight", String.valueOf(this.e));
+                                        if (this.smallWidth > 0 && this.smallHeight > 0) {
+                                            this.yV.k("smallWidth", String.valueOf(this.smallWidth));
+                                            this.yV.k("smallHeight", String.valueOf(this.smallHeight));
                                         }
-                                        this.i.a("groupId", String.valueOf(this.h));
-                                        this.i.a("alt", "json");
+                                        this.yV.k("groupId", String.valueOf(this.groupId));
+                                        this.yV.k("alt", "json");
                                         if (bArr != null) {
-                                            this.i.a("chunk", bArr);
+                                            this.yV.e("chunk", bArr);
                                         }
-                                        imageUploadResult2 = ImageUploadResult.parser(this.i.i());
+                                        imageUploadResult2 = ImageUploadResult.parser(this.yV.lD());
                                         if (imageUploadResult2 == null) {
                                             break;
                                         }
@@ -280,29 +266,29 @@ public class h {
                                                 break;
                                             }
                                             if (imageUploadResult2.error_code == ImageUploadResult.CHUNK_ERROR) {
-                                                if (i3 == imageUploadResult2.chunkNo || imageUploadResult2.chunkNo <= 0) {
+                                                if (i == imageUploadResult2.chunkNo || imageUploadResult2.chunkNo <= 0) {
                                                     break;
                                                 }
-                                                i = imageUploadResult2.chunkNo;
+                                                i2 = imageUploadResult2.chunkNo;
                                                 j = j3;
                                             } else {
-                                                int i5 = i3 + 1;
+                                                int i5 = i + 1;
                                                 long j4 = j3 + i4;
-                                                long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.a) : j4;
-                                                if (this.k != null) {
-                                                    this.k.a(str, this.l, j5, length);
+                                                long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.Vg) : j4;
+                                                if (this.Vj != null) {
+                                                    this.Vj.a(str, this.Vk, j5, length);
                                                 }
-                                                i = i5;
+                                                i2 = i5;
                                                 j = j4;
                                             }
-                                            int i6 = i2 + 1;
+                                            int i6 = i3 + 1;
                                             if (i6 > 2 * j2) {
                                                 sb.append("|possbile dead loop found. tryCount=").append(i6).append(", chunkNo=").append(j2);
                                                 randomAccessFile2 = randomAccessFile;
                                                 imageUploadResult = imageUploadResult2;
                                                 break;
                                             }
-                                            i2 = i6;
+                                            i3 = i6;
                                             j3 = j;
                                             bArr2 = bArr;
                                         } catch (Exception e3) {
@@ -321,28 +307,43 @@ public class h {
                             e = e5;
                             imageUploadResult = null;
                         }
+                        try {
+                            sb.append("|startChunk=");
+                            sb.append(i);
+                            imageUploadResult = null;
+                            randomAccessFile2 = randomAccessFile;
+                        } catch (Exception e6) {
+                            imageUploadResult = null;
+                            e = e6;
+                            if (!this.Vh) {
+                            }
+                            TiebaStatic.imgError("", TbErrInfo.ERR_IMG_SEND, String.valueOf(this.from) + "ex: " + e.getMessage(), sb.toString());
+                            com.baidu.adp.lib.g.a.a(randomAccessFile);
+                            this.yV = null;
+                            return imageUploadResult;
+                        }
                     } catch (Throwable th2) {
                         th = th2;
-                        com.baidu.adp.lib.e.a.a(randomAccessFile);
-                        this.i = null;
+                        com.baidu.adp.lib.g.a.a(randomAccessFile);
+                        this.yV = null;
                         throw th;
                     }
                 }
-                com.baidu.adp.lib.e.a.a(randomAccessFile2);
-                this.i = null;
-            } catch (Throwable th3) {
+                com.baidu.adp.lib.g.a.a(randomAccessFile2);
+                this.yV = null;
+            } catch (Exception e7) {
                 randomAccessFile = null;
-                th = th3;
+                e = e7;
+                imageUploadResult = null;
             }
-        } catch (Exception e6) {
+            return imageUploadResult;
+        } catch (Throwable th3) {
             randomAccessFile = null;
-            e = e6;
-            imageUploadResult = null;
+            th = th3;
         }
-        return imageUploadResult;
     }
 
-    public void b(String str) {
-        this.h = str;
+    public void setGroupId(String str) {
+        this.groupId = str;
     }
 }

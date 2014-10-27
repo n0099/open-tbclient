@@ -8,27 +8,27 @@ import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
 import com.baidu.tieba.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
 public class l {
-    public LinearLayout a;
-    public RelativeLayout b;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
-    public CommonImageLayout i;
-    public PlayVoiceBnt j;
-    public String k;
-    public String l;
-    public int m;
-    public boolean n;
-    public UserIconBox o;
-    public UserIconBox p = null;
-    public LinearLayout q;
-    public LiveBroadcastCard r;
-    final /* synthetic */ j s;
+    public int RD;
+    public UserIconBox aSA;
+    public UserIconBox azj = null;
+    public LiveBroadcastCard bDZ;
+    final /* synthetic */ j bQX;
+    public LinearLayout bQY;
+    public RelativeLayout bQZ;
+    public TextView bRa;
+    public TextView bRb;
+    public TextView bRc;
+    public TextView bRd;
+    public TextView bRe;
+    public TextView bRf;
+    public CommonImageLayout bRg;
+    public PlayVoiceBnt bRh;
+    public LinearLayout bRi;
+    public String forumId;
+    public boolean mR;
+    public String threadId;
 
     public l(j jVar) {
-        this.s = jVar;
+        this.bQX = jVar;
     }
 }

@@ -1,16 +1,14 @@
 package com.baidu.tieba.signall;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.ai;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w extends BdAsyncTask<String, Integer, s> {
-    final /* synthetic */ u a;
-    private h b = null;
+    private h bLt = null;
+    final /* synthetic */ u bLu;
 
     public w(u uVar) {
-        this.a = uVar;
+        this.bLu = uVar;
         setPriority(3);
     }
 
@@ -18,13 +16,13 @@ public class w extends BdAsyncTask<String, Integer, s> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         super.onPreExecute();
-        this.a.a = true;
+        this.bLu.cs = true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: A */
     public s doInBackground(String... strArr) {
         s sVar;
         if (strArr[0] == null) {
@@ -42,62 +40,62 @@ public class w extends BdAsyncTask<String, Integer, s> {
                     sb.append(String.valueOf(split[i2 + i3]) + ",");
                 }
             }
-            this.b = new h();
-            if (UtilHelper.getNetStatusInfo(ai.c().d().getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL) {
-                a(sb.toString());
+            this.bLt = new h();
+            if (com.baidu.adp.lib.util.j.fh()) {
+                hr(sb.toString());
             }
         }
-        sVar = this.a.c;
+        sVar = this.bLu.bLp;
         return sVar;
     }
 
-    private s a(String str) {
+    private s hr(String str) {
         s sVar;
         s sVar2;
-        String a = this.b.a(str);
-        if (this.b.b()) {
-            sVar = this.a.c;
-            sVar.a(a);
-            sVar2 = this.a.c;
+        String hp = this.bLt.hp(str);
+        if (this.bLt.jq()) {
+            sVar = this.bLu.bLp;
+            sVar.parserJson(hp);
+            sVar2 = this.bLu.bLp;
             return sVar2;
         }
-        this.a.c = null;
+        this.bLu.bLp = null;
         return null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel();
-        this.b.a();
-        this.b = null;
-        this.a.b = null;
-        this.a.a = false;
+        this.bLt.cancel();
+        this.bLt = null;
+        this.bLu.bLo = null;
+        this.bLu.cs = false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: c */
     public void onPostExecute(s sVar) {
         v vVar;
         s sVar2;
         v vVar2;
         v vVar3;
         s sVar3;
-        this.a.a = false;
-        this.a.b = null;
-        vVar = this.a.d;
+        this.bLu.cs = false;
+        this.bLu.bLo = null;
+        vVar = this.bLu.bLq;
         if (vVar != null) {
-            sVar2 = this.a.c;
+            sVar2 = this.bLu.bLp;
             if (sVar2 != null) {
-                vVar3 = this.a.d;
-                sVar3 = this.a.c;
-                vVar3.a(sVar3);
+                vVar3 = this.bLu.bLq;
+                sVar3 = this.bLu.bLp;
+                vVar3.b(sVar3);
                 return;
             }
-            String c = this.b != null ? this.b.c() : null;
-            vVar2 = this.a.d;
-            vVar2.a(c);
+            String jr = this.bLt != null ? this.bLt.jr() : null;
+            vVar2 = this.bLu.bLq;
+            vVar2.fw(jr);
         }
     }
 }

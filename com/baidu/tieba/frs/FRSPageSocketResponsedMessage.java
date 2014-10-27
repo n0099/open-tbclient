@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import tbclient.FrsPage.FrsPageResIdl;
 /* loaded from: classes.dex */
 public class FRSPageSocketResponsedMessage extends SocketResponsedMessage {
-    private g forumModel;
+    private b forumModel;
     private boolean hasNetworkError;
     private boolean needCache;
     private int updateType;
@@ -33,25 +33,25 @@ public class FRSPageSocketResponsedMessage extends SocketResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.b
     public void decodeInBackGround(int i, byte[] bArr) {
-        FrsPageResIdl a = this.forumModel.a(bArr);
-        setError(a.error.errorno.intValue());
-        setErrorString(a.error.usermsg);
+        FrsPageResIdl A = this.forumModel.A(bArr);
+        setError(A.error.errorno.intValue());
+        setErrorString(A.error.usermsg);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        if (!hasError() && this.needCache && this.forumModel != null && this.forumModel.i() != null) {
-            f.a().a(this.forumModel.i().getName(), bArr, true);
+        if (!hasError() && this.needCache && this.forumModel != null && this.forumModel.zJ() != null) {
+            a.EV().a(this.forumModel.zJ().getName(), bArr, true);
         }
     }
 
-    public g getForumModel() {
+    public b getForumModel() {
         return this.forumModel;
     }
 
-    public void setForumModel(g gVar) {
-        this.forumModel = gVar;
+    public void setForumModel(b bVar) {
+        this.forumModel = bVar;
     }
 
     public int getUpdateType() {

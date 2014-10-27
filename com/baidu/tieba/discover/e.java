@@ -1,16 +1,24 @@
 package com.baidu.tieba.discover;
+
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ a a;
+public class e extends CustomMessageListener {
+    final /* synthetic */ a anC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(a aVar) {
-        this.a = aVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e(a aVar, int i) {
+        super(i);
+        this.anC = aVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.d();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        DiscoverItemView discoverItemView;
+        discoverItemView = this.anC.ane;
+        discoverItemView.bw(true);
     }
 }

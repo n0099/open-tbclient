@@ -1,32 +1,29 @@
 package com.baidu.tieba.frs.view;
 
-import android.app.Activity;
-import android.text.TextUtils;
+import android.content.Context;
 import android.view.View;
-import com.baidu.tbadk.browser.TbWebViewActivity;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.PraiseData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnClickListener {
-    final /* synthetic */ n a;
+    final /* synthetic */ FrsPraiseView aGe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(n nVar) {
-        this.a = nVar;
+    public p(FrsPraiseView frsPraiseView) {
+        this.aGe = frsPraiseView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        String str;
-        Activity activity;
-        Activity activity2;
-        String str2;
-        str = this.a.as;
-        if (!TextUtils.isEmpty(str)) {
-            activity = this.a.B;
-            activity2 = this.a.B;
-            String string = activity2.getString(com.baidu.tieba.x.frs_badge_intro);
-            str2 = this.a.as;
-            TbWebViewActivity.startActivity(activity, string, str2);
+        PraiseData praiseData;
+        Context context;
+        praiseData = this.aGe.aGc;
+        MetaData metaData = praiseData.getUser().get(1);
+        if (metaData != null) {
+            context = this.aGe.mContext;
+            com.baidu.tbadk.util.f.a(2002003, new PersonInfoActivityConfig(context, metaData.getUserId(), metaData.getName_show()));
         }
     }
 }

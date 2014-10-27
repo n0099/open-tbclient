@@ -5,11 +5,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 class v implements View.OnFocusChangeListener {
-    final /* synthetic */ Register2Activity a;
+    final /* synthetic */ Register2Activity afJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(Register2Activity register2Activity) {
-        this.a = register2Activity;
+        this.afJ = register2Activity;
     }
 
     @Override // android.view.View.OnFocusChangeListener
@@ -17,13 +17,13 @@ class v implements View.OnFocusChangeListener {
         EditText editText;
         EditText editText2;
         ImageView imageView = null;
-        editText = this.a.t;
+        editText = this.afJ.afq;
         if (view == editText) {
-            imageView = this.a.k;
+            imageView = this.afJ.afi;
         } else {
-            editText2 = this.a.v;
+            editText2 = this.afJ.afs;
             if (view == editText2) {
-                imageView = this.a.l;
+                imageView = this.afJ.afj;
             }
         }
         if (imageView != null) {

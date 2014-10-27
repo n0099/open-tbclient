@@ -5,93 +5,93 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class e {
-    private static Object w = new Object();
-    private static volatile e x;
-    private com.baidu.tbadk.core.data.f h;
-    private int p;
-    private int q;
-    private int r;
-    private int s;
-    private Handler v;
-    private final int a = 5;
-    private final int b = 0;
-    private final int c = 1;
-    private final int d = 2;
-    private final int e = 3;
-    private final byte f = 0;
-    private final byte g = 1;
-    private int i = 0;
-    private final int j = 5;
-    private boolean k = false;
-    private long l = 0;
-    private final long m = 86400000;
-    private final float n = 100.0f;
-    private float o = 0.0f;
-    private BdAsyncTaskParallel t = null;
-    private final h u = new h(this, null);
+    private static Object De = new Object();
+    private static volatile e Df;
+    private com.baidu.tbadk.core.data.f CT;
+    private int CZ;
+    private int Da;
+    private int Db;
+    private int mErrorNum;
+    private Handler mHandler;
+    private final int CM = 5;
+    private final int CN = 0;
+    private final int CO = 1;
+    private final int CP = 2;
+    private final int CQ = 3;
+    private final byte CR = 0;
+    private final byte CS = 1;
+    private int CU = 0;
+    private final int CV = 5;
+    private boolean mIsUploading = false;
+    private long mLastUploadTime = 0;
+    private final long CW = 86400000;
+    private final float CX = 100.0f;
+    private float CY = 0.0f;
+    private BdAsyncTaskParallel Dc = null;
+    private final h Dd = new h(this, null);
 
-    public static e a() {
-        if (x == null) {
+    public static e lq() {
+        if (Df == null) {
             synchronized (e.class) {
-                if (x == null) {
-                    x = new e();
+                if (Df == null) {
+                    Df = new e();
                 }
             }
         }
-        return x;
+        return Df;
     }
 
     private e() {
-        this.v = null;
-        this.v = new f(this);
+        this.mHandler = null;
+        this.mHandler = new f(this);
     }
 
-    public com.baidu.tbadk.core.data.f b() {
-        return this.h;
+    public com.baidu.tbadk.core.data.f lr() {
+        return this.CT;
     }
 
     public void a(com.baidu.tbadk.core.data.f fVar) {
-        synchronized (w) {
-            this.h = fVar;
+        synchronized (De) {
+            this.CT = fVar;
         }
     }
 
-    public void a(int i, String str) {
-        this.v.sendMessage(this.v.obtainMessage(1, i, 0, str));
+    public void d(int i, String str) {
+        this.mHandler.sendMessage(this.mHandler.obtainMessage(1, i, 0, str));
     }
 
     public void a(long j, String str) {
-        this.v.sendMessage(this.v.obtainMessage(0, (int) j, 0, str));
+        this.mHandler.sendMessage(this.mHandler.obtainMessage(0, (int) j, 0, str));
     }
 
-    public void b(int i, String str) {
+    public void e(int i, String str) {
         int i2 = 1;
-        synchronized (w) {
-            if (b() == null) {
-                this.o += 20.0f;
+        synchronized (De) {
+            if (lr() == null) {
+                this.CY += 25.0f;
             } else {
-                this.o += b().b();
+                this.CY += lr().jO();
             }
-            this.r++;
-            this.q++;
-            this.u.a(i);
-            int i3 = this.r;
-            int i4 = this.q;
-            int i5 = this.p;
-            int i6 = this.p != 0 ? this.s / this.p : 0;
-            String hVar = this.u.toString();
-            if (b() != null && this.l > 0 && System.currentTimeMillis() - this.l > 86400000) {
-                b().a(true);
-                this.i = 0;
+            this.Da++;
+            this.mErrorNum++;
+            this.Dd.bo(i);
+            int i3 = this.Da;
+            int i4 = this.mErrorNum;
+            int i5 = this.CZ;
+            int i6 = this.CZ != 0 ? this.Db / this.CZ : 0;
+            String hVar = this.Dd.toString();
+            if (lr() != null && this.mLastUploadTime > 0 && System.currentTimeMillis() - this.mLastUploadTime > 86400000) {
+                lr().O(true);
+                this.CU = 0;
             }
-            if (b() != null && b().d()) {
-                if (this.r < 5) {
+            if (lr() != null && lr().jQ()) {
+                if (this.Da < 5) {
                     i2 = 0;
-                } else if (this.o < 100.0f || this.q < b().g() || this.p < b().e()) {
-                    if (this.o >= 100.0f && this.q >= b().g()) {
+                } else if (this.CY < 100.0f || this.mErrorNum < lr().jS() || this.CZ < lr().jR()) {
+                    if (this.CY >= 100.0f && this.mErrorNum >= lr().jS()) {
                         i2 = 2;
                     } else {
-                        i2 = (this.o < 100.0f || this.p < b().e()) ? 0 : 3;
+                        i2 = (this.CY < 100.0f || this.CZ < lr().jR()) ? 0 : 3;
                     }
                 }
                 a(i2, i3, i4, hVar, i5, i6);
@@ -103,37 +103,37 @@ public class e {
         int i = 0;
         int i2 = 0;
         int i3 = 5000;
-        if (b() != null) {
-            i3 = b().f();
+        if (lr() != null) {
+            i3 = lr().getTime();
         }
-        synchronized (w) {
+        synchronized (De) {
             if (j >= i3) {
-                if (b() == null) {
-                    this.o += 10.0f;
+                if (lr() == null) {
+                    this.CY += 10.0f;
                 } else {
-                    this.o += b().c();
+                    this.CY += lr().jP();
                 }
-                this.p++;
-                this.s = (int) (this.s + j);
-                this.r++;
-                int i4 = this.r;
-                int i5 = this.q;
-                int i6 = this.p;
-                if (this.p != 0) {
-                    i = this.s / this.p;
+                this.CZ++;
+                this.Db = (int) (this.Db + j);
+                this.Da++;
+                int i4 = this.Da;
+                int i5 = this.mErrorNum;
+                int i6 = this.CZ;
+                if (this.CZ != 0) {
+                    i = this.Db / this.CZ;
                 }
-                String hVar = this.u.toString();
-                if (b() != null && this.l > 0 && System.currentTimeMillis() - this.l > 86400000) {
-                    b().a(true);
-                    this.i = 0;
+                String hVar = this.Dd.toString();
+                if (lr() != null && this.mLastUploadTime > 0 && System.currentTimeMillis() - this.mLastUploadTime > 86400000) {
+                    lr().O(true);
+                    this.CU = 0;
                 }
-                if (b() != null && b().d()) {
-                    if (this.r >= 5) {
-                        if (this.o >= 100.0f && this.q >= b().g() && this.p >= b().e()) {
+                if (lr() != null && lr().jQ()) {
+                    if (this.Da >= 5) {
+                        if (this.CY >= 100.0f && this.mErrorNum >= lr().jS() && this.CZ >= lr().jR()) {
                             i2 = 1;
-                        } else if (this.o >= 100.0f && this.q >= b().g()) {
+                        } else if (this.CY >= 100.0f && this.mErrorNum >= lr().jS()) {
                             i2 = 2;
-                        } else if (this.o >= 100.0f && this.p >= b().e()) {
+                        } else if (this.CY >= 100.0f && this.CZ >= lr().jR()) {
                             i2 = 3;
                         } else {
                             i2 = 0;
@@ -144,44 +144,44 @@ public class e {
                 }
                 return;
             }
-            if (b() == null) {
-                this.o -= 20.0f;
+            if (lr() == null) {
+                this.CY -= 25.0f;
             } else {
-                this.o -= b().a();
+                this.CY -= lr().jN();
             }
-            if (this.o < 0.0f) {
-                this.o = 0.0f;
+            if (this.CY < 0.0f) {
+                this.CY = 0.0f;
             }
         }
     }
 
     private void a(int i, int i2, int i3, String str, int i4, int i5) {
-        if (b() != null && b().d() && i != 0 && !this.k) {
+        if (lr() != null && lr().jQ() && i != 0 && !this.mIsUploading) {
             a(i, i2, i3, str, i4, new StringBuilder(String.valueOf(i5)).toString());
         }
     }
 
     private void a(int i, int i2, int i3, String str, int i4, String str2) {
-        if (this.t == null) {
-            this.t = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        if (this.Dc == null) {
+            this.Dc = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
         }
         g gVar = new g(this, i, i2, i3, str, i4, str2);
-        gVar.setParallel(this.t);
+        gVar.setParallel(this.Dc);
         gVar.execute(new Object[0]);
-        this.k = true;
-        com.baidu.adp.lib.stats.q a = w.a();
-        a.a("act", "fallback");
-        a.a("type", com.baidu.tbadk.core.frameworkData.a.START);
-        com.baidu.adp.lib.stats.f.c().a("img", a);
+        this.mIsUploading = true;
+        com.baidu.adp.lib.stats.q logItem = v.getLogItem();
+        logItem.n("act", "fallback");
+        logItem.n("type", com.baidu.tbadk.core.frameworkData.a.START);
+        com.baidu.adp.lib.stats.f.er().a("img", logItem);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
-        this.r = 0;
-        this.p = 0;
-        this.q = 0;
-        this.s = 0;
-        this.o = 0.0f;
-        this.u.a();
+    public void reset() {
+        this.Da = 0;
+        this.CZ = 0;
+        this.mErrorNum = 0;
+        this.Db = 0;
+        this.CY = 0.0f;
+        this.Dd.clear();
     }
 }

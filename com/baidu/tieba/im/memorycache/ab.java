@@ -4,22 +4,22 @@ import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.List;
 /* loaded from: classes.dex */
-class ab implements com.baidu.tieba.im.chat.receiveChatMsgHandler.b {
-    final /* synthetic */ aa a;
+class ab implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
+    final /* synthetic */ aa bdQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(aa aaVar) {
-        this.a = aaVar;
+        this.bdQ = aaVar;
     }
 
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.b
+    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
         if (imMessageCenterPojo != null) {
-            c.b().a(6, imMessageCenterPojo.getPulled_msgId(), String.valueOf(10));
+            c.PK().a(6, imMessageCenterPojo.getPulled_msgId(), String.valueOf(10));
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.b
-    public void a(String str, List<CommonMsgPojo> list) {
+    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
+    public void b(String str, List<CommonMsgPojo> list) {
     }
 }

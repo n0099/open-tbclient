@@ -1,5 +1,15 @@
 package com.baidu.tieba.write;
 /* loaded from: classes.dex */
-public interface ca {
-    void c(int i);
+class ca implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ bw bUj;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ca(bw bwVar) {
+        this.bUj = bwVar;
+    }
+
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+    }
 }

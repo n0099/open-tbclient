@@ -4,11 +4,13 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
+import protobuf.ConfigVersion;
 import protobuf.GroupInfo;
 import protobuf.UpdateClientInfo.UpdateClientInfoResIdl;
 import protobuf.UserInfo;
 /* loaded from: classes.dex */
 public class ResponseOnlineMessage extends SocketResponsedMessage {
+    private ConfigVersion configVersion;
     private List<GroupUpdateMessage> groupInfos;
 
     public ResponseOnlineMessage() {
@@ -17,6 +19,10 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
 
     public List<GroupUpdateMessage> getGroupInfos() {
         return this.groupInfos;
+    }
+
+    public ConfigVersion getConfigVersion() {
+        return this.configVersion;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -49,6 +55,7 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
                     settingsSyncMessage.setData(userInfo.portrait);
                 }
             }
+            this.configVersion = updateClientInfoResIdl.data.configVersion;
         }
     }
 }

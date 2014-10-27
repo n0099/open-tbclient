@@ -7,22 +7,23 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.MemoryChangedMessage;
-import com.baidu.tieba.im.message.MemoryClearUnreadCountMessage;
 import com.baidu.tieba.im.message.MemoryInitCompleteMessage;
 import com.baidu.tieba.im.message.RequestMemoryListMessage;
 import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
+import com.baidu.tieba.im.model.OfficialBarTipModel;
 import java.util.List;
 /* loaded from: classes.dex */
 public class OfficialBarTipActivity extends BaseActivity {
-    public static boolean a = false;
-    private com.baidu.tieba.im.model.ar b;
-    private aw c;
-    private final CustomMessageListener d = new ap(this, 0);
-    private com.baidu.tieba.im.chat.notify.a e = new aq(this);
+    public static boolean isOpen = false;
+    private final CustomMessageListener aQA = new ap(this, 0);
+    private com.baidu.tieba.im.chat.notify.a aQB = new aq(this);
+    private OfficialBarTipModel aRS;
+    private au aRT;
 
-    public static void a(Context context) {
+    public static void ac(Context context) {
         if (context != null) {
             context.startActivity(new Intent(context, OfficialBarTipActivity.class));
         }
@@ -31,24 +32,24 @@ public class OfficialBarTipActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        b();
-        c();
-        a();
+        initData();
+        initUI();
+        registerListener();
     }
 
-    private void a() {
-        registerListener(2016003, this.d);
-        registerListener(2016006, this.d);
-        registerListener(2016000, this.d);
-        registerListener(2016011, this.d);
-        registerListener(2016001, this.d);
+    private void registerListener() {
+        registerListener(2016003, this.aQA);
+        registerListener(2016006, this.aQA);
+        registerListener(2016000, this.aQA);
+        registerListener(2016011, this.aQA);
+        registerListener(2016001, this.aQA);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.c.b().notifyDataSetChanged();
-        MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new com.baidu.tieba.im.message.f("-1000", -8)));
+        this.aRT.Ky().notifyDataSetChanged();
+        MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new com.baidu.tbadk.live.message.a("-1000", -8)));
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -56,69 +57,69 @@ public class OfficialBarTipActivity extends BaseActivity {
         super.onDestroy();
     }
 
-    private void b() {
-        this.b = new com.baidu.tieba.im.model.ar(this);
+    private void initData() {
+        this.aRS = new OfficialBarTipModel(this);
     }
 
     @Override // android.app.Activity
     protected void onRestart() {
         super.onRestart();
-        a = true;
+        isOpen = true;
     }
 
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        a = true;
+        isOpen = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        a = false;
+        isOpen = false;
     }
 
-    private void c() {
-        this.c = new aw(this);
-        this.c.a().setOnItemClickListener(new ar(this));
-        this.c.a().setOnItemLongClickListener(new as(this));
+    private void initUI() {
+        this.aRT = new au(this);
+        this.aRT.ER().setOnItemClickListener(new ar(this));
+        this.aRT.ER().setOnItemLongClickListener(new as(this));
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.c.a(i);
+        this.aRT.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(CustomResponsedMessage<?> customResponsedMessage) {
+    public void c(CustomResponsedMessage<?> customResponsedMessage) {
         if ((customResponsedMessage instanceof MemoryInitCompleteMessage) && ((MemoryInitCompleteMessage) customResponsedMessage).getData().booleanValue()) {
             sendMessage(new RequestMemoryListMessage(2));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(CustomResponsedMessage<?> customResponsedMessage) {
+    public void d(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage instanceof MemoryChangedMessage) {
             MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
             ImMessageCenterPojo data = memoryChangedMessage.getData();
             if (memoryChangedMessage.getType() == 1) {
-                if (this.b != null) {
-                    this.b.a(data, this.e);
+                if (this.aRS != null) {
+                    this.aRS.insertOrUpdate(data, this.aQB);
                 }
-            } else if (memoryChangedMessage.getType() == 2 && this.b != null) {
-                this.b.b(data, this.e);
+            } else if (memoryChangedMessage.getType() == 2 && this.aRS != null) {
+                this.aRS.remove(data, this.aQB);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(CustomResponsedMessage<?> customResponsedMessage) {
+    public void e(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
             ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
             List<ImMessageCenterPojo> data = responsedMemoryListMessage.getData();
-            if (responsedMemoryListMessage.getType() == 2 && this.b != null) {
-                this.b.a(data, this.e);
+            if (responsedMemoryListMessage.getType() == 2 && this.aRS != null) {
+                this.aRS.setData(data, this.aQB);
             }
         }
     }

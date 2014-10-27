@@ -1,8 +1,7 @@
 package com.baidu.tbadk.core.util;
+
+import android.content.Context;
 /* loaded from: classes.dex */
-class bh extends bg {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bh() {
-        super(null);
-    }
+public interface bh {
+    boolean a(Context context, String[] strArr);
 }

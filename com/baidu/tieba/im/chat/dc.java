@@ -1,23 +1,25 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 /* loaded from: classes.dex */
-class dc implements v {
-    final /* synthetic */ PersonalChatActivity a;
+class dc implements com.baidu.tieba.im.a<Void> {
+    final /* synthetic */ da aPK;
+    private final /* synthetic */ CustomMessage aea;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dc(PersonalChatActivity personalChatActivity) {
-        this.a = personalChatActivity;
+    public dc(da daVar, CustomMessage customMessage) {
+        this.aPK = daVar;
+        this.aea = customMessage;
     }
 
-    @Override // com.baidu.tieba.im.chat.v
-    public void a(VoiceData.VoiceModel voiceModel) {
-        if (voiceModel != null) {
-            this.a.e.a(voiceModel.voiceId, voiceModel.duration);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    /* renamed from: b */
+    public void onReturnDataInUI(Void r5) {
+        ((PersonalChatActivityConfig) this.aea.getData()).getIntent().setClass(((PersonalChatActivityConfig) this.aea.getData()).getContext(), PersonalChatActivity.class);
+        if (((PersonalChatActivityConfig) this.aea.getData()).getUserData().getUserIdLong() != 0) {
+            ((PersonalChatActivityConfig) this.aea.getData()).startActivity();
         }
-    }
-
-    @Override // com.baidu.tieba.im.chat.v
-    public void a() {
     }
 }

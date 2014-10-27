@@ -5,96 +5,96 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d extends ad {
-    private String a;
-    private String b;
-    private int c;
-    private int d;
-    private ArrayList<String> e = new ArrayList<>();
+    private ArrayList<String> Rm = new ArrayList<>();
+    private String groupId;
+    private String groupName;
+    private int height;
+    private int width;
 
     public d(EmotionGroupData emotionGroupData) {
-        this.a = emotionGroupData.getGroupId();
-        this.b = emotionGroupData.getGroupName();
-        this.c = emotionGroupData.getWidth();
-        this.d = emotionGroupData.getHeight();
-        b();
+        this.groupId = emotionGroupData.getGroupId();
+        this.groupName = emotionGroupData.getGroupName();
+        this.width = emotionGroupData.getWidth();
+        this.height = emotionGroupData.getHeight();
+        init();
     }
 
-    private void b() {
-        c(2);
-        b(4);
-        Bitmap b = aa.a().b(this.a, "panel.png");
-        Bitmap b2 = aa.a().b(this.a, "panel_momo.png");
-        if (b != null) {
-            a(new com.baidu.adp.widget.a.a(b, false));
+    private void init() {
+        cK(2);
+        cJ(4);
+        Bitmap U = aa.rz().U(this.groupId, "panel.png");
+        Bitmap U2 = aa.rz().U(this.groupId, "panel_momo.png");
+        if (U != null) {
+            b(new com.baidu.adp.widget.a.a(U, false));
         }
-        if (b2 != null) {
-            b(new com.baidu.adp.widget.a.a(b2, false));
+        if (U2 != null) {
+            c(new com.baidu.adp.widget.a.a(U2, false));
         }
-        this.e.clear();
-        for (EmotionData emotionData : u.a().b(this.a)) {
-            this.e.add(emotionData.getSharpText());
+        this.Rm.clear();
+        for (EmotionData emotionData : u.rw().dc(this.groupId)) {
+            this.Rm.add(emotionData.getSharpText());
         }
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public String a(int i) {
-        if (i >= this.e.size()) {
+    public String cG(int i) {
+        if (i >= this.Rm.size()) {
             return null;
         }
-        return this.e.get(i);
+        return this.Rm.get(i);
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public boolean a(String str) {
-        return this.e.contains(str);
+    public boolean cY(String str) {
+        return this.Rm.contains(str);
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public EmotionGroupType c() {
+    public EmotionGroupType rr() {
         return EmotionGroupType.BIG_EMOTION;
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public com.baidu.adp.widget.a.a b(String str) {
-        Bitmap b = aa.a().b(this.a, aa.a().a(str, false));
-        if (b == null) {
+    public com.baidu.adp.widget.a.a cZ(String str) {
+        Bitmap U = aa.rz().U(this.groupId, aa.rz().m(str, false));
+        if (U == null) {
             return null;
         }
-        return new com.baidu.adp.widget.a.a(b, false, str);
+        return new com.baidu.adp.widget.a.a(U, false, str);
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public com.baidu.adp.widget.a.a c(String str) {
-        return aa.a().c(this.a, aa.a().a(str, true));
+    public com.baidu.adp.widget.a.a da(String str) {
+        return aa.rz().V(this.groupId, aa.rz().m(str, true));
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public int d() {
-        return this.e.size();
+    public int getEmotionsCount() {
+        return this.Rm.size();
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public String e() {
-        return this.a;
+    public String getGroupId() {
+        return this.groupId;
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public String f() {
-        return this.b;
+    public String getGroupName() {
+        return this.groupName;
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public int g() {
-        return this.c;
+    public int getWidth() {
+        return this.width;
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public int h() {
-        return this.d;
+    public int getHeight() {
+        return this.height;
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public boolean i() {
+    public boolean rs() {
         return false;
     }
 }

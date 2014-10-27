@@ -15,7 +15,7 @@ public class OfficialChatMessage extends ChatMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.content = getContent();
             builder.toUid = Long.valueOf(getToUserId());
-            builder.groupId = Integer.valueOf(w.a);
+            builder.groupId = Integer.valueOf(w.aNF);
             builder.msgType = Integer.valueOf(getMsgType());
             builder.recordId = Long.valueOf(getRecordId());
             builder.toUserType = 1;

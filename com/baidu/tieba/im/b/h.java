@@ -1,30 +1,23 @@
 package com.baidu.tieba.im.b;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 /* loaded from: classes.dex */
-public class h extends CustomMessageListener {
-    final /* synthetic */ b a;
+class h extends BroadcastReceiver {
+    final /* synthetic */ c this$0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h(b bVar, int i) {
-        super(i);
-        this.a = bVar;
+    private h(c cVar) {
+        this.this$0 = cVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage instanceof BackgroundSwitchMessage) {
-            if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                this.a.g();
-            } else {
-                this.a.f();
-            }
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ h(c cVar, h hVar) {
+        this(cVar);
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        this.this$0.gp(this.this$0.Pw());
     }
 }

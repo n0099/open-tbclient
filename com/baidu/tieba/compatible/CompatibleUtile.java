@@ -157,6 +157,17 @@ public class CompatibleUtile {
         }
     }
 
+    public int getStatusBarColor(Context context) {
+        try {
+            if (getObject11() != null) {
+                return getObject11().getStatusBarColor(context);
+            }
+            return 0;
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
     public boolean isUseHw(View view) {
         if (getObject11() != null) {
             return getObject11().isUseHw(view);
@@ -387,11 +398,18 @@ public class CompatibleUtile {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class Object11 {
+        private final int[] STATUSBAR_ATTRS;
+
         private Object11() {
+            this.STATUSBAR_ATTRS = new int[]{16842904};
         }
 
         /* synthetic */ Object11(CompatibleUtile compatibleUtile, Object11 object11) {
             this();
+        }
+
+        public int getStatusBarColor(Context context) {
+            return context.obtainStyledAttributes(16973928, this.STATUSBAR_ATTRS).getColor(0, 0);
         }
 
         public void openGpu(Activity activity) {
@@ -469,10 +487,13 @@ public class CompatibleUtile {
         }
     }
 
-    public static void dealWebView() {
+    public static void dealWebView(WebSettings webSettings) {
         if (Build.VERSION.SDK_INT <= 11) {
             WebView.disablePlatformNotifications();
             WebView.enablePlatformNotifications();
+        }
+        if (webSettings != null && Build.VERSION.SDK_INT <= 18) {
+            webSettings.setPluginsEnabled(true);
         }
     }
 }

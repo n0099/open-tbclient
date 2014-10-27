@@ -2,15 +2,15 @@ package com.baidu.adp.base;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements Runnable {
-    final /* synthetic */ BdBaseFragmentActivity a;
+    final /* synthetic */ BdBaseFragmentActivity ax;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(BdBaseFragmentActivity bdBaseFragmentActivity) {
-        this.a = bdBaseFragmentActivity;
+        this.ax = bdBaseFragmentActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.onPreLoad(this.a.p_());
+        this.ax.onPreLoad(this.ax.onGetPreLoadListView());
     }
 }

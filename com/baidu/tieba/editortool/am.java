@@ -1,53 +1,39 @@
 package com.baidu.tieba.editortool;
 
+import android.support.v4.view.PagerAdapter;
+import android.view.View;
+import android.view.ViewGroup;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-class am implements an {
-    final /* synthetic */ PrivilegeTabHost a;
+public class am extends PagerAdapter {
+    private ArrayList<View> RI;
+    final /* synthetic */ PrivilegeTabContentView arA;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public am(PrivilegeTabHost privilegeTabHost) {
-        this.a = privilegeTabHost;
+    public am(PrivilegeTabContentView privilegeTabContentView, ArrayList<View> arrayList) {
+        this.arA = privilegeTabContentView;
+        this.RI = new ArrayList<>();
+        this.RI = arrayList;
     }
 
-    @Override // com.baidu.tieba.editortool.an
-    public void a(ai aiVar) {
-        PrivilegeTabWidgetView privilegeTabWidgetView;
-        PrivilegeTabWidgetView privilegeTabWidgetView2;
-        ArrayList<ai> arrayList;
-        ArrayList arrayList2;
-        int i;
-        int i2;
-        ArrayList arrayList3;
-        this.a.d();
-        privilegeTabWidgetView = this.a.b;
-        privilegeTabWidgetView.a();
-        privilegeTabWidgetView2 = this.a.b;
-        arrayList = this.a.d;
-        privilegeTabWidgetView2.setDatas(arrayList);
-        arrayList2 = this.a.d;
-        int size = arrayList2.size();
-        for (int i3 = 0; i3 < size; i3++) {
-            arrayList3 = this.a.d;
-            this.a.a(((ai) arrayList3.get(i3)).c());
-        }
-        i = this.a.e;
-        if (i < 0) {
-            this.a.setCurrentTab(0);
-            return;
-        }
-        PrivilegeTabHost privilegeTabHost = this.a;
-        i2 = this.a.e;
-        privilegeTabHost.setCurrentTab(i2);
+    @Override // android.support.v4.view.PagerAdapter
+    public int getCount() {
+        return this.RI.size();
     }
 
-    @Override // com.baidu.tieba.editortool.an
-    public void a() {
-        this.a.c();
+    @Override // android.support.v4.view.PagerAdapter
+    public boolean isViewFromObject(View view, Object obj) {
+        return view == obj;
     }
 
-    @Override // com.baidu.tieba.editortool.an
-    public void b() {
-        this.a.d();
+    @Override // android.support.v4.view.PagerAdapter
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+        viewGroup.removeView(this.RI.get(i));
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public Object instantiateItem(ViewGroup viewGroup, int i) {
+        View view = this.RI.get(i);
+        viewGroup.addView(view);
+        return view;
     }
 }

@@ -10,46 +10,46 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.x;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class NoNetworkMoreActivity extends BaseActivity {
-    private View a;
-    private NavigationBar b;
-    private TextView c;
-    private TextView d;
+    private View Js;
+    private TextView Jt;
+    private TextView Ju;
+    private NavigationBar mNavigationBar;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(v.no_network_more_view);
-        a();
+        setContentView(w.no_network_more_view);
+        initUI();
     }
 
-    protected void a() {
-        this.b = (NavigationBar) findViewById(u.view_navigation_bar);
-        this.a = this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, (View.OnClickListener) null);
-        this.a.setOnClickListener(this);
-        this.b.a(x.no_network);
-        this.c = (TextView) findViewById(u.more_item1);
-        SpannableString spannableString = new SpannableString(getString(x.no_network_guide_content1));
+    protected void initUI() {
+        this.mNavigationBar = (NavigationBar) findViewById(v.view_navigation_bar);
+        this.Js = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
+        this.Js.setOnClickListener(this);
+        this.mNavigationBar.setTitleText(y.no_network);
+        this.Jt = (TextView) findViewById(v.more_item1);
+        SpannableString spannableString = new SpannableString(getString(y.no_network_guide_content1));
         spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#262626")), 4, 15, 33);
-        this.c.setText(spannableString);
-        this.d = (TextView) findViewById(u.more_item2);
-        SpannableString spannableString2 = new SpannableString(getString(x.no_network_guide_content2));
+        this.Jt.setText(spannableString);
+        this.Ju = (TextView) findViewById(v.more_item2);
+        SpannableString spannableString2 = new SpannableString(getString(y.no_network_guide_content2));
         spannableString2.setSpan(new ForegroundColorSpan(Color.parseColor("#262626")), 4, 15, 33);
-        this.d.setText(spannableString2);
-        ((Button) findViewById(u.network_setting_btn)).setOnClickListener(this);
+        this.Ju.setText(spannableString2);
+        ((Button) findViewById(v.network_setting_btn)).setOnClickListener(this);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
-        if (view == this.a) {
+        if (view == this.Js) {
             finish();
-        } else if (id == u.network_setting_btn) {
+        } else if (id == v.network_setting_btn) {
             startActivity(new Intent("android.settings.SETTINGS"));
             finish();
         }
@@ -58,6 +58,6 @@ public class NoNetworkMoreActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.b.c(i);
+        this.mNavigationBar.onChangeSkinType(i);
     }
 }

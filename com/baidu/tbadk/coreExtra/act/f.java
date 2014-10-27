@@ -7,11 +7,11 @@ import android.widget.RadioButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ EditHeadActivity a;
+    final /* synthetic */ EditHeadActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(EditHeadActivity editHeadActivity) {
-        this.a = editHeadActivity;
+        this.this$0 = editHeadActivity;
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
@@ -23,19 +23,19 @@ public class f implements CompoundButton.OnCheckedChangeListener {
         HorizontalScrollView horizontalScrollView2;
         LinearLayout linearLayout2;
         if (z) {
-            radioButton = this.a.q;
+            radioButton = this.this$0.JH;
             if (compoundButton == radioButton) {
-                horizontalScrollView2 = this.a.m;
+                horizontalScrollView2 = this.this$0.JE;
                 horizontalScrollView2.setVisibility(0);
-                linearLayout2 = this.a.s;
+                linearLayout2 = this.this$0.JJ;
                 linearLayout2.setVisibility(8);
                 return;
             }
-            radioButton2 = this.a.r;
+            radioButton2 = this.this$0.JI;
             if (compoundButton == radioButton2) {
-                horizontalScrollView = this.a.m;
+                horizontalScrollView = this.this$0.JE;
                 horizontalScrollView.setVisibility(8);
-                linearLayout = this.a.s;
+                linearLayout = this.this$0.JJ;
                 linearLayout.setVisibility(0);
             }
         }

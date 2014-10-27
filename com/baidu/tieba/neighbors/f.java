@@ -1,17 +1,22 @@
 package com.baidu.tieba.neighbors;
 
-import android.view.View;
+import com.baidu.adp.widget.ListView.BdListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class f implements View.OnClickListener {
-    final /* synthetic */ NeighborsActivity a;
+public class f implements com.baidu.tbadk.core.view.u {
+    final /* synthetic */ NeighborsActivity btV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(NeighborsActivity neighborsActivity) {
-        this.a = neighborsActivity;
+        this.btV = neighborsActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.k();
+    @Override // com.baidu.tbadk.core.view.u
+    public void aa(boolean z) {
+        BdListView bdListView;
+        if (z) {
+            bdListView = this.btV.btK;
+            bdListView.hO();
+        }
     }
 }

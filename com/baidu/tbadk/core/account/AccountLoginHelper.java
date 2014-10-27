@@ -8,8 +8,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.relogin.ReloginManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.ay;
 /* loaded from: classes.dex */
 public class AccountLoginHelper {
     private static AccountLoginHelper mHelper = null;
@@ -33,22 +32,22 @@ public class AccountLoginHelper {
         @Override // com.baidu.tbadk.core.account.g
         public void onFailure(final String str, int i, String str2) {
             if (i == 1) {
-                ReloginManager.a().a((AccountData) null);
+                ReloginManager.lf().d(null);
             }
             BdAsyncTask<Void, Void, AccountData> bdAsyncTask = new BdAsyncTask<Void, Void, AccountData>() { // from class: com.baidu.tbadk.core.account.AccountLoginHelper.1.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public AccountData doInBackground(Void... voidArr) {
-                    return a.b(str);
+                    return a.aX(str);
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(AccountData accountData) {
-                    super.onPostExecute((C00101) accountData);
-                    if (accountData != null && !ba.c(accountData.getPassword())) {
+                    super.onPostExecute((C00221) accountData);
+                    if (accountData != null && !ay.aA(accountData.getPassword())) {
                         c.a(accountData.getAccount(), accountData.getPassword(), AccountLoginHelper.this.mLoginCallBackForCacheAccount);
                     }
                 }
@@ -82,7 +81,7 @@ public class AccountLoginHelper {
         @Override // com.baidu.tbadk.core.account.d
         public void onFailure(String str) {
             if (!TextUtils.isEmpty(str)) {
-                a.a(str);
+                a.aW(str);
             }
         }
     };
@@ -155,7 +154,7 @@ public class AccountLoginHelper {
 
     public void reLoginByCacheAccount(Activity activity) {
         OurToken parseBDUSS;
-        if (UtilHelper.isNetOk()) {
+        if (com.baidu.adp.lib.util.j.fh()) {
             this.mActivity = activity;
             AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
             if (currentAccountObj != null && (parseBDUSS = parseBDUSS(currentAccountObj.getBDUSS())) != null) {
@@ -166,7 +165,7 @@ public class AccountLoginHelper {
 
     public void baiduMtjStat(String str) {
         try {
-            TiebaStatic.eventStat(TbadkApplication.m252getInst().getApp(), str, "click", 1, new Object[0]);
+            TiebaStatic.eventStat(TbadkApplication.m251getInst().getApp(), str, "click", 1, new Object[0]);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -1,50 +1,26 @@
 package com.baidu.tieba.frs;
 
-import android.content.DialogInterface;
-import com.baidu.adp.framework.message.CustomMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
 /* loaded from: classes.dex */
-public class ao implements DialogInterface.OnClickListener {
-    final /* synthetic */ FrsActivity a;
-    private final /* synthetic */ com.baidu.tbadk.core.data.n b;
-
+class ao extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(FrsActivity frsActivity, com.baidu.tbadk.core.data.n nVar) {
-        this.a = frsActivity;
-        this.b = nVar;
+    public ao(int i) {
+        super(i);
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        String str;
-        String str2;
-        boolean z;
-        cv cvVar;
-        switch (i) {
-            case 0:
-                str = this.a.y;
-                if (str != null) {
-                    FrsActivity frsActivity = this.a;
-                    com.baidu.tbadk.core.atomData.bc bcVar = new com.baidu.tbadk.core.atomData.bc(this.a);
-                    com.baidu.tbadk.core.data.n nVar = this.b;
-                    str2 = this.a.q;
-                    z = this.a.A;
-                    frsActivity.sendMessage(new CustomMessage(2004001, bcVar.a(nVar, str2, null, 18003, true, false, z)));
-                    break;
-                }
-                break;
-            case 1:
-                this.a.c(this.b);
-                break;
-            case 2:
-                this.a.d(this.b);
-                break;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
+            int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
+            if (intValue == 1 || intValue == 4 || intValue == 3) {
+                FrsActivity.aAl = true;
+            } else if (intValue == 2) {
+                FrsActivity.aAm = true;
+            }
+            FrsActivity.aAk = true;
         }
-        com.baidu.tieba.util.p B = com.baidu.tieba.ai.c().B();
-        if (B != null && this.b != null && !B.b(this.b.h())) {
-            B.a(this.b.h());
-        }
-        cvVar = this.a.B;
-        cvVar.z();
     }
 }

@@ -6,18 +6,17 @@ import com.baidu.tieba.im.message.ResponseOfficialBarMenuLocalMessage;
 import com.baidu.tieba.im.model.OfficialBarMsglistModel;
 /* loaded from: classes.dex */
 class v extends CustomMessageListener {
-    final /* synthetic */ OfficialBarChatActivity a;
+    final /* synthetic */ OfficialBarChatActivity aRf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public v(OfficialBarChatActivity officialBarChatActivity, int i) {
         super(i);
-        this.a = officialBarChatActivity;
+        this.aRf = officialBarChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         OfficialBarMsglistModel officialBarMsglistModel;
         OfficialBarMsglistModel officialBarMsglistModel2;
@@ -26,22 +25,22 @@ class v extends CustomMessageListener {
         OfficialBarMsglistModel officialBarMsglistModel5;
         OfficialBarMsglistView officialBarMsglistView;
         if (customResponsedMessage == null || !(customResponsedMessage instanceof ResponseOfficialBarMenuLocalMessage)) {
-            this.a.showToast(com.baidu.tieba.x.neterror);
+            this.aRf.showToast(com.baidu.tieba.y.neterror);
             return;
         }
-        com.baidu.tieba.im.data.m officialBarMenuDatas = ((ResponseOfficialBarMenuLocalMessage) customResponsedMessage).getOfficialBarMenuDatas();
+        com.baidu.tieba.im.data.g officialBarMenuDatas = ((ResponseOfficialBarMenuLocalMessage) customResponsedMessage).getOfficialBarMenuDatas();
         if (officialBarMenuDatas != null) {
-            officialBarMsglistModel3 = this.a.n;
-            officialBarMsglistModel3.a(officialBarMenuDatas);
-            officialBarMsglistModel4 = this.a.n;
-            officialBarMsglistModel5 = this.a.n;
-            officialBarMsglistModel4.a(officialBarMsglistModel5.m(), officialBarMenuDatas.b());
-            officialBarMsglistView = this.a.m;
-            officialBarMsglistView.a(officialBarMenuDatas.c());
+            officialBarMsglistModel3 = this.aRf.aQZ;
+            officialBarMsglistModel3.setOfficialBarMenuDatas(officialBarMenuDatas);
+            officialBarMsglistModel4 = this.aRf.aQZ;
+            officialBarMsglistModel5 = this.aRf.aQZ;
+            officialBarMsglistModel4.sendGetMenuNetMessage(officialBarMsglistModel5.getForumId(), officialBarMenuDatas.Mr());
+            officialBarMsglistView = this.aRf.aQY;
+            officialBarMsglistView.P(officialBarMenuDatas.Ms());
             return;
         }
-        officialBarMsglistModel = this.a.n;
-        officialBarMsglistModel2 = this.a.n;
-        officialBarMsglistModel.a(officialBarMsglistModel2.m(), 0L);
+        officialBarMsglistModel = this.aRf.aQZ;
+        officialBarMsglistModel2 = this.aRf.aQZ;
+        officialBarMsglistModel.sendGetMenuNetMessage(officialBarMsglistModel2.getForumId(), 0L);
     }
 }

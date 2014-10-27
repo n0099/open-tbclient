@@ -23,7 +23,7 @@ public class UserPostPageSocketResponsedMessage extends SocketResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.b
     public void decodeInBackGround(int i, byte[] bArr) {
-        this.personPostModel = new PersonPostModel();
+        this.personPostModel = new PersonPostModel(null);
         UserPostResIdl parseProtobuf = this.personPostModel.parseProtobuf(bArr);
         setError(parseProtobuf.error.errorno.intValue());
         setErrorString(parseProtobuf.error.usermsg);

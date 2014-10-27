@@ -1,27 +1,20 @@
 package com.baidu.tieba.im.chat.officialBar;
 
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class av {
-    HeadImageView a;
-    TextView b;
-    TextView c;
-    TextView d;
-    TextView e;
-    ImageView f;
-    View g;
-    ViewGroup h;
-    ImageView i;
-
-    private av() {
-    }
+public class av implements View.OnClickListener {
+    final /* synthetic */ au aRZ;
+    private final /* synthetic */ OfficialBarTipActivity aSa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ av(av avVar) {
-        this();
+    public av(au auVar, OfficialBarTipActivity officialBarTipActivity) {
+        this.aRZ = auVar;
+        this.aSa = officialBarTipActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.aSa.finish();
     }
 }

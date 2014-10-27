@@ -1,29 +1,37 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aa extends CustomMessageListener {
-    final /* synthetic */ LiveBroadcastCard a;
+public class aa implements View.OnClickListener {
+    final /* synthetic */ LiveBroadcastCard Oz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aa(LiveBroadcastCard liveBroadcastCard, int i) {
-        super(i);
-        this.a = liveBroadcastCard;
+    public aa(LiveBroadcastCard liveBroadcastCard) {
+        this.Oz = liveBroadcastCard;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        long j;
-        if (customResponsedMessage != null) {
-            j = this.a.B;
-            if (j <= 0) {
-                return;
-            }
-            this.a.i();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ac acVar;
+        ac acVar2;
+        String str;
+        Context context;
+        String str2;
+        acVar = this.Oz.mCardListener;
+        if (acVar != null) {
+            acVar2 = this.Oz.mCardListener;
+            acVar2.onClick(this.Oz);
+            return;
         }
+        str = this.Oz.mStatisticsKey;
+        if (!TextUtils.isEmpty(str)) {
+            context = this.Oz.mContext;
+            str2 = this.Oz.mStatisticsKey;
+            com.baidu.tbadk.core.i.l(context, str2);
+        }
+        this.Oz.goToLiveBroadcastAcvitity();
     }
 }

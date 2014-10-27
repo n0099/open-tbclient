@@ -1,17 +1,16 @@
 package com.baidu.tieba.person.post;
 
 import android.app.Activity;
+import android.content.Context;
+import com.baidu.adp.base.BdBaseActivity;
 import com.baidu.adp.base.BdBaseFragmentActivity;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.gson.annotations.SerializedName;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.at;
 import com.squareup.wire.Wire;
 import java.io.Serializable;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import tbclient.Abstract;
 import tbclient.UserPost.DataRes;
@@ -19,10 +18,22 @@ import tbclient.UserPost.UserPostResIdl;
 /* loaded from: classes.dex */
 public class PersonPostModel extends com.baidu.adp.base.e implements Serializable {
     public static final int PAGE_SIZE = 20;
-    private static int a = 0;
-    private static String b = "";
-    public List<PostList> post_list = new ArrayList();
-    public int hide_post = 0;
+    private static int bDy = 0;
+    private static String bDz = "";
+    public int hide_post;
+    public List<PostList> post_list;
+
+    public PersonPostModel() {
+        this.post_list = new ArrayList();
+        this.hide_post = 0;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public PersonPostModel(Context context) {
+        super(context);
+        this.post_list = new ArrayList();
+        this.hide_post = 0;
+    }
 
     @Override // com.baidu.adp.base.e
     protected boolean LoadData() {
@@ -35,25 +46,26 @@ public class PersonPostModel extends com.baidu.adp.base.e implements Serializabl
     }
 
     public void fetchPost(Activity activity, g gVar, boolean z, String str, boolean z2) {
-        if (z || !str.equals(b)) {
-            a = 1;
-            b = str;
+        if (z || !str.equals(bDz)) {
+            bDy = 1;
+            bDz = str;
         } else {
-            a++;
+            bDy++;
+        }
+        if (activity instanceof BdBaseActivity) {
+            this.unique_id = ((BdBaseActivity) activity).getUniqueId();
+        } else if (activity instanceof BdBaseFragmentActivity) {
+            this.unique_id = ((BdBaseFragmentActivity) activity).getUniqueId();
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
-        userPostPageRequestMessage.setUid(b);
-        userPostPageRequestMessage.setPn(a);
+        userPostPageRequestMessage.setUid(bDz);
+        userPostPageRequestMessage.setPn(bDy);
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(z2);
         userPostPageRequestMessage.setNeedContent(true);
         userPostPageRequestMessage.setReset(z);
         userPostPageRequestMessage.setmCallbackWeakReference(new WeakReference<>(gVar));
-        if (activity instanceof BdBaseFragmentActivity) {
-            ((BdBaseFragmentActivity) activity).a(userPostPageRequestMessage);
-        } else {
-            MessageManager.getInstance().sendMessage(userPostPageRequestMessage);
-        }
+        sendMessage(userPostPageRequestMessage);
     }
 
     public void parseProtobuf(DataRes dataRes) {
@@ -85,46 +97,26 @@ public class PersonPostModel extends com.baidu.adp.base.e implements Serializabl
     }
 
     /* loaded from: classes.dex */
-    public class PostList implements av, Serializable {
-        @SerializedName(com.baidu.tbadk.core.frameworkData.a.FORUM_ID)
+    public class PostList extends com.baidu.adp.lib.a.b.a.a.i implements at, Serializable {
         public long forum_id = 0;
-        @SerializedName(com.baidu.tbadk.core.frameworkData.a.THREAD_ID)
         public long thread_id = 0;
-        @SerializedName(com.baidu.tbadk.core.frameworkData.a.POST_ID)
         public long post_id = 0;
-        @SerializedName("is_thread")
         public int is_thread = 0;
-        @SerializedName("create_time")
         public long create_time = 0;
-        @SerializedName(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME)
         public String forum_name = "";
-        @SerializedName("title")
         public String title = "";
-        @SerializedName(com.baidu.tbadk.core.frameworkData.a.USER_NAME)
         public String user_name = "";
-        @SerializedName(com.baidu.tbadk.core.frameworkData.a.USER_ID)
         public long user_id = 0;
-        @SerializedName("user_portrait")
         public String user_portrait = "";
-        @SerializedName("abstract_thread")
         public Abs[] abs_thread = new Abs[0];
-        @SerializedName("content_thread")
         public String content_thread = "";
-        @SerializedName("abstract")
         public String abs = "";
-        @SerializedName("content")
         public Content[] content = new Content[0];
-        @SerializedName("quote")
         public Quote quote = new Quote();
-        @SerializedName("reply_num")
         public int reply_num = 0;
-        @SerializedName("media")
         public Media[] media = new Media[0];
-        @SerializedName("anchor_info")
         public AnchorInfo anchor_info = new AnchorInfo();
-        @SerializedName("lbs_info")
         public LbsInfo lbs_info = new LbsInfo();
-        @SerializedName("is_post_deleted")
         public int is_post_deleted = 0;
 
         public void parseProtobuf(tbclient.UserPost.PostList postList) {
@@ -173,31 +165,27 @@ public class PersonPostModel extends com.baidu.adp.base.e implements Serializabl
             }
         }
 
-        @Override // com.baidu.tbadk.core.util.av
-        public LinkedList<au> getImages() {
+        @Override // com.baidu.tbadk.core.util.at
+        public ArrayList<as> getImages() {
             Media[] mediaArr;
-            LinkedList<au> linkedList = new LinkedList<>();
+            ArrayList<as> arrayList = new ArrayList<>();
             for (Media media : this.media) {
                 if (media.big_pic != null) {
-                    au auVar = new au();
-                    auVar.a = media.big_pic;
-                    auVar.d = 10;
-                    linkedList.add(auVar);
+                    as asVar = new as();
+                    asVar.AI = media.big_pic;
+                    asVar.ER = 10;
+                    arrayList.add(asVar);
                 }
             }
-            return linkedList;
+            return arrayList;
         }
     }
 
     /* loaded from: classes.dex */
-    public class Content implements Serializable {
-        @SerializedName("post_content")
+    public class Content extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
         public Abs[] post_content = new Abs[0];
-        @SerializedName("create_time")
         public long create_time = 0;
-        @SerializedName("post_type")
         public long post_type = 0;
-        @SerializedName(com.baidu.tbadk.core.frameworkData.a.POST_ID)
         public long post_id = 0;
 
         public void parseProtobuf(tbclient.UserPost.Content content) {
@@ -225,16 +213,11 @@ public class PersonPostModel extends com.baidu.adp.base.e implements Serializabl
     }
 
     /* loaded from: classes.dex */
-    public class Abs implements Serializable {
-        @SerializedName("type")
+    public class Abs extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
         public int type = 0;
-        @SerializedName("text")
         public String text = "";
-        @SerializedName("src")
         public String src = "";
-        @SerializedName("un")
         public String un = "";
-        @SerializedName("link")
         public String link = "";
 
         public void parseProtobuf(Abstract r2) {
@@ -249,16 +232,11 @@ public class PersonPostModel extends com.baidu.adp.base.e implements Serializabl
     }
 
     /* loaded from: classes.dex */
-    public class Quote implements Serializable {
-        @SerializedName(com.baidu.tbadk.core.frameworkData.a.POST_ID)
+    public class Quote extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
         public long post_id = 0;
-        @SerializedName(com.baidu.tbadk.core.frameworkData.a.USER_NAME)
         public String user_name = "";
-        @SerializedName(com.baidu.tbadk.core.frameworkData.a.USER_ID)
         public long user_id = 0;
-        @SerializedName("ip")
         public String ip = null;
-        @SerializedName("content")
         public String content = "";
 
         public void parseProtobuf(tbclient.UserPost.Quote quote) {
@@ -273,14 +251,10 @@ public class PersonPostModel extends com.baidu.adp.base.e implements Serializabl
     }
 
     /* loaded from: classes.dex */
-    public class Media implements Serializable {
-        @SerializedName("type")
+    public class Media extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
         public int type = 0;
-        @SerializedName("small_pic")
         public String small_pic = "";
-        @SerializedName("big_pic")
         public String big_pic = "";
-        @SerializedName("water_pic")
         public String water_pic = "";
 
         public void parseProtobuf(tbclient.Media media) {
@@ -294,32 +268,19 @@ public class PersonPostModel extends com.baidu.adp.base.e implements Serializabl
     }
 
     /* loaded from: classes.dex */
-    public class AnchorInfo implements Serializable {
-        @SerializedName(com.baidu.tbadk.core.frameworkData.a.PORTRAIT)
+    public class AnchorInfo extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
         public String portrait = "";
-        @SerializedName("name")
         public String name = "";
-        @SerializedName("start_time")
         public long start_time = 0;
-        @SerializedName("status")
         public int status = 0;
-        @SerializedName("author_id")
         public int author_id = 0;
-        @SerializedName("author_name")
         public String author_name = "";
-        @SerializedName("listeners")
         public int listeners = 0;
-        @SerializedName("likers")
         public int likers = 0;
-        @SerializedName(com.baidu.tbadk.core.frameworkData.a.GROUP_ID)
         public int group_id = 0;
-        @SerializedName("intro")
         public String intro = "";
-        @SerializedName("publisherPortrait")
         public String publisherPortrait = "";
-        @SerializedName("publisherName")
         public String publisherName = "";
-        @SerializedName("publisherId")
         public int publisherId = 0;
 
         public void parseProtobuf(tbclient.AnchorInfo anchorInfo) {
@@ -343,11 +304,8 @@ public class PersonPostModel extends com.baidu.adp.base.e implements Serializabl
 
     /* loaded from: classes.dex */
     public class LbsInfo implements Serializable {
-        @SerializedName("lat")
         public String lat = "";
-        @SerializedName("lon")
         public String lon = "";
-        @SerializedName("town")
         public String town = "";
 
         public void parseProtobuf(tbclient.UserPost.LbsInfo lbsInfo) {

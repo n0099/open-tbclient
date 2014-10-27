@@ -6,17 +6,16 @@ import com.baidu.tbadk.newFriends.ResponseUnreadPointNum;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends CustomMessageListener {
-    final /* synthetic */ d a;
+    final /* synthetic */ d agH;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(d dVar) {
         super(2001180);
-        this.a = dVar;
+        this.agH = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         com.baidu.tieba.addresslist.a.a aVar;
         int i;
@@ -26,21 +25,21 @@ public class h extends CustomMessageListener {
         boolean z;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001180 && (customResponsedMessage instanceof ResponseUnreadPointNum)) {
             if (customResponsedMessage.getError() != 0) {
-                this.a.b(customResponsedMessage.getErrorString());
+                this.agH.showToast(customResponsedMessage.getErrorString());
                 return;
             }
-            this.a.n = ((ResponseUnreadPointNum) customResponsedMessage).getNum();
-            aVar = this.a.m;
-            i = this.a.n;
-            aVar.a(i);
-            i2 = this.a.n;
+            this.agH.agF = ((ResponseUnreadPointNum) customResponsedMessage).getNum();
+            aVar = this.agH.agE;
+            i = this.agH.agF;
+            aVar.dJ(i);
+            i2 = this.agH.agF;
             if (i2 > 0) {
-                this.a.o = false;
-                aVar3 = this.a.m;
-                z = this.a.o;
-                aVar3.a(z);
+                this.agH.agG = false;
+                aVar3 = this.agH.agE;
+                z = this.agH.agG;
+                aVar3.bj(z);
             }
-            aVar2 = this.a.m;
+            aVar2 = this.agH.agE;
             aVar2.notifyDataSetChanged();
         }
     }

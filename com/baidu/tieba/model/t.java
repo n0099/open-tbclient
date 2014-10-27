@@ -1,11 +1,155 @@
 package com.baidu.tieba.model;
-/* loaded from: classes.dex */
-public class t {
-    public com.baidu.tieba.data.p a;
-    public int b;
-    final /* synthetic */ r c;
 
-    public t(r rVar) {
-        this.c = rVar;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbadkApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public class t extends BdAsyncTask<Integer, com.baidu.tieba.data.p, com.baidu.tieba.data.p> {
+    private com.baidu.tieba.a.a boC = null;
+    private boolean boD = false;
+    final /* synthetic */ s boE;
+
+    public t(s sVar) {
+        this.boE = sVar;
+        setSelfExecute(true);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: c */
+    public com.baidu.tieba.data.p doInBackground(Integer... numArr) {
+        boolean z = true;
+        try {
+            if (this.boC == null) {
+                this.boC = new com.baidu.tieba.a.a();
+            }
+            String num = numArr[0].toString();
+            if (numArr.length <= 1) {
+                z = false;
+            } else if (numArr[1].intValue() != 1) {
+                z = false;
+            }
+            this.boD = z;
+            if (this.boD) {
+                publishProgress(this.boE.Tt());
+                return null;
+            }
+            String ez = this.boC.ez(num);
+            if (!this.boC.jq() || ez == null) {
+                return null;
+            }
+            com.baidu.tieba.data.p pVar = new com.baidu.tieba.data.p();
+            pVar.parserJson(ez);
+            if (num.equals("1") && this.boC.getErrorCode() == 0 && pVar.getErrorCode() == 0) {
+                eS(ez);
+            }
+            return pVar;
+        } catch (Exception e) {
+            this.boE.status = 0;
+            BdLog.e(e.getMessage().toString());
+            return null;
+        }
+    }
+
+    private void eS(String str) {
+        com.baidu.adp.lib.cache.t<String> bd;
+        String currentAccount = TbadkApplication.getCurrentAccount();
+        if (currentAccount != null && (bd = com.baidu.tbadk.core.a.a.kS().bd("tb.my_pages")) != null) {
+            bd.a("home_forumfeed_" + currentAccount, str, 604800000L);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void onProgressUpdate(com.baidu.tieba.data.p... pVarArr) {
+        com.baidu.adp.base.h hVar;
+        super.onProgressUpdate(pVarArr);
+        u uVar = new u(this.boE);
+        uVar.boG = 3;
+        uVar.boF = pVarArr.length > 0 ? pVarArr[0] : null;
+        hVar = this.boE.mLoadDataCallBack;
+        hVar.a(uVar);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: c */
+    public void onPostExecute(com.baidu.tieba.data.p pVar) {
+        int i;
+        com.baidu.adp.base.h hVar;
+        com.baidu.tieba.data.p pVar2;
+        com.baidu.tieba.data.p pVar3;
+        int i2;
+        com.baidu.tieba.data.p pVar4;
+        com.baidu.adp.base.h hVar2;
+        this.boC.cancel();
+        if (!this.boD) {
+            if (d(pVar)) {
+                hVar2 = this.boE.mLoadDataCallBack;
+                hVar2.a(null);
+            } else {
+                i = this.boE.boB;
+                if (i != 1) {
+                    pVar3 = this.boE.ayb;
+                    if (pVar3 != null) {
+                        i2 = this.boE.boB;
+                        if (i2 == 2) {
+                            if (this.boE.Tp()) {
+                                this.boE.ayb = pVar;
+                            } else {
+                                pVar4 = this.boE.ayb;
+                                pVar4.a(pVar, true);
+                            }
+                        }
+                        hVar = this.boE.mLoadDataCallBack;
+                        pVar2 = this.boE.ayb;
+                        hVar.a(pVar2);
+                    }
+                }
+                this.boE.ayb = pVar;
+                hVar = this.boE.mLoadDataCallBack;
+                pVar2 = this.boE.ayb;
+                hVar.a(pVar2);
+            }
+        }
+        this.boE.status = 0;
+    }
+
+    private boolean d(com.baidu.tieba.data.p pVar) {
+        if (pVar == null || this.boC.getErrorCode() != 0) {
+            this.boE.setErrorCode(this.boC.getErrorCode());
+            this.boE.setErrorString(this.boC.getErrorMsg());
+            return true;
+        } else if (pVar != null && pVar.getErrorCode() != 0) {
+            this.boE.setErrorCode(pVar.getErrorCode());
+            this.boE.setErrorString(pVar.yY());
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onCancelled() {
+        super.onCancelled();
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+        if (this.boC != null) {
+            this.boC.cancel();
+        }
     }
 }

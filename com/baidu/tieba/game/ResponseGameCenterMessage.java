@@ -7,10 +7,12 @@ import java.util.List;
 import tbclient.GetGameCenter.AdList;
 import tbclient.GetGameCenter.GameList;
 import tbclient.GetGameCenter.GetGameCenterResIdl;
+import tbclient.GetGameCenter.RecommendGame;
 /* loaded from: classes.dex */
 public class ResponseGameCenterMessage extends TbSocketReponsedMessage {
     private List<AdList> mAdList;
     private GameList mGameList;
+    private List<RecommendGame> mRecommendGames;
 
     public ResponseGameCenterMessage() {
         super(303008);
@@ -30,6 +32,7 @@ public class ResponseGameCenterMessage extends TbSocketReponsedMessage {
             if (getError() == 0) {
                 this.mGameList = getGameCenterResIdl.data.game_list;
                 this.mAdList = getGameCenterResIdl.data.ad_list;
+                this.mRecommendGames = getGameCenterResIdl.data.recommend_game;
             }
         }
     }
@@ -40,11 +43,15 @@ public class ResponseGameCenterMessage extends TbSocketReponsedMessage {
         RequestGameCenterMessage requestGameCenterMessage;
         Message<?> orginalMessage = getOrginalMessage();
         if ((orginalMessage instanceof RequestGameCenterMessage) && getError() == 0 && (requestGameCenterMessage = (RequestGameCenterMessage) orginalMessage) != null && requestGameCenterMessage.getPageNum() == 0) {
-            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.a.a().a("tb.game_center_home"), "game_center_cache", bArr);
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.a.kS().bc("tb.game_center_home"), "game_center_cache", bArr);
         }
     }
 
     public List<AdList> getAdLists() {
         return this.mAdList;
+    }
+
+    public List<RecommendGame> getRecommendGames() {
+        return this.mRecommendGames;
     }
 }

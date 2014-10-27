@@ -4,14 +4,15 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tieba.s;
 /* loaded from: classes.dex */
 class a implements TextWatcher {
-    final /* synthetic */ AppealActivity a;
+    final /* synthetic */ AppealActivity afT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(AppealActivity appealActivity) {
-        this.a = appealActivity;
+        this.afT = appealActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -28,17 +29,17 @@ class a implements TextWatcher {
         TextView textView2;
         TextView textView3;
         TextView textView4;
-        textView = this.a.d;
+        textView = this.afT.afO;
         int length = 150 - textView.getText().toString().length();
-        textView2 = this.a.e;
+        textView2 = this.afT.afP;
         textView2.setText(String.valueOf(length));
         if (length < 0) {
-            textView4 = this.a.e;
-            textView4.setTextColor(this.a.getResources().getColor(r.red));
+            textView4 = this.afT.afP;
+            textView4.setTextColor(this.afT.getResources().getColor(s.red));
             return;
         }
-        int skinType = TbadkApplication.m252getInst().getSkinType();
-        textView3 = this.a.e;
-        textView3.setTextColor(this.a.getResources().getColor(skinType == 1 ? r.appeal_hint : r.appeal_hint_1));
+        TbadkApplication.m251getInst().getSkinType();
+        textView3 = this.afT.afP;
+        aw.b(textView3, s.appeal_hint, 1);
     }
 }

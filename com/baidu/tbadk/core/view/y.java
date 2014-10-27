@@ -1,32 +1,54 @@
 package com.baidu.tbadk.core.view;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.tbadk.widget.TbImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.Drawable;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class y implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ UserIconBox a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public y(UserIconBox userIconBox) {
-        this.a = userIconBox;
+public class y extends com.baidu.adp.widget.ListView.d {
+    public y(Context context) {
+        super(context);
     }
 
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewRemoved(View view, View view2) {
-        com.baidu.adp.lib.d.b bVar;
-        com.baidu.adp.lib.d.b bVar2;
-        if (view2 instanceof TbImageView) {
-            bVar = this.a.b;
-            if (bVar != null) {
-                bVar2 = this.a.b;
-                bVar2.a((com.baidu.adp.lib.d.b) ((TbImageView) view2));
+    public void bM(int i) {
+        TextView hD = hD();
+        TextView hC = hC();
+        if (hD != null && hC != null && this.uj != null && this.uk != null) {
+            if (i == 1) {
+                int color = getContext().getResources().getColor(com.baidu.tieba.s.cp_cont_b_1);
+                int color2 = getContext().getResources().getColor(com.baidu.tieba.s.cp_cont_c_1);
+                this.uj.setBackgroundColor(getContext().getResources().getColor(com.baidu.tieba.s.cp_bg_line_c_1));
+                hD.setTextColor(color);
+                hC.setTextColor(color2);
+                this.ut = new AnimationDrawable();
+                Drawable drawable = getContext().getResources().getDrawable(com.baidu.tieba.u.listview_pull_refresh02_1);
+                if (drawable != null) {
+                    this.ut.addFrame(drawable, 100);
+                }
+                Drawable drawable2 = getContext().getResources().getDrawable(com.baidu.tieba.u.listview_pull_refresh01_1);
+                if (drawable2 != null) {
+                    this.ut.addFrame(drawable2, 100);
+                }
+                this.ut.setOneShot(false);
+                this.uk.setBackgroundDrawable(this.ut);
+                return;
             }
+            int color3 = getContext().getResources().getColor(com.baidu.tieba.s.cp_cont_b);
+            int color4 = getContext().getResources().getColor(com.baidu.tieba.s.cp_cont_c);
+            this.uj.setBackgroundColor(getContext().getResources().getColor(com.baidu.tieba.s.cp_bg_line_c));
+            hD.setTextColor(color3);
+            hC.setTextColor(color4);
+            this.ut = new AnimationDrawable();
+            Drawable drawable3 = getContext().getResources().getDrawable(com.baidu.tieba.u.listview_pull_refresh02);
+            if (drawable3 != null) {
+                this.ut.addFrame(drawable3, 100);
+            }
+            Drawable drawable4 = getContext().getResources().getDrawable(com.baidu.tieba.u.listview_pull_refresh01);
+            if (drawable4 != null) {
+                this.ut.addFrame(drawable4, 100);
+            }
+            this.ut.setOneShot(false);
+            this.uk.setBackgroundDrawable(this.ut);
         }
-    }
-
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewAdded(View view, View view2) {
     }
 }

@@ -1,27 +1,37 @@
 package com.baidu.tieba.pb.main;
 
-import android.graphics.Bitmap;
+import com.baidu.tbadk.core.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class s extends com.baidu.adp.base.h {
-    final /* synthetic */ PbActivity a;
+public class s implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ PbActivity bvg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(PbActivity pbActivity) {
-        this.a = pbActivity;
+        this.bvg = pbActivity;
     }
 
-    @Override // com.baidu.adp.base.h
-    public void a(Object obj) {
-        bs bsVar;
-        com.baidu.tieba.model.ar arVar;
-        if (obj instanceof Bitmap) {
-            Bitmap bitmap = (Bitmap) obj;
-            if (obj != null) {
-                bsVar = this.a.E;
-                bsVar.a(bitmap);
-                arVar = this.a.A;
-                arVar.a(true);
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.tieba.location.i iVar;
+        bv bvVar;
+        com.baidu.tieba.location.d dVar;
+        bv bvVar2;
+        bv bvVar3;
+        if (UtilHelper.isNetOk()) {
+            bvVar = this.bvg.buL;
+            if (bvVar.EO() != null) {
+                bvVar2 = this.bvg.buL;
+                bvVar2.EO().setLocationInfoViewState(1);
+                bvVar3 = this.bvg.buL;
+                bvVar3.EO().setLocationViewVisibility(0);
             }
+            dVar = this.bvg.ays;
+            dVar.Sw();
+        } else {
+            iVar = this.bvg.ayD;
+            iVar.EG();
         }
+        aVar.dismiss();
     }
 }

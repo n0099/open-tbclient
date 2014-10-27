@@ -5,30 +5,30 @@ import org.json.JSONObject;
 import tbclient.FrsPage.Classify;
 /* loaded from: classes.dex */
 public class h {
-    private String a = null;
-    private int b = 0;
+    private String class_name = null;
+    private int zM = 0;
 
-    public void a(String str) {
-        this.a = str;
+    public void aY(String str) {
+        this.class_name = str;
     }
 
-    public String a() {
-        return this.a;
+    public String jW() {
+        return this.class_name;
     }
 
-    public void a(int i) {
-        this.b = i;
+    public void aM(int i) {
+        this.zM = i;
     }
 
-    public int b() {
-        return this.b;
+    public int jX() {
+        return this.zM;
     }
 
-    public void a(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.b = jSONObject.optInt("class_id", 0);
-                this.a = jSONObject.optString("class_name");
+                this.zM = jSONObject.optInt("class_id", 0);
+                this.class_name = jSONObject.optString("class_name");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -37,8 +37,8 @@ public class h {
 
     public void a(Classify classify) {
         if (classify != null) {
-            this.b = classify.class_id.intValue();
-            this.a = classify.class_name;
+            this.zM = classify.class_id.intValue();
+            this.class_name = classify.class_name;
         }
     }
 }

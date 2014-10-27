@@ -1,26 +1,27 @@
 package com.baidu.tieba.mainentrance;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import android.widget.EditText;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aa extends CustomMessageListener {
-    final /* synthetic */ SquareSearchActivity a;
+public class aa implements View.OnClickListener {
+    final /* synthetic */ SquareSearchActivity bmO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aa(SquareSearchActivity squareSearchActivity, int i) {
-        super(i);
-        this.a = squareSearchActivity;
+    public aa(SquareSearchActivity squareSearchActivity) {
+        this.bmO = squareSearchActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage == null || !(customResponsedMessage instanceof ResponseSearchPersonHistoryReadMessage)) {
-            return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        EditText editText;
+        EditText editText2;
+        editText = this.bmO.bmh;
+        if (editText.hasFocus()) {
+            SquareSearchActivity squareSearchActivity = this.bmO;
+            editText2 = this.bmO.bmh;
+            com.baidu.adp.lib.util.m.b(squareSearchActivity, editText2);
+            this.bmO.closeActivity();
         }
-        this.a.a(6, ((ResponseSearchPersonHistoryReadMessage) customResponsedMessage).datas);
-        this.a.hideProgressBar();
     }
 }

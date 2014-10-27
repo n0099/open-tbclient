@@ -1,217 +1,404 @@
 package com.baidu.tieba.util;
 
-import android.content.Context;
-import android.text.SpannableStringBuilder;
-import android.text.method.LinkMovementMethod;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.database.Cursor;
+import android.text.TextUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tieba.t;
-import com.baidu.tieba.view.CustomTextView;
+import com.baidu.tbadk.TiebaDatabase;
+import com.baidu.tieba.aj;
+import com.baidu.tieba.data.MarkData;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
 /* loaded from: classes.dex */
 public class j {
-    private final Context a;
-    private final int b;
-    private final int c;
-    private View.OnClickListener d;
-    private boolean e = false;
-    private int f = -16777216;
+    private static Boolean bPW = true;
+    private static Boolean bPX = true;
 
-    public j(Context context) {
-        this.a = context;
-        TextView textView = new TextView(this.a);
-        textView.setLineSpacing(0.0f, 1.2f);
-        textView.setTextSize(TbConfig.getContentSize());
-        this.b = textView.getLineHeight();
-        this.c = (int) textView.getTextSize();
+    public static void hx(String str) {
+        s(13, str);
     }
 
-    public void a(boolean z) {
-        this.e = z;
+    public static void aey() {
+        hw(2);
     }
 
-    public void a(TextView textView, LinearLayout linearLayout, List<com.baidu.tieba.data.g> list, boolean z) {
-        TextView textView2;
-        int i;
-        CharSequence d;
-        if (textView != null && linearLayout != null && list != null) {
-            if (list != null && list.size() > 0) {
-                if (this.e) {
-                    list = a(list);
-                }
-                com.baidu.tieba.data.g gVar = list.get(0);
-                if (gVar == null || !(gVar.a() == 0 || gVar.a() == 2 || gVar.a() == 11)) {
-                    textView2 = null;
-                    i = 0;
-                } else {
-                    textView.setTextSize(TbConfig.getContentSize());
-                    textView.setVisibility(0);
-                    a(textView, gVar);
-                    i = 1;
-                    textView2 = textView;
-                }
-                if (linearLayout != null) {
-                    int i2 = -1;
-                    linearLayout.setVisibility(8);
-                    while (true) {
-                        int i3 = i;
-                        TextView textView3 = textView2;
-                        int i4 = i2;
-                        if (i3 < list.size()) {
-                            linearLayout.setVisibility(0);
-                            com.baidu.tieba.data.g gVar2 = list.get(i3);
-                            if (gVar2.a() == 3) {
-                                if (z) {
-                                    int i5 = i4 + 1;
-                                    linearLayout.addView(a(list, gVar2, i5));
-                                    i2 = i5;
-                                    textView2 = null;
-                                }
-                                i2 = i4;
-                                textView2 = textView3;
-                            } else if (textView3 != null) {
-                                if (gVar2.a() == 2) {
-                                    d = gVar2.a(this.a, this.b, this.c);
-                                } else {
-                                    d = gVar2.d();
-                                }
-                                if (d != null) {
-                                    textView3.append(d);
-                                    i2 = i4;
-                                    textView2 = textView3;
-                                }
-                                i2 = i4;
-                                textView2 = textView3;
-                            } else {
-                                TextView a = a(gVar2);
-                                linearLayout.addView(a);
-                                i2 = i4;
-                                textView2 = a;
+    public static void hy(String str) {
+        r(4, str);
+    }
+
+    public static void aez() {
+        hw(4);
+    }
+
+    public static String aeA() {
+        return hx(4);
+    }
+
+    private static void r(int i, String str) {
+        if (TbadkApplication.getCurrentAccount() != null) {
+            com.baidu.adp.base.a.c mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            mainDBDatabaseManager.a("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), TbadkApplication.getCurrentAccount()});
+            mainDBDatabaseManager.a("Insert into cash_data(account,type,data) values(?,?,?)", new Object[]{TbadkApplication.getCurrentAccount(), Integer.valueOf(i), str});
+        }
+    }
+
+    private static void hw(int i) {
+        if (TbadkApplication.getCurrentAccount() != null) {
+            TiebaDatabase.getInstance().getMainDBDatabaseManager().a("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), TbadkApplication.getCurrentAccount()});
+        }
+    }
+
+    private static String hx(int i) {
+        Cursor cursor;
+        Throwable th;
+        String str = null;
+        if (TbadkApplication.getCurrentAccount() != null) {
+            com.baidu.adp.base.a.c mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            try {
+                cursor = mainDBDatabaseManager.rawQuery("select * from cash_data where type = ? and account=?", new String[]{String.valueOf(i), TbadkApplication.getCurrentAccount()});
+                if (cursor != null) {
+                    try {
+                        try {
+                            if (cursor.moveToFirst()) {
+                                str = cursor.getString(2);
                             }
-                            i = i3 + 1;
-                        } else {
-                            return;
+                        } catch (Exception e) {
+                            e = e;
+                            mainDBDatabaseManager.a(e, "getCachData");
+                            com.baidu.adp.lib.g.a.a(cursor);
+                            return str;
                         }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        com.baidu.adp.lib.g.a.a(cursor);
+                        throw th;
                     }
                 }
-            } else {
-                textView.setVisibility(0);
-                textView.setText((CharSequence) null);
+                com.baidu.adp.lib.g.a.a(cursor);
+            } catch (Exception e2) {
+                e = e2;
+                cursor = null;
+            } catch (Throwable th3) {
+                cursor = null;
+                th = th3;
+                com.baidu.adp.lib.g.a.a(cursor);
+                throw th;
             }
         }
+        return str;
     }
 
-    private List<com.baidu.tieba.data.g> a(List<com.baidu.tieba.data.g> list) {
-        boolean z;
-        int length;
-        ArrayList arrayList = new ArrayList();
-        int size = list.size();
-        int i = 0;
-        int i2 = 0;
-        while (true) {
-            if (i >= size) {
-                z = false;
-                break;
+    private static void s(int i, String str) {
+        TiebaDatabase.getInstance().getMainDBDatabaseManager().a("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), (str == null || str.length() == 0) ? "0" : "0"});
+    }
+
+    public static ArrayList<String> aeB() {
+        return hy(0);
+    }
+
+    public static ArrayList<String> aeC() {
+        return hy(1);
+    }
+
+    private static ArrayList<String> hy(int i) {
+        Cursor cursor;
+        Throwable th;
+        Exception e;
+        Cursor cursor2 = null;
+        com.baidu.adp.base.a.c mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        ArrayList<String> arrayList = new ArrayList<>();
+        try {
+            switch (i) {
+                case 0:
+                    cursor = mainDBDatabaseManager.rawQuery("select * from search_data order by time desc limit 10", null);
+                    break;
+                case 1:
+                    cursor2 = mainDBDatabaseManager.rawQuery("select * from search_post_data order by time desc limit 10", null);
+                default:
+                    cursor = cursor2;
+                    break;
             }
-            com.baidu.tieba.data.g gVar = list.get(i);
-            int a = gVar.a();
-            if (a == 0 || a == 4 || a == 1) {
-                length = gVar.d() != null ? gVar.d().length() + i2 : i2;
-            } else {
-                length = i2 + 1;
-            }
-            if (length > 50) {
-                if (a == 0 || a == 4 || a == 1) {
-                    SpannableStringBuilder valueOf = SpannableStringBuilder.valueOf(gVar.d().subSequence(0, 50 - i2));
-                    com.baidu.tieba.data.g gVar2 = new com.baidu.tieba.data.g();
-                    gVar2.a(valueOf);
-                    gVar2.a(a);
-                    arrayList.add(gVar2);
-                    z = true;
-                } else {
-                    z = true;
+            while (cursor.moveToNext()) {
+                try {
+                    try {
+                        String string = cursor.getString(0);
+                        if (string != null && string.length() > 0) {
+                            arrayList.add(string);
+                        }
+                    } catch (Exception e2) {
+                        e = e2;
+                        mainDBDatabaseManager.a(e, "getAllSearchData");
+                        com.baidu.adp.lib.g.a.a(cursor);
+                        return arrayList;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    com.baidu.adp.lib.g.a.a(cursor);
+                    throw th;
                 }
-            } else {
-                arrayList.add(gVar);
-                i++;
-                i2 = length;
+            }
+            com.baidu.adp.lib.g.a.a(cursor);
+        } catch (Exception e3) {
+            cursor = null;
+            e = e3;
+        } catch (Throwable th3) {
+            cursor = null;
+            th = th3;
+            com.baidu.adp.lib.g.a.a(cursor);
+            throw th;
+        }
+        return arrayList;
+    }
+
+    public static void hz(String str) {
+        t(0, str);
+    }
+
+    public static void hA(String str) {
+        t(1, str);
+    }
+
+    private static void t(int i, String str) {
+        com.baidu.adp.base.a.c mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        if (str != null) {
+            Date date = new Date();
+            switch (i) {
+                case 0:
+                    mainDBDatabaseManager.a("delete from search_data where key=?", new String[]{str});
+                    mainDBDatabaseManager.a("Insert into search_data(key,account,time) values(?,?,?)", new Object[]{str, TbadkApplication.getCurrentAccount(), Long.valueOf(date.getTime())});
+                    return;
+                case 1:
+                    mainDBDatabaseManager.a("delete from search_post_data where key=?", new String[]{str});
+                    mainDBDatabaseManager.a("Insert into search_post_data(key,account,time) values(?,?,?)", new Object[]{str, TbadkApplication.getCurrentAccount(), Long.valueOf(date.getTime())});
+                    return;
+                default:
+                    return;
             }
         }
-        if (z) {
-            com.baidu.tieba.data.g gVar3 = new com.baidu.tieba.data.g();
-            gVar3.a(SpannableStringBuilder.valueOf("..."));
-            gVar3.a(0);
-            arrayList.add(gVar3);
-            return arrayList;
-        }
-        return list;
     }
 
-    private void a(TextView textView, com.baidu.tieba.data.g gVar) {
-        if (textView != null && gVar != null) {
-            if (gVar.a() == 2) {
-                textView.setText(gVar.a(this.a, this.b, this.c));
-            } else if (gVar.a() == 11) {
-                textView.setText("[" + gVar.c() + "]");
-            } else {
-                textView.setText(gVar.d());
+    public static void aeD() {
+        hz(0);
+    }
+
+    public static void aeE() {
+        hz(1);
+    }
+
+    public static void hz(int i) {
+        com.baidu.adp.base.a.c mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        switch (i) {
+            case 0:
+                mainDBDatabaseManager.g("delete from search_data");
+                return;
+            case 1:
+                mainDBDatabaseManager.g("delete from search_post_data");
+                return;
+            default:
+                return;
+        }
+    }
+
+    public static ArrayList<MarkData> aeF() {
+        Throwable th;
+        Cursor cursor;
+        Exception e;
+        if (TbadkApplication.getCurrentAccount() == null) {
+            return null;
+        }
+        com.baidu.adp.base.a.c mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        ArrayList<MarkData> arrayList = new ArrayList<>();
+        try {
+            try {
+                cursor = mainDBDatabaseManager.rawQuery("select * from mark_data where account=? order by time desc", new String[]{TbadkApplication.getCurrentAccount()});
+                while (cursor.moveToNext()) {
+                    try {
+                        MarkData markData = new MarkData();
+                        markData.setId(cursor.getString(0));
+                        markData.setFloor(cursor.getInt(1));
+                        markData.setTime(cursor.getInt(2));
+                        markData.setTitle(cursor.getString(3));
+                        markData.setSequence(Boolean.valueOf(cursor.getInt(4) == 1));
+                        markData.setHostMode(cursor.getInt(5) == 1);
+                        markData.setPostId(cursor.getString(6));
+                        markData.setAccount(cursor.getString(7));
+                        markData.setAuthorName(cursor.getString(8));
+                        markData.setReplyNum(cursor.getInt(9));
+                        markData.setSubPost(cursor.getInt(10));
+                        markData.setForumName(cursor.getString(11));
+                        markData.setForumId(cursor.getString(12));
+                        markData.setThreadId(cursor.getString(13));
+                        arrayList.add(markData);
+                    } catch (Exception e2) {
+                        e = e2;
+                        mainDBDatabaseManager.a(e, "getAllMarkData");
+                        com.baidu.adp.lib.g.a.a(cursor);
+                        return arrayList;
+                    }
+                }
+                h(false);
+                com.baidu.adp.lib.g.a.a(cursor);
+            } catch (Throwable th2) {
+                th = th2;
+                com.baidu.adp.lib.g.a.a((Cursor) null);
+                throw th;
             }
+        } catch (Exception e3) {
+            cursor = null;
+            e = e3;
+        } catch (Throwable th3) {
+            th = th3;
+            com.baidu.adp.lib.g.a.a((Cursor) null);
+            throw th;
+        }
+        return arrayList;
+    }
+
+    public static void h(Boolean bool) {
+        bPW = bool;
+    }
+
+    public static void aeG() {
+        if (TbadkApplication.getCurrentAccount() != null) {
+            com.baidu.adp.base.a.c mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            mainDBDatabaseManager.a("delete from setting where account=?", new Object[]{TbadkApplication.getCurrentAccount()});
+            Object[] objArr = new Object[11];
+            objArr[0] = TbadkApplication.getCurrentAccount();
+            objArr[1] = Integer.valueOf(TbadkApplication.m251getInst().getMsgFrequency());
+            objArr[2] = Integer.valueOf(TbadkApplication.m251getInst().isMsgNewFansOn() ? 1 : 0);
+            objArr[3] = Integer.valueOf(TbadkApplication.m251getInst().isMsgReplymeOn() ? 1 : 0);
+            objArr[4] = Integer.valueOf(TbadkApplication.m251getInst().isMsgAtmeOn() ? 1 : 0);
+            objArr[5] = Integer.valueOf(aj.wk().wy());
+            objArr[6] = Integer.valueOf(TbadkApplication.m251getInst().isMsgChatOn() ? 1 : 0);
+            objArr[7] = Integer.valueOf(TbadkApplication.m251getInst().isNoDisturbOn() ? 1 : 0);
+            objArr[8] = TbadkApplication.m251getInst().getNoDisturbStartTime();
+            objArr[9] = TbadkApplication.m251getInst().getNoDisturbEndTime();
+            objArr[10] = Integer.valueOf(TbadkApplication.m251getInst().isMsgLightOn() ? 1 : 0);
+            mainDBDatabaseManager.a("Insert into setting(account,frequency,fans_switch,reply_me_switch,at_me_switch,remind_tone,msg_chat_switch,nodisturb_switch,nodisturb_start_time,nodisturb_end_time,remind_light) values(?,?,?,?,?,?,?,?,?,?,?)", objArr);
         }
     }
 
-    private TextView a(com.baidu.tieba.data.g gVar) {
-        CustomTextView customTextView = new CustomTextView(this.a);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        int a = com.baidu.adp.lib.util.j.a(this.a, 15.0f);
-        layoutParams.rightMargin = 0;
-        layoutParams.leftMargin = 0;
-        layoutParams.topMargin = a;
-        layoutParams.bottomMargin = 0;
-        customTextView.setLineSpacing(0.0f, 1.2f);
-        customTextView.setTextSize(TbConfig.getContentSize());
-        if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            customTextView.setTextColor(ay.a(1));
-        } else {
-            customTextView.setTextColor(this.f);
+    public static void aeH() {
+        if (TbadkApplication.getCurrentAccount() == null || TbadkApplication.getCurrentAccount().length() <= 0 || TbadkApplication.getCurrentAccountName() == null) {
+            aj.wk().dA(0);
+            return;
         }
-        a(customTextView, gVar);
-        customTextView.setMovementMethod(LinkMovementMethod.getInstance());
-        customTextView.setFocusable(false);
-        customTextView.setLayoutParams(layoutParams);
-        return customTextView;
+        com.baidu.adp.base.a.c mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        try {
+            try {
+                Cursor rawQuery = mainDBDatabaseManager.rawQuery("select * from setting where account=?", new String[]{TbadkApplication.getCurrentAccount()});
+                if (rawQuery != null && rawQuery.moveToFirst()) {
+                    aj.wk().dA(rawQuery.getInt(rawQuery.getColumnIndex("frequency")));
+                    aj.wk().aY(rawQuery.getInt(rawQuery.getColumnIndex("fans_switch")) == 1);
+                    if (rawQuery.getInt(rawQuery.getColumnIndex("reply_me_switch")) == 0) {
+                        aj.wk().aX(false);
+                    } else {
+                        aj.wk().aX(true);
+                    }
+                    if (rawQuery.getInt(rawQuery.getColumnIndex("at_me_switch")) == 0) {
+                        aj.wk().aW(false);
+                    } else {
+                        aj.wk().aW(true);
+                    }
+                    aj.wk().dz(rawQuery.getInt(rawQuery.getColumnIndex("remind_tone")));
+                    if (rawQuery.getInt(rawQuery.getColumnIndex("msg_chat_switch")) == 0) {
+                        aj.wk().aZ(false);
+                    } else {
+                        aj.wk().aZ(true);
+                    }
+                    if (rawQuery.getInt(rawQuery.getColumnIndex("nodisturb_switch")) == 0) {
+                        aj.wk().aT(false);
+                    } else {
+                        aj.wk().aT(true);
+                    }
+                    String string = rawQuery.getString(rawQuery.getColumnIndex("nodisturb_start_time"));
+                    if (TextUtils.isEmpty(string)) {
+                        aj.wk().dZ(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
+                    } else {
+                        aj.wk().dZ(string);
+                    }
+                    String string2 = rawQuery.getString(rawQuery.getColumnIndex("nodisturb_end_time"));
+                    if (TextUtils.isEmpty(string2)) {
+                        aj.wk().ea(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
+                    } else {
+                        aj.wk().ea(string2);
+                    }
+                    if (rawQuery.getInt(rawQuery.getColumnIndex("remind_light")) == 0) {
+                        aj.wk().aV(false);
+                    } else {
+                        aj.wk().aV(true);
+                    }
+                } else {
+                    aj.wk().dA(TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI);
+                    aj.wk().aY(true);
+                    aj.wk().aX(true);
+                    aj.wk().aW(true);
+                    aj.wk().aS(true);
+                    aj.wk().aU(false);
+                    aj.wk().aV(true);
+                    aj.wk().aZ(true);
+                    aj.wk().aT(false);
+                    aj.wk().dZ(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
+                    aj.wk().ea(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
+                }
+                com.baidu.adp.lib.g.a.a(rawQuery);
+            } catch (Exception e) {
+                mainDBDatabaseManager.a(e, "getSettingData");
+                com.baidu.adp.lib.g.a.a((Cursor) null);
+            }
+        } catch (Throwable th) {
+            com.baidu.adp.lib.g.a.a((Cursor) null);
+            throw th;
+        }
     }
 
-    private ImageView a(List<com.baidu.tieba.data.g> list, com.baidu.tieba.data.g gVar, int i) {
-        ImageView imageView = new ImageView(this.a);
-        int a = com.baidu.adp.lib.util.j.a(this.a, 105.0f);
-        int a2 = com.baidu.adp.lib.util.j.a(this.a, 105.0f);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, a);
-        layoutParams.topMargin = com.baidu.adp.lib.util.j.a(this.a, 15.0f);
-        layoutParams.bottomMargin = 0;
-        com.baidu.adp.widget.a.a c = com.baidu.tbadk.imageManager.e.a().c(gVar.e());
-        imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        imageView.setMaxWidth(a2);
-        if (c != null) {
-            imageView.setTag(null);
-            c.a(imageView);
-        } else {
-            imageView.setTag(gVar.e());
-            imageView.setImageBitmap(com.baidu.tbadk.core.util.d.a(t.image_default));
+    public static void hB(String str) {
+        if (str != null) {
+            com.baidu.adp.base.a.c mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            mainDBDatabaseManager.a("delete from cash_data where account=?", new String[]{str});
+            mainDBDatabaseManager.a("delete from mark_data where account=?", new String[]{str});
+            mainDBDatabaseManager.a("delete from draft_box where account=?", new Object[]{str});
+            mainDBDatabaseManager.a("delete from account_data where id=?", new Object[]{str});
+            mainDBDatabaseManager.a("delete from setting where account=?", new Object[]{str});
         }
-        imageView.setClickable(true);
-        imageView.setFocusable(false);
-        imageView.setOnClickListener(this.d);
-        imageView.setLayoutParams(layoutParams);
-        return imageView;
     }
 
-    public void a(int i) {
-        this.f = i;
+    public static boolean M(String str, int i) {
+        com.baidu.adp.base.a.c mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        mainDBDatabaseManager.a("delete from cash_data where type=?", new String[]{String.valueOf(i)});
+        return mainDBDatabaseManager.a("Insert into cash_data(type ,account ,data ) values(?,?,?)", new String[]{String.valueOf(i), "", str});
+    }
+
+    public static String hA(int i) {
+        Cursor cursor;
+        Throwable th;
+        com.baidu.adp.base.a.c mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        try {
+            cursor = mainDBDatabaseManager.rawQuery("select * from cash_data where type=? ", new String[]{String.valueOf(i)});
+            try {
+                try {
+                    r0 = cursor.moveToFirst() ? cursor.getString(2) : null;
+                    com.baidu.adp.lib.g.a.a(cursor);
+                } catch (Exception e) {
+                    e = e;
+                    mainDBDatabaseManager.a(e, "getNoAccountData");
+                    com.baidu.adp.lib.g.a.a(cursor);
+                    return r0;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                com.baidu.adp.lib.g.a.a(cursor);
+                throw th;
+            }
+        } catch (Exception e2) {
+            e = e2;
+            cursor = null;
+        } catch (Throwable th3) {
+            cursor = null;
+            th = th3;
+            com.baidu.adp.lib.g.a.a(cursor);
+            throw th;
+        }
+        return r0;
     }
 }

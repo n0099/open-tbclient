@@ -10,28 +10,29 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
+import com.baidu.adp.R;
 /* loaded from: classes.dex */
 public abstract class b extends ImageView implements i {
-    protected e a;
-    protected a b;
-    protected boolean c;
-    private final int d;
-    private final int e;
-    private final int f;
-    private int g;
-    private ImageView.ScaleType h;
-    private ImageView.ScaleType i;
-    private boolean j;
-    private boolean k;
-    private int l;
-    private int m;
-    private int n;
-    private int o;
-    private d p;
-    private boolean q;
-    private Drawable r;
-    private Drawable s;
-    private Drawable t;
+    private int mMaxHeight;
+    protected e qN;
+    private final int qR;
+    private final int qS;
+    private final int qT;
+    private int qU;
+    private ImageView.ScaleType qV;
+    private ImageView.ScaleType qW;
+    protected a qX;
+    private boolean qY;
+    private boolean qZ;
+    protected boolean ra;
+    private int rb;
+    private int rc;
+    private int rd;
+    private d re;
+    private boolean rf;
+    private Drawable rg;
+    private Drawable rh;
+    private Drawable ri;
 
     protected abstract com.baidu.adp.widget.a.a getBdImage();
 
@@ -39,18 +40,18 @@ public abstract class b extends ImageView implements i {
 
     public b(Context context) {
         super(context);
-        this.d = 4;
-        this.e = 1;
-        this.f = 201326592;
-        this.g = 0;
-        this.h = ImageView.ScaleType.CENTER_INSIDE;
-        this.i = null;
-        this.a = new e();
-        this.j = true;
-        this.c = true;
-        this.n = Integer.MAX_VALUE;
-        this.o = Integer.MAX_VALUE;
-        this.p = new d();
+        this.qR = 4;
+        this.qS = 1;
+        this.qT = 201326592;
+        this.qU = 0;
+        this.qV = ImageView.ScaleType.CENTER_INSIDE;
+        this.qW = null;
+        this.qN = new e();
+        this.qY = true;
+        this.ra = true;
+        this.rd = Integer.MAX_VALUE;
+        this.mMaxHeight = Integer.MAX_VALUE;
+        this.re = new d();
         a((AttributeSet) null);
     }
 
@@ -60,76 +61,76 @@ public abstract class b extends ImageView implements i {
 
     public b(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.d = 4;
-        this.e = 1;
-        this.f = 201326592;
-        this.g = 0;
-        this.h = ImageView.ScaleType.CENTER_INSIDE;
-        this.i = null;
-        this.a = new e();
-        this.j = true;
-        this.c = true;
-        this.n = Integer.MAX_VALUE;
-        this.o = Integer.MAX_VALUE;
-        this.p = new d();
+        this.qR = 4;
+        this.qS = 1;
+        this.qT = 201326592;
+        this.qU = 0;
+        this.qV = ImageView.ScaleType.CENTER_INSIDE;
+        this.qW = null;
+        this.qN = new e();
+        this.qY = true;
+        this.ra = true;
+        this.rd = Integer.MAX_VALUE;
+        this.mMaxHeight = Integer.MAX_VALUE;
+        this.re = new d();
         a(attributeSet);
     }
 
     private void a(AttributeSet attributeSet) {
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, com.baidu.adp.g.BDImageView);
-            this.a.a = obtainStyledAttributes.getDimensionPixelSize(0, com.baidu.adp.lib.util.j.a(getContext(), 4.0f));
-            this.a.b = obtainStyledAttributes.getBoolean(1, false);
-            this.a.c = obtainStyledAttributes.getBoolean(2, false);
-            this.a.d = obtainStyledAttributes.getDimensionPixelSize(3, com.baidu.adp.lib.util.j.a(getContext(), 1.0f));
-            this.a.e = obtainStyledAttributes.getColor(4, 201326592);
-            this.a.g = obtainStyledAttributes.getBoolean(5, false);
-            this.a.h = obtainStyledAttributes.getBoolean(6, true);
-            this.a.i = obtainStyledAttributes.getDrawable(7);
-            if (this.a.i == null) {
-                this.a.i = getResources().getDrawable(com.baidu.adp.c.icon_gif);
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.BDImageView);
+            this.qN.mRadius = obtainStyledAttributes.getDimensionPixelSize(0, com.baidu.adp.lib.util.m.dip2px(getContext(), 4.0f));
+            this.qN.rm = obtainStyledAttributes.getBoolean(1, false);
+            this.qN.ro = obtainStyledAttributes.getBoolean(2, false);
+            this.qN.rp = obtainStyledAttributes.getDimensionPixelSize(3, com.baidu.adp.lib.util.m.dip2px(getContext(), 1.0f));
+            this.qN.rq = obtainStyledAttributes.getColor(4, 201326592);
+            this.qN.rs = obtainStyledAttributes.getBoolean(5, false);
+            this.qN.rt = obtainStyledAttributes.getBoolean(6, true);
+            this.qN.ru = obtainStyledAttributes.getDrawable(7);
+            if (this.qN.ru == null) {
+                this.qN.ru = getResources().getDrawable(R.drawable.icon_gif);
             }
-            this.a.l = obtainStyledAttributes.getColor(12, 0);
-            this.g = obtainStyledAttributes.getInt(8, 0);
-            this.n = obtainStyledAttributes.getDimensionPixelSize(9, Integer.MAX_VALUE);
-            this.o = obtainStyledAttributes.getDimensionPixelSize(10, Integer.MAX_VALUE);
-            this.q = obtainStyledAttributes.getBoolean(11, false);
+            this.qN.rw = obtainStyledAttributes.getColor(12, 0);
+            this.qU = obtainStyledAttributes.getInt(8, 0);
+            this.rd = obtainStyledAttributes.getDimensionPixelSize(9, Integer.MAX_VALUE);
+            this.mMaxHeight = obtainStyledAttributes.getDimensionPixelSize(10, Integer.MAX_VALUE);
+            this.rf = obtainStyledAttributes.getBoolean(11, false);
             obtainStyledAttributes.recycle();
         } else {
-            this.a.a = com.baidu.adp.lib.util.j.a(getContext(), 4.0f);
-            this.a.d = com.baidu.adp.lib.util.j.a(getContext(), 1.0f);
-            this.a.e = 201326592;
-            if (this.a.i == null) {
-                this.a.i = getResources().getDrawable(com.baidu.adp.c.icon_gif);
+            this.qN.mRadius = com.baidu.adp.lib.util.m.dip2px(getContext(), 4.0f);
+            this.qN.rp = com.baidu.adp.lib.util.m.dip2px(getContext(), 1.0f);
+            this.qN.rq = 201326592;
+            if (this.qN.ru == null) {
+                this.qN.ru = getResources().getDrawable(R.drawable.icon_gif);
             }
         }
-        this.b = f.a().a(this.g);
-        this.b.a(this.a);
+        this.qX = f.gF().ab(this.qU);
+        this.qX.a(this.qN);
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onMeasure(int i, int i2) {
-        this.l = View.MeasureSpec.getMode(i);
-        this.m = View.MeasureSpec.getMode(i2);
+        this.rb = View.MeasureSpec.getMode(i);
+        this.rc = View.MeasureSpec.getMode(i2);
         View.MeasureSpec.getSize(i);
         View.MeasureSpec.getSize(i2);
         getDisplayBdImage();
-        int d = this.p.d();
-        int e = this.p.e();
+        int width = this.re.getWidth();
+        int height = this.re.getHeight();
         int paddingLeft = getPaddingLeft() + getPaddingRight();
         int paddingTop = getPaddingTop() + getPaddingBottom();
-        int i3 = e + paddingTop;
-        int max = Math.max(d + paddingLeft, getSuggestedMinimumWidth());
+        int i3 = height + paddingTop;
+        int max = Math.max(width + paddingLeft, getSuggestedMinimumWidth());
         int max2 = Math.max(i3, getSuggestedMinimumHeight());
-        if (max <= paddingLeft || max2 <= paddingTop || this.p.c || !this.q) {
-            max = a(max, this.n, i);
-            max2 = a(max2, this.o, i2);
+        if (max <= paddingLeft || max2 <= paddingTop || this.re.isDefault || !this.rf) {
+            max = h(max, this.rd, i);
+            max2 = h(max2, this.mMaxHeight, i2);
         }
-        this.p.f();
+        this.re.reset();
         super.onMeasure(View.MeasureSpec.makeMeasureSpec(max, 1073741824), View.MeasureSpec.makeMeasureSpec(max2, 1073741824));
     }
 
-    private int a(int i, int i2, int i3) {
+    private int h(int i, int i2, int i3) {
         int mode = View.MeasureSpec.getMode(i3);
         int size = View.MeasureSpec.getSize(i3);
         switch (mode) {
@@ -147,48 +148,48 @@ public abstract class b extends ImageView implements i {
     @Override // android.widget.ImageView
     protected boolean setFrame(int i, int i2, int i3, int i4) {
         boolean frame = super.setFrame(i, i2, i3, i4);
-        this.k = true;
+        this.qZ = true;
         return frame;
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.c = true;
+        this.ra = true;
     }
 
     private void getDisplayBdImage() {
         ImageView.ScaleType scaleType = getScaleType();
-        this.p.a = (BitmapDrawable) getDrawable();
-        this.p.b = getBdImage();
-        if (this.p.a()) {
-            this.p.b = null;
-            c();
-            this.p.c = false;
-            this.t = this.s;
-        } else if (this.p.b()) {
-            this.p.a = null;
-            c();
-            this.p.c = false;
-            this.t = this.s;
+        this.re.rk = (BitmapDrawable) getDrawable();
+        this.re.rl = getBdImage();
+        if (this.re.gD()) {
+            this.re.rl = null;
+            gA();
+            this.re.isDefault = false;
+            this.ri = this.rh;
+        } else if (this.re.gE()) {
+            this.re.rk = null;
+            gA();
+            this.re.isDefault = false;
+            this.ri = this.rh;
         } else {
-            this.p.a = null;
-            this.p.b = getDefaultBdImage();
-            this.p.c = true;
-            ImageView.ScaleType scaleType2 = this.p.b() ? this.h : scaleType;
-            this.t = this.r;
+            this.re.rk = null;
+            this.re.rl = getDefaultBdImage();
+            this.re.isDefault = true;
+            ImageView.ScaleType scaleType2 = this.re.gE() ? this.qV : scaleType;
+            this.ri = this.rg;
             scaleType = scaleType2;
         }
-        if (this.i != scaleType) {
-            this.i = scaleType;
-            this.c = true;
+        if (this.qW != scaleType) {
+            this.qW = scaleType;
+            this.ra = true;
         }
     }
 
-    private void c() {
-        if (this.p.c) {
-            this.c = true;
-            if (this.q || this.l != 1073741824 || this.m != 1073741824) {
+    private void gA() {
+        if (this.re.isDefault) {
+            this.ra = true;
+            if (this.rf || this.rb != 1073741824 || this.rc != 1073741824) {
                 requestLayout();
             }
         }
@@ -197,201 +198,197 @@ public abstract class b extends ImageView implements i {
     @Override // android.widget.ImageView
     public void setImageDrawable(Drawable drawable) {
         super.setImageDrawable(drawable);
-        d();
+        gB();
     }
 
     @Override // android.widget.ImageView
     public void setImageResource(int i) {
         super.setImageResource(i);
-        d();
+        gB();
     }
 
-    private void d() {
+    private void gB() {
         Drawable drawable = getDrawable();
         if (drawable != null) {
             if (drawable instanceof BitmapDrawable) {
-                this.j = true;
+                this.qY = true;
             } else {
-                this.j = false;
+                this.qY = false;
             }
-            this.c = true;
+            this.ra = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (!this.j) {
+        if (!this.qY) {
             super.onDraw(canvas);
             return;
         }
         getDisplayBdImage();
-        this.b.a(canvas, this, this.t);
+        this.qX.a(canvas, this, this.ri);
         a(canvas);
-        this.b.a(canvas, this);
-        this.p.f();
+        this.qX.a(canvas, this);
+        this.re.reset();
     }
 
-    private void e() {
-        if (this.k && this.j && this.c) {
-            this.b.a(this.p, this, this.i);
-            this.c = false;
+    private void gC() {
+        if (this.qZ && this.qY && this.ra) {
+            this.qX.a(this.re, this, this.qW);
+            this.ra = false;
         }
     }
 
     private void a(Canvas canvas) {
-        if (this.p.c()) {
-            e();
-            this.b.a(canvas, this.p, this);
+        if (this.re.isAvailable()) {
+            gC();
+            this.qX.a(canvas, this.re, this);
         }
     }
 
     public void setDefaultScaleType(ImageView.ScaleType scaleType) {
-        if (this.h != scaleType) {
-            this.h = scaleType;
-            this.c = true;
+        if (this.qV != scaleType) {
+            this.qV = scaleType;
+            this.ra = true;
             invalidate();
         }
     }
 
     public void setRadius(int i) {
-        if (this.a.a != i) {
-            this.a.a = i;
+        if (this.qN.mRadius != i) {
+            this.qN.mRadius = i;
             invalidate();
         }
     }
 
     public void setIsRound(boolean z) {
-        if (this.a.b != z) {
-            this.a.b = z;
+        if (this.qN.rm != z) {
+            this.qN.rm = z;
             invalidate();
         }
     }
 
     public void setIsNight(boolean z) {
-        if (this.a.f != z) {
-            this.a.f = z;
+        if (this.qN.rr != z) {
+            this.qN.rr = z;
             invalidate();
         }
     }
 
     public void setDrawBorder(boolean z) {
-        if (this.a.c != z) {
-            this.a.c = z;
-            this.c = true;
+        if (this.qN.ro != z) {
+            this.qN.ro = z;
+            this.ra = true;
             invalidate();
         }
     }
 
     public void setBorderWidth(int i) {
-        if (this.a.d != i) {
-            this.a.d = i;
+        if (this.qN.rp != i) {
+            this.qN.rp = i;
             invalidate();
         }
     }
 
     public void setBorderColor(int i) {
-        if (this.a.e != i) {
-            this.a.e = i;
+        if (this.qN.rq != i) {
+            this.qN.rq = i;
             invalidate();
         }
     }
 
     public void setBorderSurroundContent(boolean z) {
-        if (this.a.g != z) {
-            this.a.g = z;
-            this.c = true;
+        if (this.qN.rs != z) {
+            this.qN.rs = z;
+            this.ra = true;
             invalidate();
         }
     }
 
     public void setGifIconSupport(boolean z) {
-        if (this.a.h != z) {
-            this.a.h = z;
+        if (this.qN.rt != z) {
+            this.qN.rt = z;
             invalidate();
         }
     }
 
     public void setGifIcon(Drawable drawable) {
-        if (this.a.i != drawable) {
-            this.a.i = drawable;
+        if (this.qN.ru != drawable) {
+            this.qN.ru = drawable;
             invalidate();
         }
     }
 
     public void setDrawerType(int i) {
-        if (this.g != i) {
-            this.g = i;
-            this.b = f.a().a(this.g);
-            this.b.a(this.a);
-            this.c = true;
+        if (this.qU != i) {
+            this.qU = i;
+            this.qX = f.gF().ab(this.qU);
+            this.qX.a(this.qN);
+            this.ra = true;
             invalidate();
         }
     }
 
     @Override // android.widget.ImageView
     public void setAdjustViewBounds(boolean z) {
-        if (z != this.q) {
-            this.q = z;
+        if (z != this.rf) {
+            this.rf = z;
             requestLayout();
         }
     }
 
     public void setExtraMatrix(Matrix matrix) {
-        this.a.k = matrix;
+        this.qN.rv = matrix;
         invalidate();
     }
 
     @Override // android.widget.ImageView
     public void setImageMatrix(Matrix matrix) {
-        if (!this.j) {
+        if (!this.qY) {
             super.setImageMatrix(matrix);
-        } else if (matrix != null && this.i == ImageView.ScaleType.MATRIX) {
-            this.b.a(matrix);
-            this.c = true;
+        } else if (matrix != null && this.qW == ImageView.ScaleType.MATRIX) {
+            this.qX.a(matrix);
+            this.ra = true;
             invalidate();
         }
     }
 
     @Override // android.widget.ImageView
     public Matrix getImageMatrix() {
-        return !this.j ? super.getImageMatrix() : this.b.a();
+        return !this.qY ? super.getImageMatrix() : this.qX.gx();
     }
 
     public RectF getImageBounds() {
-        return this.b.b();
+        return this.qX.gy();
     }
 
     public int getImageWidth() {
         getDisplayBdImage();
-        int d = this.p.d();
-        this.p.f();
-        return d;
+        int width = this.re.getWidth();
+        this.re.reset();
+        return width;
     }
 
     public int getImageHeight() {
         getDisplayBdImage();
-        int e = this.p.e();
-        this.p.f();
-        return e;
+        int height = this.re.getHeight();
+        this.re.reset();
+        return height;
     }
 
     public void setDefaultBg(Drawable drawable) {
-        this.r = drawable;
+        this.rg = drawable;
     }
 
     public void setBg(Drawable drawable) {
-        this.s = drawable;
+        this.rh = drawable;
     }
 
     public void setForegroundColor(int i) {
-        if (this.a.l != i) {
-            this.a.l = i;
+        if (this.qN.rw != i) {
+            this.qN.rw = i;
             invalidate();
         }
-    }
-
-    public boolean a() {
-        return this.a.f;
     }
 }

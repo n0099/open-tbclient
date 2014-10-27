@@ -1,40 +1,40 @@
 package com.baidu.adp.lib.debug.b;
 /* loaded from: classes.dex */
 public class a {
-    private String a;
-    private String[] b;
-    private String c;
-    private String d;
+    private String className;
+    private String[] gQ;
+    private String gR;
+    private String title;
 
-    public String a() {
-        return this.a;
+    public String getTitle() {
+        return this.title;
     }
 
-    public void a(String str) {
-        this.a = str;
+    public void setTitle(String str) {
+        this.title = str;
     }
 
-    public String[] b() {
-        return this.b;
+    public String[] cS() {
+        return this.gQ;
     }
 
-    public void a(String[] strArr) {
-        this.b = strArr;
+    public void c(String[] strArr) {
+        this.gQ = strArr;
     }
 
-    public String c() {
-        return this.c;
+    public String getClassName() {
+        return this.className;
     }
 
-    public void b(String str) {
-        this.c = str;
+    public void Q(String str) {
+        this.className = str;
     }
 
-    public String d() {
-        return this.d;
+    public String getMethodName() {
+        return this.gR;
     }
 
-    public void c(String str) {
-        this.d = str;
+    public void R(String str) {
+        this.gR = str;
     }
 }

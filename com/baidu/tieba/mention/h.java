@@ -1,9 +1,9 @@
 package com.baidu.tieba.mention;
 /* loaded from: classes.dex */
 public interface h {
-    String a();
+    String SJ();
 
-    void a(String str);
+    void delete();
 
-    void b();
+    void gN(String str);
 }

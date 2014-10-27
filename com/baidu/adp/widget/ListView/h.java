@@ -1,44 +1,18 @@
 package com.baidu.adp.widget.ListView;
 
-import android.database.DataSetObserver;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
 /* loaded from: classes.dex */
-public class h extends DataSetObserver {
-    final /* synthetic */ g a;
+public abstract class h {
+    private View mView = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public h(g gVar) {
-        this.a = gVar;
-    }
+    public abstract View hA();
 
-    @Override // android.database.DataSetObserver
-    public void onChanged() {
-        DataSetObserver dataSetObserver;
-        i iVar;
-        i iVar2;
-        DataSetObserver dataSetObserver2;
-        super.onChanged();
-        dataSetObserver = this.a.g;
-        if (dataSetObserver != null) {
-            dataSetObserver2 = this.a.g;
-            dataSetObserver2.onChanged();
-        }
-        iVar = this.a.i;
-        if (iVar != null) {
-            iVar2 = this.a.i;
-            iVar2.a();
-        }
-    }
+    public abstract void onClick();
 
-    @Override // android.database.DataSetObserver
-    public void onInvalidated() {
-        DataSetObserver dataSetObserver;
-        DataSetObserver dataSetObserver2;
-        super.onInvalidated();
-        dataSetObserver = this.a.g;
-        if (dataSetObserver != null) {
-            dataSetObserver2 = this.a.g;
-            dataSetObserver2.onInvalidated();
+    public final View getView() {
+        if (this.mView == null) {
+            this.mView = hA();
         }
+        return this.mView;
     }
 }

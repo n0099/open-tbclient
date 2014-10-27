@@ -19,8 +19,8 @@ public class RequestGetNeighborsMessage extends TbSocketMessage {
     public void setParams(String str, String str2, int i, int i2, int i3) {
         this.mGeo = i;
         this.mOffset = i3;
-        this.mLat = com.baidu.adp.lib.e.c.a(str, 0.0d);
-        this.mLon = com.baidu.adp.lib.e.c.a(str2, 0.0d);
+        this.mLat = com.baidu.adp.lib.g.c.a(str, 0.0d);
+        this.mLon = com.baidu.adp.lib.g.c.a(str2, 0.0d);
         this.mSex = i2;
         if (this.mSex < 0 || this.mSex > 2) {
             this.mSex = 0;

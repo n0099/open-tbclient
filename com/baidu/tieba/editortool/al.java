@@ -1,23 +1,40 @@
 package com.baidu.tieba.editortool;
 
+import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 /* loaded from: classes.dex */
-class al implements View.OnClickListener {
-    final /* synthetic */ PrivilegeTabHorizonScrollView a;
-    private final int b;
+public class al extends BaseAdapter {
+    private final int RG;
+    final /* synthetic */ PrivilegeTabContentView arA;
+    private ao arz;
+    private final int count;
 
-    private al(PrivilegeTabHorizonScrollView privilegeTabHorizonScrollView, int i) {
-        this.a = privilegeTabHorizonScrollView;
-        this.b = i;
+    public al(PrivilegeTabContentView privilegeTabContentView, Context context, int i, int i2, ao aoVar) {
+        this.arA = privilegeTabContentView;
+        this.count = i;
+        this.RG = i2;
+        this.arz = aoVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ al(PrivilegeTabHorizonScrollView privilegeTabHorizonScrollView, int i, al alVar) {
-        this(privilegeTabHorizonScrollView, i);
+    @Override // android.widget.Adapter
+    public int getCount() {
+        return this.count;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PrivilegeTabHorizonScrollView.a(this.a).a(this.b);
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        return Integer.valueOf(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        return this.arz.getView(this.RG + i, view, viewGroup);
     }
 }

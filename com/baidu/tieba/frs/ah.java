@@ -1,45 +1,37 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah implements com.baidu.tbadk.core.util.bi {
-    Pattern a = Pattern.compile("http://tieba.baidu.com/f\\?kw=([^&]+)");
+public class ah implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ FrsActivity aBk;
 
-    @Override // com.baidu.tbadk.core.util.bi
-    public boolean a(Context context, String[] strArr) {
-        String str;
-        String substring;
-        if (strArr == null || strArr[0] == null) {
-            return false;
-        }
-        String lowerCase = strArr[0].toLowerCase();
-        Matcher matcher = this.a.matcher(lowerCase);
-        if (strArr.length <= 1) {
-            str = null;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ah(FrsActivity frsActivity) {
+        this.aBk = frsActivity;
+    }
+
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.tieba.location.i iVar;
+        bu buVar;
+        com.baidu.tieba.location.d dVar;
+        bu buVar2;
+        bu buVar3;
+        if (UtilHelper.isNetOk()) {
+            buVar = this.aBk.aAv;
+            if (buVar.EO() != null) {
+                buVar2 = this.aBk.aAv;
+                buVar2.EO().setLocationInfoViewState(1);
+                buVar3 = this.aBk.aAv;
+                buVar3.EO().setLocationViewVisibility(0);
+            }
+            dVar = this.aBk.ays;
+            dVar.Sw();
         } else {
-            str = strArr[1];
+            iVar = this.aBk.ayD;
+            iVar.EG();
         }
-        if (matcher.find()) {
-            substring = matcher.group(1);
-        } else if (!lowerCase.startsWith("frs:")) {
-            return false;
-        } else {
-            substring = lowerCase.substring(4);
-        }
-        if (context instanceof BaseActivity) {
-            ((BaseActivity) context).sendMessage(new CustomMessage(2003000, new com.baidu.tbadk.core.atomData.s(context).a(substring, str)));
-            return true;
-        } else if (context instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) context).a(new CustomMessage(2003000, new com.baidu.tbadk.core.atomData.s(context).a(substring, str)));
-            return true;
-        } else {
-            return false;
-        }
+        aVar.dismiss();
     }
 }

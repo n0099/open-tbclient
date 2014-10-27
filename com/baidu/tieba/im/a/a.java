@@ -3,58 +3,58 @@ package com.baidu.tieba.im.a;
 import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.adp.lib.util.j;
 import com.baidu.tieba.im.message.QueryGroupCountLocalMessage;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.base.e {
-    public static boolean a = true;
-    com.baidu.adp.lib.c.d b;
-    private boolean c;
-    private int d;
-    private int e;
-    private String f;
-    private String g;
-    private String h;
-    private e i;
-    private final com.baidu.adp.framework.listener.d j;
-    private final CustomMessageListener k;
+    public static boolean bcs = true;
+    private int bct;
+    private int bcu;
+    private e bcv;
+    private final com.baidu.adp.framework.listener.e bcw;
+    private final CustomMessageListener bcx;
+    private String geographicLocation;
+    private boolean isHaveReadCache;
+    private String link;
+    com.baidu.adp.lib.d.d locationCallBack;
+    private String picUrl;
 
     public a(Context context) {
         super(context);
-        this.c = false;
-        this.j = new b(this, 103011);
-        this.k = new c(this, 2001114);
-        this.b = new d(this);
+        this.isHaveReadCache = false;
+        this.bcw = new b(this, 103011);
+        this.bcx = new c(this, 2001114);
+        this.locationCallBack = new d(this);
     }
 
     public void a(e eVar) {
-        this.i = eVar;
+        this.bcv = eVar;
     }
 
-    public void a() {
-        if (this.c) {
-            if (UtilHelper.isNetOk()) {
-                com.baidu.adp.lib.c.a.a().a(true, this.b);
+    public void update() {
+        if (this.isHaveReadCache) {
+            if (j.fh()) {
+                com.baidu.adp.lib.d.a.dE().a(true, this.locationCallBack);
                 return;
-            } else if (this.i != null) {
-                this.i.b();
+            } else if (this.bcv != null) {
+                this.bcv.ig();
                 return;
             } else {
                 return;
             }
         }
-        this.c = true;
+        this.isHaveReadCache = true;
         MessageManager.getInstance().sendMessage(new QueryGroupCountLocalMessage());
     }
 
-    public void b() {
-        registerListener(this.j);
-        registerListener(this.k);
+    public void onStart() {
+        registerListener(this.bcw);
+        registerListener(this.bcx);
     }
 
-    public void c() {
-        MessageManager.getInstance().unRegisterListener(this.j);
-        MessageManager.getInstance().unRegisterListener(this.k);
+    public void onStop() {
+        MessageManager.getInstance().unRegisterListener(this.bcw);
+        MessageManager.getInstance().unRegisterListener(this.bcx);
     }
 
     @Override // com.baidu.adp.base.e

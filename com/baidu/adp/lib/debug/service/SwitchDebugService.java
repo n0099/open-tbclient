@@ -12,7 +12,7 @@ import android.hardware.SensorManager;
 import android.os.IBinder;
 import android.os.Vibrator;
 import android.widget.Toast;
-import com.baidu.adp.f;
+import com.baidu.adp.R;
 import com.baidu.adp.lib.debug.DebugConfigActivity;
 import com.baidu.adp.lib.debug.d;
 import com.baidu.adp.lib.debug.e;
@@ -47,7 +47,7 @@ public class SwitchDebugService extends Service implements SensorEventListener {
         this.mActivityManager = (ActivityManager) getSystemService("activity");
         if (isProcessOnForGroud()) {
             super.onCreate();
-            Toast.makeText(getBaseContext(), getText(f.switch_debug).toString(), 1).show();
+            Toast.makeText(getBaseContext(), getText(R.string.switch_debug).toString(), 1).show();
             this.mSensorManager = (SensorManager) getSystemService("sensor");
             this.mVibrator = (Vibrator) getSystemService("vibrator");
             this.mRockPage = true;
@@ -58,7 +58,7 @@ public class SwitchDebugService extends Service implements SensorEventListener {
 
     public static void startSwitchDebugService(Context context, e eVar) {
         context.startService(new Intent(context, SwitchDebugService.class));
-        d.f = eVar;
+        d.gk = eVar;
     }
 
     private static void initCoustomConfig(AssetManager assetManager) {
@@ -120,8 +120,8 @@ public class SwitchDebugService extends Service implements SensorEventListener {
                     if (this.mRockNum >= ROCK_MIN_NUM && currentTimeMillis - this.mPreLotteryTime > TIME_INTERVAL && isProcessOnForGroud()) {
                         this.mPreLotteryTime = currentTimeMillis;
                         this.mVibrator.vibrate(100L);
-                        if (d.c) {
-                            Toast.makeText(getBaseContext(), getResources().getString(f.debug_opened), 1).show();
+                        if (d.gh) {
+                            Toast.makeText(getBaseContext(), getResources().getString(R.string.debug_opened), 1).show();
                             return;
                         }
                         Intent intent = new Intent(getApplicationContext(), DebugConfigActivity.class);

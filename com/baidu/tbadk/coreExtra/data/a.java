@@ -7,39 +7,39 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private UserData a;
-    private ArrayList<String> b;
+    private UserData mUser;
+    private ArrayList<String> zR;
 
     public a() {
-        this.a = null;
-        this.b = null;
-        this.a = new UserData();
-        this.b = new ArrayList<>(3);
+        this.mUser = null;
+        this.zR = null;
+        this.mUser = new UserData();
+        this.zR = new ArrayList<>(3);
     }
 
-    public UserData a() {
-        return this.a;
+    public UserData getUser() {
+        return this.mUser;
     }
 
-    public ArrayList<String> b() {
-        return this.b;
+    public ArrayList<String> ka() {
+        return this.zR;
     }
 
-    public void a(String str) {
+    public void parserJson(String str) {
         try {
-            a(new JSONObject(str));
+            parserJson(new JSONObject(str));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         try {
-            this.a.parserJson(jSONObject.optJSONObject("user"));
+            this.mUser.parserJson(jSONObject.optJSONObject("user"));
             JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.b.add(optJSONArray.optString(i, null));
+                    this.zR.add(optJSONArray.optString(i, null));
                 }
             }
         } catch (Exception e) {

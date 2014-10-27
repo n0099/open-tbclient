@@ -5,15 +5,15 @@ import android.view.VelocityTracker;
 import com.baidu.adp.widget.HorizontalTranslateLayout;
 /* loaded from: classes.dex */
 public class l {
-    private static /* synthetic */ int[] f;
-    VelocityTracker a;
-    boolean b;
-    final int c;
-    final int d;
-    final /* synthetic */ HorizontalTranslateLayout e;
+    private static /* synthetic */ int[] sW;
+    final /* synthetic */ HorizontalTranslateLayout sJ;
+    VelocityTracker sS;
+    boolean sT;
+    final int sU;
+    final int sV;
 
-    static /* synthetic */ int[] b() {
-        int[] iArr = f;
+    static /* synthetic */ int[] hi() {
+        int[] iArr = sW;
         if (iArr == null) {
             iArr = new int[HorizontalTranslateLayout.TrackDirection.valuesCustom().length];
             try {
@@ -32,12 +32,12 @@ public class l {
                 iArr[HorizontalTranslateLayout.TrackDirection.right.ordinal()] = 2;
             } catch (NoSuchFieldError e4) {
             }
-            f = iArr;
+            sW = iArr;
         }
         return iArr;
     }
 
-    public boolean a(int i) {
+    public boolean ae(int i) {
         HorizontalTranslateLayout.TrackDirection trackDirection;
         h hVar;
         h hVar2;
@@ -45,93 +45,93 @@ public class l {
         int i3;
         int i4;
         int i5;
-        int[] b = b();
-        trackDirection = this.e.i;
-        switch (b[trackDirection.ordinal()]) {
+        int[] hi = hi();
+        trackDirection = this.sJ.st;
+        switch (hi[trackDirection.ordinal()]) {
             case 1:
-                i4 = this.e.j;
+                i4 = this.sJ.su;
                 if (i4 != 10004) {
-                    i5 = this.e.j;
+                    i5 = this.sJ.su;
                     if (i5 != 10000) {
                         return false;
                     }
                 }
                 break;
             case 2:
-                i2 = this.e.j;
+                i2 = this.sJ.su;
                 if (i2 != 10004) {
-                    i3 = this.e.j;
+                    i3 = this.sJ.su;
                     if (i3 != 10001) {
                         return false;
                     }
                 }
                 break;
             case 3:
-                hVar = this.e.x;
+                hVar = this.sJ.sI;
                 if (hVar != null) {
-                    hVar2 = this.e.x;
-                    hVar2.a(i);
+                    hVar2 = this.sJ.sI;
+                    hVar2.ad(i);
                     break;
                 }
                 break;
         }
-        this.a = VelocityTracker.obtain();
-        this.b = true;
+        this.sS = VelocityTracker.obtain();
+        this.sT = true;
         return true;
     }
 
-    public void a() {
-        this.b = false;
+    public void hg() {
+        this.sT = false;
     }
 
-    public void b(int i) {
+    public void af(int i) {
         int i2;
         HorizontalTranslateLayout.TrackDirection trackDirection;
+        float f;
         float f2;
-        float f3;
         int i3;
-        float f4;
+        float f3;
         int i4;
-        float f5;
+        float f4;
         int i5;
-        if (this.b) {
-            i2 = this.e.e;
+        if (this.sT) {
+            i2 = this.sJ.so;
             int i6 = i2 - i;
-            int[] b = b();
-            trackDirection = this.e.i;
-            switch (b[trackDirection.ordinal()]) {
+            int[] hi = hi();
+            trackDirection = this.sJ.st;
+            switch (hi[trackDirection.ordinal()]) {
                 case 1:
                     Log.d("HorizontalTranslateLayout", "@move left");
-                    f5 = this.e.c;
-                    if (i6 > f5 - this.e.getMeasuredWidth() && i6 < 0) {
-                        HorizontalTranslateLayout horizontalTranslateLayout = this.e;
-                        i5 = horizontalTranslateLayout.e;
-                        horizontalTranslateLayout.e = i5 - i;
-                        this.e.invalidate();
+                    f4 = this.sJ.sm;
+                    if (i6 > f4 - this.sJ.getMeasuredWidth() && i6 < 0) {
+                        HorizontalTranslateLayout horizontalTranslateLayout = this.sJ;
+                        i5 = horizontalTranslateLayout.so;
+                        horizontalTranslateLayout.so = i5 - i;
+                        this.sJ.invalidate();
                         return;
                     }
                     return;
                 case 2:
                     Log.d("HorizontalTranslateLayout", "@move right");
-                    f4 = this.e.d;
-                    if (i6 < this.e.getMeasuredWidth() - f4 && i6 > 0) {
-                        HorizontalTranslateLayout horizontalTranslateLayout2 = this.e;
-                        i4 = horizontalTranslateLayout2.e;
-                        horizontalTranslateLayout2.e = i4 - i;
-                        this.e.invalidate();
+                    f3 = this.sJ.sn;
+                    if (i6 < this.sJ.getMeasuredWidth() - f3 && i6 > 0) {
+                        HorizontalTranslateLayout horizontalTranslateLayout2 = this.sJ;
+                        i4 = horizontalTranslateLayout2.so;
+                        horizontalTranslateLayout2.so = i4 - i;
+                        this.sJ.invalidate();
                         return;
                     }
                     return;
                 case 3:
                     Log.d("HorizontalTranslateLayout", "@move horizontal");
-                    f2 = this.e.c;
-                    if (i6 >= f2 - this.e.getMeasuredWidth()) {
-                        f3 = this.e.d;
-                        if (i6 <= this.e.getMeasuredWidth() - f3) {
-                            HorizontalTranslateLayout horizontalTranslateLayout3 = this.e;
-                            i3 = horizontalTranslateLayout3.e;
-                            horizontalTranslateLayout3.e = i3 - i;
-                            this.e.invalidate();
+                    f = this.sJ.sm;
+                    if (i6 >= f - this.sJ.getMeasuredWidth()) {
+                        f2 = this.sJ.sn;
+                        if (i6 <= this.sJ.getMeasuredWidth() - f2) {
+                            HorizontalTranslateLayout horizontalTranslateLayout3 = this.sJ;
+                            i3 = horizontalTranslateLayout3.so;
+                            horizontalTranslateLayout3.so = i3 - i;
+                            this.sJ.invalidate();
                             return;
                         }
                         return;
@@ -143,94 +143,94 @@ public class l {
         }
     }
 
-    public void c() {
+    public void hh() {
         float max;
         HorizontalTranslateLayout.TrackDirection trackDirection;
-        this.a.computeCurrentVelocity(this.c);
-        float xVelocity = this.a.getXVelocity();
+        this.sS.computeCurrentVelocity(this.sU);
+        float xVelocity = this.sS.getXVelocity();
         Log.d("HorizontalTranslateLayout", "@fling x " + xVelocity);
         if (xVelocity < 0.0f) {
-            max = Math.min(xVelocity, -this.d);
+            max = Math.min(xVelocity, -this.sV);
         } else {
-            max = Math.max(xVelocity, this.d);
+            max = Math.max(xVelocity, this.sV);
         }
-        int[] b = b();
-        trackDirection = this.e.i;
-        switch (b[trackDirection.ordinal()]) {
+        int[] hi = hi();
+        trackDirection = this.sJ.st;
+        switch (hi[trackDirection.ordinal()]) {
             case 1:
-                b(max);
+                g(max);
                 break;
             case 2:
-                c(max);
+                h(max);
                 break;
             case 3:
-                a(max);
+                f(max);
                 break;
         }
-        this.a.recycle();
-        this.a = null;
+        this.sS.recycle();
+        this.sS = null;
     }
 
-    private void a(float f2) {
+    private void f(float f) {
         int i;
-        float f3;
+        float f2;
         g gVar;
         g gVar2;
-        float f4;
+        float f3;
         g gVar3;
         g gVar4;
         Log.d("HorizontalTranslateLayout", "@horizontalFling");
-        i = this.e.e;
+        i = this.sJ.so;
         if (i <= 0) {
-            f4 = this.e.c;
-            if (i >= f4 - this.e.getMeasuredWidth()) {
-                if (f2 < 0.0f) {
-                    gVar4 = this.e.s;
-                    gVar4.c(f2);
+            f3 = this.sJ.sm;
+            if (i >= f3 - this.sJ.getMeasuredWidth()) {
+                if (f < 0.0f) {
+                    gVar4 = this.sJ.sD;
+                    gVar4.d(f);
                     return;
                 }
-                gVar3 = this.e.s;
-                gVar3.a(f2);
+                gVar3 = this.sJ.sD;
+                gVar3.b(f);
                 return;
             }
         }
         if (i >= 0) {
-            f3 = this.e.d;
-            if (i <= this.e.getMeasuredWidth() - f3) {
-                if (f2 < 0.0f) {
-                    gVar2 = this.e.s;
-                    gVar2.b(f2);
+            f2 = this.sJ.sn;
+            if (i <= this.sJ.getMeasuredWidth() - f2) {
+                if (f < 0.0f) {
+                    gVar2 = this.sJ.sD;
+                    gVar2.c(f);
                     return;
                 }
-                gVar = this.e.s;
-                gVar.d(f2);
+                gVar = this.sJ.sD;
+                gVar.e(f);
             }
         }
     }
 
-    private void b(float f2) {
+    private void g(float f) {
         g gVar;
         g gVar2;
         Log.d("HorizontalTranslateLayout", "@leftFling");
-        if (f2 < 0.0f) {
-            gVar2 = this.e.s;
-            gVar2.c(f2);
+        if (f < 0.0f) {
+            gVar2 = this.sJ.sD;
+            gVar2.d(f);
             return;
         }
-        gVar = this.e.s;
-        gVar.a(f2);
+        gVar = this.sJ.sD;
+        gVar.b(f);
     }
 
-    private void c(float f2) {
+    private void h(float f) {
         g gVar;
         g gVar2;
         Log.d("HorizontalTranslateLayout", "@rightFling");
-        if (f2 < 0.0f) {
-            gVar2 = this.e.s;
-            gVar2.b(f2);
+        if (f < 0.0f) {
+            gVar2 = this.sJ.sD;
+            gVar2.c(f);
             return;
         }
-        gVar = this.e.s;
-        gVar.d(f2);
+        gVar = this.sJ.sD;
+        gVar.e(f);
     }
 }

@@ -8,39 +8,43 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class av extends com.baidu.adp.base.e {
-    private Context c;
-    private aw a = null;
-    private ax b = null;
-    private BaseActivity.LoadDataCallBack d = null;
+    private BaseActivity.LoadDataCallBack atj;
+    private aw bsK;
+    private ax bsL;
+    private Context mContext;
 
     public av(Context context) {
-        this.c = null;
-        this.c = context;
+        super(context);
+        this.bsK = null;
+        this.bsL = null;
+        this.mContext = null;
+        this.atj = null;
+        this.mContext = context;
     }
 
-    public void a() {
-        if (this.a == null) {
-            this.a = new aw(this, null);
-            this.a.execute(new String[0]);
+    public void Vv() {
+        if (this.bsK == null) {
+            this.bsK = new aw(this, null);
+            this.bsK.execute(new String[0]);
         }
     }
 
-    public void b() {
+    public void Vw() {
         String currentAccount = TbadkApplication.getCurrentAccount();
         if (!TextUtils.isEmpty(currentAccount)) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, currentAccount));
         }
     }
 
-    public void c() {
-        if (this.b == null) {
-            this.b = new ax(this, null);
-            this.b.execute(new String[0]);
+    public void Vx() {
+        if (this.bsL == null) {
+            this.bsL = new ax(this, null);
+            this.bsL.execute(new String[0]);
         }
     }
 
-    public void a(boolean z) {
-        TbadkApplication.m252getInst().setHeadsetModeOn(z);
+    public void setHeadsetModeOn(boolean z) {
+        TbadkApplication.m251getInst().setHeadsetModeOn(z);
     }
 
     @Override // com.baidu.adp.base.e
@@ -54,6 +58,6 @@ public class av extends com.baidu.adp.base.e {
     }
 
     public void a(BaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.d = loadDataCallBack;
+        this.atj = loadDataCallBack;
     }
 }

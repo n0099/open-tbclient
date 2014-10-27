@@ -4,17 +4,17 @@ import org.json.JSONObject;
 import tbclient.TailInfo;
 /* loaded from: classes.dex */
 public class b {
-    private int a;
-    private String b;
-    private String c;
-    private String d;
+    private int ajq;
+    private String content;
+    private String icon_link;
+    private String icon_url;
 
-    public void a(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         try {
-            this.b = jSONObject.optString("icon_url");
-            this.c = jSONObject.optString("icon_link");
-            this.d = jSONObject.optString("content");
-            this.a = jSONObject.optInt("tail_type");
+            this.icon_url = jSONObject.optString("icon_url");
+            this.icon_link = jSONObject.optString("icon_link");
+            this.content = jSONObject.optString("content");
+            this.ajq = jSONObject.optInt("tail_type");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -22,28 +22,28 @@ public class b {
 
     public void a(TailInfo tailInfo) {
         try {
-            this.b = tailInfo.icon_url;
-            this.c = tailInfo.icon_link;
-            this.d = tailInfo.content;
-            this.a = tailInfo.tail_type.intValue();
+            this.icon_url = tailInfo.icon_url;
+            this.icon_link = tailInfo.icon_link;
+            this.content = tailInfo.content;
+            this.ajq = tailInfo.tail_type.intValue();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public String a() {
-        return this.b;
+    public String getIconUrl() {
+        return this.icon_url;
     }
 
-    public String b() {
-        return this.c;
+    public String yp() {
+        return this.icon_link;
     }
 
-    public String c() {
-        return this.d;
+    public String getContent() {
+        return this.content;
     }
 
-    public int d() {
-        return this.a;
+    public int yq() {
+        return this.ajq;
     }
 }

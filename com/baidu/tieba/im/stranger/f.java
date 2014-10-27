@@ -1,201 +1,57 @@
 package com.baidu.tieba.im.stranger;
 
-import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
-import com.baidu.tieba.r;
-import com.baidu.tieba.t;
-import com.baidu.tieba.u;
+import android.widget.ListAdapter;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.v;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class f extends BaseAdapter {
-    private List<ImMessageCenterShowItemData> a = new ArrayList();
-    private StrangerListActivity b;
+public class f extends com.baidu.adp.base.f {
+    private BdListView azz;
+    private StrangerListActivity bim;
+    private StrangerListAdapter bis;
+    private View bit;
+    private NavigationBar mNavigationBar;
+    private ViewGroup mRootView;
 
     public f(StrangerListActivity strangerListActivity) {
-        this.b = strangerListActivity;
+        super(strangerListActivity);
+        strangerListActivity.setContentView(w.officialbar_msg_activity);
+        this.bim = strangerListActivity;
+        f(strangerListActivity);
+        g(strangerListActivity);
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        return this.a.size();
+    private void f(StrangerListActivity strangerListActivity) {
+        this.mNavigationBar = (NavigationBar) strangerListActivity.findViewById(v.view_navigation_bar);
+        this.mNavigationBar.setTitleText(strangerListActivity.getString(y.stranger_message_activity_title));
+        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.bit = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.stranger_delete, this.bim);
+        this.mRootView = (ViewGroup) strangerListActivity.findViewById(v.root_view);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public ImMessageCenterShowItemData getItem(int i) {
-        if (i < 0 || i >= this.a.size()) {
-            return null;
-        }
-        return this.a.get(i);
+    public void onChangeSkinType(int i) {
+        this.bim.getLayoutMode().L(i == 1);
+        this.bim.getLayoutMode().h(this.mRootView);
+        this.mNavigationBar.onChangeSkinType(i);
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        if (i < 0 || i >= this.a.size()) {
-            return -1L;
-        }
-        return i;
+    private void g(StrangerListActivity strangerListActivity) {
+        this.azz = (BdListView) strangerListActivity.findViewById(v.msg_list);
+        this.azz.setOnItemClickListener(strangerListActivity);
+        this.azz.setOnItemLongClickListener(strangerListActivity);
+        this.bis = new StrangerListAdapter(strangerListActivity);
+        this.azz.setAdapter((ListAdapter) this.bis);
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        g b;
-        if (view != null) {
-            b = (g) view.getTag();
-        } else {
-            view = com.baidu.adp.lib.e.b.a().a(this.b, v.chat_list_item, viewGroup, false);
-            b = b(view);
-            view.setTag(b);
-        }
-        if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            ay.e(view, t.list_selector_1);
-        } else {
-            ay.e(view, t.list_selector);
-        }
-        ay.f(b.g, r.cp_bg_line_b);
-        b.h.setVisibility(0);
-        b.g.setVisibility(0);
-        ImMessageCenterShowItemData item = getItem(i);
-        if (item != null) {
-            b.c.setText(item.getFriendName());
-            b.d.setText(item.getMsgContent());
-            a(b, item);
-            if (item.getServerTime() != 0) {
-                b.e.setText(ba.f(new Date(item.getServerTime())));
-            }
-            b.f.setVisibility(8);
-            if (item.getUnReadCount() > 0) {
-                b.b.setVisibility(0);
-                a(item, b.b, item.getUnReadCount());
-            } else {
-                b.b.setVisibility(8);
-            }
-            a(b.f, item);
-            b.a.setDrawBorder(true);
-            b.a.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
-            if (!TextUtils.isEmpty(item.getFriendPortrait())) {
-                b.a.a(item.getFriendPortrait(), 12, false);
-            }
-        }
-        a(view);
-        return view;
+    public StrangerListAdapter RE() {
+        return this.bis;
     }
 
-    private void a(View view) {
-        this.b.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
-        this.b.getLayoutMode().a(view);
-    }
-
-    private void a(ImMessageCenterShowItemData imMessageCenterShowItemData, TextView textView, int i) {
-        if (TbadkApplication.m252getInst().getMsgFrequency() == 0) {
-            i = 0;
-        }
-        if (!TbadkApplication.m252getInst().isMsgChatOn()) {
-            i = 0;
-        }
-        int i2 = imMessageCenterShowItemData.getGroupSetting().isAcceptNotify() ? i : 0;
-        if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            if (i2 == 0) {
-                textView.setBackgroundResource(t.icon_news_list_prompt_1);
-                textView.setText("");
-            } else if (i2 < 10) {
-                textView.setBackgroundResource(t.icon_news_head_prompt_one_1);
-                textView.setText(String.valueOf(i2));
-            } else if (i2 < 100) {
-                textView.setBackgroundResource(t.icon_news_head_prompt_two_1);
-                textView.setText(String.valueOf(i2));
-            } else {
-                textView.setBackgroundResource(t.icon_news_head_prompt_more_1);
-                textView.setText("");
-            }
-            textView.setTextColor(this.b.getResources().getColor(r.top_msg_num_night));
-            return;
-        }
-        if (i2 == 0) {
-            textView.setBackgroundResource(t.icon_news_list_prompt);
-            textView.setText("");
-        } else if (i2 < 10) {
-            textView.setBackgroundResource(t.icon_news_head_prompt_one);
-            textView.setText(String.valueOf(i2));
-        } else if (i2 < 100) {
-            textView.setBackgroundResource(t.icon_news_head_prompt_two);
-            textView.setText(String.valueOf(i2));
-        } else {
-            textView.setBackgroundResource(t.icon_news_head_prompt_more);
-            textView.setText("");
-        }
-        textView.setTextColor(this.b.getResources().getColor(r.top_msg_num_day));
-    }
-
-    private void a(ImageView imageView, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        if (imMessageCenterShowItemData != null && imageView != null) {
-            if (imMessageCenterShowItemData.getGroupSetting() == null) {
-                imageView.setVisibility(8);
-            } else if (!imMessageCenterShowItemData.getGroupSetting().isAcceptNotify()) {
-                imageView.setVisibility(0);
-                if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                    imageView.setImageResource(t.icon_news_stop_1);
-                } else {
-                    imageView.setImageResource(t.icon_news_stop);
-                }
-            } else {
-                imageView.setVisibility(8);
-            }
-        }
-    }
-
-    private g b(View view) {
-        g gVar = new g(null);
-        gVar.a = (HeadImageView) view.findViewById(u.chat_head);
-        gVar.b = (TextView) view.findViewById(u.new_message);
-        gVar.c = (TextView) view.findViewById(u.chat_name);
-        gVar.d = (TextView) view.findViewById(u.last_chat_content);
-        gVar.e = (TextView) view.findViewById(u.chat_time);
-        gVar.f = (ImageView) view.findViewById(u.iv_bell);
-        gVar.g = view.findViewById(u.line);
-        gVar.h = (ViewGroup) view.findViewById(u.list_content);
-        gVar.i = (ImageView) view.findViewById(u.send_status);
-        return gVar;
-    }
-
-    public void a(List<ImMessageCenterShowItemData> list) {
-        this.a = list;
-        notifyDataSetChanged();
-    }
-
-    private void a(g gVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        if (gVar != null && imMessageCenterShowItemData != null) {
-            gVar.i.setVisibility(0);
-            if (imMessageCenterShowItemData.getSendStatus() == 2) {
-                if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                    gVar.i.setBackgroundResource(t.icon_send_failed_information_1);
-                } else {
-                    gVar.i.setBackgroundResource(t.icon_send_failed_information);
-                }
-            } else if (imMessageCenterShowItemData.getSendStatus() == 1) {
-                if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                    gVar.i.setBackgroundResource(t.icon_send_in_information_1);
-                } else {
-                    gVar.i.setBackgroundResource(t.icon_send_in_information);
-                }
-            } else if (imMessageCenterShowItemData.getSendStatus() == 3) {
-                gVar.i.setVisibility(8);
-            } else {
-                gVar.i.setVisibility(8);
-            }
-        }
+    public View RF() {
+        return this.bit;
     }
 }

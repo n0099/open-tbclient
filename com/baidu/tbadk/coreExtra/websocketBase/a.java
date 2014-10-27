@@ -1,27 +1,28 @@
 package com.baidu.tbadk.coreExtra.websocketBase;
 
+import com.baidu.tbadk.TiebaIMConfig;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private String a;
-    private List<String> b;
-    private c c;
-    private boolean d;
+    private String Pl;
+    private List<String> Pm;
+    private c Pn;
+    private boolean Po;
 
-    public static a a() {
+    public static a qo() {
         a aVar;
-        aVar = e.a;
+        aVar = e.Ps;
         return aVar;
     }
 
     private a() {
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = false;
-        this.d = false;
-        this.b = null;
+        this.Pl = null;
+        this.Pm = null;
+        this.Pn = null;
+        this.Po = false;
+        this.Po = false;
+        this.Pm = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,62 +30,62 @@ public class a {
         this();
     }
 
-    public int b() {
-        return com.baidu.tbadk.core.sharedPref.b.a().a("KeyOfSharedPrefImCount", 0);
+    public int qp() {
+        return com.baidu.tbadk.core.sharedPref.b.lk().getInt("KeyOfSharedPrefImCount", 0);
     }
 
-    public String c() {
-        int b = b();
-        if (b >= 10) {
-            com.baidu.tbadk.core.sharedPref.b.a().b("KeyOfSharedPrefImCount", 0);
-            com.baidu.tbadk.core.sharedPref.b.a().b("KeyOfSharedPrefValidIp", "");
-            this.a = null;
+    public String qq() {
+        int qp = qp();
+        if (qp >= 10) {
+            com.baidu.tbadk.core.sharedPref.b.lk().putInt("KeyOfSharedPrefImCount", 0);
+            com.baidu.tbadk.core.sharedPref.b.lk().putString("KeyOfSharedPrefValidIp", "");
+            this.Pl = null;
             return null;
         }
-        if (this.a == null) {
-            this.a = com.baidu.tbadk.core.sharedPref.b.a().a("KeyOfSharedPrefValidIp", (String) null);
+        if (this.Pl == null) {
+            this.Pl = com.baidu.tbadk.core.sharedPref.b.lk().getString("KeyOfSharedPrefValidIp", null);
         }
-        if (!com.baidu.adp.lib.util.i.c(this.a)) {
-            com.baidu.tbadk.core.sharedPref.b.a().b("KeyOfSharedPrefImCount", b + 1);
+        if (!com.baidu.adp.lib.util.l.aA(this.Pl)) {
+            com.baidu.tbadk.core.sharedPref.b.lk().putInt("KeyOfSharedPrefImCount", qp + 1);
         } else {
-            this.a = null;
+            this.Pl = null;
         }
-        return this.a;
+        return this.Pl;
     }
 
-    public void a(String str) {
-        if (!"ws://im.tieba.baidu.com:8000".equals(str)) {
-            this.a = str;
-            com.baidu.tbadk.core.sharedPref.b.a().b("KeyOfSharedPrefValidIp", str);
+    public void cO(String str) {
+        if (!TiebaIMConfig.defaultUrl.equals(str)) {
+            this.Pl = str;
+            com.baidu.tbadk.core.sharedPref.b.lk().putString("KeyOfSharedPrefValidIp", str);
         }
     }
 
-    public List<String> d() {
-        if (this.b == null) {
-            this.b = b(com.baidu.tbadk.core.sharedPref.b.a().a("KeyOfSharedPrefIpList", (String) null));
+    public List<String> qr() {
+        if (this.Pm == null) {
+            this.Pm = cP(com.baidu.tbadk.core.sharedPref.b.lk().getString("KeyOfSharedPrefIpList", null));
         }
-        return this.b;
+        return this.Pm;
     }
 
-    public void e() {
-        this.d = false;
+    public void qs() {
+        this.Po = false;
     }
 
-    public boolean f() {
-        return this.d;
+    public boolean qt() {
+        return this.Po;
     }
 
     public void a(b bVar) {
-        if (this.c == null) {
-            this.d = true;
-            this.c = new c(this, bVar);
-            this.c.setSelfExecute(true);
-            this.c.execute(new Object[0]);
+        if (this.Pn == null) {
+            this.Po = true;
+            this.Pn = new c(this, bVar);
+            this.Pn.setSelfExecute(true);
+            this.Pn.execute(new Object[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<String> b(String str) {
+    public List<String> cP(String str) {
         String[] split;
         ArrayList arrayList = null;
         if (str != null && str.length() > 0 && (split = str.split(",")) != null && split.length > 0) {

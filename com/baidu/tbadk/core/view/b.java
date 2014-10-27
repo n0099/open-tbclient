@@ -12,72 +12,64 @@ import android.widget.LinearLayout;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends Button {
-    private float a;
-    private float b;
-    private float c;
-    private float d;
-    private float e;
-    private float f;
-    private View.OnClickListener g;
-    private WindowManager h;
-    private WindowManager.LayoutParams i;
-    private LinearLayout j;
-    private LinearLayout k;
-    private Rect l;
-    private boolean m;
+    private float GZ;
+    private float Ha;
+    private float Hb;
+    private float Hc;
+    private View.OnClickListener Hd;
+    private WindowManager.LayoutParams He;
+    private LinearLayout Hf;
+    private LinearLayout Hg;
+    private Rect Hh;
+    private boolean Hi;
+    private WindowManager windowManager;
+    private float x;
+    private float y;
 
     public b(Context context) {
         super(context);
-        this.l = new Rect();
-        setBackgroundResource(com.baidu.tieba.t.btn_game_tie_bg);
-        this.h = (WindowManager) context.getSystemService("window");
-        this.i = new WindowManager.LayoutParams();
-        this.i.x = 0;
-        this.i.y = 0;
-        this.i.width = -2;
-        this.i.height = -2;
-        this.i.type = 2002;
-        this.i.format = 1;
-        this.i.flags = 40;
-        this.i.gravity = 51;
-        this.j = b();
-        this.k = c();
-        this.h.addView(this.j, this.j.getLayoutParams());
-        this.h.addView(this.k, this.k.getLayoutParams());
+        this.Hh = new Rect();
+        setBackgroundResource(com.baidu.tieba.u.btn_game_tie_bg);
+        this.windowManager = (WindowManager) context.getSystemService("window");
+        this.He = nq();
+        this.Hf = no();
+        this.Hg = np();
+        this.windowManager.addView(this.Hf, this.Hf.getLayoutParams());
+        this.windowManager.addView(this.Hg, this.Hg.getLayoutParams());
     }
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        getWindowVisibleDisplayFrame(this.l);
-        this.c = motionEvent.getRawX();
-        this.d = motionEvent.getRawY() - this.l.top;
+        getWindowVisibleDisplayFrame(this.Hh);
+        this.x = motionEvent.getRawX();
+        this.y = motionEvent.getRawY() - this.Hh.top;
         switch (motionEvent.getAction()) {
             case 0:
-                this.a = motionEvent.getX();
-                this.b = motionEvent.getY();
-                this.e = this.c;
-                this.f = this.d;
-                this.m = false;
+                this.GZ = motionEvent.getX();
+                this.Ha = motionEvent.getY();
+                this.Hb = this.x;
+                this.Hc = this.y;
+                this.Hi = false;
                 break;
             case 1:
-                int[] e = com.baidu.adp.lib.util.j.e(getContext());
-                boolean z = e[0] / 2 < ((int) (this.c - this.a));
-                if (this.m) {
-                    a(z ? e[0] - getWidth() : 0, (int) (this.d - this.b));
+                int[] q = com.baidu.adp.lib.util.m.q(getContext());
+                boolean z = q[0] / 2 < ((int) (this.x - this.GZ));
+                if (this.Hi) {
+                    n(z ? q[0] - getWidth() : 0, (int) (this.y - this.Ha));
                 } else {
-                    a(z);
+                    Y(z);
                 }
-                this.b = 0.0f;
-                this.a = 0.0f;
+                this.Ha = 0.0f;
+                this.GZ = 0.0f;
                 break;
             case 2:
-                if (!this.m && (Math.abs(this.c - this.e) > 3.0f || Math.abs(this.d - this.f) > 3.0f)) {
-                    this.m = true;
+                if (!this.Hi && (Math.abs(this.x - this.Hb) > 3.0f || Math.abs(this.y - this.Hc) > 3.0f)) {
+                    this.Hi = true;
                 }
-                if (this.m) {
-                    a((int) (this.c - this.a), (int) (this.d - this.b));
-                    this.k.setVisibility(8);
-                    this.j.setVisibility(8);
+                if (this.Hi) {
+                    n((int) (this.x - this.GZ), (int) (this.y - this.Ha));
+                    this.Hg.setVisibility(8);
+                    this.Hf.setVisibility(8);
                     break;
                 }
                 break;
@@ -85,73 +77,69 @@ public class b extends Button {
         return true;
     }
 
-    private void a(boolean z) {
+    private void Y(boolean z) {
         if (z) {
-            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.k.getLayoutParams();
-            layoutParams.y = this.i.y;
-            this.h.updateViewLayout(this.k, layoutParams);
-            this.k.setVisibility(this.k.getVisibility() == 8 ? 0 : 8);
+            WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) this.Hg.getLayoutParams();
+            layoutParams.y = this.He.y;
+            this.windowManager.updateViewLayout(this.Hg, layoutParams);
+            this.Hg.setVisibility(this.Hg.getVisibility() == 8 ? 0 : 8);
             return;
         }
-        WindowManager.LayoutParams layoutParams2 = (WindowManager.LayoutParams) this.j.getLayoutParams();
-        layoutParams2.y = this.i.y;
-        this.h.updateViewLayout(this.j, layoutParams2);
-        this.j.setVisibility(this.j.getVisibility() != 8 ? 8 : 0);
+        WindowManager.LayoutParams layoutParams2 = (WindowManager.LayoutParams) this.Hf.getLayoutParams();
+        layoutParams2.y = this.He.y;
+        this.windowManager.updateViewLayout(this.Hf, layoutParams2);
+        this.Hf.setVisibility(this.Hf.getVisibility() != 8 ? 8 : 0);
     }
 
     @Override // android.view.View
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.g = onClickListener;
+        this.Hd = onClickListener;
     }
 
-    private void a(int i, int i2) {
-        this.i.x = i;
-        this.i.y = i2;
-        this.h.updateViewLayout(this, this.i);
+    private void n(int i, int i2) {
+        this.He.x = i;
+        this.He.y = i2;
+        this.windowManager.updateViewLayout(this, this.He);
     }
 
     public WindowManager.LayoutParams getWindowManagerParams() {
-        return this.i;
+        return this.He;
     }
 
     public void setWindowManagerParams(WindowManager.LayoutParams layoutParams) {
-        this.i = layoutParams;
+        this.He = layoutParams;
     }
 
-    private LinearLayout b() {
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(com.baidu.tieba.v.floatview_layout, (ViewGroup) null);
-        linearLayout.setBackgroundResource(com.baidu.tieba.t.bg_game_tie);
-        linearLayout.findViewById(com.baidu.tieba.u.floatview_layout_left_layout).setVisibility(8);
+    private LinearLayout no() {
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(com.baidu.tieba.w.floatview_layout, (ViewGroup) null);
+        linearLayout.setBackgroundResource(com.baidu.tieba.u.bg_game_tie);
+        linearLayout.findViewById(com.baidu.tieba.v.floatview_layout_left_layout).setVisibility(8);
+        linearLayout.setLayoutParams(nq());
+        linearLayout.setVisibility(8);
+        return linearLayout;
+    }
+
+    private LinearLayout np() {
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(com.baidu.tieba.w.floatview_layout, (ViewGroup) null);
+        linearLayout.setBackgroundResource(com.baidu.tieba.u.bg_game_tie);
+        linearLayout.findViewById(com.baidu.tieba.v.floatview_layout_right_layout).setVisibility(8);
+        WindowManager.LayoutParams nq = nq();
+        nq.gravity = 53;
+        linearLayout.setLayoutParams(nq);
+        linearLayout.setVisibility(8);
+        return linearLayout;
+    }
+
+    private WindowManager.LayoutParams nq() {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
         layoutParams.x = 0;
         layoutParams.y = 0;
         layoutParams.width = -2;
         layoutParams.height = -2;
-        layoutParams.type = 2002;
         layoutParams.format = 1;
         layoutParams.flags = 40;
         layoutParams.gravity = 51;
-        linearLayout.setLayoutParams(layoutParams);
-        linearLayout.setVisibility(8);
-        return linearLayout;
-    }
-
-    private LinearLayout c() {
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(com.baidu.tieba.v.floatview_layout, (ViewGroup) null);
-        linearLayout.setBackgroundResource(com.baidu.tieba.t.bg_game_tie);
-        linearLayout.findViewById(com.baidu.tieba.u.floatview_layout_right_layout).setVisibility(8);
-        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        layoutParams.x = 0;
-        layoutParams.y = 0;
-        layoutParams.width = -2;
-        layoutParams.height = -2;
-        layoutParams.type = 2002;
-        layoutParams.format = 1;
-        layoutParams.flags = 40;
-        layoutParams.gravity = 53;
-        linearLayout.setLayoutParams(layoutParams);
-        linearLayout.setVisibility(8);
-        return linearLayout;
+        return layoutParams;
     }
 
     public void setData(List<String> list) {
@@ -159,21 +147,21 @@ public class b extends Button {
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 c cVar = new c(getContext(), list.get(i));
-                cVar.setOnClickListener(this.g);
-                ((LinearLayout) this.j.findViewById(com.baidu.tieba.u.floatview_layout_right_layout)).addView(cVar, c.a());
-                this.j.findViewById(com.baidu.tieba.u.floatview_layout_left_layout).setVisibility(8);
+                cVar.setOnClickListener(this.Hd);
+                ((LinearLayout) this.Hf.findViewById(com.baidu.tieba.v.floatview_layout_right_layout)).addView(cVar, c.nr());
+                this.Hf.findViewById(com.baidu.tieba.v.floatview_layout_left_layout).setVisibility(8);
             }
             for (int i2 = size - 1; i2 >= 0; i2--) {
                 c cVar2 = new c(getContext(), list.get(i2));
-                cVar2.setOnClickListener(this.g);
-                ((LinearLayout) this.k.findViewById(com.baidu.tieba.u.floatview_layout_left_layout)).addView(cVar2, c.a());
-                this.k.findViewById(com.baidu.tieba.u.floatview_layout_right_layout).setVisibility(8);
+                cVar2.setOnClickListener(this.Hd);
+                ((LinearLayout) this.Hg.findViewById(com.baidu.tieba.v.floatview_layout_left_layout)).addView(cVar2, c.nr());
+                this.Hg.findViewById(com.baidu.tieba.v.floatview_layout_right_layout).setVisibility(8);
             }
         }
     }
 
-    public void a() {
-        this.h.removeViewImmediate(this.j);
-        this.h.removeViewImmediate(this.k);
+    public void onDestroy() {
+        this.windowManager.removeView(this.Hf);
+        this.windowManager.removeView(this.Hg);
     }
 }

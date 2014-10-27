@@ -105,10 +105,10 @@ public class b {
             bitmap.recycle();
             return copy;
         }
-        return a(bitmap, width);
+        return b(bitmap, width);
     }
 
-    public static Bitmap a(Bitmap bitmap, float f) {
+    public static Bitmap b(Bitmap bitmap, float f) {
         Bitmap createBitmap;
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
@@ -125,7 +125,7 @@ public class b {
         return createBitmap;
     }
 
-    public static boolean a(String str) {
+    public static boolean dH(String str) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(str, options);

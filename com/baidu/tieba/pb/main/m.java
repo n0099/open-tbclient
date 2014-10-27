@@ -1,39 +1,21 @@
 package com.baidu.tieba.pb.main;
 
-import android.view.View;
-import com.baidu.tieba.voice.PlayVoiceBnt;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
 /* loaded from: classes.dex */
-class m implements com.baidu.adp.lib.d.c<View> {
-    final /* synthetic */ PbActivity a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public m(PbActivity pbActivity) {
-        this.a = pbActivity;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    /* renamed from: b */
-    public View a() {
-        return new PlayVoiceBnt(this.a, PlayVoiceBnt.PLAY_TYPE.NORMAL);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public void a(View view) {
-        ((PlayVoiceBnt) view).d();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public View b(View view) {
-        return view;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public View c(View view) {
-        ((PlayVoiceBnt) view).d();
-        return view;
+class m implements CustomMessageTask.CustomRunnable<PbActivityConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<PbActivityConfig> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), PbActivity.class);
+            if ("1".equals(customMessage.getData().getIntent().getStringExtra(PbActivityConfig.KYE_IS_START_FOR_RESULT))) {
+                customMessage.getData().startActivityForResult(customMessage.getData().getIntent().getIntExtra(com.baidu.tbadk.core.frameworkData.a.REQUEST_CODE, 0));
+            } else {
+                customMessage.getData().startActivity();
+            }
+        }
+        return null;
     }
 }

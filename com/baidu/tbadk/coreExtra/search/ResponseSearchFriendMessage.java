@@ -1,6 +1,6 @@
 package com.baidu.tbadk.coreExtra.search;
 
-import com.baidu.gson.Gson;
+import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.tbadk.data.SearchFriendResult;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
@@ -23,7 +23,7 @@ public class ResponseSearchFriendMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
         super.decodeLogicInBackGround(i, jSONObject);
         if (getStatusCode() == 200 && jSONObject != null) {
-            this.mSearchFriendResult = (SearchFriendResult) new Gson().fromJson(jSONObject.toString(), (Class<Object>) SearchFriendResult.class);
+            this.mSearchFriendResult = (SearchFriendResult) i.objectWithJson(jSONObject, SearchFriendResult.class);
         }
     }
 }

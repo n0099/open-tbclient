@@ -23,24 +23,28 @@ public class DiscoverResponsedMessage extends JsonHttpResponsedMessage {
 
     public static p parseJson(JSONObject jSONObject) {
         p pVar = new p();
-        pVar.a = jSONObject.optInt("errno");
-        pVar.b = jSONObject.optString("errmsg");
+        pVar.aeV = jSONObject.optInt("errno");
+        pVar.mErrMsg = jSONObject.optString("errmsg");
         JSONObject optJSONObject = jSONObject.optJSONObject("banner");
         if (optJSONObject != null) {
-            pVar.d = new o(optJSONObject.optString("link"), optJSONObject.optString("pic_url"), optJSONObject.optString("title"));
+            pVar.anV = new o(optJSONObject.optString("link"), optJSONObject.optString("pic_url"), optJSONObject.optString("title"));
         }
         JSONArray optJSONArray = jSONObject.optJSONArray("menu_list");
         if (optJSONArray != null) {
-            pVar.c = new ArrayList(optJSONArray.length());
+            pVar.ans = new ArrayList(optJSONArray.length());
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
                 JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                pVar.c.add(new r(jSONObject2.optString("icon_url"), jSONObject2.optString("title"), jSONObject2.optString("link_url"), jSONObject2.optInt("is_new")));
+                pVar.ans.add(new s(jSONObject2.optString("icon_url"), jSONObject2.optString("title"), jSONObject2.optString("link_url"), jSONObject2.optInt("is_new")));
             }
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("msign");
         if (optJSONObject2 != null) {
-            pVar.e = new q(optJSONObject2.optString("msign_text"), optJSONObject2.optInt("can_msign", 0));
+            pVar.ano = new r(optJSONObject2.optString("msign_text"), optJSONObject2.optInt("can_msign", 0));
+        }
+        JSONObject optJSONObject3 = jSONObject.optJSONObject("game_center");
+        if (optJSONObject3 != null) {
+            pVar.anW = new q(optJSONObject3.optLong("game_last_launchtime", 0L), optJSONObject3.optString("link_url"));
         }
         return pVar;
     }

@@ -5,19 +5,18 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.im.message.ResponseQueryGroupCountMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b extends com.baidu.adp.framework.listener.d {
-    final /* synthetic */ a a;
+public class b extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ a bcy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i) {
         super(i);
-        this.a = aVar;
+        this.bcy = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         e eVar;
         e eVar2;
@@ -32,36 +31,36 @@ public class b extends com.baidu.adp.framework.listener.d {
         e eVar6;
         e eVar7;
         if (socketResponsedMessage.getError() != 0) {
-            eVar5 = this.a.i;
+            eVar5 = this.bcy.bcv;
             if (eVar5 != null) {
-                eVar6 = this.a.i;
-                eVar6.b();
+                eVar6 = this.bcy.bcv;
+                eVar6.ig();
                 if (socketResponsedMessage.getError() > 0 && !TextUtils.isEmpty(socketResponsedMessage.getErrorString())) {
-                    eVar7 = this.a.i;
-                    eVar7.a(socketResponsedMessage.getErrorString());
+                    eVar7 = this.bcy.bcv;
+                    eVar7.ge(socketResponsedMessage.getErrorString());
                 }
             }
         } else if (socketResponsedMessage instanceof ResponseQueryGroupCountMessage) {
             ResponseQueryGroupCountMessage responseQueryGroupCountMessage = (ResponseQueryGroupCountMessage) socketResponsedMessage;
-            this.a.d = responseQueryGroupCountMessage.getUserGroupCount();
-            this.a.e = responseQueryGroupCountMessage.getLocalGroupCount();
-            this.a.f = responseQueryGroupCountMessage.getGeographicLocation();
-            this.a.g = responseQueryGroupCountMessage.getPicUrl();
-            this.a.h = responseQueryGroupCountMessage.getLink();
-            a.a = false;
-            eVar = this.a.i;
+            this.bcy.bct = responseQueryGroupCountMessage.getUserGroupCount();
+            this.bcy.bcu = responseQueryGroupCountMessage.getLocalGroupCount();
+            this.bcy.geographicLocation = responseQueryGroupCountMessage.getGeographicLocation();
+            this.bcy.picUrl = responseQueryGroupCountMessage.getPicUrl();
+            this.bcy.link = responseQueryGroupCountMessage.getLink();
+            a.bcs = false;
+            eVar = this.bcy.bcv;
             if (eVar != null) {
-                eVar4 = this.a.i;
-                eVar4.b();
+                eVar4 = this.bcy.bcv;
+                eVar4.ig();
             }
-            eVar2 = this.a.i;
+            eVar2 = this.bcy.bcv;
             if (eVar2 != null) {
-                eVar3 = this.a.i;
-                i = this.a.d;
-                i2 = this.a.e;
-                str = this.a.h;
-                str2 = this.a.g;
-                str3 = this.a.f;
+                eVar3 = this.bcy.bcv;
+                i = this.bcy.bct;
+                i2 = this.bcy.bcu;
+                str = this.bcy.link;
+                str2 = this.bcy.picUrl;
+                str3 = this.bcy.geographicLocation;
                 eVar3.a(i, i2, str, str2, str3);
             }
         }

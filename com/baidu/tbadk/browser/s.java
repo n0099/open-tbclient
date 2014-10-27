@@ -3,18 +3,21 @@ package com.baidu.tbadk.browser;
 import android.webkit.URLUtil;
 /* loaded from: classes.dex */
 class s implements Runnable {
-    final /* synthetic */ WebTbActivity a;
+    final /* synthetic */ WebTbActivity xR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(WebTbActivity webTbActivity) {
-        this.a = webTbActivity;
+        this.xR = webTbActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        String guessUrl = URLUtil.guessUrl(this.a.c);
+        String guessUrl = URLUtil.guessUrl(this.xR.url);
         if (URLUtil.isNetworkUrl(guessUrl)) {
-            this.a.a.loadUrl(guessUrl);
+            try {
+                this.xR.xG.loadUrl(guessUrl);
+            } catch (Exception e) {
+            }
         }
     }
 }

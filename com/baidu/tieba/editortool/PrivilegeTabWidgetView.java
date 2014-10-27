@@ -1,38 +1,37 @@
 package com.baidu.tieba.editortool;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PrivilegeTabWidgetView extends LinearLayout {
-    private PrivilegeTabHorizonScrollView a;
-    private ImageView b;
-    private com.baidu.tbadk.editortool.w c;
+    private com.baidu.tbadk.editortool.w RC;
+    private PrivilegeTabHorizonScrollView arM;
+    private ImageView arN;
 
     public PrivilegeTabWidgetView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        a(context);
+        init(context);
     }
 
     public PrivilegeTabWidgetView(Context context) {
         super(context);
-        a(context);
+        init(context);
     }
 
-    private void a(Context context) {
+    private void init(Context context) {
         setVisibility(8);
         removeAllViews();
-        com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.privilege_tab_widget, this, true);
-        this.a = (PrivilegeTabHorizonScrollView) findViewById(com.baidu.tieba.u.privilege_tab_scroll_view);
-        this.b = (ImageView) findViewById(com.baidu.tieba.u.privilege_tab_delete);
-        this.b.setOnClickListener(new ao(this));
+        com.baidu.adp.lib.g.b.ek().a(context, com.baidu.tieba.w.privilege_tab_widget, this, true);
+        this.arM = (PrivilegeTabHorizonScrollView) findViewById(com.baidu.tieba.v.privilege_tab_scroll_view);
+        this.arN = (ImageView) findViewById(com.baidu.tieba.v.privilege_tab_delete);
+        this.arN.setOnClickListener(new au(this));
     }
 
-    public void setDatas(ArrayList<ai> arrayList) {
-        this.a.setDatas(arrayList);
+    public void setDatas(ArrayList<an> arrayList) {
+        this.arM.setDatas(arrayList);
         if (arrayList == null || arrayList.size() <= 1) {
             setVisibility(8);
         } else {
@@ -40,41 +39,39 @@ public class PrivilegeTabWidgetView extends LinearLayout {
         }
     }
 
-    public void a(ak akVar) {
-        this.a.a(akVar);
+    public void c(ap apVar) {
+        this.arM.c(apVar);
     }
 
     public void setCurrentTab(int i) {
-        this.a.setCurrentTab(i);
+        this.arM.setCurrentTab(i);
     }
 
-    public void setOnTabSelectedListener(ap apVar) {
-        this.a.setOnTabSelectedListener(apVar);
+    public void setOnTabSelectedListener(av avVar) {
+        this.arM.setOnTabSelectedListener(avVar);
     }
 
-    public void a() {
-        this.a.a();
+    public void reset() {
+        this.arM.reset();
     }
 
-    public void a(int i) {
-        setBackgroundColor(getResources().getColor(i == 1 ? com.baidu.tieba.r.editor_tool_container_bg_1 : com.baidu.tieba.r.editor_tool_container_bg));
-        Resources resources = getContext().getResources();
-        this.a.a(i);
-        int i2 = i == 1 ? com.baidu.tieba.t.but_face_close_1 : com.baidu.tieba.t.but_face_close;
-        int i3 = i == 1 ? com.baidu.tieba.r.emotion_delete_bg_1 : com.baidu.tieba.r.emotion_delete_bg;
-        this.b.setImageResource(i2);
-        this.b.setBackgroundColor(resources.getColor(i3));
+    public void onChangeSkinType(int i) {
+        com.baidu.tbadk.core.util.aw.i(this, com.baidu.tieba.s.editor_tool_container_bg);
+        getContext().getResources();
+        this.arM.bN(i);
+        com.baidu.tbadk.core.util.aw.c(this.arN, com.baidu.tieba.u.but_face_close);
+        com.baidu.tbadk.core.util.aw.i(this.arN, com.baidu.tieba.s.emotion_delete_bg);
     }
 
     public void setShowDelete(boolean z) {
         if (z) {
-            this.b.setVisibility(0);
+            this.arN.setVisibility(0);
         } else {
-            this.b.setVisibility(8);
+            this.arN.setVisibility(8);
         }
     }
 
     public void setOnDataSelected(com.baidu.tbadk.editortool.w wVar) {
-        this.c = wVar;
+        this.RC = wVar;
     }
 }

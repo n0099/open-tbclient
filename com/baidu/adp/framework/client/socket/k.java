@@ -2,15 +2,15 @@ package com.baidu.adp.framework.client.socket;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements e {
-    final /* synthetic */ j a;
+    final /* synthetic */ j bs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.a = jVar;
+        this.bs = jVar;
     }
 
     @Override // com.baidu.adp.framework.client.socket.e
     public void a(f fVar) {
-        this.a.a(fVar);
+        this.bs.b(fVar);
     }
 }

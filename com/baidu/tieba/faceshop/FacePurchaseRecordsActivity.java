@@ -7,18 +7,18 @@ import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.atomData.FacePackageDetailActivityConfig;
 /* loaded from: classes.dex */
 public class FacePurchaseRecordsActivity extends BaseActivity {
-    private ba a;
-    private ay b;
-    private String c;
-    private com.baidu.adp.base.h d = new at(this);
-    private com.baidu.tbadk.core.view.r e = new au(this);
+    private String aok;
+    private bb aub;
+    private az auc;
+    private com.baidu.adp.base.h mLoadDataCallBack = new at(this);
+    private com.baidu.tbadk.core.view.u ati = new au(this);
 
-    public static void a(Context context, String str) {
+    public static void startActivity(Context context, String str) {
         Intent intent = new Intent(context, FacePurchaseRecordsActivity.class);
-        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str);
+        intent.putExtra("st_type", str);
         context.startActivity(intent);
     }
 
@@ -26,52 +26,52 @@ public class FacePurchaseRecordsActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        a(bundle);
-        a();
-        a(true);
+        d(bundle);
+        initUI();
+        bE(true);
     }
 
-    private void a() {
-        this.a = new ba(this);
-        this.a.a(new av(this));
-        this.a.a(this);
-        b();
+    private void initUI() {
+        this.aub = new bb(this);
+        this.aub.b(new av(this));
+        this.aub.a(this);
+        CS();
     }
 
-    private void a(Bundle bundle) {
-        this.b = new ay(this);
+    private void d(Bundle bundle) {
+        this.auc = new az(this);
         if (bundle != null) {
-            this.c = bundle.getString(com.baidu.tbadk.core.frameworkData.a.ST_TYPE);
+            this.aok = bundle.getString("st_type");
         } else {
-            this.c = getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.ST_TYPE);
+            this.aok = getIntent().getStringExtra("st_type");
         }
-        this.b.a(this.c);
-        this.b.setLoadDataCallBack(this.d);
+        this.auc.setStType(this.aok);
+        this.auc.setLoadDataCallBack(this.mLoadDataCallBack);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z) {
-        if (UtilHelper.isNetOk()) {
+    public void bE(boolean z) {
+        if (com.baidu.adp.lib.util.j.fh()) {
             if (z) {
                 showProgressBar();
             }
-            this.b.a();
+            this.auc.yh();
             return;
         }
-        this.a.b();
+        this.aub.Dv();
     }
 
-    private void b() {
-        this.a.a(this.e);
+    private void CS() {
+        this.aub.c(this.ati);
     }
 
-    private void c() {
-        this.a.b(this.e);
+    private void CT() {
+        this.aub.d(this.ati);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        bundle.putString(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, this.c);
+        bundle.putString("st_type", this.aok);
         super.onSaveInstanceState(bundle);
     }
 
@@ -84,26 +84,26 @@ public class FacePurchaseRecordsActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        if (this.a != null) {
-            this.a.a(i);
+        if (this.aub != null) {
+            this.aub.onChangeSkinType(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.b != null) {
-            this.b.cancelLoadData();
+        if (this.auc != null) {
+            this.auc.cancelLoadData();
         }
-        c();
+        CT();
         super.onDestroy();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         FacePurchasePackageData facePurchasePackageData;
-        if (this.a != null && this.a.a() != null && (facePurchasePackageData = (FacePurchasePackageData) this.a.a().getItem(i)) != null) {
-            sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.o(this, String.valueOf(facePurchasePackageData.pid), false, "purchase_record")));
+        if (this.aub != null && this.aub.Du() != null && (facePurchasePackageData = (FacePurchasePackageData) this.aub.Du().getItem(i)) != null) {
+            sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(this, String.valueOf(facePurchasePackageData.pid), false, "purchase_record")));
             super.onItemClick(adapterView, view, i, j);
         }
     }

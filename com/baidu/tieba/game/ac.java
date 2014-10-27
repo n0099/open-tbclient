@@ -1,39 +1,27 @@
 package com.baidu.tieba.game;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import com.baidu.tbadk.game.GameInfoData;
+import java.util.Comparator;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ac implements com.baidu.adp.lib.guide.b {
-    final /* synthetic */ aa a;
+public class ac implements Comparator<GameInfoData> {
+    final /* synthetic */ ab aHK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(aa aaVar) {
-        this.a = aaVar;
+    public ac(ab abVar) {
+        this.aHK = abVar;
     }
 
-    @Override // com.baidu.adp.lib.guide.b
-    public View a(LayoutInflater layoutInflater) {
-        return layoutInflater.inflate(com.baidu.tieba.v.game_center_tip_view, (ViewGroup) null, false);
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int a() {
-        return 4;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int b() {
-        return 32;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int c() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int d() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(GameInfoData gameInfoData, GameInfoData gameInfoData2) {
+        if (gameInfoData.getOrderTime() < gameInfoData2.getOrderTime()) {
+            return -1;
+        }
+        if (gameInfoData.getOrderTime() > gameInfoData2.getOrderTime()) {
+            return 1;
+        }
         return 0;
     }
 }

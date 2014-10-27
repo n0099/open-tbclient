@@ -1,10 +1,22 @@
 package com.baidu.tbadk.core.dialog;
 
-import com.baidu.tieba.y;
+import android.view.View;
 /* loaded from: classes.dex */
-public final class g {
-    public static final int a = y.dialog_ani_b2t;
-    public static final int b = y.dialog_ani_t2b;
-    public static final int c = y.dialog_ani_l2r;
-    public static final int d = y.dialog_ani_r2l;
+class g implements View.OnClickListener {
+    final /* synthetic */ e Bt;
+    private final e Bu;
+    private final h Bv;
+
+    public g(e eVar, e eVar2, h hVar) {
+        this.Bt = eVar;
+        this.Bu = eVar2;
+        this.Bv = hVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (this.Bv != null) {
+            this.Bv.onClick(this.Bu);
+        }
+    }
 }

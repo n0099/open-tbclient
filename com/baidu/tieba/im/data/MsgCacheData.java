@@ -1,12 +1,13 @@
 package com.baidu.tieba.im.data;
 
+import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.tbadk.core.data.VoiceData;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class MsgCacheData implements Serializable {
+public class MsgCacheData extends i implements Serializable {
     private static final long serialVersionUID = -100392737471140589L;
-    private transient VoiceData.VoiceModel a;
-    private transient com.baidu.tbadk.widget.richText.a b;
+    private transient VoiceData.VoiceModel aUN;
+    private transient com.baidu.tbadk.widget.richText.a aUO;
     private int is_left;
     private int is_show_time;
     private int voice_status;
@@ -16,11 +17,11 @@ public class MsgCacheData implements Serializable {
     }
 
     public VoiceData.VoiceModel getVoice_model() {
-        return this.a;
+        return this.aUN;
     }
 
     public void setVoice_model(VoiceData.VoiceModel voiceModel) {
-        this.a = voiceModel;
+        this.aUN = voiceModel;
     }
 
     public void setIs_left(int i) {
@@ -44,10 +45,10 @@ public class MsgCacheData implements Serializable {
     }
 
     public com.baidu.tbadk.widget.richText.a getRich_content() {
-        return this.b;
+        return this.aUO;
     }
 
     public void setRich_content(com.baidu.tbadk.widget.richText.a aVar) {
-        this.b = aVar;
+        this.aUO = aVar;
     }
 }

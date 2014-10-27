@@ -5,12 +5,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class k {
-    View a;
-    LinearLayout b;
-    View c;
-    TextView d;
-    TextView e;
-    TextView f;
-    TextView g;
-    TextView h;
+    TextView QG;
+    TextView aEg;
+    View bId;
+    LinearLayout bIe;
+    TextView bIf;
+    TextView bIg;
+    TextView bfk;
+    View bhZ;
 }

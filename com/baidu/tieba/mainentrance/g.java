@@ -5,16 +5,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class g {
-    TextView a;
-    TextView b;
-    TextView c;
-    TextView d;
-    LinearLayout e;
-    View f;
-    final /* synthetic */ e g;
+    TextView JM;
+    View MI;
+    TextView auh;
+    TextView axq;
+    final /* synthetic */ e bme;
+    TextView bmf;
+    LinearLayout bmg;
 
     private g(e eVar) {
-        this.g = eVar;
+        this.bme = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

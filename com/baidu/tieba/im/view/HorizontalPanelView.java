@@ -4,131 +4,132 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.bh;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.bp;
-import com.baidu.tbadk.core.util.br;
+import com.baidu.tbadk.core.util.bn;
 import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.t;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class HorizontalPanelView extends LinearLayout implements View.OnClickListener {
-    private Context a;
-    private List<UserData> b;
-    private LinearLayout c;
-    private Animation d;
-    private Animation e;
-    private final List<HeadImageView> f;
-    private boolean g;
+    private Context mContext;
+    private List<UserData> mData;
+    private Animation mHideAnimation;
+    private final List<HeadImageView> mImageList;
+    private boolean mIsHidden;
+    private Animation mShowAnimation;
+    private LinearLayout mUserLayout;
 
     public HorizontalPanelView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = new ArrayList();
-        this.g = false;
-        a(context);
+        this.mData = null;
+        this.mUserLayout = null;
+        this.mHideAnimation = null;
+        this.mShowAnimation = null;
+        this.mImageList = new ArrayList();
+        this.mIsHidden = false;
+        init(context);
     }
 
     public HorizontalPanelView(Context context) {
         super(context);
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = new ArrayList();
-        this.g = false;
-        a(context);
+        this.mData = null;
+        this.mUserLayout = null;
+        this.mHideAnimation = null;
+        this.mShowAnimation = null;
+        this.mImageList = new ArrayList();
+        this.mIsHidden = false;
+        init(context);
     }
 
-    public boolean a() {
-        return this.g;
+    public boolean isHidden() {
+        return this.mIsHidden;
     }
 
-    public void b() {
-        if (this.d == null) {
-            this.d = AnimationUtils.loadAnimation(this.a, com.baidu.tieba.o.panel_fold_up);
-            this.d.setAnimationListener(new i(this));
+    public void hide() {
+        if (this.mHideAnimation == null) {
+            this.mHideAnimation = AnimationUtils.loadAnimation(this.mContext, com.baidu.tieba.p.panel_fold_up);
+            this.mHideAnimation.setAnimationListener(new f(this));
         }
-        startAnimation(this.d);
-        this.g = true;
+        startAnimation(this.mHideAnimation);
+        this.mIsHidden = true;
     }
 
-    public void c() {
-        if (this.e == null) {
-            this.e = AnimationUtils.loadAnimation(this.a, com.baidu.tieba.o.panel_fold_down);
+    public void show() {
+        if (this.mShowAnimation == null) {
+            this.mShowAnimation = AnimationUtils.loadAnimation(this.mContext, com.baidu.tieba.p.panel_fold_down);
         }
-        this.c.setVisibility(0);
-        startAnimation(this.e);
-        this.g = false;
+        this.mUserLayout.setVisibility(0);
+        startAnimation(this.mShowAnimation);
+        this.mIsHidden = false;
     }
 
-    public void a(UserData userData) {
-        bp.a((ViewGroup) this.c, false, (br) new j(this, userData));
+    public void removeUser(UserData userData) {
+        bn.a(this.mUserLayout, false, new g(this, userData));
     }
 
     public void setData(List<UserData> list) {
-        if (this.b != list) {
-            this.b = list;
-            if (this.b != null) {
-                this.c.removeAllViews();
-                this.f.clear();
-                for (UserData userData : this.b) {
-                    HeadImageView headImageView = new HeadImageView(this.a);
+        if (this.mData != list) {
+            this.mData = list;
+            if (this.mData != null) {
+                this.mUserLayout.removeAllViews();
+                this.mImageList.clear();
+                for (UserData userData : this.mData) {
+                    HeadImageView headImageView = new HeadImageView(this.mContext);
                     headImageView.setAutoChangeStyle(true);
                     headImageView.setIsRound(true);
                     headImageView.setTag(String.valueOf(userData.getUserId()));
                     headImageView.setUserId(String.valueOf(userData.getUserId()));
                     headImageView.setUserName(userData.getUserName());
                     headImageView.setUrl(userData.getPortrait());
-                    int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.s.horizontal_panel_view_item);
+                    int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(t.horizontal_panel_view_item);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
-                    layoutParams.rightMargin = this.a.getResources().getDimensionPixelSize(com.baidu.tieba.s.default_gap_6);
+                    layoutParams.rightMargin = this.mContext.getResources().getDimensionPixelSize(t.default_gap_6);
                     layoutParams.gravity = 16;
                     headImageView.setOnClickListener(this);
-                    this.c.addView(headImageView, layoutParams);
-                    headImageView.a(userData.getPortrait(), 12, false);
-                    this.f.add(headImageView);
+                    this.mUserLayout.addView(headImageView, layoutParams);
+                    headImageView.c(userData.getPortrait(), 12, false);
+                    this.mImageList.add(headImageView);
                 }
             }
         }
     }
 
-    public void a(Context context) {
-        this.a = context;
-        com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.horizontal_panel_view, this, true);
+    public void init(Context context) {
+        this.mContext = context;
+        com.baidu.adp.lib.g.b.ek().a(context, w.horizontal_panel_view, this, true);
         setOrientation(1);
-        this.c = (LinearLayout) findViewById(com.baidu.tieba.u.user_layout);
+        this.mUserLayout = (LinearLayout) findViewById(v.user_layout);
         setHorizontalScrollBarEnabled(false);
     }
 
-    public void d() {
-        if (this.f != null) {
-            this.f.clear();
+    public void onDestroy() {
+        if (this.mImageList != null) {
+            this.mImageList.clear();
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        d();
+        onDestroy();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!this.g && (view instanceof HeadImageView)) {
+        if (!this.mIsHidden && (view instanceof HeadImageView)) {
             HeadImageView headImageView = (HeadImageView) view;
             if (!TextUtils.isEmpty(headImageView.getUserId())) {
-                com.baidu.tbadk.core.f.a(getContext(), "snap_chat_member_head_click");
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bh(this.a, headImageView.getUserId(), headImageView.getUserName())));
+                com.baidu.tbadk.core.i.l(getContext(), "snap_chat_member_head_click");
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.mContext, headImageView.getUserId(), headImageView.getUserName())));
             }
         }
     }

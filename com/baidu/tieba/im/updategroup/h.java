@@ -5,16 +5,16 @@ import android.text.TextWatcher;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements TextWatcher {
-    final /* synthetic */ g a;
+    final /* synthetic */ g biD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.a = gVar;
+        this.biD = gVar;
     }
 
     @Override // android.text.TextWatcher
     public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.a.g();
+        this.biD.RK();
     }
 
     @Override // android.text.TextWatcher

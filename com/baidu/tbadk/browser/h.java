@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
-    final /* synthetic */ TbWebViewActivity a;
+    final /* synthetic */ TbWebViewActivity xA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(TbWebViewActivity tbWebViewActivity) {
-        this.a = tbWebViewActivity;
+        this.xA = tbWebViewActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.showPopMenu();
+        this.xA.showPopMenu();
     }
 }

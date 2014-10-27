@@ -3,28 +3,27 @@ package com.baidu.tieba.home;
 import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tieba.v;
-import com.baidu.tieba.x;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.d a() {
+    public com.baidu.tbadk.mainTab.d sC() {
         com.baidu.tbadk.mainTab.d dVar = new com.baidu.tbadk.mainTab.d();
-        dVar.a = new e();
-        dVar.c = 1;
-        dVar.b = x.home;
+        dVar.VU = new f();
+        dVar.type = 1;
+        dVar.VV = y.home;
         return dVar;
     }
 
     static {
-        o oVar = new o(2007002);
-        oVar.setPriority(2);
-        MessageManager.getInstance().registerListener(oVar);
+        q qVar = new q(2007002);
+        qVar.setPriority(2);
+        MessageManager.getInstance().registerListener(qVar);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public FragmentTabIndicator a(Context context) {
-        this.b = (FragmentTabIndicator) com.baidu.adp.lib.e.b.a().a(context, v.fragmenttabindicator, null);
-        return this.b;
+    public FragmentTabIndicator z(Context context) {
+        this.VM = (FragmentTabIndicator) com.baidu.adp.lib.g.b.ek().inflate(context, com.baidu.tieba.w.fragmenttabindicator, null);
+        return this.VM;
     }
 }

@@ -3,13 +3,13 @@ package com.baidu.tbadk.newFriends;
 import com.baidu.adp.framework.MessageManager;
 /* loaded from: classes.dex */
 public class a {
-    private static a a = new a();
+    private static a Yr = new a();
 
     private a() {
     }
 
-    public static a a() {
-        return a;
+    public static a un() {
+        return Yr;
     }
 
     public void a(long j, long j2, String str) {
@@ -28,13 +28,13 @@ public class a {
         MessageManager.getInstance().sendMessage(requestAddFriendMessage);
     }
 
-    public void a(long j, String str) {
+    public void c(long j, String str) {
         RequestPassFriendMessage requestPassFriendMessage = new RequestPassFriendMessage();
         requestPassFriendMessage.setFriendId(j, str);
         MessageManager.getInstance().sendMessage(requestPassFriendMessage);
     }
 
-    public void a(long j) {
+    public void p(long j) {
         RequestDeleteFriendMessage requestDeleteFriendMessage = new RequestDeleteFriendMessage();
         requestDeleteFriendMessage.setFriendId(j);
         MessageManager.getInstance().sendMessage(requestDeleteFriendMessage);

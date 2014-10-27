@@ -13,22 +13,22 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.util.j;
+import com.baidu.adp.lib.util.m;
 import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
 public class BdBaseFragmentActivity extends FragmentActivity implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, i {
-    private final int b = 100;
-    private BdUniqueId c = null;
-    private boolean d = false;
-    protected final Handler a = new Handler();
-    private final Runnable e = new c(this);
+    private final int PRELOAD_DELAY = 100;
+    private BdUniqueId mId = null;
+    private boolean mIsScroll = false;
+    protected final Handler mHandler = new Handler();
+    private final Runnable preLoadRunnable = new c(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.c = BdUniqueId.gen();
-        a.a().a(this);
+        this.mId = BdUniqueId.gen();
+        a.M().a(this);
     }
 
     @Override // android.app.Activity
@@ -64,8 +64,11 @@ public class BdBaseFragmentActivity extends FragmentActivity implements DialogIn
         return true;
     }
 
-    public void a(String str) {
-        j.a(getApplicationContext(), str);
+    public void showToast(String str) {
+        m.showToast(getApplicationContext(), str);
+    }
+
+    public void releaseResouce() {
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -77,117 +80,117 @@ public class BdBaseFragmentActivity extends FragmentActivity implements DialogIn
         return false;
     }
 
-    public void a(Message<?> message) {
+    public void sendMessage(Message<?> message) {
         if (message != null) {
             if (message.getTag() == null) {
-                message.setTag(this.c);
+                message.setTag(this.mId);
             }
             MessageManager.getInstance().sendMessage(message);
         }
     }
 
-    public void a(NetMessage netMessage) {
+    public void sendMessage(NetMessage netMessage) {
         if (netMessage != null) {
             if (netMessage.getTag() == null) {
-                netMessage.setTag(this.c);
+                netMessage.setTag(this.mId);
             }
             MessageManager.getInstance().sendMessage(netMessage);
         }
     }
 
-    public void a(MessageListener<?> messageListener) {
+    public void registerListener(MessageListener<?> messageListener) {
         if (messageListener != null && messageListener.getTag() == null) {
-            messageListener.setTag(this.c);
+            messageListener.setTag(this.mId);
         }
         MessageManager.getInstance().registerListener(messageListener);
     }
 
-    public void a(int i, MessageListener<?> messageListener) {
+    public void registerListener(int i, MessageListener<?> messageListener) {
         if (messageListener != null && messageListener.getTag() == null) {
-            messageListener.setTag(this.c);
+            messageListener.setTag(this.mId);
         }
         MessageManager.getInstance().registerListener(i, messageListener);
     }
 
     @Override // com.baidu.adp.base.i
     public BdUniqueId getUniqueId() {
-        return this.c;
+        return this.mId;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.c);
-        MessageManager.getInstance().removeMessage(this.c);
-        com.baidu.adp.lib.resourceLoader.d.a().a(this.c);
-        this.a.removeCallbacks(this.e);
-        a.a().b(this);
+        MessageManager.getInstance().unRegisterListener(this.mId);
+        MessageManager.getInstance().removeMessage(this.mId);
+        com.baidu.adp.lib.f.d.ef().d(this.mId);
+        this.mHandler.removeCallbacks(this.preLoadRunnable);
+        a.M().b(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.adp.lib.resourceLoader.d.a().b(this.c);
-        this.a.removeCallbacks(this.e);
+        com.baidu.adp.lib.f.d.ef().e(this.mId);
+        this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        b();
+        onResumeLoadResource();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        BdListView p_ = p_();
-        if (p_ != null) {
-            p_.c();
+        BdListView onGetPreLoadListView = onGetPreLoadListView();
+        if (onGetPreLoadListView != null) {
+            onGetPreLoadListView.hM();
         }
     }
 
     @Override // com.baidu.adp.base.i
     public boolean isScroll() {
-        return this.d;
+        return this.mIsScroll;
     }
 
     @Override // com.baidu.adp.base.i
     public void setIsScroll(boolean z) {
-        this.d = z;
+        this.mIsScroll = z;
     }
 
     @Override // com.baidu.adp.base.i
     public void onPreLoad(BdListView bdListView) {
     }
 
-    public BdListView p_() {
+    public BdListView onGetPreLoadListView() {
         return null;
     }
 
-    public void b() {
+    public void onResumeLoadResource() {
         FrameLayout frameLayout = (FrameLayout) findViewById(16908290);
         int childCount = frameLayout.getChildCount();
         for (int i = 0; i < childCount; i++) {
-            a(frameLayout.getChildAt(i));
+            refreshImage(frameLayout.getChildAt(i));
         }
-        this.a.removeCallbacks(this.e);
-        this.a.postDelayed(this.e, 100L);
+        this.mHandler.removeCallbacks(this.preLoadRunnable);
+        this.mHandler.postDelayed(this.preLoadRunnable, 100L);
     }
 
-    private void a(View view) {
+    private void refreshImage(View view) {
         if (view != null) {
             if (view instanceof com.baidu.adp.newwidget.a.i) {
-                ((com.baidu.adp.newwidget.a.i) view).b();
+                ((com.baidu.adp.newwidget.a.i) view).refresh();
             }
             if (view instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) view;
                 int childCount = viewGroup.getChildCount();
                 for (int i = 0; i < childCount; i++) {
-                    a(viewGroup.getChildAt(i));
+                    refreshImage(viewGroup.getChildAt(i));
                 }
             }
         }

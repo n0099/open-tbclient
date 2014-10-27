@@ -1,36 +1,19 @@
 package com.baidu.tieba.write;
 
-import java.util.ArrayList;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah extends com.baidu.adp.base.h {
-    final /* synthetic */ WriteActivity a;
+public class ah implements View.OnClickListener {
+    final /* synthetic */ WriteActivity bTX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(WriteActivity writeActivity) {
-        this.a = writeActivity;
+        this.bTX = writeActivity;
     }
 
-    @Override // com.baidu.adp.base.h
-    public void a(Object obj) {
-        FeedBackTopListView feedBackTopListView;
-        FeedBackTopListView feedBackTopListView2;
-        FeedBackTopListView feedBackTopListView3;
-        this.a.hideProgressBar();
-        if (obj == null || !(obj instanceof o)) {
-            feedBackTopListView = this.a.l;
-            feedBackTopListView.setVisibility(8);
-            this.a.showToast(com.baidu.tieba.x.neterror);
-            return;
-        }
-        o oVar = (o) obj;
-        if (oVar.b() != 0) {
-            feedBackTopListView2 = this.a.l;
-            feedBackTopListView2.setVisibility(8);
-            return;
-        }
-        ArrayList<com.baidu.tbadk.core.data.n> a = oVar.a();
-        feedBackTopListView3 = this.a.l;
-        feedBackTopListView3.setData(a);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.bTX.aca();
+        this.bTX.afs();
     }
 }

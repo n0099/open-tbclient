@@ -8,6 +8,6 @@ import com.baidu.tbadk.TbadkApplication;
 public class ChangeSkinReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        TbadkApplication.m252getInst().setSkinTypeValue(intent.getIntExtra("skin_type", 0));
+        TbadkApplication.m251getInst().setSkinTypeValue(intent.getIntExtra("skin_type", 0));
     }
 }

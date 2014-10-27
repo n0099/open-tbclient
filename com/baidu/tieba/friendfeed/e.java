@@ -1,48 +1,29 @@
 package com.baidu.tieba.friendfeed;
 
-import android.graphics.Rect;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.AdapterView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tieba.data.FriendFeedThreadData;
-import com.baidu.tieba.frs.dt;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class e implements q {
-    final /* synthetic */ FriendFeedActivity a;
+public class e implements AdapterView.OnItemClickListener {
+    final /* synthetic */ FriendFeedActivity ayL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(FriendFeedActivity friendFeedActivity) {
-        this.a = friendFeedActivity;
+        this.ayL = friendFeedActivity;
     }
 
-    @Override // com.baidu.tieba.friendfeed.q
-    public void a(int i, int i2, View view, View view2, FriendFeedThreadData friendFeedThreadData) {
-        t tVar;
-        t tVar2;
-        t tVar3;
-        boolean z;
-        dt dtVar;
-        tVar = this.a.c;
-        if (i != tVar.c().e() || view2 == null || view == null) {
-            tVar2 = this.a.c;
-            if (i != tVar2.c().d()) {
-                tVar3 = this.a.c;
-                tVar3.c().f();
-                return;
-            }
-            this.a.f = friendFeedThreadData;
-            z = this.a.e;
-            if (!z) {
-                this.a.e = true;
-                int isLike = friendFeedThreadData.getPraise() == null ? 0 : friendFeedThreadData.getPraise().getIsLike();
-                dtVar = this.a.q;
-                dtVar.a(friendFeedThreadData.getFirst_post_id(), friendFeedThreadData.getTid(), isLike, "friendfeed");
-                return;
-            }
-            return;
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        y yVar;
+        yVar = this.ayL.ayq;
+        Object item = yVar.EQ().getItem(i);
+        if (item instanceof FriendFeedThreadData) {
+            com.baidu.tbadk.core.i.l(this.ayL, "frd_news_topb");
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.ayL).createNormalCfg(((FriendFeedThreadData) item).getId(), null, null)));
         }
-        Rect rect = new Rect();
-        view.getDrawingRect(rect);
-        ((ViewGroup) view2).offsetDescendantRectToMyCoords(view, rect);
-        this.a.a(i2, friendFeedThreadData, rect.bottom);
     }
 }

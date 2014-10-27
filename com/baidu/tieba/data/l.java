@@ -6,30 +6,30 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class l {
-    private ArrayList<k> a = new ArrayList<>();
-    private ArrayList<n> b = new ArrayList<>();
+    private ArrayList<k> ajZ = new ArrayList<>();
+    private ArrayList<n> aka = new ArrayList<>();
 
-    public ArrayList<n> a() {
-        return this.b;
+    public ArrayList<n> yG() {
+        return this.aka;
     }
 
-    public void a(String str) {
+    public void parserJson(String str) {
         try {
-            a(new JSONObject(str));
+            parserJson(new JSONObject(str));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         try {
             JSONArray optJSONArray = jSONObject.optJSONArray("banner");
             if (optJSONArray != null) {
                 int length = optJSONArray.length();
                 for (int i = 0; i < length; i++) {
                     k kVar = new k();
-                    kVar.a(optJSONArray.getJSONObject(i));
-                    this.a.add(kVar);
+                    kVar.parserJson(optJSONArray.getJSONObject(i));
+                    this.ajZ.add(kVar);
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("threadRecommend");
@@ -37,8 +37,8 @@ public class l {
                 int length2 = optJSONArray2.length();
                 for (int i2 = 0; i2 < length2; i2++) {
                     n nVar = new n();
-                    nVar.a(optJSONArray2.getJSONObject(i2));
-                    this.b.add(nVar);
+                    nVar.parserJson(optJSONArray2.getJSONObject(i2));
+                    this.aka.add(nVar);
                 }
             }
         } catch (JSONException e) {
@@ -48,7 +48,7 @@ public class l {
 
     public void a(l lVar) {
         if (lVar != null) {
-            this.b.addAll(lVar.a());
+            this.aka.addAll(lVar.yG());
         }
     }
 }

@@ -1,64 +1,27 @@
 package com.baidu.tieba.write;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.view.View;
-import android.widget.ProgressBar;
-import java.util.Date;
+import android.os.Environment;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbConfig;
+import java.io.File;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bg implements View.OnClickListener {
-    final /* synthetic */ WriteImageActivity a;
+public class bg extends BdAsyncTask<Void, Integer, Void> {
+    final /* synthetic */ WriteActivity bTX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bg(WriteImageActivity writeImageActivity) {
-        this.a = writeImageActivity;
+    public bg(WriteActivity writeActivity) {
+        this.bTX = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        int i;
-        ProgressBar progressBar;
-        boolean z2;
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        boolean b;
-        z = this.a.z;
-        if (!z) {
-            i = this.a.A;
-            if (i == 12003) {
-                Intent intent = new Intent();
-                progressBar = this.a.g;
-                if (progressBar.getVisibility() != 0) {
-                    z2 = this.a.y;
-                    if (z2) {
-                        bitmap = this.a.q;
-                        if (bitmap != null) {
-                            bitmap2 = this.a.q;
-                            if (!bitmap2.isRecycled()) {
-                                String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                                b = this.a.b(str);
-                                if (b) {
-                                    intent.putExtra("change", true);
-                                    intent.putExtra("file_name", str);
-                                } else {
-                                    intent.putExtra("change", false);
-                                }
-                                this.a.setResult(-1, intent);
-                            }
-                        }
-                    }
-                    intent.putExtra("change", false);
-                    this.a.setResult(-1, intent);
-                } else {
-                    return;
-                }
-            } else {
-                this.a.setResult(0, new Intent());
-            }
-        } else {
-            this.a.setResult(0, new Intent());
-        }
-        this.a.finish();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void doInBackground(Void... voidArr) {
+        String str;
+        StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(TbConfig.getTempDirName()).append("/");
+        str = this.bTX.ayx;
+        com.baidu.tbadk.core.util.s.m(new File(append.append(str).toString()));
+        return null;
     }
 }

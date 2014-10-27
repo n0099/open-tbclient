@@ -2,7 +2,7 @@ package com.baidu.tbadk.coreExtra.websocketBase;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ac;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -12,26 +12,26 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<Object, Integer, Void> {
-    final /* synthetic */ a a;
-    private b b;
-    private volatile ae c = null;
+    private b Pp;
+    final /* synthetic */ a Pq;
+    private volatile ac yV = null;
 
     public c(a aVar, b bVar) {
-        this.a = aVar;
-        this.b = null;
-        this.b = bVar;
+        this.Pq = aVar;
+        this.Pp = null;
+        this.Pp = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Incorrect condition in loop: B:14:0x007a */
+    /* JADX WARN: Incorrect condition in loop: B:14:0x0077 */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: b */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public Void doInBackground(Object... objArr) {
-        List b;
+        List cP;
         List list;
         List list2;
         List list3;
@@ -40,36 +40,36 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
         List list5;
         int i = 0;
         try {
-            this.c = new ae(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_IP_LIST);
-            String h = this.c.h();
-            if (this.c.a().b().b() && h != null) {
-                JSONObject jSONObject = new JSONObject(h);
+            this.yV = new ac(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_IP_LIST);
+            String lA = this.yV.lA();
+            if (this.yV.mc().nb().jq() && lA != null) {
+                JSONObject jSONObject = new JSONObject(lA);
                 if (jSONObject.optInt("error_code") == 0) {
                     String optString = jSONObject.optString("urls");
-                    a aVar = this.a;
-                    b = this.a.b(optString);
-                    aVar.b = b;
-                    list = this.a.b;
+                    a aVar = this.Pq;
+                    cP = this.Pq.cP(optString);
+                    aVar.Pm = cP;
+                    list = this.Pq.Pm;
                     if (list != null) {
-                        list2 = this.a.b;
+                        list2 = this.Pq.Pm;
                         if (list2.size() > 0) {
                             HashMap hashMap = new HashMap();
                             for (int i2 = 0; i2 < list3.size(); i2++) {
-                                list5 = this.a.b;
+                                list5 = this.Pq.Pm;
                                 String str2 = (String) list5.get(i2);
                                 p pVar = new p();
-                                pVar.a(str2);
-                                if (pVar.a()) {
-                                    hashMap.put(str2, Integer.valueOf(pVar.b()));
+                                pVar.cS(str2);
+                                if (pVar.isSucc()) {
+                                    hashMap.put(str2, Integer.valueOf(pVar.qF()));
                                 }
                             }
                             if (hashMap.size() > 0) {
-                                this.a.b = new ArrayList();
+                                this.Pq.Pm = new ArrayList();
                                 ArrayList<Map.Entry> arrayList = new ArrayList(hashMap.entrySet());
                                 Collections.sort(arrayList, new d(this));
                                 StringBuilder sb = new StringBuilder(50);
                                 for (Map.Entry entry : arrayList) {
-                                    list4 = this.a.b;
+                                    list4 = this.Pq.Pm;
                                     list4.add((String) entry.getKey());
                                     if (i != 0) {
                                         sb.append(",");
@@ -82,7 +82,7 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
                             } else {
                                 str = optString;
                             }
-                            com.baidu.tbadk.core.sharedPref.b.a().b("KeyOfSharedPrefIpList", str);
+                            com.baidu.tbadk.core.sharedPref.b.lk().putString("KeyOfSharedPrefIpList", str);
                             return null;
                         }
                         return null;
@@ -101,41 +101,40 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
     public void onPostExecute(Void r3) {
-        this.a.c = null;
-        if (this.b != null) {
-            this.b.a();
+        this.Pq.Pn = null;
+        if (this.Pp != null) {
+            this.Pp.qu();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
+    /* renamed from: a */
     public void onCancelled(Void r3) {
-        this.a.c = null;
-        if (this.b != null) {
-            this.b.a();
+        this.Pq.Pn = null;
+        if (this.Pp != null) {
+            this.Pp.qu();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onCancelled() {
-        this.a.c = null;
-        if (this.b != null) {
-            this.b.a();
+        this.Pq.Pn = null;
+        if (this.Pp != null) {
+            this.Pp.qu();
         }
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        if (this.c != null) {
-            this.c.f();
-            this.c = null;
+        if (this.yV != null) {
+            this.yV.dM();
+            this.yV = null;
         }
-        this.a.c = null;
+        this.Pq.Pn = null;
         super.cancel(true);
     }
 }

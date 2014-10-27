@@ -2,106 +2,91 @@ package com.baidu.tieba.data;
 
 import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class v {
-    private an e;
-    private ArrayList<g> f;
-    private Context n;
-    private String a = null;
-    private String b = null;
-    private String c = null;
-    private String d = null;
-    private int g = 0;
-    private int h = 0;
-    private String i = null;
-    private String j = null;
-    private String k = null;
-    private String l = null;
-    private int m = -1;
+    private ak akV;
+    private ArrayList<g> akW;
+    private Context mContext;
+    private String akU = null;
+    private String imageUrl = null;
+    private String abG = null;
+    private String abH = null;
+    private int width = 0;
+    private int height = 0;
+    private String akX = null;
+    private String akY = null;
+    private String userName = null;
+    private String akZ = null;
+    private int index = -1;
 
     public v(Context context) {
-        this.e = null;
-        this.f = null;
-        this.n = null;
-        this.n = context;
-        this.e = new an();
-        this.f = new ArrayList<>();
+        this.akV = null;
+        this.akW = null;
+        this.mContext = null;
+        this.mContext = context;
+        this.akV = new ak();
+        this.akW = new ArrayList<>();
     }
 
-    public an a() {
-        return this.e;
+    public String getImageUrl() {
+        return this.imageUrl;
     }
 
-    public String b() {
-        return this.b;
+    public String zq() {
+        return this.akU;
     }
 
-    public String c() {
-        return this.a;
+    public int getWidth() {
+        return this.width;
     }
 
-    public String d() {
-        return this.i;
+    public int getHeight() {
+        return this.height;
     }
 
-    public String e() {
-        return this.k;
+    public int getIndex() {
+        return this.index;
     }
 
-    public int f() {
-        return this.g;
+    public String vJ() {
+        return this.abH;
     }
 
-    public int g() {
-        return this.h;
-    }
-
-    public int h() {
-        return this.m;
-    }
-
-    public String i() {
-        return this.l;
-    }
-
-    public String j() {
-        return this.d;
-    }
-
-    public void a(JSONObject jSONObject) {
+    public void paserJson(JSONObject jSONObject) {
         JSONObject optJSONObject;
         try {
-            this.i = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.POST_ID);
-            this.k = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_NAME);
-            this.l = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_ID);
-            this.j = jSONObject.optString("comment_amount");
+            this.akX = jSONObject.optString("post_id");
+            this.userName = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_NAME);
+            this.akZ = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_ID);
+            this.akY = jSONObject.optString("comment_amount");
             JSONObject optJSONObject2 = jSONObject.optJSONObject("img");
-            this.m = jSONObject.optInt("index", -1);
+            this.index = jSONObject.optInt(ImageViewerConfig.INDEX, -1);
             if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("original")) != null) {
-                this.a = optJSONObject.optString("id");
-                this.b = optJSONObject.optString("url");
-                this.g = optJSONObject.optInt("width", 0);
-                this.h = optJSONObject.optInt("height", 0);
-                this.c = optJSONObject.optString("cdn_src", "");
-                if (this.c == null || this.c.length() == 0) {
-                    this.c = this.b;
+                this.akU = optJSONObject.optString("id");
+                this.imageUrl = optJSONObject.optString(ImageViewerConfig.URL);
+                this.width = optJSONObject.optInt("width", 0);
+                this.height = optJSONObject.optInt("height", 0);
+                this.abG = optJSONObject.optString("cdn_src", "");
+                if (this.abG == null || this.abG.length() == 0) {
+                    this.abG = this.imageUrl;
                 }
-                this.d = optJSONObject.optString("big_cdn_src", null);
+                this.abH = optJSONObject.optString("big_cdn_src", null);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("descr");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     g gVar = new g();
-                    gVar.a(optJSONArray.optJSONObject(i));
-                    this.f.add(gVar);
+                    gVar.parserJson(optJSONArray.optJSONObject(i));
+                    this.akW.add(gVar);
                 }
             }
-            this.e.a(this.f);
-            if (this.n != null) {
-                this.e.b(this.n);
+            this.akV.setContent(this.akW);
+            if (this.mContext != null) {
+                this.akV.P(this.mContext);
             }
         } catch (Exception e) {
             BdLog.detailException(e);

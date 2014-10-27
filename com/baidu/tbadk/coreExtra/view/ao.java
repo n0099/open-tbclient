@@ -1,20 +1,37 @@
 package com.baidu.tbadk.coreExtra.view;
+
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ao implements com.baidu.tbadk.widget.f {
-    final /* synthetic */ MultiImageView a;
+public class ao implements com.baidu.tbadk.widget.e {
+    final /* synthetic */ MultiImageView OV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(MultiImageView multiImageView) {
-        this.a = multiImageView;
+        this.OV = multiImageView;
     }
 
-    @Override // com.baidu.tbadk.widget.f
-    public void a(com.baidu.tbadk.widget.a aVar, boolean z, boolean z2) {
-        q qVar;
-        qVar = this.a.e;
-        if (qVar.getSelectedView() == aVar) {
-            this.a.setZoomButton(aVar);
+    @Override // com.baidu.tbadk.widget.e
+    public void a(com.baidu.tbadk.widget.a aVar) {
+        p pVar;
+        boolean z;
+        p pVar2;
+        p pVar3;
+        pVar = this.OV.OP;
+        if (aVar == pVar.getCurrentView()) {
+            z = this.OV.OT;
+            if (z) {
+                pVar2 = this.OV.OP;
+                int childCount = pVar2.getChildCount();
+                for (int i = 0; i < childCount; i++) {
+                    pVar3 = this.OV.OP;
+                    View childAt = pVar3.getChildAt(i);
+                    if (childAt != null && (childAt instanceof au) && ((au) childAt).getImageView() != aVar) {
+                        ((au) childAt).release();
+                    }
+                }
+            }
+            aVar.play();
         }
     }
 }

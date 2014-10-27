@@ -4,79 +4,79 @@ import android.os.Build;
 import com.baidu.adp.lib.stats.p;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.u;
 /* loaded from: classes.dex */
 public class f {
-    private final i i = new i();
-    public boolean a = false;
-    public boolean b = true;
-    public boolean c = true;
-    public boolean d = true;
-    public boolean e = false;
-    public String f = p.a();
-    public boolean g = false;
-    public int h = 0;
+    private final i FS = new i();
+    public boolean mIsNeedTbs = false;
+    public boolean FT = true;
+    public boolean mIsUseCurrentBDUSS = true;
+    public boolean mIsNeedAddCommenParam = true;
+    public boolean mIsFromCDN = false;
+    public String FU = p.eK();
+    public boolean FV = false;
+    public int FW = 0;
 
-    public i a() {
-        return this.i;
+    public i nd() {
+        return this.FS;
     }
 
-    public void a(v vVar) {
+    public void a(u uVar) {
         String currentBduss = TbadkApplication.getCurrentBduss();
-        if (currentBduss != null && this.c) {
-            vVar.a("BDUSS", currentBduss);
+        if (currentBduss != null && this.mIsUseCurrentBDUSS) {
+            uVar.k("BDUSS", currentBduss);
         }
     }
 
-    public void b(v vVar) {
-        vVar.a("_client_type", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
-        if (!TbadkApplication.m252getInst().isOfficial()) {
-            vVar.a("apid", TbConfig.SW_APID);
+    public void b(u uVar) {
+        uVar.k("_client_type", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
+        if (!TbadkApplication.m251getInst().isOfficial()) {
+            uVar.k("apid", TbConfig.SW_APID);
         }
-        vVar.a("_client_version", TbConfig.getVersion());
-        if (TbadkApplication.m252getInst().getImei() != null) {
-            vVar.a("_phone_imei", TbadkApplication.m252getInst().getImei());
+        uVar.k("_client_version", TbConfig.getVersion());
+        if (TbadkApplication.m251getInst().getImei() != null) {
+            uVar.k("_phone_imei", TbadkApplication.m251getInst().getImei());
         }
         String clientId = TbadkApplication.getClientId();
         if (clientId != null) {
-            vVar.a("_client_id", clientId);
+            uVar.k("_client_id", clientId);
         }
         String from = TbadkApplication.getFrom();
         if (from != null && from.length() > 0) {
-            vVar.a(com.baidu.tbadk.core.frameworkData.a.FROM, from);
+            uVar.k("from", from);
         }
-        String a = j.a();
-        if (a != null) {
-            String c = com.baidu.tbadk.coreExtra.a.a.a().c();
-            if (TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(a)) {
-                if (TbadkApplication.m252getInst().getKeepaliveWifi() == 1) {
-                    c = String.valueOf(c) + "ka=open";
+        String netType = j.getNetType();
+        if (netType != null) {
+            String ot = com.baidu.tbadk.coreExtra.a.a.or().ot();
+            if (TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(netType)) {
+                if (TbadkApplication.m251getInst().getKeepaliveWifi() == 1) {
+                    ot = String.valueOf(ot) + "ka=open";
                 }
-            } else if (TbadkApplication.m252getInst().getKeepaliveNonWifi() == 1) {
-                c = String.valueOf(c) + "ka=open";
+            } else if (TbadkApplication.m251getInst().getKeepaliveNonWifi() == 1) {
+                ot = String.valueOf(ot) + "ka=open";
             }
-            com.baidu.adp.lib.network.willdelete.e.a().a(c);
+            com.baidu.adp.lib.network.willdelete.e.dY().X(ot);
         }
-        if (this.a) {
-            vVar.a("tbs", TbadkApplication.m252getInst().getTbs());
+        if (this.mIsNeedTbs) {
+            uVar.k("tbs", TbadkApplication.m251getInst().getTbs());
         }
-        vVar.a("cuid", TbadkApplication.m252getInst().getCuid());
-        vVar.a("timestamp", Long.toString(System.currentTimeMillis()));
-        vVar.a("model", Build.MODEL);
+        uVar.k("cuid", TbadkApplication.m251getInst().getCuid());
+        uVar.k("timestamp", Long.toString(System.currentTimeMillis()));
+        uVar.k("model", Build.MODEL);
     }
 
-    public String b() {
-        if (this.i.a == null) {
+    public String ne() {
+        if (this.FS.mUrl == null) {
             return null;
         }
         String str = TbConfig.SERVER_ADDRESS;
-        if (this.i.a.startsWith(str)) {
-            int indexOf = this.i.a.indexOf(63);
+        if (this.FS.mUrl.startsWith(str)) {
+            int indexOf = this.FS.mUrl.indexOf(63);
             if (indexOf < 0) {
-                indexOf = this.i.a.length();
+                indexOf = this.FS.mUrl.length();
             }
-            return this.i.a.substring(str.length(), indexOf);
+            return this.FS.mUrl.substring(str.length(), indexOf);
         }
-        return this.i.a;
+        return this.FS.mUrl;
     }
 }

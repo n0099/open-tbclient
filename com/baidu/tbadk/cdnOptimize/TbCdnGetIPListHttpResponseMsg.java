@@ -17,7 +17,7 @@ public class TbCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessage {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
             try {
-                this.ipListData.a(jSONObject);
+                this.ipListData.parseJson(jSONObject);
             } catch (Exception e) {
                 BdLog.e(e);
             }

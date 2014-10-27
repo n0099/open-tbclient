@@ -4,29 +4,30 @@ import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.OfficalBarChatActivityConfig;
 import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.message.RequestSendPVTJMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ar implements AdapterView.OnItemClickListener {
-    final /* synthetic */ OfficialBarTipActivity a;
+    final /* synthetic */ OfficialBarTipActivity aRU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(OfficialBarTipActivity officialBarTipActivity) {
-        this.a = officialBarTipActivity;
+        this.aRU = officialBarTipActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        aw awVar;
-        awVar = this.a.c;
-        Object item = awVar.b().getItem(i);
-        if (item != null) {
-            ImMessageCenterShowItemData imMessageCenterShowItemData = (ImMessageCenterShowItemData) item;
+        au auVar;
+        auVar = this.aRU.aRT;
+        ImMessageCenterShowItemData fr = auVar.Ky().getItem(i);
+        if (fr != null) {
+            ImMessageCenterShowItemData imMessageCenterShowItemData = fr;
             try {
                 long parseLong = Long.parseLong(imMessageCenterShowItemData.getFriendId());
                 RequestSendPVTJMessage.sendOfficialBarPVTJ(RequestSendPVTJMessage.TYPE_V_MREAD, new StringBuilder(String.valueOf(parseLong)).toString());
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new com.baidu.tbadk.core.atomData.bb(this.a, parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendPortrait(), 0)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.aRU, parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendPortrait(), 0)));
             } catch (Exception e) {
                 e.printStackTrace();
             }

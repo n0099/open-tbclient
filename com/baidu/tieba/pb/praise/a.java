@@ -1,42 +1,46 @@
 package com.baidu.tieba.pb.praise;
+
+import com.baidu.tbadk.mvc.b.i;
+import com.squareup.wire.Message;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class a {
-    private String a;
-    private String b;
-    private String c;
-    private String d;
-    private long e;
+public class a implements com.baidu.tbadk.mvc.b.a, i {
+    private String mUserId = null;
+    private String mUserName = null;
+    private String mPortrait = null;
+    private String bzf = null;
+    private long bzg = 0;
 
-    public a(String str, String str2, String str3, String str4, long j) {
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = 0L;
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
-        this.d = str4;
-        this.e = j;
+    public String getUserId() {
+        return this.mUserId;
     }
 
-    public String a() {
-        return this.a;
+    public String getUserName() {
+        return this.mUserName;
     }
 
-    public String b() {
-        return this.b;
+    public String getPortrait() {
+        return this.mPortrait;
     }
 
-    public String c() {
-        return this.c;
+    public String Ys() {
+        return this.bzf;
     }
 
-    public String d() {
-        return this.d;
+    public long Yt() {
+        return this.bzg;
     }
 
-    public long e() {
-        return this.e;
+    @Override // com.baidu.tbadk.mvc.b.i
+    public void d(JSONObject jSONObject) {
+        this.mUserId = jSONObject.optString("id");
+        this.mUserName = jSONObject.optString("name");
+        this.mPortrait = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
+        this.bzf = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW);
+        this.bzg = jSONObject.optLong("zan_time") * 1000;
+    }
+
+    @Override // com.baidu.tbadk.mvc.b.i
+    public void a(Message message) {
     }
 }

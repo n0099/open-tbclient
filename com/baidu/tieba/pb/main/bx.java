@@ -1,36 +1,29 @@
 package com.baidu.tieba.pb.main;
 
-import android.app.Dialog;
-import android.util.SparseArray;
-import android.view.View;
+import android.view.animation.Animation;
+import android.widget.RelativeLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bx implements View.OnClickListener {
-    final /* synthetic */ bs a;
+public class bx implements Animation.AnimationListener {
+    final /* synthetic */ bv byI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bx(bs bsVar) {
-        this.a = bsVar;
+    public bx(bv bvVar) {
+        this.byI = bvVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        Dialog dialog2;
-        Dialog dialog3;
-        PbActivity pbActivity;
-        dialog = this.a.ad;
-        if (dialog != null) {
-            dialog2 = this.a.ad;
-            if (dialog2 instanceof Dialog) {
-                dialog3 = this.a.ad;
-                pbActivity = this.a.k;
-                com.baidu.adp.lib.e.e.b(dialog3, pbActivity);
-            }
-        }
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            this.a.a(((Integer) sparseArray.get(com.baidu.tieba.u.tag_del_post_type)).intValue(), (String) sparseArray.get(com.baidu.tieba.u.tag_del_post_id), ((Integer) sparseArray.get(com.baidu.tieba.u.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(com.baidu.tieba.u.tag_del_post_is_self)).booleanValue());
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        RelativeLayout relativeLayout;
+        relativeLayout = this.byI.bxD;
+        relativeLayout.setVisibility(8);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

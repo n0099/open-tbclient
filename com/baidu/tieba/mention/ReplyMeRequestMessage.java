@@ -9,7 +9,7 @@ import tbclient.ReplyMe.ReplyMeReqIdl;
 public class ReplyMeRequestMessage extends NetMessage {
     private CommonReq common;
     private String ids;
-    private com.baidu.tieba.model.al model;
+    private com.baidu.tieba.model.am model;
     private Integer pn;
     private int updateType;
 
@@ -17,12 +17,12 @@ public class ReplyMeRequestMessage extends NetMessage {
         super(CmdConfigHttp.REPLYME_HTTP_CMD, 303007);
     }
 
-    public com.baidu.tieba.model.al getModel() {
+    public com.baidu.tieba.model.am getModel() {
         return this.model;
     }
 
-    public void setModel(com.baidu.tieba.model.al alVar) {
-        this.model = alVar;
+    public void setModel(com.baidu.tieba.model.am amVar) {
+        this.model = amVar;
     }
 
     public int getUpdateType() {
@@ -65,7 +65,7 @@ public class ReplyMeRequestMessage extends NetMessage {
             builder.ids = get_ids();
             builder.common = get_common();
             if (z) {
-                com.baidu.tbadk.b.d.a(builder, true);
+                com.baidu.tbadk.util.g.a(builder, true);
             }
             ReplyMeReqIdl.Builder builder2 = new ReplyMeReqIdl.Builder();
             builder2.data = builder.build(false);

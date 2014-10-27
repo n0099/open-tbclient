@@ -1,20 +1,25 @@
 package com.baidu.tieba.im.chat.notify;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-class c extends CustomMessageListener {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(int i) {
-        super(i);
-    }
+public class c {
+    final /* synthetic */ b aQl;
+    public ViewGroup aQf = null;
+    public HeadImageView aHp = null;
+    public TextView aHq = null;
+    public TextView aQg = null;
+    public TextView aQh = null;
+    public TextView aQi = null;
+    public View MI = null;
+    public ImageView aQj = null;
+    public ImageView aQk = null;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
-            ((com.baidu.tbadk.mainTab.e) customResponsedMessage.getData()).a(new ImMessageCenterDelegateStatic());
-        }
+    /* JADX INFO: Access modifiers changed from: protected */
+    public c(b bVar) {
+        this.aQl = bVar;
     }
 }

@@ -8,68 +8,68 @@ import com.baidu.tieba.im.data.NearbyGroupsData;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class h extends q {
-    private NearbyGroupsActivity a;
-    private NearbyGroupsData b = null;
-    private boolean c = true;
-    private boolean d = false;
-    private a e;
+    private NearbyGroupsActivity bgd;
+    private NearbyGroupsData bge = null;
+    private boolean bgf = true;
+    private boolean bgg = false;
+    private a bgh;
 
     public h(NearbyGroupsActivity nearbyGroupsActivity) {
-        this.a = null;
-        this.a = nearbyGroupsActivity;
+        this.bgd = null;
+        this.bgd = nearbyGroupsActivity;
     }
 
-    public NearbyGroupsData d() {
-        return this.b;
+    public NearbyGroupsData QY() {
+        return this.bge;
     }
 
-    public void a(boolean z) {
-        this.c = z;
-        if (!this.c) {
-            this.b = null;
+    public void dq(boolean z) {
+        this.bgf = z;
+        if (!this.bgf) {
+            this.bge = null;
         }
-        a();
+        notifyDataSetChanged();
     }
 
-    public void b(boolean z) {
-        this.d = z;
-        if (this.d) {
-            this.b = null;
+    public void dr(boolean z) {
+        this.bgg = z;
+        if (this.bgg) {
+            this.bge = null;
         }
-        a();
+        notifyDataSetChanged();
     }
 
     public void a(NearbyGroupsData nearbyGroupsData) {
         boolean z = false;
-        if (nearbyGroupsData != null && this.b != null && nearbyGroupsData.getOffset() != 0) {
+        if (nearbyGroupsData != null && this.bge != null && nearbyGroupsData.getOffset() != 0) {
             z = true;
         }
         if (z) {
-            com.baidu.tieba.im.data.h lastGroup = this.b.getLastGroup();
-            com.baidu.tieba.im.data.h firstGroup = nearbyGroupsData.getFirstGroup();
-            if (lastGroup != null && firstGroup != null && lastGroup.a() != null && lastGroup.a().equals(firstGroup.a())) {
+            com.baidu.tieba.im.data.b lastGroup = this.bge.getLastGroup();
+            com.baidu.tieba.im.data.b firstGroup = nearbyGroupsData.getFirstGroup();
+            if (lastGroup != null && firstGroup != null && lastGroup.getName() != null && lastGroup.getName().equals(firstGroup.getName())) {
                 nearbyGroupsData.remove(firstGroup);
             }
             Iterator it = nearbyGroupsData.iterator();
             while (it.hasNext()) {
-                com.baidu.tieba.im.data.i iVar = (com.baidu.tieba.im.data.i) it.next();
-                if ((iVar instanceof com.baidu.tieba.im.data.j) && this.b.findItemByGroupId(((com.baidu.tieba.im.data.j) iVar).c()) != null) {
+                com.baidu.tieba.im.data.c cVar = (com.baidu.tieba.im.data.c) it.next();
+                if ((cVar instanceof com.baidu.tieba.im.data.d) && this.bge.findItemByGroupId(((com.baidu.tieba.im.data.d) cVar).getGroupId()) != null) {
                     break;
                 }
-                this.b.add(iVar);
+                this.bge.add(cVar);
             }
         } else {
-            this.b = nearbyGroupsData;
+            this.bge = nearbyGroupsData;
         }
-        a();
+        notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.b == null) {
-            return (this.d || !this.c) ? 1 : 0;
+        if (this.bge == null) {
+            return (this.bgg || !this.bgf) ? 1 : 0;
         }
-        int size = this.b.size();
+        int size = this.bge.size();
         if (size == 0) {
             return 1;
         }
@@ -78,18 +78,18 @@ public class h extends q {
 
     @Override // android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.b == null) {
-            if (!this.c) {
+        if (this.bge == null) {
+            if (!this.bgf) {
                 return 0;
             }
-            if (this.d) {
+            if (this.bgg) {
                 return 1;
             }
             return 5;
-        } else if (this.b.size() == 0) {
+        } else if (this.bge.size() == 0) {
             return 2;
         } else {
-            if (this.b.get(i).b() == 0) {
+            if (this.bge.get(i).getType() == 0) {
                 return 4;
             }
             return 3;
@@ -103,10 +103,10 @@ public class h extends q {
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.b == null || this.b.size() <= 0) {
+        if (this.bge == null || this.bge.size() <= 0) {
             return null;
         }
-        return this.b.get(i);
+        return this.bge.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -119,8 +119,8 @@ public class h extends q {
         a aVar;
         int itemViewType = getItemViewType(i);
         if (view == null) {
-            aVar = i.a(this.a, itemViewType);
-            view = aVar.a();
+            aVar = i.a(this.bgd, itemViewType);
+            view = aVar.getView();
             view.setTag(aVar);
         } else {
             Object tag = view.getTag();
@@ -131,28 +131,28 @@ public class h extends q {
             }
         }
         if (aVar != null) {
-            aVar.a(i, getItem(i));
+            aVar.b(i, getItem(i));
         }
         return view;
     }
 
     @Override // com.baidu.adp.widget.q
-    public int b() {
+    public int hZ() {
         return 4;
     }
 
     @Override // com.baidu.adp.widget.q
-    public View c() {
-        if (this.e == null) {
-            this.e = i.a(this.a, 4);
+    public View ia() {
+        if (this.bgh == null) {
+            this.bgh = i.a(this.bgd, 4);
         }
-        return this.e.a();
+        return this.bgh.getView();
     }
 
     @Override // com.baidu.adp.widget.q
     public void a(View view, AdapterView adapterView, int i) {
-        if (this.e != null) {
-            this.e.a(i, getItem(i));
+        if (this.bgh != null) {
+            this.bgh.b(i, getItem(i));
         }
     }
 }

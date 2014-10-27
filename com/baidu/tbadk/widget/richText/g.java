@@ -4,104 +4,113 @@ import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
-public class g {
-    private String a;
-    private String b;
-    private String c;
-    private int d;
-    private int e;
-    private boolean f;
+public class g extends com.baidu.adp.lib.a.b.a.a.i {
+    private String abF;
+    private String abG;
+    private String abH;
+    private boolean abI;
+    private int mHeight;
+    private int mWidth;
+
+    public g() {
+        this.abF = null;
+        this.abG = null;
+        this.abH = null;
+        this.mWidth = 1;
+        this.mHeight = 1;
+        this.abI = false;
+    }
 
     public g(PbContent pbContent) {
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = 1;
-        this.e = 1;
-        this.f = false;
+        this.abF = null;
+        this.abG = null;
+        this.abH = null;
+        this.mWidth = 1;
+        this.mHeight = 1;
+        this.abI = false;
         if (pbContent != null) {
-            this.a = pbContent.src;
-            this.b = pbContent.cdn_src;
-            if (this.b == null || this.b.length() == 0) {
-                this.b = this.a;
+            this.abF = pbContent.src;
+            this.abG = pbContent.cdn_src;
+            if (this.abG == null || this.abG.length() == 0) {
+                this.abG = this.abF;
             }
-            this.c = pbContent.big_cdn_src;
+            this.abH = pbContent.big_cdn_src;
             String str = pbContent.bsize;
             if (str != null) {
                 try {
                     String[] split = str.split(",");
-                    this.d = Integer.valueOf(split[0]).intValue();
-                    this.e = Integer.valueOf(split[1]).intValue();
+                    this.mWidth = Integer.valueOf(split[0]).intValue();
+                    this.mHeight = Integer.valueOf(split[1]).intValue();
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
             }
-            if (this.d <= 0) {
-                this.d = 1;
+            if (this.mWidth <= 0) {
+                this.mWidth = 1;
             }
-            if (this.e <= 0) {
-                this.e = 1;
+            if (this.mHeight <= 0) {
+                this.mHeight = 1;
             }
-            if (this.b != null && this.b.indexOf(".baidu.com") != -1) {
-                this.f = true;
+            if (this.abG != null && this.abG.indexOf(".baidu.com") != -1) {
+                this.abI = true;
             }
         }
     }
 
     public g(JSONObject jSONObject) {
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = 1;
-        this.e = 1;
-        this.f = false;
+        this.abF = null;
+        this.abG = null;
+        this.abH = null;
+        this.mWidth = 1;
+        this.mHeight = 1;
+        this.abI = false;
         if (jSONObject != null) {
-            this.a = jSONObject.optString("src");
-            this.b = jSONObject.optString("cdn_src", "");
-            if (this.b == null || this.b.length() == 0) {
-                this.b = this.a;
+            this.abF = jSONObject.optString("src");
+            this.abG = jSONObject.optString("cdn_src", "");
+            if (this.abG == null || this.abG.length() == 0) {
+                this.abG = this.abF;
             }
-            this.c = jSONObject.optString("big_cdn_src", null);
+            this.abH = jSONObject.optString("big_cdn_src", null);
             try {
                 String[] split = jSONObject.optString("bsize").split(",");
-                this.d = Integer.valueOf(split[0]).intValue();
-                this.e = Integer.valueOf(split[1]).intValue();
+                this.mWidth = Integer.valueOf(split[0]).intValue();
+                this.mHeight = Integer.valueOf(split[1]).intValue();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
-            if (this.d <= 0) {
-                this.d = 1;
+            if (this.mWidth <= 0) {
+                this.mWidth = 1;
             }
-            if (this.e <= 0) {
-                this.e = 1;
+            if (this.mHeight <= 0) {
+                this.mHeight = 1;
             }
-            if (this.b != null && this.b.indexOf(".baidu.com") != -1) {
-                this.f = true;
+            if (this.abG != null && this.abG.indexOf(".baidu.com") != -1) {
+                this.abI = true;
             }
         }
     }
 
-    public String a() {
-        return this.c;
+    public String vJ() {
+        return this.abH;
     }
 
-    public int b() {
-        return this.e;
+    public int getHeight() {
+        return this.mHeight;
     }
 
-    public int c() {
-        return this.d;
+    public int getWidth() {
+        return this.mWidth;
     }
 
-    public boolean d() {
-        return this.f;
+    public boolean vK() {
+        return this.abI;
     }
 
-    public String e() {
-        return this.a;
+    public String getSrc() {
+        return this.abF;
     }
 
-    public String f() {
-        return this.b;
+    public String vL() {
+        return this.abG;
     }
 }

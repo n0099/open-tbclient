@@ -5,17 +5,17 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 class m extends PagerAdapter {
-    final /* synthetic */ ForumListActivity a;
+    final /* synthetic */ ForumListActivity avP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(ForumListActivity forumListActivity) {
-        this.a = forumListActivity;
+        this.avP = forumListActivity;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
         boolean z;
-        z = this.a.q;
+        z = this.avP.avs;
         return z ? 1 : 2;
     }
 
@@ -28,11 +28,11 @@ class m extends PagerAdapter {
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         switch (i) {
             case 0:
-                viewGroup.addView(this.a.c.i);
-                return this.a.c.i;
+                viewGroup.addView(this.avP.avy.awn);
+                return this.avP.avy.awn;
             case 1:
-                viewGroup.addView(this.a.c.j);
-                return this.a.c.j;
+                viewGroup.addView(this.avP.avy.awo);
+                return this.avP.avy.awo;
             default:
                 return null;
         }

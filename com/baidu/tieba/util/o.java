@@ -1,41 +1,63 @@
 package com.baidu.tieba.util;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.util.BdLog;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes.dex */
-public class o extends BdAsyncTask<String, String, WriteData> {
-    private final n a;
-    private final String b;
+public class o {
+    private volatile int bQa;
+    private volatile HashMap<Long, Integer> bQb = new HashMap<>();
+    private volatile int bPZ = 0;
 
-    public o(String str, n nVar) {
-        setPriority(3);
-        this.a = nVar;
-        this.b = str;
+    public o(int i) {
+        this.bQa = i;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public WriteData doInBackground(String... strArr) {
-        String str;
+    public void hG(String str) {
         try {
-            str = com.baidu.tbadk.core.a.a.a().b("tb.pb_editor").a(this.b);
+            Long valueOf = Long.valueOf(Long.parseLong(str));
+            synchronized (this) {
+                if (this.bQb.size() >= this.bQa) {
+                    aeI();
+                }
+                this.bPZ++;
+                this.bQb.put(valueOf, Integer.valueOf(this.bPZ));
+            }
         } catch (Exception e) {
-            str = null;
+            BdLog.e(e.getMessage());
         }
-        return WriteData.fromDraftString(str);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(WriteData writeData) {
-        super.onPostExecute(writeData);
-        if (this.a != null) {
-            this.a.a(writeData);
+    public void aeI() {
+        synchronized (this) {
+            int i = 134217727;
+            Long l = null;
+            for (Map.Entry<Long, Integer> entry : this.bQb.entrySet()) {
+                if (entry.getValue().intValue() < i) {
+                    i = entry.getValue().intValue();
+                    l = entry.getKey();
+                }
+            }
+            if (l != null) {
+                this.bQb.remove(l);
+            } else {
+                this.bQb.clear();
+            }
         }
+    }
+
+    public boolean hH(String str) {
+        boolean z = false;
+        try {
+            Long valueOf = Long.valueOf(Long.parseLong(str));
+            synchronized (this) {
+                if (this.bQb.get(valueOf) != null) {
+                    z = true;
+                }
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+        return z;
     }
 }

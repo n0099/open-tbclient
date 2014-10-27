@@ -12,11 +12,10 @@ class a extends CustomMessageListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage instanceof RequestApplyLocalMessage) {
             RequestApplyLocalMessage requestApplyLocalMessage = (RequestApplyLocalMessage) customResponsedMessage;
-            com.baidu.tbadk.newFriends.a.a().a(requestApplyLocalMessage.getUid(), requestApplyLocalMessage.getFriendId(), requestApplyLocalMessage.getMessage());
+            com.baidu.tbadk.newFriends.a.un().a(requestApplyLocalMessage.getUid(), requestApplyLocalMessage.getFriendId(), requestApplyLocalMessage.getMessage());
         }
     }
 }

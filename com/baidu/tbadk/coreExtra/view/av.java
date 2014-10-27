@@ -1,190 +1,45 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.resourceLoader.BdResourceLoaderNetHelperStatic;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ba;
+import android.graphics.Bitmap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class av extends RelativeLayout {
-    protected ProgressBar a;
-    protected com.baidu.tbadk.widget.a b;
-    protected Context c;
-    private ax d;
-    private aw e;
-    private boolean f;
+public class av extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ au Pk;
 
-    public void setHeadImage(boolean z) {
-        if (this.b != null) {
-            this.b.setIsHeadImage(z);
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public av(au auVar) {
+        this.Pk = auVar;
     }
 
-    public void setCallback(aw awVar) {
-        this.e = awVar;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.c
+    public void aa(String str) {
+        this.Pk.Pi.setVisibility(0);
+        this.Pk.mProgressBar.setVisibility(8);
     }
 
-    public av(Context context) {
-        super(context);
-        this.a = null;
-        this.b = null;
-        this.d = null;
-        this.c = null;
-        this.e = null;
-        this.f = false;
-        this.c = context;
-        a();
-    }
-
-    public com.baidu.tbadk.widget.a getImageView() {
-        return this.b;
-    }
-
-    public void setGifSetListener(com.baidu.tbadk.widget.e eVar) {
-        this.b.setGifSetListener(eVar);
-    }
-
-    public void setImageOnClickListener(View.OnClickListener onClickListener) {
-        this.b.setImageOnClickListener(onClickListener);
-    }
-
-    public void setImageOnLongClickListener(View.OnLongClickListener onLongClickListener) {
-        this.b.setImageOnLongClickListener(onLongClickListener);
-    }
-
-    public void setOnSizeChangedListener(com.baidu.tbadk.widget.f fVar) {
-        this.b.setOnSizeChangedListener(fVar);
-    }
-
-    protected void a() {
-        this.b = new com.baidu.tbadk.widget.a(this.c);
-        this.b.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-        addView(this.b);
-        this.a = new ProgressBar(this.c, null, 16843399);
-        this.a.setIndeterminateDrawable(this.c.getResources().getDrawable(com.baidu.tieba.t.progressbar));
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams.addRule(13);
-        this.a.setLayoutParams(layoutParams);
-        this.a.setIndeterminate(true);
-        addView(this.a);
-    }
-
-    public void a(String str, boolean z) {
-        this.b.setTag(str);
-        UtilHelper.NetworkStateInfo netStatusInfo = UtilHelper.getNetStatusInfo(getContext());
-        if (netStatusInfo == UtilHelper.NetworkStateInfo.WIFI || netStatusInfo == UtilHelper.NetworkStateInfo.ThreeG) {
-            if (this.d != null) {
-                this.d.cancel();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.c
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        aw awVar;
+        aw awVar2;
+        this.Pk.mProgressBar.setVisibility(8);
+        if (aVar != null) {
+            awVar = this.Pk.Pj;
+            if (awVar != null) {
+                awVar2 = this.Pk.Pj;
+                awVar2.g(aVar.getUrl(), aVar.hq());
             }
-            if (str != null) {
-                this.d = new ax(this, str, z);
-                this.d.execute(new String[0]);
+            Bitmap hl = aVar.hl();
+            if (hl == null) {
+                this.Pk.Pi.vl();
+            } else if (aVar.bM()) {
+                this.Pk.Pi.a(aVar.hq(), hl);
+            } else {
+                this.Pk.Pi.setImageBitmap(hl);
+                this.Pk.Pi.setImageData(aVar.hq());
             }
         }
-    }
-
-    public void setGifMaxUseableMem(int i) {
-        this.b.setGifMaxUseableMem(i);
-    }
-
-    public void b() {
-        if (this.d != null) {
-            this.d.cancel();
-            this.d = null;
-        }
-    }
-
-    public void c() {
-        b();
-        if (this.b != null) {
-            this.b.j();
-        }
-        this.a.setVisibility(8);
-    }
-
-    public void d() {
-        b();
-        if (this.b != null) {
-            this.b.k();
-        }
-        this.a.setVisibility(8);
-    }
-
-    public void e() {
-        if (this.b != null && this.b.getImageType() == 1) {
-            this.b.g();
-        }
-    }
-
-    public void a(boolean z) {
-        String str;
-        if (this.b != null && (str = (String) this.b.getTag()) != null && this.b != null && this.d == null) {
-            if (this.b.getImageType() == 1) {
-                if (this.b.getGifCache() == null) {
-                    this.d = new ax(this, str, z);
-                    this.d.execute(new String[0]);
-                }
-            } else if (this.b.getImageType() == 2) {
-                if (UtilHelper.getNetStatusInfo(getContext()) != UtilHelper.NetworkStateInfo.UNAVAIL) {
-                    this.d = new ax(this, str, z);
-                    this.d.execute(new String[0]);
-                }
-            } else if (this.b.getImageBitmap() == null) {
-                this.d = new ax(this, str, z);
-                this.d.execute(new String[0]);
-            }
-        }
-    }
-
-    public int getImageType() {
-        if (this.b != null) {
-            return this.b.getImageType();
-        }
-        return 0;
-    }
-
-    public void setIsCdn(boolean z) {
-        this.f = z;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public byte[] a(String str) {
-        byte[] bArr = new byte[0];
-        DiskFileOperate diskFileOperate = new DiskFileOperate(TbConfig.IMAGE_CACHE_DIR_NAME, ba.f(str), DiskFileOperate.Action.READ);
-        diskFileOperate.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-        diskFileOperate.b(true);
-        diskFileOperate.d(false);
-        diskFileOperate.a((Object) bArr);
-        if (com.baidu.adp.lib.Disk.d.a().b(diskFileOperate)) {
-            int i = TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI;
-            if (BdResourceLoaderNetHelperStatic.a()) {
-                i = TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI;
-            }
-            synchronized (bArr) {
-                try {
-                    bArr.wait(i);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (diskFileOperate.g()) {
-                return diskFileOperate.b();
-            }
-            return null;
-        }
-        return null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, byte[] bArr, boolean z) {
-        DiskFileOperate diskFileOperate = new DiskFileOperate(TbConfig.IMAGE_CACHE_DIR_NAME, ba.f(str), DiskFileOperate.Action.WRITE);
-        diskFileOperate.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-        diskFileOperate.b(true);
-        diskFileOperate.a(bArr);
-        com.baidu.adp.lib.Disk.d.a().b(diskFileOperate);
     }
 }

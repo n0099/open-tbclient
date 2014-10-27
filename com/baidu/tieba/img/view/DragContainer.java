@@ -11,70 +11,70 @@ import android.widget.LinearLayout;
 import android.widget.Scroller;
 /* loaded from: classes.dex */
 public class DragContainer extends LinearLayout {
-    private Scroller a;
-    private Rect b;
-    private View c;
-    private Bitmap d;
-    private final int e;
+    private Bitmap bkN;
+    private final int delay;
+    private Scroller mScroller;
+    private Rect mTempRect;
+    private View view;
 
     public DragContainer(Context context) {
         super(context);
-        this.b = new Rect();
-        this.e = 16;
-        a(context);
+        this.mTempRect = new Rect();
+        this.delay = 16;
+        init(context);
     }
 
     public DragContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.b = new Rect();
-        this.e = 16;
-        a(context);
+        this.mTempRect = new Rect();
+        this.delay = 16;
+        init(context);
     }
 
-    private void a(Context context) {
-        this.a = new Scroller(context);
+    private void init(Context context) {
+        this.mScroller = new Scroller(context);
     }
 
-    public void a(View view) {
-        this.c = view;
+    public void O(View view) {
+        this.view = view;
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache();
-        this.d = Bitmap.createBitmap(view.getDrawingCache());
+        this.bkN = Bitmap.createBitmap(view.getDrawingCache());
         view.destroyDrawingCache();
         view.setDrawingCacheEnabled(false);
-        view.getDrawingRect(this.b);
-        offsetDescendantRectToMyCoords(view, this.b);
-        this.a.startScroll(this.b.top, 0, getHeight() - this.b.top, 0, 800);
+        view.getDrawingRect(this.mTempRect);
+        offsetDescendantRectToMyCoords(view, this.mTempRect);
+        this.mScroller.startScroll(this.mTempRect.top, 0, getHeight() - this.mTempRect.top, 0, 800);
         invalidate();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.c != null) {
-            if (this.a.computeScrollOffset()) {
+        if (this.view != null) {
+            if (this.mScroller.computeScrollOffset()) {
                 canvas.save();
-                canvas.drawBitmap(this.d, this.b.left, this.a.getCurrX(), (Paint) null);
+                canvas.drawBitmap(this.bkN, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
                 canvas.restore();
                 postInvalidateDelayed(16L);
                 return;
             }
-            if (this.d != null) {
-                this.d.recycle();
+            if (this.bkN != null) {
+                this.bkN.recycle();
             }
-            this.d = null;
-            this.c = null;
+            this.bkN = null;
+            this.view = null;
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.a.forceFinished(true);
-        if (this.d != null) {
-            this.d.recycle();
+        this.mScroller.forceFinished(true);
+        if (this.bkN != null) {
+            this.bkN.recycle();
         }
-        this.d = null;
-        this.c = null;
+        this.bkN = null;
+        this.view = null;
     }
 }

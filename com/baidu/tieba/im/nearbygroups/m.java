@@ -3,133 +3,135 @@ package com.baidu.tieba.im.nearbygroups;
 import android.view.View;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import com.baidu.adp.widget.ListView.aa;
 import com.baidu.adp.widget.PinnedHeaderListView;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.core.view.v;
+import com.baidu.tbadk.core.view.y;
 import com.baidu.tieba.im.data.NearbyGroupsData;
-import com.baidu.tieba.u;
-import com.baidu.tieba.x;
+import com.baidu.tieba.im.view.s;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class m extends com.baidu.adp.base.f {
-    private NavigationBar a;
-    private NearbyGroupsActivity b;
-    private View c;
-    private TextView d;
-    private h e;
-    private PinnedHeaderListView f;
-    private v g;
-    private NoNetworkView h;
-    private com.baidu.tieba.im.view.v i;
+    private y Yc;
+    private View agA;
+    private NoNetworkView aty;
+    private NearbyGroupsActivity bgd;
+    private TextView bgs;
+    private h bgt;
+    private PinnedHeaderListView bgu;
+    private s bgv;
+    private NavigationBar mNavigationBar;
 
     public m(NearbyGroupsActivity nearbyGroupsActivity) {
         super(nearbyGroupsActivity);
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.b = nearbyGroupsActivity;
-        i();
+        this.mNavigationBar = null;
+        this.bgd = null;
+        this.agA = null;
+        this.bgs = null;
+        this.bgt = null;
+        this.bgu = null;
+        this.Yc = null;
+        this.aty = null;
+        this.bgv = null;
+        this.bgd = nearbyGroupsActivity;
+        init();
     }
 
-    private void i() {
-        this.e = new h(this.b);
-        this.i = new com.baidu.tieba.im.view.v(this.b);
-        this.b.setContentView(com.baidu.tieba.v.nearby_group_activity);
-        this.c = this.b.findViewById(u.parent);
-        this.f = (PinnedHeaderListView) this.b.findViewById(u.nearby_list);
-        this.a = (NavigationBar) this.b.findViewById(u.view_navigation_bar);
-        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a.a(this.b.getResources().getString(x.nearby_group_title));
-        this.d = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.b);
-        this.h = (NoNetworkView) this.b.findViewById(u.view_no_network);
-        this.g = new v(this.b);
-        this.f.setPullRefresh(this.g);
-        this.f.setAdapter((ListAdapter) this.e);
-        this.f.setNextPage(this.i);
+    private void init() {
+        this.bgt = new h(this.bgd);
+        this.bgv = new s(this.bgd);
+        this.bgd.setContentView(w.nearby_group_activity);
+        this.agA = this.bgd.findViewById(v.parent);
+        this.bgu = (PinnedHeaderListView) this.bgd.findViewById(v.nearby_list);
+        this.mNavigationBar = (NavigationBar) this.bgd.findViewById(v.view_navigation_bar);
+        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mNavigationBar.setTitleText(this.bgd.getResources().getString(com.baidu.tieba.y.nearby_group_title));
+        this.bgs = this.mNavigationBar.addCreateGroupButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.bgd);
+        this.aty = (NoNetworkView) this.bgd.findViewById(v.view_no_network);
+        this.Yc = new y(this.bgd);
+        this.bgu.setPullRefresh(this.Yc);
+        this.bgu.setAdapter((ListAdapter) this.bgt);
+        this.bgu.setNextPage(this.bgv);
     }
 
-    public PinnedHeaderListView a() {
-        return this.f;
+    public PinnedHeaderListView Ra() {
+        return this.bgu;
     }
 
-    public void b() {
-        this.i.f();
+    public void Ep() {
+        this.bgv.Ep();
     }
 
-    public void c() {
-        this.i.g();
+    public void DG() {
+        this.bgv.DG();
     }
 
-    public void d() {
-        this.i.e();
+    public void DF() {
+        this.bgv.DF();
     }
 
-    public void a(com.baidu.adp.widget.ListView.x xVar) {
-        this.f.setOnSrollToBottomListener(xVar);
+    public void a(aa aaVar) {
+        this.bgu.setOnSrollToBottomListener(aaVar);
     }
 
-    public void a(View.OnClickListener onClickListener) {
-        this.i.a(onClickListener);
+    public void h(View.OnClickListener onClickListener) {
+        this.bgv.setOnClickListener(onClickListener);
     }
 
-    public void a(com.baidu.adp.widget.ListView.d dVar) {
-        this.g.a(dVar);
+    public void a(com.baidu.adp.widget.ListView.f fVar) {
+        this.Yc.a(fVar);
     }
 
-    public void e() {
-        this.f.e();
+    public void NP() {
+        this.bgu.hO();
     }
 
-    public void f() {
-        this.f.d();
+    public void Rb() {
+        this.bgu.hN();
     }
 
-    public int g() {
-        return this.d.getId();
+    public int Rc() {
+        return this.bgs.getId();
     }
 
-    public void a(boolean z) {
-        this.e.a(z);
-        j();
+    public void dq(boolean z) {
+        this.bgt.dq(z);
+        Rd();
     }
 
-    public void b(boolean z) {
-        this.e.b(z);
-        j();
+    public void dr(boolean z) {
+        this.bgt.dr(z);
+        Rd();
     }
 
-    public NearbyGroupsData h() {
-        return this.e.d();
+    public NearbyGroupsData QY() {
+        return this.bgt.QY();
     }
 
     public void a(NearbyGroupsData nearbyGroupsData) {
-        this.e.a(nearbyGroupsData);
-        j();
+        this.bgt.a(nearbyGroupsData);
+        Rd();
     }
 
-    private void j() {
-        NearbyGroupsData d = this.e.d();
-        if (d == null || d.size() == 0) {
-            this.i.c();
+    private void Rd() {
+        NearbyGroupsData QY = this.bgt.QY();
+        if (QY == null || QY.size() == 0) {
+            this.bgv.hide();
         } else {
-            this.i.d();
+            this.bgv.Ba();
         }
     }
 
-    public void a(int i) {
-        this.b.getLayoutMode().a(i == 1);
-        ay.a(this.c, i);
-        this.g.a(i);
-        this.a.c(i);
-        this.h.a(i);
-        this.i.a(i);
-        this.b.getLayoutMode().a(this.c);
+    public void onChangeSkinType(int i) {
+        this.bgd.getLayoutMode().L(i == 1);
+        aw.d(this.agA, i);
+        this.Yc.bM(i);
+        this.mNavigationBar.onChangeSkinType(i);
+        this.aty.onChangeSkinType(i);
+        this.bgv.cu(i);
+        this.bgd.getLayoutMode().h(this.agA);
     }
 }

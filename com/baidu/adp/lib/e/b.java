@@ -1,83 +1,86 @@
 package com.baidu.adp.lib.e;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.BdLog;
+import java.security.InvalidParameterException;
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class b {
-    private static b a = new b();
+public class b<T> {
+    private int kX;
+    private int kY;
+    private LinkedList<T> kZ;
+    private c<T> la;
 
-    private b() {
-    }
-
-    public static b a() {
-        return a;
-    }
-
-    private LayoutInflater a(Context context) {
-        if (context == null) {
-            return null;
+    public b(c<T> cVar, int i, int i2) {
+        this.kX = 10;
+        this.kY = 0;
+        this.kZ = null;
+        this.la = null;
+        if (cVar == null || i <= 0 || i2 > i) {
+            throw new InvalidParameterException("invalid params");
         }
-        return (LayoutInflater) context.getSystemService("layout_inflater");
+        this.la = cVar;
+        this.kX = i;
+        this.kY = i2;
+        this.kZ = new LinkedList<>();
+        I(this.kY);
     }
 
-    public View a(Context context, int i, ViewGroup viewGroup) {
-        View view = null;
-        if (context != null) {
-            int i2 = 0;
-            while (true) {
-                int i3 = i2;
-                if (i3 >= 3) {
-                    break;
-                }
+    private void I(int i) {
+        T t;
+        synchronized (this) {
+            for (int i2 = 0; i2 < i; i2++) {
                 try {
-                    view = a(context).inflate(i, viewGroup);
-                    break;
-                } catch (OutOfMemoryError e) {
-                    if (i3 == 2) {
-                        throw e;
-                    }
-                    BdBaseApplication.getInst().onAppMemoryLow();
-                } catch (RuntimeException e2) {
-                    if (i3 == 2) {
-                        throw e2;
-                    }
-                    BdBaseApplication.getInst().onAppMemoryLow();
+                    t = this.la.j(this.la.ee());
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                    t = null;
                 }
-                i2 = i3 + 1;
+                if (t != null) {
+                    this.kZ.offer(t);
+                }
             }
         }
-        return view;
     }
 
-    public View a(Context context, int i, ViewGroup viewGroup, boolean z) {
-        View view = null;
-        if (context != null) {
-            int i2 = 0;
-            while (true) {
-                int i3 = i2;
-                if (i3 >= 3) {
-                    break;
+    public T ed() {
+        T t = null;
+        synchronized (this) {
+            try {
+                if (this.kZ.size() > 0) {
+                    t = this.la.j(this.kZ.poll());
+                } else {
+                    t = this.la.j(this.la.ee());
                 }
-                try {
-                    view = a(context).inflate(i, viewGroup, z);
-                    break;
-                } catch (OutOfMemoryError e) {
-                    if (i3 == 2) {
-                        throw e;
-                    }
-                    BdBaseApplication.getInst().onAppMemoryLow();
-                } catch (RuntimeException e2) {
-                    if (i3 == 2) {
-                        throw e2;
-                    }
-                    BdBaseApplication.getInst().onAppMemoryLow();
-                }
-                i2 = i3 + 1;
+                I(this.kY - this.kZ.size());
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
-        return view;
+        return t;
+    }
+
+    public void h(T t) {
+        T t2;
+        synchronized (this) {
+            if (this.kZ.size() < this.kX) {
+                try {
+                    t2 = this.la.k(t);
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                    t2 = null;
+                }
+                if (t2 != null) {
+                    this.kZ.offer(t2);
+                }
+            } else {
+                this.la.i(t);
+            }
+        }
+    }
+
+    public void clear() {
+        synchronized (this) {
+            this.kZ.clear();
+        }
     }
 }

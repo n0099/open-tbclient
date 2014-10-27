@@ -1,31 +1,36 @@
 package com.baidu.tieba.topRec;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.u;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
 /* loaded from: classes.dex */
-public class j implements Runnable {
-    final /* synthetic */ g a;
+public class j extends com.baidu.adp.base.e {
+    private boolean avc;
+    k bPP;
+    l bPQ;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(g gVar) {
-        this.a = gVar;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public j(Context context) {
+        super(context);
+        this.avc = false;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        BdListView bdListView;
-        BdListView bdListView2;
-        n nVar;
-        bdListView = this.a.c;
-        if (bdListView.getChildCount() >= 3) {
-            bdListView2 = this.a.c;
-            View findViewById = bdListView2.getChildAt(2).findViewById(u.like);
-            if (findViewById != null) {
-                nVar = this.a.q;
-                nVar.a(findViewById);
-            }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.base.e
+    public boolean LoadData() {
+        this.bPP = new k(this, null);
+        this.bPP.execute(new Object[0]);
+        return true;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        if (this.bPP != null) {
+            this.bPP.cancel();
+            return false;
         }
+        return false;
+    }
+
+    public void a(l lVar) {
+        this.bPQ = lVar;
     }
 }

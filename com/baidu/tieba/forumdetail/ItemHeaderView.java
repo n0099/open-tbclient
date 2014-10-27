@@ -2,86 +2,81 @@ package com.baidu.tieba.forumdetail;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.m;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.forumdetail.ForumDetailData;
-import com.baidu.tieba.t;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class ItemHeaderView extends RelativeLayout {
-    private Context a;
-    private BarImageView b;
-    private ImageView c;
-    private TextView d;
-    private TextView e;
-    private TextView f;
+    private BarImageView axo;
+    private ImageView axp;
+    private TextView axq;
+    private TextView axr;
+    private TextView axs;
+    private Context mContext;
 
     public ItemHeaderView(Context context) {
         super(context);
-        a(context);
+        init(context);
     }
 
     public ItemHeaderView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        a(context);
+        init(context);
     }
 
     public ItemHeaderView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        a(context);
+        init(context);
     }
 
-    public void a(Context context) {
-        this.a = context;
-        com.baidu.adp.lib.e.b.a().a(context, v.forum_detail_header, this, true);
-        this.b = (BarImageView) findViewById(u.h_forum_portrait);
-        this.d = (TextView) findViewById(u.h_forum_name);
-        this.c = (ImageView) findViewById(u.h_forum_rank);
-        this.e = (TextView) findViewById(u.h_fans_num);
-        this.f = (TextView) findViewById(u.h_thread_num);
+    public void init(Context context) {
+        this.mContext = context;
+        com.baidu.adp.lib.g.b.ek().a(context, w.forum_detail_header, this, true);
+        this.axo = (BarImageView) findViewById(v.h_forum_portrait);
+        this.axq = (TextView) findViewById(v.h_forum_name);
+        this.axp = (ImageView) findViewById(v.h_forum_rank);
+        this.axr = (TextView) findViewById(v.h_fans_num);
+        this.axs = (TextView) findViewById(v.h_thread_num);
     }
 
-    public boolean a(ForumDetailData forumDetailData) {
-        int i;
-        if (forumDetailData == null || forumDetailData.forumDir == null) {
+    public boolean e(ForumDetailData forumDetailData) {
+        if (forumDetailData == null || forumDetailData.forum_dir == null) {
             return false;
         }
-        int skinType = TbadkApplication.m252getInst().getSkinType();
-        ForumDetailData.ForumInfo forumInfo = forumDetailData.forumInfo;
-        this.d.setText(forumInfo.forumName);
-        this.e.setText(String.valueOf(forumInfo.memberCount));
-        this.f.setText(String.valueOf(forumInfo.threadCount));
-        int i2 = forumDetailData.forumDir.rank;
-        if (i2 > 0 && i2 <= 3) {
-            if (skinType == 1) {
-                if (i2 == 1) {
-                    i = t.icon_brief_grade_orange_1;
-                } else {
-                    i = i2 == 2 ? t.icon_brief_grade_blue_1 : t.icon_brief_grade_green_1;
-                }
-            } else if (i2 == 1) {
-                i = t.icon_brief_grade_orange;
+        TbadkApplication.m251getInst().getSkinType();
+        ForumDetailData.ForumInfo forumInfo = forumDetailData.forum_info;
+        this.axq.setText(forumInfo.forum_name);
+        this.axr.setText(String.valueOf(forumInfo.member_count));
+        this.axs.setText(String.valueOf(forumInfo.thread_count));
+        int i = forumDetailData.forum_dir.rank;
+        if (i > 0 && i <= 3) {
+            if (i == 1) {
+                aw.c(this.axp, u.icon_brief_grade_orange);
+            } else if (i == 2) {
+                aw.c(this.axp, u.icon_brief_grade_blue);
             } else {
-                i = i2 == 2 ? t.icon_brief_grade_blue : t.icon_brief_grade_green;
+                aw.c(this.axp, u.icon_brief_grade_green);
             }
-            this.c.setImageResource(i);
-            this.c.setVisibility(0);
+            this.axp.setVisibility(0);
         } else {
-            this.c.setVisibility(8);
+            this.axp.setVisibility(8);
         }
-        int a = com.baidu.adp.lib.util.j.a(this.a, 80.0f);
-        this.b.a(forumInfo.avatar, 10, a, a, false);
+        int dip2px = m.dip2px(this.mContext, 80.0f);
+        this.axo.a(forumInfo.avatar, 10, dip2px, dip2px, false);
         return true;
     }
 
     public void a(BaseActivity baseActivity, int i) {
-        baseActivity.getLayoutMode().a(i == 1);
-        baseActivity.getLayoutMode().a((View) this);
+        baseActivity.getLayoutMode().L(i == 1);
+        baseActivity.getLayoutMode().h(this);
     }
 }

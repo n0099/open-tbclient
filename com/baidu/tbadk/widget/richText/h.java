@@ -7,22 +7,22 @@ import android.text.style.ClickableSpan;
 import android.view.View;
 /* loaded from: classes.dex */
 public class h extends ClickableSpan {
-    private Context a;
-    private int b;
-    private String c;
-    private String d;
+    private String abJ;
+    private Context mContext;
+    private int mType;
+    private String mUrl;
 
     public h(Context context, int i, String str) {
-        this.a = null;
-        this.b = 0;
-        this.c = null;
-        this.a = context;
-        this.c = str;
-        this.b = i;
+        this.mContext = null;
+        this.mType = 0;
+        this.mUrl = null;
+        this.mContext = context;
+        this.mUrl = str;
+        this.mType = i;
     }
 
-    public void a(String str) {
-        this.d = str;
+    public void dR(String str) {
+        this.abJ = str;
     }
 
     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -34,28 +34,28 @@ public class h extends ClickableSpan {
     @Override // android.text.style.ClickableSpan
     public void onClick(View view) {
         j jVar = null;
-        if (this.a instanceof j) {
-            jVar = (j) this.a;
+        if (this.mContext instanceof j) {
+            jVar = (j) this.mContext;
         }
         if (jVar != null) {
-            switch (this.b) {
+            switch (this.mType) {
                 case 2:
-                    jVar.b(this.a, this.c);
+                    jVar.t(this.mContext, this.mUrl);
                     return;
                 case 16:
-                    jVar.a(this.a, this.c);
+                    jVar.s(this.mContext, this.mUrl);
                     return;
                 case AccessibilityNodeInfoCompat.ACTION_LONG_CLICK /* 32 */:
-                    jVar.c(this.a, this.c);
+                    jVar.u(this.mContext, this.mUrl);
                     return;
                 case 64:
-                    jVar.d(this.a, this.c);
+                    jVar.v(this.mContext, this.mUrl);
                     return;
                 case 128:
-                    jVar.e(this.a, this.c);
+                    jVar.w(this.mContext, this.mUrl);
                     return;
                 case 256:
-                    jVar.a(this.a, this.c, this.d);
+                    jVar.b(this.mContext, this.mUrl, this.abJ);
                     return;
                 default:
                     return;

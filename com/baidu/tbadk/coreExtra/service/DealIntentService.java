@@ -8,6 +8,7 @@ public class DealIntentService extends Service {
     private static String ACTION_ON_POST_EXSIT = "TaskExsits";
     private static String ACTION_ON_POST_START = "TaskNeedsTobeStart";
     public static final int CLASS_TYPE_FRS = 2;
+    public static final int CLASS_TYPE_GIFT_INFO = 24;
     public static final int CLASS_TYPE_GROUP_EVENT = 14;
     public static final int CLASS_TYPE_GROUP_INFO = 13;
     public static final int CLASS_TYPE_LIVE_GROUP = 17;
@@ -16,6 +17,7 @@ public class DealIntentService extends Service {
     public static final int CLASS_TYPE_MESSAGE = 5;
     public static final int CLASS_TYPE_MESSAGE_NEW = 11;
     public static final int CLASS_TYPE_MESSAGE_NEW_MENTION = 21;
+    public static final int CLASS_TYPE_NATIVE_BUY_TBEAN = 25;
     public static final int CLASS_TYPE_NATIVE_PAY = 23;
     public static final int CLASS_TYPE_NOTLOGINGUIDE_ACTIVITY = 20;
     public static final int CLASS_TYPE_OFFICAL_BAR = 22;

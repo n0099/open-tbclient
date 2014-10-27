@@ -8,33 +8,33 @@ import android.widget.LinearLayout;
 import java.io.FileNotFoundException;
 /* loaded from: classes.dex */
 public class x extends LinearLayout {
-    ImageView a;
-    Uri b;
-    Context c;
-    Bitmap d;
+    ImageView Xb;
+    Bitmap Xc;
+    Context mContext;
+    Uri mUri;
 
     public x(Context context) {
         super(context);
-        this.c = context;
-        a();
+        this.mContext = context;
+        init();
     }
 
-    private void a() {
-        com.baidu.adp.lib.e.b.a().a(this.c, com.baidu.tieba.v.motu_albums_selected_item, this);
-        this.a = (ImageView) findViewById(com.baidu.tieba.u.image);
+    private void init() {
+        com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.w.motu_albums_selected_item, this);
+        this.Xb = (ImageView) findViewById(com.baidu.tieba.v.image);
     }
 
     public Uri getUri() {
-        return this.b;
+        return this.mUri;
     }
 
-    public boolean a(Uri uri) {
+    public boolean g(Uri uri) {
         boolean z = true;
-        this.b = uri;
-        int dimension = (int) this.c.getResources().getDimension(com.baidu.tieba.s.jigsawSelectedImageWidth);
+        this.mUri = uri;
+        int dimension = (int) this.mContext.getResources().getDimension(com.baidu.tieba.t.jigsawSelectedImageWidth);
         if (uri != null) {
             try {
-                this.d = b.b(this.c, uri, dimension, dimension);
+                this.Xc = b.b(this.mContext, uri, dimension, dimension);
             } catch (OtherException e) {
                 e.printStackTrace();
                 z = false;
@@ -46,13 +46,13 @@ public class x extends LinearLayout {
                 z = false;
             }
         }
-        if (this.d != null) {
-            this.a.setImageBitmap(this.d);
+        if (this.Xc != null) {
+            this.Xb.setImageBitmap(this.Xc);
         } else {
             z = false;
         }
         if (!z) {
-            y.a(com.baidu.tieba.x.open_error);
+            y.dc(com.baidu.tieba.y.open_error);
         }
         return z;
     }

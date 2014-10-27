@@ -1,88 +1,83 @@
 package com.baidu.tbadk.core.util;
 
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.Proxy;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.service.NetworkChangeReceiver;
 /* loaded from: classes.dex */
 public class aj {
-    public static int a;
-    private static aj b;
-    private static long d;
-    private static volatile int c = 0;
-    private static int e = 300000;
-    private static int f = 10;
+    public static int EB;
+    private static aj Ew;
+    private static long Ey;
+    private static volatile int Ex = 0;
+    private static int Ez = 300000;
+    private static int EA = 10;
 
     private aj() {
-        a = TbadkApplication.m252getInst().getNetWorkCoreType();
+        EB = TbadkApplication.m251getInst().getNetWorkCoreType();
     }
 
-    public static synchronized aj a() {
+    public static synchronized aj mo() {
         aj ajVar;
         synchronized (aj.class) {
-            if (b == null) {
-                b = new aj();
+            if (Ew == null) {
+                Ew = new aj();
             }
-            ajVar = b;
+            ajVar = Ew;
         }
         return ajVar;
     }
 
-    public v a(com.baidu.tbadk.core.util.httpNet.e eVar) {
-        switch (a) {
+    public u a(com.baidu.tbadk.core.util.httpNet.e eVar) {
+        switch (EB) {
             case 0:
-                return new NetWorkCore(eVar);
+                return new ad(eVar);
             case 1:
-                return new NetWorkCoreByBdHttp(eVar);
+                return new af(eVar);
             default:
-                return new NetWorkCore(eVar);
+                return new ad(eVar);
         }
     }
 
-    public static synchronized void b() {
+    public static synchronized void mp() {
         synchronized (aj.class) {
-            if (a == 1) {
+            if (EB == 1) {
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - d < e) {
-                    c++;
-                    if (c > f) {
-                        a = 0;
+                if (currentTimeMillis - Ey < Ez) {
+                    Ex++;
+                    if (Ex > EA) {
+                        EB = 0;
                         BdLog.e("切换会老的网络内核");
-                        TbadkApplication.m252getInst().setNetWorkCoreType(a);
-                        TiebaStatic.eventStat(TbadkApplication.m252getInst().getApp().getApplicationContext(), "network_core", "current Net：" + UtilHelper.getNetStatusInfo(TbadkApplication.m252getInst().getApp().getApplicationContext()) + ", TelType:" + com.baidu.adp.lib.network.willdelete.h.d() + ", wap:" + c(), 1, new Object[0]);
+                        TbadkApplication.m251getInst().setNetWorkCoreType(EB);
+                        TiebaStatic.eventStat(TbadkApplication.m251getInst().getApp().getApplicationContext(), "network_core", "current Net：" + com.baidu.adp.lib.util.j.fn() + ", TelType:" + com.baidu.adp.lib.util.j.fp() + ", wap:" + getNetType(), 1, new Object[0]);
                     }
                 } else {
-                    c = 0;
-                    d = currentTimeMillis;
+                    Ex = 0;
+                    Ey = currentTimeMillis;
                 }
             }
         }
     }
 
-    public static String c() {
+    public static String getNetType() {
         try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) TbadkApplication.m252getInst().getApp().getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
-            if (activeNetworkInfo.isAvailable()) {
-                if (activeNetworkInfo.getTypeName().equalsIgnoreCase(NetworkChangeReceiver.WIFI_STRING)) {
+            if (com.baidu.adp.lib.util.j.fh()) {
+                if (com.baidu.adp.lib.util.j.fi()) {
                     return "wifi";
                 }
-                String defaultHost = Proxy.getDefaultHost();
-                if (defaultHost != null) {
-                    if (defaultHost.length() > 0) {
+                String fq = com.baidu.adp.lib.util.j.fq();
+                if (fq != null) {
+                    if (fq.length() > 0) {
                         return "wap";
                     }
                 }
                 return "net";
             }
             return null;
-        } catch (Exception e2) {
+        } catch (Exception e) {
             return null;
         }
     }
 
-    public static void a(int i) {
-        a = i;
+    public static void bs(int i) {
+        EB = i;
     }
 }

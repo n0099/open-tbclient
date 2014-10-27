@@ -1,25 +1,19 @@
 package com.baidu.tieba.friendfeed;
-
-import android.widget.AbsListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class d implements AbsListView.OnScrollListener {
-    final /* synthetic */ FriendFeedActivity a;
+public class d implements com.baidu.adp.widget.ListView.f {
+    final /* synthetic */ FriendFeedActivity ayL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(FriendFeedActivity friendFeedActivity) {
-        this.a = friendFeedActivity;
+        this.ayL = friendFeedActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        t tVar;
-        if (i != 0) {
-            tVar = this.a.c;
-            tVar.a();
+    @Override // com.baidu.adp.widget.ListView.f
+    public void H(boolean z) {
+        if (z) {
+            return;
         }
+        this.ayL.c(false, (String) null);
     }
 }

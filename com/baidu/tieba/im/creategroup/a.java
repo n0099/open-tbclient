@@ -6,34 +6,34 @@ import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.base.f {
-    private View a;
-    private TextView b;
-    private ImageView c;
+    private ImageView Ph;
+    private View aSM;
+    private TextView aSN;
 
     public a(Context context) {
         super(context);
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        b();
+        this.aSM = null;
+        this.aSN = null;
+        this.Ph = null;
+        initUI();
     }
 
-    public View a() {
-        return this.a;
+    public View KO() {
+        return this.aSM;
     }
 
-    public void a(String str) {
-        this.b.setText(str);
+    public void fL(String str) {
+        this.aSN.setText(str);
     }
 
-    public void a(boolean z) {
-        this.c.setVisibility(z ? 0 : 8);
+    public void cO(boolean z) {
+        this.Ph.setVisibility(z ? 0 : 8);
     }
 
-    private void b() {
-        this.a = com.baidu.adp.lib.e.b.a().a(this.mContext, com.baidu.tieba.v.address_lbs_item, null);
-        this.b = (TextView) this.a.findViewById(com.baidu.tieba.u.text);
-        this.c = (ImageView) this.a.findViewById(com.baidu.tieba.u.group_address_list_item_selected);
-        this.a.setTag(this);
+    private void initUI() {
+        this.aSM = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.w.address_lbs_item, null);
+        this.aSN = (TextView) this.aSM.findViewById(com.baidu.tieba.v.text);
+        this.Ph = (ImageView) this.aSM.findViewById(com.baidu.tieba.v.group_address_list_item_selected);
+        this.aSM.setTag(this);
     }
 }

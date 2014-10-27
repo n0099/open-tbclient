@@ -1,28 +1,21 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw implements View.OnClickListener {
-    final /* synthetic */ UpdateDialog a;
+public class aw implements DialogInterface.OnCancelListener {
+    final /* synthetic */ UpdateDialog this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(UpdateDialog updateDialog) {
-        this.a = updateDialog;
+        this.this$0 = updateDialog;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ab abVar;
-        boolean z;
-        boolean z2;
-        boolean z3;
-        abVar = this.a.h;
-        abVar.a();
-        UpdateDialog updateDialog = this.a;
-        z = this.a.b;
-        z2 = this.a.c;
-        z3 = this.a.d;
-        updateDialog.a(z, z2, z3);
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        ac acVar;
+        acVar = this.this$0.aeg;
+        acVar.dismiss();
+        this.this$0.finish();
     }
 }

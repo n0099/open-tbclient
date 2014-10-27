@@ -1,19 +1,31 @@
 package com.baidu.tbadk.browser;
 
-import android.view.View;
+import android.text.TextUtils;
+import android.webkit.DownloadListener;
+import android.webkit.MimeTypeMap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class u implements View.OnClickListener {
-    final /* synthetic */ WebTbActivity a;
+public class u implements DownloadListener {
+    final /* synthetic */ WebTbActivity xR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(WebTbActivity webTbActivity) {
-        this.a = webTbActivity;
+        this.xR = webTbActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.a.a.canGoBack()) {
-            this.a.a.goBack();
+    @Override // android.webkit.DownloadListener
+    public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
+        String aR;
+        if (!TextUtils.isEmpty(str)) {
+            String extensionFromMimeType = MimeTypeMap.getSingleton().getExtensionFromMimeType(str4);
+            if (TextUtils.isEmpty(extensionFromMimeType) || !extensionFromMimeType.equalsIgnoreCase("apk")) {
+                return;
+            }
+            aR = this.xR.aR(str);
+            if (TextUtils.isEmpty(aR)) {
+                aR = String.valueOf(System.currentTimeMillis()) + ".apk";
+            }
+            com.baidu.tbadk.download.b.rh().a(aR, str, aR, 0);
         }
     }
 }

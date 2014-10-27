@@ -1,15 +1,12 @@
 package com.baidu.tieba.discover;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class r {
-    String a;
-    String b;
-    String c;
-    boolean d;
+public class r {
+    String anY;
+    boolean anZ;
 
-    public r(String str, String str2, String str3, int i) {
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
-        this.d = i == 1;
+    public r(String str, int i) {
+        this.anY = str;
+        this.anZ = i == 1;
     }
 }

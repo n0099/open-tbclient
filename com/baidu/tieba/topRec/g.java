@@ -13,163 +13,135 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.v;
-import com.baidu.tieba.r;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.view.y;
+import com.baidu.tieba.p;
+import com.baidu.tieba.s;
 import com.baidu.tieba.u;
-import com.baidu.tieba.x;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class g {
-    NavigationBar a;
-    Handler b;
-    private BdListView c;
-    private Button d;
-    private v e;
-    private final View f;
-    private LinearLayout g;
-    private TextView h;
-    private ImageView i;
-    private TopRecActivity j;
-    private ProgressBar l;
-    private TextView m;
-    private Animation o;
-    private Animation p;
-    private n q;
-    private int k = 0;
-    private boolean n = false;
+    private y Yc;
+    private BdListView bPE;
+    private Button bPF;
+    private final View bPG;
+    private LinearLayout bPH;
+    private TextView bPI;
+    private ImageView bPJ;
+    private TextView bPL;
+    private Animation bPM;
+    private Animation bPN;
+    private TopRecActivity bPz;
+    Handler mHandler;
+    NavigationBar mNavigationBar;
+    private ProgressBar mProgressBar;
+    private int bPK = 0;
+    private boolean bPy = false;
 
     public g(TopRecActivity topRecActivity) {
-        this.q = null;
-        this.b = null;
-        this.j = topRecActivity;
-        this.b = new Handler();
-        this.j.setContentView(com.baidu.tieba.v.top_recommended_activity);
-        this.c = (BdListView) this.j.findViewById(u.top_list);
-        this.a = (NavigationBar) topRecActivity.findViewById(u.view_navigation_bar);
-        this.a.a(topRecActivity.getString(x.top_recommended));
-        View a = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.v.nb_item_top_rec, (View.OnClickListener) null);
-        this.d = (Button) a.findViewById(u.title_finish);
-        this.d.setOnClickListener(this.j);
-        this.m = (TextView) a.findViewById(u.title_finish_cover);
-        this.e = new v(this.j);
-        this.g = (LinearLayout) com.baidu.adp.lib.e.b.a().a(topRecActivity, com.baidu.tieba.v.forum_list_forum_footer, null);
-        this.f = this.g.findViewById(u.footer_background);
-        this.h = (TextView) this.g.findViewById(u.footer_text);
-        this.i = (ImageView) this.g.findViewById(u.footer_icon);
-        d();
-        this.o = AnimationUtils.loadAnimation(this.j, com.baidu.tieba.o.top_recommended_finish_a);
-        this.p = AnimationUtils.loadAnimation(this.j, com.baidu.tieba.o.top_recommended_finish_b);
-        this.o.setAnimationListener(new h(this));
-        this.p.setAnimationListener(new i(this));
-        this.d.setText(String.valueOf(this.j.getString(x.done)) + "(" + this.k + ")");
-        this.c.setPullRefresh(this.e);
-        this.l = (ProgressBar) this.j.findViewById(u.loading);
-        if (!n.a()) {
-            this.q = new n(topRecActivity);
-        }
+        this.mHandler = null;
+        this.bPz = topRecActivity;
+        this.mHandler = new Handler();
+        this.bPz.setContentView(w.top_recommended_activity);
+        this.bPE = (BdListView) this.bPz.findViewById(v.top_list);
+        this.mNavigationBar = (NavigationBar) topRecActivity.findViewById(v.view_navigation_bar);
+        this.mNavigationBar.setTitleText(topRecActivity.getString(com.baidu.tieba.y.top_recommended));
+        View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.nb_item_top_rec, (View.OnClickListener) null);
+        this.bPF = (Button) addCustomView.findViewById(v.title_finish);
+        this.bPF.setOnClickListener(this.bPz);
+        this.bPL = (TextView) addCustomView.findViewById(v.title_finish_cover);
+        this.Yc = new y(this.bPz);
+        this.bPH = (LinearLayout) com.baidu.adp.lib.g.b.ek().inflate(topRecActivity, w.forum_list_forum_footer, null);
+        this.bPG = this.bPH.findViewById(v.footer_background);
+        this.bPI = (TextView) this.bPH.findViewById(v.footer_text);
+        this.bPJ = (ImageView) this.bPH.findViewById(v.footer_icon);
+        aev();
+        this.bPM = AnimationUtils.loadAnimation(this.bPz, p.top_recommended_finish_a);
+        this.bPN = AnimationUtils.loadAnimation(this.bPz, p.top_recommended_finish_b);
+        this.bPM.setAnimationListener(new h(this));
+        this.bPN.setAnimationListener(new i(this));
+        this.bPF.setText(String.valueOf(this.bPz.getString(com.baidu.tieba.y.done)) + "(" + this.bPK + ")");
+        this.bPE.setPullRefresh(this.Yc);
+        this.mProgressBar = (ProgressBar) this.bPz.findViewById(v.loading);
     }
 
-    public LinearLayout a() {
-        return this.g;
+    public LinearLayout aet() {
+        return this.bPH;
     }
 
-    public Button b() {
-        return this.d;
+    public Button aeu() {
+        return this.bPF;
     }
 
     public void a(e eVar) {
-        this.c.setAdapter((ListAdapter) eVar);
+        this.bPE.setAdapter((ListAdapter) eVar);
     }
 
-    public void a(com.baidu.adp.widget.ListView.d dVar) {
-        this.e.a(dVar);
+    public void b(com.baidu.adp.widget.ListView.f fVar) {
+        this.Yc.a(fVar);
     }
 
-    public void c() {
-        this.c.removeFooterView(this.g);
-        this.c.addFooterView(this.g);
-        this.c.d();
+    public void hN() {
+        this.bPE.removeFooterView(this.bPH);
+        this.bPE.addFooterView(this.bPH);
+        this.bPE.hN();
     }
 
-    public void a(int i) {
-        this.d.invalidate();
-        if (this.k < 100) {
-            this.m.setText(String.valueOf(this.j.getString(x.done)) + "(" + this.k + ")");
+    public void hv(int i) {
+        this.bPF.invalidate();
+        if (this.bPK < 100) {
+            this.bPL.setText(String.valueOf(this.bPz.getString(com.baidu.tieba.y.done)) + "(" + this.bPK + ")");
         } else {
-            this.m.setText(String.valueOf(this.j.getString(x.done)) + "(99+)");
+            this.bPL.setText(String.valueOf(this.bPz.getString(com.baidu.tieba.y.done)) + "(99+)");
         }
-        this.d.setText(" ");
-        this.m.setVisibility(0);
-        this.m.setAnimation(this.o);
-        this.o.start();
-        this.k = i;
+        this.bPF.setText(" ");
+        this.bPL.setVisibility(0);
+        this.bPL.setAnimation(this.bPM);
+        this.bPM.start();
+        this.bPK = i;
     }
 
-    public void d() {
-        this.h.setText(this.j.getString(x.flist_expand_list));
-        if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            this.i.setBackgroundResource(t.ico_downward_1);
+    public void aev() {
+        this.bPI.setText(this.bPz.getString(com.baidu.tieba.y.flist_expand_list));
+        aw.h(this.bPJ, u.ico_downward);
+        this.bPH.setOnClickListener(this.bPz);
+    }
+
+    public void aew() {
+        this.bPI.setText(this.bPz.getString(com.baidu.tieba.y.to_the_end));
+        this.bPJ.setVisibility(8);
+        this.bPH.setClickable(false);
+        this.bPH.setOnClickListener(null);
+    }
+
+    public void onChangeSkinType(int i) {
+        this.mNavigationBar.onChangeSkinType(i);
+        aw.e(this.bPz.findViewById(v.container), i);
+        aw.e((TextView) this.bPF, i);
+        aw.d((TextView) this.bPF, i);
+        aw.d(this.bPL, i);
+        if (TbadkApplication.m251getInst().getSkinType() == 1) {
+            this.bPE.setDivider(new ColorDrawable(-13881543));
         } else {
-            this.i.setBackgroundResource(t.ico_downward);
+            this.bPE.setDivider(new ColorDrawable(-1775893));
         }
-        this.g.setOnClickListener(this.j);
-    }
-
-    public void e() {
-        this.h.setText(this.j.getString(x.to_the_end));
-        this.i.setVisibility(8);
-        this.g.setClickable(false);
-        this.g.setOnClickListener(null);
-    }
-
-    public void b(int i) {
-        this.a.c(i);
-        ay.b(this.j.findViewById(u.container), i);
-        ay.e((TextView) this.d, i);
-        ay.d((TextView) this.d, i);
-        ay.d(this.m, i);
-        if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            this.c.setDivider(new ColorDrawable(-13881543));
+        this.bPE.setDividerHeight(2);
+        aw.h(this.bPG, u.bg_black_banner_down);
+        aw.b(this.bPI, s.flist_text_color_day, 1);
+        if (this.bPy) {
+            this.bPJ.setVisibility(8);
         } else {
-            this.c.setDivider(new ColorDrawable(-1775893));
-        }
-        this.c.setDividerHeight(2);
-        if (i == 1) {
-            this.f.setBackgroundResource(t.bg_black_banner_down_1);
-            this.h.setTextColor(this.j.getResources().getColor(r.flist_text_color_night));
-            if (this.e != null) {
-                this.e.a(i);
-            }
-            if (this.n) {
-                this.i.setVisibility(8);
-                return;
-            } else {
-                this.i.setImageResource(t.ico_downward_1);
-                return;
-            }
-        }
-        this.f.setBackgroundResource(t.bg_black_banner_down);
-        this.h.setTextColor(this.j.getResources().getColor(r.flist_text_color_day));
-        if (this.n) {
-            this.i.setVisibility(8);
-        } else {
-            this.i.setImageResource(t.ico_downward);
+            aw.c(this.bPJ, u.ico_downward);
         }
     }
 
-    public void a(boolean z) {
+    public void da(boolean z) {
         if (z) {
-            this.l.setVisibility(0);
+            this.mProgressBar.setVisibility(0);
         } else {
-            this.l.setVisibility(8);
-        }
-    }
-
-    public void f() {
-        if (this.q != null && !n.a()) {
-            this.b.postDelayed(new j(this), 300L);
+            this.mProgressBar.setVisibility(8);
         }
     }
 }

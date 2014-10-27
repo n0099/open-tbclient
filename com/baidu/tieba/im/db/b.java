@@ -1,21 +1,21 @@
 package com.baidu.tieba.im.db;
 
-import com.baidu.tieba.im.chat.officialBar.az;
-import com.baidu.tieba.im.groupInfo.y;
+import com.baidu.tieba.im.chat.officialBar.ax;
+import com.baidu.tieba.im.groupInfo.z;
 /* loaded from: classes.dex */
 public class b {
-    private static b a = new b();
+    private static b aVa = new b();
 
-    public static b a() {
-        return a;
+    public static b Mv() {
+        return aVa;
     }
 
     private b() {
     }
 
-    public synchronized void b() {
-        com.baidu.tieba.im.chat.personaltalk.a.a().b();
-        az.a().b();
-        y.a().b();
+    public synchronized void KB() {
+        com.baidu.tieba.im.chat.personaltalk.c.KF().KB();
+        ax.KA().KB();
+        z.Pb().KB();
     }
 }

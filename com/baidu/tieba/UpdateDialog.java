@@ -13,15 +13,15 @@ import com.baidu.tieba.data.VersionData;
 import com.baidu.tieba.service.TiebaUpdateService;
 /* loaded from: classes.dex */
 public class UpdateDialog extends BaseActivity {
-    private boolean a;
-    private boolean b;
-    private boolean c;
-    private boolean d;
-    private VersionData e;
-    private CombineDownload f;
-    private String g;
-    private ab h;
-    private ay i;
+    private boolean acU;
+    private CombineDownload ady;
+    private boolean aeb;
+    private boolean aec;
+    private boolean aed;
+    private VersionData aee;
+    private String aef;
+    private ac aeg;
+    private bb aeh;
 
     public static void a(Context context, VersionData versionData, CombineDownload combineDownload) {
         if (versionData != null) {
@@ -30,8 +30,8 @@ public class UpdateDialog extends BaseActivity {
             intent.putExtra("tieba_apk_data", versionData);
             intent.putExtra("other_apk_data", combineDownload);
             context.startActivity(intent);
-            ai.c().p(true);
-            ai.c().a(combineDownload);
+            aj.wk().bb(true);
+            aj.wk().a(combineDownload);
         }
     }
 
@@ -42,40 +42,40 @@ public class UpdateDialog extends BaseActivity {
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.alpha = 0.0f;
         getWindow().setAttributes(attributes);
-        a(bundle);
-        a();
+        d(bundle);
+        wY();
     }
 
-    private void a(Bundle bundle) {
+    private void d(Bundle bundle) {
         if (bundle != null) {
-            this.e = (VersionData) bundle.getSerializable("tieba_apk_data");
-            this.f = (CombineDownload) bundle.getSerializable("other_apk_data");
-            if (this.e != null) {
-                this.g = this.e.getAsDownloadUrl();
+            this.aee = (VersionData) bundle.getSerializable("tieba_apk_data");
+            this.ady = (CombineDownload) bundle.getSerializable("other_apk_data");
+            if (this.aee != null) {
+                this.aef = this.aee.getAsDownloadUrl();
             }
         } else {
             Intent intent = getIntent();
             if (intent != null) {
-                this.e = (VersionData) intent.getSerializableExtra("tieba_apk_data");
-                this.f = (CombineDownload) intent.getSerializableExtra("other_apk_data");
-                if (this.e != null) {
-                    this.g = this.e.getAsDownloadUrl();
+                this.aee = (VersionData) intent.getSerializableExtra("tieba_apk_data");
+                this.ady = (CombineDownload) intent.getSerializableExtra("other_apk_data");
+                if (this.aee != null) {
+                    this.aef = this.aee.getAsDownloadUrl();
                 }
             }
         }
-        if (this.e == null || !this.e.hasNewVer()) {
+        if (this.aee == null || !this.aee.hasNewVer()) {
             finish();
         }
-        if (this.e.hasNewVer()) {
-            this.h = new ab(this, y.common_alert_dialog);
-            this.h.setCancelable(false);
-            this.h.a(this.e, this.f, new ax(this, null));
-            this.h.setOnCancelListener(new at(this));
-            this.h.setOnDismissListener(new au(this));
-            this.h.a(new av(this));
-            this.h.b(new aw(this));
+        if (this.aee.hasNewVer()) {
+            this.aeg = new ac(this, z.common_alert_dialog);
+            this.aeg.setCancelable(false);
+            this.aeg.a(this.aee, this.ady, new ba(this, null));
+            this.aeg.setOnCancelListener(new aw(this));
+            this.aeg.setOnDismissListener(new ax(this));
+            this.aeg.d(new ay(this));
+            this.aeg.e(new az(this));
             if (!isFinishing()) {
-                this.h.show();
+                this.aeg.show();
             }
         }
     }
@@ -83,11 +83,11 @@ public class UpdateDialog extends BaseActivity {
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        if (this.e != null) {
-            bundle.putSerializable("tieba_apk_data", this.e);
+        if (this.aee != null) {
+            bundle.putSerializable("tieba_apk_data", this.aee);
         }
-        if (this.f != null) {
-            bundle.putSerializable("other_apk_data", this.f);
+        if (this.ady != null) {
+            bundle.putSerializable("other_apk_data", this.ady);
         }
     }
 
@@ -95,49 +95,49 @@ public class UpdateDialog extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.h != null) {
-            this.h.dismiss();
+        if (this.aeg != null) {
+            this.aeg.dismiss();
         }
-        if (this.i != null) {
-            unregisterReceiver(this.i);
+        if (this.aeh != null) {
+            unregisterReceiver(this.aeh);
         }
-        b();
+        wZ();
     }
 
-    private void a() {
-        this.i = new ay(this, null);
+    private void wY() {
+        this.aeh = new bb(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.APP_UPDATE_ACTION);
-        registerReceiver(this.i, intentFilter);
+        registerReceiver(this.aeh, intentFilter);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z, boolean z2, boolean z3) {
-        if (!com.baidu.tbadk.core.util.s.a()) {
-            showToast(com.baidu.tbadk.core.util.s.b());
+    public void b(boolean z, boolean z2, boolean z3) {
+        if (!com.baidu.tbadk.core.util.s.bm()) {
+            showToast(com.baidu.tbadk.core.util.s.lu());
             return;
         }
-        this.b = z;
-        this.c = z2;
-        this.d = z3;
+        this.aeb = z;
+        this.aec = z2;
+        this.aed = z3;
         Intent intent = new Intent(this, TiebaUpdateService.class);
         intent.addFlags(268435456);
-        if (z && this.e != null && URLUtil.isNetworkUrl(this.e.getUrl())) {
-            intent.putExtra("key_tieba_apk_url", this.e.getUrl());
-            intent.putExtra("tieba_apk_data", this.e);
+        if (z && this.aee != null && URLUtil.isNetworkUrl(this.aee.getUrl())) {
+            intent.putExtra("key_tieba_apk_url", this.aee.getUrl());
+            intent.putExtra("tieba_apk_data", this.aee);
         }
-        if (z2 && URLUtil.isNetworkUrl(this.g)) {
-            intent.putExtra("tieba_apk_data", this.e);
-            intent.putExtra("as_apk_url", this.g);
+        if (z2 && URLUtil.isNetworkUrl(this.aef)) {
+            intent.putExtra("tieba_apk_data", this.aee);
+            intent.putExtra("as_apk_url", this.aef);
         }
-        if (z3 && URLUtil.isNetworkUrl(this.f.getAppUrl())) {
-            intent.putExtra("other_apk_url", this.f.getAppUrl());
+        if (z3 && URLUtil.isNetworkUrl(this.ady.getAppUrl())) {
+            intent.putExtra("other_apk_url", this.ady.getAppUrl());
         }
         startService(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
+    public void wZ() {
         Intent intent = new Intent(this, TiebaUpdateService.class);
         intent.setAction("action_stop");
         startService(intent);
@@ -146,8 +146,8 @@ public class UpdateDialog extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.h != null) {
-            this.h.b(i);
+        if (this.aeg != null) {
+            this.aeg.changeSkinType(i);
         }
     }
 }

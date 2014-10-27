@@ -1,32 +1,30 @@
 package com.baidu.tieba.frs.view;
 
-import android.content.Context;
+import android.app.Activity;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.bh;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.PraiseData;
+import android.widget.PopupWindow;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.browser.TbWebViewActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnClickListener {
-    final /* synthetic */ FrsPraiseView a;
+    final /* synthetic */ FrsHeaderView aFT;
+    private final /* synthetic */ PopupWindow aFU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(FrsPraiseView frsPraiseView) {
-        this.a = frsPraiseView;
+    public l(FrsHeaderView frsHeaderView, PopupWindow popupWindow) {
+        this.aFT = frsHeaderView;
+        this.aFU = popupWindow;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        PraiseData praiseData;
-        Context context;
-        praiseData = this.a.f;
-        MetaData metaData = praiseData.getUser().get(1);
-        if (metaData != null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            context = this.a.a;
-            messageManager.sendMessage(new CustomMessage(2002003, new bh(context, metaData.getUserId(), metaData.getName_show())));
-        }
+        Activity activity;
+        Activity activity2;
+        this.aFU.dismiss();
+        activity = this.aFT.aBF;
+        String string = activity.getResources().getString(com.baidu.tieba.y.experion_speed);
+        activity2 = this.aFT.aBF;
+        TbWebViewActivity.startActivity(activity2, string, String.valueOf(com.baidu.tieba.data.e.ajt) + "mo/q/tbeanrights?type=7&_client_version=" + TbConfig.getVersion() + "&nohead=1", true, false, true, true, null);
     }
 }

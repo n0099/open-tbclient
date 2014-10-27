@@ -7,59 +7,59 @@ import android.view.View;
 import android.widget.ScrollView;
 /* loaded from: classes.dex */
 public class LocateScrollView extends ScrollView {
-    private k a;
-    private View b;
-    private int c;
-    private Rect d;
-    private boolean e;
-    private boolean f;
+    private View aIG;
+    private h bjo;
+    private boolean bjp;
+    private boolean bjq;
+    private Rect dZ;
+    private int mOffset;
 
     public LocateScrollView(Context context) {
         super(context);
-        this.d = new Rect();
+        this.dZ = new Rect();
     }
 
     public LocateScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.d = new Rect();
+        this.dZ = new Rect();
     }
 
     public LocateScrollView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.d = new Rect();
+        this.dZ = new Rect();
     }
 
     @Override // android.widget.ScrollView, android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.e = true;
-        if (this.a != null) {
-            this.a.a(i, i2, i3, i4);
+        this.bjp = true;
+        if (this.bjo != null) {
+            this.bjo.f(i, i2, i3, i4);
         }
-        if (this.f) {
-            a(this.b, this.c);
-            this.f = false;
+        if (this.bjq) {
+            n(this.aIG, this.mOffset);
+            this.bjq = false;
         }
     }
 
-    public void a(View view, int i) {
-        if (!this.e) {
-            this.f = true;
+    public void n(View view, int i) {
+        if (!this.bjp) {
+            this.bjq = true;
             return;
         }
-        this.b = view;
-        this.c = i;
-        if (this.b != null) {
-            this.b.getDrawingRect(this.d);
-            offsetDescendantRectToMyCoords(this.b, this.d);
-            smoothScrollBy(0, computeScrollDeltaToGetChildRectOnScreen(this.d) + this.c);
+        this.aIG = view;
+        this.mOffset = i;
+        if (this.aIG != null) {
+            this.aIG.getDrawingRect(this.dZ);
+            offsetDescendantRectToMyCoords(this.aIG, this.dZ);
+            smoothScrollBy(0, computeScrollDeltaToGetChildRectOnScreen(this.dZ) + this.mOffset);
         } else {
-            smoothScrollTo(0, this.c);
+            smoothScrollTo(0, this.mOffset);
         }
         invalidate();
     }
 
-    public void setOnSizeChangeListener(k kVar) {
-        this.a = kVar;
+    public void setOnSizeChangeListener(h hVar) {
+        this.bjo = hVar;
     }
 }

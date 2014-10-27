@@ -3,14 +3,15 @@ package com.baidu.tieba.faceshop;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.FacePackageDetailActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnClickListener {
-    final /* synthetic */ EmotionImageActivity a;
+    final /* synthetic */ EmotionImageActivity ass;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(EmotionImageActivity emotionImageActivity) {
-        this.a = emotionImageActivity;
+        this.ass = emotionImageActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,7 +19,7 @@ public class l implements View.OnClickListener {
         int i;
         String str;
         String str2;
-        i = this.a.p;
+        i = this.ass.from;
         switch (i) {
             case 1:
                 str = "faceshop_from_forum_detail";
@@ -33,8 +34,8 @@ public class l implements View.OnClickListener {
                 str = "emotion_image";
                 break;
         }
-        EmotionImageActivity emotionImageActivity = this.a;
-        str2 = this.a.f;
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.o(emotionImageActivity, str2, false, str)));
+        EmotionImageActivity emotionImageActivity = this.ass;
+        str2 = this.ass.Lh;
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(emotionImageActivity, str2, false, str)));
     }
 }

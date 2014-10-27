@@ -4,58 +4,51 @@ import android.content.Context;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 /* loaded from: classes.dex */
 public class a extends LinearLayout {
-    Context a;
-    TbRichTextView b;
-    TextView c;
-    ChatImageWithTailView d;
-    LinearLayout e;
+    LinearLayout Hk;
+    TbRichTextView aQG;
+    TextView aQH;
+    ChatImageWithTailView aQI;
+    Context mContext;
 
     public a(Context context) {
         super(context);
-        this.a = context;
-        a();
+        this.mContext = context;
+        nu();
     }
 
-    private void a() {
+    private void nu() {
         setOrientation(1);
-        com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.official_history_item, this, true);
+        com.baidu.adp.lib.g.b.ek().a(this.mContext, com.baidu.tieba.w.official_history_item, this, true);
         setClickable(false);
         setFocusable(false);
-        this.e = (LinearLayout) findViewById(com.baidu.tieba.u.history_container);
-        this.c = (TextView) findViewById(com.baidu.tieba.u.history_send_time);
-        this.b = (TbRichTextView) findViewById(com.baidu.tieba.u.history_txt);
-        this.d = (ChatImageWithTailView) findViewById(com.baidu.tieba.u.history_pic);
-        if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            this.e.setBackgroundResource(com.baidu.tieba.t.selector_history_multi_single_bg_1);
-            this.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.official_time_text_1));
-            this.b.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.official_list_item_content_1));
-            return;
-        }
-        this.e.setBackgroundResource(com.baidu.tieba.t.selector_history_multi_single_bg);
-        this.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.official_time_text));
-        this.b.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.official_list_item_content));
+        this.Hk = (LinearLayout) findViewById(com.baidu.tieba.v.history_container);
+        this.aQH = (TextView) findViewById(com.baidu.tieba.v.history_send_time);
+        this.aQG = (TbRichTextView) findViewById(com.baidu.tieba.v.history_txt);
+        this.aQI = (ChatImageWithTailView) findViewById(com.baidu.tieba.v.history_pic);
+        com.baidu.tbadk.core.util.aw.h(this.Hk, com.baidu.tieba.u.selector_history_multi_single_bg);
+        com.baidu.tbadk.core.util.aw.b(this.aQH, com.baidu.tieba.s.official_time_text, 1);
+        com.baidu.tbadk.core.util.aw.b(this.aQG, com.baidu.tieba.s.official_list_item_content, 1);
     }
 
     public void setTime(String str) {
-        this.c.setText(str);
+        this.aQH.setText(str);
     }
 
     public TbRichTextView getRichTextView() {
-        return this.b;
+        return this.aQG;
     }
 
     public ChatImageWithTailView getImageView() {
-        return this.d;
+        return this.aQI;
     }
 
-    public void a(View view) {
-        this.e.setBackgroundDrawable(null);
-        this.e.removeAllViews();
-        this.e.addView(view);
+    public void J(View view) {
+        this.Hk.setBackgroundDrawable(null);
+        this.Hk.removeAllViews();
+        this.Hk.addView(view);
     }
 }

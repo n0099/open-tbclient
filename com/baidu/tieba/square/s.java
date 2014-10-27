@@ -1,33 +1,36 @@
 package com.baidu.tieba.square;
 
-import android.support.v4.view.ViewPager;
-import android.view.MotionEvent;
+import android.content.Context;
 import android.view.View;
+import com.baidu.tbadk.core.util.bf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s implements View.OnTouchListener {
-    final /* synthetic */ q a;
+public class s implements View.OnClickListener {
+    final /* synthetic */ r bMx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(q qVar) {
-        this.a = qVar;
+    public s(r rVar) {
+        this.bMx = rVar;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        ViewPager viewPager;
-        viewPager = this.a.c;
-        if (view == viewPager) {
-            if (motionEvent.getAction() == 0) {
-                this.a.b();
-                return false;
-            } else if (motionEvent.getAction() == 1) {
-                this.a.a();
-                return false;
-            } else {
-                return false;
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        u uVar;
+        Context context;
+        Object tag = view.getTag();
+        if (!(view.getTag() instanceof u)) {
+            uVar = null;
+        } else {
+            uVar = (u) tag;
         }
-        return false;
+        String aD = aa.aD("forum_list_recommend", uVar.adq());
+        if (uVar != null) {
+            bf mR = bf.mR();
+            context = this.bMx.mContext;
+            String[] strArr = new String[3];
+            strArr[0] = uVar.getLink();
+            strArr[2] = aD;
+            mR.b(context, strArr);
+        }
     }
 }

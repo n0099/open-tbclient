@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.groupUpdates;
 
 import android.text.TextUtils;
-import com.baidu.gson.GsonBuilder;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -10,7 +9,7 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class p {
-    private List<UpdatesItemData> a = new ArrayList();
+    private List<UpdatesItemData> bch = new ArrayList();
 
     public static void a(UpdatesItemData updatesItemData, com.baidu.tieba.im.a<Boolean> aVar) {
         if (updatesItemData != null) {
@@ -18,20 +17,20 @@ public class p {
         }
     }
 
-    public void a(com.baidu.tieba.im.a<Boolean> aVar) {
+    public void b(com.baidu.tieba.im.a<Boolean> aVar) {
         com.baidu.tieba.im.e.a(new r(this), aVar);
     }
 
-    public String a() {
+    public String Pf() {
         String str;
         String str2 = "";
-        if (this.a == null || this.a.size() == 0) {
+        if (this.bch == null || this.bch.size() == 0) {
             return null;
         }
-        int size = this.a.size();
+        int size = this.bch.size();
         int i = 0;
         while (i < size) {
-            UpdatesItemData updatesItemData = this.a.get(i);
+            UpdatesItemData updatesItemData = this.bch.get(i);
             if (updatesItemData == null || TextUtils.isEmpty(updatesItemData.getNotice_id()) || !TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
                 str = str2;
             } else {
@@ -46,56 +45,56 @@ public class p {
         return str2;
     }
 
-    public void b() {
-        this.a.clear();
+    public void Pg() {
+        this.bch.clear();
     }
 
-    public void c() {
-        b();
+    public void xY() {
+        Pg();
     }
 
-    public void a(UpdatesItemData updatesItemData) {
-        this.a.add(updatesItemData);
+    public void d(UpdatesItemData updatesItemData) {
+        this.bch.add(updatesItemData);
     }
 
-    public void b(UpdatesItemData updatesItemData) {
-        this.a.remove(updatesItemData);
+    public void e(UpdatesItemData updatesItemData) {
+        this.bch.remove(updatesItemData);
     }
 
-    public int d() {
-        return this.a.size();
+    public int Ph() {
+        return this.bch.size();
     }
 
-    public void a(List<UpdatesItemData> list) {
+    public void X(List<UpdatesItemData> list) {
         if (list != null) {
             for (UpdatesItemData updatesItemData : list) {
                 if (updatesItemData.isSelected()) {
-                    this.a.add(updatesItemData);
+                    this.bch.add(updatesItemData);
                 }
             }
         }
     }
 
-    public static void b(com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> aVar) {
+    public static void c(com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> aVar) {
         com.baidu.tieba.im.e.a(new s(), aVar);
     }
 
-    public static List<UpdatesItemData> a(LinkedList<GroupNewsPojo> linkedList) {
+    public static List<UpdatesItemData> n(LinkedList<GroupNewsPojo> linkedList) {
         LinkedList linkedList2 = new LinkedList();
         if (linkedList == null) {
             return linkedList2;
         }
         Iterator<GroupNewsPojo> it = linkedList.iterator();
         while (it.hasNext()) {
-            UpdatesItemData a = a(it.next());
-            if (a != null) {
-                linkedList2.add(a);
+            UpdatesItemData f = f(it.next());
+            if (f != null) {
+                linkedList2.add(f);
             }
         }
         return linkedList2;
     }
 
-    public static UpdatesItemData a(GroupNewsPojo groupNewsPojo) {
+    public static UpdatesItemData f(GroupNewsPojo groupNewsPojo) {
         UpdatesItemData updatesItemData;
         String content = groupNewsPojo.getContent();
         if (TextUtils.isEmpty(content)) {
@@ -123,7 +122,7 @@ public class p {
                     updatesItemData.setGroupActivityId(optJSONObject.optString("activityId"));
                 }
             } else {
-                updatesItemData = (UpdatesItemData) new GsonBuilder().create().fromJson(content, (Class<Object>) UpdatesItemData.class);
+                updatesItemData = (UpdatesItemData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(content, UpdatesItemData.class);
             }
             return updatesItemData;
         } catch (Exception e) {

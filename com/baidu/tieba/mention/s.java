@@ -1,21 +1,25 @@
 package com.baidu.tieba.mention;
 
-import android.view.View;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s implements View.OnClickListener {
-    final /* synthetic */ p a;
+public class s extends CustomMessageListener {
+    final /* synthetic */ r bnF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(p pVar) {
-        this.a = pVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s(r rVar, int i) {
+        super(i);
+        this.bnF = rVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        BaseFragmentActivity baseFragmentActivity;
-        baseFragmentActivity = this.a.l;
-        baseFragmentActivity.finish();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001124) {
+            return;
+        }
+        this.bnF.d(customResponsedMessage);
     }
 }

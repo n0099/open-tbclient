@@ -7,37 +7,37 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class FrsOfficalBanner extends LinearLayout {
-    View.OnClickListener a;
-    private Context b;
-    private TextView c;
-    private LinearLayout d;
-    private com.baidu.tbadk.coreExtra.view.c e;
+    private com.baidu.tbadk.coreExtra.view.b Nv;
+    View.OnClickListener Nw;
+    private TextView aFW;
+    private LinearLayout aFX;
+    private Context mContext;
 
     public FrsOfficalBanner(Context context) {
         super(context);
-        this.a = new j(this);
-        a(context);
+        this.Nw = new n(this);
+        init(context);
     }
 
     public FrsOfficalBanner(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = new j(this);
-        a(context);
+        this.Nw = new n(this);
+        init(context);
     }
 
-    private void a(Context context) {
-        this.b = context;
-        com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.frs_offical_banner_view, this);
-        this.d = (LinearLayout) findViewById(com.baidu.tieba.u.banner_parent);
-        this.c = (TextView) findViewById(com.baidu.tieba.u.tv_text);
-        this.d.setOnClickListener(this.a);
+    private void init(Context context) {
+        this.mContext = context;
+        com.baidu.adp.lib.g.b.ek().inflate(context, com.baidu.tieba.w.frs_offical_banner_view, this);
+        this.aFX = (LinearLayout) findViewById(com.baidu.tieba.v.banner_parent);
+        this.aFW = (TextView) findViewById(com.baidu.tieba.v.tv_text);
+        this.aFX.setOnClickListener(this.Nw);
     }
 
     public void setText(String str) {
-        this.c.setText(str);
+        this.aFW.setText(str);
     }
 
-    public void setBannerViewClickListener(com.baidu.tbadk.coreExtra.view.c cVar) {
-        this.e = cVar;
+    public void setBannerViewClickListener(com.baidu.tbadk.coreExtra.view.b bVar) {
+        this.Nv = bVar;
     }
 }

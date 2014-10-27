@@ -64,7 +64,7 @@ public class SapiAccount implements Parcelable, Cloneable {
             jSONObject.put(d, this.email);
             jSONObject.put(e, this.phone);
             jSONObject.put("bduss", this.bduss);
-            jSONObject.put(g, this.app);
+            jSONObject.put("app", this.app);
             jSONObject.put("ptoken", this.ptoken);
             jSONObject.put("stoken", this.stoken);
             jSONObject.put(j, this.extra);
@@ -100,7 +100,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         sapiAccount.email = jSONObject.optString(d);
         sapiAccount.phone = jSONObject.optString(e);
         sapiAccount.bduss = jSONObject.optString("bduss");
-        sapiAccount.app = jSONObject.optString(g);
+        sapiAccount.app = jSONObject.optString("app");
         sapiAccount.ptoken = jSONObject.optString("ptoken");
         sapiAccount.stoken = jSONObject.optString("stoken");
         sapiAccount.extra = jSONObject.optString(j);
@@ -225,7 +225,7 @@ public class SapiAccount implements Parcelable, Cloneable {
     }
 
     public ReloginCredentials getReloginCredentials() {
-        return d.a(SapiAccountManager.getInstance().getSapiConfiguration().context).c(this.uid);
+        return c.a(SapiAccountManager.getInstance().getSapiConfiguration().context).c(this.uid);
     }
 
     /* loaded from: classes.dex */
@@ -242,7 +242,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         public JSONObject toJSONObject() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(a, this.account);
+                jSONObject.put("account", this.account);
                 jSONObject.put(b, this.accountType);
                 jSONObject.put(c, this.password);
                 jSONObject.put(d, this.ubi);
@@ -258,7 +258,7 @@ public class SapiAccount implements Parcelable, Cloneable {
                 return null;
             }
             ReloginCredentials reloginCredentials = new ReloginCredentials();
-            reloginCredentials.account = jSONObject.optString(a);
+            reloginCredentials.account = jSONObject.optString("account");
             reloginCredentials.accountType = jSONObject.optString(b);
             reloginCredentials.password = jSONObject.optString(c);
             reloginCredentials.ubi = jSONObject.optString(d);

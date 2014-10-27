@@ -1,71 +1,31 @@
 package com.baidu.tieba.im.group;
 
-import android.view.View;
-import android.widget.ListAdapter;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.core.view.v;
-import com.baidu.tieba.u;
-import com.baidu.tieba.x;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.CaptureActivityConfig;
+import com.baidu.tbadk.pluginArch.PluginCenter;
+import com.baidu.tbadk.pluginArch.PluginNameList;
+import com.baidu.tbadk.plugins.ZxingPlugin;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d extends com.baidu.adp.base.f {
-    private DiscoverGroupActivity a;
-    private View b;
-    private NavigationBar c;
-    private NoNetworkView d;
-    private BdListView e;
-    private a f;
-    private v g;
+public class d extends com.baidu.tbadk.b.a.a {
+    final /* synthetic */ b aYs;
 
-    public d(DiscoverGroupActivity discoverGroupActivity) {
-        super(discoverGroupActivity);
-        this.g = null;
-        this.a = discoverGroupActivity;
-        c();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d(b bVar, Context context, int i, int i2, int i3, int i4) {
+        super(context, i, i2, i3, i4);
+        this.aYs = bVar;
     }
 
-    private void c() {
-        this.b = View.inflate(this.a, com.baidu.tieba.v.discover_group_activity, null);
-        this.a.setContentView(this.b);
-        this.c = (NavigationBar) this.b.findViewById(u.discovergroup_navigation_bar);
-        this.c.a(x.group_title_find_group);
-        this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d = (NoNetworkView) this.b.findViewById(u.discovergroup_no_network);
-        this.d.a(new e(this));
-        this.e = (BdListView) this.b.findViewById(u.list_view);
-        this.g = new v(this.a);
-        this.g.a(new f(this));
-        this.e.setPullRefresh(this.g);
-        this.f = new a(this.a);
-        this.e.setAdapter((ListAdapter) this.f);
-    }
-
-    public BdListView a() {
-        return this.e;
-    }
-
-    public a b() {
-        return this.f;
-    }
-
-    public void a(int i) {
-        this.a.getLayoutMode().a(i == 1);
-        this.a.getLayoutMode().a(this.b);
-        this.c.c(i);
-        this.d.a(i);
-        this.g.a(i);
-    }
-
-    public void b(int i) {
-        if (this.f != null) {
-            this.f.b(i);
-        }
-    }
-
-    public void a(String str) {
-        if (this.f != null) {
-            this.f.a(str);
+    @Override // com.baidu.tbadk.b.a.a
+    public void onClick() {
+        Context context;
+        if (((ZxingPlugin) PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_ZXING).getClassInstance(ZxingPlugin.class)) != null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            context = this.aYs.mContext;
+            messageManager.sendMessage(new CustomMessage(2002001, new CaptureActivityConfig((DiscoverMoreActivity) context, 16003)));
         }
     }
 }

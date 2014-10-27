@@ -2,20 +2,19 @@ package com.baidu.tieba.faceshop;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.gson.GsonBuilder;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al extends BdAsyncTask<Object, String, FacePackageDetailData> {
-    final /* synthetic */ ak a;
-    private com.baidu.tbadk.core.util.ae b;
-    private volatile boolean c;
+    private volatile boolean atv;
+    final /* synthetic */ ak atw;
+    private com.baidu.tbadk.core.util.ac mNetWork;
 
     private al(ak akVar) {
-        this.a = akVar;
-        this.c = false;
+        this.atw = akVar;
+        this.atv = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,7 +25,7 @@ public class al extends BdAsyncTask<Object, String, FacePackageDetailData> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: m */
     public FacePackageDetailData doInBackground(Object... objArr) {
         FacePackageDetailData facePackageDetailData;
         Exception e;
@@ -37,45 +36,43 @@ public class al extends BdAsyncTask<Object, String, FacePackageDetailData> {
         float f;
         String str3;
         String str4;
-        GsonBuilder gsonBuilder;
         String str5;
         try {
-            str = this.a.d;
+            str = this.atw.atn;
             if (str != null) {
-                str2 = this.a.d;
-                if (str2.length() > 0 && !this.c) {
-                    com.baidu.adp.lib.cache.t<String> b = com.baidu.tbadk.core.a.a.a().b("tb_face_package");
-                    if (b != null) {
+                str2 = this.atw.atn;
+                if (str2.length() > 0 && !this.atv) {
+                    com.baidu.adp.lib.cache.t<String> bd = com.baidu.tbadk.core.a.a.kS().bd("tb_face_package");
+                    if (bd != null) {
                         StringBuilder sb = new StringBuilder(String.valueOf(TbadkApplication.getCurrentAccount()));
-                        str5 = this.a.d;
-                        String a = b.a(sb.append(str5).toString());
-                        if (!com.baidu.tbadk.core.util.ba.c(a)) {
-                            publishProgress(a);
+                        str5 = this.atw.atn;
+                        String str6 = bd.get(sb.append(str5).toString());
+                        if (!com.baidu.tbadk.core.util.ay.aA(str6)) {
+                            publishProgress(str6);
                         }
                     }
-                    this.b = new com.baidu.tbadk.core.util.ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/faces/getfacelist");
-                    com.baidu.tbadk.core.util.ae aeVar = this.b;
-                    i = this.a.j;
-                    aeVar.a("scr_w", String.valueOf(i));
-                    com.baidu.tbadk.core.util.ae aeVar2 = this.b;
-                    i2 = this.a.k;
-                    aeVar2.a("scr_h", String.valueOf(i2));
-                    com.baidu.tbadk.core.util.ae aeVar3 = this.b;
-                    f = this.a.l;
-                    aeVar3.a("scr_dip", String.valueOf(f));
-                    com.baidu.tbadk.core.util.ae aeVar4 = this.b;
-                    str3 = this.a.d;
-                    aeVar4.a("pid", str3);
-                    com.baidu.tbadk.core.util.ae aeVar5 = this.b;
-                    str4 = this.a.c;
-                    aeVar5.a(com.baidu.tbadk.core.frameworkData.a.ST_TYPE, str4);
-                    String h = this.b.h();
-                    gsonBuilder = this.a.g;
-                    facePackageDetailData = (FacePackageDetailData) gsonBuilder.create().fromJson(h, (Class<Object>) FacePackageDetailData.class);
+                    this.mNetWork = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_PACKAGE_DETAIL);
+                    com.baidu.tbadk.core.util.ac acVar = this.mNetWork;
+                    i = this.atw.ats;
+                    acVar.k("scr_w", String.valueOf(i));
+                    com.baidu.tbadk.core.util.ac acVar2 = this.mNetWork;
+                    i2 = this.atw.att;
+                    acVar2.k("scr_h", String.valueOf(i2));
+                    com.baidu.tbadk.core.util.ac acVar3 = this.mNetWork;
+                    f = this.atw.atu;
+                    acVar3.k("scr_dip", String.valueOf(f));
+                    com.baidu.tbadk.core.util.ac acVar4 = this.mNetWork;
+                    str3 = this.atw.atn;
+                    acVar4.k("pid", str3);
+                    com.baidu.tbadk.core.util.ac acVar5 = this.mNetWork;
+                    str4 = this.atw.aok;
+                    acVar5.k("st_type", str4);
+                    String lA = this.mNetWork.lA();
+                    facePackageDetailData = (FacePackageDetailData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(lA, FacePackageDetailData.class);
                     if (facePackageDetailData != null) {
                         try {
-                            if (facePackageDetailData.facePackage != null) {
-                                a(h);
+                            if (facePackageDetailData.faces_list != null) {
+                                eS(lA);
                                 return facePackageDetailData;
                             }
                             return facePackageDetailData;
@@ -102,36 +99,33 @@ public class al extends BdAsyncTask<Object, String, FacePackageDetailData> {
     public void onPostExecute(FacePackageDetailData facePackageDetailData) {
         BaseActivity.LoadDataCallBack loadDataCallBack;
         super.onPostExecute(facePackageDetailData);
-        this.a.i = null;
+        this.atw.atr = null;
         if (facePackageDetailData != null) {
-            this.a.h = facePackageDetailData;
+            this.atw.atq = facePackageDetailData;
         }
-        loadDataCallBack = this.a.m;
+        loadDataCallBack = this.atw.atj;
         loadDataCallBack.callback(facePackageDetailData, false);
     }
 
-    private void a(String str) {
+    private void eS(String str) {
         String str2;
-        com.baidu.adp.lib.cache.t<String> b = com.baidu.tbadk.core.a.a.a().b("tb_face_package");
-        if (b != null) {
+        com.baidu.adp.lib.cache.t<String> bd = com.baidu.tbadk.core.a.a.kS().bd("tb_face_package");
+        if (bd != null) {
             StringBuilder sb = new StringBuilder(String.valueOf(TbadkApplication.getCurrentAccount()));
-            str2 = this.a.d;
-            b.a(sb.append(str2).toString(), str, 604800000L);
+            str2 = this.atw.atn;
+            bd.a(sb.append(str2).toString(), str, 604800000L);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: u */
     public void onProgressUpdate(String... strArr) {
-        GsonBuilder gsonBuilder;
         BaseActivity.LoadDataCallBack loadDataCallBack;
-        String str = strArr[0];
-        gsonBuilder = this.a.g;
-        FacePackageDetailData facePackageDetailData = (FacePackageDetailData) gsonBuilder.create().fromJson(str, (Class<Object>) FacePackageDetailData.class);
-        this.a.h = facePackageDetailData;
-        loadDataCallBack = this.a.m;
+        FacePackageDetailData facePackageDetailData = (FacePackageDetailData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(strArr[0], FacePackageDetailData.class);
+        this.atw.atq = facePackageDetailData;
+        loadDataCallBack = this.atw.atj;
         loadDataCallBack.callback(facePackageDetailData, true);
         super.onProgressUpdate(strArr);
     }
@@ -139,11 +133,11 @@ public class al extends BdAsyncTask<Object, String, FacePackageDetailData> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        this.c = true;
-        if (this.b != null) {
-            this.b.f();
-            this.b = null;
+        this.atv = true;
+        if (this.mNetWork != null) {
+            this.mNetWork.dM();
+            this.mNetWork = null;
         }
-        this.a.i = null;
+        this.atw.atr = null;
     }
 }

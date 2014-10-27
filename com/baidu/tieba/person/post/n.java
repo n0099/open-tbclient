@@ -3,26 +3,25 @@ package com.baidu.tieba.person.post;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n extends com.baidu.adp.framework.listener.d {
-    final /* synthetic */ l a;
+public class n extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ l bDU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n(l lVar, int i) {
         super(i);
-        this.a = lVar;
+        this.bDU = lVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         g gVar;
         g gVar2;
         if (socketResponsedMessage instanceof UserPostPageSocketResponsedMessage) {
             UserPostPageSocketResponsedMessage userPostPageSocketResponsedMessage = (UserPostPageSocketResponsedMessage) socketResponsedMessage;
             if (userPostPageSocketResponsedMessage.getOrginalMessage() == null) {
-                gVar2 = this.a.n;
+                gVar2 = this.bDU.bDA;
                 gVar2.a(null, false);
                 return;
             }

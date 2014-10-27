@@ -2,27 +2,27 @@ package com.baidu.tieba.im.chat;
 
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.im.message.RequestDismissGroupMessage;
+import com.baidu.tbadk.live.message.RequestDismissGroupMessage;
 import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
 /* loaded from: classes.dex */
 public class bm extends com.baidu.adp.base.e {
-    private String a;
-    private String b;
-    private int c;
-    private RequestRemoveMembersMessage d;
-    private RequestDismissGroupMessage e;
-    private BaseActivity f;
+    private RequestRemoveMembersMessage aOq;
+    private RequestDismissGroupMessage aOr;
+    private int flag;
+    private String groupId;
+    private String groupName;
+    private BaseActivity mActivity;
 
     public bm(BaseActivity baseActivity) {
         super(baseActivity);
-        this.f = null;
-        this.f = baseActivity;
+        this.mActivity = null;
+        this.mActivity = baseActivity;
     }
 
-    public void a(String str, String str2, int i) {
-        b(str);
-        a(str2);
-        b(i);
+    public void d(String str, String str2, int i) {
+        setGroupId(str);
+        setGroupName(str2);
+        setFlag(i);
     }
 
     @Override // com.baidu.adp.base.e
@@ -35,22 +35,22 @@ public class bm extends com.baidu.adp.base.e {
         return false;
     }
 
-    public String a() {
-        return this.b;
+    public String getGroupName() {
+        return this.groupName;
     }
 
-    public void a(String str) {
-        this.b = str;
+    public void setGroupName(String str) {
+        this.groupName = str;
     }
 
     @Override // com.baidu.adp.base.e
     public void cancelMessage() {
-        if (this.d != null) {
-            this.d = null;
+        if (this.aOq != null) {
+            this.aOq = null;
         }
     }
 
-    public void a(boolean z) {
+    public void cx(boolean z) {
         new bn(this, z).execute(new Void[0]);
     }
 
@@ -58,44 +58,44 @@ public class bm extends com.baidu.adp.base.e {
         com.baidu.tieba.im.e.a(new bo(this), aVar);
     }
 
-    public void a(long j) {
-        this.d = new RequestRemoveMembersMessage();
-        this.d.setGroupId(j);
-        this.d.setUserIds(TbadkApplication.getCurrentAccountObj().getID());
-        if (this.f != null) {
-            this.f.sendMessage(this.d);
+    public void D(long j) {
+        this.aOq = new RequestRemoveMembersMessage();
+        this.aOq.setGroupId(j);
+        this.aOq.setUserIds(TbadkApplication.getCurrentAccountObj().getID());
+        if (this.mActivity != null) {
+            this.mActivity.sendMessage(this.aOq);
         } else {
-            sendMessage(this.d);
+            sendMessage(this.aOq);
         }
     }
 
-    public void a(int i) {
-        this.e = new RequestDismissGroupMessage();
-        this.e.setGroupId(i);
-        if (this.f != null) {
-            this.f.sendMessage(this.e);
+    public void fp(int i) {
+        this.aOr = new RequestDismissGroupMessage();
+        this.aOr.setGroupId(i);
+        if (this.mActivity != null) {
+            this.mActivity.sendMessage(this.aOr);
         } else {
-            sendMessage(this.e);
+            sendMessage(this.aOr);
         }
     }
 
-    public String b() {
-        return this.a;
+    public String getGroupId() {
+        return this.groupId;
     }
 
-    public int c() {
-        return com.baidu.adp.lib.e.c.a(this.a, 0);
+    public int Jz() {
+        return com.baidu.adp.lib.g.c.f(this.groupId, 0);
     }
 
-    public void b(String str) {
-        this.a = str;
+    public void setGroupId(String str) {
+        this.groupId = str;
     }
 
-    public int d() {
-        return this.c;
+    public int getFlag() {
+        return this.flag;
     }
 
-    public void b(int i) {
-        this.c = i;
+    public void setFlag(int i) {
+        this.flag = i;
     }
 }

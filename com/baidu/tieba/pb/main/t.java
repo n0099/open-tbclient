@@ -1,25 +1,23 @@
 package com.baidu.tieba.pb.main;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t implements cu {
-    final /* synthetic */ PbActivity a;
+public class t implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ PbActivity bvg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(PbActivity pbActivity) {
-        this.a = pbActivity;
+        this.bvg = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.main.cu
-    public void a(com.baidu.tieba.data.au auVar) {
-        com.baidu.tieba.pb.sub.e eVar;
-        com.baidu.tieba.pb.sub.e eVar2;
-        bs bsVar;
-        eVar = this.a.C;
-        if (eVar != null) {
-            eVar2 = this.a.C;
-            if (eVar2.j()) {
-                bsVar = this.a.E;
-                bsVar.C();
-            }
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        bv bvVar;
+        bv bvVar2;
+        bvVar = this.bvg.buL;
+        if (bvVar.EO() != null) {
+            bvVar2 = this.bvg.buL;
+            bvVar2.EO().setLocationInfoViewState(0);
         }
+        aVar.dismiss();
     }
 }

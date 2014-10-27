@@ -36,7 +36,7 @@ public class BdStatFirstSwitchData implements Serializable {
                 while (i < length) {
                     JSONObject optJSONObject2 = jSONArray.optJSONObject(i);
                     JSONObject optJSONObject3 = optJSONObject2.optJSONObject("version");
-                    if (optJSONObject3 == null || !a(optJSONObject3.optString("min"), optJSONObject3.optString("max"))) {
+                    if (optJSONObject3 == null || !m(optJSONObject3.optString("min"), optJSONObject3.optString("max"))) {
                         optJSONObject2 = optJSONObject;
                     }
                     i++;
@@ -57,35 +57,35 @@ public class BdStatFirstSwitchData implements Serializable {
         }
     }
 
-    private boolean a(String str, String str2) {
+    private boolean m(String str, String str2) {
         boolean z;
         boolean z2;
         boolean z3 = true;
-        String b = f.c().b();
-        if (com.baidu.adp.lib.util.i.c(b)) {
+        String eq = f.er().eq();
+        if (com.baidu.adp.lib.util.l.aA(eq)) {
             return false;
         }
-        int[] a = a(b);
-        int[] a2 = a(str);
-        int[] a3 = a(str2);
-        if (a != null) {
-            if (a2 != null) {
-                z = a[0] > a2[0] || (a[0] == a2[0] && (a[1] > a2[1] || (a[1] == a2[1] && a[2] >= a2[2])));
+        int[] af = af(eq);
+        int[] af2 = af(str);
+        int[] af3 = af(str2);
+        if (af != null) {
+            if (af2 != null) {
+                z = af[0] > af2[0] || (af[0] == af2[0] && (af[1] > af2[1] || (af[1] == af2[1] && af[2] >= af2[2])));
             } else {
                 z = false;
             }
-            if (a3 != null) {
-                z2 = a3[0] > a[0] || (a3[0] == a[0] && (a3[1] > a[1] || (a3[1] == a[1] && a3[2] >= a[2])));
+            if (af3 != null) {
+                z2 = af3[0] > af[0] || (af3[0] == af[0] && (af3[1] > af[1] || (af3[1] == af[1] && af3[2] >= af[2])));
             } else {
                 z2 = false;
             }
-            if (a2 != null && a3 != null) {
+            if (af2 != null && af3 != null) {
                 if (!z || !z2) {
                     z3 = false;
                 }
                 return z3;
-            } else if (a2 == null || a3 != null) {
-                if (a2 != null || a3 == null) {
+            } else if (af2 == null || af3 != null) {
+                if (af2 != null || af3 == null) {
                     return false;
                 }
                 return z2;
@@ -96,15 +96,15 @@ public class BdStatFirstSwitchData implements Serializable {
         return false;
     }
 
-    private int[] a(String str) {
+    private int[] af(String str) {
         String[] split;
-        if (com.baidu.adp.lib.util.i.c(str) || (split = str.split("\\.")) == null || split.length <= 0) {
+        if (com.baidu.adp.lib.util.l.aA(str) || (split = str.split("\\.")) == null || split.length <= 0) {
             return null;
         }
         int[] iArr = new int[3];
-        iArr[0] = com.baidu.adp.lib.e.c.a(split[0], -1);
-        iArr[1] = split.length > 1 ? com.baidu.adp.lib.e.c.a(split[1], -1) : -1;
-        iArr[2] = split.length > 2 ? com.baidu.adp.lib.e.c.a(split[2], -1) : -1;
+        iArr[0] = com.baidu.adp.lib.g.c.f(split[0], -1);
+        iArr[1] = split.length > 1 ? com.baidu.adp.lib.g.c.f(split[1], -1) : -1;
+        iArr[2] = split.length > 2 ? com.baidu.adp.lib.g.c.f(split[2], -1) : -1;
         return iArr;
     }
 }

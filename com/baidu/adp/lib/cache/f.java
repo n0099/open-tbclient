@@ -1,7 +1,7 @@
 package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
 public interface f {
-    int a();
+    int cj();
 
-    boolean b();
+    boolean ck();
 }

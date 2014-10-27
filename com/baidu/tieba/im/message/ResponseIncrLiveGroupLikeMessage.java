@@ -7,6 +7,7 @@ import protobuf.LiveGroupInfo;
 /* loaded from: classes.dex */
 public class ResponseIncrLiveGroupLikeMessage extends SocketResponsedMessage {
     public LiveGroupInfo mLiveGroupInfo;
+    public int mSubType;
     public int mType;
 
     public ResponseIncrLiveGroupLikeMessage() {
@@ -23,6 +24,7 @@ public class ResponseIncrLiveGroupLikeMessage extends SocketResponsedMessage {
         if (getError() == 0) {
             this.mLiveGroupInfo = incrLiveGroupLikeResIdl.data.group;
             this.mType = incrLiveGroupLikeResIdl.data.type.intValue();
+            this.mSubType = incrLiveGroupLikeResIdl.data.subType.intValue();
         }
     }
 }

@@ -1,28 +1,25 @@
 package com.baidu.tieba.pb.main;
 
-import android.os.Environment;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
-import java.io.File;
+import android.content.Intent;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tieba.data.MarkData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al extends BdAsyncTask<Void, Integer, Void> {
-    final /* synthetic */ PbActivity a;
+public class al implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ PbActivity bvg;
+    private final /* synthetic */ MarkData bvo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(PbActivity pbActivity) {
-        this.a = pbActivity;
+    public al(PbActivity pbActivity, MarkData markData) {
+        this.bvg = pbActivity;
+        this.bvo = markData;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public Void doInBackground(Void... voidArr) {
-        String str;
-        StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(TbConfig.getTempDirName()).append("/");
-        str = this.a.p;
-        com.baidu.tbadk.core.util.s.c(new File(append.append(str).toString()));
-        return null;
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        Intent intent = new Intent();
+        intent.putExtra(PbActivityConfig.KEY_MARK, this.bvo);
+        this.bvg.setResult(-1, intent);
+        this.bvg.Wi();
     }
 }

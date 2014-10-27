@@ -115,7 +115,7 @@ public class g {
         if (f158char || str == null) {
             return;
         }
-        f165long = Jni.m4if(str);
+        f165long = Jni.m3if(str);
         g = z;
         f158char = true;
         new Thread() { // from class: com.baidu.location.g.4
@@ -124,7 +124,7 @@ public class g {
                 Long valueOf;
                 boolean z2 = true;
                 try {
-                    HttpPost httpPost = new HttpPost(j.m237do());
+                    HttpPost httpPost = new HttpPost(j.m236do());
                     ArrayList arrayList = new ArrayList();
                     if (g.g) {
                         arrayList.add(new BasicNameValuePair("qt", "grid"));
@@ -164,12 +164,12 @@ public class g {
                                 }
                             }
                             if (z2) {
-                                g.m204for();
+                                g.m203for();
                             }
                         } else {
                             String entityUtils = EntityUtils.toString(execute.getEntity(), "utf-8");
                             j.a(g.f166new, "req config value:" + entityUtils);
-                            if (g.m211if(entityUtils)) {
+                            if (g.m210if(entityUtils)) {
                                 j.a(g.f166new, "Save to config");
                                 g.c();
                             }
@@ -190,7 +190,7 @@ public class g {
         if (context == null) {
             return false;
         }
-        m199do(context);
+        m198do(context);
         return f167try == 3;
     }
 
@@ -201,7 +201,7 @@ public class g {
         }
         i = true;
         j.a(f166new, "bloc : " + k);
-        k = Jni.m4if(str);
+        k = Jni.m3if(str);
         j.a(f166new, "NUMBER_e : " + k.length());
         f164int = handler;
         if (f159do == null) {
@@ -216,7 +216,7 @@ public class g {
                 int i2 = g.f168void;
                 while (i2 > 0) {
                     try {
-                        httpPost = new HttpPost(j.m237do());
+                        httpPost = new HttpPost(j.m236do());
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(new BasicNameValuePair("bloc", g.k));
                         if (g.f159do != null) {
@@ -265,7 +265,7 @@ public class g {
     }
 
     /* renamed from: byte  reason: not valid java name */
-    public static void m196byte() {
+    public static void m195byte() {
         try {
             File file = new File(f.aa + "/config.dat");
             if (file.exists()) {
@@ -275,7 +275,7 @@ public class g {
                     int readInt = randomAccessFile.readInt();
                     byte[] bArr = new byte[readInt];
                     randomAccessFile.read(bArr, 0, readInt);
-                    m211if(new String(bArr));
+                    m210if(new String(bArr));
                 }
                 randomAccessFile.seek(1L);
                 if (randomAccessFile.readBoolean()) {
@@ -331,8 +331,8 @@ public class g {
     }
 
     /* renamed from: do  reason: not valid java name */
-    public static int m199do(Context context) {
-        f167try = m208if(context);
+    public static int m198do(Context context) {
+        f167try = m207if(context);
         return f167try;
     }
 
@@ -354,12 +354,12 @@ public class g {
                     f162goto = 2;
                     try {
                         if (j.E == 0) {
-                            a2 = f.m178new();
+                            a2 = f.m177new();
                             if (a2 == null) {
                                 a2 = b.e();
                             }
                         } else if (j.E == 1 && (a2 = b.e()) == null) {
-                            a2 = f.m178new();
+                            a2 = f.m177new();
                         }
                     } catch (Exception e2) {
                         a2 = null;
@@ -379,7 +379,7 @@ public class g {
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
                     try {
-                        HttpPost httpPost = new HttpPost(j.m237do());
+                        HttpPost httpPost = new HttpPost(j.m236do());
                         ArrayList arrayList = new ArrayList();
                         for (int i3 = 0; i3 < g.e.size(); i3++) {
                             if (g.f162goto == 1) {
@@ -413,7 +413,7 @@ public class g {
     }
 
     /* renamed from: for  reason: not valid java name */
-    public static void m204for() {
+    public static void m203for() {
         try {
             File file = new File(f.aa + "/config.dat");
             if (!file.exists()) {
@@ -447,16 +447,16 @@ public class g {
     }
 
     /* renamed from: for  reason: not valid java name */
-    public static boolean m205for(Context context) {
+    public static boolean m204for(Context context) {
         if (context == null) {
             return false;
         }
-        m199do(context);
+        m198do(context);
         return f167try == 1;
     }
 
     /* renamed from: if  reason: not valid java name */
-    private static int m208if(Context context) {
+    private static int m207if(Context context) {
         NetworkInfo networkInfo;
         try {
             try {
@@ -509,17 +509,17 @@ public class g {
                     }
                 }
                 return 4;
-            } catch (Exception e4) {
-                e4.printStackTrace();
-                return 4;
+            } catch (SecurityException e4) {
+                networkInfo = null;
             }
-        } catch (SecurityException e5) {
-            networkInfo = null;
+        } catch (Exception e5) {
+            e5.printStackTrace();
+            return 4;
         }
     }
 
     /* renamed from: if  reason: not valid java name */
-    public static boolean m211if(String str) {
+    public static boolean m210if(String str) {
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -674,12 +674,12 @@ public class g {
 
     /* JADX WARN: Type inference failed for: r1v4, types: [com.baidu.location.g$2] */
     /* renamed from: if  reason: not valid java name */
-    public static boolean m212if(String str, Handler handler) {
+    public static boolean m211if(String str, Handler handler) {
         if (f160else || str == null) {
             return false;
         }
         f160else = true;
-        d = Jni.m4if(str);
+        d = Jni.m3if(str);
         j.a(f166new, "bloc : " + d);
         l = handler;
         if (f161for == null) {
@@ -694,7 +694,7 @@ public class g {
                 int i2 = g.f168void;
                 while (i2 > 0) {
                     try {
-                        httpPost = new HttpPost(j.m237do());
+                        httpPost = new HttpPost(j.m236do());
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(new BasicNameValuePair("bloc", g.d));
                         if (g.f161for != null) {

@@ -1,24 +1,23 @@
 package com.baidu.tieba.editortool;
+
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import java.io.File;
 /* loaded from: classes.dex */
-class x implements au {
-    final /* synthetic */ w a;
+class x extends BdAsyncTask<Void, Integer, Void> {
+    final /* synthetic */ t aqY;
+    private final /* synthetic */ String ara;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(w wVar) {
-        this.a = wVar;
+    public x(t tVar, String str) {
+        this.aqY = tVar;
+        this.ara = str;
     }
 
-    @Override // com.baidu.tieba.editortool.au
-    public void a() {
-        PbEditor pbEditor;
-        PbEditor pbEditor2;
-        pbEditor = this.a.a;
-        pbEditor.e = true;
-        pbEditor2 = this.a.a;
-        pbEditor2.b.getEditText().requestFocus();
-    }
-
-    @Override // com.baidu.tieba.editortool.au
-    public void b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void doInBackground(Void... voidArr) {
+        com.baidu.tbadk.core.util.s.m(new File(this.ara));
+        return null;
     }
 }

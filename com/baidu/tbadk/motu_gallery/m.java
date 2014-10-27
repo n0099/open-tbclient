@@ -5,18 +5,18 @@ import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
 class m extends Handler {
-    final /* synthetic */ JigsawAlbumListActivity a;
+    final /* synthetic */ JigsawAlbumListActivity WN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(JigsawAlbumListActivity jigsawAlbumListActivity) {
-        this.a = jigsawAlbumListActivity;
+        this.WN = jigsawAlbumListActivity;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         switch (message.what) {
             case 0:
-                this.a.a(message.arg1, (Bitmap) message.obj);
+                this.WN.a(message.arg1, (Bitmap) message.obj);
                 return;
             default:
                 return;

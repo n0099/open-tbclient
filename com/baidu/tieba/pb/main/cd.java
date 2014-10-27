@@ -1,25 +1,27 @@
 package com.baidu.tieba.pb.main;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.app.Dialog;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cd implements com.baidu.tbadk.editortool.w {
-    final /* synthetic */ bs a;
-    private final /* synthetic */ com.baidu.tbadk.editortool.w b;
+public class cd implements View.OnClickListener {
+    final /* synthetic */ bv byI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cd(bs bsVar, com.baidu.tbadk.editortool.w wVar) {
-        this.a = bsVar;
-        this.b = wVar;
+    public cd(bv bvVar) {
+        this.byI = bvVar;
     }
 
-    @Override // com.baidu.tbadk.editortool.w
-    public void a(int i, Object obj) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Dialog dialog;
+        Dialog dialog2;
         PbActivity pbActivity;
-        if (i == 35 && !this.a.h.h() && !this.a.h.j()) {
-            pbActivity = this.a.k;
-            TiebaStatic.eventStat(pbActivity, "pb_reply", "pbclick", 1, new Object[0]);
+        dialog = this.byI.bxO;
+        if (dialog instanceof Dialog) {
+            dialog2 = this.byI.bxO;
+            pbActivity = this.byI.bwQ;
+            com.baidu.adp.lib.g.j.b(dialog2, pbActivity);
         }
-        this.b.a(i, obj);
     }
 }

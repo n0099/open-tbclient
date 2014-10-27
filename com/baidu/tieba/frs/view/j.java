@@ -1,23 +1,15 @@
 package com.baidu.tieba.frs.view;
-
-import android.view.View;
 /* loaded from: classes.dex */
-class j implements View.OnClickListener {
-    final /* synthetic */ FrsOfficalBanner a;
+class j implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ FrsHeaderView aFT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(FrsOfficalBanner frsOfficalBanner) {
-        this.a = frsOfficalBanner;
+    public j(FrsHeaderView frsHeaderView) {
+        this.aFT = frsHeaderView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tbadk.coreExtra.view.c cVar;
-        com.baidu.tbadk.coreExtra.view.c cVar2;
-        cVar = this.a.e;
-        if (cVar != null) {
-            cVar2 = this.a.e;
-            cVar2.a();
-        }
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

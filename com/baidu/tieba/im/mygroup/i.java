@@ -1,27 +1,24 @@
 package com.baidu.tieba.im.mygroup;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.message.PushMessage;
+import android.view.View;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class i extends CustomMessageListener {
-    final /* synthetic */ MyGroupFragment a;
+public class i implements View.OnClickListener {
+    final /* synthetic */ PersonGroupActivity bfC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i(MyGroupFragment myGroupFragment, int i) {
-        super(i);
-        this.a = myGroupFragment;
+    public i(PersonGroupActivity personGroupActivity) {
+        this.bfC = personGroupActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        GroupNewsPojo p;
-        if (customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null && "dismiss_group".equals(p.getCmd())) {
-            this.a.a(p);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.bfC.bfp = com.baidu.tbadk.core.account.o.aL(3) % 3;
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
+        httpMessage.addParam("opt", "group");
+        httpMessage.addParam("val", String.valueOf(this.bfC.bfp + 1));
+        this.bfC.sendMessage(httpMessage);
     }
 }

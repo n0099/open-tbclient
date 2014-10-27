@@ -8,52 +8,52 @@ import com.baidu.tbadk.TbadkApplication;
 import java.util.List;
 /* loaded from: classes.dex */
 public class MultiContentView extends LinearLayout {
-    private Context a;
-    private View b;
-    private LinearLayout c;
-    private com.baidu.adp.lib.d.b<f> d;
-    private com.baidu.adp.lib.d.b<c> e;
-    private com.baidu.adp.lib.d.b<bc> f;
-    private com.baidu.adp.lib.b.b g;
-    private int h;
-    private boolean i;
-    private String j;
-    private int k;
+    private LinearLayout Hk;
+    private int Uy;
+    private View aFZ;
+    private com.baidu.adp.lib.c.b aOL;
+    private com.baidu.adp.lib.e.b<f> aQJ;
+    private com.baidu.adp.lib.e.b<c> aQK;
+    private com.baidu.adp.lib.e.b<ba> aQL;
+    private boolean aQM;
+    private String aQN;
+    private Context mContext;
+    private int mType;
 
     public MultiContentView(Context context) {
         super(context);
-        this.g = null;
-        this.i = true;
-        this.k = 2;
-        this.a = context;
-        a();
+        this.aOL = null;
+        this.aQM = true;
+        this.mType = 2;
+        this.mContext = context;
+        nu();
     }
 
     public MultiContentView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.g = null;
-        this.i = true;
-        this.k = 2;
-        this.a = context;
-        a();
+        this.aOL = null;
+        this.aQM = true;
+        this.mType = 2;
+        this.mContext = context;
+        nu();
     }
 
-    private void a() {
-        this.b = View.inflate(this.a, com.baidu.tieba.v.msg_multi_pic_text_content_view, this);
-        this.c = (LinearLayout) this.b.findViewById(com.baidu.tieba.u.view_container);
-        this.d = i.a().a(this.a);
-        this.e = i.a().b(this.a);
-        this.f = i.a().c(this.a);
-        this.c.setOnHierarchyChangeListener(new b(this));
+    private void nu() {
+        this.aFZ = View.inflate(this.mContext, com.baidu.tieba.w.msg_multi_pic_text_content_view, this);
+        this.Hk = (LinearLayout) this.aFZ.findViewById(com.baidu.tieba.v.view_container);
+        this.aQJ = i.Km().Z(this.mContext);
+        this.aQK = i.Km().aa(this.mContext);
+        this.aQL = i.Km().ab(this.mContext);
+        this.Hk.setOnHierarchyChangeListener(new b(this));
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view) {
-        this.c.addView(view);
+        this.Hk.addView(view);
     }
 
     public void a(List<p> list, View view) {
-        this.c.removeAllViews();
+        this.Hk.removeAllViews();
         if (list != null && list.size() != 0) {
             int size = list.size();
             if (size == 1) {
@@ -74,51 +74,46 @@ public class MultiContentView extends LinearLayout {
 
     private f getTopView() {
         f fVar = null;
-        if (this.d != null) {
-            fVar = this.d.a();
+        if (this.aQJ != null) {
+            fVar = this.aQJ.ed();
         }
         if (fVar == null || fVar.getParent() != null) {
-            fVar = new f(this.a);
+            fVar = new f(this.mContext);
         }
-        fVar.setOnItemViewLongClickListener(this.g);
-        fVar.setPosition(this.h);
-        if (TbadkApplication.m252getInst().getSkinType() == 1 && this.i) {
-            if (this.k == 2) {
-                fVar.setBackgroundResource(com.baidu.tieba.t.selector_history_multi_top_bg_1);
-            } else if (this.k == 1) {
-                fVar.setBackgroundResource(com.baidu.tieba.t.selector_msg_multi_top_bg_1);
-            }
-            fVar.a(true);
-        } else {
-            if (this.k == 2) {
-                fVar.setBackgroundResource(com.baidu.tieba.t.selector_history_multi_top_bg);
-            } else if (this.k == 1) {
-                fVar.setBackgroundResource(com.baidu.tieba.t.selector_msg_multi_top_bg);
-            }
-            fVar.a(false);
+        fVar.setOnItemViewLongClickListener(this.aOL);
+        fVar.setPosition(this.Uy);
+        int skinType = TbadkApplication.m251getInst().getSkinType();
+        if (skinType == 1 && !this.aQM) {
+            skinType = 0;
         }
+        if (this.mType == 2) {
+            com.baidu.tbadk.core.util.aw.c(fVar, com.baidu.tieba.u.selector_history_multi_top_bg, skinType);
+        } else if (this.mType == 1) {
+            com.baidu.tbadk.core.util.aw.c(fVar, com.baidu.tieba.u.selector_msg_multi_top_bg, skinType);
+        }
+        fVar.cG(false);
         return fVar;
     }
 
     private void a(p pVar, f fVar, View view) {
         if (pVar != null && fVar != null) {
             fVar.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            fVar.setTime(this.j);
+            fVar.setTime(this.aQN);
             fVar.a(pVar, view);
-            this.c.addView(fVar);
+            this.Hk.addView(fVar);
         }
     }
 
     private c getCommonBottomView() {
         c cVar = null;
-        if (this.e != null) {
-            cVar = this.e.a();
+        if (this.aQK != null) {
+            cVar = this.aQK.ed();
         }
         if (cVar == null || cVar.getParent() != null) {
-            cVar = new c(this.a);
+            cVar = new c(this.mContext);
         }
-        cVar.setOnItemViewLongClickListener(this.g);
-        cVar.setPosition(this.h);
+        cVar.setOnItemViewLongClickListener(this.aOL);
+        cVar.setPosition(this.Uy);
         return cVar;
     }
 
@@ -127,21 +122,16 @@ public class MultiContentView extends LinearLayout {
         if (commonBottomView == null) {
             return null;
         }
-        if (TbadkApplication.m252getInst().getSkinType() == 1 && this.i) {
-            if (this.k == 2) {
-                commonBottomView.setBackgroundResource(com.baidu.tieba.t.selector_history_multi_mid_bg_1);
-            } else if (this.k == 1) {
-                commonBottomView.setBackgroundResource(com.baidu.tieba.t.selector_msg_multi_mid_bg_1);
-            }
-            commonBottomView.a(true);
-            return commonBottomView;
+        int skinType = TbadkApplication.m251getInst().getSkinType();
+        if (skinType == 1 && !this.aQM) {
+            skinType = 0;
         }
-        if (this.k == 2) {
-            commonBottomView.setBackgroundResource(com.baidu.tieba.t.selector_history_multi_mid_bg);
-        } else if (this.k == 1) {
-            commonBottomView.setBackgroundResource(com.baidu.tieba.t.selector_msg_multi_mid_bg);
+        if (this.mType == 2) {
+            com.baidu.tbadk.core.util.aw.c(commonBottomView, com.baidu.tieba.u.selector_history_multi_mid_bg, skinType);
+        } else if (this.mType == 1) {
+            com.baidu.tbadk.core.util.aw.c(commonBottomView, com.baidu.tieba.u.selector_msg_multi_mid_bg, skinType);
         }
-        commonBottomView.a(false);
+        commonBottomView.cG(false);
         return commonBottomView;
     }
 
@@ -150,86 +140,76 @@ public class MultiContentView extends LinearLayout {
         if (commonBottomView == null) {
             return null;
         }
-        if (TbadkApplication.m252getInst().getSkinType() == 1 && this.i) {
-            if (this.k == 2) {
-                commonBottomView.setBackgroundResource(com.baidu.tieba.t.selector_history_multi_bottom_bg_1);
-            } else if (this.k == 1) {
-                commonBottomView.setBackgroundResource(com.baidu.tieba.t.selector_msg_multi_bottom_bg_1);
-            }
-            commonBottomView.a(true);
-            return commonBottomView;
+        int skinType = TbadkApplication.m251getInst().getSkinType();
+        if (skinType == 1 && !this.aQM) {
+            skinType = 0;
         }
-        if (this.k == 2) {
-            commonBottomView.setBackgroundResource(com.baidu.tieba.t.selector_history_multi_bottom_bg);
-        } else if (this.k == 1) {
-            commonBottomView.setBackgroundResource(com.baidu.tieba.t.selector_msg_multi_bottom_bg);
+        if (this.mType == 2) {
+            com.baidu.tbadk.core.util.aw.c(commonBottomView, com.baidu.tieba.u.selector_history_multi_bottom_bg, skinType);
+        } else if (this.mType == 1) {
+            com.baidu.tbadk.core.util.aw.c(commonBottomView, com.baidu.tieba.u.selector_msg_multi_bottom_bg, skinType);
         }
-        commonBottomView.a(false);
+        commonBottomView.cG(false);
         return commonBottomView;
     }
 
     private void a(p pVar, c cVar, View view) {
         if (pVar != null && cVar != null) {
-            cVar.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) this.a.getResources().getDimension(com.baidu.tieba.s.multi_bottom_height)));
+            cVar.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) this.mContext.getResources().getDimension(com.baidu.tieba.t.multi_bottom_height)));
             cVar.a(pVar, view);
-            this.c.addView(cVar);
+            this.Hk.addView(cVar);
         }
     }
 
-    private bc getSingleView() {
-        bc bcVar = null;
-        if (this.f != null) {
-            bcVar = this.f.a();
+    private ba getSingleView() {
+        ba baVar = null;
+        if (this.aQL != null) {
+            baVar = this.aQL.ed();
         }
-        if (bcVar == null || bcVar.getParent() == null) {
-            bcVar = new bc(this.a);
+        if (baVar == null || baVar.getParent() == null) {
+            baVar = new ba(this.mContext);
         }
-        bcVar.setOnItemViewLongClickListener(this.g);
-        bcVar.setPosition(this.h);
-        if (TbadkApplication.m252getInst().getSkinType() == 1 && this.i) {
-            if (this.k == 2) {
-                bcVar.setBackgroundResource(com.baidu.tieba.t.selector_history_multi_single_bg_1);
-            } else if (this.k == 1) {
-                bcVar.setBackgroundResource(com.baidu.tieba.t.selector_msg_multi_single_bg_1);
-            }
-            bcVar.a(true);
-        } else {
-            if (this.k == 2) {
-                bcVar.setBackgroundResource(com.baidu.tieba.t.selector_history_multi_single_bg);
-            } else if (this.k == 1) {
-                bcVar.setBackgroundResource(com.baidu.tieba.t.selector_msg_multi_single_bg);
-            }
-            bcVar.a(false);
+        baVar.setOnItemViewLongClickListener(this.aOL);
+        baVar.setPosition(this.Uy);
+        int skinType = TbadkApplication.m251getInst().getSkinType();
+        if (skinType == 1 && !this.aQM) {
+            skinType = 0;
         }
-        return bcVar;
+        if (this.mType == 2) {
+            com.baidu.tbadk.core.util.aw.c(baVar, com.baidu.tieba.u.selector_history_multi_single_bg, skinType);
+        } else if (this.mType == 1) {
+            com.baidu.tbadk.core.util.aw.c(baVar, com.baidu.tieba.u.selector_msg_multi_single_bg, skinType);
+        }
+        baVar.cG(false);
+        return baVar;
     }
 
-    private void a(p pVar, bc bcVar, View view) {
-        if (pVar != null && bcVar != null) {
-            bcVar.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            bcVar.setTime(this.j);
-            bcVar.a(pVar, view);
-            this.c.addView(bcVar);
+    private void a(p pVar, ba baVar, View view) {
+        if (pVar != null && baVar != null) {
+            baVar.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            baVar.setTime(this.aQN);
+            baVar.a(pVar, view);
+            this.Hk.addView(baVar);
         }
     }
 
-    public void setOnItemViewLongClickListener(com.baidu.adp.lib.b.b bVar) {
-        this.g = bVar;
+    public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
+        this.aOL = bVar;
     }
 
     public void setPosition(int i) {
-        this.h = i;
+        this.Uy = i;
     }
 
     public void setNeedNightMode(boolean z) {
-        this.i = z;
+        this.aQM = z;
     }
 
     public void setTime(String str) {
-        this.j = str;
+        this.aQN = str;
     }
 
     public void setType(int i) {
-        this.k = i;
+        this.mType = i;
     }
 }

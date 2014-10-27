@@ -1,31 +1,34 @@
 package com.baidu.tieba.write;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import android.view.View;
+import android.widget.ProgressBar;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bv extends BroadcastReceiver {
+public class bv implements View.OnClickListener {
+    private final /* synthetic */ String Ka;
     final /* synthetic */ WriteImageActivity this$0;
-
-    private bv(WriteImageActivity writeImageActivity) {
-        this.this$0 = writeImageActivity;
-    }
+    private final /* synthetic */ int val$id;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bv(WriteImageActivity writeImageActivity, bv bvVar) {
-        this(writeImageActivity);
+    public bv(WriteImageActivity writeImageActivity, String str, int i) {
+        this.this$0 = writeImageActivity;
+        this.Ka = str;
+        this.val$id = i;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        this.this$0.releaseResouce();
-        if (intent.getBooleanExtra("result", false)) {
-            WriteImageActivity.m(this.this$0);
-            return;
-        }
-        this.this$0.showToast(intent.getStringExtra("error"));
-        if (WriteImageActivity.i(this.this$0) != null) {
-            WriteImageActivity.i(this.this$0).setEnabled(false);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ProgressBar progressBar;
+        String str;
+        progressBar = this.this$0.mProgress;
+        if (progressBar.getVisibility() != 0) {
+            String str2 = this.Ka;
+            str = this.this$0.JS;
+            if (!str2.equals(str)) {
+                this.this$0.ck(this.Ka);
+                this.this$0.cl(this.Ka);
+                this.this$0.JQ = this.val$id;
+            }
         }
     }
 }

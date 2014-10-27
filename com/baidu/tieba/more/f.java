@@ -4,6 +4,6 @@ package com.baidu.tieba.more;
 public class f implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tieba.util.k.a("", 7);
+        com.baidu.tieba.util.j.M("", 7);
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.switchs.features;
 
-import com.baidu.adp.lib.a.a;
-import com.baidu.adp.lib.a.f;
+import com.baidu.adp.lib.b.a;
+import com.baidu.adp.lib.b.f;
 /* loaded from: classes.dex */
 public class TencentMMSwitchStatic extends a {
     public static final String MM = "tencent_mm";
@@ -10,18 +10,37 @@ public class TencentMMSwitchStatic extends a {
     public static final int MM_OFF_TYPE = 1;
 
     static {
-        f.a().a(TencentMMSwitchStatic.class);
+        f.db().d(TencentMMSwitchStatic.class);
         MM_KEY = new String[]{"com.tencent.mm"};
     }
 
-    @Override // com.baidu.adp.lib.a.a
-    protected void initData() {
-        this.mName = MM;
-        this.mKey = MM_KEY;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.b.a
+    public void changeSettingByType(int i) {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
-    public void changeSettingByType(int i) {
+    @Override // com.baidu.adp.lib.b.a
+    protected String getName() {
+        return MM;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] getCrashKeys() {
+        return MM_KEY;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int getDefaultType() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int getOffType() {
+        return 1;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int getMaxCrashTimes() {
+        return 10;
     }
 }

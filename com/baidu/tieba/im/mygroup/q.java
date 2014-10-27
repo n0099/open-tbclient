@@ -1,44 +1,73 @@
 package com.baidu.tieba.im.mygroup;
 
-import android.widget.ImageView;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.util.ay;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tieba.im.data.GroupInfoData;
+import com.baidu.tieba.im.message.ResponseGroupsByUidMessage;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class q extends HttpMessageListener {
-    final /* synthetic */ PersonGroupActivity a;
+public class q extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ n bfY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q(PersonGroupActivity personGroupActivity, int i) {
+    public q(n nVar, int i) {
         super(i);
-        this.a = personGroupActivity;
+        this.bfY = nVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        int[] iArr;
-        ImageView imageView;
-        int[] iArr2;
-        int[] iArr3;
-        if (httpResponsedMessage.isSuccess()) {
-            if (httpResponsedMessage.getError() == 0) {
-                iArr = PersonGroupActivity.t;
-                com.baidu.tbadk.core.account.o.a(3, iArr[this.a.d]);
-                imageView = this.a.m;
-                iArr2 = PersonGroupActivity.r;
-                ay.c(imageView, iArr2[this.a.d]);
-                PersonGroupActivity personGroupActivity = this.a;
-                PersonGroupActivity personGroupActivity2 = this.a;
-                iArr3 = PersonGroupActivity.s;
-                personGroupActivity.a(personGroupActivity2.getString(iArr3[this.a.d]), com.baidu.tieba.t.icon_toast_info);
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        PersonGroupActivity QX;
+        int i;
+        l lVar;
+        l lVar2;
+        com.baidu.tbadk.core.view.o oVar;
+        com.baidu.tbadk.core.view.o oVar2;
+        QX = this.bfY.QX();
+        if (this.bfY.getActivity() != null && this.bfY.bfQ != null && QX != null && QX.QT() != null) {
+            if (socketResponsedMessage.getCmd() == 103003) {
+                this.bfY.bfQ.hN();
+            }
+            ResponseGroupsByUidMessage responseGroupsByUidMessage = (ResponseGroupsByUidMessage) socketResponsedMessage;
+            if (responseGroupsByUidMessage.getError() != 0) {
+                if (responseGroupsByUidMessage.getError() != 0 && !TextUtils.isEmpty(responseGroupsByUidMessage.getErrorString())) {
+                    this.bfY.showToast(responseGroupsByUidMessage.getErrorString());
+                    return;
+                }
                 return;
             }
-            this.a.a(httpResponsedMessage.getErrorString());
-            return;
+            List<GroupInfoData> groups = responseGroupsByUidMessage.getGroups();
+            i = this.bfY.bfT;
+            if (i == 1) {
+                groups = responseGroupsByUidMessage.getCommonGroups();
+            }
+            if (!QX.Ax()) {
+                QX.setGroups(responseGroupsByUidMessage.getGroups());
+                QX.setCommonGroups(responseGroupsByUidMessage.getCommonGroups());
+            }
+            QX.P(responseGroupsByUidMessage.getGroupNum(), responseGroupsByUidMessage.getCommonGroupNum());
+            if (groups != null) {
+                lVar = this.bfY.bfR;
+                lVar.aa(groups);
+                lVar2 = this.bfY.bfR;
+                lVar2.notifyDataSetChanged();
+                if (groups.size() > 0) {
+                    oVar2 = this.bfY.Yj;
+                    oVar2.setVisibility(8);
+                } else {
+                    oVar = this.bfY.Yj;
+                    oVar.setVisibility(0);
+                }
+                this.bfY.bfQ.setVisibility(0);
+            }
+            if (socketResponsedMessage.getCmd() == 103003) {
+                this.bfY.bcs = false;
+            } else if (socketResponsedMessage.getCmd() == 2001106 && QX.QT() != null) {
+                QX.QT().update();
+            }
         }
-        this.a.a(this.a.getString(com.baidu.tieba.x.neterror));
     }
 }

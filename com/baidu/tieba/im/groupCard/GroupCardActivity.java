@@ -1,42 +1,41 @@
 package com.baidu.tieba.im.groupCard;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.SparseArray;
 import android.view.View;
-import com.baidu.adp.lib.util.j;
+import com.baidu.adp.lib.util.m;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TiebaIMConfig;
 import com.baidu.tbadk.core.util.LocalViewSize;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.s;
 import com.baidu.tbadk.coreExtra.share.h;
-import com.baidu.tbadk.k;
-import com.baidu.tieba.t;
-import com.baidu.tieba.x;
+import com.baidu.tieba.u;
+import com.baidu.tieba.y;
 import java.text.MessageFormat;
 /* loaded from: classes.dex */
 public class GroupCardActivity extends BaseActivity implements View.OnClickListener {
-    public static String a = "groupid";
-    public static String b = "groupname";
-    public static String c = "groupportrait";
-    private static String i = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/p/groupShareImg?group_id=";
-    private d d = null;
-    private b e = null;
-    private long f = 0;
-    private String g = "";
-    private String h = "";
+    public static String GROUP_ID = "groupid";
+    public static String GROUP_NAME = "groupname";
+    public static String aZC = "groupportrait";
+    private static String imageUrl = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/p/groupShareImg?group_id=";
+    private d aZz = null;
+    private b aZA = null;
+    private long groupId = 0;
+    private String groupName = "";
+    private String aZB = "";
 
     public static void a(Activity activity, long j, String str, String str2) {
         Intent intent = new Intent(activity, GroupCardActivity.class);
         if (j != 0) {
-            intent.putExtra(a, j);
-            intent.putExtra(b, str);
-            intent.putExtra(c, str2);
+            intent.putExtra(GROUP_ID, j);
+            intent.putExtra(GROUP_NAME, str);
+            intent.putExtra(aZC, str2);
             activity.startActivity(intent);
         }
     }
@@ -45,76 +44,76 @@ public class GroupCardActivity extends BaseActivity implements View.OnClickListe
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        e();
-        f();
+        nu();
+        initData();
     }
 
-    public boolean a() {
-        if (s.a()) {
+    public boolean Kf() {
+        if (s.bm()) {
             return true;
         }
-        this.d.a(0, getString(x.voice_error_sdcard));
+        this.aZz.showErr(0, getString(y.voice_error_sdcard));
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
-        super.onChangeSkinType(i2);
-        this.d.a(i2);
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        this.aZz.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.d.d()) {
-            if (a()) {
+        if (view == this.aZz.Ot()) {
+            if (Kf()) {
                 TiebaStatic.eventStat(this, "group_card_save", "click", 1, new Object[0]);
-                this.e.b();
+                this.aZA.Oq();
             }
-        } else if (view == this.d.f()) {
+        } else if (view == this.aZz.Ov()) {
             finish();
-        } else if (view == this.d.e()) {
+        } else if (view == this.aZz.Ou()) {
             TiebaStatic.eventStat(this, "group_card_share", "click", 1, new Object[0]);
-            b();
+            Hv();
         }
     }
 
-    private void b() {
+    private void Hv() {
         h hVar = new h();
-        hVar.a = MessageFormat.format(getString(x.im_share_title), this.g);
-        hVar.b = MessageFormat.format(getString(x.im_share_content), this.g, String.valueOf(this.f));
-        hVar.c = String.valueOf(k.h) + this.f;
+        hVar.title = MessageFormat.format(getString(y.im_share_title), this.groupName);
+        hVar.content = MessageFormat.format(getString(y.im_share_content), this.groupName, String.valueOf(this.groupId));
+        hVar.MW = String.valueOf(TiebaIMConfig.IM_GROUP_SHARE_URL) + this.groupId;
         try {
-            hVar.d = Uri.parse(String.valueOf(i) + this.f + "&w=" + LocalViewSize.a().b());
+            hVar.MX = Uri.parse(String.valueOf(imageUrl) + this.groupId + "&w=" + LocalViewSize.lV().lW());
         } catch (Throwable th) {
         }
         com.baidu.tbadk.coreExtra.share.d dVar = new com.baidu.tbadk.coreExtra.share.d(this);
         dVar.a(hVar, true);
-        dVar.a(3, c(), true);
-        dVar.a(d());
-        dVar.c();
+        dVar.a(3, Oo(), true);
+        dVar.a(getShareMtjStatInfo());
+        dVar.show();
     }
 
-    private h c() {
+    private h Oo() {
         h hVar = new h();
-        hVar.a = MessageFormat.format(getString(x.im_share_title), this.g);
-        hVar.b = MessageFormat.format(getString(x.im_share_content), this.g, String.valueOf(this.f));
-        hVar.c = String.valueOf(k.h) + this.f;
+        hVar.title = MessageFormat.format(getString(y.im_share_title), this.groupName);
+        hVar.content = MessageFormat.format(getString(y.im_share_content), this.groupName, String.valueOf(this.groupId));
+        hVar.MW = String.valueOf(TiebaIMConfig.IM_GROUP_SHARE_URL) + this.groupId;
         try {
-            if (this.h == null || this.h.equals("")) {
-                hVar.a(BitmapFactory.decodeResource(getResources(), t.icon));
-            } else if (this.h.startsWith("http")) {
-                hVar.d = Uri.parse(this.h);
+            if (this.aZB == null || this.aZB.equals("")) {
+                hVar.f(BitmapFactory.decodeResource(getResources(), u.icon));
+            } else if (this.aZB.startsWith("http")) {
+                hVar.MX = Uri.parse(this.aZB);
             } else {
-                hVar.a(s.c(null, TbConfig.GROUP_HEAD_FILE));
+                hVar.f(s.K(null, TbConfig.GROUP_HEAD_FILE));
             }
         } catch (Throwable th) {
         }
         return hVar;
     }
 
-    private SparseArray<String> d() {
+    private SparseArray<String> getShareMtjStatInfo() {
         SparseArray<String> sparseArray = new SparseArray<>(7);
         sparseArray.put(2, "gc_wx_timeline");
         sparseArray.put(3, "gc_wx_friend");
@@ -125,24 +124,24 @@ public class GroupCardActivity extends BaseActivity implements View.OnClickListe
         return sparseArray;
     }
 
-    private void e() {
-        this.d = new d(this, null);
+    private void nu() {
+        this.aZz = new d(this, null);
     }
 
-    private void f() {
-        this.d.a();
+    private void initData() {
+        this.aZz.showProgress();
         Intent intent = getIntent();
-        this.f = intent.getLongExtra(a, 0L);
-        this.g = intent.getStringExtra(b);
-        this.h = intent.getStringExtra(c);
-        this.e = new b(this.f, this);
-        if (this.e != null) {
-            int b2 = j.b(this) - j.a((Context) this, 10.0f);
-            int c2 = (j.c(this) - this.d.g().getHeight()) - this.d.h().getHeight();
+        this.groupId = intent.getLongExtra(GROUP_ID, 0L);
+        this.groupName = intent.getStringExtra(GROUP_NAME);
+        this.aZB = intent.getStringExtra(aZC);
+        this.aZA = new b(this.groupId, this);
+        if (this.aZA != null) {
+            int n = m.n(this) - m.dip2px(this, 10.0f);
+            int o = (m.o(this) - this.aZz.Ow().getHeight()) - this.aZz.Ox().getHeight();
             a aVar = new a(this);
-            String a2 = this.e.a(b2, c2);
-            if (a2 != null) {
-                com.baidu.adp.lib.resourceLoader.d.a().a(a2, 10, aVar, b2, c2, getUniqueId(), new Object[0]);
+            String O = this.aZA.O(n, o);
+            if (O != null) {
+                com.baidu.adp.lib.f.d.ef().a(O, 10, aVar, n, o, getUniqueId(), new Object[0]);
             }
         }
     }

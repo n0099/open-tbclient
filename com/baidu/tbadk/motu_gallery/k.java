@@ -4,12 +4,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class k {
-    public String a;
-    ImageView b;
-    TextView c;
-    final /* synthetic */ j d;
+    TextView WA;
+    final /* synthetic */ j WB;
+    public String Wy;
+    ImageView Wz;
 
     public k(j jVar) {
-        this.d = jVar;
+        this.WB = jVar;
     }
 }

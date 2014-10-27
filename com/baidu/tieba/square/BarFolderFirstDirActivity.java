@@ -9,23 +9,23 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.core.util.bp;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.bn;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
 public class BarFolderFirstDirActivity extends BaseActivity {
-    public static String c = com.baidu.tbadk.core.frameworkData.a.ST_TYPE;
-    protected ViewGroup b;
-    private ProgressBar d;
-    private c e;
-    private b f;
-    private NavigationBar h;
-    protected ListView a = null;
-    private String g = null;
+    public static String bLU = "st_type";
+    private c bLR;
+    private b bLS;
+    protected ViewGroup bLT;
+    private NavigationBar mNavigationBar;
+    private ProgressBar xM;
+    protected ListView mList = null;
+    private String stType = null;
 
-    public static void a(Activity activity, String str) {
+    public static void b(Activity activity, String str) {
         Intent intent = new Intent(activity, BarFolderFirstDirActivity.class);
-        intent.putExtra(c, str);
+        intent.putExtra(bLU, str);
         activity.startActivity(intent);
     }
 
@@ -33,10 +33,10 @@ public class BarFolderFirstDirActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.v.bar_folder_dir_activity);
-        a();
-        a(bundle);
-        b();
+        setContentView(com.baidu.tieba.w.bar_folder_dir_activity);
+        initUI();
+        m(bundle);
+        adk();
         TiebaStatic.eventStat(this, "category_1", "enter");
     }
 
@@ -44,65 +44,65 @@ public class BarFolderFirstDirActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.e.notifyDataSetChanged();
+        this.bLR.notifyDataSetChanged();
     }
 
-    protected void a() {
-        this.h = (NavigationBar) findViewById(com.baidu.tieba.u.view_navigation_bar);
-        this.h.a(getResources().getString(com.baidu.tieba.x.bar_first_dir_name));
-        this.h.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a = (ListView) findViewById(com.baidu.tieba.u.list);
-        this.e = new c(this, new f(), true);
-        this.a.setAdapter((ListAdapter) this.e);
-        this.d = (ProgressBar) findViewById(com.baidu.tieba.u.progress);
-        this.b = (ViewGroup) findViewById(com.baidu.tieba.u.body_container);
-        bp.b(this.b);
+    protected void initUI() {
+        this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.mNavigationBar.setTitleText(getResources().getString(com.baidu.tieba.y.bar_first_dir_name));
+        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mList = (ListView) findViewById(com.baidu.tieba.v.list);
+        this.bLR = new c(this, new f(), true);
+        this.mList.setAdapter((ListAdapter) this.bLR);
+        this.xM = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
+        this.bLT = (ViewGroup) findViewById(com.baidu.tieba.v.body_container);
+        bn.n(this.bLT);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.f != null) {
-            this.f.cancel();
+        if (this.bLS != null) {
+            this.bLS.cancel();
         }
-        a((f) null, true);
+        a(null, true);
     }
 
-    protected void b() {
-        this.a.setOnItemClickListener(new a(this));
+    protected void adk() {
+        this.mList.setOnItemClickListener(new a(this));
     }
 
-    protected void a(Bundle bundle) {
+    protected void m(Bundle bundle) {
         if (bundle != null) {
-            this.g = bundle.getString(c);
+            this.stType = bundle.getString(bLU);
         } else {
-            this.g = getIntent().getStringExtra(c);
+            this.stType = getIntent().getStringExtra(bLU);
         }
-        this.d.setVisibility(0);
-        this.a.setEnabled(false);
-        if (this.f != null) {
-            this.f.cancel();
+        this.xM.setVisibility(0);
+        this.mList.setEnabled(false);
+        if (this.bLS != null) {
+            this.bLS.cancel();
         }
-        this.f = new b(this, null);
-        this.f.setPriority(3);
-        this.f.execute("");
+        this.bLS = new b(this, null);
+        this.bLS.setPriority(3);
+        this.bLS.execute("");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(f fVar, boolean z) {
-        this.d.setVisibility(8);
-        this.a.setEnabled(true);
-        this.f = null;
+        this.xM.setVisibility(8);
+        this.mList.setEnabled(true);
+        this.bLS = null;
         if (!z) {
-            if (fVar.b()) {
-                showToast(fVar.c());
+            if (fVar.yo()) {
+                showToast(fVar.getErrorMsg());
                 return;
             }
-            this.e.a(fVar.d());
-            this.a.setVisibility(4);
-            this.e.notifyDataSetChanged();
-            this.a.setVisibility(0);
+            this.bLR.I(fVar.adl());
+            this.mList.setVisibility(4);
+            this.bLR.notifyDataSetChanged();
+            this.mList.setVisibility(0);
         }
     }
 
@@ -110,13 +110,13 @@ public class BarFolderFirstDirActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.h.c(i);
-        if (this.a != null) {
-            this.a.invalidateViews();
+        this.mNavigationBar.onChangeSkinType(i);
+        if (this.mList != null) {
+            this.mList.invalidateViews();
         }
-        if (this.b != null) {
-            bp.a(this.b, i);
+        if (this.bLT != null) {
+            bn.a(this.bLT, i);
         }
-        ay.b(findViewById(com.baidu.tieba.u.root_view), i);
+        aw.e(findViewById(com.baidu.tieba.v.root_view), i);
     }
 }

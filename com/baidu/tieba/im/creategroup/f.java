@@ -1,115 +1,77 @@
 package com.baidu.tieba.im.creategroup;
 
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.widget.Button;
+import android.widget.TextView;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
-public class f implements x {
-    CreateGroupStepActivity a;
-    View b;
-    ImageView c;
-    EditText d;
-    private ImageButton e;
-    private int f;
-    private int g;
-    private int h;
+public class f extends com.baidu.adp.base.f {
+    Button aTi;
+    Button aTj;
+    TextView aTk;
+    TextView aTl;
+    CreateGroupMainActivity aTm;
+    View agA;
+    private int mForumId;
+    NavigationBar mNavigationBar;
 
-    public EditText c() {
-        return this.d;
+    public int getForumId() {
+        return this.mForumId;
     }
 
-    public View d() {
-        return this.e;
+    public View Lf() {
+        return this.aTi;
     }
 
-    public void e() {
-        this.d.setText("");
+    public View Lg() {
+        return this.aTj;
     }
 
-    public int f() {
-        return com.baidu.tieba.im.d.l.b(this.d);
+    public f(CreateGroupMainActivity createGroupMainActivity) {
+        super(createGroupMainActivity);
+        this.mNavigationBar = null;
+        this.agA = null;
+        this.aTi = null;
+        this.aTj = null;
+        this.aTk = null;
+        this.aTl = null;
+        this.aTm = null;
+        this.mForumId = 0;
+        b(createGroupMainActivity);
+        a(createGroupMainActivity);
     }
 
-    public void a(boolean z) {
-        if (z) {
-            this.e.setVisibility(0);
-        } else {
-            this.e.setVisibility(8);
-        }
+    private void a(CreateGroupMainActivity createGroupMainActivity) {
+        this.aTi.setOnClickListener(createGroupMainActivity);
+        this.aTj.setOnClickListener(createGroupMainActivity);
     }
 
-    public f(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3) {
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.a = createGroupStepActivity;
-        this.b = com.baidu.adp.lib.e.b.a().a(createGroupStepActivity, com.baidu.tieba.v.create_group_step1_view, null);
-        this.d = (EditText) this.b.findViewById(com.baidu.tieba.u.step1_group_name);
-        this.c = (ImageView) this.b.findViewById(com.baidu.tieba.u.step1_img_bg);
-        this.e = (ImageButton) this.b.findViewById(com.baidu.tieba.u.button_del);
-        this.e.setOnClickListener(createGroupStepActivity);
-        this.f = i;
-        this.g = i2;
-        this.h = i3;
+    public void a(boolean z, boolean z2, String str, String str2, int i) {
+        this.aTi.setEnabled(z2);
+        this.aTj.setEnabled(z);
+        this.aTk.setText(str2);
+        this.aTl.setText(str);
+        this.mForumId = i;
     }
 
-    @Override // com.baidu.tieba.im.creategroup.x
-    public int b() {
-        return this.f;
+    private void b(CreateGroupMainActivity createGroupMainActivity) {
+        this.aTm = createGroupMainActivity;
+        createGroupMainActivity.setContentView(com.baidu.tieba.w.create_group_main_activity);
+        this.agA = createGroupMainActivity.findViewById(com.baidu.tieba.v.parent);
+        this.aTi = (Button) createGroupMainActivity.findViewById(com.baidu.tieba.v.create_group1);
+        this.aTj = (Button) createGroupMainActivity.findViewById(com.baidu.tieba.v.create_group2);
+        this.aTk = (TextView) createGroupMainActivity.findViewById(com.baidu.tieba.v.create_group1_text);
+        this.aTl = (TextView) createGroupMainActivity.findViewById(com.baidu.tieba.v.create_group2_text);
+        this.mNavigationBar = (NavigationBar) createGroupMainActivity.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.mNavigationBar.setTitleText(createGroupMainActivity.getResources().getString(com.baidu.tieba.y.group_create));
+        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
     }
 
-    @Override // com.baidu.tieba.im.creategroup.x
-    public View a() {
-        TiebaStatic.eventStat(this.a, "create_g_name", "pv", 1, new Object[0]);
-        return this.b;
-    }
-
-    @Override // com.baidu.tieba.im.creategroup.x
-    public void h() {
-        this.c.setBackgroundDrawable(null);
-    }
-
-    @Override // com.baidu.tieba.im.creategroup.x
-    public void i() {
-        this.a.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
-        this.a.getLayoutMode().a(this.b);
-        if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            this.d.setHintTextColor(this.a.getResources().getColor(com.baidu.tieba.r.create_group_input_hintcolor_1));
-        } else {
-            this.d.setHintTextColor(this.a.getResources().getColor(com.baidu.tieba.r.create_group_input_hintcolor));
-        }
-    }
-
-    @Override // com.baidu.tieba.im.creategroup.x
-    public String j() {
-        return String.format(this.a.getString(com.baidu.tieba.x.group_create_step_name), Integer.valueOf(this.g));
-    }
-
-    @Override // com.baidu.tieba.im.creategroup.x
-    public String k() {
-        if (this.f != this.h) {
-            return this.a.getString(com.baidu.tieba.x.group_create_step_tip);
-        }
-        return this.a.getString(com.baidu.tieba.x.group_create_step_done_tip);
-    }
-
-    @Override // com.baidu.tieba.im.creategroup.x
-    public boolean l() {
-        return false;
-    }
-
-    @Override // com.baidu.tieba.im.creategroup.x
-    public String m() {
-        return this.a.getString(com.baidu.tieba.x.group_step_name_error);
-    }
-
-    @Override // com.baidu.tieba.im.creategroup.x
-    public boolean n() {
-        return true;
+    public void onChangeSkinType(int i) {
+        this.aTm.getLayoutMode().L(i == 1);
+        this.aTm.getLayoutMode().h(this.agA);
+        aw.d(this.agA, i);
+        this.mNavigationBar.onChangeSkinType(i);
     }
 }

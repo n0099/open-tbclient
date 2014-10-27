@@ -2,69 +2,67 @@ package com.baidu.tieba.im.nearbygroups;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.im.data.NearbyGroupsData;
 import com.baidu.tieba.im.message.ResponseNearbyGroupsLocalMessage;
-import com.baidu.tieba.im.model.an;
+import com.baidu.tieba.im.model.NearbyGroupsModel;
 /* loaded from: classes.dex */
 class d extends CustomMessageListener {
-    final /* synthetic */ NearbyGroupsActivity a;
+    final /* synthetic */ NearbyGroupsActivity bgc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(NearbyGroupsActivity nearbyGroupsActivity, int i) {
         super(i);
-        this.a = nearbyGroupsActivity;
+        this.bgc = nearbyGroupsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        an anVar;
-        an anVar2;
-        an anVar3;
+        NearbyGroupsModel nearbyGroupsModel;
+        NearbyGroupsModel nearbyGroupsModel2;
+        NearbyGroupsModel nearbyGroupsModel3;
         m mVar;
         m mVar2;
         m mVar3;
-        boolean a;
-        an anVar4;
-        an anVar5;
+        boolean T;
+        NearbyGroupsModel nearbyGroupsModel4;
+        NearbyGroupsModel nearbyGroupsModel5;
         m mVar4;
-        anVar = this.a.c;
-        anVar.a(false);
+        nearbyGroupsModel = this.bgc.bga;
+        nearbyGroupsModel.setIsLoading(false);
         if (!(customResponsedMessage instanceof ResponseNearbyGroupsLocalMessage)) {
-            mVar4 = this.a.b;
-            mVar4.f();
+            mVar4 = this.bgc.bfZ;
+            mVar4.Rb();
             return;
         }
-        if (customResponsedMessage.getCmd() == 2001115 && UtilHelper.isNetOk()) {
-            a = this.a.a(com.baidu.tieba.im.c.a().e());
-            if (a) {
-                anVar5 = this.a.c;
-                anVar5.h();
+        if (customResponsedMessage.getCmd() == 2001115 && com.baidu.adp.lib.util.j.fh()) {
+            T = this.bgc.T(com.baidu.tieba.im.c.Je().Ji());
+            if (T) {
+                nearbyGroupsModel5 = this.bgc.bga;
+                nearbyGroupsModel5.update();
                 return;
             }
-            anVar4 = this.a.c;
-            anVar4.g();
+            nearbyGroupsModel4 = this.bgc.bga;
+            nearbyGroupsModel4.setNextPage();
         }
         ResponseNearbyGroupsLocalMessage responseNearbyGroupsLocalMessage = (ResponseNearbyGroupsLocalMessage) customResponsedMessage;
         if (responseNearbyGroupsLocalMessage.getError() > 0) {
-            this.a.showToast(responseNearbyGroupsLocalMessage.getErrorString());
+            this.bgc.showToast(responseNearbyGroupsLocalMessage.getErrorString());
         } else {
             NearbyGroupsData nearbyGroups = responseNearbyGroupsLocalMessage.getNearbyGroups();
             if (nearbyGroups != null) {
-                anVar2 = this.a.c;
-                anVar2.b(nearbyGroups.getHasMore());
-                anVar3 = this.a.c;
-                anVar3.a(nearbyGroups.getGeo());
-                mVar = this.a.b;
+                nearbyGroupsModel2 = this.bgc.bga;
+                nearbyGroupsModel2.setHasMore(nearbyGroups.getHasMore());
+                nearbyGroupsModel3 = this.bgc.bga;
+                nearbyGroupsModel3.setGeo(nearbyGroups.getGeo());
+                mVar = this.bgc.bfZ;
                 mVar.a(nearbyGroups);
             }
         }
-        mVar2 = this.a.b;
-        mVar2.f();
-        mVar3 = this.a.b;
-        mVar3.c();
+        mVar2 = this.bgc.bfZ;
+        mVar2.Rb();
+        mVar3 = this.bgc.bfZ;
+        mVar3.DG();
     }
 }

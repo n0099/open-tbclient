@@ -3,79 +3,79 @@ package com.baidu.adp.lib.webSocket;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 /* loaded from: classes.dex */
 public class am {
-    private int a;
-    private int b;
-    private boolean c;
-    private boolean d;
-    private int e;
-    private int f;
-    private boolean g;
-    private boolean h;
-    private String i;
+    private String pp;
+    private int qd;
+    private int qe;
+    private boolean qf;
+    private boolean qg;
+    private int qh;
+    private int qi;
+    private boolean qj;
+    private boolean qk;
 
     public am() {
-        this.i = null;
-        this.a = AccessibilityEventCompat.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY;
-        this.b = AccessibilityEventCompat.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY;
-        this.c = false;
-        this.d = true;
-        this.e = 30000;
-        this.f = 30000;
-        this.g = true;
-        this.h = true;
-        this.i = null;
+        this.pp = null;
+        this.qd = AccessibilityEventCompat.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY;
+        this.qe = AccessibilityEventCompat.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY;
+        this.qf = false;
+        this.qg = true;
+        this.qh = 30000;
+        this.qi = 30000;
+        this.qj = true;
+        this.qk = true;
+        this.pp = null;
     }
 
     public am(am amVar) {
-        this.i = null;
-        this.a = amVar.a;
-        this.b = amVar.b;
-        this.c = amVar.c;
-        this.d = amVar.d;
-        this.e = amVar.e;
-        this.f = amVar.f;
-        this.g = amVar.g;
-        this.h = amVar.h;
-        this.i = amVar.i;
+        this.pp = null;
+        this.qd = amVar.qd;
+        this.qe = amVar.qe;
+        this.qf = amVar.qf;
+        this.qg = amVar.qg;
+        this.qh = amVar.qh;
+        this.qi = amVar.qi;
+        this.qj = amVar.qj;
+        this.qk = amVar.qk;
+        this.pp = amVar.pp;
     }
 
-    public boolean a() {
-        return this.c;
+    public boolean gk() {
+        return this.qf;
     }
 
-    public int b() {
-        return this.a;
+    public int gl() {
+        return this.qd;
     }
 
-    public int c() {
-        return this.b;
+    public int gm() {
+        return this.qe;
     }
 
-    public boolean d() {
-        return this.d;
+    public boolean getTcpNoDelay() {
+        return this.qg;
     }
 
-    public int e() {
-        return this.e;
+    public int gn() {
+        return this.qh;
     }
 
-    public int f() {
-        return this.f;
+    public int go() {
+        return this.qi;
     }
 
-    public boolean g() {
-        return this.g;
+    public boolean gp() {
+        return this.qj;
     }
 
-    public boolean h() {
-        return this.h;
+    public boolean gq() {
+        return this.qk;
     }
 
-    public String i() {
-        return this.i;
+    public String gr() {
+        return this.pp;
     }
 
-    public void a(String str) {
-        this.i = str;
+    public void aK(String str) {
+        this.pp = str;
     }
 }

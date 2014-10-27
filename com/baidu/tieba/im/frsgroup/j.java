@@ -1,170 +1,93 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoNetworkView;
+import android.os.Bundle;
+import com.baidu.tbadk.TbadkApplication;
+import java.util.HashMap;
+import protobuf.QueryGroupsByFid.DataReq;
+import protobuf.QueryGroupsByFid.QueryGroupsByFidReqIdl;
 /* loaded from: classes.dex */
-public class j extends com.baidu.adp.base.f {
-    private FrsGroupActivity a;
-    private View b;
-    private View c;
-    private LinearLayout d;
-    private NavigationBar e;
-    private RadioGroup f;
-    private RadioButton g;
-    private RadioButton h;
-    private RadioButton i;
-    private ViewGroup j;
-    private ViewGroup k;
-    private ViewGroup l;
-    private Fragment[] m;
-    private String[] n;
-    private ViewGroup[] o;
-    private ProgressBar p;
-    private boolean q;
-    private NoNetworkView r;
+public class j implements com.baidu.tbadk.mvc.b.d, com.baidu.tbadk.mvc.b.g {
+    private boolean aWT;
+    private String forumId;
+    private int offset;
+    private int rn;
+    private int type;
+    private int mImageWidth = com.baidu.adp.lib.util.m.dip2px(TbadkApplication.m251getInst(), 70.0f);
+    private int mImageHeight = com.baidu.adp.lib.util.m.dip2px(TbadkApplication.m251getInst(), 70.0f);
 
-    public j(FrsGroupActivity frsGroupActivity) {
-        super(frsGroupActivity);
-        this.a = frsGroupActivity;
-        frsGroupActivity.setContentView(com.baidu.tieba.v.im_frsgroup_activity);
-        a(frsGroupActivity);
-        b(frsGroupActivity);
+    public String getForumId() {
+        return this.forumId;
     }
 
-    private void a(FrsGroupActivity frsGroupActivity) {
-        this.b = frsGroupActivity.findViewById(com.baidu.tieba.u.view_root);
-        this.e = (NavigationBar) frsGroupActivity.findViewById(com.baidu.tieba.u.view_navigation_bar);
-        this.c = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e.a(this.a.getString(com.baidu.tieba.x.frsgroup_title));
-        this.d = (LinearLayout) this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.v.widget_nb_item_create_group_btn, frsGroupActivity);
-        this.c.setOnClickListener(frsGroupActivity);
-        this.r = (NoNetworkView) frsGroupActivity.findViewById(com.baidu.tieba.u.view_no_network);
+    public void setType(int i) {
+        this.type = i;
     }
 
-    private void b(FrsGroupActivity frsGroupActivity) {
-        this.f = (RadioGroup) frsGroupActivity.findViewById(com.baidu.tieba.u.raidos_change);
-        this.g = (RadioButton) frsGroupActivity.findViewById(com.baidu.tieba.u.radio_recommend);
-        this.g.setChecked(true);
-        this.h = (RadioButton) frsGroupActivity.findViewById(com.baidu.tieba.u.radio_hot);
-        this.i = (RadioButton) frsGroupActivity.findViewById(com.baidu.tieba.u.radio_official);
-        this.j = (ViewGroup) frsGroupActivity.findViewById(com.baidu.tieba.u.radio_recommend_line);
-        this.k = (ViewGroup) frsGroupActivity.findViewById(com.baidu.tieba.u.radio_hot_line);
-        this.l = (ViewGroup) frsGroupActivity.findViewById(com.baidu.tieba.u.radio_official_line);
-        this.p = (ProgressBar) frsGroupActivity.findViewById(com.baidu.tieba.u.progress_loading);
-        this.m = new Fragment[3];
-        this.n = new String[3];
-        this.n[0] = "f1";
-        this.n[1] = "f2";
-        this.n[2] = "f3";
-        this.o = new ViewGroup[3];
-        this.o[0] = this.j;
-        this.o[1] = this.k;
-        this.o[2] = this.l;
-    }
-
-    public void a(int i) {
-        for (int i2 = this.q ? 0 : 1; i2 < 3; i2++) {
-            if (i == i2) {
-                this.o[i2].setVisibility(0);
-            } else {
-                this.o[i2].setVisibility(4);
-            }
+    public void setOffset(int i) {
+        this.offset = i;
+        if (i == 0) {
+            this.rn = 50;
+        } else {
+            this.rn = 20;
         }
     }
 
-    public String[] a() {
-        return this.n;
+    public void Nr() {
+        this.offset += this.rn;
+        setOffset(this.offset);
     }
 
-    public void b(int i) {
-        switch (i) {
-            case 1:
-                this.g.setChecked(true);
-                return;
-            case 2:
-                this.h.setChecked(true);
-                return;
-            case 3:
-                this.i.setChecked(true);
-                return;
-            default:
-                return;
+    public int getRn() {
+        return this.rn;
+    }
+
+    public void setRn(int i) {
+        this.rn = i;
+    }
+
+    public void initWithBundle(Bundle bundle) {
+        this.forumId = bundle.getString("forum_id");
+        this.aWT = bundle.getBoolean(com.baidu.tbadk.core.frameworkData.a.SHOW_RECOMMEND, true);
+        if (bundle.containsKey("card_type")) {
+            this.type = bundle.getInt("card_type");
+        } else {
+            this.type = this.aWT ? 1 : 2;
         }
+        this.offset = bundle.getInt("start_position", 0);
+        this.rn = bundle.getInt("end_position", 50);
     }
 
-    public void b() {
-        this.f.setOnCheckedChangeListener(this.a);
+    @Override // com.baidu.tbadk.mvc.b.f
+    public HashMap<String, Object> to() {
+        return null;
     }
 
-    public void c() {
-        for (int i = 0; i < 3; i++) {
-            this.m[i] = new b();
-        }
+    @Override // com.baidu.tbadk.mvc.b.j
+    public Object ay(boolean z) {
+        DataReq.Builder builder = new DataReq.Builder();
+        builder.forumId = Integer.valueOf(com.baidu.adp.lib.g.c.f(getForumId(), 0));
+        builder.offset = Integer.valueOf(this.offset);
+        builder.rn = Integer.valueOf(this.rn);
+        builder.type = Integer.valueOf(this.type);
+        builder.width = Integer.valueOf(this.mImageWidth);
+        builder.height = Integer.valueOf(this.mImageHeight);
+        QueryGroupsByFidReqIdl.Builder builder2 = new QueryGroupsByFidReqIdl.Builder();
+        builder2.data = builder.build(false);
+        return builder2.build(false);
     }
 
-    public void c(int i) {
-        this.a.c().a(i == 1);
-        this.a.c().a(this.b);
-        this.e.c(i);
-        if (this.r != null) {
-            this.r.a(i);
-        }
+    @Override // com.baidu.tbadk.mvc.b.c
+    public String getCacheKey() {
+        return "frs_group_" + this.type + "_" + this.forumId;
     }
 
-    @Override // com.baidu.adp.base.f
-    public void destroy() {
-        super.destroy();
-        if (this.m != null) {
-            FragmentTransaction beginTransaction = this.a.getSupportFragmentManager().beginTransaction();
-            for (int i = 0; i < this.m.length; i++) {
-                beginTransaction.remove(this.m[i]);
-            }
-            beginTransaction.commitAllowingStateLoss();
-        }
+    @Override // com.baidu.tbadk.mvc.b.d
+    public String sW() {
+        return "tb.im_frsgroup";
     }
 
-    public Fragment[] d() {
-        return this.m;
-    }
-
-    public void a(boolean z) {
-        this.q = z;
-        if (z) {
-            this.f.check(com.baidu.tieba.u.radio_recommend);
-            this.g.setVisibility(0);
-            this.j.setVisibility(0);
-            return;
-        }
-        this.f.check(com.baidu.tieba.u.radio_hot);
-        this.g.setVisibility(8);
-        this.j.setVisibility(8);
-    }
-
-    public void b(boolean z) {
-        this.d.setEnabled(z);
-    }
-
-    public void c(boolean z) {
-        this.g.setVisibility(z ? 0 : 8);
-    }
-
-    public View e() {
-        return this.c;
-    }
-
-    public void d(boolean z) {
-        this.p.setVisibility(z ? 0 : 8);
-    }
-
-    public LinearLayout f() {
-        return this.d;
+    @Override // com.baidu.tbadk.mvc.b.d
+    public boolean tm() {
+        return true;
     }
 }

@@ -12,9 +12,10 @@ class c extends j {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a.g
+    /* renamed from: d */
     public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage != null) {
-            h.a().c(socketResponsedMessage.getCmd());
+            h.qz().cy(socketResponsedMessage.getCmd());
         }
         return socketResponsedMessage;
     }

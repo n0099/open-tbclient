@@ -14,7 +14,6 @@ class af extends CustomMessageListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         GroupNewsPojo p;
         if (customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null) {
@@ -23,17 +22,17 @@ class af extends CustomMessageListener {
                 String content = p.getContent();
                 if (!TextUtils.isEmpty(content)) {
                     if (cmd.equals("apply_new_friend")) {
-                        NewFriendDbManagerStatic.a().a(content);
+                        NewFriendDbManagerStatic.Re().gt(content);
                     } else if (cmd.equals("passed_new_friend")) {
-                        NewFriendDbManagerStatic.a().b(content);
+                        NewFriendDbManagerStatic.Re().gu(content);
                     } else if (cmd.equals("delete_new_friend")) {
-                        NewFriendDbManagerStatic.a().c(content);
+                        NewFriendDbManagerStatic.Re().gv(content);
                     } else if (cmd.equals("apply_reply_message")) {
-                        NewFriendDbManagerStatic.a().d(content);
+                        NewFriendDbManagerStatic.Re().gw(content);
                     } else if (cmd.equals("apply_add_friend")) {
-                        NewFriendDbManagerStatic.a().e(content);
+                        NewFriendDbManagerStatic.Re().gx(content);
                     } else if (cmd.equals("apply_pass_friend")) {
-                        NewFriendDbManagerStatic.a().f(content);
+                        NewFriendDbManagerStatic.Re().gy(content);
                     }
                 }
             }

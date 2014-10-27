@@ -1,23 +1,38 @@
 package com.baidu.tbadk.core;
 
 import android.content.Context;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
+import android.content.res.Resources;
+import android.graphics.drawable.Animatable;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-public class a implements LayoutInflater.Factory {
-    private c a;
-
-    public void a(c cVar) {
-        this.a = cVar;
+public class a {
+    public static final void a(Context context, Animatable animatable) {
+        if (context instanceof BaseActivity) {
+            ((BaseActivity) context).startAnimatable(animatable);
+        } else if (context instanceof BaseFragmentActivity) {
+            ((BaseFragmentActivity) context).startAnimatable(animatable);
+        }
     }
 
-    @Override // android.view.LayoutInflater.Factory
-    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-        if (this.a == null) {
-            this.a = new c();
+    public static final void a(Context context, View view, Animation animation, Animation.AnimationListener animationListener) {
+        if (context instanceof BaseActivity) {
+            ((BaseActivity) context).startAnimation(view, animation, animationListener);
+        } else if (context instanceof BaseFragmentActivity) {
+            ((BaseFragmentActivity) context).startAnimation(view, animation, animationListener);
         }
-        this.a.a(str, context, attributeSet);
-        return null;
+    }
+
+    public static final void a(Context context, View view, int i, Animation.AnimationListener animationListener) {
+        if (view != null) {
+            try {
+                a(context, view, AnimationUtils.loadAnimation(TbadkApplication.m251getInst().getApplicationContext(), i), animationListener);
+            } catch (Resources.NotFoundException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

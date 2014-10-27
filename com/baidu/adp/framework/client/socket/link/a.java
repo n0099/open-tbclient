@@ -1,28 +1,23 @@
 package com.baidu.adp.framework.client.socket.link;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
 /* loaded from: classes.dex */
-class a extends Handler {
+class a implements ServiceConnection {
+    final /* synthetic */ BdSocketDaemonService cr;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a(Looper looper) {
-        super(looper);
+    public a(BdSocketDaemonService bdSocketDaemonService) {
+        this.cr = bdSocketDaemonService;
     }
 
-    @Override // android.os.Handler
-    public void dispatchMessage(Message message) {
-        e eVar;
-        switch (message.what) {
-            case 1:
-                BdLog.w("tcp建立和握手超时");
-                BdSocketLinkService.close(9, "connect timeout");
-                eVar = BdSocketLinkService.reConnStra;
-                eVar.a("tcp or websocket handshake timeout");
-                return;
-            default:
-                return;
-        }
+    @Override // android.content.ServiceConnection
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+    }
+
+    @Override // android.content.ServiceConnection
+    public void onServiceDisconnected(ComponentName componentName) {
+        BdSocketLinkService.startService(false, "restart");
     }
 }

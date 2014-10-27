@@ -1,24 +1,20 @@
 package com.baidu.tieba.tblauncher;
-
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class x extends CustomMessageListener {
-    final /* synthetic */ MainTabActivity a;
+public class x implements com.baidu.tbadk.core.view.m {
+    final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x(MainTabActivity mainTabActivity, int i) {
-        super(i);
-        this.a = mainTabActivity;
+    public x(MainTabActivity mainTabActivity) {
+        this.this$0 = mainTabActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null) {
-            MainTabActivity.d(1);
-        }
+    @Override // com.baidu.tbadk.core.view.m
+    public void iR() {
+        this.this$0.showPopMenu();
+    }
+
+    @Override // com.baidu.tbadk.core.view.m
+    public void iS() {
     }
 }

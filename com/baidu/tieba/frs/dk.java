@@ -1,34 +1,11 @@
 package com.baidu.tieba.frs;
-
-import android.content.Context;
 /* loaded from: classes.dex */
 public class dk {
-    private long a;
-    private long b;
-    private long c;
+    final /* synthetic */ di aEI;
+    public String aEJ;
+    public String name;
 
-    public dk(Context context) {
-        a(0L);
-        b(0L);
-    }
-
-    public void a(long j) {
-        this.a = j;
-    }
-
-    public long a() {
-        return this.a + this.b;
-    }
-
-    public void b(long j) {
-        this.b = j;
-    }
-
-    public long b() {
-        return this.c;
-    }
-
-    public void c(long j) {
-        this.c = j;
+    public dk(di diVar) {
+        this.aEI = diVar;
     }
 }

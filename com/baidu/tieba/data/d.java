@@ -3,16 +3,16 @@ package com.baidu.tieba.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
-    private String a;
+    private String lP;
 
-    public String a() {
-        return this.a;
+    public String getClientId() {
+        return this.lP;
     }
 
-    public void a(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optString("client_id");
+                this.lP = jSONObject.optString("client_id");
             } catch (Exception e) {
                 e.printStackTrace();
             }

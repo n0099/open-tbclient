@@ -34,18 +34,18 @@ public class ResponseFriendFeedLocalMessage extends CustomResponsedMessage<Objec
             if (getError() == 0 && friendFeedPageResIdl.data != null) {
                 setFriendFeedData(new s());
                 if (friendFeedPageResIdl.data.thread_list != null) {
-                    getFriendFeedData().a(new ArrayList());
+                    getFriendFeedData().z(new ArrayList());
                     List<FriendThreadInfo> list = friendFeedPageResIdl.data.thread_list;
                     if (list != null) {
                         for (int i2 = 0; i2 < list.size(); i2++) {
                             FriendFeedThreadData friendFeedThreadData = new FriendFeedThreadData();
-                            friendFeedThreadData.setUserMap(getFriendFeedData().a());
+                            friendFeedThreadData.setUserMap(getFriendFeedData().getUserMap());
                             friendFeedThreadData.parserProtobuf(list.get(i2));
                             friendFeedThreadData.parser_title();
-                            getFriendFeedData().b().add(friendFeedThreadData);
+                            getFriendFeedData().zf().add(friendFeedThreadData);
                         }
                     }
-                    getFriendFeedData().a(friendFeedPageResIdl.data.has_more.intValue());
+                    getFriendFeedData().setHasMore(friendFeedPageResIdl.data.has_more.intValue());
                     List<User> list2 = friendFeedPageResIdl.data.user_list;
                     if (list2 != null) {
                         for (int i3 = 0; i3 < list2.size(); i3++) {
@@ -53,7 +53,7 @@ public class ResponseFriendFeedLocalMessage extends CustomResponsedMessage<Objec
                             metaData.parserProtobuf(list2.get(i3));
                             String userId = metaData.getUserId();
                             if (userId != null && !userId.equals("0")) {
-                                getFriendFeedData().a().put(metaData.getUserId(), metaData);
+                                getFriendFeedData().getUserMap().put(metaData.getUserId(), metaData);
                             }
                         }
                     }

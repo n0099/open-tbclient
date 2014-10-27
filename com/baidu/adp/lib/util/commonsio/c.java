@@ -7,17 +7,17 @@ import java.io.InputStream;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class c {
-    public static final char a = File.separatorChar;
+    public static final char nS = File.separatorChar;
 
-    public static void a(InputStream inputStream) {
-        a((Closeable) inputStream);
+    public static void c(InputStream inputStream) {
+        b(inputStream);
     }
 
-    public static void a(OutputStream outputStream) {
-        a((Closeable) outputStream);
+    public static void c(OutputStream outputStream) {
+        b(outputStream);
     }
 
-    public static void a(Closeable closeable) {
+    public static void b(Closeable closeable) {
         if (closeable != null) {
             try {
                 closeable.close();

@@ -5,13 +5,14 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.widget.Toast;
+import com.baidu.adp.R;
 /* loaded from: classes.dex */
 class h implements DialogInterface.OnClickListener {
-    final /* synthetic */ g a;
+    final /* synthetic */ g hn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.a = gVar;
+        this.hn = gVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -26,21 +27,21 @@ class h implements DialogInterface.OnClickListener {
         c cVar5;
         Dialog dialog;
         if (i == -2) {
-            cVar5 = this.a.a;
-            dialog = cVar5.l;
+            cVar5 = this.hn.hm;
+            dialog = cVar5.hf;
             dialog.dismiss();
             return;
         }
-        cVar = this.a.a;
-        cVar.d();
-        cVar2 = this.a.a;
-        context = cVar2.k;
+        cVar = this.hn.hm;
+        cVar.cV();
+        cVar2 = this.hn.hm;
+        context = cVar2.mContext;
         ((Activity) context).finish();
-        cVar3 = this.a.a;
-        context2 = cVar3.k;
+        cVar3 = this.hn.hm;
+        context2 = cVar3.mContext;
         Context baseContext = ((Activity) context2).getBaseContext();
-        cVar4 = this.a.a;
-        context3 = cVar4.k;
-        Toast.makeText(baseContext, ((Activity) context3).getText(com.baidu.adp.f.debug_close), 1).show();
+        cVar4 = this.hn.hm;
+        context3 = cVar4.mContext;
+        Toast.makeText(baseContext, ((Activity) context3).getText(R.string.debug_close), 1).show();
     }
 }

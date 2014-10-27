@@ -20,9 +20,9 @@ public class BdUploadingLogInfo extends ArrayList<ArrayList<s>> {
         ArrayList<s> arrayList = get(i);
         ArrayList<String> arrayList2 = new ArrayList<>();
         for (int i2 = 0; i2 < arrayList.size(); i2++) {
-            String a = a(arrayList.get(i2).b);
-            if (!TextUtils.isEmpty(a)) {
-                String[] split = a.split("\r\n");
+            String ad = ad(arrayList.get(i2).mFileName);
+            if (!TextUtils.isEmpty(ad)) {
+                String[] split = ad.split("\r\n");
                 for (String str : split) {
                     arrayList2.add(str);
                 }
@@ -31,16 +31,16 @@ public class BdUploadingLogInfo extends ArrayList<ArrayList<s>> {
         return arrayList2;
     }
 
-    private String a(String str) {
+    private String ad(String str) {
         com.baidu.adp.lib.Disk.ops.e eVar = new com.baidu.adp.lib.Disk.ops.e(this.mLogDir, str, DiskFileOperate.Action.READ);
-        eVar.e(this.mUseSdCard);
+        eVar.m(this.mUseSdCard);
         if (this.mCanTrySuccess) {
             eVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-            eVar.a(3);
+            eVar.n(3);
         }
-        com.baidu.adp.lib.Disk.d.a().a(eVar);
-        if (eVar.g()) {
-            return eVar.v();
+        com.baidu.adp.lib.Disk.d.bn().b(eVar);
+        if (eVar.isSuccess()) {
+            return eVar.getContent();
         }
         return null;
     }

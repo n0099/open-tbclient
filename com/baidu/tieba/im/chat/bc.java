@@ -4,28 +4,28 @@ import android.text.TextUtils;
 import com.baidu.tbadk.core.data.GroupData;
 /* loaded from: classes.dex */
 class bc implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ GroupChatActivity a;
-    private final /* synthetic */ GroupData b;
+    final /* synthetic */ GroupChatActivity aOd;
+    private final /* synthetic */ GroupData aOe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(GroupChatActivity groupChatActivity, GroupData groupData) {
-        this.a = groupChatActivity;
-        this.b = groupData;
+        this.aOd = groupChatActivity;
+        this.aOe = groupData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
+    public void onReturnDataInUI(Boolean bool) {
         if (bool != null) {
             if (bool.booleanValue()) {
-                this.a.d.M();
+                this.aOd.aPP.closeNotNotify();
             } else {
-                this.a.d.N();
+                this.aOd.aPP.showNotNotfiy();
             }
-            if (this.a.e != null && this.b != null) {
-                String name = this.b.getName();
+            if (this.aOd.aPQ != null && this.aOe != null) {
+                String name = this.aOe.getName();
                 if (!TextUtils.isEmpty(name)) {
-                    this.a.d.a(name, true);
+                    this.aOd.aPP.refreshHeaderFooter(name, true);
                 }
             }
         }

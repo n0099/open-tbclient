@@ -1,21 +1,26 @@
 package com.baidu.tieba.im.groupInfo;
 
-import android.view.View;
-import com.baidu.tbadk.coreExtra.view.EllipsizingTextView;
+import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u implements View.OnClickListener {
-    final /* synthetic */ r a;
+public class u implements com.baidu.tbadk.coreExtra.view.i {
+    final /* synthetic */ s bbt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(r rVar) {
-        this.a = rVar;
+    public u(s sVar) {
+        this.bbt = sVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EllipsizingTextView ellipsizingTextView;
-        ellipsizingTextView = this.a.n;
-        ellipsizingTextView.setMaxLines(1000);
+    @Override // com.baidu.tbadk.coreExtra.view.i
+    public void ak(boolean z) {
+        TextView textView;
+        TextView textView2;
+        if (z) {
+            textView2 = this.bbt.bbl;
+            textView2.setVisibility(0);
+            return;
+        }
+        textView = this.bbt.bbl;
+        textView.setVisibility(8);
     }
 }

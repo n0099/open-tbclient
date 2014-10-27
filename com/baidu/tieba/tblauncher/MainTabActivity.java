@@ -21,139 +21,146 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.account.AccountLoginHelper;
-import com.baidu.tbadk.core.atomData.as;
-import com.baidu.tbadk.core.atomData.ba;
-import com.baidu.tbadk.core.atomData.bd;
-import com.baidu.tbadk.core.atomData.bh;
-import com.baidu.tbadk.core.atomData.cf;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.atomData.LogoActivityConfig;
+import com.baidu.tbadk.core.atomData.NotLoginGuideActivityConfig;
+import com.baidu.tbadk.core.atomData.PbHistoryActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.message.ExitAppMessage;
 import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.MorePopupWindow;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.pluginArch.PluginCenter;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
-public class MainTabActivity extends BaseFragmentActivity implements h {
-    public static boolean d = true;
-    private static boolean h = false;
-    private static int i = -1;
-    private View D;
-    private TextView E;
-    private ImageView F;
-    private View G;
-    private ImageView H;
-    private MainTabActivity I;
-    private int K;
-    private int L;
-    private boolean M;
-    private FragmentTabHost n;
-    private NavigationBar o;
-    private long j = 0;
-    private long k = 0;
-    private final long l = 2000;
-    private final long m = 7200000;
-    private com.baidu.tbadk.core.view.n p = null;
-    private View q = null;
-    private HeadImageView r = null;
-    private TextView s = null;
-    private Drawable t = null;
-    private View u = null;
-    private ImageView v = null;
-    private View w = null;
-    private View x = null;
-    private View y = null;
-    private ImageView z = null;
-    private TextView A = null;
-    private TextView B = null;
-    private TextView C = null;
-    private ac J = null;
-    private int N = 0;
-    private int O = 0;
-    private boolean P = false;
-    private boolean Q = false;
-    private boolean R = false;
-    private boolean S = false;
-    private Handler T = null;
-    final Runnable e = new i(this);
-    final CustomMessageListener f = new v(this, 2001124);
-    final CustomMessageListener g = new w(this, 2007002);
-    private final CustomMessageListener U = new x(this, 2007006);
-    private final CustomMessageListener V = new y(this, 2012112);
-    private final CustomMessageListener W = new z(this, 2007005);
-    private final Runnable X = new aa(this);
-    private final CustomMessageListener Y = new ab(this, 2001158);
-    private final CustomMessageListener Z = new j(this, 2001124);
+public class MainTabActivity extends BaseFragmentActivity implements i {
+    public static boolean bOo = true;
+    private static boolean bOp = false;
+    private static int bOq = -1;
+    private TextView aEv;
+    private int bFp;
+    private View bOI;
+    private ImageView bOJ;
+    private View bOK;
+    private ImageView bOL;
+    private ImageView bOM;
+    private ImageView bON;
+    private MainTabActivity bOO;
+    private int bOQ;
+    private FragmentTabHost bfz;
+    private boolean isFirstGoMaintab;
+    private NavigationBar mNavigationBar;
+    private long bOr = 0;
+    private long bOs = 0;
+    private final long bOt = 2000;
+    private final long bOu = 7200000;
+    private MorePopupWindow mPopWindow = null;
+    private View bOv = null;
+    private HeadImageView bOw = null;
+    private TextView bOx = null;
+    private Drawable bOy = null;
+    private View bOz = null;
+    private ImageView bOA = null;
+    private View bOB = null;
+    private View bOC = null;
+    private View bOD = null;
+    private ImageView bOE = null;
+    private TextView bOF = null;
+    private TextView bOG = null;
+    private TextView bOH = null;
+    private ah bOP = null;
+    private int bOR = 0;
+    private int bOS = 0;
+    private int bOT = 0;
+    private boolean adx = false;
+    private boolean bOU = false;
+    private boolean bOV = false;
+    private boolean bOW = false;
+    private boolean bOX = false;
+    private boolean bOY = false;
+    private Handler mHandler = null;
+    final Runnable bOZ = new j(this);
+    final CustomMessageListener bPa = new aa(this, 2001124);
+    private final CustomMessageListener bPb = new ab(this, 2001236);
+    final CustomMessageListener bPc = new ac(this, 2007002);
+    private final CustomMessageListener bPd = new ad(this, 2001237);
+    private final CustomMessageListener bPe = new ae(this, 2007006);
+    private final CustomMessageListener aAR = new af(this, 2012112);
+    private final CustomMessageListener bPf = new ag(this, 2007005);
+    private final Runnable bPg = new k(this);
+    private final CustomMessageListener bPh = new l(this, 2001158);
+    private final CustomMessageListener bPi = new m(this, 2001124);
+    private final CustomMessageListener bPj = new n(this, 2001230);
 
     static {
-        l();
-        n();
-        m();
-        MessageManager.getInstance().registerListener(new t(2002004));
+        Fk();
+        aeg();
+        aef();
+        MessageManager.getInstance().registerListener(new u(2002004));
     }
 
-    private static void l() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2015001, new k());
+    private static void Fk() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2015001, new o());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void m() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2012118, new l());
+    private static void aef() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2012118, new p());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void n() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2012111, new m());
+    private static void aeg() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2012111, new q());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(TextView textView, int i2) {
-        if (i2 <= 0) {
+    public void p(TextView textView, int i) {
+        if (i <= 0) {
             textView.setVisibility(8);
             return;
         }
         textView.setVisibility(0);
-        boolean z = TbadkApplication.m252getInst().getSkinType() == 1;
-        textView.setTextColor(TbadkApplication.m252getInst().getApp().getResources().getColor(z ? com.baidu.tieba.r.top_msg_num_night : com.baidu.tieba.r.top_msg_num_day));
-        if (i2 < 10) {
-            textView.setText(String.valueOf(i2));
-            this.K = com.baidu.tieba.t.icon_news_head_prompt_one;
-            this.L = com.baidu.tieba.t.icon_news_head_prompt_one_1;
-        } else if (i2 < 100) {
-            textView.setText(String.valueOf(i2));
-            this.K = com.baidu.tieba.t.icon_news_head_prompt_two;
-            this.L = com.baidu.tieba.t.icon_news_head_prompt_two_1;
+        aw.b(textView, com.baidu.tieba.s.top_msg_num_day, 1);
+        if (i < 10) {
+            textView.setText(String.valueOf(i));
+            this.bFp = com.baidu.tieba.u.icon_news_head_prompt_one;
+        } else if (i < 100) {
+            textView.setText(String.valueOf(i));
+            this.bFp = com.baidu.tieba.u.icon_news_head_prompt_two;
         } else {
             textView.setText("   ");
-            this.K = com.baidu.tieba.t.icon_news_head_prompt_more;
-            this.L = com.baidu.tieba.t.icon_news_head_prompt_more_1;
+            this.bFp = com.baidu.tieba.u.icon_news_head_prompt_more;
         }
-        textView.setBackgroundResource(z ? this.L : this.K);
+        aw.h((View) textView, this.bFp);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tbadk.mainTab.d dVar, FragmentTabIndicator fragmentTabIndicator) {
         if (dVar != null) {
             com.baidu.tbadk.core.tabHost.b bVar = new com.baidu.tbadk.core.tabHost.b();
-            bVar.c = dVar.a;
-            bVar.a = dVar.c;
-            fragmentTabIndicator.setText(dVar.b);
-            fragmentTabIndicator.a(0, getResources().getDimension(com.baidu.tieba.s.ds32));
-            fragmentTabIndicator.b = com.baidu.tieba.r.main_bottom_button_color_1;
-            fragmentTabIndicator.a = com.baidu.tieba.r.main_bottom_button_color;
-            bVar.b = fragmentTabIndicator;
-            this.n.a(bVar);
+            bVar.Cy = dVar.VU;
+            bVar.mType = dVar.type;
+            fragmentTabIndicator.setText(dVar.VV);
+            fragmentTabIndicator.setTextSize(0, getResources().getDimension(com.baidu.tieba.t.ds32));
+            fragmentTabIndicator.VN = com.baidu.tieba.s.main_bottom_button_color;
+            bVar.Cx = fragmentTabIndicator;
+            this.bfz.a(bVar);
         }
     }
 
-    protected void g() {
+    protected void aeh() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2007002, new com.baidu.tbadk.mainTab.e(this)));
     }
 
@@ -164,22 +171,25 @@ public class MainTabActivity extends BaseFragmentActivity implements h {
             finish();
             return;
         }
-        this.M = TbadkApplication.m252getInst().isFirstGoMaintab();
-        this.I = this;
-        this.T = new Handler();
-        ad adVar = new ad();
-        com.baidu.tbadk.core.b.b.a(adVar);
-        adVar.a((h) this.I);
-        if (j()) {
+        this.isFirstGoMaintab = TbadkApplication.m251getInst().isFirstGoMaintab();
+        this.bOO = this;
+        this.mHandler = new Handler();
+        ai aiVar = new ai();
+        com.baidu.tbadk.core.b.b.a(aiVar);
+        aiVar.a(this.bOO);
+        if (aek()) {
             CompatibleUtile.getInstance().openGpu(this);
         }
-        setContentView(com.baidu.tieba.v.maintabs_activity);
+        if (!com.baidu.adp.lib.g.b.ek().a(this, com.baidu.tieba.w.maintabs_activity)) {
+            finish();
+            return;
+        }
         AccountLoginHelper.getInstance().reLoginByCacheAccount(this);
-        this.n = (FragmentTabHost) findViewById(com.baidu.tieba.u.tab_host);
-        this.n.setup(getSupportFragmentManager());
-        this.n.setTabWidgetBackgroundColor(getResources().getColor(com.baidu.tieba.r.maintab_bg));
-        q();
-        g();
+        this.bfz = (FragmentTabHost) findViewById(com.baidu.tieba.v.tab_host);
+        this.bfz.setup(getSupportFragmentManager());
+        this.bfz.setTabWidgetBackgroundColor(getResources().getColor(com.baidu.tieba.s.maintab_bg));
+        nY();
+        aeh();
         Intent intent = new Intent();
         intent.putExtras(getIntent());
         if (bundle != null) {
@@ -190,171 +200,179 @@ public class MainTabActivity extends BaseFragmentActivity implements h {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005011, null));
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005013, null));
-        a((Context) this, TbadkApplication.getIntent());
-        String installOtherApp = TbadkApplication.m252getInst().getInstallOtherApp();
+        e(this, TbadkApplication.getIntent());
+        String installOtherApp = TbadkApplication.m251getInst().getInstallOtherApp();
         if (installOtherApp != null && installOtherApp.length() > 0) {
-            UtilHelper.install_apk(TbadkApplication.m252getInst().getApp(), installOtherApp);
-            TbadkApplication.m252getInst().setInstallOtherApp(null);
+            UtilHelper.install_apk(TbadkApplication.m251getInst().getApp(), installOtherApp);
+            TbadkApplication.m251getInst().setInstallOtherApp(null);
         }
-        i();
-        if (this.M) {
-            TbadkApplication.m252getInst().setFirstGoMaintab(false);
+        Hf();
+        if (this.isFirstGoMaintab) {
+            TbadkApplication.m251getInst().setFirstGoMaintab(false);
         }
-        this.T.postDelayed(this.X, 10000L);
+        if (PluginCenter.getInstance().isTipUpdate()) {
+            this.bOY = true;
+        }
+        this.mHandler.postDelayed(this.bPg, 10000L);
     }
 
-    public void h() {
+    public void aei() {
         com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
-        gVar.a(this.o).a(0).b(false);
-        gVar.a(new n(this));
-        gVar.a().a(this.I);
+        gVar.b(this.mNavigationBar).A(0).r(false);
+        gVar.a(new r(this));
+        gVar.dA().c(this.bOO);
     }
 
-    public void i() {
-        this.o = (NavigationBar) this.I.findViewById(com.baidu.tieba.u.view_navigation_bar);
-        if (this.o != null) {
-            this.o.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, com.baidu.tieba.v.widget_nb_item_logo, (View.OnClickListener) null);
-            this.o.a(this.I.getResources().getString(com.baidu.tieba.x.app_name));
-            View a = this.o.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.v.nb_item_maintab_message, (View.OnClickListener) null);
-            this.D = a.findViewById(com.baidu.tieba.u.maintab_message_button);
-            this.D.setOnClickListener(new o(this));
-            this.E = (TextView) a.findViewById(com.baidu.tieba.u.maintab_message_text);
-            this.F = (ImageView) this.o.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.v.widget_nb_item_search, (View.OnClickListener) null);
-            this.F.setOnClickListener(new p(this));
-            this.G = this.o.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.v.more_with_red_tag, this);
-            this.H = (ImageView) this.G.findViewById(com.baidu.tieba.u.more_with_red_tag_msg);
-            View a2 = com.baidu.adp.lib.e.b.a().a(this.I, com.baidu.tieba.v.main_tab_more_pop_window, null);
-            this.q = a2.findViewById(com.baidu.tieba.u.more_pop_item_account);
-            this.q.setOnClickListener(this);
-            this.r = (HeadImageView) a2.findViewById(com.baidu.tieba.u.more_pop_item_account_head);
-            this.s = (TextView) a2.findViewById(com.baidu.tieba.u.more_pop_item_account_name);
-            this.u = a2.findViewById(com.baidu.tieba.u.more_pop_item_mark);
-            this.u.setOnClickListener(this);
-            this.v = (ImageView) a2.findViewById(com.baidu.tieba.u.more_pop_item_mark_msg);
-            this.w = a2.findViewById(com.baidu.tieba.u.more_pop_item_history);
-            this.w.setOnClickListener(this);
-            this.x = a2.findViewById(com.baidu.tieba.u.more_pop_item_mylive);
-            this.x.setOnClickListener(new q(this));
-            this.y = a2.findViewById(com.baidu.tieba.u.more_pop_item_setting);
-            this.y.setOnClickListener(this);
-            this.z = (ImageView) a2.findViewById(com.baidu.tieba.u.more_pop_item_setting_msg);
-            this.A = (TextView) a2.findViewById(com.baidu.tieba.u.more_pop_item_feedback);
-            this.A.setOnClickListener(this);
-            this.B = (TextView) a2.findViewById(com.baidu.tieba.u.more_pop_item_switchaccount);
-            this.B.setOnClickListener(this);
-            this.C = (TextView) a2.findViewById(com.baidu.tieba.u.more_pop_item_exitapp);
-            this.C.setOnClickListener(this);
-            this.p = new com.baidu.tbadk.core.view.n(this.I, a2, this.o, getResources().getDrawable(com.baidu.tieba.t.bg_pull_down_right_n), new r(this));
+    public void Hf() {
+        this.mNavigationBar = (NavigationBar) this.bOO.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        if (this.mNavigationBar != null) {
+            this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, com.baidu.tieba.w.widget_nb_item_logo, (View.OnClickListener) null);
+            this.mNavigationBar.setTitleText(this.bOO.getResources().getString(com.baidu.tieba.y.app_name));
+            View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.game_tip_view, (View.OnClickListener) null);
+            this.bOM = (ImageView) addCustomView.findViewById(com.baidu.tieba.v.game_button_iv);
+            this.bON = (ImageView) addCustomView.findViewById(com.baidu.tieba.v.game_tip_msg_iv);
+            if (com.baidu.tbadk.core.sharedPref.b.lk().getBoolean("game_is_show_tip", false)) {
+                this.bON.setVisibility(0);
+            } else {
+                this.bON.setVisibility(4);
+            }
+            this.bOM.setOnClickListener(new s(this));
+            View addCustomView2 = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.nb_item_maintab_message, (View.OnClickListener) null);
+            this.bOI = addCustomView2.findViewById(com.baidu.tieba.v.maintab_message_button);
+            this.bOI.setOnClickListener(new t(this));
+            this.aEv = (TextView) addCustomView2.findViewById(com.baidu.tieba.v.maintab_message_text);
+            this.bOJ = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.widget_nb_item_search, (View.OnClickListener) null);
+            this.bOJ.setOnClickListener(new v(this));
+            this.bOK = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.more_with_red_tag, this);
+            this.bOL = (ImageView) this.bOK.findViewById(com.baidu.tieba.v.more_with_red_tag_msg);
+            View inflate = com.baidu.adp.lib.g.b.ek().inflate(this.bOO, com.baidu.tieba.w.main_tab_more_pop_window, null);
+            this.bOv = inflate.findViewById(com.baidu.tieba.v.more_pop_item_account);
+            this.bOv.setOnClickListener(this);
+            this.bOw = (HeadImageView) inflate.findViewById(com.baidu.tieba.v.more_pop_item_account_head);
+            this.bOx = (TextView) inflate.findViewById(com.baidu.tieba.v.more_pop_item_account_name);
+            this.bOz = inflate.findViewById(com.baidu.tieba.v.more_pop_item_mark);
+            this.bOz.setOnClickListener(this);
+            this.bOA = (ImageView) inflate.findViewById(com.baidu.tieba.v.more_pop_item_mark_msg);
+            this.bOB = inflate.findViewById(com.baidu.tieba.v.more_pop_item_history);
+            this.bOB.setOnClickListener(this);
+            this.bOC = inflate.findViewById(com.baidu.tieba.v.more_pop_item_mylive);
+            this.bOC.setOnClickListener(new w(this));
+            this.bOD = inflate.findViewById(com.baidu.tieba.v.more_pop_item_setting);
+            this.bOD.setOnClickListener(this);
+            this.bOE = (ImageView) inflate.findViewById(com.baidu.tieba.v.more_pop_item_setting_msg);
+            this.bOF = (TextView) inflate.findViewById(com.baidu.tieba.v.more_pop_item_feedback);
+            this.bOF.setOnClickListener(this);
+            this.bOG = (TextView) inflate.findViewById(com.baidu.tieba.v.more_pop_item_switchaccount);
+            this.bOG.setOnClickListener(this);
+            this.bOH = (TextView) inflate.findViewById(com.baidu.tieba.v.more_pop_item_exitapp);
+            this.bOH.setOnClickListener(this);
+            this.mPopWindow = new MorePopupWindow(this.bOO, inflate, this.mNavigationBar, getResources().getDrawable(com.baidu.tieba.u.bg_pull_down_right_n), new x(this));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void o() {
-        if (this.p != null) {
+    public void showPopMenu() {
+        if (this.mPopWindow != null) {
             AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
-                this.r.a(currentAccountObj.getPortrait(), 12, false);
-                this.s.setText(currentAccountObj.getAccount());
+                this.bOw.c(currentAccountObj.getPortrait(), 12, false);
+                this.bOx.setText(currentAccountObj.getAccount());
             }
-            this.p.b();
+            this.mPopWindow.showWindowInRightBottomOfHost();
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.G) {
-            o();
-            a(true);
-        } else if (view == this.q) {
-            com.baidu.adp.lib.e.e.a(this.p, this);
+        if (view == this.bOK) {
+            showPopMenu();
+            eJ(true);
+        } else if (view == this.bOv) {
+            com.baidu.adp.lib.g.j.a(this.mPopWindow, this);
             AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new bh(this.I, currentAccountObj.getID(), currentAccountObj.getAccount())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.bOO, currentAccountObj.getID(), currentAccountObj.getAccount())));
             }
-            this.R = false;
-            a(true);
-        } else if (view == this.u) {
-            com.baidu.adp.lib.e.e.a(this.p, this);
-            a(new CustomMessage(2015005, new com.baidu.tbadk.core.frameworkData.a(this.I)));
-            this.S = false;
-            a(true);
-        } else if (view == this.w) {
-            com.baidu.adp.lib.e.e.a(this.p, this);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new bd(this.I)));
-        } else if (view == this.y) {
-            com.baidu.adp.lib.e.e.a(this.p, this);
-            a(new CustomMessage(2015004, new com.baidu.tbadk.core.frameworkData.a(this.I)));
-            this.P = false;
-            a(true);
-        } else if (view == this.A) {
-            com.baidu.adp.lib.e.e.a(this.p, this);
+            this.bOV = false;
+            this.bOX = false;
+            eJ(true);
+        } else if (view == this.bOz) {
+            com.baidu.adp.lib.g.j.a(this.mPopWindow, this);
+            sendMessage(new CustomMessage(2015005, new com.baidu.tbadk.core.frameworkData.a(this.bOO)));
+            this.bOW = false;
+            eJ(true);
+        } else if (view == this.bOB) {
+            com.baidu.adp.lib.g.j.a(this.mPopWindow, this);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PbHistoryActivityConfig(this.bOO)));
+        } else if (view == this.bOD) {
+            com.baidu.adp.lib.g.j.a(this.mPopWindow, this);
+            sendMessage(new CustomMessage(2015004, new com.baidu.tbadk.core.frameworkData.a(this.bOO)));
+            this.adx = false;
+            this.bOY = false;
+            eJ(true);
+        } else if (view == this.bOF) {
+            com.baidu.adp.lib.g.j.a(this.mPopWindow, this);
             AntiData antiData = new AntiData();
             antiData.setIfpost(1);
             if (antiData != null && antiData.getIfpost() == 0) {
-                com.baidu.adp.lib.util.j.a((Context) this.I, antiData.getForbid_info());
+                com.baidu.adp.lib.util.m.showToast(this.bOO, antiData.getForbid_info());
                 return;
             }
             antiData.setIfVoice(false);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new cf(this.I, 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, antiData, 13003, true, false, null, false, false, null, null, null, 0)));
-        } else if (view == this.B) {
-            com.baidu.adp.lib.e.e.a(this.p, this);
-            a(new CustomMessage(2015006, new com.baidu.tbadk.core.frameworkData.a(this.I)));
-        } else if (view == this.C) {
-            com.baidu.adp.lib.e.e.a(this.p, this);
-            p().show();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteActivityConfig(this.bOO, 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, antiData, 13003, true, false, null, false, false, null, null, null, 0)));
+        } else if (view == this.bOG) {
+            com.baidu.adp.lib.g.j.a(this.mPopWindow, this);
+            sendMessage(new CustomMessage(2015006, new com.baidu.tbadk.core.frameworkData.a(this.bOO)));
+        } else if (view == this.bOH) {
+            com.baidu.adp.lib.g.j.a(this.mPopWindow, this);
+            aej().show();
         }
     }
 
-    private AlertDialog p() {
+    private AlertDialog aej() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(com.baidu.tieba.x.del_post_tip);
-        builder.setMessage(com.baidu.tieba.x.exit_tip);
-        builder.setPositiveButton(com.baidu.tieba.x.alert_yes_button, new s(this));
-        builder.setNegativeButton(com.baidu.tieba.x.alert_no_button, new u(this));
+        builder.setTitle(com.baidu.tieba.y.del_post_tip);
+        builder.setMessage(com.baidu.tieba.y.exit_tip);
+        builder.setPositiveButton(com.baidu.tieba.y.alert_yes_button, new y(this));
+        builder.setNegativeButton(com.baidu.tieba.y.alert_no_button, new z(this));
         return builder.create();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z) {
-        if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            this.t = getResources().getDrawable(com.baidu.tieba.t.icon_news_down_bar_one_1);
-            this.v.setImageResource(com.baidu.tieba.t.icon_news_down_bar_one_1);
-            this.z.setImageResource(com.baidu.tieba.t.icon_news_down_bar_one_1);
-            this.H.setImageResource(com.baidu.tieba.t.icon_news_down_bar_one_1);
-        } else {
-            this.t = getResources().getDrawable(com.baidu.tieba.t.icon_news_down_bar_one);
-            this.v.setImageResource(com.baidu.tieba.t.icon_news_down_bar_one);
-            this.z.setImageResource(com.baidu.tieba.t.icon_news_down_bar_one);
-            this.H.setImageResource(com.baidu.tieba.t.icon_news_down_bar_one);
+    public void eJ(boolean z) {
+        this.bOy = aw.getDrawable(com.baidu.tieba.u.icon_news_down_bar_one);
+        aw.c(this.bOA, com.baidu.tieba.u.icon_news_down_bar_one);
+        aw.c(this.bOE, com.baidu.tieba.u.icon_news_down_bar_one);
+        aw.c(this.bOL, com.baidu.tieba.u.icon_news_down_bar_one);
+        if (this.bOY || this.adx || this.bOR > 0 || this.bOT > 0 || this.bOS <= 0) {
         }
-        if (this.P || this.N > 0 || this.O <= 0) {
-        }
-        if (this.Q) {
-            this.H.setVisibility(0);
+        if (this.bOU) {
+            this.bOL.setVisibility(0);
         } else {
-            this.H.setVisibility(4);
+            this.bOL.setVisibility(4);
         }
         if (z) {
-            this.H.setVisibility(4);
-            this.Q = false;
+            this.bOL.setVisibility(4);
+            this.bOU = false;
         }
-        if (this.N > 0 && this.R) {
-            this.s.setCompoundDrawablePadding(com.baidu.adp.lib.util.j.a((Context) this.I, 4.0f));
-            this.s.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, this.t, (Drawable) null);
+        if ((this.bOR > 0 && this.bOV) || (this.bOS > 0 && this.bOX)) {
+            this.bOx.setCompoundDrawablePadding(com.baidu.adp.lib.util.m.dip2px(this.bOO, 4.0f));
+            this.bOx.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, this.bOy, (Drawable) null);
         } else {
-            this.s.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+            this.bOx.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
         }
-        if (this.O > 0 && this.S) {
-            this.v.setVisibility(0);
+        if (this.bOT > 0 && this.bOW) {
+            this.bOA.setVisibility(0);
         } else {
-            this.v.setVisibility(4);
+            this.bOA.setVisibility(4);
         }
-        if (this.P) {
-            this.z.setVisibility(0);
+        if (this.adx || this.bOY) {
+            this.bOE.setVisibility(0);
         } else {
-            this.z.setVisibility(4);
+            this.bOE.setVisibility(4);
         }
+        this.bOU = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -363,12 +381,12 @@ public class MainTabActivity extends BaseFragmentActivity implements h {
         super.onStart();
     }
 
-    public static void d(int i2) {
-        i = i2;
+    public static void ht(int i) {
+        bOq = i;
     }
 
-    public boolean j() {
-        return TbadkApplication.m252getInst().isGpuOpen();
+    public boolean aek() {
+        return TbadkApplication.m251getInst().isGpuOpen();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -377,13 +395,14 @@ public class MainTabActivity extends BaseFragmentActivity implements h {
         MessageManager.getInstance().dispatchResponsedMessage(new ExitAppMessage());
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005010, null));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005012, null));
-        r();
-        com.baidu.tbadk.coreExtra.messageCenter.a.a().i();
-        com.baidu.tbadk.coreExtra.messageCenter.a.a().a(false);
-        com.baidu.tbadk.imageManager.e.a().c();
-        if (this.b != null) {
-            com.baidu.adp.lib.e.e.a(this.b, this);
-            this.b = null;
+        Jt();
+        com.baidu.tbadk.coreExtra.messageCenter.a.oB().oN();
+        com.baidu.tbadk.coreExtra.messageCenter.a.oB().oH();
+        com.baidu.tbadk.coreExtra.messageCenter.a.oB().ac(false);
+        com.baidu.tbadk.imageManager.e.sg().si();
+        if (this.mWaitingDialog != null) {
+            com.baidu.adp.lib.g.j.b(this.mWaitingDialog, this);
+            this.mWaitingDialog = null;
         }
         super.onDestroy();
         System.gc();
@@ -398,29 +417,32 @@ public class MainTabActivity extends BaseFragmentActivity implements h {
         }
     }
 
-    private void a(Context context, Intent intent) {
+    private void e(Context context, Intent intent) {
         UtilHelper.commenDealIntent(context, intent);
         TbadkApplication.setIntent(null);
     }
 
-    private void q() {
-        a(this.Y);
-        a(this.Z);
-        a(this.f);
-        this.g.setPriority(100);
-        a(this.g);
-        a(this.W);
-        a(this.U);
-        a(this.V);
-        this.J = new ac(this, null);
+    private void nY() {
+        registerListener(this.bPh);
+        registerListener(this.bPi);
+        registerListener(this.bPa);
+        this.bPc.setPriority(100);
+        registerListener(this.bPc);
+        registerListener(this.bPf);
+        registerListener(this.bPe);
+        registerListener(this.bPd);
+        registerListener(this.aAR);
+        registerListener(this.bPj);
+        registerListener(this.bPb);
+        this.bOP = new ah(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
-        registerReceiver(this.J, intentFilter);
+        registerReceiver(this.bOP, intentFilter);
     }
 
-    private void r() {
-        if (this.J != null) {
-            unregisterReceiver(this.J);
+    private void Jt() {
+        if (this.bOP != null) {
+            unregisterReceiver(this.bOP);
         }
     }
 
@@ -428,26 +450,26 @@ public class MainTabActivity extends BaseFragmentActivity implements h {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        TbadkApplication.m252getInst().sendLaunchTime();
-        TbadkApplication.m252getInst().AddResumeNum();
-        if (this.M) {
-            this.M = false;
-            this.T.postDelayed(this.e, 2500L);
+        TbadkApplication.m251getInst().sendLaunchTime();
+        TbadkApplication.m251getInst().AddResumeNum();
+        if (this.isFirstGoMaintab) {
+            this.isFirstGoMaintab = false;
+            this.mHandler.postDelayed(this.bOZ, 2500L);
         }
-        i = this.n.getCurrentTabType();
-        a(this.c);
+        bOq = this.bfz.getCurrentTabType();
+        changeSkinType(this.mSkinType);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        as.a = false;
-        if (h) {
-            h = false;
-            CompatibleUtile.setAnim(this, com.baidu.tieba.o.down, com.baidu.tieba.o.hold);
+        LogoActivityConfig.isFirst = false;
+        if (bOp) {
+            bOp = false;
+            CompatibleUtile.setAnim(this, com.baidu.tieba.p.down, com.baidu.tieba.p.hold);
         }
-        TbadkApplication.m252getInst().DelResumeNum();
+        TbadkApplication.m251getInst().DelResumeNum();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -457,7 +479,7 @@ public class MainTabActivity extends BaseFragmentActivity implements h {
             super.onSaveInstanceState(bundle);
         } catch (Exception e) {
         }
-        bundle.putInt("locate_type", this.n.getCurrentTabType());
+        bundle.putInt("locate_type", this.bfz.getCurrentTabType());
         bundle.putParcelable("android:fragments", null);
         bundle.putParcelable("android:support:fragments", null);
     }
@@ -474,64 +496,63 @@ public class MainTabActivity extends BaseFragmentActivity implements h {
         super.onNewIntent(intent);
         setIntent(intent);
         if (intent.getBooleanExtra("close_dialog", false)) {
-            s();
+            ael();
         }
-        if (intent.getBooleanExtra("refresh_all", false)) {
-            g();
+        if (intent.getBooleanExtra(FrsActivityConfig.KEY_REFRESH, false)) {
+            aeh();
         }
         int intExtra = intent.getIntExtra("locate_type", 1);
         if (intExtra == 200) {
             finish();
         } else if (intExtra == 11) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ba(this, ba.b)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NotLoginGuideActivityConfig(this, NotLoginGuideActivityConfig.FROM_ACCOUNT)));
             finish();
         } else if (intExtra == 12) {
-            TbadkApplication.m252getInst().notifyAppEnterBackground();
-            TbadkApplication.m252getInst().clearHasShowAppForums();
+            TbadkApplication.m251getInst().notifyAppEnterBackground();
             finish();
         } else if (intExtra == 1 || intExtra == 3 || intExtra == 4) {
-            this.n.setCurrentTabByType(intExtra);
+            this.bfz.setCurrentTabByType(intExtra);
         }
-        a((Context) this, TbadkApplication.getIntent());
+        e(this, TbadkApplication.getIntent());
     }
 
-    private void s() {
+    private void ael() {
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
         if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 4) {
-            if (System.currentTimeMillis() - this.j > 2000) {
-                c(com.baidu.tieba.x.double_back_quit);
-                this.j = System.currentTimeMillis();
+            if (System.currentTimeMillis() - this.bOr > 2000) {
+                showToast(com.baidu.tieba.y.double_back_quit);
+                this.bOr = System.currentTimeMillis();
             } else {
-                t();
+                aen();
                 moveTaskToBack(true);
-                TbadkApplication.m252getInst().notifyAppEnterBackground();
+                TbadkApplication.m251getInst().notifyAppEnterBackground();
             }
             return false;
         }
         if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 82) {
-            o();
+            showPopMenu();
         }
         return super.dispatchKeyEvent(keyEvent);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(Intent intent) {
+    public void o(Intent intent) {
         try {
-            this.n.setCurrentTabByType(intent.getIntExtra("locate_type", 1));
+            this.bfz.setCurrentTabByType(intent.getIntExtra("locate_type", 1));
         } catch (Throwable th) {
             finish();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
         try {
-            return super.onKeyDown(i2, keyEvent);
+            return super.onKeyDown(i, keyEvent);
         } catch (IllegalStateException e) {
-            if (i2 == 4) {
+            if (i == 4) {
                 finish();
             }
             return true;
@@ -539,86 +560,81 @@ public class MainTabActivity extends BaseFragmentActivity implements h {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyUp(int i2, KeyEvent keyEvent) {
+    public boolean onKeyUp(int i, KeyEvent keyEvent) {
         try {
-            return super.onKeyUp(i2, keyEvent);
+            return super.onKeyUp(i, keyEvent);
         } catch (IllegalStateException e) {
-            if (i2 == 4) {
+            if (i == 4) {
                 finish();
             }
             return true;
         }
     }
 
-    protected void k() {
+    protected void aem() {
         AntiData antiData = new AntiData();
         antiData.setIfpost(1);
         if (antiData != null && antiData.getIfpost() == 0) {
-            com.baidu.adp.lib.util.j.a((Context) this, antiData.getForbid_info());
+            com.baidu.adp.lib.util.m.showToast(this, antiData.getForbid_info());
             return;
         }
         antiData.setIfVoice(false);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new cf(this, 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, antiData, 13003, true, false, null, false, false, null, null, null, 0)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteActivityConfig(this, 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, antiData, 13003, true, false, null, false, false, null, null, null, 0)));
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
-        if (i3 != -1) {
-            if (i2 == 12007) {
-                LoginActivity.a(this, 1, getString(com.baidu.tieba.x.login_home_tab), 11003);
+    protected void onActivityResult(int i, int i2, Intent intent) {
+        if (i2 != -1) {
+            if (i == 12007) {
+                LoginActivity.a(this, 1, getString(com.baidu.tieba.y.login_home_tab), 11003);
             }
-            if (this.n.getCurrentFragment() != null) {
-                this.n.getCurrentFragment().onActivityResult(i2, i3, intent);
+            if (this.bfz.getCurrentFragment() != null) {
+                this.bfz.getCurrentFragment().onActivityResult(i, i2, intent);
             }
-        } else if (i2 == 11001) {
-            k();
-        } else if (this.n.getCurrentFragment() != null) {
-            this.n.getCurrentFragment().onActivityResult(i2, i3, intent);
+        } else if (i == 11001) {
+            aem();
+        } else if (this.bfz.getCurrentFragment() != null) {
+            this.bfz.getCurrentFragment().onActivityResult(i, i2, intent);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    protected void b(int i2) {
-        this.n.b(i2);
-        if (i2 == 1) {
-            this.n.setBackgroundColor(-5525837);
-            if (this.L != 0) {
-                this.E.setBackgroundResource(this.L);
+    protected void onChangeSkinType(int i) {
+        this.bfz.onChangeSkinType(i);
+        if (i == 1) {
+            this.bfz.setBackgroundColor(-5525837);
+            if (this.bOQ != 0) {
+                this.aEv.setBackgroundResource(this.bOQ);
             }
         } else {
-            this.n.setBackgroundColor(-5525837);
-            if (this.K != 0) {
-                this.E.setBackgroundResource(this.K);
+            this.bfz.setBackgroundColor(-5525837);
+            if (this.bFp != 0) {
+                this.aEv.setBackgroundResource(this.bFp);
             }
         }
-        this.o.c(i2);
-        this.p.a(this.I, i2, getResources().getDrawable(com.baidu.tieba.t.bg_pull_down_right_n), getResources().getDrawable(com.baidu.tieba.t.bg_pull_down_right_n_1));
-        if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            this.v.setImageResource(com.baidu.tieba.t.icon_news_down_bar_one_1);
-            this.z.setImageResource(com.baidu.tieba.t.icon_news_down_bar_one_1);
-            this.H.setImageResource(com.baidu.tieba.t.icon_news_down_bar_one_1);
-        } else {
-            this.v.setImageResource(com.baidu.tieba.t.icon_news_down_bar_one);
-            this.z.setImageResource(com.baidu.tieba.t.icon_news_down_bar_one);
-            this.H.setImageResource(com.baidu.tieba.t.icon_news_down_bar_one);
-        }
-        a(false);
+        this.mNavigationBar.onChangeSkinType(i);
+        this.mPopWindow.onChangeSkinType(this.bOO, i, aw.getDrawable(com.baidu.tieba.u.bg_pull_down_right_n));
+        aw.c(this.bOA, com.baidu.tieba.u.icon_news_down_bar_one);
+        aw.c(this.bOE, com.baidu.tieba.u.icon_news_down_bar_one);
+        aw.c(this.bOL, com.baidu.tieba.u.icon_news_down_bar_one);
+        aw.c(this.bON, com.baidu.tieba.u.icon_news_down_bar_one);
+        aw.c(this.bOM, com.baidu.tieba.u.icon_game_n);
+        eJ(false);
     }
 
-    private void t() {
-        if (System.currentTimeMillis() - this.k >= 7200000) {
+    private void aen() {
+        if (System.currentTimeMillis() - this.bOs >= 7200000) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2006002, com.baidu.tbadk.core.frameworkData.a.START));
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005013, null));
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
-            this.k = System.currentTimeMillis();
+            this.bOs = System.currentTimeMillis();
         }
     }
 
-    @Override // com.baidu.tieba.tblauncher.h
-    public int a() {
-        if (this.n != null) {
-            return this.n.getCurrentTabType();
+    @Override // com.baidu.tieba.tblauncher.i
+    public int getCurrentTabType() {
+        if (this.bfz != null) {
+            return this.bfz.getCurrentTabType();
         }
         return -1;
     }

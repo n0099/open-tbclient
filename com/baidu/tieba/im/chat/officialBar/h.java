@@ -2,18 +2,19 @@ package com.baidu.tieba.im.chat.officialBar;
 
 import android.content.Context;
 import android.view.View;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
-    final /* synthetic */ f a;
-    private final /* synthetic */ p b;
+    private final /* synthetic */ p aQR;
+    final /* synthetic */ f aQS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(f fVar, p pVar) {
-        this.a = fVar;
-        this.b = pVar;
+        this.aQS = fVar;
+        this.aQR = pVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,13 +22,13 @@ public class h implements View.OnClickListener {
         Context context;
         Context context2;
         Context context3;
-        bg a = bg.a();
-        context = this.a.a;
-        a.a(context, new String[]{this.b.d});
-        context2 = this.a.a;
+        bf mR = bf.mR();
+        context = this.aQS.mContext;
+        mR.b(context, new String[]{this.aQR.url});
+        context2 = this.aQS.mContext;
         if (context2 instanceof OfficialBarChatActivity) {
-            context3 = this.a.a;
-            TiebaStatic.eventStat(context3, "official_msg_ck", "click", 1, "fid", this.b.e);
+            context3 = this.aQS.mContext;
+            TiebaStatic.eventStat(context3, "official_msg_ck", "click", 1, ImageViewerConfig.FORUM_ID, this.aQR.fid);
         }
     }
 }

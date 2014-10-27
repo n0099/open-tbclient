@@ -1,19 +1,21 @@
 package com.baidu.tieba.mainentrance;
 
-import android.app.AlertDialog;
 import android.view.View;
+import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements View.OnClickListener {
-    final /* synthetic */ SquareSearchActivity a;
+    final /* synthetic */ SquareSearchActivity bmO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(SquareSearchActivity squareSearchActivity) {
-        this.a = squareSearchActivity;
+        this.bmO = squareSearchActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        new AlertDialog.Builder(this.a).setTitle("提醒").setIcon(com.baidu.tieba.t.dialogue_quit).setMessage("确认清除搜索记录？").setPositiveButton("确认", new r(this)).setNegativeButton("取消", new t(this)).create().show();
+        EditText editText;
+        editText = this.bmO.bmh;
+        editText.setText("");
     }
 }

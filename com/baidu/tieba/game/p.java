@@ -1,48 +1,26 @@
 package com.baidu.tieba.game;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.message.NetWorkChangeMessage;
 /* loaded from: classes.dex */
-public class p implements View.OnClickListener {
-    final /* synthetic */ n a;
+class p extends CustomMessageListener {
+    final /* synthetic */ GameDetailActivity aHd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(n nVar) {
-        this.a = nVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p(GameDetailActivity gameDetailActivity, int i) {
+        super(i);
+        this.aHd = gameDetailActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        List list;
-        List list2;
-        GameCenterHomeActivity gameCenterHomeActivity;
-        GameCenterHomeActivity gameCenterHomeActivity2;
-        list = this.a.n;
-        if (list != null) {
-            int intValue = ((Integer) view.getTag()).intValue();
-            list2 = this.a.n;
-            com.baidu.tbadk.game.b bVar = (com.baidu.tbadk.game.b) list2.get(intValue);
-            if (bVar != null) {
-                if (bVar.c() == 2) {
-                    gameCenterHomeActivity2 = this.a.b;
-                    com.baidu.tbadk.game.a.a(gameCenterHomeActivity2, bVar.b(), bVar.h(), bVar.a());
-                    return;
-                }
-                switch (ae.a().j(bVar)) {
-                    case 4:
-                        ae.a().f(bVar);
-                        return;
-                    case 5:
-                        ae.a().e(bVar);
-                        gameCenterHomeActivity = this.a.b;
-                        TiebaStatic.eventStat(gameCenterHomeActivity, "start_game", "click", 1, bVar.a());
-                        return;
-                    default:
-                        return;
-                }
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        y yVar;
+        if (customResponsedMessage.getCmd() == 2001121 && (customResponsedMessage instanceof NetWorkChangeMessage) && ((NetWorkChangeMessage) customResponsedMessage).mState == 2) {
+            yVar = this.aHd.aGY;
+            yVar.Hn();
         }
     }
 }

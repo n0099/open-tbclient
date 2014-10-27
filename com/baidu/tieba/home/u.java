@@ -1,21 +1,14 @@
 package com.baidu.tieba.home;
+
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-class u {
-    private int a = -1;
-
-    public void a(int i) {
-        this.a = i;
-    }
-
-    public int a() {
-        return this.a;
-    }
-
-    public boolean b(int i) {
-        if (i == a()) {
-            return false;
-        }
-        a(i);
-        return true;
-    }
+final class u extends w {
+    LinearLayout aMT;
+    RelativeLayout aMU;
+    TextView aMV;
+    TextView aMW;
+    u aMX;
+    TextView axq;
 }

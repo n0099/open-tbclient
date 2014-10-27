@@ -7,35 +7,35 @@ import com.baidu.tieba.flist.ForumListActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnClickListener {
-    final /* synthetic */ ItemInfoView a;
-    private final /* synthetic */ boolean b;
-    private final /* synthetic */ String c;
-    private final /* synthetic */ String d;
-    private final /* synthetic */ String e;
-    private final /* synthetic */ String f;
-    private final /* synthetic */ BaseActivity g;
+    final /* synthetic */ ItemInfoView axK;
+    private final /* synthetic */ boolean axL;
+    private final /* synthetic */ String axM;
+    private final /* synthetic */ String axN;
+    private final /* synthetic */ String axO;
+    private final /* synthetic */ String axP;
+    private final /* synthetic */ BaseActivity axk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(ItemInfoView itemInfoView, boolean z, String str, String str2, String str3, String str4, BaseActivity baseActivity) {
-        this.a = itemInfoView;
-        this.b = z;
-        this.c = str;
-        this.d = str2;
-        this.e = str3;
-        this.f = str4;
-        this.g = baseActivity;
+        this.axK = itemInfoView;
+        this.axL = z;
+        this.axM = str;
+        this.axN = str2;
+        this.axO = str3;
+        this.axP = str4;
+        this.axk = baseActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
-        if (!this.b) {
-            context = this.a.a;
-            ForumListActivity.a(context, this.c, this.e, this.d, this.f);
+        if (!this.axL) {
+            context = this.axK.mContext;
+            ForumListActivity.a(context, this.axM, this.axO, this.axN, this.axP);
             return;
         }
-        ForumListActivity.d = !ForumListActivity.d;
-        ForumListActivity.a(this.c, this.d, this.e, this.f);
-        this.g.finish();
+        ForumListActivity.avK = !ForumListActivity.avK;
+        ForumListActivity.c(this.axM, this.axN, this.axO, this.axP);
+        this.axk.finish();
     }
 }

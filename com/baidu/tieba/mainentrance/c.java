@@ -9,11 +9,11 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c implements CustomMessageTask.CustomRunnable<Object> {
-    public static final List<String> a(List<com.baidu.adp.lib.cache.v<String>> list) {
+    public static final List<String> af(List<com.baidu.adp.lib.cache.v<String>> list) {
         LinkedList linkedList = new LinkedList();
         if (list != null) {
             for (com.baidu.adp.lib.cache.v<String> vVar : list) {
-                String str = vVar.a;
+                String str = vVar.key;
                 if (!TextUtils.isEmpty(str)) {
                     linkedList.add(str);
                 }
@@ -31,9 +31,9 @@ public class c implements CustomMessageTask.CustomRunnable<Object> {
         if (currentAccount == null) {
             currentAccount = "";
         }
-        List<String> a = a(com.baidu.adp.lib.util.o.a(com.baidu.tbadk.core.a.a.a().b("tb.searchperson_history", currentAccount)));
+        List<String> af = af(com.baidu.adp.lib.util.s.b(com.baidu.tbadk.core.a.a.kS().D("tb.searchperson_history", currentAccount)));
         ResponseSearchPersonHistoryReadMessage responseSearchPersonHistoryReadMessage = new ResponseSearchPersonHistoryReadMessage();
-        responseSearchPersonHistoryReadMessage.datas.addAll(a);
+        responseSearchPersonHistoryReadMessage.datas.addAll(af);
         return responseSearchPersonHistoryReadMessage;
     }
 }

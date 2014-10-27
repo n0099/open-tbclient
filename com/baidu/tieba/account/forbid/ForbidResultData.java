@@ -1,12 +1,9 @@
 package com.baidu.tieba.account.forbid;
 
-import com.baidu.gson.annotations.SerializedName;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class ForbidResultData implements Serializable {
+public class ForbidResultData extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
     private static final long serialVersionUID = 2253122288401584111L;
-    @SerializedName("error_code")
-    public int errNo = 0;
-    @SerializedName("error_msg")
-    public String errMsg = "";
+    public int error_code = 0;
+    public String error_msg = "";
 }

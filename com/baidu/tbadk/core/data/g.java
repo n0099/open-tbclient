@@ -1,44 +1,45 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import org.json.JSONObject;
 import tbclient.FrsPage.Banner;
 /* loaded from: classes.dex */
 public class g {
-    private int a;
-    private String b;
-    private String c;
-    private int d;
-    private String e;
+    private int mType;
+    private String mValue;
+    private int zJ;
+    private String zK;
+    private String zL;
 
-    public int a() {
-        return this.a;
+    public int jT() {
+        return this.zJ;
     }
 
-    public String b() {
-        return this.b;
+    public String jU() {
+        return this.zK;
     }
 
-    public String c() {
-        return this.c;
+    public String getValue() {
+        return this.mValue;
     }
 
-    public int d() {
-        return this.d;
+    public int getType() {
+        return this.mType;
     }
 
-    public String e() {
-        return this.e;
+    public String jV() {
+        return this.zL;
     }
 
-    public void a(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optInt("bannerType");
-                this.b = jSONObject.optString("bannerUrl");
-                this.c = jSONObject.optString("value");
-                this.d = jSONObject.optInt("type");
-                this.e = jSONObject.optString("desc");
+                this.zJ = jSONObject.optInt("bannerType");
+                this.zK = jSONObject.optString("bannerUrl");
+                this.mValue = jSONObject.optString("value");
+                this.mType = jSONObject.optInt("type");
+                this.zL = jSONObject.optString("desc");
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -47,11 +48,21 @@ public class g {
 
     public void a(Banner banner) {
         if (banner != null) {
-            this.a = banner.banner_type.intValue();
-            this.b = banner.banner_url;
-            this.c = banner.value;
-            this.d = banner.type.intValue();
-            this.e = banner.desc;
+            this.zJ = banner.banner_type.intValue();
+            this.zK = banner.banner_url;
+            this.mValue = banner.value;
+            this.mType = banner.type.intValue();
+            this.zL = banner.desc;
         }
+    }
+
+    public boolean isValid() {
+        if (StringUtils.isNull(this.zK)) {
+            return false;
+        }
+        if (this.mType == 1 || this.mType == 2) {
+            return (this.zJ == 1 || this.zJ == 4 || this.zJ == 2 || this.zJ == 3) && !StringUtils.isNull(this.mValue);
+        }
+        return false;
     }
 }

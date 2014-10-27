@@ -1,21 +1,37 @@
 package com.baidu.tieba.person.post;
+
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tieba.person.post.PersonPostModel;
 /* loaded from: classes.dex */
-class w implements com.baidu.adp.widget.ListView.d {
-    final /* synthetic */ t a;
+class w implements AdapterView.OnItemClickListener {
+    final /* synthetic */ t bEe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(t tVar) {
-        this.a = tVar;
+        this.bEe = tVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.d
-    public void a(boolean z) {
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         q qVar;
         q qVar2;
-        qVar = this.a.c;
-        if (qVar != null) {
-            qVar2 = this.a.c;
-            qVar2.a(true);
+        q qVar3;
+        if (i >= 0) {
+            qVar = this.bEe.bEb;
+            if (qVar != null) {
+                qVar2 = this.bEe.bEb;
+                if (i < qVar2.getCount()) {
+                    qVar3 = this.bEe.bEb;
+                    PersonPostModel.PostList postList = (PersonPostModel.PostList) qVar3.getItem(i);
+                    if (postList != null) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.bEe.getActivity()).createCfgForPersonCenter(String.valueOf(postList.thread_id), String.valueOf(postList.post_id), "person_post", 18005)));
+                    }
+                }
+            }
         }
     }
 }

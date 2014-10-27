@@ -5,74 +5,74 @@ import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 /* loaded from: classes.dex */
 class h implements g {
-    private SocketChannel a;
-    private long b;
-    private String c;
-    private String d;
-    private String e;
+    private SocketChannel oY;
+    private long oZ;
+    private String pa;
+    private String pd;
+    private String pe;
 
     public h(String str, int i, am amVar) {
-        this.a = null;
-        this.b = 0L;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.a = SocketChannel.open();
+        this.oY = null;
+        this.oZ = 0L;
+        this.pa = null;
+        this.pd = null;
+        this.pe = null;
+        this.oY = SocketChannel.open();
         long currentTimeMillis = System.currentTimeMillis();
         InetSocketAddress inetSocketAddress = new InetSocketAddress(str, i);
         if (inetSocketAddress.getAddress() != null) {
-            this.c = inetSocketAddress.getAddress().getHostAddress();
-            this.b = System.currentTimeMillis() - currentTimeMillis;
+            this.pa = inetSocketAddress.getAddress().getHostAddress();
+            this.oZ = System.currentTimeMillis() - currentTimeMillis;
         }
-        this.a.socket().connect(inetSocketAddress, amVar.f());
-        this.a.socket().setSoTimeout(amVar.e());
-        this.a.socket().setTcpNoDelay(amVar.d());
-        this.d = com.baidu.adp.lib.util.j.d();
-        this.e = com.baidu.adp.lib.util.j.e();
+        this.oY.socket().connect(inetSocketAddress, amVar.go());
+        this.oY.socket().setSoTimeout(amVar.gn());
+        this.oY.socket().setTcpNoDelay(amVar.getTcpNoDelay());
+        this.pd = com.baidu.adp.lib.util.m.fv();
+        this.pe = com.baidu.adp.lib.util.m.fw();
     }
 
     @Override // com.baidu.adp.lib.webSocket.g
-    public void a() {
-        if (this.a != null) {
-            this.a.close();
+    public void close() {
+        if (this.oY != null) {
+            this.oY.close();
         }
     }
 
     @Override // com.baidu.adp.lib.webSocket.g
-    public boolean b() {
-        if (this.a != null) {
-            return this.a.isConnected();
+    public boolean isConnected() {
+        if (this.oY != null) {
+            return this.oY.isConnected();
         }
         return false;
     }
 
     @Override // com.baidu.adp.lib.webSocket.g
-    public int a(ByteBuffer byteBuffer) {
-        return this.a.read(byteBuffer);
+    public int read(ByteBuffer byteBuffer) {
+        return this.oY.read(byteBuffer);
     }
 
     @Override // com.baidu.adp.lib.webSocket.g
-    public int b(ByteBuffer byteBuffer) {
-        return this.a.write(byteBuffer);
+    public int write(ByteBuffer byteBuffer) {
+        return this.oY.write(byteBuffer);
     }
 
     @Override // com.baidu.adp.lib.webSocket.g
-    public String c() {
-        return this.c;
+    public String fQ() {
+        return this.pa;
     }
 
     @Override // com.baidu.adp.lib.webSocket.g
-    public long d() {
-        return this.b;
+    public long fR() {
+        return this.oZ;
     }
 
     @Override // com.baidu.adp.lib.webSocket.g
-    public String e() {
-        return this.d;
+    public String fv() {
+        return this.pd;
     }
 
     @Override // com.baidu.adp.lib.webSocket.g
-    public String f() {
-        return this.e;
+    public String fw() {
+        return this.pe;
     }
 }

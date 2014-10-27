@@ -1,22 +1,24 @@
 package com.baidu.tieba.pb.main;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
-public class cm implements View.OnFocusChangeListener {
-    final /* synthetic */ bs a;
+class cm implements Runnable {
+    private final /* synthetic */ ImageView byQ;
+    final /* synthetic */ cl byR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cm(bs bsVar) {
-        this.a = bsVar;
+    public cm(cl clVar, ImageView imageView) {
+        this.byR = clVar;
+        this.byQ = imageView;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        PbActivity pbActivity;
-        if (!z) {
-            pbActivity = this.a.k;
-            com.baidu.adp.lib.util.j.a(pbActivity, view);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        bv bvVar;
+        RelativeLayout relativeLayout;
+        bvVar = this.byR.byI;
+        relativeLayout = bvVar.ahN;
+        relativeLayout.removeView(this.byQ);
     }
 }

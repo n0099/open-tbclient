@@ -1,27 +1,28 @@
 package com.baidu.tbadk.game;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-public class d extends com.baidu.adp.framework.listener.d {
-    final /* synthetic */ c a;
+public class d {
+    private static d Td;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d(c cVar, int i) {
-        super(i);
-        this.a = cVar;
+    private d() {
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseGameDetailMessage) && !socketResponsedMessage.hasError()) {
-            ResponseGameDetailMessage responseGameDetailMessage = (ResponseGameDetailMessage) socketResponsedMessage;
-            if (responseGameDetailMessage.getOrginalMessage() instanceof RequestGameDetailMessage) {
-                this.a.b = b.a(responseGameDetailMessage.getGameInfo());
-            }
+    public static d rV() {
+        if (Td == null) {
+            Td = new d();
         }
+        return Td;
+    }
+
+    public void q(String str, int i) {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.UPDATE_PLAYER_NUM_CMD);
+        httpMessage.addParam("gameId", str);
+        httpMessage.addParam("type", Integer.valueOf(i));
+        MessageManager.getInstance().sendMessage(httpMessage, new TbHttpMessageTask(CmdConfigHttp.UPDATE_PLAYER_NUM_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UPDATE_PLAYER_NUM));
     }
 }

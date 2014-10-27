@@ -13,30 +13,30 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
-    final /* synthetic */ e a;
-    private final al b;
-    private final String c;
-    private String d;
+    final /* synthetic */ e ahA;
+    private final al ahB;
+    private final String ahC;
+    private String ahD;
 
     public g(e eVar, String str, al alVar) {
-        this.a = eVar;
-        this.b = alVar;
-        this.c = str;
+        this.ahA = eVar;
+        this.ahB = alVar;
+        this.ahC = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: j */
     public List<ImageFileInfo> doInBackground(Object... objArr) {
         Context context;
         Context context2;
-        String str = this.c;
-        context = this.a.d;
+        String str = this.ahC;
+        context = this.ahA.mContext;
         List<ImageFileInfo> a = a(str, context, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         if (a == null || a.size() <= 0) {
-            String str2 = this.c;
-            context2 = this.a.d;
+            String str2 = this.ahC;
+            context2 = this.ahA.mContext;
             return a(str2, context2, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         }
         return a;
@@ -46,19 +46,19 @@ public class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreCancel() {
         super.onPreCancel();
-        if (this.b != null) {
-            this.b.a();
+        if (this.ahB != null) {
+            this.ahB.hL();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: i */
     public void onPostExecute(List<ImageFileInfo> list) {
         super.onPostExecute(list);
-        if (this.b != null) {
-            this.b.a(list, this.d);
+        if (this.ahB != null) {
+            this.ahB.a(list, this.ahD);
         }
     }
 
@@ -72,12 +72,12 @@ public class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
                 } catch (Exception e) {
                     e = e;
                     BdLog.detailException(e);
-                    com.baidu.adp.lib.e.a.a(cursor);
+                    com.baidu.adp.lib.g.a.a(cursor);
                     return arrayList;
                 }
             } catch (Throwable th) {
                 th = th;
-                com.baidu.adp.lib.e.a.a(cursor);
+                com.baidu.adp.lib.g.a.a(cursor);
                 throw th;
             }
         } catch (Exception e2) {
@@ -86,7 +86,7 @@ public class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
         } catch (Throwable th2) {
             th = th2;
             cursor = null;
-            com.baidu.adp.lib.e.a.a(cursor);
+            com.baidu.adp.lib.g.a.a(cursor);
             throw th;
         }
         if (cursor.moveToFirst()) {
@@ -94,7 +94,7 @@ public class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
             int columnIndex2 = cursor.getColumnIndex("bucket_display_name");
             do {
                 String string = cursor.getString(columnIndex);
-                this.d = cursor.getString(columnIndex2);
+                this.ahD = cursor.getString(columnIndex2);
                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                 imageFileInfo.setAlbumnId(str);
                 imageFileInfo.setFilePath(string);
@@ -102,10 +102,10 @@ public class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
                     arrayList.add(imageFileInfo);
                 }
             } while (cursor.moveToNext());
-            com.baidu.adp.lib.e.a.a(cursor);
+            com.baidu.adp.lib.g.a.a(cursor);
             return arrayList;
         }
-        com.baidu.adp.lib.e.a.a(cursor);
+        com.baidu.adp.lib.g.a.a(cursor);
         return arrayList;
     }
 }

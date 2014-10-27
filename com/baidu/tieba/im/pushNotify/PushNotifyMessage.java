@@ -5,10 +5,20 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 public class PushNotifyMessage extends SocketResponsedMessage {
     private static final long serialVersionUID = 7053886389487061173L;
     private String content;
+    private String emitTime;
     private long groupId;
+    private int groupType;
     private long newestMsgId;
     private long pushTime;
     private int type;
+
+    public String getEmitTime() {
+        return this.emitTime;
+    }
+
+    public void setEmitTime(String str) {
+        this.emitTime = str;
+    }
 
     public int getType() {
         return this.type;
@@ -48,6 +58,14 @@ public class PushNotifyMessage extends SocketResponsedMessage {
 
     public void setContent(String str) {
         this.content = str;
+    }
+
+    public int getGroupType() {
+        return this.groupType;
+    }
+
+    public void setGroupType(int i) {
+        this.groupType = i;
     }
 
     public PushNotifyMessage() {

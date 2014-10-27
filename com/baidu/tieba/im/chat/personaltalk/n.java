@@ -1,62 +1,68 @@
 package com.baidu.tieba.im.chat.personaltalk;
 
-import android.text.TextUtils;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import com.baidu.tieba.x;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.model.BlackListModel;
+import protobuf.QueryUserInfos.DataRes;
 /* loaded from: classes.dex */
-public class n extends CustomMessageListener {
-    final /* synthetic */ l a;
+public class n {
+    private final BlackListModel aSv;
+    private PersonalTalkSettingActivity aSw;
+    private s aSx;
+    private DataRes data;
+    private com.baidu.tbadk.coreExtra.b.a aSs = new com.baidu.tbadk.coreExtra.b.a(null);
+    private boolean Ll = false;
+    private boolean aSt = false;
+    private boolean aSu = false;
+    private com.baidu.adp.framework.listener.e ayJ = new o(this, 0);
+    private CustomMessageListener mCustomListener = new p(this, 0);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n(l lVar, int i) {
-        super(i);
-        this.a = lVar;
+    public boolean KG() {
+        return this.aSu;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        PersonalTalkSettingActivity personalTalkSettingActivity;
-        PersonalTalkSettingActivity personalTalkSettingActivity2;
-        PersonalTalkSettingActivity personalTalkSettingActivity3;
-        q qVar;
-        q qVar2;
-        boolean z;
-        PersonalTalkSettingActivity personalTalkSettingActivity4;
-        PersonalTalkSettingActivity personalTalkSettingActivity5;
-        if (customResponsedMessage instanceof UpdateAttentionMessage) {
-            UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-            if (!updateAttentionMessage.isSucc()) {
-                personalTalkSettingActivity = this.a.g;
-                if (personalTalkSettingActivity != null && !TextUtils.isEmpty(updateAttentionMessage.getErrorString())) {
-                    personalTalkSettingActivity2 = this.a.g;
-                    personalTalkSettingActivity2.showToast(updateAttentionMessage.getErrorString());
-                    return;
-                }
-                return;
-            }
-            this.a.c = updateAttentionMessage.isAttention();
-            personalTalkSettingActivity3 = this.a.g;
-            if (personalTalkSettingActivity3 != null) {
-                z = this.a.c;
-                if (z) {
-                    personalTalkSettingActivity5 = this.a.g;
-                    personalTalkSettingActivity5.showToast(x.add_succ);
-                } else {
-                    personalTalkSettingActivity4 = this.a.g;
-                    personalTalkSettingActivity4.showToast(x.remove_succ);
-                }
-            }
-            qVar = this.a.h;
-            if (qVar != null) {
-                qVar2 = this.a.h;
-                qVar2.a();
-            }
+    public void cL(boolean z) {
+        this.aSu = z;
+    }
+
+    public DataRes KH() {
+        return this.data;
+    }
+
+    public boolean KI() {
+        return this.aSt;
+    }
+
+    public n(PersonalTalkSettingActivity personalTalkSettingActivity, s sVar, long j) {
+        this.aSw = personalTalkSettingActivity;
+        this.aSx = sVar;
+        this.aSv = new BlackListModel(personalTalkSettingActivity);
+        personalTalkSettingActivity.showProgressBar();
+        com.baidu.tieba.im.e.a(new q(this, j), new r(this, j, personalTalkSettingActivity));
+    }
+
+    public void cM(boolean z) {
+        this.aSw.showLoadingDialog(null);
+        if (z) {
+            this.aSv.addToBlackList(this.data.id.longValue());
+        } else {
+            this.aSv.removeFromBlackList(this.data.id.longValue());
         }
+    }
+
+    public void onDestory() {
+        if (this.aSs != null) {
+            this.aSs.cancel();
+        }
+        if (this.aSv != null) {
+            this.aSv.cancelLoadData();
+        }
+    }
+
+    public com.baidu.adp.framework.listener.e KJ() {
+        return this.ayJ;
+    }
+
+    public CustomMessageListener KK() {
+        return this.mCustomListener;
     }
 }

@@ -6,4 +6,8 @@ public abstract class CustomMessageListener extends MessageListener<CustomRespon
     public CustomMessageListener(int i) {
         super(i);
     }
+
+    public CustomMessageListener(int i, boolean z) {
+        super(i, z);
+    }
 }

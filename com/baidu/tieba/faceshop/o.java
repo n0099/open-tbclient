@@ -3,14 +3,15 @@ package com.baidu.tieba.faceshop;
 import android.view.View;
 import android.widget.AdapterView;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.FacePackageDetailActivityConfig;
 import java.util.List;
 /* loaded from: classes.dex */
 class o implements AdapterView.OnItemClickListener {
-    final /* synthetic */ EmotionManageActivity a;
+    final /* synthetic */ EmotionManageActivity asH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(EmotionManageActivity emotionManageActivity) {
-        this.a = emotionManageActivity;
+        this.asH = emotionManageActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -22,27 +23,27 @@ class o implements AdapterView.OnItemClickListener {
         List list3;
         List list4;
         List list5;
-        z = this.a.p;
+        z = this.asH.asG;
         if (z) {
-            list = this.a.a;
+            list = this.asH.asu;
             if (list.get(i) != null && (uVar = (u) view.getTag()) != null) {
-                Object tag = uVar.a.getTag();
+                Object tag = uVar.asK.getTag();
                 if (tag instanceof String) {
                     String str = (String) tag;
-                    list2 = this.a.a;
+                    list2 = this.asH.asu;
                     for (s sVar : list2) {
-                        if (sVar.a.equals(str)) {
-                            list3 = this.a.b;
+                        if (sVar.id.equals(str)) {
+                            list3 = this.asH.asv;
                             if (list3.contains(str)) {
-                                com.baidu.tbadk.core.util.ay.c(uVar.a, com.baidu.tieba.t.btn_expression_choose_n);
-                                list4 = this.a.b;
+                                com.baidu.tbadk.core.util.aw.c(uVar.asK, by.btn_expression_choose_n);
+                                list4 = this.asH.asv;
                                 list4.remove(str);
-                                this.a.b(str);
-                                sVar.c = false;
+                                this.asH.eN(str);
+                                sVar.asI = false;
                             } else {
-                                com.baidu.tbadk.core.util.ay.c(uVar.a, com.baidu.tieba.t.btn_expression_choose_s);
-                                this.a.a(str);
-                                sVar.c = true;
+                                com.baidu.tbadk.core.util.aw.c(uVar.asK, by.btn_expression_choose_s);
+                                this.asH.eM(str);
+                                sVar.asI = true;
                             }
                         }
                     }
@@ -52,8 +53,8 @@ class o implements AdapterView.OnItemClickListener {
             }
             return;
         }
-        EmotionManageActivity emotionManageActivity = this.a;
-        list5 = this.a.a;
-        this.a.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.o(emotionManageActivity, ((s) list5.get(i)).a, false, "emotion_manage")));
+        EmotionManageActivity emotionManageActivity = this.asH;
+        list5 = this.asH.asu;
+        this.asH.sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(emotionManageActivity, ((s) list5.get(i)).id, false, "emotion_manage")));
     }
 }

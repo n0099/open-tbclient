@@ -1,36 +1,25 @@
 package com.baidu.tieba.write;
 
-import android.graphics.Bitmap;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.editortool.TbEditorToolButtonContainer;
 /* loaded from: classes.dex */
-public class bm implements View.OnClickListener {
-    final /* synthetic */ WriteImageActivity a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ int c;
+class bm implements com.baidu.tieba.bubble.t {
+    final /* synthetic */ WriteActivity bTX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(WriteImageActivity writeImageActivity, String str, int i) {
-        this.a = writeImageActivity;
-        this.b = str;
-        this.c = i;
+    public bm(WriteActivity writeActivity) {
+        this.bTX = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ProgressBar progressBar;
-        ImageView imageView;
-        Bitmap bitmap;
-        progressBar = this.a.g;
-        if (progressBar.getVisibility() != 0) {
-            imageView = this.a.b;
-            bitmap = this.a.c;
-            imageView.setImageBitmap(bitmap);
-            this.a.y = false;
-            this.a.c(this.b);
-            this.a.t = this.c;
+    @Override // com.baidu.tieba.bubble.t
+    public void hz() {
+        TbEditorToolButtonContainer tbEditorToolButtonContainer;
+        TbEditorToolButtonContainer tbEditorToolButtonContainer2;
+        this.bTX.apZ = null;
+        this.bTX.eM(false);
+        tbEditorToolButtonContainer = this.bTX.bTF;
+        if (tbEditorToolButtonContainer != null) {
+            tbEditorToolButtonContainer2 = this.bTX.bTF;
+            tbEditorToolButtonContainer2.rG();
         }
     }
 }

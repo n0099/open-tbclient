@@ -12,17 +12,17 @@ public class e implements CustomMessageTask.CustomRunnable<String> {
         if (customMessage == null || !(customMessage instanceof GetContactListRequestMessage)) {
             return null;
         }
-        List<b> b = h.a().b();
-        if (b != null) {
-            Iterator<b> it = b.iterator();
+        List<b> pD = i.pC().pD();
+        if (pD != null) {
+            Iterator<b> it = pD.iterator();
             while (it.hasNext()) {
-                if (com.baidu.adp.lib.util.i.c(it.next().b())) {
+                if (com.baidu.adp.lib.util.l.aA(it.next().getUserName())) {
                     it.remove();
                 }
             }
         }
         GetContactListResponsedMessage getContactListResponsedMessage = new GetContactListResponsedMessage();
-        getContactListResponsedMessage.setContacts(b);
+        getContactListResponsedMessage.setContacts(pD);
         return getContactListResponsedMessage;
     }
 }

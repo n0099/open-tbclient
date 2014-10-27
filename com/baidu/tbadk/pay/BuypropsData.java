@@ -1,8 +1,9 @@
 package com.baidu.tbadk.pay;
 
+import com.baidu.adp.lib.a.b.a.a.i;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class BuypropsData implements Serializable {
+public class BuypropsData extends i implements Serializable {
     private static final long serialVersionUID = 2238764304780158007L;
     private String errmsg;
     private int errno;
@@ -10,7 +11,7 @@ public class BuypropsData implements Serializable {
     private String usermsg;
 
     /* loaded from: classes.dex */
-    public class PayInfo implements Serializable {
+    public class PayInfo extends i implements Serializable {
         private static final long serialVersionUID = -8302988741059705808L;
         private int amount;
         private String bduss;
@@ -27,9 +28,6 @@ public class BuypropsData implements Serializable {
         private String sign;
         private int signMethod;
         private String version;
-
-        public PayInfo() {
-        }
 
         public String getProductNo() {
             return this.productNo;

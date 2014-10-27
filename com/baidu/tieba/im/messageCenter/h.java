@@ -12,6 +12,6 @@ class h implements CustomMessageTask.CustomRunnable<InvokeNewImMessageCenterFrag
         if (customMessage == null) {
             return null;
         }
-        return new CustomResponsedMessage<>(2008002, new com.baidu.tieba.im.chat.notify.e());
+        return new CustomResponsedMessage<>(2008002, new com.baidu.tieba.im.chat.notify.g());
     }
 }

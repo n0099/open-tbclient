@@ -1,181 +1,47 @@
 package com.baidu.tieba.person;
 
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.widget.TextView;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.LiveCardData;
-import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
-import com.baidu.tieba.person.PersonPostListData;
-import com.baidu.tieba.view.CommonImageLayout;
-import com.baidu.tieba.voice.PlayVoiceBnt;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah {
-    private final BaseFragmentActivity a;
-    private boolean b = true;
-    private boolean c = false;
-    private final View.OnClickListener d = new ai(this);
+public class ah implements DialogInterface.OnClickListener {
+    final /* synthetic */ PersonChangeActivity bCm;
+    private final /* synthetic */ String bCn;
+    private final /* synthetic */ String bCo;
 
-    public ah(BaseFragmentActivity baseFragmentActivity) {
-        this.a = baseFragmentActivity;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ah(PersonChangeActivity personChangeActivity, String str, String str2) {
+        this.bCm = personChangeActivity;
+        this.bCn = str;
+        this.bCo = str2;
     }
 
-    public void a(int i, boolean z, float f) {
-        this.b = z;
-    }
-
-    public void a(boolean z) {
-        this.c = z;
-    }
-
-    public void a(View view, PersonPostListData.PostList postList) {
-        aj ajVar;
-        int i = 0;
-        if (view.getTag() != null && (ajVar = (aj) view.getTag()) != null) {
-            String string = this.a.getResources().getString(com.baidu.tieba.x.forum_name_suffix);
-            ajVar.c.setText(String.valueOf(postList.forum_name) + string);
-            ajVar.c.setTag(postList.forum_name);
-            ajVar.d.setText(postList.title);
-            ajVar.c.setVisibility(8);
-            ajVar.p.setVisibility(8);
-            ajVar.f.setPadding(this.a.getResources().getDimensionPixelSize(com.baidu.tieba.s.listview_item_padding), 0, 0, 0);
-            ajVar.f.setText(String.valueOf(postList.forum_name) + string);
-            ajVar.h.setText(String.valueOf(postList.reply_num));
-            ajVar.g.setText(com.baidu.tbadk.core.util.ba.a(postList.create_time * 1000));
-            if (postList.abs != null && postList.abs.length > 0 && TextUtils.isEmpty(postList.abs[0].text)) {
-                ajVar.e.setText(postList.abs[0].text);
-                ajVar.e.setVisibility(0);
-            } else {
-                ajVar.e.setText((CharSequence) null);
-                ajVar.e.setVisibility(8);
-            }
-            ajVar.k = new StringBuilder(String.valueOf(postList.forum_id)).toString();
-            ajVar.l = new StringBuilder(String.valueOf(postList.thread_id)).toString();
-            ajVar.j.setVisibility(8);
-            LiveCardData a = a(postList.anchor_info);
-            if (a.getAuthorId() != 0) {
-                ajVar.i.setVisibility(8);
-                ajVar.q.setVisibility(0);
-                ajVar.r.setData(a);
-            } else {
-                ajVar.q.setVisibility(8);
-                if (com.baidu.tbadk.core.h.a().f()) {
-                    ajVar.i.setVisibility(0);
-                    PersonPostListData.Media[] mediaArr = postList.media;
-                    if (mediaArr != null) {
-                        if (mediaArr.length > 0) {
-                            int length = mediaArr.length;
-                            int i2 = length > 3 ? 3 : length;
-                            if (i2 > 0) {
-                                MediaData[] mediaDataArr = new MediaData[i2];
-                                for (int i3 = 0; i3 < mediaArr.length && i < i2; i3++) {
-                                    if (mediaArr[i3].type == 3 || mediaArr[i3].type == 5) {
-                                        MediaData mediaData = new MediaData();
-                                        if (mediaArr[i3].type == 3) {
-                                            mediaData.setPic(mediaArr[i3].water_pic);
-                                            mediaData.setType(mediaArr[i3].type);
-                                            mediaData.setVideo(mediaArr[i3].water_pic);
-                                        } else {
-                                            mediaData.setPic(mediaArr[i3].pic_url);
-                                            mediaData.setType(mediaArr[i3].type);
-                                            mediaData.setVideo(mediaArr[i3].video_url);
-                                        }
-                                        mediaDataArr[i] = mediaData;
-                                        i++;
-                                    }
-                                }
-                                ajVar.i.setShowBig(this.b);
-                                ajVar.i.setData(mediaDataArr);
-                                ajVar.i.setFromCDN(this.c);
-                            }
-                        } else {
-                            ajVar.i.setVisibility(8);
-                        }
-                    }
-                } else {
-                    ajVar.i.setVisibility(8);
-                }
-            }
-            ajVar.n = this.b;
-            view.setTag(ajVar);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        TextView textView;
+        int i2;
+        com.baidu.tieba.model.au auVar;
+        Dialog dialog;
+        TextView textView2;
+        TextView textView3;
+        if (i == 0) {
+            this.bCm.mSex = 1;
+            textView3 = this.bCm.bBV;
+            textView3.setText(this.bCn);
+        } else if (i == 1) {
+            this.bCm.mSex = 2;
+            textView = this.bCm.bBV;
+            textView.setText(this.bCo);
         }
-    }
-
-    private LiveCardData a(PersonPostListData.AnchorInfo anchorInfo) {
-        LiveCardData liveCardData = new LiveCardData();
-        liveCardData.setAuthorId(anchorInfo.author_id);
-        liveCardData.setAuthorName(anchorInfo.author_name);
-        liveCardData.setGroupId(anchorInfo.group_id);
-        liveCardData.setIntro(anchorInfo.intro);
-        liveCardData.setLikers(anchorInfo.likers);
-        liveCardData.setListeners(anchorInfo.listeners);
-        liveCardData.setName(anchorInfo.name);
-        liveCardData.setPortrait(anchorInfo.portrait);
-        liveCardData.setPublisherId(anchorInfo.publisher_id);
-        liveCardData.setPublisherName(anchorInfo.publisher_name);
-        liveCardData.setStartTime(anchorInfo.start_time);
-        liveCardData.setStatus(anchorInfo.status);
-        liveCardData.setPublisherPortrait(anchorInfo.publisherPortrait);
-        return liveCardData;
-    }
-
-    public View a() {
-        aj ajVar = new aj();
-        LinearLayout linearLayout = (LinearLayout) com.baidu.adp.lib.e.b.a().a(this.a, com.baidu.tieba.v.forum_feed_item, null);
-        ajVar.a = (LinearLayout) linearLayout.findViewById(com.baidu.tieba.u.layoutForumTop);
-        ajVar.b = (RelativeLayout) linearLayout.findViewById(com.baidu.tieba.u.layoutForumBottom);
-        ajVar.c = (TextView) linearLayout.findViewById(com.baidu.tieba.u.textHomeListFrsName);
-        ajVar.d = (TextView) linearLayout.findViewById(com.baidu.tieba.u.textHomeListTitle);
-        ajVar.e = (TextView) linearLayout.findViewById(com.baidu.tieba.u.textHomeListAbstract);
-        ajVar.f = (TextView) linearLayout.findViewById(com.baidu.tieba.u.textHomeListAuthor);
-        ajVar.o = (UserIconBox) linearLayout.findViewById(com.baidu.tieba.u.user_icon_box);
-        ajVar.p = (UserIconBox) linearLayout.findViewById(com.baidu.tieba.u.user_tshow_icon_box);
-        ajVar.g = (TextView) linearLayout.findViewById(com.baidu.tieba.u.textHomeListTime);
-        ajVar.h = (TextView) linearLayout.findViewById(com.baidu.tieba.u.textHomeListRplyNum);
-        ajVar.i = (CommonImageLayout) linearLayout.findViewById(com.baidu.tieba.u.layoutFeedImage);
-        ajVar.j = (PlayVoiceBnt) linearLayout.findViewById(com.baidu.tieba.u.abstract_voice);
-        ajVar.q = (LinearLayout) linearLayout.findViewById(com.baidu.tieba.u.feed_item_live_card);
-        ajVar.r = (LiveBroadcastCard) linearLayout.findViewById(com.baidu.tieba.u.feed_item_card);
-        ajVar.c.setOnClickListener(this.d);
-        linearLayout.setOnClickListener(this.d);
-        linearLayout.setTag(ajVar);
-        return linearLayout;
-    }
-
-    public void a(int i, View view) {
-        aj ajVar;
-        if (view != null && (ajVar = (aj) view.getTag()) != null && ajVar.m != i) {
-            switch (i) {
-                case 1:
-                    b(ajVar);
-                    break;
-                default:
-                    a(ajVar);
-                    break;
-            }
-            ajVar.m = i;
+        this.bCm.ZT();
+        i2 = this.bCm.mSex;
+        auVar = this.bCm.bCd;
+        if (i2 != auVar.TT().getSex()) {
+            textView2 = this.bCm.bBR;
+            textView2.setEnabled(true);
         }
-    }
-
-    private void a(aj ajVar) {
-        Resources resources = this.a.getResources();
-        ajVar.a.setBackgroundResource(com.baidu.tieba.t.forumfeed_frs_list_item_top_bg);
-        com.baidu.tbadk.core.util.ay.e((View) ajVar.c, com.baidu.tieba.t.bg_label);
-        ajVar.h.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(com.baidu.tieba.t.icon_pop_news), (Drawable) null, (Drawable) null, (Drawable) null);
-        ajVar.b.setBackgroundResource(com.baidu.tieba.t.forumfeed_frs_list_item_foot_bg);
-    }
-
-    private void b(aj ajVar) {
-        Resources resources = this.a.getResources();
-        ajVar.a.setBackgroundResource(com.baidu.tieba.t.forumfeed_frs_list_item_top_bg_1);
-        com.baidu.tbadk.core.util.ay.e((View) ajVar.c, com.baidu.tieba.t.bg_label_1);
-        ajVar.h.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(com.baidu.tieba.t.icon_pop_news_1), (Drawable) null, (Drawable) null, (Drawable) null);
-        ajVar.b.setBackgroundResource(com.baidu.tieba.t.forumfeed_frs_list_item_foot_bg_1);
+        dialog = this.bCm.bCj;
+        com.baidu.adp.lib.g.j.b(dialog, this.bCm);
     }
 }

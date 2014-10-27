@@ -7,11 +7,11 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
 /* loaded from: classes.dex */
 class ah implements DialogInterface.OnClickListener {
-    final /* synthetic */ OfficialBarInfoActivity a;
+    final /* synthetic */ OfficialBarInfoActivity aRv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(OfficialBarInfoActivity officialBarInfoActivity) {
-        this.a = officialBarInfoActivity;
+        this.aRv = officialBarInfoActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -19,13 +19,13 @@ class ah implements DialogInterface.OnClickListener {
         int i2;
         int i3;
         String str;
-        i2 = this.a.c;
-        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new com.baidu.tieba.im.message.g(String.valueOf(i2), 4, null, 1)));
-        OfficialBarInfoActivity officialBarInfoActivity = this.a;
-        i3 = this.a.c;
+        i2 = this.aRv.mForumId;
+        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new com.baidu.tieba.im.message.f(String.valueOf(i2), 4, null, 1)));
+        OfficialBarInfoActivity officialBarInfoActivity = this.aRv;
+        i3 = this.aRv.mForumId;
         officialBarInfoActivity.sendMessage(new CustomMessage(2001155, String.valueOf(i3)));
         StringBuilder sb = new StringBuilder("clear cache by official:");
-        str = this.a.d;
+        str = this.aRv.mForumName;
         BdSocketLinkService.startService(true, sb.append(str).toString());
         dialogInterface.cancel();
     }

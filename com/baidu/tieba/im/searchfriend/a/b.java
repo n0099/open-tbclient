@@ -1,33 +1,41 @@
 package com.baidu.tieba.im.searchfriend.a;
 
 import android.text.TextUtils;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import protobuf.RecommendFriend.LikeUserInfo;
-import protobuf.RecommendFriend.PostInfo;
+import tbclient.RecommendFriend.LikeUserInfo;
+import tbclient.RecommendFriend.PostInfo;
 /* loaded from: classes.dex */
 public class b {
-    String a;
-    int b;
-    c c = new c();
-    List<String> d = new ArrayList();
+    String Ac;
+    int Af;
+    String Ai;
+    c bia = new c();
+    ArrayList<String> Ah = new ArrayList<>();
+    ArrayList<String> Aj = new ArrayList<>();
 
-    public int a() {
-        return this.b;
+    public String RA() {
+        return this.Ai;
+    }
+
+    public int kj() {
+        return this.Af;
     }
 
     public void a(LikeUserInfo likeUserInfo) {
         if (likeUserInfo != null) {
-            if (likeUserInfo.user_info != null && this.c != null) {
-                this.c.a(likeUserInfo.user_info);
+            this.Ai = likeUserInfo.message;
+            if (likeUserInfo.user_info != null && this.bia != null) {
+                this.bia.a(likeUserInfo.user_info);
             }
             if (likeUserInfo.forum_info != null) {
                 StringBuffer stringBuffer = new StringBuffer();
-                this.b = likeUserInfo.forum_info.size();
-                int i = this.b;
-                if (this.b > 2) {
+                this.Af = likeUserInfo.forum_info.size();
+                int i = this.Af;
+                if (this.Af > 2) {
                     i = 2;
                 }
                 for (int i2 = 0; i2 < i; i2++) {
@@ -35,66 +43,93 @@ public class b {
                         stringBuffer.append(likeUserInfo.forum_info.get(i2).common_forum);
                         if (i - 1 > i2) {
                             stringBuffer.append("、");
-                        } else if (this.b > i) {
+                        } else if (this.Af > i) {
                             stringBuffer.append("...");
                         }
                     }
                 }
-                this.a = stringBuffer.toString();
+                this.Ac = stringBuffer.toString();
             }
             if (likeUserInfo.post_info != null) {
                 for (PostInfo postInfo : likeUserInfo.post_info) {
-                    this.d.add(postInfo.common_post_pic);
+                    this.Ah.add(postInfo.common_post_pic);
+                    this.Aj.add(postInfo.large_post_pic);
                 }
             }
         }
     }
 
-    public String b() {
-        return this.a;
+    public String kk() {
+        return this.Ac;
     }
 
-    public c c() {
-        return this.c;
+    public c Rx() {
+        return this.bia;
     }
 
-    public List<String> d() {
-        return this.d;
+    public ArrayList<String> kn() {
+        return this.Ah;
     }
 
-    public JSONObject e() {
+    public ArrayList<String> ko() {
+        return this.Aj;
+    }
+
+    public JSONObject RB() {
         JSONObject jSONObject = new JSONObject();
-        if (this.c != null) {
-            jSONObject.put("recommend_new_user", this.c.k());
+        if (this.bia != null) {
+            jSONObject.put("recommend_new_user", this.bia.RB());
         }
-        jSONObject.put("common_forum", this.a);
-        jSONObject.put("common_forum_count", this.b);
-        if (this.d != null && this.d.size() > 0) {
+        jSONObject.put("common_forum", this.Ac);
+        jSONObject.put("common_forum_count", this.Af);
+        jSONObject.put(AddFriendActivityConfig.DEFAULT_MESSAGE, this.Ai);
+        if (this.Ah != null && this.Ah.size() > 0) {
             JSONArray jSONArray = new JSONArray();
-            for (String str : this.d) {
-                jSONArray.put(str);
+            Iterator<String> it = this.Ah.iterator();
+            while (it.hasNext()) {
+                jSONArray.put(it.next());
             }
             jSONObject.put("common_pic_urls", jSONArray);
+        }
+        if (this.Aj != null && this.Aj.size() > 0) {
+            JSONArray jSONArray2 = new JSONArray();
+            Iterator<String> it2 = this.Aj.iterator();
+            while (it2.hasNext()) {
+                jSONArray2.put(it2.next());
+            }
+            jSONObject.put("large_post_pic", jSONArray2);
         }
         return jSONObject;
     }
 
-    public void a(JSONObject jSONObject) {
+    public void b(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.c == null) {
-                this.c = new c();
+            if (this.bia == null) {
+                this.bia = new c();
             }
-            this.c.a(jSONObject.optJSONObject("recommend_new_user"));
-            this.a = jSONObject.optString("common_forum");
-            this.b = jSONObject.optInt("common_forum_count");
+            this.bia.b(jSONObject.optJSONObject("recommend_new_user"));
+            this.Ac = jSONObject.optString("common_forum");
+            this.Af = jSONObject.optInt("common_forum_count");
+            this.Ai = jSONObject.optString(AddFriendActivityConfig.DEFAULT_MESSAGE);
             JSONArray optJSONArray = jSONObject.optJSONArray("common_pic_urls");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                if (this.d == null) {
-                    this.d = new ArrayList();
+                if (this.Ah == null) {
+                    this.Ah = new ArrayList<>();
                 }
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     if (!TextUtils.isEmpty(optJSONArray.optString(i))) {
-                        this.d.add(optJSONArray.optString(i));
+                        this.Ah.add(optJSONArray.optString(i));
+                    }
+                }
+            }
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("large_post_pic");
+            if (optJSONArray2 != null && optJSONArray2.length() > 0) {
+                if (this.Aj == null) {
+                    this.Aj = new ArrayList<>();
+                }
+                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                    if (!TextUtils.isEmpty(optJSONArray2.optString(i2))) {
+                        this.Aj.add(optJSONArray2.optString(i2));
                     }
                 }
             }

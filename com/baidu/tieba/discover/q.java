@@ -1,12 +1,11 @@
 package com.baidu.tieba.discover;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q {
-    String a;
-    boolean b;
+class q {
+    String anX;
+    long anp;
 
-    public q(String str, int i) {
-        this.a = str;
-        this.b = i == 1;
+    public q(long j, String str) {
+        this.anp = j;
+        this.anX = str;
     }
 }

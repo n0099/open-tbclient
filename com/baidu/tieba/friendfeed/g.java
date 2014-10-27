@@ -1,66 +1,58 @@
 package com.baidu.tieba.friendfeed;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.message.ResponseFriendFeedMessage;
-import com.baidu.tieba.model.ab;
-import com.baidu.tieba.x;
+import android.content.DialogInterface;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.img.WriteImagesInfo;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class g extends com.baidu.adp.framework.listener.d {
-    final /* synthetic */ FriendFeedActivity a;
+public class g implements DialogInterface.OnClickListener {
+    final /* synthetic */ FriendFeedActivity ayL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g(FriendFeedActivity friendFeedActivity, int i) {
-        super(i);
-        this.a = friendFeedActivity;
+    public g(FriendFeedActivity friendFeedActivity) {
+        this.ayL = friendFeedActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        t tVar;
-        boolean k;
-        ab abVar;
-        boolean k2;
-        t tVar2;
-        tVar = this.a.c;
-        l c = tVar.c();
-        this.a.j();
-        if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseFriendFeedMessage)) {
-            this.a.showToast(x.neterror);
-            return;
-        }
-        ResponseFriendFeedMessage responseFriendFeedMessage = (ResponseFriendFeedMessage) socketResponsedMessage;
-        if (responseFriendFeedMessage.getError() != 0) {
-            if (responseFriendFeedMessage.getError() > 0) {
-                this.a.showToast(responseFriendFeedMessage.getErrorString());
-                return;
-            } else {
-                this.a.showToast(x.neterror);
-                return;
-            }
-        }
-        com.baidu.tieba.data.s friendFeedData = responseFriendFeedMessage.getFriendFeedData();
-        if (friendFeedData != null) {
-            k = this.a.k();
-            if (k) {
-                c.b(true);
-            }
-            c.d(friendFeedData.c());
-            if (!friendFeedData.c()) {
-                k2 = this.a.k();
-                if (k2 && friendFeedData.b().size() == 0) {
-                    tVar2 = this.a.c;
-                    tVar2.a(true);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        WriteImagesInfo writeImagesInfo;
+        WriteImagesInfo writeImagesInfo2;
+        WriteImagesInfo writeImagesInfo3;
+        WriteImagesInfo writeImagesInfo4;
+        String str;
+        WriteImagesInfo writeImagesInfo5;
+        WriteImagesInfo writeImagesInfo6;
+        if (i == 0) {
+            writeImagesInfo4 = this.ayL.ahS;
+            if (writeImagesInfo4.getChosedFiles() != null) {
+                writeImagesInfo5 = this.ayL.ahS;
+                int size = writeImagesInfo5.getChosedFiles().size();
+                writeImagesInfo6 = this.ayL.ahS;
+                if (size >= writeImagesInfo6.getMaxImagesAllowed()) {
+                    this.ayL.showToast(String.format(this.ayL.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
                     return;
                 }
             }
-            c.c(true);
-            c.a(friendFeedData);
-            abVar = this.a.d;
-            abVar.a(c.c());
-            c.notifyDataSetChanged();
+            this.ayL.ayx = String.valueOf(System.currentTimeMillis());
+            FriendFeedActivity friendFeedActivity = this.ayL;
+            str = this.ayL.ayx;
+            av.a(friendFeedActivity, str);
+        } else if (i == 1) {
+            writeImagesInfo = this.ayL.ahS;
+            if (writeImagesInfo != null) {
+                writeImagesInfo2 = this.ayL.ahS;
+                if (!TextUtils.isEmpty(writeImagesInfo2.toJsonString())) {
+                    FriendFeedActivity friendFeedActivity2 = this.ayL;
+                    writeImagesInfo3 = this.ayL.ahS;
+                    AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(friendFeedActivity2, writeImagesInfo3.toJsonString());
+                    albumActivityConfig.setRequestCode(12002);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
+                }
+            }
         }
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.tieba.pb.sub;
 
 import android.content.Context;
 import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import tbclient.PbFloor.DataReq;
 import tbclient.PbFloor.PbFloorReqIdl;
 /* loaded from: classes.dex */
@@ -18,7 +19,7 @@ public class SubPbRequestMessage extends NetMessage {
     private boolean treatDelPage;
 
     public SubPbRequestMessage(Context context, long j, long j2, long j3, int i, int i2, int i3, double d, String str) {
-        super(1002100, 302002);
+        super(CmdConfigHttp.SubPb_HTTP_CMD, 302002);
         this.richTextClickListener = context;
         this.kz = j;
         this.pid = j2;
@@ -42,7 +43,7 @@ public class SubPbRequestMessage extends NetMessage {
         builder.scr_dip = Double.valueOf(this.scr_dip);
         builder.st_type = this.stType;
         if (z) {
-            com.baidu.tbadk.b.d.a(builder, true);
+            com.baidu.tbadk.util.g.a(builder, true);
         }
         PbFloorReqIdl.Builder builder2 = new PbFloorReqIdl.Builder();
         builder2.data = builder.build(false);

@@ -9,10 +9,10 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 public class BaseWebView extends WebView {
     private static final String TAG = "BaseWebView";
     private Context mContext;
-    private g mDownloadListener;
-    private g mOnLoadUrlListener;
-    private h mOnPageFinishedListener;
-    private i mOnPageStartedListener;
+    private f mDownloadListener;
+    private f mOnLoadUrlListener;
+    private g mOnPageFinishedListener;
+    private h mOnPageStartedListener;
     private WebViewClient mWebViewClient;
 
     public BaseWebView(Context context) {
@@ -51,29 +51,29 @@ public class BaseWebView extends WebView {
     public void init() {
         getSettings().setJavaScriptEnabled(true);
         getSettings().setCacheMode(2);
-        com.baidu.tbadk.browser.a.a(getSettings());
-        this.mWebViewClient = new f(this);
+        com.baidu.tbadk.browser.a.WebViewNoDataBase(getSettings());
+        this.mWebViewClient = new e(this);
         setWebViewClient(this.mWebViewClient);
-        setOnLongClickListener(new d(this));
+        setOnLongClickListener(new c(this));
     }
 
-    public void setOnLoadUrlListener(g gVar) {
-        this.mOnLoadUrlListener = gVar;
+    public void setOnLoadUrlListener(f fVar) {
+        this.mOnLoadUrlListener = fVar;
     }
 
-    public void setOnPageStartedListener(i iVar) {
-        this.mOnPageStartedListener = iVar;
+    public void setOnPageStartedListener(h hVar) {
+        this.mOnPageStartedListener = hVar;
     }
 
-    public void setOnPageFinishedListener(h hVar) {
-        this.mOnPageFinishedListener = hVar;
+    public void setOnPageFinishedListener(g gVar) {
+        this.mOnPageFinishedListener = gVar;
     }
 
     public void resetProxy(int i) {
-        CompatibleUtile.dealWebView();
+        CompatibleUtile.dealWebView(null);
     }
 
     private void initDownload() {
-        this.mDownloadListener = new e(this);
+        this.mDownloadListener = new d(this);
     }
 }

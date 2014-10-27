@@ -1,104 +1,59 @@
 package com.baidu.tieba.pb.main;
 
-import android.view.View;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import java.util.ArrayList;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class u implements com.baidu.tbadk.widget.richText.s {
-    final /* synthetic */ PbActivity a;
+public class u implements com.baidu.tbadk.core.util.bh {
+    Pattern bvh = Pattern.compile("http://tieba.baidu.com/p/([\\d]+)");
+    Pattern bvi = Pattern.compile("http://tieba.baidu.com/f\\?kz=([\\d]+)");
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public u(PbActivity pbActivity) {
-        this.a = pbActivity;
-    }
-
-    @Override // com.baidu.tbadk.widget.richText.s
-    public void onClick(View view, String str, int i) {
-        bl blVar;
-        com.baidu.tbadk.widget.richText.a a;
-        int i2;
-        bl blVar2;
-        String a2;
-        bl blVar3;
-        try {
-            TiebaStatic.eventStat(this.a, "pic_pb", "");
-            blVar = this.a.y;
-            com.baidu.tieba.data.aj r = blVar.r();
-            a = this.a.a(str, i);
-            ArrayList<com.baidu.tbadk.widget.richText.c> a3 = a.a();
-            i2 = this.a.ak;
-            com.baidu.tbadk.widget.richText.c cVar = a3.get(i2);
-            if (cVar != null) {
-                ArrayList<String> arrayList = new ArrayList<>();
-                if (cVar.c().d()) {
-                    int size = r.e().size();
-                    this.a.b = false;
-                    String str2 = "";
-                    int i3 = i;
-                    for (int i4 = 0; i4 < size; i4++) {
-                        com.baidu.tieba.data.an anVar = r.e().get(i4);
-                        com.baidu.tbadk.widget.richText.a h = anVar.h();
-                        int size2 = arrayList.size();
-                        i3 = this.a.a(h, a, i3, i, arrayList);
-                        int size3 = arrayList.size();
-                        if (size2 != size3) {
-                            str2 = arrayList.get(size3 - 1);
-                        }
-                        ArrayList<com.baidu.tieba.data.an> c = anVar.c();
-                        int i5 = 0;
-                        while (true) {
-                            int i6 = i5;
-                            if (i6 >= c.size()) {
-                                break;
-                            }
-                            i3 = this.a.a(c.get(i6).h(), a, i3, i, arrayList);
-                            i5 = i6 + 1;
-                        }
-                    }
-                    String str3 = null;
-                    String str4 = null;
-                    String str5 = null;
-                    boolean z = false;
-                    if (r != null) {
-                        if (r.c() != null) {
-                            str3 = r.c().getName();
-                            str4 = r.c().getId();
-                        }
-                        if (r.d() != null) {
-                            str5 = r.d().h();
-                        }
-                        z = r.m() == 1;
-                    }
-                    PbActivity pbActivity = this.a;
-                    com.baidu.tbadk.core.atomData.ag agVar = new com.baidu.tbadk.core.atomData.ag(this.a);
-                    blVar2 = this.a.y;
-                    pbActivity.sendMessage(new CustomMessage(2010000, agVar.a(arrayList, i3, str3, str4, str5, z, str2, blVar2.z())));
-                    return;
-                }
-                a2 = this.a.a(cVar);
-                arrayList.add(a2);
-                String str6 = null;
-                String str7 = null;
-                String str8 = null;
-                boolean z2 = false;
-                if (r != null) {
-                    if (r.c() != null) {
-                        str6 = r.c().getName();
-                        str7 = r.c().getId();
-                    }
-                    if (r.d() != null) {
-                        str8 = r.d().h();
-                    }
-                    z2 = r.m() == 1;
-                }
-                PbActivity pbActivity2 = this.a;
-                blVar3 = this.a.y;
-                pbActivity2.sendMessage(new CustomMessage(2010000, new com.baidu.tbadk.core.atomData.ag(this.a).a(arrayList, 0, str6, str7, str8, z2, arrayList.get(0), blVar3.z())));
+    @Override // com.baidu.tbadk.core.util.bh
+    public boolean a(Context context, String[] strArr) {
+        String str;
+        String str2;
+        if (strArr == null || strArr.length == 0) {
+            return false;
+        }
+        String str3 = strArr[0];
+        Matcher matcher = this.bvh.matcher(str3);
+        Matcher matcher2 = this.bvi.matcher(str3);
+        if (matcher.find()) {
+            str2 = "allthread";
+            str = matcher.group(1);
+        } else if (matcher2.find()) {
+            String group = matcher2.group(1);
+            str2 = "allthread";
+            str = group;
+        } else if (!str3.startsWith("pb:")) {
+            return false;
+        } else {
+            String substring = str3.substring(3);
+            if (TextUtils.isEmpty(substring)) {
+                return false;
             }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            if (strArr.length > 1) {
+                str2 = strArr[1];
+                str = substring;
+            } else {
+                str = substring;
+                str2 = null;
+            }
+        }
+        if (context instanceof BaseFragmentActivity) {
+            ((BaseFragmentActivity) context).sendMessage(new CustomMessage(2004001, new PbActivityConfig(context).createNormalCfg(str, null, str2)));
+            return true;
+        } else if (context instanceof BaseActivity) {
+            ((BaseActivity) context).sendMessage(new CustomMessage(2004001, new PbActivityConfig(context).createNormalCfg(str, null, str2)));
+            return true;
+        } else {
+            return false;
         }
     }
 }

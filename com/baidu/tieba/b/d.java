@@ -1,15 +1,15 @@
 package com.baidu.tieba.b;
 /* loaded from: classes.dex */
 public class d {
-    public long a = 0;
-    public long b = 0;
-    public long c = 0;
-    public long d = 0;
+    public long amU = 0;
+    public long num = 0;
+    public long amV = 0;
+    public long size = 0;
 
-    public void a() {
-        this.a = 0L;
-        this.b = 0L;
-        this.c = 0L;
-        this.d = 0L;
+    public void reset() {
+        this.amU = 0L;
+        this.num = 0L;
+        this.amV = 0L;
+        this.size = 0L;
     }
 }

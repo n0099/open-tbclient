@@ -1,7 +1,7 @@
 package com.baidu.tieba.bubble;
 /* loaded from: classes.dex */
 public interface s {
-    void a();
+    void dV(int i);
 
-    void a(int i);
+    void yi();
 }

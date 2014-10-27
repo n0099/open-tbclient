@@ -1,17 +1,30 @@
 package com.baidu.tieba.write;
 
-import android.view.View;
+import com.baidu.tbadk.core.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ad implements View.OnClickListener {
-    final /* synthetic */ WriteActivity a;
+public class ad implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ WriteActivity bTX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(WriteActivity writeActivity) {
-        this.a = writeActivity;
+        this.bTX = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.showDialog(com.baidu.tieba.u.live_time_rel);
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.tieba.location.i iVar;
+        com.baidu.tieba.editortool.j jVar;
+        com.baidu.tieba.location.d dVar;
+        if (UtilHelper.isNetOk()) {
+            jVar = this.bTX.bTE;
+            jVar.setLocationInfoViewState(1);
+            dVar = this.bTX.ays;
+            dVar.Sw();
+        } else {
+            iVar = this.bTX.ayD;
+            iVar.EG();
+        }
+        aVar.dismiss();
     }
 }

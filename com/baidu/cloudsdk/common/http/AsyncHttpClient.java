@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.WeakHashMap;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.zip.GZIPInputStream;
 import org.apache.http.Header;
@@ -234,7 +235,7 @@ public class AsyncHttpClient extends DefaultHttpClient {
     public static String getUrlWithQueryString(String str, RequestParams requestParams) {
         if (str != null && requestParams != null) {
             String queryString = requestParams.getQueryString();
-            if (str.indexOf("?") == -1) {
+            if (!str.contains("?")) {
                 return str + "?" + queryString;
             }
             return str + "&" + queryString;
@@ -244,14 +245,17 @@ public class AsyncHttpClient extends DefaultHttpClient {
 
     protected void sendRequest(HttpUriRequest httpUriRequest, HttpResponseHandler httpResponseHandler, Context context) {
         checkNetworkStateAndAdjust(context);
-        Future<?> submit = sThreadPool.submit(new AsyncHttpRequest(this, new SyncBasicHttpContext(new BasicHttpContext()), httpUriRequest, httpResponseHandler));
-        if (context != null) {
-            List<WeakReference<Future<?>>> list = this.mRequestMap.get(context);
-            if (list == null) {
-                list = new LinkedList<>();
-                this.mRequestMap.put(context, list);
+        try {
+            Future<?> submit = sThreadPool.submit(new AsyncHttpRequest(this, new SyncBasicHttpContext(new BasicHttpContext()), httpUriRequest, httpResponseHandler));
+            if (context != null) {
+                List<WeakReference<Future<?>>> list = this.mRequestMap.get(context);
+                if (list == null) {
+                    list = new LinkedList<>();
+                    this.mRequestMap.put(context, list);
+                }
+                list.add(new WeakReference<>(submit));
             }
-            list.add(new WeakReference<>(submit));
+        } catch (RejectedExecutionException e) {
         }
     }
 

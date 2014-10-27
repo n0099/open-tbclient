@@ -1,6 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.adp.lib.util.i;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
@@ -13,6 +13,7 @@ public class WriteData implements Serializable {
     public static final int NEW = 0;
     public static final int REPLY = 1;
     public static final int REPLY_FLOOR = 2;
+    public static final int SHARE_SDK = 3;
     public static final String THREAD_TYPE_LBS = "7";
     private WriteImagesInfo baobaoImagesInfo;
     private boolean isAd;
@@ -25,12 +26,24 @@ public class WriteData implements Serializable {
     private int mFloorNum;
     private String mForumId;
     private String mForumName;
+    private boolean mHasLocationData;
     private boolean mHaveDraft;
     private boolean mIsAddition;
     private boolean mIsBaobao;
     private boolean mIsFrsReply;
     private boolean mIsNoTitle;
+    private String mRepostId;
     private String mReturnVoiceMd5;
+    private String mShareApiKey;
+    private String mShareAppName;
+    private String mShareReferUrl;
+    private String mShareSignKey;
+    private String mShareSummaryContent;
+    private String mShareSummaryImg;
+    private int mShareSummaryImgHeight;
+    private String mShareSummaryImgType;
+    private int mShareSummaryImgWidth;
+    private String mShareSummaryTitle;
     private String mThreadId;
     private String mTitle;
     private int mType;
@@ -65,6 +78,16 @@ public class WriteData implements Serializable {
         this.liveCardData = null;
         this.mIsBaobao = false;
         setIsAd(false);
+        this.mShareApiKey = null;
+        this.mShareAppName = null;
+        this.mShareSignKey = null;
+        this.mShareSummaryTitle = null;
+        this.mShareSummaryContent = null;
+        this.mShareSummaryImg = null;
+        this.mShareSummaryImgWidth = 0;
+        this.mShareSummaryImgHeight = 0;
+        this.mShareSummaryImgType = null;
+        this.mShareReferUrl = null;
     }
 
     public WriteData(int i) {
@@ -74,7 +97,7 @@ public class WriteData implements Serializable {
     }
 
     public boolean hasContentToSave() {
-        if (i.c(this.mContent) && i.c(this.mTitle)) {
+        if (l.aA(this.mContent) && l.aA(this.mTitle)) {
             if (this.writeImagesInfo == null || this.writeImagesInfo.size() <= 0) {
                 if (this.baobaoImagesInfo == null || this.baobaoImagesInfo.size() <= 0) {
                     return this.liveCardData != null && this.liveCardData.isModifyTime();
@@ -109,7 +132,7 @@ public class WriteData implements Serializable {
     }
 
     public static WriteData fromDraftString(String str) {
-        if (i.c(str)) {
+        if (l.aA(str)) {
             return null;
         }
         try {
@@ -229,6 +252,14 @@ public class WriteData implements Serializable {
         this.mVcodeUrl = str;
     }
 
+    public String getRepostId() {
+        return this.mRepostId;
+    }
+
+    public void setRepostId(String str) {
+        this.mRepostId = str;
+    }
+
     public void setHaveDraft(boolean z) {
         this.mHaveDraft = z;
     }
@@ -331,7 +362,7 @@ public class WriteData implements Serializable {
                 int i3 = 0;
                 while (i3 < chosedFiles.size()) {
                     ImageFileInfo imageFileInfo = chosedFiles.get(i3);
-                    if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !i.c(imageFileInfo.getFilePath())) {
+                    if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !l.aA(imageFileInfo.getFilePath())) {
                         File file = new File(imageFileInfo.getFilePath());
                         if (file.exists()) {
                             file.delete();
@@ -351,7 +382,7 @@ public class WriteData implements Serializable {
                 int i4 = 0;
                 while (i4 < chosedFiles2.size()) {
                     ImageFileInfo imageFileInfo2 = chosedFiles2.get(i4);
-                    if (imageFileInfo2.isAlreadyUploadedToServer() && !i.c(imageFileInfo2.getFilePath())) {
+                    if (imageFileInfo2.isAlreadyUploadedToServer() && !l.aA(imageFileInfo2.getFilePath())) {
                         File file2 = new File(imageFileInfo2.getFilePath());
                         if (file2.exists()) {
                             file2.delete();
@@ -445,5 +476,93 @@ public class WriteData implements Serializable {
 
     public void setReturnVoiceMd5(String str) {
         this.mReturnVoiceMd5 = str;
+    }
+
+    public boolean isHasLocationData() {
+        return this.mHasLocationData;
+    }
+
+    public void setHasLocationData(boolean z) {
+        this.mHasLocationData = z;
+    }
+
+    public String getShareApiKey() {
+        return this.mShareApiKey;
+    }
+
+    public void setShareApiKey(String str) {
+        this.mShareApiKey = str;
+    }
+
+    public String getShareAppName() {
+        return this.mShareAppName;
+    }
+
+    public void setShareAppName(String str) {
+        this.mShareAppName = str;
+    }
+
+    public String getShareSignKey() {
+        return this.mShareSignKey;
+    }
+
+    public void setShareSignKey(String str) {
+        this.mShareSignKey = str;
+    }
+
+    public String getShareSummaryTitle() {
+        return this.mShareSummaryTitle;
+    }
+
+    public void setShareSummaryTitle(String str) {
+        this.mShareSummaryTitle = str;
+    }
+
+    public String getShareSummaryContent() {
+        return this.mShareSummaryContent;
+    }
+
+    public void setShareSummaryContent(String str) {
+        this.mShareSummaryContent = str;
+    }
+
+    public String getShareSummaryImg() {
+        return this.mShareSummaryImg;
+    }
+
+    public void setShareSummaryImg(String str) {
+        this.mShareSummaryImg = str;
+    }
+
+    public String getShareReferUrl() {
+        return this.mShareReferUrl;
+    }
+
+    public void setShareReferUrl(String str) {
+        this.mShareReferUrl = str;
+    }
+
+    public int getShareSummaryImgWidth() {
+        return this.mShareSummaryImgWidth;
+    }
+
+    public void setShareSummaryImgWidth(int i) {
+        this.mShareSummaryImgWidth = i;
+    }
+
+    public int getShareSummaryImgHeight() {
+        return this.mShareSummaryImgHeight;
+    }
+
+    public void setShareSummaryImgHeight(int i) {
+        this.mShareSummaryImgHeight = i;
+    }
+
+    public String getShareSummaryImgType() {
+        return this.mShareSummaryImgType;
+    }
+
+    public void setShareSummaryImgType(String str) {
+        this.mShareSummaryImgType = str;
     }
 }

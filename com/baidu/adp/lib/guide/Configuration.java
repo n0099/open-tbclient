@@ -6,18 +6,18 @@ import android.support.v4.view.MotionEventCompat;
 import android.view.View;
 /* loaded from: classes.dex */
 class Configuration implements Parcelable {
-    public static Parcelable.Creator<Configuration> l = new c();
-    boolean b;
-    View a = null;
-    int c = MotionEventCompat.ACTION_MASK;
-    int d = -1;
-    int e = -1;
-    int f = 17170444;
-    boolean g = true;
-    boolean h = false;
-    boolean i = false;
-    int j = -1;
-    int k = -1;
+    public static Parcelable.Creator<Configuration> CREATOR = new c();
+    boolean jg;
+    View jf = null;
+    int jh = MotionEventCompat.ACTION_MASK;
+    int ji = -1;
+    int jj = -1;
+    int jk = 17170444;
+    boolean jl = true;
+    boolean jm = false;
+    boolean jn = false;
+    int jo = -1;
+    int jp = -1;
 
     @Override // android.os.Parcelable
     public int describeContents() {
@@ -26,11 +26,11 @@ class Configuration implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.c);
-        parcel.writeInt(this.d);
-        parcel.writeInt(this.e);
-        parcel.writeInt(this.f);
-        parcel.writeByte((byte) (this.g ? 1 : 0));
-        parcel.writeByte((byte) (this.h ? 1 : 0));
+        parcel.writeInt(this.jh);
+        parcel.writeInt(this.ji);
+        parcel.writeInt(this.jj);
+        parcel.writeInt(this.jk);
+        parcel.writeByte((byte) (this.jl ? 1 : 0));
+        parcel.writeByte((byte) (this.jm ? 1 : 0));
     }
 }

@@ -1,56 +1,62 @@
 package com.baidu.tieba.pb.history;
 
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.data.ak;
+import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.baidu.tieba.data.ai;
+import com.baidu.tieba.s;
+import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
 /* loaded from: classes.dex */
-public class g extends BaseAdapter {
-    private final List<ak> a = new ArrayList();
+public class g extends com.baidu.tbadk.mvc.i.a<ai, com.baidu.tbadk.mvc.e.c> {
+    private View HS;
+    private View MI;
+    private TextView bun;
+    private TextView buo;
+    private TextView bup;
 
-    public void a(List<ak> list) {
-        this.a.clear();
-        if (list != null) {
-            this.a.addAll(list);
-        }
-        notifyDataSetChanged();
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        return this.a.size();
+    public g(View view, ViewEventCenter viewEventCenter) {
+        super(view, viewEventCenter);
+        this.HS = view;
+        this.bun = (TextView) view.findViewById(v.title);
+        this.buo = (TextView) view.findViewById(v.content);
+        this.bup = (TextView) view.findViewById(v.time);
+        this.MI = view.findViewById(v.line);
+        dg(TbadkApplication.m251getInst().getSkinType());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
+    @Override // com.baidu.tbadk.mvc.i.d
     /* renamed from: a */
-    public ak getItem(int i) {
-        if (i < 0 || i >= this.a.size()) {
-            return null;
+    public void r(ai aiVar) {
+        if (aiVar != null) {
+            if (this.bun != null && aiVar.zU() != null) {
+                this.bun.setText(aiVar.zU());
+            }
+            if (this.buo != null && aiVar.getForumName() != null) {
+                this.buo.setText(aiVar.getForumName());
+            }
+            if (this.bup != null) {
+                String f = ay.f(new Date(aiVar.getTime()));
+                if (f == null) {
+                    f = "";
+                }
+                this.bup.setText(f);
+            }
         }
-        return this.a.get(i);
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        h hVar;
-        if (view == null) {
-            view = com.baidu.adp.lib.e.b.a().a(TbadkApplication.m252getInst(), v.pb_history_list_item, null);
-            hVar = new h(view);
-            view.setTag(hVar);
-        } else {
-            hVar = (h) view.getTag();
-        }
-        hVar.a(getItem(i));
-        return view;
+    @Override // com.baidu.tbadk.e.a
+    public boolean dg(int i) {
+        aw.h(this.HS, u.list_item_selector);
+        aw.h(this.MI, s.cp_bg_line_b);
+        aw.b(this.bun, s.cp_cont_b, 1);
+        aw.b(this.buo, s.cp_cont_d, 1);
+        aw.b(this.bup, s.cp_cont_d, 1);
+        return true;
     }
 }

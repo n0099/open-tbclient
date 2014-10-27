@@ -1,15 +1,47 @@
 package com.baidu.tbadk.core;
 
-import com.baidu.tbadk.core.util.TbErrInfo;
+import android.view.animation.Animation;
+import java.lang.ref.WeakReference;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g {
-    private static int i = -100000000;
-    public static final int a = i - 1000;
-    public static final int b = i + TbErrInfo.ERR_IMG_GET_REMOTE;
-    public static final int c = i + TbErrInfo.ERR_IMG_SEND;
-    public static final int d = i - 2000;
-    public static final int e = i - 2001;
-    public static final int f = i - 2002;
-    public static final int g = i - 3000;
-    public static final int h = i - 3001;
+public class g implements Animation.AnimationListener {
+    private final /* synthetic */ Animation.AnimationListener val$listener;
+    private final /* synthetic */ WeakReference val$reference;
+    final /* synthetic */ BaseFragmentActivity yG;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public g(BaseFragmentActivity baseFragmentActivity, Animation.AnimationListener animationListener, WeakReference weakReference) {
+        this.yG = baseFragmentActivity;
+        this.val$listener = animationListener;
+        this.val$reference = weakReference;
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+        if (this.val$listener != null) {
+            this.val$listener.onAnimationStart(animation);
+        }
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+        if (this.val$listener != null) {
+            this.val$listener.onAnimationRepeat(animation);
+        }
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        List list;
+        List list2;
+        if (this.val$listener != null) {
+            this.val$listener.onAnimationEnd(animation);
+        }
+        list = this.yG.animationList;
+        synchronized (list) {
+            list2 = this.yG.animationList;
+            list2.remove(this.val$reference);
+        }
+    }
 }

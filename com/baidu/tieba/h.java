@@ -1,29 +1,47 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tbadk.TbConfig;
+import android.graphics.Bitmap;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.widget.ImageView;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.TbadkSettings;
 /* loaded from: classes.dex */
-class h extends Handler {
-    final /* synthetic */ LogoActivity a;
+class h implements Runnable {
+    final /* synthetic */ LogoActivity acP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(LogoActivity logoActivity) {
-        this.a = logoActivity;
+        this.acP = logoActivity;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        boolean z;
-        this.a.b = true;
-        z = this.a.a;
-        if (z) {
-            if (!this.a.getDatabasePath(TbConfig.PHONE_DATEBASE_NAME).exists()) {
-                TbadkApplication.setCurrentAccount(com.baidu.tbadk.core.account.a.c(), this.a.getBaseContext());
-            }
-            this.a.a(this.a.getBaseContext());
+    @Override // java.lang.Runnable
+    public void run() {
+        Bitmap bitmap;
+        ImageView imageView;
+        ImageView imageView2;
+        Bitmap bitmap2;
+        ImageView imageView3;
+        AlphaAnimation alphaAnimation;
+        Animation.AnimationListener animationListener;
+        if (TbadkSettings.getInst().loadBoolean(TbadkApplication.isMem + TbadkApplication.getCurrentAccount(), false)) {
+            this.acP.mBitmap = com.baidu.tbadk.core.util.d.e(this.acP, u.logo_vip);
+        } else {
+            this.acP.mBitmap = com.baidu.tbadk.core.util.d.e(this.acP, u.logo);
         }
-        super.handleMessage(message);
+        bitmap = this.acP.mBitmap;
+        if (bitmap != null) {
+            imageView = this.acP.acF;
+            if (imageView != null) {
+                imageView2 = this.acP.acF;
+                bitmap2 = this.acP.mBitmap;
+                imageView2.setImageBitmap(bitmap2);
+                LogoActivity logoActivity = this.acP;
+                imageView3 = this.acP.acF;
+                alphaAnimation = this.acP.acG;
+                animationListener = this.acP.acH;
+                logoActivity.startAnimation(imageView3, alphaAnimation, animationListener);
+            }
+        }
     }
 }

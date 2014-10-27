@@ -1,27 +1,25 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.GridView;
 /* loaded from: classes.dex */
-class aa implements AdapterView.OnItemClickListener {
-    final /* synthetic */ FrsActivity a;
+class aa implements View.OnClickListener {
+    final /* synthetic */ FrsActivity aBk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(FrsActivity frsActivity) {
-        this.a = frsActivity;
+        this.aBk = frsActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        cv cvVar;
-        if (i >= 0) {
-            cvVar = this.a.B;
-            cvVar.j(i);
-            this.a.J = true;
-            this.a.I = ((com.baidu.tbadk.core.data.h) ((GridView) adapterView).getAdapter().getItem(i)).b();
-            this.a.t = 1;
-            this.a.c(3);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int i;
+        int i2;
+        i = this.aBk.aAp;
+        if (i > 1) {
+            FrsActivity frsActivity = this.aBk;
+            i2 = frsActivity.aAp;
+            frsActivity.aAp = i2 - 1;
+            this.aBk.eF(2);
         }
     }
 }

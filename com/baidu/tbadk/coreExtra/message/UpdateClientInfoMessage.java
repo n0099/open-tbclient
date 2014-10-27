@@ -1,6 +1,6 @@
 package com.baidu.tbadk.coreExtra.message;
 
-import com.baidu.adp.lib.e.c;
+import com.baidu.adp.lib.g.c;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
@@ -25,9 +25,9 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         super(1001);
         this.device = new HashMap();
         try {
-            if (TbadkApplication.m252getInst().getLocationShared()) {
-                this.lat = c.a(TbadkApplication.m252getInst().getLocationLat(), 0.0d);
-                this.lng = c.a(TbadkApplication.m252getInst().getLocationLng(), 0.0d);
+            if (TbadkApplication.m251getInst().getLocationShared()) {
+                this.lat = c.a(TbadkApplication.m251getInst().getLocationLat(), 0.0d);
+                this.lng = c.a(TbadkApplication.m251getInst().getLocationLng(), 0.0d);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

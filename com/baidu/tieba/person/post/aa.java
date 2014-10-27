@@ -2,28 +2,21 @@ package com.baidu.tieba.person.post;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.bc;
+import android.widget.ProgressBar;
+import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
-class aa implements View.OnClickListener {
-    final /* synthetic */ ReplyLinearLayout a;
+public class aa {
+    com.baidu.tbadk.core.view.o ahO = null;
+    BdListView azz;
+    ProgressBar bEf;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(ReplyLinearLayout replyLinearLayout) {
-        this.a = replyLinearLayout;
+    public BdListView ER() {
+        return this.azz;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String[] strArr = (String[]) view.getTag();
-        if (strArr != null) {
-            Context context = this.a.getContext();
-            if ("0".equals(strArr[3])) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new bc(context).a(strArr[1], strArr[2], "person_post_reply")));
-            } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new bc(context).b(strArr[1], strArr[2], "person_post_reply")));
-            }
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public aa(Context context, View view) {
+        this.azz = (BdListView) view.findViewById(com.baidu.tieba.v.list);
+        this.bEf = (ProgressBar) view.findViewById(com.baidu.tieba.v.progress);
     }
 }

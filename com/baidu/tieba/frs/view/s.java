@@ -1,25 +1,35 @@
 package com.baidu.tieba.frs.view;
 
 import android.app.Activity;
-import android.view.View;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.flist.ForumListActivity;
+import android.widget.PopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s implements View.OnClickListener {
-    final /* synthetic */ n a;
+public class s implements Runnable {
+    final /* synthetic */ r aGk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(n nVar) {
-        this.a = nVar;
+    public s(r rVar) {
+        this.aGk = rVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // java.lang.Runnable
+    public void run() {
+        PopupWindow popupWindow;
+        PopupWindow popupWindow2;
+        boolean z;
+        PopupWindow popupWindow3;
         Activity activity;
-        String str;
-        activity = this.a.B;
-        str = this.a.T;
-        ForumListActivity.a(activity, str, TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT, TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+        popupWindow = this.aGk.aFl;
+        if (popupWindow != null) {
+            popupWindow2 = this.aGk.aFl;
+            if (popupWindow2.isShowing()) {
+                z = this.aGk.aFO;
+                if (!z) {
+                    popupWindow3 = this.aGk.aFl;
+                    activity = this.aGk.aBF;
+                    com.baidu.adp.lib.g.j.a(popupWindow3, activity);
+                }
+            }
+        }
     }
 }

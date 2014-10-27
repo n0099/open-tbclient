@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.webkit.JavascriptInterface;
 import android.widget.Toast;
 import com.baidu.tbadk.core.atomData.PayActivityConfig;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
@@ -19,7 +19,7 @@ public class TbJsBridge {
 
     @JavascriptInterface
     public void closePage(String str) {
-        if (!ba.c(str)) {
+        if (!ay.aA(str)) {
             Toast.makeText(this.mActivity, str, 0).show();
         }
         this.mActivity.finish();
@@ -27,33 +27,33 @@ public class TbJsBridge {
 
     @JavascriptInterface
     public void jumpToLogin(int i) {
-        LoginActivity.a(this.mActivity, com.baidu.adp.lib.e.c.a(String.valueOf(i), 0));
+        LoginActivity.g(this.mActivity, com.baidu.adp.lib.g.c.f(String.valueOf(i), 0));
     }
 
     @JavascriptInterface
     public void showShareDialog(String str, String str2, String str3, String str4) {
         com.baidu.tbadk.coreExtra.share.h hVar = new com.baidu.tbadk.coreExtra.share.h();
-        hVar.a = str;
-        hVar.b = str2;
-        hVar.c = str4;
-        if (!ba.c(str3)) {
-            hVar.d = Uri.parse(str3);
+        hVar.title = str;
+        hVar.content = str2;
+        hVar.MW = str4;
+        if (!ay.aA(str3)) {
+            hVar.MX = Uri.parse(str3);
         }
         com.baidu.tbadk.coreExtra.share.d dVar = new com.baidu.tbadk.coreExtra.share.d(this.mActivity);
         dVar.a(hVar, true);
-        dVar.c();
+        dVar.show();
     }
 
     @JavascriptInterface
     public void payWithDQ(String str, String str2, String str3, String str4, String str5) {
         Intent intent = new Intent(this.mActivity, DealIntentService.class);
         intent.putExtra("class", 15);
-        intent.putExtra(PayActivityConfig.PAY_TYPE, str);
+        intent.putExtra("pay_type", str);
         intent.putExtra(PayActivityConfig.PROPS_ID, str2);
-        intent.putExtra(PayActivityConfig.QUAN_NUM, str3);
+        intent.putExtra("quan_num", str3);
         intent.putExtra(PayActivityConfig.IS_LEFT, str4);
         intent.putExtra(PayActivityConfig.PROPS_MON, str5);
-        com.baidu.adp.lib.e.d.a(this.mActivity, intent);
+        com.baidu.adp.lib.g.i.b(this.mActivity, intent);
     }
 
     @JavascriptInterface
@@ -61,6 +61,13 @@ public class TbJsBridge {
         Intent intent = new Intent(this.mActivity, DealIntentService.class);
         intent.putExtra("class", 23);
         intent.putExtra("wanted_type", str);
-        com.baidu.adp.lib.e.d.a(this.mActivity, intent);
+        com.baidu.adp.lib.g.i.b(this.mActivity, intent);
+    }
+
+    @JavascriptInterface
+    public void buyTBeans() {
+        Intent intent = new Intent(this.mActivity, DealIntentService.class);
+        intent.putExtra("class", 25);
+        com.baidu.adp.lib.g.i.b(this.mActivity, intent);
     }
 }

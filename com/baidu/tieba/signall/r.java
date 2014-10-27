@@ -7,25 +7,26 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.view.BarImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class r {
-    public BarImageView a;
-    public LinearLayout b;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public FrameLayout f;
-    public TextView g;
-    public RelativeLayout h;
-    public ImageView i;
-    public ProgressBar j;
-    public TextView k;
-    public TextView l;
-    public TextView m;
-    final /* synthetic */ o n;
+public class r {
+    final /* synthetic */ o bKP;
+    public BarImageView bKU;
+    public LinearLayout bKV;
+    public TextView bKW;
+    public TextView bKX;
+    public TextView bKY;
+    public FrameLayout bKZ;
+    public TextView bLa;
+    public RelativeLayout bLb;
+    public ImageView bLc;
+    public ProgressBar bLd;
+    public TextView bLe;
+    public TextView bLf;
+    public TextView bLg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(o oVar) {
-        this.n = oVar;
+        this.bKP = oVar;
     }
 }

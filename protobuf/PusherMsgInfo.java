@@ -5,20 +5,26 @@ import com.squareup.wire.ProtoField;
 /* loaded from: classes.dex */
 public final class PusherMsgInfo extends Message {
     public static final String DEFAULT_CONTENT = "";
-    public static final Integer DEFAULT_GROUPID = 0;
-    public static final Long DEFAULT_MSGID = 0L;
-    public static final Long DEFAULT_PUSHTIME = 0L;
-    public static final Integer DEFAULT_TYPE = 0;
+    public static final String DEFAULT_ET = "";
     @ProtoField(tag = 5, type = Message.Datatype.STRING)
     public final String content;
+    @ProtoField(tag = 6, type = Message.Datatype.STRING)
+    public final String et;
     @ProtoField(tag = 1, type = Message.Datatype.INT32)
     public final Integer groupId;
+    @ProtoField(tag = 7, type = Message.Datatype.INT32)
+    public final Integer groupType;
     @ProtoField(tag = 2, type = Message.Datatype.INT64)
     public final Long msgId;
     @ProtoField(tag = 3, type = Message.Datatype.INT64)
     public final Long pushTime;
     @ProtoField(tag = 4, type = Message.Datatype.INT32)
     public final Integer type;
+    public static final Integer DEFAULT_GROUPID = 0;
+    public static final Long DEFAULT_MSGID = 0L;
+    public static final Long DEFAULT_PUSHTIME = 0L;
+    public static final Integer DEFAULT_TYPE = 0;
+    public static final Integer DEFAULT_GROUPTYPE = 0;
 
     /* synthetic */ PusherMsgInfo(Builder builder, boolean z, PusherMsgInfo pusherMsgInfo) {
         this(builder, z);
@@ -49,9 +55,19 @@ public final class PusherMsgInfo extends Message {
             }
             if (builder.content == null) {
                 this.content = "";
-                return;
             } else {
                 this.content = builder.content;
+            }
+            if (builder.et == null) {
+                this.et = "";
+            } else {
+                this.et = builder.et;
+            }
+            if (builder.groupType == null) {
+                this.groupType = DEFAULT_GROUPTYPE;
+                return;
+            } else {
+                this.groupType = builder.groupType;
                 return;
             }
         }
@@ -60,12 +76,16 @@ public final class PusherMsgInfo extends Message {
         this.pushTime = builder.pushTime;
         this.type = builder.type;
         this.content = builder.content;
+        this.et = builder.et;
+        this.groupType = builder.groupType;
     }
 
     /* loaded from: classes.dex */
     public final class Builder extends Message.Builder<PusherMsgInfo> {
         public String content;
+        public String et;
         public Integer groupId;
+        public Integer groupType;
         public Long msgId;
         public Long pushTime;
         public Integer type;
@@ -78,6 +98,8 @@ public final class PusherMsgInfo extends Message {
                 this.pushTime = pusherMsgInfo.pushTime;
                 this.type = pusherMsgInfo.type;
                 this.content = pusherMsgInfo.content;
+                this.et = pusherMsgInfo.et;
+                this.groupType = pusherMsgInfo.groupType;
             }
         }
 

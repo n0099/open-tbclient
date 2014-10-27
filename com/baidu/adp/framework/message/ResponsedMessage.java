@@ -7,23 +7,16 @@ public abstract class ResponsedMessage<T> implements b<T> {
     private String mErrorString = null;
     private int mDownSize = 0;
     private long mCostTime = 0;
+    public c performanceData = new c();
 
     public abstract boolean hasError();
 
-    public int getDownSize() {
-        return this.mDownSize;
+    public Message<?> getmOrginalMessage() {
+        return this.mOrginalMessage;
     }
 
-    public void setDownSize(int i) {
-        this.mDownSize = i;
-    }
-
-    public long getCostTime() {
-        return this.mCostTime;
-    }
-
-    public void setCostTime(long j) {
-        this.mCostTime = j;
+    public void setmOrginalMessage(Message<?> message) {
+        this.mOrginalMessage = message;
     }
 
     public int getError() {
@@ -62,5 +55,21 @@ public abstract class ResponsedMessage<T> implements b<T> {
     }
 
     public void afterDispatchInBackGround(int i, T t) {
+    }
+
+    public int getDownSize() {
+        return this.mDownSize;
+    }
+
+    public void setDownSize(int i) {
+        this.mDownSize = i;
+    }
+
+    public long getCostTime() {
+        return this.mCostTime;
+    }
+
+    public void setCostTime(long j) {
+        this.mCostTime = j;
     }
 }

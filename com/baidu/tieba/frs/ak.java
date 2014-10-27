@@ -1,42 +1,42 @@
 package com.baidu.tieba.frs;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements com.baidu.tieba.model.bg {
-    final /* synthetic */ FrsActivity a;
+public class ak implements com.baidu.tieba.model.bd {
+    final /* synthetic */ FrsActivity aBk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(FrsActivity frsActivity) {
-        this.a = frsActivity;
+        this.aBk = frsActivity;
     }
 
-    @Override // com.baidu.tieba.model.bg
-    public void a(String str, long j) {
+    @Override // com.baidu.tieba.model.bd
+    public void d(String str, long j) {
         String str2;
-        g gVar;
+        b bVar;
         String str3;
         String str4;
-        cv cvVar;
-        cv cvVar2;
-        f a = f.a();
-        str2 = this.a.q;
-        a.a(str2, false);
-        gVar = this.a.N;
-        gVar.i().setLike(0);
-        str3 = this.a.T;
+        bu buVar;
+        bu buVar2;
+        a EV = a.EV();
+        str2 = this.aBk.aAn;
+        EV.u(str2, false);
+        bVar = this.aBk.azE;
+        bVar.zJ().setLike(0);
+        str3 = this.aBk.mPageType;
         if (str3.equals("normal_page")) {
-            cvVar2 = this.a.B;
-            cvVar2.g(0);
+            buVar2 = this.aBk.aAv;
+            buVar2.eT(0);
         } else {
-            str4 = this.a.T;
+            str4 = this.aBk.mPageType;
             if (str4.equals("frs_page")) {
-                cvVar = this.a.B;
-                cvVar.h(0);
+                buVar = this.aBk.aAv;
+                buVar.eU(0);
             }
         }
-        com.baidu.tieba.ai.c().e(str);
+        com.baidu.tieba.aj.wk().dX(str);
     }
 
-    @Override // com.baidu.tieba.model.bg
-    public void b(String str, long j) {
+    @Override // com.baidu.tieba.model.bd
+    public void e(String str, long j) {
     }
 }

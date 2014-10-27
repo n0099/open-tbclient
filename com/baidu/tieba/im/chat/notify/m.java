@@ -1,32 +1,34 @@
 package com.baidu.tieba.im.chat.notify;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.im.model.ImMessageCenterModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements DialogInterface.OnClickListener {
-    final /* synthetic */ e a;
-    private final /* synthetic */ ImMessageCenterShowItemData b;
+public class m implements a {
+    final /* synthetic */ g aQC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(e eVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        this.a = eVar;
-        this.b = imMessageCenterShowItemData;
+    public m(g gVar) {
+        this.aQC = gVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.im.model.p pVar;
-        a aVar;
-        switch (i) {
-            case 0:
-                pVar = this.a.c;
-                ImMessageCenterShowItemData imMessageCenterShowItemData = this.b;
-                aVar = this.a.u;
-                pVar.a(imMessageCenterShowItemData, false, aVar);
-                return;
-            default:
-                return;
+    @Override // com.baidu.tieba.im.chat.notify.a
+    public void Ki() {
+        BdListView bdListView;
+        ImMessageCenterModel imMessageCenterModel;
+        BdListView bdListView2;
+        ImMessageCenterListAdapter imMessageCenterListAdapter;
+        ImMessageCenterModel imMessageCenterModel2;
+        bdListView = this.aQC.aQo;
+        if (bdListView != null) {
+            imMessageCenterModel = this.aQC.aQm;
+            if (imMessageCenterModel != null) {
+                bdListView2 = this.aQC.aQo;
+                bdListView2.hN();
+                imMessageCenterListAdapter = this.aQC.aQp;
+                imMessageCenterModel2 = this.aQC.aQm;
+                imMessageCenterListAdapter.setData(imMessageCenterModel2.getData());
+            }
         }
     }
 }

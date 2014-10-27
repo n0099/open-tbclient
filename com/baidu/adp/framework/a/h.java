@@ -1,14 +1,14 @@
 package com.baidu.adp.framework.a;
 /* loaded from: classes.dex */
 public abstract class h<T> extends com.baidu.adp.framework.c {
-    private int a;
+    private int mCmd;
 
     public h(int i) {
-        this.a = 0;
-        this.a = i;
+        this.mCmd = 0;
+        this.mCmd = i;
     }
 
-    public int a() {
-        return this.a;
+    public int getCmd() {
+        return this.mCmd;
     }
 }

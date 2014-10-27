@@ -16,32 +16,32 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.x;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.net.URLDecoder;
 @Deprecated
 /* loaded from: classes.dex */
-public class DailyClassicalActivity extends BaseActivity implements com.baidu.tbadk.coreExtra.view.g {
-    private static boolean o = false;
-    private static long p = 0;
-    private ImageView a = null;
-    private RelativeLayout b = null;
-    private RelativeLayout c = null;
-    private TextView d = null;
-    private View.OnClickListener e = null;
-    private BaseWebView f = null;
-    private ProgressBar g = null;
-    private LinearLayout h = null;
-    private c i = null;
-    private boolean j = false;
-    private boolean k = true;
-    private TextView l = null;
-    private TextView m = null;
-    private boolean n = false;
-    private String q = TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK;
+public class DailyClassicalActivity extends BaseActivity implements com.baidu.tbadk.coreExtra.view.f {
+    private static boolean bHP = false;
+    private static long bwJ = 0;
+    private ImageView xL = null;
+    private RelativeLayout mParent = null;
+    private RelativeLayout bqh = null;
+    private TextView atA = null;
+    private View.OnClickListener bHI = null;
+    private BaseWebView mWebView = null;
+    private ProgressBar mProgressBar = null;
+    private LinearLayout bHJ = null;
+    private c bHK = null;
+    private boolean bHL = false;
+    private boolean bHM = true;
+    private TextView bHN = null;
+    private TextView bHO = null;
+    private boolean aRl = false;
+    private String bHQ = "1";
 
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2010021, new a());
@@ -51,106 +51,100 @@ public class DailyClassicalActivity extends BaseActivity implements com.baidu.tb
 
     @Override // com.baidu.tbadk.BaseActivity
     public boolean getGpuSwitch() {
-        return TbadkApplication.m252getInst().isGpuOpen();
+        return TbadkApplication.m251getInst().isGpuOpen();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(v.day_classical_activity);
-        d();
+        setContentView(w.day_classical_activity);
+        initUI();
     }
 
-    private void d() {
-        this.b = (RelativeLayout) findViewById(u.parent);
-        this.c = (RelativeLayout) findViewById(u.title);
-        this.d = (TextView) findViewById(u.title_text);
-        this.h = (LinearLayout) findViewById(u.tag_webview_item);
-        this.a = (ImageView) findViewById(u.back);
-        this.l = (TextView) this.h.findViewById(u.webview_fail);
-        this.m = (TextView) this.h.findViewById(u.webview_crash_tip);
-        this.g = (ProgressBar) findViewById(u.tag_progress);
-        this.e = new b(this);
-        this.a.setOnClickListener(this.e);
-        if (f()) {
-            this.m.setVisibility(8);
-            a();
+    private void initUI() {
+        this.mParent = (RelativeLayout) findViewById(v.parent);
+        this.bqh = (RelativeLayout) findViewById(v.title);
+        this.atA = (TextView) findViewById(v.title_text);
+        this.bHJ = (LinearLayout) findViewById(v.tag_webview_item);
+        this.xL = (ImageView) findViewById(v.back);
+        this.bHN = (TextView) this.bHJ.findViewById(v.webview_fail);
+        this.bHO = (TextView) this.bHJ.findViewById(v.webview_crash_tip);
+        this.mProgressBar = (ProgressBar) findViewById(v.tag_progress);
+        this.bHI = new b(this);
+        this.xL.setOnClickListener(this.bHI);
+        if (createWebView()) {
+            this.bHO.setVisibility(8);
+            refresh();
             return;
         }
-        this.m.setVisibility(0);
+        this.bHO.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        ay.a(this.b, i);
-        ay.d(this.c, i);
-        ay.d(this.d, i);
-        ay.a(this.a, i);
-        if (this.f != null) {
-            ay.a(this.f, i);
-            a();
+        aw.d(this.mParent, i);
+        aw.g(this.bqh, i);
+        aw.d(this.atA, i);
+        aw.a(this.xL, i);
+        if (this.mWebView != null) {
+            aw.d(this.mWebView, i);
+            refresh();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onResume() {
-        super.onResume();
-    }
-
-    public void a() {
-        if (TbadkApplication.m252getInst().getWebviewCrashCount() == 0 && !f()) {
-            this.m.setVisibility(0);
+    public void refresh() {
+        if (TbadkApplication.m251getInst().getWebviewCrashCount() == 0 && !createWebView()) {
+            this.bHO.setVisibility(0);
             return;
         }
-        this.m.setVisibility(8);
-        if (!this.n) {
-            this.n = true;
-            this.g.setVisibility(0);
-            this.j = false;
-            this.k = true;
-            g();
-            this.i = new c(this, null);
-            this.i.setPriority(3);
-            this.i.execute(new Object[0]);
+        this.bHO.setVisibility(8);
+        if (!this.aRl) {
+            this.aRl = true;
+            this.mProgressBar.setVisibility(0);
+            this.bHL = false;
+            this.bHM = true;
+            bT();
+            this.bHK = new c(this, null);
+            this.bHK.setPriority(3);
+            this.bHK.execute(new Object[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
-        if (this.j) {
-            if (!this.k) {
-                showToast(getResources().getString(x.neterror));
+    public void abG() {
+        if (this.bHL) {
+            if (!this.bHM) {
+                showToast(getResources().getString(y.neterror));
             }
-            this.n = false;
-            this.g.setVisibility(8);
+            this.aRl = false;
+            this.mProgressBar.setVisibility(8);
         }
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.g
+    @Override // com.baidu.tbadk.coreExtra.view.f
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        if (!com.baidu.tbadk.b.f.a(this, str)) {
+        if (!com.baidu.tbadk.util.i.r(this, str)) {
             if (str.contains("jumptoapp_browser=classic_everyday")) {
                 if (str.contains("pn=")) {
-                    String a = a(str, "pn=");
-                    if (a != null && a.length() >= 0) {
-                        this.q = a;
+                    String Z = Z(str, "pn=");
+                    if (Z != null && Z.length() >= 0) {
+                        this.bHQ = Z;
                     }
                 } else {
-                    this.q = TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK;
+                    this.bHQ = "1";
                 }
-                a();
+                refresh();
             } else {
-                com.baidu.tbadk.browser.a.b(this, String.valueOf(str) + "&_client_version=" + TbConfig.getVersion());
+                com.baidu.tbadk.browser.a.j(this, String.valueOf(str) + "&_client_version=" + TbConfig.getVersion());
             }
         }
         return true;
     }
 
-    private String a(String str, String str2) {
+    private String Z(String str, String str2) {
         int indexOf = str.indexOf(str2);
         if (indexOf != -1) {
             int length = str2.length() + indexOf;
@@ -163,21 +157,21 @@ public class DailyClassicalActivity extends BaseActivity implements com.baidu.tb
         return "";
     }
 
-    private boolean f() {
+    private boolean createWebView() {
         boolean z = false;
-        if (this.f == null) {
+        if (this.mWebView == null) {
             try {
                 if (UtilHelper.webViewIsProbablyCorrupt(this)) {
-                    super.showToast(getString(x.web_view_corrupted));
+                    super.showToast(getString(y.web_view_corrupted));
                 } else {
-                    this.f = new BaseWebView(this);
-                    ay.a(this.f, TbadkApplication.m252getInst().getSkinType());
-                    this.f.setOnLoadUrlListener(this);
-                    this.f.setHorizontalScrollBarEnabled(false);
-                    this.f.setHorizontalScrollbarOverlay(false);
-                    this.f.setScrollBarStyle(33554432);
-                    this.f.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-                    this.h.addView(this.f);
+                    this.mWebView = new BaseWebView(this);
+                    aw.d(this.mWebView, TbadkApplication.m251getInst().getSkinType());
+                    this.mWebView.setOnLoadUrlListener(this);
+                    this.mWebView.setHorizontalScrollBarEnabled(false);
+                    this.mWebView.setHorizontalScrollbarOverlay(false);
+                    this.mWebView.setScrollBarStyle(33554432);
+                    this.mWebView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+                    this.bHJ.addView(this.mWebView);
                     z = true;
                 }
                 return z;
@@ -189,9 +183,9 @@ public class DailyClassicalActivity extends BaseActivity implements com.baidu.tb
         return true;
     }
 
-    private void g() {
-        if (this.i != null) {
-            this.i.cancel();
+    private void bT() {
+        if (this.bHK != null) {
+            this.bHK.cancel();
         }
     }
 }

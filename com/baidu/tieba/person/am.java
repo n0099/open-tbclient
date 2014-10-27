@@ -1,21 +1,18 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class am extends BdAsyncTask<String, Integer, Void> {
-    final /* synthetic */ ak a;
+public class am implements View.OnClickListener {
+    final /* synthetic */ PersonChangeActivity bCm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public am(ak akVar) {
-        this.a = akVar;
+    public am(PersonChangeActivity personChangeActivity) {
+        this.bCm = personChangeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public Void doInBackground(String... strArr) {
-        com.baidu.tbadk.core.account.a.a(strArr[0], strArr[1]);
-        return null;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.bCm.ZV();
     }
 }

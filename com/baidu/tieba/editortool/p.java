@@ -1,22 +1,21 @@
 package com.baidu.tieba.editortool;
 
-import android.view.View;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements View.OnClickListener {
-    final /* synthetic */ EditorToolComponetContainer a;
-    private final /* synthetic */ int b;
+public class p implements DialogInterface.OnClickListener {
+    final /* synthetic */ EditorToolComponetContainer aqU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(EditorToolComponetContainer editorToolComponetContainer, int i) {
-        this.a = editorToolComponetContainer;
-        this.b = i;
+    public p(EditorToolComponetContainer editorToolComponetContainer) {
+        this.aqU = editorToolComponetContainer;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
         com.baidu.tbadk.editortool.w wVar;
-        wVar = this.a.x;
-        wVar.a(this.b, null);
+        this.aqU.aqw.setmImagetype(2);
+        wVar = this.aqU.RC;
+        wVar.handleAction(23, null);
     }
 }

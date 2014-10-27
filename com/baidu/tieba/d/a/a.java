@@ -1,149 +1,149 @@
 package com.baidu.tieba.d.a;
 
+import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.gson.Gson;
 import org.json.JSONObject;
 import tbclient.App;
 import tbclient.GoodsInfo;
 /* loaded from: classes.dex */
-public class a {
-    public final String a;
-    public final String b;
-    public final int c;
-    public final String d;
-    public final String e;
-    public final String f;
-    public final String g;
-    public final String h;
-    public final String i;
-    public final String j;
-    public final String k;
-    public final int l;
-    public final String m;
-    public final int n;
-    public final String o;
-    public final String p;
-    public final String q;
-    public final int r;
-    public final b[] s;
-    public b t;
+public class a extends i {
+    public final String abtest;
+    public final String apk_name;
+    public final String apk_url;
+    public final int bHi;
+    public final int bHj;
+    public final int bHk;
+    public final b[] bHl;
+    public b bHm;
+    public final String ext_info;
+    public final String first_name;
+    public final String id;
+    public final String ios_url;
+    public final String name;
+    public final String pos_name;
+    public final String price;
+    public final String second_name;
+    public final String url;
+    public final String user_id;
+    public final String verify;
+    public final int zp;
 
     public a() {
-        this.a = null;
-        this.b = null;
-        this.c = 0;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.j = null;
-        this.k = null;
-        this.l = 0;
-        this.m = null;
-        this.n = 0;
-        this.o = null;
-        this.p = null;
-        this.q = null;
-        this.r = 0;
-        this.s = null;
-        this.t = null;
+        this.id = null;
+        this.name = null;
+        this.bHi = 0;
+        this.url = null;
+        this.ios_url = null;
+        this.apk_url = null;
+        this.apk_name = null;
+        this.pos_name = null;
+        this.first_name = null;
+        this.second_name = null;
+        this.price = null;
+        this.zp = 0;
+        this.abtest = null;
+        this.bHj = 0;
+        this.user_id = null;
+        this.verify = null;
+        this.ext_info = null;
+        this.bHk = 0;
+        this.bHl = null;
+        this.bHm = null;
     }
 
     public a(JSONObject jSONObject) {
-        a aVar = (a) new Gson().fromJson(jSONObject.toString(), (Class<Object>) a.class);
-        this.a = aVar.a;
-        this.b = aVar.b;
-        this.c = aVar.c;
-        this.d = aVar.d;
-        this.e = aVar.e;
-        this.f = aVar.f;
-        this.g = aVar.g;
-        this.h = aVar.h;
-        this.i = aVar.i;
-        this.j = aVar.j;
-        this.l = aVar.l;
-        this.m = aVar.m;
-        this.n = aVar.n;
-        this.o = aVar.o;
-        this.p = aVar.p;
-        this.q = aVar.q;
-        this.k = aVar.k;
-        this.r = aVar.r;
-        this.s = aVar.s;
-        if (this.s != null && this.s.length > 0) {
-            this.t = this.s[0];
+        a aVar = (a) i.objectWithJsonStr(jSONObject.toString(), a.class);
+        this.id = aVar.id;
+        this.name = aVar.name;
+        this.bHi = aVar.bHi;
+        this.url = aVar.url;
+        this.ios_url = aVar.ios_url;
+        this.apk_url = aVar.apk_url;
+        this.apk_name = aVar.apk_name;
+        this.pos_name = aVar.pos_name;
+        this.first_name = aVar.first_name;
+        this.second_name = aVar.second_name;
+        this.zp = aVar.zp;
+        this.abtest = aVar.abtest;
+        this.bHj = aVar.bHj;
+        this.user_id = aVar.user_id;
+        this.verify = aVar.verify;
+        this.ext_info = aVar.ext_info;
+        this.price = aVar.price;
+        this.bHk = aVar.bHk;
+        this.bHl = aVar.bHl;
+        if (this.bHl != null && this.bHl.length > 0) {
+            this.bHm = this.bHl[0];
         } else {
-            this.t = null;
+            this.bHm = null;
         }
     }
 
     public a(App app) {
         if (app == null) {
-            this.a = null;
-            this.b = null;
-            this.c = 0;
-            this.d = null;
-            this.e = null;
-            this.f = null;
-            this.g = null;
-            this.h = null;
-            this.i = null;
-            this.j = null;
-            this.l = 0;
-            this.k = null;
-            this.m = null;
-            this.n = 0;
-            this.o = null;
-            this.p = null;
-            this.q = null;
-            this.r = 0;
-            this.s = null;
-            this.t = null;
+            this.id = null;
+            this.name = null;
+            this.bHi = 0;
+            this.url = null;
+            this.ios_url = null;
+            this.apk_url = null;
+            this.apk_name = null;
+            this.pos_name = null;
+            this.first_name = null;
+            this.second_name = null;
+            this.zp = 0;
+            this.price = null;
+            this.abtest = null;
+            this.bHj = 0;
+            this.user_id = null;
+            this.verify = null;
+            this.ext_info = null;
+            this.bHk = 0;
+            this.bHl = null;
+            this.bHm = null;
             return;
         }
-        this.a = app.id;
-        this.b = app.name;
-        this.c = app.url_type.intValue();
-        this.d = app.url;
-        this.f = app.apk_url;
-        this.g = app.apk_name;
-        this.e = app.ios_url;
-        this.h = app.pos_name;
-        this.i = app.first_name;
-        this.j = app.second_name;
-        this.l = app.cpid.intValue();
-        this.k = app.price;
-        this.m = app.abtest;
-        this.n = app.plan_id.intValue();
-        this.o = app.user_id;
-        this.p = app.verify;
-        this.q = app.ext_info;
-        this.r = app.app_time.intValue();
-        this.s = null;
+        this.id = app.id;
+        this.name = app.name;
+        this.bHi = app.url_type.intValue();
+        this.url = app.url;
+        this.apk_url = app.apk_url;
+        this.apk_name = app.apk_name;
+        this.ios_url = app.ios_url;
+        this.pos_name = app.pos_name;
+        this.first_name = app.first_name;
+        this.second_name = app.second_name;
+        this.zp = app.cpid.intValue();
+        this.price = app.price;
+        this.abtest = app.abtest;
+        this.bHj = app.plan_id.intValue();
+        this.user_id = app.user_id;
+        this.verify = app.verify;
+        this.ext_info = app.ext_info;
+        this.bHk = app.app_time.intValue();
+        this.bHl = null;
         if (app.goods_info != null) {
             for (GoodsInfo goodsInfo : app.goods_info) {
                 if (goodsInfo != null) {
-                    this.t = new b(goodsInfo);
+                    this.bHm = new b(goodsInfo);
                     return;
                 }
             }
         }
     }
 
-    public boolean a() {
-        if (this.c == 2) {
+    public boolean jF() {
+        if (this.bHi == 2) {
             return false;
         }
-        return b() || c();
+        return jG() || jH();
     }
 
-    public boolean b() {
-        return (this.c != 3 || StringUtils.isNull(this.g) || StringUtils.isNull(this.f)) ? false : true;
+    public boolean jG() {
+        return (this.bHi != 3 || StringUtils.isNull(this.apk_name) || StringUtils.isNull(this.apk_url)) ? false : true;
     }
 
-    public boolean c() {
-        return this.c == 1 && !StringUtils.isNull(this.d);
+    public boolean jH() {
+        return this.bHi == 1 && !StringUtils.isNull(this.url);
     }
 }

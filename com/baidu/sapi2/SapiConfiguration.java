@@ -3,7 +3,6 @@ package com.baidu.sapi2;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.sapi2.utils.L;
-import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.BindType;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.FastLoginFeature;
@@ -15,6 +14,7 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class SapiConfiguration {
+    private final LoginShareStrategy a;
     public final String appId;
     public final String appSignKey;
     public String clientId;
@@ -30,35 +30,21 @@ public final class SapiConfiguration {
     public final boolean fastRegConfirm;
     public final String fastRegConfirmMsg;
     public final String fastRegTitleText;
-    @Deprecated
-    public final FirstLaunchListener firstLaunchListener;
-    public final LoginShareStrategy loginShareStrategy;
     public String presetPhoneNumber;
+    public final boolean quickUserEnabled;
     public final RegistMode registMode;
-    public final ShareListener shareListener;
     public final boolean showRegLink;
     public String skin;
     public final SmsLoginConfig smsLoginConfig;
     public final BindType socialBindType;
+    public final boolean syncCacheOnInit;
     public final String tpl;
-
-    @Deprecated
-    /* loaded from: classes.dex */
-    public interface FirstLaunchListener {
-        @Deprecated
-        void onReceivedAccount();
-    }
-
-    /* loaded from: classes.dex */
-    public interface ShareListener {
-        void onSilentShare();
-    }
-
-    /* synthetic */ SapiConfiguration(Builder builder, a aVar) {
-        this(builder);
-    }
+    public final boolean uniteVerify;
+    public final String voicePid;
+    public final boolean voiceUserEnabled;
 
     private SapiConfiguration(Builder builder) {
+        this.voicePid = "2048";
         this.context = builder.a;
         this.tpl = builder.b;
         this.appId = builder.c;
@@ -67,35 +53,23 @@ public final class SapiConfiguration {
         this.environment = builder.f;
         this.socialBindType = builder.g;
         this.registMode = builder.h;
-        this.loginShareStrategy = builder.i;
+        this.a = builder.i;
         this.fastLoginFeatureList = builder.j;
-        this.firstLaunchListener = builder.k;
-        this.shareListener = builder.l;
-        this.fastRegConfirm = builder.m;
-        this.fastRegConfirmMsg = builder.n;
-        this.skin = builder.o;
-        this.presetPhoneNumber = builder.p;
-        this.collapseFastLoginArea = builder.q;
-        this.customActionBarEnabled = builder.r;
-        this.showRegLink = builder.s;
-        this.configurableViewLayout = builder.t;
-        this.fastRegTitleText = builder.u;
-        this.debug = builder.v;
-        this.smsLoginConfig = builder.w;
-        new Thread(new a()).start();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
-    public class a implements Runnable {
-        a() {
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            SapiConfiguration.this.clientId = SapiUtils.getClientId(SapiConfiguration.this.context);
-            SapiConfiguration.this.clientIp = SapiUtils.getLocalIpAddress();
-        }
+        this.fastRegConfirm = builder.k;
+        this.fastRegConfirmMsg = builder.l;
+        this.skin = builder.m;
+        this.presetPhoneNumber = builder.n;
+        this.collapseFastLoginArea = builder.o;
+        this.customActionBarEnabled = builder.p;
+        this.showRegLink = builder.q;
+        this.configurableViewLayout = builder.r;
+        this.fastRegTitleText = builder.s;
+        this.debug = builder.t;
+        this.smsLoginConfig = builder.u;
+        this.uniteVerify = builder.v;
+        this.syncCacheOnInit = builder.w;
+        this.quickUserEnabled = builder.x;
+        this.voiceUserEnabled = builder.y;
     }
 
     /* loaded from: classes.dex */
@@ -110,20 +84,21 @@ public final class SapiConfiguration {
         private RegistMode h;
         private LoginShareStrategy i;
         private List<FastLoginFeature> j;
-        @Deprecated
-        private FirstLaunchListener k;
-        private ShareListener l;
+        private String l;
+        private String m;
         private String n;
-        private String o;
-        private String p;
-        private String u;
-        private SmsLoginConfig w;
-        private boolean m = false;
-        private boolean q = false;
-        private boolean r = false;
-        private boolean s = true;
-        private Switch t = Switch.OFF;
+        private String s;
+        private SmsLoginConfig u;
+        private boolean k = false;
+        private boolean o = false;
+        private boolean p = false;
+        private boolean q = true;
+        private Switch r = Switch.OFF;
+        private boolean t = false;
         private boolean v = false;
+        private boolean w = true;
+        private boolean x = false;
+        private boolean y = false;
 
         public Builder(Context context) {
             this.a = context.getApplicationContext();
@@ -157,36 +132,41 @@ public final class SapiConfiguration {
         }
 
         public Builder presetPhoneNumber(String str) {
-            this.p = str;
+            this.n = str;
             return this;
         }
 
         public Builder collapseFastLoginArea(boolean z) {
-            this.q = z;
+            this.o = z;
             return this;
         }
 
         public Builder showRegLink(boolean z) {
-            this.s = z;
+            this.q = z;
             return this;
         }
 
         public Builder configurableViewLayout(Switch r1) {
-            this.t = r1;
+            this.r = r1;
             return this;
         }
 
         public Builder fastRegTitleText(String str) {
-            this.u = str;
+            this.s = str;
             return this;
         }
 
         public Builder debug(boolean z) {
-            this.v = z;
+            this.t = z;
             return this;
         }
 
-        public Builder loginShareStrategy(LoginShareStrategy loginShareStrategy) {
+        public Builder syncCacheOnInit(boolean z) {
+            this.w = z;
+            return this;
+        }
+
+        public Builder initialShareStrategy(LoginShareStrategy loginShareStrategy) {
             this.i = loginShareStrategy;
             return this;
         }
@@ -200,39 +180,43 @@ public final class SapiConfiguration {
             return this;
         }
 
-        @Deprecated
-        public Builder setFirstLaunchListener(FirstLaunchListener firstLaunchListener) {
-            this.k = firstLaunchListener;
-            return this;
-        }
-
-        public Builder setShareListener(ShareListener shareListener) {
-            this.l = shareListener;
-            return this;
-        }
-
         public Builder fastRegConfirm(boolean z) {
-            this.m = z;
+            this.k = z;
             return this;
         }
 
         public Builder fastRegConfirmMsg(String str) {
-            this.n = str;
+            this.l = str;
             return this;
         }
 
         public Builder skin(String str) {
-            this.o = str;
+            this.m = str;
             return this;
         }
 
         public Builder customActionBar(boolean z) {
-            this.r = z;
+            this.p = z;
+            return this;
+        }
+
+        public Builder enableQuickUser(boolean z) {
+            this.x = z;
+            return this;
+        }
+
+        public Builder enableVoiceUser(boolean z) {
+            this.y = z;
             return this;
         }
 
         public Builder smsLoginConfig(SmsLoginConfig smsLoginConfig) {
-            this.w = smsLoginConfig;
+            this.u = smsLoginConfig;
+            return this;
+        }
+
+        public Builder uniteVerify(boolean z) {
+            this.v = z;
             return this;
         }
 
@@ -244,7 +228,7 @@ public final class SapiConfiguration {
                 this.f = Domain.DOMAIN_ONLINE;
             }
             if (this.g == null) {
-                this.g = BindType.EXPLICIT;
+                this.g = BindType.IMPLICIT;
             }
             if (this.h == null) {
                 this.h = RegistMode.NORMAL;
@@ -255,14 +239,14 @@ public final class SapiConfiguration {
             if (this.j == null) {
                 this.j = new ArrayList();
             }
-            if (this.w == null) {
-                this.w = new SmsLoginConfig(Switch.OFF, Switch.OFF, Switch.OFF);
+            if (this.u == null) {
+                this.u = new SmsLoginConfig(Switch.OFF, Switch.OFF, Switch.OFF);
             }
-            if (this.t == null) {
-                this.t = Switch.OFF;
+            if (this.r == null) {
+                this.r = Switch.OFF;
             }
-            L.enable(this.v);
-            return new SapiConfiguration(this, null);
+            L.enable(this.t);
+            return new SapiConfiguration(this);
         }
     }
 
@@ -297,5 +281,19 @@ public final class SapiConfiguration {
         public String toString() {
             return String.valueOf(this.flagShowLoginLink.ordinal()) + this.flagShowSmsLoginLink.ordinal() + this.flagLoginBtnType.ordinal();
         }
+    }
+
+    public LoginShareStrategy loginShareStrategy() {
+        if (this.quickUserEnabled || this.voiceUserEnabled) {
+            return LoginShareStrategy.DISABLED;
+        }
+        b j = c.a(this.context).j();
+        if (j.e().containsKey(this.tpl) && j.e().get(this.tpl) != null) {
+            return j.e().get(this.tpl);
+        }
+        if (j.d() != null) {
+            return j.d();
+        }
+        return this.a;
     }
 }

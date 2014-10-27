@@ -1,45 +1,26 @@
 package com.baidu.tieba.person;
 
-import android.text.TextUtils;
-import android.widget.EditText;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.newFriends.RequestApplyLocalMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
 /* loaded from: classes.dex */
-public class ax implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ as a;
-    private final /* synthetic */ EditText b;
-    private final /* synthetic */ UserData c;
+class ax implements View.OnClickListener {
+    final /* synthetic */ at bCz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(as asVar, EditText editText, UserData userData) {
-        this.a = asVar;
-        this.b = editText;
-        this.c = userData;
+    public ax(at atVar) {
+        this.bCz = atVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        String str;
-        String str2;
-        String str3;
-        this.a.e = this.b.getText().toString().trim();
-        str = this.a.e;
-        if (!TextUtils.isEmpty(str)) {
-            RequestApplyLocalMessage requestApplyLocalMessage = new RequestApplyLocalMessage();
-            requestApplyLocalMessage.setUid(Long.valueOf(TbadkApplication.getCurrentAccount()).longValue());
-            requestApplyLocalMessage.setFriendId(this.c.getUserIdLong());
-            str2 = this.a.e;
-            requestApplyLocalMessage.setMessage(str2);
-            str3 = this.a.e;
-            requestApplyLocalMessage.setContent(str3);
-            requestApplyLocalMessage.setName(this.c.getName_show());
-            requestApplyLocalMessage.setPortrait(this.c.getPortrait());
-            requestApplyLocalMessage.setId(this.c.getUserIdLong());
-            MessageManager.getInstance().dispatchResponsedMessageToUI(requestApplyLocalMessage);
-            aVar.d();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        bd bdVar;
+        z = this.bCz.bCv;
+        if (!z) {
+            at atVar = this.bCz;
+            bdVar = this.bCz.bCq;
+            atVar.pageNum = bdVar.getData().zM().kf() + 1;
+            this.bCz.bCv = true;
+            this.bCz.aaa();
         }
     }
 }

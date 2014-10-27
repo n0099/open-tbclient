@@ -1,89 +1,95 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.download.DownloadData;
-import java.util.List;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c extends BdAsyncTask<e, DownloadData, DownloadData> {
-    final /* synthetic */ b a;
-
-    private c(b bVar) {
-        this.a = bVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ c(b bVar, c cVar) {
-        this(bVar);
-    }
+public class c extends BdAsyncTask<String, Integer, Boolean> {
+    private final String azV;
+    private final d azW;
+    final /* synthetic */ b azX;
+    private final String mForumId;
+    private final String mForumName;
+    private com.baidu.tbadk.core.util.ac yV;
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public DownloadData doInBackground(e... eVarArr) {
-        String d;
-        int i;
-        int i2;
-        e eVar = eVarArr[0];
-        String a = eVar.a();
-        String c = eVar.c();
-        String b = eVar.b();
-        int d2 = eVar.d();
-        if (com.baidu.tbadk.core.util.ba.c(a) || com.baidu.tbadk.core.util.ba.c(c)) {
-            return null;
-        }
-        String str = String.valueOf(a.replace(".", "_")) + ".apk";
-        d = this.a.d(str);
-        if (com.baidu.tbadk.core.util.s.d(str) != null) {
-            DownloadData downloadData = new DownloadData(a);
-            downloadData.setName(str);
-            downloadData.setPosition(d2);
-            downloadData.setPath(d);
-            downloadData.setStatus(3);
-            return downloadData;
-        }
-        DownloadData downloadData2 = new DownloadData(a, c, b, new a());
-        b bVar = this.a;
-        i = bVar.h;
-        bVar.h = i + 1;
-        i2 = this.a.h;
-        downloadData2.setNotifyId(i2);
-        downloadData2.setStatusMsg(TbadkApplication.getCurrentAccount());
-        downloadData2.setType(12);
-        downloadData2.setPath(d);
-        downloadData2.setPosition(d2);
-        return downloadData2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(DownloadData downloadData) {
-        List list;
-        List list2;
-        super.onPostExecute(downloadData);
-        this.a.d = null;
-        if (downloadData != null) {
-            if (downloadData.getStatus() == 3) {
-                this.a.a(downloadData);
-                UtilHelper.install_apk(com.baidu.tieba.ai.c().d(), String.valueOf(downloadData.getId().replace(".", "_")) + ".apk");
-            } else {
-                downloadData.setStatus(1);
-                this.a.a(downloadData);
-                com.baidu.tbadk.download.b.a().a(downloadData, 5);
-                com.baidu.tbadk.core.util.ap.a((Context) com.baidu.tieba.ai.c().d(), downloadData.getNotifyId(), (String) null, 0, com.baidu.tieba.ai.c().d().getString(com.baidu.tieba.x.download_will_begin), downloadData.getName(), false);
+    /* renamed from: l */
+    public Boolean doInBackground(String... strArr) {
+        try {
+            this.yV = new com.baidu.tbadk.core.util.ac(strArr[0]);
+            this.yV.k(ImageViewerConfig.FORUM_ID, this.mForumId);
+            this.yV.k("kw", this.mForumName);
+            this.yV.k("is_like", this.azV);
+            this.yV.mc().na().mIsNeedTbs = true;
+            String lA = this.yV.lA();
+            if (this.yV.mf()) {
+                if (this.azV.equals("0")) {
+                    try {
+                        JSONObject jSONObject = new JSONObject(lA);
+                        JSONObject optJSONObject = jSONObject.optJSONObject("like_data");
+                        if (optJSONObject.optInt("is_success", 0) == 1) {
+                            this.azW.level = optJSONObject.optInt("level_id", 0);
+                            this.azW.aAb = optJSONObject.optString("level_name", "");
+                            JSONObject optJSONObject2 = jSONObject.optJSONObject("user_perm");
+                            if (optJSONObject2 != null) {
+                                this.azW.cur_score = optJSONObject2.optInt("cur_score", 0);
+                                this.azW.levelup_score = optJSONObject2.optInt("levelup_score", 0);
+                            }
+                            this.azW.azZ = true;
+                        }
+                        this.azX.a(this.azW);
+                    } catch (Exception e) {
+                        BdLog.detailException(e);
+                    }
+                }
+                if (this.yV.mc().nb().jq()) {
+                    try {
+                        JSONObject jSONObject2 = new JSONObject(lA);
+                        this.azW.aAa = jSONObject2.optInt("num");
+                        this.azW.azY = true;
+                    } catch (Exception e2) {
+                        BdLog.detailException(e2);
+                    }
+                }
             }
-            b.f = null;
-            list = b.g;
-            if (!list.isEmpty()) {
-                list2 = b.g;
-                list2.remove(0);
-                this.a.c();
+            return false;
+        } catch (Exception e3) {
+            BdLog.e(e3.getMessage());
+            return false;
+        }
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+        if (this.yV != null) {
+            this.yV.dM();
+        }
+        this.azX.azO = null;
+        this.azX.bR(false);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public void onPostExecute(Boolean bool) {
+        dc dcVar;
+        dc dcVar2;
+        this.azX.azO = null;
+        this.azX.bR(false);
+        if (this.yV != null) {
+            e eVar = new e();
+            eVar.errorMsg = this.yV.getErrorString();
+            eVar.errorCode = this.yV.mg();
+            dcVar = this.azX.azL;
+            if (dcVar != null) {
+                dcVar2 = this.azX.azL;
+                dcVar2.a(this.azW, eVar);
             }
         }
     }

@@ -1,118 +1,33 @@
 package com.baidu.tieba.person;
 
-import android.content.Context;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.data.PersonChangeData;
-import org.json.JSONObject;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p extends com.baidu.adp.base.e {
-    private q b;
-    private String c;
-    private final Context e;
-    private boolean g;
-    private boolean h;
-    private boolean i;
-    private UserData a = null;
-    private String d = null;
-    private long f = 0;
+public class p extends CustomMessageListener {
+    final /* synthetic */ o bBB;
 
-    public p(Context context) {
-        this.e = context;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p(o oVar, int i) {
+        super(i);
+        this.bBB = oVar;
     }
 
-    public UserData a() {
-        return this.a;
-    }
-
-    public void a(UserData userData) {
-        this.a = userData;
-    }
-
-    public void a(String str) {
-        this.c = str;
-    }
-
-    public String b() {
-        return this.c;
-    }
-
-    public void b(String str) {
-        this.d = str;
-    }
-
-    public long c() {
-        return this.f;
-    }
-
-    public void a(long j) {
-        this.f = j;
-    }
-
-    public void a(boolean z) {
-        this.g = z;
-    }
-
-    public boolean d() {
-        return this.g;
-    }
-
-    public void b(boolean z) {
-        this.h = z;
-    }
-
-    public void a(PersonChangeData personChangeData) {
-        if (this.a != null) {
-            this.a.setUserName(personChangeData.getName());
-            this.a.setIntro(personChangeData.getIntro());
-        }
-    }
-
-    public void a(boolean z, boolean z2) {
-        if (this.b == null) {
-            this.b = new q(this, null);
-            this.b.setPriority(3);
-            this.b.execute(Boolean.valueOf(z), Boolean.valueOf(z2));
-        }
-    }
-
-    public void c(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = new UserData();
-                this.a.parserJson(jSONObject.optJSONObject("user"));
-                this.i = true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        boolean z;
+        PersonBarActivity ZM;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001187) {
+            z = this.bBB.mIsHost;
+            if (z) {
+                n personBarData = ((ResponsePersonBarByUidLocalMessage) customResponsedMessage).getPersonBarData();
+                ZM = this.bBB.ZM();
+                if (ZM != null) {
+                    this.bBB.a(personBarData, true);
+                }
             }
-        }
-    }
-
-    public boolean e() {
-        return this.i;
-    }
-
-    @Override // com.baidu.adp.base.e
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.e
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    public void f() {
-        if (this.b != null) {
-            this.b.cancel();
         }
     }
 }

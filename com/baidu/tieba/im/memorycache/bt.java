@@ -1,44 +1,24 @@
 package com.baidu.tieba.im.memorycache;
 
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import java.util.List;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
-public class bt {
-    public static ImMessageCenterPojo a(ImMessageCenterPojo imMessageCenterPojo) {
-        return (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != -8 || imMessageCenterPojo.getUnread_count() <= 0) ? imMessageCenterPojo : a(imMessageCenterPojo, c.b().h());
+class bt implements CustomMessageTask.CustomRunnable<String> {
+    private final /* synthetic */ String bbz;
+    final /* synthetic */ bs bee;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bt(bs bsVar, String str) {
+        this.bee = bsVar;
+        this.bbz = str;
     }
 
-    private static ImMessageCenterPojo a(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
-        ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
-        imMessageCenterPojo2.setGid(imMessageCenterPojo.getGid());
-        imMessageCenterPojo2.setGroup_name(imMessageCenterPojo.getGroup_name());
-        imMessageCenterPojo2.setGroup_head(imMessageCenterPojo.getGroup_head());
-        imMessageCenterPojo2.setIs_hidden(imMessageCenterPojo.getIs_hidden());
-        imMessageCenterPojo2.setUnread_count(imMessageCenterPojo.getUnread_count());
-        imMessageCenterPojo2.setLast_rid(imMessageCenterPojo.getLast_rid());
-        imMessageCenterPojo2.setLast_user_name(imMessageCenterPojo.getLast_user_name());
-        imMessageCenterPojo2.setLast_content_time(imMessageCenterPojo.getLast_content_time());
-        imMessageCenterPojo2.setLast_content(imMessageCenterPojo.getLast_content());
-        imMessageCenterPojo2.setSend_status(imMessageCenterPojo.getSend_status());
-        imMessageCenterPojo2.setType(imMessageCenterPojo.getType());
-        imMessageCenterPojo2.setSelf(imMessageCenterPojo.isSelf());
-        imMessageCenterPojo2.setIsFriend(imMessageCenterPojo.getIsFriend());
-        imMessageCenterPojo2.setCustomGroupType(imMessageCenterPojo.getCustomGroupType());
-        String currentAccount = TbadkApplication.getCurrentAccount();
-        for (ImMessageCenterPojo imMessageCenterPojo3 : list) {
-            if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == 4) {
-                if (!com.baidu.tieba.im.chat.officialBar.az.a().c(currentAccount, imMessageCenterPojo3.getGid())) {
-                    imMessageCenterPojo2.setUnread_count(imMessageCenterPojo2.getUnread_count() - imMessageCenterPojo3.getUnread_count());
-                } else {
-                    com.baidu.tieba.im.chat.officialBar.ay.a().a(true);
-                }
-            }
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+        if (customMessage != null && (customMessage instanceof CustomMessage)) {
+            com.baidu.tieba.im.db.c.Mw().fX(this.bbz);
         }
-        if (imMessageCenterPojo2.getUnread_count() <= 0) {
-            imMessageCenterPojo2.setUnread_count(1);
-            com.baidu.tieba.im.chat.officialBar.ay.a().a(false);
-        }
-        return imMessageCenterPojo2;
+        return null;
     }
 }

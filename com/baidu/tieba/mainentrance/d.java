@@ -17,15 +17,15 @@ public class d implements CustomMessageTask.CustomRunnable<Object> {
         if (currentAccount == null) {
             currentAccount = "";
         }
-        com.baidu.adp.lib.cache.t<String> b = com.baidu.tbadk.core.a.a.a().b("tb.searchperson_history", currentAccount);
+        com.baidu.adp.lib.cache.t<String> D = com.baidu.tbadk.core.a.a.kS().D("tb.searchperson_history", currentAccount);
         if (requestSearchPersonHistoryWriteMessage.isClear()) {
-            BdCacheService.c().a(b);
+            BdCacheService.cr().a(D);
         } else {
             Object data = requestSearchPersonHistoryWriteMessage.getData();
             if (data == null || !(data instanceof String)) {
                 return null;
             }
-            b.a((String) data, (String) null);
+            D.b((String) data, null);
         }
         return new ResponseSearchPersonHistoryWriteMessage();
     }

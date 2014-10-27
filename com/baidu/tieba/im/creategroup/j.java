@@ -1,52 +1,56 @@
 package com.baidu.tieba.im.creategroup;
 
-import android.app.AlertDialog;
-import android.graphics.drawable.Drawable;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.data.AddGroupInfoData;
-import com.baidu.tieba.im.message.RequestAddGroupMessage;
-import com.baidu.tieba.im.message.ResponseAddGroupMessage;
+import android.graphics.Bitmap;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-class j extends com.baidu.adp.framework.listener.d {
-    final /* synthetic */ CreateGroupStepActivity a;
+class j extends BdAsyncTask<Object, Integer, Bitmap> {
+    final /* synthetic */ i aTv;
+
+    private j(i iVar) {
+        this.aTv = iVar;
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j(CreateGroupStepActivity createGroupStepActivity, int i) {
-        super(i);
-        this.a = createGroupStepActivity;
+    public /* synthetic */ j(i iVar, j jVar) {
+        this(iVar);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
+        super.onPreExecute();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 103101) {
-            this.a.a(false);
-            if (!(socketResponsedMessage instanceof ResponseAddGroupMessage)) {
-                this.a.showToast(com.baidu.tieba.x.group_create_fail);
-                return;
-            }
-            ResponseAddGroupMessage responseAddGroupMessage = (ResponseAddGroupMessage) socketResponsedMessage;
-            if (responseAddGroupMessage.getError() != 0) {
-                this.a.a(responseAddGroupMessage.getErrorString(), responseAddGroupMessage.getError());
-                return;
-            }
-            RequestAddGroupMessage requestAddGroupMessage = (RequestAddGroupMessage) responseAddGroupMessage.getOrginalMessage();
-            AddGroupInfoData addGroupInfo = responseAddGroupMessage.getAddGroupInfo();
-            if (addGroupInfo == null) {
-                this.a.showToast(com.baidu.tieba.x.group_create_fail);
-            } else {
-                a(addGroupInfo);
-            }
-        }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: g */
+    public Bitmap doInBackground(Object... objArr) {
+        return com.baidu.tbadk.core.util.s.K(null, TbConfig.GROUP_HEAD_FILE);
     }
 
-    private void a(AddGroupInfoData addGroupInfoData) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(String.valueOf(this.a.getResources().getString(com.baidu.tieba.x.group_create_name)) + ":" + addGroupInfoData.getName() + "\n");
-        sb.append(String.valueOf(this.a.getResources().getString(com.baidu.tieba.x.group_create_number)) + ":" + addGroupInfoData.getGroupId() + "\n");
-        sb.append(this.a.getResources().getString(com.baidu.tieba.x.group_create_share));
-        com.baidu.adp.lib.e.e.a(new AlertDialog.Builder(this.a).setTitle(com.baidu.tieba.x.group_create_success).setIcon((Drawable) null).setCancelable(false).setMessage(sb.toString()).setPositiveButton(com.baidu.tieba.x.group_create_step_done_tip, new k(this)).setNegativeButton(com.baidu.tieba.x.group_create_step_share_tip, new l(this, addGroupInfoData)).create(), this.a);
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onCancelled() {
+        super.onCancelled();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: e */
+    public void onPostExecute(Bitmap bitmap) {
+        super.onPostExecute(bitmap);
+        if (bitmap != null) {
+            this.aTv.aTq.setVisibility(0);
+            i.a(this.aTv, new com.baidu.adp.widget.a.a(bitmap, false, null));
+            i.a(this.aTv).a(this.aTv.aTq);
+        }
     }
 }

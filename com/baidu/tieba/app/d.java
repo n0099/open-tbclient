@@ -13,10 +13,9 @@ class d extends CustomMessageListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage instanceof AppUploadMessage) {
-            if (TbadkApplication.m252getInst().getAppUploadDate() + 604800000 < System.currentTimeMillis()) {
+            if (TbadkApplication.m251getInst().getAppUploadDate() + 604800000 < System.currentTimeMillis()) {
                 AppInfoUploadService.startService(TbadkApplication.getCurrentAccount());
             }
         }

@@ -5,43 +5,43 @@ import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 final class a {
-    private static ArrayList<SoftReference<Activity>> a;
-    private static a b;
-    private int c = 0;
+    private static ArrayList<SoftReference<Activity>> at;
+    private static a au;
+    private int av = 0;
 
     private a() {
-        if (a == null) {
-            a = new ArrayList<>(20);
+        if (at == null) {
+            at = new ArrayList<>(20);
         }
     }
 
-    public static a a() {
-        if (b == null) {
-            b = new a();
+    public static a M() {
+        if (au == null) {
+            au = new a();
         }
-        return b;
+        return au;
     }
 
-    public int b() {
-        return a.size();
+    public int getSize() {
+        return at.size();
     }
 
     public void a(Activity activity) {
         if (activity != null) {
-            a.add(new SoftReference<>(activity));
-            c(this.c);
+            at.add(new SoftReference<>(activity));
+            c(this.av);
         }
     }
 
-    public Activity a(int i) {
-        int size = a.size();
+    public Activity b(int i) {
+        int size = at.size();
         if (size == 0) {
             return null;
         }
         if (i < 0 || i >= size) {
             return null;
         }
-        SoftReference<Activity> remove = a.remove(i);
+        SoftReference<Activity> remove = at.remove(i);
         if (remove == null) {
             return null;
         }
@@ -50,39 +50,39 @@ final class a {
 
     public void b(Activity activity) {
         int size;
-        if (activity != null && (size = a.size()) != 0) {
+        if (activity != null && (size = at.size()) != 0) {
             for (int i = size - 1; i >= 0; i--) {
-                SoftReference<Activity> softReference = a.get(i);
+                SoftReference<Activity> softReference = at.get(i);
                 if (softReference != null && activity.equals(softReference.get())) {
-                    a.remove(i);
+                    at.remove(i);
                     return;
                 }
             }
         }
     }
 
-    public void b(int i) {
+    public void setActivityStackMaxSize(int i) {
         if (i >= 10 || i == 0) {
-            this.c = i;
+            this.av = i;
         }
     }
 
-    public void c() {
+    public void N() {
         c(3);
     }
 
-    public int d() {
-        return this.c;
+    public int getActivityStackMaxSize() {
+        return this.av;
     }
 
     private void c(int i) {
         if (i != 0) {
-            int b2 = a().b();
-            while (b2 > i) {
-                b2--;
-                Activity a2 = a().a(1);
-                if (a2 != null) {
-                    a2.finish();
+            int size = M().getSize();
+            while (size > i) {
+                size--;
+                Activity b = M().b(1);
+                if (b != null) {
+                    b.finish();
                 }
             }
         }

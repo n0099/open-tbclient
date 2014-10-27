@@ -1,21 +1,36 @@
 package com.baidu.adp.lib.voice;
 
-import com.baidu.adp.lib.stats.f;
-import com.baidu.adp.lib.util.h;
+import android.os.Handler;
 /* loaded from: classes.dex */
-class a extends h {
-    @Override // com.baidu.adp.lib.util.h
-    public void a(boolean z) {
-        Amrnb.bLoadLibrary = z;
-        if (!Amrnb.bLoadLibrary) {
-            return;
+public class a {
+    private static String mFileName;
+    private static c nU;
+    private static j nV;
+    private static int nT = 0;
+    private static Handler mHandler = new Handler(new b());
+
+    public static boolean a(String str, j jVar, int i) {
+        if (nT == 0) {
+            if (nU == null) {
+                nU = new c(mHandler, i);
+            } else {
+                nU.Q(i);
+            }
+            mFileName = str;
+            nV = jVar;
+            nU.aJ(str);
+            nT = 2;
+            new Thread(nU).start();
+            return true;
         }
-        try {
-            Amrnb.native_init();
-            Amrnb.bLoadLibrary = true;
-        } catch (Throwable th) {
-            Amrnb.bLoadLibrary = false;
-            f.c().a("so", "initAmrnb", "", "", -9104, String.valueOf(th.getClass().getName()) + " " + th.getMessage(), new Object[0]);
+        return false;
+    }
+
+    public static void stop() {
+        if (nU != null) {
+            nU.stop();
+        } else {
+            nT = 0;
         }
     }
 }

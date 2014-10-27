@@ -1,70 +1,71 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-class z implements View.OnClickListener {
-    final /* synthetic */ u a;
+public class z extends com.baidu.adp.base.e {
+    private static final String aEo = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/like";
+    private static TbHttpMessageTask aEp = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, aEo);
+    private n mData;
+    private String mId;
+    private boolean mIsHost;
+    private int mSex;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public z(u uVar) {
-        this.a = uVar;
+    static {
+        aEp.setResponsedClass(PersonBarResponseMessage.class);
+        MessageManager.getInstance().registerTask(aEp);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        int i;
-        int i2;
-        ad adVar;
-        boolean z;
-        ad adVar2;
-        int i3;
-        ForumData forumData;
-        ForumData forumData2;
-        ForumData forumData3;
-        ForumData forumData4;
-        ForumData forumData5;
-        String str;
-        ForumData forumData6;
-        this.a.d = ((Integer) view.getTag()).intValue();
-        i = this.a.d;
-        if (i >= 0) {
-            i2 = this.a.d;
-            adVar = this.a.c;
-            if (i2 < adVar.getCount()) {
-                z = this.a.l;
-                if (!z) {
-                    u uVar = this.a;
-                    adVar2 = this.a.c;
-                    i3 = this.a.d;
-                    uVar.k = (ForumData) adVar2.getItem(i3);
-                    forumData = this.a.k;
-                    if (forumData != null) {
-                        forumData2 = this.a.k;
-                        if (forumData2.getId() != null) {
-                            forumData3 = this.a.k;
-                            if (forumData3.getName() != null) {
-                                u uVar2 = this.a;
-                                forumData4 = this.a.k;
-                                uVar2.e = forumData4.getName();
-                                this.a.l = true;
-                                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_DEL_LIKE_BAR_CMD);
-                                forumData5 = this.a.k;
-                                httpMessage.addParam("fid", forumData5.getId());
-                                str = this.a.e;
-                                httpMessage.addParam("kw", str);
-                                forumData6 = this.a.k;
-                                httpMessage.addParam("favo_type", String.valueOf(forumData6.getFavo_type()));
-                                httpMessage.addParam("tbs", TbadkApplication.m252getInst().getTbs());
-                                this.a.a(httpMessage);
-                            }
-                        }
-                    }
-                }
-            }
+    public z(Context context, boolean z) {
+        super(context);
+        this.mData = new n();
+        this.mIsHost = z;
+    }
+
+    public void setId(String str) {
+        this.mId = str;
+    }
+
+    public String getId() {
+        return this.mId;
+    }
+
+    public void setSex(int i) {
+        this.mSex = i;
+    }
+
+    public n ZQ() {
+        return this.mData;
+    }
+
+    public void ZO() {
+        super.sendMessage(new PersonBarByUidLocalMessage());
+    }
+
+    public void f(boolean z, String str) {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_LIKE_BAR_CMD);
+        if (!z) {
+            httpMessage.addParam(SapiAccountManager.SESSION_UID, TbadkApplication.getCurrentAccount());
+            httpMessage.addParam("friend_uid", str);
+            httpMessage.addParam("is_guest", String.valueOf(1));
+            httpMessage.setExtra(str);
         }
+        super.sendMessage(httpMessage);
+    }
+
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
     }
 }

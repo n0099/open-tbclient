@@ -1,35 +1,34 @@
 package com.baidu.tieba.frs.view;
 
-import android.app.Activity;
-import android.widget.PopupWindow;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
 /* loaded from: classes.dex */
-public class c implements Runnable {
-    final /* synthetic */ FrsHeaderView a;
+class c implements Animation.AnimationListener {
+    private final /* synthetic */ float aEM;
+    final /* synthetic */ b aEN;
+    private final /* synthetic */ View nt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(FrsHeaderView frsHeaderView) {
-        this.a = frsHeaderView;
+    public c(b bVar, float f, View view) {
+        this.aEN = bVar;
+        this.aEM = f;
+        this.nt = view;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        PopupWindow popupWindow;
-        PopupWindow popupWindow2;
-        boolean z;
-        PopupWindow popupWindow3;
-        Activity activity;
-        popupWindow = this.a.A;
-        if (popupWindow != null) {
-            popupWindow2 = this.a.A;
-            if (popupWindow2.isShowing()) {
-                z = this.a.ap;
-                if (!z) {
-                    popupWindow3 = this.a.A;
-                    activity = this.a.E;
-                    com.baidu.adp.lib.e.e.a(popupWindow3, activity);
-                }
-            }
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, this.aEM, 1.0f, 1.0f);
+        scaleAnimation.setFillAfter(true);
+        scaleAnimation.setDuration(300L);
+        this.nt.startAnimation(scaleAnimation);
     }
 }

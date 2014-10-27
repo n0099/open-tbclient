@@ -2,12 +2,12 @@ package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
 public class ac<T> implements t<T> {
     @Override // com.baidu.adp.lib.cache.t
-    public T a(String str) {
+    public T get(String str) {
         return null;
     }
 
     @Override // com.baidu.adp.lib.cache.t
-    public v<T> b(String str) {
+    public v<T> G(String str) {
         return null;
     }
 
@@ -16,11 +16,11 @@ public class ac<T> implements t<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.t
-    public void a(String str, T t) {
+    public void b(String str, T t) {
     }
 
     @Override // com.baidu.adp.lib.cache.t
-    public void c(String str) {
+    public void remove(String str) {
     }
 
     @Override // com.baidu.adp.lib.cache.t
@@ -32,6 +32,10 @@ public class ac<T> implements t<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.t
-    public void d(String str) {
+    public void c(String str, T t) {
+    }
+
+    @Override // com.baidu.adp.lib.cache.t
+    public void H(String str) {
     }
 }

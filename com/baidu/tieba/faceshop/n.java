@@ -5,11 +5,11 @@ import android.widget.TextView;
 import java.util.List;
 /* loaded from: classes.dex */
 class n implements View.OnClickListener {
-    final /* synthetic */ EmotionManageActivity a;
+    final /* synthetic */ EmotionManageActivity asH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(EmotionManageActivity emotionManageActivity) {
-        this.a = emotionManageActivity;
+        this.asH = emotionManageActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,31 +20,31 @@ class n implements View.OnClickListener {
         boolean z;
         r rVar;
         List list;
-        textView = this.a.h;
+        textView = this.asH.asA;
         if (view != textView) {
-            textView2 = this.a.i;
+            textView2 = this.asH.aek;
             if (view != textView2) {
-                textView3 = this.a.m;
+                textView3 = this.asH.asD;
                 if (view == textView3) {
-                    FacePurchaseRecordsActivity.a(this.a, "emotion_manage");
-                    this.a.e();
-                    this.a.a(true);
+                    FacePurchaseRecordsActivity.startActivity(this.asH, "emotion_manage");
+                    this.asH.CL();
+                    this.asH.bC(true);
                     return;
                 }
                 return;
             }
-            z = this.a.p;
+            z = this.asH.asG;
             if (!z) {
-                this.a.d();
+                this.asH.CK();
             } else {
-                this.a.e();
-                list = this.a.b;
+                this.asH.CL();
+                list = this.asH.asv;
                 list.clear();
             }
-            rVar = this.a.o;
+            rVar = this.asH.asF;
             rVar.notifyDataSetChanged();
             return;
         }
-        this.a.g();
+        this.asH.CN();
     }
 }

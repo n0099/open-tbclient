@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements View.OnClickListener {
-    final /* synthetic */ FaceBuyWebViewActivity a;
+    final /* synthetic */ FaceBuyWebViewActivity asZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(FaceBuyWebViewActivity faceBuyWebViewActivity) {
-        this.a = faceBuyWebViewActivity;
+        this.asZ = faceBuyWebViewActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.c();
+        this.asZ.CR();
     }
 }

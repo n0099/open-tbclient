@@ -14,142 +14,147 @@ import com.baidu.tieba.im.chat.TalkableActivity;
 import java.util.List;
 /* loaded from: classes.dex */
 public class OfficialBarMsglistView extends CommonPersonalMsglistView {
-    private TextView l;
-    private LinearLayout m;
-    private ImageView n;
-    private LinearLayout o;
-    private LinearLayout p;
-    private LinearLayout q;
-    private com.baidu.tieba.im.view.n r;
-    private ao[] s;
+    private TextView aOf;
+    private LinearLayout aRE;
+    private ImageView aRF;
+    private LinearLayout aRG;
+    private LinearLayout aRH;
+    private LinearLayout aRI;
+    private com.baidu.tieba.im.view.k aRJ;
+    private ao[] aRK;
 
     public OfficialBarMsglistView(MsglistActivity msglistActivity, boolean z) {
         super(msglistActivity, z);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.g
-    public void a(TalkableActivity talkableActivity, boolean z) {
-        super.a(talkableActivity, z);
-        String string = talkableActivity.getString(com.baidu.tieba.x.msglist_officialInfo);
+    @Override // com.baidu.tieba.im.chat.AbsMsglistView
+    public void initHeader(TalkableActivity talkableActivity, boolean z) {
+        super.initHeader(talkableActivity, z);
+        String string = talkableActivity.getString(com.baidu.tieba.y.msglist_officialInfo);
         if (string != null) {
-            this.b = this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.v.group_info_btn, talkableActivity);
-            this.l = (TextView) this.b.findViewById(com.baidu.tieba.u.group_info_btn_txt);
-            this.l.setText(string);
+            this.mBtnGroupInfo = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.group_info_btn, talkableActivity);
+            this.aOf = (TextView) this.mBtnGroupInfo.findViewById(com.baidu.tieba.v.group_info_btn_txt);
+            this.aOf.setText(string);
         }
-        this.m = (LinearLayout) ((ViewStub) talkableActivity.findViewById(com.baidu.tieba.u.official_bar_memu_toggle_stub)).inflate();
-        this.n = (ImageView) this.m.findViewById(com.baidu.tieba.u.official_bar_toggle_button);
-        this.n.setVisibility(0);
-        this.o = (LinearLayout) ((ViewStub) talkableActivity.findViewById(com.baidu.tieba.u.official_bar_memu_stub)).inflate();
-        this.o.setVisibility(0);
-        this.s = new ao[3];
+        this.aRE = (LinearLayout) ((ViewStub) talkableActivity.findViewById(com.baidu.tieba.v.official_bar_memu_toggle_stub)).inflate();
+        this.aRF = (ImageView) this.aRE.findViewById(com.baidu.tieba.v.official_bar_toggle_button);
+        this.aRF.setVisibility(0);
+        this.aRG = (LinearLayout) ((ViewStub) talkableActivity.findViewById(com.baidu.tieba.v.official_bar_memu_stub)).inflate();
+        this.aRG.setVisibility(0);
+        this.aRK = new ao[3];
         ao aoVar = new ao();
-        aoVar.a = false;
-        aoVar.b = (LinearLayout) this.o.findViewById(com.baidu.tieba.u.menu_frist);
-        aoVar.c = (TextView) this.o.findViewById(com.baidu.tieba.u.menu_frist_text);
-        aoVar.d = (ImageView) this.o.findViewById(com.baidu.tieba.u.menu_frist_tip);
-        this.s[0] = aoVar;
+        aoVar.aRO = false;
+        aoVar.aRP = (LinearLayout) this.aRG.findViewById(com.baidu.tieba.v.menu_frist);
+        aoVar.aRQ = (TextView) this.aRG.findViewById(com.baidu.tieba.v.menu_frist_text);
+        aoVar.aRR = (ImageView) this.aRG.findViewById(com.baidu.tieba.v.menu_frist_tip);
+        this.aRK[0] = aoVar;
         ao aoVar2 = new ao();
-        aoVar2.a = false;
-        aoVar2.b = (LinearLayout) this.o.findViewById(com.baidu.tieba.u.menu_second);
-        aoVar2.c = (TextView) this.o.findViewById(com.baidu.tieba.u.menu_second_text);
-        aoVar2.d = (ImageView) this.o.findViewById(com.baidu.tieba.u.menu_second_tip);
-        this.s[1] = aoVar2;
+        aoVar2.aRO = false;
+        aoVar2.aRP = (LinearLayout) this.aRG.findViewById(com.baidu.tieba.v.menu_second);
+        aoVar2.aRQ = (TextView) this.aRG.findViewById(com.baidu.tieba.v.menu_second_text);
+        aoVar2.aRR = (ImageView) this.aRG.findViewById(com.baidu.tieba.v.menu_second_tip);
+        this.aRK[1] = aoVar2;
         ao aoVar3 = new ao();
-        aoVar3.a = false;
-        aoVar3.b = (LinearLayout) this.o.findViewById(com.baidu.tieba.u.menu_third);
-        aoVar3.c = (TextView) this.o.findViewById(com.baidu.tieba.u.menu_third_text);
-        aoVar3.d = (ImageView) this.o.findViewById(com.baidu.tieba.u.menu_third_tip);
-        this.s[2] = aoVar3;
+        aoVar3.aRO = false;
+        aoVar3.aRP = (LinearLayout) this.aRG.findViewById(com.baidu.tieba.v.menu_third);
+        aoVar3.aRQ = (TextView) this.aRG.findViewById(com.baidu.tieba.v.menu_third_text);
+        aoVar3.aRR = (ImageView) this.aRG.findViewById(com.baidu.tieba.v.menu_third_tip);
+        this.aRK[2] = aoVar3;
         for (int i = 0; i < 3; i++) {
-            this.s[i].b.setOnClickListener(talkableActivity);
+            this.aRK[i].aRP.setOnClickListener(talkableActivity);
         }
-        this.p = (LinearLayout) ((ViewStub) talkableActivity.findViewById(com.baidu.tieba.u.official_bar_memu_down_line)).inflate();
-        this.p.setVisibility(0);
-        this.q = (LinearLayout) ((ViewStub) talkableActivity.findViewById(com.baidu.tieba.u.official_bar_menu_loading)).inflate();
-        this.q.setVisibility(8);
-        this.g.setVisibility(8);
-        this.n.setOnClickListener(talkableActivity);
+        this.aRH = (LinearLayout) ((ViewStub) talkableActivity.findViewById(com.baidu.tieba.v.official_bar_memu_down_line)).inflate();
+        this.aRH.setVisibility(0);
+        this.aRI = (LinearLayout) ((ViewStub) talkableActivity.findViewById(com.baidu.tieba.v.official_bar_menu_loading)).inflate();
+        this.aRI.setVisibility(8);
+        this.mInputControl.setVisibility(8);
+        this.aRF.setOnClickListener(talkableActivity);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.g
-    public void a(MsglistActivity msglistActivity) {
-        super.a(msglistActivity);
-        this.r = new com.baidu.tieba.im.view.n(msglistActivity);
-        o().addView(this.r);
-        this.r.setVisibility(8);
-        this.r.setOnItemClickListener((OfficialBarChatActivity) msglistActivity);
+    @Override // com.baidu.tieba.im.chat.AbsMsglistView
+    public void initMsglist(MsglistActivity msglistActivity) {
+        super.initMsglist(msglistActivity);
+        this.aRJ = new com.baidu.tieba.im.view.k(msglistActivity);
+        getListMain().addView(this.aRJ);
+        this.aRJ.setVisibility(8);
+        this.aRJ.setOnItemClickListener((OfficialBarChatActivity) msglistActivity);
     }
 
-    public com.baidu.tieba.im.view.n S() {
-        return this.r;
+    public com.baidu.tieba.im.view.k Kv() {
+        return this.aRJ;
     }
 
-    public void c(boolean z) {
+    public void cI(boolean z) {
         if (z) {
-            this.m.setVisibility(8);
-            this.o.setVisibility(8);
-            this.g.setVisibility(0);
-            this.p.setVisibility(8);
+            this.aRE.setVisibility(8);
+            this.aRG.setVisibility(8);
+            this.mInputControl.setVisibility(0);
+            this.aRH.setVisibility(8);
             return;
         }
-        this.m.setVisibility(0);
-        this.o.setVisibility(0);
-        this.g.setVisibility(8);
-        this.p.setVisibility(0);
+        this.aRE.setVisibility(0);
+        this.aRG.setVisibility(0);
+        this.mInputControl.setVisibility(8);
+        this.aRH.setVisibility(0);
     }
 
-    public ao[] T() {
-        return this.s;
+    public ao[] Kw() {
+        return this.aRK;
     }
 
-    public void a(List<com.baidu.tieba.im.data.l> list) {
+    public void P(List<com.baidu.tieba.im.data.f> list) {
         if (list != null && list.size() == 3) {
             for (int i = 0; i < 3; i++) {
-                com.baidu.tieba.im.data.l lVar = list.get(i);
-                this.s[i].c.setText(lVar.b());
-                if (lVar.c() != 0) {
-                    this.s[i].d.setVisibility(8);
+                com.baidu.tieba.im.data.f fVar = list.get(i);
+                this.aRK[i].aRQ.setText(fVar.getName());
+                if (fVar.Mo() != 0) {
+                    this.aRK[i].aRR.setVisibility(8);
                 }
             }
         }
     }
 
-    public void d(boolean z) {
-        this.q.setVisibility(z ? 0 : 8);
+    public void cJ(boolean z) {
+        this.aRI.setVisibility(z ? 0 : 8);
     }
 
-    public void e(boolean z) {
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.f, com.baidu.tieba.o.parent_menu_up);
-        Animation loadAnimation2 = AnimationUtils.loadAnimation(this.f, com.baidu.tieba.o.parent_menu_down);
+    public void cK(boolean z) {
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, com.baidu.tieba.p.parent_menu_up);
+        Animation loadAnimation2 = AnimationUtils.loadAnimation(this.mContext, com.baidu.tieba.p.parent_menu_down);
         loadAnimation2.setAnimationListener(new an(this, z, loadAnimation));
-        f();
-        if (z()) {
-            A();
+        sendmsgCloseSoftkey();
+        if (isMoreVisible()) {
+            hideMore();
         }
-        e().startAnimation(loadAnimation2);
+        getLayoutBottom().startAnimation(loadAnimation2);
     }
 
-    public void a(int i, boolean z) {
-        ao aoVar = this.s[i];
+    public void q(int i, boolean z) {
+        ao aoVar = this.aRK[i];
         if (z) {
-            aoVar.d.setImageResource(com.baidu.tieba.t.icon_bottombar_arrow_s);
+            aoVar.aRR.setImageResource(com.baidu.tieba.u.icon_bottombar_arrow_s);
         } else {
-            aoVar.d.setImageResource(com.baidu.tieba.t.icon_bottombar_arrow_n);
+            aoVar.aRR.setImageResource(com.baidu.tieba.u.icon_bottombar_arrow_n);
         }
     }
 
-    public int a(View view) {
+    public int L(View view) {
         for (int i = 0; i < 3; i++) {
-            if (view == this.s[i].b) {
+            if (view == this.aRK[i].aRP) {
                 return i;
             }
         }
         return 0;
     }
 
-    public ImageView U() {
-        return this.n;
+    public ImageView Kx() {
+        return this.aRF;
+    }
+
+    @Override // com.baidu.tieba.im.chat.AbsMsglistView
+    protected boolean isPersonal() {
+        return false;
     }
 }

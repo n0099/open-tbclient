@@ -1,21 +1,21 @@
 package com.baidu.tbadk.imageManager;
 /* loaded from: classes.dex */
 public class c {
-    private int a;
-    private int b;
+    private int mHeight;
+    private int mWidth;
 
     public c(int i, int i2) {
-        this.a = 0;
-        this.b = 0;
-        this.a = i;
-        this.b = i2;
+        this.mWidth = 0;
+        this.mHeight = 0;
+        this.mWidth = i;
+        this.mHeight = i2;
     }
 
-    public int a() {
-        return this.a;
+    public int getWidth() {
+        return this.mWidth;
     }
 
-    public int b() {
-        return this.b;
+    public int getHeight() {
+        return this.mHeight;
     }
 }

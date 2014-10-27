@@ -1,20 +1,53 @@
 package com.baidu.tieba.more;
 
-import android.view.View;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tieba.person.ProfileHttpResponseMessage;
+import com.baidu.tieba.person.ProfileSocketResponseMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad implements View.OnClickListener {
-    final /* synthetic */ ac a;
+public class ad extends com.baidu.adp.framework.listener.a {
+    final /* synthetic */ ac bqY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(ac acVar) {
-        this.a = acVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ad(ac acVar, int i, int i2) {
+        super(i, i2);
+        this.bqY = acVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        r rVar;
-        rVar = this.a.b;
-        rVar.a(11);
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        com.baidu.tieba.b.a aVar;
+        com.baidu.tieba.b.a aVar2;
+        com.baidu.tieba.b.a aVar3;
+        com.baidu.tieba.b.a aVar4;
+        if ((responsedMessage instanceof ProfileSocketResponseMessage) || (responsedMessage instanceof ProfileHttpResponseMessage)) {
+            if (responsedMessage.getOrginalMessage() == null || this.bqY.getUniqueId() == null || this.bqY.getUniqueId() == responsedMessage.getOrginalMessage().getTag()) {
+                if (responsedMessage instanceof ProfileSocketResponseMessage) {
+                    ProfileSocketResponseMessage profileSocketResponseMessage = (ProfileSocketResponseMessage) responsedMessage;
+                    aVar3 = this.bqY.aAE;
+                    if (aVar3 != null) {
+                        long downSize = profileSocketResponseMessage.getDownSize();
+                        long costTime = profileSocketResponseMessage.getCostTime();
+                        aVar4 = this.bqY.aAE;
+                        aVar4.a(false, !responsedMessage.hasError(), profileSocketResponseMessage.getError(), profileSocketResponseMessage.getErrorString(), downSize, 0L, costTime);
+                        this.bqY.aAE = null;
+                    }
+                    this.bqY.a(profileSocketResponseMessage);
+                }
+                if (responsedMessage instanceof ProfileHttpResponseMessage) {
+                    ProfileHttpResponseMessage profileHttpResponseMessage = (ProfileHttpResponseMessage) responsedMessage;
+                    aVar = this.bqY.aAE;
+                    if (aVar != null) {
+                        long downSize2 = profileHttpResponseMessage.getDownSize();
+                        long costTime2 = profileHttpResponseMessage.getCostTime();
+                        aVar2 = this.bqY.aAE;
+                        aVar2.a(true, !responsedMessage.hasError(), profileHttpResponseMessage.getError(), profileHttpResponseMessage.getErrorString(), downSize2, costTime2, 0L);
+                        this.bqY.aAE = null;
+                    }
+                    this.bqY.a(profileHttpResponseMessage);
+                }
+            }
+        }
     }
 }

@@ -15,7 +15,7 @@ public class c extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        this.this$0.b.unregisterReceiver(this);
-        com.baidu.adp.lib.debug.d.c(String.valueOf(intent.getIntExtra("level", 0)) + "%");
+        this.this$0.mContext.unregisterReceiver(this);
+        com.baidu.adp.lib.debug.d.N(String.valueOf(intent.getIntExtra("level", 0)) + "%");
     }
 }

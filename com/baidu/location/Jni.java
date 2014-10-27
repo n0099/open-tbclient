@@ -46,7 +46,7 @@ public class Jni {
     private static native String b(double d, double d2, int i, int i2);
 
     /* renamed from: if  reason: not valid java name */
-    public static String m4if(String str) {
+    public static String m3if(String str) {
         if (f26new) {
             return "err!";
         }
@@ -68,7 +68,7 @@ public class Jni {
     }
 
     /* renamed from: if  reason: not valid java name */
-    public static double[] m5if(double d, double d2, String str) {
+    public static double[] m4if(double d, double d2, String str) {
         double[] dArr = {0.0d, 0.0d};
         if (f26new) {
             return dArr;

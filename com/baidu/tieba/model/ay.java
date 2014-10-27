@@ -1,20 +1,19 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbConfig;
+import android.content.Context;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.message.ResponseReportUserInfoMessage;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class ay extends com.baidu.adp.base.e {
-    private ba a;
-    private final HttpMessageListener b = new az(this, CmdConfigHttp.REPORT_USER_INFO);
+    private az bpF;
+    private String mForumId;
+    private String mForumName;
 
-    public void a(ba baVar) {
-        this.a = baVar;
+    public ay(Context context) {
+        super(context);
+        this.mForumName = null;
+        this.mForumId = null;
+        this.bpF = null;
     }
 
     @Override // com.baidu.adp.base.e
@@ -27,31 +26,21 @@ public class ay extends com.baidu.adp.base.e {
         return false;
     }
 
-    public boolean a() {
-        return Math.abs(System.currentTimeMillis() - TbadkApplication.m252getInst().getReporyUserInfoLastTime()) >= 14400000;
+    public void TF() {
+        if (this.bpF != null) {
+            this.bpF.cancel();
+            this.bpF = null;
+        }
     }
 
-    public void b() {
-        TbadkApplication.m252getInst().setReporyUserInfoCurrentTime();
-    }
-
-    public void c() {
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.REPORT_USER_INFO, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/user/report");
-        tbHttpMessageTask.setResponsedClass(ResponseReportUserInfoMessage.class);
-        messageManager.registerTask(tbHttpMessageTask);
-        messageManager.registerListener(this.b);
-    }
-
-    public void a(int i, float f, float f2) {
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.REPORT_USER_INFO);
-        httpMessage.addParam("type", String.valueOf(i));
-        httpMessage.addParam("lng", String.valueOf(f));
-        httpMessage.addParam("lat", String.valueOf(f2));
-        MessageManager.getInstance().sendMessage(httpMessage);
-    }
-
-    public void d() {
-        MessageManager.getInstance().unRegisterListener(this.b);
+    public void az(String str, String str2) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.bpF == null) {
+            this.mForumName = str;
+            this.mForumId = str2;
+            this.bpF = new az(this, null);
+            this.bpF.setPriority(2);
+            this.bpF.execute(new Object[0]);
+            TiebaStatic.eventStat(TbadkApplication.m251getInst().getApplicationContext(), "sign_start_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
+        }
     }
 }

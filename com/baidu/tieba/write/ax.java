@@ -1,27 +1,27 @@
 package com.baidu.tieba.write;
 
-import android.text.style.ImageSpan;
+import android.text.Editable;
+import android.text.TextWatcher;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ax implements com.baidu.tbadk.imageManager.a {
-    final /* synthetic */ WriteActivity a;
+public class ax implements TextWatcher {
+    final /* synthetic */ WriteActivity bTX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(WriteActivity writeActivity) {
-        this.a = writeActivity;
+        this.bTX = writeActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.a
-    public ImageSpan a(String str) {
-        com.baidu.adp.widget.a.a b = com.baidu.tbadk.editortool.aa.a().b(str);
-        if (b == null) {
-            b = com.baidu.tbadk.editortool.aa.a().a((String) null, str);
-        }
-        if (b == null) {
-            return null;
-        }
-        com.baidu.tieba.view.v vVar = new com.baidu.tieba.view.v(b.h());
-        vVar.setBounds(0, 0, b.c() + 1, b.d());
-        vVar.setGravity(3);
-        return new ImageSpan(vVar, 0);
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        this.bTX.aci();
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 }

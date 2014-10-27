@@ -6,67 +6,67 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class o extends DiskFileOperate {
-    protected Bitmap g;
-    protected BitmapFactory.Options h;
-    protected p i;
+    protected p Dn;
+    protected BitmapFactory.Options ea;
+    protected Bitmap mBitmap;
 
     public o(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.i = new p();
+        this.mBitmap = null;
+        this.ea = null;
+        this.Dn = null;
+        this.Dn = new p();
     }
 
-    public boolean v() {
-        return this.i.a;
+    public boolean bM() {
+        return this.Dn.ee;
     }
 
-    public void f(boolean z) {
-        this.i.a = z;
+    public void n(boolean z) {
+        this.Dn.ee = z;
     }
 
-    public Bitmap w() {
-        return this.g;
+    public Bitmap getBitmap() {
+        return this.mBitmap;
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public void a(byte[] bArr) {
-        super.a(bArr);
-        if (!v() && com.baidu.adp.lib.util.j.a(bArr)) {
-            f(true);
+    public void setData(byte[] bArr) {
+        super.setData(bArr);
+        if (!bM() && com.baidu.adp.lib.util.m.l(bArr)) {
+            n(true);
         }
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public byte[] f() {
-        if (this.c == null) {
+    public byte[] by() {
+        if (this.dL == null) {
             return null;
         }
-        return this.i.b();
+        return this.Dn.toByteArray();
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public boolean b(byte[] bArr) {
+    public boolean i(byte[] bArr) {
         if (bArr == null) {
             return false;
         }
-        if (this.h == null) {
-            this.h = new BitmapFactory.Options();
-            this.h.inPreferredConfig = Bitmap.Config.RGB_565;
+        if (this.ea == null) {
+            this.ea = new BitmapFactory.Options();
+            this.ea.inPreferredConfig = Bitmap.Config.RGB_565;
         }
-        boolean a = this.i.a(bArr);
-        if (this.i.b == 0 || this.i.b >= System.currentTimeMillis()) {
-            int a2 = p.a();
-            if (!a) {
-                a2 = 0;
+        boolean j = this.Dn.j(bArr);
+        if (this.Dn.ef == 0 || this.Dn.ef >= System.currentTimeMillis()) {
+            int bP = p.bP();
+            if (!j) {
+                bP = 0;
             }
             try {
-                this.g = BitmapFactory.decodeByteArray(bArr, a2, bArr.length - a2, this.h);
+                this.mBitmap = BitmapFactory.decodeByteArray(bArr, bP, bArr.length - bP, this.ea);
             } catch (Error e) {
                 BdLog.e(e.getMessage());
             }
-            return this.g != null;
+            return this.mBitmap != null;
         }
         return false;
     }

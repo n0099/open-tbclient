@@ -6,4 +6,8 @@ public abstract class HttpMessageListener extends MessageListener<HttpResponsedM
     public HttpMessageListener(int i) {
         super(i);
     }
+
+    public HttpMessageListener(int i, boolean z) {
+        super(i, z);
+    }
 }

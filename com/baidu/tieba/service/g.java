@@ -1,96 +1,71 @@
 package com.baidu.tieba.service;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.io.File;
-import java.io.FileWriter;
+import android.os.Handler;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-class g implements Runnable {
-    final /* synthetic */ PerformMonitorService a;
+public class g {
+    private static g bIK = null;
+    private HttpMessageListener bIL = new h(this, CmdConfigHttp.MSG_REMINDER_CMD);
+    private long bIw = 0;
+    private final Handler mHandler = new i(this);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g(PerformMonitorService performMonitorService) {
-        this.a = performMonitorService;
+    static {
+        MessageManager messageManager = MessageManager.getInstance();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_REMINDER_CMD, TbConfig.SERVER_ADDRESS + "c/s/msg");
+        tbHttpMessageTask.setResponsedClass(MsgReminderHttpRespMessage.class);
+        messageManager.registerTask(tbHttpMessageTask);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x0002 */
-    /* JADX WARN: Incorrect condition in loop: B:13:0x003a */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v18, types: [android.os.Handler] */
-    /* JADX WARN: Type inference failed for: r1v12, types: [com.baidu.tieba.service.h, java.lang.Runnable] */
-    @Override // java.lang.Runnable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void run() {
-        boolean z;
-        ?? r0;
-        int i = 0;
-        FileWriter fileWriter = null;
-        fileWriter = null;
-        try {
-            File g = com.baidu.tbadk.core.util.s.g("performance_sample.log");
-            if (g == null || g.length() > 51200) {
-                this.a.monitorOff();
-            } else {
-                FileWriter fileWriter2 = new FileWriter(g, true);
-                try {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    int i2 = 0;
-                    int i3 = Integer.MIN_VALUE;
-                    int i4 = Integer.MAX_VALUE;
-                    while (z && i < 10) {
-                        Thread.sleep(1000L);
-                        int i5 = i + 1;
-                        int a = com.baidu.adp.lib.debug.d.a();
-                        if (a > 0) {
-                            i2 += a;
-                            if (i4 >= a) {
-                                i4 = a;
-                            }
-                            if (i3 > a) {
-                                a = i4;
-                            }
-                            i3 = a;
-                            i = i5;
-                        } else {
-                            i = i5;
-                        }
-                    }
-                    String c = com.baidu.adp.lib.debug.d.c();
-                    String b = com.baidu.adp.lib.debug.d.b();
-                    int d = com.baidu.adp.lib.debug.d.d();
-                    if (i > 0) {
-                        fileWriter2.append((CharSequence) ("fps_min=" + i4 + "\nfps_max=" + i3 + "\nfps_aver=" + (i2 / i) + "\n"));
-                    }
-                    long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                    if (c != null) {
-                        fileWriter2.append((CharSequence) ("cpu=" + c.replace("%", "") + "\n"));
-                    }
-                    if (b != null) {
-                        fileWriter2.append((CharSequence) ("mem=" + b.replace("kb", "") + "\n"));
-                    }
-                    fileWriter2.append((CharSequence) ("gc:time=" + String.valueOf(currentTimeMillis2) + "\ngc=" + d + "\n"));
-                    fileWriter2.flush();
-                    fileWriter2.close();
-                    r0 = this.a.mHandler;
-                    ?? hVar = new h(this);
-                    r0.post(hVar);
-                    fileWriter = hVar;
-                } catch (Throwable th) {
-                    th = th;
-                    fileWriter = fileWriter2;
-                    if (fileWriter != null) {
-                        try {
-                            fileWriter.close();
-                        } catch (Exception e) {
-                            BdLog.e(th.toString());
-                        }
-                    }
-                    this.a.stopSelf();
-                }
+    public static synchronized g abQ() {
+        g gVar;
+        synchronized (g.class) {
+            if (bIK == null) {
+                bIK = new g();
             }
-        } catch (Throwable th2) {
-            th = th2;
+            gVar = bIK;
         }
+        return gVar;
+    }
+
+    public g() {
+        MessageManager.getInstance().registerListener(this.bIL);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void abR() {
+        MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.MSG_REMINDER_CMD));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean fh() {
+        return UtilHelper.getNetStatusInfo(TbadkApplication.m251getInst().getApp().getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL;
+    }
+
+    public void abN() {
+        this.bIw = 0L;
+        destroy();
+        start();
+    }
+
+    public void start() {
+        long currentTimeMillis = System.currentTimeMillis() - this.bIw;
+        long j = currentTimeMillis > 0 ? currentTimeMillis : 0L;
+        if (j >= 600000) {
+            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 10000L);
+        } else {
+            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 600000 - j);
+        }
+        this.bIw = System.currentTimeMillis();
+    }
+
+    public void destroy() {
+        this.mHandler.removeMessages(1);
     }
 }

@@ -1,40 +1,40 @@
 package com.baidu.tieba.im.data;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.util.a {
-    private int a;
-    private String b;
-    private String c;
+    private String aUM;
+    private int userId;
+    private String userName;
 
     @Override // com.baidu.tbadk.core.util.a
-    public LinkedList<String> getPhotoUrl() {
-        LinkedList<String> linkedList = new LinkedList<>();
-        linkedList.add(c());
-        return linkedList;
+    public ArrayList<String> getPhotoUrl() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add(Mi());
+        return arrayList;
     }
 
-    public int a() {
-        return this.a;
+    public int getUserId() {
+        return this.userId;
     }
 
-    public void a(int i) {
-        this.a = i;
+    public void setUserId(int i) {
+        this.userId = i;
     }
 
-    public String b() {
-        return this.b;
+    public String getUserName() {
+        return this.userName;
     }
 
-    public void a(String str) {
-        this.b = str;
+    public void setUserName(String str) {
+        this.userName = str;
     }
 
-    public String c() {
-        return this.c;
+    public String Mi() {
+        return this.aUM;
     }
 
-    public void b(String str) {
-        this.c = str;
+    public void fR(String str) {
+        this.aUM = str;
     }
 }

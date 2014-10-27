@@ -1,8 +1,6 @@
 package protobuf;
 
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
@@ -26,7 +24,7 @@ public final class GroupInfo extends Message {
     public final String album;
     @ProtoField(tag = DealIntentService.CLASS_TYPE_GROUP_EVENT, type = Message.Datatype.INT32)
     public final Integer authorId;
-    @ProtoField(tag = SapiAccountManager.VERSION_CODE, type = Message.Datatype.INT32)
+    @ProtoField(tag = 29, type = Message.Datatype.INT32)
     public final Integer authorIsMeizhi;
     @ProtoField(tag = 15, type = Message.Datatype.STRING)
     public final String authorName;
@@ -36,13 +34,13 @@ public final class GroupInfo extends Message {
     public final String business;
     @ProtoField(tag = 17, type = Message.Datatype.INT32)
     public final Integer createTime;
-    @ProtoField(tag = DealIntentService.CLASS_TYPE_NATIVE_PAY, type = Message.Datatype.INT32)
+    @ProtoField(tag = 23, type = Message.Datatype.INT32)
     public final Integer distance;
     @ProtoField(tag = 13, type = Message.Datatype.INT32)
     public final Integer flag;
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
     public final Integer forumId;
-    @ProtoField(tag = 25, type = Message.Datatype.STRING)
+    @ProtoField(tag = DealIntentService.CLASS_TYPE_NATIVE_BUY_TBEAN, type = Message.Datatype.STRING)
     public final String forumName;
     @ProtoField(tag = 31, type = Message.Datatype.STRING)
     public final String forumShowName;
@@ -56,7 +54,7 @@ public final class GroupInfo extends Message {
     public final String intro;
     @ProtoField(tag = 28, type = Message.Datatype.INT32)
     public final Integer isGroupManager;
-    @ProtoField(tag = 24, type = Message.Datatype.INT32)
+    @ProtoField(tag = DealIntentService.CLASS_TYPE_GIFT_INFO, type = Message.Datatype.INT32)
     public final Integer isHidePosition;
     @ProtoField(tag = 34, type = Message.Datatype.INT32)
     public final Integer isMemberGroup;
@@ -66,7 +64,7 @@ public final class GroupInfo extends Message {
     public final Integer isRecentlyReply;
     @ProtoField(tag = 21, type = Message.Datatype.INT64)
     public final Long lastMsgId;
-    @ProtoField(tag = TbConfig.MAX_PRELOAD_PHOTO_NUM, type = Message.Datatype.INT32)
+    @ProtoField(tag = 30, type = Message.Datatype.INT32)
     public final Integer lastMsgTime;
     @ProtoField(tag = 9, type = Message.Datatype.DOUBLE)
     public final Double lat;

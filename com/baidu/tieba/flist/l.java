@@ -1,61 +1,61 @@
 package com.baidu.tieba.flist;
 
-import com.baidu.tieba.ai;
+import com.baidu.tieba.aj;
 import com.baidu.tieba.data.ForumInfoData;
-import com.baidu.tieba.model.af;
+import com.baidu.tieba.model.ag;
 /* loaded from: classes.dex */
 class l extends com.baidu.adp.base.h {
-    final /* synthetic */ ForumListActivity a;
-    private final /* synthetic */ ForumInfoData[] b;
+    final /* synthetic */ ForumListActivity avP;
+    private final /* synthetic */ ForumInfoData[] avQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(ForumListActivity forumListActivity, ForumInfoData[] forumInfoDataArr) {
-        this.a = forumListActivity;
-        this.b = forumInfoDataArr;
+        this.avP = forumListActivity;
+        this.avQ = forumInfoDataArr;
     }
 
     @Override // com.baidu.adp.base.h
     public void a(Object obj) {
-        af afVar;
-        af afVar2;
+        ag agVar;
+        ag agVar2;
         int i;
         int i2;
         p pVar;
         p pVar2;
         p pVar3;
         p pVar4;
-        af afVar3;
-        afVar = this.a.p;
-        if (afVar.getErrorCode() == 22) {
-            this.a.showToast(this.a.getString(com.baidu.tieba.x.had_liked_forum));
+        ag agVar3;
+        agVar = this.avP.avr;
+        if (agVar.getErrorCode() == 22) {
+            this.avP.showToast(this.avP.getString(com.baidu.tieba.y.had_liked_forum));
         } else if (obj != null) {
-            afVar2 = this.a.p;
-            if (afVar2.getErrorCode() != 0) {
-                ForumListActivity forumListActivity = this.a;
-                afVar3 = this.a.p;
-                forumListActivity.showToast(afVar3.getErrorString());
-            } else if (((com.baidu.tieba.data.ab) obj).c() == 1) {
-                this.a.showToast(this.a.getString(com.baidu.tieba.x.like_success));
-                i = this.a.o;
+            agVar2 = this.avP.avr;
+            if (agVar2.getErrorCode() != 0) {
+                ForumListActivity forumListActivity = this.avP;
+                agVar3 = this.avP.avr;
+                forumListActivity.showToast(agVar3.getErrorString());
+            } else if (((com.baidu.tieba.data.aa) obj).isLike() == 1) {
+                this.avP.showToast(this.avP.getString(com.baidu.tieba.y.like_success));
+                i = this.avP.avq;
                 if (i != 0) {
-                    i2 = this.a.o;
+                    i2 = this.avP.avq;
                     if (i2 == 1) {
-                        pVar = this.a.B;
+                        pVar = this.avP.avD;
                         pVar.notifyDataSetChanged();
-                        ai c = ai.c();
-                        ForumInfoData[] forumInfoDataArr = this.b;
-                        pVar2 = this.a.B;
-                        c.d(forumInfoDataArr[pVar2.a].forum_name);
+                        aj wk = aj.wk();
+                        ForumInfoData[] forumInfoDataArr = this.avQ;
+                        pVar2 = this.avP.avD;
+                        wk.dW(forumInfoDataArr[pVar2.avS].forum_name);
                         return;
                     }
                     return;
                 }
-                pVar3 = this.a.A;
+                pVar3 = this.avP.avC;
                 pVar3.notifyDataSetChanged();
-                ai c2 = ai.c();
-                ForumInfoData[] forumInfoDataArr2 = this.b;
-                pVar4 = this.a.A;
-                c2.d(forumInfoDataArr2[pVar4.a].forum_name);
+                aj wk2 = aj.wk();
+                ForumInfoData[] forumInfoDataArr2 = this.avQ;
+                pVar4 = this.avP.avC;
+                wk2.dW(forumInfoDataArr2[pVar4.avS].forum_name);
             }
         }
     }

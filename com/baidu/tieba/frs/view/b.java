@@ -1,46 +1,38 @@
 package com.baidu.tieba.frs.view;
 
-import android.app.Activity;
+import android.content.Context;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
-import com.baidu.tieba.frs.bv;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b {
-    private View a;
-    private GoodGridView b;
-    private ImageView c;
+public class b implements Animation.AnimationListener {
+    final /* synthetic */ a aEL;
+    private final /* synthetic */ float aEM;
+    private final /* synthetic */ View nt;
+    private final /* synthetic */ Context val$context;
 
-    public b(Activity activity) {
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.a = com.baidu.adp.lib.e.b.a().a(activity, com.baidu.tieba.v.dialog_good, null);
-        this.b = (GoodGridView) this.a.findViewById(com.baidu.tieba.u.good_gridview);
-        this.c = (ImageView) this.a.findViewById(com.baidu.tieba.u.divider_line);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public b(a aVar, Context context, View view, float f) {
+        this.aEL = aVar;
+        this.val$context = context;
+        this.nt = view;
+        this.aEM = f;
     }
 
-    public void a(bv bvVar) {
-        this.b.setAdapter((ListAdapter) bvVar);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
     }
 
-    public void a(AdapterView.OnItemClickListener onItemClickListener) {
-        this.b.setOnItemClickListener(onItemClickListener);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 
-    public View a() {
-        return this.a;
-    }
-
-    public void a(int i) {
-        if (i == 1) {
-            this.b.setBackgroundResource(com.baidu.tieba.r.frs_goodheader_bg_1);
-            this.c.setBackgroundResource(com.baidu.tieba.r.frs_goodheader_line_end_1);
-            return;
-        }
-        this.b.setBackgroundDrawable(null);
-        this.b.setBackgroundColor(-1);
-        this.c.setBackgroundResource(com.baidu.tieba.r.frs_goodheader_line_end);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 0.0f, 1.0f, 1.0f);
+        scaleAnimation.setFillAfter(true);
+        scaleAnimation.setDuration(300L);
+        com.baidu.tbadk.core.a.a(this.val$context, this.nt, scaleAnimation, new c(this, this.aEM, this.nt));
     }
 }

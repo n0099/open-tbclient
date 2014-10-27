@@ -3,7 +3,7 @@ package com.baidu.tieba.service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tieba.ai;
+import com.baidu.tieba.aj;
 import com.baidu.tieba.game.GameInstallReceiver;
 /* loaded from: classes.dex */
 public class InstallReceiver extends BroadcastReceiver {
@@ -14,10 +14,10 @@ public class InstallReceiver extends BroadcastReceiver {
             if (intent.getAction().equals(GameInstallReceiver.ACTION_INSTALL)) {
                 String dataString2 = intent.getDataString();
                 if (dataString2 != null && dataString2.equals("package:com.baidu.tieba")) {
-                    ai.c().r(true);
+                    aj.wk().bd(true);
                 }
             } else if (intent.getAction().equals("android.intent.action.PACKAGE_REMOVED") && (dataString = intent.getDataString()) != null && dataString.equals("package:com.baidu.tieba")) {
-                ai.c().r(false);
+                aj.wk().bd(false);
             }
         }
     }

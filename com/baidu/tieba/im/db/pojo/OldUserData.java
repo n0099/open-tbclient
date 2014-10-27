@@ -1,11 +1,12 @@
 package com.baidu.tieba.im.db.pojo;
 
-import com.baidu.adp.lib.util.i;
+import com.baidu.adp.lib.a.b.a.a.i;
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.a;
 import com.baidu.tbadk.data.IconData;
 import java.io.Serializable;
-import java.util.LinkedList;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class OldUserData extends a implements Serializable {
     private static final long serialVersionUID = -4483304441506804594L;
@@ -15,7 +16,7 @@ public class OldUserData extends a implements Serializable {
     private String lat;
     private String lng;
     private long loginTime;
-    private LinkedList<IconData> mTShowIconInfo;
+    private ArrayList<IconData> mTShowIconInfo;
     private String name;
     private Permission permission;
     private String portrait;
@@ -27,7 +28,7 @@ public class OldUserData extends a implements Serializable {
     public void setToUserData(UserData userData) {
         if (userData != null) {
             userData.setUserIdLong(Math.max(this.id, this.userId));
-            userData.setUserName((i.c(this.userName) || "null".equalsIgnoreCase(this.userName)) ? this.name : this.userName);
+            userData.setUserName((l.aA(this.userName) || "null".equalsIgnoreCase(this.userName)) ? this.name : this.userName);
             userData.setPortrait(this.portrait);
             userData.setSex(this.sex);
             userData.setPosition(this.position);
@@ -40,11 +41,11 @@ public class OldUserData extends a implements Serializable {
         }
     }
 
-    public void setTShowInfo(LinkedList<IconData> linkedList) {
-        this.mTShowIconInfo = linkedList;
+    public void setTShowInfo(ArrayList<IconData> arrayList) {
+        this.mTShowIconInfo = arrayList;
     }
 
-    public LinkedList<IconData> getTShowInfo() {
+    public ArrayList<IconData> getTShowInfo() {
         return this.mTShowIconInfo;
     }
 
@@ -153,14 +154,14 @@ public class OldUserData extends a implements Serializable {
     }
 
     @Override // com.baidu.tbadk.core.util.a
-    public LinkedList<String> getPhotoUrl() {
-        LinkedList<String> linkedList = new LinkedList<>();
-        linkedList.add(this.portrait);
-        return linkedList;
+    public ArrayList<String> getPhotoUrl() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add(this.portrait);
+        return arrayList;
     }
 
     /* loaded from: classes.dex */
-    public class Permission implements Serializable {
+    public class Permission extends i implements Serializable {
         private static final long serialVersionUID = -661968182172681650L;
         private int isGroupManager;
         private int isGroupOwner;

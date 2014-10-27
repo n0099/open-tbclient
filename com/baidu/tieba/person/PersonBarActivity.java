@@ -2,80 +2,82 @@ package com.baidu.tieba.person;
 
 import android.os.Bundle;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
 /* loaded from: classes.dex */
 public class PersonBarActivity extends BasePersonInfoActivity {
-    private s e = null;
-    private af f = null;
+    private m bBm = null;
+    private z bBn = null;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.be.class, PersonBarActivity.class);
+        TbadkApplication.m251getInst().RegisterIntent(PersonBarActivityConfig.class, PersonBarActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.person.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f = new af(p());
-        this.f.a(n());
-        this.f.a(m());
-        this.f.setUniqueId(getUniqueId());
+        this.bBn = new z(this, Ax());
+        this.bBn.setSex(getSex());
+        this.bBn.setId(getUid());
+        this.bBn.setUniqueId(getUniqueId());
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
     public d a(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
-        if (this.e == null) {
-            this.e = new s(this, p());
+        if (this.bBm == null) {
+            this.bBm = new m(this, Ax());
         }
-        return this.e;
+        return this.bBm;
     }
 
-    public af w() {
-        return this.f;
-    }
-
-    @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String g() {
-        return getString(com.baidu.tieba.x.person_bar_title);
+    public z ZH() {
+        return this.bBn;
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String i() {
-        return getString(com.baidu.tieba.x.person_bar_no_personal_title);
+    public String Zp() {
+        return getString(com.baidu.tieba.y.person_bar_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String j() {
-        return getString(com.baidu.tieba.x.person_bar_no_common_title);
+    public String Zq() {
+        return getString(com.baidu.tieba.y.person_bar_no_personal_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String k() {
-        return getString(com.baidu.tieba.x.person_bar_personal);
+    public String Zr() {
+        return getString(com.baidu.tieba.y.person_bar_no_common_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String l() {
-        return getString(com.baidu.tieba.x.person_bar_common);
+    public String Zs() {
+        return getString(com.baidu.tieba.y.person_bar_personal);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String r() {
+    public String Zt() {
+        return getString(com.baidu.tieba.y.person_bar_common);
+    }
+
+    @Override // com.baidu.tieba.person.BasePersonInfoActivity
+    public String Zv() {
         return "common_forum";
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public int s() {
+    public int Zw() {
         return 2;
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity, android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        com.baidu.tbadk.core.d dVar;
-        ad a;
+        BaseFragment baseFragment;
+        x ZN;
         super.onPageSelected(i);
-        if (this.e != null && this.e.getItem(i) != null && (dVar = (com.baidu.tbadk.core.d) this.e.getItem(i)) != null && (dVar instanceof u) && (a = ((u) dVar).a()) != null) {
-            a.a(false);
-            a.notifyDataSetChanged();
+        if (this.bBm != null && this.bBm.getItem(i) != null && (baseFragment = (BaseFragment) this.bBm.getItem(i)) != null && (baseFragment instanceof o) && (ZN = ((o) baseFragment).ZN()) != null) {
+            ZN.setEditState(false);
+            ZN.notifyDataSetChanged();
         }
     }
 }

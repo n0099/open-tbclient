@@ -6,15 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.aw;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ReplyLinearLayout extends LinearLayout {
-    private static ViewGroup.LayoutParams b;
-    private List<TextView> a;
-    private View.OnClickListener c;
+    private static ViewGroup.LayoutParams bEh;
+    private List<TextView> bEg;
+    private View.OnClickListener bEi;
 
     public ReplyLinearLayout(Context context) {
         this(context, null);
@@ -22,25 +21,25 @@ public class ReplyLinearLayout extends LinearLayout {
 
     public ReplyLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.c = new aa(this);
-        this.a = new ArrayList();
+        this.bEi = new ab(this);
+        this.bEg = new ArrayList();
     }
 
     public void setContent(ArrayList<String[]> arrayList) {
         int i;
-        if (b == null) {
-            b = new LinearLayout.LayoutParams(-1, -2);
+        if (bEh == null) {
+            bEh = new LinearLayout.LayoutParams(-1, -2);
         }
         ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 1);
         int size = ((arrayList.size() - 1) * 3) + 1;
-        int size2 = size - this.a.size();
+        int size2 = size - this.bEg.size();
         for (int i2 = 0; i2 < size2; i2++) {
             TextView textView = new TextView(getContext());
-            this.a.add(textView);
+            this.bEg.add(textView);
             addView(textView);
         }
-        for (int i3 = 0; i3 < this.a.size(); i3++) {
-            TextView textView2 = this.a.get(i3);
+        for (int i3 = 0; i3 < this.bEg.size(); i3++) {
+            TextView textView2 = this.bEg.get(i3);
             if (i3 < size) {
                 if (i3 == 0 || i3 == 1) {
                     i = 0;
@@ -56,25 +55,25 @@ public class ReplyLinearLayout extends LinearLayout {
                     textView2.setText(charSequenceArr[4]);
                 }
                 textView2.setTag(charSequenceArr);
-                textView2.setOnClickListener(this.c);
-                a(textView2, i3);
+                textView2.setOnClickListener(this.bEi);
+                r(textView2, i3);
                 if (i3 == 0) {
                     textView2.setTextSize(17.0f);
                     textView2.setMaxLines(3);
-                    textView2.setLayoutParams(b);
-                    ay.a(textView2, com.baidu.tieba.r.cp_cont_b, 1);
+                    textView2.setLayoutParams(bEh);
+                    aw.b(textView2, com.baidu.tieba.s.cp_cont_b, 1);
                 } else if (i3 == 1 || i3 % 3 == 1) {
                     textView2.setLayoutParams(layoutParams);
-                    ay.f((View) textView2, com.baidu.tieba.r.cp_bg_line_b);
+                    aw.h((View) textView2, com.baidu.tieba.s.cp_bg_line_b);
                 } else if (i3 % 3 == 2) {
                     textView2.setTextSize(15.0f);
                     textView2.setMaxLines(2);
-                    textView2.setLayoutParams(b);
-                    ay.a(textView2, com.baidu.tieba.r.cp_cont_f, 1);
+                    textView2.setLayoutParams(bEh);
+                    aw.b(textView2, com.baidu.tieba.s.cp_cont_f, 1);
                 } else if (i3 % 3 == 0) {
                     textView2.setTextSize(10.0f);
-                    textView2.setLayoutParams(b);
-                    ay.a(textView2, com.baidu.tieba.r.cp_cont_d, 1);
+                    textView2.setLayoutParams(bEh);
+                    aw.b(textView2, com.baidu.tieba.s.cp_cont_d, 1);
                 }
                 textView2.setVisibility(0);
             } else {
@@ -83,29 +82,17 @@ public class ReplyLinearLayout extends LinearLayout {
         }
     }
 
-    private void a(TextView textView, int i) {
-        if (TbadkApplication.m252getInst().getSkinType() == 1) {
-            if (i == 0) {
-                textView.setTextColor(getResources().getColor(com.baidu.tieba.r.person_post_content_main_1));
-                textView.setPadding(0, com.baidu.adp.lib.util.j.a(getContext(), 10.0f), 0, com.baidu.adp.lib.util.j.a(getContext(), 10.0f));
-            } else if (i % 3 == 2) {
-                textView.setTextColor(getResources().getColor(com.baidu.tieba.r.person_post_content_sub_1));
-                textView.setBackgroundResource(com.baidu.tieba.r.transparent);
-                textView.setPadding(0, com.baidu.adp.lib.util.j.a(getContext(), 10.0f), 0, com.baidu.adp.lib.util.j.a(getContext(), 2.0f));
-            } else if (i % 3 == 0) {
-                textView.setTextColor(getResources().getColor(com.baidu.tieba.r.person_post_header_time_1));
-                textView.setPadding(0, com.baidu.adp.lib.util.j.a(getContext(), 2.0f), 0, com.baidu.adp.lib.util.j.a(getContext(), 10.0f));
-            }
-        } else if (i == 0) {
-            textView.setTextColor(getResources().getColor(com.baidu.tieba.r.person_post_content_main));
-            textView.setPadding(0, com.baidu.adp.lib.util.j.a(getContext(), 10.0f), 0, com.baidu.adp.lib.util.j.a(getContext(), 10.0f));
+    private void r(TextView textView, int i) {
+        if (i == 0) {
+            aw.b(textView, com.baidu.tieba.s.person_post_content_main, 1);
+            textView.setPadding(0, com.baidu.adp.lib.util.m.dip2px(getContext(), 10.0f), 0, com.baidu.adp.lib.util.m.dip2px(getContext(), 10.0f));
         } else if (i % 3 == 2) {
-            textView.setTextColor(getResources().getColor(com.baidu.tieba.r.person_post_content_sub));
-            textView.setBackgroundResource(com.baidu.tieba.r.transparent);
-            textView.setPadding(0, com.baidu.adp.lib.util.j.a(getContext(), 10.0f), 0, com.baidu.adp.lib.util.j.a(getContext(), 2.0f));
+            aw.b(textView, com.baidu.tieba.s.person_post_content_sub, 1);
+            textView.setBackgroundResource(com.baidu.tieba.s.transparent);
+            textView.setPadding(0, com.baidu.adp.lib.util.m.dip2px(getContext(), 10.0f), 0, com.baidu.adp.lib.util.m.dip2px(getContext(), 2.0f));
         } else if (i % 3 == 0) {
-            textView.setTextColor(getResources().getColor(com.baidu.tieba.r.person_post_header_time));
-            textView.setPadding(0, com.baidu.adp.lib.util.j.a(getContext(), 2.0f), 0, com.baidu.adp.lib.util.j.a(getContext(), 10.0f));
+            aw.b(textView, com.baidu.tieba.s.person_post_header_time, 1);
+            textView.setPadding(0, com.baidu.adp.lib.util.m.dip2px(getContext(), 2.0f), 0, com.baidu.adp.lib.util.m.dip2px(getContext(), 10.0f));
         }
     }
 }

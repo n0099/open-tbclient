@@ -10,7 +10,7 @@ public class FRSPageRequestMessage extends NetMessage {
     private int cid;
     private int ctime;
     private int dataSize;
-    private g forumModel;
+    private b forumModel;
     private int isGood;
     private String kw;
     private String lastId;
@@ -39,12 +39,12 @@ public class FRSPageRequestMessage extends NetMessage {
         this.needCache = z;
     }
 
-    public g getForumModel() {
+    public b getForumModel() {
         return this.forumModel;
     }
 
-    public void setForumModel(g gVar) {
-        this.forumModel = gVar;
+    public void setForumModel(b bVar) {
+        this.forumModel = bVar;
     }
 
     public int getUpdateType() {
@@ -204,7 +204,7 @@ public class FRSPageRequestMessage extends NetMessage {
         builder.net_error = Integer.valueOf(this.netError);
         builder.lastids = this.lastId;
         if (z) {
-            com.baidu.tbadk.b.d.a(builder, true);
+            com.baidu.tbadk.util.g.a(builder, true);
         }
         FrsPageReqIdl.Builder builder2 = new FrsPageReqIdl.Builder();
         builder2.data = builder.build(false);

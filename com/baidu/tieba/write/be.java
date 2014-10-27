@@ -1,19 +1,19 @@
 package com.baidu.tieba.write;
 
-import android.view.View;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class be implements View.OnClickListener {
-    final /* synthetic */ WriteActivity a;
+public class be implements DialogInterface.OnCancelListener {
+    final /* synthetic */ WriteActivity bTX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(WriteActivity writeActivity) {
-        this.a = writeActivity;
+        this.bTX = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.a();
-        this.a.p();
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        this.bTX.destroyWaitingDialog();
+        this.bTX.aca();
     }
 }

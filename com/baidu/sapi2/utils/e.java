@@ -1,6 +1,12 @@
 package com.baidu.sapi2.utils;
 /* loaded from: classes.dex */
 public interface e {
+    public static final String A = "/v2/security/sapibindwidgetsend";
+    public static final String B = "/v2/security/sapibindwidgetbind";
+    public static final String C = "/v2/sapi/getvoiceid";
+    public static final String D = "/v2/sapi/regvoice";
+    public static final String E = "/v2/sapi/voicelogin";
+    public static final String F = "baiduvoice35hy12";
     public static final String a = "/v2/sapi/login";
     public static final String b = "http://119.75.220.29";
     public static final String c = "http://220.181.111.48";

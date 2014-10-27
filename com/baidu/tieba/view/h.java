@@ -3,21 +3,21 @@ package com.baidu.tieba.view;
 import java.util.List;
 /* loaded from: classes.dex */
 class h {
-    public final boolean a;
-    public final List<Object> b;
-    public final List<Object> c;
+    public final boolean abg;
+    public final List<Object> abh;
+    public final List<Object> abi;
 
-    public static h a(List<Object> list, List<Object> list2) {
+    public static h b(List<Object> list, List<Object> list2) {
         return new h(true, list, list2);
     }
 
-    public static h a() {
+    public static h aeP() {
         return new h(false, null, null);
     }
 
     private h(boolean z, List<Object> list, List<Object> list2) {
-        this.a = z;
-        this.b = list;
-        this.c = list2;
+        this.abg = z;
+        this.abh = list;
+        this.abi = list2;
     }
 }

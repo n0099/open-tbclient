@@ -1,7 +1,6 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,7 +25,7 @@ public class ShareFromPBMsgData implements Serializable {
             jSONObject.put("themeTitle", this.title);
             JSONArray jSONArray = new JSONArray();
             jSONArray.put(String.valueOf(this.title) + " http://tieba.baidu.com/p/" + this.threadId + "?share=9105");
-            jSONArray.put(TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+            jSONArray.put("1");
             jSONArray.put(jSONObject);
             return jSONArray.toString();
         } catch (JSONException e) {

@@ -5,16 +5,15 @@ import android.graphics.drawable.BitmapDrawable;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AnchorInfoData;
 import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.PraiseData;
 import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.util.aw;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import tbclient.Abstract;
 import tbclient.FriendFeedPage.FriendThreadInfo;
@@ -23,7 +22,7 @@ import tbclient.Voice;
 /* loaded from: classes.dex */
 public class FriendFeedThreadData extends com.baidu.tbadk.core.util.a implements Serializable {
     private static final long serialVersionUID = -8881889728582490817L;
-    private transient SpannableString a;
+    private transient SpannableString Aw;
     private String abstract_text;
     private String authorId;
     private String fid;
@@ -53,72 +52,36 @@ public class FriendFeedThreadData extends com.baidu.tbadk.core.util.a implements
         return this.anchorInfoData;
     }
 
-    public void setAnchorInfoData(AnchorInfoData anchorInfoData) {
-        this.anchorInfoData = anchorInfoData;
-    }
-
     public SpannableString getSpan_str() {
-        return this.a;
-    }
-
-    public void setSpan_str(SpannableString spannableString) {
-        this.a = spannableString;
+        return this.Aw;
     }
 
     public String getFname() {
         return this.fname;
     }
 
-    public void setFname(String str) {
-        this.fname = str;
-    }
-
     public String getFid() {
         return this.fid;
-    }
-
-    public void setFid(String str) {
-        this.fid = str;
     }
 
     public String getAuthorId() {
         return this.authorId;
     }
 
-    public void setAuthorId(String str) {
-        this.authorId = str;
-    }
-
     public String getId() {
         return this.id;
-    }
-
-    public void setId(String str) {
-        this.id = str;
     }
 
     public String getTid() {
         return this.tid;
     }
 
-    public void setTid(String str) {
-        this.tid = str;
-    }
-
     public String getTimeline() {
         return this.timeline;
     }
 
-    public void setTimeline(String str) {
-        this.timeline = str;
-    }
-
     public String getTitle() {
         return this.title;
-    }
-
-    public void setTitle(String str) {
-        this.title = str;
     }
 
     public int getReply_num() {
@@ -133,96 +96,48 @@ public class FriendFeedThreadData extends com.baidu.tbadk.core.util.a implements
         return this.last_time_int;
     }
 
-    public void setLast_time_int(long j) {
-        this.last_time_int = j;
-    }
-
     public int getIs_top() {
         return this.is_top;
-    }
-
-    public void setIs_top(int i) {
-        this.is_top = i;
     }
 
     public int getIs_global_top() {
         return this.is_global_top;
     }
 
-    public void setIs_global_top(int i) {
-        this.is_global_top = i;
-    }
-
     public int getIs_good() {
         return this.is_good;
-    }
-
-    public void setIs_good(int i) {
-        this.is_good = i;
     }
 
     public int getIs_livepost() {
         return this.is_livepost;
     }
 
-    public void setIs_livepost(int i) {
-        this.is_livepost = i;
-    }
-
     public int getIs_ntitle() {
         return this.is_ntitle;
-    }
-
-    public void setIs_ntitle(int i) {
-        this.is_ntitle = i;
     }
 
     public int getIs_membertop() {
         return this.is_membertop;
     }
 
-    public void setIs_membertop(int i) {
-        this.is_membertop = i;
-    }
-
     public String getFirst_post_id() {
         return this.first_post_id;
-    }
-
-    public void setFirst_post_id(String str) {
-        this.first_post_id = str;
     }
 
     public MetaData getAuthor() {
         return this.author;
     }
 
-    public void setAuthor(MetaData metaData) {
-        this.author = metaData;
-    }
-
     public String getAbstract_text() {
         return this.abstract_text;
-    }
-
-    public void setAbstract_text(String str) {
-        this.abstract_text = str;
     }
 
     public ArrayList<MediaData> getMedias() {
         return this.medias;
     }
 
-    public void setMedias(ArrayList<MediaData> arrayList) {
-        this.medias = arrayList;
-    }
-
     public ArrayList<VoiceData.VoiceModel> getVoices() {
         return this.voices;
-    }
-
-    public void setVoices(ArrayList<VoiceData.VoiceModel> arrayList) {
-        this.voices = arrayList;
     }
 
     public PraiseData getPraise() {
@@ -308,7 +223,7 @@ public class FriendFeedThreadData extends com.baidu.tbadk.core.util.a implements
                 this.praise.setUserMap(this.userMap);
                 this.praise.parserProtobuf(friendThreadInfo.zan);
                 this.anchorInfoData.parserProtobuf(friendThreadInfo.anchor_info);
-                if (!com.baidu.adp.lib.util.i.c(this.title)) {
+                if (!com.baidu.adp.lib.util.l.aA(this.title)) {
                     this.praise.setTitle(this.title);
                 } else {
                     this.praise.setTitle(this.abstract_text);
@@ -323,32 +238,17 @@ public class FriendFeedThreadData extends com.baidu.tbadk.core.util.a implements
         SpannableString spannableString;
         if (this.title != null) {
             ArrayList arrayList = new ArrayList();
-            if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                if (getIs_livepost() == 1) {
-                    arrayList.add(Integer.valueOf(com.baidu.tieba.t.icon_live_1));
-                }
-                if (getIs_good() == 1) {
-                    arrayList.add(Integer.valueOf(com.baidu.tieba.t.icon_elite_1));
-                }
-                if (this.is_voice_thread == 1) {
-                    arrayList.add(Integer.valueOf(com.baidu.tieba.t.icon_voice_1));
-                }
-                if (this.anchorInfoData != null && this.anchorInfoData.getGroup_id() != 0) {
-                    arrayList.add(Integer.valueOf(com.baidu.tieba.t.icon_live_on_1));
-                }
-            } else {
-                if (this.is_livepost == 1) {
-                    arrayList.add(Integer.valueOf(com.baidu.tieba.t.icon_live));
-                }
-                if (getIs_good() == 1) {
-                    arrayList.add(Integer.valueOf(com.baidu.tieba.t.icon_elite));
-                }
-                if (this.is_voice_thread == 1) {
-                    arrayList.add(Integer.valueOf(com.baidu.tieba.t.icon_voice));
-                }
-                if (this.anchorInfoData != null && this.anchorInfoData.getGroup_id() != 0) {
-                    arrayList.add(Integer.valueOf(com.baidu.tieba.t.icon_live_on));
-                }
+            if (this.is_livepost == 1) {
+                arrayList.add(Integer.valueOf(com.baidu.tieba.u.icon_live));
+            }
+            if (getIs_good() == 1) {
+                arrayList.add(Integer.valueOf(com.baidu.tieba.u.icon_elite));
+            }
+            if (this.is_voice_thread == 1) {
+                arrayList.add(Integer.valueOf(com.baidu.tieba.u.icon_voice));
+            }
+            if (this.anchorInfoData != null && this.anchorInfoData.getGroup_id() != 0) {
+                arrayList.add(Integer.valueOf(com.baidu.tieba.u.icon_live_on));
             }
             if (arrayList.size() > 0) {
                 StringBuilder sb = new StringBuilder();
@@ -358,9 +258,9 @@ public class FriendFeedThreadData extends com.baidu.tbadk.core.util.a implements
                 SpannableString spannableString2 = new SpannableString(String.valueOf(sb.toString()) + this.title);
                 int i2 = 0;
                 for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                    Bitmap a = com.baidu.tbadk.core.util.d.a(((Integer) arrayList.get(i3)).intValue());
-                    BitmapDrawable bitmapDrawable = new BitmapDrawable(a);
-                    bitmapDrawable.setBounds(0, 0, a.getWidth(), a.getHeight());
+                    Bitmap bA = aw.bA(((Integer) arrayList.get(i3)).intValue());
+                    BitmapDrawable bitmapDrawable = new BitmapDrawable(bA);
+                    bitmapDrawable.setBounds(0, 0, bA.getWidth(), bA.getHeight());
                     spannableString2.setSpan(new ImageSpan(bitmapDrawable, 1), i2, i2 + 1, 33);
                     i2 += 2;
                 }
@@ -368,17 +268,17 @@ public class FriendFeedThreadData extends com.baidu.tbadk.core.util.a implements
             } else {
                 spannableString = new SpannableString(this.title);
             }
-            this.a = spannableString;
+            this.Aw = spannableString;
         }
     }
 
     @Override // com.baidu.tbadk.core.util.a
-    public LinkedList<String> getImageUrl() {
+    public ArrayList<String> getImageUrl() {
         ArrayList<MediaData> medias = getMedias();
         if (medias == null) {
             return null;
         }
-        LinkedList<String> linkedList = new LinkedList<>();
+        ArrayList<String> arrayList = new ArrayList<>();
         int i = 0;
         while (true) {
             int i2 = i;
@@ -386,23 +286,23 @@ public class FriendFeedThreadData extends com.baidu.tbadk.core.util.a implements
                 break;
             }
             if (medias.get(i2).getType() == 3) {
-                linkedList.add(medias.get(i2).getPicUrl());
+                arrayList.add(medias.get(i2).getPicUrl());
             }
             i = i2 + 1;
         }
-        return linkedList;
+        return arrayList;
     }
 
     @Override // com.baidu.tbadk.core.util.a
-    public LinkedList<String> getPhotoUrl() {
+    public ArrayList<String> getPhotoUrl() {
         if (this.author == null) {
             return null;
         }
-        LinkedList<String> linkedList = new LinkedList<>();
+        ArrayList<String> arrayList = new ArrayList<>();
         if (this.author != null) {
-            linkedList.add(this.author.getPortrait());
-            return linkedList;
+            arrayList.add(this.author.getPortrait());
+            return arrayList;
         }
-        return linkedList;
+        return arrayList;
     }
 }

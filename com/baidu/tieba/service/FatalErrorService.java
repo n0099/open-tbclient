@@ -21,11 +21,6 @@ public class FatalErrorService extends Service {
     }
 
     @Override // android.app.Service
-    public void onCreate() {
-        super.onCreate();
-    }
-
-    @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
         if (this.mTask != null) {

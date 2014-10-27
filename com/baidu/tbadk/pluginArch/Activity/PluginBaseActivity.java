@@ -1,39 +1,52 @@
 package com.baidu.tbadk.pluginArch.Activity;
 
-import android.app.Activity;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Bundle;
-import com.baidu.tbadk.pluginArch.a.a;
-import com.baidu.tbadk.pluginArch.y;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.pluginArch.PluginResourcesManager;
+import com.baidu.tbadk.pluginArch.annotation.PluginActivityAnnotation;
 /* loaded from: classes.dex */
-public class PluginBaseActivity extends Activity {
-    private AssetManager a;
-    private Resources b;
+public class PluginBaseActivity extends BaseActivity {
+    private AssetManager mAssetManager;
+    private Resources mResources;
 
-    @Override // android.app.Activity
-    protected void onCreate(Bundle bundle) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        a();
     }
 
-    protected void a() {
-        a aVar = (a) getClass().getAnnotation(a.class);
-        if (aVar != null) {
-            this.b = y.a().a(aVar.a(), super.getResources());
-            if (this.b != null) {
-                this.a = this.b.getAssets();
+    @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void setContentView(int i) {
+        setContentView(LayoutInflater.from(this).inflate(i, (ViewGroup) null));
+    }
+
+    protected void loadResources() {
+        PluginActivityAnnotation pluginActivityAnnotation = (PluginActivityAnnotation) getClass().getAnnotation(PluginActivityAnnotation.class);
+        if (pluginActivityAnnotation != null) {
+            this.mResources = PluginResourcesManager.getInstance().getPluginResource(pluginActivityAnnotation.pluginName(), super.getResources());
+            if (this.mResources != null) {
+                this.mAssetManager = this.mResources.getAssets();
             }
         }
     }
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public AssetManager getAssets() {
-        return this.a == null ? super.getAssets() : this.a;
+        if (this.mAssetManager == null) {
+            loadResources();
+        }
+        return this.mAssetManager == null ? super.getAssets() : this.mAssetManager;
     }
 
-    @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
+    @Override // com.baidu.tbadk.BaseActivity, android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        return this.b == null ? super.getResources() : this.b;
+        if (this.mResources == null) {
+            loadResources();
+        }
+        return this.mResources == null ? super.getResources() : this.mResources;
     }
 }

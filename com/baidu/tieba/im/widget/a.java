@@ -7,21 +7,21 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a<T> {
-    private String a;
-    private int b;
-    private T c;
+    private T bjH;
+    private int subType;
+    private String title;
 
     /* JADX WARN: Type inference failed for: r1v2, types: [com.baidu.tbadk.data.ShareFromGameCenterMsgData, T] */
     /* JADX WARN: Type inference failed for: r2v1, types: [T, com.baidu.tbadk.data.ShareFromPBMsgData] */
-    public int a(String str, String str2) {
+    public int aw(String str, String str2) {
         int i = -1;
         if (str != null) {
             try {
                 JSONArray jSONArray = new JSONArray(str);
                 if (jSONArray.length() == 3) {
-                    this.a = jSONArray.optString(0);
-                    this.b = jSONArray.optInt(1);
-                    if (1 == this.b) {
+                    this.title = jSONArray.optString(0);
+                    this.subType = jSONArray.optInt(1);
+                    if (1 == this.subType) {
                         JSONObject optJSONObject = jSONArray.optJSONObject(2);
                         String optString = optJSONObject.optString("button");
                         String optString2 = optJSONObject.optString("shareSourceIcon");
@@ -36,7 +36,7 @@ public class a<T> {
                             r2.setPostId(optJSONObject.optString("postID"));
                             r2.setThreadId(optJSONObject.optString("themeID"));
                             r2.setTitle(optJSONObject.optString("themeTitle"));
-                            this.c = r2;
+                            this.bjH = r2;
                             i = 0;
                         } else {
                             ?? r1 = (T) new ShareFromGameCenterMsgData();
@@ -51,7 +51,7 @@ public class a<T> {
                             r1.setShareSourceIcon(optString2);
                             r1.setShareSourceUrl(optString5);
                             r1.setShareUrl(optString4);
-                            this.c = r1;
+                            this.bjH = r1;
                             i = 1;
                         }
                     }
@@ -62,11 +62,11 @@ public class a<T> {
         return i;
     }
 
-    public int a() {
-        return this.b;
+    public int RV() {
+        return this.subType;
     }
 
-    public T b() {
-        return this.c;
+    public T RW() {
+        return this.bjH;
     }
 }

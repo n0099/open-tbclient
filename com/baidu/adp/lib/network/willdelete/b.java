@@ -1,8 +1,8 @@
 package com.baidu.adp.lib.network.willdelete;
 
-import android.net.Proxy;
 import android.text.TextUtils;
 import com.baidu.adp.lib.network.http.BdHttpCancelException;
+import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.TbConfig;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -28,94 +28,94 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class b {
-    public static boolean a = true;
-    public static String b = "";
-    public static String c = "";
-    public static String d = "";
-    private static String e = "\r\n";
-    private static String f = "--";
-    private static String g = "--------7da3d81520810*";
+    public static boolean kK = true;
+    public static String cookie = "";
+    public static String kL = "";
+    public static String uid = "";
+    private static String kM = "\r\n";
+    private static String kN = "--";
+    private static String kf = "--------7da3d81520810*";
 
     public static HttpURLConnection a(String str, LinkedList<BasicNameValuePair> linkedList) {
         HttpURLConnection httpURLConnection;
         String replaceFirst;
         URL url = new URL(str);
-        String defaultHost = Proxy.getDefaultHost();
-        if (!h.c()) {
+        String fq = j.fq();
+        if (!j.fe()) {
             HttpURLConnection httpURLConnection2 = (HttpURLConnection) url.openConnection();
-            if (!TextUtils.isEmpty(b)) {
-                httpURLConnection2.setRequestProperty("Cookie", b);
+            if (!TextUtils.isEmpty(cookie)) {
+                httpURLConnection2.setRequestProperty("Cookie", cookie);
             } else {
                 httpURLConnection2.setRequestProperty("Cookie", "");
             }
-            if (!TextUtils.isEmpty(c)) {
-                httpURLConnection2.setRequestProperty("User-Agent", c);
+            if (!TextUtils.isEmpty(kL)) {
+                httpURLConnection2.setRequestProperty("User-Agent", kL);
             }
-            if (!TextUtils.isEmpty(d)) {
-                httpURLConnection2.setRequestProperty("client_user_token", d);
+            if (!TextUtils.isEmpty(uid)) {
+                httpURLConnection2.setRequestProperty("client_user_token", uid);
             }
             a(httpURLConnection2, linkedList);
             return httpURLConnection2;
         }
-        int defaultPort = Proxy.getDefaultPort();
-        if (defaultPort == -1) {
-            defaultPort = 80;
+        int fr = j.fr();
+        if (fr == -1) {
+            fr = 80;
         }
-        java.net.Proxy proxy = new java.net.Proxy(Proxy.Type.HTTP, new InetSocketAddress(defaultHost, defaultPort));
-        if (h.b(defaultHost)) {
+        Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(fq, fr));
+        if (j.ay(fq)) {
             String host = url.getHost();
             int port = url.getPort();
             int i = port != -1 ? port : 80;
             if (str.indexOf(String.valueOf(host) + ":" + i) != -1) {
-                replaceFirst = str.replaceFirst(String.valueOf(host) + ":" + i, String.valueOf(defaultHost) + ":" + defaultPort);
+                replaceFirst = str.replaceFirst(String.valueOf(host) + ":" + i, String.valueOf(fq) + ":" + fr);
             } else {
-                replaceFirst = str.replaceFirst(host, String.valueOf(defaultHost) + ":" + defaultPort);
+                replaceFirst = str.replaceFirst(host, String.valueOf(fq) + ":" + fr);
             }
             try {
                 httpURLConnection = (HttpURLConnection) new URL(replaceFirst).openConnection();
                 httpURLConnection.setRequestProperty("X-Online-Host", String.valueOf(host) + ":" + i);
-            } catch (MalformedURLException e2) {
+            } catch (MalformedURLException e) {
                 return null;
             }
         } else {
             httpURLConnection = (HttpURLConnection) url.openConnection(proxy);
         }
-        if (!TextUtils.isEmpty(b)) {
-            httpURLConnection.setRequestProperty("Cookie", b);
+        if (!TextUtils.isEmpty(cookie)) {
+            httpURLConnection.setRequestProperty("Cookie", cookie);
         } else {
             httpURLConnection.setRequestProperty("Cookie", "");
         }
-        if (!TextUtils.isEmpty(c)) {
-            httpURLConnection.setRequestProperty("User-Agent", c);
+        if (!TextUtils.isEmpty(kL)) {
+            httpURLConnection.setRequestProperty("User-Agent", kL);
         }
-        if (!TextUtils.isEmpty(d)) {
-            httpURLConnection.setRequestProperty("client_user_token", d);
+        if (!TextUtils.isEmpty(uid)) {
+            httpURLConnection.setRequestProperty("client_user_token", uid);
         }
         a(httpURLConnection, linkedList);
         return httpURLConnection;
     }
 
     public static HttpURLConnection a(String str, long j, long j2, int i, LinkedList<BasicNameValuePair> linkedList) {
-        HttpURLConnection a2 = a(str, linkedList);
-        a2.setConnectTimeout(TbConfig.BIG_IMAGE_MIN_CAPACITY);
+        HttpURLConnection a = a(str, linkedList);
+        a.setConnectTimeout(TbConfig.BIG_IMAGE_MIN_CAPACITY);
         if (i < 0) {
             i = 30000;
         }
-        a2.setReadTimeout(i);
-        a2.setRequestMethod("GET");
-        a2.setDoInput(true);
-        a2.setUseCaches(false);
-        a2.setRequestProperty("Range", "bytes=" + j + "-" + (j2 > 0 ? Long.valueOf(j2) : ""));
-        if (!TextUtils.isEmpty(b)) {
-            a2.setRequestProperty("Cookie", b);
+        a.setReadTimeout(i);
+        a.setRequestMethod("GET");
+        a.setDoInput(true);
+        a.setUseCaches(false);
+        a.setRequestProperty("Range", "bytes=" + j + "-" + (j2 > 0 ? Long.valueOf(j2) : ""));
+        if (!TextUtils.isEmpty(cookie)) {
+            a.setRequestProperty("Cookie", cookie);
         } else {
-            a2.setRequestProperty("Cookie", "");
+            a.setRequestProperty("Cookie", "");
         }
-        if (!TextUtils.isEmpty(c)) {
-            a2.setRequestProperty("User-Agent", c);
+        if (!TextUtils.isEmpty(kL)) {
+            a.setRequestProperty("User-Agent", kL);
         }
-        a2.connect();
-        return a2;
+        a.connect();
+        return a;
     }
 
     private static void a(HttpURLConnection httpURLConnection, LinkedList<BasicNameValuePair> linkedList) {
@@ -134,7 +134,7 @@ public class b {
         return a(httpURLConnection, z, bArr, gVar, dVar, aVar, (com.baidu.adp.lib.network.http.d) null);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [509=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [510=4] */
     /* JADX WARN: Removed duplicated region for block: B:137:0x0015 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:15:0x001a  */
     /* JADX WARN: Removed duplicated region for block: B:17:0x001f  */
@@ -143,16 +143,16 @@ public class b {
     */
     public static f a(HttpURLConnection httpURLConnection, boolean z, byte[] bArr, g gVar, d dVar, a aVar, com.baidu.adp.lib.network.http.d dVar2) {
         DataOutputStream dataOutputStream;
-        f a2;
+        f a;
         DataOutputStream dataOutputStream2 = null;
         if (aVar != null) {
             try {
-                if (aVar.c()) {
+                if (aVar.isCanceled()) {
                     throw new BdHttpCancelException();
                 }
-                aVar.a(httpURLConnection);
-            } catch (Exception e2) {
-                e = e2;
+                aVar.d(httpURLConnection);
+            } catch (Exception e) {
+                e = e;
                 try {
                     throw e;
                 } catch (Throwable th) {
@@ -161,14 +161,14 @@ public class b {
                     if (dataOutputStream != null) {
                         try {
                             dataOutputStream.close();
-                        } catch (Exception e3) {
+                        } catch (Exception e2) {
                         }
                     }
                     if (httpURLConnection != null) {
                         httpURLConnection.disconnect();
                     }
                     if (aVar != null) {
-                        aVar.b();
+                        aVar.finish();
                     }
                     throw th;
                 }
@@ -184,28 +184,28 @@ public class b {
                 throw th;
             }
         }
-        if (a && !z && bArr != null && bArr.length != 0) {
+        if (kK && !z && bArr != null && bArr.length != 0) {
             httpURLConnection.setRequestProperty("Post-Encoding", "gzip");
         }
         long currentTimeMillis = System.currentTimeMillis();
         if (dVar2 != null) {
-            dVar2.g = System.currentTimeMillis() - currentTimeMillis;
+            dVar2.kq = System.currentTimeMillis() - currentTimeMillis;
         }
         httpURLConnection.connect();
         if (dVar2 != null) {
-            dVar2.c = (System.currentTimeMillis() - currentTimeMillis) - dVar2.g;
+            dVar2.km = (System.currentTimeMillis() - currentTimeMillis) - dVar2.kq;
         }
-        if (aVar == null || !aVar.c()) {
+        if (aVar == null || !aVar.isCanceled()) {
             if (dVar != null) {
-                dVar.a();
+                dVar.dX();
             }
             if (z || bArr == null || bArr.length == 0) {
                 dataOutputStream = null;
             } else {
-                if (a) {
+                if (kK) {
                     ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
-                    com.baidu.adp.lib.util.e.b(byteArrayInputStream, byteArrayOutputStream);
+                    com.baidu.adp.lib.util.f.b(byteArrayInputStream, byteArrayOutputStream);
                     bArr = byteArrayOutputStream.toByteArray();
                 }
                 DataOutputStream dataOutputStream3 = new DataOutputStream(httpURLConnection.getOutputStream());
@@ -214,8 +214,8 @@ public class b {
                     dataOutputStream3.flush();
                     dataOutputStream3.close();
                     dataOutputStream = dataOutputStream3;
-                } catch (Exception e4) {
-                    e = e4;
+                } catch (Exception e3) {
+                    e = e3;
                     dataOutputStream2 = dataOutputStream3;
                     throw e;
                 } catch (Throwable th3) {
@@ -232,11 +232,11 @@ public class b {
             }
             if (aVar != null) {
                 try {
-                    if (aVar.c()) {
+                    if (aVar.isCanceled()) {
                         throw new BdHttpCancelException();
                     }
-                } catch (Exception e5) {
-                    e = e5;
+                } catch (Exception e4) {
+                    e = e4;
                     dataOutputStream2 = dataOutputStream;
                     throw e;
                 } catch (Throwable th4) {
@@ -251,7 +251,7 @@ public class b {
                 }
             }
             int responseCode = httpURLConnection.getResponseCode();
-            if (aVar == null || !aVar.c()) {
+            if (aVar == null || !aVar.isCanceled()) {
                 if (responseCode != 200 && responseCode != 204 && responseCode != 206 && responseCode != 416) {
                     if (responseCode == 202 || responseCode == 201 || responseCode == 205 || responseCode == 304 || responseCode == 305 || responseCode == 408) {
                         throw new BdHttpErrorException("retry, errorCode:" + responseCode, responseCode, true);
@@ -262,31 +262,31 @@ public class b {
                     throw new BdHttpErrorException("errorCode:" + responseCode, responseCode, true);
                 }
                 if (responseCode == 200 || responseCode == 206) {
-                    a2 = a(httpURLConnection, z, gVar, dVar, aVar, dVar2);
+                    a = a(httpURLConnection, z, gVar, dVar, aVar, dVar2);
                     if (dVar2 != null) {
-                        dVar2.d = ((System.currentTimeMillis() - currentTimeMillis) - dVar2.c) - dVar2.g;
+                        dVar2.ko = ((System.currentTimeMillis() - currentTimeMillis) - dVar2.km) - dVar2.kq;
                     }
                 } else {
-                    a2 = new f();
+                    a = new f();
                 }
-                if (aVar == null || !aVar.c()) {
-                    a2.a = responseCode;
+                if (aVar == null || !aVar.isCanceled()) {
+                    a.kU = responseCode;
                     if (dVar != null && responseCode != 206) {
-                        dVar.a(a2);
+                        dVar.a(a);
                     }
                     if (dataOutputStream != null) {
                         try {
                             dataOutputStream.close();
-                        } catch (Exception e6) {
+                        } catch (Exception e5) {
                         }
                     }
                     if (httpURLConnection != null) {
                         httpURLConnection.disconnect();
                     }
                     if (aVar != null) {
-                        aVar.b();
+                        aVar.finish();
                     }
-                    return a2;
+                    return a;
                 }
                 throw new BdHttpCancelException();
             }
@@ -307,7 +307,7 @@ public class b {
         long j3;
         int i6;
         int i7;
-        HttpURLConnection a2;
+        HttpURLConnection a;
         int i8 = 0;
         if (arrayList == null) {
             arrayList = new ArrayList<>();
@@ -318,51 +318,51 @@ public class b {
         while (true) {
             try {
                 try {
-                    a2 = a(str, j2, i <= 0 ? -1L : i + j2, i4, linkedList);
-                } catch (BdHttpCancelException e2) {
+                    a = a(str, j2, i <= 0 ? -1L : i + j2, i4, linkedList);
+                } catch (BdHttpCancelException e) {
+                    throw e;
+                } catch (Exception e2) {
                     throw e2;
-                } catch (Exception e3) {
-                    throw e3;
                 }
-            } catch (BdHttpErrorException e4) {
-                e = e4;
+            } catch (BdHttpErrorException e3) {
+                e = e3;
                 j3 = j2;
                 i6 = i8;
-            } catch (SocketException e5) {
+            } catch (SocketException e4) {
+                e = e4;
+                i5 = i8;
+            } catch (SocketTimeoutException e5) {
                 e = e5;
                 i5 = i8;
-            } catch (SocketTimeoutException e6) {
-                e = e6;
-                i5 = i8;
             }
-            if (a2 == null) {
+            if (a == null) {
                 break;
             }
-            f a3 = a(a2, true, (byte[]) null, (g) null, dVar, aVar);
-            if (a3 == null || !(a3.a == 200 || a3.a == 206)) {
+            f a2 = a(a, true, (byte[]) null, (g) null, dVar, aVar);
+            if (a2 == null || !(a2.kU == 200 || a2.kU == 206)) {
                 j3 = j2;
                 i6 = i8;
             } else {
                 i5 = 0;
                 try {
-                    if (a3.d != null && a3.d.length > 0) {
-                        arrayList.add(a3.d);
-                        j3 = j2 + a3.d.length;
+                    if (a2.data != null && a2.data.length > 0) {
+                        arrayList.add(a2.data);
+                        j3 = j2 + a2.data.length;
                         i6 = 0;
                     } else {
                         j3 = j2;
                         i6 = 1;
                     }
                     try {
-                        if (a3.d.length >= i) {
-                            if (a3.a == 200) {
+                        if (a2.data.length >= i) {
+                            if (a2.kU == 200) {
                                 break;
                             }
                         } else {
                             break;
                         }
-                    } catch (BdHttpErrorException e7) {
-                        e = e7;
+                    } catch (BdHttpErrorException e6) {
+                        e = e6;
                         if (e.needRetry() && i6 < i2 - 1) {
                             i7 = i6 + 1;
                             if (i7 < i2 - 1) {
@@ -372,8 +372,8 @@ public class b {
                         } else {
                             throw e;
                         }
-                    } catch (SocketException e8) {
-                        e = e8;
+                    } catch (SocketException e7) {
+                        e = e7;
                         int i9 = i6;
                         j2 = j3;
                         i5 = i9;
@@ -387,8 +387,8 @@ public class b {
                         } else {
                             throw e;
                         }
-                    } catch (SocketTimeoutException e9) {
-                        e = e9;
+                    } catch (SocketTimeoutException e8) {
+                        e = e8;
                         int i10 = i6;
                         j2 = j3;
                         i5 = i10;
@@ -403,17 +403,17 @@ public class b {
                             throw e;
                         }
                     }
-                } catch (BdHttpErrorException e10) {
-                    e = e10;
+                } catch (BdHttpErrorException e9) {
+                    e = e9;
                     j3 = j2;
                     i6 = 0;
-                } catch (SocketException e11) {
+                } catch (SocketException e10) {
+                    e = e10;
+                } catch (SocketTimeoutException e11) {
                     e = e11;
-                } catch (SocketTimeoutException e12) {
-                    e = e12;
                 }
             }
-            if (a3 != null && (a3.a == 204 || a3.a == 416)) {
+            if (a2 != null && (a2.kU == 204 || a2.kU == 416)) {
                 break;
             }
             i7 = i6 + 1;
@@ -422,7 +422,7 @@ public class b {
                     synchronized (Thread.currentThread()) {
                         Thread.currentThread().wait(i3);
                     }
-                } catch (Exception e13) {
+                } catch (Exception e12) {
                 }
             }
             if (i7 < i2) {
@@ -431,12 +431,12 @@ public class b {
             i8 = i7;
             j2 = j3;
         }
-        return h.a(arrayList);
+        return h.c(arrayList);
     }
 
     public static boolean a(String str, String str2, boolean z, int i, int i2, int i3, d dVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
         long j;
-        HttpURLConnection a2;
+        HttpURLConnection a;
         AtomicInteger atomicInteger = new AtomicInteger(0);
         AtomicLong atomicLong = new AtomicLong(0L);
         AtomicInteger atomicInteger2 = new AtomicInteger(0);
@@ -451,22 +451,22 @@ public class b {
         c cVar = new c(atomicInteger2, str2, atomicLong, atomicInteger, file);
         do {
             try {
-                j = h.a() ? 2000000 : 200000;
-                a2 = a(str, atomicLong.longValue(), j <= 0 ? j : atomicLong.longValue() + j, i3, linkedList);
-            } catch (BdHttpCancelException e2) {
-            } catch (Exception e3) {
-                e3.printStackTrace();
+                j = j.fi() ? 2000000 : 200000;
+                a = a(str, atomicLong.longValue(), j <= 0 ? j : atomicLong.longValue() + j, i3, linkedList);
+            } catch (BdHttpCancelException e) {
+            } catch (Exception e2) {
+                e2.printStackTrace();
                 atomicInteger2.incrementAndGet();
             }
-            if (a2 == null) {
+            if (a == null) {
                 break;
             }
             atomicInteger.set(0);
-            f a3 = a(a2, true, (byte[]) null, (g) cVar, dVar, aVar);
-            if (a3 != null && (atomicInteger.longValue() < j || a3.a == 200)) {
+            f a2 = a(a, true, (byte[]) null, (g) cVar, dVar, aVar);
+            if (a2 != null && (atomicInteger.longValue() < j || a2.kU == 200)) {
                 return true;
             }
-            if (a3 != null && (a3.a == 204 || a3.a == 416)) {
+            if (a2 != null && (a2.kU == 204 || a2.kU == 416)) {
                 return true;
             }
             atomicInteger2.incrementAndGet();
@@ -475,7 +475,7 @@ public class b {
                     synchronized (Thread.currentThread()) {
                         Thread.currentThread().wait(i2);
                     }
-                } catch (Exception e4) {
+                } catch (Exception e3) {
                 }
             }
         } while (atomicInteger2.intValue() < i);
@@ -508,34 +508,34 @@ public class b {
                 fVar = a(z, z2, str, bArr, dVar, i2, aVar, dVar2, linkedList);
                 i4 = i5;
                 break;
-            } catch (BdHttpCancelException e2) {
-                throw e2;
-            } catch (BdHttpErrorException e3) {
-                if (e3.needRetry() && i5 < i - 1) {
+            } catch (BdHttpCancelException e) {
+                throw e;
+            } catch (BdHttpErrorException e2) {
+                if (e2.needRetry() && i5 < i - 1) {
                     i3 = i5 + 1;
                     if (i3 < i - 1 && i3 > 1) {
                         try {
                             Thread.sleep(100L);
-                        } catch (Exception e4) {
+                        } catch (Exception e3) {
                         }
                     }
                     if (i3 < i) {
                         i4 = i3;
                         fVar = null;
                         if (dVar2 != null) {
-                            dVar2.e = i4;
-                            dVar2.f = new Date().getTime() - currentTimeMillis;
+                            dVar2.retry = i4;
+                            dVar2.kp = new Date().getTime() - currentTimeMillis;
                         }
                         if (fVar != null) {
-                            fVar.c = dVar2;
+                            fVar.kW = dVar2;
                         }
                         return fVar;
                     }
                     i5 = i3;
                 } else {
-                    throw e3;
+                    throw e2;
                 }
-            } catch (SocketException e5) {
+            } catch (SocketException e4) {
                 if (i5 < i - 1) {
                     i3 = i5 + 1;
                     if (i3 < i - 1) {
@@ -544,9 +544,19 @@ public class b {
                     if (i3 < i) {
                     }
                 } else {
+                    throw e4;
+                }
+            } catch (SocketTimeoutException e5) {
+                if (i5 < i - 1) {
+                    i3 = i5 + 1;
+                    if (i3 < i - 1) {
+                    }
+                    if (i3 < i) {
+                    }
+                } else {
                     throw e5;
                 }
-            } catch (SocketTimeoutException e6) {
+            } catch (IOException e6) {
                 if (i5 < i - 1) {
                     i3 = i5 + 1;
                     if (i3 < i - 1) {
@@ -556,26 +566,16 @@ public class b {
                 } else {
                     throw e6;
                 }
-            } catch (IOException e7) {
-                if (i5 < i - 1) {
-                    i3 = i5 + 1;
-                    if (i3 < i - 1) {
-                    }
-                    if (i3 < i) {
-                    }
-                } else {
-                    throw e7;
-                }
-            } catch (Exception e8) {
-                throw e8;
+            } catch (Exception e7) {
+                throw e7;
             }
             i5 = i3;
         }
-        throw e3;
+        throw e2;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1107=5] */
-    /* JADX WARN: Removed duplicated region for block: B:170:0x0034 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1108=5] */
+    /* JADX WARN: Removed duplicated region for block: B:167:0x0034 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:21:0x0039  */
     /* JADX WARN: Removed duplicated region for block: B:23:0x003e  */
     /*
@@ -590,71 +590,71 @@ public class b {
         DataOutputStream dataOutputStream3 = null;
         try {
             try {
-                HttpURLConnection a2 = a(str, linkedList);
+                HttpURLConnection a = a(str, linkedList);
                 try {
                     if (dVar2 != null) {
                         if (z || bArr == null) {
-                            dVar2.a = str.length();
+                            dVar2.kk = str.length();
                         } else {
-                            dVar2.a = bArr.length;
+                            dVar2.kk = bArr.length;
                         }
                     }
                     if (aVar != null) {
-                        if (aVar.c()) {
+                        if (aVar.isCanceled()) {
                             throw new BdHttpCancelException();
                         }
-                        aVar.a(a2);
+                        aVar.d(a);
                     }
                     if (z) {
-                        a2.setRequestMethod("GET");
+                        a.setRequestMethod("GET");
                     } else {
-                        a2.setRequestMethod("POST");
-                        a2.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-                        if (a) {
-                            a2.setRequestProperty("Post-Encoding", "gzip");
+                        a.setRequestMethod("POST");
+                        a.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                        if (kK) {
+                            a.setRequestProperty("Post-Encoding", "gzip");
                         }
                     }
                     if (z2) {
-                        a2.setRequestProperty("Accept-Encoding", "gzip");
+                        a.setRequestProperty("Accept-Encoding", "gzip");
                     }
-                    a2.setConnectTimeout(TbConfig.BIG_IMAGE_MIN_CAPACITY);
+                    a.setConnectTimeout(TbConfig.BIG_IMAGE_MIN_CAPACITY);
                     if (i < 0) {
                         i = 30000;
                     }
-                    a2.setReadTimeout(i);
-                    a2.setDoInput(true);
-                    a2.setDoOutput(!z);
-                    a2.setUseCaches(false);
-                    if (aVar == null || !aVar.c()) {
+                    a.setReadTimeout(i);
+                    a.setDoInput(true);
+                    a.setDoOutput(!z);
+                    a.setUseCaches(false);
+                    if (aVar == null || !aVar.isCanceled()) {
                         if (dVar2 != null) {
-                            dVar2.g = System.currentTimeMillis() - currentTimeMillis;
+                            dVar2.kq = System.currentTimeMillis() - currentTimeMillis;
                         }
-                        a2.connect();
+                        a.connect();
                         if (dVar2 != null) {
-                            dVar2.c = (System.currentTimeMillis() - currentTimeMillis) - dVar2.g;
+                            dVar2.km = (System.currentTimeMillis() - currentTimeMillis) - dVar2.kq;
                         }
-                        if (aVar == null || !aVar.c()) {
+                        if (aVar == null || !aVar.isCanceled()) {
                             if (dVar != null) {
-                                dVar.a();
+                                dVar.dX();
                             }
                             if (z || bArr == null || bArr.length == 0) {
                                 dataOutputStream2 = null;
                             } else {
-                                if (a) {
+                                if (kK) {
                                     ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
                                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
-                                    com.baidu.adp.lib.util.e.b(byteArrayInputStream, byteArrayOutputStream);
+                                    com.baidu.adp.lib.util.f.b(byteArrayInputStream, byteArrayOutputStream);
                                     bArr = byteArrayOutputStream.toByteArray();
                                 }
-                                DataOutputStream dataOutputStream4 = new DataOutputStream(a2.getOutputStream());
+                                DataOutputStream dataOutputStream4 = new DataOutputStream(a.getOutputStream());
                                 try {
                                     dataOutputStream4.write(bArr);
                                     dataOutputStream4.flush();
                                     dataOutputStream4.close();
                                     dataOutputStream2 = dataOutputStream4;
-                                } catch (Exception e2) {
-                                    httpURLConnection = a2;
-                                    e = e2;
+                                } catch (Exception e) {
+                                    httpURLConnection = a;
+                                    e = e;
                                     dataOutputStream = dataOutputStream4;
                                     try {
                                         throw e;
@@ -666,14 +666,14 @@ public class b {
                                         if (dataOutputStream3 != null) {
                                             try {
                                                 dataOutputStream3.close();
-                                            } catch (Exception e3) {
+                                            } catch (Exception e2) {
                                             }
                                         }
                                         if (httpURLConnection2 != null) {
                                             httpURLConnection2.disconnect();
                                         }
                                         if (aVar != null) {
-                                            aVar.b();
+                                            aVar.finish();
                                         }
                                         throw th;
                                     }
@@ -684,17 +684,17 @@ public class b {
                             }
                             if (aVar != null) {
                                 try {
-                                    if (aVar.c()) {
+                                    if (aVar.isCanceled()) {
                                         throw new BdHttpCancelException();
                                     }
-                                } catch (Exception e4) {
-                                    httpURLConnection = a2;
-                                    e = e4;
+                                } catch (Exception e3) {
+                                    httpURLConnection = a;
+                                    e = e3;
                                     dataOutputStream = dataOutputStream2;
                                     throw e;
                                 } catch (Throwable th3) {
                                     dataOutputStream3 = dataOutputStream2;
-                                    httpURLConnection2 = a2;
+                                    httpURLConnection2 = a;
                                     th = th3;
                                     if (dataOutputStream3 != null) {
                                     }
@@ -705,8 +705,8 @@ public class b {
                                     throw th;
                                 }
                             }
-                            int responseCode = a2.getResponseCode();
-                            if (aVar == null || !aVar.c()) {
+                            int responseCode = a.getResponseCode();
+                            if (aVar == null || !aVar.isCanceled()) {
                                 if (responseCode != 200 && responseCode != 204 && responseCode != 206 && responseCode != 413 && responseCode != 416) {
                                     if (responseCode == 202 || responseCode == 201 || responseCode == 205 || responseCode == 304 || responseCode == 305 || responseCode == 408) {
                                         throw new BdHttpErrorException("doGetOrPost retry, errorCode:" + responseCode, responseCode, true);
@@ -716,25 +716,25 @@ public class b {
                                     }
                                     throw new BdHttpErrorException("errorCode:" + responseCode, responseCode, true);
                                 }
-                                f a3 = (responseCode == 200 || responseCode == 206) ? a(a2, z, (g) null, dVar, aVar, dVar2) : new f();
-                                if (aVar == null || !aVar.c()) {
-                                    a3.a = responseCode;
+                                f a2 = (responseCode == 200 || responseCode == 206) ? a(a, z, (g) null, dVar, aVar, dVar2) : new f();
+                                if (aVar == null || !aVar.isCanceled()) {
+                                    a2.kU = responseCode;
                                     if (dVar2 != null) {
-                                        dVar2.d = ((new Date().getTime() - currentTimeMillis) - dVar2.c) - dVar2.g;
+                                        dVar2.ko = ((new Date().getTime() - currentTimeMillis) - dVar2.km) - dVar2.kq;
                                     }
                                     if (dataOutputStream2 != null) {
                                         try {
                                             dataOutputStream2.close();
-                                        } catch (Exception e5) {
+                                        } catch (Exception e4) {
                                         }
                                     }
-                                    if (a2 != null) {
-                                        a2.disconnect();
+                                    if (a != null) {
+                                        a.disconnect();
                                     }
                                     if (aVar != null) {
-                                        aVar.b();
+                                        aVar.finish();
                                     }
-                                    return a3;
+                                    return a2;
                                 }
                                 throw new BdHttpCancelException();
                             }
@@ -743,18 +743,18 @@ public class b {
                         throw new BdHttpCancelException();
                     }
                     throw new BdHttpCancelException();
-                } catch (Exception e6) {
+                } catch (Exception e5) {
                     dataOutputStream = null;
-                    httpURLConnection = a2;
-                    e = e6;
+                    httpURLConnection = a;
+                    e = e5;
                 } catch (Throwable th4) {
                     th = th4;
                 }
             } catch (Throwable th5) {
                 th = th5;
             }
-        } catch (Exception e7) {
-            e = e7;
+        } catch (Exception e6) {
+            e = e6;
             httpURLConnection = null;
             dataOutputStream = null;
         } catch (Throwable th6) {
@@ -781,12 +781,12 @@ public class b {
                     fVar = a(str, z, arrayList, hashMap, i2, dVar, aVar, dVar3, linkedList);
                     if (fVar != null) {
                         try {
-                            if (fVar.a == 200) {
+                            if (fVar.kU == 200) {
                                 i3 = i4;
                                 break;
                             }
-                        } catch (BdHttpErrorException e2) {
-                            e = e2;
+                        } catch (BdHttpErrorException e) {
+                            e = e;
                             if (e.needRetry() && i4 < i - 1) {
                                 i3 = i4 + 1;
                                 if (i3 < i - 1) {
@@ -796,8 +796,8 @@ public class b {
                             } else {
                                 throw e;
                             }
-                        } catch (Exception e3) {
-                            e = e3;
+                        } catch (Exception e2) {
+                            e = e2;
                             if (i4 < i - 1) {
                                 i3 = i4 + 1;
                                 if (i3 < i - 1) {
@@ -810,20 +810,20 @@ public class b {
                         }
                     }
                     i3 = i4 + 1;
-                } catch (BdHttpCancelException e4) {
-                    throw e4;
+                } catch (BdHttpCancelException e3) {
+                    throw e3;
                 }
-            } catch (BdHttpErrorException e5) {
-                e = e5;
+            } catch (BdHttpErrorException e4) {
+                e = e4;
                 fVar = fVar2;
-            } catch (Exception e6) {
-                e = e6;
+            } catch (Exception e5) {
+                e = e5;
                 fVar = fVar2;
             }
             if (i3 < i - 1) {
                 try {
                     Thread.sleep(100L);
-                } catch (Exception e7) {
+                } catch (Exception e6) {
                 }
             }
             if (i3 >= i) {
@@ -833,13 +833,13 @@ public class b {
             i4 = i3;
         }
         if (dVar3 != null) {
-            dVar3.e = i3;
-            dVar3.f = System.currentTimeMillis() - currentTimeMillis;
+            dVar3.retry = i3;
+            dVar3.kp = System.currentTimeMillis() - currentTimeMillis;
         }
         return fVar;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1380=4, 1382=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1381=4, 1383=5] */
     /* JADX WARN: Removed duplicated region for block: B:17:0x0024  */
     /* JADX WARN: Removed duplicated region for block: B:182:0x001f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:19:0x0029  */
@@ -852,16 +852,16 @@ public class b {
         DataOutputStream dataOutputStream2;
         DataOutputStream dataOutputStream3 = null;
         try {
-            HttpURLConnection a2 = a(str, linkedList);
+            HttpURLConnection a = a(str, linkedList);
             if (aVar != null) {
                 try {
-                    if (aVar.c()) {
+                    if (aVar.isCanceled()) {
                         throw new BdHttpCancelException();
                     }
-                    aVar.a(a2);
-                } catch (Exception e2) {
-                    httpURLConnection = a2;
-                    e = e2;
+                    aVar.d(a);
+                } catch (Exception e) {
+                    httpURLConnection = a;
+                    e = e;
                     dataOutputStream = null;
                     try {
                         throw e;
@@ -871,19 +871,19 @@ public class b {
                         if (dataOutputStream3 != null) {
                             try {
                                 dataOutputStream3.close();
-                            } catch (Exception e3) {
+                            } catch (Exception e2) {
                             }
                         }
                         if (httpURLConnection != null) {
                             httpURLConnection.disconnect();
                         }
                         if (aVar != null) {
-                            aVar.b();
+                            aVar.finish();
                         }
                         throw th;
                     }
                 } catch (Throwable th2) {
-                    httpURLConnection = a2;
+                    httpURLConnection = a;
                     th = th2;
                     if (dataOutputStream3 != null) {
                     }
@@ -894,37 +894,37 @@ public class b {
                     throw th;
                 }
             }
-            a2.setRequestMethod("POST");
-            a2.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + g);
-            a2.setRequestProperty("Charset", "UTF-8");
-            if (a) {
-                a2.setRequestProperty("Post-Encoding", "gzip");
+            a.setRequestMethod("POST");
+            a.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + kf);
+            a.setRequestProperty("Charset", "UTF-8");
+            if (kK) {
+                a.setRequestProperty("Post-Encoding", "gzip");
             }
             if (z) {
-                a2.setRequestProperty("Accept-Encoding", "gzip");
+                a.setRequestProperty("Accept-Encoding", "gzip");
             }
-            a2.setConnectTimeout(TbConfig.BIG_IMAGE_MIN_CAPACITY);
+            a.setConnectTimeout(TbConfig.BIG_IMAGE_MIN_CAPACITY);
             if (i < 0) {
                 i = 30000;
             }
-            a2.setReadTimeout(i);
-            a2.setDoInput(true);
-            a2.setDoOutput(true);
-            a2.setUseCaches(false);
-            if (aVar == null || !aVar.c()) {
+            a.setReadTimeout(i);
+            a.setDoInput(true);
+            a.setDoOutput(true);
+            a.setUseCaches(false);
+            if (aVar == null || !aVar.isCanceled()) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (dVar2 != null) {
-                    dVar2.g = new Date().getTime() - currentTimeMillis;
+                    dVar2.kq = new Date().getTime() - currentTimeMillis;
                 }
-                a2.connect();
+                a.connect();
                 if (dVar2 != null) {
-                    dVar2.c = (System.currentTimeMillis() - currentTimeMillis) - dVar2.g;
+                    dVar2.km = (System.currentTimeMillis() - currentTimeMillis) - dVar2.kq;
                 }
-                if (aVar == null || !aVar.c()) {
+                if (aVar == null || !aVar.isCanceled()) {
                     if (dVar != null) {
-                        dVar.a();
+                        dVar.dX();
                     }
-                    if (a) {
+                    if (kK) {
                         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
                         if (arrayList != null) {
                             Iterator<BasicNameValuePair> it = arrayList.iterator();
@@ -933,15 +933,15 @@ public class b {
                                 if (next != null) {
                                     String name = next.getName();
                                     String value = next.getValue();
-                                    byteArrayOutputStream.write((String.valueOf(f) + g + e).getBytes());
-                                    byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + name + "\"" + e).getBytes());
-                                    byteArrayOutputStream.write(e.getBytes());
+                                    byteArrayOutputStream.write((String.valueOf(kN) + kf + kM).getBytes());
+                                    byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + name + "\"" + kM).getBytes());
+                                    byteArrayOutputStream.write(kM.getBytes());
                                     if (value == null) {
                                         byteArrayOutputStream.write("null".getBytes("UTF-8"));
                                     } else {
                                         byteArrayOutputStream.write(value.getBytes("UTF-8"));
                                     }
-                                    byteArrayOutputStream.write(e.getBytes());
+                                    byteArrayOutputStream.write(kM.getBytes());
                                 }
                             }
                         }
@@ -950,12 +950,12 @@ public class b {
                                 String key = entry.getKey();
                                 byte[] value2 = entry.getValue();
                                 if (value2 != null) {
-                                    byteArrayOutputStream.write((String.valueOf(f) + g + e).getBytes());
-                                    byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + key + "\"; filename=\"file\"" + e).getBytes());
-                                    byteArrayOutputStream.write(e.getBytes());
+                                    byteArrayOutputStream.write((String.valueOf(kN) + kf + kM).getBytes());
+                                    byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + key + "\"; filename=\"file\"" + kM).getBytes());
+                                    byteArrayOutputStream.write(kM.getBytes());
                                     byteArrayOutputStream.write(value2);
-                                    byteArrayOutputStream.write(e.getBytes());
-                                    byteArrayOutputStream.write((String.valueOf(f) + g + f + e).getBytes());
+                                    byteArrayOutputStream.write(kM.getBytes());
+                                    byteArrayOutputStream.write((String.valueOf(kN) + kf + kN + kM).getBytes());
                                 }
                             }
                         }
@@ -963,21 +963,21 @@ public class b {
                         byteArrayOutputStream.close();
                         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
                         ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
-                        com.baidu.adp.lib.util.e.b(byteArrayInputStream, byteArrayOutputStream2);
-                        DataOutputStream dataOutputStream4 = new DataOutputStream(a2.getOutputStream());
+                        com.baidu.adp.lib.util.f.b(byteArrayInputStream, byteArrayOutputStream2);
+                        DataOutputStream dataOutputStream4 = new DataOutputStream(a.getOutputStream());
                         try {
                             dataOutputStream4.write(byteArrayOutputStream2.toByteArray());
                             dataOutputStream4.flush();
                             dataOutputStream4.close();
                             dataOutputStream2 = dataOutputStream4;
-                        } catch (Exception e4) {
+                        } catch (Exception e3) {
                             dataOutputStream = dataOutputStream4;
-                            httpURLConnection = a2;
-                            e = e4;
+                            httpURLConnection = a;
+                            e = e3;
                             throw e;
                         } catch (Throwable th3) {
                             dataOutputStream3 = dataOutputStream4;
-                            httpURLConnection = a2;
+                            httpURLConnection = a;
                             th = th3;
                             if (dataOutputStream3 != null) {
                             }
@@ -988,7 +988,7 @@ public class b {
                             throw th;
                         }
                     } else {
-                        DataOutputStream dataOutputStream5 = new DataOutputStream(a2.getOutputStream());
+                        DataOutputStream dataOutputStream5 = new DataOutputStream(a.getOutputStream());
                         if (arrayList != null) {
                             try {
                                 Iterator<BasicNameValuePair> it2 = arrayList.iterator();
@@ -997,25 +997,25 @@ public class b {
                                     if (next2 != null) {
                                         String name2 = next2.getName();
                                         String value3 = next2.getValue();
-                                        dataOutputStream5.writeBytes(String.valueOf(f) + g + e);
-                                        dataOutputStream5.writeBytes("Content-Disposition: form-data; name=\"" + name2 + "\"" + e);
-                                        dataOutputStream5.writeBytes(e);
+                                        dataOutputStream5.writeBytes(String.valueOf(kN) + kf + kM);
+                                        dataOutputStream5.writeBytes("Content-Disposition: form-data; name=\"" + name2 + "\"" + kM);
+                                        dataOutputStream5.writeBytes(kM);
                                         if (value3 == null) {
                                             dataOutputStream5.write("null".getBytes("UTF-8"));
                                         } else {
                                             dataOutputStream5.write(value3.getBytes("UTF-8"));
                                         }
-                                        dataOutputStream5.writeBytes(e);
+                                        dataOutputStream5.writeBytes(kM);
                                     }
                                 }
-                            } catch (Exception e5) {
-                                httpURLConnection = a2;
-                                e = e5;
+                            } catch (Exception e4) {
+                                httpURLConnection = a;
+                                e = e4;
                                 dataOutputStream = dataOutputStream5;
                                 throw e;
                             } catch (Throwable th4) {
                                 dataOutputStream3 = dataOutputStream5;
-                                httpURLConnection = a2;
+                                httpURLConnection = a;
                                 th = th4;
                                 if (dataOutputStream3 != null) {
                                 }
@@ -1031,12 +1031,12 @@ public class b {
                                 String key2 = entry2.getKey();
                                 byte[] value4 = entry2.getValue();
                                 if (value4 != null) {
-                                    dataOutputStream5.writeBytes(String.valueOf(f) + g + e);
-                                    dataOutputStream5.writeBytes("Content-Disposition: form-data; name=\"" + key2 + "\"; filename=\"file\"" + e);
-                                    dataOutputStream5.writeBytes(e);
+                                    dataOutputStream5.writeBytes(String.valueOf(kN) + kf + kM);
+                                    dataOutputStream5.writeBytes("Content-Disposition: form-data; name=\"" + key2 + "\"; filename=\"file\"" + kM);
+                                    dataOutputStream5.writeBytes(kM);
                                     dataOutputStream5.write(value4);
-                                    dataOutputStream5.writeBytes(e);
-                                    dataOutputStream5.writeBytes(String.valueOf(f) + g + f + e);
+                                    dataOutputStream5.writeBytes(kM);
+                                    dataOutputStream5.writeBytes(String.valueOf(kN) + kf + kN + kM);
                                 }
                             }
                         }
@@ -1046,17 +1046,17 @@ public class b {
                     }
                     if (aVar != null) {
                         try {
-                            if (aVar.c()) {
+                            if (aVar.isCanceled()) {
                                 throw new BdHttpCancelException();
                             }
-                        } catch (Exception e6) {
-                            httpURLConnection = a2;
-                            e = e6;
+                        } catch (Exception e5) {
+                            httpURLConnection = a;
+                            e = e5;
                             dataOutputStream = dataOutputStream2;
                             throw e;
                         } catch (Throwable th5) {
                             dataOutputStream3 = dataOutputStream2;
-                            httpURLConnection = a2;
+                            httpURLConnection = a;
                             th = th5;
                             if (dataOutputStream3 != null) {
                             }
@@ -1067,8 +1067,8 @@ public class b {
                             throw th;
                         }
                     }
-                    int responseCode = a2.getResponseCode();
-                    if (aVar == null || !aVar.c()) {
+                    int responseCode = a.getResponseCode();
+                    if (aVar == null || !aVar.isCanceled()) {
                         if (responseCode != 200 && responseCode != 204 && responseCode != 206 && responseCode != 416) {
                             if (responseCode == 202 || responseCode == 201 || responseCode == 205 || responseCode == 304 || responseCode == 305 || responseCode == 408) {
                                 throw new BdHttpErrorException("retry, errorCode:" + responseCode, responseCode, true);
@@ -1078,25 +1078,25 @@ public class b {
                             }
                             throw new BdHttpErrorException("errorCode:" + responseCode, responseCode, true);
                         }
-                        f a3 = (responseCode == 200 || responseCode == 206) ? a(a2, false, (g) null, dVar, aVar, dVar2) : new f();
-                        if (aVar == null || !aVar.c()) {
-                            a3.a = responseCode;
+                        f a2 = (responseCode == 200 || responseCode == 206) ? a(a, false, (g) null, dVar, aVar, dVar2) : new f();
+                        if (aVar == null || !aVar.isCanceled()) {
+                            a2.kU = responseCode;
                             if (dVar2 != null) {
-                                dVar2.d = ((System.currentTimeMillis() - currentTimeMillis) - dVar2.c) - dVar2.g;
+                                dVar2.ko = ((System.currentTimeMillis() - currentTimeMillis) - dVar2.km) - dVar2.kq;
                             }
                             if (dataOutputStream2 != null) {
                                 try {
                                     dataOutputStream2.close();
-                                } catch (Exception e7) {
+                                } catch (Exception e6) {
                                 }
                             }
-                            if (a2 != null) {
-                                a2.disconnect();
+                            if (a != null) {
+                                a.disconnect();
                             }
                             if (aVar != null) {
-                                aVar.b();
+                                aVar.finish();
                             }
-                            return a3;
+                            return a2;
                         }
                         throw new BdHttpCancelException();
                     }
@@ -1105,8 +1105,8 @@ public class b {
                 throw new BdHttpCancelException();
             }
             throw new BdHttpCancelException();
-        } catch (Exception e8) {
-            e = e8;
+        } catch (Exception e7) {
+            e = e7;
             httpURLConnection = null;
             dataOutputStream = null;
         } catch (Throwable th6) {
@@ -1125,17 +1125,17 @@ public class b {
         try {
             f fVar = new f();
             String contentType = httpURLConnection.getContentType();
-            fVar.e = h.d(contentType);
-            if (z && h.c(contentType)) {
-                if (aVar != null && aVar.c()) {
+            fVar.charset = h.Z(contentType);
+            if (z && h.Y(contentType)) {
+                if (aVar != null && aVar.isCanceled()) {
                     throw new BdHttpCancelException();
                 }
                 httpURLConnection.disconnect();
-                if (aVar != null && aVar.c()) {
+                if (aVar != null && aVar.isCanceled()) {
                     throw new BdHttpCancelException();
                 }
                 httpURLConnection.connect();
-                if (aVar != null && aVar.c()) {
+                if (aVar != null && aVar.isCanceled()) {
                     throw new BdHttpCancelException();
                 }
             }
@@ -1157,7 +1157,7 @@ public class b {
             }
             int intValue2 = (i2 == 0 && httpURLConnection.getResponseCode() == 200 && (headerField = httpURLConnection.getHeaderField("Content-Length")) != null) ? Integer.valueOf(headerField).intValue() : i2;
             if (gVar != null) {
-                gVar.a(headerField2 != null);
+                gVar.u(headerField2 != null);
             }
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             if (dVar != null) {
@@ -1168,7 +1168,7 @@ public class b {
                 z2 = true;
             }
             InputStream inputStream2 = httpURLConnection.getInputStream();
-            if (aVar != null && aVar.c()) {
+            if (aVar != null && aVar.isCanceled()) {
                 throw new BdHttpCancelException();
             }
             if (inputStream2 != null && byteArrayOutputStream != null) {
@@ -1179,7 +1179,7 @@ public class b {
                     size += read;
                     if (read > 0) {
                         if (!z2 && gVar != null) {
-                            gVar.a(bArr, 0, read);
+                            gVar.d(bArr, 0, read);
                         } else {
                             byteArrayOutputStream.write(bArr, 0, read);
                         }
@@ -1187,7 +1187,7 @@ public class b {
                             dVar.a(size, intValue2, httpURLConnection);
                         }
                     }
-                    if (aVar != null && aVar.c()) {
+                    if (aVar != null && aVar.isCanceled()) {
                         throw new BdHttpCancelException();
                     }
                     if (intValue2 > 0 && size > intValue2) {
@@ -1195,26 +1195,26 @@ public class b {
                     }
                 } while (read > 0);
                 if (dVar2 != null) {
-                    dVar2.b = size;
+                    dVar2.kl = size;
                 }
                 if (z2) {
                     ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
                     ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(4096);
-                    com.baidu.adp.lib.util.e.a(byteArrayInputStream, byteArrayOutputStream2);
+                    com.baidu.adp.lib.util.f.a(byteArrayInputStream, byteArrayOutputStream2);
                     byte[] byteArray = byteArrayOutputStream2.toByteArray();
                     if (gVar != null) {
-                        gVar.a(byteArray, 0, byteArray.length);
+                        gVar.d(byteArray, 0, byteArray.length);
                     } else {
-                        fVar.d = byteArray;
+                        fVar.data = byteArray;
                     }
                 } else if (gVar == null) {
-                    fVar.d = byteArrayOutputStream.toByteArray();
+                    fVar.data = byteArrayOutputStream.toByteArray();
                 }
             }
             if (inputStream2 != null) {
                 try {
                     inputStream2.close();
-                } catch (IOException e2) {
+                } catch (IOException e) {
                 }
             }
             return fVar;
@@ -1222,7 +1222,7 @@ public class b {
             if (0 != 0) {
                 try {
                     inputStream.close();
-                } catch (IOException e3) {
+                } catch (IOException e2) {
                 }
             }
             throw th;

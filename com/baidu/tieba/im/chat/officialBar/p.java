@@ -1,9 +1,9 @@
 package com.baidu.tieba.im.chat.officialBar;
 /* loaded from: classes.dex */
 public class p {
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
+    public String fid;
+    public String src;
+    public String text;
+    public String title;
+    public String url;
 }

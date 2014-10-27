@@ -4,12 +4,12 @@ import android.text.Editable;
 import android.text.TextWatcher;
 /* loaded from: classes.dex */
 class c implements TextWatcher {
-    final /* synthetic */ ApplyJoinGroupActivity a;
-    private CharSequence b;
+    final /* synthetic */ ApplyJoinGroupActivity bad;
+    private CharSequence bae;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(ApplyJoinGroupActivity applyJoinGroupActivity) {
-        this.a = applyJoinGroupActivity;
+        this.bad = applyJoinGroupActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -18,33 +18,33 @@ class c implements TextWatcher {
 
     @Override // android.text.TextWatcher
     public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.b = charSequence;
+        this.bae = charSequence;
     }
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
         if (editable != null) {
-            int selectionStart = this.a.b.getSelectionStart();
-            int selectionEnd = this.a.b.getSelectionEnd();
-            int length = this.b.length();
+            int selectionStart = this.bad.aZR.getSelectionStart();
+            int selectionEnd = this.bad.aZR.getSelectionEnd();
+            int length = this.bae.length();
             if (30 < length) {
-                this.a.f.setEnabled(false);
+                this.bad.aZV.setEnabled(false);
                 editable.delete(selectionStart - 1, selectionEnd);
-                this.a.b.setText(editable);
-                this.a.b.setSelection(selectionStart);
+                this.bad.aZR.setText(editable);
+                this.bad.aZR.setSelection(selectionStart);
                 length = 30;
             } else {
-                this.a.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.edit_normal));
+                this.bad.aZS.setTextColor(this.bad.getResources().getColor(com.baidu.tieba.s.edit_normal));
                 if (editable.length() > 0) {
-                    this.a.f.setEnabled(true);
+                    this.bad.aZV.setEnabled(true);
                 } else {
-                    this.a.f.setEnabled(false);
+                    this.bad.aZV.setEnabled(false);
                 }
             }
             if (30 == length) {
-                this.a.c.setTextColor(this.a.getResources().getColor(com.baidu.tieba.r.edit_exceed));
+                this.bad.aZS.setTextColor(this.bad.getResources().getColor(com.baidu.tieba.s.edit_exceed));
             }
-            this.a.c.setText(String.valueOf(length) + "/30");
+            this.bad.aZS.setText(String.valueOf(length) + "/30");
         }
     }
 }

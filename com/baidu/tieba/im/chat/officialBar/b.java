@@ -5,27 +5,27 @@ import android.view.ViewGroup;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ MultiContentView a;
+    final /* synthetic */ MultiContentView aQO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(MultiContentView multiContentView) {
-        this.a = multiContentView;
+        this.aQO = multiContentView;
     }
 
     @Override // android.view.ViewGroup.OnHierarchyChangeListener
     public void onChildViewRemoved(View view, View view2) {
-        com.baidu.adp.lib.d.b bVar;
-        com.baidu.adp.lib.d.b bVar2;
-        com.baidu.adp.lib.d.b bVar3;
+        com.baidu.adp.lib.e.b bVar;
+        com.baidu.adp.lib.e.b bVar2;
+        com.baidu.adp.lib.e.b bVar3;
         if (view2 instanceof f) {
-            bVar3 = this.a.d;
-            bVar3.a((com.baidu.adp.lib.d.b) ((f) view2));
+            bVar3 = this.aQO.aQJ;
+            bVar3.h((f) view2);
         } else if (view2 instanceof c) {
-            bVar2 = this.a.e;
-            bVar2.a((com.baidu.adp.lib.d.b) ((c) view2));
-        } else if (view2 instanceof bc) {
-            bVar = this.a.f;
-            bVar.a((com.baidu.adp.lib.d.b) ((bc) view2));
+            bVar2 = this.aQO.aQK;
+            bVar2.h((c) view2);
+        } else if (view2 instanceof ba) {
+            bVar = this.aQO.aQL;
+            bVar.h((ba) view2);
         }
     }
 

@@ -3,21 +3,21 @@ package com.baidu.tieba.data;
 import tbclient.FrsPage.GconAccount;
 /* loaded from: classes.dex */
 public class u {
-    private boolean a;
-    private String b;
+    private boolean akT;
+    private String menu_name;
 
-    public boolean a() {
-        return this.a;
+    public boolean zo() {
+        return this.akT;
     }
 
-    public String b() {
-        return this.b;
+    public String zp() {
+        return this.menu_name;
     }
 
     public void a(GconAccount gconAccount) {
         if (gconAccount != null) {
-            this.a = gconAccount.has_account.intValue() == 1;
-            this.b = gconAccount.menu_name;
+            this.akT = gconAccount.has_account.intValue() == 1;
+            this.menu_name = gconAccount.menu_name;
         }
     }
 }

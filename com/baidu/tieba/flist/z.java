@@ -1,26 +1,26 @@
 package com.baidu.tieba.flist;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 class z extends com.baidu.tbadk.core.util.a {
-    final /* synthetic */ ForumRankActivity a;
+    final /* synthetic */ ForumRankActivity awP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(ForumRankActivity forumRankActivity) {
-        this.a = forumRankActivity;
+        this.awP = forumRankActivity;
     }
 
     @Override // com.baidu.tbadk.core.util.a
-    public LinkedList<String> getImageUrl() {
+    public ArrayList<String> getImageUrl() {
         String str;
         String str2;
-        str = this.a.j;
+        str = this.awP.awL;
         if (str == null) {
             return null;
         }
-        LinkedList<String> linkedList = new LinkedList<>();
-        str2 = this.a.j;
-        linkedList.add(str2);
-        return linkedList;
+        ArrayList<String> arrayList = new ArrayList<>();
+        str2 = this.awP.awL;
+        arrayList.add(str2);
+        return arrayList;
     }
 }

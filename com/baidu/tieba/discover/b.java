@@ -1,16 +1,16 @@
 package com.baidu.tieba.discover;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements com.baidu.adp.widget.ScrollView.m {
-    final /* synthetic */ a a;
+public class b implements com.baidu.adp.widget.ScrollView.l {
+    final /* synthetic */ a anC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.a = aVar;
+        this.anC = aVar;
     }
 
-    @Override // com.baidu.adp.widget.ScrollView.m
-    public void a() {
-        this.a.h();
+    @Override // com.baidu.adp.widget.ScrollView.l
+    public void iy() {
+        this.anC.yh();
     }
 }

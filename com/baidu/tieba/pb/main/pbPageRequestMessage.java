@@ -23,6 +23,10 @@ public class pbPageRequestMessage extends NetMessage {
     private Integer mark;
     private String message_click;
     private Integer message_id;
+    private long opMessageID;
+    private int opStat;
+    private String opType;
+    private String opUrl;
     private Integer pb_rn;
     private long pid;
     private Integer pn;
@@ -41,6 +45,8 @@ public class pbPageRequestMessage extends NetMessage {
 
     public pbPageRequestMessage() {
         super(CmdConfigHttp.PB_PAGE_HTTP_CMD, 302001);
+        this.opType = null;
+        this.opUrl = null;
     }
 
     public Context getContext() {
@@ -153,6 +159,38 @@ public class pbPageRequestMessage extends NetMessage {
 
     public void set_message_id(Integer num) {
         this.message_id = num;
+    }
+
+    public String getOpType() {
+        return this.opType;
+    }
+
+    public void setOpType(String str) {
+        this.opType = str;
+    }
+
+    public String getOpUrl() {
+        return this.opUrl;
+    }
+
+    public void setOpUrl(String str) {
+        this.opUrl = str;
+    }
+
+    public int getOpStat() {
+        return this.opStat;
+    }
+
+    public void setOpStat(int i) {
+        this.opStat = i;
+    }
+
+    public long getOpMessageID() {
+        return this.opMessageID;
+    }
+
+    public void setOpMessageID(long j) {
+        this.opMessageID = j;
     }
 
     public Integer get_s_model() {
@@ -313,8 +351,14 @@ public class pbPageRequestMessage extends NetMessage {
             builder.msg_click = get_message_click();
             builder.last = get_last();
             builder.lastids = getLastids();
+            if (this.opType != null) {
+                builder.st_from = this.opType;
+                builder.st_link = this.opUrl;
+                builder.st_stat = Integer.valueOf(this.opStat);
+                builder.st_task = Long.valueOf(this.opMessageID);
+            }
             if (z) {
-                com.baidu.tbadk.b.d.a(builder, true);
+                com.baidu.tbadk.util.g.a(builder, true);
             }
             PbPageReqIdl.Builder builder2 = new PbPageReqIdl.Builder();
             builder2.data = builder.build(false);

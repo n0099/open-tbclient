@@ -5,29 +5,29 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-class c implements com.baidu.tbadk.widget.l {
-    final /* synthetic */ a a;
-    private final /* synthetic */ View b;
-    private final /* synthetic */ TbImageView c;
-    private final /* synthetic */ Activity d;
+class c implements com.baidu.tbadk.widget.p {
+    private final /* synthetic */ Activity Ft;
+    private final /* synthetic */ TbImageView acA;
+    private final /* synthetic */ View acB;
+    final /* synthetic */ a acz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(a aVar, View view, TbImageView tbImageView, Activity activity) {
-        this.a = aVar;
-        this.b = view;
-        this.c = tbImageView;
-        this.d = activity;
+    public c(a aVar, TbImageView tbImageView, View view, Activity activity) {
+        this.acz = aVar;
+        this.acA = tbImageView;
+        this.acB = view;
+        this.Ft = activity;
     }
 
-    @Override // com.baidu.tbadk.widget.l
-    public void a() {
+    @Override // com.baidu.tbadk.widget.p
+    public void onCancel() {
     }
 
-    @Override // com.baidu.tbadk.widget.l
-    public void a(String str, boolean z) {
-        if (this.b instanceof ViewGroup) {
-            ((ViewGroup) this.b).addView(this.c);
+    @Override // com.baidu.tbadk.widget.p
+    public void q(String str, boolean z) {
+        if (this.acA.getParent() == null && (this.acB instanceof ViewGroup)) {
+            ((ViewGroup) this.acB).addView(this.acA);
         }
-        com.baidu.tbadk.core.f.a(this.d, "lpage_tg_pic");
+        com.baidu.tbadk.core.i.l(this.Ft, "lpage_tg_pic");
     }
 }

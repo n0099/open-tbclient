@@ -2,15 +2,14 @@ package com.baidu.tbadk.core.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import com.baidu.tbadk.widget.TbClipImageView;
 /* loaded from: classes.dex */
-public class HeadImageView extends com.baidu.tbadk.widget.j {
-    private String d;
-    private String e;
-    private String f;
-    private int g;
-    private int h;
-    private int i;
-    private int j;
+public class HeadImageView extends TbClipImageView {
+    private int GU;
+    private int GV;
+    private String mUrl;
+    private String user_id;
+    private String user_name;
 
     public HeadImageView(Context context) {
         this(context, null, 0);
@@ -22,48 +21,53 @@ public class HeadImageView extends com.baidu.tbadk.widget.j {
 
     public HeadImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = com.baidu.tieba.t.icon_default_avatar100;
-        this.h = com.baidu.tieba.t.icon_default_avatar100_1;
-        this.i = com.baidu.tieba.r.cp_cont_e;
-        this.j = com.baidu.tieba.r.cp_cont_e_1;
-        g();
+        this.user_id = null;
+        this.user_name = null;
+        this.mUrl = null;
+        this.GU = com.baidu.tieba.u.icon_default_avatar100;
+        this.GV = com.baidu.tieba.s.cp_cont_e;
+        init();
     }
 
-    private void g() {
+    private void init() {
         setDrawerType(1);
         setGifIconSupport(false);
         setDrawBorder(true);
-        setDefaultBgResource(this.i);
-        setNightDefaultBgResource(this.j);
-        setDefaultResource(this.g);
-        setNightDefaultResource(this.h);
+        setDefaultBgResource(this.GV);
+        setDefaultResource(this.GU);
     }
 
     public void setUrl(String str) {
-        this.f = str;
+        this.mUrl = str;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView
     public String getUrl() {
-        return this.f;
+        return this.mUrl;
     }
 
     public void setUserId(String str) {
-        this.d = str;
+        this.user_id = str;
     }
 
     public String getUserId() {
-        return this.d;
+        return this.user_id;
     }
 
     public void setUserName(String str) {
-        this.e = str;
+        this.user_name = str;
     }
 
     public String getUserName() {
-        return this.e;
+        return this.user_name;
+    }
+
+    @Override // com.baidu.tbadk.widget.TbImageView
+    public void nt() {
+        if (!this.aaY) {
+            this.aaY = true;
+        } else if (this.abb != null && this.abb.YU) {
+            this.abb.uF();
+        }
     }
 }

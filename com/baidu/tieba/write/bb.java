@@ -1,23 +1,18 @@
 package com.baidu.tieba.write;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bb implements com.baidu.tieba.bubble.t {
-    final /* synthetic */ WriteActivity a;
+public class bb implements Runnable {
+    private final /* synthetic */ int arl;
+    final /* synthetic */ WriteActivity bTX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(WriteActivity writeActivity) {
-        this.a = writeActivity;
+    public bb(WriteActivity writeActivity, int i) {
+        this.bTX = writeActivity;
+        this.arl = i;
     }
 
-    @Override // com.baidu.tieba.bubble.t
-    public void a() {
-        WriteEditorToolButtonContainer writeEditorToolButtonContainer;
-        WriteEditorToolButtonContainer writeEditorToolButtonContainer2;
-        this.a.m = null;
-        this.a.a(false);
-        writeEditorToolButtonContainer = this.a.B;
-        if (writeEditorToolButtonContainer != null) {
-            writeEditorToolButtonContainer2 = this.a.B;
-            writeEditorToolButtonContainer2.r();
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        this.bTX.hH(this.arl);
     }
 }

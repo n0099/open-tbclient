@@ -1,18 +1,52 @@
 package com.baidu.tieba.pb.main;
 
+import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.view.MorePopupWindow;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class v implements com.baidu.tbadk.widget.richText.r {
-    final /* synthetic */ PbActivity a;
+public class v implements View.OnTouchListener {
+    final /* synthetic */ PbActivity bvg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(PbActivity pbActivity) {
-        this.a = pbActivity;
+        this.bvg = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.widget.richText.r
-    public void a(View view, String str, String str2, String str3, String str4, String str5, String str6, int i, int i2) {
-        this.a.sendMessage(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.m(this.a, str, str2, str3, str4, str5, str6, 1, i, i2)));
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        MorePopupWindow morePopupWindow;
+        MorePopupWindow morePopupWindow2;
+        MorePopupWindow morePopupWindow3;
+        MorePopupWindow morePopupWindow4;
+        MorePopupWindow morePopupWindow5;
+        MorePopupWindow morePopupWindow6;
+        MorePopupWindow morePopupWindow7;
+        MorePopupWindow morePopupWindow8;
+        int x = (int) motionEvent.getX();
+        int y = (int) motionEvent.getY();
+        morePopupWindow = this.bvg.buP;
+        if (morePopupWindow.getContentView() == null) {
+            return false;
+        }
+        morePopupWindow2 = this.bvg.buP;
+        int top = morePopupWindow2.getContentView().getTop();
+        morePopupWindow3 = this.bvg.buP;
+        int right = morePopupWindow3.getContentView().getRight();
+        morePopupWindow4 = this.bvg.buP;
+        int bottom = morePopupWindow4.getContentView().getBottom();
+        if (motionEvent.getAction() == 4 && x > right && y > top && y < bottom) {
+            morePopupWindow6 = this.bvg.buP;
+            if (morePopupWindow6.isShowing()) {
+                morePopupWindow7 = this.bvg.buP;
+                morePopupWindow7.dismiss();
+                morePopupWindow8 = this.bvg.buP;
+                morePopupWindow8.setIsIntercepted(true);
+                return true;
+            }
+        }
+        morePopupWindow5 = this.bvg.buP;
+        morePopupWindow5.setIsIntercepted(false);
+        return false;
     }
 }

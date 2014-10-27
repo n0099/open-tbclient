@@ -8,55 +8,55 @@ import java.util.LinkedList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class e {
-    private static e a;
-    private Context b;
+    private static e kT;
+    private Context mContext;
 
-    public static synchronized e a() {
+    public static synchronized e dY() {
         e eVar;
         synchronized (e.class) {
-            if (a == null) {
-                a = new e();
+            if (kT == null) {
+                kT = new e();
             }
-            eVar = a;
+            eVar = kT;
         }
         return eVar;
     }
 
-    public void a(Context context, boolean z) {
-        this.b = context;
-        b.a = z;
+    public void init(Context context, boolean z) {
+        this.mContext = context;
+        b.kK = z;
         System.setProperty("http.keepAlive", "false");
     }
 
-    public void a(String str) {
-        b.b = str;
+    public void X(String str) {
+        b.cookie = str;
     }
 
-    public void b(String str) {
-        b.c = str;
+    public void setUserAgent(String str) {
+        b.kL = str;
     }
 
-    public void c(String str) {
-        b.d = str;
+    public void setUid(String str) {
+        b.uid = str;
     }
 
     public f a(String str, boolean z, int i, int i2, int i3, d dVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
-        f a2 = b.a(str, z, i, i3, dVar, aVar, linkedList);
-        if (a2 != null && a2.a == 206) {
-            int length = a2.d.length;
-            int length2 = a2.d.length;
+        f a = b.a(str, z, i, i3, dVar, aVar, linkedList);
+        if (a != null && a.kU == 206) {
+            int length = a.data.length;
+            int length2 = a.data.length;
             ArrayList arrayList = new ArrayList();
-            arrayList.add(a2.d);
-            a2.d = b.a(str, length, length2, arrayList, i, i2, i3, dVar, aVar, linkedList);
-            a2.a = Constants.MEDIA_INFO;
-        } else if (a2 != null && a2.a == 413) {
-            a2.d = b.a(str, 0L, h.e(), new ArrayList(), i, i2, i3, dVar, aVar, linkedList);
-            a2.a = a2.d != null ? Constants.MEDIA_INFO : a2.a;
+            arrayList.add(a.data);
+            a.data = b.a(str, length, length2, arrayList, i, i2, i3, dVar, aVar, linkedList);
+            a.kU = Constants.MEDIA_INFO;
+        } else if (a != null && a.kU == 413) {
+            a.data = b.a(str, 0L, h.ec(), new ArrayList(), i, i2, i3, dVar, aVar, linkedList);
+            a.kU = a.data != null ? Constants.MEDIA_INFO : a.kU;
         }
         if (dVar != null) {
-            dVar.a(a2);
+            dVar.a(a);
         }
-        return a2;
+        return a;
     }
 
     public f a(String str, int i, int i2, int i3, d dVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
@@ -67,7 +67,7 @@ public class e {
         return b.a(z, str, bArr, i, i2, dVar, aVar, linkedList);
     }
 
-    public f a(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i, int i2, d dVar, a aVar, com.baidu.adp.lib.network.http.d dVar2, LinkedList<BasicNameValuePair> linkedList) {
+    public f b(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i, int i2, d dVar, a aVar, com.baidu.adp.lib.network.http.d dVar2, LinkedList<BasicNameValuePair> linkedList) {
         return b.a(str, z, arrayList, hashMap, i, i2, dVar, aVar, (com.baidu.adp.lib.network.http.d) null, linkedList);
     }
 
@@ -75,8 +75,8 @@ public class e {
         return b.a(str, str2, z, i, i2, i3, dVar, aVar, linkedList);
     }
 
-    public Context b() {
-        return this.b;
+    public Context getContext() {
+        return this.mContext;
     }
 
     private e() {

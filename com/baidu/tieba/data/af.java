@@ -1,33 +1,39 @@
 package com.baidu.tieba.data;
 
-import android.text.TextUtils;
-import java.util.LinkedList;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class af implements com.baidu.tbadk.core.util.av {
-    public ae a;
-    public ae b;
+public class af extends com.baidu.tbadk.core.data.q {
+    public static final BdUniqueId alz = BdUniqueId.gen();
+    private boolean alA;
+    private u alB;
+    private String fortune_desc;
 
-    @Override // com.baidu.tbadk.core.util.av
-    public LinkedList<com.baidu.tbadk.core.util.au> getImages() {
-        com.baidu.tbadk.core.util.au a;
-        com.baidu.tbadk.core.util.au a2;
-        LinkedList<com.baidu.tbadk.core.util.au> linkedList = new LinkedList<>();
-        if (this.a != null && (a2 = a(this.a.c())) != null) {
-            linkedList.add(a2);
-        }
-        if (this.b != null && (a = a(this.b.c())) != null) {
-            linkedList.add(a);
-        }
-        return linkedList;
+    public boolean zF() {
+        return this.alA;
     }
 
-    private com.baidu.tbadk.core.util.au a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        com.baidu.tbadk.core.util.au auVar = new com.baidu.tbadk.core.util.au();
-        auVar.a = str;
-        auVar.d = 10;
-        return auVar;
+    public void bq(boolean z) {
+        this.alA = z;
+    }
+
+    public String zG() {
+        return this.fortune_desc;
+    }
+
+    public void ev(String str) {
+        this.fortune_desc = str;
+    }
+
+    public u zH() {
+        return this.alB;
+    }
+
+    public void a(u uVar) {
+        this.alB = uVar;
+    }
+
+    @Override // com.baidu.tbadk.core.data.q, com.baidu.adp.widget.ListView.al
+    public BdUniqueId hu() {
+        return alz;
     }
 }

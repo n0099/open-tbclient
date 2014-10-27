@@ -5,108 +5,83 @@ import tbclient.FrsPage.Size;
 import tbclient.FrsPage.StarInfo;
 /* loaded from: classes.dex */
 public class t {
-    private int a = 0;
-    private int b = 0;
-    private String c = null;
-    private String d = null;
-    private int e = 0;
-    private int f = 0;
-    private int g = 0;
-    private int h = 0;
-    private int i = 0;
-    private int j = 0;
-    private long k = 0;
-    private long l = 0;
-    private boolean m = false;
-    private long n = 0;
-    private String o = null;
-    private aw p = new aw();
+    private int akF = 0;
+    private int akG = 0;
+    private String akH = null;
+    private String akI = null;
+    private int akJ = 0;
+    private int fan_num = 0;
+    private int akK = 0;
+    private int akL = 0;
+    private int akM = 0;
+    private int akN = 0;
+    private long akO = 0;
+    private long akP = 0;
+    private boolean akQ = false;
+    private long akR = 0;
+    private String akS = null;
 
-    public int a() {
-        return this.a;
+    public int zg() {
+        return this.akF;
     }
 
-    public String b() {
-        return this.c;
+    public String zh() {
+        return this.akH;
     }
 
-    public String c() {
-        return this.d;
+    public String zi() {
+        return this.akI;
     }
 
-    public int d() {
-        return this.g;
+    public int zj() {
+        return this.akK;
     }
 
-    public int e() {
-        return this.h;
+    public int zk() {
+        return this.akL;
     }
 
-    public int f() {
-        return this.b;
+    public boolean zl() {
+        return this.akQ;
     }
 
-    public void a(int i) {
-        this.b = i;
+    public long zm() {
+        return this.akR;
     }
 
-    public long g() {
-        return this.k;
-    }
-
-    public void b(int i) {
-        this.e = i;
-    }
-
-    public int h() {
-        return this.e;
-    }
-
-    public void c(int i) {
-        this.f = i;
-    }
-
-    public int i() {
-        return this.f;
-    }
-
-    public boolean j() {
-        return this.m;
-    }
-
-    public long k() {
-        return this.n;
-    }
-
-    public String l() {
-        return this.o;
+    public String zn() {
+        return this.akS;
     }
 
     public void a(StarInfo starInfo) {
         if (starInfo != null) {
-            this.a = starInfo.has_frs_star.intValue();
-            if (this.a == 1) {
-                this.c = starInfo.top;
-                this.d = starInfo.head;
+            this.akF = starInfo.has_frs_star.intValue();
+            if (this.akF == 1) {
+                this.akH = starInfo.top;
+                this.akI = starInfo.head;
                 Fans fans = starInfo.fans;
-                this.e = fans.is_get.intValue();
-                this.f = fans.num.intValue();
-                this.b = fans.open.intValue();
-                this.k = fans.left_time.intValue();
-                this.l = this.k;
+                this.akJ = fans.is_get.intValue();
+                this.fan_num = fans.num.intValue();
+                this.akG = fans.open.intValue();
+                this.akO = fans.left_time.intValue();
+                this.akP = this.akO;
                 Size size = starInfo.top_size;
-                this.g = size.width.intValue();
-                this.h = size.height.intValue();
-                Size size2 = starInfo.head_size;
-                this.i = size2.width.intValue();
-                this.j = size2.height.intValue();
-            }
-            this.m = starInfo.trade != null;
-            if (this.m) {
-                if (starInfo.trade.time != null) {
-                    this.n = starInfo.trade.time.intValue();
+                if (size != null) {
+                    this.akK = size.width.intValue();
+                    this.akL = size.height.intValue();
                 }
-                this.o = starInfo.trade.url;
+                Size size2 = starInfo.head_size;
+                if (size2 != null) {
+                    this.akM = size2.width.intValue();
+                    this.akN = size2.height.intValue();
+                }
+            }
+            this.akQ = starInfo.trade != null;
+            if (this.akQ) {
+                if (starInfo.trade.time != null) {
+                    this.akR = starInfo.trade.time.intValue();
+                }
+                this.akS = starInfo.trade.url;
             }
         }
     }

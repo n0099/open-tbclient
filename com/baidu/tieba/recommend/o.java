@@ -3,26 +3,29 @@ package com.baidu.tieba.recommend;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import com.baidu.tieba.ai;
+import com.baidu.tieba.aj;
 /* loaded from: classes.dex */
 public class o extends com.baidu.adp.base.e {
-    public static String a = com.baidu.tbadk.core.frameworkData.a.ST_TYPE;
-    private q b;
-    private p d;
-    private p e;
-    private boolean f;
-    private String g = null;
-    private com.baidu.tieba.data.l c = new com.baidu.tieba.data.l();
+    public static String ST_TYPE = "st_type";
+    private q bIh;
+    private com.baidu.tieba.data.l bIi;
+    private p bIj;
+    private p bIk;
+    private boolean bIl;
+    private String stType;
 
     public o(Context context) {
+        super(context);
+        this.stType = null;
+        this.bIi = new com.baidu.tieba.data.l();
     }
 
-    public void a(Intent intent) {
-        this.g = intent.getStringExtra(a);
+    public void initWithIntent(Intent intent) {
+        this.stType = intent.getStringExtra(ST_TYPE);
     }
 
-    public void a(Bundle bundle) {
-        this.g = bundle.getString(a);
+    public void initWithBundle(Bundle bundle) {
+        this.stType = bundle.getString(ST_TYPE);
     }
 
     @Override // com.baidu.adp.base.e
@@ -30,55 +33,55 @@ public class o extends com.baidu.adp.base.e {
         return true;
     }
 
-    public void a() {
-        if (this.d != null) {
-            this.d.cancel(true);
-            this.d = null;
+    public void yh() {
+        if (this.bIj != null) {
+            this.bIj.cancel(true);
+            this.bIj = null;
         }
-        this.d = new p(this, 0, "");
-        this.d.execute(new String[0]);
+        this.bIj = new p(this, 0, "");
+        this.bIj.execute(new String[0]);
     }
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.d != null) {
-            this.d.cancel(true);
-            this.d = null;
+        if (this.bIj != null) {
+            this.bIj.cancel(true);
+            this.bIj = null;
         }
-        if (this.e != null) {
-            this.e.cancel(true);
-            this.e = null;
+        if (this.bIk != null) {
+            this.bIk.cancel(true);
+            this.bIk = null;
         }
         return true;
     }
 
-    public void b() {
-        if (this.e != null) {
-            this.e.cancel(true);
-            this.e = null;
+    public void abK() {
+        if (this.bIk != null) {
+            this.bIk.cancel(true);
+            this.bIk = null;
         }
-        this.e = new p(this, 1, "");
-        this.e.execute(new String[0]);
+        this.bIk = new p(this, 1, "");
+        this.bIk.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(String str) {
-        com.baidu.adp.lib.cache.t<String> G = ai.c().G();
-        if (G != null) {
-            G.a("dailyrecommend", str, 2592000000L);
+    public void hl(String str) {
+        com.baidu.adp.lib.cache.t<String> wO = aj.wk().wO();
+        if (wO != null) {
+            wO.a("dailyrecommend", str, 2592000000L);
         }
     }
 
-    public void a(String str) {
-        if (this.d != null) {
-            this.d.cancel(true);
-            this.d = null;
+    public void hm(String str) {
+        if (this.bIj != null) {
+            this.bIj.cancel(true);
+            this.bIj = null;
         }
-        this.d = new p(this, 2, str);
-        this.d.execute(new String[0]);
+        this.bIj = new p(this, 2, str);
+        this.bIj.execute(new String[0]);
     }
 
     public void a(q qVar) {
-        this.b = qVar;
+        this.bIh = qVar;
     }
 }

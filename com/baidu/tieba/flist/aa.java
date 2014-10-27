@@ -6,11 +6,11 @@ import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa implements View.OnClickListener {
-    final /* synthetic */ ForumRankActivity a;
+    final /* synthetic */ ForumRankActivity awP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(ForumRankActivity forumRankActivity) {
-        this.a = forumRankActivity;
+        this.awP = forumRankActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,10 +18,10 @@ public class aa implements View.OnClickListener {
         BdListView bdListView;
         LinearLayout linearLayout;
         p pVar;
-        bdListView = this.a.a;
-        linearLayout = this.a.g;
+        bdListView = this.awP.vl;
+        linearLayout = this.awP.awr;
         bdListView.removeFooterView(linearLayout);
-        pVar = this.a.c;
-        pVar.a(100);
+        pVar = this.awP.awJ;
+        pVar.eA(100);
     }
 }

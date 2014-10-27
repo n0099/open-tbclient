@@ -1,57 +1,38 @@
 package com.baidu.tieba.model;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tieba.message.ResponseReportUserInfoMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw extends CustomMessageListener {
-    final /* synthetic */ av a;
+public class aw extends HttpMessageListener {
+    final /* synthetic */ av bpE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public aw(av avVar, int i) {
         super(i);
-        this.a = avVar;
+        this.bpE = avVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        Context context;
-        com.baidu.adp.base.h hVar;
-        com.baidu.adp.base.h hVar2;
-        if (customResponsedMessage != null) {
-            switch (customResponsedMessage.getCmd()) {
-                case 2001118:
-                    if ((customResponsedMessage instanceof UpdateAttentionMessage) && this.a.k() != null) {
-                        UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                        com.baidu.tbadk.coreExtra.message.a data = updateAttentionMessage.getData();
-                        if (this.a.k().getUserId() != null && data != null && this.a.k().getUserId().equals(data.c) && data.a) {
-                            this.a.k().setHave_attention(updateAttentionMessage.isAttention() ? 0 : 1);
-                            this.a.mLoadDataMode = 3;
-                            this.a.setErrorString(updateAttentionMessage.getErrorString());
-                            hVar = this.a.mLoadDataCallBack;
-                            if (hVar != null) {
-                                hVar2 = this.a.mLoadDataCallBack;
-                                hVar2.a(Boolean.valueOf(updateAttentionMessage.isSucc()));
-                                return;
-                            }
-                            return;
-                        } else if (data != null && !TextUtils.isEmpty(data.b)) {
-                            context = this.a.v;
-                            com.baidu.adp.lib.util.j.a(context, data.b);
-                            return;
-                        } else {
-                            return;
-                        }
-                    }
+    /* renamed from: b */
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        ax axVar;
+        ax axVar2;
+        ax axVar3;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001522) {
+            axVar = this.bpE.bpC;
+            if (axVar != null && (httpResponsedMessage instanceof ResponseReportUserInfoMessage)) {
+                ResponseReportUserInfoMessage responseReportUserInfoMessage = (ResponseReportUserInfoMessage) httpResponsedMessage;
+                if (responseReportUserInfoMessage.getErrorCode() == 0) {
+                    axVar3 = this.bpE.bpC;
+                    axVar3.gE(responseReportUserInfoMessage.getTimeInterval());
                     return;
-                default:
-                    return;
+                }
+                axVar2 = this.bpE.bpC;
+                axVar2.onError(responseReportUserInfoMessage.getErrorCode(), responseReportUserInfoMessage.getErrorMsg());
             }
         }
     }

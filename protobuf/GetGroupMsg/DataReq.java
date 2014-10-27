@@ -7,11 +7,23 @@ import java.util.List;
 import protobuf.GroupLastId;
 /* loaded from: classes.dex */
 public final class DataReq extends Message {
+    public static final String DEFAULT_GETTYPE = "";
+    public static final String DEFAULT_MAX_TIME = "";
+    public static final String DEFAULT_MIN_TIME = "";
+    public static final String DEFAULT_PROCESS_TYPE = "";
     public static final String DEFAULT_PUSHTIMES = "";
+    @ProtoField(tag = 7, type = Message.Datatype.STRING)
+    public final String gettype;
     @ProtoField(label = Message.Label.REPEATED, tag = 6)
     public final List<GroupLastId> groupMids;
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
     public final Integer height;
+    @ProtoField(tag = 9, type = Message.Datatype.STRING)
+    public final String max_time;
+    @ProtoField(tag = 8, type = Message.Datatype.STRING)
+    public final String min_time;
+    @ProtoField(tag = 10, type = Message.Datatype.STRING)
+    public final String process_type;
     @ProtoField(tag = 5, type = Message.Datatype.STRING)
     public final String pushTimes;
     @ProtoField(tag = 4, type = Message.Datatype.INT32)
@@ -60,9 +72,29 @@ public final class DataReq extends Message {
             }
             if (builder.groupMids == null) {
                 this.groupMids = DEFAULT_GROUPMIDS;
-                return;
             } else {
                 this.groupMids = immutableCopyOf(builder.groupMids);
+            }
+            if (builder.gettype == null) {
+                this.gettype = "";
+            } else {
+                this.gettype = builder.gettype;
+            }
+            if (builder.min_time == null) {
+                this.min_time = "";
+            } else {
+                this.min_time = builder.min_time;
+            }
+            if (builder.max_time == null) {
+                this.max_time = "";
+            } else {
+                this.max_time = builder.max_time;
+            }
+            if (builder.process_type == null) {
+                this.process_type = "";
+                return;
+            } else {
+                this.process_type = builder.process_type;
                 return;
             }
         }
@@ -72,12 +104,20 @@ public final class DataReq extends Message {
         this.smallHeight = builder.smallHeight;
         this.pushTimes = builder.pushTimes;
         this.groupMids = immutableCopyOf(builder.groupMids);
+        this.gettype = builder.gettype;
+        this.min_time = builder.min_time;
+        this.max_time = builder.max_time;
+        this.process_type = builder.process_type;
     }
 
     /* loaded from: classes.dex */
     public final class Builder extends Message.Builder<DataReq> {
+        public String gettype;
         public List<GroupLastId> groupMids;
         public Integer height;
+        public String max_time;
+        public String min_time;
+        public String process_type;
         public String pushTimes;
         public Integer smallHeight;
         public Integer smallWidth;
@@ -92,6 +132,10 @@ public final class DataReq extends Message {
                 this.smallHeight = dataReq.smallHeight;
                 this.pushTimes = dataReq.pushTimes;
                 this.groupMids = DataReq.copyOf(dataReq.groupMids);
+                this.gettype = dataReq.gettype;
+                this.min_time = dataReq.min_time;
+                this.max_time = dataReq.max_time;
+                this.process_type = dataReq.process_type;
             }
         }
 

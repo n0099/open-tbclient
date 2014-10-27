@@ -9,7 +9,6 @@ public class SocketMessage extends Message<byte[]> {
     private Object mData;
     private String mEncodeName;
     private int mRetryCount;
-    private long mStartSendTime;
     private int squencedId;
 
     public static void setGlobalEncodeName(String str) {
@@ -20,7 +19,6 @@ public class SocketMessage extends Message<byte[]> {
         super(i);
         this.mData = null;
         this.mEncodeName = null;
-        this.mStartSendTime = 0L;
         this.mRetryCount = 0;
         this.squencedId = 0;
         this.mEncodeName = GLOBAL_ENCODE_NAME;
@@ -34,7 +32,6 @@ public class SocketMessage extends Message<byte[]> {
         super(i);
         this.mData = null;
         this.mEncodeName = null;
-        this.mStartSendTime = 0L;
         this.mRetryCount = 0;
         this.squencedId = 0;
         this.mData = obj;
@@ -45,7 +42,6 @@ public class SocketMessage extends Message<byte[]> {
         super(i, bdUniqueId);
         this.mData = null;
         this.mEncodeName = null;
-        this.mStartSendTime = 0L;
         this.mRetryCount = 0;
         this.squencedId = 0;
         this.mEncodeName = GLOBAL_ENCODE_NAME;
@@ -77,7 +73,7 @@ public class SocketMessage extends Message<byte[]> {
 
     @Override // com.baidu.adp.framework.message.Message
     public boolean checkCmd(int i) {
-        return FrameHelper.c(i);
+        return FrameHelper.f(i);
     }
 
     public String getEncodeName() {
@@ -86,14 +82,6 @@ public class SocketMessage extends Message<byte[]> {
 
     public void setEncodeName(String str) {
         this.mEncodeName = str;
-    }
-
-    public long getmStartSendTime() {
-        return this.mStartSendTime;
-    }
-
-    public void setmStartSendTime(long j) {
-        this.mStartSendTime = j;
     }
 
     public int getmRetryCount() {

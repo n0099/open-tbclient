@@ -7,15 +7,15 @@ import com.baidu.tbadk.widget.EditHeadsImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
-    final /* synthetic */ EditHeadActivity a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ int c;
+    private final /* synthetic */ String Ka;
+    final /* synthetic */ EditHeadActivity this$0;
+    private final /* synthetic */ int val$id;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(EditHeadActivity editHeadActivity, String str, int i) {
-        this.a = editHeadActivity;
-        this.b = str;
-        this.c = i;
+        this.this$0 = editHeadActivity;
+        this.Ka = str;
+        this.val$id = i;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,14 +23,14 @@ public class h implements View.OnClickListener {
         ProgressBar progressBar;
         EditHeadsImageView editHeadsImageView;
         Bitmap bitmap;
-        progressBar = this.a.n;
+        progressBar = this.this$0.mProgress;
         if (progressBar.getVisibility() != 0) {
-            editHeadsImageView = this.a.g;
-            bitmap = this.a.h;
-            editHeadsImageView.a(bitmap);
-            this.a.D = false;
-            this.a.b(this.b);
-            this.a.z = this.c;
+            editHeadsImageView = this.this$0.Jz;
+            bitmap = this.this$0.mBitmap;
+            editHeadsImageView.g(bitmap);
+            this.this$0.JU = false;
+            this.this$0.cl(this.Ka);
+            this.this$0.JQ = this.val$id;
         }
     }
 }

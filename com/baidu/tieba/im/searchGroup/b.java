@@ -7,77 +7,77 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import com.baidu.adp.base.f;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.x;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class b extends f {
-    private View a;
-    private NavigationBar b;
-    private View c;
-    private EditText d;
-    private ImageButton e;
-    private ProgressBar f;
-    private Button g;
-    private AddGroupActivity h;
+    private ProgressBar aTH;
+    private Button bhA;
+    private AddGroupActivity bhB;
+    private View bhw;
+    private NavigationBar bhx;
+    private EditText bhy;
+    private ImageButton bhz;
+    private View iZ;
 
     public b(AddGroupActivity addGroupActivity) {
         super(addGroupActivity);
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.h = addGroupActivity;
-        e();
+        this.bhw = null;
+        this.bhx = null;
+        this.iZ = null;
+        this.bhy = null;
+        this.bhz = null;
+        this.aTH = null;
+        this.bhA = null;
+        this.bhB = null;
+        this.bhB = addGroupActivity;
+        initUI();
     }
 
-    public View a() {
-        return this.e;
+    public View LB() {
+        return this.bhz;
     }
 
-    public View b() {
-        return this.g;
+    public View Rr() {
+        return this.bhA;
     }
 
-    public View c() {
-        return this.c;
+    public View Rs() {
+        return this.iZ;
     }
 
-    public void d() {
-        if (this.d != null) {
-            this.d.setText("");
+    public void Rt() {
+        if (this.bhy != null) {
+            this.bhy.setText("");
         }
     }
 
-    public void a(boolean z) {
-        this.f.setVisibility(z ? 0 : 8);
+    public void da(boolean z) {
+        this.aTH.setVisibility(z ? 0 : 8);
     }
 
-    public void a(int i) {
-        this.h.getLayoutMode().a(i == 1);
-        this.h.getLayoutMode().a(this.a);
-        this.b.c(i);
+    public void changeSkinType(int i) {
+        this.bhB.getLayoutMode().L(i == 1);
+        this.bhB.getLayoutMode().h(this.bhw);
+        this.bhx.onChangeSkinType(i);
     }
 
-    private void e() {
-        this.h.setContentView(v.im_add_group_activity);
-        this.a = this.h.findViewById(u.addgroup_rootlayout);
-        this.b = (NavigationBar) this.h.findViewById(u.addgroup_navigationbar);
-        this.c = this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.b.a(this.h.getResources().getString(x.add_group_title_main));
-        this.d = (EditText) this.h.findViewById(u.addgroup_input);
-        this.d.setInputType(2);
-        this.e = (ImageButton) this.h.findViewById(u.addgroup_delbtn);
-        this.g = (Button) this.h.findViewById(u.addgroup_searchbutton);
-        this.d.addTextChangedListener(new c(this));
-        this.g = (Button) this.h.findViewById(u.addgroup_searchbutton);
-        this.f = (ProgressBar) this.h.findViewById(u.addgroup_progress);
-        this.c.setOnClickListener(this.h);
-        this.e.setOnClickListener(this.h);
-        this.g.setOnClickListener(this.h);
+    private void initUI() {
+        this.bhB.setContentView(w.im_add_group_activity);
+        this.bhw = this.bhB.findViewById(v.addgroup_rootlayout);
+        this.bhx = (NavigationBar) this.bhB.findViewById(v.addgroup_navigationbar);
+        this.iZ = this.bhx.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.bhx.setTitleText(this.bhB.getResources().getString(y.add_group_title_main));
+        this.bhy = (EditText) this.bhB.findViewById(v.addgroup_input);
+        this.bhy.setInputType(2);
+        this.bhz = (ImageButton) this.bhB.findViewById(v.addgroup_delbtn);
+        this.bhA = (Button) this.bhB.findViewById(v.addgroup_searchbutton);
+        this.bhy.addTextChangedListener(new c(this));
+        this.bhA = (Button) this.bhB.findViewById(v.addgroup_searchbutton);
+        this.aTH = (ProgressBar) this.bhB.findViewById(v.addgroup_progress);
+        this.iZ.setOnClickListener(this.bhB);
+        this.bhz.setOnClickListener(this.bhB);
+        this.bhA.setOnClickListener(this.bhB);
     }
 }

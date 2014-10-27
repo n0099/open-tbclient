@@ -31,7 +31,7 @@ public class RequestUpdateGroupFlagMessage extends RequestUpdateGroupMessage {
     @Override // com.baidu.tieba.im.message.RequestUpdateGroupMessage
     protected void subEncode(GroupInfo.Builder builder) {
         builder.business = getBusiness();
-        builder.portrait = getPosition();
+        builder.position = getPosition();
         builder.flag = Integer.valueOf(getFlag());
     }
 }

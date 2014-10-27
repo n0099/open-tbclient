@@ -6,31 +6,32 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> {
-    final /* synthetic */ UpdatesActivity a;
+    final /* synthetic */ UpdatesActivity bbU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(UpdatesActivity updatesActivity) {
-        this.a = updatesActivity;
+        this.bbU = updatesActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
-    public void a(LinkedList<GroupNewsPojo> linkedList) {
+    /* renamed from: m */
+    public void onReturnDataInUI(LinkedList<GroupNewsPojo> linkedList) {
         t tVar;
         p pVar;
         t tVar2;
         t tVar3;
         p pVar2;
-        List<UpdatesItemData> a = p.a(linkedList);
-        tVar = this.a.b;
-        tVar.a(a);
-        pVar = this.a.i;
-        pVar.a(a);
-        tVar2 = this.a.b;
-        tVar2.a(false);
-        tVar3 = this.a.b;
-        pVar2 = this.a.i;
-        tVar3.a(pVar2.d());
-        this.a.e();
+        List<UpdatesItemData> n = p.n(linkedList);
+        tVar = this.bbU.bbM;
+        tVar.setData(n);
+        pVar = this.bbU.bbT;
+        pVar.X(n);
+        tVar2 = this.bbU.bbM;
+        tVar2.dg(false);
+        tVar3 = this.bbU.bbM;
+        pVar2 = this.bbU.bbT;
+        tVar3.fT(pVar2.Ph());
+        this.bbU.De();
     }
 }

@@ -2,121 +2,120 @@ package com.baidu.tieba.b;
 
 import com.baidu.adp.lib.stats.f;
 import com.baidu.adp.lib.stats.q;
-import com.baidu.adp.lib.util.BdNetUtil;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.service.NetworkChangeReceiver;
 /* loaded from: classes.dex */
 public class a {
-    private q c;
-    private final int d = 10;
-    private final int e = 3000;
-    public String a = null;
-    public boolean b = false;
+    private q amP;
+    private final int amQ = 10;
+    private final int amR = 3000;
+    public String amS = null;
+    public boolean Gm = false;
 
     public a(String str) {
-        a(str, false);
+        t(str, false);
     }
 
-    public void a(String str, boolean z) {
-        this.a = str;
-        this.b = z;
-        this.c = new q("dbg");
-        b.a(str, d(), z);
+    public void t(String str, boolean z) {
+        this.amS = str;
+        this.Gm = z;
+        this.amP = new q("dbg");
+        b.c(str, getNetType(), z);
     }
 
-    public void a() {
-        this.c.a();
+    public void start() {
+        this.amP.eL();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j) {
-        long b = this.c.b();
+        long eM = this.amP.eM();
         long j2 = 0;
         long j3 = 0;
         if (z) {
-            j2 = b;
+            j2 = eM;
         } else {
-            j3 = b;
+            j3 = eM;
         }
         a(z, z2, i, str, j, j2, j3);
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e c;
-        if (this.c != null && (c = c()) != null) {
+        e AG;
+        if (this.amP != null && (AG = AG()) != null) {
             if (z) {
-                if (c.d != null) {
-                    c.d.b++;
+                if (AG.amY != null) {
+                    AG.amY.num++;
                     if (z2) {
-                        c.d.a += j2;
-                        c.d.d += j;
+                        AG.amY.amU += j2;
+                        AG.amY.size += j;
                     } else {
-                        c.d.c++;
+                        AG.amY.amV++;
                     }
                 } else {
                     return;
                 }
-            } else if (c.e != null) {
-                c.e.b++;
+            } else if (AG.amZ != null) {
+                AG.amZ.num++;
                 if (z2) {
-                    c.e.a += j3;
-                    c.e.d += j;
+                    AG.amZ.amU += j3;
+                    AG.amZ.size += j;
                     j2 = j3;
                 } else {
-                    c.e.c++;
+                    AG.amZ.amV++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.c = null;
+            this.amP = null;
             if (z2) {
-                b.a(c, 10);
+                b.a(AG, 10);
             }
-            if (this.a == "frsStat") {
+            if (this.amS == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     q qVar = new q("dbg");
-                    qVar.a("act", "frs");
-                    qVar.a("result", z2 ? "0" : TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
-                    qVar.a("isHttp", z ? TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK : "0");
-                    qVar.a("timeCost", String.valueOf(j2));
-                    qVar.a("errCode", String.valueOf(i));
-                    qVar.a("errMsg", str);
-                    qVar.a("down", String.valueOf(j));
-                    f.c().a("frs", qVar);
+                    qVar.n("act", "frs");
+                    qVar.n("result", z2 ? "0" : "1");
+                    qVar.n("isHttp", z ? "1" : "0");
+                    qVar.n("timeCost", String.valueOf(j2));
+                    qVar.n("errCode", String.valueOf(i));
+                    qVar.n("errMsg", str);
+                    qVar.n("down", String.valueOf(j));
+                    f.er().a("frs", qVar);
                 }
             }
         }
     }
 
-    public void b() {
-        e c;
-        if (this.c != null && (c = c()) != null && c.f != null) {
-            long b = this.c.b();
-            if (b > 3000) {
-                d dVar = c.f;
-                dVar.a = b + dVar.a;
-                c.f.b++;
-                b.a(c, 10);
+    public void xY() {
+        e AG;
+        if (this.amP != null && (AG = AG()) != null && AG.ana != null) {
+            long eM = this.amP.eM();
+            if (eM > 3000) {
+                d dVar = AG.ana;
+                dVar.amU = eM + dVar.amU;
+                AG.ana.num++;
+                b.a(AG, 10);
             }
         }
     }
 
-    private e c() {
-        return b.b(this.a, d(), this.b);
+    private e AG() {
+        return b.d(this.amS, getNetType(), this.Gm);
     }
 
-    private String d() {
-        BdNetUtil.NetworkStateInfo statusInfo = BdNetUtil.getStatusInfo();
-        if (statusInfo == BdNetUtil.NetworkStateInfo.UNAVAIL) {
+    private String getNetType() {
+        int fm = j.fm();
+        if (fm == 0) {
             return "N";
         }
-        if (statusInfo == BdNetUtil.NetworkStateInfo.WIFI) {
+        if (fm == 1) {
             return NetworkChangeReceiver.WIFI_STRING;
         }
-        if (statusInfo == BdNetUtil.NetworkStateInfo.ThreeG) {
+        if (fm == 3) {
             return "3G";
         }
-        if (statusInfo != BdNetUtil.NetworkStateInfo.TwoG) {
+        if (fm != 2) {
             return "N";
         }
         return "2G";

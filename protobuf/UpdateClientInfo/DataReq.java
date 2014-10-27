@@ -7,16 +7,21 @@ import com.squareup.wire.ProtoField;
 public final class DataReq extends Message {
     public static final String DEFAULT_BDUSS = "";
     public static final String DEFAULT_DEVICE = "";
+    public static final String DEFAULT_PROJECT = "";
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
     public final String bduss;
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
     public final String device;
+    @ProtoField(tag = 11, type = Message.Datatype.INT32)
+    public final Integer groupId;
     @ProtoField(tag = 7, type = Message.Datatype.INT32)
     public final Integer height;
     @ProtoField(tag = 4, type = Message.Datatype.DOUBLE)
     public final Double lat;
     @ProtoField(tag = 5, type = Message.Datatype.DOUBLE)
     public final Double lng;
+    @ProtoField(tag = 10, type = Message.Datatype.STRING)
+    public final String project;
     @ProtoField(tag = 9, type = Message.Datatype.INT32)
     public final Integer pub_env;
     @ProtoField(tag = 3, type = Message.Datatype.BYTES)
@@ -32,6 +37,7 @@ public final class DataReq extends Message {
     public static final Integer DEFAULT_HEIGHT = 0;
     public static final Integer DEFAULT_UNREAD_MSG = 0;
     public static final Integer DEFAULT_PUB_ENV = 0;
+    public static final Integer DEFAULT_GROUPID = 0;
 
     /* synthetic */ DataReq(Builder builder, boolean z, DataReq dataReq) {
         this(builder, z);
@@ -82,9 +88,19 @@ public final class DataReq extends Message {
             }
             if (builder.pub_env == null) {
                 this.pub_env = DEFAULT_PUB_ENV;
-                return;
             } else {
                 this.pub_env = builder.pub_env;
+            }
+            if (builder.project == null) {
+                this.project = "";
+            } else {
+                this.project = builder.project;
+            }
+            if (builder.groupId == null) {
+                this.groupId = DEFAULT_GROUPID;
+                return;
+            } else {
+                this.groupId = builder.groupId;
                 return;
             }
         }
@@ -97,15 +113,19 @@ public final class DataReq extends Message {
         this.height = builder.height;
         this.unread_msg = builder.unread_msg;
         this.pub_env = builder.pub_env;
+        this.project = builder.project;
+        this.groupId = builder.groupId;
     }
 
     /* loaded from: classes.dex */
     public final class Builder extends Message.Builder<DataReq> {
         public String bduss;
         public String device;
+        public Integer groupId;
         public Integer height;
         public Double lat;
         public Double lng;
+        public String project;
         public Integer pub_env;
         public ByteString secretKey;
         public Integer unread_msg;
@@ -123,6 +143,8 @@ public final class DataReq extends Message {
                 this.height = dataReq.height;
                 this.unread_msg = dataReq.unread_msg;
                 this.pub_env = dataReq.pub_env;
+                this.project = dataReq.project;
+                this.groupId = dataReq.groupId;
             }
         }
 

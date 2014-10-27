@@ -1,29 +1,63 @@
 package com.baidu.tieba.pb.main;
 
-import android.view.animation.Animation;
-import android.widget.RelativeLayout;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class bu implements Animation.AnimationListener {
-    final /* synthetic */ bs a;
+public class bu extends com.baidu.adp.base.f {
+    private View.OnClickListener Hd;
+    private TextView bwV;
+    private PbActivity bxa;
+    private TextView bxg;
+    private ImageView bxh;
+    private boolean bxi;
+    private View mView;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bu(bs bsVar) {
-        this.a = bsVar;
+    public boolean Xd() {
+        return this.bxi;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+    public void ed(boolean z) {
+        this.bxi = z;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        RelativeLayout relativeLayout;
-        relativeLayout = this.a.G;
-        relativeLayout.setVisibility(0);
+    public bu(PbActivity pbActivity, View.OnClickListener onClickListener) {
+        super(pbActivity);
+        this.mView = null;
+        this.bwV = null;
+        this.bxg = null;
+        this.bxh = null;
+        this.bxa = null;
+        this.Hd = null;
+        this.bxi = true;
+        this.bxa = pbActivity;
+        this.Hd = onClickListener;
+        initUI();
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    public View getView() {
+        return this.mView;
+    }
+
+    public TextView WU() {
+        return this.bwV;
+    }
+
+    public TextView Xe() {
+        return this.bxg;
+    }
+
+    public ImageView Xf() {
+        return this.bxh;
+    }
+
+    private void initUI() {
+        this.mView = com.baidu.adp.lib.g.b.ek().inflate(this.bxa, com.baidu.tieba.w.pb_reply_view, null);
+        this.bwV = (TextView) this.mView.findViewById(com.baidu.tieba.v.pb_reply_view_item_mark);
+        this.bwV.setOnClickListener(this.Hd);
+        this.bxg = (TextView) this.mView.findViewById(com.baidu.tieba.v.pb_reply_view_item_reply);
+        this.bxg.setOnClickListener(this.Hd);
+        this.bxh = (ImageView) this.mView.findViewById(com.baidu.tieba.v.pb_reply_view_item_manage);
+        this.bxh.setOnClickListener(this.Hd);
     }
 }

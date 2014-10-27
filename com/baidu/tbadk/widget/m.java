@@ -1,117 +1,120 @@
 package com.baidu.tbadk.widget;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.text.SpannableStringBuilder;
-import android.text.Spanned;
-import android.view.MotionEvent;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
-import java.util.ArrayList;
-@SuppressLint({"WrongCall"})
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.text.style.DynamicDrawableSpan;
+import android.util.Log;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.aw;
+import java.io.InputStream;
 /* loaded from: classes.dex */
-public class m extends TextView {
-    public m(Context context) {
-        super(context);
+public class m extends DynamicDrawableSpan {
+    private Uri aaO;
+    private int aaP;
+    private n aaQ;
+    private Rect dZ;
+    private Context mContext;
+    private Drawable tt;
+
+    public void setDrawable(Drawable drawable) {
+        this.tt = drawable;
     }
 
-    @Override // android.widget.TextView, android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        setLongClickable(false);
-        super.onTouchEvent(motionEvent);
-        return motionEvent.getAction() == 0 && hasSelection();
+    public m(n nVar, int i, int i2) {
+        super(i2);
+        this.dZ = new Rect();
+        this.aaP = i;
+        this.aaQ = nVar;
     }
 
-    @Override // android.widget.TextView, android.view.View
-    protected void onMeasure(int i, int i2) {
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        if (this.tt != null || this.aaQ == null) {
+            return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
+        }
+        if (fontMetricsInt != null) {
+            fontMetricsInt.ascent = -this.dZ.bottom;
+            fontMetricsInt.descent = 0;
+            fontMetricsInt.top = fontMetricsInt.ascent;
+            fontMetricsInt.bottom = 0;
+        }
+        return this.dZ.right;
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan
+    public Drawable getDrawable() {
+        Drawable drawable;
+        Drawable drawable2;
+        Exception e;
+        InputStream openInputStream;
+        Drawable drawable3 = null;
+        if (this.tt != null) {
+            drawable3 = this.tt;
+        } else if (this.aaQ != null) {
+            drawable3 = this.aaQ.a(this);
+        }
+        if (drawable3 != null) {
+            return drawable3;
+        }
+        if (this.aaO != null) {
+            try {
+                openInputStream = this.mContext.getContentResolver().openInputStream(this.aaO);
+                drawable2 = new BitmapDrawable(this.mContext.getResources(), BitmapFactory.decodeStream(openInputStream));
+            } catch (Exception e2) {
+                drawable2 = drawable3;
+                e = e2;
+            }
+            try {
+                drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
+                openInputStream.close();
+                return drawable2;
+            } catch (Exception e3) {
+                e = e3;
+                Log.e("sms", "Failed to loaded content " + this.aaO, e);
+                return drawable2;
+            }
+        }
         try {
-            super.onMeasure(i, i2);
-        } catch (IndexOutOfBoundsException e) {
-            a(i, i2);
+            drawable = aw.getDrawable(this.aaP);
+        } catch (Exception e4) {
+            drawable = drawable3;
+        }
+        try {
+            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            return drawable;
+        } catch (Exception e5) {
+            Log.e("sms", "Unable to find resource: " + this.aaP);
+            return drawable;
         }
     }
 
-    private void a(int i, int i2) {
-        CharSequence text = getText();
-        if (text instanceof Spanned) {
-            a(new SpannableStringBuilder(text), i, i2);
-        } else {
-            b(i, i2);
-        }
-    }
-
-    private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
-        n b = b(spannableStringBuilder, i, i2);
-        if (b.a) {
-            a(i, i2, spannableStringBuilder, b);
-        } else {
-            b(i, i2);
-        }
-    }
-
-    private n b(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
-        Object[] spans = spannableStringBuilder.getSpans(0, spannableStringBuilder.length(), Object.class);
-        ArrayList arrayList = new ArrayList(spans.length);
-        ArrayList arrayList2 = new ArrayList(spans.length);
-        for (Object obj : spans) {
-            int spanStart = spannableStringBuilder.getSpanStart(obj);
-            if (a(spannableStringBuilder, spanStart - 1)) {
-                spannableStringBuilder.insert(spanStart, " ");
-                arrayList.add(obj);
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        Drawable drawable = getDrawable();
+        if (drawable != null) {
+            canvas.save();
+            int i6 = i5 - drawable.getBounds().bottom;
+            if (this.mVerticalAlignment != 0) {
+                i5 = i4;
             }
-            int spanEnd = spannableStringBuilder.getSpanEnd(obj);
-            if (a(spannableStringBuilder, spanEnd)) {
-                spannableStringBuilder.insert(spanEnd, " ");
-                arrayList2.add(obj);
+            canvas.translate(f, i5 - (drawable.getBounds().bottom - 4));
+            if (TbadkApplication.m251getInst().getSkinType() == 1) {
+                drawable.setColorFilter(new PorterDuffColorFilter(-5000269, PorterDuff.Mode.MULTIPLY));
             }
-            try {
-                a((CharSequence) spannableStringBuilder, i, i2);
-                return n.a(arrayList, arrayList2);
-            } catch (IndexOutOfBoundsException e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-        return n.a();
-    }
-
-    private boolean a(CharSequence charSequence, int i) {
-        return i < 0 || charSequence.charAt(i) != ' ';
-    }
-
-    private void a(CharSequence charSequence, int i, int i2) {
-        setText(charSequence);
-        super.onMeasure(i, i2);
-    }
-
-    private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, n nVar) {
-        for (Object obj : nVar.c) {
-            int spanEnd = spannableStringBuilder.getSpanEnd(obj);
-            spannableStringBuilder.delete(spanEnd, spanEnd + 1);
-            try {
-                a((CharSequence) spannableStringBuilder, i, i2);
-            } catch (IndexOutOfBoundsException e) {
-                spannableStringBuilder.insert(spanEnd, " ");
-            }
-        }
-        boolean z = true;
-        for (Object obj2 : nVar.b) {
-            int spanStart = spannableStringBuilder.getSpanStart(obj2);
-            spannableStringBuilder.delete(spanStart - 1, spanStart);
-            try {
-                a((CharSequence) spannableStringBuilder, i, i2);
-                z = false;
-            } catch (IndexOutOfBoundsException e2) {
-                spannableStringBuilder.insert(spanStart - 1, " ");
-                z = true;
-            }
-        }
-        if (z) {
-            setText(spannableStringBuilder);
-            super.onMeasure(i, i2);
+            drawable.draw(canvas);
+            canvas.restore();
         }
     }
 
-    private void b(int i, int i2) {
-        a(getText().toString(), i, i2);
+    public void d(int i, int i2, int i3, int i4) {
+        this.dZ.set(i, i2, i3, i4);
     }
 }

@@ -1,11 +1,11 @@
 package com.baidu.tieba.d.a;
 /* loaded from: classes.dex */
 public interface c {
-    String a();
+    String abk();
 
-    void a(int i);
+    String getAppName();
 
-    String h_();
+    String getDownloadUrl();
 
-    String i_();
+    void hf(int i);
 }

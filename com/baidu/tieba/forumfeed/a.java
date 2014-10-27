@@ -8,286 +8,271 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.core.view.ab;
+import com.baidu.tbadk.core.view.ae;
 import com.baidu.tbadk.core.voice.VoiceManager;
-import com.baidu.tbadk.core.voice.aa;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.account.SapiFastRegActivity;
-import com.baidu.tieba.model.r;
-import com.baidu.tieba.model.t;
-import com.baidu.tieba.v;
-import com.baidu.tieba.x;
+import com.baidu.tieba.model.s;
+import com.baidu.tieba.model.u;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class a extends com.baidu.tbadk.core.d implements ab {
-    private VoiceManager b;
-    private r c;
-    private j d;
-    private View e;
-    private BaseFragmentActivity g;
-    private View h;
-    private boolean i;
-    private boolean f = false;
-    private com.baidu.adp.lib.d.b<TbImageView> j = UserIconBox.a(getActivity(), 8);
-    private boolean k = false;
-    private Boolean l = null;
+public class a extends BaseFragment implements ae {
+    private VoiceManager axQ;
+    private s axR;
+    private j axS;
+    private View axT;
+    private BaseFragmentActivity axV;
+    private View axW;
+    private boolean axX;
+    private boolean axU = false;
+    private com.baidu.adp.lib.e.b<TbImageView> Iu = UserIconBox.f(getActivity(), 8);
+    private boolean axY = false;
+    private Boolean axZ = null;
 
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        this.g = (BaseFragmentActivity) activity;
+        this.axV = (BaseFragmentActivity) activity;
     }
 
-    public j f() {
-        return this.d;
+    public j Ec() {
+        return this.axS;
     }
 
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-    }
-
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        return a(layoutInflater);
+        return c(layoutInflater);
     }
 
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.f = m();
-        g();
-        this.l = null;
-        if (this.g instanceof aa) {
-            this.b = ((aa) this.g).d();
+        this.axU = isLogin();
+        ny();
+        this.axZ = null;
+        if (this.axV instanceof com.baidu.tbadk.core.voice.o) {
+            this.axQ = ((com.baidu.tbadk.core.voice.o) this.axV).getVoiceManager();
         }
     }
 
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.c != null) {
-            this.c.cancelLoadData();
+        if (this.axR != null) {
+            this.axR.cancelLoadData();
         }
-        this.l = null;
+        this.axZ = null;
     }
 
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (d_()) {
-            this.k = false;
-            if (this.l == null) {
-                this.l = Boolean.valueOf(com.baidu.tbadk.core.h.a().f());
+        if (isShow()) {
+            this.axY = false;
+            if (this.axZ == null) {
+                this.axZ = Boolean.valueOf(com.baidu.tbadk.core.k.js().jw());
             } else {
-                this.k = this.l.booleanValue() ^ com.baidu.tbadk.core.h.a().f();
-                this.l = Boolean.valueOf(com.baidu.tbadk.core.h.a().f());
+                this.axY = this.axZ.booleanValue() ^ com.baidu.tbadk.core.k.js().jw();
+                this.axZ = Boolean.valueOf(com.baidu.tbadk.core.k.js().jw());
             }
-            boolean m = m();
-            if (this.f != m) {
-                this.f = m;
-                g();
-            } else if (this.k) {
-                o();
+            boolean isLogin = isLogin();
+            if (this.axU != isLogin) {
+                this.axU = isLogin;
+                ny();
+            } else if (this.axY) {
+                refresh();
             }
         }
     }
 
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public void onStart() {
-        super.onStart();
-    }
-
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        if (this.e != null) {
-            h.a(this.e);
+        if (this.axT != null) {
+            h.y(this.axT);
         }
     }
 
-    @Override // com.baidu.tbadk.core.d, android.view.View.OnClickListener
+    @Override // com.baidu.tbadk.core.BaseFragment, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == h.a()) {
-            LoginActivity.a(this.g, 0, getString(x.forum_feed_login_tip), 11003);
-        } else if (view.getId() == h.b()) {
-            SapiFastRegActivity.a(this.g, 22002);
-        } else if (view.getId() == h.c()) {
-            com.baidu.tbadk.core.b.b.a(this.g, 2);
+        if (view.getId() == h.Ek()) {
+            LoginActivity.a(this.axV, 0, getString(y.forum_feed_login_tip), 11003);
+        } else if (view.getId() == h.El()) {
+            SapiFastRegActivity.b(this.axV, 22002);
         }
     }
 
-    @Override // com.baidu.tbadk.core.d
-    public void c(int i) {
-        super.c(i);
-        if (this.d != null) {
-            this.d.a(i);
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        if (this.axS != null) {
+            this.axS.eC(i);
         }
-        if (this.e != null) {
-            h.a(this.g, this.e, i);
+        if (this.axT != null) {
+            h.a(this.axV, this.axT, i);
         }
     }
 
-    private void g() {
-        if (m()) {
+    private void ny() {
+        if (isLogin()) {
             FrameLayout frameLayout = (FrameLayout) getView();
-            if (this.e != null) {
-                h.a(this.e);
-                frameLayout.removeView(this.e);
-                this.e = null;
+            if (this.axT != null) {
+                h.y(this.axT);
+                frameLayout.removeView(this.axT);
+                this.axT = null;
             }
-            this.h.setVisibility(0);
-            n();
-            i();
-            h();
+            this.axW.setVisibility(0);
+            nu();
+            Ed();
+            yh();
             return;
         }
-        r();
+        Ei();
     }
 
-    private View a(LayoutInflater layoutInflater) {
-        FrameLayout frameLayout = new FrameLayout(this.g);
-        this.h = layoutInflater.inflate(v.forum_feed_view, (ViewGroup) null);
-        frameLayout.addView(this.h);
+    private View c(LayoutInflater layoutInflater) {
+        FrameLayout frameLayout = new FrameLayout(this.axV);
+        this.axW = layoutInflater.inflate(w.forum_feed_view, (ViewGroup) null);
+        frameLayout.addView(this.axW);
         return frameLayout;
     }
 
-    private void h() {
-        j();
+    private void yh() {
+        Ee();
     }
 
-    private void i() {
-        this.c = new r();
-        this.c.setLoadDataCallBack(k());
+    private void Ed() {
+        this.axR = new s(this.axV);
+        this.axR.setLoadDataCallBack(Ef());
     }
 
-    private void j() {
-        this.c.g();
+    private void Ee() {
+        this.axR.Ts();
     }
 
-    private com.baidu.adp.base.h k() {
+    private com.baidu.adp.base.h Ef() {
         return new b(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(Object obj) {
-        t tVar = (t) obj;
-        if (tVar != null && tVar.a != null && tVar.a.b() != null && tVar.a.b().size() > 0) {
-            this.d.a(tVar.a);
-            this.c.a(true);
+    public void u(Object obj) {
+        u uVar = (u) obj;
+        if (uVar != null && uVar.boF != null && uVar.boF.yV() != null && uVar.boF.yV().size() > 0) {
+            this.axS.b(uVar.boF);
+            this.axR.dF(true);
+        } else if (!com.baidu.adp.lib.util.j.fh()) {
+            this.axS.En();
         }
-        this.d.a();
+        this.axS.Em();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(Object obj) {
-        if (this.c != null && this.c.e()) {
-            this.d.a(this.c.j());
-            if (this.c.a() && this.d != null) {
-                this.d.c();
+    public void v(Object obj) {
+        if (this.axR != null && this.axR.Tr()) {
+            this.axS.b(this.axR.Tv());
+            if (this.axR.Tp() && this.axS != null) {
+                this.axS.Eo();
             }
-            this.c.a(false);
-            if (!this.c.f() && this.d != null) {
-                this.d.f();
+            this.axR.dF(false);
+            if (!this.axR.tX() && this.axS != null) {
+                this.axS.Ep();
             }
-            if (this.c.i() == 1) {
-                TiebaStatic.eventStat(this.g, "forum_feed_refresh", "refresh", 1, new Object[0]);
-            } else if (this.c.i() == 2) {
-                TiebaStatic.eventStat(this.g, "forum_feed_loadmore", "load_more", 1, new Object[0]);
+            if (this.axR.Tu() == 1) {
+                TiebaStatic.eventStat(this.axV, "forum_feed_refresh", "refresh", 1, new Object[0]);
+            } else if (this.axR.Tu() == 2) {
+                TiebaStatic.eventStat(this.axV, "forum_feed_loadmore", "load_more", 1, new Object[0]);
             }
-        } else if (this.d != null) {
-            this.d.d();
-            this.d.b();
+        } else if (this.axS != null) {
+            this.axS.DG();
+            this.axS.En();
         }
-        if (this.c != null) {
-            this.c.a(false);
+        if (this.axR != null) {
+            this.axR.dF(false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void l() {
-        if (this.c != null) {
-            int errorCode = this.c.getErrorCode();
-            String errorString = this.c.getErrorString();
-            if (this.d != null) {
-                this.d.d();
-                if (!this.c.e()) {
-                    this.d.b();
+    public void Eg() {
+        if (this.axR != null) {
+            int errorCode = this.axR.getErrorCode();
+            String errorString = this.axR.getErrorString();
+            if (this.axS != null) {
+                this.axS.DG();
+                if (!this.axR.Tr()) {
+                    this.axS.En();
                 }
             }
-            if (errorCode != 0 && errorString != "" && q()) {
-                this.g.a(errorString);
+            if (errorCode != 0 && errorString != "" && com.baidu.adp.lib.util.j.fh()) {
+                this.axV.showToast(errorString);
             }
         }
     }
 
-    private boolean m() {
+    private boolean isLogin() {
         return (TbadkApplication.getCurrentAccount() == null || TbadkApplication.getCurrentAccountName() == null) ? false : true;
     }
 
-    private void n() {
-        this.d = new j(this.g, this);
-        this.d.a(new c(this));
-        this.d.a(new d(this));
-        this.d.a(new e(this));
-        this.d.a(new f(this));
+    private void nu() {
+        this.axS = new j(this.axV, this);
+        this.axS.b(new c(this));
+        this.axS.a(new d(this));
+        this.axS.h(new e(this));
+        this.axS.e(new f(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void o() {
-        this.i = true;
-        if (this.c == null) {
-            i();
+    public void refresh() {
+        this.axX = true;
+        if (this.axR == null) {
+            Ed();
         }
-        if (q()) {
-            this.c.a(1);
+        if (com.baidu.adp.lib.util.j.fh()) {
+            this.axR.gD(1);
         } else {
-            this.d.d();
+            this.axS.DG();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void p() {
-        if (this.c.b() && this.c.f() && q()) {
-            this.d.e();
-            this.c.a(2);
+    public void Eh() {
+        if (this.axR.isIdle() && this.axR.tX() && com.baidu.adp.lib.util.j.fh()) {
+            this.axS.DF();
+            this.axR.gD(2);
         }
     }
 
-    private boolean q() {
-        return UtilHelper.getNetStatusInfo(this.g.getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL;
-    }
-
-    private void r() {
+    private void Ei() {
         FrameLayout frameLayout = (FrameLayout) getView();
-        if (this.e != null) {
-            frameLayout.removeView(this.e);
+        if (this.axT != null) {
+            frameLayout.removeView(this.axT);
         }
-        int skinType = TbadkApplication.m252getInst().getSkinType();
-        this.e = h.a(this.g, getResources().getString(x.forum_feed_login_tip), skinType, this);
-        this.h.setVisibility(8);
-        frameLayout.addView(this.e);
+        int skinType = TbadkApplication.m251getInst().getSkinType();
+        this.axT = h.a(this.axV, getResources().getString(y.forum_feed_login_tip), skinType, this);
+        this.axW.setVisibility(8);
+        frameLayout.addView(this.axT);
     }
 
-    @Override // com.baidu.tbadk.core.view.ab
-    public ListView a() {
-        return this.d.g();
+    @Override // com.baidu.tbadk.core.view.ae
+    public ListView getListView() {
+        return this.axS.ud();
     }
 
-    @Override // com.baidu.tbadk.core.view.ab
-    public int c_() {
-        if (this.d == null) {
+    @Override // com.baidu.tbadk.core.view.ae
+    public int nC() {
+        if (this.axS == null) {
             return 0;
         }
-        return this.d.h();
+        return this.axS.Eu();
     }
 
-    @Override // com.baidu.tbadk.core.view.ab
-    public com.baidu.adp.lib.d.b<TbImageView> c() {
-        return this.j;
+    @Override // com.baidu.tbadk.core.view.ae
+    public com.baidu.adp.lib.e.b<TbImageView> nD() {
+        return this.Iu;
     }
 }

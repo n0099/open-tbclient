@@ -1,24 +1,40 @@
 package com.baidu.tieba.square;
 
+import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ForumRecommend.Banner;
 /* loaded from: classes.dex */
-public class al implements Runnable {
-    final /* synthetic */ af a;
+public class al {
+    private ArrayList<ak> bMZ = new ArrayList<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public al(af afVar) {
-        this.a = afVar;
+    public ArrayList<ak> adx() {
+        return this.bMZ;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        au auVar;
-        try {
-            auVar = this.a.c;
-            auVar.a();
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+    public void A(List<?> list) {
+        if (list != null && !list.isEmpty()) {
+            a(list, null);
+        }
+    }
+
+    public void a(List<?> list, Context context) {
+        if (list != null && !list.isEmpty()) {
+            try {
+                int size = list.size();
+                for (int i = 0; i < size; i++) {
+                    if (list.get(i) instanceof Banner) {
+                        ak akVar = new ak();
+                        akVar.a((Banner) list.get(i));
+                        this.bMZ.add(akVar);
+                    } else {
+                        return;
+                    }
+                }
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
         }
     }
 }

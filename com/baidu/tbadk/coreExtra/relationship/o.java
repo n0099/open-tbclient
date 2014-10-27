@@ -1,24 +1,15 @@
 package com.baidu.tbadk.coreExtra.relationship;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbadkApplication;
+import android.text.TextUtils;
+import java.util.Arrays;
 /* loaded from: classes.dex */
-public class o extends BdAsyncTask<Void, Void, Void> {
-    private a a;
+public final class o {
+    public static final String[] Mu = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "#"};
 
-    public o(a aVar) {
-        this.a = aVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public Void doInBackground(Void... voidArr) {
-        if (!h.a().a(this.a)) {
-            com.baidu.tbadk.core.sharedPref.b.a().b("get_addresslist_switch" + TbadkApplication.getCurrentAccount(), true);
-            return null;
+    public static boolean cG(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
         }
-        return null;
+        return Arrays.asList(Mu).contains(str);
     }
 }

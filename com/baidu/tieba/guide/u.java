@@ -1,15 +1,15 @@
 package com.baidu.tieba.guide;
 
-import com.baidu.tieba.data.ab;
-import com.baidu.tieba.x;
+import com.baidu.tieba.data.aa;
+import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u extends com.baidu.adp.base.h {
-    final /* synthetic */ t a;
+    final /* synthetic */ t aLL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar) {
-        this.a = tVar;
+        this.aLL = tVar;
     }
 
     @Override // com.baidu.adp.base.h
@@ -19,17 +19,17 @@ public class u extends com.baidu.adp.base.h {
         NewUserGuideActivity newUserGuideActivity2;
         NewUserGuideActivity newUserGuideActivity3;
         if (obj == null) {
-            newUserGuideActivity3 = this.a.a;
-            newUserGuideActivity3.c(x.neterror);
-        } else if (obj instanceof ab) {
-            int a = com.baidu.adp.lib.e.c.a(((ab) obj).a(), 0);
-            aVar = this.a.c;
-            aVar.a(a);
-            this.a.a(a, true);
-            newUserGuideActivity = this.a.a;
-            newUserGuideActivity.b(true);
-            newUserGuideActivity2 = this.a.a;
-            newUserGuideActivity2.a(true);
+            newUserGuideActivity3 = this.aLL.aLI;
+            newUserGuideActivity3.showToast(y.neterror);
+        } else if (obj instanceof aa) {
+            int f = com.baidu.adp.lib.g.c.f(((aa) obj).getFid(), 0);
+            aVar = this.aLL.aLJ;
+            aVar.fk(f);
+            this.aLL.n(f, true);
+            newUserGuideActivity = this.aLL.aLI;
+            newUserGuideActivity.cr(true);
+            newUserGuideActivity2 = this.aLL.aLI;
+            newUserGuideActivity2.cq(true);
         }
     }
 }

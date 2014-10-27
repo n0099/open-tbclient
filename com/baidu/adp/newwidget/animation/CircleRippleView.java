@@ -12,73 +12,74 @@ import android.view.animation.AnimationSet;
 import android.view.animation.ScaleAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import com.baidu.adp.g;
+import com.baidu.adp.R;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import java.lang.ref.SoftReference;
 /* loaded from: classes.dex */
 public class CircleRippleView extends FrameLayout {
-    private SoftReference<Bitmap> a;
-    private ImageView[] b;
-    private AnimationSet[] c;
-    private int d;
-    private Drawable e;
+    private static final long RIPPLE_ANIMATION_UNIT_TIME = 650;
+    private AnimationSet[] mAnimationSetList;
+    private Drawable mCircleImage;
+    private int mCircleSize;
+    private ImageView[] mImageViewList;
+    private SoftReference<Bitmap> mRippleBitmapSoftRef;
 
     public CircleRippleView(Context context) {
         super(context);
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = Constants.MEDIA_INFO;
-        this.e = null;
-        a(context, (AttributeSet) null);
+        this.mRippleBitmapSoftRef = null;
+        this.mImageViewList = null;
+        this.mAnimationSetList = null;
+        this.mCircleSize = Constants.MEDIA_INFO;
+        this.mCircleImage = null;
+        init(context, null);
     }
 
     public CircleRippleView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = Constants.MEDIA_INFO;
-        this.e = null;
-        a(context, attributeSet);
+        this.mRippleBitmapSoftRef = null;
+        this.mImageViewList = null;
+        this.mAnimationSetList = null;
+        this.mCircleSize = Constants.MEDIA_INFO;
+        this.mCircleImage = null;
+        init(context, attributeSet);
     }
 
     public CircleRippleView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = Constants.MEDIA_INFO;
-        this.e = null;
-        a(context, attributeSet);
+        this.mRippleBitmapSoftRef = null;
+        this.mImageViewList = null;
+        this.mAnimationSetList = null;
+        this.mCircleSize = Constants.MEDIA_INFO;
+        this.mCircleImage = null;
+        init(context, attributeSet);
     }
 
-    private void a(Context context, AttributeSet attributeSet) {
+    private void init(Context context, AttributeSet attributeSet) {
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, g.CircleRippleView);
-            this.d = obtainStyledAttributes.getDimensionPixelSize(0, Constants.MEDIA_INFO);
-            this.e = obtainStyledAttributes.getDrawable(1);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.CircleRippleView);
+            this.mCircleSize = obtainStyledAttributes.getDimensionPixelSize(0, Constants.MEDIA_INFO);
+            this.mCircleImage = obtainStyledAttributes.getDrawable(1);
             obtainStyledAttributes.recycle();
         }
-        this.b = new ImageView[3];
-        this.b[0] = a(context);
-        this.b[1] = a(context);
-        this.b[2] = a(context);
-        this.c = new AnimationSet[3];
-        this.c[0] = a(0, this.b[0]);
-        this.c[1] = a(1, this.b[1]);
-        this.c[2] = a(2, this.b[2]);
+        this.mImageViewList = new ImageView[3];
+        this.mImageViewList[0] = newImageView(context);
+        this.mImageViewList[1] = newImageView(context);
+        this.mImageViewList[2] = newImageView(context);
+        this.mAnimationSetList = new AnimationSet[3];
+        this.mAnimationSetList[0] = newAnimationSet(0, this.mImageViewList[0]);
+        this.mAnimationSetList[1] = newAnimationSet(1, this.mImageViewList[1]);
+        this.mAnimationSetList[2] = newAnimationSet(2, this.mImageViewList[2]);
     }
 
-    private ImageView a(Context context) {
+    private ImageView newImageView(Context context) {
         ImageView imageView = new ImageView(context);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.d, this.d);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.mCircleSize, this.mCircleSize);
         layoutParams.gravity = 17;
         addView(imageView, layoutParams);
         return imageView;
     }
 
-    private AnimationSet a(int i, ImageView imageView) {
+    private AnimationSet newAnimationSet(int i, ImageView imageView) {
         ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 1.6f, 1.0f, 1.6f, 1, 0.5f, 1, 0.5f);
         scaleAnimation.setRepeatCount(-1);
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.5f, 0.0f);
@@ -90,44 +91,44 @@ public class CircleRippleView extends FrameLayout {
         animationSet.setDuration(1950L);
         animationSet.setFillEnabled(true);
         animationSet.setFillBefore(true);
-        animationSet.setStartOffset(650 * i);
+        animationSet.setStartOffset(RIPPLE_ANIMATION_UNIT_TIME * i);
         animationSet.setInterpolator(new AccelerateDecelerateInterpolator());
         animationSet.setAnimationListener(new a(this, imageView));
         return animationSet;
     }
 
-    public void a() {
-        if (this.a == null) {
-            c();
-            if (this.a == null) {
+    public void startAnimation() {
+        if (this.mRippleBitmapSoftRef == null) {
+            loadRippleBitmap();
+            if (this.mRippleBitmapSoftRef == null) {
                 return;
             }
         }
-        Bitmap bitmap = this.a.get();
+        Bitmap bitmap = this.mRippleBitmapSoftRef.get();
         if (bitmap != null) {
-            for (int i = 0; i < this.b.length; i++) {
-                this.b[i].setImageBitmap(bitmap);
-                this.b[i].setVisibility(0);
-                this.b[i].setAnimation(this.c[i]);
-                this.b[i].startAnimation(this.c[i]);
+            for (int i = 0; i < this.mImageViewList.length; i++) {
+                this.mImageViewList[i].setImageBitmap(bitmap);
+                this.mImageViewList[i].setVisibility(0);
+                this.mImageViewList[i].setAnimation(this.mAnimationSetList[i]);
+                this.mImageViewList[i].startAnimation(this.mAnimationSetList[i]);
             }
         }
     }
 
-    public void b() {
-        for (int i = 0; i < this.b.length; i++) {
-            this.b[i].setImageDrawable(null);
-            this.b[i].setVisibility(8);
-            this.b[i].clearAnimation();
-            if (this.a != null) {
-                this.a = null;
+    public void stopAnimation() {
+        for (int i = 0; i < this.mImageViewList.length; i++) {
+            this.mImageViewList[i].setImageDrawable(null);
+            this.mImageViewList[i].setVisibility(8);
+            this.mImageViewList[i].clearAnimation();
+            if (this.mRippleBitmapSoftRef != null) {
+                this.mRippleBitmapSoftRef = null;
             }
         }
     }
 
-    private void c() {
-        if (this.e != null && (this.e instanceof BitmapDrawable)) {
-            this.a = new SoftReference<>(((BitmapDrawable) this.e).getBitmap());
+    private void loadRippleBitmap() {
+        if (this.mCircleImage != null && (this.mCircleImage instanceof BitmapDrawable)) {
+            this.mRippleBitmapSoftRef = new SoftReference<>(((BitmapDrawable) this.mCircleImage).getBitmap());
         }
     }
 }

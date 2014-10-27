@@ -2,7 +2,7 @@ package com.baidu.tieba.topRec;
 
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class TRForumListData implements Serializable {
+public class TRForumListData extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
     private static final long serialVersionUID = 1389613226337298253L;
     Error error;
     int error_code;
@@ -10,7 +10,7 @@ public class TRForumListData implements Serializable {
     TRForum[] forum_list;
 
     /* loaded from: classes.dex */
-    public class Error implements Serializable {
+    public class Error extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
         private static final long serialVersionUID = -2899384495007355886L;
         public String errmsg;
         public int errno = 0;
@@ -18,7 +18,7 @@ public class TRForumListData implements Serializable {
     }
 
     /* loaded from: classes.dex */
-    public class TRForum implements Serializable {
+    public class TRForum extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
         private static final long serialVersionUID = 1594316485025812834L;
         public String forum_name = "";
         public int forum_id = 0;

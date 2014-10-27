@@ -1,20 +1,25 @@
 package com.baidu.tieba.forumfeed;
 
-import android.widget.AbsListView;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.atomData.SingleSquareActivityConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class k implements AbsListView.OnScrollListener {
-    final /* synthetic */ j a;
+public class k implements View.OnClickListener {
+    final /* synthetic */ j aym;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.a = jVar;
+        this.aym = jVar;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        BaseFragmentActivity baseFragmentActivity;
+        MessageManager messageManager = MessageManager.getInstance();
+        baseFragmentActivity = this.aym.axV;
+        messageManager.sendMessage(new CustomMessage(2010010, new SingleSquareActivityConfig(baseFragmentActivity)));
     }
 }

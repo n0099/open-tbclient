@@ -11,20 +11,35 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.bx;
+import com.baidu.tbadk.core.atomData.MentionActivityConfig;
+import com.baidu.tbadk.core.atomData.SingleMentionActivityConfig;
 import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.voice.VoiceManager;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.editortool.PbEditor;
 /* loaded from: classes.dex */
-public class SingleMentionActivity extends BaseFragmentActivity implements com.baidu.tbadk.core.voice.aa {
-    p d;
-    VoiceManager e;
-    private boolean f;
-    private CustomMessageListener g = new aw(this, 2001229);
+public class SingleMentionActivity extends BaseFragmentActivity implements com.baidu.tbadk.core.voice.o {
+    VoiceManager ayo;
+    r bnV;
+    private boolean bnW;
+    private CustomMessageListener bnX = new ap(this, 2001229);
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(bx.class, SingleMentionActivity.class);
-        bx.a(SingleMentionActivity.class);
+        TbadkApplication.m251getInst().RegisterIntent(SingleMentionActivityConfig.class, SingleMentionActivity.class);
+        SingleMentionActivityConfig.setMentionActivityClass(SingleMentionActivity.class);
+        HM();
+    }
+
+    private static void HM() {
+        com.baidu.tieba.ai.a(303007, ReplyMeSocketResponseMessage.class, false, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.REPLYME_HTTP_CMD, com.baidu.tieba.ai.s("c/u/feed/replyme", 303007));
+        tbHttpMessageTask.setIsNeedLogin(false);
+        tbHttpMessageTask.setIsNeedTbs(false);
+        tbHttpMessageTask.setIsNeedAddCommenParam(false);
+        tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+        tbHttpMessageTask.setResponsedClass(ReplyMeHttpResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -32,25 +47,27 @@ public class SingleMentionActivity extends BaseFragmentActivity implements com.b
     public void onCreate(Bundle bundle) {
         String str;
         super.onCreate(bundle);
-        Bundle a = a(bundle);
+        MentionActivityConfig.newJumpIn = true;
+        Bundle j = j(bundle);
         FragmentManager supportFragmentManager = getSupportFragmentManager();
-        this.d = new p();
-        this.d.setArguments(a);
-        this.f = this.d.getArguments().getBoolean("is_show_chat");
+        this.bnV = new r();
+        this.bnV.setArguments(j);
+        this.bnW = this.bnV.getArguments().getBoolean(SingleMentionActivityConfig.KEY_IS_SHOW_CHAT);
         FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
-        if (this.f) {
+        if (this.bnW) {
             str = "tag_three";
         } else {
             str = "tag_two";
         }
-        beginTransaction.add(16908290, this.d, str);
+        beginTransaction.add(16908290, this.bnV, str);
         beginTransaction.commitAllowingStateLoss();
-        this.e = d();
-        if (this.e != null) {
-            this.e.onCreate(this);
+        this.ayo = getVoiceManager();
+        if (this.ayo != null) {
+            this.ayo.onCreate(this);
         }
-        g();
-        a(this.g);
+        SZ();
+        registerListener(this.bnX);
+        addGlobalLayoutListener();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -59,15 +76,15 @@ public class SingleMentionActivity extends BaseFragmentActivity implements com.b
         String str;
         String str2;
         super.onNewIntent(intent);
-        boolean booleanExtra = intent.getBooleanExtra("is_show_chat", false);
-        if (this.f != booleanExtra) {
-            if (this.f) {
+        boolean booleanExtra = intent.getBooleanExtra(SingleMentionActivityConfig.KEY_IS_SHOW_CHAT, false);
+        if (this.bnW != booleanExtra) {
+            if (this.bnW) {
                 str = "tag_three";
             } else {
                 str = "tag_two";
             }
-            this.f = booleanExtra;
-            if (this.f) {
+            this.bnW = booleanExtra;
+            if (this.bnW) {
                 str2 = "tag_three";
             } else {
                 str2 = "tag_two";
@@ -77,11 +94,11 @@ public class SingleMentionActivity extends BaseFragmentActivity implements com.b
             if (findFragmentByTag != null) {
                 beginTransaction.remove(findFragmentByTag);
             }
-            Bundle a = a(intent);
-            this.d = null;
-            this.d = new p();
-            this.d.setArguments(a);
-            beginTransaction.add(16908290, this.d, str2);
+            Bundle k = k(intent);
+            this.bnV = null;
+            this.bnV = new r();
+            this.bnV.setArguments(k);
+            beginTransaction.add(16908290, this.bnV, str2);
             beginTransaction.commitAllowingStateLoss();
         }
     }
@@ -90,14 +107,14 @@ public class SingleMentionActivity extends BaseFragmentActivity implements com.b
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putBoolean("is_show_chat", this.f);
-        this.e = d();
-        if (this.e != null) {
-            this.e.onSaveInstanceState(this);
+        bundle.putBoolean(SingleMentionActivityConfig.KEY_IS_SHOW_CHAT, this.bnW);
+        this.ayo = getVoiceManager();
+        if (this.ayo != null) {
+            this.ayo.onSaveInstanceState(this);
         }
     }
 
-    private Bundle a(Intent intent) {
+    private Bundle k(Intent intent) {
         if (intent == null) {
             return null;
         }
@@ -106,7 +123,7 @@ public class SingleMentionActivity extends BaseFragmentActivity implements com.b
         return bundle;
     }
 
-    private Bundle a(Bundle bundle) {
+    private Bundle j(Bundle bundle) {
         Bundle bundle2 = new Bundle();
         if (bundle != null) {
             bundle2.putAll(bundle);
@@ -123,29 +140,22 @@ public class SingleMentionActivity extends BaseFragmentActivity implements com.b
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.e = d();
-        if (this.e != null) {
-            this.e.onResume(this);
+        this.ayo = getVoiceManager();
+        if (this.ayo != null) {
+            this.ayo.onResume(this);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.FragmentActivity
-    public void onResumeFragments() {
-        super.onResumeFragments();
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    protected void b(int i) {
+    protected void onChangeSkinType(int i) {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.d != null) {
-            this.d.onActivityResult(i, i2, intent);
-            if (this.d.a() != null) {
-                this.d.a().onActivityResult(i, i2, intent);
+    protected void onActivityResult(int i, int i2, Intent intent) {
+        if (this.bnV != null) {
+            this.bnV.onActivityResult(i, i2, intent);
+            if (this.bnV.SQ() != null) {
+                this.bnV.SQ().onActivityResult(i, i2, intent);
             }
         }
     }
@@ -153,13 +163,13 @@ public class SingleMentionActivity extends BaseFragmentActivity implements com.b
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (this.d.a() == null) {
+            if (this.bnV.SQ() == null) {
                 finish();
                 return true;
             }
-            PbEditor j = this.d.a().j();
-            if (j != null && j.p()) {
-                this.d.a().i();
+            PbEditor EO = this.bnV.SQ().EO();
+            if (EO != null && EO.isVisible()) {
+                this.bnV.SQ().EP();
                 return true;
             }
             finish();
@@ -168,68 +178,68 @@ public class SingleMentionActivity extends BaseFragmentActivity implements com.b
         return super.onKeyDown(i, keyEvent);
     }
 
-    @Override // com.baidu.tbadk.core.voice.aa
-    public com.baidu.tbadk.core.voice.y a(VoiceData.VoiceModel voiceModel) {
+    @Override // com.baidu.tbadk.core.voice.o
+    public com.baidu.tbadk.core.voice.m b(VoiceData.VoiceModel voiceModel) {
         return null;
     }
 
-    @Override // com.baidu.tbadk.core.voice.aa
-    public VoiceManager d() {
-        if (this.e == null) {
-            this.e = VoiceManager.instance();
+    @Override // com.baidu.tbadk.core.voice.o
+    public VoiceManager getVoiceManager() {
+        if (this.ayo == null) {
+            this.ayo = VoiceManager.instance();
         }
-        return this.e;
+        return this.ayo;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.e = d();
-        if (this.e != null) {
-            this.e.onPause(this);
+        this.ayo = getVoiceManager();
+        if (this.ayo != null) {
+            this.ayo.onPause(this);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.e = d();
-        if (this.e != null) {
-            this.e.onStop(this);
+        this.ayo = getVoiceManager();
+        if (this.ayo != null) {
+            this.ayo.onStop(this);
         }
     }
 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        this.e = d();
-        if (this.e != null) {
-            this.e.onStart(this);
+        this.ayo = getVoiceManager();
+        if (this.ayo != null) {
+            this.ayo.onStart(this);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.e = d();
-        if (this.e != null) {
-            this.e.onDestory(this);
+        this.ayo = getVoiceManager();
+        if (this.ayo != null) {
+            this.ayo.onDestory(this);
         }
     }
 
-    private void g() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2001229, new ax(this));
+    private void SZ() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2001229, new aq(this));
         customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void h() {
-        com.baidu.tbadk.core.a.a.a().d("tb_user_profile", TbadkApplication.getCurrentAccountName());
+    public void tC() {
+        com.baidu.tbadk.core.a.a.kS().F("tb_user_profile", TbadkApplication.getCurrentAccountName());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.adp.lib.cache.t<byte[]> i() {
-        return com.baidu.tbadk.core.a.a.a().a("tb_user_profile", TbadkApplication.getCurrentAccountName());
+    public com.baidu.adp.lib.cache.t<byte[]> wO() {
+        return com.baidu.tbadk.core.a.a.kS().C("tb_user_profile", TbadkApplication.getCurrentAccountName());
     }
 }

@@ -3,53 +3,53 @@ package com.baidu.tieba.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m {
-    private String a;
-    private String b;
-    private String c;
-    private String d;
-    private String e;
-    private String f;
-    private String g;
-    private String h;
-    private String i;
+    private String AI;
+    private String akb;
+    private String akc;
+    private String forumName;
+    private String link;
+    private String summary;
+    private String title;
+    private String type;
+    private String userName;
 
-    public String a() {
-        return this.a;
+    public String getLink() {
+        return this.link;
     }
 
-    public String b() {
-        return this.b;
+    public String getTitle() {
+        return this.title;
     }
 
-    public String c() {
-        return this.c;
+    public String kK() {
+        return this.summary;
     }
 
-    public String d() {
-        return this.d;
+    public String getForumName() {
+        return this.forumName;
     }
 
-    public String e() {
-        return this.g;
+    public String getUserName() {
+        return this.userName;
     }
 
-    public String f() {
-        return this.f;
+    public String getType() {
+        return this.type;
     }
 
-    public String g() {
-        return this.h;
+    public String yH() {
+        return this.akb;
     }
 
-    public void a(JSONObject jSONObject) {
-        this.a = jSONObject.optString("link");
-        this.b = jSONObject.optString("title");
-        this.c = jSONObject.optString("abstract");
-        this.d = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME);
-        this.e = jSONObject.optString("img");
-        this.f = jSONObject.optString("post_type");
-        this.g = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_NAME);
-        this.h = jSONObject.optString("reply_num");
-        this.i = jSONObject.optString("proper");
+    public void parserJson(JSONObject jSONObject) {
+        this.link = jSONObject.optString("link");
+        this.title = jSONObject.optString("title");
+        this.summary = jSONObject.optString("abstract");
+        this.forumName = jSONObject.optString("forum_name");
+        this.AI = jSONObject.optString("img");
+        this.type = jSONObject.optString("post_type");
+        this.userName = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_NAME);
+        this.akb = jSONObject.optString("reply_num");
+        this.akc = jSONObject.optString("proper");
     }
 }

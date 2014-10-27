@@ -36,35 +36,35 @@ public class ResponseNearbyGroupsLocalMessage extends CustomResponsedMessage<Obj
             if (list != null) {
                 for (int i2 = 0; i2 < list.size(); i2++) {
                     Business business = list.get(i2);
-                    com.baidu.tieba.im.data.h hVar = new com.baidu.tieba.im.data.h();
-                    hVar.a(business.business);
-                    nearbyGroupsData.add(hVar);
+                    com.baidu.tieba.im.data.b bVar = new com.baidu.tieba.im.data.b();
+                    bVar.setName(business.business);
+                    nearbyGroupsData.add(bVar);
                     List<GroupInfo> list2 = business.groups;
                     if (list2 != null) {
                         int size = list2.size();
                         for (int i3 = 0; i3 < size; i3++) {
                             GroupInfo groupInfo = list2.get(i3);
-                            com.baidu.tieba.im.data.j jVar = new com.baidu.tieba.im.data.j();
-                            jVar.d(groupInfo.authorId.intValue());
-                            jVar.f(groupInfo.authorName);
-                            jVar.h(groupInfo.business);
-                            jVar.f(groupInfo.distance.intValue());
-                            jVar.b(String.valueOf(groupInfo.forumId));
-                            jVar.e(groupInfo.grade.intValue());
-                            jVar.a(String.valueOf(groupInfo.groupId));
-                            jVar.d(groupInfo.intro);
-                            jVar.j(String.valueOf(groupInfo.lat));
-                            jVar.i(String.valueOf(groupInfo.lng));
-                            jVar.b(groupInfo.maxMemberNum.intValue());
-                            jVar.c(groupInfo.memberNum.intValue());
-                            jVar.c(groupInfo.name);
-                            jVar.e(groupInfo.portrait);
-                            jVar.g(groupInfo.position);
-                            jVar.a(groupInfo.authorIsMeizhi.intValue() == 1);
-                            jVar.b(groupInfo.isNewlyCreate.intValue() != 0);
-                            jVar.c(groupInfo.isRecentlyReply.intValue() != 0);
-                            jVar.d(groupInfo.isMemberGroup.intValue() == 1);
-                            nearbyGroupsData.add(jVar);
+                            com.baidu.tieba.im.data.d dVar = new com.baidu.tieba.im.data.d();
+                            dVar.setAuthorId(groupInfo.authorId.intValue());
+                            dVar.setAuthorName(groupInfo.authorName);
+                            dVar.setBusiness(groupInfo.business);
+                            dVar.fv(groupInfo.distance.intValue());
+                            dVar.setForumId(String.valueOf(groupInfo.forumId));
+                            dVar.setGrade(groupInfo.grade.intValue());
+                            dVar.setGroupId(String.valueOf(groupInfo.groupId));
+                            dVar.setIntro(groupInfo.intro);
+                            dVar.setLat(String.valueOf(groupInfo.lat));
+                            dVar.setLng(String.valueOf(groupInfo.lng));
+                            dVar.setMaxMemberNum(groupInfo.maxMemberNum.intValue());
+                            dVar.setMemberNum(groupInfo.memberNum.intValue());
+                            dVar.setName(groupInfo.name);
+                            dVar.setPortrait(groupInfo.portrait);
+                            dVar.setPosition(groupInfo.position);
+                            dVar.cS(groupInfo.authorIsMeizhi.intValue() == 1);
+                            dVar.cT(groupInfo.isNewlyCreate.intValue() != 0);
+                            dVar.cU(groupInfo.isRecentlyReply.intValue() != 0);
+                            dVar.setMemGroup(groupInfo.isMemberGroup.intValue() == 1);
+                            nearbyGroupsData.add(dVar);
                         }
                     }
                 }

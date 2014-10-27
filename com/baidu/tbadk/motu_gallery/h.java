@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 class h implements AdapterView.OnItemClickListener {
-    final /* synthetic */ JigsawAlbumActivity a;
+    final /* synthetic */ JigsawAlbumActivity Wv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(JigsawAlbumActivity jigsawAlbumActivity) {
-        this.a = jigsawAlbumActivity;
+        this.Wv = jigsawAlbumActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -25,32 +25,32 @@ class h implements AdapterView.OnItemClickListener {
         ArrayList arrayList3;
         u uVar2;
         u uVar3;
-        jVar = this.a.i;
-        int i2 = jVar.a.get(i).a;
-        uVar = this.a.k;
-        uVar.c();
-        arrayList = this.a.f;
+        jVar = this.Wv.Wg;
+        int i2 = jVar.Wx.get(i).type;
+        uVar = this.Wv.Wi;
+        uVar.removeAll();
+        arrayList = this.Wv.We;
         if (i2 < arrayList.size()) {
-            arrayList2 = this.a.e;
+            arrayList2 = this.Wv.Wd;
             Iterator it = arrayList2.iterator();
             while (it.hasNext()) {
                 c cVar = (c) it.next();
-                if (cVar != null && cVar.a == i2) {
-                    uVar3 = this.a.k;
+                if (cVar != null && cVar.type == i2) {
+                    uVar3 = this.Wv.Wi;
                     uVar3.a(cVar);
                 }
             }
-            jVar2 = this.a.i;
-            String str = jVar2.a.get(i).b;
-            arrayList3 = this.a.f;
-            String substring = str.substring(((c) arrayList3.get(i)).b.lastIndexOf("/") + 1);
-            uVar2 = this.a.k;
-            uVar2.a(substring);
+            jVar2 = this.Wv.Wg;
+            String str = jVar2.Wx.get(i).path;
+            arrayList3 = this.Wv.We;
+            String substring = str.substring(((c) arrayList3.get(i)).path.lastIndexOf("/") + 1);
+            uVar2 = this.Wv.Wi;
+            uVar2.dK(substring);
         }
-        z = this.a.t;
+        z = this.Wv.Wq;
         if (!z) {
-            this.a.startActivityForResult(new Intent(this.a, JigsawAlbumListActivity.class), 10);
-            this.a.t = true;
+            this.Wv.startActivityForResult(new Intent(this.Wv, JigsawAlbumListActivity.class), 10);
+            this.Wv.Wq = true;
         }
     }
 }

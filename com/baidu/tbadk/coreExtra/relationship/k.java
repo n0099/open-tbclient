@@ -1,22 +1,30 @@
 package com.baidu.tbadk.coreExtra.relationship;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-class k extends com.baidu.adp.framework.listener.d {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k(int i) {
-        super(i);
-    }
+public class k {
+    private static volatile SQLiteDatabase Mt;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 1001 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseOnlineMessage) && TbadkApplication.getCurrentAccount() != null && com.baidu.tbadk.core.sharedPref.b.a().a("get_addresslist_switch" + TbadkApplication.getCurrentAccount(), true)) {
-            MessageManager.getInstance().sendMessage(new RequestGetAddressListMessage(304001));
+    /* JADX INFO: Access modifiers changed from: protected */
+    public static synchronized SQLiteDatabase pE() {
+        SQLiteDatabase sQLiteDatabase;
+        synchronized (k.class) {
+            try {
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "RelationshipDbManager.getRelationshipDataBase", new Object[0]);
+            }
+            if (TextUtils.isEmpty(TbadkApplication.getCurrentAccount())) {
+                sQLiteDatabase = null;
+            } else if (Mt != null && Mt.isOpen()) {
+                sQLiteDatabase = Mt;
+            } else {
+                Mt = new j(TbadkApplication.m251getInst().getApp()).getWritableDatabase();
+                sQLiteDatabase = Mt;
+            }
         }
+        return sQLiteDatabase;
     }
 }

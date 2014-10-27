@@ -7,11 +7,11 @@ import com.baidu.tbadk.widget.EditHeadsImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ EditHeadActivity a;
+    final /* synthetic */ EditHeadActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(EditHeadActivity editHeadActivity) {
-        this.a = editHeadActivity;
+        this.this$0 = editHeadActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,28 +22,28 @@ public class d implements View.OnClickListener {
         boolean a;
         int i3;
         String str = TbConfig.PERSON_HEAD_FILE;
-        i = this.a.i;
+        i = this.this$0.JA;
         if (i != 0) {
             str = TbConfig.GROUP_HEAD_FILE;
         }
-        editHeadsImageView = this.a.g;
-        i2 = this.a.i;
-        Bitmap a2 = editHeadsImageView.a(i2 == 0);
-        if (a2 == null) {
+        editHeadsImageView = this.this$0.Jz;
+        i2 = this.this$0.JA;
+        Bitmap aK = editHeadsImageView.aK(i2 == 0);
+        if (aK == null) {
             return;
         }
-        a = this.a.a(str, a2);
+        a = this.this$0.a(str, aK);
         if (a) {
-            i3 = this.a.i;
+            i3 = this.this$0.JA;
             if (i3 == 0) {
-                this.a.d();
+                this.this$0.nX();
                 return;
             }
-            com.baidu.tbadk.img.a aVar = new com.baidu.tbadk.img.a(com.baidu.tbadk.core.util.s.c(TbConfig.GROUP_HEAD_FILE), "head");
-            aVar.c();
-            aVar.a((com.baidu.tbadk.img.d) new e(this));
-            aVar.a();
-            this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.x.uploading));
+            com.baidu.tbadk.img.a aVar = new com.baidu.tbadk.img.a(com.baidu.tbadk.core.util.s.bq(TbConfig.GROUP_HEAD_FILE), "head");
+            aVar.sl();
+            aVar.a(new e(this));
+            aVar.sj();
+            this.this$0.showLoadingDialog(this.this$0.getString(com.baidu.tieba.y.uploading));
         }
     }
 }

@@ -1,74 +1,78 @@
 package com.baidu.tieba.square;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import com.baidu.tieba.square.CarouselRecommendView;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class k extends BdAsyncTask<Object, Integer, o> {
-    final /* synthetic */ BarFolderSecondDirActivity a;
-    private com.baidu.tbadk.core.util.ae b;
+public class k extends BaseAdapter implements com.baidu.tieba.view.s {
+    private CarouselRecommendView aIE;
+    private CarouselRecommendView.n mPageAdapter = null;
+    private ArrayList<ak> datas = new ArrayList<>();
 
-    private k(BarFolderSecondDirActivity barFolderSecondDirActivity) {
-        this.a = barFolderSecondDirActivity;
-        this.b = null;
+    public k(Context context) {
+        this.aIE = null;
+        this.aIE = new CarouselRecommendView(context, false);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ k(BarFolderSecondDirActivity barFolderSecondDirActivity, k kVar) {
-        this(barFolderSecondDirActivity);
+    public void setData(ArrayList<ak> arrayList) {
+        this.datas = arrayList;
+        this.aIE.setData(arrayList);
+        this.mPageAdapter = this.aIE.getPagerAdapter();
+        notifyDataSetChanged();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public o doInBackground(Object... objArr) {
-        l lVar;
-        String str;
-        String str2;
-        String str3;
-        lVar = this.a.i;
-        o a = lVar.a();
-        try {
-            this.b = new com.baidu.tbadk.core.util.ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/seconddir");
-            com.baidu.tbadk.core.util.ae aeVar = this.b;
-            str = this.a.k;
-            aeVar.a("menu_name", str);
-            com.baidu.tbadk.core.util.ae aeVar2 = this.b;
-            str2 = this.a.l;
-            aeVar2.a("menu_type", str2);
-            com.baidu.tbadk.core.util.ae aeVar3 = this.b;
-            str3 = this.a.m;
-            aeVar3.a("menu_id", str3);
-            String h = this.b.h();
-            if (this.b.a().b().b()) {
-                a.b(h);
-            } else {
-                a.a(this.b.e());
-            }
-        } catch (Exception e) {
-            a.a(e.getMessage());
-            BdLog.e(e.getMessage());
+    public void startMarqueen() {
+        if (this.aIE != null) {
+            this.aIE.startMarqueen();
         }
-        return a;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(o oVar) {
-        this.a.a(oVar, false);
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-        if (this.b != null) {
-            this.b.f();
-            this.b = null;
+    public void stopMarqueen() {
+        if (this.aIE != null) {
+            this.aIE.stopMarqueen();
         }
-        this.a.a(null, true);
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        return (this.datas != null ? this.datas.size() + 0 : 0) > 0 ? 1 : 0;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        return Integer.valueOf(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        return this.aIE;
+    }
+
+    @Override // com.baidu.tieba.view.s
+    public void adn() {
+        if (this.mPageAdapter != null) {
+            this.mPageAdapter.adn();
+        }
+    }
+
+    @Override // com.baidu.tieba.view.s
+    public void g(View view, int i, int i2) {
+        if (this.mPageAdapter != null) {
+            this.mPageAdapter.g(this.aIE, 0, 0);
+        }
+    }
+
+    public void onChangeSkinType(int i) {
+        if (this.aIE != null) {
+            this.aIE.onChangeSkinType(i);
+        }
     }
 }

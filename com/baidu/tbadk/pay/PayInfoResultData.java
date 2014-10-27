@@ -1,8 +1,9 @@
 package com.baidu.tbadk.pay;
 
+import com.baidu.adp.lib.a.b.a.a.i;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class PayInfoResultData implements Serializable {
+public class PayInfoResultData extends i implements Serializable {
     private static final long serialVersionUID = -3890790632004634138L;
     private String errmsg;
     private int errno;

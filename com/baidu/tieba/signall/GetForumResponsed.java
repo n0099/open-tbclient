@@ -16,7 +16,7 @@ public class GetForumResponsed extends JsonHttpResponsedMessage {
         if (getError() == 0 && jSONObject != null) {
             this.listData = new b();
             try {
-                this.listData.a(jSONObject);
+                this.listData.parserJson(jSONObject);
             } catch (Exception e) {
                 this.listData = null;
                 BdLog.e(e.getMessage());

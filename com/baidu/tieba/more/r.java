@@ -1,5 +1,5 @@
 package com.baidu.tieba.more;
 /* loaded from: classes.dex */
 public interface r {
-    void a(int i);
+    void gF(int i);
 }

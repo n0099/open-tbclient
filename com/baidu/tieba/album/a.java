@@ -3,40 +3,40 @@ package com.baidu.tieba.album;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 public class a {
-    private String a;
-    private String b;
-    private String c;
-    private ImageFileInfo d;
+    private String aho;
+    private ImageFileInfo ahp;
+    private String albumId;
+    private String name;
 
-    public String a() {
-        return this.a;
+    public String getAlbumId() {
+        return this.albumId;
     }
 
-    public void a(String str) {
-        this.a = str;
+    public void el(String str) {
+        this.albumId = str;
     }
 
-    public String b() {
-        return this.b;
+    public String getName() {
+        return this.name;
     }
 
-    public void b(String str) {
-        this.b = str;
+    public void setName(String str) {
+        this.name = str;
     }
 
-    public String c() {
-        return this.c;
+    public String xL() {
+        return this.aho;
     }
 
-    public void c(String str) {
-        this.c = str;
+    public void em(String str) {
+        this.aho = str;
     }
 
-    public ImageFileInfo d() {
-        return this.d;
+    public ImageFileInfo xM() {
+        return this.ahp;
     }
 
-    public void a(ImageFileInfo imageFileInfo) {
-        this.d = imageFileInfo;
+    public void d(ImageFileInfo imageFileInfo) {
+        this.ahp = imageFileInfo;
     }
 }

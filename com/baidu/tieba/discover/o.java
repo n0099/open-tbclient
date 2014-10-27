@@ -1,13 +1,13 @@
 package com.baidu.tieba.discover;
 /* loaded from: classes.dex */
 class o {
-    String a;
-    String b;
-    String c;
+    String abo;
+    String anU;
+    String mTitle;
 
     public o(String str, String str2, String str3) {
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
+        this.abo = str;
+        this.anU = str2;
+        this.mTitle = str3;
     }
 }

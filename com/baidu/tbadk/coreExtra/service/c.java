@@ -1,89 +1,88 @@
 package com.baidu.tbadk.coreExtra.service;
 
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ac;
 import com.baidu.tbadk.core.util.i;
 import java.io.File;
 import java.io.RandomAccessFile;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c {
-    final /* synthetic */ b a;
-    private String b;
-    private String c;
-    private com.baidu.tbadk.coreExtra.data.b d;
-    private ae e;
-    private boolean f = false;
-    private String g;
+class c {
+    private com.baidu.tbadk.coreExtra.data.b MB;
+    private boolean MC = false;
+    final /* synthetic */ b MD;
+    private String mFileName;
+    private ac mNetWork;
+    private String mUrl;
+    private String mVoiceMd5;
 
     public c(b bVar, String str, com.baidu.tbadk.coreExtra.data.b bVar2, String str2, String str3) {
-        this.a = bVar;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.g = null;
-        this.b = str;
-        this.d = bVar2;
-        this.c = str2;
-        this.g = str3;
+        this.MD = bVar;
+        this.mFileName = null;
+        this.mUrl = null;
+        this.MB = null;
+        this.mVoiceMd5 = null;
+        this.mFileName = str;
+        this.MB = bVar2;
+        this.mUrl = str2;
+        this.mVoiceMd5 = str3;
     }
 
-    public com.baidu.tbadk.coreExtra.data.c a() {
+    public com.baidu.tbadk.coreExtra.data.c pF() {
         com.baidu.tbadk.coreExtra.data.c cVar = new com.baidu.tbadk.coreExtra.data.c();
-        long b = this.d.b();
-        long j = b % 30720 == 0 ? b / 30720 : (b / 30720) + 1;
-        int c = this.d.c();
-        if (c < j) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.b), "r");
-            if (randomAccessFile.skipBytes(c * TbConfig.VOICE_CHUNK_UPLOAD_SIZE) < c * TbConfig.VOICE_CHUNK_UPLOAD_SIZE) {
-                cVar.a(false);
+        long ov = this.MB.ov();
+        long j = ov % 30720 == 0 ? ov / 30720 : (ov / 30720) + 1;
+        int ow = this.MB.ow();
+        if (ow < j) {
+            RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.mFileName), "r");
+            if (randomAccessFile.skipBytes(ow * TbConfig.VOICE_CHUNK_UPLOAD_SIZE) < ow * TbConfig.VOICE_CHUNK_UPLOAD_SIZE) {
+                cVar.ab(false);
                 randomAccessFile.close();
                 return cVar;
             }
             while (true) {
-                int i = c;
+                int i = ow;
                 if (i < j) {
                     int i2 = TbConfig.VOICE_CHUNK_UPLOAD_SIZE;
                     if (i == j - 1) {
-                        i2 = (int) (b - (30720 * (j - 1)));
+                        i2 = (int) (ov - (30720 * (j - 1)));
                     }
                     byte[] bArr = new byte[i2];
                     int read = randomAccessFile.read(bArr, 0, i2);
                     if (read != -1) {
-                        this.e = new ae(this.c);
-                        this.e.a("voice_chunk", bArr);
-                        this.e.a("chunk_md5", this.d.a());
-                        this.e.a("length", String.valueOf(read));
-                        this.e.a("offset", String.valueOf(i * TbConfig.VOICE_CHUNK_UPLOAD_SIZE));
-                        this.e.a("total_length", String.valueOf(b));
-                        this.e.a("chunk_no", String.valueOf(i + 1));
-                        this.e.a("total_num", String.valueOf(j));
-                        this.e.a("voice_md5", this.g);
+                        this.mNetWork = new ac(this.mUrl);
+                        this.mNetWork.e("voice_chunk", bArr);
+                        this.mNetWork.k("chunk_md5", this.MB.ou());
+                        this.mNetWork.k("length", String.valueOf(read));
+                        this.mNetWork.k("offset", String.valueOf(i * TbConfig.VOICE_CHUNK_UPLOAD_SIZE));
+                        this.mNetWork.k("total_length", String.valueOf(ov));
+                        this.mNetWork.k("chunk_no", String.valueOf(i + 1));
+                        this.mNetWork.k("total_num", String.valueOf(j));
+                        this.mNetWork.k("voice_md5", this.mVoiceMd5);
                         boolean z = false;
-                        if (this.f) {
+                        if (this.MC) {
                             z = true;
-                        } else if (this.e.i() == null || !this.e.a().b().b()) {
-                            this.d.a(i);
-                            i.a(this.d);
+                        } else if (this.mNetWork.lD() == null || !this.mNetWork.mc().nb().jq()) {
+                            this.MB.bV(i);
+                            i.a(this.MB);
                             randomAccessFile.close();
                             z = true;
                         }
                         if (z) {
-                            cVar.a(this.e.c());
-                            cVar.a(this.e.e());
-                            cVar.a(this.d);
-                            cVar.a(false);
+                            cVar.setErrorCode(this.mNetWork.mg());
+                            cVar.setErrorString(this.mNetWork.getErrorString());
+                            cVar.b(this.MB);
+                            cVar.ab(false);
                             return cVar;
                         }
                     }
-                    c = i + 1;
+                    ow = i + 1;
                 } else {
                     randomAccessFile.close();
                     break;
                 }
             }
         }
-        cVar.a(true);
+        cVar.ab(true);
         return cVar;
     }
 }

@@ -1,52 +1,33 @@
 package com.baidu.tieba.write;
 
-import android.content.DialogInterface;
-import android.os.Handler;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements DialogInterface.OnClickListener {
-    final /* synthetic */ WriteActivity a;
+public class ak implements View.OnTouchListener {
+    final /* synthetic */ WriteActivity bTX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(WriteActivity writeActivity) {
-        this.a = writeActivity;
+        this.bTX = writeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        WriteData writeData;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        InputMethodManager inputMethodManager;
         EditText editText;
-        WriteData writeData2;
+        InputMethodManager inputMethodManager2;
         EditText editText2;
-        WriteData writeData3;
-        WriteData writeData4;
-        WriteData writeData5;
-        Handler handler;
-        WriteData writeData6;
-        WriteData writeData7;
-        writeData = this.a.a;
-        editText = this.a.f;
-        writeData.setTitle(editText.getText().toString());
-        writeData2 = this.a.a;
-        editText2 = this.a.i;
-        writeData2.setContent(editText2.getText().toString());
-        writeData3 = this.a.a;
-        int type = writeData3.getType();
-        if (type == 0) {
-            writeData6 = this.a.a;
-            String forumId = writeData6.getForumId();
-            writeData7 = this.a.a;
-            com.baidu.tieba.util.m.a(forumId, writeData7);
-        } else if (type == 1) {
-            writeData4 = this.a.a;
-            String threadId = writeData4.getThreadId();
-            writeData5 = this.a.a;
-            com.baidu.tieba.util.m.b(threadId, writeData5);
-        }
-        this.a.showToast(com.baidu.tieba.x.draft_save_success);
-        handler = this.a.v;
-        handler.postDelayed(new al(this), 1000L);
+        WriteActivity writeActivity = this.bTX;
+        inputMethodManager = this.bTX.mInputManager;
+        editText = this.bTX.bJr;
+        writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
+        WriteActivity writeActivity2 = this.bTX;
+        inputMethodManager2 = this.bTX.mInputManager;
+        editText2 = this.bTX.bJv;
+        writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
+        return false;
     }
 }

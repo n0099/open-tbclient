@@ -2,17 +2,17 @@ package com.baidu.tieba.im.validate;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends com.baidu.tieba.im.b<Boolean> {
-    private final /* synthetic */ ValidateItemData a;
+    private final /* synthetic */ ValidateItemData biY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(ValidateItemData validateItemData) {
-        this.a = validateItemData;
+        this.biY = validateItemData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.d.a().a(this.a));
+    public Boolean doInBackground() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.d.Mx().a(this.biY));
     }
 }

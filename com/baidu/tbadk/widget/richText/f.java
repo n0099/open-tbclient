@@ -9,77 +9,77 @@ import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 /* loaded from: classes.dex */
 public class f extends BitmapDrawable {
-    private int a;
-    private Context b;
-    private String d;
-    private Rect c = null;
-    private Matrix e = null;
+    private Context mContext;
+    private int mId;
+    private String mKey;
+    private Rect dZ = null;
+    private Matrix mMatrix = null;
 
     public f(Context context, int i) {
-        this.a = 0;
-        this.b = null;
-        this.d = null;
-        this.b = context;
-        this.a = i;
-        this.d = String.valueOf(this.a);
+        this.mId = 0;
+        this.mContext = null;
+        this.mKey = null;
+        this.mContext = context;
+        this.mId = i;
+        this.mKey = String.valueOf(this.mId);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setBounds(int i, int i2, int i3, int i4) {
-        this.c = new Rect(i, i2, i3, i4);
-        this.e = null;
+        this.dZ = new Rect(i, i2, i3, i4);
+        this.mMatrix = null;
         super.setBounds(i, i2, i3, i4);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setBounds(Rect rect) {
-        this.c = new Rect(rect);
-        this.e = null;
+        this.dZ = new Rect(rect);
+        this.mMatrix = null;
         super.setBounds(rect);
     }
 
-    public void a(int i, int i2) {
-        if (this.c != null) {
-            super.setBounds(this.c.left, this.c.top, this.c.right + i, this.c.bottom + i2);
+    public void C(int i, int i2) {
+        if (this.dZ != null) {
+            super.setBounds(this.dZ.left, this.dZ.top, this.dZ.right + i, this.dZ.bottom + i2);
         }
     }
 
     @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         com.baidu.adp.widget.a.a aVar;
-        if (this.a > 0 && this.b != null) {
-            com.baidu.tbadk.imageManager.e a = com.baidu.tbadk.imageManager.e.a();
-            com.baidu.adp.widget.a.a c = (a == null || this.d == null) ? null : a.c(this.d);
-            if (c == null) {
-                Bitmap b = com.baidu.tbadk.core.util.d.b(this.b, this.a);
-                if (b != null) {
-                    c = new com.baidu.adp.widget.a.a(b, false, null);
+        if (this.mId > 0 && this.mContext != null) {
+            com.baidu.tbadk.imageManager.e sg = com.baidu.tbadk.imageManager.e.sg();
+            com.baidu.adp.widget.a.a dt = (sg == null || this.mKey == null) ? null : sg.dt(this.mKey);
+            if (dt == null) {
+                Bitmap a = com.baidu.tbadk.core.util.d.a(this.mContext, this.mId);
+                if (a != null) {
+                    dt = new com.baidu.adp.widget.a.a(a, false, null);
                 }
-                if (a != null && c != null && this.d != null) {
-                    a.b(this.d, c);
+                if (sg != null && dt != null && this.mKey != null) {
+                    sg.c(this.mKey, dt);
                 }
-                aVar = c;
+                aVar = dt;
             } else {
-                aVar = c;
+                aVar = dt;
             }
             if (aVar != null) {
-                int c2 = aVar.c();
-                int d = aVar.d();
-                if (c2 > 0 && d > 0 && this.c != null) {
+                int width = aVar.getWidth();
+                int height = aVar.getHeight();
+                if (width > 0 && height > 0 && this.dZ != null) {
                     canvas.save();
                     canvas.clipRect(super.getBounds());
-                    if (d > this.c.bottom - this.c.top || c2 > this.c.right - this.c.left) {
-                        if (this.e == null) {
-                            this.e = new Matrix();
-                            this.e.postTranslate(0.0f, 0.0f);
-                            float f = (this.c.right - this.c.left) / c2;
-                            float f2 = (this.c.bottom - this.c.top) / d;
+                    if (height > this.dZ.bottom - this.dZ.top || width > this.dZ.right - this.dZ.left) {
+                        if (this.mMatrix == null) {
+                            this.mMatrix = new Matrix();
+                            this.mMatrix.postTranslate(0.0f, 0.0f);
+                            float f = (this.dZ.right - this.dZ.left) / width;
+                            float f2 = (this.dZ.bottom - this.dZ.top) / height;
                             if (f >= f2) {
                                 f = f2;
                             }
-                            this.e.postScale(f, f);
+                            this.mMatrix.postScale(f, f);
                         }
-                        aVar.a(canvas, this.e, null);
+                        aVar.a(canvas, this.mMatrix, null);
                     } else {
                         aVar.a(canvas, 0.0f, 0.0f, (Paint) null);
                     }

@@ -1,32 +1,56 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Intent;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.data.ForumData;
 /* loaded from: classes.dex */
-public class v extends CustomMessageListener {
-    final /* synthetic */ u a;
+class v implements AdapterView.OnItemClickListener {
+    final /* synthetic */ o bBB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v(u uVar, int i) {
-        super(i);
-        this.a = uVar;
+    public v(o oVar) {
+        this.bBB = oVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        x xVar;
         boolean z;
-        PersonBarActivity g;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001187) {
-            z = this.a.n;
-            if (z) {
-                t personBarData = ((ResponsePersonBarByUidLocalMessage) customResponsedMessage).getPersonBarData();
-                g = this.a.g();
-                if (g != null) {
-                    this.a.a(personBarData, true);
+        x xVar2;
+        PersonBarActivity ZM;
+        boolean z2;
+        PersonBarActivity ZM2;
+        PersonBarActivity ZM3;
+        PersonBarActivity ZM4;
+        xVar = this.bBB.bBt;
+        if (xVar.getItem(i) != null) {
+            z = this.bBB.bBx;
+            if (!z) {
+                this.bBB.bAU = i;
+                xVar2 = this.bBB.bBt;
+                ForumData forumData = (ForumData) xVar2.getItem(i);
+                if (forumData != null) {
+                    ZM = this.bBB.ZM();
+                    if (ZM != null) {
+                        z2 = this.bBB.bAN;
+                        if (z2) {
+                            Intent intent = new Intent();
+                            intent.putExtra("bar_name", forumData.getName());
+                            intent.putExtra("bar_id", forumData.getId());
+                            ZM3 = this.bBB.ZM();
+                            this.bBB.ZM();
+                            ZM3.setResult(-1, intent);
+                            ZM4 = this.bBB.ZM();
+                            ZM4.finish();
+                            return;
+                        }
+                        o oVar = this.bBB;
+                        ZM2 = this.bBB.ZM();
+                        oVar.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(ZM2).createNormalCfg(forumData.getName(), "tb_mytieba")));
+                    }
                 }
             }
         }

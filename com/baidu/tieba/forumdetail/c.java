@@ -2,61 +2,60 @@ package com.baidu.tieba.forumdetail;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.gson.GsonBuilder;
-import com.baidu.tbadk.core.util.ae;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.ac;
+import com.baidu.tbadk.core.util.ay;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, Object, ForumDetailData> {
-    private String a;
-    private String b;
-    private WeakReference<d> c;
+    private String afX;
+    private WeakReference<d> agb;
+    private String awY;
 
     public c(String str, String str2, d dVar) {
-        this.a = str;
-        this.b = str2;
-        this.c = new WeakReference<>(dVar);
+        this.afX = str;
+        this.awY = str2;
+        this.agb = new WeakReference<>(dVar);
         setPriority(3);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: v */
     public ForumDetailData doInBackground(String... strArr) {
         String str;
-        str = b.a;
-        ae aeVar = new ae(str);
-        aeVar.a(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, this.a);
-        aeVar.a("need_good_thread", this.b);
-        String h = aeVar.h();
-        if (aeVar.a().b().b()) {
+        str = b.awX;
+        ac acVar = new ac(str);
+        acVar.k("forum_id", this.afX);
+        acVar.k("need_good_thread", this.awY);
+        String lA = acVar.lA();
+        if (acVar.mc().nb().jq()) {
             try {
-                return (ForumDetailData) new GsonBuilder().create().fromJson(h, (Class<Object>) ForumDetailData.class);
+                return (ForumDetailData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(lA, ForumDetailData.class);
             } catch (Exception e) {
                 BdLog.detailException(e);
                 ForumDetailData forumDetailData = new ForumDetailData();
-                forumDetailData.errorNo = -1000;
-                forumDetailData.errorMsg = "网络异常";
+                forumDetailData.errno = -1000;
+                forumDetailData.errmsg = "网络异常";
                 return forumDetailData;
             }
         }
         ForumDetailData forumDetailData2 = new ForumDetailData();
-        forumDetailData2.errorNo = aeVar.c();
-        forumDetailData2.errorMsg = aeVar.e();
+        forumDetailData2.errno = acVar.mg();
+        forumDetailData2.errmsg = acVar.getErrorString();
         return forumDetailData2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: c */
     public void onPostExecute(ForumDetailData forumDetailData) {
         super.onPostExecute(forumDetailData);
-        d dVar = this.c.get();
+        d dVar = this.agb.get();
         if (dVar != null) {
-            if (ba.c(forumDetailData.errorMsg)) {
+            if (ay.aA(forumDetailData.errmsg)) {
                 dVar.a(forumDetailData);
             } else {
                 dVar.b(forumDetailData);

@@ -7,11 +7,11 @@ import com.baidu.tieba.data.FeedData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements AdapterView.OnItemClickListener {
-    final /* synthetic */ c a;
+    final /* synthetic */ c bnj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.a = cVar;
+        this.bnj = cVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -19,14 +19,14 @@ public class d implements AdapterView.OnItemClickListener {
         k kVar = (k) ((BdListView) adapterView).getWrappedAdapter();
         long itemId = kVar.getItemId(i);
         if (itemId == -1) {
-            this.a.b();
+            this.bnj.refresh();
         } else if (itemId != -2) {
             FeedData feedData = (FeedData) kVar.getItem(i);
             if (feedData != null) {
-                this.a.a(feedData);
+                this.bnj.a(feedData);
             }
         } else {
-            this.a.g();
+            this.bnj.SK();
         }
     }
 }

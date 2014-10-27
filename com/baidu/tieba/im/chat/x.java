@@ -2,42 +2,43 @@ package com.baidu.tieba.im.chat;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.gson.Gson;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.data.VoiceMsgData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
+import com.baidu.tieba.im.model.MsglistModel;
+import com.baidu.tieba.im.model.VoiceSendModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements com.baidu.tieba.im.model.be {
-    final /* synthetic */ w a;
+public class x implements VoiceSendModel.UploadVoiceCallback {
+    final /* synthetic */ w aNM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(w wVar) {
-        this.a = wVar;
+        this.aNM = wVar;
     }
 
-    @Override // com.baidu.tieba.im.model.be
-    public void a(String str, ChatMessage chatMessage) {
-        com.baidu.tieba.im.model.al alVar;
-        com.baidu.tieba.im.model.al alVar2;
+    @Override // com.baidu.tieba.im.model.VoiceSendModel.UploadVoiceCallback
+    public void callback(String str, ChatMessage chatMessage) {
+        MsglistModel.SendCallback sendCallback;
+        MsglistModel.SendCallback sendCallback2;
         try {
-            w.a().f(chatMessage);
+            w.Jo().d(chatMessage);
             if (chatMessage != null) {
                 if (str != null && str.length() > 0) {
-                    VoiceMsgData h = com.baidu.tieba.im.d.j.h(chatMessage);
-                    if (h != null) {
-                        h.setVoice_md5(str);
-                        chatMessage.setContent("[" + new Gson().toJson(h) + "]");
+                    VoiceMsgData v = com.baidu.tieba.im.util.i.v(chatMessage);
+                    if (v != null) {
+                        v.setVoice_md5(str);
+                        chatMessage.setContent("[" + com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(v) + "]");
                     }
                     TiebaStatic.imLog(chatMessage.getCmd(), 0, "", "", "upload voice http suc vid = " + str, 0, "upload voice http success ", System.currentTimeMillis() - chatMessage.getLogTime());
-                    w.a().d(chatMessage);
-                    alVar = this.a.g;
-                    if (alVar != null) {
-                        alVar2 = this.a.g;
-                        alVar2.a(2);
+                    w.Jo().f(chatMessage);
+                    sendCallback = this.aNM.mSendCallback;
+                    if (sendCallback != null) {
+                        sendCallback2 = this.aNM.mSendCallback;
+                        sendCallback2.onSend(2);
                         return;
                     }
                     return;

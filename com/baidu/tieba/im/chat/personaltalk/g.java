@@ -1,35 +1,18 @@
 package com.baidu.tieba.im.chat.personaltalk;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.tieba.im.message.GroupDeleteMsgResponsedMessage;
-import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-class g implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ e a;
+class g implements DialogInterface.OnClickListener {
+    final /* synthetic */ PersonalTalkSettingActivity aSq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(e eVar) {
-        this.a = eVar;
+    public g(PersonalTalkSettingActivity personalTalkSettingActivity) {
+        this.aSq = personalTalkSettingActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Boolean bool) {
-        PersonalTalkSettingActivity personalTalkSettingActivity;
-        PersonalTalkSettingActivity personalTalkSettingActivity2;
-        long j;
-        PersonalTalkSettingActivity personalTalkSettingActivity3;
-        long j2;
-        personalTalkSettingActivity = this.a.a;
-        personalTalkSettingActivity.closeLoadingDialog();
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new GroupDeleteMsgResponsedMessage());
-        personalTalkSettingActivity2 = this.a.a;
-        j = personalTalkSettingActivity2.c;
-        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new com.baidu.tieba.im.message.g(String.valueOf(j), 2, null, 1)));
-        StringBuilder sb = new StringBuilder("clear cache by person:");
-        personalTalkSettingActivity3 = this.a.a;
-        j2 = personalTalkSettingActivity3.c;
-        BdSocketLinkService.startService(true, sb.append(j2).toString());
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        this.aSq.showLoadingDialog(null);
+        com.baidu.tieba.im.e.a(new h(this), new i(this));
     }
 }

@@ -9,18 +9,18 @@ import android.provider.MediaStore;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class w {
-    private static final String[] b = {"image/jpeg", "image/png", "image/gif"};
-    static final String[] a = {"_id", "datetaken", "date_added", "orientation", "_data"};
+    private static final String[] WZ = {"image/jpeg", "image/png", "image/gif"};
+    static final String[] Xa = {"_id", "datetaken", "date_added", "orientation", "_data"};
 
-    protected static String a() {
+    protected static String sQ() {
         return "(mime_type in (?, ?, ?))";
     }
 
-    protected static String[] b() {
-        return b;
+    protected static String[] sR() {
+        return WZ;
     }
 
-    protected static String c() {
+    protected static String sS() {
         return String.valueOf("case ifnull(datetaken,0) when 0 then date_modified*1000 else datetaken end") + " DESC, _id DESC";
     }
 
@@ -30,9 +30,9 @@ public class w {
             if (uri.getScheme().startsWith("file")) {
                 String[] strArr = {""};
                 strArr[0] = uri.getPath();
-                query = MediaStore.Images.Media.query(contentResolver, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, a, "(_data=?)", strArr, c());
+                query = MediaStore.Images.Media.query(contentResolver, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, Xa, "(_data=?)", strArr, sS());
             } else {
-                query = MediaStore.Images.Media.query(contentResolver, uri, a, a(), b(), c());
+                query = MediaStore.Images.Media.query(contentResolver, uri, Xa, sQ(), sR(), sS());
             }
             return query;
         } catch (Exception e) {
@@ -43,30 +43,30 @@ public class w {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
     public static int a(Context context, Uri uri, boolean z) {
         int i = 0;
-        Cursor a2 = a(context.getContentResolver(), uri);
-        if (a2 != null) {
+        Cursor a = a(context.getContentResolver(), uri);
+        if (a != null) {
             try {
-                a2.moveToFirst();
-                i = a2.getInt(3);
-                if (a2 != null) {
+                a.moveToFirst();
+                i = a.getInt(3);
+                if (a != null) {
                     try {
-                        a2.close();
+                        a.close();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
             } catch (Exception e2) {
-                if (a2 != null) {
+                if (a != null) {
                     try {
-                        a2.close();
+                        a.close();
                     } catch (Exception e3) {
                         e3.printStackTrace();
                     }
                 }
             } catch (Throwable th) {
-                if (a2 != null) {
+                if (a != null) {
                     try {
-                        a2.close();
+                        a.close();
                     } catch (Exception e4) {
                         e4.printStackTrace();
                     }
@@ -80,38 +80,38 @@ public class w {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
     public static int b(Context context, Uri uri, boolean z) {
         ContentResolver contentResolver = context.getContentResolver();
-        int b2 = b(contentResolver, uri);
-        if (b2 == 0) {
-            Cursor a2 = a(contentResolver, uri);
-            if (a2 == null) {
+        int b = b(contentResolver, uri);
+        if (b == 0) {
+            Cursor a = a(contentResolver, uri);
+            if (a == null) {
                 return 0;
             }
             try {
-                a2.moveToFirst();
-                int i = a2.getInt(3);
-                if (a2 == null) {
+                a.moveToFirst();
+                int i = a.getInt(3);
+                if (a == null) {
                     return i;
                 }
                 try {
-                    a2.close();
+                    a.close();
                     return i;
                 } catch (Exception e) {
                     e.printStackTrace();
                     return i;
                 }
             } catch (Exception e2) {
-                if (a2 != null) {
+                if (a != null) {
                     try {
-                        a2.close();
+                        a.close();
                     } catch (Exception e3) {
                         e3.printStackTrace();
                     }
                 }
                 return 0;
             } catch (Throwable th) {
-                if (a2 != null) {
+                if (a != null) {
                     try {
-                        a2.close();
+                        a.close();
                     } catch (Exception e4) {
                         e4.printStackTrace();
                     }
@@ -119,7 +119,7 @@ public class w {
                 throw th;
             }
         }
-        return b2;
+        return b;
     }
 
     private static int b(ContentResolver contentResolver, Uri uri) {

@@ -1,28 +1,25 @@
 package com.baidu.tieba.pb.main;
 
-import android.widget.AbsListView;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-class h implements AbsListView.OnScrollListener {
-    final /* synthetic */ PbActivity a;
+class h implements com.baidu.adp.widget.ListView.f {
+    final /* synthetic */ PbActivity bvg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(PbActivity pbActivity) {
-        this.a = pbActivity;
+        this.bvg = pbActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        bs bsVar;
-        bs bsVar2;
-        if (i == 2 || i == 1) {
-            bsVar = this.a.E;
-            bsVar.ad();
-            bsVar2 = this.a.E;
-            bsVar2.b();
+    @Override // com.baidu.adp.widget.ListView.f
+    public void H(boolean z) {
+        bn bnVar;
+        bv bvVar;
+        bnVar = this.bvg.buG;
+        if (!bnVar.ea(true)) {
+            bvVar = this.bvg.buL;
+            bvVar.XE();
+            return;
         }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        TiebaStatic.eventStat(this.bvg, "pb_pulldown", "pbclick", 1, new Object[0]);
     }
 }

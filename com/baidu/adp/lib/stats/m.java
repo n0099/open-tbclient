@@ -3,76 +3,76 @@ package com.baidu.adp.lib.stats;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class m {
-    private static m c;
-    private HashMap<String, n> a = new HashMap<>();
-    private HashMap<String, o> b = new HashMap<>();
+    private static m mo;
+    private HashMap<String, n> mm = new HashMap<>();
+    private HashMap<String, o> mn = new HashMap<>();
 
-    public static m a() {
-        if (c == null) {
+    public static m eB() {
+        if (mo == null) {
             synchronized (BdStatSwitchData.class) {
-                if (c == null) {
-                    c = new m();
+                if (mo == null) {
+                    mo = new m();
                 }
             }
         }
-        return c;
+        return mo;
     }
 
     public m() {
         o oVar = new o(this, null);
-        oVar.a(3000);
-        oVar.b(120000);
-        oVar.c(500);
-        this.b.put("net", oVar);
-        this.b.put("op", oVar);
-        this.b.put("stat", oVar);
+        oVar.L(3000);
+        oVar.M(120000);
+        oVar.N(500);
+        this.mn.put("net", oVar);
+        this.mn.put("op", oVar);
+        this.mn.put("stat", oVar);
         o oVar2 = new o(this, null);
-        oVar2.a(60000);
-        oVar2.b(120000);
-        oVar2.c(100);
-        this.b.put("file", oVar2);
-        this.b.put("db", oVar2);
-        this.b.put("img", oVar2);
-        this.b.put("voice", oVar2);
+        oVar2.L(60000);
+        oVar2.M(120000);
+        oVar2.N(100);
+        this.mn.put("file", oVar2);
+        this.mn.put("db", oVar2);
+        this.mn.put("img", oVar2);
+        this.mn.put("voice", oVar2);
     }
 
-    public boolean a(String str) {
-        o oVar = this.b.get(str);
+    public boolean ak(String str) {
+        o oVar = this.mn.get(str);
         if (oVar == null) {
             return false;
         }
-        n nVar = this.a.get(str);
+        n nVar = this.mm.get(str);
         long currentTimeMillis = System.currentTimeMillis();
         if (nVar == null) {
             nVar = new n(this, null);
-            nVar.b(false);
-            nVar.a(false);
-            nVar.b(currentTimeMillis);
-            this.a.put(str, nVar);
+            nVar.x(false);
+            nVar.w(false);
+            nVar.c(currentTimeMillis);
+            this.mm.put(str, nVar);
         }
-        if (nVar.a()) {
+        if (nVar.eC()) {
             return true;
         }
-        if (nVar.e()) {
-            nVar.a(nVar.c() + 1);
-            if (currentTimeMillis - nVar.b() < oVar.b()) {
-                if (nVar.c() >= oVar.c()) {
-                    nVar.a(true);
-                    f.c().a(false, "d", "logfast", null, null, 0L, 99999, str, new Object[0]);
+        if (nVar.eG()) {
+            nVar.K(nVar.eE() + 1);
+            if (currentTimeMillis - nVar.eD() < oVar.eI()) {
+                if (nVar.eE() >= oVar.eJ()) {
+                    nVar.w(true);
+                    f.er().a(false, "d", "logfast", null, null, 0L, 99999, str, new Object[0]);
                     return true;
                 }
                 return false;
             }
-            nVar.b(false);
-            nVar.a(0);
-            nVar.b(currentTimeMillis);
+            nVar.x(false);
+            nVar.K(0);
+            nVar.c(currentTimeMillis);
             return false;
-        } else if (currentTimeMillis - nVar.d() < oVar.a()) {
-            nVar.b(true);
-            nVar.a(currentTimeMillis);
+        } else if (currentTimeMillis - nVar.eF() < oVar.eH()) {
+            nVar.x(true);
+            nVar.b(currentTimeMillis);
             return false;
         } else {
-            nVar.b(currentTimeMillis);
+            nVar.c(currentTimeMillis);
             return false;
         }
     }

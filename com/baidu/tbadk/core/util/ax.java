@@ -1,94 +1,110 @@
 package com.baidu.tbadk.core.util;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.BaseActivity;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.BaseFragmentActivity;
 import java.io.File;
 /* loaded from: classes.dex */
 public class ax {
-    public static void a(Activity activity) {
-        try {
-            if (!s.a()) {
-                if (activity instanceof BaseActivity) {
-                    ((BaseActivity) activity).showToast(s.b());
-                } else if (activity instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) activity).a(s.b());
-                }
-            } else {
-                File f = s.f("camera.jpg");
-                if (f != null) {
-                    Uri fromFile = Uri.fromFile(f);
-                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", fromFile);
-                    activity.startActivityForResult(intent, 12001);
-                } else if (activity instanceof BaseActivity) {
-                    ((BaseActivity) activity).showToast(activity.getString(com.baidu.tieba.x.error_sd_error));
-                } else if (activity instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) activity).a(activity.getString(com.baidu.tieba.x.error_sd_error));
-                }
+    private static ax EY;
+
+    public static synchronized ax my() {
+        ax axVar;
+        synchronized (ax.class) {
+            if (EY == null) {
+                EY = new ax();
             }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            axVar = EY;
+        }
+        return axVar;
+    }
+
+    public String bM(String str) {
+        long j = 0;
+        for (byte b : str.getBytes()) {
+            j += b;
+        }
+        return "image/" + (j % 20);
+    }
+
+    public Bitmap bN(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        return s.K(bM(str), str);
+    }
+
+    public boolean bO(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        return s.J(bM(str), str);
+    }
+
+    public int bP(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return -1;
+        }
+        return (int) s.I(bM(str), str);
+    }
+
+    public boolean copyFile(String str, String str2) {
+        String str3 = s.mI + "/" + TbConfig.getTempDirName() + "/";
+        if (!s.bo(str3)) {
+            s.av(str3);
+        }
+        String str4 = String.valueOf(str3) + bM(str2);
+        if (!s.bo(str4)) {
+            s.av(str4);
+        }
+        String str5 = String.valueOf(str4) + "/" + str2;
+        if (str.equals(str5)) {
+            return false;
+        }
+        return s.a(str, str5, true);
+    }
+
+    public void f(String str, byte[] bArr) {
+        if (!TextUtils.isEmpty(str)) {
+            s.b(bM(str), str, bArr);
         }
     }
 
-    public static void a(Activity activity, String str) {
-        String str2;
-        try {
-            if (!s.a()) {
-                if (activity instanceof BaseActivity) {
-                    ((BaseActivity) activity).showToast(s.b());
-                    return;
-                } else if (activity instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) activity).a(s.b());
-                    return;
+    private void o(File file) {
+        File[] listFiles = file.listFiles();
+        if (listFiles != null) {
+            for (File file2 : listFiles) {
+                if (file2.isDirectory()) {
+                    o(file2);
+                    file2.delete();
                 } else {
-                    return;
+                    file2.delete();
                 }
             }
-            boolean z = false;
-            if (s.a(s.a + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR)) {
-                File file = new File(String.valueOf(str2) + "/" + str);
-                if (!file.exists()) {
-                    z = file.createNewFile();
-                } else {
-                    z = true;
-                }
-                if (z) {
-                    Uri fromFile = Uri.fromFile(file);
-                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", fromFile);
-                    activity.startActivityForResult(intent, 12001);
-                }
-            }
-            if (!z) {
-                if (activity instanceof BaseActivity) {
-                    ((BaseActivity) activity).showToast(activity.getString(com.baidu.tieba.x.error_sd_error));
-                } else if (activity instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) activity).a(activity.getString(com.baidu.tieba.x.error_sd_error));
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
         }
     }
 
-    public static void b(Activity activity) {
-        c(activity);
+    public void mz() {
+        o(new File(s.mI + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME));
+        o(new File(s.mI + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
     }
 
-    public static void c(Activity activity) {
-        try {
-            Intent intent = new Intent();
-            intent.setType("image/*");
-            intent.setAction("android.intent.action.GET_CONTENT");
-            activity.startActivityForResult(intent, 12002);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+    public void mA() {
+        p(new File(s.mI + "/" + TbConfig.getTempDirName() + "/" + s.bp(3)));
+    }
+
+    private void p(File file) {
+        long currentTimeMillis = System.currentTimeMillis();
+        File[] listFiles = file.listFiles();
+        if (listFiles != null) {
+            for (File file2 : listFiles) {
+                if (file2.isDirectory()) {
+                    o(file2);
+                    file2.delete();
+                } else if (currentTimeMillis - file2.lastModified() >= -1702967296) {
+                    file2.delete();
+                }
+            }
         }
     }
 }

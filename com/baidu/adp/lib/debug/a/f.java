@@ -2,22 +2,22 @@ package com.baidu.adp.lib.debug.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements Runnable {
-    final /* synthetic */ e a;
+    final /* synthetic */ e gq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.a = eVar;
+        this.gq = eVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        g gVar;
-        g gVar2;
-        if (this.a.a()) {
-            gVar = this.a.a;
-            gVar.invalidate();
-            gVar2 = this.a.a;
-            gVar2.post(this);
+        h hVar;
+        h hVar2;
+        if (this.gq.cJ()) {
+            hVar = this.gq.gn;
+            hVar.invalidate();
+            hVar2 = this.gq.gn;
+            hVar2.post(this);
         }
     }
 }

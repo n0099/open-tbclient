@@ -5,19 +5,19 @@ import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ g a;
+    final /* synthetic */ AbsMsglistView aNB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(g gVar) {
-        this.a = gVar;
+    public o(AbsMsglistView absMsglistView) {
+        this.aNB = absMsglistView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         ImageView imageView;
-        this.a.g();
-        this.a.S();
-        imageView = this.a.u;
+        this.aNB.sendmsgCloseMore();
+        this.aNB.sendmsgShowText();
+        imageView = this.aNB.mBtnMsgSendSoftkey;
         imageView.postDelayed(new p(this), 100L);
     }
 }

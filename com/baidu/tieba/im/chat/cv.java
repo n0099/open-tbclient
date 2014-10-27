@@ -1,21 +1,20 @@
 package com.baidu.tieba.im.chat;
 
-import java.util.LinkedList;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class cv extends com.baidu.tieba.im.b<Void> {
-    final /* synthetic */ cu a;
-    private final /* synthetic */ LinkedList b;
-
+class cv extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cv(cu cuVar, LinkedList linkedList) {
-        this.a = cuVar;
-        this.b = linkedList;
+    public cv(int i) {
+        super(i);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Void a() {
-        return com.baidu.tieba.im.db.o.c().a(this.b);
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016) {
+            return;
+        }
+        PersonalChatActivity.aPE = null;
     }
 }

@@ -2,25 +2,25 @@ package com.baidu.tieba.bubble;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.au;
+import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 /* loaded from: classes.dex */
 class d implements s {
-    final /* synthetic */ BubbleChooseActivity a;
+    final /* synthetic */ BubbleChooseActivity aja;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(BubbleChooseActivity bubbleChooseActivity) {
-        this.a = bubbleChooseActivity;
+        this.aja = bubbleChooseActivity;
     }
 
     @Override // com.baidu.tieba.bubble.s
-    public void a(int i) {
+    public void dV(int i) {
         com.baidu.tieba.model.e eVar;
-        eVar = this.a.c;
-        eVar.b(i);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new au(this.a, true, 23004, "pop_unable")));
+        eVar = this.aja.aiT;
+        eVar.gz(i);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.aja, true, 23004, "pop_unable")));
     }
 
     @Override // com.baidu.tieba.bubble.s
-    public void a() {
+    public void yi() {
     }
 }

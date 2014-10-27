@@ -7,29 +7,29 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes.dex */
 public class m extends l {
-    private Path l;
-    private boolean m;
-    private Rect n;
+    private Rect dZ;
+    private boolean rm;
+    private Path ry;
 
-    private void a(Rect rect) {
+    private void c(Rect rect) {
         boolean z = false;
         if (rect != null) {
-            if (this.l == null || this.m != this.g.b) {
+            if (this.ry == null || this.rm != this.qN.rm) {
                 z = true;
             }
-            if (this.n == null || !this.n.contains(rect)) {
+            if (this.dZ == null || !this.dZ.contains(rect)) {
                 z = true;
             }
-            this.m = this.g.b;
+            this.rm = this.qN.rm;
             if (z) {
-                this.n = rect;
-                this.l = new Path();
-                if (this.m) {
-                    this.l.addCircle((rect.right + rect.left) / 2, (rect.top + rect.bottom) / 2, Math.min(rect.width(), rect.height()) / 2, Path.Direction.CCW);
+                this.dZ = rect;
+                this.ry = new Path();
+                if (this.rm) {
+                    this.ry.addCircle((rect.right + rect.left) / 2, (rect.top + rect.bottom) / 2, Math.min(rect.width(), rect.height()) / 2, Path.Direction.CCW);
                 } else {
-                    this.l.addRoundRect(new RectF(rect), this.g.a, this.g.a, Path.Direction.CCW);
+                    this.ry.addRoundRect(new RectF(rect), this.qN.mRadius, this.qN.mRadius, Path.Direction.CCW);
                 }
-                this.l.close();
+                this.ry.close();
             }
         }
     }
@@ -37,9 +37,9 @@ public class m extends l {
     @Override // com.baidu.adp.newwidget.a.a
     protected void a(Canvas canvas, Drawable drawable) {
         canvas.save();
-        a(drawable.getBounds());
+        c(drawable.getBounds());
         try {
-            canvas.clipPath(this.l);
+            canvas.clipPath(this.ry);
         } catch (Exception e) {
         }
         drawable.draw(canvas);

@@ -4,68 +4,68 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
-    final /* synthetic */ BannerView a;
+    final /* synthetic */ BannerView Nx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(BannerView bannerView) {
-        this.a = bannerView;
+        this.Nx = bannerView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Button button;
         String str;
-        c cVar;
-        c cVar2;
+        b bVar;
+        b bVar2;
         String str2;
         String str3;
         Context context;
         String str4;
         String str5;
-        c cVar3;
-        c cVar4;
+        b bVar3;
+        b bVar4;
         Context context2;
         String str6;
-        button = this.a.e;
+        button = this.Nx.Nq;
         if (view != button) {
-            str = this.a.c;
+            str = this.Nx.No;
             if (!TextUtils.isEmpty(str)) {
-                context = this.a.f;
-                str4 = this.a.c;
-                com.baidu.tbadk.core.f.a(context, str4);
+                context = this.Nx.mContext;
+                str4 = this.Nx.No;
+                com.baidu.tbadk.core.i.l(context, str4);
             }
-            cVar = this.a.j;
-            if (cVar == null) {
-                str2 = this.a.i;
+            bVar = this.Nx.Nv;
+            if (bVar == null) {
+                str2 = this.Nx.link;
                 if (!TextUtils.isEmpty(str2)) {
-                    bg a = bg.a();
-                    Context context3 = this.a.getContext();
-                    str3 = this.a.i;
-                    a.a(context3, new String[]{str3});
+                    bf mR = bf.mR();
+                    Context context3 = this.Nx.getContext();
+                    str3 = this.Nx.link;
+                    mR.b(context3, new String[]{str3});
                     return;
                 }
                 return;
             }
-            cVar2 = this.a.j;
-            cVar2.a();
+            bVar2 = this.Nx.Nv;
+            bVar2.pT();
             return;
         }
-        str5 = this.a.d;
+        str5 = this.Nx.Np;
         if (!TextUtils.isEmpty(str5)) {
-            context2 = this.a.f;
-            str6 = this.a.d;
-            com.baidu.tbadk.core.f.a(context2, str6);
+            context2 = this.Nx.mContext;
+            str6 = this.Nx.Np;
+            com.baidu.tbadk.core.i.l(context2, str6);
         }
-        this.a.g = true;
-        this.a.setVisibility(8);
-        cVar3 = this.a.j;
-        if (cVar3 != null) {
-            cVar4 = this.a.j;
-            cVar4.b();
+        this.Nx.Ns = true;
+        this.Nx.setVisibility(8);
+        bVar3 = this.Nx.Nv;
+        if (bVar3 != null) {
+            bVar4 = this.Nx.Nv;
+            bVar4.pU();
         }
     }
 }

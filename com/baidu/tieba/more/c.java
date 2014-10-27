@@ -3,9 +3,8 @@ package com.baidu.tieba.more;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c extends BroadcastReceiver {
+class c extends BroadcastReceiver {
     final /* synthetic */ AboutActivity this$0;
 
     private c(AboutActivity aboutActivity) {
@@ -19,12 +18,8 @@ public class c extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        d dVar;
-        d dVar2;
-        dVar = this.this$0.a;
-        if (dVar != null) {
-            dVar2 = this.this$0.a;
-            dVar2.c();
+        if (AboutActivity.a(this.this$0) != null) {
+            AboutActivity.a(this.this$0).Ud();
         }
     }
 }

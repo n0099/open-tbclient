@@ -1,31 +1,28 @@
 package com.baidu.tieba.faceshop;
 /* loaded from: classes.dex */
 class at extends com.baidu.adp.base.h {
-    final /* synthetic */ FacePurchaseRecordsActivity a;
+    final /* synthetic */ FacePurchaseRecordsActivity aud;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(FacePurchaseRecordsActivity facePurchaseRecordsActivity) {
-        this.a = facePurchaseRecordsActivity;
+        this.aud = facePurchaseRecordsActivity;
     }
 
     @Override // com.baidu.adp.base.h
     public void a(Object obj) {
-        ba baVar;
-        ba baVar2;
-        ba baVar3;
-        this.a.hideProgressBar();
+        bb bbVar;
+        bb bbVar2;
+        this.aud.hideProgressBar();
         if (obj != null && (obj instanceof FacePurchaseRecordsData)) {
-            baVar = this.a.a;
-            if (baVar != null) {
+            bbVar = this.aud.aub;
+            if (bbVar != null) {
                 FacePurchaseRecordsData facePurchaseRecordsData = (FacePurchaseRecordsData) obj;
-                if (facePurchaseRecordsData.errno == 0 && facePurchaseRecordsData.usermsg != null) {
-                    baVar3 = this.a.a;
-                    baVar3.a(facePurchaseRecordsData);
+                if (facePurchaseRecordsData.errno == 0) {
+                    bbVar2 = this.aud.aub;
+                    bbVar2.c(facePurchaseRecordsData);
                     return;
                 } else if (facePurchaseRecordsData.usermsg != null) {
-                    this.a.showToast(facePurchaseRecordsData.usermsg);
-                    baVar2 = this.a.a;
-                    baVar2.c();
+                    this.aud.showToast(facePurchaseRecordsData.usermsg);
                     return;
                 } else {
                     return;
@@ -33,6 +30,6 @@ class at extends com.baidu.adp.base.h {
             }
             return;
         }
-        this.a.showToast(com.baidu.tieba.x.neterror);
+        this.aud.showToast(cb.neterror);
     }
 }

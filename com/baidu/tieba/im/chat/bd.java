@@ -3,21 +3,21 @@ package com.baidu.tieba.im.chat;
 import com.baidu.tbadk.core.data.VoiceData;
 /* loaded from: classes.dex */
 class bd implements v {
-    final /* synthetic */ GroupChatActivity a;
+    final /* synthetic */ GroupChatActivity aOd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bd(GroupChatActivity groupChatActivity) {
-        this.a = groupChatActivity;
+        this.aOd = groupChatActivity;
     }
 
     @Override // com.baidu.tieba.im.chat.v
-    public void a(VoiceData.VoiceModel voiceModel) {
+    public void c(VoiceData.VoiceModel voiceModel) {
         if (voiceModel != null) {
-            this.a.e.a(voiceModel.voiceId, voiceModel.duration);
+            this.aOd.aPQ.sendMsgVoice(voiceModel.voiceId, voiceModel.duration);
         }
     }
 
     @Override // com.baidu.tieba.im.chat.v
-    public void a() {
+    public void BV() {
     }
 }

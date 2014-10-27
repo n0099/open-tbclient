@@ -9,7 +9,9 @@ public enum FastLoginFeature {
     TX_QQ_WEBVIEW("qzone"),
     RENREN_WEBVIEW("renren"),
     DEVICE_LOGIN("device_login"),
-    QR_LOGIN("qr_app_login");
+    QR_LOGIN("qr_app_login"),
+    NM_LOGIN("nm_login"),
+    VOICE_LOGIN("voice_login");
     
     private String a;
 

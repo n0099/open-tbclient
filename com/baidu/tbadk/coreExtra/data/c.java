@@ -1,40 +1,40 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class c {
-    private b a;
-    private boolean b;
-    private int c;
-    private String d;
+    private b Lf;
+    private boolean dN;
+    private int mErrorCode;
+    private String mErrorString;
 
-    public b a() {
-        return this.a;
+    public b ox() {
+        return this.Lf;
     }
 
-    public void a(b bVar) {
-        this.a = bVar;
+    public void b(b bVar) {
+        this.Lf = bVar;
     }
 
-    public boolean b() {
-        return this.b;
+    public boolean isSuccess() {
+        return this.dN;
     }
 
-    public void a(boolean z) {
-        this.b = z;
+    public void ab(boolean z) {
+        this.dN = z;
     }
 
-    public int c() {
-        return this.c;
+    public int getErrorCode() {
+        return this.mErrorCode;
     }
 
-    public void a(int i) {
-        this.c = i;
+    public void setErrorCode(int i) {
+        this.mErrorCode = i;
     }
 
-    public String d() {
-        return this.d;
+    public String getErrorString() {
+        return this.mErrorString;
     }
 
-    public void a(String str) {
-        this.d = str;
+    public void setErrorString(String str) {
+        this.mErrorString = str;
     }
 }

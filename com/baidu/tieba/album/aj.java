@@ -4,11 +4,11 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 class aj implements z {
-    final /* synthetic */ ah a;
+    final /* synthetic */ ah aiK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(ah ahVar) {
-        this.a = ahVar;
+        this.aiK = ahVar;
     }
 
     @Override // com.baidu.tieba.album.z
@@ -17,12 +17,12 @@ class aj implements z {
         List<ImageFileInfo> list;
         p pVar2;
         AlbumActivity albumActivity;
-        pVar = this.a.c;
-        list = this.a.n;
-        pVar.a(list);
-        pVar2 = this.a.c;
-        pVar2.a(i);
-        albumActivity = this.a.b;
-        albumActivity.d(2);
+        pVar = this.aiK.ahk;
+        list = this.aiK.Wx;
+        pVar.y(list);
+        pVar2 = this.aiK.ahk;
+        pVar2.dP(i);
+        albumActivity = this.aiK.ahq;
+        albumActivity.dK(2);
     }
 }

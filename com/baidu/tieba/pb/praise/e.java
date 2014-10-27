@@ -1,119 +1,60 @@
 package com.baidu.tieba.pb.praise;
 
 import android.os.Bundle;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.tbadk.mvc.model.j;
 /* loaded from: classes.dex */
-public class e {
-    private String a;
-    private String b;
-    private String c;
-    private boolean d;
-    private int e;
-    private int f;
-    private int g;
-    private final List<a> h;
-    private g i;
-    private final HttpMessageListener j;
+public class e extends com.baidu.tbadk.mvc.d.a<f, g> {
+    public final c bzq;
+    public final f bzr;
+    private d bzs;
 
-    public e() {
-        this.a = "";
-        this.b = "";
-        this.c = "";
-        this.d = true;
-        this.e = 1;
-        this.f = 0;
-        this.g = 0;
-        this.h = new ArrayList(100);
-        this.i = null;
-        this.j = new f(this, CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
-        this.a = "";
-        this.b = "";
+    public e(PraiseListActivity praiseListActivity) {
+        super(praiseListActivity);
+        this.bzq = new c();
+        this.bzr = new f();
     }
 
-    public e(String str, String str2, String str3, boolean z, g gVar) {
-        this.a = "";
-        this.b = "";
-        this.c = "";
-        this.d = true;
-        this.e = 1;
-        this.f = 0;
-        this.g = 0;
-        this.h = new ArrayList(100);
-        this.i = null;
-        this.j = new f(this, CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
-        this.i = gVar;
-        this.d = z;
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PRAISE_LIST_HTTP_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/zan/getuserlist");
-        tbHttpMessageTask.setResponsedClass(PraiseListResponsedMessage.class);
-        messageManager.registerTask(tbHttpMessageTask);
-        messageManager.registerListener(this.j);
+    @Override // com.baidu.tbadk.mvc.core.a
+    public void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        bundle.putAll(this.bzr.toBundle());
+        bundle.putInt("KeyIntentPraiseId", this.bzq.Yw());
     }
 
-    public String a() {
-        return this.a;
-    }
-
-    public boolean b() {
-        return this.d;
-    }
-
-    public void a(Bundle bundle, String str) {
-        bundle.putBoolean(str, this.d);
-    }
-
-    public void b(Bundle bundle, String str) {
-        bundle.putString(str, this.a);
-    }
-
-    public void c(Bundle bundle, String str) {
-        bundle.putString(str, this.b);
-    }
-
-    public void d(Bundle bundle, String str) {
-        bundle.putString(str, this.c);
-    }
-
-    public void e(Bundle bundle, String str) {
-        bundle.putInt(str, this.f);
-    }
-
-    public void c() {
-        MessageManager messageManager = MessageManager.getInstance();
-        messageManager.unRegisterListener(this.j);
-        messageManager.unRegisterTask(CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
-    }
-
-    public String d() {
-        return this.c;
-    }
-
-    public void a(int i) {
-        this.f = i;
-    }
-
-    public a b(int i) {
-        if (i <= -1 || i >= this.h.size()) {
-            return null;
+    @Override // com.baidu.tbadk.mvc.core.a
+    public void b(Bundle bundle) {
+        super.b(bundle);
+        if (bundle != null) {
+            this.bzr.l(bundle);
         }
-        return this.h.get(i);
+        this.bzs = new d(sX(), this.bzr);
+        this.bzs.a((j) this);
+        if (bundle.containsKey("KeyIntentPraiseId")) {
+            this.bzq.gR(bundle.getInt("KeyIntentPraiseId"));
+        }
+        sY().addEventDelegate(this);
     }
 
-    public void e() {
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
-        httpMessage.addParam(com.baidu.tbadk.core.frameworkData.a.POST_ID, new StringBuilder(String.valueOf(this.b)).toString());
-        httpMessage.addParam("page_num", new StringBuilder(String.valueOf(this.e)).toString());
-        httpMessage.addParam("res_num", "20");
-        MessageManager.getInstance().sendMessage(httpMessage);
+    @Override // com.baidu.tbadk.mvc.d.a
+    protected boolean tx() {
+        this.bzs.tL();
+        return true;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.mvc.d.a
+    public boolean a(f fVar, g gVar) {
+        this.bzq.a(gVar);
+        this.bzr.YA();
+        this.bzq.setStatus(1001);
+        if (this.bzr.getPageNum() > 5) {
+            this.bzq.setStatus(1003);
+        }
+        if (this.bzq.Yx() >= this.bzq.Yw()) {
+            this.bzq.setStatus(1002);
+        }
+        a(this.bzq);
+        return true;
     }
 }

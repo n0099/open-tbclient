@@ -3,10 +3,10 @@ package com.baidu.tieba.forumdetail;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class k {
-    TextView a;
-    TextView b;
-    TextView c;
-    TextView d;
+    TextView axA;
+    TextView axx;
+    TextView axy;
+    TextView axz;
 
     private k() {
     }

@@ -1,5 +1,6 @@
 package com.squareup.wire;
 
+import com.baidu.tbadk.BaseActivity;
 import java.nio.charset.Charset;
 /* loaded from: classes.dex */
 final class Stringer {
@@ -64,7 +65,7 @@ final class Stringer {
         /* JADX WARN: Code restructure failed: missing block: B:116:?, code lost:
             return false;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:58:0x012b, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:58:0x012a, code lost:
             switch(r3) {
                 case 0: goto L26;
                 case 1: goto L23;
@@ -75,27 +76,27 @@ final class Stringer {
                 default: goto L21;
             };
          */
-        /* JADX WARN: Code restructure failed: missing block: B:60:0x0143, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:60:0x0141, code lost:
             throw new java.lang.AssertionError("state = " + r3);
          */
-        /* JADX WARN: Code restructure failed: missing block: B:61:0x0144, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:61:0x0142, code lost:
             r9.state = 6;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:62:0x014a, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:62:0x0148, code lost:
             r5[r0] = (byte) (r2 >> 4);
             r0 = r0 + 1;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:63:0x0152, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:63:0x0150, code lost:
             r9.state = r3;
             r9.op = r0;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:64:0x0159, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:64:0x0157, code lost:
             r1 = r0 + 1;
             r5[r0] = (byte) (r2 >> 10);
             r0 = r1 + 1;
             r5[r1] = (byte) (r2 >> 2);
          */
-        /* JADX WARN: Code restructure failed: missing block: B:65:0x0168, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:65:0x0166, code lost:
             r9.state = 6;
          */
         /* JADX WARN: Code restructure failed: missing block: B:9:0x0017, code lost:
@@ -122,7 +123,7 @@ final class Stringer {
                     i3 = i6;
                 } else {
                     if (i8 == 0) {
-                        while (i9 + 4 <= i4 && (i6 = (iArr[bArr[i9] & 255] << 18) | (iArr[bArr[i9 + 1] & 255] << 12) | (iArr[bArr[i9 + 2] & 255] << 6) | iArr[bArr[i9 + 3] & 255]) >= 0) {
+                        while (i9 + 4 <= i4 && (i6 = (iArr[bArr[i9] & BaseActivity.KEYBOARD_STATE_INIT] << 18) | (iArr[bArr[i9 + 1] & BaseActivity.KEYBOARD_STATE_INIT] << 12) | (iArr[bArr[i9 + 2] & BaseActivity.KEYBOARD_STATE_INIT] << 6) | iArr[bArr[i9 + 3] & BaseActivity.KEYBOARD_STATE_INIT]) >= 0) {
                             bArr2[i7 + 2] = (byte) i6;
                             bArr2[i7 + 1] = (byte) (i6 >> 8);
                             bArr2[i7] = (byte) (i6 >> 16);
@@ -134,7 +135,7 @@ final class Stringer {
                         }
                     }
                     int i10 = i9 + 1;
-                    int i11 = iArr[bArr[i9] & 255];
+                    int i11 = iArr[bArr[i9] & BaseActivity.KEYBOARD_STATE_INIT];
                     switch (i8) {
                         case 0:
                             if (i11 >= 0) {
@@ -251,7 +252,7 @@ final class Stringer {
                 case 1:
                     if (i + 2 <= i8) {
                         int i10 = i + 1;
-                        i9 = ((this.tail[0] & 255) << 16) | ((bArr[i] & 255) << 8) | (bArr[i10] & 255);
+                        i9 = ((this.tail[0] & BaseActivity.KEYBOARD_STATE_INIT) << 16) | ((bArr[i] & BaseActivity.KEYBOARD_STATE_INIT) << 8) | (bArr[i10] & BaseActivity.KEYBOARD_STATE_INIT);
                         this.tailLen = 0;
                         i3 = i10 + 1;
                         break;
@@ -261,7 +262,7 @@ final class Stringer {
                 case 2:
                     if (i + 1 <= i8) {
                         i3 = i + 1;
-                        i9 = ((this.tail[0] & 255) << 16) | ((this.tail[1] & 255) << 8) | (bArr[i] & 255);
+                        i9 = ((this.tail[0] & BaseActivity.KEYBOARD_STATE_INIT) << 16) | ((this.tail[1] & BaseActivity.KEYBOARD_STATE_INIT) << 8) | (bArr[i] & BaseActivity.KEYBOARD_STATE_INIT);
                         this.tailLen = 0;
                         break;
                     }
@@ -280,7 +281,7 @@ final class Stringer {
             while (true) {
                 int i11 = i7;
                 if (i3 + 3 <= i8) {
-                    int i12 = ((bArr[i3] & 255) << 16) | ((bArr[i3 + 1] & 255) << 8) | (bArr[i3 + 2] & 255);
+                    int i12 = ((bArr[i3] & BaseActivity.KEYBOARD_STATE_INIT) << 16) | ((bArr[i3 + 1] & BaseActivity.KEYBOARD_STATE_INIT) << 8) | (bArr[i3 + 2] & BaseActivity.KEYBOARD_STATE_INIT);
                     bArr3[i11] = bArr2[(i12 >> 18) & 63];
                     bArr3[i11 + 1] = bArr2[(i12 >> 12) & 63];
                     bArr3[i11 + 2] = bArr2[(i12 >> 6) & 63];
@@ -296,7 +297,7 @@ final class Stringer {
                             b3 = bArr[i3];
                             i6 = 0;
                         }
-                        int i13 = (b3 & 255) << 4;
+                        int i13 = (b3 & BaseActivity.KEYBOARD_STATE_INIT) << 4;
                         this.tailLen -= i6;
                         int i14 = i11 + 1;
                         bArr3[i11] = bArr2[(i13 >> 6) & 63];
@@ -315,14 +316,14 @@ final class Stringer {
                             i4 = i3 + 1;
                             i5 = 0;
                         }
-                        int i16 = (b & 255) << 10;
+                        int i16 = (b & BaseActivity.KEYBOARD_STATE_INIT) << 10;
                         if (this.tailLen > 0) {
                             b2 = this.tail[i5];
                             i5++;
                         } else {
                             b2 = bArr[i4];
                         }
-                        int i17 = ((b2 & 255) << 2) | i16;
+                        int i17 = ((b2 & BaseActivity.KEYBOARD_STATE_INIT) << 2) | i16;
                         this.tailLen -= i5;
                         int i18 = i11 + 1;
                         bArr3[i11] = bArr2[(i17 >> 12) & 63];

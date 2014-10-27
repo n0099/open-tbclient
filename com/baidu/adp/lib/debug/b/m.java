@@ -4,125 +4,126 @@ import android.content.Context;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import com.baidu.adp.R;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class m extends View {
-    View a;
-    View b;
-    TextView c;
-    com.baidu.adp.lib.debug.a.e d;
-    com.baidu.adp.lib.debug.a.o e;
-    com.baidu.adp.lib.debug.a.h f;
-    com.baidu.adp.lib.debug.a.m g;
-    com.baidu.adp.lib.debug.a.b h;
-    com.baidu.adp.lib.debug.a.j i;
-    com.baidu.adp.lib.debug.a.p j;
-    Context k;
-    ImageButton l;
-    ImageButton m;
-    TextView n;
-    TextView o;
-    TextView p;
-    TextView q;
-    TextView r;
-    TextView s;
-    TextView t;
-    TextView u;
-    TextView v;
-    boolean w;
+    com.baidu.adp.lib.debug.a.b hA;
+    com.baidu.adp.lib.debug.a.q hB;
+    ImageButton hC;
+    ImageButton hD;
+    TextView hE;
+    TextView hF;
+    TextView hG;
+    TextView hH;
+    TextView hI;
+    TextView hJ;
+    TextView hK;
+    TextView hL;
+    TextView hM;
+    boolean hN;
+    View hw;
+    View hx;
+    TextView hy;
+    com.baidu.adp.lib.debug.a.n hz;
+    Context mContext;
+    com.baidu.adp.lib.debug.a.e mFpsMonitor;
+    com.baidu.adp.lib.debug.a.i mGCMonitor;
+    com.baidu.adp.lib.debug.a.k mLogcatMonitor;
+    com.baidu.adp.lib.debug.a.p mSRMonitor;
 
     public m(Context context) {
         super(context);
-        this.k = null;
-        this.w = true;
-        this.k = context;
+        this.mContext = null;
+        this.hN = true;
+        this.mContext = context;
         try {
-            a();
+            onCreate();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void a() {
-        this.d = new com.baidu.adp.lib.debug.a.e(this.k);
-        this.e = new com.baidu.adp.lib.debug.a.o(this.k);
-        this.f = new com.baidu.adp.lib.debug.a.h();
-        this.g = new com.baidu.adp.lib.debug.a.m();
-        this.i = new com.baidu.adp.lib.debug.a.j();
-        this.j = new com.baidu.adp.lib.debug.a.p(this.k);
-        this.h = new com.baidu.adp.lib.debug.a.b(this.k);
-        this.a = com.baidu.adp.lib.e.b.a().a(this.k, com.baidu.adp.e.adp_debug_monitor_view, null);
-        this.b = this.a.findViewById(com.baidu.adp.d.monitor_view);
-        this.c = (TextView) this.a.findViewById(com.baidu.adp.d.debug_text);
-        this.l = (ImageButton) this.a.findViewById(com.baidu.adp.d.debug_switch);
-        this.m = (ImageButton) this.a.findViewById(com.baidu.adp.d.debug_refresh);
-        this.n = (TextView) this.a.findViewById(com.baidu.adp.d.debug_fps);
-        this.o = (TextView) this.a.findViewById(com.baidu.adp.d.debug_mem);
-        this.p = (TextView) this.a.findViewById(com.baidu.adp.d.debug_cpu);
-        this.q = (TextView) this.a.findViewById(com.baidu.adp.d.debug_gc);
-        this.r = (TextView) this.a.findViewById(com.baidu.adp.d.debug_sm);
-        this.s = (TextView) this.a.findViewById(com.baidu.adp.d.debug_bt);
-        this.t = (TextView) this.a.findViewById(com.baidu.adp.d.debug_snd);
-        this.u = (TextView) this.a.findViewById(com.baidu.adp.d.debug_rcv);
-        this.v = (TextView) this.a.findViewById(com.baidu.adp.d.debug_total);
-        b();
-        this.m.setOnTouchListener(new n(this));
-        this.l.setOnTouchListener(new o(this));
-        l.a(this.k, this.a);
-        this.a.setOnTouchListener(new p(this));
+    public void onCreate() {
+        this.mFpsMonitor = new com.baidu.adp.lib.debug.a.e(this.mContext);
+        this.mSRMonitor = new com.baidu.adp.lib.debug.a.p(this.mContext);
+        this.mGCMonitor = new com.baidu.adp.lib.debug.a.i();
+        this.hz = new com.baidu.adp.lib.debug.a.n();
+        this.mLogcatMonitor = new com.baidu.adp.lib.debug.a.k();
+        this.hB = new com.baidu.adp.lib.debug.a.q(this.mContext);
+        this.hA = new com.baidu.adp.lib.debug.a.b(this.mContext);
+        this.hw = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, R.layout.adp_debug_monitor_view, null);
+        this.hx = this.hw.findViewById(R.id.monitor_view);
+        this.hy = (TextView) this.hw.findViewById(R.id.debug_text);
+        this.hC = (ImageButton) this.hw.findViewById(R.id.debug_switch);
+        this.hD = (ImageButton) this.hw.findViewById(R.id.debug_refresh);
+        this.hE = (TextView) this.hw.findViewById(R.id.debug_fps);
+        this.hF = (TextView) this.hw.findViewById(R.id.debug_mem);
+        this.hG = (TextView) this.hw.findViewById(R.id.debug_cpu);
+        this.hH = (TextView) this.hw.findViewById(R.id.debug_gc);
+        this.hI = (TextView) this.hw.findViewById(R.id.debug_sm);
+        this.hJ = (TextView) this.hw.findViewById(R.id.debug_bt);
+        this.hK = (TextView) this.hw.findViewById(R.id.debug_snd);
+        this.hL = (TextView) this.hw.findViewById(R.id.debug_rcv);
+        this.hM = (TextView) this.hw.findViewById(R.id.debug_total);
+        monitorOn();
+        this.hD.setOnTouchListener(new n(this));
+        this.hC.setOnTouchListener(new o(this));
+        l.a(this.mContext, this.hw);
+        this.hw.setOnTouchListener(new p(this));
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
-        this.a.setVisibility(i);
+        this.hw.setVisibility(i);
     }
 
     public void onClick(View view) {
     }
 
-    public void b() {
-        if (!this.e.a()) {
-            new Thread(this.e).start();
+    public void monitorOn() {
+        if (!this.mSRMonitor.cJ()) {
+            new Thread(this.mSRMonitor).start();
         }
-        if (!this.f.a()) {
-            this.f.b();
+        if (!this.mGCMonitor.cJ()) {
+            this.mGCMonitor.start();
         }
-        if (!this.g.a()) {
-            this.g.b();
+        if (!this.hz.cJ()) {
+            this.hz.start();
         }
-        if (!this.h.a()) {
-            this.h.b();
+        if (!this.hA.cJ()) {
+            this.hA.start();
         }
-        if (!this.i.a()) {
-            new Thread(this.i).start();
+        if (!this.mLogcatMonitor.cJ()) {
+            new Thread(this.mLogcatMonitor).start();
         }
-        if (!this.d.a()) {
-            this.d.b();
+        if (!this.mFpsMonitor.cJ()) {
+            this.mFpsMonitor.start();
         }
-        if (!this.j.a()) {
-            new Thread(this.j).start();
+        if (!this.hB.cJ()) {
+            new Thread(this.hB).start();
         }
-        if (!this.h.a()) {
-            this.h.b();
+        if (!this.hA.cJ()) {
+            this.hA.start();
         }
-        com.baidu.adp.lib.debug.d.a = new q(this);
+        com.baidu.adp.lib.debug.d.mHandler = new q(this);
     }
 
-    public void c() {
-        if (this.e != null) {
-            this.e.c();
+    public void monitorOff() {
+        if (this.mSRMonitor != null) {
+            this.mSRMonitor.stop();
         }
-        if (this.i != null) {
-            this.i.c();
+        if (this.mLogcatMonitor != null) {
+            this.mLogcatMonitor.stop();
         }
-        if (this.d != null) {
-            this.d.c();
+        if (this.mFpsMonitor != null) {
+            this.mFpsMonitor.stop();
         }
-        if (this.j != null) {
-            this.j.c();
+        if (this.hB != null) {
+            this.hB.stop();
         }
-        if (this.h != null) {
-            this.h.c();
+        if (this.hA != null) {
+            this.hA.stop();
         }
     }
 }

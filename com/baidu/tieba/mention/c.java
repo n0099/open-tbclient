@@ -13,123 +13,119 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bc;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tieba.data.FeedData;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class c {
-    private Fragment b;
-    private Activity c;
-    private int i;
-    private h j;
-    private int n;
-    private ViewGroup d = null;
-    private BdListView e = null;
-    private k f = null;
-    private com.baidu.tieba.model.al g = null;
-    private int h = 1;
-    private i k = null;
-    private j l = null;
-    private com.baidu.tbadk.core.view.p m = null;
-    private String o = null;
-    AlertDialog a = null;
-    private final Handler p = new Handler();
+    private int aAf;
+    private com.baidu.tbadk.core.view.o ahO;
+    private int bnd;
+    private h bne;
+    private Activity mActivity;
+    private Fragment mFragment;
+    private ViewGroup bna = null;
+    private BdListView aof = null;
+    private k bnb = null;
+    private com.baidu.tieba.model.am bnc = null;
+    private int aAp = 1;
+    private i bnf = null;
+    private j bng = null;
+    private String bnh = null;
+    AlertDialog bni = null;
+    private final Handler mHandler = new Handler();
 
     public c(Fragment fragment, int i, h hVar) {
-        this.b = null;
-        this.c = null;
-        this.i = -1;
-        this.j = null;
-        this.b = fragment;
-        this.c = this.b.getActivity();
-        this.i = i;
-        this.j = hVar;
+        this.mFragment = null;
+        this.mActivity = null;
+        this.bnd = -1;
+        this.bne = null;
+        this.mFragment = fragment;
+        this.mActivity = this.mFragment.getActivity();
+        this.bnd = i;
+        this.bne = hVar;
     }
 
-    public void a(int i) {
-        this.n = i;
+    public void setUpdateType(int i) {
+        this.aAf = i;
     }
 
-    public void a(BdListView bdListView) {
-        this.e = bdListView;
+    public void t(BdListView bdListView) {
+        this.aof = bdListView;
     }
 
-    public void a(ViewGroup viewGroup) {
-        this.d = viewGroup;
+    public void d(ViewGroup viewGroup) {
+        this.bna = viewGroup;
     }
 
-    public void a(String str) {
-        this.o = str;
+    public void gO(String str) {
+        this.bnh = str;
     }
 
-    public void a(com.baidu.tbadk.core.view.p pVar) {
-        this.m = pVar;
+    public void a(com.baidu.tbadk.core.view.o oVar) {
+        this.ahO = oVar;
     }
 
-    public void a() {
-        this.f.a();
-    }
-
-    public void b() {
-        this.h = 1;
-        this.n = 3;
-        d();
+    public void refresh() {
+        this.aAp = 1;
+        this.aAf = 3;
+        show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(FeedData feedData) {
         if (feedData != null) {
             if (feedData.getIsFloor()) {
-                if (this.i == 2) {
-                    com.baidu.tbadk.core.f.a(this.c, "new_at_me_visit_post");
-                } else if (this.i == 1) {
-                    com.baidu.tbadk.core.f.a(this.c, "new_my_reply_visit_post");
+                if (this.bnd == 2) {
+                    com.baidu.tbadk.core.i.l(this.mActivity, "new_at_me_visit_post");
+                } else if (this.bnd == 1) {
+                    com.baidu.tbadk.core.i.l(this.mActivity, "new_my_reply_visit_post");
                     if (FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType())) {
-                        com.baidu.tbadk.core.f.a(this.c, "zan_mlist");
+                        com.baidu.tbadk.core.i.l(this.mActivity, "zan_mlist");
                     }
                 }
                 b(feedData);
                 return;
             }
-            if (this.i == 2) {
-                com.baidu.tbadk.core.f.a(this.c, "new_at_me_visit_pb");
-            } else if (this.i == 1) {
-                com.baidu.tbadk.core.f.a(this.c, "new_my_reply_visit_pb");
+            if (this.bnd == 2) {
+                com.baidu.tbadk.core.i.l(this.mActivity, "new_at_me_visit_pb");
+            } else if (this.bnd == 1) {
+                com.baidu.tbadk.core.i.l(this.mActivity, "new_my_reply_visit_pb");
                 if (FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType())) {
-                    com.baidu.tbadk.core.f.a(this.c, "zan_mlist");
+                    com.baidu.tbadk.core.i.l(this.mActivity, "zan_mlist");
                 }
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new bc(this.c).a(feedData.getThread_id(), feedData.getPost_id(), "mention")));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.mActivity).createNormalCfg(feedData.getThread_id(), feedData.getPost_id(), "mention")));
         }
     }
 
-    public void c() {
-        this.h = 1;
-        this.f = new k(this.c, null);
-        this.f.a(this.i);
-        this.f.b(TbadkApplication.m252getInst().getFontSize());
-        this.e.setAdapter((ListAdapter) this.f);
-        this.e.setOnItemClickListener(new d(this));
-        this.e.setOnScrollListener(new e(this));
-        this.e.setOnSrollToBottomListener(new f(this));
+    public void init() {
+        this.aAp = 1;
+        this.bnb = new k(this.mActivity, null);
+        this.bnb.setType(this.bnd);
+        this.bnb.gv(TbadkApplication.m251getInst().getFontSize());
+        this.aof.setAdapter((ListAdapter) this.bnb);
+        this.aof.setOnItemClickListener(new d(this));
+        this.aof.setOnScrollListener(new e(this));
+        this.aof.setOnSrollToBottomListener(new f(this));
     }
 
-    public void d() {
+    public void show() {
         boolean z;
-        ArrayList<FeedData> b;
-        switch (this.n) {
+        ArrayList<FeedData> TK;
+        switch (this.aAf) {
             case 2:
                 z = true;
                 break;
             case 3:
-                if (this.f.b()) {
+                if (this.bnb.Gl()) {
                     return;
                 }
                 z = true;
                 break;
             case 4:
-                if (this.f.c()) {
+                if (this.bnb.SO()) {
                     return;
                 }
                 z = true;
@@ -138,128 +134,122 @@ public class c {
                 z = false;
                 break;
         }
-        if (!z && this.g != null) {
-            a(this.g, true);
+        if (!z && this.bnc != null) {
+            a(this.bnc, true);
             return;
         }
-        if (this.n != 4) {
-            this.h = 1;
+        if (this.aAf != 4) {
+            this.aAp = 1;
         }
         StringBuffer stringBuffer = new StringBuffer(30);
         stringBuffer.append(TbConfig.SERVER_ADDRESS);
-        stringBuffer.append(this.o);
+        stringBuffer.append(this.bnh);
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair(SapiAccountManager.SESSION_UID, TbadkApplication.getCurrentAccount()));
-        arrayList.add(new BasicNameValuePair("pn", String.valueOf(this.h)));
-        if (this.n == 4 && this.g != null && (b = this.g.b()) != null && b.size() > 0) {
-            FeedData feedData = b.get(b.size() - 1);
+        arrayList.add(new BasicNameValuePair("pn", String.valueOf(this.aAp)));
+        if (this.aAf == 4 && this.bnc != null && (TK = this.bnc.TK()) != null && TK.size() > 0) {
+            FeedData feedData = TK.get(TK.size() - 1);
             arrayList.add(new BasicNameValuePair("ids", String.format("%s,%s", feedData.getThread_id(), feedData.getPost_id())));
         }
-        h();
-        if (this.k != null) {
-            this.k.cancel();
-            this.k = null;
+        SM();
+        if (this.bnf != null) {
+            this.bnf.cancel();
+            this.bnf = null;
         }
-        this.k = new i(this, stringBuffer.toString(), arrayList, this.f);
-        this.k.setPriority(3);
-        this.k.execute(stringBuffer.toString(), arrayList);
+        this.bnf = new i(this, stringBuffer.toString(), arrayList, this.bnb);
+        this.bnf.setPriority(3);
+        this.bnf.execute(stringBuffer.toString(), arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void g() {
-        if (this.g != null && this.g.c().f() == 1) {
-            this.h++;
-            this.n = 4;
-            d();
+    public void SK() {
+        if (this.bnc != null && this.bnc.zM().kh() == 1) {
+            this.aAp++;
+            this.aAf = 4;
+            show();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.model.al alVar, boolean z) {
-        if (alVar != null && alVar.b() != null) {
-            if (this.n == 4 && this.g != null) {
-                ArrayList<FeedData> b = this.g.b();
-                b.addAll(alVar.b());
-                alVar.a(b);
-                this.g = null;
-                this.g = alVar;
+    public void a(com.baidu.tieba.model.am amVar, boolean z) {
+        if (amVar != null && amVar.TK() != null) {
+            if (this.aAf == 4 && this.bnc != null) {
+                ArrayList<FeedData> TK = this.bnc.TK();
+                TK.addAll(amVar.TK());
+                amVar.A(TK);
+                this.bnc = null;
+                this.bnc = amVar;
             } else {
-                this.g = alVar;
+                this.bnc = amVar;
             }
-            if (this.g != null) {
-                if (this.g.c().f() == 1) {
-                    this.f.a(true);
+            if (this.bnc != null) {
+                if (this.bnc.zM().kh() == 1) {
+                    this.bnb.bO(true);
                 } else {
-                    this.f.a(false);
+                    this.bnb.bO(false);
                 }
-                ArrayList<FeedData> b2 = this.g.b();
-                if (b2 != null) {
-                    int firstVisiblePosition = this.e.getFirstVisiblePosition();
-                    this.f.a(b2, z);
-                    this.f.notifyDataSetChanged();
-                    if (this.n == 2 || this.n == 3) {
-                        this.e.setSelectionFromTop(0, 0);
-                    } else if (this.n == 4 && Build.VERSION.SDK_INT < 11) {
-                        this.p.postDelayed(new g(this, firstVisiblePosition), 10L);
+                ArrayList<FeedData> TK2 = this.bnc.TK();
+                if (TK2 != null) {
+                    int firstVisiblePosition = this.aof.getFirstVisiblePosition();
+                    this.bnb.a(TK2, z);
+                    if (this.aAf == 2 || this.aAf == 3) {
+                        this.aof.setSelectionFromTop(0, 0);
+                    } else if (this.aAf == 4 && Build.VERSION.SDK_INT < 11) {
+                        this.mHandler.postDelayed(new g(this, firstVisiblePosition), 10L);
                     }
-                    if (b2.size() == 0) {
-                        this.m.b(0);
-                    } else {
-                        this.m.b(8);
-                    }
-                    if (this.b.isAdded()) {
-                        if (this.b instanceof a) {
-                            ((a) this.b).c(TbadkApplication.m252getInst().getSkinType());
-                        } else if (this.b instanceof al) {
-                            ((al) this.b).c(TbadkApplication.m252getInst().getSkinType());
+                    if (TK2.size() == 0) {
+                        if (com.baidu.adp.lib.util.m.isNetOk()) {
+                            this.ahO.setVisibility(0);
                         }
+                    } else {
+                        this.ahO.setVisibility(8);
                     }
                 }
             }
-            p pVar = (p) this.b.getParentFragment();
-            if (pVar != null) {
-                if (this.n == 3 || this.n == 2) {
+            this.bnb.notifyDataSetChanged();
+            r rVar = (r) this.mFragment.getParentFragment();
+            if (rVar != null) {
+                if (this.aAf == 3 || this.aAf == 2) {
                     if (z) {
-                        pVar.a(this.i, false);
+                        rVar.s(this.bnd, false);
                         return;
                     } else {
-                        pVar.a(this.i, true);
+                        rVar.s(this.bnd, true);
                         return;
                     }
                 }
-                pVar.a(this.i, false);
+                rVar.s(this.bnd, false);
             }
         }
     }
 
-    public void e() {
-        if (this.f != null && this.f.d() != TbadkApplication.m252getInst().getFontSize()) {
-            this.f.b(TbadkApplication.m252getInst().getFontSize());
-            this.f.notifyDataSetChanged();
+    public void SL() {
+        if (this.bnb != null && this.bnb.SP() != TbadkApplication.m251getInst().getFontSize()) {
+            this.bnb.gv(TbadkApplication.m251getInst().getFontSize());
+            this.bnb.notifyDataSetChanged();
         }
     }
 
-    private void h() {
-        if (this.k != null) {
-            this.k.cancel();
-            this.k = null;
+    private void SM() {
+        if (this.bnf != null) {
+            this.bnf.cancel();
+            this.bnf = null;
         }
-        if (this.l != null) {
-            this.l.cancel();
-            this.l = null;
+        if (this.bng != null) {
+            this.bng.cancel();
+            this.bng = null;
         }
-        this.f.b(false);
-        this.f.c(false);
-        this.f.notifyDataSetChanged();
+        this.bnb.cb(false);
+        this.bnb.dB(false);
     }
 
     private void b(FeedData feedData) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new bc(this.c).b(feedData.getThread_id(), feedData.getPost_id(), "mention")));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.mActivity).createSubPbCfg(feedData.getThread_id(), feedData.getPost_id(), "mention")));
     }
 
-    public void f() {
-        if (this.f != null) {
-            this.f.notifyDataSetChanged();
+    public void SN() {
+        if (this.bnb != null) {
+            this.bnb.notifyDataSetChanged();
         }
     }
 }

@@ -1,19 +1,19 @@
 package com.baidu.tbadk.core.util.httpNet;
 /* loaded from: classes.dex */
 public class e {
-    private f a = new f();
-    private g b = new g();
-    private h c = new h();
+    private f FP = new f();
+    private g FQ = new g();
+    private h FR = new h();
 
-    public f a() {
-        return this.a;
+    public f na() {
+        return this.FP;
     }
 
-    public g b() {
-        return this.b;
+    public g nb() {
+        return this.FQ;
     }
 
-    public h c() {
-        return this.c;
+    public h nc() {
+        return this.FR;
     }
 }

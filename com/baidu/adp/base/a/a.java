@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 public interface a {
     void a(b bVar);
 
-    boolean a(Context context);
+    boolean f(Context context);
 
     SQLiteDatabase getWritableDatabase();
 

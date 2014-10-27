@@ -10,12 +10,12 @@ class e implements CustomMessageTask.CustomRunnable<String> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<String> run(CustomMessage<String> customMessage) {
         String data = customMessage.getData();
-        Intent intent = new Intent(TbadkApplication.m252getInst(), FatalErrorService.class);
+        Intent intent = new Intent(TbadkApplication.m251getInst(), FatalErrorService.class);
         if (com.baidu.tbadk.core.frameworkData.a.START.equals(data)) {
-            TbadkApplication.m252getInst().startService(intent);
+            TbadkApplication.m251getInst().startService(intent);
             return null;
         } else if (com.baidu.tbadk.core.frameworkData.a.STOP.equals(data)) {
-            TbadkApplication.m252getInst().stopService(intent);
+            TbadkApplication.m251getInst().stopService(intent);
             return null;
         } else {
             return null;

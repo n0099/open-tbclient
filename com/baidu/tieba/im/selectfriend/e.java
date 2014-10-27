@@ -1,21 +1,20 @@
 package com.baidu.tieba.im.selectfriend;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
+import android.view.inputmethod.InputMethodManager;
 /* loaded from: classes.dex */
-class e {
-    HeadImageView a;
-    TextView b;
-    View c;
-    final /* synthetic */ d d;
-
-    private e(d dVar) {
-        this.d = dVar;
-    }
+class e implements com.baidu.tbadk.core.dialog.d {
+    private final /* synthetic */ com.baidu.tieba.im.mygroup.a bfF;
+    final /* synthetic */ SelectFriendActivity bif;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ e(d dVar, e eVar) {
-        this(dVar);
+    public e(SelectFriendActivity selectFriendActivity, com.baidu.tieba.im.mygroup.a aVar) {
+        this.bif = selectFriendActivity;
+        this.bfF = aVar;
+    }
+
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+        ((InputMethodManager) this.bif.getSystemService("input_method")).hideSoftInputFromWindow(this.bfF.getWindowToken(), 2);
     }
 }

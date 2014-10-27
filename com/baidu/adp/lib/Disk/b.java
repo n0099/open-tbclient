@@ -2,38 +2,52 @@ package com.baidu.adp.lib.Disk;
 
 import android.os.Environment;
 import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.BdLog;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    private final String a = Environment.getExternalStorageDirectory().getAbsolutePath();
-    private String b = String.valueOf(this.a) + "/baidu/";
-    private final String c = String.valueOf(BdBaseApplication.getInst().getFilesDir().getAbsolutePath()) + "/";
+    private String dA;
+    private final String dy = Environment.getExternalStorageDirectory().getAbsolutePath();
+    private String dz = String.valueOf(this.dy) + "/baidu/";
 
-    public void a(String str) {
-        if (str != null) {
-            this.b = String.valueOf(this.a) + "/" + str + "/";
+    public b() {
+        this.dA = null;
+        try {
+            this.dA = String.valueOf(BdBaseApplication.getInst().getFilesDir().getAbsolutePath()) + "/";
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 
-    public boolean a() {
+    public void p(String str) {
+        if (str != null) {
+            this.dz = String.valueOf(this.dy) + "/" + str + "/";
+        }
+    }
+
+    public boolean bm() {
         return Environment.getExternalStorageState().equals("mounted");
     }
 
     public String a(String str, boolean z, boolean z2) {
         String str2;
         if (z2) {
-            if (!a()) {
+            if (!bm()) {
                 return null;
             }
             if (str != null) {
-                str2 = String.valueOf(this.b) + str + "/";
+                str2 = String.valueOf(this.dz) + str + "/";
             } else {
-                str2 = this.b;
+                str2 = this.dz;
             }
-        } else if (str != null) {
-            str2 = String.valueOf(this.c) + str + "/";
+        } else if (this.dA == null) {
+            return null;
         } else {
-            str2 = this.c;
+            if (str != null) {
+                str2 = String.valueOf(this.dA) + str + "/";
+            } else {
+                str2 = this.dA;
+            }
         }
         File file = new File(str2);
         if (!file.exists()) {

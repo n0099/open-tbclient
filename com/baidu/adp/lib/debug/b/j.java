@@ -4,15 +4,16 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
+import com.baidu.adp.R;
 import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements View.OnClickListener {
-    final /* synthetic */ c a;
+    final /* synthetic */ c hm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(c cVar) {
-        this.a = cVar;
+        this.hm = cVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,15 +23,15 @@ public class j implements View.OnClickListener {
         Context context;
         boolean z2;
         boolean z3;
-        z = c.p;
-        c.p = !z;
-        textView = this.a.o;
-        context = this.a.k;
+        z = c.hj;
+        c.hj = !z;
+        textView = this.hm.hi;
+        context = this.hm.mContext;
         Activity activity = (Activity) context;
-        z2 = c.p;
-        textView.setText(activity.getText(z2 ? com.baidu.adp.f.item_close : com.baidu.adp.f.item_open));
+        z2 = c.hj;
+        textView.setText(activity.getText(z2 ? R.string.item_close : R.string.item_open));
         StringBuilder sb = new StringBuilder("LCS Blocker: Done: ");
-        z3 = c.p;
+        z3 = c.hj;
         BdLog.w(sb.append(!z3 ? "unblock " : "block ").append("LCS").toString());
     }
 }

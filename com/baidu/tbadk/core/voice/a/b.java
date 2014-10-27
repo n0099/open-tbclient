@@ -1,44 +1,44 @@
 package com.baidu.tbadk.core.voice.a;
 
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.adp.lib.util.u;
 import com.baidu.tbadk.core.util.s;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    public static a a(String str) {
+    public static a cg(String str) {
         a aVar = new a();
         if (str == null) {
-            aVar.c = 6;
-            aVar.d = a.a(aVar.c);
-        } else if (!s.a(String.valueOf(s.d()) + "voice")) {
-            aVar.c = 7;
-            aVar.d = a.a(aVar.c);
+            aVar.error_code = 6;
+            aVar.error_msg = a.bQ(aVar.error_code);
+        } else if (!s.bo(String.valueOf(s.lw()) + "voice")) {
+            aVar.error_code = 7;
+            aVar.error_msg = a.bQ(aVar.error_code);
         } else {
-            String a = ba.a(s.i(str));
-            if (a == null) {
-                aVar.c = 5;
-                aVar.d = a.a(aVar.c);
+            String b = u.b(s.bw(str));
+            if (b == null) {
+                aVar.error_code = 5;
+                aVar.error_msg = a.bQ(aVar.error_code);
             } else {
-                String a2 = s.a(a, 1, true);
-                if (s.f(str, a2)) {
-                    aVar.b = a2;
-                    aVar.a = a;
+                String b2 = s.b(b, 1, true);
+                if (s.N(str, b2)) {
+                    aVar.path = b2;
+                    aVar.md5 = b;
                 } else {
-                    aVar.c = 1;
-                    aVar.d = a.a(aVar.c);
+                    aVar.error_code = 1;
+                    aVar.error_msg = a.bQ(aVar.error_code);
                 }
             }
         }
         return aVar;
     }
 
-    public static boolean a(String str, String str2) {
-        return s.f(str, s.a(str2, 1, true));
+    public static boolean P(String str, String str2) {
+        return s.N(str, s.b(str2, 1, true));
     }
 
-    public static synchronized void a() {
+    public static synchronized void nJ() {
         synchronized (b.class) {
-            File file = new File(String.valueOf(s.d()) + "voice");
+            File file = new File(String.valueOf(s.lw()) + "voice");
             if (file.exists() && file.isDirectory()) {
                 File[] listFiles = file.listFiles();
                 for (File file2 : listFiles) {

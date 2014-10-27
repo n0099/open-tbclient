@@ -1,31 +1,25 @@
 package com.baidu.tieba.frs;
 
-import android.app.Activity;
-import android.widget.ListView;
-import com.baidu.tieba.editortool.PbEditor;
+import android.view.View;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dj implements Runnable {
-    private int a;
-    private int b;
-    private PbEditor c;
-    private ListView d;
-    private Activity e;
-    private int f;
+public class dj implements com.baidu.adp.widget.BdSwitchView.c {
+    final /* synthetic */ di aEI;
 
-    public dj(Activity activity, int i, int i2, PbEditor pbEditor, ListView listView, int i3) {
-        this.b = i2;
-        this.a = i;
-        this.c = pbEditor;
-        this.d = listView;
-        this.f = i3;
-        this.e = activity;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dj(di diVar) {
+        this.aEI = diVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int[] iArr = new int[2];
-        this.c.getLocationInWindow(iArr);
-        this.d.setSelectionFromTop(this.a + this.d.getHeaderViewsCount(), ((iArr[1] - this.b) - this.f) - com.baidu.adp.lib.util.j.a(this.e));
-        this.d.invalidate();
+    @Override // com.baidu.adp.widget.BdSwitchView.c
+    public void a(View view, BdSwitchView.SwitchState switchState) {
+        if (switchState == BdSwitchView.SwitchState.ON) {
+            com.baidu.tbadk.core.k.js().aK(0);
+            com.baidu.tbadk.core.k.js().M(true);
+        } else {
+            com.baidu.tbadk.core.k.js().M(false);
+        }
+        this.aEI.aEG = true;
     }
 }

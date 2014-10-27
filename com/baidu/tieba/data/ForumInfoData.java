@@ -1,7 +1,7 @@
 package com.baidu.tieba.data;
 
 import java.io.Serializable;
-import java.util.LinkedList;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ForumInfoData extends com.baidu.tbadk.core.util.a implements Serializable {
     private static final long serialVersionUID = 1;
@@ -15,9 +15,9 @@ public class ForumInfoData extends com.baidu.tbadk.core.util.a implements Serial
     public int mbr_inter_rank = 0;
 
     @Override // com.baidu.tbadk.core.util.a
-    public LinkedList<String> getForumPhotoUrl() {
-        LinkedList<String> linkedList = new LinkedList<>();
-        linkedList.add(this.avatar);
-        return linkedList;
+    public ArrayList<String> getForumPhotoUrl() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add(this.avatar);
+        return arrayList;
     }
 }

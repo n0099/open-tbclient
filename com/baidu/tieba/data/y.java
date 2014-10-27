@@ -1,67 +1,62 @@
 package com.baidu.tieba.data;
 
+import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.User;
+import tbclient.ForumRecommend.LikeForum;
 /* loaded from: classes.dex */
 public class y {
-    private String a = "";
-    private String b = "";
-    private String c = "";
-    private String d = "";
-    private int e = 0;
-    private int f = 0;
-    private int g;
+    private String mId = null;
+    private String mName = null;
+    private int alk = 0;
+    private int alm = 0;
+    private int alo = 0;
+    private String aln = null;
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
+    public String getId() {
+        return this.mId;
+    }
+
+    public String getName() {
+        return this.mName;
+    }
+
+    public void ec(int i) {
+        this.alm = i;
+    }
+
+    public int zw() {
+        return this.alm;
+    }
+
+    public void setLevel(int i) {
+        this.alk = i;
+    }
+
+    public int getLevel() {
+        return this.alk;
+    }
+
+    public void a(LikeForum likeForum) {
+        if (likeForum != null) {
+            a(likeForum, null);
+        }
+    }
+
+    public void a(LikeForum likeForum, Context context) {
+        if (likeForum != null) {
             try {
-                this.a = jSONObject.optString("id");
-                this.e = jSONObject.optInt("user_type");
-                this.f = jSONObject.optInt("is_verify");
-                this.b = jSONObject.optString("name");
-                this.c = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW);
-                this.d = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
-                this.g = jSONObject.optInt("is_friend");
+                this.mId = String.valueOf(likeForum.forum_id);
+                this.mName = likeForum.forum_name;
+                this.alm = likeForum.is_sign.intValue();
+                this.alk = likeForum.level_id.intValue();
+                this.aln = likeForum.avatar;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
     }
 
-    public void a(User user) {
-        if (user != null) {
-            try {
-                this.a = String.valueOf(user.id);
-                this.e = user.user_type.intValue();
-                this.f = user.is_verify.intValue();
-                this.b = user.name;
-                this.c = user.name_show;
-                this.d = user.portrait;
-                this.g = user.is_friend.intValue();
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
-        }
-    }
-
-    public String a() {
-        return this.a;
-    }
-
-    public String b() {
-        return this.b;
-    }
-
-    public String c() {
-        return this.c;
-    }
-
-    public String d() {
-        return this.d;
-    }
-
-    public int e() {
-        return this.g;
+    public int isLike() {
+        return this.alo;
     }
 }

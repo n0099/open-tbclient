@@ -6,19 +6,19 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements b {
-    final /* synthetic */ c a;
-    private final /* synthetic */ List b;
+    final /* synthetic */ c bcU;
+    private final /* synthetic */ List bcV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(c cVar, List list) {
-        this.a = cVar;
-        this.b = list;
+        this.bcU = cVar;
+        this.bcV = list;
     }
 
     @Override // com.baidu.tieba.im.memorycache.b
     public void a(Iterator<ImMessageCenterPojo> it) {
         while (it.hasNext()) {
-            this.b.add(it.next());
+            this.bcV.add(it.next());
         }
     }
 }

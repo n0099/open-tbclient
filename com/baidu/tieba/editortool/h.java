@@ -8,44 +8,44 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.data.BubbleListData;
 /* loaded from: classes.dex */
-class h implements aj {
-    final /* synthetic */ a a;
-    private final /* synthetic */ Context b;
+class h implements ao {
+    final /* synthetic */ a aqc;
+    private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar, Context context) {
-        this.a = aVar;
-        this.b = context;
+        this.aqc = aVar;
+        this.val$context = context;
     }
 
-    @Override // com.baidu.tieba.editortool.aj
-    public View a(int i, View view, ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.editortool.ao
+    public View getView(int i, View view, ViewGroup viewGroup) {
         com.baidu.tieba.view.b bVar;
-        BubbleListData.BubbleData f;
+        BubbleListData.BubbleData dW;
         BubbleListData bubbleListData;
         View.OnClickListener onClickListener;
         if (view == null) {
-            bVar = new com.baidu.tieba.view.b(this.b);
+            bVar = new com.baidu.tieba.view.b(this.val$context);
             view = bVar;
         } else {
             bVar = (com.baidu.tieba.view.b) view;
         }
-        f = this.a.f(i);
-        if (f != null) {
-            bubbleListData = this.a.c;
-            bVar.a(f, com.baidu.tieba.model.e.a(bubbleListData.getB_info()));
+        dW = this.aqc.dW(i);
+        if (dW != null) {
+            bubbleListData = this.aqc.apX;
+            bVar.a(dW, com.baidu.tieba.model.e.ag(bubbleListData.getB_info()));
             bVar.setGravity(17);
             bVar.setTag(Integer.valueOf(i));
-            onClickListener = this.a.j;
+            onClickListener = this.aqc.aqb;
             bVar.setOnClickListener(onClickListener);
         }
-        int skinType = TbadkApplication.m252getInst().getSkinType();
-        if (this.b instanceof BaseActivity) {
-            ((BaseActivity) this.b).getLayoutMode().a(skinType == 1);
-            ((BaseActivity) this.b).getLayoutMode().a(view);
-        } else if (this.b instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) this.b).c().a(skinType == 1);
-            ((BaseFragmentActivity) this.b).c().a(view);
+        int skinType = TbadkApplication.m251getInst().getSkinType();
+        if (this.val$context instanceof BaseActivity) {
+            ((BaseActivity) this.val$context).getLayoutMode().L(skinType == 1);
+            ((BaseActivity) this.val$context).getLayoutMode().h(view);
+        } else if (this.val$context instanceof BaseFragmentActivity) {
+            ((BaseFragmentActivity) this.val$context).getLayoutMode().L(skinType == 1);
+            ((BaseFragmentActivity) this.val$context).getLayoutMode().h(view);
         }
         return view;
     }

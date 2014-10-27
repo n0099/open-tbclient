@@ -1,74 +1,21 @@
 package com.baidu.tieba.model;
 
-import com.baidu.tieba.data.MarkData;
+import android.text.TextUtils;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ai extends com.baidu.adp.base.e {
-    private MarkData b;
-    private boolean a = false;
-    private aj c = null;
-    private ak d = null;
+public class ai {
+    private int bpd;
+    private String link;
+    private String title;
 
-    public ai() {
-        this.b = null;
-        this.b = new MarkData();
-    }
-
-    public boolean a() {
-        return this.a;
-    }
-
-    public MarkData b() {
-        return this.b;
-    }
-
-    public void a(ak akVar) {
-        this.d = akVar;
-    }
-
-    public void a(MarkData markData) {
-        this.b = markData;
-    }
-
-    public void a(boolean z) {
-        this.a = z;
-    }
-
-    public String c() {
-        if (this.b != null) {
-            return this.b.getPostId();
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null && jSONObject != null) {
+            this.bpd = jSONObject.optInt("offline");
+            this.title = jSONObject.optString("title");
+            this.link = jSONObject.optString("link");
+            if (!TextUtils.isEmpty(this.link)) {
+                this.link = this.link.replaceFirst("webview:", "http://");
+            }
         }
-        return null;
-    }
-
-    public void d() {
-        if (this.c != null) {
-            this.c.cancel();
-        }
-        this.c = new aj(this, true);
-        this.c.setPriority(3);
-        this.c.execute(new Boolean[0]);
-    }
-
-    public void e() {
-        if (this.c != null) {
-            this.c.cancel();
-        }
-        this.c = new aj(this, false);
-        this.c.setPriority(3);
-        this.c.execute(new Boolean[0]);
-    }
-
-    @Override // com.baidu.adp.base.e
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.e
-    public boolean cancelLoadData() {
-        if (this.c != null) {
-            this.c.cancel();
-            return false;
-        }
-        return false;
     }
 }

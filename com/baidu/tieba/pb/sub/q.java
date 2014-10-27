@@ -1,17 +1,17 @@
 package com.baidu.tieba.pb.sub;
 /* loaded from: classes.dex */
 class q implements Runnable {
-    final /* synthetic */ l a;
-    private final /* synthetic */ String b;
+    final /* synthetic */ l bAL;
+    private final /* synthetic */ String bAM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(l lVar, String str) {
-        this.a = lVar;
-        this.b = str;
+        this.bAL = lVar;
+        this.bAM = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.a(this.b);
+        this.bAL.hc(this.bAM);
     }
 }

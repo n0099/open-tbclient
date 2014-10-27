@@ -4,47 +4,47 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.e.b;
+import com.baidu.adp.lib.g.b;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
-import com.baidu.tieba.t;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public final class ShareFromPBView extends LinearLayout {
-    private TextView a;
-    private HeadImageView b;
-    private TextView c;
-    private ShareFromPBMsgData d;
+    private TextView QG;
+    private TextView bfk;
+    private HeadImageView bjO;
+    private ShareFromPBMsgData bjP;
 
     public ShareFromPBView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        a();
+        initUI();
     }
 
     public ShareFromPBView(Context context) {
         super(context);
-        a();
+        initUI();
     }
 
-    private void a() {
-        b.a().a(getContext(), v.share_from_pb_view, this);
+    private void initUI() {
+        b.ek().inflate(getContext(), w.share_from_pb_view, this);
         setOrientation(1);
-        this.a = (TextView) findViewById(u.chat_title);
-        this.b = (HeadImageView) findViewById(u.chat_group_img);
-        this.c = (TextView) findViewById(u.chat_group_desc);
+        this.QG = (TextView) findViewById(v.chat_title);
+        this.bjO = (HeadImageView) findViewById(v.chat_group_img);
+        this.bfk = (TextView) findViewById(v.chat_group_desc);
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.d = shareFromPBMsgData;
-        b();
+        this.bjP = shareFromPBMsgData;
+        nx();
     }
 
-    private void b() {
-        this.a.setText(this.d.getTitle());
-        this.b.setDefaultResource(t.icon_default_ba_120);
-        this.b.setAutoChangeStyle(false);
-        this.b.a(this.d.getImageUrl(), 10, false);
-        this.c.setText(this.d.getContent());
+    private void nx() {
+        this.QG.setText(this.bjP.getTitle());
+        this.bjO.setDefaultResource(u.icon_default_ba_120);
+        this.bjO.setAutoChangeStyle(false);
+        this.bjO.c(this.bjP.getImageUrl(), 10, false);
+        this.bfk.setText(this.bjP.getContent());
     }
 }

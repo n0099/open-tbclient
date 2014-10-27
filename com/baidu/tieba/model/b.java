@@ -6,16 +6,15 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b extends BdAsyncTask<String, Integer, be> {
-    com.baidu.tbadk.core.util.ae a;
-    final /* synthetic */ a b;
+public class b extends BdAsyncTask<String, Integer, bb> {
+    final /* synthetic */ a boa;
+    com.baidu.tbadk.core.util.ac mNetWork;
 
     private b(a aVar) {
-        this.b = aVar;
-        this.a = null;
+        this.boa = aVar;
+        this.mNetWork = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,59 +31,59 @@ public class b extends BdAsyncTask<String, Integer, be> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public be doInBackground(String... strArr) {
-        be beVar;
+    /* renamed from: x */
+    public bb doInBackground(String... strArr) {
+        bb bbVar;
         Exception e;
         Context context;
         try {
-            this.a = new com.baidu.tbadk.core.util.ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/sync");
-            this.a.a("_os_version", Build.VERSION.RELEASE);
+            this.mNetWork = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/sync");
+            this.mNetWork.k("_os_version", Build.VERSION.RELEASE);
             StringBuffer stringBuffer = new StringBuffer(15);
-            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.j.b(com.baidu.tieba.ai.c().d())));
+            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.m.n(com.baidu.tieba.aj.wk().getApp())));
             stringBuffer.append(",");
-            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.j.c(com.baidu.tieba.ai.c().d())));
-            this.a.a("_phone_screen", stringBuffer.toString());
-            if (TbadkApplication.m252getInst().getMsgFrequency() > 0) {
-                this.a.a("_msg_status", "0");
+            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.m.o(com.baidu.tieba.aj.wk().getApp())));
+            this.mNetWork.k("_phone_screen", stringBuffer.toString());
+            if (TbadkApplication.m251getInst().getMsgFrequency() > 0) {
+                this.mNetWork.k("_msg_status", "0");
             } else {
-                this.a.a("_msg_status", TbConfig.ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK);
+                this.mNetWork.k("_msg_status", "1");
             }
-            String packageName = TbadkApplication.m252getInst().getPackageName();
-            this.a.a("package", packageName);
-            this.a.a("versioncode", new StringBuilder(String.valueOf(TbadkApplication.m252getInst().getVersionCode())).toString());
-            this.a.a("signmd5", UtilHelper.creatSignInt(TbadkApplication.m252getInst().getPackageManager().getPackageInfo(packageName, 64)));
-            this.a.a("md5", com.baidu.tieba.az.a());
-            String h = this.a.h();
-            if (!this.a.a().b().b()) {
+            String packageName = TbadkApplication.m251getInst().getPackageName();
+            this.mNetWork.k("package", packageName);
+            this.mNetWork.k("versioncode", new StringBuilder(String.valueOf(TbadkApplication.m251getInst().getVersionCode())).toString());
+            this.mNetWork.k("signmd5", com.baidu.tbadk.core.util.ba.a(TbadkApplication.m251getInst().getPackageManager().getPackageInfo(packageName, 64)));
+            this.mNetWork.k("md5", com.baidu.tieba.bc.xa());
+            String lA = this.mNetWork.lA();
+            if (!this.mNetWork.mc().nb().jq()) {
                 return null;
             }
-            beVar = new be();
+            bbVar = new bb();
             try {
-                beVar.a(h);
-                if (TbadkApplication.getClientId() == null && beVar.d().a() != null && beVar.d().a().length() > 0) {
-                    context = this.b.c;
-                    TbadkApplication.saveClientId(context, beVar.d().a());
-                    TbadkApplication.setClientId(beVar.d().a());
-                    return beVar;
+                bbVar.parserJson(lA);
+                if (TbadkApplication.getClientId() == null && bbVar.Ub().getClientId() != null && bbVar.Ub().getClientId().length() > 0) {
+                    context = this.boa.mContext;
+                    TbadkApplication.saveClientId(context, bbVar.Ub().getClientId());
+                    TbadkApplication.setClientId(bbVar.Ub().getClientId());
+                    return bbVar;
                 }
-                return beVar;
+                return bbVar;
             } catch (Exception e2) {
                 e = e2;
                 BdLog.e(e.getMessage());
-                return beVar;
+                return bbVar;
             }
         } catch (Exception e3) {
-            beVar = null;
+            bbVar = null;
             e = e3;
         }
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.b.b = null;
-        if (this.a != null) {
-            this.a.f();
+        this.boa.bnZ = null;
+        if (this.mNetWork != null) {
+            this.mNetWork.dM();
         }
         super.cancel(true);
     }
@@ -93,9 +92,9 @@ public class b extends BdAsyncTask<String, Integer, be> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public void onPostExecute(be beVar) {
-        super.onPostExecute(beVar);
-        this.b.b = null;
-        this.b.a.a(beVar);
+    public void onPostExecute(bb bbVar) {
+        super.onPostExecute(bbVar);
+        this.boa.bnZ = null;
+        this.boa.mLoadDataCallBack.a(bbVar);
     }
 }

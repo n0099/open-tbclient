@@ -9,15 +9,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class an {
-    private Context a;
-    private com.baidu.tieba.data.au b = new com.baidu.tieba.data.au();
+    private com.baidu.tieba.data.ar bpm = new com.baidu.tieba.data.ar();
+    private Context mContext;
 
     public an(Context context, String str) {
-        this.a = context;
-        a(str);
+        this.mContext = context;
+        parseJson(str);
     }
 
-    private void a(String str) {
+    private void parseJson(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
             JSONObject optJSONObject = jSONObject.optJSONObject("post");
@@ -27,42 +27,42 @@ public class an {
             JSONObject optJSONObject4 = jSONObject.optJSONObject("anti");
             AntiData antiData = new AntiData();
             antiData.parserJson(optJSONObject4);
-            this.b.a(antiData);
-            com.baidu.tbadk.core.data.n nVar = new com.baidu.tbadk.core.data.n();
-            nVar.a(optJSONObject3);
-            this.b.a(nVar);
+            this.bpm.a(antiData);
+            com.baidu.tbadk.core.data.q qVar = new com.baidu.tbadk.core.data.q();
+            qVar.parserJson(optJSONObject3);
+            this.bpm.a(qVar);
             ForumData forumData = new ForumData();
             forumData.parserJson(optJSONObject2);
-            this.b.a(forumData);
-            com.baidu.tieba.data.an anVar = new com.baidu.tieba.data.an();
-            anVar.a(optJSONObject);
-            anVar.a(this.a);
-            this.b.a(anVar);
+            this.bpm.a(forumData);
+            com.baidu.tieba.data.ak akVar = new com.baidu.tieba.data.ak();
+            akVar.parserJson(optJSONObject);
+            akVar.O(this.mContext);
+            this.bpm.a(akVar);
             int length = optJSONArray.length();
-            ArrayList<com.baidu.tieba.data.an> arrayList = new ArrayList<>();
+            ArrayList<com.baidu.tieba.data.ak> arrayList = new ArrayList<>();
             for (int i = 0; i < length; i++) {
                 JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                com.baidu.tieba.data.an anVar2 = new com.baidu.tieba.data.an();
-                anVar2.a(jSONObject2);
-                anVar2.a(this.a);
-                arrayList.add(anVar2);
+                com.baidu.tieba.data.ak akVar2 = new com.baidu.tieba.data.ak();
+                akVar2.parserJson(jSONObject2);
+                akVar2.O(this.mContext);
+                arrayList.add(akVar2);
             }
-            this.b.a(arrayList);
+            this.bpm.l(arrayList);
             JSONObject optJSONObject5 = jSONObject.optJSONObject("page");
             int optInt = optJSONObject5.optInt("total_page");
             int optInt2 = optJSONObject5.optInt("page_size");
             int optInt3 = optJSONObject5.optInt("current_page");
             int optInt4 = optJSONObject5.optInt("total_count");
-            this.b.e(optInt3);
-            this.b.d(optInt2);
-            this.b.c(optInt4);
-            this.b.b(optInt);
+            this.bpm.ek(optInt3);
+            this.bpm.ej(optInt2);
+            this.bpm.setTotalCount(optInt4);
+            this.bpm.ei(optInt);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public com.baidu.tieba.data.au a() {
-        return this.b;
+    public com.baidu.tieba.data.ar TL() {
+        return this.bpm;
     }
 }

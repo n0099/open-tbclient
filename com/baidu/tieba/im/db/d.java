@@ -16,21 +16,21 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static d a;
+    private static d aVc;
 
-    public static d a() {
-        if (a == null) {
-            a = new d();
+    public static d Mx() {
+        if (aVc == null) {
+            aVc = new d();
         }
-        return a;
+        return aVc;
     }
 
-    public void a(String str) {
+    public void fY(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("content_status", (Integer) 2);
-                g.a().a("tb_group_news", contentValues, "cmd=?", new String[]{str});
+                g.MA().update("tb_group_news", contentValues, "cmd=?", new String[]{str});
             }
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.markReadByCmd", new Object[0]);
@@ -40,11 +40,11 @@ public class d {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [78=4] */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r8v0 int)] */
-    public int a(String str, int i) {
+    public int v(String str, int i) {
         Cursor cursor = null;
         int i2 = 0;
         try {
-            cursor = g.a().a(String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' ) and content_status = %2$s", str, new StringBuilder().append(i).toString()), null);
+            cursor = g.MA().rawQuery(String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' ) and content_status = %2$s", str, new StringBuilder().append(i).toString()), null);
             i2 = cursor.moveToFirst() ? cursor.getInt(0) : -1;
         } catch (SQLiteException e) {
             TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.getNewCountByCmd", new Object[0]);
@@ -53,17 +53,17 @@ public class d {
             TiebaStatic.printDBExceptionLog(e2, "GroupNewsDao.getNewCountByCmd", new Object[0]);
             e2.printStackTrace();
         } finally {
-            com.baidu.adp.lib.util.m.a(cursor);
+            com.baidu.adp.lib.util.p.a(cursor);
         }
         return i2;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [107=4] */
-    public int b(String str) {
+    public int fZ(String str) {
         Cursor cursor = null;
         int i = 0;
         try {
-            cursor = g.a().a(String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' )", str), null);
+            cursor = g.MA().rawQuery(String.format("select count(*) from tb_group_news WHERE cmd IN ( '%1$s' )", str), null);
             i = cursor.moveToFirst() ? cursor.getInt(0) : -1;
         } catch (SQLiteException e) {
             TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.getCountByCmd", new Object[0]);
@@ -72,7 +72,7 @@ public class d {
             TiebaStatic.printDBExceptionLog(e2, "GroupNewsDao.getCountByCmd", new Object[0]);
             e2.printStackTrace();
         } finally {
-            com.baidu.adp.lib.util.m.a(cursor);
+            com.baidu.adp.lib.util.p.a(cursor);
         }
         return i;
     }
@@ -83,12 +83,12 @@ public class d {
         if (validateItemData == null) {
             return false;
         }
-        List<ValidateItemData> a2 = com.baidu.tieba.im.validate.l.a(a(0L, Integer.MAX_VALUE, 0, "apply_join_group"));
-        int size = a2.size();
+        List<ValidateItemData> o = com.baidu.tieba.im.validate.l.o(a(0L, Integer.MAX_VALUE, 0, "apply_join_group"));
+        int size = o.size();
         LinkedList<GroupNewsPojo> linkedList = new LinkedList<>();
         int i3 = 0;
         while (i2 < size) {
-            ValidateItemData validateItemData2 = a2.get(i2);
+            ValidateItemData validateItemData2 = o.get(i2);
             if (validateItemData2.getGroupId().equals(validateItemData.getGroupId()) && validateItemData2.getUserId().equals(validateItemData.getUserId()) && validateItemData.isPass()) {
                 validateItemData2.setPass(true);
                 if (validateItemData.isShown()) {
@@ -103,66 +103,64 @@ public class d {
             i3 = i;
         }
         BdLog.i("affectCount:" + i3);
-        return a(linkedList).booleanValue();
+        return k(linkedList).booleanValue();
     }
 
-    public Boolean a(LinkedList<GroupNewsPojo> linkedList) {
-        ValidateItemData a2;
+    public Boolean k(LinkedList<GroupNewsPojo> linkedList) {
+        ValidateItemData g;
         Boolean bool = false;
-        if (linkedList != null) {
-            try {
-                if (linkedList.size() != 0) {
-                    try {
-                        g.a().b();
-                        Iterator<GroupNewsPojo> it = linkedList.iterator();
-                        List<ValidateItemData> list = null;
-                        LinkedList<GroupNewsPojo> linkedList2 = null;
-                        while (it.hasNext()) {
-                            GroupNewsPojo next = it.next();
-                            if (next.getCmd().equals("apply_join_group")) {
-                                if (linkedList2 == null && (list = com.baidu.tieba.im.validate.l.a((linkedList2 = a(0L, Integer.MAX_VALUE, 0, "apply_join_group")))) == null) {
-                                    list = new LinkedList();
-                                }
-                                if (list != null && (a2 = com.baidu.tieba.im.validate.l.a(next)) != null) {
-                                    for (ValidateItemData validateItemData : list) {
-                                        if (a2.getUserId() != null && a2.getUserId().equals(validateItemData.getUserId()) && a2.getGroupId() != null && a2.getGroupId().equals(validateItemData.getGroupId())) {
-                                            c(validateItemData.getNotice_id());
-                                        }
-                                    }
-                                }
-                            }
-                            List list2 = list;
-                            LinkedList<GroupNewsPojo> linkedList3 = linkedList2;
-                            ContentValues contentValues = new ContentValues();
-                            contentValues.put(com.baidu.tbadk.core.frameworkData.a.CMD, next.getCmd());
-                            contentValues.put("content", next.getContent());
-                            contentValues.put("content_status", Integer.valueOf(next.getContent_status()));
-                            contentValues.put("ext", next.getExt());
-                            contentValues.put("gid", next.getGid());
-                            contentValues.put("notice_id", next.getNotice_id());
-                            contentValues.put("time", Long.valueOf(next.getTime()));
-                            if (g.a().a("tb_group_news", contentValues, "notice_id=?", new String[]{next.getNotice_id()}) == 0) {
-                                a(next);
-                            }
-                            bool = Boolean.valueOf(bool.booleanValue() & true);
-                            linkedList2 = linkedList3;
-                            list = list2;
-                        }
-                        g.a().c();
-                        return bool;
-                    } catch (Exception e) {
-                        TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.updateData", new Object[0]);
-                        e.printStackTrace();
-                        g.a().c();
-                        return false;
-                    }
-                }
-            } catch (Throwable th) {
-                g.a().c();
-                throw th;
-            }
+        if (linkedList == null || linkedList.size() == 0) {
+            return false;
         }
-        return false;
+        try {
+            try {
+                g.MA().MB();
+                Iterator<GroupNewsPojo> it = linkedList.iterator();
+                List<ValidateItemData> list = null;
+                LinkedList<GroupNewsPojo> linkedList2 = null;
+                while (it.hasNext()) {
+                    GroupNewsPojo next = it.next();
+                    if (next.getCmd().equals("apply_join_group")) {
+                        if (linkedList2 == null && (list = com.baidu.tieba.im.validate.l.o((linkedList2 = a(0L, Integer.MAX_VALUE, 0, "apply_join_group")))) == null) {
+                            list = new LinkedList();
+                        }
+                        if (list != null && (g = com.baidu.tieba.im.validate.l.g(next)) != null) {
+                            for (ValidateItemData validateItemData : list) {
+                                if (g.getUserId() != null && g.getUserId().equals(validateItemData.getUserId()) && g.getGroupId() != null && g.getGroupId().equals(validateItemData.getGroupId())) {
+                                    ga(validateItemData.getNotice_id());
+                                }
+                            }
+                        }
+                    }
+                    List list2 = list;
+                    LinkedList<GroupNewsPojo> linkedList3 = linkedList2;
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put(com.baidu.tbadk.core.frameworkData.a.CMD, next.getCmd());
+                    contentValues.put("content", next.getContent());
+                    contentValues.put("content_status", Integer.valueOf(next.getContent_status()));
+                    contentValues.put("ext", next.getExt());
+                    contentValues.put("gid", next.getGid());
+                    contentValues.put("notice_id", next.getNotice_id());
+                    contentValues.put("time", Long.valueOf(next.getTime()));
+                    if (g.MA().update("tb_group_news", contentValues, "notice_id=?", new String[]{next.getNotice_id()}) == 0) {
+                        d(next);
+                    }
+                    bool = Boolean.valueOf(bool.booleanValue() & true);
+                    linkedList2 = linkedList3;
+                    list = list2;
+                }
+                g.MA().endTransaction();
+                return bool;
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.updateData", new Object[0]);
+                e.printStackTrace();
+                g.MA().endTransaction();
+                return false;
+            }
+        } catch (Throwable th) {
+            g.MA().endTransaction();
+            throw th;
+        }
     }
 
     public LinkedList<GroupNewsPojo> a(long j, int i, int i2, String str) {
@@ -177,14 +175,14 @@ public class d {
         try {
             if (j <= 0) {
                 if (TextUtils.isEmpty(str)) {
-                    cursor = g.a().a("select * from tb_group_news ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, null);
+                    cursor = g.MA().rawQuery("select * from tb_group_news ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, null);
                 } else {
-                    cursor = g.a().a(String.format("select * from tb_group_news WHERE cmd IN ( '%1$s' ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, str), null);
+                    cursor = g.MA().rawQuery(String.format("select * from tb_group_news WHERE cmd IN ( '%1$s' ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, str), null);
                 }
             } else if (TextUtils.isEmpty(str)) {
-                cursor = g.a().a("select * from tb_group_news WHERE time <=? ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, new String[]{String.valueOf(j)});
+                cursor = g.MA().rawQuery("select * from tb_group_news WHERE time <=? ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, new String[]{String.valueOf(j)});
             } else {
-                cursor = g.a().a("select * from tb_group_news WHERE time <=? AND cmd IN ( ? ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, new String[]{String.valueOf(j), str});
+                cursor = g.MA().rawQuery("select * from tb_group_news WHERE time <=? AND cmd IN ( ? ) ORDER BY time DESC LIMIT " + i + " OFFSET " + i2, new String[]{String.valueOf(j), str});
             }
             if (cursor != null) {
                 while (cursor.moveToNext()) {
@@ -203,12 +201,12 @@ public class d {
             TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.getAllByCmd", new Object[0]);
             e.printStackTrace();
         } finally {
-            com.baidu.adp.lib.util.m.a(cursor);
+            com.baidu.adp.lib.util.p.a(cursor);
         }
-        return b(linkedList);
+        return l(linkedList);
     }
 
-    private LinkedList<GroupNewsPojo> b(LinkedList<GroupNewsPojo> linkedList) {
+    private LinkedList<GroupNewsPojo> l(LinkedList<GroupNewsPojo> linkedList) {
         LinkedList<GroupNewsPojo> linkedList2 = new LinkedList<>();
         ArrayList arrayList = new ArrayList();
         int size = linkedList.size();
@@ -227,17 +225,17 @@ public class d {
             }
             int size2 = arrayList.size();
             for (int i3 = 0; i3 < size2; i3++) {
-                b((String) arrayList.get(i3), 3);
+                w((String) arrayList.get(i3), 3);
             }
         }
         return linkedList2;
     }
 
-    public boolean c(String str) {
+    public boolean ga(String str) {
         Boolean bool;
         Boolean.valueOf(false);
         try {
-            g.a().a("tb_group_news", "notice_id = ?", new String[]{str});
+            g.MA().a("tb_group_news", "notice_id = ?", new String[]{str});
             bool = true;
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.deleteByNoticeId", new Object[0]);
@@ -247,14 +245,14 @@ public class d {
         return bool.booleanValue();
     }
 
-    public int b(String str, int i) {
+    public int w(String str, int i) {
         try {
             if (TextUtils.isEmpty(str)) {
                 return 0;
             }
             ContentValues contentValues = new ContentValues();
             contentValues.put("content_status", (Integer) 3);
-            return g.a().a("tb_group_news", contentValues, "notice_id= ?", new String[]{str});
+            return g.MA().update("tb_group_news", contentValues, "notice_id= ?", new String[]{str});
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.hideByNoticeIdSync", new Object[0]);
             e.printStackTrace();
@@ -262,7 +260,7 @@ public class d {
         }
     }
 
-    public boolean a(List<UpdatesItemData> list) {
+    public boolean T(List<UpdatesItemData> list) {
         Boolean bool;
         if (list == null || list.isEmpty()) {
             Boolean bool2 = false;
@@ -273,7 +271,7 @@ public class d {
             for (int i = 0; i < size; i++) {
                 UpdatesItemData updatesItemData = list.get(i);
                 if (updatesItemData != null) {
-                    g.a().a("tb_group_news", "notice_id=?", new String[]{updatesItemData.getNotice_id()});
+                    g.MA().a("tb_group_news", "notice_id=?", new String[]{updatesItemData.getNotice_id()});
                 }
             }
             bool = false;
@@ -286,7 +284,7 @@ public class d {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [535=4] */
-    private long a(GroupNewsPojo groupNewsPojo) {
+    private long d(GroupNewsPojo groupNewsPojo) {
         long j = -1;
         SQLiteStatement sQLiteStatement = null;
         try {
@@ -308,7 +306,7 @@ public class d {
             stringBuffer.append(",");
             stringBuffer.append("time");
             stringBuffer.append(") VALUES(?,?,?,?,?,?,?)");
-            sQLiteStatement = g.a().b(stringBuffer.toString());
+            sQLiteStatement = g.MA().compileStatement(stringBuffer.toString());
             if (sQLiteStatement != null) {
                 sQLiteStatement.clearBindings();
                 e.a(sQLiteStatement, 1, groupNewsPojo.getCmd());
@@ -323,45 +321,47 @@ public class d {
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "GroupNewsDao.insertByStatement", new Object[0]);
         } finally {
-            com.baidu.adp.lib.util.m.a(sQLiteStatement);
+            com.baidu.adp.lib.util.p.a(sQLiteStatement);
         }
         return j;
     }
 
-    public boolean c(String str, int i) {
+    public boolean u(String str, int i) {
         Cursor cursor;
         Cursor cursor2 = null;
-        try {
-            if (i < 1000) {
-                i = 1000;
-            }
-        } catch (Throwable th) {
-            th = th;
-            cursor2 = 1000;
+        if (i < 1000) {
+            i = 1000;
         }
         try {
-            cursor = g.a().a("SELECT * FROM tb_group_news ORDER BY notice_id DESC LIMIT " + i + ", 1", null);
+            cursor = g.MA().rawQuery("SELECT * FROM tb_group_news ORDER BY notice_id DESC LIMIT " + i + ", 1", null);
             try {
-                String string = cursor.moveToNext() ? cursor.getString(cursor.getColumnIndex("notice_id")) : null;
-                com.baidu.adp.lib.util.m.a(cursor);
-                if (string != null) {
-                    g.a().a("tb_group_news", "notice_id<?", new String[]{string});
+                try {
+                    String string = cursor.moveToNext() ? cursor.getString(cursor.getColumnIndex("notice_id")) : null;
+                    com.baidu.adp.lib.util.p.a(cursor);
+                    if (string != null) {
+                        g.MA().a("tb_group_news", "notice_id<?", new String[]{string});
+                    }
+                    com.baidu.adp.lib.util.p.a(cursor);
+                    return true;
+                } catch (Exception e) {
+                    e = e;
+                    e.printStackTrace();
+                    TiebaStatic.printDBExceptionLog(e, "shrink", new Object[0]);
+                    com.baidu.adp.lib.util.p.a(cursor);
+                    return false;
                 }
-                com.baidu.adp.lib.util.m.a(cursor);
-                return true;
-            } catch (Exception e) {
-                e = e;
-                e.printStackTrace();
-                TiebaStatic.printDBExceptionLog(e, "shrink", new Object[0]);
-                com.baidu.adp.lib.util.m.a(cursor);
-                return false;
+            } catch (Throwable th) {
+                th = th;
+                cursor2 = cursor;
+                com.baidu.adp.lib.util.p.a(cursor2);
+                throw th;
             }
         } catch (Exception e2) {
             e = e2;
             cursor = null;
         } catch (Throwable th2) {
             th = th2;
-            com.baidu.adp.lib.util.m.a(cursor2);
+            com.baidu.adp.lib.util.p.a(cursor2);
             throw th;
         }
     }

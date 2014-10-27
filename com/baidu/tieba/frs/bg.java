@@ -1,29 +1,40 @@
 package com.baidu.tieba.frs;
 
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bg implements View.OnClickListener {
-    final /* synthetic */ bd a;
-    private final /* synthetic */ com.baidu.tbadk.core.data.n b;
+class bg implements com.baidu.adp.lib.guide.b {
+    final /* synthetic */ bf aBH;
+    private final /* synthetic */ View aBI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bg(bd bdVar, com.baidu.tbadk.core.data.n nVar) {
-        this.a = bdVar;
-        this.b = nVar;
+    public bg(bf bfVar, View view) {
+        this.aBH = bfVar;
+        this.aBI = view;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        FrsActivity frsActivity;
-        g gVar;
-        MessageManager messageManager = MessageManager.getInstance();
-        frsActivity = this.a.b;
-        String userId = this.b.q().getUserId();
-        String name_show = this.b.q().getName_show();
-        gVar = this.a.d;
-        messageManager.sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bh(frsActivity, userId, name_show, gVar.i().getName(), "frs_head")));
+    @Override // com.baidu.adp.lib.guide.b
+    public View a(LayoutInflater layoutInflater) {
+        return this.aBI;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int dy() {
+        return 5;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int dz() {
+        return 32;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int getXOffset() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int getYOffset() {
+        return 0;
     }
 }

@@ -1,77 +1,76 @@
 package com.baidu.adp.base.a;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.File;
 /* loaded from: classes.dex */
 public abstract class e implements a {
-    private int a;
-    private final String b;
-    private b c;
-    private SQLiteDatabase d = null;
-
-    public abstract void a(SQLiteDatabase sQLiteDatabase);
+    private SQLiteDatabase aA = null;
+    private b aD;
+    private final String aF;
+    private int mVersion;
 
     public abstract void b(SQLiteDatabase sQLiteDatabase);
 
+    public abstract void d(SQLiteDatabase sQLiteDatabase);
+
     @Override // com.baidu.adp.base.a.a
     public void a(b bVar) {
-        this.c = bVar;
+        this.aD = bVar;
     }
 
     public e(String str, int i) {
-        this.a = 1;
-        this.a = i;
-        this.b = str;
+        this.mVersion = 1;
+        this.mVersion = i;
+        this.aF = str;
     }
 
     @Override // com.baidu.adp.base.a.a
     public SQLiteDatabase getWritableDatabase() {
-        File file = new File(this.b);
+        File file = new File(this.aF);
         if (file.getParentFile() != null && (file.getParentFile().exists() || file.getParentFile().mkdirs())) {
             boolean exists = file.exists();
-            this.d = SQLiteDatabase.openOrCreateDatabase(this.b, (SQLiteDatabase.CursorFactory) null);
-            if (this.d != null) {
+            this.aA = SQLiteDatabase.openOrCreateDatabase(this.aF, (SQLiteDatabase.CursorFactory) null);
+            if (this.aA != null) {
                 if (!exists) {
-                    d(this.d);
-                    this.d.setVersion(this.a);
+                    e(this.aA);
+                    this.aA.setVersion(this.mVersion);
                 } else {
-                    int version = this.d.getVersion();
-                    if (version != this.a) {
-                        b(this.d, version, this.a);
-                        this.d.setVersion(this.a);
+                    int version = this.aA.getVersion();
+                    if (version != this.mVersion) {
+                        a(this.aA, version, this.mVersion);
+                        this.aA.setVersion(this.mVersion);
                     }
                 }
             }
         }
-        return this.d;
-    }
-
-    private void d(SQLiteDatabase sQLiteDatabase) {
-        c(sQLiteDatabase);
-        e(sQLiteDatabase);
-    }
-
-    private void b(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        if (i2 > i) {
-            onUpgrade(sQLiteDatabase, i, i2);
-        } else {
-            a(sQLiteDatabase, i, i2);
-        }
-        e(sQLiteDatabase);
+        return this.aA;
     }
 
     private void e(SQLiteDatabase sQLiteDatabase) {
-        if (this.c != null) {
-            this.c.a(sQLiteDatabase);
+        onCreate(sQLiteDatabase);
+        c(sQLiteDatabase);
+    }
+
+    private void a(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        if (i2 > i) {
+            onUpgrade(sQLiteDatabase, i, i2);
+        } else {
+            b(sQLiteDatabase, i, i2);
+        }
+        c(sQLiteDatabase);
+    }
+
+    private void c(SQLiteDatabase sQLiteDatabase) {
+        if (this.aD != null) {
+            this.aD.a(sQLiteDatabase);
         }
     }
 
     @Override // com.baidu.adp.base.a.a
-    public boolean a(Context context) {
-        File file = new File(this.b);
+    public boolean f(Context context) {
+        File file = new File(this.aF);
         if (file.exists()) {
             return file.delete();
         }
@@ -88,13 +87,12 @@ public abstract class e implements a {
         }
     }
 
-    public void c(SQLiteDatabase sQLiteDatabase) {
-        a(sQLiteDatabase);
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        b(sQLiteDatabase);
     }
 
-    @SuppressLint({"Override"})
-    public void a(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+    public void b(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        d(sQLiteDatabase);
         b(sQLiteDatabase);
-        a(sQLiteDatabase);
     }
 }

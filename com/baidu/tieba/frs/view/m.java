@@ -1,32 +1,25 @@
 package com.baidu.tieba.frs.view;
 
-import android.content.Context;
+import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.bh;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.PraiseData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.PopupWindow;
 /* loaded from: classes.dex */
-public class m implements View.OnClickListener {
-    final /* synthetic */ FrsPraiseView a;
+class m implements View.OnTouchListener {
+    final /* synthetic */ FrsHeaderView aFT;
+    private final /* synthetic */ PopupWindow aFU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(FrsPraiseView frsPraiseView) {
-        this.a = frsPraiseView;
+    public m(FrsHeaderView frsHeaderView, PopupWindow popupWindow) {
+        this.aFT = frsHeaderView;
+        this.aFU = popupWindow;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PraiseData praiseData;
-        Context context;
-        praiseData = this.a.f;
-        MetaData metaData = praiseData.getUser().get(0);
-        if (metaData != null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            context = this.a.a;
-            messageManager.sendMessage(new CustomMessage(2002003, new bh(context, metaData.getUserId(), metaData.getName_show())));
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 4) {
+            com.baidu.adp.lib.g.j.a(this.aFU);
+            return false;
         }
+        return false;
     }
 }

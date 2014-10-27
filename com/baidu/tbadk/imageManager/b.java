@@ -3,13 +3,13 @@ package com.baidu.tbadk.imageManager;
 import android.content.Context;
 /* loaded from: classes.dex */
 public interface b {
-    int a();
+    int dd(String str);
 
-    int a(String str);
+    int de(String str);
 
-    c a(Context context, String str);
+    String df(String str);
 
-    int b(String str);
+    c p(Context context, String str);
 
-    String c(String str);
+    int rx();
 }

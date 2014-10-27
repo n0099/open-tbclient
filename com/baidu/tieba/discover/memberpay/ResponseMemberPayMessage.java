@@ -24,7 +24,7 @@ public class ResponseMemberPayMessage extends JsonHttpResponsedMessage {
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null) {
             this.mData = new d();
-            this.mData.a(jSONObject);
+            this.mData.parseJson(jSONObject);
         }
     }
 }

@@ -1,299 +1,484 @@
 package com.baidu.sapi2.share;
 
-import android.content.Context;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.IBinder;
+import android.os.Parcel;
 import android.text.TextUtils;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.SapiConfiguration;
+import com.baidu.sapi2.share.b;
 import com.baidu.sapi2.utils.L;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
-import com.baidu.sapi2.utils.enums.SocialType;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
-class c {
-    static final String a = "baidu.intent.action.SHARE";
-    static final String b = "baidu.intent.action.NEWSHARE";
-    static final String c = "baidu.share.action.ACTION_LOGIN";
-    static final String d = "baidu.share.action.ACTION_LOGOUT";
-    static final String e = "baidu.share.action.ACTION_LOGIN_SYNC";
-    static final String f = "baidu.share.action.ACTION_LOGIN_SYNC_REPLY";
-    static final String g = "action";
-    static final String h = "from";
-    static final String i = "data";
-    static final String j = "timestamp";
-    static final String k = "receiver";
-    static final String l = "username";
-    static final String m = "displayname";
-    static final String n = "email";
-    static final String o = "phoneNumber";
-    static final String p = "bduss";
-    static final String q = "ptoken";
-    static final String r = "device_token";
-    static final String s = "json";
-    static final String t = "socialAccounts";
-    static final String u = ";";
+public final class c {
+    static final String a = "LOGIN_SHARE_MODEL";
+    static final String b = "RELOGIN_CREDENTIALS";
+    static final String c = "RUNTIME_ENVIRONMENT";
+    static final String d = "baidu.intent.action.SHARE_V6";
+    static final String e = "baidu.intent.action.account.SHARE_SERVICE";
+    static final String f = "com.baidu.permission.SHARE";
+    private static final c i = new c();
+    private static SapiConfiguration g = SapiAccountManager.getInstance().getSapiConfiguration();
+    private static com.baidu.sapi2.c h = com.baidu.sapi2.c.a(g.context);
 
-    c() {
+    public static c a() {
+        return i;
+    }
+
+    private c() {
+    }
+
+    public void a(SapiAccount sapiAccount) {
+        if (SapiUtils.isValidAccount(sapiAccount)) {
+            if (TextUtils.isEmpty(sapiAccount.app)) {
+                sapiAccount.app = SapiUtils.getAppName(g.context);
+            }
+            h.a(sapiAccount);
+            h.c(sapiAccount);
+            h.d(sapiAccount);
+            if (g.loginShareStrategy() != LoginShareStrategy.DISABLED) {
+                HandlerThread handlerThread = new HandlerThread("ValidateThread");
+                handlerThread.start();
+                Handler handler = new Handler(handlerThread.getLooper());
+                handler.post(new b(handler, sapiAccount));
+            }
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class a {
-        String a;
-        String b;
-        long c;
-        Map<String, String> d = new HashMap();
+    public class b implements Runnable {
+        final /* synthetic */ Handler a;
+        final /* synthetic */ SapiAccount b;
 
-        a() {
+        b(Handler handler, SapiAccount sapiAccount) {
+            this.a = handler;
+            this.b = sapiAccount;
         }
-    }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void a(Context context, Intent intent, LoginShareStrategy loginShareStrategy, e eVar) {
-        boolean z = false;
-        Bundle extras = intent.getExtras();
-        if (extras != null && loginShareStrategy != LoginShareStrategy.DISABLED) {
-            String string = extras.getString(g);
-            if (!TextUtils.isEmpty(string)) {
-                String b2 = com.baidu.sapi2.share.a.b(context, string);
-                String string2 = extras.getString("from");
-                if (!TextUtils.isEmpty(string2)) {
-                    String packageName = context.getPackageName();
-                    String b3 = com.baidu.sapi2.share.a.b(context, string2);
-                    if (!TextUtils.isEmpty(b3)) {
-                        if (TextUtils.isEmpty(packageName) || !packageName.equals(b3)) {
-                            String string3 = extras.getString(k);
-                            if (string3 != null) {
-                                String b4 = com.baidu.sapi2.share.a.b(context, string3);
-                                if (!TextUtils.isEmpty(b4)) {
-                                    String[] split = b4.split(u);
-                                    int length = split.length;
-                                    int i2 = 0;
-                                    while (true) {
-                                        if (i2 >= length) {
-                                            break;
-                                        } else if (!packageName.equals(split[i2])) {
-                                            i2++;
-                                        } else {
-                                            z = true;
-                                            break;
-                                        }
-                                    }
-                                    if (!z) {
-                                        return;
-                                    }
-                                } else {
-                                    return;
-                                }
+        /* loaded from: classes.dex */
+        class a implements b.InterfaceC0009b {
+            a() {
+            }
+
+            /* renamed from: com.baidu.sapi2.share.c$b$a$a  reason: collision with other inner class name */
+            /* loaded from: classes.dex */
+            class ServiceConnectionC0013a implements ServiceConnection {
+                final /* synthetic */ Intent a;
+
+                ServiceConnectionC0013a(Intent intent) {
+                    this.a = intent;
+                }
+
+                /* renamed from: com.baidu.sapi2.share.c$b$a$a$a  reason: collision with other inner class name */
+                /* loaded from: classes.dex */
+                class RunnableC0014a implements Runnable {
+                    final /* synthetic */ IBinder a;
+                    final /* synthetic */ ServiceConnection b;
+
+                    RunnableC0014a(IBinder iBinder, ServiceConnection serviceConnection) {
+                        this.a = iBinder;
+                        this.b = serviceConnection;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        try {
+                            if (!this.a.transact(0, c.a(new ShareModel(ShareEvent.VALIDATE, c.h.d(), Arrays.asList(b.this.b))), Parcel.obtain(), 0) && ServiceConnectionC0013a.this.a != null) {
+                                a.this.a(ServiceConnectionC0013a.this.a);
                             }
-                            String string4 = extras.getString(j);
-                            if (!TextUtils.isEmpty(string4)) {
-                                try {
-                                    long parseLong = Long.parseLong(com.baidu.sapi2.share.a.b(context, string4));
-                                    String string5 = extras.getString(i);
-                                    HashMap hashMap = new HashMap();
-                                    if (!TextUtils.isEmpty(string5)) {
-                                        try {
-                                            JSONObject jSONObject = new JSONObject(com.baidu.sapi2.share.a.b(context, string5));
-                                            Iterator<String> keys = jSONObject.keys();
-                                            while (keys.hasNext()) {
-                                                String next = keys.next();
-                                                hashMap.put(next, jSONObject.optString(next));
-                                            }
-                                        } catch (Throwable th) {
-                                            th.printStackTrace();
-                                        }
-                                    }
-                                    a aVar = new a();
-                                    aVar.a = b2;
-                                    aVar.b = b3;
-                                    aVar.c = parseLong;
-                                    aVar.d = hashMap;
-                                    ShareModel a2 = a(context, aVar);
-                                    if (eVar != null && a2 != null) {
-                                        eVar.a(a2);
-                                    }
-                                } catch (Exception e2) {
-                                }
-                            }
+                            c.g.context.unbindService(this.b);
+                        } catch (Throwable th) {
+                            L.e(th);
                         }
                     }
                 }
-            }
-        }
-    }
 
-    static ShareModel a(Context context, a aVar) {
-        if (context == null || aVar == null || TextUtils.isEmpty(aVar.a)) {
-            return null;
-        }
-        ShareModel shareModel = new ShareModel();
-        if (c.equals(aVar.a)) {
-            shareModel.a(ShareEvent.VALIDATE);
-        }
-        if (d.equals(aVar.a)) {
-            shareModel.a(ShareEvent.INVALIDATE);
-        }
-        if (e.equals(aVar.a)) {
-            shareModel.a(ShareEvent.SYNC_REQ);
-        }
-        if (f.equals(aVar.a)) {
-            shareModel.a(ShareEvent.SYNC_ACK);
-        }
-        SapiAccount b2 = b(context, aVar);
-        if (b2 != null) {
-            shareModel.a(LoginShareStrategy.SILENT);
-            SapiAccount a2 = com.baidu.sapi2.share.a.a(context, b2);
-            shareModel.a(a2);
-            shareModel.a(Arrays.asList(a2));
-            return shareModel;
-        }
-        return null;
-    }
+                @Override // android.content.ServiceConnection
+                public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+                    b.this.a.post(new RunnableC0014a(iBinder, this));
+                }
 
-    static SapiAccount b(Context context, a aVar) {
-        if (context == null || aVar == null) {
-            return null;
-        }
-        Map<String, String> map = aVar.d;
-        SapiAccount sapiAccount = new SapiAccount();
-        sapiAccount.app = SapiUtils.getAppName(context, aVar.b);
-        for (String str : map.keySet()) {
-            if (l.equals(str)) {
-                if (a(map.get(str))) {
-                    sapiAccount.username = com.baidu.sapi2.share.a.b(context, map.get(str));
-                }
-            } else if (n.equals(str)) {
-                if (a(map.get(str))) {
-                    sapiAccount.email = com.baidu.sapi2.share.a.b(context, map.get(str));
-                }
-            } else if (o.equals(str)) {
-                if (a(map.get(str))) {
-                    sapiAccount.phone = com.baidu.sapi2.share.a.b(context, map.get(str));
-                }
-            } else if ("bduss".equals(str)) {
-                if (a(map.get(str))) {
-                    sapiAccount.bduss = com.baidu.sapi2.share.a.b(context, map.get(str));
-                }
-            } else if ("ptoken".equals(str)) {
-                if (a(map.get(str))) {
-                    sapiAccount.ptoken = com.baidu.sapi2.share.a.b(context, map.get(str));
-                }
-            } else if ("displayname".equals(str)) {
-                if (a(map.get(str))) {
-                    sapiAccount.displayname = com.baidu.sapi2.share.a.b(context, map.get(str));
-                }
-            } else if (s.equals(str)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(com.baidu.sapi2.share.a.b(context, map.get(str)));
-                    String optString = jSONObject.optString(SapiAccountManager.SESSION_UID);
-                    if (!TextUtils.isEmpty(optString)) {
-                        sapiAccount.uid = optString;
-                    }
-                    String optString2 = jSONObject.optString("bduss");
-                    if (!TextUtils.isEmpty(optString2)) {
-                        sapiAccount.bduss = optString2;
-                    }
-                    String optString3 = jSONObject.optString("ptoken");
-                    if (!TextUtils.isEmpty(optString3)) {
-                        sapiAccount.ptoken = optString3;
-                    }
-                    String optString4 = jSONObject.optString(SapiAccountManager.SESSION_STOKEN);
-                    if (!TextUtils.isEmpty(optString4)) {
-                        sapiAccount.stoken = optString4;
-                    }
-                    String optString5 = jSONObject.optString("uname");
-                    if (!TextUtils.isEmpty(optString5)) {
-                        sapiAccount.username = optString5;
-                    }
-                    String optString6 = jSONObject.optString("displayname");
-                    if (!TextUtils.isEmpty(optString6)) {
-                        sapiAccount.displayname = optString6;
-                    }
-                } catch (Exception e2) {
-                    L.e(e2);
+                @Override // android.content.ServiceConnection
+                public void onServiceDisconnected(ComponentName componentName) {
                 }
             }
+
+            @Override // com.baidu.sapi2.share.b.InterfaceC0009b
+            public void a(Intent intent, Intent intent2) {
+                c.g.context.bindService(intent, new ServiceConnectionC0013a(intent2), 1);
+            }
+
+            @Override // com.baidu.sapi2.share.b.InterfaceC0009b
+            public void a(Intent intent) {
+                c.a(intent, new ShareModel(ShareEvent.VALIDATE, c.h.d(), Arrays.asList(b.this.b)));
+            }
         }
-        if (SapiUtils.isValidAccount(sapiAccount)) {
-            return sapiAccount;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            com.baidu.sapi2.share.b.a(c.g.context, new a());
         }
-        return null;
     }
 
-    static boolean a(String str) {
-        return (TextUtils.isEmpty(str) || str.equals("null")) ? false : true;
+    public void b() {
+        SapiAccount d2 = h.d();
+        if (d2 != null) {
+            h.a((SapiAccount) null);
+            h.d(d2);
+            h.e(d2);
+            if (g.loginShareStrategy() != LoginShareStrategy.DISABLED) {
+                HandlerThread handlerThread = new HandlerThread("InvalidateThread");
+                handlerThread.start();
+                Handler handler = new Handler(handlerThread.getLooper());
+                handler.post(new RunnableC0015c(handler, d2));
+            }
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static SapiAccount a(Context context) {
-        d dVar = new d(context);
-        SapiAccount sapiAccount = new SapiAccount();
-        sapiAccount.displayname = dVar.a("displayname");
-        sapiAccount.username = dVar.a(l);
-        sapiAccount.email = dVar.a(n);
-        sapiAccount.phone = dVar.a(o);
-        sapiAccount.bduss = dVar.a("bduss");
-        sapiAccount.ptoken = dVar.a("ptoken");
-        sapiAccount.extra = dVar.a(s);
-        a(sapiAccount, dVar.a(t));
-        if (!TextUtils.isEmpty(sapiAccount.extra)) {
-            try {
-                JSONObject jSONObject = new JSONObject(sapiAccount.extra);
-                String optString = jSONObject.optString(SapiAccountManager.SESSION_UID);
-                if (!TextUtils.isEmpty(optString)) {
-                    sapiAccount.uid = optString;
-                }
-                String optString2 = jSONObject.optString("bduss");
-                if (!TextUtils.isEmpty(optString2)) {
-                    sapiAccount.bduss = optString2;
-                }
-                if (!TextUtils.isEmpty(jSONObject.optString("ptoken"))) {
-                    sapiAccount.ptoken = jSONObject.optString("ptoken");
-                }
-                if (!TextUtils.isEmpty(jSONObject.optString(SapiAccountManager.SESSION_STOKEN))) {
-                    sapiAccount.stoken = jSONObject.optString(SapiAccountManager.SESSION_STOKEN);
-                }
-                String optString3 = jSONObject.optString("uname");
-                if (!TextUtils.isEmpty(optString3)) {
-                    sapiAccount.username = optString3;
-                }
-                String optString4 = jSONObject.optString("displayname");
-                if (!TextUtils.isEmpty(optString4)) {
-                    sapiAccount.displayname = optString4;
-                }
-            } catch (JSONException e2) {
-                L.e(e2);
-            }
-        }
-        if (SapiUtils.isValidAccount(sapiAccount)) {
-            return sapiAccount;
-        }
-        return null;
-    }
+    /* renamed from: com.baidu.sapi2.share.c$c  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public class RunnableC0015c implements Runnable {
+        final /* synthetic */ Handler a;
+        final /* synthetic */ SapiAccount b;
 
-    static void a(SapiAccount sapiAccount, String str) {
-        if (sapiAccount != null && !TextUtils.isEmpty(str)) {
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                if (jSONArray.length() != 0) {
-                    try {
-                        JSONObject jSONObject = jSONArray.getJSONObject(0);
-                        com.baidu.sapi2.utils.a.a(sapiAccount, SocialType.getSocialType(jSONObject.optInt("type")), jSONObject.optString("headURL"));
-                    } catch (JSONException e2) {
-                        L.e(e2);
+        RunnableC0015c(Handler handler, SapiAccount sapiAccount) {
+            this.a = handler;
+            this.b = sapiAccount;
+        }
+
+        /* renamed from: com.baidu.sapi2.share.c$c$a */
+        /* loaded from: classes.dex */
+        class a implements b.InterfaceC0009b {
+            a() {
+            }
+
+            /* renamed from: com.baidu.sapi2.share.c$c$a$a  reason: collision with other inner class name */
+            /* loaded from: classes.dex */
+            class ServiceConnectionC0016a implements ServiceConnection {
+                final /* synthetic */ Intent a;
+
+                ServiceConnectionC0016a(Intent intent) {
+                    this.a = intent;
+                }
+
+                /* renamed from: com.baidu.sapi2.share.c$c$a$a$a  reason: collision with other inner class name */
+                /* loaded from: classes.dex */
+                class RunnableC0017a implements Runnable {
+                    final /* synthetic */ IBinder a;
+                    final /* synthetic */ ServiceConnection b;
+
+                    RunnableC0017a(IBinder iBinder, ServiceConnection serviceConnection) {
+                        this.a = iBinder;
+                        this.b = serviceConnection;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        try {
+                            if (!this.a.transact(0, c.a(new ShareModel(ShareEvent.INVALIDATE, null, Arrays.asList(RunnableC0015c.this.b))), Parcel.obtain(), 0) && ServiceConnectionC0016a.this.a != null) {
+                                a.this.a(ServiceConnectionC0016a.this.a);
+                            }
+                            c.g.context.unbindService(this.b);
+                        } catch (Throwable th) {
+                            L.e(th);
+                        }
                     }
                 }
-            } catch (JSONException e3) {
+
+                @Override // android.content.ServiceConnection
+                public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+                    RunnableC0015c.this.a.post(new RunnableC0017a(iBinder, this));
+                }
+
+                @Override // android.content.ServiceConnection
+                public void onServiceDisconnected(ComponentName componentName) {
+                }
+            }
+
+            @Override // com.baidu.sapi2.share.b.InterfaceC0009b
+            public void a(Intent intent, Intent intent2) {
+                c.g.context.bindService(intent, new ServiceConnectionC0016a(intent2), 1);
+            }
+
+            @Override // com.baidu.sapi2.share.b.InterfaceC0009b
+            public void a(Intent intent) {
+                c.a(intent, new ShareModel(ShareEvent.INVALIDATE, null, Arrays.asList(RunnableC0015c.this.b)));
             }
         }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            com.baidu.sapi2.share.b.a(c.g.context, new a());
+        }
+    }
+
+    public static void c() {
+        if (h.g()) {
+            if (g.loginShareStrategy() != LoginShareStrategy.DISABLED) {
+                i();
+            }
+            j();
+        } else if (!h.h() && g.loginShareStrategy() == LoginShareStrategy.SILENT) {
+            i();
+        }
+    }
+
+    public static void d() {
+        if (g.loginShareStrategy() != LoginShareStrategy.DISABLED) {
+            if (h.d() != null || h.e().size() != 0 || h.f().size() != 0) {
+                Map<String, Integer> b2 = h.j().b();
+                if (b2.containsKey(g.tpl) && b2.get(g.tpl).intValue() != h.i()) {
+                    HandlerThread handlerThread = new HandlerThread("SendThread");
+                    handlerThread.start();
+                    Handler handler = new Handler(handlerThread.getLooper());
+                    handler.post(new a(handler, b2));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    final class a implements Runnable {
+        final /* synthetic */ Handler a;
+        final /* synthetic */ Map b;
+
+        a(Handler handler, Map map) {
+            this.a = handler;
+            this.b = map;
+        }
+
+        /* renamed from: com.baidu.sapi2.share.c$a$a  reason: collision with other inner class name */
+        /* loaded from: classes.dex */
+        class C0010a implements b.InterfaceC0009b {
+            C0010a() {
+            }
+
+            /* renamed from: com.baidu.sapi2.share.c$a$a$a  reason: collision with other inner class name */
+            /* loaded from: classes.dex */
+            class ServiceConnectionC0011a implements ServiceConnection {
+                final /* synthetic */ Intent a;
+
+                ServiceConnectionC0011a(Intent intent) {
+                    this.a = intent;
+                }
+
+                /* renamed from: com.baidu.sapi2.share.c$a$a$a$a  reason: collision with other inner class name */
+                /* loaded from: classes.dex */
+                class RunnableC0012a implements Runnable {
+                    final /* synthetic */ IBinder a;
+                    final /* synthetic */ ServiceConnection b;
+
+                    RunnableC0012a(IBinder iBinder, ServiceConnection serviceConnection) {
+                        this.a = iBinder;
+                        this.b = serviceConnection;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        try {
+                            if (!this.a.transact(0, c.a(c.h()), Parcel.obtain(), 0) && ServiceConnectionC0011a.this.a != null) {
+                                C0010a.this.a(ServiceConnectionC0011a.this.a);
+                            }
+                            c.g.context.unbindService(this.b);
+                        } catch (Throwable th) {
+                            L.e(th);
+                        }
+                    }
+                }
+
+                @Override // android.content.ServiceConnection
+                public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+                    a.this.a.post(new RunnableC0012a(iBinder, this));
+                }
+
+                @Override // android.content.ServiceConnection
+                public void onServiceDisconnected(ComponentName componentName) {
+                }
+            }
+
+            @Override // com.baidu.sapi2.share.b.InterfaceC0009b
+            public void a(Intent intent, Intent intent2) {
+                c.g.context.bindService(intent, new ServiceConnectionC0011a(intent2), 1);
+            }
+
+            @Override // com.baidu.sapi2.share.b.InterfaceC0009b
+            public void a(Intent intent) {
+                c.a(intent, c.h());
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            com.baidu.sapi2.share.b.a(c.g.context, new C0010a());
+            c.h.a(((Integer) this.b.get(c.g.tpl)).intValue());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static ShareModel h() {
+        ShareModel shareModel = new ShareModel(ShareEvent.VALIDATE);
+        SapiAccount d2 = h.d();
+        if (d2 != null) {
+            d2.app = SapiUtils.getAppName(g.context);
+            shareModel.a(d2);
+        }
+        shareModel.a().addAll(h.e());
+        shareModel.a().addAll(h.f());
+        for (SapiAccount sapiAccount : shareModel.a()) {
+            sapiAccount.app = SapiUtils.getAppName(g.context);
+        }
+        return shareModel;
+    }
+
+    private static void i() {
+        HandlerThread handlerThread = new HandlerThread("SyncThread");
+        handlerThread.start();
+        Handler handler = new Handler(handlerThread.getLooper());
+        handler.post(new d(handler));
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes.dex */
+    public final class d implements Runnable {
+        final /* synthetic */ Handler a;
+
+        d(Handler handler) {
+            this.a = handler;
+        }
+
+        /* loaded from: classes.dex */
+        class a implements b.InterfaceC0009b {
+            a() {
+            }
+
+            /* renamed from: com.baidu.sapi2.share.c$d$a$a  reason: collision with other inner class name */
+            /* loaded from: classes.dex */
+            class ServiceConnectionC0018a implements ServiceConnection {
+                final /* synthetic */ Intent a;
+
+                ServiceConnectionC0018a(Intent intent) {
+                    this.a = intent;
+                }
+
+                /* renamed from: com.baidu.sapi2.share.c$d$a$a$a  reason: collision with other inner class name */
+                /* loaded from: classes.dex */
+                class RunnableC0019a implements Runnable {
+                    final /* synthetic */ IBinder a;
+                    final /* synthetic */ ServiceConnection b;
+
+                    RunnableC0019a(IBinder iBinder, ServiceConnection serviceConnection) {
+                        this.a = iBinder;
+                        this.b = serviceConnection;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        try {
+                            Parcel a = c.a(new ShareModel(ShareEvent.SYNC_REQ));
+                            Parcel obtain = Parcel.obtain();
+                            if (this.a.transact(0, a, obtain, 0)) {
+                                c.b(obtain);
+                            } else if (ServiceConnectionC0018a.this.a != null) {
+                                a.this.a(ServiceConnectionC0018a.this.a);
+                            }
+                            c.g.context.unbindService(this.b);
+                        } catch (Throwable th) {
+                            L.e(th);
+                        }
+                    }
+                }
+
+                @Override // android.content.ServiceConnection
+                public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+                    d.this.a.post(new RunnableC0019a(iBinder, this));
+                }
+
+                @Override // android.content.ServiceConnection
+                public void onServiceDisconnected(ComponentName componentName) {
+                }
+            }
+
+            @Override // com.baidu.sapi2.share.b.InterfaceC0009b
+            public void a(Intent intent, Intent intent2) {
+                c.g.context.bindService(intent, new ServiceConnectionC0018a(intent2), 1);
+            }
+
+            @Override // com.baidu.sapi2.share.b.InterfaceC0009b
+            public void a(Intent intent) {
+                c.a(intent, new ShareModel(ShareEvent.SYNC_REQ));
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            com.baidu.sapi2.share.b.a(c.g.context, new a());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void b(Parcel parcel) {
+        if (parcel != null) {
+            Bundle readBundle = parcel.readBundle(ShareModel.class.getClassLoader());
+            com.baidu.sapi2.share.b.c(g.context, readBundle.getString(b));
+            com.baidu.sapi2.share.b.a(g.context, g.loginShareStrategy(), (ShareModel) readBundle.getParcelable(a));
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes.dex */
+    public final class e implements Runnable {
+        e() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            SapiAccount a = com.baidu.sapi2.share.d.a(c.g.context);
+            if (a != null) {
+                c.h.a(a);
+                c.h.c(a);
+            }
+        }
+    }
+
+    private static void j() {
+        new Thread(new e()).start();
+    }
+
+    static void a(Intent intent, ShareModel shareModel) {
+        try {
+            com.baidu.sapi2.share.b.b(g.context, g.loginShareStrategy(), shareModel);
+            intent.putExtra(a, shareModel);
+            if (h.k() != null) {
+                intent.putExtra(b, com.baidu.sapi2.share.a.a(g.context, h.k().toString()));
+            }
+            intent.putExtra(c, g.environment);
+            g.context.sendBroadcast(intent, f);
+        } catch (Throwable th) {
+            L.e(th);
+        }
+    }
+
+    static Parcel a(ShareModel shareModel) {
+        Parcel obtain = Parcel.obtain();
+        Bundle bundle = new Bundle();
+        com.baidu.sapi2.share.b.b(g.context, g.loginShareStrategy(), shareModel);
+        bundle.putParcelable(a, shareModel);
+        if (h.k() != null) {
+            bundle.putString(b, com.baidu.sapi2.share.a.a(g.context, h.k().toString()));
+        }
+        bundle.putSerializable(c, g.environment);
+        obtain.writeBundle(bundle);
+        return obtain;
     }
 }

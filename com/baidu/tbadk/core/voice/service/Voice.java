@@ -5,23 +5,23 @@ import android.os.Parcelable;
 /* loaded from: classes.dex */
 public class Voice implements Parcelable {
     public static final Parcelable.Creator<Voice> CREATOR = new i();
-    private String a;
-    private int b;
+    private int duration;
+    private String name;
 
-    public String a() {
-        return this.a;
+    public String getName() {
+        return this.name;
     }
 
-    public void a(String str) {
-        this.a = str;
+    public void setName(String str) {
+        this.name = str;
     }
 
-    public int b() {
-        return this.b;
+    public int getDuration() {
+        return this.duration;
     }
 
-    public void a(int i) {
-        this.b = i;
+    public void setDuration(int i) {
+        this.duration = i;
     }
 
     @Override // android.os.Parcelable
@@ -31,7 +31,7 @@ public class Voice implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeLong(this.b);
-        parcel.writeString(this.a);
+        parcel.writeLong(this.duration);
+        parcel.writeString(this.name);
     }
 }

@@ -1,15 +1,11 @@
 package com.baidu.tieba.account.forbid;
 
-import com.baidu.gson.annotations.SerializedName;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class ForbidTplData implements Serializable {
+public class ForbidTplData extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
     private static final long serialVersionUID = -2159666579341742989L;
-    @SerializedName("error")
     public k error;
-    @SerializedName("reason")
     public String[] reason = new String[0];
-    @SerializedName("type")
     public int type = 0;
 
     public ForbidTplData() {

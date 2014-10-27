@@ -1,7 +1,7 @@
 package com.baidu.tieba.switchs.features;
 
-import com.baidu.adp.lib.a.a;
-import com.baidu.adp.lib.a.f;
+import com.baidu.adp.lib.b.a;
+import com.baidu.adp.lib.b.f;
 /* loaded from: classes.dex */
 public class ImgLogSwitchStatic extends a {
     public static final String IMG_LOG = "img_log";
@@ -9,17 +9,36 @@ public class ImgLogSwitchStatic extends a {
     public static final int ON_TYPE = 0;
 
     static {
-        f.a().a(ImgLogSwitchStatic.class);
+        f.db().d(ImgLogSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.a.a
+    @Override // com.baidu.adp.lib.b.a
     public void changeSettingByType(int i) {
     }
 
-    @Override // com.baidu.adp.lib.a.a
-    protected void initData() {
-        this.mDefaultType = 1;
-        this.mName = IMG_LOG;
+    @Override // com.baidu.adp.lib.b.a
+    protected String getName() {
+        return IMG_LOG;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int getDefaultType() {
+        return 1;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int getOffType() {
+        return 1;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] getCrashKeys() {
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int getMaxCrashTimes() {
+        return 10;
     }
 }

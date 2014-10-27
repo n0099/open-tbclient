@@ -1,25 +1,22 @@
 package com.baidu.tbadk.core.view;
 
 import android.view.View;
+import android.widget.AbsListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ad implements View.OnClickListener {
-    final /* synthetic */ UserPhotoLayout a;
-    private final int b;
+public class ad implements AbsListView.RecyclerListener {
+    private int mId;
 
-    private ad(UserPhotoLayout userPhotoLayout, int i) {
-        this.a = userPhotoLayout;
-        this.b = i;
+    public ad(int i) {
+        this.mId = 0;
+        this.mId = i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ad(UserPhotoLayout userPhotoLayout, int i, ad adVar) {
-        this(userPhotoLayout, i);
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (UserPhotoLayout.a(this.a) != null) {
-            UserPhotoLayout.a(this.a).a(this.b);
+    @Override // android.widget.AbsListView.RecyclerListener
+    public void onMovedToScrapHeap(View view) {
+        View findViewById = view.findViewById(this.mId);
+        if (findViewById != null && (findViewById instanceof UserIconBox)) {
+            ((UserIconBox) findViewById).a(null, 0, 0, 0, 0);
         }
     }
 }

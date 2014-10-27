@@ -5,7 +5,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ac;
 /* loaded from: classes.dex */
 public class c {
     public static void a(String str, String str2, d dVar) {
@@ -15,56 +15,56 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static AccountData b(String str, String str2) {
-        ae aeVar;
-        String h;
+    public static AccountData A(String str, String str2) {
+        ac acVar;
+        String lA;
         try {
             StringBuilder sb = new StringBuilder(32);
             sb.append(TbConfig.LOGIN_FULL_ADDRESS);
-            aeVar = new ae(sb.toString());
-            aeVar.a("un", str);
-            aeVar.a("passwd", str2);
-            aeVar.a("isphone", "0");
-            aeVar.a("channel_id", TbadkApplication.m252getInst().getPushChannelId());
-            aeVar.a("channel_uid", TbadkApplication.m252getInst().getPushChannelUserId());
-            aeVar.a().a().a().d = true;
-            aeVar.a().a().d = false;
-            aeVar.a().a().c = false;
-            h = aeVar.h();
+            acVar = new ac(sb.toString());
+            acVar.k("un", str);
+            acVar.k("passwd", str2);
+            acVar.k("isphone", "0");
+            acVar.k("channel_id", TbadkApplication.m251getInst().getPushChannelId());
+            acVar.k("channel_uid", TbadkApplication.m251getInst().getPushChannelUserId());
+            acVar.mc().na().nd().Gl = true;
+            acVar.mc().na().mIsNeedAddCommenParam = false;
+            acVar.mc().na().mIsUseCurrentBDUSS = false;
+            lA = acVar.lA();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (aeVar.a().b().b() && h != null) {
+        if (acVar.mc().nb().jq() && lA != null) {
             com.baidu.tbadk.core.data.j jVar = new com.baidu.tbadk.core.data.j();
-            jVar.a(h);
-            String userId = jVar.a().getUserId();
+            jVar.parserJson(lA);
+            String userId = jVar.getUser().getUserId();
             if (userId == null || userId.length() <= 0) {
                 return null;
             }
             AccountData accountData = new AccountData();
-            accountData.setAccount(jVar.a().getUserName());
-            if (jVar.a().getPassword() != null) {
-                accountData.setPassword(jVar.a().getPassword());
+            accountData.setAccount(jVar.getUser().getUserName());
+            if (jVar.getUser().getPassword() != null) {
+                accountData.setPassword(jVar.getUser().getPassword());
             } else {
                 accountData.setPassword(str2);
             }
-            accountData.setID(jVar.a().getUserId());
-            accountData.setBDUSS(jVar.a().getBDUSS());
-            accountData.setPortrait(jVar.a().getPortrait());
+            accountData.setID(jVar.getUser().getUserId());
+            accountData.setBDUSS(jVar.getUser().getBDUSS());
+            accountData.setPortrait(jVar.getUser().getPortrait());
             accountData.setIsActive(1);
-            if (jVar.b() != null) {
-                accountData.setTbs(jVar.b().getTbs());
+            if (jVar.jZ() != null) {
+                accountData.setTbs(jVar.jZ().getTbs());
                 return accountData;
             }
             return accountData;
         }
-        if (aeVar.b()) {
-            switch (aeVar.c()) {
+        if (acVar.mf()) {
+            switch (acVar.mg()) {
                 case 1:
                 case 2:
                 case 5:
-                    aeVar.f();
-                    ReloginManager.a().a((AccountData) null);
+                    acVar.dM();
+                    ReloginManager.lf().d(null);
                     break;
             }
             return null;

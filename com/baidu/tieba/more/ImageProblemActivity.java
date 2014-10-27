@@ -4,47 +4,48 @@ import android.os.Bundle;
 import android.view.View;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.atomData.ImageProblemActivityConfig;
 /* loaded from: classes.dex */
 public class ImageProblemActivity extends BaseActivity {
-    w a;
-    t b;
-    s c;
+    w bqE;
+    t bqF;
+    s bqG;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(com.baidu.tbadk.core.atomData.af.class, ImageProblemActivity.class);
+        TbadkApplication.m251getInst().RegisterIntent(ImageProblemActivityConfig.class, ImageProblemActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.b = new t(this);
-        this.a = new w(this, this.b);
+        this.bqF = new t(this);
+        this.bqE = new w(this, this.bqF);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.c != null) {
-            this.c.cancel();
-            this.c = null;
+        if (this.bqG != null) {
+            this.bqG.cancel();
+            this.bqG = null;
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.a.a()) {
-            if (this.c == null) {
-                this.a.a().setText(getResources().getText(com.baidu.tieba.x.stop));
-                this.c = new s(this, null);
-                this.c.execute(new Object[0]);
+        if (view == this.bqE.UK()) {
+            if (this.bqG == null) {
+                this.bqE.UK().setText(getResources().getText(com.baidu.tieba.y.stop));
+                this.bqG = new s(this, null);
+                this.bqG.execute(new Object[0]);
                 return;
             }
-            this.a.a().setText(getResources().getText(com.baidu.tieba.x.diagnose));
-            if (this.c != null) {
-                this.c.cancel();
-                this.c = null;
+            this.bqE.UK().setText(getResources().getText(com.baidu.tieba.y.diagnose));
+            if (this.bqG != null) {
+                this.bqG.cancel();
+                this.bqG = null;
             }
         }
     }
@@ -52,6 +53,6 @@ public class ImageProblemActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.a.a(i);
+        this.bqE.onChangeSkinType(i);
     }
 }

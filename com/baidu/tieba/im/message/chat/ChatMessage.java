@@ -19,6 +19,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a {
     private int customGroupType;
     private com.baidu.tbadk.gif.a gifInfo;
     private String groupId;
+    private boolean hasRead;
     public boolean hasRepeat;
     private int height;
     private int isFriend;
@@ -105,15 +106,15 @@ public abstract class ChatMessage extends TbSocketMessage implements a {
                 int optInt = jSONObject.optInt("size_width");
                 int optInt2 = jSONObject.optInt("size_height");
                 com.baidu.tbadk.gif.a aVar = new com.baidu.tbadk.gif.a();
-                aVar.a = false;
-                aVar.b = optString;
-                aVar.c = optString2;
-                aVar.d = optString3;
-                aVar.e = optString4;
-                aVar.f = optInt;
-                aVar.g = optInt2;
-                aVar.h = optString5;
-                aVar.i = optString6;
+                aVar.Te = false;
+                aVar.Tf = optString;
+                aVar.Tg = optString2;
+                aVar.Th = optString3;
+                aVar.Ti = optString4;
+                aVar.Tj = optInt;
+                aVar.Tk = optInt2;
+                aVar.mPackageName = optString5;
+                aVar.Tl = optString6;
                 this.gifInfo = aVar;
                 return aVar;
             }
@@ -306,6 +307,14 @@ public abstract class ChatMessage extends TbSocketMessage implements a {
 
     public void setCustomGroupType(int i) {
         this.customGroupType = i;
+    }
+
+    public boolean isHasRead() {
+        return this.hasRead;
+    }
+
+    public void setHasRead(boolean z) {
+        this.hasRead = z;
     }
 
     @Override // com.baidu.adp.framework.client.socket.a

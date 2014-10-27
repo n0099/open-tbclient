@@ -15,88 +15,88 @@ import com.baidu.adp.widget.IndicatorView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PrivilegeTabContentView extends LinearLayout implements ViewPager.OnPageChangeListener {
-    private ViewPager a;
-    private boolean b;
-    private GridView c;
-    private int d;
-    private IndicatorView e;
-    private final Point f;
-    private com.baidu.tbadk.editortool.w g;
-    private int h;
+    private ViewPager Ct;
+    private IndicatorView RA;
+    private final Point RB;
+    private com.baidu.tbadk.editortool.w RC;
+    private boolean Rs;
+    private GridView Ry;
+    private int Rz;
+    private int amx;
 
     public PrivilegeTabContentView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.d = -1;
-        this.f = new Point();
-        this.g = null;
-        this.h = 0;
-        a(context);
+        this.Rz = -1;
+        this.RB = new Point();
+        this.RC = null;
+        this.amx = 0;
+        init(context);
     }
 
     public PrivilegeTabContentView(Context context) {
         super(context);
-        this.d = -1;
-        this.f = new Point();
-        this.g = null;
-        this.h = 0;
-        a(context);
+        this.Rz = -1;
+        this.RB = new Point();
+        this.RC = null;
+        this.amx = 0;
+        init(context);
     }
 
-    private void a(Context context) {
+    private void init(Context context) {
         setOrientation(1);
-        com.baidu.adp.lib.e.b.a().a(context, com.baidu.tieba.v.privilege_tab_content, this, true);
-        this.a = (ViewPager) findViewById(com.baidu.tieba.u.privilege_tab_viewpager);
-        this.a.setFadingEdgeLength(0);
-        this.a.setOnPageChangeListener(this);
-        this.e = (IndicatorView) findViewById(com.baidu.tieba.u.privilege_tab_indicator);
+        com.baidu.adp.lib.g.b.ek().a(context, com.baidu.tieba.w.privilege_tab_content, this, true);
+        this.Ct = (ViewPager) findViewById(com.baidu.tieba.v.privilege_tab_viewpager);
+        this.Ct.setFadingEdgeLength(0);
+        this.Ct.setOnPageChangeListener(this);
+        this.RA = (IndicatorView) findViewById(com.baidu.tieba.v.privilege_tab_indicator);
     }
 
-    public void a(ai aiVar) {
+    public void a(an anVar) {
         int i;
         int i2 = 0;
-        if (aiVar != null) {
-            int a = aiVar.a();
-            if (this.a.getChildCount() <= 0 || this.h != a) {
-                this.a.setAdapter(null);
-                this.h = a;
-                int e = aiVar.e();
-                int f = aiVar.f();
-                if (a != 0 && e != 0 && f != 0) {
-                    int i3 = a / (e * f);
-                    int i4 = a % (e * f) == 0 ? i3 : i3 + 1;
+        if (anVar != null) {
+            int count = anVar.getCount();
+            if (this.Ct.getChildCount() <= 0 || this.amx != count) {
+                this.Ct.setAdapter(null);
+                this.amx = count;
+                int Cr = anVar.Cr();
+                int row = anVar.getRow();
+                if (count != 0 && Cr != 0 && row != 0) {
+                    int i3 = count / (Cr * row);
+                    int i4 = count % (Cr * row) == 0 ? i3 : i3 + 1;
                     if (i4 > 1) {
-                        this.e.setVisibility(0);
-                        this.e.setCount(i4);
-                        this.e.setPosition(0.0f);
+                        this.RA.setVisibility(0);
+                        this.RA.setCount(i4);
+                        this.RA.setPosition(0.0f);
                     } else {
-                        this.e.setVisibility(4);
+                        this.RA.setVisibility(4);
                     }
                     ArrayList arrayList = new ArrayList();
                     for (int i5 = 0; i5 < i4; i5++) {
                         GridView gridView = new GridView(getContext());
-                        gridView.setNumColumns(e);
-                        gridView.setVerticalSpacing(aiVar.g());
+                        gridView.setNumColumns(Cr);
+                        gridView.setVerticalSpacing(anVar.Cs());
                         gridView.setGravity(17);
-                        gridView.setHorizontalSpacing(aiVar.h());
-                        gridView.setSelector(com.baidu.tieba.r.transparent);
+                        gridView.setHorizontalSpacing(anVar.Ct());
+                        gridView.setSelector(com.baidu.tieba.s.transparent);
                         gridView.setSelection(-1);
                         if (i5 < i4 - 1) {
-                            i = e * f;
+                            i = Cr * row;
                         } else {
-                            i = a - ((e * f) * (i4 - 1));
+                            i = count - ((Cr * row) * (i4 - 1));
                         }
-                        gridView.setAdapter((ListAdapter) new ag(this, getContext(), i, i5 * e * f, aiVar.d()));
+                        gridView.setAdapter((ListAdapter) new al(this, getContext(), i, i5 * Cr * row, anVar.Cq()));
                         arrayList.add(gridView);
                     }
-                    this.a.setAdapter(new ah(this, arrayList));
+                    this.Ct.setAdapter(new am(this, arrayList));
                     return;
                 }
                 return;
             }
             while (true) {
                 int i6 = i2;
-                if (i6 < this.a.getChildCount()) {
-                    View childAt = this.a.getChildAt(i6);
+                if (i6 < this.Ct.getChildCount()) {
+                    View childAt = this.Ct.getChildAt(i6);
                     if (childAt instanceof GridView) {
                         ((BaseAdapter) ((GridView) childAt).getAdapter()).notifyDataSetChanged();
                     }
@@ -108,14 +108,14 @@ public class PrivilegeTabContentView extends LinearLayout implements ViewPager.O
         }
     }
 
-    private void a() {
-        if (this.b && this.c != null) {
-            this.c.setSelection(-1);
-            if (this.d != -1) {
-                ((LinearLayout) this.c.getChildAt(this.d - this.c.getFirstVisiblePosition())).getChildAt(0).setSelected(false);
+    private void rt() {
+        if (this.Rs && this.Ry != null) {
+            this.Ry.setSelection(-1);
+            if (this.Rz != -1) {
+                ((LinearLayout) this.Ry.getChildAt(this.Rz - this.Ry.getFirstVisiblePosition())).getChildAt(0).setSelected(false);
             }
-            this.d = -1;
-            this.c = null;
+            this.Rz = -1;
+            this.Ry = null;
         }
     }
 
@@ -126,15 +126,15 @@ public class PrivilegeTabContentView extends LinearLayout implements ViewPager.O
         int y = (int) motionEvent.getY();
         switch (action) {
             case 0:
-                this.f.set(x, y);
+                this.RB.set(x, y);
                 break;
             case 1:
             case 3:
-                a();
+                rt();
                 break;
             case 2:
-                this.f.set(x, y);
-                if (this.b && this.c != null) {
+                this.RB.set(x, y);
+                if (this.Rs && this.Ry != null) {
                     return true;
                 }
                 break;
@@ -144,8 +144,8 @@ public class PrivilegeTabContentView extends LinearLayout implements ViewPager.O
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrolled(int i, float f, int i2) {
-        if (this.e != null) {
-            this.e.setPosition(i + f);
+        if (this.RA != null) {
+            this.RA.setPosition(i + f);
         }
     }
 
@@ -157,13 +157,12 @@ public class PrivilegeTabContentView extends LinearLayout implements ViewPager.O
     public void onPageScrollStateChanged(int i) {
     }
 
-    public void a(int i) {
-        setBackgroundColor(getResources().getColor(i == 1 ? com.baidu.tieba.r.editor_tool_container_bg_1 : com.baidu.tieba.r.editor_tool_container_bg));
+    public void onChangeSkinType(int i) {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.a.getChildCount()) {
-                View childAt = this.a.getChildAt(i3);
+            if (i3 < this.Ct.getChildCount()) {
+                View childAt = this.Ct.getChildAt(i3);
                 if (childAt instanceof GridView) {
                     ((BaseAdapter) ((GridView) childAt).getAdapter()).notifyDataSetChanged();
                 }
@@ -175,6 +174,6 @@ public class PrivilegeTabContentView extends LinearLayout implements ViewPager.O
     }
 
     public void setOnDataSelected(com.baidu.tbadk.editortool.w wVar) {
-        this.g = wVar;
+        this.RC = wVar;
     }
 }

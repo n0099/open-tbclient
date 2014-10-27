@@ -8,164 +8,163 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.editortool.w;
-import com.baidu.tieba.data.an;
-import com.baidu.tieba.data.au;
+import com.baidu.tieba.data.ak;
+import com.baidu.tieba.data.ar;
 import com.baidu.tieba.editortool.PbEditor;
-import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.x;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class i extends l {
-    private TextView P;
-    private SubPbLoadPreviousView Q;
-    private View R;
-    private NavigationBar S;
-    protected View a;
+    private TextView bAm;
+    private SubPbLoadPreviousView bAn;
+    private View bAo;
+    protected View bro;
+    private NavigationBar mNavigationBar;
 
     public i(BaseActivity baseActivity, boolean z, View.OnClickListener onClickListener, View.OnClickListener onClickListener2, View.OnClickListener onClickListener3, View.OnClickListener onClickListener4, View.OnClickListener onClickListener5) {
         super(baseActivity, z, onClickListener, onClickListener2, onClickListener3, onClickListener4, onClickListener5);
-        this.P = null;
-        this.Q = null;
-        this.R = null;
-        this.S = null;
-        this.a = null;
-        this.Q = (SubPbLoadPreviousView) this.c.findViewById(u.sub_pb_load_previous);
-        this.S = (NavigationBar) this.b.findViewById(u.view_navigation_bar);
-        this.a = this.S.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.P = this.S.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, baseActivity.getResources().getString(x.view_subject), onClickListener);
+        this.bAm = null;
+        this.bAn = null;
+        this.bAo = null;
+        this.mNavigationBar = null;
+        this.bro = null;
+        this.bAn = (SubPbLoadPreviousView) this.bAq.findViewById(v.sub_pb_load_previous);
+        this.mNavigationBar = (NavigationBar) this.Xi.findViewById(v.view_navigation_bar);
+        this.bro = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.bAm = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, baseActivity.getResources().getString(y.view_subject), onClickListener);
     }
 
     @Override // com.baidu.tieba.pb.sub.l
-    public boolean a() {
-        if (this.M.p()) {
-            this.M.f();
-            this.M.o();
-            this.s.setEnabled(true);
+    public boolean YS() {
+        if (this.azA.isVisible()) {
+            this.azA.Cc();
+            this.azA.hide();
+            this.bAw.setEnabled(true);
         } else {
-            this.f.finish();
+            this.mActivity.finish();
         }
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.pb.sub.l
-    public void a(int i, View view) {
+    public void b(int i, View view) {
         new Handler().postDelayed(new j(this, i, view), 300L);
     }
 
     @Override // com.baidu.tieba.pb.sub.l
-    protected void b() {
-        this.M = (PbEditor) this.b.findViewById(u.sub_pb_editor);
-        this.M.a(true);
-        this.M.e();
-        this.s.setEnabled(false);
+    protected void YT() {
+        this.azA = (PbEditor) this.Xi.findViewById(v.sub_pb_editor);
+        this.azA.au(true);
+        this.azA.Cb();
+        this.bAw.setEnabled(false);
     }
 
     @Override // com.baidu.tieba.pb.sub.l
-    public void a(w wVar) {
+    public void setOnActionListener(w wVar) {
         if (wVar != null) {
-            this.M.setOnActionListener(new k(this, wVar));
+            this.azA.setOnActionListener(new k(this, wVar));
         }
     }
 
-    public TextView c() {
-        return this.P;
+    public TextView YU() {
+        return this.bAm;
     }
 
-    private NavigationBar E() {
-        this.S = (NavigationBar) this.b.findViewById(u.view_navigation_bar);
-        return this.S;
+    private NavigationBar getNavigationBar() {
+        this.mNavigationBar = (NavigationBar) this.Xi.findViewById(v.view_navigation_bar);
+        return this.mNavigationBar;
     }
 
-    private SubPbLoadPreviousView F() {
-        this.Q = (SubPbLoadPreviousView) this.c.findViewById(u.sub_pb_load_previous);
-        return this.Q;
+    private SubPbLoadPreviousView YV() {
+        this.bAn = (SubPbLoadPreviousView) this.bAq.findViewById(v.sub_pb_load_previous);
+        return this.bAn;
     }
 
-    private View G() {
-        this.R = this.c.findViewById(u.sub_pb_load_previous_top);
-        return this.R;
+    private View YW() {
+        this.bAo = this.bAq.findViewById(v.sub_pb_load_previous_top);
+        return this.bAo;
     }
 
-    public void d() {
-        F().a();
-        G().setVisibility(0);
+    public void YX() {
+        YV().XA();
+        YW().setVisibility(0);
     }
 
-    public void e() {
-        F().b();
-        G().setVisibility(0);
+    public void YY() {
+        YV().YJ();
+        YW().setVisibility(0);
     }
 
-    public void f() {
-        F().c();
-        G().setVisibility(8);
-        this.c.setPadding(0, 0, 0, 0);
-        ((h) this.e).d(false);
+    public void YZ() {
+        YV().hide();
+        YW().setVisibility(8);
+        this.bAq.setPadding(0, 0, 0, 0);
+        ((h) this.bAr).eo(false);
     }
 
-    public void g() {
-        F().d();
-        F().setVisibility(0);
-        this.c.setPadding(0, 0, 0, 0);
-        ((h) this.e).d(true);
-    }
-
-    @Override // com.baidu.tieba.pb.sub.l
-    protected void a(View.OnClickListener onClickListener) {
-        this.e = new h(this.f, onClickListener);
-        this.e.a(this.A);
-        this.d.setAdapter((ListAdapter) this.e);
+    public void Za() {
+        YV().Ba();
+        YV().setVisibility(0);
+        this.bAq.setPadding(0, 0, 0, 0);
+        ((h) this.bAr).eo(true);
     }
 
     @Override // com.baidu.tieba.pb.sub.l
-    public void a(int i) {
-        super.a(i);
-        E().c(i);
-        F().a(i);
-        this.f.getLayoutMode().a(G());
+    protected void v(View.OnClickListener onClickListener) {
+        this.bAr = new h(this.mActivity, onClickListener);
+        this.bAr.u(this.bzK);
+        this.vl.setAdapter((ListAdapter) this.bAr);
     }
 
     @Override // com.baidu.tieba.pb.sub.l
-    protected void h() {
-        this.b = com.baidu.adp.lib.e.b.a().a(this.f, v.new_sub_pb_reply_layout, null);
-        this.c = com.baidu.adp.lib.e.b.a().a(this.f, v.new_sub_pb_reply_head, null);
-        F().setOnClickListener(this.y);
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        getNavigationBar().onChangeSkinType(i);
+        YV().changeSkinType(i);
+        this.mActivity.getLayoutMode().h(YW());
     }
 
     @Override // com.baidu.tieba.pb.sub.l
-    protected int a(au auVar) {
-        if (auVar == null) {
+    protected void Ck() {
+        this.Xi = com.baidu.adp.lib.g.b.ek().inflate(this.mActivity, com.baidu.tieba.w.new_sub_pb_reply_layout, null);
+        this.bAq = com.baidu.adp.lib.g.b.ek().inflate(this.mActivity, com.baidu.tieba.w.new_sub_pb_reply_head, null);
+        YV().setOnClickListener(this.aEF);
+    }
+
+    @Override // com.baidu.tieba.pb.sub.l
+    protected int c(ar arVar) {
+        if (arVar == null) {
             return 0;
         }
-        int f = auVar.f() - (auVar.h() * auVar.g());
-        if (f < 0) {
-            f = 0;
+        int totalCount = arVar.getTotalCount() - (arVar.getCurrentPage() * arVar.Av());
+        if (totalCount < 0) {
+            totalCount = 0;
         }
-        return f;
+        return totalCount;
     }
 
     @Override // com.baidu.tieba.pb.sub.l
-    public void a(String str) {
+    public void hc(String str) {
         h hVar;
-        int a;
-        if ((this.e instanceof h) && (a = (hVar = (h) this.e).a(str)) > -1) {
-            this.d.setSelection(a + 1);
-            an anVar = (an) hVar.getItem(a);
-            if (anVar != null) {
-                String userName = anVar.g().getUserName();
+        int gZ;
+        if ((this.bAr instanceof h) && (gZ = (hVar = (h) this.bAr).gZ(str)) > -1) {
+            this.vl.setSelection(gZ + 1);
+            ak akVar = (ak) hVar.getItem(gZ);
+            if (akVar != null) {
+                String userName = akVar.getAuthor().getUserName();
                 if (userName == null) {
                     userName = "";
                 }
-                this.M.getEditText().setText(this.f.getResources().getString(x.reply_sub_floor).replace("%s", userName));
-                this.M.getEditText().setSelection(this.M.getEditText().getText().length());
+                this.azA.getEditText().setText(this.mActivity.getResources().getString(y.reply_sub_floor).replace("%s", userName));
+                this.azA.getEditText().setSelection(this.azA.getEditText().getText().length());
             }
-            if (TbadkApplication.m252getInst().getSkinType() == 1) {
-                hVar.a(str, this.f.getResources().getColor(com.baidu.tieba.r.c_393d47));
+            if (TbadkApplication.m251getInst().getSkinType() == 1) {
+                hVar.L(str, this.mActivity.getResources().getColor(com.baidu.tieba.s.c_393d47));
             } else {
-                hVar.a(str, this.f.getResources().getColor(com.baidu.tieba.r.c_fdfdf1));
+                hVar.L(str, this.mActivity.getResources().getColor(com.baidu.tieba.s.c_fdfdf1));
             }
-            this.d.invalidate();
+            this.vl.invalidate();
         }
     }
 }

@@ -5,7 +5,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.AnchorInfo;
 /* loaded from: classes.dex */
-public class AnchorInfoData implements Serializable {
+public class AnchorInfoData extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
     private static final long serialVersionUID = 1;
     private String portrait = "";
     private String name = "";
@@ -118,7 +118,7 @@ public class AnchorInfoData implements Serializable {
                 this.authorName = jSONObject.getString("author_name");
                 this.listeners = jSONObject.getInt("listeners");
                 this.likers = jSONObject.getInt("likers");
-                this.group_id = jSONObject.getInt(com.baidu.tbadk.core.frameworkData.a.GROUP_ID);
+                this.group_id = jSONObject.getInt("group_id");
                 this.intro = jSONObject.getString("intro");
                 this.publisherPortrait = jSONObject.getString("publisherPortrait");
             } catch (JSONException e) {

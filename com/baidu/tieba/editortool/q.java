@@ -1,86 +1,52 @@
 package com.baidu.tieba.editortool;
 
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q extends BaseAdapter {
-    final /* synthetic */ EditorToolComponetContainer a;
-    private final WriteImagesInfo b;
+public class q implements View.OnClickListener {
+    final /* synthetic */ EditorToolComponetContainer aqU;
 
-    public q(EditorToolComponetContainer editorToolComponetContainer, WriteImagesInfo writeImagesInfo) {
-        this.a = editorToolComponetContainer;
-        this.b = writeImagesInfo;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public q(EditorToolComponetContainer editorToolComponetContainer) {
+        this.aqU = editorToolComponetContainer;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.b == null) {
-            return 0;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tbadk.editortool.w wVar;
+        com.baidu.tbadk.editortool.w wVar2;
+        com.baidu.tbadk.editortool.w wVar3;
+        com.baidu.tbadk.editortool.w wVar4;
+        com.baidu.tbadk.editortool.w wVar5;
+        com.baidu.tbadk.editortool.w wVar6;
+        com.baidu.tbadk.editortool.w wVar7;
+        com.baidu.tbadk.editortool.w wVar8;
+        if (view == this.aqU.aqw.getmFace()) {
+            wVar8 = this.aqU.RC;
+            wVar8.handleAction(2, null);
+        } else if (view == this.aqU.aqw.getmImage() || view == this.aqU.aqw.getmIVImage()) {
+            this.aqU.aqw.setmImagetype(2);
+            wVar = this.aqU.RC;
+            wVar.handleAction(23, null);
+        } else if (view == this.aqU.aqw.getmCamera() || view == this.aqU.aqw.getmIVCamera()) {
+            this.aqU.aqw.setmImagetype(1);
+            wVar2 = this.aqU.RC;
+            wVar2.handleAction(22, null);
+        } else if (view == this.aqU.aqw.getmAt()) {
+            wVar7 = this.aqU.RC;
+            wVar7.handleAction(0, null);
+        } else if (view == this.aqU.aqw.getmPrivilege()) {
+            wVar6 = this.aqU.RC;
+            wVar6.handleAction(44, null);
+        } else if (view == this.aqU.aqw.getBaobao()) {
+            wVar5 = this.aqU.RC;
+            wVar5.handleAction(48, null);
+        } else if (view == this.aqU.aqw.getRecordButton()) {
+            wVar4 = this.aqU.RC;
+            wVar4.handleAction(4, null);
+        } else if (view == this.aqU.aqw.getLocation()) {
+            wVar3 = this.aqU.RC;
+            wVar3.handleAction(52, null);
         }
-        return this.b.size();
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return this.b.getChosedFiles().get(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        int i2;
-        int i3;
-        com.baidu.tbadk.img.e eVar;
-        FrameLayout frameLayout = view == null ? (FrameLayout) com.baidu.adp.lib.e.b.a().a(this.a.a, com.baidu.tieba.v.editor_muti_image_item, null) : view;
-        int skinType = TbadkApplication.m252getInst().getSkinType();
-        ImageFileInfo imageFileInfo = this.b.getChosedFiles().get(i);
-        int measuredWidth = viewGroup.getMeasuredWidth();
-        i2 = this.a.t;
-        int i4 = measuredWidth - (i2 * 2);
-        i3 = this.a.u;
-        int i5 = i4 + i3;
-        FrameLayout frameLayout2 = (FrameLayout) frameLayout;
-        LinearLayout linearLayout = (LinearLayout) frameLayout2.findViewById(com.baidu.tieba.u.iv_container);
-        FrameLayout frameLayout3 = (FrameLayout) frameLayout2.findViewById(com.baidu.tieba.u.shadow_container);
-        TbImageView tbImageView = (TbImageView) frameLayout2.findViewById(com.baidu.tieba.u.iv);
-        if (i5 > 0) {
-            int paddingRight = (i5 / 3) - linearLayout.getPaddingRight();
-            int measuredHeight = viewGroup.getMeasuredHeight() - linearLayout.getPaddingTop();
-            int i6 = skinType == 1 ? com.baidu.tieba.t.bg_add_photo_1 : com.baidu.tieba.t.bg_add_photo;
-            int i7 = skinType == 1 ? com.baidu.tieba.t.bg_add_photo_foregroundselector_1 : com.baidu.tieba.t.bg_add_photo_foregroundselector;
-            frameLayout3.setBackgroundResource(i6);
-            frameLayout3.setForeground(this.a.getResources().getDrawable(i7));
-            imageFileInfo.clearPageActions();
-            imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.a(paddingRight, measuredHeight));
-            tbImageView.setTag(imageFileInfo.toCachedKey(true));
-            eVar = this.a.y;
-            if (eVar.a(imageFileInfo, new r(this, viewGroup), true) != null) {
-                tbImageView.invalidate();
-            }
-        }
-        frameLayout2.setLayoutParams(new ViewGroup.LayoutParams(i5 / 3, -1));
-        frameLayout2.setOnClickListener(new s(this, viewGroup));
-        ImageView imageView = (ImageView) frameLayout2.findViewById(com.baidu.tieba.u.delete);
-        imageView.setImageResource(skinType == 1 ? com.baidu.tieba.t.btn_add_photo_close_n_1 : com.baidu.tieba.t.btn_add_photo_close_n);
-        imageView.setOnClickListener(new t(this, frameLayout2));
-        return frameLayout2;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str) {
-        new u(this, str).execute(new Void[0]);
     }
 }

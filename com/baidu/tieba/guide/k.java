@@ -5,21 +5,21 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends Handler {
-    final /* synthetic */ j a;
+    final /* synthetic */ j aLn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.a = jVar;
+        this.aLn = jVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         switch (message.what) {
             case 0:
-                this.a.a();
+                this.aLn.Iz();
                 return;
             case 1:
-                this.a.g();
+                this.aLn.Iy();
                 return;
             default:
                 return;

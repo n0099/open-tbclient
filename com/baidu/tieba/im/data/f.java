@@ -1,35 +1,77 @@
 package com.baidu.tieba.im.data;
 
-import com.baidu.tbadk.core.data.LiveCardData;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private LiveCardData a;
-    private List<g> b = new ArrayList();
-    private int c;
+    private int aUT;
+    private int aUU;
+    private long aUV;
+    private String content;
+    private long create_time;
+    private String forum_id;
+    private String id;
+    private int level;
+    private String name;
+    private List<f> sub_menu = new ArrayList();
 
-    public LiveCardData a() {
-        return this.a;
+    public String getId() {
+        return this.id;
     }
 
-    public void a(LiveCardData liveCardData) {
-        this.a = liveCardData;
+    public void setId(String str) {
+        this.id = str;
     }
 
-    public List<g> b() {
-        return this.b;
+    public void setForum_id(String str) {
+        this.forum_id = str;
     }
 
-    public void a(List<g> list) {
-        this.b = list;
+    public void setLevel(int i) {
+        this.level = i;
     }
 
-    public void a(int i) {
-        this.c = i;
+    public void fx(int i) {
+        this.aUT = i;
     }
 
-    public boolean c() {
-        return this.c == 1;
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String str) {
+        this.name = str;
+    }
+
+    public int Mo() {
+        return this.aUU;
+    }
+
+    public void fy(int i) {
+        this.aUU = i;
+    }
+
+    public void setCreate_time(long j) {
+        this.create_time = j;
+    }
+
+    public void M(long j) {
+        this.aUV = j;
+    }
+
+    public String getContent() {
+        return this.content;
+    }
+
+    public void setContent(String str) {
+        this.content = str;
+    }
+
+    public List<f> Mp() {
+        return this.sub_menu;
+    }
+
+    public void Q(List<f> list) {
+        this.sub_menu = list;
     }
 }

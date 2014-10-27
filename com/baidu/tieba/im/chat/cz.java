@@ -1,22 +1,39 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.UserData;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 /* loaded from: classes.dex */
-class cz extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ PersonalChatActivity a;
-    private final /* synthetic */ UserData b;
+class cz implements com.baidu.adp.lib.guide.b {
+    final /* synthetic */ PersonalChatActivity aPI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cz(PersonalChatActivity personalChatActivity, UserData userData) {
-        this.a = personalChatActivity;
-        this.b = userData;
+    public cz(PersonalChatActivity personalChatActivity) {
+        this.aPI = personalChatActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: b */
-    public Boolean a() {
-        return Boolean.valueOf(com.baidu.tieba.im.chat.personaltalk.a.a().c(TbadkApplication.getCurrentAccount(), String.valueOf(this.b.getUserId())));
+    @Override // com.baidu.adp.lib.guide.b
+    public View a(LayoutInflater layoutInflater) {
+        return layoutInflater.inflate(com.baidu.tieba.w.stranger_tips, (ViewGroup) null);
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int dy() {
+        return 3;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int dz() {
+        return 16;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int getXOffset() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int getYOffset() {
+        return 0;
     }
 }

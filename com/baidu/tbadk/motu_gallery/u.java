@@ -12,39 +12,39 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class u {
-    private static u a = null;
-    private List<c> b = new ArrayList();
-    private List<Uri> c;
-    private String d;
-    private boolean e;
+    private static u WU = null;
+    private List<c> WV = new ArrayList();
+    private List<Uri> WW;
+    private String WX;
+    private boolean WY;
 
-    public static u a() {
-        if (a == null) {
-            a = new u();
+    public static u sM() {
+        if (WU == null) {
+            WU = new u();
         }
-        return a;
+        return WU;
     }
 
     private u() {
-        a(new ArrayList());
-        this.e = false;
+        q(new ArrayList());
+        this.WY = false;
     }
 
-    public int b() {
-        return this.b.size();
+    public int getCount() {
+        return this.WV.size();
     }
 
-    public int a(Uri uri) {
-        if (uri == null || this.b == null) {
+    public int e(Uri uri) {
+        if (uri == null || this.WV == null) {
             return -1;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.b.size()) {
+            if (i2 >= this.WV.size()) {
                 return -1;
             }
-            if (!this.b.get(i2).d.equals(uri)) {
+            if (!this.WV.get(i2).uri.equals(uri)) {
                 i = i2 + 1;
             } else {
                 return i2;
@@ -53,33 +53,33 @@ public class u {
     }
 
     public void a(c cVar) {
-        this.b.add(cVar);
+        this.WV.add(cVar);
     }
 
-    public void c() {
-        this.b.clear();
+    public void removeAll() {
+        this.WV.clear();
     }
 
-    public c a(int i) {
-        return this.b.get(i);
+    public c db(int i) {
+        return this.WV.get(i);
     }
 
-    public int a(Context context) {
-        return c(context).size();
+    public int A(Context context) {
+        return C(context).size();
     }
 
     public boolean a(Context context, Uri uri) {
         boolean z;
-        if (a(context) >= 10) {
+        if (A(context) >= 10) {
             return false;
         }
         try {
-            int dimension = (int) context.getResources().getDimension(com.baidu.tieba.s.jigsawSelectedImageWidth);
+            int dimension = (int) context.getResources().getDimension(com.baidu.tieba.t.jigsawSelectedImageWidth);
             if (b.b(context, uri, dimension, dimension) == null) {
-                y.a(com.baidu.tieba.x.open_error);
+                y.dc(com.baidu.tieba.y.open_error);
                 return false;
             }
-            Iterator<Uri> it = c(context).iterator();
+            Iterator<Uri> it = C(context).iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -92,75 +92,75 @@ public class u {
             if (z) {
                 return false;
             }
-            c(context).add(uri);
+            C(context).add(uri);
             return true;
         } catch (OtherException e) {
             e.printStackTrace();
-            y.a(com.baidu.tieba.x.open_error);
+            y.dc(com.baidu.tieba.y.open_error);
             return false;
         } catch (FileNotFoundException e2) {
             e2.printStackTrace();
-            y.a(com.baidu.tieba.x.open_error);
+            y.dc(com.baidu.tieba.y.open_error);
             return false;
         } catch (OutOfMemoryError e3) {
             e3.printStackTrace();
-            y.a(com.baidu.tieba.x.open_error);
+            y.dc(com.baidu.tieba.y.open_error);
             return false;
         }
     }
 
     public void b(Context context, Uri uri) {
-        c(context).remove(uri);
-        f(context);
+        C(context).remove(uri);
+        F(context);
     }
 
-    public void b(Context context) {
-        c(context).clear();
-        f(context);
+    public void B(Context context) {
+        C(context).clear();
+        F(context);
     }
 
-    private void a(List<Uri> list) {
-        this.c = list;
+    private void q(List<Uri> list) {
+        this.WW = list;
     }
 
-    public List<Uri> c(Context context) {
-        this.c.size();
-        return this.c;
+    public List<Uri> C(Context context) {
+        this.WW.size();
+        return this.WW;
     }
 
-    public int d(Context context) {
-        return c(context).size();
+    public int D(Context context) {
+        return C(context).size();
     }
 
-    public void a(String str) {
-        this.d = str;
+    public void dK(String str) {
+        this.WX = str;
     }
 
-    public String d() {
-        return this.d;
+    public String sN() {
+        return this.WX;
     }
 
-    public String e(Context context) {
-        return String.format(context.getResources().getString(com.baidu.tieba.x.jigsaw_selected_text), Integer.valueOf(d(context)), Integer.valueOf(10 - d(context)));
+    public String E(Context context) {
+        return String.format(context.getResources().getString(com.baidu.tieba.y.jigsaw_selected_text), Integer.valueOf(D(context)), Integer.valueOf(10 - D(context)));
     }
 
     public Bitmap a(Context context, c cVar, int i) {
         Bitmap bitmap;
         Bitmap bitmap2;
-        Uri parse = Uri.parse(String.valueOf(String.valueOf(MediaStore.Images.Media.EXTERNAL_CONTENT_URI)) + "/" + String.valueOf(cVar.c));
+        Uri parse = Uri.parse(String.valueOf(String.valueOf(MediaStore.Images.Media.EXTERNAL_CONTENT_URI)) + "/" + String.valueOf(cVar.Wb));
         try {
-            Bitmap a2 = b.a(context, parse, i, i);
-            if (a2 == null) {
+            Bitmap a = b.a(context, parse, i, i);
+            if (a == null) {
                 return null;
             }
             try {
-                int a3 = w.a(context, parse, false);
-                if (a3 != 0) {
+                int a2 = w.a(context, parse, false);
+                if (a2 != 0) {
                     Matrix matrix = new Matrix();
-                    matrix.setRotate(a3);
-                    return Bitmap.createBitmap(a2, 0, 0, a2.getWidth(), a2.getHeight(), matrix, true);
+                    matrix.setRotate(a2);
+                    return Bitmap.createBitmap(a, 0, 0, a.getWidth(), a.getHeight(), matrix, true);
                 }
-                return a2;
+                return a;
             } catch (Exception e) {
                 e.printStackTrace();
                 return bitmap2;
@@ -177,17 +177,17 @@ public class u {
         }
     }
 
-    public boolean e() {
-        boolean z = this.e;
-        this.e = false;
+    public boolean sO() {
+        boolean z = this.WY;
+        this.WY = false;
         return z;
     }
 
-    private void f(Context context) {
+    private void F(Context context) {
     }
 
-    public boolean b(Uri uri) {
-        for (Uri uri2 : this.c) {
+    public boolean f(Uri uri) {
+        for (Uri uri2 : this.WW) {
             if (uri2.equals(uri)) {
                 return true;
             }
@@ -195,10 +195,10 @@ public class u {
         return false;
     }
 
-    public Intent f() {
+    public Intent sP() {
         Intent intent = new Intent();
         ArrayList<String> arrayList = new ArrayList<>();
-        for (Uri uri : this.c) {
+        for (Uri uri : this.WW) {
             arrayList.add(uri.toString());
         }
         intent.putStringArrayListExtra("selected_uris", arrayList);

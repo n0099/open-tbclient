@@ -1,6 +1,6 @@
 package com.baidu.tieba.image;
 
-import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Configuration;
@@ -8,59 +8,51 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.animation.AlphaAnimation;
-import android.widget.FrameLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.m;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
-import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.x;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class ImageViewerActivity extends BaseActivity {
-    private FrameLayout D;
-    private String E;
-    private ProgressBar a = null;
-    private int b = 0;
-    private ArrayList<String> c = null;
-    private int d = -1;
-    private int e = -1;
-    private boolean f = false;
-    private String g = null;
-    private k h = null;
-    private TextView i = null;
-    private View j = null;
-    private TextView k = null;
-    private NavigationBar l = null;
-    private MultiImageView m = null;
-    private View.OnClickListener n = null;
-    private com.baidu.tbadk.core.view.a o = null;
-    private ViewPager.OnPageChangeListener p = null;
-    private AlphaAnimation q = null;
-    private boolean r = true;
-    private boolean s = false;
-    private j t = null;
-    private a u = null;
-    private long v = 0;
-    private HashMap<String, Boolean> w = null;
-    private String x = null;
-    private String y = null;
-    private String z = null;
-    private String A = null;
-    private boolean B = false;
-    private boolean C = false;
-    private boolean F = true;
+    private boolean NY;
+    private String NZ;
+    private boolean Ob;
+    private TextView aNq;
+    private MultiImageView bkA;
+    private k bkB;
+    private a bkC;
+    private HashMap<String, Boolean> bkE;
+    private String bkF;
+    private String bkG;
+    private String bkH;
+    private boolean bkI;
+    private String bkh;
+    private ArrayList<String> bkw;
+    private String bkx;
+    private l bkz;
+    private int bkv = 0;
+    private int mIndex = -1;
+    private int mq = -1;
+    private boolean bky = true;
+    private long bkD = 0;
+    private DialogInterface.OnClickListener aNs = new e(this);
+    private View.OnClickListener bkJ = new f(this);
+    private View.OnLongClickListener bkK = new g(this);
+    private com.baidu.tbadk.core.view.a bkL = new h(this);
+    private ViewPager.OnPageChangeListener bkM = new i(this);
 
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2010000, new d());
@@ -71,20 +63,30 @@ public class ImageViewerActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TbadkApplication.m252getInst().addRemoteActivity(this);
-        setContentView(v.image_activity_2);
-        a(bundle);
-        b();
-        a();
-        if (!this.B) {
-            String a = a(this.E);
-            if (a == null) {
-                this.l.setVisibility(8);
+        TbadkApplication.m251getInst().addRemoteActivity(this);
+        setContentView(w.image_activity_2);
+        d(bundle);
+        IF();
+        Fs();
+        if (!this.bkI) {
+            this.bkC = new a(this.bkw, this.bkG, this.bkh, gJ(this.bkx));
+            this.bkC.dv(this.bky);
+            this.bkC.a(new j(this));
+            this.bkC.RZ();
+        }
+    }
+
+    public void Oq() {
+        try {
+            byte[] currentImageData = this.bkA.getCurrentImageData();
+            if (currentImageData != null) {
+                this.bkz = new l(this, this.bkA.getCurrentImageUrl(), currentImageData);
+                this.bkz.execute(new String[0]);
+                showProgressBarWithOffset(0, 0);
+            } else {
+                showToast(getString(y.no_data));
             }
-            this.u = new a(this.c, this.z, this.y, a);
-            this.u.a(this.F);
-            this.u.a(new e(this));
-            this.u.a();
+        } catch (Exception e) {
         }
     }
 
@@ -92,54 +94,51 @@ public class ImageViewerActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.m.setBackgroundColor(ay.d(i));
+            this.bkA.setBackgroundColor(aw.by(i));
         } else {
-            this.m.setBackgroundColor(-16777216);
+            this.bkA.setBackgroundColor(-16777216);
         }
-        this.l.c(i);
     }
 
-    private void a() {
-        if (this.B) {
-            this.t = new j(this, null);
+    private void Fs() {
+        if (this.bkI) {
+            this.bkB = new k(this, null);
             IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction(com.baidu.tieba.data.e.a());
-            registerReceiver(this.t, intentFilter);
+            intentFilter.addAction(com.baidu.tieba.data.e.yt());
+            registerReceiver(this.bkB, intentFilter);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.m.b();
+        this.bkA.onPause();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.m.a();
+        this.bkA.onResume();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
     public void releaseResouce() {
-        this.m.c();
+        this.bkA.onDestroy();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        TbadkApplication.m252getInst().delRemoteActivity(this);
-        a(this.d, this.d);
-        e();
-        this.m.c();
-        if (this.h != null) {
-            this.h.cancel();
-            this.h = null;
+        TbadkApplication.m251getInst().delRemoteActivity(this);
+        M(this.mIndex, this.mIndex);
+        Sb();
+        this.bkA.onDestroy();
+        hideProgressBar();
+        if (this.bkz != null) {
+            this.bkz.cancel();
+            this.bkz = null;
         }
-        if (this.a != null) {
-            this.a.setVisibility(8);
-        }
-        if (this.B) {
-            unregisterReceiver(this.t);
+        if (this.bkI) {
+            unregisterReceiver(this.bkB);
         }
         super.onDestroy();
     }
@@ -148,7 +147,7 @@ public class ImageViewerActivity extends BaseActivity {
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             Intent intent = new Intent();
-            intent.putExtra("index", this.d);
+            intent.putExtra(ImageViewerConfig.INDEX, this.mIndex);
             setResult(-1, intent);
             finish();
             return true;
@@ -156,171 +155,168 @@ public class ImageViewerActivity extends BaseActivity {
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void b() {
-        this.n = new f(this);
-        this.p = new h(this);
-        this.o = new i(this);
-        this.l = (NavigationBar) findViewById(u.navigation_bar);
-        this.D = (FrameLayout) this.l.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, v.image_activity_save_button, this.n);
-        this.j = this.l.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.k = this.l.a("");
-        this.a = (ProgressBar) findViewById(u.progress);
-        this.i = (TextView) findViewById(u.save);
-        this.i.setClickable(false);
-        this.m = (MultiImageView) findViewById(u.viewpager);
-        this.m.setIsFromCDN(this.C);
-        this.m.setPageMargin(com.baidu.adp.lib.util.j.a((Context) this, 8.0f));
-        this.m.a(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
-        this.m.setOnPageChangeListener(this.p);
-        this.m.setUrlData(this.c);
-        this.m.setItemOnclickListener(this.n);
-        this.m.a(d(), false);
-        this.m.setOnScrollOutListener(this.o);
-        this.m.setHasNext(this.f);
-        this.m.setNextTitle(this.g);
-        a(this.d, this.d);
-        c();
+    private void IF() {
+        this.aNq = (TextView) findViewById(v.page_num);
+        initViewPager();
+        OA();
+        M(this.mIndex, this.mIndex);
     }
 
-    public void c() {
+    public void OA() {
         String str;
-        if (this.c != null) {
-            String str2 = String.valueOf(String.valueOf(this.d + 1 + this.b)) + "/";
-            if (this.e > 0) {
-                str = String.valueOf(str2) + this.e;
-            } else if (!this.B) {
+        if (this.bkw != null) {
+            String str2 = String.valueOf(String.valueOf(this.mIndex + 1 + this.bkv)) + "/";
+            if (this.mq > 0) {
+                str = String.valueOf(str2) + this.mq;
+            } else if (!this.bkI) {
                 str = String.valueOf(str2) + "...";
             } else {
-                str = String.valueOf(str2) + this.c.size();
+                str = String.valueOf(str2) + this.bkw.size();
             }
-            if (this.m.getHasNext() && this.d == this.m.getItemNum() - 1) {
-                this.k.setText(getString(x.image_recommend));
-                this.i.setVisibility(4);
+            if (this.bkA.getHasNext() && this.mIndex == this.bkA.getItemNum() - 1) {
+                this.aNq.setVisibility(8);
                 return;
             }
-            this.k.setText(str);
-            this.i.setVisibility(0);
+            this.aNq.setText(str);
+            this.aNq.setVisibility(0);
         }
     }
 
-    public int d() {
-        if (this.c != null && this.c.size() > 0) {
-            int size = this.c.size();
-            if (this.d >= size) {
-                this.d = size - 1;
+    private void initViewPager() {
+        this.bkA = (MultiImageView) findViewById(v.viewpager);
+        this.bkA.setIsFromCDN(this.Ob);
+        this.bkA.setPageMargin(m.dip2px(this, 8.0f));
+        this.bkA.u(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
+        this.bkA.setOnPageChangeListener(this.bkM);
+        this.bkA.setUrlData(this.bkw);
+        this.bkA.setItemOnclickListener(this.bkJ);
+        this.bkA.setItemOnLongClickListener(this.bkK);
+        this.bkA.setCurrentItem(Jm(), false);
+        this.bkA.setOnScrollOutListener(this.bkL);
+        this.bkA.setHasNext(this.NY);
+        this.bkA.setNextTitle(this.NZ);
+    }
+
+    public int Jm() {
+        if (this.bkw != null && this.bkw.size() > 0) {
+            int size = this.bkw.size();
+            if (this.mIndex >= size) {
+                this.mIndex = size - 1;
             }
-            if (this.d < 0) {
-                this.d = 0;
+            if (this.mIndex < 0) {
+                this.mIndex = 0;
             }
         } else {
-            this.d = 0;
+            this.mIndex = 0;
         }
-        return this.d;
+        return this.mIndex;
     }
 
-    private void a(Bundle bundle) {
-        this.B = getIntent().getBooleanExtra("need_broadcast", false);
+    private void d(Bundle bundle) {
         if (bundle != null) {
-            this.c = bundle.getStringArrayList("url");
-            this.d = bundle.getInt("index", -1);
-            this.e = bundle.getInt("count", -1);
-            this.f = bundle.getBoolean("hasnext", false);
-            this.g = bundle.getString("nexttile");
-            this.x = bundle.getString("fid");
-            this.y = bundle.getString("tid");
-            this.z = bundle.getString("fname");
-            this.A = bundle.getString("pv_type");
-            this.C = bundle.getBoolean("isCdn", false);
-            this.E = bundle.getString("last_id");
-            this.F = bundle.getBoolean("reverse_mode", true);
+            this.bkw = bundle.getStringArrayList(ImageViewerConfig.URL);
+            this.mIndex = bundle.getInt(ImageViewerConfig.INDEX, -1);
+            this.mq = bundle.getInt(ImageViewerConfig.COUNT, -1);
+            this.NY = bundle.getBoolean(ImageViewerConfig.HAS_NEXT, false);
+            this.NZ = bundle.getString(ImageViewerConfig.NEXT_TILE);
+            this.bkF = bundle.getString(ImageViewerConfig.FORUM_ID);
+            this.bkh = bundle.getString("tid");
+            this.bkG = bundle.getString(ImageViewerConfig.FORUM_NAME);
+            this.bkH = bundle.getString(ImageViewerConfig.PV_TYPE);
+            this.Ob = bundle.getBoolean(ImageViewerConfig.PARAM_IS_CDN, false);
+            this.bkx = bundle.getString(ImageViewerConfig.LAST_ID);
+            this.bky = bundle.getBoolean(ImageViewerConfig.REVERSE_MODE, true);
         } else {
             Intent intent = getIntent();
             if (intent != null) {
-                this.c = intent.getStringArrayListExtra("url");
-                this.d = intent.getIntExtra("index", -1);
-                this.e = intent.getIntExtra("count", -1);
-                this.f = intent.getBooleanExtra("hasnext", false);
-                this.g = intent.getStringExtra("nexttile");
-                this.x = intent.getStringExtra("fid");
-                this.y = intent.getStringExtra("tid");
-                this.z = intent.getStringExtra("fname");
-                this.A = intent.getStringExtra("pv_type");
-                this.C = intent.getBooleanExtra("isCdn", false);
-                this.E = intent.getStringExtra("last_id");
-                this.F = intent.getBooleanExtra("reverse_mode", true);
+                this.bkw = intent.getStringArrayListExtra(ImageViewerConfig.URL);
+                this.mIndex = intent.getIntExtra(ImageViewerConfig.INDEX, -1);
+                this.mq = intent.getIntExtra(ImageViewerConfig.COUNT, -1);
+                this.NY = intent.getBooleanExtra(ImageViewerConfig.HAS_NEXT, false);
+                this.NZ = intent.getStringExtra(ImageViewerConfig.NEXT_TILE);
+                this.bkF = intent.getStringExtra(ImageViewerConfig.FORUM_ID);
+                this.bkh = intent.getStringExtra("tid");
+                this.bkG = intent.getStringExtra(ImageViewerConfig.FORUM_NAME);
+                this.bkH = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
+                this.Ob = intent.getBooleanExtra(ImageViewerConfig.PARAM_IS_CDN, false);
+                this.bkx = intent.getStringExtra(ImageViewerConfig.LAST_ID);
+                this.bky = intent.getBooleanExtra(ImageViewerConfig.REVERSE_MODE, true);
             }
         }
-        this.e = this.c.size();
-        if (this.E == null) {
-            this.E = this.e > 0 ? this.c.get(this.e - 1) : "";
+        if (getIntent() != null) {
+            this.bkI = getIntent().getBooleanExtra(ImageViewerConfig.NEED_BROADCAST, false);
         }
-        this.w = new HashMap<>();
+        this.bkE = new HashMap<>();
+        this.mq = this.bkw.size();
+        if (this.bkx == null) {
+            this.bkx = this.mq > 0 ? this.bkw.get(this.mq - 1) : "";
+        }
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putStringArrayList("url", this.c);
-        bundle.putInt("index", this.d);
-        bundle.putInt("count", this.e);
-        bundle.putBoolean("hasnext", this.f);
-        bundle.putString("nexttile", this.g);
-        bundle.putString("fid", this.x);
-        bundle.putString("tid", this.y);
-        bundle.putString("fname", this.z);
-        bundle.putString("pv_type", this.A);
-        bundle.putBoolean("isCdn", false);
-        bundle.putBoolean("reverse_mode", this.F);
+        bundle.putStringArrayList(ImageViewerConfig.URL, this.bkw);
+        bundle.putInt(ImageViewerConfig.INDEX, this.mIndex);
+        bundle.putInt(ImageViewerConfig.COUNT, this.mq);
+        bundle.putBoolean(ImageViewerConfig.HAS_NEXT, this.NY);
+        bundle.putString(ImageViewerConfig.NEXT_TILE, this.NZ);
+        bundle.putString(ImageViewerConfig.FORUM_ID, this.bkF);
+        bundle.putString("tid", this.bkh);
+        bundle.putString(ImageViewerConfig.FORUM_NAME, this.bkG);
+        bundle.putString(ImageViewerConfig.PV_TYPE, this.bkH);
+        bundle.putBoolean(ImageViewerConfig.PARAM_IS_CDN, false);
+        bundle.putBoolean(ImageViewerConfig.REVERSE_MODE, this.bky);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        this.m.a(this.d, false);
+        this.bkA.setCurrentItem(this.mIndex, false);
     }
 
-    public void a(int i, int i2) {
-        synchronized (this.w) {
-            if (System.nanoTime() - this.v > 300000000 && this.c != null && i < this.c.size()) {
-                this.w.put(this.c.get(i), true);
+    public void M(int i, int i2) {
+        synchronized (this.bkE) {
+            if (System.nanoTime() - this.bkD > 300000000 && this.bkw != null && i < this.bkw.size()) {
+                this.bkE.put(this.bkw.get(i), true);
             }
-            this.v = System.nanoTime();
-            if (this.c != null && i2 < this.c.size() && this.w.get(this.c.get(i2)) == null) {
-                this.w.put(this.c.get(i2), false);
+            this.bkD = System.nanoTime();
+            if (this.bkw != null && i2 < this.bkw.size() && this.bkE.get(this.bkw.get(i2)) == null) {
+                this.bkE.put(this.bkw.get(i2), false);
             }
         }
-        if (this.w.size() >= 100) {
-            e();
+        if (this.bkE.size() >= 100) {
+            Sb();
         }
     }
 
-    private void e() {
-        if (this.w != null) {
-            synchronized (this.w) {
-                if (this.w.size() > 0) {
+    private void Sb() {
+        if (this.bkE != null) {
+            synchronized (this.bkE) {
+                if (this.bkE.size() > 0) {
                     int i = 0;
-                    for (Map.Entry<String, Boolean> entry : this.w.entrySet()) {
+                    for (Map.Entry<String, Boolean> entry : this.bkE.entrySet()) {
                         if (entry.getValue().booleanValue()) {
                             i++;
                         }
                     }
-                    TbadkApplication.m252getInst().sendImagePv(i, this.w.size(), this.A);
-                    this.w.clear();
+                    TbadkApplication.m251getInst().sendImagePv(i, this.bkE.size(), this.bkH);
+                    this.bkE.clear();
                 }
             }
         }
     }
 
-    private String a(String str) {
+    private String gJ(String str) {
         int lastIndexOf;
         int indexOf;
-        String e = ba.e(str);
-        if (e != null) {
-            if (e.indexOf(".baidu.com") != -1 && (lastIndexOf = e.lastIndexOf("/")) != -1 && (indexOf = e.indexOf(".", lastIndexOf)) != -1) {
-                return e.substring(lastIndexOf + 1, indexOf);
+        String aD = ay.aD(str);
+        if (aD != null) {
+            if (aD.indexOf(".baidu.com") != -1 && (lastIndexOf = aD.lastIndexOf("/")) != -1 && (indexOf = aD.indexOf(".", lastIndexOf)) != -1) {
+                return aD.substring(lastIndexOf + 1, indexOf);
             }
             return null;
         }
-        return e;
+        return aD;
     }
 }

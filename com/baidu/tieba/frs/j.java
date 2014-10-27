@@ -1,10 +1,18 @@
 package com.baidu.tieba.frs;
+
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-public class j {
-    public boolean a = false;
-    public boolean b = false;
-    public int c = 0;
-    public String d = "";
-    public long e = 0;
-    public boolean f = false;
+class j implements com.baidu.adp.widget.ListView.f {
+    final /* synthetic */ FrsActivity aBk;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public j(FrsActivity frsActivity) {
+        this.aBk = frsActivity;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.f
+    public void H(boolean z) {
+        TiebaStatic.eventStat(this.aBk, "frs_pulldown", "frsclick", 1, new Object[0]);
+        this.aBk.refresh();
+    }
 }

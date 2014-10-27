@@ -1,19 +1,18 @@
 package com.baidu.tieba.im.group;
-
-import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class i implements DialogInterface.OnCancelListener {
-    final /* synthetic */ h a;
+public class i implements com.baidu.adp.widget.ListView.f {
+    final /* synthetic */ g aYw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(h hVar) {
-        this.a = hVar;
+    public i(g gVar) {
+        this.aYw = gVar;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        com.baidu.tieba.im.model.h hVar;
-        hVar = EnterChatRoomStatic.a;
-        hVar.b();
+    @Override // com.baidu.adp.widget.ListView.f
+    public void H(boolean z) {
+        DiscoverMoreActivity discoverMoreActivity;
+        discoverMoreActivity = this.aYw.aYt;
+        discoverMoreActivity.NT().update();
     }
 }

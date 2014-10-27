@@ -1,18 +1,26 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.view.View;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
+import com.baidu.tbadk.pluginArch.PluginNameList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements View.OnClickListener {
-    final /* synthetic */ k a;
+public class m implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ j NP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(k kVar) {
-        this.a = kVar;
+    public m(j jVar) {
+        this.NP = jVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.a.a(view);
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        Context context;
+        MessageManager messageManager = MessageManager.getInstance();
+        context = this.NP.mContext;
+        messageManager.sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(context, PluginNameList.NAME_MOTUSDK)));
+        aVar.dismiss();
     }
 }

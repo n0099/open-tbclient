@@ -2,39 +2,39 @@ package com.baidu.tieba.img.view;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements Runnable {
-    final /* synthetic */ DragHorizonScrollView a;
+    final /* synthetic */ DragHorizonScrollView blz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(DragHorizonScrollView dragHorizonScrollView) {
-        this.a = dragHorizonScrollView;
+        this.blz = dragHorizonScrollView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        boolean g;
-        int h;
-        int h2;
+        boolean Sd;
+        int Se;
+        int Se2;
         boolean z;
-        this.a.E = false;
-        int childCount = this.a.getChildCount();
+        this.blz.blu = false;
+        int childCount = this.blz.getChildCount();
         for (int i = 0; i < childCount; i++) {
-            this.a.getChildAt(i).clearAnimation();
+            this.blz.getChildAt(i).clearAnimation();
         }
-        g = this.a.g();
-        if (!g) {
-            this.a.scrollTo(0, 0);
+        Sd = this.blz.Sd();
+        if (!Sd) {
+            this.blz.scrollTo(0, 0);
         } else {
-            int scrollX = this.a.getScrollX();
-            h = this.a.h();
-            if (scrollX > h) {
-                DragHorizonScrollView dragHorizonScrollView = this.a;
-                h2 = this.a.h();
-                dragHorizonScrollView.scrollTo(h2, 0);
+            int scrollX = this.blz.getScrollX();
+            Se = this.blz.Se();
+            if (scrollX > Se) {
+                DragHorizonScrollView dragHorizonScrollView = this.blz;
+                Se2 = this.blz.Se();
+                dragHorizonScrollView.scrollTo(Se2, 0);
             }
         }
-        z = this.a.F;
+        z = this.blz.blv;
         if (z) {
-            this.a.requestLayout();
+            this.blz.requestLayout();
         }
     }
 }

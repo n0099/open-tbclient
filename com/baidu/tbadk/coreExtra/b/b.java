@@ -5,20 +5,20 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ac;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Integer, Integer, String> {
-    final /* synthetic */ a a;
-    private ae b;
-    private boolean c;
-    private String d;
-    private String e;
+    final /* synthetic */ a LC;
+    private boolean Ll;
+    private String portrait;
+    private String toUid;
+    private ac yV;
 
     private b(a aVar) {
-        this.a = aVar;
-        this.b = null;
+        this.LC = aVar;
+        this.yV = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,16 +26,16 @@ public class b extends BdAsyncTask<Integer, Integer, String> {
         this(aVar);
     }
 
-    public void a(String str) {
-        this.d = str;
+    public void setPortrait(String str) {
+        this.portrait = str;
     }
 
-    public void b(String str) {
-        this.e = str;
+    public void setToUid(String str) {
+        this.toUid = str;
     }
 
-    public void a(boolean z) {
-        this.c = z;
+    public void ag(boolean z) {
+        this.Ll = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,16 +44,16 @@ public class b extends BdAsyncTask<Integer, Integer, String> {
     /* renamed from: a */
     public String doInBackground(Integer... numArr) {
         try {
-            if (this.d != null) {
-                this.b = new ae();
-                if (this.c) {
-                    this.b.a(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FOLLOW_ADDRESS);
+            if (this.portrait != null) {
+                this.yV = new ac();
+                if (this.Ll) {
+                    this.yV.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FOLLOW_ADDRESS);
                 } else {
-                    this.b.a(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFOLLOW_ADDRESS);
+                    this.yV.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFOLLOW_ADDRESS);
                 }
-                this.b.a(com.baidu.tbadk.core.frameworkData.a.PORTRAIT, this.d);
-                this.b.a().a().a = true;
-                this.b.h();
+                this.yV.k(com.baidu.tbadk.core.frameworkData.a.PORTRAIT, this.portrait);
+                this.yV.mc().na().mIsNeedTbs = true;
+                this.yV.lA();
                 return null;
             }
             return null;
@@ -66,16 +66,15 @@ public class b extends BdAsyncTask<Integer, Integer, String> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: c */
     public void onPostExecute(String str) {
-        super.onPostExecute(str);
-        this.a.a = null;
-        if (this.b != null) {
+        super.onPostExecute((b) str);
+        this.LC.LB = null;
+        if (this.yV != null) {
             com.baidu.tbadk.coreExtra.message.a aVar = new com.baidu.tbadk.coreExtra.message.a();
-            aVar.a = this.b.a().b().b();
-            aVar.b = this.b.e();
-            aVar.d = this.c;
-            aVar.c = this.e;
+            aVar.Lk = this.yV.mc().nb().jq();
+            aVar.errorString = this.yV.getErrorString();
+            aVar.Ll = this.Ll;
+            aVar.toUid = this.toUid;
             MessageManager.getInstance().dispatchResponsedMessageToUI(new UpdateAttentionMessage(aVar));
         }
     }
@@ -85,14 +84,14 @@ public class b extends BdAsyncTask<Integer, Integer, String> {
         h hVar;
         h hVar2;
         super.cancel(true);
-        if (this.b != null) {
-            this.b.f();
-            this.b = null;
+        if (this.yV != null) {
+            this.yV.dM();
+            this.yV = null;
         }
-        this.a.a = null;
-        hVar = this.a.b;
+        this.LC.LB = null;
+        hVar = this.LC.mLoadDataCallBack;
         if (hVar != null) {
-            hVar2 = this.a.b;
+            hVar2 = this.LC.mLoadDataCallBack;
             hVar2.a(false);
         }
     }

@@ -1,6 +1,5 @@
 package com.baidu.tieba.more;
 
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -8,88 +7,83 @@ import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.f {
-    protected ImageView a;
-    protected TextView b;
-    private BaseActivity c;
-    private NavigationBar d;
-    private RelativeLayout e;
-    private TextView f;
-    private SettingTextTestNewView g;
-    private TbSettingTextTipView h;
-    private SettingTextFunctionIntroView i;
-    private ProgressBar j;
+    private RelativeLayout bpU;
+    private TextView bpV;
+    protected ImageView bpW;
+    protected TextView bpX;
+    private SettingTextTestNewView bpY;
+    private TbSettingTextTipView bpZ;
+    private SettingTextFunctionIntroView bqa;
+    private ProgressBar bqb;
+    private BaseActivity mActivity;
+    private NavigationBar mNavigationBar;
 
     public d(BaseActivity baseActivity, r rVar) {
         super(baseActivity);
-        this.c = baseActivity;
-        d();
+        this.mActivity = baseActivity;
+        qi();
         a(rVar);
     }
 
-    public void a() {
-        if (this.j != null) {
-            this.j.setVisibility(0);
+    public void Uc() {
+        if (this.bqb != null) {
+            this.bqb.setVisibility(0);
         }
     }
 
-    public void b() {
-        if (this.j != null) {
-            this.j.setVisibility(8);
+    public void hideProgress() {
+        if (this.bqb != null) {
+            this.bqb.setVisibility(8);
         }
     }
 
-    private void d() {
-        this.c.setContentView(com.baidu.tieba.v.about_activity);
-        this.e = (RelativeLayout) this.c.findViewById(com.baidu.tieba.u.parent);
-        this.d = (NavigationBar) this.c.findViewById(com.baidu.tieba.u.view_navigation_bar);
-        this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.a(this.c.getString(com.baidu.tieba.x.version_info));
-        this.f = (TextView) this.c.findViewById(com.baidu.tieba.u.text_versioninfo);
-        this.a = (ImageView) this.c.findViewById(com.baidu.tieba.u.text_description);
-        this.g = (SettingTextTestNewView) this.c.findViewById(com.baidu.tieba.u.about_version_update);
-        this.g.e();
-        this.i = (SettingTextFunctionIntroView) this.c.findViewById(com.baidu.tieba.u.about_function_intro);
-        this.h = (TbSettingTextTipView) this.c.findViewById(com.baidu.tieba.u.about_guide);
-        this.j = (ProgressBar) this.c.findViewById(com.baidu.tieba.u.about_progress);
+    private void qi() {
+        this.mActivity.setContentView(com.baidu.tieba.w.about_activity);
+        this.bpU = (RelativeLayout) this.mActivity.findViewById(com.baidu.tieba.v.parent);
+        this.mNavigationBar = (NavigationBar) this.mActivity.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mNavigationBar.setTitleText(this.mActivity.getString(com.baidu.tieba.y.version_info));
+        this.bpV = (TextView) this.mActivity.findViewById(com.baidu.tieba.v.text_versioninfo);
+        this.bpW = (ImageView) this.mActivity.findViewById(com.baidu.tieba.v.text_description);
+        this.bpY = (SettingTextTestNewView) this.mActivity.findViewById(com.baidu.tieba.v.about_version_update);
+        this.bpY.ql();
+        this.bqa = (SettingTextFunctionIntroView) this.mActivity.findViewById(com.baidu.tieba.v.about_function_intro);
+        this.bpZ = (TbSettingTextTipView) this.mActivity.findViewById(com.baidu.tieba.v.about_guide);
+        this.bqb = (ProgressBar) this.mActivity.findViewById(com.baidu.tieba.v.about_progress);
         String version = TbConfig.getVersion();
-        if (TbConfig.getVersionType() == 1 && !ba.c(TbConfig.getSubVersion())) {
+        if (TbConfig.getVersionType() == 1 && !com.baidu.tbadk.core.util.ay.aA(TbConfig.getSubVersion())) {
             version = String.valueOf(version) + "." + TbConfig.getSubVersion();
         }
-        this.f.setText(String.valueOf(this.c.getString(com.baidu.tieba.x.setting_version_text)) + " " + version);
-        this.b = (TextView) this.c.findViewById(com.baidu.tieba.u.text_version_protoco);
-        a(TbadkApplication.m252getInst().getSkinType());
+        this.bpV.setText(String.valueOf(this.mActivity.getString(com.baidu.tieba.y.setting_version_text)) + " " + version);
+        this.bpX = (TextView) this.mActivity.findViewById(com.baidu.tieba.v.text_version_protoco);
+        cu(TbadkApplication.m251getInst().getSkinType());
     }
 
     private void a(r rVar) {
         e eVar = new e(this, rVar);
-        this.g.setOnClickListener(eVar);
-        this.h.setOnClickListener(eVar);
-        this.i.setOnClickListener(eVar);
+        this.bpY.setOnClickListener(eVar);
+        this.bpZ.setOnClickListener(eVar);
+        this.bqa.setOnClickListener(eVar);
     }
 
-    public void c() {
-        if (this.g != null) {
-            this.g.a();
+    public void Ud() {
+        if (this.bpY != null) {
+            this.bpY.refresh();
         }
-        if (this.i != null) {
-            this.i.a();
+        if (this.bqa != null) {
+            this.bqa.refresh();
         }
     }
 
-    public void a(int i) {
-        if (i == 1) {
-            this.e.setBackgroundColor(this.c.getResources().getColor(com.baidu.tieba.r.bg_page_setting_1));
-        } else {
-            this.e.setBackgroundColor(this.c.getResources().getColor(com.baidu.tieba.r.bg_page_setting));
-        }
-        this.d.c(i);
-        this.c.getLayoutMode().a(i == 1);
-        this.c.getLayoutMode().a((View) this.e);
-        c();
+    public void cu(int i) {
+        com.baidu.tbadk.core.util.aw.i(this.bpU, com.baidu.tieba.s.bg_page_setting);
+        this.mNavigationBar.onChangeSkinType(i);
+        this.mActivity.getLayoutMode().L(i == 1);
+        this.mActivity.getLayoutMode().h(this.bpU);
+        Ud();
     }
 }

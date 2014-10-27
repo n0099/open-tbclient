@@ -4,15 +4,18 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements View.OnClickListener {
-    final /* synthetic */ WebTbActivity a;
+    final /* synthetic */ WebTbActivity xR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(WebTbActivity webTbActivity) {
-        this.a = webTbActivity;
+        this.xR = webTbActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.closeActivity();
+        try {
+            this.xR.xG.reload();
+        } catch (Exception e) {
+        }
     }
 }

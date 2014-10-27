@@ -1,17 +1,17 @@
 package com.baidu.tieba.write;
 /* loaded from: classes.dex */
 class at implements Runnable {
-    final /* synthetic */ WriteActivity a;
-    private final /* synthetic */ int b;
+    final /* synthetic */ as bTZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public at(WriteActivity writeActivity, int i) {
-        this.a = writeActivity;
-        this.b = i;
+    public at(as asVar) {
+        this.bTZ = asVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.b(this.b);
+        WriteActivity writeActivity;
+        writeActivity = this.bTZ.bTX;
+        writeActivity.finish();
     }
 }

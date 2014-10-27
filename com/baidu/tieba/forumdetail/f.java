@@ -5,17 +5,17 @@ import com.baidu.tbadk.BaseActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    final /* synthetic */ ItemFootNavView a;
-    private final /* synthetic */ BaseActivity b;
+    final /* synthetic */ ItemFootNavView axj;
+    private final /* synthetic */ BaseActivity axk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(ItemFootNavView itemFootNavView, BaseActivity baseActivity) {
-        this.a = itemFootNavView;
-        this.b = baseActivity;
+        this.axj = itemFootNavView;
+        this.axk = baseActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.a.b(this.b);
+        this.axj.a(this.axk);
     }
 }

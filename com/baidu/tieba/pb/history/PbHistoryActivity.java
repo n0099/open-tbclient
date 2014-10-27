@@ -1,105 +1,89 @@
 package com.baidu.tieba.pb.history;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.bd;
+import com.baidu.tbadk.core.atomData.PbHistoryActivityConfig;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.data.ak;
-import com.baidu.tieba.u;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.core.view.q;
+import com.baidu.tbadk.core.view.r;
+import com.baidu.tbadk.core.view.s;
+import com.baidu.tieba.data.ai;
 import com.baidu.tieba.v;
-import com.baidu.tieba.x;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PbHistoryActivity extends BaseActivity {
-    private RelativeLayout a;
-    private NavigationBar b;
-    private TextView c;
-    private BdListView d;
-    private g e;
-    private FrameLayout f;
-    private View g;
-    private CustomMessageListener h = new a(this, 2001190);
-    private CustomMessageListener i = new b(this, 2001191);
+    private final com.baidu.tbadk.mvc.model.d<ai> XC = new a(this);
+    private com.baidu.tbadk.mvc.i.c<ai, com.baidu.tbadk.mvc.e.c, g> aWO;
+    private RelativeLayout ahN;
+    private TextView buj;
+    private f buk;
+    private NavigationBar mNavigationBar;
+    private BdListView vl;
 
     static {
-        TbadkApplication.m252getInst().RegisterIntent(bd.class, PbHistoryActivity.class);
+        TbadkApplication.m251getInst().RegisterIntent(PbHistoryActivityConfig.class, PbHistoryActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.a = (RelativeLayout) com.baidu.adp.lib.e.b.a().a(this, v.pb_history_activity, null);
-        setContentView(this.a);
-        this.f = (FrameLayout) this.a.findViewById(u.container);
-        this.b = (NavigationBar) findViewById(u.view_navigation_bar);
-        this.b.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.b.a(x.my_history);
-        this.c = this.b.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(x.delete_all_user_chat));
-        this.c.setOnClickListener(new c(this));
-        this.c.setVisibility(8);
-        this.d = (BdListView) findViewById(u.list);
-        this.e = new g();
-        this.d.setAdapter((ListAdapter) this.e);
-        this.d.setOnItemClickListener(new f(this));
-        registerListener(this.h);
-        registerListener(this.i);
+        this.buk = new f(this);
+        this.buk.a(this.XC);
+        this.ahN = (RelativeLayout) com.baidu.adp.lib.g.b.ek().inflate(this, w.pb_history_activity, null);
+        setContentView(this.ahN);
+        this.mNavigationBar = (NavigationBar) findViewById(v.view_navigation_bar);
+        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mNavigationBar.setTitleText(y.my_history);
+        this.buj = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(y.delete_all_user_chat));
+        this.buj.setOnClickListener(new b(this));
+        this.buj.setVisibility(8);
+        this.vl = (BdListView) findViewById(v.list);
+        this.aWO = new com.baidu.tbadk.mvc.i.c<>(this, g.class, w.pb_history_list_item, null);
+        this.aWO.a(r.a(NoDataViewFactory.ImgType.NODATA), s.q(y.pb_history_no_data_tip, y.pb_history_no_data_tip_2), (q) null, (FrameLayout.LayoutParams) null);
+        this.vl.setAdapter((ListAdapter) this.aWO);
+        this.vl.setOnItemClickListener(new e(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        a();
+        VX();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.b.c(i);
-        getLayoutMode().a((View) this.a);
+        this.mNavigationBar.onChangeSkinType(i);
+        this.aWO.dg(i);
+        getLayoutMode().h(this.ahN);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        sendMessage(new RequestPbHistoryReadMessage());
-    }
-
-    private void b() {
-        this.c.setVisibility(8);
-        if (this.g == null) {
-            com.baidu.adp.lib.e.b.a().a(this, v.pb_history_no_data_view, this.f);
-            this.g = this.f.findViewById(u.no_data_container);
-            getLayoutMode().a(this.g);
-        }
-    }
-
-    private void c() {
-        this.c.setVisibility(0);
-        if (this.g != null) {
-            this.f.removeView(this.g);
-            this.g = null;
-        }
+    public void VX() {
+        this.buk.tB();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(List<ak> list) {
-        if (this.e != null) {
-            this.e.a(list);
+    public void ah(List<ai> list) {
+        if (this.aWO != null) {
+            this.aWO.r(list);
         }
         if (list == null || list.size() == 0) {
-            b();
+            this.buj.setVisibility(8);
         } else {
-            c();
+            this.buj.setVisibility(0);
         }
     }
 }

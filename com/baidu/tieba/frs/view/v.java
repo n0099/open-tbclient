@@ -1,27 +1,24 @@
 package com.baidu.tieba.frs.view;
 
 import android.app.Activity;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.au;
+import android.view.View;
+import com.baidu.tieba.forumdetail.ForumDetailActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ n a;
+public class v implements View.OnClickListener {
+    final /* synthetic */ r aGk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(n nVar) {
-        this.a = nVar;
+    public v(r rVar) {
+        this.aGk = rVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         Activity activity;
-        int i;
-        MessageManager messageManager = MessageManager.getInstance();
-        activity = this.a.B;
-        i = this.a.ao;
-        messageManager.sendMessage(new CustomMessage(2002001, new au(activity, i, "exp_acce")));
-        aVar.d();
+        String str;
+        activity = this.aGk.aBF;
+        str = this.aGk.mForumId;
+        ForumDetailActivity.a(activity, str, ForumDetailActivity.FromType.FRS);
     }
 }

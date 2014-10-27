@@ -13,11 +13,11 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ak implements com.baidu.tbadk.img.d {
-    final /* synthetic */ w a;
+    final /* synthetic */ w aNM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(w wVar) {
-        this.a = wVar;
+        this.aNM = wVar;
     }
 
     @Override // com.baidu.tbadk.img.d
@@ -28,15 +28,15 @@ public class ak implements com.baidu.tbadk.img.d {
         String str2;
         int i;
         String str3;
-        com.baidu.tieba.im.model.al alVar;
-        com.baidu.tieba.im.model.al alVar2;
+        MsglistModel.SendCallback sendCallback;
+        MsglistModel.SendCallback sendCallback2;
         int i2 = 0;
         synchronized (this) {
             synchronized (MsglistModel.class) {
-                hashMap = this.a.e;
+                hashMap = this.aNM.aNH;
                 aVar = (com.baidu.tbadk.img.a) hashMap.remove(str);
             }
-            if (aVar != null && (chatMessage = (ChatMessage) aVar.b()) != null) {
+            if (aVar != null && (chatMessage = (ChatMessage) aVar.sk()) != null) {
                 if (imageUploadResult == null || imageUploadResult.error_code != 0 || imageUploadResult.picInfo == null) {
                     long currentTimeMillis = System.currentTimeMillis() - chatMessage.getLogTime();
                     if (imageUploadResult != null) {
@@ -68,17 +68,17 @@ public class ak implements com.baidu.tbadk.img.d {
                         str3 = imageUploadResult.picInfo.smallPic.picUrl;
                         i2 = imageUploadResult.picInfo.smallPic.width;
                         i = imageUploadResult.picInfo.smallPic.height;
-                        this.a.a(str, str3);
+                        this.aNM.aj(str, str3);
                     } else {
                         i = 0;
                         str3 = null;
                     }
-                    chatMessage.setContent(w.a(str4, str3, i2, i));
-                    w.a().d(chatMessage);
-                    alVar = this.a.g;
-                    if (alVar != null) {
-                        alVar2 = this.a.g;
-                        alVar2.a(1);
+                    chatMessage.setContent(w.b(str4, str3, i2, i));
+                    w.Jo().f(chatMessage);
+                    sendCallback = this.aNM.mSendCallback;
+                    if (sendCallback != null) {
+                        sendCallback2 = this.aNM.mSendCallback;
+                        sendCallback2.onSend(1);
                     }
                 }
             }

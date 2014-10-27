@@ -8,9 +8,9 @@ public class ab<T> extends x<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.x, com.baidu.adp.lib.cache.t
-    public T a(String str) {
+    public T get(String str) {
         try {
-            return (T) super.a(str);
+            return (T) super.get(str);
         } catch (Throwable th) {
             if (BdLog.isDebugMode()) {
                 BdLog.e(th);
@@ -20,9 +20,9 @@ public class ab<T> extends x<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.x, com.baidu.adp.lib.cache.t
-    public v<T> b(String str) {
+    public v<T> G(String str) {
         try {
-            return super.b(str);
+            return super.G(str);
         } catch (Throwable th) {
             if (BdLog.isDebugMode()) {
                 BdLog.e(th);
@@ -43,9 +43,9 @@ public class ab<T> extends x<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.x, com.baidu.adp.lib.cache.t
-    public void c(String str) {
+    public void remove(String str) {
         try {
-            super.c(str);
+            super.remove(str);
         } catch (Throwable th) {
             if (BdLog.isDebugMode()) {
                 BdLog.e(th);

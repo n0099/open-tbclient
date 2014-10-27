@@ -10,49 +10,49 @@ import com.baidu.tieba.im.message.TopicSystemGroupChatMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class cb extends com.baidu.adp.base.d<ChatMessage> {
-    private TextView b;
-    private TextView c;
-    private LinearLayout d;
-    private Context e;
+    private TextView aOP;
+    private Context mContext;
+    private LinearLayout mLayout;
+    private TextView mTextTitle;
 
     public cb(Context context) {
-        super(context, com.baidu.tieba.v.msg_msgtopic_view);
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.e = context;
-        b();
+        super(context, com.baidu.tieba.w.msg_msgtopic_view);
+        this.mTextTitle = null;
+        this.aOP = null;
+        this.mLayout = null;
+        this.mContext = null;
+        this.mContext = context;
+        nu();
     }
 
-    private void b() {
-        this.c = (TextView) a(com.baidu.tieba.u.tex_content);
-        this.b = (TextView) a(com.baidu.tieba.u.tex_title);
-        this.c.setMovementMethod(LinkMovementMethod.getInstance());
-        this.b.setMovementMethod(LinkMovementMethod.getInstance());
-        this.d = (LinearLayout) a(com.baidu.tieba.u.topic_title_layout);
+    private void nu() {
+        this.aOP = (TextView) findViewById(com.baidu.tieba.v.tex_content);
+        this.mTextTitle = (TextView) findViewById(com.baidu.tieba.v.tex_title);
+        this.aOP.setMovementMethod(LinkMovementMethod.getInstance());
+        this.mTextTitle.setMovementMethod(LinkMovementMethod.getInstance());
+        this.mLayout = (LinearLayout) findViewById(com.baidu.tieba.v.topic_title_layout);
     }
 
-    public void a(ChatMessage chatMessage) {
+    public void setData(ChatMessage chatMessage) {
         if (chatMessage != null && (chatMessage instanceof TopicSystemGroupChatMessage)) {
             TopicSystemGroupChatMessage topicSystemGroupChatMessage = (TopicSystemGroupChatMessage) chatMessage;
             if (!TextUtils.isEmpty(topicSystemGroupChatMessage.mSystemMsg)) {
-                this.b.setText(topicSystemGroupChatMessage.mSystemMsg);
+                this.mTextTitle.setText(topicSystemGroupChatMessage.mSystemMsg);
             } else {
-                this.b.setText("");
+                this.mTextTitle.setText("");
             }
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.d.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mLayout.getLayoutParams();
             if (!TextUtils.isEmpty(topicSystemGroupChatMessage.mSystemContent)) {
-                this.c.setVisibility(0);
-                this.c.setText(topicSystemGroupChatMessage.mSystemContent);
-                layoutParams.topMargin = this.e.getResources().getDimensionPixelSize(com.baidu.tieba.s.ds24);
-                this.d.setLayoutParams(layoutParams);
+                this.aOP.setVisibility(0);
+                this.aOP.setText(topicSystemGroupChatMessage.mSystemContent);
+                layoutParams.topMargin = this.mContext.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds24);
+                this.mLayout.setLayoutParams(layoutParams);
                 return;
             }
-            this.c.setText("");
-            this.c.setVisibility(8);
+            this.aOP.setText("");
+            this.aOP.setVisibility(8);
             layoutParams.topMargin = 0;
-            this.d.setLayoutParams(layoutParams);
+            this.mLayout.setLayoutParams(layoutParams);
         }
     }
 }

@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class VoiceData {
 
     /* loaded from: classes.dex */
-    public class VoiceModel implements Serializable {
+    public class VoiceModel extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
         private static final long serialVersionUID = 5684687527058675291L;
         public int duration;
         public int duration2;

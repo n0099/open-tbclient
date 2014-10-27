@@ -1,18 +1,21 @@
 package com.baidu.tieba.frs;
-
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.slidingmenu.lib.SlidingMenu;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bz implements SlidingMenu.OnOpenedListener {
-    final /* synthetic */ FrsImageActivity a;
+public class bz implements com.baidu.tbadk.coreExtra.view.b {
+    final /* synthetic */ bu aDt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bz(FrsImageActivity frsImageActivity) {
-        this.a = frsImageActivity;
+    public bz(bu buVar) {
+        this.aDt = buVar;
     }
 
-    @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
-    public void onOpened() {
-        TiebaStatic.eventStat(this.a, "frs_total_more", "frsclick", 1, new Object[0]);
+    @Override // com.baidu.tbadk.coreExtra.view.b
+    public void pT() {
+        this.aDt.FV();
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.view.b
+    public void pU() {
+        this.aDt.GC();
     }
 }

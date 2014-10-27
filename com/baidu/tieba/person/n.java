@@ -1,231 +1,116 @@
 package com.baidu.tieba.person;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.browser.TbWebViewActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.act.LoginActivity;
-import com.baidu.tieba.data.PersonChangeData;
-import com.baidu.tieba.more.MoreActivity;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.data.ForumData;
+import java.util.ArrayList;
+import java.util.Date;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class n extends com.baidu.tbadk.core.d {
-    private static boolean e = false;
-    private static boolean f = false;
-    private BaseFragmentActivity b;
-    private r c;
-    private p d;
-    private final CustomMessageListener g;
+public class n {
+    private int bBr = 0;
+    private int bBs = 0;
+    private ArrayList<ForumData> bBo = new ArrayList<>();
+    private ArrayList<ForumData> bBp = new ArrayList<>();
+    private com.baidu.tbadk.core.data.m alK = new com.baidu.tbadk.core.data.m();
+    private Date bBq = null;
+    private boolean Lk = true;
 
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        this.b = (BaseFragmentActivity) activity;
+    public int ZI() {
+        return this.bBr;
     }
 
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        return a(layoutInflater);
+    public void gV(int i) {
+        this.bBr = i;
     }
 
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
+    public int ZJ() {
+        return this.bBs;
     }
 
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public void onActivityCreated(Bundle bundle) {
-        super.onActivityCreated(bundle);
-        a();
-        f();
-        if (TbadkApplication.getCurrentAccount() != null && TbadkApplication.getCurrentAccount().length() > 0) {
-            this.c.f();
-            g();
-            com.baidu.tieba.util.k.b((Boolean) true);
-            return;
-        }
-        f = true;
-        this.c.e();
+    public void gW(int i) {
+        this.bBs = i;
     }
 
-    public View a(LayoutInflater layoutInflater) {
-        return layoutInflater.inflate(com.baidu.tieba.v.more_discovery_activity, (ViewGroup) null);
+    public ArrayList<ForumData> ZK() {
+        return this.bBo;
     }
 
-    public void a() {
-        this.c = new r(this.b, this);
+    public void E(ArrayList<ForumData> arrayList) {
+        this.bBo = arrayList;
     }
 
-    public void f() {
-        if (!UtilHelper.isNetOk()) {
-            f = true;
-        }
-        this.d = new p(this.b);
-        this.d.a(TbadkApplication.getCurrentAccount());
-        this.d.setLoadDataCallBack(new o(this));
+    public ArrayList<ForumData> ZL() {
+        return this.bBp;
     }
 
-    private void g() {
-        MessageManager.getInstance().registerListener(this.g);
+    public void F(ArrayList<ForumData> arrayList) {
+        this.bBp = arrayList;
     }
 
-    private void h() {
-        MessageManager.getInstance().unRegisterListener(this.g);
-    }
-
-    private void i() {
-        if (this.c != null && this.d != null) {
-            this.c.a(this.d);
-            this.d.a(true, true);
+    public void parserJson(String str) {
+        if (str != null) {
+            try {
+                parserJson(new JSONObject(str));
+            } catch (Exception e) {
+                this.Lk = false;
+                BdLog.e(e.getMessage());
+            }
         }
     }
 
-    @Override // com.baidu.tbadk.core.d, android.view.View.OnClickListener
-    public void onClick(View view) {
-        int id = view.getId();
-        if (id == com.baidu.tieba.u.user_info) {
-            if (f && this.d != null) {
-                if (TbadkApplication.isLogin()) {
-                    UserData a = this.d.a();
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new com.baidu.tbadk.core.atomData.bh(this.b, this.d.b(), a != null ? a.getName_show() : "")));
-                    this.d.b(true);
-                    return;
+    public void parserJson(JSONObject jSONObject) {
+        try {
+            JSONObject optJSONObject = jSONObject.optJSONObject("forum_list");
+            if (optJSONObject != null) {
+                JSONArray optJSONArray = optJSONObject.optJSONArray("gconforum");
+                if (optJSONArray != null) {
+                    this.bBr = optJSONArray.length();
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        ForumData forumData = new ForumData();
+                        forumData.parserJson(optJSONArray.getJSONObject(i));
+                        this.bBo.add(forumData);
+                    }
                 }
-                LoginActivity.a((Activity) this.b, (String) null, true, 11003);
-                this.d.b(true);
-            }
-        } else if (id == com.baidu.tieba.u.my_collection) {
-            if (TbadkApplication.getCurrentAccount() != null && TbadkApplication.getCurrentAccount().length() > 0) {
-                a(new CustomMessage(2015005, new com.baidu.tbadk.core.frameworkData.a(this.b)));
-                this.d.a(true);
-                return;
-            }
-            LoginActivity.a((Activity) this.b, (String) null, true, 103);
-        } else if (id == com.baidu.tieba.u.member_benefits) {
-            com.baidu.tbadk.core.sharedPref.b.a().b("has_shown_member_benifit", true);
-            if (!TbadkApplication.isLogin()) {
-                LoginActivity.a((Activity) this.b, (String) null, true, 104);
-                return;
-            }
-            com.baidu.tbadk.core.sharedPref.b.a().b("has_shown_member_benifit", true);
-            TbWebViewActivity.startActivityWithCookie(this.b, getString(com.baidu.tieba.x.member_benefits), String.valueOf(com.baidu.tieba.data.e.a) + "mo/q/tbeanmall?_client_version=" + TbConfig.getVersion());
-        } else if (id == com.baidu.tieba.u.face_store) {
-            TbadkApplication.m252getInst().setFaceShopVersion(TbadkApplication.m252getInst().getTempFaceShopVersion());
-            TbadkApplication.m252getInst().setFaceShopNew(false);
-            a(new CustomMessage(2002001, new com.baidu.tbadk.core.atomData.p(this.b, "faceshop_from_more")));
-        } else if (id == com.baidu.tieba.u.settings && this.d != null) {
-            PersonChangeData personChangeData = new PersonChangeData();
-            if (this.d.a() != null) {
-                personChangeData.setName(this.d.a().getName_show());
-                personChangeData.setIntro(this.d.a().getIntro());
-                personChangeData.setPortrait(this.d.a().getPortrait());
-                personChangeData.setSex(this.d.a().getSex());
-            }
-            MoreActivity.a(this.b, 101, personChangeData);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.d
-    public void c(int i) {
-        super.c(i);
-        this.c.a(i);
-    }
-
-    @Override // android.support.v4.app.Fragment
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (i2 == -1) {
-            if (i == 11003) {
-                if (TbadkApplication.getCurrentAccount() != null) {
-                    this.d.a(TbadkApplication.getCurrentAccount());
-                    this.d.b(TbadkApplication.getCurrentAccountName());
-                    g();
-                    i();
+                JSONArray optJSONArray2 = optJSONObject.optJSONArray("non-gconforum");
+                if (optJSONArray2 != null) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        ForumData forumData2 = new ForumData();
+                        forumData2.parserJson(optJSONArray2.getJSONObject(i2));
+                        this.bBo.add(forumData2);
+                    }
                 }
-            } else if (i == 103) {
-                a(new CustomMessage(2015005, new com.baidu.tbadk.core.frameworkData.a(this.b)));
-            } else if (i == 104) {
-                TbWebViewActivity.startActivityWithCookie(this.b, getString(com.baidu.tieba.x.member_benefits), String.valueOf(com.baidu.tieba.data.e.a) + "mo/q/tbeanmall?_client_version=" + TbConfig.getVersion());
-            }
-        }
-    }
-
-    private void a(PersonChangeData personChangeData) {
-        if (personChangeData != null) {
-            if (personChangeData != null && this.d.a() != null) {
-                this.d.a(personChangeData);
-                if (this.c != null) {
-                    this.c.b(this.d);
-                    if (personChangeData.getPhotoChanged()) {
-                        this.c.a();
-                        if (this.d.a() != null) {
-                            com.baidu.tbadk.imageManager.e.a().a(this.d.a().getPortrait());
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("common_forum_list");
+                if (optJSONObject2 != null) {
+                    JSONArray optJSONArray3 = optJSONObject2.optJSONArray("gconforum");
+                    if (optJSONArray3 != null) {
+                        this.bBs = optJSONArray3.length();
+                        for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
+                            ForumData forumData3 = new ForumData();
+                            forumData3.parserJson(optJSONArray3.getJSONObject(i3));
+                            this.bBp.add(forumData3);
                         }
+                    }
+                    JSONArray optJSONArray4 = optJSONObject2.optJSONArray("non-gconforum");
+                    if (optJSONArray4 != null) {
+                        for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
+                            ForumData forumData4 = new ForumData();
+                            forumData4.parserJson(optJSONArray4.getJSONObject(i4));
+                            this.bBp.add(forumData4);
+                        }
+                    }
+                    this.alK.parserJson(jSONObject.optJSONObject("page"));
+                    long optLong = jSONObject.optLong("ctime", 0L);
+                    if (optLong > 0) {
+                        this.bBq = new Date(optLong);
+                    } else {
+                        this.bBq = new Date();
                     }
                 }
             }
-            com.baidu.tieba.ai.c().a((PersonChangeData) null);
+        } catch (Exception e) {
+            this.Lk = false;
+            BdLog.e(e.getMessage());
         }
-    }
-
-    public static void a(boolean z) {
-        e = z;
-    }
-
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public void onResume() {
-        super.onResume();
-        if (this.c != null) {
-            this.c.b();
-            this.c.a(TbadkApplication.m252getInst().isFaceShopNew());
-        }
-        if (e) {
-            i();
-            e = false;
-        } else if (this.d.b() == null || this.d.b().length() <= 0) {
-            if (TbadkApplication.getCurrentAccount() != null) {
-                this.d.a(TbadkApplication.getCurrentAccount());
-                g();
-                i();
-            }
-        } else {
-            if (!this.d.e()) {
-                i();
-            }
-            PersonChangeData N = com.baidu.tieba.ai.c().N();
-            if (N != null) {
-                a(N);
-            }
-            if (com.baidu.tbadk.coreExtra.messageCenter.a.a().r() != this.d.c()) {
-                this.d.a(com.baidu.tbadk.coreExtra.messageCenter.a.a().r());
-            }
-            if (this.c != null) {
-                this.c.c(this.d);
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public void onDestroy() {
-        if (this.d != null) {
-            if (this.d.b() != null && this.d.b().length() > 0) {
-                h();
-            }
-            this.d.f();
-        }
-        if (this.c != null) {
-            this.c.g();
-        }
-        super.onDestroy();
     }
 }

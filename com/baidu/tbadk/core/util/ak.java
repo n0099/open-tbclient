@@ -2,9 +2,8 @@ package com.baidu.tbadk.core.util;
 
 import android.content.IntentFilter;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.gson.JsonArray;
-import com.baidu.gson.JsonObject;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONArray;
@@ -12,68 +11,68 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ak {
-    private static final String[] a = {"/c/s/pv", "/c/f/pb/page", "/c/s/msg", "/c/f/pb/floor", "/c/m/getmsg", "/c/u/feed/replyme", "/c/f/forum/search", "/c/f/frs/page", "/c/f/forum/favocommend", "/c/u/user/profile"};
-    private static List<Integer> b = new LinkedList();
-    private static ak c;
-    private static al d;
+    private static final String[] EC = {"/c/s/pv", "/c/f/pb/page", "/c/s/msg", "/c/f/pb/floor", "/c/m/getmsg", "/c/u/feed/replyme", "/c/f/forum/search", "/c/f/frs/page", "/c/f/forum/favocommend", "/c/u/user/profile"};
+    private static List<Integer> ED = new LinkedList();
+    private static ak EE;
+    private static al EF;
 
     private ak() {
-        d = new al(this, null);
+        EF = new al(this, null);
         try {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            TbadkApplication.m252getInst().getApp().registerReceiver(d, intentFilter);
+            TbadkApplication.m251getInst().getApp().registerReceiver(EF, intentFilter);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
         }
     }
 
-    private static synchronized void e() {
+    private static synchronized void mq() {
         synchronized (ak.class) {
-            if (c == null) {
-                c = new ak();
+            if (EE == null) {
+                EE = new ak();
             }
         }
     }
 
-    public static ak a() {
-        if (c == null) {
-            e();
+    public static ak mr() {
+        if (EE == null) {
+            mq();
         }
-        return c;
+        return EE;
     }
 
-    public static int a(String str) {
-        if (ba.c(str)) {
+    public static int bJ(String str) {
+        if (ay.aA(str)) {
             return -1;
         }
-        for (int i = 0; i < a.length; i++) {
-            if (str.contains(a[i])) {
+        for (int i = 0; i < EC.length; i++) {
+            if (str.contains(EC[i])) {
                 return i + 1;
             }
         }
         return -1;
     }
 
-    public synchronized void a(int i, int i2) {
+    public synchronized void l(int i, int i2) {
         List<am> list;
         int i3;
         if (i > 0 && i2 > 0) {
-            String a2 = com.baidu.tbadk.core.sharedPref.b.a().a("network_error_record", "");
-            if (ba.c(a2)) {
+            String string = com.baidu.tbadk.core.sharedPref.b.lk().getString("network_error_record", "");
+            if (ay.aA(string)) {
                 list = new LinkedList<>();
                 am amVar = new am(this, null);
-                amVar.a = i;
-                amVar.b = i2;
-                amVar.c = 1;
+                amVar.port = i;
+                amVar.action = i2;
+                amVar.count = 1;
                 list.add(amVar);
             } else {
-                List<am> c2 = c(a2);
+                List<am> bL = bL(string);
                 int i4 = -1;
                 int i5 = 0;
-                while (i5 < c2.size()) {
-                    if (c2.get(i5).a == i && c2.get(i5).b == i2) {
-                        c2.get(i5).c++;
+                while (i5 < bL.size()) {
+                    if (bL.get(i5).port == i && bL.get(i5).action == i2) {
+                        bL.get(i5).count++;
                         i3 = i5;
                     } else {
                         i3 = i4;
@@ -83,75 +82,75 @@ public class ak {
                 }
                 if (i4 < 0) {
                     am amVar2 = new am(this, null);
-                    amVar2.a = i;
-                    amVar2.b = i2;
-                    amVar2.c = 1;
-                    c2.add(amVar2);
+                    amVar2.port = i;
+                    amVar2.action = i2;
+                    amVar2.count = 1;
+                    bL.add(amVar2);
                 }
-                list = c2;
+                list = bL;
             }
-            String a3 = a(list);
-            if (!ba.c(a3)) {
-                com.baidu.tbadk.core.sharedPref.b.a().b("network_error_record", a3);
+            String f = f(list);
+            if (!ay.aA(f)) {
+                com.baidu.tbadk.core.sharedPref.b.lk().putString("network_error_record", f);
             }
         }
     }
 
-    public synchronized void b() {
-        for (Integer num : b) {
-            a(num.intValue(), 2);
+    public synchronized void ms() {
+        for (Integer num : ED) {
+            l(num.intValue(), 2);
         }
     }
 
-    public synchronized void a(int i) {
+    public synchronized void bt(int i) {
         if (i > 0) {
-            b.add(Integer.valueOf(i));
+            ED.add(Integer.valueOf(i));
         }
     }
 
-    public synchronized void b(int i) {
+    public synchronized void bu(int i) {
         if (i > 0) {
-            b.remove(Integer.valueOf(i));
+            ED.remove(Integer.valueOf(i));
         }
     }
 
-    public synchronized void c() {
-        com.baidu.tbadk.core.sharedPref.b.a().a("network_error_record");
+    public synchronized void mt() {
+        com.baidu.tbadk.core.sharedPref.b.lk().remove("network_error_record");
     }
 
-    public static void b(String str) {
+    public static void bK(String str) {
         try {
-            int a2 = a(str);
-            if (a2 > 0) {
-                a().b(a2);
+            int bJ = bJ(str);
+            if (bJ > 0) {
+                mr().bu(bJ);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public synchronized String d() {
-        return com.baidu.tbadk.core.sharedPref.b.a().a("network_error_record", "");
+    public synchronized String mu() {
+        return com.baidu.tbadk.core.sharedPref.b.lk().getString("network_error_record", "");
     }
 
-    private String a(List<am> list) {
-        JsonArray jsonArray = new JsonArray();
+    private String f(List<am> list) {
+        JSONArray jSONArray = new JSONArray();
         try {
             for (am amVar : list) {
-                JsonObject jsonObject = new JsonObject();
-                jsonObject.addProperty("port", Integer.valueOf(amVar.a));
-                jsonObject.addProperty("action", Integer.valueOf(amVar.b));
-                jsonObject.addProperty("count", Integer.valueOf(amVar.c));
-                jsonArray.add(jsonObject);
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("port", amVar.port);
+                jSONObject.put("action", amVar.action);
+                jSONObject.put(ImageViewerConfig.COUNT, amVar.count);
+                jSONArray.put(jSONObject);
             }
-            return jsonArray.toString();
+            return jSONArray.toString();
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
             return null;
         }
     }
 
-    private List<am> c(String str) {
+    private List<am> bL(String str) {
         LinkedList linkedList = new LinkedList();
         try {
             JSONArray jSONArray = new JSONArray(str);
@@ -159,9 +158,9 @@ public class ak {
             for (int i = 0; i < length; i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 am amVar = new am(this, null);
-                amVar.a = optJSONObject.getInt("port");
-                amVar.b = optJSONObject.getInt("action");
-                amVar.c = optJSONObject.getInt("count");
+                amVar.port = optJSONObject.getInt("port");
+                amVar.action = optJSONObject.getInt("action");
+                amVar.count = optJSONObject.getInt(ImageViewerConfig.COUNT);
                 linkedList.add(amVar);
             }
         } catch (JSONException e) {

@@ -7,28 +7,28 @@ import tbclient.GetAddressList.DataRes;
 import tbclient.GetAddressList.listData;
 /* loaded from: classes.dex */
 public class a {
-    private List<g> a;
+    private List<h> Ml;
 
-    public List<g> a() {
-        if (this.a == null) {
-            this.a = new ArrayList();
+    public List<h> getAddressList() {
+        if (this.Ml == null) {
+            this.Ml = new ArrayList();
         }
-        return this.a;
+        return this.Ml;
     }
 
     public boolean a(DataRes dataRes) {
         if (dataRes == null || dataRes.address_list == null) {
             return false;
         }
-        this.a = new ArrayList();
+        this.Ml = new ArrayList();
         boolean z = false;
         for (listData listdata : dataRes.address_list) {
             if (TextUtils.isEmpty(listdata.key)) {
                 z = true;
             } else {
-                g gVar = new g();
-                gVar.a(listdata);
-                this.a.add(gVar);
+                h hVar = new h();
+                hVar.a(listdata);
+                this.Ml.add(hVar);
             }
         }
         return z;

@@ -1,5 +1,6 @@
 package com.squareup.wire;
 
+import com.baidu.tbadk.BaseActivity;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -162,7 +163,7 @@ final class WireInput {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [208=4] */
     public int readFixed32() {
-        return (readRawByte() & 255) | ((readRawByte() & 255) << 8) | ((readRawByte() & 255) << 16) | ((readRawByte() & 255) << 24);
+        return (readRawByte() & BaseActivity.KEYBOARD_STATE_INIT) | ((readRawByte() & BaseActivity.KEYBOARD_STATE_INIT) << 8) | ((readRawByte() & BaseActivity.KEYBOARD_STATE_INIT) << 16) | ((readRawByte() & BaseActivity.KEYBOARD_STATE_INIT) << 24);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [224=8] */

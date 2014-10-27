@@ -1,27 +1,14 @@
 package com.baidu.tieba.person;
 
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import com.baidu.tbadk.core.BaseFragment;
 /* loaded from: classes.dex */
-class m {
-    ImageView a;
-    TextView b;
-    LinearLayout c;
-    TextView d;
-    TextView e;
-    ImageView f;
-    LinearLayout g;
-    Button h;
-    final /* synthetic */ j i;
-
-    private m(j jVar) {
-        this.i = jVar;
+public class m extends d {
+    public m(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
+        super(basePersonInfoActivity, z);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ m(j jVar, m mVar) {
-        this(jVar);
+    @Override // com.baidu.tieba.person.d
+    protected BaseFragment Zy() {
+        return new o();
     }
 }

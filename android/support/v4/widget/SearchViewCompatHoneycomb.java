@@ -5,6 +5,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.view.View;
 import android.widget.SearchView;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 /* loaded from: classes.dex */
 class SearchViewCompatHoneycomb {
 
@@ -29,7 +30,7 @@ class SearchViewCompatHoneycomb {
 
     public static void setSearchableInfo(View view, ComponentName componentName) {
         SearchView searchView = (SearchView) view;
-        searchView.setSearchableInfo(((SearchManager) searchView.getContext().getSystemService("search")).getSearchableInfo(componentName));
+        searchView.setSearchableInfo(((SearchManager) searchView.getContext().getSystemService(AddFriendActivityConfig.TYPE_SEARCH)).getSearchableInfo(componentName));
     }
 
     public static Object newOnQueryTextListener(final OnQueryTextListenerCompatBridge onQueryTextListenerCompatBridge) {

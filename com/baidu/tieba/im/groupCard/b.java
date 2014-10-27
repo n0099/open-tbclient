@@ -5,25 +5,25 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.LocalViewSize;
 /* loaded from: classes.dex */
 public class b extends e {
-    private static Long e = 0L;
-    private static final Long f = 300000L;
-    private final long a;
-    private final GroupCardActivity b;
-    private c c;
-    private String d;
+    private static Long aZG = 0L;
+    private static final Long aZH = 300000L;
+    private final GroupCardActivity aZE;
+    private c aZF;
+    private String imageUrl;
+    private final long mGroupId;
 
-    public static void a() {
-        e = 0L;
+    public static void Op() {
+        aZG = 0L;
     }
 
     public b(long j, GroupCardActivity groupCardActivity) {
         super(groupCardActivity);
-        this.c = null;
-        this.d = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/p/groupShareImg?group_id=";
-        this.a = j;
-        this.d = String.valueOf(this.d) + this.a;
-        this.d = String.valueOf(this.d) + "&w=" + LocalViewSize.a().b();
-        this.b = groupCardActivity;
+        this.aZF = null;
+        this.imageUrl = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/p/groupShareImg?group_id=";
+        this.mGroupId = j;
+        this.imageUrl = String.valueOf(this.imageUrl) + this.mGroupId;
+        this.imageUrl = String.valueOf(this.imageUrl) + "&w=" + LocalViewSize.lV().lW();
+        this.aZE = groupCardActivity;
     }
 
     @Override // com.baidu.adp.base.e
@@ -36,15 +36,15 @@ public class b extends e {
         return false;
     }
 
-    public String a(int i, int i2) {
-        if (System.currentTimeMillis() - e.longValue() > f.longValue()) {
-            e = Long.valueOf(System.currentTimeMillis());
+    public String O(int i, int i2) {
+        if (System.currentTimeMillis() - aZG.longValue() > aZH.longValue()) {
+            aZG = Long.valueOf(System.currentTimeMillis());
         }
-        return String.valueOf(this.d) + "&t=" + e;
+        return String.valueOf(this.imageUrl) + "&t=" + aZG;
     }
 
-    public void b() {
-        this.c = new c(this);
-        this.c.execute(new String[0]);
+    public void Oq() {
+        this.aZF = new c(this);
+        this.aZF.execute(new String[0]);
     }
 }

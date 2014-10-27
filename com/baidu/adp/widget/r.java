@@ -1,113 +1,44 @@
 package com.baidu.adp.widget;
 
-import android.content.Context;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.text.style.DynamicDrawableSpan;
-import android.util.Log;
-import java.io.InputStream;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.sapi2.shell.SapiErrorCode;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r extends DynamicDrawableSpan {
-    private Drawable a;
-    private Uri b;
-    private int c;
-    private Context d;
-    private s e;
-    private Rect f;
+public class r extends Handler {
+    final /* synthetic */ VerticalTranslateLayout wV;
 
-    public void a(Drawable drawable) {
-        this.a = drawable;
-    }
-
-    public r(s sVar, int i, int i2) {
-        super(i2);
-        this.f = new Rect();
-        this.c = i;
-        this.e = sVar;
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        if (this.a != null || this.e == null) {
-            return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
-        }
-        if (fontMetricsInt != null) {
-            fontMetricsInt.ascent = -this.f.bottom;
-            fontMetricsInt.descent = 0;
-            fontMetricsInt.top = fontMetricsInt.ascent;
-            fontMetricsInt.bottom = 0;
-        }
-        return this.f.right;
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan
-    public Drawable getDrawable() {
-        Drawable drawable;
-        Drawable drawable2;
-        Exception e;
-        InputStream openInputStream;
-        Drawable drawable3 = null;
-        if (this.a != null) {
-            drawable3 = this.a;
-        } else if (this.e != null) {
-            drawable3 = this.e.a(this);
-        }
-        if (drawable3 != null) {
-            return drawable3;
-        }
-        if (this.b != null) {
-            try {
-                openInputStream = this.d.getContentResolver().openInputStream(this.b);
-                drawable2 = new BitmapDrawable(this.d.getResources(), BitmapFactory.decodeStream(openInputStream));
-            } catch (Exception e2) {
-                drawable2 = drawable3;
-                e = e2;
-            }
-            try {
-                drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
-                openInputStream.close();
-                return drawable2;
-            } catch (Exception e3) {
-                e = e3;
-                Log.e("sms", "Failed to loaded content " + this.b, e);
-                return drawable2;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        s sVar;
+        s sVar2;
+        s sVar3;
+        s sVar4;
+        s sVar5;
+        sVar = this.wV.wQ;
+        if (sVar.sQ) {
+            switch (message.what) {
+                case SapiErrorCode.GET_CERT_FAIL /* -105 */:
+                    sVar5 = this.wV.wQ;
+                    sVar5.iD();
+                    return;
+                case SapiErrorCode.GETTING_CERT /* -104 */:
+                    sVar2 = this.wV.wQ;
+                    sVar2.iC();
+                    return;
+                case SapiErrorCode.INVALID_ARG /* -103 */:
+                case -102:
+                default:
+                    return;
+                case -101:
+                    sVar3 = this.wV.wQ;
+                    sVar3.iB();
+                    return;
+                case -100:
+                    sVar4 = this.wV.wQ;
+                    sVar4.iA();
+                    return;
             }
         }
-        try {
-            drawable = this.d.getResources().getDrawable(this.c);
-            try {
-                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-                return drawable;
-            } catch (Exception e4) {
-                Log.e("sms", "Unable to find resource: " + this.c);
-                return drawable;
-            }
-        } catch (Exception e5) {
-            drawable = drawable3;
-        }
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable drawable = getDrawable();
-        if (drawable != null) {
-            canvas.save();
-            int i6 = i5 - drawable.getBounds().bottom;
-            if (this.mVerticalAlignment != 0) {
-                i5 = i4;
-            }
-            canvas.translate(f, i5 - (drawable.getBounds().bottom - 4));
-            drawable.draw(canvas);
-            canvas.restore();
-        }
-    }
-
-    public void a(int i, int i2, int i3, int i4) {
-        this.f.set(i, i2, i3, i4);
     }
 }

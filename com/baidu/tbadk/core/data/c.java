@@ -5,28 +5,28 @@ import org.json.JSONObject;
 import tbclient.FrsPage.Badges;
 /* loaded from: classes.dex */
 public class c {
-    private int a;
-    private String b;
-    private String c;
+    private String badge_url;
+    private String webview;
+    private int zB;
 
-    public String a() {
-        return this.b;
+    public String jI() {
+        return this.badge_url;
     }
 
-    public String b() {
-        return String.valueOf(this.a);
+    public String jJ() {
+        return String.valueOf(this.zB);
     }
 
-    public String c() {
-        return this.c;
+    public String jK() {
+        return this.webview;
     }
 
-    public void a(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.a = jSONObject.optInt("badge_id", 0);
-                this.b = jSONObject.optString("badge_url", "");
-                this.c = jSONObject.optString("webview");
+                this.zB = jSONObject.optInt("badge_id", 0);
+                this.badge_url = jSONObject.optString("badge_url", "");
+                this.webview = jSONObject.optString("webview");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -35,9 +35,9 @@ public class c {
 
     public void a(Badges badges) {
         if (badges != null) {
-            this.a = badges.badge_id.intValue();
-            this.b = badges.badge_url;
-            this.c = badges.webview;
+            this.zB = badges.badge_id.intValue();
+            this.badge_url = badges.badge_url;
+            this.webview = badges.webview;
         }
     }
 }

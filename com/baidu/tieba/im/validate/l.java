@@ -1,7 +1,8 @@
 package com.baidu.tieba.im.validate;
 
 import android.text.TextUtils;
-import com.baidu.gson.GsonBuilder;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.tbadk.core.atomData.ApplyJoinGroupActivityConfig;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.Iterator;
@@ -17,7 +18,7 @@ public class l {
         }
     }
 
-    public static void a(List<ValidateItemData> list) {
+    public static void ad(List<ValidateItemData> list) {
         if (list != null && !list.isEmpty()) {
             LinkedList linkedList = new LinkedList();
             int size = list.size();
@@ -42,26 +43,26 @@ public class l {
         com.baidu.tieba.im.e.a(new p(i, i2), aVar);
     }
 
-    public static void a(com.baidu.tieba.im.a<Integer> aVar) {
+    public static void d(com.baidu.tieba.im.a<Integer> aVar) {
         com.baidu.tieba.im.e.a(new q(), aVar);
     }
 
-    public static List<ValidateItemData> a(LinkedList<GroupNewsPojo> linkedList) {
+    public static List<ValidateItemData> o(LinkedList<GroupNewsPojo> linkedList) {
         LinkedList linkedList2 = new LinkedList();
         if (linkedList == null) {
             return linkedList2;
         }
         Iterator<GroupNewsPojo> it = linkedList.iterator();
         while (it.hasNext()) {
-            ValidateItemData a = a(it.next());
-            if (a != null) {
-                linkedList2.add(a);
+            ValidateItemData g = g(it.next());
+            if (g != null) {
+                linkedList2.add(g);
             }
         }
         return linkedList2;
     }
 
-    public static ValidateItemData a(GroupNewsPojo groupNewsPojo) {
+    public static ValidateItemData g(GroupNewsPojo groupNewsPojo) {
         ValidateItemData validateItemData;
         if (groupNewsPojo == null) {
             return null;
@@ -87,12 +88,12 @@ public class l {
                     validateItemData.setGroupId(optString);
                     a(validateItemData, optString);
                     validateItemData.setUserId(optJSONObject.optString("userId"));
-                    validateItemData.setInviterUserId(optJSONObject.optLong("inviteUserId"));
-                    validateItemData.setJoinType(optJSONObject.optInt("joinType"));
+                    validateItemData.setInviterUserId(optJSONObject.optLong(ApplyJoinGroupActivityConfig.INVITE_USER_ID));
+                    validateItemData.setJoinType(optJSONObject.optInt(ApplyJoinGroupActivityConfig.JOIN_TYPE));
                     validateItemData.setExt(groupNewsPojo.getExt());
                 }
             } else {
-                validateItemData = (ValidateItemData) new GsonBuilder().create().fromJson(content, (Class<Object>) ValidateItemData.class);
+                validateItemData = (ValidateItemData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(content, ValidateItemData.class);
                 a(validateItemData, validateItemData.getGroupId());
             }
             return validateItemData;
@@ -103,11 +104,13 @@ public class l {
     }
 
     private static void a(ValidateItemData validateItemData, String str) {
-        String str2 = "";
-        ImMessageCenterPojo a = com.baidu.tieba.im.memorycache.c.b().a(str, 1);
-        if (a != null) {
-            str2 = a.getGroup_name();
+        if (!BdBaseApplication.getInst().isDebugMode() || com.baidu.adp.lib.util.m.fu()) {
+            String str2 = "";
+            ImMessageCenterPojo B = com.baidu.tieba.im.memorycache.c.PK().B(str, 1);
+            if (B != null) {
+                str2 = B.getGroup_name();
+            }
+            validateItemData.setGroupName(str2);
         }
-        validateItemData.setGroupName(str2);
     }
 }

@@ -1,11 +1,11 @@
 package com.baidu.tieba.faceshop;
 /* loaded from: classes.dex */
 class aj extends com.baidu.adp.base.h {
-    final /* synthetic */ FacePackageDetailActivity a;
+    final /* synthetic */ FacePackageDetailActivity atk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(FacePackageDetailActivity facePackageDetailActivity) {
-        this.a = facePackageDetailActivity;
+        this.atk = facePackageDetailActivity;
     }
 
     @Override // com.baidu.adp.base.h
@@ -13,17 +13,17 @@ class aj extends com.baidu.adp.base.h {
         if (obj != null && (obj instanceof FaceBuyQueryData)) {
             FaceBuyQueryData faceBuyQueryData = (FaceBuyQueryData) obj;
             if (faceBuyQueryData.errno == 0 && faceBuyQueryData.usermsg != null) {
-                if (faceBuyQueryData.buyResult.status == 2) {
-                    this.a.c();
+                if (faceBuyQueryData.buy_result.status == 2) {
+                    this.atk.CW();
                     return;
                 } else {
-                    this.a.d();
+                    this.atk.CX();
                     return;
                 }
             }
-            this.a.d();
+            this.atk.CX();
             return;
         }
-        this.a.d();
+        this.atk.CX();
     }
 }

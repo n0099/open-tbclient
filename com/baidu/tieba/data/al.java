@@ -1,36 +1,31 @@
 package com.baidu.tieba.data;
+
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import com.baidu.tbadk.data.IconData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al {
-    private volatile long a = 0;
-    private volatile long b = 0;
-    private volatile int c = 0;
-    private volatile boolean d = false;
+public class al implements com.baidu.tbadk.widget.n {
+    final /* synthetic */ ak aml;
+    private final /* synthetic */ IconData amm;
+    private final /* synthetic */ Context val$context;
 
-    public void a(int i) {
-        if (i > 0) {
-            this.d = true;
-            this.a = i;
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public al(ak akVar, IconData iconData, Context context) {
+        this.aml = akVar;
+        this.amm = iconData;
+        this.val$context = context;
     }
 
-    public void b(int i) {
-        if (i > 0) {
-            this.d = true;
-            this.b = i;
+    @Override // com.baidu.tbadk.widget.n
+    public Drawable a(com.baidu.tbadk.widget.m mVar) {
+        com.baidu.adp.widget.a.a aVar = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.f.d.ef().a(this.amm.getIcon(), 21, new Object[0]);
+        if (aVar == null) {
+            am amVar = new am(this, mVar, this.val$context);
+            if (this.val$context instanceof com.baidu.adp.base.i) {
+                com.baidu.adp.lib.f.d.ef().a(this.amm.getIcon(), 21, amVar, ((com.baidu.adp.base.i) this.val$context).getUniqueId());
+            }
         }
-    }
-
-    public void c(int i) {
-        if (i != 0) {
-            this.d = true;
-            this.c = i;
-        }
-    }
-
-    public void a() {
-        this.d = false;
-        this.a = 0L;
-        this.b = 0L;
-        this.c = 0;
+        return this.aml.e(aVar);
     }
 }

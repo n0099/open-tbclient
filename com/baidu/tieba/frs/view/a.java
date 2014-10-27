@@ -2,26 +2,30 @@ package com.baidu.tieba.frs.view;
 
 import android.content.Context;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
 /* loaded from: classes.dex */
 public class a {
-    View a = null;
+    protected boolean aEK;
 
-    public a(View view, Context context) {
+    public boolean GR() {
+        return this.aEK;
     }
 
-    public void a(String str) {
+    public void a(Context context, View view, float f, float f2) {
+        ScaleAnimation scaleAnimation = new ScaleAnimation(f, f2, 1.0f, 1.0f);
+        scaleAnimation.setFillAfter(true);
+        scaleAnimation.setDuration(1000L);
+        com.baidu.tbadk.core.a.a(context, view, scaleAnimation, (Animation.AnimationListener) null);
     }
 
-    public void a() {
+    public void b(Context context, View view, float f, float f2) {
+        ScaleAnimation scaleAnimation = new ScaleAnimation(f, 1.0f, 1.0f, 1.0f);
+        scaleAnimation.setFillAfter(true);
+        scaleAnimation.setDuration(400L);
+        com.baidu.tbadk.core.a.a(context, view, scaleAnimation, new b(this, context, view, f2));
     }
 
-    public void b() {
-    }
-
-    public void a(View.OnClickListener onClickListener) {
-    }
-
-    public boolean a(View view) {
-        return false;
+    public void a(boolean z, float f) {
     }
 }

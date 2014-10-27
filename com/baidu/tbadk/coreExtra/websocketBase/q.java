@@ -1,39 +1,40 @@
 package com.baidu.tbadk.coreExtra.websocketBase;
 
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
+import com.baidu.tbadk.TiebaIMConfig;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class q {
-    private static q a = null;
-    private int b;
-    private int c = 0;
-    private boolean d = false;
-    private boolean e = false;
-    private List<String> f = null;
-    private boolean g = false;
-    private final com.baidu.adp.lib.webSocket.l h = new r(this);
+    private static q PT = null;
+    private int PU;
+    private int currentIndex = 0;
+    private boolean PV = false;
+    private boolean PW = false;
+    private List<String> Pm = null;
+    private boolean PX = false;
+    private final com.baidu.adp.lib.webSocket.l PY = new r(this);
 
-    public static synchronized q a() {
+    public static synchronized q qH() {
         q qVar;
         synchronized (q.class) {
-            if (a == null) {
+            if (PT == null) {
                 synchronized (q.class) {
-                    if (a == null) {
-                        a = new q();
+                    if (PT == null) {
+                        PT = new q();
                     }
                 }
             }
-            qVar = a;
+            qVar = PT;
         }
         return qVar;
     }
 
-    public void b() {
-        com.baidu.adp.lib.webSocket.m.a().a(this.h);
+    public void init() {
+        com.baidu.adp.lib.webSocket.m.fT().a(this.PY);
     }
 
-    public static String a(String str) {
+    public static String cT(String str) {
         int lastIndexOf;
         if (str != null && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             try {
@@ -45,60 +46,60 @@ public class q {
         return null;
     }
 
-    private String c() {
-        if (this.f == null || this.c <= -1 || this.c >= this.f.size()) {
+    private String qI() {
+        if (this.Pm == null || this.currentIndex <= -1 || this.currentIndex >= this.Pm.size()) {
             return null;
         }
-        return a.a().d().get(this.c);
+        return a.qo().qr().get(this.currentIndex);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(String str) {
-        String c = c();
-        if (c == null) {
-            if (!a.a().f()) {
-                a.a().a(new s(this, str));
+    public void cU(String str) {
+        String qI = qI();
+        if (qI == null) {
+            if (!a.qo().qt()) {
+                a.qo().a(new s(this, str));
             }
-            com.baidu.adp.framework.client.socket.l.a(com.baidu.tbadk.k.b);
+            com.baidu.adp.framework.client.socket.l.setUrl(TiebaIMConfig.url);
             BdSocketLinkService.setAvailable(false);
-            d();
-        } else if (a(c) == null) {
-            d();
+            qJ();
+        } else if (cT(qI) == null) {
+            qJ();
         } else {
-            this.g = false;
+            this.PX = false;
             BdSocketLinkService.stopReConnStrategy("change ip and stop to restart to reconnet.");
-            com.baidu.adp.framework.client.socket.l.a(c);
+            com.baidu.adp.framework.client.socket.l.setUrl(qI);
             BdSocketLinkService.init();
             BdSocketLinkService.startService(true, str);
-            this.d = true;
-            this.c++;
+            this.PV = true;
+            this.currentIndex++;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
-        NoNetworkView.a();
-        this.e = false;
-        this.c = 0;
-        this.g = false;
-        this.d = false;
+    public void qJ() {
+        NoNetworkView.nx();
+        this.PW = false;
+        this.currentIndex = 0;
+        this.PX = false;
+        this.PV = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
-        if (!this.g) {
-            this.g = true;
-            if (this.d) {
-                this.d = false;
-                f.a().a(com.baidu.tbadk.k.b);
+    public void qK() {
+        if (!this.PX) {
+            this.PX = true;
+            if (this.PV) {
+                this.PV = false;
+                f.qw().cQ(TiebaIMConfig.url);
             }
-            f.a().b();
-            if (!this.e) {
+            f.qw().qx();
+            if (!this.PW) {
                 new j("www.baidu.com", new t(this));
-                this.e = true;
+                this.PW = true;
                 return;
             }
-            b("change ip to reconnect with DNS' failed.");
+            cU("change ip to reconnect with DNS' failed.");
         }
     }
 }

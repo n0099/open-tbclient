@@ -36,7 +36,7 @@ public class ResponseFriendFeedMessage extends TbSocketReponsedMessage {
         if (getError() == 0 && friendFeedPageResIdl.data != null) {
             this.friendFeedData = new s();
             if (friendFeedPageResIdl.data.thread_list != null) {
-                getFriendFeedData().a(new ArrayList());
+                getFriendFeedData().z(new ArrayList());
                 List<User> list = friendFeedPageResIdl.data.user_list;
                 if (list != null) {
                     for (int i2 = 0; i2 < list.size(); i2++) {
@@ -44,7 +44,7 @@ public class ResponseFriendFeedMessage extends TbSocketReponsedMessage {
                         metaData.parserProtobuf(list.get(i2));
                         String userId = metaData.getUserId();
                         if (userId != null && !userId.equals("0")) {
-                            getFriendFeedData().a().put(metaData.getUserId(), metaData);
+                            getFriendFeedData().getUserMap().put(metaData.getUserId(), metaData);
                         }
                     }
                 }
@@ -52,13 +52,13 @@ public class ResponseFriendFeedMessage extends TbSocketReponsedMessage {
                 if (list2 != null) {
                     for (int i3 = 0; i3 < list2.size(); i3++) {
                         FriendFeedThreadData friendFeedThreadData = new FriendFeedThreadData();
-                        friendFeedThreadData.setUserMap(getFriendFeedData().a());
+                        friendFeedThreadData.setUserMap(getFriendFeedData().getUserMap());
                         friendFeedThreadData.parserProtobuf(list2.get(i3));
                         friendFeedThreadData.parser_title();
-                        getFriendFeedData().b().add(friendFeedThreadData);
+                        getFriendFeedData().zf().add(friendFeedThreadData);
                     }
                 }
-                getFriendFeedData().a(friendFeedPageResIdl.data.has_more.intValue());
+                getFriendFeedData().setHasMore(friendFeedPageResIdl.data.has_more.intValue());
             }
         }
     }
@@ -68,7 +68,7 @@ public class ResponseFriendFeedMessage extends TbSocketReponsedMessage {
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
         Message<?> orginalMessage = getOrginalMessage();
         if (orginalMessage != null && (orginalMessage instanceof RequestFriendFeedMessage) && getError() == 0 && TextUtils.isEmpty(((RequestFriendFeedMessage) orginalMessage).getTimeline())) {
-            saveProtocolBufferDataToCache(a.a().a("tb.friend_feed"), FRIEND_FEED_KEY_PRE + TbadkApplication.getCurrentAccount(), bArr);
+            saveProtocolBufferDataToCache(a.kS().bc("tb.friend_feed"), FRIEND_FEED_KEY_PRE + TbadkApplication.getCurrentAccount(), bArr);
         }
     }
 }

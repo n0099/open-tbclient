@@ -2,13 +2,14 @@ package com.baidu.tieba.pb.sub;
 
 import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.data.au;
+import com.baidu.tieba.data.ar;
 import com.squareup.wire.Wire;
 import tbclient.PbFloor.PbFloorResIdl;
 /* loaded from: classes.dex */
 public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
-    public au pbFloorData;
+    public ar pbFloorData;
     private boolean treatDelPage;
 
     public boolean isTreatDelPage() {
@@ -16,7 +17,7 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
     }
 
     public SubPbHttpResponseMessage(int i) {
-        super(1002100);
+        super(CmdConfigHttp.SubPb_HTTP_CMD);
         this.pbFloorData = null;
         this.treatDelPage = false;
     }
@@ -24,7 +25,7 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) {
         Context context;
-        au auVar = null;
+        ar arVar = null;
         super.decodeInBackGround(i, bArr);
         Object extra = getOrginalMessage().getExtra();
         if (extra == null || !(extra instanceof SubPbRequestMessage)) {
@@ -37,12 +38,19 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
         try {
             PbFloorResIdl pbFloorResIdl = (PbFloorResIdl) new Wire(new Class[0]).parseFrom(bArr, PbFloorResIdl.class);
             if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
-                auVar = au.a(pbFloorResIdl.data, context);
-                auVar.a = pbFloorResIdl.error;
+                arVar = ar.a(pbFloorResIdl.data, context);
+                if (arVar != null) {
+                    arVar.amD = pbFloorResIdl.error;
+                } else if (pbFloorResIdl.error != null) {
+                    if (pbFloorResIdl.error.errorno != null) {
+                        setError(pbFloorResIdl.error.errorno.intValue());
+                    }
+                    setErrorString(pbFloorResIdl.error.errmsg);
+                }
             }
         } catch (Exception e) {
             BdLog.detailException(e);
         }
-        this.pbFloorData = auVar;
+        this.pbFloorData = arVar;
     }
 }

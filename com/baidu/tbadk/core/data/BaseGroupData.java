@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.data;
 
 import java.io.Serializable;
-import java.util.LinkedList;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class BaseGroupData extends com.baidu.tbadk.core.util.a implements Serializable {
     private static final long serialVersionUID = 5616188082014345808L;
@@ -178,9 +178,9 @@ public class BaseGroupData extends com.baidu.tbadk.core.util.a implements Serial
     }
 
     @Override // com.baidu.tbadk.core.util.a
-    public LinkedList<String> getImageUrl() {
-        LinkedList<String> linkedList = new LinkedList<>();
-        linkedList.add(this.portrait);
-        return linkedList;
+    public ArrayList<String> getImageUrl() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add(this.portrait);
+        return arrayList;
     }
 }

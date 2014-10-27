@@ -3,6 +3,7 @@ package com.baidu.adp.framework.client.socket;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
@@ -42,15 +43,15 @@ public class m {
                 linkedList.add("comment");
                 linkedList.add(str3);
             }
-            com.baidu.adp.lib.stats.f.c().b("socket", linkedList.toArray());
+            com.baidu.adp.lib.stats.f.er().c("socket", linkedList.toArray());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public static void a() {
+    public static void aE() {
         try {
-            com.baidu.adp.lib.stats.f.c().b("socket", "url", com.baidu.adp.lib.webSocket.m.a().o(), "dns_cost", Long.valueOf(com.baidu.adp.lib.webSocket.m.a().j()), TiebaStatic.CON_COST, Long.valueOf(com.baidu.adp.lib.webSocket.m.a().l()), "remote_ip", com.baidu.adp.lib.webSocket.m.a().k(), "local_dns", com.baidu.adp.lib.webSocket.m.a().m(), "local_dns_bak", com.baidu.adp.lib.webSocket.m.a().n(), "net", com.baidu.adp.lib.stats.f.c().e());
+            com.baidu.adp.lib.stats.f.er().c("socket", ImageViewerConfig.URL, com.baidu.adp.lib.webSocket.m.fT().getUrl(), "dns_cost", Long.valueOf(com.baidu.adp.lib.webSocket.m.fT().fR()), TiebaStatic.CON_COST, Long.valueOf(com.baidu.adp.lib.webSocket.m.fT().gb()), "remote_ip", com.baidu.adp.lib.webSocket.m.fT().fQ(), "local_dns", com.baidu.adp.lib.webSocket.m.fT().fv(), "local_dns_bak", com.baidu.adp.lib.webSocket.m.fT().fw(), "net", com.baidu.adp.lib.stats.f.er().eu());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }

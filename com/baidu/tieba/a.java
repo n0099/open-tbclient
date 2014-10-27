@@ -7,40 +7,38 @@ import android.widget.ImageView;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class a {
-    private d a = null;
-    private Handler b = new Handler();
-    private Object c = null;
-    private final int d = 3000;
-    private final int e = 1000;
-    private Runnable f = new b(this);
+    private d acv = null;
+    private Handler mHandler = new Handler();
+    private Object acw = null;
+    private final int acx = 3000;
+    private final int acy = 1000;
+    private Runnable mRunnable = new b(this);
 
     public void a(d dVar) {
-        this.a = dVar;
+        this.acv = dVar;
     }
 
     public void a(Activity activity, Object obj) {
-        this.c = obj;
-        String g = com.baidu.tbadk.b.a.a().g();
-        long f = com.baidu.tbadk.b.a.a().f();
-        boolean c = com.baidu.tbadk.b.a.a().c();
-        if (TextUtils.isEmpty(g) || !c || f <= 0) {
-            if (this.a != null) {
-                this.a.a(obj);
+        this.acw = obj;
+        String uW = com.baidu.tbadk.util.a.uR().uW();
+        long uV = com.baidu.tbadk.util.a.uR().uV();
+        boolean uT = com.baidu.tbadk.util.a.uR().uT();
+        if (TextUtils.isEmpty(uW) || !uT || uV <= 0) {
+            if (this.acv != null) {
+                this.acv.t(obj);
                 return;
             }
             return;
         }
-        long j = f >= 1000 ? f : 1000L;
+        long j = uV >= 1000 ? uV : 1000L;
         long j2 = j <= 3000 ? j : 3000L;
         TbImageView tbImageView = new TbImageView(activity);
         tbImageView.setDefaultResource(0);
-        tbImageView.setNightDefaultResource(0);
         tbImageView.setDefaultBgResource(0);
-        tbImageView.setNightDefaultBgResource(0);
         tbImageView.setImageDrawable(null);
         tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        tbImageView.setEvent(new c(this, activity.getWindow().getDecorView().findViewById(16908290), tbImageView, activity));
-        tbImageView.a(g, 10, false);
-        this.b.postDelayed(this.f, j2);
+        tbImageView.setEvent(new c(this, tbImageView, activity.getWindow().getDecorView().findViewById(16908290), activity));
+        tbImageView.c(uW, 10, false);
+        this.mHandler.postDelayed(this.mRunnable, j2);
     }
 }

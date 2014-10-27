@@ -1,11 +1,11 @@
 package com.baidu.tbadk.browser;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,39 +22,43 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.pluginArch.PluginCenter;
+import com.baidu.tbadk.pluginArch.PluginNameList;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import java.util.Date;
-@SuppressLint({"SetJavaScriptEnabled"})
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class WebTbActivity extends BaseActivity {
-    private ImageView p;
-    protected WebView a = null;
-    private RelativeLayout i = null;
-    private ImageView j = null;
-    private ImageView k = null;
-    private ImageView l = null;
-    protected ImageView b = null;
-    private ProgressBar m = null;
-    protected String c = null;
-    private WebChromeClient n = null;
-    private LinearLayout o = null;
-    protected String d = null;
-    protected String e = null;
-    protected boolean f = false;
-    protected boolean g = false;
-    protected aa h = null;
-    private final Handler q = new Handler();
-    private final Runnable r = new s(this);
+    private ImageView mBottomInstallPlugin;
+    protected WebView xG = null;
+    private RelativeLayout xH = null;
+    private ImageView xI = null;
+    private ImageView xJ = null;
+    private ImageView xK = null;
+    protected ImageView xL = null;
+    private ProgressBar xM = null;
+    protected String url = null;
+    private WebChromeClient xN = null;
+    private LinearLayout xO = null;
+    protected String xP = null;
+    protected String mPtoken = null;
+    protected boolean xC = false;
+    protected boolean xD = false;
+    protected ab xQ = null;
+    private final Handler mHandler = new Handler();
+    private final Runnable mRunnable = new s(this);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context, String str, String str2, String str3, boolean z, boolean z2) {
         if (UtilHelper.webViewIsProbablyCorrupt(context)) {
-            com.baidu.adp.lib.util.j.a(context, context.getString(com.baidu.tieba.x.web_view_corrupted));
+            com.baidu.adp.lib.util.m.showToast(context, context.getString(com.baidu.tieba.y.web_view_corrupted));
             return;
         }
         Intent intent = new Intent(context, WebTbActivity.class);
-        intent.putExtra("url", str);
+        intent.putExtra(ImageViewerConfig.URL, str);
         intent.putExtra(SapiAccountManager.SESSION_BDUSS, str2);
         intent.putExtra(SapiAccountManager.SESSION_PTOKEN, str3);
         intent.putExtra("autoOrientaion", z);
@@ -67,16 +71,16 @@ public class WebTbActivity extends BaseActivity {
 
     protected void a(Intent intent, Bundle bundle) {
         if (bundle != null) {
-            this.f = bundle.getBoolean("autoOrientaion", false);
-            this.g = bundle.getBoolean("fullScreen", false);
+            this.xC = bundle.getBoolean("autoOrientaion", false);
+            this.xD = bundle.getBoolean("fullScreen", false);
         } else if (intent != null) {
-            this.f = intent.getBooleanExtra("autoOrientaion", false);
-            this.g = intent.getBooleanExtra("fullScreen", false);
+            this.xC = intent.getBooleanExtra("autoOrientaion", false);
+            this.xD = intent.getBooleanExtra("fullScreen", false);
         }
-        if (this.g) {
+        if (this.xD) {
             getWindow().setFlags(1024, 1024);
         }
-        if (this.f && getRequestedOrientation() != 4) {
+        if (this.xC && getRequestedOrientation() != 4) {
             setRequestedOrientation(4);
         }
     }
@@ -87,40 +91,40 @@ public class WebTbActivity extends BaseActivity {
         String str;
         super.onCreate(bundle);
         a(getIntent(), bundle);
-        TbadkApplication.m252getInst().addRemoteActivity(this);
+        TbadkApplication.m251getInst().addRemoteActivity(this);
         UtilHelper.openGpu(this);
-        b();
+        iT();
         if (bundle == null) {
-            this.d = getIntent().getStringExtra(SapiAccountManager.SESSION_BDUSS);
+            this.xP = getIntent().getStringExtra(SapiAccountManager.SESSION_BDUSS);
         } else {
-            this.d = bundle.getString(SapiAccountManager.SESSION_BDUSS);
+            this.xP = bundle.getString(SapiAccountManager.SESSION_BDUSS);
         }
         if (bundle == null) {
-            this.e = getIntent().getStringExtra(SapiAccountManager.SESSION_PTOKEN);
+            this.mPtoken = getIntent().getStringExtra(SapiAccountManager.SESSION_PTOKEN);
         } else {
-            this.e = bundle.getString(SapiAccountManager.SESSION_PTOKEN);
+            this.mPtoken = bundle.getString(SapiAccountManager.SESSION_PTOKEN);
         }
-        a();
+        initCookie();
         a(bundle);
-        if (this.c != null) {
-            int indexOf = this.c.indexOf(47, 8);
+        if (this.url != null) {
+            int indexOf = this.url.indexOf(47, 8);
             if (indexOf > 8) {
-                str = this.c.substring(0, indexOf);
+                str = this.url.substring(0, indexOf);
             } else {
-                str = this.c;
+                str = this.url;
             }
             if (!str.contains("lecai.com") && !str.contains("baidu.com")) {
-                c();
+                shouldShowInstallPluginDialog();
             }
         }
     }
 
-    private void a() {
+    private void initCookie() {
         CookieSyncManager.createInstance(this);
         CookieManager cookieManager = CookieManager.getInstance();
         cookieManager.setAcceptCookie(true);
-        cookieManager.setCookie("baidu.com", "BDUSS=" + this.d + "; domain=.baidu.com;");
-        cookieManager.setCookie("baidu.com", "PTOKEN=" + this.e + "; domain=.baidu.com;");
+        cookieManager.setCookie("baidu.com", "BDUSS=" + this.xP + "; domain=.baidu.com;");
+        cookieManager.setCookie("baidu.com", "PTOKEN=" + this.mPtoken + "; domain=.baidu.com;");
         CookieSyncManager.getInstance().sync();
     }
 
@@ -130,39 +134,58 @@ public class WebTbActivity extends BaseActivity {
         finish();
     }
 
-    private void b() {
-        setContentView(com.baidu.tieba.v.web_activity);
-        this.o = (LinearLayout) findViewById(com.baidu.tieba.u.softkey);
-        this.m = (ProgressBar) findViewById(com.baidu.tieba.u.progress);
-        this.a = (WebView) findViewById(com.baidu.tieba.u.webview);
-        CompatibleUtile.getInstance().removeJavascriptInterface(this.a);
-        this.a.setWebViewClient(new t(this));
-        this.n = CompatibleUtile.getInstance().getWebChromeClient(this);
-        this.a.setWebChromeClient(this.n);
-        WebSettings settings = this.a.getSettings();
+    private void iT() {
+        setContentView(com.baidu.tieba.w.web_activity);
+        this.xO = (LinearLayout) findViewById(com.baidu.tieba.v.softkey);
+        this.xM = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
+        this.xG = (WebView) findViewById(com.baidu.tieba.v.webview);
+        CompatibleUtile.getInstance().removeJavascriptInterface(this.xG);
+        this.xG.setWebViewClient(new t(this));
+        this.xN = CompatibleUtile.getInstance().getWebChromeClient(this);
+        this.xG.setWebChromeClient(this.xN);
+        this.xG.setDownloadListener(new u(this));
+        WebSettings settings = this.xG.getSettings();
         try {
             settings.setBuiltInZoomControls(true);
             settings.setJavaScriptEnabled(true);
-            settings.setPluginsEnabled(true);
-            a.a(settings);
+            CompatibleUtile.dealWebView(settings);
+            settings.setDomStorageEnabled(true);
+            settings.setAppCacheMaxSize(8388608L);
+            settings.setAppCachePath(getApplicationContext().getCacheDir().getAbsolutePath());
+            settings.setAllowFileAccess(true);
+            settings.setAppCacheEnabled(true);
+            a.WebViewNoDataBase(settings);
         } catch (Throwable th) {
             BdLog.e(th);
         }
-        this.j = (ImageView) findViewById(com.baidu.tieba.u.webBack);
-        this.j.setEnabled(false);
-        this.j.setOnClickListener(new u(this));
-        this.k = (ImageView) findViewById(com.baidu.tieba.u.webForward);
-        this.k.setEnabled(false);
-        this.k.setOnClickListener(new v(this));
-        this.l = (ImageView) findViewById(com.baidu.tieba.u.refresh);
-        this.l.setOnClickListener(new w(this));
-        this.b = (ImageView) findViewById(com.baidu.tieba.u.back);
-        this.b.setOnClickListener(new x(this));
-        this.p = (ImageView) findViewById(com.baidu.tieba.u.tb_webview_bottom_install_button);
-        this.p.setOnClickListener(this);
-        this.i = (RelativeLayout) findViewById(com.baidu.tieba.u.float_tip);
-        this.i.findViewById(com.baidu.tieba.u.install).setOnClickListener(new y(this));
-        this.i.setOnClickListener(new z(this));
+        this.xI = (ImageView) findViewById(com.baidu.tieba.v.webBack);
+        this.xI.setEnabled(false);
+        this.xI.setOnClickListener(new v(this));
+        this.xJ = (ImageView) findViewById(com.baidu.tieba.v.webForward);
+        this.xJ.setEnabled(false);
+        this.xJ.setOnClickListener(new w(this));
+        this.xK = (ImageView) findViewById(com.baidu.tieba.v.refresh);
+        this.xK.setOnClickListener(new x(this));
+        this.xL = (ImageView) findViewById(com.baidu.tieba.v.back);
+        this.xL.setOnClickListener(new y(this));
+        this.mBottomInstallPlugin = (ImageView) findViewById(com.baidu.tieba.v.tb_webview_bottom_install_button);
+        this.mBottomInstallPlugin.setOnClickListener(this);
+        this.xH = (RelativeLayout) findViewById(com.baidu.tieba.v.float_tip);
+        this.xH.findViewById(com.baidu.tieba.v.install).setOnClickListener(new z(this));
+        this.xH.setOnClickListener(new aa(this));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public String aR(String str) {
+        String[] split;
+        if (TextUtils.isEmpty(str) || (split = str.split("/")) == null || split.length <= 0) {
+            return null;
+        }
+        Matcher matcher = Pattern.compile("(\\w+.apk)").matcher(split[split.length - 1]);
+        if (matcher.find()) {
+            return matcher.group(0);
+        }
+        return null;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
@@ -178,81 +201,89 @@ public class WebTbActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        a("onPause");
+        callHiddenWebViewMethod("onPause");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        a("onResume");
+        callHiddenWebViewMethod("onResume");
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    public void finish() {
+        super.finish();
+        if (this.xN != null && (this.xN instanceof CompatibleUtile.FullscreenableChromeClient)) {
+            ((CompatibleUtile.FullscreenableChromeClient) this.xN).hideCustomView();
+        }
+        if (this.xG != null) {
+            if (this.xG.getSettings() != null) {
+                try {
+                    this.xG.getSettings().setJavaScriptCanOpenWindowsAutomatically(false);
+                    this.xG.getSettings().setJavaScriptEnabled(false);
+                } catch (Exception e) {
+                    BdLog.e(e);
+                }
+            }
+            try {
+                this.xG.clearView();
+            } catch (Exception e2) {
+            }
+            if (this.xG.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.xG.getParent()).removeView(this.xG);
+            }
+            this.xG.destroy();
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.q.removeCallbacks(this.r);
-        TbadkApplication.m252getInst().delRemoteActivity(this);
-        if (this.m != null) {
-            this.m.setVisibility(8);
-        }
-        if (this.n != null && (this.n instanceof CompatibleUtile.FullscreenableChromeClient)) {
-            ((CompatibleUtile.FullscreenableChromeClient) this.n).hideCustomView();
-        }
-        if (this.a != null) {
-            if (this.a.getSettings() != null) {
-                try {
-                    this.a.getSettings().setJavaScriptCanOpenWindowsAutomatically(false);
-                    this.a.getSettings().setJavaScriptEnabled(false);
-                } catch (Exception e) {
-                    BdLog.e(e);
-                }
-            }
-            this.a.clearView();
-            if (this.a.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.a.getParent()).removeView(this.a);
-            }
-            this.a.destroy();
+        this.mHandler.removeCallbacks(this.mRunnable);
+        TbadkApplication.m251getInst().delRemoteActivity(this);
+        if (this.xM != null) {
+            this.xM.setVisibility(8);
         }
     }
 
     private void a(Bundle bundle) {
         if (bundle != null) {
-            this.c = bundle.getString("url");
+            this.url = bundle.getString(ImageViewerConfig.URL);
         } else {
-            this.c = getIntent().getStringExtra("url");
+            this.url = getIntent().getStringExtra(ImageViewerConfig.URL);
         }
-        if (this.c == null) {
+        if (this.url == null) {
             finish();
         } else {
-            this.q.postDelayed(this.r, 150L);
+            this.mHandler.postDelayed(this.mRunnable, 150L);
         }
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putString("url", this.c);
-        bundle.putString(SapiAccountManager.SESSION_BDUSS, this.d);
-        bundle.putString(SapiAccountManager.SESSION_PTOKEN, this.e);
-        bundle.putBoolean("autoOrientaion", this.f);
-        bundle.putBoolean("fullScreen", this.g);
+        bundle.putString(ImageViewerConfig.URL, this.url);
+        bundle.putString(SapiAccountManager.SESSION_BDUSS, this.xP);
+        bundle.putString(SapiAccountManager.SESSION_PTOKEN, this.mPtoken);
+        bundle.putBoolean("autoOrientaion", this.xC);
+        bundle.putBoolean("fullScreen", this.xD);
     }
 
     @Override // android.app.Activity
     protected void onRestoreInstanceState(Bundle bundle) {
         super.onRestoreInstanceState(bundle);
-        this.d = bundle.getString(SapiAccountManager.SESSION_BDUSS);
-        this.e = bundle.getString(SapiAccountManager.SESSION_PTOKEN);
-        this.f = bundle.getBoolean("autoOrientaion", false);
-        this.g = bundle.getBoolean("fullScreen", false);
+        this.xP = bundle.getString(SapiAccountManager.SESSION_BDUSS);
+        this.mPtoken = bundle.getString(SapiAccountManager.SESSION_PTOKEN);
+        this.xC = bundle.getBoolean("autoOrientaion", false);
+        this.xD = bundle.getBoolean("fullScreen", false);
     }
 
-    private void a(String str) {
-        if (this.a != null) {
+    private void callHiddenWebViewMethod(String str) {
+        if (this.xG != null) {
             try {
-                WebView.class.getMethod(str, new Class[0]).invoke(this.a, new Object[0]);
+                WebView.class.getMethod(str, new Class[0]).invoke(this.xG, new Object[0]);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -261,45 +292,45 @@ public class WebTbActivity extends BaseActivity {
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.p && !this.p.isSelected()) {
-            this.p.setSelected(true);
-            if (this.p.isSelected()) {
-                d();
+        if (view == this.mBottomInstallPlugin && !this.mBottomInstallPlugin.isSelected()) {
+            this.mBottomInstallPlugin.setSelected(true);
+            if (this.mBottomInstallPlugin.isSelected()) {
+                showInstallGuide();
             }
         }
     }
 
-    private void c() {
-        com.baidu.tbadk.pluginArch.d a = com.baidu.tbadk.pluginArch.d.a();
-        if (a != null && !a.c("browser") && a.b("browser") != null) {
-            this.p.setVisibility(0);
-            if (!com.baidu.tbadk.core.sharedPref.b.a().a(TbWebViewActivity.KEY_INSTALL_PLUGIN_DIALOG_CLOSED, false)) {
-                d();
+    private void shouldShowInstallPluginDialog() {
+        PluginCenter pluginCenter = PluginCenter.getInstance();
+        if (pluginCenter != null && !pluginCenter.checkPluginInstalled(PluginNameList.NAME_BROWSER) && pluginCenter.getNetConfigInfo(PluginNameList.NAME_BROWSER) != null) {
+            this.mBottomInstallPlugin.setVisibility(0);
+            if (!com.baidu.tbadk.core.sharedPref.b.lk().getBoolean(TbWebViewActivity.KEY_INSTALL_PLUGIN_DIALOG_CLOSED, false)) {
+                showInstallGuide();
                 return;
             }
-            if (new Date().getTime() - com.baidu.tbadk.core.sharedPref.b.a().a(TbWebViewActivity.KEY_INSTALL_PLUGIN_DIALOG_SHOWN_TIME, new Date().getTime()) > 259200000) {
-                d();
+            if (new Date().getTime() - com.baidu.tbadk.core.sharedPref.b.lk().getLong(TbWebViewActivity.KEY_INSTALL_PLUGIN_DIALOG_SHOWN_TIME, new Date().getTime()) > 259200000) {
+                showInstallGuide();
                 return;
             }
             return;
         }
-        this.p.setVisibility(8);
+        this.mBottomInstallPlugin.setVisibility(8);
     }
 
-    private void d() {
-        this.i.setVisibility(0);
-        this.p.setSelected(true);
+    private void showInstallGuide() {
+        this.xH.setVisibility(0);
+        this.mBottomInstallPlugin.setSelected(true);
     }
 
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         if (i == 1) {
-            if (this.i.isShown()) {
-                this.i.setVisibility(8);
-                this.p.setSelected(false);
+            if (this.xH.isShown()) {
+                this.xH.setVisibility(8);
+                this.mBottomInstallPlugin.setSelected(false);
             }
             if (i2 == -1) {
-                this.p.setVisibility(8);
+                this.mBottomInstallPlugin.setVisibility(8);
             }
         }
     }

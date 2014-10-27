@@ -3,65 +3,64 @@ package com.baidu.tieba.im.groupActivity;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.im.message.ResponseDelGroupActivityMessage;
 import com.baidu.tieba.im.message.ResponseGetGroupActivityMessage;
-import com.baidu.tieba.x;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-class o extends com.baidu.adp.framework.listener.d {
-    final /* synthetic */ GroupActivityActivity a;
+class o extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ GroupActivityActivity aZa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(GroupActivityActivity groupActivityActivity, int i) {
         super(i);
-        this.a = groupActivityActivity;
+        this.aZa = groupActivityActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         r rVar;
         r rVar2;
         r rVar3;
         s sVar;
         if (socketResponsedMessage == null) {
-            this.a.hideProgressBar();
-            this.a.showToast(x.neterror);
+            this.aZa.hideProgressBar();
+            this.aZa.showToast(y.neterror);
         } else if (socketResponsedMessage.getCmd() == 103015) {
-            this.a.hideProgressBar();
+            this.aZa.hideProgressBar();
             if (!(socketResponsedMessage instanceof ResponseGetGroupActivityMessage)) {
-                this.a.showToast(x.neterror);
+                this.aZa.showToast(y.neterror);
                 return;
             }
             ResponseGetGroupActivityMessage responseGetGroupActivityMessage = (ResponseGetGroupActivityMessage) socketResponsedMessage;
-            rVar2 = this.a.b;
-            if (rVar2.e() == responseGetGroupActivityMessage.getOrginalMessage()) {
+            rVar2 = this.aZa.aYZ;
+            if (rVar2.getSendMsg() == responseGetGroupActivityMessage.getOrginalMessage()) {
                 if (responseGetGroupActivityMessage.getError() == 2230504) {
-                    this.a.showToast(responseGetGroupActivityMessage.getErrorString(), false);
-                    this.a.finish();
+                    this.aZa.showToast(responseGetGroupActivityMessage.getErrorString(), false);
+                    this.aZa.finish();
                 } else if (responseGetGroupActivityMessage.getError() == 0) {
-                    rVar3 = this.a.b;
+                    rVar3 = this.aZa.aYZ;
                     rVar3.a(responseGetGroupActivityMessage.getActivityData());
-                    sVar = this.a.a;
+                    sVar = this.aZa.aYY;
                     sVar.a(responseGetGroupActivityMessage.getActivityData(), false);
                 } else {
-                    this.a.showToast(x.neterror);
+                    this.aZa.showToast(y.neterror);
                 }
             }
         } else if (socketResponsedMessage.getCmd() == 103121) {
-            this.a.hideProgressBar();
+            this.aZa.hideProgressBar();
             if (!(socketResponsedMessage instanceof ResponseDelGroupActivityMessage)) {
-                this.a.showToast(x.neterror);
+                this.aZa.showToast(y.neterror);
                 return;
             }
             ResponseDelGroupActivityMessage responseDelGroupActivityMessage = (ResponseDelGroupActivityMessage) socketResponsedMessage;
-            rVar = this.a.b;
-            if (rVar.f() == responseDelGroupActivityMessage.getOrginalMessage()) {
+            rVar = this.aZa.aYZ;
+            if (rVar.Oi() == responseDelGroupActivityMessage.getOrginalMessage()) {
                 if (responseDelGroupActivityMessage.getError() != 0) {
-                    this.a.showToast(responseDelGroupActivityMessage.getErrorString());
+                    this.aZa.showToast(responseDelGroupActivityMessage.getErrorString());
                     return;
                 }
-                this.a.showToast(x.group_activity_delete_succ, false);
-                this.a.finish();
+                this.aZa.showToast(y.group_activity_delete_succ, false);
+                this.aZa.finish();
             }
         }
     }

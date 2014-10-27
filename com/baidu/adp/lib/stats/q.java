@@ -9,92 +9,92 @@ import java.util.Iterator;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class q {
-    private ArrayList<BasicNameValuePair> a;
-    private String b;
-    private StringBuilder c;
-    private long d;
+    private String mA;
+    private StringBuilder mB;
+    private long mStartTime;
+    private ArrayList<BasicNameValuePair> mz;
 
     public q(String str) {
-        this.b = null;
-        this.c = new StringBuilder(100);
-        this.b = str;
+        this.mA = null;
+        this.mB = new StringBuilder(100);
+        this.mA = str;
     }
 
     public q() {
-        this.b = null;
-        this.c = new StringBuilder(100);
+        this.mA = null;
+        this.mB = new StringBuilder(100);
     }
 
-    public void a(Object obj, Object obj2) {
+    public void b(Object obj, Object obj2) {
         if (obj != null && obj2 != null) {
-            if (this.a == null) {
-                this.a = new ArrayList<>();
+            if (this.mz == null) {
+                this.mz = new ArrayList<>();
             }
-            this.a.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
+            this.mz.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
         }
     }
 
     public String toString() {
-        if (this.a != null) {
-            Iterator<BasicNameValuePair> it = this.a.iterator();
+        if (this.mz != null) {
+            Iterator<BasicNameValuePair> it = this.mz.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
-                    if (this.c.length() > 0) {
-                        this.c.append('&');
+                    if (this.mB.length() > 0) {
+                        this.mB.append('&');
                     }
-                    this.c.append(next.getName());
-                    this.c.append('=');
+                    this.mB.append(next.getName());
+                    this.mB.append('=');
                     try {
-                        this.c.append(URLEncoder.encode(a(next.getValue()), "utf-8"));
+                        this.mB.append(URLEncoder.encode(al(next.getValue()), "utf-8"));
                     } catch (UnsupportedEncodingException e) {
                         BdLog.e(e);
-                        this.c.append(a(next.getValue()));
+                        this.mB.append(al(next.getValue()));
                     }
                 }
             }
         }
-        return this.c.toString();
+        return this.mB.toString();
     }
 
-    public void a(Object... objArr) {
+    public void c(Object... objArr) {
         if (objArr != null) {
             for (int i = 0; i < objArr.length / 2; i++) {
                 if ((i * 2) + 1 < objArr.length) {
-                    a(objArr[i * 2], objArr[(i * 2) + 1]);
+                    b(objArr[i * 2], objArr[(i * 2) + 1]);
                 }
             }
         }
     }
 
-    public void a(String str, String str2) {
+    public void n(String str, String str2) {
         if (!TextUtils.isEmpty(str)) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
-            if (this.c.length() > 0) {
-                this.c.append('&');
+            if (this.mB.length() > 0) {
+                this.mB.append('&');
             }
-            this.c.append(str);
-            this.c.append("=");
+            this.mB.append(str);
+            this.mB.append("=");
             try {
-                this.c.append(URLEncoder.encode(a(str2), "utf-8"));
-            } catch (UnsupportedEncodingException e) {
-                BdLog.e(e);
-                this.c.append(a(str2));
+                this.mB.append(URLEncoder.encode(al(str2), "utf-8"));
+            } catch (Throwable th) {
+                BdLog.e(th);
+                this.mB.append(al(str2));
             }
         }
     }
 
-    public void a() {
-        this.d = System.currentTimeMillis();
+    public void eL() {
+        this.mStartTime = System.currentTimeMillis();
     }
 
-    public long b() {
-        return System.currentTimeMillis() - this.d;
+    public long eM() {
+        return System.currentTimeMillis() - this.mStartTime;
     }
 
-    private String a(String str) {
+    private String al(String str) {
         return str.replace(" ", "_").replace("[", "(").replace("]", "").replace("&", "|");
     }
 }

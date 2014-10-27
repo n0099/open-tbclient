@@ -5,33 +5,33 @@ import com.baidu.tieba.im.data.GroupActivityData;
 import com.baidu.tieba.im.message.RequestCreateGroupActivityMessage;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.e {
-    RequestCreateGroupActivityMessage a;
-    private GroupActivityData b;
-    private BaseFragmentActivity c;
+    private GroupActivityData aYB;
+    RequestCreateGroupActivityMessage aYC;
+    private BaseFragmentActivity mActivity;
 
     public d(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity);
-        this.b = new GroupActivityData();
-        this.c = baseFragmentActivity;
+        this.aYB = new GroupActivityData();
+        this.mActivity = baseFragmentActivity;
     }
 
-    public GroupActivityData a() {
-        return this.b;
+    public GroupActivityData NY() {
+        return this.aYB;
     }
 
-    public void a(boolean z) {
-        if (this.b != null) {
-            this.a = new RequestCreateGroupActivityMessage();
-            this.a.setCommitType(z ? 1 : 0);
+    public void bK(boolean z) {
+        if (this.aYB != null) {
+            this.aYC = new RequestCreateGroupActivityMessage();
+            this.aYC.setCommitType(z ? 1 : 0);
             if (z) {
-                this.a.setActivityId(this.b.getActivityId());
+                this.aYC.setActivityId(this.aYB.getActivityId());
             }
-            this.a.setgActivityArea(this.b.getgActivityArea());
-            this.a.setgActivityContent(this.b.getgActivityContent());
-            this.a.setgActivityTime(this.b.getgActivityTime());
-            this.a.setgActivityTitle(this.b.getgActivityTitle());
-            this.a.setGroupId(this.b.getGroupId());
-            this.c.a(this.a);
+            this.aYC.setgActivityArea(this.aYB.getgActivityArea());
+            this.aYC.setgActivityContent(this.aYB.getgActivityContent());
+            this.aYC.setgActivityTime(this.aYB.getgActivityTime());
+            this.aYC.setgActivityTitle(this.aYB.getgActivityTitle());
+            this.aYC.setGroupId(this.aYB.getGroupId());
+            this.mActivity.sendMessage(this.aYC);
         }
     }
 

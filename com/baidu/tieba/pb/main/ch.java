@@ -1,43 +1,29 @@
 package com.baidu.tieba.pb.main;
+
+import android.os.Handler;
+import android.view.animation.Animation;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-class ch implements Runnable {
-    final /* synthetic */ cg a;
-    private final /* synthetic */ com.baidu.tieba.data.au b;
-    private final /* synthetic */ boolean c;
-    private final /* synthetic */ String d;
-    private final /* synthetic */ String e;
+class ch implements Animation.AnimationListener {
+    final /* synthetic */ bv byI;
+    private final /* synthetic */ ImageView byJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ch(cg cgVar, com.baidu.tieba.data.au auVar, boolean z, String str, String str2) {
-        this.a = cgVar;
-        this.b = auVar;
-        this.c = z;
-        this.d = str;
-        this.e = str2;
+    public ch(bv bvVar, ImageView imageView) {
+        this.byI = bvVar;
+        this.byJ = imageView;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        bs bsVar;
-        cu cuVar;
-        bs bsVar2;
-        bs bsVar3;
-        com.baidu.tieba.pb.sub.l lVar;
-        bs bsVar4;
-        cu cuVar2;
-        bsVar = this.a.a;
-        cuVar = bsVar.aB;
-        if (cuVar != null) {
-            bsVar4 = this.a.a;
-            cuVar2 = bsVar4.aB;
-            cuVar2.a(this.b);
-        }
-        if (this.c) {
-            bsVar3 = this.a.a;
-            lVar = bsVar3.M;
-            lVar.a(this.d, this.e);
-        }
-        bsVar2 = this.a.a;
-        bsVar2.al();
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        new Handler().post(new ci(this, this.byJ));
     }
 }

@@ -6,20 +6,20 @@ import android.view.ViewGroup;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c extends PagerAdapter {
-    private List<View> a;
-    private MemberPayActivity b;
+    private List<View> UK;
+    private MemberPayActivity aor;
 
     public c(MemberPayActivity memberPayActivity, List<View> list) {
-        this.b = memberPayActivity;
-        this.a = list;
+        this.aor = memberPayActivity;
+        this.UK = list;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.a == null) {
+        if (this.UK == null) {
             return 0;
         }
-        return this.a.size();
+        return this.UK.size();
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -40,8 +40,8 @@ public class c extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        viewGroup.addView(this.a.get(i));
-        return this.a.get(i);
+        viewGroup.addView(this.UK.get(i));
+        return this.UK.get(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -49,11 +49,11 @@ public class c extends PagerAdapter {
         super.setPrimaryItem(viewGroup, i, obj);
     }
 
-    public void a(int i) {
+    public void onChangeSkinType(int i) {
         notifyDataSetChanged();
-        for (View view : this.a) {
-            this.b.getLayoutMode().a(i == 1);
-            this.b.getLayoutMode().a(view);
+        for (View view : this.UK) {
+            this.aor.getLayoutMode().L(i == 1);
+            this.aor.getLayoutMode().h(view);
         }
     }
 }

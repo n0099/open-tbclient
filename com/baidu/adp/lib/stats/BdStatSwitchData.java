@@ -9,6 +9,7 @@ public class BdStatSwitchData implements Serializable {
     private static final long serialVersionUID = -4426491450548432115L;
     private BdStatFirstSwitchData error;
     private String mData;
+    private BdStatFirstSwitchData performance;
     private int uploadInterval;
     private long specifiedExpired = 0;
     private int error_code = -1;
@@ -26,6 +27,10 @@ public class BdStatSwitchData implements Serializable {
         this.error.getCommon().setIs_only_wifi(false);
         this.error.getCommon().setIs_open(true);
         this.error.getCommon().setIs_exact(false);
+        this.performance = new BdStatFirstSwitchData();
+        this.performance.getCommon().setIs_open(true);
+        this.performance.getCommon().setIs_only_wifi(true);
+        this.performance.getCommon().setIs_exact(false);
     }
 
     public int getError_code() {
@@ -68,6 +73,14 @@ public class BdStatSwitchData implements Serializable {
         this.stat = bdStatFirstSwitchData;
     }
 
+    public BdStatFirstSwitchData getPerformance() {
+        return this.performance;
+    }
+
+    public void setPerformnce(BdStatFirstSwitchData bdStatFirstSwitchData) {
+        this.performance = bdStatFirstSwitchData;
+    }
+
     public BdStatFirstSwitchData getError() {
         return this.error;
     }
@@ -103,7 +116,7 @@ public class BdStatSwitchData implements Serializable {
     public void parserJson(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                a(new JSONObject(str));
+                parserJson(new JSONObject(str));
                 this.mData = str;
             } catch (Exception e) {
                 BdLog.e(e);
@@ -111,7 +124,7 @@ public class BdStatSwitchData implements Serializable {
         }
     }
 
-    private void a(JSONObject jSONObject) {
+    private void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 setError_code(jSONObject.optInt("error_code", 0));
@@ -131,6 +144,7 @@ public class BdStatSwitchData implements Serializable {
                     this.debug.parserJson(optJSONObject.optJSONArray("debug"));
                     this.stat.parserJson(optJSONObject.optJSONArray("stat"));
                     this.error.parserJson(optJSONObject.optJSONArray("error"));
+                    this.performance.parserJson(optJSONObject.optJSONArray("performance"));
                 }
             } catch (Exception e) {
                 BdLog.e(e);

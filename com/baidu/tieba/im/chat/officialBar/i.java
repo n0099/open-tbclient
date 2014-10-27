@@ -3,51 +3,51 @@ package com.baidu.tieba.im.chat.officialBar;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class i {
-    public static i a = new i();
-    private final int b = 9;
-    private final int c = 1;
-    private final int d = 1;
-    private com.baidu.adp.lib.d.b<f> e;
-    private com.baidu.adp.lib.d.b<c> f;
-    private com.baidu.adp.lib.d.b<bc> g;
+    public static i aQW = new i();
+    private com.baidu.adp.lib.e.b<f> aQJ;
+    private com.baidu.adp.lib.e.b<c> aQK;
+    private com.baidu.adp.lib.e.b<ba> aQL;
+    private final int aQT = 9;
+    private final int aQU = 1;
+    private final int aQV = 1;
 
-    public static i a() {
-        return a;
+    public static i Km() {
+        return aQW;
     }
 
     private i() {
     }
 
-    private void d(Context context) {
-        this.e = new k(this, new j(this, context), 1, 0);
+    private void W(Context context) {
+        this.aQJ = new k(this, new j(this, context), 1, 0);
     }
 
-    private void e(Context context) {
-        this.f = new m(this, new l(this, context), 9, 0);
+    private void X(Context context) {
+        this.aQK = new m(this, new l(this, context), 9, 0);
     }
 
-    private void f(Context context) {
-        this.g = new com.baidu.adp.lib.d.b<>(new n(this, context), 1, 0);
+    private void Y(Context context) {
+        this.aQL = new com.baidu.adp.lib.e.b<>(new n(this, context), 1, 0);
     }
 
-    public com.baidu.adp.lib.d.b<f> a(Context context) {
-        if (this.e == null) {
-            d(context);
+    public com.baidu.adp.lib.e.b<f> Z(Context context) {
+        if (this.aQJ == null) {
+            W(context);
         }
-        return this.e;
+        return this.aQJ;
     }
 
-    public com.baidu.adp.lib.d.b<c> b(Context context) {
-        if (this.f == null) {
-            e(context);
+    public com.baidu.adp.lib.e.b<c> aa(Context context) {
+        if (this.aQK == null) {
+            X(context);
         }
-        return this.f;
+        return this.aQK;
     }
 
-    public com.baidu.adp.lib.d.b<bc> c(Context context) {
-        if (this.g == null) {
-            f(context);
+    public com.baidu.adp.lib.e.b<ba> ab(Context context) {
+        if (this.aQL == null) {
+            Y(context);
         }
-        return this.g;
+        return this.aQL;
     }
 }

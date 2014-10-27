@@ -1,103 +1,78 @@
 package com.baidu.tieba.im.creategroup;
 
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Button;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-public class h implements x {
-    CreateGroupStepActivity a;
-    View b;
-    HeadImageView c;
-    ImageView d;
-    TextView e;
-    private com.baidu.adp.widget.a.a f = null;
-    private i g = null;
-    private int h;
-    private int i;
-    private int j;
+public class h implements y {
+    private CreateGroupStepActivity aSP;
+    private TbImageView aTc;
+    private Button aTd;
+    private int mIndex;
+    private View mView;
 
-    public h(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3) {
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.a = createGroupStepActivity;
-        this.b = com.baidu.adp.lib.e.b.a().a(createGroupStepActivity, com.baidu.tieba.v.create_group_step3_view, null);
-        this.d = (ImageView) this.b.findViewById(com.baidu.tieba.u.step3_img_bg);
-        this.c = (HeadImageView) this.b.findViewById(com.baidu.tieba.u.step3_img_scr);
-        this.e = (TextView) this.b.findViewById(com.baidu.tieba.u.create_group3);
-        this.h = i;
-        this.i = i2;
-        this.j = i3;
+    public h(CreateGroupStepActivity createGroupStepActivity, int i, int i2) {
+        this.aSP = createGroupStepActivity;
+        this.mView = com.baidu.adp.lib.g.b.ek().inflate(createGroupStepActivity, com.baidu.tieba.w.create_group_normal_tips, null);
+        this.aTd = (Button) this.mView.findViewById(com.baidu.tieba.v.create_group_tips_btn);
+        this.aTc = (TbImageView) this.mView.findViewById(com.baidu.tieba.v.create_group_tips_image);
+        this.mIndex = i;
+        this.aTd.setText(String.format(createGroupStepActivity.getString(com.baidu.tieba.y.group_create_can_create_num), Integer.valueOf(i2)));
+        c.b(this.aSP, c.aSV, TbadkApplication.m251getInst().getSkinType() == 1);
+        c.b(this.aSP, c.aSY, TbadkApplication.m251getInst().getSkinType() == 1);
+        c.b(this.aSP, c.aSW, TbadkApplication.m251getInst().getSkinType() == 1);
     }
 
-    public void c() {
-        if (this.g != null) {
-            this.g.cancel();
-        }
-        this.f = null;
-        this.g = new i(this, null);
-        this.g.execute(new Object[0]);
+    @Override // com.baidu.tieba.im.creategroup.y
+    public void KV() {
+        this.aTc.setBackgroundDrawable(null);
     }
 
-    public ImageView d() {
-        return this.d;
+    @Override // com.baidu.tieba.im.creategroup.y
+    public void KW() {
+        boolean z = TbadkApplication.m251getInst().getSkinType() == 1;
+        this.aSP.getLayoutMode().L(z);
+        this.aSP.getLayoutMode().h(this.mView);
+        this.aTc.c(c.a(this.aSP, c.aSZ, z), 29, false);
     }
 
-    public TextView e() {
-        return this.e;
+    @Override // com.baidu.tieba.im.creategroup.y
+    public View getView() {
+        return this.mView;
     }
 
-    @Override // com.baidu.tieba.im.creategroup.x
-    public View a() {
-        return this.b;
+    @Override // com.baidu.tieba.im.creategroup.y
+    public int KP() {
+        return this.mIndex;
     }
 
-    @Override // com.baidu.tieba.im.creategroup.x
-    public void h() {
-        this.d.setBackgroundDrawable(null);
+    @Override // com.baidu.tieba.im.creategroup.y
+    public String getTitle() {
+        return this.aSP.getString(com.baidu.tieba.y.group_create_tips_normal);
     }
 
-    @Override // com.baidu.tieba.im.creategroup.x
-    public void i() {
-        this.a.getLayoutMode().a(TbadkApplication.m252getInst().getSkinType() == 1);
-        this.a.getLayoutMode().a(this.b);
-        this.c.b();
+    @Override // com.baidu.tieba.im.creategroup.y
+    public String KY() {
+        return "";
     }
 
-    @Override // com.baidu.tieba.im.creategroup.x
-    public String j() {
-        return String.format(this.a.getString(com.baidu.tieba.x.group_create_step_photo), Integer.valueOf(this.i));
+    @Override // com.baidu.tieba.im.creategroup.y
+    public boolean KZ() {
+        return false;
     }
 
-    @Override // com.baidu.tieba.im.creategroup.x
-    public String k() {
-        if (this.h != this.j) {
-            return this.a.getString(com.baidu.tieba.x.group_create_step_tip);
-        }
-        return this.a.getString(com.baidu.tieba.x.group_create_step_done_tip);
-    }
-
-    @Override // com.baidu.tieba.im.creategroup.x
-    public boolean l() {
-        return true;
-    }
-
-    @Override // com.baidu.tieba.im.creategroup.x
-    public int b() {
-        return this.h;
-    }
-
-    @Override // com.baidu.tieba.im.creategroup.x
-    public String m() {
+    @Override // com.baidu.tieba.im.creategroup.y
+    public String getErrMsg() {
         return null;
     }
 
-    @Override // com.baidu.tieba.im.creategroup.x
-    public boolean n() {
-        return true;
+    @Override // com.baidu.tieba.im.creategroup.y
+    public boolean La() {
+        return false;
+    }
+
+    public Button Le() {
+        return this.aTd;
     }
 }

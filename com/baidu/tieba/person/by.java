@@ -1,84 +1,26 @@
 package com.baidu.tieba.person;
 
-import android.content.DialogInterface;
-import android.content.Intent;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-public class by extends BdAsyncTask<String, Integer, String> {
-    final /* synthetic */ PersonChangeActivity a;
-    private com.baidu.tbadk.core.util.ae b = null;
-    private com.baidu.tieba.model.au c;
-
-    public by(PersonChangeActivity personChangeActivity, com.baidu.tieba.model.au auVar) {
-        this.a = personChangeActivity;
-        this.c = null;
-        this.c = auVar;
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        this.a.x = null;
-        if (this.b != null) {
-            this.b.f();
+public class by implements CustomMessageTask.CustomRunnable<String> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
+        if (customMessage == null || !(customMessage instanceof PersonBarByUidLocalMessage)) {
+            return null;
         }
-        super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(String str) {
-        Boolean bool;
-        this.a.x = null;
-        this.a.closeLoadingDialog();
-        if (this.b != null) {
-            if (this.b.a().b().b()) {
-                this.a.showToast(this.a.getString(com.baidu.tieba.x.success));
-                Intent intent = new Intent();
-                bool = this.a.b;
-                if (bool.booleanValue()) {
-                    intent.putExtra("person_change_data", this.c.a());
-                } else {
-                    intent.putExtra("data", this.c.a());
-                }
-                com.baidu.tieba.ai.c().a(this.c.a());
-                this.a.setResult(-1, intent);
-                this.a.finish();
-            } else {
-                this.a.showToast(this.b.e());
+        String str = com.baidu.tbadk.core.a.a.kS().bd("tb.my_pages").get(TbadkApplication.getCurrentAccount());
+        ResponsePersonBarByUidLocalMessage responsePersonBarByUidLocalMessage = new ResponsePersonBarByUidLocalMessage();
+        if (str != null) {
+            try {
+                responsePersonBarByUidLocalMessage.decodeInBackGround(2001187, str);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
-        super.onPostExecute(str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreExecute() {
-        DialogInterface.OnCancelListener onCancelListener;
-        PersonChangeActivity personChangeActivity = this.a;
-        String string = this.a.getString(com.baidu.tieba.x.saving);
-        onCancelListener = this.a.z;
-        personChangeActivity.showLoadingDialog(string, onCancelListener);
-        super.onPreExecute();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public String doInBackground(String... strArr) {
-        if (this.c != null) {
-            this.b = new com.baidu.tbadk.core.util.ae(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/profile/modify");
-            this.b.a("sex", String.valueOf(this.c.a().getSex()));
-            this.b.a("intro", this.c.a().getIntro());
-            this.b.i();
-            if (this.b.a().b().b()) {
-                com.baidu.tieba.util.k.c();
-            }
-        }
-        return null;
+        return responsePersonBarByUidLocalMessage;
     }
 }

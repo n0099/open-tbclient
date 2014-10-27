@@ -3,13 +3,13 @@ package com.baidu.tieba.img.view;
 import android.graphics.Rect;
 /* loaded from: classes.dex */
 public interface g {
-    void a();
+    void Sf();
 
-    void a(Rect rect);
+    void Sg();
 
-    void b();
+    void Sh();
 
-    void c();
+    void Si();
 
-    void d();
+    void d(Rect rect);
 }

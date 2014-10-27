@@ -1,34 +1,26 @@
 package com.baidu.tieba.write;
 
-import android.view.View;
-import android.widget.ProgressBar;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 /* loaded from: classes.dex */
-public class bn implements View.OnClickListener {
-    final /* synthetic */ WriteImageActivity a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ int c;
+class bn extends GestureDetector.SimpleOnGestureListener {
+    final /* synthetic */ WriteActivity bTX;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bn(WriteImageActivity writeImageActivity, String str, int i) {
-        this.a = writeImageActivity;
-        this.b = str;
-        this.c = i;
+    private bn(WriteActivity writeActivity) {
+        this.bTX = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ProgressBar progressBar;
-        String str;
-        progressBar = this.a.g;
-        if (progressBar.getVisibility() != 0) {
-            String str2 = this.b;
-            str = this.a.w;
-            if (!str2.equals(str)) {
-                this.a.a(this.b);
-                this.a.c(this.b);
-                this.a.t = this.c;
-            }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bn(WriteActivity writeActivity, bn bnVar) {
+        this(writeActivity);
+    }
+
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+        if (WriteActivity.h(this.bTX).BS()) {
+            WriteActivity.h(this.bTX).w(this.bTX.getCurrentFocus());
+            return true;
         }
+        return super.onFling(motionEvent, motionEvent2, f, f2);
     }
 }

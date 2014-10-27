@@ -1,49 +1,35 @@
 package com.baidu.tieba.write;
 
-import android.widget.CompoundButton;
-import android.widget.HorizontalScrollView;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.EditText;
+import com.baidu.tieba.editortool.EditorToolComponetContainer;
 /* loaded from: classes.dex */
-public class bk implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ WriteImageActivity a;
+class bk implements View.OnClickListener {
+    final /* synthetic */ WriteActivity bTX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bk(WriteImageActivity writeImageActivity) {
-        this.a = writeImageActivity;
+    public bk(WriteActivity writeActivity) {
+        this.bTX = writeActivity;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        RadioButton radioButton;
-        RadioButton radioButton2;
-        HorizontalScrollView horizontalScrollView;
-        LinearLayout linearLayout;
-        TextView textView;
-        HorizontalScrollView horizontalScrollView2;
-        LinearLayout linearLayout2;
-        TextView textView2;
-        if (z) {
-            radioButton = this.a.j;
-            if (compoundButton == radioButton) {
-                horizontalScrollView2 = this.a.f;
-                horizontalScrollView2.setVisibility(0);
-                linearLayout2 = this.a.l;
-                linearLayout2.setVisibility(8);
-                textView2 = this.a.n;
-                textView2.setText(this.a.getString(com.baidu.tieba.x.beautify));
-                return;
-            }
-            radioButton2 = this.a.k;
-            if (compoundButton == radioButton2) {
-                horizontalScrollView = this.a.f;
-                horizontalScrollView.setVisibility(8);
-                linearLayout = this.a.l;
-                linearLayout.setVisibility(0);
-                textView = this.a.n;
-                textView.setText(this.a.getString(com.baidu.tieba.x.rotate));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        EditorToolComponetContainer editorToolComponetContainer;
+        int afq;
+        EditText editText;
+        EditText editText2;
+        EditorToolComponetContainer editorToolComponetContainer2;
+        editorToolComponetContainer = this.bTX.are;
+        if (editorToolComponetContainer.BB()) {
+            editorToolComponetContainer2 = this.bTX.are;
+            editorToolComponetContainer2.BC();
+        }
+        afq = this.bTX.afq();
+        if (afq >= 0) {
+            editText = this.bTX.bJv;
+            if (afq < editText.getText().length()) {
+                editText2 = this.bTX.bJv;
+                editText2.setSelection(afq);
             }
         }
     }

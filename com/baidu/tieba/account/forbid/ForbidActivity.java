@@ -11,33 +11,33 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
-import com.baidu.tieba.r;
-import com.baidu.tieba.t;
+import com.baidu.tieba.s;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
-import com.baidu.tieba.x;
+import com.baidu.tieba.w;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class ForbidActivity extends BaseActivity {
-    private NavigationBar a;
-    private RadioGroup b;
-    private String c;
-    private String d;
-    private String e;
-    private String f;
-    private String g;
-    private TextView h;
-    private BdListView i;
-    private e j;
-    private View.OnClickListener k = new a(this);
+    private RadioGroup agd;
+    private String age;
+    private TextView agf;
+    private e agg;
+    private View.OnClickListener agh = new a(this);
+    private String mForumId;
+    private String mForumName;
+    private NavigationBar mNavigationBar;
+    private String mThreadId;
+    private String mUserName;
+    private BdListView vl;
 
-    public static void a(Context context, String str, String str2, String str3, String str4, String str5) {
+    public static void startActivity(Context context, String str, String str2, String str3, String str4, String str5) {
         Intent intent = new Intent(context, ForbidActivity.class);
-        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_ID, str);
-        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME, str2);
-        intent.putExtra(com.baidu.tbadk.core.frameworkData.a.THREAD_ID, str3);
+        intent.putExtra("forum_id", str);
+        intent.putExtra("forum_name", str2);
+        intent.putExtra("thread_id", str3);
         intent.putExtra("bar_manager_user_id", str4);
         intent.putExtra(com.baidu.tbadk.core.frameworkData.a.USER_NAME, str5);
         context.startActivity(intent);
@@ -47,48 +47,43 @@ public class ForbidActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(v.account_forbid_activity);
+        setContentView(w.account_forbid_activity);
         String currentAccount = TbadkApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
-            LoginActivity.a((Activity) this, getString(x.login_to_use), true, 11018);
+            LoginActivity.a((Activity) this, getString(y.login_to_use), true, 11018);
             return;
         }
-        this.a = (NavigationBar) findViewById(u.view_navigation_bar);
-        this.a.a(getString(x.forbid_page_title));
-        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(x.forbid_btn_txt), this.k);
-        this.h = (TextView) findViewById(u.forbid_id);
-        this.i = (BdListView) findViewById(u.listview_forbid_reason);
-        this.b = (RadioGroup) findViewById(u.forbid_days);
-        this.b.setOnCheckedChangeListener(new c(this));
-        a();
+        this.mNavigationBar = (NavigationBar) findViewById(v.view_navigation_bar);
+        this.mNavigationBar.setTitleText(getString(y.forbid_page_title));
+        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(y.forbid_btn_txt), this.agh);
+        this.agf = (TextView) findViewById(v.forbid_id);
+        this.vl = (BdListView) findViewById(v.listview_forbid_reason);
+        this.agd = (RadioGroup) findViewById(v.forbid_days);
+        this.agd.setOnCheckedChangeListener(new c(this));
+        initData();
     }
 
-    private void a() {
+    private void initData() {
         Intent intent = getIntent();
-        this.c = intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_ID);
-        this.d = intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.FORUM_NAME);
-        this.e = intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.THREAD_ID);
-        this.f = intent.getStringExtra("bar_manager_user_id");
-        this.g = intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.USER_NAME);
-        l.a(this.c, this.f, new d(this));
+        this.mForumId = intent.getStringExtra("forum_id");
+        this.mForumName = intent.getStringExtra("forum_name");
+        this.mThreadId = intent.getStringExtra("thread_id");
+        this.age = intent.getStringExtra("bar_manager_user_id");
+        this.mUserName = intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.USER_NAME);
+        l.a(this.mForumId, this.age, new d(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i) {
-        boolean z = TbadkApplication.m252getInst().getSkinType() == 1;
-        int i2 = !z ? t.btn_prohibit_day_n : t.btn_prohibit_day_n_1;
-        int i3 = !z ? r.appeal_com_text : r.appeal_com_text_1;
-        int i4 = !z ? t.btn_prohibit_day_s : t.btn_prohibit_day_s_1;
-        int i5 = !z ? r.forbid_time_selected : r.forbid_time_selected_1;
-        for (int i6 = 0; i6 < 3; i6++) {
-            RadioButton radioButton = (RadioButton) this.b.getChildAt(i6);
+    public void dH(int i) {
+        for (int i2 = 0; i2 < 3; i2++) {
+            RadioButton radioButton = (RadioButton) this.agd.getChildAt(i2);
             if (radioButton.getId() == i) {
-                ay.e((View) radioButton, i4);
-                radioButton.setTextColor(getResources().getColor(i5));
+                aw.h((View) radioButton, u.btn_prohibit_day_s);
+                aw.b(radioButton, s.cp_cont_i, 3);
             } else {
-                ay.e((View) radioButton, i2);
-                radioButton.setTextColor(getResources().getColor(i3));
+                aw.h((View) radioButton, u.btn_prohibit_day_n);
+                aw.b(radioButton, s.appeal_com_text, 3);
             }
         }
     }
@@ -98,11 +93,11 @@ public class ForbidActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         boolean z = i == 1;
-        View findViewById = findViewById(u.root);
-        getLayoutMode().a(z);
-        getLayoutMode().a(findViewById);
-        this.a.c(i);
-        this.i.setDivider(getResources().getDrawable(z ? t.forbid_list_divider_1 : t.forbid_list_divider));
-        this.i.setDividerHeight(com.baidu.adp.lib.util.j.a((Context) this, 1.0f));
+        View findViewById = findViewById(v.root);
+        getLayoutMode().L(z);
+        getLayoutMode().h(findViewById);
+        this.mNavigationBar.onChangeSkinType(i);
+        this.vl.setDivider(aw.getDrawable(u.forbid_list_divider));
+        this.vl.setDividerHeight(com.baidu.adp.lib.util.m.dip2px(this, 1.0f));
     }
 }

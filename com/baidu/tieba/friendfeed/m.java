@@ -1,28 +1,48 @@
 package com.baidu.tieba.friendfeed;
 
-import android.content.Context;
+import android.graphics.Rect;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.bh;
+import android.view.ViewGroup;
 import com.baidu.tieba.data.FriendFeedThreadData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.frs.df;
 /* loaded from: classes.dex */
-public class m implements View.OnClickListener {
-    final /* synthetic */ l a;
-    private final /* synthetic */ FriendFeedThreadData b;
+class m implements v {
+    final /* synthetic */ FriendFeedActivity ayL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(l lVar, FriendFeedThreadData friendFeedThreadData) {
-        this.a = lVar;
-        this.b = friendFeedThreadData;
+    public m(FriendFeedActivity friendFeedActivity) {
+        this.ayL = friendFeedActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        MessageManager messageManager = MessageManager.getInstance();
-        context = this.a.a;
-        messageManager.sendMessage(new CustomMessage(2002003, new bh(context, this.b.getAuthor().getUserId(), this.b.getAuthor().getName_show(), "friend")));
+    @Override // com.baidu.tieba.friendfeed.v
+    public void a(int i, int i2, View view, View view2, FriendFeedThreadData friendFeedThreadData) {
+        y yVar;
+        y yVar2;
+        y yVar3;
+        boolean z;
+        df dfVar;
+        yVar = this.ayL.ayq;
+        if (i != yVar.EQ().EM() || view2 == null || view == null) {
+            yVar2 = this.ayL.ayq;
+            if (i != yVar2.EQ().EL()) {
+                yVar3 = this.ayL.ayq;
+                yVar3.EQ().EN();
+                return;
+            }
+            this.ayL.ayu = friendFeedThreadData;
+            z = this.ayL.ayt;
+            if (!z) {
+                this.ayL.ayt = true;
+                int isLike = friendFeedThreadData.getPraise() == null ? 0 : friendFeedThreadData.getPraise().getIsLike();
+                dfVar = this.ayL.ayI;
+                dfVar.a(friendFeedThreadData.getFirst_post_id(), friendFeedThreadData.getTid(), isLike, "friendfeed");
+                return;
+            }
+            return;
+        }
+        Rect rect = new Rect();
+        view.getDrawingRect(rect);
+        ((ViewGroup) view2).offsetDescendantRectToMyCoords(view, rect);
+        this.ayL.a(i2, friendFeedThreadData, rect.bottom);
     }
 }

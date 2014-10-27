@@ -1,17 +1,17 @@
 package com.baidu.tieba.faceshop;
 /* loaded from: classes.dex */
-class au implements com.baidu.tbadk.core.view.r {
-    final /* synthetic */ FacePurchaseRecordsActivity a;
+class au implements com.baidu.tbadk.core.view.u {
+    final /* synthetic */ FacePurchaseRecordsActivity aud;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(FacePurchaseRecordsActivity facePurchaseRecordsActivity) {
-        this.a = facePurchaseRecordsActivity;
+        this.aud = facePurchaseRecordsActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.r
-    public void a(boolean z) {
+    @Override // com.baidu.tbadk.core.view.u
+    public void aa(boolean z) {
         if (z) {
-            this.a.a(true);
+            this.aud.bE(true);
         }
     }
 }

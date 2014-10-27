@@ -1,123 +1,128 @@
 package com.baidu.tieba.guide;
 
 import android.os.Bundle;
+import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.data.InterestFrsData;
 import com.baidu.tieba.model.ao;
 import java.util.ArrayList;
 import java.util.Hashtable;
 /* loaded from: classes.dex */
-public class m extends com.baidu.tbadk.core.d {
-    private ViewGroup b;
-    private View c;
-    private TbImageView d;
-    private TbImageView e;
-    private TbImageView f;
-    private TbImageView g;
-    private TbImageView h;
-    private TbImageView i;
-    private TbImageView j;
-    private TbImageView k;
-    private TbImageView l;
-    private TbImageView m;
-    private NewUserGuideActivity o;
-    private ao p;
-    private Button q;
-    private final Hashtable<Integer, TbImageView> n = new Hashtable<>();
-    private boolean r = false;
-    private boolean s = false;
-    private boolean t = true;
-    private final View.OnClickListener u = new n(this);
+public class m extends BaseFragment {
+    private ao aKL;
+    private Button aLB;
+    private NewUserGuideActivity aLi;
+    private ViewGroup aLo;
+    private View aLp;
+    private TbImageView aLq;
+    private TbImageView aLr;
+    private TbImageView aLs;
+    private TbImageView aLt;
+    private TbImageView aLu;
+    private TbImageView aLv;
+    private TbImageView aLw;
+    private TbImageView aLx;
+    private TbImageView aLy;
+    private TbImageView aLz;
+    private final Hashtable<Integer, TbImageView> aLA = new Hashtable<>();
+    private boolean aKN = false;
+    private boolean aLC = false;
+    private boolean aLD = true;
+    private final View.OnClickListener Nw = new n(this);
 
-    public void a(InterestFrsData interestFrsData) {
-        b(interestFrsData);
-        this.s = true;
+    public void c(InterestFrsData interestFrsData) {
+        d(interestFrsData);
+        this.aLC = true;
     }
 
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.o = (NewUserGuideActivity) getActivity();
-        this.p = this.o.i();
-        a(bundle);
+        this.aLi = (NewUserGuideActivity) getActivity();
+        this.aKL = this.aLi.Iv();
+        d(bundle);
     }
 
-    private void a(Bundle bundle) {
-        if (this.p != null && !this.s) {
+    private void d(Bundle bundle) {
+        if (this.aKL != null && !this.aLC) {
             if (bundle != null) {
-                this.r = bundle.getBoolean("is_new_user");
+                this.aKN = bundle.getBoolean("is_new_user");
             } else {
-                this.r = this.o.getIntent().getBooleanExtra("is_new_user", false);
+                this.aKN = this.aLi.getIntent().getBooleanExtra("is_new_user", false);
             }
-            b(this.p.b());
+            d(this.aKL.TP());
         }
     }
 
-    private void b(InterestFrsData interestFrsData) {
+    private void d(InterestFrsData interestFrsData) {
         ArrayList<InterestFrsData.Tag> tag_list;
         TbImageView tbImageView;
         if (interestFrsData != null && (tag_list = interestFrsData.getTag_list()) != null && tag_list.size() != 0) {
             for (int i = 0; i < tag_list.size(); i++) {
                 InterestFrsData.Tag tag = tag_list.get(i);
-                if (tag.getBid() >= 1 && tag.getBid() <= 10 && (tbImageView = this.n.get(Integer.valueOf(tag.getBid()))) != null) {
+                if (tag.getBid() >= 1 && tag.getBid() <= 10 && (tbImageView = this.aLA.get(Integer.valueOf(tag.getBid()))) != null) {
                     tbImageView.setTag(tag);
-                    tbImageView.a(tag.getBicon(), 21, false);
+                    tbImageView.c(tag.getBicon(), 21, false);
                 }
             }
         }
     }
 
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
+    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.b = (ViewGroup) layoutInflater.inflate(com.baidu.tieba.v.guide_main, (ViewGroup) null);
-        this.c = this.b.findViewById(com.baidu.tieba.u.root_main_view_cover);
-        this.d = (TbImageView) this.b.findViewById(com.baidu.tieba.u.icon_1);
-        this.e = (TbImageView) this.b.findViewById(com.baidu.tieba.u.icon_2);
-        this.f = (TbImageView) this.b.findViewById(com.baidu.tieba.u.icon_3);
-        this.g = (TbImageView) this.b.findViewById(com.baidu.tieba.u.icon_4);
-        this.h = (TbImageView) this.b.findViewById(com.baidu.tieba.u.icon_5);
-        this.i = (TbImageView) this.b.findViewById(com.baidu.tieba.u.icon_6);
-        this.j = (TbImageView) this.b.findViewById(com.baidu.tieba.u.icon_7);
-        this.k = (TbImageView) this.b.findViewById(com.baidu.tieba.u.icon_8);
-        this.l = (TbImageView) this.b.findViewById(com.baidu.tieba.u.icon_9);
-        this.m = (TbImageView) this.b.findViewById(com.baidu.tieba.u.icon_10);
-        this.q = (Button) this.b.findViewById(com.baidu.tieba.u.btn_next);
-        this.n.put(1, this.d);
-        this.n.put(2, this.e);
-        this.n.put(3, this.f);
-        this.n.put(4, this.g);
-        this.n.put(5, this.h);
-        this.n.put(6, this.i);
-        this.n.put(7, this.j);
-        this.n.put(8, this.k);
-        this.n.put(9, this.l);
-        this.n.put(10, this.m);
-        this.q.setOnClickListener(this.u);
-        this.d.setOnClickListener(this.u);
-        this.e.setOnClickListener(this.u);
-        this.f.setOnClickListener(this.u);
-        this.g.setOnClickListener(this.u);
-        this.h.setOnClickListener(this.u);
-        this.i.setOnClickListener(this.u);
-        this.j.setOnClickListener(this.u);
-        this.k.setOnClickListener(this.u);
-        this.l.setOnClickListener(this.u);
-        this.l.setOnClickListener(this.u);
-        this.m.setOnClickListener(this.u);
-        return this.b;
-    }
-
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public void onResume() {
-        super.onResume();
-    }
-
-    @Override // com.baidu.tbadk.core.d, android.support.v4.app.Fragment
-    public void onPause() {
-        super.onPause();
+        try {
+            this.aLo = (ViewGroup) com.baidu.adp.lib.g.b.ek().inflate(layoutInflater.getContext(), com.baidu.tieba.w.guide_main, null);
+            this.aLp = this.aLo.findViewById(com.baidu.tieba.v.root_main_view_cover);
+            this.aLq = (TbImageView) this.aLo.findViewById(com.baidu.tieba.v.icon_1);
+            this.aLr = (TbImageView) this.aLo.findViewById(com.baidu.tieba.v.icon_2);
+            this.aLs = (TbImageView) this.aLo.findViewById(com.baidu.tieba.v.icon_3);
+            this.aLt = (TbImageView) this.aLo.findViewById(com.baidu.tieba.v.icon_4);
+            this.aLu = (TbImageView) this.aLo.findViewById(com.baidu.tieba.v.icon_5);
+            this.aLv = (TbImageView) this.aLo.findViewById(com.baidu.tieba.v.icon_6);
+            this.aLw = (TbImageView) this.aLo.findViewById(com.baidu.tieba.v.icon_7);
+            this.aLx = (TbImageView) this.aLo.findViewById(com.baidu.tieba.v.icon_8);
+            this.aLy = (TbImageView) this.aLo.findViewById(com.baidu.tieba.v.icon_9);
+            this.aLz = (TbImageView) this.aLo.findViewById(com.baidu.tieba.v.icon_10);
+            this.aLB = (Button) this.aLo.findViewById(com.baidu.tieba.v.btn_next);
+            this.aLA.put(1, this.aLq);
+            this.aLA.put(2, this.aLr);
+            this.aLA.put(3, this.aLs);
+            this.aLA.put(4, this.aLt);
+            this.aLA.put(5, this.aLu);
+            this.aLA.put(6, this.aLv);
+            this.aLA.put(7, this.aLw);
+            this.aLA.put(8, this.aLx);
+            this.aLA.put(9, this.aLy);
+            this.aLA.put(10, this.aLz);
+            this.aLB.setOnClickListener(this.Nw);
+            this.aLq.setOnClickListener(this.Nw);
+            this.aLr.setOnClickListener(this.Nw);
+            this.aLs.setOnClickListener(this.Nw);
+            this.aLt.setOnClickListener(this.Nw);
+            this.aLu.setOnClickListener(this.Nw);
+            this.aLv.setOnClickListener(this.Nw);
+            this.aLw.setOnClickListener(this.Nw);
+            this.aLx.setOnClickListener(this.Nw);
+            this.aLy.setOnClickListener(this.Nw);
+            this.aLy.setOnClickListener(this.Nw);
+            this.aLz.setOnClickListener(this.Nw);
+            return this.aLo;
+        } catch (InflateException e) {
+            if (TbadkApplication.m251getInst().isDebugMode()) {
+                throw e;
+            }
+            BdLog.e(e);
+            this.aLi.Ix();
+            TbadkApplication.m251getInst().onAppMemoryLow();
+            return new FrameLayout(layoutInflater.getContext());
+        }
     }
 }

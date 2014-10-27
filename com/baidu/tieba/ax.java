@@ -1,97 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.data.CombineDownload;
+import android.content.DialogInterface;
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.baidu.tieba.data.VersionData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax implements ag {
-    final /* synthetic */ UpdateDialog a;
-
-    private ax(UpdateDialog updateDialog) {
-        this.a = updateDialog;
-    }
+public class ax implements DialogInterface.OnDismissListener {
+    final /* synthetic */ UpdateDialog this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ax(UpdateDialog updateDialog, ax axVar) {
-        this(updateDialog);
+    public ax(UpdateDialog updateDialog) {
+        this.this$0 = updateDialog;
     }
 
-    @Override // com.baidu.tieba.ag
-    public void a(boolean z) {
-        boolean z2;
-        CombineDownload combineDownload;
-        this.a.a = true;
-        UpdateDialog updateDialog = this.a;
-        if (z) {
-            UpdateDialog updateDialog2 = this.a;
-            combineDownload = this.a.f;
-            if (az.a(updateDialog2, combineDownload)) {
-                z2 = true;
-                updateDialog.a(true, false, z2);
-            }
-        }
-        z2 = false;
-        updateDialog.a(true, false, z2);
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:7:0x0037, code lost:
-        if (com.baidu.tieba.az.a(r3, r4) != false) goto L7;
-     */
-    @Override // com.baidu.tieba.ag
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void b(boolean z) {
-        boolean z2;
-        CombineDownload combineDownload;
+    @Override // android.content.DialogInterface.OnDismissListener
+    public void onDismiss(DialogInterface dialogInterface) {
+        ac acVar;
         VersionData versionData;
-        ab abVar;
-        CombineDownload combineDownload2;
-        boolean z3 = true;
-        if (az.a(this.a.getPackageManager())) {
-            UpdateDialog updateDialog = this.a;
-            versionData = this.a.e;
-            az.a(updateDialog, versionData);
-            abVar = this.a.h;
-            abVar.dismiss();
-            this.a.finish();
-            UpdateDialog updateDialog2 = this.a;
-            if (z) {
-                UpdateDialog updateDialog3 = this.a;
-                combineDownload2 = this.a.f;
-            }
-            z3 = false;
-            updateDialog2.a(false, false, z3);
-            return;
+        acVar = this.this$0.aeg;
+        acVar.dismiss();
+        versionData = this.this$0.aee;
+        if (versionData.forceUpdate()) {
+            com.baidu.tbadk.core.b.b.d(this.this$0, Constants.MEDIA_INFO);
         }
-        UpdateDialog updateDialog4 = this.a;
-        if (z) {
-            UpdateDialog updateDialog5 = this.a;
-            combineDownload = this.a.f;
-            if (az.a(updateDialog5, combineDownload)) {
-                z2 = true;
-                updateDialog4.a(false, true, z2);
-            }
-        }
-        z2 = false;
-        updateDialog4.a(false, true, z2);
-    }
-
-    @Override // com.baidu.tieba.ag
-    public void b() {
-        ab abVar;
-        abVar = this.a.h;
-        abVar.dismiss();
-        this.a.finish();
-    }
-
-    @Override // com.baidu.tieba.ag
-    public void c() {
-        this.a.b();
-    }
-
-    @Override // com.baidu.tieba.ag
-    public void a() {
-        this.a.finish();
     }
 }

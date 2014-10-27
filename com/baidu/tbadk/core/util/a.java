@@ -1,25 +1,25 @@
 package com.baidu.tbadk.core.util;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public abstract class a implements aa {
+public abstract class a extends com.baidu.adp.lib.a.b.a.a.i implements z {
     public boolean isSupportImageSize() {
         return false;
     }
 
-    public LinkedList<String> getImageUrl() {
+    public ArrayList<String> getImageUrl() {
         return null;
     }
 
-    public LinkedList<ImageInfo> getImagesWithEmotions() {
+    public ArrayList<ImageInfo> getImagesWithEmotions() {
         return null;
     }
 
-    public LinkedList<String> getPhotoUrl() {
+    public ArrayList<String> getPhotoUrl() {
         return null;
     }
 
-    public LinkedList<String> getForumPhotoUrl() {
+    public ArrayList<String> getForumPhotoUrl() {
         return null;
     }
 }

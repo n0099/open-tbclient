@@ -1,40 +1,25 @@
 package com.baidu.tieba.editortool;
 
-import android.content.Context;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag extends BaseAdapter {
-    final /* synthetic */ PrivilegeTabContentView a;
-    private final int b;
-    private final int c;
-    private aj d;
+public class ag implements View.OnTouchListener {
+    private final /* synthetic */ com.baidu.tbadk.editortool.w arn;
+    final /* synthetic */ PbEditorToolView arv;
 
-    public ag(PrivilegeTabContentView privilegeTabContentView, Context context, int i, int i2, aj ajVar) {
-        this.a = privilegeTabContentView;
-        this.b = i;
-        this.c = i2;
-        this.d = ajVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ag(PbEditorToolView pbEditorToolView, com.baidu.tbadk.editortool.w wVar) {
+        this.arv = pbEditorToolView;
+        this.arn = wVar;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        return this.b;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return Integer.valueOf(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        return this.d.a(this.c + i, view, viewGroup);
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 1) {
+            this.arv.mEditText.requestFocus();
+            this.arn.handleAction(12, null);
+        }
+        return false;
     }
 }

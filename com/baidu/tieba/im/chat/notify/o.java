@@ -1,38 +1,33 @@
 package com.baidu.tieba.im.chat.notify;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
+import android.content.DialogInterface;
+import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
+import com.baidu.tieba.im.model.ImMessageCenterModel;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class o {
-    ViewGroup a;
-    HeadImageView b;
-    TextView c;
-    TextView d;
-    TextView e;
-    TextView f;
-    View g;
-    ImageView h;
-    ImageView i;
-    final /* synthetic */ n j;
-
-    private o(n nVar) {
-        this.j = nVar;
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-    }
+public class o implements DialogInterface.OnClickListener {
+    final /* synthetic */ g aQC;
+    private final /* synthetic */ ImMessageCenterShowItemData aQE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ o(n nVar, o oVar) {
-        this(nVar);
+    public o(g gVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        this.aQC = gVar;
+        this.aQE = imMessageCenterShowItemData;
+    }
+
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        ImMessageCenterModel imMessageCenterModel;
+        a aVar;
+        switch (i) {
+            case 0:
+                imMessageCenterModel = this.aQC.aQm;
+                ImMessageCenterShowItemData imMessageCenterShowItemData = this.aQE;
+                aVar = this.aQC.aQB;
+                imMessageCenterModel.deleteItem(imMessageCenterShowItemData, aVar);
+                return;
+            default:
+                return;
+        }
     }
 }

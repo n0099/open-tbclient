@@ -6,8 +6,9 @@ import android.os.Handler;
 import android.os.IBinder;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.Disk.d;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.e.d;
+import com.baidu.adp.lib.g.i;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class ImagesInvalidService extends Service {
@@ -28,12 +29,12 @@ public class ImagesInvalidService extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void startService() {
-        d.a(BdBaseApplication.getInst(), new Intent(BdBaseApplication.getInst(), ImagesInvalidService.class));
+        i.b(BdBaseApplication.getInst(), new Intent(BdBaseApplication.getInst(), ImagesInvalidService.class));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void stopService() {
-        d.b(BdBaseApplication.getInst(), new Intent(BdBaseApplication.getInst(), ImagesInvalidService.class));
+        i.c(BdBaseApplication.getInst(), new Intent(BdBaseApplication.getInst(), ImagesInvalidService.class));
     }
 
     @Override // android.app.Service
@@ -45,13 +46,13 @@ public class ImagesInvalidService extends Service {
     public void onCreate() {
         super.onCreate();
         this.mDiskFileOperate = new c(TbConfig.IMAGE_CACHE_DIR_NAME, null, DiskFileOperate.Action.DELETE_FILES);
-        com.baidu.adp.lib.Disk.d.a().b(this.mDiskFileOperate);
+        d.bn().c(this.mDiskFileOperate);
     }
 
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.adp.lib.Disk.d.a().c(this.mDiskFileOperate);
+        d.bn().d(this.mDiskFileOperate);
         this.mDiskFileOperate = null;
     }
 }

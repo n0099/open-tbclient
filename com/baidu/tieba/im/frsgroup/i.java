@@ -1,23 +1,39 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.view.View;
+import android.content.Context;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tbadk.mvc.model.NetModel;
 /* loaded from: classes.dex */
-class i implements View.OnClickListener {
-    final /* synthetic */ b a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(b bVar) {
-        this.a = bVar;
+public class i extends NetModel<j, k> {
+    public i(Context context, j jVar) {
+        super(context, jVar, NetModel.NetModelType.TYPE_SOCKET);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        FrsGroupActivity frsGroupActivity;
-        FrsGroupActivity frsGroupActivity2;
-        frsGroupActivity = this.a.b;
-        if (frsGroupActivity != null) {
-            frsGroupActivity2 = this.a.b;
-            frsGroupActivity2.k();
-        }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    public Class<k> getResponseDataClass() {
+        return k.class;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    public int tI() {
+        return 0;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    protected int tJ() {
+        return 103002;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    public String tK() {
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    protected Class<? extends MvcSocketResponsedMessage> tP() {
+        return FrsGroupResponseMessage.class;
     }
 }

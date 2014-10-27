@@ -5,36 +5,35 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.aw;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class FragmentTabIndicator extends LinearLayout {
-    public int a;
-    public int b;
-    private TextView c;
-    private HashMap<String, c> d;
+    public int VN;
+    private TextView VO;
+    private HashMap<String, c> VP;
 
     public FragmentTabIndicator(Context context) {
         super(context);
-        this.d = new HashMap<>();
-        a();
+        this.VP = new HashMap<>();
+        init();
     }
 
     public FragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.d = new HashMap<>();
-        a();
+        this.VP = new HashMap<>();
+        init();
     }
 
-    private void a() {
-        this.c = new TextView(getContext());
-        this.c.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
-        this.c.setGravity(17);
-        this.c.setDuplicateParentStateEnabled(true);
-        addView(this.c);
+    private void init() {
+        this.VO = new TextView(getContext());
+        this.VO.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
+        this.VO.setGravity(17);
+        this.VO.setDuplicateParentStateEnabled(true);
+        addView(this.VO);
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -42,8 +41,8 @@ public class FragmentTabIndicator extends LinearLayout {
         super.onMeasure(i, i2);
         int size = View.MeasureSpec.getSize(i);
         int size2 = View.MeasureSpec.getSize(i2);
-        for (Map.Entry<String, c> entry : this.d.entrySet()) {
-            entry.getValue().a.measure(View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(size2, Integer.MIN_VALUE));
+        for (Map.Entry<String, c> entry : this.VP.entrySet()) {
+            entry.getValue().view.measure(View.MeasureSpec.makeMeasureSpec(size, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(size2, Integer.MIN_VALUE));
         }
     }
 
@@ -53,66 +52,62 @@ public class FragmentTabIndicator extends LinearLayout {
         int measuredHeight;
         int measuredHeight2;
         super.onLayout(z, i, i2, i3, i4);
-        Iterator<Map.Entry<String, c>> it = this.d.entrySet().iterator();
-        while (it.hasNext() && this.c.getText() != null) {
+        Iterator<Map.Entry<String, c>> it = this.VP.entrySet().iterator();
+        while (it.hasNext() && this.VO.getText() != null) {
             c value = it.next().getValue();
-            int measuredWidth2 = value.a.getMeasuredWidth();
-            int measuredHeight3 = value.a.getMeasuredHeight();
-            if (value.b) {
-                measuredWidth = (getMeasuredWidth() / 2) + value.c + (((int) this.c.getPaint().measureText(this.c.getText().toString())) / 2);
-                measuredHeight = (getMeasuredHeight() - j.a(getContext(), 3.0f)) / 2;
-                measuredHeight2 = value.a.getMeasuredHeight();
+            int measuredWidth2 = value.view.getMeasuredWidth();
+            int measuredHeight3 = value.view.getMeasuredHeight();
+            if (value.VQ) {
+                measuredWidth = (getMeasuredWidth() / 2) + value.jI + (((int) this.VO.getPaint().measureText(this.VO.getText().toString())) / 2);
+                measuredHeight = getMeasuredHeight() / 2;
+                measuredHeight2 = value.view.getMeasuredHeight();
             } else {
-                measuredWidth = ((getMeasuredWidth() / 2) - value.c) - (((int) this.c.getPaint().measureText(this.c.getText().toString())) / 2);
-                measuredHeight = (getMeasuredHeight() - j.a(getContext(), 3.0f)) / 2;
-                measuredHeight2 = value.a.getMeasuredHeight();
+                measuredWidth = ((getMeasuredWidth() / 2) - value.jI) - (((int) this.VO.getPaint().measureText(this.VO.getText().toString())) / 2);
+                measuredHeight = getMeasuredHeight() / 2;
+                measuredHeight2 = value.view.getMeasuredHeight();
             }
             int i5 = measuredHeight - (measuredHeight2 / 2);
-            value.a.layout(measuredWidth, i5, measuredWidth2 + measuredWidth, measuredHeight3 + i5);
+            value.view.layout(measuredWidth, i5, measuredWidth2 + measuredWidth, measuredHeight3 + i5);
         }
     }
 
     public void a(String str, c cVar) {
-        if (cVar.a != null) {
-            addView(cVar.a);
-            this.d.put(str, cVar);
+        if (cVar.view != null) {
+            addView(cVar.view);
+            this.VP.put(str, cVar);
         }
     }
 
-    public c a(String str) {
-        return this.d.get(str);
+    public c dG(String str) {
+        return this.VP.get(str);
     }
 
     public void setText(int i) {
-        this.c.setText(i);
+        this.VO.setText(i);
     }
 
     public void setText(String str) {
-        this.c.setText(str);
+        this.VO.setText(str);
     }
 
     public void setTextSize(float f) {
-        this.c.setTextSize(f);
+        this.VO.setTextSize(f);
     }
 
-    public void a(int i, float f) {
-        this.c.setTextSize(i, f);
+    public void setTextSize(int i, float f) {
+        this.VO.setTextSize(i, f);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        a(TbadkApplication.m252getInst().getSkinType());
+        bN(TbadkApplication.m251getInst().getSkinType());
     }
 
-    public void a(int i) {
-        if (i == 1) {
-            this.c.setTextColor(getResources().getColorStateList(this.b));
-        } else {
-            this.c.setTextColor(getResources().getColorStateList(this.a));
-        }
-        for (Map.Entry<String, c> entry : this.d.entrySet()) {
-            entry.getValue().a(i);
+    public void bN(int i) {
+        aw.b(this.VO, this.VN, 1);
+        for (Map.Entry<String, c> entry : this.VP.entrySet()) {
+            entry.getValue().bN(i);
         }
     }
 }

@@ -1,24 +1,34 @@
 package com.baidu.tieba.pb.main;
 
-import android.content.Intent;
-import com.baidu.tieba.data.MarkData;
+import android.text.TextUtils;
+import com.baidu.tieba.FileDownloader;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ap implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PbActivity a;
-    private final /* synthetic */ MarkData b;
+    final /* synthetic */ PbActivity bvg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(PbActivity pbActivity, MarkData markData) {
-        this.a = pbActivity;
-        this.b = markData;
+    public ap(PbActivity pbActivity) {
+        this.bvg = pbActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        Intent intent = new Intent();
-        intent.putExtra("mark", this.b);
-        this.a.setResult(-1, intent);
-        this.a.y();
+        com.baidu.tbadk.core.dialog.a aVar2;
+        String str;
+        String str2;
+        aVar2 = this.bvg.bus;
+        aVar2.dismiss();
+        if (com.baidu.tbadk.core.util.s.bm()) {
+            str = this.bvg.ato;
+            if (!TextUtils.isEmpty(str) && com.baidu.adp.lib.util.j.fi()) {
+                PbActivity pbActivity = this.bvg;
+                str2 = this.bvg.ato;
+                FileDownloader.download(pbActivity, str2, null, this.bvg.getString(com.baidu.tieba.y.download_iqiyi_app));
+                return;
+            }
+            return;
+        }
+        this.bvg.showToast(com.baidu.tbadk.core.util.s.lu());
     }
 }

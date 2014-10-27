@@ -1,21 +1,36 @@
 package com.baidu.tieba.im.mygroup;
 
-import android.view.inputmethod.InputMethodManager;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
 /* loaded from: classes.dex */
-public class p implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PersonGroupActivity a;
-    private final /* synthetic */ a b;
+class p extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ n bfY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(PersonGroupActivity personGroupActivity, a aVar) {
-        this.a = personGroupActivity;
-        this.b = aVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p(n nVar, int i) {
+        super(i);
+        this.bfY = nVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.d();
-        ((InputMethodManager) this.a.getSystemService("input_method")).hideSoftInputFromWindow(this.b.getWindowToken(), 2);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        switch (socketResponsedMessage.getCmd()) {
+            case 103101:
+            case 103102:
+            case 103104:
+            case 103105:
+            case 103112:
+            case 2001109:
+                if (!(socketResponsedMessage instanceof ResponsedMessage) || socketResponsedMessage.getError() == 0 || ((socketResponsedMessage instanceof ResponseUpgradeMemberGroupMessage) && socketResponsedMessage.getError() == 2230110)) {
+                    this.bfY.bcs = true;
+                    return;
+                }
+                return;
+            default:
+                return;
+        }
     }
 }

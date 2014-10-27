@@ -1,11 +1,15 @@
 package com.baidu.tieba.frs.view;
 /* loaded from: classes.dex */
-public interface z {
-    void a();
+class z implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ r aGk;
 
-    void b();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public z(r rVar) {
+        this.aGk = rVar;
+    }
 
-    void c();
-
-    void d();
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+    }
 }

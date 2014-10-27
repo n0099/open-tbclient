@@ -1,5 +1,6 @@
 package com.baidu.tbadk.plugins;
 
+import android.app.Application;
 import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
@@ -32,7 +33,7 @@ public interface Hao123Plugin {
 
     void floatingServiceRun();
 
-    void init();
+    void init(Application application);
 
     void openFloating(Context context);
 }

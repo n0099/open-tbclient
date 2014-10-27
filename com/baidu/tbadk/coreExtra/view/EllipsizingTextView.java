@@ -11,98 +11,98 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class EllipsizingTextView extends TextView {
-    private final List<j> a;
-    private boolean b;
-    private boolean c;
-    private boolean d;
-    private String e;
-    private int f;
-    private float g;
-    private float h;
+    private boolean NA;
+    private boolean NB;
+    private boolean NC;
+    private String ND;
+    private float NE;
+    private float NF;
+    private final List<i> Nz;
+    private int maxLines;
 
     public EllipsizingTextView(Context context) {
         super(context);
-        this.a = new ArrayList();
-        this.f = -1;
-        this.g = 1.0f;
-        this.h = 0.0f;
+        this.Nz = new ArrayList();
+        this.maxLines = -1;
+        this.NE = 1.0f;
+        this.NF = 0.0f;
     }
 
     public EllipsizingTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = new ArrayList();
-        this.f = -1;
-        this.g = 1.0f;
-        this.h = 0.0f;
+        this.Nz = new ArrayList();
+        this.maxLines = -1;
+        this.NE = 1.0f;
+        this.NF = 0.0f;
     }
 
     public EllipsizingTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.a = new ArrayList();
-        this.f = -1;
-        this.g = 1.0f;
-        this.h = 0.0f;
+        this.Nz = new ArrayList();
+        this.maxLines = -1;
+        this.NE = 1.0f;
+        this.NF = 0.0f;
     }
 
-    public void a(j jVar) {
-        if (jVar == null) {
+    public void a(i iVar) {
+        if (iVar == null) {
             throw new NullPointerException();
         }
-        this.a.add(jVar);
+        this.Nz.add(iVar);
     }
 
     @Override // android.widget.TextView
     public void setMaxLines(int i) {
         super.setMaxLines(i);
-        this.f = i;
-        this.c = true;
+        this.maxLines = i;
+        this.NB = true;
     }
 
     @Override // android.widget.TextView
     public int getMaxLines() {
-        return this.f;
+        return this.maxLines;
     }
 
     @Override // android.widget.TextView
     public void setLineSpacing(float f, float f2) {
-        this.h = f;
-        this.g = f2;
+        this.NF = f;
+        this.NE = f2;
         super.setLineSpacing(f, f2);
     }
 
     @Override // android.widget.TextView
     protected void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         super.onTextChanged(charSequence, i, i2, i3);
-        if (!this.d) {
-            this.e = charSequence.toString();
-            this.c = true;
+        if (!this.NC) {
+            this.ND = charSequence.toString();
+            this.NB = true;
         }
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
-        if (this.c) {
+        if (this.NB) {
             super.setEllipsize(null);
-            a();
+            pV();
         }
         super.onDraw(canvas);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:12:0x0062  */
-    /* JADX WARN: Removed duplicated region for block: B:17:0x006f  */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x007d A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:12:0x0060  */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x006d  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x007b A[ORIG_RETURN, RETURN] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void a() {
+    private void pV() {
         boolean z;
         int maxLines = getMaxLines();
-        String str = this.e;
+        String str = this.ND;
         if (maxLines != -1) {
-            Layout a = a(str);
-            if (a.getLineCount() > maxLines) {
-                String trim = this.e.substring(0, a.getLineEnd(maxLines - 1)).trim();
-                while (a(String.valueOf(trim) + "...").getLineCount() > maxLines) {
+            Layout cJ = cJ(str);
+            if (cJ.getLineCount() > maxLines) {
+                String trim = this.ND.substring(0, cJ.getLineEnd(maxLines - 1)).trim();
+                while (cJ(String.valueOf(trim) + "...").getLineCount() > maxLines) {
                     if (trim.length() > "...".length()) {
                         trim = trim.substring(0, trim.length() - "...".length());
                     }
@@ -115,18 +115,18 @@ public class EllipsizingTextView extends TextView {
                 str = String.valueOf(trim) + "...";
                 z = true;
                 if (!str.equals(getText())) {
-                    this.d = true;
+                    this.NC = true;
                     try {
                         setText(str);
                     } finally {
-                        this.d = false;
+                        this.NC = false;
                     }
                 }
-                this.c = false;
-                if (z == this.b) {
-                    this.b = z;
-                    for (j jVar : this.a) {
-                        jVar.a(z);
+                this.NB = false;
+                if (z == this.NA) {
+                    this.NA = z;
+                    for (i iVar : this.Nz) {
+                        iVar.ak(z);
                     }
                     return;
                 }
@@ -136,13 +136,13 @@ public class EllipsizingTextView extends TextView {
         z = false;
         if (!str.equals(getText())) {
         }
-        this.c = false;
-        if (z == this.b) {
+        this.NB = false;
+        if (z == this.NA) {
         }
     }
 
-    private Layout a(String str) {
-        return new StaticLayout(str, getPaint(), (getWidth() - getPaddingLeft()) - getPaddingRight(), Layout.Alignment.ALIGN_NORMAL, this.g, this.h, false);
+    private Layout cJ(String str) {
+        return new StaticLayout(str, getPaint(), (getWidth() - getPaddingLeft()) - getPaddingRight(), Layout.Alignment.ALIGN_NORMAL, this.NE, this.NF, false);
     }
 
     @Override // android.widget.TextView

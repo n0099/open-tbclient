@@ -8,10 +8,9 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.s;
-import com.baidu.tbadk.core.frameworkData.a;
-import com.baidu.tbadk.core.util.ae;
-import com.baidu.tieba.ai;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.util.ac;
+import com.baidu.tieba.aj;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -19,20 +18,20 @@ import java.util.HashMap;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class TiebaSDK implements Serializable {
-    private static HashMap<String, Field[]> a = new HashMap<>();
+    private static HashMap<String, Field[]> bPl = new HashMap<>();
     private static final long serialVersionUID = -3424378401905406520L;
 
     public static void init(Application application) {
-        ai.c().a(application);
+        aj.wk().init(application);
     }
 
     public static void openBar(Context context, String str) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new s(context).a(str, null)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2003001, new FrsActivityConfig(context).createNormalCfg(str, null)));
     }
 
     public static String getBarData(String str) {
         BasicNameValuePair basicNameValuePair;
-        ae aeVar;
+        ac acVar;
         if (str == null || str.trim().length() == 0) {
             return "";
         }
@@ -42,24 +41,24 @@ public class TiebaSDK implements Serializable {
         ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
         arrayList.add(new BasicNameValuePair("kw", str));
         arrayList.add(new BasicNameValuePair("pn", String.valueOf(1)));
-        if (ai.c().w()) {
+        if (aj.wk().jw()) {
             basicNameValuePair = new BasicNameValuePair("rn", String.valueOf(35));
         } else {
             basicNameValuePair = new BasicNameValuePair("rn", String.valueOf(50));
         }
         arrayList.add(basicNameValuePair);
-        arrayList.add(new BasicNameValuePair(a.ST_TYPE, "tb_forumlist"));
+        arrayList.add(new BasicNameValuePair("st_type", FrsActivityConfig.FRS_FROM_LIKE));
         try {
-            aeVar = new ae(stringBuffer.toString());
-            aeVar.a(arrayList);
+            acVar = new ac(stringBuffer.toString());
+            acVar.h(arrayList);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        return !aeVar.a().b().b() ? "" : aeVar.h();
+        return !acVar.mc().nb().jq() ? "" : acVar.lA();
     }
 
     public static void setFrom(String str) {
-        TbadkApplication.m252getInst().setFrom(str);
+        TbadkApplication.m251getInst().setFrom(str);
     }
 
     public static int getResIdByName(Context context, String str) {
@@ -137,10 +136,10 @@ public class TiebaSDK implements Serializable {
     public static int[] getStyleableIDByName(Context context, String str) {
         try {
             String packageName = context.getPackageName();
-            Field[] fieldArr = a.get(packageName);
+            Field[] fieldArr = bPl.get(packageName);
             if (fieldArr == null) {
                 fieldArr = Class.forName(String.valueOf(packageName) + ".R$styleable").getFields();
-                a.put(packageName, fieldArr);
+                bPl.put(packageName, fieldArr);
             }
             Field[] fieldArr2 = fieldArr;
             for (Field field : fieldArr2) {
@@ -156,10 +155,10 @@ public class TiebaSDK implements Serializable {
     public static int getAttrIDByName(Context context, String str) {
         try {
             String packageName = context.getPackageName();
-            Field[] fieldArr = a.get(packageName);
+            Field[] fieldArr = bPl.get(packageName);
             if (fieldArr == null) {
                 fieldArr = Class.forName(String.valueOf(packageName) + ".R$styleable").getFields();
-                a.put(packageName, fieldArr);
+                bPl.put(packageName, fieldArr);
             }
             Field[] fieldArr2 = fieldArr;
             for (Field field : fieldArr2) {

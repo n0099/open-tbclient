@@ -1,23 +1,27 @@
 package com.baidu.tieba.editortool;
-
-import android.view.ViewGroup;
-import com.baidu.tbadk.widget.TbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class r implements com.baidu.tbadk.imageManager.d {
-    final /* synthetic */ q a;
-    private final /* synthetic */ ViewGroup b;
+public class r implements com.baidu.tieba.voice.f {
+    final /* synthetic */ EditorToolComponetContainer aqU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(q qVar, ViewGroup viewGroup) {
-        this.a = qVar;
-        this.b = viewGroup;
+    public r(EditorToolComponetContainer editorToolComponetContainer) {
+        this.aqU = editorToolComponetContainer;
     }
 
-    @Override // com.baidu.tbadk.imageManager.d
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        TbImageView tbImageView = (TbImageView) this.b.findViewWithTag(str);
-        if (tbImageView != null && aVar != null) {
-            tbImageView.invalidate();
-        }
+    @Override // com.baidu.tieba.voice.f
+    public void BU() {
+        com.baidu.tbadk.editortool.w wVar;
+        wVar = this.aqU.RC;
+        wVar.handleAction(14, null);
+        this.aqU.Bn();
+    }
+
+    @Override // com.baidu.tieba.voice.f
+    public void BV() {
+        com.baidu.tbadk.editortool.w wVar;
+        wVar = this.aqU.RC;
+        wVar.handleAction(15, null);
+        this.aqU.Bn();
     }
 }

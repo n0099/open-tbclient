@@ -7,11 +7,12 @@ public class DownloadData implements Serializable {
     public static final int FILE_DOWNLOAD_STATUS_DOWNLOADING = 1;
     public static final int FILE_DOWNLOAD_STATUS_EXIST = 3;
     public static final int FILE_DOWNLOAD_STATUS_FAILED = 2;
+    public static final int FILE_DOWNLOAD_STATUS_INIT = 5;
     public static final int FILE_DOWNLOAD_STATUS_SUCEED = 0;
     public static final int FILE_DOWNLOAD_TYPE_APP = 12;
     public static final int FILE_DOWNLOAD_TYPE_EMOYION_APCKAGE = 11;
     public static final int FILE_DOWNLOAD_TYPE_NORMAL = 10;
-    private transient a a;
+    private transient f Re;
     private String check;
     private String description;
     private int errorCode;
@@ -25,55 +26,64 @@ public class DownloadData implements Serializable {
     private long size;
     private int status;
     private String statusMsg;
+    private String tag;
     private int type;
     private String url;
     private int width;
 
+    public String getTag() {
+        return this.tag;
+    }
+
+    public void setTag(String str) {
+        this.tag = str;
+    }
+
     public DownloadData(String str) {
-        this.status = 1;
+        this.status = 5;
         this.type = 10;
         this.length = 0L;
         this.size = 1L;
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.a = null;
+        this.Re = null;
         this.position = 0;
         this.notifyId = 0;
         this.id = str;
     }
 
     public DownloadData(String str, String str2) {
-        this.status = 1;
+        this.status = 5;
         this.type = 10;
         this.length = 0L;
         this.size = 1L;
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.a = null;
+        this.Re = null;
         this.position = 0;
         this.notifyId = 0;
         this.id = str;
         this.url = str2;
     }
 
-    public DownloadData(String str, String str2, String str3, a aVar) {
-        this.status = 1;
+    public DownloadData(String str, String str2, String str3, f fVar) {
+        this.status = 5;
         this.type = 10;
         this.length = 0L;
         this.size = 1L;
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.a = null;
+        this.Re = null;
         this.position = 0;
         this.notifyId = 0;
         this.id = str;
         this.name = str2;
         this.url = str3;
-        this.a = aVar;
-        this.status = 1;
+        this.Re = fVar;
+        this.status = 5;
     }
 
     public String getId() {
@@ -172,12 +182,12 @@ public class DownloadData implements Serializable {
         this.check = str;
     }
 
-    public a getCallback() {
-        return this.a;
+    public f getCallback() {
+        return this.Re;
     }
 
-    public void setCallback(a aVar) {
-        this.a = aVar;
+    public void setCallback(f fVar) {
+        this.Re = fVar;
     }
 
     public String getStatusMsg() {

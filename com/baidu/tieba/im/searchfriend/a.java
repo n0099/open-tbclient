@@ -4,17 +4,17 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
 class a implements k {
-    final /* synthetic */ SearchFriendActivity a;
+    final /* synthetic */ SearchFriendActivity bhL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(SearchFriendActivity searchFriendActivity) {
-        this.a = searchFriendActivity;
+        this.bhL = searchFriendActivity;
     }
 
     @Override // com.baidu.tieba.im.searchfriend.k
-    public void a(String str) {
+    public void gB(String str) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SEARCH_FRIEND_CMD);
         httpMessage.addParam("search_key", str);
-        this.a.sendMessage(httpMessage);
+        this.bhL.sendMessage(httpMessage);
     }
 }

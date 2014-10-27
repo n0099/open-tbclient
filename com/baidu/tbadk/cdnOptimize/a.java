@@ -14,13 +14,13 @@ class a implements CustomMessageTask.CustomRunnable<e> {
             try {
                 long currentTimeMillis = System.currentTimeMillis();
                 e data = customMessage.getData();
-                if (data == null || data.a == null || data.a.e == null) {
+                if (data == null || data.ipListData == null || data.ipListData.xW == null) {
                     return null;
                 }
                 String str = "";
                 if (e.a(data) == null) {
-                    if (data.b < data.a.e.size()) {
-                        ArrayList<String> arrayList = data.a.e.get(data.b);
+                    if (data.pos < data.ipListData.xW.size()) {
+                        ArrayList<String> arrayList = data.ipListData.xW.get(data.pos);
                         if (arrayList.size() > 0) {
                             z = false;
                             str = arrayList.get(0);
@@ -34,13 +34,13 @@ class a implements CustomMessageTask.CustomRunnable<e> {
                     z = true;
                 }
                 if (str.length() > 0) {
-                    data.c = data.f.a(data.a.c, str, data.a.g, data.a.d, e.b(data));
-                    data.d = System.currentTimeMillis() - currentTimeMillis;
-                    data.e = str;
+                    data.isSuccess = data.cdnTachometerModel.a(data.ipListData.imageUrl, str, data.ipListData.xY, data.ipListData.xV, e.b(data));
+                    data.tm = System.currentTimeMillis() - currentTimeMillis;
+                    data.cdnIp = str;
                     if (z) {
                         e.a(data, str);
                     }
-                    return new CustomResponsedMessage<>(2016000, data);
+                    return new CustomResponsedMessage<>(2017000, data);
                 }
             } catch (Exception e) {
                 BdLog.e(e);

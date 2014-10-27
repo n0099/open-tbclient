@@ -1,20 +1,9 @@
 package com.baidu.tbadk.core.voice;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.tbadk.core.data.VoiceData;
 /* loaded from: classes.dex */
-public class o implements Runnable {
-    final /* synthetic */ VoiceManager a;
+public interface o {
+    m b(VoiceData.VoiceModel voiceModel);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public o(VoiceManager voiceManager) {
-        this.a = voiceManager;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        y playView;
-        playView = this.a.getPlayView();
-        if (playView != null) {
-            this.a.startPlay(playView);
-        }
-    }
+    VoiceManager getVoiceManager();
 }

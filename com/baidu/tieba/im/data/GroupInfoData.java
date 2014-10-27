@@ -1,12 +1,12 @@
 package com.baidu.tieba.im.data;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.at;
 import java.io.Serializable;
-import java.util.LinkedList;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class GroupInfoData extends com.baidu.tbadk.core.util.a implements av, Serializable {
+public class GroupInfoData extends com.baidu.tbadk.core.util.a implements at, Serializable {
     private static final long serialVersionUID = 5616188082014345808L;
     private int authorId;
     private int authorIsMeizhi;
@@ -149,19 +149,19 @@ public class GroupInfoData extends com.baidu.tbadk.core.util.a implements av, Se
     }
 
     @Override // com.baidu.tbadk.core.util.a
-    public LinkedList<String> getImageUrl() {
-        LinkedList<String> linkedList = new LinkedList<>();
-        linkedList.add(this.portrait);
-        return linkedList;
+    public ArrayList<String> getImageUrl() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add(this.portrait);
+        return arrayList;
     }
 
-    @Override // com.baidu.tbadk.core.util.av
-    public LinkedList<au> getImages() {
-        LinkedList<au> linkedList = new LinkedList<>();
-        au auVar = new au();
-        auVar.a = this.portrait;
-        auVar.d = 10;
-        linkedList.add(auVar);
-        return linkedList;
+    @Override // com.baidu.tbadk.core.util.at
+    public ArrayList<as> getImages() {
+        ArrayList<as> arrayList = new ArrayList<>();
+        as asVar = new as();
+        asVar.AI = this.portrait;
+        asVar.ER = 10;
+        arrayList.add(asVar);
+        return arrayList;
     }
 }

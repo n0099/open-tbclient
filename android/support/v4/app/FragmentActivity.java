@@ -18,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.sapi2.utils.SapiUtils;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -90,9 +91,8 @@ public class FragmentActivity extends Activity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
+    protected void onActivityResult(int i, int i2, Intent intent) {
         this.mFragments.noteStateNotSaved();
         int i3 = i >> 16;
         if (i3 != 0) {
@@ -156,9 +156,9 @@ public class FragmentActivity extends Activity {
         return super.onCreatePanelMenu(i, menu);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x005f */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0067 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:22:0x0071 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x005c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0064 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:22:0x006e */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r1v0, types: [android.view.View] */
     /* JADX WARN: Type inference failed for: r1v1 */
@@ -314,8 +314,7 @@ public class FragmentActivity extends Activity {
         this.mFragments.execPendingActions();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void onResumeFragments() {
+    protected void onResumeFragments() {
         this.mFragments.dispatchResume();
     }
 
@@ -540,7 +539,7 @@ public class FragmentActivity extends Activity {
                         sb.append(resourceEntryName);
                         break;
                     case 2130706432:
-                        resourcePackageName = "app";
+                        resourcePackageName = SapiUtils.QR_LOGIN_LP_APP;
                         String resourceTypeName2 = resources.getResourceTypeName(id);
                         String resourceEntryName2 = resources.getResourceEntryName(id);
                         sb.append(" ");

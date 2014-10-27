@@ -8,42 +8,42 @@ import com.baidu.tieba.im.message.RequestGetGroupActivityLocalMessage;
 import com.baidu.tieba.im.message.RequestGetGroupActivityMessage;
 /* loaded from: classes.dex */
 public class r extends com.baidu.adp.base.e {
-    private int a;
-    private long b;
-    private int c;
-    private RequestGetGroupActivityMessage d;
-    private RequestGetGroupActivityLocalMessage e;
-    private RequestDelGroupActivityMessage f;
-    private BaseActivity g;
-    private GroupActivityData h;
+    private int aZb;
+    private RequestGetGroupActivityMessage aZc;
+    private RequestGetGroupActivityLocalMessage aZd;
+    private RequestDelGroupActivityMessage aZe;
+    private GroupActivityData aZf;
+    private BaseActivity mActivity;
+    private int mFrom;
+    private long mGroupId;
 
     public r(BaseActivity baseActivity) {
         super(baseActivity);
-        this.g = baseActivity;
+        this.mActivity = baseActivity;
     }
 
-    public int a() {
-        return this.c;
+    public int Of() {
+        return this.mFrom;
     }
 
-    public void a(int i) {
-        this.c = i;
+    public void fM(int i) {
+        this.mFrom = i;
     }
 
-    public int b() {
-        return this.a;
+    public int Og() {
+        return this.aZb;
     }
 
-    public void b(int i) {
-        this.a = i;
+    public void fN(int i) {
+        this.aZb = i;
     }
 
-    public long c() {
-        return this.b;
+    public long Oh() {
+        return this.mGroupId;
     }
 
-    public void a(long j) {
-        this.b = j;
+    public void S(long j) {
+        this.mGroupId = j;
     }
 
     @Override // com.baidu.adp.base.e
@@ -56,60 +56,60 @@ public class r extends com.baidu.adp.base.e {
         return false;
     }
 
-    private RequestGetGroupActivityMessage e(int i) {
+    private RequestGetGroupActivityMessage fO(int i) {
         RequestGetGroupActivityMessage requestGetGroupActivityMessage = new RequestGetGroupActivityMessage();
         requestGetGroupActivityMessage.setActivityId(i);
-        requestGetGroupActivityMessage.setFrom(this.c);
+        requestGetGroupActivityMessage.setFrom(this.mFrom);
         return requestGetGroupActivityMessage;
     }
 
-    private RequestGetGroupActivityLocalMessage f(int i) {
+    private RequestGetGroupActivityLocalMessage fP(int i) {
         RequestGetGroupActivityLocalMessage requestGetGroupActivityLocalMessage = new RequestGetGroupActivityLocalMessage();
         requestGetGroupActivityLocalMessage.setActivityId(i);
-        requestGetGroupActivityLocalMessage.setFrom(this.c);
+        requestGetGroupActivityLocalMessage.setFrom(this.mFrom);
         return requestGetGroupActivityLocalMessage;
     }
 
-    public void c(int i) {
-        this.d = e(i);
-        this.g.sendMessage(this.d);
+    public void sendMessage(int i) {
+        this.aZc = fO(i);
+        this.mActivity.sendMessage(this.aZc);
     }
 
     @Override // com.baidu.adp.base.e
     public void cancelMessage() {
     }
 
-    public void d(int i) {
-        this.e = f(i);
-        this.g.sendMessage(this.e);
+    public void fQ(int i) {
+        this.aZd = fP(i);
+        this.mActivity.sendMessage(this.aZd);
     }
 
-    public Message<?> d() {
-        return this.e;
+    public Message<?> getLocalSendMsg() {
+        return this.aZd;
     }
 
-    public Message<?> e() {
-        return this.d;
+    public Message<?> getSendMsg() {
+        return this.aZc;
     }
 
-    public Message<?> f() {
-        return this.f;
+    public Message<?> Oi() {
+        return this.aZe;
     }
 
     public void a(long j, int i) {
-        this.f = new RequestDelGroupActivityMessage();
-        this.f.setActivityId(i);
-        this.f.setGroupId((int) j);
-        this.g.sendMessage(this.f);
+        this.aZe = new RequestDelGroupActivityMessage();
+        this.aZe.setActivityId(i);
+        this.aZe.setGroupId((int) j);
+        this.mActivity.sendMessage(this.aZe);
     }
 
-    public GroupActivityData g() {
-        return this.h;
+    public GroupActivityData Oj() {
+        return this.aZf;
     }
 
     public void a(GroupActivityData groupActivityData) {
         if (groupActivityData != null) {
-            this.h = groupActivityData;
+            this.aZf = groupActivityData;
         }
     }
 }

@@ -4,15 +4,15 @@ import android.graphics.Bitmap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s {
-    String a;
-    String b;
-    boolean c;
-    Bitmap d;
-    final /* synthetic */ EmotionManageActivity e;
+    final /* synthetic */ EmotionManageActivity asH;
+    boolean asI;
+    Bitmap asJ;
+    String id;
+    String name;
 
     private s(EmotionManageActivity emotionManageActivity) {
-        this.e = emotionManageActivity;
-        this.c = false;
+        this.asH = emotionManageActivity;
+        this.asI = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

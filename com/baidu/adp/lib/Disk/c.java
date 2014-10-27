@@ -6,18 +6,18 @@ import java.security.InvalidParameterException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<DiskFileOperate, Integer, DiskFileOperate> {
-    private b a;
-    private volatile f b = null;
-    private DiskFileOperate c;
+    private b dB;
+    private volatile e dC = null;
+    private DiskFileOperate mDiskFileOperate;
 
     public c(b bVar, DiskFileOperate diskFileOperate) {
-        this.a = null;
-        this.c = null;
+        this.dB = null;
+        this.mDiskFileOperate = null;
         if (bVar == null || diskFileOperate == null) {
             throw new InvalidParameterException("DiskFileTask parameter null");
         }
-        this.a = bVar;
-        this.c = diskFileOperate;
+        this.dB = bVar;
+        this.mDiskFileOperate = diskFileOperate;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,8 +25,9 @@ public class c extends BdAsyncTask<DiskFileOperate, Integer, DiskFileOperate> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public DiskFileOperate doInBackground(DiskFileOperate... diskFileOperateArr) {
-        new f(this.a, this.c).c();
-        return this.c;
+        this.dC = new e(this.dB, this.mDiskFileOperate);
+        this.dC.bp();
+        return this.mDiskFileOperate;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,9 +37,9 @@ public class c extends BdAsyncTask<DiskFileOperate, Integer, DiskFileOperate> {
     public void onPostExecute(DiskFileOperate diskFileOperate) {
         super.onPostExecute(diskFileOperate);
         if (diskFileOperate != null) {
-            this.c.c(diskFileOperate.g());
+            this.mDiskFileOperate.h(diskFileOperate.isSuccess());
         } else {
-            this.c.c(false);
+            this.mDiskFileOperate.h(false);
         }
     }
 
@@ -46,14 +47,14 @@ public class c extends BdAsyncTask<DiskFileOperate, Integer, DiskFileOperate> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreCancel() {
         super.onPreCancel();
-        this.c.c(false);
+        this.mDiskFileOperate.h(false);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel();
-        if (this.b != null) {
-            this.b.a();
+        if (this.dC != null) {
+            this.dC.cancel();
         }
     }
 }

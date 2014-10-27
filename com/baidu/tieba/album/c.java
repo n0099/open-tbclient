@@ -7,11 +7,11 @@ import android.widget.ImageView;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 class c implements View.OnClickListener {
-    final /* synthetic */ b a;
+    final /* synthetic */ b ahv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.a = bVar;
+        this.ahv = bVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -34,43 +34,43 @@ class c implements View.OnClickListener {
         ImageView imageView3;
         AlbumActivity albumActivity6;
         int i4;
-        hVar = this.a.i;
+        hVar = this.ahv.ahs;
         if (hVar != null) {
-            hVar2 = this.a.i;
-            i = this.a.j;
-            ImageFileInfo a = hVar2.a(i);
-            pVar = this.a.c;
+            hVar2 = this.ahv.ahs;
+            i = this.ahv.RK;
+            ImageFileInfo dM = hVar2.dM(i);
+            pVar = this.ahv.ahk;
             if (pVar != null) {
-                albumActivity = this.a.b;
+                albumActivity = this.ahv.ahq;
                 if (albumActivity != null) {
-                    hVar3 = this.a.i;
-                    i2 = this.a.j;
-                    if (hVar3.b(i2)) {
-                        pVar2 = this.a.c;
-                        if (pVar2.c(a)) {
-                            albumActivity5 = this.a.b;
-                            if (albumActivity5.b(a)) {
-                                b bVar = this.a;
-                                imageView3 = this.a.l;
+                    hVar3 = this.ahv.ahs;
+                    i2 = this.ahv.RK;
+                    if (hVar3.dN(i2)) {
+                        pVar2 = this.ahv.ahk;
+                        if (pVar2.isAdded(dM)) {
+                            albumActivity5 = this.ahv.ahq;
+                            if (albumActivity5.c(dM)) {
+                                b bVar = this.ahv;
+                                imageView3 = this.ahv.aht;
                                 bVar.a(imageView3, false);
-                                albumActivity6 = this.a.b;
-                                i4 = this.a.j;
-                                albumActivity6.a(i4, false);
+                                albumActivity6 = this.ahv.ahq;
+                                i4 = this.ahv.RK;
+                                albumActivity6.k(i4, false);
                                 return;
                             }
                             return;
                         }
-                        albumActivity2 = this.a.b;
-                        if (albumActivity2.a(a)) {
-                            b bVar2 = this.a;
-                            imageView = this.a.l;
+                        albumActivity2 = this.ahv.ahq;
+                        if (albumActivity2.b(dM)) {
+                            b bVar2 = this.ahv;
+                            imageView = this.ahv.aht;
                             bVar2.a(imageView, true);
-                            albumActivity3 = this.a.b;
-                            i3 = this.a.j;
-                            albumActivity3.a(i3, true);
-                            albumActivity4 = this.a.b;
-                            Animation loadAnimation = AnimationUtils.loadAnimation(albumActivity4, com.baidu.tieba.o.album_choose_icon);
-                            imageView2 = this.a.l;
+                            albumActivity3 = this.ahv.ahq;
+                            i3 = this.ahv.RK;
+                            albumActivity3.k(i3, true);
+                            albumActivity4 = this.ahv.ahq;
+                            Animation loadAnimation = AnimationUtils.loadAnimation(albumActivity4, com.baidu.tieba.p.album_choose_icon);
+                            imageView2 = this.ahv.aht;
                             imageView2.startAnimation(loadAnimation);
                         }
                     }

@@ -1,24 +1,38 @@
 package com.baidu.tieba.im.memorycache;
 
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class br implements CustomMessageTask.CustomRunnable<String> {
-    final /* synthetic */ bq a;
-    private final /* synthetic */ String b;
+public class br extends CustomMessageListener {
+    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public br(bq bqVar, String str) {
-        this.a = bqVar;
-        this.b = str;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public br(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
+        super(i);
+        this.this$0 = imMemoryCacheRegisterStatic;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        if (customMessage != null && (customMessage instanceof CustomMessage)) {
-            com.baidu.tieba.im.db.c.a().d(this.b);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ImMessageCenterPojo B;
+        if (customResponsedMessage != null && (customResponsedMessage instanceof CustomResponsedMessage) && !customResponsedMessage.hasError() && (B = c.PK().B("-1004", -5)) != null) {
+            Object data = customResponsedMessage.getData();
+            if (data == null) {
+                B.setUnread_count(0);
+                B.setIs_hidden(1);
+                this.this$0.k(B);
+            } else if (data instanceof ImMessageCenterPojo) {
+                ImMessageCenterPojo imMessageCenterPojo = (ImMessageCenterPojo) data;
+                B.setLast_content(imMessageCenterPojo.getLast_content());
+                B.setLast_content_time(imMessageCenterPojo.getLast_content_time());
+                B.setUnread_count(0);
+                B.setIs_hidden(0);
+                this.this$0.k(B);
+            }
         }
-        return null;
     }
 }

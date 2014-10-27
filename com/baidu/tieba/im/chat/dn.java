@@ -1,22 +1,83 @@
 package com.baidu.tieba.im.chat;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.coreExtra.act.LoginActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dn implements DialogInterface.OnClickListener {
-    final /* synthetic */ TalkableActivity a;
-    private final /* synthetic */ int b;
+public class dn extends com.baidu.adp.base.h {
+    final /* synthetic */ TalkableActivity aQc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dn(TalkableActivity talkableActivity, int i) {
-        this.a = talkableActivity;
-        this.b = i;
+    public dn(TalkableActivity talkableActivity) {
+        this.aQc = talkableActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.adp.lib.e.e.b((Dialog) dialogInterface, this.a);
-        this.a.b(this.b);
+    @Override // com.baidu.adp.base.h
+    public void a(Object obj) {
+        long j;
+        if (!com.baidu.adp.lib.util.j.fh()) {
+            if (this.aQc.aPP != null) {
+                this.aQc.aPP.displayNoNetwork();
+            }
+        } else if (this.aQc.aPP != null) {
+            this.aQc.aPP.hideNoNetwork();
+        }
+        switch (this.aQc.aPQ.getLoadDataMode()) {
+            case 1:
+                j = this.aQc.aPX;
+                if (j > -1) {
+                    this.aQc.aPX = -1L;
+                }
+                this.aQc.aPP.closeProgress();
+                this.aQc.aPP.refreshGo2New(this.aQc.aPQ.getData());
+                return;
+            case 2:
+                this.aQc.aPP.refreshPrepage(this.aQc.aPQ.getData());
+                return;
+            case 3:
+                this.aQc.aPP.refreshCheckNew(this.aQc.aPQ.getData());
+                return;
+            case 4:
+                this.aQc.aPP.refreshGo2New(this.aQc.aPQ.getData());
+                return;
+            case 5:
+                this.aQc.aPP.refreshNormal(this.aQc.aPQ.getData());
+                return;
+            case 6:
+                this.aQc.aPP.refreshNormal(this.aQc.aPQ.getData());
+                return;
+            case 7:
+                this.aQc.aPP.refreshNormal(this.aQc.aPQ.getData());
+                return;
+            case 8:
+                if (obj != null && (obj instanceof String)) {
+                    String str = (String) obj;
+                    this.aQc.aPP.setDraft(str);
+                    this.aQc.aPQ.setDraft(str);
+                    return;
+                }
+                return;
+            case 9:
+                this.aQc.finish();
+                return;
+            case 10:
+                if (obj != null && (obj instanceof String)) {
+                    this.aQc.aPP.refreshHeaderFooter((String) obj, true);
+                    return;
+                }
+                return;
+            case 11:
+                LoginActivity.o(this.aQc, TbadkApplication.getCurrentAccountName());
+                this.aQc.finish();
+                return;
+            case 12:
+                this.aQc.aPP.refreshGo2New(this.aQc.aPQ.getData());
+                return;
+            case 13:
+                this.aQc.aPP.refreshNormal(this.aQc.aPQ.getData());
+                return;
+            default:
+                return;
+        }
     }
 }

@@ -1,42 +1,29 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.animation.Animation;
-import com.baidu.tbadk.core.view.NavigationBar;
+import android.content.DialogInterface;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class b implements Animation.AnimationListener {
-    final /* synthetic */ a a;
+public class b implements View.OnLongClickListener {
+    final /* synthetic */ AbsMsgImageActivity aNA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(a aVar) {
-        this.a = aVar;
+    public b(AbsMsgImageActivity absMsgImageActivity) {
+        this.aNA = absMsgImageActivity;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        AbsMsgImageActivity absMsgImageActivity;
-        AbsMsgImageActivity absMsgImageActivity2;
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
         boolean z;
-        AbsMsgImageActivity absMsgImageActivity3;
-        AbsMsgImageActivity absMsgImageActivity4;
-        NavigationBar navigationBar;
-        absMsgImageActivity = this.a.a;
-        absMsgImageActivity.o = true;
-        absMsgImageActivity2 = this.a.a;
-        z = absMsgImageActivity2.p;
-        if (z) {
-            absMsgImageActivity3 = this.a.a;
-            absMsgImageActivity3.p = false;
-            absMsgImageActivity4 = this.a.a;
-            navigationBar = absMsgImageActivity4.i;
-            navigationBar.setVisibility(8);
+        DialogInterface.OnClickListener onClickListener;
+        z = this.aNA.aNz;
+        if (!z) {
+            String[] strArr = {this.aNA.getString(com.baidu.tieba.y.save)};
+            AbsMsgImageActivity absMsgImageActivity = this.aNA;
+            onClickListener = this.aNA.aNs;
+            absMsgImageActivity.createListMenu(strArr, onClickListener);
+            this.aNA.showListMenu();
         }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+        return false;
     }
 }

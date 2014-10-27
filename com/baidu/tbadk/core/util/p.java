@@ -3,33 +3,33 @@ package com.baidu.tbadk.core.util;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 class p {
-    private static byte c = Byte.MIN_VALUE;
-    boolean a = false;
-    long b = 0;
+    private static byte ec = Byte.MIN_VALUE;
+    boolean ee = false;
+    long ef = 0;
 
-    public static int a() {
+    public static int bP() {
         return 13;
     }
 
-    public byte[] b() {
-        ByteBuffer allocate = ByteBuffer.allocate(a());
+    public byte[] toByteArray() {
+        ByteBuffer allocate = ByteBuffer.allocate(bP());
         allocate.putInt(1786600510);
-        allocate.put(this.a ? (byte) (0 | c) : (byte) 0);
-        allocate.putLong(this.b);
+        allocate.put(this.ee ? (byte) (0 | ec) : (byte) 0);
+        allocate.putLong(this.ef);
         allocate.flip();
         return allocate.array();
     }
 
-    public boolean a(byte[] bArr) {
-        if (bArr == null || bArr.length < a()) {
+    public boolean j(byte[] bArr) {
+        if (bArr == null || bArr.length < bP()) {
             return false;
         }
-        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, a());
+        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, bP());
         if (wrap.getInt() == 1786600510) {
-            if ((wrap.get() & c) != 0) {
-                this.a = true;
+            if ((wrap.get() & ec) != 0) {
+                this.ee = true;
             }
-            this.b = wrap.getLong();
+            this.ef = wrap.getLong();
             return true;
         }
         return false;

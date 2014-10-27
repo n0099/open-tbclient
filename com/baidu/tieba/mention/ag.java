@@ -1,33 +1,22 @@
 package com.baidu.tieba.mention;
 
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import com.baidu.tieba.data.FeedData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag extends com.baidu.adp.lib.resourceLoader.c<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ PostActivity a;
+public class ag implements ao {
+    final /* synthetic */ ae bnS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(PostActivity postActivity) {
-        this.a = postActivity;
+    public ag(ae aeVar) {
+        this.bnS = aeVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.resourceLoader.c
-    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        LinearLayout linearLayout;
-        LinearLayout linearLayout2;
-        super.a((ag) aVar, str, i);
-        linearLayout = this.a.a;
-        ImageView imageView = (ImageView) linearLayout.findViewWithTag(str);
-        while (imageView != null) {
-            imageView.setTag(null);
-            if (imageView != null && aVar != null) {
-                aVar.a(imageView);
-            }
-            linearLayout2 = this.a.a;
-            imageView = (ImageView) linearLayout2.findViewWithTag(str);
-        }
+    @Override // com.baidu.tieba.mention.ao
+    public void gP(String str) {
+        FeedData feedData;
+        this.bnS.mForumId = str;
+        ae aeVar = this.bnS;
+        feedData = this.bnS.bnP;
+        aeVar.d(feedData);
     }
 }

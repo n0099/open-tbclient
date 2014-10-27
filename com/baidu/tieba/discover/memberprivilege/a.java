@@ -1,36 +1,25 @@
 package com.baidu.tieba.discover.memberprivilege;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.x;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-class a extends HttpMessageListener {
-    final /* synthetic */ MemberPrivilegeActivity a;
+public class a {
+    public f apf = new f();
+    public List<d> apg = new ArrayList();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(MemberPrivilegeActivity memberPrivilegeActivity, int i) {
-        super(i);
-        this.a = memberPrivilegeActivity;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        f fVar;
-        this.a.closeLoadingDialog();
-        if ((httpResponsedMessage instanceof ResponseMemberPrivilegeMessage) && httpResponsedMessage.getCmd() == 1001531) {
-            int error = httpResponsedMessage.getError();
-            ResponseMemberPrivilegeMessage responseMemberPrivilegeMessage = (ResponseMemberPrivilegeMessage) httpResponsedMessage;
-            if (error != 0) {
-                this.a.showToast(responseMemberPrivilegeMessage.getErrorString());
-            } else if (responseMemberPrivilegeMessage.mData != null) {
-                h hVar = responseMemberPrivilegeMessage.mData;
-                fVar = this.a.a;
-                fVar.a().a(hVar);
-            } else {
-                this.a.showToast(x.neterror);
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.apf.parseJson(jSONObject.optJSONObject("user"));
+            JSONArray optJSONArray = jSONObject.optJSONArray("special_List");
+            if (optJSONArray != null) {
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    d dVar = new d();
+                    dVar.parseJson(optJSONArray.getJSONObject(i));
+                    this.apg.add(dVar);
+                }
             }
         }
     }

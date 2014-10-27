@@ -3,12 +3,12 @@ package com.baidu.tbadk.core.tabHost;
 import android.view.View;
 /* loaded from: classes.dex */
 class d implements View.OnClickListener {
-    final /* synthetic */ FragmentTabWidget a;
-    private final int b;
+    private final int CH;
+    final /* synthetic */ FragmentTabWidget CI;
 
     private d(FragmentTabWidget fragmentTabWidget, int i) {
-        this.a = fragmentTabWidget;
-        this.b = i;
+        this.CI = fragmentTabWidget;
+        this.CH = i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,6 +18,6 @@ class d implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        FragmentTabWidget.a(this.a).a(this.b, true);
+        FragmentTabWidget.a(this.CI).c(this.CH, true);
     }
 }

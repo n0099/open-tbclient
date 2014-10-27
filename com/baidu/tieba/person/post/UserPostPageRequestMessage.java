@@ -80,13 +80,13 @@ public class UserPostPageRequestMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     public Message encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.uid = Long.valueOf(com.baidu.adp.lib.e.c.a(this.uid, 0L));
+        builder.uid = Long.valueOf(com.baidu.adp.lib.g.c.a(this.uid, 0L));
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = Integer.valueOf(this.rn);
         builder.is_thread = Integer.valueOf(this.isThread ? 1 : 0);
         builder.need_content = Integer.valueOf(this.needContent ? 1 : 0);
         if (z) {
-            com.baidu.tbadk.b.d.a(builder, true);
+            com.baidu.tbadk.util.g.a(builder, true);
         }
         UserPostReqIdl.Builder builder2 = new UserPostReqIdl.Builder();
         builder2.data = builder.build(false);

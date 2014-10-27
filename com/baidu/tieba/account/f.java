@@ -5,7 +5,6 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.gson.Gson;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbadkApplication;
@@ -18,59 +17,59 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends BdAsyncTask<Object, Integer, AccountData> {
-    final /* synthetic */ AccountActivity a;
-    private AccountData b;
-    private int c = 0;
-    private boolean d;
+    final /* synthetic */ AccountActivity aeo;
+    private AccountData aer;
+    private boolean aes;
+    private int mType = 0;
 
     public f(AccountActivity accountActivity, boolean z, AccountData accountData) {
-        this.a = accountActivity;
-        this.d = false;
-        this.b = accountData;
-        this.d = z;
+        this.aeo = accountActivity;
+        this.aes = false;
+        this.aer = accountData;
+        this.aes = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
-        this.a.showLoadingDialog(this.a.getString(com.baidu.tieba.x.deleting), new g(this));
+        this.aeo.showLoadingDialog(this.aeo.getString(com.baidu.tieba.y.deleting), new g(this));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: d */
     public AccountData doInBackground(Object... objArr) {
         try {
             Thread.sleep(1000L);
-            if (this.d) {
-                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, this.b.getID()));
+            if (this.aes) {
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, this.aer.getID()));
             }
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001193, this.b.getID()));
-            com.baidu.tieba.util.k.g(this.b.getID());
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001193, this.aer.getID()));
+            com.baidu.tieba.util.j.hB(this.aer.getID());
             String currentAccount = TbadkApplication.getCurrentAccount();
-            com.baidu.tbadk.core.sharedPref.b.a().a("get_addresslist_switch" + this.b.getID());
-            if (this.b.getID().equals(currentAccount)) {
+            com.baidu.tbadk.core.sharedPref.b.lk().remove("get_addresslist_switch" + this.aer.getID());
+            if (this.aer.getID().equals(currentAccount)) {
                 SapiAccountManager.getInstance().logout();
-                this.c = 2;
-                a();
+                this.mType = 2;
+                xc();
                 return null;
             }
             List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
-            if (!TextUtils.isEmpty(this.b.getID()) && loginAccounts != null && loginAccounts.size() > 0) {
+            if (!TextUtils.isEmpty(this.aer.getID()) && loginAccounts != null && loginAccounts.size() > 0) {
                 Iterator<SapiAccount> it = loginAccounts.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     SapiAccount next = it.next();
-                    if (this.b.getID().equals(next.uid)) {
+                    if (this.aer.getID().equals(next.uid)) {
                         SapiAccountManager.getInstance().removeLoginAccount(next);
                         break;
                     }
                 }
             }
-            this.c = 0;
+            this.mType = 0;
             return null;
         } catch (Exception e) {
             BdLog.detailException(e);
@@ -78,47 +77,46 @@ public class f extends BdAsyncTask<Object, Integer, AccountData> {
         }
     }
 
-    private void a() {
+    private void xc() {
         String hao123Cache = Hao123Model.getHao123Cache();
         if (!TextUtils.isEmpty(hao123Cache)) {
-            Hao123Data hao123Data = (Hao123Data) new Gson().fromJson(hao123Cache, (Class<Object>) Hao123Data.class);
+            Hao123Data hao123Data = (Hao123Data) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(hao123Cache, Hao123Data.class);
             hao123Data.login = "no";
-            Hao123Model.setHao123Cache(new Gson().toJson(hao123Data));
+            Hao123Model.setHao123Cache(com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(hao123Data));
             return;
         }
         Hao123Data hao123Data2 = new Hao123Data();
         hao123Data2.login = "no";
-        Hao123Model.setHao123Cache(new Gson().toJson(hao123Data2));
+        Hao123Model.setHao123Cache(com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(hao123Data2));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
     public void onPostExecute(AccountData accountData) {
         ArrayList arrayList;
         l lVar;
-        if (this.b != null) {
-            new h(this.a, this.b.getBDUSS()).start();
+        if (this.aer != null) {
+            new h(this.aeo, this.aer.getBDUSS()).start();
         }
-        this.a.closeLoadingDialog();
-        if (this.c != 0) {
-            TbadkApplication.setCurrentAccount(null, this.a);
+        this.aeo.closeLoadingDialog();
+        if (this.mType != 0) {
+            TbadkApplication.setCurrentAccount(null, this.aeo);
         }
-        switch (this.c) {
+        switch (this.mType) {
             case 0:
-                this.a.showToast(this.a.getString(com.baidu.tieba.x.success));
-                arrayList = this.a.a;
-                arrayList.remove(this.b);
-                this.b = null;
-                lVar = this.a.b;
+                this.aeo.showToast(this.aeo.getString(com.baidu.tieba.y.success));
+                arrayList = this.aeo.aei;
+                arrayList.remove(this.aer);
+                this.aer = null;
+                lVar = this.aeo.aej;
                 lVar.notifyDataSetChanged();
                 break;
             case 2:
-                TbadkApplication.m252getInst().onUserChanged();
-                com.baidu.tbadk.core.b.b.a(this.a, 11, false);
+                TbadkApplication.m251getInst().onUserChanged();
+                com.baidu.tbadk.core.b.b.a(this.aeo, 11, false);
                 break;
         }
-        this.a.i = null;
+        this.aeo.aen = null;
     }
 }

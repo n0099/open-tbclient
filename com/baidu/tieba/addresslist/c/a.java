@@ -4,57 +4,57 @@ import android.content.Context;
 import com.baidu.adp.base.e;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.coreExtra.relationship.RequestGetAddressListMessage;
-import com.baidu.tbadk.coreExtra.relationship.n;
+import com.baidu.tbadk.coreExtra.relationship.o;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends e {
-    private com.baidu.tieba.addresslist.b.a a;
+    private com.baidu.tieba.addresslist.b.a ahh;
 
     public a(Context context) {
         super(context);
-        this.a = com.baidu.tieba.addresslist.b.a.a();
+        this.ahh = com.baidu.tieba.addresslist.b.a.xz();
     }
 
     public void a(com.baidu.tieba.addresslist.b.b bVar) {
-        this.a.a(bVar);
+        this.ahh.a(bVar);
     }
 
     public void b(com.baidu.tieba.addresslist.b.b bVar) {
-        this.a.b(bVar);
+        this.ahh.b(bVar);
     }
 
-    public List<com.baidu.tbadk.coreExtra.relationship.b> a() {
-        return this.a.b();
+    public List<com.baidu.tbadk.coreExtra.relationship.b> xB() {
+        return this.ahh.xA();
     }
 
-    public void b() {
+    public void xC() {
         sendMessage(new CustomMessage(2001182));
     }
 
-    public void c() {
+    public void xD() {
         super.sendMessage(new RequestGetAddressListMessage(304001));
     }
 
-    public void a(List<com.baidu.tbadk.coreExtra.relationship.b> list) {
-        this.a.a(list);
+    public void w(List<com.baidu.tbadk.coreExtra.relationship.b> list) {
+        this.ahh.v(list);
     }
 
-    public void a(com.baidu.tbadk.coreExtra.relationship.b bVar) {
-        this.a.a(bVar);
+    public void c(com.baidu.tbadk.coreExtra.relationship.b bVar) {
+        this.ahh.c(bVar);
     }
 
-    public void a(long j) {
-        this.a.a(j);
+    public void w(long j) {
+        this.ahh.w(j);
     }
 
-    public int a(String str) {
+    public int ej(String str) {
         int i;
-        if (n.a(str)) {
-            List<com.baidu.tbadk.coreExtra.relationship.b> b = this.a.b();
-            if (b != null) {
-                for (com.baidu.tbadk.coreExtra.relationship.b bVar : b) {
-                    if (str.equals(bVar.f())) {
-                        i = b.indexOf(bVar);
+        if (o.cG(str)) {
+            List<com.baidu.tbadk.coreExtra.relationship.b> xA = this.ahh.xA();
+            if (xA != null) {
+                for (com.baidu.tbadk.coreExtra.relationship.b bVar : xA) {
+                    if (str.equals(bVar.pA())) {
+                        i = xA.indexOf(bVar);
                         break;
                     }
                 }

@@ -10,37 +10,40 @@ import com.baidu.tieba.im.message.MemoryGetFromDBMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
-    final /* synthetic */ c a;
+    final /* synthetic */ c bcU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(c cVar, int i) {
         super(i);
-        this.a = cVar;
+        this.bcU = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: a */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        boolean j;
         if (customResponsedMessage != null && (customResponsedMessage instanceof MemoryGetFromDBMessage)) {
             MemoryGetFromDBMessage memoryGetFromDBMessage = (MemoryGetFromDBMessage) customResponsedMessage;
             String uid = memoryGetFromDBMessage.getUid();
             if (!TextUtils.isEmpty(uid) && uid.equals(TbadkApplication.getCurrentAccount())) {
                 try {
                     for (ImMessageCenterPojo imMessageCenterPojo : memoryGetFromDBMessage.getData()) {
-                        this.a.f(imMessageCenterPojo);
+                        j = this.bcU.j(imMessageCenterPojo);
+                        if (!j || imMessageCenterPojo.getPulled_msgId() > 0) {
+                            this.bcU.c(imMessageCenterPojo);
+                        }
                     }
-                    this.a.a(false);
-                    this.a.b(false);
-                    this.a.m();
-                    this.a.n();
-                    this.a.o();
+                    this.bcU.dh(false);
+                    this.bcU.di(false);
+                    this.bcU.PL();
+                    this.bcU.PM();
+                    this.bcU.PN();
                 } catch (Exception e) {
                     BdLog.detailException(e);
                 }
-                this.a.a.set(true);
-                this.a.e();
+                this.bcU.bcO.set(true);
+                this.bcU.PO();
             }
         }
     }

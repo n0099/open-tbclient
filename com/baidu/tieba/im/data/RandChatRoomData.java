@@ -7,112 +7,112 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class RandChatRoomData implements Parcelable {
-    public static final Parcelable.Creator<RandChatRoomData> CREATOR = new n();
-    private int a;
-    private int b;
-    private int c;
-    private long d;
-    private long e;
-    private long f;
-    private long g;
-    private List<UserData> h;
-    private ChatRoomTopicData i;
-    private List<ChatRoomTopicData> j;
+    public static final Parcelable.Creator<RandChatRoomData> CREATOR = new h();
+    private long averageWaitTime;
+    private long durationTime;
+    private int groupId;
+    private long lastMessageId;
+    private ChatRoomTopicData mTopic;
+    private List<ChatRoomTopicData> mTopicList;
+    private int maxUserNum;
+    private long silenceTime;
+    private int userNum;
+    private List<UserData> users;
 
     public RandChatRoomData() {
-        this.h = new ArrayList();
-        this.i = null;
-        this.j = null;
+        this.users = new ArrayList();
+        this.mTopic = null;
+        this.mTopicList = null;
     }
 
-    public void a(ChatRoomTopicData chatRoomTopicData) {
-        this.i = chatRoomTopicData;
+    public void setTopic(ChatRoomTopicData chatRoomTopicData) {
+        this.mTopic = chatRoomTopicData;
     }
 
-    public void a(List<ChatRoomTopicData> list) {
-        this.j = list;
+    public void setTopicList(List<ChatRoomTopicData> list) {
+        this.mTopicList = list;
     }
 
-    public String a() {
-        if (this.i == null) {
+    public String getTopicTitle() {
+        if (this.mTopic == null) {
             return null;
         }
-        return this.i.getTitle();
+        return this.mTopic.getTitle();
     }
 
-    public String b() {
-        if (this.i == null) {
+    public String getTopicContent() {
+        if (this.mTopic == null) {
             return null;
         }
-        return this.i.getContent();
+        return this.mTopic.getContent();
     }
 
-    public List<ChatRoomTopicData> c() {
-        return this.j;
+    public List<ChatRoomTopicData> getTopicList() {
+        return this.mTopicList;
     }
 
-    public int d() {
-        return this.a;
+    public int getGroupId() {
+        return this.groupId;
     }
 
-    public void a(int i) {
-        this.a = i;
+    public void setGroupId(int i) {
+        this.groupId = i;
     }
 
-    public int e() {
-        return this.b;
+    public int getUserNum() {
+        return this.userNum;
     }
 
-    public void b(int i) {
-        this.b = i;
+    public void setUserNum(int i) {
+        this.userNum = i;
     }
 
-    public int f() {
-        return this.c;
+    public int getMaxUserNum() {
+        return this.maxUserNum;
     }
 
-    public void c(int i) {
-        this.c = i;
+    public void setMaxUserNum(int i) {
+        this.maxUserNum = i;
     }
 
-    public long g() {
-        return this.d;
+    public long getDurationTime() {
+        return this.durationTime;
     }
 
-    public void a(long j) {
-        this.d = j;
+    public void setDurationTime(long j) {
+        this.durationTime = j;
     }
 
-    public long h() {
-        return this.e;
+    public long getSilenceTime() {
+        return this.silenceTime;
     }
 
-    public void b(long j) {
-        this.e = j;
+    public void setSilenceTime(long j) {
+        this.silenceTime = j;
     }
 
-    public long i() {
-        return this.f;
+    public long getAverageWaitTime() {
+        return this.averageWaitTime;
     }
 
-    public void c(long j) {
-        this.f = j;
+    public void setAverageWaitTime(long j) {
+        this.averageWaitTime = j;
     }
 
-    public List<UserData> j() {
-        return this.h;
+    public List<UserData> getUsers() {
+        return this.users;
     }
 
-    public void b(List<UserData> list) {
-        this.h = list;
+    public void setUsers(List<UserData> list) {
+        this.users = list;
     }
 
-    public long k() {
-        return this.g;
+    public long getLastMessageId() {
+        return this.lastMessageId;
     }
 
-    public void d(long j) {
-        this.g = j;
+    public void setLastMessageId(long j) {
+        this.lastMessageId = j;
     }
 
     @Override // android.os.Parcelable
@@ -121,19 +121,19 @@ public class RandChatRoomData implements Parcelable {
     }
 
     private RandChatRoomData(Parcel parcel) {
-        this.h = new ArrayList();
-        this.i = null;
-        this.j = null;
-        this.a = parcel.readInt();
-        this.b = parcel.readInt();
-        this.c = parcel.readInt();
-        this.d = parcel.readLong();
-        this.e = parcel.readLong();
-        this.f = parcel.readLong();
-        this.g = parcel.readLong();
-        this.h = parcel.readArrayList(getClass().getClassLoader());
-        this.i = (ChatRoomTopicData) parcel.readSerializable();
-        this.j = parcel.readArrayList(getClass().getClassLoader());
+        this.users = new ArrayList();
+        this.mTopic = null;
+        this.mTopicList = null;
+        this.groupId = parcel.readInt();
+        this.userNum = parcel.readInt();
+        this.maxUserNum = parcel.readInt();
+        this.durationTime = parcel.readLong();
+        this.silenceTime = parcel.readLong();
+        this.averageWaitTime = parcel.readLong();
+        this.lastMessageId = parcel.readLong();
+        this.users = parcel.readArrayList(getClass().getClassLoader());
+        this.mTopic = (ChatRoomTopicData) parcel.readSerializable();
+        this.mTopicList = parcel.readArrayList(getClass().getClassLoader());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -143,15 +143,15 @@ public class RandChatRoomData implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.a);
-        parcel.writeInt(this.b);
-        parcel.writeInt(this.c);
-        parcel.writeLong(this.d);
-        parcel.writeLong(this.e);
-        parcel.writeLong(this.f);
-        parcel.writeLong(this.g);
-        parcel.writeList(this.h);
-        parcel.writeSerializable(this.i);
-        parcel.writeList(this.j);
+        parcel.writeInt(this.groupId);
+        parcel.writeInt(this.userNum);
+        parcel.writeInt(this.maxUserNum);
+        parcel.writeLong(this.durationTime);
+        parcel.writeLong(this.silenceTime);
+        parcel.writeLong(this.averageWaitTime);
+        parcel.writeLong(this.lastMessageId);
+        parcel.writeList(this.users);
+        parcel.writeSerializable(this.mTopic);
+        parcel.writeList(this.mTopicList);
     }
 }

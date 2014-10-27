@@ -2,22 +2,23 @@ package com.baidu.tieba.d.b;
 
 import android.app.Activity;
 import android.view.View;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.x;
+import com.baidu.adp.lib.util.j;
+import com.baidu.tbadk.core.i;
+import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    private static d a;
+    private static d bHv;
 
-    public static final d a() {
-        if (a != null) {
-            return a;
+    public static final d aby() {
+        if (bHv != null) {
+            return bHv;
         }
         synchronized (d.class) {
-            if (a == null) {
-                a = new d();
+            if (bHv == null) {
+                bHv = new d();
             }
         }
-        return a;
+        return bHv;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,28 +27,28 @@ public class d implements View.OnClickListener {
             Object tag = view.getTag();
             if (tag instanceof com.baidu.tieba.d.c.a) {
                 com.baidu.tieba.d.c.a aVar = (com.baidu.tieba.d.c.a) tag;
-                com.baidu.tieba.d.a.f h = aVar.h();
-                int g = aVar.g();
-                com.baidu.tbadk.core.f.a(view.getContext(), "pb_tb_btc");
-                int r = h.r();
-                if (r == 0) {
-                    if (UtilHelper.getNetStatusInfo(view.getContext()) != UtilHelper.NetworkStateInfo.WIFI && (view.getContext() instanceof Activity)) {
+                com.baidu.tieba.d.a.f abF = aVar.abF();
+                int position = aVar.getPosition();
+                i.l(view.getContext(), "pb_tb_btc");
+                int abs = abF.abs();
+                if (abs == 0) {
+                    if (!j.fi() && (view.getContext() instanceof Activity)) {
                         com.baidu.tbadk.core.dialog.a aVar2 = new com.baidu.tbadk.core.dialog.a((Activity) view.getContext());
-                        aVar2.a(x.del_post_tip);
-                        aVar2.b(x.frs_network_tips);
-                        aVar2.a(x.alert_yes_button, new e(this, view, h, g, aVar));
-                        aVar2.b(x.alert_no_button, new f(this));
-                        aVar2.a();
-                        aVar2.c();
+                        aVar2.aW(y.del_post_tip);
+                        aVar2.aX(y.frs_network_tips);
+                        aVar2.a(y.alert_yes_button, new e(this, view, abF, position, aVar));
+                        aVar2.b(y.alert_no_button, new f(this));
+                        aVar2.kT();
+                        aVar2.kW();
                         return;
                     }
-                    com.baidu.tbadk.distribute.a.a().a(view.getContext(), h.y(), "btn_download", "pb", h.c, h.d);
-                    com.baidu.tbadk.distribute.a.a().a(h.y(), h.c, h.d, "PB", "download");
-                    com.baidu.tieba.d.b.a(view.getContext(), h, g);
-                    aVar.a();
-                } else if (r == 2) {
-                    com.baidu.tieba.d.b.a(view.getContext(), h);
-                    aVar.a();
+                    com.baidu.tbadk.distribute.a.ra().a(view.getContext(), abF.abw(), "btn_download", "pb", abF.bHq, abF.threadId);
+                    com.baidu.tbadk.distribute.a.ra().a(abF.abw(), abF.bHq, abF.threadId, "PB", "download");
+                    com.baidu.tieba.d.b.a(view.getContext(), abF, position);
+                    aVar.refresh();
+                } else if (abs == 2) {
+                    com.baidu.tieba.d.b.a(view.getContext(), abF);
+                    aVar.refresh();
                 }
             }
         }
