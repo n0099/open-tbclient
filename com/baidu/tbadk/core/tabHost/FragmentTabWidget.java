@@ -14,14 +14,14 @@ import com.baidu.tieba.s;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class FragmentTabWidget extends LinearLayout {
-    private c CA;
-    private final Rect CB;
+    private int CA;
+    private c CB;
     private final Rect CC;
-    private int CD;
+    private final Rect CD;
     private int CE;
     private int CF;
     private int CG;
-    private int Cz;
+    private int CH;
     private Paint gs;
     private int left;
     private int mChildCount;
@@ -30,18 +30,18 @@ public class FragmentTabWidget extends LinearLayout {
 
     public FragmentTabWidget(Context context) {
         super(context);
-        this.Cz = -1;
-        this.CB = new Rect();
+        this.CA = -1;
         this.CC = new Rect();
+        this.CD = new Rect();
         this.gs = new Paint();
         init();
     }
 
     public FragmentTabWidget(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Cz = -1;
-        this.CB = new Rect();
+        this.CA = -1;
         this.CC = new Rect();
+        this.CD = new Rect();
         this.gs = new Paint();
         init();
     }
@@ -50,20 +50,20 @@ public class FragmentTabWidget extends LinearLayout {
         this.gs = new Paint(6);
         this.gs.setAntiAlias(true);
         this.gs.setStyle(Paint.Style.FILL);
-        this.CD = m.dip2px(getContext(), 1.0f);
-        this.CE = m.dip2px(getContext(), 3.0f);
+        this.CE = m.dip2px(getContext(), 1.0f);
+        this.CF = m.dip2px(getContext(), 3.0f);
         setWillNotDraw(false);
     }
 
     public void d(int i, boolean z) {
-        if (i >= 0 && i < getChildCount() && this.Cz != i) {
-            if (this.Cz != -1) {
-                getChildAt(this.Cz).setSelected(false);
+        if (i >= 0 && i < getChildCount() && this.CA != i) {
+            if (this.CA != -1) {
+                getChildAt(this.CA).setSelected(false);
             }
-            this.Cz = i;
-            getChildAt(this.Cz).setSelected(true);
+            this.CA = i;
+            getChildAt(this.CA).setSelected(true);
             if (z) {
-                a(this.Cz, 0.0f);
+                a(this.CA, 0.0f);
             }
         }
     }
@@ -92,7 +92,7 @@ public class FragmentTabWidget extends LinearLayout {
 
     public void reset() {
         removeAllViews();
-        this.Cz = -1;
+        this.CA = -1;
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
@@ -102,25 +102,25 @@ public class FragmentTabWidget extends LinearLayout {
         if (this.mChildCount != 0) {
             this.mWidth = i3 - i;
             this.mHeight = i4 - i2;
-            this.CG = this.mWidth / this.mChildCount;
-            if (this.Cz != -1) {
-                a(this.Cz, 0.0f);
+            this.CH = this.mWidth / this.mChildCount;
+            if (this.CA != -1) {
+                a(this.CA, 0.0f);
             }
-            int i5 = this.mHeight - this.CD;
-            this.CC.set(0, i5, this.mWidth, this.CD + i5);
+            int i5 = this.mHeight - this.CE;
+            this.CD.set(0, i5, this.mWidth, this.CE + i5);
         }
     }
 
     public void a(int i, float f) {
-        this.left = this.CG * i;
-        this.left += (int) (this.CG * f);
-        this.CB.set(this.left, this.mHeight - this.CE, this.left + this.CG, this.mHeight);
+        this.left = this.CH * i;
+        this.left += (int) (this.CH * f);
+        this.CC.set(this.left, this.mHeight - this.CF, this.left + this.CH, this.mHeight);
         postInvalidateDelayed(16L);
     }
 
     public void onChangeSkinType(int i) {
         aw.h(this, u.bg_navigation_bar);
-        this.CF = aw.getColor(s.cp_link_tip_a);
+        this.CG = aw.getColor(s.cp_link_tip_a);
         int childCount = getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
             View childAt = getChildAt(i2);
@@ -134,11 +134,11 @@ public class FragmentTabWidget extends LinearLayout {
     @Override // android.view.View
     public void draw(Canvas canvas) {
         super.draw(canvas);
-        this.gs.setColor(this.CF);
-        canvas.drawRect(this.CB, this.gs);
+        this.gs.setColor(this.CG);
+        canvas.drawRect(this.CC, this.gs);
     }
 
     public void setTabSelectionListener(c cVar) {
-        this.CA = cVar;
+        this.CB = cVar;
     }
 }

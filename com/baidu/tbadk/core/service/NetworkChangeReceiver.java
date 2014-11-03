@@ -10,7 +10,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.message.NetWorkChangeMessage;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.pluginArch.PluginCenter;
 import com.baidu.tieba.compatible.CompatibleUtile;
@@ -33,14 +33,14 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
                 if (activeNetworkInfo.getTypeName().equalsIgnoreCase(WIFI_STRING)) {
                     if (this.NETWORK_STATUS != 1) {
                         if (this.NETWORK_STATUS != -1) {
-                            az.mD().V(true);
+                            ba.mD().V(true);
                             MessageManager.getInstance().dispatchResponsedMessage(new NetWorkChangeMessage(1));
                         }
                         this.NETWORK_STATUS = 1;
                     }
                 } else if (this.NETWORK_STATUS != 2) {
                     if (this.NETWORK_STATUS != -1) {
-                        az.mD().V(false);
+                        ba.mD().V(false);
                         MessageManager.getInstance().dispatchResponsedMessage(new NetWorkChangeMessage(2));
                     }
                     this.NETWORK_STATUS = 2;

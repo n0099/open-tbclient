@@ -1,12 +1,12 @@
 package com.baidu.tieba.faceshop;
 /* loaded from: classes.dex */
 class bn {
-    int auG;
-    final /* synthetic */ bi auv;
+    final /* synthetic */ bi auE;
+    int auP;
     int position;
 
     private bn(bi biVar) {
-        this.auv = biVar;
+        this.auE = biVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

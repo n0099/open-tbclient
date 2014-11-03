@@ -74,8 +74,8 @@ public abstract class MvcSocketResponsedMessage<D extends i, M extends Message> 
             }
             if (dVar != null) {
                 String cacheKey = dVar.getCacheKey();
-                String sW = dVar.sW();
-                if (cacheKey != null && !TextUtils.isEmpty(sW) && bArr != null && (bc = a.kS().bc(sW)) != null) {
+                String sY = dVar.sY();
+                if (cacheKey != null && !TextUtils.isEmpty(sY) && bArr != null && (bc = a.kS().bc(sY)) != null) {
                     bc.b(cacheKey, bArr);
                 }
             }

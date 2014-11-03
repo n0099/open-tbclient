@@ -14,18 +14,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class k extends RelativeLayout {
-    private int bjs;
-    private int bjt;
-    private m bju;
-    private int bjv;
-    private int bjw;
-    private o bjx;
+    private int bjG;
+    private int bjH;
+    private m bjI;
+    private int bjJ;
+    private int bjK;
+    private o bjL;
     private Context mContext;
     private int mWidth;
     private int rd;
 
     public void setOnItemClickListener(o oVar) {
-        this.bjx = oVar;
+        this.bjL = oVar;
     }
 
     public k(Context context) {
@@ -37,8 +37,8 @@ public class k extends RelativeLayout {
         layoutParams.bottomMargin = com.baidu.tieba.im.util.i.k(this.mContext, t.ds14);
         setLayoutParams(layoutParams);
         setBackgroundResource(u.bg_bottombar_meun_float);
-        this.bjs = com.baidu.tieba.im.util.i.k(this.mContext, t.ds36);
-        this.bjt = com.baidu.tieba.im.util.i.k(this.mContext, t.ds200);
+        this.bjG = com.baidu.tieba.im.util.i.k(this.mContext, t.ds36);
+        this.bjH = com.baidu.tieba.im.util.i.k(this.mContext, t.ds200);
         this.rd = com.baidu.tieba.im.util.i.k(this.mContext, t.ds504);
     }
 
@@ -48,16 +48,16 @@ public class k extends RelativeLayout {
         listView.setCacheColorHint(this.mContext.getResources().getColor(17170445));
         listView.setDivider(null);
         listView.setDividerHeight(0);
-        this.bju = new m(this.mContext, list);
-        listView.setAdapter((ListAdapter) this.bju);
+        this.bjI = new m(this.mContext, list);
+        listView.setAdapter((ListAdapter) this.bjI);
         listView.setOnItemClickListener(new l(this));
         return listView;
     }
 
     public void a(int i, int i2, List<com.baidu.tieba.im.data.f> list) {
         if (list != null) {
-            this.bjw = i;
-            this.bjv = i2;
+            this.bjK = i;
+            this.bjJ = i2;
             this.mWidth = ae(list);
             removeAllViews();
             addView(c(list, this.mWidth));
@@ -79,7 +79,7 @@ public class k extends RelativeLayout {
                 }
                 i = i2 + 1;
             } else {
-                return (int) Math.min(Math.max((this.bjs * 2) + f, this.bjt), this.rd);
+                return (int) Math.min(Math.max((this.bjG * 2) + f, this.bjH), this.rd);
             }
         }
     }
@@ -90,7 +90,7 @@ public class k extends RelativeLayout {
             int[] iArr = new int[2];
             view.getLocationOnScreen(iArr);
             int width = (iArr == null || iArr.length != 2) ? 0 : (iArr[0] + (view.getWidth() / 2)) - (this.mWidth / 2);
-            if (this.bjv == this.bjw - 1) {
+            if (this.bjJ == this.bjK - 1) {
                 width = ((iArr[0] + view.getWidth()) - com.baidu.tieba.im.util.i.k(this.mContext, t.ds20)) - this.mWidth;
             }
             if (width <= 0) {
@@ -103,12 +103,12 @@ public class k extends RelativeLayout {
         }
     }
 
-    public void RT() {
+    public void RW() {
         setVisibility(8);
         dt(false);
     }
 
-    public void RU() {
+    public void RX() {
         setVisibility(8);
     }
 

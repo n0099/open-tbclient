@@ -21,39 +21,39 @@ import com.baidu.tieba.switchs.features.BarDetailForDirSwitchStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends BaseAdapter implements View.OnClickListener {
-    private int avT;
-    private ag avr;
+    private ag avA;
+    private int awc;
     private BaseActivity mActivity;
-    public int avS = -1;
+    public int awb = -1;
     private int Af = 0;
-    private boolean avx = true;
-    private ForumDetailActivity.FromType avU = ForumDetailActivity.FromType.BAR_DIR;
+    private boolean avG = true;
+    private ForumDetailActivity.FromType awd = ForumDetailActivity.FromType.BAR_DIR;
     private boolean ly = false;
-    private ForumInfoData[] avV = new ForumInfoData[0];
+    private ForumInfoData[] awe = new ForumInfoData[0];
 
     public p(BaseActivity baseActivity, int i) {
-        this.avT = 0;
+        this.awc = 0;
         this.mActivity = baseActivity;
-        this.avT = i;
+        this.awc = i;
     }
 
-    public ForumInfoData[] DP() {
-        return this.avV;
+    public ForumInfoData[] DR() {
+        return this.awe;
     }
 
     public void a(ForumDetailActivity.FromType fromType) {
-        this.avU = fromType;
+        this.awd = fromType;
     }
 
     public void a(ForumInfoData[] forumInfoDataArr) {
-        this.avV = forumInfoDataArr;
-        if (this.avV != null) {
+        this.awe = forumInfoDataArr;
+        if (this.awe != null) {
             notifyDataSetChanged();
         }
     }
 
     public void a(ag agVar) {
-        this.avr = agVar;
+        this.avA = agVar;
     }
 
     public void H(int i, int i2) {
@@ -62,22 +62,22 @@ public class p extends BaseAdapter implements View.OnClickListener {
         }
     }
 
-    public void DQ() {
+    public void DS() {
         for (int i = 0; i < this.Af; i++) {
-            int dV = aj.wk().dV(this.avV[i].forum_name);
+            int dV = aj.wm().dV(this.awe[i].forum_name);
             if (dV == 1) {
-                this.avV[i].is_like = 1;
+                this.awe[i].is_like = 1;
             } else if (dV == -1) {
-                this.avV[i].is_like = 0;
+                this.awe[i].is_like = 0;
             }
         }
     }
 
-    public boolean DR() {
-        if (this.avr == null) {
+    public boolean DT() {
+        if (this.avA == null) {
             return false;
         }
-        return this.avr.TG();
+        return this.avA.TJ();
     }
 
     public void eA(int i) {
@@ -86,15 +86,15 @@ public class p extends BaseAdapter implements View.OnClickListener {
     }
 
     public void e(Boolean bool) {
-        this.avx = bool.booleanValue();
+        this.avG = bool.booleanValue();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.avV == null) {
+        if (this.awe == null) {
             return 0;
         }
-        return this.Af <= this.avV.length ? this.Af : this.avV.length;
+        return this.Af <= this.awe.length ? this.Af : this.awe.length;
     }
 
     @Override // android.widget.Adapter
@@ -102,7 +102,7 @@ public class p extends BaseAdapter implements View.OnClickListener {
         if (i > this.Af) {
             return null;
         }
-        return this.avV[i];
+        return this.awe[i];
     }
 
     @Override // android.widget.Adapter
@@ -115,15 +115,15 @@ public class p extends BaseAdapter implements View.OnClickListener {
         if (view == null || view.getTag() == null) {
             view = View.inflate(this.mActivity, com.baidu.tieba.w.forum_list_forum_item, null);
             q qVar = new q(this);
-            qVar.avW = (BarImageView) view.findViewById(com.baidu.tieba.v.forum_avatar);
-            qVar.avW.setGifIconSupport(false);
-            qVar.avZ = (TextView) view.findViewById(com.baidu.tieba.v.name);
-            qVar.awa = (TextView) view.findViewById(com.baidu.tieba.v.member_count);
-            qVar.awb = (TextView) view.findViewById(com.baidu.tieba.v.thread_count);
-            qVar.awc = (TextView) view.findViewById(com.baidu.tieba.v.slogan);
-            qVar.awd = (TextView) view.findViewById(com.baidu.tieba.v.like);
-            qVar.avX = (TextView) view.findViewById(com.baidu.tieba.v.rank_badge);
-            qVar.avY = (TextView) view.findViewById(com.baidu.tieba.v.rise_no);
+            qVar.awf = (BarImageView) view.findViewById(com.baidu.tieba.v.forum_avatar);
+            qVar.awf.setGifIconSupport(false);
+            qVar.awi = (TextView) view.findViewById(com.baidu.tieba.v.name);
+            qVar.awj = (TextView) view.findViewById(com.baidu.tieba.v.member_count);
+            qVar.awk = (TextView) view.findViewById(com.baidu.tieba.v.thread_count);
+            qVar.awl = (TextView) view.findViewById(com.baidu.tieba.v.slogan);
+            qVar.awm = (TextView) view.findViewById(com.baidu.tieba.v.like);
+            qVar.awg = (TextView) view.findViewById(com.baidu.tieba.v.rank_badge);
+            qVar.awh = (TextView) view.findViewById(com.baidu.tieba.v.rise_no);
             view.setTag(qVar);
         }
         View findViewById = view.findViewById(com.baidu.tieba.v.bd_list_top_divider);
@@ -138,48 +138,48 @@ public class p extends BaseAdapter implements View.OnClickListener {
         q qVar2 = (q) view.getTag();
         this.mActivity.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
         this.mActivity.getLayoutMode().h(view);
-        ForumInfoData forumInfoData = this.avV[i];
-        String str = this.avV[i].avatar;
-        qVar2.avW.setTag(str);
-        qVar2.avW.invalidate();
-        qVar2.avW.c(str, 10, false);
-        qVar2.avZ.setText(forumInfoData.forum_name);
-        qVar2.avZ.setTag(Integer.valueOf(forumInfoData.forum_id));
-        qVar2.awd.setTag(forumInfoData.forum_name);
-        qVar2.awa.setText(String.valueOf(this.mActivity.getString(com.baidu.tieba.y.forum_list_attention_tv)) + " " + eB(forumInfoData.member_count));
-        qVar2.awb.setText(String.valueOf(this.mActivity.getString(com.baidu.tieba.y.forum_list_thread_tv)) + " " + eB(forumInfoData.thread_count));
-        qVar2.awc.setText(forumInfoData.slogan);
-        if (this.avT == 0) {
-            qVar2.avY.setVisibility(8);
-            if (!this.avx) {
-                qVar2.avX.setVisibility(8);
+        ForumInfoData forumInfoData = this.awe[i];
+        String str = this.awe[i].avatar;
+        qVar2.awf.setTag(str);
+        qVar2.awf.invalidate();
+        qVar2.awf.c(str, 10, false);
+        qVar2.awi.setText(forumInfoData.forum_name);
+        qVar2.awi.setTag(Integer.valueOf(forumInfoData.forum_id));
+        qVar2.awm.setTag(forumInfoData.forum_name);
+        qVar2.awj.setText(String.valueOf(this.mActivity.getString(com.baidu.tieba.y.forum_list_attention_tv)) + " " + eB(forumInfoData.member_count));
+        qVar2.awk.setText(String.valueOf(this.mActivity.getString(com.baidu.tieba.y.forum_list_thread_tv)) + " " + eB(forumInfoData.thread_count));
+        qVar2.awl.setText(forumInfoData.slogan);
+        if (this.awc == 0) {
+            qVar2.awh.setVisibility(8);
+            if (!this.avG) {
+                qVar2.awg.setVisibility(8);
             } else {
-                qVar2.avX.setVisibility(0);
-                qVar2.avX.setText((CharSequence) null);
-                qVar2.avX.setBackgroundDrawable(null);
+                qVar2.awg.setVisibility(0);
+                qVar2.awg.setText((CharSequence) null);
+                qVar2.awg.setBackgroundDrawable(null);
                 switch (i) {
                     case 0:
-                        aw.h((View) qVar2.avX, com.baidu.tieba.u.icon_brief_grade_orange);
+                        aw.h((View) qVar2.awg, com.baidu.tieba.u.icon_brief_grade_orange);
                         break;
                     case 1:
-                        aw.h((View) qVar2.avX, com.baidu.tieba.u.icon_brief_grade_blue);
+                        aw.h((View) qVar2.awg, com.baidu.tieba.u.icon_brief_grade_blue);
                         break;
                     case 2:
-                        aw.h((View) qVar2.avX, com.baidu.tieba.u.icon_brief_grade_green);
+                        aw.h((View) qVar2.awg, com.baidu.tieba.u.icon_brief_grade_green);
                         break;
                     default:
-                        qVar2.avX.setText(String.format("%02d", Integer.valueOf(i + 1)));
+                        qVar2.awg.setText(String.format("%02d", Integer.valueOf(i + 1)));
                         break;
                 }
             }
         } else {
-            qVar2.avX.setVisibility(8);
-            qVar2.avY.setVisibility(0);
-            qVar2.avY.setText((CharSequence) null);
-            qVar2.avY.setCompoundDrawablesWithIntrinsicBounds(aw.getDrawable(com.baidu.tieba.u.icon_rise), (Drawable) null, (Drawable) null, (Drawable) null);
-            qVar2.avY.setText(String.valueOf(this.mActivity.getString(com.baidu.tieba.y.rise)) + String.valueOf(forumInfoData.mbr_inter_rank) + this.mActivity.getString(com.baidu.tieba.y.number));
+            qVar2.awg.setVisibility(8);
+            qVar2.awh.setVisibility(0);
+            qVar2.awh.setText((CharSequence) null);
+            qVar2.awh.setCompoundDrawablesWithIntrinsicBounds(aw.getDrawable(com.baidu.tieba.u.icon_rise), (Drawable) null, (Drawable) null, (Drawable) null);
+            qVar2.awh.setText(String.valueOf(this.mActivity.getString(com.baidu.tieba.y.rise)) + String.valueOf(forumInfoData.mbr_inter_rank) + this.mActivity.getString(com.baidu.tieba.y.number));
         }
-        qVar2.awd.setOnClickListener(this);
+        qVar2.awm.setOnClickListener(this);
         view.setOnClickListener(this);
         return view;
     }
@@ -193,11 +193,11 @@ public class p extends BaseAdapter implements View.OnClickListener {
         }
         q qVar = (q) view.getTag();
         if (com.baidu.adp.lib.b.f.db().U(BarDetailForDirSwitchStatic.BAR_DETAIL_DIR) == 0) {
-            ForumDetailActivity.a(this.mActivity, String.valueOf(qVar.avZ.getTag()), this.avU);
+            ForumDetailActivity.a(this.mActivity, String.valueOf(qVar.awi.getTag()), this.awd);
             return;
         }
         TiebaStatic.eventStat(this.mActivity, "forumlist_to_frs", "tofrsclick", 1, new Object[0]);
-        this.mActivity.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.mActivity).createNormalCfg(qVar.avZ.getText().toString(), null)));
+        this.mActivity.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.mActivity).createNormalCfg(qVar.awi.getText().toString(), null)));
     }
 
     public String eB(int i) {

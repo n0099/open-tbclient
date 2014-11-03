@@ -2,7 +2,7 @@ package com.baidu.tbadk.performanceLog;
 /* loaded from: classes.dex */
 public class w extends u {
     public static void a(long j, long j2, long j3) {
-        if (v.uN().uO()) {
+        if (v.uP().uQ()) {
             com.baidu.adp.lib.stats.q logItem = getLogItem();
             logItem.n("procname", "main");
             logItem.n("atime", String.valueOf(j));
@@ -13,7 +13,7 @@ public class w extends u {
     }
 
     public static void t(long j) {
-        if (v.uN().uO()) {
+        if (v.uP().uQ()) {
             com.baidu.adp.lib.stats.q logItem = getLogItem();
             logItem.n("procname", "remote");
             logItem.n("costt", String.valueOf(j));

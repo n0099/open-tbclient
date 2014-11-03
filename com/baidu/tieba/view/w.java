@@ -11,21 +11,21 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.aw;
 /* loaded from: classes.dex */
 public class w extends RelativeLayout {
-    private LinearLayout bRA;
-    private TextView bRB;
-    private TextView bRC;
-    private View.OnClickListener bRD;
-    private String bRz;
+    private String bRO;
+    private LinearLayout bRP;
+    private TextView bRQ;
+    private TextView bRR;
+    private View.OnClickListener bRS;
     private Activity mCurrentActivity;
     private View.OnClickListener mOnClickListener;
 
     public w(Context context) {
         super(context);
-        this.bRz = "sq_tb_search";
-        this.bRA = null;
-        this.bRB = null;
-        this.bRC = null;
-        this.bRD = new x(this);
+        this.bRO = "sq_tb_search";
+        this.bRP = null;
+        this.bRQ = null;
+        this.bRR = null;
+        this.bRS = new x(this);
         this.mOnClickListener = new y(this);
         init(context);
     }
@@ -33,15 +33,15 @@ public class w extends RelativeLayout {
     private void init(Context context) {
         this.mCurrentActivity = (Activity) context;
         com.baidu.adp.lib.g.b.ek().inflate(context, com.baidu.tieba.w.widget_search_box, this);
-        this.bRA = (LinearLayout) findViewById(com.baidu.tieba.v.search_bg_layout);
-        this.bRB = (TextView) findViewById(com.baidu.tieba.v.search_bar_text);
-        this.bRA.setOnClickListener(this.mOnClickListener);
-        this.bRC = (TextView) findViewById(com.baidu.tieba.v.search_from_qr);
-        this.bRC.setOnClickListener(this.bRD);
+        this.bRP = (LinearLayout) findViewById(com.baidu.tieba.v.search_bg_layout);
+        this.bRQ = (TextView) findViewById(com.baidu.tieba.v.search_bar_text);
+        this.bRP.setOnClickListener(this.mOnClickListener);
+        this.bRR = (TextView) findViewById(com.baidu.tieba.v.search_from_qr);
+        this.bRR.setOnClickListener(this.bRS);
     }
 
     public void setClickStatKey(String str) {
-        this.bRz = str;
+        this.bRO = str;
     }
 
     public void onChangeSkinType(int i) {
@@ -55,22 +55,22 @@ public class w extends RelativeLayout {
             baseFragmentActivity.getLayoutMode().L(i == 1);
             baseFragmentActivity.getLayoutMode().h(this);
         }
-        this.bRB.setHintTextColor(aw.getColor(com.baidu.tieba.s.widget_searchbox_text));
+        this.bRQ.setHintTextColor(aw.getColor(com.baidu.tieba.s.widget_searchbox_text));
         aw.i(this, com.baidu.tieba.s.search_box_bg);
     }
 
     @Override // android.view.View
     public void setOnClickListener(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            this.bRA.setOnClickListener(onClickListener);
+            this.bRP.setOnClickListener(onClickListener);
         }
     }
 
     public void setText(CharSequence charSequence) {
-        this.bRB.setHint(charSequence);
+        this.bRQ.setHint(charSequence);
     }
 
     public void setText(int i) {
-        this.bRB.setHint(i);
+        this.bRQ.setHint(i);
     }
 }

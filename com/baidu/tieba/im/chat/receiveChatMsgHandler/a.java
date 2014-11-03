@@ -60,7 +60,7 @@ public abstract class a {
                     }
                     int i = TbadkApplication.m251getInst().isMsgNewFansOn() ? optInt3 : 0;
                     if (currentAccount != null && currentAccount.length() > 0) {
-                        com.baidu.tbadk.coreExtra.messageCenter.a.oB().a(optInt, optInt5, com.baidu.tbadk.coreExtra.messageCenter.a.oB().getMsgChat(), i, com.baidu.tbadk.coreExtra.messageCenter.a.oB().getMsgBookmark(), optInt4);
+                        com.baidu.tbadk.coreExtra.messageCenter.a.oD().a(optInt, optInt5, com.baidu.tbadk.coreExtra.messageCenter.a.oD().getMsgChat(), i, com.baidu.tbadk.coreExtra.messageCenter.a.oD().getMsgBookmark(), optInt4);
                     }
                 }
             } catch (Exception e) {

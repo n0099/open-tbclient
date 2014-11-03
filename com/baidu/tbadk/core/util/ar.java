@@ -19,7 +19,7 @@ public class ar {
             int i2 = 0;
             int i3 = 0;
             int bigImageMaxUsedMemory = (int) (TbConfig.getBigImageMaxUsedMemory() * 0.8f);
-            boolean mN = az.mN();
+            boolean mN = ba.mN();
             int firstVisiblePosition = listView.getFirstVisiblePosition();
             int lastVisiblePosition = listView.getLastVisiblePosition();
             com.baidu.adp.lib.f.d.ef().a(bdUniqueId, (com.baidu.adp.lib.f.c) null);
@@ -34,8 +34,8 @@ public class ar {
                         int i7 = i2;
                         while (it.hasNext()) {
                             as next = it.next();
-                            if (com.baidu.adp.lib.f.d.ef().J(next.ER)) {
-                                if (12 == next.ER) {
+                            if (com.baidu.adp.lib.f.d.ef().J(next.ES)) {
+                                if (12 == next.ES) {
                                     int i8 = i5 + 1;
                                     if (i8 > 30 || i4 <= lastVisiblePosition || TextUtils.isEmpty(next.AI)) {
                                         i5 = i8;
@@ -46,12 +46,12 @@ public class ar {
                                 } else {
                                     int i9 = next.width * next.height;
                                     if (i9 > 0) {
-                                        if (next.ES != null) {
+                                        if (next.ET != null) {
                                             pbImageSize = i7 + (i9 * 4);
                                         } else {
                                             pbImageSize = i7 + (i9 * 2);
                                         }
-                                    } else if (next.ES != null) {
+                                    } else if (next.ET != null) {
                                         BdLog.e("missing big emotion image width and height!");
                                         pbImageSize = i7 + TbConfig.getBigEmotionsSize();
                                     } else {
@@ -59,18 +59,18 @@ public class ar {
                                     }
                                     int i10 = i6 + 1;
                                     if (i10 <= 13 && pbImageSize < bigImageMaxUsedMemory && i4 > lastVisiblePosition) {
-                                        if (next.ES != null) {
-                                            com.baidu.tbadk.widget.richText.e eVar = next.ES;
-                                            String str = mN ? eVar.TF.Th : eVar.TF.Tg;
+                                        if (next.ET != null) {
+                                            com.baidu.tbadk.widget.richText.e eVar = next.ET;
+                                            String str = mN ? eVar.TJ.Tl : eVar.TJ.Tk;
                                             if (!TextUtils.isEmpty(str)) {
-                                                com.baidu.adp.lib.f.d.ef().a(eVar.TF.Tf, next.ER, null, 0, 0, bdUniqueId, eVar.TF.Ti, eVar.TF.Tf, Boolean.valueOf(mN), str);
+                                                com.baidu.adp.lib.f.d.ef().a(eVar.TJ.Tj, next.ES, null, 0, 0, bdUniqueId, eVar.TJ.Tm, eVar.TJ.Tj, Boolean.valueOf(mN), str);
                                                 i7 = pbImageSize;
                                                 i6 = i10;
                                             }
                                         } else {
                                             String str2 = next.AI;
                                             if (!TextUtils.isEmpty(str2)) {
-                                                com.baidu.adp.lib.f.d.ef().a(str2, next.ER, null, bdUniqueId);
+                                                com.baidu.adp.lib.f.d.ef().a(str2, next.ES, null, bdUniqueId);
                                             }
                                         }
                                     }

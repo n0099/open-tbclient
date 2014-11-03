@@ -19,10 +19,10 @@ public class t implements View.OnClickListener {
         TextView textView;
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2 = this.this$0;
-        textView = this.this$0.aEv;
+        textView = this.this$0.aEF;
         mainTabActivity2.p(textView, 0);
-        MainTabActivity.bOo = false;
-        mainTabActivity = this.this$0.bOO;
+        MainTabActivity.bOD = false;
+        mainTabActivity = this.this$0.bPd;
         this.this$0.sendMessage(new CustomMessage(2002001, new SingleMentionActivityConfig(mainTabActivity)));
     }
 }

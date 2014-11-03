@@ -4,11 +4,11 @@ import android.os.Handler;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
 class dd implements Runnable {
-    final /* synthetic */ PersonalChatActivity aPI;
+    final /* synthetic */ PersonalChatActivity aPW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dd(PersonalChatActivity personalChatActivity) {
-        this.aPI = personalChatActivity;
+        this.aPW = personalChatActivity;
     }
 
     @Override // java.lang.Runnable
@@ -19,16 +19,16 @@ class dd implements Runnable {
         Handler handler;
         Runnable runnable;
         long j2;
-        AbsMsglistView absMsglistView = this.aPI.aPP;
-        userData = this.aPI.mUser;
+        AbsMsglistView absMsglistView = this.aPW.aQd;
+        userData = this.aPW.mUser;
         String userName = userData.getUserName();
-        fVar = this.aPI.aPC;
+        fVar = this.aPW.aPQ;
         absMsglistView.refreshPersonalHeadFooter(userName, fVar);
-        j = this.aPI.aPB;
+        j = this.aPW.aPP;
         if (j != 0) {
-            handler = this.aPI.mHandler;
-            runnable = this.aPI.aPF;
-            j2 = this.aPI.aPB;
+            handler = this.aPW.mHandler;
+            runnable = this.aPW.aPT;
+            j2 = this.aPW.aPP;
             handler.postDelayed(runnable, j2);
         }
     }

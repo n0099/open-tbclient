@@ -16,131 +16,131 @@ import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
 public class u {
-    ViewPager Ct;
-    LinearLayout asy;
-    TextView atA;
-    View awA;
-    ForumListActivity awB;
-    ListView awC;
-    a awD;
-    LinearLayout awE;
+    ViewPager Cu;
+    LinearLayout asH;
+    TextView atJ;
+    LinearLayout awA;
+    TextView awB;
+    ImageView awC;
+    LinearLayout awD;
+    TextView awE;
     ImageView awF;
-    final View awj;
-    final View awk;
-    LinearLayout awl;
-    BdListView awn;
-    BdListView awo;
-    TextView awp;
-    TextView awq;
-    LinearLayout awr;
-    TextView aws;
-    ImageView awt;
+    com.baidu.tbadk.core.view.y awG;
+    com.baidu.tbadk.core.view.y awH;
+    PopupWindow awI;
+    View awJ;
+    ForumListActivity awK;
+    ListView awL;
+    a awM;
+    LinearLayout awN;
+    ImageView awO;
+    final View aws;
+    final View awt;
     LinearLayout awu;
-    TextView awv;
-    ImageView aww;
-    com.baidu.tbadk.core.view.y awx;
-    com.baidu.tbadk.core.view.y awy;
-    PopupWindow awz;
+    BdListView aww;
+    BdListView awx;
+    TextView awy;
+    TextView awz;
     private boolean iC;
     NavigationBar mNavigationBar;
     ProgressBar mProgressBar;
-    boolean awm = true;
-    private int awG = 0;
+    boolean awv = true;
+    private int awP = 0;
 
     public u(ForumListActivity forumListActivity) {
         this.iC = false;
-        this.asy = (LinearLayout) forumListActivity.findViewById(com.baidu.tieba.v.forum_list_root);
-        this.Ct = (ViewPager) forumListActivity.findViewById(com.baidu.tieba.v.view_pager);
-        this.Ct.setOnPageChangeListener(forumListActivity);
-        this.awl = (LinearLayout) forumListActivity.findViewById(com.baidu.tieba.v.tab_strip);
+        this.asH = (LinearLayout) forumListActivity.findViewById(com.baidu.tieba.v.forum_list_root);
+        this.Cu = (ViewPager) forumListActivity.findViewById(com.baidu.tieba.v.view_pager);
+        this.Cu.setOnPageChangeListener(forumListActivity);
+        this.awu = (LinearLayout) forumListActivity.findViewById(com.baidu.tieba.v.tab_strip);
         this.mNavigationBar = (NavigationBar) forumListActivity.findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.awE = (LinearLayout) this.mNavigationBar.setTitleView(com.baidu.tieba.w.nb_item_forum_list, (View.OnClickListener) null);
-        this.awF = (ImageView) this.awE.findViewById(com.baidu.tieba.v.title_arrow);
-        this.atA = (TextView) this.awE.findViewById(com.baidu.tieba.v.title_text);
-        this.awp = (TextView) forumListActivity.findViewById(com.baidu.tieba.v.tab_recommends);
-        this.awp.setOnClickListener(forumListActivity);
-        this.awq = (TextView) forumListActivity.findViewById(com.baidu.tieba.v.tab_hot);
-        this.awq.setOnClickListener(forumListActivity);
-        this.awx = new com.baidu.tbadk.core.view.y(forumListActivity);
-        this.awy = new com.baidu.tbadk.core.view.y(forumListActivity);
-        this.awr = (LinearLayout) com.baidu.adp.lib.g.b.ek().inflate(forumListActivity, com.baidu.tieba.w.forum_list_forum_footer, null);
-        this.awj = this.awr.findViewById(com.baidu.tieba.v.footer_background);
-        this.aws = (TextView) this.awr.findViewById(com.baidu.tieba.v.footer_text);
-        this.awt = (ImageView) this.awr.findViewById(com.baidu.tieba.v.footer_icon);
-        this.awu = (LinearLayout) com.baidu.adp.lib.g.b.ek().inflate(forumListActivity, com.baidu.tieba.w.forum_list_forum_footer, null);
-        this.awk = this.awu.findViewById(com.baidu.tieba.v.footer_background);
-        this.awv = (TextView) this.awu.findViewById(com.baidu.tieba.v.footer_text);
-        this.aww = (ImageView) this.awu.findViewById(com.baidu.tieba.v.footer_icon);
+        this.awN = (LinearLayout) this.mNavigationBar.setTitleView(com.baidu.tieba.w.nb_item_forum_list, (View.OnClickListener) null);
+        this.awO = (ImageView) this.awN.findViewById(com.baidu.tieba.v.title_arrow);
+        this.atJ = (TextView) this.awN.findViewById(com.baidu.tieba.v.title_text);
+        this.awy = (TextView) forumListActivity.findViewById(com.baidu.tieba.v.tab_recommends);
+        this.awy.setOnClickListener(forumListActivity);
+        this.awz = (TextView) forumListActivity.findViewById(com.baidu.tieba.v.tab_hot);
+        this.awz.setOnClickListener(forumListActivity);
+        this.awG = new com.baidu.tbadk.core.view.y(forumListActivity);
+        this.awH = new com.baidu.tbadk.core.view.y(forumListActivity);
+        this.awA = (LinearLayout) com.baidu.adp.lib.g.b.ek().inflate(forumListActivity, com.baidu.tieba.w.forum_list_forum_footer, null);
+        this.aws = this.awA.findViewById(com.baidu.tieba.v.footer_background);
+        this.awB = (TextView) this.awA.findViewById(com.baidu.tieba.v.footer_text);
+        this.awC = (ImageView) this.awA.findViewById(com.baidu.tieba.v.footer_icon);
+        this.awD = (LinearLayout) com.baidu.adp.lib.g.b.ek().inflate(forumListActivity, com.baidu.tieba.w.forum_list_forum_footer, null);
+        this.awt = this.awD.findViewById(com.baidu.tieba.v.footer_background);
+        this.awE = (TextView) this.awD.findViewById(com.baidu.tieba.v.footer_text);
+        this.awF = (ImageView) this.awD.findViewById(com.baidu.tieba.v.footer_icon);
         this.mProgressBar = (ProgressBar) forumListActivity.findViewById(com.baidu.tieba.v.loading);
         this.iC = false;
-        this.awB = forumListActivity;
-        this.awD = new a(this.awB);
+        this.awK = forumListActivity;
+        this.awM = new a(this.awK);
     }
 
     public View a(int i, AdapterView.OnItemClickListener onItemClickListener) {
-        View inflate = com.baidu.adp.lib.g.b.ek().inflate(this.awB, com.baidu.tieba.w.forum_list__dir_menu, null);
-        this.awC = (ListView) inflate.findViewById(com.baidu.tieba.v.dir_menu_list);
-        this.awC.setOnItemClickListener(onItemClickListener);
+        View inflate = com.baidu.adp.lib.g.b.ek().inflate(this.awK, com.baidu.tieba.w.forum_list__dir_menu, null);
+        this.awL = (ListView) inflate.findViewById(com.baidu.tieba.v.dir_menu_list);
+        this.awL.setOnItemClickListener(onItemClickListener);
         inflate.setBackgroundResource(com.baidu.tieba.u.bg_allsproutpop_dropdown);
-        this.awG = this.awD.getCount();
-        this.awC.setAdapter((ListAdapter) this.awD);
+        this.awP = this.awM.getCount();
+        this.awL.setAdapter((ListAdapter) this.awM);
         return inflate;
     }
 
     public void b(AdapterView.OnItemClickListener onItemClickListener) {
         if (!this.iC) {
-            aw.c(this.awF, com.baidu.tieba.u.btn_allsproutpop_up);
+            aw.c(this.awO, com.baidu.tieba.u.btn_allsproutpop_up);
             this.iC = true;
-            if (this.awA == null) {
-                this.awA = a(0, onItemClickListener);
+            if (this.awJ == null) {
+                this.awJ = a(0, onItemClickListener);
             }
-            int dip2px = (com.baidu.adp.lib.util.m.dip2px(this.awB, 160.0f) - this.awE.getWidth()) / 2;
-            if (this.awz == null) {
-                this.awz = new PopupWindow(this.awA, com.baidu.adp.lib.util.m.dip2px(this.awB, 160.0f), -2, true);
-                this.awz.setBackgroundDrawable(new ColorDrawable(17170445));
-                if (this.awG > 6) {
-                    this.awz.setHeight(com.baidu.adp.lib.util.m.dip2px(this.awB, 272.0f));
+            int dip2px = (com.baidu.adp.lib.util.m.dip2px(this.awK, 160.0f) - this.awN.getWidth()) / 2;
+            if (this.awI == null) {
+                this.awI = new PopupWindow(this.awJ, com.baidu.adp.lib.util.m.dip2px(this.awK, 160.0f), -2, true);
+                this.awI.setBackgroundDrawable(new ColorDrawable(17170445));
+                if (this.awP > 6) {
+                    this.awI.setHeight(com.baidu.adp.lib.util.m.dip2px(this.awK, 272.0f));
                 }
             }
-            this.awz.setOutsideTouchable(true);
-            this.awz.setFocusable(true);
-            this.awA.setFocusable(true);
-            this.awA.setFocusableInTouchMode(true);
-            com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(this.awz, this.awE, 0 - dip2px, com.baidu.adp.lib.util.m.dip2px(this.awB, 0.0f));
-            this.awA.setOnKeyListener(new v(this));
-            this.awA.setOnTouchListener(new w(this));
-            this.awz.setOnDismissListener(new x(this));
+            this.awI.setOutsideTouchable(true);
+            this.awI.setFocusable(true);
+            this.awJ.setFocusable(true);
+            this.awJ.setFocusableInTouchMode(true);
+            com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(this.awI, this.awN, 0 - dip2px, com.baidu.adp.lib.util.m.dip2px(this.awK, 0.0f));
+            this.awJ.setOnKeyListener(new v(this));
+            this.awJ.setOnTouchListener(new w(this));
+            this.awI.setOnDismissListener(new x(this));
             return;
         }
-        com.baidu.adp.lib.g.j.a(this.awz, this.awB);
-        this.awF.setImageResource(com.baidu.tieba.u.btn_allsproutpop_down);
+        com.baidu.adp.lib.g.j.a(this.awI, this.awK);
+        this.awO.setImageResource(com.baidu.tieba.u.btn_allsproutpop_down);
         this.iC = false;
     }
 
-    public void DS() {
-        this.awl.setVisibility(0);
-    }
-
-    public void DT() {
-        this.awl.setVisibility(8);
-    }
-
     public void DU() {
+        this.awu.setVisibility(0);
+    }
+
+    public void DV() {
+        this.awu.setVisibility(8);
+    }
+
+    public void DW() {
         if (this.mProgressBar != null) {
             this.mProgressBar.setVisibility(8);
         }
-        if (this.Ct != null) {
-            if (this.Ct.getCurrentItem() == 0 && this.awn != null) {
-                this.awn.hN();
-            } else if (this.awo != null) {
-                this.awo.hN();
+        if (this.Cu != null) {
+            if (this.Cu.getCurrentItem() == 0 && this.aww != null) {
+                this.aww.hN();
+            } else if (this.awx != null) {
+                this.awx.hN();
             }
         }
     }
 
-    public void DV() {
-        this.awE.setClickable(false);
-        this.awE.setOnClickListener(null);
+    public void DX() {
+        this.awN.setClickable(false);
+        this.awN.setOnClickListener(null);
     }
 }

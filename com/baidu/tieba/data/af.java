@@ -3,20 +3,20 @@ package com.baidu.tieba.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class af extends com.baidu.tbadk.core.data.q {
-    public static final BdUniqueId alz = BdUniqueId.gen();
-    private boolean alA;
-    private u alB;
+    public static final BdUniqueId alI = BdUniqueId.gen();
+    private boolean alJ;
+    private u alK;
     private String fortune_desc;
 
-    public boolean zF() {
-        return this.alA;
+    public boolean zH() {
+        return this.alJ;
     }
 
     public void bq(boolean z) {
-        this.alA = z;
+        this.alJ = z;
     }
 
-    public String zG() {
+    public String zI() {
         return this.fortune_desc;
     }
 
@@ -24,16 +24,16 @@ public class af extends com.baidu.tbadk.core.data.q {
         this.fortune_desc = str;
     }
 
-    public u zH() {
-        return this.alB;
+    public u zJ() {
+        return this.alK;
     }
 
     public void a(u uVar) {
-        this.alB = uVar;
+        this.alK = uVar;
     }
 
     @Override // com.baidu.tbadk.core.data.q, com.baidu.adp.widget.ListView.al
     public BdUniqueId hu() {
-        return alz;
+        return alI;
     }
 }

@@ -9,8 +9,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class l extends RelativeLayout {
-    private int aqu;
-    private boolean aqv;
+    private int aqD;
+    private boolean aqE;
     private Context mContext;
     private Paint tR;
 
@@ -24,24 +24,24 @@ public class l extends RelativeLayout {
 
     public l(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aqv = true;
+        this.aqE = true;
         this.mContext = context;
         this.tR = new Paint();
         this.tR.setStyle(Paint.Style.FILL);
-        this.aqu = com.baidu.adp.lib.util.m.dip2px(this.mContext, 1.0f);
+        this.aqD = com.baidu.adp.lib.util.m.dip2px(this.mContext, 1.0f);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.aqv) {
+        if (this.aqE) {
             this.tR.setColor(com.baidu.tbadk.core.util.aw.getColor(com.baidu.tieba.s.cp_bg_line_b));
-            canvas.drawRect(0.0f, 0.0f, getMeasuredWidth(), this.aqu, this.tR);
+            canvas.drawRect(0.0f, 0.0f, getMeasuredWidth(), this.aqD, this.tR);
         }
     }
 
     public void setDrawTop(boolean z) {
-        this.aqv = z;
+        this.aqE = z;
     }
 
     public TextView a(EditorToolButton editorToolButton, boolean z) {
@@ -62,22 +62,22 @@ public class l extends RelativeLayout {
     }
 
     public void b(EditorToolButton editorToolButton, boolean z) {
-        if (editorToolButton != null && editorToolButton.Hl != null) {
+        if (editorToolButton != null && editorToolButton.Hm != null) {
             if (z) {
-                editorToolButton.Hl.setTextSize(10.0f);
-                com.baidu.tbadk.core.util.aw.b(editorToolButton.Hl, com.baidu.tieba.s.top_msg_num_day, 1);
-                editorToolButton.Hl.setGravity(17);
-                com.baidu.tbadk.core.util.aw.h((View) editorToolButton.Hl, com.baidu.tieba.u.icon_news_head_prompt_one);
+                editorToolButton.Hm.setTextSize(10.0f);
+                com.baidu.tbadk.core.util.aw.b(editorToolButton.Hm, com.baidu.tieba.s.top_msg_num_day, 1);
+                editorToolButton.Hm.setGravity(17);
+                com.baidu.tbadk.core.util.aw.h((View) editorToolButton.Hm, com.baidu.tieba.u.icon_news_head_prompt_one);
                 return;
             }
-            editorToolButton.Hl.setWidth(0);
-            editorToolButton.Hl.setHeight(0);
-            editorToolButton.Hl.setText("");
-            com.baidu.tbadk.core.util.aw.h((View) editorToolButton.Hl, com.baidu.tieba.u.icon_news_down_bar_one);
+            editorToolButton.Hm.setWidth(0);
+            editorToolButton.Hm.setHeight(0);
+            editorToolButton.Hm.setText("");
+            com.baidu.tbadk.core.util.aw.h((View) editorToolButton.Hm, com.baidu.tieba.u.icon_news_down_bar_one);
         }
     }
 
-    public void Be() {
+    public void Bg() {
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
@@ -87,7 +87,7 @@ public class l extends RelativeLayout {
         }
     }
 
-    public void Bf() {
+    public void Bh() {
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
@@ -97,12 +97,12 @@ public class l extends RelativeLayout {
         }
     }
 
-    public void Bg() {
+    public void Bi() {
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
             if (childAt instanceof EditorToolButton) {
-                ((EditorToolButton) childAt).Bd();
+                ((EditorToolButton) childAt).Bf();
             }
         }
     }

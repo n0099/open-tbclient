@@ -4,7 +4,7 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class t extends u {
     public static void a(int i, int i2, int i3, long j, int i4, int i5, int i6, long j2, int i7, int i8, int i9, long j3, int i10, int i11, int i12, long j4, int i13, int i14, int i15, long j5, int i16) {
-        if (v.uN().uO()) {
+        if (v.uP().uQ()) {
             com.baidu.adp.lib.stats.q logItem = getLogItem();
             logItem.n("action", "dlStat");
             logItem.n("c_dnum", String.valueOf(i));
@@ -33,7 +33,7 @@ public class t extends u {
     }
 
     public static void a(int i, int i2, long j) {
-        if (v.uN().uO()) {
+        if (v.uP().uQ()) {
             com.baidu.adp.lib.stats.q logItem = getLogItem();
             logItem.n("action", "dcStat");
             logItem.n("dcnum", String.valueOf(i));

@@ -10,14 +10,14 @@ import android.widget.ProgressBar;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.bn;
+import com.baidu.tbadk.core.util.bo;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
 public class BarFolderFirstDirActivity extends BaseActivity {
-    public static String bLU = "st_type";
-    private c bLR;
-    private b bLS;
-    protected ViewGroup bLT;
+    public static String bMj = "st_type";
+    private c bMg;
+    private b bMh;
+    protected ViewGroup bMi;
     private NavigationBar mNavigationBar;
     private ProgressBar xM;
     protected ListView mList = null;
@@ -25,7 +25,7 @@ public class BarFolderFirstDirActivity extends BaseActivity {
 
     public static void b(Activity activity, String str) {
         Intent intent = new Intent(activity, BarFolderFirstDirActivity.class);
-        intent.putExtra(bLU, str);
+        intent.putExtra(bMj, str);
         activity.startActivity(intent);
     }
 
@@ -36,7 +36,7 @@ public class BarFolderFirstDirActivity extends BaseActivity {
         setContentView(com.baidu.tieba.w.bar_folder_dir_activity);
         initUI();
         m(bundle);
-        adk();
+        adn();
         TiebaStatic.eventStat(this, "category_1", "enter");
     }
 
@@ -44,7 +44,7 @@ public class BarFolderFirstDirActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.bLR.notifyDataSetChanged();
+        this.bMg.notifyDataSetChanged();
     }
 
     protected void initUI() {
@@ -52,56 +52,56 @@ public class BarFolderFirstDirActivity extends BaseActivity {
         this.mNavigationBar.setTitleText(getResources().getString(com.baidu.tieba.y.bar_first_dir_name));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mList = (ListView) findViewById(com.baidu.tieba.v.list);
-        this.bLR = new c(this, new f(), true);
-        this.mList.setAdapter((ListAdapter) this.bLR);
+        this.bMg = new c(this, new f(), true);
+        this.mList.setAdapter((ListAdapter) this.bMg);
         this.xM = (ProgressBar) findViewById(com.baidu.tieba.v.progress);
-        this.bLT = (ViewGroup) findViewById(com.baidu.tieba.v.body_container);
-        bn.n(this.bLT);
+        this.bMi = (ViewGroup) findViewById(com.baidu.tieba.v.body_container);
+        bo.n(this.bMi);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.bLS != null) {
-            this.bLS.cancel();
+        if (this.bMh != null) {
+            this.bMh.cancel();
         }
         a(null, true);
     }
 
-    protected void adk() {
+    protected void adn() {
         this.mList.setOnItemClickListener(new a(this));
     }
 
     protected void m(Bundle bundle) {
         if (bundle != null) {
-            this.stType = bundle.getString(bLU);
+            this.stType = bundle.getString(bMj);
         } else {
-            this.stType = getIntent().getStringExtra(bLU);
+            this.stType = getIntent().getStringExtra(bMj);
         }
         this.xM.setVisibility(0);
         this.mList.setEnabled(false);
-        if (this.bLS != null) {
-            this.bLS.cancel();
+        if (this.bMh != null) {
+            this.bMh.cancel();
         }
-        this.bLS = new b(this, null);
-        this.bLS.setPriority(3);
-        this.bLS.execute("");
+        this.bMh = new b(this, null);
+        this.bMh.setPriority(3);
+        this.bMh.execute("");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(f fVar, boolean z) {
         this.xM.setVisibility(8);
         this.mList.setEnabled(true);
-        this.bLS = null;
+        this.bMh = null;
         if (!z) {
-            if (fVar.yo()) {
+            if (fVar.yq()) {
                 showToast(fVar.getErrorMsg());
                 return;
             }
-            this.bLR.I(fVar.adl());
+            this.bMg.J(fVar.ado());
             this.mList.setVisibility(4);
-            this.bLR.notifyDataSetChanged();
+            this.bMg.notifyDataSetChanged();
             this.mList.setVisibility(0);
         }
     }
@@ -114,8 +114,8 @@ public class BarFolderFirstDirActivity extends BaseActivity {
         if (this.mList != null) {
             this.mList.invalidateViews();
         }
-        if (this.bLT != null) {
-            bn.a(this.bLT, i);
+        if (this.bMi != null) {
+            bo.a(this.bMi, i);
         }
         aw.e(findViewById(com.baidu.tieba.v.root_view), i);
     }

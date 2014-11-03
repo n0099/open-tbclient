@@ -11,5 +11,5 @@ public interface b {
 
     c p(Context context, String str);
 
-    int rx();
+    int rz();
 }

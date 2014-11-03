@@ -5,18 +5,17 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class b extends HttpMessageListener {
-    final /* synthetic */ MemberPayActivity aoq;
+    final /* synthetic */ MemberPayActivity aoz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(MemberPayActivity memberPayActivity, int i) {
         super(i);
-        this.aoq = memberPayActivity;
+        this.aoz = memberPayActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: b */
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
         l lVar;
         l lVar2;
@@ -26,32 +25,32 @@ class b extends HttpMessageListener {
         l lVar6;
         l lVar7;
         l lVar8;
-        this.aoq.closeLoadingDialog();
+        this.aoz.closeLoadingDialog();
         if ((httpResponsedMessage instanceof ResponseMemberPayMessage) && httpResponsedMessage.getCmd() == 1001532) {
             ResponseMemberPayMessage responseMemberPayMessage = (ResponseMemberPayMessage) httpResponsedMessage;
             if (responseMemberPayMessage.getError() != 0) {
-                this.aoq.showToast(responseMemberPayMessage.getErrorString());
+                this.aoz.showToast(responseMemberPayMessage.getErrorString());
             } else if (responseMemberPayMessage.getMemberPayResult() != null) {
-                this.aoq.a(responseMemberPayMessage.getMemberPayResult());
-                lVar = this.aoq.aol;
+                this.aoz.a(responseMemberPayMessage.getMemberPayResult());
+                lVar = this.aoz.aou;
                 if (lVar != null) {
-                    lVar2 = this.aoq.aol;
+                    lVar2 = this.aoz.aou;
                     lVar2.initData();
-                    lVar3 = this.aoq.aol;
-                    lVar3.AR();
-                    lVar4 = this.aoq.aol;
-                    lVar4.AU();
-                    lVar5 = this.aoq.aol;
-                    lVar5.AV();
-                    lVar6 = this.aoq.aol;
-                    lVar6.AS();
-                    lVar7 = this.aoq.aol;
-                    lVar7.AT();
-                    lVar8 = this.aoq.aol;
-                    lVar8.aoV.setVisibility(0);
+                    lVar3 = this.aoz.aou;
+                    lVar3.AT();
+                    lVar4 = this.aoz.aou;
+                    lVar4.AW();
+                    lVar5 = this.aoz.aou;
+                    lVar5.AX();
+                    lVar6 = this.aoz.aou;
+                    lVar6.AU();
+                    lVar7 = this.aoz.aou;
+                    lVar7.AV();
+                    lVar8 = this.aoz.aou;
+                    lVar8.ape.setVisibility(0);
                 }
             } else {
-                this.aoq.showToast(y.neterror);
+                this.aoz.showToast(y.neterror);
             }
         }
     }

@@ -7,19 +7,19 @@ import com.baidu.adp.lib.util.m;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnTouchListener {
-    final /* synthetic */ GameSearchActivity aJH;
+    final /* synthetic */ GameSearchActivity aJU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(GameSearchActivity gameSearchActivity) {
-        this.aJH = gameSearchActivity;
+        this.aJU = gameSearchActivity;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         EditText editText;
         if (motionEvent.getAction() == 0) {
-            GameSearchActivity gameSearchActivity = this.aJH;
-            editText = this.aJH.aJx;
+            GameSearchActivity gameSearchActivity = this.aJU;
+            editText = this.aJU.aJK;
             m.b(gameSearchActivity, editText);
             return false;
         }

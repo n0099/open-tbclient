@@ -7,9 +7,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 public class GoOnAnimView extends LinearLayout {
-    private ImageView aLj;
-    private ImageView aLk;
-    private ImageView aLl;
+    private ImageView aLx;
+    private ImageView aLy;
+    private ImageView aLz;
     private Handler mHandler;
     private int tag;
 
@@ -27,12 +27,12 @@ public class GoOnAnimView extends LinearLayout {
 
     private void init(Context context) {
         LinearLayout linearLayout = (LinearLayout) com.baidu.adp.lib.g.b.ek().a(context, com.baidu.tieba.w.go_on_anim, null, false);
-        this.aLj = (ImageView) linearLayout.findViewById(com.baidu.tieba.v.tip_go_on_1);
-        this.aLk = (ImageView) linearLayout.findViewById(com.baidu.tieba.v.tip_go_on_2);
-        this.aLl = (ImageView) linearLayout.findViewById(com.baidu.tieba.v.tip_go_on_3);
-        this.aLj.setImageResource(com.baidu.tieba.u.pic_startpage1_next_1);
-        this.aLk.setImageResource(com.baidu.tieba.u.pic_startpage1_next_2);
-        this.aLl.setImageResource(com.baidu.tieba.u.pic_startpage1_next_3);
+        this.aLx = (ImageView) linearLayout.findViewById(com.baidu.tieba.v.tip_go_on_1);
+        this.aLy = (ImageView) linearLayout.findViewById(com.baidu.tieba.v.tip_go_on_2);
+        this.aLz = (ImageView) linearLayout.findViewById(com.baidu.tieba.v.tip_go_on_3);
+        this.aLx.setImageResource(com.baidu.tieba.u.pic_startpage1_next_1);
+        this.aLy.setImageResource(com.baidu.tieba.u.pic_startpage1_next_2);
+        this.aLz.setImageResource(com.baidu.tieba.u.pic_startpage1_next_3);
         addView(linearLayout);
     }
 
@@ -47,14 +47,14 @@ public class GoOnAnimView extends LinearLayout {
 
     public void onDestroy() {
         this.mHandler.removeMessages(0);
-        if (this.aLj != null) {
-            this.aLj.setImageDrawable(null);
+        if (this.aLx != null) {
+            this.aLx.setImageDrawable(null);
         }
-        if (this.aLk != null) {
-            this.aLk.setImageDrawable(null);
+        if (this.aLy != null) {
+            this.aLy.setImageDrawable(null);
         }
-        if (this.aLl != null) {
-            this.aLl.setImageDrawable(null);
+        if (this.aLz != null) {
+            this.aLz.setImageDrawable(null);
         }
     }
 }

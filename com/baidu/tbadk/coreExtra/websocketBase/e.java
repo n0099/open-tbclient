@@ -1,5 +1,5 @@
 package com.baidu.tbadk.coreExtra.websocketBase;
 /* loaded from: classes.dex */
 class e {
-    private static a Ps = new a(null);
+    private static a Pw = new a(null);
 }

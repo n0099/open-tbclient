@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tieba.data.BubbleListData;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
@@ -18,7 +18,7 @@ import com.baidu.tieba.y;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class h {
-    private static com.baidu.adp.lib.guide.d ajf;
+    private static com.baidu.adp.lib.guide.d ajo;
 
     public static void a(Activity activity, View view, boolean z, t tVar) {
         SpannableString spannableString;
@@ -74,7 +74,7 @@ public class h {
                 gVar.a(new k(activity, z, spannableString, i4));
                 gVar.q(true);
                 gVar.s(false);
-                ajf = gVar.dA();
+                ajo = gVar.dA();
                 new Handler().postDelayed(new m(activity, z), 300L);
                 com.baidu.tbadk.core.sharedPref.b.lk().putLong("bubble_time@" + TbadkApplication.getCurrentAccount(), System.currentTimeMillis() / 86400000);
             }
@@ -83,8 +83,8 @@ public class h {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(Activity activity, boolean z) {
-        if (ajf != null) {
-            ajf.c(activity);
+        if (ajo != null) {
+            ajo.c(activity);
         }
         if (!z) {
             new Handler().postDelayed(new n(), TbConfig.NOTIFY_SOUND_INTERVAL);
@@ -97,8 +97,8 @@ public class h {
             aVar.P(false);
             Date date = new Date();
             Date date2 = new Date(date.getTime() + (bubbleData.getTime_interval() * 1000));
-            String d = ay.d(date);
-            String d2 = ay.d(date2);
+            String d = az.d(date);
+            String d2 = az.d(date2);
             String format = String.format(activity.getString(y.bubble_free_dialog_text), bubbleData.getBname(), Integer.valueOf(bubbleData.getTime_interval() / 86400));
             View inflate = com.baidu.adp.lib.g.b.ek().inflate(activity, w.bubble_free_dialog_content, null);
             TextView textView = (TextView) inflate.findViewById(v.tip1);

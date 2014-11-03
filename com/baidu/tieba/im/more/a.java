@@ -3,72 +3,72 @@ package com.baidu.tieba.im.more;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class a {
-    private int Qt;
-    private int beL;
-    private int beM;
+    private int Qx;
+    private int beZ;
+    private int bfa;
     private boolean isLocationShared;
 
-    public boolean QE() {
+    public boolean QH() {
         com.baidu.tbadk.core.sharedPref.b lk = com.baidu.tbadk.core.sharedPref.b.lk();
         String currentAccount = TbadkApplication.getCurrentAccount();
-        this.beL = lk.getInt("post" + currentAccount, 0);
-        this.beM = lk.getInt("like" + currentAccount, 0);
-        this.Qt = lk.getInt("group" + currentAccount, 0);
+        this.beZ = lk.getInt("post" + currentAccount, 0);
+        this.bfa = lk.getInt("like" + currentAccount, 0);
+        this.Qx = lk.getInt("group" + currentAccount, 0);
         this.isLocationShared = TbadkApplication.m251getInst().getLocationShared();
-        return (this.beL == 0 && this.beM == 0 && this.Qt == 0) ? false : true;
+        return (this.beZ == 0 && this.bfa == 0 && this.Qx == 0) ? false : true;
     }
 
     public void a(a aVar) {
-        this.beL = aVar.beL;
-        this.beM = aVar.beM;
-        this.Qt = aVar.Qt;
+        this.beZ = aVar.beZ;
+        this.bfa = aVar.bfa;
+        this.Qx = aVar.Qx;
         this.isLocationShared = aVar.isLocationShared;
     }
 
-    public int QF() {
-        return this.beL;
+    public int QI() {
+        return this.beZ;
     }
 
     public void H(String str, int i) {
         com.baidu.tbadk.core.sharedPref.b.lk().putInt(String.valueOf(str) + TbadkApplication.getCurrentAccount(), i);
     }
 
-    public void QG() {
+    public void QJ() {
         String currentAccount = TbadkApplication.getCurrentAccount();
         com.baidu.tbadk.core.sharedPref.b lk = com.baidu.tbadk.core.sharedPref.b.lk();
-        lk.putInt("post" + currentAccount, this.beL);
-        lk.putInt("like" + currentAccount, this.beM);
-        lk.putInt("group" + currentAccount, this.Qt);
+        lk.putInt("post" + currentAccount, this.beZ);
+        lk.putInt("like" + currentAccount, this.bfa);
+        lk.putInt("group" + currentAccount, this.Qx);
         TbadkApplication.m251getInst().setLocationShared(this.isLocationShared);
     }
 
     public void ga(int i) {
         if (i <= 3 && i >= 1) {
-            this.beL = i;
+            this.beZ = i;
         }
     }
 
-    public int QH() {
-        return this.beM;
+    public int QK() {
+        return this.bfa;
     }
 
     public void gb(int i) {
         if (i <= 3 && i >= 1) {
-            this.beM = i;
+            this.bfa = i;
         }
     }
 
-    public int qT() {
-        return this.Qt;
+    public int qV() {
+        return this.Qx;
     }
 
     public void gc(int i) {
         if (i <= 3 && i >= 1) {
-            this.Qt = i;
+            this.Qx = i;
         }
     }
 
-    public boolean QI() {
+    public boolean QL() {
         return this.isLocationShared;
     }
 

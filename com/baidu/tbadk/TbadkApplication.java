@@ -53,8 +53,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.util.e;
 import com.baidu.tbadk.core.util.s;
 import com.baidu.tbadk.core.util.t;
@@ -102,7 +102,7 @@ public class TbadkApplication extends BdBaseApplication {
     private boolean isRemoteProcess;
     private boolean isXiubaProcess;
     private int keyboardHeight;
-    public long mainProcessCreateTime;
+    public long processCreateTime;
     private d resourcesWrapper;
     public SharedPreferences sp;
     private String tShopUrl;
@@ -136,6 +136,7 @@ public class TbadkApplication extends BdBaseApplication {
     public boolean mRemindVibrateOn = false;
     public boolean mRemindToneOn = true;
     public boolean mRemindLightOn = true;
+    public boolean mChatViewShowOn = true;
     public boolean mNoDisturbOn = false;
     public String mNoDisturbStartTime = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
     public String mNoDisturbEndTime = TbConfig.MSG_DEFAULT_NODISTURB_END_TIME;
@@ -273,13 +274,8 @@ public class TbadkApplication extends BdBaseApplication {
     @Override // com.baidu.adp.base.BdBaseApplication, android.app.Application
     public void onCreate() {
         super.onCreate();
-        if (isMainProcess(true)) {
-            this.mainProcessCreateTime = System.currentTimeMillis();
-        }
-        long j = 0;
-        if (this.isRemoteProcess) {
-            j = System.currentTimeMillis();
-        }
+        this.processCreateTime = System.currentTimeMillis();
+        isMainProcess(true);
         this.alarm = new a(this);
         com.baidu.adp.lib.Disk.d.bn().q(TbConfig.getTempDirName());
         e.lq();
@@ -308,12 +304,12 @@ public class TbadkApplication extends BdBaseApplication {
         setActivityStackMaxSize(20);
         MessageManager.getInstance().registerListener(this.mMemListener);
         if (isMainProcess(true)) {
-            com.baidu.tbadk.distribute.a.ra().rd();
+            com.baidu.tbadk.distribute.a.rc().rf();
             UninstallInquirer.getInstance().startProcessBySwitch();
         }
         registerPhoneListener();
         if (this.isRemoteProcess) {
-            w.t(System.currentTimeMillis() - j);
+            w.t(System.currentTimeMillis() - this.processCreateTime);
         }
     }
 
@@ -404,7 +400,7 @@ public class TbadkApplication extends BdBaseApplication {
         initSetting();
         this.mIsExitAppCloseWebSocket = TbadkSettings.getInst().loadBoolean("is_exit_app_not_start_websocket", false);
         initWebsocketBase(context);
-        TbFaceManager.sf().a(this, new v());
+        TbFaceManager.sh().a(this, new v());
         this.mFontSize = TbadkSettings.getInst().loadInt("font_size", 2);
         try {
             com.baidu.adp.lib.d.a.dE().initial(m251getInst(), "tieba");
@@ -413,14 +409,14 @@ public class TbadkApplication extends BdBaseApplication {
         }
         if (isMainProcess(true)) {
             com.baidu.tbadk.core.util.httpNet.a.mT();
-            com.baidu.tbadk.imageManager.e.sg().v(50, TbConfig.getBigImageMaxUsedMemory());
+            com.baidu.tbadk.imageManager.e.si().v(50, TbConfig.getBigImageMaxUsedMemory());
             try {
                 registerReceiver(new NetworkChangeReceiver(), new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
         } else {
-            com.baidu.tbadk.imageManager.e.sg().v(0, TbConfig.getBigImageMaxUsedMemoryForRemoteProcess());
+            com.baidu.tbadk.imageManager.e.si().v(0, TbConfig.getBigImageMaxUsedMemoryForRemoteProcess());
             try {
                 registerReceiver(new RemoteAccountChangeReceiver(), new IntentFilter("adp.bdstatisticsmanager2.account_changed"));
             } catch (Exception e3) {
@@ -446,16 +442,16 @@ public class TbadkApplication extends BdBaseApplication {
         if (socketReconnStratgy != null && socketReconnStratgy.length > 0) {
             l.a(socketReconnStratgy);
         }
-        PingManager.qC().initial();
-        MessageManager.getInstance().getSocketClient().a(PingManager.qC());
+        PingManager.qE().initial();
+        MessageManager.getInstance().getSocketClient().a(PingManager.qE());
         MessageManager.getInstance().addResponsedMessageRule(new com.baidu.tbadk.coreExtra.websocketBase.y());
         try {
             com.baidu.adp.framework.client.socket.coder.d.aL().g(TiebaIMConfig.getRSAPublicKey());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        com.baidu.tbadk.coreExtra.websocketBase.v.qL().init();
-        q.qH().init();
+        com.baidu.tbadk.coreExtra.websocketBase.v.qN().init();
+        q.qJ().init();
         initSocket();
     }
 
@@ -468,11 +464,11 @@ public class TbadkApplication extends BdBaseApplication {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("Content-Type", "application/octet-stream"));
         arrayList.add(new BasicNameValuePair("cuid", getUniqueIdentifier()));
-        String qq = com.baidu.tbadk.coreExtra.websocketBase.a.qo().qq();
-        if (TextUtils.isEmpty(qq)) {
+        String qs = com.baidu.tbadk.coreExtra.websocketBase.a.qq().qs();
+        if (TextUtils.isEmpty(qs)) {
             l.setUrl(TiebaIMConfig.url);
         } else {
-            l.setUrl(qq);
+            l.setUrl(qs);
         }
         l.k(TiebaIMConfig.wsExtensions);
         l.b(arrayList);
@@ -488,12 +484,11 @@ public class TbadkApplication extends BdBaseApplication {
 
     @Override // com.baidu.adp.base.BdBaseApplication
     public void onAppMemoryLow() {
-        super.onAppMemoryLow();
-        int sh = com.baidu.tbadk.imageManager.e.sg().sh();
-        int max = (int) Math.max(sh * 0.8d, TbConfig.getBigImageMaxUsedMemory());
-        if (max < sh) {
+        int sj = com.baidu.tbadk.imageManager.e.si().sj();
+        int max = (int) Math.max(sj * 0.8d, TbConfig.getBigImageMaxUsedMemory());
+        if (max < sj) {
             BdLog.isDebugMode();
-            com.baidu.tbadk.imageManager.e.sg().cQ(max);
+            com.baidu.tbadk.imageManager.e.si().cQ(max);
         }
         com.baidu.tbadk.core.util.d.lp();
     }
@@ -712,7 +707,7 @@ public class TbadkApplication extends BdBaseApplication {
         if (!this.isInBackground.get()) {
             this.isInBackground.set(true);
             MessageManager.getInstance().dispatchResponsedMessage(new BackgroundSwitchMessage(true));
-            bd.bR(null);
+            be.bR(null);
             TiebaStatic.save();
         }
     }
@@ -1174,8 +1169,8 @@ public class TbadkApplication extends BdBaseApplication {
             BdSocketLinkService.setAvailable(true);
             BdSocketLinkService.startService(true, "account changed");
         }
-        aa.rz().rA();
-        LivePlayingStatusMgr.qe().a(0, LivePlayingStatusMgr.LivePlayingStatus.IDEL);
+        aa.rB().rC();
+        LivePlayingStatusMgr.qg().a(0, LivePlayingStatusMgr.LivePlayingStatus.IDEL);
     }
 
     public static void reportLocation() {
@@ -1307,7 +1302,7 @@ public class TbadkApplication extends BdBaseApplication {
     }
 
     public void setActiveVersion(String str) {
-        if (!ay.aA(str) && !"null".equals(str)) {
+        if (!az.aA(str) && !"null".equals(str)) {
             t.bB("/package.last");
             t.bA("/package.last/" + str);
         }
@@ -1382,6 +1377,14 @@ public class TbadkApplication extends BdBaseApplication {
 
     public String getLocationPos() {
         return TbadkSettings.getInst().loadString("location_pos", "");
+    }
+
+    public void setShowingChatView(boolean z) {
+        TbadkSettings.getInst().saveBoolean("float_window_showing" + getCurrentAccount(), z);
+    }
+
+    public boolean isShowingChatView() {
+        return TbadkSettings.getInst().loadBoolean("float_window_showing" + getCurrentAccount(), true);
     }
 
     public int[] getSocketHeartBeatStratgy() {

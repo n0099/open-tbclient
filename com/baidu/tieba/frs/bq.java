@@ -4,29 +4,29 @@ import android.support.v4.view.ViewPager;
 import com.baidu.adp.widget.IndicatorView;
 /* loaded from: classes.dex */
 class bq implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ bp aCe;
-    private final /* synthetic */ bs aCf;
-    private final /* synthetic */ ViewPager aCg;
-    private final /* synthetic */ IndicatorView aCh;
+    final /* synthetic */ bp aCo;
+    private final /* synthetic */ bs aCp;
+    private final /* synthetic */ ViewPager aCq;
+    private final /* synthetic */ IndicatorView aCr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bq(bp bpVar, bs bsVar, ViewPager viewPager, IndicatorView indicatorView) {
-        this.aCe = bpVar;
-        this.aCf = bsVar;
-        this.aCg = viewPager;
-        this.aCh = indicatorView;
+        this.aCo = bpVar;
+        this.aCp = bsVar;
+        this.aCq = viewPager;
+        this.aCr = indicatorView;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         int eL;
         int eM;
-        eL = this.aCf.eL(i);
+        eL = this.aCp.eL(i);
         if (eL != i) {
-            this.aCg.setCurrentItem(eL, false);
-        } else if (this.aCh != null) {
-            IndicatorView indicatorView = this.aCh;
-            eM = this.aCf.eM(i);
+            this.aCq.setCurrentItem(eL, false);
+        } else if (this.aCr != null) {
+            IndicatorView indicatorView = this.aCr;
+            eM = this.aCp.eM(i);
             indicatorView.setPosition(eM);
         }
     }

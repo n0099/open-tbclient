@@ -7,11 +7,11 @@ import android.view.inputmethod.InputMethodManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends Handler {
-    final /* synthetic */ ChatterboxEditDialog bji;
+    final /* synthetic */ ChatterboxEditDialog bjw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(ChatterboxEditDialog chatterboxEditDialog) {
-        this.bji = chatterboxEditDialog;
+        this.bjw = chatterboxEditDialog;
     }
 
     @Override // android.os.Handler
@@ -19,7 +19,7 @@ public class d extends Handler {
         Context context;
         switch (message.what) {
             case 0:
-                context = this.bji.mContextt;
+                context = this.bjw.mContextt;
                 ((InputMethodManager) context.getSystemService("input_method")).toggleSoftInput(0, 2);
                 return;
             default:

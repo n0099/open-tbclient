@@ -15,68 +15,68 @@ import com.baidu.tieba.im.widget.invite2GroupView.Invite2GroupView;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class cc extends com.baidu.adp.base.d<ChatMessage> {
-    protected int Uy;
-    protected com.baidu.adp.lib.c.a aOK;
-    protected com.baidu.adp.lib.c.b aOL;
-    private long aOX;
-    private Calendar aOY;
-    protected long aOZ;
-    protected Long aPa;
-    protected TbRichTextView aPb;
-    protected ChatVoiceView aPc;
-    protected GifView aPd;
-    protected Invite2GroupView aPe;
-    protected ShareFromPBView aPf;
-    protected ShareFromGameCenter aPg;
-    protected ChatImageWithTailView aPh;
-    protected boolean aPi;
-    protected boolean aPj;
-    protected TextView auh;
+    protected int UC;
+    protected com.baidu.adp.lib.c.a aOY;
+    protected com.baidu.adp.lib.c.b aOZ;
+    private long aPl;
+    private Calendar aPm;
+    protected long aPn;
+    protected Long aPo;
+    protected TbRichTextView aPp;
+    protected ChatVoiceView aPq;
+    protected GifView aPr;
+    protected Invite2GroupView aPs;
+    protected ShareFromPBView aPt;
+    protected ShareFromGameCenter aPu;
+    protected ChatImageWithTailView aPv;
+    protected boolean aPw;
+    protected boolean aPx;
+    protected TextView auq;
 
     public cc(Context context, int i) {
         super(context, i);
-        this.aOK = null;
-        this.aOL = null;
-        this.Uy = 0;
-        this.aOZ = 0L;
-        this.aPa = null;
-        this.aPi = true;
-        this.aPj = false;
-        this.aOX = 0L;
         this.aOY = null;
+        this.aOZ = null;
+        this.UC = 0;
+        this.aPn = 0L;
+        this.aPo = null;
+        this.aPw = true;
+        this.aPx = false;
+        this.aPl = 0L;
+        this.aPm = null;
         this.mContext = context;
     }
 
     public void a(com.baidu.adp.lib.c.a aVar) {
-        this.aOK = aVar;
+        this.aOY = aVar;
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        this.aOL = bVar;
+        this.aOZ = bVar;
     }
 
     public void setPosition(int i) {
-        this.Uy = i;
+        this.UC = i;
     }
 
     public void setGid(long j) {
-        this.aOZ = j;
+        this.aPn = j;
     }
 
     public void H(long j) {
-        this.aOX = j;
+        this.aPl = j;
     }
 
     public void I(long j) {
-        this.aOY = Calendar.getInstance();
-        this.aOY.setTimeInMillis(1000 * j);
+        this.aPm = Calendar.getInstance();
+        this.aPm.setTimeInMillis(1000 * j);
     }
 
     private boolean J(long j) {
         if (j < 1000) {
             return false;
         }
-        return this.aOX == 0 || j - this.aOX >= 180;
+        return this.aPl == 0 || j - this.aPl >= 180;
     }
 
     private String K(long j) {
@@ -85,10 +85,10 @@ public class cc extends com.baidu.adp.base.d<ChatMessage> {
         }
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(1000 * j);
-        if (this.aOY != null && this.aOY.get(1) == calendar.get(1) && this.aOY.get(6) == calendar.get(6)) {
-            return com.baidu.tbadk.core.util.ay.b(calendar.getTime());
+        if (this.aPm != null && this.aPm.get(1) == calendar.get(1) && this.aPm.get(6) == calendar.get(6)) {
+            return com.baidu.tbadk.core.util.az.b(calendar.getTime());
         }
-        return com.baidu.tbadk.core.util.ay.a(calendar.getTime());
+        return com.baidu.tbadk.core.util.az.a(calendar.getTime());
     }
 
     public void a(View view, ChatMessage chatMessage) {
@@ -96,51 +96,51 @@ public class cc extends com.baidu.adp.base.d<ChatMessage> {
 
     public void b(View view, ChatMessage chatMessage) {
         if (chatMessage != null) {
-            this.aPa = Long.valueOf(chatMessage.getMsgId());
+            this.aPo = Long.valueOf(chatMessage.getMsgId());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void nu() {
-        this.auh = (TextView) findViewById(com.baidu.tieba.v.tex_msgitem_time);
-        this.aPb = (TbRichTextView) findViewById(com.baidu.tieba.v.tex_msgitem_text);
-        this.aPb.setLinkTextColor(-14845754);
-        this.aPh = (ChatImageWithTailView) findViewById(com.baidu.tieba.v.img_msgitem_image);
-        this.aPe = (Invite2GroupView) findViewById(com.baidu.tieba.v.lay_msgitem_invite_view);
-        this.aPf = (ShareFromPBView) findViewById(com.baidu.tieba.v.lay_msgitem_share_view);
-        this.aPg = (ShareFromGameCenter) findViewById(com.baidu.tieba.v.lay_msgitem_share_game);
-        this.aPc = (ChatVoiceView) findViewById(com.baidu.tieba.v.lay_msgitem_voice);
-        this.aPc.setClickable(true);
-        this.aPc.setOnClickListener(this.aPc);
-        this.aPc.setLongClickable(true);
-        this.aPc.setOnLongClickListener(new cd(this));
-        this.aPh.getImage().setClickable(true);
-        this.aPh.getImage().setOnClickListener(new ch(this));
-        this.aPh.getImage().setLongClickable(true);
-        this.aPh.getImage().setOnLongClickListener(new ci(this));
-        this.aPh.getTail().setClickable(true);
-        this.aPh.getTail().setOnClickListener(new cj(this));
-        this.aPb.setLongClickable(true);
-        this.aPb.setOnLongClickListener(new ck(this));
-        this.aPd = (GifView) findViewById(com.baidu.tieba.v.emotion_msgitem_image);
-        this.aPd.setOnClickListener(new cl(this));
-        this.aPd.setLongClickable(true);
-        this.aPd.setOnLongClickListener(new cm(this));
-        this.aPf.setClickable(true);
-        this.aPf.setOnClickListener(new cn(this));
-        this.aPf.setLongClickable(true);
-        this.aPf.setOnLongClickListener(new co(this));
-        this.aPg.getContentBody().setClickable(true);
-        this.aPg.getContentBody().setOnClickListener(new ce(this));
-        this.aPg.getTail().setClickable(true);
-        this.aPg.getTail().setOnClickListener(new cf(this));
-        this.aPg.getContentBody().setLongClickable(true);
-        this.aPg.getContentBody().setOnLongClickListener(new cg(this));
+        this.auq = (TextView) findViewById(com.baidu.tieba.v.tex_msgitem_time);
+        this.aPp = (TbRichTextView) findViewById(com.baidu.tieba.v.tex_msgitem_text);
+        this.aPp.setLinkTextColor(-14845754);
+        this.aPv = (ChatImageWithTailView) findViewById(com.baidu.tieba.v.img_msgitem_image);
+        this.aPs = (Invite2GroupView) findViewById(com.baidu.tieba.v.lay_msgitem_invite_view);
+        this.aPt = (ShareFromPBView) findViewById(com.baidu.tieba.v.lay_msgitem_share_view);
+        this.aPu = (ShareFromGameCenter) findViewById(com.baidu.tieba.v.lay_msgitem_share_game);
+        this.aPq = (ChatVoiceView) findViewById(com.baidu.tieba.v.lay_msgitem_voice);
+        this.aPq.setClickable(true);
+        this.aPq.setOnClickListener(this.aPq);
+        this.aPq.setLongClickable(true);
+        this.aPq.setOnLongClickListener(new cd(this));
+        this.aPv.getImage().setClickable(true);
+        this.aPv.getImage().setOnClickListener(new ch(this));
+        this.aPv.getImage().setLongClickable(true);
+        this.aPv.getImage().setOnLongClickListener(new ci(this));
+        this.aPv.getTail().setClickable(true);
+        this.aPv.getTail().setOnClickListener(new cj(this));
+        this.aPp.setLongClickable(true);
+        this.aPp.setOnLongClickListener(new ck(this));
+        this.aPr = (GifView) findViewById(com.baidu.tieba.v.emotion_msgitem_image);
+        this.aPr.setOnClickListener(new cl(this));
+        this.aPr.setLongClickable(true);
+        this.aPr.setOnLongClickListener(new cm(this));
+        this.aPt.setClickable(true);
+        this.aPt.setOnClickListener(new cn(this));
+        this.aPt.setLongClickable(true);
+        this.aPt.setOnLongClickListener(new co(this));
+        this.aPu.getContentBody().setClickable(true);
+        this.aPu.getContentBody().setOnClickListener(new ce(this));
+        this.aPu.getTail().setClickable(true);
+        this.aPu.getTail().setOnClickListener(new cf(this));
+        this.aPu.getContentBody().setLongClickable(true);
+        this.aPu.getContentBody().setOnLongClickListener(new cg(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void fq(int i) {
-        this.aPh.setVisibility(i);
+        this.aPv.setVisibility(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -148,10 +148,10 @@ public class cc extends com.baidu.adp.base.d<ChatMessage> {
         boolean z = chatMessage.getCacheData() != null && chatMessage.getCacheData().getIs_show_time() == 1;
         boolean J = J(chatMessage.getTime());
         if (z || J) {
-            this.auh.setVisibility(0);
-            this.auh.setText(K(chatMessage.getTime()));
+            this.auq.setVisibility(0);
+            this.auq.setText(K(chatMessage.getTime()));
         } else {
-            this.auh.setVisibility(8);
+            this.auq.setVisibility(8);
         }
         if (!z && J) {
             MsgCacheData cacheData = chatMessage.getCacheData();
@@ -167,39 +167,39 @@ public class cc extends com.baidu.adp.base.d<ChatMessage> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b(ChatMessage chatMessage, String str) {
-        dm.a(this.mContext, this.aPb, chatMessage, str);
+        dm.a(this.mContext, this.aPp, chatMessage, str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(View view, ChatMessage chatMessage, String str) {
-        dm.a(this.mContext, view, this.aPh, chatMessage, this.aOZ, str);
+        dm.a(this.mContext, view, this.aPv, chatMessage, this.aPn, str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void c(ChatMessage chatMessage, String str) {
-        dm.a(this.mContext, this.aPc, chatMessage, str);
+        dm.a(this.mContext, this.aPq, chatMessage, str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(ChatMessage chatMessage, boolean z) {
-        dm.a(this.mContext, this.aPd, chatMessage, z);
+        dm.a(this.mContext, this.aPr, chatMessage, z);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b(View view, ChatMessage chatMessage, String str) {
-        dm.a(this.mContext, view, this.aPe, chatMessage, str);
+        dm.a(this.mContext, view, this.aPs, chatMessage, str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void c(View view, ChatMessage chatMessage, String str) {
-        dm.a(this.mContext, view, this.aPf, this.aPg, chatMessage, str);
+        dm.a(this.mContext, view, this.aPt, this.aPu, chatMessage, str);
     }
 
     public void cA(boolean z) {
-        this.aPi = z;
+        this.aPw = z;
     }
 
     public void cB(boolean z) {
-        this.aPj = z;
+        this.aPx = z;
     }
 }

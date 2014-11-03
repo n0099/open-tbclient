@@ -20,7 +20,7 @@ import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class s {
     public static final File mI = Environment.getExternalStorageDirectory();
-    private static final File Dp = TbadkApplication.m251getInst().getApp().getCacheDir();
+    private static final File Dq = TbadkApplication.m251getInst().getApp().getCacheDir();
 
     public static boolean bm() {
         return Environment.getExternalStorageState().equals("mounted");
@@ -915,10 +915,10 @@ public class s {
     }
 
     private static String a(int i, String str, boolean z) {
-        if (Dp == null) {
+        if (Dq == null) {
             return null;
         }
-        File[] listFiles = Dp.listFiles();
+        File[] listFiles = Dq.listFiles();
         String bp = bp(i);
         for (int i2 = 0; i2 < listFiles.length; i2++) {
             if (listFiles[i2] != null && listFiles[i2].getName().startsWith(bp)) {
@@ -1095,7 +1095,7 @@ public class s {
                 bArr = com.baidu.adp.lib.util.c.eS().b(decodeByteArray, 100);
                 decodeByteArray.recycle();
             }
-            if (ba.bQ(str) != null) {
+            if (bb.bQ(str) != null) {
                 String str3 = String.valueOf(bQ) + str2;
                 for (int i2 = 0; bp(str3) && i2 < 10000; i2++) {
                     str3 = String.valueOf(bQ) + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str2;

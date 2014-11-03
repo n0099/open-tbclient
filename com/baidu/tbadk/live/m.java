@@ -10,34 +10,34 @@ import com.baidu.tbadk.coreExtra.live.LiveStatusChangeDefinition;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements ServiceConnection {
-    final /* synthetic */ LiveGroupManager Vu;
+    final /* synthetic */ LiveGroupManager Vy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(LiveGroupManager liveGroupManager) {
-        this.Vu = liveGroupManager;
+        this.Vy = liveGroupManager;
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         com.baidu.tbadk.live.service.a aVar;
         com.baidu.tbadk.live.service.d dVar;
-        this.Vu.mRemoteService = com.baidu.tbadk.live.service.b.a(iBinder);
+        this.Vy.mRemoteService = com.baidu.tbadk.live.service.b.a(iBinder);
         try {
-            aVar = this.Vu.mRemoteService;
-            dVar = this.Vu.mCallback;
+            aVar = this.Vy.mRemoteService;
+            dVar = this.Vy.mCallback;
             aVar.a(dVar);
         } catch (RemoteException e) {
             TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
-            this.Vu.broadcastLiveError(LiveStatusChangeDefinition.ERROR_PROMPT_SERVICE_CRASHED);
+            this.Vy.broadcastLiveError(LiveStatusChangeDefinition.ERROR_PROMPT_SERVICE_CRASHED);
         } catch (SecurityException e2) {
-            this.Vu.broadcastLiveError(LiveStatusChangeDefinition.ERROR_PROMPT_SERVICE_CRASHED);
+            this.Vy.broadcastLiveError(LiveStatusChangeDefinition.ERROR_PROMPT_SERVICE_CRASHED);
         }
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        this.Vu.mRemoteService = null;
+        this.Vy.mRemoteService = null;
         TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), LiveStatusChangeDefinition.ERROR_PROMPT_SERVICE_CRASHED);
-        this.Vu.broadcastLiveError(LiveStatusChangeDefinition.ERROR_PROMPT_SERVICE_CRASHED);
+        this.Vy.broadcastLiveError(LiveStatusChangeDefinition.ERROR_PROMPT_SERVICE_CRASHED);
     }
 }

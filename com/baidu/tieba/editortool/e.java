@@ -9,11 +9,11 @@ import com.baidu.tieba.data.BubbleListData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ a aqc;
+    final /* synthetic */ a aql;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(a aVar) {
-        this.aqc = aVar;
+        this.aql = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,31 +27,31 @@ public class e implements View.OnClickListener {
         com.baidu.tieba.bubble.s sVar2;
         if (view instanceof com.baidu.tieba.view.b) {
             int intValue = ((Integer) view.getTag()).intValue();
-            bubbleListData = this.aqc.apX;
+            bubbleListData = this.aql.aqg;
             BubbleListData.BubbleData bubbleData = bubbleListData.getB_info().get(intValue);
             boolean loadBoolean = TbadkSettings.getInst().loadBoolean(TbadkApplication.isMem + TbadkApplication.getCurrentAccount(), false);
             if (bubbleData != null && !bubbleData.isDef()) {
                 if (bubbleData.getBcode() != 0 && !bubbleData.canUse() && !loadBoolean) {
                     if (bubbleData.isFree()) {
-                        context3 = this.aqc.mContext;
+                        context3 = this.aql.mContext;
                         if (context3 instanceof Activity) {
-                            context4 = this.aqc.mContext;
-                            sVar2 = this.aqc.aiX;
+                            context4 = this.aql.mContext;
+                            sVar2 = this.aql.ajg;
                             com.baidu.tieba.bubble.h.a((Activity) context4, bubbleData, sVar2);
                             return;
                         }
                         return;
                     }
-                    context = this.aqc.mContext;
+                    context = this.aql.mContext;
                     if (context instanceof Activity) {
-                        context2 = this.aqc.mContext;
-                        sVar = this.aqc.aiY;
+                        context2 = this.aql.mContext;
+                        sVar = this.aql.ajh;
                         com.baidu.tieba.bubble.h.b((Activity) context2, bubbleData, sVar);
                         return;
                     }
                     return;
                 }
-                this.aqc.dU(bubbleData.getBcode());
+                this.aql.dU(bubbleData.getBcode());
             }
         }
     }

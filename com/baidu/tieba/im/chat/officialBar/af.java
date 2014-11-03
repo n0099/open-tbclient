@@ -8,48 +8,48 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import java.util.List;
 /* loaded from: classes.dex */
 public class af extends com.baidu.adp.base.f {
-    private BaseActivity On;
-    private ad aRp;
-    private View aRq;
-    private BdListView aof;
-    private NavigationBar aog;
+    private BaseActivity Or;
+    private ad aRD;
+    private View aRE;
+    private BdListView aoo;
+    private NavigationBar aop;
     private View mRoot;
 
     public af(BaseActivity baseActivity) {
         super(baseActivity);
-        this.On = baseActivity;
+        this.Or = baseActivity;
         nu();
     }
 
     private void nu() {
-        this.mRoot = View.inflate(this.On, com.baidu.tieba.w.official_bar_history_activity, null);
-        this.On.setContentView(this.mRoot);
-        this.aog = (NavigationBar) this.mRoot.findViewById(com.baidu.tieba.v.view_navigation_bar);
-        this.aog.setTitleText(com.baidu.tieba.y.officical_bar_info_history);
-        this.aog.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.aof = (BdListView) this.mRoot.findViewById(com.baidu.tieba.v.bar_history_list);
-        this.aRp = new ad(this.On);
-        this.aof.setAdapter((ListAdapter) this.aRp);
-        this.aRq = View.inflate(this.On, com.baidu.tieba.w.official_bar_history_item_occupy, null);
-        this.aof.addHeaderView(this.aRq);
-        this.aof.addFooterView(this.aRq);
+        this.mRoot = View.inflate(this.Or, com.baidu.tieba.w.official_bar_history_activity, null);
+        this.Or.setContentView(this.mRoot);
+        this.aop = (NavigationBar) this.mRoot.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.aop.setTitleText(com.baidu.tieba.y.officical_bar_info_history);
+        this.aop.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.aoo = (BdListView) this.mRoot.findViewById(com.baidu.tieba.v.bar_history_list);
+        this.aRD = new ad(this.Or);
+        this.aoo.setAdapter((ListAdapter) this.aRD);
+        this.aRE = View.inflate(this.Or, com.baidu.tieba.w.official_bar_history_item_occupy, null);
+        this.aoo.addHeaderView(this.aRE);
+        this.aoo.addFooterView(this.aRE);
     }
 
     public void setData(List<az> list) {
-        this.aRp.setData(list);
+        this.aRD.setData(list);
     }
 
     public void onChangeSkinType(int i) {
-        this.On.getLayoutMode().L(i == 1);
-        this.On.getLayoutMode().h(this.mRoot);
-        this.aog.onChangeSkinType(i);
+        this.Or.getLayoutMode().L(i == 1);
+        this.Or.getLayoutMode().h(this.mRoot);
+        this.aop.onChangeSkinType(i);
     }
 
     public void b(com.baidu.adp.widget.ListView.aa aaVar) {
-        this.aof.setOnSrollToBottomListener(aaVar);
+        this.aoo.setOnSrollToBottomListener(aaVar);
     }
 
-    public boolean Kr() {
-        return this.aRp.getCount() != 0 && this.aof.getLastVisiblePosition() < this.aRp.getCount() + (-1);
+    public boolean Kv() {
+        return this.aRD.getCount() != 0 && this.aoo.getLastVisiblePosition() < this.aRD.getCount() + (-1);
     }
 }

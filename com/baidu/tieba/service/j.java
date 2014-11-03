@@ -5,11 +5,11 @@ import java.io.File;
 import java.io.FileWriter;
 /* loaded from: classes.dex */
 class j implements Runnable {
-    final /* synthetic */ PerformMonitorService bIN;
+    final /* synthetic */ PerformMonitorService bJb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(PerformMonitorService performMonitorService) {
-        this.bIN = performMonitorService;
+        this.bJb = performMonitorService;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:48:0x0002 */
@@ -30,7 +30,7 @@ class j implements Runnable {
         try {
             File bu = com.baidu.tbadk.core.util.s.bu("performance_sample.log");
             if (bu == null || bu.length() > 51200) {
-                this.bIN.monitorOff();
+                this.bJb.monitorOff();
             } else {
                 FileWriter fileWriter2 = new FileWriter(bu, true);
                 try {
@@ -72,7 +72,7 @@ class j implements Runnable {
                     fileWriter2.append((CharSequence) ("gc:time=" + String.valueOf(currentTimeMillis2) + "\ngc=" + cD + "\n"));
                     fileWriter2.flush();
                     fileWriter2.close();
-                    r0 = this.bIN.mHandler;
+                    r0 = this.bJb.mHandler;
                     ?? kVar = new k(this);
                     r0.post(kVar);
                     fileWriter = kVar;
@@ -86,7 +86,7 @@ class j implements Runnable {
                             BdLog.e(th.toString());
                         }
                     }
-                    this.bIN.stopSelf();
+                    this.bJb.stopSelf();
                 }
             }
         } catch (Throwable th2) {

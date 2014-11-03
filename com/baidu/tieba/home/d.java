@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.util.ac;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<String, Integer, Bitmap> {
-    final /* synthetic */ CreateBarActivity aMa;
+    final /* synthetic */ CreateBarActivity aMo;
     private volatile boolean kJ;
     private ac yV;
 
     private d(CreateBarActivity createBarActivity) {
-        this.aMa = createBarActivity;
+        this.aMo = createBarActivity;
         this.yV = null;
         this.kJ = false;
     }
@@ -34,9 +34,9 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
         if (this.yV != null) {
             this.yV.dM();
         }
-        progressBar = this.aMa.aLR;
+        progressBar = this.aMo.aMf;
         progressBar.setVisibility(8);
-        this.aMa.aLT = null;
+        this.aMo.aMh = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -52,16 +52,16 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
             this.yV.k("tid", "0");
             String lA = this.yV.lA();
             if (this.yV.mc().nb().jq()) {
-                com.baidu.tbadk.coreExtra.data.f fVar = new com.baidu.tbadk.coreExtra.data.f();
-                fVar.parserJson(lA);
-                if (fVar.getVcode_pic_url() == null || fVar.getVcode_pic_url().length() <= 0) {
+                com.baidu.tbadk.coreExtra.data.g gVar = new com.baidu.tbadk.coreExtra.data.g();
+                gVar.parserJson(lA);
+                if (gVar.getVcode_pic_url() == null || gVar.getVcode_pic_url().length() <= 0) {
                     return null;
                 }
-                this.aMa.aLU = fVar.getVcode_md5();
+                this.aMo.aMi = gVar.getVcode_md5();
                 if (this.kJ) {
                     return null;
                 }
-                this.yV = new ac(fVar.getVcode_pic_url());
+                this.yV = new ac(gVar.getVcode_pic_url());
                 return com.baidu.tbadk.core.util.d.w(this.yV.lB());
             }
             return null;
@@ -79,11 +79,11 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
         ProgressBar progressBar;
         ImageView imageView;
         super.onPostExecute(bitmap);
-        progressBar = this.aMa.aLR;
+        progressBar = this.aMo.aMf;
         progressBar.setVisibility(8);
-        this.aMa.aLT = null;
+        this.aMo.aMh = null;
         if (bitmap != null) {
-            imageView = this.aMa.acF;
+            imageView = this.aMo.acK;
             imageView.setImageBitmap(bitmap);
         }
     }
@@ -94,10 +94,10 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
         ProgressBar progressBar;
         ImageView imageView;
         super.onPreExecute();
-        this.aMa.aLU = null;
-        progressBar = this.aMa.aLR;
+        this.aMo.aMi = null;
+        progressBar = this.aMo.aMf;
         progressBar.setVisibility(0);
-        imageView = this.aMa.acF;
+        imageView = this.aMo.acK;
         imageView.setImageDrawable(null);
     }
 }

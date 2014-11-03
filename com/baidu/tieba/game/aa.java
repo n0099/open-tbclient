@@ -5,11 +5,11 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 class aa implements com.baidu.adp.lib.guide.b {
-    final /* synthetic */ y aHI;
+    final /* synthetic */ y aHS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(y yVar) {
-        this.aHI = yVar;
+        this.aHS = yVar;
     }
 
     @Override // com.baidu.adp.lib.guide.b

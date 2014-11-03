@@ -1,8 +1,8 @@
 package com.baidu.tieba.app;
 /* loaded from: classes.dex */
 public class b {
-    public String aiN;
-    public String aiO;
-    public int aiP;
+    public String aiW;
+    public String aiX;
+    public int aiY;
     public String mPackageName;
 }

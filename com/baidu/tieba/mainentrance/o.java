@@ -7,11 +7,11 @@ import com.baidu.tieba.view.LinearLayoutDetectsSoftKeyboard;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnTouchListener {
-    final /* synthetic */ SquareSearchActivity bmO;
+    final /* synthetic */ SquareSearchActivity bnc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(SquareSearchActivity squareSearchActivity) {
-        this.bmO = squareSearchActivity;
+        this.bnc = squareSearchActivity;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -21,14 +21,14 @@ public class o implements View.OnTouchListener {
         EditText editText;
         EditText editText2;
         if (motionEvent.getAction() == 0) {
-            linearLayoutDetectsSoftKeyboard = this.bmO.bml;
+            linearLayoutDetectsSoftKeyboard = this.bnc.bmz;
             linearLayoutDetectsSoftKeyboard.setFocusable(true);
-            linearLayoutDetectsSoftKeyboard2 = this.bmO.bml;
+            linearLayoutDetectsSoftKeyboard2 = this.bnc.bmz;
             linearLayoutDetectsSoftKeyboard2.setFocusableInTouchMode(true);
-            editText = this.bmO.bmh;
+            editText = this.bnc.bmv;
             if (editText.hasFocus()) {
-                SquareSearchActivity squareSearchActivity = this.bmO;
-                editText2 = this.bmO.bmh;
+                SquareSearchActivity squareSearchActivity = this.bnc;
+                editText2 = this.bnc.bmv;
                 com.baidu.adp.lib.util.m.b(squareSearchActivity, editText2);
                 return false;
             }

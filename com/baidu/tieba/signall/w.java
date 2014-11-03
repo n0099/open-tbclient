@@ -4,11 +4,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w extends BdAsyncTask<String, Integer, s> {
-    private h bLt = null;
-    final /* synthetic */ u bLu;
+    private h bLI = null;
+    final /* synthetic */ u bLJ;
 
     public w(u uVar) {
-        this.bLu = uVar;
+        this.bLJ = uVar;
         setPriority(3);
     }
 
@@ -16,7 +16,7 @@ public class w extends BdAsyncTask<String, Integer, s> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         super.onPreExecute();
-        this.bLu.cs = true;
+        this.bLJ.cs = true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,36 +40,36 @@ public class w extends BdAsyncTask<String, Integer, s> {
                     sb.append(String.valueOf(split[i2 + i3]) + ",");
                 }
             }
-            this.bLt = new h();
+            this.bLI = new h();
             if (com.baidu.adp.lib.util.j.fh()) {
                 hr(sb.toString());
             }
         }
-        sVar = this.bLu.bLp;
+        sVar = this.bLJ.bLE;
         return sVar;
     }
 
     private s hr(String str) {
         s sVar;
         s sVar2;
-        String hp = this.bLt.hp(str);
-        if (this.bLt.jq()) {
-            sVar = this.bLu.bLp;
+        String hp = this.bLI.hp(str);
+        if (this.bLI.jq()) {
+            sVar = this.bLJ.bLE;
             sVar.parserJson(hp);
-            sVar2 = this.bLu.bLp;
+            sVar2 = this.bLJ.bLE;
             return sVar2;
         }
-        this.bLu.bLp = null;
+        this.bLJ.bLE = null;
         return null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel();
-        this.bLt.cancel();
-        this.bLt = null;
-        this.bLu.bLo = null;
-        this.bLu.cs = false;
+        this.bLI.cancel();
+        this.bLI = null;
+        this.bLJ.bLD = null;
+        this.bLJ.cs = false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -82,19 +82,19 @@ public class w extends BdAsyncTask<String, Integer, s> {
         v vVar2;
         v vVar3;
         s sVar3;
-        this.bLu.cs = false;
-        this.bLu.bLo = null;
-        vVar = this.bLu.bLq;
+        this.bLJ.cs = false;
+        this.bLJ.bLD = null;
+        vVar = this.bLJ.bLF;
         if (vVar != null) {
-            sVar2 = this.bLu.bLp;
+            sVar2 = this.bLJ.bLE;
             if (sVar2 != null) {
-                vVar3 = this.bLu.bLq;
-                sVar3 = this.bLu.bLp;
+                vVar3 = this.bLJ.bLF;
+                sVar3 = this.bLJ.bLE;
                 vVar3.b(sVar3);
                 return;
             }
-            String jr = this.bLt != null ? this.bLt.jr() : null;
-            vVar2 = this.bLu.bLq;
+            String jr = this.bLI != null ? this.bLI.jr() : null;
+            vVar2 = this.bLJ.bLF;
             vVar2.fw(jr);
         }
     }

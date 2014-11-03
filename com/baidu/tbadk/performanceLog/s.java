@@ -2,34 +2,34 @@ package com.baidu.tbadk.performanceLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s {
-    public static int Zn;
-    public static long Zo;
-    public static long Zp;
-    public static long Zq;
     public static int Zr;
-    public static int Zs;
+    public static long Zs;
     public static long Zt;
+    public static long Zu;
+    public static int Zv;
+    public static int Zw;
+    public static long Zx;
 
-    public static void uE() {
+    public static void uG() {
         com.baidu.adp.lib.stats.q logItem = q.getLogItem();
         logItem.n("action", "imcost");
-        logItem.n("dect", String.valueOf(Zo));
-        logItem.n("dlsize", String.valueOf(Zp));
-        logItem.n("dbt", String.valueOf(Zq));
-        logItem.n("pnum", String.valueOf(Zr));
-        logItem.n("reqcost", String.valueOf(Zt));
-        logItem.n("cpu", String.valueOf(Zs));
-        logItem.n("totalNum", String.valueOf(Zn));
+        logItem.n("dect", String.valueOf(Zs));
+        logItem.n("dlsize", String.valueOf(Zt));
+        logItem.n("dbt", String.valueOf(Zu));
+        logItem.n("pnum", String.valueOf(Zv));
+        logItem.n("reqcost", String.valueOf(Zx));
+        logItem.n("cpu", String.valueOf(Zw));
+        logItem.n("totalNum", String.valueOf(Zr));
         com.baidu.adp.lib.stats.f.er().b("im", logItem);
-        uM();
+        uO();
     }
 
-    public static void uM() {
-        Zn = 0;
-        Zo = 0L;
-        Zp = 0L;
-        Zq = 0L;
+    public static void uO() {
         Zr = 0;
-        Zs = 0;
+        Zs = 0L;
+        Zt = 0L;
+        Zu = 0L;
+        Zv = 0;
+        Zw = 0;
     }
 }

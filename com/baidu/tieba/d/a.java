@@ -5,18 +5,18 @@ import com.baidu.tieba.d.c.c;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class a {
-    private static a bHh;
+    private static a bHv;
 
-    public static final a abj() {
-        if (bHh != null) {
-            return bHh;
+    public static final a abm() {
+        if (bHv != null) {
+            return bHv;
         }
         synchronized (a.class) {
-            if (bHh == null) {
-                bHh = new a();
+            if (bHv == null) {
+                bHv = new a();
             }
         }
-        return bHh;
+        return bHv;
     }
 
     public com.baidu.tieba.d.c.a ag(Context context) {

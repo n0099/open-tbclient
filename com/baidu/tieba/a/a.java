@@ -3,13 +3,13 @@ package com.baidu.tieba.a;
 import com.baidu.adp.lib.util.m;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.NewErrorData;
-import com.baidu.tbadk.core.h;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.i;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.aj;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
-public class a extends h {
-    private static final String amF = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/feed/forum";
+public class a extends i {
+    private static final String amO = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/feed/forum";
     private int errorCode = 0;
     private String errorMsg;
 
@@ -17,11 +17,11 @@ public class a extends h {
         k("pn", str);
         k("rn", String.valueOf(20));
         this.mNetWork.mc().na().mIsNeedTbs = true;
-        setUrl(amF);
-        int n = m.n(aj.wk().getApp());
-        int o = m.o(aj.wk().getApp());
+        setUrl(amO);
+        int n = m.n(aj.wm().getApp());
+        int o = m.o(aj.wm().getApp());
         float f = n / 320.0f;
-        int i = az.mD().mF() ? 2 : 1;
+        int i = ba.mD().mF() ? 2 : 1;
         this.mNetWork.k("scr_w", String.valueOf(n));
         this.mNetWork.k("scr_h", String.valueOf(o));
         this.mNetWork.k("scr_dip", String.valueOf(f));
@@ -37,12 +37,12 @@ public class a extends h {
             return null;
         } else {
             this.errorCode = -1;
-            this.errorMsg = aj.wk().getApp().getResources().getString(y.neterror);
+            this.errorMsg = aj.wm().getApp().getResources().getString(y.neterror);
             return null;
         }
     }
 
-    @Override // com.baidu.tbadk.core.h
+    @Override // com.baidu.tbadk.core.i
     public int getErrorCode() {
         if (this.yH != null) {
             return this.yH.getErrorNumber();
@@ -53,7 +53,7 @@ public class a extends h {
         return -1;
     }
 
-    @Override // com.baidu.tbadk.core.h
+    @Override // com.baidu.tbadk.core.i
     public String getErrorMsg() {
         if (this.yH != null) {
             return this.yH.getErrorMsg();

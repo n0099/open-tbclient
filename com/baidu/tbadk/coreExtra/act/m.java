@@ -53,13 +53,13 @@ public class m extends BdAsyncTask<Object, Integer, Bitmap> {
                 }
                 int dip2px = com.baidu.adp.lib.util.m.dip2px(this.this$0, 63.5f);
                 if (Build.VERSION.SDK_INT >= 7) {
-                    z = this.this$0.JR;
+                    z = this.this$0.JS;
                     if (z) {
                         Bitmap c = com.baidu.tbadk.core.util.d.c(K, dip2px);
                         Bitmap a2 = com.baidu.tbadk.core.util.d.a(c, com.baidu.adp.lib.util.m.dip2px(this.this$0, 5.0f), K != c);
-                        this.this$0.JW = new HashMap();
                         this.this$0.JX = new HashMap();
-                        hashMap = this.this$0.JW;
+                        this.this$0.JY = new HashMap();
+                        hashMap = this.this$0.JX;
                         hashMap.put(WriteImageActivityConfig.FILTER_NAME_NORMAL, a2);
                         return K;
                     }
@@ -81,7 +81,7 @@ public class m extends BdAsyncTask<Object, Integer, Bitmap> {
         TextView textView;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(0);
-        textView = this.this$0.JB;
+        textView = this.this$0.JC;
         textView.setClickable(false);
     }
 
@@ -90,12 +90,12 @@ public class m extends BdAsyncTask<Object, Integer, Bitmap> {
         ProgressBar progressBar;
         TextView textView;
         TextView textView2;
-        this.this$0.JF = null;
+        this.this$0.JG = null;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(8);
-        textView = this.this$0.JB;
+        textView = this.this$0.JC;
         textView.setClickable(true);
-        textView2 = this.this$0.JB;
+        textView2 = this.this$0.JC;
         textView2.setEnabled(true);
         super.cancel(true);
     }
@@ -113,25 +113,25 @@ public class m extends BdAsyncTask<Object, Integer, Bitmap> {
         boolean z;
         String[] strArr;
         super.onPostExecute(bitmap);
-        this.this$0.JF = null;
+        this.this$0.JG = null;
         this.this$0.mBitmap = bitmap;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(8);
-        textView = this.this$0.JB;
+        textView = this.this$0.JC;
         textView.setClickable(true);
-        textView2 = this.this$0.JB;
+        textView2 = this.this$0.JC;
         textView2.setEnabled(true);
         if (bitmap == null || bitmap.isRecycled()) {
-            editHeadsImageView = this.this$0.Jz;
+            editHeadsImageView = this.this$0.JA;
             editHeadsImageView.setImageDrawable(null);
         } else if (bitmap != null) {
-            editHeadsImageView2 = this.this$0.Jz;
+            editHeadsImageView2 = this.this$0.JA;
             editHeadsImageView2.setImageBitmap(bitmap);
             if (Build.VERSION.SDK_INT >= 7) {
-                z = this.this$0.JR;
+                z = this.this$0.JS;
                 if (z) {
                     EditHeadActivity editHeadActivity = this.this$0;
-                    strArr = EditHeadActivity.Jy;
+                    strArr = EditHeadActivity.Jz;
                     editHeadActivity.i(strArr);
                 }
             }

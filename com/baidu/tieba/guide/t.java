@@ -10,36 +10,36 @@ import com.baidu.tieba.model.bc;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class t implements View.OnClickListener {
-    private NewUserGuideActivity aLI;
-    private a aLJ;
-    private bc aLK;
-    private InterestFrsData.Tag aLe;
-    private ag avr;
+    private NewUserGuideActivity aLW;
+    private a aLX;
+    private bc aLY;
+    private InterestFrsData.Tag aLs;
+    private ag avA;
 
     public t(NewUserGuideActivity newUserGuideActivity, InterestFrsData.Tag tag, p pVar) {
-        this.aLI = newUserGuideActivity;
-        this.aLe = tag;
+        this.aLW = newUserGuideActivity;
+        this.aLs = tag;
         int btype = tag.getBtype();
         if (btype == 1) {
-            this.aLJ = new r(this.aLI, z.NewUserDialog);
+            this.aLX = new r(this.aLW, z.NewUserDialog);
         } else if (btype == 2) {
-            this.aLJ = new e(this.aLI, z.NewUserDialog);
+            this.aLX = new e(this.aLW, z.NewUserDialog);
         } else if (btype == 3) {
-            this.aLJ = new i(this.aLI, z.NewUserDialog);
+            this.aLX = new i(this.aLW, z.NewUserDialog);
         }
-        this.avr = new ag(newUserGuideActivity);
-        this.avr.setLoadDataCallBack(new u(this));
-        this.aLK = new bc();
-        this.aLK.a(new v(this));
-        this.aLJ.setOnClickListener(this);
-        this.aLJ.a(this.aLe);
-        ((Dialog) this.aLJ).setOnDismissListener(new w(this, pVar));
+        this.avA = new ag(newUserGuideActivity);
+        this.avA.setLoadDataCallBack(new u(this));
+        this.aLY = new bc();
+        this.aLY.a(new v(this));
+        this.aLX.setOnClickListener(this);
+        this.aLX.a(this.aLs);
+        ((Dialog) this.aLX).setOnDismissListener(new w(this, pVar));
     }
 
     public void n(int i, boolean z) {
-        for (int i2 = 0; i2 < this.aLe.getCard_list().size(); i2++) {
-            if (this.aLe.getCard_list().get(i2).getFid() == i) {
-                this.aLe.getCard_list().get(i2).setIs_like(z ? 1 : 0);
+        for (int i2 = 0; i2 < this.aLs.getCard_list().size(); i2++) {
+            if (this.aLs.getCard_list().get(i2).getFid() == i) {
+                this.aLs.getCard_list().get(i2).setIs_like(z ? 1 : 0);
                 return;
             }
         }
@@ -48,23 +48,23 @@ public class t implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == com.baidu.tieba.v.box_close_layout) {
-            this.aLJ.hide();
+            this.aLX.hide();
         } else if ((view.getId() == com.baidu.tieba.v.ll_like || view.getId() == com.baidu.tieba.v.pic_layout) && view.getTag() != null && (view.getTag() instanceof InterestFrsData.Card)) {
             InterestFrsData.Card card = (InterestFrsData.Card) view.getTag();
             if (card.getIs_like() == 1) {
-                this.aLK.g(card.getFname(), card.getFid());
+                this.aLY.g(card.getFname(), card.getFid());
             } else {
-                this.avr.o(card.getFname(), String.valueOf(card.getFid()), "newuser");
+                this.avA.o(card.getFname(), String.valueOf(card.getFid()), "newuser");
             }
         }
     }
 
     public void show() {
-        if (!(this.aLI instanceof Activity) || com.baidu.adp.lib.g.j.e(this.aLI)) {
+        if (!(this.aLW instanceof Activity) || com.baidu.adp.lib.g.j.e(this.aLW)) {
             ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f, 2, 0.5f, 2, 0.5f);
             scaleAnimation.setDuration(350L);
-            this.aLJ.getRootView().setAnimation(scaleAnimation);
-            this.aLJ.show();
+            this.aLX.getRootView().setAnimation(scaleAnimation);
+            this.aLX.show();
         }
     }
 }

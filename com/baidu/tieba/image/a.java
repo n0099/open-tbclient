@@ -1,92 +1,92 @@
 package com.baidu.tieba.image;
 
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tieba.data.v;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class a {
-    private String aAn;
-    private ArrayList<String> bkf;
-    private String bkh;
-    private String bki;
-    private boolean bko;
-    private String bkg = null;
-    private String NZ = null;
-    private boolean bkj = false;
-    private boolean bkk = true;
-    private b bkl = null;
-    private int bkm = 0;
-    private boolean bkn = false;
-    private c bkp = null;
-    private HashMap<String, String> bkq = new HashMap<>();
+    private String aAx;
+    private boolean bkC;
+    private ArrayList<String> bkt;
+    private String bkv;
+    private String bkw;
+    private String bku = null;
+    private String Od = null;
+    private boolean bkx = false;
+    private boolean bky = true;
+    private b bkz = null;
+    private int bkA = 0;
+    private boolean bkB = false;
+    private c bkD = null;
+    private HashMap<String, String> bkE = new HashMap<>();
 
     public a(ArrayList<String> arrayList, String str, String str2, String str3) {
-        this.bkf = null;
-        this.bkh = null;
-        this.aAn = null;
-        this.bki = null;
-        this.bko = false;
-        this.bkf = arrayList;
-        if (this.bkf == null) {
-            this.bkf = new ArrayList<>();
+        this.bkt = null;
+        this.bkv = null;
+        this.aAx = null;
+        this.bkw = null;
+        this.bkC = false;
+        this.bkt = arrayList;
+        if (this.bkt == null) {
+            this.bkt = new ArrayList<>();
         }
-        int size = this.bkf.size();
+        int size = this.bkt.size();
         for (int i = 0; i < size; i++) {
-            String str4 = this.bkf.get(i);
-            this.bkq.put(gJ(str4), str4);
+            String str4 = this.bkt.get(i);
+            this.bkE.put(gJ(str4), str4);
         }
-        this.bkh = str2;
-        this.aAn = str;
-        this.bki = str3;
-        if (this.bki == null) {
-            this.bko = true;
+        this.bkv = str2;
+        this.aAx = str;
+        this.bkw = str3;
+        if (this.bkw == null) {
+            this.bkC = true;
         }
     }
 
     public void dv(boolean z) {
-        this.bkk = z;
+        this.bky = z;
     }
 
-    public void RZ() {
-        if (!this.bkj && !this.bko) {
-            c(this.bkh, this.bki, 10, 0);
+    public void Sc() {
+        if (!this.bkx && !this.bkC) {
+            c(this.bkv, this.bkw, 10, 0);
         }
     }
 
-    public void Sa() {
-        if (!this.bko) {
-            if (!this.bkj) {
-                RZ();
-            } else if (this.bkg != null && this.bkg.length() > 0) {
-                this.bkk = true;
-                c(this.bkg, null, 0, 10);
+    public void Sd() {
+        if (!this.bkC) {
+            if (!this.bkx) {
+                Sc();
+            } else if (this.bku != null && this.bku.length() > 0) {
+                this.bky = true;
+                c(this.bku, null, 0, 10);
             }
         }
     }
 
     private void c(String str, String str2, int i, int i2) {
-        if (this.bkl != null) {
-            if (str2 == null || !str2.equals(this.bkl.getPicId())) {
-                this.bkl.cancel();
+        if (this.bkz != null) {
+            if (str2 == null || !str2.equals(this.bkz.getPicId())) {
+                this.bkz.cancel();
             } else {
                 return;
             }
         }
-        this.bkl = new b(this, str, str2, i, i2);
-        this.bkl.setPriority(3);
-        this.bkl.execute(new Object[0]);
+        this.bkz = new b(this, str, str2, i, i2);
+        this.bkz.setPriority(3);
+        this.bkz.execute(new Object[0]);
     }
 
     public void a(c cVar) {
-        this.bkp = cVar;
+        this.bkD = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String a(v vVar) {
-        if (vVar.vJ() != null && vVar.vJ().length() > 0) {
-            return vVar.vJ();
+        if (vVar.vL() != null && vVar.vL().length() > 0) {
+            return vVar.vL();
         }
         StringBuilder sb = new StringBuilder(150);
         if (vVar.getHeight() * vVar.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
@@ -102,7 +102,7 @@ public class a {
             sb.append(String.valueOf(vVar.getHeight()));
         }
         sb.append("&src=");
-        sb.append(ay.aC(vVar.getImageUrl()));
+        sb.append(az.aC(vVar.getImageUrl()));
         return sb.toString();
     }
 
@@ -110,7 +110,7 @@ public class a {
     public String gJ(String str) {
         int lastIndexOf;
         int indexOf;
-        String aD = ay.aD(str);
+        String aD = az.aD(str);
         if (aD != null) {
             if (aD.indexOf(".baidu.com") != -1 && (lastIndexOf = aD.lastIndexOf("/")) != -1 && (indexOf = aD.indexOf(".", lastIndexOf)) != -1) {
                 return aD.substring(lastIndexOf + 1, indexOf);

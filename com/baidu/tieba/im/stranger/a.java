@@ -1,21 +1,21 @@
 package com.baidu.tieba.im.stranger;
 /* loaded from: classes.dex */
 class a implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ StrangerListActivity biq;
+    final /* synthetic */ StrangerListActivity biE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(StrangerListActivity strangerListActivity) {
-        this.biq = strangerListActivity;
+        this.biE = strangerListActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         com.baidu.tbadk.core.dialog.a aVar2;
         StrangerListModel strangerListModel;
-        aVar2 = this.biq.bin;
+        aVar2 = this.biE.biB;
         aVar2.dismiss();
-        strangerListModel = this.biq.bil;
-        strangerListModel.RD();
-        this.biq.finish();
+        strangerListModel = this.biE.biz;
+        strangerListModel.RG();
+        this.biE.finish();
     }
 }

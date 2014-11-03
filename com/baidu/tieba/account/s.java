@@ -11,11 +11,11 @@ import com.baidu.tieba.data.RegistData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends BdAsyncTask<String, Integer, Boolean> {
-    final /* synthetic */ ActivationActivity aeY;
+    final /* synthetic */ ActivationActivity afg;
     private com.baidu.tbadk.core.util.ac mNetWork;
 
     private s(ActivationActivity activationActivity) {
-        this.aeY = activationActivity;
+        this.afg = activationActivity;
         this.mNetWork = null;
     }
 
@@ -29,12 +29,12 @@ public class s extends BdAsyncTask<String, Integer, Boolean> {
         ProgressBar progressBar;
         EditText editText;
         RelativeLayout relativeLayout;
-        this.aeY.aeL = null;
-        progressBar = this.aeY.aeF;
+        this.afg.aeT = null;
+        progressBar = this.afg.aeN;
         progressBar.setVisibility(8);
-        editText = this.aeY.aeI;
+        editText = this.afg.aeQ;
         if (editText.length() == 6) {
-            relativeLayout = this.aeY.aeJ;
+            relativeLayout = this.afg.aeR;
             relativeLayout.setEnabled(true);
         }
         if (this.mNetWork != null) {
@@ -53,7 +53,7 @@ public class s extends BdAsyncTask<String, Integer, Boolean> {
         try {
             this.mNetWork = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/getsmscode");
             com.baidu.tbadk.core.util.ac acVar = this.mNetWork;
-            registData = this.aeY.aeP;
+            registData = this.afg.aeX;
             acVar.k("phonenum", registData.getPhone());
             this.mNetWork.lA();
             if (this.mNetWork.mc().nb().jq()) {
@@ -76,23 +76,23 @@ public class s extends BdAsyncTask<String, Integer, Boolean> {
         TextView textView2;
         RelativeLayout relativeLayout;
         super.onPostExecute(bool);
-        this.aeY.aeL = null;
-        progressBar = this.aeY.aeF;
+        this.afg.aeT = null;
+        progressBar = this.afg.aeN;
         progressBar.setVisibility(8);
-        editText = this.aeY.aeI;
+        editText = this.afg.aeQ;
         if (editText.length() == 6) {
-            relativeLayout = this.aeY.aeJ;
+            relativeLayout = this.afg.aeR;
             relativeLayout.setEnabled(true);
         }
         if (bool.booleanValue()) {
-            this.aeY.xe();
+            this.afg.xg();
             return;
         }
         String errorString = this.mNetWork.getErrorString();
         if (errorString != null && errorString.length() > 0) {
-            textView = this.aeY.Or;
+            textView = this.afg.Ov;
             textView.setVisibility(0);
-            textView2 = this.aeY.Or;
+            textView2 = this.afg.Ov;
             textView2.setText(errorString);
         }
     }
@@ -104,13 +104,13 @@ public class s extends BdAsyncTask<String, Integer, Boolean> {
         TextView textView;
         TextView textView2;
         RelativeLayout relativeLayout;
-        progressBar = this.aeY.aeF;
+        progressBar = this.afg.aeN;
         progressBar.setVisibility(0);
-        textView = this.aeY.Or;
+        textView = this.afg.Ov;
         textView.setVisibility(4);
-        textView2 = this.aeY.Or;
+        textView2 = this.afg.Ov;
         textView2.setText((CharSequence) null);
-        relativeLayout = this.aeY.aeJ;
+        relativeLayout = this.afg.aeR;
         relativeLayout.setEnabled(false);
         super.onPreExecute();
     }

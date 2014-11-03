@@ -6,8 +6,8 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.GameCenterActivityConfig;
 /* loaded from: classes.dex */
-class o implements com.baidu.tbadk.core.util.bh {
-    @Override // com.baidu.tbadk.core.util.bh
+class o implements com.baidu.tbadk.core.util.bi {
+    @Override // com.baidu.tbadk.core.util.bi
     public boolean a(Context context, String[] strArr) {
         if (strArr == null || strArr.length == 0 || !strArr[0].equals("gamecenter:")) {
             return false;

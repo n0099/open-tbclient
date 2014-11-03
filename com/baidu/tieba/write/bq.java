@@ -24,18 +24,18 @@ public class bq implements View.OnClickListener {
         Bitmap bitmap;
         Bitmap bitmap2;
         boolean hK;
-        z = this.this$0.bwI;
+        z = this.this$0.bwW;
         if (!z) {
-            i = this.this$0.JV;
+            i = this.this$0.JW;
             if (i == 12003) {
                 Intent intent = new Intent();
                 progressBar = this.this$0.mProgress;
                 if (progressBar.getVisibility() != 0) {
-                    z2 = this.this$0.JU;
+                    z2 = this.this$0.JV;
                     if (z2) {
-                        bitmap = this.this$0.JN;
+                        bitmap = this.this$0.JO;
                         if (bitmap != null) {
-                            bitmap2 = this.this$0.JN;
+                            bitmap2 = this.this$0.JO;
                             if (!bitmap2.isRecycled()) {
                                 String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
                                 hK = this.this$0.hK(str);

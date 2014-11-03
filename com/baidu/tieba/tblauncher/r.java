@@ -16,7 +16,7 @@ public class r implements com.baidu.adp.lib.guide.b {
     @Override // com.baidu.adp.lib.guide.b
     public View a(LayoutInflater layoutInflater) {
         MainTabActivity mainTabActivity;
-        mainTabActivity = this.this$0.bOO;
+        mainTabActivity = this.this$0.bPd;
         ImageView imageView = new ImageView(mainTabActivity);
         imageView.setBackgroundResource(com.baidu.tieba.u.sign_all_tip);
         return imageView;
@@ -36,8 +36,8 @@ public class r implements com.baidu.adp.lib.guide.b {
     public int getXOffset() {
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2;
-        mainTabActivity = this.this$0.bOO;
-        mainTabActivity2 = this.this$0.bOO;
+        mainTabActivity = this.this$0.bPd;
+        mainTabActivity2 = this.this$0.bPd;
         return -((int) ((mainTabActivity.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds26) - 0.5f) / mainTabActivity2.getResources().getDisplayMetrics().density));
     }
 
@@ -45,8 +45,8 @@ public class r implements com.baidu.adp.lib.guide.b {
     public int getYOffset() {
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2;
-        mainTabActivity = this.this$0.bOO;
-        mainTabActivity2 = this.this$0.bOO;
+        mainTabActivity = this.this$0.bPd;
+        mainTabActivity2 = this.this$0.bPd;
         return (int) ((mainTabActivity.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds74) - 0.5f) / mainTabActivity2.getResources().getDisplayMetrics().density);
     }
 }

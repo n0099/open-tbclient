@@ -6,14 +6,14 @@ import com.baidu.tieba.im.util.i;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 class e extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ ChatVoiceView bjW;
-    private final /* synthetic */ PersonalChatMessage bjX;
+    final /* synthetic */ ChatVoiceView bkk;
+    private final /* synthetic */ PersonalChatMessage bkl;
     private final /* synthetic */ LinkedList val$list;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(ChatVoiceView chatVoiceView, PersonalChatMessage personalChatMessage, LinkedList linkedList) {
-        this.bjW = chatVoiceView;
-        this.bjX = personalChatMessage;
+        this.bkk = chatVoiceView;
+        this.bkl = personalChatMessage;
         this.val$list = linkedList;
     }
 
@@ -21,6 +21,6 @@ class e extends com.baidu.tieba.im.b<Boolean> {
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tieba.im.b
     public Boolean doInBackground() {
-        return Boolean.valueOf(o.MQ().a(i.o(this.bjX), this.val$list, false));
+        return Boolean.valueOf(o.MU().a(i.o(this.bkl), this.val$list, false));
     }
 }

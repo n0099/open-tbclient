@@ -3,7 +3,7 @@ package com.baidu.tieba.discover.memberprivilege;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class m {
-    public TextView apT;
+    public TextView aqc;
 
     private m() {
     }

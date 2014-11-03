@@ -6,11 +6,11 @@ import android.content.Intent;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag implements DialogInterface.OnClickListener {
-    final /* synthetic */ PersonChangeActivity bCm;
+    final /* synthetic */ PersonChangeActivity bCA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(PersonChangeActivity personChangeActivity) {
-        this.bCm = personChangeActivity;
+        this.bCA = personChangeActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -21,24 +21,24 @@ public class ag implements DialogInterface.OnClickListener {
         com.baidu.tieba.model.au auVar2;
         com.baidu.tieba.model.au auVar3;
         Dialog dialog2;
-        dialog = this.bCm.bCi;
+        dialog = this.bCA.bCw;
         if (dialog != null) {
-            dialog2 = this.bCm.bCi;
-            com.baidu.adp.lib.g.j.b(dialog2, this.bCm);
+            dialog2 = this.bCA.bCw;
+            com.baidu.adp.lib.g.j.b(dialog2, this.bCA);
         }
-        auVar = this.bCm.bCd;
-        if (auVar.TT().getPhotoChanged()) {
+        auVar = this.bCA.bCr;
+        if (auVar.TW().getPhotoChanged()) {
             Intent intent = new Intent();
-            bool = this.bCm.bBQ;
+            bool = this.bCA.bCe;
             if (bool.booleanValue()) {
-                auVar3 = this.bCm.bCd;
-                intent.putExtra("person_change_data", auVar3.TT());
+                auVar3 = this.bCA.bCr;
+                intent.putExtra("person_change_data", auVar3.TW());
             } else {
-                auVar2 = this.bCm.bCd;
-                intent.putExtra("data", auVar2.TT());
+                auVar2 = this.bCA.bCr;
+                intent.putExtra("data", auVar2.TW());
             }
-            this.bCm.setResult(-1, intent);
+            this.bCA.setResult(-1, intent);
         }
-        this.bCm.finish();
+        this.bCA.finish();
     }
 }

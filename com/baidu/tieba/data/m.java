@@ -4,8 +4,8 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m {
     private String AI;
-    private String akb;
-    private String akc;
+    private String akk;
+    private String akl;
     private String forumName;
     private String link;
     private String summary;
@@ -37,8 +37,8 @@ public class m {
         return this.type;
     }
 
-    public String yH() {
-        return this.akb;
+    public String yJ() {
+        return this.akk;
     }
 
     public void parserJson(JSONObject jSONObject) {
@@ -49,7 +49,7 @@ public class m {
         this.AI = jSONObject.optString("img");
         this.type = jSONObject.optString("post_type");
         this.userName = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_NAME);
-        this.akb = jSONObject.optString("reply_num");
-        this.akc = jSONObject.optString("proper");
+        this.akk = jSONObject.optString("reply_num");
+        this.akl = jSONObject.optString("proper");
     }
 }

@@ -8,17 +8,17 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tieba.person.post.PersonPostModel;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class h extends BaseAdapter {
-    private g bDA;
-    private PersonPostModel bDB;
-    private final g bDC = new i(this);
-    private final b bDD = new j(this);
-    private String bDs;
+    private String bDG;
+    private g bDO;
+    private PersonPostModel bDP;
+    private final g bDQ = new i(this);
+    private final b bDR = new j(this);
     private final Activity mActivity;
     private final String mUid;
 
@@ -28,28 +28,28 @@ public class h extends BaseAdapter {
     }
 
     public void a(g gVar) {
-        this.bDA = gVar;
+        this.bDO = gVar;
     }
 
     public void ew(boolean z) {
-        if (this.bDB == null) {
-            this.bDB = new PersonPostModel(this.mActivity);
+        if (this.bDP == null) {
+            this.bDP = new PersonPostModel(this.mActivity);
         }
-        this.bDB.fetchPost(this.mActivity, this.bDC, z, this.mUid, false);
+        this.bDP.fetchPost(this.mActivity, this.bDQ, z, this.mUid, false);
     }
 
-    public void aam() {
-        if (this.bDB != null) {
-            this.bDB.cancelLoadData();
+    public void aao() {
+        if (this.bDP != null) {
+            this.bDP.cancelLoadData();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bDB == null || this.bDB.post_list == null) {
+        if (this.bDP == null || this.bDP.post_list == null) {
             return 0;
         }
-        return this.bDB.post_list.size();
+        return this.bDP.post_list.size();
     }
 
     @Override // android.widget.Adapter
@@ -73,24 +73,24 @@ public class h extends BaseAdapter {
             kVar = (k) view.getTag();
         }
         if (i == 0) {
-            kVar.bDo.setVisibility(0);
+            kVar.bDC.setVisibility(0);
         } else {
-            kVar.bDo.setVisibility(8);
+            kVar.bDC.setVisibility(8);
         }
         a(i, kVar, viewGroup);
         return view;
     }
 
-    private PersonPostModel.PostList ha(int i) {
-        return this.bDB.post_list.get(i);
+    public PersonPostModel.PostList ha(int i) {
+        return this.bDP.post_list.get(i);
     }
 
     private void a(int i, k kVar, ViewGroup viewGroup) {
         PersonPostModel.PostList ha = ha(i);
-        if (this.bDs == null) {
-            this.bDs = ha.user_portrait;
+        if (this.bDG == null) {
+            this.bDG = ha.user_portrait;
         }
-        kVar.a(ha, false, this.bDs);
+        kVar.a(ha, false, this.bDG);
         ArrayList<String[]> arrayList = new ArrayList<>();
         int length = ha.content.length;
         for (int i2 = 0; i2 < length; i2++) {
@@ -103,24 +103,24 @@ public class h extends BaseAdapter {
                 for (int i3 = 0; i3 < length2; i3++) {
                     stringBuffer.append(ha.content[i2].post_content[i3].text);
                 }
-                arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(ha.thread_id), String.valueOf(ha.content[i2].post_id), String.valueOf(ha.content[i2].post_type), ay.j(ha.content[i2].create_time * 1000)});
+                arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(ha.thread_id), String.valueOf(ha.content[i2].post_id), String.valueOf(ha.content[i2].post_type), az.j(ha.content[i2].create_time * 1000)});
             }
         }
-        kVar.bDF.setContent(arrayList);
+        kVar.bDT.setContent(arrayList);
         if (Pattern.compile("^回复：").matcher(ha.title).find()) {
-            kVar.bDG.setText(ha.title.replaceFirst("回复：", "原贴："));
+            kVar.bDU.setText(ha.title.replaceFirst("回复：", "原贴："));
         } else {
-            kVar.bDG.setText(ha.title);
+            kVar.bDU.setText(ha.title);
         }
-        TextView textView = kVar.bDG;
+        TextView textView = kVar.bDU;
         String[] strArr = new String[3];
         strArr[0] = String.valueOf(ha.thread_id);
         textView.setTag(strArr);
-        aw.h((View) kVar.bDG, com.baidu.tieba.u.person_post_line);
-        aw.b(kVar.bDG, com.baidu.tieba.s.person_post_content_ori, 1);
+        aw.h((View) kVar.bDU, com.baidu.tieba.u.person_post_line);
+        aw.b(kVar.bDU, com.baidu.tieba.s.person_post_content_ori, 1);
         int dimensionPixelSize = viewGroup.getResources().getDimensionPixelSize(com.baidu.tieba.t.person_post_reply_ori_padding);
-        kVar.bDG.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
-        kVar.a(this.bDD);
+        kVar.bDU.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
+        kVar.a(this.bDR);
         kVar.bM(TbadkApplication.m251getInst().getSkinType());
     }
 }

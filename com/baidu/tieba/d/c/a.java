@@ -12,104 +12,104 @@ import com.baidu.tieba.d.b.h;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public abstract class a {
-    protected int RD = TbadkApplication.m251getInst().getSkinType();
-    protected View Xi;
-    protected TextView bHA;
-    protected TextView bHB;
-    protected HeadImageView bHC;
-    protected View bHD;
-    protected f bHE;
-    protected TextView bHz;
+    protected int RH = TbadkApplication.m251getInst().getSkinType();
+    protected View Xm;
+    protected TextView bHN;
+    protected TextView bHO;
+    protected TextView bHP;
+    protected HeadImageView bHQ;
+    protected View bHR;
+    protected f bHS;
     protected boolean mIsFromCDN;
     private int position;
 
-    protected abstract void abC();
+    protected abstract void abF();
 
-    protected abstract void abD();
+    protected abstract void abG();
 
-    protected abstract int abE();
+    protected abstract int abH();
 
     public a(View view) {
-        this.Xi = view;
+        this.Xm = view;
         view.setTag(this);
     }
 
     public void refresh() {
-        a(this.bHE, this.position, this.mIsFromCDN);
+        a(this.bHS, this.position, this.mIsFromCDN);
     }
 
     public void a(f fVar, int i, boolean z) {
-        if (!fVar.bHp) {
-            com.baidu.tbadk.distribute.a.ra().a(this.Xi.getContext(), fVar.abw(), "show", "pb", fVar.bHq, fVar.threadId);
-            com.baidu.tbadk.distribute.a.ra().a(fVar.abw(), fVar.bHq, fVar.threadId, "PB", "show");
-            fVar.bHp = true;
+        if (!fVar.bHD) {
+            com.baidu.tbadk.distribute.a.rc().a(this.Xm.getContext(), fVar.abz(), "show", "pb", fVar.bHE, fVar.threadId);
+            com.baidu.tbadk.distribute.a.rc().a(fVar.abz(), fVar.bHE, fVar.threadId, "PB", "show");
+            fVar.bHD = true;
         }
         if (fVar != null) {
-            com.baidu.tbadk.distribute.a.QI = fVar.aAt;
+            com.baidu.tbadk.distribute.a.QM = fVar.aAD;
         }
-        this.bHE = fVar;
+        this.bHS = fVar;
         this.position = i;
         this.mIsFromCDN = z;
-        this.Xi.setTag(this);
+        this.Xm.setTag(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void abB() {
-        if (this.bHE != null && this.bHE.jF()) {
-            boolean cV = com.baidu.tbadk.download.b.rh().cV(this.bHE.abk());
-            boolean cW = com.baidu.tbadk.download.b.rh().cW(this.bHE.abk());
+    public void abE() {
+        if (this.bHS != null && this.bHS.jF()) {
+            boolean cV = com.baidu.tbadk.download.b.rj().cV(this.bHS.abn());
+            boolean cW = com.baidu.tbadk.download.b.rj().cW(this.bHS.abn());
             if (cV) {
-                this.bHE.hf(1);
+                this.bHS.hf(1);
             } else if (cW) {
-                this.bHE.hf(2);
+                this.bHS.hf(2);
             } else {
-                this.bHE.hf(0);
+                this.bHS.hf(0);
             }
-            if (this.bHE.abt()) {
-                switch (this.bHE.abs()) {
+            if (this.bHS.abw()) {
+                switch (this.bHS.abv()) {
                     case 0:
-                        abC();
-                        this.bHz.setText(abE());
-                        this.bHz.setOnClickListener(d.aby());
-                        this.Xi.setOnClickListener(com.baidu.tieba.d.b.a.abx());
-                        this.bHz.setEnabled(true);
+                        abF();
+                        this.bHN.setText(abH());
+                        this.bHN.setOnClickListener(d.abB());
+                        this.Xm.setOnClickListener(com.baidu.tieba.d.b.a.abA());
+                        this.bHN.setEnabled(true);
                         return;
                     case 1:
-                        abD();
-                        this.bHz.setText(y.downloading2);
-                        this.bHz.setOnClickListener(null);
-                        this.Xi.setOnClickListener(null);
-                        this.bHz.setEnabled(false);
+                        abG();
+                        this.bHN.setText(y.downloading2);
+                        this.bHN.setOnClickListener(null);
+                        this.Xm.setOnClickListener(null);
+                        this.bHN.setEnabled(false);
                         return;
                     case 2:
-                        abC();
-                        this.bHz.setText(y.downloaded_install);
-                        this.bHz.setOnClickListener(d.aby());
-                        this.Xi.setOnClickListener(com.baidu.tieba.d.b.a.abx());
-                        this.bHz.setEnabled(true);
+                        abF();
+                        this.bHN.setText(y.downloaded_install);
+                        this.bHN.setOnClickListener(d.abB());
+                        this.Xm.setOnClickListener(com.baidu.tieba.d.b.a.abA());
+                        this.bHN.setEnabled(true);
                         return;
                     default:
                         return;
                 }
-            } else if (this.bHE.abu()) {
-                abC();
-                this.bHz.setText(y.view);
-                this.bHz.setOnClickListener(g.abz());
-                this.Xi.setOnClickListener(h.abA());
+            } else if (this.bHS.abx()) {
+                abF();
+                this.bHN.setText(y.view);
+                this.bHN.setOnClickListener(g.abC());
+                this.Xm.setOnClickListener(h.abD());
             }
         }
     }
 
     public View getRootView() {
-        return this.Xi;
+        return this.Xm;
     }
 
     public int getPosition() {
         return this.position;
     }
 
-    public f abF() {
-        return this.bHE;
+    public f abI() {
+        return this.bHS;
     }
 
     public String hj(String str) {

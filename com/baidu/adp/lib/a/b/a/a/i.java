@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import java.util.HashMap;
 import java.util.Map;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class i extends a {
@@ -49,9 +48,12 @@ public class i extends a {
     }
 
     public static final i objectWithJsonStr(String str, Class<?> cls) {
+        if (str == null) {
+            return null;
+        }
         try {
             return objectWithJson(new JSONObject(str), cls);
-        } catch (JSONException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }

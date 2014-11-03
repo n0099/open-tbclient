@@ -25,7 +25,7 @@ public class UpdateInfoService extends Service {
     public void onCreate() {
         super.onCreate();
         this.mModel = new av(null);
-        this.mModel.TW();
+        this.mModel.TZ();
         this.mModel.W(540000L);
         this.mModel.a(new z(this));
     }
@@ -33,7 +33,7 @@ public class UpdateInfoService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (!TextUtils.isEmpty(TbadkApplication.getCurrentAccount()) && TbadkApplication.m251getInst().getLocationShared() && this.mModel.TU()) {
+        if (!TextUtils.isEmpty(TbadkApplication.getCurrentAccount()) && TbadkApplication.m251getInst().getLocationShared() && this.mModel.TX()) {
             findLocationFromLocal();
         }
     }

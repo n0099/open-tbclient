@@ -1,13 +1,13 @@
 package com.baidu.tbadk.widget.richText;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.lib.a.b.a.a.i {
-    public int abA = 0;
-    public int abB = 0;
-    public int abC = 0;
-    public boolean abD;
-    final /* synthetic */ c abE;
+    public int abF = 0;
+    public int abG = 0;
+    public int abH = 0;
+    public boolean abI;
+    final /* synthetic */ c abJ;
 
     public d(c cVar) {
-        this.abE = cVar;
+        this.abJ = cVar;
     }
 }

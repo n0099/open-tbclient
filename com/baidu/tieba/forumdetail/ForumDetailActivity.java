@@ -7,10 +7,10 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class ForumDetailActivity extends BaseActivity {
-    private e awS = null;
-    private String afQ = "0";
-    private String awT = "0";
-    private d awU = new a(this);
+    private e axb = null;
+    private String afY = "0";
+    private String axc = "0";
+    private d axd = new a(this);
 
     /* loaded from: classes.dex */
     public enum FromType {
@@ -18,7 +18,7 @@ public class ForumDetailActivity extends BaseActivity {
         BAR_DIR,
         BAR_RANK;
 
-        /* JADX DEBUG: Replace access to removed values field (awW) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (axf) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static FromType[] valuesCustom() {
             FromType[] valuesCustom = values();
@@ -49,23 +49,23 @@ public class ForumDetailActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.awS.onResume();
+        this.axb.onResume();
     }
 
     private void initUI() {
-        this.awS = new e(this);
+        this.axb = new e(this);
     }
 
     private void initData() {
-        this.afQ = getIntent().getStringExtra("forum_id");
-        this.awT = getIntent().getStringExtra("from_type").equals(FromType.FRS.toString()) ? "0" : "1";
-        b.a(this.afQ, this.awT, this.awU);
+        this.afY = getIntent().getStringExtra("forum_id");
+        this.axc = getIntent().getStringExtra("from_type").equals(FromType.FRS.toString()) ? "0" : "1";
+        b.a(this.afY, this.axc, this.axd);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.awS.onChangeSkinType(i);
+        this.axb.onChangeSkinType(i);
     }
 }

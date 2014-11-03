@@ -15,12 +15,12 @@ import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends BdAsyncTask<Object, Integer, List<a>> {
-    final /* synthetic */ e ahA;
-    private final o ahz;
+    private final o ahI;
+    final /* synthetic */ e ahJ;
 
     public f(e eVar, o oVar) {
-        this.ahA = eVar;
-        this.ahz = oVar;
+        this.ahJ = eVar;
+        this.ahI = oVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,9 +30,9 @@ public class f extends BdAsyncTask<Object, Integer, List<a>> {
     public List<a> doInBackground(Object... objArr) {
         Context context;
         Context context2;
-        context = this.ahA.mContext;
+        context = this.ahJ.mContext;
         List<a> a = a(context, null, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        context2 = this.ahA.mContext;
+        context2 = this.ahJ.mContext;
         return a(context2, a, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
     }
 
@@ -40,8 +40,8 @@ public class f extends BdAsyncTask<Object, Integer, List<a>> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         super.onPreExecute();
-        if (this.ahz != null) {
-            this.ahz.hL();
+        if (this.ahI != null) {
+            this.ahI.hL();
         }
     }
 
@@ -51,8 +51,8 @@ public class f extends BdAsyncTask<Object, Integer, List<a>> {
     /* renamed from: i */
     public void onPostExecute(List<a> list) {
         super.onPostExecute(list);
-        if (this.ahz != null) {
-            this.ahz.x(list);
+        if (this.ahI != null) {
+            this.ahI.x(list);
         }
     }
 
@@ -92,7 +92,7 @@ public class f extends BdAsyncTask<Object, Integer, List<a>> {
                             File file = new File(string3.substring(0, string3.lastIndexOf("/")));
                             if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
                                 for (File file2 : listFiles) {
-                                    String en = this.ahA.en(file2.getAbsolutePath());
+                                    String en = this.ahJ.en(file2.getAbsolutePath());
                                     if (en != null && (matcher = compile.matcher(en)) != null && matcher.matches()) {
                                         i++;
                                     }
@@ -108,7 +108,7 @@ public class f extends BdAsyncTask<Object, Integer, List<a>> {
                                 aVar.d(imageFileInfo);
                                 aVar.setName(string2);
                                 if (string2 != null) {
-                                    str = this.ahA.ahw;
+                                    str = this.ahJ.ahF;
                                     if (string2.equals(str)) {
                                         list.add(0, aVar);
                                     }

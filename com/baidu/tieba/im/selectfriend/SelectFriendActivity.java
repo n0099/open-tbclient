@@ -24,13 +24,13 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class SelectFriendActivity extends BaseActivity {
-    private LinearLayout aHG;
-    BdListView aJn;
-    private o ahO;
-    NavigationBar bhx;
-    f bic;
-    private int bib = -1;
-    private CustomMessageListener bie = new a(this, 2001188);
+    private LinearLayout aHQ;
+    BdListView aJA;
+    private o ahX;
+    NavigationBar bhL;
+    f bis;
+    private int bir = -1;
+    private CustomMessageListener bit = new a(this, 2001188);
     private AdapterView.OnItemClickListener itemClickListener = new b(this);
 
     static {
@@ -42,31 +42,31 @@ public class SelectFriendActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(w.select_friend_main);
-        this.aHG = (LinearLayout) findViewById(v.select_friend_root_view);
-        this.bhx = (NavigationBar) findViewById(v.select_friend_nevigation_bar);
-        this.bhx.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
-        this.bhx.setTitleText(y.select_friend_title);
-        this.aJn = (BdListView) findViewById(v.select_friend_listview);
-        this.bic = new f(this);
-        this.aJn.setAdapter((ListAdapter) this.bic);
-        this.aJn.setOnItemClickListener(this.itemClickListener);
-        registerListener(this.bie);
+        this.aHQ = (LinearLayout) findViewById(v.select_friend_root_view);
+        this.bhL = (NavigationBar) findViewById(v.select_friend_nevigation_bar);
+        this.bhL.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
+        this.bhL.setTitleText(y.select_friend_title);
+        this.aJA = (BdListView) findViewById(v.select_friend_listview);
+        this.bis = new f(this);
+        this.aJA.setAdapter((ListAdapter) this.bis);
+        this.aJA.setOnItemClickListener(this.itemClickListener);
+        registerListener(this.bit);
         MessageManager.getInstance().sendMessage(new GetContactListRequestMessage());
-        this.ahO = NoDataViewFactory.a(this, null, r.a(NoDataViewFactory.ImgType.NODATA), s.bL(y.select_friend_no_data_tip), null);
-        this.aHG.addView(this.ahO, 1);
+        this.ahX = NoDataViewFactory.a(this, null, r.a(NoDataViewFactory.ImgType.NODATA), s.bL(y.select_friend_no_data_tip), null);
+        this.aHQ.addView(this.ahX, 1);
         if (bundle != null) {
-            this.bib = bundle.getInt("key_from_where");
+            this.bir = bundle.getInt("key_from_where");
         } else if (getIntent() != null) {
-            this.bib = getIntent().getIntExtra("key_from_where", -1);
+            this.bir = getIntent().getIntExtra("key_from_where", -1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.bhx.onChangeSkinType(i);
-        if (this.ahO != null) {
-            this.ahO.onChangeSkinType(i);
+        this.bhL.onChangeSkinType(i);
+        if (this.ahX != null) {
+            this.ahX.onChangeSkinType(i);
         }
         getLayoutMode().L(i == 1);
         getLayoutMode().h(findViewById(v.select_friend_root_view));
@@ -75,14 +75,14 @@ public class SelectFriendActivity extends BaseActivity {
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        this.ahO.nv();
+        this.ahX.nv();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.ahO.onActivityStop();
+        this.ahX.onActivityStop();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

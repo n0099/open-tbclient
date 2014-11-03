@@ -9,11 +9,11 @@ import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements TextWatcher {
-    final /* synthetic */ CreateBarActivity aMa;
+    final /* synthetic */ CreateBarActivity aMo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(CreateBarActivity createBarActivity) {
-        this.aMa = createBarActivity;
+        this.aMo = createBarActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -39,28 +39,28 @@ public class b implements TextWatcher {
         TextView textView4;
         EditText editText2;
         RelativeLayout relativeLayout2;
-        editText = this.aMa.aLO;
+        editText = this.aMo.aMc;
         int length = editText.getText().toString().trim().length();
         if (length > 0 && length < 32) {
-            editText2 = this.aMa.Ku;
+            editText2 = this.aMo.Kv;
             if (editText2.getText().toString().trim().length() > 0) {
-                relativeLayout2 = this.aMa.aLP;
+                relativeLayout2 = this.aMo.aMd;
                 relativeLayout2.setEnabled(true);
                 if (length < 32) {
-                    textView3 = this.aMa.aLV;
-                    textView3.setText(this.aMa.getString(y.bar_name_long));
-                    textView4 = this.aMa.aLV;
+                    textView3 = this.aMo.aMj;
+                    textView3.setText(this.aMo.getString(y.bar_name_long));
+                    textView4 = this.aMo.aMj;
                     textView4.setTextColor(-65536);
                     return;
                 }
-                textView = this.aMa.aLV;
-                textView.setText(this.aMa.getString(y.bar_name_rule));
-                textView2 = this.aMa.aLV;
+                textView = this.aMo.aMj;
+                textView.setText(this.aMo.getString(y.bar_name_rule));
+                textView2 = this.aMo.aMj;
                 textView2.setTextColor(-6250336);
                 return;
             }
         }
-        relativeLayout = this.aMa.aLP;
+        relativeLayout = this.aMo.aMd;
         relativeLayout.setEnabled(false);
         if (length < 32) {
         }

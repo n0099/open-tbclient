@@ -1,15 +1,15 @@
 package com.baidu.tbadk.img;
 /* loaded from: classes.dex */
 class f {
-    ImageFileInfo UZ;
-    com.baidu.tbadk.imageManager.d Va;
-    boolean Vb;
-    com.baidu.adp.widget.a.a Vc;
-    boolean Vd;
-    final /* synthetic */ e Ve;
+    ImageFileInfo Vd;
+    com.baidu.tbadk.imageManager.d Ve;
+    boolean Vf;
+    com.baidu.adp.widget.a.a Vg;
+    boolean Vh;
+    final /* synthetic */ e Vi;
 
     private f(e eVar) {
-        this.Ve = eVar;
+        this.Vi = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -4,21 +4,21 @@ import com.baidu.tbadk.core.atomData.PayActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 class c {
-    public long aoz;
-    public long api;
-    public long apj;
-    public String apk;
+    public long aoI;
+    public long aps;
+    public long apt;
+    public String apu;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aoz = jSONObject.optInt(PayActivityConfig.PROPS_ID);
-            this.api = jSONObject.optLong("end_time");
-            this.apj = jSONObject.optLong("now_time");
-            this.apk = jSONObject.optString("pic_url");
+            this.aoI = jSONObject.optInt(PayActivityConfig.PROPS_ID);
+            this.aps = jSONObject.optLong("end_time");
+            this.apt = jSONObject.optLong("now_time");
+            this.apu = jSONObject.optString("pic_url");
         }
     }
 
     public boolean isValid() {
-        return (this.aoz == 1 || this.aoz == 2) && this.api > this.apj;
+        return (this.aoI == 1 || this.aoI == 2) && this.aps > this.apt;
     }
 }

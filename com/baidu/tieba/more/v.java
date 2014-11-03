@@ -9,92 +9,92 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class v extends FrameLayout {
-    protected LinearLayout Pc;
-    protected TextView Pd;
-    protected TextView Pe;
-    protected ImageView Ph;
-    protected LinearLayout bqO;
-    protected TextView bqP;
+    protected LinearLayout Pg;
+    protected TextView Ph;
+    protected TextView Pi;
+    protected ImageView Pl;
+    protected LinearLayout brc;
+    protected TextView brd;
     protected Context mContext;
 
     public v(Context context) {
         super(context);
         this.mContext = context;
-        qm();
+        qo();
     }
 
     public void setTipColor(int i) {
-        if (this.Pe != null) {
-            this.Pe.setTextColor(i);
+        if (this.Pi != null) {
+            this.Pi.setTextColor(i);
         }
     }
 
-    public void ql() {
-        this.Ph.setVisibility(8);
+    public void qn() {
+        this.Pl.setVisibility(8);
     }
 
-    public void UJ() {
-        this.Ph.setVisibility(0);
+    public void UM() {
+        this.Pl.setVisibility(0);
     }
 
     public void setArrowImg(int i) {
-        this.Ph.setImageResource(i);
+        this.Pl.setImageResource(i);
     }
 
     public void setHelpText(String str) {
         if (TextUtils.isEmpty(str)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bqO.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.brc.getLayoutParams();
             layoutParams.bottomMargin = (int) getResources().getDimension(com.baidu.tieba.t.ds26);
-            this.bqO.setLayoutParams(layoutParams);
-            this.bqP.setText("");
-            this.bqP.setVisibility(8);
+            this.brc.setLayoutParams(layoutParams);
+            this.brd.setText("");
+            this.brd.setVisibility(8);
             return;
         }
-        this.bqO.setVisibility(0);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.bqO.getLayoutParams();
+        this.brc.setVisibility(0);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.brc.getLayoutParams();
         layoutParams2.bottomMargin = (int) getResources().getDimension(com.baidu.tieba.t.ds10);
-        this.bqO.setLayoutParams(layoutParams2);
-        this.bqP.setText(str);
-        this.bqP.setVisibility(0);
+        this.brc.setLayoutParams(layoutParams2);
+        this.brd.setText(str);
+        this.brd.setVisibility(0);
     }
 
     public void setStatus(int i) {
         if (i == 1) {
-            this.Pd.setTextColor(getResources().getColor(com.baidu.tieba.s.cp_cont_b));
+            this.Ph.setTextColor(getResources().getColor(com.baidu.tieba.s.cp_cont_b));
         } else if (i == 2) {
-            this.Pd.setTextColor(getResources().getColor(com.baidu.tieba.s.cp_link_tip_d));
+            this.Ph.setTextColor(getResources().getColor(com.baidu.tieba.s.cp_link_tip_d));
         } else if (i == 3) {
-            this.Pd.setTextColor(getResources().getColor(com.baidu.tieba.s.cp_cont_e));
+            this.Ph.setTextColor(getResources().getColor(com.baidu.tieba.s.cp_cont_e));
         }
     }
 
     public void setText(String str) {
-        this.Pd.setText(str);
+        this.Ph.setText(str);
     }
 
     public void setText(int i) {
-        this.Pd.setText(i);
+        this.Ph.setText(i);
     }
 
     public void setTip(String str) {
-        this.Pe.setText(str);
+        this.Pi.setText(str);
     }
 
     public CharSequence getTip() {
-        return this.Pe.getText();
+        return this.Pi.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.Pe.setBackgroundDrawable(drawable);
+        this.Pi.setBackgroundDrawable(drawable);
     }
 
-    protected void qm() {
+    protected void qo() {
         com.baidu.adp.lib.g.b.ek().a(this.mContext, com.baidu.tieba.w.image_problem_item_view, this, true);
-        this.Pc = (LinearLayout) findViewById(com.baidu.tieba.v.container);
-        this.Pd = (TextView) findViewById(com.baidu.tieba.v.text);
-        this.Pe = (TextView) findViewById(com.baidu.tieba.v.tip);
-        this.Ph = (ImageView) findViewById(com.baidu.tieba.v.arrow2);
-        this.bqO = (LinearLayout) findViewById(com.baidu.tieba.v.ll_container);
-        this.bqP = (TextView) findViewById(com.baidu.tieba.v.tv_help);
+        this.Pg = (LinearLayout) findViewById(com.baidu.tieba.v.container);
+        this.Ph = (TextView) findViewById(com.baidu.tieba.v.text);
+        this.Pi = (TextView) findViewById(com.baidu.tieba.v.tip);
+        this.Pl = (ImageView) findViewById(com.baidu.tieba.v.arrow2);
+        this.brc = (LinearLayout) findViewById(com.baidu.tieba.v.ll_container);
+        this.brd = (TextView) findViewById(com.baidu.tieba.v.tv_help);
     }
 }

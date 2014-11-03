@@ -10,18 +10,18 @@ import com.baidu.tieba.im.data.GroupPermData;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tbadk.mvc.d.b<j, k> implements com.baidu.tbadk.mvc.model.d<k> {
-    private FrsGroupActivity aWC;
-    private i aWD;
-    private b aWE;
-    private j aWF;
-    private m aWG;
-    private com.baidu.tbadk.mvc.e.a aWH;
+    private FrsGroupActivity aWQ;
+    private i aWR;
+    private b aWS;
+    private j aWT;
+    private m aWU;
+    private com.baidu.tbadk.mvc.e.a aWV;
     private int index;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(FrsGroupActivity frsGroupActivity, int i, BdUniqueId bdUniqueId) {
         super(frsGroupActivity);
-        this.aWC = frsGroupActivity;
+        this.aWQ = frsGroupActivity;
         this.index = i;
         this.unique_id = bdUniqueId;
     }
@@ -29,66 +29,65 @@ public class d extends com.baidu.tbadk.mvc.d.b<j, k> implements com.baidu.tbadk.
     @Override // com.baidu.tbadk.mvc.core.a
     public void b(Bundle bundle) {
         super.b(bundle);
-        this.aWF = new j();
-        this.aWF.initWithBundle(bundle);
-        this.aWF.setType(this.index + 1);
-        this.aWD = new i(this.aWC, this.aWF);
-        this.aWD.a((com.baidu.tbadk.mvc.model.k) this);
-        this.aWD.setUniqueId(this.unique_id);
-        this.aWE = new b(this.aWC);
-        this.aWE.a(this);
-        this.aWE.setUniqueId(this.unique_id);
-        this.aWG = new m(this.index);
-        this.aWH = new com.baidu.tbadk.mvc.e.a(this.index);
-        this.aWG.groupPerm = (GroupPermData) bundle.getSerializable("group_perm");
-        sY().addEventDelegate(this);
+        this.aWT = new j();
+        this.aWT.initWithBundle(bundle);
+        this.aWT.setType(this.index + 1);
+        this.aWR = new i(this.aWQ, this.aWT);
+        this.aWR.a((com.baidu.tbadk.mvc.model.k) this);
+        this.aWR.setUniqueId(this.unique_id);
+        this.aWS = new b(this.aWQ);
+        this.aWS.a(this);
+        this.aWS.setUniqueId(this.unique_id);
+        this.aWU = new m(this.index);
+        this.aWV = new com.baidu.tbadk.mvc.e.a(this.index);
+        this.aWU.groupPerm = (GroupPermData) bundle.getSerializable("group_perm");
+        ta().addEventDelegate(this);
     }
 
     @Override // com.baidu.tbadk.mvc.d.c
     protected boolean aB(boolean z) {
-        if (this.aWF.getRn() == 50 && z) {
-            if (this.aWE.tA()) {
+        if (this.aWT.getRn() == 50 && z) {
+            if (this.aWS.tC()) {
                 return false;
             }
-            this.aWE.a((com.baidu.tbadk.mvc.b.d) this.aWF);
-            this.aWH.aC(true);
-            a(this.aWH);
+            this.aWS.a((com.baidu.tbadk.mvc.b.d) this.aWT);
+            this.aWV.aC(true);
+            a(this.aWV);
             return true;
-        } else if (this.aWD.tQ()) {
+        } else if (this.aWR.tS()) {
             return false;
         } else {
-            if (this.aWG != null) {
-                this.aWG.clear();
+            if (this.aWU != null) {
+                this.aWU.clear();
             }
-            this.aWG.groupPerm = null;
-            this.aWD.setNeedCache(true);
-            this.aWF.setOffset(0);
-            this.aWF.setRn(50);
-            this.aWH.aC(true);
-            a(this.aWH);
-            this.aWD.tL();
+            this.aWU.groupPerm = null;
+            this.aWR.setNeedCache(true);
+            this.aWT.setOffset(0);
+            this.aWT.setRn(50);
+            this.aWV.aC(true);
+            a(this.aWV);
+            this.aWR.tN();
             return true;
         }
     }
 
     @Override // com.baidu.tbadk.mvc.d.b
-    public boolean ty() {
-        if (!this.aWD.tQ() && this.aWH.tX()) {
-            this.aWH.aF(true);
-            this.aWH.aD(true);
-            a(this.aWH);
-            this.aWD.setNeedCache(false);
-            this.aWD.tL();
+    public boolean tA() {
+        if (!this.aWR.tS() && this.aWV.tZ()) {
+            this.aWV.aF(true);
+            this.aWV.aD(true);
+            a(this.aWV);
+            this.aWR.setNeedCache(false);
+            this.aWR.tN();
             return true;
         }
         return false;
     }
 
     @Override // com.baidu.tbadk.mvc.d.a
-    public boolean tx() {
-        a(this.aWG);
-        a(this.aWH);
-        if (this.aWG.groups == null) {
+    public boolean tz() {
+        a(this.aWU);
+        if (this.aWU.groups == null) {
             aB(true);
             return true;
         }
@@ -106,7 +105,7 @@ public class d extends com.baidu.tbadk.mvc.d.b<j, k> implements com.baidu.tbadk.
     }
 
     public void setGroupPerm(GroupPermData groupPermData) {
-        this.aWG.groupPerm = groupPermData;
+        this.aWU.groupPerm = groupPermData;
     }
 
     @Override // com.baidu.tbadk.mvc.model.d
@@ -114,7 +113,7 @@ public class d extends com.baidu.tbadk.mvc.d.b<j, k> implements com.baidu.tbadk.
         k kVar;
         if (readCacheMessage != null && (readCacheMessage.getRequestData() instanceof j)) {
             j jVar = (j) readCacheMessage.getRequestData();
-            this.aWD.setNeedCache(true);
+            this.aWR.setNeedCache(true);
             if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0 && (kVar = readCacheRespMsg.getData().get(0)) != null) {
                 aB(false);
                 a(jVar, kVar, true);
@@ -129,19 +128,19 @@ public class d extends com.baidu.tbadk.mvc.d.b<j, k> implements com.baidu.tbadk.
     }
 
     private boolean a(j jVar, k kVar, boolean z) {
-        this.aWH.aC(false);
-        this.aWH.aD(false);
+        this.aWV.aC(false);
+        this.aWV.aD(false);
         if (kVar.groups.size() != jVar.getRn()) {
-            this.aWH.aE(false);
+            this.aWV.aE(false);
         } else {
-            this.aWH.aE(true);
+            this.aWV.aE(true);
         }
-        this.aWG.a(kVar);
+        this.aWU.a(kVar);
         if (!z) {
-            jVar.Nr();
+            jVar.Nv();
         }
-        a(this.aWG);
-        a(this.aWH);
+        a(this.aWU);
+        a(this.aWV);
         return true;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.location;
 /* loaded from: classes.dex */
 public interface i {
-    void EG();
+    void EI();
 
     void a(a aVar);
 

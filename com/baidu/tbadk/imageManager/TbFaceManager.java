@@ -12,9 +12,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class TbFaceManager {
-    private static TbFaceManager UL = null;
+    private static TbFaceManager UP = null;
     private Context mContext = null;
-    private b UM = null;
+    private b UQ = null;
 
     /* loaded from: classes.dex */
     public class RichUnit extends i implements Serializable {
@@ -24,11 +24,11 @@ public class TbFaceManager {
         public Integer type;
     }
 
-    public static TbFaceManager sf() {
-        if (UL == null) {
-            UL = new TbFaceManager();
+    public static TbFaceManager sh() {
+        if (UP == null) {
+            UP = new TbFaceManager();
         }
-        return UL;
+        return UP;
     }
 
     private TbFaceManager() {
@@ -39,7 +39,7 @@ public class TbFaceManager {
             throw new InvalidParameterException("TbFaceManager initial error");
         }
         this.mContext = context;
-        this.UM = bVar;
+        this.UQ = bVar;
     }
 
     public com.baidu.adp.widget.a.a dn(String str) {
@@ -48,34 +48,34 @@ public class TbFaceManager {
 
     private com.baidu.adp.widget.a.a h(int i, String str) {
         Bitmap a;
-        com.baidu.adp.widget.a.a dt = e.sg().dt(str);
+        com.baidu.adp.widget.a.a dt = e.si().dt(str);
         if (dt == null && (a = com.baidu.adp.lib.util.c.eS().a(this.mContext, i)) != null) {
             com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(a, false, str);
-            e.sg().c(str, aVar);
+            e.si().c(str, aVar);
             return aVar;
         }
         return dt;
     }
 
     public int dd(String str) {
-        return this.UM.dd(str);
+        return this.UQ.dd(str);
     }
 
     public c dp(String str) {
         com.baidu.adp.widget.a.a dn;
-        c p = this.UM.p(this.mContext, str);
+        c p = this.UQ.p(this.mContext, str);
         if (p == null && (dn = dn(str)) != null) {
             return new c(dn.getWidth(), dn.getHeight());
         }
         return p;
     }
 
-    public int rx() {
-        return this.UM.rx();
+    public int rz() {
+        return this.UQ.rz();
     }
 
     public String df(String str) {
-        return this.UM.df(str);
+        return this.UQ.df(str);
     }
 
     public SpannableString q(Context context, String str) {
@@ -87,7 +87,7 @@ public class TbFaceManager {
         Matcher matcher = Pattern.compile("#[\\(][\\w?]+[\\)]").matcher(str);
         while (matcher.find()) {
             String group = matcher.group();
-            int de = this.UM.de(group);
+            int de = this.UQ.de(group);
             if (de > 0 && (h = h(de, String.valueOf(de))) != null) {
                 int length = group.length();
                 int start = matcher.start();
@@ -108,7 +108,7 @@ public class TbFaceManager {
         Matcher matcher = Pattern.compile("#[\\(][\\w?]+[\\)]").matcher(str);
         while (matcher.find()) {
             String group = matcher.group();
-            int de = this.UM.de(group);
+            int de = this.UQ.de(group);
             if (de > 0) {
                 com.baidu.adp.widget.a.a h = h(de, String.valueOf(de));
                 if (h != null) {

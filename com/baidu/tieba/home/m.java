@@ -13,14 +13,14 @@ import com.baidu.tieba.data.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends BdAsyncTask<y, Integer, String> {
-    final /* synthetic */ f aMo;
-    private y aMp;
+    final /* synthetic */ f aMC;
+    private y aMD;
     private ac yV = null;
 
     public m(f fVar, y yVar) {
-        this.aMo = fVar;
-        this.aMp = null;
-        this.aMp = yVar;
+        this.aMC = fVar;
+        this.aMD = null;
+        this.aMD = yVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,7 +28,7 @@ public class m extends BdAsyncTask<y, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public String doInBackground(y... yVarArr) {
-        y yVar = this.aMp;
+        y yVar = this.aMD;
         if (yVar != null) {
             try {
                 if (yVar.getId() != null && yVar.getName() != null) {
@@ -56,18 +56,18 @@ public class m extends BdAsyncTask<y, Integer, String> {
         BaseFragmentActivity baseFragmentActivity2;
         r rVar;
         super.onPostExecute((m) str);
-        this.aMo.aMe = null;
+        this.aMC.aMs = null;
         if (this.yV != null) {
             if (this.yV.mc().nb().jq()) {
-                baseFragmentActivity2 = this.aMo.axV;
-                baseFragmentActivity2.showToast(this.aMo.getString(com.baidu.tieba.y.success));
-                aj.wk().aR(true);
-                rVar = this.aMo.aMd;
+                baseFragmentActivity2 = this.aMC.aye;
+                baseFragmentActivity2.showToast(this.aMC.getString(com.baidu.tieba.y.success));
+                aj.wm().aR(true);
+                rVar = this.aMC.aMr;
                 rVar.hO();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003004, this.aMp.getId()));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003004, this.aMD.getId()));
                 return;
             }
-            baseFragmentActivity = this.aMo.axV;
+            baseFragmentActivity = this.aMC.aye;
             baseFragmentActivity.showToast(this.yV.getErrorString());
         }
     }
@@ -83,7 +83,7 @@ public class m extends BdAsyncTask<y, Integer, String> {
             this.yV.dM();
             this.yV = null;
         }
-        this.aMo.aMe = null;
+        this.aMC.aMs = null;
         super.cancel(true);
     }
 }

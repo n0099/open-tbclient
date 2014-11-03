@@ -12,14 +12,14 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<Object, Integer, Void> {
-    private b Pp;
-    final /* synthetic */ a Pq;
+    private b Pt;
+    final /* synthetic */ a Pu;
     private volatile ac yV = null;
 
     public c(a aVar, b bVar) {
-        this.Pq = aVar;
-        this.Pp = null;
-        this.Pp = bVar;
+        this.Pu = aVar;
+        this.Pt = null;
+        this.Pt = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,30 +46,30 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
                 JSONObject jSONObject = new JSONObject(lA);
                 if (jSONObject.optInt("error_code") == 0) {
                     String optString = jSONObject.optString("urls");
-                    a aVar = this.Pq;
-                    cP = this.Pq.cP(optString);
-                    aVar.Pm = cP;
-                    list = this.Pq.Pm;
+                    a aVar = this.Pu;
+                    cP = this.Pu.cP(optString);
+                    aVar.Pq = cP;
+                    list = this.Pu.Pq;
                     if (list != null) {
-                        list2 = this.Pq.Pm;
+                        list2 = this.Pu.Pq;
                         if (list2.size() > 0) {
                             HashMap hashMap = new HashMap();
                             for (int i2 = 0; i2 < list3.size(); i2++) {
-                                list5 = this.Pq.Pm;
+                                list5 = this.Pu.Pq;
                                 String str2 = (String) list5.get(i2);
                                 p pVar = new p();
                                 pVar.cS(str2);
                                 if (pVar.isSucc()) {
-                                    hashMap.put(str2, Integer.valueOf(pVar.qF()));
+                                    hashMap.put(str2, Integer.valueOf(pVar.qH()));
                                 }
                             }
                             if (hashMap.size() > 0) {
-                                this.Pq.Pm = new ArrayList();
+                                this.Pu.Pq = new ArrayList();
                                 ArrayList<Map.Entry> arrayList = new ArrayList(hashMap.entrySet());
                                 Collections.sort(arrayList, new d(this));
                                 StringBuilder sb = new StringBuilder(50);
                                 for (Map.Entry entry : arrayList) {
-                                    list4 = this.Pq.Pm;
+                                    list4 = this.Pu.Pq;
                                     list4.add((String) entry.getKey());
                                     if (i != 0) {
                                         sb.append(",");
@@ -102,9 +102,9 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Void r3) {
-        this.Pq.Pn = null;
-        if (this.Pp != null) {
-            this.Pp.qu();
+        this.Pu.Pr = null;
+        if (this.Pt != null) {
+            this.Pt.qw();
         }
     }
 
@@ -113,18 +113,18 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void onCancelled(Void r3) {
-        this.Pq.Pn = null;
-        if (this.Pp != null) {
-            this.Pp.qu();
+        this.Pu.Pr = null;
+        if (this.Pt != null) {
+            this.Pt.qw();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onCancelled() {
-        this.Pq.Pn = null;
-        if (this.Pp != null) {
-            this.Pp.qu();
+        this.Pu.Pr = null;
+        if (this.Pt != null) {
+            this.Pt.qw();
         }
     }
 
@@ -134,7 +134,7 @@ public class c extends BdAsyncTask<Object, Integer, Void> {
             this.yV.dM();
             this.yV = null;
         }
-        this.Pq.Pn = null;
+        this.Pu.Pr = null;
         super.cancel(true);
     }
 }

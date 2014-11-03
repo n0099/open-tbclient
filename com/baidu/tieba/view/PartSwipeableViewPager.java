@@ -10,25 +10,25 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class PartSwipeableViewPager extends ViewPager {
-    private ArrayList<View> bRs;
-    private boolean bRt;
-    private boolean bRu;
+    private ArrayList<View> bRH;
+    private boolean bRI;
+    private boolean bRJ;
 
     public PartSwipeableViewPager(Context context) {
         super(context);
-        this.bRs = new ArrayList<>();
+        this.bRH = new ArrayList<>();
     }
 
     public PartSwipeableViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bRs = new ArrayList<>();
+        this.bRH = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.view.ViewPager, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        this.bRs.clear();
+        this.bRH.clear();
         e(this);
     }
 
@@ -41,7 +41,7 @@ public class PartSwipeableViewPager extends ViewPager {
                 Object tag = childAt.getTag();
                 if (tag instanceof String) {
                     if ("scroll".equals((String) tag)) {
-                        this.bRs.add(childAt);
+                        this.bRH.add(childAt);
                     } else {
                         e(viewGroup2);
                     }
@@ -51,14 +51,14 @@ public class PartSwipeableViewPager extends ViewPager {
             } else {
                 Object tag2 = childAt.getTag();
                 if ((tag2 instanceof String) && "scroll".equals((String) tag2)) {
-                    this.bRs.add(childAt);
+                    this.bRH.add(childAt);
                 }
             }
         }
     }
 
     private boolean c(MotionEvent motionEvent) {
-        Iterator<View> it = this.bRs.iterator();
+        Iterator<View> it = this.bRH.iterator();
         while (it.hasNext()) {
             View next = it.next();
             int[] iArr = new int[2];
@@ -78,14 +78,14 @@ public class PartSwipeableViewPager extends ViewPager {
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.bRt = c(motionEvent);
+                this.bRI = c(motionEvent);
                 break;
         }
-        if (this.bRt) {
+        if (this.bRI) {
             switch (motionEvent.getAction()) {
                 case 1:
                 case 3:
-                    this.bRt = false;
+                    this.bRI = false;
                     return false;
                 case 2:
                 default:
@@ -99,14 +99,14 @@ public class PartSwipeableViewPager extends ViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.bRu = c(motionEvent);
+                this.bRJ = c(motionEvent);
                 break;
         }
-        if (this.bRu) {
+        if (this.bRJ) {
             switch (motionEvent.getAction()) {
                 case 1:
                 case 3:
-                    this.bRu = false;
+                    this.bRJ = false;
                     return false;
                 case 2:
                 default:

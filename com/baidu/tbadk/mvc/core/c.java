@@ -13,22 +13,22 @@ import com.baidu.tbadk.core.data.ErrorData;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class c extends f implements com.baidu.tbadk.e.a, com.baidu.tbadk.mvc.c.a {
-    private com.baidu.tbadk.mvc.c.c Xe;
-    protected MvcActivity<?, ?> Xf;
-    d Xh;
-    protected View Xi;
-    protected List<com.baidu.tbadk.mvc.i.d<?, ?>> Xj;
+    private com.baidu.tbadk.mvc.c.c Xi;
+    protected MvcActivity<?, ?> Xj;
+    d Xl;
+    protected View Xm;
+    protected List<com.baidu.tbadk.mvc.i.d<?, ?>> Xn;
     protected BdUniqueId unique_id;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void tg();
+    public abstract void ti();
 
-    protected abstract int th();
+    protected abstract int tj();
 
     public c(MvcActivity<?, ?> mvcActivity) {
         super(mvcActivity);
         this.unique_id = null;
-        this.Xf = mvcActivity;
+        this.Xj = mvcActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -40,15 +40,15 @@ public abstract class c extends f implements com.baidu.tbadk.e.a, com.baidu.tbad
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ta() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void tb() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     public void tc() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void td() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void te() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -68,39 +68,39 @@ public abstract class c extends f implements com.baidu.tbadk.e.a, com.baidu.tbad
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void td() {
+    public void tf() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void te() {
+    public void tg() {
     }
 
     public void onSaveInstanceState(Bundle bundle) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public View tf() {
-        if (this.Xi == null) {
-            this.Xi = getLayoutInflater().inflate(th(), (ViewGroup) null);
+    public View th() {
+        if (this.Xm == null) {
+            this.Xm = getLayoutInflater().inflate(tj(), (ViewGroup) null);
         }
-        return this.Xi;
+        return this.Xm;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(MvcActivity<?, ?> mvcActivity) {
-        this.Xf = mvcActivity;
+        this.Xj = mvcActivity;
     }
 
-    public final MvcActivity<?, ?> sX() {
-        return this.Xf;
+    public final MvcActivity<?, ?> sZ() {
+        return this.Xj;
     }
 
-    public final ViewEventCenter sY() {
-        return this.Xf.sY();
+    public final ViewEventCenter ta() {
+        return this.Xj.ta();
     }
 
     public final View getView() {
-        return this.Xi;
+        return this.Xm;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -109,10 +109,10 @@ public abstract class c extends f implements com.baidu.tbadk.e.a, com.baidu.tbad
 
     @Override // com.baidu.tbadk.e.a
     public boolean dg(int i) {
-        if (this.Xj != null) {
-            int size = this.Xj.size();
+        if (this.Xn != null) {
+            int size = this.Xn.size();
             for (int i2 = 0; i2 < size; i2++) {
-                com.baidu.tbadk.mvc.i.d<?, ?> dVar = this.Xj.get(i2);
+                com.baidu.tbadk.mvc.i.d<?, ?> dVar = this.Xn.get(i2);
                 if (dVar != null) {
                     dVar.dg(i);
                 }
@@ -132,19 +132,19 @@ public abstract class c extends f implements com.baidu.tbadk.e.a, com.baidu.tbad
     }
 
     public Resources getResources() {
-        return this.Xf.getResources();
+        return this.Xj.getResources();
     }
 
     public LayoutInflater getLayoutInflater() {
-        return this.Xf.getLayoutInflater();
+        return this.Xj.getLayoutInflater();
     }
 
     public String getString(int i) {
-        return this.Xf.getString(i);
+        return this.Xj.getString(i);
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean ti() {
+    public boolean tk() {
         return true;
     }
 
@@ -164,25 +164,25 @@ public abstract class c extends f implements com.baidu.tbadk.e.a, com.baidu.tbad
         return false;
     }
 
-    public com.baidu.tbadk.mvc.c.c sZ() {
-        if (this.Xe == null) {
-            this.Xe = new com.baidu.tbadk.mvc.c.c(this.unique_id);
+    public com.baidu.tbadk.mvc.c.c tb() {
+        if (this.Xi == null) {
+            this.Xi = new com.baidu.tbadk.mvc.c.c(this.unique_id);
         }
-        return this.Xe;
+        return this.Xi;
     }
 
     public boolean de(int i) {
-        return dispatchMvcEvent(sZ().dj(i));
+        return dispatchMvcEvent(tb().dj(i));
     }
 
     public boolean g(int i, boolean z) {
-        return dispatchMvcEvent(sZ().i(i, z));
+        return dispatchMvcEvent(tb().i(i, z));
     }
 
     public boolean dispatchMvcEvent(com.baidu.tbadk.mvc.c.b bVar) {
         if (bVar != null) {
             bVar.setUniqueId(this.unique_id);
         }
-        return sY().dispatchMvcEvent(bVar);
+        return ta().dispatchMvcEvent(bVar);
     }
 }

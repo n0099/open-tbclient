@@ -23,6 +23,6 @@ public class c extends e {
         if (!q) {
             return;
         }
-        GetOnLineInfoStatic.ur();
+        GetOnLineInfoStatic.ut();
     }
 }

@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends e {
-    final /* synthetic */ b Tc;
+    final /* synthetic */ b Tg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, int i) {
         super(i);
-        this.Tc = bVar;
+        this.Tg = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ public class c extends e {
         if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseGameDetailMessage) && !socketResponsedMessage.hasError()) {
             ResponseGameDetailMessage responseGameDetailMessage = (ResponseGameDetailMessage) socketResponsedMessage;
             if (responseGameDetailMessage.getOrginalMessage() instanceof RequestGameDetailMessage) {
-                this.Tc.Ta = GameInfoData.fromGameInfo(responseGameDetailMessage.getGameInfo());
+                this.Tg.Te = GameInfoData.fromGameInfo(responseGameDetailMessage.getGameInfo());
             }
         }
     }

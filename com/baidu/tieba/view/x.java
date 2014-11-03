@@ -8,17 +8,17 @@ import com.baidu.tbadk.core.atomData.CaptureActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements View.OnClickListener {
-    final /* synthetic */ w bRE;
+    final /* synthetic */ w bRT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(w wVar) {
-        this.bRE = wVar;
+        this.bRT = wVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Activity activity;
-        activity = this.bRE.mCurrentActivity;
+        activity = this.bRT.mCurrentActivity;
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CaptureActivityConfig(activity, 16003)));
     }
 }

@@ -1,11 +1,11 @@
 package com.baidu.tieba.im.chat;
 /* loaded from: classes.dex */
 class dj implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ PersonalChatActivity aPI;
+    final /* synthetic */ PersonalChatActivity aPW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dj(PersonalChatActivity personalChatActivity) {
-        this.aPI = personalChatActivity;
+        this.aPW = personalChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -13,9 +13,9 @@ class dj implements com.baidu.tieba.im.a<Boolean> {
     public void onReturnDataInUI(Boolean bool) {
         if (bool != null) {
             if (bool.booleanValue()) {
-                this.aPI.aPP.closeNotNotify();
+                this.aPW.aQd.closeNotNotify();
             } else {
-                this.aPI.aPP.showNotNotfiy();
+                this.aPW.aQd.showNotNotfiy();
             }
         }
     }

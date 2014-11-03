@@ -16,10 +16,10 @@ public class cp extends bm<com.baidu.tieba.data.af> implements View.OnClickListe
     protected View a(ViewGroup viewGroup) {
         cq cqVar = new cq(null);
         View inflate = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.w.frs_official_account_item, null);
-        cqVar.aDG = (TextView) inflate.findViewById(com.baidu.tieba.v.frs_fortune_bag_content);
-        cqVar.aDF = inflate.findViewById(com.baidu.tieba.v.frs_fortune_bag_item);
-        cqVar.aDH = inflate.findViewById(com.baidu.tieba.v.frs_my_service_item);
-        cqVar.aDI = (TextView) inflate.findViewById(com.baidu.tieba.v.frs_my_service_content);
+        cqVar.aDQ = (TextView) inflate.findViewById(com.baidu.tieba.v.frs_fortune_bag_content);
+        cqVar.aDP = inflate.findViewById(com.baidu.tieba.v.frs_fortune_bag_item);
+        cqVar.aDR = inflate.findViewById(com.baidu.tieba.v.frs_my_service_item);
+        cqVar.aDS = (TextView) inflate.findViewById(com.baidu.tieba.v.frs_my_service_content);
         inflate.setTag(cqVar);
         return inflate;
     }
@@ -31,48 +31,48 @@ public class cp extends bm<com.baidu.tieba.data.af> implements View.OnClickListe
     public View b(int i, View view, ViewGroup viewGroup, com.baidu.tieba.data.af afVar) {
         super.b(i, view, viewGroup, afVar);
         cq cqVar = (cq) view.getTag();
-        if (afVar.zF()) {
-            String zG = afVar.zG();
-            if (zG != null) {
-                cqVar.aDG.setText(zG);
-            } else if (this.aBV.zJ() != null && this.aBV.zJ().getName() != null) {
-                cqVar.aDG.setText(this.mContext.getString(com.baidu.tieba.y.get_fortune_hint_format, this.aBV.zJ().getName()));
+        if (afVar.zH()) {
+            String zI = afVar.zI();
+            if (zI != null) {
+                cqVar.aDQ.setText(zI);
+            } else if (this.aCf.zL() != null && this.aCf.zL().getName() != null) {
+                cqVar.aDQ.setText(this.mContext.getString(com.baidu.tieba.y.get_fortune_hint_format, this.aCf.zL().getName()));
             }
-            cqVar.aDF.setTag(Integer.valueOf(i));
-            cqVar.aDF.setOnClickListener(this);
-            cqVar.aDF.setVisibility(0);
+            cqVar.aDP.setTag(Integer.valueOf(i));
+            cqVar.aDP.setOnClickListener(this);
+            cqVar.aDP.setVisibility(0);
         } else {
-            cqVar.aDF.setVisibility(8);
+            cqVar.aDP.setVisibility(8);
         }
-        com.baidu.tieba.data.u zH = afVar.zH();
-        if (zH != null && zH.zo() && !TextUtils.isEmpty(zH.zp())) {
-            cqVar.aDI.setText(zH.zp());
-            cqVar.aDH.setTag(Integer.valueOf(i));
-            cqVar.aDH.setOnClickListener(this);
-            cqVar.aDH.setVisibility(0);
+        com.baidu.tieba.data.u zJ = afVar.zJ();
+        if (zJ != null && zJ.zq() && !TextUtils.isEmpty(zJ.zr())) {
+            cqVar.aDS.setText(zJ.zr());
+            cqVar.aDR.setTag(Integer.valueOf(i));
+            cqVar.aDR.setOnClickListener(this);
+            cqVar.aDR.setVisibility(0);
         } else {
-            cqVar.aDH.setVisibility(8);
+            cqVar.aDR.setVisibility(8);
         }
-        this.aBp.getLayoutMode().L(this.mSkinType == 1);
-        this.aBp.getLayoutMode().h(view);
+        this.aBz.getLayoutMode().L(this.mSkinType == 1);
+        this.aBz.getLayoutMode().h(view);
         return view;
     }
 
-    public int FO() {
+    public int FQ() {
         return com.baidu.tieba.v.frs_fortune_bag_item;
     }
 
-    public int FP() {
+    public int FR() {
         return com.baidu.tieba.v.frs_my_service_item;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.aBW != null) {
+        if (this.aCg != null) {
             int id = view.getId();
             int intValue = ((Integer) view.getTag()).intValue();
-            View childAt = this.ayV.getChildAt(intValue - (this.ayV.getFirstVisiblePosition() - this.ayV.getHeaderViewsCount()));
-            this.aBW.a(id, intValue, view, childAt, (com.baidu.tbadk.core.data.q) ai(intValue));
+            View childAt = this.aze.getChildAt(intValue - (this.aze.getFirstVisiblePosition() - this.aze.getHeaderViewsCount()));
+            this.aCg.a(id, intValue, view, childAt, (com.baidu.tbadk.core.data.q) ai(intValue));
         }
     }
 

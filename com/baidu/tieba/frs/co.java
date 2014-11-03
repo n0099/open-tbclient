@@ -13,34 +13,34 @@ import com.baidu.tieba.voice.PlayVoiceBnt;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class co {
-    TextView JM;
-    final /* synthetic */ cj aDA;
-    LinearLayout aDC;
-    ImageView aDD;
-    TextView aDE;
-    LinearLayout azc;
-    LinearLayout azd;
-    TextView aze;
-    PlayVoiceBnt azf;
-    FrsCommonImageLayout azg;
-    TextView azh;
-    TextView azi;
-    UserIconBox azj;
-    HeadImageView azk;
+    TextView JN;
+    final /* synthetic */ cj aDK;
+    LinearLayout aDM;
+    ImageView aDN;
+    TextView aDO;
+    TextView azA;
+    View azB;
+    LinearLayout azC;
+    LinearLayout azD;
+    LiveBroadcastCard azE;
     LinearLayout azl;
-    ImageView azm;
+    LinearLayout azm;
     TextView azn;
-    LinearLayout azo;
-    TextView azp;
-    FrsPraiseView azq;
+    PlayVoiceBnt azo;
+    FrsCommonImageLayout azp;
+    TextView azq;
     TextView azr;
-    View azs;
-    LinearLayout azt;
+    UserIconBox azs;
+    HeadImageView azt;
     LinearLayout azu;
-    LiveBroadcastCard azv;
+    ImageView azv;
+    TextView azw;
+    LinearLayout azx;
+    TextView azy;
+    FrsPraiseView azz;
 
     private co(cj cjVar) {
-        this.aDA = cjVar;
+        this.aDK = cjVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

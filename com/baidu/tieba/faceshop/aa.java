@@ -4,21 +4,21 @@ import android.webkit.URLUtil;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 /* loaded from: classes.dex */
 class aa implements Runnable {
-    final /* synthetic */ FaceBuyWebViewActivity asZ;
+    final /* synthetic */ FaceBuyWebViewActivity ati;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(FaceBuyWebViewActivity faceBuyWebViewActivity) {
-        this.asZ = faceBuyWebViewActivity;
+        this.ati = faceBuyWebViewActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         String str;
         BaseWebView baseWebView;
-        str = this.asZ.mUrl;
+        str = this.ati.mUrl;
         String guessUrl = URLUtil.guessUrl(str);
         if (URLUtil.isNetworkUrl(guessUrl)) {
-            baseWebView = this.asZ.mWebView;
+            baseWebView = this.ati.mWebView;
             baseWebView.loadUrl(guessUrl);
         }
     }

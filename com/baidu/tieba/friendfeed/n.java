@@ -6,33 +6,33 @@ import com.baidu.tieba.frs.dh;
 import com.baidu.tieba.pb.main.bs;
 /* loaded from: classes.dex */
 class n implements dh {
-    final /* synthetic */ FriendFeedActivity ayL;
+    final /* synthetic */ FriendFeedActivity ayU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(FriendFeedActivity friendFeedActivity) {
-        this.ayL = friendFeedActivity;
+        this.ayU = friendFeedActivity;
     }
 
     @Override // com.baidu.tieba.frs.dh
     public void fa(String str) {
         boolean z;
         FriendFeedThreadData friendFeedThreadData;
-        z = this.ayL.ayv;
+        z = this.ayU.ayE;
         if (z) {
-            friendFeedThreadData = this.ayL.ayu;
-            this.ayL.eD(friendFeedThreadData.getPraise().getIsLike() == 1 ? 0 : 1);
+            friendFeedThreadData = this.ayU.ayD;
+            this.ayU.eD(friendFeedThreadData.getPraise().getIsLike() == 1 ? 0 : 1);
         }
-        this.ayL.ayt = false;
-        bs.WZ().reset();
+        this.ayU.ayC = false;
+        bs.Xc().reset();
     }
 
     @Override // com.baidu.tieba.frs.dh
     public void fb(String str) {
         boolean z;
-        z = this.ayL.ayv;
+        z = this.ayU.ayE;
         if (z && !TextUtils.isEmpty(str)) {
-            this.ayL.showToast(str);
+            this.ayU.showToast(str);
         }
-        this.ayL.ayt = false;
+        this.ayU.ayC = false;
     }
 }

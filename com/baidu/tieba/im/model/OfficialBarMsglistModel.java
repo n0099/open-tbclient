@@ -117,8 +117,8 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
         }
         c cVar = new c();
         cVar.limit = 10;
-        cVar.beg = null;
-        cVar.beh = null;
+        cVar.beu = null;
+        cVar.bev = null;
         cVar.id = new StringBuilder(String.valueOf(this.mUser.getUserIdLong())).toString();
         super.sendMessage(new LoadOfficialHistoryMessage(cVar));
         return true;
@@ -144,8 +144,8 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             j = this.mDatas.getChatMessages().get(0).getMsgId();
             j2 = this.mDatas.getChatMessages().get(0).getRecordId();
         }
-        cVar.beg = String.valueOf(j);
-        cVar.beh = String.valueOf(j2);
+        cVar.beu = String.valueOf(j);
+        cVar.bev = String.valueOf(j2);
         cVar.id = new StringBuilder(String.valueOf(this.mUser.getUserIdLong())).toString();
         super.sendMessage(new LoadOfficialHistoryMessage(cVar));
         return true;
@@ -182,7 +182,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tieba.im.b
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(n.MP().aq(String.valueOf(OfficialBarMsglistModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
+                    return Boolean.valueOf(n.MT().aq(String.valueOf(OfficialBarMsglistModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
                 }
             }, null);
         }
@@ -196,7 +196,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tieba.im.b
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(n.MP().ap(String.valueOf(OfficialBarMsglistModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
+                    return Boolean.valueOf(n.MT().ap(String.valueOf(OfficialBarMsglistModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
                 }
             }, null);
         }

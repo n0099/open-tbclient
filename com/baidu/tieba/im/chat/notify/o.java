@@ -6,13 +6,13 @@ import com.baidu.tieba.im.model.ImMessageCenterModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements DialogInterface.OnClickListener {
-    final /* synthetic */ g aQC;
-    private final /* synthetic */ ImMessageCenterShowItemData aQE;
+    final /* synthetic */ g aQQ;
+    private final /* synthetic */ ImMessageCenterShowItemData aQS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(g gVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        this.aQC = gVar;
-        this.aQE = imMessageCenterShowItemData;
+        this.aQQ = gVar;
+        this.aQS = imMessageCenterShowItemData;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -21,9 +21,9 @@ public class o implements DialogInterface.OnClickListener {
         a aVar;
         switch (i) {
             case 0:
-                imMessageCenterModel = this.aQC.aQm;
-                ImMessageCenterShowItemData imMessageCenterShowItemData = this.aQE;
-                aVar = this.aQC.aQB;
+                imMessageCenterModel = this.aQQ.aQA;
+                ImMessageCenterShowItemData imMessageCenterShowItemData = this.aQS;
+                aVar = this.aQQ.aQP;
                 imMessageCenterModel.deleteItem(imMessageCenterShowItemData, aVar);
                 return;
             default:

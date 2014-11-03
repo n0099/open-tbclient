@@ -27,20 +27,20 @@ public class br implements View.OnClickListener {
         Bitmap bitmap3;
         Bitmap bitmap4;
         boolean hK2;
-        z = this.this$0.bwI;
+        z = this.this$0.bwW;
         if (!z) {
-            i = this.this$0.JV;
+            i = this.this$0.JW;
             if (i == 12003) {
                 Intent intent = new Intent();
                 intent.putExtra(WriteImageActivityConfig.DELET_FLAG, true);
                 this.this$0.setResult(-1, intent);
             } else {
                 Intent intent2 = new Intent();
-                z2 = this.this$0.JU;
+                z2 = this.this$0.JV;
                 if (z2) {
-                    bitmap = this.this$0.JN;
+                    bitmap = this.this$0.JO;
                     if (bitmap != null) {
-                        bitmap2 = this.this$0.JN;
+                        bitmap2 = this.this$0.JO;
                         if (!bitmap2.isRecycled()) {
                             String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
                             hK = this.this$0.hK(str);
@@ -63,11 +63,11 @@ public class br implements View.OnClickListener {
             return;
         }
         Intent intent3 = new Intent();
-        z3 = this.this$0.JU;
+        z3 = this.this$0.JV;
         if (z3) {
-            bitmap3 = this.this$0.JN;
+            bitmap3 = this.this$0.JO;
             if (bitmap3 != null) {
-                bitmap4 = this.this$0.JN;
+                bitmap4 = this.this$0.JO;
                 if (!bitmap4.isRecycled()) {
                     String str2 = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
                     hK2 = this.this$0.hK(str2);

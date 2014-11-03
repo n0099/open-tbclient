@@ -17,48 +17,48 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 /* loaded from: classes.dex */
 public class m extends BaseFragment {
-    private ao aKL;
-    private Button aLB;
-    private NewUserGuideActivity aLi;
-    private ViewGroup aLo;
-    private View aLp;
-    private TbImageView aLq;
-    private TbImageView aLr;
-    private TbImageView aLs;
-    private TbImageView aLt;
-    private TbImageView aLu;
-    private TbImageView aLv;
-    private TbImageView aLw;
-    private TbImageView aLx;
-    private TbImageView aLy;
-    private TbImageView aLz;
-    private final Hashtable<Integer, TbImageView> aLA = new Hashtable<>();
-    private boolean aKN = false;
-    private boolean aLC = false;
-    private boolean aLD = true;
-    private final View.OnClickListener Nw = new n(this);
+    private ao aKZ;
+    private ViewGroup aLC;
+    private View aLD;
+    private TbImageView aLE;
+    private TbImageView aLF;
+    private TbImageView aLG;
+    private TbImageView aLH;
+    private TbImageView aLI;
+    private TbImageView aLJ;
+    private TbImageView aLK;
+    private TbImageView aLL;
+    private TbImageView aLM;
+    private TbImageView aLN;
+    private Button aLP;
+    private NewUserGuideActivity aLw;
+    private final Hashtable<Integer, TbImageView> aLO = new Hashtable<>();
+    private boolean aLb = false;
+    private boolean aLQ = false;
+    private boolean aLR = true;
+    private final View.OnClickListener NA = new n(this);
 
     public void c(InterestFrsData interestFrsData) {
         d(interestFrsData);
-        this.aLC = true;
+        this.aLQ = true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.aLi = (NewUserGuideActivity) getActivity();
-        this.aKL = this.aLi.Iv();
+        this.aLw = (NewUserGuideActivity) getActivity();
+        this.aKZ = this.aLw.Iz();
         d(bundle);
     }
 
     private void d(Bundle bundle) {
-        if (this.aKL != null && !this.aLC) {
+        if (this.aKZ != null && !this.aLQ) {
             if (bundle != null) {
-                this.aKN = bundle.getBoolean("is_new_user");
+                this.aLb = bundle.getBoolean("is_new_user");
             } else {
-                this.aKN = this.aLi.getIntent().getBooleanExtra("is_new_user", false);
+                this.aLb = this.aLw.getIntent().getBooleanExtra("is_new_user", false);
             }
-            d(this.aKL.TP());
+            d(this.aKZ.TS());
         }
     }
 
@@ -68,7 +68,7 @@ public class m extends BaseFragment {
         if (interestFrsData != null && (tag_list = interestFrsData.getTag_list()) != null && tag_list.size() != 0) {
             for (int i = 0; i < tag_list.size(); i++) {
                 InterestFrsData.Tag tag = tag_list.get(i);
-                if (tag.getBid() >= 1 && tag.getBid() <= 10 && (tbImageView = this.aLA.get(Integer.valueOf(tag.getBid()))) != null) {
+                if (tag.getBid() >= 1 && tag.getBid() <= 10 && (tbImageView = this.aLO.get(Integer.valueOf(tag.getBid()))) != null) {
                     tbImageView.setTag(tag);
                     tbImageView.c(tag.getBicon(), 21, false);
                 }
@@ -79,48 +79,48 @@ public class m extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         try {
-            this.aLo = (ViewGroup) com.baidu.adp.lib.g.b.ek().inflate(layoutInflater.getContext(), com.baidu.tieba.w.guide_main, null);
-            this.aLp = this.aLo.findViewById(com.baidu.tieba.v.root_main_view_cover);
-            this.aLq = (TbImageView) this.aLo.findViewById(com.baidu.tieba.v.icon_1);
-            this.aLr = (TbImageView) this.aLo.findViewById(com.baidu.tieba.v.icon_2);
-            this.aLs = (TbImageView) this.aLo.findViewById(com.baidu.tieba.v.icon_3);
-            this.aLt = (TbImageView) this.aLo.findViewById(com.baidu.tieba.v.icon_4);
-            this.aLu = (TbImageView) this.aLo.findViewById(com.baidu.tieba.v.icon_5);
-            this.aLv = (TbImageView) this.aLo.findViewById(com.baidu.tieba.v.icon_6);
-            this.aLw = (TbImageView) this.aLo.findViewById(com.baidu.tieba.v.icon_7);
-            this.aLx = (TbImageView) this.aLo.findViewById(com.baidu.tieba.v.icon_8);
-            this.aLy = (TbImageView) this.aLo.findViewById(com.baidu.tieba.v.icon_9);
-            this.aLz = (TbImageView) this.aLo.findViewById(com.baidu.tieba.v.icon_10);
-            this.aLB = (Button) this.aLo.findViewById(com.baidu.tieba.v.btn_next);
-            this.aLA.put(1, this.aLq);
-            this.aLA.put(2, this.aLr);
-            this.aLA.put(3, this.aLs);
-            this.aLA.put(4, this.aLt);
-            this.aLA.put(5, this.aLu);
-            this.aLA.put(6, this.aLv);
-            this.aLA.put(7, this.aLw);
-            this.aLA.put(8, this.aLx);
-            this.aLA.put(9, this.aLy);
-            this.aLA.put(10, this.aLz);
-            this.aLB.setOnClickListener(this.Nw);
-            this.aLq.setOnClickListener(this.Nw);
-            this.aLr.setOnClickListener(this.Nw);
-            this.aLs.setOnClickListener(this.Nw);
-            this.aLt.setOnClickListener(this.Nw);
-            this.aLu.setOnClickListener(this.Nw);
-            this.aLv.setOnClickListener(this.Nw);
-            this.aLw.setOnClickListener(this.Nw);
-            this.aLx.setOnClickListener(this.Nw);
-            this.aLy.setOnClickListener(this.Nw);
-            this.aLy.setOnClickListener(this.Nw);
-            this.aLz.setOnClickListener(this.Nw);
-            return this.aLo;
+            this.aLC = (ViewGroup) com.baidu.adp.lib.g.b.ek().inflate(layoutInflater.getContext(), com.baidu.tieba.w.guide_main, null);
+            this.aLD = this.aLC.findViewById(com.baidu.tieba.v.root_main_view_cover);
+            this.aLE = (TbImageView) this.aLC.findViewById(com.baidu.tieba.v.icon_1);
+            this.aLF = (TbImageView) this.aLC.findViewById(com.baidu.tieba.v.icon_2);
+            this.aLG = (TbImageView) this.aLC.findViewById(com.baidu.tieba.v.icon_3);
+            this.aLH = (TbImageView) this.aLC.findViewById(com.baidu.tieba.v.icon_4);
+            this.aLI = (TbImageView) this.aLC.findViewById(com.baidu.tieba.v.icon_5);
+            this.aLJ = (TbImageView) this.aLC.findViewById(com.baidu.tieba.v.icon_6);
+            this.aLK = (TbImageView) this.aLC.findViewById(com.baidu.tieba.v.icon_7);
+            this.aLL = (TbImageView) this.aLC.findViewById(com.baidu.tieba.v.icon_8);
+            this.aLM = (TbImageView) this.aLC.findViewById(com.baidu.tieba.v.icon_9);
+            this.aLN = (TbImageView) this.aLC.findViewById(com.baidu.tieba.v.icon_10);
+            this.aLP = (Button) this.aLC.findViewById(com.baidu.tieba.v.btn_next);
+            this.aLO.put(1, this.aLE);
+            this.aLO.put(2, this.aLF);
+            this.aLO.put(3, this.aLG);
+            this.aLO.put(4, this.aLH);
+            this.aLO.put(5, this.aLI);
+            this.aLO.put(6, this.aLJ);
+            this.aLO.put(7, this.aLK);
+            this.aLO.put(8, this.aLL);
+            this.aLO.put(9, this.aLM);
+            this.aLO.put(10, this.aLN);
+            this.aLP.setOnClickListener(this.NA);
+            this.aLE.setOnClickListener(this.NA);
+            this.aLF.setOnClickListener(this.NA);
+            this.aLG.setOnClickListener(this.NA);
+            this.aLH.setOnClickListener(this.NA);
+            this.aLI.setOnClickListener(this.NA);
+            this.aLJ.setOnClickListener(this.NA);
+            this.aLK.setOnClickListener(this.NA);
+            this.aLL.setOnClickListener(this.NA);
+            this.aLM.setOnClickListener(this.NA);
+            this.aLM.setOnClickListener(this.NA);
+            this.aLN.setOnClickListener(this.NA);
+            return this.aLC;
         } catch (InflateException e) {
             if (TbadkApplication.m251getInst().isDebugMode()) {
                 throw e;
             }
             BdLog.e(e);
-            this.aLi.Ix();
+            this.aLw.IB();
             TbadkApplication.m251getInst().onAppMemoryLow();
             return new FrameLayout(layoutInflater.getContext());
         }

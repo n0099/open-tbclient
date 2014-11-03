@@ -5,11 +5,11 @@ import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u extends com.baidu.adp.base.h {
-    final /* synthetic */ t aLL;
+    final /* synthetic */ t aLZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar) {
-        this.aLL = tVar;
+        this.aLZ = tVar;
     }
 
     @Override // com.baidu.adp.base.h
@@ -19,16 +19,16 @@ public class u extends com.baidu.adp.base.h {
         NewUserGuideActivity newUserGuideActivity2;
         NewUserGuideActivity newUserGuideActivity3;
         if (obj == null) {
-            newUserGuideActivity3 = this.aLL.aLI;
+            newUserGuideActivity3 = this.aLZ.aLW;
             newUserGuideActivity3.showToast(y.neterror);
         } else if (obj instanceof aa) {
             int f = com.baidu.adp.lib.g.c.f(((aa) obj).getFid(), 0);
-            aVar = this.aLL.aLJ;
+            aVar = this.aLZ.aLX;
             aVar.fk(f);
-            this.aLL.n(f, true);
-            newUserGuideActivity = this.aLL.aLI;
+            this.aLZ.n(f, true);
+            newUserGuideActivity = this.aLZ.aLW;
             newUserGuideActivity.cr(true);
-            newUserGuideActivity2 = this.aLL.aLI;
+            newUserGuideActivity2 = this.aLZ.aLW;
             newUserGuideActivity2.cq(true);
         }
     }

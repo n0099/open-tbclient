@@ -14,7 +14,7 @@ public class a extends ad {
     public boolean a(x xVar, c cVar) {
         if (xVar instanceof AdsEmotionGroupData) {
             com.baidu.adp.lib.f.d.ef().a(((AdsEmotionGroupData) xVar).getColorCoverUrl(), 10, new b(this, cVar), null);
-            if (rq()) {
+            if (rs()) {
                 cVar.a(this);
                 return true;
             }
@@ -24,12 +24,12 @@ public class a extends ad {
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public com.baidu.adp.widget.a.a rp() {
-        return super.rP();
+    public com.baidu.adp.widget.a.a rr() {
+        return super.rR();
     }
 
-    public boolean rq() {
-        return rP() != null;
+    public boolean rs() {
+        return rR() != null;
     }
 
     @Override // com.baidu.tbadk.editortool.ad
@@ -43,7 +43,7 @@ public class a extends ad {
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public EmotionGroupType rr() {
+    public EmotionGroupType rt() {
         return EmotionGroupType.PROMOTION;
     }
 
@@ -83,7 +83,7 @@ public class a extends ad {
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public boolean rs() {
+    public boolean ru() {
         return false;
     }
 }

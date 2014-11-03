@@ -18,12 +18,12 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class ChatMessageActivity extends BaseFragmentActivity {
-    private ImageView ajm;
-    private FragmentTransaction ajn;
+    private ImageView ajv;
+    private FragmentTransaction ajw;
     private FragmentManager mFragmentManager;
     private NavigationBar mNavigationBar;
     private View.OnClickListener mOnClickListener = null;
-    private CustomMessageListener Sc = new a(this, 2008002);
+    private CustomMessageListener Sg = new a(this, 2008002);
 
     static {
         TbadkApplication.m251getInst().RegisterIntent(ChatMessageActivityConfig.class, ChatMessageActivity.class);
@@ -34,13 +34,14 @@ public class ChatMessageActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initUI();
-        registerListener(this.Sc);
+        registerListener(this.Sg);
         sendMessage(new CustomMessage(2008002));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2012112, 1));
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    protected void onChangeSkinType(int i) {
+    public void onChangeSkinType(int i) {
         super.changeSkinType(i);
         this.mNavigationBar.onChangeSkinType(i);
     }
@@ -51,6 +52,6 @@ public class ChatMessageActivity extends BaseFragmentActivity {
         this.mNavigationBar = (NavigationBar) findViewById(v.view_navigation_bar);
         this.mNavigationBar.setTitleText(y.my_chat);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.ajm = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.widget_nb_item_addchat, this.mOnClickListener);
+        this.ajv = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.widget_nb_item_addchat, this.mOnClickListener);
     }
 }

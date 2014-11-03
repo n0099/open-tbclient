@@ -9,9 +9,9 @@ import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class LiveRoomChatForcast extends RelativeLayout {
-    private Button bjl;
-    private View bjm;
-    private View bjn;
+    private View bjA;
+    private View bjB;
+    private Button bjz;
 
     public LiveRoomChatForcast(Context context) {
         super(context);
@@ -30,17 +30,17 @@ public class LiveRoomChatForcast extends RelativeLayout {
 
     private void init(Context context) {
         View a = com.baidu.adp.lib.g.b.ek().a(context, w.live_room_chat_forcast, this, true);
-        this.bjl = (Button) a.findViewById(v.live_room_forcast_btn);
-        this.bjm = a.findViewById(v.live_room_close_btn);
-        this.bjn = a.findViewById(v.live_room_close_layout);
-        com.baidu.adp.lib.util.m.a(context, this.bjm, 30, 30, 30, 30);
+        this.bjz = (Button) a.findViewById(v.live_room_forcast_btn);
+        this.bjA = a.findViewById(v.live_room_close_btn);
+        this.bjB = a.findViewById(v.live_room_close_layout);
+        com.baidu.adp.lib.util.m.a(context, this.bjA, 30, 30, 30, 30);
     }
 
     public Button getForcastBtn() {
-        return this.bjl;
+        return this.bjz;
     }
 
     public View getLiveRoomCloseBtn() {
-        return this.bjn;
+        return this.bjB;
     }
 }

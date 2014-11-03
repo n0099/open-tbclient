@@ -8,11 +8,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements View.OnClickListener {
-    final /* synthetic */ h bhR;
+    final /* synthetic */ h bih;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.bhR = hVar;
+        this.bih = hVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,21 +21,21 @@ public class i implements View.OnClickListener {
         ImageView imageView;
         EditText editText;
         TextView textView2;
-        textView = this.bhR.bhN;
+        textView = this.bih.bib;
         if (view == textView) {
-            editText = this.bhR.bhM;
+            editText = this.bih.bia;
             String a = com.baidu.adp.lib.util.l.a(editText.getText(), null);
             if (TextUtils.isEmpty(a) || a.trim().length() == 0) {
                 return;
             }
-            this.bhR.fz(a.trim());
-            textView2 = this.bhR.bhN;
+            this.bih.fz(a.trim());
+            textView2 = this.bih.bib;
             textView2.setClickable(false);
             return;
         }
-        imageView = this.bhR.bhO;
+        imageView = this.bih.bic;
         if (view == imageView) {
-            this.bhR.gC("");
+            this.bih.gC("");
         }
     }
 }

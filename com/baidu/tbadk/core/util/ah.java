@@ -5,35 +5,35 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 /* loaded from: classes.dex */
 class ah implements com.baidu.adp.lib.network.willdelete.d {
-    final /* synthetic */ af Eq;
-    int Er = 0;
+    final /* synthetic */ af Er;
     int Es = 0;
     int Et = 0;
-    private final /* synthetic */ Handler Eu;
-    private final /* synthetic */ int Ev;
+    int Eu = 0;
+    private final /* synthetic */ Handler Ev;
+    private final /* synthetic */ int Ew;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(af afVar, Handler handler, int i) {
-        this.Eq = afVar;
-        this.Eu = handler;
-        this.Ev = i;
+        this.Er = afVar;
+        this.Ev = handler;
+        this.Ew = i;
     }
 
     @Override // com.baidu.adp.lib.network.willdelete.d
     public void a(int i, HttpURLConnection httpURLConnection, OutputStream outputStream) {
         if (httpURLConnection != null && i > 0) {
-            this.Er = i / 50;
+            this.Es = i / 50;
         }
     }
 
     @Override // com.baidu.adp.lib.network.willdelete.d
     public void a(int i, int i2, HttpURLConnection httpURLConnection) {
-        this.Es += i - this.Et;
-        this.Et = i;
-        if (this.Eu != null) {
-            if (this.Es > this.Er || i == i2) {
-                this.Es = 0;
-                this.Eu.sendMessage(this.Eu.obtainMessage(this.Ev, i, i2));
+        this.Et += i - this.Eu;
+        this.Eu = i;
+        if (this.Ev != null) {
+            if (this.Et > this.Es || i == i2) {
+                this.Et = 0;
+                this.Ev.sendMessage(this.Ev.obtainMessage(this.Ew, i, i2));
             }
         }
     }

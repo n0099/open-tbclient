@@ -2,12 +2,12 @@ package com.baidu.tieba.util;
 
 import com.baidu.adp.lib.cache.t;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
 public class l {
     public static void a(String str, m mVar) {
-        if (ay.aA(str)) {
+        if (az.aA(str)) {
             if (mVar != null) {
                 mVar.a(null);
                 return;
@@ -18,7 +18,7 @@ public class l {
     }
 
     public static void b(String str, m mVar) {
-        if (ay.aA(str)) {
+        if (az.aA(str)) {
             if (mVar != null) {
                 mVar.a(null);
                 return;
@@ -42,7 +42,7 @@ public class l {
     }
 
     public static void a(String str, WriteData writeData) {
-        if (!ay.aA(str)) {
+        if (!az.aA(str)) {
             t<String> bd = com.baidu.tbadk.core.a.a.kS().bd("tb.pb_editor");
             if (writeData != null && writeData.hasContentToSave()) {
                 bd.b(hF(str), writeData.toDraftString(), 604800000L);
@@ -53,7 +53,7 @@ public class l {
     }
 
     public static void b(String str, WriteData writeData) {
-        if (!ay.aA(str)) {
+        if (!az.aA(str)) {
             t<String> bd = com.baidu.tbadk.core.a.a.kS().bd("tb.pb_editor");
             if (writeData != null && writeData.hasContentToSave()) {
                 bd.b(hE(str), writeData.toDraftString(), 604800000L);

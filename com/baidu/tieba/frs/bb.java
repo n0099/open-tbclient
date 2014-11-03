@@ -1,21 +1,21 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 class bb implements com.baidu.tieba.location.j {
-    final /* synthetic */ FrsActivity aBk;
+    final /* synthetic */ FrsActivity aBu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(FrsActivity frsActivity) {
-        this.aBk = frsActivity;
+        this.aBu = frsActivity;
     }
 
     @Override // com.baidu.tieba.location.j
-    public void EH() {
+    public void EJ() {
         bu buVar;
         bu buVar2;
-        buVar = this.aBk.aAv;
-        if (buVar.EO() != null) {
-            buVar2 = this.aBk.aAv;
-            buVar2.EO().setLocationViewVisibility(8);
+        buVar = this.aBu.aAF;
+        if (buVar.EQ() != null) {
+            buVar2 = this.aBu.aAF;
+            buVar2.EQ().setLocationViewVisibility(8);
         }
     }
 
@@ -24,12 +24,12 @@ class bb implements com.baidu.tieba.location.j {
         bu buVar;
         bu buVar2;
         bu buVar3;
-        buVar = this.aBk.aAv;
-        if (buVar.EO() != null) {
-            buVar2 = this.aBk.aAv;
-            buVar2.EO().setLocationViewVisibility(0);
-            buVar3 = this.aBk.aAv;
-            buVar3.EO().j(2, str);
+        buVar = this.aBu.aAF;
+        if (buVar.EQ() != null) {
+            buVar2 = this.aBu.aAF;
+            buVar2.EQ().setLocationViewVisibility(0);
+            buVar3 = this.aBu.aAF;
+            buVar3.EQ().j(2, str);
         }
     }
 }

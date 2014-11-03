@@ -9,18 +9,17 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends HttpMessageListener {
-    final /* synthetic */ o bBB;
+    final /* synthetic */ o bBP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(o oVar, int i) {
         super(i);
-        this.bBB = oVar;
+        this.bBP = oVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: b */
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
         z zVar;
         z zVar2;
@@ -36,46 +35,46 @@ public class q extends HttpMessageListener {
         x xVar2;
         x xVar3;
         z zVar3;
-        this.bBB.bBx = false;
+        this.bBP.bBL = false;
         if (httpResponsedMessage.isSuccess()) {
             if (httpResponsedMessage.getError() == 0) {
-                zVar = this.bBB.bBn;
-                ArrayList<ForumData> ZK = zVar.ZQ().ZK();
-                zVar2 = this.bBB.bBn;
-                int ZI = zVar2.ZQ().ZI();
-                i = this.bBB.bAU;
-                if (i < ZI) {
-                    zVar3 = this.bBB.bBn;
-                    zVar3.ZQ().gV(ZI - 1);
+                zVar = this.bBP.bBB;
+                ArrayList<ForumData> ZM = zVar.ZS().ZM();
+                zVar2 = this.bBP.bBB;
+                int ZK = zVar2.ZS().ZK();
+                i = this.bBP.bBi;
+                if (i < ZK) {
+                    zVar3 = this.bBP.bBB;
+                    zVar3.ZS().gV(ZK - 1);
                 }
-                if (ZK != null) {
-                    i2 = this.bBB.bAU;
+                if (ZM != null) {
+                    i2 = this.bBP.bBi;
                     if (i2 >= 0) {
-                        i3 = this.bBB.bAU;
-                        if (i3 < ZK.size()) {
-                            i4 = this.bBB.bAU;
-                            ZK.remove(i4);
-                            com.baidu.tieba.aj wk = com.baidu.tieba.aj.wk();
-                            str = this.bBB.bBu;
-                            wk.dX(str);
-                            xVar = this.bBB.bBt;
+                        i3 = this.bBP.bBi;
+                        if (i3 < ZM.size()) {
+                            i4 = this.bBP.bBi;
+                            ZM.remove(i4);
+                            com.baidu.tieba.aj wm = com.baidu.tieba.aj.wm();
+                            str = this.bBP.bBI;
+                            wm.dX(str);
+                            xVar = this.bBP.bBH;
                             if (xVar != null) {
-                                this.bBB.et(true);
-                                xVar2 = this.bBB.bBt;
-                                xVar2.E(ZK);
-                                xVar3 = this.bBB.bBt;
+                                this.bBP.et(true);
+                                xVar2 = this.bBP.bBH;
+                                xVar2.F(ZM);
+                                xVar3 = this.bBP.bBH;
                                 xVar3.notifyDataSetChanged();
                             }
                         }
                     }
                 }
-                this.bBB.showToast(com.baidu.tieba.y.success);
-                forumData = this.bBB.bBw;
+                this.bBP.showToast(com.baidu.tieba.y.success);
+                forumData = this.bBP.bBK;
                 if (forumData != null) {
-                    forumData2 = this.bBB.bBw;
+                    forumData2 = this.bBP.bBK;
                     if (!TextUtils.isEmpty(forumData2.getId())) {
-                        o oVar = this.bBB;
-                        forumData3 = this.bBB.bBw;
+                        o oVar = this.bBP;
+                        forumData3 = this.bBP.bBK;
                         oVar.sendMessage(new CustomMessage(2003004, forumData3.getId()));
                         return;
                     }
@@ -83,7 +82,7 @@ public class q extends HttpMessageListener {
                 }
                 return;
             }
-            this.bBB.showToast(httpResponsedMessage.getErrorString());
+            this.bBP.showToast(httpResponsedMessage.getErrorString());
         }
     }
 }

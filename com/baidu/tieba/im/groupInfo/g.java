@@ -6,11 +6,11 @@ import com.baidu.tbadk.coreExtra.view.MultiImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements DialogInterface.OnClickListener {
-    final /* synthetic */ GroupImageActivity bah;
+    final /* synthetic */ GroupImageActivity baw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(GroupImageActivity groupImageActivity) {
-        this.bah = groupImageActivity;
+        this.baw = groupImageActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -18,21 +18,21 @@ public class g implements DialogInterface.OnClickListener {
         AlertDialog listMenu;
         MultiImageView multiImageView;
         MultiImageView multiImageView2;
-        j jVar;
-        listMenu = this.bah.getListMenu();
+        k kVar;
+        listMenu = this.baw.getListMenu();
         if (dialogInterface == listMenu && i == 0) {
             try {
-                multiImageView = this.bah.aNr;
+                multiImageView = this.baw.aNF;
                 byte[] currentImageData = multiImageView.getCurrentImageData();
                 if (currentImageData != null) {
-                    multiImageView2 = this.bah.aNr;
+                    multiImageView2 = this.baw.aNF;
                     String currentImageUrl = multiImageView2.getCurrentImageUrl();
-                    this.bah.bag = new j(this.bah, currentImageUrl, currentImageData);
-                    jVar = this.bah.bag;
-                    jVar.execute(new String[0]);
-                    this.bah.showProgressBarWithOffset(0, 0);
+                    this.baw.bau = new k(this.baw, currentImageUrl, currentImageData);
+                    kVar = this.baw.bau;
+                    kVar.execute(new String[0]);
+                    this.baw.showProgressBarWithOffset(0, 0);
                 } else {
-                    this.bah.showToast(this.bah.getString(com.baidu.tieba.y.no_data));
+                    this.baw.showToast(this.baw.getString(com.baidu.tieba.y.no_data));
                 }
             } catch (Exception e) {
             }

@@ -23,7 +23,7 @@ import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.atomData.InvokeOnAccountChangedMessageConfig;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bn;
+import com.baidu.tbadk.core.util.bo;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.pluginArch.Plugin;
 import com.baidu.tbadk.pluginArch.PluginCenter;
@@ -44,6 +44,7 @@ import com.baidu.tieba.service.SignAlertReceiver;
 import com.baidu.tieba.service.SyncLoginService;
 import com.baidu.tieba.service.TiebaActiveService;
 import com.baidu.tieba.service.TiebaSyncService;
+import com.baidu.tieba.xiuba.StartupReceiver;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -52,83 +53,84 @@ import java.util.HashMap;
 import java.util.Hashtable;
 /* loaded from: classes.dex */
 public class aj {
-    private int adI;
-    private String adP;
-    private PersonChangeData adR;
-    private int adU;
-    private int adV;
-    private int adW;
-    private static aj adr = new aj();
-    private static final byte[] adS = new byte[0];
-    private static volatile Boolean adT = null;
-    private int adq = 0;
-    private HashMap<String, SoftReference<com.baidu.adp.widget.a.a>> ads = null;
+    private int adN;
+    private String adU;
+    private PersonChangeData adW;
+    private int aea;
+    private int aeb;
+    private int aec;
+    private static aj adw = new aj();
+    private static final byte[] adY = new byte[0];
+    private static volatile Boolean adZ = null;
+    private int adv = 0;
+    private HashMap<String, SoftReference<com.baidu.adp.widget.a.a>> adx = null;
     private int yR = 1;
-    private boolean adt = false;
-    private com.baidu.tieba.util.o adu = null;
-    private com.baidu.tieba.util.o adv = null;
-    private long adw = 0;
-    private boolean adx = false;
+    private boolean ady = false;
+    private com.baidu.tieba.util.o adz = null;
+    private com.baidu.tieba.util.o adA = null;
+    private long adB = 0;
+    private boolean adC = false;
     private VersionData mVersionData = null;
-    private CombineDownload ady = null;
-    private BannerData adz = null;
+    private CombineDownload adD = null;
+    private BannerData adE = null;
     public long jV = 0;
     private int yS = 0;
     private boolean yT = true;
-    private boolean adA = true;
-    private boolean adB = false;
-    private boolean adC = false;
-    private com.baidu.adp.lib.cache.t<String> adD = null;
-    private int adE = 10;
-    private int adF = 0;
+    private boolean adF = true;
     private boolean adG = false;
-    private boolean adH = true;
-    private boolean adJ = false;
-    private Boolean adK = false;
-    private int adL = 0;
-    private Hashtable<String, Integer> adM = null;
-    private Hashtable<String, Integer> adN = null;
-    private Hashtable<String, Integer> adO = null;
-    private boolean adQ = false;
+    private boolean adH = false;
+    private com.baidu.adp.lib.cache.t<String> adI = null;
+    private int adJ = 10;
+    private int adK = 0;
+    private boolean adL = false;
+    private boolean adM = true;
+    private boolean adO = false;
+    private Boolean adP = false;
+    private int adQ = 0;
+    private Hashtable<String, Integer> adR = null;
+    private Hashtable<String, Integer> adS = null;
+    private Hashtable<String, Integer> adT = null;
+    private boolean adV = false;
     public Handler handler = new Handler(new ak(this));
-    com.baidu.adp.lib.d.d locationCallBack = new am(this);
-    boolean adX = false;
+    public Handler adX = new av(this);
+    com.baidu.adp.lib.d.d locationCallBack = new aw(this);
+    boolean aed = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void wh() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2005005, new an());
+    public static void wj() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2005005, new ax());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        CustomMessageTask customMessageTask2 = new CustomMessageTask(2005006, new ao());
+        CustomMessageTask customMessageTask2 = new CustomMessageTask(2005006, new ay());
         customMessageTask2.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask2);
-        CustomMessageTask customMessageTask3 = new CustomMessageTask(2005007, new aq());
+        CustomMessageTask customMessageTask3 = new CustomMessageTask(2005007, new ba());
         customMessageTask3.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask3);
     }
 
     public void aN(boolean z) {
-        this.adJ = z;
+        this.adO = z;
     }
 
-    public boolean wi() {
-        return this.adJ;
+    public boolean wk() {
+        return this.adO;
     }
 
-    private void wj() {
+    private void wl() {
         PluginCenter.createPluginCenter(TbadkApplication.m251getInst());
         if (!PluginCenter.getInstance().checkPluginInstalled(PluginNameList.NAME_NIGHT_RESOURCE)) {
-            wk().setSkinType(0);
+            wm().setSkinType(0);
         }
         if (TbadkApplication.m251getInst().isMainProcess(true)) {
-            PluginCenter.getInstance().installPluginFromAsset(PluginNameList.NAME_SOCIAL_SHARE, null);
-            PluginCenter.getInstance().installPluginFromAsset(PluginNameList.NAME_RANDCHAT, new ar(this));
-            PluginCenter.getInstance().installPluginFromAsset(PluginNameList.NAME_DQ_SDK, null);
-            PluginCenter.getInstance().installPluginFromAsset(PluginNameList.NAME_LIVE, new as(this));
-            PluginCenter.getInstance().installPluginFromAsset(PluginNameList.NAME_NIGHT_RESOURCE, null);
-            PluginCenter.getInstance().installPluginFromAsset(PluginNameList.NAME_ZXING, null);
-            PluginCenter.getInstance().installPluginFromAsset(PluginNameList.NAME_HAO123, null);
-            PluginCenter.getInstance().installPluginFromAsset(PluginNameList.NAME_BAOBAO, null);
+            PluginCenter.getInstance().installPluginFromAsset(PluginNameList.NAME_NIGHT_RESOURCE, new bb(this));
+            this.adX.postDelayed(new bc(this), 300L);
+            this.adX.postDelayed(new bd(this), 600L);
+            this.adX.postDelayed(new al(this), 900L);
+            this.adX.postDelayed(new an(this), 1200L);
+            this.adX.postDelayed(new ao(this), 1500L);
+            this.adX.postDelayed(new aq(this), 2100L);
+            this.adX.postDelayed(new ar(this), 2400L);
         }
         Plugin pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_LIVE);
         if (pluginByName != null) {
@@ -140,22 +142,21 @@ public class aj {
         }
     }
 
-    public static aj wk() {
-        return adr;
+    public static aj wm() {
+        return adw;
     }
 
-    private static void wl() {
-        TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().a(new at());
+    private static void wn() {
+        TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().a(new as());
     }
 
     public void init(Application application) {
-        Plugin pluginByName;
         XiubaPlugin xiubaPlugin;
         Hao123Plugin hao123Plugin;
         if (application != null) {
             ai.init();
-            wl();
-            new av(null).execute(new String[0]);
+            wn();
+            new be(null).execute(new String[0]);
             com.baidu.tbadk.core.util.ad.ml();
             MessageManager messageManager = MessageManager.getInstance();
             messageManager.addMessageRule(new com.baidu.tbadk.d.d(0));
@@ -166,7 +167,7 @@ public class aj {
                 com.baidu.tbadk.core.sharedPref.b.lk().lm();
             }
             initSettings();
-            bn.u(TbadkApplication.m251getInst());
+            bo.u(TbadkApplication.m251getInst());
             TbConfig.initBigImageWidth(TbadkApplication.m251getInst());
             TbConfig.initFriendPhotoConfig(TbadkApplication.m251getInst());
             try {
@@ -177,7 +178,7 @@ public class aj {
             boolean isMainProcess = TbadkApplication.m251getInst().isMainProcess(true);
             TiebaStatic.init(TbadkApplication.m251getInst(), isMainProcess);
             if (!TbadkApplication.m251getInst().isTbCDNTachometerProcess() && !TbadkApplication.m251getInst().isDaemonProcess()) {
-                wj();
+                wl();
             }
             if (isMainProcess) {
                 if (TbadkApplication.m251getInst().getIsFirstUse()) {
@@ -188,14 +189,14 @@ public class aj {
                         TiebaStatic.eventStat(getApp(), "LocalWebpSupport", "");
                     }
                 }
-                this.ads = new HashMap<>();
-                com.baidu.tieba.util.j.aeH();
-                this.adu = new com.baidu.tieba.util.o(TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI);
-                this.adv = new com.baidu.tieba.util.o(100);
-                wD();
-                wr();
-                ws();
-                wN();
+                this.adx = new HashMap<>();
+                com.baidu.tieba.util.j.aeK();
+                this.adz = new com.baidu.tieba.util.o(TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI);
+                this.adA = new com.baidu.tieba.util.o(100);
+                wF();
+                wt();
+                wu();
+                wP();
                 SDCardChangeReceiver sDCardChangeReceiver = new SDCardChangeReceiver();
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
@@ -204,32 +205,44 @@ public class aj {
             } else {
                 TbadkApplication.m251getInst().mRemoteActivity = new ArrayList<>();
             }
-            com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(2012000, new au(this));
+            com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(2012000, new at(this));
             aVar.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(aVar);
-            wm();
+            wo();
             if (TbadkApplication.m251getInst().isMainProcess(true)) {
                 TbadkApplication.m251getInst().sendMessageForEnterBackground();
-                wo();
+                wq();
             }
             if (TbadkApplication.m251getInst().isHao123HelperShouldOpen() && TbadkApplication.m251getInst().isTiebaHelperOpen()) {
                 try {
-                    Plugin pluginByName2 = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_HAO123);
-                    if (pluginByName2 != null && pluginByName2.checkEnable() && (hao123Plugin = (Hao123Plugin) pluginByName2.getClassInstance(Hao123Plugin.class)) != null) {
+                    Plugin pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_HAO123);
+                    if (pluginByName != null && pluginByName.checkEnable() && (hao123Plugin = (Hao123Plugin) pluginByName.getClassInstance(Hao123Plugin.class)) != null) {
                         hao123Plugin.openFloating(application);
                     }
                 } catch (Throwable th) {
                     BdLog.detailException(th);
                 }
             }
-            if (TbadkApplication.m251getInst().isXiubaProcess() && (pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_XIUBA)) != null && pluginByName.checkEnable() && (xiubaPlugin = (XiubaPlugin) pluginByName.getClassInstance(XiubaPlugin.class)) != null) {
-                xiubaPlugin.init(TbadkApplication.m251getInst());
+            if (TbadkApplication.m251getInst().isXiubaProcess()) {
+                Plugin pluginByName2 = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_XIUBA);
+                if (pluginByName2 != null && pluginByName2.checkEnable() && (xiubaPlugin = (XiubaPlugin) pluginByName2.getClassInstance(XiubaPlugin.class)) != null) {
+                    xiubaPlugin.init(TbadkApplication.m251getInst());
+                }
+                try {
+                    IntentFilter intentFilter2 = new IntentFilter();
+                    intentFilter2.addAction("android.intent.action.BOOT_COMPLETED");
+                    intentFilter2.addCategory("android.intent.category.LAUNCHER");
+                    application.registerReceiver(new StartupReceiver(), intentFilter2);
+                } catch (Throwable th2) {
+                    th2.printStackTrace();
+                    BdLog.e(th2.getMessage());
+                }
             }
         }
     }
 
-    private void wm() {
-        com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(2012100, new al(this));
+    private void wo() {
+        com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(2012100, new au(this));
         aVar.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(aVar);
     }
@@ -242,91 +255,91 @@ public class aj {
         return TbadkApplication.m251getInst();
     }
 
-    public void wn() {
+    public void wp() {
         init(TbadkApplication.m251getInst());
     }
 
-    public void wo() {
+    public void wq() {
         com.baidu.adp.lib.d.a.dE().a(true, this.locationCallBack);
     }
 
     public boolean dT(String str) {
-        return (this.adM == null || str == null || !this.adM.containsKey(str)) ? false : true;
+        return (this.adR == null || str == null || !this.adR.containsKey(str)) ? false : true;
     }
 
     public void f(String str, int i, int i2) {
-        if (!dT(str) && this.adM != null && str != null) {
-            if (this.adM.size() > 100) {
-                this.adM.clear();
-                this.adN.clear();
+        if (!dT(str) && this.adR != null && str != null) {
+            if (this.adR.size() > 100) {
+                this.adR.clear();
+                this.adS.clear();
             }
-            this.adM.put(str, Integer.valueOf(i));
-            this.adN.put(str, Integer.valueOf(i2));
+            this.adR.put(str, Integer.valueOf(i));
+            this.adS.put(str, Integer.valueOf(i2));
         }
     }
 
-    public void wp() {
-        if (this.adM != null) {
-            this.adM.clear();
+    public void wr() {
+        if (this.adR != null) {
+            this.adR.clear();
         }
-        if (this.adN != null) {
-            this.adN.clear();
+        if (this.adS != null) {
+            this.adS.clear();
         }
     }
 
     public int dU(String str) {
         if (dT(str)) {
-            return this.adN.get(str).intValue();
+            return this.adS.get(str).intValue();
         }
         return -1;
     }
 
-    public int wq() {
-        if (this.adM != null) {
-            return this.adM.size();
+    public int ws() {
+        if (this.adR != null) {
+            return this.adR.size();
         }
         return 0;
     }
 
-    public void wr() {
-        if (this.adM == null) {
-            this.adM = new Hashtable<>();
+    public void wt() {
+        if (this.adR == null) {
+            this.adR = new Hashtable<>();
         }
-        if (this.adN == null) {
-            this.adN = new Hashtable<>();
+        if (this.adS == null) {
+            this.adS = new Hashtable<>();
         }
     }
 
     public int dV(String str) {
-        if (this.adO == null || str == null || !this.adO.containsKey(str)) {
+        if (this.adT == null || str == null || !this.adT.containsKey(str)) {
             return 0;
         }
-        return this.adO.get(str).intValue();
+        return this.adT.get(str).intValue();
     }
 
     public void dW(String str) {
-        if (this.adO != null && str != null) {
-            this.adO.put(str, 1);
+        if (this.adT != null && str != null) {
+            this.adT.put(str, 1);
             aR(true);
-            if (this.adO.size() > 200) {
-                this.adO.clear();
+            if (this.adT.size() > 200) {
+                this.adT.clear();
             }
         }
     }
 
     public void dX(String str) {
-        if (this.adO != null && str != null) {
-            this.adO.put(str, -1);
+        if (this.adT != null && str != null) {
+            this.adT.put(str, -1);
             aR(true);
-            if (this.adO.size() > 200) {
-                this.adO.clear();
+            if (this.adT.size() > 200) {
+                this.adT.clear();
             }
         }
     }
 
-    public void ws() {
-        if (this.adO == null) {
-            this.adO = new Hashtable<>();
+    public void wu() {
+        if (this.adT == null) {
+            this.adT = new Hashtable<>();
         }
     }
 
@@ -336,22 +349,22 @@ public class aj {
         this.yT = TbadkSettings.getInst().loadBoolean("show_images", true);
         this.yR = TbadkSettings.getInst().loadInt("new_display_photo", 1);
         TbadkApplication.m251getInst().setSkinTypeValue(TbadkSettings.getInst().loadInt("skin", 0));
-        this.adw = TbadkSettings.getInst().loadLong("message_id", 0L);
-        this.adC = TbadkSettings.getInst().loadBoolean("app_switcher", false);
-        this.adG = TbadkSettings.getInst().loadBoolean("manage_mode", false);
-        this.adA = TbadkSettings.getInst().loadBoolean("location_on", true);
-        this.adB = TbadkSettings.getInst().loadBoolean("has_showed_del_ga_tip", false);
-        this.adF = TbadkSettings.getInst().loadInt("new_vcode_webview_crash_count", 0);
-        this.adH = TbadkSettings.getInst().loadBoolean("search_mode", true);
-        this.adI = TbadkSettings.getInst().loadInt("search_mode_int", 0);
-        this.adE = TbadkSettings.getInst().loadInt("perform_sample_count", 0);
+        this.adB = TbadkSettings.getInst().loadLong("message_id", 0L);
+        this.adH = TbadkSettings.getInst().loadBoolean("app_switcher", false);
+        this.adL = TbadkSettings.getInst().loadBoolean("manage_mode", false);
+        this.adF = TbadkSettings.getInst().loadBoolean("location_on", true);
+        this.adG = TbadkSettings.getInst().loadBoolean("has_showed_del_ga_tip", false);
+        this.adK = TbadkSettings.getInst().loadInt("new_vcode_webview_crash_count", 0);
+        this.adM = TbadkSettings.getInst().loadBoolean("search_mode", true);
+        this.adN = TbadkSettings.getInst().loadInt("search_mode_int", 0);
+        this.adJ = TbadkSettings.getInst().loadInt("perform_sample_count", 0);
         boolean loadBoolean = TbadkSettings.getInst().loadBoolean("bd_loc_switcher", true);
         if (Build.VERSION.SDK_INT <= 4) {
             loadBoolean = false;
         }
         com.baidu.adp.lib.d.a.dE().setBaiduOn(loadBoolean);
-        com.baidu.tbadk.core.k.js().initSetting();
-        this.adQ = TbadkSettings.getInst().loadBoolean("has_show_mutiimage_tip", false);
+        com.baidu.tbadk.core.l.js().initSetting();
+        this.adV = TbadkSettings.getInst().loadBoolean("has_show_mutiimage_tip", false);
     }
 
     public void aO(boolean z) {
@@ -360,35 +373,35 @@ public class aj {
     }
 
     public void aP(boolean z) {
-        this.adH = z;
+        this.adM = z;
         TbadkSettings.getInst().saveBoolean("search_mode", z);
     }
 
-    public boolean wt() {
-        return this.adH;
+    public boolean wv() {
+        return this.adM;
     }
 
-    public boolean wu() {
-        return this.adA;
+    public boolean ww() {
+        return this.adF;
     }
 
     public void aQ(boolean z) {
         TbadkSettings.getInst().saveBoolean("app_switcher", z);
-        this.adC = z;
+        this.adH = z;
     }
 
-    public boolean wv() {
-        return this.adC;
+    public boolean wx() {
+        return this.adH;
     }
 
     public com.baidu.adp.widget.a.a dY(String str) {
-        SoftReference<com.baidu.adp.widget.a.a> softReference = this.ads.get(str);
+        SoftReference<com.baidu.adp.widget.a.a> softReference = this.adx.get(str);
         if (softReference != null && softReference.get() != null) {
             return softReference.get();
         }
-        com.baidu.adp.widget.a.a dn = TbFaceManager.sf().dn(str);
+        com.baidu.adp.widget.a.a dn = TbFaceManager.sh().dn(str);
         if (dn != null) {
-            this.ads.put(str, new SoftReference<>(dn));
+            this.adx.put(str, new SoftReference<>(dn));
             return dn;
         }
         return dn;
@@ -396,7 +409,7 @@ public class aj {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static void a(AccountData accountData, Application application) {
-        com.baidu.tbadk.coreExtra.messageCenter.a.oB().oF();
+        com.baidu.tbadk.coreExtra.messageCenter.a.oD().oH();
         if (accountData != null) {
             TiebaStatic.setUserInfo(accountData.getAccount(), accountData.getID(), TbadkApplication.getCurrentBduss());
         }
@@ -406,25 +419,25 @@ public class aj {
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2005002, new InvokeOnAccountChangedMessageConfig(application, str)));
         if (TbadkApplication.isLogin()) {
-            com.baidu.tieba.runing.a.abM().abN();
-            com.baidu.tieba.service.g.abQ().abN();
+            com.baidu.tieba.runing.a.abP().abQ();
+            com.baidu.tieba.service.g.abT().abQ();
         } else {
-            com.baidu.tieba.runing.a.abM().destroy();
-            com.baidu.tieba.service.g.abQ().destroy();
+            com.baidu.tieba.runing.a.abP().destroy();
+            com.baidu.tieba.service.g.abT().destroy();
         }
-        bs.WZ().reset();
+        bs.Xc().reset();
     }
 
-    public static void ww() {
+    public static void wy() {
         TbadkSettings.getInst().saveLong("tdatabasecreatetime", new Date().getTime());
     }
 
     public void aR(boolean z) {
-        this.adt = z;
+        this.ady = z;
     }
 
-    public boolean wx() {
-        return this.adt;
+    public boolean wz() {
+        return this.ady;
     }
 
     public void aS(boolean z) {
@@ -453,7 +466,7 @@ public class aj {
         TbadkApplication.m251getInst().mRemindLightOn = z;
     }
 
-    public int wy() {
+    public int wA() {
         if (!TbadkApplication.m251getInst().mRemindToneOn && !TbadkApplication.m251getInst().mRemindVibrateOn) {
             return 0;
         }
@@ -468,24 +481,24 @@ public class aj {
 
     public void dz(int i) {
         if (i == 0) {
-            wk().aS(false);
-            wk().aU(false);
+            wm().aS(false);
+            wm().aU(false);
         } else if (i == 1) {
-            wk().aS(true);
-            wk().aU(false);
+            wm().aS(true);
+            wm().aU(false);
         } else if (i == 2) {
-            wk().aS(false);
-            wk().aU(true);
+            wm().aS(false);
+            wm().aU(true);
         } else {
-            wk().aS(true);
-            wk().aU(true);
+            wm().aS(true);
+            wm().aU(true);
         }
     }
 
     public void dA(int i) {
         if (i == 0) {
             TbadkApplication.m251getInst().mMsgFrequency = i;
-            com.baidu.tbadk.coreExtra.messageCenter.a.oB().ac(true);
+            com.baidu.tbadk.coreExtra.messageCenter.a.oD().ac(true);
             this.handler.sendMessage(this.handler.obtainMessage(3));
         } else {
             TbadkApplication.m251getInst().mMsgFrequency = TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI;
@@ -515,33 +528,33 @@ public class aj {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016010));
     }
 
-    public boolean wz() {
+    public boolean wB() {
         return TbadkSettings.getInst().loadBoolean("alert_sign_on", false);
     }
 
     public void ba(boolean z) {
         TbadkSettings.getInst().saveBoolean("alert_sign_on", z);
-        wD();
+        wF();
     }
 
-    public int wA() {
+    public int wC() {
         int loadInt = TbadkSettings.getInst().loadInt("alert_sign_hours", -1);
         if (loadInt == -1) {
-            wB();
+            wD();
             return TbadkSettings.getInst().loadInt("alert_sign_hours", 12);
         }
         return loadInt;
     }
 
-    private void wB() {
+    private void wD() {
         Calendar calendar = Calendar.getInstance();
         D(calendar.get(11), calendar.get(12));
     }
 
-    public int wC() {
+    public int wE() {
         int loadInt = TbadkSettings.getInst().loadInt("alert_sign_mins", -1);
         if (loadInt == -1) {
-            wB();
+            wD();
             return TbadkSettings.getInst().loadInt("alert_sign_mins", 30);
         }
         return loadInt;
@@ -550,38 +563,38 @@ public class aj {
     public void D(int i, int i2) {
         TbadkSettings.getInst().saveInt("alert_sign_hours", i);
         TbadkSettings.getInst().saveInt("alert_sign_mins", i2);
-        wD();
+        wF();
     }
 
-    public void wD() {
+    public void wF() {
         AlarmManager alarmManager = (AlarmManager) TbadkApplication.m251getInst().getSystemService("alarm");
-        Intent wE = wE();
-        if (wz()) {
+        Intent wG = wG();
+        if (wB()) {
             Calendar calendar = Calendar.getInstance();
-            int wA = wA();
-            int i = calendar.get(11);
             int wC = wC();
+            int i = calendar.get(11);
+            int wE = wE();
             int i2 = calendar.get(12);
-            calendar.set(11, wA);
-            calendar.set(12, wC);
+            calendar.set(11, wC);
+            calendar.set(12, wE);
             calendar.set(13, 0);
             calendar.set(14, 0);
-            if (i >= wA && (i != wA || i2 >= wC)) {
+            if (i >= wC && (i != wC || i2 >= wE)) {
                 calendar.set(6, calendar.get(6) + 1);
             }
-            alarmManager.set(1, calendar.getTimeInMillis(), PendingIntent.getBroadcast(TbadkApplication.m251getInst(), 0, wE, 268435456));
+            alarmManager.set(1, calendar.getTimeInMillis(), PendingIntent.getBroadcast(TbadkApplication.m251getInst(), 0, wG, 268435456));
             BdLog.isDebugMode();
             return;
         }
-        PendingIntent broadcast = PendingIntent.getBroadcast(TbadkApplication.m251getInst(), 0, wE, 536870912);
+        PendingIntent broadcast = PendingIntent.getBroadcast(TbadkApplication.m251getInst(), 0, wG, 536870912);
         if (broadcast != null) {
             alarmManager.cancel(broadcast);
             BdLog.isDebugMode();
         }
     }
 
-    protected Intent wE() {
-        Intent intent = new Intent(com.baidu.tieba.data.e.yx());
+    protected Intent wG() {
+        Intent intent = new Intent(com.baidu.tieba.data.e.yz());
         intent.setData(Uri.parse("tieba_sign://alert"));
         intent.setClass(TbadkApplication.m251getInst(), SignAlertReceiver.class);
         return intent;
@@ -592,7 +605,7 @@ public class aj {
     }
 
     public void setSkinType(int i) {
-        AppsActivity.Ue();
+        AppsActivity.Uh();
         TbadkApplication.m251getInst().setSkinTypeValue(i);
         TbadkSettings.getInst().saveInt("skin", i);
         dB(i);
@@ -600,30 +613,30 @@ public class aj {
 
     private void dB(int i) {
         Intent intent = new Intent();
-        intent.setAction(com.baidu.tieba.data.e.yv());
+        intent.setAction(com.baidu.tieba.data.e.yx());
         intent.putExtra("skin_type", i);
         TbadkApplication.m251getInst().sendBroadcast(intent);
     }
 
-    public int wF() {
-        return this.adE;
+    public int wH() {
+        return this.adJ;
     }
 
     public void dC(int i) {
-        this.adE = i;
+        this.adJ = i;
         TbadkSettings.getInst().saveInt("perform_sample_count", i);
     }
 
-    public int wG() {
-        return this.adF;
+    public int wI() {
+        return this.adK;
     }
 
     public void dD(int i) {
-        this.adF = i;
+        this.adK = i;
         TbadkSettings.getInst().saveInt("new_vcode_webview_crash_count", i);
     }
 
-    public void wH() {
+    public void wJ() {
         int loadInt = TbadkSettings.getInst().loadInt("bd_loc_crash_count", 0) + 1;
         TbadkSettings.getInst().saveInt("bd_loc_crash_count", loadInt);
         if (loadInt > 3) {
@@ -632,14 +645,14 @@ public class aj {
     }
 
     public void bb(boolean z) {
-        this.adx = z;
+        this.adC = z;
     }
 
     public void a(CombineDownload combineDownload) {
-        this.ady = combineDownload;
+        this.adD = combineDownload;
     }
 
-    public VersionData wI() {
+    public VersionData wK() {
         return this.mVersionData;
     }
 
@@ -647,11 +660,11 @@ public class aj {
         this.mVersionData = versionData;
     }
 
-    public com.baidu.tieba.util.o wJ() {
-        return this.adu;
+    public com.baidu.tieba.util.o wL() {
+        return this.adz;
     }
 
-    public String wK() {
+    public String wM() {
         String bC;
         if (!com.baidu.tbadk.core.util.t.bz("/package.last")) {
             bC = TbadkSettings.getInst().loadString("active_version", "");
@@ -667,11 +680,11 @@ public class aj {
     public void bc(boolean z) {
     }
 
-    public boolean wL() {
+    public boolean wN() {
         return TbadkSettings.getInst().loadBoolean("first_sync_image_quality", true);
     }
 
-    public void wM() {
+    public void wO() {
         TbadkApplication.m251getInst().setActiveVersion("active_clear");
     }
 
@@ -698,20 +711,20 @@ public class aj {
         TbadkSettings.getInst().saveString("lcs_switch_strategy", str);
     }
 
-    public void wN() {
+    public void wP() {
         String loadString = TbadkSettings.getInst().loadString("lcs_switch_strategy", null);
         if (!TextUtils.isEmpty(loadString)) {
             com.baidu.tieba.model.af afVar = new com.baidu.tieba.model.af();
             afVar.parserJson(loadString);
-            com.baidu.tbadk.coreExtra.websocketBase.h qz = com.baidu.tbadk.coreExtra.websocketBase.h.qz();
-            qz.am(afVar.Ty() == 1);
-            qz.cz(afVar.Tz());
-            qz.o(afVar.TA() * 1000);
-            this.adU = afVar.TC();
-            this.adV = afVar.TD();
-            this.adW = afVar.TE();
-            if (afVar.TB() != null) {
-                qz.b(afVar.TB());
+            com.baidu.tbadk.coreExtra.websocketBase.h qB = com.baidu.tbadk.coreExtra.websocketBase.h.qB();
+            qB.am(afVar.TB() == 1);
+            qB.cz(afVar.TC());
+            qB.o(afVar.TD() * 1000);
+            this.aea = afVar.TF();
+            this.aeb = afVar.TG();
+            this.aec = afVar.TH();
+            if (afVar.TE() != null) {
+                qB.b(afVar.TE());
             }
         }
     }
@@ -736,14 +749,14 @@ public class aj {
         TbadkSettings.getInst().saveInt("kn_vote_rate", i);
     }
 
-    public com.baidu.adp.lib.cache.t<String> wO() {
-        if (this.adD == null) {
-            this.adD = BdCacheService.cr().a("tb.global", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.NO_EVICT, 1);
+    public com.baidu.adp.lib.cache.t<String> wQ() {
+        if (this.adI == null) {
+            this.adI = BdCacheService.cr().a("tb.global", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.NO_EVICT, 1);
         }
-        return this.adD;
+        return this.adI;
     }
 
-    public void wP() {
+    public void wR() {
         try {
             TbadkApplication.m251getInst().startService(new Intent(TbadkApplication.m251getInst(), ClearTempService.class));
         } catch (Throwable th) {
@@ -751,48 +764,48 @@ public class aj {
         }
     }
 
-    public void wQ() {
+    public void wS() {
         TbadkApplication.m251getInst().startService(new Intent(TbadkApplication.m251getInst(), TiebaSyncService.class));
     }
 
-    public void wR() {
+    public void wT() {
         TbadkApplication.m251getInst().stopService(new Intent(TbadkApplication.m251getInst(), TiebaSyncService.class));
     }
 
-    public void wS() {
+    public void wU() {
         TbadkApplication.m251getInst().startService(new Intent(TbadkApplication.m251getInst(), SyncLoginService.class));
     }
 
-    public void wT() {
+    public void wV() {
         TbadkApplication.m251getInst().startService(new Intent(TbadkApplication.m251getInst(), TiebaActiveService.class));
     }
 
-    public void wU() {
+    public void wW() {
         TbadkApplication.m251getInst().stopService(new Intent(TbadkApplication.m251getInst(), TiebaActiveService.class));
     }
 
     public void bd(boolean z) {
-        this.adX = z;
+        this.aed = z;
     }
 
     public void a(PersonChangeData personChangeData) {
-        this.adR = personChangeData;
+        this.adW = personChangeData;
     }
 
     public void be(boolean z) {
-        this.adQ = z;
+        this.adV = z;
         TbadkSettings.getInst().saveBoolean("has_show_mutiimage_tip", z);
     }
 
-    public boolean wV() {
-        return this.adQ;
+    public boolean wX() {
+        return this.adV;
     }
 
-    public String wW() {
-        return this.adP;
+    public String wY() {
+        return this.adU;
     }
 
     public void ef(String str) {
-        this.adP = str;
+        this.adU = str;
     }
 }

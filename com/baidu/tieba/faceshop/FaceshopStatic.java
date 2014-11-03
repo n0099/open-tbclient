@@ -3,7 +3,7 @@ package com.baidu.tieba.faceshop;
 import com.baidu.adp.framework.MessageManager;
 /* loaded from: classes.dex */
 public class FaceshopStatic {
-    private static com.baidu.tbadk.b.a.b auP;
+    private static com.baidu.tbadk.b.a.b auY;
 
     static {
         com.baidu.adp.lib.f.d.ef().a(20, new m());

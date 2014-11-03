@@ -9,41 +9,41 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class e extends g {
-    protected TextView biA;
+    protected TextView biO;
 
     public e(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity);
-        this.biA = null;
+        this.biO = null;
         setContentView(w.update_group_info_activity);
         gm(y.group_update_info);
-        this.biA = (TextView) this.biB.findViewById(v.edit_count);
+        this.biO = (TextView) this.biP.findViewById(v.edit_count);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void RK() {
+    public void RN() {
         int length = this.mEditText.getText().length();
         e(length, length, 15, TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI);
         int i = 300 - length;
-        this.biA.setText(String.valueOf(i));
+        this.biO.setText(String.valueOf(i));
         if (i <= 50) {
-            this.biA.setVisibility(0);
+            this.biO.setVisibility(0);
         } else {
-            this.biA.setVisibility(8);
+            this.biO.setVisibility(8);
         }
         if (i == 0) {
-            this.biA.setTextColor(this.biB.getResources().getColor(s.group_create_info_count_color));
+            this.biO.setTextColor(this.biP.getResources().getColor(s.group_create_info_count_color));
         } else {
-            Ld();
+            Lh();
         }
     }
 
-    private void Ld() {
-        this.biB.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
-        this.biB.getLayoutMode().h(this.biA);
+    private void Lh() {
+        this.biP.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
+        this.biP.getLayoutMode().h(this.biO);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public int RL() {
+    public int RO() {
         return y.group_step_info_error;
     }
 }

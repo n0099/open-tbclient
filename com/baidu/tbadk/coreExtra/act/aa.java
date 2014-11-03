@@ -5,11 +5,11 @@ import android.widget.Button;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa implements View.OnFocusChangeListener {
-    final /* synthetic */ Login2Activity KT;
+    final /* synthetic */ Login2Activity KU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(Login2Activity login2Activity) {
-        this.KT = login2Activity;
+        this.KU = login2Activity;
     }
 
     @Override // android.view.View.OnFocusChangeListener
@@ -26,25 +26,25 @@ public class aa implements View.OnFocusChangeListener {
         if (z) {
             int id = view.getId();
             if (id == com.baidu.tieba.v.edit_vcode) {
-                button7 = this.KT.KG;
+                button7 = this.KU.KH;
                 button7.setVisibility(8);
-                button8 = this.KT.KF;
+                button8 = this.KU.KG;
                 button8.setVisibility(8);
-                button9 = this.KT.KH;
+                button9 = this.KU.KI;
                 button9.setVisibility(0);
             } else if (id == com.baidu.tieba.v.login_edit_account) {
-                button4 = this.KT.KG;
+                button4 = this.KU.KH;
                 button4.setVisibility(8);
-                button5 = this.KT.KF;
+                button5 = this.KU.KG;
                 button5.setVisibility(0);
-                button6 = this.KT.KH;
+                button6 = this.KU.KI;
                 button6.setVisibility(8);
             } else if (id == com.baidu.tieba.v.login_edit_password) {
-                button = this.KT.KG;
+                button = this.KU.KH;
                 button.setVisibility(0);
-                button2 = this.KT.KF;
+                button2 = this.KU.KG;
                 button2.setVisibility(8);
-                button3 = this.KT.KH;
+                button3 = this.KU.KI;
                 button3.setVisibility(8);
             }
         }

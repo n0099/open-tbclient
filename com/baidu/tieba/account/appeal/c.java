@@ -1,22 +1,22 @@
 package com.baidu.tieba.account.appeal;
 
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class c implements h {
-    final /* synthetic */ b afU;
+    final /* synthetic */ b agc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.afU = bVar;
+        this.agc = bVar;
     }
 
     @Override // com.baidu.tieba.account.appeal.h
     public void a(AppealData appealData) {
         AppealActivity appealActivity;
         AppealActivity appealActivity2;
-        appealActivity = this.afU.afT;
-        appealActivity2 = this.afU.afT;
+        appealActivity = this.agc.agb;
+        appealActivity2 = this.agc.agb;
         appealActivity.r(appealActivity2.getString(y.appeal_post_success), true);
     }
 
@@ -25,9 +25,9 @@ class c implements h {
         AppealActivity appealActivity;
         AppealActivity appealActivity2;
         String string;
-        appealActivity = this.afU.afT;
-        if (ay.aA(appealData.errMsg)) {
-            appealActivity2 = this.afU.afT;
+        appealActivity = this.agc.agb;
+        if (az.aA(appealData.errMsg)) {
+            appealActivity2 = this.agc.agb;
             string = appealActivity2.getString(y.appeal_post_failure);
         } else {
             string = appealData.errMsg;

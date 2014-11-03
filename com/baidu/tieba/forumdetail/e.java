@@ -11,11 +11,11 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.base.f {
-    private ForumDetailData awZ;
-    private ItemHeaderView axa;
-    private ItemInfoView axb;
-    private ItemHotThreadView axc;
-    private ItemFootNavView axd;
+    private ForumDetailData axi;
+    private ItemHeaderView axj;
+    private ItemInfoView axk;
+    private ItemHotThreadView axl;
+    private ItemFootNavView axm;
     BaseActivity mActivity;
     private NavigationBar mNavigationBar;
     private ProgressBar mProgressBar;
@@ -24,19 +24,19 @@ public class e extends com.baidu.adp.base.f {
     public e(BaseActivity baseActivity) {
         super(baseActivity);
         this.mActivity = null;
-        this.awZ = null;
+        this.axi = null;
         this.mRootView = null;
         this.mActivity = baseActivity;
         initUI();
     }
 
     public void d(ForumDetailData forumDetailData) {
-        this.awZ = forumDetailData;
+        this.axi = forumDetailData;
         this.mProgressBar.setVisibility(8);
-        DY();
-        DZ();
         Ea();
         Eb();
+        Ec();
+        Ed();
     }
 
     private void initUI() {
@@ -44,15 +44,15 @@ public class e extends com.baidu.adp.base.f {
         this.mNavigationBar = (NavigationBar) this.mActivity.findViewById(v.view_navigation_bar);
         this.mNavigationBar.setTitleText(this.mActivity.getString(y.forum_detail_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.axa = (ItemHeaderView) this.mActivity.findViewById(v.item_header);
-        this.axb = (ItemInfoView) this.mActivity.findViewById(v.item_info);
-        this.axc = (ItemHotThreadView) this.mActivity.findViewById(v.item_hot_thread);
-        this.axd = (ItemFootNavView) this.mActivity.findViewById(v.item_foot_nav);
+        this.axj = (ItemHeaderView) this.mActivity.findViewById(v.item_header);
+        this.axk = (ItemInfoView) this.mActivity.findViewById(v.item_info);
+        this.axl = (ItemHotThreadView) this.mActivity.findViewById(v.item_hot_thread);
+        this.axm = (ItemFootNavView) this.mActivity.findViewById(v.item_foot_nav);
         this.mRootView = (ViewGroup) this.mActivity.findViewById(v.parent);
-        DX().setVisibility(0);
+        DZ().setVisibility(0);
     }
 
-    private ProgressBar DX() {
+    private ProgressBar DZ() {
         this.mProgressBar = new ProgressBar(this.mActivity);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 17;
@@ -63,27 +63,27 @@ public class e extends com.baidu.adp.base.f {
         return this.mProgressBar;
     }
 
-    private void DY() {
-        if (this.axa.e(this.awZ)) {
-            this.axa.setVisibility(0);
-        }
-    }
-
-    private void DZ() {
-        if (this.axb.a(this.awZ, this.mActivity)) {
-            this.axb.setVisibility(0);
-        }
-    }
-
     private void Ea() {
-        if (this.axc.e(this.awZ)) {
-            this.axc.setVisibility(0);
+        if (this.axj.e(this.axi)) {
+            this.axj.setVisibility(0);
         }
     }
 
     private void Eb() {
-        if (this.axd.a(this.awZ, this.mActivity)) {
-            this.axd.setVisibility(0);
+        if (this.axk.a(this.axi, this.mActivity)) {
+            this.axk.setVisibility(0);
+        }
+    }
+
+    private void Ec() {
+        if (this.axl.e(this.axi)) {
+            this.axl.setVisibility(0);
+        }
+    }
+
+    private void Ed() {
+        if (this.axm.a(this.axi, this.mActivity)) {
+            this.axm.setVisibility(0);
         }
     }
 
@@ -91,13 +91,13 @@ public class e extends com.baidu.adp.base.f {
         this.mActivity.getLayoutMode().L(i == 1);
         this.mActivity.getLayoutMode().h(this.mRootView);
         this.mNavigationBar.onChangeSkinType(i);
-        this.axa.a(this.mActivity, i);
-        this.axb.a(this.mActivity, i);
-        this.axc.a(this.mActivity, i);
-        this.axd.a(this.mActivity, i);
+        this.axj.a(this.mActivity, i);
+        this.axk.a(this.mActivity, i);
+        this.axl.a(this.mActivity, i);
+        this.axm.a(this.mActivity, i);
     }
 
     public void onResume() {
-        this.axd.b(this.mActivity);
+        this.axm.b(this.mActivity);
     }
 }

@@ -7,18 +7,18 @@ import com.baidu.tbadk.TbConfig;
 public class g extends com.baidu.adp.lib.debug.a.a {
     private String gt = "dalvikvm";
     private String[] gu = {"GC_FOR_ALLOC", "GC_FOR_MALLOC", "GC_CONCURRENT", "GC_EXPLICIT", "GC_EXTERNAL_ALLOC", "GC_HPROF_DUMP_HEAP"};
-    private com.baidu.adp.lib.debug.a.k YH = null;
-    private int YB = 0;
-    private final int YI = TbConfig.BIG_IMAGE_MIN_CAPACITY;
-    private j YJ = null;
-    private final Handler YK = new h(this);
+    private com.baidu.adp.lib.debug.a.k YL = null;
+    private int YF = 0;
+    private final int YM = TbConfig.BIG_IMAGE_MIN_CAPACITY;
+    private j YN = null;
+    private final Handler YO = new h(this);
 
     @Override // com.baidu.adp.lib.debug.a.a
     public void start() {
         if (!cJ()) {
             super.start();
-            this.YK.sendEmptyMessageDelayed(0, 10000L);
-            uB();
+            this.YO.sendEmptyMessageDelayed(0, 10000L);
+            uD();
             try {
                 com.baidu.adp.lib.debug.a.k.a(this.gt, new i(this));
             } catch (Exception e) {
@@ -30,27 +30,27 @@ public class g extends com.baidu.adp.lib.debug.a.a {
     @Override // com.baidu.adp.lib.debug.a.a
     public void stop() {
         super.stop();
-        uC();
+        uE();
     }
 
-    private void uB() {
-        if (this.YH == null) {
-            this.YH = new com.baidu.adp.lib.debug.a.k();
+    private void uD() {
+        if (this.YL == null) {
+            this.YL = new com.baidu.adp.lib.debug.a.k();
         }
-        if (!this.YH.cJ()) {
-            new Thread(this.YH).start();
+        if (!this.YL.cJ()) {
+            new Thread(this.YL).start();
         }
     }
 
-    private void uC() {
-        if (this.YH != null && this.YH.cJ()) {
-            this.YH.stop();
+    private void uE() {
+        if (this.YL != null && this.YL.cJ()) {
+            this.YL.stop();
         }
     }
 
     public void a(j jVar) {
-        if (this.YJ == null) {
-            this.YJ = jVar;
+        if (this.YN == null) {
+            this.YN = jVar;
         }
     }
 }

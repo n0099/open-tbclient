@@ -17,8 +17,8 @@ public class da extends bm<com.baidu.tbadk.core.data.q> {
     protected View a(ViewGroup viewGroup) {
         View inflate = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.w.frs_top_item, null);
         db dbVar = new db(null);
-        dbVar.aBK = (LinearLayout) inflate.findViewById(com.baidu.tieba.v.frs_top_item);
-        dbVar.JM = (TextView) inflate.findViewById(com.baidu.tieba.v.frs_top_title);
+        dbVar.aBU = (LinearLayout) inflate.findViewById(com.baidu.tieba.v.frs_top_item);
+        dbVar.JN = (TextView) inflate.findViewById(com.baidu.tieba.v.frs_top_title);
         inflate.setTag(dbVar);
         return inflate;
     }
@@ -31,26 +31,26 @@ public class da extends bm<com.baidu.tbadk.core.data.q> {
         BitmapDrawable bitmapDrawable;
         super.b(i, view, viewGroup, qVar);
         db dbVar = (db) view.getTag();
-        this.aBp.getLayoutMode().L(this.mSkinType == 1);
-        this.aBp.getLayoutMode().h(view);
+        this.aBz.getLayoutMode().L(this.mSkinType == 1);
+        this.aBz.getLayoutMode().h(view);
         if (qVar == null) {
             return null;
         }
-        dbVar.JM.setText(qVar.getTitle());
-        com.baidu.tieba.util.o wJ = com.baidu.tieba.aj.wk().wJ();
-        if (wJ != null && wJ.hH(qVar.getId())) {
-            com.baidu.tbadk.core.util.aw.b(dbVar.JM, com.baidu.tieba.s.listview_item_thread_read, 1);
+        dbVar.JN.setText(qVar.getTitle());
+        com.baidu.tieba.util.o wL = com.baidu.tieba.aj.wm().wL();
+        if (wL != null && wL.hH(qVar.getId())) {
+            com.baidu.tbadk.core.util.aw.b(dbVar.JN, com.baidu.tieba.s.listview_item_thread_read, 1);
         }
         if (qVar.getIs_top() == 1) {
             bitmapDrawable = (BitmapDrawable) com.baidu.tbadk.core.util.aw.getDrawable(com.baidu.tieba.u.icon_top);
         } else {
             bitmapDrawable = qVar.getIs_top() == 2 ? (BitmapDrawable) com.baidu.tbadk.core.util.aw.getDrawable(com.baidu.tieba.u.icon_notice) : null;
         }
-        com.baidu.tbadk.core.util.aw.h(dbVar.aBK, com.baidu.tieba.u.frs_top_item_bg);
+        com.baidu.tbadk.core.util.aw.h(dbVar.aBU, com.baidu.tieba.u.frs_top_item_bg);
         if (bitmapDrawable != null) {
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
         }
-        dbVar.JM.setCompoundDrawables(bitmapDrawable, null, null, null);
+        dbVar.JN.setCompoundDrawables(bitmapDrawable, null, null, null);
         return view;
     }
 

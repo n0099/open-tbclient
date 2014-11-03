@@ -6,7 +6,7 @@ import com.baidu.tieba.message.RequestFriendFeedLocalMessage;
 import com.baidu.tieba.message.RequestFriendFeedMessage;
 /* loaded from: classes.dex */
 public class ac extends com.baidu.adp.base.e {
-    private boolean boS;
+    private boolean bpg;
     private Context mContext;
     private String timeline;
 
@@ -24,11 +24,11 @@ public class ac extends com.baidu.adp.base.e {
     }
 
     public boolean isUseCache() {
-        return this.boS;
+        return this.bpg;
     }
 
     public void setUseCache(boolean z) {
-        this.boS = z;
+        this.bpg = z;
     }
 
     @Override // com.baidu.adp.base.e
@@ -49,7 +49,7 @@ public class ac extends com.baidu.adp.base.e {
         int o = com.baidu.adp.lib.util.m.o(this.mContext);
         float f = n / 320.0f;
         int i2 = 1;
-        if (com.baidu.tbadk.core.util.az.mD().mF()) {
+        if (com.baidu.tbadk.core.util.ba.mD().mF()) {
             i2 = 2;
         }
         RequestFriendFeedMessage requestFriendFeedMessage = new RequestFriendFeedMessage();
@@ -67,7 +67,7 @@ public class ac extends com.baidu.adp.base.e {
         int o = com.baidu.adp.lib.util.m.o(this.mContext);
         float f = n / 320.0f;
         int i2 = 1;
-        if (com.baidu.tbadk.core.util.az.mD().mF()) {
+        if (com.baidu.tbadk.core.util.ba.mD().mF()) {
             i2 = 2;
         }
         RequestFriendFeedLocalMessage requestFriendFeedLocalMessage = new RequestFriendFeedLocalMessage();

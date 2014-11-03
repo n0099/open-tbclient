@@ -13,9 +13,9 @@ import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends BdAsyncTask<Object, Integer, String> {
-    ArrayList<BasicNameValuePair> bmS;
-    final /* synthetic */ c bnj;
-    private final int bnk;
+    ArrayList<BasicNameValuePair> bng;
+    final /* synthetic */ c bnx;
+    private final int bny;
     private String mUrl;
     private String mUserName;
     private com.baidu.tbadk.core.util.ac yV;
@@ -32,7 +32,7 @@ public class j extends BdAsyncTask<Object, Integer, String> {
     public String doInBackground(Object... objArr) {
         try {
             this.yV = new com.baidu.tbadk.core.util.ac(this.mUrl);
-            this.yV.h(this.bmS);
+            this.yV.h(this.bng);
             return this.yV.lA();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -56,10 +56,10 @@ public class j extends BdAsyncTask<Object, Integer, String> {
         Activity activity10;
         try {
             if (this.yV != null && this.yV.mc().nb().jq()) {
-                if (this.bnk == 1) {
+                if (this.bny == 1) {
                     com.baidu.tieba.data.ah ahVar = new com.baidu.tieba.data.ah();
                     ahVar.parserJson(str);
-                    com.baidu.tieba.data.ak akVar = ahVar.zL().get(0);
+                    com.baidu.tieba.data.ak akVar = ahVar.zN().get(0);
                     if (akVar != null) {
                         int i = 0;
                         if (ahVar.getUserData() != null) {
@@ -67,18 +67,18 @@ public class j extends BdAsyncTask<Object, Integer, String> {
                         }
                         if (akVar.getId() != null) {
                             if (ahVar.jZ() == null || ahVar.jZ().getIfpost() != 0) {
-                                activity9 = this.bnj.mActivity;
-                                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteActivityConfig(activity9, 2, ahVar.zJ().getId(), ahVar.zJ().getName(), ahVar.zK().getId(), akVar.getId(), akVar.Ae(), ahVar.jZ(), 13001, false, ahVar.zP(), this.mUserName, false, false, null, null, null, i)));
+                                activity9 = this.bnx.mActivity;
+                                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteActivityConfig(activity9, 2, ahVar.zL().getId(), ahVar.zL().getName(), ahVar.zM().getId(), akVar.getId(), akVar.Ag(), ahVar.jZ(), 13001, false, ahVar.zR(), this.mUserName, false, false, null, null, null, i)));
                             } else {
-                                activity10 = this.bnj.mActivity;
+                                activity10 = this.bnx.mActivity;
                                 com.baidu.adp.lib.util.m.showToast(activity10, ahVar.jZ().getForbid_info());
                                 return;
                             }
                         } else if (ahVar.jZ() == null || ahVar.jZ().getIfpost() != 0) {
-                            activity7 = this.bnj.mActivity;
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteActivityConfig(activity7, 1, ahVar.zJ().getId(), ahVar.zJ().getName(), ahVar.zK().getId(), null, akVar.Ae(), ahVar.jZ(), 13002, false, ahVar.zP(), this.mUserName, false, false, null, null, null, i)));
+                            activity7 = this.bnx.mActivity;
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteActivityConfig(activity7, 1, ahVar.zL().getId(), ahVar.zL().getName(), ahVar.zM().getId(), null, akVar.Ag(), ahVar.jZ(), 13002, false, ahVar.zR(), this.mUserName, false, false, null, null, null, i)));
                         } else {
-                            activity8 = this.bnj.mActivity;
+                            activity8 = this.bnx.mActivity;
                             com.baidu.adp.lib.util.m.showToast(activity8, ahVar.jZ().getForbid_info());
                             return;
                         }
@@ -86,40 +86,40 @@ public class j extends BdAsyncTask<Object, Integer, String> {
                         return;
                     }
                 }
-                if (this.bnk == 2) {
-                    activity2 = this.bnj.mActivity;
-                    ar TL = new com.baidu.tieba.model.an(activity2, str).TL();
-                    String id = TL.Aw().getId();
-                    String name = TL.Aw().getName();
-                    String id2 = TL.Ay().getId();
-                    AntiData An = TL.An();
-                    String id3 = TL.As().getId();
-                    int Ae = TL.As().Ae();
+                if (this.bny == 2) {
+                    activity2 = this.bnx.mActivity;
+                    ar TO = new com.baidu.tieba.model.an(activity2, str).TO();
+                    String id = TO.Ay().getId();
+                    String name = TO.Ay().getName();
+                    String id2 = TO.AA().getId();
+                    AntiData Ap = TO.Ap();
+                    String id3 = TO.Au().getId();
+                    int Ag = TO.Au().Ag();
                     if (id3 != null) {
-                        if (An == null || An.getIfpost() != 0) {
-                            activity5 = this.bnj.mActivity;
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteActivityConfig(activity5, 2, id, name, id2, id3, Ae, An, 13001, false, true, this.mUserName, false, false, null, null, null, 0)));
+                        if (Ap == null || Ap.getIfpost() != 0) {
+                            activity5 = this.bnx.mActivity;
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteActivityConfig(activity5, 2, id, name, id2, id3, Ag, Ap, 13001, false, true, this.mUserName, false, false, null, null, null, 0)));
                         } else {
-                            activity6 = this.bnj.mActivity;
-                            com.baidu.adp.lib.util.m.showToast(activity6, An.getForbid_info());
+                            activity6 = this.bnx.mActivity;
+                            com.baidu.adp.lib.util.m.showToast(activity6, Ap.getForbid_info());
                             return;
                         }
-                    } else if (An == null || An.getIfpost() != 0) {
-                        activity3 = this.bnj.mActivity;
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteActivityConfig(activity3, 1, id, name, id2, null, Ae, An, 13002, false, true, this.mUserName, false, false, null, null, null, 0)));
+                    } else if (Ap == null || Ap.getIfpost() != 0) {
+                        activity3 = this.bnx.mActivity;
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteActivityConfig(activity3, 1, id, name, id2, null, Ag, Ap, 13002, false, true, this.mUserName, false, false, null, null, null, 0)));
                     } else {
-                        activity4 = this.bnj.mActivity;
-                        com.baidu.adp.lib.util.m.showToast(activity4, An.getForbid_info());
+                        activity4 = this.bnx.mActivity;
+                        com.baidu.adp.lib.util.m.showToast(activity4, Ap.getForbid_info());
                         return;
                     }
                 }
             } else if (this.yV != null) {
-                activity = this.bnj.mActivity;
+                activity = this.bnx.mActivity;
                 com.baidu.adp.lib.util.m.showToast(activity, this.yV.getErrorString());
             }
         } catch (Exception e) {
         }
-        this.bnj.bng = null;
+        this.bnx.bnu = null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask

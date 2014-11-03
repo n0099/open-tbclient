@@ -118,7 +118,7 @@ public class Hao123Model extends com.baidu.adp.base.e {
             try {
                 barInfo.baID = yVar.getId();
                 barInfo.baName = yVar.getName();
-                if (yVar.zw() != 0) {
+                if (yVar.zy() != 0) {
                     barInfo.qianDao = "yes";
                 } else {
                     barInfo.qianDao = "";

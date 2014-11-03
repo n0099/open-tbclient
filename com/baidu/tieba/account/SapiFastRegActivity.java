@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.atomData.SapiFastRegActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 public class SapiFastRegActivity extends BaseActivity {
-    private com.baidu.tbadk.coreExtra.view.r Kh = null;
-    private String afK = null;
-    private final com.baidu.tbadk.core.account.g BW = new aa(this);
+    private com.baidu.tbadk.coreExtra.view.r Ki = null;
+    private String afS = null;
+    private final com.baidu.tbadk.core.account.g BX = new aa(this);
 
     static {
         TbadkApplication.m251getInst().RegisterIntent(SapiFastRegActivityConfig.class, SapiFastRegActivity.class);
@@ -40,13 +40,13 @@ public class SapiFastRegActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(AccountData accountData) {
-        if (this.Kh == null) {
-            this.Kh = new com.baidu.tbadk.coreExtra.view.r(this);
-            this.Kh.a(new ad(this));
+        if (this.Ki == null) {
+            this.Ki = new com.baidu.tbadk.coreExtra.view.r(this);
+            this.Ki.a(new ad(this));
         }
-        this.Kh.qa();
-        this.Kh.g(accountData);
-        this.Kh.pX();
+        this.Ki.qc();
+        this.Ki.g(accountData);
+        this.Ki.pZ();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -54,7 +54,7 @@ public class SapiFastRegActivity extends BaseActivity {
         com.baidu.tbadk.core.account.a.a(accountData);
         TbadkApplication.setCurrentAccount(accountData, getBaseContext());
         Intent intent = new Intent();
-        intent.putExtra("fast_reg_user_type", this.afK);
+        intent.putExtra("fast_reg_user_type", this.afS);
         setResult(-1, intent);
         finish();
     }

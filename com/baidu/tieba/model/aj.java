@@ -4,63 +4,63 @@ import android.content.Context;
 import com.baidu.tieba.data.MarkData;
 /* loaded from: classes.dex */
 public class aj extends com.baidu.adp.base.e {
-    private boolean bpe;
-    private MarkData bpf;
-    private ak bpg;
-    private al bph;
+    private boolean bps;
+    private MarkData bpt;
+    private ak bpu;
+    private al bpv;
 
     public aj(Context context) {
         super(context);
-        this.bpe = false;
-        this.bpf = null;
-        this.bpg = null;
-        this.bph = null;
-        this.bpf = new MarkData();
+        this.bps = false;
+        this.bpt = null;
+        this.bpu = null;
+        this.bpv = null;
+        this.bpt = new MarkData();
     }
 
-    public boolean zN() {
-        return this.bpe;
+    public boolean zP() {
+        return this.bps;
     }
 
-    public MarkData TH() {
-        return this.bpf;
+    public MarkData TK() {
+        return this.bpt;
     }
 
     public void a(al alVar) {
-        this.bph = alVar;
+        this.bpv = alVar;
     }
 
     public void b(MarkData markData) {
-        this.bpf = markData;
+        this.bpt = markData;
     }
 
     public void bs(boolean z) {
-        this.bpe = z;
+        this.bps = z;
     }
 
-    public String zO() {
-        if (this.bpf != null) {
-            return this.bpf.getPostId();
+    public String zQ() {
+        if (this.bpt != null) {
+            return this.bpt.getPostId();
         }
         return null;
     }
 
-    public void TI() {
-        if (this.bpg != null) {
-            this.bpg.cancel();
+    public void TL() {
+        if (this.bpu != null) {
+            this.bpu.cancel();
         }
-        this.bpg = new ak(this, true);
-        this.bpg.setPriority(3);
-        this.bpg.execute(new Boolean[0]);
+        this.bpu = new ak(this, true);
+        this.bpu.setPriority(3);
+        this.bpu.execute(new Boolean[0]);
     }
 
-    public void TJ() {
-        if (this.bpg != null) {
-            this.bpg.cancel();
+    public void TM() {
+        if (this.bpu != null) {
+            this.bpu.cancel();
         }
-        this.bpg = new ak(this, false);
-        this.bpg.setPriority(3);
-        this.bpg.execute(new Boolean[0]);
+        this.bpu = new ak(this, false);
+        this.bpu.setPriority(3);
+        this.bpu.execute(new Boolean[0]);
     }
 
     @Override // com.baidu.adp.base.e
@@ -70,8 +70,8 @@ public class aj extends com.baidu.adp.base.e {
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.bpg != null) {
-            this.bpg.cancel();
+        if (this.bpu != null) {
+            this.bpu.cancel();
             return false;
         }
         return false;

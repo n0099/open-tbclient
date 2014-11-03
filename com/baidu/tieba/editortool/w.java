@@ -6,13 +6,13 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 /* loaded from: classes.dex */
 class w implements View.OnClickListener {
-    final /* synthetic */ t aqY;
-    private final /* synthetic */ FrameLayout aqZ;
+    final /* synthetic */ t arh;
+    private final /* synthetic */ FrameLayout ari;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(t tVar, FrameLayout frameLayout) {
-        this.aqY = tVar;
-        this.aqZ = frameLayout;
+        this.arh = tVar;
+        this.ari = frameLayout;
     }
 
     @Override // android.view.View.OnClickListener
@@ -45,67 +45,67 @@ class w implements View.OnClickListener {
         EditorToolComponetContainer editorToolComponetContainer20;
         com.baidu.tbadk.editortool.w wVar2;
         EditorToolComponetContainer editorToolComponetContainer21;
-        writeImagesInfo = this.aqY.aqX;
-        editorToolComponetContainer = this.aqY.aqU;
-        writeImagesInfo2 = editorToolComponetContainer.aqS;
+        writeImagesInfo = this.arh.arg;
+        editorToolComponetContainer = this.arh.ard;
+        writeImagesInfo2 = editorToolComponetContainer.arb;
         if (writeImagesInfo == writeImagesInfo2) {
-            editorToolComponetContainer14 = this.aqY.aqU;
-            if (!editorToolComponetContainer14.aqH.Sj()) {
-                editorToolComponetContainer15 = this.aqY.aqU;
-                editorToolComponetContainer15.aqF.O(this.aqZ);
-                editorToolComponetContainer16 = this.aqY.aqU;
-                int P = editorToolComponetContainer16.aqH.P(this.aqZ);
-                editorToolComponetContainer17 = this.aqY.aqU;
-                writeImagesInfo5 = editorToolComponetContainer17.aqS;
+            editorToolComponetContainer14 = this.arh.ard;
+            if (!editorToolComponetContainer14.aqQ.Sm()) {
+                editorToolComponetContainer15 = this.arh.ard;
+                editorToolComponetContainer15.aqO.O(this.ari);
+                editorToolComponetContainer16 = this.arh.ard;
+                int P = editorToolComponetContainer16.aqQ.P(this.ari);
+                editorToolComponetContainer17 = this.arh.ard;
+                writeImagesInfo5 = editorToolComponetContainer17.arb;
                 ImageFileInfo remove = writeImagesInfo5.getChosedFiles().remove(P);
                 if (remove.isTempFile()) {
-                    this.aqY.eH(remove.getFilePath());
+                    this.arh.eH(remove.getFilePath());
                 }
-                editorToolComponetContainer18 = this.aqY.aqU;
-                editorToolComponetContainer18.aqw.rK();
-                editorToolComponetContainer19 = this.aqY.aqU;
-                editorToolComponetContainer19.aqI.setText("");
-                editorToolComponetContainer20 = this.aqY.aqU;
-                wVar2 = editorToolComponetContainer20.RC;
+                editorToolComponetContainer18 = this.arh.ard;
+                editorToolComponetContainer18.aqF.rM();
+                editorToolComponetContainer19 = this.arh.ard;
+                editorToolComponetContainer19.aqR.setText("");
+                editorToolComponetContainer20 = this.arh.ard;
+                wVar2 = editorToolComponetContainer20.RG;
                 wVar2.handleAction(51, null);
-                editorToolComponetContainer21 = this.aqY.aqU;
-                editorToolComponetContainer21.Bn();
+                editorToolComponetContainer21 = this.arh.ard;
+                editorToolComponetContainer21.Bp();
                 return;
             }
             return;
         }
-        editorToolComponetContainer2 = this.aqY.aqU;
-        if (!editorToolComponetContainer2.aqE.Sj()) {
-            editorToolComponetContainer3 = this.aqY.aqU;
-            editorToolComponetContainer3.aqC.O(this.aqZ);
-            editorToolComponetContainer4 = this.aqY.aqU;
-            int P2 = editorToolComponetContainer4.aqE.P(this.aqZ);
-            editorToolComponetContainer5 = this.aqY.aqU;
-            writeImagesInfo3 = editorToolComponetContainer5.aqR;
+        editorToolComponetContainer2 = this.arh.ard;
+        if (!editorToolComponetContainer2.aqN.Sm()) {
+            editorToolComponetContainer3 = this.arh.ard;
+            editorToolComponetContainer3.aqL.O(this.ari);
+            editorToolComponetContainer4 = this.arh.ard;
+            int P2 = editorToolComponetContainer4.aqN.P(this.ari);
+            editorToolComponetContainer5 = this.arh.ard;
+            writeImagesInfo3 = editorToolComponetContainer5.ara;
             ImageFileInfo remove2 = writeImagesInfo3.getChosedFiles().remove(P2);
             if (remove2.isTempFile()) {
-                this.aqY.eH(remove2.getFilePath());
+                this.arh.eH(remove2.getFilePath());
             }
-            editorToolComponetContainer6 = this.aqY.aqU;
-            int maxItemNum = editorToolComponetContainer6.aqE.getMaxItemNum();
-            editorToolComponetContainer7 = this.aqY.aqU;
-            writeImagesInfo4 = editorToolComponetContainer7.aqR;
+            editorToolComponetContainer6 = this.arh.ard;
+            int maxItemNum = editorToolComponetContainer6.aqN.getMaxItemNum();
+            editorToolComponetContainer7 = this.arh.ard;
+            writeImagesInfo4 = editorToolComponetContainer7.ara;
             int size = writeImagesInfo4.size();
-            editorToolComponetContainer8 = this.aqY.aqU;
+            editorToolComponetContainer8 = this.arh.ard;
             String string = editorToolComponetContainer8.getResources().getString(com.baidu.tieba.y.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size));
-            editorToolComponetContainer9 = this.aqY.aqU;
-            editorToolComponetContainer9.aqJ.setText(string);
-            editorToolComponetContainer10 = this.aqY.aqU;
-            editorToolComponetContainer10.aqw.di(new StringBuilder(String.valueOf(size)).toString());
+            editorToolComponetContainer9 = this.arh.ard;
+            editorToolComponetContainer9.aqS.setText(string);
+            editorToolComponetContainer10 = this.arh.ard;
+            editorToolComponetContainer10.aqF.di(new StringBuilder(String.valueOf(size)).toString());
             if (size == 0) {
-                editorToolComponetContainer13 = this.aqY.aqU;
-                editorToolComponetContainer13.aqw.rD();
+                editorToolComponetContainer13 = this.arh.ard;
+                editorToolComponetContainer13.aqF.rF();
             }
-            editorToolComponetContainer11 = this.aqY.aqU;
-            wVar = editorToolComponetContainer11.RC;
+            editorToolComponetContainer11 = this.arh.ard;
+            wVar = editorToolComponetContainer11.RG;
             wVar.handleAction(13, null);
-            editorToolComponetContainer12 = this.aqY.aqU;
-            editorToolComponetContainer12.Bn();
+            editorToolComponetContainer12 = this.arh.ard;
+            editorToolComponetContainer12.Bp();
         }
     }
 }

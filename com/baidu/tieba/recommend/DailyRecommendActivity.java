@@ -12,11 +12,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class DailyRecommendActivity extends BaseActivity {
-    private r bHS;
-    private o bHT;
-    private String bHU;
-    l bHV = new e(this);
-    private final aa buY = new f(this);
+    private r bIg;
+    private o bIh;
+    private String bIi;
+    l bIj = new e(this);
+    private final aa bvm = new f(this);
     private final com.baidu.adp.widget.ListView.f uo = new g(this);
 
     static {
@@ -25,11 +25,11 @@ public class DailyRecommendActivity extends BaseActivity {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public void abI() {
+    public void abL() {
         try {
-            if (!getString(y.no_more_to_load).equals(this.bHS.bxK.aeQ())) {
+            if (!getString(y.no_more_to_load).equals(this.bIg.bxY.aeT())) {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
-                g(true, simpleDateFormat.format(new Date(simpleDateFormat.parse(this.bHU).getTime() - 86400000)));
+                g(true, simpleDateFormat.format(new Date(simpleDateFormat.parse(this.bIi).getTime() - 86400000)));
             }
         } catch (ParseException e) {
             e.printStackTrace();
@@ -37,13 +37,13 @@ public class DailyRecommendActivity extends BaseActivity {
     }
 
     private void d(Bundle bundle) {
-        this.bHT = new o(this);
+        this.bIh = new o(this);
         if (bundle != null) {
-            this.bHT.initWithBundle(bundle);
+            this.bIh.initWithBundle(bundle);
         } else {
-            this.bHT.initWithIntent(getIntent());
+            this.bIh.initWithIntent(getIntent());
         }
-        this.bHT.a(new h(this));
+        this.bIh.a(new h(this));
         g(false, null);
     }
 
@@ -53,39 +53,39 @@ public class DailyRecommendActivity extends BaseActivity {
     }
 
     private void initUI() {
-        this.bHS = new r(this, this.buY, this.bHV);
-        this.bHS.a(this.uo);
-        this.bHS.YH();
+        this.bIg = new r(this, this.bvm, this.bIj);
+        this.bIg.a(this.uo);
+        this.bIg.YK();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.bHS.onResume();
+        this.bIg.onResume();
         TiebaStatic.eventStat(this, "recommend_feature", "visit", 1, new Object[0]);
     }
 
     public void g(boolean z, String str) {
-        so();
+        sq();
         if (str == null && z) {
-            TiebaStatic.eventStat(this.bHS.getContext(), "recommend_pull", "pull");
-            this.bHT.yh();
+            TiebaStatic.eventStat(this.bIg.getContext(), "recommend_pull", "pull");
+            this.bIh.yj();
         } else if (str == null && !z) {
-            this.bHT.abK();
+            this.bIh.abN();
         } else if (str != null && z) {
-            this.bHS.XB();
-            this.bHT.hm(str);
+            this.bIg.XE();
+            this.bIh.hm(str);
         }
     }
 
-    public void so() {
-        this.bHT.cancelLoadData();
+    public void sq() {
+        this.bIh.cancelLoadData();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        this.bHS.onDestroy();
-        so();
+        this.bIg.onDestroy();
+        sq();
         super.onDestroy();
     }
 
@@ -99,6 +99,6 @@ public class DailyRecommendActivity extends BaseActivity {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.bHS.onChangeSkinType(i);
+        this.bIg.onChangeSkinType(i);
     }
 }

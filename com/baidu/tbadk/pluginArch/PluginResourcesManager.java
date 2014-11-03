@@ -26,6 +26,12 @@ public class PluginResourcesManager {
         return pluginResourcesManager;
     }
 
+    public void resetPluginResource(String str) {
+        if (str != null) {
+            this.mActivPlugineResources.remove(str);
+        }
+    }
+
     public Resources getPluginResource(String str, Resources resources) {
         AssetManager assetManager;
         d dVar;

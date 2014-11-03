@@ -6,11 +6,11 @@ import com.baidu.tbadk.game.GameInfoData;
 import java.io.File;
 /* loaded from: classes.dex */
 class ad extends BdAsyncTask<Void, Void, Void> {
-    final /* synthetic */ GameInstallReceiver aHL;
+    final /* synthetic */ GameInstallReceiver aHV;
     private String packageName;
 
     public ad(GameInstallReceiver gameInstallReceiver, String str) {
-        this.aHL = gameInstallReceiver;
+        this.aHV = gameInstallReceiver;
         this.packageName = str;
     }
 
@@ -19,8 +19,8 @@ class ad extends BdAsyncTask<Void, Void, Void> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Void doInBackground(Void... voidArr) {
         File fo;
-        GameInfoData fr = ab.Hs().fr(this.packageName);
-        if (fr != null && !TextUtils.isEmpty(fr.getGameId()) && (fo = ab.Hs().fo(fr.getGameId())) != null && fo.exists()) {
+        GameInfoData fr = ab.Hu().fr(this.packageName);
+        if (fr != null && !TextUtils.isEmpty(fr.getGameId()) && (fo = ab.Hu().fo(fr.getGameId())) != null && fo.exists()) {
             fo.delete();
             return null;
         }

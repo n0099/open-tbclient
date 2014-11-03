@@ -6,19 +6,19 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class d implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
-    private GestureDetector GW = new GestureDetector(this);
-    private e aKJ;
-    private View aKK;
+    private GestureDetector GX = new GestureDetector(this);
+    private e aKX;
+    private View aKY;
 
     public d(e eVar) {
-        this.aKJ = eVar;
+        this.aKX = eVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.aKK = view;
-        if (this.GW != null) {
-            return this.GW.onTouchEvent(motionEvent);
+        this.aKY = view;
+        if (this.GX != null) {
+            return this.GX.onTouchEvent(motionEvent);
         }
         return true;
     }
@@ -54,24 +54,24 @@ public class d implements GestureDetector.OnDoubleTapListener, GestureDetector.O
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
         Log.d("testGestureDetector", "onDoubleTap---->处理双击事件");
-        if (this.aKJ != null) {
-            return this.aKJ.a(this.aKK, motionEvent);
+        if (this.aKX != null) {
+            return this.aKX.a(this.aKY, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.aKJ != null) {
-            return this.aKJ.b(this.aKK, motionEvent);
+        if (this.aKX != null) {
+            return this.aKX.b(this.aKY, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.aKJ != null) {
-            return this.aKJ.c(this.aKK, motionEvent);
+        if (this.aKX != null) {
+            return this.aKX.c(this.aKY, motionEvent);
         }
         return false;
     }

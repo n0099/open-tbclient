@@ -16,6 +16,6 @@ public class GameCenterManagerStatic {
         MessageManager.getInstance().registerTask(bVar);
         MessageManager.getInstance().registerListener(new m(205005));
         MessageManager.getInstance().registerListener(new n(2001236));
-        com.baidu.tbadk.core.util.bf.mR().a(new o());
+        com.baidu.tbadk.core.util.bg.mR().a(new o());
     }
 }

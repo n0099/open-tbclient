@@ -15,12 +15,12 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends BaseAdapter {
-    private List<com.baidu.tbadk.coreExtra.relationship.b> Mr;
-    final /* synthetic */ QuickSearchActivity agP;
+    private List<com.baidu.tbadk.coreExtra.relationship.b> Mu;
+    final /* synthetic */ QuickSearchActivity agY;
 
     private o(QuickSearchActivity quickSearchActivity) {
-        this.agP = quickSearchActivity;
-        this.Mr = new ArrayList();
+        this.agY = quickSearchActivity;
+        this.Mu = new ArrayList();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,13 +29,13 @@ public class o extends BaseAdapter {
     }
 
     public void setContacts(List<com.baidu.tbadk.coreExtra.relationship.b> list) {
-        this.Mr = list;
+        this.Mu = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.Mr != null) {
-            return this.Mr.size();
+        if (this.Mu != null) {
+            return this.Mu.size();
         }
         return 0;
     }
@@ -44,10 +44,10 @@ public class o extends BaseAdapter {
     @Override // android.widget.Adapter
     /* renamed from: dI */
     public com.baidu.tbadk.coreExtra.relationship.b getItem(int i) {
-        if (this.Mr == null || i < 0 || i >= getCount()) {
+        if (this.Mu == null || i < 0 || i >= getCount()) {
             return null;
         }
-        return this.Mr.get(i);
+        return this.Mu.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -58,17 +58,17 @@ public class o extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         p pVar;
-        com.baidu.tbadk.core.d layoutMode = this.agP.getLayoutMode();
+        com.baidu.tbadk.core.d layoutMode = this.agY.getLayoutMode();
         TbadkApplication.m251getInst().getSkinType();
         com.baidu.tbadk.coreExtra.relationship.b item = getItem(i);
         if (item == null) {
             return null;
         }
         if (view == null) {
-            view = com.baidu.adp.lib.g.b.ek().inflate(this.agP, w.quick_search_item, null);
-            p pVar2 = new p(this.agP, null);
-            pVar2.agQ = (HeadImageView) view.findViewById(v.quick_search_item_icon);
-            pVar2.agR = (TextView) view.findViewById(v.quick_search_item_text);
+            view = com.baidu.adp.lib.g.b.ek().inflate(this.agY, w.quick_search_item, null);
+            p pVar2 = new p(this.agY, null);
+            pVar2.agZ = (HeadImageView) view.findViewById(v.quick_search_item_icon);
+            pVar2.aha = (TextView) view.findViewById(v.quick_search_item_text);
             view.setTag(pVar2);
             pVar = pVar2;
         } else {
@@ -77,9 +77,9 @@ public class o extends BaseAdapter {
         layoutMode.h(view);
         aw.h(view, u.addresslist_item_bg);
         if (item.getUserName() != null) {
-            pVar.agR.setText(item.getUserName());
+            pVar.aha.setText(item.getUserName());
         }
-        pVar.agQ.c(item.getUserPortrait(), 12, false);
+        pVar.agZ.c(item.getUserPortrait(), 12, false);
         return view;
     }
 }

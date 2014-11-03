@@ -9,13 +9,13 @@ import com.baidu.tbadk.game.GameInfoData;
 import java.util.List;
 /* loaded from: classes.dex */
 class a extends CustomMessageListener {
-    final /* synthetic */ GameDownloadView aKj;
+    final /* synthetic */ GameDownloadView aKx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(GameDownloadView gameDownloadView, int i) {
         super(i);
-        this.aKj = gameDownloadView;
+        this.aKx = gameDownloadView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -38,7 +38,7 @@ class a extends CustomMessageListener {
         GameInfoData gameInfoData3;
         GameInfoData gameInfoData4;
         if (customResponsedMessage instanceof DownloadMessage) {
-            gameInfoData = this.aKj.aKf;
+            gameInfoData = this.aKx.aKt;
             if (gameInfoData != null) {
                 List<DownloadData> data = ((DownloadMessage) customResponsedMessage).getData();
                 int i = 0;
@@ -48,30 +48,30 @@ class a extends CustomMessageListener {
                         break;
                     }
                     downloadData = data.get(i2);
-                    gameInfoData3 = this.aKj.aKf;
+                    gameInfoData3 = this.aKx.aKt;
                     if (!TextUtils.isEmpty(gameInfoData3.getGameId())) {
-                        gameInfoData4 = this.aKj.aKf;
+                        gameInfoData4 = this.aKx.aKt;
                     } else {
                         i = i2 + 1;
                     }
                 }
                 if (downloadData != null) {
                     if (downloadData.getStatus() == 1) {
-                        this.aKj.v(((float) downloadData.getLength()) / ((float) downloadData.getSize()));
+                        this.aKx.v(((float) downloadData.getLength()) / ((float) downloadData.getSize()));
                     } else if (downloadData.getStatus() != 5) {
                         if (downloadData.getStatus() == 0) {
-                            dVar = this.aKj.aKg;
+                            dVar = this.aKx.aKu;
                             if (dVar != null) {
-                                dVar2 = this.aKj.aKg;
-                                gameInfoData2 = this.aKj.aKf;
+                                dVar2 = this.aKx.aKu;
+                                gameInfoData2 = this.aKx.aKt;
                                 dVar2.a(gameInfoData2, downloadData);
                             }
-                            this.aKj.Il();
+                            this.aKx.Ip();
                         } else if (downloadData.getStatus() == 2) {
-                            this.aKj.t(((float) downloadData.getLength()) / ((float) downloadData.getSize()));
+                            this.aKx.t(((float) downloadData.getLength()) / ((float) downloadData.getSize()));
                         }
                     } else {
-                        this.aKj.Io();
+                        this.aKx.Is();
                     }
                 }
             }

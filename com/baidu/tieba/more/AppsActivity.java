@@ -17,13 +17,13 @@ public class AppsActivity extends BaseActivity {
     private String mUrl = null;
     private BaseWebView mWebView = null;
     private ImageView xL = null;
-    private j bqe = null;
-    private LinearLayout bqf = null;
-    private ProgressBar bqg = null;
+    private j bqs = null;
+    private LinearLayout bqt = null;
+    private ProgressBar bqu = null;
     private ImageView xK = null;
     private RelativeLayout mParent = null;
-    private RelativeLayout bqh = null;
-    private TextView atA = null;
+    private RelativeLayout bqv = null;
+    private TextView atJ = null;
 
     public static void startActivity(Context context, String str) {
         Intent intent = new Intent(context, AppsActivity.class);
@@ -31,7 +31,7 @@ public class AppsActivity extends BaseActivity {
         context.startActivity(intent);
     }
 
-    public static void Ue() {
+    public static void Uh() {
         com.baidu.adp.lib.g.k.el().b(new f());
         com.baidu.tbadk.core.sharedPref.b.lk().putLong("app_inverval", System.currentTimeMillis());
     }
@@ -53,19 +53,19 @@ public class AppsActivity extends BaseActivity {
         }
         if (System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.lk().getLong("app_inverval", 0L) > 86400000) {
             refresh();
-        } else if (!Uf()) {
+        } else if (!Ui()) {
             refresh();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void refresh() {
-        if (this.bqe != null) {
-            this.bqe.cancel();
+        if (this.bqs != null) {
+            this.bqs.cancel();
         }
-        this.bqe = new j(this, this.mUrl);
-        this.bqe.setPriority(3);
-        this.bqe.execute(new Object[0]);
+        this.bqs = new j(this, this.mUrl);
+        this.bqs.setPriority(3);
+        this.bqs.execute(new Object[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -74,21 +74,21 @@ public class AppsActivity extends BaseActivity {
         super.onChangeSkinType(i);
         com.baidu.tbadk.core.util.aw.d(this.mParent, i);
         com.baidu.tbadk.core.util.aw.d(this.mWebView, i);
-        com.baidu.tbadk.core.util.aw.g(this.bqh, i);
+        com.baidu.tbadk.core.util.aw.g(this.bqv, i);
         com.baidu.tbadk.core.util.aw.a(this.xL, i);
-        com.baidu.tbadk.core.util.aw.d(this.atA, i);
+        com.baidu.tbadk.core.util.aw.d(this.atJ, i);
         com.baidu.tbadk.core.util.aw.b(this.xK, i);
     }
 
     private void iT() {
         this.mParent = (RelativeLayout) findViewById(com.baidu.tieba.v.parent);
-        this.bqh = (RelativeLayout) findViewById(com.baidu.tieba.v.title);
-        this.atA = (TextView) findViewById(com.baidu.tieba.v.title_text);
+        this.bqv = (RelativeLayout) findViewById(com.baidu.tieba.v.title);
+        this.atJ = (TextView) findViewById(com.baidu.tieba.v.title_text);
         this.mWebView = (BaseWebView) findViewById(com.baidu.tieba.v.app_webView);
         this.mWebView.setDownloadEnabled(true);
-        this.bqg = (ProgressBar) findViewById(com.baidu.tieba.v.app_progress);
-        this.bqf = (LinearLayout) findViewById(com.baidu.tieba.v.webview_fail_imageview);
-        this.bqf.setOnClickListener(new g(this));
+        this.bqu = (ProgressBar) findViewById(com.baidu.tieba.v.app_progress);
+        this.bqt = (LinearLayout) findViewById(com.baidu.tieba.v.webview_fail_imageview);
+        this.bqt.setOnClickListener(new g(this));
         this.xK = (ImageView) findViewById(com.baidu.tieba.v.refresh);
         this.xK.setOnClickListener(new h(this));
         this.xL = (ImageView) findViewById(com.baidu.tieba.v.back);
@@ -96,12 +96,12 @@ public class AppsActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Uf() {
+    public boolean Ui() {
         String hA = com.baidu.tieba.util.j.hA(7);
         if (hA == null || hA.length() <= 1) {
             return false;
         }
-        this.bqg.setVisibility(8);
+        this.bqu.setVisibility(8);
         this.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, hA, "text/html", "utf-8", "");
         return true;
     }

@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ah implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ FrsActivity aBk;
+    final /* synthetic */ FrsActivity aBu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(FrsActivity frsActivity) {
-        this.aBk = frsActivity;
+        this.aBu = frsActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
@@ -19,18 +19,18 @@ public class ah implements com.baidu.tbadk.core.dialog.d {
         bu buVar2;
         bu buVar3;
         if (UtilHelper.isNetOk()) {
-            buVar = this.aBk.aAv;
-            if (buVar.EO() != null) {
-                buVar2 = this.aBk.aAv;
-                buVar2.EO().setLocationInfoViewState(1);
-                buVar3 = this.aBk.aAv;
-                buVar3.EO().setLocationViewVisibility(0);
+            buVar = this.aBu.aAF;
+            if (buVar.EQ() != null) {
+                buVar2 = this.aBu.aAF;
+                buVar2.EQ().setLocationInfoViewState(1);
+                buVar3 = this.aBu.aAF;
+                buVar3.EQ().setLocationViewVisibility(0);
             }
-            dVar = this.aBk.ays;
-            dVar.Sw();
+            dVar = this.aBu.ayB;
+            dVar.Sz();
         } else {
-            iVar = this.aBk.ayD;
-            iVar.EG();
+            iVar = this.aBu.ayM;
+            iVar.EI();
         }
         aVar.dismiss();
     }

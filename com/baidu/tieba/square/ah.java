@@ -7,31 +7,31 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ah {
-    private ArrayList<ak> bMR = new ArrayList<>();
-    private ArrayList<ak> bMS = new ArrayList<>();
-    private u bMT = new u();
-    private ForumDetailData.ThreadInfo[] bMU = null;
-    private aj bMV = null;
+    private ArrayList<ak> bNg = new ArrayList<>();
+    private ArrayList<ak> bNh = new ArrayList<>();
+    private u bNi = new u();
+    private ForumDetailData.ThreadInfo[] bNj = null;
+    private aj bNk = null;
     private boolean isSuccess = true;
 
-    public boolean adr() {
+    public boolean adu() {
         return this.isSuccess;
     }
 
-    public ArrayList<ak> ads() {
-        return this.bMR;
+    public ArrayList<ak> adv() {
+        return this.bNg;
     }
 
-    public ArrayList<ak> adt() {
-        return this.bMS;
+    public ArrayList<ak> adw() {
+        return this.bNh;
     }
 
-    public u adu() {
-        return this.bMT;
+    public u adx() {
+        return this.bNi;
     }
 
-    public aj adv() {
-        return this.bMV;
+    public aj ady() {
+        return this.bNk;
     }
 
     public void parserJson(String str) {
@@ -51,10 +51,10 @@ public class ah {
         try {
             c(jSONObject.optJSONArray("banner"));
             d(jSONObject.optJSONArray("forum_list_recommend_img"));
-            this.bMT.b(jSONObject.optJSONArray("forum_list_recommend"));
+            this.bNi.b(jSONObject.optJSONArray("forum_list_recommend"));
             e(jSONObject.optJSONArray("thread_list"));
-            this.bMV = new aj();
-            this.bMV.parserJson(jSONObject);
+            this.bNk = new aj();
+            this.bNk.parserJson(jSONObject);
         } catch (Exception e) {
             this.isSuccess = false;
             BdLog.e(e.toString());
@@ -70,7 +70,7 @@ public class ah {
                         JSONObject jSONObject = jSONArray.getJSONObject(i);
                         akVar.hu(jSONObject.optString("pic_url", ""));
                         akVar.setLink(jSONObject.optString("link", ""));
-                        this.bMR.add(akVar);
+                        this.bNg.add(akVar);
                     }
                 }
             } catch (Exception e) {
@@ -88,7 +88,7 @@ public class ah {
                         JSONObject jSONObject = jSONArray.getJSONObject(i);
                         akVar.hu(jSONObject.optString("pic_url", ""));
                         akVar.setLink(jSONObject.optString("link", ""));
-                        this.bMS.add(akVar);
+                        this.bNh.add(akVar);
                     }
                 }
             } catch (Exception e) {
@@ -101,7 +101,7 @@ public class ah {
         if (jSONArray != null) {
             try {
                 if (jSONArray.length() != 0) {
-                    this.bMU = new ForumDetailData.ThreadInfo[jSONArray.length()];
+                    this.bNj = new ForumDetailData.ThreadInfo[jSONArray.length()];
                     for (int i = 0; i < jSONArray.length(); i++) {
                         ForumDetailData.ThreadInfo threadInfo = new ForumDetailData.ThreadInfo();
                         JSONObject jSONObject = jSONArray.getJSONObject(i);
@@ -121,7 +121,7 @@ public class ah {
                                 threadAbstract.text = jSONObject2.optString("text", "");
                                 threadInfo.Abstract[i2] = threadAbstract;
                             }
-                            this.bMU[i] = threadInfo;
+                            this.bNj[i] = threadInfo;
                         } else {
                             return;
                         }
@@ -136,7 +136,7 @@ public class ah {
     public boolean isEmpty() {
         boolean z = false;
         if (this.isSuccess) {
-            if (this.bMR == null || this.bMV == null || this.bMS == null || this.bMT == null || this.bMU == null) {
+            if (this.bNg == null || this.bNk == null || this.bNh == null || this.bNi == null || this.bNj == null) {
                 z = true;
             }
             return z;

@@ -7,15 +7,15 @@ import android.widget.BaseAdapter;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
-    private ArrayList<a> QE = new ArrayList<>();
+    private ArrayList<a> QI = new ArrayList<>();
     private Context mContext;
 
     public b(Context context) {
         this.mContext = context;
     }
 
-    public ArrayList<a> qZ() {
-        return this.QE;
+    public ArrayList<a> rb() {
+        return this.QI;
     }
 
     public Context getContext() {
@@ -23,25 +23,25 @@ public class b extends BaseAdapter {
     }
 
     public void a(a aVar) {
-        if (this.QE != null && aVar != null) {
-            this.QE.add(aVar);
+        if (this.QI != null && aVar != null) {
+            this.QI.add(aVar);
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.QE == null) {
+        if (this.QI == null) {
             return 0;
         }
-        return this.QE.size();
+        return this.QI.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: cC */
     public a getItem(int i) {
-        if (this.QE != null && i < this.QE.size()) {
-            return this.QE.get(i);
+        if (this.QI != null && i < this.QI.size()) {
+            return this.QI.get(i);
         }
         return null;
     }
@@ -55,9 +55,9 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view != null) {
             c cVar = (c) view.getTag();
-            cVar.QF.setImageResource(this.QE.get(i).qW());
-            cVar.QG.setText(this.QE.get(i).qX());
-            cVar.QH.setText(i);
+            cVar.QJ.setImageResource(this.QI.get(i).qY());
+            cVar.QK.setText(this.QI.get(i).qZ());
+            cVar.QL.setText(i);
             return view;
         }
         return null;

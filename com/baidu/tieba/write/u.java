@@ -4,11 +4,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements View.OnClickListener {
-    final /* synthetic */ t bTa;
+    final /* synthetic */ t bTp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar) {
-        this.bTa = tVar;
+        this.bTp = tVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -17,12 +17,12 @@ public class u implements View.OnClickListener {
         s sVar;
         r rVar2;
         s sVar2;
-        rVar = this.bTa.bSZ;
-        sVar = rVar.bSR;
+        rVar = this.bTp.bTo;
+        sVar = rVar.bTg;
         if (sVar != null) {
-            rVar2 = this.bTa.bSZ;
-            sVar2 = rVar2.bSR;
-            sVar2.aff();
+            rVar2 = this.bTp.bTo;
+            sVar2 = rVar2.bTg;
+            sVar2.afi();
         }
     }
 }

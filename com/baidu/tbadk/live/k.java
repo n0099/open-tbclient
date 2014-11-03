@@ -14,11 +14,11 @@ import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends Handler {
-    final /* synthetic */ LiveGroupManager Vu;
+    final /* synthetic */ LiveGroupManager Vy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(LiveGroupManager liveGroupManager) {
-        this.Vu = liveGroupManager;
+        this.Vy = liveGroupManager;
     }
 
     @Override // android.os.Handler
@@ -35,21 +35,21 @@ public class k extends Handler {
             case 1:
                 LiveStatusParcelable liveStatusParcelable = (LiveStatusParcelable) message.obj;
                 if (liveStatusParcelable != null) {
-                    i2 = this.Vu.mLastStatusBroadcasted;
+                    i2 = this.Vy.mLastStatusBroadcasted;
                     if (i2 != liveStatusParcelable.status) {
                         LiveStatusChangeMessage.LiveStatusData liveStatusData = new LiveStatusChangeMessage.LiveStatusData();
                         liveStatusData.status = liveStatusParcelable.status;
                         liveStatusData.groupId = liveStatusParcelable.groupId;
                         liveStatusData.url = liveStatusParcelable.url;
                         liveStatusData.errorString = liveStatusParcelable.errorString;
-                        this.Vu.broadcastLiveStatusChanged(liveStatusData);
+                        this.Vy.broadcastLiveStatusChanged(liveStatusData);
                         if (liveStatusParcelable.status == 3) {
-                            i3 = this.Vu.mLastStatusBroadcasted;
+                            i3 = this.Vy.mLastStatusBroadcasted;
                             if (i3 != 4) {
                                 TiebaStatic.eventStat(TbadkApplication.m251getInst().getApp(), "has_live_bhv", "", 1, "group_id", liveStatusParcelable.groupId);
                             }
                         }
-                        this.Vu.mLastStatusBroadcasted = liveStatusParcelable.status;
+                        this.Vy.mLastStatusBroadcasted = liveStatusParcelable.status;
                         return;
                     }
                     return;
@@ -86,32 +86,32 @@ public class k extends Handler {
                         TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_PLAY_INVALID_CODEC, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_PLAY_INVALID_CODEC), "");
                         UtilHelper.showToast(TbadkApplication.m251getInst().getApp(), y.live_error_play_invalid_codec);
                     }
-                    this.Vu.broadcastLiveError(str);
+                    this.Vy.broadcastLiveError(str);
                     return;
                 }
                 return;
             case 3:
-                this.Vu.notifyPositionEvent((String) message.obj, message.arg1, message.arg2);
+                this.Vy.notifyPositionEvent((String) message.obj, message.arg1, message.arg2);
                 return;
             case 4:
                 int i4 = message.arg1;
-                nVar = this.Vu.mRecordTimeWatcher;
+                nVar = this.Vy.mRecordTimeWatcher;
                 if (nVar != null) {
-                    nVar2 = this.Vu.mRecordTimeWatcher;
+                    nVar2 = this.Vy.mRecordTimeWatcher;
                     nVar2.cW(i4);
                     return;
                 }
                 return;
             case 5:
                 TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_PLAY_INVALID_CODEC, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_PLAY_INVALID_CODEC), "");
-                LiveGroupManager liveGroupManager = this.Vu;
+                LiveGroupManager liveGroupManager = this.Vy;
                 i = liveGroupManager.mAccTimesWhenNoStreamWarning;
                 liveGroupManager.mAccTimesWhenNoStreamWarning = i + 1;
-                z = this.Vu.mHasBookedWarningTask;
+                z = this.Vy.mHasBookedWarningTask;
                 if (!z) {
-                    this.Vu.mHasBookedWarningTask = true;
-                    handler = this.Vu.mHandler;
-                    runnable = this.Vu.mStreamWarningTask;
+                    this.Vy.mHasBookedWarningTask = true;
+                    handler = this.Vy.mHandler;
+                    runnable = this.Vy.mStreamWarningTask;
                     handler.postDelayed(runnable, 20000L);
                     return;
                 }
@@ -124,7 +124,7 @@ public class k extends Handler {
                 super.handleMessage(message);
                 return;
             case 10:
-                this.Vu.queryCurrentStatus();
+                this.Vy.queryCurrentStatus();
                 return;
         }
     }

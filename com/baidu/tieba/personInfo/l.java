@@ -5,13 +5,13 @@ import com.baidu.tbadk.newFriends.RequestApplyMessage;
 import com.baidu.tbadk.newFriends.ResponseApplyMessage;
 /* loaded from: classes.dex */
 class l extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ PersonInfoActivity bED;
+    final /* synthetic */ PersonInfoActivity bER;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(PersonInfoActivity personInfoActivity, int i) {
         super(i);
-        this.bED = personInfoActivity;
+        this.bER = personInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +24,7 @@ class l extends com.baidu.adp.framework.listener.e {
             int error = responseApplyMessage.getError();
             String errorString = responseApplyMessage.getErrorString();
             if (error != 0) {
-                this.bED.showToast(errorString);
+                this.bER.showToast(errorString);
                 return;
             }
             RequestApplyMessage requestApplyMessage = (RequestApplyMessage) responseApplyMessage.getOrginalMessage();
@@ -32,10 +32,10 @@ class l extends com.baidu.adp.framework.listener.e {
             replyInfo.setUserId(requestApplyMessage.getUid());
             replyInfo.setFriendId(requestApplyMessage.getFriendId());
             replyInfo.setMessage(requestApplyMessage.getMessage());
-            vVar = this.bED.bEs;
-            vVar.aaS().getReplyInfo().add(replyInfo);
-            aeVar = this.bED.bEt;
-            aeVar.abe();
+            vVar = this.bER.bEG;
+            vVar.aaV().getReplyInfo().add(replyInfo);
+            aeVar = this.bER.bEH;
+            aeVar.abh();
         }
     }
 }

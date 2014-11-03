@@ -1,26 +1,23 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ay implements View.OnClickListener {
-    final /* synthetic */ UpdateDialog this$0;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ay(UpdateDialog updateDialog) {
-        this.this$0 = updateDialog;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        ac acVar;
-        z = this.this$0.acU;
-        if (z) {
-            this.this$0.wZ();
+public class ay implements CustomMessageTask.CustomRunnable<AccountData> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<AccountData> customMessage) {
+        if (com.baidu.adp.lib.util.m.fu()) {
+            aj.a(customMessage.getData(), TbadkApplication.m251getInst());
+            return null;
+        } else if (aj.wm() != null) {
+            aj.wm().handler.post(new az(this, customMessage));
+            return null;
+        } else {
+            return null;
         }
-        acVar = this.this$0.aeg;
-        acVar.dismiss();
-        this.this$0.finish();
     }
 }

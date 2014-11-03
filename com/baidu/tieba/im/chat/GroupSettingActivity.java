@@ -18,41 +18,41 @@ import com.baidu.tieba.im.model.UpdateGroupModel;
 import com.baidu.tieba.im.updategroup.UpdateGroupActivity;
 /* loaded from: classes.dex */
 public class GroupSettingActivity extends BaseActivity implements com.baidu.adp.widget.BdSwitchView.c {
-    private UpdateGroupModel aOj;
-    private com.baidu.tieba.im.a<Boolean> aOl;
+    private UpdateGroupModel aOx;
+    private com.baidu.tieba.im.a<Boolean> aOz;
     private boolean isAcceptNotify;
-    private bp aOh = null;
-    private bm aOi = null;
-    private ReportGroupModel aOk = null;
-    private com.baidu.adp.framework.listener.e ayJ = new be(this, 0);
-    private final DialogInterface.OnClickListener aOm = new bf(this);
-    private com.baidu.adp.framework.listener.e aOn = new bg(this, 0);
+    private bp aOv = null;
+    private bm aOw = null;
+    private ReportGroupModel aOy = null;
+    private com.baidu.adp.framework.listener.e ayS = new be(this, 0);
+    private final DialogInterface.OnClickListener aOA = new bf(this);
+    private com.baidu.adp.framework.listener.e aOB = new bg(this, 0);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.aOh = new bp(this);
-        this.aOi = new bm(this);
-        this.aOj = new UpdateGroupModel(this);
-        this.aOi.setUniqueId(getUniqueId());
-        this.aOj.setUniqueId(getUniqueId());
+        this.aOv = new bp(this);
+        this.aOw = new bm(this);
+        this.aOx = new UpdateGroupModel(this);
+        this.aOw.setUniqueId(getUniqueId());
+        this.aOx.setUniqueId(getUniqueId());
         initData();
-        this.aOh.setGroupName(this.aOi.getGroupName());
-        this.aOh.b(this.aOm);
-        this.aOh.cz(fn(this.aOi.getFlag()));
-        this.aOh.HJ();
-        this.aOl = new bh(this);
-        this.aOi.a(this.aOl);
-        HJ();
+        this.aOv.setGroupName(this.aOw.getGroupName());
+        this.aOv.b(this.aOA);
+        this.aOv.cz(fn(this.aOw.getFlag()));
+        this.aOv.HN();
+        this.aOz = new bh(this);
+        this.aOw.a(this.aOz);
+        HN();
     }
 
-    private void HJ() {
-        registerListener(103103, this.aOn);
-        registerListener(103102, this.ayJ);
-        registerListener(103112, this.ayJ);
-        registerListener(103104, this.ayJ);
-        registerListener(2001141, this.ayJ);
+    private void HN() {
+        registerListener(103103, this.aOB);
+        registerListener(103102, this.ayS);
+        registerListener(103112, this.ayS);
+        registerListener(103104, this.ayS);
+        registerListener(2001141, this.ayS);
     }
 
     public void initData() {
@@ -62,17 +62,17 @@ public class GroupSettingActivity extends BaseActivity implements com.baidu.adp.
             String stringExtra2 = intent.getStringExtra("intent_data_group_id");
             int intExtra = intent.getIntExtra("intent_data_group_flag", 0);
             if (intent.getBooleanExtra("intent_data_is_group_master", false)) {
-                this.aOh.JJ();
-                this.aOh.JO();
-                this.aOh.cy(true);
-                this.aOh.JM();
+                this.aOv.JN();
+                this.aOv.JS();
+                this.aOv.cy(true);
+                this.aOv.JQ();
             } else {
-                this.aOh.JL();
-                this.aOh.JN();
-                this.aOh.cy(false);
-                this.aOh.JK();
+                this.aOv.JP();
+                this.aOv.JR();
+                this.aOv.cy(false);
+                this.aOv.JO();
             }
-            this.aOi.d(stringExtra2, stringExtra, intExtra);
+            this.aOw.d(stringExtra2, stringExtra, intExtra);
         }
     }
 
@@ -80,7 +80,7 @@ public class GroupSettingActivity extends BaseActivity implements com.baidu.adp.
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.aOh.onChangeSkinType(i);
+        this.aOv.onChangeSkinType(i);
     }
 
     public static void a(Activity activity, int i, String str, String str2, boolean z, int i2) {
@@ -102,18 +102,18 @@ public class GroupSettingActivity extends BaseActivity implements com.baidu.adp.
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != null) {
-            if (view.equals(this.aOh.JB())) {
-                UpdateGroupActivity.a(this, 1, Integer.parseInt(this.aOi.getGroupId()), 1, this.aOi.getGroupName());
-            } else if (view.equals(this.aOh.JC())) {
-                this.aOh.JG();
-            } else if (view.equals(this.aOh.JE())) {
-                this.aOh.JI();
-            } else if (view.equals(this.aOh.JA())) {
+            if (view.equals(this.aOv.JF())) {
+                UpdateGroupActivity.a(this, 1, Integer.parseInt(this.aOw.getGroupId()), 1, this.aOw.getGroupName());
+            } else if (view.equals(this.aOv.JG())) {
+                this.aOv.JK();
+            } else if (view.equals(this.aOv.JI())) {
+                this.aOv.JM();
+            } else if (view.equals(this.aOv.JE())) {
                 finish();
-            } else if (view.equals(this.aOh.JF())) {
+            } else if (view.equals(this.aOv.JJ())) {
                 new AlertDialog.Builder(this).setTitle(com.baidu.tieba.y.alert_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.y.alert_clear_cache_group).setPositiveButton(com.baidu.tieba.y.alert_yes_button, new bi(this)).setNegativeButton(com.baidu.tieba.y.alert_no_button, new bl(this)).create().show();
-            } else if (view == this.aOh.JD()) {
-                this.aOh.JR();
+            } else if (view == this.aOv.JH()) {
+                this.aOv.JV();
             }
         }
     }
@@ -121,7 +121,7 @@ public class GroupSettingActivity extends BaseActivity implements com.baidu.adp.
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void finish() {
         Intent intent = new Intent();
-        intent.putExtra("intent_data_group_flag", this.aOi.getFlag());
+        intent.putExtra("intent_data_group_flag", this.aOw.getFlag());
         setResult(-1, intent);
         super.finish();
     }
@@ -129,11 +129,11 @@ public class GroupSettingActivity extends BaseActivity implements com.baidu.adp.
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, BdSwitchView.SwitchState switchState) {
         if (view != null) {
-            if (view.equals(this.aOh.JE())) {
-                this.aOh.JI();
-            } else if (view.equals(this.aOh.JQ())) {
+            if (view.equals(this.aOv.JI())) {
+                this.aOv.JM();
+            } else if (view.equals(this.aOv.JU())) {
                 if (BdSwitchView.SwitchState.ON == switchState) {
-                    this.aOi.cx(true);
+                    this.aOw.cx(true);
                     if (!this.isAcceptNotify) {
                         MessageManager.getInstance().dispatchResponsedMessage(new SettingChangeMessage(1));
                         this.isAcceptNotify = true;
@@ -141,16 +141,16 @@ public class GroupSettingActivity extends BaseActivity implements com.baidu.adp.
                     }
                     return;
                 }
-                this.aOi.cx(false);
+                this.aOw.cx(false);
                 if (this.isAcceptNotify) {
                     MessageManager.getInstance().dispatchResponsedMessage(new SettingChangeMessage(1));
                     this.isAcceptNotify = false;
                 }
-            } else if (view.equals(this.aOh.JP())) {
+            } else if (view.equals(this.aOv.JT())) {
                 if (BdSwitchView.SwitchState.ON == switchState) {
-                    fo(p(this.aOi.getFlag(), true));
+                    fo(p(this.aOw.getFlag(), true));
                 } else {
-                    fo(p(this.aOi.getFlag(), false));
+                    fo(p(this.aOw.getFlag(), false));
                 }
             }
         }
@@ -165,10 +165,10 @@ public class GroupSettingActivity extends BaseActivity implements com.baidu.adp.
     }
 
     private void fo(int i) {
-        if (this.aOj != null) {
-            this.aOj.setGroupId(this.aOi.Jz());
-            this.aOj.setFlag(i);
-            this.aOj.sendMessage(5);
+        if (this.aOx != null) {
+            this.aOx.setGroupId(this.aOw.JD());
+            this.aOx.setFlag(i);
+            this.aOx.sendMessage(5);
             showProgressBar();
         }
     }
@@ -187,13 +187,13 @@ public class GroupSettingActivity extends BaseActivity implements com.baidu.adp.
     @Override // com.baidu.adp.base.BdBaseActivity, android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         if (dialogInterface != null) {
-            if (dialogInterface == this.aOh.JH()) {
+            if (dialogInterface == this.aOv.JL()) {
                 showProgressBar();
-                this.aOi.D(Long.parseLong(this.aOi.getGroupId()));
+                this.aOw.D(Long.parseLong(this.aOw.getGroupId()));
             }
-            if (dialogInterface == this.aOh.JS()) {
+            if (dialogInterface == this.aOv.JW()) {
                 showProgressBar();
-                this.aOi.fp(this.aOi.Jz());
+                this.aOw.fp(this.aOw.JD());
             }
         }
     }
@@ -202,16 +202,16 @@ public class GroupSettingActivity extends BaseActivity implements com.baidu.adp.
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.ayJ);
-        if (this.aOi != null) {
-            this.aOi.cancelMessage();
+        MessageManager.getInstance().unRegisterListener(this.ayS);
+        if (this.aOw != null) {
+            this.aOw.cancelMessage();
         }
-        if (this.aOk != null) {
-            this.aOk.cancelMessage();
+        if (this.aOy != null) {
+            this.aOy.cancelMessage();
         }
-        MessageManager.getInstance().unRegisterListener(this.aOn);
-        if (this.aOh != null) {
-            this.aOh.JT();
+        MessageManager.getInstance().unRegisterListener(this.aOB);
+        if (this.aOv != null) {
+            this.aOv.JX();
         }
     }
 

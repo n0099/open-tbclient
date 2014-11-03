@@ -4,9 +4,9 @@ import android.widget.LinearLayout;
 import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
 class i {
-    public LinearLayout Pc;
-    public com.baidu.tbadk.core.view.d ayf;
-    public NoNetworkView ayg;
+    public LinearLayout Pg;
+    public com.baidu.tbadk.core.view.d ayo;
+    public NoNetworkView ayp;
 
     private i() {
     }

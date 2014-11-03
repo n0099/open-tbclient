@@ -8,10 +8,10 @@ import com.baidu.tbadk.core.view.o;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements TextWatcher {
-    final /* synthetic */ GameSearchActivity aJH;
+    final /* synthetic */ GameSearchActivity aJU;
 
     private i(GameSearchActivity gameSearchActivity) {
-        this.aJH = gameSearchActivity;
+        this.aJU = gameSearchActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,24 +29,24 @@ public class i implements TextWatcher {
         String str;
         int i4;
         int i5;
-        this.aJH.Id();
+        this.aJU.Ih();
         if (charSequence.toString().trim().length() == 0) {
-            this.aJH.aJB = "";
-            bdListView = this.aJH.aJn;
+            this.aJU.aJO = "";
+            bdListView = this.aJU.aJA;
             bdListView.setVisibility(8);
             return;
         }
-        this.aJH.aJB = charSequence.toString();
-        this.aJH.aJD = true;
+        this.aJU.aJO = charSequence.toString();
+        this.aJU.aJQ = true;
         GameSearchNetMessage gameSearchNetMessage = new GameSearchNetMessage();
-        str = this.aJH.aJB;
+        str = this.aJU.aJO;
         gameSearchNetMessage.setQuery(str);
-        i4 = this.aJH.rn;
+        i4 = this.aJU.rn;
         gameSearchNetMessage.setRn(Integer.valueOf(i4));
-        this.aJH.aJC = 0;
-        i5 = this.aJH.aJC;
+        this.aJU.aJP = 0;
+        i5 = this.aJU.aJP;
         gameSearchNetMessage.setPageNum(Integer.valueOf(i5 + 1));
-        this.aJH.sendMessage(gameSearchNetMessage);
+        this.aJU.sendMessage(gameSearchNetMessage);
     }
 
     @Override // android.text.TextWatcher
@@ -58,20 +58,20 @@ public class i implements TextWatcher {
         o oVar2;
         BdListView bdListView2;
         if (editable.toString().trim().length() == 0) {
-            textView2 = this.aJH.aJy;
+            textView2 = this.aJU.aJL;
             textView2.setVisibility(8);
-            oVar2 = this.aJH.aJA;
+            oVar2 = this.aJU.aJN;
             oVar2.setVisibility(0);
-            bdListView2 = this.aJH.aJn;
+            bdListView2 = this.aJU.aJA;
             bdListView2.setVisibility(8);
-            this.aJH.Id();
+            this.aJU.Ih();
             return;
         }
-        textView = this.aJH.aJy;
+        textView = this.aJU.aJL;
         textView.setVisibility(0);
-        oVar = this.aJH.aJA;
+        oVar = this.aJU.aJN;
         oVar.setVisibility(8);
-        bdListView = this.aJH.aJn;
+        bdListView = this.aJU.aJA;
         bdListView.setVisibility(0);
     }
 }

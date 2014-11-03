@@ -10,26 +10,26 @@ import android.widget.ScrollView;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class ch extends PopupWindow {
-    private LinearLayout Pc;
-    private int RK;
-    private ci bUB;
+    private LinearLayout Pg;
+    private int RO;
+    private ci bUQ;
     private Context context;
     private int count;
     private int maxHeight;
 
     public ch(Context context) {
         super(context);
-        this.RK = -1;
+        this.RO = -1;
         this.context = context;
         init(context);
     }
 
     private void init(Context context) {
         ScrollView scrollView = new ScrollView(context);
-        this.Pc = new LinearLayout(context);
-        this.Pc.setOrientation(1);
-        this.Pc.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        scrollView.addView(this.Pc);
+        this.Pg = new LinearLayout(context);
+        this.Pg.setOrientation(1);
+        this.Pg.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        scrollView.addView(this.Pg);
         scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         scrollView.setPadding(0, 0, com.baidu.adp.lib.util.m.dip2px(context, 1.0f), com.baidu.adp.lib.util.m.dip2px(context, 1.0f));
         scrollView.setFadingEdgeLength(0);
@@ -59,8 +59,8 @@ public class ch extends PopupWindow {
     }
 
     public void addView(View view) {
-        view.setOnClickListener(new cj(this.count, this.bUB));
-        this.Pc.addView(view);
+        view.setOnClickListener(new cj(this.count, this.bUQ));
+        this.Pg.addView(view);
         this.count++;
     }
 
@@ -69,14 +69,14 @@ public class ch extends PopupWindow {
     }
 
     public void dP(int i) {
-        if (this.RK != -1) {
-            this.Pc.getChildAt(this.RK).setSelected(false);
+        if (this.RO != -1) {
+            this.Pg.getChildAt(this.RO).setSelected(false);
         }
-        this.RK = i;
-        this.Pc.getChildAt(this.RK).setSelected(true);
+        this.RO = i;
+        this.Pg.getChildAt(this.RO).setSelected(true);
     }
 
     public void a(ci ciVar) {
-        this.bUB = ciVar;
+        this.bUQ = ciVar;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.mention;
 /* loaded from: classes.dex */
 public interface h {
-    String SJ();
+    String SM();
 
     void delete();
 

@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ FrsHeaderView aFT;
+    final /* synthetic */ FrsHeaderView aGd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(FrsHeaderView frsHeaderView) {
-        this.aFT = frsHeaderView;
+        this.aGd = frsHeaderView;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
@@ -19,8 +19,8 @@ public class k implements com.baidu.tbadk.core.dialog.d {
         Activity activity;
         int i;
         MessageManager messageManager = MessageManager.getInstance();
-        activity = this.aFT.aBF;
-        i = this.aFT.aFJ;
+        activity = this.aGd.aBP;
+        i = this.aGd.aFT;
         messageManager.sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(activity, i, "exp_acce")));
         aVar.dismiss();
     }

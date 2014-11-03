@@ -10,11 +10,11 @@ import com.baidu.tieba.data.RegistData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.j> {
-    final /* synthetic */ Register2Activity afJ;
+    final /* synthetic */ Register2Activity afR;
     private com.baidu.tbadk.core.util.ac mNetWork;
 
     private z(Register2Activity register2Activity) {
-        this.afJ = register2Activity;
+        this.afR = register2Activity;
         this.mNetWork = null;
     }
 
@@ -29,10 +29,10 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.j>
         if (this.mNetWork != null) {
             this.mNetWork.dM();
         }
-        this.afJ.afF = null;
-        progressBar = this.afJ.mProgressBar;
+        this.afR.afN = null;
+        progressBar = this.afR.mProgressBar;
         progressBar.setVisibility(8);
-        this.afJ.xk();
+        this.afR.xm();
         super.cancel(true);
     }
 
@@ -41,19 +41,19 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.j>
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: n */
     public com.baidu.tbadk.core.data.j doInBackground(String... strArr) {
-        RegistData xl;
+        RegistData xn;
         com.baidu.tbadk.core.data.j jVar = new com.baidu.tbadk.core.data.j();
         try {
-            xl = this.afJ.xl();
+            xn = this.afR.xn();
             this.mNetWork = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/regreal");
-            this.mNetWork.k("un", xl.getName());
-            this.mNetWork.k("phonenum", xl.getPhone());
-            this.mNetWork.k("passwd", xl.getPsw());
-            if (xl.getVcode() != null) {
-                this.mNetWork.k("vcode", xl.getVcode());
+            this.mNetWork.k("un", xn.getName());
+            this.mNetWork.k("phonenum", xn.getPhone());
+            this.mNetWork.k("passwd", xn.getPsw());
+            if (xn.getVcode() != null) {
+                this.mNetWork.k("vcode", xn.getVcode());
             }
-            if (xl.getVcodeMd5() != null) {
-                this.mNetWork.k("vcode_md5", xl.getVcodeMd5());
+            if (xn.getVcodeMd5() != null) {
+                this.mNetWork.k("vcode_md5", xn.getVcodeMd5());
             }
             String lA = this.mNetWork.lA();
             if ((this.mNetWork.mf() && (this.mNetWork.mg() == 0 || this.mNetWork.mg() == 36)) || this.mNetWork.mg() == 5) {
@@ -74,42 +74,42 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.j>
     /* renamed from: a */
     public void onPostExecute(com.baidu.tbadk.core.data.j jVar) {
         ProgressBar progressBar;
-        RegistData xl;
+        RegistData xn;
         int i;
         int i2;
         int i3;
         super.onPostExecute(jVar);
-        this.afJ.afF = null;
-        progressBar = this.afJ.mProgressBar;
+        this.afR.afN = null;
+        progressBar = this.afR.mProgressBar;
         progressBar.setVisibility(8);
-        this.afJ.xk();
-        this.afJ.afG = jVar;
+        this.afR.xm();
+        this.afR.afO = jVar;
         if (!this.mNetWork.mf()) {
-            this.afJ.afC = -1;
-            this.afJ.mErrorString = this.mNetWork.getErrorString();
-            this.afJ.xj();
+            this.afR.afK = -1;
+            this.afR.mErrorString = this.mNetWork.getErrorString();
+            this.afR.xl();
         } else if (this.mNetWork.mg() == 36) {
-            this.afJ.i(jVar.ka());
-            Register2Activity register2Activity = this.afJ;
-            i3 = Register2Activity.afc;
-            register2Activity.afC = i3;
-            this.afJ.mErrorString = this.mNetWork.getErrorString();
-            this.afJ.xj();
+            this.afR.j(jVar.ka());
+            Register2Activity register2Activity = this.afR;
+            i3 = Register2Activity.afk;
+            register2Activity.afK = i3;
+            this.afR.mErrorString = this.mNetWork.getErrorString();
+            this.afR.xl();
         } else if (this.mNetWork.mg() == 5) {
-            Register2Activity register2Activity2 = this.afJ;
-            i2 = Register2Activity.aff;
-            register2Activity2.afC = i2;
-            this.afJ.bg(true);
+            Register2Activity register2Activity2 = this.afR;
+            i2 = Register2Activity.afn;
+            register2Activity2.afK = i2;
+            this.afR.bg(true);
         } else if (this.mNetWork.mg() == 0) {
-            xl = this.afJ.xl();
-            Register2Activity register2Activity3 = this.afJ;
-            i = Register2Activity.afb;
-            ActivationActivity.a(register2Activity3, xl, i);
-            this.afJ.bg(false);
+            xn = this.afR.xn();
+            Register2Activity register2Activity3 = this.afR;
+            i = Register2Activity.afj;
+            ActivationActivity.a(register2Activity3, xn, i);
+            this.afR.bg(false);
         } else {
-            this.afJ.afC = this.mNetWork.mg();
-            this.afJ.mErrorString = this.mNetWork.getErrorString();
-            this.afJ.xj();
+            this.afR.afK = this.mNetWork.mg();
+            this.afR.mErrorString = this.mNetWork.getErrorString();
+            this.afR.xl();
         }
     }
 
@@ -120,17 +120,17 @@ public class z extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.j>
         LinearLayout linearLayout;
         TextView textView;
         TextView textView2;
-        progressBar = this.afJ.mProgressBar;
+        progressBar = this.afR.mProgressBar;
         progressBar.setVisibility(0);
-        this.afJ.xh();
-        this.afJ.afC = -1;
-        this.afJ.mErrorString = null;
-        this.afJ.xj();
-        linearLayout = this.afJ.afv;
+        this.afR.xj();
+        this.afR.afK = -1;
+        this.afR.mErrorString = null;
+        this.afR.xl();
+        linearLayout = this.afR.afD;
         linearLayout.setVisibility(8);
-        textView = this.afJ.KJ;
+        textView = this.afR.KK;
         textView.setVisibility(4);
-        textView2 = this.afJ.KJ;
+        textView2 = this.afR.KK;
         textView2.setText((CharSequence) null);
         super.onPreExecute();
     }

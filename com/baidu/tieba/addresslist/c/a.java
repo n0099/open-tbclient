@@ -8,53 +8,53 @@ import com.baidu.tbadk.coreExtra.relationship.o;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends e {
-    private com.baidu.tieba.addresslist.b.a ahh;
+    private com.baidu.tieba.addresslist.b.a ahq;
 
     public a(Context context) {
         super(context);
-        this.ahh = com.baidu.tieba.addresslist.b.a.xz();
+        this.ahq = com.baidu.tieba.addresslist.b.a.xB();
     }
 
     public void a(com.baidu.tieba.addresslist.b.b bVar) {
-        this.ahh.a(bVar);
+        this.ahq.a(bVar);
     }
 
     public void b(com.baidu.tieba.addresslist.b.b bVar) {
-        this.ahh.b(bVar);
+        this.ahq.b(bVar);
     }
 
-    public List<com.baidu.tbadk.coreExtra.relationship.b> xB() {
-        return this.ahh.xA();
+    public List<com.baidu.tbadk.coreExtra.relationship.b> xD() {
+        return this.ahq.xC();
     }
 
-    public void xC() {
+    public void xE() {
         sendMessage(new CustomMessage(2001182));
     }
 
-    public void xD() {
+    public void xF() {
         super.sendMessage(new RequestGetAddressListMessage(304001));
     }
 
     public void w(List<com.baidu.tbadk.coreExtra.relationship.b> list) {
-        this.ahh.v(list);
+        this.ahq.v(list);
     }
 
     public void c(com.baidu.tbadk.coreExtra.relationship.b bVar) {
-        this.ahh.c(bVar);
+        this.ahq.c(bVar);
     }
 
     public void w(long j) {
-        this.ahh.w(j);
+        this.ahq.w(j);
     }
 
     public int ej(String str) {
         int i;
-        if (o.cG(str)) {
-            List<com.baidu.tbadk.coreExtra.relationship.b> xA = this.ahh.xA();
-            if (xA != null) {
-                for (com.baidu.tbadk.coreExtra.relationship.b bVar : xA) {
-                    if (str.equals(bVar.pA())) {
-                        i = xA.indexOf(bVar);
+        if (o.cH(str)) {
+            List<com.baidu.tbadk.coreExtra.relationship.b> xC = this.ahq.xC();
+            if (xC != null) {
+                for (com.baidu.tbadk.coreExtra.relationship.b bVar : xC) {
+                    if (str.equals(bVar.pC())) {
+                        i = xC.indexOf(bVar);
                         break;
                     }
                 }

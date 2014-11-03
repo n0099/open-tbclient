@@ -7,7 +7,7 @@ import protobuf.QueryGroupsByFid.DataReq;
 import protobuf.QueryGroupsByFid.QueryGroupsByFidReqIdl;
 /* loaded from: classes.dex */
 public class j implements com.baidu.tbadk.mvc.b.d, com.baidu.tbadk.mvc.b.g {
-    private boolean aWT;
+    private boolean aXh;
     private String forumId;
     private int offset;
     private int rn;
@@ -32,7 +32,7 @@ public class j implements com.baidu.tbadk.mvc.b.d, com.baidu.tbadk.mvc.b.g {
         }
     }
 
-    public void Nr() {
+    public void Nv() {
         this.offset += this.rn;
         setOffset(this.offset);
     }
@@ -47,18 +47,18 @@ public class j implements com.baidu.tbadk.mvc.b.d, com.baidu.tbadk.mvc.b.g {
 
     public void initWithBundle(Bundle bundle) {
         this.forumId = bundle.getString("forum_id");
-        this.aWT = bundle.getBoolean(com.baidu.tbadk.core.frameworkData.a.SHOW_RECOMMEND, true);
+        this.aXh = bundle.getBoolean(com.baidu.tbadk.core.frameworkData.a.SHOW_RECOMMEND, true);
         if (bundle.containsKey("card_type")) {
             this.type = bundle.getInt("card_type");
         } else {
-            this.type = this.aWT ? 1 : 2;
+            this.type = this.aXh ? 1 : 2;
         }
         this.offset = bundle.getInt("start_position", 0);
         this.rn = bundle.getInt("end_position", 50);
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public HashMap<String, Object> to() {
+    public HashMap<String, Object> tq() {
         return null;
     }
 
@@ -82,12 +82,12 @@ public class j implements com.baidu.tbadk.mvc.b.d, com.baidu.tbadk.mvc.b.g {
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
-    public String sW() {
+    public String sY() {
         return "tb.im_frsgroup";
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
-    public boolean tm() {
+    public boolean to() {
         return true;
     }
 }

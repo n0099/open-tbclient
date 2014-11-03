@@ -8,11 +8,11 @@ import com.baidu.tieba.im.message.QueryGroupCountMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements com.baidu.adp.lib.d.d {
-    final /* synthetic */ a bcy;
+    final /* synthetic */ a bcM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.bcy = aVar;
+        this.bcM = aVar;
     }
 
     @Override // com.baidu.adp.lib.d.d
@@ -24,11 +24,11 @@ public class d implements com.baidu.adp.lib.d.d {
         e eVar5;
         e eVar6;
         if (i != 0) {
-            eVar = this.bcy.bcv;
+            eVar = this.bcM.bcJ;
             if (eVar != null) {
-                eVar2 = this.bcy.bcv;
-                eVar2.NU();
-                eVar3 = this.bcy.bcv;
+                eVar2 = this.bcM.bcJ;
+                eVar2.NX();
+                eVar3 = this.bcM.bcJ;
                 eVar3.ig();
             }
         } else if (address != null) {
@@ -38,11 +38,11 @@ public class d implements com.baidu.adp.lib.d.d {
             TbadkApplication.m251getInst().setLocationLng(valueOf2);
             TbadkApplication.m251getInst().setLocationPos(address.getAdminArea());
             if (TextUtils.isEmpty(TbadkApplication.m251getInst().getLocationLat()) || TextUtils.isEmpty(TbadkApplication.m251getInst().getLocationLng())) {
-                eVar4 = this.bcy.bcv;
+                eVar4 = this.bcM.bcJ;
                 if (eVar4 != null) {
-                    eVar5 = this.bcy.bcv;
-                    eVar5.NU();
-                    eVar6 = this.bcy.bcv;
+                    eVar5 = this.bcM.bcJ;
+                    eVar5.NX();
+                    eVar6 = this.bcM.bcJ;
                     eVar6.ig();
                     return;
                 }

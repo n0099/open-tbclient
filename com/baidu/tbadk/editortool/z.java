@@ -6,33 +6,33 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class z extends e {
-    private static z Sm = new z();
-    private LinkedList<ad> Sn;
+    private static z Sq = new z();
+    private LinkedList<ad> Sr;
 
     @Override // com.baidu.tbadk.editortool.e
     public int getIndex() {
         return 1;
     }
 
-    public static synchronized z ry() {
+    public static synchronized z rA() {
         z zVar;
         synchronized (z.class) {
-            zVar = Sm;
+            zVar = Sq;
         }
         return zVar;
     }
 
     public List<ad> getGroups() {
-        return this.Sn;
+        return this.Sr;
     }
 
     @Override // com.baidu.tbadk.editortool.e
     public void a(f fVar) {
-        if (this.Sn == null) {
-            this.Sn = new LinkedList<>();
-            if (TbFaceManager.sf().rx() > 0) {
+        if (this.Sr == null) {
+            this.Sr = new LinkedList<>();
+            if (TbFaceManager.sh().rz() > 0) {
                 y yVar = new y();
-                this.Sn.add(yVar);
+                this.Sr.add(yVar);
                 if (fVar != null) {
                     fVar.a(yVar);
                     return;
@@ -41,7 +41,7 @@ public class z extends e {
             }
             return;
         }
-        Iterator<ad> it = this.Sn.iterator();
+        Iterator<ad> it = this.Sr.iterator();
         while (it.hasNext()) {
             ad next = it.next();
             if (fVar != null) {
@@ -55,6 +55,6 @@ public class z extends e {
     }
 
     public boolean isEmpty() {
-        return this.Sn == null || this.Sn.size() == 0;
+        return this.Sr == null || this.Sr.size() == 0;
     }
 }

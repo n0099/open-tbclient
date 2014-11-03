@@ -27,7 +27,7 @@ import java.lang.ref.SoftReference;
 public class d {
     public static final Object tg = new Object();
     private static volatile SparseArray<SoftReference<Bitmap>> mF = new SparseArray<>();
-    private static volatile SparseArray<SoftReference<Bitmap>> CL = new SparseArray<>();
+    private static volatile SparseArray<SoftReference<Bitmap>> CM = new SparseArray<>();
 
     public static synchronized Bitmap bl(int i) {
         Bitmap bitmap;
@@ -44,7 +44,7 @@ public class d {
     public static synchronized Bitmap a(Resources resources, int i, int i2) {
         Bitmap bitmap;
         synchronized (d.class) {
-            SoftReference<Bitmap> softReference = CL.get(i2);
+            SoftReference<Bitmap> softReference = CM.get(i2);
             bitmap = softReference != null ? softReference.get() : null;
             if (bitmap == null) {
                 try {
@@ -53,7 +53,7 @@ public class d {
                     TbadkApplication.m251getInst().onAppMemoryLow();
                 }
                 if (bitmap != null) {
-                    CL.put(i2, new SoftReference<>(bitmap));
+                    CM.put(i2, new SoftReference<>(bitmap));
                 }
             }
         }
@@ -63,14 +63,14 @@ public class d {
     public static synchronized void bm(int i) {
         synchronized (d.class) {
             mF.remove(i);
-            CL.remove(i);
+            CM.remove(i);
         }
     }
 
     public static synchronized void lp() {
         synchronized (d.class) {
             mF.clear();
-            CL.clear();
+            CM.clear();
         }
     }
 

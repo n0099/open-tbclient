@@ -15,15 +15,15 @@ import com.baidu.tieba.util.AntiHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class af implements as {
-    final /* synthetic */ ae bnS;
+    final /* synthetic */ ae bog;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(ae aeVar) {
-        this.bnS = aeVar;
+        this.bog = aeVar;
     }
 
     @Override // com.baidu.tieba.model.as
-    public void a(boolean z, String str, com.baidu.tbadk.coreExtra.data.f fVar, WriteData writeData, AntiData antiData) {
+    public void a(boolean z, String str, com.baidu.tbadk.coreExtra.data.g gVar, WriteData writeData, AntiData antiData) {
         WriteImagesInfo writeImagesInfo;
         Activity activity;
         Activity activity2;
@@ -31,41 +31,41 @@ public class af implements as {
         ar arVar2;
         ar arVar3;
         x xVar;
-        this.bnS.bQ(z);
-        ae aeVar = this.bnS;
-        writeImagesInfo = this.bnS.ahS;
+        this.bog.bQ(z);
+        ae aeVar = this.bog;
+        writeImagesInfo = this.bog.aib;
         aeVar.a(writeImagesInfo, true);
         if (z) {
-            this.bnS.EP();
-            bs.WZ().reset();
-            arVar = this.bnS.ayz;
-            arVar.EC();
-            arVar2 = this.bnS.ayz;
+            this.bog.ER();
+            bs.Xc().reset();
+            arVar = this.bog.ayI;
+            arVar.EE();
+            arVar2 = this.bog.ayI;
             arVar2.b((WriteData) null);
-            arVar3 = this.bnS.ayz;
+            arVar3 = this.bog.ayI;
             arVar3.dI(false);
-            this.bnS.a(antiData, str);
-            this.bnS.dC(true);
-            xVar = this.bnS.bnL;
-            xVar.SN();
-        } else if (fVar != null && writeData != null && fVar.getVcode_pic_url() != null) {
+            this.bog.a(antiData, str);
+            this.bog.dC(true);
+            xVar = this.bog.bnZ;
+            xVar.SQ();
+        } else if (gVar != null && writeData != null && gVar.getVcode_pic_url() != null) {
             if (!AntiHelper.e(antiData)) {
-                writeData.setVcodeMD5(fVar.getVcode_md5());
-                writeData.setVcodeUrl(fVar.getVcode_pic_url());
-                if (fVar.oA().equals("4")) {
+                writeData.setVcodeMD5(gVar.getVcode_md5());
+                writeData.setVcodeUrl(gVar.getVcode_pic_url());
+                if (gVar.oC().equals("4")) {
                     MessageManager messageManager = MessageManager.getInstance();
-                    activity2 = this.bnS.mActivity;
+                    activity2 = this.bog.mActivity;
                     messageManager.sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(activity2, 12006, writeData, false)));
                     return;
                 }
                 MessageManager messageManager2 = MessageManager.getInstance();
-                activity = this.bnS.mActivity;
+                activity = this.bog.mActivity;
                 messageManager2.sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(activity, writeData, 12006)));
                 return;
             }
-            this.bnS.a(antiData, str);
+            this.bog.a(antiData, str);
         } else {
-            this.bnS.a(antiData, str);
+            this.bog.a(antiData, str);
         }
     }
 }

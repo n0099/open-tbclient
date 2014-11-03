@@ -4,15 +4,15 @@ import com.baidu.tbadk.core.atomData.PayActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class i {
-    String anU;
-    long aoD;
-    long aoE;
+    long aoM;
+    long aoN;
+    String aod;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aoD = jSONObject.optLong(PayActivityConfig.PROPS_ID);
-            this.aoE = jSONObject.optLong("end_time");
-            this.anU = jSONObject.optString("pic_url");
+            this.aoM = jSONObject.optLong(PayActivityConfig.PROPS_ID);
+            this.aoN = jSONObject.optLong("end_time");
+            this.aod = jSONObject.optString("pic_url");
         }
     }
 }

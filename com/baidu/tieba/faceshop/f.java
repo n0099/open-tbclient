@@ -10,7 +10,7 @@ import java.io.IOException;
 public class f implements com.baidu.tbadk.download.f {
     @Override // com.baidu.tbadk.download.f
     public void onFileDownloadSucceed(DownloadData downloadData) {
-        com.baidu.tbadk.editortool.aa.rz().rA();
+        com.baidu.tbadk.editortool.aa.rB().rC();
         try {
             File file = new File(downloadData.getPath());
             if (file.exists()) {
@@ -47,8 +47,8 @@ public class f implements com.baidu.tbadk.download.f {
             try {
                 fileInputStream = new FileInputStream(downloadData.getPath());
                 try {
-                    int a = d.CG().a(downloadData.getId(), fileInputStream);
-                    EmotionGroupData db = com.baidu.tbadk.editortool.u.rw().db(downloadData.getId());
+                    int a = d.CI().a(downloadData.getId(), fileInputStream);
+                    EmotionGroupData db = com.baidu.tbadk.editortool.u.ry().db(downloadData.getId());
                     if (db == null) {
                         if (a == 0) {
                             if (fileInputStream != null) {
@@ -74,9 +74,9 @@ public class f implements com.baidu.tbadk.download.f {
                         db.setGroupDesc(downloadData.getDescription());
                         db.setGroupName(downloadData.getName());
                         db.setStatus(1);
-                        com.baidu.tbadk.editortool.u.rw().a(db);
+                        com.baidu.tbadk.editortool.u.ry().a(db);
                     }
-                    com.baidu.tbadk.editortool.u.rw().a(downloadData.getStatusMsg(), db);
+                    com.baidu.tbadk.editortool.u.ry().a(downloadData.getStatusMsg(), db);
                     downloadData.setStatusMsg(null);
                     if (fileInputStream != null) {
                         try {
@@ -122,7 +122,7 @@ public class f implements com.baidu.tbadk.download.f {
     @Override // com.baidu.tbadk.download.f
     public void onFileUpdateProgress(DownloadData downloadData) {
         if (downloadData != null) {
-            g.CH().a(downloadData);
+            g.CJ().a(downloadData);
         }
     }
 
@@ -131,9 +131,9 @@ public class f implements com.baidu.tbadk.download.f {
         if (downloadData == null) {
             return false;
         }
-        EmotionGroupData db = com.baidu.tbadk.editortool.u.rw().db(downloadData.getId());
+        EmotionGroupData db = com.baidu.tbadk.editortool.u.ry().db(downloadData.getId());
         if (db != null && e.eK(downloadData.getId())) {
-            com.baidu.tbadk.editortool.u.rw().a(downloadData.getStatusMsg(), db);
+            com.baidu.tbadk.editortool.u.ry().a(downloadData.getStatusMsg(), db);
             downloadData.setStatusMsg(null);
             return false;
         }

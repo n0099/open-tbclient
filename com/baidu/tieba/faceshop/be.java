@@ -10,13 +10,13 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 class be extends CustomMessageListener {
-    final /* synthetic */ FaceShopActivity auo;
+    final /* synthetic */ FaceShopActivity aux;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public be(FaceShopActivity faceShopActivity, int i) {
         super(i);
-        this.auo = faceShopActivity;
+        this.aux = faceShopActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,30 +30,30 @@ class be extends CustomMessageListener {
         bq bqVar3;
         HashMap hashMap2;
         HashMap hashMap3;
-        boVar = this.auo.aum;
+        boVar = this.aux.auv;
         if (boVar != null) {
-            bqVar = this.auo.aul;
+            bqVar = this.aux.auu;
             if (bqVar != null) {
-                boVar2 = this.auo.aum;
-                FaceShopData Dy = boVar2.Dy();
-                if (Dy != null && Dy.pack_list != null) {
+                boVar2 = this.aux.auv;
+                FaceShopData DA = boVar2.DA();
+                if (DA != null && DA.pack_list != null) {
                     if (customResponsedMessage.getCmd() == 2001122) {
                         if (customResponsedMessage instanceof DownloadMessage) {
-                            hashMap = this.auo.aun;
+                            hashMap = this.aux.auw;
                             hashMap.clear();
                             List<DownloadData> data = ((DownloadMessage) customResponsedMessage).getData();
                             if (data != null) {
-                                bqVar3 = this.auo.aul;
-                                bi Dz = bqVar3.Dz();
-                                if (Dz != null) {
+                                bqVar3 = this.aux.auu;
+                                bi DB = bqVar3.DB();
+                                if (DB != null) {
                                     for (DownloadData downloadData : data) {
-                                        hashMap3 = this.auo.aun;
+                                        hashMap3 = this.aux.auw;
                                         hashMap3.put(downloadData.getId(), downloadData);
                                     }
-                                    Iterator<FacePackageData> it = Dy.pack_list.iterator();
+                                    Iterator<FacePackageData> it = DA.pack_list.iterator();
                                     while (it.hasNext()) {
                                         FacePackageData next = it.next();
-                                        hashMap2 = this.auo.aun;
+                                        hashMap2 = this.aux.auw;
                                         DownloadData downloadData2 = (DownloadData) hashMap2.get(String.valueOf(next.pid));
                                         if (downloadData2 != null) {
                                             int status = downloadData2.getStatus();
@@ -61,10 +61,10 @@ class be extends CustomMessageListener {
                                                 next.downloaded = 1;
                                                 next.downloading = 0;
                                             } else if (status == 2 || status == 4) {
-                                                if (!com.baidu.tbadk.core.util.ay.aA(downloadData2.getStatusMsg())) {
-                                                    this.auo.showToast(downloadData2.getStatusMsg());
+                                                if (!com.baidu.tbadk.core.util.az.aA(downloadData2.getStatusMsg())) {
+                                                    this.aux.showToast(downloadData2.getStatusMsg());
                                                 }
-                                                Dz.onDestroy();
+                                                DB.onDestroy();
                                                 next.downloaded = 0;
                                                 next.downloading = 0;
                                             } else if (status == 1) {
@@ -75,13 +75,13 @@ class be extends CustomMessageListener {
                                             }
                                         }
                                     }
-                                    Dz.a(Dy);
+                                    DB.a(DA);
                                 }
                             }
                         }
                     } else if (customResponsedMessage.getCmd() == 2001120) {
                         ArrayList<String> arrayList = new ArrayList<>();
-                        Iterator<FacePackageData> it2 = Dy.pack_list.iterator();
+                        Iterator<FacePackageData> it2 = DA.pack_list.iterator();
                         while (it2.hasNext()) {
                             FacePackageData next2 = it2.next();
                             if (next2.downloaded == 1) {
@@ -89,8 +89,8 @@ class be extends CustomMessageListener {
                             }
                             arrayList.add(String.valueOf(next2.pid));
                         }
-                        bqVar2 = this.auo.aul;
-                        bqVar2.q(arrayList);
+                        bqVar2 = this.aux.auu;
+                        bqVar2.r(arrayList);
                     }
                 }
             }

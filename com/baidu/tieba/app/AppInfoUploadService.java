@@ -61,9 +61,9 @@ public class AppInfoUploadService extends Service {
     }
 
     public String genPostData() {
-        a yg = e.yf().yg();
-        ArrayList<b> arrayList = yg.aiL;
-        ArrayList<b> arrayList2 = yg.aiM;
+        a yi = e.yh().yi();
+        ArrayList<b> arrayList = yi.aiU;
+        ArrayList<b> arrayList2 = yi.aiV;
         StringBuilder sb = new StringBuilder();
         int addList = addList(arrayList2, sb, 100, 0);
         if (addList < 100) {
@@ -76,7 +76,7 @@ public class AppInfoUploadService extends Service {
         int i3 = 0;
         while (i3 < arrayList.size() && i3 < i) {
             b bVar = arrayList.get(i3);
-            sb.append(String.format("%s,%s,%s,%d;", bVar.aiN, bVar.mPackageName, Integer.valueOf(bVar.aiP), Integer.valueOf(i2)));
+            sb.append(String.format("%s,%s,%s,%d;", bVar.aiW, bVar.mPackageName, Integer.valueOf(bVar.aiY), Integer.valueOf(i2)));
             i3++;
         }
         return i3;

@@ -31,37 +31,37 @@ class m extends CustomMessageListener {
             }
             NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
             int msgBookmark = newsNotifyMessage.getMsgBookmark();
-            i = this.this$0.bOT;
+            i = this.this$0.bPi;
             if (msgBookmark > i) {
-                this.this$0.bOU = true;
-                this.this$0.bOW = true;
+                this.this$0.bPj = true;
+                this.this$0.bPl = true;
             }
             int msgFans = newsNotifyMessage.getMsgFans();
-            i2 = this.this$0.bOR;
+            i2 = this.this$0.bPg;
             if (msgFans > i2) {
-                this.this$0.bOU = true;
-                this.this$0.bOV = true;
+                this.this$0.bPj = true;
+                this.this$0.bPk = true;
             }
             int msgGiftNum = newsNotifyMessage.getMsgGiftNum();
-            i3 = this.this$0.bOS;
+            i3 = this.this$0.bPh;
             if (msgGiftNum > i3) {
-                this.this$0.bOU = true;
-                this.this$0.bOX = true;
+                this.this$0.bPj = true;
+                this.this$0.bPm = true;
             }
-            this.this$0.bOT = newsNotifyMessage.getMsgBookmark();
-            this.this$0.bOR = newsNotifyMessage.getMsgFans();
-            this.this$0.bOS = newsNotifyMessage.getMsgGiftNum();
-            i4 = this.this$0.bOR;
+            this.this$0.bPi = newsNotifyMessage.getMsgBookmark();
+            this.this$0.bPg = newsNotifyMessage.getMsgFans();
+            this.this$0.bPh = newsNotifyMessage.getMsgGiftNum();
+            i4 = this.this$0.bPg;
             if (i4 <= 0) {
-                this.this$0.bOV = false;
+                this.this$0.bPk = false;
             }
-            i5 = this.this$0.bOT;
+            i5 = this.this$0.bPi;
             if (i5 <= 0) {
-                this.this$0.bOW = false;
+                this.this$0.bPl = false;
             }
-            i6 = this.this$0.bOS;
+            i6 = this.this$0.bPh;
             if (i6 <= 0) {
-                this.this$0.bOX = false;
+                this.this$0.bPm = false;
             }
             this.this$0.eJ(false);
         }

@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 class bl {
-    LinearLayout aBO;
-    HeadImageView aBP;
-    TextView aBQ;
-    TextView aBR;
-    TextView aBS;
-    TbImageView aBT;
-    TextView aBU;
+    LinearLayout aBY;
+    HeadImageView aBZ;
+    TextView aCa;
+    TextView aCb;
+    TextView aCc;
+    TbImageView aCd;
+    TextView aCe;
 
     private bl() {
     }

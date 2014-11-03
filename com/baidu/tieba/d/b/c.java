@@ -1,11 +1,11 @@
 package com.baidu.tieba.d.b;
 /* loaded from: classes.dex */
 class c implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ a bHs;
+    final /* synthetic */ a bHG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.bHs = aVar;
+        this.bHG = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d

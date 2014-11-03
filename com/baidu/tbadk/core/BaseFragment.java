@@ -18,7 +18,7 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.m;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.be;
 /* loaded from: classes.dex */
 public abstract class BaseFragment extends Fragment implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AbsListView.OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
     private com.baidu.tbadk.core.util.k customToast;
@@ -111,7 +111,7 @@ public abstract class BaseFragment extends Fragment implements DialogInterface.O
         super.onResume();
         if (isShow()) {
             changeSkinType(TbadkApplication.m251getInst().getSkinType());
-            bd.bR(getClass().getName());
+            be.bR(getClass().getName());
             if (this.isPrimary) {
                 onPrimary();
             }
@@ -155,7 +155,7 @@ public abstract class BaseFragment extends Fragment implements DialogInterface.O
 
     public void onChangeSkinType(int i) {
         if (this.loadingView != null) {
-            this.loadingView.sB();
+            this.loadingView.sD();
         }
     }
 
@@ -206,10 +206,18 @@ public abstract class BaseFragment extends Fragment implements DialogInterface.O
         showLoadingView(view, false);
     }
 
+    protected void showLoadingView(View view, boolean z) {
+        showLoadingView(view, z, -1);
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
-    public void showLoadingView(View view, boolean z) {
+    public void showLoadingView(View view, boolean z, int i) {
         if (this.loadingView == null) {
-            this.loadingView = new com.baidu.tbadk.c.f(getActivity());
+            if (i < 0) {
+                this.loadingView = new com.baidu.tbadk.c.f(getActivity());
+            } else {
+                this.loadingView = new com.baidu.tbadk.c.f(getActivity(), i);
+            }
         }
         this.loadingView.b(view, z);
     }
@@ -218,7 +226,7 @@ public abstract class BaseFragment extends Fragment implements DialogInterface.O
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.sv();
+        return this.loadingView.sx();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

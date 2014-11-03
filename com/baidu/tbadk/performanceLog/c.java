@@ -2,11 +2,11 @@ package com.baidu.tbadk.performanceLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.adp.lib.debug.a.g {
-    final /* synthetic */ a YE;
+    final /* synthetic */ a YI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.YE = aVar;
+        this.YI = aVar;
     }
 
     @Override // com.baidu.adp.lib.debug.a.g
@@ -16,18 +16,18 @@ public class c implements com.baidu.adp.lib.debug.a.g {
         int i4;
         com.baidu.adp.lib.debug.a.e eVar;
         com.baidu.adp.lib.debug.a.e eVar2;
-        a aVar = this.YE;
-        i2 = aVar.YC;
-        aVar.YC = i2 + 1;
-        i3 = this.YE.Yx;
-        i4 = this.YE.YC;
+        a aVar = this.YI;
+        i2 = aVar.YG;
+        aVar.YG = i2 + 1;
+        i3 = this.YI.YB;
+        i4 = this.YI.YG;
         if (i3 == i4) {
-            eVar = this.YE.YA;
+            eVar = this.YI.YE;
             eVar.a((com.baidu.adp.lib.debug.a.g) null);
-            eVar2 = this.YE.YA;
+            eVar2 = this.YI.YE;
             eVar2.stop();
-            this.YE.uA();
+            this.YI.uC();
         }
-        this.YE.dk(i);
+        this.YI.dk(i);
     }
 }

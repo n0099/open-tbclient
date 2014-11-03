@@ -26,8 +26,8 @@ import tbclient.GameCategory;
 import tbclient.GetGameCategory.GetGameCategoryResIdl;
 /* loaded from: classes.dex */
 public class GameClassifyActivity extends AbsGameClassifyActivity {
-    private BdListView aJn;
-    private b aJo;
+    private BdListView aJA;
+    private b aJB;
     private AdapterView.OnItemClickListener itemClickListener = new a(this);
 
     static {
@@ -38,20 +38,20 @@ public class GameClassifyActivity extends AbsGameClassifyActivity {
     @Override // com.baidu.tieba.game.base.AbsGameClassifyActivity
     public void e(Bundle bundle) {
         super.e(bundle);
-        this.aJn = new BdListView(this);
-        this.aJn.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        this.aJn.setCacheColorHint(0);
-        this.aJn.setDividerHeight(0);
-        setContentView(this.aJn);
-        this.aJo = new b(this);
-        this.aJn.setAdapter((ListAdapter) this.aJo);
-        this.bhx.setTitleText(y.game_classify_text_title);
-        this.aJn.setOnItemClickListener(this.itemClickListener);
+        this.aJA = new BdListView(this);
+        this.aJA.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        this.aJA.setCacheColorHint(0);
+        this.aJA.setDividerHeight(0);
+        setContentView(this.aJA);
+        this.aJB = new b(this);
+        this.aJA.setAdapter((ListAdapter) this.aJB);
+        this.bhL.setTitleText(y.game_classify_text_title);
+        this.aJA.setOnItemClickListener(this.itemClickListener);
         fx("key_game_classify");
     }
 
     @Override // com.baidu.tieba.selectpoi.NavigationBarActivity
-    protected boolean HY() {
+    protected boolean Ic() {
         return true;
     }
 
@@ -62,37 +62,37 @@ public class GameClassifyActivity extends AbsGameClassifyActivity {
         try {
             GetGameCategoryResIdl getGameCategoryResIdl = (GetGameCategoryResIdl) new Wire(new Class[0]).parseFrom(bArr, GetGameCategoryResIdl.class);
             if (getGameCategoryResIdl != null && getGameCategoryResIdl.data != null && getGameCategoryResIdl.data.category_list != null) {
-                this.aJo.setData(getGameCategoryResIdl.data.category_list);
+                this.aJB.setData(getGameCategoryResIdl.data.category_list);
             }
         } catch (Exception e) {
         }
     }
 
     @Override // com.baidu.tieba.game.base.AbsGameClassifyActivity
-    protected NetMessage HU() {
+    protected NetMessage HY() {
         return new GameClassifyMessage();
     }
 
     @Override // com.baidu.tieba.game.base.AbsGameClassifyActivity
-    protected String HV() {
+    protected String HZ() {
         return TbConfig.GET_GAME_CATEGORY;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.game.base.AbsGameClassifyActivity
-    public Class<? extends CachedHttpResponse> HW() {
+    public Class<? extends CachedHttpResponse> Ia() {
         return GameClassifyHttpResponse.class;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.game.base.AbsGameClassifyActivity
-    public Class<? extends CachedSocketResponse> HX() {
+    public Class<? extends CachedSocketResponse> Ib() {
         return GameClassifySocketResponse.class;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.game.base.AbsGameClassifyActivity
-    public void d(HttpResponsedMessage httpResponsedMessage) {
+    public void c(HttpResponsedMessage httpResponsedMessage) {
         if (httpResponsedMessage instanceof GameClassifyHttpResponse) {
             H(((GameClassifyHttpResponse) httpResponsedMessage).getCategoryList());
         }
@@ -107,8 +107,8 @@ public class GameClassifyActivity extends AbsGameClassifyActivity {
     }
 
     private void H(List<GameCategory> list) {
-        this.aJo.setData(list);
-        if (this.aJo.getCount() <= 0) {
+        this.aJB.setData(list);
+        if (this.aJB.getCount() <= 0) {
             a(r.a(NoDataViewFactory.ImgType.NODATA), s.bL(y.game_classify_no_data_text), (q) null);
         }
     }
@@ -117,6 +117,6 @@ public class GameClassifyActivity extends AbsGameClassifyActivity {
     @Override // com.baidu.tieba.selectpoi.NavigationBarActivity, com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        aw.a(this.aJn, i);
+        aw.a(this.aJA, i);
     }
 }

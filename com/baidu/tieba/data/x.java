@@ -5,24 +5,24 @@ import org.json.JSONObject;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class x {
-    private int alj;
+    private int alt;
     private String mId = "";
     private String mName = "";
-    private String alg = "";
+    private String alq = "";
     private String mPortrait = "";
-    private int alh = 0;
-    private int ali = 0;
+    private int alr = 0;
+    private int als = 0;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.mId = jSONObject.optString("id");
-                this.alh = jSONObject.optInt("user_type");
-                this.ali = jSONObject.optInt("is_verify");
+                this.alr = jSONObject.optInt("user_type");
+                this.als = jSONObject.optInt("is_verify");
                 this.mName = jSONObject.optString("name");
-                this.alg = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW);
+                this.alq = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW);
                 this.mPortrait = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
-                this.alj = jSONObject.optInt("is_friend");
+                this.alt = jSONObject.optInt("is_friend");
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -33,12 +33,12 @@ public class x {
         if (user != null) {
             try {
                 this.mId = String.valueOf(user.id);
-                this.alh = user.user_type.intValue();
-                this.ali = user.is_verify.intValue();
+                this.alr = user.user_type.intValue();
+                this.als = user.is_verify.intValue();
                 this.mName = user.name;
-                this.alg = user.name_show;
+                this.alq = user.name_show;
                 this.mPortrait = user.portrait;
-                this.alj = user.is_friend.intValue();
+                this.alt = user.is_friend.intValue();
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -53,8 +53,8 @@ public class x {
         return this.mName;
     }
 
-    public String zv() {
-        return this.alg;
+    public String zx() {
+        return this.alq;
     }
 
     public String getPortrait() {
@@ -62,6 +62,6 @@ public class x {
     }
 
     public int getIsMyFriend() {
-        return this.alj;
+        return this.alt;
     }
 }

@@ -18,7 +18,7 @@ class e implements DialogInterface.OnClickListener {
         if (dialogInterface == listMenu) {
             switch (i) {
                 case 0:
-                    this.this$0.Oq();
+                    this.this$0.Ot();
                     return;
                 case 1:
                     dialogInterface.dismiss();

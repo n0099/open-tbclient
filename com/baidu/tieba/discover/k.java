@@ -6,11 +6,11 @@ import com.baidu.tbadk.TbadkSettings;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements View.OnClickListener {
-    final /* synthetic */ DiscoverItemView anR;
+    final /* synthetic */ DiscoverItemView aoa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(DiscoverItemView discoverItemView) {
-        this.anR = discoverItemView;
+        this.aoa = discoverItemView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,26 +21,26 @@ public class k implements View.OnClickListener {
         boolean z2;
         ImageView imageView2;
         View.OnClickListener onClickListener2;
-        onClickListener = this.anR.mOnClickListener;
+        onClickListener = this.aoa.mOnClickListener;
         if (onClickListener != null) {
-            onClickListener2 = this.anR.mOnClickListener;
+            onClickListener2 = this.aoa.mOnClickListener;
             onClickListener2.onClick(view);
         }
-        z = this.anR.anL;
+        z = this.aoa.anU;
         if (z) {
-            z2 = this.anR.anM;
+            z2 = this.aoa.anV;
             if (z2) {
-                String aE = com.baidu.adp.lib.util.u.aE(this.anR.anJ);
+                String aE = com.baidu.adp.lib.util.u.aE(this.aoa.anS);
                 if (!TbadkSettings.getInst().loadBoolean(aE, false)) {
                     TbadkSettings.getInst().saveBoolean(aE, true);
-                    imageView2 = this.anR.anG;
+                    imageView2 = this.aoa.anP;
                     imageView2.setVisibility(8);
                     return;
                 }
                 return;
             }
         }
-        imageView = this.anR.anG;
+        imageView = this.aoa.anP;
         imageView.setVisibility(8);
     }
 }

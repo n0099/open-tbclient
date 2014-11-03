@@ -19,40 +19,40 @@ import java.util.List;
 import tbclient.PostInfoList;
 /* loaded from: classes.dex */
 public class v extends com.baidu.adp.base.e {
-    private AntiData amA;
-    private CustomMessageListener bDf;
-    private boolean bFY;
-    private boolean bFZ;
-    private String bGa;
-    private List<PersonInfoPostList> bGb;
-    private PersonTainInfo bGc;
-    private com.baidu.tbadk.coreExtra.b.a bGd;
-    private long bGe;
-    private int bGf;
-    private boolean boM;
+    private AntiData amJ;
+    private CustomMessageListener bDt;
+    private boolean bGm;
+    private boolean bGn;
+    private String bGo;
+    private List<PersonInfoPostList> bGp;
+    private PersonTainInfo bGq;
+    private com.baidu.tbadk.coreExtra.b.a bGr;
+    private long bGs;
+    private int bGt;
+    private boolean bpa;
     private String mId;
     private String mName;
     private UserData mUserData;
     private String stType;
 
-    public long aaQ() {
-        return this.bGe;
+    public long aaT() {
+        return this.bGs;
     }
 
     public void X(long j) {
-        this.bGe = j;
+        this.bGs = j;
     }
 
     public void hd(int i) {
-        this.bGf = i;
+        this.bGt = i;
     }
 
-    public AntiData An() {
-        return this.amA;
+    public AntiData Ap() {
+        return this.amJ;
     }
 
     public void a(AntiData antiData) {
-        this.amA = antiData;
+        this.amJ = antiData;
     }
 
     public UserData getUserData() {
@@ -63,44 +63,44 @@ public class v extends com.baidu.adp.base.e {
         this.mUserData = userData;
     }
 
-    public List<PersonInfoPostList> aaR() {
-        return this.bGb;
+    public List<PersonInfoPostList> aaU() {
+        return this.bGp;
     }
 
-    public PersonTainInfo aaS() {
-        return this.bGc;
+    public PersonTainInfo aaV() {
+        return this.bGq;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public v(Context context) {
         super(context);
-        this.bGb = new ArrayList();
-        this.bGd = new com.baidu.tbadk.coreExtra.b.a(this.mLoadDataCallBack);
-        this.bDf = new w(this, 2001235);
+        this.bGp = new ArrayList();
+        this.bGr = new com.baidu.tbadk.coreExtra.b.a(this.mLoadDataCallBack);
+        this.bDt = new w(this, 2001235);
     }
 
     public boolean getIsSelf() {
-        return this.boM;
+        return this.bpa;
     }
 
     public void setIsSelf(boolean z) {
-        this.boM = z;
+        this.bpa = z;
     }
 
-    public boolean aaT() {
-        return this.bFY;
+    public boolean aaW() {
+        return this.bGm;
     }
 
     public void ez(boolean z) {
-        this.bFY = z;
+        this.bGm = z;
     }
 
-    public boolean aaU() {
-        return this.bFZ;
+    public boolean aaX() {
+        return this.bGn;
     }
 
     public void eA(boolean z) {
-        this.bFZ = z;
+        this.bGn = z;
     }
 
     public String getId() {
@@ -127,12 +127,12 @@ public class v extends com.baidu.adp.base.e {
         this.stType = str;
     }
 
-    public String aaV() {
-        return this.bGa;
+    public String aaY() {
+        return this.bGo;
     }
 
     public void hi(String str) {
-        this.bGa = str;
+        this.bGo = str;
     }
 
     public void c(PersonChangeData personChangeData) {
@@ -151,28 +151,28 @@ public class v extends com.baidu.adp.base.e {
         return false;
     }
 
-    public void aaW() {
-        if (this.mUserData != null && this.bGd != null) {
-            this.bGd.a(this.mUserData.getHave_attention() != 1, this.mUserData.getPortrait(), this.mUserData.getUserId());
+    public void aaZ() {
+        if (this.mUserData != null && this.bGr != null) {
+            this.bGr.a(this.mUserData.getHave_attention() != 1, this.mUserData.getPortrait(), this.mUserData.getUserId());
         }
     }
 
-    public void aaX() {
-        MessageManager.getInstance().unRegisterListener(this.bDf);
+    public void aba() {
+        MessageManager.getInstance().unRegisterListener(this.bDt);
     }
 
-    public void aag() {
+    public void aai() {
         com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(2001235, new y());
         aVar.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         MessageManager.getInstance().registerTask(aVar);
-        registerListener(this.bDf);
+        registerListener(this.bDt);
     }
 
-    public void aaY() {
+    public void abb() {
         sendMessage(new RequestPersonInfoMessage());
     }
 
-    public void aaZ() {
+    public void abc() {
         ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
         if (TbadkApplication.getCurrentAccount() != null) {
             profileRequestMessage.set_uid(Integer.valueOf(com.baidu.adp.lib.g.c.f(TbadkApplication.getCurrentAccount(), 0)));
@@ -188,9 +188,9 @@ public class v extends com.baidu.adp.base.e {
             profileRequestMessage.set_friend_uid(Long.valueOf(com.baidu.adp.lib.g.c.a(getId(), 0L)));
             profileRequestMessage.set_is_guest(1);
         }
-        if (aaV() != null) {
+        if (aaY() != null) {
             try {
-                profileRequestMessage.set_st_type(aaV());
+                profileRequestMessage.set_st_type(aaY());
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -229,9 +229,9 @@ public class v extends com.baidu.adp.base.e {
             if (userData != null) {
                 h(userData);
             }
-            AntiData An = An();
-            if (An != null) {
-                a(An);
+            AntiData Ap = Ap();
+            if (Ap != null) {
+                a(Ap);
             }
             this.mLoadDataCallBack.a(true);
             return;
@@ -249,15 +249,15 @@ public class v extends com.baidu.adp.base.e {
                     this.mUserData = new UserData();
                 }
                 this.mUserData.parserProtobuf(profileHttpResponseMessage.GetUser());
-                if (this.bGc == null) {
-                    this.bGc = new PersonTainInfo();
+                if (this.bGq == null) {
+                    this.bGq = new PersonTainInfo();
                 }
-                this.bGc.parseProto(profileHttpResponseMessage.GetTainfo());
-                if (this.amA == null) {
-                    this.amA = new AntiData();
+                this.bGq.parseProto(profileHttpResponseMessage.GetTainfo());
+                if (this.amJ == null) {
+                    this.amJ = new AntiData();
                 }
-                this.amA.parserProtobuf(profileHttpResponseMessage.GetAntiStat());
-                this.bGb.clear();
+                this.amJ.parserProtobuf(profileHttpResponseMessage.GetAntiStat());
+                this.bGp.clear();
                 List<PostInfoList> GetPostList = profileHttpResponseMessage.GetPostList();
                 if (GetPostList != null) {
                     int i = 0;
@@ -266,7 +266,7 @@ public class v extends com.baidu.adp.base.e {
                         if (i2 < GetPostList.size()) {
                             PersonInfoPostList personInfoPostList = new PersonInfoPostList();
                             personInfoPostList.parseProto(GetPostList.get(i2));
-                            this.bGb.add(personInfoPostList);
+                            this.bGp.add(personInfoPostList);
                             i = i2 + 1;
                         } else {
                             return;
@@ -286,15 +286,15 @@ public class v extends com.baidu.adp.base.e {
                     this.mUserData = new UserData();
                 }
                 this.mUserData.parserProtobuf(profileSocketResponseMessage.GetUser());
-                if (this.bGc == null) {
-                    this.bGc = new PersonTainInfo();
+                if (this.bGq == null) {
+                    this.bGq = new PersonTainInfo();
                 }
-                this.bGc.parseProto(profileSocketResponseMessage.GetTainfo());
-                if (this.amA == null) {
-                    this.amA = new AntiData();
+                this.bGq.parseProto(profileSocketResponseMessage.GetTainfo());
+                if (this.amJ == null) {
+                    this.amJ = new AntiData();
                 }
-                this.amA.parserProtobuf(profileSocketResponseMessage.GetAntiStat());
-                this.bGb.clear();
+                this.amJ.parserProtobuf(profileSocketResponseMessage.GetAntiStat());
+                this.bGp.clear();
                 List<PostInfoList> GetPostList = profileSocketResponseMessage.GetPostList();
                 if (GetPostList != null) {
                     int i = 0;
@@ -303,7 +303,7 @@ public class v extends com.baidu.adp.base.e {
                         if (i2 < GetPostList.size()) {
                             PersonInfoPostList personInfoPostList = new PersonInfoPostList();
                             personInfoPostList.parseProto(GetPostList.get(i2));
-                            this.bGb.add(personInfoPostList);
+                            this.bGp.add(personInfoPostList);
                             i = i2 + 1;
                         } else {
                             return;

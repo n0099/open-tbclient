@@ -6,9 +6,9 @@ import com.baidu.adp.base.BdBaseApplication;
 /* loaded from: classes.dex */
 public class k {
     private static Toast nr;
-    private boolean Dl;
+    private boolean Dm;
     private static Handler mHandler = new Handler();
-    private static Runnable Dk = new l();
+    private static Runnable Dl = new l();
 
     public static k lt() {
         return new k();
@@ -18,17 +18,17 @@ public class k {
     }
 
     public void b(String str, int i, int i2) {
-        if (!this.Dl && str != null) {
+        if (!this.Dm && str != null) {
             String trim = str.trim();
             if (trim.length() != 0) {
-                mHandler.removeCallbacks(Dk);
+                mHandler.removeCallbacks(Dl);
                 if (nr != null) {
                     nr.setText(trim);
                 } else {
                     nr = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
                     nr.setGravity(17, 0, i2);
                 }
-                mHandler.postDelayed(Dk, i);
+                mHandler.postDelayed(Dl, i);
                 nr.show();
             }
         }
@@ -47,17 +47,17 @@ public class k {
     }
 
     public void onPause() {
-        this.Dl = true;
+        this.Dm = true;
         cancel();
     }
 
     public void onResume() {
-        this.Dl = false;
+        this.Dm = false;
     }
 
     public static void cancel() {
         if (nr != null) {
-            mHandler.removeCallbacks(Dk);
+            mHandler.removeCallbacks(Dl);
             nr.cancel();
             nr = null;
         }

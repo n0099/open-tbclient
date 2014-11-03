@@ -6,12 +6,12 @@ import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
-    final /* synthetic */ x asU;
+    final /* synthetic */ x atd;
     private volatile boolean kJ;
     private com.baidu.tbadk.core.util.ac mNetWork;
 
     private y(x xVar) {
-        this.asU = xVar;
+        this.atd = xVar;
         this.kJ = false;
     }
 
@@ -29,11 +29,11 @@ public class y extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
         int i2 = 0;
         FaceBuyQueryData faceBuyQueryData = null;
         String obj = objArr[0].toString();
-        if (!com.baidu.tbadk.core.util.ay.aA(obj)) {
+        if (!com.baidu.tbadk.core.util.az.aA(obj)) {
             this.mNetWork = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.QUERY_BUY_RESULT_URL);
             this.mNetWork.k("order_id", obj);
             while (!this.kJ) {
-                i = this.asU.asT;
+                i = this.atd.atc;
                 if (i2 >= i) {
                     break;
                 }
@@ -68,9 +68,9 @@ public class y extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
     public void onPostExecute(FaceBuyQueryData faceBuyQueryData) {
         com.baidu.adp.base.h hVar;
         super.onPostExecute(faceBuyQueryData);
-        this.asU.asS = null;
+        this.atd.atb = null;
         this.kJ = true;
-        hVar = this.asU.mLoadDataCallBack;
+        hVar = this.atd.mLoadDataCallBack;
         hVar.a(faceBuyQueryData);
     }
 
@@ -81,8 +81,8 @@ public class y extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
         if (this.mNetWork != null) {
             this.mNetWork.dM();
         }
-        this.asU.asS = null;
-        hVar = this.asU.mLoadDataCallBack;
+        this.atd.atb = null;
+        hVar = this.atd.mLoadDataCallBack;
         hVar.a(null);
     }
 }

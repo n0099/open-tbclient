@@ -6,13 +6,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends CustomMessageListener {
-    final /* synthetic */ d bhm;
+    final /* synthetic */ d bhA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(d dVar, int i) {
         super(i);
-        this.bhm = dVar;
+        this.bhA = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,34 +26,34 @@ public class e extends CustomMessageListener {
                 if (customResponsedMessage.getCmd() != 2016003) {
                     if (customResponsedMessage.getCmd() != 2016006) {
                         if (customResponsedMessage.getCmd() == 2016000) {
-                            list2 = this.bhm.Wx;
+                            list2 = this.bhA.WB;
                             if (list2 != null) {
-                                list3 = this.bhm.Wx;
+                                list3 = this.bhA.WB;
                                 list3.clear();
                             }
-                            com.baidu.tbadk.coreExtra.messageCenter.a.oB().c(new com.baidu.tbadk.coreExtra.b.c());
-                            com.baidu.tbadk.coreExtra.messageCenter.a.oB().setMsgChat(0);
-                            com.baidu.tbadk.coreExtra.messageCenter.a.oB().oR();
-                            com.baidu.tbadk.coreExtra.messageCenter.a.oB().oO();
+                            com.baidu.tbadk.coreExtra.messageCenter.a.oD().c(new com.baidu.tbadk.coreExtra.b.c());
+                            com.baidu.tbadk.coreExtra.messageCenter.a.oD().setMsgChat(0);
+                            com.baidu.tbadk.coreExtra.messageCenter.a.oD().oT();
+                            com.baidu.tbadk.coreExtra.messageCenter.a.oD().oQ();
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016010) {
-                            list = this.bhm.Wx;
+                            list = this.bhA.WB;
                             if (list == null) {
                                 return;
                             }
-                            this.bhm.bE(false);
+                            this.bhA.bE(false);
                             return;
                         } else {
                             return;
                         }
                     }
-                    this.bhm.e(customResponsedMessage);
+                    this.bhA.e(customResponsedMessage);
                     return;
                 }
-                this.bhm.d(customResponsedMessage);
+                this.bhA.d(customResponsedMessage);
                 return;
             }
-            this.bhm.c(customResponsedMessage);
+            this.bhA.c(customResponsedMessage);
         }
     }
 }

@@ -68,26 +68,27 @@ public class b extends BaseAdapter {
         if (view == null || !(view.getTag() instanceof c)) {
             view = com.baidu.adp.lib.g.b.ek().inflate(this.context, w.game_classify_item, null);
             cVar = new c(null);
-            cVar.aJq = (TbClipImageView) view.findViewById(v.game_classify_head);
-            cVar.aJt = (ImageView) view.findViewById(v.game_classify_arrow);
-            cVar.aJu = view.findViewById(v.game_classify_line);
-            cVar.aJr = (TextView) view.findViewById(v.game_classify_title);
-            cVar.aJs = (TextView) view.findViewById(v.game_classify_subdesc);
-            cVar.aJq.setDrawerType(1);
-            cVar.aJq.setRadius(m.c(this.context, t.ds26));
+            cVar.aJD = (TbClipImageView) view.findViewById(v.game_classify_head);
+            cVar.aJG = (ImageView) view.findViewById(v.game_classify_arrow);
+            cVar.aJH = view.findViewById(v.game_classify_line);
+            cVar.aJE = (TextView) view.findViewById(v.game_classify_title);
+            cVar.aJF = (TextView) view.findViewById(v.game_classify_subdesc);
+            cVar.aJD.setDrawerType(1);
+            cVar.aJD.setRadius(m.c(this.context, t.ds26));
+            cVar.aJD.setSupportNoImage(false);
             view.setTag(cVar);
         } else {
             cVar = (c) view.getTag();
         }
         GameCategory gameCategory = (GameCategory) item;
-        cVar.aJq.c(gameCategory.icon_url, 10, false);
+        cVar.aJD.c(gameCategory.icon_url, 10, false);
         if (StringUtils.isNull(gameCategory.name)) {
-            cVar.aJr.setText(y.game_classify_text_default);
+            cVar.aJE.setText(y.game_classify_text_default);
         } else {
-            cVar.aJr.setText(gameCategory.name);
+            cVar.aJE.setText(gameCategory.name);
         }
-        cVar.aJs.setText(a(gameCategory));
-        cVar.HZ();
+        cVar.aJF.setText(a(gameCategory));
+        cVar.Id();
         return view;
     }
 

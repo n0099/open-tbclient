@@ -7,11 +7,11 @@ import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements Runnable {
-    final /* synthetic */ LiveGroupManager Vu;
+    final /* synthetic */ LiveGroupManager Vy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(LiveGroupManager liveGroupManager) {
-        this.Vu = liveGroupManager;
+        this.Vy = liveGroupManager;
     }
 
     @Override // java.lang.Runnable
@@ -20,27 +20,27 @@ public class l implements Runnable {
         Handler handler;
         int i2;
         int i3;
-        i = this.Vu.mAccTimesWhenNoStreamWarning;
+        i = this.Vy.mAccTimesWhenNoStreamWarning;
         if (i > 0) {
-            this.Vu.mAccTimesWhenNoStreamWarning = 0;
-            handler = this.Vu.mHandler;
+            this.Vy.mAccTimesWhenNoStreamWarning = 0;
+            handler = this.Vy.mHandler;
             handler.postDelayed(this, 20000L);
-            i2 = this.Vu.mRetryTimesWhenNoStream;
+            i2 = this.Vy.mRetryTimesWhenNoStream;
             if (i2 < 2) {
                 UtilHelper.showToast(TbadkApplication.m251getInst().getApp(), y.live_error_play_no_stream_retry);
-                LiveGroupManager liveGroupManager = this.Vu;
+                LiveGroupManager liveGroupManager = this.Vy;
                 i3 = liveGroupManager.mRetryTimesWhenNoStream;
                 liveGroupManager.mRetryTimesWhenNoStream = i3 + 1;
-                this.Vu.retryPlay();
+                this.Vy.retryPlay();
                 return;
             }
             UtilHelper.showToast(TbadkApplication.m251getInst().getApp(), y.live_error_play_no_stream);
-            this.Vu.mRetryTimesWhenNoStream = 0;
-            this.Vu.stopAnyRunning();
+            this.Vy.mRetryTimesWhenNoStream = 0;
+            this.Vy.stopAnyRunning();
             return;
         }
-        this.Vu.mHasBookedWarningTask = false;
-        this.Vu.mAccTimesWhenNoStreamWarning = 0;
-        this.Vu.mRetryTimesWhenNoStream = 0;
+        this.Vy.mHasBookedWarningTask = false;
+        this.Vy.mAccTimesWhenNoStreamWarning = 0;
+        this.Vy.mRetryTimesWhenNoStream = 0;
     }
 }

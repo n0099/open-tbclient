@@ -6,20 +6,20 @@ import com.baidu.tieba.data.MarkData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PbActivity bvg;
-    private final /* synthetic */ MarkData bvo;
+    private final /* synthetic */ MarkData bvC;
+    final /* synthetic */ PbActivity bvu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(PbActivity pbActivity, MarkData markData) {
-        this.bvg = pbActivity;
-        this.bvo = markData;
+        this.bvu = pbActivity;
+        this.bvC = markData;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         Intent intent = new Intent();
-        intent.putExtra(PbActivityConfig.KEY_MARK, this.bvo);
-        this.bvg.setResult(-1, intent);
-        this.bvg.Wi();
+        intent.putExtra(PbActivityConfig.KEY_MARK, this.bvC);
+        this.bvu.setResult(-1, intent);
+        this.bvu.Wl();
     }
 }

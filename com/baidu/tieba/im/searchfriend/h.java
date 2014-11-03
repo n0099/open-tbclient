@@ -11,50 +11,50 @@ import com.baidu.tieba.u;
 import com.baidu.tieba.v;
 /* loaded from: classes.dex */
 public class h {
-    private EditText bhM;
-    private TextView bhN;
-    private ImageView bhO;
-    private k bhP;
-    private View.OnClickListener bhQ = new i(this);
+    private EditText bia;
+    private TextView bib;
+    private ImageView bic;
+    private k bie;
+    private View.OnClickListener bif = new i(this);
     private Context context;
 
     public void ds(boolean z) {
-        this.bhN.setClickable(z);
+        this.bib.setClickable(z);
     }
 
     public void gC(String str) {
-        this.bhM.setText(str);
+        this.bia.setText(str);
     }
 
     public h(Context context, View view) {
         this.context = context;
-        this.bhM = (EditText) view.findViewById(v.new_search_friend_input);
-        this.bhN = (TextView) view.findViewById(v.new_search_friend_search);
-        this.bhO = (ImageView) view.findViewById(v.new_search_friend_del);
-        this.bhN.setOnClickListener(this.bhQ);
-        this.bhO.setOnClickListener(this.bhQ);
-        this.bhM.addTextChangedListener(new j(this));
+        this.bia = (EditText) view.findViewById(v.new_search_friend_input);
+        this.bib = (TextView) view.findViewById(v.new_search_friend_search);
+        this.bic = (ImageView) view.findViewById(v.new_search_friend_del);
+        this.bib.setOnClickListener(this.bif);
+        this.bic.setOnClickListener(this.bif);
+        this.bia.addTextChangedListener(new j(this));
         bM(TbadkApplication.m251getInst().getSkinType());
     }
 
-    public void Rv() {
-        com.baidu.adp.lib.util.m.b(this.context, this.bhM);
+    public void Ry() {
+        com.baidu.adp.lib.util.m.b(this.context, this.bia);
     }
 
     public void a(k kVar) {
-        this.bhP = kVar;
+        this.bie = kVar;
     }
 
     public void bM(int i) {
-        aw.b(this.bhN, com.baidu.tieba.s.cp_cont_g, 1);
-        this.bhM.setHintTextColor(aw.getColor(com.baidu.tieba.s.cp_cont_e));
-        aw.c(this.bhO, u.icon_search_close);
+        aw.b(this.bib, com.baidu.tieba.s.cp_cont_g, 1);
+        this.bia.setHintTextColor(aw.getColor(com.baidu.tieba.s.cp_cont_e));
+        aw.c(this.bic, u.icon_search_close);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void fz(String str) {
-        if (this.bhP != null) {
-            this.bhP.gB(str);
+        if (this.bie != null) {
+            this.bie.gB(str);
         }
     }
 }

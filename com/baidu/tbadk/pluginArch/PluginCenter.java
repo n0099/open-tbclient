@@ -15,6 +15,7 @@ import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.pluginArch.PluginDownloader;
 import com.baidu.tbadk.pluginArch.PluginNetConfigLoader;
+import com.baidu.tbadk.pluginArch.PluginXMLReader;
 import com.baidu.tbadk.pluginArch.bean.ConfigInfos;
 import java.io.File;
 import java.util.ArrayList;
@@ -243,7 +244,7 @@ public class PluginCenter {
 
     public void installPluginFromFile(String str, String str2, InstallCallback installCallback) {
         PluginInstalledConfigItem installedConfigByName;
-        if (!checkPluginInstalled(str2) || hasUpdate(str2) || (installedConfigByName = PluginInstalledConfigManager.getInstance().getInstalledConfigByName(str2)) == null || PluginVersionCheck.checkHasPluginUpdatePackageXML(installedConfigByName)) {
+        if (!checkPluginInstalled(str2) || (installedConfigByName = PluginInstalledConfigManager.getInstance().getInstalledConfigByName(str2)) == null || installedConfigByName.mInstalledMainVersion == null || !installedConfigByName.mInstalledMainVersion.equals(TbConfig.getVersion())) {
             new PluginInstaller(str, str2, new InstallCallbackImpl(str2, installCallback)).install();
         }
     }
@@ -295,7 +296,8 @@ public class PluginCenter {
         return false;
     }
 
-    private Plugin createPlugin(PluginXMLInfo pluginXMLInfo) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public Plugin createPlugin(PluginXMLInfo pluginXMLInfo) {
         if (pluginXMLInfo == null) {
             return null;
         }
@@ -331,36 +333,13 @@ public class PluginCenter {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void onInstallFinished(int i, String str, String str2) {
-        PluginXMLInfo xMLInfoFromFile;
-        if (i == 0 && (xMLInfoFromFile = getXMLInfoFromFile(PluginFileHelper.pluginXML(str2))) != null) {
-            PluginInstalledConfigItem pluginInstalledConfigItem = new PluginInstalledConfigItem();
-            pluginInstalledConfigItem.mPluginName = str2;
-            pluginInstalledConfigItem.mPluginVersion = xMLInfoFromFile.mVersion;
-            pluginInstalledConfigItem.mInstalledMainVersion = TbConfig.getVersion();
-            if (PluginLoadFilter.getInstance().canLoadPlugin(pluginInstalledConfigItem)) {
-                Plugin createPlugin = createPlugin(xMLInfoFromFile);
-                if (createPlugin != null) {
-                    createPlugin.loadPlugin(true);
-                } else {
-                    return;
-                }
-            }
-            PluginInstalledConfigManager.getInstance().addInstalledConfig(pluginInstalledConfigItem);
-            if (TbadkApplication.m251getInst().isMainProcess(false)) {
-                Intent intent = new Intent(this.mContext, PluginFileService.class);
-                intent.putExtra(PluginFileService.KEY_PLUGIN_NAME, str2);
-                this.mContext.startService(intent);
-            }
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class InstallCallbackImpl implements InstallCallback {
+    public class InstallCallbackImpl implements InstallCallback, PluginXMLReader.PluginXMLAsyncCallback {
         private InstallCallback callback;
         private String pluginName;
+        private String mMsg = null;
+        private int mErr = -1;
 
         public InstallCallbackImpl(String str, InstallCallback installCallback) {
             this.pluginName = null;
@@ -371,9 +350,49 @@ public class PluginCenter {
 
         @Override // com.baidu.tbadk.pluginArch.InstallCallback
         public void onFinish(int i, String str) {
-            PluginCenter.this.onInstallFinished(i, str, this.pluginName);
-            if (this.callback != null) {
-                this.callback.onFinish(i, str);
+            this.mErr = i;
+            this.mMsg = str;
+            onInstallFinished(i, str, this.pluginName);
+        }
+
+        private void onInstallFinished(int i, String str, String str2) {
+            File pluginXML;
+            if (i == 0 && (pluginXML = PluginFileHelper.pluginXML(str2)) != null && pluginXML.exists()) {
+                PluginXMLReader pluginXMLReader = new PluginXMLReader(pluginXML);
+                pluginXMLReader.mCallback = this;
+                pluginXMLReader.asyncParse();
+            }
+        }
+
+        @Override // com.baidu.tbadk.pluginArch.PluginXMLReader.PluginXMLAsyncCallback
+        public void onFinish(PluginXMLReader pluginXMLReader) {
+            PluginXMLInfo pluginXMLInfo = pluginXMLReader.mXmlInfo;
+            if (pluginXMLInfo != null) {
+                PluginInstalledConfigItem pluginInstalledConfigItem = new PluginInstalledConfigItem();
+                pluginInstalledConfigItem.mPluginName = this.pluginName;
+                pluginInstalledConfigItem.mPluginVersion = pluginXMLInfo.mVersion;
+                pluginInstalledConfigItem.mInstalledMainVersion = TbConfig.getVersion();
+                if (PluginLoadFilter.getInstance().canLoadPlugin(pluginInstalledConfigItem)) {
+                    Plugin createPlugin = PluginCenter.this.createPlugin(pluginXMLInfo);
+                    if (createPlugin == null) {
+                        if (this.callback != null) {
+                            this.callback.onFinish(this.mErr, this.mMsg);
+                            return;
+                        }
+                        return;
+                    }
+                    createPlugin.loadPlugin(true);
+                }
+                RemoteSynchronousDataHelper.getInstance().startInstallPluginMsg();
+                PluginInstalledConfigManager.getInstance().addInstalledConfig(pluginInstalledConfigItem);
+                if (TbadkApplication.m251getInst().isMainProcess(false)) {
+                    Intent intent = new Intent(PluginCenter.this.mContext, PluginFileService.class);
+                    intent.putExtra(PluginFileService.KEY_PLUGIN_NAME, this.pluginName);
+                    PluginCenter.this.mContext.startService(intent);
+                }
+                if (this.callback != null) {
+                    this.callback.onFinish(this.mErr, this.mMsg);
+                }
             }
         }
     }

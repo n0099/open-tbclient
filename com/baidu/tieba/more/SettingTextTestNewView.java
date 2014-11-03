@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.data.VersionData;
 /* loaded from: classes.dex */
@@ -17,18 +18,18 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
         String version;
         boolean z = false;
         boolean z2 = TbadkApplication.m251getInst().getSkinType() == 1;
-        VersionData wI = com.baidu.tieba.aj.wk().wI();
-        if (wI != null && wI.hasNewVer()) {
+        VersionData wK = com.baidu.tieba.aj.wm().wK();
+        if (wK != null && wK.hasNewVer()) {
             z = true;
         }
         if (z) {
-            this.Pe.setText("New");
-            this.Pe.setTextAppearance(this.mContext, z2 ? com.baidu.tieba.z.setting_version_prompt_text_1 : com.baidu.tieba.z.setting_version_prompt_text);
-            com.baidu.tbadk.core.util.aw.h((View) this.Pe, com.baidu.tieba.u.icon_news_text_prompt);
+            this.Pi.setText("New");
+            this.Pi.setTextAppearance(this.mContext, z2 ? com.baidu.tieba.z.setting_version_prompt_text_1 : com.baidu.tieba.z.setting_version_prompt_text);
+            com.baidu.tbadk.core.util.aw.h((View) this.Pi, com.baidu.tieba.u.icon_news_text_prompt);
             return;
         }
-        this.Pe.setText((TbConfig.getVersionType() != 1 || com.baidu.tbadk.core.util.ay.aA(TbConfig.getSubVersion())) ? TbConfig.getVersion() : String.valueOf(version) + "." + TbConfig.getSubVersion());
-        this.Pe.setBackgroundDrawable(null);
-        this.Pe.setTextAppearance(this.mContext, z2 ? com.baidu.tieba.z.setting_version_text_1 : com.baidu.tieba.z.setting_version_text);
+        this.Pi.setText((TbConfig.getVersionType() != 1 || az.aA(TbConfig.getSubVersion())) ? TbConfig.getVersion() : String.valueOf(version) + "." + TbConfig.getSubVersion());
+        this.Pi.setBackgroundDrawable(null);
+        this.Pi.setTextAppearance(this.mContext, z2 ? com.baidu.tieba.z.setting_version_text_1 : com.baidu.tieba.z.setting_version_text);
     }
 }

@@ -16,29 +16,29 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private String Ch = null;
-    private SharedPreferences Ci = null;
-    private String Cj = null;
-    private String Cl = null;
-    private static b Cg = null;
+    private String Ci = null;
+    private SharedPreferences Cj = null;
+    private String Ck = null;
+    private String Cm = null;
+    private static b Ch = null;
     private static ContentResolver mContentResolver = null;
-    private static HashMap<String, String> Ck = null;
+    private static HashMap<String, String> Cl = null;
 
     private b() {
-        Ck = new HashMap<>();
-        Ck.put(a.Cb, TbConfig.SETTINGFILE);
-        Ck.put(a.Cc, "remote_settings");
-        Ck.put(a.Cd, "bdservice_settings");
+        Cl = new HashMap<>();
+        Cl.put(a.Cc, TbConfig.SETTINGFILE);
+        Cl.put(a.Cd, "remote_settings");
+        Cl.put(a.Ce, "bdservice_settings");
         mContentResolver = TbadkApplication.m251getInst().getApp().getContentResolver();
     }
 
     public static synchronized b lk() {
         b bVar;
         synchronized (b.class) {
-            if (Cg == null) {
-                Cg = new b();
+            if (Ch == null) {
+                Ch = new b();
             }
-            bVar = Cg;
+            bVar = Ch;
         }
         return bVar;
     }
@@ -56,8 +56,8 @@ public class b {
             }
             return z;
         }
-        this.Ci = getSharedPreferences();
-        return this.Ci.getBoolean(str, z);
+        this.Cj = getSharedPreferences();
+        return this.Cj.getBoolean(str, z);
     }
 
     public boolean e(String str, boolean z) {
@@ -86,8 +86,8 @@ public class b {
             }
             return i;
         }
-        this.Ci = getSharedPreferences();
-        return this.Ci.getInt(str, i);
+        this.Cj = getSharedPreferences();
+        return this.Cj.getInt(str, i);
     }
 
     public long getLong(String str, long j) {
@@ -103,8 +103,8 @@ public class b {
             }
             return j;
         }
-        this.Ci = getSharedPreferences();
-        return this.Ci.getLong(str, j);
+        this.Cj = getSharedPreferences();
+        return this.Cj.getLong(str, j);
     }
 
     public String getString(String str, String str2) {
@@ -112,8 +112,8 @@ public class b {
             String value = getValue(str);
             return value != null ? value : str2;
         }
-        this.Ci = getSharedPreferences();
-        return this.Ci.getString(str, str2);
+        this.Cj = getSharedPreferences();
+        return this.Cj.getString(str, str2);
     }
 
     public void putBoolean(String str, boolean z) {
@@ -121,8 +121,8 @@ public class b {
             g(str, z);
             return;
         }
-        this.Ci = getSharedPreferences();
-        EditorHelper.putBoolean(this.Ci, str, z);
+        this.Cj = getSharedPreferences();
+        EditorHelper.putBoolean(this.Cj, str, z);
     }
 
     public void f(String str, boolean z) {
@@ -134,8 +134,8 @@ public class b {
             H(str, str2);
             return;
         }
-        this.Ci = getSharedPreferences();
-        EditorHelper.putString(this.Ci, str, str2);
+        this.Cj = getSharedPreferences();
+        EditorHelper.putString(this.Cj, str, str2);
     }
 
     public void putInt(String str, int i) {
@@ -143,8 +143,8 @@ public class b {
             l(str, i);
             return;
         }
-        this.Ci = getSharedPreferences();
-        EditorHelper.putInt(this.Ci, str, i);
+        this.Cj = getSharedPreferences();
+        EditorHelper.putInt(this.Cj, str, i);
     }
 
     public void putLong(String str, long j) {
@@ -152,8 +152,8 @@ public class b {
             b(str, j);
             return;
         }
-        this.Ci = getSharedPreferences();
-        EditorHelper.putLong(this.Ci, str, j);
+        this.Cj = getSharedPreferences();
+        EditorHelper.putLong(this.Cj, str, j);
     }
 
     public void remove(String str) {
@@ -161,17 +161,17 @@ public class b {
             removeValue(str);
             return;
         }
-        this.Ci = getSharedPreferences();
-        EditorHelper.remove(this.Ci, str);
+        this.Cj = getSharedPreferences();
+        EditorHelper.remove(this.Cj, str);
     }
 
     private boolean bj(String str) {
         if (str == null || str.length() == 0) {
             return false;
         }
-        int length = a.Ce.length;
+        int length = a.Cf.length;
         for (int i = 0; i < length; i++) {
-            if (str.equals(a.Ce[i])) {
+            if (str.equals(a.Cf[i])) {
                 return true;
             }
         }
@@ -215,17 +215,17 @@ public class b {
     }
 
     private synchronized SharedPreferences getSharedPreferences() {
-        if (this.Cj == null || this.Cj.length() == 0) {
-            if (this.Ch == null || this.Ch.length() == 0) {
-                this.Ch = ll();
+        if (this.Ck == null || this.Ck.length() == 0) {
+            if (this.Ci == null || this.Ci.length() == 0) {
+                this.Ci = ll();
             }
-            if (Ck.containsKey(this.Ch)) {
-                this.Cj = Ck.get(this.Ch);
+            if (Cl.containsKey(this.Ci)) {
+                this.Ck = Cl.get(this.Ci);
             } else {
-                this.Cj = TbConfig.SETTINGFILE;
+                this.Ck = TbConfig.SETTINGFILE;
             }
         }
-        return TbadkApplication.m251getInst().getApp().getSharedPreferences(this.Cj, 0);
+        return TbadkApplication.m251getInst().getApp().getSharedPreferences(this.Ck, 0);
     }
 
     private String ll() {
@@ -247,7 +247,7 @@ public class b {
                 }
             }
         }
-        return a.Cb;
+        return a.Cc;
     }
 
     public void lm() {
@@ -276,15 +276,15 @@ public class b {
     }
 
     protected String ln() {
-        if (this.Cl == null) {
+        if (this.Cm == null) {
             String packageName = TbadkApplication.m251getInst().getPackageName();
             if ("com.baidu.tieba".equals(packageName)) {
-                this.Cl = "content://com.baidu.tbadk.core.sharedPref.MainSharedPrefProvider/";
+                this.Cm = "content://com.baidu.tbadk.core.sharedPref.MainSharedPrefProvider/";
             } else {
-                this.Cl = "content://" + packageName + ".sharedPref.MainSharedPrefProvider/";
+                this.Cm = "content://" + packageName + ".sharedPref.MainSharedPrefProvider/";
             }
         }
-        return this.Cl;
+        return this.Cm;
     }
 
     protected void a(Uri uri, ContentValues contentValues) {

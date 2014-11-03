@@ -18,49 +18,49 @@ import com.baidu.tbadk.pluginArch.PluginNameList;
 import com.baidu.tbadk.pluginArch.bean.ConfigInfos;
 /* loaded from: classes.dex */
 public class j extends HorizontalScrollView {
-    private int NG;
-    private int NH;
-    private Runnable NI;
-    private ImageView[] NJ;
-    private View NK;
-    private View NL;
-    private o NM;
-    private boolean NN;
-    private String NO;
+    private int NK;
+    private int NL;
+    private Runnable NM;
+    private ImageView[] NN;
+    private View NO;
+    private View NP;
+    private o NQ;
+    private boolean NR;
+    private String NS;
     private Context mContext;
 
     public j(Context context, o oVar, String str) {
         super(context);
-        this.NG = 0;
-        this.NH = 0;
-        this.NI = new k(this);
+        this.NK = 0;
+        this.NL = 0;
+        this.NM = new k(this);
         this.mContext = null;
-        this.NJ = null;
-        this.NK = null;
-        this.NL = null;
-        this.NM = null;
-        this.NN = true;
-        this.NO = WriteImageActivityConfig.FILTER_NAME_NORMAL;
+        this.NN = null;
+        this.NO = null;
+        this.NP = null;
+        this.NQ = null;
+        this.NR = true;
+        this.NS = WriteImageActivityConfig.FILTER_NAME_NORMAL;
         this.mContext = context;
-        this.NM = oVar;
+        this.NQ = oVar;
         if (str != null) {
-            this.NO = str;
+            this.NS = str;
         }
         init();
     }
 
     private void init() {
-        this.NG = (int) this.mContext.getResources().getDimension(com.baidu.tieba.t.ds4);
-        this.NH = (int) this.mContext.getResources().getDimension(com.baidu.tieba.t.ds30);
+        this.NK = (int) this.mContext.getResources().getDimension(com.baidu.tieba.t.ds4);
+        this.NL = (int) this.mContext.getResources().getDimension(com.baidu.tieba.t.ds30);
         LinearLayout linearLayout = new LinearLayout(this.mContext);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
         linearLayout.setGravity(16);
         linearLayout.setOrientation(0);
-        linearLayout.setPadding(this.NH, linearLayout.getPaddingTop(), linearLayout.getPaddingRight(), linearLayout.getPaddingBottom());
+        linearLayout.setPadding(this.NL, linearLayout.getPaddingTop(), linearLayout.getPaddingRight(), linearLayout.getPaddingBottom());
         setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
         addView(linearLayout);
         String[] stringArray = this.mContext.getResources().getStringArray(com.baidu.tieba.q.fiter_name);
-        this.NJ = new ImageView[stringArray.length];
+        this.NN = new ImageView[stringArray.length];
         int length = stringArray.length;
         int i = 0;
         int i2 = 0;
@@ -73,17 +73,17 @@ public class j extends HorizontalScrollView {
             textView.setText(substring2);
             textView.setTag(substring);
             ImageView imageView = (ImageView) inflate.findViewById(com.baidu.tieba.v.filter_immage);
-            imageView.setPadding(this.NG, this.NG, this.NG, this.NG);
+            imageView.setPadding(this.NK, this.NK, this.NK, this.NK);
             imageView.setTag(textView);
             imageView.setOnClickListener(new l(this));
-            if (substring.equals(this.NO)) {
-                this.NK = inflate;
-                this.NL = imageView;
+            if (substring.equals(this.NS)) {
+                this.NO = inflate;
+                this.NP = imageView;
                 imageView.setBackgroundResource(com.baidu.tieba.u.bg_choose_filter);
                 textView.setSelected(true);
             }
             imageView.setImageResource(cK(substring));
-            this.NJ[i2] = imageView;
+            this.NN[i2] = imageView;
             linearLayout.addView(inflate);
             i++;
             i2++;
@@ -93,38 +93,38 @@ public class j extends HorizontalScrollView {
     @Override // android.widget.HorizontalScrollView, android.widget.FrameLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.NK != null) {
-            post(this.NI);
+        if (this.NO != null) {
+            post(this.NM);
         }
     }
 
     public String getSelectedFilter() {
-        return this.NL != null ? (String) ((View) this.NL.getTag()).getTag() : WriteImageActivityConfig.FILTER_NAME_NORMAL;
+        return this.NP != null ? (String) ((View) this.NP.getTag()).getTag() : WriteImageActivityConfig.FILTER_NAME_NORMAL;
     }
 
     public void setCanbeClick(boolean z) {
-        this.NN = z;
+        this.NR = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void o(View view) {
-        if (this.NN && view != this.NL && pW()) {
-            if (this.NL != null) {
-                this.NL.setBackgroundDrawable(null);
-                ((TextView) this.NL.getTag()).setSelected(false);
+        if (this.NR && view != this.NP && pY()) {
+            if (this.NP != null) {
+                this.NP.setBackgroundDrawable(null);
+                ((TextView) this.NP.getTag()).setSelected(false);
             }
-            this.NL = view;
+            this.NP = view;
             view.setBackgroundResource(com.baidu.tieba.u.bg_choose_filter);
             TextView textView = (TextView) view.getTag();
             textView.setSelected(true);
-            this.NO = (String) textView.getTag();
-            if (this.NM != null) {
-                this.NM.cL(this.NO);
+            this.NS = (String) textView.getTag();
+            if (this.NQ != null) {
+                this.NQ.cL(this.NS);
             }
         }
     }
 
-    private boolean pW() {
+    private boolean pY() {
         Plugin pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_MOTUSDK);
         if (pluginByName == null) {
             ConfigInfos.PluginConfig netConfigInfo = PluginCenter.getInstance().getNetConfigInfo(PluginNameList.NAME_MOTUSDK);

@@ -8,21 +8,21 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g implements i {
-    private int bzw = 0;
-    private List<a> bzx = null;
+    private int bzK = 0;
+    private List<a> bzL = null;
 
     @Override // com.baidu.tbadk.mvc.b.i
     public void d(JSONObject jSONObject) {
-        this.bzw = jSONObject.optInt("num");
+        this.bzK = jSONObject.optInt("num");
         JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
         if (optJSONArray != null) {
-            this.bzx = new ArrayList();
+            this.bzL = new ArrayList();
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     a aVar = new a();
                     aVar.d(optJSONObject);
-                    this.bzx.add(aVar);
+                    this.bzL.add(aVar);
                 }
             }
         }
@@ -32,11 +32,11 @@ public class g implements i {
     public void a(Message message) {
     }
 
-    public int YB() {
-        return this.bzw;
+    public int YE() {
+        return this.bzK;
     }
 
-    public List<a> YC() {
-        return this.bzx;
+    public List<a> YF() {
+        return this.bzL;
     }
 }

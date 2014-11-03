@@ -9,12 +9,12 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.im.model.GroupLevelModel;
 /* loaded from: classes.dex */
 public class GroupLevelActivity extends BaseActivity {
-    private GroupLevelModel aXi;
-    private q aXj;
-    private com.baidu.tbadk.core.dialog.a aXk;
-    private com.baidu.tbadk.core.dialog.d aXl = new n(this);
-    private com.baidu.tbadk.core.dialog.d aXm = new o(this);
-    private com.baidu.adp.framework.listener.e ayJ = new p(this, 0);
+    private GroupLevelModel aXw;
+    private q aXx;
+    private com.baidu.tbadk.core.dialog.a aXy;
+    private com.baidu.tbadk.core.dialog.d aXz = new n(this);
+    private com.baidu.tbadk.core.dialog.d aXA = new o(this);
+    private com.baidu.adp.framework.listener.e ayS = new p(this, 0);
 
     public static void a(Context context, long j, boolean z) {
         Intent intent = new Intent(context, GroupLevelActivity.class);
@@ -27,7 +27,7 @@ public class GroupLevelActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        com.baidu.tbadk.core.i.m(this, "im_group_level_visit");
+        com.baidu.tbadk.core.j.m(this, "im_group_level_visit");
         d(bundle);
         e(bundle);
         startLoading();
@@ -35,23 +35,23 @@ public class GroupLevelActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startLoading() {
-        this.aXj.cX(true);
-        this.aXi.sendMessage(this.aXi.getGroupId(), getUniqueId());
+        this.aXx.cX(true);
+        this.aXw.sendMessage(this.aXw.getGroupId(), getUniqueId());
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.aXi.saveInstance(bundle);
+        this.aXw.saveInstance(bundle);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.aXj.Nw()) {
+        if (view == this.aXx.NA()) {
             closeActivity();
-        } else if (view == this.aXj.Nx()) {
-            com.baidu.tbadk.core.i.l(this, "im_group_level_upgrade_mem");
-            this.aXk.kW();
+        } else if (view == this.aXx.NB()) {
+            com.baidu.tbadk.core.j.l(this, "im_group_level_upgrade_mem");
+            this.aXy.kW();
         }
     }
 
@@ -59,7 +59,7 @@ public class GroupLevelActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.aXj.onChangeSkinType(i);
+        this.aXx.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -69,22 +69,22 @@ public class GroupLevelActivity extends BaseActivity {
     }
 
     public void d(Bundle bundle) {
-        this.aXi = new GroupLevelModel(this);
+        this.aXw = new GroupLevelModel(this);
         if (bundle == null) {
-            this.aXi.initWithIntent(getIntent());
+            this.aXw.initWithIntent(getIntent());
         } else {
-            this.aXi.initWithBundle(bundle);
+            this.aXw.initWithBundle(bundle);
         }
-        registerListener(103006, this.ayJ);
-        registerListener(103105, this.ayJ);
+        registerListener(103006, this.ayS);
+        registerListener(103105, this.ayS);
     }
 
     private void e(Bundle bundle) {
-        this.aXj = new q(this, this.aXi.isMem());
-        this.aXk = new com.baidu.tbadk.core.dialog.a(this);
-        this.aXk.aX(com.baidu.tieba.y.upgrade_mem_group_if_up);
-        this.aXk.a(com.baidu.tieba.y.alert_yes_btn, this.aXl);
-        this.aXk.b(com.baidu.tieba.y.alert_no_button, this.aXm);
-        this.aXk.kT();
+        this.aXx = new q(this, this.aXw.isMem());
+        this.aXy = new com.baidu.tbadk.core.dialog.a(this);
+        this.aXy.aX(com.baidu.tieba.y.upgrade_mem_group_if_up);
+        this.aXy.a(com.baidu.tieba.y.alert_yes_btn, this.aXz);
+        this.aXy.b(com.baidu.tieba.y.alert_no_button, this.aXA);
+        this.aXy.kT();
     }
 }

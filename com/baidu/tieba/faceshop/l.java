@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.atomData.FacePackageDetailActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnClickListener {
-    final /* synthetic */ EmotionImageActivity ass;
+    final /* synthetic */ EmotionImageActivity asB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(EmotionImageActivity emotionImageActivity) {
-        this.ass = emotionImageActivity;
+        this.asB = emotionImageActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,7 +19,7 @@ public class l implements View.OnClickListener {
         int i;
         String str;
         String str2;
-        i = this.ass.from;
+        i = this.asB.from;
         switch (i) {
             case 1:
                 str = "faceshop_from_forum_detail";
@@ -34,8 +34,8 @@ public class l implements View.OnClickListener {
                 str = "emotion_image";
                 break;
         }
-        EmotionImageActivity emotionImageActivity = this.ass;
-        str2 = this.ass.Lh;
+        EmotionImageActivity emotionImageActivity = this.asB;
+        str2 = this.asB.Li;
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(emotionImageActivity, str2, false, str)));
     }
 }

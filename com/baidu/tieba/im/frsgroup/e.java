@@ -16,65 +16,65 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e extends com.baidu.tbadk.mvc.h.b implements com.baidu.adp.widget.ListView.aa {
-    private FrsGroupActivity aWI;
-    private m aWJ;
-    private com.baidu.tbadk.mvc.e.a aWK;
-    private FrsGroupBottomView aWL;
-    private com.baidu.tbadk.core.view.o aWM;
-    private Button aWN;
-    private com.baidu.tbadk.mvc.i.c<GroupInfoData, com.baidu.tbadk.mvc.e.c, c> aWO;
-    private boolean aWP;
-    private boolean aWQ;
-    private final CustomMessageListener aWR;
-    private LinearLayout ayk;
-    private BdListView azz;
+    private FrsGroupActivity aWW;
+    private m aWX;
+    private com.baidu.tbadk.mvc.e.a aWY;
+    private FrsGroupBottomView aWZ;
+    private com.baidu.tbadk.core.view.o aXa;
+    private Button aXb;
+    private com.baidu.tbadk.mvc.i.c<GroupInfoData, com.baidu.tbadk.mvc.e.c, c> aXc;
+    private boolean aXd;
+    private boolean aXe;
+    private final CustomMessageListener aXf;
+    private LinearLayout ayt;
+    private BdListView azI;
     private int index;
     private final com.baidu.adp.framework.listener.e mSocketListener;
 
     public e(FrsGroupActivity frsGroupActivity, int i, BdUniqueId bdUniqueId) {
         super(frsGroupActivity);
         this.mSocketListener = new f(this, 0);
-        this.aWR = new g(this, 0);
-        this.aWI = frsGroupActivity;
+        this.aXf = new g(this, 0);
+        this.aWW = frsGroupActivity;
         this.index = i;
         this.unique_id = bdUniqueId;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void tg() {
-        this.aWI.registerListener(103104, this.mSocketListener);
-        this.aWI.registerListener(103105, this.mSocketListener);
-        this.aWI.registerListener(2001141, this.aWR);
-        this.ayk = (LinearLayout) getView().findViewById(com.baidu.tieba.v.no_data_layout);
-        this.azz = (BdListView) getView().findViewById(com.baidu.tieba.v.group_list);
-        this.aWO = new com.baidu.tbadk.mvc.i.c<>(sX(), c.class, com.baidu.tieba.w.im_frsgroup_list_item, null);
-        this.aWO.aH(false);
-        this.azz.setAdapter((ListAdapter) this.aWO);
-        this.aWL = new FrsGroupBottomView(this.aWI);
-        this.azz.setNextPage(this.aWL);
-        this.azz.setOnSrollToBottomListener(this);
-        this.azz.setOnItemClickListener(new h(this));
-        this.aWN = (Button) getView().findViewById(com.baidu.tieba.v.create_group);
-        sY().setViewClickListener(this.aWN, sZ().dj(987));
-        ue();
-        this.aWQ = true;
-        sY().addEventDelegate(this);
-        tZ();
+    public void ti() {
+        this.aWW.registerListener(103104, this.mSocketListener);
+        this.aWW.registerListener(103105, this.mSocketListener);
+        this.aWW.registerListener(2001141, this.aXf);
+        this.ayt = (LinearLayout) getView().findViewById(com.baidu.tieba.v.no_data_layout);
+        this.azI = (BdListView) getView().findViewById(com.baidu.tieba.v.group_list);
+        this.aXc = new com.baidu.tbadk.mvc.i.c<>(sZ(), c.class, com.baidu.tieba.w.im_frsgroup_list_item, null);
+        this.aXc.aH(false);
+        this.azI.setAdapter((ListAdapter) this.aXc);
+        this.aWZ = new FrsGroupBottomView(this.aWW);
+        this.azI.setNextPage(this.aWZ);
+        this.azI.setOnSrollToBottomListener(this);
+        this.azI.setOnItemClickListener(new h(this));
+        this.aXb = (Button) getView().findViewById(com.baidu.tieba.v.create_group);
+        ta().setViewClickListener(this.aXb, tb().dj(987));
+        ug();
+        this.aXe = true;
+        ta().addEventDelegate(this);
+        ub();
         dg(TbadkApplication.m251getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.mvc.h.b
-    public BdListView ud() {
-        return this.azz;
+    public BdListView uf() {
+        return this.azI;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
     public void nv() {
         super.nv();
-        if (this.aWM != null) {
-            this.aWM.nv();
+        if (this.aXa != null) {
+            this.aXa.nv();
         }
     }
 
@@ -82,76 +82,76 @@ public class e extends com.baidu.tbadk.mvc.h.b implements com.baidu.adp.widget.L
     @Override // com.baidu.tbadk.mvc.core.c
     public void onActivityStop() {
         super.onActivityStop();
-        if (this.aWM != null) {
-            this.aWM.onActivityStop();
+        if (this.aXa != null) {
+            this.aXa.onActivityStop();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void td() {
-        super.td();
-        if (this.aWP) {
+    public void tf() {
+        super.tf();
+        if (this.aXd) {
             aG(true);
         }
     }
 
     @Override // com.baidu.tbadk.mvc.core.c
-    protected int th() {
+    protected int tj() {
         return com.baidu.tieba.w.im_frsgroup_list;
     }
 
     @Override // com.baidu.tbadk.mvc.h.b, com.baidu.tbadk.mvc.core.c, com.baidu.tbadk.e.a
     public boolean dg(int i) {
         super.dg(i);
-        this.azz.setDivider(aw.getDrawable(com.baidu.tieba.u.list_divider));
-        com.baidu.tbadk.e.b.u(this.aWN);
+        this.azI.setDivider(aw.getDrawable(com.baidu.tieba.u.list_divider));
+        com.baidu.tbadk.e.b.u(this.aXb);
         return true;
     }
 
-    private void Np() {
-        if (this.aWM != null && this.aWM.getVisibility() == 0) {
-            this.aWM.setVisibility(8);
-            this.aWN.setVisibility(8);
+    private void Nt() {
+        if (this.aXa != null && this.aXa.getVisibility() == 0) {
+            this.aXa.setVisibility(8);
+            this.aXb.setVisibility(8);
         }
     }
 
     private void cV(boolean z) {
         if (!z) {
-            this.azz.setDivider(getResources().getDrawable(17170445));
+            this.azI.setDivider(getResources().getDrawable(17170445));
         } else {
-            this.azz.setDivider(aw.getDrawable(com.baidu.tieba.u.list_divider));
+            this.azI.setDivider(aw.getDrawable(com.baidu.tieba.u.list_divider));
         }
     }
 
     private void fF(int i) {
-        if (this.aWM == null) {
-            this.aWM = NoDataViewFactory.a(sX(), this.ayk, com.baidu.tbadk.core.view.r.a(NoDataViewFactory.ImgType.CREATE, (int) getResources().getDimension(com.baidu.tieba.t.ds80)), null, null);
+        if (this.aXa == null) {
+            this.aXa = NoDataViewFactory.a(sZ(), this.ayt, com.baidu.tbadk.core.view.r.a(NoDataViewFactory.ImgType.CREATE, (int) getResources().getDimension(com.baidu.tieba.t.ds80)), null, null);
         }
         cV(false);
-        this.aWM.nv();
+        this.aXa.nv();
         dg(TbadkApplication.m251getInst().getSkinType());
         switch (i) {
             case 1:
-                this.aWM.setTextOption(com.baidu.tbadk.core.view.s.bL(com.baidu.tieba.y.frsgroup_no_recommend_tip));
-                this.aWM.setButtonOption(null);
-                this.aWM.setVisibility(0);
-                this.aWN.setVisibility(0);
+                this.aXa.setTextOption(com.baidu.tbadk.core.view.s.bL(com.baidu.tieba.y.frsgroup_no_recommend_tip));
+                this.aXa.setButtonOption(null);
+                this.aXa.setVisibility(0);
+                this.aXb.setVisibility(0);
                 return;
             case 2:
-                this.aWM.setTextOption(com.baidu.tbadk.core.view.s.q(com.baidu.tieba.y.frsgroup_no_hot_tip, com.baidu.tieba.y.frsgroup_hot_create_group_tip));
-                if (this.aWJ != null && this.aWJ.getGroupPerm() != null) {
-                    this.aWM.setVisibility(0);
-                    this.aWN.setVisibility(0);
+                this.aXa.setTextOption(com.baidu.tbadk.core.view.s.q(com.baidu.tieba.y.frsgroup_no_hot_tip, com.baidu.tieba.y.frsgroup_hot_create_group_tip));
+                if (this.aWX != null && this.aWX.getGroupPerm() != null) {
+                    this.aXa.setVisibility(0);
+                    this.aXb.setVisibility(0);
                     return;
                 }
                 return;
             case 3:
-                this.aWM.setTextOption(com.baidu.tbadk.core.view.s.q(com.baidu.tieba.y.frsgroup_office_no_tip1_leaguer, com.baidu.tieba.y.frsgroup_office_no_tip1_owner));
-                this.aWN.setText(getString(com.baidu.tieba.y.frsgroup_official_create_group));
-                if (this.aWJ != null && this.aWJ.getGroupPerm() != null) {
-                    this.aWM.setVisibility(0);
-                    this.aWN.setVisibility(0);
+                this.aXa.setTextOption(com.baidu.tbadk.core.view.s.q(com.baidu.tieba.y.frsgroup_office_no_tip1_leaguer, com.baidu.tieba.y.frsgroup_office_no_tip1_owner));
+                this.aXb.setText(getString(com.baidu.tieba.y.frsgroup_official_create_group));
+                if (this.aWX != null && this.aWX.getGroupPerm() != null) {
+                    this.aXa.setVisibility(0);
+                    this.aXb.setVisibility(0);
                     return;
                 }
                 return;
@@ -162,16 +162,16 @@ public class e extends com.baidu.tbadk.mvc.h.b implements com.baidu.adp.widget.L
 
     /* JADX INFO: Access modifiers changed from: private */
     public void R(long j) {
-        List<GroupInfoData> uk = this.aWO.uk();
-        if (uk != null) {
-            int size = uk.size();
+        List<GroupInfoData> um = this.aXc.um();
+        if (um != null) {
+            int size = um.size();
             for (int i = 0; i < size; i++) {
-                if (uk.get(i).getGroupId() == j) {
+                if (um.get(i).getGroupId() == j) {
                     if (isShow()) {
-                        Nq();
+                        Nu();
                         return;
                     } else {
-                        this.aWP = true;
+                        this.aXd = true;
                         return;
                     }
                 }
@@ -181,7 +181,7 @@ public class e extends com.baidu.tbadk.mvc.h.b implements com.baidu.adp.widget.L
 
     @Override // com.baidu.adp.widget.ListView.aa
     public void hQ() {
-        if (this.aWK == null || !this.aWK.tW()) {
+        if (this.aWY == null || !this.aWY.tY()) {
             de(16777218);
         }
     }
@@ -190,51 +190,51 @@ public class e extends com.baidu.tbadk.mvc.h.b implements com.baidu.adp.widget.L
         return getView() != null && getView().getVisibility() == 0;
     }
 
-    private void Nq() {
-        this.azz.hO();
-        this.aWL.a(FrsGroupBottomView.BOTTOM_TYPE.LINE);
+    private void Nu() {
+        this.azI.hO();
+        this.aWZ.a(FrsGroupBottomView.BOTTOM_TYPE.LINE);
     }
 
     @Override // com.baidu.tbadk.mvc.h.a
     protected void b(com.baidu.tbadk.mvc.b.a aVar) {
-        if ((aVar instanceof m) && this.aWQ) {
-            this.aWJ = (m) aVar;
-            if (this.aWJ.getGroups() == null) {
-                this.aWO.r(new ArrayList());
+        if ((aVar instanceof m) && this.aXe) {
+            this.aWX = (m) aVar;
+            if (this.aWX.getGroups() == null) {
+                this.aXc.r(new ArrayList());
                 cV(false);
                 return;
             }
-            this.aWO.r(this.aWJ.getGroups());
-            if (this.aWJ.getGroups().size() == 0) {
+            this.aXc.r(this.aWX.getGroups());
+            if (this.aWX.getGroups().size() == 0) {
                 fF(this.index + 1);
                 return;
             }
-            Np();
+            Nt();
             cV(true);
         }
     }
 
     @Override // com.baidu.tbadk.mvc.h.a
     protected void b(com.baidu.tbadk.mvc.e.c cVar) {
-        if ((cVar instanceof com.baidu.tbadk.mvc.e.a) && this.aWQ) {
-            this.aWK = (com.baidu.tbadk.mvc.e.a) cVar;
-            this.azz.setNextPage(this.aWL);
-            if (this.aWK.tW()) {
-                this.aWL.a(FrsGroupBottomView.BOTTOM_TYPE.HAVE_MORE);
+        if ((cVar instanceof com.baidu.tbadk.mvc.e.a) && this.aXe) {
+            this.aWY = (com.baidu.tbadk.mvc.e.a) cVar;
+            this.azI.setNextPage(this.aWZ);
+            if (this.aWY.tY()) {
+                this.aWZ.a(FrsGroupBottomView.BOTTOM_TYPE.HAVE_MORE);
             } else {
-                if (this.aWK.tX()) {
-                    this.aWL.a(FrsGroupBottomView.BOTTOM_TYPE.LINE);
+                if (this.aWY.tZ()) {
+                    this.aWZ.a(FrsGroupBottomView.BOTTOM_TYPE.LINE);
                 } else {
-                    this.aWL.a(FrsGroupBottomView.BOTTOM_TYPE.NO_MORE);
+                    this.aWZ.a(FrsGroupBottomView.BOTTOM_TYPE.NO_MORE);
                 }
-                if (this.aWO.uk().size() == 0) {
-                    this.azz.setNextPage(null);
+                if (this.aXc.um().size() == 0) {
+                    this.azI.setNextPage(null);
                 }
             }
-            if (this.aWK.tV()) {
-                uf();
+            if (this.aWY.tX()) {
+                uh();
             } else {
-                ug();
+                ui();
             }
         }
     }
@@ -243,10 +243,10 @@ public class e extends com.baidu.tbadk.mvc.h.b implements com.baidu.adp.widget.L
     @Override // com.baidu.tbadk.mvc.core.c
     public void a(ErrorData errorData) {
         super.a(errorData);
-        if (this.aWK != null) {
-            this.aWK.aC(false);
-            this.aWK.aD(false);
-            b(this.aWK);
+        if (this.aWY != null) {
+            this.aWY.aC(false);
+            this.aWY.aD(false);
+            b(this.aWY);
         }
     }
 

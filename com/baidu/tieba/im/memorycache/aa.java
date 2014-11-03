@@ -38,7 +38,7 @@ public class aa extends CustomMessageListener {
                 String valueOf = String.valueOf(groupMsgData.getGroupInfo().getGroupId());
                 int customType = groupMsgData.getGroupInfo().getCustomType();
                 if (!TextUtils.isEmpty(valueOf)) {
-                    ImMessageCenterPojo B = c.PK().B(valueOf, customType);
+                    ImMessageCenterPojo B = c.PN().B(valueOf, customType);
                     if (groupMsgData.getCmd() != 2013005) {
                         if (groupMsgData.getCmd() != 2013007) {
                             if (groupMsgData.getCmd() != 2013004) {
@@ -50,49 +50,49 @@ public class aa extends CustomMessageListener {
                                                     if (groupMsgData.getGroupInfo().getGroupId() == 10) {
                                                         com.baidu.tieba.im.chat.receiveChatMsgHandler.s.a(groupMsgData, B, new ab(this));
                                                     } else {
-                                                        long[] b = com.baidu.tieba.im.chat.receiveChatMsgHandler.s.KM().b(groupMsgData);
+                                                        long[] b = com.baidu.tieba.im.chat.receiveChatMsgHandler.s.KQ().b(groupMsgData);
                                                         if (b != null && b.length == 2) {
                                                             if (b[0] <= 0 && b[1] > 0) {
                                                                 if (b[0] == 12) {
-                                                                    c.PK().a(8, b[1], String.valueOf(12));
+                                                                    c.PN().a(8, b[1], String.valueOf(12));
                                                                 } else if (b[0] == 11) {
-                                                                    c.PK().a(7, b[1], String.valueOf(11));
+                                                                    c.PN().a(7, b[1], String.valueOf(11));
                                                                 }
                                                             } else {
                                                                 return;
                                                             }
                                                         }
                                                     }
-                                                    com.baidu.tieba.im.chat.receiveChatMsgHandler.s.KM().c(groupMsgData);
+                                                    com.baidu.tieba.im.chat.receiveChatMsgHandler.s.KQ().c(groupMsgData);
                                                     return;
                                                 }
                                                 return;
                                             }
-                                            cVar = this.this$0.bdD;
+                                            cVar = this.this$0.bdR;
                                             com.baidu.tieba.im.chat.receiveChatMsgHandler.q.a(groupMsgData, B, cVar);
                                             return;
                                         }
-                                        cVar2 = this.this$0.bdG;
+                                        cVar2 = this.this$0.bdU;
                                         SnapChatMsgHelper.a(groupMsgData, B, cVar2);
                                         return;
                                     }
-                                    cVar3 = this.this$0.bdI;
+                                    cVar3 = this.this$0.bdW;
                                     com.baidu.tieba.im.chat.receiveChatMsgHandler.m.b(groupMsgData, B, cVar3);
                                     return;
                                 }
-                                cVar4 = this.this$0.bdH;
+                                cVar4 = this.this$0.bdV;
                                 com.baidu.tieba.im.chat.receiveChatMsgHandler.k.b(groupMsgData, B, cVar4);
                                 return;
                             }
-                            cVar5 = this.this$0.bdF;
+                            cVar5 = this.this$0.bdT;
                             com.baidu.tieba.im.chat.receiveChatMsgHandler.i.a(groupMsgData, B, cVar5);
                             return;
                         }
-                        cVar6 = this.this$0.bdE;
+                        cVar6 = this.this$0.bdS;
                         com.baidu.tieba.im.chat.receiveChatMsgHandler.g.a(groupMsgData, B, cVar6);
                         return;
                     }
-                    cVar7 = this.this$0.bdC;
+                    cVar7 = this.this$0.bdQ;
                     com.baidu.tieba.im.chat.receiveChatMsgHandler.e.a(groupMsgData, B, cVar7);
                 }
             }

@@ -11,132 +11,132 @@ import com.baidu.tbadk.core.view.BarImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class di extends com.baidu.adp.base.f {
-    private LinearLayout aEA;
-    public LinearLayout aEB;
-    private View aEC;
-    private TextView aED;
-    private View aEE;
-    private View.OnClickListener aEF;
-    private boolean aEG;
-    private final com.baidu.adp.widget.BdSwitchView.c aEH;
-    private LinearLayout aEs;
-    private BdSwitchView aEt;
-    private BdSwitchView aEu;
-    private TextView aEv;
-    private TextView aEw;
-    private LinearLayout aEx;
-    private LinearLayout aEy;
-    private LinearLayout aEz;
-    private View agA;
+    private LinearLayout aEC;
+    private BdSwitchView aED;
+    private BdSwitchView aEE;
+    private TextView aEF;
+    private TextView aEG;
+    private LinearLayout aEH;
+    private LinearLayout aEI;
+    private LinearLayout aEJ;
+    private LinearLayout aEK;
+    public LinearLayout aEL;
+    private View aEM;
+    private TextView aEN;
+    private View aEO;
+    private View.OnClickListener aEP;
+    private boolean aEQ;
+    private final com.baidu.adp.widget.BdSwitchView.c aER;
+    private View agI;
 
     public di(Context context) {
         super(context);
-        this.aEs = null;
-        this.aEt = null;
-        this.aEu = null;
-        this.agA = null;
-        this.aEv = null;
-        this.aEw = null;
-        this.aEx = null;
-        this.aEy = null;
-        this.aEz = null;
-        this.aEA = null;
-        this.aEB = null;
         this.aEC = null;
         this.aED = null;
         this.aEE = null;
+        this.agI = null;
         this.aEF = null;
-        this.aEH = new dj(this);
+        this.aEG = null;
+        this.aEH = null;
+        this.aEI = null;
+        this.aEJ = null;
+        this.aEK = null;
+        this.aEL = null;
+        this.aEM = null;
+        this.aEN = null;
+        this.aEO = null;
+        this.aEP = null;
+        this.aER = new dj(this);
         initUI();
     }
 
     public View getView() {
-        return this.agA;
+        return this.agI;
     }
 
     public void init() {
-        GP();
-        GQ();
+        GR();
+        GS();
     }
 
     private void initUI() {
-        this.agA = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.w.frs_sidebar, null);
-        this.aED = (TextView) this.agA.findViewById(com.baidu.tieba.v.add_recommend);
-        this.aEE = this.agA.findViewById(com.baidu.tieba.v.recommend_forum_layout_line);
-        this.aEB = (LinearLayout) this.agA.findViewById(com.baidu.tieba.v.forum_manager_center);
-        this.aEB.setVisibility(8);
-        this.aEC = this.agA.findViewById(com.baidu.tieba.v.forum_manager_center_line);
-        this.aEC.setVisibility(8);
-        this.aEu = (BdSwitchView) this.agA.findViewById(com.baidu.tieba.v.thrift_mode_switch);
-        this.aEu.setSwitchStyle(BdSwitchView.SwitchStyle.SIDE_BAR);
-        this.aEs = (LinearLayout) this.agA.findViewById(com.baidu.tieba.v.eyeshield_mode);
-        this.aEt = (BdSwitchView) this.agA.findViewById(com.baidu.tieba.v.eyeshield_mode_switch);
-        this.aEt.setOnSwitchStateChangeListener((com.baidu.adp.widget.BdSwitchView.c) this.mContext);
-        this.aEt.setSwitchStyle(BdSwitchView.SwitchStyle.SIDE_BAR);
-        this.aEv = (TextView) this.agA.findViewById(com.baidu.tieba.v.message_btn);
-        this.aEw = (TextView) this.agA.findViewById(com.baidu.tieba.v.mention_btn);
-        this.aEx = (LinearLayout) this.agA.findViewById(com.baidu.tieba.v.message_layout);
-        this.aEy = (LinearLayout) this.agA.findViewById(com.baidu.tieba.v.mention_layout);
-        this.aEz = (LinearLayout) this.agA.findViewById(com.baidu.tieba.v.history_layout);
-        this.aEA = (LinearLayout) this.agA.findViewById(com.baidu.tieba.v.recommend_forum_layout);
+        this.agI = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.w.frs_sidebar, null);
+        this.aEN = (TextView) this.agI.findViewById(com.baidu.tieba.v.add_recommend);
+        this.aEO = this.agI.findViewById(com.baidu.tieba.v.recommend_forum_layout_line);
+        this.aEL = (LinearLayout) this.agI.findViewById(com.baidu.tieba.v.forum_manager_center);
+        this.aEL.setVisibility(8);
+        this.aEM = this.agI.findViewById(com.baidu.tieba.v.forum_manager_center_line);
+        this.aEM.setVisibility(8);
+        this.aEE = (BdSwitchView) this.agI.findViewById(com.baidu.tieba.v.thrift_mode_switch);
+        this.aEE.setSwitchStyle(BdSwitchView.SwitchStyle.SIDE_BAR);
+        this.aEC = (LinearLayout) this.agI.findViewById(com.baidu.tieba.v.eyeshield_mode);
+        this.aED = (BdSwitchView) this.agI.findViewById(com.baidu.tieba.v.eyeshield_mode_switch);
+        this.aED.setOnSwitchStateChangeListener((com.baidu.adp.widget.BdSwitchView.c) this.mContext);
+        this.aED.setSwitchStyle(BdSwitchView.SwitchStyle.SIDE_BAR);
+        this.aEF = (TextView) this.agI.findViewById(com.baidu.tieba.v.message_btn);
+        this.aEG = (TextView) this.agI.findViewById(com.baidu.tieba.v.mention_btn);
+        this.aEH = (LinearLayout) this.agI.findViewById(com.baidu.tieba.v.message_layout);
+        this.aEI = (LinearLayout) this.agI.findViewById(com.baidu.tieba.v.mention_layout);
+        this.aEJ = (LinearLayout) this.agI.findViewById(com.baidu.tieba.v.history_layout);
+        this.aEK = (LinearLayout) this.agI.findViewById(com.baidu.tieba.v.recommend_forum_layout);
     }
 
     public void setIsManager(boolean z) {
         if (z) {
-            this.aEB.setVisibility(0);
-            this.aEC.setVisibility(0);
+            this.aEL.setVisibility(0);
+            this.aEM.setVisibility(0);
             return;
         }
-        this.aEB.setVisibility(8);
-        this.aEC.setVisibility(8);
+        this.aEL.setVisibility(8);
+        this.aEM.setVisibility(8);
     }
 
-    public BdSwitchView GN() {
-        return this.aEt;
+    public BdSwitchView GP() {
+        return this.aED;
     }
 
-    public boolean GO() {
-        return this.aEG;
+    public boolean GQ() {
+        return this.aEQ;
     }
 
     public void ch(boolean z) {
-        this.aEG = z;
+        this.aEQ = z;
     }
 
-    public void GP() {
+    public void GR() {
         if (TbadkApplication.m251getInst().getSkinType() == 1) {
-            this.aEt.gN();
+            this.aED.gN();
         } else {
-            this.aEt.gO();
+            this.aED.gO();
         }
     }
 
-    public void GQ() {
-        this.aEu.setOnSwitchStateChangeListener(null);
-        if (com.baidu.tbadk.core.k.js().jw()) {
-            this.aEu.gN();
+    public void GS() {
+        this.aEE.setOnSwitchStateChangeListener(null);
+        if (com.baidu.tbadk.core.l.js().jw()) {
+            this.aEE.gN();
         } else {
-            this.aEu.gO();
+            this.aEE.gO();
         }
-        this.aEu.setOnSwitchStateChangeListener(this.aEH);
+        this.aEE.setOnSwitchStateChangeListener(this.aER);
     }
 
     public void a(cz czVar, boolean z, boolean z2) {
         if (!z && !z2) {
-            this.aEv.setVisibility(4);
-            this.aEw.setVisibility(4);
+            this.aEF.setVisibility(4);
+            this.aEG.setVisibility(4);
             return;
         }
         if (z) {
-            a(this.aEv, czVar.GM());
+            a(this.aEF, czVar.GO());
         } else {
-            this.aEv.setVisibility(4);
+            this.aEF.setVisibility(4);
         }
         if (z2) {
-            a(this.aEw, czVar.GL());
+            a(this.aEG, czVar.GN());
             return;
         }
-        this.aEw.setVisibility(4);
+        this.aEG.setVisibility(4);
     }
 
     private void a(TextView textView, long j) {
@@ -163,22 +163,22 @@ public class di extends com.baidu.adp.base.f {
     }
 
     public void o(View.OnClickListener onClickListener) {
-        this.aEF = onClickListener;
-        this.aEx.setOnClickListener(this.aEF);
-        this.aEy.setOnClickListener(this.aEF);
-        this.aEz.setOnClickListener(this.aEF);
-        this.aEB.setOnClickListener(this.aEF);
+        this.aEP = onClickListener;
+        this.aEH.setOnClickListener(this.aEP);
+        this.aEI.setOnClickListener(this.aEP);
+        this.aEJ.setOnClickListener(this.aEP);
+        this.aEL.setOnClickListener(this.aEP);
     }
 
-    public void t(ArrayList<com.baidu.tbadk.core.data.n> arrayList) {
-        this.aEA.removeAllViews();
+    public void u(ArrayList<com.baidu.tbadk.core.data.n> arrayList) {
+        this.aEK.removeAllViews();
         if (arrayList == null || arrayList.size() == 0) {
-            this.aED.setVisibility(8);
-            this.aEE.setVisibility(0);
+            this.aEN.setVisibility(8);
+            this.aEO.setVisibility(0);
             return;
         }
-        this.aED.setVisibility(0);
-        this.aEE.setVisibility(8);
+        this.aEN.setVisibility(0);
+        this.aEO.setVisibility(8);
         int size = arrayList.size();
         if (size != 0) {
             int i = size > 10 ? 10 : size;
@@ -193,13 +193,13 @@ public class di extends com.baidu.adp.base.f {
                 String str3 = arrayList.get(i2).Aa;
                 dk dkVar = new dk(this);
                 dkVar.name = str;
-                dkVar.aEJ = str3;
+                dkVar.aET = str3;
                 LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(com.baidu.tieba.v.recommend_forum_item_layout);
                 ((TextView) linearLayout.findViewById(com.baidu.tieba.v.recommend_forum_name)).setText(str);
-                linearLayout2.setOnClickListener(this.aEF);
+                linearLayout2.setOnClickListener(this.aEP);
                 linearLayout2.setTag(dkVar);
                 ((BarImageView) linearLayout.findViewById(com.baidu.tieba.v.recommend_forum_image)).c(str2, 10, false);
-                this.aEA.addView(linearLayout);
+                this.aEK.addView(linearLayout);
             }
         }
     }
@@ -207,6 +207,6 @@ public class di extends com.baidu.adp.base.f {
     public void changeSkinType(int i) {
         com.baidu.tbadk.core.d layoutMode = ((BaseActivity) this.mContext).getLayoutMode();
         layoutMode.L(i == 1);
-        layoutMode.h(this.agA);
+        layoutMode.h(this.agI);
     }
 }

@@ -9,23 +9,23 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends BdAsyncTask<Object, Integer, JSONObject> {
-    private final int CZ;
-    private final String Ca;
+    private final String Cb;
     private final int Da;
-    final /* synthetic */ e Dg;
-    private final String Dh;
+    private final int Db;
+    final /* synthetic */ e Dh;
+    private final String Di;
     private final int mErrorNum;
     private final ac mNetWork = new ac(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.CDN_LOG_ADDRESS);
     private final int mType;
 
     public g(e eVar, int i, int i2, int i3, String str, int i4, String str2) {
-        this.Dg = eVar;
+        this.Dh = eVar;
         this.mErrorNum = i3;
-        this.CZ = i4;
-        this.Ca = str;
-        this.Dh = str2;
+        this.Da = i4;
+        this.Cb = str;
+        this.Di = str2;
         this.mType = i;
-        this.Da = i2;
+        this.Db = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,21 +33,21 @@ public class g extends BdAsyncTask<Object, Integer, JSONObject> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: f */
     public JSONObject doInBackground(Object... objArr) {
-        if (this.Dg.lr() == null || !this.Dg.lr().jQ() || this.mType == 0) {
+        if (this.Dh.lr() == null || !this.Dh.lr().jQ() || this.mType == 0) {
             return null;
         }
-        this.mNetWork.k("number", String.valueOf(this.Da));
+        this.mNetWork.k("number", String.valueOf(this.Db));
         if (this.mType == 1) {
             this.mNetWork.k("ab_num_error", String.valueOf(this.mErrorNum));
-            this.mNetWork.k("error", this.Ca);
-            this.mNetWork.k("ab_num_slow", String.valueOf(this.CZ));
-            this.mNetWork.k("time", this.Dh);
+            this.mNetWork.k("error", this.Cb);
+            this.mNetWork.k("ab_num_slow", String.valueOf(this.Da));
+            this.mNetWork.k("time", this.Di);
         } else if (this.mType == 3) {
-            this.mNetWork.k("ab_num_slow", new StringBuilder(String.valueOf(this.CZ)).toString());
-            this.mNetWork.k("time", this.Dh);
+            this.mNetWork.k("ab_num_slow", new StringBuilder(String.valueOf(this.Da)).toString());
+            this.mNetWork.k("time", this.Di);
         } else if (this.mType == 2) {
             this.mNetWork.k("ab_num_error", new StringBuilder(String.valueOf(this.mErrorNum)).toString());
-            this.mNetWork.k("error", this.Ca);
+            this.mNetWork.k("error", this.Cb);
         }
         String lA = this.mNetWork.lA();
         if (!this.mNetWork.mf() || TextUtils.isEmpty(lA)) {
@@ -80,14 +80,14 @@ public class g extends BdAsyncTask<Object, Integer, JSONObject> {
                 com.baidu.adp.lib.stats.f.er().a("img", logItem);
                 return;
             }
-            e eVar = this.Dg;
-            i = eVar.CU;
+            e eVar = this.Dh;
+            i = eVar.CV;
             int i2 = i + 1;
-            eVar.CU = i2;
+            eVar.CV = i2;
             if (i2 >= 5) {
-                fVar2 = this.Dg.CT;
+                fVar2 = this.Dh.CU;
                 fVar2.O(false);
-                this.Dg.mLastUploadTime = System.currentTimeMillis();
+                this.Dh.mLastUploadTime = System.currentTimeMillis();
                 return;
             }
             if (jSONObject.optJSONObject("ret").optInt("err_no", -1) != 0) {
@@ -102,22 +102,22 @@ public class g extends BdAsyncTask<Object, Integer, JSONObject> {
                 logItem3.n("result", "0");
                 logItem3.n("type", "end");
                 com.baidu.adp.lib.stats.f.er().a("img", logItem3);
-                this.Dg.reset();
-                fVar = this.Dg.CT;
+                this.Dh.reset();
+                fVar = this.Dh.CU;
                 fVar.O(false);
-                this.Dg.mLastUploadTime = System.currentTimeMillis();
+                this.Dh.mLastUploadTime = System.currentTimeMillis();
             }
             String optString = jSONObject.optString("photo_strategy");
             com.baidu.tbadk.core.data.f fVar3 = new com.baidu.tbadk.core.data.f();
             fVar3.parseJson(optString);
-            if (fVar3.jQ() == this.Dg.lr().jQ() && fVar3.jS() == this.Dg.lr().jS() && fVar3.jR() == this.Dg.lr().jR() && fVar3.getTime() == this.Dg.lr().getTime()) {
+            if (fVar3.jQ() == this.Dh.lr().jQ() && fVar3.jS() == this.Dh.lr().jS() && fVar3.jR() == this.Dh.lr().jR() && fVar3.getTime() == this.Dh.lr().getTime()) {
                 return;
             }
-            this.Dg.a(fVar3);
+            this.Dh.a(fVar3);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         } finally {
-            this.Dg.mIsUploading = false;
+            this.Dh.mIsUploading = false;
         }
     }
 }

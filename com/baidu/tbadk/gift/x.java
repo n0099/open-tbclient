@@ -4,12 +4,12 @@ import android.view.View;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class x {
-    public TextView UH;
-    public View UI;
-    final /* synthetic */ w UJ;
+    public TextView UL;
+    public View UM;
+    final /* synthetic */ w UN;
 
     private x(w wVar) {
-        this.UJ = wVar;
+        this.UN = wVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

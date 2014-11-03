@@ -4,11 +4,11 @@ import android.os.Handler;
 import java.util.TimerTask;
 /* loaded from: classes.dex */
 class i extends TimerTask {
-    final /* synthetic */ h Vw;
+    final /* synthetic */ h VA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.Vw = hVar;
+        this.VA = hVar;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
@@ -23,16 +23,16 @@ class i extends TimerTask {
         int i2;
         LiveGroupManagerService liveGroupManagerService5;
         int i3;
-        liveGroupManagerService = this.Vw.Vv;
+        liveGroupManagerService = this.VA.Vz;
         i = liveGroupManagerService.mRecordTime;
         liveGroupManagerService.mRecordTime = i + 1;
-        liveGroupManagerService2 = this.Vw.Vv;
+        liveGroupManagerService2 = this.VA.Vz;
         handler = liveGroupManagerService2.mHandler;
-        liveGroupManagerService3 = this.Vw.Vv;
+        liveGroupManagerService3 = this.VA.Vz;
         handler2 = liveGroupManagerService3.mHandler;
-        liveGroupManagerService4 = this.Vw.Vv;
+        liveGroupManagerService4 = this.VA.Vz;
         i2 = liveGroupManagerService4.mRecordTime;
-        liveGroupManagerService5 = this.Vw.Vv;
+        liveGroupManagerService5 = this.VA.Vz;
         i3 = liveGroupManagerService5.mRecordTime;
         handler.sendMessage(handler2.obtainMessage(4, i2, i3));
     }

@@ -5,11 +5,11 @@ import com.baidu.tieba.im.model.RequestGroupLocModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements com.baidu.adp.lib.d.d {
-    final /* synthetic */ d biK;
+    final /* synthetic */ d biY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.biK = dVar;
+        this.biY = dVar;
     }
 
     @Override // com.baidu.adp.lib.d.d
@@ -23,15 +23,15 @@ public class e implements com.baidu.adp.lib.d.d {
         switch (i) {
             case 0:
                 if (address != null) {
-                    this.biK.biG = address.getLatitude();
-                    this.biK.biF = address.getLongitude();
-                    requestGroupLocModel = this.biK.biH;
+                    this.biY.biU = address.getLatitude();
+                    this.biY.biT = address.getLongitude();
+                    requestGroupLocModel = this.biY.biV;
                     requestGroupLocModel.setLat(String.valueOf(address.getLatitude()));
-                    requestGroupLocModel2 = this.biK.biH;
+                    requestGroupLocModel2 = this.biY.biV;
                     requestGroupLocModel2.setLng(String.valueOf(address.getLongitude()));
-                    requestGroupLocModel3 = this.biK.biH;
+                    requestGroupLocModel3 = this.biY.biV;
                     requestGroupLocModel3.setGroupId(0);
-                    requestGroupLocModel4 = this.biK.biH;
+                    requestGroupLocModel4 = this.biY.biV;
                     requestGroupLocModel4.sendMessage();
                     return;
                 }
@@ -39,13 +39,13 @@ public class e implements com.baidu.adp.lib.d.d {
             case 1:
             case 2:
             case 3:
-                gVar2 = this.biK.biI;
-                gVar2.Lo();
+                gVar2 = this.biY.biW;
+                gVar2.Ls();
                 return;
             case 4:
             case 5:
-                gVar = this.biK.biI;
-                gVar.Ln();
+                gVar = this.biY.biW;
+                gVar.Lr();
                 return;
             default:
                 return;

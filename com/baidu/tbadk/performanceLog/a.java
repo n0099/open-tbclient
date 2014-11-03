@@ -9,58 +9,58 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a extends n {
     private static CustomMessageTask customNormalTask = new CustomMessageTask(2016100, new d());
-    private com.baidu.adp.lib.debug.a.e YA;
-    private int YB;
-    private ArrayList<String> Yt;
-    private ArrayList<String> Yu;
-    private ArrayList<String> Yv;
-    private g Yz;
-    private int Yw = 0;
-    private int Yx = 3;
-    private int Yy = 0;
+    private g YD;
+    private com.baidu.adp.lib.debug.a.e YE;
+    private int YF;
+    private ArrayList<String> Yx;
+    private ArrayList<String> Yy;
+    private ArrayList<String> Yz;
+    private int YA = 0;
+    private int YB = 3;
     private int YC = 0;
-    private j YD = new b(this);
+    private int YG = 0;
+    private j YH = new b(this);
     private com.baidu.adp.lib.debug.a.g gp = new c(this);
     private CustomMessageListener customNormalListener = new e(this, 2016100);
 
     public a() {
-        uu();
+        uw();
     }
 
     public void onDestroy() {
-        if (this.Yz != null) {
-            this.Yz.a((j) null);
+        if (this.YD != null) {
+            this.YD.a((j) null);
         }
-        if (this.YA != null) {
-            this.YA.a((com.baidu.adp.lib.debug.a.g) null);
+        if (this.YE != null) {
+            this.YE.a((com.baidu.adp.lib.debug.a.g) null);
         }
         MessageManager.getInstance().unRegisterListener(this.mId);
     }
 
-    public void ut() {
-        if (this.Yw < this.Yx) {
-            this.Yw++;
-            uv();
-            if (this.Yz == null) {
-                this.Yz = new g();
-                this.Yz.a(this.YD);
-                this.Yz.start();
+    public void uv() {
+        if (this.YA < this.YB) {
+            this.YA++;
+            ux();
+            if (this.YD == null) {
+                this.YD = new g();
+                this.YD.a(this.YH);
+                this.YD.start();
             }
-            if (this.YA == null) {
-                this.YA = new com.baidu.adp.lib.debug.a.e(TbadkApplication.m251getInst());
-                this.YA.a(this.gp);
-                this.YA.start();
+            if (this.YE == null) {
+                this.YE = new com.baidu.adp.lib.debug.a.e(TbadkApplication.m251getInst());
+                this.YE.a(this.gp);
+                this.YE.start();
             }
         }
     }
 
-    private void uu() {
+    private void uw() {
         this.customNormalListener.setTag(this.mId);
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().registerListener(this.customNormalListener);
     }
 
-    private void uv() {
+    private void ux() {
         CustomMessage customMessage = new CustomMessage(2016100, new f(this));
         customMessage.setTag(this.mId);
         MessageManager.getInstance().sendMessage(customMessage);
@@ -69,48 +69,48 @@ public class a extends n {
     /* JADX INFO: Access modifiers changed from: private */
     public void dk(int i) {
         String valueOf = String.valueOf(i);
-        if (this.Yt == null) {
-            this.Yt = new ArrayList<>();
+        if (this.Yx == null) {
+            this.Yx = new ArrayList<>();
         }
-        this.Yt.add(valueOf);
+        this.Yx.add(valueOf);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dM(String str) {
-        if (this.Yu == null) {
-            this.Yu = new ArrayList<>();
+        if (this.Yy == null) {
+            this.Yy = new ArrayList<>();
         }
         if (str != null) {
-            this.Yu.add(str);
+            this.Yy.add(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dl(int i) {
         String valueOf = String.valueOf(i);
-        if (this.Yv == null) {
-            this.Yv = new ArrayList<>();
+        if (this.Yz == null) {
+            this.Yz = new ArrayList<>();
         }
-        this.Yv.add(valueOf);
-    }
-
-    public String uw() {
-        return k(this.Yt);
-    }
-
-    public String ux() {
-        return String.valueOf(this.YB);
+        this.Yz.add(valueOf);
     }
 
     public String uy() {
-        return k(this.Yu);
+        return l(this.Yx);
     }
 
     public String uz() {
-        return k(this.Yv);
+        return String.valueOf(this.YF);
     }
 
-    private String k(ArrayList<String> arrayList) {
+    public String uA() {
+        return l(this.Yy);
+    }
+
+    public String uB() {
+        return l(this.Yz);
+    }
+
+    private String l(ArrayList<String> arrayList) {
         if (arrayList == null || arrayList.size() == 0) {
             return "()";
         }
@@ -130,9 +130,9 @@ public class a extends n {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uA() {
+    public void uC() {
         x xVar;
-        if (this.Yy == this.Yx && this.Yx == this.YC && (xVar = (x) v.uN().dp(this.mSubType)) != null) {
+        if (this.YC == this.YB && this.YB == this.YG && (xVar = (x) v.uP().dp(this.mSubType)) != null) {
             xVar.g(this);
         }
     }

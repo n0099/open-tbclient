@@ -5,11 +5,11 @@ import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
-    final /* synthetic */ g bfg;
+    final /* synthetic */ g bfu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.bfg = gVar;
+        this.bfu = gVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,37 +25,37 @@ public class h implements View.OnClickListener {
         j jVar4;
         j jVar5;
         j jVar6;
-        jVar = this.bfg.beQ;
+        jVar = this.bfu.bfe;
         if (jVar != null) {
-            view2 = this.bfg.Js;
+            view2 = this.bfu.Jt;
             if (view != view2) {
-                tbSettingTextTipView = this.bfg.beX;
+                tbSettingTextTipView = this.bfu.bfl;
                 if (view != tbSettingTextTipView) {
-                    tbSettingTextTipView2 = this.bfg.beY;
+                    tbSettingTextTipView2 = this.bfu.bfm;
                     if (view != tbSettingTextTipView2) {
-                        tbSettingTextTipView3 = this.bfg.beZ;
+                        tbSettingTextTipView3 = this.bfu.bfn;
                         if (view != tbSettingTextTipView3) {
-                            tbSettingTextTipView4 = this.bfg.bfa;
+                            tbSettingTextTipView4 = this.bfu.bfo;
                             if (view != tbSettingTextTipView4) {
                                 return;
                             }
-                            jVar2 = this.bfg.beQ;
-                            jVar2.QL();
+                            jVar2 = this.bfu.bfe;
+                            jVar2.QO();
                             return;
                         }
-                        jVar3 = this.bfg.beQ;
-                        jVar3.QM();
+                        jVar3 = this.bfu.bfe;
+                        jVar3.QP();
                         return;
                     }
-                    jVar4 = this.bfg.beQ;
-                    jVar4.QN();
+                    jVar4 = this.bfu.bfe;
+                    jVar4.QQ();
                     return;
                 }
-                jVar5 = this.bfg.beQ;
-                jVar5.QK();
+                jVar5 = this.bfu.bfe;
+                jVar5.QN();
                 return;
             }
-            jVar6 = this.bfg.beQ;
+            jVar6 = this.bfu.bfe;
             jVar6.onBackPressed();
         }
     }

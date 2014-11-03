@@ -3,23 +3,23 @@ package com.baidu.tbadk.imageManager;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class e {
-    private static e UN = new e();
-    private com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a> UO;
-    private com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a> UP;
+    private static e UR = new e();
+    private com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a> US;
+    private com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a> UT;
 
-    public static e sg() {
-        return UN;
+    public static e si() {
+        return UR;
     }
 
     private e() {
-        this.UO = null;
-        this.UP = null;
-        this.UO = new f(this, 0);
-        this.UP = new g(this, 0);
+        this.US = null;
+        this.UT = null;
+        this.US = new f(this, 0);
+        this.UT = new g(this, 0);
     }
 
-    public int sh() {
-        return this.UP.cj();
+    public int sj() {
+        return this.UT.cj();
     }
 
     public void v(int i, int i2) {
@@ -28,11 +28,11 @@ public class e {
     }
 
     public void cP(int i) {
-        this.UO.H(i);
+        this.US.H(i);
     }
 
     public void cQ(int i) {
-        this.UP.H(i);
+        this.UT.H(i);
     }
 
     public void b(String str, com.baidu.adp.widget.a.a aVar) {
@@ -40,19 +40,19 @@ public class e {
     }
 
     public void b(String str, com.baidu.adp.widget.a.a aVar, boolean z) {
-        if (aVar != null && this.UO != null) {
-            this.UO.put(str, aVar);
+        if (aVar != null && this.US != null) {
+            this.US.put(str, aVar);
         }
     }
 
     public boolean cR(int i) {
-        return this.UP.G(i);
+        return this.UT.G(i);
     }
 
     public void c(String str, com.baidu.adp.widget.a.a aVar, boolean z) {
-        if (aVar != null && this.UP != null) {
+        if (aVar != null && this.UT != null) {
             BdLog.isDebugMode();
-            this.UP.put(str, aVar);
+            this.UT.put(str, aVar);
         }
     }
 
@@ -61,27 +61,27 @@ public class e {
     }
 
     public void dr(String str) {
-        this.UO.remove(str);
+        this.US.remove(str);
     }
 
     public com.baidu.adp.widget.a.a ds(String str) {
-        return this.UO.get(str);
+        return this.US.get(str);
     }
 
     public com.baidu.adp.widget.a.a dt(String str) {
-        return this.UP.get(str);
+        return this.UT.get(str);
     }
 
-    public void si() {
-        this.UO.clear();
-        this.UP.clear();
+    public void sk() {
+        this.US.clear();
+        this.UT.clear();
     }
 
     public String toString() {
-        return "pic:" + this.UP.toString() + "  photo:" + this.UO.toString();
+        return "pic:" + this.UT.toString() + "  photo:" + this.US.toString();
     }
 
     public String bU() {
-        return this.UP.size() + "/" + this.UP.cj() + "/" + this.UP.evictionCount() + "_" + this.UO.size() + "/" + this.UO.cj() + "/" + this.UO.evictionCount();
+        return this.UT.size() + "/" + this.UT.cj() + "/" + this.UT.evictionCount() + "_" + this.US.size() + "/" + this.US.cj() + "/" + this.US.evictionCount();
     }
 }

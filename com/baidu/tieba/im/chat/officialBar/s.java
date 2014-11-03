@@ -4,22 +4,22 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.OfficalBarChatActivityConfig;
 /* loaded from: classes.dex */
 class s implements com.baidu.tieba.im.a<Void> {
-    final /* synthetic */ q aRe;
-    private final /* synthetic */ CustomMessage aea;
+    final /* synthetic */ q aRs;
+    private final /* synthetic */ CustomMessage aei;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(q qVar, CustomMessage customMessage) {
-        this.aRe = qVar;
-        this.aea = customMessage;
+        this.aRs = qVar;
+        this.aei = customMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
     /* renamed from: b */
     public void onReturnDataInUI(Void r5) {
-        ((OfficalBarChatActivityConfig) this.aea.getData()).getIntent().setClass(((OfficalBarChatActivityConfig) this.aea.getData()).getContext(), OfficialBarChatActivity.class);
-        if (((OfficalBarChatActivityConfig) this.aea.getData()).getUserData().getUserIdLong() != 0) {
-            ((OfficalBarChatActivityConfig) this.aea.getData()).startActivity();
+        ((OfficalBarChatActivityConfig) this.aei.getData()).getIntent().setClass(((OfficalBarChatActivityConfig) this.aei.getData()).getContext(), OfficialBarChatActivity.class);
+        if (((OfficalBarChatActivityConfig) this.aei.getData()).getUserData().getUserIdLong() != 0) {
+            ((OfficalBarChatActivityConfig) this.aei.getData()).startActivity();
         }
     }
 }

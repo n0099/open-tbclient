@@ -10,65 +10,65 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class EmotionTabHost extends LinearLayout implements t {
-    private int RD;
-    private int RK;
-    private EmotionTabContentView RW;
-    private EmotionTabWidgetView RX;
-    private ArrayList<ad> RY;
-    private String RZ;
-    private boolean Sa;
-    private boolean Sb;
-    private CustomMessageListener Sc;
+    private int RH;
+    private int RO;
+    private EmotionTabContentView Sa;
+    private EmotionTabWidgetView Sb;
+    private ArrayList<ad> Sc;
+    private String Sd;
+    private boolean Se;
+    private boolean Sf;
+    private CustomMessageListener Sg;
 
     public EmotionTabHost(Context context) {
         super(context);
-        this.RY = new ArrayList<>();
-        this.RK = -1;
-        this.RZ = null;
-        this.RD = -1;
-        this.Sb = true;
-        this.Sc = new r(this, 2001120);
+        this.Sc = new ArrayList<>();
+        this.RO = -1;
+        this.Sd = null;
+        this.RH = -1;
+        this.Sf = true;
+        this.Sg = new r(this, 2001120);
         init(context);
     }
 
     public EmotionTabHost(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.RY = new ArrayList<>();
-        this.RK = -1;
-        this.RZ = null;
-        this.RD = -1;
-        this.Sb = true;
-        this.Sc = new r(this, 2001120);
+        this.Sc = new ArrayList<>();
+        this.RO = -1;
+        this.Sd = null;
+        this.RH = -1;
+        this.Sf = true;
+        this.Sg = new r(this, 2001120);
         init(context);
     }
 
     private void init(Context context) {
         removeAllViews();
         com.baidu.adp.lib.g.b.ek().a(context, com.baidu.tieba.w.emotion_tab_host, this, true);
-        this.RW = (EmotionTabContentView) findViewById(com.baidu.tieba.v.face_tab_content);
-        this.RX = (EmotionTabWidgetView) findViewById(com.baidu.tieba.v.face_tab_widget);
-        this.RX.setOnTabSelectedListener(this);
+        this.Sa = (EmotionTabContentView) findViewById(com.baidu.tieba.v.face_tab_content);
+        this.Sb = (EmotionTabWidgetView) findViewById(com.baidu.tieba.v.face_tab_widget);
+        this.Sb.setOnTabSelectedListener(this);
         setOrientation(1);
-        this.RD = TbadkApplication.m251getInst().getSkinType();
-        onChangeSkinType(this.RD);
+        this.RH = TbadkApplication.m251getInst().getSkinType();
+        onChangeSkinType(this.RH);
         setup();
     }
 
     public void setFrom(int i) {
-        if (this.RX != null) {
-            this.RX.setFrom(i);
+        if (this.Sb != null) {
+            this.Sb.setFrom(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setup() {
-        this.RY = aa.rz().rB();
-        this.RX.setDatas(this.RY);
-        int size = this.RY.size();
+        this.Sc = aa.rB().rD();
+        this.Sb.setDatas(this.Sc);
+        int size = this.Sc.size();
         int i = 0;
         for (int i2 = 0; i2 < size; i2++) {
-            ad adVar = this.RY.get(i2);
-            if (this.RZ != null && this.RZ.equals(adVar.getGroupId())) {
+            ad adVar = this.Sc.get(i2);
+            if (this.Sd != null && this.Sd.equals(adVar.getGroupId())) {
                 i = i2;
             }
             e(adVar);
@@ -79,63 +79,63 @@ public class EmotionTabHost extends LinearLayout implements t {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        MessageManager.getInstance().registerListener(this.Sc);
+        MessageManager.getInstance().registerListener(this.Sg);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterListener(this.Sc);
+        MessageManager.getInstance().unRegisterListener(this.Sg);
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
         int skinType = TbadkApplication.m251getInst().getSkinType();
-        if (skinType != this.RD) {
-            this.RD = skinType;
-            onChangeSkinType(this.RD);
+        if (skinType != this.RH) {
+            this.RH = skinType;
+            onChangeSkinType(this.RH);
         }
     }
 
     private void e(ad adVar) {
-        this.RX.d(adVar);
+        this.Sb.d(adVar);
     }
 
     public void setCurrentEmotionGroup(int i) {
-        if (i >= 0 && i < this.RY.size() && i != this.RK) {
-            ad adVar = this.RY.get(i);
-            this.RW.b(adVar);
-            if (this.Sa) {
-                if (adVar.rr() == EmotionGroupType.LOCAL) {
-                    this.RX.setShowDelete(true);
+        if (i >= 0 && i < this.Sc.size() && i != this.RO) {
+            ad adVar = this.Sc.get(i);
+            this.Sa.b(adVar);
+            if (this.Se) {
+                if (adVar.rt() == EmotionGroupType.LOCAL) {
+                    this.Sb.setShowDelete(true);
                 } else {
-                    this.RX.setShowDelete(false);
+                    this.Sb.setShowDelete(false);
                 }
             }
-            this.RX.setCurrentTab(i);
-            this.RK = i;
-            this.RZ = adVar.getGroupId();
+            this.Sb.setCurrentTab(i);
+            this.RO = i;
+            this.Sd = adVar.getGroupId();
         }
     }
 
     public void reset() {
-        this.RK = -1;
-        this.RY.clear();
-        this.RW.reset();
-        this.RX.reset();
+        this.RO = -1;
+        this.Sc.clear();
+        this.Sa.reset();
+        this.Sb.reset();
     }
 
     public void setIsInChat(boolean z) {
-        this.Sa = z;
+        this.Se = z;
     }
 
     public void setShowBigEmotion(boolean z) {
-        this.Sb = z;
-        if (!this.Sb) {
-            int size = this.RY.size();
+        this.Sf = z;
+        if (!this.Sf) {
+            int size = this.Sc.size();
             for (int i = 0; i < size; i++) {
-                this.RX.f(i, z);
+                this.Sb.f(i, z);
             }
         }
     }
@@ -146,12 +146,12 @@ public class EmotionTabHost extends LinearLayout implements t {
     }
 
     public void onChangeSkinType(int i) {
-        this.RX.onChangeSkinType(i);
-        this.RW.onChangeSkinType(i);
+        this.Sb.onChangeSkinType(i);
+        this.Sa.onChangeSkinType(i);
     }
 
     public void setOnDataSelected(w wVar) {
-        this.RW.setOnDataSelected(wVar);
-        this.RX.setOnDataSelected(wVar);
+        this.Sa.setOnDataSelected(wVar);
+        this.Sb.setOnDataSelected(wVar);
     }
 }

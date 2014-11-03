@@ -16,12 +16,12 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class MembersActivity extends BaseActivity implements View.OnClickListener, AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.aa {
-    private ah aXJ;
-    private MembersModel aXK;
-    private com.baidu.tbadk.core.view.y ayp;
-    private final com.baidu.adp.framework.listener.e ayJ = new r(this, 103005);
-    private final com.baidu.adp.framework.listener.e aXL = new t(this, 103112);
-    private final CustomMessageListener aXM = new u(this, 0);
+    private ah aXX;
+    private MembersModel aXY;
+    private com.baidu.tbadk.core.view.y ayy;
+    private final com.baidu.adp.framework.listener.e ayS = new r(this, 103005);
+    private final com.baidu.adp.framework.listener.e aXZ = new t(this, 103112);
+    private final CustomMessageListener aYa = new u(this, 0);
 
     public static void a(Context context, long j) {
         Intent intent = new Intent(context, MembersActivity.class);
@@ -33,28 +33,28 @@ public class MembersActivity extends BaseActivity implements View.OnClickListene
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        HJ();
+        HN();
         d(bundle);
         initUI();
         startLoading();
     }
 
-    private void HJ() {
-        registerListener(2001132, this.aXM);
-        registerListener(2001130, this.aXM);
+    private void HN() {
+        registerListener(2001132, this.aYa);
+        registerListener(2001130, this.aYa);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.aXK.saveInstance(bundle);
+        this.aXY.saveInstance(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.aXJ.NN().onActivityStop();
+        this.aXX.NR().onActivityStop();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -63,33 +63,33 @@ public class MembersActivity extends BaseActivity implements View.OnClickListene
         super.onDestroy();
     }
 
-    public MembersModel NB() {
-        return this.aXK;
+    public MembersModel NF() {
+        return this.aXY;
     }
 
     private void initUI() {
-        this.aXJ = new ah(this);
-        BdListView ER = this.aXJ.ER();
-        this.ayp = new com.baidu.tbadk.core.view.y(this);
-        this.ayp.a(new v(this, ER));
-        ER.setPullRefresh(this.ayp);
-        ER.setOnScrollListener(this);
-        ER.setOnSrollToBottomListener(this);
-        ER.setOnItemClickListener(new w(this));
-        ER.setOnItemLongClickListener(new x(this));
-        this.aXJ.NK().setOnClickListener(this);
-        this.aXJ.NL().setOnClickListener(this);
-        this.aXJ.NM().setOnClickListener(this);
-        this.aXJ.setController(false);
-        this.aXJ.NO().a(new aa(this));
+        this.aXX = new ah(this);
+        BdListView ET = this.aXX.ET();
+        this.ayy = new com.baidu.tbadk.core.view.y(this);
+        this.ayy.a(new v(this, ET));
+        ET.setPullRefresh(this.ayy);
+        ET.setOnScrollListener(this);
+        ET.setOnSrollToBottomListener(this);
+        ET.setOnItemClickListener(new w(this));
+        ET.setOnItemLongClickListener(new x(this));
+        this.aXX.NO().setOnClickListener(this);
+        this.aXX.NP().setOnClickListener(this);
+        this.aXX.NQ().setOnClickListener(this);
+        this.aXX.setController(false);
+        this.aXX.NS().a(new aa(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j, List<Long> list) {
         if (list != null && list.size() != 0) {
-            this.aXJ.da(true);
-            this.aXK.setUserIds(list);
-            this.aXK.sendRemoveMessage(j, V(list));
+            this.aXX.da(true);
+            this.aXY.setUserIds(list);
+            this.aXY.sendRemoveMessage(j, V(list));
         }
     }
 
@@ -105,117 +105,117 @@ public class MembersActivity extends BaseActivity implements View.OnClickListene
     }
 
     private void startLoading() {
-        this.aXK.setUseCache(false);
-        this.aXK.setRequestM(null);
-        this.aXJ.NO().bM(true);
-        this.aXK.setStart(0);
-        this.aXK.setLen(50);
-        this.aXJ.ER().hO();
+        this.aXY.setUseCache(false);
+        this.aXY.setRequestM(null);
+        this.aXX.NS().bM(true);
+        this.aXY.setStart(0);
+        this.aXY.setLen(50);
+        this.aXX.ET().hO();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void reset() {
-        this.aXK.setUseCache(true);
-        this.aXK.setRequestM(null);
-        this.aXJ.NO().bM(false);
-        this.aXK.setStart(0);
-        this.aXK.setLen(50);
-        this.aXJ.ER().hO();
+        this.aXY.setUseCache(true);
+        this.aXY.setRequestM(null);
+        this.aXX.NS().bM(false);
+        this.aXY.setStart(0);
+        this.aXY.setLen(50);
+        this.aXX.ET().hO();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideProgress() {
         if (isFirstLoad()) {
-            this.aXJ.hideProgress();
+            this.aXX.hideProgress();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean isFirstLoad() {
-        return 50 == this.aXK.getLen();
+        return 50 == this.aXY.getLen();
     }
 
     public void d(Bundle bundle) {
-        this.aXK = new MembersModel(this);
-        this.aXK.setUniqueId(getUniqueId());
+        this.aXY = new MembersModel(this);
+        this.aXY.setUniqueId(getUniqueId());
         if (bundle == null) {
-            this.aXK.initWithIntent(getIntent());
+            this.aXY.initWithIntent(getIntent());
         } else {
-            this.aXK.initWithBundle(bundle);
+            this.aXY.initWithBundle(bundle);
         }
-        registerListener(this.ayJ);
-        registerListener(this.aXL);
+        registerListener(this.ayS);
+        registerListener(this.aXZ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(UserData.Permission permission) {
         if (permission != null) {
             boolean isController = permission.isController();
-            this.aXK.setController(isController);
-            this.aXJ.setController(isController);
+            this.aXY.setController(isController);
+            this.aXX.setController(isController);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void NC() {
-        this.aXJ.NN().nv();
-        this.aXJ.NN().setTextOption(com.baidu.tbadk.core.view.s.bL(com.baidu.tieba.y.members_no_person));
-        this.aXJ.NN().setVisibility(0);
+    public void NG() {
+        this.aXX.NR().nv();
+        this.aXX.NR().setTextOption(com.baidu.tbadk.core.view.s.bL(com.baidu.tieba.y.members_no_person));
+        this.aXX.NR().setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.aXJ.onChangeSkinType(i);
-        this.ayp.bM(i);
+        this.aXX.onChangeSkinType(i);
+        this.ayy.bM(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.aXJ.NQ()) {
-            ND();
-        } else if (view == this.aXJ.NK()) {
-            NF();
-            this.aXJ.dc(false);
-        } else if (view == this.aXJ.NL()) {
-            NE();
-            this.aXJ.dc(true);
-        } else if (view == this.aXJ.NM()) {
-            NG();
+        if (view == this.aXX.NU()) {
+            NH();
+        } else if (view == this.aXX.NO()) {
+            NJ();
+            this.aXX.dc(false);
+        } else if (view == this.aXX.NP()) {
+            NI();
+            this.aXX.dc(true);
+        } else if (view == this.aXX.NQ()) {
+            NK();
         }
     }
 
-    private void ND() {
+    private void NH() {
         DialogUtil.orderMembers(this, new ab(this));
     }
 
-    private void NE() {
-        this.aXJ.fJ(0);
-        this.aXJ.db(false);
-        this.aXJ.NO().cZ(false);
-        this.aXJ.NO().NH();
-        this.aXJ.NP();
+    private void NI() {
+        this.aXX.fJ(0);
+        this.aXX.db(false);
+        this.aXX.NS().cZ(false);
+        this.aXX.NS().NL();
+        this.aXX.NT();
     }
 
-    private void NF() {
-        this.aXJ.fJ(0);
-        this.aXJ.db(true);
-        this.aXJ.NO().cZ(true);
-        this.aXJ.NP();
+    private void NJ() {
+        this.aXX.fJ(0);
+        this.aXX.db(true);
+        this.aXX.NS().cZ(true);
+        this.aXX.NT();
     }
 
-    private void NG() {
-        Set<Long> NI = this.aXJ.NO().NI();
-        if (NI.size() > 0) {
+    private void NK() {
+        Set<Long> NM = this.aXX.NS().NM();
+        if (NM.size() > 0) {
             ArrayList arrayList = new ArrayList();
-            arrayList.addAll(NI);
+            arrayList.addAll(NM);
             DialogUtil.removeMembersDialog(this, new ac(this, arrayList), new s(this));
         }
     }
 
-    private void Eh() {
-        if (this.aXJ.NO().EJ()) {
-            this.aXK.sendMessage(this.aXK.getGroupId(), this.aXK.getStart(), this.aXK.getLen(), this.aXK.getOrderType());
+    private void Ej() {
+        if (this.aXX.NS().EL()) {
+            this.aXY.sendMessage(this.aXY.getGroupId(), this.aXY.getStart(), this.aXY.getLen(), this.aXY.getOrderType());
         }
     }
 
@@ -227,7 +227,7 @@ public class MembersActivity extends BaseActivity implements View.OnClickListene
 
     @Override // com.baidu.adp.widget.ListView.aa
     public void hQ() {
-        Eh();
+        Ej();
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -240,6 +240,6 @@ public class MembersActivity extends BaseActivity implements View.OnClickListene
 
     @Override // com.baidu.adp.base.BdBaseActivity
     public BdListView onGetPreLoadListView() {
-        return this.aXJ.ER();
+        return this.aXX.ET();
     }
 }

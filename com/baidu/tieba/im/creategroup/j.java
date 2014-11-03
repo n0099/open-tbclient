@@ -5,10 +5,10 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 class j extends BdAsyncTask<Object, Integer, Bitmap> {
-    final /* synthetic */ i aTv;
+    final /* synthetic */ i aTJ;
 
     private j(i iVar) {
-        this.aTv = iVar;
+        this.aTJ = iVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -48,9 +48,9 @@ class j extends BdAsyncTask<Object, Integer, Bitmap> {
     public void onPostExecute(Bitmap bitmap) {
         super.onPostExecute(bitmap);
         if (bitmap != null) {
-            this.aTv.aTq.setVisibility(0);
-            i.a(this.aTv, new com.baidu.adp.widget.a.a(bitmap, false, null));
-            i.a(this.aTv).a(this.aTv.aTq);
+            this.aTJ.aTE.setVisibility(0);
+            i.a(this.aTJ, new com.baidu.adp.widget.a.a(bitmap, false, null));
+            i.a(this.aTJ).a(this.aTJ.aTE);
         }
     }
 }

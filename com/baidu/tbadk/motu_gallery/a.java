@@ -8,10 +8,10 @@ import android.widget.ImageView;
 import com.baidu.tbadk.core.util.aw;
 /* loaded from: classes.dex */
 public class a extends ImageView {
-    private static int VX = -1;
-    private int VY;
-    private int VZ;
-    private boolean Wa;
+    private static int Wb = -1;
+    private int Wc;
+    private int Wd;
+    private boolean We;
     private boolean isSelected;
 
     public void setIsSelected(boolean z) {
@@ -22,16 +22,16 @@ public class a extends ImageView {
     public a(Context context) {
         super(context);
         this.isSelected = false;
-        this.VY = 0;
-        this.VZ = 0;
-        this.Wa = false;
+        this.Wc = 0;
+        this.Wd = 0;
+        this.We = false;
     }
 
     @Override // android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        this.VY = (i3 - i) - com.baidu.adp.lib.util.m.dip2px(getContext(), 5.0f);
-        this.VZ = (i4 - i2) - com.baidu.adp.lib.util.m.dip2px(getContext(), 5.0f);
+        this.Wc = (i3 - i) - com.baidu.adp.lib.util.m.dip2px(getContext(), 5.0f);
+        this.Wd = (i4 - i2) - com.baidu.adp.lib.util.m.dip2px(getContext(), 5.0f);
     }
 
     private Bitmap getSelectIcon() {
@@ -48,9 +48,9 @@ public class a extends ImageView {
     public void setImageBitmap(Bitmap bitmap) {
         super.setImageBitmap(bitmap);
         if (bitmap != null) {
-            this.Wa = true;
+            this.We = true;
         } else {
-            this.Wa = false;
+            this.We = false;
         }
     }
 
@@ -58,8 +58,8 @@ public class a extends ImageView {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         Bitmap selectIcon = getSelectIcon();
-        if (selectIcon != null && this.Wa) {
-            canvas.drawBitmap(selectIcon, this.VY - selectIcon.getWidth(), this.VZ - selectIcon.getHeight(), (Paint) null);
+        if (selectIcon != null && this.We) {
+            canvas.drawBitmap(selectIcon, this.Wc - selectIcon.getWidth(), this.Wd - selectIcon.getHeight(), (Paint) null);
         }
     }
 }

@@ -5,11 +5,11 @@ import com.baidu.tieba.im.model.BlackListModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements DialogInterface.OnClickListener {
-    final /* synthetic */ IMBlackListActivity aVt;
+    final /* synthetic */ IMBlackListActivity aVH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(IMBlackListActivity iMBlackListActivity) {
-        this.aVt = iMBlackListActivity;
+        this.aVH = iMBlackListActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -17,11 +17,11 @@ public class d implements DialogInterface.OnClickListener {
         com.baidu.tieba.im.data.a aVar;
         BlackListModel blackListModel;
         com.baidu.tieba.im.data.a aVar2;
-        aVar = this.aVt.aVs;
+        aVar = this.aVH.aVG;
         if (aVar != null) {
-            this.aVt.MS();
-            blackListModel = this.aVt.aVq;
-            aVar2 = this.aVt.aVs;
+            this.aVH.MW();
+            blackListModel = this.aVH.aVE;
+            aVar2 = this.aVH.aVG;
             blackListModel.removeFromBlackList(aVar2.getUserId());
         }
     }

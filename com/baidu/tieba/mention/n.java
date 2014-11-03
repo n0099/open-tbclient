@@ -5,7 +5,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class n {
-    TextView bnv;
+    TextView bnJ;
     ProgressBar mProgress;
 
     private n() {
@@ -17,7 +17,7 @@ class n {
     }
 
     public void Q(View view) {
-        this.bnv = (TextView) view.findViewById(com.baidu.tieba.v.pb_more_text);
+        this.bnJ = (TextView) view.findViewById(com.baidu.tieba.v.pb_more_text);
         this.mProgress = (ProgressBar) view.findViewById(com.baidu.tieba.v.progress);
     }
 }

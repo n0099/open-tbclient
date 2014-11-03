@@ -3,5 +3,5 @@ package com.baidu.tbadk.mvc.b;
 public interface e extends c {
     boolean dL(String str);
 
-    String tn();
+    String tp();
 }

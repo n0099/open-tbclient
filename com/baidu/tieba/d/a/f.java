@@ -5,31 +5,31 @@ import org.json.JSONObject;
 import tbclient.App;
 /* loaded from: classes.dex */
 public class f extends ak implements d {
-    public String aAt;
-    private a bHo;
-    public boolean bHp = false;
-    public String bHq;
+    public String aAD;
+    private a bHC;
+    public boolean bHD = false;
+    public String bHE;
     public long threadId;
     private int zf;
 
     @Override // com.baidu.tieba.data.ak
     public void parserJson(JSONObject jSONObject) {
-        this.bHo = new a(jSONObject);
+        this.bHC = new a(jSONObject);
     }
 
     public void b(App app) {
-        this.bHo = new a(app);
+        this.bHC = new a(app);
     }
 
-    public a abq() {
-        return this.bHo;
+    public a abt() {
+        return this.bHC;
     }
 
-    public String abr() {
-        return this.bHo == null ? "" : this.bHo.id;
+    public String abu() {
+        return this.bHC == null ? "" : this.bHC.id;
     }
 
-    public int abs() {
+    public int abv() {
         return this.zf;
     }
 
@@ -39,141 +39,141 @@ public class f extends ak implements d {
     }
 
     public boolean jF() {
-        if (this.bHo == null) {
+        if (this.bHC == null) {
             return false;
         }
-        return this.bHo.jF();
+        return this.bHC.jF();
     }
 
-    public boolean abt() {
-        if (this.bHo == null) {
+    public boolean abw() {
+        if (this.bHC == null) {
             return false;
         }
-        return this.bHo.jG();
+        return this.bHC.jG();
     }
 
-    public boolean abu() {
-        if (this.bHo == null) {
+    public boolean abx() {
+        if (this.bHC == null) {
             return false;
         }
-        return this.bHo.jH();
+        return this.bHC.jH();
     }
 
     @Override // com.baidu.tieba.d.a.c
-    public String abk() {
-        if (this.bHo == null) {
+    public String abn() {
+        if (this.bHC == null) {
             return null;
         }
-        return this.bHo.apk_name;
+        return this.bHC.apk_name;
     }
 
     @Override // com.baidu.tieba.d.a.c
     public String getDownloadUrl() {
-        if (this.bHo == null) {
+        if (this.bHC == null) {
             return null;
         }
-        return this.bHo.apk_url;
+        return this.bHC.apk_url;
     }
 
     @Override // com.baidu.tieba.d.a.c
     public String getAppName() {
-        return this.bHo == null ? "" : this.bHo.name;
-    }
-
-    @Override // com.baidu.tieba.d.a.e
-    public String abl() {
-        if (this.bHo == null || this.bHo.bHm == null) {
-            return null;
-        }
-        return this.bHo.bHm.user_name;
-    }
-
-    @Override // com.baidu.tieba.d.a.e
-    public String abm() {
-        if (this.bHo == null || this.bHo.bHm == null) {
-            return null;
-        }
-        return this.bHo.bHm.user_portrait;
-    }
-
-    @Override // com.baidu.tieba.d.a.e
-    public String abn() {
-        if (this.bHo == null || this.bHo.bHm == null) {
-            return null;
-        }
-        return this.bHo.bHm.thread_title;
+        return this.bHC == null ? "" : this.bHC.name;
     }
 
     @Override // com.baidu.tieba.d.a.e
     public String abo() {
-        if (this.bHo == null || this.bHo.bHm == null) {
+        if (this.bHC == null || this.bHC.bHA == null) {
             return null;
         }
-        return this.bHo.bHm.thread_pic;
+        return this.bHC.bHA.user_name;
     }
 
     @Override // com.baidu.tieba.d.a.e
-    public long abp() {
-        if (this.bHo == null) {
+    public String abp() {
+        if (this.bHC == null || this.bHC.bHA == null) {
+            return null;
+        }
+        return this.bHC.bHA.user_portrait;
+    }
+
+    @Override // com.baidu.tieba.d.a.e
+    public String abq() {
+        if (this.bHC == null || this.bHC.bHA == null) {
+            return null;
+        }
+        return this.bHC.bHA.thread_title;
+    }
+
+    @Override // com.baidu.tieba.d.a.e
+    public String abr() {
+        if (this.bHC == null || this.bHC.bHA == null) {
+            return null;
+        }
+        return this.bHC.bHA.thread_pic;
+    }
+
+    @Override // com.baidu.tieba.d.a.e
+    public long abs() {
+        if (this.bHC == null) {
             return 0L;
         }
-        return this.bHo.bHk * 1000;
+        return this.bHC.bHy * 1000;
     }
 
     public int getShowType() {
-        if (this.bHo == null || this.bHo.bHm == null) {
+        if (this.bHC == null || this.bHC.bHA == null) {
             return -1;
         }
-        return this.bHo.bHm.bHn;
+        return this.bHC.bHA.bHB;
     }
 
     public int getPosition() {
-        int f = this.bHo != null ? com.baidu.adp.lib.g.c.f(this.bHo.pos_name, 0) : 0;
+        int f = this.bHC != null ? com.baidu.adp.lib.g.c.f(this.bHC.pos_name, 0) : 0;
         if (f < 2 || f > 30) {
             return 7;
         }
         return f;
     }
 
-    public String abv() {
-        if (this.bHo == null || this.bHo.bHm == null) {
+    public String aby() {
+        if (this.bHC == null || this.bHC.bHA == null) {
             return null;
         }
-        return this.bHo.bHm.pop_window_text;
+        return this.bHC.bHA.pop_window_text;
     }
 
-    public com.baidu.tbadk.core.data.a abw() {
+    public com.baidu.tbadk.core.data.a abz() {
         com.baidu.tbadk.core.data.a aVar = new com.baidu.tbadk.core.data.a();
-        if (this.bHo != null) {
-            aVar.zg = this.bHo.id;
-            aVar.zh = this.bHo.name;
-            aVar.zi = this.bHo.bHi;
-            aVar.zj = this.bHo.url;
-            aVar.zk = this.bHo.apk_url;
-            aVar.zl = this.bHo.apk_name;
+        if (this.bHC != null) {
+            aVar.zg = this.bHC.id;
+            aVar.zh = this.bHC.name;
+            aVar.zi = this.bHC.bHw;
+            aVar.zj = this.bHC.url;
+            aVar.zk = this.bHC.apk_url;
+            aVar.zl = this.bHC.apk_name;
             try {
-                aVar.zm = Integer.parseInt(this.bHo.pos_name.trim());
+                aVar.zm = Integer.parseInt(this.bHC.pos_name.trim());
             } catch (Exception e) {
                 aVar.zm = -1;
             }
-            aVar.zn = this.bHo.first_name;
-            aVar.zo = this.bHo.second_name;
-            aVar.zp = this.bHo.zp;
-            aVar.abtest = this.bHo.abtest;
-            aVar.zq = this.bHo.bHj;
-            aVar.userId = this.bHo.user_id;
-            aVar.zr = this.bHo.verify;
-            aVar.price = this.bHo.price;
-            aVar.zs = this.bHo.ext_info;
-            aVar.zt = this.bHo.bHk * 1000;
-            if (this.bHo.bHm != null) {
-                aVar.zu.zz = this.bHo.bHm.pop_window_text;
-                aVar.zu.zw = this.bHo.bHm.id;
-                aVar.zu.zy = this.bHo.bHm.thread_pic;
-                aVar.zu.zA = this.bHo.bHm.bHn;
-                aVar.zu.zx = this.bHo.bHm.thread_title;
-                aVar.zu.userName = this.bHo.bHm.user_name;
-                aVar.zu.userPortrait = this.bHo.bHm.user_portrait;
+            aVar.zn = this.bHC.first_name;
+            aVar.zo = this.bHC.second_name;
+            aVar.zp = this.bHC.zp;
+            aVar.abtest = this.bHC.abtest;
+            aVar.zq = this.bHC.bHx;
+            aVar.userId = this.bHC.user_id;
+            aVar.zr = this.bHC.verify;
+            aVar.price = this.bHC.price;
+            aVar.zs = this.bHC.ext_info;
+            aVar.zt = this.bHC.bHy * 1000;
+            if (this.bHC.bHA != null) {
+                aVar.zu.zz = this.bHC.bHA.pop_window_text;
+                aVar.zu.zw = this.bHC.bHA.id;
+                aVar.zu.zy = this.bHC.bHA.thread_pic;
+                aVar.zu.zA = this.bHC.bHA.bHB;
+                aVar.zu.zx = this.bHC.bHA.thread_title;
+                aVar.zu.userName = this.bHC.bHA.user_name;
+                aVar.zu.userPortrait = this.bHC.bHA.user_portrait;
             }
         }
         return aVar;

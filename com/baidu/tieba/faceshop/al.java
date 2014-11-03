@@ -8,13 +8,13 @@ import com.baidu.tbadk.TbadkApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al extends BdAsyncTask<Object, String, FacePackageDetailData> {
-    private volatile boolean atv;
-    final /* synthetic */ ak atw;
+    private volatile boolean atE;
+    final /* synthetic */ ak atF;
     private com.baidu.tbadk.core.util.ac mNetWork;
 
     private al(ak akVar) {
-        this.atw = akVar;
-        this.atv = false;
+        this.atF = akVar;
+        this.atE = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -38,34 +38,34 @@ public class al extends BdAsyncTask<Object, String, FacePackageDetailData> {
         String str4;
         String str5;
         try {
-            str = this.atw.atn;
+            str = this.atF.atw;
             if (str != null) {
-                str2 = this.atw.atn;
-                if (str2.length() > 0 && !this.atv) {
+                str2 = this.atF.atw;
+                if (str2.length() > 0 && !this.atE) {
                     com.baidu.adp.lib.cache.t<String> bd = com.baidu.tbadk.core.a.a.kS().bd("tb_face_package");
                     if (bd != null) {
                         StringBuilder sb = new StringBuilder(String.valueOf(TbadkApplication.getCurrentAccount()));
-                        str5 = this.atw.atn;
+                        str5 = this.atF.atw;
                         String str6 = bd.get(sb.append(str5).toString());
-                        if (!com.baidu.tbadk.core.util.ay.aA(str6)) {
+                        if (!com.baidu.tbadk.core.util.az.aA(str6)) {
                             publishProgress(str6);
                         }
                     }
                     this.mNetWork = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_PACKAGE_DETAIL);
                     com.baidu.tbadk.core.util.ac acVar = this.mNetWork;
-                    i = this.atw.ats;
+                    i = this.atF.atB;
                     acVar.k("scr_w", String.valueOf(i));
                     com.baidu.tbadk.core.util.ac acVar2 = this.mNetWork;
-                    i2 = this.atw.att;
+                    i2 = this.atF.atC;
                     acVar2.k("scr_h", String.valueOf(i2));
                     com.baidu.tbadk.core.util.ac acVar3 = this.mNetWork;
-                    f = this.atw.atu;
+                    f = this.atF.atD;
                     acVar3.k("scr_dip", String.valueOf(f));
                     com.baidu.tbadk.core.util.ac acVar4 = this.mNetWork;
-                    str3 = this.atw.atn;
+                    str3 = this.atF.atw;
                     acVar4.k("pid", str3);
                     com.baidu.tbadk.core.util.ac acVar5 = this.mNetWork;
-                    str4 = this.atw.aok;
+                    str4 = this.atF.aot;
                     acVar5.k("st_type", str4);
                     String lA = this.mNetWork.lA();
                     facePackageDetailData = (FacePackageDetailData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(lA, FacePackageDetailData.class);
@@ -99,11 +99,11 @@ public class al extends BdAsyncTask<Object, String, FacePackageDetailData> {
     public void onPostExecute(FacePackageDetailData facePackageDetailData) {
         BaseActivity.LoadDataCallBack loadDataCallBack;
         super.onPostExecute(facePackageDetailData);
-        this.atw.atr = null;
+        this.atF.atA = null;
         if (facePackageDetailData != null) {
-            this.atw.atq = facePackageDetailData;
+            this.atF.atz = facePackageDetailData;
         }
-        loadDataCallBack = this.atw.atj;
+        loadDataCallBack = this.atF.ats;
         loadDataCallBack.callback(facePackageDetailData, false);
     }
 
@@ -112,7 +112,7 @@ public class al extends BdAsyncTask<Object, String, FacePackageDetailData> {
         com.baidu.adp.lib.cache.t<String> bd = com.baidu.tbadk.core.a.a.kS().bd("tb_face_package");
         if (bd != null) {
             StringBuilder sb = new StringBuilder(String.valueOf(TbadkApplication.getCurrentAccount()));
-            str2 = this.atw.atn;
+            str2 = this.atF.atw;
             bd.a(sb.append(str2).toString(), str, 604800000L);
         }
     }
@@ -124,8 +124,8 @@ public class al extends BdAsyncTask<Object, String, FacePackageDetailData> {
     public void onProgressUpdate(String... strArr) {
         BaseActivity.LoadDataCallBack loadDataCallBack;
         FacePackageDetailData facePackageDetailData = (FacePackageDetailData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(strArr[0], FacePackageDetailData.class);
-        this.atw.atq = facePackageDetailData;
-        loadDataCallBack = this.atw.atj;
+        this.atF.atz = facePackageDetailData;
+        loadDataCallBack = this.atF.ats;
         loadDataCallBack.callback(facePackageDetailData, true);
         super.onProgressUpdate(strArr);
     }
@@ -133,11 +133,11 @@ public class al extends BdAsyncTask<Object, String, FacePackageDetailData> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        this.atv = true;
+        this.atE = true;
         if (this.mNetWork != null) {
             this.mNetWork.dM();
             this.mNetWork = null;
         }
-        this.atw.atr = null;
+        this.atF.atA = null;
     }
 }

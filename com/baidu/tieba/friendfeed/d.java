@@ -2,11 +2,11 @@ package com.baidu.tieba.friendfeed;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements com.baidu.adp.widget.ListView.f {
-    final /* synthetic */ FriendFeedActivity ayL;
+    final /* synthetic */ FriendFeedActivity ayU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(FriendFeedActivity friendFeedActivity) {
-        this.ayL = friendFeedActivity;
+        this.ayU = friendFeedActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.f
@@ -14,6 +14,6 @@ public class d implements com.baidu.adp.widget.ListView.f {
         if (z) {
             return;
         }
-        this.ayL.c(false, (String) null);
+        this.ayU.c(false, (String) null);
     }
 }

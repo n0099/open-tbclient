@@ -6,15 +6,15 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.stats.q;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.core.util.v;
 /* loaded from: classes.dex */
 public class n extends a {
-    private boolean GC;
+    private boolean GD;
 
     public n(boolean z) {
-        this.GC = true;
-        this.GC = z;
+        this.GD = true;
+        this.GD = z;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -29,7 +29,7 @@ public class n extends a {
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public boolean isFromCDN() {
-        return this.GC;
+        return this.GD;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -47,7 +47,7 @@ public class n extends a {
         q logItem = v.getLogItem();
         logItem.eL();
         byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c bZ = bZ(ba.bQ(str2));
+        com.baidu.adp.lib.Disk.ops.c bZ = bZ(bb.bQ(str2));
         if (bZ == null) {
             return null;
         }
@@ -89,7 +89,7 @@ public class n extends a {
     protected com.baidu.adp.widget.a.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, com.baidu.adp.widget.a.a aVar2, Bitmap bitmap, boolean z, com.baidu.tbadk.core.util.httpNet.k kVar, byte[] bArr, Rect rect) {
         if (d(bitmap)) {
             aVar2 = new com.baidu.adp.widget.a.a(bitmap, z, str, rect);
-            com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ba.bQ(str2), DiskFileOperate.Action.WRITE);
+            com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, bb.bQ(str2), DiskFileOperate.Action.WRITE);
             cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
             cVar.k(true);
             cVar.setData(bArr);

@@ -16,11 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class u extends BaseAdapter {
-    private List<UserData> aHm = new ArrayList();
+    private List<UserData> aHw = new ArrayList();
     private Context mContext;
 
     public void F(List<UserData> list) {
-        this.aHm.addAll(list);
+        this.aHw.addAll(list);
     }
 
     public u(Context context) {
@@ -29,8 +29,8 @@ public class u extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aHm != null) {
-            return ((this.aHm.size() * 2) - 1) + 2;
+        if (this.aHw != null) {
+            return ((this.aHw.size() * 2) - 1) + 2;
         }
         return 0;
     }
@@ -40,10 +40,10 @@ public class u extends BaseAdapter {
     /* renamed from: fb */
     public UserData getItem(int i) {
         int itemId = (int) getItemId(i);
-        if (itemId < 0 || itemId >= this.aHm.size()) {
+        if (itemId < 0 || itemId >= this.aHw.size()) {
             return null;
         }
-        return this.aHm.get(itemId);
+        return this.aHw.get(itemId);
     }
 
     @Override // android.widget.Adapter
@@ -86,7 +86,7 @@ public class u extends BaseAdapter {
         v vVar;
         UserData item;
         View a;
-        if (this.aHm != null) {
+        if (this.aHw != null) {
             if (view == null) {
                 v vVar2 = new v();
                 if (getItemViewType(i) == 1) {
@@ -95,11 +95,11 @@ public class u extends BaseAdapter {
                     a = com.baidu.adp.lib.g.b.ek().a(this.mContext, com.baidu.tieba.w.game_detail_rank_list_space, viewGroup, false);
                 } else {
                     View a2 = com.baidu.adp.lib.g.b.ek().a(this.mContext, com.baidu.tieba.w.game_detial_rank_list_item, viewGroup, false);
-                    vVar2.aHn = (ViewGroup) a2.findViewById(com.baidu.tieba.v.list_item);
-                    vVar2.aHo = (TextView) a2.findViewById(com.baidu.tieba.v.item_order);
-                    vVar2.aHp = (HeadImageView) a2.findViewById(com.baidu.tieba.v.item_head);
-                    vVar2.aHq = (TextView) a2.findViewById(com.baidu.tieba.v.item_name);
-                    vVar2.aHr = (TextView) a2.findViewById(com.baidu.tieba.v.item_grade);
+                    vVar2.aHx = (ViewGroup) a2.findViewById(com.baidu.tieba.v.list_item);
+                    vVar2.aHy = (TextView) a2.findViewById(com.baidu.tieba.v.item_order);
+                    vVar2.aHz = (HeadImageView) a2.findViewById(com.baidu.tieba.v.item_head);
+                    vVar2.aHA = (TextView) a2.findViewById(com.baidu.tieba.v.item_name);
+                    vVar2.aHB = (TextView) a2.findViewById(com.baidu.tieba.v.item_grade);
                     a = a2;
                 }
                 a.setTag(vVar2);
@@ -109,16 +109,16 @@ public class u extends BaseAdapter {
                 vVar = (v) view.getTag();
             }
             if (getItemViewType(i) == 0 && (item = getItem(i)) != null) {
-                c(vVar.aHn, i);
-                o(vVar.aHo, i);
+                c(vVar.aHx, i);
+                o(vVar.aHy, i);
                 String portrait = item.getPortrait();
                 if (!TextUtils.isEmpty(portrait)) {
-                    vVar.aHp.c(portrait, 12, false);
+                    vVar.aHz.c(portrait, 12, false);
                 } else {
-                    vVar.aHp.c(null, 12, false);
+                    vVar.aHz.c(null, 12, false);
                 }
-                vVar.aHq.setText(item.getUserName());
-                a(vVar.aHr, item.getGrade());
+                vVar.aHA.setText(item.getUserName());
+                a(vVar.aHB, item.getGrade());
             }
             F(view);
         }
@@ -161,7 +161,7 @@ public class u extends BaseAdapter {
         int i2 = (i - 1) / 2;
         String userId = getItem(i).getUserId();
         boolean z = !TextUtils.isEmpty(userId) && userId.equals(TbadkApplication.getCurrentAccount());
-        if (this.aHm.size() == 1) {
+        if (this.aHw.size() == 1) {
             com.baidu.tbadk.core.util.aw.h(viewGroup, com.baidu.tieba.u.list_item_selector_gamedetail_rand_full);
         } else if (i2 == 0) {
             if (z) {
@@ -169,7 +169,7 @@ public class u extends BaseAdapter {
             } else {
                 com.baidu.tbadk.core.util.aw.h(viewGroup, com.baidu.tieba.u.list_item_selector_gamedetail_rand_top);
             }
-        } else if (i2 == this.aHm.size() - 1) {
+        } else if (i2 == this.aHw.size() - 1) {
             if (z) {
                 com.baidu.tbadk.core.util.aw.h(viewGroup, com.baidu.tieba.u.list_item_selector_game_detail_rand_self_bottom);
             } else {

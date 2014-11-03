@@ -4,12 +4,12 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 class l {
-    final /* synthetic */ j ahJ;
-    HeadImageView ahL;
-    TextView ahM;
+    final /* synthetic */ j ahS;
+    HeadImageView ahU;
+    TextView ahV;
 
     private l(j jVar) {
-        this.ahJ = jVar;
+        this.ahS = jVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

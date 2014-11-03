@@ -4,11 +4,11 @@ import android.view.View;
 import java.util.Set;
 /* loaded from: classes.dex */
 class ae implements View.OnClickListener {
-    final /* synthetic */ ad aXW;
+    final /* synthetic */ ad aYk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(ad adVar) {
-        this.aXW = adVar;
+        this.aYk = adVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,16 +22,16 @@ class ae implements View.OnClickListener {
         boolean isSelected = view.isSelected();
         Long l = (Long) view.getTag();
         if (isSelected) {
-            set3 = this.aXW.aXV;
+            set3 = this.aYk.aYj;
             set3.add(l);
         } else {
-            set = this.aXW.aXV;
+            set = this.aYk.aYj;
             set.remove(l);
         }
-        afVar = this.aXW.aXS;
+        afVar = this.aYk.aYg;
         if (afVar != null) {
-            afVar2 = this.aXW.aXS;
-            set2 = this.aXW.aXV;
+            afVar2 = this.aYk.aYg;
+            set2 = this.aYk.aYj;
             afVar2.fI(set2.size());
         }
     }

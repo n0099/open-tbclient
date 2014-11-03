@@ -8,11 +8,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements TextWatcher {
-    final /* synthetic */ e aYU;
+    final /* synthetic */ e aZh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(e eVar) {
-        this.aYU = eVar;
+        this.aZh = eVar;
     }
 
     @Override // android.text.TextWatcher
@@ -22,17 +22,17 @@ public class l implements TextWatcher {
         TextView textView;
         ImageButton imageButton2;
         TextView textView2;
-        editText = this.aYU.aYE;
+        editText = this.aZh.aYR;
         if (editText.getText().length() > 0) {
-            imageButton2 = this.aYU.aYF;
+            imageButton2 = this.aZh.aYS;
             imageButton2.setVisibility(0);
-            textView2 = this.aYU.aYG;
+            textView2 = this.aZh.aYT;
             textView2.setEnabled(true);
             return;
         }
-        imageButton = this.aYU.aYF;
+        imageButton = this.aZh.aYS;
         imageButton.setVisibility(8);
-        textView = this.aYU.aYG;
+        textView = this.aZh.aYT;
         textView.setEnabled(false);
     }
 

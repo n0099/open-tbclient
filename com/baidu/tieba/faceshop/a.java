@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.editortool.e {
-    private LinkedList<com.baidu.tbadk.editortool.ad> asd;
+    private LinkedList<com.baidu.tbadk.editortool.ad> asm;
 
     @Override // com.baidu.tbadk.editortool.e
     public int getIndex() {
@@ -15,13 +15,13 @@ public class a extends com.baidu.tbadk.editortool.e {
 
     @Override // com.baidu.tbadk.editortool.e
     public void a(com.baidu.tbadk.editortool.f fVar) {
-        if (com.baidu.tbadk.core.util.s.bm() && this.asd != null) {
+        if (com.baidu.tbadk.core.util.s.bm() && this.asm != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.asd.size()) {
-                    com.baidu.tbadk.editortool.a aVar = (com.baidu.tbadk.editortool.a) this.asd.get(i2);
-                    if (aVar.rq() && com.baidu.tbadk.editortool.u.rw().db(aVar.getGroupId()) == null && fVar != null) {
+                if (i2 < this.asm.size()) {
+                    com.baidu.tbadk.editortool.a aVar = (com.baidu.tbadk.editortool.a) this.asm.get(i2);
+                    if (aVar.rs() && com.baidu.tbadk.editortool.u.ry().db(aVar.getGroupId()) == null && fVar != null) {
                         fVar.a(aVar);
                     }
                     i = i2 + 1;
@@ -50,15 +50,15 @@ public class a extends com.baidu.tbadk.editortool.e {
                         z = z || aVar.a(xVar, new c(this));
                     }
                 }
-                this.asd = linkedList;
+                this.asm = linkedList;
                 if (z) {
-                    com.baidu.tbadk.editortool.aa.rz().rA();
+                    com.baidu.tbadk.editortool.aa.rB().rC();
                 }
             }
         }
-        if (this.asd != null) {
-            this.asd = null;
-            com.baidu.tbadk.editortool.aa.rz().rA();
+        if (this.asm != null) {
+            this.asm = null;
+            com.baidu.tbadk.editortool.aa.rB().rC();
         }
     }
 }

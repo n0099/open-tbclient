@@ -1,28 +1,21 @@
 package com.baidu.tieba;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
-public class az implements View.OnClickListener {
-    final /* synthetic */ UpdateDialog this$0;
+class az implements Runnable {
+    final /* synthetic */ ay aeh;
+    private final /* synthetic */ CustomMessage aei;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public az(UpdateDialog updateDialog) {
-        this.this$0 = updateDialog;
+    public az(ay ayVar, CustomMessage customMessage) {
+        this.aeh = ayVar;
+        this.aei = customMessage;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ac acVar;
-        boolean z;
-        boolean z2;
-        boolean z3;
-        acVar = this.this$0.aeg;
-        acVar.wc();
-        UpdateDialog updateDialog = this.this$0;
-        z = this.this$0.aeb;
-        z2 = this.this$0.aec;
-        z3 = this.this$0.aed;
-        updateDialog.b(z, z2, z3);
+    @Override // java.lang.Runnable
+    public void run() {
+        aj.a((AccountData) this.aei.getData(), TbadkApplication.m251getInst());
     }
 }

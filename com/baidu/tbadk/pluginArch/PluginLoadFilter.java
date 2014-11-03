@@ -17,6 +17,7 @@ public class PluginLoadFilter {
         this.s_mimimumAvaliableVersion.put(PluginNameList.NAME_HAO123, 2);
         this.s_mimimumAvaliableVersion.put(PluginNameList.NAME_LIGHT_APP, 2);
         this.s_mimimumAvaliableVersion.put(PluginNameList.NAME_LIVE, 2);
+        this.s_mimimumAvaliableVersion.put(PluginNameList.NAME_NIGHT_RESOURCE, 2);
         this.s_mimimumAvaliableVersion.put(PluginNameList.NAME_BAOBAO, 2);
     }
 

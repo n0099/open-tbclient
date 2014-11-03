@@ -17,7 +17,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.bn;
+import com.baidu.tbadk.core.util.bo;
 import com.baidu.tieba.s;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
@@ -35,6 +35,7 @@ public class e {
     private h Bq;
     private h Br;
     private h Bs;
+    private DialogInterface.OnKeyListener Bt;
     protected final Activity mActivity;
     private View mContentView;
     private final ViewGroup mRootView;
@@ -58,6 +59,11 @@ public class e {
 
     public e ba(int i) {
         this.Bp = i;
+        return this;
+    }
+
+    public e a(DialogInterface.OnKeyListener onKeyListener) {
+        this.Bt = onKeyListener;
         return this;
     }
 
@@ -236,6 +242,9 @@ public class e {
             if (this.Be != null) {
                 this.Bf.setOnCancelListener(this.Be);
             }
+            if (this.Bt != null) {
+                this.Bf.setOnKeyListener(this.Bt);
+            }
             if (z) {
                 com.baidu.adp.lib.g.j.a(this.Bf, this.mActivity);
             } else {
@@ -253,7 +262,7 @@ public class e {
             window.setLayout(-2, -2);
             window.setContentView(this.mRootView);
             AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            bn.a(this.mRootView, false, new f(this, atomicBoolean));
+            bo.a(this.mRootView, false, new f(this, atomicBoolean));
             if (atomicBoolean.get()) {
                 window.clearFlags(131080);
             }

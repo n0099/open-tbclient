@@ -18,10 +18,10 @@ import com.baidu.tieba.im.data.GroupPermData;
 import com.baidu.tieba.im.message.RequestUserPermissionMessage;
 /* loaded from: classes.dex */
 public class FrsGroupActivity extends MvcActivity<l, com.baidu.tbadk.mvc.core.b> implements View.OnClickListener, RadioGroup.OnCheckedChangeListener, com.baidu.tbadk.mvc.c.a {
-    private l aWj;
-    private com.baidu.tbadk.mvc.core.b aWk;
-    private BdUniqueId[] aWl;
-    private final com.baidu.adp.framework.listener.e aWm = new a(this, 103008);
+    private final com.baidu.adp.framework.listener.e aWA = new a(this, 103008);
+    private l aWx;
+    private com.baidu.tbadk.mvc.core.b aWy;
+    private BdUniqueId[] aWz;
     private String forumId;
 
     static {
@@ -29,44 +29,44 @@ public class FrsGroupActivity extends MvcActivity<l, com.baidu.tbadk.mvc.core.b>
     }
 
     private BdUniqueId fE(int i) {
-        if (this.aWl == null) {
-            this.aWl = new BdUniqueId[3];
-            this.aWl[0] = BdUniqueId.gen();
-            this.aWl[1] = BdUniqueId.gen();
-            this.aWl[2] = BdUniqueId.gen();
+        if (this.aWz == null) {
+            this.aWz = new BdUniqueId[3];
+            this.aWz[0] = BdUniqueId.gen();
+            this.aWz[1] = BdUniqueId.gen();
+            this.aWz[2] = BdUniqueId.gen();
         }
-        if (i < 0 || i >= this.aWl.length) {
+        if (i < 0 || i >= this.aWz.length) {
             return null;
         }
-        return this.aWl[i];
+        return this.aWz[i];
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.MvcActivity
-    /* renamed from: Nl */
-    public com.baidu.tbadk.mvc.core.b tj() {
-        if (this.aWk == null) {
-            this.aWk = new com.baidu.tbadk.mvc.core.b(this);
-            this.aWk.a(new d(this, 0, fE(0)));
-            this.aWk.a(new d(this, 1, fE(1)));
-            this.aWk.a(new d(this, 2, fE(2)));
+    /* renamed from: Np */
+    public com.baidu.tbadk.mvc.core.b tl() {
+        if (this.aWy == null) {
+            this.aWy = new com.baidu.tbadk.mvc.core.b(this);
+            this.aWy.a(new d(this, 0, fE(0)));
+            this.aWy.a(new d(this, 1, fE(1)));
+            this.aWy.a(new d(this, 2, fE(2)));
         }
-        return this.aWk;
+        return this.aWy;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.MvcActivity
-    /* renamed from: Nm */
-    public l tk() {
-        if (this.aWj == null) {
-            this.aWj = new l(this);
-            this.aWj.a(new e(this, 0, fE(0)));
-            this.aWj.a(new e(this, 1, fE(1)));
-            this.aWj.a(new e(this, 2, fE(2)));
+    /* renamed from: Nq */
+    public l tm() {
+        if (this.aWx == null) {
+            this.aWx = new l(this);
+            this.aWx.a(new e(this, 0, fE(0)));
+            this.aWx.a(new e(this, 1, fE(1)));
+            this.aWx.a(new e(this, 2, fE(2)));
         }
-        return this.aWj;
+        return this.aWx;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -79,8 +79,8 @@ public class FrsGroupActivity extends MvcActivity<l, com.baidu.tbadk.mvc.core.b>
         if (bundle != null) {
             this.forumId = bundle.getString("forum_id");
         }
-        sY().addEventDelegate(this);
-        registerListener(this.aWm);
+        ta().addEventDelegate(this);
+        registerListener(this.aWA);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -89,31 +89,31 @@ public class FrsGroupActivity extends MvcActivity<l, com.baidu.tbadk.mvc.core.b>
         super.onNewIntent(intent);
         if (intent != null && intent.getExtras() != null) {
             this.forumId = intent.getExtras().getString("forum_id");
-            tj().b(intent.getExtras());
-            tk().c(intent.getExtras());
+            tl().b(intent.getExtras());
+            tm().c(intent.getExtras());
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.aWj.Nv()) {
+        if (view == this.aWx.Nz()) {
             TiebaStatic.eventStat(this, "create_g_in_frsgroup", "click", 1, new Object[0]);
-            No();
+            Ns();
         }
     }
 
-    private void Nn() {
-        this.aWj.cX(true);
+    private void Nr() {
+        this.aWx.cX(true);
         RequestUserPermissionMessage requestUserPermissionMessage = new RequestUserPermissionMessage();
         requestUserPermissionMessage.setForumId(com.baidu.adp.lib.g.c.a(this.forumId, 0L));
         sendMessage(requestUserPermissionMessage);
     }
 
-    private void No() {
+    private void Ns() {
         if (TextUtils.isEmpty(TbadkApplication.getCurrentAccount())) {
             LoginActivity.a((Activity) this, "", true, 0);
         } else {
-            Nn();
+            Nr();
         }
     }
 
@@ -136,8 +136,8 @@ public class FrsGroupActivity extends MvcActivity<l, com.baidu.tbadk.mvc.core.b>
         if (super.a(bVar)) {
             return true;
         }
-        if (bVar.tp() == 987) {
-            No();
+        if (bVar.tr() == 987) {
+            Ns();
             return true;
         }
         return false;
@@ -153,7 +153,7 @@ public class FrsGroupActivity extends MvcActivity<l, com.baidu.tbadk.mvc.core.b>
                 i2 = 3;
             }
         }
-        this.aWj.fH(i2 - 1);
+        this.aWx.fH(i2 - 1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -161,7 +161,7 @@ public class FrsGroupActivity extends MvcActivity<l, com.baidu.tbadk.mvc.core.b>
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 0) {
-            Nn();
+            Nr();
         }
     }
 }

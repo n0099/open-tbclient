@@ -3,11 +3,11 @@ package com.baidu.tieba.friendfeed;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
 class l implements AbsListView.OnScrollListener {
-    final /* synthetic */ FriendFeedActivity ayL;
+    final /* synthetic */ FriendFeedActivity ayU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(FriendFeedActivity friendFeedActivity) {
-        this.ayL = friendFeedActivity;
+        this.ayU = friendFeedActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -18,8 +18,8 @@ class l implements AbsListView.OnScrollListener {
     public void onScrollStateChanged(AbsListView absListView, int i) {
         y yVar;
         if (i != 0) {
-            yVar = this.ayL.ayq;
-            yVar.EP();
+            yVar = this.ayU.ayz;
+            yVar.ER();
         }
     }
 }

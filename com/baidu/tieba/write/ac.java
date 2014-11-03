@@ -7,18 +7,17 @@ import com.baidu.tieba.data.BubbleListData;
 import com.baidu.tieba.message.ResponseBubbleListMessage;
 /* loaded from: classes.dex */
 class ac extends HttpMessageListener {
-    final /* synthetic */ WriteActivity bTX;
+    final /* synthetic */ WriteActivity bUm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ac(WriteActivity writeActivity, int i) {
         super(i);
-        this.bTX = writeActivity;
+        this.bUm = writeActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: b */
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
         BubbleListData bubbleListData;
         String str;
@@ -28,12 +27,12 @@ class ac extends HttpMessageListener {
                 if (bubbleData.getIs_free() == 1) {
                     String b_url = bubbleData.getB_url();
                     if (b_url != null) {
-                        str = this.bTX.apZ;
+                        str = this.bUm.aqi;
                         if (!b_url.equals(str)) {
-                            this.bTX.apZ = b_url;
-                            this.bTX.eM(true);
+                            this.bUm.aqi = b_url;
+                            this.bUm.eM(true);
                             TbadkApplication m251getInst = TbadkApplication.m251getInst();
-                            str2 = this.bTX.apZ;
+                            str2 = this.bUm.aqi;
                             m251getInst.setDefaultBubble(str2);
                             return;
                         }

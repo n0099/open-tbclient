@@ -7,23 +7,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class o extends com.baidu.adp.base.e {
-    private p bSL;
-    private ArrayList<com.baidu.tbadk.core.data.q> bSM;
+    private p bTa;
+    private ArrayList<com.baidu.tbadk.core.data.q> bTb;
     private Context mContext;
     private int mErrCode;
 
     public o(Context context) {
         super(context);
-        this.bSL = null;
-        this.bSM = null;
+        this.bTa = null;
+        this.bTb = null;
         this.mErrCode = 0;
         this.mContext = context;
-        this.bSM = new ArrayList<>();
+        this.bTb = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<com.baidu.tbadk.core.data.q> afc() {
-        return this.bSM;
+    public ArrayList<com.baidu.tbadk.core.data.q> aff() {
+        return this.bTb;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -33,10 +33,10 @@ public class o extends com.baidu.adp.base.e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void hJ(String str) {
-        if (this.bSL == null) {
-            this.bSL = new p(this, null);
-            this.bSL.setPriority(3);
-            this.bSL.execute(str);
+        if (this.bTa == null) {
+            this.bTa = new p(this, null);
+            this.bTa.setPriority(3);
+            this.bTa.execute(str);
         }
     }
 
@@ -60,7 +60,7 @@ public class o extends com.baidu.adp.base.e {
                         if (jSONObject2 != null) {
                             com.baidu.tbadk.core.data.q qVar = new com.baidu.tbadk.core.data.q();
                             qVar.parserJson(jSONObject2);
-                            this.bSM.add(qVar);
+                            this.bTb.add(qVar);
                         }
                     }
                 }
@@ -77,8 +77,8 @@ public class o extends com.baidu.adp.base.e {
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.bSL != null) {
-            this.bSL.cancel();
+        if (this.bTa != null) {
+            this.bTa.cancel();
             return true;
         }
         return true;

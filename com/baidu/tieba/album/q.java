@@ -13,28 +13,28 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class q {
-    private static q ahV;
-    private BroadcastReceiver ahW;
-    private ContentObserver ahX;
+    private static q aie;
+    private BroadcastReceiver aif;
+    private ContentObserver aig;
     private Handler mHandler = new Handler(Looper.getMainLooper());
-    private ArrayList<u> ahY = new ArrayList<>();
+    private ArrayList<u> aih = new ArrayList<>();
     private Handler handler = new Handler();
-    private Runnable ahZ = new r(this);
+    private Runnable aii = new r(this);
 
-    public static q xW() {
-        if (ahV == null) {
-            ahV = new q();
-            ahV.init(com.baidu.tieba.aj.wk().getApp());
+    public static q xY() {
+        if (aie == null) {
+            aie = new q();
+            aie.init(com.baidu.tieba.aj.wm().getApp());
         }
-        return ahV;
+        return aie;
     }
 
     private q() {
     }
 
     private void init(Context context) {
-        this.ahW = new s(this);
-        this.ahX = new t(this, this.mHandler);
+        this.aif = new s(this);
+        this.aig = new t(this, this.mHandler);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
         intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
@@ -42,8 +42,8 @@ public class q {
         intentFilter.addAction("android.intent.action.MEDIA_SCANNER_FINISHED");
         intentFilter.addAction("android.intent.action.MEDIA_EJECT");
         intentFilter.addDataScheme("file");
-        context.registerReceiver(this.ahW, intentFilter);
-        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.ahX);
+        context.registerReceiver(this.aif, intentFilter);
+        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.aig);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -52,38 +52,38 @@ public class q {
             bk(true);
             return;
         }
-        this.handler.removeCallbacks(this.ahZ);
-        this.handler.postDelayed(this.ahZ, 2000L);
+        this.handler.removeCallbacks(this.aii);
+        this.handler.postDelayed(this.aii, 2000L);
     }
 
     public void bk(boolean z) {
-        Iterator<u> it = this.ahY.iterator();
+        Iterator<u> it = this.aih.iterator();
         while (it.hasNext()) {
             it.next().bl(z);
         }
     }
 
     public void a(u uVar) {
-        if (uVar != null && !this.ahY.contains(uVar)) {
-            this.ahY.add(uVar);
+        if (uVar != null && !this.aih.contains(uVar)) {
+            this.aih.add(uVar);
         }
     }
 
     public void b(u uVar) {
-        if (this.ahY.contains(uVar)) {
-            this.ahY.remove(uVar);
+        if (this.aih.contains(uVar)) {
+            this.aih.remove(uVar);
         }
     }
 
-    public void xX() {
-        this.ahY.clear();
+    public void xZ() {
+        this.aih.clear();
     }
 
-    public void xY() {
-        xX();
-        Application app = com.baidu.tieba.aj.wk().getApp();
-        app.unregisterReceiver(this.ahW);
-        app.getContentResolver().unregisterContentObserver(this.ahX);
-        ahV = null;
+    public void ya() {
+        xZ();
+        Application app = com.baidu.tieba.aj.wm().getApp();
+        app.unregisterReceiver(this.aif);
+        app.getContentResolver().unregisterContentObserver(this.aig);
+        aie = null;
     }
 }

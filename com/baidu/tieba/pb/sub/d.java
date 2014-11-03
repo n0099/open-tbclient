@@ -13,7 +13,7 @@ import com.baidu.tieba.y;
 public class d extends com.baidu.adp.widget.ListView.h {
     private Context mContext;
     private TextView mTextView = null;
-    private TextView bzY = null;
+    private TextView bAm = null;
     private ProgressBar mProgressBar = null;
     private View.OnClickListener mOnClickListener = null;
     private View mRoot = null;
@@ -28,15 +28,15 @@ public class d extends com.baidu.adp.widget.ListView.h {
     public View hA() {
         this.mRoot = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, w.new_sub_pb_list_more, null);
         this.mTextView = (TextView) this.mRoot.findViewById(v.sub_pb_more_text);
-        this.bzY = (TextView) this.mRoot.findViewById(v.sub_pb_more_text_marginright);
+        this.bAm = (TextView) this.mRoot.findViewById(v.sub_pb_more_text_marginright);
         this.mProgressBar = (ProgressBar) this.mRoot.findViewById(v.progress);
         return this.mRoot;
     }
 
-    public void YH() {
+    public void YK() {
         this.mProgressBar.setVisibility(0);
         this.mTextView.setText(this.mContext.getText(y.loading));
-        YI();
+        YL();
     }
 
     public void gS(int i) {
@@ -44,24 +44,24 @@ public class d extends com.baidu.adp.widget.ListView.h {
         this.mProgressBar.setVisibility(8);
         if (i > 0) {
             bh.a(this.mContext, this.mTextView, i);
-            this.bzY.setVisibility(0);
+            this.bAm.setVisibility(0);
         } else {
             this.mTextView.setText(this.mContext.getText(y.load_more));
-            this.bzY.setVisibility(8);
+            this.bAm.setVisibility(8);
         }
-        YI();
+        YL();
     }
 
-    public void XT() {
+    public void XW() {
         this.mProgressBar.setVisibility(8);
         if (this.mNum > 0) {
             bh.a(this.mContext, this.mTextView, this.mNum);
-            this.bzY.setVisibility(0);
+            this.bAm.setVisibility(0);
         } else {
             this.mTextView.setText(this.mContext.getText(y.load_more));
-            this.bzY.setVisibility(8);
+            this.bAm.setVisibility(8);
         }
-        YI();
+        YL();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
@@ -72,7 +72,7 @@ public class d extends com.baidu.adp.widget.ListView.h {
         this.mTextView.setTextColor(i);
     }
 
-    public void YI() {
+    public void YL() {
         int color;
         String charSequence = this.mTextView.getText().toString();
         if (charSequence != null && !charSequence.equals("")) {

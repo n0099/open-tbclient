@@ -3,9 +3,9 @@ package com.baidu.tieba.im.util;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface g {
-    void Ln();
+    void Lr();
 
-    void Lo();
+    void Ls();
 
     void a(String str, List<String> list, double d, double d2);
 }

@@ -12,10 +12,10 @@ import com.baidu.tieba.y;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class PluginDownloadActivity extends BaseActivity {
-    private ConfigInfos.PluginConfig bGQ;
-    private boolean bGR;
-    private g bGT;
-    private boolean bGU;
+    private ConfigInfos.PluginConfig bHe;
+    private boolean bHf;
+    private g bHh;
+    private boolean bHi;
 
     static {
         TbadkApplication.m251getInst().RegisterIntent(PluginDownloadActivityConfig.class, PluginDownloadActivity.class);
@@ -24,8 +24,8 @@ public class PluginDownloadActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bGQ = (ConfigInfos.PluginConfig) getIntent().getSerializableExtra(PluginDownloadActivityConfig.PLUGIN_CONFIG);
-        if (this.bGQ == null) {
+        this.bHe = (ConfigInfos.PluginConfig) getIntent().getSerializableExtra(PluginDownloadActivityConfig.PLUGIN_CONFIG);
+        if (this.bHe == null) {
             showToast(getString(y.plugin_config_not_found), false);
             finish();
             return;
@@ -33,23 +33,23 @@ public class PluginDownloadActivity extends BaseActivity {
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.alpha = 0.0f;
         getWindow().setAttributes(attributes);
-        this.bGT = new g(this, this, z.common_alert_dialog);
-        this.bGT.setCancelable(false);
-        this.bGT.setOnKeyListener(new e(this));
-        this.bGT.setOnDismissListener(new f(this));
+        this.bHh = new g(this, this, z.common_alert_dialog);
+        this.bHh.setCancelable(false);
+        this.bHh.setOnKeyListener(new e(this));
+        this.bHh.setOnDismissListener(new f(this));
     }
 
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        this.bGT.show();
+        this.bHh.show();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     protected void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getLayoutMode().L(i == 1);
-        getLayoutMode().h(this.bGT.findViewById(v.dialog_layout));
+        getLayoutMode().h(this.bHh.findViewById(v.dialog_layout));
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity

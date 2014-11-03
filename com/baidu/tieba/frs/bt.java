@@ -8,14 +8,14 @@ import com.baidu.adp.widget.IndicatorView;
 import com.baidu.tieba.view.ChildViewPager;
 /* loaded from: classes.dex */
 class bt {
-    ChildViewPager aCm;
-    TextView aCn;
-    IndicatorView aCo;
-    TextView aCp;
-    View aCq;
-    View aCr;
-    ImageView aCs;
-    RelativeLayout aCt;
+    View aCA;
+    View aCB;
+    ImageView aCC;
+    RelativeLayout aCD;
+    ChildViewPager aCw;
+    TextView aCx;
+    IndicatorView aCy;
+    TextView aCz;
 
     private bt() {
     }

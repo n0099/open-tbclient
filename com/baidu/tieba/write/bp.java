@@ -24,13 +24,13 @@ public class bp implements View.OnClickListener {
         if (navigationBar.getVisibility() == 0) {
             navigationBar3 = this.this$0.mNavigationBar;
             navigationBar3.setVisibility(8);
-            linearLayout2 = this.this$0.JK;
+            linearLayout2 = this.this$0.JL;
             linearLayout2.setVisibility(8);
             return;
         }
         navigationBar2 = this.this$0.mNavigationBar;
         navigationBar2.setVisibility(0);
-        linearLayout = this.this$0.JK;
+        linearLayout = this.this$0.JL;
         linearLayout.setVisibility(0);
     }
 }

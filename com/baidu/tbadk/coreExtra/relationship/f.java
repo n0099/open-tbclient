@@ -15,7 +15,7 @@ public class f {
         return this.distance;
     }
 
-    public void cF(String str) {
+    public void cG(String str) {
         this.distance = str;
     }
 
@@ -27,7 +27,7 @@ public class f {
         this.time = j;
     }
 
-    public int pB() {
+    public int pD() {
         return this.hide;
     }
 

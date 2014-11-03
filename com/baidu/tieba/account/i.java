@@ -16,11 +16,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask<Object, Integer, Boolean> {
-    final /* synthetic */ AccountActivity aeo;
+    final /* synthetic */ AccountActivity aew;
     private AccountData mAccount;
 
     public i(AccountActivity accountActivity, AccountData accountData) {
-        this.aeo = accountActivity;
+        this.aew = accountActivity;
         this.mAccount = null;
         this.mAccount = accountData;
     }
@@ -30,7 +30,7 @@ public class i extends BdAsyncTask<Object, Integer, Boolean> {
     public void onPreExecute() {
         BdSocketLinkService.setAvailable(false);
         BdSocketLinkService.close("account changed");
-        this.aeo.showLoadingDialog(this.aeo.getString(com.baidu.tieba.y.account_logining), new j(this));
+        this.aew.showLoadingDialog(this.aew.getString(com.baidu.tieba.y.account_logining), new j(this));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -79,14 +79,14 @@ public class i extends BdAsyncTask<Object, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: b */
     public void onPostExecute(Boolean bool) {
-        TbadkApplication.setCurrentAccount(this.mAccount, this.aeo.getBaseContext());
+        TbadkApplication.setCurrentAccount(this.mAccount, this.aew.getBaseContext());
         if (this.mAccount != null) {
-            new k(this.aeo, this.mAccount.getBDUSS()).start();
+            new k(this.aew, this.mAccount.getBDUSS()).start();
         }
-        this.aeo.closeLoadingDialog();
+        this.aew.closeLoadingDialog();
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         TbadkApplication.m251getInst().onUserChanged();
-        com.baidu.tbadk.core.b.b.a(this.aeo, 1, false);
-        this.aeo.aem = null;
+        com.baidu.tbadk.core.b.b.a(this.aew, 1, false);
+        this.aew.aeu = null;
     }
 }

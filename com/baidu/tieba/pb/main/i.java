@@ -3,11 +3,11 @@ package com.baidu.tieba.pb.main;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class i implements com.baidu.adp.widget.ListView.aa {
-    final /* synthetic */ PbActivity bvg;
+    final /* synthetic */ PbActivity bvu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(PbActivity pbActivity) {
-        this.bvg = pbActivity;
+        this.bvu = pbActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.aa
@@ -16,15 +16,15 @@ class i implements com.baidu.adp.widget.ListView.aa {
         bv bvVar;
         bn bnVar2;
         bv bvVar2;
-        bnVar = this.bvg.buG;
+        bnVar = this.bvu.buU;
         if (bnVar.dZ(false)) {
-            bvVar2 = this.bvg.buL;
-            bvVar2.XB();
-            TiebaStatic.eventStat(this.bvg, "pb_more", "pbclick", 1, new Object[0]);
+            bvVar2 = this.bvu.buZ;
+            bvVar2.XE();
+            TiebaStatic.eventStat(this.bvu, "pb_more", "pbclick", 1, new Object[0]);
             return;
         }
-        bvVar = this.bvg.buL;
-        bnVar2 = this.bvg.buG;
+        bvVar = this.bvu.buZ;
+        bnVar2 = this.bvu.buU;
         bvVar.h(bnVar2.getPbData());
     }
 }

@@ -5,8 +5,8 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y extends BdAsyncTask<String, Integer, String> {
-    private String agr;
-    final /* synthetic */ v boN;
+    private String agz;
+    final /* synthetic */ v bpb;
     private String mForumId;
     private String mForumName;
     private String mThreadId;
@@ -19,7 +19,7 @@ public class y extends BdAsyncTask<String, Integer, String> {
     /* renamed from: h */
     public String doInBackground(String... strArr) {
         this.yV = new com.baidu.tbadk.core.util.ac(strArr[0]);
-        this.yV.k("day", this.agr);
+        this.yV.k("day", this.agz);
         this.yV.k("un", this.mUserName);
         this.yV.k(ImageViewerConfig.FORUM_ID, this.mForumId);
         this.yV.k("word", this.mForumName);
@@ -39,9 +39,9 @@ public class y extends BdAsyncTask<String, Integer, String> {
         if (this.yV != null) {
             this.yV.dM();
         }
-        this.boN.boI = null;
+        this.bpb.boW = null;
         super.cancel(true);
-        hVar = this.boN.mLoadDataCallBack;
+        hVar = this.bpb.mLoadDataCallBack;
         hVar.a(null);
     }
 
@@ -52,20 +52,20 @@ public class y extends BdAsyncTask<String, Integer, String> {
         com.baidu.adp.base.h hVar;
         com.baidu.adp.base.h hVar2;
         super.onPostExecute((y) str);
-        this.boN.boI = null;
+        this.bpb.boW = null;
         if (this.yV == null) {
-            hVar2 = this.boN.mLoadDataCallBack;
+            hVar2 = this.bpb.mLoadDataCallBack;
             hVar2.a(null);
             return;
         }
-        z zVar = new z(this.boN);
+        z zVar = new z(this.bpb);
         if (str == null) {
             zVar.qa = true;
         } else {
             zVar.qa = false;
-            zVar.boO = str;
+            zVar.bpc = str;
         }
-        hVar = this.boN.mLoadDataCallBack;
+        hVar = this.bpb.mLoadDataCallBack;
         hVar.a(zVar);
     }
 }

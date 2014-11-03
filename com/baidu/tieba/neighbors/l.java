@@ -7,17 +7,17 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 class l {
-    public TextView bua;
-    public TextView bub;
-    public TextView buc;
-    public HeadImageView bud;
-    public TbImageView bue;
-    public View buf;
-    final /* synthetic */ k bug;
+    public TextView buo;
+    public TextView bup;
+    public TextView buq;
+    public HeadImageView bur;
+    public TbImageView bus;
+    public View but;
+    final /* synthetic */ k buu;
     ProgressBar mProgress;
 
     private l(k kVar) {
-        this.bug = kVar;
+        this.buu = kVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

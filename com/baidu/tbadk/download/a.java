@@ -9,9 +9,9 @@ public class a implements f {
     public void onFileUpdateProgress(DownloadData downloadData) {
         if (downloadData != null) {
             if (downloadData.getStatus() == 1) {
-                b.rh().b(downloadData);
+                b.rj().b(downloadData);
             }
-            b.rh().a(downloadData);
+            b.rj().a(downloadData);
         }
     }
 
@@ -41,6 +41,6 @@ public class a implements f {
 
     @Override // com.baidu.tbadk.download.f
     public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
-        b.rh().c(downloadData);
+        b.rj().c(downloadData);
     }
 }

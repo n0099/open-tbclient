@@ -8,67 +8,67 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class bd {
-    private cp aBA;
-    private ct aBB;
-    private final HashMap<Integer, com.baidu.tbadk.core.data.q> aBD;
-    private FrsActivity aBp;
-    private BdTypeListView aBq;
-    private cr aBr;
-    private ci aBs;
-    private View.OnClickListener aBt;
-    private View.OnClickListener aBu;
-    private cj aBv;
-    private da aBw;
-    private bi aBx;
-    private bk aBy;
-    private bp aBz;
-    private List<com.baidu.adp.widget.ListView.a> aBC = new ArrayList();
-    private boolean ayP = false;
-    private boolean aBE = false;
-    private boolean NY = false;
+    private BdTypeListView aBA;
+    private cr aBB;
+    private ci aBC;
+    private View.OnClickListener aBD;
+    private View.OnClickListener aBE;
+    private cj aBF;
+    private da aBG;
+    private bi aBH;
+    private bk aBI;
+    private bp aBJ;
+    private cp aBK;
+    private ct aBL;
+    private final HashMap<Integer, com.baidu.tbadk.core.data.q> aBN;
+    private FrsActivity aBz;
+    private List<com.baidu.adp.widget.ListView.a> aBM = new ArrayList();
+    private boolean ayY = false;
+    private boolean aBO = false;
+    private boolean Oc = false;
 
     public bd(FrsActivity frsActivity, BdTypeListView bdTypeListView, boolean z) {
         a(frsActivity, bdTypeListView);
-        this.aBq = bdTypeListView;
-        this.aBD = new HashMap<>();
+        this.aBA = bdTypeListView;
+        this.aBN = new HashMap<>();
         bL(z);
     }
 
     public void a(FrsActivity frsActivity, BdTypeListView bdTypeListView) {
-        this.aBp = frsActivity;
-        this.aBv = new cj(frsActivity, com.baidu.tbadk.core.data.q.Ao);
-        this.aBw = new da(frsActivity, com.baidu.tbadk.core.data.q.An);
-        this.aBx = new bi(frsActivity, com.baidu.tbadk.core.data.a.zd);
-        this.aBy = new bk(frsActivity, com.baidu.tbadk.core.data.a.ze);
-        this.aBz = new bp(frsActivity, com.baidu.tbadk.core.data.i.zN);
-        this.aBA = new cp(frsActivity, com.baidu.tieba.data.af.alz);
-        this.aBB = new ct(frsActivity, com.baidu.tbadk.core.data.o.Ab);
-        this.aBC.add(this.aBv);
-        this.aBC.add(this.aBw);
-        this.aBC.add(this.aBx);
-        this.aBC.add(this.aBy);
-        this.aBC.add(this.aBz);
-        this.aBC.add(this.aBA);
-        this.aBC.add(this.aBB);
-        bdTypeListView.e(this.aBC);
+        this.aBz = frsActivity;
+        this.aBF = new cj(frsActivity, com.baidu.tbadk.core.data.q.Ao);
+        this.aBG = new da(frsActivity, com.baidu.tbadk.core.data.q.An);
+        this.aBH = new bi(frsActivity, com.baidu.tbadk.core.data.a.zd);
+        this.aBI = new bk(frsActivity, com.baidu.tbadk.core.data.a.ze);
+        this.aBJ = new bp(frsActivity, com.baidu.tbadk.core.data.i.zN);
+        this.aBK = new cp(frsActivity, com.baidu.tieba.data.af.alI);
+        this.aBL = new ct(frsActivity, com.baidu.tbadk.core.data.o.Ab);
+        this.aBM.add(this.aBF);
+        this.aBM.add(this.aBG);
+        this.aBM.add(this.aBH);
+        this.aBM.add(this.aBI);
+        this.aBM.add(this.aBJ);
+        this.aBM.add(this.aBK);
+        this.aBM.add(this.aBL);
+        bdTypeListView.e(this.aBM);
     }
 
     public void a(ArrayList<com.baidu.adp.widget.ListView.al> arrayList, b bVar, boolean z, boolean z2) {
         setForumModel(bVar);
-        this.NY = z2;
-        bZ(this.NY);
-        this.aBE = z;
-        bY(this.aBE);
-        r(arrayList);
+        this.Oc = z2;
+        bZ(this.Oc);
+        this.aBO = z;
+        bY(this.aBO);
         s(arrayList);
-        this.aBq.setData(arrayList);
+        t(arrayList);
+        this.aBA.setData(arrayList);
     }
 
     public void a(ArrayList<com.baidu.adp.widget.ListView.al> arrayList, b bVar) {
-        a(arrayList, bVar, this.aBE, this.NY);
+        a(arrayList, bVar, this.aBO, this.Oc);
     }
 
-    private ArrayList<Integer> r(ArrayList<com.baidu.adp.widget.ListView.al> arrayList) {
+    private ArrayList<Integer> s(ArrayList<com.baidu.adp.widget.ListView.al> arrayList) {
         if (arrayList == null || arrayList.size() == 0) {
             return null;
         }
@@ -82,8 +82,8 @@ public class bd {
             com.baidu.adp.widget.ListView.al alVar = arrayList.get(i2);
             if (alVar instanceof com.baidu.tbadk.core.data.a) {
                 arrayList2.add(Integer.valueOf(i2));
-                if (this.aBD != null && !this.aBD.containsValue(alVar)) {
-                    this.aBD.put(Integer.valueOf(i2), (com.baidu.tbadk.core.data.q) alVar);
+                if (this.aBN != null && !this.aBN.containsValue(alVar)) {
+                    this.aBN.put(Integer.valueOf(i2), (com.baidu.tbadk.core.data.q) alVar);
                 }
             }
             i = i2 + 1;
@@ -91,68 +91,68 @@ public class bd {
     }
 
     public void bL(boolean z) {
-        if (this.ayP != z) {
-            this.ayP = z;
-            if (this.aBv != null) {
-                this.aBv.bL(z);
+        if (this.ayY != z) {
+            this.ayY = z;
+            if (this.aBF != null) {
+                this.aBF.bL(z);
             }
         }
     }
 
     public void bW(boolean z) {
-        if (this.aBs != null) {
-            this.aBs.bW(z);
+        if (this.aBC != null) {
+            this.aBC.bW(z);
         }
     }
 
-    public boolean FK() {
-        if (this.aBs != null) {
-            return this.aBs.FK();
+    public boolean FM() {
+        if (this.aBC != null) {
+            return this.aBC.FM();
         }
         return false;
     }
 
     public void bX(boolean z) {
-        if (this.aBr != null) {
-            this.aBr.bX(z);
+        if (this.aBB != null) {
+            this.aBB.bX(z);
         }
     }
 
-    public boolean FL() {
-        if (this.aBr != null) {
-            return this.aBr.FL();
+    public boolean FN() {
+        if (this.aBB != null) {
+            return this.aBB.FN();
         }
         return false;
     }
 
-    public HashMap<Integer, com.baidu.tbadk.core.data.q> FM() {
-        return this.aBD;
+    public HashMap<Integer, com.baidu.tbadk.core.data.q> FO() {
+        return this.aBN;
     }
 
     public void ae(String str, String str2) {
-        if (this.aBB != null) {
-            this.aBB.ae(str, str2);
+        if (this.aBL != null) {
+            this.aBL.ae(str, str2);
         }
     }
 
     public void i(View.OnClickListener onClickListener) {
-        if (this.aBx != null) {
-            this.aBx.i(onClickListener);
+        if (this.aBH != null) {
+            this.aBH.i(onClickListener);
         }
     }
 
     public void j(View.OnClickListener onClickListener) {
-        if (this.aBx != null) {
-            this.aBx.j(onClickListener);
+        if (this.aBH != null) {
+            this.aBH.j(onClickListener);
         }
-        if (this.aBy != null) {
-            this.aBy.j(onClickListener);
+        if (this.aBI != null) {
+            this.aBI.j(onClickListener);
         }
     }
 
-    public void FN() {
-        if (this.aBq != null && this.aBq.getData() != null && this.aBq.getData().size() != 0) {
-            for (com.baidu.adp.widget.ListView.al alVar : this.aBq.getData()) {
+    public void FP() {
+        if (this.aBA != null && this.aBA.getData() != null && this.aBA.getData().size() != 0) {
+            for (com.baidu.adp.widget.ListView.al alVar : this.aBA.getData()) {
                 if ((alVar instanceof com.baidu.tbadk.core.data.q) && ((com.baidu.tbadk.core.data.q) alVar).getIs_top() != 0) {
                     ((com.baidu.tbadk.core.data.q) alVar).parser_title();
                 }
@@ -161,29 +161,29 @@ public class bd {
     }
 
     public void notifyDataSetChanged() {
-        if (this.aBq.getAdapter() instanceof com.baidu.adp.widget.ListView.j) {
-            ((com.baidu.adp.widget.ListView.j) this.aBq.getAdapter()).notifyDataSetChanged();
+        if (this.aBA.getAdapter() instanceof com.baidu.adp.widget.ListView.j) {
+            ((com.baidu.adp.widget.ListView.j) this.aBA.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.aBr != null) {
-            this.aBr.onChangeSkinType(i);
+        if (this.aBB != null) {
+            this.aBB.onChangeSkinType(i);
         }
-        if (this.aBs != null) {
-            this.aBs.onChangeSkinType(i);
+        if (this.aBC != null) {
+            this.aBC.onChangeSkinType(i);
         }
     }
 
     public void notifyDataSetInvalidated() {
-        if (this.aBq.getAdapter() instanceof com.baidu.adp.widget.ListView.j) {
-            ((com.baidu.adp.widget.ListView.j) this.aBq.getAdapter()).notifyDataSetInvalidated();
+        if (this.aBA.getAdapter() instanceof com.baidu.adp.widget.ListView.j) {
+            ((com.baidu.adp.widget.ListView.j) this.aBA.getAdapter()).notifyDataSetInvalidated();
         }
     }
 
     public void setFromCDN(boolean z) {
-        if (this.aBC != null && this.aBC.size() != 0) {
-            for (com.baidu.adp.widget.ListView.a aVar : this.aBC) {
+        if (this.aBM != null && this.aBM.size() != 0) {
+            for (com.baidu.adp.widget.ListView.a aVar : this.aBM) {
                 if (aVar instanceof bm) {
                     ((bm) aVar).setFromCDN(z);
                 }
@@ -192,8 +192,8 @@ public class bd {
     }
 
     public void setForumModel(b bVar) {
-        if (this.aBC != null && this.aBC.size() != 0) {
-            for (com.baidu.adp.widget.ListView.a aVar : this.aBC) {
+        if (this.aBM != null && this.aBM.size() != 0) {
+            for (com.baidu.adp.widget.ListView.a aVar : this.aBM) {
                 if (aVar instanceof bm) {
                     ((bm) aVar).h(bVar);
                 }
@@ -202,8 +202,8 @@ public class bd {
     }
 
     public void a(be beVar) {
-        if (this.aBC != null && this.aBC.size() != 0) {
-            for (com.baidu.adp.widget.ListView.a aVar : this.aBC) {
+        if (this.aBM != null && this.aBM.size() != 0) {
+            for (com.baidu.adp.widget.ListView.a aVar : this.aBM) {
                 if (aVar instanceof bm) {
                     ((bm) aVar).a(beVar);
                 }
@@ -212,85 +212,85 @@ public class bd {
     }
 
     public void k(View.OnClickListener onClickListener) {
-        this.aBt = onClickListener;
-        if (this.aBr != null) {
-            this.aBr.k(onClickListener);
+        this.aBD = onClickListener;
+        if (this.aBB != null) {
+            this.aBB.k(onClickListener);
         }
     }
 
     public void l(View.OnClickListener onClickListener) {
-        this.aBu = onClickListener;
-        if (this.aBs != null) {
-            this.aBs.n(onClickListener);
+        this.aBE = onClickListener;
+        if (this.aBC != null) {
+            this.aBC.n(onClickListener);
         }
-    }
-
-    public int EL() {
-        if (this.aBv != null) {
-            return this.aBv.EL();
-        }
-        return 0;
-    }
-
-    public int EM() {
-        if (this.aBv != null) {
-            return this.aBv.EM();
-        }
-        return 0;
     }
 
     public int EN() {
-        if (this.aBv != null) {
-            return this.aBv.EN();
+        if (this.aBF != null) {
+            return this.aBF.EN();
         }
         return 0;
     }
 
-    public int FO() {
-        if (this.aBA != null) {
-            return this.aBA.FO();
+    public int EO() {
+        if (this.aBF != null) {
+            return this.aBF.EO();
         }
         return 0;
     }
 
-    public int FP() {
-        if (this.aBA != null) {
-            return this.aBA.FP();
+    public int EP() {
+        if (this.aBF != null) {
+            return this.aBF.EP();
+        }
+        return 0;
+    }
+
+    public int FQ() {
+        if (this.aBK != null) {
+            return this.aBK.FQ();
+        }
+        return 0;
+    }
+
+    public int FR() {
+        if (this.aBK != null) {
+            return this.aBK.FR();
         }
         return 0;
     }
 
     private void bY(boolean z) {
         if (z) {
-            if (this.aBr == null) {
-                this.aBr = new cr(this.aBp);
-                this.aBr.k(this.aBt);
+            if (this.aBB == null) {
+                this.aBB = new cr(this.aBz);
+                this.aBB.k(this.aBD);
             }
-            if (this.aBq != null) {
-                this.aBq.setPrePage(this.aBr);
+            if (this.aBA != null) {
+                this.aBA.setPrePage(this.aBB);
             }
-        } else if (this.aBr != null && this.aBq != null) {
-            this.aBq.setPrePage(null);
+        } else if (this.aBB != null && this.aBA != null) {
+            this.aBA.setPrePage(null);
         }
     }
 
     private void bZ(boolean z) {
         if (z) {
-            if (this.aBs == null) {
-                this.aBs = new ci(this.aBp);
-                this.aBs.n(this.aBu);
+            if (this.aBC == null) {
+                this.aBC = new ci(this.aBz);
+                this.aBC.n(this.aBE);
             }
-            if (this.aBq != null) {
-                this.aBq.setNextPage(this.aBs);
+            if (this.aBA != null) {
+                this.aBA.setNextPage(this.aBC);
             }
-        } else if (this.aBs != null && this.aBq != null) {
-            this.aBq.setNextPage(null);
+        } else if (this.aBC != null && this.aBA != null) {
+            this.aBA.setNextPage(null);
         }
     }
 
     public void a(com.baidu.adp.widget.ListView.am amVar) {
-        if (this.aBC != null && this.aBC.size() != 0) {
-            for (com.baidu.adp.widget.ListView.a aVar : this.aBC) {
+        if (this.aBM != null && this.aBM.size() != 0) {
+            for (com.baidu.adp.widget.ListView.a aVar : this.aBM) {
                 if (aVar instanceof bm) {
                     ((bm) aVar).a(amVar);
                 }
@@ -299,8 +299,8 @@ public class bd {
     }
 
     public void a(com.baidu.adp.widget.ListView.an anVar) {
-        if (this.aBC != null && this.aBC.size() != 0) {
-            for (com.baidu.adp.widget.ListView.a aVar : this.aBC) {
+        if (this.aBM != null && this.aBM.size() != 0) {
+            for (com.baidu.adp.widget.ListView.a aVar : this.aBM) {
                 if (aVar instanceof bm) {
                     ((bm) aVar).a(anVar);
                 }
@@ -309,15 +309,15 @@ public class bd {
     }
 
     public com.baidu.adp.widget.ListView.al ai(int i) {
-        if (this.aBq != null) {
-            return this.aBq.ai(i);
+        if (this.aBA != null) {
+            return this.aBA.ai(i);
         }
         return null;
     }
 
-    private void s(ArrayList<com.baidu.adp.widget.ListView.al> arrayList) {
+    private void t(ArrayList<com.baidu.adp.widget.ListView.al> arrayList) {
         int i;
-        if (this.aBC != null && this.aBC.size() != 0) {
+        if (this.aBM != null && this.aBM.size() != 0) {
             int i2 = 0;
             if (arrayList == null || arrayList.size() <= 0) {
                 i = 0;
@@ -331,10 +331,10 @@ public class bd {
                     i2 = i + 1;
                 }
             }
-            if (this.aBE) {
+            if (this.aBO) {
                 i++;
             }
-            for (com.baidu.adp.widget.ListView.a aVar : this.aBC) {
+            for (com.baidu.adp.widget.ListView.a aVar : this.aBM) {
                 if (aVar instanceof bm) {
                     ((bm) aVar).eI(i);
                 }

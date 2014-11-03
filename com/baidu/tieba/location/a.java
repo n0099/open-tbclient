@@ -9,11 +9,11 @@ public class a {
     private String formatted_address;
     private List<b> poi_info;
 
-    public String Sl() {
+    public String So() {
         return this.formatted_address;
     }
 
-    public List<b> Sm() {
+    public List<b> Sp() {
         return this.poi_info;
     }
 

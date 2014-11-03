@@ -1,11 +1,11 @@
 package com.baidu.tieba.pb.main;
 /* loaded from: classes.dex */
 class f extends com.baidu.adp.base.h {
-    final /* synthetic */ PbActivity bvg;
+    final /* synthetic */ PbActivity bvu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(PbActivity pbActivity) {
-        this.bvg = pbActivity;
+        this.bvu = pbActivity;
     }
 
     @Override // com.baidu.adp.base.h
@@ -16,33 +16,33 @@ class f extends com.baidu.adp.base.h {
         com.baidu.tieba.model.v vVar3;
         bn bnVar;
         if (obj != null) {
-            vVar2 = this.bvg.buK;
+            vVar2 = this.bvu.buY;
             switch (vVar2.getLoadDataMode()) {
                 case 0:
-                    bnVar = this.bvg.buG;
-                    bnVar.WS();
-                    this.bvg.a((com.baidu.tieba.model.x) obj);
+                    bnVar = this.bvu.buU;
+                    bnVar.WV();
+                    this.bvu.a((com.baidu.tieba.model.x) obj);
                     return;
                 case 1:
-                    this.bvg.a((com.baidu.tieba.model.z) obj);
+                    this.bvu.a((com.baidu.tieba.model.z) obj);
                     return;
                 case 2:
                 case 3:
                 case 4:
                 case 5:
-                    PbActivity pbActivity = this.bvg;
-                    vVar3 = this.bvg.buK;
+                    PbActivity pbActivity = this.bvu;
+                    vVar3 = this.bvu.buY;
                     pbActivity.a(vVar3.getLoadDataMode(), (com.baidu.tieba.model.ab) obj);
                     return;
                 case 6:
-                    this.bvg.a((com.baidu.tieba.model.ab) obj);
+                    this.bvu.a((com.baidu.tieba.model.ab) obj);
                     return;
                 default:
                     return;
             }
         }
-        bvVar = this.bvg.buL;
-        vVar = this.bvg.buK;
+        bvVar = this.bvu.buZ;
+        vVar = this.bvu.buY;
         bvVar.a(vVar.getLoadDataMode(), false, (String) null, false);
     }
 }

@@ -6,7 +6,7 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class o extends DiskFileOperate {
-    protected p Dn;
+    protected p Do;
     protected BitmapFactory.Options ea;
     protected Bitmap mBitmap;
 
@@ -14,16 +14,16 @@ public class o extends DiskFileOperate {
         super(str, str2, action);
         this.mBitmap = null;
         this.ea = null;
-        this.Dn = null;
-        this.Dn = new p();
+        this.Do = null;
+        this.Do = new p();
     }
 
     public boolean bM() {
-        return this.Dn.ee;
+        return this.Do.ee;
     }
 
     public void n(boolean z) {
-        this.Dn.ee = z;
+        this.Do.ee = z;
     }
 
     public Bitmap getBitmap() {
@@ -43,7 +43,7 @@ public class o extends DiskFileOperate {
         if (this.dL == null) {
             return null;
         }
-        return this.Dn.toByteArray();
+        return this.Do.toByteArray();
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -55,8 +55,8 @@ public class o extends DiskFileOperate {
             this.ea = new BitmapFactory.Options();
             this.ea.inPreferredConfig = Bitmap.Config.RGB_565;
         }
-        boolean j = this.Dn.j(bArr);
-        if (this.Dn.ef == 0 || this.Dn.ef >= System.currentTimeMillis()) {
+        boolean j = this.Do.j(bArr);
+        if (this.Do.ef == 0 || this.Do.ef >= System.currentTimeMillis()) {
             int bP = p.bP();
             if (!j) {
                 bP = 0;

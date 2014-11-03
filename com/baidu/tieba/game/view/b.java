@@ -7,11 +7,11 @@ import com.baidu.tbadk.game.GameInfoData;
 import com.baidu.tieba.game.ab;
 /* loaded from: classes.dex */
 class b implements View.OnClickListener {
-    final /* synthetic */ GameDownloadView aKj;
+    final /* synthetic */ GameDownloadView aKx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(GameDownloadView gameDownloadView) {
-        this.aKj = gameDownloadView;
+        this.aKx = gameDownloadView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,51 +25,51 @@ class b implements View.OnClickListener {
         if (view.getTag() != null && (view.getTag() instanceof GameInfoData)) {
             GameInfoData gameInfoData = (GameInfoData) view.getTag();
             if (gameInfoData.getGameType() == 2) {
-                context2 = this.aKj.mContext;
+                context2 = this.aKx.mContext;
                 com.baidu.tbadk.game.a.a(context2, gameInfoData.getGameName(), gameInfoData.getGameLink(), gameInfoData.getGameId());
-                context3 = this.aKj.mContext;
-                TiebaStatic.eventStat(context3, "start_game", "click", 1, gameInfoData.getGameId());
+                context3 = this.aKx.mContext;
+                TiebaStatic.eventStat(context3, "start_game", "click", 1, "dev_id", gameInfoData.getGameId(), "ref_id", gameInfoData.getRefId());
             } else {
-                int n = ab.Hs().n(gameInfoData);
-                switch (n) {
+                int o = ab.Hu().o(gameInfoData);
+                switch (o) {
                     case 1:
-                        ab.Hs().f(gameInfoData);
-                        this.aKj.Io();
-                        com.baidu.tbadk.game.d.rV().q(gameInfoData.getGameId(), 1);
-                        i = n;
+                        ab.Hu().g(gameInfoData);
+                        this.aKx.Is();
+                        com.baidu.tbadk.game.d.rX().q(gameInfoData.getGameId(), 1);
+                        i = o;
                         break;
                     case 2:
                     case 3:
-                        ab.Hs().e(gameInfoData);
-                        this.aKj.t(ab.Hs().c(gameInfoData));
-                        i = n;
+                        ab.Hu().f(gameInfoData);
+                        this.aKx.t(ab.Hu().d(gameInfoData));
+                        i = o;
                         break;
                     case 4:
-                        ab.Hs().f(gameInfoData);
-                        this.aKj.Io();
-                        i = n;
+                        ab.Hu().g(gameInfoData);
+                        this.aKx.Is();
+                        i = o;
                         break;
                     case 5:
-                        ab.Hs().h(gameInfoData);
-                        i = n;
+                        ab.Hu().i(gameInfoData);
+                        i = o;
                         break;
                     case 6:
-                        ab.Hs().g(gameInfoData);
-                        context = this.aKj.mContext;
-                        TiebaStatic.eventStat(context, "start_game", "click", 1, gameInfoData.getGameId());
-                        i = n;
+                        ab.Hu().h(gameInfoData);
+                        context = this.aKx.mContext;
+                        TiebaStatic.eventStat(context, "start_game", "click", 1, "dev_id", gameInfoData.getGameId(), "ref_id", gameInfoData.getRefId());
+                        i = o;
                         break;
                     case 7:
-                        ab.Hs().f(gameInfoData);
-                        this.aKj.Io();
+                        ab.Hu().g(gameInfoData);
+                        this.aKx.Is();
                     default:
-                        i = n;
+                        i = o;
                         break;
                 }
             }
-            cVar = this.aKj.aIQ;
+            cVar = this.aKx.aJd;
             if (cVar != null) {
-                cVar2 = this.aKj.aIQ;
+                cVar2 = this.aKx.aJd;
                 cVar2.onClick(gameInfoData, i);
             }
         }

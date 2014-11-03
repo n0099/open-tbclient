@@ -11,11 +11,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class m implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.a> {
-    private final String ast = "_gif";
+    private final String asC = "_gif";
 
     @Override // com.baidu.adp.lib.f.g
     public boolean eh() {
-        return com.baidu.tbadk.core.k.js().jw();
+        return com.baidu.tbadk.core.l.js().jw();
     }
 
     private String n(String str, boolean z) {
@@ -26,7 +26,7 @@ public class m implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.g
     /* renamed from: b */
     public com.baidu.adp.widget.a.a a(String str, String str2, Object... objArr) {
-        return com.baidu.tbadk.imageManager.e.sg().dt(n(str, Boolean.valueOf(String.valueOf(objArr[2])).booleanValue()));
+        return com.baidu.tbadk.imageManager.e.si().dt(n(str, Boolean.valueOf(String.valueOf(objArr[2])).booleanValue()));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,10 +44,10 @@ public class m implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.a> {
         if (valueOf == null || valueOf2 == null || valueOf3 == null) {
             return null;
         }
-        ArrayList<com.baidu.tbadk.editortool.ad> rB = com.baidu.tbadk.editortool.aa.rz().rB();
+        ArrayList<com.baidu.tbadk.editortool.ad> rD = com.baidu.tbadk.editortool.aa.rB().rD();
         if (valueOf3.booleanValue()) {
-            String m = com.baidu.tbadk.editortool.aa.rz().m(valueOf2, true);
-            Iterator<com.baidu.tbadk.editortool.ad> it = rB.iterator();
+            String m = com.baidu.tbadk.editortool.aa.rB().m(valueOf2, true);
+            Iterator<com.baidu.tbadk.editortool.ad> it = rD.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     aVar2 = null;
@@ -55,7 +55,7 @@ public class m implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.a> {
                 }
                 com.baidu.tbadk.editortool.ad next = it.next();
                 if (next.cY(valueOf2)) {
-                    if (next.rs()) {
+                    if (next.ru()) {
                         aVar2 = next.da(valueOf2);
                     } else {
                         aVar2 = a(next.getGroupId(), m, aVar);
@@ -66,8 +66,8 @@ public class m implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.a> {
                 aVar2 = a(valueOf, m, aVar);
             }
         } else {
-            String m2 = com.baidu.tbadk.editortool.aa.rz().m(valueOf2, false);
-            Iterator<com.baidu.tbadk.editortool.ad> it2 = rB.iterator();
+            String m2 = com.baidu.tbadk.editortool.aa.rB().m(valueOf2, false);
+            Iterator<com.baidu.tbadk.editortool.ad> it2 = rD.iterator();
             com.baidu.adp.widget.a.a aVar3 = null;
             while (true) {
                 if (!it2.hasNext()) {
@@ -76,7 +76,7 @@ public class m implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.a> {
                 }
                 com.baidu.tbadk.editortool.ad next2 = it2.next();
                 if (next2.cY(valueOf2)) {
-                    if (next2.rs()) {
+                    if (next2.ru()) {
                         aVar3 = next2.cZ(valueOf2);
                     } else {
                         Bitmap b2 = b(next2.getGroupId(), m2, aVar);
@@ -112,7 +112,7 @@ public class m implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.a> {
             return null;
         }
         synchronized (com.baidu.tbadk.core.util.d.tg) {
-            String m = com.baidu.tbadk.editortool.aa.rz().m(valueOf2, valueOf3.booleanValue());
+            String m = com.baidu.tbadk.editortool.aa.rB().m(valueOf2, valueOf3.booleanValue());
             String str3 = ".emotions/" + valueOf;
             if (valueOf3.booleanValue()) {
                 com.baidu.adp.lib.Disk.ops.a aVar3 = new com.baidu.adp.lib.Disk.ops.a(str3, m, DiskFileOperate.Action.WRITE);
@@ -125,7 +125,7 @@ public class m implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.a> {
                     dVar.g(aVar3);
                     aVar.lb = dVar;
                 }
-                Iterator<com.baidu.tbadk.editortool.ad> it = com.baidu.tbadk.editortool.aa.rz().rB().iterator();
+                Iterator<com.baidu.tbadk.editortool.ad> it = com.baidu.tbadk.editortool.aa.rB().rD().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         aVar2 = null;
@@ -144,7 +144,7 @@ public class m implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.a> {
                     return null;
                 }
             } else {
-                com.baidu.tbadk.imageManager.e.sg().cR(80000);
+                com.baidu.tbadk.imageManager.e.si().cR(80000);
                 Bitmap w = com.baidu.tbadk.core.util.d.w(j);
                 if (w == null) {
                     return null;
@@ -169,7 +169,7 @@ public class m implements com.baidu.adp.lib.f.g<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.g
     public void a(String str, Object obj, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.a.a)) {
-            com.baidu.tbadk.imageManager.e.sg().c(n(str, Boolean.valueOf(String.valueOf(objArr[2])).booleanValue()), (com.baidu.adp.widget.a.a) obj);
+            com.baidu.tbadk.imageManager.e.si().c(n(str, Boolean.valueOf(String.valueOf(objArr[2])).booleanValue()), (com.baidu.adp.widget.a.a) obj);
         }
     }
 

@@ -16,27 +16,27 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class j extends BaseAdapter {
-    private EditMarkActivity bAX;
-    private boolean bBc;
-    private boolean bBd;
+    private EditMarkActivity bBl;
+    private boolean bBq;
+    private boolean bBr;
     private int mSize;
-    private final ArrayList<MarkData> aew = new ArrayList<>();
-    private boolean aev = false;
-    private ArrayList<ProgressBar> bmb = null;
-    private View.OnClickListener bBe = null;
-    private boolean bBf = false;
+    private final ArrayList<MarkData> aeE = new ArrayList<>();
+    private boolean aeD = false;
+    private ArrayList<ProgressBar> bmp = null;
+    private View.OnClickListener bBs = null;
+    private boolean bBt = false;
     private boolean hasMore = true;
-    private boolean bBg = true;
+    private boolean bBu = true;
 
     public j(EditMarkActivity editMarkActivity) {
-        this.bAX = editMarkActivity;
+        this.bBl = editMarkActivity;
         es(true);
-        ZG();
+        ZI();
     }
 
-    public void Sy() {
-        if (this.bmb != null) {
-            Iterator<ProgressBar> it = this.bmb.iterator();
+    public void SB() {
+        if (this.bmp != null) {
+            Iterator<ProgressBar> it = this.bmp.iterator();
             while (it.hasNext()) {
                 it.next().setVisibility(8);
             }
@@ -47,16 +47,16 @@ public class j extends BaseAdapter {
         this.hasMore = z;
     }
 
-    public void ZG() {
-        this.bBc = false;
-        if (this.aew == null) {
+    public void ZI() {
+        this.bBq = false;
+        if (this.aeE == null) {
             this.mSize = 0;
         } else {
-            int size = this.aew.size();
+            int size = this.aeE.size();
             if (size == 0) {
-                if (this.bBd) {
+                if (this.bBr) {
                     this.mSize = 0;
-                    this.bBc = true;
+                    this.bBq = true;
                 } else {
                     this.mSize = 0;
                 }
@@ -68,31 +68,31 @@ public class j extends BaseAdapter {
     }
 
     public void eq(boolean z) {
-        this.bBf = z;
+        this.bBt = z;
     }
 
     public void setData(ArrayList<MarkData> arrayList) {
-        this.aew.clear();
+        this.aeE.clear();
         if (arrayList != null) {
-            this.aew.addAll(arrayList);
+            this.aeE.addAll(arrayList);
         }
-        ZG();
+        ZI();
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aew.size() == 0) {
+        if (this.aeE.size() == 0) {
             return this.mSize;
         }
-        if (this.bBg) {
+        if (this.bBu) {
             return this.mSize + 1;
         }
         return this.mSize;
     }
 
     public void er(boolean z) {
-        this.bBg = z;
+        this.bBu = z;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -102,21 +102,21 @@ public class j extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return (getItemId(i) >= 0 || this.bBc) ? 0 : 1;
+        return (getItemId(i) >= 0 || this.bBq) ? 0 : 1;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
         int size;
-        if (!this.bBc && (size = this.aew.size()) > 0 && i < size) {
-            return this.aew.get(i);
+        if (!this.bBq && (size = this.aeE.size()) > 0 && i < size) {
+            return this.aeE.get(i);
         }
         return null;
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.aew == null || i < this.aew.size()) {
+        if (this.aeE == null || i < this.aeE.size()) {
             return i;
         }
         return -1L;
@@ -139,16 +139,16 @@ public class j extends BaseAdapter {
         try {
             if (getItemViewType(i) == 0) {
                 if (view == null || !(view.getTag() instanceof l)) {
-                    view4 = com.baidu.adp.lib.g.b.ek().inflate(this.bAX, com.baidu.tieba.w.home_mark_item, null);
+                    view4 = com.baidu.adp.lib.g.b.ek().inflate(this.bBl, com.baidu.tieba.w.home_mark_item, null);
                     lVar = new l(this, null);
-                    lVar.azp = (TextView) view4.findViewById(com.baidu.tieba.v.home_lv_markitem_reply);
-                    lVar.aKU = (LinearLayout) view4.findViewById(com.baidu.tieba.v.home_lv_markitem_content);
-                    lVar.JM = (TextView) view4.findViewById(com.baidu.tieba.v.home_lv_markitem_title);
-                    lVar.bBl = (Button) view4.findViewById(com.baidu.tieba.v.home_lv_markitem_delete);
-                    lVar.bBi = (ImageView) view4.findViewById(com.baidu.tieba.v.mark_comment_icon);
-                    lVar.bBj = (ImageView) view4.findViewById(com.baidu.tieba.v.new_mark_mention_fack);
-                    lVar.bBk = (LinearLayout) view4.findViewById(com.baidu.tieba.v.new_mark);
-                    lVar.axq = (TextView) view4.findViewById(com.baidu.tieba.v.home_lv_markitem_forum_name);
+                    lVar.azy = (TextView) view4.findViewById(com.baidu.tieba.v.home_lv_markitem_reply);
+                    lVar.aLi = (LinearLayout) view4.findViewById(com.baidu.tieba.v.home_lv_markitem_content);
+                    lVar.JN = (TextView) view4.findViewById(com.baidu.tieba.v.home_lv_markitem_title);
+                    lVar.bBz = (Button) view4.findViewById(com.baidu.tieba.v.home_lv_markitem_delete);
+                    lVar.bBw = (ImageView) view4.findViewById(com.baidu.tieba.v.mark_comment_icon);
+                    lVar.bBx = (ImageView) view4.findViewById(com.baidu.tieba.v.new_mark_mention_fack);
+                    lVar.bBy = (LinearLayout) view4.findViewById(com.baidu.tieba.v.new_mark);
+                    lVar.axz = (TextView) view4.findViewById(com.baidu.tieba.v.home_lv_markitem_forum_name);
                     view4.setTag(lVar);
                 } else {
                     lVar = (l) view.getTag();
@@ -159,13 +159,13 @@ public class j extends BaseAdapter {
                 view4 = view;
             } else if (view == null || !(view.getTag() instanceof k)) {
                 k kVar2 = new k(this, null);
-                view4 = com.baidu.adp.lib.g.b.ek().inflate(this.bAX, com.baidu.tieba.w.page_item, null);
-                kVar2.bnv = (TextView) view4.findViewById(com.baidu.tieba.v.page_text);
+                view4 = com.baidu.adp.lib.g.b.ek().inflate(this.bBl, com.baidu.tieba.w.page_item, null);
+                kVar2.bnJ = (TextView) view4.findViewById(com.baidu.tieba.v.page_text);
                 kVar2.mProgress = (ProgressBar) view4.findViewById(com.baidu.tieba.v.progress);
-                if (this.bmb == null) {
-                    this.bmb = new ArrayList<>();
+                if (this.bmp == null) {
+                    this.bmp = new ArrayList<>();
                 }
-                this.bmb.add(kVar2.mProgress);
+                this.bmp.add(kVar2.mProgress);
                 view4.setTag(kVar2);
                 lVar = null;
                 kVar = kVar2;
@@ -174,38 +174,38 @@ public class j extends BaseAdapter {
                 view4 = view;
                 kVar = (k) view.getTag();
             }
-            this.bAX.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
-            this.bAX.getLayoutMode().h(view4);
+            this.bBl.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
+            this.bBl.getLayoutMode().h(view4);
             if (getItemViewType(i) == 1) {
-                if (this.bBf) {
+                if (this.bBt) {
                     kVar.mProgress.setVisibility(0);
-                    kVar.bnv.setText(this.bAX.getString(com.baidu.tieba.y.loading));
-                    com.baidu.tbadk.core.util.aw.b(kVar.bnv, com.baidu.tieba.s.pb_more_txt, 1);
+                    kVar.bnJ.setText(this.bBl.getString(com.baidu.tieba.y.loading));
+                    com.baidu.tbadk.core.util.aw.b(kVar.bnJ, com.baidu.tieba.s.pb_more_txt, 1);
                     view2 = view4;
                 } else if (!this.hasMore) {
                     kVar.mProgress.setVisibility(8);
-                    kVar.bnv.setText(this.bAX.getString(com.baidu.tieba.y.no_more_mark));
-                    com.baidu.tbadk.core.util.aw.b(kVar.bnv, com.baidu.tieba.s.pb_list_morebutton_nomore_text, 1);
+                    kVar.bnJ.setText(this.bBl.getString(com.baidu.tieba.y.no_more_mark));
+                    com.baidu.tbadk.core.util.aw.b(kVar.bnJ, com.baidu.tieba.s.pb_list_morebutton_nomore_text, 1);
                     view2 = view4;
                 } else {
                     kVar.mProgress.setVisibility(8);
-                    kVar.bnv.setText(this.bAX.getString(com.baidu.tieba.y.loading));
-                    com.baidu.tbadk.core.util.aw.b(kVar.bnv, com.baidu.tieba.s.pb_more_txt, 1);
+                    kVar.bnJ.setText(this.bBl.getString(com.baidu.tieba.y.loading));
+                    com.baidu.tbadk.core.util.aw.b(kVar.bnJ, com.baidu.tieba.s.pb_more_txt, 1);
                     view2 = view4;
                 }
             } else {
-                if (this.bBc) {
-                    lVar.azp.setVisibility(8);
-                    lVar.aKU.setVisibility(8);
-                    lVar.bBl.setVisibility(8);
+                if (this.bBq) {
+                    lVar.azy.setVisibility(8);
+                    lVar.aLi.setVisibility(8);
+                    lVar.bBz.setVisibility(8);
                     a(lVar, false);
                 } else {
-                    lVar.azp.setVisibility(0);
-                    lVar.aKU.setVisibility(0);
-                    if (this.aev) {
-                        lVar.bBl.setVisibility(0);
+                    lVar.azy.setVisibility(0);
+                    lVar.aLi.setVisibility(0);
+                    if (this.aeD) {
+                        lVar.bBz.setVisibility(0);
                     } else {
-                        lVar.bBl.setVisibility(8);
+                        lVar.bBz.setVisibility(8);
                     }
                 }
                 Object item = getItem(i);
@@ -218,27 +218,27 @@ public class j extends BaseAdapter {
                     }
                     int replyNum = markData.getReplyNum();
                     if (replyNum < 0) {
-                        lVar.azp.setVisibility(8);
-                        lVar.bBi.setVisibility(8);
+                        lVar.azy.setVisibility(8);
+                        lVar.bBw.setVisibility(8);
                     } else {
-                        lVar.bBi.setVisibility(0);
-                        lVar.azp.setVisibility(0);
-                        lVar.azp.setText(String.valueOf(replyNum));
+                        lVar.bBw.setVisibility(0);
+                        lVar.azy.setVisibility(0);
+                        lVar.azy.setText(String.valueOf(replyNum));
                     }
                     String title = markData.getTitle();
                     if (!TextUtils.isEmpty(title)) {
-                        lVar.JM.setText(title);
+                        lVar.JN.setText(title);
                     } else {
-                        lVar.JM.setText("");
+                        lVar.JN.setText("");
                     }
                     if (!TextUtils.isEmpty(markData.getForumName())) {
-                        lVar.axq.setText(String.valueOf(markData.getForumName()) + this.bAX.getString(com.baidu.tieba.y.bar));
+                        lVar.axz.setText(String.valueOf(markData.getForumName()) + this.bBl.getString(com.baidu.tieba.y.bar));
                     } else {
-                        lVar.axq.setText("");
+                        lVar.axz.setText("");
                     }
-                    lVar.bBl.setOnClickListener(this.bBe);
-                    lVar.bBl.setFocusable(false);
-                    lVar.bBl.setTag(Integer.valueOf(i));
+                    lVar.bBz.setOnClickListener(this.bBs);
+                    lVar.bBz.setFocusable(false);
+                    lVar.bBz.setTag(Integer.valueOf(i));
                     view2 = view4;
                 } else {
                     return view4;
@@ -255,37 +255,37 @@ public class j extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        if (this.bBc || (!this.hasMore && getItemViewType(i) == 1)) {
+        if (this.bBq || (!this.hasMore && getItemViewType(i) == 1)) {
             return false;
         }
         return super.isEnabled(i);
     }
 
     public void es(boolean z) {
-        this.bBd = z;
+        this.bBr = z;
     }
 
     public void setEditState(boolean z) {
-        this.aev = z;
+        this.aeD = z;
     }
 
-    public boolean xd() {
-        return this.aev;
+    public boolean xf() {
+        return this.aeD;
     }
 
     public void w(View.OnClickListener onClickListener) {
-        this.bBe = onClickListener;
+        this.bBs = onClickListener;
     }
 
     private void a(l lVar, boolean z) {
-        if (lVar != null && lVar.bBk != null && lVar.bBj != null) {
+        if (lVar != null && lVar.bBy != null && lVar.bBx != null) {
             if (z) {
-                lVar.bBk.setVisibility(0);
-                lVar.bBj.setVisibility(4);
+                lVar.bBy.setVisibility(0);
+                lVar.bBx.setVisibility(4);
                 return;
             }
-            lVar.bBk.setVisibility(8);
-            lVar.bBj.setVisibility(8);
+            lVar.bBy.setVisibility(8);
+            lVar.bBx.setVisibility(8);
         }
     }
 }

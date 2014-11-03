@@ -27,7 +27,7 @@ public class c {
             acVar.k("isphone", "0");
             acVar.k("channel_id", TbadkApplication.m251getInst().getPushChannelId());
             acVar.k("channel_uid", TbadkApplication.m251getInst().getPushChannelUserId());
-            acVar.mc().na().nd().Gl = true;
+            acVar.mc().na().nd().Gm = true;
             acVar.mc().na().mIsNeedAddCommenParam = false;
             acVar.mc().na().mIsUseCurrentBDUSS = false;
             lA = acVar.lA();

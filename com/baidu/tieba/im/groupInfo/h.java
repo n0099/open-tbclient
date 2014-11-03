@@ -6,21 +6,21 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ GroupImageActivity bah;
+    final /* synthetic */ GroupImageActivity baw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(GroupImageActivity groupImageActivity) {
-        this.bah = groupImageActivity;
+        this.baw = groupImageActivity;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         int i2;
-        GroupImageActivity groupImageActivity = this.bah;
-        i2 = this.bah.mIndex;
+        GroupImageActivity groupImageActivity = this.baw;
+        i2 = this.baw.mIndex;
         groupImageActivity.M(i2, i);
-        this.bah.mIndex = i;
-        this.bah.OA();
+        this.baw.mIndex = i;
+        this.baw.OD();
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -38,16 +38,16 @@ public class h implements ViewPager.OnPageChangeListener {
         int i3;
         if (i == 1) {
             long nanoTime = System.nanoTime();
-            j = this.bah.aNw;
+            j = this.baw.aNK;
             if (nanoTime - j > 300000000) {
-                arrayList = this.bah.baf;
+                arrayList = this.baw.bat;
                 if (arrayList != null) {
-                    i2 = this.bah.mIndex;
-                    arrayList2 = this.bah.baf;
+                    i2 = this.baw.mIndex;
+                    arrayList2 = this.baw.bat;
                     if (i2 < arrayList2.size()) {
-                        hashMap = this.bah.aNx;
-                        arrayList3 = this.bah.baf;
-                        i3 = this.bah.mIndex;
+                        hashMap = this.baw.aNL;
+                        arrayList3 = this.baw.bat;
+                        i3 = this.baw.mIndex;
                         hashMap.put((String) arrayList3.get(i3), true);
                     }
                 }

@@ -4,24 +4,24 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnClickListener {
-    final /* synthetic */ TbRichTextView acr;
-    private final /* synthetic */ c acs;
+    final /* synthetic */ TbRichTextView acw;
+    private final /* synthetic */ c acx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(TbRichTextView tbRichTextView, c cVar) {
-        this.acr = tbRichTextView;
-        this.acs = cVar;
+        this.acw = tbRichTextView;
+        this.acx = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         r rVar;
         r rVar2;
-        rVar = this.acr.acm;
+        rVar = this.acw.acr;
         if (rVar != null) {
-            e vH = this.acs.vH();
-            rVar2 = this.acr.acm;
-            rVar2.a(view, vH.TF.Ti, vH.TF.mPackageName, vH.TF.Tl, vH.TF.Tg, vH.TF.Th, vH.TF.Tf, vH.TF.Tj, vH.TF.Tk);
+            e vJ = this.acx.vJ();
+            rVar2 = this.acw.acr;
+            rVar2.a(view, vJ.TJ.Tm, vJ.TJ.mPackageName, vJ.TJ.Tp, vJ.TJ.Tk, vJ.TJ.Tl, vJ.TJ.Tj, vJ.TJ.Tn, vJ.TJ.To);
         }
     }
 }

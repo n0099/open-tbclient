@@ -136,13 +136,13 @@ public class a extends com.baidu.adp.framework.a.d {
         if (mv != null) {
             httpMessage.addParam("stTime", String.valueOf(mv.mTime));
             httpMessage.addParam("stSize", String.valueOf(mv.mSize));
-            httpMessage.addParam("stTimesNum", String.valueOf(mv.EJ));
+            httpMessage.addParam("stTimesNum", String.valueOf(mv.EK));
             httpMessage.addParam("stMode", String.valueOf(mv.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(mv.EI));
+            httpMessage.addParam("stMethod", String.valueOf(mv.EJ));
         }
         int bv = an.bv(0);
         if (bv == 0 && mv != null) {
-            bv = mv.EJ;
+            bv = mv.EK;
         }
         httpMessage.addParam("stErrorNums", String.valueOf(bv));
     }

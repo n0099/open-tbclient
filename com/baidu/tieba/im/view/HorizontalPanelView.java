@@ -11,7 +11,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.bn;
+import com.baidu.tbadk.core.util.bo;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.t;
 import com.baidu.tieba.v;
@@ -73,7 +73,7 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
     }
 
     public void removeUser(UserData userData) {
-        bn.a(this.mUserLayout, false, new g(this, userData));
+        bo.a(this.mUserLayout, false, new g(this, userData));
     }
 
     public void setData(List<UserData> list) {
@@ -128,7 +128,7 @@ public class HorizontalPanelView extends LinearLayout implements View.OnClickLis
         if (!this.mIsHidden && (view instanceof HeadImageView)) {
             HeadImageView headImageView = (HeadImageView) view;
             if (!TextUtils.isEmpty(headImageView.getUserId())) {
-                com.baidu.tbadk.core.i.l(getContext(), "snap_chat_member_head_click");
+                com.baidu.tbadk.core.j.l(getContext(), "snap_chat_member_head_click");
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.mContext, headImageView.getUserId(), headImageView.getUserName())));
             }
         }

@@ -5,13 +5,13 @@ import android.view.View;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 class c implements DialogInterface.OnClickListener {
-    final /* synthetic */ b aep;
-    private final /* synthetic */ View aeq;
+    final /* synthetic */ b aex;
+    private final /* synthetic */ View aey;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, View view) {
-        this.aep = bVar;
-        this.aeq = view;
+        this.aex = bVar;
+        this.aey = view;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -28,33 +28,33 @@ class c implements DialogInterface.OnClickListener {
         f fVar3;
         AccountActivity accountActivity8;
         f fVar4;
-        if (this.aeq != null) {
-            AccountData accountData = (AccountData) this.aeq.getTag();
+        if (this.aey != null) {
+            AccountData accountData = (AccountData) this.aey.getTag();
             switch (i) {
                 case 0:
                     if (accountData != null) {
-                        accountActivity5 = this.aep.aeo;
-                        accountActivity6 = this.aep.aeo;
-                        accountActivity5.aen = new f(accountActivity6, false, accountData);
-                        accountActivity7 = this.aep.aeo;
-                        fVar3 = accountActivity7.aen;
+                        accountActivity5 = this.aex.aew;
+                        accountActivity6 = this.aex.aew;
+                        accountActivity5.aev = new f(accountActivity6, false, accountData);
+                        accountActivity7 = this.aex.aew;
+                        fVar3 = accountActivity7.aev;
                         fVar3.setPriority(3);
-                        accountActivity8 = this.aep.aeo;
-                        fVar4 = accountActivity8.aen;
+                        accountActivity8 = this.aex.aew;
+                        fVar4 = accountActivity8.aev;
                         fVar4.execute(new Object[0]);
                     }
                     dialogInterface.cancel();
                     return;
                 case 1:
                     if (accountData != null) {
-                        accountActivity = this.aep.aeo;
-                        accountActivity2 = this.aep.aeo;
-                        accountActivity.aen = new f(accountActivity2, true, accountData);
-                        accountActivity3 = this.aep.aeo;
-                        fVar = accountActivity3.aen;
+                        accountActivity = this.aex.aew;
+                        accountActivity2 = this.aex.aew;
+                        accountActivity.aev = new f(accountActivity2, true, accountData);
+                        accountActivity3 = this.aex.aew;
+                        fVar = accountActivity3.aev;
                         fVar.setPriority(3);
-                        accountActivity4 = this.aep.aeo;
-                        fVar2 = accountActivity4.aen;
+                        accountActivity4 = this.aex.aew;
+                        fVar2 = accountActivity4.aev;
                         fVar2.execute(new Object[0]);
                     }
                     dialogInterface.cancel();

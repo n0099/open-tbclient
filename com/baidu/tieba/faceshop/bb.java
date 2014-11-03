@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
 public class bb {
-    private final com.baidu.tbadk.core.view.y Yc;
-    private final NoNetworkView aoJ;
-    private final NavigationBar atx;
-    private aw auk;
+    private final com.baidu.tbadk.core.view.y Yg;
+    private final NoNetworkView aoS;
+    private final NavigationBar atG;
+    private aw aut;
     private final BaseActivity mActivity;
     private final LinearLayout mParent;
     private final BdListView vl;
@@ -21,29 +21,29 @@ public class bb {
         this.mActivity = baseActivity;
         baseActivity.setContentView(ca.face_purchase_records_layout);
         this.mParent = (LinearLayout) baseActivity.findViewById(bz.purchase_record);
-        this.atx = (NavigationBar) this.mParent.findViewById(bz.view_navigation_bar);
-        this.atx.setTitleText(baseActivity.getResources().getString(cb.purchase_record));
-        this.atx.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.aoJ = (NoNetworkView) this.mParent.findViewById(bz.view_no_network);
+        this.atG = (NavigationBar) this.mParent.findViewById(bz.view_navigation_bar);
+        this.atG.setTitleText(baseActivity.getResources().getString(cb.purchase_record));
+        this.atG.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.aoS = (NoNetworkView) this.mParent.findViewById(bz.view_no_network);
         this.vl = (BdListView) this.mParent.findViewById(bz.purchase_record_list);
-        this.Yc = new com.baidu.tbadk.core.view.y(baseActivity);
-        this.vl.setPullRefresh(this.Yc);
+        this.Yg = new com.baidu.tbadk.core.view.y(baseActivity);
+        this.vl.setPullRefresh(this.Yg);
     }
 
     public void c(FacePurchaseRecordsData facePurchaseRecordsData) {
-        if (this.auk == null) {
-            this.auk = new aw(this.mActivity);
-            this.vl.setAdapter((ListAdapter) this.auk);
+        if (this.aut == null) {
+            this.aut = new aw(this.mActivity);
+            this.vl.setAdapter((ListAdapter) this.aut);
         }
-        this.auk.a(facePurchaseRecordsData);
-        Dv();
+        this.aut.a(facePurchaseRecordsData);
+        Dx();
     }
 
-    public aw Du() {
-        return this.auk;
+    public aw Dw() {
+        return this.aut;
     }
 
-    public void Dv() {
+    public void Dx() {
         this.vl.hN();
     }
 
@@ -52,22 +52,22 @@ public class bb {
     }
 
     public void b(com.baidu.adp.widget.ListView.f fVar) {
-        this.Yc.a(fVar);
+        this.Yg.a(fVar);
     }
 
     public void c(com.baidu.tbadk.core.view.u uVar) {
-        this.aoJ.a(uVar);
+        this.aoS.a(uVar);
     }
 
     public void d(com.baidu.tbadk.core.view.u uVar) {
-        this.aoJ.b(uVar);
+        this.aoS.b(uVar);
     }
 
     public void onChangeSkinType(int i) {
         this.mActivity.getLayoutMode().L(i == 1);
         this.mActivity.getLayoutMode().h(this.mParent);
-        this.atx.onChangeSkinType(i);
-        this.aoJ.onChangeSkinType(i);
-        this.Yc.bM(i);
+        this.atG.onChangeSkinType(i);
+        this.aoS.onChangeSkinType(i);
+        this.Yg.bM(i);
     }
 }

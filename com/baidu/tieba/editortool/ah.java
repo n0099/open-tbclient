@@ -2,16 +2,15 @@ package com.baidu.tieba.editortool;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah implements TextWatcher {
-    private final /* synthetic */ com.baidu.tbadk.editortool.w arn;
-    final /* synthetic */ PbEditorToolView arv;
+class ah implements TextWatcher {
+    final /* synthetic */ PbEditorToolView arE;
+    private final /* synthetic */ com.baidu.tbadk.editortool.w arw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(PbEditorToolView pbEditorToolView, com.baidu.tbadk.editortool.w wVar) {
-        this.arv = pbEditorToolView;
-        this.arn = wVar;
+        this.arE = pbEditorToolView;
+        this.arw = wVar;
     }
 
     @Override // android.text.TextWatcher
@@ -24,6 +23,6 @@ public class ah implements TextWatcher {
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
-        this.arn.handleAction(18, null);
+        this.arw.handleAction(18, null);
     }
 }

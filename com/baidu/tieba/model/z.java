@@ -1,11 +1,11 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
 public class z {
-    final /* synthetic */ v boN;
-    public String boO;
+    final /* synthetic */ v bpb;
+    public String bpc;
     public boolean qa;
 
     public z(v vVar) {
-        this.boN = vVar;
+        this.bpb = vVar;
     }
 }

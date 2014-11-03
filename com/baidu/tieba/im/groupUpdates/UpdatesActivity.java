@@ -14,7 +14,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.GroupInfoActivityConfig;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.frsgroup.GroupLevelActivity;
@@ -25,22 +25,22 @@ import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrollListener {
     public static boolean isOpen = false;
-    private t bbM;
-    private AlertDialog bbN;
-    private com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> bbO;
-    private com.baidu.tieba.im.a<Boolean> bbP;
-    private Runnable bbQ;
-    private UpdatesItemData bbS;
-    private p bbT;
-    private boolean bbR = false;
-    private com.baidu.adp.framework.listener.e ayJ = new a(this, 0);
+    private t bca;
+    private AlertDialog bcb;
+    private com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> bcc;
+    private com.baidu.tieba.im.a<Boolean> bcd;
+    private Runnable bce;
+    private UpdatesItemData bcg;
+    private p bch;
+    private boolean bcf = false;
+    private com.baidu.adp.framework.listener.e ayS = new a(this, 0);
     private CustomMessageListener mCustomListener = new b(this, 0);
 
     static {
-        Kj();
+        Kn();
     }
 
-    private static void Kj() {
+    private static void Kn() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2008013, new c());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
@@ -58,17 +58,17 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bbT = new p();
-        this.bbM = new t(this);
-        Pc();
+        this.bch = new p();
+        this.bca = new t(this);
+        Pf();
         registerListener(2001136, this.mCustomListener);
         registerListener(2001137, this.mCustomListener);
         registerListener(2001134, this.mCustomListener);
         registerListener(2001133, this.mCustomListener);
         registerListener(2001141, this.mCustomListener);
-        this.bbM.dg(true);
-        p.c(this.bbO);
-        registerListener(202004, this.ayJ);
+        this.bca.dg(true);
+        p.c(this.bcc);
+        registerListener(202004, this.ayS);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -76,8 +76,8 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
     public void onResume() {
         super.onResume();
         isOpen = true;
-        com.baidu.tbadk.coreExtra.messageCenter.a.oB().bY(2);
-        com.baidu.tbadk.coreExtra.messageCenter.a.oB().oM();
+        com.baidu.tbadk.coreExtra.messageCenter.a.oD().bY(2);
+        com.baidu.tbadk.coreExtra.messageCenter.a.oD().oO();
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new com.baidu.tbadk.live.message.a("-1002", -3)));
     }
 
@@ -107,47 +107,47 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
         isOpen = false;
     }
 
-    private void Pc() {
-        this.bbP = new e(this, new d(this));
-        this.bbO = new f(this);
+    private void Pf() {
+        this.bcd = new e(this, new d(this));
+        this.bcc = new f(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.bbM != null) {
-            this.bbM.destroy();
+        if (this.bca != null) {
+            this.bca.destroy();
         }
-        if (this.bbT != null) {
-            this.bbT.xY();
+        if (this.bch != null) {
+            this.bch.ya();
         }
-        this.bbS = null;
+        this.bcg = null;
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view != null && this.bbM != null) {
-            if (view.equals(this.bbM.Pm())) {
+        if (view != null && this.bca != null) {
+            if (view.equals(this.bca.Pp())) {
                 finish();
-            } else if (view.equals(this.bbM.Po())) {
-                this.bbT.Pg();
-                this.bbT.X(this.bbM.Pj().getDatas());
-                this.bbM.fT(this.bbT.Ph());
+            } else if (view.equals(this.bca.Pr())) {
+                this.bch.Pj();
+                this.bch.X(this.bca.Pm().getDatas());
+                this.bca.fT(this.bch.Pk());
                 df(true);
-                this.bbM.Pk();
-            } else if (view.equals(this.bbM.Pp())) {
+                this.bca.Pn();
+            } else if (view.equals(this.bca.Ps())) {
                 df(false);
-                this.bbM.Pl();
-                this.bbT.Pg();
-                p.c(this.bbO);
-            } else if (view.equals(this.bbM.Pq())) {
-                this.bbM.dg(true);
-                String Pf = this.bbT.Pf();
-                if (!TextUtils.isEmpty(Pf)) {
-                    go(Pf);
+                this.bca.Po();
+                this.bch.Pj();
+                p.c(this.bcc);
+            } else if (view.equals(this.bca.Pt())) {
+                this.bca.dg(true);
+                String Pi = this.bch.Pi();
+                if (!TextUtils.isEmpty(Pi)) {
+                    go(Pi);
                 } else {
-                    this.bbM.dg(false);
+                    this.bca.dg(false);
                 }
             }
         }
@@ -155,11 +155,11 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (4 == i && keyEvent.getAction() == 0 && this.bbR) {
+        if (4 == i && keyEvent.getAction() == 0 && this.bcf) {
             df(false);
-            this.bbT.Pg();
-            this.bbM.fT(this.bbT.Ph());
-            this.bbM.Pl();
+            this.bch.Pj();
+            this.bca.fT(this.bch.Pk());
+            this.bca.Po();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -172,11 +172,11 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
     public void a(UpdatesItemData updatesItemData) {
         if (!com.baidu.adp.lib.util.j.fh()) {
             showToast(y.neterror);
-        } else if (updatesItemData != null && !TextUtils.isEmpty(com.baidu.tieba.im.pushNotify.f.Rn().Rp()) && TextUtils.isDigitsOnly(com.baidu.tieba.im.pushNotify.f.Rn().Rp()) && !TextUtils.isEmpty(updatesItemData.getNotice_id()) && TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
+        } else if (updatesItemData != null && !TextUtils.isEmpty(com.baidu.tieba.im.pushNotify.f.Rq().Rs()) && TextUtils.isDigitsOnly(com.baidu.tieba.im.pushNotify.f.Rq().Rs()) && !TextUtils.isEmpty(updatesItemData.getNotice_id()) && TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
             try {
-                this.bbM.dg(true);
+                this.bca.dg(true);
                 RequestDelSystemMessage requestDelSystemMessage = new RequestDelSystemMessage();
-                requestDelSystemMessage.setGroupId(Integer.parseInt(com.baidu.tieba.im.pushNotify.f.Rn().Rp()));
+                requestDelSystemMessage.setGroupId(Integer.parseInt(com.baidu.tieba.im.pushNotify.f.Rq().Rs()));
                 requestDelSystemMessage.setMsgIds(new StringBuilder().append(Long.parseLong(updatesItemData.getNotice_id()) / 100).toString());
                 MessageManager.getInstance().sendMessage(requestDelSystemMessage);
             } catch (Exception e) {
@@ -189,11 +189,11 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
         if (!com.baidu.adp.lib.util.j.fh()) {
             showToast(y.neterror);
         } else if (!TextUtils.isEmpty(str)) {
-            String Rp = com.baidu.tieba.im.pushNotify.f.Rn().Rp();
-            if (!TextUtils.isEmpty(Rp) && TextUtils.isDigitsOnly(Rp)) {
-                this.bbM.dg(true);
+            String Rs = com.baidu.tieba.im.pushNotify.f.Rq().Rs();
+            if (!TextUtils.isEmpty(Rs) && TextUtils.isDigitsOnly(Rs)) {
+                this.bca.dg(true);
                 RequestDelSystemMessage requestDelSystemMessage = new RequestDelSystemMessage();
-                requestDelSystemMessage.setGroupId(Integer.parseInt(Rp));
+                requestDelSystemMessage.setGroupId(Integer.parseInt(Rs));
                 requestDelSystemMessage.setMsgIds(str);
                 MessageManager.getInstance().sendMessage(requestDelSystemMessage);
             }
@@ -204,13 +204,13 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.bbM != null) {
-            this.bbM.onChangeSkinType(i);
+        if (this.bca != null) {
+            this.bca.onChangeSkinType(i);
         }
     }
 
     public void a(View view, int i, int i2, long j, UpdatesItemData updatesItemData) {
-        if (updatesItemData != null && 101 == i && !Pe()) {
+        if (updatesItemData != null && 101 == i && !Ph()) {
             String groupId = updatesItemData.getGroupId();
             String updatesType = updatesItemData.getUpdatesType();
             if (!TextUtils.isEmpty(updatesType)) {
@@ -219,8 +219,8 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
                         GroupLevelActivity.a(this, com.baidu.adp.lib.g.c.a(groupId, 0L), updatesItemData.isShown());
                     } else if (!updatesType.equals("dismiss_group")) {
                         if (updatesType.equals("group_event_info")) {
-                            com.baidu.tbadk.core.i.l(this, "update_activity_group_event_click");
-                            bf.mR().b(this, new String[]{updatesItemData.getEventLink()});
+                            com.baidu.tbadk.core.j.l(this, "update_activity_group_event_click");
+                            bg.mR().b(this, new String[]{updatesItemData.getEventLink()});
                         } else if (updatesType.equals("group_activitys_change")) {
                             GroupActivityActivity.a(this, com.baidu.adp.lib.g.c.f(updatesItemData.getGroupActivityId(), 0), com.baidu.adp.lib.g.c.a(updatesItemData.getGroupId(), 0L), 1);
                         } else {
@@ -237,47 +237,47 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
     public void a(View view, boolean z, UpdatesItemData updatesItemData) {
         if (updatesItemData != null) {
             if (z) {
-                this.bbT.d(updatesItemData);
+                this.bch.d(updatesItemData);
                 updatesItemData.setSelected(true);
-                if (this.bbT.Ph() > 100) {
-                    this.bbT.e(updatesItemData);
+                if (this.bch.Pk() > 100) {
+                    this.bch.e(updatesItemData);
                     updatesItemData.setSelected(false);
                     showToast(y.updates_activity_del_limit);
                 }
             } else {
-                this.bbT.e(updatesItemData);
+                this.bch.e(updatesItemData);
                 updatesItemData.setSelected(false);
             }
-            this.bbM.fT(this.bbT.Ph());
-            this.bbM.NP();
+            this.bca.fT(this.bch.Pk());
+            this.bca.NT();
         }
     }
 
     public void b(View view, int i, int i2, long j, UpdatesItemData updatesItemData) {
-        if (view != null && updatesItemData != null && 200 == i && !Pe()) {
-            if (this.bbN == null) {
-                this.bbS = updatesItemData;
-                Pd();
+        if (view != null && updatesItemData != null && 200 == i && !Ph()) {
+            if (this.bcb == null) {
+                this.bcg = updatesItemData;
+                Pg();
             }
-            com.baidu.adp.lib.g.j.a(this.bbN, this);
+            com.baidu.adp.lib.g.j.a(this.bcb, this);
         }
     }
 
-    private void Pd() {
+    private void Pg() {
         String string = getString(y.delete_user_chat);
         g gVar = new g(this);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(y.operation);
         builder.setItems(new String[]{string}, gVar);
-        this.bbN = builder.create();
-        this.bbN.setCanceledOnTouchOutside(true);
+        this.bcb = builder.create();
+        this.bcb.setCanceledOnTouchOutside(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void De() {
-        if (this.bbM.Pn() != null) {
-            this.bbM.Pn().removeCallbacks(this.bbQ);
-            this.bbM.Pn().post(this.bbQ);
+    public void Dg() {
+        if (this.bca.Pq() != null) {
+            this.bca.Pq().removeCallbacks(this.bce);
+            this.bca.Pq().post(this.bce);
         }
     }
 
@@ -288,15 +288,15 @@ public class UpdatesActivity extends BaseActivity implements AbsListView.OnScrol
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 0) {
-            De();
+            Dg();
         }
     }
 
-    public boolean Pe() {
-        return this.bbR;
+    public boolean Ph() {
+        return this.bcf;
     }
 
     public void df(boolean z) {
-        this.bbR = z;
+        this.bcf = z;
     }
 }

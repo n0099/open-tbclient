@@ -87,14 +87,14 @@ import com.baidu.tieba.im.message.SendForeNoticeResponseMessage;
 import com.baidu.tieba.im.pushNotify.PushNotifyMessageDecoder;
 /* loaded from: classes.dex */
 public class b {
-    public static boolean Qg() {
-        Qh();
-        Qi();
-        Qj();
-        return Qk();
+    public static boolean Qj() {
+        Qk();
+        Ql();
+        Qm();
+        return Qn();
     }
 
-    public static boolean Qh() {
+    public static boolean Qk() {
         c(103005, ResponseMembersMessage.class, false);
         c(103011, ResponseQueryGroupCountMessage.class, false);
         c(103004, ResponseGroupInfoMessage.class, false);
@@ -173,7 +173,7 @@ public class b {
         return bVar;
     }
 
-    private static boolean Qi() {
+    private static boolean Ql() {
         b(2001102, com.baidu.tieba.im.d.a.h.class);
         b(2001106, t.class);
         b(2001211, w.class);
@@ -213,14 +213,14 @@ public class b {
         }
     }
 
-    private static boolean Qj() {
+    private static boolean Qm() {
         MessageManager.getInstance().addResponsedMessageRule(new c(202006));
         MessageManager.getInstance().addResponsedMessageRule(new com.baidu.tieba.im.c.k());
         MessageManager.getInstance().addMessageRule(new com.baidu.tieba.im.c.j());
         return true;
     }
 
-    private static boolean Qk() {
+    private static boolean Qn() {
         MessageManager.getInstance().addResponsedMessageRule(new by());
         MessageManager.getInstance().addResponsedMessageRule(new ca());
         return true;

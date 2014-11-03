@@ -5,9 +5,9 @@ import com.baidu.tbadk.core.util.at;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d extends c implements at {
-    private boolean aUP;
-    private boolean aUQ;
-    private boolean aUR;
+    private boolean aVd;
+    private boolean aVe;
+    private boolean aVf;
     private int authorId;
     private String authorName;
     private String business;
@@ -29,12 +29,12 @@ public class d extends c implements at {
         setType(1);
     }
 
-    public boolean Mj() {
-        return this.aUP;
+    public boolean Mn() {
+        return this.aVd;
     }
 
     public void cS(boolean z) {
-        this.aUP = z;
+        this.aVd = z;
     }
 
     public String getGroupId() {
@@ -121,7 +121,7 @@ public class d extends c implements at {
         this.lat = str;
     }
 
-    public int Mk() {
+    public int Mo() {
         return this.distance;
     }
 
@@ -129,20 +129,20 @@ public class d extends c implements at {
         this.distance = i;
     }
 
-    public boolean Ml() {
-        return this.aUQ;
+    public boolean Mp() {
+        return this.aVe;
     }
 
     public void cT(boolean z) {
-        this.aUQ = z;
+        this.aVe = z;
     }
 
-    public boolean Mm() {
-        return this.aUR;
+    public boolean Mq() {
+        return this.aVf;
     }
 
     public void cU(boolean z) {
-        this.aUR = z;
+        this.aVf = z;
     }
 
     public boolean isMemGroup() {
@@ -158,7 +158,7 @@ public class d extends c implements at {
         ArrayList<as> arrayList = new ArrayList<>();
         as asVar = new as();
         asVar.AI = this.portrait;
-        asVar.ER = 10;
+        asVar.ES = 10;
         arrayList.add(asVar);
         return arrayList;
     }

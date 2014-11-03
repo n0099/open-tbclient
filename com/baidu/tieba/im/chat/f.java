@@ -8,11 +8,11 @@ import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements bs {
-    final /* synthetic */ AbsMsgImageActivity aNA;
+    final /* synthetic */ AbsMsgImageActivity aNO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(AbsMsgImageActivity absMsgImageActivity) {
-        this.aNA = absMsgImageActivity;
+        this.aNO = absMsgImageActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:5:0x0015, code lost:
@@ -42,26 +42,26 @@ public class f implements bs {
         String str3;
         String str4;
         boolean z2;
-        this.aNA.aNo = linkedHashMap;
-        linkedHashMap2 = this.aNA.aNo;
+        this.aNO.aNC = linkedHashMap;
+        linkedHashMap2 = this.aNO.aNC;
         if (linkedHashMap2 != null) {
-            z2 = this.aNA.aNz;
+            z2 = this.aNO.aNN;
         }
-        this.aNA.aNo = new LinkedHashMap();
-        linkedHashMap3 = this.aNA.aNo;
+        this.aNO.aNC = new LinkedHashMap();
+        linkedHashMap3 = this.aNO.aNC;
         if (linkedHashMap3.isEmpty()) {
-            str2 = this.aNA.aNu;
+            str2 = this.aNO.aNI;
             if (!TextUtils.isEmpty(str2)) {
-                linkedHashMap8 = this.aNA.aNo;
-                str3 = this.aNA.aNv;
-                str4 = this.aNA.aNu;
+                linkedHashMap8 = this.aNO.aNC;
+                str3 = this.aNO.aNJ;
+                str4 = this.aNO.aNI;
                 linkedHashMap8.put(str3, str4);
             }
         }
-        linkedHashMap4 = this.aNA.aNo;
+        linkedHashMap4 = this.aNO.aNC;
         if (linkedHashMap4.size() != 0) {
-            str = this.aNA.aNv;
-            linkedHashMap5 = this.aNA.aNo;
+            str = this.aNO.aNJ;
+            linkedHashMap5 = this.aNO.aNC;
             Iterator it = linkedHashMap5.keySet().iterator();
             int i3 = 0;
             while (true) {
@@ -71,33 +71,33 @@ public class f implements bs {
                 }
                 String str5 = (String) it.next();
                 if (!TextUtils.isEmpty(str5) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str5) && str5.equals(str)) {
-                    this.aNA.mIndex = i3;
+                    this.aNO.mIndex = i3;
                     z = true;
                     break;
                 }
                 i3++;
             }
-            AbsMsgImageActivity absMsgImageActivity = this.aNA;
-            linkedHashMap6 = this.aNA.aNo;
+            AbsMsgImageActivity absMsgImageActivity = this.aNO;
+            linkedHashMap6 = this.aNO.aNC;
             absMsgImageActivity.mq = linkedHashMap6.size();
             if (!z) {
-                AbsMsgImageActivity absMsgImageActivity2 = this.aNA;
-                i2 = this.aNA.mq;
+                AbsMsgImageActivity absMsgImageActivity2 = this.aNO;
+                i2 = this.aNO.mq;
                 absMsgImageActivity2.mIndex = i2 - 1;
             }
-            this.aNA.Jl();
-            multiImageView = this.aNA.aNr;
+            this.aNO.Jp();
+            multiImageView = this.aNO.aNF;
             multiImageView.setIsFromCDN(true);
-            multiImageView2 = this.aNA.aNr;
+            multiImageView2 = this.aNO.aNF;
             multiImageView2.setAllowLocalUrl(true);
-            multiImageView3 = this.aNA.aNr;
-            linkedHashMap7 = this.aNA.aNo;
+            multiImageView3 = this.aNO.aNF;
+            linkedHashMap7 = this.aNO.aNC;
             multiImageView3.setUrlData(new ArrayList<>(linkedHashMap7.values()));
-            multiImageView4 = this.aNA.aNr;
-            i = this.aNA.mIndex;
+            multiImageView4 = this.aNO.aNF;
+            i = this.aNO.mIndex;
             multiImageView4.setCurrentItem(i, false);
             return;
         }
-        this.aNA.finish();
+        this.aNO.finish();
     }
 }

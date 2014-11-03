@@ -7,13 +7,13 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
 /* loaded from: classes.dex */
 class k extends CustomMessageListener {
-    final /* synthetic */ PersonInfoActivity bED;
+    final /* synthetic */ PersonInfoActivity bER;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(PersonInfoActivity personInfoActivity, int i) {
         super(i);
-        this.bED = personInfoActivity;
+        this.bER = personInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,18 +35,18 @@ class k extends CustomMessageListener {
                     replyInfo.setUserId(a);
                     replyInfo.setFriendId(friendId);
                     replyInfo.setMessage(content);
-                    vVar3 = this.bED.bEs;
-                    vVar3.aaS().getReplyInfo().add(replyInfo);
-                    vVar4 = this.bED.bEs;
-                    vVar4.aaZ();
+                    vVar3 = this.bER.bEG;
+                    vVar3.aaV().getReplyInfo().add(replyInfo);
+                    vVar4 = this.bER.bEG;
+                    vVar4.abc();
                 }
             } else if (responseNewFriendUpdateUiMsg.getAction() == 0) {
-                vVar = this.bED.bEs;
-                if (vVar.aaS() != null) {
-                    vVar2 = this.bED.bEs;
-                    vVar2.aaS().setIsFriend(1);
-                    aeVar = this.bED.bEt;
-                    aeVar.abe();
+                vVar = this.bER.bEG;
+                if (vVar.aaV() != null) {
+                    vVar2 = this.bER.bEG;
+                    vVar2.aaV().setIsFriend(1);
+                    aeVar = this.bER.bEH;
+                    aeVar.abh();
                 }
             }
         }

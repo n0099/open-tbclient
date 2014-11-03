@@ -15,58 +15,58 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class ShutDownValidateTipView extends FrameLayout {
-    private static ArrayList<ShutDownValidateTipView> Il = new ArrayList<>();
-    private static boolean In;
-    private ArrayList<r> Iq;
-    private TextView bjB;
-    private ImageView bjC;
-    private TextView bjD;
-    private TextView bjE;
-    private boolean bjF;
+    private static ArrayList<ShutDownValidateTipView> Im = new ArrayList<>();
+    private static boolean Io;
+    private ArrayList<r> Ir;
+    private TextView bjP;
+    private ImageView bjQ;
+    private TextView bjR;
+    private TextView bjS;
+    private boolean bjT;
 
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.Iq = new ArrayList<>();
+        this.Ir = new ArrayList<>();
         init(context);
     }
 
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Iq = new ArrayList<>();
+        this.Ir = new ArrayList<>();
         init(context);
     }
 
     public ShutDownValidateTipView(Context context) {
         super(context);
-        this.Iq = new ArrayList<>();
+        this.Ir = new ArrayList<>();
         init(context);
     }
 
     public void init(Context context) {
         addView(com.baidu.adp.lib.g.b.ek().inflate(context, w.shut_down_validate_tip, null));
-        this.bjC = (ImageView) findViewById(v.no_network_icon);
-        this.bjD = (TextView) findViewById(v.no_network_guide1);
-        this.bjE = (TextView) findViewById(v.no_network_guide2);
-        this.bjB = (TextView) findViewById(v.no_network_showmore);
+        this.bjQ = (ImageView) findViewById(v.no_network_icon);
+        this.bjR = (TextView) findViewById(v.no_network_guide1);
+        this.bjS = (TextView) findViewById(v.no_network_guide2);
+        this.bjP = (TextView) findViewById(v.no_network_showmore);
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        if (this.bjB != null) {
-            this.bjB.setOnClickListener(onClickListener);
+        if (this.bjP != null) {
+            this.bjP.setOnClickListener(onClickListener);
         }
     }
 
     public static void setIsHasNetwork(boolean z) {
-        if (z != In) {
-            In = z;
-            if (In) {
-                Iterator<ShutDownValidateTipView> it = Il.iterator();
+        if (z != Io) {
+            Io = z;
+            if (Io) {
+                Iterator<ShutDownValidateTipView> it = Im.iterator();
                 while (it.hasNext()) {
                     it.next().setVisible(false);
                 }
                 return;
             }
-            Iterator<ShutDownValidateTipView> it2 = Il.iterator();
+            Iterator<ShutDownValidateTipView> it2 = Im.iterator();
             while (it2.hasNext()) {
                 it2.next().setVisible(true);
             }
@@ -74,8 +74,8 @@ public class ShutDownValidateTipView extends FrameLayout {
     }
 
     public void setVisible(boolean z) {
-        if (z != this.bjF) {
-            this.bjF = z;
+        if (z != this.bjT) {
+            this.bjT = z;
             if (z) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
@@ -83,8 +83,8 @@ public class ShutDownValidateTipView extends FrameLayout {
                 alphaAnimation.setAnimationListener(new p(this));
                 setVisibility(0);
                 startAnimation(alphaAnimation);
-                for (int i = 0; i < this.Iq.size(); i++) {
-                    this.Iq.get(i).aa(false);
+                for (int i = 0; i < this.Ir.size(); i++) {
+                    this.Ir.get(i).aa(false);
                 }
             } else if (getVisibility() != 8) {
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
@@ -92,8 +92,8 @@ public class ShutDownValidateTipView extends FrameLayout {
                 alphaAnimation2.setDuration(500L);
                 alphaAnimation2.setAnimationListener(new q(this));
                 startAnimation(alphaAnimation2);
-                for (int i2 = 0; i2 < this.Iq.size(); i2++) {
-                    this.Iq.get(i2).aa(true);
+                for (int i2 = 0; i2 < this.Ir.size(); i2++) {
+                    this.Ir.get(i2).aa(true);
                 }
             }
         }
@@ -102,27 +102,27 @@ public class ShutDownValidateTipView extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        Il.add(this);
+        Im.add(this);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        Il.remove(this);
-        this.Iq.clear();
+        Im.remove(this);
+        this.Ir.clear();
     }
 
     public void onChangeSkinType(int i) {
-        aw.c(this.bjC, u.icon_error);
+        aw.c(this.bjQ, u.icon_error);
         aw.h(findViewById(v.no_network_parent), u.bg_no_network);
         if (i == 1) {
-            this.bjD.setTextColor(-10523526);
-            this.bjE.setTextColor(-8682095);
-            this.bjB.setTextColor(-10523526);
+            this.bjR.setTextColor(-10523526);
+            this.bjS.setTextColor(-8682095);
+            this.bjP.setTextColor(-10523526);
             return;
         }
-        this.bjD.setTextColor(-14277082);
-        this.bjE.setTextColor(-5065030);
-        this.bjB.setTextColor(-14277082);
+        this.bjR.setTextColor(-14277082);
+        this.bjS.setTextColor(-5065030);
+        this.bjP.setTextColor(-14277082);
     }
 }

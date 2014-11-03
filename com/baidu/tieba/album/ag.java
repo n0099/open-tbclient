@@ -5,13 +5,13 @@ import android.widget.RelativeLayout;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 class ag {
-    ImageView aiA;
-    RelativeLayout aiB;
-    final /* synthetic */ ab ait;
-    HeadImageView aiz;
+    final /* synthetic */ ab aiC;
+    HeadImageView aiI;
+    ImageView aiJ;
+    RelativeLayout aiK;
 
     private ag(ab abVar) {
-        this.ait = abVar;
+        this.aiC = abVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

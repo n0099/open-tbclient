@@ -3,8 +3,8 @@ package com.baidu.tbadk.core.view;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class s {
-    String Ij;
     String Ik;
+    String Il;
     String mTitle;
 
     private s() {
@@ -20,22 +20,22 @@ public class s {
 
     public static s cc(String str) {
         s sVar = new s();
-        sVar.Ij = str;
+        sVar.Ik = str;
         return sVar;
     }
 
     public static s O(String str, String str2) {
         s sVar = new s();
         sVar.mTitle = str2;
-        sVar.Ij = str;
+        sVar.Ik = str;
         return sVar;
     }
 
     public static s j(String str, String str2, String str3) {
         s sVar = new s();
         sVar.mTitle = str2;
-        sVar.Ij = str;
-        sVar.Ik = str3;
+        sVar.Ik = str;
+        sVar.Il = str3;
         return sVar;
     }
 }

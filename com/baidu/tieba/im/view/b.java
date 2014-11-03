@@ -9,23 +9,23 @@ import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class b {
-    final /* synthetic */ ChatterboxDialog bjf;
+    final /* synthetic */ ChatterboxDialog bjt;
     private View mView = null;
     private LinearLayout mLayout = null;
-    private TextView aey = null;
-    private ImageView bjg = null;
-    private String bjh = null;
+    private TextView aeG = null;
+    private ImageView bju = null;
+    private String bjv = null;
 
     public b(ChatterboxDialog chatterboxDialog, Context context) {
-        this.bjf = chatterboxDialog;
+        this.bjt = chatterboxDialog;
         init(context);
     }
 
     private void init(Context context) {
         this.mView = com.baidu.adp.lib.g.b.ek().inflate(context, w.chatterbox_dialog_item, null);
-        this.aey = (TextView) this.mView.findViewById(v.chatterbox_text);
+        this.aeG = (TextView) this.mView.findViewById(v.chatterbox_text);
         this.mLayout = (LinearLayout) this.mView.findViewById(v.chatterbox_item_layout);
-        this.bjg = (ImageView) this.mView.findViewById(v.chatterbox_selected);
+        this.bju = (ImageView) this.mView.findViewById(v.chatterbox_selected);
     }
 
     public boolean M(View view) {
@@ -34,26 +34,26 @@ class b {
 
     public void setIsSelected(boolean z) {
         if (z) {
-            this.bjg.setVisibility(0);
+            this.bju.setVisibility(0);
         } else {
-            this.bjg.setVisibility(8);
+            this.bju.setVisibility(8);
         }
     }
 
     public String getContent() {
-        return this.bjh;
+        return this.bjv;
     }
 
     public void setContent(String str) {
-        this.bjh = str;
+        this.bjv = str;
     }
 
     public void setText(String str) {
-        this.aey.setText(str);
+        this.aeG.setText(str);
     }
 
     public String getText() {
-        CharSequence text = this.aey.getText();
+        CharSequence text = this.aeG.getText();
         if (text != null) {
             return text.toString();
         }

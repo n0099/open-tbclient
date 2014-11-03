@@ -3,9 +3,8 @@ package com.baidu.adp.lib.stats;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h extends BroadcastReceiver {
+class h extends BroadcastReceiver {
     final /* synthetic */ f this$0;
 
     private h(f fVar) {

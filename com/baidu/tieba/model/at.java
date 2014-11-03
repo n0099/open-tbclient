@@ -12,13 +12,13 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class at extends BdAsyncTask<Integer, Integer, com.baidu.tieba.data.ao> {
-    final /* synthetic */ ar bpA;
-    private com.baidu.tieba.a.c bpy = null;
-    private String KX = null;
-    private boolean bpz = false;
+    final /* synthetic */ ar bpO;
+    private com.baidu.tieba.a.c bpM = null;
+    private String KY = null;
+    private boolean bpN = false;
 
     public at(ar arVar) {
-        this.bpA = arVar;
+        this.bpO = arVar;
         setPriority(3);
     }
 
@@ -41,43 +41,43 @@ public class at extends BdAsyncTask<Integer, Integer, com.baidu.tieba.data.ao> {
         WriteData writeData3;
         WriteData writeData4;
         WriteData writeData5;
-        if (this.bpz) {
+        if (this.bpN) {
             return null;
         }
-        this.bpy = new com.baidu.tieba.a.c();
-        com.baidu.tieba.a.c cVar = this.bpy;
-        writeData = this.bpA.bpv;
-        z = this.bpA.bpx;
-        this.KX = cVar.a(writeData, z);
-        ErrorData AF = this.bpy.AF();
-        if (this.bpy.jq() && this.KX != null) {
-            AntiData AE = this.bpy.AE();
-            String error_msg = AF.getError_msg();
+        this.bpM = new com.baidu.tieba.a.c();
+        com.baidu.tieba.a.c cVar = this.bpM;
+        writeData = this.bpO.bpJ;
+        z = this.bpO.bpL;
+        this.KY = cVar.a(writeData, z);
+        ErrorData AH = this.bpM.AH();
+        if (this.bpM.jq() && this.KY != null) {
+            AntiData AG = this.bpM.AG();
+            String error_msg = AH.getError_msg();
             if (com.baidu.adp.lib.util.l.aA(error_msg)) {
-                error_msg = com.baidu.tieba.aj.wk().getApp().getString(com.baidu.tieba.y.send_success);
+                error_msg = com.baidu.tieba.aj.wm().getApp().getString(com.baidu.tieba.y.send_success);
             }
-            com.baidu.tieba.data.ao aoVar2 = new com.baidu.tieba.data.ao(AF.getError_code(), error_msg, AE);
-            writeData2 = this.bpA.bpv;
+            com.baidu.tieba.data.ao aoVar2 = new com.baidu.tieba.data.ao(AH.getError_code(), error_msg, AG);
+            writeData2 = this.bpO.bpJ;
             if (writeData2 != null) {
-                writeData3 = this.bpA.bpv;
+                writeData3 = this.bpO.bpJ;
                 if (!writeData3.isHasImages()) {
-                    writeData5 = this.bpA.bpv;
+                    writeData5 = this.bpO.bpJ;
                 }
                 if (!aoVar2.hasError()) {
-                    writeData4 = this.bpA.bpv;
+                    writeData4 = this.bpO.bpJ;
                     writeData4.deleteUploadedTempImages();
                     aoVar = aoVar2;
                 }
             }
             aoVar = aoVar2;
-        } else if (AF != null) {
-            aoVar = new com.baidu.tieba.data.ao(AF.getError_code(), AF.getError_msg(), null);
+        } else if (AH != null) {
+            aoVar = new com.baidu.tieba.data.ao(AH.getError_code(), AH.getError_msg(), null);
         } else {
-            aoVar = new com.baidu.tieba.data.ao(-17, com.baidu.tieba.aj.wk().getApp().getString(com.baidu.tieba.y.neterror), null);
+            aoVar = new com.baidu.tieba.data.ao(-17, com.baidu.tieba.aj.wm().getApp().getString(com.baidu.tieba.y.neterror), null);
         }
         if (!aoVar.hasError()) {
             try {
-                str = new JSONObject(this.KX).optString(AddFriendActivityConfig.MSG);
+                str = new JSONObject(this.KY).optString(AddFriendActivityConfig.MSG);
             } catch (JSONException e) {
                 e.printStackTrace();
                 str = null;
@@ -100,20 +100,20 @@ public class at extends BdAsyncTask<Integer, Integer, com.baidu.tieba.data.ao> {
         as asVar2;
         WriteData writeData2;
         super.onPostExecute(aoVar);
-        this.bpA.bpu = null;
-        if (!this.bpz && aoVar != null) {
+        this.bpO.bpI = null;
+        if (!this.bpN && aoVar != null) {
             if (!aoVar.hasError()) {
-                writeData = this.bpA.bpv;
+                writeData = this.bpO.bpJ;
                 if (writeData != null) {
-                    writeData2 = this.bpA.bpv;
+                    writeData2 = this.bpO.bpJ;
                     if (writeData2.isBabaoPosted()) {
-                        com.baidu.tieba.e.a.adI();
+                        com.baidu.tieba.e.a.adL();
                     }
                 }
-                asVar = this.bpA.bpw;
+                asVar = this.bpO.bpK;
                 if (asVar != null) {
-                    asVar2 = this.bpA.bpw;
-                    asVar2.a(true, aoVar.getErrorString(), null, null, aoVar.An());
+                    asVar2 = this.bpO.bpK;
+                    asVar2.a(true, aoVar.getErrorString(), null, null, aoVar.Ap());
                     return;
                 }
                 return;
@@ -126,17 +126,17 @@ public class at extends BdAsyncTask<Integer, Integer, com.baidu.tieba.data.ao> {
     public void cancel() {
         as asVar;
         as asVar2;
-        this.bpz = true;
-        if (this.bpy != null) {
-            this.bpy.cancel();
+        this.bpN = true;
+        if (this.bpM != null) {
+            this.bpM.cancel();
         }
-        asVar = this.bpA.bpw;
+        asVar = this.bpO.bpK;
         if (asVar != null) {
-            asVar2 = this.bpA.bpw;
+            asVar2 = this.bpO.bpK;
             asVar2.a(false, null, null, null, null);
         }
         super.cancel(true);
-        this.bpA.bpu = null;
+        this.bpO.bpI = null;
     }
 
     private void b(com.baidu.tieba.data.ao aoVar) {
@@ -148,31 +148,31 @@ public class at extends BdAsyncTask<Integer, Integer, com.baidu.tieba.data.ao> {
         as asVar3;
         as asVar4;
         WriteData writeData4;
-        AntiData An = aoVar.An();
-        if (!aoVar.Am()) {
-            asVar = this.bpA.bpw;
+        AntiData Ap = aoVar.Ap();
+        if (!aoVar.Ao()) {
+            asVar = this.bpO.bpK;
             if (asVar != null) {
-                asVar2 = this.bpA.bpw;
-                asVar2.a(false, aoVar.getErrorString(), null, null, aoVar.An());
+                asVar2 = this.bpO.bpK;
+                asVar2.a(false, aoVar.getErrorString(), null, null, aoVar.Ap());
                 return;
             }
             return;
         }
-        com.baidu.tbadk.coreExtra.data.f fVar = new com.baidu.tbadk.coreExtra.data.f();
-        fVar.parserJson(this.KX);
-        if (fVar.getVcode_pic_url() != null) {
-            writeData = this.bpA.bpv;
+        com.baidu.tbadk.coreExtra.data.g gVar = new com.baidu.tbadk.coreExtra.data.g();
+        gVar.parserJson(this.KY);
+        if (gVar.getVcode_pic_url() != null) {
+            writeData = this.bpO.bpJ;
             if (writeData != null) {
-                writeData2 = this.bpA.bpv;
-                writeData2.setVcodeMD5(fVar.getVcode_md5());
-                writeData3 = this.bpA.bpv;
-                writeData3.setVcodeUrl(fVar.getVcode_pic_url());
-                asVar3 = this.bpA.bpw;
+                writeData2 = this.bpO.bpJ;
+                writeData2.setVcodeMD5(gVar.getVcode_md5());
+                writeData3 = this.bpO.bpJ;
+                writeData3.setVcodeUrl(gVar.getVcode_pic_url());
+                asVar3 = this.bpO.bpK;
                 if (asVar3 != null) {
-                    asVar4 = this.bpA.bpw;
+                    asVar4 = this.bpO.bpK;
                     String errorString = aoVar.getErrorString();
-                    writeData4 = this.bpA.bpv;
-                    asVar4.a(false, errorString, fVar, writeData4, An);
+                    writeData4 = this.bpO.bpJ;
+                    asVar4.a(false, errorString, gVar, writeData4, Ap);
                 }
             }
         }

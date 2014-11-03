@@ -4,27 +4,27 @@ import com.baidu.adp.widget.ListView.BdTypeListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cf implements com.baidu.tieba.c.c {
-    final /* synthetic */ bu aDt;
+    final /* synthetic */ bu aDD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cf(bu buVar) {
-        this.aDt = buVar;
+        this.aDD = buVar;
     }
 
     @Override // com.baidu.tieba.c.c
-    public void GJ() {
+    public void GL() {
         FrsActivity frsActivity;
-        frsActivity = this.aDt.aBp;
-        frsActivity.FG();
+        frsActivity = this.aDD.aBz;
+        frsActivity.FI();
     }
 
     @Override // com.baidu.tieba.c.c
-    public void GK() {
+    public void GM() {
         BdTypeListView bdTypeListView;
         BdTypeListView bdTypeListView2;
-        bdTypeListView = this.aDt.aCB;
+        bdTypeListView = this.aDD.aCL;
         if (bdTypeListView != null) {
-            bdTypeListView2 = this.aDt.aCB;
+            bdTypeListView2 = this.aDD.aCL;
             bdTypeListView2.setSelection(0);
         }
     }

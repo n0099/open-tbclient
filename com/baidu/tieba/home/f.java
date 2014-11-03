@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.NotLoginGuideActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.pluginArch.Plugin;
 import com.baidu.tbadk.pluginArch.PluginCenter;
 import com.baidu.tbadk.pluginArch.PluginHelper;
@@ -33,51 +33,51 @@ import com.baidu.tieba.square.BarFolderFirstDirActivity;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class f extends BaseFragment implements AbsListView.OnScrollListener, com.baidu.tbadk.imageManager.d {
-    private BaseFragmentActivity axV;
-    private r aMd = null;
-    private m aMe = null;
-    private com.baidu.tieba.model.n aMf = null;
-    private y aMg = null;
-    private boolean aMh = true;
-    private boolean aMi = false;
-    private Boolean aMj = false;
-    private long aAK = -1;
-    private boolean aMk = false;
-    private com.baidu.adp.framework.listener.a aMl = new g(this, CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011);
-    private final com.baidu.tieba.model.r aMm = new h(this);
-    private final View.OnKeyListener aMn = new i(this);
+    private BaseFragmentActivity aye;
+    private r aMr = null;
+    private m aMs = null;
+    private com.baidu.tieba.model.n aMt = null;
+    private y aMu = null;
+    private boolean aMv = true;
+    private boolean aMw = false;
+    private Boolean aMx = false;
+    private long aAU = -1;
+    private boolean aMy = false;
+    private com.baidu.adp.framework.listener.a aMz = new g(this, CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011);
+    private final com.baidu.tieba.model.r aMA = new h(this);
+    private final View.OnKeyListener aMB = new i(this);
     private final com.baidu.adp.widget.ListView.f uo = new j(this);
 
     static {
-        HM();
+        HQ();
     }
 
-    private void IG() {
-        MessageManager.getInstance().unRegisterListener(this.aMl);
-        MessageManager.getInstance().registerListener(this.aMl);
+    private void IK() {
+        MessageManager.getInstance().unRegisterListener(this.aMz);
+        MessageManager.getInstance().registerListener(this.aMz);
     }
 
-    private static void HM() {
+    private static void HQ() {
         ai.a(303011, forumRecommendSocketResponseMessage.class, false, false);
         ai.a(303011, CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, "c/f/forum/forumrecommend", forumRecommendHttpResponseMessage.class, false, false, false, false);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        if (dialogInterface == this.aMd.Ja() || dialogInterface == this.aMd.Jb()) {
+        if (dialogInterface == this.aMr.Je() || dialogInterface == this.aMr.Jf()) {
             switch (i) {
                 case 0:
-                    if (this.aMg != null) {
-                        String name = this.aMg.getName();
-                        if (ay.az(name)) {
-                            sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.axV).createNormalCfg(name, FrsActivityConfig.FRS_FROM_LIKE)));
+                    if (this.aMu != null) {
+                        String name = this.aMu.getName();
+                        if (az.az(name)) {
+                            sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.aye).createNormalCfg(name, FrsActivityConfig.FRS_FROM_LIKE)));
                             return;
                         }
                         return;
                     }
                     return;
                 case 1:
-                    IH();
+                    IL();
                     return;
                 default:
                     return;
@@ -85,13 +85,13 @@ public class f extends BaseFragment implements AbsListView.OnScrollListener, com
         }
     }
 
-    private void IH() {
-        if (this.aMg != null) {
-            if (this.aMg.isLike() == 1) {
-                this.aMd.IZ();
-            } else if (this.aMe == null) {
-                this.aMe = new m(this, this.aMg);
-                this.aMe.execute(new y[0]);
+    private void IL() {
+        if (this.aMu != null) {
+            if (this.aMu.isLike() == 1) {
+                this.aMr.Jd();
+            } else if (this.aMs == null) {
+                this.aMs = new m(this, this.aMu);
+                this.aMs.execute(new y[0]);
             }
         }
     }
@@ -99,7 +99,7 @@ public class f extends BaseFragment implements AbsListView.OnScrollListener, com
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        this.axV = (BaseFragmentActivity) activity;
+        this.aye = (BaseFragmentActivity) activity;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -110,9 +110,9 @@ public class f extends BaseFragment implements AbsListView.OnScrollListener, com
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.aMl.setTag(BdUniqueId.gen());
-        IG();
-        this.aAK = System.currentTimeMillis();
+        this.aMz.setTag(BdUniqueId.gen());
+        IK();
+        this.aAU = System.currentTimeMillis();
         initUI();
         d(getArguments());
     }
@@ -122,30 +122,30 @@ public class f extends BaseFragment implements AbsListView.OnScrollListener, com
     }
 
     private void initUI() {
-        this.aMd = new r(this.axV, this, this.aMn);
-        this.aMd.a(this.uo);
-        this.aMd.e(new k(this));
-        this.aMd.IP().setOnClickListener(this);
+        this.aMr = new r(this.aye, this, this.aMB);
+        this.aMr.a(this.uo);
+        this.aMr.e(new k(this));
+        this.aMr.IT().setOnClickListener(this);
     }
 
     private void d(Bundle bundle) {
-        this.aMh = true;
-        this.aMi = false;
-        this.aMj = false;
-        this.aMf = new com.baidu.tieba.model.n(this.axV);
-        this.aMf.a(this.aMm);
+        this.aMv = true;
+        this.aMw = false;
+        this.aMx = false;
+        this.aMt = new com.baidu.tieba.model.n(this.aye);
+        this.aMt.a(this.aMA);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        this.aMd.onStop();
+        this.aMr.onStop();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        this.aMk = false;
+        this.aMy = false;
         if (!TbadkApplication.isLogin()) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NotLoginGuideActivityConfig(getActivity(), NotLoginGuideActivityConfig.FROM_LOGO)));
             getActivity().finish();
@@ -161,13 +161,13 @@ public class f extends BaseFragment implements AbsListView.OnScrollListener, com
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NotLoginGuideActivityConfig(getActivity(), NotLoginGuideActivityConfig.FROM_LOGO)));
             getActivity().finish();
         }
-        this.aMd.onResume();
+        this.aMr.onResume();
         ct(false);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
-        so();
+        sq();
         super.onDestroy();
     }
 
@@ -175,59 +175,59 @@ public class f extends BaseFragment implements AbsListView.OnScrollListener, com
     public void onClick(View view) {
         Hao123Plugin hao123Plugin;
         if (view.getId() == com.baidu.tieba.v.search_bg_layout) {
-            sendMessage(new CustomMessage(2015002, new com.baidu.tbadk.core.frameworkData.a(this.axV)));
-        } else if (view.getId() == this.aMd.IT() || view.getId() == this.aMd.IU()) {
-            if (!this.aMk) {
+            sendMessage(new CustomMessage(2015002, new com.baidu.tbadk.core.frameworkData.a(this.aye)));
+        } else if (view.getId() == this.aMr.IX() || view.getId() == this.aMr.IY()) {
+            if (!this.aMy) {
                 y yVar = view.getTag() instanceof y ? (y) view.getTag() : null;
                 if (yVar != null) {
                     String name = yVar.getName();
-                    if (ay.az(name)) {
-                        TiebaStatic.eventStat(this.axV, "ef_recent", "click", 1, new Object[0]);
-                        this.aMk = true;
-                        sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.axV).createNormalCfg(name, FrsActivityConfig.FRS_FROM_LIKE)));
+                    if (az.az(name)) {
+                        TiebaStatic.eventStat(this.aye, "ef_recent", "click", 1, new Object[0]);
+                        this.aMy = true;
+                        sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.aye).createNormalCfg(name, FrsActivityConfig.FRS_FROM_LIKE)));
                     }
                 }
             }
-        } else if (view.getId() == this.aMd.IV() || view.getId() == this.aMd.IW()) {
+        } else if (view.getId() == this.aMr.IZ() || view.getId() == this.aMr.Ja()) {
             ad adVar = view.getTag() instanceof ad ? (ad) view.getTag() : null;
             if (adVar != null) {
                 String forumName = adVar.getForumName();
-                if (ay.az(forumName)) {
-                    sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.axV).createNormalCfg(forumName, FrsActivityConfig.FRS_FROM_LIKE)));
+                if (az.az(forumName)) {
+                    sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.aye).createNormalCfg(forumName, FrsActivityConfig.FRS_FROM_LIKE)));
                 }
             }
         } else if (view.getId() == com.baidu.tieba.v.square_all_cat) {
-            TiebaStatic.eventStat(this.axV, "enter_icon_category", "click", 1, new Object[0]);
-            BarFolderFirstDirActivity.b(this.axV, "enter_icon_category");
-        } else if (view == this.aMd.IP()) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new com.baidu.tbadk.core.frameworkData.a(this.axV)));
-        } else if (view == this.aMd.IM()) {
-            this.aMd.Jd();
-        } else if (view == this.aMd.IL() && PluginHelper.isHao123CanUse(this.axV)) {
+            TiebaStatic.eventStat(this.aye, "enter_icon_category", "click", 1, new Object[0]);
+            BarFolderFirstDirActivity.b(this.aye, "enter_icon_category");
+        } else if (view == this.aMr.IT()) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new com.baidu.tbadk.core.frameworkData.a(this.aye)));
+        } else if (view == this.aMr.IQ()) {
+            this.aMr.Jh();
+        } else if (view == this.aMr.IP() && PluginHelper.isHao123CanUse(this.aye)) {
             TbadkApplication.m251getInst().setTiebaHelperOpen(true);
             Plugin pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_HAO123);
             if (pluginByName != null && (hao123Plugin = (Hao123Plugin) pluginByName.getClassInstance(Hao123Plugin.class)) != null) {
-                hao123Plugin.openFloating(this.axV);
+                hao123Plugin.openFloating(this.aye);
             }
-            this.aMd.Jd();
-            com.baidu.tbadk.core.i.l(this.axV, "tb_zs_entering");
+            this.aMr.Jh();
+            com.baidu.tbadk.core.j.l(this.aye, "tb_zs_entering");
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
-        if (view.getId() == this.aMd.IT() || view.getId() == this.aMd.IU()) {
-            this.aMg = null;
+        if (view.getId() == this.aMr.IX() || view.getId() == this.aMr.IY()) {
+            this.aMu = null;
             y yVar = view.getTag() instanceof y ? (y) view.getTag() : null;
             if (yVar != null) {
-                this.aMg = yVar;
+                this.aMu = yVar;
                 String name = yVar.getName();
                 int isLike = yVar.isLike();
-                if (ay.az(name)) {
+                if (az.az(name)) {
                     if (isLike == 1) {
-                        this.aMd.IX();
+                        this.aMr.Jb();
                     } else {
-                        this.aMd.IY();
+                        this.aMr.Jc();
                     }
                 }
             }
@@ -238,66 +238,66 @@ public class f extends BaseFragment implements AbsListView.OnScrollListener, com
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.aMd.onChangeSkinType(i);
+        this.aMr.onChangeSkinType(i);
     }
 
-    public void so() {
-        if (this.aMe != null) {
-            this.aMe.cancel();
-            this.aMe = null;
+    public void sq() {
+        if (this.aMs != null) {
+            this.aMs.cancel();
+            this.aMs = null;
         }
-        this.aMf.cancelLoadData();
+        this.aMt.cancelLoadData();
     }
 
     public void ct(boolean z) {
         boolean z2;
         boolean z3;
-        if (this.aMf != null) {
-            boolean booleanValue = this.aMj.booleanValue();
-            this.aMj = Boolean.valueOf((TbadkApplication.getCurrentAccount() == null || TbadkApplication.getCurrentAccountName() == null) ? false : true);
-            if (this.aMh) {
-                this.aMh = false;
+        if (this.aMt != null) {
+            boolean booleanValue = this.aMx.booleanValue();
+            this.aMx = Boolean.valueOf((TbadkApplication.getCurrentAccount() == null || TbadkApplication.getCurrentAccountName() == null) ? false : true);
+            if (this.aMv) {
+                this.aMv = false;
                 z2 = true;
                 z3 = false;
-            } else if (booleanValue != this.aMj.booleanValue()) {
+            } else if (booleanValue != this.aMx.booleanValue()) {
                 z2 = false;
                 z3 = true;
             } else {
                 z2 = false;
                 z3 = false;
             }
-            if (aj.wk().wx()) {
-                aj.wk().aR(false);
+            if (aj.wm().wz()) {
+                aj.wm().aR(false);
                 z3 = true;
             }
             boolean z4 = z ? true : z3;
-            if (aj.wk().wq() > 0) {
-                if (this.aMf != null && this.aMf.Tm() != null && this.aMf.Tm().yQ() != null) {
-                    Iterator<y> it = this.aMf.Tm().yQ().zx().iterator();
+            if (aj.wm().ws() > 0) {
+                if (this.aMt != null && this.aMt.Tp() != null && this.aMt.Tp().yS() != null) {
+                    Iterator<y> it = this.aMt.Tp().yS().zz().iterator();
                     while (it.hasNext()) {
                         y next = it.next();
-                        if (aj.wk().dT(next.getName())) {
+                        if (aj.wm().dT(next.getName())) {
                             next.ec(1);
-                            int dU = aj.wk().dU(next.getName());
+                            int dU = aj.wm().dU(next.getName());
                             if (dU > 0) {
                                 next.setLevel(dU);
                             }
                         }
                     }
                 }
-                aj.wk().wp();
+                aj.wm().wr();
                 String currentAccount = TbadkApplication.getCurrentAccount();
                 if (currentAccount != null && currentAccount.length() > 0) {
                     com.baidu.tieba.util.j.hx(currentAccount);
                 }
-                this.aMd.notifyDataSetChanged();
+                this.aMr.notifyDataSetChanged();
             }
             if (z2 || z4) {
-                so();
+                sq();
                 if (z4) {
-                    this.aMd.hO();
+                    this.aMr.hO();
                 } else if (z2) {
-                    this.aMf.dE(this.aMj.booleanValue());
+                    this.aMt.dE(this.aMx.booleanValue());
                     new Handler().postDelayed(new l(this), 1000L);
                 }
             }

@@ -5,9 +5,9 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 class v {
-    ViewGroup aHn;
-    TextView aHo;
-    HeadImageView aHp;
-    TextView aHq;
-    TextView aHr;
+    TextView aHA;
+    TextView aHB;
+    ViewGroup aHx;
+    TextView aHy;
+    HeadImageView aHz;
 }

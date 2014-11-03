@@ -11,20 +11,20 @@ public class h {
     public static final View a(BaseFragmentActivity baseFragmentActivity, String str, int i, View.OnClickListener onClickListener) {
         i iVar = new i(null);
         View inflate = LinearLayout.inflate(baseFragmentActivity, w.forum_feed_guide, null);
-        iVar.Pc = (LinearLayout) inflate.findViewById(v.forum_feed_login_container);
-        iVar.ayg = (NoNetworkView) inflate.findViewById(v.view_no_network);
-        iVar.ayf = new com.baidu.tbadk.core.view.d(baseFragmentActivity, str, str, 0);
-        iVar.Pc.addView(iVar.ayf.getView());
+        iVar.Pg = (LinearLayout) inflate.findViewById(v.forum_feed_login_container);
+        iVar.ayp = (NoNetworkView) inflate.findViewById(v.view_no_network);
+        iVar.ayo = new com.baidu.tbadk.core.view.d(baseFragmentActivity, str, str, 0);
+        iVar.Pg.addView(iVar.ayo.getView());
         inflate.setTag(iVar);
         a(baseFragmentActivity, inflate, i);
         return inflate;
     }
 
-    public static final int Ek() {
+    public static final int Em() {
         return v.login_btn;
     }
 
-    public static final int El() {
+    public static final int En() {
         return v.reg_btn;
     }
 
@@ -33,15 +33,15 @@ public class h {
         baseFragmentActivity.getLayoutMode().L(i == 1);
         baseFragmentActivity.getLayoutMode().h(view);
         if (iVar != null) {
-            iVar.ayf.bG(i);
-            iVar.ayg.onChangeSkinType(i);
+            iVar.ayo.bG(i);
+            iVar.ayp.onChangeSkinType(i);
         }
     }
 
     public static void y(View view) {
         i iVar;
-        if (view != null && view.getTag() != null && (iVar = (i) view.getTag()) != null && iVar.ayf != null) {
-            iVar.ayf.onStop();
+        if (view != null && view.getTag() != null && (iVar = (i) view.getTag()) != null && iVar.ayo != null) {
+            iVar.ayo.onStop();
         }
     }
 }

@@ -9,7 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class an {
-    private com.baidu.tieba.data.ar bpm = new com.baidu.tieba.data.ar();
+    private com.baidu.tieba.data.ar bpA = new com.baidu.tieba.data.ar();
     private Context mContext;
 
     public an(Context context, String str) {
@@ -27,17 +27,17 @@ public class an {
             JSONObject optJSONObject4 = jSONObject.optJSONObject("anti");
             AntiData antiData = new AntiData();
             antiData.parserJson(optJSONObject4);
-            this.bpm.a(antiData);
+            this.bpA.a(antiData);
             com.baidu.tbadk.core.data.q qVar = new com.baidu.tbadk.core.data.q();
             qVar.parserJson(optJSONObject3);
-            this.bpm.a(qVar);
+            this.bpA.a(qVar);
             ForumData forumData = new ForumData();
             forumData.parserJson(optJSONObject2);
-            this.bpm.a(forumData);
+            this.bpA.a(forumData);
             com.baidu.tieba.data.ak akVar = new com.baidu.tieba.data.ak();
             akVar.parserJson(optJSONObject);
             akVar.O(this.mContext);
-            this.bpm.a(akVar);
+            this.bpA.a(akVar);
             int length = optJSONArray.length();
             ArrayList<com.baidu.tieba.data.ak> arrayList = new ArrayList<>();
             for (int i = 0; i < length; i++) {
@@ -47,22 +47,22 @@ public class an {
                 akVar2.O(this.mContext);
                 arrayList.add(akVar2);
             }
-            this.bpm.l(arrayList);
+            this.bpA.m(arrayList);
             JSONObject optJSONObject5 = jSONObject.optJSONObject("page");
             int optInt = optJSONObject5.optInt("total_page");
             int optInt2 = optJSONObject5.optInt("page_size");
             int optInt3 = optJSONObject5.optInt("current_page");
             int optInt4 = optJSONObject5.optInt("total_count");
-            this.bpm.ek(optInt3);
-            this.bpm.ej(optInt2);
-            this.bpm.setTotalCount(optInt4);
-            this.bpm.ei(optInt);
+            this.bpA.ek(optInt3);
+            this.bpA.ej(optInt2);
+            this.bpA.setTotalCount(optInt4);
+            this.bpA.ei(optInt);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public com.baidu.tieba.data.ar TL() {
-        return this.bpm;
+    public com.baidu.tieba.data.ar TO() {
+        return this.bpA;
     }
 }

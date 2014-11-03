@@ -7,14 +7,14 @@ import com.baidu.tbadk.TbadkApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.j> {
-    com.baidu.tieba.square.j ave;
-    final /* synthetic */ c avf;
+    com.baidu.tieba.square.j avn;
+    final /* synthetic */ c avo;
     private com.baidu.tbadk.core.util.ac yV;
 
     private d(c cVar) {
-        this.avf = cVar;
+        this.avo = cVar;
         this.yV = null;
-        this.ave = new com.baidu.tieba.square.j();
+        this.avn = new com.baidu.tieba.square.j();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -30,13 +30,13 @@ public class d extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.j> {
         e eVar;
         boolean z;
         super.onProgressUpdate(numArr);
-        if (this.ave != null) {
-            eVar = this.avf.auY;
-            int errorCode = this.ave.getErrorCode();
-            com.baidu.tieba.square.q ado = this.ave.ado();
-            String errorMsg = this.ave.getErrorMsg();
-            z = this.avf.avd;
-            eVar.a(true, errorCode, ado, errorMsg, z);
+        if (this.avn != null) {
+            eVar = this.avo.avh;
+            int errorCode = this.avn.getErrorCode();
+            com.baidu.tieba.square.q adr = this.avn.adr();
+            String errorMsg = this.avn.getErrorMsg();
+            z = this.avo.avm;
+            eVar.a(true, errorCode, adr, errorMsg, z);
         }
     }
 
@@ -55,46 +55,46 @@ public class d extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.j> {
         com.baidu.adp.lib.cache.t<String> bd = com.baidu.tbadk.core.a.a.kS().bd("tb.my_posts");
         if (bd != null) {
             StringBuilder append = new StringBuilder(String.valueOf(TbadkApplication.getCurrentAccount())).append("_");
-            str5 = this.avf.auZ;
+            str5 = this.avo.avi;
             str6 = bd.get(append.append(str5).append("_dir").toString());
         }
         if (str6 != null) {
-            this.ave.parserJson(str6);
-            this.avf.avd = true;
+            this.avn.parserJson(str6);
+            this.avo.avm = true;
             publishProgress(new Integer[0]);
         }
         try {
             this.yV = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/seconddir");
             com.baidu.tbadk.core.util.ac acVar = this.yV;
-            str = this.avf.auZ;
+            str = this.avo.avi;
             acVar.k("menu_name", str);
             com.baidu.tbadk.core.util.ac acVar2 = this.yV;
-            str2 = this.avf.ava;
+            str2 = this.avo.avj;
             acVar2.k("menu_type", str2);
             com.baidu.tbadk.core.util.ac acVar3 = this.yV;
-            str3 = this.avf.avb;
+            str3 = this.avo.avk;
             acVar3.k("menu_id", str3);
             lA = this.yV.lA();
         } catch (Exception e) {
-            this.ave.setErrorMsg(e.getMessage());
+            this.avn.setErrorMsg(e.getMessage());
             BdLog.detailException(e);
         }
         if (lA == null) {
-            return this.ave;
+            return this.avn;
         }
         if (this.yV.mc().nb().jq()) {
-            this.ave.parserJson(lA);
-            this.avf.avc = true;
+            this.avn.parserJson(lA);
+            this.avo.avl = true;
             if (bd != null) {
                 StringBuilder append2 = new StringBuilder(String.valueOf(TbadkApplication.getCurrentAccount())).append("_");
-                str4 = this.avf.auZ;
+                str4 = this.avo.avi;
                 bd.a(append2.append(str4).append("_dir").toString(), lA, 86400000L);
             }
         } else {
-            this.ave.setErrorMsg(this.yV.getErrorString());
-            this.avf.avc = false;
+            this.avn.setErrorMsg(this.yV.getErrorString());
+            this.avo.avl = false;
         }
-        return this.ave;
+        return this.avn;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -107,19 +107,19 @@ public class d extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.j> {
         boolean z2;
         e eVar2;
         boolean z3;
-        z = this.avf.avc;
+        z = this.avo.avl;
         if (!z) {
-            eVar2 = this.avf.auY;
+            eVar2 = this.avo.avh;
             String errorMsg = jVar.getErrorMsg();
-            z3 = this.avf.avd;
+            z3 = this.avo.avm;
             eVar2.a(false, -1, null, errorMsg, z3);
-        } else if (jVar.ado() != null) {
-            eVar = this.avf.auY;
+        } else if (jVar.adr() != null) {
+            eVar = this.avo.avh;
             int errorCode = jVar.getErrorCode();
-            com.baidu.tieba.square.q ado = jVar.ado();
+            com.baidu.tieba.square.q adr = jVar.adr();
             String errorMsg2 = jVar.getErrorMsg();
-            z2 = this.avf.avd;
-            eVar.a(true, errorCode, ado, errorMsg2, z2);
+            z2 = this.avo.avm;
+            eVar.a(true, errorCode, adr, errorMsg2, z2);
         }
     }
 

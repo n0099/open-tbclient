@@ -3,5 +3,5 @@ package com.baidu.tieba.addresslist.view;
 public interface a {
     void eg(String str);
 
-    void xx();
+    void xz();
 }

@@ -7,10 +7,10 @@ import java.util.List;
 import tbclient.ForumRecommend.NewRecommend;
 /* loaded from: classes.dex */
 public class ap {
-    private ArrayList<ad> amp = new ArrayList<>();
+    private ArrayList<ad> amy = new ArrayList<>();
 
-    public ArrayList<ad> Ao() {
-        return this.amp;
+    public ArrayList<ad> Aq() {
+        return this.amy;
     }
 
     public void A(List<?> list) {
@@ -27,7 +27,7 @@ public class ap {
                     if (list.get(i) instanceof NewRecommend) {
                         ad adVar = new ad();
                         adVar.a((NewRecommend) list.get(i));
-                        this.amp.add(adVar);
+                        this.amy.add(adVar);
                     } else {
                         return;
                     }

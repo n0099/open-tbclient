@@ -6,8 +6,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
-    public List<h> aou = new ArrayList();
-    public List<j> aov = new ArrayList();
+    public List<h> aoD = new ArrayList();
+    public List<j> aoE = new ArrayList();
     public String mContent;
 
     public void parseJson(JSONObject jSONObject) {
@@ -20,7 +20,7 @@ public class g {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                     h hVar = new h();
                     hVar.parseJson(jSONObject2);
-                    this.aou.add(hVar);
+                    this.aoD.add(hVar);
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("right");
                 if (optJSONArray2 != null) {
@@ -29,7 +29,7 @@ public class g {
                         JSONObject jSONObject3 = optJSONArray2.getJSONObject(i2);
                         j jVar = new j();
                         jVar.parseJson(jSONObject3);
-                        this.aov.add(jVar);
+                        this.aoE.add(jVar);
                     }
                 }
             }

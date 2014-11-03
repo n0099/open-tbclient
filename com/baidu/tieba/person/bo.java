@@ -1,36 +1,27 @@
 package com.baidu.tieba.person;
 
+import android.app.Activity;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.coreExtra.act.LoginActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bo implements View.OnClickListener {
-    final /* synthetic */ PersonListActivity bCT;
+    final /* synthetic */ PersonListActivity bDh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bo(PersonListActivity personListActivity) {
-        this.bCT = personListActivity;
+        this.bDh = personListActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        br brVar;
-        br brVar2;
-        br brVar3;
-        if (view.getTag() instanceof Integer) {
-            int intValue = ((Integer) view.getTag()).intValue();
-            brVar = this.bCT.bCO;
-            if (brVar != null) {
-                brVar2 = this.bCT.bCO;
-                if (brVar2.getItemViewType(this.bCT.bCs) == 0) {
-                    brVar3 = this.bCT.bCO;
-                    UserData userData = (UserData) brVar3.getItem(intValue);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(this.bCT, userData.getUserId(), userData.getName_show(), userData.getPortrait(), null, false, AddFriendActivityConfig.TYPE_FOCUS_RECOM)));
-                }
-            }
+        this.bDh.bCG = ((Integer) view.getTag()).intValue();
+        String currentAccount = TbadkApplication.getCurrentAccount();
+        if (currentAccount == null || currentAccount.length() <= 0) {
+            LoginActivity.a((Activity) this.bDh, this.bDh.getString(com.baidu.tieba.y.login_to_chat), true, 11028);
+        } else {
+            this.bDh.aad();
         }
     }
 }

@@ -9,10 +9,10 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends BdAsyncTask<String, Integer, List<s>> {
-    final /* synthetic */ EmotionManageActivity asH;
+    final /* synthetic */ EmotionManageActivity asQ;
 
     private t(EmotionManageActivity emotionManageActivity) {
-        this.asH = emotionManageActivity;
+        this.asQ = emotionManageActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,8 +25,8 @@ public class t extends BdAsyncTask<String, Integer, List<s>> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: t */
     public List<s> doInBackground(String... strArr) {
-        List<MyEmotionGroupData> eJ = d.CG().eJ(TbadkApplication.getCurrentAccount());
-        List<EmotionGroupData> cI = com.baidu.tbadk.editortool.u.rw().cI(1);
+        List<MyEmotionGroupData> eJ = d.CI().eJ(TbadkApplication.getCurrentAccount());
+        List<EmotionGroupData> cI = com.baidu.tbadk.editortool.u.ry().cI(1);
         LinkedList linkedList = new LinkedList();
         for (MyEmotionGroupData myEmotionGroupData : eJ) {
             Iterator<EmotionGroupData> it = cI.iterator();
@@ -34,10 +34,10 @@ public class t extends BdAsyncTask<String, Integer, List<s>> {
                 if (it.hasNext()) {
                     EmotionGroupData next = it.next();
                     if (myEmotionGroupData.getGroupId().equals(next.getGroupId()) && e.eK(next.getGroupId())) {
-                        s sVar = new s(this.asH, null);
+                        s sVar = new s(this.asQ, null);
                         sVar.id = next.getGroupId();
                         sVar.name = next.getGroupName();
-                        sVar.asJ = com.baidu.tbadk.editortool.aa.rz().U(sVar.id, "list.png");
+                        sVar.asS = com.baidu.tbadk.editortool.aa.rB().U(sVar.id, "list.png");
                         linkedList.add(sVar);
                         break;
                     }
@@ -53,7 +53,7 @@ public class t extends BdAsyncTask<String, Integer, List<s>> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         super.onPreExecute();
-        this.asH.showProgressBar();
+        this.asQ.showProgressBar();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -65,9 +65,9 @@ public class t extends BdAsyncTask<String, Integer, List<s>> {
         if (list == null) {
             list = new LinkedList<>();
         }
-        this.asH.asu = list;
-        this.asH.bC(false);
-        this.asH.hideProgressBar();
-        this.asH.CJ();
+        this.asQ.asD = list;
+        this.asQ.bC(false);
+        this.asQ.hideProgressBar();
+        this.asQ.CL();
     }
 }

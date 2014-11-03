@@ -61,7 +61,7 @@ public class MetaData extends com.baidu.tbadk.data.MetaData implements at, z, x 
         ArrayList<as> arrayList = new ArrayList<>();
         as asVar = new as();
         asVar.AI = getPortrait();
-        asVar.ER = 12;
+        asVar.ES = 12;
         arrayList.add(asVar);
         return arrayList;
     }

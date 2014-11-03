@@ -5,50 +5,50 @@ import org.json.JSONObject;
 import tbclient.PrivSets;
 /* loaded from: classes.dex */
 public class c extends i {
-    private int Qr = 1;
-    private int Qs = 1;
-    private int Qt = 1;
-    private int Qu = 1;
     private int Qv = 1;
-
-    public int qR() {
-        return this.Qr;
-    }
-
-    public int qS() {
-        return this.Qs;
-    }
+    private int Qw = 1;
+    private int Qx = 1;
+    private int Qy = 1;
+    private int Qz = 1;
 
     public int qT() {
-        return this.Qt;
+        return this.Qv;
     }
 
     public int qU() {
-        return this.Qu;
+        return this.Qw;
     }
 
     public int qV() {
-        return this.Qv;
+        return this.Qx;
+    }
+
+    public int qW() {
+        return this.Qy;
+    }
+
+    public int qX() {
+        return this.Qz;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.Qr = jSONObject.optInt("location", 1);
-            this.Qs = jSONObject.optInt("like", 1);
-            this.Qt = jSONObject.optInt("group", 1);
-            this.Qu = jSONObject.optInt("post", 1);
-            this.Qv = jSONObject.optInt("friend", 1);
+            this.Qv = jSONObject.optInt("location", 1);
+            this.Qw = jSONObject.optInt("like", 1);
+            this.Qx = jSONObject.optInt("group", 1);
+            this.Qy = jSONObject.optInt("post", 1);
+            this.Qz = jSONObject.optInt("friend", 1);
         }
     }
 
     public void a(PrivSets privSets) {
         if (privSets != null) {
             try {
-                this.Qr = privSets.location.intValue();
-                this.Qs = privSets.like.intValue();
-                this.Qt = privSets.group.intValue();
-                this.Qu = privSets.post.intValue();
-                this.Qv = privSets.friend.intValue();
+                this.Qv = privSets.location.intValue();
+                this.Qw = privSets.like.intValue();
+                this.Qx = privSets.group.intValue();
+                this.Qy = privSets.post.intValue();
+                this.Qz = privSets.friend.intValue();
             } catch (Exception e) {
                 e.printStackTrace();
             }

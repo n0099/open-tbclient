@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 class u implements com.baidu.tbadk.core.view.u {
-    final /* synthetic */ FrsActivity aBk;
+    final /* synthetic */ FrsActivity aBu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(FrsActivity frsActivity) {
-        this.aBk = frsActivity;
+        this.aBu = frsActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.u
@@ -17,25 +17,25 @@ class u implements com.baidu.tbadk.core.view.u {
         bu buVar3;
         b bVar2;
         if (z) {
-            buVar = this.aBk.aAv;
-            if (!buVar.Gl()) {
-                bVar = this.aBk.azE;
+            buVar = this.aBu.aAF;
+            if (!buVar.Gn()) {
+                bVar = this.aBu.azN;
                 if (bVar != null) {
-                    bVar2 = this.aBk.azE;
-                    if (bVar2.Fe().size() != 0) {
+                    bVar2 = this.aBu.azN;
+                    if (bVar2.Fg().size() != 0) {
                         return;
                     }
                 }
-                FrsActivity frsActivity = this.aBk;
-                buVar2 = this.aBk.aAv;
+                FrsActivity frsActivity = this.aBu;
+                buVar2 = this.aBu.aAF;
                 frsActivity.hideNetRefreshView(buVar2.getRootView());
-                z2 = this.aBk.aAj;
+                z2 = this.aBu.aAt;
                 if (!z2) {
-                    FrsActivity frsActivity2 = this.aBk;
-                    buVar3 = this.aBk.aAv;
+                    FrsActivity frsActivity2 = this.aBu;
+                    buVar3 = this.aBu.aAF;
                     frsActivity2.showLoadingView(buVar3.getRootView(), true);
                 }
-                this.aBk.refresh();
+                this.aBu.refresh();
             }
         }
     }

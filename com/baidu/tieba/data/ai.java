@@ -7,12 +7,12 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ai implements com.baidu.tbadk.mvc.b.e {
     private String threadId = "";
-    private String alS = "";
+    private String amb = "";
     private String forumName = "";
     private long time = System.currentTimeMillis();
-    private String alT = "";
-    private boolean alU = false;
-    private boolean alV = false;
+    private String amc = "";
+    private boolean amd = false;
+    private boolean ame = false;
 
     public boolean equals(Object obj) {
         if (obj == null || !(obj instanceof ai)) {
@@ -32,10 +32,10 @@ public class ai implements com.baidu.tbadk.mvc.b.e {
         } else {
             hashCode = this.threadId.hashCode() + 119;
         }
-        if (TextUtils.isEmpty(this.alS)) {
+        if (TextUtils.isEmpty(this.amb)) {
             hashCode2 = (hashCode * 7) + 1;
         } else {
-            hashCode2 = (hashCode * 7) + this.alS.hashCode();
+            hashCode2 = (hashCode * 7) + this.amb.hashCode();
         }
         if (TextUtils.isEmpty(this.forumName)) {
             hashCode3 = (hashCode2 * 7) + 1;
@@ -43,12 +43,12 @@ public class ai implements com.baidu.tbadk.mvc.b.e {
             hashCode3 = (hashCode2 * 7) + this.forumName.hashCode();
         }
         int i = (hashCode3 * 7) + ((int) this.time);
-        if (TextUtils.isEmpty(this.alT)) {
+        if (TextUtils.isEmpty(this.amc)) {
             hashCode4 = (i * 7) + 1;
         } else {
-            hashCode4 = (i * 7) + this.alT.hashCode();
+            hashCode4 = (i * 7) + this.amc.hashCode();
         }
-        return (((this.alU ? 1 : 0) + (hashCode4 * 7)) * 7) + (this.alV ? 1 : 0);
+        return (((this.amd ? 1 : 0) + (hashCode4 * 7)) * 7) + (this.ame ? 1 : 0);
     }
 
     public boolean f(JSONObject jSONObject) {
@@ -57,9 +57,9 @@ public class ai implements com.baidu.tbadk.mvc.b.e {
             String string2 = jSONObject.getString("thread_id");
             String string3 = jSONObject.getString("thread_name");
             long j = jSONObject.getLong(PbActivityConfig.KEY_THREAD_TIME);
-            this.alT = jSONObject.optString("post_id");
-            this.alU = jSONObject.optBoolean(PbActivityConfig.KEY_HOST_ONLY);
-            this.alV = jSONObject.optBoolean(PbActivityConfig.KEY_SQUENCE);
+            this.amc = jSONObject.optString("post_id");
+            this.amd = jSONObject.optBoolean(PbActivityConfig.KEY_HOST_ONLY);
+            this.ame = jSONObject.optBoolean(PbActivityConfig.KEY_SQUENCE);
             if (!TextUtils.isEmpty(string)) {
                 this.forumName = string;
             }
@@ -67,7 +67,7 @@ public class ai implements com.baidu.tbadk.mvc.b.e {
                 this.threadId = string2;
             }
             if (!TextUtils.isEmpty(string3)) {
-                this.alS = string3;
+                this.amb = string3;
             }
             if (j > 2000) {
                 this.time = j;
@@ -78,16 +78,16 @@ public class ai implements com.baidu.tbadk.mvc.b.e {
         }
     }
 
-    public JSONObject zT() {
+    public JSONObject zV() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("forum_name", this.forumName);
             jSONObject.put("thread_id", this.threadId);
             jSONObject.put(PbActivityConfig.KEY_THREAD_TIME, this.time);
-            jSONObject.put("thread_name", this.alS);
-            jSONObject.put("post_id", this.alT);
-            jSONObject.put(PbActivityConfig.KEY_HOST_ONLY, this.alU);
-            jSONObject.put(PbActivityConfig.KEY_SQUENCE, this.alV);
+            jSONObject.put("thread_name", this.amb);
+            jSONObject.put("post_id", this.amc);
+            jSONObject.put(PbActivityConfig.KEY_HOST_ONLY, this.amd);
+            jSONObject.put(PbActivityConfig.KEY_SQUENCE, this.ame);
         } catch (JSONException e) {
         }
         return jSONObject;
@@ -97,8 +97,8 @@ public class ai implements com.baidu.tbadk.mvc.b.e {
         return this.threadId;
     }
 
-    public String zU() {
-        return this.alS;
+    public String zW() {
+        return this.amb;
     }
 
     public String getForumName() {
@@ -114,35 +114,35 @@ public class ai implements com.baidu.tbadk.mvc.b.e {
     }
 
     public void ex(String str) {
-        this.alS = str;
+        this.amb = str;
     }
 
     public void setForumName(String str) {
         this.forumName = str;
     }
 
-    public String zV() {
-        return this.alT;
+    public String zX() {
+        return this.amc;
     }
 
     public void ey(String str) {
-        this.alT = str;
+        this.amc = str;
     }
 
-    public boolean zW() {
-        return this.alU;
+    public boolean zY() {
+        return this.amd;
     }
 
     public void bt(boolean z) {
-        this.alU = z;
+        this.amd = z;
     }
 
-    public boolean zX() {
-        return this.alV;
+    public boolean zZ() {
+        return this.ame;
     }
 
     public void bu(boolean z) {
-        this.alV = z;
+        this.ame = z;
     }
 
     @Override // com.baidu.tbadk.mvc.b.c
@@ -151,8 +151,8 @@ public class ai implements com.baidu.tbadk.mvc.b.e {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String tn() {
-        return zT().toString();
+    public String tp() {
+        return zV().toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.e

@@ -1,12 +1,11 @@
 package com.baidu.tieba.im.groupInfo;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements com.baidu.tbadk.core.view.a {
-    final /* synthetic */ GroupImageActivity bah;
+class i implements com.baidu.tbadk.core.view.a {
+    final /* synthetic */ GroupImageActivity baw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(GroupImageActivity groupImageActivity) {
-        this.bah = groupImageActivity;
+        this.baw = groupImageActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.a

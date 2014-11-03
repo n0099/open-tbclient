@@ -7,13 +7,13 @@ import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends com.baidu.tieba.util.k {
-    final /* synthetic */ g ajY;
+    final /* synthetic */ g akh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(g gVar, Context context) {
         super(context);
-        this.ajY = gVar;
+        this.akh = gVar;
     }
 
     @Override // com.baidu.tieba.util.k, android.text.style.ClickableSpan
@@ -24,7 +24,7 @@ public class i extends com.baidu.tieba.util.k {
         String str2;
         String str3;
         pattern = g.pbPattern0;
-        str = this.ajY.link;
+        str = this.akh.link;
         Matcher matcher = pattern.matcher(str);
         if (matcher.find()) {
             try {
@@ -36,7 +36,7 @@ public class i extends com.baidu.tieba.util.k {
             }
         }
         pattern2 = g.pbPattern1;
-        str2 = this.ajY.link;
+        str2 = this.akh.link;
         Matcher matcher2 = pattern2.matcher(str2);
         if (matcher2.find()) {
             try {
@@ -47,7 +47,7 @@ public class i extends com.baidu.tieba.util.k {
                 e2.printStackTrace();
             }
         }
-        str3 = this.ajY.link;
+        str3 = this.akh.link;
         hC(str3);
     }
 }

@@ -11,17 +11,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ak {
-    private static final String[] EC = {"/c/s/pv", "/c/f/pb/page", "/c/s/msg", "/c/f/pb/floor", "/c/m/getmsg", "/c/u/feed/replyme", "/c/f/forum/search", "/c/f/frs/page", "/c/f/forum/favocommend", "/c/u/user/profile"};
-    private static List<Integer> ED = new LinkedList();
-    private static ak EE;
-    private static al EF;
+    private static final String[] ED = {"/c/s/pv", "/c/f/pb/page", "/c/s/msg", "/c/f/pb/floor", "/c/m/getmsg", "/c/u/feed/replyme", "/c/f/forum/search", "/c/f/frs/page", "/c/f/forum/favocommend", "/c/u/user/profile"};
+    private static List<Integer> EE = new LinkedList();
+    private static ak EF;
+    private static al EG;
 
     private ak() {
-        EF = new al(this, null);
+        EG = new al(this, null);
         try {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            TbadkApplication.m251getInst().getApp().registerReceiver(EF, intentFilter);
+            TbadkApplication.m251getInst().getApp().registerReceiver(EG, intentFilter);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
         }
@@ -29,25 +29,25 @@ public class ak {
 
     private static synchronized void mq() {
         synchronized (ak.class) {
-            if (EE == null) {
-                EE = new ak();
+            if (EF == null) {
+                EF = new ak();
             }
         }
     }
 
     public static ak mr() {
-        if (EE == null) {
+        if (EF == null) {
             mq();
         }
-        return EE;
+        return EF;
     }
 
     public static int bJ(String str) {
-        if (ay.aA(str)) {
+        if (az.aA(str)) {
             return -1;
         }
-        for (int i = 0; i < EC.length; i++) {
-            if (str.contains(EC[i])) {
+        for (int i = 0; i < ED.length; i++) {
+            if (str.contains(ED[i])) {
                 return i + 1;
             }
         }
@@ -59,7 +59,7 @@ public class ak {
         int i3;
         if (i > 0 && i2 > 0) {
             String string = com.baidu.tbadk.core.sharedPref.b.lk().getString("network_error_record", "");
-            if (ay.aA(string)) {
+            if (az.aA(string)) {
                 list = new LinkedList<>();
                 am amVar = new am(this, null);
                 amVar.port = i;
@@ -90,27 +90,27 @@ public class ak {
                 list = bL;
             }
             String f = f(list);
-            if (!ay.aA(f)) {
+            if (!az.aA(f)) {
                 com.baidu.tbadk.core.sharedPref.b.lk().putString("network_error_record", f);
             }
         }
     }
 
     public synchronized void ms() {
-        for (Integer num : ED) {
+        for (Integer num : EE) {
             l(num.intValue(), 2);
         }
     }
 
     public synchronized void bt(int i) {
         if (i > 0) {
-            ED.add(Integer.valueOf(i));
+            EE.add(Integer.valueOf(i));
         }
     }
 
     public synchronized void bu(int i) {
         if (i > 0) {
-            ED.remove(Integer.valueOf(i));
+            EE.remove(Integer.valueOf(i));
         }
     }
 

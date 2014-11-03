@@ -11,61 +11,61 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.base.d<ValidateItemData> {
-    private View bbX;
-    private HeadImageView bbY;
-    private TextView bbZ;
-    private ValidateActivity biS;
-    private TextView biT;
-    private TextView biU;
-    private TextView biV;
-    private ValidateItemData biW;
+    private View bcl;
+    private HeadImageView bcm;
+    private TextView bcn;
+    private ValidateActivity bjg;
+    private TextView bjh;
+    private TextView bji;
+    private TextView bjj;
+    private ValidateItemData bjk;
 
     public h(ValidateActivity validateActivity) {
         super(validateActivity, w.validate_item);
-        this.biS = validateActivity;
+        this.bjg = validateActivity;
         nu();
     }
 
     void nu() {
-        this.bbX = this.ay.findViewById(v.root_view);
-        this.bbY = (HeadImageView) this.bbX.findViewById(v.iv_head);
-        this.bbY.setIsRound(false);
-        this.biT = (TextView) this.bbX.findViewById(v.tv_user_name);
-        this.bbZ = (TextView) this.bbX.findViewById(v.tv_group_name);
-        this.biU = (TextView) this.bbX.findViewById(v.tv_apply_reason);
-        this.biV = (TextView) this.bbX.findViewById(v.btn_pass);
-        this.biV.setOnClickListener(new i(this));
-        this.bbY.setOnClickListener(new j(this));
-        this.bbX.setOnLongClickListener(new k(this));
+        this.bcl = this.ay.findViewById(v.root_view);
+        this.bcm = (HeadImageView) this.bcl.findViewById(v.iv_head);
+        this.bcm.setIsRound(false);
+        this.bjh = (TextView) this.bcl.findViewById(v.tv_user_name);
+        this.bcn = (TextView) this.bcl.findViewById(v.tv_group_name);
+        this.bji = (TextView) this.bcl.findViewById(v.tv_apply_reason);
+        this.bjj = (TextView) this.bcl.findViewById(v.btn_pass);
+        this.bjj.setOnClickListener(new i(this));
+        this.bcm.setOnClickListener(new j(this));
+        this.bcl.setOnLongClickListener(new k(this));
     }
 
     public void refresh() {
-        if (this.biW != null) {
-            this.biS.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
-            this.biS.getLayoutMode().h(this.bbX);
-            String portrait = this.biW.getPortrait();
-            this.bbY.setTag(portrait);
-            this.bbY.c(portrait, 12, false);
-            if (!TextUtils.isEmpty(this.biW.getUserName())) {
-                this.biT.setText(this.biW.getUserName());
+        if (this.bjk != null) {
+            this.bjg.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
+            this.bjg.getLayoutMode().h(this.bcl);
+            String portrait = this.bjk.getPortrait();
+            this.bcm.setTag(portrait);
+            this.bcm.c(portrait, 12, false);
+            if (!TextUtils.isEmpty(this.bjk.getUserName())) {
+                this.bjh.setText(this.bjk.getUserName());
             }
-            if (!TextUtils.isEmpty(this.biW.getGroupName())) {
-                this.bbZ.setText(String.valueOf(this.biS.getString(y.validate_im_apply_prefix)) + this.biW.getGroupName());
+            if (!TextUtils.isEmpty(this.bjk.getGroupName())) {
+                this.bcn.setText(String.valueOf(this.bjg.getString(y.validate_im_apply_prefix)) + this.bjk.getGroupName());
             }
-            if (!TextUtils.isEmpty(this.biW.getApplyReason())) {
-                this.biU.setText(String.valueOf(this.biS.getString(y.validate_im_reason_prefix)) + this.biW.getApplyReason());
+            if (!TextUtils.isEmpty(this.bjk.getApplyReason())) {
+                this.bji.setText(String.valueOf(this.bjg.getString(y.validate_im_reason_prefix)) + this.bjk.getApplyReason());
             }
-            if (this.biW.isPass()) {
-                this.biV.setEnabled(false);
-                this.biV.setText(this.biS.getString(y.validate_im_btn_passed));
-                this.biV.setTextColor(getContext().getResources().getColor(com.baidu.tieba.s.cp_cont_d));
-                this.biV.setBackgroundDrawable(null);
+            if (this.bjk.isPass()) {
+                this.bjj.setEnabled(false);
+                this.bjj.setText(this.bjg.getString(y.validate_im_btn_passed));
+                this.bjj.setTextColor(getContext().getResources().getColor(com.baidu.tieba.s.cp_cont_d));
+                this.bjj.setBackgroundDrawable(null);
             } else {
-                this.biV.setEnabled(true);
-                this.biV.setText(this.biS.getString(y.validate_im_btn_pass));
+                this.bjj.setEnabled(true);
+                this.bjj.setText(this.bjg.getString(y.validate_im_btn_pass));
             }
-            if (!this.biW.isShown()) {
-                aw.h(this.bbX, com.baidu.tieba.s.validate_item_background_sean);
+            if (!this.bjk.isShown()) {
+                aw.h(this.bcl, com.baidu.tieba.s.validate_item_background_sean);
             }
         }
     }
@@ -76,6 +76,6 @@ public class h extends com.baidu.adp.base.d<ValidateItemData> {
     }
 
     public void g(ValidateItemData validateItemData) {
-        this.biW = validateItemData;
+        this.bjk = validateItemData;
     }
 }

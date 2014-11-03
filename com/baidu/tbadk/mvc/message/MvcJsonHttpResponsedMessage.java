@@ -85,14 +85,14 @@ public class MvcJsonHttpResponsedMessage<D extends i> extends MvcHttpResponsedMe
             if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof d)) {
                 d dVar = (d) mvcHttpMessage.getRequestData();
                 String cacheKey = dVar.getCacheKey();
-                String sW = dVar.sW();
-                if (cacheKey != null && !TextUtils.isEmpty(sW) && bArr != null) {
-                    if (dVar.tm()) {
-                        t<byte[]> bc = a.kS().bc(sW);
+                String sY = dVar.sY();
+                if (cacheKey != null && !TextUtils.isEmpty(sY) && bArr != null) {
+                    if (dVar.to()) {
+                        t<byte[]> bc = a.kS().bc(sY);
                         if (bc != null) {
                             bc.b(cacheKey, bArr);
                         }
-                    } else if ((mvcHttpMessage.getRequestData() instanceof com.baidu.tbadk.mvc.b.e) && (bd = a.kS().bd(sW)) != null) {
+                    } else if ((mvcHttpMessage.getRequestData() instanceof com.baidu.tbadk.mvc.b.e) && (bd = a.kS().bd(sY)) != null) {
                         try {
                             bd.b(cacheKey, new String(bArr, "UTF-8"));
                         } catch (UnsupportedEncodingException e) {

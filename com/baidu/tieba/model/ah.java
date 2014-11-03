@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ah extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.aa> {
-    final /* synthetic */ ag bpc;
+    final /* synthetic */ ag bpq;
     private volatile com.baidu.tbadk.core.util.ac yV;
 
     private ah(ag agVar) {
-        this.bpc = agVar;
+        this.bpq = agVar;
         this.yV = null;
     }
 
@@ -37,18 +37,18 @@ public class ah extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.aa> {
         try {
             this.yV = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/like");
             com.baidu.tbadk.core.util.ac acVar = this.yV;
-            str = this.bpc.mForumName;
+            str = this.bpq.mForumName;
             acVar.k("kw", str);
             com.baidu.tbadk.core.util.ac acVar2 = this.yV;
-            str2 = this.bpc.mForumId;
+            str2 = this.bpq.mForumId;
             acVar2.k(ImageViewerConfig.FORUM_ID, str2);
             com.baidu.tbadk.core.util.ac acVar3 = this.yV;
-            str3 = this.bpc.from;
+            str3 = this.bpq.from;
             acVar3.k("st_type", str3);
-            str4 = this.bpc.bpa;
+            str4 = this.bpq.bpo;
             if (!TextUtils.isEmpty(str4)) {
                 com.baidu.tbadk.core.util.ac acVar4 = this.yV;
-                str8 = this.bpc.bpa;
+                str8 = this.bpq.bpo;
                 acVar4.k("pagefrom", str8);
             }
             this.yV.mc().na().mIsNeedTbs = true;
@@ -56,11 +56,11 @@ public class ah extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.aa> {
             if (this.yV.mc().nb().jq() && lA != null) {
                 com.baidu.tieba.data.aa aaVar = new com.baidu.tieba.data.aa();
                 aaVar.parserJson(lA);
-                str5 = this.bpc.mForumId;
+                str5 = this.bpq.mForumId;
                 aaVar.et(str5);
-                str6 = this.bpc.mForumId;
-                str7 = this.bpc.mForumName;
-                Hao123Model.addLikeData(str6, str7, aaVar.zz());
+                str6 = this.bpq.mForumId;
+                str7 = this.bpq.mForumName;
+                Hao123Model.addLikeData(str6, str7, aaVar.zB());
                 return aaVar;
             }
         } catch (Exception e) {
@@ -76,14 +76,14 @@ public class ah extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.aa> {
     public void onPostExecute(com.baidu.tieba.data.aa aaVar) {
         com.baidu.adp.base.h hVar;
         com.baidu.adp.base.h hVar2;
-        this.bpc.bpb = null;
+        this.bpq.bpp = null;
         if (aaVar == null && this.yV != null) {
-            this.bpc.mErrorCode = this.yV.mg();
-            this.bpc.mErrorString = this.yV.getErrorString();
+            this.bpq.mErrorCode = this.yV.mg();
+            this.bpq.mErrorString = this.yV.getErrorString();
         }
-        hVar = this.bpc.mLoadDataCallBack;
+        hVar = this.bpq.mLoadDataCallBack;
         if (hVar != null) {
-            hVar2 = this.bpc.mLoadDataCallBack;
+            hVar2 = this.bpq.mLoadDataCallBack;
             hVar2.a(aaVar);
         }
     }
@@ -95,9 +95,9 @@ public class ah extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.aa> {
             this.yV.dM();
             this.yV = null;
         }
-        this.bpc.bpb = null;
+        this.bpq.bpp = null;
         super.cancel(true);
-        hVar = this.bpc.mLoadDataCallBack;
+        hVar = this.bpq.mLoadDataCallBack;
         hVar.a(null);
     }
 }

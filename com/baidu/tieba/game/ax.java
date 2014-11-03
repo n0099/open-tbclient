@@ -4,15 +4,15 @@ import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.game.GameInfoData;
 /* loaded from: classes.dex */
 class ax implements com.baidu.tieba.game.view.d {
-    final /* synthetic */ av aIW;
+    final /* synthetic */ av aJj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(av avVar) {
-        this.aIW = avVar;
+        this.aJj = avVar;
     }
 
     @Override // com.baidu.tieba.game.view.d
     public void a(GameInfoData gameInfoData, DownloadData downloadData) {
-        ab.Hs().m(gameInfoData);
+        ab.Hu().n(gameInfoData);
     }
 }

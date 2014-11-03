@@ -5,11 +5,11 @@ import android.content.Intent;
 import android.view.View;
 /* loaded from: classes.dex */
 class aa implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity bCm;
+    final /* synthetic */ PersonChangeActivity bCA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(PersonChangeActivity personChangeActivity) {
-        this.bCm = personChangeActivity;
+        this.bCA = personChangeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,34 +23,34 @@ class aa implements View.OnClickListener {
         com.baidu.tieba.model.au auVar4;
         com.baidu.tieba.model.au auVar5;
         Dialog dialog;
-        auVar = this.bCm.bCd;
-        int sex = auVar.TT().getSex();
-        i = this.bCm.mSex;
+        auVar = this.bCA.bCr;
+        int sex = auVar.TW().getSex();
+        i = this.bCA.mSex;
         if (sex != i) {
-            this.bCm.JU = true;
+            this.bCA.JV = true;
         }
-        z = this.bCm.JU;
+        z = this.bCA.JV;
         if (!z) {
-            auVar2 = this.bCm.bCd;
+            auVar2 = this.bCA.bCr;
             if (auVar2 != null) {
-                auVar3 = this.bCm.bCd;
-                if (auVar3.TT().getPhotoChanged()) {
+                auVar3 = this.bCA.bCr;
+                if (auVar3.TW().getPhotoChanged()) {
                     Intent intent = new Intent();
-                    bool = this.bCm.bBQ;
+                    bool = this.bCA.bCe;
                     if (bool.booleanValue()) {
-                        auVar5 = this.bCm.bCd;
-                        intent.putExtra("person_change_data", auVar5.TT());
+                        auVar5 = this.bCA.bCr;
+                        intent.putExtra("person_change_data", auVar5.TW());
                     } else {
-                        auVar4 = this.bCm.bCd;
-                        intent.putExtra("data", auVar4.TT());
+                        auVar4 = this.bCA.bCr;
+                        intent.putExtra("data", auVar4.TW());
                     }
-                    this.bCm.setResult(-1, intent);
+                    this.bCA.setResult(-1, intent);
                 }
             }
-            this.bCm.finish();
+            this.bCA.finish();
             return;
         }
-        dialog = this.bCm.bCi;
-        com.baidu.adp.lib.g.j.a(dialog, this.bCm);
+        dialog = this.bCA.bCw;
+        com.baidu.adp.lib.g.j.a(dialog, this.bCA);
     }
 }

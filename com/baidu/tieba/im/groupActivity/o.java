@@ -6,13 +6,13 @@ import com.baidu.tieba.im.message.ResponseGetGroupActivityMessage;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class o extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ GroupActivityActivity aZa;
+    final /* synthetic */ GroupActivityActivity aZn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(GroupActivityActivity groupActivityActivity, int i) {
         super(i);
-        this.aZa = groupActivityActivity;
+        this.aZn = groupActivityActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,44 +23,44 @@ class o extends com.baidu.adp.framework.listener.e {
         r rVar3;
         s sVar;
         if (socketResponsedMessage == null) {
-            this.aZa.hideProgressBar();
-            this.aZa.showToast(y.neterror);
+            this.aZn.hideProgressBar();
+            this.aZn.showToast(y.neterror);
         } else if (socketResponsedMessage.getCmd() == 103015) {
-            this.aZa.hideProgressBar();
+            this.aZn.hideProgressBar();
             if (!(socketResponsedMessage instanceof ResponseGetGroupActivityMessage)) {
-                this.aZa.showToast(y.neterror);
+                this.aZn.showToast(y.neterror);
                 return;
             }
             ResponseGetGroupActivityMessage responseGetGroupActivityMessage = (ResponseGetGroupActivityMessage) socketResponsedMessage;
-            rVar2 = this.aZa.aYZ;
+            rVar2 = this.aZn.aZm;
             if (rVar2.getSendMsg() == responseGetGroupActivityMessage.getOrginalMessage()) {
                 if (responseGetGroupActivityMessage.getError() == 2230504) {
-                    this.aZa.showToast(responseGetGroupActivityMessage.getErrorString(), false);
-                    this.aZa.finish();
+                    this.aZn.showToast(responseGetGroupActivityMessage.getErrorString(), false);
+                    this.aZn.finish();
                 } else if (responseGetGroupActivityMessage.getError() == 0) {
-                    rVar3 = this.aZa.aYZ;
+                    rVar3 = this.aZn.aZm;
                     rVar3.a(responseGetGroupActivityMessage.getActivityData());
-                    sVar = this.aZa.aYY;
+                    sVar = this.aZn.aZl;
                     sVar.a(responseGetGroupActivityMessage.getActivityData(), false);
                 } else {
-                    this.aZa.showToast(y.neterror);
+                    this.aZn.showToast(y.neterror);
                 }
             }
         } else if (socketResponsedMessage.getCmd() == 103121) {
-            this.aZa.hideProgressBar();
+            this.aZn.hideProgressBar();
             if (!(socketResponsedMessage instanceof ResponseDelGroupActivityMessage)) {
-                this.aZa.showToast(y.neterror);
+                this.aZn.showToast(y.neterror);
                 return;
             }
             ResponseDelGroupActivityMessage responseDelGroupActivityMessage = (ResponseDelGroupActivityMessage) socketResponsedMessage;
-            rVar = this.aZa.aYZ;
-            if (rVar.Oi() == responseDelGroupActivityMessage.getOrginalMessage()) {
+            rVar = this.aZn.aZm;
+            if (rVar.Ol() == responseDelGroupActivityMessage.getOrginalMessage()) {
                 if (responseDelGroupActivityMessage.getError() != 0) {
-                    this.aZa.showToast(responseDelGroupActivityMessage.getErrorString());
+                    this.aZn.showToast(responseDelGroupActivityMessage.getErrorString());
                     return;
                 }
-                this.aZa.showToast(y.group_activity_delete_succ, false);
-                this.aZa.finish();
+                this.aZn.showToast(y.group_activity_delete_succ, false);
+                this.aZn.finish();
             }
         }
     }

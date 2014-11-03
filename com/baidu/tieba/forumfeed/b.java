@@ -5,11 +5,11 @@ import com.baidu.tieba.model.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.base.h {
-    final /* synthetic */ a aya;
+    final /* synthetic */ a ayj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.aya = aVar;
+        this.ayj = aVar;
     }
 
     @Override // com.baidu.adp.base.h
@@ -17,24 +17,24 @@ public class b extends com.baidu.adp.base.h {
         boolean z;
         VoiceManager voiceManager;
         VoiceManager voiceManager2;
-        z = this.aya.axX;
+        z = this.ayj.ayg;
         if (z) {
-            voiceManager = this.aya.axQ;
+            voiceManager = this.ayj.axZ;
             if (voiceManager != null) {
-                voiceManager2 = this.aya.axQ;
+                voiceManager2 = this.ayj.axZ;
                 voiceManager2.forceStop();
             }
-            this.aya.axX = false;
+            this.ayj.ayg = false;
         }
         if (!(obj instanceof u)) {
             if (obj != null) {
-                this.aya.v(obj);
+                this.ayj.v(obj);
                 return;
             } else {
-                this.aya.Eg();
+                this.ayj.Ei();
                 return;
             }
         }
-        this.aya.u(obj);
+        this.ayj.u(obj);
     }
 }

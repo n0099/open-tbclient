@@ -10,62 +10,62 @@ import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t {
-    private FrameLayout bSW;
-    private TbImageView bSX;
-    private com.baidu.tbadk.img.e bSY;
-    final /* synthetic */ r bSZ;
+    private FrameLayout bTl;
+    private TbImageView bTm;
+    private com.baidu.tbadk.img.e bTn;
+    final /* synthetic */ r bTo;
     private int index;
     private ProgressBar xM;
 
     public t(r rVar, int i) {
         BaseActivity baseActivity;
         BaseActivity baseActivity2;
-        this.bSZ = rVar;
+        this.bTo = rVar;
         this.xM = null;
         this.index = -1;
         this.index = i;
         com.baidu.adp.lib.g.b ek = com.baidu.adp.lib.g.b.ek();
-        baseActivity = rVar.On;
-        this.bSW = (FrameLayout) ek.inflate(baseActivity, com.baidu.tieba.w.progress_tb_imageview, null);
-        this.bSX = (TbImageView) this.bSW.findViewById(com.baidu.tieba.v.progress_tb_imageview);
-        this.bSX.setClickable(true);
-        this.bSX.setDefaultResource(0);
-        this.bSX.setDefaultBgResource(0);
-        this.bSX.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        baseActivity2 = rVar.On;
-        this.bSY = new com.baidu.tbadk.img.e(baseActivity2);
-        this.bSX.setOnClickListener(new u(this));
-        this.xM = (ProgressBar) this.bSW.findViewById(com.baidu.tieba.v.progress_tb_imageview_progress);
+        baseActivity = rVar.Or;
+        this.bTl = (FrameLayout) ek.inflate(baseActivity, com.baidu.tieba.w.progress_tb_imageview, null);
+        this.bTm = (TbImageView) this.bTl.findViewById(com.baidu.tieba.v.progress_tb_imageview);
+        this.bTm.setClickable(true);
+        this.bTm.setDefaultResource(0);
+        this.bTm.setDefaultBgResource(0);
+        this.bTm.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        baseActivity2 = rVar.Or;
+        this.bTn = new com.baidu.tbadk.img.e(baseActivity2);
+        this.bTm.setOnClickListener(new u(this));
+        this.xM = (ProgressBar) this.bTl.findViewById(com.baidu.tieba.v.progress_tb_imageview_progress);
         this.xM.setVisibility(8);
     }
 
     public View getView() {
-        return this.bSW;
+        return this.bTl;
     }
 
     public void h(ImageFileInfo imageFileInfo) {
-        adn();
-        this.bSX.setDefaultResource(0);
-        this.bSX.setDefaultBgResource(0);
-        com.baidu.adp.widget.a.a a = this.bSY.a(imageFileInfo, false);
+        adq();
+        this.bTm.setDefaultResource(0);
+        this.bTm.setDefaultBgResource(0);
+        com.baidu.adp.widget.a.a a = this.bTn.a(imageFileInfo, false);
         if (a != null) {
-            a.a(this.bSX);
+            a.a(this.bTm);
             return;
         }
         eL(false);
-        this.bSY.a(imageFileInfo, new v(this), false);
+        this.bTn.a(imageFileInfo, new v(this), false);
     }
 
-    public void adn() {
-        if (this.bSY != null) {
-            this.bSY.so();
+    public void adq() {
+        if (this.bTn != null) {
+            this.bTn.sq();
         }
-        if (this.bSX != null) {
-            this.bSX.setImageDrawable(null);
+        if (this.bTm != null) {
+            this.bTm.setImageDrawable(null);
         }
     }
 
-    public boolean afi() {
+    public boolean afl() {
         return this.xM.getVisibility() != 0;
     }
 
@@ -79,23 +79,23 @@ public class t {
         s sVar4;
         if (z) {
             if (this.xM.getVisibility() != 8) {
-                sVar3 = this.bSZ.bSR;
+                sVar3 = this.bTo.bTg;
                 if (sVar3 != null) {
-                    sVar4 = this.bSZ.bSR;
-                    sVar4.afh();
+                    sVar4 = this.bTo.bTg;
+                    sVar4.afk();
                 }
                 this.xM.setVisibility(8);
-                jVarArr2 = this.bSZ.bST;
+                jVarArr2 = this.bTo.bTi;
                 jVarArr2[this.index].setCanbeClick(true);
             }
         } else if (this.xM.getVisibility() != 0) {
-            sVar = this.bSZ.bSR;
+            sVar = this.bTo.bTg;
             if (sVar != null) {
-                sVar2 = this.bSZ.bSR;
-                sVar2.afg();
+                sVar2 = this.bTo.bTg;
+                sVar2.afj();
             }
             this.xM.setVisibility(0);
-            jVarArr = this.bSZ.bST;
+            jVarArr = this.bTo.bTi;
             jVarArr[this.index].setCanbeClick(false);
         }
     }

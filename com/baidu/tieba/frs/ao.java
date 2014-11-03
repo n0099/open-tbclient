@@ -16,11 +16,11 @@ class ao extends CustomMessageListener {
         if (customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
             int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
             if (intValue == 1 || intValue == 4 || intValue == 3) {
-                FrsActivity.aAl = true;
+                FrsActivity.aAv = true;
             } else if (intValue == 2) {
-                FrsActivity.aAm = true;
+                FrsActivity.aAw = true;
             }
-            FrsActivity.aAk = true;
+            FrsActivity.aAu = true;
         }
     }
 }

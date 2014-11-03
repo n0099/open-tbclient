@@ -1,48 +1,44 @@
 package com.baidu.tieba.game;
 
-import android.widget.RelativeLayout;
-import com.baidu.tbadk.core.util.UtilHelper;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.GameClassifyActivityConfig;
+import com.baidu.tbadk.core.atomData.GameNewActivityConfig;
+import com.baidu.tbadk.core.atomData.HotGameActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bk implements bq {
-    final /* synthetic */ bi aJf;
+public class bk implements View.OnClickListener {
+    final /* synthetic */ bj aJs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bk(bi biVar) {
-        this.aJf = biVar;
+    public bk(bj bjVar) {
+        this.aJs = bjVar;
     }
 
-    @Override // com.baidu.tieba.game.bq
-    public void b(an anVar) {
-        RelativeLayout relativeLayout;
-        bi biVar = this.aJf;
-        relativeLayout = this.aJf.aJb;
-        biVar.hideLoadingView(relativeLayout);
-        this.aJf.a(anVar);
-        this.aJf.aIk = true;
-    }
-
-    @Override // com.baidu.tieba.game.bq
-    public void fw(String str) {
-        RelativeLayout relativeLayout;
-        bi biVar = this.aJf;
-        relativeLayout = this.aJf.aJb;
-        biVar.hideLoadingView(relativeLayout);
-        this.aJf.showToast(str);
-    }
-
-    @Override // com.baidu.tieba.game.bq
-    public void c(an anVar) {
-        RelativeLayout relativeLayout;
-        bn bnVar;
-        this.aJf.aIl = true;
-        bi biVar = this.aJf;
-        relativeLayout = this.aJf.aJb;
-        biVar.hideLoadingView(relativeLayout);
-        this.aJf.a(anVar);
-        if (UtilHelper.isNetOk()) {
-            bnVar = this.aJf.aJd;
-            bnVar.HO();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        bo boVar;
+        bo boVar2;
+        bo boVar3;
+        bo boVar4;
+        boVar = this.aJs.aJl;
+        if (boVar != null) {
+            boVar2 = this.aJs.aJl;
+            if (view != boVar2.getGameNewView()) {
+                boVar3 = this.aJs.aJl;
+                if (view != boVar3.getGameHotView()) {
+                    boVar4 = this.aJs.aJl;
+                    if (view == boVar4.getGameCategoryView()) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GameClassifyActivityConfig(this.aJs.getActivity())));
+                        return;
+                    }
+                    return;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotGameActivityConfig(this.aJs.getActivity())));
+                return;
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GameNewActivityConfig(this.aJs.getActivity())));
         }
     }
 }

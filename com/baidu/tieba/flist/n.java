@@ -8,12 +8,12 @@ import com.baidu.tieba.flist.ForumListModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n extends BdAsyncTask<Void, Void, ForumListModel> {
-    final /* synthetic */ ForumListActivity avP;
-    boolean avR;
+    final /* synthetic */ ForumListActivity avY;
+    boolean awa;
 
     private n(ForumListActivity forumListActivity) {
-        this.avP = forumListActivity;
-        this.avR = false;
+        this.avY = forumListActivity;
+        this.awa = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -22,14 +22,14 @@ public class n extends BdAsyncTask<Void, Void, ForumListModel> {
     }
 
     public void bF(boolean z) {
-        this.avR = z;
+        this.awa = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
-        this.avP.avy.awu.setEnabled(false);
-        this.avP.avy.awv.setText(this.avP.getString(com.baidu.tieba.y.flist_loading));
+        this.avY.avH.awD.setEnabled(false);
+        this.avY.avH.awE.setText(this.avY.getString(com.baidu.tieba.y.flist_loading));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -43,15 +43,15 @@ public class n extends BdAsyncTask<Void, Void, ForumListModel> {
         int i;
         ForumListModel.RequestParams requestParams4;
         try {
-            requestParams = this.avP.avz;
+            requestParams = this.avY.avI;
             requestParams.recommend_type = 2;
-            requestParams2 = this.avP.avz;
+            requestParams2 = this.avY.avI;
             requestParams2.offset = 0;
-            requestParams3 = this.avP.avz;
-            i = this.avP.avp;
+            requestParams3 = this.avY.avI;
+            i = this.avY.avy;
             requestParams3.rn = i;
-            ForumListActivity forumListActivity = this.avP;
-            requestParams4 = this.avP.avz;
+            ForumListActivity forumListActivity = this.avY;
+            requestParams4 = this.avY.avI;
             return ForumListModel.new_fetch(forumListActivity, requestParams4);
         } catch (Exception e) {
             return null;
@@ -74,51 +74,51 @@ public class n extends BdAsyncTask<Void, Void, ForumListModel> {
         Drawable drawable4;
         Drawable drawable5;
         if (forumListModel != null && forumListModel.recommend_list_right != null) {
-            int min = Math.min(forumListModel.recommend_list_right.forum_list.length, this.avP.recommend_list_right.forum_list.length);
-            System.arraycopy(forumListModel.recommend_list_right.forum_list, 0, this.avP.recommend_list_right.forum_list, 0, min);
-            pVar = this.avP.avD;
+            int min = Math.min(forumListModel.recommend_list_right.forum_list.length, this.avY.recommend_list_right.forum_list.length);
+            System.arraycopy(forumListModel.recommend_list_right.forum_list, 0, this.avY.recommend_list_right.forum_list, 0, min);
+            pVar = this.avY.avM;
             pVar.eA(min);
-            pVar2 = this.avP.avD;
-            pVar2.a(this.avP.recommend_list_right.forum_list);
-            i2 = this.avP.avp;
+            pVar2 = this.avY.avM;
+            pVar2.a(this.avY.recommend_list_right.forum_list);
+            i2 = this.avY.avy;
             if (i2 == 200) {
-                this.avP.avy.awv.setText(this.avP.getString(com.baidu.tieba.y.flist_expand_list));
-                ImageView imageView = this.avP.avy.aww;
-                drawable5 = this.avP.avm;
+                this.avY.avH.awE.setText(this.avY.getString(com.baidu.tieba.y.flist_expand_list));
+                ImageView imageView = this.avY.avH.awF;
+                drawable5 = this.avY.avv;
                 imageView.setImageDrawable(drawable5);
             } else {
-                this.avP.avy.awv.setText(this.avP.getString(com.baidu.tieba.y.flist_collapse_list));
-                ImageView imageView2 = this.avP.avy.aww;
-                drawable4 = this.avP.avn;
+                this.avY.avH.awE.setText(this.avY.getString(com.baidu.tieba.y.flist_collapse_list));
+                ImageView imageView2 = this.avY.avH.awF;
+                drawable4 = this.avY.avw;
                 imageView2.setImageDrawable(drawable4);
-                this.avP.avB = true;
+                this.avY.avK = true;
             }
         } else {
-            this.avP.showToast(this.avP.getString(com.baidu.tieba.y.neterror));
-            if (!this.avR) {
-                i = this.avP.avp;
+            this.avY.showToast(this.avY.getString(com.baidu.tieba.y.neterror));
+            if (!this.awa) {
+                i = this.avY.avy;
                 if (i == 200) {
-                    this.avP.avy.awv.setText(this.avP.getString(com.baidu.tieba.y.flist_expand_list));
-                    ImageView imageView3 = this.avP.avy.aww;
-                    drawable2 = this.avP.avm;
+                    this.avY.avH.awE.setText(this.avY.getString(com.baidu.tieba.y.flist_expand_list));
+                    ImageView imageView3 = this.avY.avH.awF;
+                    drawable2 = this.avY.avv;
                     imageView3.setImageDrawable(drawable2);
                 } else {
-                    this.avP.avy.awv.setText(this.avP.getString(com.baidu.tieba.y.flist_collapse_list));
-                    ImageView imageView4 = this.avP.avy.aww;
-                    drawable = this.avP.avn;
+                    this.avY.avH.awE.setText(this.avY.getString(com.baidu.tieba.y.flist_collapse_list));
+                    ImageView imageView4 = this.avY.avH.awF;
+                    drawable = this.avY.avw;
                     imageView4.setImageDrawable(drawable);
                 }
             } else {
-                this.avP.avy.awv.setText(this.avP.getString(com.baidu.tieba.y.flist_expand_list));
-                ImageView imageView5 = this.avP.avy.aww;
-                drawable3 = this.avP.avm;
+                this.avY.avH.awE.setText(this.avY.getString(com.baidu.tieba.y.flist_expand_list));
+                ImageView imageView5 = this.avY.avH.awF;
+                drawable3 = this.avY.avv;
                 imageView5.setImageDrawable(drawable3);
-                requestParams = this.avP.avz;
+                requestParams = this.avY.avI;
                 requestParams.rn = Constants.MEDIA_INFO;
-                this.avP.avp = Constants.MEDIA_INFO;
+                this.avY.avy = Constants.MEDIA_INFO;
             }
         }
-        this.avP.avy.awu.setEnabled(true);
-        this.avP.avy.DU();
+        this.avY.avH.awD.setEnabled(true);
+        this.avY.avH.DW();
     }
 }

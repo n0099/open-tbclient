@@ -8,69 +8,69 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class ap extends BaseAdapter implements com.baidu.tieba.view.s {
-    private ArrayList<BaseAdapter> bNh;
-    private k bNi;
-    private v bNj;
-    private r bNk;
-    private g bNl;
+    private g bNA;
+    private ArrayList<BaseAdapter> bNw;
+    private k bNx;
+    private v bNy;
+    private r bNz;
 
     public ap(Context context) {
-        this.bNh = null;
-        this.bNi = null;
-        this.bNj = null;
-        this.bNk = null;
-        this.bNl = null;
-        this.bNh = new ArrayList<>();
-        this.bNi = new k(context);
-        this.bNj = new v(context);
-        this.bNk = new r(context);
-        this.bNl = new g(context);
-        this.bNh.add(this.bNi);
-        this.bNh.add(this.bNj);
-        this.bNh.add(this.bNk);
-        this.bNh.add(this.bNl);
+        this.bNw = null;
+        this.bNx = null;
+        this.bNy = null;
+        this.bNz = null;
+        this.bNA = null;
+        this.bNw = new ArrayList<>();
+        this.bNx = new k(context);
+        this.bNy = new v(context);
+        this.bNz = new r(context);
+        this.bNA = new g(context);
+        this.bNw.add(this.bNx);
+        this.bNw.add(this.bNy);
+        this.bNw.add(this.bNz);
+        this.bNw.add(this.bNA);
     }
 
     public void b(ah ahVar) {
         if (ahVar != null) {
-            if (this.bNi != null) {
-                this.bNi.setData(ahVar.ads());
+            if (this.bNx != null) {
+                this.bNx.setData(ahVar.adv());
             }
-            if (this.bNj != null) {
-                this.bNj.setData(ahVar.adt());
+            if (this.bNy != null) {
+                this.bNy.setData(ahVar.adw());
             }
-            if (this.bNk != null) {
-                this.bNk.a(ahVar.adu());
+            if (this.bNz != null) {
+                this.bNz.a(ahVar.adx());
             }
-            if (this.bNl != null) {
-                this.bNl.a(ahVar.adv());
+            if (this.bNA != null) {
+                this.bNA.a(ahVar.ady());
             }
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.bNi != null) {
-            this.bNi.onChangeSkinType(i);
+        if (this.bNx != null) {
+            this.bNx.onChangeSkinType(i);
         }
         notifyDataSetChanged();
     }
 
     public void onResume() {
-        if (this.bNi != null) {
-            this.bNi.startMarqueen();
+        if (this.bNx != null) {
+            this.bNx.startMarqueen();
         }
     }
 
     public void onPause() {
-        if (this.bNi != null) {
-            this.bNi.stopMarqueen();
+        if (this.bNx != null) {
+            this.bNx.stopMarqueen();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
         int i = 0;
-        Iterator<BaseAdapter> it = this.bNh.iterator();
+        Iterator<BaseAdapter> it = this.bNw.iterator();
         while (true) {
             int i2 = i;
             if (it.hasNext()) {
@@ -86,8 +86,8 @@ public class ap extends BaseAdapter implements com.baidu.tieba.view.s {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.bNh.size()) {
-                BaseAdapter baseAdapter = this.bNh.get(i3);
+            if (i3 < this.bNw.size()) {
+                BaseAdapter baseAdapter = this.bNw.get(i3);
                 if (i < baseAdapter.getCount()) {
                     return baseAdapter.getItem(i);
                 }
@@ -103,7 +103,7 @@ public class ap extends BaseAdapter implements com.baidu.tieba.view.s {
     public int getViewTypeCount() {
         int i;
         int i2 = 0;
-        Iterator<BaseAdapter> it = this.bNh.iterator();
+        Iterator<BaseAdapter> it = this.bNw.iterator();
         while (true) {
             i = i2;
             if (!it.hasNext()) {
@@ -120,8 +120,8 @@ public class ap extends BaseAdapter implements com.baidu.tieba.view.s {
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
         int i2 = 0;
-        for (int i3 = 0; i3 < this.bNh.size(); i3++) {
-            BaseAdapter baseAdapter = this.bNh.get(i3);
+        for (int i3 = 0; i3 < this.bNw.size(); i3++) {
+            BaseAdapter baseAdapter = this.bNw.get(i3);
             if (i < baseAdapter.getCount()) {
                 return baseAdapter.getItemViewType(i) + i2;
             }
@@ -141,8 +141,8 @@ public class ap extends BaseAdapter implements com.baidu.tieba.view.s {
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.bNh.size()) {
-                BaseAdapter baseAdapter = this.bNh.get(i3);
+            if (i3 < this.bNw.size()) {
+                BaseAdapter baseAdapter = this.bNw.get(i3);
                 if (i < baseAdapter.getCount()) {
                     return baseAdapter.getView(i, view, viewGroup);
                 }
@@ -155,20 +155,20 @@ public class ap extends BaseAdapter implements com.baidu.tieba.view.s {
     }
 
     @Override // com.baidu.tieba.view.s
-    public void adn() {
-        Iterator<BaseAdapter> it = this.bNh.iterator();
+    public void adq() {
+        Iterator<BaseAdapter> it = this.bNw.iterator();
         while (it.hasNext()) {
             BaseAdapter next = it.next();
             if (next instanceof com.baidu.tieba.view.s) {
-                ((com.baidu.tieba.view.s) next).adn();
+                ((com.baidu.tieba.view.s) next).adq();
             }
         }
     }
 
     @Override // com.baidu.tieba.view.s
     public void g(View view, int i, int i2) {
-        for (int i3 = 0; i3 < this.bNh.size(); i3++) {
-            BaseAdapter baseAdapter = this.bNh.get(i3);
+        for (int i3 = 0; i3 < this.bNw.size(); i3++) {
+            BaseAdapter baseAdapter = this.bNw.get(i3);
             if (baseAdapter instanceof com.baidu.tieba.view.s) {
                 ((com.baidu.tieba.view.s) baseAdapter).g(view, i < 0 ? 0 : i, i2 > baseAdapter.getCount() + (-1) ? baseAdapter.getCount() - 1 : i2);
             }

@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements View.OnClickListener {
-    final /* synthetic */ j bQX;
+    final /* synthetic */ j bRm;
     private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar, Context context) {
-        this.bQX = jVar;
+        this.bRm = jVar;
         this.val$context = context;
     }
 
@@ -28,10 +28,10 @@ public class k implements View.OnClickListener {
         Context context4;
         if (view.getId() == com.baidu.tieba.v.textHomeListFrsName) {
             String obj = view.getTag().toString();
-            context2 = this.bQX.mContext;
+            context2 = this.bRm.mContext;
             if (context2 instanceof BaseFragmentActivity) {
-                context3 = this.bQX.mContext;
-                context4 = this.bQX.mContext;
+                context3 = this.bRm.mContext;
+                context4 = this.bRm.mContext;
                 ((BaseFragmentActivity) context3).sendMessage(new CustomMessage(2003000, new FrsActivityConfig(context4).createNormalCfg(obj, "")));
             }
             TiebaStatic.eventStat(this.val$context, "forum_feed_frsclick", "frs_click", 1, new Object[0]);
@@ -40,7 +40,7 @@ public class k implements View.OnClickListener {
         l lVar = (l) view.getTag();
         if (lVar != null) {
             MessageManager messageManager = MessageManager.getInstance();
-            context = this.bQX.mContext;
+            context = this.bRm.mContext;
             messageManager.sendMessage(new CustomMessage(2004001, new PbActivityConfig(context).createNormalCfg(lVar.threadId, null, null)));
             TiebaStatic.eventStat(this.val$context, "forum_feed_pbclick", "pb_click", 1, new Object[0]);
         }

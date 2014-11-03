@@ -7,13 +7,13 @@ import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.PushMessage;
 /* loaded from: classes.dex */
 class u extends CustomMessageListener {
-    final /* synthetic */ MembersActivity aXN;
+    final /* synthetic */ MembersActivity aYb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u(MembersActivity membersActivity, int i) {
         super(i);
-        this.aXN = membersActivity;
+        this.aYb = membersActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,9 +24,9 @@ class u extends CustomMessageListener {
             String cmd = p.getCmd();
             if (!TextUtils.isEmpty(cmd)) {
                 if (cmd.equals("apply_join_success")) {
-                    this.aXN.reset();
+                    this.aYb.reset();
                 } else if (cmd.equals("kick_out")) {
-                    this.aXN.reset();
+                    this.aYb.reset();
                 }
             }
         }

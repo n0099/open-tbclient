@@ -19,7 +19,7 @@ class c extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         if (AboutActivity.a(this.this$0) != null) {
-            AboutActivity.a(this.this$0).Ud();
+            AboutActivity.a(this.this$0).Ug();
         }
     }
 }

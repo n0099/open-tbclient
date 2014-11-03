@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.widget.TbImageView;
@@ -23,15 +23,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class l extends BaseAdapter {
-    private Drawable agW;
-    private Drawable agX;
-    private ArrayList<Object> bhS = new ArrayList<>();
-    private SearchFriendActivity bhT;
+    private Drawable ahf;
+    private Drawable ahg;
+    private ArrayList<Object> bii = new ArrayList<>();
+    private SearchFriendActivity bij;
     private int size;
 
     public l(SearchFriendActivity searchFriendActivity) {
-        this.bhT = searchFriendActivity;
-        this.size = com.baidu.adp.lib.util.m.c(this.bhT, com.baidu.tieba.t.ds24);
+        this.bij = searchFriendActivity;
+        this.size = com.baidu.adp.lib.util.m.c(this.bij, com.baidu.tieba.t.ds24);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -40,26 +40,26 @@ public class l extends BaseAdapter {
     }
 
     public void a(com.baidu.tieba.im.searchfriend.a.a aVar) {
-        if (aVar != null && aVar.Rx() != null && aVar.Ry() != null) {
-            this.bhS.clear();
+        if (aVar != null && aVar.RA() != null && aVar.RB() != null) {
+            this.bii.clear();
             ArrayList arrayList = new ArrayList();
-            if (!aVar.Rx().isEmpty()) {
-                if (gD(aVar.Rx().getTagName())) {
-                    arrayList.add(aVar.Rx().getTagName());
+            if (!aVar.RA().isEmpty()) {
+                if (gD(aVar.RA().getTagName())) {
+                    arrayList.add(aVar.RA().getTagName());
                 } else {
-                    arrayList.add(this.bhT.getString(y.add_friend_recommend_title_new));
+                    arrayList.add(this.bij.getString(y.add_friend_recommend_title_new));
                 }
-                arrayList.add(aVar.Rx());
+                arrayList.add(aVar.RA());
             }
             boolean z = false;
-            for (com.baidu.tieba.im.searchfriend.a.b bVar : aVar.Ry()) {
-                if (bVar.Rx() != null) {
-                    if (!bVar.Rx().isEmpty()) {
+            for (com.baidu.tieba.im.searchfriend.a.b bVar : aVar.RB()) {
+                if (bVar.RA() != null) {
+                    if (!bVar.RA().isEmpty()) {
                         if (!z) {
-                            if (gD(bVar.Rx().getTagName())) {
-                                arrayList.add(bVar.Rx().getTagName());
+                            if (gD(bVar.RA().getTagName())) {
+                                arrayList.add(bVar.RA().getTagName());
                             } else {
-                                arrayList.add(this.bhT.getString(y.add_friend_recommend_title_similar));
+                                arrayList.add(this.bij.getString(y.add_friend_recommend_title_similar));
                             }
                             z = true;
                         }
@@ -69,7 +69,7 @@ public class l extends BaseAdapter {
                     return;
                 }
             }
-            this.bhS.addAll(arrayList);
+            this.bii.addAll(arrayList);
             notifyDataSetChanged();
         }
     }
@@ -78,9 +78,9 @@ public class l extends BaseAdapter {
         return !TextUtils.isEmpty(str) && TextUtils.getTrimmedLength(str) > 0;
     }
 
-    public com.baidu.tieba.im.searchfriend.a.a Rw() {
+    public com.baidu.tieba.im.searchfriend.a.a Rz() {
         com.baidu.tieba.im.searchfriend.a.a aVar = new com.baidu.tieba.im.searchfriend.a.a();
-        Iterator<Object> it = this.bhS.iterator();
+        Iterator<Object> it = this.bii.iterator();
         while (it.hasNext()) {
             Object next = it.next();
             if (next instanceof com.baidu.tieba.im.searchfriend.a.c) {
@@ -93,8 +93,8 @@ public class l extends BaseAdapter {
     }
 
     public void ae(String str, String str2) {
-        if (this.bhS != null && this.bhS.size() > 0 && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            Iterator<Object> it = this.bhS.iterator();
+        if (this.bii != null && this.bii.size() > 0 && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            Iterator<Object> it = this.bii.iterator();
             while (it.hasNext()) {
                 Object next = it.next();
                 if (next instanceof com.baidu.tieba.im.searchfriend.a.c) {
@@ -106,8 +106,8 @@ public class l extends BaseAdapter {
                     }
                 } else if (next instanceof com.baidu.tieba.im.searchfriend.a.b) {
                     com.baidu.tieba.im.searchfriend.a.b bVar = (com.baidu.tieba.im.searchfriend.a.b) next;
-                    if (TextUtils.equals(bVar.Rx().getName(), str2) && TextUtils.equals(str, String.valueOf(bVar.Rx().getUserId()))) {
-                        bVar.Rx().kq();
+                    if (TextUtils.equals(bVar.RA().getName(), str2) && TextUtils.equals(str, String.valueOf(bVar.RA().getUserId()))) {
+                        bVar.RA().kq();
                         notifyDataSetChanged();
                         return;
                     }
@@ -120,7 +120,7 @@ public class l extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        Object obj = this.bhS.get(i);
+        Object obj = this.bii.get(i);
         if (obj == null) {
             return super.getItemViewType(i);
         }
@@ -138,18 +138,18 @@ public class l extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bhS == null) {
+        if (this.bii == null) {
             return 0;
         }
-        return this.bhS.size();
+        return this.bii.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.bhS == null) {
+        if (this.bii == null) {
             return null;
         }
-        return this.bhS.get(i);
+        return this.bii.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -176,227 +176,227 @@ public class l extends BaseAdapter {
     private View a(View view, String str, boolean z) {
         t tVar;
         if (view == null || view.getTag() == null || !(view.getTag() instanceof t)) {
-            view = com.baidu.adp.lib.g.b.ek().inflate(this.bhT, w.add_friend_recommend_title, null);
+            view = com.baidu.adp.lib.g.b.ek().inflate(this.bij, w.add_friend_recommend_title, null);
             t tVar2 = new t(this, null);
-            tVar2.QG = (TextView) view.findViewById(v.add_friend_recommend_title);
-            tVar2.bhZ = view.findViewById(v.add_friend_recommend_line);
+            tVar2.QK = (TextView) view.findViewById(v.add_friend_recommend_title);
+            tVar2.bip = view.findViewById(v.add_friend_recommend_line);
             view.setTag(tVar2);
             tVar = tVar2;
         } else {
             tVar = (t) view.getTag();
         }
-        tVar.QG.setText(str);
-        aw.b(tVar.QG, com.baidu.tieba.s.cp_cont_c, 1);
-        aw.h(tVar.bhZ, com.baidu.tieba.s.cp_bg_line_b);
+        tVar.QK.setText(str);
+        aw.b(tVar.QK, com.baidu.tieba.s.cp_cont_c, 1);
+        aw.h(tVar.bip, com.baidu.tieba.s.cp_bg_line_b);
         return view;
     }
 
     private View a(View view, com.baidu.tieba.im.searchfriend.a.c cVar, boolean z) {
         s sVar;
         if (view == null || view.getTag() == null || !(view.getTag() instanceof s)) {
-            view = com.baidu.adp.lib.g.b.ek().inflate(this.bhT, w.add_friend_recommend_new, null);
+            view = com.baidu.adp.lib.g.b.ek().inflate(this.bij, w.add_friend_recommend_new, null);
             s sVar2 = new s(this, null);
-            sVar2.aEe = (HeadImageView) view.findViewById(v.recommend_new_head);
-            sVar2.aEf = (UserIconBox) view.findViewById(v.recommend_new_crown);
-            sVar2.aEg = (TextView) view.findViewById(v.recommend_new_user_name);
-            sVar2.aEh = (TextView) view.findViewById(v.recommend_new_introduce);
-            sVar2.bhX = (TextView) view.findViewById(v.detail_info_distance);
-            sVar2.bhY = (TextView) view.findViewById(v.detail_info_time);
-            sVar2.aEi = (TextView) view.findViewById(v.recommend_new_add_friend);
-            sVar2.aEi.setOnClickListener(new m(this));
-            sVar2.aEj = (ImageView) view.findViewById(v.recommend_new_user_sex);
-            sVar2.bhZ = view.findViewById(v.recommend_new_line);
+            sVar2.aEo = (HeadImageView) view.findViewById(v.recommend_new_head);
+            sVar2.aEp = (UserIconBox) view.findViewById(v.recommend_new_crown);
+            sVar2.aEq = (TextView) view.findViewById(v.recommend_new_user_name);
+            sVar2.aEr = (TextView) view.findViewById(v.recommend_new_introduce);
+            sVar2.bin = (TextView) view.findViewById(v.detail_info_distance);
+            sVar2.bio = (TextView) view.findViewById(v.detail_info_time);
+            sVar2.aEs = (TextView) view.findViewById(v.recommend_new_add_friend);
+            sVar2.aEs.setOnClickListener(new m(this));
+            sVar2.aEt = (ImageView) view.findViewById(v.recommend_new_user_sex);
+            sVar2.bip = view.findViewById(v.recommend_new_line);
             view.setOnClickListener(new n(this));
             view.setTag(sVar2);
             sVar = sVar2;
         } else {
             sVar = (s) view.getTag();
         }
-        sVar.aEi.setTag(cVar);
+        sVar.aEs.setTag(cVar);
         view.setTag(cVar);
-        this.bhT.getLayoutMode().L(z);
-        this.bhT.getLayoutMode().h(view);
+        this.bij.getLayoutMode().L(z);
+        this.bij.getLayoutMode().h(view);
         a(sVar, cVar, z);
-        aw.h(sVar.bhZ, com.baidu.tieba.s.cp_bg_line_b);
+        aw.h(sVar.bip, com.baidu.tieba.s.cp_bg_line_b);
         aw.h(view, u.recommend_friend_item_bg);
         return view;
     }
 
     private void a(s sVar, com.baidu.tieba.im.searchfriend.a.c cVar, boolean z) {
         if (cVar != null && sVar != null) {
-            if (com.baidu.tbadk.core.k.js().ju()) {
-                sVar.aEe.setVisibility(0);
+            if (com.baidu.tbadk.core.l.js().ju()) {
+                sVar.aEo.setVisibility(0);
                 if (!TextUtils.isEmpty(cVar.ks())) {
-                    sVar.aEe.setUserId(String.valueOf(cVar.getUserId()));
-                    sVar.aEe.setImageDrawable(null);
-                    sVar.aEe.c(cVar.ks(), 12, false);
+                    sVar.aEo.setUserId(String.valueOf(cVar.getUserId()));
+                    sVar.aEo.setImageDrawable(null);
+                    sVar.aEo.c(cVar.ks(), 12, false);
                 }
             } else {
-                sVar.aEe.setVisibility(8);
+                sVar.aEo.setVisibility(8);
             }
             if (cVar.kv() != null && !TextUtils.isEmpty(cVar.kv().getUrl())) {
-                sVar.aEf.setVisibility(0);
+                sVar.aEp.setVisibility(0);
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(cVar.kv());
-                sVar.aEf.a(arrayList, 1, this.bhT.getResources().getDimensionPixelSize(com.baidu.tieba.t.small_icon_width), this.bhT.getResources().getDimensionPixelSize(com.baidu.tieba.t.small_icon_height), this.bhT.getResources().getDimensionPixelSize(com.baidu.tieba.t.small_icon_margin));
+                sVar.aEp.a(arrayList, 1, this.bij.getResources().getDimensionPixelSize(com.baidu.tieba.t.small_icon_width), this.bij.getResources().getDimensionPixelSize(com.baidu.tieba.t.small_icon_height), this.bij.getResources().getDimensionPixelSize(com.baidu.tieba.t.small_icon_margin));
             } else {
-                sVar.aEf.setVisibility(8);
+                sVar.aEp.setVisibility(8);
             }
-            sVar.aEg.setText(cVar.getName());
+            sVar.aEq.setText(cVar.getName());
             if (StringUtils.isNull(cVar.ku())) {
-                sVar.aEh.setVisibility(8);
+                sVar.aEr.setVisibility(8);
             } else {
-                sVar.aEh.setVisibility(0);
-                sVar.aEh.setText(cVar.ku());
+                sVar.aEr.setVisibility(0);
+                sVar.aEr.setText(cVar.ku());
             }
             if (cVar.getLbsInfo() == null) {
-                sVar.bhX.setVisibility(8);
-                sVar.bhY.setVisibility(8);
+                sVar.bin.setVisibility(8);
+                sVar.bio.setVisibility(8);
                 return;
             }
-            if (cVar.getLbsInfo().pB() == 1) {
-                sVar.bhX.setVisibility(0);
-                sVar.bhX.setText(this.bhT.getString(y.contact_yinshen));
-                sVar.bhX.setCompoundDrawables(null, null, null, null);
-                sVar.bhY.setVisibility(8);
-            } else if (cVar.getLbsInfo().pB() == 0) {
+            if (cVar.getLbsInfo().pD() == 1) {
+                sVar.bin.setVisibility(0);
+                sVar.bin.setText(this.bij.getString(y.contact_yinshen));
+                sVar.bin.setCompoundDrawables(null, null, null, null);
+                sVar.bio.setVisibility(8);
+            } else if (cVar.getLbsInfo().pD() == 0) {
                 if (!StringUtils.isNull(cVar.getLbsInfo().getDistance()) && cVar.getLbsInfo().getTime() > 0) {
-                    sVar.bhX.setVisibility(0);
-                    sVar.bhY.setVisibility(0);
-                    sVar.bhX.setText(cVar.getLbsInfo().getDistance());
-                    sVar.bhY.setText(ay.i(cVar.getLbsInfo().getTime()));
-                    this.agW = aw.getDrawable(u.icon_friend_pin);
-                    this.agW.setBounds(0, 0, this.size, this.size);
-                    sVar.bhX.setCompoundDrawables(this.agW, null, null, null);
-                    this.agX = aw.getDrawable(u.icon_friend_time);
-                    this.agX.setBounds(0, 0, this.size, this.size);
-                    sVar.bhY.setCompoundDrawables(this.agX, null, null, null);
+                    sVar.bin.setVisibility(0);
+                    sVar.bio.setVisibility(0);
+                    sVar.bin.setText(cVar.getLbsInfo().getDistance());
+                    sVar.bio.setText(az.i(cVar.getLbsInfo().getTime()));
+                    this.ahf = aw.getDrawable(u.icon_friend_pin);
+                    this.ahf.setBounds(0, 0, this.size, this.size);
+                    sVar.bin.setCompoundDrawables(this.ahf, null, null, null);
+                    this.ahg = aw.getDrawable(u.icon_friend_time);
+                    this.ahg.setBounds(0, 0, this.size, this.size);
+                    sVar.bio.setCompoundDrawables(this.ahg, null, null, null);
                 } else {
-                    sVar.bhX.setVisibility(8);
-                    sVar.bhY.setVisibility(8);
+                    sVar.bin.setVisibility(8);
+                    sVar.bio.setVisibility(8);
                 }
             } else {
-                sVar.bhX.setVisibility(8);
-                sVar.bhY.setVisibility(8);
+                sVar.bin.setVisibility(8);
+                sVar.bio.setVisibility(8);
             }
             if (cVar.kt()) {
-                aw.c(sVar.aEj, u.icon_pop_qz_girl);
+                aw.c(sVar.aEt, u.icon_pop_qz_girl);
             } else {
-                aw.c(sVar.aEj, u.icon_pop_qz_boy);
+                aw.c(sVar.aEt, u.icon_pop_qz_boy);
             }
             if (cVar.kr()) {
-                sVar.aEi.setClickable(false);
-                sVar.aEi.setBackgroundResource(com.baidu.tieba.s.transparent);
-                sVar.aEi.setText(y.waiting);
-                aw.b(sVar.aEi, com.baidu.tieba.s.cp_cont_d, 1);
+                sVar.aEs.setClickable(false);
+                sVar.aEs.setBackgroundResource(com.baidu.tieba.s.transparent);
+                sVar.aEs.setText(y.waiting);
+                aw.b(sVar.aEs, com.baidu.tieba.s.cp_cont_d, 1);
                 return;
             }
-            sVar.aEi.setClickable(true);
-            sVar.aEi.setText(y.add);
+            sVar.aEs.setClickable(true);
+            sVar.aEs.setText(y.add);
         }
     }
 
     private View a(View view, com.baidu.tieba.im.searchfriend.a.b bVar, boolean z) {
         r rVar;
         if (view == null || view.getTag() == null || !(view.getTag() instanceof s)) {
-            view = com.baidu.adp.lib.g.b.ek().inflate(this.bhT, w.add_friend_recommend_similar, null);
+            view = com.baidu.adp.lib.g.b.ek().inflate(this.bij, w.add_friend_recommend_similar, null);
             r rVar2 = new r(this, null);
-            rVar2.bhW = new s(this, null);
+            rVar2.bim = new s(this, null);
             View findViewById = view.findViewById(v.recommend_similar_top);
-            rVar2.bhW.aEe = (HeadImageView) findViewById.findViewById(v.recommend_new_head);
-            rVar2.bhW.aEf = (UserIconBox) findViewById.findViewById(v.recommend_new_crown);
-            rVar2.bhW.aEg = (TextView) findViewById.findViewById(v.recommend_new_user_name);
-            rVar2.bhW.aEh = (TextView) findViewById.findViewById(v.recommend_new_introduce);
-            rVar2.bhW.bhX = (TextView) view.findViewById(v.detail_info_distance);
-            rVar2.bhW.bhY = (TextView) view.findViewById(v.detail_info_time);
-            rVar2.bhW.bhZ = findViewById.findViewById(v.recommend_new_line);
-            rVar2.bhW.aEi = (TextView) findViewById.findViewById(v.recommend_new_add_friend);
-            rVar2.bhW.aEi.setOnClickListener(new o(this, bVar));
-            rVar2.bhW.aEj = (ImageView) view.findViewById(v.recommend_new_user_sex);
-            rVar2.bhW.bhZ = view.findViewById(v.recommend_new_line);
-            rVar2.aDU = (TextView) view.findViewById(v.recommend_similar_bar_names);
-            rVar2.aDV = (TextView) view.findViewById(v.recommend_similar_bar_desc);
-            rVar2.aDY = (TbImageView) view.findViewById(v.recommend_similar_pic_one);
-            rVar2.aDZ = (TbImageView) view.findViewById(v.recommend_similar_pic_two);
-            rVar2.aEa = (TbImageView) view.findViewById(v.recommend_similar_pic_thr);
+            rVar2.bim.aEo = (HeadImageView) findViewById.findViewById(v.recommend_new_head);
+            rVar2.bim.aEp = (UserIconBox) findViewById.findViewById(v.recommend_new_crown);
+            rVar2.bim.aEq = (TextView) findViewById.findViewById(v.recommend_new_user_name);
+            rVar2.bim.aEr = (TextView) findViewById.findViewById(v.recommend_new_introduce);
+            rVar2.bim.bin = (TextView) view.findViewById(v.detail_info_distance);
+            rVar2.bim.bio = (TextView) view.findViewById(v.detail_info_time);
+            rVar2.bim.bip = findViewById.findViewById(v.recommend_new_line);
+            rVar2.bim.aEs = (TextView) findViewById.findViewById(v.recommend_new_add_friend);
+            rVar2.bim.aEs.setOnClickListener(new o(this, bVar));
+            rVar2.bim.aEt = (ImageView) view.findViewById(v.recommend_new_user_sex);
+            rVar2.bim.bip = view.findViewById(v.recommend_new_line);
+            rVar2.aEe = (TextView) view.findViewById(v.recommend_similar_bar_names);
+            rVar2.aEf = (TextView) view.findViewById(v.recommend_similar_bar_desc);
+            rVar2.aEi = (TbImageView) view.findViewById(v.recommend_similar_pic_one);
+            rVar2.aEj = (TbImageView) view.findViewById(v.recommend_similar_pic_two);
+            rVar2.aEk = (TbImageView) view.findViewById(v.recommend_similar_pic_thr);
             p pVar = new p(this);
-            rVar2.aDY.setTag(v.tag_first, bVar);
-            rVar2.aDZ.setTag(v.tag_first, bVar);
-            rVar2.aEa.setTag(v.tag_first, bVar);
-            rVar2.aDY.setTag(v.tag_second, 0);
-            rVar2.aDZ.setTag(v.tag_second, 1);
-            rVar2.aEa.setTag(v.tag_second, 2);
-            rVar2.aDY.setOnClickListener(pVar);
-            rVar2.aDZ.setOnClickListener(pVar);
-            rVar2.aEa.setOnClickListener(pVar);
-            rVar2.aDW = (TextView) view.findViewById(v.recommend_similar_forum);
-            rVar2.aDX = (TextView) view.findViewById(v.recommend_similar_common_conern);
-            rVar2.aEb = (LinearLayout) view.findViewById(v.recommend_similar_forum_container);
-            rVar2.aEc = (LinearLayout) view.findViewById(v.recommend_similar_commom_conern_container);
+            rVar2.aEi.setTag(v.tag_first, bVar);
+            rVar2.aEj.setTag(v.tag_first, bVar);
+            rVar2.aEk.setTag(v.tag_first, bVar);
+            rVar2.aEi.setTag(v.tag_second, 0);
+            rVar2.aEj.setTag(v.tag_second, 1);
+            rVar2.aEk.setTag(v.tag_second, 2);
+            rVar2.aEi.setOnClickListener(pVar);
+            rVar2.aEj.setOnClickListener(pVar);
+            rVar2.aEk.setOnClickListener(pVar);
+            rVar2.aEg = (TextView) view.findViewById(v.recommend_similar_forum);
+            rVar2.aEh = (TextView) view.findViewById(v.recommend_similar_common_conern);
+            rVar2.aEl = (LinearLayout) view.findViewById(v.recommend_similar_forum_container);
+            rVar2.aEm = (LinearLayout) view.findViewById(v.recommend_similar_commom_conern_container);
             view.setOnClickListener(new q(this));
             view.setTag(v.tag_first, rVar2);
             rVar = rVar2;
         } else {
             rVar = (r) view.getTag(v.tag_first);
         }
-        rVar.bhW.aEi.setTag(bVar.Rx());
-        view.setTag(v.tag_second, bVar.Rx());
-        this.bhT.getLayoutMode().L(z);
-        this.bhT.getLayoutMode().h(view);
+        rVar.bim.aEs.setTag(bVar.RA());
+        view.setTag(v.tag_second, bVar.RA());
+        this.bij.getLayoutMode().L(z);
+        this.bij.getLayoutMode().h(view);
         a(rVar, bVar, z);
-        aw.i(rVar.bhW.bhZ, com.baidu.tieba.s.cp_bg_line_b);
+        aw.i(rVar.bim.bip, com.baidu.tieba.s.cp_bg_line_b);
         aw.h(view, u.recommend_friend_item_bg);
         return view;
     }
 
     private void a(r rVar, com.baidu.tieba.im.searchfriend.a.b bVar, boolean z) {
-        if (rVar != null && bVar != null && bVar.Rx() != null) {
-            a(rVar.bhW, bVar.Rx(), z);
+        if (rVar != null && bVar != null && bVar.RA() != null) {
+            a(rVar.bim, bVar.RA(), z);
             if (bVar.kj() > 0) {
                 if (!TextUtils.isEmpty(bVar.kk())) {
-                    rVar.aDU.setText(bVar.kk());
+                    rVar.aEe.setText(bVar.kk());
                 }
                 if (bVar.kj() < 3) {
-                    rVar.aDV.setVisibility(8);
+                    rVar.aEf.setVisibility(8);
                 } else {
-                    rVar.aDV.setVisibility(0);
-                    rVar.aDV.setText(y.add_friend_forum_count);
+                    rVar.aEf.setVisibility(0);
+                    rVar.aEf.setText(y.add_friend_forum_count);
                 }
             } else {
-                rVar.aEc.setVisibility(8);
+                rVar.aEm.setVisibility(8);
             }
-            if (com.baidu.tbadk.core.k.js().jw() && bVar.kn() != null && bVar.kn().size() > 0) {
-                rVar.aEb.setVisibility(0);
-                if (bVar.Rx().kt()) {
-                    rVar.aDW.setText(y.add_friend_her_posts);
+            if (com.baidu.tbadk.core.l.js().jw() && bVar.kn() != null && bVar.kn().size() > 0) {
+                rVar.aEl.setVisibility(0);
+                if (bVar.RA().kt()) {
+                    rVar.aEg.setText(y.add_friend_her_posts);
                 } else {
-                    rVar.aDW.setText(y.add_friend_his_posts);
+                    rVar.aEg.setText(y.add_friend_his_posts);
                 }
                 switch (bVar.kn().size()) {
                     case 1:
-                        rVar.aDY.setVisibility(0);
-                        rVar.aDZ.setVisibility(4);
-                        rVar.aEa.setVisibility(4);
-                        rVar.aDY.c(bVar.kn().get(0), 10, false);
+                        rVar.aEi.setVisibility(0);
+                        rVar.aEj.setVisibility(4);
+                        rVar.aEk.setVisibility(4);
+                        rVar.aEi.c(bVar.kn().get(0), 10, false);
                         return;
                     case 2:
-                        rVar.aDY.setVisibility(0);
-                        rVar.aDZ.setVisibility(0);
-                        rVar.aEa.setVisibility(4);
-                        rVar.aDY.c(bVar.kn().get(0), 10, false);
-                        rVar.aDZ.c(bVar.kn().get(1), 10, false);
+                        rVar.aEi.setVisibility(0);
+                        rVar.aEj.setVisibility(0);
+                        rVar.aEk.setVisibility(4);
+                        rVar.aEi.c(bVar.kn().get(0), 10, false);
+                        rVar.aEj.c(bVar.kn().get(1), 10, false);
                         return;
                     default:
-                        rVar.aDY.setVisibility(0);
-                        rVar.aDZ.setVisibility(0);
-                        rVar.aEa.setVisibility(0);
-                        rVar.aDY.c(bVar.kn().get(0), 10, false);
-                        rVar.aDZ.c(bVar.kn().get(1), 10, false);
-                        rVar.aEa.c(bVar.kn().get(2), 10, false);
+                        rVar.aEi.setVisibility(0);
+                        rVar.aEj.setVisibility(0);
+                        rVar.aEk.setVisibility(0);
+                        rVar.aEi.c(bVar.kn().get(0), 10, false);
+                        rVar.aEj.c(bVar.kn().get(1), 10, false);
+                        rVar.aEk.c(bVar.kn().get(2), 10, false);
                         return;
                 }
             }
-            rVar.aEb.setVisibility(8);
+            rVar.aEl.setVisibility(8);
         }
     }
 }

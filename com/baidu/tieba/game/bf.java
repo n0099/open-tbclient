@@ -1,157 +1,80 @@
 package com.baidu.tieba.game;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.text.TextUtils;
-import com.baidu.tbadk.TiebaDatabase;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.game.GameInfoData;
-import java.util.ArrayList;
+import com.baidu.tieba.game.view.GameDownloadView;
 import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bf {
-    private static bf aIX = new bf();
+public class bf extends BaseAdapter {
+    final /* synthetic */ av aJj;
 
-    public static bf HG() {
-        return aIX;
+    private bf(av avVar) {
+        this.aJj = avVar;
     }
 
-    private bf() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bf(av avVar, bf bfVar) {
+        this(avVar);
     }
 
-    public boolean p(GameInfoData gameInfoData) {
-        if (gameInfoData == null) {
-            return false;
-        }
-        SQLiteDatabase P = TiebaDatabase.getInstance().getMainDBDatabaseManager().P();
-        try {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("gameId", gameInfoData.getGameId());
-            contentValues.put("gameName", gameInfoData.getGameName());
-            contentValues.put("gameType", Integer.valueOf(gameInfoData.getGameType()));
-            contentValues.put("iconUrl", gameInfoData.getIconUrl());
-            contentValues.put("gameLink", gameInfoData.getGameLink());
-            contentValues.put("packageName", gameInfoData.getPackageName());
-            contentValues.put("launcherActivity", gameInfoData.getLauncherActivity());
-            if (gameInfoData.getGameType() == 2) {
-                contentValues.put("installTime", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
-            } else if (gameInfoData.getGameType() == 1) {
-                contentValues.put("downloadTime", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
-            }
-            if (P.update("local_game", contentValues, "gameId=?", new String[]{gameInfoData.getGameId()}) == 0) {
-                P.insert("local_game", "gameId", contentValues);
-            }
-            return true;
-        } catch (Throwable th) {
-            th.printStackTrace();
-            return false;
-        }
+    @Override // android.widget.Adapter
+    public int getCount() {
+        List list;
+        list = this.aJj.aIN;
+        return list.size();
     }
 
-    public boolean ai(String str, String str2) {
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: ff */
+    public GameInfoData getItem(int i) {
+        List list;
+        List list2;
+        if (i >= 0) {
+            list = this.aJj.aIN;
+            if (i < list.size()) {
+                list2 = this.aJj.aIN;
+                return (GameInfoData) list2.get(i);
+            }
         }
-        SQLiteDatabase P = TiebaDatabase.getInstance().getMainDBDatabaseManager().P();
-        try {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("gameLink", str2);
-            return P.update("local_game", contentValues, "gameId=?", new String[]{str}) != 0;
-        } catch (Throwable th) {
-            th.printStackTrace();
-            return false;
-        }
+        return null;
     }
 
-    public boolean fu(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        try {
-            return TiebaDatabase.getInstance().getMainDBDatabaseManager().P().delete("local_game", "gameId=?", new String[]{str}) > 0;
-        } catch (Throwable th) {
-            th.printStackTrace();
-            return false;
-        }
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [177=4] */
-    public GameInfoData fv(String str) {
-        Cursor cursor;
-        if (TextUtils.isEmpty(str)) {
-            return null;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        GameListBaseItem gameListBaseItem;
+        com.baidu.tieba.game.view.c cVar;
+        com.baidu.tieba.game.view.d dVar;
+        GameCenterActivity gameCenterActivity;
+        GameCenterActivity gameCenterActivity2;
+        if (view == null) {
+            gameCenterActivity2 = this.aJj.aIs;
+            gameListBaseItem = new ae(gameCenterActivity2);
+            gameListBaseItem.onChangeSkinType(TbadkApplication.m251getInst().getSkinType());
+        } else {
+            gameListBaseItem = (GameListBaseItem) view;
         }
-        try {
-            cursor = TiebaDatabase.getInstance().getMainDBDatabaseManager().P().query("local_game", null, "packageName=?", new String[]{str}, null, null, null);
-            if (cursor == null) {
-                return null;
-            }
-            try {
-                if (cursor.moveToNext()) {
-                    GameInfoData gameInfoData = new GameInfoData();
-                    gameInfoData.setGameId(cursor.getString(cursor.getColumnIndex("gameId")));
-                    gameInfoData.setGameName(cursor.getString(cursor.getColumnIndex("gameName")));
-                    gameInfoData.setGameType(cursor.getInt(cursor.getColumnIndex("gameType")));
-                    gameInfoData.setGameLink(cursor.getString(cursor.getColumnIndex("gameLink")));
-                    gameInfoData.setPackageName(cursor.getString(cursor.getColumnIndex("packageName")));
-                    gameInfoData.setLauncherActivity(cursor.getString(cursor.getColumnIndex("launcherActivity")));
-                    gameInfoData.setInstallTime(com.baidu.adp.lib.g.c.a(cursor.getString(cursor.getColumnIndex("installTime")), 0L));
-                    gameInfoData.setDownloadTime(com.baidu.adp.lib.g.c.a(cursor.getString(cursor.getColumnIndex("downloadTime")), 0L));
-                    gameInfoData.setIconUrl(cursor.getString(cursor.getColumnIndex("iconUrl")));
-                    return gameInfoData;
-                }
-                return null;
-            } catch (Throwable th) {
-                th = th;
-                try {
-                    th.printStackTrace();
-                    return null;
-                } finally {
-                    com.baidu.adp.lib.util.p.a(cursor);
-                }
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            cursor = null;
+        GameInfoData item = getItem(i);
+        if (item != null) {
+            item.setRefId("1000201");
         }
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [218=4] */
-    public List<GameInfoData> HH() {
-        Cursor cursor;
-        try {
-            cursor = TiebaDatabase.getInstance().getMainDBDatabaseManager().P().query("local_game", null, null, null, null, null, null);
-            if (cursor == null) {
-                return null;
-            }
-            try {
-                ArrayList arrayList = new ArrayList();
-                while (cursor.moveToNext()) {
-                    GameInfoData gameInfoData = new GameInfoData();
-                    gameInfoData.setGameId(cursor.getString(cursor.getColumnIndex("gameId")));
-                    gameInfoData.setGameName(cursor.getString(cursor.getColumnIndex("gameName")));
-                    gameInfoData.setGameType(cursor.getInt(cursor.getColumnIndex("gameType")));
-                    gameInfoData.setGameLink(cursor.getString(cursor.getColumnIndex("gameLink")));
-                    gameInfoData.setPackageName(cursor.getString(cursor.getColumnIndex("packageName")));
-                    gameInfoData.setLauncherActivity(cursor.getString(cursor.getColumnIndex("launcherActivity")));
-                    gameInfoData.setInstallTime(com.baidu.adp.lib.g.c.a(cursor.getString(cursor.getColumnIndex("installTime")), 0L));
-                    gameInfoData.setDownloadTime(com.baidu.adp.lib.g.c.a(cursor.getString(cursor.getColumnIndex("downloadTime")), 0L));
-                    gameInfoData.setIconUrl(cursor.getString(cursor.getColumnIndex("iconUrl")));
-                    arrayList.add(gameInfoData);
-                }
-                return arrayList;
-            } catch (Throwable th) {
-                th = th;
-                try {
-                    th.printStackTrace();
-                    return null;
-                } finally {
-                    com.baidu.adp.lib.util.p.a(cursor);
-                }
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            cursor = null;
-        }
+        GameDownloadView downloadView = gameListBaseItem.getDownloadView();
+        cVar = this.aJj.aJd;
+        downloadView.setItemClickCallBack(cVar);
+        GameDownloadView downloadView2 = gameListBaseItem.getDownloadView();
+        dVar = this.aJj.aJe;
+        downloadView2.setItemDownloadCallBack(dVar);
+        gameCenterActivity = this.aJj.aIs;
+        gameListBaseItem.a(gameCenterActivity.getUniqueId(), item);
+        return gameListBaseItem;
     }
 }

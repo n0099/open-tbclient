@@ -26,7 +26,7 @@ import com.baidu.tbadk.core.atomData.SingleMentionActivityConfig;
 import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.NewsNotifyMessage;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
@@ -34,25 +34,25 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class r extends BaseFragment implements ViewPager.OnPageChangeListener {
-    private BaseFragmentActivity axV;
-    private int[] bfo;
-    private FragmentTabHost bfz;
-    private int bnB;
-    private v bnC;
+    private BaseFragmentActivity aye;
+    private int[] bfC;
+    private FragmentTabHost bfN;
+    private int bnP;
+    private v bnQ;
     private FragmentManager mFragmentManager;
     private NavigationBar mNavigationBar;
-    private int bfn = -1;
+    private int bfB = -1;
     private View.OnClickListener mOnClickListener = null;
-    private View Js = null;
-    private ImageView ajm = null;
-    private int bnD = 16;
-    private List<FragmentTabIndicator> bnE = new ArrayList(3);
-    private final CustomMessageListener aBd = new s(this, 2001124);
+    private View Jt = null;
+    private ImageView ajv = null;
+    private int bnR = 16;
+    private List<FragmentTabIndicator> bnS = new ArrayList(3);
+    private final CustomMessageListener aBn = new s(this, 2001124);
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        this.axV = (BaseFragmentActivity) activity;
+        this.aye = (BaseFragmentActivity) activity;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -67,8 +67,8 @@ public class r extends BaseFragment implements ViewPager.OnPageChangeListener {
         e(bundle);
     }
 
-    public ae SQ() {
-        Fragment fragment = this.bfz.bk(1).Cy;
+    public ae ST() {
+        Fragment fragment = this.bfN.bk(1).Cz;
         if (!(fragment instanceof ae)) {
             return null;
         }
@@ -79,49 +79,49 @@ public class r extends BaseFragment implements ViewPager.OnPageChangeListener {
     public void onResume() {
         int i = 1;
         if (MentionActivityConfig.jumpInTab != -1) {
-            this.bnD = MentionActivityConfig.jumpInTab;
+            this.bnR = MentionActivityConfig.jumpInTab;
             MentionActivityConfig.jumpInTab = -1;
         } else if (getArguments() != null) {
-            this.bnD = getArguments().getInt(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, this.bnD);
+            this.bnR = getArguments().getInt(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, this.bnR);
         }
         super.onResume();
         if (isShow()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2012112, 0));
             if (MentionActivityConfig.newJumpIn) {
                 MentionActivityConfig.newJumpIn = false;
-                if (com.baidu.tbadk.coreExtra.messageCenter.a.oB().getMsgReplyme() <= 0 && com.baidu.tbadk.coreExtra.messageCenter.a.oB().getMsgAtme() > 0) {
+                if (com.baidu.tbadk.coreExtra.messageCenter.a.oD().getMsgReplyme() <= 0 && com.baidu.tbadk.coreExtra.messageCenter.a.oD().getMsgAtme() > 0) {
                     i = 2;
                 }
                 setCurrentTabByType(i);
             }
-            gw(this.bfn);
+            gw(this.bfB);
         }
     }
 
     private void gw(int i) {
-        if (i >= 0 && i < this.bnB) {
-            Fragment item = this.bnC.getItem(this.bfn);
-            if (this.bfo[i] == 1) {
+        if (i >= 0 && i < this.bnP) {
+            Fragment item = this.bnQ.getItem(this.bfB);
+            if (this.bfC[i] == 1) {
                 if (item instanceof ae) {
                     ae aeVar = (ae) item;
-                    aeVar.SH();
+                    aeVar.SK();
                     if (this.mNavigationBar != null) {
                         aeVar.a(this.mNavigationBar);
                     }
                 } else {
                     BdLog.e("ReplyMeFragment selected error, can not update data.");
                 }
-            } else if (this.bfo[i] == 2) {
+            } else if (this.bfC[i] == 2) {
                 if (item instanceof a) {
-                    ((a) item).SH();
+                    ((a) item).SK();
                 } else {
                     BdLog.e("AtMeFragment selected error, can not update data.");
                 }
             }
-            if (this.bnC != null) {
-                Fragment item2 = this.bnC.getItem(i);
+            if (this.bnQ != null) {
+                Fragment item2 = this.bnQ.getItem(i);
                 if (item != null) {
-                    bd.bR(item2.getClass().getName());
+                    be.bR(item2.getClass().getName());
                 }
             }
         }
@@ -130,13 +130,13 @@ public class r extends BaseFragment implements ViewPager.OnPageChangeListener {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        Jt();
+        Jx();
     }
 
     @Override // android.support.v4.app.Fragment
     public void onSaveInstanceState(Bundle bundle) {
-        if (this.bfn != -1) {
-            bundle.putInt("type", this.bfo[this.bfn]);
+        if (this.bfB != -1) {
+            bundle.putInt("type", this.bfC[this.bfB]);
         } else {
             bundle.putInt("type", 0);
         }
@@ -155,7 +155,7 @@ public class r extends BaseFragment implements ViewPager.OnPageChangeListener {
                     String string3 = extras.getString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
                     if (string2 != null && string != null) {
                         try {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.axV, Long.parseLong(string), string2, string3, 0)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.aye, Long.parseLong(string), string2, string3, 0)));
                             return;
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -172,29 +172,29 @@ public class r extends BaseFragment implements ViewPager.OnPageChangeListener {
     private void a(Fragment fragment, int i, int i2) {
         if (fragment != null) {
             com.baidu.tbadk.core.tabHost.b bVar = new com.baidu.tbadk.core.tabHost.b();
-            FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this.axV);
-            bVar.Cy = fragment;
+            FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this.aye);
+            bVar.Cz = fragment;
             bVar.mType = i;
             fragmentTabIndicator.setText(i2);
             fragmentTabIndicator.setGravity(17);
-            fragmentTabIndicator.VN = com.baidu.tieba.s.main_bottom_button_color;
+            fragmentTabIndicator.VR = com.baidu.tieba.s.main_bottom_button_color;
             fragmentTabIndicator.setTextSize(0, getResources().getDimension(com.baidu.tieba.t.fontsize32));
-            bVar.Cx = fragmentTabIndicator;
+            bVar.Cy = fragmentTabIndicator;
             com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-            cVar.view = com.baidu.adp.lib.g.b.ek().inflate(this.axV, com.baidu.tieba.w.message_tip_item, null);
-            cVar.VT = fragmentTabIndicator;
+            cVar.view = com.baidu.adp.lib.g.b.ek().inflate(this.aye, com.baidu.tieba.w.message_tip_item, null);
+            cVar.VX = fragmentTabIndicator;
             fragmentTabIndicator.a("msg_tip_key", cVar);
-            this.bnE.add(fragmentTabIndicator);
-            this.bfz.a(bVar);
+            this.bnS.add(fragmentTabIndicator);
+            this.bfN.a(bVar);
         }
     }
 
-    private void QQ() {
-        if (this.bnC != null) {
-            int count = this.bnC.getCount();
+    private void QT() {
+        if (this.bnQ != null) {
+            int count = this.bnQ.getCount();
             for (int i = 0; i < count; i++) {
-                Fragment item = this.bnC.getItem(i);
-                int gf = this.bnC.gf(i);
+                Fragment item = this.bnQ.getItem(i);
+                int gf = this.bnQ.gf(i);
                 if (item != null) {
                     if (gf == 0) {
                         a(item, 0, com.baidu.tieba.y.mention_chatme);
@@ -205,7 +205,7 @@ public class r extends BaseFragment implements ViewPager.OnPageChangeListener {
                     }
                 }
             }
-            this.bfz.initViewPager();
+            this.bfN.initViewPager();
         }
     }
 
@@ -220,51 +220,51 @@ public class r extends BaseFragment implements ViewPager.OnPageChangeListener {
         }
         this.mNavigationBar = (NavigationBar) view.findViewById(com.baidu.tieba.v.view_navigation_bar);
         if (z) {
-            this.ajm = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.widget_nb_item_addchat, this.mOnClickListener);
+            this.ajv = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.widget_nb_item_addchat, this.mOnClickListener);
         }
         this.mNavigationBar.setTitleText(com.baidu.tieba.y.my_mention);
-        this.Js = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.Js.setOnClickListener(new u(this));
+        this.Jt = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.Jt.setOnClickListener(new u(this));
         this.mFragmentManager = getChildFragmentManager();
-        this.bnC = new v(this.mFragmentManager, z);
-        this.bfz = (FragmentTabHost) view.findViewById(com.baidu.tieba.v.tab_host);
-        this.bfz.setup(getChildFragmentManager());
-        this.bfz.setTabWidgetBackgroundColor(getResources().getColor(com.baidu.tieba.s.maintab_bg));
-        this.bfz.setOnPageChangeListener(this);
-        QQ();
-        if (this.bnC.getCount() == 3) {
-            this.bfo = new int[]{0, 1, 2};
+        this.bnQ = new v(this.mFragmentManager, z);
+        this.bfN = (FragmentTabHost) view.findViewById(com.baidu.tieba.v.tab_host);
+        this.bfN.setup(getChildFragmentManager());
+        this.bfN.setTabWidgetBackgroundColor(getResources().getColor(com.baidu.tieba.s.maintab_bg));
+        this.bfN.setOnPageChangeListener(this);
+        QT();
+        if (this.bnQ.getCount() == 3) {
+            this.bfC = new int[]{0, 1, 2};
         } else {
-            this.bfo = new int[]{1, 2};
+            this.bfC = new int[]{1, 2};
         }
-        this.bnB = this.bfo.length;
+        this.bnP = this.bfC.length;
     }
 
     protected void setCurrentTab(int i) {
-        if (i >= 0 && i < this.bnB && this.bfn != i) {
-            this.bfn = i;
+        if (i >= 0 && i < this.bnP && this.bfB != i) {
+            this.bfB = i;
             gw(i);
-            this.bfz.setCurrentTab(i);
-            s(this.bfo[i], true);
+            this.bfN.setCurrentTab(i);
+            s(this.bfC[i], true);
             String str = null;
-            if (this.bfo[i] == 0) {
+            if (this.bfC[i] == 0) {
                 str = "msg_chat_tab_click";
-            } else if (this.bfo[i] == 1) {
+            } else if (this.bfC[i] == 1) {
                 str = "msg_reply_tab_click";
-                com.baidu.tbadk.coreExtra.messageCenter.a.oB().oP();
-            } else if (this.bfo[i] == 2) {
+                com.baidu.tbadk.coreExtra.messageCenter.a.oD().oR();
+            } else if (this.bfC[i] == 2) {
                 str = "msg_atme_tab_click";
-                com.baidu.tbadk.coreExtra.messageCenter.a.oB().oP();
+                com.baidu.tbadk.coreExtra.messageCenter.a.oD().oR();
             }
             if (str != null) {
-                TiebaStatic.eventStat(this.axV, str, "click", 1, new Object[0]);
+                TiebaStatic.eventStat(this.aye, str, "click", 1, new Object[0]);
             }
         }
     }
 
     void setCurrentTabByType(int i) {
-        for (int i2 = 0; i2 < this.bfo.length; i2++) {
-            if (i == this.bfo[i2]) {
+        for (int i2 = 0; i2 < this.bfC.length; i2++) {
+            if (i == this.bfC[i2]) {
                 setCurrentTab(i2);
                 return;
             }
@@ -275,19 +275,19 @@ public class r extends BaseFragment implements ViewPager.OnPageChangeListener {
     public void onChangeSkinType(int i) {
         if (TbadkApplication.isLogin()) {
             if (i == 1) {
-                this.bfz.setBackgroundColor(-14538444);
+                this.bfN.setBackgroundColor(-14538444);
             } else {
-                this.bfz.setBackgroundColor(this.axV.getResources().getColor(com.baidu.tieba.s.backgroundcolor));
+                this.bfN.setBackgroundColor(this.aye.getResources().getColor(com.baidu.tieba.s.backgroundcolor));
             }
         } else {
-            aw.i(this.bfz, com.baidu.tieba.s.bg_page_setting);
+            aw.i(this.bfN, com.baidu.tieba.s.bg_page_setting);
         }
         this.mNavigationBar.onChangeSkinType(i);
-        this.bfz.onChangeSkinType(i);
-        if (this.bnC != null) {
-            int count = this.bnC.getCount();
+        this.bfN.onChangeSkinType(i);
+        if (this.bnQ != null) {
+            int count = this.bnQ.getCount();
             for (int i2 = 0; i2 < count; i2++) {
-                Fragment item = this.bnC.getItem(i2);
+                Fragment item = this.bnQ.getItem(i2);
                 if (item != null && (item instanceof BaseFragment)) {
                     ((BaseFragment) item).changeSkinType(i);
                 }
@@ -301,11 +301,11 @@ public class r extends BaseFragment implements ViewPager.OnPageChangeListener {
         for (int i = 0; i < iArr.length; i++) {
             int i2 = 0;
             while (true) {
-                if (i2 < this.bnB) {
-                    if (i != this.bfo[i2]) {
+                if (i2 < this.bnP) {
+                    if (i != this.bfC[i2]) {
                         i2++;
                     } else {
-                        fragmentTabIndicator = this.bnE.get(i2);
+                        fragmentTabIndicator = this.bnS.get(i2);
                         textView = (TextView) fragmentTabIndicator.dG("msg_tip_key").view;
                         break;
                     }
@@ -357,7 +357,7 @@ public class r extends BaseFragment implements ViewPager.OnPageChangeListener {
     private boolean gx(int i) {
         switch (i) {
             case 0:
-                if (this.bnB >= 3) {
+                if (this.bnP >= 3) {
                     return TbadkApplication.m251getInst().isMsgChatOn() || TbadkApplication.m251getInst().isGroupMsgOn();
                 }
                 return false;
@@ -377,32 +377,32 @@ public class r extends BaseFragment implements ViewPager.OnPageChangeListener {
     }
 
     public void s(int i, boolean z) {
-        int msgReplyme = com.baidu.tbadk.coreExtra.messageCenter.a.oB().getMsgReplyme();
-        int msgAtme = com.baidu.tbadk.coreExtra.messageCenter.a.oB().getMsgAtme();
-        int oS = com.baidu.tbadk.coreExtra.messageCenter.a.oB().oS();
-        int msgFans = com.baidu.tbadk.coreExtra.messageCenter.a.oB().getMsgFans();
-        int msgGiftNum = com.baidu.tbadk.coreExtra.messageCenter.a.oB().getMsgGiftNum();
+        int msgReplyme = com.baidu.tbadk.coreExtra.messageCenter.a.oD().getMsgReplyme();
+        int msgAtme = com.baidu.tbadk.coreExtra.messageCenter.a.oD().getMsgAtme();
+        int oU = com.baidu.tbadk.coreExtra.messageCenter.a.oD().oU();
+        int msgFans = com.baidu.tbadk.coreExtra.messageCenter.a.oD().getMsgFans();
+        int msgGiftNum = com.baidu.tbadk.coreExtra.messageCenter.a.oD().getMsgGiftNum();
         int[] iArr = new int[5];
-        iArr[0] = oS;
+        iArr[0] = oU;
         iArr[1] = msgReplyme;
         iArr[2] = msgAtme;
         iArr[3] = msgFans;
         iArr[4] = msgGiftNum;
-        if (z && i < iArr.length && i > -1 && i != 0 && this.bfo[this.bfn] != 0) {
+        if (z && i < iArr.length && i > -1 && i != 0 && this.bfC[this.bfB] != 0) {
             iArr[i] = 0;
         }
         d(iArr);
         if (i != 0 && z) {
-            com.baidu.tbadk.coreExtra.messageCenter.a.oB().a(iArr[1], iArr[2], iArr[0], iArr[3], iArr[4]);
+            com.baidu.tbadk.coreExtra.messageCenter.a.oD().a(iArr[1], iArr[2], iArr[0], iArr[3], iArr[4]);
         }
     }
 
     private void nY() {
-        MessageManager.getInstance().registerListener(this.aBd);
+        MessageManager.getInstance().registerListener(this.aBn);
     }
 
-    private void Jt() {
-        MessageManager.getInstance().unRegisterListener(this.aBd);
+    private void Jx() {
+        MessageManager.getInstance().unRegisterListener(this.aBn);
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -411,23 +411,23 @@ public class r extends BaseFragment implements ViewPager.OnPageChangeListener {
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        if (i >= 0 && i < this.bnB && i != this.bfn) {
-            this.bfn = i;
-            gw(this.bfn);
+        if (i >= 0 && i < this.bnP && i != this.bfB) {
+            this.bfB = i;
+            gw(this.bfB);
             String str = null;
-            if (this.bfo[i] == 0) {
+            if (this.bfC[i] == 0) {
                 str = "msg_chat_tab_click";
-            } else if (this.bfo[i] == 1) {
+            } else if (this.bfC[i] == 1) {
                 str = "msg_reply_tab_click";
-                com.baidu.tbadk.coreExtra.messageCenter.a.oB().oP();
-            } else if (this.bfo[i] == 2) {
+                com.baidu.tbadk.coreExtra.messageCenter.a.oD().oR();
+            } else if (this.bfC[i] == 2) {
                 str = "msg_atme_tab_click";
-                com.baidu.tbadk.coreExtra.messageCenter.a.oB().oP();
+                com.baidu.tbadk.coreExtra.messageCenter.a.oD().oR();
             }
             if (str != null) {
-                TiebaStatic.eventStat(this.axV, str, "click", 1, new Object[0]);
+                TiebaStatic.eventStat(this.aye, str, "click", 1, new Object[0]);
             }
-            s(this.bfo[i], true);
+            s(this.bfC[i], true);
         }
     }
 

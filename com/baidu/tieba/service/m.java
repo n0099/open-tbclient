@@ -11,11 +11,11 @@ import java.io.FileWriter;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends BdAsyncTask<String, Integer, String> {
-    final /* synthetic */ PerformMonitorService bIN;
+    final /* synthetic */ PerformMonitorService bJb;
     private ac yV;
 
     private m(PerformMonitorService performMonitorService) {
-        this.bIN = performMonitorService;
+        this.bJb = performMonitorService;
         this.yV = null;
     }
 
@@ -272,9 +272,9 @@ public class m extends BdAsyncTask<String, Integer, String> {
         if (this.yV != null) {
             this.yV.dM();
         }
-        this.bIN.mTask = null;
+        this.bJb.mTask = null;
         super.cancel(true);
-        this.bIN.stopSelf();
+        this.bJb.stopSelf();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -282,7 +282,7 @@ public class m extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         super.onPostExecute((m) str);
-        this.bIN.mTask = null;
-        this.bIN.stopSelf();
+        this.bJb.mTask = null;
+        this.bJb.stopSelf();
     }
 }

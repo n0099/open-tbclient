@@ -6,8 +6,8 @@ import com.baidu.tbadk.live.message.RequestDismissGroupMessage;
 import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
 /* loaded from: classes.dex */
 public class bm extends com.baidu.adp.base.e {
-    private RequestRemoveMembersMessage aOq;
-    private RequestDismissGroupMessage aOr;
+    private RequestRemoveMembersMessage aOE;
+    private RequestDismissGroupMessage aOF;
     private int flag;
     private String groupId;
     private String groupName;
@@ -45,8 +45,8 @@ public class bm extends com.baidu.adp.base.e {
 
     @Override // com.baidu.adp.base.e
     public void cancelMessage() {
-        if (this.aOq != null) {
-            this.aOq = null;
+        if (this.aOE != null) {
+            this.aOE = null;
         }
     }
 
@@ -59,23 +59,23 @@ public class bm extends com.baidu.adp.base.e {
     }
 
     public void D(long j) {
-        this.aOq = new RequestRemoveMembersMessage();
-        this.aOq.setGroupId(j);
-        this.aOq.setUserIds(TbadkApplication.getCurrentAccountObj().getID());
+        this.aOE = new RequestRemoveMembersMessage();
+        this.aOE.setGroupId(j);
+        this.aOE.setUserIds(TbadkApplication.getCurrentAccountObj().getID());
         if (this.mActivity != null) {
-            this.mActivity.sendMessage(this.aOq);
+            this.mActivity.sendMessage(this.aOE);
         } else {
-            sendMessage(this.aOq);
+            sendMessage(this.aOE);
         }
     }
 
     public void fp(int i) {
-        this.aOr = new RequestDismissGroupMessage();
-        this.aOr.setGroupId(i);
+        this.aOF = new RequestDismissGroupMessage();
+        this.aOF.setGroupId(i);
         if (this.mActivity != null) {
-            this.mActivity.sendMessage(this.aOr);
+            this.mActivity.sendMessage(this.aOF);
         } else {
-            sendMessage(this.aOr);
+            sendMessage(this.aOF);
         }
     }
 
@@ -83,7 +83,7 @@ public class bm extends com.baidu.adp.base.e {
         return this.groupId;
     }
 
-    public int Jz() {
+    public int JD() {
         return com.baidu.adp.lib.g.c.f(this.groupId, 0);
     }
 

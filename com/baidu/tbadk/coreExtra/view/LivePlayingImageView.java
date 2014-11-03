@@ -9,12 +9,12 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.coreExtra.view.LivePlayingStatusMgr;
 /* loaded from: classes.dex */
 public class LivePlayingImageView extends ImageView {
-    private static /* synthetic */ int[] OD;
-    private ah OC;
+    private static /* synthetic */ int[] OH;
+    private ah OG;
     private String mStatisticsKey;
 
-    static /* synthetic */ int[] qd() {
-        int[] iArr = OD;
+    static /* synthetic */ int[] qf() {
+        int[] iArr = OH;
         if (iArr == null) {
             iArr = new int[LivePlayingStatusMgr.LivePlayingStatus.valuesCustom().length];
             try {
@@ -37,7 +37,7 @@ public class LivePlayingImageView extends ImageView {
                 iArr[LivePlayingStatusMgr.LivePlayingStatus.PLAYING.ordinal()] = 3;
             } catch (NoSuchFieldError e5) {
             }
-            OD = iArr;
+            OH = iArr;
         }
         return iArr;
     }
@@ -51,11 +51,11 @@ public class LivePlayingImageView extends ImageView {
     }
 
     public ah getVisibleChangeCallback() {
-        return this.OC;
+        return this.OG;
     }
 
     public void setVisibleChangeCallback(ah ahVar) {
-        this.OC = ahVar;
+        this.OG = ahVar;
     }
 
     public LivePlayingImageView(Context context) {
@@ -75,7 +75,7 @@ public class LivePlayingImageView extends ImageView {
 
     private void init() {
         setOnClickListener(new ag(this));
-        a(LivePlayingStatusMgr.qe().qf());
+        a(LivePlayingStatusMgr.qg().qh());
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -89,13 +89,13 @@ public class LivePlayingImageView extends ImageView {
                 ((AnimationDrawable) drawable).stop();
             }
         }
-        if (this.OC != null) {
-            this.OC.ct(i);
+        if (this.OG != null) {
+            this.OG.ct(i);
         }
     }
 
     public void a(LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus) {
-        switch (qd()[livePlayingStatus.ordinal()]) {
+        switch (qf()[livePlayingStatus.ordinal()]) {
             case 1:
                 setVisibility(8);
                 return;
@@ -123,12 +123,12 @@ public class LivePlayingImageView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        LivePlayingStatusMgr.qe().a(this);
+        LivePlayingStatusMgr.qg().a(this);
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        LivePlayingStatusMgr.qe().b(this);
+        LivePlayingStatusMgr.qg().b(this);
     }
 }

@@ -20,6 +20,8 @@ import android.widget.ProgressBar;
 import com.baidu.adp.base.BdBaseActivity;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.g.j;
 import com.baidu.adp.lib.util.BdLog;
@@ -32,7 +34,7 @@ import com.baidu.tbadk.core.d;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tbadk.core.util.k;
 import com.baidu.tbadk.core.view.g;
 import com.baidu.tieba.compatible.CompatibleUtile;
@@ -73,6 +75,16 @@ public class BaseActivity extends BdBaseActivity {
     private boolean mLayoutHasInit = false;
     private int mMaxHeight = 0;
     private int mPreHeight = 0;
+    private final CustomMessageListener nightResourcesChangeListener = new CustomMessageListener(2005017) { // from class: com.baidu.tbadk.BaseActivity.2
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005017 && BaseActivity.this.mLayoutMode != null) {
+                BaseActivity.this.mLayoutMode.a(null);
+                BaseActivity.this.onChangeSkinType(TbadkApplication.m251getInst().getSkinType());
+            }
+        }
+    };
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -92,12 +104,13 @@ public class BaseActivity extends BdBaseActivity {
             CompatibleUtile.getInstance().openGpu(this);
         }
         TbadkApplication.setIsAppRunning(true);
-        bd.bR(getClass().getName());
+        be.bR(getClass().getName());
+        registerListener(this.nightResourcesChangeListener);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void addGlobalLayoutListener() {
-        getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tbadk.BaseActivity.2
+        getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tbadk.BaseActivity.3
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
             public void onGlobalLayout() {
                 int i = 0;
@@ -437,7 +450,7 @@ public class BaseActivity extends BdBaseActivity {
         this.customToast.onResume();
         changeSkinType(TbadkApplication.m251getInst().getSkinType());
         TbadkApplication.m251getInst().AddResumeNum();
-        bd.bR(getClass().getName());
+        be.bR(getClass().getName());
     }
 
     public void changeSkinType(int i) {
@@ -465,10 +478,10 @@ public class BaseActivity extends BdBaseActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     public void onChangeSkinType(int i) {
         if (this.loadingView != null) {
-            this.loadingView.sB();
+            this.loadingView.sD();
         }
         if (this.refreshView != null) {
-            this.refreshView.sB();
+            this.refreshView.sD();
         }
     }
 
@@ -671,7 +684,7 @@ public class BaseActivity extends BdBaseActivity {
     public void startAnimation(View view, Animation animation, final Animation.AnimationListener animationListener) {
         if (animation != null && !isFinishing()) {
             final WeakReference<View> weakReference = new WeakReference<>(view);
-            animation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tbadk.BaseActivity.3
+            animation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tbadk.BaseActivity.4
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationStart(Animation animation2) {
                     if (animationListener != null) {
@@ -713,19 +726,27 @@ public class BaseActivity extends BdBaseActivity {
         showLoadingView(view, false);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void showLoadingView(View view, boolean z) {
+    protected void showLoadingView(View view, boolean z, int i) {
         if (this.loadingView == null) {
-            this.loadingView = new f(this);
+            if (i < 0) {
+                this.loadingView = new f(this);
+            } else {
+                this.loadingView = new f(this, i);
+            }
         }
         this.loadingView.b(view, z);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void showLoadingView(View view, boolean z) {
+        showLoadingView(view, z, -1);
     }
 
     protected boolean isLoadingViewAttached() {
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.sv();
+        return this.loadingView.sx();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

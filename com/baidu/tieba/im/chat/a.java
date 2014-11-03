@@ -6,20 +6,20 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
-    final /* synthetic */ AbsMsgImageActivity aNA;
+    final /* synthetic */ AbsMsgImageActivity aNO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(AbsMsgImageActivity absMsgImageActivity) {
-        this.aNA = absMsgImageActivity;
+        this.aNO = absMsgImageActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int i;
         Intent intent = new Intent();
-        i = this.aNA.mIndex;
+        i = this.aNO.mIndex;
         intent.putExtra(ImageViewerConfig.INDEX, i);
-        this.aNA.setResult(-1, intent);
-        this.aNA.finish();
+        this.aNO.setResult(-1, intent);
+        this.aNO.finish();
     }
 }

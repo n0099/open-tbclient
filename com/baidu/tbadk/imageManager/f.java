@@ -1,13 +1,13 @@
 package com.baidu.tbadk.imageManager;
 /* loaded from: classes.dex */
 class f extends com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a> {
-    final /* synthetic */ e UQ;
+    final /* synthetic */ e UU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(e eVar, int i) {
         super(i);
-        this.UQ = eVar;
+        this.UU = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

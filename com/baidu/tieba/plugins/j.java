@@ -7,11 +7,11 @@ import com.baidu.tbadk.pluginArch.bean.ConfigInfos;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class j implements View.OnClickListener {
-    final /* synthetic */ g bHf;
+    final /* synthetic */ g bHt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(g gVar) {
-        this.bHf = gVar;
+        this.bHt = gVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,21 +24,21 @@ class j implements View.OnClickListener {
         ConfigInfos.PluginConfig pluginConfig;
         PluginDownloadActivity pluginDownloadActivity3;
         if (!com.baidu.adp.lib.util.j.fh()) {
-            pluginDownloadActivity3 = this.bHf.bGV;
+            pluginDownloadActivity3 = this.bHt.bHj;
             pluginDownloadActivity3.showToast(y.neterror);
             return;
         }
-        pluginDownloadActivity = this.bHf.bGV;
-        pluginDownloadActivity.bGU = true;
-        textView = this.bHf.bGY;
+        pluginDownloadActivity = this.bHt.bHj;
+        pluginDownloadActivity.bHi = true;
+        textView = this.bHt.bHm;
         textView.setVisibility(8);
-        textView2 = this.bHf.agL;
+        textView2 = this.bHt.agU;
         textView2.setVisibility(8);
-        textView3 = this.bHf.bGZ;
+        textView3 = this.bHt.bHn;
         textView3.setVisibility(0);
         PluginCenter pluginCenter = PluginCenter.getInstance();
-        pluginDownloadActivity2 = this.bHf.bGV;
-        pluginConfig = pluginDownloadActivity2.bGQ;
+        pluginDownloadActivity2 = this.bHt.bHj;
+        pluginConfig = pluginDownloadActivity2.bHe;
         pluginCenter.startDownloadForeground(pluginConfig, new k(this));
     }
 }

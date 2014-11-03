@@ -15,31 +15,31 @@ import com.baidu.tieba.v;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class i extends l {
-    private TextView bAm;
-    private SubPbLoadPreviousView bAn;
-    private View bAo;
-    protected View bro;
+    private TextView bAA;
+    private SubPbLoadPreviousView bAB;
+    private View bAC;
+    protected View brC;
     private NavigationBar mNavigationBar;
 
     public i(BaseActivity baseActivity, boolean z, View.OnClickListener onClickListener, View.OnClickListener onClickListener2, View.OnClickListener onClickListener3, View.OnClickListener onClickListener4, View.OnClickListener onClickListener5) {
         super(baseActivity, z, onClickListener, onClickListener2, onClickListener3, onClickListener4, onClickListener5);
-        this.bAm = null;
-        this.bAn = null;
-        this.bAo = null;
+        this.bAA = null;
+        this.bAB = null;
+        this.bAC = null;
         this.mNavigationBar = null;
-        this.bro = null;
-        this.bAn = (SubPbLoadPreviousView) this.bAq.findViewById(v.sub_pb_load_previous);
-        this.mNavigationBar = (NavigationBar) this.Xi.findViewById(v.view_navigation_bar);
-        this.bro = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.bAm = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, baseActivity.getResources().getString(y.view_subject), onClickListener);
+        this.brC = null;
+        this.bAB = (SubPbLoadPreviousView) this.bAE.findViewById(v.sub_pb_load_previous);
+        this.mNavigationBar = (NavigationBar) this.Xm.findViewById(v.view_navigation_bar);
+        this.brC = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.bAA = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, baseActivity.getResources().getString(y.view_subject), onClickListener);
     }
 
     @Override // com.baidu.tieba.pb.sub.l
-    public boolean YS() {
-        if (this.azA.isVisible()) {
-            this.azA.Cc();
-            this.azA.hide();
-            this.bAw.setEnabled(true);
+    public boolean YV() {
+        if (this.azJ.isVisible()) {
+            this.azJ.Ce();
+            this.azJ.hide();
+            this.bAK.setEnabled(true);
         } else {
             this.mActivity.finish();
         }
@@ -53,83 +53,83 @@ public class i extends l {
     }
 
     @Override // com.baidu.tieba.pb.sub.l
-    protected void YT() {
-        this.azA = (PbEditor) this.Xi.findViewById(v.sub_pb_editor);
-        this.azA.au(true);
-        this.azA.Cb();
-        this.bAw.setEnabled(false);
+    protected void YW() {
+        this.azJ = (PbEditor) this.Xm.findViewById(v.sub_pb_editor);
+        this.azJ.au(true);
+        this.azJ.Cd();
+        this.bAK.setEnabled(false);
     }
 
     @Override // com.baidu.tieba.pb.sub.l
     public void setOnActionListener(w wVar) {
         if (wVar != null) {
-            this.azA.setOnActionListener(new k(this, wVar));
+            this.azJ.setOnActionListener(new k(this, wVar));
         }
     }
 
-    public TextView YU() {
-        return this.bAm;
+    public TextView YX() {
+        return this.bAA;
     }
 
     private NavigationBar getNavigationBar() {
-        this.mNavigationBar = (NavigationBar) this.Xi.findViewById(v.view_navigation_bar);
+        this.mNavigationBar = (NavigationBar) this.Xm.findViewById(v.view_navigation_bar);
         return this.mNavigationBar;
     }
 
-    private SubPbLoadPreviousView YV() {
-        this.bAn = (SubPbLoadPreviousView) this.bAq.findViewById(v.sub_pb_load_previous);
-        return this.bAn;
+    private SubPbLoadPreviousView YY() {
+        this.bAB = (SubPbLoadPreviousView) this.bAE.findViewById(v.sub_pb_load_previous);
+        return this.bAB;
     }
 
-    private View YW() {
-        this.bAo = this.bAq.findViewById(v.sub_pb_load_previous_top);
-        return this.bAo;
-    }
-
-    public void YX() {
-        YV().XA();
-        YW().setVisibility(0);
-    }
-
-    public void YY() {
-        YV().YJ();
-        YW().setVisibility(0);
-    }
-
-    public void YZ() {
-        YV().hide();
-        YW().setVisibility(8);
-        this.bAq.setPadding(0, 0, 0, 0);
-        ((h) this.bAr).eo(false);
+    private View YZ() {
+        this.bAC = this.bAE.findViewById(v.sub_pb_load_previous_top);
+        return this.bAC;
     }
 
     public void Za() {
-        YV().Ba();
-        YV().setVisibility(0);
-        this.bAq.setPadding(0, 0, 0, 0);
-        ((h) this.bAr).eo(true);
+        YY().XD();
+        YZ().setVisibility(0);
+    }
+
+    public void Zb() {
+        YY().YM();
+        YZ().setVisibility(0);
+    }
+
+    public void Zc() {
+        YY().hide();
+        YZ().setVisibility(8);
+        this.bAE.setPadding(0, 0, 0, 0);
+        ((h) this.bAF).eo(false);
+    }
+
+    public void Zd() {
+        YY().Bc();
+        YY().setVisibility(0);
+        this.bAE.setPadding(0, 0, 0, 0);
+        ((h) this.bAF).eo(true);
     }
 
     @Override // com.baidu.tieba.pb.sub.l
     protected void v(View.OnClickListener onClickListener) {
-        this.bAr = new h(this.mActivity, onClickListener);
-        this.bAr.u(this.bzK);
-        this.vl.setAdapter((ListAdapter) this.bAr);
+        this.bAF = new h(this.mActivity, onClickListener);
+        this.bAF.u(this.bzY);
+        this.vl.setAdapter((ListAdapter) this.bAF);
     }
 
     @Override // com.baidu.tieba.pb.sub.l
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getNavigationBar().onChangeSkinType(i);
-        YV().changeSkinType(i);
-        this.mActivity.getLayoutMode().h(YW());
+        YY().changeSkinType(i);
+        this.mActivity.getLayoutMode().h(YZ());
     }
 
     @Override // com.baidu.tieba.pb.sub.l
-    protected void Ck() {
-        this.Xi = com.baidu.adp.lib.g.b.ek().inflate(this.mActivity, com.baidu.tieba.w.new_sub_pb_reply_layout, null);
-        this.bAq = com.baidu.adp.lib.g.b.ek().inflate(this.mActivity, com.baidu.tieba.w.new_sub_pb_reply_head, null);
-        YV().setOnClickListener(this.aEF);
+    protected void Cm() {
+        this.Xm = com.baidu.adp.lib.g.b.ek().inflate(this.mActivity, com.baidu.tieba.w.new_sub_pb_reply_layout, null);
+        this.bAE = com.baidu.adp.lib.g.b.ek().inflate(this.mActivity, com.baidu.tieba.w.new_sub_pb_reply_head, null);
+        YY().setOnClickListener(this.aEP);
     }
 
     @Override // com.baidu.tieba.pb.sub.l
@@ -137,7 +137,7 @@ public class i extends l {
         if (arVar == null) {
             return 0;
         }
-        int totalCount = arVar.getTotalCount() - (arVar.getCurrentPage() * arVar.Av());
+        int totalCount = arVar.getTotalCount() - (arVar.getCurrentPage() * arVar.Ax());
         if (totalCount < 0) {
             totalCount = 0;
         }
@@ -148,7 +148,7 @@ public class i extends l {
     public void hc(String str) {
         h hVar;
         int gZ;
-        if ((this.bAr instanceof h) && (gZ = (hVar = (h) this.bAr).gZ(str)) > -1) {
+        if ((this.bAF instanceof h) && (gZ = (hVar = (h) this.bAF).gZ(str)) > -1) {
             this.vl.setSelection(gZ + 1);
             ak akVar = (ak) hVar.getItem(gZ);
             if (akVar != null) {
@@ -156,8 +156,8 @@ public class i extends l {
                 if (userName == null) {
                     userName = "";
                 }
-                this.azA.getEditText().setText(this.mActivity.getResources().getString(y.reply_sub_floor).replace("%s", userName));
-                this.azA.getEditText().setSelection(this.azA.getEditText().getText().length());
+                this.azJ.getEditText().setText(this.mActivity.getResources().getString(y.reply_sub_floor).replace("%s", userName));
+                this.azJ.getEditText().setSelection(this.azJ.getEditText().getText().length());
             }
             if (TbadkApplication.m251getInst().getSkinType() == 1) {
                 hVar.L(str, this.mActivity.getResources().getColor(com.baidu.tieba.s.c_393d47));

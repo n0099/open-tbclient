@@ -13,11 +13,11 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 /* loaded from: classes.dex */
 class n implements be {
-    final /* synthetic */ FrsActivity aBk;
+    final /* synthetic */ FrsActivity aBu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(FrsActivity frsActivity) {
-        this.aBk = frsActivity;
+        this.aBu = frsActivity;
     }
 
     @Override // com.baidu.tieba.frs.be
@@ -33,24 +33,24 @@ class n implements be {
         String str;
         boolean z;
         df dfVar;
-        buVar = this.aBk.aAv;
-        if (i != buVar.GH().EM() || view2 == null || view == null) {
-            buVar2 = this.aBk.aAv;
-            if (i != buVar2.GH().EL()) {
-                buVar3 = this.aBk.aAv;
-                if (i != buVar3.GH().EN()) {
-                    buVar4 = this.aBk.aAv;
-                    if (i != buVar4.GH().FO()) {
-                        buVar5 = this.aBk.aAv;
-                        if (i == buVar5.GH().FP()) {
-                            com.baidu.tbadk.core.i.m(this.aBk.getParent(), "my_service_ck");
-                            bVar = this.aBk.azE;
+        buVar = this.aBu.aAF;
+        if (i != buVar.GJ().EO() || view2 == null || view == null) {
+            buVar2 = this.aBu.aAF;
+            if (i != buVar2.GJ().EN()) {
+                buVar3 = this.aBu.aAF;
+                if (i != buVar3.GJ().EP()) {
+                    buVar4 = this.aBu.aAF;
+                    if (i != buVar4.GJ().FQ()) {
+                        buVar5 = this.aBu.aAF;
+                        if (i == buVar5.GJ().FR()) {
+                            com.baidu.tbadk.core.j.m(this.aBu.getParent(), "my_service_ck");
+                            bVar = this.aBu.azN;
                             if (bVar != null) {
-                                bVar2 = this.aBk.azE;
-                                if (bVar2.zJ() != null) {
-                                    bVar3 = this.aBk.azE;
-                                    ForumData zJ = bVar3.zJ();
-                                    MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.aBk, com.baidu.adp.lib.g.c.a(zJ.getId(), 0L), zJ.getName(), zJ.getImage_url(), 0)));
+                                bVar2 = this.aBu.azN;
+                                if (bVar2.zL() != null) {
+                                    bVar3 = this.aBu.azN;
+                                    ForumData zL = bVar3.zL();
+                                    MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.aBu, com.baidu.adp.lib.g.c.a(zL.getId(), 0L), zL.getName(), zL.getImage_url(), 0)));
                                     return;
                                 }
                                 return;
@@ -59,27 +59,27 @@ class n implements be {
                         }
                         return;
                     }
-                    com.baidu.tbadk.core.i.l(this.aBk.getParent(), "forum_fortune_click");
+                    com.baidu.tbadk.core.j.l(this.aBu.getParent(), "forum_fortune_click");
                     if (TbadkApplication.isLogin()) {
-                        this.aBk.Fy();
+                        this.aBu.FA();
                         return;
                     } else {
-                        LoginActivity.a((Activity) this.aBk, (String) null, true, 18004);
+                        LoginActivity.a((Activity) this.aBu, (String) null, true, 18004);
                         return;
                     }
                 }
-                FrsActivity frsActivity = this.aBk;
-                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.aBk);
-                str = this.aBk.aAn;
+                FrsActivity frsActivity = this.aBu;
+                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.aBu);
+                str = this.aBu.aAx;
                 frsActivity.sendMessage(new CustomMessage(2004001, pbActivityConfig.createFromThreadCfg(qVar, str, null, 18003, true, false, false)));
                 return;
             } else if (qVar != null) {
-                this.aBk.aAi = qVar;
-                z = this.aBk.ayt;
+                this.aBu.aAs = qVar;
+                z = this.aBu.ayC;
                 if (!z) {
-                    this.aBk.ayt = true;
+                    this.aBu.ayC = true;
                     int isLike = qVar.getPraise() == null ? 0 : qVar.getPraise().getIsLike();
-                    dfVar = this.aBk.ayI;
+                    dfVar = this.aBu.ayR;
                     dfVar.a(qVar.getFirst_post_id(), qVar.getTid(), isLike, "frs");
                     return;
                 }
@@ -91,6 +91,6 @@ class n implements be {
         Rect rect = new Rect();
         view.getDrawingRect(rect);
         ((ViewGroup) view2).offsetDescendantRectToMyCoords(view, rect);
-        this.aBk.a(i2, qVar, rect.bottom);
+        this.aBu.a(i2, qVar, rect.bottom);
     }
 }

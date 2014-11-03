@@ -6,11 +6,11 @@ import com.baidu.tieba.im.message.GroupDeleteMsgResponsedMessage;
 import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
 /* loaded from: classes.dex */
 class i implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ g aSr;
+    final /* synthetic */ g aSF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(g gVar) {
-        this.aSr = gVar;
+        this.aSF = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,14 +21,14 @@ class i implements com.baidu.tieba.im.a<Boolean> {
         long j;
         PersonalTalkSettingActivity personalTalkSettingActivity3;
         long j2;
-        personalTalkSettingActivity = this.aSr.aSq;
+        personalTalkSettingActivity = this.aSF.aSE;
         personalTalkSettingActivity.closeLoadingDialog();
         MessageManager.getInstance().dispatchResponsedMessageToUI(new GroupDeleteMsgResponsedMessage());
-        personalTalkSettingActivity2 = this.aSr.aSq;
+        personalTalkSettingActivity2 = this.aSF.aSE;
         j = personalTalkSettingActivity2.userId;
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new com.baidu.tieba.im.message.f(String.valueOf(j), 2, null, 1)));
         StringBuilder sb = new StringBuilder("clear cache by person:");
-        personalTalkSettingActivity3 = this.aSr.aSq;
+        personalTalkSettingActivity3 = this.aSF.aSE;
         j2 = personalTalkSettingActivity3.userId;
         BdSocketLinkService.startService(true, sb.append(j2).toString());
     }

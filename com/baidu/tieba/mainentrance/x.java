@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements AdapterView.OnItemClickListener {
-    final /* synthetic */ SquareSearchActivity bmO;
+    final /* synthetic */ SquareSearchActivity bnc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(SquareSearchActivity squareSearchActivity) {
-        this.bmO = squareSearchActivity;
+        this.bnc = squareSearchActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -27,23 +27,23 @@ public class x implements AdapterView.OnItemClickListener {
         EditText editText2;
         EditText editText3;
         String str = (String) ((ListView) adapterView).getAdapter().getItem(i);
-        i2 = this.bmO.mMode;
+        i2 = this.bnc.mMode;
         if (i2 != 0) {
-            i3 = this.bmO.mMode;
+            i3 = this.bnc.mMode;
             if (i3 == 3) {
-                this.bmO.fz(str);
+                this.bnc.fz(str);
                 return;
             } else if (str != null && str.length() > 0) {
-                aVar = this.bmO.bmp;
+                aVar = this.bnc.bmD;
                 aVar.gs(i);
-                aVar2 = this.bmO.bmp;
+                aVar2 = this.bnc.bmD;
                 aVar2.notifyDataSetChanged();
-                this.bmO.o(1, str);
-                editText = this.bmO.bmh;
+                this.bnc.o(1, str);
+                editText = this.bnc.bmv;
                 editText.setText(str);
-                editText2 = this.bmO.bmh;
+                editText2 = this.bnc.bmv;
                 editText2.requestFocus();
-                editText3 = this.bmO.bmh;
+                editText3 = this.bnc.bmv;
                 Selection.setSelection(editText3.getText(), str.length());
                 return;
             } else {
@@ -51,6 +51,6 @@ public class x implements AdapterView.OnItemClickListener {
             }
         }
         com.baidu.tieba.util.j.hz(str);
-        this.bmO.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.bmO).createNormalCfg(str, FrsActivityConfig.FRS_FROM_SEARCH)));
+        this.bnc.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.bnc).createNormalCfg(str, FrsActivityConfig.FRS_FROM_SEARCH)));
     }
 }

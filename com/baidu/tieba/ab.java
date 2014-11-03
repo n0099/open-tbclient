@@ -15,25 +15,25 @@ class ab extends CustomMessageListener {
         if (customResponsedMessage != null) {
             switch (customResponsedMessage.getCmd()) {
                 case 2005009:
-                    aj.wk().wQ();
+                    aj.wm().wS();
                     return;
                 case 2005010:
-                    aj.wk().wR();
+                    aj.wm().wT();
                     return;
                 case 2005011:
-                    aj.wk().wT();
+                    aj.wm().wV();
                     return;
                 case 2005012:
-                    aj.wk().wU();
+                    aj.wm().wW();
                     return;
                 case 2005013:
-                    aj.wk().wP();
+                    aj.wm().wR();
                     return;
                 case 2005014:
                 default:
                     return;
                 case 2005015:
-                    aj.wk().wS();
+                    aj.wm().wU();
                     return;
             }
         }

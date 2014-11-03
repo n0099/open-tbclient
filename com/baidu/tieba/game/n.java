@@ -14,7 +14,7 @@ class n extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         boolean booleanValue;
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue())) {
-            l.Hi().cm(booleanValue);
+            l.Hk().cm(booleanValue);
         }
     }
 }

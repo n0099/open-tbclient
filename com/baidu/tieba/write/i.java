@@ -8,11 +8,11 @@ import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.r> {
-    final /* synthetic */ AtListActivity bSE;
+    final /* synthetic */ AtListActivity bST;
     private com.baidu.tbadk.core.util.ac yV;
 
     private i(AtListActivity atListActivity) {
-        this.bSE = atListActivity;
+        this.bST = atListActivity;
         this.yV = null;
     }
 
@@ -25,7 +25,7 @@ public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.r> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         ProgressBar progressBar;
-        progressBar = this.bSE.mProgress;
+        progressBar = this.bST.mProgress;
         progressBar.setVisibility(0);
         super.onPreExecute();
     }
@@ -36,8 +36,8 @@ public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.r> {
         if (this.yV != null) {
             this.yV.dM();
         }
-        this.bSE.bSv = null;
-        progressBar = this.bSE.mProgress;
+        this.bST.bSK = null;
+        progressBar = this.bST.mProgress;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -73,45 +73,45 @@ public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.r> {
         j jVar3;
         j jVar4;
         BdListView bdListView;
-        this.bSE.bSv = null;
-        progressBar = this.bSE.mProgress;
+        this.bST.bSK = null;
+        progressBar = this.bST.mProgress;
         progressBar.setVisibility(8);
         if (this.yV.mc().nb().jq()) {
-            cVar = this.bSE.bSw;
+            cVar = this.bST.bSL;
             cVar.a(rVar);
-            jVar = this.bSE.bSx;
+            jVar = this.bST.bSM;
             if (jVar != null) {
-                editText = this.bSE.mEditText;
+                editText = this.bST.mEditText;
                 if (com.baidu.adp.lib.util.l.a(editText.getText(), "").length() != 0) {
-                    cVar2 = this.bSE.bSw;
-                    if (cVar2.Tc() != null) {
-                        if (!rVar.ze().isEmpty()) {
-                            this.bSE.eK(false);
+                    cVar2 = this.bST.bSL;
+                    if (cVar2.Tf() != null) {
+                        if (!rVar.zg().isEmpty()) {
+                            this.bST.eK(false);
                         }
-                        cVar3 = this.bSE.bSw;
-                        cVar3.Tc().c(rVar.ze());
-                        jVar2 = this.bSE.bSx;
+                        cVar3 = this.bST.bSL;
+                        cVar3.Tf().c(rVar.zg());
+                        jVar2 = this.bST.bSM;
                         jVar2.notifyDataSetInvalidated();
                     }
                 } else {
-                    if (rVar.zd().isEmpty()) {
-                        this.bSE.eK(true);
+                    if (rVar.zf().isEmpty()) {
+                        this.bST.eK(true);
                     } else {
-                        this.bSE.eK(false);
+                        this.bST.eK(false);
                     }
-                    this.bSE.bSr = rVar.zd();
-                    jVar3 = this.bSE.bSx;
-                    jVar3.setData(this.bSE.bSr);
-                    jVar4 = this.bSE.bSx;
+                    this.bST.bSG = rVar.zf();
+                    jVar3 = this.bST.bSM;
+                    jVar3.setData(this.bST.bSG);
+                    jVar4 = this.bST.bSM;
                     jVar4.notifyDataSetInvalidated();
-                    bdListView = this.bSE.vl;
+                    bdListView = this.bST.vl;
                     bdListView.setSelection(0);
                 }
             } else {
                 return;
             }
         } else {
-            this.bSE.showToast(this.yV.getErrorString());
+            this.bST.showToast(this.yV.getErrorString());
         }
         super.onPostExecute(rVar);
     }

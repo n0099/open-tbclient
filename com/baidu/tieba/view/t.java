@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 /* loaded from: classes.dex */
 public class t extends Dialog {
-    private View.OnTouchListener aDq;
+    private View.OnTouchListener aDA;
     private View ay;
     private ProgressBar mProgressBar;
 
@@ -22,6 +22,6 @@ public class t extends Dialog {
         setContentView(this.ay);
         setCanceledOnTouchOutside(true);
         setCancelable(true);
-        getWindow().getDecorView().setOnTouchListener(this.aDq);
+        getWindow().getDecorView().setOnTouchListener(this.aDA);
     }
 }

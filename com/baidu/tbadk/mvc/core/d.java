@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class d extends c {
-    private final List<c> Xg;
+    private final List<c> Xk;
 
     public d(MvcActivity<?, ?> mvcActivity) {
         super(mvcActivity);
-        this.Xg = new ArrayList();
+        this.Xk = new ArrayList();
     }
 
     public void a(int i, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
@@ -20,11 +20,11 @@ public abstract class d extends c {
     }
 
     public void a(c cVar, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
-        if (cVar != null && this.Xg.contains(cVar)) {
+        if (cVar != null && this.Xk.contains(cVar)) {
             View view = cVar.getView();
             if (view == null) {
-                view = cVar.tf();
-                cVar.tg();
+                view = cVar.th();
+                cVar.ti();
             }
             if (cVar.getView().getParent() == null) {
                 if (layoutParams == null) {
@@ -34,7 +34,7 @@ public abstract class d extends c {
                 }
             }
             view.setVisibility(0);
-            cVar.td();
+            cVar.tf();
         }
     }
 
@@ -43,7 +43,7 @@ public abstract class d extends c {
     }
 
     public void a(c cVar, boolean z) {
-        if (cVar != null && this.Xg.contains(cVar)) {
+        if (cVar != null && this.Xk.contains(cVar)) {
             View view = cVar.getView();
             if (view != null) {
                 if (z) {
@@ -52,29 +52,29 @@ public abstract class d extends c {
                     view.setVisibility(0);
                 }
             }
-            cVar.te();
+            cVar.tg();
         }
     }
 
     public boolean a(c cVar) {
-        if (this.Xg == null || !this.Xg.add(cVar)) {
+        if (this.Xk == null || !this.Xk.add(cVar)) {
             return false;
         }
-        cVar.Xh = this;
-        cVar.a(this.Xf);
+        cVar.Xl = this;
+        cVar.a(this.Xj);
         return true;
     }
 
     public int getChildCount() {
-        if (this.Xg == null) {
+        if (this.Xk == null) {
             return 0;
         }
-        return this.Xg.size();
+        return this.Xk.size();
     }
 
     public c dh(int i) {
-        if (this.Xg != null && i >= 0 && i < this.Xg.size()) {
-            return this.Xg.get(i);
+        if (this.Xk != null && i >= 0 && i < this.Xk.size()) {
+            return this.Xk.get(i);
         }
         return null;
     }
@@ -107,32 +107,6 @@ public abstract class d extends c {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void ta() {
-        super.ta();
-        int childCount = getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            c dh = dh(i);
-            if (dh != null) {
-                dh.ta();
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.mvc.core.c
-    public void tb() {
-        super.tb();
-        int childCount = getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            c dh = dh(i);
-            if (dh != null) {
-                dh.tb();
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.mvc.core.c
     public void tc() {
         super.tc();
         int childCount = getChildCount();
@@ -140,6 +114,32 @@ public abstract class d extends c {
             c dh = dh(i);
             if (dh != null) {
                 dh.tc();
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.mvc.core.c
+    public void td() {
+        super.td();
+        int childCount = getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            c dh = dh(i);
+            if (dh != null) {
+                dh.td();
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.mvc.core.c
+    public void te() {
+        super.te();
+        int childCount = getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            c dh = dh(i);
+            if (dh != null) {
+                dh.te();
             }
         }
     }
@@ -187,26 +187,26 @@ public abstract class d extends c {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void td() {
-        super.td();
+    public void tf() {
+        super.tf();
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             c dh = dh(i);
             if (dh != null && dh.getView() != null && dh.getView().getParent() != null && dh.getView().getVisibility() == 0) {
-                dh.td();
+                dh.tf();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void te() {
-        super.te();
+    public void tg() {
+        super.tg();
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             c dh = dh(i);
             if (dh != null && dh.getView() != null && dh.getView().getParent() != null) {
-                dh.te();
+                dh.tg();
             }
         }
     }

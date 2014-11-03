@@ -1,37 +1,37 @@
 package com.baidu.tieba.shareSDK;
 
+import android.view.View;
 import android.widget.TextView;
-import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tieba.write.ch;
-import com.baidu.tieba.write.ci;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s implements ci {
-    final /* synthetic */ o bJI;
+public class s implements View.OnClickListener {
+    final /* synthetic */ p bJX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(o oVar) {
-        this.bJI = oVar;
+    public s(p pVar) {
+        this.bJX = pVar;
     }
 
-    @Override // com.baidu.tieba.write.ci
-    public void hj(int i) {
-        WriteShareActivity writeShareActivity;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         TextView textView;
-        PostPrefixData postPrefixData;
         ch chVar;
-        ch chVar2;
+        WriteShareActivity writeShareActivity;
         WriteShareActivity writeShareActivity2;
-        writeShareActivity = this.bJI.bJG;
-        writeShareActivity.hi(i);
-        textView = this.bJI.bJx;
-        postPrefixData = this.bJI.mPrefixData;
-        textView.setText(postPrefixData.getPrefixs().get(i));
-        chVar = this.bJI.bJy;
-        chVar.dP(i);
-        this.bJI.aci();
-        chVar2 = this.bJI.bJy;
-        writeShareActivity2 = this.bJI.bJG;
-        com.baidu.adp.lib.g.j.a(chVar2, writeShareActivity2);
+        WriteShareActivity writeShareActivity3;
+        WriteShareActivity writeShareActivity4;
+        textView = this.bJX.bJM;
+        textView.setSelected(true);
+        chVar = this.bJX.bJN;
+        writeShareActivity = this.bJX.bJV;
+        int dip2px = com.baidu.adp.lib.util.m.dip2px(writeShareActivity, 15.0f);
+        writeShareActivity2 = this.bJX.bJV;
+        com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(chVar, view, dip2px, com.baidu.adp.lib.util.m.dip2px(writeShareActivity2, 1.0f));
+        writeShareActivity3 = this.bJX.bJV;
+        if (writeShareActivity3 != null) {
+            writeShareActivity4 = this.bJX.bJV;
+            writeShareActivity4.ach();
+        }
     }
 }

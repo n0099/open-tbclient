@@ -8,11 +8,11 @@ import com.baidu.tieba.im.message.RequestGetGroupActivityLocalMessage;
 import com.baidu.tieba.im.message.RequestGetGroupActivityMessage;
 /* loaded from: classes.dex */
 public class r extends com.baidu.adp.base.e {
-    private int aZb;
-    private RequestGetGroupActivityMessage aZc;
-    private RequestGetGroupActivityLocalMessage aZd;
-    private RequestDelGroupActivityMessage aZe;
-    private GroupActivityData aZf;
+    private int aZo;
+    private RequestGetGroupActivityMessage aZp;
+    private RequestGetGroupActivityLocalMessage aZq;
+    private RequestDelGroupActivityMessage aZr;
+    private GroupActivityData aZs;
     private BaseActivity mActivity;
     private int mFrom;
     private long mGroupId;
@@ -22,7 +22,7 @@ public class r extends com.baidu.adp.base.e {
         this.mActivity = baseActivity;
     }
 
-    public int Of() {
+    public int Oi() {
         return this.mFrom;
     }
 
@@ -30,15 +30,15 @@ public class r extends com.baidu.adp.base.e {
         this.mFrom = i;
     }
 
-    public int Og() {
-        return this.aZb;
+    public int Oj() {
+        return this.aZo;
     }
 
     public void fN(int i) {
-        this.aZb = i;
+        this.aZo = i;
     }
 
-    public long Oh() {
+    public long Ok() {
         return this.mGroupId;
     }
 
@@ -71,8 +71,8 @@ public class r extends com.baidu.adp.base.e {
     }
 
     public void sendMessage(int i) {
-        this.aZc = fO(i);
-        this.mActivity.sendMessage(this.aZc);
+        this.aZp = fO(i);
+        this.mActivity.sendMessage(this.aZp);
     }
 
     @Override // com.baidu.adp.base.e
@@ -80,36 +80,36 @@ public class r extends com.baidu.adp.base.e {
     }
 
     public void fQ(int i) {
-        this.aZd = fP(i);
-        this.mActivity.sendMessage(this.aZd);
+        this.aZq = fP(i);
+        this.mActivity.sendMessage(this.aZq);
     }
 
     public Message<?> getLocalSendMsg() {
-        return this.aZd;
+        return this.aZq;
     }
 
     public Message<?> getSendMsg() {
-        return this.aZc;
+        return this.aZp;
     }
 
-    public Message<?> Oi() {
-        return this.aZe;
+    public Message<?> Ol() {
+        return this.aZr;
     }
 
     public void a(long j, int i) {
-        this.aZe = new RequestDelGroupActivityMessage();
-        this.aZe.setActivityId(i);
-        this.aZe.setGroupId((int) j);
-        this.mActivity.sendMessage(this.aZe);
+        this.aZr = new RequestDelGroupActivityMessage();
+        this.aZr.setActivityId(i);
+        this.aZr.setGroupId((int) j);
+        this.mActivity.sendMessage(this.aZr);
     }
 
-    public GroupActivityData Oj() {
-        return this.aZf;
+    public GroupActivityData Om() {
+        return this.aZs;
     }
 
     public void a(GroupActivityData groupActivityData) {
         if (groupActivityData != null) {
-            this.aZf = groupActivityData;
+            this.aZs = groupActivityData;
         }
     }
 }

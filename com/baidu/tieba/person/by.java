@@ -3,24 +3,22 @@ package com.baidu.tieba.person;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-public class by implements CustomMessageTask.CustomRunnable<String> {
+public class by implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        if (customMessage == null || !(customMessage instanceof PersonBarByUidLocalMessage)) {
-            return null;
-        }
-        String str = com.baidu.tbadk.core.a.a.kS().bd("tb.my_pages").get(TbadkApplication.getCurrentAccount());
-        ResponsePersonBarByUidLocalMessage responsePersonBarByUidLocalMessage = new ResponsePersonBarByUidLocalMessage();
-        if (str != null) {
-            try {
-                responsePersonBarByUidLocalMessage.decodeInBackGround(2001187, str);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        if (customMessage != null && (customMessage instanceof RequestLocalPersonListMessage)) {
+            RequestLocalPersonListMessage requestLocalPersonListMessage = (RequestLocalPersonListMessage) customMessage;
+            boolean isFollow = requestLocalPersonListMessage.isFollow();
+            String str = com.baidu.tbadk.core.a.a.kS().bd("tb.my_pages").get(String.valueOf(isFollow ? "personal_followme" : "personal_myfollow") + "_" + requestLocalPersonListMessage.getUid());
+            com.baidu.tieba.data.aj ajVar = new com.baidu.tieba.data.aj();
+            if (str != null) {
+                ajVar.parserJson(str);
             }
+            ResponseLocalPersonListMessage responseLocalPersonListMessage = new ResponseLocalPersonListMessage();
+            responseLocalPersonListMessage.setData(ajVar);
+            return responseLocalPersonListMessage;
         }
-        return responsePersonBarByUidLocalMessage;
+        return null;
     }
 }

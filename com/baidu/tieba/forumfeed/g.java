@@ -8,57 +8,57 @@ import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.data.p;
 import com.baidu.tieba.data.q;
 import com.baidu.tieba.t;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class g extends BaseAdapter {
-    private int ats;
-    private p ayb;
-    private com.baidu.tieba.view.j ayc;
+    private int atB;
+    private p ayk;
+    private com.baidu.tieba.view.j ayl;
     private Context context;
-    private boolean auf = false;
-    private boolean ayd = false;
-    private float aye = 0.4f;
+    private boolean auo = false;
+    private boolean aym = false;
+    private float ayn = 0.4f;
     private boolean mIsFromCDN = false;
 
     public void a(p pVar) {
-        bJ(az.mD().mF());
-        this.auf = true;
-        this.ayb = pVar;
+        bJ(ba.mD().mF());
+        this.auo = true;
+        this.ayk = pVar;
     }
 
     public g(Context context) {
-        this.ats = Constants.MEDIA_INFO;
+        this.atB = Constants.MEDIA_INFO;
         this.context = context;
-        this.ats = com.baidu.adp.lib.util.m.n(context);
-        bJ(az.mD().mF());
+        this.atB = com.baidu.adp.lib.util.m.n(context);
+        bJ(ba.mD().mF());
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        ArrayList<q> yV;
-        if (!this.auf) {
+        ArrayList<q> yX;
+        if (!this.auo) {
             return 1;
         }
-        if (this.ayb == null || (yV = this.ayb.yV()) == null) {
+        if (this.ayk == null || (yX = this.ayk.yX()) == null) {
             return 0;
         }
-        return yV.size();
+        return yX.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (!this.auf || this.ayb == null || this.ayb.yV() == null) {
+        if (!this.auo || this.ayk == null || this.ayk.yX() == null) {
             return null;
         }
-        ArrayList<q> yV = this.ayb.yV();
-        if (i < 0 || yV == null || i >= yV.size()) {
+        ArrayList<q> yX = this.ayk.yX();
+        if (i < 0 || yX == null || i >= yX.size()) {
             return null;
         }
-        return yV.get(i);
+        return yX.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -73,21 +73,21 @@ public class g extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         q qVar;
-        if (!this.auf) {
-            return Ej();
+        if (!this.auo) {
+            return El();
         }
-        if (this.ayc == null) {
-            this.ayc = new com.baidu.tieba.view.j(this.context);
+        if (this.ayl == null) {
+            this.ayl = new com.baidu.tieba.view.j(this.context);
         }
-        this.ayc.a(this.ats, this.ayd, this.aye);
-        this.ayc.setFromCDN(this.mIsFromCDN);
-        View hA = (view == null || view.getTag() == null) ? this.ayc.hA() : view;
+        this.ayl.a(this.atB, this.aym, this.ayn);
+        this.ayl.setFromCDN(this.mIsFromCDN);
+        View hA = (view == null || view.getTag() == null) ? this.ayl.hA() : view;
         hA.setPadding(0, i == 0 ? this.context.getResources().getDimensionPixelSize(t.forumfeed_first_item_margin_top) : 0, 0, 0);
         int skinType = TbadkApplication.m251getInst().getSkinType();
-        ArrayList<q> yV = this.ayb.yV();
-        if (yV != null && (qVar = yV.get(i)) != null) {
-            this.ayc.a(hA, qVar);
-            this.ayc.c(skinType, hA);
+        ArrayList<q> yX = this.ayk.yX();
+        if (yX != null && (qVar = yX.get(i)) != null) {
+            this.ayl.a(hA, qVar);
+            this.ayl.c(skinType, hA);
         }
         BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.context;
         baseFragmentActivity.getLayoutMode().L(skinType == 1);
@@ -104,9 +104,9 @@ public class g extends BaseAdapter {
     public int getItemViewType(int i) {
         q qVar;
         ArrayList<MediaData> medias;
-        if (this.auf && this.ayb != null) {
-            ArrayList<q> yV = this.ayb.yV();
-            if (yV == null || (qVar = yV.get(i)) == null || (medias = qVar.getMedias()) == null) {
+        if (this.auo && this.ayk != null) {
+            ArrayList<q> yX = this.ayk.yX();
+            if (yX == null || (qVar = yX.get(i)) == null || (medias = qVar.getMedias()) == null) {
                 return 2;
             }
             int size = medias.size();
@@ -121,13 +121,13 @@ public class g extends BaseAdapter {
         return 0;
     }
 
-    public View Ej() {
+    public View El() {
         View view = new View(this.context);
         view.setBackgroundColor(0);
         return view;
     }
 
     public void bJ(boolean z) {
-        this.ayd = z;
+        this.aym = z;
     }
 }

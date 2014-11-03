@@ -5,18 +5,18 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class q {
-    public String auZ;
-    public String ava;
-    public String avb;
-    public String bMt;
-    public ArrayList<q> bMu;
+    public String avi;
+    public String avj;
+    public String avk;
+    public String bMI;
+    public ArrayList<q> bMJ;
 
     public void parserJson(JSONObject jSONObject) {
-        this.ava = jSONObject.optString("menu_type");
-        this.auZ = jSONObject.optString("menu_name");
-        this.avb = jSONObject.optString("menu_id");
-        this.bMt = jSONObject.optString("default_logo_url", null);
-        this.bMt = this.bMt != null ? String.valueOf(this.bMt) + "?v=2" : null;
+        this.avj = jSONObject.optString("menu_type");
+        this.avi = jSONObject.optString("menu_name");
+        this.avk = jSONObject.optString("menu_id");
+        this.bMI = jSONObject.optString("default_logo_url", null);
+        this.bMI = this.bMI != null ? String.valueOf(this.bMI) + "?v=2" : null;
         if (jSONObject.has("child_menu_list")) {
             ArrayList<q> arrayList = new ArrayList<>();
             JSONArray optJSONArray = jSONObject.optJSONArray("child_menu_list");
@@ -25,7 +25,7 @@ public class q {
                 qVar.parserJson(optJSONArray.getJSONObject(i));
                 arrayList.add(qVar);
             }
-            this.bMu = arrayList;
+            this.bMJ = arrayList;
         }
     }
 }

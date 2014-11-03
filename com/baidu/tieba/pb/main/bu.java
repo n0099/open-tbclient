@@ -5,33 +5,33 @@ import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class bu extends com.baidu.adp.base.f {
-    private View.OnClickListener Hd;
-    private TextView bwV;
-    private PbActivity bxa;
-    private TextView bxg;
-    private ImageView bxh;
-    private boolean bxi;
+    private View.OnClickListener He;
+    private TextView bxj;
+    private PbActivity bxo;
+    private TextView bxu;
+    private ImageView bxv;
+    private boolean bxw;
     private View mView;
 
-    public boolean Xd() {
-        return this.bxi;
+    public boolean Xg() {
+        return this.bxw;
     }
 
     public void ed(boolean z) {
-        this.bxi = z;
+        this.bxw = z;
     }
 
     public bu(PbActivity pbActivity, View.OnClickListener onClickListener) {
         super(pbActivity);
         this.mView = null;
-        this.bwV = null;
-        this.bxg = null;
-        this.bxh = null;
-        this.bxa = null;
-        this.Hd = null;
-        this.bxi = true;
-        this.bxa = pbActivity;
-        this.Hd = onClickListener;
+        this.bxj = null;
+        this.bxu = null;
+        this.bxv = null;
+        this.bxo = null;
+        this.He = null;
+        this.bxw = true;
+        this.bxo = pbActivity;
+        this.He = onClickListener;
         initUI();
     }
 
@@ -39,25 +39,25 @@ public class bu extends com.baidu.adp.base.f {
         return this.mView;
     }
 
-    public TextView WU() {
-        return this.bwV;
+    public TextView WX() {
+        return this.bxj;
     }
 
-    public TextView Xe() {
-        return this.bxg;
+    public TextView Xh() {
+        return this.bxu;
     }
 
-    public ImageView Xf() {
-        return this.bxh;
+    public ImageView Xi() {
+        return this.bxv;
     }
 
     private void initUI() {
-        this.mView = com.baidu.adp.lib.g.b.ek().inflate(this.bxa, com.baidu.tieba.w.pb_reply_view, null);
-        this.bwV = (TextView) this.mView.findViewById(com.baidu.tieba.v.pb_reply_view_item_mark);
-        this.bwV.setOnClickListener(this.Hd);
-        this.bxg = (TextView) this.mView.findViewById(com.baidu.tieba.v.pb_reply_view_item_reply);
-        this.bxg.setOnClickListener(this.Hd);
-        this.bxh = (ImageView) this.mView.findViewById(com.baidu.tieba.v.pb_reply_view_item_manage);
-        this.bxh.setOnClickListener(this.Hd);
+        this.mView = com.baidu.adp.lib.g.b.ek().inflate(this.bxo, com.baidu.tieba.w.pb_reply_view, null);
+        this.bxj = (TextView) this.mView.findViewById(com.baidu.tieba.v.pb_reply_view_item_mark);
+        this.bxj.setOnClickListener(this.He);
+        this.bxu = (TextView) this.mView.findViewById(com.baidu.tieba.v.pb_reply_view_item_reply);
+        this.bxu.setOnClickListener(this.He);
+        this.bxv = (ImageView) this.mView.findViewById(com.baidu.tieba.v.pb_reply_view_item_manage);
+        this.bxv.setOnClickListener(this.He);
     }
 }

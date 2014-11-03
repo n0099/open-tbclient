@@ -9,14 +9,14 @@ import com.baidu.tieba.data.VersionData;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class bb {
-    private String bpK;
+    private String bpY;
     private int mFaceShopVersion;
-    private int bpN = 0;
-    private VersionData bpH = new VersionData();
-    private com.baidu.tieba.data.d bpI = new com.baidu.tieba.data.d();
-    private com.baidu.tieba.data.f bpJ = new com.baidu.tieba.data.f();
-    private CombineDownload bpL = new CombineDownload();
-    private ai bpM = new ai();
+    private int bqb = 0;
+    private VersionData bpV = new VersionData();
+    private com.baidu.tieba.data.d bpW = new com.baidu.tieba.data.d();
+    private com.baidu.tieba.data.f bpX = new com.baidu.tieba.data.f();
+    private CombineDownload bpZ = new CombineDownload();
+    private ai bqa = new ai();
 
     public void parserJson(String str) {
         try {
@@ -29,15 +29,15 @@ public class bb {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.bpH.parserJson(jSONObject.optJSONObject("version"));
-                this.bpI.parserJson(jSONObject.optJSONObject("client"));
-                com.baidu.tbadk.util.a.uR().parserJson(jSONObject.optJSONObject("ad_config"));
+                this.bpV.parserJson(jSONObject.optJSONObject("version"));
+                this.bpW.parserJson(jSONObject.optJSONObject("client"));
+                com.baidu.tbadk.util.a.uT().parserJson(jSONObject.optJSONObject("ad_config"));
                 com.baidu.tbadk.core.util.j.setIp(jSONObject.optString("client_ip", null));
-                this.bpJ.parserJson(jSONObject.optJSONObject("config"));
-                this.bpK = jSONObject.optString("config_version");
-                this.bpL.parserJson(jSONObject.optJSONObject("combine_download"));
-                this.bpM.parserJson(jSONObject.optJSONObject("mainbar"));
-                this.bpN = jSONObject.optInt("sync_active", 0);
+                this.bpX.parserJson(jSONObject.optJSONObject("config"));
+                this.bpY = jSONObject.optString("config_version");
+                this.bpZ.parserJson(jSONObject.optJSONObject("combine_download"));
+                this.bqa.parserJson(jSONObject.optJSONObject("mainbar"));
+                this.bqb = jSONObject.optInt("sync_active", 0);
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001145, jSONObject));
                 this.mFaceShopVersion = jSONObject.optInt("faceshop_version");
                 if (this.mFaceShopVersion > TbadkApplication.m251getInst().getFaceShopVersion()) {
@@ -46,7 +46,7 @@ public class bb {
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("lcs_strategy");
                 if (optJSONObject != null) {
-                    com.baidu.tieba.aj.wk().ee(optJSONObject.toString());
+                    com.baidu.tieba.aj.wm().ee(optJSONObject.toString());
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -54,23 +54,23 @@ public class bb {
         }
     }
 
-    public com.baidu.tieba.data.f TX() {
-        return this.bpJ;
+    public com.baidu.tieba.data.f Ua() {
+        return this.bpX;
     }
 
-    public String TY() {
-        return this.bpK;
+    public String Ub() {
+        return this.bpY;
     }
 
-    public CombineDownload TZ() {
-        return this.bpL;
+    public CombineDownload Uc() {
+        return this.bpZ;
     }
 
-    public VersionData Ua() {
-        return this.bpH;
+    public VersionData Ud() {
+        return this.bpV;
     }
 
-    public com.baidu.tieba.data.d Ub() {
-        return this.bpI;
+    public com.baidu.tieba.data.d Ue() {
+        return this.bpW;
     }
 }

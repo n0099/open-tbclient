@@ -7,11 +7,11 @@ import android.widget.ImageButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements TextWatcher {
-    final /* synthetic */ e aYU;
+    final /* synthetic */ e aZh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(e eVar) {
-        this.aYU = eVar;
+        this.aZh = eVar;
     }
 
     @Override // android.text.TextWatcher
@@ -19,13 +19,13 @@ public class m implements TextWatcher {
         EditText editText;
         ImageButton imageButton;
         ImageButton imageButton2;
-        editText = this.aYU.aYH;
+        editText = this.aZh.aYU;
         if (editText.getText().length() > 0) {
-            imageButton2 = this.aYU.aYI;
+            imageButton2 = this.aZh.aYV;
             imageButton2.setVisibility(0);
             return;
         }
-        imageButton = this.aYU.aYI;
+        imageButton = this.aZh.aYV;
         imageButton.setVisibility(8);
     }
 

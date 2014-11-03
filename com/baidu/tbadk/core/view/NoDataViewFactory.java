@@ -18,7 +18,7 @@ public class NoDataViewFactory {
         SINGALL,
         GIFT;
 
-        /* JADX DEBUG: Replace access to removed values field (Ii) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (Ij) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ImgType[] valuesCustom() {
             ImgType[] valuesCustom = values();

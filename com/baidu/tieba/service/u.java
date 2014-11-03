@@ -8,12 +8,12 @@ import com.baidu.tbadk.core.util.ac;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u extends BdAsyncTask<String, Integer, Boolean> {
-    final /* synthetic */ TiebaUpdateService bIT;
+    final /* synthetic */ TiebaUpdateService bJh;
     private volatile boolean kJ;
     private ac mNetWork;
 
     private u(TiebaUpdateService tiebaUpdateService) {
-        this.bIT = tiebaUpdateService;
+        this.bJh = tiebaUpdateService;
         this.kJ = false;
     }
 
@@ -38,12 +38,12 @@ public class u extends BdAsyncTask<String, Integer, Boolean> {
         Boolean bool2 = false;
         while (!this.kJ) {
             try {
-                str2 = this.bIT.mMainApkUrl;
+                str2 = this.bJh.mMainApkUrl;
                 this.mNetWork = new ac(str2);
                 ac acVar = this.mNetWork;
-                str3 = this.bIT.mMainApkFileName;
+                str3 = this.bJh.mMainApkFileName;
                 String str4 = String.valueOf(str3) + ".tmp";
-                handler = this.bIT.mMainApkHandler;
+                handler = this.bJh.mMainApkHandler;
                 bool2 = Boolean.valueOf(acVar.a(str4, handler, 0));
                 if (bool2.booleanValue()) {
                     break;
@@ -60,9 +60,9 @@ public class u extends BdAsyncTask<String, Integer, Boolean> {
                     z = TiebaUpdateService.sHasStart;
                     if (z && UtilHelper.isNetOk()) {
                         long currentTimeMillis = System.currentTimeMillis();
-                        j = this.bIT.mMainTaskWaitingTimestamp;
+                        j = this.bJh.mMainTaskWaitingTimestamp;
                         if (currentTimeMillis - j > 20000) {
-                            this.bIT.sendBroadcast("action_update_progress_interrupted", true);
+                            this.bJh.sendBroadcast("action_update_progress_interrupted", true);
                             bool = bool2;
                             break;
                         }
@@ -76,8 +76,8 @@ public class u extends BdAsyncTask<String, Integer, Boolean> {
         bool = bool2;
         try {
             if (bool.booleanValue()) {
-                TiebaUpdateService tiebaUpdateService = this.bIT;
-                str = this.bIT.mMainApkFileName;
+                TiebaUpdateService tiebaUpdateService = this.bJh;
+                str = this.bJh.mMainApkFileName;
                 tiebaUpdateService.renameFile(str);
             }
         } catch (Exception e4) {
@@ -91,7 +91,7 @@ public class u extends BdAsyncTask<String, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        this.bIT.mDowndMainApkTask = null;
+        this.bJh.mDowndMainApkTask = null;
         this.kJ = true;
         if (this.mNetWork != null) {
             this.mNetWork.dM();
@@ -107,13 +107,13 @@ public class u extends BdAsyncTask<String, Integer, Boolean> {
         Handler handler2;
         String str;
         super.onPostExecute(bool);
-        this.bIT.mDowndMainApkTask = null;
+        this.bJh.mDowndMainApkTask = null;
         try {
             if (bool.booleanValue()) {
-                this.bIT.mIsMainApkDone = true;
-                handler = this.bIT.mMainApkHandler;
-                handler2 = this.bIT.mMainApkHandler;
-                str = this.bIT.mMainApkFileName;
+                this.bJh.mIsMainApkDone = true;
+                handler = this.bJh.mMainApkHandler;
+                handler2 = this.bJh.mMainApkHandler;
+                str = this.bJh.mMainApkFileName;
                 handler.sendMessageDelayed(handler2.obtainMessage(1, str), 100L);
             }
         } catch (Exception e) {

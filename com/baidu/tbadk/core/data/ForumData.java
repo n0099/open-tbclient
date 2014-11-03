@@ -598,7 +598,7 @@ public class ForumData implements at, Serializable {
         ArrayList<as> arrayList = new ArrayList<>();
         as asVar = new as();
         asVar.AI = this.image_url;
-        asVar.ER = 10;
+        asVar.ES = 10;
         arrayList.add(asVar);
         return arrayList;
     }

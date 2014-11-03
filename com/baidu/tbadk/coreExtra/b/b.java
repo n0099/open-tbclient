@@ -10,14 +10,14 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Integer, Integer, String> {
-    final /* synthetic */ a LC;
-    private boolean Ll;
+    final /* synthetic */ a LF;
+    private boolean Lo;
     private String portrait;
     private String toUid;
     private ac yV;
 
     private b(a aVar) {
-        this.LC = aVar;
+        this.LF = aVar;
         this.yV = null;
     }
 
@@ -35,7 +35,7 @@ public class b extends BdAsyncTask<Integer, Integer, String> {
     }
 
     public void ag(boolean z) {
-        this.Ll = z;
+        this.Lo = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,7 +46,7 @@ public class b extends BdAsyncTask<Integer, Integer, String> {
         try {
             if (this.portrait != null) {
                 this.yV = new ac();
-                if (this.Ll) {
+                if (this.Lo) {
                     this.yV.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FOLLOW_ADDRESS);
                 } else {
                     this.yV.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFOLLOW_ADDRESS);
@@ -68,12 +68,12 @@ public class b extends BdAsyncTask<Integer, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         super.onPostExecute((b) str);
-        this.LC.LB = null;
+        this.LF.LE = null;
         if (this.yV != null) {
             com.baidu.tbadk.coreExtra.message.a aVar = new com.baidu.tbadk.coreExtra.message.a();
-            aVar.Lk = this.yV.mc().nb().jq();
+            aVar.Ln = this.yV.mc().nb().jq();
             aVar.errorString = this.yV.getErrorString();
-            aVar.Ll = this.Ll;
+            aVar.Lo = this.Lo;
             aVar.toUid = this.toUid;
             MessageManager.getInstance().dispatchResponsedMessageToUI(new UpdateAttentionMessage(aVar));
         }
@@ -88,10 +88,10 @@ public class b extends BdAsyncTask<Integer, Integer, String> {
             this.yV.dM();
             this.yV = null;
         }
-        this.LC.LB = null;
-        hVar = this.LC.mLoadDataCallBack;
+        this.LF.LE = null;
+        hVar = this.LF.mLoadDataCallBack;
         if (hVar != null) {
-            hVar2 = this.LC.mLoadDataCallBack;
+            hVar2 = this.LF.mLoadDataCallBack;
             hVar2.a(false);
         }
     }

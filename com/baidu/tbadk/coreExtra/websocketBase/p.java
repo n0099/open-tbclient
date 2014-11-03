@@ -8,8 +8,8 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class p {
-    private boolean PR = false;
-    private int PS = 0;
+    private boolean PV = false;
+    private int PW = 0;
 
     public void cS(String str) {
         int lastIndexOf;
@@ -19,8 +19,8 @@ public class p {
         int i2;
         String str3 = null;
         int i3 = 0;
-        this.PR = false;
-        this.PS = 0;
+        this.PV = false;
+        this.PW = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             try {
                 str2 = str.substring(5, lastIndexOf);
@@ -45,11 +45,11 @@ public class p {
                     long currentTimeMillis = System.currentTimeMillis();
                     try {
                         try {
-                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.g.c.f(String.valueOf(str3), LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_8)), qG());
+                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.g.c.f(String.valueOf(str3), LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_8)), qI());
                             if (socket.isConnected()) {
                                 int i6 = i3 + 1;
                                 int currentTimeMillis2 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i5);
-                                this.PR = true;
+                                this.PV = true;
                                 i = i6;
                                 i2 = currentTimeMillis2;
                             } else {
@@ -83,22 +83,22 @@ public class p {
                         throw th;
                     }
                 }
-                if (this.PR && i3 > 0) {
-                    this.PS = i5 / i3;
+                if (this.PV && i3 > 0) {
+                    this.PW = i5 / i3;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.PR;
+        return this.PV;
     }
 
-    public int qF() {
-        return this.PS;
+    public int qH() {
+        return this.PW;
     }
 
-    private int qG() {
+    private int qI() {
         switch (com.baidu.adp.lib.util.j.fm()) {
             case 1:
                 return 3000;

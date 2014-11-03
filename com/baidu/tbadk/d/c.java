@@ -12,7 +12,7 @@ public class c extends com.baidu.adp.framework.a.c {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a.g
-    /* renamed from: c */
+    /* renamed from: b */
     public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
         if (httpResponsedMessage instanceof JsonHttpResponsedMessage) {
             HttpMessage httpMessage = (HttpMessage) httpResponsedMessage.getOrginalMessage();

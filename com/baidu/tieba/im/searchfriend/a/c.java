@@ -82,7 +82,7 @@ public class c {
         return this.userId == 0 && TextUtils.isEmpty(this.Ak) && TextUtils.isEmpty(this.name);
     }
 
-    public JSONObject RB() {
+    public JSONObject RE() {
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("id", this.userId);
         jSONObject.put("name", this.name);
@@ -102,7 +102,7 @@ public class c {
         JSONObject jSONObject3 = new JSONObject();
         jSONObject3.put("distance", this.lbsInfo.getDistance());
         jSONObject3.put("time", this.lbsInfo.getTime());
-        jSONObject3.put("is_hide", this.lbsInfo.pB());
+        jSONObject3.put("is_hide", this.lbsInfo.pD());
         jSONObject.put("location", jSONObject3);
         return jSONObject;
     }
@@ -125,7 +125,7 @@ public class c {
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("location");
             if (optJSONObject2 != null) {
-                this.lbsInfo.cF(optJSONObject2.optString("distance"));
+                this.lbsInfo.cG(optJSONObject2.optString("distance"));
                 this.lbsInfo.setTime(optJSONObject2.optLong("time"));
                 this.lbsInfo.co(optJSONObject2.optInt("is_hide"));
             }
@@ -140,7 +140,7 @@ public class c {
         return this.tag_name;
     }
 
-    public String RC() {
+    public String RF() {
         return this.st_type;
     }
 

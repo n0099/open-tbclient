@@ -260,7 +260,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.f implements com
         this.mLayMsgsendMore = (ToolMoreView) talkableActivity.findViewById(com.baidu.tieba.v.lay_msgsend_more);
         this.mLayMsgsendMore.setVisibility(8);
         this.mLayMsgsendMore.setOnClickListener(talkableActivity);
-        this.mLayMsgsendMore.rN();
+        this.mLayMsgsendMore.rP();
         initExpression(talkableActivity);
     }
 
@@ -381,14 +381,14 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.f implements com
     public void refreshPersonalHeadFooter(String str, com.baidu.tbadk.coreExtra.relationship.f fVar) {
         this.personal_lbs_title_name.setText(str);
         if (fVar != null) {
-            if (fVar.pB() < 0 || fVar.pB() > 1) {
+            if (fVar.pD() < 0 || fVar.pD() > 1) {
                 this.personal_lbs_title_lbsinfo.setVisibility(8);
-            } else if (fVar.pB() == 1) {
+            } else if (fVar.pD() == 1) {
                 this.personal_lbs_title_lbsinfo.setVisibility(0);
                 this.personal_lbs_title_lbsinfo.setText(getContext().getResources().getString(com.baidu.tieba.y.contact_yinshen));
             } else if (!StringUtils.isNull(fVar.getDistance()) && fVar.getTime() > 0) {
                 this.personal_lbs_title_lbsinfo.setVisibility(0);
-                this.personal_lbs_title_lbsinfo.setText(String.valueOf(fVar.getDistance()) + "  " + com.baidu.tbadk.core.util.ay.i(fVar.getTime()));
+                this.personal_lbs_title_lbsinfo.setText(String.valueOf(fVar.getDistance()) + "  " + com.baidu.tbadk.core.util.az.i(fVar.getTime()));
             } else {
                 this.personal_lbs_title_lbsinfo.setVisibility(8);
             }
@@ -402,7 +402,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.f implements com
     private void doRefresh(MsgPageData msgPageData, int i) {
         if (msgPageData != null) {
             try {
-                this.mAdapter.JW();
+                this.mAdapter.Ka();
                 this.mAdapter.setData(msgPageData.getChatMessages());
                 this.mAdapter.notifyDataSetChanged();
                 if (i >= 0) {
@@ -719,7 +719,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.f implements com
     public void onDeletedVoice(String str) {
         this.mModel = null;
         if (this.mCallback != null) {
-            this.mCallback.BV();
+            this.mCallback.BX();
         }
     }
 

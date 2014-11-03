@@ -7,10 +7,10 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class k extends TextView {
-    private int RD;
-    private GradientDrawable aql;
-    protected int aqm;
-    protected int aqn;
+    private int RH;
+    private GradientDrawable aqu;
+    protected int aqv;
+    protected int aqw;
 
     public k(Context context) {
         this(context, null);
@@ -22,10 +22,10 @@ public class k extends TextView {
 
     public k(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.RD = -1;
-        this.aqm = (int) context.getResources().getDimension(com.baidu.tieba.t.ds12);
-        this.aqn = (int) context.getResources().getDimension(com.baidu.tieba.t.ds6);
-        setPadding(this.aqm, this.aqn, this.aqm, this.aqn);
+        this.RH = -1;
+        this.aqv = (int) context.getResources().getDimension(com.baidu.tieba.t.ds12);
+        this.aqw = (int) context.getResources().getDimension(com.baidu.tieba.t.ds6);
+        setPadding(this.aqv, this.aqw, this.aqv, this.aqw);
         setGravity(16);
         setSingleLine(true);
         setTextSize(0, context.getResources().getDimension(com.baidu.tieba.t.ds24));
@@ -39,20 +39,20 @@ public class k extends TextView {
 
     public void nz() {
         int skinType = TbadkApplication.m251getInst().getSkinType();
-        if (skinType != this.RD) {
-            this.RD = skinType;
-            sB();
+        if (skinType != this.RH) {
+            this.RH = skinType;
+            sD();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void sB() {
-        if (this.aql == null) {
-            this.aql = new GradientDrawable();
-            this.aql.setCornerRadius(getContext().getResources().getDimension(com.baidu.tieba.t.ds24));
+    public void sD() {
+        if (this.aqu == null) {
+            this.aqu = new GradientDrawable();
+            this.aqu.setCornerRadius(getContext().getResources().getDimension(com.baidu.tieba.t.ds24));
         }
         com.baidu.tbadk.core.util.aw.b(this, com.baidu.tieba.s.cp_cont_c, 1);
-        this.aql.setColor(com.baidu.tbadk.core.util.aw.getColor(com.baidu.tieba.s.cp_bg_line_e));
-        setBackgroundDrawable(this.aql);
+        this.aqu.setColor(com.baidu.tbadk.core.util.aw.getColor(com.baidu.tieba.s.cp_bg_line_e));
+        setBackgroundDrawable(this.aqu);
     }
 }

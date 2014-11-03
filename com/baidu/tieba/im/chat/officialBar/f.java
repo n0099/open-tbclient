@@ -9,11 +9,11 @@ import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class f extends RelativeLayout {
-    private TextView JM;
-    private int Uy;
-    private com.baidu.adp.lib.c.b aOL;
-    private TbImageView aQP;
-    private TextView auh;
+    private TextView JN;
+    private int UC;
+    private com.baidu.adp.lib.c.b aOZ;
+    private TbImageView aRd;
+    private TextView auq;
     private Context mContext;
 
     public f(Context context) {
@@ -26,16 +26,16 @@ public class f extends RelativeLayout {
 
     public f(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aOL = null;
+        this.aOZ = null;
         this.mContext = context;
         nu();
     }
 
     private void nu() {
         com.baidu.adp.lib.g.b.ek().a(this.mContext, com.baidu.tieba.w.msg_multi_pic_text_top_view, this, true);
-        this.aQP = (TbImageView) findViewById(com.baidu.tieba.v.top_content_pic);
-        this.JM = (TextView) findViewById(com.baidu.tieba.v.top_title);
-        this.auh = (TextView) findViewById(com.baidu.tieba.v.show_time);
+        this.aRd = (TbImageView) findViewById(com.baidu.tieba.v.top_content_pic);
+        this.JN = (TextView) findViewById(com.baidu.tieba.v.top_title);
+        this.auq = (TextView) findViewById(com.baidu.tieba.v.show_time);
         setOnLongClickListener(new g(this));
     }
 
@@ -46,46 +46,46 @@ public class f extends RelativeLayout {
             if (!TextUtils.isEmpty(pVar.title)) {
                 str = pVar.title;
             }
-            this.JM.setText(str);
+            this.JN.setText(str);
             if (!TextUtils.isEmpty(pVar.url)) {
                 setOnClickListener(new h(this, pVar));
             }
             if (!TextUtils.isEmpty(pVar.src)) {
-                this.aQP.setTag(pVar.src);
-                this.aQP.c(pVar.src, 10, false);
+                this.aRd.setTag(pVar.src);
+                this.aRd.c(pVar.src, 10, false);
             }
         }
     }
 
     public void setTime(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.auh.setVisibility(8);
-            this.auh.setText("");
+            this.auq.setVisibility(8);
+            this.auq.setText("");
             return;
         }
-        this.auh.setVisibility(0);
-        this.auh.setText(str);
+        this.auq.setVisibility(0);
+        this.auq.setText(str);
     }
 
     public void reset() {
-        this.JM.setText("");
-        this.aQP.setBackgroundDrawable(null);
-        this.aQP.setImageDrawable(null);
-        this.auh.setVisibility(8);
-        this.auh.setText("");
+        this.JN.setText("");
+        this.aRd.setBackgroundDrawable(null);
+        this.aRd.setImageDrawable(null);
+        this.auq.setVisibility(8);
+        this.auq.setText("");
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        this.aOL = bVar;
+        this.aOZ = bVar;
     }
 
     public void setPosition(int i) {
-        this.Uy = i;
+        this.UC = i;
     }
 
     public void cG(boolean z) {
         int i = z ? 1 : 0;
-        com.baidu.tbadk.core.util.aw.a(this.JM, com.baidu.tieba.s.official_msg_top_text, 1, i);
-        com.baidu.tbadk.core.util.aw.a(this.auh, com.baidu.tieba.s.official_time_text, 1, i);
+        com.baidu.tbadk.core.util.aw.a(this.JN, com.baidu.tieba.s.official_msg_top_text, 1, i);
+        com.baidu.tbadk.core.util.aw.a(this.auq, com.baidu.tieba.s.official_time_text, 1, i);
     }
 }

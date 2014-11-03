@@ -10,10 +10,10 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class u {
-    private static u Sh = new u();
+    private static u Sl = new u();
 
-    public static u rw() {
-        return Sh;
+    public static u ry() {
+        return Sl;
     }
 
     private u() {

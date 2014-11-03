@@ -3,11 +3,11 @@ package com.baidu.tieba.im.groupActivity;
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
 class q implements DialogInterface.OnClickListener {
-    final /* synthetic */ GroupActivityActivity aZa;
+    final /* synthetic */ GroupActivityActivity aZn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(GroupActivityActivity groupActivityActivity) {
-        this.aZa = groupActivityActivity;
+        this.aZn = groupActivityActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -15,11 +15,11 @@ class q implements DialogInterface.OnClickListener {
         r rVar;
         r rVar2;
         r rVar3;
-        this.aZa.showProgressBar();
-        rVar = this.aZa.aYZ;
-        rVar2 = this.aZa.aYZ;
-        long Oh = rVar2.Oh();
-        rVar3 = this.aZa.aYZ;
-        rVar.a(Oh, rVar3.Og());
+        this.aZn.showProgressBar();
+        rVar = this.aZn.aZm;
+        rVar2 = this.aZn.aZm;
+        long Ok = rVar2.Ok();
+        rVar3 = this.aZn.aZm;
+        rVar.a(Ok, rVar3.Oj());
     }
 }

@@ -11,10 +11,10 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.im.util.DialogUtil;
 /* loaded from: classes.dex */
 public class GroupActivityActivity extends BaseActivity implements View.OnClickListener {
-    private s aYY;
-    private r aYZ;
+    private s aZl;
+    private r aZm;
     private CustomMessageListener mCustomListener = new n(this, 2001127);
-    private com.baidu.adp.framework.listener.e ayJ = new o(this, 0);
+    private com.baidu.adp.framework.listener.e ayS = new o(this, 0);
 
     public static void a(Context context, int i, long j, int i2) {
         Intent intent = new Intent(context, GroupActivityActivity.class);
@@ -31,19 +31,19 @@ public class GroupActivityActivity extends BaseActivity implements View.OnClickL
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        HJ();
-        if (this.aYZ == null) {
-            this.aYZ = new r(this);
-            this.aYZ.setUniqueId(getUniqueId());
+        HN();
+        if (this.aZm == null) {
+            this.aZm = new r(this);
+            this.aZm.setUniqueId(getUniqueId());
         }
         if (bundle != null) {
-            this.aYZ.fN(bundle.getInt("activity_id", 0));
-            this.aYZ.S(bundle.getLong("group_id", 0L));
-            this.aYZ.fM(bundle.getInt("from", 0));
+            this.aZm.fN(bundle.getInt("activity_id", 0));
+            this.aZm.S(bundle.getLong("group_id", 0L));
+            this.aZm.fM(bundle.getInt("from", 0));
         } else if (getIntent() != null) {
-            this.aYZ.fN(getIntent().getIntExtra("activity_id", 0));
-            this.aYZ.S(getIntent().getLongExtra("group_id", 0L));
-            this.aYZ.fM(getIntent().getIntExtra("from", 0));
+            this.aZm.fN(getIntent().getIntExtra("activity_id", 0));
+            this.aZm.S(getIntent().getLongExtra("group_id", 0L));
+            this.aZm.fM(getIntent().getIntExtra("from", 0));
         }
         initUI();
         startLoading();
@@ -52,35 +52,35 @@ public class GroupActivityActivity extends BaseActivity implements View.OnClickL
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        HJ();
+        HN();
         initUI();
-        if (this.aYZ == null) {
-            this.aYZ = new r(this);
+        if (this.aZm == null) {
+            this.aZm = new r(this);
         }
         if (intent == null) {
             intent = getIntent();
         }
         if (intent != null) {
-            this.aYZ.fN(intent.getIntExtra("activity_id", 0));
-            this.aYZ.S(intent.getLongExtra("group_id", 0L));
-            this.aYZ.fM(intent.getIntExtra("from", 0));
+            this.aZm.fN(intent.getIntExtra("activity_id", 0));
+            this.aZm.S(intent.getLongExtra("group_id", 0L));
+            this.aZm.fM(intent.getIntExtra("from", 0));
         }
         startLoading();
     }
 
-    private void HJ() {
-        registerListener(103015, this.ayJ);
+    private void HN() {
+        registerListener(103015, this.ayS);
         registerListener(this.mCustomListener);
-        registerListener(103121, this.ayJ);
+        registerListener(103121, this.ayS);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        if (this.aYZ != null) {
-            bundle.putInt("activity_id", this.aYZ.Og());
-            bundle.putLong("group_id", this.aYZ.Oh());
-            bundle.putInt("from", this.aYZ.Of());
+        if (this.aZm != null) {
+            bundle.putInt("activity_id", this.aZm.Oj());
+            bundle.putLong("group_id", this.aZm.Ok());
+            bundle.putInt("from", this.aZm.Oi());
         }
     }
 
@@ -94,37 +94,37 @@ public class GroupActivityActivity extends BaseActivity implements View.OnClickL
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.aYZ.cancelMessage();
-        if (this.aYY != null) {
-            this.aYY.onDestory();
+        this.aZm.cancelMessage();
+        if (this.aZl != null) {
+            this.aZl.onDestory();
         }
     }
 
     private void initUI() {
-        if (this.aYY == null) {
-            this.aYY = new s(this);
+        if (this.aZl == null) {
+            this.aZl = new s(this);
         }
     }
 
     private void startLoading() {
         showProgressBar();
-        this.aYZ.fQ(this.aYZ.Og());
+        this.aZm.fQ(this.aZm.Oj());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.aYY != null) {
-            this.aYY.changeSkinType(i);
+        if (this.aZl != null) {
+            this.aZl.changeSkinType(i);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.aYY.Ok()) {
+        if (view == this.aZl.On()) {
             closeActivity();
-        } else if (view == this.aYY.Ol()) {
+        } else if (view == this.aZl.Oo()) {
             DialogUtil.deleteGroupActivity(this, new p(this));
         }
     }
@@ -132,9 +132,9 @@ public class GroupActivityActivity extends BaseActivity implements View.OnClickL
     @Override // com.baidu.adp.base.BdBaseActivity, android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         super.onClick(dialogInterface, i);
-        if (dialogInterface != null && dialogInterface == this.aYY.Om()) {
+        if (dialogInterface != null && dialogInterface == this.aZl.Op()) {
             if (i == 0) {
-                CreateGroupActivityActivity.a(this, (int) this.aYZ.Oh(), this.aYZ.Oj(), 23001);
+                CreateGroupActivityActivity.a(this, (int) this.aZm.Ok(), this.aZm.Om(), 23001);
             } else if (i == 1) {
                 DialogUtil.deleteGroupActivity(this, new q(this));
             }

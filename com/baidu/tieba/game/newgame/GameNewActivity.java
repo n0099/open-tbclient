@@ -28,9 +28,9 @@ import java.util.List;
 import tbclient.GetMutilGameList.GetMutilGameListResIdl;
 /* loaded from: classes.dex */
 public class GameNewActivity extends AbsGameClassifyActivity implements aa {
-    private boolean Tu;
-    private d aJR;
-    private com.baidu.tieba.game.a.b aJS;
+    private boolean Ty;
+    private d aKe;
+    private com.baidu.tieba.game.a.b aKf;
     private boolean mHasMore;
     private BdListView vl;
     private int mPage = 1;
@@ -44,28 +44,28 @@ public class GameNewActivity extends AbsGameClassifyActivity implements aa {
     @Override // com.baidu.tieba.game.base.AbsGameClassifyActivity, com.baidu.tieba.selectpoi.NavigationBarActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.aJS = new com.baidu.tieba.game.a.b();
-        this.aJS.a(new b(this));
-        registerListener(this.aJS.Ik());
+        this.aKf = new com.baidu.tieba.game.a.b();
+        this.aKf.a(new b(this));
+        registerListener(this.aKf.Io());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ie() {
-        this.aJS.a(this, this.bhx);
+    public void Ii() {
+        this.aKf.a(this, this.bhL);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.game.base.AbsGameClassifyActivity
     public void e(Bundle bundle) {
         super.e(bundle);
-        this.bhx.setTitleText(y.new_game_title);
-        this.vl = If();
+        this.bhL.setTitleText(y.new_game_title);
+        this.vl = Ij();
         setContentView(this.vl);
-        Ig();
+        Ik();
         fx("key_game_new");
     }
 
-    private BdListView If() {
+    private BdListView Ij() {
         BdListView bdListView = new BdListView(this);
         bdListView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         bdListView.setCacheColorHint(0);
@@ -73,12 +73,12 @@ public class GameNewActivity extends AbsGameClassifyActivity implements aa {
         return bdListView;
     }
 
-    private void Ig() {
-        this.aJR = new d(this);
-        this.vl.setAdapter((ListAdapter) this.aJR);
+    private void Ik() {
+        this.aKe = new d(this);
+        this.vl.setAdapter((ListAdapter) this.aKe);
         this.vl.setOnItemClickListener(this.itemClickListener);
         this.vl.setOnSrollToBottomListener(this);
-        this.aJR.a(new c(this));
+        this.aKe.a(new c(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -125,7 +125,7 @@ public class GameNewActivity extends AbsGameClassifyActivity implements aa {
     }
 
     @Override // com.baidu.tieba.game.base.AbsGameClassifyActivity
-    protected NetMessage HU() {
+    protected NetMessage HY() {
         return fh(1);
     }
 
@@ -137,24 +137,24 @@ public class GameNewActivity extends AbsGameClassifyActivity implements aa {
     }
 
     @Override // com.baidu.tieba.game.base.AbsGameClassifyActivity
-    protected String HV() {
+    protected String HZ() {
         return "c/u/game/getMutilGameList";
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.game.base.AbsGameClassifyActivity
-    public Class<? extends HttpResponsedMessage> HW() {
+    public Class<? extends HttpResponsedMessage> Ia() {
         return ResponseMutilGameHttpMessage.class;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.game.base.AbsGameClassifyActivity
-    public Class<? extends SocketResponsedMessage> HX() {
+    public Class<? extends SocketResponsedMessage> Ib() {
         return ResponseMutilGameSocketMessage.class;
     }
 
     private void a(boolean z, an anVar) {
-        this.Tu = false;
+        this.Ty = false;
         if (anVar == null) {
             a(z, (List<GameInfoData>) null, false);
             return;
@@ -164,7 +164,7 @@ public class GameNewActivity extends AbsGameClassifyActivity implements aa {
     }
 
     private void a(boolean z, List<GameInfoData> list, boolean z2) {
-        List<GameInfoData> data = this.aJR.getData();
+        List<GameInfoData> data = this.aKe.getData();
         if (z) {
             data.clear();
         }
@@ -177,24 +177,24 @@ public class GameNewActivity extends AbsGameClassifyActivity implements aa {
             }
         }
         if (data.isEmpty()) {
-            this.aJR.co(false);
+            this.aKe.co(false);
             a(r.a(NoDataViewFactory.ImgType.NODATA), s.bL(y.game_new_no_data_text), (q) null);
         } else {
-            this.aJR.co(z2);
-            abO();
+            this.aKe.co(z2);
+            abR();
         }
-        this.aJR.notifyDataSetChanged();
+        this.aKe.notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.game.base.AbsGameClassifyActivity
-    public void EG() {
+    public void EI() {
         a(false, (an) null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.game.base.AbsGameClassifyActivity
-    public void d(HttpResponsedMessage httpResponsedMessage) {
+    public void c(HttpResponsedMessage httpResponsedMessage) {
         ResponseMutilGameHttpMessage responseMutilGameHttpMessage = (ResponseMutilGameHttpMessage) httpResponsedMessage;
         if (responseMutilGameHttpMessage.getPage() == this.mPage) {
             this.mPage = responseMutilGameHttpMessage.getPage() + 1;
@@ -214,13 +214,13 @@ public class GameNewActivity extends AbsGameClassifyActivity implements aa {
 
     @Override // com.baidu.adp.widget.ListView.aa
     public void hQ() {
-        if (this.mHasMore && UtilHelper.isNetOk() && !this.Tu) {
-            this.aJR.Ii();
+        if (this.mHasMore && UtilHelper.isNetOk() && !this.Ty) {
+            this.aKe.Im();
             if (this.mPage == 1) {
                 this.mPage++;
             }
             sendMessage(fh(this.mPage));
-            this.Tu = true;
+            this.Ty = true;
         }
     }
 }

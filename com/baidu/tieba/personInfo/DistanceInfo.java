@@ -1,6 +1,6 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Profile.CommonLocation;
@@ -33,6 +33,6 @@ public class DistanceInfo implements Serializable {
     }
 
     public String getTimeFormat() {
-        return this.time != 0 ? ay.i(this.time) : "";
+        return this.time != 0 ? az.i(this.time) : "";
     }
 }

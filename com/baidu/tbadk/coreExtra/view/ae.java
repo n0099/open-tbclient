@@ -8,7 +8,7 @@ class ae extends Handler {
     public void handleMessage(Message message) {
         switch (message.what) {
             case 1:
-                ad.qb().qc();
+                ad.qd().qe();
                 removeMessages(1);
                 sendEmptyMessageDelayed(1, 1000L);
                 return;

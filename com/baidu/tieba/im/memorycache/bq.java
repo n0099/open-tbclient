@@ -19,7 +19,7 @@ public class bq extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         ImMessageCenterPojo B;
-        if (customResponsedMessage != null && (customResponsedMessage instanceof CustomResponsedMessage) && !customResponsedMessage.hasError() && (B = c.PK().B("-1003", -4)) != null) {
+        if (customResponsedMessage != null && (customResponsedMessage instanceof CustomResponsedMessage) && !customResponsedMessage.hasError() && (B = c.PN().B("-1003", -4)) != null) {
             Object data = customResponsedMessage.getData();
             if (data == null) {
                 B.setUnread_count(0);

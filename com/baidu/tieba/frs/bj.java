@@ -5,12 +5,12 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 class bj {
-    TextView JM;
-    LinearLayout aBK;
-    TextView aBL;
-    HeadImageView aBM;
-    TextView aBN;
-    TextView apR;
+    TextView JN;
+    LinearLayout aBU;
+    TextView aBV;
+    HeadImageView aBW;
+    TextView aBX;
+    TextView aqa;
 
     private bj() {
     }

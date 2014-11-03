@@ -9,10 +9,10 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<f, DownloadData, DownloadData> {
-    final /* synthetic */ c aGH;
+    final /* synthetic */ c aGR;
 
     private d(c cVar) {
-        this.aGH = cVar;
+        this.aGR = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -31,11 +31,11 @@ public class d extends BdAsyncTask<f, DownloadData, DownloadData> {
         String name = fVar.getName();
         String url = fVar.getUrl();
         String tag = fVar.getTag();
-        if (com.baidu.tbadk.core.util.ay.aA(key) || com.baidu.tbadk.core.util.ay.aA(name)) {
+        if (com.baidu.tbadk.core.util.az.aA(key) || com.baidu.tbadk.core.util.az.aA(name)) {
             return null;
         }
         String str = String.valueOf(key) + ".apk";
-        aq = this.aGH.aq(str);
+        aq = this.aGR.aq(str);
         if (com.baidu.tbadk.core.util.s.br(str) != null) {
             DownloadData downloadData = new DownloadData(key);
             downloadData.setName(str);
@@ -61,21 +61,21 @@ public class d extends BdAsyncTask<f, DownloadData, DownloadData> {
         List list;
         List list2;
         super.onPostExecute(downloadData);
-        this.aGH.aGE = null;
+        this.aGR.aGO = null;
         if (downloadData != null) {
             if (downloadData.getStatus() == 3) {
-                this.aGH.a(downloadData);
-                UtilHelper.install_apk(com.baidu.tieba.aj.wk().getApp(), String.valueOf(downloadData.getId()) + ".apk");
+                this.aGR.a(downloadData);
+                UtilHelper.install_apk(com.baidu.tieba.aj.wm().getApp(), String.valueOf(downloadData.getId()) + ".apk");
             } else {
-                com.baidu.tbadk.download.g.rk().a(downloadData, 10);
-                NotificationHelper.showProgressNotification(com.baidu.tieba.aj.wk().getApp(), downloadData.getNotifyId(), null, 0, com.baidu.tieba.aj.wk().getApp().getString(com.baidu.tieba.y.download_will_begin), downloadData.getName(), false);
+                com.baidu.tbadk.download.g.rm().a(downloadData, 10);
+                NotificationHelper.showProgressNotification(com.baidu.tieba.aj.wm().getApp(), downloadData.getNotifyId(), null, 0, com.baidu.tieba.aj.wm().getApp().getString(com.baidu.tieba.y.download_will_begin), downloadData.getName(), false);
             }
-            c.aGG = null;
-            list = c.Ra;
+            c.aGQ = null;
+            list = c.Re;
             if (!list.isEmpty()) {
-                list2 = c.Ra;
+                list2 = c.Re;
                 list2.remove(0);
-                this.aGH.ri();
+                this.aGR.rk();
             }
         }
     }

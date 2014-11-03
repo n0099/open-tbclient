@@ -7,13 +7,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends CustomMessageListener {
-    final /* synthetic */ g ask;
+    final /* synthetic */ g ast;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(g gVar, int i) {
         super(i);
-        this.ask = gVar;
+        this.ast = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,9 +21,9 @@ public class i extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         List list;
         if (customResponsedMessage.getCmd() == 2001123 && (customResponsedMessage instanceof QueryDownloadMessage)) {
-            this.ask.asi = ((QueryDownloadMessage) customResponsedMessage).getData();
-            g gVar = this.ask;
-            list = this.ask.asi;
+            this.ast.asr = ((QueryDownloadMessage) customResponsedMessage).getData();
+            g gVar = this.ast;
+            list = this.ast.asr;
             gVar.C(list);
         }
     }

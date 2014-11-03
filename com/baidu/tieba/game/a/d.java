@@ -6,11 +6,11 @@ import android.view.ViewGroup;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 class d implements com.baidu.adp.lib.guide.b {
-    final /* synthetic */ b aKb;
+    final /* synthetic */ b aKp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.aKb = bVar;
+        this.aKp = bVar;
     }
 
     @Override // com.baidu.adp.lib.guide.b

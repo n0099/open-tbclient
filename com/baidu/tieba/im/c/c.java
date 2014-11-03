@@ -14,8 +14,8 @@ class c extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2008017) {
-            PingManager.qC().qD();
-            b.Qv().Qw();
+            PingManager.qE().qF();
+            b.Qy().Qz();
         }
     }
 }

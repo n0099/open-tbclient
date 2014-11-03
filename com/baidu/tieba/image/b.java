@@ -12,27 +12,27 @@ import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Object, Integer, w> {
-    private String bkh;
-    private String bkr;
-    private int bks;
-    private int bkt;
-    final /* synthetic */ a bku;
+    private String bkF;
+    private int bkG;
+    private int bkH;
+    final /* synthetic */ a bkI;
+    private String bkv;
     private ac mNetWork = null;
 
     public b(a aVar, String str, String str2, int i, int i2) {
-        this.bku = aVar;
-        this.bkh = null;
-        this.bkr = null;
-        this.bks = 0;
-        this.bkt = 0;
-        this.bkr = str2;
-        this.bkh = str;
-        this.bks = i;
-        this.bkt = i2;
+        this.bkI = aVar;
+        this.bkv = null;
+        this.bkF = null;
+        this.bkG = 0;
+        this.bkH = 0;
+        this.bkF = str2;
+        this.bkv = str;
+        this.bkG = i;
+        this.bkH = i2;
     }
 
     public String getPicId() {
-        return this.bkr;
+        return this.bkF;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,26 +46,26 @@ public class b extends BdAsyncTask<Object, Integer, w> {
         boolean z3;
         this.mNetWork = new ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/pb/picpage");
         ac acVar = this.mNetWork;
-        str = this.bku.aAn;
+        str = this.bkI.aAx;
         acVar.k("kw", str);
-        this.mNetWork.k("tid", this.bkh);
-        if (this.bkr != null) {
-            this.mNetWork.k("pic_id", this.bkr);
+        this.mNetWork.k("tid", this.bkv);
+        if (this.bkF != null) {
+            this.mNetWork.k("pic_id", this.bkF);
         }
-        this.mNetWork.k("next", String.valueOf(this.bks));
-        this.mNetWork.k("prev", String.valueOf(this.bkt));
-        z = this.bku.bkn;
+        this.mNetWork.k("next", String.valueOf(this.bkG));
+        this.mNetWork.k("prev", String.valueOf(this.bkH));
+        z = this.bkI.bkB;
         if (!z) {
             this.mNetWork.k("not_see_lz", String.valueOf(1));
         }
         StringBuilder sb = new StringBuilder("mIsReserver=");
-        z2 = this.bku.bkk;
+        z2 = this.bkI.bky;
         BdLog.e(sb.append(z2).toString());
-        z3 = this.bku.bkk;
+        z3 = this.bkI.bky;
         if (!z3) {
             this.mNetWork.k("r", String.valueOf(1));
         }
-        this.mNetWork.mc().na().FT = false;
+        this.mNetWork.mc().na().FU = false;
         String lA = this.mNetWork.lA();
         if (!this.mNetWork.mc().nb().jq()) {
             return null;
@@ -80,7 +80,7 @@ public class b extends BdAsyncTask<Object, Integer, w> {
         if (this.mNetWork != null) {
             this.mNetWork.dM();
         }
-        this.bku.bkl = null;
+        this.bkI.bkz = null;
         super.cancel(true);
     }
 
@@ -120,63 +120,63 @@ public class b extends BdAsyncTask<Object, Integer, w> {
         String str4;
         c cVar4;
         super.onPostExecute(wVar);
-        this.bku.bkl = null;
+        this.bkI.bkz = null;
         if (wVar != null) {
-            this.bku.bkm = wVar.zu();
-            this.bku.NZ = wVar.zs();
-            this.bku.bkg = wVar.zr();
-            if (this.bkr == null) {
-                arrayList3 = this.bku.bkf;
+            this.bkI.bkA = wVar.zw();
+            this.bkI.Od = wVar.zu();
+            this.bkI.bku = wVar.zt();
+            if (this.bkF == null) {
+                arrayList3 = this.bkI.bkt;
                 arrayList3.clear();
-                hashMap3 = this.bku.bkq;
+                hashMap3 = this.bkI.bkE;
                 hashMap3.clear();
             }
-            LinkedList<v> zt = wVar.zt();
-            int size = zt.size();
+            LinkedList<v> zv = wVar.zv();
+            int size = zv.size();
             if (size <= 0) {
-                this.bku.bkj = true;
+                this.bkI.bkx = true;
             } else {
                 for (int i5 = 0; i5 < size; i5++) {
-                    a = this.bku.a(zt.get(i5));
-                    gJ = this.bku.gJ(a);
-                    hashMap = this.bku.bkq;
+                    a = this.bkI.a(zv.get(i5));
+                    gJ = this.bkI.gJ(a);
+                    hashMap = this.bkI.bkE;
                     if (!hashMap.containsKey(gJ)) {
-                        arrayList2 = this.bku.bkf;
+                        arrayList2 = this.bkI.bkt;
                         arrayList2.add(a);
-                        hashMap2 = this.bku.bkq;
+                        hashMap2 = this.bkI.bkE;
                         hashMap2.put(gJ, a);
                     }
                 }
-                v vVar = zt.get(size - 1);
-                this.bku.bki = vVar.zq();
-                i3 = this.bku.bkm;
+                v vVar = zv.get(size - 1);
+                this.bkI.bkw = vVar.zs();
+                i3 = this.bkI.bkA;
                 if (i3 == vVar.getIndex()) {
-                    this.bku.bkj = true;
+                    this.bkI.bkx = true;
                 } else {
-                    this.bku.bkj = false;
+                    this.bkI.bkx = false;
                 }
             }
-            z = this.bku.bkj;
+            z = this.bkI.bkx;
             if (z) {
-                str2 = this.bku.bkg;
+                str2 = this.bkI.bku;
                 if (str2 != null) {
-                    str3 = this.bku.bkg;
+                    str3 = this.bkI.bku;
                     if (str3.length() > 0) {
                         z2 = true;
-                        if (this.bkr != null) {
-                            this.bku.bkh = this.bkh;
+                        if (this.bkF != null) {
+                            this.bkI.bkv = this.bkv;
                             z3 = true;
                             i = 0;
                         } else {
                             z3 = false;
                             i = -1;
                         }
-                        cVar = this.bku.bkp;
+                        cVar = this.bkI.bkD;
                         if (cVar == null) {
-                            cVar2 = this.bku.bkp;
-                            arrayList = this.bku.bkf;
-                            i2 = this.bku.bkm;
-                            str = this.bku.NZ;
+                            cVar2 = this.bkI.bkD;
+                            arrayList = this.bkI.bkt;
+                            i2 = this.bkI.bkA;
+                            str = this.bkI.Od;
                             cVar2.a(arrayList, i, i2, z2, str, z3);
                             return;
                         }
@@ -185,22 +185,22 @@ public class b extends BdAsyncTask<Object, Integer, w> {
                 }
             }
             z2 = false;
-            if (this.bkr != null) {
+            if (this.bkF != null) {
             }
-            cVar = this.bku.bkp;
+            cVar = this.bkI.bkD;
             if (cVar == null) {
             }
         } else {
-            cVar3 = this.bku.bkp;
+            cVar3 = this.bkI.bkD;
             if (cVar3 != null) {
                 if (this.mNetWork != null) {
                     i4 = this.mNetWork.mg();
-                    str4 = this.bkr == null ? this.mNetWork.getErrorString() : null;
+                    str4 = this.bkF == null ? this.mNetWork.getErrorString() : null;
                 } else {
                     i4 = -1;
                     str4 = null;
                 }
-                cVar4 = this.bku.bkp;
+                cVar4 = this.bkI.bkD;
                 cVar4.n(i4, str4);
             }
         }

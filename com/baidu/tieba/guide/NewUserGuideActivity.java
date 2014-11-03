@@ -19,12 +19,12 @@ import com.baidu.tieba.view.RightSlideViewPager;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class NewUserGuideActivity extends BaseFragmentActivity {
-    private ao aKL;
-    private boolean aKN;
-    private RightSlideViewPager aKP;
-    private boolean aKM = false;
-    private boolean aKO = false;
-    private aq aKQ = new c(this);
+    private ao aKZ;
+    private boolean aLb;
+    private RightSlideViewPager aLd;
+    private boolean aLa = false;
+    private boolean aLc = false;
+    private aq aLe = new c(this);
 
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2012116, new b());
@@ -33,11 +33,11 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     }
 
     public void cq(boolean z) {
-        this.aKO = z;
+        this.aLc = z;
     }
 
-    public boolean It() {
-        return this.aKO;
+    public boolean Ix() {
+        return this.aLc;
     }
 
     public static void a(Context context, boolean z, boolean z2) {
@@ -47,66 +47,67 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         context.startActivity(intent);
     }
 
-    public RightSlideViewPager Iu() {
-        return this.aKP;
+    public RightSlideViewPager Iy() {
+        return this.aLd;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        Iw();
+        IA();
         setContentView(com.baidu.tieba.w.guide_activity_interestfrs);
         initUI();
         initData();
     }
 
     public void cr(boolean z) {
-        this.aKM = z;
+        this.aLa = z;
     }
 
     private void initData() {
-        this.aKN = getIntent().getBooleanExtra("is_new_user", false);
-        this.aKM = getIntent().getBooleanExtra(NewUserGuideActivityConfig.HAS_LIEK_BAR, false);
-        int i = this.aKN ? 1 : 2;
-        this.aKL = new ao(this);
-        this.aKL.a(i, 0, 100, this.aKQ);
+        this.aLb = getIntent().getBooleanExtra("is_new_user", false);
+        this.aLa = getIntent().getBooleanExtra(NewUserGuideActivityConfig.HAS_LIEK_BAR, false);
+        int i = this.aLb ? 1 : 2;
+        this.aKZ = new ao(this);
+        this.aKZ.a(i, 0, 100, this.aLe);
     }
 
     private void initUI() {
-        this.aKP = (RightSlideViewPager) findViewById(com.baidu.tieba.v.guide_viewPager);
-        this.aKP.setAdapter(new q(getSupportFragmentManager()));
-        this.aKP.setTag("canScroll");
-        this.aKP.setOnPageChangeListener(new d(this));
+        this.aLd = (RightSlideViewPager) findViewById(com.baidu.tieba.v.guide_viewPager);
+        this.aLd.setAdapter(new q(getSupportFragmentManager()));
+        this.aLd.setTag("canScroll");
+        this.aLd.setOnPageChangeListener(new d(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.aKL != null) {
-            this.aKL.TQ();
+        if (this.aKZ != null) {
+            this.aKZ.TT();
         }
     }
 
-    public ao Iv() {
-        return this.aKL;
+    public ao Iz() {
+        return this.aKZ;
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    protected void onChangeSkinType(int i) {
+    public void onChangeSkinType(int i) {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            Ix();
+            IB();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void Iw() {
+    private void IA() {
         if (Build.VERSION.SDK_INT >= 11) {
             try {
                 Field declaredField = WindowManager.LayoutParams.class.getDeclaredField("FLAG_HARDWARE_ACCELERATED");
@@ -119,8 +120,8 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         }
     }
 
-    public void Ix() {
-        sendMessage(new CustomMessage(2015001, new MainTabActivityConfig(this).createNewUserCfg(1, this.aKN)));
+    public void IB() {
+        sendMessage(new CustomMessage(2015001, new MainTabActivityConfig(this).createNewUserCfg(1, this.aLb)));
         finish();
     }
 }

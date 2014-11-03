@@ -7,9 +7,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 public class aj extends LinearLayout implements View.OnClickListener {
-    private com.baidu.tbadk.editortool.w arf;
-    private PbLocationInfoView arw;
-    private ImageView arx;
+    private PbLocationInfoView arF;
+    private ImageView arG;
+    private com.baidu.tbadk.editortool.w aro;
 
     public aj(Context context) {
         this(context, null);
@@ -22,20 +22,20 @@ public class aj extends LinearLayout implements View.OnClickListener {
     }
 
     private void nu() {
-        this.arw = (PbLocationInfoView) findViewById(com.baidu.tieba.v.location_info_view);
-        this.arx = (ImageView) findViewById(com.baidu.tieba.v.location_info_del);
-        this.arw.setOnClickListener(this);
-        this.arx.setOnClickListener(this);
+        this.arF = (PbLocationInfoView) findViewById(com.baidu.tieba.v.location_info_view);
+        this.arG = (ImageView) findViewById(com.baidu.tieba.v.location_info_del);
+        this.arF.setOnClickListener(this);
+        this.arG.setOnClickListener(this);
     }
 
     public void nz() {
-        this.arw.sB();
+        this.arF.sD();
         com.baidu.tbadk.core.util.aw.h(this, com.baidu.tieba.u.bg_tips_location);
-        com.baidu.tbadk.core.util.aw.c(this.arx, com.baidu.tieba.u.icon_tips_close);
+        com.baidu.tbadk.core.util.aw.c(this.arG, com.baidu.tieba.u.icon_tips_close);
     }
 
     public void j(int i, String str) {
-        this.arw.k(i, str);
+        this.arF.k(i, str);
     }
 
     public void setLocationInfoViewState(int i) {
@@ -43,24 +43,24 @@ public class aj extends LinearLayout implements View.OnClickListener {
     }
 
     public int getLocationInfoViewState() {
-        return this.arw.getState();
+        return this.arF.getState();
     }
 
     public int getLocationInfoViewVisibility() {
-        return this.arw.getVisibility();
+        return this.arF.getVisibility();
     }
 
     public void setOnActionListener(com.baidu.tbadk.editortool.w wVar) {
-        this.arf = wVar;
+        this.aro = wVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.arf != null) {
-            if (view == this.arw) {
-                this.arf.handleAction(52, null);
-            } else if (view == this.arx) {
-                this.arf.handleAction(53, null);
+        if (this.aro != null) {
+            if (view == this.arF) {
+                this.aro.handleAction(52, null);
+            } else if (view == this.arG) {
+                this.aro.handleAction(53, null);
             }
         }
     }

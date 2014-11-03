@@ -1,45 +1,45 @@
 package com.baidu.tbadk.performanceLog;
 /* loaded from: classes.dex */
 public class q extends u {
-    public static int Zi = 100;
-    public static int Zj = 10;
+    public static int Zm = 100;
+    public static int Zn = 10;
 
-    public static void uL() {
-        if (v.uN().uO()) {
-            if (s.Zn > Zj) {
-                s.uE();
+    public static void uN() {
+        if (v.uP().uQ()) {
+            if (s.Zr > Zn) {
+                s.uG();
             }
-            if (r.Zk > Zj) {
-                r.uE();
+            if (r.Zo > Zn) {
+                r.uG();
             }
         }
     }
 
     public static void a(boolean z, boolean z2, boolean z3) {
-        r.Zk++;
+        r.Zo++;
         if (z2) {
-            r.Zl++;
+            r.Zp++;
         } else if (z3) {
-            r.Zm++;
+            r.Zq++;
         }
-        if (r.Zk > Zi) {
-            r.uE();
+        if (r.Zo > Zm) {
+            r.uG();
         }
     }
 
     public void c(k kVar) {
-        if (v.uN().uO()) {
-            if (s.Zn < Zi) {
-                s.Zo += kVar.kd;
-                s.Zp += kVar.YN;
-                s.Zq += kVar.YO;
-                s.Zr += kVar.YP;
-                s.Zt += kVar.tm;
-                s.Zs += kVar.YG;
-                s.Zn++;
+        if (v.uP().uQ()) {
+            if (s.Zr < Zm) {
+                s.Zs += kVar.kd;
+                s.Zt += kVar.YR;
+                s.Zu += kVar.YS;
+                s.Zv += kVar.YT;
+                s.Zx += kVar.tm;
+                s.Zw += kVar.YK;
+                s.Zr++;
                 return;
             }
-            s.uE();
+            s.uG();
         }
     }
 }

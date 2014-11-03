@@ -4,12 +4,12 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ak extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ OfficialBarInfoActivity aRv;
+    final /* synthetic */ OfficialBarInfoActivity aRJ;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ak(OfficialBarInfoActivity officialBarInfoActivity) {
         super(208001);
-        this.aRv = officialBarInfoActivity;
+        this.aRJ = officialBarInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,16 +18,16 @@ public class ak extends com.baidu.adp.framework.listener.e {
         am amVar;
         am amVar2;
         if (socketResponsedMessage == null) {
-            this.aRv.hideProgressBar();
+            this.aRJ.hideProgressBar();
             return;
         }
         if (socketResponsedMessage.getCmd() == 208001 && (socketResponsedMessage instanceof ResponseOfficialBarInfoMessage)) {
             ResponseOfficialBarInfoMessage responseOfficialBarInfoMessage = (ResponseOfficialBarInfoMessage) socketResponsedMessage;
-            amVar = this.aRv.aRt;
+            amVar = this.aRJ.aRH;
             amVar.fC(responseOfficialBarInfoMessage.getAuthen());
-            amVar2 = this.aRv.aRt;
+            amVar2 = this.aRJ.aRH;
             amVar2.fD(responseOfficialBarInfoMessage.getPortrait());
         }
-        this.aRv.hideProgressBar();
+        this.aRJ.hideProgressBar();
     }
 }

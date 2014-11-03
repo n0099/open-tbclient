@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes.dex */
 public class am extends com.baidu.adp.base.e {
-    private ao bnT;
+    private ao boh;
     private BaseFragmentActivity mActivity;
 
     static {
@@ -14,7 +14,7 @@ public class am extends com.baidu.adp.base.e {
     public am(Context context, ae aeVar) {
         super(context);
         this.mActivity = (BaseFragmentActivity) context;
-        SY();
+        Tb();
     }
 
     public void a(long j, int i, String str) {
@@ -25,7 +25,7 @@ public class am extends com.baidu.adp.base.e {
         sendMessage(checkPostRequestMessage);
     }
 
-    public void SY() {
+    public void Tb() {
         registerListener(new an(this, 303010));
     }
 
@@ -40,6 +40,6 @@ public class am extends com.baidu.adp.base.e {
     }
 
     public void a(ao aoVar) {
-        this.bnT = aoVar;
+        this.boh = aoVar;
     }
 }

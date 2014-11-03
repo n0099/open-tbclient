@@ -8,16 +8,16 @@ import com.baidu.tbadk.core.util.NotificationHelper;
 import java.io.File;
 /* loaded from: classes.dex */
 class f extends BdAsyncTask<String, Integer, Boolean> {
-    private final String Cj;
-    final /* synthetic */ FileDownloader acC;
+    private final String Ck;
+    final /* synthetic */ FileDownloader acH;
     private final String mUrl;
     private com.baidu.tbadk.core.util.ac mNetWork = null;
     private volatile boolean kJ = false;
 
     public f(FileDownloader fileDownloader, String str, String str2) {
-        this.acC = fileDownloader;
+        this.acH = fileDownloader;
         this.mUrl = str;
-        this.Cj = str2;
+        this.Ck = str2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,8 +31,8 @@ class f extends BdAsyncTask<String, Integer, Boolean> {
         while (!this.kJ) {
             try {
                 this.mNetWork = new com.baidu.tbadk.core.util.ac(this.mUrl);
-                handler = this.acC.handler;
-                bool = Boolean.valueOf(this.mNetWork.a(String.valueOf(this.Cj) + ".tmp", handler, TbConfig.NET_MSG_GETLENTH));
+                handler = this.acH.handler;
+                bool = Boolean.valueOf(this.mNetWork.a(String.valueOf(this.Ck) + ".tmp", handler, TbConfig.NET_MSG_GETLENTH));
                 if (bool.booleanValue() || this.mNetWork.mg() == -2) {
                     break;
                 } else if (!this.mNetWork.mc().nb().mm()) {
@@ -45,9 +45,9 @@ class f extends BdAsyncTask<String, Integer, Boolean> {
             }
         }
         if (bool.booleanValue()) {
-            com.baidu.tbadk.core.util.s.bx(this.Cj);
-            File br = com.baidu.tbadk.core.util.s.br(String.valueOf(this.Cj) + ".tmp");
-            if (br != null && (bs = com.baidu.tbadk.core.util.s.bs(this.Cj)) != null) {
+            com.baidu.tbadk.core.util.s.bx(this.Ck);
+            File br = com.baidu.tbadk.core.util.s.br(String.valueOf(this.Ck) + ".tmp");
+            if (br != null && (bs = com.baidu.tbadk.core.util.s.bs(this.Ck)) != null) {
                 br.renameTo(bs);
             }
         }
@@ -57,7 +57,7 @@ class f extends BdAsyncTask<String, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        this.acC.mDowndingTask = null;
+        this.acH.mDowndingTask = null;
         this.kJ = true;
         if (this.mNetWork != null) {
             this.mNetWork.dM();
@@ -73,17 +73,17 @@ class f extends BdAsyncTask<String, Integer, Boolean> {
         Handler handler;
         Handler handler2;
         super.onPostExecute(bool);
-        this.acC.mDowndingTask = null;
+        this.acH.mDowndingTask = null;
         if (bool.booleanValue()) {
-            NotificationHelper.cancelNotification(this.acC.getBaseContext(), 10);
-            handler = this.acC.handler;
-            handler2 = this.acC.handler;
-            handler.sendMessageDelayed(handler2.obtainMessage(1, this.Cj), 100L);
+            NotificationHelper.cancelNotification(this.acH.getBaseContext(), 10);
+            handler = this.acH.handler;
+            handler2 = this.acH.handler;
+            handler.sendMessageDelayed(handler2.obtainMessage(1, this.Ck), 100L);
             return;
         }
-        Context baseContext = this.acC.getBaseContext();
-        i = this.acC.progress;
-        NotificationHelper.showProgressNotification(baseContext, 10, null, i, this.mUrl, this.acC.getString(y.error_sd_error), false);
-        this.acC.stopSelf();
+        Context baseContext = this.acH.getBaseContext();
+        i = this.acH.progress;
+        NotificationHelper.showProgressNotification(baseContext, 10, null, i, this.mUrl, this.acH.getString(y.error_sd_error), false);
+        this.acH.stopSelf();
     }
 }

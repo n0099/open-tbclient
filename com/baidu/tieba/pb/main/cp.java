@@ -5,18 +5,18 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cp implements com.baidu.tieba.c.e {
-    final /* synthetic */ bv byI;
+    final /* synthetic */ bv byW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cp(bv bvVar) {
-        this.byI = bvVar;
+        this.byW = bvVar;
     }
 
     @Override // com.baidu.tieba.c.e
     public boolean a(View view, MotionEvent motionEvent) {
-        this.byI.ef(false);
-        this.byI.V(view);
-        this.byI.ef(true);
+        this.byW.ef(false);
+        this.byW.V(view);
+        this.byW.ef(true);
         return true;
     }
 
@@ -27,8 +27,8 @@ public class cp implements com.baidu.tieba.c.e {
 
     @Override // com.baidu.tieba.c.e
     public boolean c(View view, MotionEvent motionEvent) {
-        this.byI.Xh();
-        this.byI.Yd();
+        this.byW.Xk();
+        this.byW.Yg();
         return false;
     }
 }

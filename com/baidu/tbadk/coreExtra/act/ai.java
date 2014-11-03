@@ -7,12 +7,12 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai extends BdAsyncTask<String, Integer, Bitmap> {
-    final /* synthetic */ Login2Activity KT;
+    final /* synthetic */ Login2Activity KU;
     private volatile boolean kJ;
     com.baidu.tbadk.core.util.ac mNetWork;
 
     private ai(Login2Activity login2Activity) {
-        this.KT = login2Activity;
+        this.KU = login2Activity;
         this.mNetWork = null;
         this.kJ = false;
     }
@@ -24,7 +24,7 @@ public class ai extends BdAsyncTask<String, Integer, Bitmap> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.KT.KR = null;
+        this.KU.KS = null;
         if (this.mNetWork != null) {
             this.mNetWork.dM();
             this.mNetWork = null;
@@ -37,7 +37,7 @@ public class ai extends BdAsyncTask<String, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         ImageView imageView;
-        imageView = this.KT.Kw;
+        imageView = this.KU.Kx;
         imageView.setImageDrawable(null);
     }
 
@@ -62,15 +62,15 @@ public class ai extends BdAsyncTask<String, Integer, Bitmap> {
         ImageView imageView;
         ProgressBar progressBar;
         ImageView imageView2;
-        this.KT.KR = null;
+        this.KU.KS = null;
         if (bitmap != null) {
-            imageView2 = this.KT.Kw;
+            imageView2 = this.KU.Kx;
             imageView2.setImageBitmap(bitmap);
         } else {
-            imageView = this.KT.Kw;
+            imageView = this.KU.Kx;
             imageView.setImageResource(com.baidu.tieba.u.background);
         }
-        progressBar = this.KT.mProgressBar;
+        progressBar = this.KU.mProgressBar;
         progressBar.setVisibility(8);
         super.onPostExecute(bitmap);
     }

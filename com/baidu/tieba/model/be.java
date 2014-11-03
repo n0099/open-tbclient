@@ -8,8 +8,8 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class be extends BdAsyncTask<Integer, Integer, Integer> {
-    private String Go;
-    private WeakReference<bd> bpP;
+    private String Gp;
+    private WeakReference<bd> bqd;
     private long mForumId;
     private String mForumName;
     private com.baidu.tbadk.core.util.ac yV = null;
@@ -17,11 +17,11 @@ public class be extends BdAsyncTask<Integer, Integer, Integer> {
     public be(String str, long j, String str2, bd bdVar) {
         this.mForumName = null;
         this.mForumId = 0L;
-        this.bpP = null;
+        this.bqd = null;
         this.mForumName = str;
         this.mForumId = j;
-        this.bpP = new WeakReference<>(bdVar);
-        this.Go = str2;
+        this.bqd = new WeakReference<>(bdVar);
+        this.Gp = str2;
         setPriority(3);
     }
 
@@ -36,7 +36,7 @@ public class be extends BdAsyncTask<Integer, Integer, Integer> {
                 this.yV.k(ImageViewerConfig.FORUM_ID, String.valueOf(this.mForumId));
                 this.yV.k("kw", this.mForumName);
                 this.yV.k("favo_type", "1");
-                this.yV.k("st_type", this.Go);
+                this.yV.k("st_type", this.Gp);
                 this.yV.mc().na().mIsNeedTbs = true;
                 this.yV.lA();
             }
@@ -54,11 +54,11 @@ public class be extends BdAsyncTask<Integer, Integer, Integer> {
     public void onPostExecute(Integer num) {
         bd bdVar;
         super.onPostExecute(num);
-        if (this.bpP != null && (bdVar = this.bpP.get()) != null) {
+        if (this.bqd != null && (bdVar = this.bqd.get()) != null) {
             if (this.yV != null) {
                 if (this.yV.mc().nb().jq()) {
                     if (num.intValue() == 1) {
-                        com.baidu.tieba.aj.wk().dX(this.mForumName);
+                        com.baidu.tieba.aj.wm().dX(this.mForumName);
                         bdVar.d(this.mForumName, this.mForumId);
                         return;
                     }

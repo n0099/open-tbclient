@@ -1,14 +1,14 @@
 package com.baidu.tieba.game;
 /* loaded from: classes.dex */
 public class f {
-    final /* synthetic */ c aGH;
+    final /* synthetic */ c aGR;
     private String key;
     private String name;
     private String tag;
     private String url;
 
     public f(c cVar) {
-        this.aGH = cVar;
+        this.aGR = cVar;
     }
 
     public void setKey(String str) {

@@ -5,32 +5,32 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends a {
-    private final List<a> Xg;
+    private final List<a> Xk;
 
     public b(MvcActivity<?, ?> mvcActivity) {
         super(mvcActivity);
-        this.Xg = new ArrayList();
+        this.Xk = new ArrayList();
     }
 
     public boolean a(a aVar) {
-        if (this.Xg == null || !this.Xg.add(aVar)) {
+        if (this.Xk == null || !this.Xk.add(aVar)) {
             return false;
         }
-        aVar.Xd = this;
-        aVar.a(this.Xf);
+        aVar.Xh = this;
+        aVar.a(this.Xj);
         return true;
     }
 
     public int getChildCount() {
-        if (this.Xg == null) {
+        if (this.Xk == null) {
             return 0;
         }
-        return this.Xg.size();
+        return this.Xk.size();
     }
 
     public a df(int i) {
-        if (this.Xg != null && i >= 0 && i < this.Xg.size()) {
-            return this.Xg.get(i);
+        if (this.Xk != null && i >= 0 && i < this.Xk.size()) {
+            return this.Xk.get(i);
         }
         return null;
     }

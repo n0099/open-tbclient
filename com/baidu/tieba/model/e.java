@@ -14,41 +14,41 @@ import com.baidu.tieba.message.ResponseSetBubbleMessage;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.base.e {
-    private h aiV;
-    private i aiW;
-    private int bod;
-    private int boe;
-    private final HttpMessageListener bof;
-    private final HttpMessageListener bog;
+    private h aje;
+    private i ajf;
+    private int bor;
+    private int bos;
+    private final HttpMessageListener bot;
+    private final HttpMessageListener bou;
 
     public e(Context context) {
         super(context);
-        this.bof = new f(this, CmdConfigHttp.REQUEST_BUBBLELIST_CMD);
-        this.bog = new g(this, CmdConfigHttp.SET_BUBBLE_CMD);
+        this.bot = new f(this, CmdConfigHttp.REQUEST_BUBBLELIST_CMD);
+        this.bou = new g(this, CmdConfigHttp.SET_BUBBLE_CMD);
     }
 
     public void a(h hVar) {
-        this.aiV = hVar;
+        this.aje = hVar;
     }
 
     public void a(i iVar) {
-        this.aiW = iVar;
+        this.ajf = iVar;
     }
 
-    public int Td() {
-        return this.bod;
+    public int Tg() {
+        return this.bor;
     }
 
     public void gy(int i) {
-        this.bod = i;
+        this.bor = i;
     }
 
-    public int Te() {
-        return this.boe;
+    public int Th() {
+        return this.bos;
     }
 
     public void gz(int i) {
-        this.boe = i;
+        this.bos = i;
     }
 
     @Override // com.baidu.adp.base.e
@@ -76,12 +76,12 @@ public class e extends com.baidu.adp.base.e {
         registerListener(customMessageListener);
     }
 
-    public void Tf() {
+    public void Ti() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.REQUEST_BUBBLELIST_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/bu/getbubblelist");
         tbHttpMessageTask.setResponsedClass(ResponseBubbleListMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
-        registerListener(this.bof);
+        registerListener(this.bot);
     }
 
     public void h(int i, int i2, int i3, int i4) {
@@ -101,18 +101,18 @@ public class e extends com.baidu.adp.base.e {
         sendMessage(httpMessage);
     }
 
-    public void Tg() {
+    public void Tj() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SET_BUBBLE_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/bu/setbubble");
         tbHttpMessageTask.setResponsedClass(ResponseSetBubbleMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
-        registerListener(this.bog);
+        registerListener(this.bou);
     }
 
     public void unRegisterListener() {
         MessageManager messageManager = MessageManager.getInstance();
-        messageManager.unRegisterListener(this.bog);
-        messageManager.unRegisterListener(this.bof);
+        messageManager.unRegisterListener(this.bou);
+        messageManager.unRegisterListener(this.bot);
     }
 
     public void b(CustomMessageListener customMessageListener) {

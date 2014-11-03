@@ -17,8 +17,8 @@ class u extends Handler {
         super.handleMessage(message);
         switch (message.what) {
             case 1:
-                if (s.Kk() != null) {
-                    s.Kk().setVisibility(8);
+                if (s.Ko() != null) {
+                    s.Ko().setVisibility(8);
                     s.g(null);
                     return;
                 }

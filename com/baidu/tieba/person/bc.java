@@ -7,18 +7,18 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 class bc {
-    TextView auD;
-    TextView avZ;
-    HeadImageView azk;
-    ImageView bCD;
-    LinearLayout bCE;
-    TextView bCF;
-    final /* synthetic */ bb bCG;
-    ImageView bfO;
+    TextView auM;
+    TextView awi;
+    HeadImageView azt;
+    ImageView bCR;
+    LinearLayout bCS;
+    TextView bCT;
+    final /* synthetic */ bb bCU;
+    ImageView bgc;
     ProgressBar mProgress;
 
     private bc(bb bbVar) {
-        this.bCG = bbVar;
+        this.bCU = bbVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

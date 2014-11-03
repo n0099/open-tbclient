@@ -7,13 +7,13 @@ import com.baidu.tieba.im.data.GroupPermData;
 import com.baidu.tieba.im.message.ResponseUserPermissionMessage;
 /* loaded from: classes.dex */
 class e extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ PersonGroupActivity bfC;
+    final /* synthetic */ PersonGroupActivity bfQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(PersonGroupActivity personGroupActivity, int i) {
         super(i);
-        this.bfC = personGroupActivity;
+        this.bfQ = personGroupActivity;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [329=4] */
@@ -24,20 +24,20 @@ class e extends com.baidu.adp.framework.listener.e {
             try {
                 ResponseUserPermissionMessage responseUserPermissionMessage = (ResponseUserPermissionMessage) socketResponsedMessage;
                 if (responseUserPermissionMessage.getError() > 0) {
-                    this.bfC.showToast(responseUserPermissionMessage.getErrorString());
+                    this.bfQ.showToast(responseUserPermissionMessage.getErrorString());
                     return;
                 }
                 GroupPermData groupPermData = responseUserPermissionMessage.getGroupPermData();
                 if (groupPermData != null) {
                     if (groupPermData.isCreatePersonal()) {
-                        CreateGroupStepActivity.a(this.bfC, 2, 0, 1012, groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum());
+                        CreateGroupStepActivity.a(this.bfQ, 2, 0, 1012, groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum());
                     } else if (!TextUtils.isEmpty(groupPermData.getCreatePersonalTip())) {
-                        this.bfC.showToast(groupPermData.getCreatePersonalTip());
+                        this.bfQ.showToast(groupPermData.getCreatePersonalTip());
                     }
                 }
             } catch (Exception e) {
             } finally {
-                this.bfC.hideProgressBar();
+                this.bfQ.hideProgressBar();
             }
         }
     }

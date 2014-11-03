@@ -22,17 +22,17 @@ class af extends CustomMessageListener {
                 String content = p.getContent();
                 if (!TextUtils.isEmpty(content)) {
                     if (cmd.equals("apply_new_friend")) {
-                        NewFriendDbManagerStatic.Re().gt(content);
+                        NewFriendDbManagerStatic.Rh().gt(content);
                     } else if (cmd.equals("passed_new_friend")) {
-                        NewFriendDbManagerStatic.Re().gu(content);
+                        NewFriendDbManagerStatic.Rh().gu(content);
                     } else if (cmd.equals("delete_new_friend")) {
-                        NewFriendDbManagerStatic.Re().gv(content);
+                        NewFriendDbManagerStatic.Rh().gv(content);
                     } else if (cmd.equals("apply_reply_message")) {
-                        NewFriendDbManagerStatic.Re().gw(content);
+                        NewFriendDbManagerStatic.Rh().gw(content);
                     } else if (cmd.equals("apply_add_friend")) {
-                        NewFriendDbManagerStatic.Re().gx(content);
+                        NewFriendDbManagerStatic.Rh().gx(content);
                     } else if (cmd.equals("apply_pass_friend")) {
-                        NewFriendDbManagerStatic.Re().gy(content);
+                        NewFriendDbManagerStatic.Rh().gy(content);
                     }
                 }
             }

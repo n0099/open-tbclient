@@ -5,19 +5,19 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ AtListActivity bSE;
+    final /* synthetic */ AtListActivity bST;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(AtListActivity atListActivity) {
-        this.bSE = atListActivity;
+        this.bST = atListActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EditText editText;
-        AtListActivity atListActivity = this.bSE;
-        editText = this.bSE.mEditText;
+        AtListActivity atListActivity = this.bST;
+        editText = this.bST.mEditText;
         com.baidu.adp.lib.util.m.b(atListActivity, editText);
-        this.bSE.finish();
+        this.bST.finish();
     }
 }

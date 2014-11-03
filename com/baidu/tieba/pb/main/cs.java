@@ -3,11 +3,11 @@ package com.baidu.tieba.pb.main;
 import android.view.View;
 /* loaded from: classes.dex */
 class cs implements View.OnLongClickListener {
-    final /* synthetic */ bv byI;
+    final /* synthetic */ bv byW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cs(bv bvVar) {
-        this.byI = bvVar;
+        this.byW = bvVar;
     }
 
     @Override // android.view.View.OnLongClickListener

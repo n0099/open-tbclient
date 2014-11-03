@@ -7,11 +7,11 @@ import tbclient.GameInfo;
 import tbclient.SearchGame.DataRes;
 /* loaded from: classes.dex */
 public class l {
-    private List<GameInfoData> aIf;
+    private List<GameInfoData> aIr;
     private boolean mHasMore;
 
     public List<GameInfoData> getGameList() {
-        return this.aIf;
+        return this.aIr;
     }
 
     public boolean isHasMore() {
@@ -24,10 +24,10 @@ public class l {
                 this.mHasMore = true;
             }
             if (dataRes.game_list != null) {
-                this.aIf = new ArrayList();
+                this.aIr = new ArrayList();
                 for (GameInfo gameInfo : dataRes.game_list) {
                     if (gameInfo != null) {
-                        this.aIf.add(GameInfoData.fromGameInfo(gameInfo));
+                        this.aIr.add(GameInfoData.fromGameInfo(gameInfo));
                     }
                 }
             }

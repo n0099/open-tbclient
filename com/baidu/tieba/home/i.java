@@ -6,11 +6,11 @@ import android.widget.ListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements View.OnKeyListener {
-    final /* synthetic */ f aMo;
+    final /* synthetic */ f aMC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(f fVar) {
-        this.aMo = fVar;
+        this.aMC = fVar;
     }
 
     @Override // android.view.View.OnKeyListener

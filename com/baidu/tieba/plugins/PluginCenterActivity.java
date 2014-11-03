@@ -21,8 +21,8 @@ import com.baidu.tieba.y;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class PluginCenterActivity extends BaseActivity {
-    private o ahO;
-    private a bGG;
+    private o ahX;
+    private a bGU;
     private NavigationBar mNavigationBar;
     private BdListView vl;
 
@@ -35,14 +35,14 @@ public class PluginCenterActivity extends BaseActivity {
         this.mNavigationBar = (NavigationBar) findViewById(v.navigation_bar);
         this.mNavigationBar.setTitleText(y.plugin_center);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.ahO = NoDataViewFactory.a(this, findViewById(v.list_layout), r.a(NoDataViewFactory.ImgType.NODATA), s.bL(y.plugin_no_plugins), null);
-        this.vl.setEmptyView(this.ahO);
+        this.ahX = NoDataViewFactory.a(this, findViewById(v.list_layout), r.a(NoDataViewFactory.ImgType.NODATA), s.bL(y.plugin_no_plugins), null);
+        this.vl.setEmptyView(this.ahX);
     }
 
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        this.bGG = new a(this);
+        this.bGU = new a(this);
         ConfigInfos netConfigInfos = PluginCenter.getInstance().getNetConfigInfos();
         if (netConfigInfos != null && netConfigInfos.getConfigs() != null && netConfigInfos.getConfigs().size() > 0) {
             if (!TbadkApplication.m251getInst().isHao123HelperShouldOpen()) {
@@ -59,10 +59,10 @@ public class PluginCenterActivity extends BaseActivity {
                     it2.remove();
                 }
             }
-            this.bGG.aj(netConfigInfos.getConfigs());
+            this.bGU.aj(netConfigInfos.getConfigs());
             PluginCenter.getInstance().setTipUpdateRead();
         }
-        this.vl.setAdapter((ListAdapter) this.bGG);
+        this.vl.setAdapter((ListAdapter) this.bGU);
         this.vl.setOnItemClickListener(this);
     }
 
@@ -71,15 +71,15 @@ public class PluginCenterActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(i);
-        this.bGG.notifyDataSetChanged();
+        this.bGU.notifyDataSetChanged();
         getLayoutMode().h(findViewById(16908290));
-        if (this.ahO != null) {
-            this.ahO.onChangeSkinType(i);
+        if (this.ahX != null) {
+            this.ahX.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        PluginDetailActivity.startActivity(this, this.bGG.getItem(i).name);
+        PluginDetailActivity.startActivity(this, this.bGU.getItem(i).name);
     }
 }

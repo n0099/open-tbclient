@@ -15,7 +15,6 @@ public class b extends HttpMessageListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: b */
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
         this.cF.onMessage(httpResponsedMessage);
     }

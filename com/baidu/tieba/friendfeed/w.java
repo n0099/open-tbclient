@@ -6,10 +6,10 @@ import android.view.ViewGroup;
 import com.baidu.tieba.data.FriendFeedThreadData;
 /* loaded from: classes.dex */
 class w implements View.OnTouchListener {
-    final /* synthetic */ q ayX;
+    final /* synthetic */ q azg;
 
     private w(q qVar) {
-        this.ayX = qVar;
+        this.azg = qVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,27 +19,27 @@ class w implements View.OnTouchListener {
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        FriendFeedThreadData friendFeedThreadData = (FriendFeedThreadData) this.ayX.getItem(((Integer) view.getTag()).intValue());
+        FriendFeedThreadData friendFeedThreadData = (FriendFeedThreadData) this.azg.getItem(((Integer) view.getTag()).intValue());
         View childAt = ((ViewGroup) view).getChildAt(0);
         if (childAt != null) {
             boolean z = friendFeedThreadData.getPraise() == null || friendFeedThreadData.getPraise().getIsLike() == 0;
             if (motionEvent.getAction() == 0) {
-                if (System.currentTimeMillis() - q.a(this.ayX) > 1000) {
-                    q.a(this.ayX, true);
-                    q.a(this.ayX, childAt);
+                if (System.currentTimeMillis() - q.a(this.azg) > 1000) {
+                    q.a(this.azg, true);
+                    q.a(this.azg, childAt);
                 } else {
-                    q.a(this.ayX, false);
+                    q.a(this.azg, false);
                 }
             } else if (motionEvent.getAction() == 1) {
                 if (z) {
-                    q.a(this.ayX, childAt, q.b(this.ayX));
+                    q.a(this.azg, childAt, q.b(this.azg));
                 } else {
-                    q.b(this.ayX, childAt, q.b(this.ayX));
+                    q.b(this.azg, childAt, q.b(this.azg));
                 }
             } else if (motionEvent.getAction() == 2) {
-                q.b(this.ayX, childAt, q.b(this.ayX));
+                q.b(this.azg, childAt, q.b(this.azg));
             } else if (motionEvent.getAction() == 3) {
-                q.b(this.ayX, childAt, q.b(this.ayX));
+                q.b(this.azg, childAt, q.b(this.azg));
             }
         }
         return false;

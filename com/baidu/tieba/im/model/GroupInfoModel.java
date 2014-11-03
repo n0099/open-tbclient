@@ -185,11 +185,11 @@ public class GroupInfoModel extends e {
     }
 
     public ArrayList<String> getBigUrlList() {
-        if (this.mData == null || this.mData.PZ() == null || this.mData.PZ().size() <= 0) {
+        if (this.mData == null || this.mData.Qc() == null || this.mData.Qc().size() <= 0) {
             return null;
         }
         ArrayList<String> arrayList = new ArrayList<>();
-        for (PhotoUrlData photoUrlData : this.mData.PZ()) {
+        for (PhotoUrlData photoUrlData : this.mData.Qc()) {
             if (photoUrlData != null) {
                 arrayList.add(photoUrlData.getBigurl());
             }
@@ -207,12 +207,12 @@ public class GroupInfoModel extends e {
             return null;
         }
         this.mChangePhotoUrlData = photoUrlData;
-        if (this.mData != null && this.mData.PZ() != null && this.mData.PZ().size() > 0) {
-            int size = this.mData.PZ().size();
-            List<PhotoUrlData> PZ = this.mData.PZ();
+        if (this.mData != null && this.mData.Qc() != null && this.mData.Qc().size() > 0) {
+            int size = this.mData.Qc().size();
+            List<PhotoUrlData> Qc = this.mData.Qc();
             for (int i = 1; i < size; i++) {
-                if (PZ.get(i) != null && !picId.equals(PZ.get(i).getPicId())) {
-                    sb.append(PZ.get(i).getPicId());
+                if (Qc.get(i) != null && !picId.equals(Qc.get(i).getPicId())) {
+                    sb.append(Qc.get(i).getPicId());
                     if (i != size - 1) {
                         sb.append(",");
                     }
@@ -232,12 +232,12 @@ public class GroupInfoModel extends e {
             return null;
         }
         this.mChangePhotoUrlData = photoUrlData;
-        if (this.mData != null && this.mData.PZ() != null && this.mData.PZ().size() > 0) {
-            List<PhotoUrlData> PZ = this.mData.PZ();
-            int size = PZ.size();
+        if (this.mData != null && this.mData.Qc() != null && this.mData.Qc().size() > 0) {
+            List<PhotoUrlData> Qc = this.mData.Qc();
+            int size = Qc.size();
             for (int i = 1; i < size; i++) {
-                if (PZ.get(i) != null) {
-                    sb.append(PZ.get(i).getPicId());
+                if (Qc.get(i) != null) {
+                    sb.append(Qc.get(i).getPicId());
                     sb.append(",");
                 }
             }
@@ -249,10 +249,10 @@ public class GroupInfoModel extends e {
     }
 
     public void delePhotoData() {
-        if (this.mData != null && this.mData.PZ() != null && this.mData.PZ().size() > 0 && this.mChangePhotoUrlData != null) {
-            for (PhotoUrlData photoUrlData : this.mData.PZ()) {
+        if (this.mData != null && this.mData.Qc() != null && this.mData.Qc().size() > 0 && this.mChangePhotoUrlData != null) {
+            for (PhotoUrlData photoUrlData : this.mData.Qc()) {
                 if (photoUrlData != null && photoUrlData.getPicId().equals(this.mChangePhotoUrlData.getPicId())) {
-                    this.mData.PZ().remove(photoUrlData);
+                    this.mData.Qc().remove(photoUrlData);
                     return;
                 }
             }
@@ -261,47 +261,47 @@ public class GroupInfoModel extends e {
 
     public void addPhotoData() {
         if (this.mData != null && this.mChangePhotoUrlData != null) {
-            if (this.mData.PZ() == null) {
+            if (this.mData.Qc() == null) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(this.mChangePhotoUrlData);
                 this.mData.Z(arrayList);
                 return;
             }
-            if (this.mData.PZ().size() > 0 && this.mData.PZ().get(0) != null && TextUtils.isEmpty(this.mData.PZ().get(0).getPicId())) {
-                this.mData.PZ().remove(0);
+            if (this.mData.Qc().size() > 0 && this.mData.Qc().get(0) != null && TextUtils.isEmpty(this.mData.Qc().get(0).getPicId())) {
+                this.mData.Qc().remove(0);
             }
             PhotoUrlData photoUrlData = new PhotoUrlData();
             photoUrlData.setBigurl(this.mChangePhotoUrlData.getBigurl());
             photoUrlData.setPicId(this.mChangePhotoUrlData.getPicId());
             photoUrlData.setSmallurl(this.mChangePhotoUrlData.getSmallurl());
-            this.mData.PZ().add(photoUrlData);
+            this.mData.Qc().add(photoUrlData);
         }
     }
 
     public void updataPortraitData() {
-        if (this.mData != null && this.mData.PZ() != null && this.mData.PZ().size() > 0 && this.mChangePhotoUrlData != null) {
+        if (this.mData != null && this.mData.Qc() != null && this.mData.Qc().size() > 0 && this.mChangePhotoUrlData != null) {
             int i = 0;
             while (true) {
-                if (i >= this.mData.PZ().size()) {
+                if (i >= this.mData.Qc().size()) {
                     i = -1;
                     break;
-                } else if (this.mData.PZ().get(i) == null || this.mData.PZ().get(i).getPicId() == null || !this.mData.PZ().get(i).getPicId().equals(this.mChangePhotoUrlData.getPicId())) {
+                } else if (this.mData.Qc().get(i) == null || this.mData.Qc().get(i).getPicId() == null || !this.mData.Qc().get(i).getPicId().equals(this.mChangePhotoUrlData.getPicId())) {
                     i++;
                 } else {
-                    this.mData.PZ().remove(i);
+                    this.mData.Qc().remove(i);
                     break;
                 }
             }
-            if (this.mData.PZ().size() > 0 && this.mData.PZ().get(0) != null && TextUtils.isEmpty(this.mData.PZ().get(0).getPicId())) {
-                this.mData.PZ().remove(0);
+            if (this.mData.Qc().size() > 0 && this.mData.Qc().get(0) != null && TextUtils.isEmpty(this.mData.Qc().get(0).getPicId())) {
+                this.mData.Qc().remove(0);
             }
-            this.mData.PZ().add(i, this.mData.PZ().get(0));
-            this.mData.PZ().remove(0);
+            this.mData.Qc().add(i, this.mData.Qc().get(0));
+            this.mData.Qc().remove(0);
             PhotoUrlData photoUrlData = new PhotoUrlData();
             photoUrlData.setBigurl(this.mChangePhotoUrlData.getBigurl());
             photoUrlData.setPicId(this.mChangePhotoUrlData.getPicId());
             photoUrlData.setSmallurl(this.mChangePhotoUrlData.getSmallurl());
-            this.mData.PZ().add(0, photoUrlData);
+            this.mData.Qc().add(0, photoUrlData);
         }
     }
 
@@ -313,10 +313,10 @@ public class GroupInfoModel extends e {
     }
 
     public boolean removeMemberByUid(String str) {
-        if (str != null && this.mData != null && this.mData.PY() != null && this.mData.PY().size() > 0) {
-            for (MemberData memberData : this.mData.PY()) {
+        if (str != null && this.mData != null && this.mData.Qb() != null && this.mData.Qb().size() > 0) {
+            for (MemberData memberData : this.mData.Qb()) {
                 if (str.equals(String.valueOf(memberData.getUserId()))) {
-                    this.mData.PY().remove(memberData);
+                    this.mData.Qb().remove(memberData);
                     return true;
                 }
             }

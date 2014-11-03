@@ -22,27 +22,27 @@ public class d implements View.OnClickListener {
         boolean a;
         int i3;
         String str = TbConfig.PERSON_HEAD_FILE;
-        i = this.this$0.JA;
+        i = this.this$0.JB;
         if (i != 0) {
             str = TbConfig.GROUP_HEAD_FILE;
         }
-        editHeadsImageView = this.this$0.Jz;
-        i2 = this.this$0.JA;
+        editHeadsImageView = this.this$0.JA;
+        i2 = this.this$0.JB;
         Bitmap aK = editHeadsImageView.aK(i2 == 0);
         if (aK == null) {
             return;
         }
         a = this.this$0.a(str, aK);
         if (a) {
-            i3 = this.this$0.JA;
+            i3 = this.this$0.JB;
             if (i3 == 0) {
                 this.this$0.nX();
                 return;
             }
             com.baidu.tbadk.img.a aVar = new com.baidu.tbadk.img.a(com.baidu.tbadk.core.util.s.bq(TbConfig.GROUP_HEAD_FILE), "head");
-            aVar.sl();
+            aVar.sn();
             aVar.a(new e(this));
-            aVar.sj();
+            aVar.sl();
             this.this$0.showLoadingDialog(this.this$0.getString(com.baidu.tieba.y.uploading));
         }
     }

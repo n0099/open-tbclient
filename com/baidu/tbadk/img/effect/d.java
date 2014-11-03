@@ -7,7 +7,7 @@ public class d extends b {
     private int maxWidth;
 
     @Override // com.baidu.tbadk.img.effect.b
-    public String sp() {
+    public String sr() {
         return "resize";
     }
 
@@ -34,7 +34,7 @@ public class d extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.e.sg().cR(com.baidu.tbadk.core.util.d.a(bitmap) * 2);
+        com.baidu.tbadk.imageManager.e.si().cR(com.baidu.tbadk.core.util.d.a(bitmap) * 2);
         return com.baidu.tbadk.core.util.d.a(bitmap, this.maxWidth, this.maxHeight, z);
     }
 
@@ -47,7 +47,7 @@ public class d extends b {
         return this.maxWidth;
     }
 
-    public int sr() {
+    public int st() {
         return this.maxHeight;
     }
 }

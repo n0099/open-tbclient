@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 /* loaded from: classes.dex */
 public class SingleSquareActivity extends BaseFragmentActivity {
-    private aa bMK;
+    private aa bMZ;
 
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2010010, new z());
@@ -25,27 +25,28 @@ public class SingleSquareActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (!xf()) {
+        if (!xh()) {
             FragmentManager supportFragmentManager = getSupportFragmentManager();
-            this.bMK = new aa();
+            this.bMZ = new aa();
             FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
-            beginTransaction.add(16908290, this.bMK);
+            beginTransaction.add(16908290, this.bMZ);
             beginTransaction.commitAllowingStateLoss();
         }
     }
 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
-        if (this.bMK != null) {
-            this.bMK.onActivityResult(i, i2, intent);
+        if (this.bMZ != null) {
+            this.bMZ.onActivityResult(i, i2, intent);
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    protected void onChangeSkinType(int i) {
+    public void onChangeSkinType(int i) {
     }
 
-    private boolean xf() {
+    private boolean xh() {
         if ("from_hao123".equals(getIntent().getStringExtra("start_from")) && com.baidu.tieba.util.q.l(this)) {
             Intent intent = new Intent();
             intent.putExtra("class", 19);

@@ -10,10 +10,10 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r extends BaseAdapter {
-    final /* synthetic */ EmotionManageActivity asH;
+    final /* synthetic */ EmotionManageActivity asQ;
 
     private r(EmotionManageActivity emotionManageActivity) {
-        this.asH = emotionManageActivity;
+        this.asQ = emotionManageActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,9 +25,9 @@ public class r extends BaseAdapter {
     public int getCount() {
         List list;
         List list2;
-        list = this.asH.asu;
+        list = this.asQ.asD;
         if (list != null) {
-            list2 = this.asH.asu;
+            list2 = this.asQ.asD;
             return list2.size();
         }
         return 0;
@@ -38,11 +38,11 @@ public class r extends BaseAdapter {
         List list;
         List list2;
         List list3;
-        list = this.asH.asu;
+        list = this.asQ.asD;
         if (list != null) {
-            list2 = this.asH.asu;
+            list2 = this.asQ.asD;
             if (i <= list2.size()) {
-                list3 = this.asH.asu;
+                list3 = this.asQ.asD;
                 return list3.get(i);
             }
         }
@@ -53,9 +53,9 @@ public class r extends BaseAdapter {
     public long getItemId(int i) {
         List list;
         List list2;
-        list = this.asH.asu;
+        list = this.asQ.asD;
         if (list != null) {
-            list2 = this.asH.asu;
+            list2 = this.asQ.asD;
             if (i <= list2.size()) {
                 return i;
             }
@@ -75,42 +75,42 @@ public class r extends BaseAdapter {
             view = hA();
         }
         u uVar = (u) view.getTag();
-        list = this.asH.asu;
-        Bitmap bitmap = ((s) list.get(i)).asJ;
+        list = this.asQ.asD;
+        Bitmap bitmap = ((s) list.get(i)).asS;
         if (bitmap != null) {
-            uVar.asL.setImageBitmap(bitmap);
+            uVar.asU.setImageBitmap(bitmap);
         } else {
-            com.baidu.tbadk.core.util.aw.c(uVar.asL, by.pic_image_h_not);
+            com.baidu.tbadk.core.util.aw.c(uVar.asU, by.pic_image_h_not);
         }
-        z = this.asH.asG;
+        z = this.asQ.asP;
         if (z) {
-            list3 = this.asH.asv;
-            list4 = this.asH.asu;
+            list3 = this.asQ.asE;
+            list4 = this.asQ.asD;
             if (list3.contains(((s) list4.get(i)).id)) {
-                com.baidu.tbadk.core.util.aw.c(uVar.asK, by.btn_expression_choose_s);
+                com.baidu.tbadk.core.util.aw.c(uVar.asT, by.btn_expression_choose_s);
             } else {
-                com.baidu.tbadk.core.util.aw.c(uVar.asK, by.btn_expression_choose_n);
+                com.baidu.tbadk.core.util.aw.c(uVar.asT, by.btn_expression_choose_n);
             }
-            uVar.asK.setVisibility(0);
-            ImageView imageView = uVar.asK;
-            list5 = this.asH.asu;
+            uVar.asT.setVisibility(0);
+            ImageView imageView = uVar.asT;
+            list5 = this.asQ.asD;
             imageView.setTag(((s) list5.get(i)).id);
         } else {
-            uVar.asK.setVisibility(8);
+            uVar.asT.setVisibility(8);
         }
-        TextView textView = uVar.UD;
-        list2 = this.asH.asu;
+        TextView textView = uVar.UH;
+        list2 = this.asQ.asD;
         textView.setText(((s) list2.get(i)).name);
-        this.asH.getLayoutMode().h(view);
+        this.asQ.getLayoutMode().h(view);
         return view;
     }
 
     private View hA() {
-        View inflate = View.inflate(this.asH, ca.emotion_manage_list_item, null);
+        View inflate = View.inflate(this.asQ, ca.emotion_manage_list_item, null);
         u uVar = new u(null);
-        uVar.asK = (ImageView) inflate.findViewById(bz.emotion_group_select);
-        uVar.asL = (ImageView) inflate.findViewById(bz.emotion_group_photo);
-        uVar.UD = (TextView) inflate.findViewById(bz.emotion_group_name);
+        uVar.asT = (ImageView) inflate.findViewById(bz.emotion_group_select);
+        uVar.asU = (ImageView) inflate.findViewById(bz.emotion_group_photo);
+        uVar.UH = (TextView) inflate.findViewById(bz.emotion_group_name);
         inflate.setTag(uVar);
         return inflate;
     }

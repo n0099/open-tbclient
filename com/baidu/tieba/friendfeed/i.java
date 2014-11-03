@@ -14,15 +14,15 @@ import com.baidu.tieba.pb.main.bs;
 import com.baidu.tieba.util.AntiHelper;
 /* loaded from: classes.dex */
 class i implements as {
-    final /* synthetic */ FriendFeedActivity ayL;
+    final /* synthetic */ FriendFeedActivity ayU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(FriendFeedActivity friendFeedActivity) {
-        this.ayL = friendFeedActivity;
+        this.ayU = friendFeedActivity;
     }
 
     @Override // com.baidu.tieba.model.as
-    public void a(boolean z, String str, com.baidu.tbadk.coreExtra.data.f fVar, WriteData writeData, AntiData antiData) {
+    public void a(boolean z, String str, com.baidu.tbadk.coreExtra.data.g gVar, WriteData writeData, AntiData antiData) {
         y yVar;
         y yVar2;
         WriteImagesInfo writeImagesInfo;
@@ -34,45 +34,45 @@ class i implements as {
         FriendFeedThreadData friendFeedThreadData2;
         FriendFeedThreadData friendFeedThreadData3;
         y yVar4;
-        this.ayL.EA();
-        yVar = this.ayL.ayq;
+        this.ayU.EC();
+        yVar = this.ayU.ayz;
         yVar.bQ(z);
-        yVar2 = this.ayL.ayq;
-        writeImagesInfo = this.ayL.ahS;
+        yVar2 = this.ayU.ayz;
+        writeImagesInfo = this.ayU.aib;
         yVar2.a(writeImagesInfo, true);
         if (z) {
-            yVar3 = this.ayL.ayq;
-            yVar3.EP();
-            bs.WZ().reset();
-            arVar = this.ayL.ayz;
-            arVar.EC();
-            arVar2 = this.ayL.ayz;
+            yVar3 = this.ayU.ayz;
+            yVar3.ER();
+            bs.Xc().reset();
+            arVar = this.ayU.ayI;
+            arVar.EE();
+            arVar2 = this.ayU.ayI;
             arVar2.b((WriteData) null);
-            arVar3 = this.ayL.ayz;
+            arVar3 = this.ayU.ayI;
             arVar3.dI(false);
-            this.ayL.a(antiData, str);
-            friendFeedThreadData = this.ayL.ayy;
+            this.ayU.a(antiData, str);
+            friendFeedThreadData = this.ayU.ayH;
             com.baidu.tieba.util.l.b(friendFeedThreadData.getTid(), (WriteData) null);
-            friendFeedThreadData2 = this.ayL.ayy;
-            friendFeedThreadData3 = this.ayL.ayy;
+            friendFeedThreadData2 = this.ayU.ayH;
+            friendFeedThreadData3 = this.ayU.ayH;
             friendFeedThreadData2.setReply_num(friendFeedThreadData3.getReply_num() + 1);
-            yVar4 = this.ayL.ayq;
-            yVar4.ES();
-        } else if (fVar != null && writeData != null && fVar.getVcode_pic_url() != null) {
+            yVar4 = this.ayU.ayz;
+            yVar4.EU();
+        } else if (gVar != null && writeData != null && gVar.getVcode_pic_url() != null) {
             if (!AntiHelper.e(antiData)) {
-                writeData.setVcodeMD5(fVar.getVcode_md5());
-                writeData.setVcodeUrl(fVar.getVcode_pic_url());
-                if (fVar.oA().equals("4")) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.ayL, 12006, writeData, false)));
+                writeData.setVcodeMD5(gVar.getVcode_md5());
+                writeData.setVcodeUrl(gVar.getVcode_pic_url());
+                if (gVar.oC().equals("4")) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.ayU, 12006, writeData, false)));
                     return;
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.ayL, writeData, 12006)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.ayU, writeData, 12006)));
                     return;
                 }
             }
-            this.ayL.a(antiData, str);
+            this.ayU.a(antiData, str);
         } else {
-            this.ayL.a(antiData, str);
+            this.ayU.a(antiData, str);
         }
     }
 }

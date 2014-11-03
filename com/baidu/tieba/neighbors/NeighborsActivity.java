@@ -28,32 +28,32 @@ import tbclient.Person.DataRes;
 import tbclient.Person.UserInfos;
 /* loaded from: classes.dex */
 public class NeighborsActivity extends BaseActivity implements aa {
-    private View aGI;
-    private NavigationBar aGJ;
-    private boolean aJD;
-    private com.baidu.tbadk.core.view.o ahO;
-    private NoNetworkView aoJ;
-    private String btE;
-    private String btF;
-    private List<UserInfos> btH;
-    private View btI;
-    private View btJ;
-    private BdListView btK;
-    private k btL;
-    private MorePopupWindow btM;
-    private View btN;
-    private View btO;
-    private View btP;
-    private View btQ;
+    private View aGS;
+    private NavigationBar aGT;
+    private boolean aJQ;
+    private com.baidu.tbadk.core.view.o ahX;
+    private NoNetworkView aoS;
+    private String btS;
+    private String btT;
+    private List<UserInfos> btV;
+    private View btW;
+    private View btX;
+    private BdListView btY;
+    private k btZ;
+    private MorePopupWindow bua;
+    private View bub;
+    private View buc;
+    private View bud;
+    private View bue;
     private boolean mHasMore;
     private int mOffset;
     private int mGeo = -1;
-    private int btG = 0;
-    private y Yc = null;
-    private HttpMessageListener btR = new a(this, CmdConfigHttp.CLEAR_LOCATION_INFO);
-    private HttpMessageListener btS = new c(this, CmdConfigHttp.SET_PRIVATE_CMD);
-    private com.baidu.adp.framework.listener.e btT = new d(this, 303004);
-    private com.baidu.adp.lib.d.d btU = new e(this);
+    private int btU = 0;
+    private y Yg = null;
+    private HttpMessageListener buf = new a(this, CmdConfigHttp.CLEAR_LOCATION_INFO);
+    private HttpMessageListener bug = new c(this, CmdConfigHttp.SET_PRIVATE_CMD);
+    private com.baidu.adp.framework.listener.e buh = new d(this, 303004);
+    private com.baidu.adp.lib.d.d bui = new e(this);
 
     static {
         TbadkApplication.m251getInst().RegisterIntent(NeighborsActivityConfig.class, NeighborsActivity.class);
@@ -64,119 +64,119 @@ public class NeighborsActivity extends BaseActivity implements aa {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(u.neighbors_activity);
-        rY();
-        Ib();
+        sa();
+        If();
         Intent intent = getIntent();
         dS(intent != null ? intent.getBooleanExtra(NeighborsActivityConfig.LOCATING, false) : false);
     }
 
-    private void rY() {
-        this.aGI = findViewById(t.parent);
-        this.btK = (BdListView) findViewById(t.neighbors_list);
-        this.btI = findViewById(t.locating_failed);
-        this.aoJ = (NoNetworkView) this.aGI.findViewById(t.view_no_network);
-        this.aoJ.a(new f(this));
-        this.Yc = new y(this);
-        this.Yc.a(new g(this));
-        this.btK.setPullRefresh(this.Yc);
-        this.btL = new k(this);
-        this.btL.p(new h(this));
-        this.btK.setAdapter((ListAdapter) this.btL);
-        this.btK.setOnItemClickListener(this);
-        this.btK.setOnSrollToBottomListener(this);
-        this.ahO = NoDataViewFactory.a(this, this.aGI, com.baidu.tbadk.core.view.r.a(NoDataViewFactory.ImgType.NODATA), com.baidu.tbadk.core.view.s.bL(v.warning_location_error_in_neighbors), null);
-        this.aGJ = (NavigationBar) findViewById(t.navigation_bar);
-        this.aGJ.setTitleText(v.neighbors);
-        this.aGJ.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new i(this));
-        this.btJ = this.aGJ.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, u.navigation_menu, this);
+    private void sa() {
+        this.aGS = findViewById(t.parent);
+        this.btY = (BdListView) findViewById(t.neighbors_list);
+        this.btW = findViewById(t.locating_failed);
+        this.aoS = (NoNetworkView) this.aGS.findViewById(t.view_no_network);
+        this.aoS.a(new f(this));
+        this.Yg = new y(this);
+        this.Yg.a(new g(this));
+        this.btY.setPullRefresh(this.Yg);
+        this.btZ = new k(this);
+        this.btZ.p(new h(this));
+        this.btY.setAdapter((ListAdapter) this.btZ);
+        this.btY.setOnItemClickListener(this);
+        this.btY.setOnSrollToBottomListener(this);
+        this.ahX = NoDataViewFactory.a(this, this.aGS, com.baidu.tbadk.core.view.r.a(NoDataViewFactory.ImgType.NODATA), com.baidu.tbadk.core.view.s.bL(v.warning_location_error_in_neighbors), null);
+        this.aGT = (NavigationBar) findViewById(t.navigation_bar);
+        this.aGT.setTitleText(v.neighbors);
+        this.aGT.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new i(this));
+        this.btX = this.aGT.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, u.navigation_menu, this);
         View inflate = com.baidu.adp.lib.g.b.ek().inflate(this, u.neighbors_menu_layout, null);
-        this.btM = new MorePopupWindow(this, inflate, this.aGJ, getResources().getDrawable(s.bg_pull_down_right_n), null);
-        this.btN = inflate.findViewById(t.neighbors_menu_female);
-        this.btN.setOnClickListener(this);
-        this.btO = inflate.findViewById(t.neighbors_menu_male);
-        this.btO.setOnClickListener(this);
-        this.btP = inflate.findViewById(t.neighbors_menu_all);
-        this.btP.setOnClickListener(this);
-        this.btQ = inflate.findViewById(t.neighbors_menu_clear);
-        this.btQ.setOnClickListener(this);
+        this.bua = new MorePopupWindow(this, inflate, this.aGT, getResources().getDrawable(s.bg_pull_down_right_n), null);
+        this.bub = inflate.findViewById(t.neighbors_menu_female);
+        this.bub.setOnClickListener(this);
+        this.buc = inflate.findViewById(t.neighbors_menu_male);
+        this.buc.setOnClickListener(this);
+        this.bud = inflate.findViewById(t.neighbors_menu_all);
+        this.bud.setOnClickListener(this);
+        this.bue = inflate.findViewById(t.neighbors_menu_clear);
+        this.bue.setOnClickListener(this);
     }
 
-    private void Ib() {
-        registerListener(this.btT);
-        registerListener(this.btS);
-        registerListener(this.btR);
+    private void If() {
+        registerListener(this.buh);
+        registerListener(this.bug);
+        registerListener(this.buf);
     }
 
     private void dS(boolean z) {
         if (z) {
-            VP();
-            VQ();
+            VS();
+            VT();
             return;
         }
-        this.btE = TbadkApplication.m251getInst().getLocationLat();
-        this.btF = TbadkApplication.m251getInst().getLocationLng();
-        if (TextUtils.isEmpty(this.btE) || TextUtils.isEmpty(this.btF)) {
-            VQ();
+        this.btS = TbadkApplication.m251getInst().getLocationLat();
+        this.btT = TbadkApplication.m251getInst().getLocationLng();
+        if (TextUtils.isEmpty(this.btS) || TextUtils.isEmpty(this.btT)) {
+            VT();
         } else {
             dT(true);
         }
     }
 
-    private void VL() {
-        this.ahO.setVisibility(8);
-        this.btK.setVisibility(0);
+    private void VO() {
+        this.ahX.setVisibility(8);
+        this.btY.setVisibility(0);
     }
 
-    private void VM() {
+    private void VP() {
         com.baidu.tbadk.core.view.s bL;
-        if (this.btG == 2) {
+        if (this.btU == 2) {
             bL = com.baidu.tbadk.core.view.s.bL(v.warning_no_neighbors_female);
-        } else if (this.btG == 1) {
+        } else if (this.btU == 1) {
             bL = com.baidu.tbadk.core.view.s.bL(v.warning_no_neighbors_male);
         } else {
             bL = com.baidu.tbadk.core.view.s.bL(v.warning_no_neighbors_all);
         }
-        this.ahO.setTextOption(bL);
-        this.btK.setVisibility(8);
-        this.btI.setVisibility(8);
-        this.ahO.setVisibility(0);
+        this.ahX.setTextOption(bL);
+        this.btY.setVisibility(8);
+        this.btW.setVisibility(8);
+        this.ahX.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void VN() {
-        this.btK.setVisibility(8);
-        this.btI.setVisibility(8);
-        this.ahO.setVisibility(0);
+    public void VQ() {
+        this.btY.setVisibility(8);
+        this.btW.setVisibility(8);
+        this.ahX.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void VO() {
-        this.btK.setVisibility(8);
-        this.ahO.setVisibility(8);
+    public void VR() {
+        this.btY.setVisibility(8);
+        this.ahX.setVisibility(8);
     }
 
-    private void VP() {
+    private void VS() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
         httpMessage.addParam("opt", "location");
         httpMessage.addParam("val", String.valueOf(1));
         sendMessage(httpMessage);
     }
 
-    private void VQ() {
+    private void VT() {
         if (com.baidu.adp.lib.util.m.isNetOk()) {
             showLoadingDialog(getString(v.warning_locating));
-            com.baidu.adp.lib.d.a.dE().a(true, this.btU);
+            com.baidu.adp.lib.d.a.dE().a(true, this.bui);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dT(boolean z) {
-        this.aJD = true;
+        this.aJQ = true;
         if (z) {
             showLoadingDialog(getString(v.warning_searching_neighbors));
         }
         RequestGetNeighborsMessage requestGetNeighborsMessage = new RequestGetNeighborsMessage(303004);
-        requestGetNeighborsMessage.setParams(this.btE, this.btF, this.mGeo, this.btG, this.mOffset);
+        requestGetNeighborsMessage.setParams(this.btS, this.btT, this.mGeo, this.btU, this.mOffset);
         sendMessage(requestGetNeighborsMessage);
     }
 
@@ -185,14 +185,14 @@ public class NeighborsActivity extends BaseActivity implements aa {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void VR() {
-        if (!this.aJD && this.mHasMore) {
-            this.aJD = true;
+    public void VU() {
+        if (!this.aJQ && this.mHasMore) {
+            this.aJQ = true;
             dT(false);
         }
     }
 
-    private void VS() {
+    private void VV() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this);
         aVar.aX(v.warning_clear_location_info);
         aVar.a(v.confirm, new j(this));
@@ -206,7 +206,7 @@ public class NeighborsActivity extends BaseActivity implements aa {
         boolean z;
         if (dataRes == null) {
             if (this.mOffset == 0) {
-                VM();
+                VP();
                 return;
             }
             return;
@@ -219,15 +219,15 @@ public class NeighborsActivity extends BaseActivity implements aa {
         }
         List<UserInfos> list = dataRes.user_infos;
         if ((list == null || list.size() == 0) && this.mOffset == 0) {
-            VM();
+            VP();
             return;
         }
-        if (this.btH == null) {
-            this.btH = new ArrayList();
+        if (this.btV == null) {
+            this.btV = new ArrayList();
         }
         ArrayList arrayList = new ArrayList();
         for (UserInfos userInfos : list) {
-            Iterator<UserInfos> it = this.btH.iterator();
+            Iterator<UserInfos> it = this.btV.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -243,75 +243,75 @@ public class NeighborsActivity extends BaseActivity implements aa {
                 arrayList.add(userInfos);
             }
         }
-        this.btH.addAll(arrayList);
-        this.mOffset = this.btH.size();
+        this.btV.addAll(arrayList);
+        this.mOffset = this.btV.size();
         if (this.mOffset == 0) {
-            VM();
+            VP();
             return;
         }
-        VL();
-        this.btL.setData(this.btH);
-        this.btL.notifyDataSetChanged();
+        VO();
+        this.btZ.setData(this.btV);
+        this.btZ.notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void VT() {
+    public void VW() {
         this.mHasMore = false;
         this.mOffset = 0;
-        this.btH = new ArrayList();
+        this.btV = new ArrayList();
     }
 
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        this.ahO.nv();
+        this.ahX.nv();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.ahO.onActivityStop();
+        this.ahX.onActivityStop();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.btN) {
-            com.baidu.adp.lib.g.j.a(this.btM, this);
-            if (this.btG != 2) {
-                this.btG = 2;
-                VT();
+        if (view == this.bub) {
+            com.baidu.adp.lib.g.j.a(this.bua, this);
+            if (this.btU != 2) {
+                this.btU = 2;
+                VW();
                 dT(true);
             }
-        } else if (view == this.btO) {
-            com.baidu.adp.lib.g.j.a(this.btM, this);
-            if (this.btG != 1) {
-                this.btG = 1;
-                VT();
+        } else if (view == this.buc) {
+            com.baidu.adp.lib.g.j.a(this.bua, this);
+            if (this.btU != 1) {
+                this.btU = 1;
+                VW();
                 dT(true);
             }
-        } else if (view == this.btP) {
-            com.baidu.adp.lib.g.j.a(this.btM, this);
-            if (this.btG != 0) {
-                this.btG = 0;
-                VT();
+        } else if (view == this.bud) {
+            com.baidu.adp.lib.g.j.a(this.bua, this);
+            if (this.btU != 0) {
+                this.btU = 0;
+                VW();
                 dT(true);
             }
-        } else if (view == this.btQ) {
-            com.baidu.adp.lib.g.j.a(this.btM, this);
-            VS();
-        } else if (view == this.btJ) {
-            this.btM.showWindowInRightBottomOfHost();
+        } else if (view == this.bue) {
+            com.baidu.adp.lib.g.j.a(this.bua, this);
+            VV();
+        } else if (view == this.btX) {
+            this.bua.showWindowInRightBottomOfHost();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.btL != null) {
-            this.btL.Sy();
-            this.btL = null;
+        if (this.btZ != null) {
+            this.btZ.SB();
+            this.btZ = null;
         }
         super.onDestroy();
     }
@@ -319,7 +319,7 @@ public class NeighborsActivity extends BaseActivity implements aa {
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         super.onItemClick(adapterView, view, i, j);
-        UserInfos item = this.btL.getItem(i);
+        UserInfos item = this.btZ.getItem(i);
         if (item != null) {
             sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this, String.valueOf(item.user_id), item.user_name)));
         }
@@ -330,20 +330,20 @@ public class NeighborsActivity extends BaseActivity implements aa {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getLayoutMode().L(i == 1);
-        getLayoutMode().h(this.aGI);
-        getLayoutMode().h(this.btK);
-        if (this.ahO != null) {
-            this.ahO.onChangeSkinType(i);
+        getLayoutMode().h(this.aGS);
+        getLayoutMode().h(this.btY);
+        if (this.ahX != null) {
+            this.ahX.onChangeSkinType(i);
         }
-        this.aGJ.onChangeSkinType(i);
-        this.aoJ.onChangeSkinType(i);
-        this.Yc.bM(i);
-        this.btM.onChangeSkinType(this, i, aw.getDrawable(s.bg_pull_down_right_n));
-        this.btL.notifyDataSetChanged();
+        this.aGT.onChangeSkinType(i);
+        this.aoS.onChangeSkinType(i);
+        this.Yg.bM(i);
+        this.bua.onChangeSkinType(this, i, aw.getDrawable(s.bg_pull_down_right_n));
+        this.btZ.notifyDataSetChanged();
     }
 
     @Override // com.baidu.adp.widget.ListView.aa
     public void hQ() {
-        VR();
+        VU();
     }
 }

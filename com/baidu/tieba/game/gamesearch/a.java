@@ -6,13 +6,13 @@ import com.baidu.tbadk.game.GameInfoData;
 import java.util.List;
 /* loaded from: classes.dex */
 class a extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ GameSearchActivity aJH;
+    final /* synthetic */ GameSearchActivity aJU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(GameSearchActivity gameSearchActivity, int i, int i2) {
         super(i, i2);
-        this.aJH = gameSearchActivity;
+        this.aJU = gameSearchActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -24,9 +24,9 @@ class a extends com.baidu.adp.framework.listener.a {
         o oVar2;
         String str2;
         if ((responsedMessage instanceof GameSearchHttpResponse) || (responsedMessage instanceof GameSearchSocketResponse)) {
-            if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == this.aJH.getUniqueId()) {
+            if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == this.aJU.getUniqueId()) {
                 if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                    this.aJH.showToast(responsedMessage.getErrorString());
+                    this.aJU.showToast(responsedMessage.getErrorString());
                     return;
                 }
                 if (responsedMessage instanceof GameSearchHttpResponse) {
@@ -34,7 +34,7 @@ class a extends com.baidu.adp.framework.listener.a {
                     if (gameSearchHttpResponse.getOrginalMessage() != null && (gameSearchHttpResponse.getOrginalMessage().getExtra() instanceof GameSearchNetMessage)) {
                         String query = ((GameSearchNetMessage) gameSearchHttpResponse.getOrginalMessage().getExtra()).getQuery();
                         if (query != null) {
-                            str2 = this.aJH.aJB;
+                            str2 = this.aJU.aJO;
                             if (!query.equals(str2)) {
                                 return;
                             }
@@ -42,32 +42,32 @@ class a extends com.baidu.adp.framework.listener.a {
                             return;
                         }
                     }
-                    this.aJH.aJD = false;
-                    GameSearchActivity gameSearchActivity = this.aJH;
-                    i2 = gameSearchActivity.aJC;
-                    gameSearchActivity.aJC = i2 + 1;
+                    this.aJU.aJQ = false;
+                    GameSearchActivity gameSearchActivity = this.aJU;
+                    i2 = gameSearchActivity.aJP;
+                    gameSearchActivity.aJP = i2 + 1;
                     l gameSearchData = gameSearchHttpResponse.getGameSearchData();
                     if (gameSearchData == null) {
-                        oVar2 = this.aJH.aJA;
+                        oVar2 = this.aJU.aJN;
                         oVar2.setVisibility(0);
                         return;
                     }
                     if (gameSearchData.isHasMore()) {
-                        this.aJH.mHasMore = true;
+                        this.aJU.mHasMore = true;
                     } else {
-                        this.aJH.mHasMore = false;
+                        this.aJU.mHasMore = false;
                     }
                     List<GameInfoData> gameList = gameSearchData.getGameList();
-                    this.aJH.J(gameList);
-                    com.baidu.tieba.game.a.a.Ij().M(gameList);
-                    this.aJH.I(gameList);
+                    this.aJU.J(gameList);
+                    com.baidu.tieba.game.a.a.In().M(gameList);
+                    this.aJU.I(gameList);
                 }
                 if (responsedMessage instanceof GameSearchSocketResponse) {
                     GameSearchSocketResponse gameSearchSocketResponse = (GameSearchSocketResponse) responsedMessage;
                     if (gameSearchSocketResponse.getOrginalMessage() != null && (gameSearchSocketResponse.getOrginalMessage().getExtra() instanceof GameSearchNetMessage)) {
                         String query2 = ((GameSearchNetMessage) gameSearchSocketResponse.getOrginalMessage().getExtra()).getQuery();
                         if (query2 != null) {
-                            str = this.aJH.aJB;
+                            str = this.aJU.aJO;
                             if (!query2.equals(str)) {
                                 return;
                             }
@@ -75,25 +75,25 @@ class a extends com.baidu.adp.framework.listener.a {
                             return;
                         }
                     }
-                    this.aJH.aJD = false;
-                    GameSearchActivity gameSearchActivity2 = this.aJH;
-                    i = gameSearchActivity2.aJC;
-                    gameSearchActivity2.aJC = i + 1;
+                    this.aJU.aJQ = false;
+                    GameSearchActivity gameSearchActivity2 = this.aJU;
+                    i = gameSearchActivity2.aJP;
+                    gameSearchActivity2.aJP = i + 1;
                     l gameSearchData2 = gameSearchSocketResponse.getGameSearchData();
                     if (gameSearchData2 == null) {
-                        oVar = this.aJH.aJA;
+                        oVar = this.aJU.aJN;
                         oVar.setVisibility(0);
                         return;
                     }
                     if (gameSearchData2.isHasMore()) {
-                        this.aJH.mHasMore = true;
+                        this.aJU.mHasMore = true;
                     } else {
-                        this.aJH.mHasMore = false;
+                        this.aJU.mHasMore = false;
                     }
                     List<GameInfoData> gameList2 = gameSearchData2.getGameList();
-                    this.aJH.J(gameList2);
-                    com.baidu.tieba.game.a.a.Ij().M(gameList2);
-                    this.aJH.I(gameList2);
+                    this.aJU.J(gameList2);
+                    com.baidu.tieba.game.a.a.In().M(gameList2);
+                    this.aJU.I(gameList2);
                 }
             }
         }

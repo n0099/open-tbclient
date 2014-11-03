@@ -8,11 +8,11 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.TbadkSettings;
 /* loaded from: classes.dex */
 class h implements Runnable {
-    final /* synthetic */ LogoActivity acP;
+    final /* synthetic */ LogoActivity acU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(LogoActivity logoActivity) {
-        this.acP = logoActivity;
+        this.acU = logoActivity;
     }
 
     @Override // java.lang.Runnable
@@ -25,21 +25,21 @@ class h implements Runnable {
         AlphaAnimation alphaAnimation;
         Animation.AnimationListener animationListener;
         if (TbadkSettings.getInst().loadBoolean(TbadkApplication.isMem + TbadkApplication.getCurrentAccount(), false)) {
-            this.acP.mBitmap = com.baidu.tbadk.core.util.d.e(this.acP, u.logo_vip);
+            this.acU.mBitmap = com.baidu.tbadk.core.util.d.e(this.acU, u.logo_vip);
         } else {
-            this.acP.mBitmap = com.baidu.tbadk.core.util.d.e(this.acP, u.logo);
+            this.acU.mBitmap = com.baidu.tbadk.core.util.d.e(this.acU, u.logo);
         }
-        bitmap = this.acP.mBitmap;
+        bitmap = this.acU.mBitmap;
         if (bitmap != null) {
-            imageView = this.acP.acF;
+            imageView = this.acU.acK;
             if (imageView != null) {
-                imageView2 = this.acP.acF;
-                bitmap2 = this.acP.mBitmap;
+                imageView2 = this.acU.acK;
+                bitmap2 = this.acU.mBitmap;
                 imageView2.setImageBitmap(bitmap2);
-                LogoActivity logoActivity = this.acP;
-                imageView3 = this.acP.acF;
-                alphaAnimation = this.acP.acG;
-                animationListener = this.acP.acH;
+                LogoActivity logoActivity = this.acU;
+                imageView3 = this.acU.acK;
+                alphaAnimation = this.acU.acL;
+                animationListener = this.acU.acM;
                 logoActivity.startAnimation(imageView3, alphaAnimation, animationListener);
             }
         }

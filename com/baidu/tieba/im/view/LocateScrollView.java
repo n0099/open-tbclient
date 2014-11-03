@@ -7,10 +7,10 @@ import android.view.View;
 import android.widget.ScrollView;
 /* loaded from: classes.dex */
 public class LocateScrollView extends ScrollView {
-    private View aIG;
-    private h bjo;
-    private boolean bjp;
-    private boolean bjq;
+    private View aIT;
+    private h bjC;
+    private boolean bjD;
+    private boolean bjE;
     private Rect dZ;
     private int mOffset;
 
@@ -32,26 +32,26 @@ public class LocateScrollView extends ScrollView {
     @Override // android.widget.ScrollView, android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.bjp = true;
-        if (this.bjo != null) {
-            this.bjo.f(i, i2, i3, i4);
+        this.bjD = true;
+        if (this.bjC != null) {
+            this.bjC.f(i, i2, i3, i4);
         }
-        if (this.bjq) {
-            n(this.aIG, this.mOffset);
-            this.bjq = false;
+        if (this.bjE) {
+            n(this.aIT, this.mOffset);
+            this.bjE = false;
         }
     }
 
     public void n(View view, int i) {
-        if (!this.bjp) {
-            this.bjq = true;
+        if (!this.bjD) {
+            this.bjE = true;
             return;
         }
-        this.aIG = view;
+        this.aIT = view;
         this.mOffset = i;
-        if (this.aIG != null) {
-            this.aIG.getDrawingRect(this.dZ);
-            offsetDescendantRectToMyCoords(this.aIG, this.dZ);
+        if (this.aIT != null) {
+            this.aIT.getDrawingRect(this.dZ);
+            offsetDescendantRectToMyCoords(this.aIT, this.dZ);
             smoothScrollBy(0, computeScrollDeltaToGetChildRectOnScreen(this.dZ) + this.mOffset);
         } else {
             smoothScrollTo(0, this.mOffset);
@@ -60,6 +60,6 @@ public class LocateScrollView extends ScrollView {
     }
 
     public void setOnSizeChangeListener(h hVar) {
-        this.bjo = hVar;
+        this.bjC = hVar;
     }
 }

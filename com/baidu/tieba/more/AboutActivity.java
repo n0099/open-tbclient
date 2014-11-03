@@ -16,10 +16,10 @@ import com.baidu.tieba.model.bb;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class AboutActivity extends BaseActivity {
-    private d bpQ;
-    private com.baidu.tieba.model.a bpR;
-    private c bpS = null;
-    private String bpT = String.valueOf(com.baidu.tieba.data.e.ajt) + "mo/q/topic_page/110_1";
+    private d bqe;
+    private com.baidu.tieba.model.a bqf;
+    private c bqg = null;
+    private String bqh = String.valueOf(com.baidu.tieba.data.e.ajC) + "mo/q/topic_page/110_1";
 
     public static void ae(Context context) {
         context.startActivity(new Intent(context, AboutActivity.class));
@@ -28,72 +28,72 @@ public class AboutActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bpQ = new d(this, new a(this));
-        this.bpQ.Ud();
+        this.bqe = new d(this, new a(this));
+        this.bqe.Ug();
         nY();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.bpQ != null) {
-            this.bpQ.Ud();
+        if (this.bqe != null) {
+            this.bqe.Ug();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        Jt();
-        if (this.bpR != null) {
-            this.bpR.cancelLoadData();
+        Jx();
+        if (this.bqf != null) {
+            this.bqf.cancelLoadData();
         }
-        if (this.bpQ != null) {
-            this.bpQ.hideProgress();
+        if (this.bqe != null) {
+            this.bqe.hideProgress();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.bpQ != null) {
-            this.bpQ.cu(i);
+        if (this.bqe != null) {
+            this.bqe.cu(i);
         }
     }
 
     public void checkUpdata() {
-        if (this.bpR == null) {
-            this.bpR = new com.baidu.tieba.model.a(this, new b(this));
+        if (this.bqf == null) {
+            this.bqf = new com.baidu.tieba.model.a(this, new b(this));
         } else {
-            this.bpR.cancelLoadData();
+            this.bqf.cancelLoadData();
         }
-        this.bpR.Ta();
-        if (this.bpQ != null) {
-            this.bpQ.Uc();
+        this.bqf.Td();
+        if (this.bqe != null) {
+            this.bqe.Uf();
         }
     }
 
     public void x(Object obj) {
         Hao123Plugin hao123Plugin;
-        if (this.bpQ != null) {
-            this.bpQ.hideProgress();
+        if (this.bqe != null) {
+            this.bqe.hideProgress();
         }
         bb bbVar = obj != null ? (bb) obj : null;
         if (bbVar != null) {
-            com.baidu.tieba.aj.wk().a(bbVar.Ua());
+            com.baidu.tieba.aj.wm().a(bbVar.Ud());
             TbadkApplication.m251getInst().refreshNewVersion(false);
-            if (bbVar.Ua().hasNewVer()) {
-                if (bbVar.Ua().forceUpdate()) {
-                    UpdateDialog.a(com.baidu.tieba.aj.wk().getApp(), bbVar.Ua(), bbVar.TZ());
+            if (bbVar.Ud().hasNewVer()) {
+                if (bbVar.Ud().forceUpdate()) {
+                    UpdateDialog.a(com.baidu.tieba.aj.wm().getApp(), bbVar.Ud(), bbVar.Uc());
                 } else {
                     TbadkApplication.m251getInst().setUpdateNotifyTime(Long.valueOf(new Date().getTime()).longValue());
-                    UpdateDialog.a(com.baidu.tieba.aj.wk().getApp(), bbVar.Ua(), bbVar.TZ());
+                    UpdateDialog.a(com.baidu.tieba.aj.wm().getApp(), bbVar.Ud(), bbVar.Uc());
                 }
             } else {
                 showToast(getResources().getString(com.baidu.tieba.y.neednot_update));
             }
-            if (this.bpQ != null) {
-                this.bpQ.Ud();
+            if (this.bqe != null) {
+                this.bqe.Ug();
             }
             if (!TbadkApplication.m251getInst().isHao123HelperShouldOpen() && TbadkApplication.m251getInst().isTiebaHelperOpen()) {
                 TbadkApplication.m251getInst().setTiebaHelperOpen(false);
@@ -110,15 +110,15 @@ public class AboutActivity extends BaseActivity {
     }
 
     private void nY() {
-        this.bpS = new c(this, null);
+        this.bqg = new c(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
-        registerReceiver(this.bpS, intentFilter);
+        registerReceiver(this.bqg, intentFilter);
     }
 
-    private void Jt() {
-        if (this.bpS != null) {
-            unregisterReceiver(this.bpS);
+    private void Jx() {
+        if (this.bqg != null) {
+            unregisterReceiver(this.bqg);
         }
     }
 }

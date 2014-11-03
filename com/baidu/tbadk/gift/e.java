@@ -6,11 +6,11 @@ import com.baidu.adp.lib.util.StringUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ BuyGiftActivity Uu;
+    final /* synthetic */ BuyGiftActivity Uy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(BuyGiftActivity buyGiftActivity) {
-        this.Uu = buyGiftActivity;
+        this.Uy = buyGiftActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,20 +20,20 @@ public class e implements View.OnClickListener {
         String str;
         View view3;
         EditText editText2;
-        view2 = this.Uu.Up;
+        view2 = this.Uy.Ut;
         view2.setVisibility(8);
-        BuyGiftActivity buyGiftActivity = this.Uu;
-        editText = this.Uu.Um;
+        BuyGiftActivity buyGiftActivity = this.Uy;
+        editText = this.Uy.Uq;
         buyGiftActivity.mPassword = editText.getText().toString();
-        str = this.Uu.mPassword;
+        str = this.Uy.mPassword;
         if (!StringUtils.isValidPassWord(str)) {
-            this.Uu.showToast(com.baidu.tieba.y.wrong_password);
-            view3 = this.Uu.Up;
+            this.Uy.showToast(com.baidu.tieba.y.wrong_password);
+            view3 = this.Uy.Ut;
             view3.setVisibility(0);
             return;
         }
-        this.Uu.sb();
-        editText2 = this.Uu.Um;
+        this.Uy.sd();
+        editText2 = this.Uy.Uq;
         editText2.setText("");
     }
 }

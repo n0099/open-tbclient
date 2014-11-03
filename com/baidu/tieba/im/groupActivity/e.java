@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.im.data.GroupActivityData;
 import com.baidu.tieba.v;
@@ -20,152 +20,152 @@ import java.util.Date;
 import java.util.TimeZone;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.base.f {
-    private View aOF;
-    private CreateGroupActivityActivity aYD;
-    private EditText aYE;
-    private ImageButton aYF;
-    private TextView aYG;
-    private EditText aYH;
-    private ImageButton aYI;
-    private Button aYJ;
-    private Button aYK;
-    private DatePickerDialog aYL;
-    private TimePickerDialog aYM;
-    private EditText aYN;
-    private int aYO;
-    private int aYP;
-    private int aYQ;
-    private int aYR;
-    private int aYS;
-    private boolean aYT;
-    private View agA;
+    private View aOT;
+    private CreateGroupActivityActivity aYQ;
+    private EditText aYR;
+    private ImageButton aYS;
+    private TextView aYT;
+    private EditText aYU;
+    private ImageButton aYV;
+    private Button aYW;
+    private Button aYX;
+    private DatePickerDialog aYY;
+    private TimePickerDialog aYZ;
+    private EditText aZa;
+    private int aZb;
+    private int aZc;
+    private int aZd;
+    private int aZe;
+    private int aZf;
+    private boolean aZg;
+    private View agI;
     private NavigationBar mNavigationBar;
 
     public e(CreateGroupActivityActivity createGroupActivityActivity) {
         super(createGroupActivityActivity);
-        this.aYL = null;
-        this.aYM = null;
-        this.aYO = 0;
-        this.aYP = 0;
-        this.aYQ = 0;
-        this.aYR = 0;
-        this.aYS = 0;
-        this.aYT = false;
-        this.aYD = createGroupActivityActivity;
+        this.aYY = null;
+        this.aYZ = null;
+        this.aZb = 0;
+        this.aZc = 0;
+        this.aZd = 0;
+        this.aZe = 0;
+        this.aZf = 0;
+        this.aZg = false;
+        this.aYQ = createGroupActivityActivity;
         createGroupActivityActivity.setContentView(w.create_group_activity_activity);
         initUI();
     }
 
     private void initUI() {
-        this.agA = this.aYD.findViewById(v.parent);
-        this.mNavigationBar = (NavigationBar) this.aYD.findViewById(v.view_navigation_bar);
+        this.agI = this.aYQ.findViewById(v.parent);
+        this.mNavigationBar = (NavigationBar) this.aYQ.findViewById(v.view_navigation_bar);
         this.mNavigationBar.setTitleText(y.group_activity_create);
-        this.aOF = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.aOF.setOnClickListener(this.aYD);
-        this.aYG = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.aYD.getResources().getString(y.group_activity_create_btntext));
-        this.aYG.setOnClickListener(this.aYD);
-        this.aYG.setEnabled(false);
-        this.aYE = (EditText) this.aYD.findViewById(v.txt_group_activity_name);
-        this.aYF = (ImageButton) this.aYD.findViewById(v.btn_del_name);
-        this.aYH = (EditText) this.aYD.findViewById(v.txt_group_activity_place);
-        this.aYI = (ImageButton) this.aYD.findViewById(v.btn_del_place);
-        this.aYN = (EditText) this.aYD.findViewById(v.txt_group_activity_content);
-        this.aYJ = (Button) this.aYD.findViewById(v.btn_create_group_date);
-        this.aYK = (Button) this.aYD.findViewById(v.btn_create_group_time);
+        this.aOT = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.aOT.setOnClickListener(this.aYQ);
+        this.aYT = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.aYQ.getResources().getString(y.group_activity_create_btntext));
+        this.aYT.setOnClickListener(this.aYQ);
+        this.aYT.setEnabled(false);
+        this.aYR = (EditText) this.aYQ.findViewById(v.txt_group_activity_name);
+        this.aYS = (ImageButton) this.aYQ.findViewById(v.btn_del_name);
+        this.aYU = (EditText) this.aYQ.findViewById(v.txt_group_activity_place);
+        this.aYV = (ImageButton) this.aYQ.findViewById(v.btn_del_place);
+        this.aZa = (EditText) this.aYQ.findViewById(v.txt_group_activity_content);
+        this.aYW = (Button) this.aYQ.findViewById(v.btn_create_group_date);
+        this.aYX = (Button) this.aYQ.findViewById(v.btn_create_group_time);
         Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
-        this.aYO = calendar.get(1);
-        this.aYP = calendar.get(2);
-        this.aYQ = calendar.get(5);
-        this.aYR = calendar.get(11);
-        this.aYS = calendar.get(12);
-        Oa();
-        NZ();
-        this.aYJ.setOnClickListener(new f(this, calendar));
-        this.aYK.setOnClickListener(new h(this));
-        this.aYF.setOnClickListener(new j(this));
-        this.aYI.setOnClickListener(new k(this));
-        this.aYE.addTextChangedListener(new l(this));
-        this.aYH.addTextChangedListener(new m(this));
+        this.aZb = calendar.get(1);
+        this.aZc = calendar.get(2);
+        this.aZd = calendar.get(5);
+        this.aZe = calendar.get(11);
+        this.aZf = calendar.get(12);
+        Od();
+        Oc();
+        this.aYW.setOnClickListener(new f(this, calendar));
+        this.aYX.setOnClickListener(new h(this));
+        this.aYS.setOnClickListener(new j(this));
+        this.aYV.setOnClickListener(new k(this));
+        this.aYR.addTextChangedListener(new l(this));
+        this.aYU.addTextChangedListener(new m(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void NZ() {
-        if (this.aYR > 12) {
-            this.aYK.setText(String.valueOf(this.aYD.getResources().getString(y.afternoon)) + " " + (this.aYR - 12) + ":" + (this.aYS < 10 ? "0" : "") + this.aYS);
+    public void Oc() {
+        if (this.aZe > 12) {
+            this.aYX.setText(String.valueOf(this.aYQ.getResources().getString(y.afternoon)) + " " + (this.aZe - 12) + ":" + (this.aZf < 10 ? "0" : "") + this.aZf);
         } else {
-            this.aYK.setText(String.valueOf(this.aYD.getResources().getString(y.morning)) + " " + this.aYR + ":" + (this.aYS < 10 ? "0" : "") + this.aYS);
+            this.aYX.setText(String.valueOf(this.aYQ.getResources().getString(y.morning)) + " " + this.aZe + ":" + (this.aZf < 10 ? "0" : "") + this.aZf);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Oa() {
-        this.aYJ.setText(this.aYO + "-" + (this.aYP + 1) + "-" + this.aYQ + " " + ay.l(this.aYO, this.aYP, this.aYQ));
+    public void Od() {
+        this.aYW.setText(this.aZb + "-" + (this.aZc + 1) + "-" + this.aZd + " " + az.l(this.aZb, this.aZc, this.aZd));
     }
 
     @Override // com.baidu.adp.base.f
     public void destroy() {
     }
 
-    public View Ob() {
-        return this.aOF;
+    public View Oe() {
+        return this.aOT;
     }
 
-    public TextView Oc() {
-        return this.aYG;
+    public TextView Of() {
+        return this.aYT;
     }
 
     public String getTitle() {
-        return this.aYE.getText().toString();
+        return this.aYR.getText().toString();
     }
 
-    public String Od() {
-        return this.aYH.getText().toString();
+    public String Og() {
+        return this.aYU.getText().toString();
     }
 
     public String getContent() {
-        return this.aYN.getText().toString();
+        return this.aZa.getText().toString();
     }
 
     public long getTime() {
         try {
-            return new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(this.aYO + "-" + (this.aYP + 1) + "-" + this.aYQ + " " + this.aYR + ":" + this.aYS).getTime() / 1000;
+            return new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(this.aZb + "-" + (this.aZc + 1) + "-" + this.aZd + " " + this.aZe + ":" + this.aZf).getTime() / 1000;
         } catch (ParseException e) {
             return 0L;
         }
     }
 
     public void setTitle(String str) {
-        this.aYE.setText(str);
+        this.aYR.setText(str);
     }
 
     public void setContent(String str) {
-        this.aYN.setText(str);
+        this.aZa.setText(str);
     }
 
     public void gg(String str) {
-        this.aYH.setText(str);
+        this.aYU.setText(str);
     }
 
     public void setTime(long j) {
         Date date = new Date(1000 * j);
-        this.aYO = date.getYear() + 1900;
-        this.aYP = date.getMonth();
-        this.aYQ = date.getDate();
-        this.aYR = date.getHours();
-        this.aYS = date.getMinutes();
-        Oa();
-        NZ();
+        this.aZb = date.getYear() + 1900;
+        this.aZc = date.getMonth();
+        this.aZd = date.getDate();
+        this.aZe = date.getHours();
+        this.aZf = date.getMinutes();
+        Od();
+        Oc();
     }
 
     public void onChangeSkinType(int i) {
-        this.aYD.getLayoutMode().L(i == 1);
-        this.aYD.getLayoutMode().h(this.agA);
+        this.aYQ.getLayoutMode().L(i == 1);
+        this.aYQ.getLayoutMode().h(this.agI);
         this.mNavigationBar.onChangeSkinType(i);
     }
 
     public void a(GroupActivityData groupActivityData, boolean z) {
         if (z) {
-            this.aYG.setText(this.aYD.getString(y.done));
+            this.aYT.setText(this.aYQ.getString(y.done));
             this.mNavigationBar.setTitleText(y.group_activity_edit_title);
             if (groupActivityData != null) {
                 setContent(groupActivityData.getgActivityContent());
@@ -176,11 +176,11 @@ public class e extends com.baidu.adp.base.f {
             }
             return;
         }
-        this.aYG.setText(this.aYD.getString(y.group_activity_create_btntext));
+        this.aYT.setText(this.aYQ.getString(y.group_activity_create_btntext));
         this.mNavigationBar.setTitleText(y.group_activity_create);
     }
 
-    public boolean Oe() {
-        return this.aYT;
+    public boolean Oh() {
+        return this.aZg;
     }
 }

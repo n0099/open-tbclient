@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements View.OnClickListener {
-    final /* synthetic */ r bnF;
+    final /* synthetic */ r bnT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(r rVar) {
-        this.bnF = rVar;
+        this.bnT = rVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,13 +24,13 @@ public class t implements View.OnClickListener {
         ImageView imageView;
         BaseFragmentActivity baseFragmentActivity;
         BaseFragmentActivity baseFragmentActivity2;
-        imageView = this.bnF.ajm;
+        imageView = this.bnT.ajv;
         if (view == imageView && TbadkApplication.isLogin()) {
-            baseFragmentActivity = this.bnF.axV;
+            baseFragmentActivity = this.bnT.aye;
             TiebaStatic.eventStat(baseFragmentActivity, "msg_newchat_tab_c", "click", 1, new Object[0]);
             TiebaStatic.eventStat(TbadkApplication.m251getInst().getApp(), TbConfig.ST_TYPE_PCHAT, null, 1, "st_param", "1");
             MessageManager messageManager = MessageManager.getInstance();
-            baseFragmentActivity2 = this.bnF.axV;
+            baseFragmentActivity2 = this.bnT.aye;
             messageManager.sendMessage(new CustomMessage(2002001, new AtListActivityConfig(baseFragmentActivity2, 12011, false)));
         }
     }

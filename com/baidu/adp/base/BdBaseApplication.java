@@ -9,6 +9,7 @@ public class BdBaseApplication extends Application {
     private static BdBaseApplication sApp = null;
     private boolean mIsDebugMode = false;
     private Application mContext = null;
+    private long lastGcTime = 0;
 
     @Override // android.app.Application
     public void onCreate() {
@@ -67,7 +68,11 @@ public class BdBaseApplication extends Application {
 
     public void onAppMemoryLow() {
         a.M().N();
-        System.gc();
+        long currentTimeMillis = System.currentTimeMillis();
+        if (currentTimeMillis - this.lastGcTime > 30000) {
+            this.lastGcTime = currentTimeMillis;
+            System.gc();
+        }
     }
 
     public void setActivityStackMaxSize(int i) {

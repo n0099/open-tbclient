@@ -5,11 +5,11 @@ import android.view.View;
 import android.widget.ListView;
 /* loaded from: classes.dex */
 class ad implements View.OnKeyListener {
-    final /* synthetic */ aa bMQ;
+    final /* synthetic */ aa bNf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(aa aaVar) {
-        this.bMQ = aaVar;
+        this.bNf = aaVar;
     }
 
     @Override // android.view.View.OnKeyListener

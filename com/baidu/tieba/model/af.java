@@ -5,13 +5,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class af {
-    private int adU;
-    private int adV;
-    private int adW;
-    private int boW;
-    private int boX;
-    private int boY;
-    private int[] boZ;
+    private int aea;
+    private int aeb;
+    private int aec;
+    private int bpk;
+    private int bpl;
+    private int bpm;
+    private int[] bpn;
 
     public void parserJson(String str) {
         try {
@@ -23,49 +23,49 @@ public class af {
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null && jSONObject != null) {
-            this.boW = jSONObject.optInt("conn_conf");
-            this.boX = jSONObject.optInt("continuous_fail_count");
-            this.boY = jSONObject.optInt("restart_time_interval");
-            this.adU = jSONObject.optInt("lcs_timeout_2G");
-            this.adV = jSONObject.optInt("lcs_timeout_3G");
-            this.adW = jSONObject.optInt("lcs_timeout_wifi");
+            this.bpk = jSONObject.optInt("conn_conf");
+            this.bpl = jSONObject.optInt("continuous_fail_count");
+            this.bpm = jSONObject.optInt("restart_time_interval");
+            this.aea = jSONObject.optInt("lcs_timeout_2G");
+            this.aeb = jSONObject.optInt("lcs_timeout_3G");
+            this.aec = jSONObject.optInt("lcs_timeout_wifi");
             JSONArray optJSONArray = jSONObject.optJSONArray("android_conn_black_list");
             if (optJSONArray != null) {
-                this.boZ = new int[optJSONArray.length()];
+                this.bpn = new int[optJSONArray.length()];
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.boZ[i] = optJSONArray.optInt(i);
+                    this.bpn[i] = optJSONArray.optInt(i);
                 }
                 return;
             }
-            this.boZ = new int[0];
+            this.bpn = new int[0];
         }
     }
 
-    public int Ty() {
-        return this.boW;
-    }
-
-    public int Tz() {
-        return this.boX;
-    }
-
-    public int TA() {
-        return this.boY;
-    }
-
-    public int[] TB() {
-        return this.boZ;
+    public int TB() {
+        return this.bpk;
     }
 
     public int TC() {
-        return this.adU;
+        return this.bpl;
     }
 
     public int TD() {
-        return this.adV;
+        return this.bpm;
     }
 
-    public int TE() {
-        return this.adW;
+    public int[] TE() {
+        return this.bpn;
+    }
+
+    public int TF() {
+        return this.aea;
+    }
+
+    public int TG() {
+        return this.aeb;
+    }
+
+    public int TH() {
+        return this.aec;
     }
 }

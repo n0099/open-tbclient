@@ -15,7 +15,7 @@ class c extends j {
     /* renamed from: d */
     public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage != null) {
-            h.qz().cy(socketResponsedMessage.getCmd());
+            h.qB().cy(socketResponsedMessage.getCmd());
         }
         return socketResponsedMessage;
     }

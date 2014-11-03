@@ -11,16 +11,16 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 public class SettingTextImageView extends FrameLayout {
-    private LinearLayout Pc;
-    private TextView Pd;
-    private ImageView Ph;
-    private HeadImageView bsC;
+    private LinearLayout Pg;
+    private TextView Ph;
+    private ImageView Pl;
+    private HeadImageView bsQ;
     private Context mContext;
 
     public SettingTextImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        qi();
+        qk();
         c(attributeSet);
         cu(TbadkApplication.m251getInst().getSkinType());
     }
@@ -28,49 +28,49 @@ public class SettingTextImageView extends FrameLayout {
     public SettingTextImageView(Context context) {
         super(context);
         this.mContext = context;
-        qi();
+        qk();
         cu(TbadkApplication.m251getInst().getSkinType());
     }
 
     public void cu(int i) {
-        com.baidu.tbadk.core.util.aw.b(this.Pd, com.baidu.tieba.s.about_tip_color, 1);
-        com.baidu.tbadk.core.util.aw.c(this.Ph, com.baidu.tieba.u.icon_arrow_right);
-        this.bsC.invalidate();
+        com.baidu.tbadk.core.util.aw.b(this.Ph, com.baidu.tieba.s.about_tip_color, 1);
+        com.baidu.tbadk.core.util.aw.c(this.Pl, com.baidu.tieba.u.icon_arrow_right);
+        this.bsQ.invalidate();
     }
 
-    public void Vt() {
-        if (this.bsC != null) {
-            this.bsC.setVisibility(8);
+    public void Vw() {
+        if (this.bsQ != null) {
+            this.bsQ.setVisibility(8);
         }
     }
 
-    public void Vu() {
-        if (this.bsC != null) {
-            this.bsC.setVisibility(0);
+    public void Vx() {
+        if (this.bsQ != null) {
+            this.bsQ.setVisibility(0);
         }
     }
 
     public void setText(String str) {
-        this.Pd.setText(str);
+        this.Ph.setText(str);
     }
 
     public void x(String str, boolean z) {
         if (z) {
-            this.bsC.c(str, 26, false);
+            this.bsQ.c(str, 26, false);
         } else {
-            this.bsC.c(str, 12, false);
+            this.bsQ.c(str, 12, false);
         }
     }
 
     public void recycle() {
     }
 
-    private void qi() {
+    private void qk() {
         com.baidu.adp.lib.g.b.ek().a(this.mContext, com.baidu.tieba.w.setting_text_image_view, this, true);
-        this.Pc = (LinearLayout) findViewById(com.baidu.tieba.v.container);
-        this.Pd = (TextView) findViewById(com.baidu.tieba.v.text);
-        this.bsC = (HeadImageView) findViewById(com.baidu.tieba.v.icon);
-        this.Ph = (ImageView) findViewById(com.baidu.tieba.v.arrow);
+        this.Pg = (LinearLayout) findViewById(com.baidu.tieba.v.container);
+        this.Ph = (TextView) findViewById(com.baidu.tieba.v.text);
+        this.bsQ = (HeadImageView) findViewById(com.baidu.tieba.v.icon);
+        this.Pl = (ImageView) findViewById(com.baidu.tieba.v.arrow);
     }
 
     private void c(AttributeSet attributeSet) {
@@ -79,12 +79,12 @@ public class SettingTextImageView extends FrameLayout {
         int color = obtainStyledAttributes.getColor(1, -1);
         obtainStyledAttributes.recycle();
         if (string != null) {
-            this.Pd.setText(string);
+            this.Ph.setText(string);
         }
         if (color > -1) {
-            this.Pd.setTextColor(color);
+            this.Ph.setTextColor(color);
         }
-        this.Pc.setClickable(false);
-        this.Pc.setFocusable(false);
+        this.Pg.setClickable(false);
+        this.Pg.setFocusable(false);
     }
 }

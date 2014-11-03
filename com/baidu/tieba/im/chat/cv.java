@@ -15,6 +15,6 @@ class cv extends CustomMessageListener {
         if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016) {
             return;
         }
-        PersonalChatActivity.aPE = null;
+        PersonalChatActivity.aPS = null;
     }
 }

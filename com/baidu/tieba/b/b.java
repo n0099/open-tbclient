@@ -6,11 +6,11 @@ import com.baidu.adp.lib.stats.q;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class b {
-    private static HashMap<String, e> amT;
+    private static HashMap<String, e> anc;
 
     static {
         MessageManager.getInstance().registerListener(new c(2001011));
-        amT = new HashMap<>();
+        anc = new HashMap<>();
     }
 
     public static void c(String str, String str2, boolean z) {
@@ -18,8 +18,8 @@ public class b {
             str2 = "";
         }
         String str3 = String.valueOf(str) + str2;
-        if (!amT.containsKey(str3)) {
-            amT.put(str3, new e(str, str2, z));
+        if (!anc.containsKey(str3)) {
+            anc.put(str3, new e(str, str2, z));
         }
     }
 
@@ -28,40 +28,40 @@ public class b {
             str2 = "";
         }
         String str3 = String.valueOf(str) + str2;
-        if (!amT.containsKey(str3)) {
-            amT.put(str3, new e(str, str2, z));
+        if (!anc.containsKey(str3)) {
+            anc.put(str3, new e(str, str2, z));
         }
-        return amT.get(str3);
+        return anc.get(str3);
     }
 
-    public static void AH() {
+    public static void AJ() {
     }
 
     public static void el(int i) {
-        for (String str : amT.keySet()) {
-            a(amT.get(str), i);
+        for (String str : anc.keySet()) {
+            a(anc.get(str), i);
         }
     }
 
     public static void a(e eVar, int i) {
-        d dVar = eVar.amY;
-        d dVar2 = eVar.amZ;
-        d dVar3 = eVar.ana;
+        d dVar = eVar.anh;
+        d dVar2 = eVar.ani;
+        d dVar3 = eVar.anj;
         if (dVar.num + dVar2.num + dVar3.num >= i) {
             q qVar = new q("dbg");
             qVar.n("act", eVar.type);
-            qVar.n("httpTimeCost", String.valueOf(dVar.amU));
+            qVar.n("httpTimeCost", String.valueOf(dVar.and));
             qVar.n("httpNum", String.valueOf(dVar.num));
-            qVar.n("httpFailnum", String.valueOf(dVar.amV));
+            qVar.n("httpFailnum", String.valueOf(dVar.ane));
             qVar.n("httpSize", String.valueOf(dVar.size));
-            qVar.n("socketTimeCost", String.valueOf(dVar2.amU));
+            qVar.n("socketTimeCost", String.valueOf(dVar2.and));
             qVar.n("socketNum", String.valueOf(dVar2.num));
-            qVar.n("socketFailnum", String.valueOf(dVar2.amV));
+            qVar.n("socketFailnum", String.valueOf(dVar2.ane));
             qVar.n("socketSize", String.valueOf(dVar2.size));
-            qVar.n("abortTimeCost", String.valueOf(dVar3.amU));
+            qVar.n("abortTimeCost", String.valueOf(dVar3.and));
             qVar.n("abortNum", String.valueOf(dVar3.num));
-            qVar.n("netType", eVar.amX);
-            qVar.n("isJson", eVar.amW ? "1" : "0");
+            qVar.n("netType", eVar.ang);
+            qVar.n("isJson", eVar.anf ? "1" : "0");
             f.er().a("frs", qVar);
             dVar.reset();
             dVar2.reset();

@@ -20,12 +20,12 @@ public class s implements View.OnClickListener {
     public void onClick(View view) {
         ImageView imageView;
         MainTabActivity mainTabActivity;
-        imageView = this.this$0.bON;
+        imageView = this.this$0.bPc;
         imageView.setVisibility(4);
         com.baidu.tbadk.core.sharedPref.b.lk().putBoolean("game_is_show_tip", false);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001236, false));
         MainTabActivity mainTabActivity2 = this.this$0;
-        mainTabActivity = this.this$0.bOO;
+        mainTabActivity = this.this$0.bPd;
         mainTabActivity2.sendMessage(new CustomMessage(2002001, new GameCenterActivityConfig(mainTabActivity)));
     }
 }

@@ -168,7 +168,6 @@ public class GifView extends ImageView implements a {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public void dw() {
         if (this.jb != null) {
             this.jb.sendMessage(this.jb.obtainMessage());

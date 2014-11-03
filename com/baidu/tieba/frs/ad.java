@@ -10,15 +10,15 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.util.AntiHelper;
 /* loaded from: classes.dex */
 class ad implements com.baidu.tieba.model.as {
-    final /* synthetic */ FrsActivity aBk;
+    final /* synthetic */ FrsActivity aBu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(FrsActivity frsActivity) {
-        this.aBk = frsActivity;
+        this.aBu = frsActivity;
     }
 
     @Override // com.baidu.tieba.model.as
-    public void a(boolean z, String str, com.baidu.tbadk.coreExtra.data.f fVar, WriteData writeData, AntiData antiData) {
+    public void a(boolean z, String str, com.baidu.tbadk.coreExtra.data.g gVar, WriteData writeData, AntiData antiData) {
         bu buVar;
         bu buVar2;
         WriteImagesInfo writeImagesInfo;
@@ -32,50 +32,50 @@ class ad implements com.baidu.tieba.model.as {
         com.baidu.tbadk.core.data.q qVar2;
         com.baidu.tbadk.core.data.q qVar3;
         bu buVar4;
-        this.aBk.hideProgressBar();
-        this.aBk.EA();
-        buVar = this.aBk.aAv;
+        this.aBu.hideProgressBar();
+        this.aBu.EC();
+        buVar = this.aBu.aAF;
         buVar.bQ(z);
-        buVar2 = this.aBk.aAv;
-        writeImagesInfo = this.aBk.writeImagesInfo;
+        buVar2 = this.aBu.aAF;
+        writeImagesInfo = this.aBu.writeImagesInfo;
         buVar2.a(writeImagesInfo, true);
         if (z) {
-            buVar3 = this.aBk.aAv;
-            buVar3.EP();
-            com.baidu.tieba.pb.main.bs.WZ().reset();
-            arVar = this.aBk.ayz;
-            arVar.EC();
-            arVar2 = this.aBk.ayz;
+            buVar3 = this.aBu.aAF;
+            buVar3.ER();
+            com.baidu.tieba.pb.main.bs.Xc().reset();
+            arVar = this.aBu.ayI;
+            arVar.EE();
+            arVar2 = this.aBu.ayI;
             arVar2.b((WriteData) null);
-            arVar3 = this.aBk.ayz;
+            arVar3 = this.aBu.ayI;
             arVar3.dI(false);
-            writeImagesInfo2 = this.aBk.baobaoImagesInfo;
+            writeImagesInfo2 = this.aBu.baobaoImagesInfo;
             writeImagesInfo2.clear();
-            writeData2 = this.aBk.aAM;
+            writeData2 = this.aBu.aAW;
             writeData2.setIsBaobao(false);
-            this.aBk.a(antiData, str);
-            qVar = this.aBk.aAN;
+            this.aBu.a(antiData, str);
+            qVar = this.aBu.aAX;
             com.baidu.tieba.util.l.b(qVar.getTid(), (WriteData) null);
-            qVar2 = this.aBk.aAN;
-            qVar3 = this.aBk.aAN;
+            qVar2 = this.aBu.aAX;
+            qVar3 = this.aBu.aAX;
             qVar2.setReply_num(qVar3.getReply_num() + 1);
-            buVar4 = this.aBk.aAv;
-            buVar4.Gp();
-        } else if (fVar != null && writeData != null && fVar.getVcode_pic_url() != null) {
+            buVar4 = this.aBu.aAF;
+            buVar4.Gr();
+        } else if (gVar != null && writeData != null && gVar.getVcode_pic_url() != null) {
             if (!AntiHelper.e(antiData)) {
-                writeData.setVcodeMD5(fVar.getVcode_md5());
-                writeData.setVcodeUrl(fVar.getVcode_pic_url());
-                if (fVar.oA().equals("4")) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.aBk, 12006, writeData, false)));
+                writeData.setVcodeMD5(gVar.getVcode_md5());
+                writeData.setVcodeUrl(gVar.getVcode_pic_url());
+                if (gVar.oC().equals("4")) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.aBu, 12006, writeData, false)));
                     return;
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.aBk, writeData, 12006)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.aBu, writeData, 12006)));
                     return;
                 }
             }
-            this.aBk.a(antiData, str);
+            this.aBu.a(antiData, str);
         } else {
-            this.aBk.a(antiData, str);
+            this.aBu.a(antiData, str);
         }
     }
 }

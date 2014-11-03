@@ -7,13 +7,13 @@ import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends CustomMessageListener {
-    final /* synthetic */ a XJ;
+    final /* synthetic */ a XN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i) {
         super(i);
-        this.XJ = aVar;
+        this.XN = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,16 +21,16 @@ public class b extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         d dVar;
         d dVar2;
-        this.XJ.XH = false;
+        this.XN.XL = false;
         if (customResponsedMessage != null && (customResponsedMessage instanceof ReadCacheRespMsg)) {
             ReadCacheRespMsg readCacheRespMsg = (ReadCacheRespMsg) customResponsedMessage;
             ReadCacheMessage readCacheMessage = null;
             if (readCacheRespMsg.getOrginalMessage() != null && (readCacheRespMsg.getOrginalMessage() instanceof ReadCacheMessage)) {
                 readCacheMessage = (ReadCacheMessage) readCacheRespMsg.getOrginalMessage();
             }
-            dVar = this.XJ.XC;
+            dVar = this.XN.XG;
             if (dVar != null) {
-                dVar2 = this.XJ.XC;
+                dVar2 = this.XN.XG;
                 dVar2.a(readCacheRespMsg, readCacheMessage);
             }
         }

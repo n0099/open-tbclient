@@ -12,39 +12,39 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class u {
-    private static u WU = null;
-    private List<c> WV = new ArrayList();
-    private List<Uri> WW;
-    private String WX;
-    private boolean WY;
+    private static u WY = null;
+    private List<c> WZ = new ArrayList();
+    private List<Uri> Xa;
+    private String Xb;
+    private boolean Xc;
 
-    public static u sM() {
-        if (WU == null) {
-            WU = new u();
+    public static u sO() {
+        if (WY == null) {
+            WY = new u();
         }
-        return WU;
+        return WY;
     }
 
     private u() {
         q(new ArrayList());
-        this.WY = false;
+        this.Xc = false;
     }
 
     public int getCount() {
-        return this.WV.size();
+        return this.WZ.size();
     }
 
     public int e(Uri uri) {
-        if (uri == null || this.WV == null) {
+        if (uri == null || this.WZ == null) {
             return -1;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.WV.size()) {
+            if (i2 >= this.WZ.size()) {
                 return -1;
             }
-            if (!this.WV.get(i2).uri.equals(uri)) {
+            if (!this.WZ.get(i2).uri.equals(uri)) {
                 i = i2 + 1;
             } else {
                 return i2;
@@ -53,15 +53,15 @@ public class u {
     }
 
     public void a(c cVar) {
-        this.WV.add(cVar);
+        this.WZ.add(cVar);
     }
 
     public void removeAll() {
-        this.WV.clear();
+        this.WZ.clear();
     }
 
     public c db(int i) {
-        return this.WV.get(i);
+        return this.WZ.get(i);
     }
 
     public int A(Context context) {
@@ -120,12 +120,12 @@ public class u {
     }
 
     private void q(List<Uri> list) {
-        this.WW = list;
+        this.Xa = list;
     }
 
     public List<Uri> C(Context context) {
-        this.WW.size();
-        return this.WW;
+        this.Xa.size();
+        return this.Xa;
     }
 
     public int D(Context context) {
@@ -133,11 +133,11 @@ public class u {
     }
 
     public void dK(String str) {
-        this.WX = str;
+        this.Xb = str;
     }
 
-    public String sN() {
-        return this.WX;
+    public String sP() {
+        return this.Xb;
     }
 
     public String E(Context context) {
@@ -147,7 +147,7 @@ public class u {
     public Bitmap a(Context context, c cVar, int i) {
         Bitmap bitmap;
         Bitmap bitmap2;
-        Uri parse = Uri.parse(String.valueOf(String.valueOf(MediaStore.Images.Media.EXTERNAL_CONTENT_URI)) + "/" + String.valueOf(cVar.Wb));
+        Uri parse = Uri.parse(String.valueOf(String.valueOf(MediaStore.Images.Media.EXTERNAL_CONTENT_URI)) + "/" + String.valueOf(cVar.Wf));
         try {
             Bitmap a = b.a(context, parse, i, i);
             if (a == null) {
@@ -177,9 +177,9 @@ public class u {
         }
     }
 
-    public boolean sO() {
-        boolean z = this.WY;
-        this.WY = false;
+    public boolean sQ() {
+        boolean z = this.Xc;
+        this.Xc = false;
         return z;
     }
 
@@ -187,7 +187,7 @@ public class u {
     }
 
     public boolean f(Uri uri) {
-        for (Uri uri2 : this.WW) {
+        for (Uri uri2 : this.Xa) {
             if (uri2.equals(uri)) {
                 return true;
             }
@@ -195,10 +195,10 @@ public class u {
         return false;
     }
 
-    public Intent sP() {
+    public Intent sR() {
         Intent intent = new Intent();
         ArrayList<String> arrayList = new ArrayList<>();
-        for (Uri uri : this.WW) {
+        for (Uri uri : this.Xa) {
             arrayList.add(uri.toString());
         }
         intent.putStringArrayListExtra("selected_uris", arrayList);

@@ -2,11 +2,11 @@ package com.baidu.tieba.im.chat.officialBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements Runnable {
-    final /* synthetic */ aa aRn;
+    final /* synthetic */ aa aRB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(aa aaVar) {
-        this.aRn = aaVar;
+        this.aRB = aaVar;
     }
 
     @Override // java.lang.Runnable
@@ -14,11 +14,11 @@ public class ab implements Runnable {
         OfficialBarHistoryActivity officialBarHistoryActivity;
         af afVar;
         OfficialBarHistoryActivity officialBarHistoryActivity2;
-        officialBarHistoryActivity = this.aRn.aRm;
-        afVar = officialBarHistoryActivity.aRh;
-        if (!afVar.Kr()) {
-            officialBarHistoryActivity2 = this.aRn.aRm;
-            officialBarHistoryActivity2.Kq();
+        officialBarHistoryActivity = this.aRB.aRA;
+        afVar = officialBarHistoryActivity.aRv;
+        if (!afVar.Kv()) {
+            officialBarHistoryActivity2 = this.aRB.aRA;
+            officialBarHistoryActivity2.Ku();
         }
     }
 }

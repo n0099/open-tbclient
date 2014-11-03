@@ -19,12 +19,12 @@ import org.json.JSONObject;
 public class q extends com.baidu.tbadk.core.util.a implements com.baidu.tbadk.core.util.at {
     private int AB;
     private ArrayList<MediaData> Ax;
-    private boolean akA;
-    private SpannableString aku;
-    private long akv;
-    private String akw;
-    private int akx;
-    private LinkedList<IconData> akz;
+    private SpannableString akD;
+    private long akE;
+    private String akF;
+    private int akG;
+    private LinkedList<IconData> akI;
+    private boolean akJ;
     private String forum_id;
     private String forum_name;
     private int is_good;
@@ -35,7 +35,7 @@ public class q extends com.baidu.tbadk.core.util.a implements com.baidu.tbadk.co
     private String user_id;
     private String user_name;
     private ArrayList<VoiceData.VoiceModel> Ay = new ArrayList<>();
-    private final int aky = 0;
+    private final int akH = 0;
     private LiveCardData mLiveCardData = new LiveCardData();
 
     public void parserJson(JSONObject jSONObject) {
@@ -50,20 +50,20 @@ public class q extends com.baidu.tbadk.core.util.a implements com.baidu.tbadk.co
                 this.is_good = jSONObject.optInt(PbActivityConfig.KEY_IS_GOOD, 0);
                 this.user_id = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_ID, "");
                 this.user_name = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_NAME, "");
-                this.akx = jSONObject.optInt("is_up", 0);
-                this.akv = jSONObject.optLong("create_time", 0L);
+                this.akG = jSONObject.optInt("is_up", 0);
+                this.akE = jSONObject.optLong("create_time", 0L);
                 this.AB = jSONObject.optInt("is_voice_thread");
                 JSONObject optJSONObject = jSONObject.optJSONObject("userinfo");
                 JSONArray optJSONArray = optJSONObject.optJSONArray("iconinfo");
                 JSONArray optJSONArray2 = optJSONObject.optJSONArray("tshow_icon");
                 if (optJSONArray != null) {
-                    if (this.akz == null) {
-                        this.akz = new LinkedList<>();
+                    if (this.akI == null) {
+                        this.akI = new LinkedList<>();
                     }
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         IconData iconData = new IconData();
                         iconData.parserJson(optJSONArray.getJSONObject(i));
-                        this.akz.add(iconData);
+                        this.akI.add(iconData);
                     }
                 }
                 if (optJSONArray2 != null) {
@@ -87,7 +87,7 @@ public class q extends com.baidu.tbadk.core.util.a implements com.baidu.tbadk.co
                         }
                     }
                 }
-                this.akw = sb.toString();
+                this.akF = sb.toString();
                 JSONArray optJSONArray4 = jSONObject.optJSONArray("media");
                 if (optJSONArray4 != null) {
                     if (this.Ax == null) {
@@ -115,10 +115,10 @@ public class q extends com.baidu.tbadk.core.util.a implements com.baidu.tbadk.co
                 er(optString);
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("anchor_info");
                 if (optJSONObject2 == null) {
-                    this.akA = false;
+                    this.akJ = false;
                     return;
                 }
-                this.akA = true;
+                this.akJ = true;
                 this.mLiveCardData.setPortrait(optJSONObject2.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT));
                 this.mLiveCardData.setName(optJSONObject2.optString("name"));
                 this.mLiveCardData.setStartTime(optJSONObject2.optLong("start_time"));
@@ -166,7 +166,7 @@ public class q extends com.baidu.tbadk.core.util.a implements com.baidu.tbadk.co
             } else {
                 spannableString = new SpannableString(str);
             }
-            this.aku = spannableString;
+            this.akD = spannableString;
         }
     }
 
@@ -182,8 +182,8 @@ public class q extends com.baidu.tbadk.core.util.a implements com.baidu.tbadk.co
         return this.tid != null ? this.tid : "";
     }
 
-    public SpannableString yZ() {
-        return this.aku;
+    public SpannableString zb() {
+        return this.akD;
     }
 
     public int getReplyNum() {
@@ -194,12 +194,12 @@ public class q extends com.baidu.tbadk.core.util.a implements com.baidu.tbadk.co
         return this.user_name != null ? this.user_name : "";
     }
 
-    public long za() {
-        return this.akv;
+    public long zc() {
+        return this.akE;
     }
 
     public String kB() {
-        return this.akw != null ? this.akw : "";
+        return this.akF != null ? this.akF : "";
     }
 
     public int getIsGood() {
@@ -214,8 +214,8 @@ public class q extends com.baidu.tbadk.core.util.a implements com.baidu.tbadk.co
         return this.Ay;
     }
 
-    public LinkedList<IconData> zb() {
-        return this.akz;
+    public LinkedList<IconData> zd() {
+        return this.akI;
     }
 
     @Override // com.baidu.tbadk.core.util.a
@@ -242,8 +242,8 @@ public class q extends com.baidu.tbadk.core.util.a implements com.baidu.tbadk.co
         return this.mLiveCardData;
     }
 
-    public boolean zc() {
-        return this.akA;
+    public boolean ze() {
+        return this.akJ;
     }
 
     @Override // com.baidu.tbadk.core.util.at
@@ -253,7 +253,7 @@ public class q extends com.baidu.tbadk.core.util.a implements com.baidu.tbadk.co
         while (it.hasNext()) {
             com.baidu.tbadk.core.util.as asVar = new com.baidu.tbadk.core.util.as();
             asVar.AI = it.next().getPicUrl();
-            asVar.ER = 10;
+            asVar.ES = 10;
             arrayList.add(asVar);
         }
         return arrayList;

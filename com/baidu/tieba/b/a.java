@@ -6,29 +6,29 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.service.NetworkChangeReceiver;
 /* loaded from: classes.dex */
 public class a {
-    private q amP;
-    private final int amQ = 10;
-    private final int amR = 3000;
-    public String amS = null;
-    public boolean Gm = false;
+    private q amY;
+    private final int amZ = 10;
+    private final int ana = 3000;
+    public String anb = null;
+    public boolean Gn = false;
 
     public a(String str) {
         t(str, false);
     }
 
     public void t(String str, boolean z) {
-        this.amS = str;
-        this.Gm = z;
-        this.amP = new q("dbg");
+        this.anb = str;
+        this.Gn = z;
+        this.amY = new q("dbg");
         b.c(str, getNetType(), z);
     }
 
     public void start() {
-        this.amP.eL();
+        this.amY.eL();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j) {
-        long eM = this.amP.eM();
+        long eM = this.amY.eM();
         long j2 = 0;
         long j3 = 0;
         if (z) {
@@ -40,38 +40,38 @@ public class a {
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e AG;
-        if (this.amP != null && (AG = AG()) != null) {
+        e AI;
+        if (this.amY != null && (AI = AI()) != null) {
             if (z) {
-                if (AG.amY != null) {
-                    AG.amY.num++;
+                if (AI.anh != null) {
+                    AI.anh.num++;
                     if (z2) {
-                        AG.amY.amU += j2;
-                        AG.amY.size += j;
+                        AI.anh.and += j2;
+                        AI.anh.size += j;
                     } else {
-                        AG.amY.amV++;
+                        AI.anh.ane++;
                     }
                 } else {
                     return;
                 }
-            } else if (AG.amZ != null) {
-                AG.amZ.num++;
+            } else if (AI.ani != null) {
+                AI.ani.num++;
                 if (z2) {
-                    AG.amZ.amU += j3;
-                    AG.amZ.size += j;
+                    AI.ani.and += j3;
+                    AI.ani.size += j;
                     j2 = j3;
                 } else {
-                    AG.amZ.amV++;
+                    AI.ani.ane++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.amP = null;
+            this.amY = null;
             if (z2) {
-                b.a(AG, 10);
+                b.a(AI, 10);
             }
-            if (this.amS == "frsStat") {
+            if (this.anb == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     q qVar = new q("dbg");
                     qVar.n("act", "frs");
@@ -87,21 +87,21 @@ public class a {
         }
     }
 
-    public void xY() {
-        e AG;
-        if (this.amP != null && (AG = AG()) != null && AG.ana != null) {
-            long eM = this.amP.eM();
+    public void ya() {
+        e AI;
+        if (this.amY != null && (AI = AI()) != null && AI.anj != null) {
+            long eM = this.amY.eM();
             if (eM > 3000) {
-                d dVar = AG.ana;
-                dVar.amU = eM + dVar.amU;
-                AG.ana.num++;
-                b.a(AG, 10);
+                d dVar = AI.anj;
+                dVar.and = eM + dVar.and;
+                AI.anj.num++;
+                b.a(AI, 10);
             }
         }
     }
 
-    private e AG() {
-        return b.d(this.amS, getNetType(), this.Gm);
+    private e AI() {
+        return b.d(this.anb, getNetType(), this.Gn);
     }
 
     private String getNetType() {

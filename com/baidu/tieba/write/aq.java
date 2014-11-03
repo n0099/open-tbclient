@@ -9,11 +9,11 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq implements DialogInterface.OnClickListener {
-    final /* synthetic */ WriteActivity bTX;
+    final /* synthetic */ WriteActivity bUm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(WriteActivity writeActivity) {
-        this.bTX = writeActivity;
+        this.bUm = writeActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -25,24 +25,24 @@ public class aq implements DialogInterface.OnClickListener {
         WriteImagesInfo writeImagesInfo5;
         String str;
         if (i == 0) {
-            writeImagesInfo4 = this.bTX.writeImagesInfo;
+            writeImagesInfo4 = this.bUm.writeImagesInfo;
             int size = writeImagesInfo4.size();
-            writeImagesInfo5 = this.bTX.writeImagesInfo;
+            writeImagesInfo5 = this.bUm.writeImagesInfo;
             if (size < writeImagesInfo5.getMaxImagesAllowed()) {
-                this.bTX.ayx = String.valueOf(System.currentTimeMillis());
-                WriteActivity writeActivity = this.bTX;
-                str = this.bTX.ayx;
+                this.bUm.ayG = String.valueOf(System.currentTimeMillis());
+                WriteActivity writeActivity = this.bUm;
+                str = this.bUm.ayG;
                 com.baidu.tbadk.core.util.av.a(writeActivity, str);
                 return;
             }
-            this.bTX.showToast(String.format(this.bTX.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
+            this.bUm.showToast(String.format(this.bUm.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
         } else if (i == 1) {
-            writeImagesInfo = this.bTX.writeImagesInfo;
+            writeImagesInfo = this.bUm.writeImagesInfo;
             if (writeImagesInfo != null) {
-                writeImagesInfo2 = this.bTX.writeImagesInfo;
+                writeImagesInfo2 = this.bUm.writeImagesInfo;
                 if (!TextUtils.isEmpty(writeImagesInfo2.toJsonString())) {
-                    WriteActivity writeActivity2 = this.bTX;
-                    writeImagesInfo3 = this.bTX.writeImagesInfo;
+                    WriteActivity writeActivity2 = this.bUm;
+                    writeImagesInfo3 = this.bUm.writeImagesInfo;
                     AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(writeActivity2, writeImagesInfo3.toJsonString());
                     albumActivityConfig.setRequestCode(12002);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));

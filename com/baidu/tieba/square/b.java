@@ -5,11 +5,11 @@ import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Object, f, f> {
-    final /* synthetic */ BarFolderFirstDirActivity bLV;
+    final /* synthetic */ BarFolderFirstDirActivity bMk;
     private com.baidu.tbadk.core.util.ac yV;
 
     private b(BarFolderFirstDirActivity barFolderFirstDirActivity) {
-        this.bLV = barFolderFirstDirActivity;
+        this.bMk = barFolderFirstDirActivity;
         this.yV = null;
     }
 
@@ -24,7 +24,7 @@ public class b extends BdAsyncTask<Object, f, f> {
     /* renamed from: a */
     public void onProgressUpdate(f... fVarArr) {
         super.onProgressUpdate(fVarArr);
-        this.bLV.a(fVarArr[0], false);
+        this.bMk.a(fVarArr[0], false);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,11 +57,11 @@ public class b extends BdAsyncTask<Object, f, f> {
                 fVar.parserJson(str3);
                 publishProgress(fVar);
                 this.yV = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/forumdir");
-                str = this.bLV.stType;
+                str = this.bMk.stType;
                 if (str != null) {
                     com.baidu.tbadk.core.util.ac acVar = this.yV;
-                    String str4 = BarFolderFirstDirActivity.bLU;
-                    str2 = this.bLV.stType;
+                    String str4 = BarFolderFirstDirActivity.bMj;
+                    str2 = this.bMk.stType;
                     acVar.k(str4, str2);
                 }
                 String lA = this.yV.lA();
@@ -82,7 +82,7 @@ public class b extends BdAsyncTask<Object, f, f> {
         }
         z = false;
         this.yV = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/forumdir");
-        str = this.bLV.stType;
+        str = this.bMk.stType;
         if (str != null) {
         }
         String lA2 = this.yV.lA();
@@ -97,7 +97,7 @@ public class b extends BdAsyncTask<Object, f, f> {
     /* renamed from: a */
     public void onPostExecute(f fVar) {
         if (fVar != null) {
-            this.bLV.a(fVar, false);
+            this.bMk.a(fVar, false);
         }
     }
 
@@ -108,6 +108,6 @@ public class b extends BdAsyncTask<Object, f, f> {
             this.yV.dM();
             this.yV = null;
         }
-        this.bLV.a(null, true);
+        this.bMk.a(null, true);
     }
 }

@@ -8,21 +8,21 @@ import com.baidu.tbadk.core.data.PraiseData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnClickListener {
-    final /* synthetic */ FrsPraiseView aGe;
+    final /* synthetic */ FrsPraiseView aGo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(FrsPraiseView frsPraiseView) {
-        this.aGe = frsPraiseView;
+        this.aGo = frsPraiseView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PraiseData praiseData;
         Context context;
-        praiseData = this.aGe.aGc;
+        praiseData = this.aGo.aGm;
         MetaData metaData = praiseData.getUser().get(1);
         if (metaData != null) {
-            context = this.aGe.mContext;
+            context = this.aGo.mContext;
             com.baidu.tbadk.util.f.a(2002003, new PersonInfoActivityConfig(context, metaData.getUserId(), metaData.getName_show()));
         }
     }

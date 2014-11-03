@@ -10,23 +10,23 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class MsgActivityView extends cc {
-    private int Uy;
-    private TextView aOH;
-    private TextView aOI;
-    private TextView aOJ;
-    private com.baidu.adp.lib.c.a aOK;
-    private com.baidu.adp.lib.c.b aOL;
-    private HeadImageView azk;
+    private int UC;
+    private TextView aOV;
+    private TextView aOW;
+    private TextView aOX;
+    private com.baidu.adp.lib.c.a aOY;
+    private com.baidu.adp.lib.c.b aOZ;
+    private HeadImageView azt;
 
     public MsgActivityView(Context context) {
         super(context, com.baidu.tieba.w.msg_msgactivity_view);
-        this.auh = (TextView) findViewById(com.baidu.tieba.v.tex_msgitem_time);
-        this.aOH = (TextView) findViewById(com.baidu.tieba.v.msg_msgactivity_title);
-        this.aOI = (TextView) findViewById(com.baidu.tieba.v.msg_msgactivity_time);
-        this.aOJ = (TextView) findViewById(com.baidu.tieba.v.msg_msgactivity_address);
-        this.azk = (HeadImageView) findViewById(com.baidu.tieba.v.img_msgactivity_photo);
-        this.azk.setIsRound(false);
-        this.azk.setClickable(true);
+        this.auq = (TextView) findViewById(com.baidu.tieba.v.tex_msgitem_time);
+        this.aOV = (TextView) findViewById(com.baidu.tieba.v.msg_msgactivity_title);
+        this.aOW = (TextView) findViewById(com.baidu.tieba.v.msg_msgactivity_time);
+        this.aOX = (TextView) findViewById(com.baidu.tieba.v.msg_msgactivity_address);
+        this.azt = (HeadImageView) findViewById(com.baidu.tieba.v.img_msgactivity_photo);
+        this.azt.setIsRound(false);
+        this.azt.setClickable(true);
         O().setOnClickListener(new bv(this));
         O().setOnLongClickListener(new bw(this));
     }
@@ -45,7 +45,7 @@ public class MsgActivityView extends cc {
                     String optString4 = optJSONObject.optString("activityImage");
                     String optString5 = optJSONObject.optString("activityUserId");
                     String optString6 = optJSONObject.optString("activityUserName");
-                    this.aOH.setText(optString);
+                    this.aOV.setText(optString);
                     Calendar calendar = Calendar.getInstance();
                     calendar.setTimeInMillis(com.baidu.adp.lib.g.c.a(optString2, 0L) * 1000);
                     int i = calendar.get(11);
@@ -86,16 +86,16 @@ public class MsgActivityView extends cc {
                     } else {
                         string2 = this.mContext.getResources().getString(com.baidu.tieba.y.am);
                     }
-                    this.aOI.setText(String.format("%d-%d-%d %s %s %d:%d", Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), string, string2, Integer.valueOf(i), Integer.valueOf(i2)));
+                    this.aOW.setText(String.format("%d-%d-%d %s %s %d:%d", Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), string, string2, Integer.valueOf(i), Integer.valueOf(i2)));
                     if (TextUtils.isEmpty(optString3)) {
-                        this.aOJ.setVisibility(4);
+                        this.aOX.setVisibility(4);
                     } else {
-                        this.aOJ.setVisibility(0);
-                        this.aOJ.setText(optString3);
+                        this.aOX.setVisibility(0);
+                        this.aOX.setText(optString3);
                     }
-                    this.azk.setTag(optString4);
-                    this.azk.setOnClickListener(new bx(this, optString5, optString6));
-                    this.azk.c(optString4, 12, false);
+                    this.azt.setTag(optString4);
+                    this.azt.setOnClickListener(new bx(this, optString5, optString6));
+                    this.azt.c(optString4, 12, false);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -105,16 +105,16 @@ public class MsgActivityView extends cc {
 
     @Override // com.baidu.tieba.im.chat.cc
     public void a(com.baidu.adp.lib.c.a aVar) {
-        this.aOK = aVar;
+        this.aOY = aVar;
     }
 
     @Override // com.baidu.tieba.im.chat.cc
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        this.aOL = bVar;
+        this.aOZ = bVar;
     }
 
     @Override // com.baidu.tieba.im.chat.cc
     public void setPosition(int i) {
-        this.Uy = i;
+        this.UC = i;
     }
 }

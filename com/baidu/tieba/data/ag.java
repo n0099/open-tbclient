@@ -5,11 +5,11 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ag extends ak {
     private String AI;
-    private String alC;
-    private String alD;
-    private String alE;
-    private String alF;
-    private String alG;
+    private String alL;
+    private String alM;
+    private String alN;
+    private String alO;
+    private String alP;
     private int pos;
 
     @Override // com.baidu.tieba.data.ak
@@ -17,11 +17,11 @@ public class ag extends ak {
         if (jSONObject != null) {
             try {
                 this.pos = jSONObject.optInt("pos", 1);
-                this.alC = jSONObject.optString("app_name", "");
-                this.alD = jSONObject.optString("app_desc", "");
-                this.alE = jSONObject.optString("p_name", "");
-                this.alF = jSONObject.optString("p_url", "");
-                this.alG = jSONObject.optString("web_url", "");
+                this.alL = jSONObject.optString("app_name", "");
+                this.alM = jSONObject.optString("app_desc", "");
+                this.alN = jSONObject.optString("p_name", "");
+                this.alO = jSONObject.optString("p_url", "");
+                this.alP = jSONObject.optString("web_url", "");
                 this.AI = jSONObject.optString("img_url", "");
             } catch (Exception e) {
                 BdLog.detailException(e);

@@ -1,27 +1,37 @@
 package com.baidu.tieba.person;
 
-import android.app.Activity;
 import android.view.View;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.coreExtra.act.LoginActivity;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bn implements View.OnClickListener {
-    final /* synthetic */ PersonListActivity bCT;
+    final /* synthetic */ PersonListActivity bDh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bn(PersonListActivity personListActivity) {
-        this.bCT = personListActivity;
+        this.bDh = personListActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.bCT.bCs = ((Integer) view.getTag()).intValue();
-        String currentAccount = TbadkApplication.getCurrentAccount();
-        if (currentAccount == null || currentAccount.length() <= 0) {
-            LoginActivity.a((Activity) this.bCT, this.bCT.getString(com.baidu.tieba.y.login_to_chat), true, 11028);
-        } else {
-            this.bCT.aab();
+        bs bsVar;
+        bs bsVar2;
+        bs bsVar3;
+        int intValue = ((Integer) view.getTag()).intValue();
+        bsVar = this.bDh.bDc;
+        if (bsVar != null) {
+            bsVar2 = this.bDh.bDc;
+            if (bsVar2.getItemViewType(intValue) == 0) {
+                bsVar3 = this.bDh.bDc;
+                UserData userData = (UserData) bsVar3.getItem(intValue);
+                if (userData != null && userData.getUserId() != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.bDh, userData.getUserId(), userData.getName_show(), null, AddFriendActivityConfig.TYPE_FOCUS)));
+                }
+            }
         }
     }
 }

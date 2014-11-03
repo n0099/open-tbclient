@@ -9,13 +9,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 class b extends CustomMessageListener {
-    final /* synthetic */ a ase;
+    final /* synthetic */ a asn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i) {
         super(i);
-        this.ase = aVar;
+        this.asn = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,7 +34,7 @@ class b extends CustomMessageListener {
                 } catch (JSONException e) {
                 }
             }
-            this.ase.B(linkedList);
+            this.asn.B(linkedList);
         }
     }
 }

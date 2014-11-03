@@ -5,11 +5,11 @@ import com.baidu.tbadk.TbConfig;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 class ah implements Runnable {
-    final /* synthetic */ SquareSearchActivity bmO;
+    final /* synthetic */ SquareSearchActivity bnc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(SquareSearchActivity squareSearchActivity) {
-        this.bmO = squareSearchActivity;
+        this.bnc = squareSearchActivity;
     }
 
     @Override // java.lang.Runnable
@@ -20,20 +20,20 @@ class ah implements Runnable {
         aj ajVar;
         aj ajVar2;
         try {
-            str = this.bmO.bmA;
+            str = this.bnc.bmO;
             if (str != null) {
-                str2 = this.bmO.bmA;
+                str2 = this.bnc.bmO;
                 if (str2.length() > 0) {
                     StringBuffer stringBuffer = new StringBuffer(30);
                     stringBuffer.append(TbConfig.SERVER_ADDRESS);
                     stringBuffer.append("c/f/forum/search");
-                    str3 = this.bmO.bmA;
+                    str3 = this.bnc.bmO;
                     BasicNameValuePair basicNameValuePair = new BasicNameValuePair("query", str3.trim());
-                    this.bmO.oo();
-                    this.bmO.bmy = new aj(this.bmO, stringBuffer.toString(), basicNameValuePair, true);
-                    ajVar = this.bmO.bmy;
+                    this.bnc.oo();
+                    this.bnc.bmM = new aj(this.bnc, stringBuffer.toString(), basicNameValuePair, true);
+                    ajVar = this.bnc.bmM;
                     ajVar.setPriority(3);
-                    ajVar2 = this.bmO.bmy;
+                    ajVar2 = this.bnc.bmM;
                     ajVar2.execute(stringBuffer.toString(), basicNameValuePair);
                 }
             }

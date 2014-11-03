@@ -21,11 +21,11 @@ import com.baidu.tieba.y;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PbHistoryActivity extends BaseActivity {
-    private final com.baidu.tbadk.mvc.model.d<ai> XC = new a(this);
-    private com.baidu.tbadk.mvc.i.c<ai, com.baidu.tbadk.mvc.e.c, g> aWO;
-    private RelativeLayout ahN;
-    private TextView buj;
-    private f buk;
+    private final com.baidu.tbadk.mvc.model.d<ai> XG = new a(this);
+    private com.baidu.tbadk.mvc.i.c<ai, com.baidu.tbadk.mvc.e.c, g> aXc;
+    private RelativeLayout ahW;
+    private TextView bux;
+    private f buy;
     private NavigationBar mNavigationBar;
     private BdListView vl;
 
@@ -37,20 +37,20 @@ public class PbHistoryActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.buk = new f(this);
-        this.buk.a(this.XC);
-        this.ahN = (RelativeLayout) com.baidu.adp.lib.g.b.ek().inflate(this, w.pb_history_activity, null);
-        setContentView(this.ahN);
+        this.buy = new f(this);
+        this.buy.a(this.XG);
+        this.ahW = (RelativeLayout) com.baidu.adp.lib.g.b.ek().inflate(this, w.pb_history_activity, null);
+        setContentView(this.ahW);
         this.mNavigationBar = (NavigationBar) findViewById(v.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(y.my_history);
-        this.buj = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(y.delete_all_user_chat));
-        this.buj.setOnClickListener(new b(this));
-        this.buj.setVisibility(8);
+        this.bux = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(y.delete_all_user_chat));
+        this.bux.setOnClickListener(new b(this));
+        this.bux.setVisibility(8);
         this.vl = (BdListView) findViewById(v.list);
-        this.aWO = new com.baidu.tbadk.mvc.i.c<>(this, g.class, w.pb_history_list_item, null);
-        this.aWO.a(r.a(NoDataViewFactory.ImgType.NODATA), s.q(y.pb_history_no_data_tip, y.pb_history_no_data_tip_2), (q) null, (FrameLayout.LayoutParams) null);
-        this.vl.setAdapter((ListAdapter) this.aWO);
+        this.aXc = new com.baidu.tbadk.mvc.i.c<>(this, g.class, w.pb_history_list_item, null);
+        this.aXc.a(r.a(NoDataViewFactory.ImgType.NODATA), s.q(y.pb_history_no_data_tip, y.pb_history_no_data_tip_2), (q) null, (FrameLayout.LayoutParams) null);
+        this.vl.setAdapter((ListAdapter) this.aXc);
         this.vl.setOnItemClickListener(new e(this));
     }
 
@@ -58,7 +58,7 @@ public class PbHistoryActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        VX();
+        Wa();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -66,24 +66,24 @@ public class PbHistoryActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(i);
-        this.aWO.dg(i);
-        getLayoutMode().h(this.ahN);
+        this.aXc.dg(i);
+        getLayoutMode().h(this.ahW);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void VX() {
-        this.buk.tB();
+    public void Wa() {
+        this.buy.tD();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ah(List<ai> list) {
-        if (this.aWO != null) {
-            this.aWO.r(list);
+        if (this.aXc != null) {
+            this.aXc.r(list);
         }
         if (list == null || list.size() == 0) {
-            this.buj.setVisibility(8);
+            this.bux.setVisibility(8);
         } else {
-            this.buj.setVisibility(0);
+            this.bux.setVisibility(0);
         }
     }
 }

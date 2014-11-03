@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements SapiWebView.OnFinishCallback {
-    final /* synthetic */ LoginActivity KZ;
+    final /* synthetic */ LoginActivity La;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(LoginActivity loginActivity) {
-        this.KZ = loginActivity;
+        this.La = loginActivity;
     }
 
     @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
@@ -23,8 +23,8 @@ public class am implements SapiWebView.OnFinishCallback {
             currentAccountObj = com.baidu.tbadk.core.account.a.jA();
         }
         if (currentAccountObj == null && !TbadkApplication.isSDKLogin) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NotLoginGuideActivityConfig(this.KZ, NotLoginGuideActivityConfig.FROM_ACCOUNT)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NotLoginGuideActivityConfig(this.La, NotLoginGuideActivityConfig.FROM_ACCOUNT)));
         }
-        this.KZ.finish();
+        this.La.finish();
     }
 }

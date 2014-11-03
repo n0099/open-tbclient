@@ -14,35 +14,35 @@ import com.baidu.tbadk.game.GameRankInfoData;
 import java.util.List;
 /* loaded from: classes.dex */
 public class s extends BaseFragment {
-    private GameRankInfoData aHa;
-    private u aHj;
-    private com.baidu.tbadk.core.view.o aHk;
-    private BdListView azz;
+    private GameRankInfoData aHk;
+    private u aHt;
+    private com.baidu.tbadk.core.view.o aHu;
+    private BdListView azI;
     private View mContentView;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.aHa = (GameRankInfoData) getArguments().getSerializable("gameRank");
+        this.aHk = (GameRankInfoData) getArguments().getSerializable("gameRank");
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.mContentView = layoutInflater.inflate(com.baidu.tieba.w.game_detail_rank, (ViewGroup) null);
-        this.azz = (BdListView) this.mContentView.findViewById(com.baidu.tieba.v.rank_list);
-        this.aHk = NoDataViewFactory.a(getActivity(), this.mContentView, com.baidu.tbadk.core.view.r.a(NoDataViewFactory.ImgType.NODATA, 0), com.baidu.tbadk.core.view.s.bL(com.baidu.tieba.y.game_detail_rank_no), null);
-        this.aHj = new u(getActivity());
-        if (this.aHa != null) {
-            List<UserData> rankList = this.aHa.getRankList();
+        this.azI = (BdListView) this.mContentView.findViewById(com.baidu.tieba.v.rank_list);
+        this.aHu = NoDataViewFactory.a(getActivity(), this.mContentView, com.baidu.tbadk.core.view.r.a(NoDataViewFactory.ImgType.NODATA, 0), com.baidu.tbadk.core.view.s.bL(com.baidu.tieba.y.game_detail_rank_no), null);
+        this.aHt = new u(getActivity());
+        if (this.aHk != null) {
+            List<UserData> rankList = this.aHk.getRankList();
             if (rankList.size() == 0) {
-                this.aHk.setVisibility(0);
+                this.aHu.setVisibility(0);
             } else {
-                this.aHk.setVisibility(8);
-                this.aHj.F(rankList);
+                this.aHu.setVisibility(8);
+                this.aHt.F(rankList);
             }
         }
-        this.azz.setAdapter((ListAdapter) this.aHj);
-        this.azz.setOnItemClickListener(new t(this));
+        this.azI.setAdapter((ListAdapter) this.aHt);
+        this.azI.setOnItemClickListener(new t(this));
         return this.mContentView;
     }
 
@@ -53,6 +53,6 @@ public class s extends BaseFragment {
             baseFragmentActivity.getLayoutMode().L(i == 1);
             baseFragmentActivity.getLayoutMode().h(this.mContentView);
         }
-        this.aHk.onChangeSkinType(i);
+        this.aHu.onChangeSkinType(i);
     }
 }

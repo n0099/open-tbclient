@@ -12,12 +12,12 @@ import com.baidu.tieba.t;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
-    private View.OnClickListener Hd = new c(this);
-    private HotGameActivity aJP;
+    private View.OnClickListener He = new c(this);
+    private HotGameActivity aKc;
     private List<GameInfoData> list;
 
     public b(HotGameActivity hotGameActivity) {
-        this.aJP = hotGameActivity;
+        this.aKc = hotGameActivity;
     }
 
     public void setData(List<GameInfoData> list) {
@@ -56,15 +56,15 @@ public class b extends BaseAdapter {
             return null;
         }
         if (view == null || !(view instanceof af)) {
-            afVar = new af(this.aJP, GameListBaseItem.SECOND_LINE_TYPE.TYPE_DAY_DOWNLOADS);
+            afVar = new af(this.aKc, GameListBaseItem.SECOND_LINE_TYPE.TYPE_DAY_DOWNLOADS);
             afVar.onChangeSkinType(TbadkApplication.m251getInst().getSkinType());
-            afVar.setPadding(m.c(this.aJP, t.ds30), 0, m.c(this.aJP, t.ds30), 0);
+            afVar.setPadding(m.c(this.aKc, t.ds30), 0, m.c(this.aKc, t.ds30), 0);
         } else {
             afVar = (af) view;
         }
         afVar.setTag(Integer.valueOf(i));
-        afVar.setOnClickListener(this.Hd);
-        afVar.setData((GameInfoData) item);
+        afVar.setOnClickListener(this.He);
+        afVar.a(this.aKc.getUniqueId(), (GameInfoData) item);
         return afVar;
     }
 }

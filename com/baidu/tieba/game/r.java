@@ -18,43 +18,43 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class r extends BaseFragment {
-    private GameInfoData aGZ;
-    private HorizontalListView aHe;
-    private w aHf;
-    private View aHg;
-    private TextView aHh;
-    private TextView aHi;
+    private GameInfoData aHj;
+    private HorizontalListView aHo;
+    private w aHp;
+    private View aHq;
+    private TextView aHr;
+    private TextView aHs;
     private View mContentView;
     private Context mContext;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.aGZ = (GameInfoData) getArguments().getSerializable("gameInfo");
+        this.aHj = (GameInfoData) getArguments().getSerializable("gameInfo");
         this.mContext = getActivity();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.mContentView = layoutInflater.inflate(com.baidu.tieba.w.game_detail_intro, (ViewGroup) null);
-        this.aHe = (HorizontalListView) this.mContentView.findViewById(com.baidu.tieba.v.game_detail_image_listview);
-        this.aHg = this.mContentView.findViewById(com.baidu.tieba.v.game_detail_desc_divider);
-        this.aHh = (TextView) this.mContentView.findViewById(com.baidu.tieba.v.game_detail_game_desc_title_tv);
-        this.aHi = (TextView) this.mContentView.findViewById(com.baidu.tieba.v.game_detail_game_desc_tv);
-        this.aHf = new w();
-        this.aHe.setAdapter((ListAdapter) this.aHf);
-        if (this.aGZ != null && !TextUtils.isEmpty(this.aGZ.getIntroduce())) {
-            this.aHg.setVisibility(0);
-            this.aHh.setVisibility(0);
-            if (this.aGZ.getIntroduce().length() > 80) {
-                this.aHi.setText(String.valueOf(this.aGZ.getIntroduce().substring(0, 80)) + "...");
+        this.aHo = (HorizontalListView) this.mContentView.findViewById(com.baidu.tieba.v.game_detail_image_listview);
+        this.aHq = this.mContentView.findViewById(com.baidu.tieba.v.game_detail_desc_divider);
+        this.aHr = (TextView) this.mContentView.findViewById(com.baidu.tieba.v.game_detail_game_desc_title_tv);
+        this.aHs = (TextView) this.mContentView.findViewById(com.baidu.tieba.v.game_detail_game_desc_tv);
+        this.aHp = new w();
+        this.aHo.setAdapter((ListAdapter) this.aHp);
+        if (this.aHj != null && !TextUtils.isEmpty(this.aHj.getIntroduce())) {
+            this.aHq.setVisibility(0);
+            this.aHr.setVisibility(0);
+            if (this.aHj.getIntroduce().length() > 80) {
+                this.aHs.setText(String.valueOf(this.aHj.getIntroduce().substring(0, 80)) + "...");
             } else {
-                this.aHi.setText(this.aGZ.getIntroduce());
+                this.aHs.setText(this.aHj.getIntroduce());
             }
         }
-        if (this.aGZ != null && this.aGZ.getGamePic() != null) {
+        if (this.aHj != null && this.aHj.getGamePic() != null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.addAll(this.aGZ.getGamePic());
+            arrayList.addAll(this.aHj.getGamePic());
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
                 if (TextUtils.isEmpty((String) it.next())) {
@@ -62,18 +62,18 @@ public class r extends BaseFragment {
                 }
             }
             if (arrayList.size() == 0) {
-                this.aHe.setVisibility(8);
-                this.aHg.setVisibility(8);
+                this.aHo.setVisibility(8);
+                this.aHq.setVisibility(8);
             } else {
-                this.aHe.setVisibility(0);
-                this.aHg.setVisibility(0);
+                this.aHo.setVisibility(0);
+                this.aHq.setVisibility(0);
             }
-            this.aHf.setData(arrayList);
+            this.aHp.setData(arrayList);
         } else {
-            this.aHe.setVisibility(8);
-            this.aHg.setVisibility(8);
+            this.aHo.setVisibility(8);
+            this.aHq.setVisibility(8);
         }
-        this.aHf.notifyDataSetChanged();
+        this.aHp.notifyDataSetChanged();
         return this.mContentView;
     }
 

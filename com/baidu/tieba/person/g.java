@@ -3,11 +3,11 @@ package com.baidu.tieba.person;
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
 class g implements DialogInterface.OnClickListener {
-    final /* synthetic */ EditMarkActivity bAW;
+    final /* synthetic */ EditMarkActivity bBk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(EditMarkActivity editMarkActivity) {
-        this.bAW = editMarkActivity;
+        this.bBk = editMarkActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -15,10 +15,10 @@ class g implements DialogInterface.OnClickListener {
         h hVar;
         com.baidu.tieba.model.j jVar;
         com.baidu.tieba.model.j jVar2;
-        hVar = this.bAW.bAT;
-        jVar = this.bAW.bAS;
+        hVar = this.bBk.bBh;
+        jVar = this.bBk.bBg;
         hVar.gU(jVar.getOffset());
-        jVar2 = this.bAW.bAS;
+        jVar2 = this.bBk.bBg;
         jVar2.g(true);
     }
 }

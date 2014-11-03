@@ -5,10 +5,10 @@ import com.baidu.adp.lib.util.m;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class e extends b {
-    private int Vo = 0;
+    private int Vs = 0;
 
     @Override // com.baidu.tbadk.img.effect.b
-    public String sp() {
+    public String sr() {
         return "rotate";
     }
 
@@ -22,7 +22,7 @@ public class e extends b {
     @Override // com.baidu.tbadk.img.effect.b
     public void dw(String str) {
         if (str != null) {
-            this.Vo = Integer.parseInt(str);
+            this.Vs = Integer.parseInt(str);
         }
     }
 
@@ -31,12 +31,12 @@ public class e extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.e.sg().cR(com.baidu.tbadk.core.util.d.a(bitmap) * 2);
-        if (this.Vo == 0 || this.Vo == 1) {
-            return com.baidu.tbadk.core.util.d.d(bitmap, this.Vo);
+        com.baidu.tbadk.imageManager.e.si().cR(com.baidu.tbadk.core.util.d.a(bitmap) * 2);
+        if (this.Vs == 0 || this.Vs == 1) {
+            return com.baidu.tbadk.core.util.d.d(bitmap, this.Vs);
         }
-        if (this.Vo == 2 || this.Vo == 3) {
-            return com.baidu.tbadk.core.util.d.f(bitmap, this.Vo);
+        if (this.Vs == 2 || this.Vs == 3) {
+            return com.baidu.tbadk.core.util.d.f(bitmap, this.Vs);
         }
         return bitmap;
     }

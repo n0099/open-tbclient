@@ -4,11 +4,11 @@ import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements DialogInterface.OnClickListener {
-    final /* synthetic */ UpdatesActivity bbU;
+    final /* synthetic */ UpdatesActivity bci;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(UpdatesActivity updatesActivity) {
-        this.bbU = updatesActivity;
+        this.bci = updatesActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -17,10 +17,10 @@ public class g implements DialogInterface.OnClickListener {
         UpdatesItemData updatesItemData;
         switch (i) {
             case 0:
-                tVar = this.bbU.bbM;
+                tVar = this.bci.bca;
                 tVar.dg(true);
-                UpdatesActivity updatesActivity = this.bbU;
-                updatesItemData = this.bbU.bbS;
+                UpdatesActivity updatesActivity = this.bci;
+                updatesItemData = this.bci.bcg;
                 updatesActivity.a(updatesItemData);
                 return;
             default:

@@ -35,7 +35,7 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
                     } else if (customResponsedMessage.getCmd() == 2001149) {
                         boolean processHistory = GroupMsglistModel.this.processHistory(customResponsedMessage);
                         if ((customResponsedMessage.getOrginalMessage() instanceof LoadGroupHistoryMessage) && processHistory && (callback = ((LoadGroupHistoryMessage) customResponsedMessage.getOrginalMessage()).getCallback()) != null) {
-                            callback.JU();
+                            callback.JY();
                         }
                     }
                 }
@@ -58,8 +58,8 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
         }
         c cVar = new c();
         cVar.limit = 20;
-        cVar.beg = null;
-        cVar.beh = null;
+        cVar.beu = null;
+        cVar.bev = null;
         cVar.id = new StringBuilder(String.valueOf(this.mGroup.getGroupId())).toString();
         LoadGroupHistoryMessage loadGroupHistoryMessage = new LoadGroupHistoryMessage(cVar);
         loadGroupHistoryMessage.setCallback(btVar);
@@ -80,8 +80,8 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
                 j = this.mDatas.getChatMessages().get(0).getMsgId();
                 j2 = this.mDatas.getChatMessages().get(0).getRecordId();
             }
-            cVar.beg = String.valueOf(j);
-            cVar.beh = String.valueOf(j2);
+            cVar.beu = String.valueOf(j);
+            cVar.bev = String.valueOf(j2);
             cVar.id = new StringBuilder(String.valueOf(this.mGroup.getGroupId())).toString();
             super.sendMessage(new LoadGroupHistoryMessage(cVar));
         }

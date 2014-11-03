@@ -7,10 +7,10 @@ import com.baidu.tbadk.TbadkApplication;
 import java.io.UnsupportedEncodingException;
 /* loaded from: classes.dex */
 class c extends BdAsyncTask<Object, Integer, Boolean> {
-    final /* synthetic */ AppInfoUploadService aiQ;
+    final /* synthetic */ AppInfoUploadService aiZ;
 
     private c(AppInfoUploadService appInfoUploadService) {
-        this.aiQ = appInfoUploadService;
+        this.aiZ = appInfoUploadService;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -34,24 +34,24 @@ class c extends BdAsyncTask<Object, Integer, Boolean> {
         String encrypt;
         String str3;
         boolean z2 = false;
-        String genPostData = this.aiQ.genPostData();
+        String genPostData = this.aiZ.genPostData();
         if (!TextUtils.isEmpty(genPostData)) {
             try {
-                this.aiQ.mMd5 = u.n(genPostData.getBytes("UTF-8"));
+                this.aiZ.mMd5 = u.n(genPostData.getBytes("UTF-8"));
             } catch (UnsupportedEncodingException e) {
             }
-            str = this.aiQ.mMd5;
+            str = this.aiZ.mMd5;
             if (TextUtils.isEmpty(str)) {
-                str3 = this.aiQ.mMd5;
+                str3 = this.aiZ.mMd5;
                 if (str3.equals(TbadkApplication.m251getInst().getAppUploadMd5())) {
                     z = false;
                     if (z) {
                         z2 = true;
                     } else {
-                        str2 = this.aiQ.mUid;
+                        str2 = this.aiZ.mUid;
                         if (!TextUtils.isEmpty(str2)) {
-                            AppInfoUploadService appInfoUploadService = this.aiQ;
-                            encrypt = this.aiQ.getEncrypt(genPostData);
+                            AppInfoUploadService appInfoUploadService = this.aiZ;
+                            encrypt = this.aiZ.getEncrypt(genPostData);
                             z2 = appInfoUploadService.Upload(encrypt);
                         }
                     }
@@ -74,9 +74,9 @@ class c extends BdAsyncTask<Object, Integer, Boolean> {
         if (bool != null && bool.booleanValue()) {
             TbadkApplication.m251getInst().setAppUploadDate(System.currentTimeMillis());
             TbadkApplication m251getInst = TbadkApplication.m251getInst();
-            str = this.aiQ.mMd5;
+            str = this.aiZ.mMd5;
             m251getInst.setAppUploadMd5(str);
         }
-        this.aiQ.stopSelf();
+        this.aiZ.stopSelf();
     }
 }

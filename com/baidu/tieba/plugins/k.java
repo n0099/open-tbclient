@@ -7,11 +7,11 @@ import com.baidu.tbadk.pluginArch.bean.ConfigInfos;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class k implements PluginDownloader.Callback {
-    final /* synthetic */ j bHg;
+    final /* synthetic */ j bHu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.bHg = jVar;
+        this.bHu = jVar;
     }
 
     @Override // com.baidu.tbadk.pluginArch.PluginDownloader.Callback
@@ -32,23 +32,23 @@ class k implements PluginDownloader.Callback {
         TextView textView2;
         if (downloadData != null) {
             String id = downloadData.getId();
-            gVar = this.bHg.bHf;
-            pluginDownloadActivity = gVar.bGV;
-            pluginConfig = pluginDownloadActivity.bGQ;
+            gVar = this.bHu.bHt;
+            pluginDownloadActivity = gVar.bHj;
+            pluginConfig = pluginDownloadActivity.bHe;
             if (id.equals(pluginConfig.name)) {
-                gVar2 = this.bHg.bHf;
-                pluginDownloadActivity2 = gVar2.bGV;
-                z = pluginDownloadActivity2.bGR;
+                gVar2 = this.bHu.bHt;
+                pluginDownloadActivity2 = gVar2.bHj;
+                z = pluginDownloadActivity2.bHf;
                 if (!z) {
-                    gVar3 = this.bHg.bHf;
-                    pluginDownloadActivity3 = gVar3.bGV;
-                    gVar4 = pluginDownloadActivity3.bGT;
-                    textView = gVar4.bGZ;
+                    gVar3 = this.bHu.bHt;
+                    pluginDownloadActivity3 = gVar3.bHj;
+                    gVar4 = pluginDownloadActivity3.bHh;
+                    textView = gVar4.bHn;
                     textView.setText(String.format("正在下载插件：%d%%", Long.valueOf((downloadData.getLength() * 100) / downloadData.getSize())));
-                    gVar5 = this.bHg.bHf;
-                    pluginDownloadActivity4 = gVar5.bGV;
-                    gVar6 = pluginDownloadActivity4.bGT;
-                    textView2 = gVar6.bGZ;
+                    gVar5 = this.bHu.bHt;
+                    pluginDownloadActivity4 = gVar5.bHj;
+                    gVar6 = pluginDownloadActivity4.bHh;
+                    textView2 = gVar6.bHn;
                     textView2.setEnabled(false);
                 }
             }
@@ -78,35 +78,35 @@ class k implements PluginDownloader.Callback {
         g gVar10;
         PluginDownloadActivity pluginDownloadActivity10;
         if (i == 0) {
-            gVar6 = this.bHg.bHf;
-            pluginDownloadActivity6 = gVar6.bGV;
-            gVar7 = this.bHg.bHf;
-            pluginDownloadActivity7 = gVar7.bGV;
+            gVar6 = this.bHu.bHt;
+            pluginDownloadActivity6 = gVar6.bHj;
+            gVar7 = this.bHu.bHt;
+            pluginDownloadActivity7 = gVar7.bHj;
             pluginDownloadActivity6.showToast(pluginDownloadActivity7.getString(y.plugin_installation_finished));
-            gVar8 = this.bHg.bHf;
-            pluginDownloadActivity8 = gVar8.bGV;
+            gVar8 = this.bHu.bHt;
+            pluginDownloadActivity8 = gVar8.bHj;
             pluginDownloadActivity8.setResult(-1);
-            gVar9 = this.bHg.bHf;
-            pluginDownloadActivity9 = gVar9.bGV;
+            gVar9 = this.bHu.bHt;
+            pluginDownloadActivity9 = gVar9.bHj;
             pluginDownloadActivity9.setResult(-1);
-            gVar10 = this.bHg.bHf;
-            pluginDownloadActivity10 = gVar10.bGV;
+            gVar10 = this.bHu.bHt;
+            pluginDownloadActivity10 = gVar10.bHj;
             pluginDownloadActivity10.finish();
             return;
         }
-        gVar = this.bHg.bHf;
-        pluginDownloadActivity = gVar.bGV;
+        gVar = this.bHu.bHt;
+        pluginDownloadActivity = gVar.bHj;
         pluginDownloadActivity.setResult(0);
-        gVar2 = this.bHg.bHf;
-        pluginDownloadActivity2 = gVar2.bGV;
-        gVar3 = this.bHg.bHf;
-        pluginDownloadActivity3 = gVar3.bGV;
+        gVar2 = this.bHu.bHt;
+        pluginDownloadActivity2 = gVar2.bHj;
+        gVar3 = this.bHu.bHt;
+        pluginDownloadActivity3 = gVar3.bHj;
         pluginDownloadActivity2.showToast(pluginDownloadActivity3.getString(y.plugin_installation_failed), false);
-        gVar4 = this.bHg.bHf;
-        pluginDownloadActivity4 = gVar4.bGV;
+        gVar4 = this.bHu.bHt;
+        pluginDownloadActivity4 = gVar4.bHj;
         pluginDownloadActivity4.setResult(0);
-        gVar5 = this.bHg.bHf;
-        pluginDownloadActivity5 = gVar5.bGV;
+        gVar5 = this.bHu.bHt;
+        pluginDownloadActivity5 = gVar5.bHj;
         pluginDownloadActivity5.finish();
     }
 
@@ -129,25 +129,25 @@ class k implements PluginDownloader.Callback {
         PluginDownloadActivity pluginDownloadActivity5;
         if (downloadData != null) {
             String id = downloadData.getId();
-            gVar = this.bHg.bHf;
-            pluginDownloadActivity = gVar.bGV;
-            pluginConfig = pluginDownloadActivity.bGQ;
+            gVar = this.bHu.bHt;
+            pluginDownloadActivity = gVar.bHj;
+            pluginConfig = pluginDownloadActivity.bHe;
             if (id.equals(pluginConfig.name)) {
-                gVar2 = this.bHg.bHf;
-                pluginDownloadActivity2 = gVar2.bGV;
-                gVar3 = pluginDownloadActivity2.bGT;
-                textView = gVar3.bGZ;
-                gVar4 = this.bHg.bHf;
-                pluginDownloadActivity3 = gVar4.bGV;
+                gVar2 = this.bHu.bHt;
+                pluginDownloadActivity2 = gVar2.bHj;
+                gVar3 = pluginDownloadActivity2.bHh;
+                textView = gVar3.bHn;
+                gVar4 = this.bHu.bHt;
+                pluginDownloadActivity3 = gVar4.bHj;
                 textView.setText(pluginDownloadActivity3.getString(y.plugin_download_finished));
-                gVar5 = this.bHg.bHf;
-                pluginDownloadActivity4 = gVar5.bGV;
-                gVar6 = pluginDownloadActivity4.bGT;
-                textView2 = gVar6.bGZ;
+                gVar5 = this.bHu.bHt;
+                pluginDownloadActivity4 = gVar5.bHj;
+                gVar6 = pluginDownloadActivity4.bHh;
+                textView2 = gVar6.bHn;
                 textView2.setEnabled(false);
-                gVar7 = this.bHg.bHf;
-                pluginDownloadActivity5 = gVar7.bGV;
-                pluginDownloadActivity5.bGR = true;
+                gVar7 = this.bHu.bHt;
+                pluginDownloadActivity5 = gVar7.bHj;
+                pluginDownloadActivity5.bHf = true;
             }
         }
     }
@@ -166,19 +166,19 @@ class k implements PluginDownloader.Callback {
         g gVar5;
         if (downloadData != null) {
             String id = downloadData.getId();
-            gVar = this.bHg.bHf;
-            pluginDownloadActivity = gVar.bGV;
-            pluginConfig = pluginDownloadActivity.bGQ;
+            gVar = this.bHu.bHt;
+            pluginDownloadActivity = gVar.bHj;
+            pluginConfig = pluginDownloadActivity.bHe;
             if (id.equals(pluginConfig.name)) {
-                gVar2 = this.bHg.bHf;
-                pluginDownloadActivity2 = gVar2.bGV;
+                gVar2 = this.bHu.bHt;
+                pluginDownloadActivity2 = gVar2.bHj;
                 pluginDownloadActivity2.showToast(downloadData.getStatusMsg());
-                gVar3 = this.bHg.bHf;
-                pluginDownloadActivity3 = gVar3.bGV;
-                pluginDownloadActivity3.bGR = true;
-                gVar4 = this.bHg.bHf;
-                pluginDownloadActivity4 = gVar4.bGV;
-                gVar5 = pluginDownloadActivity4.bGT;
+                gVar3 = this.bHu.bHt;
+                pluginDownloadActivity3 = gVar3.bHj;
+                pluginDownloadActivity3.bHf = true;
+                gVar4 = this.bHu.bHt;
+                pluginDownloadActivity4 = gVar4.bHj;
+                gVar5 = pluginDownloadActivity4.bHh;
                 gVar5.dismiss();
             }
         }

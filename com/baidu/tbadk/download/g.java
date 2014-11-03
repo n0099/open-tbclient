@@ -9,24 +9,24 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private static g Rf = new g();
-    private static DownloadData Rg = null;
-    private static List<DownloadData> Ra = new LinkedList();
-    private i Rh = null;
+    private static g Rj = new g();
+    private static DownloadData Rk = null;
+    private static List<DownloadData> Re = new LinkedList();
+    private i Rl = null;
     private int max = 20;
-    private Handler Ri = new h(this);
+    private Handler Rm = new h(this);
 
     private g() {
     }
 
-    public static g rk() {
-        return Rf;
+    public static g rm() {
+        return Rj;
     }
 
     public void a(DownloadData downloadData, int i) {
         int type = downloadData.getType();
         int i2 = 0;
-        for (DownloadData downloadData2 : Ra) {
+        for (DownloadData downloadData2 : Re) {
             if (downloadData2.getType() == type) {
                 i2++;
             }
@@ -44,7 +44,7 @@ public class g {
     }
 
     public void e(DownloadData downloadData) {
-        if (Ra.size() >= this.max) {
+        if (Re.size() >= this.max) {
             downloadData.setStatus(2);
             downloadData.setStatusMsg(TbadkApplication.m251getInst().getApp().getString(y.download_fail_over_max));
             if (downloadData.getCallback() != null) {
@@ -72,8 +72,8 @@ public class g {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < Ra.size()) {
-                    DownloadData downloadData2 = Ra.get(i2);
+                if (i2 < Re.size()) {
+                    DownloadData downloadData2 = Re.get(i2);
                     if (downloadData2 == null || !downloadData2.getUrl().equals(downloadData.getUrl()) || !downloadData2.getId().equals(downloadData.getId())) {
                         i = i2 + 1;
                     } else {
@@ -81,8 +81,8 @@ public class g {
                     }
                 } else {
                     downloadData.setStatus(5);
-                    Ra.add(downloadData);
-                    rl();
+                    Re.add(downloadData);
+                    rn();
                     return;
                 }
             }
@@ -90,23 +90,23 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rl() {
-        if (Rg == null && !Ra.isEmpty()) {
-            Rg = Ra.get(0);
-            if (Rg != null) {
-                this.Rh = new i(this);
-                this.Rh.execute(Rg);
+    public void rn() {
+        if (Rk == null && !Re.isEmpty()) {
+            Rk = Re.get(0);
+            if (Rk != null) {
+                this.Rl = new i(this);
+                this.Rl.execute(Rk);
             }
         }
     }
 
     public void cX(String str) {
-        if (Rg != null && Rg.getUrl().equals(str)) {
-            this.Rh.cancel(true);
+        if (Rk != null && Rk.getUrl().equals(str)) {
+            this.Rl.cancel(true);
             return;
         }
         LinkedList<DownloadData> linkedList = new LinkedList();
-        Iterator<DownloadData> it = Ra.iterator();
+        Iterator<DownloadData> it = Re.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -121,17 +121,17 @@ public class g {
             }
         }
         for (DownloadData downloadData : linkedList) {
-            Ra.remove(downloadData);
+            Re.remove(downloadData);
         }
     }
 
     public void p(String str, int i) {
-        if (Rg != null && Rg.getId().equals(str) && Rg.getType() == i) {
-            this.Rh.cancel(true);
+        if (Rk != null && Rk.getId().equals(str) && Rk.getType() == i) {
+            this.Rl.cancel(true);
             return;
         }
         LinkedList<DownloadData> linkedList = new LinkedList();
-        Iterator<DownloadData> it = Ra.iterator();
+        Iterator<DownloadData> it = Re.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -147,16 +147,16 @@ public class g {
             }
         }
         for (DownloadData downloadData : linkedList) {
-            Ra.remove(downloadData);
+            Re.remove(downloadData);
         }
     }
 
     public void cF(int i) {
-        if (Rg != null && Rg.getType() == i) {
-            this.Rh.cancel(true);
+        if (Rk != null && Rk.getType() == i) {
+            this.Rl.cancel(true);
         }
         LinkedList<DownloadData> linkedList = new LinkedList();
-        for (DownloadData downloadData : Ra) {
+        for (DownloadData downloadData : Re) {
             if (downloadData.getType() == i) {
                 downloadData.setStatus(4);
                 downloadData.setStatusMsg(null);
@@ -167,11 +167,11 @@ public class g {
             }
         }
         for (DownloadData downloadData2 : linkedList) {
-            Ra.remove(downloadData2);
+            Re.remove(downloadData2);
         }
     }
 
-    public List<DownloadData> rm() {
-        return Ra;
+    public List<DownloadData> ro() {
+        return Re;
     }
 }

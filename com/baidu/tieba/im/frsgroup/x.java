@@ -9,11 +9,11 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ MembersActivity aXN;
+    final /* synthetic */ MembersActivity aYb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(MembersActivity membersActivity) {
-        this.aXN = membersActivity;
+        this.aYb = membersActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -21,14 +21,14 @@ public class x implements AdapterView.OnItemLongClickListener {
         ah ahVar;
         MembersModel membersModel;
         ah ahVar2;
-        ahVar = this.aXN.aXJ;
-        if (ahVar.NO().NJ()) {
+        ahVar = this.aYb.aXX;
+        if (ahVar.NS().NN()) {
             return false;
         }
-        membersModel = this.aXN.aXK;
+        membersModel = this.aYb.aXY;
         if (membersModel.isController()) {
-            ahVar2 = this.aXN.aXJ;
-            UserData userData = (UserData) ahVar2.NO().getItem(i);
+            ahVar2 = this.aYb.aXX;
+            UserData userData = (UserData) ahVar2.NS().getItem(i);
             if (userData != null) {
                 if (userData.getPermission().isController()) {
                     return false;
@@ -36,7 +36,7 @@ public class x implements AdapterView.OnItemLongClickListener {
                 long userIdLong = userData.getUserIdLong();
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(Long.valueOf(userIdLong));
-                DialogUtil.removeMemberDialog(this.aXN, new y(this, arrayList), new z(this));
+                DialogUtil.removeMemberDialog(this.aYb, new y(this, arrayList), new z(this));
             }
             return true;
         }

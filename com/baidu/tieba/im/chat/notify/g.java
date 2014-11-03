@@ -36,26 +36,26 @@ import com.baidu.tieba.y;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g extends BaseFragment {
-    private ShutDownValidateTipView aQr;
-    private DialogInterface.OnClickListener aQt;
-    private int aQu;
-    private RelativeLayout aQw;
-    private com.baidu.tbadk.core.view.o ahO;
-    private NoNetworkView aoJ;
-    private com.baidu.tbadk.core.view.d ayf;
-    private ImMessageCenterModel aQm = null;
+    private ShutDownValidateTipView aQF;
+    private DialogInterface.OnClickListener aQH;
+    private int aQI;
+    private RelativeLayout aQK;
+    private com.baidu.tbadk.core.view.o ahX;
+    private NoNetworkView aoS;
+    private com.baidu.tbadk.core.view.d ayo;
+    private ImMessageCenterModel aQA = null;
     private FragmentActivity mActivity = null;
-    private ImMessageCenterShowItemData aQn = null;
-    private BdListView aQo = null;
-    private ImMessageCenterListAdapter aQp = null;
-    private p aQq = null;
-    AlertDialog aQs = null;
-    private boolean aQv = true;
-    private final AdapterView.OnItemClickListener aQx = new h(this);
-    private final AdapterView.OnItemLongClickListener aQy = new j(this);
-    private final com.baidu.adp.widget.ListView.f aQz = new k(this);
-    private final CustomMessageListener aQA = new l(this, 0);
-    private a aQB = new m(this);
+    private ImMessageCenterShowItemData aQB = null;
+    private BdListView aQC = null;
+    private ImMessageCenterListAdapter aQD = null;
+    private p aQE = null;
+    AlertDialog aQG = null;
+    private boolean aQJ = true;
+    private final AdapterView.OnItemClickListener aQL = new h(this);
+    private final AdapterView.OnItemLongClickListener aQM = new j(this);
+    private final com.baidu.adp.widget.ListView.f aQN = new k(this);
+    private final CustomMessageListener aQO = new l(this, 0);
+    private a aQP = new m(this);
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
@@ -65,7 +65,7 @@ public class g extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.aQu = -1;
+        this.aQI = -1;
         this.mActivity = getActivity();
         View inflate = layoutInflater.inflate(w.chat_list_activity, viewGroup, false);
         G(inflate);
@@ -75,78 +75,78 @@ public class g extends BaseFragment {
     }
 
     private void registerListener() {
-        registerListener(2016003, this.aQA);
-        registerListener(2016000, this.aQA);
-        registerListener(2016010, this.aQA);
-        registerListener(2016006, this.aQA);
-        registerListener(2016011, this.aQA);
-        registerListener(2016001, this.aQA);
+        registerListener(2016003, this.aQO);
+        registerListener(2016000, this.aQO);
+        registerListener(2016010, this.aQO);
+        registerListener(2016006, this.aQO);
+        registerListener(2016011, this.aQO);
+        registerListener(2016001, this.aQO);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.aQp != null) {
-            this.aQp.notifyDataSetChanged();
+        if (this.aQD != null) {
+            this.aQD.notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        MessageManager.getInstance().unRegisterListener(this.aQA);
+        MessageManager.getInstance().unRegisterListener(this.aQO);
     }
 
     private void initData() {
-        this.aQm = new ImMessageCenterModel(this.mActivity);
+        this.aQA = new ImMessageCenterModel(this.mActivity);
         cF(com.baidu.tbadk.core.sharedPref.b.lk().getBoolean("is_shut_down_validate", false) ? false : true);
     }
 
     private void G(View view) {
-        this.aQw = (RelativeLayout) view.findViewById(v.chat_list);
-        this.ahO = NoDataViewFactory.a(this.mActivity, this.aQw, r.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(t.ds80)), s.bL(y.no_recent_chat), null);
-        this.aQr = (ShutDownValidateTipView) view.findViewById(v.view_no_validate);
-        this.aQr.setVisibility(8);
-        this.aQr.setShutDownClickListener(new n(this));
-        this.aQo = (BdListView) view.findViewById(v.chat_list_content);
-        this.aQo.setDividerHeight(0);
-        this.aQq = new p(this.mActivity);
-        this.aQq.a(this.aQz);
-        this.aQo.setPullRefresh(this.aQq);
-        this.aQp = new ImMessageCenterListAdapter(this.mActivity);
-        this.aQp.g(this);
-        this.aQo.setAdapter((ListAdapter) this.aQp);
-        this.aQo.setOnItemClickListener(this.aQx);
-        this.aQo.setOnItemLongClickListener(this.aQy);
-        this.aQo.hO();
-        this.aoJ = (NoNetworkView) this.aQw.findViewById(v.view_no_network);
+        this.aQK = (RelativeLayout) view.findViewById(v.chat_list);
+        this.ahX = NoDataViewFactory.a(this.mActivity, this.aQK, r.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(t.ds80)), s.bL(y.no_recent_chat), null);
+        this.aQF = (ShutDownValidateTipView) view.findViewById(v.view_no_validate);
+        this.aQF.setVisibility(8);
+        this.aQF.setShutDownClickListener(new n(this));
+        this.aQC = (BdListView) view.findViewById(v.chat_list_content);
+        this.aQC.setDividerHeight(0);
+        this.aQE = new p(this.mActivity);
+        this.aQE.a(this.aQN);
+        this.aQC.setPullRefresh(this.aQE);
+        this.aQD = new ImMessageCenterListAdapter(this.mActivity);
+        this.aQD.g(this);
+        this.aQC.setAdapter((ListAdapter) this.aQD);
+        this.aQC.setOnItemClickListener(this.aQL);
+        this.aQC.setOnItemLongClickListener(this.aQM);
+        this.aQC.hO();
+        this.aoS = (NoNetworkView) this.aQK.findViewById(v.view_no_network);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        if (isAdded() && this.aQu != i) {
-            this.aQu = i;
-            if (this.ahO != null) {
-                this.ahO.onChangeSkinType(i);
+        if (isAdded() && this.aQI != i) {
+            this.aQI = i;
+            if (this.ahX != null) {
+                this.ahX.onChangeSkinType(i);
             }
-            if (this.aQr != null) {
-                this.aQr.onChangeSkinType(i);
+            if (this.aQF != null) {
+                this.aQF.onChangeSkinType(i);
             }
-            if (this.aQq != null) {
-                this.aQq.bM(i);
+            if (this.aQE != null) {
+                this.aQE.bM(i);
             }
-            if (this.ayf != null) {
-                this.ayf.bG(i);
+            if (this.ayo != null) {
+                this.ayo.bG(i);
             }
-            if (this.aQp != null) {
-                this.aQp.notifyDataSetChanged();
+            if (this.aQD != null) {
+                this.aQD.notifyDataSetChanged();
             }
             if (this.mActivity != null && (this.mActivity instanceof BaseFragmentActivity)) {
                 ((BaseFragmentActivity) this.mActivity).getLayoutMode().L(i == 1);
-                ((BaseFragmentActivity) this.mActivity).getLayoutMode().h(this.aQw);
+                ((BaseFragmentActivity) this.mActivity).getLayoutMode().h(this.aQK);
             }
-            if (this.aoJ != null) {
-                this.aoJ.onChangeSkinType(i);
+            if (this.aoS != null) {
+                this.aoS.onChangeSkinType(i);
             }
         }
     }
@@ -154,55 +154,55 @@ public class g extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
-        this.ahO.nv();
+        this.ahX.nv();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        if (this.ayf != null) {
-            this.ayf.onStop();
+        if (this.ayo != null) {
+            this.ayo.onStop();
         }
-        this.ahO.onActivityStop();
+        this.ahX.onActivityStop();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        this.aQt = new o(this, imMessageCenterShowItemData);
+        this.aQH = new o(this, imMessageCenterShowItemData);
         String string = this.mActivity.getString(y.delete_user_chat);
         AlertDialog.Builder builder = new AlertDialog.Builder(this.mActivity);
         builder.setTitle(y.operation);
-        builder.setItems(new String[]{string}, this.aQt);
-        this.aQs = builder.create();
-        this.aQs.setCanceledOnTouchOutside(true);
+        builder.setItems(new String[]{string}, this.aQH);
+        this.aQG = builder.create();
+        this.aQG.setCanceledOnTouchOutside(true);
     }
 
     public void cD(boolean z) {
         if (z) {
-            if (Kl() && this.aQr.getVisibility() != 0) {
-                this.aQr.setVisibility(0);
+            if (Kp() && this.aQF.getVisibility() != 0) {
+                this.aQF.setVisibility(0);
             }
-        } else if (this.aQr.getVisibility() != 8) {
-            this.aQr.setVisibility(8);
+        } else if (this.aQF.getVisibility() != 8) {
+            this.aQF.setVisibility(8);
         }
     }
 
     public void cE(boolean z) {
         if (z) {
-            this.ahO.setVisibility(0);
+            this.ahX.setVisibility(0);
         } else {
-            this.ahO.setVisibility(8);
+            this.ahX.setVisibility(8);
         }
         if (!isAdded()) {
         }
     }
 
-    public boolean Kl() {
-        return this.aQv;
+    public boolean Kp() {
+        return this.aQJ;
     }
 
     public void cF(boolean z) {
-        this.aQv = z;
+        this.aQJ = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -218,11 +218,11 @@ public class g extends BaseFragment {
             MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
             ImMessageCenterPojo data = memoryChangedMessage.getData();
             if (memoryChangedMessage.getType() == 1) {
-                if (this.aQm != null) {
-                    this.aQm.insertOrUpdate(data, this.aQB);
+                if (this.aQA != null) {
+                    this.aQA.insertOrUpdate(data, this.aQP);
                 }
-            } else if (memoryChangedMessage.getType() == 2 && this.aQm != null) {
-                this.aQm.remove(data, this.aQB);
+            } else if (memoryChangedMessage.getType() == 2 && this.aQA != null) {
+                this.aQA.remove(data, this.aQP);
             }
         }
     }
@@ -232,8 +232,8 @@ public class g extends BaseFragment {
         if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
             ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
             List<ImMessageCenterPojo> data = responsedMemoryListMessage.getData();
-            if (responsedMemoryListMessage.getType() == 1 && this.aQm != null) {
-                this.aQm.setData(data, this.aQB);
+            if (responsedMemoryListMessage.getType() == 1 && this.aQA != null) {
+                this.aQA.setData(data, this.aQP);
             }
         }
     }

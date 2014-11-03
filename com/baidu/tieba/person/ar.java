@@ -8,19 +8,19 @@ import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ar extends BdAsyncTask<String, Integer, String> {
-    private com.baidu.tieba.model.au bCd;
-    final /* synthetic */ PersonChangeActivity bCm;
+    final /* synthetic */ PersonChangeActivity bCA;
+    private com.baidu.tieba.model.au bCr;
     private com.baidu.tbadk.core.util.ac mNetWork = null;
 
     public ar(PersonChangeActivity personChangeActivity, com.baidu.tieba.model.au auVar) {
-        this.bCm = personChangeActivity;
-        this.bCd = null;
-        this.bCd = auVar;
+        this.bCA = personChangeActivity;
+        this.bCr = null;
+        this.bCr = auVar;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.bCm.bCg = null;
+        this.bCA.bCu = null;
         if (this.mNetWork != null) {
             this.mNetWork.dM();
         }
@@ -32,23 +32,23 @@ public class ar extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         Boolean bool;
-        this.bCm.bCg = null;
-        this.bCm.closeLoadingDialog();
+        this.bCA.bCu = null;
+        this.bCA.closeLoadingDialog();
         if (this.mNetWork != null) {
             if (this.mNetWork.mc().nb().jq()) {
-                this.bCm.showToast(this.bCm.getString(com.baidu.tieba.y.success));
+                this.bCA.showToast(this.bCA.getString(com.baidu.tieba.y.success));
                 Intent intent = new Intent();
-                bool = this.bCm.bBQ;
+                bool = this.bCA.bCe;
                 if (bool.booleanValue()) {
-                    intent.putExtra("person_change_data", this.bCd.TT());
+                    intent.putExtra("person_change_data", this.bCr.TW());
                 } else {
-                    intent.putExtra("data", this.bCd.TT());
+                    intent.putExtra("data", this.bCr.TW());
                 }
-                com.baidu.tieba.aj.wk().a(this.bCd.TT());
-                this.bCm.setResult(-1, intent);
-                this.bCm.finish();
+                com.baidu.tieba.aj.wm().a(this.bCr.TW());
+                this.bCA.setResult(-1, intent);
+                this.bCA.finish();
             } else {
-                this.bCm.showToast(this.mNetWork.getErrorString());
+                this.bCA.showToast(this.mNetWork.getErrorString());
             }
         }
         super.onPostExecute((ar) str);
@@ -58,9 +58,9 @@ public class ar extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         DialogInterface.OnCancelListener onCancelListener;
-        PersonChangeActivity personChangeActivity = this.bCm;
-        String string = this.bCm.getString(com.baidu.tieba.y.saving);
-        onCancelListener = this.bCm.bCh;
+        PersonChangeActivity personChangeActivity = this.bCA;
+        String string = this.bCA.getString(com.baidu.tieba.y.saving);
+        onCancelListener = this.bCA.bCv;
         personChangeActivity.showLoadingDialog(string, onCancelListener);
         super.onPreExecute();
     }
@@ -70,13 +70,13 @@ public class ar extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: h */
     public String doInBackground(String... strArr) {
-        if (this.bCd != null) {
+        if (this.bCr != null) {
             this.mNetWork = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/profile/modify");
-            this.mNetWork.k(MyGiftListActivityConfig.USER_SEX, String.valueOf(this.bCd.TT().getSex()));
-            this.mNetWork.k("intro", this.bCd.TT().getIntro());
+            this.mNetWork.k(MyGiftListActivityConfig.USER_SEX, String.valueOf(this.bCr.TW().getSex()));
+            this.mNetWork.k("intro", this.bCr.TW().getIntro());
             this.mNetWork.lD();
             if (this.mNetWork.mc().nb().jq()) {
-                com.baidu.tieba.util.j.aey();
+                com.baidu.tieba.util.j.aeB();
             }
         }
         return null;

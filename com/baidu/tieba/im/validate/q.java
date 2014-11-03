@@ -4,8 +4,8 @@ package com.baidu.tieba.im.validate;
 public class q extends com.baidu.tieba.im.b<Integer> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.b
-    /* renamed from: Qr */
+    /* renamed from: Qu */
     public Integer doInBackground() {
-        return Integer.valueOf(com.baidu.tieba.im.db.d.Mx().fZ("apply_join_group"));
+        return Integer.valueOf(com.baidu.tieba.im.db.d.MB().fZ("apply_join_group"));
     }
 }

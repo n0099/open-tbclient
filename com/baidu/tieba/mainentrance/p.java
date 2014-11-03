@@ -6,11 +6,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements TextView.OnEditorActionListener {
-    final /* synthetic */ SquareSearchActivity bmO;
+    final /* synthetic */ SquareSearchActivity bnc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(SquareSearchActivity squareSearchActivity) {
-        this.bmO = squareSearchActivity;
+        this.bnc = squareSearchActivity;
     }
 
     @Override // android.widget.TextView.OnEditorActionListener
@@ -22,29 +22,29 @@ public class p implements TextView.OnEditorActionListener {
         String str3;
         String str4;
         if (i == 2) {
-            i2 = this.bmO.mMode;
+            i2 = this.bnc.mMode;
             if (i2 != 0) {
-                i3 = this.bmO.mMode;
+                i3 = this.bnc.mMode;
                 if (i3 == 3) {
-                    str2 = this.bmO.bmA;
+                    str2 = this.bnc.bmO;
                     if (TextUtils.isEmpty(str2)) {
                         return true;
                     }
-                    str3 = this.bmO.bmA;
+                    str3 = this.bnc.bmO;
                     if (str3.trim().length() > 0) {
-                        SquareSearchActivity squareSearchActivity = this.bmO;
-                        str4 = this.bmO.bmA;
+                        SquareSearchActivity squareSearchActivity = this.bnc;
+                        str4 = this.bnc.bmO;
                         squareSearchActivity.fz(str4);
                         return true;
                     }
                     return true;
                 }
-                SquareSearchActivity squareSearchActivity2 = this.bmO;
-                str = this.bmO.bmA;
+                SquareSearchActivity squareSearchActivity2 = this.bnc;
+                str = this.bnc.bmO;
                 squareSearchActivity2.o(1, str);
                 return true;
             }
-            this.bmO.startSearch();
+            this.bnc.startSearch();
             return true;
         }
         return false;

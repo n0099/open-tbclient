@@ -18,93 +18,93 @@ import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class NavigationBarActivity extends BaseActivity {
-    protected o Yj;
-    protected NoNetworkView ayg;
-    private RelativeLayout bIy;
-    private RelativeLayout bIz;
-    protected NavigationBar bhx;
+    protected o Yn;
+    protected NoNetworkView ayp;
+    private RelativeLayout bIM;
+    private RelativeLayout bIN;
+    protected NavigationBar bhL;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         super.setContentView(w.nevigationbar_layout);
-        this.bhx = (NavigationBar) findViewById(v.navigation_bar);
-        this.bIy = (RelativeLayout) findViewById(v.navigation_bar_root);
-        this.bhx.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-        if (HY()) {
-            this.ayg = (NoNetworkView) ((ViewStub) findViewById(v.no_network_viewstub)).inflate();
+        this.bhL = (NavigationBar) findViewById(v.navigation_bar);
+        this.bIM = (RelativeLayout) findViewById(v.navigation_bar_root);
+        this.bhL.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
+        if (Ic()) {
+            this.ayp = (NoNetworkView) ((ViewStub) findViewById(v.no_network_viewstub)).inflate();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(r rVar, s sVar, q qVar) {
-        if (this.Yj == null) {
-            this.Yj = NoDataViewFactory.a(this, this.bIy, rVar, sVar, qVar);
+        if (this.Yn == null) {
+            this.Yn = NoDataViewFactory.a(this, this.bIM, rVar, sVar, qVar);
         }
-        this.Yj.onChangeSkinType(TbadkApplication.m251getInst().getSkinType());
-        this.Yj.setVisibility(0);
+        this.Yn.onChangeSkinType(TbadkApplication.m251getInst().getSkinType());
+        this.Yn.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void abO() {
-        if (this.Yj != null) {
-            this.Yj.setVisibility(8);
+    public void abR() {
+        if (this.Yn != null) {
+            this.Yn.setVisibility(8);
         }
     }
 
     @Override // android.app.Activity
     public void setContentView(View view) {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-        if (HY()) {
+        if (Ic()) {
             layoutParams.addRule(3, v.no_network_view);
         } else {
             layoutParams.addRule(3, v.no_network_viewstub);
         }
-        this.bIz = new RelativeLayout(this);
-        this.bIz.addView(view, new ViewGroup.LayoutParams(-1, -1));
-        this.bIy.addView(this.bIz, layoutParams);
+        this.bIN = new RelativeLayout(this);
+        this.bIN.addView(view, new ViewGroup.LayoutParams(-1, -1));
+        this.bIM.addView(this.bIN, layoutParams);
     }
 
-    protected boolean HY() {
+    protected boolean Ic() {
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void setContentView(int i) {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-        if (HY()) {
+        if (Ic()) {
             layoutParams.addRule(3, v.no_network_view);
         } else {
             layoutParams.addRule(3, v.no_network_viewstub);
         }
-        this.bIz = new RelativeLayout(this);
-        this.bIz.addView(com.baidu.adp.lib.g.b.ek().inflate(this, i, null), new ViewGroup.LayoutParams(-1, -1));
-        this.bIy.addView(this.bIz, layoutParams);
+        this.bIN = new RelativeLayout(this);
+        this.bIN.addView(com.baidu.adp.lib.g.b.ek().inflate(this, i, null), new ViewGroup.LayoutParams(-1, -1));
+        this.bIM.addView(this.bIN, layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public View getRootView() {
-        return this.bIy;
+        return this.bIM;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public View abP() {
-        return this.bIz;
+    public View abS() {
+        return this.bIN;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.bhx.onChangeSkinType(i);
-        if (this.ayg != null) {
-            this.ayg.onChangeSkinType(i);
+        this.bhL.onChangeSkinType(i);
+        if (this.ayp != null) {
+            this.ayp.onChangeSkinType(i);
         }
-        if (this.Yj != null) {
-            this.Yj.onChangeSkinType(i);
+        if (this.Yn != null) {
+            this.Yn.onChangeSkinType(i);
         }
         getLayoutMode().L(i == 1);
-        getLayoutMode().h(this.bIy);
+        getLayoutMode().h(this.bIM);
     }
 }

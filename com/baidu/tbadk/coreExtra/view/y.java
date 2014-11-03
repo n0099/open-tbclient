@@ -10,13 +10,13 @@ import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.data.a> {
-    final /* synthetic */ r Oy;
+    final /* synthetic */ r OC;
     private String mAccount;
     private String mUrl;
     private com.baidu.tbadk.core.util.ac yV = null;
 
     public y(r rVar, String str, String str2) {
-        this.Oy = rVar;
+        this.OC = rVar;
         this.mUrl = null;
         this.mAccount = null;
         this.mUrl = str;
@@ -27,10 +27,10 @@ public class y extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
     public void cancel() {
         ProgressBar progressBar;
         Button button;
-        this.Oy.Op = null;
-        progressBar = this.Oy.Ot;
+        this.OC.Ot = null;
+        progressBar = this.OC.Ox;
         progressBar.setVisibility(8);
-        button = this.Oy.mConfirm;
+        button = this.OC.mConfirm;
         button.setEnabled(true);
     }
 
@@ -47,25 +47,25 @@ public class y extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
         w wVar2;
         AccountData accountData2;
         super.onPostExecute(aVar);
-        this.Oy.Op = null;
-        progressBar = this.Oy.Ot;
+        this.OC.Ot = null;
+        progressBar = this.OC.Ox;
         progressBar.setVisibility(8);
-        button = this.Oy.mConfirm;
+        button = this.OC.mConfirm;
         button.setEnabled(true);
         if (aVar == null) {
-            this.Oy.cM(this.yV.getErrorString());
+            this.OC.cM(this.yV.getErrorString());
         } else if (aVar.getUser().getUserName() == null) {
-            this.Oy.cM(this.yV.getErrorString());
-            this.Oy.i(aVar.ka());
+            this.OC.cM(this.yV.getErrorString());
+            this.OC.j(aVar.ka());
         } else {
-            this.Oy.qa();
-            accountData = this.Oy.KS;
-            baseActivity = this.Oy.On;
+            this.OC.qc();
+            accountData = this.OC.KT;
+            baseActivity = this.OC.Or;
             TbadkApplication.setCurrentAccount(accountData, baseActivity);
-            wVar = this.Oy.Ow;
+            wVar = this.OC.OA;
             if (wVar != null) {
-                wVar2 = this.Oy.Ow;
-                accountData2 = this.Oy.KS;
+                wVar2 = this.OC.OA;
+                accountData2 = this.OC.KT;
                 wVar2.f(accountData2);
             }
         }
@@ -76,12 +76,12 @@ public class y extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
     public void onPreExecute() {
         ProgressBar progressBar;
         Button button;
-        progressBar = this.Oy.Ot;
+        progressBar = this.OC.Ox;
         progressBar.setVisibility(0);
-        button = this.Oy.mConfirm;
+        button = this.OC.mConfirm;
         button.setEnabled(false);
-        this.Oy.cM(null);
-        this.Oy.pZ();
+        this.OC.cM(null);
+        this.OC.qb();
         super.onPreExecute();
     }
 
@@ -126,9 +126,9 @@ public class y extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
             this.yV = new com.baidu.tbadk.core.util.ac(this.mUrl);
             this.yV.k("un", this.mAccount);
             com.baidu.tbadk.core.util.ac acVar = this.yV;
-            accountData = this.Oy.KS;
+            accountData = this.OC.KT;
             acVar.k("BDUSS", accountData.getBDUSS());
-            this.yV.mc().na().FT = false;
+            this.yV.mc().na().FU = false;
             lA = this.yV.lA();
         } catch (Exception e2) {
             str = str2;
@@ -152,17 +152,17 @@ public class y extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
                 str2 = userName;
                 str2 = userName;
                 if (userName != null && bduss != null) {
-                    accountData2 = this.Oy.KS;
+                    accountData2 = this.OC.KT;
                     str = aVar;
                     str2 = userName;
                     if (accountData2 != null) {
-                        accountData3 = this.Oy.KS;
+                        accountData3 = this.OC.KT;
                         accountData3.setAccount(userName);
-                        accountData4 = this.Oy.KS;
+                        accountData4 = this.OC.KT;
                         accountData4.setBDUSS(bduss);
-                        accountData5 = this.Oy.KS;
+                        accountData5 = this.OC.KT;
                         accountData5.setPortrait(aVar.getUser().getPortrait());
-                        r1 = this.Oy.KS;
+                        r1 = this.OC.KT;
                         com.baidu.tbadk.core.account.a.a(r1);
                         str = aVar;
                         str2 = r1;
@@ -173,7 +173,7 @@ public class y extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.da
                 aVar2.parserJson(lA);
                 str = aVar2;
             } else if (this.yV.mg() == 1) {
-                this.Oy.qa();
+                this.OC.qc();
                 str = 0;
                 return str;
             }

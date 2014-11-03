@@ -1,6 +1,9 @@
 package com.baidu.tbadk.pluginArch;
 
 import android.util.Xml;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -19,15 +22,28 @@ public class PluginXMLReader {
     static final String RES_TAG = "res";
     static final String SO_TAG = "so";
     static final String VERSION_TAG = "version";
+    private static BdAsyncTaskParallel parallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+    public PluginXMLAsyncCallback mCallback;
     private File mFile;
     public PluginXMLInfo mXmlInfo;
+
+    /* loaded from: classes.dex */
+    public interface PluginXMLAsyncCallback {
+        void onFinish(PluginXMLReader pluginXMLReader);
+    }
 
     public PluginXMLReader(File file) {
         this.mFile = null;
         this.mFile = file;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [98=7, 100=7, 101=5] */
+    public void asyncParse() {
+        PluginXMLAsyncTask pluginXMLAsyncTask = new PluginXMLAsyncTask();
+        pluginXMLAsyncTask.setParallel(parallel);
+        pluginXMLAsyncTask.execute(new Void[0]);
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [119=7, 121=7, 122=5] */
     public void parse() {
         FileInputStream fileInputStream;
         XmlPullParser newPullParser = Xml.newPullParser();
@@ -139,6 +155,30 @@ public class PluginXMLReader {
             fileInputStream = null;
         } catch (Throwable th2) {
             th = th2;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    class PluginXMLAsyncTask extends BdAsyncTask<Void, Integer, Void> {
+        PluginXMLAsyncTask() {
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public synchronized Void doInBackground(Void... voidArr) {
+            PluginXMLReader.this.parse();
+            return null;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Void r3) {
+            if (PluginXMLReader.this.mCallback != null) {
+                PluginXMLReader.this.mCallback.onFinish(PluginXMLReader.this);
+            }
+            super.onPostExecute((PluginXMLAsyncTask) r3);
         }
     }
 }

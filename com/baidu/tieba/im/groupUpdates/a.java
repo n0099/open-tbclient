@@ -6,13 +6,13 @@ import com.baidu.tieba.im.groupInfo.RequestDelSystemMessage;
 import com.baidu.tieba.im.groupInfo.ResponseDelSystemMessage;
 /* loaded from: classes.dex */
 class a extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ UpdatesActivity bbU;
+    final /* synthetic */ UpdatesActivity bci;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(UpdatesActivity updatesActivity, int i) {
         super(i);
-        this.bbU = updatesActivity;
+        this.bci = updatesActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,25 +26,25 @@ class a extends com.baidu.adp.framework.listener.e {
         com.baidu.tieba.im.a<Boolean> aVar;
         UpdatesItemData updatesItemData2;
         com.baidu.tieba.im.a aVar2;
-        tVar = this.bbU.bbM;
+        tVar = this.bci.bca;
         tVar.dg(false);
         if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponsedMessage) && 202004 == socketResponsedMessage.getCmd()) {
             ResponseDelSystemMessage responseDelSystemMessage = (ResponseDelSystemMessage) socketResponsedMessage;
             RequestDelSystemMessage requestDelSystemMessage = (RequestDelSystemMessage) responseDelSystemMessage.getOrginalMessage();
             if (responseDelSystemMessage.getError() == 0) {
-                updatesItemData = this.bbU.bbS;
+                updatesItemData = this.bci.bcg;
                 if (updatesItemData != null) {
-                    updatesItemData2 = this.bbU.bbS;
-                    aVar2 = this.bbU.bbP;
+                    updatesItemData2 = this.bci.bcg;
+                    aVar2 = this.bci.bcd;
                     p.a(updatesItemData2, aVar2);
-                    this.bbU.bbS = null;
+                    this.bci.bcg = null;
                 }
-                pVar = this.bbU.bbT;
+                pVar = this.bci.bch;
                 if (pVar != null) {
-                    pVar2 = this.bbU.bbT;
-                    if (pVar2.Ph() > 0) {
-                        pVar3 = this.bbU.bbT;
-                        aVar = this.bbU.bbP;
+                    pVar2 = this.bci.bch;
+                    if (pVar2.Pk() > 0) {
+                        pVar3 = this.bci.bch;
+                        aVar = this.bci.bcd;
                         pVar3.b(aVar);
                     }
                 }

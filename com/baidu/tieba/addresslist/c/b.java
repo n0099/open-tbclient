@@ -7,26 +7,26 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends e {
-    private com.baidu.tieba.addresslist.b.a ahh;
-    private byte[] ahi;
+    private com.baidu.tieba.addresslist.b.a ahq;
+    private byte[] ahr;
 
     public b(Context context) {
         super(context);
-        this.ahi = new byte[0];
-        this.ahh = com.baidu.tieba.addresslist.b.a.xz();
+        this.ahr = new byte[0];
+        this.ahq = com.baidu.tieba.addresslist.b.a.xB();
     }
 
     public List<com.baidu.tbadk.coreExtra.relationship.b> ek(String str) {
-        synchronized (this.ahi) {
+        synchronized (this.ahr) {
             ArrayList arrayList = new ArrayList();
             if (TextUtils.isEmpty(str)) {
                 return arrayList;
             }
-            List<com.baidu.tbadk.coreExtra.relationship.b> xA = this.ahh.xA();
-            if (xA == null) {
+            List<com.baidu.tbadk.coreExtra.relationship.b> xC = this.ahq.xC();
+            if (xC == null) {
                 return arrayList;
             }
-            for (com.baidu.tbadk.coreExtra.relationship.b bVar : xA) {
+            for (com.baidu.tbadk.coreExtra.relationship.b bVar : xC) {
                 String userName = bVar.getUserName();
                 String quanpin = bVar.getQuanpin();
                 if (!TextUtils.isEmpty(userName) && userName.toLowerCase().startsWith(str.toLowerCase())) {
@@ -35,7 +35,7 @@ public class b extends e {
                     arrayList.add(bVar);
                 }
             }
-            for (com.baidu.tbadk.coreExtra.relationship.b bVar2 : xA) {
+            for (com.baidu.tbadk.coreExtra.relationship.b bVar2 : xC) {
                 String userName2 = bVar2.getUserName();
                 String quanpin2 = bVar2.getQuanpin();
                 if (!arrayList.contains(bVar2)) {

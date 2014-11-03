@@ -16,9 +16,9 @@ import com.baidu.tieba.person.ProfileSocketResponseMessage;
 import tbclient.Profile.DataRes;
 /* loaded from: classes.dex */
 public class ac extends com.baidu.adp.base.e {
-    private boolean Tu;
-    private com.baidu.tieba.b.a aAE;
-    private com.baidu.adp.framework.listener.a bqX;
+    private boolean Ty;
+    private com.baidu.tieba.b.a aAO;
+    private com.baidu.adp.framework.listener.a brl;
     private final Context mContext;
     private String mId;
     Handler mUIHandler;
@@ -27,14 +27,14 @@ public class ac extends com.baidu.adp.base.e {
     public ac(Context context) {
         super(context);
         this.mUIHandler = null;
-        this.aAE = null;
-        this.Tu = false;
-        this.bqX = new ad(this, CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
+        this.aAO = null;
+        this.Ty = false;
+        this.brl = new ad(this, CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
         this.mUser = null;
         this.mContext = context;
         this.mUIHandler = new Handler(Looper.getMainLooper());
-        this.aAE = new com.baidu.tieba.b.a("profileStat");
-        registerListener(this.bqX);
+        this.aAO = new com.baidu.tieba.b.a("profileStat");
+        registerListener(this.brl);
     }
 
     public UserData getUser() {
@@ -55,20 +55,20 @@ public class ac extends com.baidu.adp.base.e {
     }
 
     public void d(boolean z, boolean z2) {
-        if (!this.Tu) {
-            this.Tu = true;
+        if (!this.Ty) {
+            this.Ty = true;
             ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
             if (TbadkApplication.getCurrentAccount() != null) {
                 profileRequestMessage.set_uid(Integer.valueOf(TbadkApplication.getCurrentAccount()));
             }
             if (z) {
-                SV();
+                SY();
             }
             profileRequestMessage.set_has_plist(0);
             profileRequestMessage.set_from_db(z);
             profileRequestMessage.set_error_hint(z2);
             profileRequestMessage.setSelf(true);
-            UW();
+            UZ();
             sendMessage(profileRequestMessage);
         }
     }
@@ -104,7 +104,7 @@ public class ac extends com.baidu.adp.base.e {
     }
 
     public void a(ProfileSocketResponseMessage profileSocketResponseMessage) {
-        this.Tu = false;
+        this.Ty = false;
         if (profileSocketResponseMessage != null) {
             b(profileSocketResponseMessage);
             a(profileSocketResponseMessage.hasError(), profileSocketResponseMessage.getErrorString(), profileSocketResponseMessage.isFrom_db(), profileSocketResponseMessage.isError_hint());
@@ -112,7 +112,7 @@ public class ac extends com.baidu.adp.base.e {
     }
 
     public void a(ProfileHttpResponseMessage profileHttpResponseMessage) {
-        this.Tu = false;
+        this.Ty = false;
         if (profileHttpResponseMessage != null) {
             b(profileHttpResponseMessage);
             a(profileHttpResponseMessage.hasError(), profileHttpResponseMessage.getErrorString(), profileHttpResponseMessage.isFrom_db(), profileHttpResponseMessage.isError_hint());
@@ -143,8 +143,8 @@ public class ac extends com.baidu.adp.base.e {
         }
     }
 
-    public void SV() {
-        wO().a("profile_cache_key", new ae(this));
+    public void SY() {
+        wQ().a("profile_cache_key", new ae(this));
     }
 
     public void a(DataRes dataRes) {
@@ -158,14 +158,14 @@ public class ac extends com.baidu.adp.base.e {
         }
     }
 
-    private com.baidu.adp.lib.cache.t<byte[]> wO() {
+    private com.baidu.adp.lib.cache.t<byte[]> wQ() {
         return com.baidu.tbadk.core.a.a.kS().C("tb_user_profile", TbadkApplication.getCurrentAccountName());
     }
 
-    private void UW() {
-        if (this.aAE == null) {
-            this.aAE = new com.baidu.tieba.b.a("profileStat");
-            this.aAE.start();
+    private void UZ() {
+        if (this.aAO == null) {
+            this.aAO = new com.baidu.tieba.b.a("profileStat");
+            this.aAO.start();
         }
     }
 

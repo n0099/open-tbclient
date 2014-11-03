@@ -5,14 +5,14 @@ import com.baidu.tieba.data.aa;
 import com.baidu.tieba.model.ag;
 /* loaded from: classes.dex */
 class c extends com.baidu.adp.base.h {
-    private final /* synthetic */ int BF;
-    final /* synthetic */ TopRecActivity bPw;
+    private final /* synthetic */ int BG;
+    final /* synthetic */ TopRecActivity bPL;
     private final /* synthetic */ int val$id;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(TopRecActivity topRecActivity, int i, int i2) {
-        this.bPw = topRecActivity;
-        this.BF = i;
+        this.bPL = topRecActivity;
+        this.BG = i;
         this.val$id = i2;
     }
 
@@ -25,30 +25,30 @@ class c extends com.baidu.adp.base.h {
         TRForumListData tRForumListData3;
         TRForumListData tRForumListData4;
         e eVar;
-        tRForumListData = this.bPw.bPq;
+        tRForumListData = this.bPL.bPF;
         if (tRForumListData != null) {
-            tRForumListData2 = this.bPw.bPq;
-            if (tRForumListData2.forum_list[this.BF] != null) {
-                agVar = this.bPw.avr;
+            tRForumListData2 = this.bPL.bPF;
+            if (tRForumListData2.forum_list[this.BG] != null) {
+                agVar = this.bPL.avA;
                 if (agVar.getErrorCode() != 22) {
-                    agVar2 = this.bPw.avr;
+                    agVar2 = this.bPL.avA;
                     if (agVar2.getErrorCode() != 0) {
-                        this.bPw.X(this.BF, this.val$id);
+                        this.bPL.X(this.BG, this.val$id);
                         return;
                     } else if (((aa) obj) == null) {
-                        this.bPw.X(this.BF, this.val$id);
+                        this.bPL.X(this.BG, this.val$id);
                         return;
                     } else {
-                        this.bPw.aeo();
-                        aj wk = aj.wk();
-                        tRForumListData3 = this.bPw.bPq;
-                        wk.dW(tRForumListData3.forum_list[this.BF].forum_name);
+                        this.bPL.aer();
+                        aj wm = aj.wm();
+                        tRForumListData3 = this.bPL.bPF;
+                        wm.dW(tRForumListData3.forum_list[this.BG].forum_name);
                         return;
                     }
                 }
-                tRForumListData4 = this.bPw.bPq;
-                tRForumListData4.forum_list[this.BF].is_like = 1;
-                eVar = this.bPw.bPn;
+                tRForumListData4 = this.bPL.bPF;
+                tRForumListData4.forum_list[this.BG].is_like = 1;
+                eVar = this.bPL.bPC;
                 eVar.notifyDataSetChanged();
             }
         }

@@ -6,14 +6,14 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.TbCheckBox;
 /* loaded from: classes.dex */
 class k {
-    public View Xi;
-    public TextView aEg;
-    public TbCheckBox aVT;
-    public HeadImageView aVw;
-    final /* synthetic */ j bSI;
+    public View Xm;
+    public TextView aEq;
+    public HeadImageView aVK;
+    public TbCheckBox aWh;
+    final /* synthetic */ j bSX;
 
     private k(j jVar) {
-        this.bSI = jVar;
+        this.bSX = jVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

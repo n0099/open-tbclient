@@ -6,12 +6,12 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.UserIconBox;
 /* loaded from: classes.dex */
 class cy {
-    HeadImageView aEe;
-    UserIconBox aEf;
-    TextView aEg;
-    TextView aEh;
-    TextView aEi;
-    ImageView aEj;
+    HeadImageView aEo;
+    UserIconBox aEp;
+    TextView aEq;
+    TextView aEr;
+    TextView aEs;
+    ImageView aEt;
 
     private cy() {
     }

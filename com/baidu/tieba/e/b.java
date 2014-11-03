@@ -7,8 +7,8 @@ import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class b {
     private static boolean hv(String str) {
-        String[] stringArray = aj.wk().getApp().getResources().getStringArray(q.voice_black_frs_list);
-        String string = aj.wk().getApp().getResources().getString(y.forum);
+        String[] stringArray = aj.wm().getApp().getResources().getStringArray(q.voice_black_frs_list);
+        String string = aj.wm().getApp().getResources().getString(y.forum);
         int length = stringArray.length;
         for (int i = 0; i < length; i++) {
             if (stringArray[i].equals(str) || str.equals(String.valueOf(stringArray[i]) + string)) {

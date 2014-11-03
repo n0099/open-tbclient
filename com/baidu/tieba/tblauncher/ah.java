@@ -30,15 +30,15 @@ public class ah extends BroadcastReceiver {
         boolean z;
         boolean checkNeedShowNewVersion = TbadkApplication.checkNeedShowNewVersion();
         if (checkNeedShowNewVersion) {
-            z = this.this$0.adx;
+            z = this.this$0.adC;
             if (!z) {
-                this.this$0.bOU = true;
+                this.this$0.bPj = true;
             }
         }
         if (checkNeedShowNewVersion) {
-            this.this$0.adx = true;
+            this.this$0.adC = true;
         } else {
-            this.this$0.adx = false;
+            this.this$0.adC = false;
         }
         this.this$0.eJ(false);
     }

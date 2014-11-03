@@ -9,11 +9,11 @@ import com.baidu.tieba.im.message.ResponseUnLoginMessage;
 import java.util.List;
 /* loaded from: classes.dex */
 public class k extends com.baidu.adp.framework.a.j {
-    private long beK;
+    private long beY;
 
     public k() {
         super(202003);
-        this.beK = 0L;
+        this.beY = 0L;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,9 +26,9 @@ public class k extends com.baidu.adp.framework.a.j {
         if (socketResponsedMessage.getError() == 110000) {
             MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());
         }
-        if (this.beK % 10 == 0) {
+        if (this.beY % 10 == 0) {
             TiebaStatic.imNet(socketResponsedMessage);
-            this.beK++;
+            this.beY++;
         }
         List<GroupMsgData> groupMsg = ((ResponsePullMessage) socketResponsedMessage).getGroupMsg();
         if (groupMsg != null && groupMsg.size() > 0) {
@@ -36,7 +36,7 @@ public class k extends com.baidu.adp.framework.a.j {
                 d(groupMsgData);
             }
         }
-        b.Qv().QD();
+        b.Qy().QG();
         return socketResponsedMessage;
     }
 

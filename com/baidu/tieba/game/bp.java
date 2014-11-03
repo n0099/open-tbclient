@@ -1,35 +1,56 @@
 package com.baidu.tieba.game;
 
+import android.content.Context;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
-public class bp extends CustomMessageListener {
-    final /* synthetic */ bn aJl;
+public class bp extends com.baidu.adp.base.e {
+    private bs aJr;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bp(bn bnVar, int i, boolean z) {
-        super(i, z);
-        this.aJl = bnVar;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public bp(Context context) {
+        super(context);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        bq bqVar;
-        bq bqVar2;
-        bq bqVar3;
-        bqVar = this.aJl.aJe;
-        if (bqVar != null) {
-            if (!(customResponsedMessage instanceof ResponseRecommendGameLocalMessage)) {
-                bqVar2 = this.aJl.aJe;
-                bqVar2.c(null);
-                return;
-            }
-            an gameData = ((ResponseRecommendGameLocalMessage) customResponsedMessage).getGameData();
-            bqVar3 = this.aJl.aJe;
-            bqVar3.c(gameData);
-        }
+    public com.baidu.adp.framework.listener.a HO() {
+        return new bq(this, CmdConfigHttp.CMD_GET_MUTIL_GAME_LIST, 303015);
+    }
+
+    public CustomMessageListener HP() {
+        return new br(this, 2001240, true);
+    }
+
+    public static void HQ() {
+        com.baidu.tieba.ai.a(303015, ResponseMutilGameSocketMessage.class, false, false);
+        com.baidu.tieba.ai.a(303015, CmdConfigHttp.CMD_GET_MUTIL_GAME_LIST, "c/u/game/getMutilGameList", ResponseMutilGameHttpMessage.class, false, false, false, false);
+    }
+
+    public void registerListener() {
+        registerListener(HO());
+        registerListener(HP());
+    }
+
+    public void HR() {
+        sendMessage(new RequestRecommendGameLocalMessage());
+    }
+
+    public void HS() {
+        RequestMutilGameNetMessage requestMutilGameNetMessage = new RequestMutilGameNetMessage();
+        requestMutilGameNetMessage.setType(1);
+        sendMessage(requestMutilGameNetMessage);
+    }
+
+    public void a(bs bsVar) {
+        this.aJr = bsVar;
+    }
+
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
     }
 }

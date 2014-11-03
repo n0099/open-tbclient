@@ -7,14 +7,14 @@ import com.baidu.tbadk.core.util.ac;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends BdAsyncTask<Object, Integer, TRForumListData> {
-    final /* synthetic */ j bPR;
-    TRForumListData bPq;
+    TRForumListData bPF;
+    final /* synthetic */ j bQg;
     private ac yV;
 
     private k(j jVar) {
-        this.bPR = jVar;
+        this.bQg = jVar;
         this.yV = null;
-        this.bPq = new TRForumListData();
+        this.bPF = new TRForumListData();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -39,12 +39,12 @@ public class k extends BdAsyncTask<Object, Integer, TRForumListData> {
             return null;
         }
         if (!this.yV.mc().nb().jq()) {
-            this.bPR.avc = false;
+            this.bQg.avl = false;
         } else {
-            this.bPq = (TRForumListData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(lA, TRForumListData.class);
-            this.bPR.avc = true;
+            this.bPF = (TRForumListData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(lA, TRForumListData.class);
+            this.bQg.avl = true;
         }
-        return this.bPq;
+        return this.bPF;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,13 +57,13 @@ public class k extends BdAsyncTask<Object, Integer, TRForumListData> {
         super.onPostExecute(tRForumListData);
         if (tRForumListData != null) {
             if (tRForumListData.error_code == 0 && tRForumListData.error != null) {
-                l lVar = this.bPR.bPQ;
-                z2 = this.bPR.avc;
+                l lVar = this.bQg.bQf;
+                z2 = this.bQg.avl;
                 lVar.a(Boolean.valueOf(z2), tRForumListData, tRForumListData.error.errno, tRForumListData.error.usermsg);
                 return;
             }
-            l lVar2 = this.bPR.bPQ;
-            z = this.bPR.avc;
+            l lVar2 = this.bQg.bQf;
+            z = this.bQg.avl;
             lVar2.a(Boolean.valueOf(z), tRForumListData, tRForumListData.error_code, tRForumListData.error_msg);
         }
     }

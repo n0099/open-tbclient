@@ -16,8 +16,8 @@ public abstract class c<T extends g, R extends i> extends a<T, R> {
         if (super.a(bVar)) {
             return true;
         }
-        if (bVar.tp() == 16777217) {
-            if (aB(bVar.tt())) {
+        if (bVar.tr() == 16777217) {
+            if (aB(bVar.tv())) {
                 de(33554437);
                 return true;
             }

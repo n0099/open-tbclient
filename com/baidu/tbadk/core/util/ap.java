@@ -5,33 +5,33 @@ import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class ap {
-    private static ap EK;
-    private static final BdUniqueId EL = BdUniqueId.gen();
+    private static ap EL;
+    private static final BdUniqueId EM = BdUniqueId.gen();
 
     public static synchronized ap mw() {
         ap apVar;
         synchronized (ap.class) {
-            if (EK == null) {
-                EK = new ap();
+            if (EL == null) {
+                EL = new ap();
             }
-            apVar = EK;
+            apVar = EL;
         }
         return apVar;
     }
 
     public void a(String str, String str2, boolean z, boolean z2, boolean z3) {
         if (str2 != null && str != null) {
-            String bQ = ba.bQ(str);
-            ax.my().copyFile(str2, bQ);
+            String bQ = bb.bQ(str);
+            ay.my().copyFile(str2, bQ);
             if (z || z2 || z3) {
                 synchronized (d.tg) {
-                    int bP = ax.my().bP(bQ);
+                    int bP = ay.my().bP(bQ);
                     if (bP > 0) {
                         if (z) {
-                            Bitmap bN = ax.my().bN(bQ);
-                            com.baidu.tbadk.imageManager.e.sg().cR(bP);
+                            Bitmap bN = ay.my().bN(bQ);
+                            com.baidu.tbadk.imageManager.e.si().cR(bP);
                             if (bN != null) {
-                                a(str, bN, z2, ax.my().bO(bQ), z3, bQ);
+                                a(str, bN, z2, ay.my().bO(bQ), z3, bQ);
                             }
                         }
                     }
@@ -72,7 +72,7 @@ public class ap {
     }
 
     private static void a(String str, com.baidu.adp.widget.a.a aVar) {
-        com.baidu.tbadk.imageManager.e.sg().c(str, aVar);
+        com.baidu.tbadk.imageManager.e.si().c(str, aVar);
     }
 
     public Bitmap a(Bitmap bitmap, boolean z, boolean z2, String str) {
@@ -85,7 +85,7 @@ public class ap {
             bitmap2 = d.a(c, (c.getHeight() < 100 || c.getWidth() < 100) ? 5.0f : 5.0f, true);
         }
         if (!TextUtils.isEmpty(str)) {
-            ax.my().f(str, d.b(bitmap2, 100));
+            ay.my().f(str, d.b(bitmap2, 100));
         }
         return bitmap2;
     }

@@ -19,176 +19,176 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class PbEditor extends LinearLayout {
-    private static final Pattern arg = Pattern.compile("#\\([^#\\)\\(]+\\)$");
-    private static final Pattern arj = Pattern.compile("#\\([a-zA-Z0-9_\\u4E00-\\u9FA5]+\\)");
-    private boolean SU;
-    private boolean aqO;
-    private int arb;
-    private aj arc;
-    protected PbEditorToolView ard;
-    public EditorToolComponetContainer are;
-    protected com.baidu.tbadk.editortool.w arf;
-    private boolean arh;
-    protected boolean ari;
+    private static final Pattern arp = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+    private static final Pattern ars = Pattern.compile("#\\([a-zA-Z0-9_\\u4E00-\\u9FA5]+\\)");
+    private boolean SY;
+    private boolean aqX;
+    private int ark;
+    private aj arl;
+    protected PbEditorToolView arm;
+    public EditorToolComponetContainer arn;
+    protected com.baidu.tbadk.editortool.w aro;
+    private boolean arq;
+    protected boolean arr;
     protected Context mContext;
 
     public void setHideBaobao(boolean z) {
-        this.SU = z;
-        if (this.are != null) {
-            this.are.setHideBaobao(z);
+        this.SY = z;
+        if (this.arn != null) {
+            this.arn.setHideBaobao(z);
         }
     }
 
     public EditorToolComponetContainer getEditorToolComponetContainer() {
-        return this.are;
+        return this.arn;
     }
 
     public PbEditorToolView getEditorToolButtonContainer() {
-        return this.ard;
+        return this.arm;
     }
 
     public PbEditor(Context context) {
         super(context);
-        this.arb = 1000;
-        this.aqO = false;
-        this.SU = false;
-        this.ari = true;
+        this.ark = 1000;
+        this.aqX = false;
+        this.SY = false;
+        this.arr = true;
         this.mContext = context;
         ny();
     }
 
     public PbEditor(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.arb = 1000;
-        this.aqO = false;
-        this.SU = false;
-        this.ari = true;
+        this.ark = 1000;
+        this.aqX = false;
+        this.SY = false;
+        this.arr = true;
         this.mContext = context;
         ny();
     }
 
     public void setFrom(int i) {
-        if (this.are != null) {
-            this.are.setFrom(i);
+        if (this.arn != null) {
+            this.arn.setFrom(i);
         }
     }
 
-    public void BX() {
-        this.ard.BX();
-    }
-
-    public void BY() {
-        this.ard.BY();
-    }
-
-    public boolean BZ() {
-        Editable text = this.ard.getEditText().getText();
-        if ((text != null && text.toString().trim().length() > 0) || this.are.BL() || this.are.BM()) {
-            return true;
-        }
-        return this.are.BN();
-    }
-
-    public EditText getEditText() {
-        return this.ard.getEditText();
-    }
-
-    public void o(ArrayList<String> arrayList) {
-        this.ard.p(arrayList);
-    }
-
-    public String getContent() {
-        return this.ard.getEditText().getText().toString();
-    }
-
-    public void setContent(String str) {
-        this.ard.getEditText().setText(str);
-        if (!TextUtils.isEmpty(str)) {
-            this.ard.getEditText().setSelection(str.length());
-        }
+    public void BZ() {
+        this.arm.BZ();
     }
 
     public void Ca() {
-        this.ard.getEditText().requestFocus();
-        this.are.x(this.ard.getEditText());
+        this.arm.Ca();
     }
 
-    public void Cb() {
-        this.are.BC();
-        this.ard.Bg();
+    public boolean Cb() {
+        Editable text = this.arm.getEditText().getText();
+        if ((text != null && text.toString().trim().length() > 0) || this.arn.BN() || this.arn.BO()) {
+            return true;
+        }
+        return this.arn.BP();
+    }
+
+    public EditText getEditText() {
+        return this.arm.getEditText();
+    }
+
+    public void p(ArrayList<String> arrayList) {
+        this.arm.q(arrayList);
+    }
+
+    public String getContent() {
+        return this.arm.getEditText().getText().toString();
+    }
+
+    public void setContent(String str) {
+        this.arm.getEditText().setText(str);
+        if (!TextUtils.isEmpty(str)) {
+            this.arm.getEditText().setSelection(str.length());
+        }
     }
 
     public void Cc() {
-        this.are.BC();
-        this.ard.Bg();
+        this.arm.getEditText().requestFocus();
+        this.arn.x(this.arm.getEditText());
     }
 
     public void Cd() {
-        if (this.are.BB() && !this.arh) {
-            this.arh = true;
+        this.arn.BE();
+        this.arm.Bi();
+    }
+
+    public void Ce() {
+        this.arn.BE();
+        this.arm.Bi();
+    }
+
+    public void Cf() {
+        if (this.arn.BD() && !this.arq) {
+            this.arq = true;
             ax.a(this, this.mContext, new z(this));
             return;
         }
-        Cb();
+        Cd();
     }
 
-    public boolean BB() {
-        return this.are.BB();
+    public boolean BD() {
+        return this.arn.BD();
     }
 
     protected void ny() {
         com.baidu.adp.lib.g.b.ek().a(this.mContext, com.baidu.tieba.w.pb_editor_view, this, true);
-        this.ard = (PbEditorToolView) findViewById(com.baidu.tieba.v.pb_editor_tool_button);
-        this.are = (EditorToolComponetContainer) findViewById(com.baidu.tieba.v.pb_editor_tool_group);
+        this.arm = (PbEditorToolView) findViewById(com.baidu.tieba.v.pb_editor_tool_button);
+        this.arn = (EditorToolComponetContainer) findViewById(com.baidu.tieba.v.pb_editor_tool_group);
     }
 
-    private void Ce() {
-        this.arc = new aj(this.mContext);
-        this.arc.nz();
-        addView(this.arc, 0);
-        this.arc.setOnActionListener(this.arf);
+    private void Cg() {
+        this.arl = new aj(this.mContext);
+        this.arl.nz();
+        addView(this.arl, 0);
+        this.arl.setOnActionListener(this.aro);
     }
 
-    public boolean BS() {
-        return this.are.BS();
+    public boolean BU() {
+        return this.arn.BU();
     }
 
     public void v(View view) {
-        this.are.v(view);
+        this.arn.v(view);
     }
 
     public void w(View view) {
-        this.are.w(view);
+        this.arn.w(view);
     }
 
-    public void Cf() {
-        this.ard.getEditText().requestFocus();
-        this.are.x(this.ard.getEditText());
-        this.ard.getEditText().setSelection(this.ard.getEditText().getText().length());
+    public void Ch() {
+        this.arm.getEditText().requestFocus();
+        this.arn.x(this.arm.getEditText());
+        this.arm.getEditText().setSelection(this.arm.getEditText().getText().length());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(int i, az azVar) {
-        this.ard.getEditText().requestFocus();
-        this.are.w(this.ard.getEditText());
+        this.arm.getEditText().requestFocus();
+        this.arn.w(this.arm.getEditText());
         eq(i);
     }
 
     public void j(int i, String str) {
-        if (this.arc != null) {
-            this.arc.j(i, str);
-            if (i == 2 && this.arc.getVisibility() == 0) {
-                this.are.rI();
-                this.ard.Cn();
+        if (this.arl != null) {
+            this.arl.j(i, str);
+            if (i == 2 && this.arl.getVisibility() == 0) {
+                this.arn.rK();
+                this.arm.Cp();
                 return;
             }
-            Cg();
+            Ci();
         }
     }
 
-    private void Cg() {
-        if (this.are != null) {
-            this.are.rJ();
+    private void Ci() {
+        if (this.arn != null) {
+            this.arn.rL();
             refresh();
         }
     }
@@ -198,107 +198,107 @@ public class PbEditor extends LinearLayout {
     }
 
     public int getLocationViewVisibility() {
-        if (this.arc == null) {
+        if (this.arl == null) {
             return 8;
         }
-        return this.arc.getVisibility();
+        return this.arl.getVisibility();
     }
 
     public int getLocationInfoViewState() {
-        if (this.arc == null) {
+        if (this.arl == null) {
             return 0;
         }
-        return this.arc.getLocationInfoViewState();
+        return this.arl.getLocationInfoViewState();
     }
 
     protected void eq(int i) {
         if (i == 5) {
-            this.are.BH();
+            this.arn.BJ();
         } else if (i == 23 || i == 22) {
-            this.are.BI();
+            this.arn.BK();
         } else if (i == 2) {
-            this.are.BG();
+            this.arn.BI();
         } else if (i == 38) {
-            this.are.BF();
+            this.arn.BH();
         } else if (i == 44) {
-            this.are.BJ();
+            this.arn.BL();
         } else if (i == 50 || i == 48) {
-            this.are.BK();
+            this.arn.BM();
         }
     }
 
     public void er(int i) {
-        if (this.are.BB()) {
+        if (this.arn.BD()) {
             eq(i);
-            this.are.w(this.ard.getEditText());
+            this.arn.w(this.arm.getEditText());
             return;
         }
-        this.ari = false;
-        if (this.are.BS()) {
-            this.are.w(this.ard.getEditText());
+        this.arr = false;
+        if (this.arn.BU()) {
+            this.arn.w(this.arm.getEditText());
         }
         new Handler().postDelayed(new aa(this, i), 200L);
     }
 
-    public boolean Ch() {
-        Editable text = this.ard.getEditText().getText();
-        return (text == null ? 0 : text.length()) >= this.arb;
+    public boolean Cj() {
+        Editable text = this.arm.getEditText().getText();
+        return (text == null ? 0 : text.length()) >= this.ark;
     }
 
     public void setOnActionListener(com.baidu.tbadk.editortool.w wVar) {
         if (wVar != null) {
-            this.arf = wVar;
-            if (this.arc != null) {
-                this.arc.setOnActionListener(wVar);
+            this.aro = wVar;
+            if (this.arl != null) {
+                this.arl.setOnActionListener(wVar);
             }
-            this.ard.setOnActionListener(new ac(this, wVar));
-            this.are.setOnActionListener(new ad(this, wVar));
+            this.arm.setOnActionListener(new ac(this, wVar));
+            this.arn.setOnActionListener(new ad(this, wVar));
         }
     }
 
-    public void BO() {
-        this.are.BO();
+    public void BQ() {
+        this.arn.BQ();
     }
 
     public void changeSkinType(int i) {
         if (this.mContext instanceof BaseActivity) {
             ((BaseActivity) this.mContext).getLayoutMode().L(i == 1);
-            ((BaseActivity) this.mContext).getLayoutMode().h(this.ard);
-            ((BaseActivity) this.mContext).getLayoutMode().h(this.are);
+            ((BaseActivity) this.mContext).getLayoutMode().h(this.arm);
+            ((BaseActivity) this.mContext).getLayoutMode().h(this.arn);
         } else if (this.mContext instanceof BaseFragmentActivity) {
             ((BaseFragmentActivity) this.mContext).getLayoutMode().L(i == 1);
-            ((BaseFragmentActivity) this.mContext).getLayoutMode().h(this.ard);
-            ((BaseFragmentActivity) this.mContext).getLayoutMode().h(this.are);
+            ((BaseFragmentActivity) this.mContext).getLayoutMode().h(this.arm);
+            ((BaseFragmentActivity) this.mContext).getLayoutMode().h(this.arn);
         }
-        if (this.arc != null) {
-            this.arc.nz();
+        if (this.arl != null) {
+            this.arl.nz();
         }
-        this.ard.changeSkinType(i);
-        this.are.onChangeSkinType(i);
+        this.arm.changeSkinType(i);
+        this.arn.onChangeSkinType(i);
     }
 
     public void clearData() {
-        this.ard.clearData();
-        this.are.clearData();
+        this.arm.clearData();
+        this.arn.clearData();
     }
 
-    public void BE() {
-        this.are.BE();
+    public void BG() {
+        this.arn.BG();
     }
 
-    public void Ba() {
-        if (this.arf != null) {
-            this.arf.handleAction(33, null);
+    public void Bc() {
+        if (this.aro != null) {
+            this.aro.handleAction(33, null);
         }
         setVisibility(0);
     }
 
     public void hide() {
-        if (this.arf != null) {
-            this.arf.handleAction(34, null);
+        if (this.aro != null) {
+            this.aro.handleAction(34, null);
         }
-        this.ard.Bg();
-        this.are.BC();
+        this.arm.Bi();
+        this.arn.BE();
         w(getEditText());
         setVisibility(8);
     }
@@ -308,44 +308,44 @@ public class PbEditor extends LinearLayout {
     }
 
     public void setMoreFocusable(boolean z) {
-        this.ard.setMoreFocusable(z);
+        this.arm.setMoreFocusable(z);
     }
 
     public void setAudioFocusable(boolean z) {
-        this.ard.setAudioFocusable(z);
+        this.arm.setAudioFocusable(z);
     }
 
-    public void Bt() {
-        this.ard.Bt();
+    public void Bv() {
+        this.arm.Bv();
     }
 
-    public void Bs() {
-        this.ard.Bs();
+    public void Bu() {
+        this.arm.Bu();
     }
 
-    public void BQ() {
-        this.are.BQ();
+    public void BS() {
+        this.arn.BS();
     }
 
     public VoiceData.VoiceModel getAudioData() {
-        return this.are.getAudioData();
+        return this.arn.getAudioData();
     }
 
     public void setAudioData(VoiceData.VoiceModel voiceModel) {
-        this.are.setAudioData(voiceModel);
+        this.arn.setAudioData(voiceModel);
     }
 
-    public void BP() {
-        this.are.BP();
+    public void BR() {
+        this.arn.BR();
     }
 
     public void h(Bitmap bitmap) {
-        this.are.setImage(bitmap);
+        this.arn.setImage(bitmap);
     }
 
     public void au(boolean z) {
-        this.aqO = z;
-        this.are.au(z);
+        this.aqX = z;
+        this.arn.au(z);
         if (z) {
             setLocationViewVisibility(8);
         }
@@ -359,9 +359,9 @@ public class PbEditor extends LinearLayout {
     public static int eI(String str) {
         int i = 0;
         if (str != null && str.length() != 0) {
-            Matcher matcher = arj.matcher(str);
+            Matcher matcher = ars.matcher(str);
             while (matcher.find()) {
-                if (com.baidu.tbadk.editortool.aa.rz().cY(matcher.group())) {
+                if (com.baidu.tbadk.editortool.aa.rB().cY(matcher.group())) {
                     i++;
                 }
             }
@@ -370,38 +370,38 @@ public class PbEditor extends LinearLayout {
     }
 
     public void refresh() {
-        if (this.aqO) {
-            this.ard.Co();
+        if (this.aqX) {
+            this.arm.Cq();
             return;
         }
-        if (TextUtils.isEmpty(TbadkApplication.m251getInst().getDefaultBubble()) && !this.aqO) {
-            if (!this.are.BL() && !this.are.BM() && !this.are.rH()) {
-                this.ard.Co();
+        if (TextUtils.isEmpty(TbadkApplication.m251getInst().getDefaultBubble()) && !this.aqX) {
+            if (!this.arn.BN() && !this.arn.BO() && !this.arn.rJ()) {
+                this.arm.Cq();
             } else {
-                this.ard.Cn();
+                this.arm.Cp();
             }
         } else {
-            this.ard.Cn();
+            this.arm.Cp();
         }
-        this.are.refresh();
+        this.arn.refresh();
     }
 
     public void setMaxTextCount(int i) {
-        this.arb = i;
+        this.ark = i;
     }
 
     public void setLocationViewVisibility(int i) {
         if (i == 0) {
-            if (this.arc == null) {
-                Ce();
+            if (this.arl == null) {
+                Cg();
             }
-            this.arc.setVisibility(0);
+            this.arl.setVisibility(0);
             return;
         }
-        if (this.arc != null) {
-            removeView(this.arc);
-            this.arc = null;
+        if (this.arl != null) {
+            removeView(this.arl);
+            this.arl = null;
         }
-        Cg();
+        Ci();
     }
 }

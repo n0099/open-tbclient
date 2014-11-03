@@ -15,7 +15,7 @@ public class b implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage != null && (customMessage instanceof RequestRecommendWriteMessage) && (friendInfo = ((RequestRecommendWriteMessage) customMessage).getFriendInfo()) != null && (kS = com.baidu.tbadk.core.a.a.kS()) != null && (bd = kS.bd("tb.recommend_friend")) != null) {
             String currentAccount = TbadkApplication.getCurrentAccount();
             bd.remove(currentAccount);
-            bd.b(currentAccount, friendInfo.Rz().toString());
+            bd.b(currentAccount, friendInfo.RC().toString());
         }
         return null;
     }

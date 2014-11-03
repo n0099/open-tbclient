@@ -24,26 +24,26 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class o extends BaseFragment implements View.OnClickListener, AdapterView.OnItemClickListener {
-    private z bBn;
+    private z bBB;
     public BdListView vl = null;
-    private x bBt = null;
-    private int bAU = -1;
-    private String bBu = null;
-    private View bBv = null;
-    private com.baidu.tbadk.core.view.o ahO = null;
-    private com.baidu.tbadk.core.view.y Yc = null;
-    private TextView aek = null;
-    private ForumData bBw = null;
-    private boolean bBx = false;
-    private int bnd = 0;
+    private x bBH = null;
+    private int bBi = -1;
+    private String bBI = null;
+    private View bBJ = null;
+    private com.baidu.tbadk.core.view.o ahX = null;
+    private com.baidu.tbadk.core.view.y Yg = null;
+    private TextView aes = null;
+    private ForumData bBK = null;
+    private boolean bBL = false;
+    private int bnr = 0;
     private boolean mIsHost = true;
-    private boolean bAN = false;
-    private final CustomMessageListener bBy = new p(this, 2001187);
-    private HttpMessageListener bBz = new q(this, CmdConfigHttp.PIC_DEL_LIKE_BAR_CMD);
-    private HttpMessageListener bBA = new r(this, CmdConfigHttp.PIC_LIKE_BAR_CMD);
+    private boolean bBb = false;
+    private final CustomMessageListener bBM = new p(this, 2001187);
+    private HttpMessageListener bBN = new q(this, CmdConfigHttp.PIC_DEL_LIKE_BAR_CMD);
+    private HttpMessageListener bBO = new r(this, CmdConfigHttp.PIC_LIKE_BAR_CMD);
 
     static {
-        com.baidu.tieba.ai.b(2001187, by.class);
+        com.baidu.tieba.ai.b(2001187, bz.class);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PIC_DEL_LIKE_BAR_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/unfavolike");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
@@ -51,7 +51,7 @@ public class o extends BaseFragment implements View.OnClickListener, AdapterView
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public PersonBarActivity ZM() {
+    public PersonBarActivity ZO() {
         FragmentActivity activity = getActivity();
         if (activity instanceof PersonBarActivity) {
             return (PersonBarActivity) activity;
@@ -68,35 +68,35 @@ public class o extends BaseFragment implements View.OnClickListener, AdapterView
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        registerListener(this.bBA);
-        registerListener(this.bBz);
-        registerListener(this.bBy);
+        registerListener(this.bBO);
+        registerListener(this.bBN);
+        registerListener(this.bBM);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
-        if (this.ahO != null) {
-            this.ahO.nv();
+        if (this.ahX != null) {
+            this.ahX.nv();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        if (this.ahO != null) {
-            this.ahO.onActivityStop();
+        if (this.ahX != null) {
+            this.ahX.onActivityStop();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
-        if (this.bBt != null) {
-            this.bBt = null;
+        if (this.bBH != null) {
+            this.bBH = null;
         }
-        MessageManager.getInstance().unRegisterListener(this.bBz);
-        MessageManager.getInstance().unRegisterListener(this.bBA);
-        MessageManager.getInstance().unRegisterListener(this.bBy);
+        MessageManager.getInstance().unRegisterListener(this.bBN);
+        MessageManager.getInstance().unRegisterListener(this.bBO);
+        MessageManager.getInstance().unRegisterListener(this.bBM);
         super.onDestroyView();
     }
 
@@ -104,85 +104,85 @@ public class o extends BaseFragment implements View.OnClickListener, AdapterView
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         int dimension;
         String string;
-        this.bnd = getArguments().getInt("page_type", 0);
+        this.bnr = getArguments().getInt("page_type", 0);
         View inflate = layoutInflater.inflate(com.baidu.tieba.w.friend_fragment, viewGroup, false);
-        if (ZM() == null) {
+        if (ZO() == null) {
             return inflate;
         }
-        this.bBn = ZM().ZH();
-        this.mIsHost = ZM().Ax();
-        this.bAN = ZM().Zu();
-        this.bBv = inflate.findViewById(com.baidu.tieba.v.friend_fragment_parent);
-        if (this.mIsHost && !this.bAN) {
-            this.aek = ZM().getNavigationBar().addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(com.baidu.tieba.y.edit));
-            this.aek.setOnClickListener(new s(this));
-            this.aek.setVisibility(0);
+        this.bBB = ZO().ZJ();
+        this.mIsHost = ZO().Az();
+        this.bBb = ZO().Zx();
+        this.bBJ = inflate.findViewById(com.baidu.tieba.v.friend_fragment_parent);
+        if (this.mIsHost && !this.bBb) {
+            this.aes = ZO().getNavigationBar().addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(com.baidu.tieba.y.edit));
+            this.aes.setOnClickListener(new s(this));
+            this.aes.setVisibility(0);
         }
-        this.bBt = new x(ZM(), this.bBn.ZQ(), this.mIsHost, this.bAN);
-        this.bBt.w(new t(this));
-        this.bBt.x(new u(this));
+        this.bBH = new x(ZO(), this.bBB.ZS(), this.mIsHost, this.bBb);
+        this.bBH.w(new t(this));
+        this.bBH.x(new u(this));
         this.vl = (BdListView) inflate.findViewById(com.baidu.tieba.v.my_friend_list);
-        this.vl.setAdapter((ListAdapter) this.bBt);
+        this.vl.setAdapter((ListAdapter) this.bBH);
         this.vl.setOnItemClickListener(new v(this));
-        this.Yc = new com.baidu.tbadk.core.view.y(ZM());
-        this.Yc.a(new w(this));
-        this.vl.setPullRefresh(this.Yc);
+        this.Yg = new com.baidu.tbadk.core.view.y(ZO());
+        this.Yg.a(new w(this));
+        this.vl.setPullRefresh(this.Yg);
         if (this.mIsHost) {
             dimension = (int) getResources().getDimension(com.baidu.tieba.t.ds160);
             string = String.format(getString(com.baidu.tieba.y.person_bar_no_personal_info), getString(com.baidu.tieba.y.you));
         } else {
             dimension = (int) getResources().getDimension(com.baidu.tieba.t.ds80);
-            if (this.bnd == 0) {
-                string = String.format(getString(com.baidu.tieba.y.person_bar_no_personal_info), ZM().QS());
+            if (this.bnr == 0) {
+                string = String.format(getString(com.baidu.tieba.y.person_bar_no_personal_info), ZO().QV());
             } else {
                 string = getString(com.baidu.tieba.y.person_bar_no_common_info);
             }
         }
-        if (this.bAN) {
-            this.ahO = NoDataViewFactory.a(getActivity(), inflate, com.baidu.tbadk.core.view.r.a(NoDataViewFactory.ImgType.NODATA, dimension), com.baidu.tbadk.core.view.s.O(string, getString(com.baidu.tieba.y.share_choose_bar_nothing_tip)), null);
+        if (this.bBb) {
+            this.ahX = NoDataViewFactory.a(getActivity(), inflate, com.baidu.tbadk.core.view.r.a(NoDataViewFactory.ImgType.NODATA, dimension), com.baidu.tbadk.core.view.s.O(string, getString(com.baidu.tieba.y.share_choose_bar_nothing_tip)), null);
         } else {
-            this.ahO = NoDataViewFactory.a(getActivity(), inflate, com.baidu.tbadk.core.view.r.a(NoDataViewFactory.ImgType.NODATA, dimension), com.baidu.tbadk.core.view.s.cc(string), null);
+            this.ahX = NoDataViewFactory.a(getActivity(), inflate, com.baidu.tbadk.core.view.r.a(NoDataViewFactory.ImgType.NODATA, dimension), com.baidu.tbadk.core.view.s.cc(string), null);
         }
         if (this.mIsHost) {
-            ZO();
+            ZQ();
         }
-        if (this.bnd == ZM().QR()) {
+        if (this.bnr == ZO().QU()) {
             this.vl.hO();
         }
         return inflate;
     }
 
     public void et(boolean z) {
-        if (this.bBt != null) {
-            this.bBt.ZG();
-            if (this.bBt.ZP()) {
+        if (this.bBH != null) {
+            this.bBH.ZI();
+            if (this.bBH.ZR()) {
                 if (z) {
-                    this.bBt.setEditState(false);
-                    this.ahO.setVisibility(0);
+                    this.bBH.setEditState(false);
+                    this.ahX.setVisibility(0);
                     this.vl.setVisibility(0);
                     return;
                 }
                 return;
             }
-            this.ahO.setVisibility(8);
+            this.ahX.setVisibility(8);
             this.vl.setVisibility(0);
         }
     }
 
-    public x ZN() {
-        return this.bBt;
+    public x ZP() {
+        return this.bBH;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void VX() {
-        if (this.bBn != null) {
-            this.bBn.f(this.mIsHost, this.bBn.getId());
+    public void Wa() {
+        if (this.bBB != null) {
+            this.bBB.f(this.mIsHost, this.bBB.getId());
         }
     }
 
-    public void ZO() {
-        if (this.bBn != null) {
-            this.bBn.ZO();
+    public void ZQ() {
+        if (this.bBB != null) {
+            this.bBB.ZQ();
         }
     }
 
@@ -191,23 +191,23 @@ public class o extends BaseFragment implements View.OnClickListener, AdapterView
             if (!z) {
                 this.vl.hN();
             }
-            int size = nVar.ZK() != null ? nVar.ZK().size() : 0;
-            int size2 = nVar.ZL() != null ? nVar.ZL().size() : 0;
-            if (ZM() != null) {
-                ZM().P(size, size2);
+            int size = nVar.ZM() != null ? nVar.ZM().size() : 0;
+            int size2 = nVar.ZN() != null ? nVar.ZN().size() : 0;
+            if (ZO() != null) {
+                ZO().P(size, size2);
             }
-            if (this.bBn != null && this.bBt != null) {
-                this.bBn.ZQ().E(nVar.ZK());
-                this.bBn.ZQ().F(nVar.ZL());
-                this.bBn.ZQ().gV(nVar.ZI());
-                this.bBn.ZQ().gW(nVar.ZJ());
-                if (this.bnd == 0) {
-                    this.bBt.E(this.bBn.ZQ().ZK());
+            if (this.bBB != null && this.bBH != null) {
+                this.bBB.ZS().F(nVar.ZM());
+                this.bBB.ZS().G(nVar.ZN());
+                this.bBB.ZS().gV(nVar.ZK());
+                this.bBB.ZS().gW(nVar.ZL());
+                if (this.bnr == 0) {
+                    this.bBH.F(this.bBB.ZS().ZM());
                 } else {
-                    this.bBt.E(this.bBn.ZQ().ZL());
+                    this.bBH.F(this.bBB.ZS().ZN());
                 }
                 et(true);
-                this.bBt.notifyDataSetChanged();
+                this.bBH.notifyDataSetChanged();
             }
         }
     }
@@ -216,20 +216,20 @@ public class o extends BaseFragment implements View.OnClickListener, AdapterView
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (isAdded()) {
-            if (this.bBv != null && getActivity() != null) {
-                ((BaseFragmentActivity) getActivity()).getLayoutMode().h(this.bBv);
+            if (this.bBJ != null && getActivity() != null) {
+                ((BaseFragmentActivity) getActivity()).getLayoutMode().h(this.bBJ);
             }
-            if (this.ahO != null) {
-                com.baidu.tbadk.core.util.aw.h(this.ahO, com.baidu.tieba.s.cp_bg_line_d);
+            if (this.ahX != null) {
+                com.baidu.tbadk.core.util.aw.h(this.ahX, com.baidu.tieba.s.cp_bg_line_d);
             }
-            if (ZM() != null) {
-                ZM().getNavigationBar().onChangeSkinType(i);
+            if (ZO() != null) {
+                ZO().getNavigationBar().onChangeSkinType(i);
             }
-            if (this.Yc != null) {
-                this.Yc.bM(i);
+            if (this.Yg != null) {
+                this.Yg.bM(i);
             }
-            if (this.bBt != null) {
-                this.bBt.notifyDataSetChanged();
+            if (this.bBH != null) {
+                this.bBH.notifyDataSetChanged();
             }
         }
     }

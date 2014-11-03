@@ -20,11 +20,11 @@ import com.baidu.tieba.selectpoi.ResponsedSelectLocation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements com.baidu.tbadk.editortool.w {
-    final /* synthetic */ PbActivity bvg;
+    final /* synthetic */ PbActivity bvu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(PbActivity pbActivity) {
-        this.bvg = pbActivity;
+        this.bvu = pbActivity;
     }
 
     @Override // com.baidu.tbadk.editortool.w
@@ -70,81 +70,81 @@ public class w implements com.baidu.tbadk.editortool.w {
         boolean gJ4;
         int i2 = 0;
         if (i == 0) {
-            bvVar10 = this.bvg.buL;
-            if (bvVar10.Ch()) {
-                this.bvg.showToast(com.baidu.tieba.y.over_limit_tip);
+            bvVar10 = this.bvu.buZ;
+            if (bvVar10.Cj()) {
+                this.bvu.showToast(com.baidu.tieba.y.over_limit_tip);
                 return;
             }
-            gJ4 = this.bvg.gJ(LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_11_025);
+            gJ4 = this.bvu.gJ(LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_11_025);
             if (gJ4) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.bvg, 12004, true)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.bvu, 12004, true)));
             }
         } else if (i == 26) {
-            bvVar9 = this.bvg.buL;
-            if (bvVar9.Yj()) {
-                this.bvg.showToast(com.baidu.tieba.y.over_limit_tip);
+            bvVar9 = this.bvu.buZ;
+            if (bvVar9.Ym()) {
+                this.bvu.showToast(com.baidu.tieba.y.over_limit_tip);
                 return;
             }
-            gJ3 = this.bvg.gJ(11026);
+            gJ3 = this.bvu.gJ(11026);
             if (gJ3) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.bvg, 12005, true)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.bvu, 12005, true)));
             }
         } else if (i == 10) {
-            bnVar2 = this.bvg.buG;
+            bnVar2 = this.bvu.buU;
             if (bnVar2.getPbData() == null) {
                 return;
             }
-            gJ2 = this.bvg.gJ(11001);
+            gJ2 = this.bvu.gJ(11001);
             if (!gJ2) {
                 return;
             }
-            this.bvg.eX(null);
+            this.bvu.eX(null);
         } else if (i != 27) {
             if (i == 4) {
-                str2 = this.bvg.buF;
+                str2 = this.bvu.buT;
                 if (str2 != null) {
-                    str3 = this.bvg.buF;
+                    str3 = this.bvu.buT;
                     if (str3.length() > 0) {
-                        bvVar6 = this.bvg.buL;
+                        bvVar6 = this.bvu.buZ;
                         bvVar6.setAudioFocusable(false);
-                        bvVar7 = this.bvg.buL;
+                        bvVar7 = this.bvu.buZ;
                         bvVar7.eh(false);
-                        PbActivity pbActivity = this.bvg;
-                        str4 = this.bvg.buF;
+                        PbActivity pbActivity = this.bvu;
+                        str4 = this.bvu.buT;
                         pbActivity.showToast(str4);
                         return;
                     }
                 }
-                bvVar4 = this.bvg.buL;
+                bvVar4 = this.bvu.buZ;
                 bvVar4.setAudioFocusable(true);
-                bvVar5 = this.bvg.buL;
+                bvVar5 = this.bvu.buZ;
                 bvVar5.eh(true);
             } else if (i == 54) {
-                voiceModel = this.bvg.buB;
+                voiceModel = this.bvu.buP;
                 if (voiceModel != null) {
-                    bvVar3 = this.bvg.buL;
-                    voiceModel2 = this.bvg.buB;
+                    bvVar3 = this.bvu.buZ;
+                    voiceModel2 = this.bvu.buP;
                     bvVar3.setAudioData(voiceModel2);
                 }
             } else if (i == 22) {
-                writeImagesInfo10 = this.bvg.writeImagesInfo;
+                writeImagesInfo10 = this.bvu.writeImagesInfo;
                 int size = writeImagesInfo10.size();
-                writeImagesInfo11 = this.bvg.writeImagesInfo;
+                writeImagesInfo11 = this.bvu.writeImagesInfo;
                 if (size < writeImagesInfo11.getMaxImagesAllowed()) {
-                    this.bvg.ayx = String.valueOf(System.currentTimeMillis());
-                    PbActivity pbActivity2 = this.bvg;
-                    str = this.bvg.ayx;
+                    this.bvu.ayG = String.valueOf(System.currentTimeMillis());
+                    PbActivity pbActivity2 = this.bvu;
+                    str = this.bvu.ayG;
                     com.baidu.tbadk.core.util.av.a(pbActivity2, str);
                     return;
                 }
-                this.bvg.showToast(String.format(this.bvg.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
+                this.bvu.showToast(String.format(this.bvu.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
             } else if (i == 23) {
-                writeImagesInfo7 = this.bvg.writeImagesInfo;
+                writeImagesInfo7 = this.bvu.writeImagesInfo;
                 if (writeImagesInfo7 != null) {
-                    writeImagesInfo8 = this.bvg.writeImagesInfo;
+                    writeImagesInfo8 = this.bvu.writeImagesInfo;
                     if (!TextUtils.isEmpty(writeImagesInfo8.toJsonString())) {
-                        PbActivity pbActivity3 = this.bvg;
-                        writeImagesInfo9 = this.bvg.writeImagesInfo;
+                        PbActivity pbActivity3 = this.bvu;
+                        writeImagesInfo9 = this.bvu.writeImagesInfo;
                         AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(pbActivity3, writeImagesInfo9.toJsonString());
                         albumActivityConfig.setRequestCode(12002);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
@@ -154,16 +154,16 @@ public class w implements com.baidu.tbadk.editortool.w {
                 if (i != 7) {
                     if (i == 42) {
                         int intValue = ((Integer) obj).intValue();
-                        writeImagesInfo3 = this.bvg.writeImagesInfo;
+                        writeImagesInfo3 = this.bvu.writeImagesInfo;
                         if (writeImagesInfo3 != null) {
-                            writeImagesInfo4 = this.bvg.writeImagesInfo;
+                            writeImagesInfo4 = this.bvu.writeImagesInfo;
                             if (writeImagesInfo4.getChosedFiles() != null) {
-                                writeImagesInfo5 = this.bvg.writeImagesInfo;
+                                writeImagesInfo5 = this.bvu.writeImagesInfo;
                                 int size2 = writeImagesInfo5.getChosedFiles().size();
                                 if (size2 >= 1 && intValue >= 0 && intValue < size2) {
                                     MessageManager messageManager = MessageManager.getInstance();
-                                    PbActivity pbActivity4 = this.bvg;
-                                    writeImagesInfo6 = this.bvg.writeImagesInfo;
+                                    PbActivity pbActivity4 = this.bvu;
+                                    writeImagesInfo6 = this.bvu.writeImagesInfo;
                                     messageManager.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(pbActivity4, 12012, writeImagesInfo6, intValue)));
                                     return;
                                 }
@@ -173,51 +173,51 @@ public class w implements com.baidu.tbadk.editortool.w {
                         }
                         return;
                     } else if (i == 48) {
-                        if (PluginHelper.isBaoBaoCanUse(this.bvg)) {
-                            com.baidu.tieba.e.a.adH();
-                            if (!com.baidu.tieba.e.a.adF()) {
-                                bnVar = this.bvg.buG;
+                        if (PluginHelper.isBaoBaoCanUse(this.bvu)) {
+                            com.baidu.tieba.e.a.adK();
+                            if (!com.baidu.tieba.e.a.adI()) {
+                                bnVar = this.bvu.buU;
                                 if (bnVar.getIsMem() == 0) {
-                                    this.bvg.showToast(com.baidu.tieba.y.baobao_over_limit);
+                                    this.bvu.showToast(com.baidu.tieba.y.baobao_over_limit);
                                     return;
                                 }
                             }
                             Plugin pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_BAOBAO);
                             if (pluginByName != null && (baobaoSdkDelegate = (BaobaoSdkDelegate) pluginByName.getClassInstance(BaobaoSdkDelegate.class)) != null) {
-                                baobaoSdkDelegate.startMatchImage(this.bvg, this.bvg.getResources().getString(com.baidu.tieba.y.send_reply), 12013);
+                                baobaoSdkDelegate.startMatchImage(this.bvu, this.bvu.getResources().getString(com.baidu.tieba.y.send_reply), 12013);
                                 return;
                             }
                             return;
                         }
                         return;
                     } else if (i == 51) {
-                        writeImagesInfo = this.bvg.baobaoImagesInfo;
+                        writeImagesInfo = this.bvu.baobaoImagesInfo;
                         if (writeImagesInfo != null) {
-                            writeImagesInfo2 = this.bvg.baobaoImagesInfo;
+                            writeImagesInfo2 = this.bvu.baobaoImagesInfo;
                             if (writeImagesInfo2.size() > 0) {
-                                writeData2 = this.bvg.aAM;
+                                writeData2 = this.bvu.aAW;
                                 writeData2.setIsBaobao(true);
                                 return;
                             }
                         }
-                        writeData = this.bvg.aAM;
+                        writeData = this.bvu.aAW;
                         writeData.setIsBaobao(false);
                         return;
                     } else if (i == 52) {
-                        bvVar = this.bvg.buL;
-                        if (bvVar.EO() != null) {
-                            bvVar2 = this.bvg.buL;
-                            i2 = bvVar2.EO().getLocationInfoViewState();
+                        bvVar = this.bvu.buZ;
+                        if (bvVar.EQ() != null) {
+                            bvVar2 = this.bvu.buZ;
+                            i2 = bvVar2.EQ().getLocationInfoViewState();
                         }
                         switch (i2) {
                             case 0:
-                                this.bvg.Ex();
+                                this.bvu.Ez();
                                 return;
                             case 1:
                             default:
                                 return;
                             case 2:
-                                this.bvg.Ew();
+                                this.bvu.Ey();
                                 return;
                         }
                     } else if (i == 53) {
@@ -227,22 +227,22 @@ public class w implements com.baidu.tbadk.editortool.w {
                         return;
                     }
                 }
-                alertDialog = this.bvg.ayG;
+                alertDialog = this.bvu.ayP;
                 if (alertDialog == null) {
-                    this.bvg.EB();
+                    this.bvu.ED();
                 }
-                alertDialog2 = this.bvg.ayG;
+                alertDialog2 = this.bvu.ayP;
                 if (alertDialog2 == null) {
                     return;
                 }
-                alertDialog3 = this.bvg.ayG;
-                com.baidu.adp.lib.g.j.a(alertDialog3, this.bvg);
+                alertDialog3 = this.bvu.ayP;
+                com.baidu.adp.lib.g.j.a(alertDialog3, this.bvu);
             }
         } else {
-            gJ = this.bvg.gJ(11027);
+            gJ = this.bvu.gJ(11027);
             if (gJ) {
-                bvVar8 = this.bvg.buL;
-                this.bvg.eX(bvVar8.XR());
+                bvVar8 = this.bvu.buZ;
+                this.bvu.eX(bvVar8.XU());
             }
         }
     }

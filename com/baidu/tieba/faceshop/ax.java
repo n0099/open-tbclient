@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.atomData.FaceShopActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ax implements View.OnClickListener {
-    final /* synthetic */ aw aug;
+    final /* synthetic */ aw aup;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(aw awVar) {
-        this.aug = awVar;
+        this.aup = awVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,9 +21,9 @@ public class ax implements View.OnClickListener {
         Context context;
         Context context2;
         MessageManager messageManager = MessageManager.getInstance();
-        context = this.aug.mContext;
+        context = this.aup.mContext;
         messageManager.sendMessage(new CustomMessage(2002001, new FaceShopActivityConfig(context, "faceshop_from_more")));
-        context2 = this.aug.mContext;
+        context2 = this.aup.mContext;
         ((BaseActivity) context2).finish();
     }
 }

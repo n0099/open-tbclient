@@ -1,36 +1,31 @@
 package com.baidu.tieba.person.post;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tieba.person.post.PersonPostModel;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* loaded from: classes.dex */
-class w implements AdapterView.OnItemClickListener {
-    final /* synthetic */ t bEe;
+class w extends HttpMessageListener {
+    final /* synthetic */ u bEs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(t tVar) {
-        this.bEe = tVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w(u uVar, int i) {
+        super(i);
+        this.bEs = uVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        q qVar;
-        q qVar2;
-        q qVar3;
-        if (i >= 0) {
-            qVar = this.bEe.bEb;
-            if (qVar != null) {
-                qVar2 = this.bEe.bEb;
-                if (i < qVar2.getCount()) {
-                    qVar3 = this.bEe.bEb;
-                    PersonPostModel.PostList postList = (PersonPostModel.PostList) qVar3.getItem(i);
-                    if (postList != null) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.bEe.getActivity()).createCfgForPersonCenter(String.valueOf(postList.thread_id), String.valueOf(postList.post_id), "person_post", 18005)));
-                    }
-                }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        g gVar;
+        if (httpResponsedMessage instanceof UserPostPageHttpResponseMessage) {
+            UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
+            if (userPostPageHttpResponseMessage.getOrginalMessage() == null) {
+                this.bEs.b(null, false);
+                return;
+            }
+            UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageHttpResponseMessage.getOrginalMessage().getExtra();
+            if (userPostPageRequestMessage.isThread() && (gVar = userPostPageRequestMessage.getmCallbackWeakReference().get()) != null) {
+                gVar.a(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
             }
         }
     }

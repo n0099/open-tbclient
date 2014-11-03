@@ -25,8 +25,8 @@ public class TiebaSyncService extends Service {
     }
 
     public void checkVersion(String str) {
-        String TY;
-        if (str != null && this.mModel != null && (TY = this.mModel.TY()) != null && !TY.equalsIgnoreCase(str) && checkAutoSyncInterval()) {
+        String Ub;
+        if (str != null && this.mModel != null && (Ub = this.mModel.Ub()) != null && !Ub.equalsIgnoreCase(str) && checkAutoSyncInterval()) {
             this.mLastSyncTime = System.currentTimeMillis();
             checkUpdata();
         }
@@ -85,7 +85,7 @@ public class TiebaSyncService extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     public void broadcastNewVersion() {
         if (this.mModel != null) {
-            sendBroadcast(new Intent(com.baidu.tieba.data.e.yw()));
+            sendBroadcast(new Intent(com.baidu.tieba.data.e.yy()));
         }
     }
 }

@@ -13,37 +13,37 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static b QV = null;
-    private static e QZ = null;
-    private static List<e> Ra = new LinkedList();
+    private static b QZ = null;
+    private static e Rd = null;
+    private static List<e> Re = new LinkedList();
     private final int max = 5;
-    private int QW = 0;
-    private c QX = null;
-    private d QY = null;
-    private int Rb = 1000;
+    private int Ra = 0;
+    private c Rb = null;
+    private d Rc = null;
+    private int Rf = 1000;
     private int progress = 0;
     private String schedule = null;
 
     private b() {
     }
 
-    public static b rh() {
+    public static b rj() {
         synchronized (b.class) {
-            if (QV == null) {
-                QV = new b();
+            if (QZ == null) {
+                QZ = new b();
             }
         }
-        return QV;
+        return QZ;
     }
 
     public void a(String str, String str2, String str3, int i) {
-        if (this.QW > 5) {
+        if (this.Ra >= 5) {
             Toast.makeText(TbadkApplication.m251getInst(), y.download_fail_over_max, 0).show();
             return;
         }
         DownloadData downloadData = new DownloadData(str);
         downloadData.setType(12);
-        this.QW++;
+        this.Ra++;
         downloadData.setStatus(1);
         downloadData.setStatusMsg(null);
         a(downloadData);
@@ -52,18 +52,18 @@ public class b {
         eVar.setUrl(str2);
         eVar.setName(str3);
         eVar.setPosition(i);
-        Ra.add(eVar);
-        ri();
+        Re.add(eVar);
+        rk();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ri() {
-        if (QZ == null && !Ra.isEmpty()) {
-            QZ = Ra.get(0);
-            if (QZ != null) {
-                this.QX = new c(this, null);
-                this.QX.setPriority(3);
-                this.QX.execute(QZ);
+    public void rk() {
+        if (Rd == null && !Re.isEmpty()) {
+            Rd = Re.get(0);
+            if (Rd != null) {
+                this.Rb = new c(this, null);
+                this.Rb.setPriority(3);
+                this.Rb.execute(Rd);
             }
         }
     }
@@ -81,7 +81,7 @@ public class b {
 
     public void a(DownloadData downloadData) {
         if (downloadData.getStatus() != 1 && downloadData.getStatus() != 5) {
-            this.QW--;
+            this.Ra--;
         }
         LinkedList linkedList = new LinkedList();
         linkedList.add(downloadData);
@@ -92,9 +92,9 @@ public class b {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new DownloadMessage(list));
     }
 
-    public void j(ArrayList<com.baidu.tbadk.core.data.a> arrayList) {
-        this.QY = new d(this, null);
-        this.QY.execute(arrayList);
+    public void k(ArrayList<com.baidu.tbadk.core.data.a> arrayList) {
+        this.Rc = new d(this, null);
+        this.Rc.execute(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -143,7 +143,7 @@ public class b {
     }
 
     public boolean cV(String str) {
-        for (DownloadData downloadData : g.rk().rm()) {
+        for (DownloadData downloadData : g.rm().ro()) {
             if (downloadData.getId() != null && downloadData.getId().equals(str)) {
                 return true;
             }

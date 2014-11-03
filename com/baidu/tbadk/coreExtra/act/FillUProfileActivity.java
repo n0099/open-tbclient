@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.download.CancelDownloadMessage;
 /* loaded from: classes.dex */
 public class FillUProfileActivity extends BaseActivity {
-    private SapiWebView Kg;
+    private SapiWebView Kh;
     private String bduss;
     private NavigationBar mNavigationBar;
-    private com.baidu.tbadk.coreExtra.view.r Kh = null;
-    private final com.baidu.tbadk.core.account.g BW = new p(this);
+    private com.baidu.tbadk.coreExtra.view.r Ki = null;
+    private final com.baidu.tbadk.core.account.g BX = new p(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -38,12 +38,12 @@ public class FillUProfileActivity extends BaseActivity {
             Toast.makeText(this, "参数错误，无法正常化", 0).show();
             finish();
         }
-        this.Kg = (SapiWebView) findViewById(com.baidu.tieba.v.sapi_webview);
-        com.baidu.tbadk.core.account.j.a(this, this.Kg);
-        this.Kg.setOnBackCallback(new r(this));
-        this.Kg.setOnFinishCallback(new s(this));
-        this.Kg.setAuthorizationListener(new t(this));
-        this.Kg.loadFillUProfile(this.bduss);
+        this.Kh = (SapiWebView) findViewById(com.baidu.tieba.v.sapi_webview);
+        com.baidu.tbadk.core.account.j.a(this, this.Kh);
+        this.Kh.setOnBackCallback(new r(this));
+        this.Kh.setOnFinishCallback(new s(this));
+        this.Kh.setAuthorizationListener(new t(this));
+        this.Kh.loadFillUProfile(this.bduss);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -67,18 +67,18 @@ public class FillUProfileActivity extends BaseActivity {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
-            com.baidu.tbadk.core.account.f.a(session.username, session.bduss, session.ptoken, this.BW);
+            com.baidu.tbadk.core.account.f.a(session.username, session.bduss, session.ptoken, this.BX);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(AccountData accountData) {
-        if (this.Kh == null) {
-            this.Kh = new com.baidu.tbadk.coreExtra.view.r(this);
-            this.Kh.a(new u(this));
+        if (this.Ki == null) {
+            this.Ki = new com.baidu.tbadk.coreExtra.view.r(this);
+            this.Ki.a(new u(this));
         }
-        this.Kh.qa();
-        this.Kh.g(accountData);
-        this.Kh.pX();
+        this.Ki.qc();
+        this.Ki.g(accountData);
+        this.Ki.pZ();
     }
 }

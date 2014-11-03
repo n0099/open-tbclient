@@ -1,11 +1,11 @@
 package com.baidu.tieba.topRec;
 /* loaded from: classes.dex */
 class a implements l {
-    final /* synthetic */ TopRecActivity bPw;
+    final /* synthetic */ TopRecActivity bPL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(TopRecActivity topRecActivity) {
-        this.bPw = topRecActivity;
+        this.bPL = topRecActivity;
     }
 
     @Override // com.baidu.tieba.topRec.l
@@ -15,18 +15,18 @@ class a implements l {
         e eVar;
         e eVar2;
         if (bool.booleanValue() && i == 0) {
-            eVar = this.bPw.bPn;
+            eVar = this.bPL.bPC;
             if (eVar != null) {
-                eVar2 = this.bPw.bPn;
+                eVar2 = this.bPL.bPC;
                 eVar2.a(tRForumListData);
-                this.bPw.bPq = tRForumListData;
+                this.bPL.bPF = tRForumListData;
             }
         } else {
-            this.bPw.showToast(str);
+            this.bPL.showToast(str);
         }
-        gVar = this.bPw.bPm;
+        gVar = this.bPL.bPB;
         gVar.da(false);
-        gVar2 = this.bPw.bPm;
+        gVar2 = this.bPL.bPB;
         gVar2.hN();
     }
 }

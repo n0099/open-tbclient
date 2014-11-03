@@ -70,7 +70,7 @@ public class NotificationHelper {
         boolean z4 = false;
         boolean z5 = false;
         boolean z6 = false;
-        if (!com.baidu.tbadk.coreExtra.messageCenter.a.oD() && com.baidu.tbadk.coreExtra.messageCenter.a.oC()) {
+        if (!com.baidu.tbadk.coreExtra.messageCenter.a.oF() && com.baidu.tbadk.coreExtra.messageCenter.a.oE()) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - TbadkApplication.m251getInst().getLastNotifyTime() >= TbConfig.NOTIFY_SOUND_INTERVAL) {
                 AudioManager audioManager = (AudioManager) context.getSystemService("audio");
@@ -134,7 +134,7 @@ public class NotificationHelper {
                 e5.printStackTrace();
                 notification = notif_excption(context);
             }
-            if (ay.aA(str)) {
+            if (az.aA(str)) {
                 notification.setLatestEventInfo(context, context.getString(com.baidu.tieba.y.app_name), str2, pendingIntent);
             } else {
                 notification.setLatestEventInfo(context, str, str2, pendingIntent);
@@ -156,8 +156,11 @@ public class NotificationHelper {
             notification.flags |= 16;
         }
         if (z6) {
+            notification.defaults &= -5;
+            notification.ledARGB = -16776961;
+            notification.ledOnMS = 400;
+            notification.ledOffMS = 700;
             notification.flags |= 1;
-            notification.defaults |= 4;
         }
         return processNotification(context, i, notification);
     }

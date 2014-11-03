@@ -7,7 +7,7 @@ import com.baidu.tieba.data.ForumInfoData;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class ForumListModel extends com.baidu.adp.base.e implements Serializable {
-    private static boolean avc = false;
+    private static boolean avl = false;
     private static String menu_name = null;
     private static final long serialVersionUID = -5006585496963439439L;
     public long ctime;
@@ -64,7 +64,7 @@ public class ForumListModel extends com.baidu.adp.base.e implements Serializable
     }
 
     public boolean isOk() {
-        return avc;
+        return avl;
     }
 
     public static ForumListModel new_fetch(Context context, RequestParams requestParams) {
@@ -83,7 +83,7 @@ public class ForumListModel extends com.baidu.adp.base.e implements Serializable
         acVar.k("menu_name", requestParams.menu_name);
         acVar.k("menu_type", String.valueOf(i));
         String lA = acVar.lA();
-        avc = acVar.mf();
+        avl = acVar.mf();
         ForumListModel forumListModel = (ForumListModel) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(lA, ForumListModel.class);
         if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (bd = com.baidu.tbadk.core.a.a.kS().bd("tb.my_posts")) != null)) {
             bd.a(String.valueOf(TbadkApplication.getCurrentAccount()) + "_" + menu_name + "_list", lA, 86400000L);

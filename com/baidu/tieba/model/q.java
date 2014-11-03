@@ -1,13 +1,13 @@
 package com.baidu.tieba.model;
 /* loaded from: classes.dex */
 public class q {
-    final /* synthetic */ n bou;
-    public String box = "";
-    public boolean avc = false;
+    final /* synthetic */ n boI;
+    public String boL = "";
+    public boolean avl = false;
     public int type = -1;
-    public com.baidu.tieba.data.o boy = null;
+    public com.baidu.tieba.data.o boM = null;
 
     public q(n nVar) {
-        this.bou = nVar;
+        this.boI = nVar;
     }
 }

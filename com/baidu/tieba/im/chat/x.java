@@ -13,11 +13,11 @@ import com.baidu.tieba.im.model.VoiceSendModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements VoiceSendModel.UploadVoiceCallback {
-    final /* synthetic */ w aNM;
+    final /* synthetic */ w aOa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(w wVar) {
-        this.aNM = wVar;
+        this.aOa = wVar;
     }
 
     @Override // com.baidu.tieba.im.model.VoiceSendModel.UploadVoiceCallback
@@ -25,7 +25,7 @@ public class x implements VoiceSendModel.UploadVoiceCallback {
         MsglistModel.SendCallback sendCallback;
         MsglistModel.SendCallback sendCallback2;
         try {
-            w.Jo().d(chatMessage);
+            w.Js().d(chatMessage);
             if (chatMessage != null) {
                 if (str != null && str.length() > 0) {
                     VoiceMsgData v = com.baidu.tieba.im.util.i.v(chatMessage);
@@ -34,10 +34,10 @@ public class x implements VoiceSendModel.UploadVoiceCallback {
                         chatMessage.setContent("[" + com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(v) + "]");
                     }
                     TiebaStatic.imLog(chatMessage.getCmd(), 0, "", "", "upload voice http suc vid = " + str, 0, "upload voice http success ", System.currentTimeMillis() - chatMessage.getLogTime());
-                    w.Jo().f(chatMessage);
-                    sendCallback = this.aNM.mSendCallback;
+                    w.Js().f(chatMessage);
+                    sendCallback = this.aOa.mSendCallback;
                     if (sendCallback != null) {
-                        sendCallback2 = this.aNM.mSendCallback;
+                        sendCallback2 = this.aOa.mSendCallback;
                         sendCallback2.onSend(2);
                         return;
                     }

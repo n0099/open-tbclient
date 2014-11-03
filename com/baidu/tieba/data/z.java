@@ -9,11 +9,11 @@ import java.util.List;
 import tbclient.ForumRecommend.LikeForum;
 /* loaded from: classes.dex */
 public class z {
-    private boolean alp;
+    private boolean aly;
     private int level;
     private ArrayList<y> likeForums = new ArrayList<>();
 
-    public ArrayList<y> zx() {
+    public ArrayList<y> zz() {
         return this.likeForums;
     }
 
@@ -21,11 +21,11 @@ public class z {
         this.level = i;
     }
 
-    public boolean yT() {
-        return this.alp;
+    public boolean yV() {
+        return this.aly;
     }
 
-    public void zy() {
+    public void zA() {
         Iterator<y> it = this.likeForums.iterator();
         while (it.hasNext()) {
             it.next().ec(0);
@@ -48,7 +48,7 @@ public class z {
                         y yVar = new y();
                         yVar.a((LikeForum) list.get(i));
                         if (yVar.getLevel() >= this.level) {
-                            this.alp = true;
+                            this.aly = true;
                         }
                         this.likeForums.add(yVar);
                     } else {

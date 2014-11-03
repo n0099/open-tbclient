@@ -1,14 +1,13 @@
 package com.baidu.tbadk.mvc.c.a;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements View.OnClickListener {
-    final /* synthetic */ e Xz;
+class f implements View.OnClickListener {
+    final /* synthetic */ e XD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.Xz = eVar;
+        this.XD = eVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -16,7 +15,7 @@ public class f implements View.OnClickListener {
         com.baidu.tbadk.mvc.c.b t = com.baidu.tbadk.mvc.g.a.t(view);
         if (t != null) {
             t.setView(view);
-            if (this.Xz.dispatchMvcEvent(t)) {
+            if (this.XD.dispatchMvcEvent(t)) {
             }
         }
     }

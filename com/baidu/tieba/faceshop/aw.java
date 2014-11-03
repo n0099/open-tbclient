@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class aw extends BaseAdapter {
-    private FacePurchaseRecordsData aue = null;
-    private boolean auf;
+    private FacePurchaseRecordsData aun = null;
+    private boolean auo;
     private Context mContext;
 
     public aw(Context context) {
@@ -23,28 +23,28 @@ public class aw extends BaseAdapter {
 
     public void a(FacePurchaseRecordsData facePurchaseRecordsData) {
         if (facePurchaseRecordsData == null || facePurchaseRecordsData.buy_his == null || facePurchaseRecordsData.buy_his.size() == 0) {
-            this.auf = false;
+            this.auo = false;
         } else {
-            this.auf = true;
+            this.auo = true;
         }
-        this.aue = facePurchaseRecordsData;
+        this.aun = facePurchaseRecordsData;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.auf) {
-            return this.aue.buy_his.size();
+        if (this.auo) {
+            return this.aun.buy_his.size();
         }
         return 1;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.aue == null || this.aue.buy_his == null) {
+        if (this.aun == null || this.aun.buy_his == null) {
             return null;
         }
-        ArrayList<FacePurchasePackageData> arrayList = this.aue.buy_his;
+        ArrayList<FacePurchasePackageData> arrayList = this.aun.buy_his;
         if (i < 0 || i >= arrayList.size()) {
             return null;
         }
@@ -59,8 +59,8 @@ public class aw extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         int skinType = TbadkApplication.m251getInst().getSkinType();
-        if (!this.auf) {
-            return Dt();
+        if (!this.auo) {
+            return Dv();
         }
         if (view == null) {
             view = hA();
@@ -77,10 +77,10 @@ public class aw extends BaseAdapter {
     private View hA() {
         ay ayVar = new ay(this, null);
         View inflate = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, ca.face_purchase_record_item, null);
-        ayVar.atz = (TbImageView) inflate.findViewById(bz.cover);
-        ayVar.JM = (TextView) inflate.findViewById(bz.title);
-        ayVar.auh = (TextView) inflate.findViewById(bz.time);
-        ayVar.atB = (TextView) inflate.findViewById(bz.price);
+        ayVar.atI = (TbImageView) inflate.findViewById(bz.cover);
+        ayVar.JN = (TextView) inflate.findViewById(bz.title);
+        ayVar.auq = (TextView) inflate.findViewById(bz.time);
+        ayVar.atK = (TextView) inflate.findViewById(bz.price);
         inflate.setTag(ayVar);
         return inflate;
     }
@@ -88,17 +88,17 @@ public class aw extends BaseAdapter {
     private void a(int i, ay ayVar) {
         FacePurchasePackageData facePurchasePackageData = (FacePurchasePackageData) getItem(i);
         if (facePurchasePackageData != null) {
-            ayVar.atz.setTag(facePurchasePackageData.cover_url);
-            ayVar.atz.a(facePurchasePackageData.cover_url, 10, this.mContext.getResources().getDimensionPixelSize(bx.faceshop_purchase_cover_width), this.mContext.getResources().getDimensionPixelSize(bx.faceshop_purchase_cover_height), false);
-            ayVar.atB.setText(facePurchasePackageData.price);
-            ayVar.JM.setText(facePurchasePackageData.pname);
+            ayVar.atI.setTag(facePurchasePackageData.cover_url);
+            ayVar.atI.a(facePurchasePackageData.cover_url, 10, this.mContext.getResources().getDimensionPixelSize(bx.faceshop_purchase_cover_width), this.mContext.getResources().getDimensionPixelSize(bx.faceshop_purchase_cover_height), false);
+            ayVar.atK.setText(facePurchasePackageData.price);
+            ayVar.JN.setText(facePurchasePackageData.pname);
             Date date = new Date();
             date.setTime(facePurchasePackageData.puy_time * 1000);
-            ayVar.auh.setText(com.baidu.tbadk.core.util.ay.d(date));
+            ayVar.auq.setText(com.baidu.tbadk.core.util.az.d(date));
         }
     }
 
-    private View Dt() {
+    private View Dv() {
         View inflate = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, ca.buy_no_face_item, null);
         com.baidu.tbadk.core.view.o a = NoDataViewFactory.a(this.mContext, inflate, com.baidu.tbadk.core.view.r.a(NoDataViewFactory.ImgType.EMOTION, (int) this.mContext.getResources().getDimension(bx.ds160)), com.baidu.tbadk.core.view.s.q(cb.buy_no_emotion, cb.go_to_emotion_store), com.baidu.tbadk.core.view.q.a(new com.baidu.tbadk.core.view.p(this.mContext.getResources().getString(cb.go_to_download_emotion), new ax(this))));
         BaseActivity baseActivity = (BaseActivity) this.mContext;

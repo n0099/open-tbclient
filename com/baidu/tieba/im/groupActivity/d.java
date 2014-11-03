@@ -5,33 +5,33 @@ import com.baidu.tieba.im.data.GroupActivityData;
 import com.baidu.tieba.im.message.RequestCreateGroupActivityMessage;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.e {
-    private GroupActivityData aYB;
-    RequestCreateGroupActivityMessage aYC;
+    private GroupActivityData aYO;
+    RequestCreateGroupActivityMessage aYP;
     private BaseFragmentActivity mActivity;
 
     public d(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity);
-        this.aYB = new GroupActivityData();
+        this.aYO = new GroupActivityData();
         this.mActivity = baseFragmentActivity;
     }
 
-    public GroupActivityData NY() {
-        return this.aYB;
+    public GroupActivityData Ob() {
+        return this.aYO;
     }
 
     public void bK(boolean z) {
-        if (this.aYB != null) {
-            this.aYC = new RequestCreateGroupActivityMessage();
-            this.aYC.setCommitType(z ? 1 : 0);
+        if (this.aYO != null) {
+            this.aYP = new RequestCreateGroupActivityMessage();
+            this.aYP.setCommitType(z ? 1 : 0);
             if (z) {
-                this.aYC.setActivityId(this.aYB.getActivityId());
+                this.aYP.setActivityId(this.aYO.getActivityId());
             }
-            this.aYC.setgActivityArea(this.aYB.getgActivityArea());
-            this.aYC.setgActivityContent(this.aYB.getgActivityContent());
-            this.aYC.setgActivityTime(this.aYB.getgActivityTime());
-            this.aYC.setgActivityTitle(this.aYB.getgActivityTitle());
-            this.aYC.setGroupId(this.aYB.getGroupId());
-            this.mActivity.sendMessage(this.aYC);
+            this.aYP.setgActivityArea(this.aYO.getgActivityArea());
+            this.aYP.setgActivityContent(this.aYO.getgActivityContent());
+            this.aYP.setgActivityTime(this.aYO.getgActivityTime());
+            this.aYP.setgActivityTitle(this.aYO.getgActivityTitle());
+            this.aYP.setGroupId(this.aYO.getGroupId());
+            this.mActivity.sendMessage(this.aYP);
         }
     }
 

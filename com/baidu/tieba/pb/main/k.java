@@ -4,11 +4,11 @@ import android.content.DialogInterface;
 import com.baidu.tbadk.img.WriteImagesInfo;
 /* loaded from: classes.dex */
 class k implements DialogInterface.OnClickListener {
-    final /* synthetic */ PbActivity bvg;
+    final /* synthetic */ PbActivity bvu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(PbActivity pbActivity) {
-        this.bvg = pbActivity;
+        this.bvu = pbActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -17,24 +17,24 @@ class k implements DialogInterface.OnClickListener {
         String str;
         WriteImagesInfo writeImagesInfo2;
         WriteImagesInfo writeImagesInfo3;
-        this.bvg.FG();
+        this.bvu.FI();
         if (i == 0) {
-            writeImagesInfo = this.bvg.writeImagesInfo;
+            writeImagesInfo = this.bvu.writeImagesInfo;
             if (writeImagesInfo.getChosedFiles() != null) {
-                writeImagesInfo2 = this.bvg.writeImagesInfo;
+                writeImagesInfo2 = this.bvu.writeImagesInfo;
                 int size = writeImagesInfo2.getChosedFiles().size();
-                writeImagesInfo3 = this.bvg.writeImagesInfo;
+                writeImagesInfo3 = this.bvu.writeImagesInfo;
                 if (size >= writeImagesInfo3.getMaxImagesAllowed()) {
-                    this.bvg.showToast(String.format(this.bvg.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
+                    this.bvu.showToast(String.format(this.bvu.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
                     return;
                 }
             }
-            this.bvg.ayx = String.valueOf(System.currentTimeMillis());
-            PbActivity pbActivity = this.bvg;
-            str = this.bvg.ayx;
+            this.bvu.ayG = String.valueOf(System.currentTimeMillis());
+            PbActivity pbActivity = this.bvu;
+            str = this.bvu.ayG;
             com.baidu.tbadk.core.util.av.a(pbActivity, str);
         } else if (i == 1) {
-            com.baidu.tbadk.core.util.av.i(this.bvg);
+            com.baidu.tbadk.core.util.av.i(this.bvu);
         }
     }
 }

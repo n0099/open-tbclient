@@ -6,10 +6,10 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.DailyRecommendActivityConfig;
 import com.baidu.tbadk.core.atomData.ForumRankActivityConfig;
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.bi;
 /* loaded from: classes.dex */
-class b implements bh {
-    @Override // com.baidu.tbadk.core.util.bh
+class b implements bi {
+    @Override // com.baidu.tbadk.core.util.bi
     public boolean a(Context context, String[] strArr) {
         String str = strArr[0];
         String str2 = strArr.length > 1 ? strArr[1] : null;

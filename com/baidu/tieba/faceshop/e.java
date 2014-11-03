@@ -21,7 +21,7 @@ public class e {
     }
 
     public static boolean eK(String str) {
-        Bitmap U = com.baidu.tbadk.editortool.aa.rz().U(str, "panel.png");
+        Bitmap U = com.baidu.tbadk.editortool.aa.rB().U(str, "panel.png");
         if (U == null) {
             return false;
         }
@@ -81,8 +81,8 @@ public class e {
                     if (split.length == 2) {
                         String trim2 = split[0].trim();
                         String trim3 = split[1].trim();
-                        k(str, "s_" + trim3 + ".png", com.baidu.tbadk.editortool.aa.rz().m(trim2, false));
-                        k(str, "d_" + trim3 + ".gif", com.baidu.tbadk.editortool.aa.rz().m(trim2, true));
+                        k(str, "s_" + trim3 + ".png", com.baidu.tbadk.editortool.aa.rB().m(trim2, false));
+                        k(str, "d_" + trim3 + ".gif", com.baidu.tbadk.editortool.aa.rB().m(trim2, true));
                         linkedList.add(trim2);
                     }
                 }

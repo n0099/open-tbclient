@@ -6,6 +6,6 @@ import com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivity;
 class l implements d {
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.d
     public boolean fH(String str) {
-        return !TextUtils.isEmpty(str) && OfficialBarChatActivity.aOc && str.equals(OfficialBarChatActivity.ZG);
+        return !TextUtils.isEmpty(str) && OfficialBarChatActivity.aOq && str.equals(OfficialBarChatActivity.ZK);
     }
 }

@@ -5,29 +5,29 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.ForumRecommend.DataRes;
 /* loaded from: classes.dex */
 public class o {
-    private boolean Lk;
-    private boolean Vd;
-    private int akj;
-    private int akk;
-    private int akl;
-    private String akm;
-    private int akn;
+    private boolean Ln;
+    private boolean Vh;
+    private int aks;
+    private int akt;
+    private int aku;
+    private String akv;
+    private int akw;
     private int time = 0;
-    private z akg = new z();
-    private ap akh = new ap();
-    private com.baidu.tieba.square.al aki = new com.baidu.tieba.square.al();
+    private z akp = new z();
+    private ap akq = new ap();
+    private com.baidu.tieba.square.al akr = new com.baidu.tieba.square.al();
 
-    public boolean yL() {
-        return this.Vd;
+    public boolean yN() {
+        return this.Vh;
     }
 
     public void bp(boolean z) {
-        this.Vd = z;
+        this.Vh = z;
     }
 
     public o() {
-        this.Lk = true;
-        this.Lk = false;
+        this.Ln = true;
+        this.Ln = false;
     }
 
     public void setTime(int i) {
@@ -35,35 +35,35 @@ public class o {
     }
 
     public void dZ(int i) {
-        this.akl = i;
+        this.aku = i;
     }
 
     public void setIsMem(int i) {
-        this.akn = i;
+        this.akw = i;
     }
 
-    public int yM() {
-        return this.akj;
+    public int yO() {
+        return this.aks;
     }
 
     public void ea(int i) {
-        this.akj = i;
+        this.aks = i;
     }
 
-    public int yN() {
-        return this.akk;
+    public int yP() {
+        return this.akt;
     }
 
     public void eb(int i) {
-        this.akk = i;
+        this.akt = i;
     }
 
-    public String yO() {
-        return this.akm;
+    public String yQ() {
+        return this.akv;
     }
 
     public void eq(String str) {
-        this.akm = str;
+        this.akv = str;
     }
 
     public void a(DataRes dataRes) {
@@ -81,15 +81,15 @@ public class o {
                 eq(dataRes.msign_text);
                 setIsMem(dataRes.is_mem.intValue());
                 setTime(dataRes.time.intValue());
-                this.akg.setLevel(this.akk);
+                this.akp.setLevel(this.akt);
                 if (dataRes.like_forum != null) {
-                    this.akg.A(dataRes.like_forum);
+                    this.akp.A(dataRes.like_forum);
                 }
                 if (dataRes.new_recommend != null) {
-                    this.akh.A(dataRes.new_recommend);
+                    this.akq.A(dataRes.new_recommend);
                 }
                 if (dataRes.banner != null) {
-                    this.aki.A(dataRes.banner);
+                    this.akr.A(dataRes.banner);
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -97,46 +97,46 @@ public class o {
         }
     }
 
-    public com.baidu.tieba.square.al yP() {
-        return this.aki;
+    public com.baidu.tieba.square.al yR() {
+        return this.akr;
     }
 
     public void a(com.baidu.tieba.square.al alVar) {
-        this.aki = alVar;
+        this.akr = alVar;
     }
 
-    public z yQ() {
-        return this.akg;
+    public z yS() {
+        return this.akp;
     }
 
     public void a(z zVar) {
-        this.akg = zVar;
+        this.akp = zVar;
     }
 
-    public ap yR() {
-        return this.akh;
+    public ap yT() {
+        return this.akq;
     }
 
     public void a(ap apVar) {
-        this.akh = apVar;
+        this.akq = apVar;
     }
 
     public void ab(boolean z) {
-        this.Lk = z;
+        this.Ln = z;
     }
 
     public boolean isSuccess() {
-        return this.Lk;
+        return this.Ln;
     }
 
-    public boolean yS() {
-        return System.currentTimeMillis() / e.ajx.longValue() == (((long) this.time) * 1000) / e.ajx.longValue();
+    public boolean yU() {
+        return System.currentTimeMillis() / e.ajG.longValue() == (((long) this.time) * 1000) / e.ajG.longValue();
     }
 
     public boolean isEmpty() {
         boolean z = false;
-        if (this.Lk) {
-            if (this.akg == null || this.akg.zx() == null || this.akg.zx().size() < 1) {
+        if (this.Ln) {
+            if (this.akp == null || this.akp.zz() == null || this.akp.zz().size() < 1) {
                 z = true;
             }
             return z;
@@ -144,9 +144,9 @@ public class o {
         return true;
     }
 
-    public boolean yT() {
-        if (this.akg != null) {
-            return this.akg.yT();
+    public boolean yV() {
+        if (this.akp != null) {
+            return this.akp.yV();
         }
         return false;
     }

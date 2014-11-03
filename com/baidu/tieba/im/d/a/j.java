@@ -4,6 +4,6 @@ import com.baidu.tieba.im.chat.officialBar.ax;
 /* loaded from: classes.dex */
 public class j extends a {
     public j() {
-        super(ax.KA(), 2001148);
+        super(ax.KE(), 2001148);
     }
 }

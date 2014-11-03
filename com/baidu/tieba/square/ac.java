@@ -2,11 +2,11 @@ package com.baidu.tieba.square;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements com.baidu.tbadk.core.view.u {
-    final /* synthetic */ aa bMQ;
+    final /* synthetic */ aa bNf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(aa aaVar) {
-        this.bMQ = aaVar;
+        this.bNf = aaVar;
     }
 
     @Override // com.baidu.tbadk.core.view.u
@@ -14,6 +14,6 @@ public class ac implements com.baidu.tbadk.core.view.u {
         if (!z) {
             return;
         }
-        this.bMQ.eH(true);
+        this.bNf.eH(true);
     }
 }

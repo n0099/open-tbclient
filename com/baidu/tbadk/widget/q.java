@@ -40,7 +40,7 @@ public class q extends TextView {
 
     private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         r b = b(spannableStringBuilder, i, i2);
-        if (b.abg) {
+        if (b.abl) {
             a(i, i2, spannableStringBuilder, b);
         } else {
             z(i, i2);
@@ -69,7 +69,7 @@ public class q extends TextView {
                 BdLog.e(e.getMessage());
             }
         }
-        return r.vx();
+        return r.vz();
     }
 
     private boolean a(CharSequence charSequence, int i) {
@@ -82,7 +82,7 @@ public class q extends TextView {
     }
 
     private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, r rVar) {
-        for (Object obj : rVar.abi) {
+        for (Object obj : rVar.abn) {
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             spannableStringBuilder.delete(spanEnd, spanEnd + 1);
             try {
@@ -92,7 +92,7 @@ public class q extends TextView {
             }
         }
         boolean z = true;
-        for (Object obj2 : rVar.abh) {
+        for (Object obj2 : rVar.abm) {
             int spanStart = spannableStringBuilder.getSpanStart(obj2);
             spannableStringBuilder.delete(spanStart - 1, spanStart);
             try {

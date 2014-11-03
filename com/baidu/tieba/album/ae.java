@@ -7,21 +7,21 @@ import com.baidu.tbadk.img.ImageFileInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements View.OnClickListener {
-    private final /* synthetic */ int BF;
-    final /* synthetic */ ab ait;
-    private final /* synthetic */ af aiu;
-    private final /* synthetic */ ImageFileInfo aiv;
-    private final /* synthetic */ p aiw;
-    private final /* synthetic */ ag aix;
+    private final /* synthetic */ int BG;
+    final /* synthetic */ ab aiC;
+    private final /* synthetic */ af aiD;
+    private final /* synthetic */ ImageFileInfo aiE;
+    private final /* synthetic */ p aiF;
+    private final /* synthetic */ ag aiG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(ab abVar, af afVar, p pVar, ImageFileInfo imageFileInfo, int i, ag agVar) {
-        this.ait = abVar;
-        this.aiu = afVar;
-        this.aiw = pVar;
-        this.aiv = imageFileInfo;
-        this.BF = i;
-        this.aix = agVar;
+        this.aiC = abVar;
+        this.aiD = afVar;
+        this.aiF = pVar;
+        this.aiE = imageFileInfo;
+        this.BG = i;
+        this.aiG = agVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -29,18 +29,18 @@ public class ae implements View.OnClickListener {
         aa aaVar;
         aa aaVar2;
         AlbumActivity albumActivity;
-        aaVar = this.ait.ais;
-        if (aaVar != null && this.aiu.aiy) {
-            boolean isAdded = this.aiw.isAdded(this.aiv);
-            aaVar2 = this.ait.ais;
-            if (aaVar2.onClick(this.BF, this.aiv, !isAdded)) {
+        aaVar = this.aiC.aiB;
+        if (aaVar != null && this.aiD.aiH) {
+            boolean isAdded = this.aiF.isAdded(this.aiE);
+            aaVar2 = this.aiC.aiB;
+            if (aaVar2.onClick(this.BG, this.aiE, !isAdded)) {
                 if (!isAdded) {
-                    aw.h(this.aix.aiA, com.baidu.tieba.u.btn_choose_photo_s);
-                    albumActivity = this.ait.ahq;
-                    this.aix.aiA.startAnimation(AnimationUtils.loadAnimation(albumActivity, com.baidu.tieba.p.album_choose_icon));
+                    aw.h(this.aiG.aiJ, com.baidu.tieba.u.btn_choose_photo_s);
+                    albumActivity = this.aiC.ahz;
+                    this.aiG.aiJ.startAnimation(AnimationUtils.loadAnimation(albumActivity, com.baidu.tieba.p.album_choose_icon));
                     return;
                 }
-                aw.h(this.aix.aiA, com.baidu.tieba.u.btn_choose_photo_n);
+                aw.h(this.aiG.aiJ, com.baidu.tieba.u.btn_choose_photo_n);
             }
         }
     }

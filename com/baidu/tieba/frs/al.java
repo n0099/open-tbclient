@@ -9,11 +9,11 @@ import com.baidu.tieba.util.AntiHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al extends com.baidu.adp.base.h {
-    final /* synthetic */ FrsActivity aBk;
+    final /* synthetic */ FrsActivity aBu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(FrsActivity frsActivity) {
-        this.aBk = frsActivity;
+        this.aBu = frsActivity;
     }
 
     @Override // com.baidu.adp.base.h
@@ -59,84 +59,84 @@ public class al extends com.baidu.adp.base.h {
             z = false;
         } else {
             signData = (SignData) obj;
-            a EV = a.EV();
-            str8 = this.aBk.aAn;
-            EV.u(str8, false);
-            bVar15 = this.aBk.azE;
+            a EX = a.EX();
+            str8 = this.aBu.aAx;
+            EX.u(str8, false);
+            bVar15 = this.aBu.azN;
             bVar15.a(signData);
-            bVar16 = this.aBk.azE;
-            signData.setForumId(bVar16.zJ().getId());
+            bVar16 = this.aBu.azN;
+            signData.setForumId(bVar16.zL().getId());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001228, signData));
             z = true;
         }
-        str = this.aBk.mPageType;
+        str = this.aBu.mPageType;
         if (str.equals("normal_page")) {
-            buVar8 = this.aBk.aAv;
-            buVar8.Gu();
+            buVar8 = this.aBu.aAF;
+            buVar8.Gw();
         } else {
-            str2 = this.aBk.mPageType;
+            str2 = this.aBu.mPageType;
             if (str2.equals("frs_page")) {
-                buVar = this.aBk.aAv;
-                buVar.Gw();
+                buVar = this.aBu.aAF;
+                buVar.Gy();
             }
         }
         if (z) {
-            bVar = this.aBk.azE;
+            bVar = this.aBu.azN;
             if (bVar != null) {
-                bVar2 = this.aBk.azE;
-                if (bVar2.zJ() != null) {
-                    bVar3 = this.aBk.azE;
+                bVar2 = this.aBu.azN;
+                if (bVar2.zL() != null) {
+                    bVar3 = this.aBu.azN;
                     AntiData jZ = bVar3.jZ();
-                    str5 = this.aBk.mPageType;
+                    str5 = this.aBu.mPageType;
                     if (str5.equals("normal_page")) {
-                        buVar7 = this.aBk.aAv;
-                        bVar12 = this.aBk.azE;
-                        SignData signData2 = bVar12.zJ().getSignData();
-                        bVar13 = this.aBk.azE;
-                        ForumData zJ = bVar13.zJ();
-                        bVar14 = this.aBk.azE;
-                        buVar7.b(signData2, zJ, bVar14);
+                        buVar7 = this.aBu.aAF;
+                        bVar12 = this.aBu.azN;
+                        SignData signData2 = bVar12.zL().getSignData();
+                        bVar13 = this.aBu.azN;
+                        ForumData zL = bVar13.zL();
+                        bVar14 = this.aBu.azN;
+                        buVar7.b(signData2, zL, bVar14);
                     } else {
-                        str6 = this.aBk.mPageType;
+                        str6 = this.aBu.mPageType;
                         if (str6.equals("frs_page")) {
-                            buVar4 = this.aBk.aAv;
-                            bVar4 = this.aBk.azE;
-                            SignData signData3 = bVar4.zJ().getSignData();
-                            bVar5 = this.aBk.azE;
-                            ForumData zJ2 = bVar5.zJ();
-                            bVar6 = this.aBk.azE;
-                            buVar4.a(signData3, zJ2, bVar6);
+                            buVar4 = this.aBu.aAF;
+                            bVar4 = this.aBu.azN;
+                            SignData signData3 = bVar4.zL().getSignData();
+                            bVar5 = this.aBu.azN;
+                            ForumData zL2 = bVar5.zL();
+                            bVar6 = this.aBu.azN;
+                            buVar4.a(signData3, zL2, bVar6);
                         }
                     }
                     if (signData != null) {
                         int i = -1;
-                        buVar6 = this.aBk.aAv;
-                        if (buVar6.Gh()) {
-                            bVar11 = this.aBk.azE;
-                            i = bVar11.zJ().getUser_level() + 1;
+                        buVar6 = this.aBu.aAF;
+                        if (buVar6.Gj()) {
+                            bVar11 = this.aBu.azN;
+                            i = bVar11.zL().getUser_level() + 1;
                         }
-                        com.baidu.tieba.aj wk = com.baidu.tieba.aj.wk();
-                        bVar10 = this.aBk.azE;
-                        wk.f(bVar10.zJ().getName(), signData.getBonusPoint(), i);
+                        com.baidu.tieba.aj wm = com.baidu.tieba.aj.wm();
+                        bVar10 = this.aBu.azN;
+                        wm.f(bVar10.zL().getName(), signData.getBonusPoint(), i);
                     }
                     if (AntiHelper.d(jZ) || AntiHelper.c(jZ) || AntiHelper.e(jZ)) {
-                        str7 = this.aBk.aAn;
+                        str7 = this.aBu.aAx;
                         jZ.setBlock_forum_name(str7);
-                        bVar7 = this.aBk.azE;
-                        jZ.setBlock_forum_id(bVar7.zJ().getId());
-                        bVar8 = this.aBk.azE;
+                        bVar7 = this.aBu.azN;
+                        jZ.setBlock_forum_id(bVar7.zL().getId());
+                        bVar8 = this.aBu.azN;
                         jZ.setUser_name(bVar8.getUserData().getUserName());
-                        bVar9 = this.aBk.azE;
+                        bVar9 = this.aBu.azN;
                         jZ.setUser_id(bVar9.getUserData().getUserId());
-                        AntiHelper.a(this.aBk, jZ, AntiHelper.OperationType.SIGN, AntiHelper.PageType.FRS);
+                        AntiHelper.a(this.aBu, jZ, AntiHelper.OperationType.SIGN, AntiHelper.PageType.FRS);
                         return;
                     } else if (signData != null) {
-                        buVar5 = this.aBk.aAv;
-                        if (!buVar5.Gy()) {
-                            this.aBk.showToast(this.aBk.getString(com.baidu.tieba.y.frs_sign_success, new Object[]{Integer.valueOf(signData.getUserSignRank())}));
+                        buVar5 = this.aBu.aAF;
+                        if (!buVar5.GA()) {
+                            this.aBu.showToast(this.aBu.getString(com.baidu.tieba.y.frs_sign_success, new Object[]{Integer.valueOf(signData.getUserSignRank())}));
                             return;
                         } else {
-                            this.aBk.showToast(this.aBk.getString(com.baidu.tieba.y.frs_sign_pointer, new Object[]{Integer.valueOf(signData.getBonusPoint()), Integer.valueOf(signData.getUserSignRank())}));
+                            this.aBu.showToast(this.aBu.getString(com.baidu.tieba.y.frs_sign_pointer, new Object[]{Integer.valueOf(signData.getBonusPoint()), Integer.valueOf(signData.getUserSignRank())}));
                             return;
                         }
                     } else {
@@ -147,22 +147,22 @@ public class al extends com.baidu.adp.base.h {
             }
             return;
         }
-        ayVar = this.aBk.aAG;
+        ayVar = this.aBu.aAQ;
         if (ayVar.getErrorCode() == 160002) {
-            str3 = this.aBk.mPageType;
+            str3 = this.aBu.mPageType;
             if (str3.equals("normal_page")) {
-                buVar3 = this.aBk.aAv;
+                buVar3 = this.aBu.aAF;
                 buVar3.eS(1);
             } else {
-                str4 = this.aBk.mPageType;
+                str4 = this.aBu.mPageType;
                 if (str4.equals("frs_page")) {
-                    buVar2 = this.aBk.aAv;
+                    buVar2 = this.aBu.aAF;
                     buVar2.eR(1);
                 }
             }
         }
-        FrsActivity frsActivity = this.aBk;
-        ayVar2 = this.aBk.aAG;
+        FrsActivity frsActivity = this.aBu;
+        ayVar2 = this.aBu.aAQ;
         frsActivity.showToast(ayVar2.getErrorString());
     }
 }

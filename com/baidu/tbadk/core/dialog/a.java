@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.bn;
+import com.baidu.tbadk.core.util.bo;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 import java.util.ArrayList;
@@ -265,7 +265,7 @@ public class a {
             window.setLayout(-2, -2);
             window.setContentView(this.mRootView);
             AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            bn.a(this.mRootView, false, new b(this, atomicBoolean));
+            bo.a(this.mRootView, false, new b(this, atomicBoolean));
             if (atomicBoolean.get()) {
                 window.clearFlags(131080);
             }

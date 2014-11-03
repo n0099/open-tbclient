@@ -11,36 +11,36 @@ import com.baidu.tbadk.core.util.aw;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a extends BaseAdapter {
-    private final BaseActivity On;
-    private final String aAn;
-    private ArrayList<String> aew;
-    private boolean blW = true;
+    private final BaseActivity Or;
+    private final String aAx;
+    private ArrayList<String> aeE;
+    private boolean bmk = true;
 
     public a(BaseActivity baseActivity, ArrayList<String> arrayList) {
-        this.On = baseActivity;
-        this.aew = arrayList;
-        this.aAn = this.On.getText(com.baidu.tieba.y.forum).toString();
+        this.Or = baseActivity;
+        this.aeE = arrayList;
+        this.aAx = this.Or.getText(com.baidu.tieba.y.forum).toString();
     }
 
     public void setData(ArrayList<String> arrayList) {
-        this.aew = arrayList;
+        this.aeE = arrayList;
     }
 
     public void dy(boolean z) {
-        this.blW = z;
+        this.bmk = z;
     }
 
     public void gs(int i) {
-        this.aew.remove(i);
-        this.aew.add(0, this.aew.get(i));
+        this.aeE.remove(i);
+        this.aeE.add(0, this.aeE.get(i));
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aew == null) {
+        if (this.aeE == null) {
             return 0;
         }
-        return this.aew.size();
+        return this.aeE.size();
     }
 
     @Override // android.widget.Adapter
@@ -49,7 +49,7 @@ public class a extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.aew.get(i);
+        return this.aeE.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -66,11 +66,11 @@ public class a extends BaseAdapter {
         Object item;
         try {
             if (view == null) {
-                view3 = com.baidu.adp.lib.g.b.ek().inflate(this.On, com.baidu.tieba.w.home_dialog_search_item, null);
+                view3 = com.baidu.adp.lib.g.b.ek().inflate(this.Or, com.baidu.tieba.w.home_dialog_search_item, null);
                 try {
                     bVar = new b(this, null);
-                    bVar.axq = (TextView) view3.findViewById(com.baidu.tieba.v.home_lv_search_forum);
-                    bVar.blX = view3.findViewById(com.baidu.tieba.v.home_dialog_lv_search_forum_divider);
+                    bVar.axz = (TextView) view3.findViewById(com.baidu.tieba.v.home_lv_search_forum);
+                    bVar.bml = view3.findViewById(com.baidu.tieba.v.home_dialog_lv_search_forum_divider);
                     view3.setTag(bVar);
                 } catch (Exception e) {
                     view2 = view3;
@@ -92,17 +92,17 @@ public class a extends BaseAdapter {
             return view3;
         }
         if (TbadkApplication.m251getInst().getSkinType() == 1) {
-            bVar.axq.setTextColor(-6574132);
+            bVar.axz.setTextColor(-6574132);
         } else {
-            bVar.axq.setTextColor(-13553101);
+            bVar.axz.setTextColor(-13553101);
         }
-        aw.i(bVar.blX, com.baidu.tieba.s.square_dividing_line);
+        aw.i(bVar.bml, com.baidu.tieba.s.square_dividing_line);
         String str = (String) item;
-        if (this.blW) {
-            bVar.axq.setText(str.concat(this.aAn));
+        if (this.bmk) {
+            bVar.axz.setText(str.concat(this.aAx));
             view2 = view3;
         } else {
-            bVar.axq.setText(str);
+            bVar.axz.setText(str);
             view2 = view3;
         }
         F(view2);
@@ -110,8 +110,8 @@ public class a extends BaseAdapter {
     }
 
     private void F(View view) {
-        this.On.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
-        this.On.getLayoutMode().h(view);
+        this.Or.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
+        this.Or.getLayoutMode().h(view);
         View findViewById = view.findViewById(com.baidu.tieba.v.parent);
         if (findViewById != null) {
             aw.h(findViewById, com.baidu.tieba.u.common_list_item_bg_selector);

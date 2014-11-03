@@ -13,15 +13,21 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.pluginArch.PluginHelper;
 import com.baidu.tbadk.pluginArch.PluginNameList;
 import com.baidu.tbadk.pluginArch.PluginResourcesManager;
 /* loaded from: classes.dex */
 public class aw {
-    private static String EV = "skinType not support";
-    private static Resources EW;
-    private static String EX;
+    private static String EW;
+    private static Resources EX;
+    private static String EY;
+
+    static {
+        MessageManager.getInstance().registerListener(new ax(2005017));
+        EW = "skinType not support";
+    }
 
     @Deprecated
     public static void a(TextView textView, int i) {
@@ -164,7 +170,7 @@ public class aw {
         if (i == 1) {
             return BdBaseApplication.getInst().getApp().getResources().getColor(com.baidu.tieba.s.skin_1_common_color);
         }
-        throw new IllegalArgumentException(EV);
+        throw new IllegalArgumentException(EW);
     }
 
     public static int by(int i) {
@@ -180,17 +186,17 @@ public class aw {
 
     private static int a(Resources resources, int i) {
         int indexOf;
-        if (TextUtils.isEmpty(EX)) {
-            EX = PluginHelper.getPluginPackage(PluginNameList.NAME_NIGHT_RESOURCE);
+        if (TextUtils.isEmpty(EY)) {
+            EY = PluginHelper.getPluginPackage(PluginNameList.NAME_NIGHT_RESOURCE);
         }
-        if (EW == null) {
-            EW = PluginResourcesManager.getInstance().getPluginResource(PluginNameList.NAME_NIGHT_RESOURCE, resources);
+        if (EX == null) {
+            EX = PluginResourcesManager.getInstance().getPluginResource(PluginNameList.NAME_NIGHT_RESOURCE, resources);
         }
         String resourceName = resources.getResourceName(i);
-        if (TextUtils.isEmpty(resourceName) || (indexOf = resourceName.indexOf(":")) <= 0 || TextUtils.isEmpty(EX) || EW == null) {
+        if (TextUtils.isEmpty(resourceName) || (indexOf = resourceName.indexOf(":")) <= 0 || TextUtils.isEmpty(EY) || EX == null) {
             return 0;
         }
-        return EW.getIdentifier(String.valueOf(String.valueOf(EX) + resourceName.substring(indexOf)) + "_1", null, null);
+        return EX.getIdentifier(String.valueOf(String.valueOf(EY) + resourceName.substring(indexOf)) + "_1", null, null);
     }
 
     public static int b(Resources resources, int i) {
@@ -207,8 +213,8 @@ public class aw {
             if (i2 == 0) {
                 resources2 = resources;
                 i2 = i;
-            } else if (EW != null) {
-                resources2 = EW;
+            } else if (EX != null) {
+                resources2 = EX;
             } else {
                 resources2 = resources;
                 i2 = i;
@@ -242,8 +248,8 @@ public class aw {
             if (i2 == 0) {
                 resources2 = resources;
                 i2 = i;
-            } else if (EW != null) {
-                resources2 = EW;
+            } else if (EX != null) {
+                resources2 = EX;
             } else {
                 resources2 = resources;
                 i2 = i;
@@ -277,8 +283,8 @@ public class aw {
             if (i2 == 0) {
                 resources2 = resources;
                 i2 = i;
-            } else if (EW != null) {
-                resources2 = EW;
+            } else if (EX != null) {
+                resources2 = EX;
             } else {
                 resources2 = resources;
                 i2 = i;
@@ -313,13 +319,13 @@ public class aw {
             int a = a(resources, i);
             if (a == 0) {
                 a = i;
-            } else if (EW != null) {
-                Resources resources2 = EW;
+            } else if (EX != null) {
+                Resources resources2 = EX;
             } else {
                 a = i;
             }
             try {
-                Bitmap a2 = d.a(EW, a, i);
+                Bitmap a2 = d.a(EX, a, i);
                 if (a2 == null) {
                     return d.bl(i);
                 }

@@ -5,15 +5,15 @@ import com.baidu.tieba.aj;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends BdAsyncTask<String, Integer, com.baidu.tieba.data.l> {
-    private com.baidu.tieba.a.e bIm;
-    private String bIn;
-    final /* synthetic */ o bIo;
+    private com.baidu.tieba.a.e bIA;
+    private String bIB;
+    final /* synthetic */ o bIC;
     private int mType;
 
     public p(o oVar, int i, String str) {
-        this.bIo = oVar;
+        this.bIC = oVar;
         this.mType = i;
-        this.bIn = str;
+        this.bIB = str;
         setPriority(3);
     }
 
@@ -23,10 +23,10 @@ public class p extends BdAsyncTask<String, Integer, com.baidu.tieba.data.l> {
         q qVar;
         q qVar2;
         super.onPreExecute();
-        qVar = this.bIo.bIh;
+        qVar = this.bIC.bIv;
         if (qVar != null) {
-            qVar2 = this.bIo.bIh;
-            qVar2.abJ();
+            qVar2 = this.bIC.bIv;
+            qVar2.abM();
         }
     }
 
@@ -40,16 +40,16 @@ public class p extends BdAsyncTask<String, Integer, com.baidu.tieba.data.l> {
         switch (this.mType) {
             case 0:
             case 2:
-                this.bIm = new com.baidu.tieba.a.e(this.mType == 0);
-                com.baidu.tieba.a.e eVar = this.bIm;
-                String str2 = this.bIn;
-                str = this.bIo.stType;
+                this.bIA = new com.baidu.tieba.a.e(this.mType == 0);
+                com.baidu.tieba.a.e eVar = this.bIA;
+                String str2 = this.bIB;
+                str = this.bIC.stType;
                 ab = eVar.ab(str2, str);
                 break;
             case 1:
-                com.baidu.adp.lib.cache.t<String> wO = aj.wk().wO();
-                if (wO != null) {
-                    ab = wO.get("dailyrecommend");
+                com.baidu.adp.lib.cache.t<String> wQ = aj.wm().wQ();
+                if (wQ != null) {
+                    ab = wQ.get("dailyrecommend");
                     break;
                 }
             default:
@@ -57,10 +57,10 @@ public class p extends BdAsyncTask<String, Integer, com.baidu.tieba.data.l> {
                 break;
         }
         if (ab != null) {
-            if (this.mType != 1 && this.bIm != null && this.bIm.jq()) {
-                if (this.bIm.getErrorCode() == 0) {
+            if (this.mType != 1 && this.bIA != null && this.bIA.jq()) {
+                if (this.bIA.getErrorCode() == 0) {
                     if (this.mType == 0) {
-                        this.bIo.hl(ab);
+                        this.bIC.hl(ab);
                     }
                     return hn(ab);
                 }
@@ -74,8 +74,8 @@ public class p extends BdAsyncTask<String, Integer, com.baidu.tieba.data.l> {
     private com.baidu.tieba.data.l hn(String str) {
         com.baidu.tieba.data.l lVar = new com.baidu.tieba.data.l();
         lVar.parserJson(str);
-        if (this.mType == 0 && lVar.yG().size() > 0) {
-            lVar.yG().get(0).bo(true);
+        if (this.mType == 0 && lVar.yI().size() > 0) {
+            lVar.yI().get(0).bo(true);
         }
         return lVar;
     }
@@ -97,43 +97,43 @@ public class p extends BdAsyncTask<String, Integer, com.baidu.tieba.data.l> {
         com.baidu.tieba.data.l lVar5;
         super.onPostExecute(lVar);
         if (lVar == null) {
-            qVar = this.bIo.bIh;
+            qVar = this.bIC.bIv;
             if (qVar != null) {
                 if (this.mType != 1) {
-                    qVar3 = this.bIo.bIh;
-                    String sb = new StringBuilder(String.valueOf(this.bIm.getErrorCode())).toString();
-                    lVar3 = this.bIo.bIi;
+                    qVar3 = this.bIC.bIv;
+                    String sb = new StringBuilder(String.valueOf(this.bIA.getErrorCode())).toString();
+                    lVar3 = this.bIC.bIw;
                     qVar3.a(false, sb, lVar3, this.mType, false);
                     return;
                 }
-                qVar2 = this.bIo.bIh;
-                lVar2 = this.bIo.bIi;
+                qVar2 = this.bIC.bIv;
+                lVar2 = this.bIC.bIw;
                 qVar2.a(false, "db no data!", lVar2, this.mType, false);
                 return;
             }
             return;
         }
-        boolean z2 = lVar.yG().size() > 0;
+        boolean z2 = lVar.yI().size() > 0;
         if (this.mType == 1) {
-            this.bIo.bIi = lVar;
-            this.bIo.bIl = true;
+            this.bIC.bIw = lVar;
+            this.bIC.bIz = true;
         } else {
-            z = this.bIo.bIl;
+            z = this.bIC.bIz;
             if (z) {
-                this.bIo.bIi = new com.baidu.tieba.data.l();
-                this.bIo.bIl = false;
+                this.bIC.bIw = new com.baidu.tieba.data.l();
+                this.bIC.bIz = false;
             }
             if (this.mType == 0) {
-                this.bIo.bIi = lVar;
+                this.bIC.bIw = lVar;
             } else {
-                lVar4 = this.bIo.bIi;
+                lVar4 = this.bIC.bIw;
                 lVar4.a(lVar);
             }
         }
-        qVar4 = this.bIo.bIh;
+        qVar4 = this.bIC.bIv;
         if (qVar4 != null) {
-            qVar5 = this.bIo.bIh;
-            lVar5 = this.bIo.bIi;
+            qVar5 = this.bIC.bIv;
+            lVar5 = this.bIC.bIw;
             qVar5.a(true, null, lVar5, this.mType, z2);
         }
     }
@@ -141,9 +141,9 @@ public class p extends BdAsyncTask<String, Integer, com.baidu.tieba.data.l> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        if (this.bIm != null) {
-            this.bIm.cancel();
-            this.bIm = null;
+        if (this.bIA != null) {
+            this.bIA.cancel();
+            this.bIA = null;
         }
     }
 }

@@ -44,7 +44,7 @@ public class h extends BdAsyncTask<String, Integer, AccountData> {
         this.yV.k("bdusstoken", String.valueOf(this.xP) + "|" + this.mPtoken);
         this.yV.k("channel_id", TbadkApplication.m251getInst().getPushChannelId());
         this.yV.k("channel_uid", TbadkApplication.m251getInst().getPushChannelUserId());
-        this.yV.mc().na().FT = false;
+        this.yV.mc().na().FU = false;
         String lA = this.yV.lA();
         if (this.yV.mc().nb().jq() && lA != null) {
             com.baidu.tbadk.core.data.j jVar = new com.baidu.tbadk.core.data.j();

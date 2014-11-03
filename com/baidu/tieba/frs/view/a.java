@@ -6,10 +6,10 @@ import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 /* loaded from: classes.dex */
 public class a {
-    protected boolean aEK;
+    protected boolean aEU;
 
-    public boolean GR() {
-        return this.aEK;
+    public boolean GT() {
+        return this.aEU;
     }
 
     public void a(Context context, View view, float f, float f2) {

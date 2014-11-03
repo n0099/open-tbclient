@@ -10,12 +10,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class LivePlayingStatusMgr {
-    private static LivePlayingStatusMgr OF;
-    private ArrayList<SoftReference<LivePlayingImageView>> OH;
+    private static LivePlayingStatusMgr OJ;
+    private ArrayList<SoftReference<LivePlayingImageView>> OL;
     private int gid;
-    private LivePlayingStatus OG = LivePlayingStatus.IDEL;
+    private LivePlayingStatus OK = LivePlayingStatus.IDEL;
     private final CustomMessageListener mCustomMessageListener = new ai(this, 2001161);
-    private final CustomMessageListener OI = new aj(this, 2001166);
+    private final CustomMessageListener OM = new aj(this, 2001166);
     private final Handler mHandler = new ak(this);
 
     /* loaded from: classes.dex */
@@ -26,7 +26,7 @@ public class LivePlayingStatusMgr {
         PAUSE,
         NO_PUBLISHER;
 
-        /* JADX DEBUG: Replace access to removed values field (OK) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (OP) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static LivePlayingStatus[] valuesCustom() {
             LivePlayingStatus[] valuesCustom = values();
@@ -38,32 +38,32 @@ public class LivePlayingStatusMgr {
     }
 
     private LivePlayingStatusMgr() {
-        this.OH = null;
+        this.OL = null;
         BdLog.addLogPackage("com.baidu.tbadk.coreExtra.view");
-        this.OH = new ArrayList<>();
+        this.OL = new ArrayList<>();
         MessageManager.getInstance().registerListener(this.mCustomMessageListener);
-        MessageManager.getInstance().registerListener(this.OI);
+        MessageManager.getInstance().registerListener(this.OM);
     }
 
-    public static synchronized LivePlayingStatusMgr qe() {
+    public static synchronized LivePlayingStatusMgr qg() {
         LivePlayingStatusMgr livePlayingStatusMgr;
         synchronized (LivePlayingStatusMgr.class) {
-            if (OF == null) {
-                OF = new LivePlayingStatusMgr();
+            if (OJ == null) {
+                OJ = new LivePlayingStatusMgr();
             }
-            livePlayingStatusMgr = OF;
+            livePlayingStatusMgr = OJ;
         }
         return livePlayingStatusMgr;
     }
 
     public void a(LivePlayingImageView livePlayingImageView) {
         if (livePlayingImageView != null) {
-            this.OH.add(new SoftReference<>(livePlayingImageView));
+            this.OL.add(new SoftReference<>(livePlayingImageView));
         }
     }
 
     public void b(LivePlayingImageView livePlayingImageView) {
-        Iterator<SoftReference<LivePlayingImageView>> it = this.OH.iterator();
+        Iterator<SoftReference<LivePlayingImageView>> it = this.OL.iterator();
         while (it.hasNext()) {
             SoftReference<LivePlayingImageView> next = it.next();
             if (next != null && next.get() != null && (next.get() instanceof LivePlayingImageView) && next.get() == livePlayingImageView) {
@@ -72,15 +72,15 @@ public class LivePlayingStatusMgr {
         }
     }
 
-    public LivePlayingStatus qf() {
-        return this.OG;
+    public LivePlayingStatus qh() {
+        return this.OK;
     }
 
     public int getGid() {
         return this.gid;
     }
 
-    public void qg() {
+    public void qi() {
         a(0, LivePlayingStatus.IDEL);
     }
 
@@ -93,7 +93,7 @@ public class LivePlayingStatusMgr {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(LivePlayingStatus livePlayingStatus) {
-        Iterator<SoftReference<LivePlayingImageView>> it = this.OH.iterator();
+        Iterator<SoftReference<LivePlayingImageView>> it = this.OL.iterator();
         while (it.hasNext()) {
             SoftReference<LivePlayingImageView> next = it.next();
             if (next != null && next.get() != null && (next.get() instanceof LivePlayingImageView)) {

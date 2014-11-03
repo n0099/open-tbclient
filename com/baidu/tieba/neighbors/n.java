@@ -18,14 +18,14 @@ class n extends CustomMessageListener {
         com.baidu.tbadk.b.a aVar3;
         View.OnClickListener onClickListener;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2009501 && customResponsedMessage.getData() != null) {
-            NeighborsStatic.ant = (com.baidu.tbadk.b.a) customResponsedMessage.getData();
-            aVar = NeighborsStatic.ant;
+            NeighborsStatic.anC = (com.baidu.tbadk.b.a) customResponsedMessage.getData();
+            aVar = NeighborsStatic.anC;
             if (aVar.getContext() != null) {
-                aVar2 = NeighborsStatic.ant;
+                aVar2 = NeighborsStatic.anC;
                 ((com.baidu.tbadk.b.a) customResponsedMessage.getData()).a(new NeighborsActivityConfig(aVar2.getContext(), true));
-                aVar3 = NeighborsStatic.ant;
+                aVar3 = NeighborsStatic.anC;
                 ((com.baidu.tbadk.b.a) customResponsedMessage.getData()).b(new NeighborsActivityConfig(aVar3.getContext(), false));
-                onClickListener = NeighborsStatic.Hd;
+                onClickListener = NeighborsStatic.He;
                 ((com.baidu.tbadk.b.a) customResponsedMessage.getData()).c(onClickListener);
                 ((com.baidu.tbadk.b.a) customResponsedMessage.getData()).cA(s.icon_neighbors);
                 ((com.baidu.tbadk.b.a) customResponsedMessage.getData()).cB(v.neighbors);

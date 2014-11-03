@@ -6,11 +6,11 @@ import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ g aQC;
+    final /* synthetic */ g aQQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(g gVar) {
-        this.aQC = gVar;
+        this.aQQ = gVar;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -20,14 +20,14 @@ public class j implements AdapterView.OnItemLongClickListener {
         if (i < 0) {
             return false;
         }
-        g gVar = this.aQC;
-        imMessageCenterListAdapter = this.aQC.aQp;
-        gVar.aQn = imMessageCenterListAdapter.getItem(i);
-        g gVar2 = this.aQC;
-        imMessageCenterShowItemData = this.aQC.aQn;
+        g gVar = this.aQQ;
+        imMessageCenterListAdapter = this.aQQ.aQD;
+        gVar.aQB = imMessageCenterListAdapter.getItem(i);
+        g gVar2 = this.aQQ;
+        imMessageCenterShowItemData = this.aQQ.aQB;
         gVar2.c(imMessageCenterShowItemData);
-        if (this.aQC.aQs != null) {
-            com.baidu.adp.lib.g.j.a(this.aQC.aQs, this.aQC.getActivity());
+        if (this.aQQ.aQG != null) {
+            com.baidu.adp.lib.g.j.a(this.aQQ.aQG, this.aQQ.getActivity());
         }
         return true;
     }

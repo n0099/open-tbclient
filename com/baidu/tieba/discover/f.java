@@ -8,11 +8,11 @@ import com.baidu.tbadk.coreExtra.view.BannerView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements n {
-    final /* synthetic */ a anC;
+    final /* synthetic */ a anL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(a aVar) {
-        this.anC = aVar;
+        this.anL = aVar;
     }
 
     @Override // com.baidu.tieba.discover.n
@@ -25,42 +25,42 @@ public class f implements n {
         boolean z2;
         BannerView bannerView2;
         BannerView bannerView3;
-        bdPullRefreshScrollView = this.anC.anm;
+        bdPullRefreshScrollView = this.anL.anv;
         bdPullRefreshScrollView.ig();
-        this.anC.ann = true;
-        bannerView = this.anC.and;
+        this.anL.anw = true;
+        bannerView = this.anL.anm;
         bannerView.reset();
-        if (pVar.anV != null && !TextUtils.isEmpty(pVar.anV.anU)) {
-            bannerView2 = this.anC.and;
+        if (pVar.aoe != null && !TextUtils.isEmpty(pVar.aoe.aod)) {
+            bannerView2 = this.anL.anm;
             bannerView2.R("discover_tab_banner_click", "discover_tab_banner_close");
-            bannerView3 = this.anC.and;
-            bannerView3.S(pVar.anV.anU, pVar.anV.abo);
+            bannerView3 = this.anL.anm;
+            bannerView3.S(pVar.aoe.aod, pVar.aoe.abu);
         }
-        this.anC.ano = pVar.ano;
-        if (pVar.anW != null) {
-            this.anC.anq = pVar.anW.anX;
-            this.anC.anp = pVar.anW.anp;
-            a aVar = this.anC;
-            a aVar2 = this.anC;
-            j = this.anC.anp;
+        this.anL.anx = pVar.anx;
+        if (pVar.aof != null) {
+            this.anL.anz = pVar.aof.aog;
+            this.anL.any = pVar.aof.any;
+            a aVar = this.anL;
+            a aVar2 = this.anL;
+            j = this.anL.any;
             q = aVar2.q(j);
-            aVar.anr = q;
-            z2 = this.anC.anr;
+            aVar.anA = q;
+            z2 = this.anL.anA;
             if (z2) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001236, true));
             }
         }
-        this.anC.ans = pVar.ans;
-        a aVar3 = this.anC;
-        z = this.anC.anr;
+        this.anL.anB = pVar.anB;
+        a aVar3 = this.anL;
+        z = this.anL.anA;
         aVar3.bv(z);
     }
 
     @Override // com.baidu.tieba.discover.n
     public void b(p pVar) {
         BdPullRefreshScrollView bdPullRefreshScrollView;
-        bdPullRefreshScrollView = this.anC.anm;
+        bdPullRefreshScrollView = this.anL.anv;
         bdPullRefreshScrollView.ig();
-        this.anC.ann = false;
+        this.anL.anw = false;
     }
 }

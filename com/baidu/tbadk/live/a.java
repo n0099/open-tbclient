@@ -6,20 +6,20 @@ import com.baidu.adp.lib.cache.t;
 import com.baidu.tbadk.core.account.AccountLoginHelper;
 /* loaded from: classes.dex */
 public class a {
-    private static a Vq = new a();
-    private com.baidu.adp.framework.listener.e Vr = new b(this, 107201);
+    private static a Vu = new a();
+    private com.baidu.adp.framework.listener.e Vv = new b(this, 107201);
 
-    public static a ss() {
-        return Vq;
+    public static a su() {
+        return Vu;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public t<String> st() {
+    public t<String> sv() {
         return BdCacheService.cr().a("accessToken", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.NO_EVICT, 1);
     }
 
     private a() {
-        MessageManager.getInstance().registerListener(this.Vr);
+        MessageManager.getInstance().registerListener(this.Vv);
     }
 
     public void dy(String str) {
@@ -38,7 +38,7 @@ public class a {
         if (parseBDUSS != null) {
             str = parseBDUSS.mBduss;
         }
-        st().a(str, new d(this));
+        sv().a(str, new d(this));
         return true;
     }
 

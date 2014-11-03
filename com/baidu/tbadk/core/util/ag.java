@@ -6,11 +6,11 @@ import java.net.HttpURLConnection;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag implements com.baidu.adp.lib.network.willdelete.d {
-    final /* synthetic */ af Eq;
+    final /* synthetic */ af Er;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(af afVar) {
-        this.Eq = afVar;
+        this.Er = afVar;
     }
 
     @Override // com.baidu.adp.lib.network.willdelete.d
@@ -26,7 +26,7 @@ public class ag implements com.baidu.adp.lib.network.willdelete.d {
                     if (headerField == null || headerField.length() <= 0) {
                         z = false;
                     }
-                    eVar = this.Eq.Ed;
+                    eVar = this.Er.Ee;
                     if (eVar.na().nd().mIsBDImage || z) {
                         byte[] bArr = new byte[23];
                         int read = httpURLConnection.getInputStream().read(bArr, 0, 23);
@@ -35,11 +35,11 @@ public class ag implements com.baidu.adp.lib.network.willdelete.d {
                         }
                     }
                     if ("image/gif".equalsIgnoreCase(httpURLConnection.getHeaderField("Src-Content-Type"))) {
-                        eVar3 = this.Eq.Ed;
+                        eVar3 = this.Er.Ee;
                         eVar3.nb().ee = true;
                         return;
                     }
-                    eVar2 = this.Eq.Ed;
+                    eVar2 = this.Er.Ee;
                     eVar2.nb().ee = false;
                 }
             } catch (IOException e) {

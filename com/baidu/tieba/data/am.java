@@ -6,14 +6,14 @@ import android.widget.ListAdapter;
 import com.baidu.tieba.pb.main.PbActivity;
 /* loaded from: classes.dex */
 class am extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ al amn;
-    private final /* synthetic */ com.baidu.tbadk.widget.m amo;
+    final /* synthetic */ al amw;
+    private final /* synthetic */ com.baidu.tbadk.widget.m amx;
     private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(al alVar, com.baidu.tbadk.widget.m mVar, Context context) {
-        this.amn = alVar;
-        this.amo = mVar;
+        this.amw = alVar;
+        this.amx = mVar;
         this.val$context = context;
     }
 
@@ -25,8 +25,8 @@ class am extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
         ListAdapter adapter;
         super.a((am) aVar, str, i);
         if (aVar != null && aVar.hm()) {
-            akVar = this.amn.aml;
-            this.amo.setDrawable(akVar.e(aVar));
+            akVar = this.amw.amu;
+            this.amx.setDrawable(akVar.e(aVar));
             if (this.val$context instanceof PbActivity) {
                 PbActivity pbActivity = (PbActivity) this.val$context;
                 if (!pbActivity.isFinishing() && (adapter = pbActivity.getListView().getAdapter()) != null && (adapter instanceof BaseAdapter)) {

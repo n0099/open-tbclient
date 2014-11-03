@@ -4,11 +4,11 @@ import android.content.DialogInterface;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 class q implements DialogInterface.OnClickListener {
-    final /* synthetic */ l bqD;
+    final /* synthetic */ l bqR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(l lVar) {
-        this.bqD = lVar;
+        this.bqR = lVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -24,6 +24,6 @@ class q implements DialogInterface.OnClickListener {
                 TbadkApplication.m251getInst().setFontSize(3);
                 break;
         }
-        this.bqD.UB();
+        this.bqR.UE();
     }
 }

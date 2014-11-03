@@ -6,10 +6,10 @@ import com.baidu.tbadk.gift.GiftCommonList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements AdapterView.OnItemClickListener {
-    final /* synthetic */ BuyGiftActivity Uu;
+    final /* synthetic */ BuyGiftActivity Uy;
 
     private q(BuyGiftActivity buyGiftActivity) {
-        this.Uu = buyGiftActivity;
+        this.Uy = buyGiftActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -20,19 +20,19 @@ public class q implements AdapterView.OnItemClickListener {
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         int i2;
-        BuyGiftActivity buyGiftActivity = this.Uu;
-        i2 = this.Uu.Ue;
-        buyGiftActivity.Uf = i2;
-        this.Uu.Ug = i;
+        BuyGiftActivity buyGiftActivity = this.Uy;
+        i2 = this.Uy.Ui;
+        buyGiftActivity.Uj = i2;
+        this.Uy.Uk = i;
         u uVar = (u) adapterView.getAdapter();
         if (uVar != null) {
             GiftCommonList.GiftItem item = uVar.getItem(i);
             if (item != null) {
-                this.Uu.Uh = item;
+                this.Uy.Ul = item;
             }
             uVar.cM(i);
             uVar.notifyDataSetChanged();
         }
-        this.Uu.av(true);
+        this.Uy.av(true);
     }
 }

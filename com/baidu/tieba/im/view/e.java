@@ -8,11 +8,11 @@ import com.baidu.tieba.y;
 import java.text.MessageFormat;
 /* loaded from: classes.dex */
 class e implements TextWatcher {
-    final /* synthetic */ ChatterboxEditDialog bji;
+    final /* synthetic */ ChatterboxEditDialog bjw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(ChatterboxEditDialog chatterboxEditDialog) {
-        this.bji = chatterboxEditDialog;
+        this.bjw = chatterboxEditDialog;
     }
 
     @Override // android.text.TextWatcher
@@ -27,8 +27,8 @@ class e implements TextWatcher {
     public void afterTextChanged(Editable editable) {
         TextView textView;
         Context context;
-        textView = this.bji.mSizeTip;
-        context = this.bji.mContextt;
+        textView = this.bjw.mSizeTip;
+        context = this.bjw.mContextt;
         textView.setText(MessageFormat.format(context.getResources().getString(y.chat_custom_default_text), Integer.valueOf(editable.length())));
     }
 }

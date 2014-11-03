@@ -5,11 +5,11 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ak implements Handler.Callback {
-    final /* synthetic */ aj adY;
+    final /* synthetic */ aj aee;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(aj ajVar) {
-        this.adY = ajVar;
+        this.aee = ajVar;
     }
 
     @Override // android.os.Handler.Callback

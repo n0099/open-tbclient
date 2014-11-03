@@ -41,16 +41,16 @@ public class ak extends com.baidu.adp.framework.listener.e {
                 com.baidu.tieba.im.chat.w.fm(com.baidu.adp.lib.g.c.f(responseCommitPersonalMessage.getGroupId(), 0));
             }
             if (chatMessage instanceof PersonalChatMessage) {
-                c.PK().a(2, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
+                c.PN().a(2, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                c.PK().a(4, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
+                c.PN().a(4, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
             } else {
                 return;
             }
             if (chatMessage instanceof PersonalChatMessage) {
-                B = c.PK().B(String.valueOf(com.baidu.tieba.im.util.i.o(chatMessage)), 2);
+                B = c.PN().B(String.valueOf(com.baidu.tieba.im.util.i.o(chatMessage)), 2);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                B = c.PK().B(String.valueOf(com.baidu.tieba.im.util.i.o(chatMessage)), 4);
+                B = c.PN().B(String.valueOf(com.baidu.tieba.im.util.i.o(chatMessage)), 4);
             } else {
                 return;
             }

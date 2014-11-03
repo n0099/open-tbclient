@@ -8,22 +8,22 @@ import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class b {
-    private static b SZ = new b();
-    private GameInfoData Ta;
-    private final e Tb = new c(this, 303009);
+    private static b Td = new b();
+    private GameInfoData Te;
+    private final e Tf = new c(this, 303009);
     private String mUrl;
 
     private b() {
-        MessageManager.getInstance().registerListener(this.Tb);
+        MessageManager.getInstance().registerListener(this.Tf);
     }
 
-    public static b rS() {
-        return SZ;
+    public static b rU() {
+        return Td;
     }
 
     public void W(String str, String str2) {
         this.mUrl = str2;
-        this.Ta = null;
+        this.Te = null;
         if (!TextUtils.isEmpty(str)) {
             RequestGameDetailMessage requestGameDetailMessage = new RequestGameDetailMessage();
             requestGameDetailMessage.setGameId(str);
@@ -31,7 +31,7 @@ public class b {
         }
     }
 
-    private GameInfoData rT() {
+    private GameInfoData rV() {
         GameInfoData gameInfoData = new GameInfoData();
         gameInfoData.setGameName(TbadkApplication.m251getInst().getString(y.default_share_to_game_title));
         gameInfoData.setGameLink(this.mUrl);
@@ -42,10 +42,10 @@ public class b {
     }
 
     public GameInfoData getGameInfoData() {
-        return this.Ta == null ? rT() : this.Ta;
+        return this.Te == null ? rV() : this.Te;
     }
 
-    public ShareFromGameCenterMsgData rU() {
+    public ShareFromGameCenterMsgData rW() {
         GameInfoData gameInfoData = getGameInfoData();
         ShareFromGameCenterMsgData shareFromGameCenterMsgData = new ShareFromGameCenterMsgData();
         shareFromGameCenterMsgData.setTitle(GameShareJsBridge.getInstance().getShareTitle() == null ? gameInfoData.getGameName() : GameShareJsBridge.getInstance().getShareTitle());

@@ -5,10 +5,10 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 class l {
-    public TextView JM;
-    public HeadImageView apQ;
-    public TextView apR;
-    public ImageView apS;
+    public TextView JN;
+    public HeadImageView apZ;
+    public TextView aqa;
+    public ImageView aqb;
 
     private l() {
     }

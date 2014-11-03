@@ -4,13 +4,13 @@ import android.widget.TextView;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
 class i extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ BuyGiftActivity Uu;
+    final /* synthetic */ BuyGiftActivity Uy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(BuyGiftActivity buyGiftActivity, int i) {
         super(i);
-        this.Uu = buyGiftActivity;
+        this.Uy = buyGiftActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,10 +18,10 @@ class i extends com.baidu.adp.framework.listener.e {
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         TextView textView;
         if (socketResponsedMessage instanceof SendGiftSocketResponseMessage) {
-            textView = this.Uu.TS;
+            textView = this.Uy.TW;
             textView.setEnabled(true);
             SendGiftSocketResponseMessage sendGiftSocketResponseMessage = (SendGiftSocketResponseMessage) socketResponsedMessage;
-            this.Uu.a(sendGiftSocketResponseMessage.getError(), sendGiftSocketResponseMessage.getErrorString(), sendGiftSocketResponseMessage.getResponseData());
+            this.Uy.a(sendGiftSocketResponseMessage.getError(), sendGiftSocketResponseMessage.getErrorString(), sendGiftSocketResponseMessage.getResponseData());
         }
     }
 }

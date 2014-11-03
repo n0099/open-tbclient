@@ -28,13 +28,13 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.notify.b 
 
     @Override // com.baidu.tieba.im.chat.notify.b
     protected void f(com.baidu.tieba.im.chat.notify.c cVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        cVar.aHp.setTag(null);
-        cVar.aHp.setDrawBorder(true);
-        cVar.aHp.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
-        cVar.aHp.setDefaultResource(com.baidu.tieba.u.icon_default_ba_120);
+        cVar.aHz.setTag(null);
+        cVar.aHz.setDrawBorder(true);
+        cVar.aHz.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+        cVar.aHz.setDefaultResource(com.baidu.tieba.u.icon_default_ba_120);
         if (!TextUtils.isEmpty(imMessageCenterShowItemData.getFriendPortrait())) {
-            cVar.aHp.setTag(imMessageCenterShowItemData.getFriendPortrait());
-            cVar.aHp.c(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
+            cVar.aHz.setTag(imMessageCenterShowItemData.getFriendPortrait());
+            cVar.aHz.c(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
         }
     }
 
@@ -50,6 +50,6 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.notify.b 
 
     @Override // com.baidu.tieba.im.chat.notify.b
     protected void a(com.baidu.tieba.im.chat.notify.c cVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        cVar.aHq.setText(this.mContext.getString(com.baidu.tieba.y.official_msg_list_name, imMessageCenterShowItemData.getFriendName()));
+        cVar.aHA.setText(this.mContext.getString(com.baidu.tieba.y.official_msg_list_name, imMessageCenterShowItemData.getFriendName()));
     }
 }

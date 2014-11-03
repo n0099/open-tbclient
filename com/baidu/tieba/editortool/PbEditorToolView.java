@@ -9,8 +9,8 @@ import android.widget.LinearLayout;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PbEditorToolView extends LinearLayout {
-    protected PbEditorToolButtonContainer art;
-    protected Button aru;
+    protected PbEditorToolButtonContainer arC;
+    protected Button arD;
     protected Context mContext;
     protected EditText mEditText;
 
@@ -27,7 +27,7 @@ public class PbEditorToolView extends LinearLayout {
     }
 
     public Button getPostButton() {
-        return this.aru;
+        return this.arD;
     }
 
     public EditText getEditText() {
@@ -36,13 +36,13 @@ public class PbEditorToolView extends LinearLayout {
 
     protected void ny() {
         com.baidu.adp.lib.g.b.ek().a(this.mContext, com.baidu.tieba.w.pb_editor_tool_view, this, true);
-        this.art = (PbEditorToolButtonContainer) findViewById(com.baidu.tieba.v.tool_button_container);
+        this.arC = (PbEditorToolButtonContainer) findViewById(com.baidu.tieba.v.tool_button_container);
         this.mEditText = (EditText) findViewById(com.baidu.tieba.v.reply_content);
-        this.aru = (Button) findViewById(com.baidu.tieba.v.pb_reply_post);
+        this.arD = (Button) findViewById(com.baidu.tieba.v.pb_reply_post);
         this.mEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(1000)});
     }
 
-    public void p(ArrayList<String> arrayList) {
+    public void q(ArrayList<String> arrayList) {
         if (arrayList != null && arrayList.size() != 0) {
             StringBuilder sb = new StringBuilder();
             int i = 0;
@@ -63,72 +63,72 @@ public class PbEditorToolView extends LinearLayout {
     }
 
     public void setOnActionListener(com.baidu.tbadk.editortool.w wVar) {
-        this.art.setOnActionListener(new af(this, wVar));
+        this.arC.setOnActionListener(new af(this, wVar));
         this.mEditText.setOnTouchListener(new ag(this, wVar));
         this.mEditText.addTextChangedListener(new ah(this, wVar));
-        this.aru.setOnClickListener(new ai(this, wVar));
+        this.arD.setOnClickListener(new ai(this, wVar));
     }
 
     public void clearData() {
-        this.art.Cm();
+        this.arC.Co();
         this.mEditText.setText("");
-        BY();
+        Ca();
     }
 
-    public void Bs() {
-        this.art.bA(true);
+    public void Bu() {
+        this.arC.bA(true);
     }
 
-    public void Bt() {
-        this.art.bA(false);
+    public void Bv() {
+        this.arC.bA(false);
     }
 
-    public void BX() {
-        this.aru.setEnabled(true);
-        com.baidu.tbadk.core.util.aw.b(this.aru, com.baidu.tieba.s.cp_cont_i, 3);
+    public void BZ() {
+        this.arD.setEnabled(true);
+        com.baidu.tbadk.core.util.aw.b(this.arD, com.baidu.tieba.s.cp_cont_i, 3);
     }
 
-    public void BY() {
-        this.aru.setEnabled(false);
-        com.baidu.tbadk.core.util.aw.b(this.aru, com.baidu.tieba.s.cp_cont_d, 3);
-    }
-
-    public void Cl() {
-        this.art.Cl();
-    }
-
-    public void Cm() {
-        this.art.Cm();
+    public void Ca() {
+        this.arD.setEnabled(false);
+        com.baidu.tbadk.core.util.aw.b(this.arD, com.baidu.tieba.s.cp_cont_d, 3);
     }
 
     public void Cn() {
-        this.art.Cn();
+        this.arC.Cn();
     }
 
     public void Co() {
-        this.art.Co();
+        this.arC.Co();
     }
 
-    public void Bg() {
-        this.art.Bg();
+    public void Cp() {
+        this.arC.Cp();
+    }
+
+    public void Cq() {
+        this.arC.Cq();
+    }
+
+    public void Bi() {
+        this.arC.Bi();
     }
 
     public void setAudioFocusable(boolean z) {
-        this.art.setAudioFocusable(z);
+        this.arC.setAudioFocusable(z);
     }
 
     public void setMoreFocusable(boolean z) {
-        this.art.setMoreFocusable(z);
+        this.arC.setMoreFocusable(z);
     }
 
     public void changeSkinType(int i) {
         this.mEditText.setHintTextColor(com.baidu.tbadk.core.util.aw.getColor(com.baidu.tieba.s.pb_editor_edittext_hint_text));
-        this.aru.setBackgroundDrawable(com.baidu.tbadk.core.util.aw.getDrawable(com.baidu.tieba.u.btn_pb_editor_post_btn));
-        if (this.aru.isEnabled()) {
-            BX();
+        this.arD.setBackgroundDrawable(com.baidu.tbadk.core.util.aw.getDrawable(com.baidu.tieba.u.btn_pb_editor_post_btn));
+        if (this.arD.isEnabled()) {
+            BZ();
         } else {
-            BY();
+            Ca();
         }
-        this.art.changeSkinType(i);
+        this.arC.changeSkinType(i);
     }
 }

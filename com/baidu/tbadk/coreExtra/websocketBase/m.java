@@ -6,20 +6,20 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends Handler {
-    private final WeakReference<j> PJ;
+    private final WeakReference<j> PN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(j jVar) {
-        this.PJ = new WeakReference<>(jVar);
+        this.PN = new WeakReference<>(jVar);
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         j jVar;
         super.handleMessage(message);
-        if (message.what != 0 || (jVar = this.PJ.get()) == null) {
+        if (message.what != 0 || (jVar = this.PN.get()) == null) {
             return;
         }
-        jVar.qB();
+        jVar.qD();
     }
 }

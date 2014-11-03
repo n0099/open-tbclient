@@ -4,30 +4,30 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class aj {
-    public static int EB;
-    private static aj Ew;
-    private static long Ey;
-    private static volatile int Ex = 0;
-    private static int Ez = 300000;
-    private static int EA = 10;
+    public static int EC;
+    private static aj Ex;
+    private static long Ez;
+    private static volatile int Ey = 0;
+    private static int EA = 300000;
+    private static int EB = 10;
 
     private aj() {
-        EB = TbadkApplication.m251getInst().getNetWorkCoreType();
+        EC = TbadkApplication.m251getInst().getNetWorkCoreType();
     }
 
     public static synchronized aj mo() {
         aj ajVar;
         synchronized (aj.class) {
-            if (Ew == null) {
-                Ew = new aj();
+            if (Ex == null) {
+                Ex = new aj();
             }
-            ajVar = Ew;
+            ajVar = Ex;
         }
         return ajVar;
     }
 
     public u a(com.baidu.tbadk.core.util.httpNet.e eVar) {
-        switch (EB) {
+        switch (EC) {
             case 0:
                 return new ad(eVar);
             case 1:
@@ -39,19 +39,19 @@ public class aj {
 
     public static synchronized void mp() {
         synchronized (aj.class) {
-            if (EB == 1) {
+            if (EC == 1) {
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - Ey < Ez) {
-                    Ex++;
-                    if (Ex > EA) {
-                        EB = 0;
+                if (currentTimeMillis - Ez < EA) {
+                    Ey++;
+                    if (Ey > EB) {
+                        EC = 0;
                         BdLog.e("切换会老的网络内核");
-                        TbadkApplication.m251getInst().setNetWorkCoreType(EB);
+                        TbadkApplication.m251getInst().setNetWorkCoreType(EC);
                         TiebaStatic.eventStat(TbadkApplication.m251getInst().getApp().getApplicationContext(), "network_core", "current Net：" + com.baidu.adp.lib.util.j.fn() + ", TelType:" + com.baidu.adp.lib.util.j.fp() + ", wap:" + getNetType(), 1, new Object[0]);
                     }
                 } else {
-                    Ex = 0;
-                    Ey = currentTimeMillis;
+                    Ey = 0;
+                    Ez = currentTimeMillis;
                 }
             }
         }
@@ -78,6 +78,6 @@ public class aj {
     }
 
     public static void bs(int i) {
-        EB = i;
+        EC = i;
     }
 }
