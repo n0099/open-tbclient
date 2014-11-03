@@ -8,7 +8,7 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ap extends BdAsyncTask<Void, Void, InterestFrsData> {
-    private WeakReference<aq> agb;
+    private WeakReference<aq> agj;
     private int limit;
     private int offset;
     private int userType;
@@ -17,7 +17,7 @@ public class ap extends BdAsyncTask<Void, Void, InterestFrsData> {
         this.userType = i;
         this.offset = i2;
         this.limit = i3;
-        this.agb = new WeakReference<>(aqVar);
+        this.agj = new WeakReference<>(aqVar);
         setPriority(3);
     }
 
@@ -27,7 +27,7 @@ public class ap extends BdAsyncTask<Void, Void, InterestFrsData> {
     /* renamed from: f */
     public InterestFrsData doInBackground(Void... voidArr) {
         String str;
-        str = ao.bpp;
+        str = ao.bpD;
         com.baidu.tbadk.core.util.ac acVar = new com.baidu.tbadk.core.util.ac(str);
         acVar.k("user_type", String.valueOf(this.userType));
         acVar.k("offset", String.valueOf(this.offset));
@@ -40,7 +40,7 @@ public class ap extends BdAsyncTask<Void, Void, InterestFrsData> {
                 BdLog.e(e.getMessage());
                 InterestFrsData interestFrsData = new InterestFrsData();
                 interestFrsData.setErrno(-1000);
-                interestFrsData.setErrmsg(com.baidu.tieba.aj.wk().getContext().getString(com.baidu.tieba.y.neterror));
+                interestFrsData.setErrmsg(com.baidu.tieba.aj.wm().getContext().getString(com.baidu.tieba.y.neterror));
                 return interestFrsData;
             }
         }
@@ -56,7 +56,7 @@ public class ap extends BdAsyncTask<Void, Void, InterestFrsData> {
     /* renamed from: f */
     public void onPostExecute(InterestFrsData interestFrsData) {
         super.onPostExecute(interestFrsData);
-        aq aqVar = this.agb.get();
+        aq aqVar = this.agj.get();
         if (aqVar != null) {
             if (interestFrsData.getErrno() == 0) {
                 aqVar.a(interestFrsData);

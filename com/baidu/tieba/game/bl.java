@@ -1,34 +1,50 @@
 package com.baidu.tieba.game;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.GameDetailActivityConfig;
+import android.widget.RelativeLayout;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.game.GameInfoData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bl implements AdapterView.OnItemClickListener {
-    final /* synthetic */ bi aJf;
+public class bl implements bs {
+    final /* synthetic */ bj aJs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bl(bi biVar) {
-        this.aJf = biVar;
+    public bl(bj bjVar) {
+        this.aJs = bjVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        bg bgVar;
-        if (UtilHelper.isNetOk()) {
-            bgVar = this.aJf.aJc;
-            GameInfoData item = bgVar.getItem(i);
-            if (item != null) {
-                com.baidu.tieba.game.a.a.Ij().a(view, item);
-                this.aJf.sendMessage(new CustomMessage(2002001, new GameDetailActivityConfig(this.aJf.getActivity(), item.getGameId(), "1000101")));
-                return;
-            }
-            return;
+    @Override // com.baidu.tieba.game.bs
+    public void b(an anVar) {
+        RelativeLayout relativeLayout;
+        bj bjVar = this.aJs;
+        relativeLayout = this.aJs.aJo;
+        bjVar.hideLoadingView(relativeLayout);
+        this.aJs.a(anVar);
+        this.aJs.aIw = true;
+    }
+
+    @Override // com.baidu.tieba.game.bs
+    public void fw(String str) {
+        RelativeLayout relativeLayout;
+        bj bjVar = this.aJs;
+        relativeLayout = this.aJs.aJo;
+        bjVar.hideLoadingView(relativeLayout);
+        this.aJs.showToast(str);
+    }
+
+    @Override // com.baidu.tieba.game.bs
+    public void c(an anVar) {
+        RelativeLayout relativeLayout;
+        bp bpVar;
+        this.aJs.aIx = true;
+        if (!UtilHelper.isNetOk() || (anVar != null && anVar.getGameList() != null && !anVar.getGameList().isEmpty())) {
+            bj bjVar = this.aJs;
+            relativeLayout = this.aJs.aJo;
+            bjVar.hideLoadingView(relativeLayout);
+            this.aJs.a(anVar);
         }
-        this.aJf.showToast(com.baidu.tieba.y.neterror);
+        if (UtilHelper.isNetOk()) {
+            bpVar = this.aJs.aJq;
+            bpVar.HS();
+        }
     }
 }

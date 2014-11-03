@@ -10,28 +10,28 @@ import com.baidu.tieba.switchs.features.BarDetailForDirSwitchStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements View.OnClickListener {
-    final /* synthetic */ ItemFootNavView axj;
-    private final /* synthetic */ BaseActivity axk;
-    private final /* synthetic */ String axl;
+    final /* synthetic */ ItemFootNavView axs;
+    private final /* synthetic */ BaseActivity axt;
+    private final /* synthetic */ String axu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(ItemFootNavView itemFootNavView, BaseActivity baseActivity, String str) {
-        this.axj = itemFootNavView;
-        this.axk = baseActivity;
-        this.axl = str;
+        this.axs = itemFootNavView;
+        this.axt = baseActivity;
+        this.axu = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
         boolean z;
-        context = this.axj.mContext;
+        context = this.axs.mContext;
         TiebaStatic.eventStat(context, "detail_enter_forum", "click", 1, new Object[0]);
-        z = this.axj.axi;
+        z = this.axs.axr;
         if (z) {
-            this.axk.finish();
+            this.axt.finish();
         } else {
-            this.axk.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.axk).createNormalCfg(this.axl, BarDetailForDirSwitchStatic.BAR_DETAIL_DIR)));
+            this.axt.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.axt).createNormalCfg(this.axu, BarDetailForDirSwitchStatic.BAR_DETAIL_DIR)));
         }
     }
 }

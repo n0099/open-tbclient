@@ -6,18 +6,18 @@ import com.baidu.tbadk.TbadkSettings;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static a ZE = null;
+    private static a ZI = null;
 
     private a() {
     }
 
-    public static synchronized a uR() {
+    public static synchronized a uT() {
         a aVar;
         synchronized (a.class) {
-            if (ZE == null) {
-                ZE = new a();
+            if (ZI == null) {
+                ZI = new a();
             }
-            aVar = ZE;
+            aVar = ZI;
         }
         return aVar;
     }
@@ -42,20 +42,20 @@ public class a {
         }
     }
 
-    public void uS() {
-        String uW = uW();
-        if (!TextUtils.isEmpty(uW)) {
-            com.baidu.adp.lib.f.d.ef().a(uW, 10, null, 0, 0, null, new Object[0]);
+    public void uU() {
+        String uY = uY();
+        if (!TextUtils.isEmpty(uY)) {
+            com.baidu.adp.lib.f.d.ef().a(uY, 10, null, 0, 0, null, new Object[0]);
         }
     }
 
-    public boolean uT() {
-        if (!uX()) {
+    public boolean uV() {
+        if (!uZ()) {
             return false;
         }
-        long uU = uU() * 1000;
+        long uW = uW() * 1000;
         long currentTimeMillis = System.currentTimeMillis();
-        if (getStartTime() * 1000 > currentTimeMillis || currentTimeMillis > uU) {
+        if (getStartTime() * 1000 > currentTimeMillis || currentTimeMillis > uW) {
             return false;
         }
         return true;
@@ -65,19 +65,19 @@ public class a {
         return TbadkSettings.getInst().loadInt("ad_start_time", 0);
     }
 
-    public int uU() {
+    public int uW() {
         return TbadkSettings.getInst().loadInt("ad_end_time", 0);
     }
 
-    public long uV() {
+    public long uX() {
         return TbadkSettings.getInst().loadLong("ad_time", 0L);
     }
 
-    public String uW() {
+    public String uY() {
         return TbadkSettings.getInst().loadString("ad_url", null);
     }
 
-    public boolean uX() {
+    public boolean uZ() {
         return TbadkSettings.getInst().loadBoolean("ad_enabled", false);
     }
 

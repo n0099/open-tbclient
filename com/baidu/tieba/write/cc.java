@@ -43,7 +43,7 @@ public class cc extends BdAsyncTask<Object, Integer, Bitmap> {
                 if (K != null) {
                     int dip2px = com.baidu.adp.lib.util.m.dip2px(this.this$0, 63.5f);
                     if (Build.VERSION.SDK_INT >= 7) {
-                        z = this.this$0.JR;
+                        z = this.this$0.JS;
                         if (z) {
                             Bitmap c = com.baidu.tbadk.core.util.d.c(K, dip2px);
                             if (c != null) {
@@ -52,11 +52,11 @@ public class cc extends BdAsyncTask<Object, Integer, Bitmap> {
                                 }
                                 Bitmap a = com.baidu.tbadk.core.util.d.a(c, com.baidu.adp.lib.util.m.dip2px(this.this$0, 5.0f), true);
                                 if (a != null) {
-                                    obj = this.this$0.bUh;
+                                    obj = this.this$0.bUw;
                                     synchronized (obj) {
-                                        this.this$0.JW = new HashMap();
                                         this.this$0.JX = new HashMap();
-                                        hashMap = this.this$0.JW;
+                                        this.this$0.JY = new HashMap();
+                                        hashMap = this.this$0.JX;
                                         hashMap.put(WriteImageActivityConfig.FILTER_NAME_NORMAL, a);
                                     }
                                     return K;
@@ -87,7 +87,7 @@ public class cc extends BdAsyncTask<Object, Integer, Bitmap> {
         TextView textView;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(0);
-        textView = this.this$0.bSs;
+        textView = this.this$0.bSH;
         textView.setEnabled(false);
         super.onPreExecute();
     }
@@ -95,7 +95,7 @@ public class cc extends BdAsyncTask<Object, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.this$0.bUd = null;
+        this.this$0.bUs = null;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(8);
         super.cancel(true);
@@ -112,20 +112,20 @@ public class cc extends BdAsyncTask<Object, Integer, Bitmap> {
         boolean z;
         String[] strArr;
         super.onPostExecute(bitmap);
-        textView = this.this$0.bSs;
+        textView = this.this$0.bSH;
         textView.setEnabled(true);
-        this.this$0.bUd = null;
+        this.this$0.bUs = null;
         this.this$0.mBitmap = bitmap;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(8);
         if (bitmap != null && !bitmap.isRecycled() && bitmap != null) {
-            imageView = this.this$0.acF;
+            imageView = this.this$0.acK;
             imageView.setImageBitmap(bitmap);
             if (Build.VERSION.SDK_INT >= 7) {
-                z = this.this$0.JR;
+                z = this.this$0.JS;
                 if (z) {
                     WriteImageActivity writeImageActivity = this.this$0;
-                    strArr = WriteImageActivity.Jy;
+                    strArr = WriteImageActivity.Jz;
                     writeImageActivity.i(strArr);
                 }
             }

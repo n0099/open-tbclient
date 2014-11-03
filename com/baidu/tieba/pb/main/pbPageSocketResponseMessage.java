@@ -74,10 +74,10 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         switch (this.updateType) {
             case 3:
-                bm.WB().a(this.cacheKey, this.isFromMark, bArr);
+                bm.WE().a(this.cacheKey, this.isFromMark, bArr);
                 return;
             case 4:
-                bm.WB().j(this.cacheKey, bArr);
+                bm.WE().j(this.cacheKey, bArr);
                 return;
             default:
                 return;

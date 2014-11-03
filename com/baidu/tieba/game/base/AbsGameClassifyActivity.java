@@ -14,20 +14,21 @@ import com.baidu.tieba.ai;
 import com.baidu.tieba.selectpoi.NavigationBarActivity;
 /* loaded from: classes.dex */
 public abstract class AbsGameClassifyActivity extends NavigationBarActivity {
+    private boolean aAr = true;
     private String cacheKey;
 
-    protected abstract NetMessage HU();
+    protected abstract NetMessage HY();
 
-    protected abstract String HV();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract Class<? extends HttpResponsedMessage> HW();
+    protected abstract String HZ();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract Class<? extends SocketResponsedMessage> HX();
+    public abstract Class<? extends HttpResponsedMessage> Ia();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void d(HttpResponsedMessage httpResponsedMessage);
+    public abstract Class<? extends SocketResponsedMessage> Ib();
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void c(HttpResponsedMessage httpResponsedMessage);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void e(SocketResponsedMessage socketResponsedMessage);
@@ -37,25 +38,38 @@ public abstract class AbsGameClassifyActivity extends NavigationBarActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         e(bundle);
-        showLoadingView(abP(), true);
-        if (HP() && !StringUtils.isNull(this.cacheKey)) {
-            HQ();
-        } else if (HR()) {
-            HT();
+        if (HT() && !StringUtils.isNull(this.cacheKey)) {
+            HU();
+        } else if (HV()) {
+            HX();
         }
     }
 
-    protected boolean HP() {
+    @Override // android.app.Activity, android.view.Window.Callback
+    public void onWindowFocusChanged(boolean z) {
+        super.onWindowFocusChanged(z);
+        if (z) {
+            if (this.aAr) {
+                this.aAr = false;
+                showLoadingView(abS(), true);
+                return;
+            }
+            return;
+        }
+        hideLoadingView(abS());
+    }
+
+    protected boolean HT() {
         return true;
     }
 
-    private void HQ() {
+    private void HU() {
         MessageManager.getInstance().registerTask(new CustomMessageTask(2001239, new c()));
-        registerListener(HS());
+        registerListener(HW());
         sendMessage(new CacheReadRequest(this.cacheKey));
     }
 
-    protected boolean HR() {
+    protected boolean HV() {
         return true;
     }
 
@@ -89,19 +103,19 @@ public abstract class AbsGameClassifyActivity extends NavigationBarActivity {
         return new a(this, netMessage.getHttpMessage().getCmd(), netMessage.getSocketMessage().getCmd());
     }
 
-    private CustomMessageListener HS() {
+    private CustomMessageListener HW() {
         return new b(this, 2001239, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void HT() {
-        NetMessage HU = HU();
-        if (HU != null) {
+    public void HX() {
+        NetMessage HY = HY();
+        if (HY != null) {
             MessageManager messageManager = MessageManager.getInstance();
-            messageManager.registerTask(a(HU, HV(), HW()));
-            messageManager.registerTask(a(HU, HX()));
-            registerListener(a(HU));
-            sendMessage(HU);
+            messageManager.registerTask(a(HY, HZ(), Ia()));
+            messageManager.registerTask(a(HY, Ib()));
+            registerListener(a(HY));
+            sendMessage(HY);
         }
     }
 
@@ -110,6 +124,6 @@ public abstract class AbsGameClassifyActivity extends NavigationBarActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void EG() {
+    public void EI() {
     }
 }

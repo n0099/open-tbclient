@@ -10,11 +10,11 @@ import com.baidu.tbadk.pluginArch.PluginNameList;
 import com.baidu.tbadk.plugins.BaobaoSdkDelegate;
 /* loaded from: classes.dex */
 class a implements View.OnClickListener {
-    final /* synthetic */ BaobaoTailView bQj;
+    final /* synthetic */ BaobaoTailView bQy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(BaobaoTailView baobaoTailView) {
-        this.bQj = baobaoTailView;
+        this.bQy = baobaoTailView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,14 +23,14 @@ class a implements View.OnClickListener {
         com.baidu.tieba.data.b bVar2;
         BaobaoSdkDelegate baobaoSdkDelegate;
         com.baidu.tieba.data.b bVar3;
-        bVar = this.bQj.bQi;
+        bVar = this.bQy.bQx;
         if (bVar != null) {
-            bVar2 = this.bQj.bQi;
-            if (bVar2.yq() != 1) {
-                bVar3 = this.bQj.bQi;
-                String yp = bVar3.yp();
-                if (!com.baidu.adp.lib.util.l.aA(yp)) {
-                    com.baidu.tbadk.browser.a.a(this.bQj.getContext(), yp, true);
+            bVar2 = this.bQy.bQx;
+            if (bVar2.ys() != 1) {
+                bVar3 = this.bQy.bQx;
+                String yr = bVar3.yr();
+                if (!com.baidu.adp.lib.util.l.aA(yr)) {
+                    com.baidu.tbadk.browser.a.a(this.bQy.getContext(), yr, true);
                     return;
                 }
                 return;
@@ -38,13 +38,13 @@ class a implements View.OnClickListener {
             try {
                 Plugin pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_BAOBAO);
                 if (pluginByName != null && (baobaoSdkDelegate = (BaobaoSdkDelegate) pluginByName.getClassInstance(BaobaoSdkDelegate.class)) != null) {
-                    if (baobaoSdkDelegate.checkHasInstalled(this.bQj.getContext())) {
-                        baobaoSdkDelegate.launchBaobao(this.bQj.getContext());
+                    if (baobaoSdkDelegate.checkHasInstalled(this.bQy.getContext())) {
+                        baobaoSdkDelegate.launchBaobao(this.bQy.getContext());
                     } else {
                         Intent intent = new Intent();
                         intent.setAction("android.intent.action.VIEW");
                         intent.setData(Uri.parse(baobaoSdkDelegate.getJumpUrl()));
-                        this.bQj.getContext().startActivity(intent);
+                        this.bQy.getContext().startActivity(intent);
                     }
                 }
             } catch (Exception e) {

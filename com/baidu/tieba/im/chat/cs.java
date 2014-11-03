@@ -12,14 +12,14 @@ import java.util.List;
 public class cs extends BaseAdapter {
     private Context mContext;
     private List<ChatMessage> mData = null;
-    private Long aPr = 0L;
-    private long aOZ = 0;
-    private Long aPs = null;
-    private Long aPt = null;
-    private com.baidu.adp.lib.c.a aOK = null;
-    private com.baidu.adp.lib.c.b aOL = null;
+    private Long aPF = 0L;
+    private long aPn = 0;
+    private Long aPG = null;
+    private Long aPH = null;
+    private com.baidu.adp.lib.c.a aOY = null;
+    private com.baidu.adp.lib.c.b aOZ = null;
     private boolean mNeedShowName = true;
-    private boolean aPu = false;
+    private boolean aPI = false;
 
     public cs(Context context) {
         this.mContext = context;
@@ -30,23 +30,23 @@ public class cs extends BaseAdapter {
     }
 
     public void cB(boolean z) {
-        this.aPu = z;
+        this.aPI = z;
     }
 
-    public void JW() {
-        this.aPr = Long.valueOf(System.currentTimeMillis() / 1000);
+    public void Ka() {
+        this.aPF = Long.valueOf(System.currentTimeMillis() / 1000);
     }
 
     public void a(com.baidu.adp.lib.c.a aVar) {
-        this.aOK = aVar;
+        this.aOY = aVar;
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        this.aOL = bVar;
+        this.aOZ = bVar;
     }
 
     public void setGid(long j) {
-        this.aOZ = j;
+        this.aPn = j;
     }
 
     @Override // android.widget.Adapter
@@ -95,7 +95,7 @@ public class cs extends BaseAdapter {
                     msgleftView2 = (MsgleftView) view.getTag();
                 }
                 msgleftView2.cA(this.mNeedShowName);
-                msgleftView2.cB(this.aPu);
+                msgleftView2.cB(this.aPI);
                 chatMessage.getCacheData().setIs_left(1);
                 byVar = null;
                 cbVar = null;
@@ -110,7 +110,7 @@ public class cs extends BaseAdapter {
                 } else {
                     msgrightView = (MsgrightView) view.getTag();
                 }
-                msgrightView.cB(this.aPu);
+                msgrightView.cB(this.aPI);
                 chatMessage.getCacheData().setIs_left(0);
                 byVar = null;
                 cbVar = null;
@@ -218,11 +218,11 @@ public class cs extends BaseAdapter {
                 break;
         }
         if (msgleftView != null) {
-            msgleftView.a(this.aOK);
-            msgleftView.setOnItemViewLongClickListener(this.aOL);
+            msgleftView.a(this.aOY);
+            msgleftView.setOnItemViewLongClickListener(this.aOZ);
             msgleftView.setPosition(i);
-            msgleftView.setGid(this.aOZ);
-            msgleftView.I(this.aPr.longValue());
+            msgleftView.setGid(this.aPn);
+            msgleftView.I(this.aPF.longValue());
             if (i > 0) {
                 msgleftView.H(this.mData.get(i - 1).getTime());
             } else {
@@ -239,18 +239,18 @@ public class cs extends BaseAdapter {
         } else if (msgActivityView != null) {
             msgActivityView.setPosition(i);
             msgActivityView.setData(chatMessage);
-            msgActivityView.a(this.aOK);
-            msgActivityView.setOnItemViewLongClickListener(this.aOL);
-            msgActivityView.I(this.aPr.longValue());
+            msgActivityView.a(this.aOY);
+            msgActivityView.setOnItemViewLongClickListener(this.aOZ);
+            msgActivityView.I(this.aPF.longValue());
             if (i > 0) {
                 msgActivityView.H(this.mData.get(i - 1).getTime());
             } else {
                 msgActivityView.H(0L);
             }
         } else if (msgMultiImageTextView != null) {
-            msgMultiImageTextView.setOnItemViewLongClickListener(this.aOL);
+            msgMultiImageTextView.setOnItemViewLongClickListener(this.aOZ);
             msgMultiImageTextView.setPosition(i);
-            msgMultiImageTextView.I(this.aPr.longValue());
+            msgMultiImageTextView.I(this.aPF.longValue());
             if (i > 0) {
                 msgMultiImageTextView.H(this.mData.get(i - 1).getTime());
             } else {
@@ -309,11 +309,11 @@ public class cs extends BaseAdapter {
         this.mData = list;
         int size = this.mData.size();
         if (size > 0) {
-            this.aPt = Long.valueOf(this.mData.get(size - 1).getMsgId());
-            this.aPs = Long.valueOf(this.mData.get(0).getMsgId());
+            this.aPH = Long.valueOf(this.mData.get(size - 1).getMsgId());
+            this.aPG = Long.valueOf(this.mData.get(0).getMsgId());
             return;
         }
-        this.aPt = null;
-        this.aPs = null;
+        this.aPH = null;
+        this.aPG = null;
     }
 }

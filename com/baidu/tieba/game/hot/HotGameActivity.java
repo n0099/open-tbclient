@@ -27,10 +27,10 @@ import tbclient.GameInfo;
 import tbclient.GetHotGameList.GetHotGameListResIdl;
 /* loaded from: classes.dex */
 public class HotGameActivity extends AbsGameClassifyActivity {
-    private int Ue = 1;
-    b aJM;
-    private List<GameInfoData> aJN;
-    BdListView aJn;
+    private int Ui = 1;
+    BdListView aJA;
+    b aJZ;
+    private List<GameInfoData> aKa;
 
     static {
         TbadkApplication.m251getInst().RegisterIntent(HotGameActivityConfig.class, HotGameActivity.class);
@@ -39,12 +39,12 @@ public class HotGameActivity extends AbsGameClassifyActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public List<GameInfoData> fg(int i) {
         ArrayList arrayList = new ArrayList();
-        if (this.aJN != null && this.aJN.size() > 0) {
-            if (i > this.aJN.size()) {
-                i = this.aJN.size();
+        if (this.aKa != null && this.aKa.size() > 0) {
+            if (i > this.aKa.size()) {
+                i = this.aKa.size();
             }
             for (int i2 = 0; i2 < i; i2++) {
-                arrayList.add(this.aJN.get(i2));
+                arrayList.add(this.aKa.get(i2));
             }
         }
         return arrayList;
@@ -53,29 +53,29 @@ public class HotGameActivity extends AbsGameClassifyActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void H(List<GameInfoData> list) {
         if (list == null || list.isEmpty()) {
-            if (this.aJM.getCount() <= 0) {
+            if (this.aJZ.getCount() <= 0) {
                 a(r.a(NoDataViewFactory.ImgType.NODATA), s.bL(y.hot_game_no_data_text), (q) null);
                 return;
             }
             return;
         }
-        abO();
-        this.aJM.setData(list);
+        abR();
+        this.aJZ.setData(list);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.game.base.AbsGameClassifyActivity
     public void e(Bundle bundle) {
         super.e(bundle);
-        this.aJn = new BdListView(this);
-        this.aJn.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        this.aJn.setCacheColorHint(0);
-        this.aJn.setDividerHeight(0);
-        setContentView(this.aJn);
-        this.aJM = new b(this);
-        this.aJn.setAdapter((ListAdapter) this.aJM);
-        this.aJn.setOnSrollToBottomListener(new a(this));
-        this.bhx.setTitleText(y.hot_game_title);
+        this.aJA = new BdListView(this);
+        this.aJA.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        this.aJA.setCacheColorHint(0);
+        this.aJA.setDividerHeight(0);
+        setContentView(this.aJA);
+        this.aJZ = new b(this);
+        this.aJA.setAdapter((ListAdapter) this.aJZ);
+        this.aJA.setOnSrollToBottomListener(new a(this));
+        this.bhL.setTitleText(y.hot_game_title);
         fx("key_hot_game");
     }
 
@@ -90,10 +90,12 @@ public class HotGameActivity extends AbsGameClassifyActivity {
                 ArrayList arrayList = new ArrayList();
                 int size = list.size();
                 for (int i = 0; i < size; i++) {
-                    arrayList.add(GameInfoData.fromGameInfo(list.get(i)));
+                    GameInfoData fromGameInfo = GameInfoData.fromGameInfo(list.get(i));
+                    fromGameInfo.setRefId("1000103");
+                    arrayList.add(fromGameInfo);
                 }
-                com.baidu.tieba.game.a.a.Ij().M(arrayList);
-                this.aJN = arrayList;
+                com.baidu.tieba.game.a.a.In().M(arrayList);
+                this.aKa = arrayList;
                 H(fg(20));
             }
         } catch (Exception e) {
@@ -101,39 +103,41 @@ public class HotGameActivity extends AbsGameClassifyActivity {
     }
 
     @Override // com.baidu.tieba.game.base.AbsGameClassifyActivity
-    protected NetMessage HU() {
+    protected NetMessage HY() {
         return new HotGameMessage();
     }
 
     @Override // com.baidu.tieba.game.base.AbsGameClassifyActivity
-    protected String HV() {
+    protected String HZ() {
         return TbConfig.GET_HOT_GAME;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.game.base.AbsGameClassifyActivity
-    public Class<? extends CachedHttpResponse> HW() {
+    public Class<? extends CachedHttpResponse> Ia() {
         return HotGameHttpResponse.class;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.game.base.AbsGameClassifyActivity
-    public Class<? extends CachedSocketResponse> HX() {
+    public Class<? extends CachedSocketResponse> Ib() {
         return HotGameSocketResponse.class;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.game.base.AbsGameClassifyActivity
-    public void d(HttpResponsedMessage httpResponsedMessage) {
+    public void c(HttpResponsedMessage httpResponsedMessage) {
         List<GameInfo> gameList;
         if ((httpResponsedMessage instanceof HotGameHttpResponse) && (gameList = ((HotGameHttpResponse) httpResponsedMessage).getGameList()) != null && !gameList.isEmpty()) {
             ArrayList arrayList = new ArrayList();
             int size = gameList.size();
             for (int i = 0; i < size; i++) {
-                arrayList.add(GameInfoData.fromGameInfo(gameList.get(i)));
+                GameInfoData fromGameInfo = GameInfoData.fromGameInfo(gameList.get(i));
+                fromGameInfo.setRefId("1000103");
+                arrayList.add(fromGameInfo);
             }
-            com.baidu.tieba.game.a.a.Ij().M(arrayList);
-            this.aJN = arrayList;
+            com.baidu.tieba.game.a.a.In().M(arrayList);
+            this.aKa = arrayList;
             H(fg(20));
         }
     }
@@ -146,10 +150,12 @@ public class HotGameActivity extends AbsGameClassifyActivity {
             ArrayList arrayList = new ArrayList();
             int size = gameList.size();
             for (int i = 0; i < size; i++) {
-                arrayList.add(GameInfoData.fromGameInfo(gameList.get(i)));
+                GameInfoData fromGameInfo = GameInfoData.fromGameInfo(gameList.get(i));
+                fromGameInfo.setRefId("1000103");
+                arrayList.add(fromGameInfo);
             }
-            com.baidu.tieba.game.a.a.Ij().M(arrayList);
-            this.aJN = arrayList;
+            com.baidu.tieba.game.a.a.In().M(arrayList);
+            this.aKa = arrayList;
             H(fg(20));
         }
     }
@@ -158,6 +164,6 @@ public class HotGameActivity extends AbsGameClassifyActivity {
     @Override // com.baidu.tieba.selectpoi.NavigationBarActivity, com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        aw.a(this.aJn, i);
+        aw.a(this.aJA, i);
     }
 }

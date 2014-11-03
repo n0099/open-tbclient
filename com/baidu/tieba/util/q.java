@@ -11,14 +11,14 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.pluginArch.PluginHelper;
 import com.baidu.tieba.service.PerformMonitorService;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 public class q {
     public static String aP(String str) {
-        if (ay.aA(str) || str.indexOf("cuid=") <= -1) {
+        if (az.aA(str) || str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
@@ -40,7 +40,7 @@ public class q {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [267=5] */
-    public static boolean aeL() {
+    public static boolean aeO() {
         RandomAccessFile randomAccessFile;
         byte[] bArr;
         if (Build.CPU_ABI == null || !Build.CPU_ABI.toLowerCase().contains(PluginHelper.OS_ARCH_ARM)) {

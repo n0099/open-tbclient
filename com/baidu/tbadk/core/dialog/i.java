@@ -21,32 +21,32 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class i {
-    private static final HashMap<Integer, Integer[]> BD = new HashMap<>(2);
-    private final View BA;
+    private static final HashMap<Integer, Integer[]> BE = new HashMap<>(2);
+    private final TextView BA;
+    private final View BB;
     private AlertDialog Bf;
-    private List<Object> Bw;
-    private l Bx;
-    private final ViewGroup By;
-    private final TextView Bz;
+    private List<Object> Bx;
+    private l By;
+    private final ViewGroup Bz;
     private final Activity mActivity;
     private final ViewGroup mRootView;
     private String mTitle;
-    private int BC = -1;
+    private int BD = -1;
     private int AW = -1;
     private boolean Bh = false;
-    private int BB = w.dialog_bdlist_item;
+    private int BC = w.dialog_bdlist_item;
 
     static {
-        BD.put(0, new Integer[]{Integer.valueOf(u.dialg_alert_btn_bg), Integer.valueOf(u.dialog_bdalert_button_textcolor_pressed)});
-        BD.put(1, new Integer[]{Integer.valueOf(u.btn_blue_square), Integer.valueOf(s.share_copy_pb_url)});
+        BE.put(0, new Integer[]{Integer.valueOf(u.dialg_alert_btn_bg), Integer.valueOf(u.dialog_bdalert_button_textcolor_pressed)});
+        BE.put(1, new Integer[]{Integer.valueOf(u.btn_blue_square), Integer.valueOf(s.share_copy_pb_url)});
     }
 
     public i(Activity activity) {
         this.mActivity = activity;
         this.mRootView = (ViewGroup) com.baidu.adp.lib.g.b.ek().inflate(activity, w.dialog_bdlist, null);
-        this.Bz = (TextView) this.mRootView.findViewById(v.dialog_title_list);
-        this.By = (ViewGroup) this.mRootView.findViewById(v.dialog_content);
-        this.BA = this.mRootView.findViewById(v.line_bg);
+        this.BA = (TextView) this.mRootView.findViewById(v.dialog_title_list);
+        this.Bz = (ViewGroup) this.mRootView.findViewById(v.dialog_content);
+        this.BB = this.mRootView.findViewById(v.line_bg);
     }
 
     public i bh(String str) {
@@ -67,16 +67,16 @@ public class i {
 
     public i a(List<Object> list, l lVar) {
         if (list != null && list.size() > 0) {
-            this.Bw = list;
+            this.Bx = list;
             if (lVar != null) {
-                this.Bx = lVar;
+                this.By = lVar;
             }
         }
         return this;
     }
 
     public i bd(int i) {
-        this.BC = i;
+        this.BD = i;
         return this;
     }
 
@@ -89,15 +89,15 @@ public class i {
         if (!this.Bh) {
             this.Bh = true;
             if (!TextUtils.isEmpty(this.mTitle)) {
-                this.Bz.setText(this.mTitle);
-                this.Bz.setVisibility(0);
+                this.BA.setText(this.mTitle);
                 this.BA.setVisibility(0);
+                this.BB.setVisibility(0);
             } else {
-                this.Bz.setVisibility(8);
                 this.BA.setVisibility(8);
+                this.BB.setVisibility(8);
             }
-            if (this.Bw != null && this.Bw.size() > 0) {
-                int size = this.Bw.size();
+            if (this.Bx != null && this.Bx.size() > 0) {
+                int size = this.Bx.size();
                 for (int i = 0; i < size; i++) {
                     bf(i);
                 }
@@ -118,8 +118,8 @@ public class i {
             this.Bf.setCanceledOnTouchOutside(true);
             if (com.baidu.adp.lib.g.j.a(this.Bf, this.mActivity)) {
                 Window window = this.Bf.getWindow();
-                if (this.BC == -1) {
-                    this.BC = k.BH;
+                if (this.BD == -1) {
+                    this.BD = k.BI;
                 }
                 if (this.AW == -1) {
                     this.AW = 17;
@@ -152,11 +152,11 @@ public class i {
 
     private View bf(int i) {
         String valueOf;
-        View a = com.baidu.adp.lib.g.b.ek().a(this.mActivity, this.BB, this.By, false);
+        View a = com.baidu.adp.lib.g.b.ek().a(this.mActivity, this.BC, this.Bz, false);
         LinearLayout linearLayout = (LinearLayout) a;
         TextView textView = (TextView) a.findViewById(v.dialog_item_btn);
         aw.h(a, u.dialg_alert_btn_bg);
-        Object obj = this.Bw.get(i);
+        Object obj = this.Bx.get(i);
         if (obj instanceof Object[]) {
             Object[] objArr = (Object[]) obj;
             if (objArr.length <= 0) {
@@ -168,21 +168,21 @@ public class i {
             valueOf = String.valueOf(obj);
         }
         textView.setText(valueOf);
-        if (this.Bx != null) {
+        if (this.By != null) {
             linearLayout.setOnClickListener(new j(this, i, textView));
         }
-        this.By.addView(a);
+        this.Bz.addView(a);
         return a;
     }
 
     public View bg(int i) {
-        if (this.By == null) {
+        if (this.Bz == null) {
             return null;
         }
-        int childCount = this.By.getChildCount();
+        int childCount = this.Bz.getChildCount();
         if (i < 0 || i > childCount - 1) {
             return null;
         }
-        return this.By.getChildAt(i);
+        return this.Bz.getChildAt(i);
     }
 }

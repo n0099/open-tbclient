@@ -5,11 +5,11 @@ import java.util.Comparator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements Comparator<GameInfoData> {
-    final /* synthetic */ ab aHK;
+    final /* synthetic */ ab aHU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(ab abVar) {
-        this.aHK = abVar;
+        this.aHU = abVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

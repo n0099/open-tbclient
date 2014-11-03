@@ -7,7 +7,7 @@ import com.baidu.adp.lib.util.u;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.ac;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.core.util.s;
 import com.baidu.tieba.y;
 import java.io.File;
@@ -18,12 +18,12 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask<DownloadData, DownloadData, Integer> {
-    final /* synthetic */ g Rj;
+    final /* synthetic */ g Rn;
     private ac mNetWork = new ac();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(g gVar) {
-        this.Rj = gVar;
+        this.Rn = gVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -38,24 +38,24 @@ public class i extends BdAsyncTask<DownloadData, DownloadData, Integer> {
         DownloadData downloadData5;
         super.onCancelled();
         this.mNetWork.dM();
-        downloadData = g.Rg;
+        downloadData = g.Rk;
         downloadData.setStatus(4);
-        downloadData2 = g.Rg;
+        downloadData2 = g.Rk;
         downloadData2.setStatusMsg(null);
-        downloadData3 = g.Rg;
+        downloadData3 = g.Rk;
         if (downloadData3.getCallback() != null) {
-            downloadData4 = g.Rg;
+            downloadData4 = g.Rk;
             f callback = downloadData4.getCallback();
-            downloadData5 = g.Rg;
+            downloadData5 = g.Rk;
             callback.onFileUpdateProgress(downloadData5);
         }
-        list = g.Ra;
+        list = g.Re;
         if (!list.isEmpty()) {
-            list2 = g.Ra;
+            list2 = g.Re;
             list2.remove(0);
         }
-        g.Rg = null;
-        this.Rj.rl();
+        g.Rk = null;
+        this.Rn.rn();
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [366=4, 368=4, 369=4, 370=4] */
@@ -84,7 +84,7 @@ public class i extends BdAsyncTask<DownloadData, DownloadData, Integer> {
                 this.mNetWork.setUrl(downloadDataArr[0].getUrl());
                 ac acVar = this.mNetWork;
                 String str = String.valueOf(downloadDataArr[0].getId()) + "_" + downloadDataArr[0].getName() + ".tmp";
-                handler = this.Rj.Ri;
+                handler = this.Rn.Rm;
                 if (!Boolean.valueOf(acVar.a(str, handler, TbConfig.NET_MSG_GETLENTH, 3, 3000)).booleanValue()) {
                     return 3;
                 }
@@ -110,7 +110,7 @@ public class i extends BdAsyncTask<DownloadData, DownloadData, Integer> {
                     return 7;
                 }
             }
-            if (!ay.aA(downloadDataArr[0].getCheck())) {
+            if (!az.aA(downloadDataArr[0].getCheck())) {
                 try {
                     fileInputStream = new FileInputStream(downloadDataArr[0].getPath());
                     try {
@@ -204,20 +204,20 @@ public class i extends BdAsyncTask<DownloadData, DownloadData, Integer> {
         DownloadData downloadData16;
         super.onPostExecute(num);
         if (num.intValue() == 0) {
-            downloadData10 = g.Rg;
+            downloadData10 = g.Rk;
             if (downloadData10.getCallback() != null) {
-                downloadData15 = g.Rg;
+                downloadData15 = g.Rk;
                 f callback = downloadData15.getCallback();
-                downloadData16 = g.Rg;
+                downloadData16 = g.Rk;
                 callback.onFileDownloadSucceed(downloadData16);
             }
-            downloadData11 = g.Rg;
+            downloadData11 = g.Rk;
             downloadData11.setStatus(0);
-            downloadData12 = g.Rg;
+            downloadData12 = g.Rk;
             if (downloadData12.getCallback() != null) {
-                downloadData13 = g.Rg;
+                downloadData13 = g.Rk;
                 f callback2 = downloadData13.getCallback();
-                downloadData14 = g.Rg;
+                downloadData14 = g.Rk;
                 callback2.onFileUpdateProgress(downloadData14);
             }
         } else {
@@ -245,33 +245,33 @@ public class i extends BdAsyncTask<DownloadData, DownloadData, Integer> {
                     string = TbadkApplication.m251getInst().getApp().getString(y.download_fail);
                     break;
             }
-            downloadData = g.Rg;
+            downloadData = g.Rk;
             downloadData.setStatusMsg(string);
-            downloadData2 = g.Rg;
+            downloadData2 = g.Rk;
             downloadData2.setErrorCode(num.intValue());
-            downloadData3 = g.Rg;
+            downloadData3 = g.Rk;
             if (downloadData3.getCallback() != null) {
-                downloadData8 = g.Rg;
+                downloadData8 = g.Rk;
                 f callback3 = downloadData8.getCallback();
-                downloadData9 = g.Rg;
+                downloadData9 = g.Rk;
                 callback3.onFileDownloadFailed(downloadData9, num.intValue(), string);
             }
-            downloadData4 = g.Rg;
+            downloadData4 = g.Rk;
             downloadData4.setStatus(2);
-            downloadData5 = g.Rg;
+            downloadData5 = g.Rk;
             if (downloadData5.getCallback() != null) {
-                downloadData6 = g.Rg;
+                downloadData6 = g.Rk;
                 f callback4 = downloadData6.getCallback();
-                downloadData7 = g.Rg;
+                downloadData7 = g.Rk;
                 callback4.onFileUpdateProgress(downloadData7);
             }
         }
-        g.Rg = null;
-        list = g.Ra;
+        g.Rk = null;
+        list = g.Re;
         if (!list.isEmpty()) {
-            list2 = g.Ra;
+            list2 = g.Re;
             list2.remove(0);
-            this.Rj.rl();
+            this.Rn.rn();
         }
     }
 }

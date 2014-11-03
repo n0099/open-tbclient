@@ -5,14 +5,14 @@ import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f<T> extends BdAsyncTask<String, Object, T> {
-    private b<T> aNf;
-    private a<T> aNg;
+    private b<T> aNt;
+    private a<T> aNu;
 
     public f(b<T> bVar, a<T> aVar) {
-        this.aNf = null;
-        this.aNg = null;
-        this.aNf = bVar;
-        this.aNg = aVar;
+        this.aNt = null;
+        this.aNu = null;
+        this.aNt = bVar;
+        this.aNu = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,10 +21,10 @@ public class f<T> extends BdAsyncTask<String, Object, T> {
     /* renamed from: d */
     public T doInBackground(String... strArr) {
         try {
-            if (this.aNf == null) {
+            if (this.aNt == null) {
                 return null;
             }
-            return this.aNf.doInBackground();
+            return this.aNt.doInBackground();
         } catch (Throwable th) {
             BdLog.detailException(th);
             return null;
@@ -34,8 +34,8 @@ public class f<T> extends BdAsyncTask<String, Object, T> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(T t) {
-        if (this.aNg != null) {
-            this.aNg.onReturnDataInUI(t);
+        if (this.aNu != null) {
+            this.aNu.onReturnDataInUI(t);
         }
     }
 }

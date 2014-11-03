@@ -13,59 +13,59 @@ import com.baidu.tieba.y;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.base.f {
-    private GridView aiD;
-    private BubbleChooseActivity ajb;
-    private View ajd;
-    private f aje;
+    private GridView aiM;
+    private BubbleChooseActivity ajk;
+    private View ajm;
+    private f ajn;
     private NavigationBar mNavigationBar;
     private ProgressBar mProgressBar;
     private ViewGroup mRootView;
 
     public g(BubbleChooseActivity bubbleChooseActivity) {
         super(bubbleChooseActivity);
-        this.ajb = bubbleChooseActivity;
+        this.ajk = bubbleChooseActivity;
         bubbleChooseActivity.setContentView(w.bubble_activity_view);
         this.mNavigationBar = (NavigationBar) bubbleChooseActivity.findViewById(v.lay_title_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(y.bubble_choose);
-        this.ajd = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.bubble_explain, bubbleChooseActivity);
+        this.ajm = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.bubble_explain, bubbleChooseActivity);
         this.mRootView = (ViewGroup) bubbleChooseActivity.findViewById(v.container);
-        this.aiD = (GridView) bubbleChooseActivity.findViewById(v.gv_bubble_list);
-        this.aje = new f(bubbleChooseActivity);
-        this.aiD.setAdapter((ListAdapter) this.aje);
+        this.aiM = (GridView) bubbleChooseActivity.findViewById(v.gv_bubble_list);
+        this.ajn = new f(bubbleChooseActivity);
+        this.aiM.setAdapter((ListAdapter) this.ajn);
         this.mProgressBar = (ProgressBar) bubbleChooseActivity.findViewById(v.bubble_progress);
     }
 
     public void setData(List<BubbleListData.BubbleData> list, boolean z) {
-        if (this.aje != null) {
-            this.aje.bn(z);
-            this.aje.setData(list);
+        if (this.ajn != null) {
+            this.ajn.bn(z);
+            this.ajn.setData(list);
         }
     }
 
-    public f yk() {
-        return this.aje;
+    public f ym() {
+        return this.ajn;
     }
 
-    public View yl() {
-        return this.ajd;
+    public View yn() {
+        return this.ajm;
     }
 
-    public GridView ym() {
-        return this.aiD;
+    public GridView yo() {
+        return this.aiM;
     }
 
     public BubbleListData.BubbleData dW(int i) {
-        if (this.aje == null) {
+        if (this.ajn == null) {
             return null;
         }
-        return this.aje.getItem(i);
+        return this.ajn.getItem(i);
     }
 
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(i);
-        this.ajb.getLayoutMode().L(i == 1);
-        this.ajb.getLayoutMode().h(this.mRootView);
+        this.ajk.getLayoutMode().L(i == 1);
+        this.ajk.getLayoutMode().h(this.mRootView);
     }
 
     public void showProgressBar() {

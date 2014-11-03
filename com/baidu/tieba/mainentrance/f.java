@@ -5,13 +5,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class f {
-    RelativeLayout bmc;
-    TextView bmd;
-    final /* synthetic */ e bme;
+    RelativeLayout bmq;
+    TextView bmr;
+    final /* synthetic */ e bms;
     ProgressBar xM;
 
     private f(e eVar) {
-        this.bme = eVar;
+        this.bms = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

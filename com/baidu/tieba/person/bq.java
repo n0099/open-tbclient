@@ -1,21 +1,18 @@
 package com.baidu.tieba.person;
+
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bq implements com.baidu.adp.widget.ListView.aa {
-    final /* synthetic */ PersonListActivity bCT;
+public class bq implements View.OnClickListener {
+    final /* synthetic */ PersonListActivity bDh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bq(PersonListActivity personListActivity) {
-        this.bCT = personListActivity;
+        this.bDh = personListActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.aa
-    public void hQ() {
-        br brVar;
-        brVar = this.bCT.bCO;
-        if (!brVar.isHasMore()) {
-            return;
-        }
-        this.bCT.aaa();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.bDh.aac();
     }
 }

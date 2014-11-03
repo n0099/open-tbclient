@@ -6,64 +6,64 @@ import android.net.Uri;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class aa implements MediaScannerConnection.MediaScannerConnectionClient {
-    private MediaScannerConnection DX;
-    private String DY;
-    private String[] DZ;
+    private MediaScannerConnection DY;
+    private String DZ;
     private String[] Ea;
-    private boolean Eb;
-    private ab Ec;
+    private String[] Eb;
+    private boolean Ec;
+    private ab Ed;
     private String dM;
     private int length;
     private Context mContext;
 
     public aa(Context context) {
         this.mContext = context;
-        this.DX = new MediaScannerConnection(this.mContext, this);
+        this.DY = new MediaScannerConnection(this.mContext, this);
     }
 
     public void bF(String str) {
         this.dM = str;
         String substring = this.dM.substring(this.dM.lastIndexOf("."));
-        this.DY = "image/jpeg";
+        this.DZ = "image/jpeg";
         if (substring.equals(".gif")) {
-            this.DY = "image/gif";
+            this.DZ = "image/gif";
         }
-        this.DX.connect();
+        this.DY.connect();
     }
 
     @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
     public void onMediaScannerConnected() {
-        if (!TextUtils.isEmpty(this.dM) && !TextUtils.isEmpty(this.DY)) {
-            this.DX.scanFile(this.dM, this.DY);
+        if (!TextUtils.isEmpty(this.dM) && !TextUtils.isEmpty(this.DZ)) {
+            this.DY.scanFile(this.dM, this.DZ);
         }
-        if (this.DZ != null && this.Ea != null && this.DZ.length == this.Ea.length) {
-            int length = this.DZ.length;
+        if (this.Ea != null && this.Eb != null && this.Ea.length == this.Eb.length) {
+            int length = this.Ea.length;
             for (int i = 0; i < length; i++) {
-                this.DX.scanFile(this.DZ[i], this.Ea[i]);
+                this.DY.scanFile(this.Ea[i], this.Eb[i]);
             }
         }
     }
 
     @Override // android.media.MediaScannerConnection.OnScanCompletedListener
     public void onScanCompleted(String str, Uri uri) {
-        if (!TextUtils.isEmpty(this.dM) && !TextUtils.isEmpty(this.DY) && str.equals(this.dM)) {
-            this.DX.disconnect();
+        if (!TextUtils.isEmpty(this.dM) && !TextUtils.isEmpty(this.DZ) && str.equals(this.dM)) {
+            this.DY.disconnect();
             this.dM = null;
-            this.DY = null;
-            this.Eb = true;
-        } else if (this.DZ != null && this.Ea != null && this.DZ.length == this.Ea.length) {
+            this.DZ = null;
+            this.Ec = true;
+        } else if (this.Ea != null && this.Eb != null && this.Ea.length == this.Eb.length) {
             this.length--;
             if (this.length == 0) {
-                this.DX.disconnect();
-                this.DZ = null;
+                this.DY.disconnect();
                 this.Ea = null;
-                this.Eb = true;
+                this.Eb = null;
+                this.Ec = true;
             } else {
-                this.Eb = false;
+                this.Ec = false;
             }
         }
-        if (this.Eb && this.Ec != null) {
-            this.Ec.ma();
+        if (this.Ec && this.Ed != null) {
+            this.Ed.ma();
         }
     }
 }

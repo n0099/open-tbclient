@@ -10,14 +10,14 @@ import com.baidu.tieba.topRec.TRForumListData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<Integer, Integer, String> {
-    final /* synthetic */ TopRecActivity bPw;
-    TRForumListData.TRForum bPx;
+    final /* synthetic */ TopRecActivity bPL;
+    TRForumListData.TRForum bPM;
     int id;
     int position;
     private ac yV;
 
     private d(TopRecActivity topRecActivity) {
-        this.bPw = topRecActivity;
+        this.bPL = topRecActivity;
         this.yV = null;
         this.position = -1;
         this.id = 0;
@@ -36,17 +36,17 @@ public class d extends BdAsyncTask<Integer, Integer, String> {
         int hu;
         TRForumListData tRForumListData;
         this.id = numArr[0].intValue();
-        hu = this.bPw.hu(this.id);
+        hu = this.bPL.hu(this.id);
         this.position = hu;
         if (this.position >= 0) {
-            tRForumListData = this.bPw.bPq;
-            this.bPx = tRForumListData.forum_list[this.position];
+            tRForumListData = this.bPL.bPF;
+            this.bPM = tRForumListData.forum_list[this.position];
         }
         try {
-            if (this.bPx != null && this.bPx.forum_id != 0 && this.bPx.forum_name != null) {
+            if (this.bPM != null && this.bPM.forum_id != 0 && this.bPM.forum_name != null) {
                 this.yV = new ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/unfavolike");
-                this.yV.k(ImageViewerConfig.FORUM_ID, String.valueOf(this.bPx.forum_id));
-                this.yV.k("kw", this.bPx.forum_name);
+                this.yV.k(ImageViewerConfig.FORUM_ID, String.valueOf(this.bPM.forum_id));
+                this.yV.k("kw", this.bPM.forum_name);
                 this.yV.k("favo_type", "1");
                 this.yV.k("st_type", "from_topRec");
                 this.yV.mc().na().mIsNeedTbs = true;
@@ -65,16 +65,16 @@ public class d extends BdAsyncTask<Integer, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         super.onPostExecute((d) str);
-        this.bPw.bPp = null;
+        this.bPL.bPE = null;
         if (this.yV == null) {
-            this.bPw.W(this.position, this.bPx.forum_id);
+            this.bPL.W(this.position, this.bPM.forum_id);
         } else if (!this.yV.mc().nb().jq()) {
-            this.bPw.W(this.position, this.bPx.forum_id);
+            this.bPL.W(this.position, this.bPM.forum_id);
         } else if (str == null) {
-            this.bPw.W(this.position, this.bPx.forum_id);
+            this.bPL.W(this.position, this.bPM.forum_id);
         } else {
-            aj.wk().dX(this.bPx.forum_name);
-            this.bPw.aep();
+            aj.wm().dX(this.bPM.forum_name);
+            this.bPL.aes();
         }
     }
 
@@ -85,9 +85,9 @@ public class d extends BdAsyncTask<Integer, Integer, String> {
             this.yV.dM();
             this.yV = null;
         }
-        gVar = this.bPw.bPm;
+        gVar = this.bPL.bPB;
         gVar.da(false);
-        this.bPw.bPp = null;
+        this.bPL.bPE = null;
         super.cancel(true);
     }
 }

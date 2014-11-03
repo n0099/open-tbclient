@@ -4,11 +4,11 @@ import com.baidu.adp.lib.cache.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements u<String> {
-    final /* synthetic */ a Vs;
+    final /* synthetic */ a Vw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.Vs = aVar;
+        this.Vw = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -16,9 +16,9 @@ public class d implements u<String> {
     /* renamed from: Y */
     public void d(String str, String str2) {
         if (str2 != null) {
-            this.Vs.X(str, str2);
+            this.Vw.X(str, str2);
         } else {
-            this.Vs.dA(str);
+            this.Vw.dA(str);
         }
     }
 }

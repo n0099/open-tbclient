@@ -21,8 +21,8 @@ public class bf implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        c.PK().e(imMessageCenterPojo);
-        c.PK().a(1, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
+        c.PN().e(imMessageCenterPojo);
+        c.PN().a(1, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
         if (z) {
             MessageManager.getInstance().sendMessage(new NewMsgArriveRequestMessage(1));
         }

@@ -3,11 +3,11 @@ package com.baidu.tieba.forumfeed;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
 class l implements AbsListView.OnScrollListener {
-    final /* synthetic */ j aym;
+    final /* synthetic */ j ayv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(j jVar) {
-        this.aym = jVar;
+        this.ayv = jVar;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener

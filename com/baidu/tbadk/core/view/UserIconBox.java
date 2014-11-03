@@ -11,32 +11,32 @@ import com.baidu.tbadk.widget.TbImageView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class UserIconBox extends LinearLayout {
-    private com.baidu.adp.lib.e.b<TbImageView> Iu;
-    private ad Iv;
-    private LinearLayout.LayoutParams Iw;
-    private boolean Ix;
-    com.baidu.tbadk.imageManager.d Iy;
+    private com.baidu.adp.lib.e.b<TbImageView> Iv;
+    private ad Iw;
+    private LinearLayout.LayoutParams Ix;
+    private boolean Iy;
+    com.baidu.tbadk.imageManager.d Iz;
     private Context mContext;
 
     public void setAutoChangedStyle(boolean z) {
-        this.Ix = z;
+        this.Iy = z;
     }
 
     public UserIconBox(Context context) {
         super(context);
-        this.Iu = null;
         this.Iv = null;
-        this.Ix = true;
-        this.Iy = new z(this);
+        this.Iw = null;
+        this.Iy = true;
+        this.Iz = new z(this);
         init(context);
     }
 
     public UserIconBox(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Iu = null;
         this.Iv = null;
-        this.Ix = true;
-        this.Iy = new z(this);
+        this.Iw = null;
+        this.Iy = true;
+        this.Iz = new z(this);
         init(context);
     }
 
@@ -46,19 +46,19 @@ public class UserIconBox extends LinearLayout {
         setGravity(16);
         if (this.mContext instanceof ae) {
             ae aeVar = (ae) this.mContext;
-            this.Iu = aeVar.nD();
-            if (aeVar.getListView() != null && this.Iv == null) {
-                this.Iv = new ad(aeVar.nC());
-                aeVar.getListView().setRecyclerListener(this.Iv);
+            this.Iv = aeVar.nD();
+            if (aeVar.getListView() != null && this.Iw == null) {
+                this.Iw = new ad(aeVar.nC());
+                aeVar.getListView().setRecyclerListener(this.Iw);
             }
         }
         setOnHierarchyChangeListener(new ab(this));
     }
 
     private LinearLayout.LayoutParams m(int i, int i2, int i3) {
-        this.Iw = new LinearLayout.LayoutParams(i, i2);
-        this.Iw.leftMargin = i3;
-        return this.Iw;
+        this.Ix = new LinearLayout.LayoutParams(i, i2);
+        this.Ix.leftMargin = i3;
+        return this.Ix;
     }
 
     public void a(List<IconData> list, int i, int i2, int i3, int i4, boolean z) {
@@ -78,7 +78,7 @@ public class UserIconBox extends LinearLayout {
                         }
                         w.setTag(list.get(i5).getIcon());
                         w.setClickable(false);
-                        w.setAutoChangeStyle(this.Ix);
+                        w.setAutoChangeStyle(this.Iy);
                         w.a(list.get(i5).getIcon(), 21, i2, i3, false);
                         addView(w);
                         w.invalidate();
@@ -106,8 +106,8 @@ public class UserIconBox extends LinearLayout {
 
     private TbImageView w(Context context) {
         TbImageView tbImageView = null;
-        if (this.Iu != null) {
-            tbImageView = this.Iu.ed();
+        if (this.Iv != null) {
+            tbImageView = this.Iv.ed();
         }
         if (tbImageView == null || tbImageView.getParent() != null) {
             return new TbImageView(context);

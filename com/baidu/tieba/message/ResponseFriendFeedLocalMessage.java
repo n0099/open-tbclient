@@ -42,7 +42,7 @@ public class ResponseFriendFeedLocalMessage extends CustomResponsedMessage<Objec
                             friendFeedThreadData.setUserMap(getFriendFeedData().getUserMap());
                             friendFeedThreadData.parserProtobuf(list.get(i2));
                             friendFeedThreadData.parser_title();
-                            getFriendFeedData().zf().add(friendFeedThreadData);
+                            getFriendFeedData().zh().add(friendFeedThreadData);
                         }
                     }
                     getFriendFeedData().setHasMore(friendFeedPageResIdl.data.has_more.intValue());

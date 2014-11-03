@@ -6,44 +6,44 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class n {
-    private boolean TL;
-    private String akd;
-    private String ake;
-    private ArrayList<m> akf = new ArrayList<>();
+    private boolean TP;
+    private String akm;
+    private String akn;
+    private ArrayList<m> ako = new ArrayList<>();
     private String time;
 
-    public String yI() {
-        return this.akd;
+    public String yK() {
+        return this.akm;
     }
 
     public String getTime() {
         return this.time;
     }
 
-    public ArrayList<m> yJ() {
-        return this.akf;
+    public ArrayList<m> yL() {
+        return this.ako;
     }
 
-    public boolean yK() {
-        return this.TL;
+    public boolean yM() {
+        return this.TP;
     }
 
     public void bo(boolean z) {
-        this.TL = z;
+        this.TP = z;
     }
 
     public void parserJson(JSONObject jSONObject) {
         try {
             this.time = jSONObject.optString("publish_time");
-            this.akd = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.TOTAL);
-            this.ake = jSONObject.optString("update_time");
+            this.akm = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.TOTAL);
+            this.akn = jSONObject.optString("update_time");
             JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
             if (optJSONArray != null) {
                 int length = optJSONArray.length();
                 for (int i = 0; i < length; i++) {
                     m mVar = new m();
                     mVar.parserJson(optJSONArray.getJSONObject(i));
-                    this.akf.add(mVar);
+                    this.ako.add(mVar);
                 }
             }
         } catch (JSONException e) {

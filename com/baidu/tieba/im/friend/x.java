@@ -8,9 +8,9 @@ import protobuf.CommitInviteMsg.DataReq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x extends com.baidu.adp.base.e {
-    private RequestCommitInviteMessage aWg;
-    private int aWh;
-    private int aWi;
+    private RequestCommitInviteMessage aWu;
+    private int aWv;
+    private int aWw;
 
     public x(Context context) {
         super(context);
@@ -23,26 +23,26 @@ public class x extends com.baidu.adp.base.e {
 
     public void initWithIntent(Intent intent) {
         if (intent != null) {
-            this.aWh = intent.getIntExtra("gid", -1);
-            this.aWi = intent.getIntExtra("groupid", -1);
+            this.aWv = intent.getIntExtra("gid", -1);
+            this.aWw = intent.getIntExtra("groupid", -1);
         }
     }
 
     public void initWithBundle(Bundle bundle) {
         if (bundle != null) {
-            this.aWh = bundle.getInt("gid", -1);
-            this.aWi = bundle.getInt("groupid", -1);
+            this.aWv = bundle.getInt("gid", -1);
+            this.aWw = bundle.getInt("groupid", -1);
         }
     }
 
     public void i(Bundle bundle) {
-        bundle.putInt("gid", this.aWh);
-        bundle.putInt("groupid", this.aWi);
+        bundle.putInt("gid", this.aWv);
+        bundle.putInt("groupid", this.aWw);
     }
 
     public void gd(String str) {
-        this.aWg = b(this.aWh, this.aWi, str);
-        super.sendMessage(this.aWg);
+        this.aWu = b(this.aWv, this.aWw, str);
+        super.sendMessage(this.aWu);
     }
 
     private RequestCommitInviteMessage b(int i, int i2, String str) {

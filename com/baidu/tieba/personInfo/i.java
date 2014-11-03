@@ -4,13 +4,13 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.newFriends.ResponseDeleteFriendMessage;
 /* loaded from: classes.dex */
 class i extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ PersonInfoActivity bED;
+    final /* synthetic */ PersonInfoActivity bER;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(PersonInfoActivity personInfoActivity, int i) {
         super(i);
-        this.bED = personInfoActivity;
+        this.bER = personInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,14 +22,14 @@ class i extends com.baidu.adp.framework.listener.e {
         if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseDeleteFriendMessage)) {
             ResponseDeleteFriendMessage responseDeleteFriendMessage = (ResponseDeleteFriendMessage) socketResponsedMessage;
             int error = responseDeleteFriendMessage.getError();
-            this.bED.showToast(responseDeleteFriendMessage.getErrorString());
+            this.bER.showToast(responseDeleteFriendMessage.getErrorString());
             if (error == 0) {
-                vVar = this.bED.bEs;
-                if (vVar.aaS() != null) {
-                    vVar2 = this.bED.bEs;
-                    vVar2.aaS().setIsFriend(0);
-                    aeVar = this.bED.bEt;
-                    aeVar.abe();
+                vVar = this.bER.bEG;
+                if (vVar.aaV() != null) {
+                    vVar2 = this.bER.bEG;
+                    vVar2.aaV().setIsFriend(0);
+                    aeVar = this.bER.bEH;
+                    aeVar.abh();
                 }
             }
         }

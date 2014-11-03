@@ -1,11 +1,11 @@
 package com.baidu.tieba.pb.main;
 /* loaded from: classes.dex */
 class n implements cw {
-    final /* synthetic */ PbActivity bvg;
+    final /* synthetic */ PbActivity bvu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(PbActivity pbActivity) {
-        this.bvg = pbActivity;
+        this.bvu = pbActivity;
     }
 
     @Override // com.baidu.tieba.pb.main.cw
@@ -13,12 +13,12 @@ class n implements cw {
         com.baidu.tieba.pb.sub.e eVar;
         com.baidu.tieba.pb.sub.e eVar2;
         bv bvVar;
-        eVar = this.bvg.buJ;
+        eVar = this.bvu.buX;
         if (eVar != null) {
-            eVar2 = this.bvg.buJ;
-            if (eVar2.tL()) {
-                bvVar = this.bvg.buL;
-                bvVar.XH();
+            eVar2 = this.bvu.buX;
+            if (eVar2.tN()) {
+                bvVar = this.bvu.buZ;
+                bvVar.XK();
             }
         }
     }

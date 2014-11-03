@@ -3,26 +3,26 @@ package com.baidu.tieba.pb.main;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 class x implements com.baidu.tieba.location.i {
-    final /* synthetic */ PbActivity bvg;
+    final /* synthetic */ PbActivity bvu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(PbActivity pbActivity) {
-        this.bvg = pbActivity;
+        this.bvu = pbActivity;
     }
 
     @Override // com.baidu.tieba.location.i
-    public void EG() {
+    public void EI() {
         bv bvVar;
         bv bvVar2;
         bv bvVar3;
-        bvVar = this.bvg.buL;
-        if (bvVar.EO() != null) {
-            bvVar2 = this.bvg.buL;
-            if (bvVar2.EO().getLocationViewVisibility() == 0) {
-                this.bvg.showToast(com.baidu.tieba.y.no_network_guide);
+        bvVar = this.bvu.buZ;
+        if (bvVar.EQ() != null) {
+            bvVar2 = this.bvu.buZ;
+            if (bvVar2.EQ().getLocationViewVisibility() == 0) {
+                this.bvu.showToast(com.baidu.tieba.y.no_network_guide);
             }
-            bvVar3 = this.bvg.buL;
-            bvVar3.EO().setLocationInfoViewState(0);
+            bvVar3 = this.bvu.buZ;
+            bvVar3.EQ().setLocationInfoViewState(0);
         }
     }
 
@@ -31,18 +31,18 @@ class x implements com.baidu.tieba.location.i {
         bv bvVar;
         bv bvVar2;
         bv bvVar3;
-        bvVar = this.bvg.buL;
-        if (bvVar.EO() != null) {
-            bvVar2 = this.bvg.buL;
-            if (bvVar2.EO().getLocationViewVisibility() == 0) {
-                PbActivity pbActivity = this.bvg;
+        bvVar = this.bvu.buZ;
+        if (bvVar.EQ() != null) {
+            bvVar2 = this.bvu.buZ;
+            if (bvVar2.EQ().getLocationViewVisibility() == 0) {
+                PbActivity pbActivity = this.bvu;
                 if (StringUtils.isNull(str)) {
-                    str = this.bvg.getString(com.baidu.tieba.y.location_fail);
+                    str = this.bvu.getString(com.baidu.tieba.y.location_fail);
                 }
                 pbActivity.showToast(str);
             }
-            bvVar3 = this.bvg.buL;
-            bvVar3.EO().setLocationInfoViewState(0);
+            bvVar3 = this.bvu.buZ;
+            bvVar3.EQ().setLocationInfoViewState(0);
         }
     }
 
@@ -50,11 +50,11 @@ class x implements com.baidu.tieba.location.i {
     public void a(com.baidu.tieba.location.a aVar) {
         bv bvVar;
         bv bvVar2;
-        if (aVar != null && !StringUtils.isNull(aVar.Sl())) {
-            bvVar = this.bvg.buL;
-            if (bvVar.EO() != null) {
-                bvVar2 = this.bvg.buL;
-                bvVar2.EO().j(2, aVar.Sl());
+        if (aVar != null && !StringUtils.isNull(aVar.So())) {
+            bvVar = this.bvu.buZ;
+            if (bvVar.EQ() != null) {
+                bvVar2 = this.bvu.buZ;
+                bvVar2.EQ().j(2, aVar.So());
                 return;
             }
             return;

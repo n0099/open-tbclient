@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.aw;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class m extends DynamicDrawableSpan {
-    private Uri aaO;
-    private int aaP;
-    private n aaQ;
+    private Uri aaS;
+    private int aaT;
+    private n aaU;
     private Rect dZ;
     private Context mContext;
     private Drawable tt;
@@ -31,13 +31,13 @@ public class m extends DynamicDrawableSpan {
     public m(n nVar, int i, int i2) {
         super(i2);
         this.dZ = new Rect();
-        this.aaP = i;
-        this.aaQ = nVar;
+        this.aaT = i;
+        this.aaU = nVar;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        if (this.tt != null || this.aaQ == null) {
+        if (this.tt != null || this.aaU == null) {
             return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
         }
         if (fontMetricsInt != null) {
@@ -58,15 +58,15 @@ public class m extends DynamicDrawableSpan {
         Drawable drawable3 = null;
         if (this.tt != null) {
             drawable3 = this.tt;
-        } else if (this.aaQ != null) {
-            drawable3 = this.aaQ.a(this);
+        } else if (this.aaU != null) {
+            drawable3 = this.aaU.a(this);
         }
         if (drawable3 != null) {
             return drawable3;
         }
-        if (this.aaO != null) {
+        if (this.aaS != null) {
             try {
-                openInputStream = this.mContext.getContentResolver().openInputStream(this.aaO);
+                openInputStream = this.mContext.getContentResolver().openInputStream(this.aaS);
                 drawable2 = new BitmapDrawable(this.mContext.getResources(), BitmapFactory.decodeStream(openInputStream));
             } catch (Exception e2) {
                 drawable2 = drawable3;
@@ -78,12 +78,12 @@ public class m extends DynamicDrawableSpan {
                 return drawable2;
             } catch (Exception e3) {
                 e = e3;
-                Log.e("sms", "Failed to loaded content " + this.aaO, e);
+                Log.e("sms", "Failed to loaded content " + this.aaS, e);
                 return drawable2;
             }
         }
         try {
-            drawable = aw.getDrawable(this.aaP);
+            drawable = aw.getDrawable(this.aaT);
         } catch (Exception e4) {
             drawable = drawable3;
         }
@@ -91,7 +91,7 @@ public class m extends DynamicDrawableSpan {
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
             return drawable;
         } catch (Exception e5) {
-            Log.e("sms", "Unable to find resource: " + this.aaP);
+            Log.e("sms", "Unable to find resource: " + this.aaT);
             return drawable;
         }
     }

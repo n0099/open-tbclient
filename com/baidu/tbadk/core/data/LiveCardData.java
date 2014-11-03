@@ -248,7 +248,7 @@ public class LiveCardData implements at, Serializable {
         ArrayList<as> arrayList = new ArrayList<>();
         as asVar = new as();
         asVar.AI = this.portrait;
-        asVar.ER = 10;
+        asVar.ES = 10;
         arrayList.add(asVar);
         return arrayList;
     }

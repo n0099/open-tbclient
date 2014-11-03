@@ -4,11 +4,11 @@ import android.location.Address;
 import com.baidu.tieba.model.av;
 /* loaded from: classes.dex */
 class y implements com.baidu.adp.lib.d.d {
-    final /* synthetic */ UpdateInfoService bIU;
+    final /* synthetic */ UpdateInfoService bJi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(UpdateInfoService updateInfoService) {
-        this.bIU = updateInfoService;
+        this.bJi = updateInfoService;
     }
 
     @Override // com.baidu.adp.lib.d.d
@@ -21,12 +21,12 @@ class y implements com.baidu.adp.lib.d.d {
                 if (address != null) {
                     float longitude = (float) address.getLongitude();
                     float latitude = (float) address.getLatitude();
-                    avVar = this.bIU.mModel;
-                    if (avVar.TU()) {
-                        avVar2 = this.bIU.mModel;
+                    avVar = this.bJi.mModel;
+                    if (avVar.TX()) {
+                        avVar2 = this.bJi.mModel;
                         avVar2.a(1, longitude, latitude);
-                        avVar3 = this.bIU.mModel;
-                        avVar3.TV();
+                        avVar3 = this.bJi.mModel;
+                        avVar3.TY();
                         return;
                     }
                     return;

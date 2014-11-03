@@ -10,24 +10,24 @@ import com.baidu.tieba.im.message.RequestSendPVTJMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ar implements AdapterView.OnItemClickListener {
-    final /* synthetic */ OfficialBarTipActivity aRU;
+    final /* synthetic */ OfficialBarTipActivity aSi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(OfficialBarTipActivity officialBarTipActivity) {
-        this.aRU = officialBarTipActivity;
+        this.aSi = officialBarTipActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         au auVar;
-        auVar = this.aRU.aRT;
-        ImMessageCenterShowItemData fr = auVar.Ky().getItem(i);
+        auVar = this.aSi.aSh;
+        ImMessageCenterShowItemData fr = auVar.KC().getItem(i);
         if (fr != null) {
             ImMessageCenterShowItemData imMessageCenterShowItemData = fr;
             try {
                 long parseLong = Long.parseLong(imMessageCenterShowItemData.getFriendId());
                 RequestSendPVTJMessage.sendOfficialBarPVTJ(RequestSendPVTJMessage.TYPE_V_MREAD, new StringBuilder(String.valueOf(parseLong)).toString());
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.aRU, parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendPortrait(), 0)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.aSi, parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendPortrait(), 0)));
             } catch (Exception e) {
                 e.printStackTrace();
             }

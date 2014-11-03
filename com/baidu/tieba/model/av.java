@@ -11,18 +11,18 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.message.ResponseReportUserInfoMessage;
 /* loaded from: classes.dex */
 public class av extends com.baidu.adp.base.e {
-    private ax bpC;
-    private final HttpMessageListener bpD;
+    private ax bpQ;
+    private final HttpMessageListener bpR;
     public long xs;
 
     public void a(ax axVar) {
-        this.bpC = axVar;
+        this.bpQ = axVar;
     }
 
     public av(Context context) {
         super(context);
         this.xs = 300000L;
-        this.bpD = new aw(this, CmdConfigHttp.REPORT_USER_INFO);
+        this.bpR = new aw(this, CmdConfigHttp.REPORT_USER_INFO);
     }
 
     @Override // com.baidu.adp.base.e
@@ -35,11 +35,11 @@ public class av extends com.baidu.adp.base.e {
         return false;
     }
 
-    public boolean TU() {
+    public boolean TX() {
         return Math.abs(System.currentTimeMillis() - TbadkApplication.m251getInst().getReporyUserInfoLastTime()) >= this.xs;
     }
 
-    public void TV() {
+    public void TY() {
         TbadkApplication.m251getInst().setReporyUserInfoCurrentTime();
     }
 
@@ -47,12 +47,12 @@ public class av extends com.baidu.adp.base.e {
         this.xs = j;
     }
 
-    public void TW() {
+    public void TZ() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.REPORT_USER_INFO, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/user/report");
         tbHttpMessageTask.setResponsedClass(ResponseReportUserInfoMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
-        messageManager.registerListener(this.bpD);
+        messageManager.registerListener(this.bpR);
     }
 
     public void a(int i, float f, float f2) {
@@ -64,6 +64,6 @@ public class av extends com.baidu.adp.base.e {
     }
 
     public void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.bpD);
+        MessageManager.getInstance().unRegisterListener(this.bpR);
     }
 }

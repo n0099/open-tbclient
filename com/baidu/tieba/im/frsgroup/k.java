@@ -72,7 +72,7 @@ public class k implements com.baidu.tbadk.mvc.b.b, com.baidu.tbadk.mvc.b.i {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] tl() {
+    public byte[] tn() {
         return null;
     }
 

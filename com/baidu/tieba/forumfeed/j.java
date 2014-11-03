@@ -23,17 +23,17 @@ import com.baidu.tieba.data.p;
 import com.baidu.tieba.v;
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.base.f {
-    private final RelativeLayout KO;
-    private y Yc;
-    private final com.baidu.tbadk.core.view.o ahO;
-    private final NoNetworkView aty;
-    private boolean auf;
-    private final BaseFragmentActivity axV;
-    private g ayh;
-    private n ayi;
-    private Button ayj;
-    private LinearLayout ayk;
-    private LinearLayout ayl;
+    private final RelativeLayout KP;
+    private y Yg;
+    private final com.baidu.tbadk.core.view.o ahX;
+    private final NoNetworkView atH;
+    private boolean auo;
+    private final BaseFragmentActivity aye;
+    private g ayq;
+    private n ayr;
+    private Button ays;
+    private LinearLayout ayt;
+    private LinearLayout ayu;
     private Handler mHandler;
     private NavigationBar mNavigationBar;
     private final View mRoot;
@@ -41,164 +41,164 @@ public class j extends com.baidu.adp.base.f {
 
     public j(BaseFragmentActivity baseFragmentActivity, BaseFragment baseFragment) {
         super(baseFragmentActivity);
-        this.auf = false;
-        this.axV = baseFragmentActivity;
+        this.auo = false;
+        this.aye = baseFragmentActivity;
         this.mRoot = baseFragment.getView();
-        this.KO = (RelativeLayout) this.mRoot.findViewById(v.content);
-        this.aty = (NoNetworkView) this.mRoot.findViewById(v.view_no_network);
+        this.KP = (RelativeLayout) this.mRoot.findViewById(v.content);
+        this.atH = (NoNetworkView) this.mRoot.findViewById(v.view_no_network);
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(v.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.axV.getString(com.baidu.tieba.y.ba_dongtai));
-        this.ayl = (LinearLayout) this.mRoot.findViewById(v.content_with_data);
-        this.ayk = (LinearLayout) this.mRoot.findViewById(v.no_data_layout);
-        this.ayj = (Button) this.mRoot.findViewById(v.go_find_bar);
-        this.ayj.setOnClickListener(new k(this));
-        this.ahO = NoDataViewFactory.a(this.axV, this.ayk, r.a(NoDataViewFactory.ImgType.FINDBAR), s.q(com.baidu.tieba.y.forum_feed_nodata_tip1, com.baidu.tieba.y.forum_feed_nodata_tip2), null);
-        Et();
+        this.mNavigationBar.setTitleText(this.aye.getString(com.baidu.tieba.y.ba_dongtai));
+        this.ayu = (LinearLayout) this.mRoot.findViewById(v.content_with_data);
+        this.ayt = (LinearLayout) this.mRoot.findViewById(v.no_data_layout);
+        this.ays = (Button) this.mRoot.findViewById(v.go_find_bar);
+        this.ays.setOnClickListener(new k(this));
+        this.ahX = NoDataViewFactory.a(this.aye, this.ayt, r.a(NoDataViewFactory.ImgType.FINDBAR), s.q(com.baidu.tieba.y.forum_feed_nodata_tip1, com.baidu.tieba.y.forum_feed_nodata_tip2), null);
+        Ev();
         eC(TbadkApplication.m251getInst().getSkinType());
     }
 
-    public void Em() {
-        if (this.ayh == null) {
-            Er();
-            Es();
+    public void Eo() {
+        if (this.ayq == null) {
+            Et();
+            Eu();
         }
         this.vl.hO();
     }
 
     public void e(u uVar) {
-        this.aty.a(uVar);
+        this.atH.a(uVar);
     }
 
-    public void En() {
-        this.auf = false;
-        Eq();
-        if (this.ayh == null) {
-            Er();
+    public void Ep() {
+        this.auo = false;
+        Es();
+        if (this.ayq == null) {
+            Et();
         }
         if (this.vl != null) {
             this.vl.setBackgroundColor(0);
         }
-        this.ahO.setVisibility(0);
-        this.ayj.setVisibility(0);
-        this.ayh.a(null);
-        this.ayh.notifyDataSetChanged();
-        if (this.ayi != null) {
-            this.ayi.hide();
+        this.ahX.setVisibility(0);
+        this.ays.setVisibility(0);
+        this.ayq.a(null);
+        this.ayq.notifyDataSetChanged();
+        if (this.ayr != null) {
+            this.ayr.hide();
         }
     }
 
-    public void Eo() {
+    public void Eq() {
         if (this.vl != null) {
             this.vl.setSelection(0);
         }
     }
 
     public void b(com.baidu.adp.widget.ListView.f fVar) {
-        this.Yc.a(fVar);
+        this.Yg.a(fVar);
     }
 
     public void a(aa aaVar) {
         this.vl.setOnSrollToBottomListener(aaVar);
     }
 
-    public void DG() {
-        this.ayi.DG();
+    public void DI() {
+        this.ayr.DI();
         this.vl.hN();
     }
 
-    public void DF() {
-        this.ayi.DF();
+    public void DH() {
+        this.ayr.DH();
     }
 
-    public void Ep() {
-        this.ayi.Ep();
+    public void Er() {
+        this.ayr.Er();
     }
 
     public void h(View.OnClickListener onClickListener) {
-        this.ayi.setOnClickListener(onClickListener);
+        this.ayr.setOnClickListener(onClickListener);
     }
 
     public void b(p pVar) {
         if (pVar != null) {
-            if (this.ayh == null) {
-                Er();
-                Es();
+            if (this.ayq == null) {
+                Et();
+                Eu();
             }
-            if (pVar.yU() == 1) {
-                this.ayh.setFromCDN(true);
+            if (pVar.yW() == 1) {
+                this.ayq.setFromCDN(true);
             } else {
-                this.ayh.setFromCDN(false);
+                this.ayq.setFromCDN(false);
             }
-            this.ahO.setVisibility(8);
-            this.ayj.setVisibility(8);
-            this.auf = true;
-            this.ayh.a(pVar);
-            this.ayh.notifyDataSetChanged();
-            if (this.ayi != null) {
-                this.ayi.Ba();
+            this.ahX.setVisibility(8);
+            this.ays.setVisibility(8);
+            this.auo = true;
+            this.ayq.a(pVar);
+            this.ayq.notifyDataSetChanged();
+            if (this.ayr != null) {
+                this.ayr.Bc();
             }
-            DG();
-            if (this.ayh.getCount() > 0) {
-                this.ayi.Ev();
+            DI();
+            if (this.ayq.getCount() > 0) {
+                this.ayr.Ex();
             }
         }
     }
 
     public void eC(int i) {
-        aw.h(this.KO, com.baidu.tieba.s.forumfeed_frs_bg);
-        this.axV.getLayoutMode().L(i == 1);
-        this.axV.getLayoutMode().h(this.KO);
+        aw.h(this.KP, com.baidu.tieba.s.forumfeed_frs_bg);
+        this.aye.getLayoutMode().L(i == 1);
+        this.aye.getLayoutMode().h(this.KP);
         this.vl.setBackgroundColor(0);
-        if (this.ayh != null) {
-            this.ayh.notifyDataSetChanged();
+        if (this.ayq != null) {
+            this.ayq.notifyDataSetChanged();
         }
-        if (this.Yc != null) {
-            this.Yc.bM(i);
+        if (this.Yg != null) {
+            this.Yg.bM(i);
         }
-        if (this.ayi != null) {
-            this.ayi.cu(i);
+        if (this.ayr != null) {
+            this.ayr.cu(i);
         }
-        if (this.aty != null) {
-            this.aty.onChangeSkinType(i);
+        if (this.atH != null) {
+            this.atH.onChangeSkinType(i);
         }
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onChangeSkinType(i);
         }
-        if (!this.auf) {
-            Eq();
+        if (!this.auo) {
+            Es();
         }
     }
 
-    private void Eq() {
+    private void Es() {
         if (this.vl == null) {
         }
     }
 
-    private void Er() {
-        this.ayh = new g(this.axV);
-        this.vl.setAdapter((ListAdapter) this.ayh);
+    private void Et() {
+        this.ayq = new g(this.aye);
+        this.vl.setAdapter((ListAdapter) this.ayq);
     }
 
-    private void Es() {
+    private void Eu() {
         this.mHandler = new Handler();
         this.vl.setOnScrollListener(new l(this));
     }
 
-    private void Et() {
-        this.Yc = new y(this.axV);
+    private void Ev() {
+        this.Yg = new y(this.aye);
         this.vl = (BdListView) this.mRoot.findViewById(v.forum_feed_list);
-        this.vl.setPullRefresh(this.Yc);
-        this.ayi = new n(this, this.axV);
-        this.vl.setNextPage(this.ayi);
+        this.vl.setPullRefresh(this.Yg);
+        this.ayr = new n(this, this.aye);
+        this.vl.setNextPage(this.ayr);
         this.vl.setRecyclerListener(new m(this));
     }
 
-    public BdListView ud() {
+    public BdListView uf() {
         return this.vl;
     }
 
-    public int Eu() {
+    public int Ew() {
         return v.user_icon_box;
     }
 }

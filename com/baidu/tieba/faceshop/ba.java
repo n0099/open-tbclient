@@ -6,11 +6,11 @@ import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ba extends BdAsyncTask<Object, FacePurchaseRecordsData, FacePurchaseRecordsData> {
-    final /* synthetic */ az auj;
+    final /* synthetic */ az aus;
     private com.baidu.tbadk.core.util.ac mNetWork;
 
     private ba(az azVar) {
-        this.auj = azVar;
+        this.aus = azVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -30,16 +30,16 @@ public class ba extends BdAsyncTask<Object, FacePurchaseRecordsData, FacePurchas
         try {
             this.mNetWork = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_PACKAGE_PURCHASE_RECORDS);
             com.baidu.tbadk.core.util.ac acVar = this.mNetWork;
-            str = this.auj.aok;
+            str = this.aus.aot;
             acVar.k("st_type", str);
             com.baidu.tbadk.core.util.ac acVar2 = this.mNetWork;
-            i = this.auj.ats;
+            i = this.aus.atB;
             acVar2.k("scr_w", String.valueOf(i));
             com.baidu.tbadk.core.util.ac acVar3 = this.mNetWork;
-            i2 = this.auj.att;
+            i2 = this.aus.atC;
             acVar3.k("scr_h", String.valueOf(i2));
             com.baidu.tbadk.core.util.ac acVar4 = this.mNetWork;
-            f = this.auj.atu;
+            f = this.aus.atD;
             acVar4.k("scr_dip", String.valueOf(f));
             return (FacePurchaseRecordsData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(this.mNetWork.lA(), FacePurchaseRecordsData.class);
         } catch (Exception e) {
@@ -54,8 +54,8 @@ public class ba extends BdAsyncTask<Object, FacePurchaseRecordsData, FacePurchas
     /* renamed from: b */
     public void onPostExecute(FacePurchaseRecordsData facePurchaseRecordsData) {
         com.baidu.adp.base.h hVar;
-        this.auj.aui = null;
-        hVar = this.auj.mLoadDataCallBack;
+        this.aus.aur = null;
+        hVar = this.aus.mLoadDataCallBack;
         hVar.a(facePurchaseRecordsData);
         super.onPostExecute(facePurchaseRecordsData);
     }
@@ -66,6 +66,6 @@ public class ba extends BdAsyncTask<Object, FacePurchaseRecordsData, FacePurchas
         if (this.mNetWork != null) {
             this.mNetWork.dM();
         }
-        this.auj.aui = null;
+        this.aus.aur = null;
     }
 }

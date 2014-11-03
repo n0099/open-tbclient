@@ -13,23 +13,23 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ah extends BaseAdapter implements View.OnClickListener {
-    private static SparseArray<Integer> bgI = new SparseArray<>();
-    private static HashMap<ai, Integer> bgJ = new HashMap<>();
-    private static HashMap<ai, Integer> bgK = new HashMap<>();
-    private List<com.baidu.tieba.im.data.e> bgH;
-    private aj bgL;
+    private static SparseArray<Integer> bgW = new SparseArray<>();
+    private static HashMap<ai, Integer> bgX = new HashMap<>();
+    private static HashMap<ai, Integer> bgY = new HashMap<>();
+    private List<com.baidu.tieba.im.data.e> bgV;
+    private aj bgZ;
     private BaseActivity mActivity;
 
     static {
-        bgI.put(0, Integer.valueOf(com.baidu.tieba.y.add));
-        bgI.put(4, Integer.valueOf(com.baidu.tieba.y.added));
-        bgI.put(1, Integer.valueOf(com.baidu.tieba.y.pass));
-        bgI.put(2, Integer.valueOf(com.baidu.tieba.y.passed));
-        bgI.put(3, Integer.valueOf(com.baidu.tieba.y.waiting));
-        bgJ.put(new ai(false), Integer.valueOf(com.baidu.tieba.u.btn_pass));
-        bgJ.put(new ai(true), Integer.valueOf(com.baidu.tieba.u.btn_agree));
-        bgK.put(new ai(false), Integer.valueOf(com.baidu.tieba.s.btn_pass_text_color));
-        bgK.put(new ai(true), Integer.valueOf(com.baidu.tieba.s.btn_agree_text_color));
+        bgW.put(0, Integer.valueOf(com.baidu.tieba.y.add));
+        bgW.put(4, Integer.valueOf(com.baidu.tieba.y.added));
+        bgW.put(1, Integer.valueOf(com.baidu.tieba.y.pass));
+        bgW.put(2, Integer.valueOf(com.baidu.tieba.y.passed));
+        bgW.put(3, Integer.valueOf(com.baidu.tieba.y.waiting));
+        bgX.put(new ai(false), Integer.valueOf(com.baidu.tieba.u.btn_pass));
+        bgX.put(new ai(true), Integer.valueOf(com.baidu.tieba.u.btn_agree));
+        bgY.put(new ai(false), Integer.valueOf(com.baidu.tieba.s.btn_pass_text_color));
+        bgY.put(new ai(true), Integer.valueOf(com.baidu.tieba.s.btn_agree_text_color));
     }
 
     public ah(BaseActivity baseActivity) {
@@ -38,16 +38,16 @@ public class ah extends BaseAdapter implements View.OnClickListener {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bgH == null) {
+        if (this.bgV == null) {
             return 0;
         }
-        return this.bgH.size();
+        return this.bgV.size();
     }
 
     @Override // android.widget.Adapter
     /* renamed from: gj */
     public com.baidu.tieba.im.data.e getItem(int i) {
-        return this.bgH.get(i);
+        return this.bgV.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -63,42 +63,42 @@ public class ah extends BaseAdapter implements View.OnClickListener {
         } else {
             view = com.baidu.adp.lib.g.b.ek().inflate(viewGroup.getContext(), com.baidu.tieba.w.add_new_friend_list_item, null);
             akVar = new ak(null);
-            akVar.bgN = (HeadImageView) view.findViewById(com.baidu.tieba.v.friend_icon);
-            akVar.bgO = (TextView) view.findViewById(com.baidu.tieba.v.friend_name);
-            akVar.bgP = (TextView) view.findViewById(com.baidu.tieba.v.friend_info);
-            akVar.bgQ = (TextView) view.findViewById(com.baidu.tieba.v.friend_add_btn);
+            akVar.bhb = (HeadImageView) view.findViewById(com.baidu.tieba.v.friend_icon);
+            akVar.bhc = (TextView) view.findViewById(com.baidu.tieba.v.friend_name);
+            akVar.bhd = (TextView) view.findViewById(com.baidu.tieba.v.friend_info);
+            akVar.bhe = (TextView) view.findViewById(com.baidu.tieba.v.friend_add_btn);
             view.setTag(akVar);
         }
         com.baidu.tieba.im.data.e item = getItem(i);
         akVar.e(item);
-        akVar.bgQ.setTag(Integer.valueOf(i));
-        akVar.bgQ.setOnClickListener(this);
+        akVar.bhe.setTag(Integer.valueOf(i));
+        akVar.bhe.setOnClickListener(this);
         this.mActivity.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
         this.mActivity.getLayoutMode().h(view);
-        Integer num = bgJ.get(new ai(item.getStatus() == 1));
+        Integer num = bgX.get(new ai(item.getStatus() == 1));
         if (num != null) {
-            com.baidu.tbadk.core.util.aw.h((View) akVar.bgQ, num.intValue());
+            com.baidu.tbadk.core.util.aw.h((View) akVar.bhe, num.intValue());
         }
-        Integer num2 = bgK.get(new ai(item.getStatus() == 1));
+        Integer num2 = bgY.get(new ai(item.getStatus() == 1));
         if (num2 != null) {
-            com.baidu.tbadk.core.util.aw.b(akVar.bgQ, num2.intValue(), 1);
+            com.baidu.tbadk.core.util.aw.b(akVar.bhe, num2.intValue(), 1);
         }
         return view;
     }
 
     public void setData(List<com.baidu.tieba.im.data.e> list) {
-        this.bgH = list;
+        this.bgV = list;
     }
 
     public synchronized void c(com.baidu.tieba.im.data.e eVar) {
-        if (this.bgH != null) {
-            this.bgH.remove(eVar);
+        if (this.bgV != null) {
+            this.bgV.remove(eVar);
         }
     }
 
     public void ab(List<com.baidu.tieba.im.data.e> list) {
-        if (this.bgH == null) {
-            this.bgH = new ArrayList();
+        if (this.bgV == null) {
+            this.bgV = new ArrayList();
         }
         if (list != null) {
             for (com.baidu.tieba.im.data.e eVar : list) {
@@ -108,25 +108,25 @@ public class ah extends BaseAdapter implements View.OnClickListener {
     }
 
     public void d(com.baidu.tieba.im.data.e eVar) {
-        if (this.bgH == null) {
-            this.bgH = new ArrayList();
+        if (this.bgV == null) {
+            this.bgV = new ArrayList();
         }
         if (eVar != null && eVar.getId() != 0) {
             int U = U(eVar.getId());
             if (U != -1) {
-                this.bgH.remove(U);
-                this.bgH.add(0, eVar);
+                this.bgV.remove(U);
+                this.bgV.add(0, eVar);
                 return;
             }
-            this.bgH.add(0, eVar);
+            this.bgV.add(0, eVar);
         }
     }
 
     private int U(long j) {
-        if (this.bgH != null) {
-            int size = this.bgH.size();
+        if (this.bgV != null) {
+            int size = this.bgV.size();
             for (int i = 0; i < size; i++) {
-                if (j == this.bgH.get(i).getId()) {
+                if (j == this.bgV.get(i).getId()) {
                     return i;
                 }
             }
@@ -136,14 +136,14 @@ public class ah extends BaseAdapter implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.bgL != null) {
+        if (this.bgZ != null) {
             int id = view.getId();
             int intValue = ((Integer) view.getTag()).intValue();
-            this.bgL.a(id, intValue, view, getItem(intValue));
+            this.bgZ.a(id, intValue, view, getItem(intValue));
         }
     }
 
     public void a(aj ajVar) {
-        this.bgL = ajVar;
+        this.bgZ = ajVar;
     }
 }

@@ -3,18 +3,18 @@ package com.baidu.tieba.write;
 import android.text.style.ImageSpan;
 /* loaded from: classes.dex */
 class bf implements com.baidu.tbadk.imageManager.a {
-    final /* synthetic */ WriteActivity bTX;
+    final /* synthetic */ WriteActivity bUm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bf(WriteActivity writeActivity) {
-        this.bTX = writeActivity;
+        this.bUm = writeActivity;
     }
 
     @Override // com.baidu.tbadk.imageManager.a
     public ImageSpan dq(String str) {
-        com.baidu.adp.widget.a.a dg = com.baidu.tbadk.editortool.aa.rz().dg(str);
+        com.baidu.adp.widget.a.a dg = com.baidu.tbadk.editortool.aa.rB().dg(str);
         if (dg == null) {
-            dg = com.baidu.tbadk.editortool.aa.rz().T(null, str);
+            dg = com.baidu.tbadk.editortool.aa.rB().T(null, str);
         }
         if (dg == null) {
             return null;

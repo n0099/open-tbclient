@@ -11,10 +11,10 @@ import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class ChatImageWithTailView extends LinearLayout {
-    private ChatClipImageItemView aSJ;
-    private LinearLayout aSK;
-    private TextView aSL;
-    private TbImageView anF;
+    private ChatClipImageItemView aSX;
+    private LinearLayout aSY;
+    private TextView aSZ;
+    private TbImageView anO;
 
     public ChatImageWithTailView(Context context) {
         super(context);
@@ -28,44 +28,44 @@ public class ChatImageWithTailView extends LinearLayout {
 
     public void ad(Context context) {
         b.ek().inflate(context, w.chat_image_with_tail_item, this);
-        this.aSJ = (ChatClipImageItemView) findViewById(v.img_msgitem_image_new);
-        this.aSJ.setDefaultResource(u.image_h_not);
-        this.aSK = (LinearLayout) findViewById(v.small_tail);
-        this.anF = (TbImageView) findViewById(v.tail_icon);
-        this.anF.setDefaultResource(u.icon);
-        this.anF.setAutoChangeStyle(false);
-        this.aSL = (TextView) findViewById(v.tail_game_from);
+        this.aSX = (ChatClipImageItemView) findViewById(v.img_msgitem_image_new);
+        this.aSX.setDefaultResource(u.image_h_not);
+        this.aSY = (LinearLayout) findViewById(v.small_tail);
+        this.anO = (TbImageView) findViewById(v.tail_icon);
+        this.anO.setDefaultResource(u.icon);
+        this.anO.setAutoChangeStyle(false);
+        this.aSZ = (TextView) findViewById(v.tail_game_from);
     }
 
     public ChatClipImageItemView getImage() {
-        return this.aSJ;
+        return this.aSX;
     }
 
     public void setImage(ChatClipImageItemView chatClipImageItemView) {
-        this.aSJ = chatClipImageItemView;
+        this.aSX = chatClipImageItemView;
     }
 
     public LinearLayout getTail() {
-        return this.aSK;
+        return this.aSY;
     }
 
     public void setTail(LinearLayout linearLayout) {
-        this.aSK = linearLayout;
+        this.aSY = linearLayout;
     }
 
     public TbImageView getIcon() {
-        return this.anF;
+        return this.anO;
     }
 
     public void setIcon(TbImageView tbImageView) {
-        this.anF = tbImageView;
+        this.anO = tbImageView;
     }
 
     public TextView getFromSource() {
-        return this.aSL;
+        return this.aSZ;
     }
 
     public void setFromSource(TextView textView) {
-        this.aSL = textView;
+        this.aSZ = textView;
     }
 }

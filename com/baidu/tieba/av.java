@@ -1,30 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.os.Handler;
+import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class av extends BdAsyncTask<String, Integer, String> {
-    private av() {
-    }
+public class av extends Handler {
+    final /* synthetic */ aj aee;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ av(av avVar) {
-        this();
+    public av(aj ajVar) {
+        this.aee = ajVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: h */
-    public String doInBackground(String... strArr) {
-        byte[] bArr;
-        byte[] bArr2;
-        bArr = aj.adS;
-        synchronized (bArr) {
-            aj.adT = Boolean.valueOf(com.baidu.tieba.util.q.aeL());
-            bArr2 = aj.adS;
-            bArr2.notifyAll();
-        }
-        return null;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
     }
 }

@@ -13,10 +13,10 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class NeighborsStatic {
-    private static View.OnClickListener Hd = new m();
-    private static com.baidu.tbadk.b.a ant;
-    private static com.baidu.tbadk.core.dialog.d buh;
-    private static com.baidu.tbadk.core.dialog.d bui;
+    private static View.OnClickListener He = new m();
+    private static com.baidu.tbadk.b.a anC;
+    private static com.baidu.tbadk.core.dialog.d buv;
+    private static com.baidu.tbadk.core.dialog.d buw;
 
     static {
         a((int) CmdConfigHttp.CLEAR_LOCATION_INFO, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.CLEAR_LOCATION_INFO, true, (Class<? extends HttpResponsedMessage>) TbHttpResponsedMessage.class);
@@ -24,8 +24,8 @@ public class NeighborsStatic {
         n nVar = new n(2009501);
         nVar.setPriority(1);
         MessageManager.getInstance().registerListener(nVar);
-        buh = new o();
-        bui = new p();
+        buv = new o();
+        buw = new p();
     }
 
     private static void a(int i, String str, boolean z, Class<? extends HttpResponsedMessage> cls) {
@@ -45,9 +45,9 @@ public class NeighborsStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void VU() {
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a((Activity) ant.getContext());
-        aVar.aX(v.warning_location_switch_off).a(v.isopen, buh).b(v.cancel, bui).kT();
+    public static void VX() {
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a((Activity) anC.getContext());
+        aVar.aX(v.warning_location_switch_off).a(v.isopen, buv).b(v.cancel, buw).kT();
         aVar.kW();
     }
 }

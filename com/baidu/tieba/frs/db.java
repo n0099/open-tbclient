@@ -4,8 +4,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class db {
-    TextView JM;
-    LinearLayout aBK;
+    TextView JN;
+    LinearLayout aBU;
 
     private db() {
     }

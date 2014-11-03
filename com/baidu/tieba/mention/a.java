@@ -13,33 +13,33 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
 public class a extends BaseFragment implements com.baidu.adp.widget.ListView.f {
-    private com.baidu.tbadk.core.view.y Yc;
-    private com.baidu.tbadk.core.view.o ahO;
-    private NoNetworkView aoJ;
-    private com.baidu.tbadk.core.view.d ayf;
-    private LinearLayout bmX;
-    private c bmV = null;
-    private BdListView bmW = null;
-    private boolean bmY = false;
+    private com.baidu.tbadk.core.view.y Yg;
+    private com.baidu.tbadk.core.view.o ahX;
+    private NoNetworkView aoS;
+    private com.baidu.tbadk.core.view.d ayo;
+    private LinearLayout bnl;
+    private c bnj = null;
+    private BdListView bnk = null;
+    private boolean bnm = false;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(com.baidu.tieba.w.at_me_activity, viewGroup, false);
-        this.Yc = new com.baidu.tbadk.core.view.y(getActivity());
-        this.Yc.a(this);
-        this.bmW = (BdListView) inflate.findViewById(com.baidu.tieba.v.atme_lv);
-        this.bmW.setDividerHeight(0);
-        this.bmW.setPullRefresh(this.Yc);
-        this.bmX = (LinearLayout) inflate.findViewById(com.baidu.tieba.v.bodyNotLogin);
-        this.bmV = new c(this, 2, new b(this));
-        this.bmV.t(this.bmW);
+        this.Yg = new com.baidu.tbadk.core.view.y(getActivity());
+        this.Yg.a(this);
+        this.bnk = (BdListView) inflate.findViewById(com.baidu.tieba.v.atme_lv);
+        this.bnk.setDividerHeight(0);
+        this.bnk.setPullRefresh(this.Yg);
+        this.bnl = (LinearLayout) inflate.findViewById(com.baidu.tieba.v.bodyNotLogin);
+        this.bnj = new c(this, 2, new b(this));
+        this.bnj.t(this.bnk);
         RelativeLayout relativeLayout = (RelativeLayout) inflate.findViewById(com.baidu.tieba.v.mention_layout_atme);
-        this.bmV.d(relativeLayout);
-        this.ahO = NoDataViewFactory.a(getActivity(), relativeLayout, com.baidu.tbadk.core.view.r.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(com.baidu.tieba.t.ds80)), com.baidu.tbadk.core.view.s.bL(com.baidu.tieba.y.mention_atme_nodata), null);
-        this.bmV.a(this.ahO);
-        this.bmV.gO("c/u/feed/atme");
-        this.bmV.init();
-        this.aoJ = (NoNetworkView) inflate.findViewById(com.baidu.tieba.v.view_no_network_at);
+        this.bnj.d(relativeLayout);
+        this.ahX = NoDataViewFactory.a(getActivity(), relativeLayout, com.baidu.tbadk.core.view.r.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(com.baidu.tieba.t.ds80)), com.baidu.tbadk.core.view.s.bL(com.baidu.tieba.y.mention_atme_nodata), null);
+        this.bnj.a(this.ahX);
+        this.bnj.gO("c/u/feed/atme");
+        this.bnj.init();
+        this.aoS = (NoNetworkView) inflate.findViewById(com.baidu.tieba.v.view_no_network_at);
         return inflate;
     }
 
@@ -47,20 +47,20 @@ public class a extends BaseFragment implements com.baidu.adp.widget.ListView.f {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (isAdded()) {
-            if (this.ahO != null) {
-                this.ahO.onChangeSkinType(i);
+            if (this.ahX != null) {
+                this.ahX.onChangeSkinType(i);
             }
-            if (this.Yc != null) {
-                this.Yc.bM(i);
+            if (this.Yg != null) {
+                this.Yg.bM(i);
             }
-            if (this.ayf != null) {
-                this.ayf.bG(i);
+            if (this.ayo != null) {
+                this.ayo.bG(i);
             }
-            if (this.bmV != null) {
-                this.bmV.SN();
+            if (this.bnj != null) {
+                this.bnj.SQ();
             }
-            if (this.aoJ != null) {
-                this.aoJ.onChangeSkinType(i);
+            if (this.aoS != null) {
+                this.aoS.onChangeSkinType(i);
             }
         }
     }
@@ -68,73 +68,73 @@ public class a extends BaseFragment implements com.baidu.adp.widget.ListView.f {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        this.ahO.onActivityStop();
-        if (this.ayf != null) {
-            this.ayf.onStop();
+        this.ahX.onActivityStop();
+        if (this.ayo != null) {
+            this.ayo.onStop();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
-        this.ahO.nv();
+        this.ahX.nv();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
         if (TbadkApplication.isLogin()) {
-            this.bmW.setVisibility(0);
-            this.bmX.setVisibility(8);
-            if (this.bmY) {
-                this.bmY = false;
-                SH();
+            this.bnk.setVisibility(0);
+            this.bnl.setVisibility(8);
+            if (this.bnm) {
+                this.bnm = false;
+                SK();
             }
-            this.bmV.SL();
+            this.bnj.SO();
         } else {
-            this.ahO.setVisibility(8);
-            SI();
+            this.ahX.setVisibility(8);
+            SL();
         }
         onChangeSkinType(TbadkApplication.m251getInst().getSkinType());
     }
 
-    public void SH() {
-        if (this.bmV == null) {
-            this.bmY = true;
+    public void SK() {
+        if (this.bnj == null) {
+            this.bnm = true;
             return;
         }
-        this.bmY = false;
+        this.bnm = false;
         if (TbadkApplication.isLogin()) {
-            this.bmW.setVisibility(0);
-            this.bmX.setVisibility(8);
-            if (com.baidu.tbadk.coreExtra.messageCenter.a.oB().getMsgAtme() > 0) {
-                this.bmV.setUpdateType(2);
+            this.bnk.setVisibility(0);
+            this.bnl.setVisibility(8);
+            if (com.baidu.tbadk.coreExtra.messageCenter.a.oD().getMsgAtme() > 0) {
+                this.bnj.setUpdateType(2);
             } else {
-                this.bmV.setUpdateType(1);
+                this.bnj.setUpdateType(1);
             }
-            this.bmV.show();
-            this.bmV.SL();
+            this.bnj.show();
+            this.bnj.SO();
             return;
         }
-        SI();
+        SL();
     }
 
-    private void SI() {
-        if (this.ayf == null) {
-            this.ayf = new com.baidu.tbadk.core.view.d(getActivity(), getString(com.baidu.tieba.y.login_msg_tab), getString(com.baidu.tieba.y.login_msg_form), 3);
-            this.bmX.addView(this.ayf.getView());
-            this.ayf.bG(TbadkApplication.m251getInst().getSkinType());
+    private void SL() {
+        if (this.ayo == null) {
+            this.ayo = new com.baidu.tbadk.core.view.d(getActivity(), getString(com.baidu.tieba.y.login_msg_tab), getString(com.baidu.tieba.y.login_msg_form), 3);
+            this.bnl.addView(this.ayo.getView());
+            this.ayo.bG(TbadkApplication.m251getInst().getSkinType());
         } else {
-            ((ViewGroup) this.ayf.getView().getParent()).removeAllViews();
-            this.bmX.addView(this.ayf.getView());
-            this.ayf.bG(TbadkApplication.m251getInst().getSkinType());
+            ((ViewGroup) this.ayo.getView().getParent()).removeAllViews();
+            this.bnl.addView(this.ayo.getView());
+            this.ayo.bG(TbadkApplication.m251getInst().getSkinType());
         }
-        this.bmW.setVisibility(8);
-        this.bmX.setVisibility(0);
+        this.bnk.setVisibility(8);
+        this.bnl.setVisibility(0);
     }
 
     public void refresh() {
-        this.bmV.refresh();
+        this.bnj.refresh();
     }
 
     @Override // com.baidu.adp.widget.ListView.f

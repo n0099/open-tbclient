@@ -13,7 +13,7 @@ class m extends com.baidu.adp.framework.listener.e {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage instanceof GetOnLineInfoSocketResMessage) {
-            l.Hi().a(((GetOnLineInfoSocketResMessage) socketResponsedMessage).getGame());
+            l.Hk().a(((GetOnLineInfoSocketResMessage) socketResponsedMessage).getGame());
         }
     }
 }

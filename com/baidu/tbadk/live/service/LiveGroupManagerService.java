@@ -219,7 +219,7 @@ public class LiveGroupManagerService extends Service implements OnStatusEventLis
                     this.mHandler.sendEmptyMessage(1);
                     if (this.argsToBeStarted != null && !StringUtils.isNull(this.argsToBeStarted.groupId)) {
                         try {
-                            this.mBinder.a(this.argsToBeStarted.streamId, this.argsToBeStarted.groupId, this.argsToBeStarted.Vy, this.argsToBeStarted.url, this.argsToBeStarted.accessToken, this.argsToBeStarted.userId, false, false);
+                            this.mBinder.a(this.argsToBeStarted.streamId, this.argsToBeStarted.groupId, this.argsToBeStarted.VC, this.argsToBeStarted.url, this.argsToBeStarted.accessToken, this.argsToBeStarted.userId, false, false);
                         } catch (RemoteException e) {
                             TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
                         }
@@ -331,7 +331,7 @@ public class LiveGroupManagerService extends Service implements OnStatusEventLis
                 this.mHandler.sendEmptyMessage(1);
                 if (this.argsToBeStarted != null && !StringUtils.isNull(this.argsToBeStarted.groupId)) {
                     try {
-                        this.mBinder.a(this.argsToBeStarted.streamId, this.argsToBeStarted.groupId, this.argsToBeStarted.Vy, this.argsToBeStarted.url, this.argsToBeStarted.accessToken, this.argsToBeStarted.userId, false, false);
+                        this.mBinder.a(this.argsToBeStarted.streamId, this.argsToBeStarted.groupId, this.argsToBeStarted.VC, this.argsToBeStarted.url, this.argsToBeStarted.accessToken, this.argsToBeStarted.userId, false, false);
                     } catch (RemoteException e) {
                         TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
                     }

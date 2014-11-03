@@ -3,19 +3,19 @@ package com.baidu.tieba.account.forbid;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.ac;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends BdAsyncTask<String, Object, ForbidTplData> {
-    private String afX;
-    private String afY;
-    private WeakReference<n> agb;
+    private String agf;
+    private String agg;
+    private WeakReference<n> agj;
 
     public m(String str, String str2, n nVar) {
-        this.afX = str;
-        this.afY = str2;
-        this.agb = new WeakReference<>(nVar);
+        this.agf = str;
+        this.agg = str2;
+        this.agj = new WeakReference<>(nVar);
         setPriority(3);
     }
 
@@ -25,10 +25,10 @@ public class m extends BdAsyncTask<String, Object, ForbidTplData> {
     /* renamed from: r */
     public ForbidTplData doInBackground(String... strArr) {
         String str;
-        str = l.ags;
+        str = l.agA;
         ac acVar = new ac(str);
-        acVar.k("forum_id", this.afX);
-        acVar.k(com.baidu.tbadk.core.frameworkData.a.USER_ID, this.afY);
+        acVar.k("forum_id", this.agf);
+        acVar.k(com.baidu.tbadk.core.frameworkData.a.USER_ID, this.agg);
         String lA = acVar.lA();
         if (acVar.mc().nb().jq()) {
             try {
@@ -52,9 +52,9 @@ public class m extends BdAsyncTask<String, Object, ForbidTplData> {
     /* renamed from: c */
     public void onPostExecute(ForbidTplData forbidTplData) {
         super.onPostExecute(forbidTplData);
-        n nVar = this.agb.get();
+        n nVar = this.agj.get();
         if (nVar != null) {
-            if (forbidTplData.error.errno == 0 && ay.aA(forbidTplData.error.errMsg)) {
+            if (forbidTplData.error.errno == 0 && az.aA(forbidTplData.error.errMsg)) {
                 nVar.a(forbidTplData);
             } else {
                 nVar.b(forbidTplData);

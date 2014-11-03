@@ -6,17 +6,17 @@ import android.widget.GridView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ao implements AdapterView.OnItemClickListener {
-    final /* synthetic */ am atV;
+    final /* synthetic */ am aue;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(am amVar) {
-        this.atV = amVar;
+        this.aue = amVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         GridView gridView;
-        gridView = this.atV.atL;
+        gridView = this.aue.atU;
         gridView.setSelection(-1);
     }
 }

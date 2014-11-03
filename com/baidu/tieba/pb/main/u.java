@@ -10,11 +10,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u implements com.baidu.tbadk.core.util.bh {
-    Pattern bvh = Pattern.compile("http://tieba.baidu.com/p/([\\d]+)");
-    Pattern bvi = Pattern.compile("http://tieba.baidu.com/f\\?kz=([\\d]+)");
+public class u implements com.baidu.tbadk.core.util.bi {
+    Pattern bvv = Pattern.compile("http://tieba.baidu.com/p/([\\d]+)");
+    Pattern bvw = Pattern.compile("http://tieba.baidu.com/f\\?kz=([\\d]+)");
 
-    @Override // com.baidu.tbadk.core.util.bh
+    @Override // com.baidu.tbadk.core.util.bi
     public boolean a(Context context, String[] strArr) {
         String str;
         String str2;
@@ -22,8 +22,8 @@ public class u implements com.baidu.tbadk.core.util.bh {
             return false;
         }
         String str3 = strArr[0];
-        Matcher matcher = this.bvh.matcher(str3);
-        Matcher matcher2 = this.bvi.matcher(str3);
+        Matcher matcher = this.bvv.matcher(str3);
+        Matcher matcher2 = this.bvw.matcher(str3);
         if (matcher.find()) {
             str2 = "allthread";
             str = matcher.group(1);

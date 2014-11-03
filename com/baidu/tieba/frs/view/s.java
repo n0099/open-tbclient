@@ -5,11 +5,11 @@ import android.widget.PopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements Runnable {
-    final /* synthetic */ r aGk;
+    final /* synthetic */ r aGu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(r rVar) {
-        this.aGk = rVar;
+        this.aGu = rVar;
     }
 
     @Override // java.lang.Runnable
@@ -19,14 +19,14 @@ public class s implements Runnable {
         boolean z;
         PopupWindow popupWindow3;
         Activity activity;
-        popupWindow = this.aGk.aFl;
+        popupWindow = this.aGu.aFv;
         if (popupWindow != null) {
-            popupWindow2 = this.aGk.aFl;
+            popupWindow2 = this.aGu.aFv;
             if (popupWindow2.isShowing()) {
-                z = this.aGk.aFO;
+                z = this.aGu.aFY;
                 if (!z) {
-                    popupWindow3 = this.aGk.aFl;
-                    activity = this.aGk.aBF;
+                    popupWindow3 = this.aGu.aFv;
+                    activity = this.aGu.aBP;
                     com.baidu.adp.lib.g.j.a(popupWindow3, activity);
                 }
             }

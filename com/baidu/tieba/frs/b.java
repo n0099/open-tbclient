@@ -23,62 +23,62 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class b {
-    private boolean alA;
-    private com.baidu.tieba.data.u alB;
-    private ForumData alH;
-    private com.baidu.tbadk.core.data.m alK;
-    private UserData alO;
-    private ArrayList<com.baidu.adp.widget.ListView.al> azG;
-    private com.baidu.tieba.data.t azH;
-    private com.baidu.tieba.data.c azI;
-    private boolean azJ;
-    private ArrayList<LiveCardData> azQ;
+    private boolean alJ;
+    private com.baidu.tieba.data.u alK;
+    private ForumData alQ;
+    private com.baidu.tbadk.core.data.m alT;
+    private UserData alX;
+    private ArrayList<com.baidu.adp.widget.ListView.al> azP;
+    private com.baidu.tieba.data.t azQ;
+    private com.baidu.tieba.data.c azR;
+    private boolean azS;
+    private ArrayList<LiveCardData> azZ;
     private String fortune_desc;
     private String game_url;
     private HashMap<String, MetaData> userMap;
     private AntiData zQ;
-    private int akp = 0;
-    private dd azK = null;
-    private dc azL = null;
-    private boolean azM = false;
-    private f azN = null;
-    private c azO = null;
-    private boolean azP = false;
-    private long azR = 0;
-    private long azS = 0;
-    private long azT = 0;
-    private long azU = 0;
+    private int aky = 0;
+    private dd azT = null;
+    private dc azU = null;
+    private boolean azV = false;
+    private f azW = null;
+    private c azX = null;
+    private boolean azY = false;
+    private long aAa = 0;
+    private long aAb = 0;
+    private long aAc = 0;
+    private long aAd = 0;
 
-    public boolean EW() {
-        return this.azJ;
-    }
-
-    public String EX() {
-        return this.game_url;
-    }
-
-    public ArrayList<LiveCardData> EY() {
-        return this.azQ;
-    }
-
-    public long EZ() {
-        return this.azU;
-    }
-
-    public long Fa() {
+    public boolean EY() {
         return this.azS;
     }
 
+    public String EZ() {
+        return this.game_url;
+    }
+
+    public ArrayList<LiveCardData> Fa() {
+        return this.azZ;
+    }
+
     public long Fb() {
-        return this.azT;
+        return this.aAd;
     }
 
     public long Fc() {
-        return this.azR;
+        return this.aAb;
     }
 
-    public boolean Fd() {
-        return this.alA;
+    public long Fd() {
+        return this.aAc;
+    }
+
+    public long Fe() {
+        return this.aAa;
+    }
+
+    public boolean Ff() {
+        return this.alJ;
     }
 
     public b() {
@@ -86,52 +86,52 @@ public class b {
     }
 
     private void initData() {
-        this.alH = new ForumData();
-        this.azG = new ArrayList<>();
+        this.alQ = new ForumData();
+        this.azP = new ArrayList<>();
         this.userMap = new HashMap<>();
-        this.alK = new com.baidu.tbadk.core.data.m();
-        this.azH = new com.baidu.tieba.data.t();
-        this.alO = new UserData();
-        this.alB = new com.baidu.tieba.data.u();
+        this.alT = new com.baidu.tbadk.core.data.m();
+        this.azQ = new com.baidu.tieba.data.t();
+        this.alX = new UserData();
+        this.alK = new com.baidu.tieba.data.u();
         b(new AntiData());
         a(new com.baidu.tieba.data.c());
     }
 
     public void a(com.baidu.tieba.data.aa aaVar) {
         if (aaVar != null) {
-            this.alH.setCurScore(aaVar.getCurScore());
-            this.alH.setLevelupScore(aaVar.getLevelupScore());
-            this.alH.setLike(aaVar.isLike());
-            this.alH.setUser_level(aaVar.zz());
-            this.alH.setLevelName(aaVar.getLevelName());
+            this.alQ.setCurScore(aaVar.getCurScore());
+            this.alQ.setLevelupScore(aaVar.getLevelupScore());
+            this.alQ.setLike(aaVar.isLike());
+            this.alQ.setUser_level(aaVar.zB());
+            this.alQ.setLevelName(aaVar.getLevelName());
         }
     }
 
     public void a(SignData signData) {
-        this.alH.setSignData(signData);
+        this.alQ.setSignData(signData);
     }
 
-    public ForumData zJ() {
-        return this.alH;
+    public ForumData zL() {
+        return this.alQ;
     }
 
     public void a(AnchorPower anchorPower) {
-        this.alH.setAnchorPower(anchorPower);
+        this.alQ.setAnchorPower(anchorPower);
     }
 
     public void b(com.baidu.tbadk.core.data.q qVar) {
-        while (!this.azG.isEmpty() && this.azG.get(0) != null && (this.azG.get(0) instanceof com.baidu.tbadk.core.data.q) && ((com.baidu.tbadk.core.data.q) this.azG.get(0)).getIs_top() == 2) {
-            this.azG.remove(0);
+        while (!this.azP.isEmpty() && this.azP.get(0) != null && (this.azP.get(0) instanceof com.baidu.tbadk.core.data.q) && ((com.baidu.tbadk.core.data.q) this.azP.get(0)).getIs_top() == 2) {
+            this.azP.remove(0);
         }
-        this.azG.add(0, qVar);
+        this.azP.add(0, qVar);
     }
 
-    public ArrayList<com.baidu.adp.widget.ListView.al> Fe() {
-        return this.azG;
+    public ArrayList<com.baidu.adp.widget.ListView.al> Fg() {
+        return this.azP;
     }
 
     public UserData getUserData() {
-        return this.alO;
+        return this.alX;
     }
 
     public void b(AntiData antiData) {
@@ -142,16 +142,16 @@ public class b {
         return this.zQ;
     }
 
-    public com.baidu.tbadk.core.data.m zM() {
-        return this.alK;
+    public com.baidu.tbadk.core.data.m zO() {
+        return this.alT;
     }
 
-    public com.baidu.tieba.data.t Ff() {
-        return this.azH;
+    public com.baidu.tieba.data.t Fh() {
+        return this.azQ;
     }
 
     public void bR(boolean z) {
-        this.azM = z;
+        this.azV = z;
     }
 
     public FrsPageResIdl A(byte[] bArr) {
@@ -187,14 +187,14 @@ public class b {
                     }
                 }
                 ee(dataRes.is_new_url.intValue());
-                this.alA = dataRes.fortune_bag.intValue() == 1;
+                this.alJ = dataRes.fortune_bag.intValue() == 1;
                 this.fortune_desc = dataRes.fortune_desc;
                 if (dataRes.forum != null) {
-                    this.azJ = dataRes.forum.has_game.intValue() == 1;
+                    this.azS = dataRes.forum.has_game.intValue() == 1;
                     this.game_url = dataRes.forum.game_url;
                 }
-                this.alB.a(dataRes.gcon_account);
-                this.alH.parserProtobuf(dataRes.forum);
+                this.alK.a(dataRes.gcon_account);
+                this.alQ.parserProtobuf(dataRes.forum);
                 List<ThreadInfo> list2 = dataRes.thread_list;
                 if (list2 != null) {
                     for (int i2 = 0; i2 < list2.size(); i2++) {
@@ -202,21 +202,21 @@ public class b {
                         qVar.setUserMap(this.userMap);
                         qVar.a(list2.get(i2));
                         qVar.parser_title();
-                        this.azG.add(qVar);
+                        this.azP.add(qVar);
                     }
                 }
                 this.zQ.parserProtobuf(dataRes.anti);
-                this.azI.a(dataRes.group);
-                this.alK.a(dataRes.page);
-                this.azH.a(dataRes.frs_star);
-                this.alO.parserProtobuf(dataRes.user);
+                this.azR.a(dataRes.group);
+                this.alT.a(dataRes.page);
+                this.azQ.a(dataRes.frs_star);
+                this.alX.parserProtobuf(dataRes.user);
                 List<AnchorInfo> list3 = dataRes.forum_livegroup_list;
-                this.azQ = new ArrayList<>();
+                this.azZ = new ArrayList<>();
                 if (list3 != null) {
                     for (int i3 = 0; i3 < list3.size(); i3++) {
                         LiveCardData liveCardData = new LiveCardData();
                         liveCardData.parserProtobuf(list3.get(i3));
-                        this.azQ.add(liveCardData);
+                        this.azZ.add(liveCardData);
                     }
                 }
             } catch (Exception e) {
@@ -226,24 +226,24 @@ public class b {
     }
 
     public void a(FrsActivity frsActivity, FRSPageRequestMessage fRSPageRequestMessage, int i, boolean z, String str) {
-        if (this.azN != null) {
-            this.azN.cancel();
-            this.azN = null;
+        if (this.azW != null) {
+            this.azW.cancel();
+            this.azW = null;
         }
-        this.azP = z;
-        this.azN = new f(this, frsActivity, fRSPageRequestMessage, i, str);
-        this.azN.setPriority(3);
-        this.azN.execute(fRSPageRequestMessage);
+        this.azY = z;
+        this.azW = new f(this, frsActivity, fRSPageRequestMessage, i, str);
+        this.azW.setPriority(3);
+        this.azW.execute(fRSPageRequestMessage);
     }
 
     public void clear() {
-        if (this.azN != null) {
-            this.azN.cancel();
-            this.azN = null;
+        if (this.azW != null) {
+            this.azW.cancel();
+            this.azW = null;
         }
-        if (this.azO != null) {
-            this.azO.cancel();
-            this.azO = null;
+        if (this.azX != null) {
+            this.azX.cancel();
+            this.azX = null;
         }
     }
 
@@ -251,37 +251,37 @@ public class b {
         com.baidu.tieba.data.aa aaVar = new com.baidu.tieba.data.aa();
         aaVar.setLike(1);
         aaVar.ed(dVar.level);
-        aaVar.setLevelName(dVar.aAb);
+        aaVar.setLevelName(dVar.aAk);
         aaVar.setCurScore(dVar.cur_score);
         aaVar.setLevelupScore(dVar.levelup_score);
         a(aaVar);
     }
 
     public void a(dd ddVar) {
-        this.azK = ddVar;
+        this.azT = ddVar;
     }
 
-    public int yU() {
-        return this.akp;
+    public int yW() {
+        return this.aky;
     }
 
     public void ee(int i) {
-        this.akp = i;
+        this.aky = i;
     }
 
-    public com.baidu.tieba.data.c Fg() {
-        return this.azI;
+    public com.baidu.tieba.data.c Fi() {
+        return this.azR;
     }
 
     public void a(com.baidu.tieba.data.c cVar) {
-        this.azI = cVar;
+        this.azR = cVar;
     }
 
-    public int Fh() {
-        if (this.azG == null || this.azG.size() <= 0) {
+    public int Fj() {
+        if (this.azP == null || this.azP.size() <= 0) {
             return 0;
         }
-        Iterator<com.baidu.adp.widget.ListView.al> it = this.azG.iterator();
+        Iterator<com.baidu.adp.widget.ListView.al> it = this.azP.iterator();
         int i = 0;
         while (it.hasNext()) {
             com.baidu.adp.widget.ListView.al next = it.next();
@@ -298,23 +298,23 @@ public class b {
 
     public void U(Context context) {
         com.baidu.tbadk.core.data.d bannerListData;
-        if (this.alH != null && (bannerListData = this.alH.getBannerListData()) != null && bannerListData.jL() != null && this.azG != null && this.azG.size() > 0) {
-            int size = this.azG.size();
+        if (this.alQ != null && (bannerListData = this.alQ.getBannerListData()) != null && bannerListData.jL() != null && this.azP != null && this.azP.size() > 0) {
+            int size = this.azP.size();
             int i = 0;
             while (true) {
                 if (i < size) {
-                    if (!(this.azG.get(i) instanceof com.baidu.tbadk.core.data.a)) {
+                    if (!(this.azP.get(i) instanceof com.baidu.tbadk.core.data.a)) {
                         i++;
                     } else {
-                        this.azG.remove(i);
+                        this.azP.remove(i);
                         break;
                     }
                 } else {
                     break;
                 }
             }
-            int size2 = this.azG.size();
-            Iterator<com.baidu.adp.widget.ListView.al> it = this.azG.iterator();
+            int size2 = this.azP.size();
+            Iterator<com.baidu.adp.widget.ListView.al> it = this.azP.iterator();
             int i2 = 0;
             while (it.hasNext()) {
                 com.baidu.adp.widget.ListView.al next = it.next();
@@ -331,8 +331,8 @@ public class b {
                     if (!hashSet.contains(Integer.valueOf(i4)) && aVar != null && aVar.jF() && i4 < size2) {
                         if (aVar.jG()) {
                             if (!com.baidu.tieba.d.b.E(context, aVar.zl) && !TextUtils.isEmpty(aVar.zl) && !TextUtils.isEmpty(aVar.zh)) {
-                                boolean cV = com.baidu.tbadk.download.b.rh().cV(aVar.zl);
-                                boolean cW = com.baidu.tbadk.download.b.rh().cW(aVar.zl);
+                                boolean cV = com.baidu.tbadk.download.b.rj().cV(aVar.zl);
+                                boolean cW = com.baidu.tbadk.download.b.rj().cW(aVar.zl);
                                 if (cV) {
                                     aVar.zf = 1;
                                 } else if (cW) {
@@ -341,11 +341,11 @@ public class b {
                                     aVar.zf = 0;
                                 }
                                 hashSet.add(Integer.valueOf(i4));
-                                this.azG.add(i4, aVar);
+                                this.azP.add(i4, aVar);
                             }
                         } else if (aVar.jH()) {
                             hashSet.add(Integer.valueOf(i4));
-                            this.azG.add(i4, aVar);
+                            this.azP.add(i4, aVar);
                         }
                     }
                 }
@@ -353,40 +353,40 @@ public class b {
         }
     }
 
-    public void Fi() {
+    public void Fk() {
         boolean z = true;
         int i = 0;
-        if (this.alH != null && this.alK != null && this.alK.kf() == 1) {
-            if (this.alB == null || !this.alB.zo()) {
+        if (this.alQ != null && this.alT != null && this.alT.kf() == 1) {
+            if (this.alK == null || !this.alK.zq()) {
                 z = false;
             }
-            if (this.alA || z) {
+            if (this.alJ || z) {
                 com.baidu.tieba.data.af afVar = new com.baidu.tieba.data.af();
-                afVar.bq(this.alA);
+                afVar.bq(this.alJ);
                 afVar.ev(this.fortune_desc);
-                afVar.a(this.alB);
+                afVar.a(this.alK);
                 afVar.aT(1003);
-                if (this.azG != null && this.azG.size() > 0) {
-                    Iterator<com.baidu.adp.widget.ListView.al> it = this.azG.iterator();
+                if (this.azP != null && this.azP.size() > 0) {
+                    Iterator<com.baidu.adp.widget.ListView.al> it = this.azP.iterator();
                     while (it.hasNext()) {
                         com.baidu.adp.widget.ListView.al next = it.next();
                         if ((next instanceof com.baidu.tbadk.core.data.q) && ((com.baidu.tbadk.core.data.q) next).getIs_top() != 0) {
                             i++;
                         }
                     }
-                    this.azG.add(i, afVar);
+                    this.azP.add(i, afVar);
                 }
             }
         }
     }
 
-    public void Fj() {
+    public void Fl() {
         com.baidu.tbadk.core.data.o recommendLikeUser;
         int f;
         int i;
-        if (this.alH != null && (recommendLikeUser = this.alH.getRecommendLikeUser()) != null && recommendLikeUser.km() != null && !TextUtils.isEmpty(recommendLikeUser.km().getName()) && this.azG != null && this.azG.size() > 0) {
-            int size = this.azG.size();
-            Iterator<com.baidu.adp.widget.ListView.al> it = this.azG.iterator();
+        if (this.alQ != null && (recommendLikeUser = this.alQ.getRecommendLikeUser()) != null && recommendLikeUser.km() != null && !TextUtils.isEmpty(recommendLikeUser.km().getName()) && this.azP != null && this.azP.size() > 0) {
+            int size = this.azP.size();
+            Iterator<com.baidu.adp.widget.ListView.al> it = this.azP.iterator();
             int i2 = 0;
             while (it.hasNext()) {
                 com.baidu.adp.widget.ListView.al next = it.next();
@@ -396,16 +396,16 @@ public class b {
             }
             String kl = recommendLikeUser.kl();
             if (!TextUtils.isEmpty(kl) && !TextUtils.isEmpty(kl.trim()) && (f = com.baidu.adp.lib.g.c.f(kl, -1)) != -1 && (f + i2) - 1 < size) {
-                this.azG.add(i, recommendLikeUser);
+                this.azP.add(i, recommendLikeUser);
             }
         }
     }
 
     public com.baidu.tbadk.core.data.q fe(String str) {
-        if (this.azG == null) {
+        if (this.azP == null) {
             return null;
         }
-        Iterator<com.baidu.adp.widget.ListView.al> it = this.azG.iterator();
+        Iterator<com.baidu.adp.widget.ListView.al> it = this.azP.iterator();
         while (it.hasNext()) {
             com.baidu.adp.widget.ListView.al next = it.next();
             if (next != null && (next instanceof com.baidu.tbadk.core.data.q) && TextUtils.equals(str, ((com.baidu.tbadk.core.data.q) next).getId())) {
@@ -416,6 +416,6 @@ public class b {
     }
 
     public void c(com.baidu.tbadk.core.data.q qVar) {
-        this.azG.remove(qVar);
+        this.azP.remove(qVar);
     }
 }

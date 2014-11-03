@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
 /* loaded from: classes.dex */
 class ay extends CustomMessageListener {
-    final /* synthetic */ FrsActivity aBk;
+    final /* synthetic */ FrsActivity aBu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ay(FrsActivity frsActivity, int i) {
         super(i);
-        this.aBk = frsActivity;
+        this.aBu = frsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,12 +20,12 @@ class ay extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2012111) {
             int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
             if (intValue == 1 || intValue == 4 || intValue == 3) {
-                FrsActivity.aAl = true;
+                FrsActivity.aAv = true;
             } else if (intValue == 2) {
-                FrsActivity.aAm = true;
+                FrsActivity.aAw = true;
             }
-            FrsActivity.aAk = true;
-            this.aBk.Fq();
+            FrsActivity.aAu = true;
+            this.aBu.Fs();
         }
     }
 }

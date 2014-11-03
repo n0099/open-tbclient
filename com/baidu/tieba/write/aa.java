@@ -10,15 +10,15 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa extends BdAsyncTask<String, Integer, Bitmap> {
-    final /* synthetic */ VcodeActivity bTr;
-    com.baidu.tbadk.coreExtra.data.f bTs;
+    final /* synthetic */ VcodeActivity bTG;
+    com.baidu.tbadk.coreExtra.data.g bTH;
     private volatile boolean kJ;
     volatile com.baidu.tbadk.core.util.ac mNetWork;
 
     private aa(VcodeActivity vcodeActivity) {
-        this.bTr = vcodeActivity;
+        this.bTG = vcodeActivity;
         this.mNetWork = null;
-        this.bTs = null;
+        this.bTH = null;
         this.kJ = false;
     }
 
@@ -30,12 +30,12 @@ public class aa extends BdAsyncTask<String, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.bTr.bTq = null;
+        this.bTG.bTF = null;
         if (this.mNetWork != null) {
             this.mNetWork.dM();
         }
         this.kJ = true;
-        progressBar = this.bTr.mProgressBar;
+        progressBar = this.bTG.mProgressBar;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -55,34 +55,34 @@ public class aa extends BdAsyncTask<String, Integer, Bitmap> {
         if (str == null || str.length() <= 0) {
             this.mNetWork = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
             com.baidu.tbadk.core.util.ac acVar = this.mNetWork;
-            writeData = this.bTr.bTb;
+            writeData = this.bTG.bTq;
             acVar.k(ImageViewerConfig.FORUM_ID, writeData.getForumId());
             com.baidu.tbadk.core.util.ac acVar2 = this.mNetWork;
-            writeData2 = this.bTr.bTb;
+            writeData2 = this.bTG.bTq;
             acVar2.k("kw", writeData2.getForumName());
             this.mNetWork.k("new_vcode", "1");
             com.baidu.tbadk.core.util.ac acVar3 = this.mNetWork;
-            writeData3 = this.bTr.bTb;
+            writeData3 = this.bTG.bTq;
             acVar3.k("title", writeData3.getTitle());
             com.baidu.tbadk.core.util.ac acVar4 = this.mNetWork;
-            writeData4 = this.bTr.bTb;
+            writeData4 = this.bTG.bTq;
             acVar4.k("content", writeData4.getContent());
-            writeData5 = this.bTr.bTb;
+            writeData5 = this.bTG.bTq;
             if (writeData5.getType() == 0) {
                 this.mNetWork.k("pub_type", "1");
             } else {
                 this.mNetWork.k("pub_type", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
                 com.baidu.tbadk.core.util.ac acVar5 = this.mNetWork;
-                writeData6 = this.bTr.bTb;
+                writeData6 = this.bTG.bTq;
                 acVar5.k("tid", writeData6.getThreadId());
             }
             String lA = this.mNetWork.lA();
             if (!this.mNetWork.mc().nb().jq()) {
                 return null;
             }
-            this.bTs = new com.baidu.tbadk.coreExtra.data.f();
-            this.bTs.parserJson(lA);
-            str = this.bTs.getVcode_pic_url();
+            this.bTH = new com.baidu.tbadk.coreExtra.data.g();
+            this.bTH.parserJson(lA);
+            str = this.bTH.getVcode_pic_url();
         }
         if (this.kJ) {
             return null;
@@ -100,18 +100,18 @@ public class aa extends BdAsyncTask<String, Integer, Bitmap> {
         WriteData writeData;
         WriteData writeData2;
         ImageView imageView;
-        this.bTr.bTq = null;
+        this.bTG.bTF = null;
         if (bitmap != null) {
-            imageView = this.bTr.acF;
+            imageView = this.bTG.acK;
             imageView.setImageBitmap(bitmap);
         }
-        progressBar = this.bTr.mProgressBar;
+        progressBar = this.bTG.mProgressBar;
         progressBar.setVisibility(8);
-        if (this.bTs != null) {
-            writeData = this.bTr.bTb;
-            writeData.setVcodeMD5(this.bTs.getVcode_md5());
-            writeData2 = this.bTr.bTb;
-            writeData2.setVcodeUrl(this.bTs.getVcode_pic_url());
+        if (this.bTH != null) {
+            writeData = this.bTG.bTq;
+            writeData.setVcodeMD5(this.bTH.getVcode_md5());
+            writeData2 = this.bTG.bTq;
+            writeData2.setVcodeUrl(this.bTH.getVcode_pic_url());
         }
         super.onPostExecute(bitmap);
     }

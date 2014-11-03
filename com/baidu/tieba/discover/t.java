@@ -11,9 +11,9 @@ import com.baidu.tieba.square.BestStringsFitTextView;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class t extends BaseAdapter {
-    private static final int[] aob = {com.baidu.tieba.u.icon_ba_news, com.baidu.tieba.u.icon_hot_check, com.baidu.tieba.u.icon_me_dynamic};
-    private static final int[] aoc = {y.ba_square_description, y.post_recommend_title_description, y.ba_dongtai_description};
-    private static final int[] aod = {y.ba_square, y.post_recommend_title, y.ba_dongtai};
+    private static final int[] aok = {com.baidu.tieba.u.icon_ba_news, com.baidu.tieba.u.icon_hot_check, com.baidu.tieba.u.icon_me_dynamic};
+    private static final int[] aol = {y.ba_square_description, y.post_recommend_title_description, y.ba_dongtai_description};
+    private static final int[] aom = {y.ba_square, y.post_recommend_title, y.ba_dongtai};
     Context mContext;
 
     public t(Context context) {
@@ -22,7 +22,7 @@ public class t extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return aoc.length;
+        return aol.length;
     }
 
     @Override // android.widget.Adapter
@@ -41,17 +41,17 @@ public class t extends BaseAdapter {
         if (view == null) {
             view = com.baidu.adp.lib.g.b.ek().a(this.mContext, com.baidu.tieba.w.discover_square_item, viewGroup, false);
             u uVar2 = new u(null);
-            uVar2.QG = (TextView) view.findViewById(com.baidu.tieba.v.squre_name);
-            uVar2.aoe = (BestStringsFitTextView) view.findViewById(com.baidu.tieba.v.description);
-            uVar2.QF = (HeadImageView) view.findViewById(com.baidu.tieba.v.portrait);
+            uVar2.QK = (TextView) view.findViewById(com.baidu.tieba.v.squre_name);
+            uVar2.aon = (BestStringsFitTextView) view.findViewById(com.baidu.tieba.v.description);
+            uVar2.QJ = (HeadImageView) view.findViewById(com.baidu.tieba.v.portrait);
             view.setTag(uVar2);
             uVar = uVar2;
         } else {
             uVar = (u) view.getTag();
         }
-        uVar.QG.setText(aod[i]);
-        uVar.aoe.setText(aoc[i]);
-        uVar.QF.setImageResource(aob[i]);
+        uVar.QK.setText(aom[i]);
+        uVar.aon.setText(aol[i]);
+        uVar.QJ.setImageResource(aok[i]);
         int skinType = TbadkApplication.m251getInst().getSkinType();
         DiscoverSquareActivity discoverSquareActivity = (DiscoverSquareActivity) this.mContext;
         discoverSquareActivity.getLayoutMode().L(skinType == 1);

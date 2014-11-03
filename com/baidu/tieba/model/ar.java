@@ -4,43 +4,43 @@ import android.content.Context;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
 public class ar extends com.baidu.adp.base.e {
-    public static int bpt = 10;
-    private at bpu;
-    private WriteData bpv;
-    private as bpw;
-    private boolean bpx;
+    public static int bpH = 10;
+    private at bpI;
+    private WriteData bpJ;
+    private as bpK;
+    private boolean bpL;
 
     public ar(Context context) {
         super(context);
-        this.bpu = null;
-        this.bpv = null;
-        this.bpw = null;
-        this.bpx = false;
+        this.bpI = null;
+        this.bpJ = null;
+        this.bpK = null;
+        this.bpL = false;
     }
 
     public void dI(boolean z) {
-        this.bpx = z;
+        this.bpL = z;
     }
 
     public void a(as asVar) {
-        this.bpw = asVar;
+        this.bpK = asVar;
     }
 
     public void b(WriteData writeData) {
-        this.bpv = writeData;
+        this.bpJ = writeData;
     }
 
-    public WriteData EC() {
-        return this.bpv;
+    public WriteData EE() {
+        return this.bpJ;
     }
 
-    public boolean TR() {
-        if (this.bpv == null) {
+    public boolean TU() {
+        if (this.bpJ == null) {
             return false;
         }
-        if (this.bpu == null) {
-            this.bpu = new at(this);
-            this.bpu.execute(new Integer[0]);
+        if (this.bpI == null) {
+            this.bpI = new at(this);
+            this.bpI.execute(new Integer[0]);
         }
         return true;
     }
@@ -52,21 +52,21 @@ public class ar extends com.baidu.adp.base.e {
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.bpu != null && !this.bpu.isCancelled()) {
-            this.bpu.cancel();
+        if (this.bpI != null && !this.bpI.isCancelled()) {
+            this.bpI.cancel();
             return false;
         }
         return false;
     }
 
-    public boolean TS() {
-        if (this.bpv == null) {
+    public boolean TV() {
+        if (this.bpJ == null) {
             return true;
         }
-        int size = (!this.bpv.getIsBaobao() || this.bpv.getBaobaoImagesInfo() == null) ? 0 : this.bpv.getBaobaoImagesInfo().size() + 0;
-        if (this.bpv.getWriteImagesInfo() != null) {
-            size += this.bpv.getWriteImagesInfo().size();
+        int size = (!this.bpJ.getIsBaobao() || this.bpJ.getBaobaoImagesInfo() == null) ? 0 : this.bpJ.getBaobaoImagesInfo().size() + 0;
+        if (this.bpJ.getWriteImagesInfo() != null) {
+            size += this.bpJ.getWriteImagesInfo().size();
         }
-        return size <= bpt;
+        return size <= bpH;
     }
 }

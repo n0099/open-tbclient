@@ -9,18 +9,18 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static d asf = new d();
+    private static d aso = new d();
 
-    public static d CG() {
-        return asf;
+    public static d CI() {
+        return aso;
     }
 
     public int a(String str, InputStream inputStream) {
-        com.baidu.tbadk.editortool.u rw = com.baidu.tbadk.editortool.u.rw();
+        com.baidu.tbadk.editortool.u ry = com.baidu.tbadk.editortool.u.ry();
         List<String> b = e.b(str, inputStream);
         int i = 0;
         for (int i2 = 0; i2 < b.size(); i2++) {
-            if (rw.b(b.get(i2), str, i2 + 1)) {
+            if (ry.b(b.get(i2), str, i2 + 1)) {
                 i++;
             }
         }

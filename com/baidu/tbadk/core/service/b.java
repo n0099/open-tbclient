@@ -12,14 +12,14 @@ import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Object, Integer, Boolean> {
-    final /* synthetic */ TiebaPrepareImageService BZ;
-    String Ca = null;
+    final /* synthetic */ TiebaPrepareImageService Ca;
+    String Cb = null;
     String mFileName;
     int mRequestCode;
     Uri mUri;
 
     public b(TiebaPrepareImageService tiebaPrepareImageService, int i, Uri uri, String str) {
-        this.BZ = tiebaPrepareImageService;
+        this.Ca = tiebaPrepareImageService;
         this.mRequestCode = 0;
         this.mUri = null;
         this.mFileName = null;
@@ -39,29 +39,29 @@ public class b extends BdAsyncTask<Object, Integer, Boolean> {
         TiebaPrepareImageService.IS_DECODING = true;
         try {
             int i3 = this.mRequestCode;
-            TiebaPrepareImageService tiebaPrepareImageService = this.BZ;
+            TiebaPrepareImageService tiebaPrepareImageService = this.Ca;
             Uri uri = this.mUri;
             String str = this.mFileName;
-            i = this.BZ.mMaxSize;
+            i = this.Ca.mMaxSize;
             Bitmap a = k.a(i3, tiebaPrepareImageService, uri, str, i);
             if (a != null) {
                 if (s.a((String) null, TbConfig.IMAGE_RESIZED_FILE, a, 80) != null) {
                     int i4 = 100;
-                    i2 = this.BZ.mDisplaySize;
+                    i2 = this.Ca.mDisplaySize;
                     if (i2 > 0) {
-                        i4 = this.BZ.mDisplaySize;
+                        i4 = this.Ca.mDisplaySize;
                     }
                     Bitmap a2 = d.a(a, i4);
                     if (a2 == null || s.a((String) null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, a2, 80) == null) {
-                        this.Ca = this.BZ.getString(y.error_sd_error);
+                        this.Cb = this.Ca.getString(y.error_sd_error);
                         z = false;
                     }
                 } else {
-                    this.Ca = this.BZ.getString(y.error_sd_error);
+                    this.Cb = this.Ca.getString(y.error_sd_error);
                     z = false;
                 }
             } else {
-                this.Ca = this.BZ.getString(y.pic_parser_error);
+                this.Cb = this.Ca.getString(y.pic_parser_error);
                 z = false;
             }
             TiebaPrepareImageService.IS_DECODING = false;
@@ -77,7 +77,7 @@ public class b extends BdAsyncTask<Object, Integer, Boolean> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.BZ.mTask = null;
+        this.Ca.mTask = null;
         super.cancel(true);
     }
 
@@ -89,9 +89,9 @@ public class b extends BdAsyncTask<Object, Integer, Boolean> {
         super.onPostExecute(bool);
         Intent intent = new Intent(TbConfig.getBroadcastActionImageResized());
         intent.putExtra("result", bool);
-        if (this.Ca != null) {
-            intent.putExtra("error", this.Ca);
+        if (this.Cb != null) {
+            intent.putExtra("error", this.Cb);
         }
-        this.BZ.sendBroadcast(intent);
+        this.Ca.sendBroadcast(intent);
     }
 }

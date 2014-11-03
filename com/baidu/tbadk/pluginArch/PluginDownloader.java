@@ -21,12 +21,10 @@ import java.io.File;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PluginDownloader {
-    private static int SOURCE_TAG_VALUE = 0;
     private Callback mCallBack;
     private Context mContext;
     private String[] mDownloadNames;
     private Messenger mSendMessenger;
-    private int mSourceTag;
     private boolean mInstallAfterDownload = true;
     private Messenger mReplyMessenger = new Messenger(new IncomingHandler(this, null));
     private ServiceConnection mServiceConnection = new DownloadServiceConnection(this, null);
@@ -52,15 +50,10 @@ public class PluginDownloader {
 
     public PluginDownloader(Context context) {
         this.mContext = context;
-        int i = SOURCE_TAG_VALUE;
-        SOURCE_TAG_VALUE = i + 1;
-        this.mSourceTag = i;
     }
 
     /* loaded from: classes.dex */
     class IncomingHandler extends Handler {
-        private DownloadData data;
-
         private IncomingHandler() {
         }
 
@@ -70,51 +63,59 @@ public class PluginDownloader {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            Bundle data = message.getData();
-            if (data != null) {
-                this.data = (DownloadData) data.getSerializable("download_data");
-                if (this.data != null && PluginDownloader.this.isFrom(this.data)) {
-                    switch (message.what) {
-                        case 4:
-                            if (PluginDownloader.this.mCallBack != null) {
-                                PluginDownloader.this.mCallBack.processUpdate(this.data);
-                                return;
-                            }
+            DownloadData downloadData;
+            switch (message.what) {
+                case 4:
+                    Bundle data = message.getData();
+                    if (data != null) {
+                        DownloadData downloadData2 = (DownloadData) data.getSerializable("download_data");
+                        if (PluginDownloader.this.mCallBack != null) {
+                            PluginDownloader.this.mCallBack.processUpdate(downloadData2);
                             return;
-                        case 5:
-                        default:
-                            return;
-                        case 6:
-                            int i = data.getInt("errorCode");
-                            PluginLogger.logFailure(PluginLogger.WORKFLOW_NODE_DOWNLOAD, String.valueOf(i) + "_" + data.getString("errorMsg"), this.data.getId());
-                            if (PluginDownloader.this.mCallBack != null) {
-                                PluginDownloader.this.mCallBack.downloadFail(this.data);
-                                return;
-                            }
-                            return;
-                        case 7:
-                            PluginLogger.logSuccess(PluginLogger.WORKFLOW_NODE_DOWNLOAD);
-                            if (PluginDownloader.this.mCallBack != null) {
-                                PluginDownloader.this.mCallBack.downloadSuccess(this.data);
-                            }
-                            if (PluginDownloader.this.mInstallAfterDownload && this.data != null) {
-                                PluginCenter.getInstance().installPluginFromFile(this.data.getPath(), this.data.getId(), new InstallCallback() { // from class: com.baidu.tbadk.pluginArch.PluginDownloader.IncomingHandler.1
-                                    @Override // com.baidu.tbadk.pluginArch.InstallCallback
-                                    public void onFinish(int i2, String str) {
-                                        BdLog.i("startDownload_install_" + IncomingHandler.this.data.getId() + "_" + i2 + "_" + str);
-                                        if (PluginDownloader.this.mCallBack != null) {
-                                            PluginDownloader.this.mCallBack.installFinish(IncomingHandler.this.data, i2, str);
-                                        }
-                                        if (i2 == 0) {
-                                            RemoteSynchronousDataHelper.getInstance().startInstallPluginMsg();
-                                        }
-                                    }
-                                });
-                                return;
-                            }
-                            return;
+                        }
+                        return;
                     }
-                }
+                    return;
+                case 5:
+                default:
+                    return;
+                case 6:
+                    Bundle data2 = message.getData();
+                    if (data2 != null && (downloadData = (DownloadData) data2.getSerializable("download_data")) != null) {
+                        PluginLogger.logFailure(PluginLogger.WORKFLOW_NODE_DOWNLOAD, String.valueOf(data2.getInt("errorCode")) + "_" + data2.getString("errorMsg"), downloadData.getId());
+                        if (PluginDownloader.this.mCallBack != null) {
+                            PluginDownloader.this.mCallBack.downloadFail(downloadData);
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                case 7:
+                    Bundle data3 = message.getData();
+                    if (data3 != null) {
+                        final DownloadData downloadData3 = (DownloadData) data3.getSerializable("download_data");
+                        PluginLogger.logSuccess(PluginLogger.WORKFLOW_NODE_DOWNLOAD);
+                        if (PluginDownloader.this.mCallBack != null) {
+                            PluginDownloader.this.mCallBack.downloadSuccess(downloadData3);
+                        }
+                        if (PluginDownloader.this.mInstallAfterDownload && downloadData3 != null) {
+                            PluginCenter.getInstance().installPluginFromFile(downloadData3.getPath(), downloadData3.getId(), new InstallCallback() { // from class: com.baidu.tbadk.pluginArch.PluginDownloader.IncomingHandler.1
+                                @Override // com.baidu.tbadk.pluginArch.InstallCallback
+                                public void onFinish(int i, String str) {
+                                    BdLog.i("startDownload_install_" + downloadData3.getId() + "_" + i + "_" + str);
+                                    if (PluginDownloader.this.mCallBack != null) {
+                                        PluginDownloader.this.mCallBack.installFinish(downloadData3, i, str);
+                                    }
+                                    if (i == 0) {
+                                        RemoteSynchronousDataHelper.getInstance().startInstallPluginMsg();
+                                    }
+                                }
+                            });
+                            return;
+                        }
+                        return;
+                    }
+                    return;
             }
         }
     }
@@ -163,11 +164,6 @@ public class PluginDownloader {
         BdLog.i("startDownload_bind");
         this.mDownloadNames = strArr;
         i.a(this.mContext, new Intent(this.mContext, PluginDownloadService.class), this.mServiceConnection, 1);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean isFrom(DownloadData downloadData) {
-        return !TextUtils.isEmpty(downloadData.getTag()) && downloadData.getTag().equals(String.valueOf(this.mSourceTag));
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: android.os.Bundle */
@@ -229,7 +225,6 @@ public class PluginDownloader {
         downloadData.setName(str);
         downloadData.setPath(String.valueOf(PluginFileHelper.downloadDir(pluginConfig.name).getAbsolutePath()) + File.separator + str);
         downloadData.setCheck(pluginConfig.newest.md5);
-        downloadData.setTag(new StringBuilder(String.valueOf(this.mSourceTag)).toString());
         return downloadData;
     }
 

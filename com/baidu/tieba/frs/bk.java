@@ -11,7 +11,7 @@ import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class bk extends bm<com.baidu.tbadk.core.data.a> {
     static final /* synthetic */ boolean ju;
-    private View.OnClickListener aBa;
+    private View.OnClickListener aBk;
 
     static {
         ju = !bk.class.desiredAssertionStatus();
@@ -27,13 +27,13 @@ public class bk extends bm<com.baidu.tbadk.core.data.a> {
         View inflate = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.w.frs_item_app_new, null);
         bl blVar = new bl(null);
         if (ju || inflate != 0) {
-            blVar.aBO = (LinearLayout) inflate.findViewById(com.baidu.tieba.v.frs_app_item_parent);
-            blVar.aBP = (HeadImageView) inflate.findViewById(com.baidu.tieba.v.frs_app_icon);
-            blVar.aBQ = (TextView) inflate.findViewById(com.baidu.tieba.v.frs_app_name);
-            blVar.aBR = (TextView) inflate.findViewById(com.baidu.tieba.v.frs_app_time);
-            blVar.aBS = (TextView) inflate.findViewById(com.baidu.tieba.v.frs_app_desc);
-            blVar.aBT = (TbImageView) inflate.findViewById(com.baidu.tieba.v.frs_app_url);
-            blVar.aBU = (TextView) inflate.findViewById(com.baidu.tieba.v.frs_app_download);
+            blVar.aBY = (LinearLayout) inflate.findViewById(com.baidu.tieba.v.frs_app_item_parent);
+            blVar.aBZ = (HeadImageView) inflate.findViewById(com.baidu.tieba.v.frs_app_icon);
+            blVar.aCa = (TextView) inflate.findViewById(com.baidu.tieba.v.frs_app_name);
+            blVar.aCb = (TextView) inflate.findViewById(com.baidu.tieba.v.frs_app_time);
+            blVar.aCc = (TextView) inflate.findViewById(com.baidu.tieba.v.frs_app_desc);
+            blVar.aCd = (TbImageView) inflate.findViewById(com.baidu.tieba.v.frs_app_url);
+            blVar.aCe = (TextView) inflate.findViewById(com.baidu.tieba.v.frs_app_download);
             inflate.setTag(blVar);
             return inflate;
         }
@@ -46,66 +46,66 @@ public class bk extends bm<com.baidu.tbadk.core.data.a> {
     /* renamed from: a */
     public View b(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.a aVar) {
         super.b(i, view, viewGroup, aVar);
-        if (this.aBp != null) {
-            this.aBp.FC();
+        if (this.aBz != null) {
+            this.aBz.FE();
         }
         bl blVar = (bl) view.getTag();
-        blVar.aBO.setPadding(0, i - this.aBX == 0 ? this.ayR : this.ayS, 0, 0);
-        this.aBp.getLayoutMode().L(this.mSkinType == 1);
-        this.aBp.getLayoutMode().h(view);
+        blVar.aBY.setPadding(0, i - this.aCh == 0 ? this.aza : this.azb, 0, 0);
+        this.aBz.getLayoutMode().L(this.mSkinType == 1);
+        this.aBz.getLayoutMode().h(view);
         if (aVar instanceof com.baidu.tbadk.core.data.a) {
             if (!aVar.zv) {
                 aVar.zv = true;
-                this.aBp.a(aVar, "show");
-                this.aBp.b(aVar, "show");
+                this.aBz.a(aVar, "show");
+                this.aBz.b(aVar, "show");
             }
-            blVar.aBQ.setText(fh(aVar.zu.userName));
+            blVar.aCa.setText(fh(aVar.zu.userName));
             if (aVar.zu == null) {
                 return null;
             }
             if (TextUtils.isEmpty(aVar.zu.zx) || TextUtils.isEmpty(aVar.zu.zx.trim())) {
-                blVar.aBS.setVisibility(8);
+                blVar.aCc.setVisibility(8);
             } else {
-                blVar.aBS.setVisibility(0);
-                blVar.aBS.setText(aVar.zu.zx);
+                blVar.aCc.setVisibility(0);
+                blVar.aCc.setText(aVar.zu.zx);
             }
-            blVar.aBR.setText(com.baidu.tbadk.core.util.ay.j(aVar.zt));
-            if (com.baidu.tbadk.core.k.js().ju()) {
-                blVar.aBP.setVisibility(0);
-                blVar.aBP.c(aVar.zu.userPortrait, this.mIsFromCDN ? 13 : 14, false);
+            blVar.aCb.setText(com.baidu.tbadk.core.util.az.j(aVar.zt));
+            if (com.baidu.tbadk.core.l.js().ju()) {
+                blVar.aBZ.setVisibility(0);
+                blVar.aBZ.c(aVar.zu.userPortrait, this.mIsFromCDN ? 13 : 14, false);
             } else {
-                blVar.aBP.setVisibility(8);
+                blVar.aBZ.setVisibility(8);
             }
-            blVar.aBP.setTag(aVar.zu.userPortrait);
-            if (com.baidu.tbadk.core.k.js().jw() && !TextUtils.isEmpty(aVar.zu.zy)) {
-                blVar.aBT.setVisibility(0);
-                blVar.aBT.c(aVar.zu.zy, this.mIsFromCDN ? 30 : 31, false);
-                blVar.aBS.setPadding(0, 0, 0, 0);
+            blVar.aBZ.setTag(aVar.zu.userPortrait);
+            if (com.baidu.tbadk.core.l.js().jw() && !TextUtils.isEmpty(aVar.zu.zy)) {
+                blVar.aCd.setVisibility(0);
+                blVar.aCd.c(aVar.zu.zy, this.mIsFromCDN ? 30 : 31, false);
+                blVar.aCc.setPadding(0, 0, 0, 0);
             } else {
-                blVar.aBT.setVisibility(8);
-                blVar.aBS.setPadding(0, 0, 0, this.mContext.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds30));
+                blVar.aCd.setVisibility(8);
+                blVar.aCc.setPadding(0, 0, 0, this.mContext.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds30));
             }
-            blVar.aBU.setTag(Integer.valueOf(i));
+            blVar.aCe.setTag(Integer.valueOf(i));
             if (aVar.jH()) {
-                blVar.aBU.setVisibility(8);
+                blVar.aCe.setVisibility(8);
                 return view;
             } else if (aVar.jG()) {
-                blVar.aBU.setVisibility(0);
+                blVar.aCe.setVisibility(0);
                 switch (aVar.zf) {
                     case 0:
                         a(true, blVar);
-                        blVar.aBU.setText(com.baidu.tieba.y.pb_app_download);
-                        blVar.aBU.setOnClickListener(this.aBa);
+                        blVar.aCe.setText(com.baidu.tieba.y.pb_app_download);
+                        blVar.aCe.setOnClickListener(this.aBk);
                         return view;
                     case 1:
                         a(false, blVar);
-                        blVar.aBU.setText(com.baidu.tieba.y.downloading2);
-                        blVar.aBU.setOnClickListener(null);
+                        blVar.aCe.setText(com.baidu.tieba.y.downloading2);
+                        blVar.aCe.setOnClickListener(null);
                         return view;
                     case 2:
                         a(true, blVar);
-                        blVar.aBU.setText(com.baidu.tieba.y.frs_new_style_download_text);
-                        blVar.aBU.setOnClickListener(this.aBa);
+                        blVar.aCe.setText(com.baidu.tieba.y.frs_new_style_download_text);
+                        blVar.aCe.setOnClickListener(this.aBk);
                         return view;
                     default:
                         return view;
@@ -118,17 +118,17 @@ public class bk extends bm<com.baidu.tbadk.core.data.a> {
     }
 
     public void j(View.OnClickListener onClickListener) {
-        this.aBa = onClickListener;
+        this.aBk = onClickListener;
     }
 
     private void a(boolean z, bl blVar) {
         if (z) {
-            com.baidu.tbadk.core.util.aw.h((View) blVar.aBU, com.baidu.tieba.u.btn_appdownload);
-            com.baidu.tbadk.core.util.aw.b(blVar.aBU, com.baidu.tieba.s.cp_cont_i, 1);
+            com.baidu.tbadk.core.util.aw.h((View) blVar.aCe, com.baidu.tieba.u.btn_appdownload);
+            com.baidu.tbadk.core.util.aw.b(blVar.aCe, com.baidu.tieba.s.cp_cont_i, 1);
             return;
         }
-        com.baidu.tbadk.core.util.aw.h((View) blVar.aBU, com.baidu.tieba.u.btn_content_download_d);
-        com.baidu.tbadk.core.util.aw.b(blVar.aBU, com.baidu.tieba.s.faceshop_downloaded_text, 1);
+        com.baidu.tbadk.core.util.aw.h((View) blVar.aCe, com.baidu.tieba.u.btn_content_download_d);
+        com.baidu.tbadk.core.util.aw.b(blVar.aCe, com.baidu.tieba.s.faceshop_downloaded_text, 1);
     }
 
     private String fh(String str) {

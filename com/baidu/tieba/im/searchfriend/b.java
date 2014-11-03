@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.im.searchfriend.cache.RequestRecommendWriteMessage;
 /* loaded from: classes.dex */
 class b extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ SearchFriendActivity bhL;
+    final /* synthetic */ SearchFriendActivity bhZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(SearchFriendActivity searchFriendActivity, int i) {
         super(i);
-        this.bhL = searchFriendActivity;
+        this.bhZ = searchFriendActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,15 +22,15 @@ class b extends com.baidu.adp.framework.listener.e {
             if (socketResponsedMessage.hasError() || !(socketResponsedMessage instanceof ResponsedRecommendMessage)) {
                 String errorString = socketResponsedMessage.getErrorString();
                 if (!TextUtils.isEmpty(errorString)) {
-                    this.bhL.showToast(errorString, false);
+                    this.bhZ.showToast(errorString, false);
                     return;
                 }
                 return;
             }
             com.baidu.tieba.im.searchfriend.a.a recommendFriendInfo = ((ResponsedRecommendMessage) socketResponsedMessage).getRecommendFriendInfo();
-            lVar = this.bhL.bhF;
+            lVar = this.bhZ.bhT;
             lVar.a(recommendFriendInfo);
-            this.bhL.sendMessage(new RequestRecommendWriteMessage(recommendFriendInfo));
+            this.bhZ.sendMessage(new RequestRecommendWriteMessage(recommendFriendInfo));
         }
     }
 }

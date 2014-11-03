@@ -13,11 +13,11 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ak implements com.baidu.tbadk.img.d {
-    final /* synthetic */ w aNM;
+    final /* synthetic */ w aOa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(w wVar) {
-        this.aNM = wVar;
+        this.aOa = wVar;
     }
 
     @Override // com.baidu.tbadk.img.d
@@ -33,10 +33,10 @@ public class ak implements com.baidu.tbadk.img.d {
         int i2 = 0;
         synchronized (this) {
             synchronized (MsglistModel.class) {
-                hashMap = this.aNM.aNH;
+                hashMap = this.aOa.aNV;
                 aVar = (com.baidu.tbadk.img.a) hashMap.remove(str);
             }
-            if (aVar != null && (chatMessage = (ChatMessage) aVar.sk()) != null) {
+            if (aVar != null && (chatMessage = (ChatMessage) aVar.sm()) != null) {
                 if (imageUploadResult == null || imageUploadResult.error_code != 0 || imageUploadResult.picInfo == null) {
                     long currentTimeMillis = System.currentTimeMillis() - chatMessage.getLogTime();
                     if (imageUploadResult != null) {
@@ -68,16 +68,16 @@ public class ak implements com.baidu.tbadk.img.d {
                         str3 = imageUploadResult.picInfo.smallPic.picUrl;
                         i2 = imageUploadResult.picInfo.smallPic.width;
                         i = imageUploadResult.picInfo.smallPic.height;
-                        this.aNM.aj(str, str3);
+                        this.aOa.aj(str, str3);
                     } else {
                         i = 0;
                         str3 = null;
                     }
                     chatMessage.setContent(w.b(str4, str3, i2, i));
-                    w.Jo().f(chatMessage);
-                    sendCallback = this.aNM.mSendCallback;
+                    w.Js().f(chatMessage);
+                    sendCallback = this.aOa.mSendCallback;
                     if (sendCallback != null) {
-                        sendCallback2 = this.aNM.mSendCallback;
+                        sendCallback2 = this.aOa.mSendCallback;
                         sendCallback2.onSend(1);
                     }
                 }

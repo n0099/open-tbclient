@@ -8,8 +8,8 @@ public class b implements com.baidu.tbadk.download.f {
     @Override // com.baidu.tbadk.download.f
     public void onFileUpdateProgress(DownloadData downloadData) {
         if (downloadData != null && downloadData.getStatus() == 1) {
-            c.Hd().b(downloadData);
-            c.Hd().a(downloadData);
+            c.Hf().b(downloadData);
+            c.Hf().a(downloadData);
         }
     }
 
@@ -30,16 +30,16 @@ public class b implements com.baidu.tbadk.download.f {
     @Override // com.baidu.tbadk.download.f
     public void onFileDownloadSucceed(DownloadData downloadData) {
         if (downloadData != null) {
-            TiebaStatic.eventStat(com.baidu.tieba.aj.wk().getApp(), "dl_game_success", "click", 1, "dev_id", downloadData.getId(), "ref_id", downloadData.getTag());
-            NotificationHelper.cancelNotification(com.baidu.tieba.aj.wk().getApp(), downloadData.getNotifyId());
-            c.Hd().a(downloadData);
-            ab.Hs().fp(downloadData.getId());
+            TiebaStatic.eventStat(com.baidu.tieba.aj.wm().getApp(), "dl_game_success", "click", 1, "dev_id", downloadData.getId(), "ref_id", downloadData.getTag());
+            NotificationHelper.cancelNotification(com.baidu.tieba.aj.wm().getApp(), downloadData.getNotifyId());
+            c.Hf().a(downloadData);
+            ab.Hu().fp(downloadData.getId());
         }
     }
 
     @Override // com.baidu.tbadk.download.f
     public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
-        c.Hd().c(downloadData);
-        c.Hd().a(downloadData);
+        c.Hf().c(downloadData);
+        c.Hf().a(downloadData);
     }
 }

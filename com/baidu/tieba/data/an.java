@@ -1,6 +1,5 @@
 package com.baidu.tieba.data;
 
-import android.content.Context;
 import android.text.TextPaint;
 import android.text.style.ClickableSpan;
 import android.view.View;
@@ -12,34 +11,29 @@ import com.baidu.tbadk.core.util.aw;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an extends ClickableSpan {
-    final /* synthetic */ ak aml;
-    private Context mContext;
+    final /* synthetic */ ak amu;
     private String mId;
     private String mName;
 
-    public an(ak akVar, Context context, String str, String str2) {
-        this.aml = akVar;
+    public an(ak akVar, String str, String str2) {
+        this.amu = akVar;
         this.mName = null;
         this.mId = null;
-        this.mContext = null;
         this.mName = str;
         this.mId = str2;
-        this.mContext = context;
     }
 
     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
     public void updateDrawState(TextPaint textPaint) {
-        if (this.mContext != null) {
-            textPaint.setColor(aw.getColor(com.baidu.tieba.s.common_link_text));
-        }
+        textPaint.setColor(aw.getColor(com.baidu.tieba.s.common_link_text));
         textPaint.setUnderlineText(false);
         textPaint.setFakeBoldText(false);
     }
 
     @Override // android.text.style.ClickableSpan
     public void onClick(View view) {
-        if (this.mName != null && this.mId != null && this.mContext != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.mContext, this.mId, this.mName, null, AddFriendActivityConfig.TYPE_PB_FLOOR)));
+        if (this.mName != null && this.mId != null && view.getContext() != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(view.getContext(), this.mId, this.mName, null, AddFriendActivityConfig.TYPE_PB_FLOOR)));
         }
     }
 }

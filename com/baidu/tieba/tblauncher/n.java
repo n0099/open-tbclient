@@ -19,7 +19,7 @@ class n extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001230) {
             if (PluginCenter.getInstance().isTipUpdate()) {
-                this.this$0.bOY = true;
+                this.this$0.bPn = true;
             }
             this.this$0.eJ(false);
         }

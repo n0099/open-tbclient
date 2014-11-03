@@ -2,11 +2,11 @@ package com.baidu.tieba.im.validate;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements com.baidu.tieba.im.a<Integer> {
-    final /* synthetic */ ValidateActivity biR;
+    final /* synthetic */ ValidateActivity bjf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(ValidateActivity validateActivity) {
-        this.biR = validateActivity;
+        this.bjf = validateActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -17,13 +17,13 @@ public class e implements com.baidu.tieba.im.a<Integer> {
         int i2;
         int i3;
         com.baidu.tieba.im.a aVar;
-        this.biR.totalCount = num.intValue();
-        i = this.biR.totalCount;
+        this.bjf.totalCount = num.intValue();
+        i = this.bjf.totalCount;
         if (i > 0) {
-            this.biR.isLoading = true;
-            i2 = this.biR.biP;
-            i3 = this.biR.offset;
-            aVar = this.biR.bbO;
+            this.bjf.isLoading = true;
+            i2 = this.bjf.bjd;
+            i3 = this.bjf.offset;
+            aVar = this.bjf.bcc;
             l.a(i2, i3, aVar);
         }
     }

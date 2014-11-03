@@ -10,16 +10,16 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class z extends com.baidu.adp.base.e {
-    private static final String aEo = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/like";
-    private static TbHttpMessageTask aEp = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, aEo);
+    private static final String aEy = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/like";
+    private static TbHttpMessageTask aEz = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, aEy);
     private n mData;
     private String mId;
     private boolean mIsHost;
     private int mSex;
 
     static {
-        aEp.setResponsedClass(PersonBarResponseMessage.class);
-        MessageManager.getInstance().registerTask(aEp);
+        aEz.setResponsedClass(PersonBarResponseMessage.class);
+        MessageManager.getInstance().registerTask(aEz);
     }
 
     public z(Context context, boolean z) {
@@ -40,11 +40,11 @@ public class z extends com.baidu.adp.base.e {
         this.mSex = i;
     }
 
-    public n ZQ() {
+    public n ZS() {
         return this.mData;
     }
 
-    public void ZO() {
+    public void ZQ() {
         super.sendMessage(new PersonBarByUidLocalMessage());
     }
 

@@ -3,8 +3,10 @@ package com.baidu.tieba.write;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cd extends BroadcastReceiver {
+public class cd extends BroadcastReceiver {
     final /* synthetic */ WriteImageActivity this$0;
 
     private cd(WriteImageActivity writeImageActivity) {
@@ -18,14 +20,18 @@ class cd extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
+        TextView textView;
+        TextView textView2;
         this.this$0.releaseResouce();
         if (intent.getBooleanExtra("result", false)) {
-            WriteImageActivity.m(this.this$0);
+            this.this$0.initData();
             return;
         }
         this.this$0.showToast(intent.getStringExtra("error"));
-        if (WriteImageActivity.i(this.this$0) != null) {
-            WriteImageActivity.i(this.this$0).setEnabled(false);
+        textView = this.this$0.bSH;
+        if (textView != null) {
+            textView2 = this.this$0.bSH;
+            textView2.setEnabled(false);
         }
     }
 }

@@ -8,44 +8,44 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class n {
-    private int bBr = 0;
-    private int bBs = 0;
-    private ArrayList<ForumData> bBo = new ArrayList<>();
-    private ArrayList<ForumData> bBp = new ArrayList<>();
-    private com.baidu.tbadk.core.data.m alK = new com.baidu.tbadk.core.data.m();
-    private Date bBq = null;
-    private boolean Lk = true;
+    private int bBF = 0;
+    private int bBG = 0;
+    private ArrayList<ForumData> bBC = new ArrayList<>();
+    private ArrayList<ForumData> bBD = new ArrayList<>();
+    private com.baidu.tbadk.core.data.m alT = new com.baidu.tbadk.core.data.m();
+    private Date bBE = null;
+    private boolean Ln = true;
 
-    public int ZI() {
-        return this.bBr;
+    public int ZK() {
+        return this.bBF;
     }
 
     public void gV(int i) {
-        this.bBr = i;
+        this.bBF = i;
     }
 
-    public int ZJ() {
-        return this.bBs;
+    public int ZL() {
+        return this.bBG;
     }
 
     public void gW(int i) {
-        this.bBs = i;
+        this.bBG = i;
     }
 
-    public ArrayList<ForumData> ZK() {
-        return this.bBo;
-    }
-
-    public void E(ArrayList<ForumData> arrayList) {
-        this.bBo = arrayList;
-    }
-
-    public ArrayList<ForumData> ZL() {
-        return this.bBp;
+    public ArrayList<ForumData> ZM() {
+        return this.bBC;
     }
 
     public void F(ArrayList<ForumData> arrayList) {
-        this.bBp = arrayList;
+        this.bBC = arrayList;
+    }
+
+    public ArrayList<ForumData> ZN() {
+        return this.bBD;
+    }
+
+    public void G(ArrayList<ForumData> arrayList) {
+        this.bBD = arrayList;
     }
 
     public void parserJson(String str) {
@@ -53,7 +53,7 @@ public class n {
             try {
                 parserJson(new JSONObject(str));
             } catch (Exception e) {
-                this.Lk = false;
+                this.Ln = false;
                 BdLog.e(e.getMessage());
             }
         }
@@ -65,11 +65,11 @@ public class n {
             if (optJSONObject != null) {
                 JSONArray optJSONArray = optJSONObject.optJSONArray("gconforum");
                 if (optJSONArray != null) {
-                    this.bBr = optJSONArray.length();
+                    this.bBF = optJSONArray.length();
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         ForumData forumData = new ForumData();
                         forumData.parserJson(optJSONArray.getJSONObject(i));
-                        this.bBo.add(forumData);
+                        this.bBC.add(forumData);
                     }
                 }
                 JSONArray optJSONArray2 = optJSONObject.optJSONArray("non-gconforum");
@@ -77,18 +77,18 @@ public class n {
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                         ForumData forumData2 = new ForumData();
                         forumData2.parserJson(optJSONArray2.getJSONObject(i2));
-                        this.bBo.add(forumData2);
+                        this.bBC.add(forumData2);
                     }
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("common_forum_list");
                 if (optJSONObject2 != null) {
                     JSONArray optJSONArray3 = optJSONObject2.optJSONArray("gconforum");
                     if (optJSONArray3 != null) {
-                        this.bBs = optJSONArray3.length();
+                        this.bBG = optJSONArray3.length();
                         for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
                             ForumData forumData3 = new ForumData();
                             forumData3.parserJson(optJSONArray3.getJSONObject(i3));
-                            this.bBp.add(forumData3);
+                            this.bBD.add(forumData3);
                         }
                     }
                     JSONArray optJSONArray4 = optJSONObject2.optJSONArray("non-gconforum");
@@ -96,20 +96,20 @@ public class n {
                         for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
                             ForumData forumData4 = new ForumData();
                             forumData4.parserJson(optJSONArray4.getJSONObject(i4));
-                            this.bBp.add(forumData4);
+                            this.bBD.add(forumData4);
                         }
                     }
-                    this.alK.parserJson(jSONObject.optJSONObject("page"));
+                    this.alT.parserJson(jSONObject.optJSONObject("page"));
                     long optLong = jSONObject.optLong("ctime", 0L);
                     if (optLong > 0) {
-                        this.bBq = new Date(optLong);
+                        this.bBE = new Date(optLong);
                     } else {
-                        this.bBq = new Date();
+                        this.bBE = new Date();
                     }
                 }
             }
         } catch (Exception e) {
-            this.Lk = false;
+            this.Ln = false;
             BdLog.e(e.getMessage());
         }
     }

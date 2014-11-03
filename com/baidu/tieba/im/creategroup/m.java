@@ -6,22 +6,22 @@ import com.baidu.tieba.im.groupCard.GroupCardActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements DialogInterface.OnClickListener {
-    final /* synthetic */ k aTC;
-    private final /* synthetic */ AddGroupInfoData aTD;
+    final /* synthetic */ k aTQ;
+    private final /* synthetic */ AddGroupInfoData aTR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(k kVar, AddGroupInfoData addGroupInfoData) {
-        this.aTC = kVar;
-        this.aTD = addGroupInfoData;
+        this.aTQ = kVar;
+        this.aTR = addGroupInfoData;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         CreateGroupStepActivity createGroupStepActivity;
         CreateGroupStepActivity createGroupStepActivity2;
-        createGroupStepActivity = this.aTC.aTB;
+        createGroupStepActivity = this.aTQ.aTP;
         createGroupStepActivity.finish();
-        createGroupStepActivity2 = this.aTC.aTB;
-        GroupCardActivity.a(createGroupStepActivity2, this.aTD.getGroupId(), this.aTD.getName(), this.aTD.getPortrait());
+        createGroupStepActivity2 = this.aTQ.aTP;
+        GroupCardActivity.a(createGroupStepActivity2, this.aTR.getGroupId(), this.aTR.getName(), this.aTR.getPortrait());
     }
 }

@@ -3,6 +3,6 @@ package com.baidu.tieba.recommend;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class n {
-    TextView aQH;
-    TextView bIf;
+    TextView aQV;
+    TextView bIt;
 }

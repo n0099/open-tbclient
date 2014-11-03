@@ -4,19 +4,19 @@ import android.widget.ImageView;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 class am implements com.baidu.adp.lib.e.c<ImageView> {
-    final /* synthetic */ PbActivity bvg;
+    final /* synthetic */ PbActivity bvu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(PbActivity pbActivity) {
-        this.bvg = pbActivity;
+        this.bvu = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: Wt */
+    /* renamed from: Ww */
     public ImageView ee() {
-        TbImageView tbImageView = new TbImageView(this.bvg);
-        boolean jw = com.baidu.tbadk.core.k.js().jw();
+        TbImageView tbImageView = new TbImageView(this.bvu);
+        boolean jw = com.baidu.tbadk.core.l.js().jw();
         tbImageView.setDefaultBg(com.baidu.tbadk.core.util.aw.getDrawable(com.baidu.tieba.s.pb_default_image_bg));
         if (jw) {
             tbImageView.setAdjustViewBounds(false);
@@ -49,7 +49,7 @@ class am implements com.baidu.adp.lib.e.c<ImageView> {
         if (imageView instanceof TbImageView) {
             TbImageView tbImageView = (TbImageView) imageView;
             tbImageView.setTag(null);
-            if (com.baidu.tbadk.core.k.js().jw()) {
+            if (com.baidu.tbadk.core.l.js().jw()) {
                 tbImageView.setAdjustViewBounds(false);
                 tbImageView.setInterceptOnClick(false);
             } else {

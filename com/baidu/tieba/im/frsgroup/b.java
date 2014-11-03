@@ -8,27 +8,27 @@ public class b extends com.baidu.tbadk.mvc.model.a<k> {
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public Class<k> sT() {
+    public Class<k> sV() {
         return k.class;
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public int sU() {
+    public int sW() {
         return 2001210;
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public int sV() {
+    public int sX() {
         return 0;
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public String sW() {
+    public String sY() {
         return "tb.im_frsgroup";
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    protected boolean tz() {
+    protected boolean tB() {
         return false;
     }
 }

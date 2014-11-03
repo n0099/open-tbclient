@@ -10,41 +10,41 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class n extends com.baidu.adp.base.f {
-    private View HS;
-    private NoNetworkView aoJ;
-    private j apU;
-    private MemberPrivilegeActivity apz;
+    private View HT;
+    private NoNetworkView aoS;
+    private MemberPrivilegeActivity apI;
+    private j aqd;
     private NavigationBar mNavigationBar;
     private BdListView vl;
 
     public n(MemberPrivilegeActivity memberPrivilegeActivity) {
         super(memberPrivilegeActivity);
-        this.apz = memberPrivilegeActivity;
+        this.apI = memberPrivilegeActivity;
         nu();
     }
 
     private void nu() {
-        this.apz.setContentView(w.memberprivilege_activity);
-        this.HS = this.apz.findViewById(v.root);
-        this.mNavigationBar = (NavigationBar) this.HS.findViewById(v.navigationbar);
+        this.apI.setContentView(w.memberprivilege_activity);
+        this.HT = this.apI.findViewById(v.root);
+        this.mNavigationBar = (NavigationBar) this.HT.findViewById(v.navigationbar);
         this.mNavigationBar.setTitleText(y.member_center);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.aoJ = (NoNetworkView) this.HS.findViewById(v.nonetworkview);
-        this.aoJ.a(new o(this));
-        this.vl = (BdListView) this.HS.findViewById(v.listview);
-        this.apU = new j(this.apz);
-        this.vl.setAdapter((ListAdapter) this.apU);
-        this.vl.setOnItemClickListener(this.apz);
+        this.aoS = (NoNetworkView) this.HT.findViewById(v.nonetworkview);
+        this.aoS.a(new o(this));
+        this.vl = (BdListView) this.HT.findViewById(v.listview);
+        this.aqd = new j(this.apI);
+        this.vl.setAdapter((ListAdapter) this.aqd);
+        this.vl.setOnItemClickListener(this.apI);
     }
 
-    public j AY() {
-        return this.apU;
+    public j Ba() {
+        return this.aqd;
     }
 
     public void onChangeSkinType(int i) {
-        this.apz.getLayoutMode().L(i == 1);
-        this.apz.getLayoutMode().h(this.HS);
+        this.apI.getLayoutMode().L(i == 1);
+        this.apI.getLayoutMode().h(this.HT);
         this.mNavigationBar.onChangeSkinType(i);
-        this.aoJ.onChangeSkinType(i);
+        this.aoS.onChangeSkinType(i);
     }
 }

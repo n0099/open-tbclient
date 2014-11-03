@@ -10,11 +10,11 @@ import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements com.baidu.tieba.im.a<com.baidu.tieba.im.memorycache.a> {
-    final /* synthetic */ b beJ;
+    final /* synthetic */ b beX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(b bVar) {
-        this.beJ = bVar;
+        this.beX = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,32 +22,32 @@ public class f implements com.baidu.tieba.im.a<com.baidu.tieba.im.memorycache.a>
     /* renamed from: a */
     public void onReturnDataInUI(com.baidu.tieba.im.memorycache.a aVar) {
         BdUniqueId bdUniqueId;
-        MessageSyncMessage QA;
+        MessageSyncMessage QD;
         Handler handler;
         Handler handler2;
         Handler handler3;
         Handler handler4;
         if (MessageManager.getInstance().getSocketClient().ay() > 10) {
             q.a(false, true, false);
-            handler3 = this.beJ.mHandler;
-            handler4 = this.beJ.mHandler;
+            handler3 = this.beX.mHandler;
+            handler4 = this.beX.mHandler;
             handler3.sendMessageDelayed(handler4.obtainMessage(2), 2000L);
-        } else if (com.baidu.tieba.im.memorycache.c.PK().PJ()) {
-            this.beJ.beC = false;
+        } else if (com.baidu.tieba.im.memorycache.c.PN().PM()) {
+            this.beX.beQ = false;
             MessageManager messageManager = MessageManager.getInstance();
-            bdUniqueId = this.beJ.mTag;
+            bdUniqueId = this.beX.mTag;
             LinkedList<? extends Message> findMessage = messageManager.findMessage(202003, bdUniqueId);
             if (findMessage != null && findMessage.size() > 0) {
                 q.a(false, false, true);
-                this.beJ.beC = true;
+                this.beX.beQ = true;
                 return;
             }
-            QA = this.beJ.QA();
-            MessageManager.getInstance().sendMessage(QA);
+            QD = this.beX.QD();
+            MessageManager.getInstance().sendMessage(QD);
             q.a(true, false, false);
         } else {
-            handler = this.beJ.mHandler;
-            handler2 = this.beJ.mHandler;
+            handler = this.beX.mHandler;
+            handler2 = this.beX.mHandler;
             handler.sendMessageDelayed(handler2.obtainMessage(2), 2000L);
         }
     }

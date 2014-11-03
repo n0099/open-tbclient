@@ -6,26 +6,26 @@ import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements bd {
-    final /* synthetic */ ItemFootNavView axj;
-    private final /* synthetic */ BaseActivity axk;
-    private final /* synthetic */ boolean axn;
+    final /* synthetic */ ItemFootNavView axs;
+    private final /* synthetic */ BaseActivity axt;
+    private final /* synthetic */ boolean axw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(ItemFootNavView itemFootNavView, BaseActivity baseActivity, boolean z) {
-        this.axj = itemFootNavView;
-        this.axk = baseActivity;
-        this.axn = z;
+        this.axs = itemFootNavView;
+        this.axt = baseActivity;
+        this.axw = z;
     }
 
     @Override // com.baidu.tieba.model.bd
     public void d(String str, long j) {
-        this.axk.showToast(this.axk.getString(y.unlike_success));
-        this.axj.bI(false);
-        this.axj.bH(this.axn);
+        this.axt.showToast(this.axt.getString(y.unlike_success));
+        this.axs.bI(false);
+        this.axs.bH(this.axw);
     }
 
     @Override // com.baidu.tieba.model.bd
     public void e(String str, long j) {
-        this.axk.showToast(this.axk.getString(y.unlike_failure));
+        this.axt.showToast(this.axt.getString(y.unlike_failure));
     }
 }

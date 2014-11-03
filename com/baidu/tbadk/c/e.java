@@ -6,7 +6,12 @@ import android.widget.LinearLayout;
 public class e implements c {
     @Override // com.baidu.tbadk.c.c
     public void a(View view, View view2, boolean z) {
-        ((LinearLayout) view).addView(view2);
+        LinearLayout linearLayout = (LinearLayout) view;
+        if (z) {
+            linearLayout.addView(view2, 0);
+        } else {
+            linearLayout.addView(view2);
+        }
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view2.getLayoutParams();
         layoutParams.gravity = 1;
         view2.setLayoutParams(layoutParams);

@@ -11,12 +11,12 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes.dex */
 public class EditorInfoContainer extends LinearLayout {
-    protected y aqd;
-    private k aqe;
-    private k aqf;
-    private k aqg;
-    private k aqh;
-    private final CustomMessageListener aqi;
+    protected y aqm;
+    private k aqn;
+    private k aqo;
+    private k aqp;
+    private k aqq;
+    private final CustomMessageListener aqr;
 
     public EditorInfoContainer(Context context) {
         this(context, null);
@@ -24,47 +24,47 @@ public class EditorInfoContainer extends LinearLayout {
 
     public EditorInfoContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aqi = new i(this, 2010041);
+        this.aqr = new i(this, 2010041);
         setOrientation(0);
         int dimension = (int) context.getResources().getDimension(com.baidu.tieba.t.ds20);
         setPadding(dimension, 0, dimension, 0);
         setGravity(48);
-        this.aqd = new y(context);
-        this.aqe = new k(context);
-        this.aqf = new k(context);
-        this.aqg = new k(context);
-        this.aqg.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.aw.getDrawable(com.baidu.tieba.u.icon_posts_camers_gray), (Drawable) null, (Drawable) null, (Drawable) null);
-        this.aqh = new k(context);
-        this.aqh.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.aw.getDrawable(com.baidu.tieba.u.icon_posts_microphone_gray), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.aqm = new y(context);
+        this.aqn = new k(context);
+        this.aqo = new k(context);
+        this.aqp = new k(context);
+        this.aqp.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.aw.getDrawable(com.baidu.tieba.u.icon_posts_camers_gray), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.aqq = new k(context);
+        this.aqq.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.aw.getDrawable(com.baidu.tieba.u.icon_posts_microphone_gray), (Drawable) null, (Drawable) null, (Drawable) null);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.rightMargin = getResources().getDimensionPixelSize(com.baidu.tieba.t.ds16);
-        addView(this.aqd, layoutParams);
-        addView(this.aqe, layoutParams);
-        addView(this.aqf, layoutParams);
-        addView(this.aqg, layoutParams);
-        addView(this.aqh, layoutParams);
-        this.aqe.setVisibility(8);
-        this.aqf.setVisibility(8);
-        this.aqg.setVisibility(8);
-        this.aqh.setVisibility(8);
+        addView(this.aqm, layoutParams);
+        addView(this.aqn, layoutParams);
+        addView(this.aqo, layoutParams);
+        addView(this.aqp, layoutParams);
+        addView(this.aqq, layoutParams);
+        this.aqn.setVisibility(8);
+        this.aqo.setVisibility(8);
+        this.aqp.setVisibility(8);
+        this.aqq.setVisibility(8);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         if (getContext() instanceof BaseActivity) {
-            this.aqi.setTag(((BaseActivity) getContext()).getUniqueId());
+            this.aqr.setTag(((BaseActivity) getContext()).getUniqueId());
         } else if (getContext() instanceof BaseFragmentActivity) {
-            this.aqi.setTag(((BaseFragmentActivity) getContext()).getUniqueId());
+            this.aqr.setTag(((BaseFragmentActivity) getContext()).getUniqueId());
         }
-        this.aqi.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.aqi);
+        this.aqr.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.aqr);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterListener(this.aqi);
+        MessageManager.getInstance().unRegisterListener(this.aqr);
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -74,56 +74,56 @@ public class EditorInfoContainer extends LinearLayout {
     }
 
     public y getLocationInfoView() {
-        return this.aqd;
+        return this.aqm;
     }
 
     public void a(ba baVar) {
         if (baVar != null) {
-            if (baVar.arY > 0) {
-                this.aqe.setVisibility(0);
-                this.aqe.setText(String.valueOf(baVar.arY));
+            if (baVar.ash > 0) {
+                this.aqn.setVisibility(0);
+                this.aqn.setText(String.valueOf(baVar.ash));
             } else {
-                this.aqe.setVisibility(8);
+                this.aqn.setVisibility(8);
             }
-            if (baVar.arZ > 0) {
-                this.aqf.setVisibility(0);
-                this.aqf.setText(String.valueOf(baVar.arY));
+            if (baVar.asi > 0) {
+                this.aqo.setVisibility(0);
+                this.aqo.setText(String.valueOf(baVar.ash));
             } else {
-                this.aqf.setVisibility(8);
+                this.aqo.setVisibility(8);
             }
-            if (baVar.asa > 0) {
-                this.aqg.setVisibility(0);
-                this.aqg.setText(String.valueOf(baVar.asa + baVar.asc));
+            if (baVar.asj > 0) {
+                this.aqp.setVisibility(0);
+                this.aqp.setText(String.valueOf(baVar.asj + baVar.asl));
             } else {
-                this.aqg.setVisibility(8);
+                this.aqp.setVisibility(8);
             }
-            if (baVar.asb > 0) {
-                this.aqh.setVisibility(0);
-                this.aqh.setText(String.valueOf(baVar.asb));
+            if (baVar.ask > 0) {
+                this.aqq.setVisibility(0);
+                this.aqq.setText(String.valueOf(baVar.ask));
                 return;
             }
-            this.aqh.setVisibility(8);
+            this.aqq.setVisibility(8);
         }
     }
 
-    public void sB() {
+    public void sD() {
         TbadkApplication.m251getInst().getSkinType();
-        if (this.aqd != null) {
-            this.aqd.nz();
+        if (this.aqm != null) {
+            this.aqm.nz();
         }
-        if (this.aqe != null) {
-            this.aqe.nz();
+        if (this.aqn != null) {
+            this.aqn.nz();
         }
-        if (this.aqf != null) {
-            this.aqf.nz();
+        if (this.aqo != null) {
+            this.aqo.nz();
         }
-        if (this.aqg != null) {
-            this.aqg.nz();
-            this.aqg.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.aw.getDrawable(com.baidu.tieba.u.icon_posts_camers_gray), (Drawable) null, (Drawable) null, (Drawable) null);
+        if (this.aqp != null) {
+            this.aqp.nz();
+            this.aqp.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.aw.getDrawable(com.baidu.tieba.u.icon_posts_camers_gray), (Drawable) null, (Drawable) null, (Drawable) null);
         }
-        if (this.aqh != null) {
-            this.aqh.nz();
-            this.aqh.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.aw.getDrawable(com.baidu.tieba.u.icon_posts_microphone_gray), (Drawable) null, (Drawable) null, (Drawable) null);
+        if (this.aqq != null) {
+            this.aqq.nz();
+            this.aqq.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.aw.getDrawable(com.baidu.tieba.u.icon_posts_microphone_gray), (Drawable) null, (Drawable) null, (Drawable) null);
         }
     }
 }

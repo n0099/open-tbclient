@@ -20,7 +20,7 @@ class k implements Runnable {
         if (TbadkApplication.m251getInst().isAppUploadOpen()) {
             MessageManager.getInstance().dispatchResponsedMessage(new AppUploadMessage());
             handler = this.this$0.mHandler;
-            runnable = this.this$0.bPg;
+            runnable = this.this$0.bPv;
             handler.postDelayed(runnable, 18000000L);
         }
     }

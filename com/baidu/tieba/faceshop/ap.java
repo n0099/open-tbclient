@@ -4,29 +4,29 @@ import android.content.Context;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class ap extends com.baidu.adp.base.e {
-    private aq atW;
-    private FacePackageDownloadData atX;
-    private int ats;
-    private int att;
-    private float atu;
+    private int atB;
+    private int atC;
+    private float atD;
+    private aq auf;
+    private FacePackageDownloadData aug;
 
     public ap(Context context) {
         super(context);
-        this.atX = null;
-        this.ats = 0;
-        this.att = 0;
-        this.atW = null;
+        this.aug = null;
+        this.atB = 0;
+        this.atC = 0;
+        this.auf = null;
         TbadkApplication m251getInst = TbadkApplication.m251getInst();
-        this.ats = com.baidu.adp.lib.util.m.n(m251getInst);
-        this.att = com.baidu.adp.lib.util.m.o(m251getInst);
-        this.atu = m251getInst.getResources().getDisplayMetrics().density;
+        this.atB = com.baidu.adp.lib.util.m.n(m251getInst);
+        this.atC = com.baidu.adp.lib.util.m.o(m251getInst);
+        this.atD = m251getInst.getResources().getDisplayMetrics().density;
     }
 
     public void eU(String str) {
-        if (this.atW == null) {
-            this.atW = new aq(this, str);
-            this.atW.setPriority(3);
-            this.atW.execute(new Object[0]);
+        if (this.auf == null) {
+            this.auf = new aq(this, str);
+            this.auf.setPriority(3);
+            this.auf.execute(new Object[0]);
         }
     }
 
@@ -37,8 +37,8 @@ public class ap extends com.baidu.adp.base.e {
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.atW != null) {
-            this.atW.cancel();
+        if (this.auf != null) {
+            this.auf.cancel();
             return false;
         }
         return false;

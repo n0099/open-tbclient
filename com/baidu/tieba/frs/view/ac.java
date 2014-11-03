@@ -5,15 +5,15 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements View.OnClickListener {
-    final /* synthetic */ U9InfoView aGC;
+    final /* synthetic */ U9InfoView aGM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(U9InfoView u9InfoView) {
-        this.aGC = u9InfoView;
+        this.aGM = u9InfoView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,15 +27,15 @@ public class ac implements View.OnClickListener {
         Context context2;
         com.baidu.tbadk.core.data.r rVar2;
         if (com.baidu.adp.lib.util.m.isNetOk()) {
-            relativeLayout = this.aGC.aGq;
+            relativeLayout = this.aGM.aGA;
             if (view != relativeLayout) {
-                linearLayout = this.aGC.aGr;
+                linearLayout = this.aGM.aGB;
                 if (view == linearLayout) {
-                    uVar = this.aGC.news_info;
+                    uVar = this.aGM.news_info;
                     if (!TextUtils.isEmpty(uVar.kR())) {
-                        bf mR = bf.mR();
-                        context = this.aGC.mContext;
-                        uVar2 = this.aGC.news_info;
+                        bg mR = bg.mR();
+                        context = this.aGM.mContext;
+                        uVar2 = this.aGM.news_info;
                         mR.b(context, new String[]{uVar2.kR()});
                         return;
                     }
@@ -43,11 +43,11 @@ public class ac implements View.OnClickListener {
                 }
                 return;
             }
-            rVar = this.aGC.top_code;
+            rVar = this.aGM.top_code;
             if (!TextUtils.isEmpty(rVar.kL())) {
-                bf mR2 = bf.mR();
-                context2 = this.aGC.mContext;
-                rVar2 = this.aGC.top_code;
+                bg mR2 = bg.mR();
+                context2 = this.aGM.mContext;
+                rVar2 = this.aGM.top_code;
                 mR2.b(context2, new String[]{rVar2.kL()});
             }
         }

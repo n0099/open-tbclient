@@ -13,7 +13,7 @@ import com.baidu.tieba.aj;
 public class SignAlertReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        if (intent.getAction().equals(com.baidu.tieba.data.e.yx())) {
+        if (intent.getAction().equals(com.baidu.tieba.data.e.yz())) {
             try {
                 Intent intent2 = new Intent(context, DealIntentService.class);
                 intent2.putExtra("class", 9);
@@ -32,7 +32,7 @@ public class SignAlertReceiver extends BroadcastReceiver {
                         BdLog.e(th.getMessage());
                     }
                 } finally {
-                    aj.wk().wD();
+                    aj.wm().wF();
                 }
             }
         }

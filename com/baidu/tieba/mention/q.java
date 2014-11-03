@@ -9,21 +9,21 @@ import com.baidu.tbadk.core.view.HeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q {
-    TextView JM;
-    View MI;
-    TextView auh;
-    TextView axq;
-    HeadImageView azk;
-    TextView bmf;
-    LinearLayout bnA;
-    TextView bnr;
-    TextView bns;
-    p bnt;
-    l bnu;
-    TextView bnw;
-    LinearLayout bnx;
-    ImageView bny;
-    TextView bnz;
+    TextView JN;
+    View ML;
+    TextView auq;
+    TextView axz;
+    HeadImageView azt;
+    TextView bmt;
+    TextView bnF;
+    TextView bnG;
+    p bnH;
+    l bnI;
+    TextView bnK;
+    LinearLayout bnL;
+    ImageView bnM;
+    TextView bnN;
+    LinearLayout bnO;
 
     private q() {
     }
@@ -34,22 +34,22 @@ public class q {
     }
 
     public void f(Context context, View view) {
-        this.bnA = (LinearLayout) view.findViewById(com.baidu.tieba.v.reply_container);
-        this.azk = (HeadImageView) view.findViewById(com.baidu.tieba.v.photo);
-        this.bnr = (TextView) view.findViewById(com.baidu.tieba.v.user_name);
-        this.auh = (TextView) view.findViewById(com.baidu.tieba.v.time);
-        this.bns = (TextView) view.findViewById(com.baidu.tieba.v.add_friend_button);
-        this.MI = view.findViewById(com.baidu.tieba.v.line);
-        this.bmf = (TextView) view.findViewById(com.baidu.tieba.v.content);
-        this.JM = (TextView) view.findViewById(com.baidu.tieba.v.title);
-        this.axq = (TextView) view.findViewById(com.baidu.tieba.v.forum);
-        this.bnw = (TextView) view.findViewById(com.baidu.tieba.v.reply_type);
-        this.bnx = (LinearLayout) view.findViewById(com.baidu.tieba.v.ll_quick_reply);
-        this.bny = (ImageView) view.findViewById(com.baidu.tieba.v.iv_quick_reply_icon);
-        this.bnz = (TextView) view.findViewById(com.baidu.tieba.v.tv_quick_reply_text);
-        this.bnt = new p(context);
-        this.bnu = new l(context, 1);
-        this.azk.setOnClickListener(this.bnt);
-        this.bns.setOnClickListener(this.bnu);
+        this.bnO = (LinearLayout) view.findViewById(com.baidu.tieba.v.reply_container);
+        this.azt = (HeadImageView) view.findViewById(com.baidu.tieba.v.photo);
+        this.bnF = (TextView) view.findViewById(com.baidu.tieba.v.user_name);
+        this.auq = (TextView) view.findViewById(com.baidu.tieba.v.time);
+        this.bnG = (TextView) view.findViewById(com.baidu.tieba.v.add_friend_button);
+        this.ML = view.findViewById(com.baidu.tieba.v.line);
+        this.bmt = (TextView) view.findViewById(com.baidu.tieba.v.content);
+        this.JN = (TextView) view.findViewById(com.baidu.tieba.v.title);
+        this.axz = (TextView) view.findViewById(com.baidu.tieba.v.forum);
+        this.bnK = (TextView) view.findViewById(com.baidu.tieba.v.reply_type);
+        this.bnL = (LinearLayout) view.findViewById(com.baidu.tieba.v.ll_quick_reply);
+        this.bnM = (ImageView) view.findViewById(com.baidu.tieba.v.iv_quick_reply_icon);
+        this.bnN = (TextView) view.findViewById(com.baidu.tieba.v.tv_quick_reply_text);
+        this.bnH = new p(context);
+        this.bnI = new l(context, 1);
+        this.azt.setOnClickListener(this.bnH);
+        this.bnG.setOnClickListener(this.bnI);
     }
 }

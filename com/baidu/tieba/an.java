@@ -1,17 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.InvokeOnCreateOnMainThreadMessageConfig;
+import com.baidu.tbadk.pluginArch.PluginCenter;
+import com.baidu.tbadk.pluginArch.PluginNameList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an implements CustomMessageTask.CustomRunnable<InvokeOnCreateOnMainThreadMessageConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<InvokeOnCreateOnMainThreadMessageConfig> run(CustomMessage<InvokeOnCreateOnMainThreadMessageConfig> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            aj.wk().wn();
-        }
-        return null;
+public class an implements Runnable {
+    final /* synthetic */ aj aee;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public an(aj ajVar) {
+        this.aee = ajVar;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        PluginCenter.getInstance().installPluginFromAsset(PluginNameList.NAME_DQ_SDK, null);
     }
 }

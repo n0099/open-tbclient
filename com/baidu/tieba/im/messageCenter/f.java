@@ -9,13 +9,13 @@ import com.baidu.tieba.im.db.n;
 import com.baidu.tieba.im.db.o;
 /* loaded from: classes.dex */
 class f implements com.baidu.tieba.im.a<Integer> {
-    final /* synthetic */ d bew;
-    private final /* synthetic */ boolean bex;
+    final /* synthetic */ d beK;
+    private final /* synthetic */ boolean beL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(d dVar, boolean z) {
-        this.bew = dVar;
-        this.bex = z;
+        this.beK = dVar;
+        this.beL = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,11 +28,11 @@ class f implements com.baidu.tieba.im.a<Integer> {
             livePlugin.onAccountChanged();
         }
         LiveGroupManager.getInstance().onAccountChanged();
-        if (!this.bex) {
+        if (!this.beL) {
             com.baidu.tieba.im.c.setCurrentAccount(null, null);
-            com.baidu.tieba.im.e.Jk();
-            o.MQ().Mu();
-            n.MP().Mu();
+            com.baidu.tieba.im.e.Jo();
+            o.MU().My();
+            n.MT().My();
         }
     }
 }

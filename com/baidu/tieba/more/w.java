@@ -9,38 +9,38 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class w extends com.baidu.adp.base.f {
-    private View agA;
-    ImageProblemActivity bqQ;
-    private ScrollView bqR;
-    private Button bqS;
+    private View agI;
+    ImageProblemActivity bre;
+    private ScrollView brf;
+    private Button brg;
     private LinearLayout mLayout;
     private NavigationBar mNavigationBar;
 
     public w(ImageProblemActivity imageProblemActivity, t tVar) {
         super(imageProblemActivity);
-        this.bqQ = imageProblemActivity;
-        this.bqQ.setContentView(com.baidu.tieba.w.image_problem_activity);
-        this.agA = this.bqQ.findViewById(com.baidu.tieba.v.parent);
-        this.mNavigationBar = (NavigationBar) this.bqQ.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.bre = imageProblemActivity;
+        this.bre.setContentView(com.baidu.tieba.w.image_problem_activity);
+        this.agI = this.bre.findViewById(com.baidu.tieba.v.parent);
+        this.mNavigationBar = (NavigationBar) this.bre.findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.bqQ.getString(com.baidu.tieba.y.image_problem));
-        this.bqR = (ScrollView) this.bqQ.findViewById(com.baidu.tieba.v.scrollView);
-        this.bqS = (Button) this.bqQ.findViewById(com.baidu.tieba.v.check_btn);
-        this.bqS.setOnClickListener(imageProblemActivity);
-        this.mLayout = new LinearLayout(this.bqQ);
+        this.mNavigationBar.setTitleText(this.bre.getString(com.baidu.tieba.y.image_problem));
+        this.brf = (ScrollView) this.bre.findViewById(com.baidu.tieba.v.scrollView);
+        this.brg = (Button) this.bre.findViewById(com.baidu.tieba.v.check_btn);
+        this.brg.setOnClickListener(imageProblemActivity);
+        this.mLayout = new LinearLayout(this.bre);
         this.mLayout.setOrientation(1);
-        this.bqR.addView(this.mLayout);
-        Iterator<u> it = tVar.bqJ.iterator();
+        this.brf.addView(this.mLayout);
+        Iterator<u> it = tVar.bqX.iterator();
         while (it.hasNext()) {
-            v vVar = new v(this.bqQ);
-            vVar.ql();
+            v vVar = new v(this.bre);
+            vVar.qn();
             vVar.setText(it.next().title);
             this.mLayout.addView(vVar);
         }
     }
 
-    public Button UK() {
-        return this.bqS;
+    public Button UN() {
+        return this.brg;
     }
 
     public void start() {
@@ -52,7 +52,7 @@ public class w extends com.baidu.adp.base.f {
                 if (childAt instanceof v) {
                     v vVar = (v) childAt;
                     vVar.setStatus(3);
-                    vVar.ql();
+                    vVar.qn();
                     vVar.setHelpText("");
                 }
                 i = i2 + 1;
@@ -85,12 +85,12 @@ public class w extends com.baidu.adp.base.f {
             if (childAt instanceof v) {
                 v vVar = (v) childAt;
                 vVar.setStatus(1);
-                vVar.UJ();
-                if (arrayList.get(i2).bqL == 0) {
+                vVar.UM();
+                if (arrayList.get(i2).bqZ == 0) {
                     vVar.setHelpText("");
                     vVar.setArrowImg(com.baidu.tieba.u.icon_diagnose_ok);
                 } else {
-                    vVar.setHelpText(arrayList.get(i2).bqM);
+                    vVar.setHelpText(arrayList.get(i2).bra);
                     vVar.setArrowImg(com.baidu.tieba.u.icon_error);
                 }
             }
@@ -104,8 +104,8 @@ public class w extends com.baidu.adp.base.f {
     }
 
     public void onChangeSkinType(int i) {
-        this.bqQ.getLayoutMode().L(i == 1);
-        this.bqQ.getLayoutMode().h(this.agA);
+        this.bre.getLayoutMode().L(i == 1);
+        this.bre.getLayoutMode().h(this.agI);
         this.mNavigationBar.onChangeSkinType(i);
     }
 }

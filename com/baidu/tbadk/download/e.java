@@ -1,14 +1,14 @@
 package com.baidu.tbadk.download;
 /* loaded from: classes.dex */
 public class e {
-    final /* synthetic */ b Rc;
+    final /* synthetic */ b Rg;
     private String key;
     private String name;
     private int position;
     private String url;
 
     public e(b bVar) {
-        this.Rc = bVar;
+        this.Rg = bVar;
     }
 
     public void setKey(String str) {

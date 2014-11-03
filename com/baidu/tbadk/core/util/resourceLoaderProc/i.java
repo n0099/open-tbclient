@@ -1,14 +1,14 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 /* loaded from: classes.dex */
 class i {
-    public long GO;
-    final /* synthetic */ h GP;
+    public long GP;
+    final /* synthetic */ h GQ;
     public int kl;
 
     private i(h hVar) {
-        this.GP = hVar;
+        this.GQ = hVar;
         this.kl = 0;
-        this.GO = 0L;
+        this.GP = 0L;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

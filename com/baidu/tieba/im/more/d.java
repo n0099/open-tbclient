@@ -2,21 +2,21 @@ package com.baidu.tieba.im.more;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements Runnable {
-    final /* synthetic */ c beU;
-    private final /* synthetic */ boolean beV;
+    final /* synthetic */ c bfi;
+    private final /* synthetic */ boolean bfj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, boolean z) {
-        this.beU = cVar;
-        this.beV = z;
+        this.bfi = cVar;
+        this.bfj = z;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         SecretSettingActivity secretSettingActivity;
         g gVar;
-        secretSettingActivity = this.beU.beT;
-        gVar = secretSettingActivity.beN;
-        gVar.dp(!this.beV);
+        secretSettingActivity = this.bfi.bfh;
+        gVar = secretSettingActivity.bfb;
+        gVar.dp(!this.bfj);
     }
 }

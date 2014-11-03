@@ -7,11 +7,11 @@ import com.baidu.tieba.editortool.EditorToolComponetContainer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ar implements View.OnClickListener {
-    final /* synthetic */ WriteActivity bTX;
+    final /* synthetic */ WriteActivity bUm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(WriteActivity writeActivity) {
-        this.bTX = writeActivity;
+        this.bUm = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,16 +21,16 @@ public class ar implements View.OnClickListener {
         InputMethodManager inputMethodManager2;
         EditText editText2;
         EditorToolComponetContainer editorToolComponetContainer;
-        WriteActivity writeActivity = this.bTX;
-        inputMethodManager = this.bTX.mInputManager;
-        editText = this.bTX.bJr;
+        WriteActivity writeActivity = this.bUm;
+        inputMethodManager = this.bUm.mInputManager;
+        editText = this.bUm.bJG;
         writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        WriteActivity writeActivity2 = this.bTX;
-        inputMethodManager2 = this.bTX.mInputManager;
-        editText2 = this.bTX.bJv;
+        WriteActivity writeActivity2 = this.bUm;
+        inputMethodManager2 = this.bUm.mInputManager;
+        editText2 = this.bUm.bJK;
         writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
-        editorToolComponetContainer = this.bTX.are;
-        editorToolComponetContainer.BC();
-        this.bTX.acd();
+        editorToolComponetContainer = this.bUm.arn;
+        editorToolComponetContainer.BE();
+        this.bUm.acg();
     }
 }

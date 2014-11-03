@@ -40,7 +40,7 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                 if (msgInfo != null) {
                     Date date = new Date();
                     date.setTime(msgInfo.sendTime.longValue() * 1000);
-                    azVar.time = com.baidu.tbadk.core.util.ay.c(date);
+                    azVar.time = com.baidu.tbadk.core.util.az.c(date);
                     azVar.type = msgInfo.type.intValue();
                     azVar.content = msgInfo.content;
                     azVar.id = msgInfo.id.intValue();

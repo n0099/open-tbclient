@@ -27,21 +27,21 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import java.io.File;
 /* loaded from: classes.dex */
 public class LogoActivity extends BaseActivity {
-    private Animation.AnimationListener acH;
-    private long acL;
-    private long acM;
-    private boolean acD = false;
-    private boolean acE = false;
-    private ImageView acF = null;
-    private Bitmap mBitmap = null;
-    private AlphaAnimation acG = null;
+    private Animation.AnimationListener acM;
+    private long acQ;
+    private long acR;
     private boolean acI = false;
     private boolean acJ = false;
-    private a acK = new a();
+    private ImageView acK = null;
+    private Bitmap mBitmap = null;
+    private AlphaAnimation acL = null;
+    private boolean acN = false;
+    private boolean acO = false;
+    private a acP = new a();
     private final Handler mHandler = new g(this);
-    private final Runnable acN = new h(this);
-    private final Runnable acO = new i(this);
-    private final d acv = new j(this);
+    private final Runnable acS = new h(this);
+    private final Runnable acT = new i(this);
+    private final d acA = new j(this);
 
     static {
         TbadkApplication.m251getInst().RegisterIntent(LogoActivityConfig.class, LogoActivity.class);
@@ -75,8 +75,8 @@ public class LogoActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.acL = System.currentTimeMillis();
-        this.acK.a(this.acv);
+        this.acQ = System.currentTimeMillis();
+        this.acP.a(this.acA);
         TbadkApplication.m251getInst().markLauchTime();
         if (!TbadkApplication.isLogin()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005015, null));
@@ -87,18 +87,18 @@ public class LogoActivity extends BaseActivity {
             finish();
             return;
         }
-        this.acF = (ImageView) findViewById(v.logo);
+        this.acK = (ImageView) findViewById(v.logo);
         if (bundle != null) {
             LogoActivityConfig.isFirst = bundle.getBoolean("is_first", true);
         } else {
             LogoActivityConfig.isFirst = true;
         }
-        this.acG = new AlphaAnimation(1.0f, 1.0f);
-        this.acG.setDuration(500L);
-        this.acH = new k(this);
-        this.acG.setAnimationListener(this.acH);
-        this.acI = TbadkApplication.m251getInst().getIsFirstUse();
-        this.mHandler.post(this.acN);
+        this.acL = new AlphaAnimation(1.0f, 1.0f);
+        this.acL.setDuration(500L);
+        this.acM = new k(this);
+        this.acL.setAnimationListener(this.acM);
+        this.acN = TbadkApplication.m251getInst().getIsFirstUse();
+        this.mHandler.post(this.acS);
         new l(this).start();
         MessageManager.getInstance().sendMessage(new CustomMessage(2006002, com.baidu.tbadk.core.frameworkData.a.START));
         if (TbConfig.getDebugSwitch()) {
@@ -107,7 +107,7 @@ public class LogoActivity extends BaseActivity {
         if (!com.baidu.tbadk.core.util.s.bm()) {
             TiebaStatic.file("no SD", "LogoActivity.onCreate");
         }
-        this.acM = System.currentTimeMillis();
+        this.acR = System.currentTimeMillis();
     }
 
     private void cz() {
@@ -132,10 +132,10 @@ public class LogoActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (!this.acJ) {
+        if (!this.acO) {
             TbadkApplication.m251getInst().delLauchTime();
         }
-        this.mHandler.removeCallbacks(this.acO);
+        this.mHandler.removeCallbacks(this.acT);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -147,9 +147,9 @@ public class LogoActivity extends BaseActivity {
             finish();
             return;
         }
-        this.mHandler.removeCallbacks(this.acO);
-        this.mHandler.postDelayed(this.acO, TbConfig.NOTIFY_SOUND_INTERVAL);
-        com.baidu.tbadk.performanceLog.w.a(this.acL - TbadkApplication.m251getInst().mainProcessCreateTime, this.acM - this.acL, System.currentTimeMillis() - this.acM);
+        this.mHandler.removeCallbacks(this.acT);
+        this.mHandler.postDelayed(this.acT, TbConfig.NOTIFY_SOUND_INTERVAL);
+        com.baidu.tbadk.performanceLog.w.a(this.acQ - TbadkApplication.m251getInst().processCreateTime, this.acR - this.acQ, System.currentTimeMillis() - this.acR);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -181,8 +181,8 @@ public class LogoActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.mHandler.removeCallbacks(this.acN);
-        wb();
+        this.mHandler.removeCallbacks(this.acS);
+        wd();
         LogoActivityConfig.isFirst = true;
     }
 
@@ -190,19 +190,19 @@ public class LogoActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        wb();
-        this.mHandler.removeCallbacks(this.acO);
+        wd();
+        this.mHandler.removeCallbacks(this.acT);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void L(Context context) {
-        this.mHandler.removeCallbacks(this.acO);
-        vZ();
+        this.mHandler.removeCallbacks(this.acT);
+        wb();
         if (LogoActivityConfig.mFromSpacial) {
             dw(1);
             LogoActivityConfig.mFromSpacial = false;
         } else if (TbadkApplication.isLogin()) {
-            if (this.acI) {
+            if (this.acN) {
                 sendMessage(new CustomMessage(2015000, new GuildActivityConfig(this).createNormalCfg(GuildActivityConfig.FROM_LOGO_PAGE)));
                 com.baidu.adp.lib.g.k.el().b(new m(this));
                 finish();
@@ -210,12 +210,12 @@ public class LogoActivity extends BaseActivity {
             }
             dw(1);
         } else {
-            this.acK.a(this, null);
+            this.acP.a(this, null);
         }
     }
 
-    private void vZ() {
-        if (this.acI) {
+    private void wb() {
+        if (this.acN) {
             TbadkSettings.getInst().saveBoolean("first_sync_image_quality", true);
             TbadkApplication.m251getInst().setIsAbstractOn(0);
             TbadkApplication.m251getInst().delLauchTime();
@@ -224,7 +224,7 @@ public class LogoActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wa() {
+    public void wc() {
         File[] listFiles;
         File file = new File(com.baidu.tbadk.core.util.s.lw());
         if (file.isDirectory() && (listFiles = file.listFiles(new n(this))) != null && listFiles.length > 0) {
@@ -235,13 +235,13 @@ public class LogoActivity extends BaseActivity {
     }
 
     private void dw(int i) {
-        this.acK.a(this, Integer.valueOf(i));
+        this.acP.a(this, Integer.valueOf(i));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dx(int i) {
         LogoActivityConfig.isFirst = false;
-        this.acJ = true;
+        this.acO = true;
         sendMessage(new CustomMessage(2015001, new MainTabActivityConfig(this).createNormalCfg(i)));
         finish();
     }
@@ -270,9 +270,9 @@ public class LogoActivity extends BaseActivity {
         }
     }
 
-    private void wb() {
-        if (this.acF != null) {
-            this.acF.setImageDrawable(null);
+    private void wd() {
+        if (this.acK != null) {
+            this.acK.setImageDrawable(null);
         }
         if (this.mBitmap != null && !this.mBitmap.isRecycled()) {
             this.mBitmap.recycle();

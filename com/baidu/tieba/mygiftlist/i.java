@@ -6,17 +6,17 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbClipImageView;
 /* loaded from: classes.dex */
 class i {
-    TextView auh;
-    TextView bnr;
-    final /* synthetic */ g btf;
-    HeadImageView btg;
-    TextView bth;
-    TbClipImageView bti;
-    TextView btj;
-    ImageView btk;
+    TextView auq;
+    TextView bnF;
+    final /* synthetic */ g btu;
+    HeadImageView btv;
+    TextView btw;
+    TbClipImageView btx;
+    TextView bty;
+    ImageView btz;
 
     private i(g gVar) {
-        this.btf = gVar;
+        this.btu = gVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

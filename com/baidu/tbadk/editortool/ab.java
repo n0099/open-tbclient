@@ -8,13 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ab extends BdAsyncTask<Void, Void, Void> {
-    final ArrayList<ad> Sr = new ArrayList<>();
-    final f Ss = new ac(this);
-    final /* synthetic */ aa St;
+    final ArrayList<ad> Sv = new ArrayList<>();
+    final f Sw = new ac(this);
+    final /* synthetic */ aa Sx;
 
     public ab(aa aaVar) {
         BdAsyncTaskParallel bdAsyncTaskParallel;
-        this.St = aaVar;
+        this.Sx = aaVar;
         setPriority(4);
         bdAsyncTaskParallel = aa.parallel;
         setParallel(bdAsyncTaskParallel);
@@ -29,10 +29,10 @@ public class ab extends BdAsyncTask<Void, Void, Void> {
         int i = 0;
         while (true) {
             int i2 = i;
-            list = this.St.Sq;
+            list = this.Sx.Su;
             if (i2 < list.size()) {
-                list2 = this.St.Sq;
-                ((e) list2.get(i2)).a(this.Ss);
+                list2 = this.Sx.Su;
+                ((e) list2.get(i2)).a(this.Sw);
                 i = i2 + 1;
             } else {
                 return null;
@@ -45,7 +45,7 @@ public class ab extends BdAsyncTask<Void, Void, Void> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Void r4) {
         super.onPostExecute((ab) r4);
-        this.St.Sp = this.Sr;
+        this.Sx.St = this.Sv;
         MessageManager.getInstance().dispatchResponsedMessageToUI(new EmptyMessage(2001120));
     }
 }

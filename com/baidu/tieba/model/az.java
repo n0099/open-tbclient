@@ -11,11 +11,11 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class az extends BdAsyncTask<Object, Integer, SignData> {
-    final /* synthetic */ ay bpG;
+    final /* synthetic */ ay bpU;
     private volatile com.baidu.tbadk.core.util.ac yV;
 
     private az(ay ayVar) {
-        this.bpG = ayVar;
+        this.bpU = ayVar;
         this.yV = null;
     }
 
@@ -64,10 +64,10 @@ public class az extends BdAsyncTask<Object, Integer, SignData> {
             TiebaStatic.eventStat(TbadkApplication.m251getInst().getApplicationContext(), "sign_do_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
             this.yV = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/sign");
             com.baidu.tbadk.core.util.ac acVar = this.yV;
-            str2 = this.bpG.mForumName;
+            str2 = this.bpU.mForumName;
             acVar.k("kw", str2);
             com.baidu.tbadk.core.util.ac acVar2 = this.yV;
-            str3 = this.bpG.mForumId;
+            str3 = this.bpU.mForumId;
             acVar2.k(ImageViewerConfig.FORUM_ID, str3);
             this.yV.mc().na().mIsNeedTbs = true;
             lA = this.yV.lA();
@@ -85,12 +85,12 @@ public class az extends BdAsyncTask<Object, Integer, SignData> {
                     str = signData;
                     str5 = signed;
                     if (signed == 1) {
-                        str4 = this.bpG.mForumId;
+                        str4 = this.bpU.mForumId;
                         Hao123Model.updateSign(str4, true, signData.getCountSignNum());
                         str = signData;
                         str5 = str4;
                     }
-                } else if (!com.baidu.tbadk.core.util.ay.aA(lA) && (jSONObject = new JSONObject(lA)) != null && "199901".equals(jSONObject.optString("error_code"))) {
+                } else if (!com.baidu.tbadk.core.util.az.aA(lA) && (jSONObject = new JSONObject(lA)) != null && "199901".equals(jSONObject.optString("error_code"))) {
                     SignData signData2 = new SignData();
                     signData2.parserJson(lA);
                     signData2.setIsSigned(1);
@@ -116,9 +116,9 @@ public class az extends BdAsyncTask<Object, Integer, SignData> {
         if (this.yV != null) {
             this.yV.dM();
         }
-        this.bpG.bpF = null;
+        this.bpU.bpT = null;
         super.cancel(true);
-        hVar = this.bpG.mLoadDataCallBack;
+        hVar = this.bpU.mLoadDataCallBack;
         hVar.a(null);
     }
 
@@ -129,13 +129,13 @@ public class az extends BdAsyncTask<Object, Integer, SignData> {
     public void onPostExecute(SignData signData) {
         com.baidu.adp.base.h hVar;
         TiebaStatic.eventStat(TbadkApplication.m251getInst().getApplicationContext(), "sign_end_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
-        this.bpG.bpF = null;
+        this.bpU.bpT = null;
         TiebaStatic.eventStat(TbadkApplication.m251getInst().getApplicationContext(), "sign_end_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
         if (signData == null && this.yV != null) {
-            this.bpG.mErrorCode = this.yV.mg();
-            this.bpG.mErrorString = this.yV.getErrorString();
+            this.bpU.mErrorCode = this.yV.mg();
+            this.bpU.mErrorString = this.yV.getErrorString();
         }
-        hVar = this.bpG.mLoadDataCallBack;
+        hVar = this.bpU.mLoadDataCallBack;
         hVar.a(signData);
     }
 }

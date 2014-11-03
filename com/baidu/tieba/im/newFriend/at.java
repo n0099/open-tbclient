@@ -4,19 +4,19 @@ import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.dialog.BdToast;
 /* loaded from: classes.dex */
 class at implements be {
-    final /* synthetic */ NewFriendsActivity bgY;
+    final /* synthetic */ NewFriendsActivity bhm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(NewFriendsActivity newFriendsActivity) {
-        this.bgY = newFriendsActivity;
+        this.bhm = newFriendsActivity;
     }
 
     @Override // com.baidu.tieba.im.newFriend.be
     public void fa(String str) {
         String str2;
-        this.bgY.Rh();
+        this.bhm.Rk();
         TbadkSettings inst = TbadkSettings.getInst();
-        str2 = this.bgY.bgR;
+        str2 = this.bhm.bhf;
         inst.saveBoolean(str2, true);
     }
 
@@ -24,10 +24,10 @@ class at implements be {
     public void fb(String str) {
         az azVar;
         az azVar2;
-        azVar = this.bgY.bgS;
+        azVar = this.bhm.bhg;
         azVar.hN();
-        azVar2 = this.bgY.bgS;
+        azVar2 = this.bhm.bhg;
         azVar2.setData(null);
-        BdToast.a(this.bgY, str);
+        BdToast.a(this.bhm, str);
     }
 }

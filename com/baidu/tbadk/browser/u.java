@@ -25,7 +25,7 @@ public class u implements DownloadListener {
             if (TextUtils.isEmpty(aR)) {
                 aR = String.valueOf(System.currentTimeMillis()) + ".apk";
             }
-            com.baidu.tbadk.download.b.rh().a(aR, str, aR, 0);
+            com.baidu.tbadk.download.b.rj().a(aR, str, aR, 0);
         }
     }
 }

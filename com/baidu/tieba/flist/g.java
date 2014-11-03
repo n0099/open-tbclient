@@ -3,30 +3,30 @@ package com.baidu.tieba.flist;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 class g implements e {
-    final /* synthetic */ ForumListActivity avP;
+    final /* synthetic */ ForumListActivity avY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(ForumListActivity forumListActivity) {
-        this.avP = forumListActivity;
+        this.avY = forumListActivity;
     }
 
     @Override // com.baidu.tieba.flist.e
     public void a(boolean z, int i, com.baidu.tieba.square.q qVar, String str, boolean z2) {
         if (!z || i != 0) {
             if (!z2) {
-                this.avP.avy.DV();
+                this.avY.avH.DX();
                 return;
             }
             return;
         }
-        qVar.bMu.add(0, qVar);
-        if (this.avP.avy.awD != null) {
-            this.avP.avy.awD.a(qVar);
-            this.avP.eW(String.valueOf(this.avP.avy.atA.getText()));
-            this.avP.avy.mNavigationBar.onChangeSkinType(TbadkApplication.m251getInst().getSkinType());
-            this.avP.avy.awD.notifyDataSetChanged();
+        qVar.bMJ.add(0, qVar);
+        if (this.avY.avH.awM != null) {
+            this.avY.avH.awM.a(qVar);
+            this.avY.eW(String.valueOf(this.avY.avH.atJ.getText()));
+            this.avY.avH.mNavigationBar.onChangeSkinType(TbadkApplication.m251getInst().getSkinType());
+            this.avY.avH.awM.notifyDataSetChanged();
         }
-        this.avP.avy.awE.setClickable(true);
-        this.avP.avy.awE.setOnClickListener(this.avP);
+        this.avY.avH.awN.setClickable(true);
+        this.avY.avH.awN.setOnClickListener(this.avY);
     }
 }

@@ -16,7 +16,7 @@ public class f {
         acVar.k("bdusstoken", String.valueOf(str2) + "|" + str3);
         acVar.k("channel_id", TbadkApplication.m251getInst().getPushChannelId());
         acVar.k("channel_uid", TbadkApplication.m251getInst().getPushChannelUserId());
-        acVar.mc().na().FT = false;
+        acVar.mc().na().FU = false;
         String lA = acVar.lA();
         if (acVar.mc().nb().jq() && lA != null) {
             com.baidu.tbadk.core.data.j jVar = new com.baidu.tbadk.core.data.j();

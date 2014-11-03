@@ -12,11 +12,11 @@ import tbclient.GetGiftMyList.GiftList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements AdapterView.OnItemClickListener {
-    final /* synthetic */ k btD;
+    final /* synthetic */ k btR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.btD = kVar;
+        this.btR = kVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -26,23 +26,23 @@ public class l implements AdapterView.OnItemClickListener {
         MyGiftListActivity myGiftListActivity;
         MyGiftListActivity myGiftListActivity2;
         com.baidu.tbadk.widget.i iVar;
-        z = this.btD.mIsHost;
+        z = this.btR.mIsHost;
         if (!z) {
-            gVar = this.btD.bty;
+            gVar = this.btR.btM;
             GiftList item = gVar.getItem(i);
             if (item != null && item.sender != null && item.sender.id.longValue() > 0) {
                 if (UtilHelper.isNetOk()) {
-                    myGiftListActivity2 = this.btD.btc;
+                    myGiftListActivity2 = this.btR.btr;
                     myGiftListActivity2.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(TbadkApplication.m251getInst().getApplicationContext(), String.valueOf(item.sender.id), item.sender.name_show)));
                     return;
                 }
-                myGiftListActivity = this.btD.btc;
+                myGiftListActivity = this.btR.btr;
                 myGiftListActivity.showToast(y.neterror);
                 return;
             }
             return;
         }
-        iVar = this.btD.btC;
+        iVar = this.btR.btQ;
         iVar.dP((String) view.getTag(v.tag_second));
     }
 }

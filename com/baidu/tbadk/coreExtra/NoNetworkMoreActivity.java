@@ -15,9 +15,9 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class NoNetworkMoreActivity extends BaseActivity {
-    private View Js;
-    private TextView Jt;
+    private View Jt;
     private TextView Ju;
+    private TextView Jv;
     private NavigationBar mNavigationBar;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -30,24 +30,24 @@ public class NoNetworkMoreActivity extends BaseActivity {
 
     protected void initUI() {
         this.mNavigationBar = (NavigationBar) findViewById(v.view_navigation_bar);
-        this.Js = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
-        this.Js.setOnClickListener(this);
+        this.Jt = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
+        this.Jt.setOnClickListener(this);
         this.mNavigationBar.setTitleText(y.no_network);
-        this.Jt = (TextView) findViewById(v.more_item1);
+        this.Ju = (TextView) findViewById(v.more_item1);
         SpannableString spannableString = new SpannableString(getString(y.no_network_guide_content1));
         spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#262626")), 4, 15, 33);
-        this.Jt.setText(spannableString);
-        this.Ju = (TextView) findViewById(v.more_item2);
+        this.Ju.setText(spannableString);
+        this.Jv = (TextView) findViewById(v.more_item2);
         SpannableString spannableString2 = new SpannableString(getString(y.no_network_guide_content2));
         spannableString2.setSpan(new ForegroundColorSpan(Color.parseColor("#262626")), 4, 15, 33);
-        this.Ju.setText(spannableString2);
+        this.Jv.setText(spannableString2);
         ((Button) findViewById(v.network_setting_btn)).setOnClickListener(this);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
-        if (view == this.Js) {
+        if (view == this.Jt) {
             finish();
         } else if (id == v.network_setting_btn) {
             startActivity(new Intent("android.settings.SETTINGS"));

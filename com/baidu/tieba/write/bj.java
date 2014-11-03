@@ -4,11 +4,11 @@ import android.widget.EditText;
 import com.baidu.tieba.editortool.EditorToolComponetContainer;
 /* loaded from: classes.dex */
 class bj implements Runnable {
-    final /* synthetic */ WriteActivity bTX;
+    final /* synthetic */ WriteActivity bUm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bj(WriteActivity writeActivity) {
-        this.bTX = writeActivity;
+        this.bUm = writeActivity;
     }
 
     @Override // java.lang.Runnable
@@ -18,15 +18,15 @@ class bj implements Runnable {
         EditText editText2;
         EditorToolComponetContainer editorToolComponetContainer2;
         EditText editText3;
-        editText = this.bTX.bJr;
+        editText = this.bUm.bJG;
         if (editText.getVisibility() == 0) {
-            editorToolComponetContainer2 = this.bTX.are;
-            editText3 = this.bTX.bJr;
+            editorToolComponetContainer2 = this.bUm.arn;
+            editText3 = this.bUm.bJG;
             editorToolComponetContainer2.x(editText3);
             return;
         }
-        editorToolComponetContainer = this.bTX.are;
-        editText2 = this.bTX.bJv;
+        editorToolComponetContainer = this.bUm.arn;
+        editText2 = this.bUm.bJK;
         editorToolComponetContainer.x(editText2);
     }
 }

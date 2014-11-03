@@ -4,11 +4,11 @@ import com.squareup.wire.Wire;
 import tbclient.Profile.ProfileResIdl;
 /* loaded from: classes.dex */
 class ae implements com.baidu.adp.lib.cache.u<byte[]> {
-    final /* synthetic */ ac bqY;
+    final /* synthetic */ ac brm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(ac acVar) {
-        this.bqY = acVar;
+        this.brm = acVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,13 +18,13 @@ class ae implements com.baidu.adp.lib.cache.u<byte[]> {
         boolean z;
         if (bArr != null) {
             try {
-                this.bqY.a(((ProfileResIdl) new Wire(new Class[0]).parseFrom(bArr, ProfileResIdl.class)).data);
+                this.brm.a(((ProfileResIdl) new Wire(new Class[0]).parseFrom(bArr, ProfileResIdl.class)).data);
                 z = true;
             } catch (Exception e) {
                 z = false;
             }
             if (z) {
-                this.bqY.mUIHandler.post(new af(this));
+                this.brm.mUIHandler.post(new af(this));
             }
         }
     }

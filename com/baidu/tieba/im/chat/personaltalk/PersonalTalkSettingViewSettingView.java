@@ -8,7 +8,7 @@ import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class PersonalTalkSettingViewSettingView extends LinearLayout {
-    private SettingTextSwitchView aSD;
+    private SettingTextSwitchView aSR;
 
     public PersonalTalkSettingViewSettingView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -21,22 +21,22 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
     }
 
     public void setSwitchStateChangeListener(com.baidu.adp.widget.BdSwitchView.c cVar) {
-        if (this.aSD != null) {
-            this.aSD.setSwitchStateChangeListener(cVar);
+        if (this.aSR != null) {
+            this.aSR.setSwitchStateChangeListener(cVar);
         }
     }
 
     private void initUI() {
         setOrientation(1);
         inflate(getContext(), w.p2ptalk_setting_detail_view, this);
-        this.aSD = (SettingTextSwitchView) findViewById(v.sv_person_msg_notify);
+        this.aSR = (SettingTextSwitchView) findViewById(v.sv_person_msg_notify);
     }
 
     public void cN(boolean z) {
         if (z) {
-            this.aSD.A(false);
+            this.aSR.A(false);
         } else {
-            this.aSD.B(false);
+            this.aSR.B(false);
         }
     }
 }

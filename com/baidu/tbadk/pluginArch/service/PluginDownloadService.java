@@ -150,7 +150,7 @@ public class PluginDownloadService extends Service {
                         for (Object obj : objArr) {
                             if (obj instanceof DownloadData) {
                                 DownloadData downloadData = (DownloadData) obj;
-                                Iterator<DownloadData> it = g.rk().rm().iterator();
+                                Iterator<DownloadData> it = g.rm().ro().iterator();
                                 while (true) {
                                     if (it.hasNext()) {
                                         DownloadData next = it.next();
@@ -164,7 +164,7 @@ public class PluginDownloadService extends Service {
                                 if (!z) {
                                     BdLog.i("startDownload_server_add" + downloadData.getId());
                                     downloadData.setCallback(PluginDownloadService.this.mFileDownloadCallBack);
-                                    g.rk().e(downloadData);
+                                    g.rm().e(downloadData);
                                 }
                             }
                         }

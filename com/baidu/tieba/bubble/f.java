@@ -8,23 +8,23 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f extends BaseAdapter {
-    private int aaj;
-    private int aak;
-    private BubbleChooseActivity ajb;
-    private boolean ajc;
+    private int aan;
+    private int aao;
+    private BubbleChooseActivity ajk;
+    private boolean ajl;
     private List<BubbleListData.BubbleData> mData = new ArrayList();
 
     public void bn(boolean z) {
-        this.ajc = z;
+        this.ajl = z;
     }
 
     public f(BubbleChooseActivity bubbleChooseActivity) {
-        this.ajb = bubbleChooseActivity;
-        this.aak = (int) this.ajb.getResources().getDimension(com.baidu.tieba.t.ds30);
-        this.aaj = (int) this.ajb.getResources().getDimension(com.baidu.tieba.t.ds30);
+        this.ajk = bubbleChooseActivity;
+        this.aao = (int) this.ajk.getResources().getDimension(com.baidu.tieba.t.ds30);
+        this.aan = (int) this.ajk.getResources().getDimension(com.baidu.tieba.t.ds30);
     }
 
-    public List<BubbleListData.BubbleData> yj() {
+    public List<BubbleListData.BubbleData> yl() {
         return this.mData;
     }
 
@@ -55,25 +55,25 @@ public class f extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         com.baidu.tieba.view.b bVar;
         if (view == null) {
-            bVar = new com.baidu.tieba.view.b(this.ajb);
+            bVar = new com.baidu.tieba.view.b(this.ajk);
             view = bVar;
         } else {
             bVar = (com.baidu.tieba.view.b) view;
         }
         if (i == 0 || i == 1) {
-            bVar.setPadding(0, this.aaj, 0, 0);
+            bVar.setPadding(0, this.aan, 0, 0);
         }
         if (getCount() % 2 == 0) {
             if (i == getCount() - 1 || i == getCount() - 2) {
-                bVar.setPadding(0, bVar.getPaddingTop(), 0, this.aak);
+                bVar.setPadding(0, bVar.getPaddingTop(), 0, this.aao);
             }
         } else if (i == getCount() - 1) {
-            bVar.setPadding(0, bVar.getPaddingTop(), 0, this.aak);
+            bVar.setPadding(0, bVar.getPaddingTop(), 0, this.aao);
         }
         BubbleListData.BubbleData item = getItem(i);
         if (item != null) {
             bVar.setShowName(true);
-            bVar.a(item, this.ajc);
+            bVar.a(item, this.ajl);
         }
         bVar.nz();
         return view;

@@ -8,13 +8,13 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ e bAh;
+    final /* synthetic */ e bAv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(e eVar, int i, int i2) {
         super(i, i2);
-        this.bAh = eVar;
+        this.bAv = eVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -36,13 +36,13 @@ public class f extends com.baidu.adp.framework.listener.a {
         ArrayList arrayList5;
         long j4 = 0;
         String str = null;
-        bdUniqueId = this.bAh.unique_id;
+        bdUniqueId = this.bAv.unique_id;
         if (bdUniqueId == responsedMessage.getOrginalMessage().getTag()) {
-            this.bAh.isLoading = false;
+            this.bAv.isLoading = false;
             if (responsedMessage.hasError()) {
-                this.bAh.bvu.showToast(responsedMessage.getErrorString());
+                this.bAv.bvI.showToast(responsedMessage.getErrorString());
                 if (responsedMessage.getError() == 4) {
-                    this.bAh.bvu.finish();
+                    this.bAv.bvI.finish();
                 }
             }
             if (responsedMessage instanceof SubPbHttpResponseMessage) {
@@ -51,7 +51,7 @@ public class f extends com.baidu.adp.framework.listener.a {
                 SubPbHttpResponseMessage subPbHttpResponseMessage = (SubPbHttpResponseMessage) responsedMessage;
                 if (subPbHttpResponseMessage.isTreatDelPage()) {
                     if (!subPbHttpResponseMessage.hasError()) {
-                        this.bAh.b(subPbHttpResponseMessage.pbFloorData);
+                        this.bAv.b(subPbHttpResponseMessage.pbFloorData);
                         return;
                     }
                     return;
@@ -68,36 +68,36 @@ public class f extends com.baidu.adp.framework.listener.a {
                 SubPbSocketResponseMessage subPbSocketResponseMessage = (SubPbSocketResponseMessage) responsedMessage;
                 if (subPbSocketResponseMessage.isTreatDelPage()) {
                     if (!subPbSocketResponseMessage.hasError()) {
-                        this.bAh.b(subPbSocketResponseMessage.pbFloorData);
+                        this.bAv.b(subPbSocketResponseMessage.pbFloorData);
                         return;
                     }
                     return;
                 }
             }
-            arrayList = this.bAh.bAe;
+            arrayList = this.bAv.bAs;
             if (arrayList != null) {
-                arrayList2 = this.bAh.bAe;
+                arrayList2 = this.bAv.bAs;
                 if (arrayList2.size() > 0) {
                     try {
-                        arrayList4 = this.bAh.bAe;
+                        arrayList4 = this.bAv.bAs;
                         for (int size = arrayList4.size() - 1; size >= 0; size--) {
-                            arrayList5 = this.bAh.bAe;
-                            this.bAh.bpm.b((ar) arrayList5.get(size), true);
+                            arrayList5 = this.bAv.bAs;
+                            this.bAv.bpA.b((ar) arrayList5.get(size), true);
                         }
                     } catch (Exception e) {
                         BdLog.detailException(e);
                     }
-                    arrayList3 = this.bAh.bAe;
+                    arrayList3 = this.bAv.bAs;
                     arrayList3.clear();
                 }
             }
             int error = responsedMessage.getError();
             String errorString = responsedMessage.getErrorString();
-            aVar = this.bAh.aAE;
+            aVar = this.bAv.aAO;
             if (aVar == null) {
-                this.bAh.aAE = new com.baidu.tieba.b.a("pbfloorStat");
+                this.bAv.aAO = new com.baidu.tieba.b.a("pbfloorStat");
             }
-            aVar2 = this.bAh.aAE;
+            aVar2 = this.bAv.aAO;
             if (aVar2 != null) {
                 if (error == 0) {
                     if (responsedMessage instanceof SubPbHttpResponseMessage) {
@@ -115,14 +115,14 @@ public class f extends com.baidu.adp.framework.listener.a {
                         j3 = j;
                         i = downSize2;
                     }
-                    aVar3 = this.bAh.aAE;
+                    aVar3 = this.bAv.aAO;
                     aVar3.a(z, true, error, errorString, i, j3, j2);
-                    this.bAh.aAE = new com.baidu.tieba.b.a("pbfloorStat");
-                    this.bAh.aAE = null;
+                    this.bAv.aAO = new com.baidu.tieba.b.a("pbfloorStat");
+                    this.bAv.aAO = null;
                 }
                 if (responsedMessage == null || ((!(responsedMessage instanceof SubPbSocketResponseMessage) && !(responsedMessage instanceof SubPbHttpResponseMessage)) || responsedMessage.getError() != 0)) {
-                    if (this.bAh.bAb != null) {
-                        this.bAh.bAb.a(false, error, errorString, null);
+                    if (this.bAv.bAp != null) {
+                        this.bAv.bAp.a(false, error, errorString, null);
                     }
                 } else if (responsedMessage.getCmd() == 302002 || responsedMessage.getCmd() == 1002100) {
                     if (responsedMessage instanceof SubPbHttpResponseMessage) {
@@ -130,36 +130,36 @@ public class f extends com.baidu.adp.framework.listener.a {
                     } else {
                         arVar = responsedMessage instanceof SubPbSocketResponseMessage ? ((SubPbSocketResponseMessage) responsedMessage).pbFloorData : null;
                     }
-                    if (arVar.Ar().errorno.intValue() != 0) {
-                        if (this.bAh.bAb != null) {
-                            this.bAh.bAb.a(false, arVar.amD.errorno.intValue(), arVar.amD.errmsg, null);
+                    if (arVar.At().errorno.intValue() != 0) {
+                        if (this.bAv.bAp != null) {
+                            this.bAv.bAp.a(false, arVar.amM.errorno.intValue(), arVar.amM.errmsg, null);
                             return;
                         }
                         return;
                     }
-                    if (arVar.Ay() != null && arVar.Ay().getAuthor() != null) {
-                        str = arVar.Ay().getAuthor().getUserId();
+                    if (arVar.AA() != null && arVar.AA().getAuthor() != null) {
+                        str = arVar.AA().getAuthor().getUserId();
                     }
-                    for (int i2 = 0; i2 < arVar.Au().size(); i2++) {
-                        arVar.Au().get(i2).a(this.bAh.bvu, str.equals(arVar.Au().get(i2).getAuthor().getUserId()));
+                    for (int i2 = 0; i2 < arVar.Aw().size(); i2++) {
+                        arVar.Aw().get(i2).a(this.bAv.bvI, str.equals(arVar.Aw().get(i2).getAuthor().getUserId()));
                     }
-                    if (arVar.As() != null) {
-                        this.bAh.alT = arVar.As().getId();
+                    if (arVar.Au() != null) {
+                        this.bAv.amc = arVar.Au().getId();
                     }
-                    if (arVar.Ay() != null) {
-                        this.bAh.bAa = arVar.Ay().getId();
+                    if (arVar.AA() != null) {
+                        this.bAv.bAo = arVar.AA().getId();
                     }
-                    if (this.bAh.auI == 1) {
-                        this.bAh.bpm = arVar;
-                    } else if (this.bAh.auI == 2) {
-                        this.bAh.bpm.b(arVar, true);
-                    } else if (this.bAh.auI == 3) {
-                        this.bAh.bpm.a(arVar, false);
+                    if (this.bAv.auR == 1) {
+                        this.bAv.bpA = arVar;
+                    } else if (this.bAv.auR == 2) {
+                        this.bAv.bpA.b(arVar, true);
+                    } else if (this.bAv.auR == 3) {
+                        this.bAv.bpA.a(arVar, false);
                     } else {
-                        this.bAh.bpm.b(arVar, false);
+                        this.bAv.bpA.b(arVar, false);
                     }
-                    if (this.bAh.bAb != null) {
-                        this.bAh.bAb.a(true, error, errorString, this.bAh.bpm);
+                    if (this.bAv.bAp != null) {
+                        this.bAv.bAp.a(true, error, errorString, this.bAv.bpA);
                     }
                 }
             }

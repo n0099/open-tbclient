@@ -6,15 +6,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class p {
-    private String akr;
-    private String aks;
+    private String akA;
+    private String akB;
     private int errorCode = 0;
     private String errorMsg = "";
-    private String ako = "";
-    private int akp = 0;
+    private String akx = "";
+    private int aky = 0;
     private int has_more = 0;
-    private boolean akq = false;
-    private ArrayList<q> akt = new ArrayList<>();
+    private boolean akz = false;
+    private ArrayList<q> akC = new ArrayList<>();
 
     public void parserJson(String str) {
         try {
@@ -27,23 +27,23 @@ public class p {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.akp = jSONObject.optInt("is_new_url", 0);
+                this.aky = jSONObject.optInt("is_new_url", 0);
                 JSONObject optJSONObject = jSONObject.optJSONObject("error");
                 if (optJSONObject != null) {
                     this.errorCode = optJSONObject.optInt("errno", 0);
                     this.errorMsg = optJSONObject.optString("errmsg", "");
-                    this.ako = optJSONObject.optString("usermsg", "");
+                    this.akx = optJSONObject.optString("usermsg", "");
                 }
-                this.akr = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.TOTAL);
+                this.akA = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.TOTAL);
                 this.has_more = jSONObject.optInt("has_more");
                 JSONArray optJSONArray = jSONObject.optJSONArray("feed_thread_list");
                 if (optJSONArray != null) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         q qVar = new q();
                         qVar.parserJson(optJSONArray.optJSONObject(i));
-                        this.akt.add(qVar);
+                        this.akC.add(qVar);
                     }
-                    this.akq = optJSONArray.length() == 0;
+                    this.akz = optJSONArray.length() == 0;
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -54,23 +54,23 @@ public class p {
     public void a(p pVar, boolean z) {
         if (pVar != null) {
             this.has_more = pVar.getHasMore();
-            this.akr = pVar.yW();
-            this.aks = pVar.yX();
-            this.akq = pVar.yV() == null || pVar.yV().size() == 0;
+            this.akA = pVar.yY();
+            this.akB = pVar.yZ();
+            this.akz = pVar.yX() == null || pVar.yX().size() == 0;
             if (z) {
-                this.akt.addAll(pVar.yV());
+                this.akC.addAll(pVar.yX());
             } else {
-                this.akt = pVar.yV();
+                this.akC = pVar.yX();
             }
         }
     }
 
-    public int yU() {
-        return this.akp;
+    public int yW() {
+        return this.aky;
     }
 
-    public ArrayList<q> yV() {
-        return this.akt;
+    public ArrayList<q> yX() {
+        return this.akC;
     }
 
     public int getHasMore() {
@@ -81,19 +81,19 @@ public class p {
         return this.has_more > 0;
     }
 
-    public String yW() {
-        return this.akr;
+    public String yY() {
+        return this.akA;
     }
 
-    public String yX() {
-        return this.aks;
+    public String yZ() {
+        return this.akB;
     }
 
     public int getErrorCode() {
         return this.errorCode;
     }
 
-    public String yY() {
-        return this.ako;
+    public String za() {
+        return this.akx;
     }
 }

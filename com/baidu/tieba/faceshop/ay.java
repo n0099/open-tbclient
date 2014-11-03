@@ -5,14 +5,14 @@ import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ay {
-    TextView JM;
-    TextView atB;
-    TbImageView atz;
-    final /* synthetic */ aw aug;
-    TextView auh;
+    TextView JN;
+    TbImageView atI;
+    TextView atK;
+    final /* synthetic */ aw aup;
+    TextView auq;
 
     private ay(aw awVar) {
-        this.aug = awVar;
+        this.aup = awVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -19,11 +19,11 @@ class n extends CustomMessageListener {
             ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = (ResponseNewFriendUpdateUiMsg) customResponsedMessage;
             if (responseNewFriendUpdateUiMsg.getAction() == 0) {
                 b bVar = new b();
-                bVar.cE(responseNewFriendUpdateUiMsg.getKey());
+                bVar.cF(responseNewFriendUpdateUiMsg.getKey());
                 bVar.setQuanpin(responseNewFriendUpdateUiMsg.getQuanping());
                 bVar.setUserId(responseNewFriendUpdateUiMsg.getFriendId());
                 bVar.setUserName(responseNewFriendUpdateUiMsg.getName());
-                bVar.cD(responseNewFriendUpdateUiMsg.getPortrait());
+                bVar.cE(responseNewFriendUpdateUiMsg.getPortrait());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2001183, bVar));
             } else if (responseNewFriendUpdateUiMsg.getAction() == 1) {
                 b bVar2 = new b();

@@ -8,7 +8,7 @@ public interface ah {
 
     void stopService();
 
-    void wd();
+    void wf();
 
-    void we();
+    void wg();
 }

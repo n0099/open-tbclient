@@ -9,27 +9,27 @@ import tbclient.ReplyMe.ReplyMeResIdl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq implements CustomMessageTask.CustomRunnable {
-    final /* synthetic */ SingleMentionActivity bnY;
+    final /* synthetic */ SingleMentionActivity bom;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(SingleMentionActivity singleMentionActivity) {
-        this.bnY = singleMentionActivity;
+        this.bom = singleMentionActivity;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<com.baidu.tieba.model.am> run(CustomMessage customMessage) {
-        com.baidu.adp.lib.cache.t wO;
+        com.baidu.adp.lib.cache.t wQ;
         if (customMessage == null) {
             return null;
         }
-        wO = this.bnY.wO();
-        byte[] bArr = (byte[]) wO.get("replyme_cache");
-        com.baidu.tieba.model.am amVar = new com.baidu.tieba.model.am(this.bnY);
-        if (bArr != null && this.bnY.bnV != null && this.bnY.bnV.SQ() != null && this.bnY.bnV.SQ().SU() == 1) {
+        wQ = this.bom.wQ();
+        byte[] bArr = (byte[]) wQ.get("replyme_cache");
+        com.baidu.tieba.model.am amVar = new com.baidu.tieba.model.am(this.bom);
+        if (bArr != null && this.bom.boj != null && this.bom.boj.ST() != null && this.bom.boj.ST().SX() == 1) {
             try {
                 amVar.a(((ReplyMeResIdl) new Wire(new Class[0]).parseFrom(bArr, ReplyMeResIdl.class)).data);
                 if (!amVar.isSucc()) {
-                    this.bnY.tC();
+                    this.bom.tE();
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);

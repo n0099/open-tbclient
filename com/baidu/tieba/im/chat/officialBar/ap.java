@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.im.model.OfficialBarTipModel;
 /* loaded from: classes.dex */
 class ap extends CustomMessageListener {
-    final /* synthetic */ OfficialBarTipActivity aRU;
+    final /* synthetic */ OfficialBarTipActivity aSi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ap(OfficialBarTipActivity officialBarTipActivity, int i) {
         super(i);
-        this.aRU = officialBarTipActivity;
+        this.aSi = officialBarTipActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,17 +27,17 @@ class ap extends CustomMessageListener {
                 if (customResponsedMessage.getCmd() != 2016003) {
                     if (customResponsedMessage.getCmd() != 2016006) {
                         if (customResponsedMessage.getCmd() == 2016000) {
-                            officialBarTipModel = this.aRU.aRS;
-                            aVar = this.aRU.aQB;
+                            officialBarTipModel = this.aSi.aSg;
+                            aVar = this.aSi.aQP;
                             officialBarTipModel.setData(null, aVar);
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016011) {
-                            auVar = this.aRU.aRT;
+                            auVar = this.aSi.aSh;
                             if (auVar != null) {
-                                auVar2 = this.aRU.aRT;
-                                if (auVar2.Ky() != null) {
-                                    auVar3 = this.aRU.aRT;
-                                    auVar3.Ky().notifyDataSetChanged();
+                                auVar2 = this.aSi.aSh;
+                                if (auVar2.KC() != null) {
+                                    auVar3 = this.aSi.aSh;
+                                    auVar3.KC().notifyDataSetChanged();
                                     return;
                                 }
                                 return;
@@ -47,13 +47,13 @@ class ap extends CustomMessageListener {
                             return;
                         }
                     }
-                    this.aRU.e(customResponsedMessage);
+                    this.aSi.e(customResponsedMessage);
                     return;
                 }
-                this.aRU.d(customResponsedMessage);
+                this.aSi.d(customResponsedMessage);
                 return;
             }
-            this.aRU.c(customResponsedMessage);
+            this.aSi.c(customResponsedMessage);
         }
     }
 }

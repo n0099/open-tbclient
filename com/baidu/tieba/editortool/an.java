@@ -3,10 +3,10 @@ package com.baidu.tieba.editortool;
 import android.content.Context;
 /* loaded from: classes.dex */
 public abstract class an {
-    private com.baidu.tbadk.editortool.w RC;
-    private ap arB;
-    private ao arC;
-    private at arD;
+    private com.baidu.tbadk.editortool.w RG;
+    private ap arK;
+    private ao arL;
+    private at arM;
     private int column = 0;
     private int row = 0;
     private int verticalSpacing = 0;
@@ -19,26 +19,26 @@ public abstract class an {
     public abstract void init(Context context);
 
     public an(at atVar) {
-        this.arD = atVar;
+        this.arM = atVar;
     }
 
-    public ap Cp() {
-        return this.arB;
+    public ap Cr() {
+        return this.arK;
     }
 
     public void a(ap apVar) {
-        this.arB = apVar;
+        this.arK = apVar;
     }
 
-    public ao Cq() {
-        return this.arC;
+    public ao Cs() {
+        return this.arL;
     }
 
     public void a(ao aoVar) {
-        this.arC = aoVar;
+        this.arL = aoVar;
     }
 
-    public int Cr() {
+    public int Ct() {
         return this.column;
     }
 
@@ -54,7 +54,7 @@ public abstract class an {
         this.row = i;
     }
 
-    public int Cs() {
+    public int Cu() {
         return this.verticalSpacing;
     }
 
@@ -62,7 +62,7 @@ public abstract class an {
         this.verticalSpacing = i;
     }
 
-    public int Ct() {
+    public int Cv() {
         return this.horizontalSpacing;
     }
 
@@ -70,15 +70,15 @@ public abstract class an {
         this.horizontalSpacing = i;
     }
 
-    public at Cu() {
-        return this.arD;
+    public at Cw() {
+        return this.arM;
     }
 
-    public com.baidu.tbadk.editortool.w Cv() {
-        return this.RC;
+    public com.baidu.tbadk.editortool.w Cx() {
+        return this.RG;
     }
 
     public void b(com.baidu.tbadk.editortool.w wVar) {
-        this.RC = wVar;
+        this.RG = wVar;
     }
 }

@@ -10,28 +10,28 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class m {
-    private static m aVm;
+    private static m aVA;
 
     private m() {
     }
 
-    public static synchronized m MK() {
+    public static synchronized m MO() {
         m mVar;
         synchronized (m.class) {
-            if (aVm == null) {
-                aVm = new m();
+            if (aVA == null) {
+                aVA = new m();
             }
-            mVar = aVm;
+            mVar = aVA;
         }
         return mVar;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [68=5] */
-    public int ML() {
+    public int MP() {
         int i = 0;
         Cursor cursor = null;
         try {
-            cursor = g.MA().rawQuery("select count(*) from tb_new_friends WHERE  ( isread=? and ustatus=? ) or (isread=? and ustatus=? )", new String[]{String.valueOf(0), String.valueOf(1), String.valueOf(0), String.valueOf(4)});
+            cursor = g.ME().rawQuery("select count(*) from tb_new_friends WHERE  ( isread=? and ustatus=? ) or (isread=? and ustatus=? )", new String[]{String.valueOf(0), String.valueOf(1), String.valueOf(0), String.valueOf(4)});
             if (cursor != null && cursor.moveToNext()) {
                 i = cursor.getInt(0);
             }
@@ -45,19 +45,19 @@ public class m {
         return i;
     }
 
-    public void MM() {
+    public void MQ() {
         ContentValues contentValues = new ContentValues();
         contentValues.put("isread", (Integer) 1);
-        g.MA().update("tb_new_friends", contentValues, null, null);
+        g.ME().update("tb_new_friends", contentValues, null, null);
     }
 
     public boolean O(long j) {
-        return a(f.My(), j);
+        return a(f.MC(), j);
     }
 
     private boolean a(SQLiteDatabase sQLiteDatabase, long j) {
         try {
-            return g.MA().a("tb_new_friends", "uid = ?", new String[]{String.valueOf(j)});
+            return g.ME().a("tb_new_friends", "uid = ?", new String[]{String.valueOf(j)});
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -74,14 +74,14 @@ public class m {
     private boolean b(SQLiteDatabase sQLiteDatabase, long j) {
         boolean z = true;
         if (sQLiteDatabase == null) {
-            sQLiteDatabase = f.My();
+            sQLiteDatabase = f.MC();
         }
         if (sQLiteDatabase != null) {
             Cursor cursor = null;
             try {
                 try {
                     try {
-                        cursor = g.MA().rawQuery("select * from tb_new_friends WHERE uid=?", new String[]{String.valueOf(j)});
+                        cursor = g.ME().rawQuery("select * from tb_new_friends WHERE uid=?", new String[]{String.valueOf(j)});
                         if (cursor != null) {
                         }
                         z = false;
@@ -106,7 +106,7 @@ public class m {
     }
 
     public boolean P(long j) {
-        return b(f.My(), j);
+        return b(f.MC(), j);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [173=5] */
@@ -114,13 +114,13 @@ public class m {
         Cursor cursor;
         Cursor cursor2;
         if (sQLiteDatabase == null) {
-            sQLiteDatabase = f.My();
+            sQLiteDatabase = f.MC();
         }
         if (sQLiteDatabase != null) {
             Cursor cursor3 = null;
             try {
                 try {
-                    cursor2 = g.MA().rawQuery("select * from tb_new_friends", new String[0]);
+                    cursor2 = g.ME().rawQuery("select * from tb_new_friends", new String[0]);
                     if (cursor2 != null) {
                         try {
                             if (cursor2.moveToNext()) {
@@ -173,7 +173,7 @@ public class m {
     private int z(SQLiteDatabase sQLiteDatabase) {
         int i = 0;
         if (sQLiteDatabase == null) {
-            sQLiteDatabase = f.My();
+            sQLiteDatabase = f.MC();
         }
         Cursor cursor = null;
         try {
@@ -185,7 +185,7 @@ public class m {
             com.baidu.adp.lib.util.p.a(cursor);
         }
         if (sQLiteDatabase != null) {
-            cursor = g.MA().rawQuery("select * from tb_new_friends", new String[0]);
+            cursor = g.ME().rawQuery("select * from tb_new_friends", new String[0]);
             if (cursor == null || !cursor.moveToFirst()) {
                 com.baidu.adp.lib.util.p.a(cursor);
             } else {
@@ -197,7 +197,7 @@ public class m {
 
     public void a(com.baidu.tieba.im.data.e eVar) {
         try {
-            a(f.My(), eVar);
+            a(f.MC(), eVar);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -206,7 +206,7 @@ public class m {
     public void U(List<com.baidu.tieba.im.data.e> list) {
         try {
             for (com.baidu.tieba.im.data.e eVar : list) {
-                a(f.My(), eVar);
+                a(f.MC(), eVar);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -216,7 +216,7 @@ public class m {
     private void a(SQLiteDatabase sQLiteDatabase, com.baidu.tieba.im.data.e eVar) {
         if (eVar != null && eVar.getId() != 0 && !TextUtils.isEmpty(eVar.getName())) {
             if (sQLiteDatabase == null) {
-                sQLiteDatabase = f.My();
+                sQLiteDatabase = f.MC();
             }
             if (sQLiteDatabase != null) {
                 a(sQLiteDatabase, eVar.getId());
@@ -230,21 +230,21 @@ public class m {
                     contentValues.put("uportrait", eVar.getPortrait());
                     contentValues.put("ucontent", eVar.getContent());
                     contentValues.put("ustatus", Integer.valueOf(eVar.getStatus()));
-                    contentValues.put("isread", Integer.valueOf(eVar.Mn()));
-                    g.MA().insert("tb_new_friends", null, contentValues);
+                    contentValues.put("isread", Integer.valueOf(eVar.Mr()));
+                    g.ME().insert("tb_new_friends", null, contentValues);
                 }
             }
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [293=4] */
-    public List<com.baidu.tieba.im.data.e> MN() {
+    public List<com.baidu.tieba.im.data.e> MR() {
         Cursor cursor = null;
-        SQLiteDatabase My = f.My();
+        SQLiteDatabase MC = f.MC();
         ArrayList arrayList = new ArrayList();
         try {
-            if (My != null) {
-                cursor = g.MA().rawQuery("select * from tb_new_friends ORDER BY _id DESC", null);
+            if (MC != null) {
+                cursor = g.ME().rawQuery("select * from tb_new_friends ORDER BY _id DESC", null);
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         com.baidu.tieba.im.data.e eVar = new com.baidu.tieba.im.data.e();
@@ -270,16 +270,16 @@ public class m {
 
     public int b(com.baidu.tieba.im.data.e eVar) {
         int i = 0;
-        SQLiteDatabase My = f.My();
-        if (My != null) {
+        SQLiteDatabase MC = f.MC();
+        if (MC != null) {
             try {
-                if (b(My, eVar.getId())) {
+                if (b(MC, eVar.getId())) {
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("ustatus", Integer.valueOf(eVar.getStatus()));
-                    contentValues.put("isread", Integer.valueOf(eVar.Mn()));
-                    i = g.MA().update("tb_new_friends", contentValues, "uid=?", new String[]{String.valueOf(eVar.getId())});
+                    contentValues.put("isread", Integer.valueOf(eVar.Mr()));
+                    i = g.ME().update("tb_new_friends", contentValues, "uid=?", new String[]{String.valueOf(eVar.getId())});
                 } else {
-                    a(My, eVar);
+                    a(MC, eVar);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -289,11 +289,11 @@ public class m {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [355=4] */
-    public List<com.baidu.tieba.im.data.e> MO() {
+    public List<com.baidu.tieba.im.data.e> MS() {
         ArrayList arrayList = new ArrayList();
         Cursor cursor = null;
         try {
-            cursor = g.MA().rawQuery("select * from tb_new_friends WHERE isread=? ORDER BY _id DESC", new String[]{String.valueOf(0)});
+            cursor = g.ME().rawQuery("select * from tb_new_friends WHERE isread=? ORDER BY _id DESC", new String[]{String.valueOf(0)});
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     com.baidu.tieba.im.data.e eVar = new com.baidu.tieba.im.data.e();
@@ -305,7 +305,7 @@ public class m {
                     eVar.setStatus(cursor.getInt(cursor.getColumnIndex("ustatus")));
                     arrayList.add(eVar);
                 }
-                MM();
+                MQ();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -324,7 +324,7 @@ public class m {
         Cursor cursor = null;
         try {
             try {
-                cursor = g.MA().rawQuery("select * from tb_new_friends where uid=?", new String[]{String.valueOf(j)});
+                cursor = g.ME().rawQuery("select * from tb_new_friends where uid=?", new String[]{String.valueOf(j)});
                 if (cursor != null && cursor.moveToNext()) {
                     eVar.fw(cursor.getInt(cursor.getColumnIndex("isread")));
                     eVar.setStatus(cursor.getInt(cursor.getColumnIndex("ustatus")));

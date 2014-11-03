@@ -3,11 +3,11 @@ package com.baidu.tieba.frs;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 class o implements dh {
-    final /* synthetic */ FrsActivity aBk;
+    final /* synthetic */ FrsActivity aBu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(FrsActivity frsActivity) {
-        this.aBk = frsActivity;
+        this.aBu = frsActivity;
     }
 
     @Override // com.baidu.tieba.frs.dh
@@ -16,28 +16,28 @@ class o implements dh {
         com.baidu.tbadk.core.data.q qVar;
         com.baidu.tbadk.core.data.q qVar2;
         int i = 1;
-        z = this.aBk.ayv;
+        z = this.aBu.ayE;
         if (z) {
-            qVar = this.aBk.aAi;
+            qVar = this.aBu.aAs;
             if (qVar != null) {
-                qVar2 = this.aBk.aAi;
+                qVar2 = this.aBu.aAs;
                 if (qVar2.getPraise().getIsLike() == 1) {
                     i = 0;
                 }
             }
-            this.aBk.eD(i);
+            this.aBu.eD(i);
         }
-        this.aBk.ayt = false;
-        com.baidu.tieba.pb.main.bs.WZ().reset();
+        this.aBu.ayC = false;
+        com.baidu.tieba.pb.main.bs.Xc().reset();
     }
 
     @Override // com.baidu.tieba.frs.dh
     public void fb(String str) {
         boolean z;
-        z = this.aBk.ayv;
+        z = this.aBu.ayE;
         if (z && !TextUtils.isEmpty(str)) {
-            this.aBk.showToast(str);
+            this.aBu.showToast(str);
         }
-        this.aBk.ayt = false;
+        this.aBu.ayC = false;
     }
 }

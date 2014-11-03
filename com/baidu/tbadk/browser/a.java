@@ -12,7 +12,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.account.AccountLoginHelper;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.pluginArch.Plugin;
 import com.baidu.tbadk.pluginArch.PluginCenter;
 import com.baidu.tbadk.pluginArch.PluginNameList;
@@ -44,39 +44,43 @@ public class a {
     }
 
     public static void i(Context context, String str) {
-        boolean z;
-        boolean z2 = false;
+        a(context, true, str);
+    }
+
+    public static void a(Context context, boolean z, String str) {
+        boolean z2;
+        boolean z3 = false;
         BdBrowserDelegate bdBrowserDelegate = null;
         try {
             int U = com.baidu.adp.lib.b.f.db().U("baidu_webview");
             AccountLoginHelper.OurToken parseBDUSS = AccountLoginHelper.parseBDUSS(TbadkApplication.getCurrentBduss());
-            String aQ = aQ(aP(str));
-            boolean z3 = aQ.indexOf("tbwebview=1") > 0;
-            boolean z4 = aQ.indexOf("tborientation=1") > 0;
-            boolean z5 = aQ.indexOf("tbfullscreen=1") > 0;
+            String aQ = z ? aQ(aP(str)) : str;
+            boolean z4 = aQ.indexOf("tbwebview=1") > 0;
+            boolean z5 = aQ.indexOf("tborientation=1") > 0;
+            boolean z6 = aQ.indexOf("tbfullscreen=1") > 0;
             Plugin pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_BROWSER);
             if (pluginByName != null) {
                 bdBrowserDelegate = (BdBrowserDelegate) pluginByName.getClassInstance(BdBrowserDelegate.class);
-                z = !pluginByName.checkEnable();
+                z2 = !pluginByName.checkEnable();
             } else {
-                z = true;
-            }
-            if (!z3 && PluginCenter.getInstance() != null && bdBrowserDelegate != null && !z) {
                 z2 = true;
             }
-            if (z3) {
+            if (!z4 && PluginCenter.getInstance() != null && bdBrowserDelegate != null && !z2) {
+                z3 = true;
+            }
+            if (z4) {
                 TbWebViewActivity.startActivityWithoutNavBar(context, aQ, true, null);
-            } else if (U == 1 || !z2) {
-                if (parseBDUSS != null) {
-                    WebTbActivity.a(context, aQ, parseBDUSS.mBduss, parseBDUSS.mPtoken, z4, z5);
+            } else if (U == 1 || !z3) {
+                if (parseBDUSS != null && z) {
+                    WebTbActivity.a(context, aQ, parseBDUSS.mBduss, parseBDUSS.mPtoken, z5, z6);
                 } else {
-                    WebTbActivity.a(context, aQ, null, null, z4, z5);
+                    WebTbActivity.a(context, aQ, null, null, z5, z6);
                 }
             } else if (Build.VERSION.SDK_INT >= 7 && U == 0) {
-                if (parseBDUSS != null) {
-                    WebBdActivity.a(context, aQ, parseBDUSS.mBduss, parseBDUSS.mPtoken, z4, z5);
+                if (parseBDUSS != null && z) {
+                    WebBdActivity.a(context, aQ, parseBDUSS.mBduss, parseBDUSS.mPtoken, z5, z6);
                 } else {
-                    WebBdActivity.a(context, aQ, null, null, z4, z5);
+                    WebBdActivity.a(context, aQ, null, null, z5, z6);
                 }
             } else {
                 k(context, aQ);
@@ -181,7 +185,7 @@ public class a {
     }
 
     public static String aP(String str) {
-        if (!ay.aA(str) && str.indexOf("cuid=") <= -1) {
+        if (!az.aA(str) && str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
@@ -199,7 +203,7 @@ public class a {
     }
 
     public static String aQ(String str) {
-        return (ay.aA(str) || str.indexOf("_client_version=") <= -1) ? String.valueOf(str) + "&_client_version=" + TbConfig.getVersion() : str;
+        return (az.aA(str) || str.indexOf("_client_version=") <= -1) ? String.valueOf(str) + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
     public static void s(Context context) {

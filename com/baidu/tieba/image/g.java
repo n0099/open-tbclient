@@ -17,7 +17,7 @@ class g implements View.OnLongClickListener {
         DialogInterface.OnClickListener onClickListener;
         String[] strArr = {this.this$0.getString(y.save)};
         ImageViewerActivity imageViewerActivity = this.this$0;
-        onClickListener = this.this$0.aNs;
+        onClickListener = this.this$0.aNG;
         imageViewerActivity.createListMenu(strArr, onClickListener);
         this.this$0.showListMenu();
         return false;

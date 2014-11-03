@@ -32,13 +32,13 @@ public class FacePackageData extends com.baidu.tbadk.core.util.a implements Seri
     @Override // com.baidu.tbadk.core.util.a
     public ArrayList<String> getImageUrl() {
         ArrayList<String> arrayList = new ArrayList<>();
-        if (!com.baidu.tbadk.core.util.ay.aA(this.banner_url)) {
+        if (!com.baidu.tbadk.core.util.az.aA(this.banner_url)) {
             arrayList.add(this.banner_url);
         }
-        if (!com.baidu.tbadk.core.util.ay.aA(this.new_icon)) {
+        if (!com.baidu.tbadk.core.util.az.aA(this.new_icon)) {
             arrayList.add(this.new_icon);
         }
-        if (!com.baidu.tbadk.core.util.ay.aA(this.tag_url)) {
+        if (!com.baidu.tbadk.core.util.az.aA(this.tag_url)) {
             arrayList.add(this.tag_url);
         }
         return arrayList;

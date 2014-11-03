@@ -5,13 +5,13 @@ import com.baidu.tieba.im.model.MembersModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements com.baidu.adp.widget.ListView.f {
-    final /* synthetic */ MembersActivity aXN;
-    private final /* synthetic */ BdListView aXO;
+    final /* synthetic */ MembersActivity aYb;
+    private final /* synthetic */ BdListView aYc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(MembersActivity membersActivity, BdListView bdListView) {
-        this.aXN = membersActivity;
-        this.aXO = bdListView;
+        this.aYb = membersActivity;
+        this.aYc = bdListView;
     }
 
     @Override // com.baidu.adp.widget.ListView.f
@@ -23,24 +23,24 @@ public class v implements com.baidu.adp.widget.ListView.f {
         MembersModel membersModel3;
         MembersModel membersModel4;
         MembersModel membersModel5;
-        ahVar = this.aXN.aXJ;
-        if (ahVar.NO().NJ()) {
-            this.aXO.hN();
+        ahVar = this.aYb.aXX;
+        if (ahVar.NS().NN()) {
+            this.aYc.hN();
             return;
         }
-        isFirstLoad = this.aXN.isFirstLoad();
+        isFirstLoad = this.aYb.isFirstLoad();
         if (isFirstLoad) {
-            membersModel = this.aXN.aXK;
-            membersModel2 = this.aXN.aXK;
+            membersModel = this.aYb.aXY;
+            membersModel2 = this.aYb.aXY;
             long groupId = membersModel2.getGroupId();
-            membersModel3 = this.aXN.aXK;
+            membersModel3 = this.aYb.aXY;
             int start = membersModel3.getStart();
-            membersModel4 = this.aXN.aXK;
+            membersModel4 = this.aYb.aXY;
             int len = membersModel4.getLen();
-            membersModel5 = this.aXN.aXK;
+            membersModel5 = this.aYb.aXY;
             membersModel.sendMessage(groupId, start, len, membersModel5.getOrderType());
             return;
         }
-        this.aXN.reset();
+        this.aYb.reset();
     }
 }

@@ -20,26 +20,26 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends BaseAdapter {
-    private List<GameInfoData> Yd = new ArrayList();
-    private GameCategoryDetailActivity aKC;
+    private List<GameInfoData> Yh = new ArrayList();
+    private GameCategoryDetailActivity aKQ;
 
     public a(GameCategoryDetailActivity gameCategoryDetailActivity) {
-        this.aKC = gameCategoryDetailActivity;
+        this.aKQ = gameCategoryDetailActivity;
     }
 
     public void setData(List<GameInfoData> list) {
         if (list != null) {
-            this.Yd = list;
+            this.Yh = list;
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.Yd == null || this.Yd.isEmpty()) {
+        if (this.Yh == null || this.Yh.isEmpty()) {
             return 0;
         }
-        int size = this.Yd.size();
-        if (this.aKC != null && this.aKC.getHasMore() && size > 8) {
+        int size = this.Yh.size();
+        if (this.aKQ != null && this.aKQ.getHasMore() && size > 8) {
             return size + 1;
         }
         return size;
@@ -49,10 +49,10 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     /* renamed from: ff */
     public GameInfoData getItem(int i) {
-        if (this.Yd == null || this.Yd.size() == 0 || i < 0 || i > this.Yd.size() - 1) {
+        if (this.Yh == null || this.Yh.size() == 0 || i < 0 || i > this.Yh.size() - 1) {
             return null;
         }
-        return this.Yd.get(i);
+        return this.Yh.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -62,7 +62,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return (this.Yd == null || i >= this.Yd.size()) ? 1 : 0;
+        return (this.Yh == null || i >= this.Yh.size()) ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -78,27 +78,27 @@ public class a extends BaseAdapter {
             if (view instanceof af) {
                 view2 = view;
             } else {
-                view2 = new af(this.aKC, GameListBaseItem.SECOND_LINE_TYPE.TYPE_ALL_DOWNLOADS);
-                view2.setPadding(m.c(this.aKC, t.ds30), 0, m.c(this.aKC, t.ds32), 0);
+                view2 = new af(this.aKQ, GameListBaseItem.SECOND_LINE_TYPE.TYPE_ALL_DOWNLOADS);
+                view2.setPadding(m.c(this.aKQ, t.ds30), 0, m.c(this.aKQ, t.ds32), 0);
             }
             af afVar = (af) view2;
             afVar.onChangeSkinType(TbadkApplication.m251getInst().getSkinType());
-            afVar.setData(getItem(i));
+            afVar.a(this.aKQ.getUniqueId(), getItem(i));
             return afVar;
         }
         if (view == null || !(view.getTag() instanceof b)) {
-            view = com.baidu.adp.lib.g.b.ek().inflate(this.aKC, w.new_pb_list_more, null);
+            view = com.baidu.adp.lib.g.b.ek().inflate(this.aKQ, w.new_pb_list_more, null);
             b bVar2 = new b(this, null);
-            bVar2.aJK = (TextView) view.findViewById(v.pb_more_text);
+            bVar2.aJX = (TextView) view.findViewById(v.pb_more_text);
             bVar2.mProgress = (ProgressBar) view.findViewById(v.progress);
             view.setTag(bVar2);
             bVar = bVar2;
         } else {
             bVar = (b) view.getTag();
         }
-        bVar.aJK.setText(this.aKC.getString(y.loading));
+        bVar.aJX.setText(this.aKQ.getString(y.loading));
         bVar.mProgress.setVisibility(0);
-        this.aKC.getLayoutMode().h(view);
+        this.aKQ.getLayoutMode().h(view);
         aw.h(view, u.bg_neighbor_item);
         return view;
     }

@@ -3,18 +3,18 @@ package com.baidu.tieba.im.groupCard;
 import android.graphics.Bitmap;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.core.util.aa;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.core.util.s;
 import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, Integer, String> {
-    final /* synthetic */ b aZI;
+    final /* synthetic */ b aZV;
     String mUrl;
 
     public c(b bVar) {
         String str;
-        this.aZI = bVar;
+        this.aZV = bVar;
         this.mUrl = null;
         str = bVar.imageUrl;
         this.mUrl = str;
@@ -36,11 +36,11 @@ public class c extends BdAsyncTask<String, Integer, String> {
         GroupCardActivity groupCardActivity7;
         try {
             if (this.mUrl == null || this.mUrl.length() <= 0) {
-                groupCardActivity2 = this.aZI.aZE;
+                groupCardActivity2 = this.aZV.aZR;
                 return groupCardActivity2.getString(y.save_error);
             }
-            if (ba.bQ(this.mUrl) == null) {
-                groupCardActivity7 = this.aZI.aZE;
+            if (bb.bQ(this.mUrl) == null) {
+                groupCardActivity7 = this.aZV.aZR;
                 return groupCardActivity7.getString(y.save_error);
             }
             String str = String.valueOf(bQ) + ".jpg";
@@ -49,28 +49,28 @@ public class c extends BdAsyncTask<String, Integer, String> {
             }
             StringBuilder sb = new StringBuilder(this.mUrl);
             sb.append("&t=");
-            l = b.aZG;
+            l = b.aZT;
             sb.append(l);
             com.baidu.adp.widget.a.a aVar = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.f.d.ef().a(sb.toString(), 10, new Object[0]);
             if (aVar == null) {
-                groupCardActivity6 = this.aZI.aZE;
+                groupCardActivity6 = this.aZV.aZR;
                 return groupCardActivity6.getString(y.save_error);
             }
             Bitmap hl = aVar.hl();
             if (hl == null) {
-                groupCardActivity5 = this.aZI.aZE;
+                groupCardActivity5 = this.aZV.aZR;
                 return groupCardActivity5.getString(y.save_error);
             }
             String a = s.a((String) null, str, hl, 80);
             if (a != null) {
-                groupCardActivity3 = this.aZI.aZE;
+                groupCardActivity3 = this.aZV.aZR;
                 new aa(groupCardActivity3).bF(a);
-                groupCardActivity4 = this.aZI.aZE;
+                groupCardActivity4 = this.aZV.aZR;
                 return groupCardActivity4.getString(y.save_image_to_album);
             }
             return s.lu();
         } catch (Exception e) {
-            groupCardActivity = this.aZI.aZE;
+            groupCardActivity = this.aZV.aZR;
             return groupCardActivity.getString(y.save_error);
         }
     }
@@ -81,9 +81,9 @@ public class c extends BdAsyncTask<String, Integer, String> {
     public void onPostExecute(String str) {
         GroupCardActivity groupCardActivity;
         super.onPostExecute((c) str);
-        groupCardActivity = this.aZI.aZE;
+        groupCardActivity = this.aZV.aZR;
         groupCardActivity.showToast(str);
-        this.aZI.aZF = null;
+        this.aZV.aZS = null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -94,7 +94,7 @@ public class c extends BdAsyncTask<String, Integer, String> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.aZI.aZF = null;
+        this.aZV.aZS = null;
         super.cancel(true);
     }
 }

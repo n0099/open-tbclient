@@ -9,12 +9,12 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ d agH;
+    final /* synthetic */ d agQ;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(d dVar) {
         super(304001);
-        this.agH = dVar;
+        this.agQ = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,12 +23,13 @@ public class e extends com.baidu.adp.framework.listener.e {
         BdListView bdListView;
         com.baidu.tieba.addresslist.c.a aVar;
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001) {
-            bdListView = this.agH.agD;
+            this.agQ.agP = false;
+            bdListView = this.agQ.agL;
             bdListView.hN();
             if (socketResponsedMessage.hasError() || !(socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
                 String errorString = socketResponsedMessage.getErrorString();
                 if (!TextUtils.isEmpty(errorString)) {
-                    this.agH.showToast(errorString, false);
+                    this.agQ.showToast(errorString, false);
                     return;
                 }
                 return;
@@ -40,7 +41,7 @@ public class e extends com.baidu.adp.framework.listener.e {
                     List<com.baidu.tbadk.coreExtra.relationship.b> contacts = hVar.getContacts();
                     if (contacts.size() > 0) {
                         com.baidu.tbadk.coreExtra.relationship.b bVar = new com.baidu.tbadk.coreExtra.relationship.b();
-                        bVar.cE(hVar.getKey());
+                        bVar.cF(hVar.getKey());
                         arrayList.add(bVar);
                     }
                     for (com.baidu.tbadk.coreExtra.relationship.b bVar2 : contacts) {
@@ -48,7 +49,7 @@ public class e extends com.baidu.adp.framework.listener.e {
                     }
                 }
             }
-            aVar = this.agH.agu;
+            aVar = this.agQ.agC;
             aVar.w(arrayList);
         }
     }

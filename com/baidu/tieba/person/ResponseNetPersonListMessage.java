@@ -10,7 +10,7 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
     private com.baidu.tieba.data.aj data;
     private int mErrCode;
     private String mErrMsg;
-    private bt mModel;
+    private bu mModel;
 
     public ResponseNetPersonListMessage(int i) {
         super(CmdConfigHttp.PIC_PERSONAL_LIST);
@@ -30,8 +30,8 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         return this.data;
     }
 
-    public void setModel(bt btVar) {
-        this.mModel = btVar;
+    public void setModel(bu buVar) {
+        this.mModel = buVar;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -52,7 +52,7 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         super.afterDispatchInBackGround(i, (int) bArr);
         if (getError() == 0 && this.mModel != null && this.mModel.getPage() == 1 && (getOrginalMessage() instanceof HttpMessage)) {
             BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
-            boolean z = tag != null && tag.equals(bt.bDc);
+            boolean z = tag != null && tag.equals(bu.bDq);
             String str = new String(bArr);
             com.baidu.adp.lib.cache.t<String> bd = com.baidu.tbadk.core.a.a.kS().bd("tb.my_pages");
             if (bd != null) {

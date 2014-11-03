@@ -5,9 +5,9 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.square.BestStringsFitTextView;
 /* loaded from: classes.dex */
 class u {
-    public HeadImageView QF;
-    public TextView QG;
-    public BestStringsFitTextView aoe;
+    public HeadImageView QJ;
+    public TextView QK;
+    public BestStringsFitTextView aon;
 
     private u() {
     }

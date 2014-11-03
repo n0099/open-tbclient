@@ -8,22 +8,22 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class ad {
-    private static ad OA;
+    private static ad OE;
     private static Handler mHandler = new ae();
-    private LinkedList<WeakReference<LiveBroadcastCard>> OB = new LinkedList<>();
+    private LinkedList<WeakReference<LiveBroadcastCard>> OF = new LinkedList<>();
 
-    public static ad qb() {
-        if (OA == null) {
-            OA = new ad();
+    public static ad qd() {
+        if (OE == null) {
+            OE = new ad();
         }
-        return OA;
+        return OE;
     }
 
     private ad() {
     }
 
     public void a(LiveBroadcastCard liveBroadcastCard) {
-        Iterator<WeakReference<LiveBroadcastCard>> it = this.OB.iterator();
+        Iterator<WeakReference<LiveBroadcastCard>> it = this.OF.iterator();
         boolean z = false;
         while (it.hasNext()) {
             LiveBroadcastCard liveBroadcastCard2 = it.next().get();
@@ -36,16 +36,16 @@ public class ad {
             }
         }
         if (!z) {
-            this.OB.add(new WeakReference<>(liveBroadcastCard));
+            this.OF.add(new WeakReference<>(liveBroadcastCard));
         }
-        if (this.OB.size() > 0) {
+        if (this.OF.size() > 0) {
             mHandler.removeMessages(1);
             mHandler.sendEmptyMessageDelayed(1, 1000L);
         }
     }
 
     public void b(LiveBroadcastCard liveBroadcastCard) {
-        Iterator<WeakReference<LiveBroadcastCard>> it = this.OB.iterator();
+        Iterator<WeakReference<LiveBroadcastCard>> it = this.OF.iterator();
         while (it.hasNext()) {
             LiveBroadcastCard liveBroadcastCard2 = it.next().get();
             if (liveBroadcastCard2 != null) {
@@ -56,13 +56,13 @@ public class ad {
                 it.remove();
             }
         }
-        if (this.OB.size() == 0) {
+        if (this.OF.size() == 0) {
             mHandler.removeMessages(1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qc() {
+    public void qe() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2012113));
     }
 }

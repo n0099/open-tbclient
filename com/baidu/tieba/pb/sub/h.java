@@ -4,52 +4,52 @@ import android.content.Context;
 import android.view.View;
 /* loaded from: classes.dex */
 public class h extends a {
-    private String bAi;
-    private int bAj;
-    private boolean bAk;
-    private boolean bAl;
+    private String bAw;
+    private int bAx;
+    private boolean bAy;
+    private boolean bAz;
 
     public h(Context context, View.OnClickListener onClickListener) {
         super(context, onClickListener);
-        this.bAi = null;
-        this.bAj = 0;
-        this.bAk = false;
-        this.bAl = false;
+        this.bAw = null;
+        this.bAx = 0;
+        this.bAy = false;
+        this.bAz = false;
     }
 
     public void eo(boolean z) {
-        this.bAl = z;
+        this.bAz = z;
     }
 
     @Override // com.baidu.tieba.pb.sub.a, android.widget.Adapter
     public int getCount() {
-        if (this.aew == null) {
+        if (this.aeE == null) {
             return 0;
         }
-        return (this.bAk ? 1 : 0) + this.aew.size();
+        return (this.bAy ? 1 : 0) + this.aeE.size();
     }
 
     @Override // com.baidu.tieba.pb.sub.a, android.widget.Adapter
     public Object getItem(int i) {
-        if (this.aew == null || i < 0 || i >= this.aew.size()) {
+        if (this.aeE == null || i < 0 || i >= this.aeE.size()) {
             return null;
         }
-        return this.aew.get(i);
+        return this.aeE.get(i);
     }
 
     public void L(String str, int i) {
-        this.bAi = str;
-        this.bAj = i;
+        this.bAw = str;
+        this.bAx = i;
     }
 
     @Override // com.baidu.tieba.pb.sub.a
     public int gZ(String str) {
-        if (this.aew == null) {
+        if (this.aeE == null) {
             return -1;
         }
-        int size = this.aew.size();
+        int size = this.aeE.size();
         for (int i = 0; i < size; i++) {
-            if (this.aew.get(i).getId().equals(str)) {
+            if (this.aeE.get(i).getId().equals(str)) {
                 return i;
             }
         }

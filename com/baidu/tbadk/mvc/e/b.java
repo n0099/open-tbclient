@@ -1,37 +1,37 @@
 package com.baidu.tbadk.mvc.e;
 /* loaded from: classes.dex */
 public class b implements d, e, f {
-    private boolean XW;
-    private boolean XX;
-    private boolean XZ;
-    private boolean XY = true;
-    private boolean Ya = true;
+    private boolean Ya;
+    private boolean Yb;
+    private boolean Yd;
+    private boolean Yc = true;
+    private boolean Ye = true;
 
-    public boolean tV() {
-        return this.XW;
+    public boolean tX() {
+        return this.Ya;
     }
 
     public void aC(boolean z) {
-        this.XW = z;
+        this.Ya = z;
     }
 
-    public boolean tW() {
-        return this.XX;
+    public boolean tY() {
+        return this.Yb;
     }
 
     public void aD(boolean z) {
-        this.XX = z;
+        this.Yb = z;
     }
 
-    public boolean tX() {
-        return this.XY;
+    public boolean tZ() {
+        return this.Yc;
     }
 
     public void aE(boolean z) {
-        this.XY = z;
+        this.Yc = z;
     }
 
     public void aF(boolean z) {
-        this.XZ = z;
+        this.Yd = z;
     }
 }

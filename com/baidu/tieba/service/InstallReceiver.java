@@ -14,10 +14,10 @@ public class InstallReceiver extends BroadcastReceiver {
             if (intent.getAction().equals(GameInstallReceiver.ACTION_INSTALL)) {
                 String dataString2 = intent.getDataString();
                 if (dataString2 != null && dataString2.equals("package:com.baidu.tieba")) {
-                    aj.wk().bd(true);
+                    aj.wm().bd(true);
                 }
             } else if (intent.getAction().equals("android.intent.action.PACKAGE_REMOVED") && (dataString = intent.getDataString()) != null && dataString.equals("package:com.baidu.tieba")) {
-                aj.wk().bd(false);
+                aj.wm().bd(false);
             }
         }
     }

@@ -18,41 +18,41 @@ import java.net.URL;
 import org.apache.http.client.methods.HttpGet;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a FM;
-    private d FH;
-    private long FD = 0;
-    private boolean FE = false;
-    private final float FF = 100.0f;
-    private CdnCacheItem FG = null;
-    private final long FI = 3600000;
-    private final long FJ = 604800000;
-    private final long FK = 10000;
-    private final int FL = 1003;
+    private static volatile a FN;
+    private d FI;
+    private long FE = 0;
+    private boolean FF = false;
+    private final float FG = 100.0f;
+    private CdnCacheItem FH = null;
+    private final long FJ = 3600000;
+    private final long FK = 604800000;
+    private final long FL = 10000;
+    private final int FM = 1003;
     private final Handler handler = new b(this, Looper.getMainLooper());
-    private final CustomMessageListener FN = new c(this, 2001121);
+    private final CustomMessageListener FO = new c(this, 2001121);
 
     public static a mT() {
-        if (FM == null) {
+        if (FN == null) {
             synchronized (a.class) {
-                if (FM == null) {
-                    FM = new a();
+                if (FN == null) {
+                    FN = new a();
                 }
             }
         }
-        return FM;
+        return FN;
     }
 
     public a() {
-        this.FH = null;
+        this.FI = null;
         try {
             mU();
-            this.FH = new d(this, null);
+            this.FI = new d(this, null);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(TbCDNTachometerService.TB_CDNIP_BROADCASE_ACTION);
-            TbadkApplication.m251getInst().getApp().registerReceiver(this.FH, intentFilter);
+            TbadkApplication.m251getInst().getApp().registerReceiver(this.FI, intentFilter);
             if (TbadkApplication.m251getInst().isMainProcess(true) && m.fu()) {
-                MessageManager.getInstance().unRegisterListener(this.FN);
-                MessageManager.getInstance().registerListener(this.FN);
+                MessageManager.getInstance().unRegisterListener(this.FO);
+                MessageManager.getInstance().registerListener(this.FO);
             }
             this.handler.sendEmptyMessageDelayed(1003, 10000L);
         } catch (Exception e) {
@@ -64,25 +64,25 @@ public class a {
         CdnCacheItem mY = mY();
         long currentTimeMillis = System.currentTimeMillis();
         if (mY != null && mY.firstUseIpTime > 0 && currentTimeMillis - mY.firstUseIpTime < 604800000) {
-            this.FG = mY;
+            this.FH = mY;
         }
-        if (this.FG == null) {
-            this.FG = new CdnCacheItem();
-            this.FG.firstUseIpTime = currentTimeMillis;
-            this.FG.ssid = mZ();
+        if (this.FH == null) {
+            this.FH = new CdnCacheItem();
+            this.FH.firstUseIpTime = currentTimeMillis;
+            this.FH.ssid = mZ();
         }
-        if (0 == this.FG.firstUseIpTime) {
-            this.FG.firstUseIpTime = currentTimeMillis;
+        if (0 == this.FH.firstUseIpTime) {
+            this.FH.firstUseIpTime = currentTimeMillis;
         }
     }
 
     public void mV() {
         long currentTimeMillis = System.currentTimeMillis();
         String mZ = mZ();
-        boolean z = (this.FG.ssid == null || mZ == null || this.FG.ssid.equals(mZ)) ? false : true;
-        if (this.FG.lastTachometerTime == 0 || z || (this.FG.getIsUsedIp() && currentTimeMillis - this.FG.lastTachometerTime > 3600000)) {
-            this.FG.lastTachometerTime = currentTimeMillis;
-            this.FG.ssid = mZ;
+        boolean z = (this.FH.ssid == null || mZ == null || this.FH.ssid.equals(mZ)) ? false : true;
+        if (this.FH.lastTachometerTime == 0 || z || (this.FH.getIsUsedIp() && currentTimeMillis - this.FH.lastTachometerTime > 3600000)) {
+            this.FH.lastTachometerTime = currentTimeMillis;
+            this.FH.ssid = mZ;
             TbCDNTachometerService.startTachometerService(TbadkApplication.m251getInst().getApp(), true, false);
         }
     }
@@ -108,8 +108,8 @@ public class a {
     public HttpGet o(String str, int i) {
         String ipString;
         int indexOf;
-        if (this.FG.getIsUsedIp() && (ipString = this.FG.getIpString(i)) != null) {
-            if (System.currentTimeMillis() - this.FG.lastTachometerTime > 3600000) {
+        if (this.FH.getIsUsedIp() && (ipString = this.FH.getIpString(i)) != null) {
+            if (System.currentTimeMillis() - this.FH.lastTachometerTime > 3600000) {
                 mW();
             }
             if (ipString != null && (indexOf = str.indexOf("hiphotos")) > 0 && indexOf < 20) {
@@ -127,8 +127,8 @@ public class a {
     }
 
     public void mW() {
-        this.FD = System.currentTimeMillis();
-        this.FG.lastTachometerTime = this.FD;
+        this.FE = System.currentTimeMillis();
+        this.FH.lastTachometerTime = this.FE;
         TbCDNTachometerService.startTachometerService(TbadkApplication.m251getInst().getApp(), false, false);
     }
 
@@ -152,22 +152,22 @@ public class a {
             i = -25;
         }
         if (str2 != null && str2.length() > 0) {
-            if (this.FG.setIPRank(i, 100.0f, str2) >= 100.0f) {
+            if (this.FH.setIPRank(i, 100.0f, str2) >= 100.0f) {
                 mW();
-                b(this.FG);
+                b(this.FH);
             }
-        } else if (this.FG.setCdnDomainRank(i, 100.0f) >= 100.0f) {
+        } else if (this.FH.setCdnDomainRank(i, 100.0f) >= 100.0f) {
             mW();
-            b(this.FG);
+            b(this.FH);
         }
     }
 
     public boolean mX() {
-        return this.FE;
+        return this.FF;
     }
 
     public String bD(int i) {
-        return this.FG.getIpString(i);
+        return this.FH.getIpString(i);
     }
 
     private byte[] a(CdnCacheItem cdnCacheItem) {
@@ -242,6 +242,6 @@ public class a {
     }
 
     public boolean hasImageProblem() {
-        return (this.FG != null ? this.FG.hasImageProblem() : false) || this.FE;
+        return (this.FH != null ? this.FH.hasImageProblem() : false) || this.FF;
     }
 }

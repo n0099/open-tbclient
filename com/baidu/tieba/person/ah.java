@@ -6,15 +6,15 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ah implements DialogInterface.OnClickListener {
-    final /* synthetic */ PersonChangeActivity bCm;
-    private final /* synthetic */ String bCn;
-    private final /* synthetic */ String bCo;
+    final /* synthetic */ PersonChangeActivity bCA;
+    private final /* synthetic */ String bCB;
+    private final /* synthetic */ String bCC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(PersonChangeActivity personChangeActivity, String str, String str2) {
-        this.bCm = personChangeActivity;
-        this.bCn = str;
-        this.bCo = str2;
+        this.bCA = personChangeActivity;
+        this.bCB = str;
+        this.bCC = str2;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -26,22 +26,22 @@ public class ah implements DialogInterface.OnClickListener {
         TextView textView2;
         TextView textView3;
         if (i == 0) {
-            this.bCm.mSex = 1;
-            textView3 = this.bCm.bBV;
-            textView3.setText(this.bCn);
+            this.bCA.mSex = 1;
+            textView3 = this.bCA.bCj;
+            textView3.setText(this.bCB);
         } else if (i == 1) {
-            this.bCm.mSex = 2;
-            textView = this.bCm.bBV;
-            textView.setText(this.bCo);
+            this.bCA.mSex = 2;
+            textView = this.bCA.bCj;
+            textView.setText(this.bCC);
         }
-        this.bCm.ZT();
-        i2 = this.bCm.mSex;
-        auVar = this.bCm.bCd;
-        if (i2 != auVar.TT().getSex()) {
-            textView2 = this.bCm.bBR;
+        this.bCA.ZV();
+        i2 = this.bCA.mSex;
+        auVar = this.bCA.bCr;
+        if (i2 != auVar.TW().getSex()) {
+            textView2 = this.bCA.bCf;
             textView2.setEnabled(true);
         }
-        dialog = this.bCm.bCj;
-        com.baidu.adp.lib.g.j.b(dialog, this.bCm);
+        dialog = this.bCA.bCx;
+        com.baidu.adp.lib.g.j.b(dialog, this.bCA);
     }
 }

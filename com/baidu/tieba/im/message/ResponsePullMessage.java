@@ -72,7 +72,7 @@ public class ResponsePullMessage extends SocketResponsedMessage {
             long currentTimeMillis = System.currentTimeMillis();
             try {
                 try {
-                    com.baidu.tieba.im.db.g.MA().MB();
+                    com.baidu.tieba.im.db.g.ME().MF();
                     ImMessageCenterPojo imMessageCenterPojo = null;
                     ImMessageCenterPojo imMessageCenterPojo2 = null;
                     for (GroupMsgData groupMsgData : groupMsg) {
@@ -80,14 +80,14 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                             i2 += groupMsgData.getListMessage().size();
                             String valueOf = String.valueOf(groupMsgData.getGroupInfo().getGroupId());
                             int customType = groupMsgData.getGroupInfo().getCustomType();
-                            ImMessageCenterPojo y = com.baidu.tieba.im.db.k.MF().y(valueOf, customType);
-                            if (customType == 4 && imMessageCenterPojo == null && (imMessageCenterPojo = com.baidu.tieba.im.db.k.MF().y("-1000", -8)) == null) {
+                            ImMessageCenterPojo y = com.baidu.tieba.im.db.k.MJ().y(valueOf, customType);
+                            if (customType == 4 && imMessageCenterPojo == null && (imMessageCenterPojo = com.baidu.tieba.im.db.k.MJ().y("-1000", -8)) == null) {
                                 imMessageCenterPojo = new ImMessageCenterPojo();
                                 imMessageCenterPojo.setGid("-1000");
                                 imMessageCenterPojo.setCustomGroupType(-8);
                                 imMessageCenterPojo.setIs_hidden(1);
                             }
-                            if (customType == 2 && imMessageCenterPojo2 == null && hasStranger(groupMsgData) && (imMessageCenterPojo2 = com.baidu.tieba.im.db.k.MF().y("-1001", -7)) == null) {
+                            if (customType == 2 && imMessageCenterPojo2 == null && hasStranger(groupMsgData) && (imMessageCenterPojo2 = com.baidu.tieba.im.db.k.MJ().y("-1001", -7)) == null) {
                                 imMessageCenterPojo2 = new ImMessageCenterPojo();
                                 imMessageCenterPojo2.setGid("-1001");
                                 imMessageCenterPojo2.setCustomGroupType(-7);
@@ -107,9 +107,9 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                                 if (groupMsgData.getGroupInfo().getGroupId() == 10) {
                                     s.a(groupMsgData, y, new n(this));
                                 } else {
-                                    long[] b = s.KM().b(groupMsgData);
+                                    long[] b = s.KQ().b(groupMsgData);
                                     if (b != null) {
-                                        s.KM().f(String.valueOf(b[0]), bu.G(b[1]));
+                                        s.KQ().f(String.valueOf(b[0]), bu.G(b[1]));
                                     }
                                 }
                             } else if (groupMsgData.getCmd() == 2013007) {
@@ -117,48 +117,48 @@ public class ResponsePullMessage extends SocketResponsedMessage {
                             }
                         }
                     }
-                    com.baidu.tieba.im.db.g.MA().endTransaction();
+                    com.baidu.tieba.im.db.g.ME().endTransaction();
                     long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                     com.baidu.tbadk.performanceLog.k kVar = new com.baidu.tbadk.performanceLog.k();
-                    kVar.YM = getCmd();
+                    kVar.YQ = getCmd();
                     if (this.performanceData != null) {
                         kVar.kd = this.performanceData.cW;
-                        kVar.YN = getDownSize();
-                        kVar.YO = currentTimeMillis2;
-                        kVar.YP = i2;
+                        kVar.YR = getDownSize();
+                        kVar.YS = currentTimeMillis2;
+                        kVar.YT = i2;
                         kVar.tm = this.performanceData.cV;
                         kVar.dm(1002);
-                        kVar.uD();
+                        kVar.uF();
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
-                    com.baidu.tieba.im.db.g.MA().endTransaction();
+                    com.baidu.tieba.im.db.g.ME().endTransaction();
                     long currentTimeMillis3 = System.currentTimeMillis() - currentTimeMillis;
                     com.baidu.tbadk.performanceLog.k kVar2 = new com.baidu.tbadk.performanceLog.k();
-                    kVar2.YM = getCmd();
+                    kVar2.YQ = getCmd();
                     if (this.performanceData != null) {
                         kVar2.kd = this.performanceData.cW;
-                        kVar2.YN = getDownSize();
-                        kVar2.YO = currentTimeMillis3;
-                        kVar2.YP = i2;
+                        kVar2.YR = getDownSize();
+                        kVar2.YS = currentTimeMillis3;
+                        kVar2.YT = i2;
                         kVar2.tm = this.performanceData.cV;
                         kVar2.dm(1002);
-                        kVar2.uD();
+                        kVar2.uF();
                     }
                 }
             } catch (Throwable th) {
-                com.baidu.tieba.im.db.g.MA().endTransaction();
+                com.baidu.tieba.im.db.g.ME().endTransaction();
                 long currentTimeMillis4 = System.currentTimeMillis() - currentTimeMillis;
                 com.baidu.tbadk.performanceLog.k kVar3 = new com.baidu.tbadk.performanceLog.k();
-                kVar3.YM = getCmd();
+                kVar3.YQ = getCmd();
                 if (this.performanceData != null) {
                     kVar3.kd = this.performanceData.cW;
-                    kVar3.YN = getDownSize();
-                    kVar3.YO = currentTimeMillis4;
-                    kVar3.YP = i2;
+                    kVar3.YR = getDownSize();
+                    kVar3.YS = currentTimeMillis4;
+                    kVar3.YT = i2;
                     kVar3.tm = this.performanceData.cV;
                     kVar3.dm(1002);
-                    kVar3.uD();
+                    kVar3.uF();
                 }
                 throw th;
             }

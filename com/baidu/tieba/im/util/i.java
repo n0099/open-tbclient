@@ -16,7 +16,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class i {
-    private static Pattern Fs = Pattern.compile("(#\\([^#\\)\\(]+\\))");
+    private static Pattern Ft = Pattern.compile("(#\\([^#\\)\\(]+\\))");
 
     public static String v(String str, boolean z) {
         String str2 = null;
@@ -188,7 +188,7 @@ public class i {
                 gF = str;
             }
             if (gF != null) {
-                Matcher matcher = Fs.matcher(gF);
+                Matcher matcher = Ft.matcher(gF);
                 while (matcher.find()) {
                     String group = matcher.group();
                     gF = gF.replace(group, group.replace("#(", "[").replace(")", "]"));

@@ -21,7 +21,7 @@ public class bv extends com.baidu.adp.framework.listener.e {
         if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseQuitChatRoomMessage) && !socketResponsedMessage.hasError()) {
             ResponseQuitChatRoomMessage responseQuitChatRoomMessage = (ResponseQuitChatRoomMessage) socketResponsedMessage;
             if (responseQuitChatRoomMessage.getOrginalMessage() != null && (responseQuitChatRoomMessage.getOrginalMessage() instanceof RequestQuitChatRoomMessage)) {
-                c.PK().D(String.valueOf(((RequestQuitChatRoomMessage) responseQuitChatRoomMessage.getOrginalMessage()).getGroupId()), 3);
+                c.PN().D(String.valueOf(((RequestQuitChatRoomMessage) responseQuitChatRoomMessage.getOrginalMessage()).getGroupId()), 3);
             }
         }
     }

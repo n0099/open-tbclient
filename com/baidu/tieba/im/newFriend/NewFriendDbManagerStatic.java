@@ -4,7 +4,7 @@ import com.baidu.adp.framework.MessageManager;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class NewFriendDbManagerStatic {
-    private static NewFriendDbManagerStatic bgw = new NewFriendDbManagerStatic();
+    private static NewFriendDbManagerStatic bgK = new NewFriendDbManagerStatic();
 
     static {
         MessageManager.getInstance().registerListener(new a(2001222));
@@ -26,8 +26,8 @@ public class NewFriendDbManagerStatic {
     private NewFriendDbManagerStatic() {
     }
 
-    public static NewFriendDbManagerStatic Re() {
-        return bgw;
+    public static NewFriendDbManagerStatic Rh() {
+        return bgK;
     }
 
     public void gt(String str) {

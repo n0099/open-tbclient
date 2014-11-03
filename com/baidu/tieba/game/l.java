@@ -3,33 +3,33 @@ package com.baidu.tieba.game;
 import protobuf.GetOnlineInfo.Game;
 /* loaded from: classes.dex */
 public class l {
-    private static l aGV;
-    private Game aGW;
-    private boolean aGX;
+    private static l aHf;
+    private Game aHg;
+    private boolean aHh;
 
     private l() {
     }
 
-    public static synchronized l Hi() {
+    public static synchronized l Hk() {
         l lVar;
         synchronized (l.class) {
-            if (aGV == null) {
-                aGV = new l();
+            if (aHf == null) {
+                aHf = new l();
             }
-            lVar = aGV;
+            lVar = aHf;
         }
         return lVar;
     }
 
     public void a(Game game) {
-        this.aGW = game;
+        this.aHg = game;
     }
 
-    public Game Hj() {
-        return this.aGW;
+    public Game Hl() {
+        return this.aHg;
     }
 
     public void cm(boolean z) {
-        this.aGX = z;
+        this.aHh = z;
     }
 }

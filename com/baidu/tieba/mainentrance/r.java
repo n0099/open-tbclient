@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.util.aw;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements TextWatcher {
-    final /* synthetic */ SquareSearchActivity bmO;
+    final /* synthetic */ SquareSearchActivity bnc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(SquareSearchActivity squareSearchActivity) {
-        this.bmO = squareSearchActivity;
+        this.bnc = squareSearchActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -28,40 +28,40 @@ public class r implements TextWatcher {
         int i6;
         int i7;
         String str2;
-        this.bmO.bmA = charSequence.toString();
-        str = this.bmO.bmA;
+        this.bnc.bmO = charSequence.toString();
+        str = this.bnc.bmO;
         if (str.trim().length() > 0) {
-            i6 = this.bmO.mMode;
+            i6 = this.bnc.mMode;
             if (i6 != 0) {
-                i7 = this.bmO.mMode;
+                i7 = this.bnc.mMode;
                 if (i7 == 1) {
-                    SquareSearchActivity squareSearchActivity = this.bmO;
-                    str2 = this.bmO.bmA;
+                    SquareSearchActivity squareSearchActivity = this.bnc;
+                    str2 = this.bnc.bmO;
                     squareSearchActivity.o(1, str2);
                     return;
                 }
                 return;
             }
-            this.bmO.SG();
+            this.bnc.SJ();
             return;
         }
-        this.bmO.oo();
-        i4 = this.bmO.mMode;
+        this.bnc.oo();
+        i4 = this.bnc.mMode;
         if (i4 != 0) {
-            i5 = this.bmO.mMode;
+            i5 = this.bnc.mMode;
             if (i5 != 3) {
-                this.bmO.SE();
+                this.bnc.SH();
             } else {
-                this.bmO.SF();
+                this.bnc.SI();
             }
         } else {
-            this.bmO.SD();
+            this.bnc.SG();
         }
-        frameLayout = this.bmO.bmn;
+        frameLayout = this.bnc.bmB;
         frameLayout.setVisibility(0);
-        listView = this.bmO.bmo;
+        listView = this.bnc.bmC;
         listView.setVisibility(0);
-        oVar = this.bmO.ahO;
+        oVar = this.bnc.ahX;
         oVar.setVisibility(8);
     }
 
@@ -75,13 +75,13 @@ public class r implements TextWatcher {
         TextView textView;
         Button button2;
         if (editable.toString().trim().length() == 0) {
-            button2 = this.bmO.bmi;
+            button2 = this.bnc.bmw;
             button2.setVisibility(8);
         } else {
-            button = this.bmO.bmi;
+            button = this.bnc.bmw;
             button.setVisibility(0);
         }
-        textView = this.bmO.bmj;
+        textView = this.bnc.bmx;
         aw.b(textView, com.baidu.tieba.s.common_page_title, 1);
     }
 }

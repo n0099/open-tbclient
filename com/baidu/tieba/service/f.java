@@ -13,11 +13,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 /* loaded from: classes.dex */
 class f extends BdAsyncTask<String, Integer, String> {
-    final /* synthetic */ FatalErrorService bIJ;
+    final /* synthetic */ FatalErrorService bIX;
     private ac yV;
 
     private f(FatalErrorService fatalErrorService) {
-        this.bIJ = fatalErrorService;
+        this.bIX = fatalErrorService;
         this.yV = null;
     }
 
@@ -332,9 +332,9 @@ class f extends BdAsyncTask<String, Integer, String> {
         if (this.yV != null) {
             this.yV.dM();
         }
-        this.bIJ.mTask = null;
+        this.bIX.mTask = null;
         super.cancel(true);
-        this.bIJ.stopSelf();
+        this.bIX.stopSelf();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -342,7 +342,7 @@ class f extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         super.onPostExecute((f) str);
-        this.bIJ.mTask = null;
-        this.bIJ.stopSelf();
+        this.bIX.mTask = null;
+        this.bIX.stopSelf();
     }
 }

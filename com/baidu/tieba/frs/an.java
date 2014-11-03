@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an implements DialogInterface.OnClickListener {
-    final /* synthetic */ FrsActivity aBk;
-    private final /* synthetic */ com.baidu.tbadk.core.data.q aBn;
+    final /* synthetic */ FrsActivity aBu;
+    private final /* synthetic */ com.baidu.tbadk.core.data.q aBx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(FrsActivity frsActivity, com.baidu.tbadk.core.data.q qVar) {
-        this.aBk = frsActivity;
-        this.aBn = qVar;
+        this.aBu = frsActivity;
+        this.aBx = qVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -23,29 +23,29 @@ public class an implements DialogInterface.OnClickListener {
         bu buVar;
         switch (i) {
             case 0:
-                str = this.aBk.mThreadId;
+                str = this.aBu.mThreadId;
                 if (str != null) {
-                    FrsActivity frsActivity = this.aBk;
-                    PbActivityConfig pbActivityConfig = new PbActivityConfig(this.aBk);
-                    com.baidu.tbadk.core.data.q qVar = this.aBn;
-                    str2 = this.aBk.aAn;
-                    z = this.aBk.aAu;
+                    FrsActivity frsActivity = this.aBu;
+                    PbActivityConfig pbActivityConfig = new PbActivityConfig(this.aBu);
+                    com.baidu.tbadk.core.data.q qVar = this.aBx;
+                    str2 = this.aBu.aAx;
+                    z = this.aBu.aAE;
                     frsActivity.sendMessage(new CustomMessage(2004001, pbActivityConfig.createFromThreadCfg(qVar, str2, null, 18003, true, false, z)));
                     break;
                 }
                 break;
             case 1:
-                this.aBk.e(this.aBn);
+                this.aBu.e(this.aBx);
                 break;
             case 2:
-                this.aBk.f(this.aBn);
+                this.aBu.f(this.aBx);
                 break;
         }
-        com.baidu.tieba.util.o wJ = com.baidu.tieba.aj.wk().wJ();
-        if (wJ != null && this.aBn != null && !wJ.hH(this.aBn.getId())) {
-            wJ.hG(this.aBn.getId());
+        com.baidu.tieba.util.o wL = com.baidu.tieba.aj.wm().wL();
+        if (wL != null && this.aBx != null && !wL.hH(this.aBx.getId())) {
+            wL.hG(this.aBx.getId());
         }
-        buVar = this.aBk.aAv;
-        buVar.Gp();
+        buVar = this.aBu.aAF;
+        buVar.Gr();
     }
 }

@@ -21,11 +21,11 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class ForbidActivity extends BaseActivity {
-    private RadioGroup agd;
-    private String age;
-    private TextView agf;
-    private e agg;
-    private View.OnClickListener agh = new a(this);
+    private RadioGroup agl;
+    private String agm;
+    private TextView agn;
+    private e ago;
+    private View.OnClickListener agp = new a(this);
     private String mForumId;
     private String mForumName;
     private NavigationBar mNavigationBar;
@@ -56,11 +56,11 @@ public class ForbidActivity extends BaseActivity {
         this.mNavigationBar = (NavigationBar) findViewById(v.view_navigation_bar);
         this.mNavigationBar.setTitleText(getString(y.forbid_page_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(y.forbid_btn_txt), this.agh);
-        this.agf = (TextView) findViewById(v.forbid_id);
+        this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(y.forbid_btn_txt), this.agp);
+        this.agn = (TextView) findViewById(v.forbid_id);
         this.vl = (BdListView) findViewById(v.listview_forbid_reason);
-        this.agd = (RadioGroup) findViewById(v.forbid_days);
-        this.agd.setOnCheckedChangeListener(new c(this));
+        this.agl = (RadioGroup) findViewById(v.forbid_days);
+        this.agl.setOnCheckedChangeListener(new c(this));
         initData();
     }
 
@@ -69,15 +69,15 @@ public class ForbidActivity extends BaseActivity {
         this.mForumId = intent.getStringExtra("forum_id");
         this.mForumName = intent.getStringExtra("forum_name");
         this.mThreadId = intent.getStringExtra("thread_id");
-        this.age = intent.getStringExtra("bar_manager_user_id");
+        this.agm = intent.getStringExtra("bar_manager_user_id");
         this.mUserName = intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.USER_NAME);
-        l.a(this.mForumId, this.age, new d(this));
+        l.a(this.mForumId, this.agm, new d(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dH(int i) {
         for (int i2 = 0; i2 < 3; i2++) {
-            RadioButton radioButton = (RadioButton) this.agd.getChildAt(i2);
+            RadioButton radioButton = (RadioButton) this.agl.getChildAt(i2);
             if (radioButton.getId() == i) {
                 aw.h((View) radioButton, u.btn_prohibit_day_s);
                 aw.b(radioButton, s.cp_cont_i, 3);

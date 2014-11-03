@@ -6,91 +6,91 @@ import com.baidu.adp.BdUniqueId;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class b {
-    private int Xn;
-    private boolean Xo = true;
-    private BdUniqueId Xp;
-    private com.baidu.tbadk.mvc.b.a Xq;
-    private com.baidu.tbadk.mvc.e.c Xr;
-    private com.baidu.tbadk.mvc.a.a Xs;
-    private boolean Xt;
-    private int Xu;
-    private Object Xv;
-    private WeakReference<View> Xw;
-    private WeakReference<ViewGroup> Xx;
+    private WeakReference<View> XA;
+    private WeakReference<ViewGroup> XB;
+    private int Xr;
+    private boolean Xs = true;
+    private BdUniqueId Xt;
+    private com.baidu.tbadk.mvc.b.a Xu;
+    private com.baidu.tbadk.mvc.e.c Xv;
+    private com.baidu.tbadk.mvc.a.a Xw;
+    private boolean Xx;
+    private int Xy;
+    private Object Xz;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(int i) {
-        this.Xn = i;
+        this.Xr = i;
     }
 
     public b(int i, com.baidu.tbadk.mvc.b.a aVar, com.baidu.tbadk.mvc.e.c cVar, com.baidu.tbadk.mvc.a.a aVar2) {
-        this.Xn = i;
-        this.Xq = aVar;
-        this.Xr = cVar;
-        this.Xs = aVar2;
+        this.Xr = i;
+        this.Xu = aVar;
+        this.Xv = cVar;
+        this.Xw = aVar2;
     }
 
-    public int tp() {
-        return this.Xn;
-    }
-
-    public com.baidu.tbadk.mvc.b.a tq() {
-        return this.Xq;
-    }
-
-    public com.baidu.tbadk.mvc.e.c tr() {
+    public int tr() {
         return this.Xr;
     }
 
-    public com.baidu.tbadk.mvc.a.a ts() {
-        return this.Xs;
-    }
-
-    public Object getExtra() {
-        return this.Xv;
-    }
-
-    public void setExtra(Object obj) {
-        this.Xv = obj;
-    }
-
-    public void setView(View view) {
-        this.Xw = new WeakReference<>(view);
-    }
-
-    public void c(ViewGroup viewGroup) {
-        this.Xx = new WeakReference<>(viewGroup);
-    }
-
-    public boolean tt() {
-        return this.Xt;
-    }
-
-    public void az(boolean z) {
-        this.Xt = z;
-    }
-
-    public int tu() {
+    public com.baidu.tbadk.mvc.b.a ts() {
         return this.Xu;
     }
 
-    public void di(int i) {
-        this.Xu = i;
+    public com.baidu.tbadk.mvc.e.c tt() {
+        return this.Xv;
+    }
+
+    public com.baidu.tbadk.mvc.a.a tu() {
+        return this.Xw;
+    }
+
+    public Object getExtra() {
+        return this.Xz;
+    }
+
+    public void setExtra(Object obj) {
+        this.Xz = obj;
+    }
+
+    public void setView(View view) {
+        this.XA = new WeakReference<>(view);
+    }
+
+    public void c(ViewGroup viewGroup) {
+        this.XB = new WeakReference<>(viewGroup);
     }
 
     public boolean tv() {
-        return this.Xo;
+        return this.Xx;
+    }
+
+    public void az(boolean z) {
+        this.Xx = z;
+    }
+
+    public int tw() {
+        return this.Xy;
+    }
+
+    public void di(int i) {
+        this.Xy = i;
+    }
+
+    public boolean tx() {
+        return this.Xs;
     }
 
     public void aA(boolean z) {
-        this.Xo = z;
+        this.Xs = z;
     }
 
     public BdUniqueId getUniqueId() {
-        return this.Xp;
+        return this.Xt;
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.Xp = bdUniqueId;
+        this.Xt = bdUniqueId;
     }
 }

@@ -10,11 +10,11 @@ import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements PluginDownloader.Callback {
-    final /* synthetic */ PluginDetailActivity bGS;
+    final /* synthetic */ PluginDetailActivity bHg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(PluginDetailActivity pluginDetailActivity) {
-        this.bGS = pluginDetailActivity;
+        this.bHg = pluginDetailActivity;
     }
 
     @Override // com.baidu.tbadk.pluginArch.PluginDownloader.Callback
@@ -26,15 +26,15 @@ public class d implements PluginDownloader.Callback {
         TextView textView3;
         if (downloadData != null) {
             String id = downloadData.getId();
-            pluginConfig = this.bGS.bGQ;
+            pluginConfig = this.bHg.bHe;
             if (id.equals(pluginConfig.name)) {
-                z = this.bGS.bGR;
+                z = this.bHg.bHf;
                 if (!z) {
-                    textView = this.bGS.bGP;
+                    textView = this.bHg.bHd;
                     aw.b(textView, s.cp_cont_d, 1);
-                    textView2 = this.bGS.bGP;
-                    textView2.setText(this.bGS.getString(y.plugin_download_percent, new Object[]{Long.valueOf((downloadData.getLength() * 100) / downloadData.getSize())}));
-                    textView3 = this.bGS.bGP;
+                    textView2 = this.bHg.bHd;
+                    textView2.setText(this.bHg.getString(y.plugin_download_percent, new Object[]{Long.valueOf((downloadData.getLength() * 100) / downloadData.getSize())}));
+                    textView3 = this.bHg.bHd;
                     textView3.setEnabled(false);
                 }
             }
@@ -48,13 +48,13 @@ public class d implements PluginDownloader.Callback {
         TextView textView2;
         if (downloadData != null) {
             String id = downloadData.getId();
-            pluginConfig = this.bGS.bGQ;
+            pluginConfig = this.bHg.bHe;
             if (id.equals(pluginConfig.name)) {
-                textView = this.bGS.bGP;
-                textView.setText(this.bGS.getString(y.plugin_download_finished));
-                textView2 = this.bGS.bGP;
+                textView = this.bHg.bHd;
+                textView.setText(this.bHg.getString(y.plugin_download_finished));
+                textView2 = this.bHg.bHd;
                 textView2.setEnabled(false);
-                this.bGS.bGR = true;
+                this.bHg.bHf = true;
             }
         }
     }
@@ -64,11 +64,11 @@ public class d implements PluginDownloader.Callback {
         ConfigInfos.PluginConfig pluginConfig;
         if (downloadData != null) {
             String id = downloadData.getId();
-            pluginConfig = this.bGS.bGQ;
+            pluginConfig = this.bHg.bHe;
             if (id.equals(pluginConfig.name)) {
-                this.bGS.showToast(downloadData.getStatusMsg());
-                this.bGS.abh();
-                this.bGS.bGR = true;
+                this.bHg.showToast(downloadData.getStatusMsg());
+                this.bHg.abk();
+                this.bHg.bHf = true;
             }
         }
     }
@@ -76,11 +76,11 @@ public class d implements PluginDownloader.Callback {
     @Override // com.baidu.tbadk.pluginArch.PluginDownloader.Callback
     public void installFinish(DownloadData downloadData, int i, String str) {
         if (i == 0) {
-            this.bGS.showToast(this.bGS.getString(y.plugin_installation_finished));
-            this.bGS.abh();
+            this.bHg.showToast(this.bHg.getString(y.plugin_installation_finished));
+            this.bHg.abk();
             return;
         }
-        this.bGS.showToast(String.valueOf(this.bGS.getString(y.plugin_installation_failed)) + str);
-        this.bGS.abh();
+        this.bHg.showToast(String.valueOf(this.bHg.getString(y.plugin_installation_failed)) + str);
+        this.bHg.abk();
     }
 }

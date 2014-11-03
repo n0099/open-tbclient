@@ -10,11 +10,11 @@ import com.baidu.tieba.s;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 class c {
-    TbClipImageView aJq;
-    TextView aJr;
-    TextView aJs;
-    ImageView aJt;
-    View aJu;
+    TbClipImageView aJD;
+    TextView aJE;
+    TextView aJF;
+    ImageView aJG;
+    View aJH;
 
     private c() {
     }
@@ -24,11 +24,11 @@ class c {
         this();
     }
 
-    public void HZ() {
+    public void Id() {
         int skinType = TbadkApplication.m251getInst().getSkinType();
-        aw.a(this.aJt, u.icon_dredge_arrow_r_n, skinType);
-        aw.b(this.aJr, s.cp_cont_b, 1);
-        aw.b(this.aJs, s.cp_cont_d, 1);
-        aw.d(this.aJu, s.cp_bg_line_b, skinType);
+        aw.a(this.aJG, u.icon_dredge_arrow_r_n, skinType);
+        aw.b(this.aJE, s.cp_cont_b, 1);
+        aw.b(this.aJF, s.cp_cont_d, 1);
+        aw.d(this.aJH, s.cp_bg_line_b, skinType);
     }
 }

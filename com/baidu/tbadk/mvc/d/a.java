@@ -11,7 +11,7 @@ import com.baidu.tbadk.mvc.message.MvcSocketMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 /* loaded from: classes.dex */
 public abstract class a<T extends g, R extends i> extends com.baidu.tbadk.mvc.core.a implements com.baidu.tbadk.mvc.c.a, com.baidu.tbadk.mvc.model.i<T, R> {
-    protected abstract boolean tx();
+    protected abstract boolean tz();
 
     public a(MvcActivity<?, ?> mvcActivity) {
         super(mvcActivity);
@@ -22,7 +22,7 @@ public abstract class a<T extends g, R extends i> extends com.baidu.tbadk.mvc.co
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean ti() {
+    public boolean tk() {
         return true;
     }
 
@@ -31,8 +31,8 @@ public abstract class a<T extends g, R extends i> extends com.baidu.tbadk.mvc.co
         if (bVar == null) {
             return true;
         }
-        if (bVar.tp() == 16777216) {
-            if (tx()) {
+        if (bVar.tr() == 16777216) {
+            if (tz()) {
                 de(33554435);
                 return true;
             }

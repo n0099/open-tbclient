@@ -6,7 +6,7 @@ import android.content.Intent;
 public class GroupMsgImageActivity extends AbsMsgImageActivity {
     @Override // com.baidu.tieba.im.chat.AbsMsgImageActivity
     protected void a(String str, bs bsVar) {
-        w.Jo().b(str, bsVar);
+        w.Js().b(str, bsVar);
     }
 
     public static void a(Context context, String str, long j, boolean z, String str2) {

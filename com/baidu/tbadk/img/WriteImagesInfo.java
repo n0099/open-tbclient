@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ba;
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -192,7 +192,7 @@ public class WriteImagesInfo implements Parcelable, Serializable {
             for (int size = chosedFiles.size() - 1; size >= 0; size--) {
                 ImageFileInfo imageFileInfo = chosedFiles.get(size);
                 if (!imageFileInfo.isHasAddPostQualityAction()) {
-                    imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.w(az.mD().mJ(), az.mD().mJ()));
+                    imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.w(ba.mD().mJ(), ba.mD().mJ()));
                     imageFileInfo.setHasAddPostQualityAction(true);
                 }
             }

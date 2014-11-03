@@ -4,21 +4,21 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 /* loaded from: classes.dex */
 class ay implements Animation.AnimationListener {
-    private final /* synthetic */ az arW;
-    private final /* synthetic */ ViewGroup arX;
+    private final /* synthetic */ az asf;
+    private final /* synthetic */ ViewGroup asg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ay(az azVar, ViewGroup viewGroup) {
-        this.arW = azVar;
-        this.arX = viewGroup;
+        this.asf = azVar;
+        this.asg = viewGroup;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        if (this.arW != null) {
-            this.arW.Ci();
+        if (this.asf != null) {
+            this.asf.Ck();
         }
-        this.arX.setVisibility(0);
+        this.asg.setVisibility(0);
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -27,9 +27,9 @@ class ay implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationStart(Animation animation) {
-        this.arX.setVisibility(8);
-        if (this.arW != null) {
-            this.arW.Cj();
+        this.asg.setVisibility(8);
+        if (this.asf != null) {
+            this.asf.Cl();
         }
     }
 }

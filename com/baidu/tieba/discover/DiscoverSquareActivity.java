@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.atomData.SingleForumFeedActivityConfig;
 import com.baidu.tbadk.core.atomData.SingleSquareActivityConfig;
 /* loaded from: classes.dex */
 public class DiscoverSquareActivity extends BaseActivity implements AdapterView.OnItemClickListener {
-    private v aoa;
+    private v aoj;
 
     static {
         TbadkApplication.m251getInst().RegisterIntent(DiscoverSquareActivityConfig.class, DiscoverSquareActivity.class);
@@ -26,7 +26,7 @@ public class DiscoverSquareActivity extends BaseActivity implements AdapterView.
     }
 
     private void initUI() {
-        this.aoa = new v(this);
+        this.aoj = new v(this);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
@@ -50,6 +50,6 @@ public class DiscoverSquareActivity extends BaseActivity implements AdapterView.
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.aoa.onChangeSkinType(i);
+        this.aoj.onChangeSkinType(i);
     }
 }

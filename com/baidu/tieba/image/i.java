@@ -23,14 +23,14 @@ class i implements ViewPager.OnPageChangeListener {
         MultiImageView multiImageView;
         a aVar2;
         int i2;
-        z = this.this$0.bkI;
+        z = this.this$0.bkW;
         if (!z) {
-            aVar = this.this$0.bkC;
+            aVar = this.this$0.bkQ;
             if (aVar != null) {
-                multiImageView = this.this$0.bkA;
+                multiImageView = this.this$0.bkO;
                 if (i > multiImageView.getItemNum() - 5) {
-                    aVar2 = this.this$0.bkC;
-                    aVar2.RZ();
+                    aVar2 = this.this$0.bkQ;
+                    aVar2.Sc();
                 }
             }
         } else {
@@ -42,7 +42,7 @@ class i implements ViewPager.OnPageChangeListener {
         i2 = this.this$0.mIndex;
         imageViewerActivity.M(i2, i);
         this.this$0.mIndex = i;
-        this.this$0.OA();
+        this.this$0.OD();
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -60,15 +60,15 @@ class i implements ViewPager.OnPageChangeListener {
         int i3;
         if (i == 1) {
             long nanoTime = System.nanoTime();
-            j = this.this$0.bkD;
+            j = this.this$0.bkR;
             if (nanoTime - j > 300000000) {
-                arrayList = this.this$0.bkw;
+                arrayList = this.this$0.bkK;
                 if (arrayList != null) {
                     i2 = this.this$0.mIndex;
-                    arrayList2 = this.this$0.bkw;
+                    arrayList2 = this.this$0.bkK;
                     if (i2 < arrayList2.size()) {
-                        hashMap = this.this$0.bkE;
-                        arrayList3 = this.this$0.bkw;
+                        hashMap = this.this$0.bkS;
+                        arrayList3 = this.this$0.bkK;
                         i3 = this.this$0.mIndex;
                         hashMap.put((String) arrayList3.get(i3), true);
                     }

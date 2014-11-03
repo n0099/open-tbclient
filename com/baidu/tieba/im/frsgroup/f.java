@@ -6,13 +6,13 @@ import com.baidu.tieba.im.message.ResponseUpgradeMemberGroupMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ e aWS;
+    final /* synthetic */ e aXg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(e eVar, int i) {
         super(i);
-        this.aWS = eVar;
+        this.aXg = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,11 +23,11 @@ public class f extends com.baidu.adp.framework.listener.e {
             if (responseDismissGroupMessage.getError() != 0) {
                 return;
             }
-            this.aWS.R(responseDismissGroupMessage.getGroupId());
+            this.aXg.R(responseDismissGroupMessage.getGroupId());
         } else if (socketResponsedMessage instanceof ResponseUpgradeMemberGroupMessage) {
             ResponseUpgradeMemberGroupMessage responseUpgradeMemberGroupMessage = (ResponseUpgradeMemberGroupMessage) socketResponsedMessage;
             if (responseUpgradeMemberGroupMessage.getError() == 0 || responseUpgradeMemberGroupMessage.getError() == 2230110) {
-                this.aWS.aG(false);
+                this.aXg.aG(false);
             }
         }
     }

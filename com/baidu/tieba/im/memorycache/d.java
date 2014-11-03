@@ -10,13 +10,13 @@ import com.baidu.tieba.im.message.MemoryGetFromDBMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
-    final /* synthetic */ c bcU;
+    final /* synthetic */ c bdi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(c cVar, int i) {
         super(i);
-        this.bcU = cVar;
+        this.bdi = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,21 +29,21 @@ public class d extends CustomMessageListener {
             if (!TextUtils.isEmpty(uid) && uid.equals(TbadkApplication.getCurrentAccount())) {
                 try {
                     for (ImMessageCenterPojo imMessageCenterPojo : memoryGetFromDBMessage.getData()) {
-                        j = this.bcU.j(imMessageCenterPojo);
+                        j = this.bdi.j(imMessageCenterPojo);
                         if (!j || imMessageCenterPojo.getPulled_msgId() > 0) {
-                            this.bcU.c(imMessageCenterPojo);
+                            this.bdi.c(imMessageCenterPojo);
                         }
                     }
-                    this.bcU.dh(false);
-                    this.bcU.di(false);
-                    this.bcU.PL();
-                    this.bcU.PM();
-                    this.bcU.PN();
+                    this.bdi.dh(false);
+                    this.bdi.di(false);
+                    this.bdi.PO();
+                    this.bdi.PP();
+                    this.bdi.PQ();
                 } catch (Exception e) {
                     BdLog.detailException(e);
                 }
-                this.bcU.bcO.set(true);
-                this.bcU.PO();
+                this.bdi.bdc.set(true);
+                this.bdi.PR();
             }
         }
     }

@@ -12,13 +12,13 @@ import tbclient.GetGameCenter.RecommendGame;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ ao aIm;
+    final /* synthetic */ ao aIz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public aq(ao aoVar, int i) {
         super(i);
-        this.aIm = aoVar;
+        this.aIz = aoVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,26 +31,26 @@ public class aq extends com.baidu.adp.framework.listener.e {
         List<GameInfo> list;
         GameCenterActivity gameCenterActivity;
         GameCenterActivity gameCenterActivity2;
-        ao aoVar = this.aIm;
-        avVar = this.aIm.aIh;
-        aoVar.hideLoadingView(avVar.HF());
+        ao aoVar = this.aIz;
+        avVar = this.aIz.aIt;
+        aoVar.hideLoadingView(avVar.HJ());
         if (!(socketResponsedMessage instanceof ResponseGameCenterMessage)) {
-            ao aoVar2 = this.aIm;
-            gameCenterActivity2 = this.aIm.aIg;
+            ao aoVar2 = this.aIz;
+            gameCenterActivity2 = this.aIz.aIs;
             aoVar2.showToast(gameCenterActivity2.getResources().getString(com.baidu.tieba.y.neterror));
             return;
         }
         ResponseGameCenterMessage responseGameCenterMessage = (ResponseGameCenterMessage) socketResponsedMessage;
         if (responseGameCenterMessage.getOrginalMessage() instanceof RequestGameCenterMessage) {
             if (!responseGameCenterMessage.hasError()) {
-                this.aIm.aIk = true;
+                this.aIz.aIw = true;
                 GameList gameList = responseGameCenterMessage.getGameList();
                 List<AdList> adLists = responseGameCenterMessage.getAdLists();
                 List<RecommendGame> recommendGames = responseGameCenterMessage.getRecommendGames();
-                auVar = this.aIm.aIi;
+                auVar = this.aIz.aIu;
                 auVar.setHasMore(responseGameCenterMessage.getGameList().has_more.intValue() == 1);
-                auVar2 = this.aIm.aIi;
-                auVar3 = this.aIm.aIi;
+                auVar2 = this.aIz.aIu;
+                auVar3 = this.aIz.aIu;
                 auVar2.setPageNum(auVar3.getPageNum() + 1);
                 LinkedList linkedList = new LinkedList();
                 LinkedList linkedList2 = new LinkedList();
@@ -77,10 +77,10 @@ public class aq extends com.baidu.adp.framework.listener.e {
                 }
                 new ar(this, linkedList, adLists, linkedList2, linkedList3).execute("");
             } else if (!TextUtils.isEmpty(responseGameCenterMessage.getErrorString())) {
-                this.aIm.showToast(responseGameCenterMessage.getErrorString());
+                this.aIz.showToast(responseGameCenterMessage.getErrorString());
             } else {
-                ao aoVar3 = this.aIm;
-                gameCenterActivity = this.aIm.aIg;
+                ao aoVar3 = this.aIz;
+                gameCenterActivity = this.aIz.aIs;
                 aoVar3.showToast(gameCenterActivity.getResources().getString(com.baidu.tieba.y.neterror));
             }
         }

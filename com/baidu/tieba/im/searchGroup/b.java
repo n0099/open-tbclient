@@ -12,72 +12,72 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class b extends f {
-    private ProgressBar aTH;
-    private Button bhA;
-    private AddGroupActivity bhB;
-    private View bhw;
-    private NavigationBar bhx;
-    private EditText bhy;
-    private ImageButton bhz;
+    private ProgressBar aTV;
+    private View bhK;
+    private NavigationBar bhL;
+    private EditText bhM;
+    private ImageButton bhN;
+    private Button bhO;
+    private AddGroupActivity bhP;
     private View iZ;
 
     public b(AddGroupActivity addGroupActivity) {
         super(addGroupActivity);
-        this.bhw = null;
-        this.bhx = null;
+        this.bhK = null;
+        this.bhL = null;
         this.iZ = null;
-        this.bhy = null;
-        this.bhz = null;
-        this.aTH = null;
-        this.bhA = null;
-        this.bhB = null;
-        this.bhB = addGroupActivity;
+        this.bhM = null;
+        this.bhN = null;
+        this.aTV = null;
+        this.bhO = null;
+        this.bhP = null;
+        this.bhP = addGroupActivity;
         initUI();
     }
 
-    public View LB() {
-        return this.bhz;
+    public View LF() {
+        return this.bhN;
     }
 
-    public View Rr() {
-        return this.bhA;
+    public View Ru() {
+        return this.bhO;
     }
 
-    public View Rs() {
+    public View Rv() {
         return this.iZ;
     }
 
-    public void Rt() {
-        if (this.bhy != null) {
-            this.bhy.setText("");
+    public void Rw() {
+        if (this.bhM != null) {
+            this.bhM.setText("");
         }
     }
 
     public void da(boolean z) {
-        this.aTH.setVisibility(z ? 0 : 8);
+        this.aTV.setVisibility(z ? 0 : 8);
     }
 
     public void changeSkinType(int i) {
-        this.bhB.getLayoutMode().L(i == 1);
-        this.bhB.getLayoutMode().h(this.bhw);
-        this.bhx.onChangeSkinType(i);
+        this.bhP.getLayoutMode().L(i == 1);
+        this.bhP.getLayoutMode().h(this.bhK);
+        this.bhL.onChangeSkinType(i);
     }
 
     private void initUI() {
-        this.bhB.setContentView(w.im_add_group_activity);
-        this.bhw = this.bhB.findViewById(v.addgroup_rootlayout);
-        this.bhx = (NavigationBar) this.bhB.findViewById(v.addgroup_navigationbar);
-        this.iZ = this.bhx.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.bhx.setTitleText(this.bhB.getResources().getString(y.add_group_title_main));
-        this.bhy = (EditText) this.bhB.findViewById(v.addgroup_input);
-        this.bhy.setInputType(2);
-        this.bhz = (ImageButton) this.bhB.findViewById(v.addgroup_delbtn);
-        this.bhA = (Button) this.bhB.findViewById(v.addgroup_searchbutton);
-        this.bhy.addTextChangedListener(new c(this));
-        this.bhA = (Button) this.bhB.findViewById(v.addgroup_searchbutton);
-        this.aTH = (ProgressBar) this.bhB.findViewById(v.addgroup_progress);
-        this.iZ.setOnClickListener(this.bhB);
-        this.bhz.setOnClickListener(this.bhB);
-        this.bhA.setOnClickListener(this.bhB);
+        this.bhP.setContentView(w.im_add_group_activity);
+        this.bhK = this.bhP.findViewById(v.addgroup_rootlayout);
+        this.bhL = (NavigationBar) this.bhP.findViewById(v.addgroup_navigationbar);
+        this.iZ = this.bhL.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.bhL.setTitleText(this.bhP.getResources().getString(y.add_group_title_main));
+        this.bhM = (EditText) this.bhP.findViewById(v.addgroup_input);
+        this.bhM.setInputType(2);
+        this.bhN = (ImageButton) this.bhP.findViewById(v.addgroup_delbtn);
+        this.bhO = (Button) this.bhP.findViewById(v.addgroup_searchbutton);
+        this.bhM.addTextChangedListener(new c(this));
+        this.bhO = (Button) this.bhP.findViewById(v.addgroup_searchbutton);
+        this.aTV = (ProgressBar) this.bhP.findViewById(v.addgroup_progress);
+        this.iZ.setOnClickListener(this.bhP);
+        this.bhN.setOnClickListener(this.bhP);
+        this.bhO.setOnClickListener(this.bhP);
     }
 }

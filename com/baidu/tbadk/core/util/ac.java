@@ -21,22 +21,22 @@ import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class ac {
-    private com.baidu.tbadk.core.util.httpNet.e Ed = null;
-    private u Ee = null;
-    private ac Ef = null;
-    private ao Eg = null;
-    private int Eh = 0;
+    private com.baidu.tbadk.core.util.httpNet.e Ee = null;
+    private u Ef = null;
+    private ac Eg = null;
+    private ao Eh = null;
+    private int Ei = 0;
 
     private void mb() {
-        this.Ed = new com.baidu.tbadk.core.util.httpNet.e();
-        this.Ee = aj.mo().a(this.Ed);
-        this.Ef = null;
-        this.Ed.na().nd().mNetType = com.baidu.tbadk.core.util.httpNet.j.getNetType();
-        this.Ed.na().nd().FU = this.Ed.na().FU;
+        this.Ee = new com.baidu.tbadk.core.util.httpNet.e();
+        this.Ef = aj.mo().a(this.Ee);
+        this.Eg = null;
+        this.Ee.na().nd().mNetType = com.baidu.tbadk.core.util.httpNet.j.getNetType();
+        this.Ee.na().nd().FV = this.Ee.na().FV;
     }
 
     public com.baidu.tbadk.core.util.httpNet.e mc() {
-        return this.Ed;
+        return this.Ee;
     }
 
     public ac() {
@@ -45,27 +45,27 @@ public class ac {
 
     public ac(String str) {
         mb();
-        this.Ed.na().nd().mUrl = str;
+        this.Ee.na().nd().mUrl = str;
     }
 
     public void setUrl(String str) {
-        this.Ed.na().nd().mUrl = str;
+        this.Ee.na().nd().mUrl = str;
     }
 
     public void h(ArrayList<BasicNameValuePair> arrayList) {
-        this.Ee.h(arrayList);
+        this.Ef.h(arrayList);
     }
 
     public void k(String str, String str2) {
-        this.Ee.k(str, str2);
+        this.Ef.k(str, str2);
     }
 
     public void a(BasicNameValuePair basicNameValuePair) {
-        this.Ee.a(basicNameValuePair);
+        this.Ef.a(basicNameValuePair);
     }
 
     public void e(String str, byte[] bArr) {
-        this.Ee.e(str, bArr);
+        this.Ef.e(str, bArr);
     }
 
     private void md() {
@@ -73,7 +73,7 @@ public class ac {
         BasicNameValuePair basicNameValuePair = new BasicNameValuePair("BDUSS", currentBduss);
         BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair("tbs", TbadkApplication.m251getInst().getTbs());
         if (currentBduss != null) {
-            ArrayList<BasicNameValuePair> ly = this.Ee.ly();
+            ArrayList<BasicNameValuePair> ly = this.Ef.ly();
             int size = ly.size();
             for (int i = 0; i < size; i++) {
                 BasicNameValuePair basicNameValuePair3 = ly.get(i);
@@ -87,45 +87,45 @@ public class ac {
     }
 
     private void me() {
-        if (this.Eg == null) {
-            this.Eg = an.mv();
+        if (this.Eh == null) {
+            this.Eh = an.mv();
         }
-        if (this.Eg != null) {
-            this.Ee.k("stTime", String.valueOf(this.Eg.mTime));
-            this.Ee.k("stSize", String.valueOf(this.Eg.mSize));
-            this.Ee.k("stTimesNum", String.valueOf(this.Eg.EJ));
-            this.Ee.k("stMode", String.valueOf(this.Eg.mMode));
-            this.Ee.k("stMethod", String.valueOf(this.Eg.EI));
+        if (this.Eh != null) {
+            this.Ef.k("stTime", String.valueOf(this.Eh.mTime));
+            this.Ef.k("stSize", String.valueOf(this.Eh.mSize));
+            this.Ef.k("stTimesNum", String.valueOf(this.Eh.EK));
+            this.Ef.k("stMode", String.valueOf(this.Eh.mMode));
+            this.Ef.k("stMethod", String.valueOf(this.Eh.EJ));
         }
-        this.Eh = an.bv(0);
-        if (this.Eh == 0 && this.Eg != null) {
-            this.Eh = this.Eg.EJ;
+        this.Ei = an.bv(0);
+        if (this.Ei == 0 && this.Eh != null) {
+            this.Ei = this.Eh.EK;
         }
-        this.Ee.k("stErrorNums", String.valueOf(this.Eh));
+        this.Ef.k("stErrorNums", String.valueOf(this.Ei));
     }
 
     public boolean mf() {
-        return this.Ed.nb().mf();
+        return this.Ee.nb().mf();
     }
 
     public int mg() {
-        return this.Ed.nb().FY;
+        return this.Ee.nb().FZ;
     }
 
     public int mh() {
-        return this.Ed.nb().FX;
+        return this.Ee.nb().FY;
     }
 
     public String getErrorString() {
-        return this.Ed.nb().mErrorString;
+        return this.Ee.nb().mErrorString;
     }
 
     public void dM() {
-        if (this.Ee != null) {
-            this.Ee.dM();
-        }
         if (this.Ef != null) {
             this.Ef.dM();
+        }
+        if (this.Eg != null) {
+            this.Eg.dM();
         }
     }
 
@@ -138,30 +138,30 @@ public class ac {
             TbadkApplication.setCurrentAccount(null, TbadkApplication.m251getInst().getApp().getApplicationContext());
             StringBuilder sb = new StringBuilder(32);
             sb.append(TbConfig.LOGIN_FULL_ADDRESS);
-            if (this.Ef == null) {
-                this.Ef = new ac(sb.toString());
+            if (this.Eg == null) {
+                this.Eg = new ac(sb.toString());
             } else {
-                this.Ef.dM();
+                this.Eg.dM();
             }
-            this.Ef.mc().na().mIsNeedAddCommenParam = false;
-            this.Ef.mc().na().mIsUseCurrentBDUSS = false;
-            this.Ef.mc().na().FT = false;
-            this.Ef.k("un", str);
-            this.Ef.k("passwd", str2);
-            this.Ef.k("isphone", "0");
-            this.Ef.k("channel_id", TbadkApplication.m251getInst().getPushChannelId());
-            this.Ef.k("channel_uid", TbadkApplication.m251getInst().getPushChannelUserId());
-            this.Ef.mc().na().nd().Gl = true;
-            lA = this.Ef.lA();
+            this.Eg.mc().na().mIsNeedAddCommenParam = false;
+            this.Eg.mc().na().mIsUseCurrentBDUSS = false;
+            this.Eg.mc().na().FU = false;
+            this.Eg.k("un", str);
+            this.Eg.k("passwd", str2);
+            this.Eg.k("isphone", "0");
+            this.Eg.k("channel_id", TbadkApplication.m251getInst().getPushChannelId());
+            this.Eg.k("channel_uid", TbadkApplication.m251getInst().getPushChannelUserId());
+            this.Eg.mc().na().nd().Gm = true;
+            lA = this.Eg.lA();
         } catch (Exception e) {
             BdLog.detailException(e);
         }
-        if (this.Ef.mc().nb().jq() && lA != null) {
+        if (this.Eg.mc().nb().jq() && lA != null) {
             com.baidu.tbadk.core.data.j jVar = new com.baidu.tbadk.core.data.j();
             jVar.parserJson(lA);
             String userId = jVar.getUser().getUserId();
             if (userId == null || userId.length() <= 0) {
-                this.Ed.nb().mErrorString = TbadkApplication.m251getInst().getApp().getApplicationContext().getString(com.baidu.tieba.y.neterror);
+                this.Ee.nb().mErrorString = TbadkApplication.m251getInst().getApp().getApplicationContext().getString(com.baidu.tieba.y.neterror);
                 return null;
             }
             AccountData accountData = new AccountData();
@@ -183,8 +183,8 @@ public class ac {
             TbadkApplication.setCurrentAccount(accountData, TbadkApplication.m251getInst().getApp().getApplicationContext());
             return jVar;
         }
-        if (this.Ef.mf()) {
-            switch (this.Ef.mg()) {
+        if (this.Eg.mf()) {
+            switch (this.Eg.mg()) {
                 case 1:
                 case 2:
                 case 5:
@@ -204,15 +204,15 @@ public class ac {
     }
 
     public byte[] lB() {
-        if (!this.Ed.na().mIsFromCDN) {
-            this.Ed.na().b(this.Ee);
+        if (!this.Ee.na().mIsFromCDN) {
+            this.Ee.na().b(this.Ef);
         }
-        return this.Ee.lB();
+        return this.Ef.lB();
     }
 
     private void mi() {
         StringBuffer stringBuffer = new StringBuffer(1024);
-        ArrayList<BasicNameValuePair> ly = this.Ee.ly();
+        ArrayList<BasicNameValuePair> ly = this.Ef.ly();
         for (int i = 0; ly != null && i < ly.size(); i++) {
             BasicNameValuePair basicNameValuePair = ly.get(i);
             if (basicNameValuePair != null) {
@@ -223,7 +223,7 @@ public class ac {
             }
         }
         stringBuffer.append("tiebaclient!!!");
-        this.Ee.k(SapiUtils.KEY_QR_LOGIN_SIGN, com.baidu.adp.lib.util.u.aE(stringBuffer.toString()));
+        this.Ef.k(SapiUtils.KEY_QR_LOGIN_SIGN, com.baidu.adp.lib.util.u.aE(stringBuffer.toString()));
     }
 
     /* JADX WARN: Removed duplicated region for block: B:46:0x010e  */
@@ -237,77 +237,77 @@ public class ac {
         switch (i) {
             case 1:
                 if (mc().na().mIsNeedAddCommenParam) {
-                    this.Ed.na().b(this.Ee);
+                    this.Ee.na().b(this.Ef);
                 }
                 me();
-                lD = this.Ee.lC();
+                lD = this.Ef.lC();
                 break;
             case 2:
                 if (mc().na().mIsUseCurrentBDUSS) {
-                    mc().na().a(this.Ee);
+                    mc().na().a(this.Ef);
                 }
                 if (mc().na().mIsNeedAddCommenParam) {
-                    this.Ed.na().b(this.Ee);
+                    this.Ee.na().b(this.Ef);
                 }
                 me();
-                lD = this.Ee.lA();
+                lD = this.Ef.lA();
                 break;
             case 3:
                 if (mc().na().mIsUseCurrentBDUSS) {
-                    mc().na().a(this.Ee);
+                    mc().na().a(this.Ef);
                 }
                 if (mc().na().mIsNeedAddCommenParam) {
-                    this.Ed.na().b(this.Ee);
+                    this.Ee.na().b(this.Ef);
                 }
                 mi();
-                lD = this.Ee.lD();
+                lD = this.Ef.lD();
                 break;
             default:
                 return null;
         }
-        if (lD == null && aj.EB == 1 && this.Ed.nb().FX != 404 && this.Ed.nb().FX < 500) {
-            if (!this.Ee.lz()) {
-                this.Ee = new ad(this.Ed);
+        if (lD == null && aj.EC == 1 && this.Ee.nb().FY != 404 && this.Ee.nb().FY < 500) {
+            if (!this.Ef.lz()) {
+                this.Ef = new ad(this.Ee);
                 switch (i) {
                     case 1:
                         if (mc().na().mIsNeedAddCommenParam) {
-                            this.Ed.na().b(this.Ee);
+                            this.Ee.na().b(this.Ef);
                         }
                         me();
-                        lD = this.Ee.lC();
+                        lD = this.Ef.lC();
                         break;
                     case 2:
                         if (mc().na().mIsUseCurrentBDUSS) {
-                            mc().na().a(this.Ee);
+                            mc().na().a(this.Ef);
                         }
                         if (mc().na().mIsNeedAddCommenParam) {
-                            this.Ed.na().b(this.Ee);
+                            this.Ee.na().b(this.Ef);
                         }
                         me();
-                        lD = this.Ee.lA();
+                        lD = this.Ef.lA();
                         break;
                     case 3:
                         if (mc().na().mIsUseCurrentBDUSS) {
-                            mc().na().a(this.Ee);
+                            mc().na().a(this.Ef);
                         }
                         if (mc().na().mIsNeedAddCommenParam) {
-                            this.Ed.na().b(this.Ee);
+                            this.Ee.na().b(this.Ef);
                         }
-                        lD = this.Ee.lD();
+                        lD = this.Ef.lD();
                         break;
                     default:
                         return null;
                 }
-                if (lD != null && this.Ed.nb().jq()) {
+                if (lD != null && this.Ee.nb().jq()) {
                     aj.mp();
                     str = lD;
-                    if (this.Ed.nb().mf()) {
-                        an.a(this.Eg);
-                        an.bw(this.Eh);
+                    if (this.Ee.nb().mf()) {
+                        an.a(this.Eh);
+                        an.bw(this.Ei);
                         return str;
-                    } else if (!this.Ed.nb().jq() && this.Ed.nb().FY == 1 && this.Ed.na().FT) {
-                        String str2 = this.Ed.nb().mErrorString;
-                        this.Ed.nb().mErrorString = "";
+                    } else if (!this.Ee.nb().jq() && this.Ee.nb().FZ == 1 && this.Ee.na().FU) {
+                        String str2 = this.Ee.nb().mErrorString;
+                        this.Ee.nb().mErrorString = "";
                         AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
                         AccountData jA = currentAccountObj == null ? com.baidu.tbadk.core.account.a.jA() : currentAccountObj;
                         if (jA == null || TextUtils.isEmpty(jA.getAccount())) {
@@ -343,11 +343,11 @@ public class ac {
                             }
                         }
                         if (b == null) {
-                            if (this.Ef != null) {
-                                this.Ed.nb().mErrorString = this.Ef.getErrorString();
+                            if (this.Eg != null) {
+                                this.Ee.nb().mErrorString = this.Eg.getErrorString();
                                 return null;
                             }
-                            this.Ed.nb().mErrorString = str2;
+                            this.Ee.nb().mErrorString = str2;
                             return str;
                         }
                         return br(i);
@@ -360,7 +360,7 @@ public class ac {
             }
         }
         str = lD;
-        if (this.Ed.nb().mf()) {
+        if (this.Ee.nb().mf()) {
         }
     }
 
@@ -369,24 +369,24 @@ public class ac {
         md();
         switch (i) {
             case 1:
-                lD = this.Ee.lC();
+                lD = this.Ef.lC();
                 break;
             case 2:
-                lD = this.Ee.lA();
+                lD = this.Ef.lA();
                 break;
             case 3:
-                lD = this.Ee.lD();
+                lD = this.Ef.lD();
                 break;
             default:
                 return null;
         }
-        if (this.Ed.nb().mf()) {
-            switch (this.Ed.nb().FY) {
+        if (this.Ee.nb().mf()) {
+            switch (this.Ee.nb().FZ) {
                 case 1:
                 case 2:
                 case 5:
                     TbadkApplication.m251getInst().handler.sendMessage(TbadkApplication.m251getInst().handler.obtainMessage(1));
-                    this.Ed.nb().mErrorString = "";
+                    this.Ee.nb().mErrorString = "";
                     return null;
                 case 3:
                 case 4:
@@ -438,7 +438,7 @@ public class ac {
     }
 
     public boolean a(String str, Handler handler, int i, int i2, int i3, boolean z) {
-        mc().na().a(this.Ee);
-        return this.Ee.a(str, handler, i, i2, i3, z);
+        mc().na().a(this.Ef);
+        return this.Ef.a(str, handler, i, i2, i3, z);
     }
 }

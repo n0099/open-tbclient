@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.os.FileObserver;
 import android.os.IBinder;
 import android.text.TextUtils;
+import com.baidu.adp.lib.g.i;
+import com.baidu.tbadk.TbadkApplication;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class PluginFileService extends Service {
@@ -17,15 +20,28 @@ public class PluginFileService extends Service {
         if (intent != null) {
             String stringExtra = intent.getStringExtra(KEY_PLUGIN_NAME);
             if (!TextUtils.isEmpty(stringExtra)) {
-                PluginFileObserver pluginFileObserver = this.observerMap.get(stringExtra);
-                if (pluginFileObserver == null) {
-                    pluginFileObserver = new PluginFileObserver(stringExtra, PluginFileHelper.pluginDir(stringExtra).getAbsolutePath());
-                    this.observerMap.put(stringExtra, pluginFileObserver);
-                }
-                pluginFileObserver.startWatching();
+                addPluginObserver(stringExtra);
+                return 1;
             }
+            List<Plugin> installedPluginList = PluginCenter.getInstance().getInstalledPluginList();
+            if (installedPluginList != null) {
+                for (Plugin plugin2 : installedPluginList) {
+                    addPluginObserver(plugin2.getName());
+                }
+                return 1;
+            }
+            return 1;
         }
-        return super.onStartCommand(intent, i, i2);
+        return 1;
+    }
+
+    private void addPluginObserver(String str) {
+        PluginFileObserver pluginFileObserver = this.observerMap.get(str);
+        if (pluginFileObserver == null) {
+            pluginFileObserver = new PluginFileObserver(str, PluginFileHelper.pluginDir(str).getAbsolutePath());
+            this.observerMap.put(str, pluginFileObserver);
+        }
+        pluginFileObserver.startWatching();
     }
 
     @Override // android.app.Service
@@ -37,6 +53,9 @@ public class PluginFileService extends Service {
                 value.stopWatching();
             }
         }
+        Intent intent = new Intent();
+        intent.setClass(this, PluginFileService.class);
+        i.b(TbadkApplication.m251getInst(), intent);
     }
 
     @Override // android.app.Service
@@ -44,8 +63,9 @@ public class PluginFileService extends Service {
         return null;
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    class PluginFileObserver extends FileObserver {
+    public class PluginFileObserver extends FileObserver {
         private String mPluginName;
 
         public PluginFileObserver(String str, int i) {

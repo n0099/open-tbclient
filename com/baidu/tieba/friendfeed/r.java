@@ -9,20 +9,20 @@ import com.baidu.tieba.data.FriendFeedThreadData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements View.OnClickListener {
-    final /* synthetic */ q ayX;
-    private final /* synthetic */ FriendFeedThreadData ayY;
+    final /* synthetic */ q azg;
+    private final /* synthetic */ FriendFeedThreadData azh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q qVar, FriendFeedThreadData friendFeedThreadData) {
-        this.ayX = qVar;
-        this.ayY = friendFeedThreadData;
+        this.azg = qVar;
+        this.azh = friendFeedThreadData;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
         MessageManager messageManager = MessageManager.getInstance();
-        context = this.ayX.mContext;
-        messageManager.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(context, this.ayY.getAuthor().getUserId(), this.ayY.getAuthor().getName_show(), "friend")));
+        context = this.azg.mContext;
+        messageManager.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(context, this.azh.getAuthor().getUserId(), this.azh.getAuthor().getName_show(), "friend")));
     }
 }

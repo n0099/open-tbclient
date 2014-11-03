@@ -16,16 +16,16 @@ import java.io.RandomAccessFile;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class h {
-    private boolean Vh;
-    private e Vi;
-    private i Vj;
-    private Object Vk;
+    private boolean Vl;
+    private e Vm;
+    private i Vn;
+    private Object Vo;
     private int bigHeight;
     private int bigWidth;
     private String from;
     private int smallHeight;
     private int smallWidth;
-    private int Vg = 102400;
+    private int Vk = 102400;
     private String groupId = "1";
     private ac yV = null;
 
@@ -41,15 +41,15 @@ public class h {
     }
 
     public void a(i iVar, Object obj) {
-        this.Vj = iVar;
-        this.Vk = obj;
+        this.Vn = iVar;
+        this.Vo = obj;
         if (iVar != null) {
-            this.Vg = 10240;
+            this.Vk = 10240;
         }
     }
 
     public void cancel() {
-        this.Vh = true;
+        this.Vl = true;
         if (this.yV != null) {
             this.yV.dM();
         }
@@ -65,7 +65,7 @@ public class h {
                 if (i2 < chosedFiles.size()) {
                     ImageFileInfo imageFileInfo = chosedFiles.get(i2);
                     if (!imageFileInfo.isAlreadyUploadedToServer()) {
-                        if (!this.Vh) {
+                        if (!this.Vl) {
                             ImageUploadResult a = a(imageFileInfo);
                             if (a != null && (uploadedPicInfo = a.getUploadedPicInfo()) != null) {
                                 imageFileInfo.setServerImageCode(uploadedPicInfo.toPostString());
@@ -85,16 +85,16 @@ public class h {
     public ImageUploadResult a(ImageFileInfo imageFileInfo) {
         Bitmap b;
         String a;
-        if (this.Vi == null) {
-            this.Vi = new e(TbadkApplication.m251getInst().getApp());
+        if (this.Vm == null) {
+            this.Vm = new e(TbadkApplication.m251getInst().getApp());
         }
         LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
         imageFileInfo.setPageActionsList(null);
-        com.baidu.adp.widget.a.a a2 = this.Vi.a(imageFileInfo, true);
+        com.baidu.adp.widget.a.a a2 = this.Vm.a(imageFileInfo, true);
         if (a2 != null) {
             b = a2.hl();
         } else {
-            b = this.Vi.b(imageFileInfo, true);
+            b = this.Vm.b(imageFileInfo, true);
         }
         imageFileInfo.setPageActionsList(pageActionsList);
         if (b != null && (a = s.a(TbConfig.IMAGE_RESIZED_FILE, b, 80)) != null) {
@@ -177,7 +177,7 @@ public class h {
                     } catch (Exception e2) {
                         randomAccessFile = null;
                         e = e2;
-                        if (!this.Vh) {
+                        if (!this.Vl) {
                             sb.append("|request cancelled.");
                         } else {
                             BdLog.e(e.getMessage());
@@ -188,8 +188,8 @@ public class h {
                         return imageUploadResult;
                     }
                 } else {
-                    String str2 = String.valueOf(b) + this.Vg;
-                    long j2 = length % ((long) this.Vg) == 0 ? length / this.Vg : (length / this.Vg) + 1;
+                    String str2 = String.valueOf(b) + this.Vk;
+                    long j2 = length % ((long) this.Vk) == 0 ? length / this.Vk : (length / this.Vk) + 1;
                     sb.append("|chunkNo=");
                     sb.append(j2);
                     randomAccessFile = new RandomAccessFile(str, "r");
@@ -218,21 +218,21 @@ public class h {
                                     break;
                                 }
                                 try {
-                                    if (!this.Vh) {
+                                    if (!this.Vl) {
                                         int i4 = 0;
                                         if (i > j2) {
                                             i4 = 0;
                                             bArr = null;
                                         } else {
                                             if (i < j2) {
-                                                i4 = this.Vg;
+                                                i4 = this.Vk;
                                             } else if (i == j2) {
-                                                i4 = (int) (length - (this.Vg * (j2 - 1)));
+                                                i4 = (int) (length - (this.Vk * (j2 - 1)));
                                             }
                                             if (bArr2 == null || bArr2.length != i4) {
                                                 bArr2 = new byte[i4];
                                             }
-                                            randomAccessFile.seek(this.Vg * (i - 1));
+                                            randomAccessFile.seek(this.Vk * (i - 1));
                                             randomAccessFile.read(bArr2, 0, i4);
                                             bArr = bArr2;
                                         }
@@ -274,9 +274,9 @@ public class h {
                                             } else {
                                                 int i5 = i + 1;
                                                 long j4 = j3 + i4;
-                                                long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.Vg) : j4;
-                                                if (this.Vj != null) {
-                                                    this.Vj.a(str, this.Vk, j5, length);
+                                                long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.Vk) : j4;
+                                                if (this.Vn != null) {
+                                                    this.Vn.a(str, this.Vo, j5, length);
                                                 }
                                                 i2 = i5;
                                                 j = j4;
@@ -315,7 +315,7 @@ public class h {
                         } catch (Exception e6) {
                             imageUploadResult = null;
                             e = e6;
-                            if (!this.Vh) {
+                            if (!this.Vl) {
                             }
                             TiebaStatic.imgError("", TbErrInfo.ERR_IMG_SEND, String.valueOf(this.from) + "ex: " + e.getMessage(), sb.toString());
                             com.baidu.adp.lib.g.a.a(randomAccessFile);

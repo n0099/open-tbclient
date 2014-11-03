@@ -7,13 +7,13 @@ import com.baidu.tbadk.coreExtra.view.LivePlayingStatusMgr;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai extends CustomMessageListener {
-    final /* synthetic */ LivePlayingStatusMgr OJ;
+    final /* synthetic */ LivePlayingStatusMgr OO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ai(LivePlayingStatusMgr livePlayingStatusMgr, int i) {
         super(i);
-        this.OJ = livePlayingStatusMgr;
+        this.OO = livePlayingStatusMgr;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,26 +27,26 @@ public class ai extends CustomMessageListener {
         LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus5;
         if (customResponsedMessage.getCmd() == 2001161 && (customResponsedMessage instanceof LiveStatusChangeMessage) && (data = ((LiveStatusChangeMessage) customResponsedMessage).getData()) != null) {
             if (LiveStatusChangeMessage.isPlayingLive(data) || LiveStatusChangeMessage.isPublishing(data)) {
-                livePlayingStatus = this.OJ.OG;
+                livePlayingStatus = this.OO.OK;
                 if (livePlayingStatus != LivePlayingStatusMgr.LivePlayingStatus.IDEL) {
-                    livePlayingStatus2 = this.OJ.OG;
+                    livePlayingStatus2 = this.OO.OK;
                     if (livePlayingStatus2 != LivePlayingStatusMgr.LivePlayingStatus.JOINED) {
-                        livePlayingStatus3 = this.OJ.OG;
+                        livePlayingStatus3 = this.OO.OK;
                         if (livePlayingStatus3 != LivePlayingStatusMgr.LivePlayingStatus.NO_PUBLISHER) {
                             return;
                         }
                     }
                 }
-                this.OJ.a(com.baidu.adp.lib.g.c.f(data.groupId, 0), LivePlayingStatusMgr.LivePlayingStatus.PLAYING);
+                this.OO.a(com.baidu.adp.lib.g.c.f(data.groupId, 0), LivePlayingStatusMgr.LivePlayingStatus.PLAYING);
             } else if (data.status == 0) {
-                livePlayingStatus4 = this.OJ.OG;
+                livePlayingStatus4 = this.OO.OK;
                 if (livePlayingStatus4 != LivePlayingStatusMgr.LivePlayingStatus.PAUSE) {
-                    livePlayingStatus5 = this.OJ.OG;
+                    livePlayingStatus5 = this.OO.OK;
                     if (livePlayingStatus5 != LivePlayingStatusMgr.LivePlayingStatus.PLAYING) {
                         return;
                     }
                 }
-                this.OJ.a(0, LivePlayingStatusMgr.LivePlayingStatus.IDEL);
+                this.OO.a(0, LivePlayingStatusMgr.LivePlayingStatus.IDEL);
             }
         }
     }

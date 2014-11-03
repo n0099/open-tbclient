@@ -7,12 +7,12 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.tieba.im.message.QueryGroupCountLocalMessage;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.base.e {
-    public static boolean bcs = true;
-    private int bct;
-    private int bcu;
-    private e bcv;
-    private final com.baidu.adp.framework.listener.e bcw;
-    private final CustomMessageListener bcx;
+    public static boolean bcG = true;
+    private int bcH;
+    private int bcI;
+    private e bcJ;
+    private final com.baidu.adp.framework.listener.e bcK;
+    private final CustomMessageListener bcL;
     private String geographicLocation;
     private boolean isHaveReadCache;
     private String link;
@@ -22,13 +22,13 @@ public class a extends com.baidu.adp.base.e {
     public a(Context context) {
         super(context);
         this.isHaveReadCache = false;
-        this.bcw = new b(this, 103011);
-        this.bcx = new c(this, 2001114);
+        this.bcK = new b(this, 103011);
+        this.bcL = new c(this, 2001114);
         this.locationCallBack = new d(this);
     }
 
     public void a(e eVar) {
-        this.bcv = eVar;
+        this.bcJ = eVar;
     }
 
     public void update() {
@@ -36,8 +36,8 @@ public class a extends com.baidu.adp.base.e {
             if (j.fh()) {
                 com.baidu.adp.lib.d.a.dE().a(true, this.locationCallBack);
                 return;
-            } else if (this.bcv != null) {
-                this.bcv.ig();
+            } else if (this.bcJ != null) {
+                this.bcJ.ig();
                 return;
             } else {
                 return;
@@ -48,13 +48,13 @@ public class a extends com.baidu.adp.base.e {
     }
 
     public void onStart() {
-        registerListener(this.bcw);
-        registerListener(this.bcx);
+        registerListener(this.bcK);
+        registerListener(this.bcL);
     }
 
     public void onStop() {
-        MessageManager.getInstance().unRegisterListener(this.bcw);
-        MessageManager.getInstance().unRegisterListener(this.bcx);
+        MessageManager.getInstance().unRegisterListener(this.bcK);
+        MessageManager.getInstance().unRegisterListener(this.bcL);
     }
 
     @Override // com.baidu.adp.base.e

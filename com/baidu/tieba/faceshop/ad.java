@@ -3,11 +3,11 @@ package com.baidu.tieba.faceshop;
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
 class ad implements DialogInterface.OnClickListener {
-    final /* synthetic */ FaceBuyWebViewActivity asZ;
+    final /* synthetic */ FaceBuyWebViewActivity ati;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(FaceBuyWebViewActivity faceBuyWebViewActivity) {
-        this.asZ = faceBuyWebViewActivity;
+        this.ati = faceBuyWebViewActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener

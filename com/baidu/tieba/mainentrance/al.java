@@ -13,30 +13,30 @@ import com.baidu.tieba.model.BarSuggestModel;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class al extends BaseAdapter {
-    private final String aAn;
-    private final boolean blW = true;
-    private ArrayList<BarSuggestModel.Forum> bmT;
+    private final String aAx;
+    private final boolean bmk = true;
+    private ArrayList<BarSuggestModel.Forum> bnh;
     private final BaseActivity mActivity;
 
     public al(BaseActivity baseActivity, ArrayList<BarSuggestModel.Forum> arrayList) {
         this.mActivity = baseActivity;
-        this.aAn = baseActivity.getText(com.baidu.tieba.y.forum).toString();
-        this.bmT = arrayList;
+        this.aAx = baseActivity.getText(com.baidu.tieba.y.forum).toString();
+        this.bnh = arrayList;
     }
 
-    public void x(ArrayList<BarSuggestModel.Forum> arrayList) {
-        this.bmT = arrayList;
-        if (this.bmT != null) {
+    public void y(ArrayList<BarSuggestModel.Forum> arrayList) {
+        this.bnh = arrayList;
+        if (this.bnh != null) {
             notifyDataSetChanged();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bmT == null) {
+        if (this.bnh == null) {
             return 0;
         }
-        return this.bmT.size();
+        return this.bnh.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,7 +47,7 @@ public class al extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.bmT.get(i);
+        return this.bnh.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -65,13 +65,13 @@ public class al extends BaseAdapter {
             if (view == null) {
                 view = com.baidu.adp.lib.g.b.ek().inflate(this.mActivity, com.baidu.tieba.w.square_dialog_search_item, null);
                 amVar = new am(this, null);
-                amVar.avW = (BarImageView) view.findViewById(com.baidu.tieba.v.forum_avatar);
-                amVar.avW.setGifIconSupport(false);
-                amVar.avW.setSupportNoImage(false);
-                amVar.axq = (TextView) view.findViewById(com.baidu.tieba.v.name);
-                amVar.awa = (TextView) view.findViewById(com.baidu.tieba.v.member_count);
-                amVar.awb = (TextView) view.findViewById(com.baidu.tieba.v.thread_count);
-                amVar.awc = (TextView) view.findViewById(com.baidu.tieba.v.slogan);
+                amVar.awf = (BarImageView) view.findViewById(com.baidu.tieba.v.forum_avatar);
+                amVar.awf.setGifIconSupport(false);
+                amVar.awf.setSupportNoImage(false);
+                amVar.axz = (TextView) view.findViewById(com.baidu.tieba.v.name);
+                amVar.awj = (TextView) view.findViewById(com.baidu.tieba.v.member_count);
+                amVar.awk = (TextView) view.findViewById(com.baidu.tieba.v.thread_count);
+                amVar.awl = (TextView) view.findViewById(com.baidu.tieba.v.slogan);
                 view.setTag(amVar);
                 view2 = view;
             } else {
@@ -94,18 +94,18 @@ public class al extends BaseAdapter {
             this.mActivity.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
             this.mActivity.getLayoutMode().h(view2);
             String str = item.avatar;
-            amVar.avW.setTag(str);
-            amVar.avW.c(str, 10, false);
-            amVar.avW.invalidate();
-            if (this.blW) {
-                amVar.axq.setText(item.forum_name.concat(this.aAn));
+            amVar.awf.setTag(str);
+            amVar.awf.c(str, 10, false);
+            amVar.awf.invalidate();
+            if (this.bmk) {
+                amVar.axz.setText(item.forum_name.concat(this.aAx));
             } else {
-                amVar.axq.setText(item.forum_name);
+                amVar.axz.setText(item.forum_name);
             }
-            amVar.avW.setTag(item.avatar);
-            amVar.awa.setText(String.valueOf(this.mActivity.getString(com.baidu.tieba.y.forum_list_attention_tv)) + " " + eB(item.member_num));
-            amVar.awb.setText(String.valueOf(this.mActivity.getString(com.baidu.tieba.y.forum_list_thread_tv)) + " " + eB(item.thread_num));
-            amVar.awc.setText(item.slogan);
+            amVar.awf.setTag(item.avatar);
+            amVar.awj.setText(String.valueOf(this.mActivity.getString(com.baidu.tieba.y.forum_list_attention_tv)) + " " + eB(item.member_num));
+            amVar.awk.setText(String.valueOf(this.mActivity.getString(com.baidu.tieba.y.forum_list_thread_tv)) + " " + eB(item.thread_num));
+            amVar.awl.setText(item.slogan);
             F(view2);
         }
         return view2;

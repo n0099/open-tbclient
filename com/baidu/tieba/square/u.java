@@ -8,8 +8,8 @@ import org.json.JSONObject;
 public class u {
     private String title = null;
     private String link = null;
-    private String Wy = "";
-    private ArrayList<u> bhS = null;
+    private String WC = "";
+    private ArrayList<u> bii = null;
 
     public String getTitle() {
         return this.title;
@@ -19,29 +19,29 @@ public class u {
         return this.link;
     }
 
-    public String adq() {
-        return this.Wy;
+    public String adt() {
+        return this.WC;
     }
 
     public void hs(String str) {
-        this.Wy = str;
+        this.WC = str;
     }
 
-    public ArrayList<u> sE() {
-        return this.bhS;
+    public ArrayList<u> sG() {
+        return this.bii;
     }
 
     public void b(JSONArray jSONArray) {
         if (jSONArray != null) {
             try {
                 if (jSONArray.length() != 0) {
-                    this.bhS = new ArrayList<>();
+                    this.bii = new ArrayList<>();
                     for (int i = 0; i < jSONArray.length(); i++) {
                         u uVar = new u();
                         JSONObject jSONObject = jSONArray.getJSONObject(i);
                         uVar.title = jSONObject.optString("title", "");
                         uVar.link = jSONObject.optString("link", "");
-                        this.bhS.add(uVar);
+                        this.bii.add(uVar);
                     }
                 }
             } catch (Exception e) {

@@ -9,12 +9,12 @@ class o implements com.baidu.tbadk.core.dialog.d {
         com.baidu.tbadk.b.a aVar2;
         com.baidu.tbadk.b.a aVar3;
         com.baidu.tbadk.b.a aVar4;
-        aVar2 = NeighborsStatic.ant;
+        aVar2 = NeighborsStatic.anC;
         if (aVar2 != null) {
-            aVar3 = NeighborsStatic.ant;
+            aVar3 = NeighborsStatic.anC;
             if (aVar3.ao(true) != null) {
                 MessageManager messageManager = MessageManager.getInstance();
-                aVar4 = NeighborsStatic.ant;
+                aVar4 = NeighborsStatic.anC;
                 messageManager.sendMessage(new CustomMessage(2002001, aVar4.ao(true)));
                 aVar.dismiss();
             }

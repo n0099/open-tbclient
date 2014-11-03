@@ -7,10 +7,10 @@ import tbclient.ForumRecommend.LikeForum;
 public class y {
     private String mId = null;
     private String mName = null;
-    private int alk = 0;
-    private int alm = 0;
-    private int alo = 0;
-    private String aln = null;
+    private int alu = 0;
+    private int alv = 0;
+    private int alx = 0;
+    private String alw = null;
 
     public String getId() {
         return this.mId;
@@ -21,19 +21,19 @@ public class y {
     }
 
     public void ec(int i) {
-        this.alm = i;
+        this.alv = i;
     }
 
-    public int zw() {
-        return this.alm;
+    public int zy() {
+        return this.alv;
     }
 
     public void setLevel(int i) {
-        this.alk = i;
+        this.alu = i;
     }
 
     public int getLevel() {
-        return this.alk;
+        return this.alu;
     }
 
     public void a(LikeForum likeForum) {
@@ -47,9 +47,9 @@ public class y {
             try {
                 this.mId = String.valueOf(likeForum.forum_id);
                 this.mName = likeForum.forum_name;
-                this.alm = likeForum.is_sign.intValue();
-                this.alk = likeForum.level_id.intValue();
-                this.aln = likeForum.avatar;
+                this.alv = likeForum.is_sign.intValue();
+                this.alu = likeForum.level_id.intValue();
+                this.alw = likeForum.avatar;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -57,6 +57,6 @@ public class y {
     }
 
     public int isLike() {
-        return this.alo;
+        return this.alx;
     }
 }

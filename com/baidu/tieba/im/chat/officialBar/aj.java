@@ -5,13 +5,13 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 class aj extends BdAsyncTask<Void, Void, Void> {
-    final /* synthetic */ OfficialBarInfoActivity aRv;
-    private final /* synthetic */ BdSwitchView.SwitchState aRw;
+    final /* synthetic */ OfficialBarInfoActivity aRJ;
+    private final /* synthetic */ BdSwitchView.SwitchState aRK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(OfficialBarInfoActivity officialBarInfoActivity, BdSwitchView.SwitchState switchState) {
-        this.aRv = officialBarInfoActivity;
-        this.aRw = switchState;
+        this.aRJ = officialBarInfoActivity;
+        this.aRK = switchState;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,17 +20,17 @@ class aj extends BdAsyncTask<Void, Void, Void> {
     public Void doInBackground(Void... voidArr) {
         int i;
         int i2;
-        if (this.aRw == BdSwitchView.SwitchState.OFF) {
-            ax KA = ax.KA();
+        if (this.aRK == BdSwitchView.SwitchState.OFF) {
+            ax KE = ax.KE();
             String currentAccount = TbadkApplication.getCurrentAccount();
-            i2 = this.aRv.mForumId;
-            KA.e(currentAccount, String.valueOf(i2), false);
+            i2 = this.aRJ.mForumId;
+            KE.e(currentAccount, String.valueOf(i2), false);
             return null;
         }
-        ax KA2 = ax.KA();
+        ax KE2 = ax.KE();
         String currentAccount2 = TbadkApplication.getCurrentAccount();
-        i = this.aRv.mForumId;
-        KA2.e(currentAccount2, String.valueOf(i), true);
+        i = this.aRJ.mForumId;
+        KE2.e(currentAccount2, String.valueOf(i), true);
         return null;
     }
 }

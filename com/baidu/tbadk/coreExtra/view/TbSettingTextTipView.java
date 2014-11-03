@@ -10,43 +10,43 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class TbSettingTextTipView extends FrameLayout {
-    protected LinearLayout Pc;
-    protected TextView Pd;
-    protected TextView Pe;
-    private boolean Pg;
-    protected ImageView Ph;
+    protected LinearLayout Pg;
+    protected TextView Ph;
+    protected TextView Pi;
+    private boolean Pk;
+    protected ImageView Pl;
     protected Context mContext;
 
     public TbSettingTextTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Pg = true;
+        this.Pk = true;
         this.mContext = context;
-        qm();
+        qo();
         c(attributeSet);
     }
 
     public TbSettingTextTipView(Context context) {
         super(context);
-        this.Pg = true;
+        this.Pk = true;
         this.mContext = context;
-        qm();
+        qo();
     }
 
-    public void qj() {
-        if (this.Pe != null) {
-            this.Pe.setVisibility(0);
+    public void ql() {
+        if (this.Pi != null) {
+            this.Pi.setVisibility(0);
         }
     }
 
-    public void qk() {
-        if (this.Pe != null) {
-            this.Pe.setVisibility(8);
+    public void qm() {
+        if (this.Pi != null) {
+            this.Pi.setVisibility(8);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.Pe != null) {
-            this.Pe.setTextColor(i);
+        if (this.Pi != null) {
+            this.Pi.setTextColor(i);
         }
     }
 
@@ -56,36 +56,36 @@ public class TbSettingTextTipView extends FrameLayout {
     public void recycle() {
     }
 
-    public void ql() {
-        this.Ph.setVisibility(8);
+    public void qn() {
+        this.Pl.setVisibility(8);
     }
 
     public void setText(String str) {
-        this.Pd.setText(str);
+        this.Ph.setText(str);
     }
 
     public void setText(int i) {
-        this.Pd.setText(i);
+        this.Ph.setText(i);
     }
 
     public void setTip(String str) {
-        this.Pe.setText(str);
+        this.Pi.setText(str);
     }
 
     public CharSequence getTip() {
-        return this.Pe.getText();
+        return this.Pi.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.Pe.setBackgroundDrawable(drawable);
+        this.Pi.setBackgroundDrawable(drawable);
     }
 
-    protected void qm() {
+    protected void qo() {
         com.baidu.adp.lib.g.b.ek().a(this.mContext, com.baidu.tieba.w.tb_setting_text_tip_view, this, true);
-        this.Pc = (LinearLayout) findViewById(com.baidu.tieba.v.container);
-        this.Pd = (TextView) findViewById(com.baidu.tieba.v.text);
-        this.Pe = (TextView) findViewById(com.baidu.tieba.v.tip);
-        this.Ph = (ImageView) findViewById(com.baidu.tieba.v.arrow2);
+        this.Pg = (LinearLayout) findViewById(com.baidu.tieba.v.container);
+        this.Ph = (TextView) findViewById(com.baidu.tieba.v.text);
+        this.Pi = (TextView) findViewById(com.baidu.tieba.v.tip);
+        this.Pl = (ImageView) findViewById(com.baidu.tieba.v.arrow2);
     }
 
     protected void c(AttributeSet attributeSet) {
@@ -95,23 +95,23 @@ public class TbSettingTextTipView extends FrameLayout {
         String string2 = obtainStyledAttributes.getString(3);
         int color2 = obtainStyledAttributes.getColor(4, -1);
         if (string != null) {
-            this.Pd.setText(string);
+            this.Ph.setText(string);
         }
         if (color > -1) {
-            this.Pd.setTextColor(color);
+            this.Ph.setTextColor(color);
         }
         if (string2 != null) {
-            this.Pe.setText(string2);
+            this.Pi.setText(string2);
         }
         if (color2 > -1) {
-            this.Pe.setTextColor(color2);
+            this.Pi.setTextColor(color2);
         }
-        this.Pg = obtainStyledAttributes.getBoolean(5, true);
+        this.Pk = obtainStyledAttributes.getBoolean(5, true);
         obtainStyledAttributes.recycle();
-        this.Pc.setClickable(false);
-        this.Pc.setFocusable(false);
-        if (!this.Pg) {
-            this.Ph.setVisibility(4);
+        this.Pg.setClickable(false);
+        this.Pg.setFocusable(false);
+        if (!this.Pk) {
+            this.Pl.setVisibility(4);
         }
     }
 }

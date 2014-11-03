@@ -7,7 +7,7 @@ import android.text.style.ClickableSpan;
 import android.view.View;
 /* loaded from: classes.dex */
 public class h extends ClickableSpan {
-    private String abJ;
+    private String abO;
     private Context mContext;
     private int mType;
     private String mUrl;
@@ -22,7 +22,7 @@ public class h extends ClickableSpan {
     }
 
     public void dR(String str) {
-        this.abJ = str;
+        this.abO = str;
     }
 
     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -55,7 +55,7 @@ public class h extends ClickableSpan {
                     jVar.w(this.mContext, this.mUrl);
                     return;
                 case 256:
-                    jVar.b(this.mContext, this.mUrl, this.abJ);
+                    jVar.b(this.mContext, this.mUrl, this.abO);
                     return;
                 default:
                     return;

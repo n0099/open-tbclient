@@ -4,10 +4,10 @@ import android.view.View;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class cq {
-    View aDF;
-    TextView aDG;
-    View aDH;
-    TextView aDI;
+    View aDP;
+    TextView aDQ;
+    View aDR;
+    TextView aDS;
 
     private cq() {
     }

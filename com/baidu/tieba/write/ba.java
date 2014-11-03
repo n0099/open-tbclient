@@ -12,11 +12,11 @@ import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ba implements com.baidu.tbadk.editortool.w {
-    final /* synthetic */ WriteActivity bTX;
+    final /* synthetic */ WriteActivity bUm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(WriteActivity writeActivity) {
-        this.bTX = writeActivity;
+        this.bUm = writeActivity;
     }
 
     @Override // com.baidu.tbadk.editortool.w
@@ -55,138 +55,138 @@ public class ba implements com.baidu.tbadk.editortool.w {
         boolean z;
         TbEditorToolButtonContainer tbEditorToolButtonContainer12;
         TbEditorToolButtonContainer tbEditorToolButtonContainer13;
-        boolean Ch;
+        boolean Cj;
         TbEditorToolButtonContainer tbEditorToolButtonContainer14;
         if (i == 23) {
-            tbEditorToolButtonContainer14 = this.bTX.bTF;
-            tbEditorToolButtonContainer14.CE();
-            this.bTX.hG(8);
+            tbEditorToolButtonContainer14 = this.bUm.bTU;
+            tbEditorToolButtonContainer14.CG();
+            this.bUm.hG(8);
         } else if (i == 20) {
-            Ch = this.bTX.Ch();
-            if (Ch) {
-                this.bTX.showToast(com.baidu.tieba.y.over_limit_tip);
+            Cj = this.bUm.Cj();
+            if (Cj) {
+                this.bUm.showToast(com.baidu.tieba.y.over_limit_tip);
             } else if (obj instanceof com.baidu.tbadk.coreExtra.data.d) {
-                this.bTX.b((com.baidu.tbadk.coreExtra.data.d) obj);
+                this.bUm.b((com.baidu.tbadk.coreExtra.data.d) obj);
             }
         } else if (i == 21) {
-            this.bTX.afC();
+            this.bUm.afF();
         } else if (i == 4) {
-            tbEditorToolButtonContainer13 = this.bTX.bTF;
-            tbEditorToolButtonContainer13.CE();
-            this.bTX.hG(5);
+            tbEditorToolButtonContainer13 = this.bUm.bTU;
+            tbEditorToolButtonContainer13.CG();
+            this.bUm.hG(5);
         } else if (i == 14) {
-            editorToolComponetContainer10 = this.bTX.are;
-            editorToolComponetContainer10.rL();
-            z = this.bTX.bTG;
+            editorToolComponetContainer10 = this.bUm.arn;
+            editorToolComponetContainer10.rN();
+            z = this.bUm.bTV;
             if (!z) {
-                tbEditorToolButtonContainer12 = this.bTX.bTF;
-                tbEditorToolButtonContainer12.Cl();
+                tbEditorToolButtonContainer12 = this.bUm.bTU;
+                tbEditorToolButtonContainer12.Cn();
             }
-            this.bTX.aci();
+            this.bUm.acl();
         } else if (i == 15) {
-            editorToolComponetContainer5 = this.bTX.are;
-            editorToolComponetContainer5.rM();
-            tbEditorToolButtonContainer8 = this.bTX.bTF;
-            tbEditorToolButtonContainer8.Cm();
-            writeImagesInfo7 = this.bTX.writeImagesInfo;
+            editorToolComponetContainer5 = this.bUm.arn;
+            editorToolComponetContainer5.rO();
+            tbEditorToolButtonContainer8 = this.bUm.bTU;
+            tbEditorToolButtonContainer8.Co();
+            writeImagesInfo7 = this.bUm.writeImagesInfo;
             LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo7.getChosedFiles();
             if (chosedFiles == null || chosedFiles.size() <= 0) {
-                tbEditorToolButtonContainer9 = this.bTX.bTF;
-                tbEditorToolButtonContainer9.rD();
-                this.bTX.bTG = false;
-                editorToolComponetContainer6 = this.bTX.are;
-                editorToolComponetContainer6.rD();
-                editorToolComponetContainer7 = this.bTX.are;
-                if (editorToolComponetContainer7.BN()) {
-                    tbEditorToolButtonContainer10 = this.bTX.bTF;
-                    tbEditorToolButtonContainer10.Cl();
-                    editorToolComponetContainer8 = this.bTX.are;
-                    editorToolComponetContainer8.rL();
+                tbEditorToolButtonContainer9 = this.bUm.bTU;
+                tbEditorToolButtonContainer9.rF();
+                this.bUm.bTV = false;
+                editorToolComponetContainer6 = this.bUm.arn;
+                editorToolComponetContainer6.rF();
+                editorToolComponetContainer7 = this.bUm.arn;
+                if (editorToolComponetContainer7.BP()) {
+                    tbEditorToolButtonContainer10 = this.bUm.bTU;
+                    tbEditorToolButtonContainer10.Cn();
+                    editorToolComponetContainer8 = this.bUm.arn;
+                    editorToolComponetContainer8.rN();
                 }
             } else {
-                tbEditorToolButtonContainer11 = this.bTX.bTF;
+                tbEditorToolButtonContainer11 = this.bUm.bTU;
                 tbEditorToolButtonContainer11.di(new StringBuilder(String.valueOf(chosedFiles.size())).toString());
-                this.bTX.bTG = true;
-                editorToolComponetContainer9 = this.bTX.are;
+                this.bUm.bTV = true;
+                editorToolComponetContainer9 = this.bUm.arn;
                 editorToolComponetContainer9.di(new StringBuilder(String.valueOf(chosedFiles.size())).toString());
             }
-            this.bTX.aci();
+            this.bUm.acl();
         } else if (i == 13) {
-            writeImagesInfo6 = this.bTX.writeImagesInfo;
+            writeImagesInfo6 = this.bUm.writeImagesInfo;
             LinkedList<ImageFileInfo> chosedFiles2 = writeImagesInfo6.getChosedFiles();
             if (chosedFiles2 == null || chosedFiles2.size() <= 0) {
-                tbEditorToolButtonContainer5 = this.bTX.bTF;
-                tbEditorToolButtonContainer5.rD();
-                this.bTX.bTG = false;
-                editorToolComponetContainer = this.bTX.are;
-                editorToolComponetContainer.rM();
-                editorToolComponetContainer2 = this.bTX.are;
-                if (editorToolComponetContainer2.BN()) {
-                    tbEditorToolButtonContainer6 = this.bTX.bTF;
-                    tbEditorToolButtonContainer6.Cl();
-                    editorToolComponetContainer3 = this.bTX.are;
-                    editorToolComponetContainer3.rL();
+                tbEditorToolButtonContainer5 = this.bUm.bTU;
+                tbEditorToolButtonContainer5.rF();
+                this.bUm.bTV = false;
+                editorToolComponetContainer = this.bUm.arn;
+                editorToolComponetContainer.rO();
+                editorToolComponetContainer2 = this.bUm.arn;
+                if (editorToolComponetContainer2.BP()) {
+                    tbEditorToolButtonContainer6 = this.bUm.bTU;
+                    tbEditorToolButtonContainer6.Cn();
+                    editorToolComponetContainer3 = this.bUm.arn;
+                    editorToolComponetContainer3.rN();
                 }
             } else {
-                tbEditorToolButtonContainer7 = this.bTX.bTF;
+                tbEditorToolButtonContainer7 = this.bUm.bTU;
                 tbEditorToolButtonContainer7.di(new StringBuilder(String.valueOf(chosedFiles2.size())).toString());
-                this.bTX.bTG = true;
-                editorToolComponetContainer4 = this.bTX.are;
+                this.bUm.bTV = true;
+                editorToolComponetContainer4 = this.bUm.arn;
                 editorToolComponetContainer4.di(new StringBuilder(String.valueOf(chosedFiles2.size())).toString());
             }
-            this.bTX.aci();
+            this.bUm.acl();
         } else if (i == 51) {
-            writeImagesInfo5 = this.bTX.baobaoImagesInfo;
+            writeImagesInfo5 = this.bUm.baobaoImagesInfo;
             LinkedList<ImageFileInfo> chosedFiles3 = writeImagesInfo5.getChosedFiles();
             if (chosedFiles3 == null || chosedFiles3.size() <= 0) {
-                tbEditorToolButtonContainer3 = this.bTX.bTF;
-                tbEditorToolButtonContainer3.rK();
+                tbEditorToolButtonContainer3 = this.bUm.bTU;
+                tbEditorToolButtonContainer3.rM();
             } else {
-                tbEditorToolButtonContainer4 = this.bTX.bTF;
+                tbEditorToolButtonContainer4 = this.bUm.bTU;
                 tbEditorToolButtonContainer4.dk("1");
             }
-            this.bTX.aci();
+            this.bUm.acl();
         } else if (i == 7) {
-            alertDialog = this.bTX.ayG;
+            alertDialog = this.bUm.ayP;
             if (alertDialog == null) {
-                this.bTX.EB();
+                this.bUm.ED();
             }
-            alertDialog2 = this.bTX.ayG;
+            alertDialog2 = this.bUm.ayP;
             if (alertDialog2 != null) {
-                alertDialog3 = this.bTX.ayG;
-                com.baidu.adp.lib.g.j.a(alertDialog3, this.bTX);
+                alertDialog3 = this.bUm.ayP;
+                com.baidu.adp.lib.g.j.a(alertDialog3, this.bUm);
             }
         } else if (i == 42) {
             int intValue = ((Integer) obj).intValue();
-            writeImagesInfo = this.bTX.writeImagesInfo;
+            writeImagesInfo = this.bUm.writeImagesInfo;
             if (writeImagesInfo != null) {
-                writeImagesInfo2 = this.bTX.writeImagesInfo;
+                writeImagesInfo2 = this.bUm.writeImagesInfo;
                 if (writeImagesInfo2.getChosedFiles() != null) {
-                    writeImagesInfo3 = this.bTX.writeImagesInfo;
+                    writeImagesInfo3 = this.bUm.writeImagesInfo;
                     int size = writeImagesInfo3.getChosedFiles().size();
                     if (size >= 1 && intValue >= 0 && intValue < size) {
                         MessageManager messageManager = MessageManager.getInstance();
-                        WriteActivity writeActivity = this.bTX;
-                        writeImagesInfo4 = this.bTX.writeImagesInfo;
+                        WriteActivity writeActivity = this.bUm;
+                        writeImagesInfo4 = this.bUm.writeImagesInfo;
                         messageManager.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(writeActivity, 12012, writeImagesInfo4, intValue)));
                     }
                 }
             }
         } else if (i == 46) {
-            tbEditorToolButtonContainer2 = this.bTX.bTF;
-            tbEditorToolButtonContainer2.rF();
+            tbEditorToolButtonContainer2 = this.bUm.bTU;
+            tbEditorToolButtonContainer2.rH();
             if (obj instanceof String) {
-                this.bTX.apZ = (String) obj;
-                this.bTX.eM(true);
+                this.bUm.aqi = (String) obj;
+                this.bUm.eM(true);
             }
         } else if (i == 47) {
-            tbEditorToolButtonContainer = this.bTX.bTF;
-            tbEditorToolButtonContainer.rG();
-            this.bTX.apZ = null;
-            this.bTX.eM(true);
+            tbEditorToolButtonContainer = this.bUm.bTU;
+            tbEditorToolButtonContainer.rI();
+            this.bUm.aqi = null;
+            this.bUm.eM(true);
         } else if (i != 48) {
         } else {
-            this.bTX.hI(i);
+            this.bUm.hI(i);
         }
     }
 }

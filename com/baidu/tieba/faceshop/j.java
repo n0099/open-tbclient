@@ -8,11 +8,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends BdAsyncTask<List<String>, List<DownloadData>, List<DownloadData>> {
-    final /* synthetic */ g ask;
+    final /* synthetic */ g ast;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(g gVar) {
-        this.ask = gVar;
+        this.ast = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,7 +25,7 @@ public class j extends BdAsyncTask<List<String>, List<DownloadData>, List<Downlo
             return linkedList;
         }
         for (int i = 0; i < listArr[0].size(); i++) {
-            MyEmotionGroupData ac = d.CG().ac(TbadkApplication.getCurrentAccount(), listArr[0].get(i));
+            MyEmotionGroupData ac = d.CI().ac(TbadkApplication.getCurrentAccount(), listArr[0].get(i));
             if (ac != null && e.eK(ac.getGroupId())) {
                 DownloadData downloadData = new DownloadData(ac.getGroupId());
                 downloadData.setStatus(3);
@@ -45,14 +45,14 @@ public class j extends BdAsyncTask<List<String>, List<DownloadData>, List<Downlo
         if (list == null) {
             list = new LinkedList<>();
         }
-        for (DownloadData downloadData : com.baidu.tbadk.download.g.rk().rm()) {
-            list2 = this.ask.asi;
+        for (DownloadData downloadData : com.baidu.tbadk.download.g.rm().ro()) {
+            list2 = this.ast.asr;
             for (String str : list2) {
                 if (downloadData.getType() == 11 && downloadData.getId().equals(str)) {
                     list.add(downloadData);
                 }
             }
         }
-        this.ask.h(list);
+        this.ast.h(list);
     }
 }

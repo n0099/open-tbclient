@@ -11,10 +11,10 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class v extends Dialog {
-    private View asM;
-    private SpannableString asN;
-    private TextView asO;
-    private TextView asP;
+    private View asV;
+    private SpannableString asW;
+    private TextView asX;
+    private TextView asY;
     private Context mContext;
     int mSkinType;
 
@@ -23,33 +23,33 @@ public class v extends Dialog {
         this.mContext = context;
     }
 
-    public void CO() {
-        this.asM = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, ca.face_buy_loading, null);
+    public void CQ() {
+        this.asV = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, ca.face_buy_loading, null);
         this.mSkinType = TbadkApplication.m251getInst().getSkinType();
-        setContentView(this.asM, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(bx.faceshop_buy_dialog_width), getContext().getResources().getDimensionPixelSize(bx.faceshop_buy_dialog_height)));
+        setContentView(this.asV, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(bx.faceshop_buy_dialog_width), getContext().getResources().getDimensionPixelSize(bx.faceshop_buy_dialog_height)));
         setCancelable(false);
-        CQ();
+        CS();
     }
 
-    public void CP() {
-        this.asM = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, ca.face_buy_fail, null);
+    public void CR() {
+        this.asV = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, ca.face_buy_fail, null);
         this.mSkinType = TbadkApplication.m251getInst().getSkinType();
         String string = getContext().getResources().getString(cb.query_buy_fail_tel);
-        this.asN = new SpannableString(string);
-        this.asN.setSpan(new ForegroundColorSpan(com.baidu.tbadk.core.util.aw.getColor(bw.faceshop_package_price_text)), 5, string.length(), 33);
-        setContentView(this.asM, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(bx.faceshop_buy_dialog_width), getContext().getResources().getDimensionPixelSize(bx.faceshop_buy_dialog_fail_height)));
-        this.asO = (TextView) findViewById(bz.telphone);
-        this.asO.setText(this.asN);
-        this.asP = (TextView) findViewById(bz.confirm);
-        this.asP.setOnClickListener(new w(this));
+        this.asW = new SpannableString(string);
+        this.asW.setSpan(new ForegroundColorSpan(com.baidu.tbadk.core.util.aw.getColor(bw.faceshop_package_price_text)), 5, string.length(), 33);
+        setContentView(this.asV, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(bx.faceshop_buy_dialog_width), getContext().getResources().getDimensionPixelSize(bx.faceshop_buy_dialog_fail_height)));
+        this.asX = (TextView) findViewById(bz.telphone);
+        this.asX.setText(this.asW);
+        this.asY = (TextView) findViewById(bz.confirm);
+        this.asY.setOnClickListener(new w(this));
         setCancelable(true);
-        CQ();
+        CS();
     }
 
-    private void CQ() {
+    private void CS() {
         if (this.mContext instanceof BaseActivity) {
             ((BaseActivity) this.mContext).getLayoutMode().L(this.mSkinType == 1);
-            ((BaseActivity) this.mContext).getLayoutMode().h(this.asM);
+            ((BaseActivity) this.mContext).getLayoutMode().h(this.asV);
         }
     }
 }

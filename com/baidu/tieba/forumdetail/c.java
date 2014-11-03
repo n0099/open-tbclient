@@ -3,19 +3,19 @@ package com.baidu.tieba.forumdetail;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.ac;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, Object, ForumDetailData> {
-    private String afX;
-    private WeakReference<d> agb;
-    private String awY;
+    private String agf;
+    private WeakReference<d> agj;
+    private String axh;
 
     public c(String str, String str2, d dVar) {
-        this.afX = str;
-        this.awY = str2;
-        this.agb = new WeakReference<>(dVar);
+        this.agf = str;
+        this.axh = str2;
+        this.agj = new WeakReference<>(dVar);
         setPriority(3);
     }
 
@@ -25,10 +25,10 @@ public class c extends BdAsyncTask<String, Object, ForumDetailData> {
     /* renamed from: v */
     public ForumDetailData doInBackground(String... strArr) {
         String str;
-        str = b.awX;
+        str = b.axg;
         ac acVar = new ac(str);
-        acVar.k("forum_id", this.afX);
-        acVar.k("need_good_thread", this.awY);
+        acVar.k("forum_id", this.agf);
+        acVar.k("need_good_thread", this.axh);
         String lA = acVar.lA();
         if (acVar.mc().nb().jq()) {
             try {
@@ -53,9 +53,9 @@ public class c extends BdAsyncTask<String, Object, ForumDetailData> {
     /* renamed from: c */
     public void onPostExecute(ForumDetailData forumDetailData) {
         super.onPostExecute(forumDetailData);
-        d dVar = this.agb.get();
+        d dVar = this.agj.get();
         if (dVar != null) {
-            if (ay.aA(forumDetailData.errmsg)) {
+            if (az.aA(forumDetailData.errmsg)) {
                 dVar.a(forumDetailData);
             } else {
                 dVar.b(forumDetailData);

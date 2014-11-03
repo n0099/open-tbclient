@@ -57,7 +57,7 @@ public interface a extends IInterface {
 
     void stopRecordInPublish(String str);
 
-    void su();
+    void sw();
 
     int whatIsRunning();
 }

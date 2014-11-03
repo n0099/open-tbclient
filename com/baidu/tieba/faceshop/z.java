@@ -6,11 +6,11 @@ import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
-    final /* synthetic */ x asU;
+    final /* synthetic */ x atd;
     private com.baidu.tbadk.core.util.ac mNetWork;
 
     private z(x xVar) {
-        this.asU = xVar;
+        this.atd = xVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -41,8 +41,8 @@ public class z extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
         if (this.mNetWork != null) {
             this.mNetWork.dM();
         }
-        this.asU.asR = null;
-        hVar = this.asU.mLoadDataCallBack;
+        this.atd.ata = null;
+        hVar = this.atd.mLoadDataCallBack;
         hVar.a(null);
     }
 
@@ -53,8 +53,8 @@ public class z extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
     public void onPostExecute(FaceBuyData faceBuyData) {
         com.baidu.adp.base.h hVar;
         super.onPostExecute(faceBuyData);
-        this.asU.asR = null;
-        hVar = this.asU.mLoadDataCallBack;
+        this.atd.ata = null;
+        hVar = this.atd.mLoadDataCallBack;
         hVar.a(faceBuyData);
     }
 }

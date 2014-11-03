@@ -6,12 +6,12 @@ import com.baidu.tbadk.newFriends.ResponseUnreadPointNum;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends CustomMessageListener {
-    final /* synthetic */ d agH;
+    final /* synthetic */ d agQ;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(d dVar) {
         super(2001180);
-        this.agH = dVar;
+        this.agQ = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,21 +25,21 @@ public class h extends CustomMessageListener {
         boolean z;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001180 && (customResponsedMessage instanceof ResponseUnreadPointNum)) {
             if (customResponsedMessage.getError() != 0) {
-                this.agH.showToast(customResponsedMessage.getErrorString());
+                this.agQ.showToast(customResponsedMessage.getErrorString());
                 return;
             }
-            this.agH.agF = ((ResponseUnreadPointNum) customResponsedMessage).getNum();
-            aVar = this.agH.agE;
-            i = this.agH.agF;
+            this.agQ.agN = ((ResponseUnreadPointNum) customResponsedMessage).getNum();
+            aVar = this.agQ.agM;
+            i = this.agQ.agN;
             aVar.dJ(i);
-            i2 = this.agH.agF;
+            i2 = this.agQ.agN;
             if (i2 > 0) {
-                this.agH.agG = false;
-                aVar3 = this.agH.agE;
-                z = this.agH.agG;
+                this.agQ.agO = false;
+                aVar3 = this.agQ.agM;
+                z = this.agQ.agO;
                 aVar3.bj(z);
             }
-            aVar2 = this.agH.agE;
+            aVar2 = this.agQ.agM;
             aVar2.notifyDataSetChanged();
         }
     }

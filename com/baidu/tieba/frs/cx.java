@@ -6,19 +6,19 @@ import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 class cx {
-    LinearLayout aDR;
-    LinearLayout aDS;
-    cy aDT;
-    TextView aDU;
-    TextView aDV;
-    TextView aDW;
-    TextView aDX;
-    TbImageView aDY;
-    TbImageView aDZ;
-    TbImageView aEa;
     LinearLayout aEb;
     LinearLayout aEc;
-    View aEd;
+    cy aEd;
+    TextView aEe;
+    TextView aEf;
+    TextView aEg;
+    TextView aEh;
+    TbImageView aEi;
+    TbImageView aEj;
+    TbImageView aEk;
+    LinearLayout aEl;
+    LinearLayout aEm;
+    View aEn;
 
     private cx() {
     }

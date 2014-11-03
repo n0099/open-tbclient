@@ -7,11 +7,11 @@ import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.d sC() {
+    public com.baidu.tbadk.mainTab.d sE() {
         com.baidu.tbadk.mainTab.d dVar = new com.baidu.tbadk.mainTab.d();
-        dVar.VU = new f();
+        dVar.VY = new f();
         dVar.type = 1;
-        dVar.VV = y.home;
+        dVar.VZ = y.home;
         return dVar;
     }
 
@@ -23,7 +23,7 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator z(Context context) {
-        this.VM = (FragmentTabIndicator) com.baidu.adp.lib.g.b.ek().inflate(context, com.baidu.tieba.w.fragmenttabindicator, null);
-        return this.VM;
+        this.VQ = (FragmentTabIndicator) com.baidu.adp.lib.g.b.ek().inflate(context, com.baidu.tieba.w.fragmenttabindicator, null);
+        return this.VQ;
     }
 }

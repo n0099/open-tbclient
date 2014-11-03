@@ -7,26 +7,26 @@ import com.baidu.tbadk.data.ShareFromPBMsgData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements com.baidu.tbadk.core.dialog.d {
-    private final /* synthetic */ int bfD;
-    final /* synthetic */ PbActivity bvg;
-    private final /* synthetic */ cy bvj;
-    private final /* synthetic */ ShareFromPBMsgData bvk;
-    private final /* synthetic */ String bvl;
-    private final /* synthetic */ int bvm;
+    private final /* synthetic */ int bfR;
+    private final /* synthetic */ int bvA;
+    final /* synthetic */ PbActivity bvu;
+    private final /* synthetic */ cy bvx;
+    private final /* synthetic */ ShareFromPBMsgData bvy;
+    private final /* synthetic */ String bvz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(PbActivity pbActivity, int i, String str, int i2, cy cyVar, ShareFromPBMsgData shareFromPBMsgData) {
-        this.bvg = pbActivity;
-        this.bfD = i;
-        this.bvl = str;
-        this.bvm = i2;
-        this.bvj = cyVar;
-        this.bvk = shareFromPBMsgData;
+        this.bvu = pbActivity;
+        this.bfR = i;
+        this.bvz = str;
+        this.bvA = i2;
+        this.bvx = cyVar;
+        this.bvy = shareFromPBMsgData;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(this.bvg, this.bfD, this.bvl, this.bvm, "from_share", this.bvj.getLeaveMsg(), this.bvk.toChatMessageContent())));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupChatActivityConfig(this.bvu, this.bfR, this.bvz, this.bvA, "from_share", this.bvx.getLeaveMsg(), this.bvy.toChatMessageContent())));
         aVar.dismiss();
     }
 }

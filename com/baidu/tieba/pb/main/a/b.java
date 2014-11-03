@@ -10,11 +10,11 @@ import com.baidu.tieba.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ a byY;
+    final /* synthetic */ a bzm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.byY = aVar;
+        this.bzm = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -32,12 +32,12 @@ public class b implements View.OnClickListener {
             str2 = (String) view.getTag();
         }
         if (str2 != null) {
-            pbActivity = this.byY.bwQ;
-            if (pbActivity.Wb() != null) {
+            pbActivity = this.bzm.bxe;
+            if (pbActivity.We() != null) {
                 MessageManager messageManager = MessageManager.getInstance();
-                pbActivity2 = this.byY.bwQ;
-                pbActivity3 = this.byY.bwQ;
-                messageManager.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(pbActivity2, str2, str, pbActivity3.Wb().WE(), AddFriendActivityConfig.TYPE_PB_HEAD)));
+                pbActivity2 = this.bzm.bxe;
+                pbActivity3 = this.bzm.bxe;
+                messageManager.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(pbActivity2, str2, str, pbActivity3.We().WH(), AddFriendActivityConfig.TYPE_PB_HEAD)));
             }
         }
     }

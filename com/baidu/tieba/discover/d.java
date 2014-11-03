@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.atomData.HotLiveListActivityConfig;
 import com.baidu.tbadk.core.atomData.MemberPrivilegeActivityConfig;
 import com.baidu.tbadk.core.atomData.SignAllForumActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tbadk.pluginArch.PluginHelper;
 import com.baidu.tieba.y;
 import java.io.UnsupportedEncodingException;
@@ -24,11 +24,11 @@ import java.net.URLEncoder;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ a anC;
+    final /* synthetic */ a anL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.anC = aVar;
+        this.anL = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -59,39 +59,39 @@ public class d implements View.OnClickListener {
         BaseFragmentActivity baseFragmentActivity13;
         BaseFragmentActivity baseFragmentActivity14;
         BaseFragmentActivity baseFragmentActivity15;
-        discoverItemView = this.anC.anh;
+        discoverItemView = this.anL.anq;
         if (view == discoverItemView) {
             baseFragmentActivity14 = a.mActivity;
-            com.baidu.tbadk.core.i.l(baseFragmentActivity14, "ftab_square");
+            com.baidu.tbadk.core.j.l(baseFragmentActivity14, "ftab_square");
             MessageManager messageManager = MessageManager.getInstance();
             baseFragmentActivity15 = a.mActivity;
             messageManager.sendMessage(new CustomMessage(2002001, new DiscoverSquareActivityConfig(baseFragmentActivity15)));
             return;
         }
-        discoverItemView2 = this.anC.ane;
+        discoverItemView2 = this.anL.ann;
         if (view != discoverItemView2) {
-            discoverItemView3 = this.anC.anf;
+            discoverItemView3 = this.anL.ano;
             if (view != discoverItemView3) {
-                discoverItemView4 = this.anC.ani;
+                discoverItemView4 = this.anL.anr;
                 if (view != discoverItemView4) {
-                    discoverItemView5 = this.anC.ang;
+                    discoverItemView5 = this.anL.anp;
                     if (view == discoverItemView5) {
                         baseFragmentActivity7 = a.mActivity;
-                        com.baidu.tbadk.core.i.l(baseFragmentActivity7, "ftab_group");
+                        com.baidu.tbadk.core.j.l(baseFragmentActivity7, "ftab_group");
                         MessageManager messageManager2 = MessageManager.getInstance();
                         baseFragmentActivity8 = a.mActivity;
                         messageManager2.sendMessage(new CustomMessage(2002001, new DiscoverMoreActivityConfig(baseFragmentActivity8)));
                         return;
                     }
-                    discoverItemView6 = this.anC.anj;
+                    discoverItemView6 = this.anL.ans;
                     if (view == discoverItemView6) {
-                        a aVar = this.anC;
+                        a aVar = this.anL;
                         baseFragmentActivity6 = a.mActivity;
                         aVar.sendMessage(new CustomMessage(2002001, new MemberPrivilegeActivityConfig(baseFragmentActivity6)));
                         return;
                     } else if (view instanceof DiscoverItemView) {
                         String str3 = "";
-                        TextView textView = ((DiscoverItemView) view).JM;
+                        TextView textView = ((DiscoverItemView) view).JN;
                         if (textView != null && (str3 = com.baidu.adp.lib.util.l.a(textView.getText(), null)) != null && !str3.equals("")) {
                             try {
                                 str2 = URLEncoder.encode(str3, "UTF-8");
@@ -101,20 +101,20 @@ public class d implements View.OnClickListener {
                             }
                             if (!str2.equals("")) {
                                 baseFragmentActivity5 = a.mActivity;
-                                com.baidu.tbadk.core.i.l(baseFragmentActivity5, str2);
+                                com.baidu.tbadk.core.j.l(baseFragmentActivity5, str2);
                             }
                         }
                         String str4 = str3;
-                        String str5 = ((DiscoverItemView) view).abo;
-                        if (!ay.aA(str5)) {
-                            if (ay.aA(str4)) {
+                        String str5 = ((DiscoverItemView) view).abu;
+                        if (!az.aA(str5)) {
+                            if (az.aA(str4)) {
                                 str4 = "";
                             }
-                            str = this.anC.anq;
+                            str = this.anL.anz;
                             if (str5.equals(str)) {
                                 com.baidu.tbadk.core.sharedPref.b.lk().putBoolean("game_is_show_tip", false);
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001236, false));
-                                bf mR = bf.mR();
+                                bg mR = bg.mR();
                                 baseFragmentActivity4 = a.mActivity;
                                 mR.a(baseFragmentActivity4, str4, new String[]{str5});
                                 return;
@@ -123,12 +123,12 @@ public class d implements View.OnClickListener {
                                 if (PluginHelper.isXiubaCanuse(baseFragmentActivity2)) {
                                     baseFragmentActivity3 = a.mActivity;
                                     TiebaStatic.eventStat(baseFragmentActivity3, "discover_xiu8", "click");
-                                    this.anC.AL();
+                                    this.anL.AN();
                                     return;
                                 }
                                 return;
                             } else {
-                                bf mR2 = bf.mR();
+                                bg mR2 = bg.mR();
                                 baseFragmentActivity = a.mActivity;
                                 mR2.a(baseFragmentActivity, str4, new String[]{str5});
                                 return;
@@ -139,9 +139,9 @@ public class d implements View.OnClickListener {
                         return;
                     }
                 }
-                z = this.anC.ann;
+                z = this.anL.anw;
                 if (z) {
-                    rVar = this.anC.ano;
+                    rVar = this.anL.anx;
                     if (rVar != null) {
                         MessageManager messageManager3 = MessageManager.getInstance();
                         baseFragmentActivity10 = a.mActivity;
@@ -149,7 +149,7 @@ public class d implements View.OnClickListener {
                         return;
                     }
                 }
-                a aVar2 = this.anC;
+                a aVar2 = this.anL;
                 baseFragmentActivity9 = a.mActivity;
                 aVar2.showToast(baseFragmentActivity9.getString(y.no_signall_data));
                 return;
@@ -166,7 +166,7 @@ public class d implements View.OnClickListener {
             }
         }
         TbadkApplication.m251getInst().setFriendFeedNew(false);
-        discoverItemView7 = this.anC.ane;
+        discoverItemView7 = this.anL.ann;
         discoverItemView7.bw(false);
         MessageManager messageManager6 = MessageManager.getInstance();
         baseFragmentActivity13 = a.mActivity;

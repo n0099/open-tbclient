@@ -7,18 +7,18 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.u;
 /* loaded from: classes.dex */
 public class f {
-    private final i FS = new i();
+    private final i FT = new i();
     public boolean mIsNeedTbs = false;
-    public boolean FT = true;
+    public boolean FU = true;
     public boolean mIsUseCurrentBDUSS = true;
     public boolean mIsNeedAddCommenParam = true;
     public boolean mIsFromCDN = false;
-    public String FU = p.eK();
-    public boolean FV = false;
-    public int FW = 0;
+    public String FV = p.eK();
+    public boolean FW = false;
+    public int FX = 0;
 
     public i nd() {
-        return this.FS;
+        return this.FT;
     }
 
     public void a(u uVar) {
@@ -66,17 +66,17 @@ public class f {
     }
 
     public String ne() {
-        if (this.FS.mUrl == null) {
+        if (this.FT.mUrl == null) {
             return null;
         }
         String str = TbConfig.SERVER_ADDRESS;
-        if (this.FS.mUrl.startsWith(str)) {
-            int indexOf = this.FS.mUrl.indexOf(63);
+        if (this.FT.mUrl.startsWith(str)) {
+            int indexOf = this.FT.mUrl.indexOf(63);
             if (indexOf < 0) {
-                indexOf = this.FS.mUrl.length();
+                indexOf = this.FT.mUrl.length();
             }
-            return this.FS.mUrl.substring(str.length(), indexOf);
+            return this.FT.mUrl.substring(str.length(), indexOf);
         }
-        return this.FS.mUrl;
+        return this.FT.mUrl;
     }
 }

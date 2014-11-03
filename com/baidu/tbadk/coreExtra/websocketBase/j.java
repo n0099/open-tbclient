@@ -1,23 +1,23 @@
 package com.baidu.tbadk.coreExtra.websocketBase;
 /* loaded from: classes.dex */
 public class j {
-    private m PE;
-    private l PF;
-    private k PG;
+    private m PI;
+    private l PJ;
+    private k PK;
 
     public j(String str, l lVar) {
-        this.PE = null;
-        this.PF = null;
-        this.PG = null;
-        this.PE = new m(this);
-        this.PF = lVar;
-        this.PE.sendEmptyMessageDelayed(0, 50000L);
-        this.PG = new k(this, null);
-        this.PG.setSelfExecute(true);
-        this.PG.execute(String.valueOf(qA()) + str);
+        this.PI = null;
+        this.PJ = null;
+        this.PK = null;
+        this.PI = new m(this);
+        this.PJ = lVar;
+        this.PI.sendEmptyMessageDelayed(0, 50000L);
+        this.PK = new k(this, null);
+        this.PK.setSelfExecute(true);
+        this.PK.execute(String.valueOf(qC()) + str);
     }
 
-    private String qA() {
+    private String qC() {
         switch (com.baidu.adp.lib.util.j.fm()) {
             case 1:
                 return "ping -c 3 -w 3000 ";
@@ -31,12 +31,12 @@ public class j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qB() {
-        if (this.PG != null) {
-            this.PG.cancel(true);
+    public void qD() {
+        if (this.PK != null) {
+            this.PK.cancel(true);
         }
-        if (this.PE != null) {
-            this.PE.removeMessages(0);
+        if (this.PI != null) {
+            this.PI.removeMessages(0);
         }
     }
 }

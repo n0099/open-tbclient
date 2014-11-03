@@ -1,21 +1,21 @@
 package com.baidu.tieba.pb.main;
 /* loaded from: classes.dex */
 class ai implements com.baidu.tieba.location.j {
-    final /* synthetic */ PbActivity bvg;
+    final /* synthetic */ PbActivity bvu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(PbActivity pbActivity) {
-        this.bvg = pbActivity;
+        this.bvu = pbActivity;
     }
 
     @Override // com.baidu.tieba.location.j
-    public void EH() {
+    public void EJ() {
         bv bvVar;
         bv bvVar2;
-        bvVar = this.bvg.buL;
-        if (bvVar.EO() != null) {
-            bvVar2 = this.bvg.buL;
-            bvVar2.EO().setLocationViewVisibility(8);
+        bvVar = this.bvu.buZ;
+        if (bvVar.EQ() != null) {
+            bvVar2 = this.bvu.buZ;
+            bvVar2.EQ().setLocationViewVisibility(8);
         }
     }
 
@@ -24,12 +24,12 @@ class ai implements com.baidu.tieba.location.j {
         bv bvVar;
         bv bvVar2;
         bv bvVar3;
-        bvVar = this.bvg.buL;
-        if (bvVar.EO() != null) {
-            bvVar2 = this.bvg.buL;
-            bvVar2.EO().setLocationViewVisibility(0);
-            bvVar3 = this.bvg.buL;
-            bvVar3.EO().j(2, str);
+        bvVar = this.bvu.buZ;
+        if (bvVar.EQ() != null) {
+            bvVar2 = this.bvu.buZ;
+            bvVar2.EQ().setLocationViewVisibility(0);
+            bvVar3 = this.bvu.buZ;
+            bvVar3.EQ().j(2, str);
         }
     }
 }

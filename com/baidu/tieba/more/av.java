@@ -8,38 +8,38 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class av extends com.baidu.adp.base.e {
-    private BaseActivity.LoadDataCallBack atj;
-    private aw bsK;
-    private ax bsL;
+    private BaseActivity.LoadDataCallBack ats;
+    private aw bsY;
+    private ax bsZ;
     private Context mContext;
 
     public av(Context context) {
         super(context);
-        this.bsK = null;
-        this.bsL = null;
+        this.bsY = null;
+        this.bsZ = null;
         this.mContext = null;
-        this.atj = null;
+        this.ats = null;
         this.mContext = context;
     }
 
-    public void Vv() {
-        if (this.bsK == null) {
-            this.bsK = new aw(this, null);
-            this.bsK.execute(new String[0]);
+    public void Vy() {
+        if (this.bsY == null) {
+            this.bsY = new aw(this, null);
+            this.bsY.execute(new String[0]);
         }
     }
 
-    public void Vw() {
+    public void Vz() {
         String currentAccount = TbadkApplication.getCurrentAccount();
         if (!TextUtils.isEmpty(currentAccount)) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, currentAccount));
         }
     }
 
-    public void Vx() {
-        if (this.bsL == null) {
-            this.bsL = new ax(this, null);
-            this.bsL.execute(new String[0]);
+    public void VA() {
+        if (this.bsZ == null) {
+            this.bsZ = new ax(this, null);
+            this.bsZ.execute(new String[0]);
         }
     }
 
@@ -58,6 +58,6 @@ public class av extends com.baidu.adp.base.e {
     }
 
     public void a(BaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.atj = loadDataCallBack;
+        this.ats = loadDataCallBack;
     }
 }

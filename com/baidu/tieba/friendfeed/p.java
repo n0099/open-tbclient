@@ -6,13 +6,13 @@ import com.baidu.tieba.message.ResponseFriendFeedLocalMessage;
 import com.baidu.tieba.model.ac;
 /* loaded from: classes.dex */
 class p extends CustomMessageListener {
-    final /* synthetic */ FriendFeedActivity ayL;
+    final /* synthetic */ FriendFeedActivity ayU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public p(FriendFeedActivity friendFeedActivity, int i) {
         super(i);
-        this.ayL = friendFeedActivity;
+        this.ayU = friendFeedActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,17 +22,17 @@ class p extends CustomMessageListener {
         ac acVar;
         com.baidu.tieba.data.s friendFeedData;
         ac acVar2;
-        this.ayL.bK(true);
-        yVar = this.ayL.ayq;
-        q EQ = yVar.EQ();
+        this.ayU.bK(true);
+        yVar = this.ayU.ayz;
+        q ES = yVar.ES();
         if (customResponsedMessage != null && (customResponsedMessage instanceof ResponseFriendFeedLocalMessage)) {
             ResponseFriendFeedLocalMessage responseFriendFeedLocalMessage = (ResponseFriendFeedLocalMessage) customResponsedMessage;
-            acVar = this.ayL.ayr;
+            acVar = this.ayU.ayA;
             if (!acVar.isUseCache() && (friendFeedData = responseFriendFeedLocalMessage.getFriendFeedData()) != null) {
-                acVar2 = this.ayL.ayr;
+                acVar2 = this.ayU.ayA;
                 acVar2.setUseCache(true);
-                EQ.a(friendFeedData);
-                EQ.notifyDataSetChanged();
+                ES.a(friendFeedData);
+                ES.notifyDataSetChanged();
             }
         }
     }

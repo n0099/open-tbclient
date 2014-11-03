@@ -8,13 +8,13 @@ import com.baidu.tieba.im.message.PushMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends CustomMessageListener {
-    final /* synthetic */ e aWS;
+    final /* synthetic */ e aXg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(e eVar, int i) {
         super(i);
-        this.aWS = eVar;
+        this.aXg = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,6 +24,6 @@ public class g extends CustomMessageListener {
         if (!(customResponsedMessage instanceof PushMessage) || (p = ((PushMessage) customResponsedMessage).getP()) == null || TextUtils.isEmpty(p.getCmd()) || !p.getCmd().equals("dismiss_group")) {
             return;
         }
-        this.aWS.R(com.baidu.adp.lib.g.c.a(p.getGid(), 0L));
+        this.aXg.R(com.baidu.adp.lib.g.c.a(p.getGid(), 0L));
     }
 }

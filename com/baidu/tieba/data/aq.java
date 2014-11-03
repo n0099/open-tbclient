@@ -4,34 +4,34 @@ import android.graphics.Color;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aq {
-    private String ala;
+    private String alj;
     private String tid = null;
-    private String Lh = null;
+    private String Li = null;
     private String title = null;
-    private boolean amr = false;
+    private boolean amA = false;
     private long time = 0;
-    private final UserData amq = new UserData();
+    private final UserData amz = new UserData();
     private String content = null;
-    private boolean ams = true;
+    private boolean amB = true;
 
-    public boolean Ap() {
-        return this.ams;
+    public boolean Ar() {
+        return this.amB;
     }
 
     public String getPid() {
-        return this.Lh;
+        return this.Li;
     }
 
     public String getTid() {
         return this.tid;
     }
 
-    public String Aq() {
-        return this.ala;
+    public String As() {
+        return this.alj;
     }
 
     public String getTitle() {
@@ -51,17 +51,17 @@ public class aq {
             try {
                 this.tid = jSONObject.optString("tid");
                 this.title = jSONObject.optString("title");
-                this.Lh = jSONObject.optString("pid");
-                this.amr = jSONObject.optInt("is_floor", 0) != 0;
+                this.Li = jSONObject.optString("pid");
+                this.amA = jSONObject.optInt("is_floor", 0) != 0;
                 this.time = jSONObject.optLong("time", 0L) * 1000;
-                this.amq.parserJson(jSONObject.optJSONObject("author"));
+                this.amz.parserJson(jSONObject.optJSONObject("author"));
                 this.content = jSONObject.optString("content");
-                this.ala = jSONObject.optString(ImageViewerConfig.FORUM_NAME);
-                this.title = ay.a(this.title, (Color) null);
-                String a = ay.a(this.content, (Color) null);
+                this.alj = jSONObject.optString(ImageViewerConfig.FORUM_NAME);
+                this.title = az.a(this.title, (Color) null);
+                String a = az.a(this.content, (Color) null);
                 if (!a.equals(this.content)) {
                     this.content = a;
-                    this.ams = false;
+                    this.amB = false;
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);

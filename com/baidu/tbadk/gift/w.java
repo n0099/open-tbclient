@@ -10,7 +10,7 @@ import com.baidu.tbadk.gift.GiftCommonList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class w extends BaseAdapter {
-    private List<GiftCommonList.NumInfo> UG;
+    private List<GiftCommonList.NumInfo> UK;
     private Context mContext;
 
     public w(Context context) {
@@ -18,26 +18,26 @@ public class w extends BaseAdapter {
     }
 
     public void o(List<GiftCommonList.NumInfo> list) {
-        this.UG = list;
+        this.UK = list;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.UG == null) {
+        if (this.UK == null) {
             return 1;
         }
-        return this.UG.size() + 1;
+        return this.UK.size() + 1;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: cO */
     public GiftCommonList.NumInfo getItem(int i) {
-        if (this.UG == null || i < 0 || i >= getCount() - 1) {
+        if (this.UK == null || i < 0 || i >= getCount() - 1) {
             return null;
         }
-        return this.UG.get(i);
+        return this.UK.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -61,26 +61,26 @@ public class w extends BaseAdapter {
         if (view == null || view.getTag() == null) {
             view = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.w.gift_num_item, null);
             x xVar2 = new x(this, null);
-            xVar2.UH = (TextView) view.findViewById(com.baidu.tieba.v.text);
-            xVar2.UI = view.findViewById(com.baidu.tieba.v.divider);
+            xVar2.UL = (TextView) view.findViewById(com.baidu.tieba.v.text);
+            xVar2.UM = view.findViewById(com.baidu.tieba.v.divider);
             view.setTag(xVar2);
             xVar = xVar2;
         } else {
             xVar = (x) view.getTag();
         }
         aw.h(view, com.baidu.tieba.u.list_item_selector);
-        aw.b(xVar.UH, com.baidu.tieba.s.cp_cont_b, 1);
-        aw.i(xVar.UI, com.baidu.tieba.s.cp_bg_line_b);
+        aw.b(xVar.UL, com.baidu.tieba.s.cp_cont_b, 1);
+        aw.i(xVar.UM, com.baidu.tieba.s.cp_bg_line_b);
         GiftCommonList.NumInfo item = getItem(i);
         if (getItemViewType(i) == 1) {
-            xVar.UH.setText(com.baidu.tieba.y.custom_num);
-            xVar.UI.setVisibility(4);
+            xVar.UL.setText(com.baidu.tieba.y.custom_num);
+            xVar.UM.setVisibility(4);
         } else if (item != null) {
-            xVar.UH.setText(String.valueOf(item.getNum() <= 0 ? 1 : item.getNum()) + (item.getName() == null ? "" : item.getName()));
-            xVar.UI.setVisibility(0);
+            xVar.UL.setText(String.valueOf(item.getNum() <= 0 ? 1 : item.getNum()) + (item.getName() == null ? "" : item.getName()));
+            xVar.UM.setVisibility(0);
         } else {
-            xVar.UH.setText("");
-            xVar.UI.setVisibility(0);
+            xVar.UL.setText("");
+            xVar.UM.setVisibility(0);
         }
         return view;
     }

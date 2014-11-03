@@ -5,83 +5,83 @@ import tbclient.FrsPage.Size;
 import tbclient.FrsPage.StarInfo;
 /* loaded from: classes.dex */
 public class t {
-    private int akF = 0;
-    private int akG = 0;
-    private String akH = null;
-    private String akI = null;
-    private int akJ = 0;
+    private int akO = 0;
+    private int akP = 0;
+    private String akQ = null;
+    private String akR = null;
+    private int akS = 0;
     private int fan_num = 0;
-    private int akK = 0;
-    private int akL = 0;
-    private int akM = 0;
-    private int akN = 0;
-    private long akO = 0;
-    private long akP = 0;
-    private boolean akQ = false;
-    private long akR = 0;
-    private String akS = null;
+    private int akT = 0;
+    private int akU = 0;
+    private int akV = 0;
+    private int akW = 0;
+    private long akX = 0;
+    private long akY = 0;
+    private boolean akZ = false;
+    private long ala = 0;
+    private String alb = null;
 
-    public int zg() {
-        return this.akF;
+    public int zi() {
+        return this.akO;
     }
 
-    public String zh() {
-        return this.akH;
-    }
-
-    public String zi() {
-        return this.akI;
-    }
-
-    public int zj() {
-        return this.akK;
-    }
-
-    public int zk() {
-        return this.akL;
-    }
-
-    public boolean zl() {
+    public String zj() {
         return this.akQ;
     }
 
-    public long zm() {
+    public String zk() {
         return this.akR;
     }
 
-    public String zn() {
-        return this.akS;
+    public int zl() {
+        return this.akT;
+    }
+
+    public int zm() {
+        return this.akU;
+    }
+
+    public boolean zn() {
+        return this.akZ;
+    }
+
+    public long zo() {
+        return this.ala;
+    }
+
+    public String zp() {
+        return this.alb;
     }
 
     public void a(StarInfo starInfo) {
         if (starInfo != null) {
-            this.akF = starInfo.has_frs_star.intValue();
-            if (this.akF == 1) {
-                this.akH = starInfo.top;
-                this.akI = starInfo.head;
+            this.akO = starInfo.has_frs_star.intValue();
+            if (this.akO == 1) {
+                this.akQ = starInfo.top;
+                this.akR = starInfo.head;
                 Fans fans = starInfo.fans;
-                this.akJ = fans.is_get.intValue();
+                this.akS = fans.is_get.intValue();
                 this.fan_num = fans.num.intValue();
-                this.akG = fans.open.intValue();
-                this.akO = fans.left_time.intValue();
-                this.akP = this.akO;
+                this.akP = fans.open.intValue();
+                this.akX = fans.left_time.intValue();
+                this.akY = this.akX;
                 Size size = starInfo.top_size;
                 if (size != null) {
-                    this.akK = size.width.intValue();
-                    this.akL = size.height.intValue();
+                    this.akT = size.width.intValue();
+                    this.akU = size.height.intValue();
                 }
                 Size size2 = starInfo.head_size;
                 if (size2 != null) {
-                    this.akM = size2.width.intValue();
-                    this.akN = size2.height.intValue();
+                    this.akV = size2.width.intValue();
+                    this.akW = size2.height.intValue();
                 }
             }
-            this.akQ = starInfo.trade != null;
-            if (this.akQ) {
+            this.akZ = starInfo.trade != null;
+            if (this.akZ) {
                 if (starInfo.trade.time != null) {
-                    this.akR = starInfo.trade.time.intValue();
+                    this.ala = starInfo.trade.time.intValue();
                 }
-                this.akS = starInfo.trade.url;
+                this.alb = starInfo.trade.url;
             }
         }
     }

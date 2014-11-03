@@ -17,84 +17,84 @@ import com.baidu.tieba.pb.main.PbActivity;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.base.e {
-    private static BdAsyncTaskParallel bAd = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-    private com.baidu.tieba.b.a aAE;
-    protected String alT;
-    protected int auI;
-    protected String bAa;
-    protected g bAb;
-    private int bAc;
-    private ArrayList<ar> bAe;
-    private SubPbRequestMessage bAf;
-    private com.baidu.adp.framework.listener.a bAg;
-    protected ar bpm;
-    protected PbActivity bvu;
+    private static BdAsyncTaskParallel bAr = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+    private com.baidu.tieba.b.a aAO;
+    protected String amc;
+    protected int auR;
+    protected String bAo;
+    protected g bAp;
+    private int bAq;
+    private ArrayList<ar> bAs;
+    private SubPbRequestMessage bAt;
+    private com.baidu.adp.framework.listener.a bAu;
+    protected ar bpA;
+    protected PbActivity bvI;
     private boolean isLoading;
     protected String stType;
 
     static {
-        rZ();
+        sb();
     }
 
     public void initWithIntent(Intent intent) {
         if (intent != null) {
-            this.bAa = intent.getStringExtra("thread_id");
-            this.alT = intent.getStringExtra("post_id");
+            this.bAo = intent.getStringExtra("thread_id");
+            this.amc = intent.getStringExtra("post_id");
             this.stType = intent.getStringExtra("st_type");
         }
     }
 
     public void initWithBundle(Bundle bundle) {
         if (bundle != null) {
-            this.bAa = bundle.getString("thread_id");
-            this.alT = bundle.getString("post_id");
+            this.bAo = bundle.getString("thread_id");
+            this.amc = bundle.getString("post_id");
             this.stType = bundle.getString("st_type");
         }
     }
 
     public void saveToBundle(Bundle bundle) {
         if (bundle != null) {
-            bundle.putString("thread_id", this.bAa);
-            bundle.putString("post_id", this.alT);
+            bundle.putString("thread_id", this.bAo);
+            bundle.putString("post_id", this.amc);
             bundle.putString("st_type", this.stType);
         }
     }
 
     public e(PbActivity pbActivity) {
         super(pbActivity);
-        this.auI = 0;
-        this.bAa = null;
-        this.alT = null;
+        this.auR = 0;
+        this.bAo = null;
+        this.amc = null;
         this.stType = null;
-        this.bvu = null;
-        this.bpm = null;
-        this.bAb = null;
-        this.bAc = 0;
-        this.bAe = null;
+        this.bvI = null;
+        this.bpA = null;
+        this.bAp = null;
+        this.bAq = 0;
+        this.bAs = null;
         this.isLoading = false;
-        this.aAE = null;
-        this.bAg = new f(this, CmdConfigHttp.SubPb_HTTP_CMD, 302002);
-        this.bvu = pbActivity;
-        this.bAe = new ArrayList<>();
-        this.bpm = new ar();
+        this.aAO = null;
+        this.bAu = new f(this, CmdConfigHttp.SubPb_HTTP_CMD, 302002);
+        this.bvI = pbActivity;
+        this.bAs = new ArrayList<>();
+        this.bpA = new ar();
         setUniqueId(BdUniqueId.gen());
-        IG();
+        IK();
     }
 
     public void ha(String str) {
-        this.bAa = str;
+        this.bAo = str;
     }
 
-    public String WF() {
-        return this.bAa;
+    public String WI() {
+        return this.bAo;
     }
 
     public void ey(String str) {
-        this.alT = str;
+        this.amc = str;
     }
 
-    public String zV() {
-        return this.alT;
+    public String zX() {
+        return this.amc;
     }
 
     public String getStType() {
@@ -102,41 +102,41 @@ public class e extends com.baidu.adp.base.e {
     }
 
     public void resetData() {
-        this.bpm = new ar();
+        this.bpA = new ar();
     }
 
-    public ar YK() {
-        return this.bpm;
+    public ar YN() {
+        return this.bpA;
     }
 
-    public WriteData EC() {
-        if (this.bpm == null || this.bpm.Aw() == null || this.bpm.Ay() == null || this.bpm.As() == null) {
+    public WriteData EE() {
+        if (this.bpA == null || this.bpA.Ay() == null || this.bpA.AA() == null || this.bpA.Au() == null) {
             return null;
         }
         WriteData writeData = new WriteData();
-        writeData.setForumName(this.bpm.Aw().getName());
-        writeData.setForumId(this.bpm.Aw().getId());
-        writeData.setFloor(this.bpm.As().getId());
+        writeData.setForumName(this.bpA.Ay().getName());
+        writeData.setForumId(this.bpA.Ay().getId());
+        writeData.setFloor(this.bpA.Au().getId());
         writeData.setType(2);
-        writeData.setThreadId(this.bpm.Ay().getId());
+        writeData.setThreadId(this.bpA.AA().getId());
         writeData.setFloorNum(0);
         return writeData;
     }
 
     public void a(g gVar) {
-        this.bAb = gVar;
+        this.bAp = gVar;
     }
 
-    public void xY() {
+    public void ya() {
         cancelMessage();
-        YR();
-        Tn();
+        YU();
+        Tq();
     }
 
-    private void Tn() {
-        if (this.aAE != null) {
-            this.aAE.xY();
-            this.aAE = null;
+    private void Tq() {
+        if (this.aAO != null) {
+            this.aAO.ya();
+            this.aAO = null;
         }
     }
 
@@ -145,8 +145,8 @@ public class e extends com.baidu.adp.base.e {
         return false;
     }
 
-    public int Tu() {
-        return this.auI;
+    public int Tx() {
+        return this.auR;
     }
 
     @Override // com.baidu.adp.base.e
@@ -156,38 +156,38 @@ public class e extends com.baidu.adp.base.e {
     }
 
     public void hb(String str) {
-        if (!TextUtils.isEmpty(str) && this.bpm != null && this.bpm.Au() != null) {
-            ArrayList<ak> Au = this.bpm.Au();
-            int size = Au.size();
+        if (!TextUtils.isEmpty(str) && this.bpA != null && this.bpA.Aw() != null) {
+            ArrayList<ak> Aw = this.bpA.Aw();
+            int size = Aw.size();
             for (int i = 0; i < size; i++) {
-                if (str.equals(Au.get(i).getId())) {
-                    Au.remove(i);
-                    this.bAc++;
-                    this.bpm.setTotalCount(this.bpm.getTotalCount() - 1);
+                if (str.equals(Aw.get(i).getId())) {
+                    Aw.remove(i);
+                    this.bAq++;
+                    this.bpA.setTotalCount(this.bpA.getTotalCount() - 1);
                     return;
                 }
             }
         }
     }
 
-    protected int YL() {
-        int currentPage = this.bpm.getCurrentPage();
+    protected int YO() {
+        int currentPage = this.bpA.getCurrentPage();
         if (currentPage == 0) {
             return currentPage + 1;
         }
-        if (this.auI == 0) {
+        if (this.auR == 0) {
             return currentPage + 1;
         }
-        if (this.auI == 2 && this.bpm.Au().size() % this.bpm.Av() == 0) {
+        if (this.auR == 2 && this.bpA.Aw().size() % this.bpA.Ax() == 0) {
             return currentPage + 1;
         }
-        if (this.auI == 3 && currentPage > 0) {
-            return this.bpm.At() - 1;
+        if (this.auR == 3 && currentPage > 0) {
+            return this.bpA.Av() - 1;
         }
         return currentPage;
     }
 
-    private SubPbRequestMessage YM() {
+    private SubPbRequestMessage YP() {
         this.isLoading = true;
         return c((Integer) null);
     }
@@ -196,84 +196,36 @@ public class e extends com.baidu.adp.base.e {
         long j;
         int intValue;
         long j2 = 0;
-        float f = aj.wk().getApp().getResources().getDisplayMetrics().density;
-        int n = com.baidu.adp.lib.util.m.n(aj.wk().getApp());
-        int o = com.baidu.adp.lib.util.m.o(aj.wk().getApp());
-        if (1 != this.auI) {
-            j = Long.parseLong(this.alT);
+        float f = aj.wm().getApp().getResources().getDisplayMetrics().density;
+        int n = com.baidu.adp.lib.util.m.n(aj.wm().getApp());
+        int o = com.baidu.adp.lib.util.m.o(aj.wm().getApp());
+        if (1 != this.auR) {
+            j = Long.parseLong(this.amc);
         } else {
             j = 0;
-            j2 = Long.parseLong(this.alT);
+            j2 = Long.parseLong(this.amc);
         }
         if (num == null) {
-            intValue = YL();
+            intValue = YO();
         } else {
             intValue = num.intValue();
         }
-        return new SubPbRequestMessage(this.bvu, Long.parseLong(this.bAa), j, j2, intValue, n, o, f, this.stType);
+        return new SubPbRequestMessage(this.bvI, Long.parseLong(this.bAo), j, j2, intValue, n, o, f, this.stType);
     }
 
-    public boolean tL() {
+    public boolean tN() {
         if (this.isLoading) {
             return false;
         }
         cancelMessage();
-        if (this.bAa == null || this.alT == null) {
+        if (this.bAo == null || this.amc == null) {
             this.isLoading = false;
             return false;
         }
-        YO();
-        this.auI = 0;
-        this.bAf = YM();
-        sendMessage(this.bAf);
-        return true;
-    }
-
-    public boolean YN() {
-        if (this.isLoading) {
-            return false;
-        }
-        cancelMessage();
-        if (this.bAa == null || this.alT == null) {
-            this.isLoading = false;
-            return false;
-        } else if (this.bpm.hasMore()) {
-            return false;
-        } else {
-            YO();
-            this.auI = 2;
-            this.bAf = YM();
-            sendMessage(this.bAf);
-            return true;
-        }
-    }
-
-    public void YO() {
-        int Av;
-        if (this.bAc > 0 && this.bpm != null && (Av = this.bpm.Av()) > 0) {
-            int currentPage = this.bpm.getCurrentPage();
-            for (int i = (((this.bAc + Av) - 1) / Av) - 1; i >= 0; i--) {
-                this.bAf = c(Integer.valueOf(currentPage - i));
-                this.bAf.setTreatDelPage(true);
-                sendMessage(this.bAf);
-            }
-        }
-        this.bAc = 0;
-    }
-
-    public boolean YP() {
-        if (this.isLoading) {
-            return false;
-        }
-        cancelMessage();
-        if (this.bAa == null || this.alT == null) {
-            this.isLoading = false;
-            return false;
-        }
-        YO();
-        this.auI = 1;
-        this.bAf = YM();
-        sendMessage(this.bAf);
+        YR();
+        this.auR = 0;
+        this.bAt = YP();
+        sendMessage(this.bAt);
         return true;
     }
 
@@ -282,48 +234,96 @@ public class e extends com.baidu.adp.base.e {
             return false;
         }
         cancelMessage();
-        if (this.bAa == null || this.alT == null) {
+        if (this.bAo == null || this.amc == null) {
+            this.isLoading = false;
+            return false;
+        } else if (this.bpA.hasMore()) {
+            return false;
+        } else {
+            YR();
+            this.auR = 2;
+            this.bAt = YP();
+            sendMessage(this.bAt);
+            return true;
+        }
+    }
+
+    public void YR() {
+        int Ax;
+        if (this.bAq > 0 && this.bpA != null && (Ax = this.bpA.Ax()) > 0) {
+            int currentPage = this.bpA.getCurrentPage();
+            for (int i = (((this.bAq + Ax) - 1) / Ax) - 1; i >= 0; i--) {
+                this.bAt = c(Integer.valueOf(currentPage - i));
+                this.bAt.setTreatDelPage(true);
+                sendMessage(this.bAt);
+            }
+        }
+        this.bAq = 0;
+    }
+
+    public boolean YS() {
+        if (this.isLoading) {
+            return false;
+        }
+        cancelMessage();
+        if (this.bAo == null || this.amc == null) {
             this.isLoading = false;
             return false;
         }
-        YO();
-        this.auI = 3;
-        this.bAf = YM();
-        sendMessage(this.bAf);
+        YR();
+        this.auR = 1;
+        this.bAt = YP();
+        sendMessage(this.bAt);
         return true;
     }
 
-    private static void rZ() {
+    public boolean YT() {
+        if (this.isLoading) {
+            return false;
+        }
+        cancelMessage();
+        if (this.bAo == null || this.amc == null) {
+            this.isLoading = false;
+            return false;
+        }
+        YR();
+        this.auR = 3;
+        this.bAt = YP();
+        sendMessage(this.bAt);
+        return true;
+    }
+
+    private static void sb() {
         com.baidu.tbadk.task.b a = ai.a(302002, SubPbSocketResponseMessage.class, false, false);
         TbHttpMessageTask a2 = ai.a(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
-        a.setParallel(bAd);
-        a2.setParallel(bAd);
+        a.setParallel(bAr);
+        a2.setParallel(bAr);
     }
 
-    private void IG() {
-        MessageManager.getInstance().unRegisterListener(this.bAg);
-        registerListener(this.bAg);
+    private void IK() {
+        MessageManager.getInstance().unRegisterListener(this.bAu);
+        registerListener(this.bAu);
     }
 
-    private void YR() {
-        MessageManager.getInstance().unRegisterListener(this.bAg);
+    private void YU() {
+        MessageManager.getInstance().unRegisterListener(this.bAu);
     }
 
     public void b(ar arVar) {
         String str;
-        if (arVar.Ay() == null || arVar.Ay().getAuthor() == null) {
+        if (arVar.AA() == null || arVar.AA().getAuthor() == null) {
             str = null;
         } else {
-            str = arVar.Ay().getAuthor().getUserId();
+            str = arVar.AA().getAuthor().getUserId();
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < arVar.Au().size()) {
-                arVar.Au().get(i2).a(this.bvu, str.equals(arVar.Au().get(i2).getAuthor().getUserId()));
+            if (i2 < arVar.Aw().size()) {
+                arVar.Aw().get(i2).a(this.bvI, str.equals(arVar.Aw().get(i2).getAuthor().getUserId()));
                 i = i2 + 1;
             } else {
-                this.bAe.add(arVar);
+                this.bAs.add(arVar);
                 return;
             }
         }

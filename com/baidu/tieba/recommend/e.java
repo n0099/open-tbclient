@@ -1,15 +1,15 @@
 package com.baidu.tieba.recommend;
 /* loaded from: classes.dex */
 class e implements l {
-    final /* synthetic */ DailyRecommendActivity bHW;
+    final /* synthetic */ DailyRecommendActivity bIk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(DailyRecommendActivity dailyRecommendActivity) {
-        this.bHW = dailyRecommendActivity;
+        this.bIk = dailyRecommendActivity;
     }
 
     @Override // com.baidu.tieba.recommend.l
     public void hk(String str) {
-        this.bHW.bHU = str;
+        this.bIk.bIi = str;
     }
 }

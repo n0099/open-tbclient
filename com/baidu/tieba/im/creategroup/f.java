@@ -7,12 +7,12 @@ import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.base.f {
-    Button aTi;
-    Button aTj;
-    TextView aTk;
-    TextView aTl;
-    CreateGroupMainActivity aTm;
-    View agA;
+    CreateGroupMainActivity aTA;
+    Button aTw;
+    Button aTx;
+    TextView aTy;
+    TextView aTz;
+    View agI;
     private int mForumId;
     NavigationBar mNavigationBar;
 
@@ -20,58 +20,58 @@ public class f extends com.baidu.adp.base.f {
         return this.mForumId;
     }
 
-    public View Lf() {
-        return this.aTi;
+    public View Lj() {
+        return this.aTw;
     }
 
-    public View Lg() {
-        return this.aTj;
+    public View Lk() {
+        return this.aTx;
     }
 
     public f(CreateGroupMainActivity createGroupMainActivity) {
         super(createGroupMainActivity);
         this.mNavigationBar = null;
-        this.agA = null;
-        this.aTi = null;
-        this.aTj = null;
-        this.aTk = null;
-        this.aTl = null;
-        this.aTm = null;
+        this.agI = null;
+        this.aTw = null;
+        this.aTx = null;
+        this.aTy = null;
+        this.aTz = null;
+        this.aTA = null;
         this.mForumId = 0;
         b(createGroupMainActivity);
         a(createGroupMainActivity);
     }
 
     private void a(CreateGroupMainActivity createGroupMainActivity) {
-        this.aTi.setOnClickListener(createGroupMainActivity);
-        this.aTj.setOnClickListener(createGroupMainActivity);
+        this.aTw.setOnClickListener(createGroupMainActivity);
+        this.aTx.setOnClickListener(createGroupMainActivity);
     }
 
     public void a(boolean z, boolean z2, String str, String str2, int i) {
-        this.aTi.setEnabled(z2);
-        this.aTj.setEnabled(z);
-        this.aTk.setText(str2);
-        this.aTl.setText(str);
+        this.aTw.setEnabled(z2);
+        this.aTx.setEnabled(z);
+        this.aTy.setText(str2);
+        this.aTz.setText(str);
         this.mForumId = i;
     }
 
     private void b(CreateGroupMainActivity createGroupMainActivity) {
-        this.aTm = createGroupMainActivity;
+        this.aTA = createGroupMainActivity;
         createGroupMainActivity.setContentView(com.baidu.tieba.w.create_group_main_activity);
-        this.agA = createGroupMainActivity.findViewById(com.baidu.tieba.v.parent);
-        this.aTi = (Button) createGroupMainActivity.findViewById(com.baidu.tieba.v.create_group1);
-        this.aTj = (Button) createGroupMainActivity.findViewById(com.baidu.tieba.v.create_group2);
-        this.aTk = (TextView) createGroupMainActivity.findViewById(com.baidu.tieba.v.create_group1_text);
-        this.aTl = (TextView) createGroupMainActivity.findViewById(com.baidu.tieba.v.create_group2_text);
+        this.agI = createGroupMainActivity.findViewById(com.baidu.tieba.v.parent);
+        this.aTw = (Button) createGroupMainActivity.findViewById(com.baidu.tieba.v.create_group1);
+        this.aTx = (Button) createGroupMainActivity.findViewById(com.baidu.tieba.v.create_group2);
+        this.aTy = (TextView) createGroupMainActivity.findViewById(com.baidu.tieba.v.create_group1_text);
+        this.aTz = (TextView) createGroupMainActivity.findViewById(com.baidu.tieba.v.create_group2_text);
         this.mNavigationBar = (NavigationBar) createGroupMainActivity.findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.mNavigationBar.setTitleText(createGroupMainActivity.getResources().getString(com.baidu.tieba.y.group_create));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
     }
 
     public void onChangeSkinType(int i) {
-        this.aTm.getLayoutMode().L(i == 1);
-        this.aTm.getLayoutMode().h(this.agA);
-        aw.d(this.agA, i);
+        this.aTA.getLayoutMode().L(i == 1);
+        this.aTA.getLayoutMode().h(this.agI);
+        aw.d(this.agI, i);
         this.mNavigationBar.onChangeSkinType(i);
     }
 }

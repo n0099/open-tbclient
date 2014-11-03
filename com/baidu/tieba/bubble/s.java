@@ -3,5 +3,5 @@ package com.baidu.tieba.bubble;
 public interface s {
     void dV(int i);
 
-    void yi();
+    void yk();
 }

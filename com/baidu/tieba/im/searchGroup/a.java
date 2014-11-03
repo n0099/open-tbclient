@@ -7,20 +7,20 @@ import com.baidu.tieba.im.message.ResponseSearchGroupMessage;
 import java.util.List;
 /* loaded from: classes.dex */
 class a extends e {
-    final /* synthetic */ AddGroupActivity bhv;
+    final /* synthetic */ AddGroupActivity bhJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(AddGroupActivity addGroupActivity, int i) {
         super(i);
-        this.bhv = addGroupActivity;
+        this.bhJ = addGroupActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         b bVar;
-        bVar = this.bhv.bhs;
+        bVar = this.bhJ.bhG;
         bVar.da(false);
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 103007) {
             if (socketResponsedMessage instanceof ResponseSearchGroupMessage) {
@@ -28,19 +28,19 @@ class a extends e {
                 if (responseSearchGroupMessage.getError() == 0) {
                     List<BaseGroupData> searchResult = responseSearchGroupMessage.getSearchResult();
                     if (searchResult == null || searchResult.size() <= 0) {
-                        this.bhv.Rq();
+                        this.bhJ.Rt();
                         return;
                     } else {
-                        this.bhv.a(searchResult.get(0));
+                        this.bhJ.a(searchResult.get(0));
                         return;
                     }
                 }
-                this.bhv.t(responseSearchGroupMessage.getErrorString(), responseSearchGroupMessage.getError());
+                this.bhJ.t(responseSearchGroupMessage.getErrorString(), responseSearchGroupMessage.getError());
                 return;
             }
-            this.bhv.Rq();
+            this.bhJ.Rt();
             return;
         }
-        this.bhv.Rq();
+        this.bhJ.Rt();
     }
 }

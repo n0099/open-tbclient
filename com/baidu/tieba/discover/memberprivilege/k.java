@@ -7,19 +7,19 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 class k {
-    public HeadImageView apD;
-    public RelativeLayout apE;
-    public RelativeLayout apF;
-    public TextView apG;
-    public TextView apH;
-    public TbImageView apI;
-    public TextView apJ;
-    public TextView apK;
-    public TextView apL;
-    public ImageView apM;
-    public ImageView apN;
-    public TextView apO;
+    public HeadImageView apM;
+    public RelativeLayout apN;
+    public RelativeLayout apO;
     public TextView apP;
+    public TextView apQ;
+    public TbImageView apR;
+    public TextView apS;
+    public TextView apT;
+    public TextView apU;
+    public ImageView apV;
+    public ImageView apW;
+    public TextView apX;
+    public TextView apY;
 
     private k() {
     }

@@ -11,8 +11,8 @@ import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class ProtocolActivity extends BaseActivity {
     private NavigationBar mNavigationBar;
-    private TextView aey = null;
-    private RelativeLayout KO = null;
+    private TextView aeG = null;
+    private RelativeLayout KP = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -28,11 +28,11 @@ public class ProtocolActivity extends BaseActivity {
     */
     private void initUI() {
         BufferedReader bufferedReader;
-        this.KO = (RelativeLayout) findViewById(com.baidu.tieba.v.container);
+        this.KP = (RelativeLayout) findViewById(com.baidu.tieba.v.container);
         this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getString(com.baidu.tieba.y.account_protocol));
-        this.aey = (TextView) findViewById(com.baidu.tieba.v.text);
+        this.aeG = (TextView) findViewById(com.baidu.tieba.v.text);
         StringBuilder sb = new StringBuilder(1024);
         BufferedReader bufferedReader2 = null;
         try {
@@ -56,7 +56,7 @@ public class ProtocolActivity extends BaseActivity {
                                 e2.printStackTrace();
                             }
                         }
-                        this.aey.setText(sb.toString());
+                        this.aeG.setText(sb.toString());
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -87,7 +87,7 @@ public class ProtocolActivity extends BaseActivity {
             }
             throw th;
         }
-        this.aey.setText(sb.toString());
+        this.aeG.setText(sb.toString());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -95,7 +95,7 @@ public class ProtocolActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(i);
-        aw.f(this.KO, i);
-        aw.b(this.aey, i);
+        aw.f(this.KP, i);
+        aw.b(this.aeG, i);
     }
 }

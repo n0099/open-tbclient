@@ -7,11 +7,11 @@ import com.baidu.tieba.v;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements n {
-    final /* synthetic */ ForbidActivity agi;
+    final /* synthetic */ ForbidActivity agq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(ForbidActivity forbidActivity) {
-        this.agi = forbidActivity;
+        this.agq = forbidActivity;
     }
 
     @Override // com.baidu.tieba.account.forbid.n
@@ -20,21 +20,21 @@ public class d implements n {
         String str;
         BdListView bdListView;
         e eVar;
-        textView = this.agi.agf;
-        str = this.agi.mUserName;
+        textView = this.agq.agn;
+        str = this.agq.mUserName;
         textView.setText(str);
         if (forbidTplData.type == 1) {
-            this.agi.findViewById(v.radio_forbid_3).setVisibility(0);
-            this.agi.findViewById(v.radio_forbid_10).setVisibility(0);
+            this.agq.findViewById(v.radio_forbid_3).setVisibility(0);
+            this.agq.findViewById(v.radio_forbid_10).setVisibility(0);
         }
-        this.agi.agg = new e(forbidTplData.reason);
-        bdListView = this.agi.vl;
-        eVar = this.agi.agg;
+        this.agq.ago = new e(forbidTplData.reason);
+        bdListView = this.agq.vl;
+        eVar = this.agq.ago;
         bdListView.setAdapter((ListAdapter) eVar);
     }
 
     @Override // com.baidu.tieba.account.forbid.n
     public void b(ForbidTplData forbidTplData) {
-        this.agi.showToast(forbidTplData.error.errMsg);
+        this.agq.showToast(forbidTplData.error.errMsg);
     }
 }

@@ -8,18 +8,18 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.game.GameInfoData;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.game.view.GameDownloadView;
-import tbclient.GameInfo;
 /* loaded from: classes.dex */
 public abstract class GameListBaseItem extends RelativeLayout {
-    private GameInfoData aGZ;
-    private String aHM;
-    private boolean aHN;
+    private String aHW;
+    private boolean aHX;
+    private GameInfoData aHj;
     private Context mContext;
 
     /* loaded from: classes.dex */
@@ -28,7 +28,7 @@ public abstract class GameListBaseItem extends RelativeLayout {
         TYPE_DAY_DOWNLOADS,
         TYPE_CATEGORY;
 
-        /* JADX DEBUG: Replace access to removed values field (aHO) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (aHY) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static SECOND_LINE_TYPE[] valuesCustom() {
             SECOND_LINE_TYPE[] valuesCustom = values();
@@ -58,18 +58,18 @@ public abstract class GameListBaseItem extends RelativeLayout {
 
     public GameListBaseItem(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aHN = false;
+        this.aHX = false;
         this.mContext = context;
     }
 
     public GameListBaseItem(Context context) {
         super(context);
-        this.aHN = false;
+        this.aHX = false;
         this.mContext = context;
     }
 
     public GameInfoData getGameInfoData() {
-        return this.aGZ;
+        return this.aHj;
     }
 
     public Context getItemContext() {
@@ -89,8 +89,8 @@ public abstract class GameListBaseItem extends RelativeLayout {
     }
 
     public final void setGameInfoStr(String str) {
-        this.aHN = true;
-        this.aHM = str;
+        this.aHX = true;
+        this.aHW = str;
     }
 
     public final void setBottomLineVisible(boolean z) {
@@ -106,27 +106,27 @@ public abstract class GameListBaseItem extends RelativeLayout {
 
     protected String getGameInfoString() {
         String format;
-        if (this.aGZ == null) {
+        if (this.aHj == null) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
-        String packageSize = this.aGZ.getPackageSize();
+        String packageSize = this.aHj.getPackageSize();
         if (!TextUtils.isEmpty(packageSize)) {
             sb.append(packageSize);
             sb.append("M");
         }
         SECOND_LINE_TYPE secondLineType = getSecondLineType();
         if (secondLineType == SECOND_LINE_TYPE.TYPE_CATEGORY) {
-            format = this.aGZ.getCategoryName();
+            format = this.aHj.getCategoryName();
         } else if (secondLineType == SECOND_LINE_TYPE.TYPE_DAY_DOWNLOADS) {
-            int dayDownloads = this.aGZ.getDayDownloads();
+            int dayDownloads = this.aHj.getDayDownloads();
             if (dayDownloads <= 0) {
                 format = "";
             } else {
                 format = String.format(this.mContext.getResources().getString(com.baidu.tieba.y.game_list_item_day_download), com.baidu.tieba.game.a.g.fj(dayDownloads));
             }
         } else {
-            int playerNum = this.aGZ.getPlayerNum();
+            int playerNum = this.aHj.getPlayerNum();
             if (playerNum <= 0) {
                 format = "";
             } else {
@@ -158,9 +158,12 @@ public abstract class GameListBaseItem extends RelativeLayout {
         }
     }
 
-    public int o(GameInfoData gameInfoData) {
+    public int p(GameInfoData gameInfoData) {
         if (gameInfoData.getMark() == 1) {
             return 1;
+        }
+        if (gameInfoData.getMark() == 0) {
+            return 0;
         }
         int f = com.baidu.adp.lib.g.c.f(gameInfoData.getVersion(), 0);
         int ft = ft(gameInfoData.getPackageName());
@@ -178,36 +181,40 @@ public abstract class GameListBaseItem extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Hu() {
-        if (this.aGZ != null) {
+    public void h(BdUniqueId bdUniqueId) {
+        if (this.aHj != null) {
             if (getGameImage() != null) {
                 getGameImage().setDefaultScaleType(ImageView.ScaleType.FIT_XY);
                 getGameImage().setSupportNoImage(false);
-                String iconUrl = this.aGZ.getIconUrl();
+                String iconUrl = this.aHj.getIconUrl();
                 if (TextUtils.isEmpty(iconUrl)) {
                     getGameImage().reset();
                 } else {
                     getGameImage().c(iconUrl, 10, false);
                 }
             }
-            if (getGameCornerMark() != null && !TextUtils.isEmpty(this.aGZ.getSecretKey())) {
-                getGameCornerMark().setVisibility(0);
-                getGameCornerMark().setText(this.aGZ.getSecretKey());
-                getGameCornerMark().setBgColorTag(this.aGZ.getSuperscriptColor());
-                getGameCornerMark().invalidate();
+            if (getGameCornerMark() != null) {
+                if (!TextUtils.isEmpty(this.aHj.getSecretKey())) {
+                    getGameCornerMark().setVisibility(0);
+                    getGameCornerMark().setText(this.aHj.getSecretKey());
+                    getGameCornerMark().setBgColorTag(this.aHj.getSuperscriptColor());
+                    getGameCornerMark().invalidate();
+                } else {
+                    getGameCornerMark().setVisibility(8);
+                }
             }
             if (getGameNameTextView() != null) {
-                String gameName = this.aGZ.getGameName();
+                String gameName = this.aHj.getGameName();
                 if (com.baidu.tieba.game.a.g.fy(gameName) > 14) {
                     gameName = String.valueOf(com.baidu.tieba.game.a.g.g(gameName, 0, 14)) + "...";
                 }
                 getGameNameTextView().setText(gameName);
             }
             if (getGameInfoTextView() != null) {
-                if (this.aHN) {
-                    getGameInfoTextView().setText(this.aHM);
-                } else if (this.aGZ.getGameType() == 2) {
-                    int playerNum = this.aGZ.getPlayerNum();
+                if (this.aHX) {
+                    getGameInfoTextView().setText(this.aHW);
+                } else if (this.aHj.getGameType() == 2) {
+                    int playerNum = this.aHj.getPlayerNum();
                     if (playerNum < 0) {
                         playerNum = 0;
                     }
@@ -217,11 +224,11 @@ public abstract class GameListBaseItem extends RelativeLayout {
                 }
             }
             if (getDownloadView() != null) {
-                getDownloadView().setData(this.aGZ);
+                getDownloadView().a(bdUniqueId, this.aHj);
             }
             if (getGameIconTextView() != null) {
-                int o = o(this.aGZ);
-                if (o == 1) {
+                int p = p(this.aHj);
+                if (p == 1) {
                     setEnabled(false);
                     if (getDownloadView() != null) {
                         getDownloadView().setVisibility(8);
@@ -236,12 +243,12 @@ public abstract class GameListBaseItem extends RelativeLayout {
                 if (getDownloadView() != null) {
                     getDownloadView().setVisibility(0);
                 }
-                if (o == 0) {
+                if (p == 0) {
                     getGameIconTextView().setVisibility(8);
                     return;
                 }
                 getGameIconTextView().setVisibility(0);
-                if (o == 2) {
+                if (p == 2) {
                     getGameIconTextView().setText(this.mContext.getString(com.baidu.tieba.y.game_new_icon));
                     getGameIconTextView().setBackgroundDrawable(com.baidu.tbadk.core.util.aw.getDrawable(com.baidu.tieba.u.game_list_item_status_new));
                     com.baidu.tbadk.core.util.aw.b(getGameIconTextView(), com.baidu.tieba.s.cp_cont_i, 1);
@@ -254,14 +261,9 @@ public abstract class GameListBaseItem extends RelativeLayout {
         }
     }
 
-    public final void setData(GameInfo gameInfo) {
-        this.aGZ = GameInfoData.fromGameInfo(gameInfo);
-        Hu();
-    }
-
-    public final void setData(GameInfoData gameInfoData) {
-        this.aGZ = gameInfoData;
-        Hu();
+    public final void a(BdUniqueId bdUniqueId, GameInfoData gameInfoData) {
+        this.aHj = gameInfoData;
+        h(bdUniqueId);
     }
 
     public void onChangeSkinType(int i) {

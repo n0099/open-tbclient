@@ -5,28 +5,28 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c implements k {
-    private int bzn = 0;
-    private int bzo = 0;
-    private final List<a> bzp = new ArrayList(100);
+    private int bzB = 0;
+    private int bzC = 0;
+    private final List<a> bzD = new ArrayList(100);
     private int status;
 
     public void a(g gVar) {
-        List<a> YC = gVar.YC();
-        if (YC != null) {
-            for (a aVar : YC) {
-                this.bzp.add(aVar);
+        List<a> YF = gVar.YF();
+        if (YF != null) {
+            for (a aVar : YF) {
+                this.bzD.add(aVar);
             }
         }
-        this.bzo = this.bzp.size();
-        this.bzn = gVar.YB();
+        this.bzC = this.bzD.size();
+        this.bzB = gVar.YE();
     }
 
     public void gR(int i) {
-        this.bzn = i;
+        this.bzB = i;
     }
 
-    public int Yw() {
-        return this.bzn;
+    public int Yz() {
+        return this.bzB;
     }
 
     public void setStatus(int i) {
@@ -37,11 +37,11 @@ public class c implements k {
         return this.status;
     }
 
-    public int Yx() {
-        return this.bzo;
+    public int YA() {
+        return this.bzC;
     }
 
-    public List<a> Yy() {
-        return this.bzp;
+    public List<a> YB() {
+        return this.bzD;
     }
 }

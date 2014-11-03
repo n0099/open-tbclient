@@ -18,27 +18,27 @@ import com.baidu.tbadk.plugins.Hao123Plugin;
 import com.baidu.tieba.plugins.PluginCenterActivity;
 /* loaded from: classes.dex */
 public class SystemHelpSettingActivity extends BaseActivity implements com.baidu.adp.widget.BdSwitchView.c {
-    private ay bsG = null;
-    private av bsH = null;
-    private boolean bsI;
+    private ay bsU = null;
+    private av bsV = null;
+    private boolean bsW;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bsG = new ay(this);
-        this.bsH = new av(this);
+        this.bsU = new ay(this);
+        this.bsV = new av(this);
         if (TbadkApplication.m251getInst().isHeadsetModeOn()) {
-            this.bsG.VA().gN();
+            this.bsU.VD().gN();
         } else {
-            this.bsG.VA().gO();
+            this.bsU.VD().gO();
         }
         if (!TbadkApplication.m251getInst().isHao123HelperShouldOpen()) {
-            this.bsG.Vz().setVisibility(8);
+            this.bsU.VC().setVisibility(8);
         }
-        this.bsG.VB().setTip(getString(com.baidu.tieba.y.calc_cache_size));
-        this.bsG.VB().qj();
-        this.bsH.a(new ao(this, this));
+        this.bsU.VE().setTip(getString(com.baidu.tieba.y.calc_cache_size));
+        this.bsU.VE().ql();
+        this.bsV.a(new ao(this, this));
         registerListener(new ap(this, 2008016));
     }
 
@@ -50,18 +50,18 @@ public class SystemHelpSettingActivity extends BaseActivity implements com.baidu
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.bsH != null) {
-            this.bsH.Vx();
+        if (this.bsV != null) {
+            this.bsV.VA();
         }
         if (TbadkApplication.m251getInst().isTiebaHelperOpen()) {
-            this.bsG.Vy().gN();
+            this.bsU.VB().gN();
         } else {
-            this.bsG.Vy().gO();
+            this.bsU.VB().gO();
         }
-        Ud();
+        Ug();
         Plugin pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_HAO123);
         if (pluginByName != null && !pluginByName.checkEnable()) {
-            this.bsG.Vy().gO();
+            this.bsU.VB().gO();
             TbadkApplication.m251getInst().setTiebaHelperOpen(false);
             Hao123Plugin hao123Plugin = (Hao123Plugin) pluginByName.getClassInstance(Hao123Plugin.class);
             if (hao123Plugin != null) {
@@ -74,26 +74,26 @@ public class SystemHelpSettingActivity extends BaseActivity implements com.baidu
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.bsG.onChangeSkinType(i);
+        this.bsU.onChangeSkinType(i);
     }
 
-    private void Ud() {
-        this.bsG.VD().refresh();
+    private void Ug() {
+        this.bsU.VG().refresh();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bsG.VB()) {
-            if (this.bsH != null) {
-                if (TextUtils.isEmpty(this.bsG.VB().getTip())) {
+        if (view == this.bsU.VE()) {
+            if (this.bsV != null) {
+                if (TextUtils.isEmpty(this.bsU.VE().getTip())) {
                     showToast(com.baidu.tieba.y.no_cache_delete);
                 } else {
                     new AlertDialog.Builder(this).setTitle(com.baidu.tieba.y.alert_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.y.alert_clear_all_cache).setPositiveButton(com.baidu.tieba.y.alert_yes_button, new aq(this)).setNegativeButton(com.baidu.tieba.y.alert_no_button, new ar(this)).create().show();
                 }
             }
-        } else if (view == this.bsG.VC()) {
+        } else if (view == this.bsU.VF()) {
             new AlertDialog.Builder(this).setTitle(com.baidu.tieba.y.alert_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.y.alert_clear_cache).setPositiveButton(com.baidu.tieba.y.alert_yes_button, new as(this)).setNegativeButton(com.baidu.tieba.y.alert_no_button, new at(this)).create().show();
-        } else if (view == this.bsG.VD()) {
+        } else if (view == this.bsU.VG()) {
             startActivity(new Intent(this, PluginCenterActivity.class));
         }
     }
@@ -104,16 +104,16 @@ public class SystemHelpSettingActivity extends BaseActivity implements com.baidu
         Hao123Plugin hao123Plugin2;
         Hao123Plugin hao123Plugin3;
         if (view != null) {
-            if (view.equals(this.bsG.VA())) {
+            if (view.equals(this.bsU.VD())) {
                 if (BdSwitchView.SwitchState.ON == switchState) {
-                    this.bsH.setHeadsetModeOn(true);
+                    this.bsV.setHeadsetModeOn(true);
                 } else {
-                    this.bsH.setHeadsetModeOn(false);
+                    this.bsV.setHeadsetModeOn(false);
                 }
-            } else if (view.equals(this.bsG.Vy())) {
+            } else if (view.equals(this.bsU.VB())) {
                 if (BdSwitchView.SwitchState.ON == switchState) {
                     if (!PluginHelper.isHao123CanUse(this)) {
-                        this.bsG.Vy().gO();
+                        this.bsU.VB().gO();
                         Plugin pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_HAO123);
                         TbadkApplication.m251getInst().setTiebaHelperOpen(false);
                         if (pluginByName != null && (hao123Plugin3 = (Hao123Plugin) pluginByName.getClassInstance(Hao123Plugin.class)) != null) {
@@ -127,11 +127,11 @@ public class SystemHelpSettingActivity extends BaseActivity implements com.baidu
                     if (pluginByName2 != null && (hao123Plugin2 = (Hao123Plugin) pluginByName2.getClassInstance(Hao123Plugin.class)) != null) {
                         hao123Plugin2.openFloating(this);
                     }
-                    if (TbadkApplication.isLogin() && !this.bsI) {
-                        this.bsI = true;
+                    if (TbadkApplication.isLogin() && !this.bsW) {
+                        this.bsW = true;
                         new au(this, null).execute(new Void[0]);
                     }
-                    com.baidu.tbadk.core.i.l(this, "tb_zs_setting");
+                    com.baidu.tbadk.core.j.l(this, "tb_zs_setting");
                     return;
                 }
                 TbadkApplication.m251getInst().setTiebaHelperOpen(false);

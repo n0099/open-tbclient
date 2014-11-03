@@ -9,21 +9,21 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements DialogInterface.OnClickListener {
-    final /* synthetic */ o aUd;
+    final /* synthetic */ o aUr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(o oVar) {
-        this.aUd = oVar;
+        this.aUr = oVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         WriteImagesInfo writeImagesInfo;
         if (i == 0) {
-            av.h(this.aUd.aSP);
+            av.h(this.aUr.aTd);
         } else if (i == 1) {
-            CreateGroupStepActivity createGroupStepActivity = this.aUd.aSP;
-            writeImagesInfo = this.aUd.writeImagesInfo;
+            CreateGroupStepActivity createGroupStepActivity = this.aUr.aTd;
+            writeImagesInfo = this.aUr.writeImagesInfo;
             AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(createGroupStepActivity, writeImagesInfo.toJsonString());
             albumActivityConfig.setRequestCode(12002);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));

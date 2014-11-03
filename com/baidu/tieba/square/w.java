@@ -12,14 +12,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class w extends ViewGroup implements com.baidu.tbadk.imageManager.d, com.baidu.tieba.view.s {
-    private View agJ;
-    private final int bMC;
-    private final int bMD;
-    private final int bME;
-    private final int bMF;
-    private ArrayList<TbImageView> bMG;
-    private int bMH;
-    private ArrayList<ak> bMv;
+    private View agS;
+    private ArrayList<ak> bMK;
+    private final int bMR;
+    private final int bMS;
+    private final int bMT;
+    private final int bMU;
+    private ArrayList<TbImageView> bMV;
+    private int bMW;
     private Context mContext;
     private float mHWProportion;
     private int mImageHeight;
@@ -32,44 +32,44 @@ public class w extends ViewGroup implements com.baidu.tbadk.imageManager.d, com.
     public w(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = null;
-        this.bMG = new ArrayList<>(4);
+        this.bMV = new ArrayList<>(4);
         this.mImageWidth = 0;
         this.mImageHeight = 0;
         this.mHWProportion = 0.62222224f;
-        this.bMH = 0;
-        this.bMv = null;
-        this.agJ = null;
+        this.bMW = 0;
+        this.bMK = null;
+        this.agS = null;
         this.mContext = context;
-        this.bME = com.baidu.adp.lib.util.m.n(context);
-        this.bMC = context.getResources().getDimensionPixelSize(com.baidu.tieba.t.square_page_padding);
-        this.bMD = context.getResources().getDimensionPixelSize(com.baidu.tieba.t.square_forum_topic_margin);
-        this.bMF = context.getResources().getDimensionPixelSize(com.baidu.tieba.t.square_forum_topic_paddingBottom);
+        this.bMT = com.baidu.adp.lib.util.m.n(context);
+        this.bMR = context.getResources().getDimensionPixelSize(com.baidu.tieba.t.square_page_padding);
+        this.bMS = context.getResources().getDimensionPixelSize(com.baidu.tieba.t.square_forum_topic_margin);
+        this.bMU = context.getResources().getDimensionPixelSize(com.baidu.tieba.t.square_forum_topic_paddingBottom);
         ViewGroup viewGroup = (ViewGroup) com.baidu.adp.lib.g.b.ek().a(context, com.baidu.tieba.w.forums_topics_recommend, this, true);
-        this.bMG.add((TbImageView) viewGroup.findViewById(com.baidu.tieba.v.forum_topic_pic1));
-        this.bMG.add((TbImageView) viewGroup.findViewById(com.baidu.tieba.v.forum_topic_pic2));
-        this.bMG.add((TbImageView) viewGroup.findViewById(com.baidu.tieba.v.forum_topic_pic3));
-        this.bMG.add((TbImageView) viewGroup.findViewById(com.baidu.tieba.v.forum_topic_pic4));
-        this.mImageWidth = ((this.bME - (this.bMC * 2)) - this.bMD) / 2;
+        this.bMV.add((TbImageView) viewGroup.findViewById(com.baidu.tieba.v.forum_topic_pic1));
+        this.bMV.add((TbImageView) viewGroup.findViewById(com.baidu.tieba.v.forum_topic_pic2));
+        this.bMV.add((TbImageView) viewGroup.findViewById(com.baidu.tieba.v.forum_topic_pic3));
+        this.bMV.add((TbImageView) viewGroup.findViewById(com.baidu.tieba.v.forum_topic_pic4));
+        this.mImageWidth = ((this.bMT - (this.bMR * 2)) - this.bMS) / 2;
         this.mImageHeight = (int) (this.mImageWidth * this.mHWProportion);
-        setPadding(this.bMC, 0, this.bMC, 0);
+        setPadding(this.bMR, 0, this.bMR, 0);
     }
 
-    public boolean K(ArrayList<ak> arrayList) {
-        this.bMv = J(arrayList);
-        Iterator<TbImageView> it = this.bMG.iterator();
+    public boolean L(ArrayList<ak> arrayList) {
+        this.bMK = K(arrayList);
+        Iterator<TbImageView> it = this.bMV.iterator();
         while (it.hasNext()) {
             it.next().setVisibility(8);
         }
-        if (this.bMv != null) {
+        if (this.bMK != null) {
             setVisibility(0);
-            L(this.bMv);
+            M(this.bMK);
             return true;
         }
         setVisibility(8);
         return false;
     }
 
-    private ArrayList<ak> J(ArrayList<ak> arrayList) {
+    private ArrayList<ak> K(ArrayList<ak> arrayList) {
         if (arrayList != null) {
             int size = (arrayList.size() / 2) * 2;
             int i = size <= 4 ? size : 4;
@@ -81,12 +81,12 @@ public class w extends ViewGroup implements com.baidu.tbadk.imageManager.d, com.
         return null;
     }
 
-    private void L(ArrayList<ak> arrayList) {
+    private void M(ArrayList<ak> arrayList) {
         int size = arrayList.size();
-        this.bMH = size;
+        this.bMW = size;
         requestLayout();
         for (int i = 0; i < size; i++) {
-            TbImageView tbImageView = this.bMG.get(i);
+            TbImageView tbImageView = this.bMV.get(i);
             ak akVar = arrayList.get(i);
             tbImageView.setVisibility(0);
             tbImageView.setTag(akVar.kJ());
@@ -98,13 +98,13 @@ public class w extends ViewGroup implements com.baidu.tbadk.imageManager.d, com.
     protected void onMeasure(int i, int i2) {
         int i3 = i & 1073741823;
         int childCount = getChildCount();
-        int i4 = i3 - (this.bMC * 2);
-        int i5 = (int) (0.5f + (((i4 - this.bMD) / 2) * this.mHWProportion));
+        int i4 = i3 - (this.bMR * 2);
+        int i5 = (int) (0.5f + (((i4 - this.bMS) / 2) * this.mHWProportion));
         for (int i6 = 0; i6 < childCount; i6++) {
-            getChildAt(i6).measure(((i4 - this.bMD) / 2) + 1073741824, i5 + 1073741824);
+            getChildAt(i6).measure(((i4 - this.bMS) / 2) + 1073741824, i5 + 1073741824);
         }
-        int i7 = this.bMH / 2;
-        setMeasuredDimension(i3, ((i7 - 1) * this.bMD) + (i7 * i5) + this.bMF);
+        int i7 = this.bMW / 2;
+        setMeasuredDimension(i3, ((i7 - 1) * this.bMS) + (i7 * i5) + this.bMU);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -127,9 +127,9 @@ public class w extends ViewGroup implements com.baidu.tbadk.imageManager.d, com.
                     i8 = getPaddingLeft();
                 }
                 childAt.layout(i8, paddingTop, childAt.getMeasuredWidth() + i8, childAt.getMeasuredHeight() + paddingTop);
-                int measuredWidth = childAt.getMeasuredWidth() + this.bMD + i8;
+                int measuredWidth = childAt.getMeasuredWidth() + this.bMS + i8;
                 if (i7 % 2 != 0) {
-                    i5 = childAt.getMeasuredHeight() + this.bMD + paddingTop;
+                    i5 = childAt.getMeasuredHeight() + this.bMS + paddingTop;
                     i6 = measuredWidth;
                 } else {
                     i5 = paddingTop;
@@ -144,23 +144,23 @@ public class w extends ViewGroup implements com.baidu.tbadk.imageManager.d, com.
     }
 
     @Override // com.baidu.tieba.view.s
-    public void adn() {
+    public void adq() {
     }
 
     @Override // com.baidu.tieba.view.s
     public void g(View view, int i, int i2) {
         int i3 = 0;
-        this.agJ = view;
+        this.agS = view;
         try {
-            if (this.bMv == null || this.bMv.size() <= 0) {
+            if (this.bMK == null || this.bMK.size() <= 0) {
                 return;
             }
             while (true) {
                 int i4 = i3;
-                if (i4 < this.bMv.size()) {
-                    String kJ = this.bMv.get(i4).kJ();
+                if (i4 < this.bMK.size()) {
+                    String kJ = this.bMK.get(i4).kJ();
                     if (kJ != null && kJ.length() > 0 && view != null) {
-                        HeadImageView headImageView = (HeadImageView) this.agJ.findViewWithTag(kJ);
+                        HeadImageView headImageView = (HeadImageView) this.agS.findViewWithTag(kJ);
                         headImageView.setDefaultScaleType(ImageView.ScaleType.CENTER);
                         headImageView.a(kJ, 10, this.mImageWidth, this.mImageHeight, false);
                     }
@@ -181,7 +181,7 @@ public class w extends ViewGroup implements com.baidu.tbadk.imageManager.d, com.
 
     private void ht(String str) {
         HeadImageView headImageView;
-        if (this.agJ != null && (headImageView = (HeadImageView) this.agJ.findViewWithTag(str)) != null) {
+        if (this.agS != null && (headImageView = (HeadImageView) this.agS.findViewWithTag(str)) != null) {
             headImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
             headImageView.invalidate();
         }

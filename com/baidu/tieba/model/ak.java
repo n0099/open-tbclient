@@ -7,17 +7,17 @@ import com.baidu.tieba.data.MarkData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ak extends BdAsyncTask<Boolean, Integer, Boolean> {
-    private com.baidu.tieba.data.at boo;
-    private boolean bpi;
-    final /* synthetic */ aj bpj;
+    private com.baidu.tieba.data.at boC;
+    private boolean bpw;
+    final /* synthetic */ aj bpx;
     private com.baidu.tbadk.core.util.ac mNetWork = null;
 
     public ak(aj ajVar, boolean z) {
-        this.bpj = ajVar;
-        this.bpi = true;
-        this.boo = null;
-        this.bpi = z;
-        this.boo = new com.baidu.tieba.data.at();
+        this.bpx = ajVar;
+        this.bpw = true;
+        this.boC = null;
+        this.bpw = z;
+        this.boC = new com.baidu.tieba.data.at();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -33,23 +33,23 @@ public class ak extends BdAsyncTask<Boolean, Integer, Boolean> {
         MarkData markData;
         MarkData markData2;
         MarkData markData3;
-        if (this.bpi) {
+        if (this.bpw) {
             this.mNetWork = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/addstore");
             j jVar = new j();
-            markData3 = this.bpj.bpf;
+            markData3 = this.bpx.bpt;
             jVar.a(markData3);
             this.mNetWork.k("data", jVar.T(0, 1));
         } else {
             this.mNetWork = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/rmstore");
             com.baidu.tbadk.core.util.ac acVar = this.mNetWork;
-            markData = this.bpj.bpf;
+            markData = this.bpx.bpt;
             acVar.k(com.baidu.tbadk.core.frameworkData.a.USER_ID, markData.getAccount());
             com.baidu.tbadk.core.util.ac acVar2 = this.mNetWork;
-            markData2 = this.bpj.bpf;
+            markData2 = this.bpx.bpt;
             acVar2.k("tid", markData2.getId());
         }
-        this.boo.parserJson(this.mNetWork.lA());
-        boolean z = this.boo.getErrorCode() == 0;
+        this.boC.parserJson(this.mNetWork.lA());
+        boolean z = this.boC.getErrorCode() == 0;
         if (this.mNetWork.mc().nb().jq() && z) {
             return true;
         }
@@ -62,7 +62,7 @@ public class ak extends BdAsyncTask<Boolean, Integer, Boolean> {
         if (this.mNetWork != null) {
             this.mNetWork.dM();
         }
-        this.bpj.bpg = null;
+        this.bpx.bpu = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -77,24 +77,24 @@ public class ak extends BdAsyncTask<Boolean, Integer, Boolean> {
         al alVar5;
         try {
             if (bool.booleanValue()) {
-                alVar4 = this.bpj.bph;
+                alVar4 = this.bpx.bpv;
                 if (alVar4 != null) {
-                    alVar5 = this.bpj.bph;
-                    alVar5.a(true, this.bpi, null);
+                    alVar5 = this.bpx.bpv;
+                    alVar5.a(true, this.bpw, null);
                 }
             } else {
-                alVar = this.bpj.bph;
+                alVar = this.bpx.bpv;
                 if (alVar != null) {
                     if (this.mNetWork == null || this.mNetWork.mc().nb().jq()) {
-                        alVar2 = this.bpj.bph;
-                        alVar2.a(false, this.bpi, this.boo.getErrorString());
+                        alVar2 = this.bpx.bpv;
+                        alVar2.a(false, this.bpw, this.boC.getErrorString());
                     } else {
-                        alVar3 = this.bpj.bph;
-                        alVar3.a(false, this.bpi, this.mNetWork.getErrorString());
+                        alVar3 = this.bpx.bpv;
+                        alVar3.a(false, this.bpw, this.mNetWork.getErrorString());
                     }
                 }
             }
-            this.bpj.bpg = null;
+            this.bpx.bpu = null;
         } catch (Throwable th) {
             BdLog.e(th.toString());
         }

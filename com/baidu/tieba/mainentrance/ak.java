@@ -11,17 +11,17 @@ import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ak extends BdAsyncTask<Object, Integer, SearchPostModel> {
-    final /* synthetic */ SquareSearchActivity bmO;
-    ArrayList<BasicNameValuePair> bmS;
+    final /* synthetic */ SquareSearchActivity bnc;
+    ArrayList<BasicNameValuePair> bng;
     private String mUrl;
     private com.baidu.tbadk.core.util.ac yV = null;
 
     public ak(SquareSearchActivity squareSearchActivity, String str, ArrayList<BasicNameValuePair> arrayList) {
-        this.bmO = squareSearchActivity;
+        this.bnc = squareSearchActivity;
         this.mUrl = null;
-        this.bmS = null;
+        this.bng = null;
         this.mUrl = str;
-        this.bmS = arrayList;
+        this.bng = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -30,11 +30,11 @@ public class ak extends BdAsyncTask<Object, Integer, SearchPostModel> {
         com.baidu.tbadk.core.view.o oVar;
         ListView listView;
         ProgressBar progressBar;
-        oVar = this.bmO.ahO;
+        oVar = this.bnc.ahX;
         oVar.setVisibility(8);
-        listView = this.bmO.bmq;
+        listView = this.bnc.bmE;
         if (listView.getVisibility() != 0) {
-            progressBar = this.bmO.mProgress;
+            progressBar = this.bnc.mProgress;
             progressBar.setVisibility(0);
         }
     }
@@ -49,7 +49,7 @@ public class ak extends BdAsyncTask<Object, Integer, SearchPostModel> {
         String str;
         try {
             this.yV = new com.baidu.tbadk.core.util.ac(this.mUrl);
-            Iterator<BasicNameValuePair> it = this.bmS.iterator();
+            Iterator<BasicNameValuePair> it = this.bng.iterator();
             while (it.hasNext()) {
                 this.yV.a(it.next());
             }
@@ -61,19 +61,19 @@ public class ak extends BdAsyncTask<Object, Integer, SearchPostModel> {
             try {
                 searchPostModel2.parserJson(lA);
                 if (lA != null && this.yV != null && this.yV.mc().nb().jq()) {
-                    Iterator<BasicNameValuePair> it2 = this.bmS.iterator();
+                    Iterator<BasicNameValuePair> it2 = this.bng.iterator();
                     while (it2.hasNext()) {
                         BasicNameValuePair next = it2.next();
                         if ("word".equals(next.getName())) {
-                            this.bmO.bmC = next.getValue();
+                            this.bnc.bmQ = next.getValue();
                         }
                         if ("pn".equals(next.getName())) {
-                            this.bmO.bmD = Integer.valueOf(next.getValue()).intValue();
+                            this.bnc.bmR = Integer.valueOf(next.getValue()).intValue();
                         }
                     }
                 }
                 if (this.yV.mc().nb().jq()) {
-                    str = this.bmO.bmA;
+                    str = this.bnc.bmO;
                     com.baidu.tieba.util.j.hA(str);
                     return searchPostModel2;
                 }
@@ -99,23 +99,23 @@ public class ak extends BdAsyncTask<Object, Integer, SearchPostModel> {
         e eVar;
         e eVar2;
         e eVar3;
-        progressBar = this.bmO.mProgress;
+        progressBar = this.bnc.mProgress;
         progressBar.setVisibility(8);
-        eVar = this.bmO.bmt;
+        eVar = this.bnc.bmH;
         eVar.setRefreshing(0);
-        eVar2 = this.bmO.bmt;
+        eVar2 = this.bnc.bmH;
         eVar2.notifyDataSetChanged();
         if (searchPostModel == null || this.yV == null || !this.yV.mc().nb().mf()) {
-            this.bmO.showToast(this.bmO.getString(com.baidu.tieba.y.neterror));
+            this.bnc.showToast(this.bnc.getString(com.baidu.tieba.y.neterror));
         } else if (this.yV.mc().nb().jq()) {
-            this.bmO.bmx = searchPostModel;
-            eVar3 = this.bmO.bmt;
+            this.bnc.bmL = searchPostModel;
+            eVar3 = this.bnc.bmH;
             eVar3.notifyDataSetChanged();
-            this.bmO.refresh();
+            this.bnc.refresh();
         } else {
-            this.bmO.showToast(this.yV.getErrorString());
+            this.bnc.showToast(this.yV.getErrorString());
         }
-        this.bmO.bmz = null;
+        this.bnc.bmN = null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -124,17 +124,17 @@ public class ak extends BdAsyncTask<Object, Integer, SearchPostModel> {
         e eVar;
         e eVar2;
         ProgressBar progressBar;
-        eVar = this.bmO.bmt;
+        eVar = this.bnc.bmH;
         eVar.setRefreshing(0);
-        eVar2 = this.bmO.bmt;
+        eVar2 = this.bnc.bmH;
         eVar2.notifyDataSetChanged();
         if (this.yV != null) {
             this.yV.dM();
             this.yV = null;
         }
-        progressBar = this.bmO.mProgress;
+        progressBar = this.bnc.mProgress;
         progressBar.setVisibility(8);
-        this.bmO.bmz = null;
+        this.bnc.bmN = null;
         super.onCancelled();
     }
 }

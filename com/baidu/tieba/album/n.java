@@ -6,11 +6,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements o {
-    final /* synthetic */ m ahR;
+    final /* synthetic */ m aia;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(m mVar) {
-        this.ahR = mVar;
+        this.aia = mVar;
     }
 
     @Override // com.baidu.tieba.album.o
@@ -31,25 +31,25 @@ public class n implements o {
         a aVar2;
         AlbumActivity albumActivity;
         AlbumActivity albumActivity2;
-        jVar = this.ahR.ahP;
+        jVar = this.aia.ahY;
         List<a> data = jVar.getData();
-        pVar = this.ahR.ahk;
+        pVar = this.aia.aht;
         if (pVar == null) {
-            albumActivity = this.ahR.ahq;
+            albumActivity = this.aia.ahz;
             if (albumActivity != null) {
-                m mVar = this.ahR;
-                albumActivity2 = this.ahR.ahq;
-                mVar.ahk = albumActivity2.xH();
+                m mVar = this.aia;
+                albumActivity2 = this.aia.ahz;
+                mVar.aht = albumActivity2.xJ();
             }
         }
-        pVar2 = this.ahR.ahk;
+        pVar2 = this.aia.aht;
         if (pVar2 != null) {
-            pVar3 = this.ahR.ahk;
-            String xU = pVar3.xU();
-            if (xU != null) {
+            pVar3 = this.aia.aht;
+            String xW = pVar3.xW();
+            if (xW != null) {
                 if (data != null) {
                     for (a aVar3 : data) {
-                        if (aVar3.getAlbumId().equals(xU)) {
+                        if (aVar3.getAlbumId().equals(xW)) {
                             aVar = aVar3;
                             break;
                         }
@@ -60,28 +60,28 @@ public class n implements o {
                     Iterator<a> it = list.iterator();
                     while (it.hasNext()) {
                         aVar2 = it.next();
-                        if (aVar2.getAlbumId().equals(xU)) {
+                        if (aVar2.getAlbumId().equals(xW)) {
                             break;
                         }
                     }
                 }
                 aVar2 = null;
-                if (aVar2 == null || aVar == null || !aVar2.xL().equals(aVar.xL())) {
-                    q.xW().bk(false);
+                if (aVar2 == null || aVar == null || !aVar2.xN().equals(aVar.xN())) {
+                    q.xY().bk(false);
                 }
             }
             if (list == null || list.size() == 0) {
-                bdListView = this.ahR.vl;
+                bdListView = this.aia.vl;
                 bdListView.setVisibility(8);
-                oVar = this.ahR.ahO;
+                oVar = this.aia.ahX;
                 oVar.setVisibility(0);
                 return;
             }
-            bdListView2 = this.ahR.vl;
+            bdListView2 = this.aia.vl;
             bdListView2.setVisibility(0);
-            oVar2 = this.ahR.ahO;
+            oVar2 = this.aia.ahX;
             oVar2.setVisibility(8);
-            this.ahR.setData(list);
+            this.aia.setData(list);
         }
     }
 }

@@ -12,146 +12,146 @@ import tbclient.PbFloor.DataRes;
 import tbclient.SubPostList;
 /* loaded from: classes.dex */
 public class ar {
-    private int Ue;
-    private AntiData amA;
-    private com.baidu.tbadk.core.data.q amB;
-    public Error amD;
-    private ForumData amt;
-    private int amx;
-    private int amy = 10;
-    private int amz = -1;
-    private boolean amC = false;
-    private ak amu = null;
-    private ArrayList<ak> amv = new ArrayList<>();
-    private int amw = 1;
+    private int Ui;
+    private ForumData amC;
+    private int amG;
+    private AntiData amJ;
+    private com.baidu.tbadk.core.data.q amK;
+    public Error amM;
+    private int amH = 10;
+    private int amI = -1;
+    private boolean amL = false;
+    private ak amD = null;
+    private ArrayList<ak> amE = new ArrayList<>();
+    private int amF = 1;
 
-    public Error Ar() {
+    public Error At() {
+        return this.amM;
+    }
+
+    public ak Au() {
         return this.amD;
     }
 
-    public ak As() {
-        return this.amu;
-    }
-
     public void a(ak akVar) {
-        this.amu = akVar;
+        this.amD = akVar;
     }
 
-    public int At() {
-        if (this.amz == -1) {
-            this.amz = this.Ue;
+    public int Av() {
+        if (this.amI == -1) {
+            this.amI = this.Ui;
         }
-        return this.amz;
+        return this.amI;
     }
 
     public void a(ar arVar, boolean z) {
         if (arVar != null) {
-            a(arVar.An());
-            this.amz = arVar.getCurrentPage();
-            a(arVar.Aw());
-            ej(arVar.Av());
+            a(arVar.Ap());
+            this.amI = arVar.getCurrentPage();
             a(arVar.Ay());
+            ej(arVar.Ax());
+            a(arVar.AA());
             setTotalCount(arVar.getTotalCount());
             ei(arVar.getTotalPage());
-            this.amv.addAll(0, arVar.Au());
+            this.amE.addAll(0, arVar.Aw());
         }
     }
 
     public void b(ar arVar, boolean z) {
         if (arVar != null) {
-            a(arVar.An());
+            a(arVar.Ap());
             ek(arVar.getCurrentPage());
-            a(arVar.Aw());
-            ej(arVar.Av());
             a(arVar.Ay());
+            ej(arVar.Ax());
+            a(arVar.AA());
             setTotalCount(arVar.getTotalCount());
             ei(arVar.getTotalPage());
-            int size = this.amv.size();
-            if (z && size % this.amy != 0) {
-                for (int i = 0; i < size % this.amy; i++) {
-                    this.amv.remove(this.amv.size() - 1);
+            int size = this.amE.size();
+            if (z && size % this.amH != 0) {
+                for (int i = 0; i < size % this.amH; i++) {
+                    this.amE.remove(this.amE.size() - 1);
                 }
             }
-            this.amv.addAll(arVar.Au());
+            this.amE.addAll(arVar.Aw());
         }
     }
 
-    public ArrayList<ak> Au() {
-        return this.amv;
+    public ArrayList<ak> Aw() {
+        return this.amE;
     }
 
-    public void l(ArrayList<ak> arrayList) {
-        this.amv = arrayList;
+    public void m(ArrayList<ak> arrayList) {
+        this.amE = arrayList;
     }
 
     public int getTotalPage() {
-        return this.amw;
+        return this.amF;
     }
 
     public void ei(int i) {
-        this.amw = i;
+        this.amF = i;
     }
 
     public int getTotalCount() {
-        return this.amx;
+        return this.amG;
     }
 
     public void setTotalCount(int i) {
-        this.amx = i;
+        this.amG = i;
     }
 
-    public int Av() {
-        return this.amy;
+    public int Ax() {
+        return this.amH;
     }
 
     public void ej(int i) {
         if (i != 0) {
-            this.amy = i;
+            this.amH = i;
         }
     }
 
     public int getCurrentPage() {
-        return this.Ue;
+        return this.Ui;
     }
 
     public void ek(int i) {
-        this.Ue = i;
+        this.Ui = i;
     }
 
     public void a(ForumData forumData) {
-        this.amt = forumData;
+        this.amC = forumData;
     }
 
-    public ForumData Aw() {
-        return this.amt;
-    }
-
-    public void a(AntiData antiData) {
-        this.amA = antiData;
-    }
-
-    public AntiData An() {
-        return this.amA;
-    }
-
-    public void a(com.baidu.tbadk.core.data.q qVar) {
-        this.amB = qVar;
-    }
-
-    public boolean Ax() {
-        return (this.amB == null || this.amu == null || this.amB.getAuthor() == null || this.amB.getAuthor().getUserId() == null || this.amu.getAuthor() == null || this.amu.getAuthor().getUserId() == null || !this.amB.getAuthor().getUserId().equals(this.amu.getAuthor().getUserId())) ? false : true;
-    }
-
-    public boolean zN() {
+    public ForumData Ay() {
         return this.amC;
     }
 
-    public boolean hasMore() {
-        return this.Ue < this.amw && this.Ue * this.amy < 200;
+    public void a(AntiData antiData) {
+        this.amJ = antiData;
     }
 
-    public com.baidu.tbadk.core.data.q Ay() {
-        return this.amB;
+    public AntiData Ap() {
+        return this.amJ;
+    }
+
+    public void a(com.baidu.tbadk.core.data.q qVar) {
+        this.amK = qVar;
+    }
+
+    public boolean Az() {
+        return (this.amK == null || this.amD == null || this.amK.getAuthor() == null || this.amK.getAuthor().getUserId() == null || this.amD.getAuthor() == null || this.amD.getAuthor().getUserId() == null || !this.amK.getAuthor().getUserId().equals(this.amD.getAuthor().getUserId())) ? false : true;
+    }
+
+    public boolean zP() {
+        return this.amL;
+    }
+
+    public boolean hasMore() {
+        return this.Ui < this.amF && this.Ui * this.amH < 200;
+    }
+
+    public com.baidu.tbadk.core.data.q AA() {
+        return this.amK;
     }
 
     public static ar a(DataRes dataRes, Context context) {
@@ -180,7 +180,7 @@ public class ar {
                 akVar2.a(list.get(i), context);
                 arrayList.add(akVar2);
             }
-            arVar.l(arrayList);
+            arVar.m(arrayList);
             Page page = dataRes.page;
             int intValue = page.total_page.intValue();
             int intValue2 = page.page_size.intValue() == 0 ? page.page_size.intValue() : 10;
@@ -198,6 +198,6 @@ public class ar {
     }
 
     public void bs(boolean z) {
-        this.amC = z;
+        this.amL = z;
     }
 }

@@ -12,11 +12,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class az implements AdapterView.OnItemClickListener {
-    final /* synthetic */ av aIW;
+    final /* synthetic */ av aJj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public az(av avVar) {
-        this.aIW = avVar;
+        this.aJj = avVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -26,22 +26,25 @@ public class az implements AdapterView.OnItemClickListener {
         GameCenterActivity gameCenterActivity;
         GameCenterActivity gameCenterActivity2;
         GameCenterActivity gameCenterActivity3;
+        GameCenterActivity gameCenterActivity4;
         if (!UtilHelper.isNetOk()) {
-            gameCenterActivity3 = this.aIW.aIg;
-            gameCenterActivity3.showToast(com.baidu.tieba.y.neterror);
+            gameCenterActivity4 = this.aJj.aIs;
+            gameCenterActivity4.showToast(com.baidu.tieba.y.neterror);
             return;
         }
-        list = this.aIW.aIA;
+        list = this.aJj.aIN;
         if (i < list.size()) {
-            list2 = this.aIW.aIA;
+            list2 = this.aJj.aIN;
             GameInfoData gameInfoData = (GameInfoData) list2.get(i);
             if (gameInfoData != null && gameInfoData.getMark() != 1) {
                 MessageManager messageManager = MessageManager.getInstance();
-                gameCenterActivity = this.aIW.aIg;
+                gameCenterActivity = this.aJj.aIs;
                 messageManager.sendMessage(new CustomMessage(2002001, new GameDetailActivityConfig(gameCenterActivity, gameInfoData.getGameId(), "3000201")));
-                com.baidu.tieba.game.a.a.Ij().a(view, gameInfoData);
-                gameCenterActivity2 = this.aIW.aIg;
-                TiebaStatic.eventStat(gameCenterActivity2, "game_detail", "click", 1, gameInfoData.getGameId());
+                com.baidu.tieba.game.a.a In = com.baidu.tieba.game.a.a.In();
+                gameCenterActivity2 = this.aJj.aIs;
+                In.a(gameCenterActivity2.getUniqueId(), view, gameInfoData);
+                gameCenterActivity3 = this.aJj.aIs;
+                TiebaStatic.eventStat(gameCenterActivity3, "game_detail", "click", 1, gameInfoData.getGameId());
             }
         }
     }

@@ -6,11 +6,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 class o implements View.OnClickListener {
-    final /* synthetic */ ActivationActivity aeY;
+    final /* synthetic */ ActivationActivity afg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(ActivationActivity activationActivity) {
-        this.aeY = activationActivity;
+        this.afg = activationActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -29,30 +29,30 @@ class o implements View.OnClickListener {
         s sVar4;
         r rVar3;
         r rVar4;
-        view2 = this.aeY.Js;
+        view2 = this.afg.Jt;
         if (view != view2) {
-            relativeLayout = this.aeY.aeJ;
+            relativeLayout = this.afg.aeR;
             if (view != relativeLayout) {
-                relativeLayout2 = this.aeY.aeK;
+                relativeLayout2 = this.afg.aeS;
                 if (view != relativeLayout2) {
-                    imageView = this.aeY.aeE;
+                    imageView = this.afg.aeM;
                     if (view == imageView) {
-                        editText = this.aeY.aeI;
+                        editText = this.afg.aeQ;
                         editText.setText((CharSequence) null);
                         return;
                     }
                     return;
                 }
-                z = this.aeY.aeN;
+                z = this.afg.aeV;
                 if (z) {
-                    sVar = this.aeY.aeL;
+                    sVar = this.afg.aeT;
                     if (sVar == null) {
-                        rVar = this.aeY.aeM;
+                        rVar = this.afg.aeU;
                         if (rVar == null) {
-                            this.aeY.aeL = new s(this.aeY, null);
-                            sVar2 = this.aeY.aeL;
+                            this.afg.aeT = new s(this.afg, null);
+                            sVar2 = this.afg.aeT;
                             sVar2.setPriority(3);
-                            sVar3 = this.aeY.aeL;
+                            sVar3 = this.afg.aeT;
                             sVar3.execute(new String[0]);
                             return;
                         }
@@ -62,14 +62,14 @@ class o implements View.OnClickListener {
                 }
                 return;
             }
-            rVar2 = this.aeY.aeM;
+            rVar2 = this.afg.aeU;
             if (rVar2 == null) {
-                sVar4 = this.aeY.aeL;
+                sVar4 = this.afg.aeT;
                 if (sVar4 == null) {
-                    this.aeY.aeM = new r(this.aeY, null);
-                    rVar3 = this.aeY.aeM;
+                    this.afg.aeU = new r(this.afg, null);
+                    rVar3 = this.afg.aeU;
                     rVar3.setPriority(3);
-                    rVar4 = this.aeY.aeM;
+                    rVar4 = this.afg.aeU;
                     rVar4.execute(new String[0]);
                     return;
                 }
@@ -77,7 +77,7 @@ class o implements View.OnClickListener {
             }
             return;
         }
-        this.aeY.setResult(0);
-        this.aeY.finish();
+        this.afg.setResult(0);
+        this.afg.finish();
     }
 }

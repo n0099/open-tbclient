@@ -16,18 +16,18 @@ import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 public class U9InfoView extends LinearLayout {
-    private ForegroundColorSpan aGA;
-    private ImageView aGB;
-    private RelativeLayout aGq;
-    private LinearLayout aGr;
-    private HeadImageView aGs;
-    private TextView aGt;
-    private TextView aGu;
-    private TextView aGv;
-    private View aGw;
-    private TextView aGx;
-    private View aGy;
-    private View.OnClickListener aGz;
+    private RelativeLayout aGA;
+    private LinearLayout aGB;
+    private HeadImageView aGC;
+    private TextView aGD;
+    private TextView aGE;
+    private TextView aGF;
+    private View aGG;
+    private TextView aGH;
+    private View aGI;
+    private View.OnClickListener aGJ;
+    private ForegroundColorSpan aGK;
+    private ImageView aGL;
     private Context mContext;
     private com.baidu.tbadk.core.data.u news_info;
     private com.baidu.tbadk.core.data.r top_code;
@@ -44,64 +44,64 @@ public class U9InfoView extends LinearLayout {
 
     public void nu() {
         com.baidu.adp.lib.g.b.ek().a(this.mContext, com.baidu.tieba.w.u9_info_layout, this, true);
-        this.aGq = (RelativeLayout) findViewById(com.baidu.tieba.v.u9_top_code);
-        this.aGr = (LinearLayout) findViewById(com.baidu.tieba.v.u9_news_info);
-        this.aGs = (HeadImageView) findViewById(com.baidu.tieba.v.top_code_img);
-        this.aGs.setSupportNoImage(false);
-        this.aGt = (TextView) findViewById(com.baidu.tieba.v.top_code_detail_summary_text);
-        this.aGu = (TextView) findViewById(com.baidu.tieba.v.top_code_detail_surplus_text);
-        this.aGv = (TextView) findViewById(com.baidu.tieba.v.top_code_getnum_btn);
-        this.aGw = findViewById(com.baidu.tieba.v.u9_top_code_divider);
-        this.aGB = (ImageView) findViewById(com.baidu.tieba.v.news_info_img);
-        this.aGB.setBackgroundDrawable(aw.getDrawable(com.baidu.tieba.u.icon_frs_news));
-        this.aGx = (TextView) findViewById(com.baidu.tieba.v.news_info_text);
-        this.aGy = findViewById(com.baidu.tieba.v.u9_news_info_divider);
-        this.aGA = new ForegroundColorSpan(aw.getColor(com.baidu.tieba.s.cp_cont_c));
-        this.aGz = new ac(this);
-        Hb();
+        this.aGA = (RelativeLayout) findViewById(com.baidu.tieba.v.u9_top_code);
+        this.aGB = (LinearLayout) findViewById(com.baidu.tieba.v.u9_news_info);
+        this.aGC = (HeadImageView) findViewById(com.baidu.tieba.v.top_code_img);
+        this.aGC.setSupportNoImage(false);
+        this.aGD = (TextView) findViewById(com.baidu.tieba.v.top_code_detail_summary_text);
+        this.aGE = (TextView) findViewById(com.baidu.tieba.v.top_code_detail_surplus_text);
+        this.aGF = (TextView) findViewById(com.baidu.tieba.v.top_code_getnum_btn);
+        this.aGG = findViewById(com.baidu.tieba.v.u9_top_code_divider);
+        this.aGL = (ImageView) findViewById(com.baidu.tieba.v.news_info_img);
+        this.aGL.setBackgroundDrawable(aw.getDrawable(com.baidu.tieba.u.icon_frs_news));
+        this.aGH = (TextView) findViewById(com.baidu.tieba.v.news_info_text);
+        this.aGI = findViewById(com.baidu.tieba.v.u9_news_info_divider);
+        this.aGK = new ForegroundColorSpan(aw.getColor(com.baidu.tieba.s.cp_cont_c));
+        this.aGJ = new ac(this);
+        Hd();
     }
 
     public void a(com.baidu.tbadk.core.data.r rVar, com.baidu.tbadk.core.data.u uVar) {
         this.top_code = rVar;
         this.news_info = uVar;
         if (this.top_code == null) {
-            this.aGq.setVisibility(8);
-            this.aGw.setVisibility(8);
+            this.aGA.setVisibility(8);
+            this.aGG.setVisibility(8);
         } else if (TextUtils.isEmpty(this.top_code.kK()) || TextUtils.isEmpty(this.top_code.kK().trim())) {
-            this.aGq.setVisibility(8);
-            this.aGw.setVisibility(8);
+            this.aGA.setVisibility(8);
+            this.aGG.setVisibility(8);
         } else {
-            this.aGq.setVisibility(0);
-            this.aGw.setVisibility(0);
-            this.aGs.c(this.top_code.kJ(), 10, false);
-            this.aGt.setText(this.top_code.kK());
+            this.aGA.setVisibility(0);
+            this.aGG.setVisibility(0);
+            this.aGC.c(this.top_code.kJ(), 10, false);
+            this.aGD.setText(this.top_code.kK());
             if (TextUtils.isEmpty(this.top_code.kN()) || TextUtils.isEmpty(this.top_code.kN().trim())) {
-                this.aGu.setVisibility(8);
+                this.aGE.setVisibility(8);
             } else {
                 SpannableString spannableString = new SpannableString(String.valueOf(this.mContext.getResources().getString(com.baidu.tieba.y.u9_shengyu)) + this.top_code.kN());
-                spannableString.setSpan(this.aGA, 0, 2, 34);
-                this.aGu.setText(spannableString);
-                this.aGu.setVisibility(0);
+                spannableString.setSpan(this.aGK, 0, 2, 34);
+                this.aGE.setText(spannableString);
+                this.aGE.setVisibility(0);
             }
             if (this.top_code.kM() == 2) {
-                this.aGv.setText(this.mContext.getResources().getString(com.baidu.tieba.y.u9_taohao));
+                this.aGF.setText(this.mContext.getResources().getString(com.baidu.tieba.y.u9_taohao));
             } else {
-                this.aGv.setText(this.mContext.getResources().getString(com.baidu.tieba.y.u9_linghao));
+                this.aGF.setText(this.mContext.getResources().getString(com.baidu.tieba.y.u9_linghao));
             }
         }
         if (this.news_info == null || TextUtils.isEmpty(uVar.kK())) {
-            this.aGr.setVisibility(8);
-            this.aGy.setVisibility(8);
+            this.aGB.setVisibility(8);
+            this.aGI.setVisibility(8);
             return;
         }
-        this.aGr.setVisibility(0);
-        this.aGy.setVisibility(0);
-        this.aGx.setText(uVar.kK());
+        this.aGB.setVisibility(0);
+        this.aGI.setVisibility(0);
+        this.aGH.setText(uVar.kK());
     }
 
-    public void Hb() {
-        this.aGq.setOnClickListener(this.aGz);
-        this.aGr.setOnClickListener(this.aGz);
+    public void Hd() {
+        this.aGA.setOnClickListener(this.aGJ);
+        this.aGB.setOnClickListener(this.aGJ);
     }
 
     public com.baidu.tbadk.core.data.r getTopCode() {
@@ -121,7 +121,7 @@ public class U9InfoView extends LinearLayout {
     }
 
     public void bN(int i) {
-        aw.h(this.aGB, com.baidu.tieba.u.icon_frs_news);
+        aw.h(this.aGL, com.baidu.tieba.u.icon_frs_news);
         if (this.mContext instanceof BaseActivity) {
             ((BaseActivity) this.mContext).getLayoutMode().L(i == 1);
             ((BaseActivity) this.mContext).getLayoutMode().h(this);

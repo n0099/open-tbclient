@@ -11,13 +11,13 @@ import com.baidu.tieba.im.model.MembersModel;
 import java.util.List;
 /* loaded from: classes.dex */
 class r extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ MembersActivity aXN;
+    final /* synthetic */ MembersActivity aYb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public r(MembersActivity membersActivity, int i) {
         super(i);
-        this.aXN = membersActivity;
+        this.aYb = membersActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,11 +32,11 @@ class r extends com.baidu.adp.framework.listener.e {
         MembersModel membersModel3;
         MembersModel membersModel4;
         boolean isFirstLoad3;
-        ahVar = this.aXN.aXJ;
-        ad NO = ahVar.NO();
-        this.aXN.hideProgress();
+        ahVar = this.aYb.aXX;
+        ad NS = ahVar.NS();
+        this.aYb.hideProgress();
         if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseMembersMessage)) {
-            this.aXN.showToast(com.baidu.tieba.y.neterror);
+            this.aYb.showToast(com.baidu.tieba.y.neterror);
             return;
         }
         ResponseMembersMessage responseMembersMessage = (ResponseMembersMessage) socketResponsedMessage;
@@ -46,49 +46,49 @@ class r extends com.baidu.adp.framework.listener.e {
         } else {
             requestMembersMessage = (RequestMembersMessage) orginalMessage;
         }
-        membersModel = this.aXN.aXK;
+        membersModel = this.aYb.aXY;
         membersModel.setRequestM(requestMembersMessage);
         if (responseMembersMessage.getError() != 0) {
             if (responseMembersMessage.getError() > 0) {
                 if (!TextUtils.isEmpty(responseMembersMessage.getErrorString())) {
-                    this.aXN.showToast(responseMembersMessage.getErrorString());
+                    this.aYb.showToast(responseMembersMessage.getErrorString());
                     return;
                 }
                 return;
             }
-            this.aXN.showToast(com.baidu.tieba.y.neterror);
+            this.aYb.showToast(com.baidu.tieba.y.neterror);
             return;
         }
         MembersData membersData = responseMembersMessage.getMembersData();
         List<UserData> users = membersData.getUsers();
         if (users != null) {
-            isFirstLoad = this.aXN.isFirstLoad();
+            isFirstLoad = this.aYb.isFirstLoad();
             if (isFirstLoad) {
-                this.aXN.a(membersData.getPermission());
+                this.aYb.a(membersData.getPermission());
             }
-            isFirstLoad2 = this.aXN.isFirstLoad();
+            isFirstLoad2 = this.aYb.isFirstLoad();
             if (isFirstLoad2) {
-                NO.bM(true);
+                NS.bM(true);
             }
             int size = users.size();
-            membersModel2 = this.aXN.aXK;
+            membersModel2 = this.aYb.aXY;
             if (size != membersModel2.getLen()) {
-                NO.bO(false);
-                NO.cY(false);
-                isFirstLoad3 = this.aXN.isFirstLoad();
+                NS.bO(false);
+                NS.cY(false);
+                isFirstLoad3 = this.aYb.isFirstLoad();
                 if (isFirstLoad3 && users.size() == 0) {
-                    this.aXN.NC();
+                    this.aYb.NG();
                     return;
                 }
             } else {
-                NO.cY(true);
+                NS.cY(true);
             }
-            membersModel3 = this.aXN.aXK;
+            membersModel3 = this.aYb.aXY;
             membersModel3.addStart(users.size());
-            membersModel4 = this.aXN.aXK;
+            membersModel4 = this.aYb.aXY;
             membersModel4.setLen(20);
-            NO.F(users);
-            NO.notifyDataSetChanged();
+            NS.F(users);
+            NS.notifyDataSetChanged();
         }
     }
 }

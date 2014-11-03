@@ -6,13 +6,13 @@ import com.baidu.tieba.im.message.ResponseQueryGroupCountMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ a bcy;
+    final /* synthetic */ a bcM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i) {
         super(i);
-        this.bcy = aVar;
+        this.bcM = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,36 +31,36 @@ public class b extends com.baidu.adp.framework.listener.e {
         e eVar6;
         e eVar7;
         if (socketResponsedMessage.getError() != 0) {
-            eVar5 = this.bcy.bcv;
+            eVar5 = this.bcM.bcJ;
             if (eVar5 != null) {
-                eVar6 = this.bcy.bcv;
+                eVar6 = this.bcM.bcJ;
                 eVar6.ig();
                 if (socketResponsedMessage.getError() > 0 && !TextUtils.isEmpty(socketResponsedMessage.getErrorString())) {
-                    eVar7 = this.bcy.bcv;
+                    eVar7 = this.bcM.bcJ;
                     eVar7.ge(socketResponsedMessage.getErrorString());
                 }
             }
         } else if (socketResponsedMessage instanceof ResponseQueryGroupCountMessage) {
             ResponseQueryGroupCountMessage responseQueryGroupCountMessage = (ResponseQueryGroupCountMessage) socketResponsedMessage;
-            this.bcy.bct = responseQueryGroupCountMessage.getUserGroupCount();
-            this.bcy.bcu = responseQueryGroupCountMessage.getLocalGroupCount();
-            this.bcy.geographicLocation = responseQueryGroupCountMessage.getGeographicLocation();
-            this.bcy.picUrl = responseQueryGroupCountMessage.getPicUrl();
-            this.bcy.link = responseQueryGroupCountMessage.getLink();
-            a.bcs = false;
-            eVar = this.bcy.bcv;
+            this.bcM.bcH = responseQueryGroupCountMessage.getUserGroupCount();
+            this.bcM.bcI = responseQueryGroupCountMessage.getLocalGroupCount();
+            this.bcM.geographicLocation = responseQueryGroupCountMessage.getGeographicLocation();
+            this.bcM.picUrl = responseQueryGroupCountMessage.getPicUrl();
+            this.bcM.link = responseQueryGroupCountMessage.getLink();
+            a.bcG = false;
+            eVar = this.bcM.bcJ;
             if (eVar != null) {
-                eVar4 = this.bcy.bcv;
+                eVar4 = this.bcM.bcJ;
                 eVar4.ig();
             }
-            eVar2 = this.bcy.bcv;
+            eVar2 = this.bcM.bcJ;
             if (eVar2 != null) {
-                eVar3 = this.bcy.bcv;
-                i = this.bcy.bct;
-                i2 = this.bcy.bcu;
-                str = this.bcy.link;
-                str2 = this.bcy.picUrl;
-                str3 = this.bcy.geographicLocation;
+                eVar3 = this.bcM.bcJ;
+                i = this.bcM.bcH;
+                i2 = this.bcM.bcI;
+                str = this.bcM.link;
+                str2 = this.bcM.picUrl;
+                str3 = this.bcM.geographicLocation;
                 eVar3.a(i, i2, str, str2, str3);
             }
         }

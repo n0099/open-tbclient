@@ -7,7 +7,7 @@ public abstract class b {
 
     public abstract void dw(String str);
 
-    public abstract String sp();
+    public abstract String sr();
 
     public Bitmap dx(String str) {
         return b(com.baidu.tbadk.core.util.d.bk(str), true);

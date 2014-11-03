@@ -10,34 +10,34 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.bn;
+import com.baidu.tbadk.core.util.bo;
 import com.baidu.tbadk.core.view.BarImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class g extends BaseAdapter implements com.baidu.tieba.view.s {
-    private aj bMd;
+    private aj bMs;
     private final Context mContext;
     private String stType = null;
-    View.OnClickListener bMe = new h(this);
+    View.OnClickListener bMt = new h(this);
 
     public g(Context context) {
         this.mContext = context;
     }
 
     public void a(aj ajVar) {
-        this.bMd = ajVar;
+        this.bMs = ajVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bMd == null || this.bMd.adl().size() == 0) {
+        if (this.bMs == null || this.bMs.ado().size() == 0) {
             return 0;
         }
-        ArrayList<ai> adl = this.bMd.adl();
-        if (adl == null || adl.size() <= 0) {
+        ArrayList<ai> ado = this.bMs.ado();
+        if (ado == null || ado.size() <= 0) {
             return 1;
         }
-        return 1 + adl.size();
+        return 1 + ado.size();
     }
 
     @Override // android.widget.Adapter
@@ -46,17 +46,17 @@ public class g extends BaseAdapter implements com.baidu.tieba.view.s {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = a(i, viewGroup, itemViewType);
-            bn.n(view);
+            bo.n(view);
         }
         if (itemViewType == 0) {
-            if (this.bMd != null) {
-                ((TextView) view.findViewById(com.baidu.tieba.v.title)).setText(this.bMd.adw());
+            if (this.bMs != null) {
+                ((TextView) view.findViewById(com.baidu.tieba.v.title)).setText(this.bMs.adz());
             }
         } else if (itemViewType == 2) {
-            bn.m(view);
+            bo.m(view);
             a(viewGroup, (i) view.getTag(), i, "all");
         } else if (itemViewType == 1) {
-            bn.m(view);
+            bo.m(view);
             a(viewGroup, (i) view.getTag(), i, WriteImageActivityConfig.FILTER_NAME_NORMAL);
         }
         int skinType = TbadkApplication.m251getInst().getSkinType();
@@ -83,52 +83,52 @@ public class g extends BaseAdapter implements com.baidu.tieba.view.s {
         if (i2 == 2) {
             View inflate = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.w.bar_home_all_dir_item, null);
             ai aiVar = new ai();
-            aiVar.bMX = "1";
+            aiVar.bNm = "1";
             i iVar = new i();
-            iVar.bLZ = (BarImageView) inflate.findViewById(com.baidu.tieba.v.portrait);
-            iVar.UD = (TextView) inflate.findViewById(com.baidu.tieba.v.squre_name);
-            iVar.bMa = (BestStringsFitTextView) inflate.findViewById(com.baidu.tieba.v.description);
-            iVar.bMg = aiVar;
-            inflate.setOnClickListener(this.bMe);
+            iVar.bMo = (BarImageView) inflate.findViewById(com.baidu.tieba.v.portrait);
+            iVar.UH = (TextView) inflate.findViewById(com.baidu.tieba.v.squre_name);
+            iVar.bMp = (BestStringsFitTextView) inflate.findViewById(com.baidu.tieba.v.description);
+            iVar.bMv = aiVar;
+            inflate.setOnClickListener(this.bMt);
             inflate.setTag(iVar);
             return inflate;
         }
         View inflate2 = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.w.bar_home_first_dir_item, null);
-        inflate2.setOnClickListener(this.bMe);
+        inflate2.setOnClickListener(this.bMt);
         ai aiVar2 = new ai();
-        aiVar2.bMX = "0";
+        aiVar2.bNm = "0";
         i iVar2 = new i();
-        iVar2.bLZ = (BarImageView) inflate2.findViewById(com.baidu.tieba.v.portrait);
-        iVar2.UD = (TextView) inflate2.findViewById(com.baidu.tieba.v.squre_name);
-        iVar2.bMa = (BestStringsFitTextView) inflate2.findViewById(com.baidu.tieba.v.description);
-        iVar2.bMg = aiVar2;
+        iVar2.bMo = (BarImageView) inflate2.findViewById(com.baidu.tieba.v.portrait);
+        iVar2.UH = (TextView) inflate2.findViewById(com.baidu.tieba.v.squre_name);
+        iVar2.bMp = (BestStringsFitTextView) inflate2.findViewById(com.baidu.tieba.v.description);
+        iVar2.bMv = aiVar2;
         inflate2.setTag(iVar2);
         return inflate2;
     }
 
     private void a(ViewGroup viewGroup, i iVar, int i, String str) {
-        ai aiVar = this.bMd.adl().get(i - 1);
+        ai aiVar = this.bMs.ado().get(i - 1);
         aiVar.index = i - 1;
-        if (aiVar.bMX.equals("1") && str.equals("all")) {
+        if (aiVar.bNm.equals("1") && str.equals("all")) {
             a(viewGroup, iVar, aiVar);
-        } else if (aiVar.bMX.equals("0") && str.equals(WriteImageActivityConfig.FILTER_NAME_NORMAL)) {
+        } else if (aiVar.bNm.equals("0") && str.equals(WriteImageActivityConfig.FILTER_NAME_NORMAL)) {
             a(viewGroup, iVar, aiVar);
         }
     }
 
     private void a(ViewGroup viewGroup, i iVar, ai aiVar) {
-        iVar.bMg = aiVar;
-        iVar.UD.setText(UtilHelper.getFixedText(aiVar.title, 11));
-        if (aiVar.bMW != null) {
-            iVar.bMa.setText(aiVar.bMW);
-            iVar.bMa.setVisibility(0);
+        iVar.bMv = aiVar;
+        iVar.UH.setText(UtilHelper.getFixedText(aiVar.title, 11));
+        if (aiVar.bNl != null) {
+            iVar.bMp.setText(aiVar.bNl);
+            iVar.bMp.setVisibility(0);
         } else {
-            iVar.bMa.setVisibility(8);
+            iVar.bMp.setVisibility(8);
         }
         if (aiVar.picUrl != null) {
-            iVar.bLZ.setTag(aiVar.picUrl);
+            iVar.bMo.setTag(aiVar.picUrl);
             int dip2px = com.baidu.adp.lib.util.m.dip2px(this.mContext, 45.0f);
-            iVar.bLZ.a(aiVar.picUrl, 10, dip2px, dip2px, false);
+            iVar.bMo.a(aiVar.picUrl, 10, dip2px, dip2px, false);
         }
     }
 
@@ -163,7 +163,7 @@ public class g extends BaseAdapter implements com.baidu.tieba.view.s {
     }
 
     @Override // com.baidu.tieba.view.s
-    public void adn() {
+    public void adq() {
     }
 
     @Override // com.baidu.tieba.view.s

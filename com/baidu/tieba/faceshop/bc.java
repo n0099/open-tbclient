@@ -1,11 +1,11 @@
 package com.baidu.tieba.faceshop;
 /* loaded from: classes.dex */
 class bc implements com.baidu.tbadk.core.view.u {
-    final /* synthetic */ FaceShopActivity auo;
+    final /* synthetic */ FaceShopActivity aux;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(FaceShopActivity faceShopActivity) {
-        this.auo = faceShopActivity;
+        this.aux = faceShopActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.u
@@ -13,10 +13,10 @@ class bc implements com.baidu.tbadk.core.view.u {
         bq bqVar;
         bq bqVar2;
         if (z) {
-            bqVar = this.auo.aul;
+            bqVar = this.aux.auu;
             if (bqVar != null) {
-                bqVar2 = this.auo.aul;
-                bqVar2.DA();
+                bqVar2 = this.aux.auu;
+                bqVar2.DC();
             }
         }
     }

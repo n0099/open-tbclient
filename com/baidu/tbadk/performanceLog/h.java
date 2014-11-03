@@ -5,11 +5,11 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends Handler {
-    final /* synthetic */ g YL;
+    final /* synthetic */ g YP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.YL = gVar;
+        this.YP = gVar;
     }
 
     @Override // android.os.Handler
@@ -17,10 +17,10 @@ public class h extends Handler {
         j jVar;
         j jVar2;
         int i;
-        jVar = this.YL.YJ;
+        jVar = this.YP.YN;
         if (jVar != null) {
-            jVar2 = this.YL.YJ;
-            i = this.YL.YB;
+            jVar2 = this.YP.YN;
+            i = this.YP.YF;
             jVar2.r(i);
         }
     }

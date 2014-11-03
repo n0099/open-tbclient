@@ -4,13 +4,13 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ f bhr;
+    final /* synthetic */ f bhF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(f fVar, int i) {
         super(i);
-        this.bhr = fVar;
+        this.bhF = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,7 +22,7 @@ public class g extends com.baidu.adp.framework.listener.e {
                     if (!(socketResponsedMessage instanceof PushNotifyMessage)) {
                         return;
                     }
-                    this.bhr.a((PushNotifyMessage) socketResponsedMessage);
+                    this.bhF.a((PushNotifyMessage) socketResponsedMessage);
                     return;
                 default:
                     return;

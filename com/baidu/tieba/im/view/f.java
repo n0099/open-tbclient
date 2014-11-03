@@ -3,11 +3,11 @@ package com.baidu.tieba.im.view;
 import android.view.animation.Animation;
 /* loaded from: classes.dex */
 class f implements Animation.AnimationListener {
-    final /* synthetic */ HorizontalPanelView bjj;
+    final /* synthetic */ HorizontalPanelView bjx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(HorizontalPanelView horizontalPanelView) {
-        this.bjj = horizontalPanelView;
+        this.bjx = horizontalPanelView;
     }
 
     @Override // android.view.animation.Animation.AnimationListener

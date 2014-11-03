@@ -72,6 +72,7 @@ public class ae {
         if (hS().hH()) {
             switch (motionEvent.getAction()) {
                 case 1:
+                case 3:
                     if (this.mState != 2) {
                         if (this.mState == 1) {
                             this.mState = 3;

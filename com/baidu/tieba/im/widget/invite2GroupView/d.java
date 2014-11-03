@@ -5,11 +5,11 @@ import com.baidu.tieba.s;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ Invite2GroupView bkd;
+    final /* synthetic */ Invite2GroupView bkr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(Invite2GroupView invite2GroupView) {
-        this.bkd = invite2GroupView;
+        this.bkr = invite2GroupView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,9 +21,9 @@ public class d implements com.baidu.tieba.im.a<Boolean> {
             bool = false;
         }
         if (!bool.booleanValue()) {
-            button = this.bkd.bkb;
-            button.setTextColor(this.bkd.getContext().getResources().getColor(s.group_info_join_disable_color));
-            button2 = this.bkd.bkb;
+            button = this.bkr.bkp;
+            button.setTextColor(this.bkr.getContext().getResources().getColor(s.group_info_join_disable_color));
+            button2 = this.bkr.bkp;
             button2.setOnClickListener(new e(this));
         }
     }

@@ -106,7 +106,7 @@ public class l {
     private static void a(ValidateItemData validateItemData, String str) {
         if (!BdBaseApplication.getInst().isDebugMode() || com.baidu.adp.lib.util.m.fu()) {
             String str2 = "";
-            ImMessageCenterPojo B = com.baidu.tieba.im.memorycache.c.PK().B(str, 1);
+            ImMessageCenterPojo B = com.baidu.tieba.im.memorycache.c.PN().B(str, 1);
             if (B != null) {
                 str2 = B.getGroup_name();
             }

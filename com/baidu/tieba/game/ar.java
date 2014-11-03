@@ -6,19 +6,19 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ar extends BdAsyncTask<String, Integer, List<GameInfoData>> {
-    final /* synthetic */ aq aIn;
-    private final /* synthetic */ List aIo;
-    private final /* synthetic */ List aIp;
-    private final /* synthetic */ List aIq;
-    private final /* synthetic */ List aIr;
+    final /* synthetic */ aq aIA;
+    private final /* synthetic */ List aIB;
+    private final /* synthetic */ List aIC;
+    private final /* synthetic */ List aID;
+    private final /* synthetic */ List aIE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(aq aqVar, List list, List list2, List list3, List list4) {
-        this.aIn = aqVar;
-        this.aIo = list;
-        this.aIp = list2;
-        this.aIq = list3;
-        this.aIr = list4;
+        this.aIA = aqVar;
+        this.aIB = list;
+        this.aIC = list2;
+        this.aID = list3;
+        this.aIE = list4;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,7 +26,7 @@ public class ar extends BdAsyncTask<String, Integer, List<GameInfoData>> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: t */
     public List<GameInfoData> doInBackground(String... strArr) {
-        return ab.Hs().G(this.aIo);
+        return ab.Hu().G(this.aIB);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,8 +36,8 @@ public class ar extends BdAsyncTask<String, Integer, List<GameInfoData>> {
     public void onPostExecute(List<GameInfoData> list) {
         ao aoVar;
         av avVar;
-        aoVar = this.aIn.aIm;
-        avVar = aoVar.aIh;
-        avVar.a(this.aIp, this.aIq, this.aIr, list);
+        aoVar = this.aIA.aIz;
+        avVar = aoVar.aIt;
+        avVar.a(this.aIC, this.aID, this.aIE, list);
     }
 }

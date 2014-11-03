@@ -15,12 +15,12 @@ import java.util.Random;
 import protobuf.GetOnlineInfo.Game;
 /* loaded from: classes.dex */
 public class GameCenterActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener {
-    private View aGI;
-    private NavigationBar aGJ;
-    private FragmentTabWidget aGK;
-    private GameCenterPager aGL;
-    private bi aGM;
-    private ao aGN;
+    private View aGS;
+    private NavigationBar aGT;
+    private FragmentTabWidget aGU;
+    private GameCenterPager aGV;
+    private bj aGW;
+    private ao aGX;
 
     static {
         TbadkApplication.m251getInst().RegisterIntent(GameCenterActivityConfig.class, GameCenterActivity.class);
@@ -30,61 +30,73 @@ public class GameCenterActivity extends BaseFragmentActivity implements ViewPage
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        rY();
+        sa();
     }
 
-    private void rY() {
+    private void sa() {
         setContentView(com.baidu.tieba.w.game_center_activity);
-        this.aGI = findViewById(com.baidu.tieba.v.parent);
-        Hf();
+        this.aGS = findViewById(com.baidu.tieba.v.parent);
+        Hh();
         initViewPager();
-        Hg();
+        Hi();
     }
 
-    private void Hf() {
-        this.aGJ = (NavigationBar) findViewById(com.baidu.tieba.v.navigation_bar);
-        this.aGJ.setTitleText(com.baidu.tieba.y.game_center);
-        this.aGJ.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new g(this));
-        this.aGJ.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.widget_nb_item_gift, (View.OnClickListener) null).setOnClickListener(new h(this));
-        this.aGJ.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.widget_nb_item_search, (View.OnClickListener) null).setOnClickListener(new i(this));
+    private void Hh() {
+        this.aGT = (NavigationBar) findViewById(com.baidu.tieba.v.navigation_bar);
+        this.aGT.setTitleText(com.baidu.tieba.y.game_center);
+        this.aGT.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new g(this));
+        this.aGT.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.widget_nb_item_gift, (View.OnClickListener) null).setOnClickListener(new h(this));
+        this.aGT.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.widget_nb_item_search, (View.OnClickListener) null).setOnClickListener(new i(this));
     }
 
     private void initViewPager() {
-        this.aGL = (GameCenterPager) findViewById(com.baidu.tieba.v.fragment_pager);
-        this.aGL.setOnPageChangeListener(this);
-        this.aGL.setAdapter(new k(this, getSupportFragmentManager()));
+        this.aGV = (GameCenterPager) findViewById(com.baidu.tieba.v.fragment_pager);
+        this.aGV.setOnPageChangeListener(this);
+        this.aGV.setAdapter(new k(this, getSupportFragmentManager()));
     }
 
-    private void Hg() {
-        this.aGK = (FragmentTabWidget) findViewById(com.baidu.tieba.v.tab_widget);
+    private void Hi() {
+        this.aGU = (FragmentTabWidget) findViewById(com.baidu.tieba.v.tab_widget);
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this);
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(com.baidu.tieba.t.ds32));
         fragmentTabIndicator.setGravity(17);
-        fragmentTabIndicator.VN = com.baidu.tieba.s.main_bottom_button_color;
+        fragmentTabIndicator.VR = com.baidu.tieba.s.main_bottom_button_color;
         fragmentTabIndicator.setText(getResources().getString(com.baidu.tieba.y.game_tab_good));
         FragmentTabIndicator fragmentTabIndicator2 = new FragmentTabIndicator(this);
-        fragmentTabIndicator2.VN = com.baidu.tieba.s.main_bottom_button_color;
+        fragmentTabIndicator2.VR = com.baidu.tieba.s.main_bottom_button_color;
         fragmentTabIndicator2.setTextSize(0, getResources().getDimension(com.baidu.tieba.t.ds32));
         fragmentTabIndicator2.setGravity(17);
         fragmentTabIndicator2.setText(getResources().getString(com.baidu.tieba.y.game_tab_light));
-        this.aGK.addView(fragmentTabIndicator);
-        this.aGK.addView(fragmentTabIndicator2);
-        if (Hh()) {
-            this.aGL.setCurrentItem(0);
-            this.aGK.d(0, true);
+        this.aGU.addView(fragmentTabIndicator);
+        this.aGU.addView(fragmentTabIndicator2);
+        if (Hj()) {
+            this.aGV.setCurrentItem(0);
+            this.aGU.d(0, true);
         } else {
-            this.aGL.setCurrentItem(1);
-            this.aGK.d(1, true);
+            this.aGV.setCurrentItem(1);
+            this.aGU.d(1, true);
         }
-        this.aGK.setTabSelectionListener(new j(this));
+        this.aGU.setTabSelectionListener(new j(this));
     }
 
-    private boolean Hh() {
-        Game Hj = l.Hi().Hj();
-        if (Hj == null || Hj.gameEnter == null || Hj.gameEnter.rateList == null || Hj.gameEnter.rateList.rate == null || Hj.gameEnter.rateList.rate.size() == 0) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onDestroy() {
+        if (this.aGX != null) {
+            this.aGX.Hy();
+        }
+        if (this.aGW != null) {
+            this.aGW.Hy();
+        }
+        super.onDestroy();
+    }
+
+    private boolean Hj() {
+        Game Hl = l.Hk().Hl();
+        if (Hl == null || Hl.gameEnter == null || Hl.gameEnter.rateList == null || Hl.gameEnter.rateList.rate == null || Hl.gameEnter.rateList.rate.size() == 0) {
             return true;
         }
-        Integer num = Hj.gameEnter.rateList.rate.get(0);
+        Integer num = Hl.gameEnter.rateList.rate.get(0);
         if (num == null) {
             return true;
         }
@@ -96,24 +108,25 @@ public class GameCenterActivity extends BaseFragmentActivity implements ViewPage
 
     public void eZ(int i) {
         if (i < 2) {
-            this.aGL.setCurrentItem(i);
+            this.aGV.setCurrentItem(i);
         }
     }
 
     public int getCurrentPosition() {
-        return this.aGL.getCurrentItem();
+        return this.aGV.getCurrentItem();
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    protected void onChangeSkinType(int i) {
-        getLayoutMode().h(this.aGI);
-        this.aGJ.onChangeSkinType(i);
-        this.aGK.onChangeSkinType(i);
-        if (this.aGM != null) {
-            this.aGM.onChangeSkinType(i);
+    public void onChangeSkinType(int i) {
+        getLayoutMode().h(this.aGS);
+        this.aGT.onChangeSkinType(i);
+        this.aGU.onChangeSkinType(i);
+        if (this.aGW != null) {
+            this.aGW.onChangeSkinType(i);
         }
-        if (this.aGN != null) {
-            this.aGN.onChangeSkinType(i);
+        if (this.aGX != null) {
+            this.aGX.onChangeSkinType(i);
         }
     }
 
@@ -123,7 +136,7 @@ public class GameCenterActivity extends BaseFragmentActivity implements ViewPage
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrolled(int i, float f, int i2) {
-        this.aGK.a(i, f);
+        this.aGU.a(i, f);
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -131,17 +144,25 @@ public class GameCenterActivity extends BaseFragmentActivity implements ViewPage
         if (i == 0) {
             TiebaStatic.eventStat(this, "gamecenter_select", "click");
         }
-        this.aGK.d(i, true);
+        this.aGU.d(i, true);
         fa(i);
     }
 
     private void fa(int i) {
         if (i == 0) {
-            if (this.aGM != null) {
-                this.aGM.Hw();
+            if (this.aGX != null) {
+                this.aGX.Hx();
             }
-        } else if (i == 1 && this.aGN != null) {
-            this.aGN.Hw();
+            if (this.aGW != null) {
+                this.aGW.Hz();
+            }
+        } else if (i == 1) {
+            if (this.aGW != null) {
+                this.aGW.Hx();
+            }
+            if (this.aGX != null) {
+                this.aGX.Hz();
+            }
         }
     }
 }

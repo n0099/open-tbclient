@@ -12,23 +12,22 @@ import com.baidu.tieba.y;
 import java.util.List;
 /* loaded from: classes.dex */
 class e extends HttpMessageListener {
-    final /* synthetic */ SearchFriendActivity bhL;
+    final /* synthetic */ SearchFriendActivity bhZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(SearchFriendActivity searchFriendActivity, int i) {
         super(i);
-        this.bhL = searchFriendActivity;
+        this.bhZ = searchFriendActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: b */
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
         h hVar;
         h hVar2;
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001521) {
-            hVar = this.bhL.bhD;
+            hVar = this.bhZ.bhR;
             hVar.ds(true);
             int statusCode = httpResponsedMessage.getStatusCode();
             int error = httpResponsedMessage.getError();
@@ -37,17 +36,17 @@ class e extends HttpMessageListener {
                 if (statusCode == 200 && error == 0 && responseSearchFriendMessage.getSearchFriendResult() != null) {
                     List<SearchFriendResult.UserInfo> userInfo = responseSearchFriendMessage.getSearchFriendResult().getUserInfo();
                     if (userInfo.size() > 0) {
-                        hVar2 = this.bhL.bhD;
+                        hVar2 = this.bhZ.bhR;
                         hVar2.gC(null);
                         SearchFriendResult.UserInfo userInfo2 = userInfo.get(0);
-                        this.bhL.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.bhL, String.valueOf(userInfo2.getUserId()), userInfo2.getUserName(), null, AddFriendActivityConfig.TYPE_SEARCH)));
+                        this.bhZ.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.bhZ, String.valueOf(userInfo2.getUserId()), userInfo2.getUserName(), null, AddFriendActivityConfig.TYPE_SEARCH)));
                         return;
                     }
-                    this.bhL.showToast(this.bhL.getString(y.neterror));
+                    this.bhZ.showToast(this.bhZ.getString(y.neterror));
                 } else if (TextUtils.isEmpty(httpResponsedMessage.getErrorString())) {
-                    this.bhL.showToast(this.bhL.getString(y.neterror));
+                    this.bhZ.showToast(this.bhZ.getString(y.neterror));
                 } else {
-                    this.bhL.showToast(httpResponsedMessage.getErrorString());
+                    this.bhZ.showToast(httpResponsedMessage.getErrorString());
                 }
             }
         }

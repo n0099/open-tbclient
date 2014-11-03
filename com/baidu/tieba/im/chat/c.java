@@ -6,11 +6,11 @@ import com.baidu.tbadk.coreExtra.view.MultiImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements DialogInterface.OnClickListener {
-    final /* synthetic */ AbsMsgImageActivity aNA;
+    final /* synthetic */ AbsMsgImageActivity aNO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(AbsMsgImageActivity absMsgImageActivity) {
-        this.aNA = absMsgImageActivity;
+        this.aNO = absMsgImageActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -19,20 +19,20 @@ public class c implements DialogInterface.OnClickListener {
         MultiImageView multiImageView;
         MultiImageView multiImageView2;
         g gVar;
-        listMenu = this.aNA.getListMenu();
+        listMenu = this.aNO.getListMenu();
         if (dialogInterface == listMenu && i == 0) {
             try {
-                multiImageView = this.aNA.aNr;
+                multiImageView = this.aNO.aNF;
                 byte[] currentImageData = multiImageView.getCurrentImageData();
                 if (currentImageData != null) {
-                    multiImageView2 = this.aNA.aNr;
+                    multiImageView2 = this.aNO.aNF;
                     String currentImageUrl = multiImageView2.getCurrentImageUrl();
-                    this.aNA.aNp = new g(this.aNA, currentImageUrl, currentImageData);
-                    gVar = this.aNA.aNp;
+                    this.aNO.aND = new g(this.aNO, currentImageUrl, currentImageData);
+                    gVar = this.aNO.aND;
                     gVar.execute(new String[0]);
-                    this.aNA.showProgressBarWithOffset(0, 0);
+                    this.aNO.showProgressBarWithOffset(0, 0);
                 } else {
-                    this.aNA.showToast(this.aNA.getString(com.baidu.tieba.y.no_data));
+                    this.aNO.showToast(this.aNO.getString(com.baidu.tieba.y.no_data));
                 }
             } catch (Exception e) {
             }

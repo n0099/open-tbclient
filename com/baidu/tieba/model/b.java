@@ -6,14 +6,15 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tieba.bl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<String, Integer, bb> {
-    final /* synthetic */ a boa;
+    final /* synthetic */ a boo;
     com.baidu.tbadk.core.util.ac mNetWork;
 
     private b(a aVar) {
-        this.boa = aVar;
+        this.boo = aVar;
         this.mNetWork = null;
     }
 
@@ -40,9 +41,9 @@ public class b extends BdAsyncTask<String, Integer, bb> {
             this.mNetWork = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/sync");
             this.mNetWork.k("_os_version", Build.VERSION.RELEASE);
             StringBuffer stringBuffer = new StringBuffer(15);
-            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.m.n(com.baidu.tieba.aj.wk().getApp())));
+            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.m.n(com.baidu.tieba.aj.wm().getApp())));
             stringBuffer.append(",");
-            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.m.o(com.baidu.tieba.aj.wk().getApp())));
+            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.m.o(com.baidu.tieba.aj.wm().getApp())));
             this.mNetWork.k("_phone_screen", stringBuffer.toString());
             if (TbadkApplication.m251getInst().getMsgFrequency() > 0) {
                 this.mNetWork.k("_msg_status", "0");
@@ -52,8 +53,8 @@ public class b extends BdAsyncTask<String, Integer, bb> {
             String packageName = TbadkApplication.m251getInst().getPackageName();
             this.mNetWork.k("package", packageName);
             this.mNetWork.k("versioncode", new StringBuilder(String.valueOf(TbadkApplication.m251getInst().getVersionCode())).toString());
-            this.mNetWork.k("signmd5", com.baidu.tbadk.core.util.ba.a(TbadkApplication.m251getInst().getPackageManager().getPackageInfo(packageName, 64)));
-            this.mNetWork.k("md5", com.baidu.tieba.bc.xa());
+            this.mNetWork.k("signmd5", com.baidu.tbadk.core.util.bb.a(TbadkApplication.m251getInst().getPackageManager().getPackageInfo(packageName, 64)));
+            this.mNetWork.k("md5", bl.xc());
             String lA = this.mNetWork.lA();
             if (!this.mNetWork.mc().nb().jq()) {
                 return null;
@@ -61,10 +62,10 @@ public class b extends BdAsyncTask<String, Integer, bb> {
             bbVar = new bb();
             try {
                 bbVar.parserJson(lA);
-                if (TbadkApplication.getClientId() == null && bbVar.Ub().getClientId() != null && bbVar.Ub().getClientId().length() > 0) {
-                    context = this.boa.mContext;
-                    TbadkApplication.saveClientId(context, bbVar.Ub().getClientId());
-                    TbadkApplication.setClientId(bbVar.Ub().getClientId());
+                if (TbadkApplication.getClientId() == null && bbVar.Ue().getClientId() != null && bbVar.Ue().getClientId().length() > 0) {
+                    context = this.boo.mContext;
+                    TbadkApplication.saveClientId(context, bbVar.Ue().getClientId());
+                    TbadkApplication.setClientId(bbVar.Ue().getClientId());
                     return bbVar;
                 }
                 return bbVar;
@@ -81,7 +82,7 @@ public class b extends BdAsyncTask<String, Integer, bb> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.boa.bnZ = null;
+        this.boo.bon = null;
         if (this.mNetWork != null) {
             this.mNetWork.dM();
         }
@@ -94,7 +95,7 @@ public class b extends BdAsyncTask<String, Integer, bb> {
     /* renamed from: a */
     public void onPostExecute(bb bbVar) {
         super.onPostExecute(bbVar);
-        this.boa.bnZ = null;
-        this.boa.mLoadDataCallBack.a(bbVar);
+        this.boo.bon = null;
+        this.boo.mLoadDataCallBack.a(bbVar);
     }
 }

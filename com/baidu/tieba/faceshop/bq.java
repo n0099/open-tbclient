@@ -14,13 +14,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class bq {
-    private final com.baidu.tbadk.core.view.y Yc;
-    private final v atN;
-    private final NavigationBar atx;
-    private final NoNetworkView aty;
-    private final TextView auK;
-    private final bi auL;
-    private final br auM;
+    private final com.baidu.tbadk.core.view.y Yg;
+    private final NavigationBar atG;
+    private final NoNetworkView atH;
+    private final v atW;
+    private final TextView auT;
+    private final bi auU;
+    private final br auV;
     private final BaseActivity mActivity;
     private final LinearLayout mParent;
     private final BdListView vl;
@@ -29,55 +29,55 @@ public class bq {
         this.mActivity = baseActivity;
         baseActivity.setContentView(ca.face_shop_activity);
         this.mParent = (LinearLayout) baseActivity.findViewById(bz.face_shop);
-        this.atx = (NavigationBar) baseActivity.findViewById(bz.view_navigation_bar);
-        this.atx.setTitleText(baseActivity.getResources().getString(cb.face_store));
-        this.atx.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.auK = this.atx.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, baseActivity.getResources().getString(cb.manage));
-        this.aty = (NoNetworkView) baseActivity.findViewById(bz.view_no_network);
+        this.atG = (NavigationBar) baseActivity.findViewById(bz.view_navigation_bar);
+        this.atG.setTitleText(baseActivity.getResources().getString(cb.face_store));
+        this.atG.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.auT = this.atG.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, baseActivity.getResources().getString(cb.manage));
+        this.atH = (NoNetworkView) baseActivity.findViewById(bz.view_no_network);
         this.vl = (BdListView) baseActivity.findViewById(bz.face_shop_list);
-        this.Yc = new com.baidu.tbadk.core.view.y(baseActivity);
-        this.auL = new bi(baseActivity);
-        this.auM = new br(this, baseActivity);
-        this.vl.setAdapter((ListAdapter) this.auL);
-        this.vl.setPullRefresh(this.Yc);
-        this.vl.setNextPage(this.auM);
-        this.auK.setOnClickListener(baseActivity);
-        this.atN = new v(baseActivity, cc.common_alert_dialog);
+        this.Yg = new com.baidu.tbadk.core.view.y(baseActivity);
+        this.auU = new bi(baseActivity);
+        this.auV = new br(this, baseActivity);
+        this.vl.setAdapter((ListAdapter) this.auU);
+        this.vl.setPullRefresh(this.Yg);
+        this.vl.setNextPage(this.auV);
+        this.auT.setOnClickListener(baseActivity);
+        this.atW = new v(baseActivity, cc.common_alert_dialog);
     }
 
     public void c(FaceShopData faceShopData) {
-        Dv();
+        Dx();
         if (faceShopData != null && faceShopData.pack_list != null && faceShopData.pack_list.size() > 0) {
             ArrayList<String> arrayList = new ArrayList<>();
             Iterator<FacePackageData> it = faceShopData.pack_list.iterator();
             while (it.hasNext()) {
                 arrayList.add(String.valueOf(it.next().pid));
             }
-            q(arrayList);
+            r(arrayList);
         }
     }
 
-    public void q(ArrayList<String> arrayList) {
+    public void r(ArrayList<String> arrayList) {
         if (arrayList != null && arrayList.size() > 0) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new QueryDownloadMessage(arrayList));
         }
     }
 
-    public bi Dz() {
-        return this.auL;
+    public bi DB() {
+        return this.auU;
     }
 
-    public void Dv() {
-        this.auM.DG();
+    public void Dx() {
+        this.auV.DI();
         this.vl.hN();
     }
 
-    public void DA() {
+    public void DC() {
         this.vl.hO();
     }
 
-    public void DB() {
-        this.auM.DF();
+    public void DD() {
+        this.auV.DH();
     }
 
     public void a(AdapterView.OnItemClickListener onItemClickListener) {
@@ -85,7 +85,7 @@ public class bq {
     }
 
     public void b(com.baidu.adp.widget.ListView.f fVar) {
-        this.Yc.a(fVar);
+        this.Yg.a(fVar);
     }
 
     public void a(com.baidu.adp.widget.ListView.aa aaVar) {
@@ -93,68 +93,68 @@ public class bq {
     }
 
     public void c(com.baidu.tbadk.core.view.u uVar) {
-        this.aty.a(uVar);
+        this.atH.a(uVar);
     }
 
     public void d(com.baidu.tbadk.core.view.u uVar) {
-        this.aty.b(uVar);
+        this.atH.b(uVar);
     }
 
-    public void DC() {
-        if (this.auM != null) {
-            this.auM.hide();
+    public void DE() {
+        if (this.auV != null) {
+            this.auV.hide();
         }
     }
 
-    public void DD() {
-        if (this.auM != null) {
-            this.auM.Ba();
+    public void DF() {
+        if (this.auV != null) {
+            this.auV.Bc();
         }
     }
 
     public void onResume() {
-        if (this.aty != null && this.aty.getVisibility() == 0 && com.baidu.adp.lib.util.j.fh()) {
-            this.aty.Z(false);
-        }
-    }
-
-    public void Dj() {
-        if (this.atN != null) {
-            this.atN.CO();
-            com.baidu.adp.lib.g.j.a(this.atN, this.mActivity);
-        }
-    }
-
-    public void Dk() {
-        if (this.atN != null) {
-            this.atN.CP();
+        if (this.atH != null && this.atH.getVisibility() == 0 && com.baidu.adp.lib.util.j.fh()) {
+            this.atH.Z(false);
         }
     }
 
     public void Dl() {
-        if (this.atN != null) {
-            com.baidu.adp.lib.g.j.b(this.atN, this.mActivity);
+        if (this.atW != null) {
+            this.atW.CQ();
+            com.baidu.adp.lib.g.j.a(this.atW, this.mActivity);
+        }
+    }
+
+    public void Dm() {
+        if (this.atW != null) {
+            this.atW.CR();
+        }
+    }
+
+    public void Dn() {
+        if (this.atW != null) {
+            com.baidu.adp.lib.g.j.b(this.atW, this.mActivity);
         }
     }
 
     public void onChangeSkinType(int i) {
         this.mActivity.getLayoutMode().L(i == 1);
         this.mActivity.getLayoutMode().h(this.mParent);
-        if (this.atx != null) {
-            this.atx.onChangeSkinType(i);
+        if (this.atG != null) {
+            this.atG.onChangeSkinType(i);
         }
-        if (this.Yc != null) {
-            this.Yc.bM(i);
+        if (this.Yg != null) {
+            this.Yg.bM(i);
         }
-        if (this.auM != null) {
-            this.auM.cu(i);
+        if (this.auV != null) {
+            this.auV.cu(i);
         }
-        if (this.aty != null) {
-            this.aty.onChangeSkinType(i);
+        if (this.atH != null) {
+            this.atH.onChangeSkinType(i);
         }
     }
 
-    public TextView DE() {
-        return this.auK;
+    public TextView DG() {
+        return this.auT;
     }
 }

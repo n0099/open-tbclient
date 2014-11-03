@@ -13,15 +13,15 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
-    final /* synthetic */ e ahA;
-    private final al ahB;
-    private final String ahC;
-    private String ahD;
+    final /* synthetic */ e ahJ;
+    private final al ahK;
+    private final String ahL;
+    private String ahM;
 
     public g(e eVar, String str, al alVar) {
-        this.ahA = eVar;
-        this.ahB = alVar;
-        this.ahC = str;
+        this.ahJ = eVar;
+        this.ahK = alVar;
+        this.ahL = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,12 +31,12 @@ public class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
     public List<ImageFileInfo> doInBackground(Object... objArr) {
         Context context;
         Context context2;
-        String str = this.ahC;
-        context = this.ahA.mContext;
+        String str = this.ahL;
+        context = this.ahJ.mContext;
         List<ImageFileInfo> a = a(str, context, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         if (a == null || a.size() <= 0) {
-            String str2 = this.ahC;
-            context2 = this.ahA.mContext;
+            String str2 = this.ahL;
+            context2 = this.ahJ.mContext;
             return a(str2, context2, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         }
         return a;
@@ -46,8 +46,8 @@ public class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreCancel() {
         super.onPreCancel();
-        if (this.ahB != null) {
-            this.ahB.hL();
+        if (this.ahK != null) {
+            this.ahK.hL();
         }
     }
 
@@ -57,8 +57,8 @@ public class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
     /* renamed from: i */
     public void onPostExecute(List<ImageFileInfo> list) {
         super.onPostExecute(list);
-        if (this.ahB != null) {
-            this.ahB.a(list, this.ahD);
+        if (this.ahK != null) {
+            this.ahK.a(list, this.ahM);
         }
     }
 
@@ -94,7 +94,7 @@ public class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
             int columnIndex2 = cursor.getColumnIndex("bucket_display_name");
             do {
                 String string = cursor.getString(columnIndex);
-                this.ahD = cursor.getString(columnIndex2);
+                this.ahM = cursor.getString(columnIndex2);
                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                 imageFileInfo.setAlbumnId(str);
                 imageFileInfo.setFilePath(string);

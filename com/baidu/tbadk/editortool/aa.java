@@ -12,33 +12,33 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class aa {
-    private static aa So = new aa();
+    private static aa Ss = new aa();
     private static BdAsyncTaskParallel parallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-    private ArrayList<ad> Sp = new ArrayList<>();
-    private final List<e> Sq = new ArrayList();
+    private ArrayList<ad> St = new ArrayList<>();
+    private final List<e> Su = new ArrayList();
 
-    public static aa rz() {
-        return So;
+    public static aa rB() {
+        return Ss;
     }
 
     private aa() {
     }
 
     public void b(e eVar) {
-        synchronized (this.Sq) {
-            if (!this.Sq.contains(eVar)) {
-                this.Sq.add(eVar);
-                Collections.sort(this.Sq);
+        synchronized (this.Su) {
+            if (!this.Su.contains(eVar)) {
+                this.Su.add(eVar);
+                Collections.sort(this.Su);
             }
         }
     }
 
-    public void rA() {
+    public void rC() {
         new ab(this).execute(new Void[0]);
     }
 
     public boolean cY(String str) {
-        Iterator<ad> it = this.Sp.iterator();
+        Iterator<ad> it = this.St.iterator();
         while (it.hasNext()) {
             if (it.next().cY(str)) {
                 return true;
@@ -48,7 +48,7 @@ public class aa {
     }
 
     public com.baidu.adp.widget.a.a dg(String str) {
-        return com.baidu.tbadk.imageManager.e.sg().dt(str);
+        return com.baidu.tbadk.imageManager.e.si().dt(str);
     }
 
     public String m(String str, boolean z) {
@@ -62,11 +62,11 @@ public class aa {
     public com.baidu.adp.widget.a.a T(String str, String str2) {
         com.baidu.adp.widget.a.a aVar;
         Bitmap U;
-        com.baidu.adp.widget.a.a dt = com.baidu.tbadk.imageManager.e.sg().dt(str2);
+        com.baidu.adp.widget.a.a dt = com.baidu.tbadk.imageManager.e.si().dt(str2);
         if (dt != null) {
             return dt;
         }
-        Iterator<ad> it = this.Sp.iterator();
+        Iterator<ad> it = this.St.iterator();
         while (true) {
             if (!it.hasNext()) {
                 aVar = dt;
@@ -86,8 +86,8 @@ public class aa {
     }
 
     public String n(String str, boolean z) {
-        if (!z.ry().isEmpty()) {
-            List<ad> groups = z.ry().getGroups();
+        if (!z.rA().isEmpty()) {
+            List<ad> groups = z.rA().getGroups();
             if (z) {
                 for (ad adVar : groups) {
                     if (adVar.cY(str)) {
@@ -104,19 +104,19 @@ public class aa {
     public void a(String str, com.baidu.adp.widget.a.a aVar, boolean z) {
         if (aVar != null) {
             if (z) {
-                com.baidu.tbadk.imageManager.e.sg().c(n(str, z), aVar, true);
+                com.baidu.tbadk.imageManager.e.si().c(n(str, z), aVar, true);
                 return;
             }
-            com.baidu.tbadk.imageManager.e.sg().c(str, aVar, false);
+            com.baidu.tbadk.imageManager.e.si().c(str, aVar, false);
         }
     }
 
-    public ArrayList<ad> rB() {
-        return this.Sp;
+    public ArrayList<ad> rD() {
+        return this.St;
     }
 
     public ad dh(String str) {
-        Iterator<ad> it = this.Sp.iterator();
+        Iterator<ad> it = this.St.iterator();
         while (it.hasNext()) {
             ad next = it.next();
             if (next.getGroupId().equals(str)) {

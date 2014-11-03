@@ -6,27 +6,27 @@ import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class r extends BaseAdapter {
-    private String[] aUl;
-    private GroupAddressEditActivity aUn;
+    private GroupAddressEditActivity aUB;
+    private String[] aUz;
 
     public r(GroupAddressEditActivity groupAddressEditActivity, String[] strArr) {
-        this.aUl = null;
-        this.aUn = null;
-        this.aUn = groupAddressEditActivity;
-        this.aUl = strArr;
+        this.aUz = null;
+        this.aUB = null;
+        this.aUB = groupAddressEditActivity;
+        this.aUz = strArr;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aUl != null) {
-            return this.aUl.length;
+        if (this.aUz != null) {
+            return this.aUz.length;
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return (this.aUl == null || i <= -1 || i >= this.aUl.length) ? "" : this.aUl[i];
+        return (this.aUz == null || i <= -1 || i >= this.aUz.length) ? "" : this.aUz[i];
     }
 
     @Override // android.widget.Adapter
@@ -38,13 +38,13 @@ public class r extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            aVar = new a(this.aUn);
-            view = aVar.KO();
+            aVar = new a(this.aUB);
+            view = aVar.KS();
         } else {
             aVar = (a) view.getTag();
         }
         aVar.fL(getItem(i).toString());
-        if (this.aUn.LU() == i) {
+        if (this.aUB.LY() == i) {
             aVar.cO(true);
         } else {
             aVar.cO(false);
@@ -54,7 +54,7 @@ public class r extends BaseAdapter {
     }
 
     private void F(View view) {
-        this.aUn.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
-        this.aUn.getLayoutMode().h(view);
+        this.aUB.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
+        this.aUB.getLayoutMode().h(view);
     }
 }

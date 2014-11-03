@@ -10,11 +10,11 @@ import com.baidu.tbadk.game.GameInfoData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bb implements View.OnClickListener {
-    final /* synthetic */ av aIW;
+    final /* synthetic */ av aJj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(av avVar) {
-        this.aIW = avVar;
+        this.aJj = avVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,22 +22,25 @@ public class bb implements View.OnClickListener {
         GameCenterActivity gameCenterActivity;
         GameCenterActivity gameCenterActivity2;
         GameCenterActivity gameCenterActivity3;
+        GameCenterActivity gameCenterActivity4;
         if (!UtilHelper.isNetOk()) {
-            gameCenterActivity3 = this.aIW.aIg;
-            gameCenterActivity3.showToast(com.baidu.tieba.y.neterror);
+            gameCenterActivity4 = this.aJj.aIs;
+            gameCenterActivity4.showToast(com.baidu.tieba.y.neterror);
             return;
         }
         GameInfoData gameInfoData = (GameInfoData) view.getTag(com.baidu.tieba.v.tag_first);
         if (gameInfoData != null) {
             if (((Integer) view.getTag(com.baidu.tieba.v.tag_second)) != null) {
-                gameCenterActivity2 = this.aIW.aIg;
-                TiebaStatic.eventStat(gameCenterActivity2, "game_detail", "click", 1, new Object[0]);
+                gameCenterActivity3 = this.aJj.aIs;
+                TiebaStatic.eventStat(gameCenterActivity3, "game_detail", "click", 1, new Object[0]);
             }
             if (gameInfoData.getMark() != 1) {
                 MessageManager messageManager = MessageManager.getInstance();
-                gameCenterActivity = this.aIW.aIg;
-                messageManager.sendMessage(new CustomMessage(2002001, new GameDetailActivityConfig(gameCenterActivity, gameInfoData.getGameId(), "3000201")));
-                com.baidu.tieba.game.a.a.Ij().a(view, gameInfoData);
+                gameCenterActivity = this.aJj.aIs;
+                messageManager.sendMessage(new CustomMessage(2002001, new GameDetailActivityConfig(gameCenterActivity, gameInfoData.getGameId(), "1000202")));
+                com.baidu.tieba.game.a.a In = com.baidu.tieba.game.a.a.In();
+                gameCenterActivity2 = this.aJj.aIs;
+                In.a(gameCenterActivity2.getUniqueId(), view, gameInfoData);
             }
         }
     }

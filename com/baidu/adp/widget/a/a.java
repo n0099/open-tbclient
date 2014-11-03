@@ -39,7 +39,7 @@ public class a {
         this.td = new AtomicBoolean(false);
         this.tf = false;
         this.th = -1L;
-        this.tj = new c(this);
+        this.tj = new c();
         this.iz = bitmap;
         this.sX = z;
     }
@@ -54,7 +54,7 @@ public class a {
         this.td = new AtomicBoolean(false);
         this.tf = false;
         this.th = -1L;
-        this.tj = new c(this);
+        this.tj = new c();
         this.iz = bitmap;
         this.sX = z;
         this.url = str;
@@ -70,7 +70,7 @@ public class a {
         this.td = new AtomicBoolean(false);
         this.tf = false;
         this.th = -1L;
-        this.tj = new c(this);
+        this.tj = new c();
         this.iz = bitmap;
         this.sX = z;
         this.url = str;
@@ -87,7 +87,7 @@ public class a {
         this.td = new AtomicBoolean(false);
         this.tf = false;
         this.th = -1L;
-        this.tj = new c(this);
+        this.tj = new c();
         this.iz = bitmap;
         this.sX = z;
         this.url = str;
@@ -104,7 +104,7 @@ public class a {
         this.td = new AtomicBoolean(false);
         this.tf = false;
         this.th = -1L;
-        this.tj = new c(this);
+        this.tj = new c();
         this.te = cVar;
         this.tf = true;
     }

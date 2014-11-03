@@ -16,6 +16,6 @@ public class GameDetailActivityConfig extends a {
         super(context);
         Intent intent = getIntent();
         intent.putExtra(GAME_ID_KEY, str);
-        intent.putExtra(str2, str2);
+        intent.putExtra(SOURCE, str2);
     }
 }

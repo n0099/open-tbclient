@@ -5,12 +5,12 @@ import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
 public class q implements Runnable {
-    final /* synthetic */ JigsawAlbumListActivity WN;
-    private volatile boolean WO;
-    private Thread WP;
+    final /* synthetic */ JigsawAlbumListActivity WR;
+    private volatile boolean WS;
+    private Thread WT;
 
     public q(JigsawAlbumListActivity jigsawAlbumListActivity) {
-        this.WN = jigsawAlbumListActivity;
+        this.WR = jigsawAlbumListActivity;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:13:0x0047 */
@@ -33,40 +33,40 @@ public class q implements Runnable {
         ViewphotoLinkedHashMap viewphotoLinkedHashMap3;
         Handler handler;
         int i10;
-        this.WP = Thread.currentThread();
-        this.WO = false;
-        while (!this.WO) {
+        this.WT = Thread.currentThread();
+        this.WS = false;
+        while (!this.WS) {
             i = JigsawAlbumListActivity.currentPosition;
-            if (i + 20 > this.WN.Wi.getCount()) {
-                int count = this.WN.Wi.getCount();
+            if (i + 20 > this.WR.Wm.getCount()) {
+                int count = this.WR.Wm.getCount();
                 i10 = JigsawAlbumListActivity.currentPosition;
                 i2 = count - i10;
             } else {
                 i2 = 20;
             }
-            viewphotoLinkedHashMap = this.WN.WE;
+            viewphotoLinkedHashMap = this.WR.WI;
             if (viewphotoLinkedHashMap.size() != 0) {
                 i3 = JigsawAlbumListActivity.currentPosition;
-                JigsawAlbumListActivity.WH = i3;
-                for (i4 = JigsawAlbumListActivity.WH; i4 < i5 + i2; i4++) {
-                    i8 = JigsawAlbumListActivity.WH;
+                JigsawAlbumListActivity.WL = i3;
+                for (i4 = JigsawAlbumListActivity.WL; i4 < i5 + i2; i4++) {
+                    i8 = JigsawAlbumListActivity.WL;
                     i9 = JigsawAlbumListActivity.currentPosition;
                     if (i8 != i9) {
                         break;
                     }
                     try {
-                        viewphotoLinkedHashMap2 = this.WN.WE;
+                        viewphotoLinkedHashMap2 = this.WR.WI;
                         if (viewphotoLinkedHashMap2.containsKey(Integer.valueOf(i4))) {
-                            viewphotoLinkedHashMap3 = this.WN.WE;
+                            viewphotoLinkedHashMap3 = this.WR.WI;
                             if (!viewphotoLinkedHashMap3.get((Object) Integer.valueOf(i4)).getTag().toString().equals("bitmap")) {
                                 try {
-                                    Bitmap a = this.WN.Wi.a(this.WN, this.WN.Wi.db(i4), this.WN.WK);
+                                    Bitmap a = this.WR.Wm.a(this.WR, this.WR.Wm.db(i4), this.WR.WO);
                                     if (a != null) {
                                         Message message = new Message();
                                         message.obj = a;
                                         message.arg1 = i4;
                                         message.what = 0;
-                                        handler = this.WN.mHandler;
+                                        handler = this.WR.mHandler;
                                         handler.sendMessage(message);
                                     }
                                 } catch (Exception e) {
@@ -78,7 +78,7 @@ public class q implements Runnable {
                         e2.printStackTrace();
                     }
                 }
-                i6 = JigsawAlbumListActivity.WH;
+                i6 = JigsawAlbumListActivity.WL;
                 i7 = JigsawAlbumListActivity.currentPosition;
                 if (i6 == i7) {
                     try {
@@ -91,10 +91,10 @@ public class q implements Runnable {
         }
     }
 
-    public void sL() {
-        this.WO = true;
-        if (this.WP != null) {
-            this.WP.interrupt();
+    public void sN() {
+        this.WS = true;
+        if (this.WT != null) {
+            this.WT.interrupt();
         }
     }
 }

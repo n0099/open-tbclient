@@ -9,7 +9,7 @@ import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.data.VersionData;
 /* loaded from: classes.dex */
 public final class SettingTextVersionView extends TbSettingTextTipView {
-    public static String bsB = "has_shown_funtion_intro";
+    public static String bsP = "has_shown_funtion_intro";
 
     public SettingTextVersionView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -18,17 +18,17 @@ public final class SettingTextVersionView extends TbSettingTextTipView {
     public void refresh() {
         boolean z = true;
         boolean z2 = TbadkApplication.m251getInst().getSkinType() == 1;
-        VersionData wI = com.baidu.tieba.aj.wk().wI();
-        if (wI == null || !wI.hasNewVer()) {
+        VersionData wK = com.baidu.tieba.aj.wm().wK();
+        if (wK == null || !wK.hasNewVer()) {
             z = false;
         }
-        boolean z3 = com.baidu.tbadk.core.sharedPref.b.lk().getBoolean(bsB, false);
+        boolean z3 = com.baidu.tbadk.core.sharedPref.b.lk().getBoolean(bsP, false);
         if (z || (!z && !z3)) {
-            com.baidu.tbadk.core.util.aw.h((View) this.Pe, com.baidu.tieba.u.icon_news_head_new);
+            com.baidu.tbadk.core.util.aw.h((View) this.Pi, com.baidu.tieba.u.icon_news_head_new);
             return;
         }
-        this.Pe.setText(TbConfig.getVersion());
-        this.Pe.setBackgroundDrawable(null);
-        this.Pe.setTextAppearance(this.mContext, z2 ? com.baidu.tieba.z.setting_version_text_1 : com.baidu.tieba.z.setting_version_text);
+        this.Pi.setText(TbConfig.getVersion());
+        this.Pi.setBackgroundDrawable(null);
+        this.Pi.setTextAppearance(this.mContext, z2 ? com.baidu.tieba.z.setting_version_text_1 : com.baidu.tieba.z.setting_version_text);
     }
 }

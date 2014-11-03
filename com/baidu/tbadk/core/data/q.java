@@ -460,7 +460,7 @@ public class q implements al, at {
             if (medias.get(i2).getType() == 3) {
                 as asVar = new as();
                 asVar.AI = medias.get(i2).getPicUrl();
-                asVar.ER = 13;
+                asVar.ES = 13;
                 arrayList.add(asVar);
             }
             i = i2 + 1;
@@ -468,7 +468,7 @@ public class q implements al, at {
         if (this.author != null) {
             as asVar2 = new as();
             asVar2.AI = this.author.getPortrait();
-            asVar2.ER = 12;
+            asVar2.ES = 12;
             arrayList.add(asVar2);
         }
         return arrayList;

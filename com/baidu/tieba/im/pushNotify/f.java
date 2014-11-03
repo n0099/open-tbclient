@@ -14,34 +14,34 @@ import com.baidu.tieba.im.message.MemoryNotifyUpdataGroupMessage;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class f {
-    private static f bhn = null;
-    private String bhp;
-    private ArrayList<CustomMessageListener> bho = new ArrayList<>();
-    private com.baidu.adp.framework.listener.e ayJ = new g(this, 202006);
-    private CustomMessageListener bhq = new h(this, 0);
+    private static f bhB = null;
+    private String bhD;
+    private ArrayList<CustomMessageListener> bhC = new ArrayList<>();
+    private com.baidu.adp.framework.listener.e ayS = new g(this, 202006);
+    private CustomMessageListener bhE = new h(this, 0);
 
-    public static synchronized f Rn() {
+    public static synchronized f Rq() {
         f fVar;
         synchronized (f.class) {
-            if (bhn == null) {
-                bhn = new f();
+            if (bhB == null) {
+                bhB = new f();
             }
-            fVar = bhn;
+            fVar = bhB;
         }
         return fVar;
     }
 
     public void open() {
-        Ro();
+        Rr();
     }
 
     private f() {
     }
 
-    private void Ro() {
-        MessageManager.getInstance().registerListener(this.ayJ);
-        MessageManager.getInstance().registerListener(2016014, this.bhq);
-        MessageManager.getInstance().registerListener(103004, this.bhq);
+    private void Rr() {
+        MessageManager.getInstance().registerListener(this.ayS);
+        MessageManager.getInstance().registerListener(2016014, this.bhE);
+        MessageManager.getInstance().registerListener(103004, this.bhE);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -56,12 +56,12 @@ public class f {
                 TiebaStatic.imLog(202006, 0, "server push new", "PushNotifyManager-push_notify", "succ", 0, "", 0L, 0, "gid:" + valueOf);
                 if (!TextUtils.isEmpty(valueOf)) {
                     if (pushNotifyMessage.getGroupType() == 0) {
-                        com.baidu.tieba.im.c.b.Qv().b(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
+                        com.baidu.tieba.im.c.b.Qy().b(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
                         return;
                     }
                     int fX = com.baidu.tieba.im.c.a.fX(pushNotifyMessage.getGroupType());
-                    if (com.baidu.tieba.im.memorycache.c.PK().B(String.valueOf(pushNotifyMessage.getGroupId()), fX) != null) {
-                        com.baidu.tieba.im.c.b.Qv().b(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
+                    if (com.baidu.tieba.im.memorycache.c.PN().B(String.valueOf(pushNotifyMessage.getGroupId()), fX) != null) {
+                        com.baidu.tieba.im.c.b.Qy().b(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
                     } else {
                         a(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), fX);
                     }
@@ -80,11 +80,11 @@ public class f {
         }
     }
 
-    public String Rp() {
-        return this.bhp;
+    public String Rs() {
+        return this.bhD;
     }
 
     public void gz(String str) {
-        this.bhp = str;
+        this.bhD = str;
     }
 }

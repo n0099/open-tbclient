@@ -112,6 +112,7 @@ public class Plugin {
                 PluginLogger.logSuccess(PluginLogger.WORKFLOW_NODE_GETINSTANCE, this.mName);
                 return p;
             } catch (Throwable th) {
+                th.printStackTrace();
                 if (!validateFile()) {
                     PluginLogger.logFailure(PluginLogger.WORKFLOW_NODE_GETINSTANCE, String.valueOf(th.getClass().getName()) + " file not exist", this.mName);
                     return null;

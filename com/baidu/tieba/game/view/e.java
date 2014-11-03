@@ -19,20 +19,20 @@ import com.baidu.tieba.t;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class e extends View {
-    private int aKk;
-    private int aKl;
-    private int aKm;
-    private int aKn;
-    private int aKo;
-    private int aKp;
-    private RectF aKq;
-    private RectF aKr;
-    private int aKs;
-    private Bitmap aKt;
-    private Bitmap aKu;
-    private Rect aKv;
-    private Rect aKw;
-    private boolean aKx;
+    private int aKA;
+    private int aKB;
+    private int aKC;
+    private int aKD;
+    private RectF aKE;
+    private RectF aKF;
+    private int aKG;
+    private Bitmap aKH;
+    private Bitmap aKI;
+    private Rect aKJ;
+    private Rect aKK;
+    private boolean aKL;
+    private int aKy;
+    private int aKz;
     private Paint gs;
     private int mHeight;
     private Scroller mScroller;
@@ -60,19 +60,19 @@ public class e extends View {
         this.gs.setStyle(Paint.Style.STROKE);
         this.gs.setColor(aw.getColor(s.cp_link_tip_a));
         this.gs.setAntiAlias(true);
-        this.aKo = m.c(context, t.ds24);
+        this.aKC = m.c(context, t.ds24);
         if (displayMetrics.widthPixels == 540) {
-            this.aKp = m.c(context, t.ds2);
+            this.aKD = m.c(context, t.ds2);
         } else {
-            this.aKp = 3;
+            this.aKD = 3;
         }
-        this.aKs = m.c(context, t.ds4);
-        this.aKt = aw.bA(u.icon_game_download_pause);
-        this.aKu = aw.bA(u.icon_game_download_play);
-        this.aKv = new Rect();
-        this.aKw = new Rect();
-        this.aKq = new RectF();
-        this.aKr = new RectF();
+        this.aKG = m.c(context, t.ds4);
+        this.aKH = aw.bA(u.icon_game_download_pause);
+        this.aKI = aw.bA(u.icon_game_download_play);
+        this.aKJ = new Rect();
+        this.aKK = new Rect();
+        this.aKE = new RectF();
+        this.aKF = new RectF();
     }
 
     @Override // android.view.View
@@ -80,12 +80,12 @@ public class e extends View {
         super.onLayout(z, i, i2, i3, i4);
         this.mWidth = getWidth();
         this.mHeight = getHeight();
-        this.aKm = this.mWidth / 2;
-        this.aKn = this.mHeight / 2;
-        this.aKv.set(this.aKm - (this.aKt.getWidth() / 2), this.aKn - (this.aKt.getHeight() / 2), this.aKm + (this.aKt.getWidth() / 2), this.aKn + (this.aKt.getHeight() / 2));
-        this.aKw.set(this.aKm - (this.aKu.getWidth() / 2), this.aKn - (this.aKu.getHeight() / 2), this.aKm + (this.aKu.getWidth() / 2), this.aKn + (this.aKu.getHeight() / 2));
-        this.aKq.set((this.aKm - this.aKo) + this.aKp, (this.aKn - this.aKo) + this.aKp, (this.aKm + this.aKo) - this.aKp, (this.aKn + this.aKo) - this.aKp);
-        this.aKr.set(this.aKm - this.aKo, this.aKn - this.aKo, this.aKm + this.aKo, this.aKn + this.aKo);
+        this.aKA = this.mWidth / 2;
+        this.aKB = this.mHeight / 2;
+        this.aKJ.set(this.aKA - (this.aKH.getWidth() / 2), this.aKB - (this.aKH.getHeight() / 2), this.aKA + (this.aKH.getWidth() / 2), this.aKB + (this.aKH.getHeight() / 2));
+        this.aKK.set(this.aKA - (this.aKI.getWidth() / 2), this.aKB - (this.aKI.getHeight() / 2), this.aKA + (this.aKI.getWidth() / 2), this.aKB + (this.aKI.getHeight() / 2));
+        this.aKE.set((this.aKA - this.aKC) + this.aKD, (this.aKB - this.aKC) + this.aKD, (this.aKA + this.aKC) - this.aKD, (this.aKB + this.aKC) - this.aKD);
+        this.aKF.set(this.aKA - this.aKC, this.aKB - this.aKC, this.aKA + this.aKC, this.aKB + this.aKC);
     }
 
     @Override // android.view.View
@@ -109,54 +109,54 @@ public class e extends View {
     @Override // android.view.View
     public void computeScroll() {
         super.computeScroll();
-        if (this.aKx) {
+        if (this.aKL) {
             if (this.mScroller.computeScrollOffset()) {
-                this.aKl = this.mScroller.getCurrX();
+                this.aKz = this.mScroller.getCurrX();
                 invalidate();
                 return;
             }
-            Iq();
+            Iu();
         }
     }
 
     public void w(float f) {
-        this.aKk = (int) (360.0f * f);
+        this.aKy = (int) (360.0f * f);
     }
 
-    public void Iq() {
+    public void Iu() {
         this.mScroller.startScroll(0, 0, 360, 0, 1000);
         invalidate();
-        this.aKx = true;
+        this.aKL = true;
     }
 
-    public void Ir() {
-        this.aKx = false;
+    public void Iv() {
+        this.aKL = false;
         if (this.mScroller.computeScrollOffset()) {
             this.mScroller.abortAnimation();
         }
     }
 
     private void c(Canvas canvas) {
-        this.gs.setStrokeWidth(this.aKp);
-        canvas.drawCircle(this.aKm, this.aKn, this.aKo, this.gs);
-        this.gs.setStrokeWidth(this.aKs);
-        canvas.drawArc(this.aKq, 270.0f, this.aKk, false, this.gs);
-        canvas.drawBitmap(this.aKt, (Rect) null, this.aKv, this.gs);
+        this.gs.setStrokeWidth(this.aKD);
+        canvas.drawCircle(this.aKA, this.aKB, this.aKC, this.gs);
+        this.gs.setStrokeWidth(this.aKG);
+        canvas.drawArc(this.aKE, 270.0f, this.aKy, false, this.gs);
+        canvas.drawBitmap(this.aKH, (Rect) null, this.aKJ, this.gs);
     }
 
     private void d(Canvas canvas) {
-        this.gs.setStrokeWidth(this.aKp);
-        canvas.drawCircle(this.aKm, this.aKn, this.aKo, this.gs);
-        this.gs.setStrokeWidth(this.aKs);
-        canvas.drawArc(this.aKq, 270.0f, this.aKk, false, this.gs);
-        canvas.drawBitmap(this.aKu, (Rect) null, this.aKw, this.gs);
+        this.gs.setStrokeWidth(this.aKD);
+        canvas.drawCircle(this.aKA, this.aKB, this.aKC, this.gs);
+        this.gs.setStrokeWidth(this.aKG);
+        canvas.drawArc(this.aKE, 270.0f, this.aKy, false, this.gs);
+        canvas.drawBitmap(this.aKI, (Rect) null, this.aKK, this.gs);
     }
 
     private void e(Canvas canvas) {
         canvas.save();
-        canvas.rotate(this.aKl, this.aKm, this.aKn);
-        this.gs.setStrokeWidth(this.aKp);
-        canvas.drawArc(this.aKr, 210.0f, 330.0f, false, this.gs);
+        canvas.rotate(this.aKz, this.aKA, this.aKB);
+        this.gs.setStrokeWidth(this.aKD);
+        canvas.drawArc(this.aKF, 210.0f, 330.0f, false, this.gs);
         canvas.restore();
     }
 }

@@ -3,11 +3,11 @@ package com.baidu.tieba.im.groupUpdates;
 import android.view.View;
 /* loaded from: classes.dex */
 class j implements View.OnClickListener {
-    final /* synthetic */ i bcg;
+    final /* synthetic */ i bcu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar) {
-        this.bcg = iVar;
+        this.bcu = iVar;
     }
 
     @Override // android.view.View.OnClickListener

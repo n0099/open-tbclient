@@ -5,11 +5,11 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 class cz implements com.baidu.adp.lib.guide.b {
-    final /* synthetic */ PersonalChatActivity aPI;
+    final /* synthetic */ PersonalChatActivity aPW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cz(PersonalChatActivity personalChatActivity) {
-        this.aPI = personalChatActivity;
+        this.aPW = personalChatActivity;
     }
 
     @Override // com.baidu.adp.lib.guide.b

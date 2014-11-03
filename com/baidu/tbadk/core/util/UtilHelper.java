@@ -76,7 +76,7 @@ public class UtilHelper {
         FRS,
         PB;
 
-        /* JADX DEBUG: Replace access to removed values field (Fv) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (Fw) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static NativePageType[] valuesCustom() {
             NativePageType[] valuesCustom = values();
@@ -94,7 +94,7 @@ public class UtilHelper {
         TwoG,
         ThreeG;
 
-        /* JADX DEBUG: Replace access to removed values field (Fw) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (Fx) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static NetworkStateInfo[] valuesCustom() {
             NetworkStateInfo[] valuesCustom = values();
@@ -232,7 +232,7 @@ public class UtilHelper {
     }
 
     public static void quitDialog(Activity activity) {
-        com.baidu.adp.lib.g.j.a(new AlertDialog.Builder(activity).setTitle(com.baidu.tieba.y.alert_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.y.alert_quit_confirm).setPositiveButton(com.baidu.tieba.y.alert_yes_button, new bk(activity)).setNegativeButton(com.baidu.tieba.y.alert_no_button, new bl()).create(), activity);
+        com.baidu.adp.lib.g.j.a(new AlertDialog.Builder(activity).setTitle(com.baidu.tieba.y.alert_title).setIcon((Drawable) null).setCancelable(false).setMessage(com.baidu.tieba.y.alert_quit_confirm).setPositiveButton(com.baidu.tieba.y.alert_yes_button, new bl(activity)).setNegativeButton(com.baidu.tieba.y.alert_no_button, new bm()).create(), activity);
     }
 
     public static String getIpFromDomain(String str) {
@@ -463,7 +463,7 @@ public class UtilHelper {
                 int intExtra7 = intent.getIntExtra("live_notify_msg_updates", 0);
                 int intExtra8 = intent.getIntExtra("officialbar_msg", 0);
                 int intExtra9 = intent.getIntExtra("KeyOfNotiId", 16);
-                com.baidu.tbadk.coreExtra.messageCenter.a.oB().a(com.baidu.tbadk.coreExtra.messageCenter.a.oB().getMsgReplyme(), com.baidu.tbadk.coreExtra.messageCenter.a.oB().getMsgAtme(), com.baidu.tbadk.coreExtra.messageCenter.a.oB().oS(), com.baidu.tbadk.coreExtra.messageCenter.a.oB().getMsgFans(), com.baidu.tbadk.coreExtra.messageCenter.a.oB().getMsgGiftNum());
+                com.baidu.tbadk.coreExtra.messageCenter.a.oD().a(com.baidu.tbadk.coreExtra.messageCenter.a.oD().getMsgReplyme(), com.baidu.tbadk.coreExtra.messageCenter.a.oD().getMsgAtme(), com.baidu.tbadk.coreExtra.messageCenter.a.oD().oU(), com.baidu.tbadk.coreExtra.messageCenter.a.oD().getMsgFans(), com.baidu.tbadk.coreExtra.messageCenter.a.oD().getMsgGiftNum());
                 boolean z3 = intExtra3 > 0 || intExtra6 > 0 || intExtra5 > 0 || intExtra4 > 0 || intExtra8 > 0 || intExtra7 > 0;
                 boolean z4 = intExtra2 > 0 || intExtra > 0;
                 if (z3 && intExtra9 != 11) {
@@ -716,16 +716,16 @@ public class UtilHelper {
         }
     }
 
-    public static bm isNativeAddress(String str) {
-        bm bmVar = new bm();
-        if (str != null && !ay.aA(str)) {
+    public static bn isNativeAddress(String str) {
+        bn bnVar = new bn();
+        if (str != null && !az.aA(str)) {
             Matcher matcher = pbPattern0.matcher(str);
             if (matcher.find()) {
                 try {
                     String group = matcher.group(2);
                     if (!TextUtils.isEmpty(group)) {
-                        bmVar.id = group;
-                        bmVar.Fu = NativePageType.PB;
+                        bnVar.id = group;
+                        bnVar.Fv = NativePageType.PB;
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -736,8 +736,8 @@ public class UtilHelper {
                 try {
                     String group2 = matcher2.group(2);
                     if (!TextUtils.isEmpty(group2)) {
-                        bmVar.id = group2;
-                        bmVar.Fu = NativePageType.PB;
+                        bnVar.id = group2;
+                        bnVar.Fv = NativePageType.PB;
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -748,15 +748,15 @@ public class UtilHelper {
                 try {
                     String group3 = matcher3.group(2);
                     if (!TextUtils.isEmpty(group3)) {
-                        bmVar.id = group3;
-                        bmVar.Fu = NativePageType.FRS;
+                        bnVar.id = group3;
+                        bnVar.Fv = NativePageType.FRS;
                     }
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }
             }
         }
-        return bmVar;
+        return bnVar;
     }
 
     public static boolean isSystemLocationProviderEnabled(Context context) {

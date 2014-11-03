@@ -14,12 +14,12 @@ import com.baidu.tieba.aj;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<Object, Integer, String> {
-    final /* synthetic */ DailyClassicalActivity bHR;
-    private String boq;
+    final /* synthetic */ DailyClassicalActivity bIf;
+    private String boE;
     private ac mNetWork;
 
     private c(DailyClassicalActivity dailyClassicalActivity) {
-        this.bHR = dailyClassicalActivity;
+        this.bIf = dailyClassicalActivity;
         this.mNetWork = null;
     }
 
@@ -36,31 +36,31 @@ public class c extends BdAsyncTask<Object, Integer, String> {
         boolean z;
         long j;
         this.mNetWork = new ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/tag/gettogether");
-        this.mNetWork.mc().na().nd().Gm = false;
+        this.mNetWork.mc().na().nd().Gn = false;
         if (TbadkApplication.m251getInst().getSkinType() == 1) {
             this.mNetWork.k("night_type", "1");
         }
         ac acVar = this.mNetWork;
-        str = this.bHR.bHQ;
+        str = this.bIf.bIe;
         acVar.k("pn", str);
         this.mNetWork.k("_version_more", "1");
         this.mNetWork.k("platform", "android");
-        z = DailyClassicalActivity.bHP;
+        z = DailyClassicalActivity.bId;
         if (z) {
-            DailyClassicalActivity.bHP = false;
+            DailyClassicalActivity.bId = false;
             this.mNetWork.k("msg_click", "1");
             ac acVar2 = this.mNetWork;
-            j = DailyClassicalActivity.bwJ;
+            j = DailyClassicalActivity.bwX;
             acVar2.k("message_id", String.valueOf(j));
         }
         Address address = com.baidu.adp.lib.d.a.dE().getAddress(false);
-        if (address != null && aj.wk().wu()) {
+        if (address != null && aj.wm().ww()) {
             this.mNetWork.k("lbs", String.valueOf(String.valueOf(address.getLatitude())) + "," + String.valueOf(address.getLongitude()));
         }
         try {
-            this.boq = this.mNetWork.lA();
+            this.boE = this.mNetWork.lA();
             if (this.mNetWork.mf()) {
-                return this.boq;
+                return this.boE;
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -73,7 +73,7 @@ public class c extends BdAsyncTask<Object, Integer, String> {
         if (this.mNetWork != null) {
             this.mNetWork.dM();
         }
-        this.bHR.aRl = false;
+        this.bIf.aRz = false;
         super.cancel(true);
     }
 
@@ -89,27 +89,27 @@ public class c extends BdAsyncTask<Object, Integer, String> {
         BaseWebView baseWebView2;
         TextView textView2;
         BaseWebView baseWebView3;
-        this.bHR.bHK = null;
-        linearLayout = this.bHR.bHJ;
+        this.bIf.bHY = null;
+        linearLayout = this.bIf.bHX;
         linearLayout.setOnClickListener(null);
         if (this.mNetWork != null && this.mNetWork.mf() && str != null && str.length() > 0) {
-            baseWebView2 = this.bHR.mWebView;
+            baseWebView2 = this.bIf.mWebView;
             baseWebView2.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, "text/html", "utf-8", "");
-            textView2 = this.bHR.bHN;
+            textView2 = this.bIf.bIb;
             textView2.setVisibility(8);
-            baseWebView3 = this.bHR.mWebView;
+            baseWebView3 = this.bIf.mWebView;
             baseWebView3.setVisibility(0);
         } else {
-            this.bHR.bHM = false;
-            textView = this.bHR.bHN;
+            this.bIf.bIa = false;
+            textView = this.bIf.bIb;
             textView.setVisibility(0);
-            baseWebView = this.bHR.mWebView;
+            baseWebView = this.bIf.mWebView;
             baseWebView.setVisibility(8);
-            linearLayout2 = this.bHR.bHJ;
-            onClickListener = this.bHR.bHI;
+            linearLayout2 = this.bIf.bHX;
+            onClickListener = this.bIf.bHW;
             linearLayout2.setOnClickListener(onClickListener);
         }
-        this.bHR.bHL = true;
-        this.bHR.abG();
+        this.bIf.bHZ = true;
+        this.bIf.abJ();
     }
 }

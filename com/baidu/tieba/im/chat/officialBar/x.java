@@ -4,20 +4,20 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
 class x extends com.baidu.tieba.im.b<Void> {
-    private final /* synthetic */ UserData aPJ;
-    final /* synthetic */ OfficialBarChatActivity aRf;
+    private final /* synthetic */ UserData aPX;
+    final /* synthetic */ OfficialBarChatActivity aRt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(OfficialBarChatActivity officialBarChatActivity, UserData userData) {
-        this.aRf = officialBarChatActivity;
-        this.aPJ = userData;
+        this.aRt = officialBarChatActivity;
+        this.aPX = userData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.b
-    /* renamed from: Kb */
+    /* renamed from: Kf */
     public Void doInBackground() {
-        ax.KA().a(TbadkApplication.getCurrentAccount(), OfficialBarChatActivity.ZG, this.aPJ);
+        ax.KE().a(TbadkApplication.getCurrentAccount(), OfficialBarChatActivity.ZK, this.aPX);
         return null;
     }
 }

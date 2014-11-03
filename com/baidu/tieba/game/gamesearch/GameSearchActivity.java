@@ -34,30 +34,30 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class GameSearchActivity extends BaseActivity implements aa {
-    private o aJA;
-    private String aJB;
-    private boolean aJD;
-    private List<GameInfoData> aJE;
-    private BdListView aJn;
-    private View aJv;
-    private NavigationBar aJw;
-    private EditText aJx;
-    private TextView aJy;
-    private j aJz;
-    private NoNetworkView ank;
+    private BdListView aJA;
+    private View aJI;
+    private NavigationBar aJJ;
+    private EditText aJK;
+    private TextView aJL;
+    private j aJM;
+    private o aJN;
+    private String aJO;
+    private boolean aJQ;
+    private List<GameInfoData> aJR;
+    private NoNetworkView ant;
     private boolean mHasMore;
-    private int aJC = 0;
+    private int aJP = 0;
     private int rn = 20;
-    private com.baidu.adp.framework.listener.a aJF = new a(this, CmdConfigHttp.MSG_GAME_SEARCH_CMD, 303019);
-    View.OnClickListener aJG = new b(this);
+    private com.baidu.adp.framework.listener.a aJS = new a(this, CmdConfigHttp.MSG_GAME_SEARCH_CMD, 303019);
+    View.OnClickListener aJT = new b(this);
 
     static {
         TbadkApplication.m251getInst().RegisterIntent(GameSearchActivityConfig.class, GameSearchActivity.class);
-        Ia();
+        Ie();
         ai.b(303019, GameSearchSocketResponse.class, false);
     }
 
-    private static void Ia() {
+    private static void Ie() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_GAME_SEARCH_CMD, ai.s(TbConfig.GAME_SEARCH_RESULT, 303019));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
@@ -72,41 +72,41 @@ public class GameSearchActivity extends BaseActivity implements aa {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(w.game_search_activity);
-        rY();
-        Ib();
+        sa();
+        If();
         this.mHandler.postDelayed(new c(this), 300L);
     }
 
-    private void rY() {
-        this.aJv = findViewById(v.game_search_parent);
-        Hf();
-        this.ank = (NoNetworkView) findViewById(v.view_no_network);
-        this.aJn = (BdListView) findViewById(v.list_game_search);
-        this.aJz = new j(this);
-        this.aJz.p(this.aJG);
-        this.aJn.setAdapter((ListAdapter) this.aJz);
-        this.aJn.setOnSrollToBottomListener(this);
-        this.aJn.setOnItemClickListener(this);
-        this.aJn.setOnTouchListener(new d(this));
-        this.aJA = NoDataViewFactory.a(this, this.aJv, r.a(NoDataViewFactory.ImgType.NODATA), s.bL(y.text_no_search_result), null);
-        this.aJA.setVisibility(0);
-        this.aJA.setOnTouchListener(new e(this));
+    private void sa() {
+        this.aJI = findViewById(v.game_search_parent);
+        Hh();
+        this.ant = (NoNetworkView) findViewById(v.view_no_network);
+        this.aJA = (BdListView) findViewById(v.list_game_search);
+        this.aJM = new j(this);
+        this.aJM.p(this.aJT);
+        this.aJA.setAdapter((ListAdapter) this.aJM);
+        this.aJA.setOnSrollToBottomListener(this);
+        this.aJA.setOnItemClickListener(this);
+        this.aJA.setOnTouchListener(new d(this));
+        this.aJN = NoDataViewFactory.a(this, this.aJI, r.a(NoDataViewFactory.ImgType.NODATA), s.bL(y.text_no_search_result), null);
+        this.aJN.setVisibility(0);
+        this.aJN.setOnTouchListener(new e(this));
     }
 
-    private void Hf() {
-        this.aJw = (NavigationBar) findViewById(v.view_navigation_bar);
-        this.aJw.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new f(this));
-        View addCustomView = this.aJw.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, w.game_search_navigation, (View.OnClickListener) null);
-        this.aJx = (EditText) addCustomView.findViewById(v.game_search_input);
-        this.aJx.addTextChangedListener(new i(this, null));
-        this.aJx.setOnFocusChangeListener(new g(this));
-        this.aJy = (TextView) addCustomView.findViewById(v.game_search_delete_button);
-        m.a(this, this.aJy, 10, 10, 10, 10);
-        this.aJy.setOnClickListener(new h(this));
+    private void Hh() {
+        this.aJJ = (NavigationBar) findViewById(v.view_navigation_bar);
+        this.aJJ.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new f(this));
+        View addCustomView = this.aJJ.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, w.game_search_navigation, (View.OnClickListener) null);
+        this.aJK = (EditText) addCustomView.findViewById(v.game_search_input);
+        this.aJK.addTextChangedListener(new i(this, null));
+        this.aJK.setOnFocusChangeListener(new g(this));
+        this.aJL = (TextView) addCustomView.findViewById(v.game_search_delete_button);
+        m.a(this, this.aJL, 10, 10, 10, 10);
+        this.aJL.setOnClickListener(new h(this));
     }
 
-    private void Ib() {
-        registerListener(this.aJF);
+    private void If() {
+        registerListener(this.aJS);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -116,31 +116,31 @@ public class GameSearchActivity extends BaseActivity implements aa {
 
     @Override // com.baidu.adp.widget.ListView.aa
     public void hQ() {
-        Ic();
+        Ig();
     }
 
-    public void Ic() {
-        if (!this.aJD && this.mHasMore) {
-            this.aJD = true;
+    public void Ig() {
+        if (!this.aJQ && this.mHasMore) {
+            this.aJQ = true;
             GameSearchNetMessage gameSearchNetMessage = new GameSearchNetMessage();
-            gameSearchNetMessage.setQuery(this.aJB);
+            gameSearchNetMessage.setQuery(this.aJO);
             gameSearchNetMessage.setRn(Integer.valueOf(this.rn));
-            gameSearchNetMessage.setPageNum(Integer.valueOf(this.aJC + 1));
+            gameSearchNetMessage.setPageNum(Integer.valueOf(this.aJP + 1));
             sendMessage(gameSearchNetMessage);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (this.aJz.getItemViewType(i) != 1) {
+        if (this.aJM.getItemViewType(i) != 1) {
             if (!UtilHelper.isNetOk()) {
                 showToast(y.neterror);
                 return;
             }
-            GameInfoData item = this.aJz.getItem(i);
+            GameInfoData item = this.aJM.getItem(i);
             if (item != null) {
                 sendMessage(new CustomMessage(2002001, new GameDetailActivityConfig(this, item.getGameId(), "3000901")));
-                com.baidu.tieba.game.a.a.Ij().a(view, item);
+                com.baidu.tieba.game.a.a.In().a(getUniqueId(), view, item);
             }
         }
     }
@@ -148,22 +148,22 @@ public class GameSearchActivity extends BaseActivity implements aa {
     /* JADX INFO: Access modifiers changed from: private */
     public void I(List<GameInfoData> list) {
         if (list != null) {
-            if (this.aJE == null) {
-                this.aJE = new ArrayList();
+            if (this.aJR == null) {
+                this.aJR = new ArrayList();
             }
-            if (this.aJC == 1) {
-                Id();
+            if (this.aJP == 1) {
+                Ih();
             }
-            this.aJE.addAll(list);
-            if (this.aJE.size() > 0) {
-                this.aJn.setVisibility(0);
-                this.aJA.setVisibility(8);
-                this.aJz.setData(this.aJE);
-                this.aJz.notifyDataSetChanged();
+            this.aJR.addAll(list);
+            if (this.aJR.size() > 0) {
+                this.aJA.setVisibility(0);
+                this.aJN.setVisibility(8);
+                this.aJM.setData(this.aJR);
+                this.aJM.notifyDataSetChanged();
                 return;
             }
-            this.aJn.setVisibility(8);
-            this.aJA.setVisibility(0);
+            this.aJA.setVisibility(8);
+            this.aJN.setVisibility(0);
         }
     }
 
@@ -179,11 +179,11 @@ public class GameSearchActivity extends BaseActivity implements aa {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Id() {
-        if (this.aJE != null) {
-            this.aJE.clear();
+    public void Ih() {
+        if (this.aJR != null) {
+            this.aJR.clear();
         } else {
-            this.aJE = new ArrayList();
+            this.aJR = new ArrayList();
         }
     }
 
@@ -192,11 +192,11 @@ public class GameSearchActivity extends BaseActivity implements aa {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getLayoutMode().L(i == 1);
-        getLayoutMode().h(this.aJv);
-        this.aJw.onChangeSkinType(i);
-        this.ank.onChangeSkinType(i);
-        if (this.aJA != null) {
-            this.aJA.onChangeSkinType(i);
+        getLayoutMode().h(this.aJI);
+        this.aJJ.onChangeSkinType(i);
+        this.ant.onChangeSkinType(i);
+        if (this.aJN != null) {
+            this.aJN.onChangeSkinType(i);
         }
     }
 }

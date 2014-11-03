@@ -6,9 +6,8 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.PluginDownloadActivityConfig;
 import com.baidu.tbadk.pluginArch.PluginCenter;
 import com.baidu.tbadk.pluginArch.PluginNameList;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements View.OnClickListener {
+class z implements View.OnClickListener {
     final /* synthetic */ WebTbActivity xR;
 
     /* JADX INFO: Access modifiers changed from: package-private */

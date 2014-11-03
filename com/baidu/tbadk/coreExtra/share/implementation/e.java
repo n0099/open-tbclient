@@ -3,11 +3,11 @@ package com.baidu.tbadk.coreExtra.share.implementation;
 import com.baidu.tbadk.coreExtra.share.h;
 /* loaded from: classes.dex */
 class e implements b {
-    final /* synthetic */ d Nm;
+    final /* synthetic */ d Nq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.Nm = dVar;
+        this.Nq = dVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.share.implementation.b
@@ -15,9 +15,9 @@ class e implements b {
         a aVar;
         h hVar;
         int i;
-        aVar = this.Nm.Nl;
-        hVar = this.Nm.Nj;
-        i = this.Nm.Nk;
+        aVar = this.Nq.Np;
+        hVar = this.Nq.Nn;
+        i = this.Nq.No;
         aVar.a(hVar, i, false);
     }
 }

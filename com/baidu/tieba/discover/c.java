@@ -13,8 +13,8 @@ class c extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2009501 && customResponsedMessage.getData() != null) {
-            a.ant = (com.baidu.tbadk.b.a) customResponsedMessage.getData();
-            a.AK();
+            a.anC = (com.baidu.tbadk.b.a) customResponsedMessage.getData();
+            a.AM();
         }
     }
 }

@@ -10,11 +10,11 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.FacePackageDetailActivityConfig;
 /* loaded from: classes.dex */
 public class FacePurchaseRecordsActivity extends BaseActivity {
-    private String aok;
-    private bb aub;
-    private az auc;
+    private String aot;
+    private bb auk;
+    private az aul;
     private com.baidu.adp.base.h mLoadDataCallBack = new at(this);
-    private com.baidu.tbadk.core.view.u ati = new au(this);
+    private com.baidu.tbadk.core.view.u atr = new au(this);
 
     public static void startActivity(Context context, String str) {
         Intent intent = new Intent(context, FacePurchaseRecordsActivity.class);
@@ -32,21 +32,21 @@ public class FacePurchaseRecordsActivity extends BaseActivity {
     }
 
     private void initUI() {
-        this.aub = new bb(this);
-        this.aub.b(new av(this));
-        this.aub.a(this);
-        CS();
+        this.auk = new bb(this);
+        this.auk.b(new av(this));
+        this.auk.a(this);
+        CU();
     }
 
     private void d(Bundle bundle) {
-        this.auc = new az(this);
+        this.aul = new az(this);
         if (bundle != null) {
-            this.aok = bundle.getString("st_type");
+            this.aot = bundle.getString("st_type");
         } else {
-            this.aok = getIntent().getStringExtra("st_type");
+            this.aot = getIntent().getStringExtra("st_type");
         }
-        this.auc.setStType(this.aok);
-        this.auc.setLoadDataCallBack(this.mLoadDataCallBack);
+        this.aul.setStType(this.aot);
+        this.aul.setLoadDataCallBack(this.mLoadDataCallBack);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -55,23 +55,23 @@ public class FacePurchaseRecordsActivity extends BaseActivity {
             if (z) {
                 showProgressBar();
             }
-            this.auc.yh();
+            this.aul.yj();
             return;
         }
-        this.aub.Dv();
+        this.auk.Dx();
     }
 
-    private void CS() {
-        this.aub.c(this.ati);
+    private void CU() {
+        this.auk.c(this.atr);
     }
 
-    private void CT() {
-        this.aub.d(this.ati);
+    private void CV() {
+        this.auk.d(this.atr);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        bundle.putString("st_type", this.aok);
+        bundle.putString("st_type", this.aot);
         super.onSaveInstanceState(bundle);
     }
 
@@ -84,25 +84,25 @@ public class FacePurchaseRecordsActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        if (this.aub != null) {
-            this.aub.onChangeSkinType(i);
+        if (this.auk != null) {
+            this.auk.onChangeSkinType(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.auc != null) {
-            this.auc.cancelLoadData();
+        if (this.aul != null) {
+            this.aul.cancelLoadData();
         }
-        CT();
+        CV();
         super.onDestroy();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         FacePurchasePackageData facePurchasePackageData;
-        if (this.aub != null && this.aub.Du() != null && (facePurchasePackageData = (FacePurchasePackageData) this.aub.Du().getItem(i)) != null) {
+        if (this.auk != null && this.auk.Dw() != null && (facePurchasePackageData = (FacePurchasePackageData) this.auk.Dw().getItem(i)) != null) {
             sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(this, String.valueOf(facePurchasePackageData.pid), false, "purchase_record")));
             super.onItemClick(adapterView, view, i, j);
         }

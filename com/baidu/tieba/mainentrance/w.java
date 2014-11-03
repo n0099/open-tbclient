@@ -3,11 +3,11 @@ package com.baidu.tieba.mainentrance;
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
 class w implements DialogInterface.OnClickListener {
-    final /* synthetic */ t bmP;
+    final /* synthetic */ t bnd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(t tVar) {
-        this.bmP = tVar;
+        this.bnd = tVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener

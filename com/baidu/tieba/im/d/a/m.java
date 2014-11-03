@@ -4,7 +4,6 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.im.chat.officialBar.RequestLocalHistoryMessage;
 import com.baidu.tieba.im.chat.officialBar.ResponseLocalHistoryMessage;
 import com.baidu.tieba.im.chat.officialBar.az;
@@ -33,7 +32,7 @@ public class m implements CustomMessageTask.CustomRunnable<String> {
                     if (msgInfo != null) {
                         Date date = new Date();
                         date.setTime(msgInfo.sendTime.longValue() * 1000);
-                        azVar.time = ay.c(date);
+                        azVar.time = com.baidu.tbadk.core.util.az.c(date);
                         azVar.type = msgInfo.type.intValue();
                         azVar.content = msgInfo.content;
                         azVar.id = msgInfo.id.intValue();

@@ -3,11 +3,11 @@ package com.baidu.tieba.pb.main;
 import java.util.Comparator;
 /* loaded from: classes.dex */
 class bk implements Comparator<Integer> {
-    final /* synthetic */ bh bvG;
+    final /* synthetic */ bh bvU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bk(bh bhVar) {
-        this.bvG = bhVar;
+        this.bvU = bhVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

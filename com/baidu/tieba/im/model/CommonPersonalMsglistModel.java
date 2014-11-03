@@ -89,7 +89,7 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public long getMaxMid() {
-        return c.PK().F(String.valueOf(w.aNF), -1);
+        return c.PN().F(String.valueOf(w.aNT), -1);
     }
 
     public void setUser(UserData userData) {

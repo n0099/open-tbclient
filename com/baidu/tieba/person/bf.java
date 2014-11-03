@@ -6,23 +6,23 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bf implements View.OnLongClickListener {
-    final /* synthetic */ PersonImageActivity bCI;
+    final /* synthetic */ PersonImageActivity bCW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bf(PersonImageActivity personImageActivity) {
-        this.bCI = personImageActivity;
+        this.bCW = personImageActivity;
     }
 
     @Override // android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
         Context context;
         DialogInterface.OnClickListener onClickListener;
-        context = this.bCI.mContext;
+        context = this.bCW.mContext;
         String[] strArr = {context.getString(com.baidu.tieba.y.save)};
-        PersonImageActivity personImageActivity = this.bCI;
-        onClickListener = this.bCI.aNs;
+        PersonImageActivity personImageActivity = this.bCW;
+        onClickListener = this.bCW.aNG;
         personImageActivity.createListMenu(strArr, onClickListener);
-        this.bCI.showListMenu();
+        this.bCW.showListMenu();
         return false;
     }
 }

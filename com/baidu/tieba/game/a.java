@@ -20,7 +20,7 @@ public class a implements com.baidu.tieba.square.y {
         return this;
     }
 
-    public String Hc() {
+    public String He() {
         return this.ad_link_android;
     }
 

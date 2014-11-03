@@ -1,56 +1,35 @@
 package com.baidu.tieba.game;
 
-import android.content.Context;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import android.graphics.Rect;
+import android.widget.AbsListView;
+import com.baidu.tieba.square.CarouselRecommendView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bn extends com.baidu.adp.base.e {
-    private bq aJe;
+public class bn implements AbsListView.OnScrollListener {
+    final /* synthetic */ bj aJs;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public bn(Context context) {
-        super(context);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bn(bj bjVar) {
+        this.aJs = bjVar;
     }
 
-    public com.baidu.adp.framework.listener.a HK() {
-        return new bo(this, CmdConfigHttp.CMD_GET_MUTIL_GAME_LIST, 303015);
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
     }
 
-    public CustomMessageListener HL() {
-        return new bp(this, 2001240, true);
-    }
-
-    public static void HM() {
-        com.baidu.tieba.ai.a(303015, ResponseMutilGameSocketMessage.class, false, false);
-        com.baidu.tieba.ai.a(303015, CmdConfigHttp.CMD_GET_MUTIL_GAME_LIST, "c/u/game/getMutilGameList", ResponseMutilGameHttpMessage.class, false, false, false, false);
-    }
-
-    public void registerListener() {
-        registerListener(HK());
-        registerListener(HL());
-    }
-
-    public void HN() {
-        sendMessage(new RequestRecommendGameLocalMessage());
-    }
-
-    public void HO() {
-        RequestMutilGameNetMessage requestMutilGameNetMessage = new RequestMutilGameNetMessage();
-        requestMutilGameNetMessage.setType(1);
-        sendMessage(requestMutilGameNetMessage);
-    }
-
-    public void a(bq bqVar) {
-        this.aJe = bqVar;
-    }
-
-    @Override // com.baidu.adp.base.e
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.e
-    public boolean cancelLoadData() {
-        return false;
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        bo boVar;
+        boVar = this.aJs.aJl;
+        CarouselRecommendView advCarouselView = boVar.getAdvCarouselView();
+        if (advCarouselView != null) {
+            Rect rect = new Rect();
+            advCarouselView.getGlobalVisibleRect(rect);
+            if (rect.top > 0) {
+                advCarouselView.startMarqueen();
+            } else {
+                advCarouselView.stopMarqueen();
+            }
+        }
     }
 }

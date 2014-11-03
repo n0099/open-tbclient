@@ -12,48 +12,48 @@ import com.baidu.tbadk.core.view.TbCheckBox;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class j extends BaseAdapter {
-    private com.baidu.tbadk.core.view.w aVP;
-    private ArrayList<MetaData> aew;
-    private boolean bSH;
+    private com.baidu.tbadk.core.view.w aWd;
+    private ArrayList<MetaData> aeE;
+    private boolean bSW;
     private final Context mContext;
-    private l bSG = null;
-    private ViewGroup aVR = null;
+    private l bSV = null;
+    private ViewGroup aWf = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(l lVar) {
-        this.bSG = lVar;
+        this.bSV = lVar;
     }
 
     public j(Context context, boolean z) {
-        this.bSH = true;
+        this.bSW = true;
         this.mContext = context;
-        this.bSH = z;
+        this.bSW = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setData(ArrayList<MetaData> arrayList) {
-        this.aew = arrayList;
+        this.aeE = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(com.baidu.tbadk.core.view.w wVar) {
-        this.aVP = wVar;
+        this.aWd = wVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aew == null) {
+        if (this.aeE == null) {
             return 0;
         }
-        return this.aew.size();
+        return this.aeE.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: hE */
     public MetaData getItem(int i) {
-        if (this.aew != null && i < this.aew.size()) {
-            return this.aew.get(i);
+        if (this.aeE != null && i < this.aeE.size()) {
+            return this.aeE.get(i);
         }
         return null;
     }
@@ -66,8 +66,8 @@ public class j extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         k kVar;
-        if (this.aVR == null) {
-            this.aVR = viewGroup;
+        if (this.aWf == null) {
+            this.aWf = viewGroup;
         }
         MetaData item = getItem(i);
         if (item != null) {
@@ -76,7 +76,7 @@ public class j extends BaseAdapter {
             kVar = null;
         }
         if (kVar != null) {
-            return kVar.Xi;
+            return kVar.Xm;
         }
         return null;
     }
@@ -85,41 +85,41 @@ public class j extends BaseAdapter {
         k kVar;
         int skinType = TbadkApplication.m251getInst().getSkinType();
         if (obj == null) {
-            kVar = afb();
+            kVar = afe();
         } else {
             kVar = (k) obj;
         }
-        if (this.bSG != null) {
-            this.bSG.a(kVar.Xi, metaData);
+        if (this.bSV != null) {
+            this.bSV.a(kVar.Xm, metaData);
         }
         String portrait = metaData.getPortrait();
-        kVar.aEg.setText(metaData.getName_show());
-        kVar.aVT.setTagData(metaData);
-        kVar.aVw.setTag(portrait);
-        if (this.bSH) {
-            kVar.aVT.setVisibility(0);
+        kVar.aEq.setText(metaData.getName_show());
+        kVar.aWh.setTagData(metaData);
+        kVar.aVK.setTag(portrait);
+        if (this.bSW) {
+            kVar.aWh.setVisibility(0);
         } else {
-            kVar.aVT.setVisibility(8);
+            kVar.aWh.setVisibility(8);
         }
-        kVar.aVw.c(portrait, 12, false);
+        kVar.aVK.c(portrait, 12, false);
         if (this.mContext instanceof AtListActivity) {
             ((AtListActivity) this.mContext).getLayoutMode().L(skinType == 1);
-            ((AtListActivity) this.mContext).getLayoutMode().h(kVar.Xi);
+            ((AtListActivity) this.mContext).getLayoutMode().h(kVar.Xm);
         }
         return kVar;
     }
 
-    private k afb() {
+    private k afe() {
         k kVar = new k(this, null);
-        kVar.Xi = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.w.invite_friend_list_item, null);
-        kVar.aVw = (HeadImageView) kVar.Xi.findViewById(com.baidu.tieba.v.photo);
-        kVar.aVw.setIsRound(false);
-        kVar.aEg = (TextView) kVar.Xi.findViewById(com.baidu.tieba.v.txt_user_name);
-        kVar.aVT = (TbCheckBox) kVar.Xi.findViewById(com.baidu.tieba.v.ckb_select);
-        if (this.aVP != null) {
-            kVar.aVT.setStatedChangedListener(this.aVP);
+        kVar.Xm = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.w.invite_friend_list_item, null);
+        kVar.aVK = (HeadImageView) kVar.Xm.findViewById(com.baidu.tieba.v.photo);
+        kVar.aVK.setIsRound(false);
+        kVar.aEq = (TextView) kVar.Xm.findViewById(com.baidu.tieba.v.txt_user_name);
+        kVar.aWh = (TbCheckBox) kVar.Xm.findViewById(com.baidu.tieba.v.ckb_select);
+        if (this.aWd != null) {
+            kVar.aWh.setStatedChangedListener(this.aWd);
         }
-        kVar.Xi.setTag(kVar);
+        kVar.Xm.setTag(kVar);
         return kVar;
     }
 }

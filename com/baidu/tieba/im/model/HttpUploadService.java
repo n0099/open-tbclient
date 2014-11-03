@@ -10,8 +10,8 @@ public class HttpUploadService {
         b ox;
         if (str != null) {
             try {
-                c cH = new com.baidu.tbadk.coreExtra.service.b(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS).cH(s.n(str, 1));
-                if (cH != null && cH.isSuccess() && (ox = cH.ox()) != null) {
+                c cI = new com.baidu.tbadk.coreExtra.service.b(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS).cI(s.n(str, 1));
+                if (cI != null && cI.isSuccess() && (ox = cI.ox()) != null) {
                     String ou = ox.ou();
                     com.baidu.tbadk.core.voice.a.b.P(str, ou);
                     return ou;

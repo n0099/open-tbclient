@@ -4,9 +4,8 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.newFriends.RequestAddFriendMessage;
 import com.baidu.tbadk.newFriends.ResponseAddFriendMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o extends com.baidu.adp.framework.listener.e {
+class o extends com.baidu.adp.framework.listener.e {
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(int i) {
         super(i);

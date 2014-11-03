@@ -23,13 +23,13 @@ class ab extends CustomMessageListener {
         ImageView imageView3;
         if (customResponsedMessage != null) {
             if (com.baidu.tbadk.core.sharedPref.b.lk().getBoolean("game_is_show_tip", false)) {
-                imageView2 = this.this$0.bON;
+                imageView2 = this.this$0.bPc;
                 imageView2.setVisibility(0);
-                imageView3 = this.this$0.bON;
+                imageView3 = this.this$0.bPc;
                 aw.c(imageView3, com.baidu.tieba.u.icon_news_down_bar_one);
                 return;
             }
-            imageView = this.this$0.bON;
+            imageView = this.this$0.bPc;
             imageView.setVisibility(4);
         }
     }

@@ -7,14 +7,14 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends BdAsyncTask<j, Integer, Boolean> {
-    private com.baidu.tieba.data.at boo;
-    final /* synthetic */ j bop;
+    private com.baidu.tieba.data.at boC;
+    final /* synthetic */ j boD;
     private com.baidu.tbadk.core.util.ac mNetWork;
 
     private m(j jVar) {
-        this.bop = jVar;
+        this.boD = jVar;
         this.mNetWork = null;
-        this.boo = null;
+        this.boC = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,7 +25,7 @@ public class m extends BdAsyncTask<j, Integer, Boolean> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
-        this.boo = new com.baidu.tieba.data.at();
+        this.boC = new com.baidu.tieba.data.at();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,25 +35,25 @@ public class m extends BdAsyncTask<j, Integer, Boolean> {
     public Boolean doInBackground(j... jVarArr) {
         j jVar = new j();
         try {
-            jVar.Tk();
+            jVar.Tn();
             this.mNetWork = new com.baidu.tbadk.core.util.ac();
             this.mNetWork.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/post/addstore");
-            int Tl = this.bop.Tl();
-            if (jVar.getCount() - 1 <= Tl) {
-                Tl = jVar.getCount() - 1;
+            int To = this.boD.To();
+            if (jVar.getCount() - 1 <= To) {
+                To = jVar.getCount() - 1;
             }
-            while (Tl >= 0) {
-                String T = jVar.T(Tl, 20);
+            while (To >= 0) {
+                String T = jVar.T(To, 20);
                 this.mNetWork.h(new ArrayList<>());
                 this.mNetWork.k("data", T);
-                this.boo.parserJson(this.mNetWork.lA());
-                if (!this.mNetWork.mc().nb().jq() || this.boo.getErrorCode() != 0) {
+                this.boC.parserJson(this.mNetWork.lA());
+                if (!this.mNetWork.mc().nb().jq() || this.boC.getErrorCode() != 0) {
                     break;
                 }
-                Tl -= 20;
+                To -= 20;
             }
-            this.bop.gC(Tl);
-            if (Tl >= 0) {
+            this.boD.gC(To);
+            if (To >= 0) {
                 return false;
             }
             return true;
@@ -69,9 +69,9 @@ public class m extends BdAsyncTask<j, Integer, Boolean> {
         if (this.mNetWork != null) {
             this.mNetWork.dM();
         }
-        this.bop.boj = null;
-        if (this.bop.atj != null) {
-            this.bop.atj.callback(1, false, null, false);
+        this.boD.box = null;
+        if (this.boD.ats != null) {
+            this.boD.ats.callback(1, false, null, false);
         }
     }
 
@@ -83,21 +83,21 @@ public class m extends BdAsyncTask<j, Integer, Boolean> {
         String str;
         boolean z;
         ArrayList arrayList;
-        this.bop.boj = null;
+        this.boD.box = null;
         if (bool.booleanValue()) {
-            arrayList = this.bop.bol;
+            arrayList = this.boD.boz;
             arrayList.clear();
             str = null;
             z = false;
         } else if (this.mNetWork.mc().nb().jq()) {
-            str = this.boo.getErrorString();
+            str = this.boC.getErrorString();
             z = false;
         } else {
             str = null;
             z = true;
         }
-        if (this.bop.atj != null) {
-            this.bop.atj.callback(1, bool, str, Boolean.valueOf(z));
+        if (this.boD.ats != null) {
+            this.boD.ats.callback(1, bool, str, Boolean.valueOf(z));
         }
     }
 }

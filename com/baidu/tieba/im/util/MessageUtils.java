@@ -13,7 +13,7 @@ public class MessageUtils {
     }
 
     public static void createPersonalChatMessage(int i, String str, long j, String str2, String str3) {
-        createPersonalChatMessage(com.baidu.tieba.im.memorycache.c.PK().G(String.valueOf(j), 2), i, str, j, str2, str3);
+        createPersonalChatMessage(com.baidu.tieba.im.memorycache.c.PN().G(String.valueOf(j), 2), i, str, j, str2, str3);
     }
 
     public static void createPersonalChatMessage(long j, int i, String str, long j2, String str2, String str3) {
@@ -37,7 +37,7 @@ public class MessageUtils {
             UserData userData2 = new UserData();
             userData2.setUserName(TbadkApplication.getCurrentAccountName());
             userData2.setUserId(TbadkApplication.getCurrentAccount());
-            userData2.setPortrait(com.baidu.tieba.im.c.Jf());
+            userData2.setPortrait(com.baidu.tieba.im.c.Jj());
             personalChatMessage.setUserInfo(userData2);
             try {
                 j3 = com.baidu.adp.lib.g.c.a(TbadkApplication.getCurrentAccount(), 0L);
@@ -51,12 +51,12 @@ public class MessageUtils {
             msgLocalData.setRetry(0L);
             msgLocalData.setUpload_offset(null);
             personalChatMessage.setLocalData(msgLocalData);
-            w.Jo().f(personalChatMessage);
+            w.Js().f(personalChatMessage);
         }
     }
 
     public static void createGroupChatMessage(int i, String str, long j) {
-        createGroupChatMessage(com.baidu.tieba.im.memorycache.c.PK().G(String.valueOf(j), 1), i, str, j);
+        createGroupChatMessage(com.baidu.tieba.im.memorycache.c.PN().G(String.valueOf(j), 1), i, str, j);
     }
 
     public static void createGroupChatMessage(long j, int i, String str, long j2) {
@@ -74,7 +74,7 @@ public class MessageUtils {
             UserData userData = new UserData();
             userData.setUserName(TbadkApplication.getCurrentAccountName());
             userData.setUserId(TbadkApplication.getCurrentAccount());
-            userData.setPortrait(com.baidu.tieba.im.c.Jf());
+            userData.setPortrait(com.baidu.tieba.im.c.Jj());
             groupChatMessage.setUserInfo(userData);
             try {
                 j3 = com.baidu.adp.lib.g.c.a(TbadkApplication.getCurrentAccount(), 0L);
@@ -88,7 +88,7 @@ public class MessageUtils {
             msgLocalData.setRetry(0L);
             msgLocalData.setUpload_offset(null);
             groupChatMessage.setLocalData(msgLocalData);
-            w.Jo().f(groupChatMessage);
+            w.Js().f(groupChatMessage);
         }
     }
 }

@@ -7,9 +7,9 @@ import com.baidu.tbadk.TbConfig;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class e {
-    private final String ahw = TbConfig.getTempDirName();
-    private f ahx;
-    private g ahy;
+    private final String ahF = TbConfig.getTempDirName();
+    private f ahG;
+    private g ahH;
     private final Context mContext;
 
     public e(Context context) {
@@ -20,10 +20,10 @@ public class e {
         if (oVar == null) {
             return false;
         }
-        xQ();
-        this.ahx = new f(this, oVar);
-        this.ahx.setPriority(3);
-        this.ahx.execute(new Object[0]);
+        xS();
+        this.ahG = new f(this, oVar);
+        this.ahG.setPriority(3);
+        this.ahG.execute(new Object[0]);
         return true;
     }
 
@@ -31,24 +31,24 @@ public class e {
         if (alVar == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        xR();
-        this.ahy = new g(this, str, alVar);
-        this.ahy.setPriority(3);
-        this.ahy.execute(new Object[0]);
+        xT();
+        this.ahH = new g(this, str, alVar);
+        this.ahH.setPriority(3);
+        this.ahH.execute(new Object[0]);
         return true;
     }
 
-    public void xQ() {
-        if (this.ahx != null) {
-            this.ahx.cancel();
-            this.ahx = null;
+    public void xS() {
+        if (this.ahG != null) {
+            this.ahG.cancel();
+            this.ahG = null;
         }
     }
 
-    public void xR() {
-        if (this.ahy != null) {
-            this.ahy.cancel();
-            this.ahy = null;
+    public void xT() {
+        if (this.ahH != null) {
+            this.ahH.cancel();
+            this.ahH = null;
         }
     }
 

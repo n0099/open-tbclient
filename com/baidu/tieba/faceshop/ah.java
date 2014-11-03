@@ -4,13 +4,13 @@ import com.baidu.tbadk.download.DownloadData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ah extends com.baidu.adp.base.h {
-    final /* synthetic */ FacePackageDetailActivity atk;
-    private final /* synthetic */ DownloadData atl;
+    final /* synthetic */ FacePackageDetailActivity att;
+    private final /* synthetic */ DownloadData atu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(FacePackageDetailActivity facePackageDetailActivity, DownloadData downloadData) {
-        this.atk = facePackageDetailActivity;
-        this.atl = downloadData;
+        this.att = facePackageDetailActivity;
+        this.atu = downloadData;
     }
 
     @Override // com.baidu.adp.base.h
@@ -24,30 +24,30 @@ public class ah extends com.baidu.adp.base.h {
             FacePackageDownloadData facePackageDownloadData = (FacePackageDownloadData) obj;
             if (facePackageDownloadData.errno == 0 && facePackageDownloadData.usermsg != null) {
                 String str = facePackageDownloadData.pack_url;
-                akVar = this.atk.ata;
+                akVar = this.att.atj;
                 akVar.eQ(str);
-                akVar2 = this.atk.ata;
-                if (akVar2.CY() != null) {
-                    akVar3 = this.atk.ata;
-                    if (akVar3.CY().faces_list != null) {
-                        FacePackageDetailActivity facePackageDetailActivity = this.atk;
-                        akVar4 = this.atk.ata;
+                akVar2 = this.att.atj;
+                if (akVar2.Da() != null) {
+                    akVar3 = this.att.atj;
+                    if (akVar3.Da().faces_list != null) {
+                        FacePackageDetailActivity facePackageDetailActivity = this.att;
+                        akVar4 = this.att.atj;
                         String pid = akVar4.getPid();
-                        akVar5 = this.atk.ata;
-                        facePackageDetailActivity.m(pid, akVar5.CY().faces_list.pname, str);
+                        akVar5 = this.att.atj;
+                        facePackageDetailActivity.m(pid, akVar5.Da().faces_list.pname, str);
                         return;
                     }
                     return;
                 }
                 return;
             } else if (facePackageDownloadData.usermsg != null) {
-                this.atk.showToast(facePackageDownloadData.usermsg);
+                this.att.showToast(facePackageDownloadData.usermsg);
                 return;
             } else {
-                g.CH().a(this.atl);
+                g.CJ().a(this.atu);
                 return;
             }
         }
-        g.CH().a(this.atl);
+        g.CJ().a(this.atu);
     }
 }

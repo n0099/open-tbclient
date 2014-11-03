@@ -16,13 +16,13 @@ import com.baidu.tbadk.download.DownloadData;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class FaceShopActivity extends BaseActivity {
-    private x atd;
-    private bq aul;
-    private bo aum;
-    private final HashMap<String, DownloadData> aun = new HashMap<>();
-    private final com.baidu.tbadk.core.view.u ati = new bc(this);
+    private x atm;
+    private bq auu;
+    private bo auv;
+    private final HashMap<String, DownloadData> auw = new HashMap<>();
+    private final com.baidu.tbadk.core.view.u atr = new bc(this);
     private final com.baidu.adp.base.h mLoadDataCallBack = new bd(this);
-    private final CustomMessageListener Sc = new be(this, 0);
+    private final CustomMessageListener Sg = new be(this, 0);
 
     static {
         TbadkApplication.m251getInst().RegisterIntent(FaceShopActivityConfig.class, FaceShopActivity.class);
@@ -34,31 +34,31 @@ public class FaceShopActivity extends BaseActivity {
         super.onCreate(bundle);
         initUI();
         d(bundle);
-        this.aul.DA();
+        this.auu.DC();
     }
 
     private void initUI() {
-        this.aul = new bq(this);
-        this.aul.b(new bf(this));
-        this.aul.a(new bg(this));
-        this.aul.a(this);
-        CS();
-        registerListener(2001122, this.Sc);
-        registerListener(2001120, this.Sc);
-        g.CH();
+        this.auu = new bq(this);
+        this.auu.b(new bf(this));
+        this.auu.a(new bg(this));
+        this.auu.a(this);
+        CU();
+        registerListener(2001122, this.Sg);
+        registerListener(2001120, this.Sg);
+        g.CJ();
     }
 
     private void d(Bundle bundle) {
         String st_type;
-        this.aum = new bo(this);
+        this.auv = new bo(this);
         if (bundle != null) {
             st_type = FaceShopActivityConfig.getST_TYPE(bundle);
         } else {
             st_type = FaceShopActivityConfig.getST_TYPE(getIntent());
-            com.baidu.tbadk.core.i.l(this, st_type);
+            com.baidu.tbadk.core.j.l(this, st_type);
         }
-        this.aum.eV(st_type);
-        this.aum.setLoadDataCallBack(this.mLoadDataCallBack);
+        this.auv.eV(st_type);
+        this.auv.setLoadDataCallBack(this.mLoadDataCallBack);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -67,34 +67,34 @@ public class FaceShopActivity extends BaseActivity {
             if (z) {
                 showProgressBar();
             }
-            this.aum.ey(1);
+            this.auv.ey(1);
             return;
         }
-        this.aul.Dv();
+        this.auu.Dx();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Dw() {
-        if (this.aum != null && this.aul != null && this.aum.getHasMore()) {
-            this.aul.DB();
-            this.aum.ey(2);
+    public void Dy() {
+        if (this.auv != null && this.auu != null && this.auv.getHasMore()) {
+            this.auu.DD();
+            this.auv.ey(2);
         }
     }
 
-    private void CS() {
-        this.aul.c(this.ati);
+    private void CU() {
+        this.auu.c(this.atr);
     }
 
-    private void CT() {
-        this.aul.d(this.ati);
+    private void CV() {
+        this.auu.d(this.atr);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        bi Dz;
+        bi DB;
         FacePackageData facePackageData;
-        if (this.aum != null && this.aul != null && (Dz = this.aul.Dz()) != null) {
-            if (i < Dz.getCount() && i >= 0 && (facePackageData = (FacePackageData) Dz.getItem(i)) != null) {
+        if (this.auv != null && this.auu != null && (DB = this.auu.DB()) != null) {
+            if (i < DB.getCount() && i >= 0 && (facePackageData = (FacePackageData) DB.getItem(i)) != null) {
                 sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(this, String.valueOf(facePackageData.pid), facePackageData.downloading == 1, "face_shop")));
             }
             super.onItemClick(adapterView, view, i, j);
@@ -103,8 +103,8 @@ public class FaceShopActivity extends BaseActivity {
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.aul != null) {
-            if (view == this.aul.DE()) {
+        if (this.auu != null) {
+            if (view == this.auu.DG()) {
                 if (!TbadkApplication.isLogin()) {
                     LoginActivity.a((Activity) this, (String) null, true, 11037);
                     return;
@@ -119,24 +119,24 @@ public class FaceShopActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.aum != null) {
-            this.aum.cancelLoadData();
+        if (this.auv != null) {
+            this.auv.cancelLoadData();
         }
-        if (this.aul != null) {
-            this.aul.Dz().onDestroy();
+        if (this.auu != null) {
+            this.auu.DB().onDestroy();
         }
-        if (this.atd != null) {
-            this.atd.cancelLoadData();
+        if (this.atm != null) {
+            this.atm.cancelLoadData();
         }
-        CT();
+        CV();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.aul != null) {
-            this.aul.onResume();
+        if (this.auu != null) {
+            this.auu.onResume();
         }
     }
 
@@ -144,49 +144,49 @@ public class FaceShopActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.aul != null) {
-            this.aul.onChangeSkinType(i);
+        if (this.auu != null) {
+            this.auu.onChangeSkinType(i);
         }
     }
 
     public void eu(int i) {
         FacePackageData facePackageData;
-        if (this.aul != null && this.aul.Dz() != null && (facePackageData = (FacePackageData) this.aul.Dz().getItem(i)) != null) {
-            this.aul.Dl();
+        if (this.auu != null && this.auu.DB() != null && (facePackageData = (FacePackageData) this.auu.DB().getItem(i)) != null) {
+            this.auu.Dn();
             facePackageData.buy_status = 1;
             facePackageData.can_download = 1;
-            this.aul.Dz().notifyDataSetChanged();
-            this.aul.Dz().ev(i);
+            this.auu.DB().notifyDataSetChanged();
+            this.auu.DB().ev(i);
         }
     }
 
-    public void CX() {
-        this.aul.Dk();
+    public void CZ() {
+        this.auu.Dm();
     }
 
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (i2 == -1 && this.aul != null && this.aul.Dz() != null) {
+        if (i2 == -1 && this.auu != null && this.auu.DB() != null) {
             if (i == 10000) {
                 int intExtra = intent.getIntExtra("tag_position", -1);
                 String stringExtra = intent.getStringExtra("tag_order_id");
-                FacePackageData facePackageData = (FacePackageData) this.aul.Dz().getItem(intExtra);
+                FacePackageData facePackageData = (FacePackageData) this.auu.DB().getItem(intExtra);
                 if (facePackageData != null) {
-                    String str = com.baidu.tbadk.core.util.ay.aA(stringExtra) ? facePackageData.orderId : stringExtra;
-                    this.aul.Dj();
-                    this.atd = new x(this);
-                    this.atd.setLoadDataCallBack(new bh(this, intExtra));
-                    this.atd.eP(str);
+                    String str = com.baidu.tbadk.core.util.az.aA(stringExtra) ? facePackageData.orderId : stringExtra;
+                    this.auu.Dl();
+                    this.atm = new x(this);
+                    this.atm.setLoadDataCallBack(new bh(this, intExtra));
+                    this.atm.eP(str);
                 }
             } else if (i == 11003) {
-                bi Dz = this.aul.Dz();
-                int Dx = Dz.Dx();
-                if (Dx >= 0) {
-                    if (((FacePackageData) Dz.getItem(Dx)).can_download == 1) {
-                        Dz.ev(Dx);
+                bi DB = this.auu.DB();
+                int Dz = DB.Dz();
+                if (Dz >= 0) {
+                    if (((FacePackageData) DB.getItem(Dz)).can_download == 1) {
+                        DB.ev(Dz);
                     } else {
-                        Dz.ex(Dx);
+                        DB.ex(Dz);
                     }
                 }
             } else if (i == 11037) {

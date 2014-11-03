@@ -4,21 +4,21 @@ import android.widget.EditText;
 import com.baidu.adp.lib.util.m;
 /* loaded from: classes.dex */
 class c implements Runnable {
-    final /* synthetic */ GameSearchActivity aJH;
+    final /* synthetic */ GameSearchActivity aJU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(GameSearchActivity gameSearchActivity) {
-        this.aJH = gameSearchActivity;
+        this.aJU = gameSearchActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         EditText editText;
         EditText editText2;
-        editText = this.aJH.aJx;
+        editText = this.aJU.aJK;
         editText.requestFocus();
-        GameSearchActivity gameSearchActivity = this.aJH;
-        editText2 = this.aJH.aJx;
+        GameSearchActivity gameSearchActivity = this.aJU;
+        editText2 = this.aJU.aJK;
         m.c(gameSearchActivity, editText2);
     }
 }

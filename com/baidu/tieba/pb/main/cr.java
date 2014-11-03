@@ -6,11 +6,11 @@ import com.baidu.tieba.editortool.PbEditorToolView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cr implements View.OnClickListener {
-    final /* synthetic */ bv byI;
+    final /* synthetic */ bv byW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cr(bv bvVar) {
-        this.byI = bvVar;
+        this.byW = bvVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -28,42 +28,42 @@ public class cr implements View.OnClickListener {
         com.baidu.tieba.bubble.t tVar;
         PbActivity pbActivity3;
         PbActivity pbActivity4;
-        pbEditor = this.byI.byn;
+        pbEditor = this.byW.byB;
         if (pbEditor == null) {
-            this.byI.Xk();
+            this.byW.Xn();
         }
-        pbEditor2 = this.byI.byn;
+        pbEditor2 = this.byW.byB;
         if (pbEditor2 != null) {
-            z = this.byI.byG;
+            z = this.byW.byU;
             if (z) {
-                this.byI.Bt();
+                this.byW.Bv();
             } else {
-                this.byI.Bs();
+                this.byW.Bu();
             }
-            pbEditor3 = this.byI.byn;
-            pbEditor3.Ba();
-            pbActivity = this.byI.bwQ;
+            pbEditor3 = this.byW.byB;
+            pbEditor3.Bc();
+            pbActivity = this.byW.bxe;
             if (pbActivity != null) {
-                pbActivity3 = this.byI.bwQ;
-                pbActivity3.Wc();
-                pbActivity4 = this.byI.bwQ;
-                pbActivity4.Ez();
+                pbActivity3 = this.byW.bxe;
+                pbActivity3.Wf();
+                pbActivity4 = this.byW.bxe;
+                pbActivity4.EB();
             }
-            this.byI.eg(false);
-            this.byI.byw = false;
-            pbActivity2 = this.byI.bwQ;
-            pbEditor4 = this.byI.byn;
+            this.byW.eg(false);
+            this.byW.byK = false;
+            pbActivity2 = this.byW.bxe;
+            pbEditor4 = this.byW.byB;
             PbEditorToolView editorToolButtonContainer = pbEditor4.getEditorToolButtonContainer();
-            tVar = this.byI.aDr;
+            tVar = this.byW.aDB;
             com.baidu.tieba.bubble.h.a(pbActivity2, editorToolButtonContainer, false, tVar);
         }
-        view2 = this.byI.byq;
+        view2 = this.byW.byE;
         if (view2 != null) {
-            view3 = this.byI.byq;
+            view3 = this.byW.byE;
             view3.setVisibility(8);
-            view4 = this.byI.byp;
+            view4 = this.byW.byD;
             view4.setVisibility(8);
-            this.byI.byw = false;
+            this.byW.byK = false;
         }
     }
 }

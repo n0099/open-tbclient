@@ -6,36 +6,36 @@ import android.support.v4.app.FragmentPagerAdapter;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends FragmentPagerAdapter {
-    final /* synthetic */ GameCenterActivity aGO;
+    final /* synthetic */ GameCenterActivity aGY;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(GameCenterActivity gameCenterActivity, FragmentManager fragmentManager) {
         super(fragmentManager);
-        this.aGO = gameCenterActivity;
+        this.aGY = gameCenterActivity;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
         ao aoVar;
         ao aoVar2;
-        bi biVar;
-        bi biVar2;
+        bj bjVar;
+        bj bjVar2;
         if (i < 0 || i >= getCount()) {
             return null;
         }
         if (i == 0) {
-            biVar = this.aGO.aGM;
-            if (biVar == null) {
-                this.aGO.aGM = new bi();
+            bjVar = this.aGY.aGW;
+            if (bjVar == null) {
+                this.aGY.aGW = new bj();
             }
-            biVar2 = this.aGO.aGM;
-            return biVar2;
+            bjVar2 = this.aGY.aGW;
+            return bjVar2;
         }
-        aoVar = this.aGO.aGN;
+        aoVar = this.aGY.aGX;
         if (aoVar == null) {
-            this.aGO.aGN = new ao();
+            this.aGY.aGX = new ao();
         }
-        aoVar2 = this.aGO.aGN;
+        aoVar2 = this.aGY.aGX;
         return aoVar2;
     }
 

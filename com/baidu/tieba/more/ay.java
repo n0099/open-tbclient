@@ -9,80 +9,80 @@ import com.baidu.tbadk.coreExtra.view.TbSettingTextNewDotView;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 /* loaded from: classes.dex */
 public class ay extends com.baidu.adp.base.f {
-    private SystemHelpSettingActivity bsN;
-    private SettingTextSwitchView bsO;
-    private SettingTextSwitchView bsP;
-    private TbSettingTextTipView bsQ;
-    private TbSettingTextTipView bsR;
-    private TbSettingTextNewDotView bsS;
+    private SystemHelpSettingActivity btb;
+    private SettingTextSwitchView btc;
+    private SettingTextSwitchView btd;
+    private TbSettingTextTipView bte;
+    private TbSettingTextTipView btf;
+    private TbSettingTextNewDotView btg;
     private NavigationBar mNavigationBar;
     private RelativeLayout mParent;
 
     public ay(SystemHelpSettingActivity systemHelpSettingActivity) {
         super(systemHelpSettingActivity);
-        this.bsN = null;
+        this.btb = null;
         this.mParent = null;
-        this.bsO = null;
-        this.bsP = null;
-        this.bsQ = null;
-        this.bsR = null;
-        this.bsS = null;
-        this.bsN = systemHelpSettingActivity;
-        this.bsN.setContentView(com.baidu.tieba.w.system_help_activity);
-        this.mNavigationBar = (NavigationBar) this.bsN.findViewById(com.baidu.tieba.v.view_navigation_bar);
-        this.mNavigationBar.setTitleText(this.bsN.getString(com.baidu.tieba.y.systemhelpsetting));
+        this.btc = null;
+        this.btd = null;
+        this.bte = null;
+        this.btf = null;
+        this.btg = null;
+        this.btb = systemHelpSettingActivity;
+        this.btb.setContentView(com.baidu.tieba.w.system_help_activity);
+        this.mNavigationBar = (NavigationBar) this.btb.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.mNavigationBar.setTitleText(this.btb.getString(com.baidu.tieba.y.systemhelpsetting));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.bsO = (SettingTextSwitchView) this.bsN.findViewById(com.baidu.tieba.v.tieba_helper_open);
-        this.bsO.setSwitchStateChangeListener(this.bsN);
-        this.bsP = (SettingTextSwitchView) this.bsN.findViewById(com.baidu.tieba.v.sv_earphone);
-        this.bsQ = (TbSettingTextTipView) this.bsN.findViewById(com.baidu.tieba.v.clear_cache);
-        this.bsQ.ql();
-        this.bsQ.setOnClickListener(this.bsN);
-        this.bsR = (TbSettingTextTipView) this.bsN.findViewById(com.baidu.tieba.v.clear_im);
-        this.bsR.ql();
-        this.bsR.setOnClickListener(this.bsN);
-        this.bsP.setSwitchStateChangeListener(this.bsN);
-        this.mParent = (RelativeLayout) this.bsN.findViewById(com.baidu.tieba.v.parent);
+        this.btc = (SettingTextSwitchView) this.btb.findViewById(com.baidu.tieba.v.tieba_helper_open);
+        this.btc.setSwitchStateChangeListener(this.btb);
+        this.btd = (SettingTextSwitchView) this.btb.findViewById(com.baidu.tieba.v.sv_earphone);
+        this.bte = (TbSettingTextTipView) this.btb.findViewById(com.baidu.tieba.v.clear_cache);
+        this.bte.qn();
+        this.bte.setOnClickListener(this.btb);
+        this.btf = (TbSettingTextTipView) this.btb.findViewById(com.baidu.tieba.v.clear_im);
+        this.btf.qn();
+        this.btf.setOnClickListener(this.btb);
+        this.btd.setSwitchStateChangeListener(this.btb);
+        this.mParent = (RelativeLayout) this.btb.findViewById(com.baidu.tieba.v.parent);
         if (TbadkApplication.isLogin()) {
-            this.bsR.setVisibility(0);
+            this.btf.setVisibility(0);
         } else {
-            this.bsR.setVisibility(8);
+            this.btf.setVisibility(8);
         }
-        this.bsS = (TbSettingTextNewDotView) systemHelpSettingActivity.findViewById(com.baidu.tieba.v.sv_plugin_center);
-        this.bsS.setOnClickListener(this.bsN);
+        this.btg = (TbSettingTextNewDotView) systemHelpSettingActivity.findViewById(com.baidu.tieba.v.sv_plugin_center);
+        this.btg.setOnClickListener(this.btb);
     }
 
-    public BdSwitchView Vy() {
-        return this.bsO.getSwitchView();
+    public BdSwitchView VB() {
+        return this.btc.getSwitchView();
     }
 
-    public SettingTextSwitchView Vz() {
-        return this.bsO;
+    public SettingTextSwitchView VC() {
+        return this.btc;
     }
 
-    public BdSwitchView VA() {
-        return this.bsP.getSwitchView();
+    public BdSwitchView VD() {
+        return this.btd.getSwitchView();
     }
 
-    public TbSettingTextTipView VB() {
-        return this.bsQ;
+    public TbSettingTextTipView VE() {
+        return this.bte;
     }
 
-    public TbSettingTextTipView VC() {
-        return this.bsR;
+    public TbSettingTextTipView VF() {
+        return this.btf;
     }
 
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(i);
-        this.bsP.cu(i);
-        this.bsO.cu(i);
-        com.baidu.tbadk.core.util.aw.h(this.bsP, com.baidu.tieba.u.more_all);
-        com.baidu.tbadk.core.util.aw.h(this.bsQ, com.baidu.tieba.u.more_all);
-        this.bsN.getLayoutMode().L(i == 1);
-        this.bsN.getLayoutMode().h(this.mParent);
+        this.btd.cu(i);
+        this.btc.cu(i);
+        com.baidu.tbadk.core.util.aw.h(this.btd, com.baidu.tieba.u.more_all);
+        com.baidu.tbadk.core.util.aw.h(this.bte, com.baidu.tieba.u.more_all);
+        this.btb.getLayoutMode().L(i == 1);
+        this.btb.getLayoutMode().h(this.mParent);
     }
 
-    public TbSettingTextNewDotView VD() {
-        return this.bsS;
+    public TbSettingTextNewDotView VG() {
+        return this.btg;
     }
 }

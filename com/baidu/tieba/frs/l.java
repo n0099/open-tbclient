@@ -3,11 +3,11 @@ package com.baidu.tieba.frs;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
 class l implements AbsListView.OnScrollListener {
-    final /* synthetic */ FrsActivity aBk;
+    final /* synthetic */ FrsActivity aBu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(FrsActivity frsActivity) {
-        this.aBk = frsActivity;
+        this.aBu = frsActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -23,20 +23,20 @@ class l implements AbsListView.OnScrollListener {
         com.baidu.adp.widget.ListView.an anVar;
         bu buVar5;
         if (i == 0) {
-            buVar4 = this.aBk.aAv;
-            anVar = this.aBk.aBj;
+            buVar4 = this.aBu.aAF;
+            anVar = this.aBu.aBt;
             buVar4.a(anVar);
-            buVar5 = this.aBk.aAv;
+            buVar5 = this.aBu.aAF;
             buVar5.cf(false);
-            this.aBk.aAJ = false;
+            this.aBu.aAT = false;
             return;
         }
-        buVar = this.aBk.aAv;
+        buVar = this.aBu.aAF;
         buVar.a((com.baidu.adp.widget.ListView.an) null);
-        buVar2 = this.aBk.aAv;
+        buVar2 = this.aBu.aAF;
         buVar2.cf(true);
-        this.aBk.aAJ = true;
-        buVar3 = this.aBk.aAv;
-        buVar3.EP();
+        this.aBu.aAT = true;
+        buVar3 = this.aBu.aAF;
+        buVar3.ER();
     }
 }

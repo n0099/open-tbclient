@@ -5,24 +5,24 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements View.OnTouchListener {
-    final /* synthetic */ AbsMsglistView aNB;
+    final /* synthetic */ AbsMsglistView aNP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(AbsMsglistView absMsglistView) {
-        this.aNB = absMsglistView;
+        this.aNP = absMsglistView;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 1) {
-            this.aNB.mEdtMsgSendText.setCursorVisible(true);
-            this.aNB.sendmsgCloseMore();
+            this.aNP.mEdtMsgSendText.setCursorVisible(true);
+            this.aNP.sendmsgCloseMore();
         } else if (motionEvent.getAction() == 0) {
-            this.aNB.listGo2New();
-            if (this.aNB.mFaceView.getVisibility() == 0) {
-                this.aNB.sendmsgCloseExpression();
-                this.aNB.sendmsgShowSoftkey();
-                this.aNB.setEditTextSelectLast();
+            this.aNP.listGo2New();
+            if (this.aNP.mFaceView.getVisibility() == 0) {
+                this.aNP.sendmsgCloseExpression();
+                this.aNP.sendmsgShowSoftkey();
+                this.aNP.setEditTextSelectLast();
                 return true;
             }
         }

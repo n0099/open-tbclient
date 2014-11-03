@@ -6,11 +6,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> {
-    final /* synthetic */ UpdatesActivity bbU;
+    final /* synthetic */ UpdatesActivity bci;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(UpdatesActivity updatesActivity) {
-        this.bbU = updatesActivity;
+        this.bci = updatesActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,15 +23,15 @@ public class f implements com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> {
         t tVar3;
         p pVar2;
         List<UpdatesItemData> n = p.n(linkedList);
-        tVar = this.bbU.bbM;
+        tVar = this.bci.bca;
         tVar.setData(n);
-        pVar = this.bbU.bbT;
+        pVar = this.bci.bch;
         pVar.X(n);
-        tVar2 = this.bbU.bbM;
+        tVar2 = this.bci.bca;
         tVar2.dg(false);
-        tVar3 = this.bbU.bbM;
-        pVar2 = this.bbU.bbT;
-        tVar3.fT(pVar2.Ph());
-        this.bbU.De();
+        tVar3 = this.bci.bca;
+        pVar2 = this.bci.bch;
+        tVar3.fT(pVar2.Pk());
+        this.bci.Dg();
     }
 }

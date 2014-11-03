@@ -22,10 +22,10 @@ import com.baidu.tieba.model.MoreModel;
 import com.baidu.tieba.person.PersonChangeActivity;
 /* loaded from: classes.dex */
 public class MoreActivity extends BaseActivity implements com.baidu.adp.widget.BdSwitchView.c {
-    private ag bqT;
-    private ac bqV;
-    private MoreModel bqU = null;
-    private ab bqW = null;
+    private ag brh;
+    private ac brj;
+    private MoreModel bri = null;
+    private ab brk = null;
 
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2015004, new x());
@@ -36,51 +36,51 @@ public class MoreActivity extends BaseActivity implements com.baidu.adp.widget.B
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bqT = new ag(this, UL());
+        this.brh = new ag(this, UO());
         k(bundle);
         nY();
     }
 
-    private r UL() {
+    private r UO() {
         return new y(this);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        Jt();
+        Jx();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.bqT != null) {
-            this.bqT.refreshNewVersion();
+        if (this.brh != null) {
+            this.brh.refreshNewVersion();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.bqT.onChangeSkinType(i);
+        this.brh.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onResourceRecycle() {
         setSkinType(-1);
-        this.bqT.QO();
+        this.brh.QR();
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        bundle.putSerializable("person_change_data", this.bqU.TN());
+        bundle.putSerializable("person_change_data", this.bri.TQ());
         super.onSaveInstanceState(bundle);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            UM();
+            UP();
         }
         return super.onKeyDown(i, keyEvent);
     }
@@ -93,15 +93,15 @@ public class MoreActivity extends BaseActivity implements com.baidu.adp.widget.B
             switch (i) {
                 case 101:
                     PersonChangeData personChangeData = (PersonChangeData) intent.getSerializableExtra("data");
-                    this.bqU.a(personChangeData);
-                    this.bqU.dG(true);
-                    if (personChangeData != null && personChangeData.getPhotoChanged() && this.bqT != null && (portrait = personChangeData.getPortrait()) != null && portrait.length() > 0 && this.bqT != null) {
-                        this.bqT.w(portrait, true);
+                    this.bri.a(personChangeData);
+                    this.bri.dG(true);
+                    if (personChangeData != null && personChangeData.getPhotoChanged() && this.brh != null && (portrait = personChangeData.getPortrait()) != null && portrait.length() > 0 && this.brh != null) {
+                        this.brh.w(portrait, true);
                         return;
                     }
                     return;
                 case 12008:
-                    UN();
+                    UQ();
                     return;
                 default:
                     return;
@@ -109,10 +109,10 @@ public class MoreActivity extends BaseActivity implements com.baidu.adp.widget.B
         }
     }
 
-    private void UM() {
-        if (this.bqU.TM()) {
+    private void UP() {
+        if (this.bri.TP()) {
             Intent intent = new Intent();
-            intent.putExtra("person_change_data", this.bqU.TN());
+            intent.putExtra("person_change_data", this.bri.TQ());
             setResult(-1, intent);
         }
     }
@@ -125,33 +125,33 @@ public class MoreActivity extends BaseActivity implements com.baidu.adp.widget.B
             personChangeData = (PersonChangeData) getIntent().getSerializableExtra("person_change_data");
         }
         if (personChangeData == null) {
-            this.bqV = new ac(this);
-            this.bqV.setUniqueId(getUniqueId());
-            this.bqV.setId(TbadkApplication.getCurrentAccount());
-            this.bqV.setLoadDataCallBack(new z(this));
-            this.bqV.c(true, true);
+            this.brj = new ac(this);
+            this.brj.setUniqueId(getUniqueId());
+            this.brj.setId(TbadkApplication.getCurrentAccount());
+            this.brj.setLoadDataCallBack(new z(this));
+            this.brj.c(true, true);
         }
         b(personChangeData);
     }
 
     public void b(PersonChangeData personChangeData) {
         if (personChangeData != null && personChangeData.getPortrait() != null) {
-            this.bqT.w(personChangeData.getPortrait(), false);
+            this.brh.w(personChangeData.getPortrait(), false);
         }
-        this.bqU = new MoreModel(personChangeData);
-        this.bqU.setLoadDataCallBack(new aa(this));
+        this.bri = new MoreModel(personChangeData);
+        this.bri.setLoadDataCallBack(new aa(this));
     }
 
     private void nY() {
-        this.bqW = new ab(this, null);
+        this.brk = new ab(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
-        registerReceiver(this.bqW, intentFilter);
+        registerReceiver(this.brk, intentFilter);
     }
 
-    private void Jt() {
-        if (this.bqW != null) {
-            unregisterReceiver(this.bqW);
+    private void Jx() {
+        if (this.brk != null) {
+            unregisterReceiver(this.brk);
         }
     }
 
@@ -159,7 +159,7 @@ public class MoreActivity extends BaseActivity implements com.baidu.adp.widget.B
     public void a(View view, BdSwitchView.SwitchState switchState) {
     }
 
-    public void UN() {
+    public void UQ() {
         String currentAccount = TbadkApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
             LoginActivity.a((Activity) this, getString(com.baidu.tieba.y.login_feedback), true, 12008);
@@ -175,9 +175,9 @@ public class MoreActivity extends BaseActivity implements com.baidu.adp.widget.B
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteActivityConfig(this, 0, TbConfig.getPositionPagerId(), TbConfig.getPositionPagerName(), null, null, 0, antiData, 13003, true, false, null, false, false, null, null, null, 0)));
     }
 
-    public void UO() {
+    public void UR() {
         String str;
-        String str2 = com.baidu.tieba.data.e.ajy;
+        String str2 = com.baidu.tieba.data.e.ajH;
         if (str2.indexOf("?") < 0) {
             str2 = String.valueOf(str2) + "?";
         } else if (!str2.endsWith("?") && !str2.endsWith("&")) {
@@ -191,15 +191,15 @@ public class MoreActivity extends BaseActivity implements com.baidu.adp.widget.B
         AppsActivity.startActivity(this, str);
     }
 
-    public void UP() {
+    public void US() {
         AboutActivity.ae(this);
     }
 
-    public void UQ() {
+    public void UT() {
         BrowseSettingActivity.ae(this);
     }
 
-    public void UR() {
+    public void UU() {
         String currentAccount = TbadkApplication.getCurrentAccount();
         if ((currentAccount == null || currentAccount.length() <= 0) && com.baidu.tbadk.core.account.a.jz() <= 0) {
             LoginActivity.a(this, 1, getString(com.baidu.tieba.y.login_manage_account), 11003);
@@ -208,23 +208,23 @@ public class MoreActivity extends BaseActivity implements com.baidu.adp.widget.B
         }
     }
 
-    public void US() {
+    public void UV() {
         String currentAccount = TbadkApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            PersonChangeActivity.a(this, 101, this.bqU.TN(), false);
+            PersonChangeActivity.a(this, 101, this.bri.TQ(), false);
         }
     }
 
-    public void UT() {
-        UM();
+    public void UW() {
+        UP();
         finish();
     }
 
-    public void UU() {
+    public void UX() {
         MsgRemindActivity.ae(this);
     }
 
-    public void UV() {
+    public void UY() {
         sendMessage(new CustomMessage(2002001, new SecretSettingActivityConfig(this)));
     }
 }

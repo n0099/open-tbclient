@@ -8,7 +8,7 @@ public class m extends d {
     }
 
     @Override // com.baidu.tieba.person.d
-    protected BaseFragment Zy() {
+    protected BaseFragment ZB() {
         return new o();
     }
 }

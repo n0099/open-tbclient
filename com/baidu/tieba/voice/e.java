@@ -3,11 +3,11 @@ package com.baidu.tieba.voice;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class e implements Runnable {
-    final /* synthetic */ a bSn;
+    final /* synthetic */ a bSC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(a aVar) {
-        this.bSn = aVar;
+        this.bSC = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -15,11 +15,11 @@ class e implements Runnable {
         TextView textView;
         TextView textView2;
         TextView textView3;
-        textView = this.bSn.bRW;
+        textView = this.bSC.bSl;
         if (textView != null) {
-            textView2 = this.bSn.bRW;
+            textView2 = this.bSC.bSl;
             textView2.setVisibility(4);
-            textView3 = this.bSn.bRW;
+            textView3 = this.bSC.bSl;
             textView3.setText("");
         }
     }

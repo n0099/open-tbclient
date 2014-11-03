@@ -1,26 +1,27 @@
 package com.baidu.tieba.im.newFriend;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class p extends com.baidu.tieba.im.b<Void> {
-    private final /* synthetic */ long bea;
-    final /* synthetic */ o bgB;
-    private final /* synthetic */ com.baidu.tieba.im.data.e bgy;
+public class p extends com.baidu.tieba.im.b<Void> {
+    private final /* synthetic */ long beo;
+    private final /* synthetic */ com.baidu.tieba.im.data.e bgM;
+    final /* synthetic */ o bgP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(o oVar, long j, com.baidu.tieba.im.data.e eVar) {
-        this.bgB = oVar;
-        this.bea = j;
-        this.bgy = eVar;
+        this.bgP = oVar;
+        this.beo = j;
+        this.bgM = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.b
-    /* renamed from: Kb */
+    /* renamed from: Kf */
     public Void doInBackground() {
-        com.baidu.tieba.im.data.e Q = com.baidu.tieba.im.db.m.MK().Q(this.bea);
+        com.baidu.tieba.im.data.e Q = com.baidu.tieba.im.db.m.MO().Q(this.beo);
         if (Q != null) {
-            this.bgy.setName(Q.getName());
-            this.bgy.setPortrait(Q.getPortrait());
-            com.baidu.tieba.im.db.m.MK().a(this.bgy);
+            this.bgM.setName(Q.getName());
+            this.bgM.setPortrait(Q.getPortrait());
+            com.baidu.tieba.im.db.m.MO().a(this.bgM);
         }
         return null;
     }

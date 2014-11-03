@@ -3,11 +3,11 @@ package com.baidu.tieba.im.newFriend;
 import android.view.View;
 /* loaded from: classes.dex */
 class al implements aj {
-    final /* synthetic */ NewFriendsActivity bgY;
+    final /* synthetic */ NewFriendsActivity bhm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(NewFriendsActivity newFriendsActivity) {
-        this.bgY = newFriendsActivity;
+        this.bhm = newFriendsActivity;
     }
 
     @Override // com.baidu.tieba.im.newFriend.aj
@@ -16,9 +16,9 @@ class al implements aj {
             if (eVar.getStatus() != 1) {
                 return;
             }
-            this.bgY.g(eVar);
+            this.bhm.g(eVar);
             return;
         }
-        this.bgY.f(eVar);
+        this.bhm.f(eVar);
     }
 }

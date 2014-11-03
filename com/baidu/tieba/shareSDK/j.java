@@ -1,30 +1,41 @@
 package com.baidu.tieba.shareSDK;
 
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+import android.content.DialogInterface;
+import android.view.KeyEvent;
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 /* loaded from: classes.dex */
-class j implements View.OnClickListener {
-    final /* synthetic */ WriteShareActivity bJq;
+class j implements DialogInterface.OnKeyListener {
+    final /* synthetic */ WriteShareActivity bJF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(WriteShareActivity writeShareActivity) {
-        this.bJq = writeShareActivity;
+        this.bJF = writeShareActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        InputMethodManager inputMethodManager;
-        o oVar;
-        InputMethodManager inputMethodManager2;
-        o oVar2;
-        WriteShareActivity writeShareActivity = this.bJq;
-        inputMethodManager = this.bJq.mInputManager;
-        oVar = this.bJq.bJe;
-        writeShareActivity.HidenSoftKeyPad(inputMethodManager, oVar.ack());
-        WriteShareActivity writeShareActivity2 = this.bJq;
-        inputMethodManager2 = this.bJq.mInputManager;
-        oVar2 = this.bJq.bJe;
-        writeShareActivity2.HidenSoftKeyPad(inputMethodManager2, oVar2.acl());
-        this.bJq.acd();
+    @Override // android.content.DialogInterface.OnKeyListener
+    public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+        p pVar;
+        p pVar2;
+        p pVar3;
+        p pVar4;
+        if (i == 4) {
+            pVar = this.bJF.bJs;
+            if (pVar != null) {
+                pVar2 = this.bJF.bJs;
+                if (pVar2.acp() != null) {
+                    pVar3 = this.bJF.bJs;
+                    if (pVar3.acp().isShowing()) {
+                        pVar4 = this.bJF.bJs;
+                        com.baidu.adp.lib.g.j.a(pVar4.acp(), this.bJF);
+                        return true;
+                    }
+                }
+            }
+            this.bJF.acd();
+            com.baidu.tbadk.core.b.b.a(this.bJF, Constants.MEDIA_INFO, false);
+            this.bJF.finish();
+            return true;
+        }
+        return false;
     }
 }

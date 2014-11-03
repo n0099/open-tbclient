@@ -9,19 +9,19 @@ import java.util.List;
 public class s {
     private int hasMore;
     private HashMap<String, MetaData> userMap = new HashMap<>();
-    private List<FriendFeedThreadData> akD = new ArrayList();
-    private List<UserData> akE = new ArrayList();
+    private List<FriendFeedThreadData> akM = new ArrayList();
+    private List<UserData> akN = new ArrayList();
 
     public HashMap<String, MetaData> getUserMap() {
         return this.userMap;
     }
 
-    public List<FriendFeedThreadData> zf() {
-        return this.akD;
+    public List<FriendFeedThreadData> zh() {
+        return this.akM;
     }
 
     public void z(List<FriendFeedThreadData> list) {
-        this.akD = list;
+        this.akM = list;
     }
 
     public void setHasMore(int i) {

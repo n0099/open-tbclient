@@ -14,27 +14,27 @@ import com.baidu.tieba.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends BaseAdapter {
-    private String[] agk;
-    private int agl = 0;
-    private View.OnClickListener agm = new f(this);
+    private String[] ags;
+    private int agt = 0;
+    private View.OnClickListener agu = new f(this);
 
     public e(String[] strArr) {
-        this.agk = strArr;
+        this.ags = strArr;
     }
 
-    public String xs() {
-        if (this.agk != null) {
-            return this.agk[this.agl];
+    public String xu() {
+        if (this.ags != null) {
+            return this.ags[this.agt];
         }
         return null;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.agk == null) {
+        if (this.ags == null) {
             return 0;
         }
-        return this.agk.length;
+        return this.ags.length;
     }
 
     @Override // android.widget.Adapter
@@ -43,24 +43,24 @@ public class e extends BaseAdapter {
         if (view == null) {
             view = com.baidu.adp.lib.g.b.ek().inflate(viewGroup.getContext(), w.forbid_list_item, null);
             g gVar2 = new g(null);
-            gVar2.ago = (TextView) view.findViewById(v.reason_text);
-            gVar2.agp = (ImageView) view.findViewById(v.check_img);
+            gVar2.agw = (TextView) view.findViewById(v.reason_text);
+            gVar2.agx = (ImageView) view.findViewById(v.check_img);
             view.setTag(gVar2);
-            view.setOnClickListener(this.agm);
+            view.setOnClickListener(this.agu);
             gVar = gVar2;
         } else {
             gVar = (g) view.getTag();
         }
         gVar.mIndex = i;
         TbadkApplication.m251getInst().getSkinType();
-        gVar.ago.setText(this.agk[i]);
-        if (gVar.mIndex == this.agl) {
-            aw.c(gVar.agp, u.icon_found_information_choose);
-            gVar.agp.setVisibility(0);
-            aw.b(gVar.ago, s.forbid_selected_txt, 1);
+        gVar.agw.setText(this.ags[i]);
+        if (gVar.mIndex == this.agt) {
+            aw.c(gVar.agx, u.icon_found_information_choose);
+            gVar.agx.setVisibility(0);
+            aw.b(gVar.agw, s.forbid_selected_txt, 1);
         } else {
-            gVar.agp.setVisibility(4);
-            aw.b(gVar.ago, s.appeal_com_text, 1);
+            gVar.agx.setVisibility(4);
+            aw.b(gVar.agw, s.appeal_com_text, 1);
         }
         return view;
     }

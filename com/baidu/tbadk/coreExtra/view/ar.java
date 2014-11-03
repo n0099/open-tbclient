@@ -6,11 +6,11 @@ import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ar implements TextWatcher {
-    final /* synthetic */ SearchBar Pb;
+    final /* synthetic */ SearchBar Pf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(SearchBar searchBar) {
-        this.Pb = searchBar;
+        this.Pf = searchBar;
     }
 
     @Override // android.text.TextWatcher
@@ -27,17 +27,17 @@ public class ar implements TextWatcher {
         at atVar;
         at atVar2;
         ImageView imageView2;
-        if (this.Pb.getSearchText().length() > 0) {
-            imageView2 = this.Pb.OX;
+        if (this.Pf.getSearchText().length() > 0) {
+            imageView2 = this.Pf.Pb;
             imageView2.setVisibility(0);
         } else {
-            imageView = this.Pb.OX;
+            imageView = this.Pf.Pb;
             imageView.setVisibility(8);
         }
-        atVar = this.Pb.Pa;
+        atVar = this.Pf.Pe;
         if (atVar != null) {
-            atVar2 = this.Pb.Pa;
-            atVar2.cN(this.Pb.getSearchText());
+            atVar2 = this.Pf.Pe;
+            atVar2.cN(this.Pf.getSearchText());
         }
     }
 }

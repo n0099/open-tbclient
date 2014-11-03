@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.view.o;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
-    final /* synthetic */ GameSearchActivity aJH;
+    final /* synthetic */ GameSearchActivity aJU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(GameSearchActivity gameSearchActivity) {
-        this.aJH = gameSearchActivity;
+        this.aJU = gameSearchActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,12 +19,12 @@ public class h implements View.OnClickListener {
         EditText editText;
         BdListView bdListView;
         o oVar;
-        editText = this.aJH.aJx;
+        editText = this.aJU.aJK;
         editText.setText("");
-        bdListView = this.aJH.aJn;
+        bdListView = this.aJU.aJA;
         bdListView.setVisibility(8);
-        this.aJH.Id();
-        oVar = this.aJH.aJA;
+        this.aJU.Ih();
+        oVar = this.aJU.aJN;
         oVar.setVisibility(0);
     }
 }

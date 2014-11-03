@@ -5,11 +5,11 @@ import android.widget.PopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements Runnable {
-    final /* synthetic */ FrsHeaderView aFT;
+    final /* synthetic */ FrsHeaderView aGd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(FrsHeaderView frsHeaderView) {
-        this.aFT = frsHeaderView;
+        this.aGd = frsHeaderView;
     }
 
     @Override // java.lang.Runnable
@@ -19,14 +19,14 @@ public class f implements Runnable {
         boolean z;
         PopupWindow popupWindow3;
         Activity activity;
-        popupWindow = this.aFT.aFl;
+        popupWindow = this.aGd.aFv;
         if (popupWindow != null) {
-            popupWindow2 = this.aFT.aFl;
+            popupWindow2 = this.aGd.aFv;
             if (popupWindow2.isShowing()) {
-                z = this.aFT.aFO;
+                z = this.aGd.aFY;
                 if (!z) {
-                    popupWindow3 = this.aFT.aFl;
-                    activity = this.aFT.aBF;
+                    popupWindow3 = this.aGd.aFv;
+                    activity = this.aGd.aBP;
                     com.baidu.adp.lib.g.j.a(popupWindow3, activity);
                 }
             }

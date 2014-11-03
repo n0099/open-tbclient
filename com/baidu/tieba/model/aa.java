@@ -9,9 +9,9 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa extends BdAsyncTask<String, String, Boolean> {
-    final /* synthetic */ v boN;
-    ArrayList<com.baidu.tbadk.core.data.h> boP;
-    String boQ;
+    final /* synthetic */ v bpb;
+    ArrayList<com.baidu.tbadk.core.data.h> bpd;
+    String bpe;
     private String mForumId;
     private String mForumName;
     private String mThreadId;
@@ -19,15 +19,15 @@ public class aa extends BdAsyncTask<String, String, Boolean> {
     private com.baidu.tbadk.core.util.ac yV = null;
 
     public aa(v vVar, String str, String str2, String str3, int i, String str4) {
-        this.boN = vVar;
-        this.boP = null;
-        this.boQ = null;
+        this.bpb = vVar;
+        this.bpd = null;
+        this.bpe = null;
         this.mForumId = str;
         this.mForumName = str2;
         this.mThreadId = str3;
         this.mType = i;
-        this.boQ = str4;
-        this.boP = new ArrayList<>();
+        this.bpe = str4;
+        this.bpd = new ArrayList<>();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,7 +46,7 @@ public class aa extends BdAsyncTask<String, String, Boolean> {
                 this.yV.k("ntn", "");
             } else if (this.mType == 2) {
                 this.yV.k("ntn", "set");
-                this.yV.k("cid", this.boQ);
+                this.yV.k("cid", this.bpe);
             } else {
                 this.yV.k("ntn", "");
             }
@@ -60,7 +60,7 @@ public class aa extends BdAsyncTask<String, String, Boolean> {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         com.baidu.tbadk.core.data.h hVar = new com.baidu.tbadk.core.data.h();
                         hVar.parserJson(optJSONArray.optJSONObject(i));
-                        this.boP.add(hVar);
+                        this.bpd.add(hVar);
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
@@ -80,22 +80,22 @@ public class aa extends BdAsyncTask<String, String, Boolean> {
         com.baidu.adp.base.h hVar;
         com.baidu.adp.base.h hVar2;
         super.onPostExecute(bool);
-        this.boN.boJ = null;
+        this.bpb.boX = null;
         if (this.yV == null) {
-            hVar2 = this.boN.mLoadDataCallBack;
+            hVar2 = this.bpb.mLoadDataCallBack;
             hVar2.a(null);
             return;
         }
-        ab abVar = new ab(this.boN);
+        ab abVar = new ab(this.bpb);
         abVar.qa = bool.booleanValue();
         if (bool.booleanValue()) {
             if (this.mType == 6) {
-                abVar.boR = this.boP;
+                abVar.bpf = this.bpd;
             }
         } else {
-            abVar.boO = this.yV.getErrorString();
+            abVar.bpc = this.yV.getErrorString();
         }
-        hVar = this.boN.mLoadDataCallBack;
+        hVar = this.bpb.mLoadDataCallBack;
         hVar.a(abVar);
     }
 
@@ -105,9 +105,9 @@ public class aa extends BdAsyncTask<String, String, Boolean> {
         if (this.yV != null) {
             this.yV.dM();
         }
-        this.boN.boJ = null;
+        this.bpb.boX = null;
         super.cancel(true);
-        hVar = this.boN.mLoadDataCallBack;
+        hVar = this.bpb.mLoadDataCallBack;
         hVar.a(null);
     }
 }

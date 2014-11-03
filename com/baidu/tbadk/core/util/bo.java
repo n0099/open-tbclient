@@ -1,84 +1,136 @@
 package com.baidu.tbadk.core.util;
 
+import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class bo implements bp {
-    private final /* synthetic */ int FB;
-    private final /* synthetic */ boolean FC;
+public class bo {
+    private static int Fy = -1;
+    private static int Fz = -1;
+    private static boolean FA = false;
+    private static com.baidu.adp.lib.e.a<Integer, Integer> FB = new com.baidu.adp.lib.e.a<>(500);
+    private static Context mAppContext = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bo(int i, boolean z) {
-        this.FB = i;
-        this.FC = z;
+    public static void u(Context context) {
+        mAppContext = context;
+        FA = true;
     }
 
-    @Override // com.baidu.tbadk.core.util.bp
-    public boolean k(View view) {
-        int W;
-        int W2;
-        int W3;
-        int W4;
-        Object tag = view.getTag();
-        if (tag != null) {
-            if ("skin_text_group".equals(tag)) {
-                bn.b((TextView) view, this.FB);
-                return false;
-            } else if ("skin_text_content".equals(tag)) {
-                bn.b((TextView) view, this.FB);
-                return false;
-            } else if ("skin_text_num".equals(tag)) {
-                bn.l((TextView) view, this.FB);
-                return false;
-            } else if ("skin_check_box".equals(tag)) {
-                bn.a((CheckBox) view, this.FB);
-                return false;
-            } else if ("skin_sidebar_content".equals(tag)) {
-                ((TextView) view).setTextAppearance(TbadkApplication.m251getInst().getApp(), this.FC ? com.baidu.tieba.z.sidebar_content_1 : com.baidu.tieba.z.sidebar_content);
-                return false;
-            } else if ("skin_more_up".equals(tag)) {
-                if (view instanceof RadioButton) {
-                    W4 = bn.W(this.FC);
-                    ((RadioButton) view).setTextColor(W4);
+    private static void mS() {
+        if (mAppContext != null && mAppContext.getResources() != null) {
+            Fz = mAppContext.getResources().getColor(com.baidu.tieba.s.more_color);
+            Fy = mAppContext.getResources().getColor(com.baidu.tieba.s.skin_1_common_color);
+        }
+    }
+
+    private static int bC(int i) {
+        return W(i == 1);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static int W(boolean z) {
+        if (FA) {
+            FA = false;
+            mS();
+        }
+        return z ? Fy : Fz;
+    }
+
+    public static void m(View view) {
+        if (view instanceof ViewGroup) {
+            a((ViewGroup) view, TbadkApplication.m251getInst().getSkinType());
+        }
+    }
+
+    public static void n(View view) {
+        if (view != null) {
+            FB.remove(Integer.valueOf(System.identityHashCode(view)));
+        }
+    }
+
+    public static void a(ViewGroup viewGroup, int i) {
+        int identityHashCode = System.identityHashCode(viewGroup);
+        Integer num = FB.get(Integer.valueOf(identityHashCode));
+        if (num == null || i != num.intValue()) {
+            b(viewGroup, i);
+            FB.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+        }
+    }
+
+    public static void a(ViewGroup viewGroup, boolean z, bq bqVar) {
+        if (!z || !bqVar.k(viewGroup)) {
+            LinkedList linkedList = new LinkedList();
+            while (true) {
+                int childCount = viewGroup.getChildCount();
+                for (int i = 0; i < childCount; i++) {
+                    View childAt = viewGroup.getChildAt(i);
+                    if (!bqVar.k(childAt)) {
+                        if (childAt instanceof ViewGroup) {
+                            linkedList.addLast((ViewGroup) childAt);
+                        }
+                    } else {
+                        return;
+                    }
                 }
-                aw.h(view, com.baidu.tieba.u.more_up);
-                return false;
-            } else if ("skin_more_middle".equals(tag)) {
-                if (view instanceof RadioButton) {
-                    W3 = bn.W(this.FC);
-                    ((RadioButton) view).setTextColor(W3);
+                if (!linkedList.isEmpty()) {
+                    viewGroup = (ViewGroup) linkedList.removeFirst();
+                } else {
+                    return;
                 }
-                aw.h(view, com.baidu.tieba.u.more_middle);
-                return false;
-            } else if ("skin_more_down".equals(tag)) {
-                if (view instanceof RadioButton) {
-                    W2 = bn.W(this.FC);
-                    ((RadioButton) view).setTextColor(W2);
-                }
-                aw.h(view, com.baidu.tieba.u.more_down);
-                return false;
-            } else if ("skin_more_all".equals(tag)) {
-                if (view instanceof RadioButton) {
-                    W = bn.W(this.FC);
-                    ((RadioButton) view).setTextColor(W);
-                }
-                aw.h(view, com.baidu.tieba.u.more_all);
-                return false;
-            } else if ("skin_arrow".equals(tag)) {
-                aw.c((ImageView) view, com.baidu.tieba.u.icon_ba_top_arrow_big);
-                return false;
-            } else if ("skin_list_line".equals(tag)) {
-                bn.j(view, this.FB);
-                return false;
-            } else {
-                return false;
             }
         }
-        return false;
+    }
+
+    private static void b(ViewGroup viewGroup, int i) {
+        a(viewGroup, true, new bp(i, i == 1));
+    }
+
+    public static void j(View view, int i) {
+        if (view != null) {
+            if (i == 1) {
+                view.setBackgroundColor(-14078923);
+            } else {
+                view.setBackgroundColor(-1183760);
+            }
+        }
+    }
+
+    public static void e(View view, int i, int i2) {
+        if (view != null) {
+            view.setBackgroundDrawable(null);
+            if (i == 0) {
+                aw.h(view, com.baidu.tieba.u.auto_skin_list_item_bg_up);
+            } else if (i == 2) {
+                aw.h(view, com.baidu.tieba.u.auto_skin_list_item_bg_down);
+            } else {
+                aw.h(view, com.baidu.tieba.u.list_selector_item);
+            }
+        }
+    }
+
+    public static void l(TextView textView, int i) {
+        if (textView != null) {
+            if (i == 1) {
+                textView.setTextColor(-11446171);
+            } else {
+                textView.setTextColor(-5065030);
+            }
+        }
+    }
+
+    public static void b(TextView textView, int i) {
+        if (textView != null) {
+            textView.setTextColor(bC(i));
+        }
+    }
+
+    public static void a(CheckBox checkBox, int i) {
+        if (checkBox != null) {
+            checkBox.setTextColor(bC(i));
+        }
     }
 }

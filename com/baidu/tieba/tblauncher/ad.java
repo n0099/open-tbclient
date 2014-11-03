@@ -38,37 +38,37 @@ class ad extends CustomMessageListener {
         int i2;
         int i3;
         boolean z4 = false;
-        this.this$0.bOS = 0;
-        this.this$0.bOX = false;
-        z = this.this$0.bOY;
+        this.this$0.bPh = 0;
+        this.this$0.bPm = false;
+        z = this.this$0.bPn;
         if (!z) {
-            z3 = this.this$0.adx;
+            z3 = this.this$0.adC;
             if (!z3) {
-                i2 = this.this$0.bOR;
+                i2 = this.this$0.bPg;
                 if (i2 <= 0) {
-                    i3 = this.this$0.bOT;
+                    i3 = this.this$0.bPi;
                 }
             }
         }
         z4 = true;
         if (!z4) {
-            imageView = this.this$0.bOL;
+            imageView = this.this$0.bPa;
             imageView.setVisibility(8);
         }
-        i = this.this$0.bOR;
+        i = this.this$0.bPg;
         if (i > 0) {
-            z2 = this.this$0.bOV;
+            z2 = this.this$0.bPk;
             if (z2) {
-                textView2 = this.this$0.bOx;
-                mainTabActivity = this.this$0.bOO;
+                textView2 = this.this$0.bOM;
+                mainTabActivity = this.this$0.bPd;
                 textView2.setCompoundDrawablePadding(com.baidu.adp.lib.util.m.dip2px(mainTabActivity, 4.0f));
-                textView3 = this.this$0.bOx;
-                drawable = this.this$0.bOy;
+                textView3 = this.this$0.bOM;
+                drawable = this.this$0.bON;
                 textView3.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, drawable, (Drawable) null);
                 return;
             }
         }
-        textView = this.this$0.bOx;
+        textView = this.this$0.bOM;
         textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
     }
 }

@@ -18,11 +18,11 @@ public class ac extends com.baidu.adp.framework.listener.e {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
-            this.this$0.bda = (ResponseOnlineMessage) socketResponsedMessage;
-            if (!c.PK().bcO.get()) {
+            this.this$0.bdo = (ResponseOnlineMessage) socketResponsedMessage;
+            if (!c.PN().bdc.get()) {
                 return;
             }
-            this.this$0.PW();
+            this.this$0.PZ();
         }
     }
 }

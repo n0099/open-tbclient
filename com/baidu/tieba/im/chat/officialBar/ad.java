@@ -9,8 +9,8 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ad extends BaseAdapter {
-    private List<az> Wx;
-    private View.OnClickListener aRo = new ae(this);
+    private List<az> WB;
+    private View.OnClickListener aRC = new ae(this);
     Context mContext;
 
     public ad(Context context) {
@@ -19,23 +19,23 @@ public class ad extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.Wx == null) {
+        if (this.WB == null) {
             return 0;
         }
-        return this.Wx.size();
+        return this.WB.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.Wx == null || i >= getCount()) {
+        if (this.WB == null || i >= getCount()) {
             return null;
         }
-        return this.Wx.get(i);
+        return this.WB.get(i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.Wx == null || i >= this.Wx.size()) {
+        if (this.WB == null || i >= this.WB.size()) {
             return 0L;
         }
         return i;
@@ -43,10 +43,10 @@ public class ad extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.Wx == null || i >= this.Wx.size()) {
+        if (this.WB == null || i >= this.WB.size()) {
             return 0;
         }
-        switch (this.Wx.get(i).type) {
+        switch (this.WB.get(i).type) {
             case 1:
                 return 0;
             case 2:
@@ -102,7 +102,7 @@ public class ad extends BaseAdapter {
                     chatMessage2.setMsgType(azVar.type);
                     dm.a(this.mContext, aVar3, aVar4.getImageView(), chatMessage2, 0L, "official_history_adapter");
                     aVar4.getImageView().setTag(Integer.valueOf(i));
-                    aVar4.getImageView().setOnClickListener(this.aRo);
+                    aVar4.getImageView().setOnClickListener(this.aRC);
                     return aVar3;
                 case 2:
                     View aVar5 = view == null ? new a(this.mContext) : view;
@@ -119,7 +119,7 @@ public class ad extends BaseAdapter {
     }
 
     public void setData(List<az> list) {
-        this.Wx = list;
+        this.WB = list;
         notifyDataSetChanged();
     }
 }

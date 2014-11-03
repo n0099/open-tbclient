@@ -13,14 +13,14 @@ import com.baidu.tieba.person.post.UserPostPageHttpResponseMessage;
 import com.baidu.tieba.person.post.UserPostPageSocketResponsedMessage;
 /* loaded from: classes.dex */
 public class ai {
-    private static int adp = 1;
+    private static int adu = 1;
 
     public static void init() {
-        wf();
-        wg();
+        wh();
+        wi();
     }
 
-    public static void wf() {
+    public static void wh() {
         a(303002, UserPostPageSocketResponsedMessage.class, false, false);
     }
 
@@ -42,7 +42,7 @@ public class ai {
         return String.valueOf(TbConfig.SERVER_ADDRESS) + str + "?cmd=" + i;
     }
 
-    private static void wg() {
+    private static void wi() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, s("c/u/feed/userpost", 303002));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
@@ -69,7 +69,7 @@ public class ai {
         bVar.setResponsedClass(cls);
         bVar.f(z);
         bVar.a(dupLicateMode);
-        bVar.setRetry(adp);
+        bVar.setRetry(adu);
         MessageManager.getInstance().unRegisterTask(i);
         MessageManager.getInstance().registerTask(bVar);
         bVar.setNeedEncrypt(z2);

@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class h extends PagerAdapter {
-    final /* synthetic */ GuideActivity bOn;
+    final /* synthetic */ GuideActivity bOC;
 
     private h(GuideActivity guideActivity) {
-        this.bOn = guideActivity;
+        this.bOC = guideActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,7 +21,7 @@ class h extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
         ArrayList arrayList;
-        arrayList = this.bOn.bOa;
+        arrayList = this.bOC.bOp;
         return arrayList.size();
     }
 
@@ -32,19 +32,19 @@ class h extends PagerAdapter {
         ArrayList arrayList3;
         ArrayList arrayList4;
         ArrayList arrayList5;
-        arrayList = this.bOn.bOa;
+        arrayList = this.bOC.bOp;
         if (i < arrayList.size()) {
-            arrayList2 = this.bOn.bOa;
+            arrayList2 = this.bOC.bOp;
             ((ViewPager) view).addView((View) arrayList2.get(i), 0);
-            arrayList3 = this.bOn.bOa;
+            arrayList3 = this.bOC.bOp;
             if (i == arrayList3.size() - 1) {
-                arrayList5 = this.bOn.bOa;
-                ((View) arrayList5.get(i)).setOnClickListener(this.bOn.bOk);
+                arrayList5 = this.bOC.bOp;
+                ((View) arrayList5.get(i)).setOnClickListener(this.bOC.bOz);
             }
-            arrayList4 = this.bOn.bOa;
+            arrayList4 = this.bOC.bOp;
             return arrayList4.get(i);
         }
-        View view2 = new View(this.bOn);
+        View view2 = new View(this.bOC);
         view2.setBackgroundColor(-1);
         ((ViewPager) view).addView(view2, 0);
         return view2;

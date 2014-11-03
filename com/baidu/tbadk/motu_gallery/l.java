@@ -7,11 +7,11 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l extends Thread {
-    final /* synthetic */ JigsawAlbumActivity Wv;
+    final /* synthetic */ JigsawAlbumActivity Wz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(JigsawAlbumActivity jigsawAlbumActivity) {
-        this.Wv = jigsawAlbumActivity;
+        this.Wz = jigsawAlbumActivity;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -22,18 +22,18 @@ public class l extends Thread {
         Map map;
         u uVar;
         Map map2;
-        bArr = this.Wv.Wp;
+        bArr = this.Wz.Wt;
         synchronized (bArr) {
             try {
-                arrayList = this.Wv.We;
+                arrayList = this.Wz.Wi;
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
-                    cZ = this.Wv.cZ(((c) it.next()).type);
-                    map = this.Wv.Wf;
+                    cZ = this.Wz.cZ(((c) it.next()).type);
+                    map = this.Wz.Wj;
                     if (!map.containsKey(cZ.path)) {
-                        uVar = this.Wv.Wi;
-                        Bitmap a = uVar.a(this.Wv, cZ, this.Wv.s(70.0f));
-                        map2 = this.Wv.Wf;
+                        uVar = this.Wz.Wm;
+                        Bitmap a = uVar.a(this.Wz, cZ, this.Wz.s(70.0f));
+                        map2 = this.Wz.Wj;
                         map2.put(cZ.path, a);
                     }
                 }

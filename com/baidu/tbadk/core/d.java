@@ -330,6 +330,10 @@ public class d {
         this.yB = z;
     }
 
+    public void a(Resources resources) {
+        this.yE = resources;
+    }
+
     public void destroy() {
         if (this.yC != null) {
             this.yC.clear();

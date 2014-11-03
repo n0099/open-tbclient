@@ -1,11 +1,11 @@
 package com.baidu.tieba.im.chat;
 /* loaded from: classes.dex */
 class bh implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ GroupSettingActivity aOo;
+    final /* synthetic */ GroupSettingActivity aOC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bh(GroupSettingActivity groupSettingActivity) {
-        this.aOo = groupSettingActivity;
+        this.aOC = groupSettingActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -14,13 +14,13 @@ class bh implements com.baidu.tieba.im.a<Boolean> {
         bp bpVar;
         bp bpVar2;
         if (bool == null || !bool.equals(true)) {
-            bpVar = this.aOo.aOh;
-            bpVar.JQ().gO();
-            this.aOo.isAcceptNotify = false;
+            bpVar = this.aOC.aOv;
+            bpVar.JU().gO();
+            this.aOC.isAcceptNotify = false;
             return;
         }
-        bpVar2 = this.aOo.aOh;
-        bpVar2.JQ().gN();
-        this.aOo.isAcceptNotify = true;
+        bpVar2 = this.aOC.aOv;
+        bpVar2.JU().gN();
+        this.aOC.isAcceptNotify = true;
     }
 }

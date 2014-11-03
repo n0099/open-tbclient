@@ -4,11 +4,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 class k extends Thread {
-    final /* synthetic */ AccountActivity aeo;
+    final /* synthetic */ AccountActivity aew;
     private String mBduss;
 
     public k(AccountActivity accountActivity, String str) {
-        this.aeo = accountActivity;
+        this.aew = accountActivity;
         this.mBduss = null;
         this.mBduss = str;
     }
@@ -17,7 +17,7 @@ class k extends Thread {
     public void run() {
         super.run();
         com.baidu.tbadk.core.util.ac acVar = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.REGISTER_ADDRESS);
-        acVar.mc().na().FT = false;
+        acVar.mc().na().FU = false;
         acVar.mc().na().mIsUseCurrentBDUSS = false;
         acVar.k("BDUSS", this.mBduss);
         acVar.k("channel_id", TbadkApplication.m251getInst().getPushChannelId());

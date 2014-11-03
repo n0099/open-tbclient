@@ -6,10 +6,10 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends BdAsyncTask<List<String>, Integer, Boolean> {
-    final /* synthetic */ EmotionManageActivity asH;
+    final /* synthetic */ EmotionManageActivity asQ;
 
     private q(EmotionManageActivity emotionManageActivity) {
-        this.asH = emotionManageActivity;
+        this.asQ = emotionManageActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -31,7 +31,7 @@ public class q extends BdAsyncTask<List<String>, Integer, Boolean> {
             MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
             myEmotionGroupData.setGroupId(str);
             myEmotionGroupData.setUid(TbadkApplication.getCurrentAccount());
-            if (d.CG().a(myEmotionGroupData)) {
+            if (d.CI().a(myEmotionGroupData)) {
                 i++;
             }
         }
@@ -48,9 +48,9 @@ public class q extends BdAsyncTask<List<String>, Integer, Boolean> {
     public void onPostExecute(Boolean bool) {
         super.onPostExecute(bool);
         if (bool.booleanValue()) {
-            com.baidu.tbadk.editortool.aa.rz().rA();
-            this.asH.asG = true;
-            this.asH.bC(true);
+            com.baidu.tbadk.editortool.aa.rB().rC();
+            this.asQ.asP = true;
+            this.asQ.bC(true);
         }
     }
 }

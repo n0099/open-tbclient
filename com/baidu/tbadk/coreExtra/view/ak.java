@@ -7,11 +7,11 @@ import com.baidu.tbadk.coreExtra.view.LivePlayingStatusMgr;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ak extends Handler {
-    final /* synthetic */ LivePlayingStatusMgr OJ;
+    final /* synthetic */ LivePlayingStatusMgr OO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(LivePlayingStatusMgr livePlayingStatusMgr) {
-        this.OJ = livePlayingStatusMgr;
+        this.OO = livePlayingStatusMgr;
     }
 
     @Override // android.os.Handler
@@ -20,10 +20,10 @@ public class ak extends Handler {
         if (message != null) {
             LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus2 = (LivePlayingStatusMgr.LivePlayingStatus) message.obj;
             try {
-                this.OJ.OG = (LivePlayingStatusMgr.LivePlayingStatus) message.obj;
-                this.OJ.gid = message.arg1;
-                LivePlayingStatusMgr livePlayingStatusMgr = this.OJ;
-                livePlayingStatus = this.OJ.OG;
+                this.OO.OK = (LivePlayingStatusMgr.LivePlayingStatus) message.obj;
+                this.OO.gid = message.arg1;
+                LivePlayingStatusMgr livePlayingStatusMgr = this.OO;
+                livePlayingStatus = this.OO.OK;
                 livePlayingStatusMgr.b(livePlayingStatus);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

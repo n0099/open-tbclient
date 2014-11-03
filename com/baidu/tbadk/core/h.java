@@ -1,65 +1,47 @@
 package com.baidu.tbadk.core;
 
-import com.baidu.tbadk.core.data.NewErrorData;
-import com.baidu.tbadk.core.util.ac;
+import android.view.animation.Animation;
+import java.lang.ref.WeakReference;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h {
-    protected ac mNetWork;
-    protected NewErrorData yH = null;
+public class h implements Animation.AnimationListener {
+    private final /* synthetic */ Animation.AnimationListener val$listener;
+    private final /* synthetic */ WeakReference val$reference;
+    final /* synthetic */ BaseFragmentActivity yG;
 
-    public h() {
-        this.mNetWork = null;
-        this.mNetWork = new ac();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public h(BaseFragmentActivity baseFragmentActivity, Animation.AnimationListener animationListener, WeakReference weakReference) {
+        this.yG = baseFragmentActivity;
+        this.val$listener = animationListener;
+        this.val$reference = weakReference;
     }
 
-    public void cancel() {
-        if (this.mNetWork != null) {
-            this.mNetWork.dM();
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+        if (this.val$listener != null) {
+            this.val$listener.onAnimationStart(animation);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void setUrl(String str) {
-        this.mNetWork.setUrl(str);
-    }
-
-    public void k(String str, String str2) {
-        this.mNetWork.k(str, str2);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public String jp() {
-        String lA = this.mNetWork.lA();
-        this.yH = new NewErrorData();
-        this.yH.parserJson(lA);
-        return lA;
-    }
-
-    public boolean jq() {
-        if (this.mNetWork != null) {
-            return this.mNetWork.mc().nb().jq();
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+        if (this.val$listener != null) {
+            this.val$listener.onAnimationRepeat(animation);
         }
-        return false;
     }
 
-    public String jr() {
-        if (this.mNetWork != null) {
-            return this.mNetWork.getErrorString();
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        List list;
+        List list2;
+        if (this.val$listener != null) {
+            this.val$listener.onAnimationEnd(animation);
         }
-        return null;
-    }
-
-    public int getErrorCode() {
-        if (this.yH != null) {
-            return this.yH.getErrorNumber();
+        list = this.yG.animationList;
+        synchronized (list) {
+            list2 = this.yG.animationList;
+            list2.remove(this.val$reference);
         }
-        return -1;
-    }
-
-    public String getErrorMsg() {
-        if (this.yH != null) {
-            return this.yH.getErrorMsg();
-        }
-        return null;
     }
 }

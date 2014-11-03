@@ -1,6 +1,5 @@
 package com.baidu.tieba.game.newgame;
 
-import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -21,17 +20,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends BaseAdapter {
-    private boolean aJU;
-    private com.baidu.tieba.game.view.c aJV;
-    private Context mContext;
+    private GameNewActivity aKh;
+    private boolean aKi;
+    private com.baidu.tieba.game.view.c aKj;
     private List<GameInfoData> mData = new ArrayList(0);
 
-    public d(Context context) {
-        this.mContext = context;
+    public d(GameNewActivity gameNewActivity) {
+        this.aKh = gameNewActivity;
     }
 
     public void a(com.baidu.tieba.game.view.c cVar) {
-        this.aJV = cVar;
+        this.aKj = cVar;
     }
 
     public List<GameInfoData> getData() {
@@ -39,19 +38,19 @@ public class d extends BaseAdapter {
     }
 
     public void co(boolean z) {
-        this.aJU = z;
+        this.aKi = z;
     }
 
-    public void Ii() {
-        if (!this.aJU) {
-            this.aJU = true;
+    public void Im() {
+        if (!this.aKi) {
+            this.aKi = true;
             notifyDataSetChanged();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return (this.aJU ? 1 : 0) + this.mData.size();
+        return (this.aKi ? 1 : 0) + this.mData.size();
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -92,10 +91,10 @@ public class d extends BaseAdapter {
     private View a(int i, View view) {
         af afVar;
         if (!(view instanceof af)) {
-            afVar = new af(this.mContext, GameListBaseItem.SECOND_LINE_TYPE.TYPE_CATEGORY);
+            afVar = new af(this.aKh, GameListBaseItem.SECOND_LINE_TYPE.TYPE_CATEGORY);
             afVar.onChangeSkinType(TbadkApplication.m251getInst().getSkinType());
-            afVar.setPadding(m.c(this.mContext, t.ds30), 0, m.c(this.mContext, t.ds32), 0);
-            afVar.setOnItemDownloadClick(this.aJV);
+            afVar.setPadding(m.c(this.aKh, t.ds30), 0, m.c(this.aKh, t.ds32), 0);
+            afVar.setOnItemDownloadClick(this.aKj);
         } else {
             afVar = (af) view;
         }
@@ -107,24 +106,24 @@ public class d extends BaseAdapter {
             }
             afVar.setGameInfoStr(str);
         }
-        afVar.setData(item);
+        afVar.a(this.aKh.getUniqueId(), item);
         return afVar;
     }
 
     private View H(View view) {
         e eVar;
         if (view == null || !(view.getTag() instanceof e)) {
-            view = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, w.new_pb_list_more, null);
+            view = com.baidu.adp.lib.g.b.ek().inflate(this.aKh, w.new_pb_list_more, null);
             e eVar2 = new e(this, null);
-            eVar2.aJK = (TextView) view.findViewById(v.pb_more_text);
+            eVar2.aJX = (TextView) view.findViewById(v.pb_more_text);
             eVar2.mProgress = (ProgressBar) view.findViewById(v.progress);
             view.setTag(eVar2);
             eVar = eVar2;
         } else {
             eVar = (e) view.getTag();
         }
-        eVar.aJK.setText(TbadkApplication.m251getInst().getString(y.loading));
-        eVar.aJK.setTextColor(aw.getColor(s.pb_more_txt));
+        eVar.aJX.setText(TbadkApplication.m251getInst().getString(y.loading));
+        eVar.aJX.setTextColor(aw.getColor(s.pb_more_txt));
         eVar.mProgress.setVisibility(0);
         return view;
     }

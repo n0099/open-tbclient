@@ -15,12 +15,12 @@ import java.io.File;
 public class b {
     public static final void a(Context context, c cVar, int i) {
         if (context != null && cVar != null) {
-            if (!(!TextUtils.isEmpty(cVar.abk()))) {
+            if (!(!TextUtils.isEmpty(cVar.abn()))) {
                 m.showToast(context, y.pb_app_error);
             } else if (j.fh()) {
                 cVar.hf(1);
-                TiebaStatic.eventStat(context, "pb_dl_app", null, 1, "app_name", cVar.abk());
-                com.baidu.tbadk.download.b.rh().a(cVar.abk(), cVar.getDownloadUrl(), cVar.getAppName(), i);
+                TiebaStatic.eventStat(context, "pb_dl_app", null, 1, "app_name", cVar.abn());
+                com.baidu.tbadk.download.b.rj().a(cVar.abn(), cVar.getDownloadUrl(), cVar.getAppName(), i);
             } else {
                 m.showToast(context, y.neterror);
             }
@@ -29,12 +29,12 @@ public class b {
 
     public static final void a(Context context, c cVar) {
         if (context != null && cVar != null) {
-            String abk = cVar.abk();
-            if (TextUtils.isEmpty(abk)) {
+            String abn = cVar.abn();
+            if (TextUtils.isEmpty(abn)) {
                 m.showToast(context, y.pb_app_error);
                 return;
             }
-            File br = s.br(String.valueOf(abk.replace(".", "_")) + ".apk");
+            File br = s.br(String.valueOf(abn.replace(".", "_")) + ".apk");
             if (br != null) {
                 Intent intent = new Intent();
                 intent.addFlags(268435456);

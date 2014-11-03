@@ -6,13 +6,13 @@ import com.baidu.tieba.im.data.GroupPermData;
 import com.baidu.tieba.im.message.ResponseUserPermissionMessage;
 /* loaded from: classes.dex */
 class a extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ FrsGroupActivity aWn;
+    final /* synthetic */ FrsGroupActivity aWB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(FrsGroupActivity frsGroupActivity, int i) {
         super(i);
-        this.aWn = frsGroupActivity;
+        this.aWB = frsGroupActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,38 +22,38 @@ class a extends com.baidu.adp.framework.listener.e {
         l lVar2;
         com.baidu.tbadk.mvc.core.b bVar;
         com.baidu.tbadk.mvc.core.b bVar2;
-        lVar = this.aWn.aWj;
+        lVar = this.aWB.aWx;
         lVar.cX(false);
-        lVar2 = this.aWn.aWj;
+        lVar2 = this.aWB.aWx;
         lVar2.cW(true);
         if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseUserPermissionMessage)) {
-            this.aWn.showToast(com.baidu.tieba.y.neterror);
+            this.aWB.showToast(com.baidu.tieba.y.neterror);
             return;
         }
         ResponseUserPermissionMessage responseUserPermissionMessage = (ResponseUserPermissionMessage) socketResponsedMessage;
         if (responseUserPermissionMessage.getError() != 0) {
             if (responseUserPermissionMessage.getError() > 0) {
                 if (!TextUtils.isEmpty(responseUserPermissionMessage.getErrorString())) {
-                    this.aWn.showToast(responseUserPermissionMessage.getErrorString());
+                    this.aWB.showToast(responseUserPermissionMessage.getErrorString());
                     return;
                 }
                 return;
             }
-            this.aWn.showToast(com.baidu.tieba.y.neterror);
+            this.aWB.showToast(com.baidu.tieba.y.neterror);
             return;
         }
         GroupPermData groupPermData = responseUserPermissionMessage.getGroupPermData();
         if (groupPermData != null) {
-            bVar = this.aWn.aWk;
+            bVar = this.aWB.aWy;
             int childCount = bVar.getChildCount();
             for (int i = 0; i < childCount; i++) {
-                bVar2 = this.aWn.aWk;
+                bVar2 = this.aWB.aWy;
                 com.baidu.tbadk.mvc.core.a df = bVar2.df(i);
                 if (df instanceof d) {
                     ((d) df).setGroupPerm(groupPermData);
                 }
             }
-            this.aWn.a(groupPermData);
+            this.aWB.a(groupPermData);
         }
     }
 }

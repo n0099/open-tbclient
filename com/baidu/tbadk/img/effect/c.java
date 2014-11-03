@@ -5,11 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c Vm = new c();
-    private final HashMap<String, Class<? extends b>> Vn = new HashMap<>();
+    private static c Vq = new c();
+    private final HashMap<String, Class<? extends b>> Vr = new HashMap<>();
 
-    public static c sq() {
-        return Vm;
+    public static c ss() {
+        return Vq;
     }
 
     private c() {
@@ -32,7 +32,7 @@ public class c {
                     ImageOperation imageOperation = list.get(i3);
                     if ("resize".equals(imageOperation.actionName)) {
                         d dVar2 = (d) a(imageOperation);
-                        if (dVar != null && dVar2.getMaxWidth() > dVar.getMaxWidth() && dVar2.sr() > dVar.sr()) {
+                        if (dVar != null && dVar2.getMaxWidth() > dVar.getMaxWidth() && dVar2.st() > dVar.st()) {
                             dVar2 = dVar;
                         }
                         list.remove(i3);
@@ -85,7 +85,7 @@ public class c {
                 ImageOperation imageOperation = list.get(i3);
                 if ("resize".equals(imageOperation.actionName)) {
                     d dVar2 = (d) a(imageOperation);
-                    if (dVar != null && dVar2.getMaxWidth() > dVar.getMaxWidth() && dVar2.sr() > dVar.sr()) {
+                    if (dVar != null && dVar2.getMaxWidth() > dVar.getMaxWidth() && dVar2.st() > dVar.st()) {
                         dVar2 = dVar;
                     }
                     list.remove(i3);
@@ -123,7 +123,7 @@ public class c {
 
     protected b a(ImageOperation imageOperation) {
         b f;
-        Class<? extends b> cls = this.Vn.get(imageOperation.actionName);
+        Class<? extends b> cls = this.Vr.get(imageOperation.actionName);
         if (cls != null && (f = f(cls)) != null) {
             f.dw(imageOperation.actionParam);
             return f;
@@ -134,7 +134,7 @@ public class c {
     private void e(Class<? extends b> cls) {
         b f = f(cls);
         if (f != null) {
-            this.Vn.put(f.sp(), cls);
+            this.Vr.put(f.sr(), cls);
         }
     }
 

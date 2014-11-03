@@ -13,10 +13,10 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h<T extends com.baidu.tbadk.mvc.b.g, D extends com.baidu.tbadk.mvc.b.i> extends BdAsyncTask<Object, Object, D> {
-    private NetModel<T, D> XU;
+    private NetModel<T, D> XY;
 
     public h(NetModel<T, D> netModel) {
-        this.XU = netModel;
+        this.XY = netModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,13 +25,13 @@ public class h<T extends com.baidu.tbadk.mvc.b.g, D extends com.baidu.tbadk.mvc.
     /* renamed from: i */
     public D doInBackground(Object... objArr) {
         com.baidu.tbadk.mvc.b.g gVar;
-        ac acVar = new ac(String.valueOf(TbConfig.SERVER_ADDRESS) + this.XU.tK());
-        gVar = ((NetModel) this.XU).XM;
-        for (Map.Entry<String, Object> entry : gVar.to().entrySet()) {
+        ac acVar = new ac(String.valueOf(TbConfig.SERVER_ADDRESS) + this.XY.tM());
+        gVar = ((NetModel) this.XY).XQ;
+        for (Map.Entry<String, Object> entry : gVar.tq().entrySet()) {
             acVar.k(entry.getKey(), String.valueOf(entry.getValue()));
         }
         String lA = acVar.lA();
-        D g = g(this.XU.getResponseDataClass());
+        D g = g(this.XY.getResponseDataClass());
         try {
             g.d(new JSONObject(lA));
         } catch (JSONException e) {
@@ -49,12 +49,12 @@ public class h<T extends com.baidu.tbadk.mvc.b.g, D extends com.baidu.tbadk.mvc.
         j jVar;
         j jVar2;
         super.onPostExecute(d);
-        gVar = ((NetModel) this.XU).XM;
-        MvcHttpMessage<T, D> mvcHttpMessage = new MvcHttpMessage<>(gVar, this.XU.tI());
-        MvcJsonHttpResponsedMessage mvcJsonHttpResponsedMessage = new MvcJsonHttpResponsedMessage(this.XU.tI());
-        jVar = ((NetModel) this.XU).XK;
+        gVar = ((NetModel) this.XY).XQ;
+        MvcHttpMessage<T, D> mvcHttpMessage = new MvcHttpMessage<>(gVar, this.XY.tK());
+        MvcJsonHttpResponsedMessage mvcJsonHttpResponsedMessage = new MvcJsonHttpResponsedMessage(this.XY.tK());
+        jVar = ((NetModel) this.XY).XO;
         if (jVar != null) {
-            jVar2 = ((NetModel) this.XU).XK;
+            jVar2 = ((NetModel) this.XY).XO;
             jVar2.a(mvcJsonHttpResponsedMessage, mvcHttpMessage, null);
         }
     }

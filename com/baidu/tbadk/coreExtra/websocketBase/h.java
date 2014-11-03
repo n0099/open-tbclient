@@ -9,31 +9,31 @@ import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.framework.listener.e {
-    private static h Pz = new h();
-    private boolean Pu;
-    private int Pv;
-    private long Pw;
-    private final SparseArray<i> Px;
-    private final HashSet<Integer> Py;
+    private static h PE = new h();
+    private long PA;
+    private final SparseArray<i> PC;
+    private final HashSet<Integer> PD;
+    private boolean Py;
+    private int Pz;
 
-    public static h qz() {
-        return Pz;
+    public static h qB() {
+        return PE;
     }
 
     private h() {
         super(1001);
-        this.Pv = 3;
-        this.Pw = 300000L;
-        this.Px = new SparseArray<>();
-        this.Py = new HashSet<>();
+        this.Pz = 3;
+        this.PA = 300000L;
+        this.PC = new SparseArray<>();
+        this.PD = new HashSet<>();
         MessageManager.getInstance().registerListener(0, this);
     }
 
     public boolean cw(int i) {
-        if (this.Pu || this.Py.contains(Integer.valueOf(i)) || !MessageManager.getInstance().getSocketClient().isValid()) {
+        if (this.Py || this.PD.contains(Integer.valueOf(i)) || !MessageManager.getInstance().getSocketClient().isValid()) {
             return false;
         }
-        if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().ax() > PingManager.qC().qE() + 20000) {
+        if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().ax() > PingManager.qE().qG() + 20000) {
             com.baidu.adp.framework.client.socket.m.a("lcapimgr", i, 0, "isAPIAvailableNow", 0, "deepsleep");
             return false;
         } else if (TextUtils.isEmpty(TiebaIMConfig.defaultUrl)) {
@@ -43,9 +43,9 @@ public class h extends com.baidu.adp.framework.listener.e {
                 com.baidu.adp.framework.client.socket.m.a("lcapimgr", i, 0, "isAPIAvailableNow", 0, "retryiplist");
                 return false;
             }
-            i iVar = this.Px.get(i);
-            if (iVar != null && iVar.PC) {
-                if (Math.abs(System.currentTimeMillis() - iVar.PD) <= this.Pw) {
+            i iVar = this.PC.get(i);
+            if (iVar != null && iVar.PG) {
+                if (Math.abs(System.currentTimeMillis() - iVar.PH) <= this.PA) {
                     return false;
                 }
                 iVar.reset();
@@ -58,8 +58,8 @@ public class h extends com.baidu.adp.framework.listener.e {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.Px.size()) {
-                this.Px.valueAt(i2).reset();
+            if (i2 < this.PC.size()) {
+                this.PC.valueAt(i2).reset();
                 i = i2 + 1;
             } else {
                 return;
@@ -68,39 +68,39 @@ public class h extends com.baidu.adp.framework.listener.e {
     }
 
     public void cx(int i) {
-        i iVar = this.Px.get(i);
+        i iVar = this.PC.get(i);
         if (iVar == null) {
             iVar = new i(null);
-            this.Px.append(i, iVar);
+            this.PC.append(i, iVar);
         }
         if (iVar != null) {
-            iVar.onError(this.Pv);
+            iVar.onError(this.Pz);
         }
     }
 
     public void cy(int i) {
-        this.Px.remove(i);
+        this.PC.remove(i);
     }
 
     public void am(boolean z) {
-        this.Pu = z;
+        this.Py = z;
     }
 
     public void b(int[] iArr) {
         if (iArr != null && iArr.length > 0) {
-            this.Py.clear();
+            this.PD.clear();
             for (int i : iArr) {
-                this.Py.add(Integer.valueOf(i));
+                this.PD.add(Integer.valueOf(i));
             }
         }
     }
 
     public void cz(int i) {
-        this.Pv = i;
+        this.Pz = i;
     }
 
     public void o(long j) {
-        this.Pw = j;
+        this.PA = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

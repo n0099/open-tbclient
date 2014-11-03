@@ -8,8 +8,8 @@ import android.widget.LinearLayout;
 import java.io.FileNotFoundException;
 /* loaded from: classes.dex */
 public class x extends LinearLayout {
-    ImageView Xb;
-    Bitmap Xc;
+    ImageView Xf;
+    Bitmap Xg;
     Context mContext;
     Uri mUri;
 
@@ -21,7 +21,7 @@ public class x extends LinearLayout {
 
     private void init() {
         com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.w.motu_albums_selected_item, this);
-        this.Xb = (ImageView) findViewById(com.baidu.tieba.v.image);
+        this.Xf = (ImageView) findViewById(com.baidu.tieba.v.image);
     }
 
     public Uri getUri() {
@@ -34,7 +34,7 @@ public class x extends LinearLayout {
         int dimension = (int) this.mContext.getResources().getDimension(com.baidu.tieba.t.jigsawSelectedImageWidth);
         if (uri != null) {
             try {
-                this.Xc = b.b(this.mContext, uri, dimension, dimension);
+                this.Xg = b.b(this.mContext, uri, dimension, dimension);
             } catch (OtherException e) {
                 e.printStackTrace();
                 z = false;
@@ -46,8 +46,8 @@ public class x extends LinearLayout {
                 z = false;
             }
         }
-        if (this.Xc != null) {
-            this.Xb.setImageBitmap(this.Xc);
+        if (this.Xg != null) {
+            this.Xf.setImageBitmap(this.Xg);
         } else {
             z = false;
         }

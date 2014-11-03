@@ -14,8 +14,8 @@ class bs extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         com.baidu.tbadk.b.a.b bVar;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2009502 && customResponsedMessage.getData() != null) {
-            FaceshopStatic.auP = (com.baidu.tbadk.b.a.b) customResponsedMessage.getData();
-            bVar = FaceshopStatic.auP;
+            FaceshopStatic.auY = (com.baidu.tbadk.b.a.b) customResponsedMessage.getData();
+            bVar = FaceshopStatic.auY;
             ((com.baidu.tbadk.b.a.b) customResponsedMessage.getData()).a(new bt(this, bVar.getContext(), cb.face_store, by.icon_more_store, cb.face_store_tip, 4));
         }
     }

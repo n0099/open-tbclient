@@ -6,15 +6,15 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnClickListener {
-    final /* synthetic */ o bKP;
-    private final /* synthetic */ d bKQ;
-    private final /* synthetic */ r bKR;
+    final /* synthetic */ o bLe;
+    private final /* synthetic */ d bLf;
+    private final /* synthetic */ r bLg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(o oVar, d dVar, r rVar) {
-        this.bKP = oVar;
-        this.bKQ = dVar;
-        this.bKR = rVar;
+        this.bLe = oVar;
+        this.bLf = dVar;
+        this.bLg = rVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,22 +22,22 @@ public class p implements View.OnClickListener {
         Context context;
         HashMap hashMap;
         Context context2;
-        if (!this.bKQ.acO()) {
-            this.bKR.bLc.setVisibility(4);
-            this.bKR.bLd.setVisibility(0);
-            this.bKR.bLe.setText(com.baidu.tieba.y.signallforum_resigning);
-            this.bKQ.eF(true);
-            context = this.bKP.mContext;
+        if (!this.bLf.acR()) {
+            this.bLg.bLr.setVisibility(4);
+            this.bLg.bLs.setVisibility(0);
+            this.bLg.bLt.setText(com.baidu.tieba.y.signallforum_resigning);
+            this.bLf.eF(true);
+            context = this.bLe.mContext;
             ad adVar = new ad(context);
-            adVar.a(this.bKP);
-            String sb = new StringBuilder(String.valueOf(this.bKQ.getForumId())).toString();
-            synchronized (this.bKP) {
-                hashMap = this.bKP.bKO;
+            adVar.a(this.bLe);
+            String sb = new StringBuilder(String.valueOf(this.bLf.getForumId())).toString();
+            synchronized (this.bLe) {
+                hashMap = this.bLe.bLd;
                 hashMap.put(sb, adVar);
             }
-            adVar.az(this.bKQ.getForumName(), sb);
-            context2 = this.bKP.mContext;
-            com.baidu.tbadk.core.i.l(context2, "signall_resign_click");
+            adVar.az(this.bLf.getForumName(), sb);
+            context2 = this.bLe.mContext;
+            com.baidu.tbadk.core.j.l(context2, "signall_resign_click");
         }
     }
 }

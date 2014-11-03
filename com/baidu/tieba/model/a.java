@@ -3,7 +3,7 @@ package com.baidu.tieba.model;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.base.e {
-    private b bnZ;
+    private b bon;
     private Context mContext;
     protected com.baidu.adp.base.h mLoadDataCallBack;
 
@@ -21,18 +21,18 @@ public class a extends com.baidu.adp.base.e {
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.bnZ != null) {
-            this.bnZ.cancel();
+        if (this.bon != null) {
+            this.bon.cancel();
             return false;
         }
         return false;
     }
 
-    public void Ta() {
-        if (this.bnZ == null) {
-            this.bnZ = new b(this, null);
+    public void Td() {
+        if (this.bon == null) {
+            this.bon = new b(this, null);
         }
-        this.bnZ.setPriority(3);
-        this.bnZ.execute(new String[0]);
+        this.bon.setPriority(3);
+        this.bon.execute(new String[0]);
     }
 }

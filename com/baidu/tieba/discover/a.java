@@ -27,86 +27,86 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends BaseFragment {
-    private static ViewGroup anb;
-    private static com.baidu.tbadk.b.a ant;
-    private static List<DiscoverItemView> anu = new ArrayList(6);
-    private static CustomMessageListener anx = new c(2009501);
+    private static com.baidu.tbadk.b.a anC;
+    private static List<DiscoverItemView> anD = new ArrayList(6);
+    private static CustomMessageListener anG = new c(2009501);
+    private static ViewGroup ank;
     private static BaseFragmentActivity mActivity;
-    private View HS;
-    private ViewGroup anc;
-    private BannerView and;
-    private DiscoverItemView ane;
-    private DiscoverItemView anf;
-    private DiscoverItemView ang;
-    private DiscoverItemView anh;
-    private DiscoverItemView ani;
-    private DiscoverItemView anj;
-    private NoNetworkView ank;
-    private aa anl;
-    private BdPullRefreshScrollView anm;
-    private r ano;
-    private List<s> ans;
-    private l anw;
-    private boolean ann = false;
-    private long anp = 0;
-    private String anq = null;
-    private boolean anr = false;
-    private List<DiscoverItemView> anv = new ArrayList();
-    private com.baidu.adp.widget.ScrollView.l any = new b(this);
-    private View.OnClickListener Hd = new d(this);
-    private CustomMessageListener anz = new e(this, 2012118);
-    private n anA = new f(this);
-    private final CustomMessageListener anB = new g(this, 2001236);
+    private View HT;
+    private List<s> anB;
+    private l anF;
+    private ViewGroup anl;
+    private BannerView anm;
+    private DiscoverItemView ann;
+    private DiscoverItemView ano;
+    private DiscoverItemView anp;
+    private DiscoverItemView anq;
+    private DiscoverItemView anr;
+    private DiscoverItemView ans;
+    private NoNetworkView ant;
+    private aa anu;
+    private BdPullRefreshScrollView anv;
+    private r anx;
+    private boolean anw = false;
+    private long any = 0;
+    private String anz = null;
+    private boolean anA = false;
+    private List<DiscoverItemView> anE = new ArrayList();
+    private com.baidu.adp.widget.ScrollView.l anH = new b(this);
+    private View.OnClickListener He = new d(this);
+    private CustomMessageListener anI = new e(this, 2012118);
+    private n anJ = new f(this);
+    private final CustomMessageListener anK = new g(this, 2001236);
 
     static {
-        anx.setPriority(2);
+        anG.setPriority(2);
     }
 
     private void initUI() {
-        this.HS = getView();
-        this.ank = (NoNetworkView) this.HS.findViewById(com.baidu.tieba.v.view_no_network);
-        AJ();
-        this.anl = new aa(mActivity);
-        this.anm = (BdPullRefreshScrollView) this.HS.findViewById(com.baidu.tieba.v.scroll_view);
-        this.anm.setCustomHeaderView(this.anl);
-        this.anm.setOnPullDownListener(this.any);
-        anb = (ViewGroup) this.HS.findViewById(com.baidu.tieba.v.local_dis_container);
-        this.anc = (ViewGroup) this.HS.findViewById(com.baidu.tieba.v.mis_dis_container);
-        this.and = (BannerView) this.HS.findViewById(com.baidu.tieba.v.dis_banner);
-        this.ane = (DiscoverItemView) this.HS.findViewById(com.baidu.tieba.v.item_friendsnews);
-        this.anf = (DiscoverItemView) this.HS.findViewById(com.baidu.tieba.v.item_livetelecast);
-        this.ang = (DiscoverItemView) this.HS.findViewById(com.baidu.tieba.v.item_findmore);
-        this.anh = (DiscoverItemView) this.HS.findViewById(com.baidu.tieba.v.item_square);
-        this.ani = (DiscoverItemView) this.HS.findViewById(com.baidu.tieba.v.item_qiandao);
-        this.anj = (DiscoverItemView) this.HS.findViewById(com.baidu.tieba.v.item_member);
-        this.ane.em(com.baidu.tieba.u.icon_friendsnews).en(y.friendsnews).f(this.Hd).eo(DiscoverItemView.anN).bw(TbadkApplication.m251getInst().isFriendFeedNew()).bx(false).by(false);
-        this.anf.em(com.baidu.tieba.u.icon_live_telecast).en(y.livetelecast).f(this.Hd);
-        this.ang.em(com.baidu.tieba.u.icon_find_more).en(y.data_more).f(this.Hd).bz(true);
-        this.ang.setIconAutoChange(true);
-        this.anh.em(com.baidu.tieba.u.icon_ba_square).en(y.square).f(this.Hd);
-        this.ani.em(com.baidu.tieba.u.icon_all_sign_dis).en(y.ba_all_sign).f(this.Hd);
-        this.anj.em(com.baidu.tieba.u.icon_member_center).en(y.member_center).f(this.Hd).bz(false).bw(true).bx(true);
-        anu.add(this.anh);
-        anu.add(this.ane);
-        anu.add(this.ang);
-        anu.add(this.ani);
-        anu.add(this.anf);
-        anu.add(this.anj);
+        this.HT = getView();
+        this.ant = (NoNetworkView) this.HT.findViewById(com.baidu.tieba.v.view_no_network);
+        AL();
+        this.anu = new aa(mActivity);
+        this.anv = (BdPullRefreshScrollView) this.HT.findViewById(com.baidu.tieba.v.scroll_view);
+        this.anv.setCustomHeaderView(this.anu);
+        this.anv.setOnPullDownListener(this.anH);
+        ank = (ViewGroup) this.HT.findViewById(com.baidu.tieba.v.local_dis_container);
+        this.anl = (ViewGroup) this.HT.findViewById(com.baidu.tieba.v.mis_dis_container);
+        this.anm = (BannerView) this.HT.findViewById(com.baidu.tieba.v.dis_banner);
+        this.ann = (DiscoverItemView) this.HT.findViewById(com.baidu.tieba.v.item_friendsnews);
+        this.ano = (DiscoverItemView) this.HT.findViewById(com.baidu.tieba.v.item_livetelecast);
+        this.anp = (DiscoverItemView) this.HT.findViewById(com.baidu.tieba.v.item_findmore);
+        this.anq = (DiscoverItemView) this.HT.findViewById(com.baidu.tieba.v.item_square);
+        this.anr = (DiscoverItemView) this.HT.findViewById(com.baidu.tieba.v.item_qiandao);
+        this.ans = (DiscoverItemView) this.HT.findViewById(com.baidu.tieba.v.item_member);
+        this.ann.em(com.baidu.tieba.u.icon_friendsnews).en(y.friendsnews).f(this.He).eo(DiscoverItemView.anW).bw(TbadkApplication.m251getInst().isFriendFeedNew()).bx(false).by(false);
+        this.ano.em(com.baidu.tieba.u.icon_live_telecast).en(y.livetelecast).f(this.He);
+        this.anp.em(com.baidu.tieba.u.icon_find_more).en(y.data_more).f(this.He).bz(true);
+        this.anp.setIconAutoChange(true);
+        this.anq.em(com.baidu.tieba.u.icon_ba_square).en(y.square).f(this.He);
+        this.anr.em(com.baidu.tieba.u.icon_all_sign_dis).en(y.ba_all_sign).f(this.He);
+        this.ans.em(com.baidu.tieba.u.icon_member_center).en(y.member_center).f(this.He).bz(false).bw(true).bx(true);
+        anD.add(this.anq);
+        anD.add(this.ann);
+        anD.add(this.anp);
+        anD.add(this.anr);
+        anD.add(this.ano);
+        anD.add(this.ans);
     }
 
-    protected void AI() {
-        MessageManager.getInstance().registerListener(anx);
+    protected void AK() {
+        MessageManager.getInstance().registerListener(anG);
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2009501, new com.baidu.tbadk.b.a(mActivity)));
     }
 
-    private void AJ() {
-        this.ank.a(new h(this));
+    private void AL() {
+        this.ant.a(new h(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void yh() {
-        if (this.anw != null) {
-            this.anw.AO();
+    public void yj() {
+        if (this.anF != null) {
+            this.anF.AQ();
         }
     }
 
@@ -119,37 +119,37 @@ public class a extends BaseFragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         mActivity = (BaseFragmentActivity) activity;
-        MessageManager.getInstance().registerListener(this.anz);
+        MessageManager.getInstance().registerListener(this.anI);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDetach() {
         super.onDetach();
-        MessageManager.getInstance().unRegisterListener(this.anz);
+        MessageManager.getInstance().unRegisterListener(this.anI);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        AI();
+        AK();
         initUI();
-        this.anw = new l(this.anA);
-        registerListener(this.anB);
+        this.anF = new l(this.anJ);
+        registerListener(this.anK);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        this.ane.bw(TbadkApplication.m251getInst().isFriendFeedNew());
+        this.ann.bw(TbadkApplication.m251getInst().isFriendFeedNew());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007004, new com.baidu.tbadk.mainTab.a(false)));
-        if (!this.ann && com.baidu.adp.lib.util.m.isNetOk()) {
-            this.anm.setRefreshing(1);
-            com.baidu.tbadk.core.i.m(mActivity, "found_ck");
+        if (!this.anw && com.baidu.adp.lib.util.m.isNetOk()) {
+            this.anv.setRefreshing(1);
+            com.baidu.tbadk.core.j.m(mActivity, "found_ck");
         }
     }
 
@@ -157,15 +157,15 @@ public class a extends BaseFragment {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         mActivity.getLayoutMode().L(i == 1);
-        mActivity.getLayoutMode().h(this.HS.findViewById(com.baidu.tieba.v.container));
-        for (DiscoverItemView discoverItemView : anu) {
+        mActivity.getLayoutMode().h(this.HT.findViewById(com.baidu.tieba.v.container));
+        for (DiscoverItemView discoverItemView : anD) {
             discoverItemView.onChangeSkinType(i);
         }
-        for (DiscoverItemView discoverItemView2 : this.anv) {
+        for (DiscoverItemView discoverItemView2 : this.anE) {
             discoverItemView2.onChangeSkinType(i);
         }
-        this.ank.onChangeSkinType(i);
-        this.anl.bM(i);
+        this.ant.onChangeSkinType(i);
+        this.anu.bM(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -180,50 +180,50 @@ public class a extends BaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void AK() {
-        if (ant != null && ant.qY() != null) {
+    public static void AM() {
+        if (anC != null && anC.ra() != null) {
             DiscoverItemView discoverItemView = new DiscoverItemView(mActivity);
-            anb.removeAllViews();
-            discoverItemView.em(ant.qW()).en(ant.qX()).f(ant.qY());
-            anb.addView(discoverItemView);
+            ank.removeAllViews();
+            discoverItemView.em(anC.qY()).en(anC.qZ()).f(anC.ra());
+            ank.addView(discoverItemView);
             discoverItemView.onChangeSkinType(TbadkApplication.m251getInst().getSkinType());
             discoverItemView.bz(true);
-            anu.add(discoverItemView);
+            anD.add(discoverItemView);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bv(boolean z) {
-        if (this.ans != null) {
-            this.anc.removeAllViews();
-            this.anv.clear();
-            this.anr = com.baidu.tbadk.core.sharedPref.b.lk().getBoolean("game_is_show_tip", false);
-            int size = this.ans.size();
+        if (this.anB != null) {
+            this.anl.removeAllViews();
+            this.anE.clear();
+            this.anA = com.baidu.tbadk.core.sharedPref.b.lk().getBoolean("game_is_show_tip", false);
+            int size = this.anB.size();
             for (int i = 0; i < size; i++) {
-                s sVar = this.ans.get(i);
+                s sVar = this.anB.get(i);
                 if (sVar != null) {
                     DiscoverItemView discoverItemView = new DiscoverItemView(mActivity);
-                    discoverItemView.eA(sVar.mIconUrl).eB(sVar.anX).eC(sVar.mTitle).bw(sVar.VK).bx(true).eD(sVar.anX).f(this.Hd);
-                    if (!TextUtils.isEmpty(this.anq) && this.anq.equals(sVar.anX) && (z || this.anr)) {
+                    discoverItemView.eA(sVar.mIconUrl).eB(sVar.aog).eC(sVar.mTitle).bw(sVar.VO).bx(true).eD(sVar.aog).f(this.He);
+                    if (!TextUtils.isEmpty(this.anz) && this.anz.equals(sVar.aog) && (z || this.anA)) {
                         discoverItemView.bx(false);
-                        discoverItemView.bw(this.anr);
-                        if (sVar.VK) {
-                            TbadkSettings.getInst().saveBoolean(com.baidu.adp.lib.util.u.aE(sVar.anX), true);
+                        discoverItemView.bw(this.anA);
+                        if (sVar.VO) {
+                            TbadkSettings.getInst().saveBoolean(com.baidu.adp.lib.util.u.aE(sVar.aog), true);
                         }
                     }
                     if (i == 0) {
-                        this.anj.bz(false);
+                        this.ans.bz(false);
                     }
-                    this.anc.addView(discoverItemView);
+                    this.anl.addView(discoverItemView);
                     discoverItemView.onChangeSkinType(TbadkApplication.m251getInst().getSkinType());
-                    this.anv.add(discoverItemView);
+                    this.anE.add(discoverItemView);
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void AL() {
+    public void AN() {
         XiubaPlugin xiubaPlugin;
         Plugin pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_XIUBA);
         if (pluginByName != null && pluginByName.checkEnable() && (xiubaPlugin = (XiubaPlugin) pluginByName.getClassInstance(XiubaPlugin.class)) != null) {
@@ -236,7 +236,7 @@ public class a extends BaseFragment {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
             if (i == 23005 || i == 23006) {
-                AL();
+                AN();
             }
         }
     }

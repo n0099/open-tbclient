@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.atomData.FacePackageDetailActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements View.OnClickListener {
-    final /* synthetic */ EmotionTabHorizonScrollView RV;
+    final /* synthetic */ EmotionTabHorizonScrollView RZ;
     private final String mGroupId;
 
     private q(EmotionTabHorizonScrollView emotionTabHorizonScrollView, String str) {
-        this.RV = emotionTabHorizonScrollView;
+        this.RZ = emotionTabHorizonScrollView;
         this.mGroupId = str;
     }
 
@@ -24,7 +24,7 @@ public class q implements View.OnClickListener {
     public void onClick(View view) {
         int i;
         String str;
-        i = this.RV.from;
+        i = this.RZ.from;
         switch (i) {
             case 1:
                 str = "faceshop_from_write_promotion";
@@ -39,6 +39,6 @@ public class q implements View.OnClickListener {
                 str = "";
                 break;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(this.RV.getContext(), this.mGroupId, false, str)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(this.RZ.getContext(), this.mGroupId, false, str)));
     }
 }

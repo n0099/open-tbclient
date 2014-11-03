@@ -9,15 +9,15 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.UserIconBox;
 /* loaded from: classes.dex */
 class ag {
-    TextView aWu;
-    ImageView aXX;
-    HeadImageView aXY;
-    ImageView aXZ;
-    TextView aYa;
-    TextView aYb;
-    View aYc;
-    LinearLayout ayZ;
-    TextView aza;
-    ProgressBar azb;
-    UserIconBox azj = null;
+    TextView aWI;
+    ImageView aYl;
+    HeadImageView aYm;
+    ImageView aYn;
+    TextView aYo;
+    TextView aYp;
+    View aYq;
+    LinearLayout azi;
+    TextView azj;
+    ProgressBar azk;
+    UserIconBox azs = null;
 }

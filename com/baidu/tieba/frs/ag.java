@@ -9,10 +9,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag implements com.baidu.tbadk.core.util.bh {
+public class ag implements com.baidu.tbadk.core.util.bi {
     Pattern frsPattern = Pattern.compile("http://tieba.baidu.com/f\\?kw=([^&]+)");
 
-    @Override // com.baidu.tbadk.core.util.bh
+    @Override // com.baidu.tbadk.core.util.bi
     public boolean a(Context context, String[] strArr) {
         String str;
         String substring;

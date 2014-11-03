@@ -8,57 +8,57 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class ar extends LinearLayout implements av {
-    private int RD;
-    private int RK;
-    private ArrayList<an> aew;
-    private at arD;
-    private PrivilegeTabContentView arJ;
-    private PrivilegeTabWidgetView arK;
+    private int RH;
+    private int RO;
+    private ArrayList<an> aeE;
+    private at arM;
+    private PrivilegeTabContentView arS;
+    private PrivilegeTabWidgetView arT;
     private Context mContext;
     private ProgressBar mProgressBar;
 
     public ar(Context context) {
         super(context);
-        this.aew = new ArrayList<>();
-        this.RK = -1;
-        this.RD = -1;
-        this.arD = new as(this);
+        this.aeE = new ArrayList<>();
+        this.RO = -1;
+        this.RH = -1;
+        this.arM = new as(this);
         init(context);
     }
 
-    private void Cw() {
-        this.aew.clear();
-        this.aew.add(new a(this.arD));
+    private void Cy() {
+        this.aeE.clear();
+        this.aeE.add(new a(this.arM));
     }
 
     private void init(Context context) {
         this.mContext = context;
         removeAllViews();
         com.baidu.adp.lib.g.b.ek().a(context, com.baidu.tieba.w.privilege_tab_host, this, true);
-        this.arJ = (PrivilegeTabContentView) findViewById(com.baidu.tieba.v.privilege_tab_content);
-        this.arK = (PrivilegeTabWidgetView) findViewById(com.baidu.tieba.v.privilege_tab_widget);
+        this.arS = (PrivilegeTabContentView) findViewById(com.baidu.tieba.v.privilege_tab_content);
+        this.arT = (PrivilegeTabWidgetView) findViewById(com.baidu.tieba.v.privilege_tab_widget);
         this.mProgressBar = (ProgressBar) findViewById(com.baidu.tieba.v.privilege_progress);
-        this.arK.setOnTabSelectedListener(this);
+        this.arT.setOnTabSelectedListener(this);
         setOrientation(1);
-        this.RD = TbadkApplication.m251getInst().getSkinType();
-        onChangeSkinType(this.RD);
+        this.RH = TbadkApplication.m251getInst().getSkinType();
+        onChangeSkinType(this.RH);
         setup();
     }
 
     private void setup() {
-        Cw();
+        Cy();
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
         int skinType = TbadkApplication.m251getInst().getSkinType();
-        if (skinType != this.RD) {
-            this.RD = skinType;
-            onChangeSkinType(this.RD);
+        if (skinType != this.RH) {
+            this.RH = skinType;
+            onChangeSkinType(this.RH);
         }
         if (i != 8 && i != 4) {
-            Iterator<an> it = this.aew.iterator();
+            Iterator<an> it = this.aeE.iterator();
             while (it.hasNext()) {
                 it.next().init(this.mContext);
             }
@@ -67,15 +67,15 @@ public class ar extends LinearLayout implements av {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(ap apVar) {
-        this.arK.c(apVar);
+        this.arT.c(apVar);
     }
 
     public void setCurrentTab(int i) {
-        if (i >= 0 && i < this.aew.size()) {
-            this.arJ.a(this.aew.get(i));
-            this.arK.setShowDelete(true);
-            this.arK.setCurrentTab(i);
-            this.RK = i;
+        if (i >= 0 && i < this.aeE.size()) {
+            this.arS.a(this.aeE.get(i));
+            this.arT.setShowDelete(true);
+            this.arT.setCurrentTab(i);
+            this.RO = i;
         }
     }
 
@@ -95,23 +95,23 @@ public class ar extends LinearLayout implements av {
     }
 
     public void onChangeSkinType(int i) {
-        this.arK.onChangeSkinType(i);
-        this.arJ.onChangeSkinType(i);
+        this.arT.onChangeSkinType(i);
+        this.arS.onChangeSkinType(i);
     }
 
     public void setOnDataSelected(com.baidu.tbadk.editortool.w wVar) {
-        Iterator<an> it = this.aew.iterator();
+        Iterator<an> it = this.aeE.iterator();
         while (it.hasNext()) {
             it.next().b(wVar);
         }
-        this.arJ.setOnDataSelected(wVar);
-        this.arK.setOnDataSelected(wVar);
+        this.arS.setOnDataSelected(wVar);
+        this.arT.setOnDataSelected(wVar);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        Iterator<an> it = this.aew.iterator();
+        Iterator<an> it = this.aeE.iterator();
         while (it.hasNext()) {
             it.next().exit();
         }

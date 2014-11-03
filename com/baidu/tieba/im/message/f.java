@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class f {
-    public ChatMessage bei;
+    public ChatMessage bew;
     public int customGroupType;
     public String id;
     public int type;
@@ -14,7 +14,7 @@ public class f {
     public f(String str, int i, ChatMessage chatMessage, int i2) {
         this.id = str;
         this.customGroupType = i;
-        this.bei = chatMessage;
+        this.bew = chatMessage;
         this.type = i2;
     }
 }

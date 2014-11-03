@@ -1,17 +1,17 @@
 package com.baidu.tbadk.live;
 /* loaded from: classes.dex */
 class c implements Runnable {
-    final /* synthetic */ a Vs;
-    private final /* synthetic */ String Vt;
+    final /* synthetic */ a Vw;
+    private final /* synthetic */ String Vx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar, String str) {
-        this.Vs = aVar;
-        this.Vt = str;
+        this.Vw = aVar;
+        this.Vx = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.Vs.dz(this.Vt);
+        this.Vw.dz(this.Vx);
     }
 }

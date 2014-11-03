@@ -6,13 +6,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements DialogInterface.OnClickListener {
-    final /* synthetic */ MembersActivity aXN;
-    private final /* synthetic */ List aXQ;
+    final /* synthetic */ MembersActivity aYb;
+    private final /* synthetic */ List aYe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(MembersActivity membersActivity, List list) {
-        this.aXN = membersActivity;
-        this.aXQ = list;
+        this.aYb = membersActivity;
+        this.aYe = list;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -22,16 +22,16 @@ public class ac implements DialogInterface.OnClickListener {
         ah ahVar3;
         MembersModel membersModel;
         ah ahVar4;
-        ahVar = this.aXN.aXJ;
+        ahVar = this.aYb.aXX;
         ahVar.db(false);
-        ahVar2 = this.aXN.aXJ;
-        ahVar2.NO().cZ(false);
-        ahVar3 = this.aXN.aXJ;
-        ahVar3.NP();
-        MembersActivity membersActivity = this.aXN;
-        membersModel = this.aXN.aXK;
-        membersActivity.a(membersModel.getGroupId(), this.aXQ);
-        ahVar4 = this.aXN.aXJ;
+        ahVar2 = this.aYb.aXX;
+        ahVar2.NS().cZ(false);
+        ahVar3 = this.aYb.aXX;
+        ahVar3.NT();
+        MembersActivity membersActivity = this.aYb;
+        membersModel = this.aYb.aXY;
+        membersActivity.a(membersModel.getGroupId(), this.aYe);
+        ahVar4 = this.aYb.aXX;
         ahVar4.dc(true);
     }
 }

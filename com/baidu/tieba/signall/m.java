@@ -5,16 +5,16 @@ import android.app.PendingIntent;
 import android.content.Intent;
 /* loaded from: classes.dex */
 class m implements v {
-    final /* synthetic */ SignAllForumActivity bKN;
+    final /* synthetic */ SignAllForumActivity bLc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(SignAllForumActivity signAllForumActivity) {
-        this.bKN = signAllForumActivity;
+        this.bLc = signAllForumActivity;
     }
 
     @Override // com.baidu.tieba.signall.v
     public void fw(String str) {
-        this.bKN.hq(str);
+        this.bLc.hq(str);
     }
 
     @Override // com.baidu.tieba.signall.v
@@ -27,44 +27,44 @@ class m implements v {
         AlertDialog alertDialog2;
         AlertDialog alertDialog3;
         boolean z2;
-        com.baidu.tieba.home.t acy = sVar.acy();
-        if (acy != null && acy.getErrorNumber() == 0) {
-            abVar = this.bKN.bKG;
-            b adg = abVar.adg();
-            adg.a(sVar);
-            z = this.bKN.bKJ;
+        com.baidu.tieba.home.t acB = sVar.acB();
+        if (acB != null && acB.getErrorNumber() == 0) {
+            abVar = this.bLc.bKV;
+            b adj = abVar.adj();
+            adj.a(sVar);
+            z = this.bLc.bKY;
             if (z) {
-                Intent intent = new Intent(this.bKN, SignAllForumActivity.class);
+                Intent intent = new Intent(this.bLc, SignAllForumActivity.class);
                 intent.addFlags(805306368);
                 intent.putExtra("signall_noyify_click", true);
-                this.bKN.a(this.bKN.getString(com.baidu.tieba.y.signallforum_back_finish, new Object[]{Integer.valueOf(adg.acF()), Integer.valueOf(adg.acG())}), PendingIntent.getActivity(this.bKN, 0, intent, 134217728), false);
-                z2 = this.bKN.aFO;
+                this.bLc.a(this.bLc.getString(com.baidu.tieba.y.signallforum_back_finish, new Object[]{Integer.valueOf(adj.acI()), Integer.valueOf(adj.acJ())}), PendingIntent.getActivity(this.bLc, 0, intent, 134217728), false);
+                z2 = this.bLc.aFY;
                 if (z2) {
                     return;
                 }
             }
-            abVar2 = this.bKN.bKG;
-            abVar2.adh().notifyDataSetChanged();
-            abVar3 = this.bKN.bKG;
-            x ade = abVar3.ade();
-            if (!adg.acE()) {
-                if (sVar.acV() != 0) {
-                    alertDialog = this.bKN.Bf;
-                    alertDialog.setMessage(sVar.acw());
-                    alertDialog2 = this.bKN.Bf;
+            abVar2 = this.bLc.bKV;
+            abVar2.adk().notifyDataSetChanged();
+            abVar3 = this.bLc.bKV;
+            x adh = abVar3.adh();
+            if (!adj.acH()) {
+                if (sVar.acY() != 0) {
+                    alertDialog = this.bLc.Bf;
+                    alertDialog.setMessage(sVar.acz());
+                    alertDialog2 = this.bLc.Bf;
                     if (!alertDialog2.isShowing()) {
-                        alertDialog3 = this.bKN.Bf;
-                        com.baidu.adp.lib.g.j.a(alertDialog3, this.bKN);
+                        alertDialog3 = this.bLc.Bf;
+                        com.baidu.adp.lib.g.j.a(alertDialog3, this.bLc);
                     }
-                } else if (sVar.acX() != 0) {
-                    this.bKN.showToast(sVar.acY());
+                } else if (sVar.ada() != 0) {
+                    this.bLc.showToast(sVar.adb());
                 } else {
-                    this.bKN.showToast(com.baidu.tieba.y.signallforum_error);
+                    this.bLc.showToast(com.baidu.tieba.y.signallforum_error);
                 }
             }
-            ade.adc();
+            adh.adf();
             return;
         }
-        this.bKN.hq(acy.getUserMsg());
+        this.bLc.hq(acB.getUserMsg());
     }
 }

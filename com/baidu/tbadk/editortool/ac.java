@@ -1,15 +1,15 @@
 package com.baidu.tbadk.editortool;
 /* loaded from: classes.dex */
 class ac implements f {
-    final /* synthetic */ ab Su;
+    final /* synthetic */ ab Sy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(ab abVar) {
-        this.Su = abVar;
+        this.Sy = abVar;
     }
 
     @Override // com.baidu.tbadk.editortool.f
     public void a(ad adVar) {
-        this.Su.Sr.add(adVar);
+        this.Sy.Sv.add(adVar);
     }
 }

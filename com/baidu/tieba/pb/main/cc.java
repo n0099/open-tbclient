@@ -6,11 +6,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cc implements View.OnClickListener {
-    final /* synthetic */ bv byI;
+    final /* synthetic */ bv byW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cc(bv bvVar) {
-        this.byI = bvVar;
+        this.byW = bvVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,12 +21,12 @@ public class cc implements View.OnClickListener {
         Dialog dialog2;
         Dialog dialog3;
         PbActivity pbActivity;
-        dialog = this.byI.bxN;
+        dialog = this.byW.byb;
         if (dialog != null) {
-            dialog2 = this.byI.bxN;
+            dialog2 = this.byW.byb;
             if (dialog2 instanceof Dialog) {
-                dialog3 = this.byI.bxN;
-                pbActivity = this.byI.bwQ;
+                dialog3 = this.byW.byb;
+                pbActivity = this.byW.bxe;
                 com.baidu.adp.lib.g.j.b(dialog3, pbActivity);
             }
         }
@@ -34,11 +34,11 @@ public class cc implements View.OnClickListener {
         if (sparseArray == null) {
             return;
         }
-        bfVar = this.byI.byE;
+        bfVar = this.byW.byS;
         if (bfVar == null) {
             return;
         }
-        bfVar2 = this.byI.byE;
+        bfVar2 = this.byW.byS;
         bfVar2.a(new Object[]{sparseArray.get(com.baidu.tieba.v.tag_manage_user_identity), sparseArray.get(com.baidu.tieba.v.tag_forbid_user_name)});
     }
 }

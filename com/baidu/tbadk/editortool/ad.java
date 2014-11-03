@@ -3,10 +3,10 @@ package com.baidu.tbadk.editortool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class ad {
-    private com.baidu.adp.widget.a.a SV;
-    private com.baidu.adp.widget.a.a SW;
-    private int SX;
-    private int SY;
+    private com.baidu.adp.widget.a.a SZ;
+    private com.baidu.adp.widget.a.a Ta;
+    private int Tb;
+    private int Tc;
 
     public abstract String cG(int i);
 
@@ -26,47 +26,47 @@ public abstract class ad {
 
     public abstract int getWidth();
 
-    public abstract EmotionGroupType rr();
+    public abstract EmotionGroupType rt();
 
-    public abstract boolean rs();
+    public abstract boolean ru();
 
-    public com.baidu.adp.widget.a.a rP() {
-        return this.SV;
+    public com.baidu.adp.widget.a.a rR() {
+        return this.SZ;
     }
 
     public void b(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
             aVar.hl();
         }
-        this.SV = aVar;
+        this.SZ = aVar;
     }
 
-    public com.baidu.adp.widget.a.a rp() {
-        return this.SW;
+    public com.baidu.adp.widget.a.a rr() {
+        return this.Ta;
     }
 
     public void c(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
             aVar.hl();
         }
-        this.SW = aVar;
+        this.Ta = aVar;
     }
 
-    public int rQ() {
-        return this.SY;
+    public int rS() {
+        return this.Tc;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void cJ(int i) {
-        this.SY = i;
+        this.Tc = i;
     }
 
-    public int rR() {
-        return this.SX;
+    public int rT() {
+        return this.Tb;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void cK(int i) {
-        this.SX = i;
+        this.Tb = i;
     }
 }

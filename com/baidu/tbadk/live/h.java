@@ -8,13 +8,13 @@ import com.baidu.tbadk.coreExtra.message.LiveChatRoomEventResponseMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends CustomMessageListener {
-    final /* synthetic */ LiveGroupManager Vu;
+    final /* synthetic */ LiveGroupManager Vy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(LiveGroupManager liveGroupManager, int i) {
         super(i);
-        this.Vu = liveGroupManager;
+        this.Vy = liveGroupManager;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,16 +27,16 @@ public class h extends CustomMessageListener {
                 String data = liveChatRoomEventResponseMessage.getData();
                 if (!TextUtils.isEmpty(data) && (parseFromEventContent = LiveChatRoomEventData.parseFromEventContent(data)) != null && parseFromEventContent.mEventId != null) {
                     if ("309".equals(parseFromEventContent.mEventId) || "310".equals(parseFromEventContent.mEventId)) {
-                        if (String.valueOf(parseFromEventContent.mGroupId).equals(this.Vu.getCurrentGroupId())) {
-                            this.Vu.stopAnyRunning();
-                            this.Vu.notifyGroup();
+                        if (String.valueOf(parseFromEventContent.mGroupId).equals(this.Vy.getCurrentGroupId())) {
+                            this.Vy.stopAnyRunning();
+                            this.Vy.notifyGroup();
                         }
                     } else if ("308".equals(parseFromEventContent.mEventId)) {
-                        if (String.valueOf(parseFromEventContent.mGroupId).equals(this.Vu.getCurrentGroupId())) {
-                            this.Vu.setPublisherPaused(true);
+                        if (String.valueOf(parseFromEventContent.mGroupId).equals(this.Vy.getCurrentGroupId())) {
+                            this.Vy.setPublisherPaused(true);
                         }
-                    } else if ("318".equals(parseFromEventContent.mEventId) && String.valueOf(parseFromEventContent.mGroupId).equals(this.Vu.getCurrentGroupId())) {
-                        this.Vu.setPublisherPaused(false);
+                    } else if ("318".equals(parseFromEventContent.mEventId) && String.valueOf(parseFromEventContent.mGroupId).equals(this.Vy.getCurrentGroupId())) {
+                        this.Vy.setPublisherPaused(false);
                     }
                 }
             }

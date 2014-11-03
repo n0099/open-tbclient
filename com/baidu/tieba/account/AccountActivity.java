@@ -15,14 +15,14 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class AccountActivity extends BaseActivity {
     private NavigationBar mNavigationBar;
-    private ArrayList<AccountData> aei = null;
-    private l aej = null;
+    private ArrayList<AccountData> aeq = null;
+    private l aer = null;
     private ListView mList = null;
-    private RelativeLayout KO = null;
-    private TextView aek = null;
-    private View.OnClickListener ael = null;
-    private i aem = null;
-    private f aen = null;
+    private RelativeLayout KP = null;
+    private TextView aes = null;
+    private View.OnClickListener aet = null;
+    private i aeu = null;
+    private f aev = null;
 
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2015006, new a());
@@ -35,7 +35,7 @@ public class AccountActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(com.baidu.tieba.w.account_activity);
-        xb();
+        xd();
         iT();
     }
 
@@ -45,26 +45,26 @@ public class AccountActivity extends BaseActivity {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(i);
         getLayoutMode().L(i == 1);
-        getLayoutMode().h(this.KO);
-        this.aej.notifyDataSetChanged();
+        getLayoutMode().h(this.KP);
+        this.aer.notifyDataSetChanged();
     }
 
-    private void xb() {
-        this.aei = com.baidu.tbadk.core.account.a.jB();
+    private void xd() {
+        this.aeq = com.baidu.tbadk.core.account.a.jB();
     }
 
     private void iT() {
-        this.KO = (RelativeLayout) findViewById(com.baidu.tieba.v.account_container);
-        this.ael = new b(this);
+        this.KP = (RelativeLayout) findViewById(com.baidu.tieba.v.account_container);
+        this.aet = new b(this);
         this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getString(com.baidu.tieba.y.account_manager));
-        this.aek = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(com.baidu.tieba.y.edit));
-        this.aek.setOnClickListener(new d(this));
-        this.aej = new l(this, this.ael);
-        this.aej.setData(this.aei);
+        this.aes = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(com.baidu.tieba.y.edit));
+        this.aes.setOnClickListener(new d(this));
+        this.aer = new l(this, this.aet);
+        this.aer.setData(this.aeq);
         this.mList = (ListView) findViewById(com.baidu.tieba.v.list);
-        this.mList.setAdapter((ListAdapter) this.aej);
+        this.mList.setAdapter((ListAdapter) this.aer);
         this.mList.setOnItemClickListener(new e(this));
     }
 }

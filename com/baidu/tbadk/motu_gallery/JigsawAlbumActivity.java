@@ -24,29 +24,29 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class JigsawAlbumActivity extends BaseActivity {
-    private static boolean Wk = false;
-    private static boolean Wl = true;
-    private Cursor Wc;
-    private j Wg;
-    private ListView Wh;
-    private u Wi;
-    private l Wj;
-    TextView Wr;
-    private LinearLayout Ws;
-    private ArrayList<c> Wd = new ArrayList<>();
-    private ArrayList<c> We = new ArrayList<>();
+    private static boolean Wo = false;
+    private static boolean Wp = true;
+    private Cursor Wg;
+    private j Wk;
+    private ListView Wl;
+    private u Wm;
+    private l Wn;
+    TextView Wv;
+    private LinearLayout Ww;
+    private ArrayList<c> Wh = new ArrayList<>();
+    private ArrayList<c> Wi = new ArrayList<>();
     private Map<String, Integer> map = new HashMap();
-    private Map<String, Bitmap> Wf = new LinkedHashMap();
+    private Map<String, Bitmap> Wj = new LinkedHashMap();
     private NavigationBar mNavigationBar = null;
-    private final int Wm = 0;
-    private final int Wn = 1;
-    private final int Wo = 2;
-    private byte[] Wp = new byte[1];
-    private boolean Wq = false;
+    private final int Wq = 0;
+    private final int Wr = 1;
+    private final int Ws = 2;
+    private byte[] Wt = new byte[1];
+    private boolean Wu = false;
     private Handler mHandler = new Handler(new d(this));
     private Runnable mRunnable = new e(this);
-    int Wt = 0;
-    int Wu = 0;
+    int Wx = 0;
+    int Wy = 0;
 
     public static void h(Context context, int i) {
         Intent intent = new Intent(context, JigsawAlbumActivity.class);
@@ -57,15 +57,15 @@ public class JigsawAlbumActivity extends BaseActivity {
         }
     }
 
-    public boolean sF() {
-        return Wk;
+    public boolean sH() {
+        return Wo;
     }
 
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        if (sF()) {
-            Wk = false;
+        if (sH()) {
+            Wo = false;
             finish();
         }
     }
@@ -81,30 +81,30 @@ public class JigsawAlbumActivity extends BaseActivity {
             finish();
             y.dc(com.baidu.tieba.y.oom_retry);
         }
-        this.Wr = (TextView) findViewById(com.baidu.tieba.v.jigsaw_selected_text);
-        this.Wi = u.sM();
-        this.Wi.B(this);
-        this.Wh = (ListView) findViewById(com.baidu.tieba.v.albums_list);
+        this.Wv = (TextView) findViewById(com.baidu.tieba.v.jigsaw_selected_text);
+        this.Wm = u.sO();
+        this.Wm.B(this);
+        this.Wl = (ListView) findViewById(com.baidu.tieba.v.albums_list);
         this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.mNavigationBar.setTitleText(getString(com.baidu.tieba.y.jigsaw_photo_storage));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new f(this));
         ((Button) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.w.widget_nb_item_textbtn, new g(this))).setText(com.baidu.tieba.y.jigsaw_start);
-        this.Wg = new j(this, this);
+        this.Wk = new j(this, this);
         this.mHandler.sendMessage(this.mHandler.obtainMessage(1));
-        this.Wh.setAdapter((ListAdapter) this.Wg);
-        this.Wh.setOnItemClickListener(new h(this));
-        this.Ws = (LinearLayout) findViewById(com.baidu.tieba.v.selected_ll);
+        this.Wl.setAdapter((ListAdapter) this.Wk);
+        this.Wl.setOnItemClickListener(new h(this));
+        this.Ww = (LinearLayout) findViewById(com.baidu.tieba.v.selected_ll);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
-        Wl = true;
-        this.Wq = false;
-        this.Wr.setText(this.Wi.E(this));
-        if (this.Wi.sO()) {
+        Wp = true;
+        this.Wu = false;
+        this.Wv.setText(this.Wm.E(this));
+        if (this.Wm.sQ()) {
             this.mHandler.sendMessage(this.mHandler.obtainMessage(1));
         }
-        sG();
+        sI();
         super.onResume();
     }
 
@@ -113,15 +113,15 @@ public class JigsawAlbumActivity extends BaseActivity {
         this.mNavigationBar.onChangeSkinType(i);
     }
 
-    private void sG() {
-        this.Ws.removeAllViews();
-        for (Uri uri : this.Wi.C(this)) {
+    private void sI() {
+        this.Ww.removeAllViews();
+        for (Uri uri : this.Wm.C(this)) {
             x xVar = new x(this);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams((int) getResources().getDimension(com.baidu.tieba.t.jigsawSelectedWidth), (int) getResources().getDimension(com.baidu.tieba.t.jigsawSelectedHeight));
             layoutParams.setMargins(0, 0, 0, 0);
             xVar.setLayoutParams(layoutParams);
             if (xVar.g(uri)) {
-                this.Ws.addView(xVar);
+                this.Ww.addView(xVar);
                 xVar.setOnClickListener(new i(this, xVar));
             }
         }
@@ -129,7 +129,7 @@ public class JigsawAlbumActivity extends BaseActivity {
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        this.Wf.clear();
+        this.Wj.clear();
         super.onDestroy();
     }
 
@@ -141,63 +141,63 @@ public class JigsawAlbumActivity extends BaseActivity {
     */
     public void refresh() {
         int i;
-        synchronized (this.Wp) {
+        synchronized (this.Wt) {
             try {
-                this.Wd.clear();
-                this.We.clear();
-                this.Wc = null;
-                this.Wc = getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, new String[]{"_data", "_id", "title", "_display_name"}, null, null, "datetaken desc");
-                if (this.Wc != null && this.Wc.getCount() > 0) {
-                    this.Wc.moveToFirst();
+                this.Wh.clear();
+                this.Wi.clear();
+                this.Wg = null;
+                this.Wg = getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, new String[]{"_data", "_id", "title", "_display_name"}, null, null, "datetaken desc");
+                if (this.Wg != null && this.Wg.getCount() > 0) {
+                    this.Wg.moveToFirst();
                     int i2 = 0;
                     while (true) {
                         try {
-                            String string = this.Wc.getString(this.Wc.getColumnIndexOrThrow("_data"));
+                            String string = this.Wg.getString(this.Wg.getColumnIndexOrThrow("_data"));
                             if (string.equals("")) {
                                 i = i2;
                             } else {
-                                int i3 = this.Wc.getInt(this.Wc.getColumnIndexOrThrow("_id"));
-                                if (dJ(this.Wc.getString(this.Wc.getColumnIndexOrThrow("_display_name"))) < 0) {
+                                int i3 = this.Wg.getInt(this.Wg.getColumnIndexOrThrow("_id"));
+                                if (dJ(this.Wg.getString(this.Wg.getColumnIndexOrThrow("_display_name"))) < 0) {
                                     i = i2;
                                 } else {
                                     String substring = string.substring(0, string.lastIndexOf("/"));
                                     if (!dI(substring)) {
-                                        if (substring != null && substring.endsWith(TbConfig.getTempDirName()) && !this.We.isEmpty()) {
-                                            c remove = this.We.remove(0);
-                                            this.We.add(0, new c(0, substring, 0));
+                                        if (substring != null && substring.endsWith(TbConfig.getTempDirName()) && !this.Wi.isEmpty()) {
+                                            c remove = this.Wi.remove(0);
+                                            this.Wi.add(0, new c(0, substring, 0));
                                             int intValue = this.map.get(String.valueOf(0)).intValue();
                                             this.map.put(String.valueOf(0), 1);
-                                            i = this.We.size();
+                                            i = this.Wi.size();
                                             try {
                                                 remove.type = i;
-                                                this.We.add(remove);
+                                                this.Wi.add(remove);
                                                 this.map.put(String.valueOf(i), Integer.valueOf(intValue));
                                                 x(0, i);
-                                                this.Wd.add(new c(0, string, i3));
+                                                this.Wh.add(new c(0, string, i3));
                                             } catch (Exception e) {
                                                 e = e;
                                                 e.printStackTrace();
-                                                if (this.Wc.moveToNext()) {
+                                                if (this.Wg.moveToNext()) {
                                                 }
                                             }
                                         } else {
-                                            i = this.We.size();
-                                            this.We.add(new c(i, substring, 0));
+                                            i = this.Wi.size();
+                                            this.Wi.add(new c(i, substring, 0));
                                             this.map.put(String.valueOf(i), 1);
-                                            this.Wd.add(new c(i, string, i3));
+                                            this.Wh.add(new c(i, string, i3));
                                         }
                                     } else {
                                         i = i2;
                                         int i4 = 0;
-                                        while (i4 < this.We.size()) {
-                                            if (this.We.get(i4).path.equals(substring)) {
-                                                i = this.We.get(i4).type;
+                                        while (i4 < this.Wi.size()) {
+                                            if (this.Wi.get(i4).path.equals(substring)) {
+                                                i = this.Wi.get(i4).type;
                                                 this.map.put(String.valueOf(i), Integer.valueOf(this.map.get(String.valueOf(i)).intValue() + 1));
                                             }
                                             i4++;
                                             i = i;
                                         }
-                                        this.Wd.add(new c(i, string, i3));
+                                        this.Wh.add(new c(i, string, i3));
                                     }
                                 }
                             }
@@ -205,29 +205,29 @@ public class JigsawAlbumActivity extends BaseActivity {
                             e = e2;
                             i = i2;
                         }
-                        if (this.Wc.moveToNext()) {
+                        if (this.Wg.moveToNext()) {
                             break;
                         }
                         i2 = i;
                     }
                 }
-                if (this.Wc != null) {
-                    this.Wc.close();
+                if (this.Wg != null) {
+                    this.Wg.close();
                 }
-                this.Wc = null;
+                this.Wg = null;
             } catch (Exception e3) {
                 e3.printStackTrace();
-                if (this.Wc != null) {
-                    this.Wc.close();
+                if (this.Wg != null) {
+                    this.Wg.close();
                 }
-                this.Wc = null;
+                this.Wg = null;
             }
         }
     }
 
     private void x(int i, int i2) {
-        if (this.Wd != null) {
-            Iterator<c> it = this.Wd.iterator();
+        if (this.Wh != null) {
+            Iterator<c> it = this.Wh.iterator();
             while (it.hasNext()) {
                 c next = it.next();
                 if (next.type == i) {
@@ -240,8 +240,8 @@ public class JigsawAlbumActivity extends BaseActivity {
     }
 
     private boolean dI(String str) {
-        for (int i = 0; i < this.We.size(); i++) {
-            if (this.We.get(i).path.equals(str)) {
+        for (int i = 0; i < this.Wi.size(); i++) {
+            if (this.Wi.get(i).path.equals(str)) {
                 return true;
             }
         }
@@ -264,7 +264,7 @@ public class JigsawAlbumActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public String cY(int i) {
-        Iterator<c> it = this.Wd.iterator();
+        Iterator<c> it = this.Wh.iterator();
         while (it.hasNext()) {
             c next = it.next();
             if (next.type == i) {
@@ -276,7 +276,7 @@ public class JigsawAlbumActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public c cZ(int i) {
-        Iterator<c> it = this.Wd.iterator();
+        Iterator<c> it = this.Wh.iterator();
         while (it.hasNext()) {
             c next = it.next();
             if (next.type == i) {
@@ -287,10 +287,10 @@ public class JigsawAlbumActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sH() {
-        if (Wl) {
-            Wl = false;
-            setResult(-1, u.sM().sP());
+    public void sJ() {
+        if (Wp) {
+            Wp = false;
+            setResult(-1, u.sO().sR());
             finish();
         }
     }
@@ -303,7 +303,7 @@ public class JigsawAlbumActivity extends BaseActivity {
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (10 == i && 2 == i2) {
-            sH();
+            sJ();
         }
     }
 }

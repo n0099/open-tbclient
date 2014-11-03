@@ -7,13 +7,13 @@ import com.baidu.tbadk.game.RequestGameDetailMessage;
 import com.baidu.tbadk.game.ResponseGameDetailMessage;
 /* loaded from: classes.dex */
 class q extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ GameDetailActivity aHd;
+    final /* synthetic */ GameDetailActivity aHn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(GameDetailActivity gameDetailActivity, int i) {
         super(i);
-        this.aHd = gameDetailActivity;
+        this.aHn = gameDetailActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,35 +28,35 @@ class q extends com.baidu.adp.framework.listener.e {
         y yVar3;
         com.baidu.tbadk.c.f fVar2;
         y yVar4;
-        fVar = this.aHd.aHb;
+        fVar = this.aHn.aHl;
         if (fVar != null) {
-            fVar2 = this.aHd.aHb;
-            yVar4 = this.aHd.aGY;
-            fVar2.q(yVar4.Hm());
+            fVar2 = this.aHn.aHl;
+            yVar4 = this.aHn.aHi;
+            fVar2.q(yVar4.Ho());
         }
         if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseGameDetailMessage)) {
-            this.aHd.showToast(this.aHd.getString(com.baidu.tieba.y.neterror));
+            this.aHn.showToast(this.aHn.getString(com.baidu.tieba.y.neterror));
         } else if (socketResponsedMessage.hasError() || socketResponsedMessage.getError() != 0) {
-            this.aHd.showToast(socketResponsedMessage.getErrorString());
+            this.aHn.showToast(socketResponsedMessage.getErrorString());
         } else {
             ResponseGameDetailMessage responseGameDetailMessage = (ResponseGameDetailMessage) socketResponsedMessage;
             if (!(responseGameDetailMessage.getOrginalMessage() instanceof RequestGameDetailMessage)) {
-                this.aHd.showToast(this.aHd.getString(com.baidu.tieba.y.neterror));
+                this.aHn.showToast(this.aHn.getString(com.baidu.tieba.y.neterror));
                 return;
             }
-            this.aHd.aGZ = GameInfoData.fromGameInfo(responseGameDetailMessage.getGameInfo());
-            this.aHd.aHa = GameRankInfoData.parseRankInfoData(responseGameDetailMessage.getRankInfo());
-            gameInfoData = this.aHd.aGZ;
-            str = this.aHd.aAw;
+            this.aHn.aHj = GameInfoData.fromGameInfo(responseGameDetailMessage.getGameInfo());
+            this.aHn.aHk = GameRankInfoData.parseRankInfoData(responseGameDetailMessage.getRankInfo());
+            gameInfoData = this.aHn.aHj;
+            str = this.aHn.aAG;
             gameInfoData.setRefId(str);
-            yVar = this.aHd.aGY;
-            gameInfoData2 = this.aHd.aGZ;
-            yVar.setData(gameInfoData2);
-            yVar2 = this.aHd.aGY;
-            yVar2.Hr().setVisibility(0);
-            this.aHd.Hl();
-            yVar3 = this.aHd.aGY;
-            yVar3.Hq();
+            yVar = this.aHn.aHi;
+            gameInfoData2 = this.aHn.aHj;
+            yVar.a(gameInfoData2);
+            yVar2 = this.aHn.aHi;
+            yVar2.Ht().setVisibility(0);
+            this.aHn.Hn();
+            yVar3 = this.aHn.aHi;
+            yVar3.Hs();
         }
     }
 }

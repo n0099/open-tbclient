@@ -9,18 +9,18 @@ import android.provider.MediaStore;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class w {
-    private static final String[] WZ = {"image/jpeg", "image/png", "image/gif"};
-    static final String[] Xa = {"_id", "datetaken", "date_added", "orientation", "_data"};
+    private static final String[] Xd = {"image/jpeg", "image/png", "image/gif"};
+    static final String[] Xe = {"_id", "datetaken", "date_added", "orientation", "_data"};
 
-    protected static String sQ() {
+    protected static String sS() {
         return "(mime_type in (?, ?, ?))";
     }
 
-    protected static String[] sR() {
-        return WZ;
+    protected static String[] sT() {
+        return Xd;
     }
 
-    protected static String sS() {
+    protected static String sU() {
         return String.valueOf("case ifnull(datetaken,0) when 0 then date_modified*1000 else datetaken end") + " DESC, _id DESC";
     }
 
@@ -30,9 +30,9 @@ public class w {
             if (uri.getScheme().startsWith("file")) {
                 String[] strArr = {""};
                 strArr[0] = uri.getPath();
-                query = MediaStore.Images.Media.query(contentResolver, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, Xa, "(_data=?)", strArr, sS());
+                query = MediaStore.Images.Media.query(contentResolver, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, Xe, "(_data=?)", strArr, sU());
             } else {
-                query = MediaStore.Images.Media.query(contentResolver, uri, Xa, sQ(), sR(), sS());
+                query = MediaStore.Images.Media.query(contentResolver, uri, Xe, sS(), sT(), sU());
             }
             return query;
         } catch (Exception e) {

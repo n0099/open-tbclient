@@ -2,28 +2,28 @@ package com.baidu.tieba.frs;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bv implements com.baidu.tbadk.coreExtra.view.b {
-    final /* synthetic */ bu aDt;
+    final /* synthetic */ bu aDD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bv(bu buVar) {
-        this.aDt = buVar;
+        this.aDD = buVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.b
-    public void pT() {
+    public void pV() {
         com.baidu.tbadk.core.data.g gVar;
         com.baidu.tbadk.core.data.g gVar2;
-        gVar = this.aDt.aDe;
+        gVar = this.aDD.aDo;
         if (gVar != null) {
-            gVar2 = this.aDt.aDe;
+            gVar2 = this.aDD.aDo;
             if (gVar2.getType() == 2) {
-                this.aDt.FV();
+                this.aDD.FX();
             }
         }
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.b
-    public void pU() {
-        this.aDt.GC();
+    public void pW() {
+        this.aDD.GE();
     }
 }

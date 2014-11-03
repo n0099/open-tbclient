@@ -20,14 +20,14 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class PluginDetailActivity extends BaseActivity {
-    private HeadImageView aBM;
-    private TextView avZ;
-    private TextView bGM;
-    private TextView bGN;
-    private TextView bGO;
-    private TextView bGP;
-    private ConfigInfos.PluginConfig bGQ;
-    private boolean bGR;
+    private HeadImageView aBW;
+    private TextView awi;
+    private TextView bHa;
+    private TextView bHb;
+    private TextView bHc;
+    private TextView bHd;
+    private ConfigInfos.PluginConfig bHe;
+    private boolean bHf;
     private NavigationBar mNavigationBar;
     private String mPluginName;
     private int mStatus;
@@ -51,56 +51,56 @@ public class PluginDetailActivity extends BaseActivity {
         this.mNavigationBar = (NavigationBar) findViewById(v.navigation_bar);
         this.mNavigationBar.setTitleText(y.plugin_center);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
-        this.aBM = (HeadImageView) findViewById(v.icon);
-        this.avZ = (TextView) findViewById(v.name);
-        this.bGM = (TextView) findViewById(v.status);
-        this.bGN = (TextView) findViewById(v.changelog);
-        this.bGO = (TextView) findViewById(v.size);
-        this.bGP = (TextView) findViewById(v.enable);
-        this.bGP.setOnClickListener(this);
+        this.aBW = (HeadImageView) findViewById(v.icon);
+        this.awi = (TextView) findViewById(v.name);
+        this.bHa = (TextView) findViewById(v.status);
+        this.bHb = (TextView) findViewById(v.changelog);
+        this.bHc = (TextView) findViewById(v.size);
+        this.bHd = (TextView) findViewById(v.enable);
+        this.bHd.setOnClickListener(this);
         this.mPluginName = getIntent().getStringExtra("name");
-        this.bGQ = PluginCenter.getInstance().getNetConfigInfo(this.mPluginName);
+        this.bHe = PluginCenter.getInstance().getNetConfigInfo(this.mPluginName);
     }
 
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        if (this.bGQ != null) {
-            this.aBM.c(this.bGQ.icon, 10, false);
-            this.avZ.setText(this.bGQ.description);
-            abh();
-            this.bGN.setText(this.bGQ.newest.changelog);
-            this.bGO.setText(String.valueOf(getString(y.plugin_size)) + String.valueOf(this.bGQ.newest.size / 1024) + "KB");
-            this.bGP.setOnClickListener(this);
+        if (this.bHe != null) {
+            this.aBW.c(this.bHe.icon, 10, false);
+            this.awi.setText(this.bHe.description);
+            abk();
+            this.bHb.setText(this.bHe.newest.changelog);
+            this.bHc.setText(String.valueOf(getString(y.plugin_size)) + String.valueOf(this.bHe.newest.size / 1024) + "KB");
+            this.bHd.setOnClickListener(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abh() {
+    public void abk() {
         if (PluginCenter.getInstance().hasUpdate(this.mPluginName)) {
-            this.bGM.setText(y.plugin_enabled);
-            this.bGP.setText(y.plugin_update);
-            this.bGP.setEnabled(true);
-            aw.b(this.bGP, s.cp_cont_g, 1);
+            this.bHa.setText(y.plugin_enabled);
+            this.bHd.setText(y.plugin_update);
+            this.bHd.setEnabled(true);
+            aw.b(this.bHd, s.cp_cont_g, 1);
             this.mStatus = 1;
         } else if (PluginCenter.getInstance().checkPluginInstalled(this.mPluginName)) {
-            this.bGP.setEnabled(true);
-            aw.b(this.bGP, s.cp_cont_g, 1);
+            this.bHd.setEnabled(true);
+            aw.b(this.bHd, s.cp_cont_g, 1);
             boolean isEnabled = PluginCenter.getInstance().isEnabled(this.mPluginName);
             if (!isEnabled) {
-                this.bGM.setText(y.plugin_unenabled);
-                this.bGP.setText(y.plugin_enable);
+                this.bHa.setText(y.plugin_unenabled);
+                this.bHd.setText(y.plugin_enable);
                 this.mStatus = 2;
             } else if (isEnabled) {
-                this.bGM.setText(y.plugin_enabled);
-                this.bGP.setText(y.plugin_unenable);
+                this.bHa.setText(y.plugin_enabled);
+                this.bHd.setText(y.plugin_unenable);
                 this.mStatus = 3;
             }
         } else {
-            this.bGM.setText(y.plugin_disabled);
-            this.bGP.setText(y.plugin_enable);
-            this.bGP.setEnabled(true);
-            aw.b(this.bGP, s.cp_cont_g, 1);
+            this.bHa.setText(y.plugin_disabled);
+            this.bHd.setText(y.plugin_enable);
+            this.bHd.setEnabled(true);
+            aw.b(this.bHd, s.cp_cont_g, 1);
             this.mStatus = 0;
         }
     }
@@ -116,27 +116,27 @@ public class PluginDetailActivity extends BaseActivity {
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bGP) {
+        if (view == this.bHd) {
             if (this.mStatus == 0 || this.mStatus == 1) {
-                abi();
+                abl();
             } else if (this.mStatus == 3) {
                 PluginCenter.getInstance().setEnabled(this.mPluginName, true);
-                abh();
+                abk();
             } else if (this.mStatus == 2) {
                 PluginCenter.getInstance().setEnabled(this.mPluginName, false);
-                abh();
+                abk();
             }
         }
     }
 
-    private void abi() {
+    private void abl() {
         if (!com.baidu.adp.lib.util.j.fh()) {
             showToast(y.neterror);
             return;
         }
-        aw.b(this.bGP, s.cp_cont_d, 1);
-        this.bGP.setEnabled(false);
-        PluginCenter.getInstance().startDownloadForeground(this.bGQ, new d(this));
+        aw.b(this.bHd, s.cp_cont_d, 1);
+        this.bHd.setEnabled(false);
+        PluginCenter.getInstance().startDownloadForeground(this.bHe, new d(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

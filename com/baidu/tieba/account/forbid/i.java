@@ -4,14 +4,14 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.ac;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.pluginArch.PluginLogger;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask<String, Object, ForbidResultData> {
-    private WeakReference<j> agb;
-    private String agr;
+    private WeakReference<j> agj;
+    private String agz;
     private String mForumId;
     private String mForumName;
     private String mThreadId;
@@ -23,9 +23,9 @@ public class i extends BdAsyncTask<String, Object, ForbidResultData> {
         this.mForumName = str2;
         this.mThreadId = str3;
         this.mUserName = str4;
-        this.agr = str5;
+        this.agz = str5;
         this.pT = str6;
-        this.agb = new WeakReference<>(jVar);
+        this.agj = new WeakReference<>(jVar);
         setPriority(3);
     }
 
@@ -35,9 +35,9 @@ public class i extends BdAsyncTask<String, Object, ForbidResultData> {
     /* renamed from: q */
     public ForbidResultData doInBackground(String... strArr) {
         String str;
-        str = h.agq;
+        str = h.agy;
         ac acVar = new ac(str);
-        acVar.k("day", this.agr);
+        acVar.k("day", this.agz);
         acVar.k("un", this.mUserName);
         acVar.k(ImageViewerConfig.FORUM_ID, this.mForumId);
         acVar.k("word", this.mForumName);
@@ -68,9 +68,9 @@ public class i extends BdAsyncTask<String, Object, ForbidResultData> {
     /* renamed from: c */
     public void onPostExecute(ForbidResultData forbidResultData) {
         super.onPostExecute(forbidResultData);
-        j jVar = this.agb.get();
+        j jVar = this.agj.get();
         if (jVar != null) {
-            if (forbidResultData.error_code == 0 && ay.aA(forbidResultData.error_msg)) {
+            if (forbidResultData.error_code == 0 && az.aA(forbidResultData.error_msg)) {
                 jVar.a(forbidResultData);
             } else {
                 jVar.b(forbidResultData);

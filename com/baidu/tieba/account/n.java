@@ -5,11 +5,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class n implements Runnable {
-    final /* synthetic */ ActivationActivity aeY;
+    final /* synthetic */ ActivationActivity afg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(ActivationActivity activationActivity) {
-        this.aeY = activationActivity;
+        this.afg = activationActivity;
     }
 
     @Override // java.lang.Runnable
@@ -23,29 +23,29 @@ class n implements Runnable {
         TextView textView2;
         r rVar;
         RelativeLayout relativeLayout;
-        ActivationActivity activationActivity = this.aeY;
-        i = activationActivity.aeO;
-        activationActivity.aeO = i - 1;
-        i2 = this.aeY.aeO;
+        ActivationActivity activationActivity = this.afg;
+        i = activationActivity.aeW;
+        activationActivity.aeW = i - 1;
+        i2 = this.afg.aeW;
         if (i2 <= 0) {
-            this.aeY.aeN = true;
-            textView2 = this.aeY.aeH;
-            textView2.setText(this.aeY.getString(com.baidu.tieba.y.resend_code));
-            rVar = this.aeY.aeM;
+            this.afg.aeV = true;
+            textView2 = this.afg.aeP;
+            textView2.setText(this.afg.getString(com.baidu.tieba.y.resend_code));
+            rVar = this.afg.aeU;
             if (rVar == null) {
-                relativeLayout = this.aeY.aeK;
+                relativeLayout = this.afg.aeS;
                 relativeLayout.setEnabled(true);
                 return;
             }
             return;
         }
-        String string = this.aeY.getString(com.baidu.tieba.y.resend_code_second);
-        i3 = this.aeY.aeO;
+        String string = this.afg.getString(com.baidu.tieba.y.resend_code_second);
+        i3 = this.afg.aeW;
         String format = String.format(string, Integer.valueOf(i3));
-        textView = this.aeY.aeH;
+        textView = this.afg.aeP;
         textView.setText(format);
-        handler = this.aeY.mHandler;
-        runnable = this.aeY.mRunnable;
+        handler = this.afg.mHandler;
+        runnable = this.afg.mRunnable;
         handler.postDelayed(runnable, 1000L);
     }
 }

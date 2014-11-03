@@ -5,31 +5,31 @@ import android.content.Context;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class az extends com.baidu.adp.base.e {
-    private String aok;
-    private int ats;
-    private int att;
-    private float atu;
-    private ba aui;
+    private String aot;
+    private int atB;
+    private int atC;
+    private float atD;
+    private ba aur;
 
     public az(Context context) {
         super(context);
-        this.ats = 0;
-        this.att = 0;
+        this.atB = 0;
+        this.atC = 0;
         Application app = TbadkApplication.m251getInst().getApp();
-        this.ats = com.baidu.adp.lib.util.m.n(app);
-        this.att = com.baidu.adp.lib.util.m.o(app);
-        this.atu = app.getResources().getDisplayMetrics().density;
+        this.atB = com.baidu.adp.lib.util.m.n(app);
+        this.atC = com.baidu.adp.lib.util.m.o(app);
+        this.atD = app.getResources().getDisplayMetrics().density;
     }
 
     public void setStType(String str) {
-        this.aok = str;
+        this.aot = str;
     }
 
-    public void yh() {
-        if (this.aui == null) {
-            this.aui = new ba(this, null);
-            this.aui.setPriority(3);
-            this.aui.execute(new Object[0]);
+    public void yj() {
+        if (this.aur == null) {
+            this.aur = new ba(this, null);
+            this.aur.setPriority(3);
+            this.aur.execute(new Object[0]);
         }
     }
 
@@ -40,8 +40,8 @@ public class az extends com.baidu.adp.base.e {
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.aui != null) {
-            this.aui.cancel();
+        if (this.aur != null) {
+            this.aur.cancel();
             return true;
         }
         return true;

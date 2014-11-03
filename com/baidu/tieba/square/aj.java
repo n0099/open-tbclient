@@ -5,32 +5,32 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aj extends com.baidu.tieba.data.a {
-    private String bMY;
-    private ArrayList<ai> bMc = new ArrayList<>();
+    private ArrayList<ai> bMr = new ArrayList<>();
+    private String bNn;
 
     public aj() {
-        this.bMY = null;
-        this.bMY = "";
+        this.bNn = null;
+        this.bNn = "";
     }
 
-    public ArrayList<ai> adl() {
-        return this.bMc;
+    public ArrayList<ai> ado() {
+        return this.bMr;
     }
 
-    public void I(ArrayList<ai> arrayList) {
-        this.bMc = arrayList;
+    public void J(ArrayList<ai> arrayList) {
+        this.bMr = arrayList;
         setErrorMsg(null);
     }
 
-    public String adw() {
-        return this.bMY;
+    public String adz() {
+        return this.bNn;
     }
 
     @Override // com.baidu.tieba.data.a
     protected void e(JSONObject jSONObject) {
         ArrayList<ai> arrayList = new ArrayList<>();
         JSONArray optJSONArray = jSONObject.optJSONArray("forum_browse");
-        this.bMY = jSONObject.optString("forum_browse_title");
+        this.bNn = jSONObject.optString("forum_browse_title");
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 ai aiVar = new ai();
@@ -38,6 +38,6 @@ public class aj extends com.baidu.tieba.data.a {
                 arrayList.add(aiVar);
             }
         }
-        I(arrayList);
+        J(arrayList);
     }
 }

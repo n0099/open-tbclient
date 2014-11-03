@@ -8,11 +8,11 @@ import com.baidu.tieba.voice.PlayVoiceBnt;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ce implements AbsListView.RecyclerListener {
-    final /* synthetic */ bu aDt;
+    final /* synthetic */ bu aDD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ce(bu buVar) {
-        this.aDt = buVar;
+        this.aDD = buVar;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener

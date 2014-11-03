@@ -5,7 +5,7 @@ import com.baidu.tbadk.mvc.b.i;
 import com.baidu.tbadk.mvc.core.MvcActivity;
 /* loaded from: classes.dex */
 public abstract class b<T extends g, R extends i> extends c<T, R> {
-    protected abstract boolean ty();
+    protected abstract boolean tA();
 
     public b(MvcActivity<?, ?> mvcActivity) {
         super(mvcActivity);
@@ -16,8 +16,8 @@ public abstract class b<T extends g, R extends i> extends c<T, R> {
         if (super.a(bVar)) {
             return true;
         }
-        if (bVar.tp() == 16777218) {
-            if (ty()) {
+        if (bVar.tr() == 16777218) {
+            if (tA()) {
                 de(33554439);
                 return true;
             }

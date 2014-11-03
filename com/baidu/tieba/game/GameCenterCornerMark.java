@@ -13,13 +13,13 @@ import android.view.View;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class GameCenterCornerMark extends View {
-    private String Dm;
-    private RectF aGP;
-    private float aGQ;
-    private Rect aGR;
-    private int aGS;
-    private int aGT;
-    private int aGU;
+    private String Dn;
+    private RectF aGZ;
+    private float aHa;
+    private Rect aHb;
+    private int aHc;
+    private int aHd;
+    private int aHe;
     private Context mContext;
     private int mFontSize;
     private Path ry;
@@ -35,10 +35,10 @@ public class GameCenterCornerMark extends View {
 
     public GameCenterCornerMark(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aGS = com.baidu.tbadk.core.util.aw.getColor(com.baidu.tieba.s.cp_link_tip_d);
-        this.aGT = com.baidu.adp.lib.util.m.c(TbadkApplication.m251getInst().getApplicationContext(), com.baidu.tieba.t.ds8);
+        this.aHc = com.baidu.tbadk.core.util.aw.getColor(com.baidu.tieba.s.cp_link_tip_d);
+        this.aHd = com.baidu.adp.lib.util.m.c(TbadkApplication.m251getInst().getApplicationContext(), com.baidu.tieba.t.ds8);
         this.mFontSize = com.baidu.adp.lib.util.m.c(TbadkApplication.m251getInst().getApplicationContext(), com.baidu.tieba.t.ds16);
-        this.aGU = com.baidu.adp.lib.util.m.c(TbadkApplication.m251getInst().getApplicationContext(), com.baidu.tieba.t.ds58);
+        this.aHe = com.baidu.adp.lib.util.m.c(TbadkApplication.m251getInst().getApplicationContext(), com.baidu.tieba.t.ds58);
         this.mContext = context;
         init();
     }
@@ -46,24 +46,24 @@ public class GameCenterCornerMark extends View {
     private void init() {
         this.tR = new Paint();
         this.ry = new Path();
-        this.aGQ = com.baidu.adp.lib.util.m.c(TbadkApplication.m251getInst().getApplicationContext(), com.baidu.tieba.t.ds26);
-        this.aGP = new RectF(0.0f, 0.0f, this.aGQ * 2.0f, this.aGQ * 2.0f);
-        this.aGR = new Rect();
+        this.aHa = com.baidu.adp.lib.util.m.c(TbadkApplication.m251getInst().getApplicationContext(), com.baidu.tieba.t.ds26);
+        this.aGZ = new RectF(0.0f, 0.0f, this.aHa * 2.0f, this.aHa * 2.0f);
+        this.aHb = new Rect();
     }
 
     public void setBgColorTag(String str) {
         switch (com.baidu.adp.lib.g.c.f(str, 0)) {
             case 2:
-                this.aGS = com.baidu.tbadk.core.util.aw.getColor(com.baidu.tieba.s.cp_link_tip_a);
+                this.aHc = com.baidu.tbadk.core.util.aw.getColor(com.baidu.tieba.s.cp_link_tip_a);
                 return;
             default:
-                this.aGS = com.baidu.tbadk.core.util.aw.getColor(com.baidu.tieba.s.cp_link_tip_d);
+                this.aHc = com.baidu.tbadk.core.util.aw.getColor(com.baidu.tieba.s.cp_link_tip_d);
                 return;
         }
     }
 
     public void setText(String str) {
-        this.Dm = str;
+        this.Dn = str;
     }
 
     public void setFontSize(int i) {
@@ -71,11 +71,11 @@ public class GameCenterCornerMark extends View {
     }
 
     public void setFontOffset(int i) {
-        this.aGT = i;
+        this.aHd = i;
     }
 
     public void setTriangleHeight(int i) {
-        this.aGU = i;
+        this.aHe = i;
     }
 
     @Override // android.view.View
@@ -84,25 +84,25 @@ public class GameCenterCornerMark extends View {
         canvas.drawColor(0);
         this.tR.setAntiAlias(true);
         this.tR.setStyle(Paint.Style.FILL);
-        this.tR.setColor(this.aGS);
-        this.ry.moveTo(0.0f, this.aGQ);
-        this.ry.arcTo(this.aGP, 180.0f, 90.0f);
-        this.ry.lineTo(this.aGU, 0.0f);
-        this.ry.lineTo(0.0f, this.aGU);
+        this.tR.setColor(this.aHc);
+        this.ry.moveTo(0.0f, this.aHa);
+        this.ry.arcTo(this.aGZ, 180.0f, 90.0f);
+        this.ry.lineTo(this.aHe, 0.0f);
+        this.ry.lineTo(0.0f, this.aHe);
         this.ry.close();
         canvas.drawPath(this.ry, this.tR);
-        if (TextUtils.isEmpty(this.Dm) || com.baidu.tieba.game.a.g.fy(this.Dm) > 4) {
-            this.Dm = this.mContext.getString(com.baidu.tieba.y.game_superscript_default_text);
+        if (TextUtils.isEmpty(this.Dn) || com.baidu.tieba.game.a.g.fy(this.Dn) > 4) {
+            this.Dn = this.mContext.getString(com.baidu.tieba.y.game_superscript_default_text);
         }
         this.tR.reset();
         this.tR.setTypeface(Typeface.DEFAULT_BOLD);
         this.tR.setColor(com.baidu.tbadk.core.util.aw.getColor(com.baidu.tieba.s.cp_cont_i));
         this.tR.setTextSize(this.mFontSize);
-        this.tR.getTextBounds(this.Dm, 0, this.Dm.length(), this.aGR);
+        this.tR.getTextBounds(this.Dn, 0, this.Dn.length(), this.aHb);
         canvas.save();
-        canvas.translate(0.0f, this.aGU);
+        canvas.translate(0.0f, this.aHe);
         canvas.rotate(-45.0f);
-        canvas.drawText(this.Dm, (((float) (this.aGU * 1.41d)) - this.aGR.width()) / 2.0f, -this.aGT, this.tR);
+        canvas.drawText(this.Dn, (((float) (this.aHe * 1.41d)) - this.aHb.width()) / 2.0f, -this.aHd, this.tR);
         canvas.restore();
     }
 }

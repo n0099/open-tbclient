@@ -1,12 +1,11 @@
 package com.baidu.tieba.person;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bh implements com.baidu.tbadk.core.view.a {
-    final /* synthetic */ PersonImageActivity bCI;
+class bh implements com.baidu.tbadk.core.view.a {
+    final /* synthetic */ PersonImageActivity bCW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bh(PersonImageActivity personImageActivity) {
-        this.bCI = personImageActivity;
+        this.bCW = personImageActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.a

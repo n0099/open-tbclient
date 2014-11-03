@@ -5,36 +5,36 @@ import org.json.JSONObject;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.lib.a.b.a.a.i {
-    private String abF;
-    private String abG;
-    private String abH;
-    private boolean abI;
+    private String abK;
+    private String abL;
+    private String abM;
+    private boolean abN;
     private int mHeight;
     private int mWidth;
 
     public g() {
-        this.abF = null;
-        this.abG = null;
-        this.abH = null;
+        this.abK = null;
+        this.abL = null;
+        this.abM = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.abI = false;
+        this.abN = false;
     }
 
     public g(PbContent pbContent) {
-        this.abF = null;
-        this.abG = null;
-        this.abH = null;
+        this.abK = null;
+        this.abL = null;
+        this.abM = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.abI = false;
+        this.abN = false;
         if (pbContent != null) {
-            this.abF = pbContent.src;
-            this.abG = pbContent.cdn_src;
-            if (this.abG == null || this.abG.length() == 0) {
-                this.abG = this.abF;
+            this.abK = pbContent.src;
+            this.abL = pbContent.cdn_src;
+            if (this.abL == null || this.abL.length() == 0) {
+                this.abL = this.abK;
             }
-            this.abH = pbContent.big_cdn_src;
+            this.abM = pbContent.big_cdn_src;
             String str = pbContent.bsize;
             if (str != null) {
                 try {
@@ -51,26 +51,26 @@ public class g extends com.baidu.adp.lib.a.b.a.a.i {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            if (this.abG != null && this.abG.indexOf(".baidu.com") != -1) {
-                this.abI = true;
+            if (this.abL != null && this.abL.indexOf(".baidu.com") != -1) {
+                this.abN = true;
             }
         }
     }
 
     public g(JSONObject jSONObject) {
-        this.abF = null;
-        this.abG = null;
-        this.abH = null;
+        this.abK = null;
+        this.abL = null;
+        this.abM = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.abI = false;
+        this.abN = false;
         if (jSONObject != null) {
-            this.abF = jSONObject.optString("src");
-            this.abG = jSONObject.optString("cdn_src", "");
-            if (this.abG == null || this.abG.length() == 0) {
-                this.abG = this.abF;
+            this.abK = jSONObject.optString("src");
+            this.abL = jSONObject.optString("cdn_src", "");
+            if (this.abL == null || this.abL.length() == 0) {
+                this.abL = this.abK;
             }
-            this.abH = jSONObject.optString("big_cdn_src", null);
+            this.abM = jSONObject.optString("big_cdn_src", null);
             try {
                 String[] split = jSONObject.optString("bsize").split(",");
                 this.mWidth = Integer.valueOf(split[0]).intValue();
@@ -84,14 +84,14 @@ public class g extends com.baidu.adp.lib.a.b.a.a.i {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            if (this.abG != null && this.abG.indexOf(".baidu.com") != -1) {
-                this.abI = true;
+            if (this.abL != null && this.abL.indexOf(".baidu.com") != -1) {
+                this.abN = true;
             }
         }
     }
 
-    public String vJ() {
-        return this.abH;
+    public String vL() {
+        return this.abM;
     }
 
     public int getHeight() {
@@ -102,15 +102,15 @@ public class g extends com.baidu.adp.lib.a.b.a.a.i {
         return this.mWidth;
     }
 
-    public boolean vK() {
-        return this.abI;
+    public boolean vM() {
+        return this.abN;
     }
 
     public String getSrc() {
-        return this.abF;
+        return this.abK;
     }
 
-    public String vL() {
-        return this.abG;
+    public String vN() {
+        return this.abL;
     }
 }

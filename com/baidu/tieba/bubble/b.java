@@ -6,11 +6,11 @@ import com.baidu.tieba.data.SetBubbleResultData;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class b implements com.baidu.tieba.model.i {
-    final /* synthetic */ BubbleChooseActivity aja;
+    final /* synthetic */ BubbleChooseActivity ajj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(BubbleChooseActivity bubbleChooseActivity) {
-        this.aja = bubbleChooseActivity;
+        this.ajj = bubbleChooseActivity;
     }
 
     @Override // com.baidu.tieba.model.i
@@ -18,53 +18,53 @@ class b implements com.baidu.tieba.model.i {
         g gVar;
         com.baidu.tieba.model.e eVar;
         g gVar2;
-        gVar = this.aja.aiS;
+        gVar = this.ajj.ajb;
         gVar.hideProgressBar();
-        eVar = this.aja.aiT;
-        int Td = eVar.Td();
-        gVar2 = this.aja.aiS;
-        f yk = gVar2.yk();
-        if (Td == 0) {
-            yk.bn(true);
-            for (BubbleListData.BubbleData bubbleData : yk.yj()) {
+        eVar = this.ajj.ajc;
+        int Tg = eVar.Tg();
+        gVar2 = this.ajj.ajb;
+        f ym = gVar2.ym();
+        if (Tg == 0) {
+            ym.bn(true);
+            for (BubbleListData.BubbleData bubbleData : ym.yl()) {
                 if (bubbleData.getBcode() != 0 && bubbleData.isDef()) {
                     bubbleData.setIs_def(0);
                 }
             }
-            yk.notifyDataSetChanged();
+            ym.notifyDataSetChanged();
         } else if (setBubbleResultData.getB_info().canUser()) {
-            for (BubbleListData.BubbleData bubbleData2 : yk.yj()) {
-                if (bubbleData2.getBcode() == Td) {
+            for (BubbleListData.BubbleData bubbleData2 : ym.yl()) {
+                if (bubbleData2.getBcode() == Tg) {
                     bubbleData2.setIs_def(1);
                 } else if (bubbleData2.isDef()) {
                     bubbleData2.setIs_def(0);
                 }
             }
-            yk.bn(false);
-            yk.notifyDataSetChanged();
+            ym.bn(false);
+            ym.notifyDataSetChanged();
         } else {
-            this.aja.showToast(y.bubble_setdefualt_error);
+            this.ajj.showToast(y.bubble_setdefualt_error);
         }
     }
 
     @Override // com.baidu.tieba.model.i
     public void b(SetBubbleResultData setBubbleResultData) {
         g gVar;
-        gVar = this.aja.aiS;
+        gVar = this.ajj.ajb;
         gVar.hideProgressBar();
         if (setBubbleResultData != null) {
             if (!setBubbleResultData.getError_code().equals("0")) {
                 if (!TextUtils.isEmpty(setBubbleResultData.getError_msg())) {
-                    this.aja.showToast(setBubbleResultData.getError_msg());
+                    this.ajj.showToast(setBubbleResultData.getError_msg());
                     return;
                 } else {
-                    this.aja.showToast(y.neterror);
+                    this.ajj.showToast(y.neterror);
                     return;
                 }
             }
-            this.aja.showToast(y.neterror);
+            this.ajj.showToast(y.neterror);
             return;
         }
-        this.aja.showToast(y.neterror);
+        this.ajj.showToast(y.neterror);
     }
 }

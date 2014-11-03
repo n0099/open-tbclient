@@ -10,11 +10,11 @@ import com.baidu.tbadk.coreExtra.act.LoginActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements AdapterView.OnItemClickListener {
-    final /* synthetic */ AccountActivity aeo;
+    final /* synthetic */ AccountActivity aew;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AccountActivity accountActivity) {
-        this.aeo = accountActivity;
+        this.aew = accountActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -24,18 +24,18 @@ public class e implements AdapterView.OnItemClickListener {
         l lVar3;
         i iVar;
         i iVar2;
-        lVar = this.aeo.aej;
+        lVar = this.aew.aer;
         if (lVar.getItemId(i) >= 0) {
-            lVar2 = this.aeo.aej;
-            if (!lVar2.xd()) {
-                lVar3 = this.aeo.aej;
+            lVar2 = this.aew.aer;
+            if (!lVar2.xf()) {
+                lVar3 = this.aew.aer;
                 AccountData accountData = (AccountData) lVar3.getItem(i);
                 if (accountData != null && accountData.getIsActive() != 1) {
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001193, TbadkApplication.getCurrentAccount()));
-                    this.aeo.aem = new i(this.aeo, accountData);
-                    iVar = this.aeo.aem;
+                    this.aew.aeu = new i(this.aew, accountData);
+                    iVar = this.aew.aeu;
                     iVar.setPriority(3);
-                    iVar2 = this.aeo.aem;
+                    iVar2 = this.aew.aeu;
                     iVar2.execute(new Object[0]);
                     return;
                 }
@@ -43,6 +43,6 @@ public class e implements AdapterView.OnItemClickListener {
             }
             return;
         }
-        LoginActivity.x(this.aeo);
+        LoginActivity.x(this.aew);
     }
 }

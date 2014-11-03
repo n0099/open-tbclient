@@ -4,17 +4,17 @@ import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an implements Runnable {
-    final /* synthetic */ am atV;
+    final /* synthetic */ am aue;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(am amVar) {
-        this.atV = amVar;
+        this.aue = amVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         try {
-            this.atV.De();
+            this.aue.Dg();
         } catch (Exception e) {
             BdLog.detailException(e);
         }

@@ -11,18 +11,18 @@ import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aj extends BdAsyncTask<Object, Integer, com.baidu.tbadk.core.data.j> {
-    final /* synthetic */ Login2Activity KT;
-    ArrayList<BasicNameValuePair> KW;
+    final /* synthetic */ Login2Activity KU;
+    ArrayList<BasicNameValuePair> KX;
     private String mUrl;
     private com.baidu.tbadk.core.util.ac yV = null;
-    private String KX = null;
+    private String KY = null;
 
     public aj(Login2Activity login2Activity, String str, ArrayList<BasicNameValuePair> arrayList) {
-        this.KT = login2Activity;
+        this.KU = login2Activity;
         this.mUrl = null;
-        this.KW = null;
+        this.KX = null;
         this.mUrl = str;
-        this.KW = arrayList;
+        this.KX = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -33,19 +33,19 @@ public class aj extends BdAsyncTask<Object, Integer, com.baidu.tbadk.core.data.j
         ProgressBar progressBar;
         TextView textView;
         TextView textView2;
-        Login2Activity login2Activity = this.KT;
-        InputMethodManager inputMethodManager = this.KT.mInputManager;
-        editText = this.KT.Ks;
+        Login2Activity login2Activity = this.KU;
+        InputMethodManager inputMethodManager = this.KU.mInputManager;
+        editText = this.KU.Kt;
         login2Activity.HidenSoftKeyPad(inputMethodManager, editText);
-        Login2Activity login2Activity2 = this.KT;
-        InputMethodManager inputMethodManager2 = this.KT.mInputManager;
-        editText2 = this.KT.Kt;
+        Login2Activity login2Activity2 = this.KU;
+        InputMethodManager inputMethodManager2 = this.KU.mInputManager;
+        editText2 = this.KU.Ku;
         login2Activity2.HidenSoftKeyPad(inputMethodManager2, editText2);
-        progressBar = this.KT.Kz;
+        progressBar = this.KU.KA;
         progressBar.setVisibility(0);
-        textView = this.KT.KJ;
+        textView = this.KU.KK;
         textView.setVisibility(4);
-        textView2 = this.KT.KL;
+        textView2 = this.KU.KM;
         textView2.setText(com.baidu.tieba.y.account_login_loading);
     }
 
@@ -58,14 +58,14 @@ public class aj extends BdAsyncTask<Object, Integer, com.baidu.tbadk.core.data.j
         Exception e;
         try {
             this.yV = new com.baidu.tbadk.core.util.ac(this.mUrl);
-            this.yV.h(this.KW);
-            this.KX = this.yV.lA();
-            if (!this.yV.mc().nb().jq() || this.KX == null) {
+            this.yV.h(this.KX);
+            this.KY = this.yV.lA();
+            if (!this.yV.mc().nb().jq() || this.KY == null) {
                 return null;
             }
             jVar = new com.baidu.tbadk.core.data.j();
             try {
-                jVar.parserJson(this.KX);
+                jVar.parserJson(this.KY);
                 return jVar;
             } catch (Exception e2) {
                 e = e2;
@@ -93,48 +93,48 @@ public class aj extends BdAsyncTask<Object, Integer, com.baidu.tbadk.core.data.j
         TextView textView7;
         String str;
         EditText editText;
-        progressBar = this.KT.Kz;
+        progressBar = this.KU.KA;
         progressBar.setVisibility(8);
-        textView = this.KT.KL;
+        textView = this.KU.KM;
         textView.setText(com.baidu.tieba.y.account_login);
-        this.KT.om();
+        this.KU.om();
         if (jVar != null) {
-            this.KT.KQ = jVar;
-            this.KT.oc();
+            this.KU.KR = jVar;
+            this.KU.oc();
         } else if (this.yV != null) {
             if ((!this.yV.mf() || this.yV.mg() != 5) && this.yV.mg() != 6) {
-                textView2 = this.KT.KJ;
+                textView2 = this.KU.KK;
                 textView2.setVisibility(0);
-                textView3 = this.KT.KJ;
+                textView3 = this.KU.KK;
                 textView3.setText(this.yV.getErrorString());
-                textView4 = this.KT.KK;
+                textView4 = this.KU.KL;
                 textView4.setVisibility(8);
-                this.KT.oi();
+                this.KU.oi();
             } else {
-                com.baidu.tbadk.coreExtra.data.f fVar = new com.baidu.tbadk.coreExtra.data.f();
-                fVar.parserJson(this.KX);
-                if (fVar.getVcode_pic_url() == null) {
-                    textView5 = this.KT.KJ;
+                com.baidu.tbadk.coreExtra.data.g gVar = new com.baidu.tbadk.coreExtra.data.g();
+                gVar.parserJson(this.KY);
+                if (gVar.getVcode_pic_url() == null) {
+                    textView5 = this.KU.KK;
                     textView5.setVisibility(0);
-                    textView6 = this.KT.KJ;
+                    textView6 = this.KU.KK;
                     textView6.setText(this.yV.getErrorString());
-                    textView7 = this.KT.KK;
+                    textView7 = this.KU.KL;
                     textView7.setVisibility(8);
-                    this.KT.oi();
+                    this.KU.oi();
                 } else {
-                    this.KT.Km = fVar.getVcode_md5();
-                    this.KT.mVcodeUrl = fVar.getVcode_pic_url();
-                    Login2Activity login2Activity = this.KT;
-                    str = this.KT.mVcodeUrl;
+                    this.KU.Kn = gVar.getVcode_md5();
+                    this.KU.mVcodeUrl = gVar.getVcode_pic_url();
+                    Login2Activity login2Activity = this.KU;
+                    str = this.KU.mVcodeUrl;
                     login2Activity.cm(str);
-                    this.KT.oj();
-                    Login2Activity login2Activity2 = this.KT;
-                    editText = this.KT.Ks;
+                    this.KU.oj();
+                    Login2Activity login2Activity2 = this.KU;
+                    editText = this.KU.Kt;
                     login2Activity2.mAccount = editText.getText().toString();
                 }
             }
         }
-        this.KT.KP = null;
+        this.KU.KQ = null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -146,10 +146,10 @@ public class aj extends BdAsyncTask<Object, Integer, com.baidu.tbadk.core.data.j
             this.yV.dM();
             this.yV = null;
         }
-        progressBar = this.KT.Kz;
+        progressBar = this.KU.KA;
         progressBar.setVisibility(8);
-        textView = this.KT.KL;
+        textView = this.KU.KM;
         textView.setText(com.baidu.tieba.y.account_login);
-        this.KT.om();
+        this.KU.om();
     }
 }

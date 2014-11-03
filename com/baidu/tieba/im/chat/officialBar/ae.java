@@ -20,11 +20,11 @@ public class ae implements View.OnClickListener {
         if (intValue < 0) {
             return;
         }
-        list = this.this$0.Wx;
+        list = this.this$0.WB;
         if (intValue >= list.size()) {
             return;
         }
-        list2 = this.this$0.Wx;
+        list2 = this.this$0.WB;
         az azVar = (az) list2.get(intValue);
         String v = com.baidu.tieba.im.util.i.v("[" + azVar.content + "]", true);
         if (v != null) {

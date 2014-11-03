@@ -1,18 +1,18 @@
 package com.baidu.tieba.im.chat.officialBar;
 /* loaded from: classes.dex */
 public class aw {
-    private static volatile aw aSb;
+    private static volatile aw aSp;
     private boolean isAcceptNotify;
 
-    public static aw Kz() {
-        if (aSb == null) {
+    public static aw KD() {
+        if (aSp == null) {
             synchronized (aw.class) {
-                if (aSb == null) {
-                    aSb = new aw();
+                if (aSp == null) {
+                    aSp = new aw();
                 }
             }
         }
-        return aSb;
+        return aSp;
     }
 
     public boolean isAcceptNotify() {

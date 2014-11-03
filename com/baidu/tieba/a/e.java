@@ -8,20 +8,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private static final String amO = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/threadrecommend";
-    private boolean amN;
+    private static final String amX = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/threadrecommend";
+    private boolean amW;
     private int errorCode = -1;
     private ac mNetWork = null;
 
     public e(boolean z) {
-        this.amN = z;
+        this.amW = z;
     }
 
     public String ab(String str, String str2) {
         this.mNetWork = new ac();
-        this.mNetWork.setUrl(amO);
-        this.mNetWork.mc().na().FT = false;
-        if (this.amN) {
+        this.mNetWork.setUrl(amX);
+        this.mNetWork.mc().na().FU = false;
+        if (this.amW) {
             this.mNetWork.k("type", "banner");
         }
         if (!TextUtils.isEmpty(str)) {

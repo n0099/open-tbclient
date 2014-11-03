@@ -17,13 +17,14 @@ import android.widget.ProgressBar;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.base.BdBaseFragmentActivity;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.m;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.bd;
+import com.baidu.tbadk.core.util.be;
 import com.baidu.tieba.u;
 import com.baidu.tieba.y;
 import com.compatible.menukey.MenuKeyUtils;
@@ -43,8 +44,10 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity {
     protected ProgressDialog mWaitingDialog = null;
     private DialogInterface.OnCancelListener mDialogListener = null;
     protected int mSkinType = -1;
+    private final CustomMessageListener nightResourcesChangeListener = new e(this, 2005017);
 
-    protected abstract void onChangeSkinType(int i);
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void onChangeSkinType(int i);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
@@ -56,8 +59,9 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity {
         MenuKeyUtils.hideSmartBarMenu(this);
         super.onCreate(bundle);
         TbadkApplication.setIsAppRunning(true);
-        bd.bR(getClass().getName());
+        be.bR(getClass().getName());
         this.mLayoutMode = new d();
+        registerListener(this.nightResourcesChangeListener);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -67,12 +71,12 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity {
         super.onResume();
         changeSkinType(TbadkApplication.m251getInst().getSkinType());
         TbadkApplication.m251getInst().AddResumeNum();
-        bd.bR(getClass().getName());
+        be.bR(getClass().getName());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void addGlobalLayoutListener() {
-        getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(new e(this));
+        getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(new f(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -142,7 +146,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity {
 
     public void showLoadingDialog(String str) {
         if (this.mDialogListener == null) {
-            this.mDialogListener = new f(this);
+            this.mDialogListener = new g(this);
         }
         if (!isFinishing() && com.baidu.adp.lib.g.j.e(this)) {
             if (str != null) {
@@ -418,7 +422,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity {
     public void startAnimation(View view, Animation animation, Animation.AnimationListener animationListener) {
         if (animation != null && !isFinishing()) {
             WeakReference<View> weakReference = new WeakReference<>(view);
-            animation.setAnimationListener(new g(this, animationListener, weakReference));
+            animation.setAnimationListener(new h(this, animationListener, weakReference));
             if (this.animationList == null) {
                 this.animationList = new ArrayList();
             }

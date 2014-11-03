@@ -6,31 +6,31 @@ import com.baidu.tbadk.core.view.y;
 import com.baidu.tbadk.mvc.core.MvcActivity;
 /* loaded from: classes.dex */
 public abstract class b extends a {
-    private y Yc;
+    private y Yg;
 
-    public abstract BdListView ud();
+    public abstract BdListView uf();
 
     public b(MvcActivity<?, ?> mvcActivity) {
         super(mvcActivity);
     }
 
     @Override // com.baidu.tbadk.mvc.h.a
-    protected void ub() {
-        uf();
+    protected void ud() {
+        uh();
     }
 
     @Override // com.baidu.tbadk.mvc.h.a
-    protected void uc() {
-        ug();
+    protected void ue() {
+        ui();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ue() {
-        BdListView ud = ud();
-        if (ud != null) {
-            ud.setPullRefresh(uj());
+    public void ug() {
+        BdListView uf = uf();
+        if (uf != null) {
+            uf.setPullRefresh(ul());
         }
-        sY().setListPullRefreshListener(uj(), sZ());
+        ta().setListPullRefreshListener(ul(), tb());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -39,30 +39,30 @@ public abstract class b extends a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void uf() {
-        BdListView ud = ud();
-        uj().a((g) null);
-        ud.hO();
-        sY().setListPullRefreshListener(uj(), sZ());
+    public void uh() {
+        BdListView uf = uf();
+        ul().a((g) null);
+        uf.hO();
+        ta().setListPullRefreshListener(ul(), tb());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ug() {
-        ud().hN();
+    public void ui() {
+        uf().hN();
     }
 
-    protected void uh() {
-        uf();
+    protected void uj() {
+        uh();
     }
 
-    protected void ui() {
-        ug();
+    protected void uk() {
+        ui();
     }
 
     @Override // com.baidu.tbadk.mvc.core.c, com.baidu.tbadk.e.a
     public boolean dg(int i) {
         super.dg(i);
-        uj().bM(i);
+        ul().bM(i);
         return true;
     }
 
@@ -71,21 +71,21 @@ public abstract class b extends a {
         if (super.a(bVar)) {
             return true;
         }
-        if (bVar.tp() == 33554437) {
-            uh();
+        if (bVar.tr() == 33554437) {
+            uj();
             return true;
-        } else if (bVar.tp() == 33554438) {
-            ui();
+        } else if (bVar.tr() == 33554438) {
+            uk();
             return true;
         } else {
             return false;
         }
     }
 
-    protected y uj() {
-        if (this.Yc == null) {
-            this.Yc = new y(this.Xf);
+    protected y ul() {
+        if (this.Yg == null) {
+            this.Yg = new y(this.Xj);
         }
-        return this.Yc;
+        return this.Yg;
     }
 }

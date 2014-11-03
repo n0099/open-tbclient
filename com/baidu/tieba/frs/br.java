@@ -10,15 +10,15 @@ import com.baidu.tbadk.core.data.LiveCardData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class br implements com.baidu.tieba.view.d {
-    final /* synthetic */ bp aCe;
-    private final /* synthetic */ bs aCf;
-    private final /* synthetic */ com.baidu.tbadk.core.data.i aCi;
+    final /* synthetic */ bp aCo;
+    private final /* synthetic */ bs aCp;
+    private final /* synthetic */ com.baidu.tbadk.core.data.i aCs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public br(bp bpVar, bs bsVar, com.baidu.tbadk.core.data.i iVar) {
-        this.aCe = bpVar;
-        this.aCf = bsVar;
-        this.aCi = iVar;
+        this.aCo = bpVar;
+        this.aCp = bsVar;
+        this.aCs = iVar;
     }
 
     @Override // com.baidu.tieba.view.d
@@ -27,19 +27,19 @@ public class br implements com.baidu.tieba.view.d {
         Context context;
         Context context2;
         Context context3;
-        eM = this.aCf.eM(i);
-        if (this.aCi != null && this.aCi.jY() != null && eM >= 0 && eM < this.aCi.jY().size()) {
-            context = this.aCe.mContext;
-            com.baidu.tbadk.core.i.l(context, "forum_live_ck");
-            LiveCardData liveCardData = this.aCi.jY().get(eM);
+        eM = this.aCp.eM(i);
+        if (this.aCs != null && this.aCs.jY() != null && eM >= 0 && eM < this.aCs.jY().size()) {
+            context = this.aCo.mContext;
+            com.baidu.tbadk.core.j.l(context, "forum_live_ck");
+            LiveCardData liveCardData = this.aCs.jY().get(eM);
             if (TbadkApplication.m251getInst().isLiveSDKOpen()) {
                 MessageManager messageManager = MessageManager.getInstance();
-                context3 = this.aCe.mContext;
+                context3 = this.aCo.mContext;
                 messageManager.sendMessage(new CustomMessage(2002001, new LiveRoomChatActivityConfig(context3, liveCardData.getGroupId())));
                 return;
             }
             MessageManager messageManager2 = MessageManager.getInstance();
-            context2 = this.aCe.mContext;
+            context2 = this.aCo.mContext;
             messageManager2.sendMessage(new CustomMessage(2002001, new BackupLiveRoomChatActivityConfig(context2, liveCardData.getGroupId())));
         }
     }

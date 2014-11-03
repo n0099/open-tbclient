@@ -8,12 +8,12 @@ import com.baidu.tbadk.core.util.ac;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v extends BdAsyncTask<String, Integer, Boolean> {
-    final /* synthetic */ TiebaUpdateService bIT;
+    final /* synthetic */ TiebaUpdateService bJh;
     private volatile boolean kJ;
     private ac mNetWork;
 
     private v(TiebaUpdateService tiebaUpdateService) {
-        this.bIT = tiebaUpdateService;
+        this.bJh = tiebaUpdateService;
         this.mNetWork = null;
         this.kJ = false;
     }
@@ -26,25 +26,25 @@ public class v extends BdAsyncTask<String, Integer, Boolean> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Code restructure failed: missing block: B:25:0x0096, code lost:
-        r0 = r7.bIT.mHasTieba;
+        r0 = r7.bJh.mHasTieba;
      */
     /* JADX WARN: Code restructure failed: missing block: B:26:0x009c, code lost:
         if (r0 != false) goto L39;
      */
     /* JADX WARN: Code restructure failed: missing block: B:27:0x009e, code lost:
-        r0 = r7.bIT.mHasAs;
+        r0 = r7.bJh.mHasAs;
      */
     /* JADX WARN: Code restructure failed: missing block: B:28:0x00a4, code lost:
         if (r0 == false) goto L29;
      */
     /* JADX WARN: Code restructure failed: missing block: B:29:0x00a6, code lost:
-        r0 = r7.bIT.mIsMainApkDone;
+        r0 = r7.bJh.mIsMainApkDone;
      */
     /* JADX WARN: Code restructure failed: missing block: B:30:0x00ac, code lost:
         if (r0 == false) goto L29;
      */
     /* JADX WARN: Code restructure failed: missing block: B:31:0x00ae, code lost:
-        r7.bIT.sendBroadcast("action_update_progress_interrupted", true);
+        r7.bJh.sendBroadcast("action_update_progress_interrupted", true);
      */
     /* JADX WARN: Code restructure failed: missing block: B:32:0x00b6, code lost:
         r0 = r1;
@@ -72,12 +72,12 @@ public class v extends BdAsyncTask<String, Integer, Boolean> {
                 if (this.kJ) {
                     break;
                 }
-                str2 = this.bIT.mOtherApkUrl;
+                str2 = this.bJh.mOtherApkUrl;
                 this.mNetWork = new ac(str2);
                 ac acVar = this.mNetWork;
-                str3 = this.bIT.mOtherApkFileName;
+                str3 = this.bJh.mOtherApkFileName;
                 String str4 = String.valueOf(str3) + ".tmp";
-                handler = this.bIT.mOtherApkHandler;
+                handler = this.bJh.mOtherApkHandler;
                 bool2 = Boolean.valueOf(acVar.a(str4, handler, 0));
                 if (bool2.booleanValue()) {
                     break;
@@ -94,7 +94,7 @@ public class v extends BdAsyncTask<String, Integer, Boolean> {
                     z = TiebaUpdateService.sHasStart;
                     if (z && UtilHelper.isNetOk()) {
                         long currentTimeMillis = System.currentTimeMillis();
-                        j = this.bIT.mOtherTaskWaitingTimestamp;
+                        j = this.bJh.mOtherTaskWaitingTimestamp;
                         if (currentTimeMillis - j > 20000) {
                             break;
                         }
@@ -107,8 +107,8 @@ public class v extends BdAsyncTask<String, Integer, Boolean> {
         }
         try {
             if (bool.booleanValue()) {
-                TiebaUpdateService tiebaUpdateService = this.bIT;
-                str = this.bIT.mOtherApkFileName;
+                TiebaUpdateService tiebaUpdateService = this.bJh;
+                str = this.bJh.mOtherApkFileName;
                 tiebaUpdateService.renameFile(str);
             }
         } catch (Exception e4) {
@@ -122,7 +122,7 @@ public class v extends BdAsyncTask<String, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        this.bIT.mDowndOtherApkTask = null;
+        this.bJh.mDowndOtherApkTask = null;
         this.kJ = true;
         if (this.mNetWork != null) {
             this.mNetWork.dM();
@@ -140,24 +140,24 @@ public class v extends BdAsyncTask<String, Integer, Boolean> {
         Handler handler2;
         boolean z3;
         super.onPostExecute(bool);
-        this.bIT.mDowndOtherApkTask = null;
+        this.bJh.mDowndOtherApkTask = null;
         if (bool.booleanValue()) {
-            this.bIT.mOtherTaskWaitingTimestamp = System.currentTimeMillis();
+            this.bJh.mOtherTaskWaitingTimestamp = System.currentTimeMillis();
         }
-        z = this.bIT.mHasTieba;
+        z = this.bJh.mHasTieba;
         if (!z) {
-            z3 = this.bIT.mHasAs;
+            z3 = this.bJh.mHasAs;
             if (!z3) {
                 return;
             }
         }
-        z2 = this.bIT.mMainApkInstallEnable;
+        z2 = this.bJh.mMainApkInstallEnable;
         if (!z2) {
-            this.bIT.mMainApkInstallEnable = true;
+            this.bJh.mMainApkInstallEnable = true;
             return;
         }
-        handler = this.bIT.mOtherApkHandler;
-        handler2 = this.bIT.mOtherApkHandler;
+        handler = this.bJh.mOtherApkHandler;
+        handler2 = this.bJh.mOtherApkHandler;
         handler.sendMessageDelayed(handler2.obtainMessage(2, null), 100L);
     }
 }

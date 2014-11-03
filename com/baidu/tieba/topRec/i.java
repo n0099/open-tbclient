@@ -6,11 +6,11 @@ import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements Animation.AnimationListener {
-    final /* synthetic */ g bPO;
+    final /* synthetic */ g bQd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(g gVar) {
-        this.bPO = gVar;
+        this.bQd = gVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -22,19 +22,19 @@ public class i implements Animation.AnimationListener {
         Button button3;
         TopRecActivity topRecActivity2;
         int i2;
-        i = this.bPO.bPK;
+        i = this.bQd.bPZ;
         if (i < 100) {
-            button3 = this.bPO.bPF;
-            topRecActivity2 = this.bPO.bPz;
+            button3 = this.bQd.bPU;
+            topRecActivity2 = this.bQd.bPO;
             StringBuilder append = new StringBuilder(String.valueOf(topRecActivity2.getString(y.done))).append("(");
-            i2 = this.bPO.bPK;
+            i2 = this.bQd.bPZ;
             button3.setText(append.append(i2).append(")").toString());
         } else {
-            button = this.bPO.bPF;
-            topRecActivity = this.bPO.bPz;
+            button = this.bQd.bPU;
+            topRecActivity = this.bQd.bPO;
             button.setText(String.valueOf(topRecActivity.getString(y.done)) + "(99+)");
         }
-        button2 = this.bPO.bPF;
+        button2 = this.bQd.bPU;
         button2.invalidate();
     }
 

@@ -5,20 +5,20 @@ import com.baidu.tieba.game.view.GameCenterPager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements com.baidu.tbadk.core.tabHost.c {
-    final /* synthetic */ GameCenterActivity aGO;
+    final /* synthetic */ GameCenterActivity aGY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(GameCenterActivity gameCenterActivity) {
-        this.aGO = gameCenterActivity;
+        this.aGY = gameCenterActivity;
     }
 
     @Override // com.baidu.tbadk.core.tabHost.c
     public void c(int i, boolean z) {
         GameCenterPager gameCenterPager;
         FragmentTabWidget fragmentTabWidget;
-        gameCenterPager = this.aGO.aGL;
+        gameCenterPager = this.aGY.aGV;
         gameCenterPager.setCurrentItem(i);
-        fragmentTabWidget = this.aGO.aGK;
+        fragmentTabWidget = this.aGY.aGU;
         fragmentTabWidget.d(i, true);
     }
 }

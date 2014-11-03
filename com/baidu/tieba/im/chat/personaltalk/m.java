@@ -5,13 +5,13 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 class m extends BdAsyncTask<Void, Void, Void> {
-    private final /* synthetic */ BdSwitchView.SwitchState aRw;
-    final /* synthetic */ PersonalTalkSettingActivity aSq;
+    private final /* synthetic */ BdSwitchView.SwitchState aRK;
+    final /* synthetic */ PersonalTalkSettingActivity aSE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(PersonalTalkSettingActivity personalTalkSettingActivity, BdSwitchView.SwitchState switchState) {
-        this.aSq = personalTalkSettingActivity;
-        this.aRw = switchState;
+        this.aSE = personalTalkSettingActivity;
+        this.aRK = switchState;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,17 +20,17 @@ class m extends BdAsyncTask<Void, Void, Void> {
     public Void doInBackground(Void... voidArr) {
         long j;
         long j2;
-        if (this.aRw == BdSwitchView.SwitchState.OFF) {
-            c KF = c.KF();
+        if (this.aRK == BdSwitchView.SwitchState.OFF) {
+            c KJ = c.KJ();
             String currentAccount = TbadkApplication.getCurrentAccount();
-            j2 = this.aSq.userId;
-            KF.e(currentAccount, String.valueOf(j2), false);
+            j2 = this.aSE.userId;
+            KJ.e(currentAccount, String.valueOf(j2), false);
             return null;
         }
-        c KF2 = c.KF();
+        c KJ2 = c.KJ();
         String currentAccount2 = TbadkApplication.getCurrentAccount();
-        j = this.aSq.userId;
-        KF2.e(currentAccount2, String.valueOf(j), true);
+        j = this.aSE.userId;
+        KJ2.e(currentAccount2, String.valueOf(j), true);
         return null;
     }
 }

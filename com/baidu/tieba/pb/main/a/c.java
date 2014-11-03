@@ -7,11 +7,11 @@ import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ a byY;
+    final /* synthetic */ a bzm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.byY = aVar;
+        this.bzm = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,10 +19,10 @@ public class c implements View.OnClickListener {
         PbActivity pbActivity;
         PbActivity pbActivity2;
         String str;
-        pbActivity = this.byY.bwQ;
-        pbActivity2 = this.byY.bwQ;
+        pbActivity = this.bzm.bxe;
+        pbActivity2 = this.bzm.bxe;
         String string = pbActivity2.getString(y.user_icon_intro);
-        str = a.byT;
+        str = a.bzh;
         TbWebViewActivity.startActivity(pbActivity, string, String.valueOf(str) + "?st_type=pb_user_icon");
     }
 }

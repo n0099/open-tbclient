@@ -7,21 +7,21 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements AdapterView.OnItemClickListener {
-    final /* synthetic */ BarFolderFirstDirActivity bLV;
+    final /* synthetic */ BarFolderFirstDirActivity bMk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(BarFolderFirstDirActivity barFolderFirstDirActivity) {
-        this.bLV = barFolderFirstDirActivity;
+        this.bMk = barFolderFirstDirActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         c cVar;
         q qVar;
-        cVar = this.bLV.bLR;
-        ArrayList<q> adl = cVar.adl();
-        if (adl != null && i < adl.size() && (qVar = adl.get(i)) != null) {
-            ForumListActivity.c(this.bLV, qVar.auZ, qVar.ava, qVar.avb);
+        cVar = this.bMk.bMg;
+        ArrayList<q> ado = cVar.ado();
+        if (ado != null && i < ado.size() && (qVar = ado.get(i)) != null) {
+            ForumListActivity.c(this.bMk, qVar.avi, qVar.avj, qVar.avk);
         }
     }
 }

@@ -1,18 +1,17 @@
 package com.baidu.tieba.editortool;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af implements com.baidu.tbadk.editortool.w {
-    private final /* synthetic */ com.baidu.tbadk.editortool.w arn;
-    final /* synthetic */ PbEditorToolView arv;
+class af implements com.baidu.tbadk.editortool.w {
+    final /* synthetic */ PbEditorToolView arE;
+    private final /* synthetic */ com.baidu.tbadk.editortool.w arw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(PbEditorToolView pbEditorToolView, com.baidu.tbadk.editortool.w wVar) {
-        this.arv = pbEditorToolView;
-        this.arn = wVar;
+        this.arE = pbEditorToolView;
+        this.arw = wVar;
     }
 
     @Override // com.baidu.tbadk.editortool.w
     public void handleAction(int i, Object obj) {
-        this.arn.handleAction(i, obj);
+        this.arw.handleAction(i, obj);
     }
 }

@@ -10,95 +10,95 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class j {
-    private boolean awM;
-    private l boi = null;
-    private m boj = null;
-    private k bok = null;
-    private int bom = 0;
-    private int bon = 0;
-    protected BaseActivity.LoadDataCallBack atj = null;
-    private ArrayList<MarkData> bol = new ArrayList<>();
+    private boolean awV;
+    private l bow = null;
+    private m box = null;
+    private k boy = null;
+    private int boA = 0;
+    private int boB = 0;
+    protected BaseActivity.LoadDataCallBack ats = null;
+    private ArrayList<MarkData> boz = new ArrayList<>();
 
     public j() {
-        this.awM = false;
-        this.awM = true;
+        this.awV = false;
+        this.awV = true;
     }
 
     public int getOffset() {
-        if (this.bol == null) {
+        if (this.boz == null) {
             return 0;
         }
-        return this.bol.size();
+        return this.boz.size();
     }
 
-    public int Th() {
-        return this.bon;
+    public int Tk() {
+        return this.boB;
     }
 
     public void gA(int i) {
-        this.bon = i;
+        this.boB = i;
     }
 
     public boolean hasMore() {
-        return this.bom >= 20;
+        return this.boA >= 20;
     }
 
     public void reset() {
-        this.bon = 0;
-        this.bom = 0;
-        this.awM = true;
+        this.boB = 0;
+        this.boA = 0;
+        this.awV = true;
     }
 
     public boolean isFirst() {
-        return this.awM;
+        return this.awV;
     }
 
-    public ArrayList<MarkData> Ti() {
-        return this.bol;
-    }
-
-    public void y(ArrayList<MarkData> arrayList) {
-        this.bol = arrayList;
+    public ArrayList<MarkData> Tl() {
+        return this.boz;
     }
 
     public void z(ArrayList<MarkData> arrayList) {
-        if (this.bol != null && arrayList != null) {
-            this.bol.addAll(arrayList);
-            HC();
+        this.boz = arrayList;
+    }
+
+    public void A(ArrayList<MarkData> arrayList) {
+        if (this.boz != null && arrayList != null) {
+            this.boz.addAll(arrayList);
+            HF();
         }
     }
 
     public void a(MarkData markData) {
-        this.bol.add(markData);
+        this.boz.add(markData);
     }
 
     public int getCount() {
-        if (this.bol == null) {
+        if (this.boz == null) {
             return 0;
         }
-        return this.bol.size();
+        return this.boz.size();
     }
 
-    public int Tj() {
-        return this.bom;
+    public int Tm() {
+        return this.boA;
     }
 
-    public void Tk() {
-        ArrayList<MarkData> aeF = com.baidu.tieba.util.j.aeF();
-        if (aeF != null) {
-            y(aeF);
+    public void Tn() {
+        ArrayList<MarkData> aeI = com.baidu.tieba.util.j.aeI();
+        if (aeI != null) {
+            z(aeI);
         }
     }
 
     public String T(int i, int i2) {
         JSONArray jSONArray;
         int i3;
-        if (this.bol == null) {
+        if (this.boz == null) {
             return null;
         }
-        if (i >= this.bol.size()) {
-            i2 -= (i - this.bol.size()) - 1;
-            i = this.bol.size() - 1;
+        if (i >= this.boz.size()) {
+            i2 -= (i - this.boz.size()) - 1;
+            i = this.boz.size() - 1;
         }
         JSONArray jSONArray2 = new JSONArray();
         int i4 = 0;
@@ -112,7 +112,7 @@ public class j {
                 break;
             } else {
                 try {
-                    JSONObject json = this.bol.get(i5).toJson();
+                    JSONObject json = this.boz.get(i5).toJson();
                     if (json == null || i4 < 0) {
                         i3 = i4;
                     } else {
@@ -170,7 +170,7 @@ public class j {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     MarkData markData = new MarkData();
                     markData.paserJson(optJSONArray.getJSONObject(i));
-                    this.bol.add(markData);
+                    this.boz.add(markData);
                 }
             }
         } catch (Exception e) {
@@ -179,37 +179,37 @@ public class j {
     }
 
     public void g(Boolean bool) {
-        if (this.boi != null) {
-            this.boi.cancel();
+        if (this.bow != null) {
+            this.bow.cancel();
         }
-        this.boi = new l(this, getOffset());
-        this.boi.setPriority(3);
-        this.boi.execute(bool);
+        this.bow = new l(this, getOffset());
+        this.bow.setPriority(3);
+        this.bow.execute(bool);
     }
 
     public void startSync() {
-        if (this.boj != null) {
-            this.boj.cancel();
+        if (this.box != null) {
+            this.box.cancel();
         }
-        this.boj = new m(this, null);
-        this.boj.setPriority(2);
-        this.boj.execute(new j[0]);
+        this.box = new m(this, null);
+        this.box.setPriority(2);
+        this.box.execute(new j[0]);
     }
 
     public boolean gB(int i) {
-        if (this.bok != null) {
-            this.bok.cancel();
+        if (this.boy != null) {
+            this.boy.cancel();
         }
-        if (i >= this.bol.size() || this.bol.get(i) == null || this.bol.get(i).getId() == null) {
+        if (i >= this.boz.size() || this.boz.get(i) == null || this.boz.get(i).getId() == null) {
             return false;
         }
-        this.bok = new k(this, this.bol.get(i).getId(), i);
-        this.bok.setPriority(2);
-        this.bok.execute(new Boolean[0]);
+        this.boy = new k(this, this.boz.get(i).getId(), i);
+        this.boy.setPriority(2);
+        this.boy.execute(new Boolean[0]);
         return true;
     }
 
-    public int Tl() {
+    public int To() {
         return com.baidu.tbadk.core.sharedPref.b.lk().getInt("uploac_mark_offset", 399);
     }
 
@@ -218,25 +218,25 @@ public class j {
     }
 
     public void onDestroy() {
-        if (this.boi != null) {
-            this.boi.cancel();
+        if (this.bow != null) {
+            this.bow.cancel();
         }
-        if (this.boj != null) {
-            this.boj.cancel();
+        if (this.box != null) {
+            this.box.cancel();
         }
-        if (this.bok != null) {
-            this.bok.cancel();
+        if (this.boy != null) {
+            this.boy.cancel();
         }
     }
 
     public void a(BaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.atj = loadDataCallBack;
+        this.ats = loadDataCallBack;
     }
 
-    private void HC() {
-        if (this.bol != null) {
+    private void HF() {
+        if (this.boz != null) {
             HashSet hashSet = new HashSet();
-            Iterator<MarkData> it = this.bol.iterator();
+            Iterator<MarkData> it = this.boz.iterator();
             while (it.hasNext()) {
                 if (!hashSet.add(it.next().getId())) {
                     it.remove();

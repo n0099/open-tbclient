@@ -1,17 +1,18 @@
 package com.baidu.tieba.editortool;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aa implements Runnable {
-    final /* synthetic */ PbEditor ark;
-    private final /* synthetic */ int arl;
+public class aa implements Runnable {
+    final /* synthetic */ PbEditor art;
+    private final /* synthetic */ int aru;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(PbEditor pbEditor, int i) {
-        this.ark = pbEditor;
-        this.arl = i;
+        this.art = pbEditor;
+        this.aru = i;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.ark.a(this.arl, new ab(this));
+        this.art.a(this.aru, new ab(this));
     }
 }

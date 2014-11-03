@@ -19,74 +19,74 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class a {
-    public final View aTJ;
-    private PbActivity bwQ;
-    public final TextView byZ;
-    public final ImageView bza;
-    public final ImageView bzb;
-    public final ImageView bzc;
+    public final View aTX;
+    private PbActivity bxe;
+    public final TextView bzn;
+    public final ImageView bzo;
+    public final ImageView bzp;
+    public final ImageView bzq;
     public final NavigationBar mNavigationBar;
     private MorePopupWindow mPopWindow = null;
-    private br bzd = null;
+    private br bzr = null;
 
     public a(PbActivity pbActivity) {
-        this.bwQ = pbActivity;
-        this.mNavigationBar = (NavigationBar) this.bwQ.findViewById(v.view_navigation_bar);
+        this.bxe = pbActivity;
+        this.mNavigationBar = (NavigationBar) this.bxe.findViewById(v.view_navigation_bar);
         this.mNavigationBar.setOnClickListener(new b(this));
-        this.aTJ = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, pbActivity.aCW);
-        this.byZ = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, w.pb_title_textview, (View.OnClickListener) null);
-        this.bzc = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.widget_nb_add_floor, pbActivity.aCW);
-        this.bza = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.nb_item_floor_host, pbActivity.aCW);
-        this.bzb = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.nb_item_floor_more, pbActivity.aCW);
-        this.byZ.setOnClickListener(pbActivity.aCW);
+        this.aTX = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, pbActivity.aDg);
+        this.bzn = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, w.pb_title_textview, (View.OnClickListener) null);
+        this.bzq = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.widget_nb_add_floor, pbActivity.aDg);
+        this.bzo = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.nb_item_floor_host, pbActivity.aDg);
+        this.bzp = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, w.nb_item_floor_more, pbActivity.aDg);
+        this.bzn.setOnClickListener(pbActivity.aDg);
     }
 
-    public NavigationBar Yn() {
+    public NavigationBar Yq() {
         return this.mNavigationBar;
     }
 
     public void gY(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.byZ.setVisibility(0);
-            this.byZ.setText(String.valueOf(str) + this.bwQ.getString(y.bar));
+            this.bzn.setVisibility(0);
+            this.bzn.setText(String.valueOf(str) + this.bxe.getString(y.bar));
         }
     }
 
-    public void Yo() {
-        this.bza.setVisibility(4);
-        this.bza.setEnabled(false);
+    public void Yr() {
+        this.bzo.setVisibility(4);
+        this.bzo.setEnabled(false);
     }
 
     public void ei(boolean z) {
         if (z) {
-            aw.c(this.bza, u.icon_floor_host_s);
+            aw.c(this.bzo, u.icon_floor_host_s);
         } else {
-            aw.c(this.bza, u.icon_floor_host_n);
+            aw.c(this.bzo, u.icon_floor_host_n);
         }
     }
 
     public void el(boolean z) {
         if (z) {
-            this.bzc.setVisibility(0);
+            this.bzq.setVisibility(0);
         } else {
-            this.bzc.setVisibility(8);
+            this.bzq.setVisibility(8);
         }
     }
 
     public void e(boolean z, boolean z2) {
-        if (!this.bwQ.isProgressBarShown()) {
+        if (!this.bxe.isProgressBarShown()) {
             if (this.mPopWindow == null) {
-                this.bzd = new br(this.bwQ, this.bwQ.aCW);
+                this.bzr = new br(this.bxe, this.bxe.aDg);
                 int skinType = TbadkApplication.m251getInst().getSkinType();
-                this.mPopWindow = new MorePopupWindow(this.bwQ, this.bzd.getView(), this.mNavigationBar, aw.getDrawable(u.bg_pull_down_right_n), new c(this));
-                this.mPopWindow.onChangeSkinType(this.bwQ, skinType, aw.getDrawable(u.bg_pull_down_right_n));
+                this.mPopWindow = new MorePopupWindow(this.bxe, this.bzr.getView(), this.mNavigationBar, aw.getDrawable(u.bg_pull_down_right_n), new c(this));
+                this.mPopWindow.onChangeSkinType(this.bxe, skinType, aw.getDrawable(u.bg_pull_down_right_n));
             }
-            if (i.y(this.bwQ)) {
-                this.bzd.WV().setVisibility(0);
-                this.bzd.WW().setVisibility(0);
+            if (i.y(this.bxe)) {
+                this.bzr.WY().setVisibility(0);
+                this.bzr.WZ().setVisibility(0);
             } else {
-                this.bzd.WV().setVisibility(8);
-                this.bzd.WW().setVisibility(8);
+                this.bzr.WY().setVisibility(8);
+                this.bzr.WZ().setVisibility(8);
             }
             f(z, z2);
             this.mPopWindow.showWindowInRightBottomOfHost();
@@ -94,32 +94,32 @@ public class a {
     }
 
     private void f(boolean z, boolean z2) {
-        if (this.bzd != null) {
+        if (this.bzr != null) {
             if (!z) {
-                this.bzd.WY().setCompoundDrawablesWithIntrinsicBounds(aw.getDrawable(u.icon_recommend_see_s), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.bzr.Xb().setCompoundDrawablesWithIntrinsicBounds(aw.getDrawable(u.icon_recommend_see_s), (Drawable) null, (Drawable) null, (Drawable) null);
             } else {
-                this.bzd.WY().setCompoundDrawablesWithIntrinsicBounds(aw.getDrawable(u.icon_recommend_see_n), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.bzr.Xb().setCompoundDrawablesWithIntrinsicBounds(aw.getDrawable(u.icon_recommend_see_n), (Drawable) null, (Drawable) null, (Drawable) null);
             }
             if (z2) {
-                this.bzd.WU().setCompoundDrawablesWithIntrinsicBounds(aw.getDrawable(u.icon_recommend_collect_s), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.bzr.WX().setCompoundDrawablesWithIntrinsicBounds(aw.getDrawable(u.icon_recommend_collect_s), (Drawable) null, (Drawable) null, (Drawable) null);
             } else {
-                this.bzd.WU().setCompoundDrawablesWithIntrinsicBounds(aw.getDrawable(u.icon_recommend_collect_n), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.bzr.WX().setCompoundDrawablesWithIntrinsicBounds(aw.getDrawable(u.icon_recommend_collect_n), (Drawable) null, (Drawable) null, (Drawable) null);
             }
         }
     }
 
-    public void Yp() {
+    public void Ys() {
         if (this.mPopWindow != null) {
-            j.a(this.mPopWindow, this.bwQ);
+            j.a(this.mPopWindow, this.bxe);
         }
     }
 
-    public br Yq() {
-        return this.bzd;
+    public br Yt() {
+        return this.bzr;
     }
 
-    public void Yr() {
+    public void Yu() {
         this.mPopWindow = null;
-        this.bzd = null;
+        this.bzr = null;
     }
 }

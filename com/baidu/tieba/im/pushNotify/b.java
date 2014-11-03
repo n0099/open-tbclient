@@ -9,9 +9,9 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected HashMap<String, a> bhi = new HashMap<>();
+    protected HashMap<String, a> bhw = new HashMap<>();
 
-    protected abstract t<String> KC();
+    protected abstract t<String> KG();
 
     public abstract void a(a aVar);
 
@@ -19,8 +19,8 @@ public abstract class b {
 
     public void h(Class<? extends a> cls) {
         String str;
-        synchronized (this.bhi) {
-            this.bhi.clear();
+        synchronized (this.bhw) {
+            this.bhw.clear();
         }
         String str2 = "";
         if (TbadkApplication.getCurrentAccountObj() != null) {
@@ -28,14 +28,14 @@ public abstract class b {
         }
         if (str2 != null && str2.length() != 0) {
             String str3 = String.valueOf(str2) + "@";
-            synchronized (this.bhi) {
-                t<String> KC = KC();
-                List<v<String>> b = s.b(KC);
+            synchronized (this.bhw) {
+                t<String> KG = KG();
+                List<v<String>> b = s.b(KG);
                 if (b != null) {
                     for (v<String> vVar : b) {
                         String str4 = vVar.key;
-                        if (str4 != null && str4.startsWith(str3) && (str = KC.get(str4)) != null) {
-                            this.bhi.put(str4, (a) i.objectWithJsonStr(str, cls));
+                        if (str4 != null && str4.startsWith(str3) && (str = KG.get(str4)) != null) {
+                            this.bhw.put(str4, (a) i.objectWithJsonStr(str, cls));
                         }
                     }
                 }

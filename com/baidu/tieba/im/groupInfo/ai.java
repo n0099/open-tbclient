@@ -1,26 +1,31 @@
 package com.baidu.tieba.im.groupInfo;
 
 import android.view.View;
+import com.baidu.tbadk.coreExtra.data.PhotoUrlData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai implements View.OnClickListener {
-    private final /* synthetic */ int BF;
-    final /* synthetic */ PhotoWallView bbK;
+public class ai implements View.OnLongClickListener {
+    private final /* synthetic */ int BG;
+    final /* synthetic */ PhotoWallView bbY;
+    private final /* synthetic */ PhotoUrlData bbZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(PhotoWallView photoWallView, int i) {
-        this.bbK = photoWallView;
-        this.BF = i;
+    public ai(PhotoWallView photoWallView, PhotoUrlData photoUrlData, int i) {
+        this.bbY = photoWallView;
+        this.bbZ = photoUrlData;
+        this.BG = i;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ae aeVar;
-        ae aeVar2;
-        aeVar = this.bbK.bbH;
-        if (aeVar != null) {
-            aeVar2 = this.bbK.bbH;
-            aeVar2.onClick(view, 2, null, this.BF);
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        ag agVar;
+        ag agVar2;
+        agVar = this.bbY.bbW;
+        if (agVar != null) {
+            agVar2 = this.bbY.bbW;
+            agVar2.a(view, this.bbZ, this.BG);
+            return true;
         }
+        return true;
     }
 }

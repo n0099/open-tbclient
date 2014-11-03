@@ -3,22 +3,22 @@ package com.baidu.tieba.pb.main;
 import android.view.View;
 /* loaded from: classes.dex */
 class bj implements View.OnClickListener {
-    private final /* synthetic */ int biZ;
-    final /* synthetic */ bh bvG;
-    private final /* synthetic */ int bvH;
-    private final /* synthetic */ com.baidu.tieba.data.ak bvI;
+    private final /* synthetic */ int bjn;
+    final /* synthetic */ bh bvU;
+    private final /* synthetic */ int bvV;
+    private final /* synthetic */ com.baidu.tieba.data.ak bvW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bj(bh bhVar, int i, int i2, com.baidu.tieba.data.ak akVar) {
-        this.bvG = bhVar;
-        this.bvH = i;
-        this.biZ = i2;
-        this.bvI = akVar;
+        this.bvU = bhVar;
+        this.bvV = i;
+        this.bjn = i2;
+        this.bvW = akVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.bvI.eh(Math.min(this.bvH + 5, this.biZ));
-        this.bvG.notifyDataSetChanged();
+        this.bvW.eh(Math.min(this.bvV + 5, this.bjn));
+        this.bvU.notifyDataSetChanged();
     }
 }

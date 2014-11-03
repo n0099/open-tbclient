@@ -21,10 +21,10 @@ class a implements r {
             if (i == 2) {
                 this.this$0.sendMessage(new CustomMessage(2015000, new GuildActivityConfig(this.this$0).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE)));
             } else if (i == 3) {
-                com.baidu.tbadk.core.sharedPref.b.lk().putBoolean(SettingTextFunctionIntroView.bsB, true);
+                com.baidu.tbadk.core.sharedPref.b.lk().putBoolean(SettingTextFunctionIntroView.bsP, true);
                 AboutActivity aboutActivity = this.this$0;
                 String string = this.this$0.getString(com.baidu.tieba.y.setting_funtion_intro);
-                str = this.this$0.bpT;
+                str = this.this$0.bqh;
                 TbWebViewActivity.startActivity(aboutActivity, string, str);
             }
         } else {

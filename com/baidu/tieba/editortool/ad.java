@@ -6,13 +6,13 @@ import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements com.baidu.tbadk.editortool.w {
-    final /* synthetic */ PbEditor ark;
-    private final /* synthetic */ com.baidu.tbadk.editortool.w arn;
+    final /* synthetic */ PbEditor art;
+    private final /* synthetic */ com.baidu.tbadk.editortool.w arw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(PbEditor pbEditor, com.baidu.tbadk.editortool.w wVar) {
-        this.ark = pbEditor;
-        this.arn = wVar;
+        this.art = pbEditor;
+        this.arw = wVar;
     }
 
     @Override // com.baidu.tbadk.editortool.w
@@ -20,107 +20,107 @@ public class ad implements com.baidu.tbadk.editortool.w {
         Pattern pattern;
         if (i == 20) {
             if (obj != null && (obj instanceof com.baidu.tbadk.coreExtra.data.d)) {
-                if (this.ark.Ch()) {
-                    com.baidu.adp.lib.util.m.showToast(this.ark.getContext(), com.baidu.tieba.y.over_limit_tip);
+                if (this.art.Cj()) {
+                    com.baidu.adp.lib.util.m.showToast(this.art.getContext(), com.baidu.tieba.y.over_limit_tip);
                     return;
                 }
                 com.baidu.tbadk.coreExtra.data.d dVar = (com.baidu.tbadk.coreExtra.data.d) obj;
                 if (dVar.getName() != null) {
-                    if (PbEditor.eI(this.ark.ard.getEditText().getText().toString()) >= 10 && (this.ark.mContext instanceof BaseActivity)) {
-                        ((BaseActivity) this.ark.mContext).showToast(this.ark.mContext.getResources().getString(com.baidu.tieba.y.too_many_face));
+                    if (PbEditor.eI(this.art.arm.getEditText().getText().toString()) >= 10 && (this.art.mContext instanceof BaseActivity)) {
+                        ((BaseActivity) this.art.mContext).showToast(this.art.mContext.getResources().getString(com.baidu.tieba.y.too_many_face));
                         return;
                     } else {
-                        this.ark.ard.getEditText().getText().insert(this.ark.ard.getEditText().getSelectionStart(), dVar.getName());
+                        this.art.arm.getEditText().getText().insert(this.art.arm.getEditText().getSelectionStart(), dVar.getName());
                     }
                 }
-                if (this.ark.BZ()) {
-                    this.ark.ard.BX();
+                if (this.art.Cb()) {
+                    this.art.arm.BZ();
                 } else {
-                    this.ark.ard.BY();
+                    this.art.arm.Ca();
                 }
             }
         } else if (i == 21) {
-            if (this.ark.ard.getEditText().getSelectionStart() > 0) {
-                String substring = this.ark.ard.getEditText().getText().toString().substring(0, this.ark.ard.getEditText().getSelectionStart());
-                pattern = PbEditor.arg;
+            if (this.art.arm.getEditText().getSelectionStart() > 0) {
+                String substring = this.art.arm.getEditText().getText().toString().substring(0, this.art.arm.getEditText().getSelectionStart());
+                pattern = PbEditor.arp;
                 Matcher matcher = pattern.matcher(substring);
                 if (matcher.find()) {
-                    this.ark.ard.getEditText().getText().delete(this.ark.ard.getEditText().getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.ark.ard.getEditText().getSelectionStart());
+                    this.art.arm.getEditText().getText().delete(this.art.arm.getEditText().getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.art.arm.getEditText().getSelectionStart());
                     return;
                 }
-                this.ark.ard.getEditText().getText().delete(this.ark.ard.getEditText().getSelectionStart() - 1, this.ark.ard.getEditText().getSelectionStart());
+                this.art.arm.getEditText().getText().delete(this.art.arm.getEditText().getSelectionStart() - 1, this.art.arm.getEditText().getSelectionStart());
             }
         } else if (i == 14) {
-            this.ark.ard.Cl();
-            if (this.ark.BZ()) {
-                this.ark.ard.BX();
+            this.art.arm.Cn();
+            if (this.art.Cb()) {
+                this.art.arm.BZ();
             } else {
-                this.ark.ard.BY();
+                this.art.arm.Ca();
             }
         } else if (i == 15) {
-            this.ark.ard.Cm();
-            if (this.ark.BZ()) {
-                this.ark.ard.BX();
+            this.art.arm.Co();
+            if (this.art.Cb()) {
+                this.art.arm.BZ();
             } else {
-                this.ark.ard.BY();
+                this.art.arm.Ca();
             }
         } else if (i == 2) {
-            this.ark.er(i);
-            this.ark.ard.Bg();
+            this.art.er(i);
+            this.art.arm.Bi();
         } else if (i == 23) {
-            this.ark.ard.Bg();
-            if (this.ark.are.BL()) {
-                this.ark.er(i);
+            this.art.arm.Bi();
+            if (this.art.arn.BN()) {
+                this.art.er(i);
             } else {
-                this.arn.handleAction(i, obj);
+                this.arw.handleAction(i, obj);
             }
         } else if (i == 22) {
-            this.ark.ard.Bg();
-            this.arn.handleAction(i, obj);
+            this.art.arm.Bi();
+            this.arw.handleAction(i, obj);
         } else if (i == 13) {
-            this.ark.refresh();
-            if (this.ark.BZ()) {
-                this.ark.ard.BX();
+            this.art.refresh();
+            if (this.art.Cb()) {
+                this.art.arm.BZ();
             } else {
-                this.ark.ard.BY();
+                this.art.arm.Ca();
             }
-            this.arn.handleAction(i, obj);
+            this.arw.handleAction(i, obj);
         } else if (i == 0) {
-            if (this.ark.Ch()) {
-                com.baidu.adp.lib.util.m.showToast(this.ark.getContext(), com.baidu.tieba.y.over_limit_tip);
+            if (this.art.Cj()) {
+                com.baidu.adp.lib.util.m.showToast(this.art.getContext(), com.baidu.tieba.y.over_limit_tip);
             } else {
-                this.arn.handleAction(i, obj);
+                this.arw.handleAction(i, obj);
             }
         } else if (i == 44) {
-            this.ark.er(i);
-            this.ark.ard.Bg();
+            this.art.er(i);
+            this.art.arm.Bi();
         } else if (i == 46) {
-            this.ark.ard.Cn();
+            this.art.arm.Cp();
         } else if (i == 47) {
-            if (!this.ark.are.BL()) {
-                this.ark.ard.Co();
+            if (!this.art.arn.BN()) {
+                this.art.arm.Cq();
             }
         } else if (i == 48) {
-            this.ark.ard.Bg();
-            if (this.ark.are.BM()) {
-                this.ark.er(i);
+            this.art.arm.Bi();
+            if (this.art.arn.BO()) {
+                this.art.er(i);
                 return;
             }
-            this.ark.are.rK();
-            this.arn.handleAction(i, obj);
+            this.art.arn.rM();
+            this.arw.handleAction(i, obj);
         } else if (i == 51) {
-            if (!this.ark.are.BM()) {
-                this.ark.are.BF();
+            if (!this.art.arn.BO()) {
+                this.art.arn.BH();
             }
-            this.ark.refresh();
-            if (this.ark.BZ()) {
-                this.ark.ard.BX();
+            this.art.refresh();
+            if (this.art.Cb()) {
+                this.art.arm.BZ();
             } else {
-                this.ark.ard.BY();
+                this.art.arm.Ca();
             }
-            this.arn.handleAction(i, obj);
+            this.arw.handleAction(i, obj);
         } else {
-            this.arn.handleAction(i, obj);
+            this.arw.handleAction(i, obj);
         }
     }
 }

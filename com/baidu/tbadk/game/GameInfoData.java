@@ -313,6 +313,16 @@ public class GameInfoData implements Serializable {
             gameInfoData.setLauncherActivity(recommendGame.launch_component);
             gameInfoData.setPackageName(recommendGame.andr_pk_name);
             gameInfoData.setSecretKey(recommendGame.secret_key);
+            if (recommendGame.deadline != null) {
+                gameInfoData.setDeadline(recommendGame.deadline.longValue());
+            }
+            gameInfoData.setEditorRec(recommendGame.editor_rec);
+            gameInfoData.setDayDownloads(recommendGame.day_downloads.intValue());
+            gameInfoData.setCategoryId(recommendGame.category_id.intValue());
+            gameInfoData.setCategoryName(recommendGame.category_name);
+            gameInfoData.setVersion(recommendGame.version);
+            gameInfoData.setStar(recommendGame.star.intValue());
+            gameInfoData.setSuperscriptColor(recommendGame.superscript_color);
         }
         return gameInfoData;
     }

@@ -9,21 +9,21 @@ import com.baidu.tieba.data.FriendFeedThreadData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements AdapterView.OnItemClickListener {
-    final /* synthetic */ FriendFeedActivity ayL;
+    final /* synthetic */ FriendFeedActivity ayU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(FriendFeedActivity friendFeedActivity) {
-        this.ayL = friendFeedActivity;
+        this.ayU = friendFeedActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         y yVar;
-        yVar = this.ayL.ayq;
-        Object item = yVar.EQ().getItem(i);
+        yVar = this.ayU.ayz;
+        Object item = yVar.ES().getItem(i);
         if (item instanceof FriendFeedThreadData) {
-            com.baidu.tbadk.core.i.l(this.ayL, "frd_news_topb");
-            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.ayL).createNormalCfg(((FriendFeedThreadData) item).getId(), null, null)));
+            com.baidu.tbadk.core.j.l(this.ayU, "frd_news_topb");
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.ayU).createNormalCfg(((FriendFeedThreadData) item).getId(), null, null)));
         }
     }
 }

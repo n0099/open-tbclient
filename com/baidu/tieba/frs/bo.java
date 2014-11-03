@@ -4,14 +4,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class bo {
-    ImageView aCa;
-    ImageView aCb;
-    ImageView aCc;
-    final /* synthetic */ bn aCd;
-    TextView aey;
+    ImageView aCk;
+    ImageView aCl;
+    ImageView aCm;
+    final /* synthetic */ bn aCn;
+    TextView aeG;
 
     private bo(bn bnVar) {
-        this.aCd = bnVar;
+        this.aCn = bnVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

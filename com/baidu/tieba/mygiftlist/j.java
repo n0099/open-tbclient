@@ -4,9 +4,9 @@ import android.content.Context;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.base.e {
-    private String aok;
-    private boolean boM;
-    private boolean btl;
+    private String aot;
+    private boolean bpa;
+    private boolean btA;
     private boolean mHasMore;
     private int mPageNum;
     private long mUid;
@@ -14,10 +14,10 @@ public class j extends com.baidu.adp.base.e {
     /* JADX INFO: Access modifiers changed from: protected */
     public j(Context context, String str) {
         super(context);
-        this.btl = false;
+        this.btA = false;
         this.mUid = 0L;
-        this.boM = true;
-        this.aok = str;
+        this.bpa = true;
+        this.aot = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -39,7 +39,7 @@ public class j extends com.baidu.adp.base.e {
         }
         myGiftListRequestMessage.setPageNum(i);
         myGiftListRequestMessage.setUid(j);
-        myGiftListRequestMessage.setStType(this.aok);
+        myGiftListRequestMessage.setStType(this.aot);
         return myGiftListRequestMessage;
     }
 
@@ -63,19 +63,19 @@ public class j extends com.baidu.adp.base.e {
     }
 
     public void setIsSelf(boolean z) {
-        this.boM = z;
+        this.bpa = z;
     }
 
     public boolean getIsSelf() {
-        return this.boM;
+        return this.bpa;
     }
 
     public void sendMessage() {
         MyGiftListRequestMessage b;
-        if (this.boM) {
+        if (this.bpa) {
             this.mUid = 0L;
         }
-        if (!this.btl) {
+        if (!this.btA) {
             b = b(1, this.mUid);
         } else {
             b = b(this.mPageNum, this.mUid);
@@ -100,10 +100,10 @@ public class j extends com.baidu.adp.base.e {
     }
 
     public void dR(boolean z) {
-        this.btl = z;
+        this.btA = z;
     }
 
-    public boolean VH() {
-        return this.btl;
+    public boolean VK() {
+        return this.btA;
     }
 }

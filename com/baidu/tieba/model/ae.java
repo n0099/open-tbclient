@@ -6,13 +6,13 @@ import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae extends BdAsyncTask<Object, Integer, Bitmap> {
-    private String boU;
-    final /* synthetic */ ad boV;
+    private String bpi;
+    final /* synthetic */ ad bpj;
 
     public ae(ad adVar, String str) {
-        this.boV = adVar;
-        this.boU = null;
-        this.boU = str;
+        this.bpj = adVar;
+        this.bpi = null;
+        this.bpi = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,8 +20,8 @@ public class ae extends BdAsyncTask<Object, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: g */
     public Bitmap doInBackground(Object... objArr) {
-        if (this.boU != null && !this.boU.equals(TbConfig.IMAGE_RESIZED_FILE)) {
-            com.baidu.tbadk.core.util.s.M("photos/" + this.boU, TbConfig.IMAGE_RESIZED_FILE);
+        if (this.bpi != null && !this.bpi.equals(TbConfig.IMAGE_RESIZED_FILE)) {
+            com.baidu.tbadk.core.util.s.M("photos/" + this.bpi, TbConfig.IMAGE_RESIZED_FILE);
         }
         return com.baidu.tbadk.core.util.d.a(com.baidu.tbadk.core.util.d.b(com.baidu.tbadk.core.util.s.K(null, TbConfig.IMAGE_RESIZED_FILE)), 5.0f, true);
     }
@@ -30,10 +30,10 @@ public class ae extends BdAsyncTask<Object, Integer, Bitmap> {
     public void cancel() {
         com.baidu.adp.base.h hVar;
         com.baidu.adp.base.h hVar2;
-        this.boV.boT = null;
-        hVar = this.boV.mLoadDataCallBack;
+        this.bpj.bph = null;
+        hVar = this.bpj.mLoadDataCallBack;
         if (hVar != null) {
-            hVar2 = this.boV.mLoadDataCallBack;
+            hVar2 = this.bpj.mLoadDataCallBack;
             hVar2.a(null);
         }
         super.cancel(true);
@@ -53,10 +53,10 @@ public class ae extends BdAsyncTask<Object, Integer, Bitmap> {
         com.baidu.adp.base.h hVar;
         com.baidu.adp.base.h hVar2;
         super.onPostExecute(bitmap);
-        this.boV.boT = null;
-        hVar = this.boV.mLoadDataCallBack;
+        this.bpj.bph = null;
+        hVar = this.bpj.mLoadDataCallBack;
         if (hVar != null) {
-            hVar2 = this.boV.mLoadDataCallBack;
+            hVar2 = this.bpj.mLoadDataCallBack;
             hVar2.a(bitmap);
         }
     }

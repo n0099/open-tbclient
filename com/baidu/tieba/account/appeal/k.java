@@ -3,19 +3,19 @@ package com.baidu.tieba.account.appeal;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.ac;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends BdAsyncTask<String, Object, ForbidReasonData> {
-    private String afX;
-    private String afY;
-    private WeakReference<l> agb;
+    private String agf;
+    private String agg;
+    private WeakReference<l> agj;
 
     public k(String str, String str2, l lVar) {
-        this.afX = str;
-        this.afY = str2;
-        this.agb = new WeakReference<>(lVar);
+        this.agf = str;
+        this.agg = str2;
+        this.agj = new WeakReference<>(lVar);
         setPriority(3);
     }
 
@@ -25,10 +25,10 @@ public class k extends BdAsyncTask<String, Object, ForbidReasonData> {
     /* renamed from: p */
     public ForbidReasonData doInBackground(String... strArr) {
         String str;
-        str = j.agc;
+        str = j.agk;
         ac acVar = new ac(str);
-        acVar.k("forum_id", this.afX);
-        acVar.k(com.baidu.tbadk.core.frameworkData.a.USER_ID, this.afY);
+        acVar.k("forum_id", this.agf);
+        acVar.k(com.baidu.tbadk.core.frameworkData.a.USER_ID, this.agg);
         String lA = acVar.lA();
         if (acVar.mc().nb().jq()) {
             try {
@@ -54,9 +54,9 @@ public class k extends BdAsyncTask<String, Object, ForbidReasonData> {
     /* renamed from: c */
     public void onPostExecute(ForbidReasonData forbidReasonData) {
         super.onPostExecute(forbidReasonData);
-        l lVar = this.agb.get();
+        l lVar = this.agj.get();
         if (lVar != null) {
-            if (forbidReasonData.error.errno == 0 && ay.aA(forbidReasonData.error.errMsg)) {
+            if (forbidReasonData.error.errno == 0 && az.aA(forbidReasonData.error.errMsg)) {
                 lVar.a(forbidReasonData);
             } else {
                 lVar.b(forbidReasonData);

@@ -6,11 +6,11 @@ import com.baidu.tieba.v;
 import com.baidu.tieba.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
 class m implements AbsListView.RecyclerListener {
-    final /* synthetic */ j aym;
+    final /* synthetic */ j ayv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(j jVar) {
-        this.aym = jVar;
+        this.ayv = jVar;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener

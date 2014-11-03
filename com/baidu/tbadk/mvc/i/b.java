@@ -21,23 +21,23 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class b<D, S extends com.baidu.tbadk.mvc.e.c, H extends a<D, S>> extends BaseAdapter implements com.baidu.tbadk.e.a {
-    protected S Xr;
-    protected List<D> Yd;
-    protected final Activity Yg;
-    protected final ViewEventCenter Yh;
-    private o Yj;
-    private FrameLayout Yk;
-    private s Yl;
-    private r Ym;
-    private q Yn;
-    private FrameLayout.LayoutParams Yo;
-    protected final List<H> Ye = new ArrayList();
-    protected final SparseArray<H> Yf = new SparseArray<>();
-    protected boolean Yi = true;
+    protected S Xv;
+    protected List<D> Yh;
+    protected final Activity Yk;
+    protected final ViewEventCenter Yl;
+    private o Yn;
+    private FrameLayout Yo;
+    private s Yp;
+    private r Yq;
+    private q Yr;
+    private FrameLayout.LayoutParams Ys;
+    protected final List<H> Yi = new ArrayList();
+    protected final SparseArray<H> Yj = new SparseArray<>();
+    protected boolean Ym = true;
 
     public b(Activity activity, ViewEventCenter viewEventCenter) {
-        this.Yg = activity;
-        this.Yh = viewEventCenter;
+        this.Yk = activity;
+        this.Yl = viewEventCenter;
     }
 
     public void r(List<D> list) {
@@ -47,41 +47,41 @@ public abstract class b<D, S extends com.baidu.tbadk.mvc.e.c, H extends a<D, S>>
 
     protected void s(List<D> list) {
         if (list != null) {
-            if (this.Yd == null) {
-                this.Yd = new ArrayList();
+            if (this.Yh == null) {
+                this.Yh = new ArrayList();
             }
-            this.Yd.clear();
-            this.Yd.addAll(list);
-            this.Yf.clear();
+            this.Yh.clear();
+            this.Yh.addAll(list);
+            this.Yj.clear();
         }
     }
 
-    public List<D> uk() {
-        return this.Yd == null ? new ArrayList() : new ArrayList(this.Yd);
+    public List<D> um() {
+        return this.Yh == null ? new ArrayList() : new ArrayList(this.Yh);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.Yd == null) {
+        if (this.Yh == null) {
             return 0;
         }
-        if (this.Yd.size() == 0 && this.Yi) {
+        if (this.Yh.size() == 0 && this.Ym) {
             return 1;
         }
-        return this.Yd.size();
+        return this.Yh.size();
     }
 
     @Override // android.widget.Adapter
     public D getItem(int i) {
-        if (this.Yd != null && this.Yd.size() != 0 && i >= 0 && i < this.Yd.size()) {
-            return this.Yd.get(i);
+        if (this.Yh != null && this.Yh.size() != 0 && i >= 0 && i < this.Yh.size()) {
+            return this.Yh.get(i);
         }
         return null;
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.Yd != null && this.Yd.size() != 0 && i >= 0 && i < this.Yd.size()) {
+        if (this.Yh != null && this.Yh.size() != 0 && i >= 0 && i < this.Yh.size()) {
             return i;
         }
         return 0L;
@@ -89,15 +89,15 @@ public abstract class b<D, S extends com.baidu.tbadk.mvc.e.c, H extends a<D, S>>
 
     @Override // com.baidu.tbadk.e.a
     public boolean dg(int i) {
-        int size = this.Ye.size();
+        int size = this.Yi.size();
         for (int i2 = 0; i2 < size; i2++) {
-            H h = this.Ye.get(i2);
+            H h = this.Yi.get(i2);
             if (h != null) {
                 h.dg(i);
             }
         }
-        if (this.Yj != null) {
-            this.Yj.onChangeSkinType(i);
+        if (this.Yn != null) {
+            this.Yn.onChangeSkinType(i);
             return true;
         }
         return true;
@@ -106,19 +106,19 @@ public abstract class b<D, S extends com.baidu.tbadk.mvc.e.c, H extends a<D, S>>
     /* JADX INFO: Access modifiers changed from: protected */
     public final View a(View view, int i, Class<?> cls, int i2) {
         H a = a(view, cls, i2);
-        this.Yf.remove(a.getPosition());
-        this.Yf.put(i, a);
+        this.Yj.remove(a.getPosition());
+        this.Yj.put(i, a);
         a(a, i);
         return a.getRootView();
     }
 
     private final H a(View view, Class<?> cls, int i) {
         if (view == null || view.getTag() == null) {
-            View inflate = this.Yg.getLayoutInflater().inflate(i, (ViewGroup) null);
+            View inflate = this.Yk.getLayoutInflater().inflate(i, (ViewGroup) null);
             try {
-                H h = (H) cls.getConstructor(View.class, ViewEventCenter.class).newInstance(inflate, this.Yh);
+                H h = (H) cls.getConstructor(View.class, ViewEventCenter.class).newInstance(inflate, this.Yl);
                 inflate.setTag(h);
-                this.Ye.add(h);
+                this.Yi.add(h);
                 return h;
             } catch (IllegalAccessException e) {
                 throw new RuntimeException(e);
@@ -141,40 +141,40 @@ public abstract class b<D, S extends com.baidu.tbadk.mvc.e.c, H extends a<D, S>>
         D item = getItem(i);
         if (item != null) {
             h.position = i;
-            h.a(item, this.Xr);
+            h.a(item, this.Xv);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public View ul() {
-        if (this.Yk == null) {
-            this.Yk = new FrameLayout(this.Yg);
+    public View un() {
+        if (this.Yo == null) {
+            this.Yo = new FrameLayout(this.Yk);
         }
-        if (this.Yj == null) {
-            this.Yj = NoDataViewFactory.a(this.Yg, this.Yk, this.Ym, this.Yl, this.Yn);
+        if (this.Yn == null) {
+            this.Yn = NoDataViewFactory.a(this.Yk, this.Yo, this.Yq, this.Yp, this.Yr);
         }
-        this.Yj.setVisibility(0);
-        if (this.Yo != null) {
-            this.Yj.setLayoutParams(this.Yo);
+        this.Yn.setVisibility(0);
+        if (this.Ys != null) {
+            this.Yn.setLayoutParams(this.Ys);
         }
-        this.Yk.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
-        this.Yj.onChangeSkinType(TbadkApplication.m251getInst().getSkinType());
-        return this.Yk;
+        this.Yo.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
+        this.Yn.onChangeSkinType(TbadkApplication.m251getInst().getSkinType());
+        return this.Yo;
     }
 
     public void a(r rVar, s sVar, q qVar, FrameLayout.LayoutParams layoutParams) {
-        this.Ym = rVar;
-        this.Yl = sVar;
-        this.Yn = qVar;
-        this.Yo = layoutParams;
+        this.Yq = rVar;
+        this.Yp = sVar;
+        this.Yr = qVar;
+        this.Ys = layoutParams;
     }
 
     public void aH(boolean z) {
-        this.Yi = z;
+        this.Ym = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean um() {
-        return this.Yd != null && this.Yd.size() == 0;
+    public boolean uo() {
+        return this.Yh != null && this.Yh.size() == 0;
     }
 }

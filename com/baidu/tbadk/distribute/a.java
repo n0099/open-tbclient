@@ -22,95 +22,95 @@ import java.util.List;
 import tbclient.LogTogether.AdReq;
 /* loaded from: classes.dex */
 public class a {
-    public static String QI = null;
-    private static a QJ = new a();
+    public static String QM = null;
+    private static a QN = new a();
     private Handler handler = new b(this, Looper.getMainLooper());
-    private com.baidu.adp.framework.listener.a QP = new c(this, CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, 303101);
-    private CustomMessageListener QR = new d(this, 2001121);
-    private ArrayList<AdReq> QL = new ArrayList<>();
-    private ArrayList<com.baidu.tbadk.core.data.a> QS = new ArrayList<>();
-    private ArrayList<com.baidu.tbadk.core.data.a> QT = new ArrayList<>();
-    private boolean QM = true;
-    private long QN = TbConfig.USE_TIME_INTERVAL;
-    private int QO = 10;
-    private boolean QK = j.fh();
+    private com.baidu.adp.framework.listener.a QU = new c(this, CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, 303101);
+    private CustomMessageListener QV = new d(this, 2001121);
+    private ArrayList<AdReq> QP = new ArrayList<>();
+    private ArrayList<com.baidu.tbadk.core.data.a> QW = new ArrayList<>();
+    private ArrayList<com.baidu.tbadk.core.data.a> QX = new ArrayList<>();
+    private boolean QR = true;
+    private long QS = TbConfig.USE_TIME_INTERVAL;
+    private int QT = 10;
+    private boolean QO = j.fh();
 
-    public static a ra() {
-        return QJ;
+    public static a rc() {
+        return QN;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ap(boolean z) {
-        if (this.QK != z) {
-            this.QK = z;
+        if (this.QO != z) {
+            this.QO = z;
             if (z) {
                 ar(true);
             } else {
-                rb();
+                rd();
             }
         }
     }
 
-    private void rb() {
+    private void rd() {
         this.handler.removeMessages(1);
     }
 
-    private void rc() {
+    private void re() {
         this.handler.removeMessages(1);
-        this.handler.sendEmptyMessageDelayed(1, this.QN);
+        this.handler.sendEmptyMessageDelayed(1, this.QS);
     }
 
     private synchronized void a(AdReq adReq) {
-        if (this.QL != null && this.QL.size() < 20) {
-            this.QL.add(adReq);
+        if (this.QP != null && this.QP.size() < 20) {
+            this.QP.add(adReq);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void g(List<AdReq> list) {
-        if (this.QL != null) {
-            this.QL.addAll(list);
+        if (this.QP != null) {
+            this.QP.addAll(list);
         }
     }
 
     private a() {
     }
 
-    public void rd() {
+    public void rf() {
         MessageManager messageManager = MessageManager.getInstance();
+        messageManager.registerTask(ri());
         messageManager.registerTask(rg());
-        messageManager.registerTask(re());
-        messageManager.registerListener(this.QP);
-        messageManager.registerListener(this.QR);
+        messageManager.registerListener(this.QU);
+        messageManager.registerListener(this.QV);
     }
 
-    private HttpMessageTask re() {
+    private HttpMessageTask rg() {
         HttpMessageTask httpMessageTask = new HttpMessageTask(CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LOG_TOGETHER + "?cmd=303101");
         httpMessageTask.setResponsedClass(DistributeHttpResponse.class);
         return httpMessageTask;
     }
 
     public void aq(boolean z) {
-        this.QM = z;
+        this.QR = z;
     }
 
     public void cD(int i) {
         if (i > 3600) {
-            this.QN = 300000L;
+            this.QS = 300000L;
         } else if (i <= 0) {
-            this.QN = TbConfig.USE_TIME_INTERVAL;
+            this.QS = TbConfig.USE_TIME_INTERVAL;
         } else {
-            this.QN = i * 1000;
+            this.QS = i * 1000;
         }
     }
 
     public void cE(int i) {
         if (i > 20) {
-            this.QO = 10;
+            this.QT = 10;
         } else if (i <= 0) {
-            this.QO = 5;
+            this.QT = 5;
         } else {
-            this.QO = i;
+            this.QT = i;
         }
     }
 
@@ -120,7 +120,7 @@ public class a {
             a(a);
         }
         if (TextUtils.equals(str3, "click") || TextUtils.equals(str3, "download")) {
-            if (this.QK) {
+            if (this.QO) {
                 MessageManager.getInstance().sendMessage(new DistributeRequest(a));
             } else {
                 a(a);
@@ -129,20 +129,20 @@ public class a {
         ar(false);
     }
 
-    private boolean rf() {
+    private boolean rh() {
         return this.handler.hasMessages(1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ar(boolean z) {
-        if (this.QK && this.QM) {
+        if (this.QO && this.QR) {
             List<AdReq> as = as(z);
-            if (z || !rf()) {
-                rc();
+            if (z || !rh()) {
+                re();
             }
             if (as != null && as.size() != 0) {
                 if (!z) {
-                    rc();
+                    re();
                 }
                 MessageManager.getInstance().sendMessage(new DistributeRequest(as));
             }
@@ -150,7 +150,7 @@ public class a {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:6:0x000c, code lost:
-        if (r3.QL.size() < r3.QO) goto L6;
+        if (r3.QP.size() < r3.QT) goto L6;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -160,16 +160,16 @@ public class a {
         synchronized (this) {
             if (!z) {
             }
-            if (this.QL.size() > 0) {
+            if (this.QP.size() > 0) {
                 arrayList = new ArrayList();
-                arrayList.addAll(this.QL);
-                this.QL.clear();
+                arrayList.addAll(this.QP);
+                this.QP.clear();
             }
         }
         return arrayList;
     }
 
-    private SocketMessageTask rg() {
+    private SocketMessageTask ri() {
         SocketMessageTask socketMessageTask = new SocketMessageTask(303101);
         socketMessageTask.e(true);
         socketMessageTask.setResponsedClass(DistributeSocketResponse.class);
@@ -179,9 +179,9 @@ public class a {
     public void a(Context context, com.baidu.tbadk.core.data.a aVar, String str, String str2, String str3, long j) {
         if (TextUtils.equals(str, "show")) {
             if (TextUtils.equals(str2, "frs")) {
-                this.QS.add(aVar);
+                this.QW.add(aVar);
             } else if (TextUtils.equals(str2, "pb")) {
-                this.QT.add(aVar);
+                this.QX.add(aVar);
             }
         } else if (TextUtils.equals(str, "btn_click") || TextUtils.equals(str, "btn_download") || TextUtils.equals(str, "area_click") || TextUtils.equals(str, "area_download")) {
             StringBuilder sb = new StringBuilder(15);
@@ -194,9 +194,9 @@ public class a {
 
     public void a(Context context, String str, String str2, long j) {
         if (TextUtils.equals(str, "frs")) {
-            a(context, this.QS, str, str2, j);
+            a(context, this.QW, str, str2, j);
         } else if (TextUtils.equals(str, "pb")) {
-            a(context, this.QT, str, str2, j);
+            a(context, this.QX, str, str2, j);
         }
     }
 

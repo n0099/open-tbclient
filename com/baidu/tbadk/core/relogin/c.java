@@ -10,23 +10,23 @@ import com.baidu.tbadk.core.account.g;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements SapiCallBack<SapiResponse> {
-    final /* synthetic */ ReloginManager BX;
-    private final /* synthetic */ g BY;
+    final /* synthetic */ ReloginManager BY;
+    private final /* synthetic */ g BZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(ReloginManager reloginManager, g gVar) {
-        this.BX = reloginManager;
-        this.BY = gVar;
+        this.BY = reloginManager;
+        this.BZ = gVar;
     }
 
     @Override // com.baidu.sapi2.shell.callback.SapiCallBack
     public void onSuccess(SapiResponse sapiResponse) {
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
-            f.a(session.username, session.bduss, session.ptoken, this.BY);
+            f.a(session.username, session.bduss, session.ptoken, this.BZ);
             return;
         }
-        this.BX.d(TbadkApplication.getCurrentAccountObj());
+        this.BY.d(TbadkApplication.getCurrentAccountObj());
     }
 
     @Override // com.baidu.sapi2.shell.callback.SapiCallBack
@@ -35,6 +35,6 @@ public class c implements SapiCallBack<SapiResponse> {
 
     @Override // com.baidu.sapi2.shell.callback.SapiCallBack
     public void onSystemError(int i) {
-        this.BX.d(TbadkApplication.getCurrentAccountObj());
+        this.BY.d(TbadkApplication.getCurrentAccountObj());
     }
 }

@@ -18,11 +18,11 @@ class b extends CustomMessageListener {
         ImageView imageView2;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001180 && customResponsedMessage.getError() == 0 && (customResponsedMessage instanceof ResponseUnreadPointNum)) {
             if (((ResponseUnreadPointNum) customResponsedMessage).getNum() > 0) {
-                imageView2 = AddressListDelegateStatic.agt;
+                imageView2 = AddressListDelegateStatic.agB;
                 imageView2.setVisibility(0);
                 return;
             }
-            imageView = AddressListDelegateStatic.agt;
+            imageView = AddressListDelegateStatic.agB;
             imageView.setVisibility(8);
         }
     }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.live.service;
 /* loaded from: classes.dex */
 class k {
-    public int Vx;
+    public int VB;
     public String groupId;
     public String url;
 

@@ -4,12 +4,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class b {
-    ImageView auU;
-    TextView auV;
-    final /* synthetic */ a auW;
+    ImageView avd;
+    TextView ave;
+    final /* synthetic */ a avf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.auW = aVar;
+        this.avf = aVar;
     }
 }

@@ -5,11 +5,11 @@ import android.widget.Scroller;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an implements Runnable {
-    final /* synthetic */ am bsF;
+    final /* synthetic */ am bsT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(am amVar) {
-        this.bsF = amVar;
+        this.bsT = amVar;
     }
 
     @Override // java.lang.Runnable
@@ -24,26 +24,26 @@ public class an implements Runnable {
         View view5;
         View view6;
         View view7;
-        scroller = this.bsF.mScroller;
+        scroller = this.bsT.mScroller;
         if (scroller.computeScrollOffset()) {
-            scroller2 = this.bsF.mScroller;
+            scroller2 = this.bsT.mScroller;
             int currX = scroller2.getCurrX();
-            view2 = this.bsF.mView;
-            view3 = this.bsF.mView;
+            view2 = this.bsT.mView;
+            view3 = this.bsT.mView;
             int paddingLeft = view3.getPaddingLeft();
-            view4 = this.bsF.mView;
+            view4 = this.bsT.mView;
             int paddingRight = view4.getPaddingRight();
-            view5 = this.bsF.mView;
+            view5 = this.bsT.mView;
             view2.setPadding(paddingLeft, currX, paddingRight, view5.getPaddingBottom());
-            view6 = this.bsF.mView;
+            view6 = this.bsT.mView;
             view6.invalidate();
-            view7 = this.bsF.mView;
+            view7 = this.bsT.mView;
             view7.post(this);
             return;
         }
-        z = this.bsF.iC;
+        z = this.bsT.iC;
         if (!z) {
-            view = this.bsF.mView;
+            view = this.bsT.mView;
             view.setVisibility(8);
         }
     }

@@ -17,7 +17,7 @@ public class AntiHelper {
         LIKE,
         REPLY;
 
-        /* JADX DEBUG: Replace access to removed values field (bPU) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (bQj) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static OperationType[] valuesCustom() {
             OperationType[] valuesCustom = values();
@@ -37,7 +37,7 @@ public class AntiHelper {
         FLOOR_IN_FLOOR,
         WRITE;
 
-        /* JADX DEBUG: Replace access to removed values field (bPV) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (bQk) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static PageType[] valuesCustom() {
             PageType[] valuesCustom = values();
@@ -50,7 +50,7 @@ public class AntiHelper {
 
     public static boolean a(Context context, AntiData antiData, OperationType operationType, PageType pageType) {
         if (!f(antiData)) {
-            aex();
+            aeA();
         }
         if (c(antiData) || e(antiData)) {
             if (antiData.isHas_chance()) {
@@ -187,7 +187,7 @@ public class AntiHelper {
         }
     }
 
-    private static void aex() {
+    private static void aeA() {
         com.baidu.tbadk.core.sharedPref.b.lk().remove("anti_vcode_no_longer_tip");
     }
 }

@@ -14,51 +14,51 @@ import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 public class ToolMoreView extends FrameLayout {
     private TextView SA;
-    private HeadImageView SB;
-    private FrameLayout SC;
-    private TextView SD;
+    private TextView SB;
+    private HeadImageView SC;
+    private FrameLayout SD;
     private TextView SE;
-    private TextView SF;
-    private TextView SG;
+    private HeadImageView SF;
+    private FrameLayout SG;
     private TextView SH;
-    private boolean SI;
-    private boolean SJ;
-    private boolean SK;
-    private LinearLayout SL;
-    private LinearLayout SM;
-    private TextView SN;
-    private TextView SO;
-    private TextView SP;
-    private TextView SQ;
+    private TextView SI;
+    private TextView SJ;
+    private TextView SK;
+    private TextView SL;
+    private boolean SM;
+    private boolean SN;
+    private boolean SO;
+    private LinearLayout SP;
+    private LinearLayout SQ;
     private TextView SR;
     private TextView SS;
     private TextView ST;
-    private boolean SU;
-    private int Sv;
-    private TextView Sw;
-    private TextView Sx;
-    private HeadImageView Sy;
-    private FrameLayout Sz;
+    private TextView SU;
+    private TextView SV;
+    private TextView SW;
+    private TextView SX;
+    private boolean SY;
+    private int Sz;
     private boolean isFirst;
     private Context mContext;
 
     public void setHideBaobao(boolean z) {
-        this.SU = z;
-        if (this.SE != null) {
-            if (this.SU) {
-                this.SE.setVisibility(4);
+        this.SY = z;
+        if (this.SI != null) {
+            if (this.SY) {
+                this.SI.setVisibility(4);
             } else {
-                this.SE.setVisibility(0);
+                this.SI.setVisibility(0);
             }
         }
     }
 
     public ToolMoreView(Context context) {
         super(context);
-        this.Sv = 0;
-        this.SI = false;
-        this.SJ = false;
-        this.SK = false;
+        this.Sz = 0;
+        this.SM = false;
+        this.SN = false;
+        this.SO = false;
         this.isFirst = true;
         this.mContext = context;
         init();
@@ -66,10 +66,10 @@ public class ToolMoreView extends FrameLayout {
 
     public ToolMoreView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Sv = 0;
-        this.SI = false;
-        this.SJ = false;
-        this.SK = false;
+        this.Sz = 0;
+        this.SM = false;
+        this.SN = false;
+        this.SO = false;
         this.isFirst = true;
         this.mContext = context;
         init();
@@ -83,68 +83,68 @@ public class ToolMoreView extends FrameLayout {
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.SN != null) {
-            if (this.Sz != null && this.Sz.getVisibility() == 0) {
-                int right = this.Sz.getRight() - com.baidu.adp.lib.util.m.dip2px(this.mContext, 14.0f);
-                int top = this.Sz.getTop() - com.baidu.adp.lib.util.m.dip2px(this.mContext, 2.0f);
-                this.SN.layout(right, top, this.SN.getMeasuredWidth() + right, this.SN.getMeasuredHeight() + top);
-            } else {
-                this.SN.layout(0, 0, 0, 0);
-            }
-        }
-        if (this.SS != null) {
-            if (this.SC != null && this.SC.getVisibility() == 0) {
-                int right2 = this.SC.getRight() - com.baidu.adp.lib.util.m.dip2px(this.mContext, 14.0f);
-                int top2 = this.SC.getTop() - com.baidu.adp.lib.util.m.dip2px(this.mContext, 2.0f);
-                this.SS.layout(right2, top2, this.SS.getMeasuredWidth() + right2, this.SS.getMeasuredHeight() + top2);
-            } else {
-                this.SS.layout(0, 0, 0, 0);
-            }
-        }
-        if (this.SO != null) {
-            if (this.Sw != null && this.Sw.getVisibility() == 0) {
-                int right3 = this.Sw.getRight() - com.baidu.adp.lib.util.m.dip2px(this.mContext, 14.0f);
-                int top3 = this.Sw.getTop() - com.baidu.adp.lib.util.m.dip2px(this.mContext, 2.0f);
-                this.SO.layout(right3, top3, this.SO.getMeasuredWidth() + right3, this.SO.getMeasuredHeight() + top3);
-            } else {
-                this.SO.layout(0, 0, 0, 0);
-            }
-        }
-        if (this.SP != null) {
-            if (this.SG != null && this.SG.getVisibility() == 0) {
-                int right4 = this.SG.getRight() - com.baidu.adp.lib.util.m.dip2px(this.mContext, 14.0f);
-                int top4 = (this.SG.getTop() + this.SM.getTop()) - com.baidu.adp.lib.util.m.dip2px(this.mContext, 2.0f);
-                this.SP.layout(right4, top4, this.SP.getMeasuredWidth() + right4, this.SP.getMeasuredHeight() + top4);
-            } else {
-                this.SP.layout(0, 0, 0, 0);
-            }
-        }
         if (this.SR != null) {
-            if (this.SF != null && this.SF.getVisibility() == 0) {
-                int right5 = this.SF.getRight() - com.baidu.adp.lib.util.m.dip2px(this.mContext, 14.0f);
-                int top5 = this.SF.getTop() - com.baidu.adp.lib.util.m.dip2px(this.mContext, 4.0f);
-                this.SR.layout(right5, top5, this.SR.getMeasuredWidth() + right5, this.SR.getMeasuredHeight() + top5);
+            if (this.SD != null && this.SD.getVisibility() == 0) {
+                int right = this.SD.getRight() - com.baidu.adp.lib.util.m.dip2px(this.mContext, 14.0f);
+                int top = this.SD.getTop() - com.baidu.adp.lib.util.m.dip2px(this.mContext, 2.0f);
+                this.SR.layout(right, top, this.SR.getMeasuredWidth() + right, this.SR.getMeasuredHeight() + top);
             } else {
                 this.SR.layout(0, 0, 0, 0);
             }
         }
-        if (this.SQ != null) {
-            if (!this.SU && this.SE != null && this.SE.getVisibility() == 0) {
-                int right6 = this.SE.getRight() - com.baidu.adp.lib.util.m.dip2px(this.mContext, 14.0f);
-                int top6 = (this.SE.getTop() + this.SM.getTop()) - com.baidu.adp.lib.util.m.dip2px(this.mContext, 2.0f);
-                this.SQ.layout(right6, top6, this.SQ.getMeasuredWidth() + right6, this.SQ.getMeasuredHeight() + top6);
+        if (this.SW != null) {
+            if (this.SG != null && this.SG.getVisibility() == 0) {
+                int right2 = this.SG.getRight() - com.baidu.adp.lib.util.m.dip2px(this.mContext, 14.0f);
+                int top2 = this.SG.getTop() - com.baidu.adp.lib.util.m.dip2px(this.mContext, 2.0f);
+                this.SW.layout(right2, top2, this.SW.getMeasuredWidth() + right2, this.SW.getMeasuredHeight() + top2);
             } else {
-                this.SQ.layout(0, 0, 0, 0);
+                this.SW.layout(0, 0, 0, 0);
+            }
+        }
+        if (this.SS != null) {
+            if (this.SA != null && this.SA.getVisibility() == 0) {
+                int right3 = this.SA.getRight() - com.baidu.adp.lib.util.m.dip2px(this.mContext, 14.0f);
+                int top3 = this.SA.getTop() - com.baidu.adp.lib.util.m.dip2px(this.mContext, 2.0f);
+                this.SS.layout(right3, top3, this.SS.getMeasuredWidth() + right3, this.SS.getMeasuredHeight() + top3);
+            } else {
+                this.SS.layout(0, 0, 0, 0);
             }
         }
         if (this.ST != null) {
-            if (this.SH != null && this.SH.getVisibility() == 0) {
-                int right7 = this.SH.getRight() - com.baidu.adp.lib.util.m.dip2px(this.mContext, 14.0f);
-                int top7 = (this.SH.getTop() + this.SM.getTop()) - com.baidu.adp.lib.util.m.dip2px(this.mContext, 2.0f);
-                this.ST.layout(right7, top7, this.ST.getMeasuredWidth() + right7, this.ST.getMeasuredHeight() + top7);
+            if (this.SK != null && this.SK.getVisibility() == 0) {
+                int right4 = this.SK.getRight() - com.baidu.adp.lib.util.m.dip2px(this.mContext, 14.0f);
+                int top4 = (this.SK.getTop() + this.SQ.getTop()) - com.baidu.adp.lib.util.m.dip2px(this.mContext, 2.0f);
+                this.ST.layout(right4, top4, this.ST.getMeasuredWidth() + right4, this.ST.getMeasuredHeight() + top4);
+            } else {
+                this.ST.layout(0, 0, 0, 0);
+            }
+        }
+        if (this.SV != null) {
+            if (this.SJ != null && this.SJ.getVisibility() == 0) {
+                int right5 = this.SJ.getRight() - com.baidu.adp.lib.util.m.dip2px(this.mContext, 14.0f);
+                int top5 = this.SJ.getTop() - com.baidu.adp.lib.util.m.dip2px(this.mContext, 4.0f);
+                this.SV.layout(right5, top5, this.SV.getMeasuredWidth() + right5, this.SV.getMeasuredHeight() + top5);
+            } else {
+                this.SV.layout(0, 0, 0, 0);
+            }
+        }
+        if (this.SU != null) {
+            if (!this.SY && this.SI != null && this.SI.getVisibility() == 0) {
+                int right6 = this.SI.getRight() - com.baidu.adp.lib.util.m.dip2px(this.mContext, 14.0f);
+                int top6 = (this.SI.getTop() + this.SQ.getTop()) - com.baidu.adp.lib.util.m.dip2px(this.mContext, 2.0f);
+                this.SU.layout(right6, top6, this.SU.getMeasuredWidth() + right6, this.SU.getMeasuredHeight() + top6);
+            } else {
+                this.SU.layout(0, 0, 0, 0);
+            }
+        }
+        if (this.SX != null) {
+            if (this.SL != null && this.SL.getVisibility() == 0) {
+                int right7 = this.SL.getRight() - com.baidu.adp.lib.util.m.dip2px(this.mContext, 14.0f);
+                int top7 = (this.SL.getTop() + this.SQ.getTop()) - com.baidu.adp.lib.util.m.dip2px(this.mContext, 2.0f);
+                this.SX.layout(right7, top7, this.SX.getMeasuredWidth() + right7, this.SX.getMeasuredHeight() + top7);
                 return;
             }
-            this.ST.layout(0, 0, 0, 0);
+            this.SX.layout(0, 0, 0, 0);
         }
     }
 
@@ -163,56 +163,37 @@ public class ToolMoreView extends FrameLayout {
     }
 
     public void di(String str) {
-        if (this.Sz.getVisibility() == 0) {
-            if (this.SN == null) {
-                this.SN = at(true);
+        if (this.SD.getVisibility() == 0) {
+            if (this.SR == null) {
+                this.SR = at(true);
             }
-            this.SN.setVisibility(0);
-            this.SN.setText(str);
-        }
-    }
-
-    public void rD() {
-        if (this.SN != null) {
-            this.SN.setVisibility(8);
-        }
-    }
-
-    public void dj(String str) {
-        if (this.SO == null) {
-            this.SO = at(true);
-        }
-        this.SO.setVisibility(0);
-        this.SO.setText(str);
-    }
-
-    public void rE() {
-        if (this.SO != null) {
-            this.SO.setVisibility(8);
+            this.SR.setVisibility(0);
+            this.SR.setText(str);
         }
     }
 
     public void rF() {
-        if (this.SG.getVisibility() == 0) {
-            if (this.SP == null) {
-                this.SP = at(false);
-            }
-            this.SP.setVisibility(0);
+        if (this.SR != null) {
+            this.SR.setVisibility(8);
         }
+    }
+
+    public void dj(String str) {
+        if (this.SS == null) {
+            this.SS = at(true);
+        }
+        this.SS.setVisibility(0);
+        this.SS.setText(str);
     }
 
     public void rG() {
-        if (this.SP != null) {
-            this.SP.setVisibility(8);
+        if (this.SS != null) {
+            this.SS.setVisibility(8);
         }
     }
 
-    public boolean rH() {
-        return this.ST != null && this.ST.getVisibility() == 0 && this.SH != null && this.SH.getVisibility() == 0;
-    }
-
-    public void rI() {
-        if (this.SH.getVisibility() == 0) {
+    public void rH() {
+        if (this.SK.getVisibility() == 0) {
             if (this.ST == null) {
                 this.ST = at(false);
             }
@@ -220,103 +201,122 @@ public class ToolMoreView extends FrameLayout {
         }
     }
 
-    public void rJ() {
+    public void rI() {
         if (this.ST != null) {
             this.ST.setVisibility(8);
         }
     }
 
-    public void dk(String str) {
-        if (this.SE.getVisibility() == 0) {
-            if (this.SQ == null) {
-                this.SQ = at(true);
-            }
-            this.SQ.setVisibility(0);
-            this.SQ.setText(str);
-        }
+    public boolean rJ() {
+        return this.SX != null && this.SX.getVisibility() == 0 && this.SL != null && this.SL.getVisibility() == 0;
     }
 
     public void rK() {
-        if (this.SQ != null) {
-            this.SQ.setVisibility(8);
+        if (this.SL.getVisibility() == 0) {
+            if (this.SX == null) {
+                this.SX = at(false);
+            }
+            this.SX.setVisibility(0);
         }
     }
 
     public void rL() {
-        if (this.SF.getVisibility() == 0) {
-            if (this.SR == null) {
-                this.SR = at(false);
+        if (this.SX != null) {
+            this.SX.setVisibility(8);
+        }
+    }
+
+    public void dk(String str) {
+        if (this.SI.getVisibility() == 0) {
+            if (this.SU == null) {
+                this.SU = at(true);
             }
-            this.SR.setVisibility(0);
+            this.SU.setVisibility(0);
+            this.SU.setText(str);
         }
     }
 
     public void rM() {
-        if (this.SR != null) {
-            this.SR.setVisibility(8);
+        if (this.SU != null) {
+            this.SU.setVisibility(8);
+        }
+    }
+
+    public void rN() {
+        if (this.SJ.getVisibility() == 0) {
+            if (this.SV == null) {
+                this.SV = at(false);
+            }
+            this.SV.setVisibility(0);
+        }
+    }
+
+    public void rO() {
+        if (this.SV != null) {
+            this.SV.setVisibility(8);
         }
     }
 
     private void init() {
         com.baidu.adp.lib.g.b.ek().a(this.mContext, com.baidu.tieba.w.editor_tool_more, this, true);
-        this.SL = (LinearLayout) findViewById(com.baidu.tieba.v.lay_editor_more_line1);
-        this.SM = (LinearLayout) findViewById(com.baidu.tieba.v.lay_editor_more_line2);
-        this.Sw = (TextView) findViewById(com.baidu.tieba.v.btn_tool_expression);
-        this.Sx = (TextView) findViewById(com.baidu.tieba.v.btn_tool_image);
-        this.Sy = (HeadImageView) findViewById(com.baidu.tieba.v.iv_tool_image);
-        this.Sy.setDrawBorder(false);
-        this.Sz = (FrameLayout) findViewById(com.baidu.tieba.v.lay_tool_image);
-        this.SA = (TextView) findViewById(com.baidu.tieba.v.btn_tool_camera);
-        this.SB = (HeadImageView) findViewById(com.baidu.tieba.v.iv_tool_camera);
-        this.SB.setDrawBorder(false);
-        this.SC = (FrameLayout) findViewById(com.baidu.tieba.v.lay_tool_camera);
-        this.SD = (TextView) findViewById(com.baidu.tieba.v.btn_tool_at);
-        this.SG = (TextView) findViewById(com.baidu.tieba.v.btn_tool_privilege);
-        this.SE = (TextView) findViewById(com.baidu.tieba.v.btn_tool_baobao);
-        this.SF = (TextView) findViewById(com.baidu.tieba.v.btn_tool_record);
-        this.SF.setVisibility(4);
-        this.SH = (TextView) findViewById(com.baidu.tieba.v.btn_tool_location);
-        if (!TbadkApplication.m251getInst().isBaobaoShouldOpen() || this.SU) {
-            this.SE.setVisibility(4);
-            this.SE.setEnabled(false);
+        this.SP = (LinearLayout) findViewById(com.baidu.tieba.v.lay_editor_more_line1);
+        this.SQ = (LinearLayout) findViewById(com.baidu.tieba.v.lay_editor_more_line2);
+        this.SA = (TextView) findViewById(com.baidu.tieba.v.btn_tool_expression);
+        this.SB = (TextView) findViewById(com.baidu.tieba.v.btn_tool_image);
+        this.SC = (HeadImageView) findViewById(com.baidu.tieba.v.iv_tool_image);
+        this.SC.setDrawBorder(false);
+        this.SD = (FrameLayout) findViewById(com.baidu.tieba.v.lay_tool_image);
+        this.SE = (TextView) findViewById(com.baidu.tieba.v.btn_tool_camera);
+        this.SF = (HeadImageView) findViewById(com.baidu.tieba.v.iv_tool_camera);
+        this.SF.setDrawBorder(false);
+        this.SG = (FrameLayout) findViewById(com.baidu.tieba.v.lay_tool_camera);
+        this.SH = (TextView) findViewById(com.baidu.tieba.v.btn_tool_at);
+        this.SK = (TextView) findViewById(com.baidu.tieba.v.btn_tool_privilege);
+        this.SI = (TextView) findViewById(com.baidu.tieba.v.btn_tool_baobao);
+        this.SJ = (TextView) findViewById(com.baidu.tieba.v.btn_tool_record);
+        this.SJ.setVisibility(4);
+        this.SL = (TextView) findViewById(com.baidu.tieba.v.btn_tool_location);
+        if (!TbadkApplication.m251getInst().isBaobaoShouldOpen() || this.SY) {
+            this.SI.setVisibility(4);
+            this.SI.setEnabled(false);
         }
         if (TbadkApplication.m251getInst().isFaceShopNew()) {
             dj("N");
         } else {
-            rE();
+            rG();
         }
     }
 
     @Override // android.view.View
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.Sw.setOnClickListener(onClickListener);
-        this.Sx.setOnClickListener(onClickListener);
         this.SA.setOnClickListener(onClickListener);
-        this.Sy.setOnClickListener(onClickListener);
         this.SB.setOnClickListener(onClickListener);
-        this.SD.setOnClickListener(onClickListener);
-        this.SG.setOnClickListener(onClickListener);
         this.SE.setOnClickListener(onClickListener);
+        this.SC.setOnClickListener(onClickListener);
         this.SF.setOnClickListener(onClickListener);
         this.SH.setOnClickListener(onClickListener);
+        this.SK.setOnClickListener(onClickListener);
+        this.SI.setOnClickListener(onClickListener);
+        this.SJ.setOnClickListener(onClickListener);
+        this.SL.setOnClickListener(onClickListener);
     }
 
     public void setImage(Bitmap bitmap) {
-        if (this.Sv == 1) {
-            if (this.SI) {
+        if (this.Sz == 1) {
+            if (this.SM) {
                 setImageToImage(null);
             }
             setImageToCamera(bitmap);
-        } else if (this.Sv == 2) {
-            if (this.SJ) {
+        } else if (this.Sz == 2) {
+            if (this.SN) {
                 setImageToCamera(null);
             }
             setImageToImage(bitmap);
-        } else if (this.Sv == 0) {
-            if (this.SI) {
+        } else if (this.Sz == 0) {
+            if (this.SM) {
                 setImageToImage(null);
             }
-            if (this.SJ) {
+            if (this.SN) {
                 setImageToCamera(null);
             }
         }
@@ -324,139 +324,139 @@ public class ToolMoreView extends FrameLayout {
 
     private void setImageToImage(Bitmap bitmap) {
         if (bitmap != null) {
-            this.Sy.setImageBitmap(bitmap);
-            this.Sy.setVisibility(0);
-            this.Sx.setVisibility(4);
-            this.SI = true;
+            this.SC.setImageBitmap(bitmap);
+            this.SC.setVisibility(0);
+            this.SB.setVisibility(4);
+            this.SM = true;
             return;
         }
-        this.SI = false;
-        this.Sy.setImageDrawable(null);
-        this.Sy.setVisibility(4);
-        this.Sx.setVisibility(0);
+        this.SM = false;
+        this.SC.setImageDrawable(null);
+        this.SC.setVisibility(4);
+        this.SB.setVisibility(0);
     }
 
     private void setImageToCamera(Bitmap bitmap) {
         if (bitmap != null) {
-            this.SB.setImageBitmap(bitmap);
-            this.SB.setVisibility(0);
-            this.SA.setVisibility(4);
-            this.SJ = true;
+            this.SF.setImageBitmap(bitmap);
+            this.SF.setVisibility(0);
+            this.SE.setVisibility(4);
+            this.SN = true;
             return;
         }
-        this.SJ = false;
-        this.SB.setImageDrawable(null);
-        this.SB.setVisibility(4);
-        this.SA.setVisibility(0);
+        this.SN = false;
+        this.SF.setImageDrawable(null);
+        this.SF.setVisibility(4);
+        this.SE.setVisibility(0);
     }
 
     public TextView getmFace() {
-        return this.Sw;
-    }
-
-    public TextView getmImage() {
-        return this.Sx;
-    }
-
-    public TextView getmCamera() {
         return this.SA;
     }
 
-    public View getmIVImage() {
-        return this.Sy;
-    }
-
-    public View getmIVCamera() {
+    public TextView getmImage() {
         return this.SB;
     }
 
-    public TextView getmAt() {
-        return this.SD;
-    }
-
-    public TextView getmPrivilege() {
-        return this.SG;
-    }
-
-    public TextView getBaobao() {
+    public TextView getmCamera() {
         return this.SE;
     }
 
-    public TextView getLocation() {
+    public View getmIVImage() {
+        return this.SC;
+    }
+
+    public View getmIVCamera() {
+        return this.SF;
+    }
+
+    public TextView getmAt() {
         return this.SH;
     }
 
+    public TextView getmPrivilege() {
+        return this.SK;
+    }
+
+    public TextView getBaobao() {
+        return this.SI;
+    }
+
+    public TextView getLocation() {
+        return this.SL;
+    }
+
     public void setmImagetype(int i) {
-        this.Sv = i;
+        this.Sz = i;
     }
 
     public void au(boolean z) {
         if (this.isFirst) {
-            this.SL.removeView(this.Sz);
-            this.SL.removeView(this.SC);
-            this.SM.removeView(this.SG);
-            this.SM.removeView(this.SE);
-            this.SL.addView(this.Sz);
-            this.SL.addView(this.SC);
-            this.SM.addView(this.SG, 0);
-            this.SM.addView(this.SE, 1);
-            this.SM.removeView(this.SF);
-            this.SM.addView(this.SF);
+            this.SP.removeView(this.SD);
+            this.SP.removeView(this.SG);
+            this.SQ.removeView(this.SK);
+            this.SQ.removeView(this.SI);
+            this.SP.addView(this.SD);
+            this.SP.addView(this.SG);
+            this.SQ.addView(this.SK, 0);
+            this.SQ.addView(this.SI, 1);
+            this.SQ.removeView(this.SJ);
+            this.SQ.addView(this.SJ);
         }
         this.isFirst = false;
         if (z) {
-            this.Sz.setVisibility(4);
-            this.SC.setVisibility(4);
+            this.SD.setVisibility(4);
             this.SG.setVisibility(4);
-            this.SH.setVisibility(4);
-            if (TbadkApplication.m251getInst().isBaobaoShouldOpen() && !this.SU) {
-                this.SE.setVisibility(4);
-                this.SE.setEnabled(false);
+            this.SK.setVisibility(4);
+            this.SL.setVisibility(4);
+            if (TbadkApplication.m251getInst().isBaobaoShouldOpen() && !this.SY) {
+                this.SI.setVisibility(4);
+                this.SI.setEnabled(false);
                 return;
             }
             return;
         }
-        this.Sz.setVisibility(0);
-        this.SC.setVisibility(0);
+        this.SD.setVisibility(0);
         this.SG.setVisibility(0);
-        this.SH.setVisibility(0);
-        if (TbadkApplication.m251getInst().isBaobaoShouldOpen() && !this.SU) {
-            this.SE.setEnabled(true);
-            this.SE.setVisibility(0);
+        this.SK.setVisibility(0);
+        this.SL.setVisibility(0);
+        if (TbadkApplication.m251getInst().isBaobaoShouldOpen() && !this.SY) {
+            this.SI.setEnabled(true);
+            this.SI.setVisibility(0);
         }
-        if (this.SU) {
-            this.SM.removeView(this.SE);
-            this.SM.addView(this.SE);
+        if (this.SY) {
+            this.SQ.removeView(this.SI);
+            this.SQ.addView(this.SI);
         }
     }
 
-    public void rN() {
-        this.SD.setVisibility(4);
-        this.SG.setVisibility(4);
-        this.SE.setVisibility(4);
+    public void rP() {
         this.SH.setVisibility(4);
-        rK();
-        this.SE.setEnabled(false);
+        this.SK.setVisibility(4);
+        this.SI.setVisibility(4);
+        this.SL.setVisibility(4);
+        rM();
+        this.SI.setEnabled(false);
     }
 
-    public void rO() {
-        this.SL.removeView(this.Sw);
-        this.SL.removeView(this.SD);
-        this.SM.removeView(this.SF);
-        this.SL.removeView(this.SC);
-        this.SL.addView(this.SF);
-        this.SL.addView(this.Sw);
-        this.SM.addView(this.SD);
-        this.SL.addView(this.SC);
-        this.SC.setVisibility(4);
-        this.SF.setVisibility(0);
-        this.Sw.setVisibility(4);
-        this.SD.setVisibility(4);
+    public void rQ() {
+        this.SP.removeView(this.SA);
+        this.SP.removeView(this.SH);
+        this.SQ.removeView(this.SJ);
+        this.SP.removeView(this.SG);
+        this.SP.addView(this.SJ);
+        this.SP.addView(this.SA);
+        this.SQ.addView(this.SH);
+        this.SP.addView(this.SG);
         this.SG.setVisibility(4);
-        this.SE.setVisibility(4);
+        this.SJ.setVisibility(0);
+        this.SA.setVisibility(4);
         this.SH.setVisibility(4);
-        rK();
-        this.SE.setEnabled(false);
+        this.SK.setVisibility(4);
+        this.SI.setVisibility(4);
+        this.SL.setVisibility(4);
+        rM();
+        this.SI.setEnabled(false);
     }
 
     @Override // android.view.View
@@ -465,24 +465,24 @@ public class ToolMoreView extends FrameLayout {
         if (TbadkApplication.m251getInst().isFaceShopNew()) {
             dj("N");
         } else {
-            rE();
+            rG();
         }
     }
 
     public View getFaceButton() {
-        return this.Sw;
-    }
-
-    public View getImageButton() {
-        return this.Sx;
-    }
-
-    public View getCameraButton() {
         return this.SA;
     }
 
+    public View getImageButton() {
+        return this.SB;
+    }
+
+    public View getCameraButton() {
+        return this.SE;
+    }
+
     public View getRecordButton() {
-        return this.SF;
+        return this.SJ;
     }
 
     public void onChangeSkinType(int i) {
@@ -496,19 +496,19 @@ public class ToolMoreView extends FrameLayout {
         int i9 = com.baidu.tieba.u.btn_pb_add_baobao;
         int i10 = com.baidu.tieba.u.btn_pb_add_microphone;
         int i11 = com.baidu.tieba.u.btn_pb_add_pin;
-        a(this.Sw, i2, i5, i3, i);
-        a(this.Sx, i2, i4, i3, i);
-        a(this.SA, i2, i6, i3, i);
-        a(this.SD, i2, i7, i3, i);
-        a(this.SG, i2, i8, i3, i);
-        a(this.SE, i2, i9, i3, i);
-        a(this.SF, i2, i10, i3, i);
-        a(this.SH, i2, i11, i3, i);
-        m(this.SO, i);
-        m(this.SN, i);
-        m(this.SP, i);
-        m(this.SQ, i);
+        a(this.SA, i2, i5, i3, i);
+        a(this.SB, i2, i4, i3, i);
+        a(this.SE, i2, i6, i3, i);
+        a(this.SH, i2, i7, i3, i);
+        a(this.SK, i2, i8, i3, i);
+        a(this.SI, i2, i9, i3, i);
+        a(this.SJ, i2, i10, i3, i);
+        a(this.SL, i2, i11, i3, i);
+        m(this.SS, i);
         m(this.SR, i);
+        m(this.ST, i);
+        m(this.SU, i);
+        m(this.SV, i);
     }
 
     private void m(TextView textView, int i) {

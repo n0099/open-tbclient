@@ -3,18 +3,18 @@ package com.baidu.tieba.im.chat.officialBar;
 import android.content.Context;
 /* loaded from: classes.dex */
 class n implements com.baidu.adp.lib.e.c<ba> {
-    final /* synthetic */ i aQX;
+    final /* synthetic */ i aRl;
     private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(i iVar, Context context) {
-        this.aQX = iVar;
+        this.aRl = iVar;
         this.val$context = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: Kp */
+    /* renamed from: Kt */
     public ba ee() {
         return new ba(this.val$context);
     }

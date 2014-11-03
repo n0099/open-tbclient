@@ -8,37 +8,37 @@ import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.base.h {
-    final /* synthetic */ ItemFootNavView axj;
-    private final /* synthetic */ BaseActivity axk;
-    private final /* synthetic */ ag axm;
-    private final /* synthetic */ boolean axn;
+    final /* synthetic */ ItemFootNavView axs;
+    private final /* synthetic */ BaseActivity axt;
+    private final /* synthetic */ ag axv;
+    private final /* synthetic */ boolean axw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(ItemFootNavView itemFootNavView, ag agVar, BaseActivity baseActivity, boolean z) {
-        this.axj = itemFootNavView;
-        this.axm = agVar;
-        this.axk = baseActivity;
-        this.axn = z;
+        this.axs = itemFootNavView;
+        this.axv = agVar;
+        this.axt = baseActivity;
+        this.axw = z;
     }
 
     @Override // com.baidu.adp.base.h
     public void a(Object obj) {
         ForumDetailData forumDetailData;
-        if (this.axm.getErrorCode() == 22) {
-            this.axk.showToast(this.axk.getString(y.like_success));
-            this.axj.bI(true);
-            this.axj.bH(this.axn);
-        } else if (this.axm.getErrorCode() != 0) {
-            this.axk.showToast(this.axm.getErrorString());
+        if (this.axv.getErrorCode() == 22) {
+            this.axt.showToast(this.axt.getString(y.like_success));
+            this.axs.bI(true);
+            this.axs.bH(this.axw);
+        } else if (this.axv.getErrorCode() != 0) {
+            this.axt.showToast(this.axv.getErrorString());
         } else if (((aa) obj) != null) {
-            this.axk.showToast(this.axk.getString(y.like_success));
-            aj wk = aj.wk();
-            forumDetailData = this.axj.awZ;
-            wk.dW(forumDetailData.forum_info.forum_name);
-            this.axj.bI(true);
-            this.axj.bH(this.axn);
+            this.axt.showToast(this.axt.getString(y.like_success));
+            aj wm = aj.wm();
+            forumDetailData = this.axs.axi;
+            wm.dW(forumDetailData.forum_info.forum_name);
+            this.axs.bI(true);
+            this.axs.bH(this.axw);
         } else {
-            this.axk.showToast(this.axk.getString(y.neterror));
+            this.axt.showToast(this.axt.getString(y.neterror));
         }
     }
 }

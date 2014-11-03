@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.ListView.aa;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.core.view.u;
@@ -23,183 +23,183 @@ import tbclient.GetGiftMyList.DataRes;
 import tbclient.GetGiftMyList.GiftList;
 /* loaded from: classes.dex */
 public class k extends com.baidu.adp.base.f {
-    View.OnClickListener Ie;
-    private List<GiftList> Wx;
-    private y Yc;
-    private View aFZ;
-    private NavigationBar aGJ;
-    AdapterView.OnItemClickListener aIT;
-    private TextView btA;
-    private View btB;
-    private com.baidu.tbadk.widget.i btC;
-    private MyGiftListActivity btc;
-    private NoNetworkView btm;
-    private BdListView bto;
-    private View btp;
-    private View btq;
-    private View btr;
-    private aa bts;
-    private TextView btt;
-    private TextView btu;
-    private TextView btv;
-    private String btw;
-    private String btx;
-    private g bty;
-    private RelativeLayout btz;
+    View.OnClickListener If;
+    private List<GiftList> WB;
+    private y Yg;
+    private NavigationBar aGT;
+    private View aGj;
+    AdapterView.OnItemClickListener aJg;
+    private NoNetworkView btB;
+    private BdListView btC;
+    private View btD;
+    private View btE;
+    private View btF;
+    private aa btG;
+    private TextView btH;
+    private TextView btI;
+    private TextView btJ;
+    private String btK;
+    private String btL;
+    private g btM;
+    private RelativeLayout btN;
+    private TextView btO;
+    private View btP;
+    private com.baidu.tbadk.widget.i btQ;
+    private MyGiftListActivity btr;
     private boolean mIsHost;
 
     public k(MyGiftListActivity myGiftListActivity, aa aaVar, boolean z) {
         super(myGiftListActivity);
-        this.Yc = null;
-        this.aIT = new l(this);
-        this.Ie = new m(this);
-        this.btc = myGiftListActivity;
+        this.Yg = null;
+        this.aJg = new l(this);
+        this.If = new m(this);
+        this.btr = myGiftListActivity;
         this.mIsHost = z;
-        this.Wx = new ArrayList();
-        this.bts = aaVar;
+        this.WB = new ArrayList();
+        this.btG = aaVar;
         nu();
-        VI();
+        VL();
         if (this.mIsHost || !TbadkApplication.m251getInst().isGiftSwitchOn()) {
-            this.btz.setVisibility(8);
+            this.btN.setVisibility(8);
         } else {
-            this.btz.setVisibility(0);
+            this.btN.setVisibility(0);
         }
-        this.btC = new com.baidu.tbadk.widget.i(this.btc);
+        this.btQ = new com.baidu.tbadk.widget.i(this.btr);
     }
 
     private void nu() {
-        this.btc.setContentView(w.my_gift_list_activity);
-        this.btw = null;
-        this.aFZ = this.btc.findViewById(v.root);
-        this.bto = (BdListView) this.aFZ.findViewById(v.list_view);
-        this.aGJ = (NavigationBar) this.aFZ.findViewById(v.navigation_bar);
-        String format = String.format(this.btc.getString(com.baidu.tieba.y.he_gift_title), this.btc.VG());
+        this.btr.setContentView(w.my_gift_list_activity);
+        this.btK = null;
+        this.aGj = this.btr.findViewById(v.root);
+        this.btC = (BdListView) this.aGj.findViewById(v.list_view);
+        this.aGT = (NavigationBar) this.aGj.findViewById(v.navigation_bar);
+        String format = String.format(this.btr.getString(com.baidu.tieba.y.he_gift_title), this.btr.VJ());
         if (this.mIsHost) {
-            this.aGJ.setTitleText(com.baidu.tieba.y.my_gift_list);
+            this.aGT.setTitleText(com.baidu.tieba.y.my_gift_list);
         } else {
-            this.aGJ.setTitleText(format);
+            this.aGT.setTitleText(format);
         }
-        this.aGJ.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.btm = (NoNetworkView) this.aFZ.findViewById(v.no_networkview);
-        this.btp = com.baidu.adp.lib.g.b.ek().a(this.btc, w.my_gift_list_head, null, false);
-        this.btp.setVisibility(8);
-        this.btt = (TextView) this.btp.findViewById(v.gift_total);
-        this.btu = (TextView) this.btp.findViewById(v.dou_num);
-        this.btv = (TextView) this.btp.findViewById(v.t_use);
-        this.btv.setOnClickListener(this.Ie);
-        this.btq = com.baidu.adp.lib.g.b.ek().a(this.btc, w.my_gift_list_footer, null, false);
-        this.btr = this.btq.findViewById(v.gift_footer_lay);
+        this.aGT.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.btB = (NoNetworkView) this.aGj.findViewById(v.no_networkview);
+        this.btD = com.baidu.adp.lib.g.b.ek().a(this.btr, w.my_gift_list_head, null, false);
+        this.btD.setVisibility(8);
+        this.btH = (TextView) this.btD.findViewById(v.gift_total);
+        this.btI = (TextView) this.btD.findViewById(v.dou_num);
+        this.btJ = (TextView) this.btD.findViewById(v.t_use);
+        this.btJ.setOnClickListener(this.If);
+        this.btE = com.baidu.adp.lib.g.b.ek().a(this.btr, w.my_gift_list_footer, null, false);
+        this.btF = this.btE.findViewById(v.gift_footer_lay);
         if (this.mIsHost) {
-            this.bto.addHeaderView(this.btp);
+            this.btC.addHeaderView(this.btD);
         } else if (TbadkApplication.m251getInst().isGiftSwitchOn()) {
-            this.btq.setPadding(0, 0, 0, com.baidu.adp.lib.util.m.c(this.btc, t.ds156));
+            this.btE.setPadding(0, 0, 0, com.baidu.adp.lib.util.m.c(this.btr, t.ds156));
         }
-        this.bto.addFooterView(this.btq);
-        this.bty = new g(this.btc, this.mIsHost);
-        this.bto.setAdapter((ListAdapter) this.bty);
-        this.Yc = new y(this.btc);
-        this.bto.setPullRefresh(this.Yc);
-        this.bto.setOnSrollToBottomListener(this.bts);
-        this.bto.setOnItemClickListener(this.aIT);
+        this.btC.addFooterView(this.btE);
+        this.btM = new g(this.btr, this.mIsHost);
+        this.btC.setAdapter((ListAdapter) this.btM);
+        this.Yg = new y(this.btr);
+        this.btC.setPullRefresh(this.Yg);
+        this.btC.setOnSrollToBottomListener(this.btG);
+        this.btC.setOnItemClickListener(this.aJg);
     }
 
-    private void VI() {
-        this.btz = (RelativeLayout) this.btc.findViewById(v.gift_relation_ll);
-        this.btA = (TextView) this.btc.findViewById(v.gift_relation_text);
-        this.btA.setOnClickListener(this.btc.VE());
-        this.btB = this.btc.findViewById(v.his_gift_line);
+    private void VL() {
+        this.btN = (RelativeLayout) this.btr.findViewById(v.gift_relation_ll);
+        this.btO = (TextView) this.btr.findViewById(v.gift_relation_text);
+        this.btO.setOnClickListener(this.btr.VH());
+        this.btP = this.btr.findViewById(v.his_gift_line);
         if (!this.mIsHost && TbadkApplication.m251getInst().isGiftSwitchOn()) {
-            this.bto.setOnScrollListener(new n(this));
+            this.btC.setOnScrollListener(new n(this));
         }
     }
 
-    public View VJ() {
-        return this.btr;
+    public View VM() {
+        return this.btF;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0100: IGET  (r2v0 java.lang.Integer A[REMOVE]) = (r6v0 tbclient.GetGiftMyList.DataRes) tbclient.GetGiftMyList.DataRes.total_num java.lang.Integer)] */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0115: IGET  (r2v1 java.lang.Integer A[REMOVE]) = (r6v0 tbclient.GetGiftMyList.DataRes) tbclient.GetGiftMyList.DataRes.money java.lang.Integer)] */
     public void a(DataRes dataRes, boolean z) {
-        this.btp.setVisibility(0);
+        this.btD.setVisibility(0);
         if (dataRes == null || dataRes.gift_list == null || dataRes.gift_list.size() == 0) {
-            if (this.Wx.size() == 0) {
-                this.btt.setText("0");
-                this.btu.setText("0");
-                this.bty.setData(null);
-                this.btq.setVisibility(8);
-                this.btz.setVisibility(8);
+            if (this.WB.size() == 0) {
+                this.btH.setText("0");
+                this.btI.setText("0");
+                this.btM.setData(null);
+                this.btE.setVisibility(8);
+                this.btN.setVisibility(8);
                 return;
             }
             return;
         }
         if (this.mIsHost || !TbadkApplication.m251getInst().isGiftSwitchOn()) {
-            this.btz.setVisibility(8);
+            this.btN.setVisibility(8);
         } else {
-            this.btz.setVisibility(0);
+            this.btN.setVisibility(0);
         }
         if (dataRes.money_txt != null) {
             String str = "";
-            if (!ay.aA(dataRes.money_txt.txt)) {
+            if (!az.aA(dataRes.money_txt.txt)) {
                 str = String.valueOf(dataRes.money_txt.txt) + ">";
             }
-            this.btv.setText(str);
-            this.btw = dataRes.money_txt.url;
-            this.btx = dataRes.money_txt.txt;
-            if (TextUtils.isEmpty(dataRes.money_txt.txt) || TextUtils.isEmpty(this.btw)) {
-                this.btv.setVisibility(8);
+            this.btJ.setText(str);
+            this.btK = dataRes.money_txt.url;
+            this.btL = dataRes.money_txt.txt;
+            if (TextUtils.isEmpty(dataRes.money_txt.txt) || TextUtils.isEmpty(this.btK)) {
+                this.btJ.setVisibility(8);
             }
         } else {
-            this.btv.setVisibility(8);
+            this.btJ.setVisibility(8);
         }
         if (dataRes.total_num.intValue() < 0) {
-            this.btt.setText("0");
+            this.btH.setText("0");
         } else {
-            this.btt.setText(new StringBuilder().append(dataRes.total_num).toString());
+            this.btH.setText(new StringBuilder().append(dataRes.total_num).toString());
         }
         if (dataRes.money.intValue() < 0) {
-            this.btt.setText("0");
+            this.btH.setText("0");
         } else {
-            this.btu.setText(new StringBuilder().append(dataRes.money).toString());
+            this.btI.setText(new StringBuilder().append(dataRes.money).toString());
         }
         if (dataRes.page != null) {
             if (dataRes.page.has_more.intValue() == 1) {
-                this.btq.setVisibility(0);
+                this.btE.setVisibility(0);
             } else {
-                this.btq.setVisibility(8);
+                this.btE.setVisibility(8);
             }
         }
         if (dataRes.gift_list != null) {
             if (!z) {
-                this.Wx.clear();
-                this.Wx.addAll(dataRes.gift_list);
+                this.WB.clear();
+                this.WB.addAll(dataRes.gift_list);
             } else {
-                this.Wx.addAll(dataRes.gift_list);
+                this.WB.addAll(dataRes.gift_list);
             }
         }
-        this.bty.setData(this.Wx);
+        this.btM.setData(this.WB);
     }
 
     public void onChangeSkinType(int i) {
-        this.btc.getLayoutMode().L(i == 1);
-        this.btc.getLayoutMode().h(this.aFZ);
-        this.btc.getLayoutMode().h(this.btp);
-        this.btc.getLayoutMode().h(this.btq);
-        this.aGJ.onChangeSkinType(i);
-        this.btm.onChangeSkinType(i);
-        this.Yc.bM(i);
+        this.btr.getLayoutMode().L(i == 1);
+        this.btr.getLayoutMode().h(this.aGj);
+        this.btr.getLayoutMode().h(this.btD);
+        this.btr.getLayoutMode().h(this.btE);
+        this.aGT.onChangeSkinType(i);
+        this.btB.onChangeSkinType(i);
+        this.Yg.bM(i);
     }
 
-    public void VK() {
-        this.bto.hN();
+    public void VN() {
+        this.btC.hN();
     }
 
     public void b(com.baidu.adp.widget.ListView.f fVar) {
-        this.Yc.a(fVar);
+        this.Yg.a(fVar);
     }
 
     public void g(u uVar) {
-        this.bto.setVisibility(0);
-        this.bto.hO();
-        this.btm.a(uVar);
+        this.btC.setVisibility(0);
+        this.btC.hO();
+        this.btB.a(uVar);
     }
 }

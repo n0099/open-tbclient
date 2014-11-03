@@ -13,8 +13,9 @@ public class PluginBaseFragmentActivity extends BaseFragmentActivity {
     private AssetManager mAssetManager;
     private Resources mResources;
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    protected void onChangeSkinType(int i) {
+    public void onChangeSkinType(int i) {
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.app.Activity

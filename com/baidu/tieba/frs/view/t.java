@@ -7,11 +7,11 @@ import com.baidu.tbadk.browser.TbWebViewActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements View.OnClickListener {
-    final /* synthetic */ r aGk;
+    final /* synthetic */ r aGu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(r rVar) {
-        this.aGk = rVar;
+        this.aGu = rVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,12 +20,12 @@ public class t implements View.OnClickListener {
         Activity activity;
         Activity activity2;
         String str2;
-        str = this.aGk.aFN;
+        str = this.aGu.aFX;
         if (!TextUtils.isEmpty(str)) {
-            activity = this.aGk.aBF;
-            activity2 = this.aGk.aBF;
+            activity = this.aGu.aBP;
+            activity2 = this.aGu.aBP;
             String string = activity2.getString(com.baidu.tieba.y.frs_badge_intro);
-            str2 = this.aGk.aFN;
+            str2 = this.aGu.aFX;
             TbWebViewActivity.startActivity(activity, string, str2);
         }
     }

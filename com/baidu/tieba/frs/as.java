@@ -8,11 +8,11 @@ import com.baidu.tbadk.coreExtra.act.LoginActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class as implements DialogInterface.OnClickListener {
-    final /* synthetic */ FrsActivity aBk;
+    final /* synthetic */ FrsActivity aBu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(FrsActivity frsActivity) {
-        this.aBk = frsActivity;
+        this.aBu = frsActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -21,17 +21,17 @@ public class as implements DialogInterface.OnClickListener {
         b bVar;
         b bVar2;
         if (dialogInterface instanceof Dialog) {
-            com.baidu.adp.lib.g.j.b((Dialog) dialogInterface, this.aBk);
+            com.baidu.adp.lib.g.j.b((Dialog) dialogInterface, this.aBu);
         }
         String currentAccount = TbadkApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            bcVar = this.aBk.aAF;
-            bVar = this.aBk.azE;
-            String name = bVar.zJ().getName();
-            bVar2 = this.aBk.azE;
-            bcVar.g(name, Long.valueOf(bVar2.zJ().getId()).longValue());
+            bcVar = this.aBu.aAP;
+            bVar = this.aBu.azN;
+            String name = bVar.zL().getName();
+            bVar2 = this.aBu.azN;
+            bcVar.g(name, Long.valueOf(bVar2.zL().getId()).longValue());
             return;
         }
-        LoginActivity.a((Activity) this.aBk, this.aBk.getString(com.baidu.tieba.y.login_to_use), true, 11036);
+        LoginActivity.a((Activity) this.aBu, this.aBu.getString(com.baidu.tieba.y.login_to_use), true, 11036);
     }
 }

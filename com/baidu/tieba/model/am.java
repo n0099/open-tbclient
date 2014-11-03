@@ -12,40 +12,40 @@ import tbclient.ReplyMe.DataRes;
 import tbclient.ReplyMe.ReplyList;
 /* loaded from: classes.dex */
 public class am extends com.baidu.adp.base.e {
-    private boolean Lk;
-    private com.baidu.tbadk.core.data.m alK;
-    private ArrayList<FeedData> bpk;
-    private com.baidu.tieba.data.ac bpl;
+    private boolean Ln;
+    private com.baidu.tbadk.core.data.m alT;
+    private ArrayList<FeedData> bpy;
+    private com.baidu.tieba.data.ac bpz;
 
     public am(Context context) {
         super(context);
-        this.bpl = new com.baidu.tieba.data.ac();
-        this.bpk = new ArrayList<>();
-        this.alK = new com.baidu.tbadk.core.data.m();
-        this.Lk = true;
+        this.bpz = new com.baidu.tieba.data.ac();
+        this.bpy = new ArrayList<>();
+        this.alT = new com.baidu.tbadk.core.data.m();
+        this.Ln = true;
     }
 
     public boolean isSucc() {
-        return this.Lk;
+        return this.Ln;
     }
 
-    public void A(ArrayList<FeedData> arrayList) {
-        this.bpk = arrayList;
+    public void B(ArrayList<FeedData> arrayList) {
+        this.bpy = arrayList;
     }
 
-    public ArrayList<FeedData> TK() {
-        return this.bpk;
+    public ArrayList<FeedData> TN() {
+        return this.bpy;
     }
 
-    public com.baidu.tbadk.core.data.m zM() {
-        return this.alK;
+    public com.baidu.tbadk.core.data.m zO() {
+        return this.alT;
     }
 
     public void parserJson(String str) {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            this.Lk = false;
+            this.Ln = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -58,14 +58,14 @@ public class am extends com.baidu.adp.base.e {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    this.bpk.add(feedData);
+                    this.bpy.add(feedData);
                 }
             }
-            this.bpl.parserJson(jSONObject.optJSONObject("message"));
-            this.alK.parserJson(jSONObject.optJSONObject("page"));
-            this.Lk = true;
+            this.bpz.parserJson(jSONObject.optJSONObject("message"));
+            this.alT.parserJson(jSONObject.optJSONObject("page"));
+            this.Ln = true;
         } catch (Exception e) {
-            this.Lk = false;
+            this.Ln = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -77,23 +77,23 @@ public class am extends com.baidu.adp.base.e {
                 for (int i = 0; i < list.size(); i++) {
                     FeedData feedData = new FeedData();
                     feedData.parserProtoBuf(list.get(i));
-                    this.bpk.add(feedData);
+                    this.bpy.add(feedData);
                 }
             }
-            this.alK.a(dataRes.page);
-            this.Lk = true;
+            this.alT.a(dataRes.page);
+            this.Ln = true;
         } catch (Exception e) {
-            this.Lk = false;
+            this.Ln = false;
             BdLog.e(e.getMessage());
         }
     }
 
     public void U(int i, int i2) {
-        ArrayList<FeedData> TK;
+        ArrayList<FeedData> TN;
         ReplyMeRequestMessage replyMeRequestMessage = new ReplyMeRequestMessage();
         replyMeRequestMessage.set_pn(Integer.valueOf(i2));
-        if (i == 4 && (TK = TK()) != null && TK.size() > 0) {
-            FeedData feedData = TK.get(TK.size() - 1);
+        if (i == 4 && (TN = TN()) != null && TN.size() > 0) {
+            FeedData feedData = TN.get(TN.size() - 1);
             replyMeRequestMessage.set_ids(String.format("%s,%s", feedData.getThread_id(), feedData.getPost_id()));
         }
         replyMeRequestMessage.setUpdateType(i);

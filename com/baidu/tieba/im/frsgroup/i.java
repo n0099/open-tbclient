@@ -17,23 +17,23 @@ public class i extends NetModel<j, k> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int tI() {
+    public int tK() {
         return 0;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int tJ() {
+    protected int tL() {
         return 103002;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public String tK() {
+    public String tM() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> tP() {
+    protected Class<? extends MvcSocketResponsedMessage> tR() {
         return FrsGroupResponseMessage.class;
     }
 }

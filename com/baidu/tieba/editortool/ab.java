@@ -1,24 +1,24 @@
 package com.baidu.tieba.editortool;
 /* loaded from: classes.dex */
 class ab implements az {
-    final /* synthetic */ aa arm;
+    final /* synthetic */ aa arv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(aa aaVar) {
-        this.arm = aaVar;
+        this.arv = aaVar;
     }
 
     @Override // com.baidu.tieba.editortool.az
-    public void Ci() {
+    public void Ck() {
         PbEditor pbEditor;
         PbEditor pbEditor2;
-        pbEditor = this.arm.ark;
-        pbEditor.ari = true;
-        pbEditor2 = this.arm.ark;
-        pbEditor2.ard.getEditText().requestFocus();
+        pbEditor = this.arv.art;
+        pbEditor.arr = true;
+        pbEditor2 = this.arv.art;
+        pbEditor2.arm.getEditText().requestFocus();
     }
 
     @Override // com.baidu.tieba.editortool.az
-    public void Cj() {
+    public void Cl() {
     }
 }

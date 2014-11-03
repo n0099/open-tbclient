@@ -28,12 +28,13 @@ import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.core.view.MorePopupWindow;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tbadk.pluginArch.PluginCenter;
 import com.baidu.tbadk.pluginArch.PluginNameList;
+import com.baidu.tieba.compatible.CompatibleUtile;
 import java.util.Date;
 import java.util.HashMap;
 /* loaded from: classes.dex */
@@ -95,7 +96,7 @@ public class TbWebViewActivity extends BaseActivity implements com.baidu.tbadk.c
         }
         this.mNeedCookie = intent.getBooleanExtra(TbWebViewActivityConfig.TAG_COOKIE, false);
         this.mEnableJs = intent.getBooleanExtra(TbWebViewActivityConfig.TAG_ENABLE_JS, false);
-        if (ay.aA(this.mUrl)) {
+        if (az.aA(this.mUrl)) {
             com.baidu.adp.lib.util.m.showToast(this, getResources().getString(com.baidu.tieba.y.url_is_null));
             return;
         }
@@ -169,7 +170,7 @@ public class TbWebViewActivity extends BaseActivity implements com.baidu.tbadk.c
         if (view == this.mShareFriends) {
             com.baidu.tbadk.coreExtra.share.h hVar = new com.baidu.tbadk.coreExtra.share.h();
             hVar.content = this.mCommonTitle;
-            hVar.MW = this.mUrl;
+            hVar.Na = this.mUrl;
             if (hVar != null) {
                 showShareDialog(hVar);
             }
@@ -187,9 +188,9 @@ public class TbWebViewActivity extends BaseActivity implements com.baidu.tbadk.c
     }
 
     private void initData() {
-        if (!ay.aA(this.mUrl)) {
+        if (!az.aA(this.mUrl)) {
             if (this.mUrl.indexOf("_client_version") < 0) {
-                if (ay.aA(Uri.parse(this.mUrl).getQuery())) {
+                if (az.aA(Uri.parse(this.mUrl).getQuery())) {
                     this.mUrl = String.valueOf(this.mUrl) + "?_client_version=" + TbConfig.getVersion();
                 } else {
                     this.mUrl = String.valueOf(this.mUrl) + "&_client_version=" + TbConfig.getVersion();
@@ -344,7 +345,7 @@ public class TbWebViewActivity extends BaseActivity implements com.baidu.tbadk.c
 
     @Override // com.baidu.tbadk.coreExtra.view.f
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        if (ay.aA(str)) {
+        if (az.aA(str)) {
             return false;
         }
         if (com.baidu.tbadk.util.i.r(this, str)) {
@@ -389,8 +390,8 @@ public class TbWebViewActivity extends BaseActivity implements com.baidu.tbadk.c
                 this.mWebViewContainer.addView(this.mWebView);
                 if (this.mEnableJs) {
                     addJavascriptInterface();
-                    return true;
                 }
+                CompatibleUtile.getInstance().removeJavascriptInterface(this.mWebView);
                 return true;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

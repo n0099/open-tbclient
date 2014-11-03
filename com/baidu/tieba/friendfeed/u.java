@@ -5,7 +5,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class u {
-    LinearLayout ayZ;
-    TextView aza;
-    ProgressBar azb;
+    LinearLayout azi;
+    TextView azj;
+    ProgressBar azk;
 }

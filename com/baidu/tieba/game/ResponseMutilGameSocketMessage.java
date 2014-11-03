@@ -46,15 +46,15 @@ public class ResponseMutilGameSocketMessage extends TbSocketReponsedMessage {
             this.mPage = requestMutilGameNetMessage.getPageNum();
             if (requestMutilGameNetMessage.getType() == 1) {
                 if (this.mPage <= 1) {
-                    com.baidu.tieba.game.a.a.Ij().a(bArr, "key_recommend_game_list");
+                    com.baidu.tieba.game.a.a.In().a(bArr, "key_recommend_game_list");
                 }
-                com.baidu.tieba.game.a.a.Ij().d(this.mData);
+                com.baidu.tieba.game.a.a.In().d(this.mData);
             } else if (requestMutilGameNetMessage.getType() == 2) {
                 if (this.mPage <= 1) {
-                    com.baidu.tieba.game.a.a.Ij().a(bArr, "key_game_new");
+                    com.baidu.tieba.game.a.a.In().a(bArr, "key_game_new");
                 }
                 if (this.mData != null) {
-                    com.baidu.tieba.game.a.a.Ij().M(this.mData.getGameList());
+                    com.baidu.tieba.game.a.a.In().M(this.mData.getGameList());
                 }
             }
         }

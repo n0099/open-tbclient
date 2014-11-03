@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.data.ForumData;
 /* loaded from: classes.dex */
 class v implements AdapterView.OnItemClickListener {
-    final /* synthetic */ o bBB;
+    final /* synthetic */ o bBP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(o oVar) {
-        this.bBB = oVar;
+        this.bBP = oVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -20,36 +20,36 @@ class v implements AdapterView.OnItemClickListener {
         x xVar;
         boolean z;
         x xVar2;
-        PersonBarActivity ZM;
+        PersonBarActivity ZO;
         boolean z2;
-        PersonBarActivity ZM2;
-        PersonBarActivity ZM3;
-        PersonBarActivity ZM4;
-        xVar = this.bBB.bBt;
+        PersonBarActivity ZO2;
+        PersonBarActivity ZO3;
+        PersonBarActivity ZO4;
+        xVar = this.bBP.bBH;
         if (xVar.getItem(i) != null) {
-            z = this.bBB.bBx;
+            z = this.bBP.bBL;
             if (!z) {
-                this.bBB.bAU = i;
-                xVar2 = this.bBB.bBt;
+                this.bBP.bBi = i;
+                xVar2 = this.bBP.bBH;
                 ForumData forumData = (ForumData) xVar2.getItem(i);
                 if (forumData != null) {
-                    ZM = this.bBB.ZM();
-                    if (ZM != null) {
-                        z2 = this.bBB.bAN;
+                    ZO = this.bBP.ZO();
+                    if (ZO != null) {
+                        z2 = this.bBP.bBb;
                         if (z2) {
                             Intent intent = new Intent();
                             intent.putExtra("bar_name", forumData.getName());
                             intent.putExtra("bar_id", forumData.getId());
-                            ZM3 = this.bBB.ZM();
-                            this.bBB.ZM();
-                            ZM3.setResult(-1, intent);
-                            ZM4 = this.bBB.ZM();
-                            ZM4.finish();
+                            ZO3 = this.bBP.ZO();
+                            this.bBP.ZO();
+                            ZO3.setResult(-1, intent);
+                            ZO4 = this.bBP.ZO();
+                            ZO4.finish();
                             return;
                         }
-                        o oVar = this.bBB;
-                        ZM2 = this.bBB.ZM();
-                        oVar.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(ZM2).createNormalCfg(forumData.getName(), "tb_mytieba")));
+                        o oVar = this.bBP;
+                        ZO2 = this.bBP.ZO();
+                        oVar.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(ZO2).createNormalCfg(forumData.getName(), "tb_mytieba")));
                     }
                 }
             }

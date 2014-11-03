@@ -4,17 +4,17 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.core.util.s;
 import com.baidu.tieba.y;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<e, DownloadData, DownloadData> {
-    final /* synthetic */ b Rc;
+    final /* synthetic */ b Rg;
 
     private c(b bVar) {
-        this.Rc = bVar;
+        this.Rg = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -35,11 +35,11 @@ public class c extends BdAsyncTask<e, DownloadData, DownloadData> {
         String name = eVar.getName();
         String url = eVar.getUrl();
         int position = eVar.getPosition();
-        if (ay.aA(key) || ay.aA(name)) {
+        if (az.aA(key) || az.aA(name)) {
             return null;
         }
         String str = String.valueOf(key.replace(".", "_")) + ".apk";
-        aq = this.Rc.aq(str);
+        aq = this.Rg.aq(str);
         if (s.br(str) != null) {
             DownloadData downloadData = new DownloadData(key);
             downloadData.setName(str);
@@ -49,10 +49,10 @@ public class c extends BdAsyncTask<e, DownloadData, DownloadData> {
             return downloadData;
         }
         DownloadData downloadData2 = new DownloadData(key, name, url, new a());
-        b bVar = this.Rc;
-        i = bVar.Rb;
-        bVar.Rb = i + 1;
-        i2 = this.Rc.Rb;
+        b bVar = this.Rg;
+        i = bVar.Rf;
+        bVar.Rf = i + 1;
+        i2 = this.Rg.Rf;
         downloadData2.setNotifyId(i2);
         downloadData2.setStatusMsg(TbadkApplication.getCurrentAccount());
         downloadData2.setType(12);
@@ -69,23 +69,23 @@ public class c extends BdAsyncTask<e, DownloadData, DownloadData> {
         List list;
         List list2;
         super.onPostExecute(downloadData);
-        this.Rc.QX = null;
+        this.Rg.Rb = null;
         if (downloadData != null) {
             if (downloadData.getStatus() == 3) {
-                this.Rc.a(downloadData);
+                this.Rg.a(downloadData);
                 UtilHelper.install_apk(TbadkApplication.m251getInst().getApp(), String.valueOf(downloadData.getId().replace(".", "_")) + ".apk");
             } else {
                 downloadData.setStatus(1);
-                this.Rc.a(downloadData);
-                g.rk().a(downloadData, 5);
+                this.Rg.a(downloadData);
+                g.rm().a(downloadData, 5);
                 NotificationHelper.showProgressNotification(TbadkApplication.m251getInst().getApp(), downloadData.getNotifyId(), null, 0, TbadkApplication.m251getInst().getApp().getString(y.download_will_begin), downloadData.getName(), false);
             }
-            b.QZ = null;
-            list = b.Ra;
+            b.Rd = null;
+            list = b.Re;
             if (!list.isEmpty()) {
-                list2 = b.Ra;
+                list2 = b.Re;
                 list2.remove(0);
-                this.Rc.ri();
+                this.Rg.rk();
             }
         }
     }

@@ -58,7 +58,7 @@ public class LiveGroupManager {
             this.mUserId = TbadkApplication.getCurrentAccount();
             String currentBduss = TbadkApplication.getCurrentBduss();
             if (currentBduss != null) {
-                a.ss().dy(currentBduss);
+                a.su().dy(currentBduss);
             } else {
                 this.mAccessToken = null;
             }
@@ -79,7 +79,7 @@ public class LiveGroupManager {
             MessageManager.getInstance().registerListener(this.mNetworkChangeWatcher);
             MessageManager.getInstance().registerListener(this.mChatRoomMessageListener);
             MessageManager.getInstance().registerListener(this.mExitAppMessageListener);
-            a.ss().dy(TbadkApplication.getCurrentBduss());
+            a.su().dy(TbadkApplication.getCurrentBduss());
             this.mUserId = TbadkApplication.getCurrentAccount();
             doBindRemoteService();
             createPhoneListener();
@@ -148,7 +148,7 @@ public class LiveGroupManager {
         try {
             if (this.mRemoteService != null) {
                 int currentStatus = this.mRemoteService.getCurrentStatus();
-                this.mRemoteService.su();
+                this.mRemoteService.sw();
                 return currentStatus;
             }
         } catch (RemoteException e) {
@@ -186,7 +186,7 @@ public class LiveGroupManager {
         if (str != null && str2 != null && str3 != null && str4 != null) {
             if (this.mAccessToken == null) {
                 UtilHelper.showToast(TbadkApplication.m251getInst().getApp(), y.live_error_accesstoken_null_or_expire);
-                a.ss().dy(TbadkApplication.getCurrentBduss());
+                a.su().dy(TbadkApplication.getCurrentBduss());
                 TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_TOKEN_EXPIRED, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_TOKEN_EXPIRED), "");
             } else if (this.mUserId == null) {
                 UtilHelper.showToast(TbadkApplication.m251getInst().getApp(), y.live_error_user_not_login);
@@ -436,7 +436,7 @@ public class LiveGroupManager {
         if (str2 != null && str4 != null) {
             if (this.mAccessToken == null) {
                 UtilHelper.showToast(TbadkApplication.m251getInst().getApp(), y.live_error_accesstoken_null_or_expire);
-                a.ss().dy(TbadkApplication.getCurrentBduss());
+                a.su().dy(TbadkApplication.getCurrentBduss());
                 TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_TOKEN_EXPIRED, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_TOKEN_EXPIRED), "");
                 broadcastLiveError(LiveStatusChangeDefinition.ERROR_PROMPT_TOKEN_EXPIRED);
             } else if (this.mUserId == null) {

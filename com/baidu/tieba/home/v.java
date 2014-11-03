@@ -6,10 +6,10 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.BarImageView;
 /* loaded from: classes.dex */
 final class v extends w {
-    LinearLayout aMT;
-    RelativeLayout aMU;
-    BarImageView aMY;
-    TextView aMZ;
-    v aNa;
-    TextView axq;
+    LinearLayout aNh;
+    RelativeLayout aNi;
+    BarImageView aNm;
+    TextView aNn;
+    v aNo;
+    TextView axz;
 }

@@ -16,15 +16,15 @@ class h implements com.baidu.tbadk.core.view.a {
     public void bE(int i) {
         boolean z;
         a aVar;
-        z = this.this$0.bkI;
+        z = this.this$0.bkW;
         if (z) {
             Intent intent = new Intent(TbConfig.getBroadcastActionPageChanged());
             intent.putExtra(ImageViewerConfig.INDEX, -1);
             intent.putExtra("state", i);
             this.this$0.sendBroadcast(intent);
         } else if (i == 0) {
-            aVar = this.this$0.bkC;
-            aVar.Sa();
+            aVar = this.this$0.bkQ;
+            aVar.Sd();
         }
     }
 }

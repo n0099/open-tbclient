@@ -11,8 +11,8 @@ class d implements CustomMessageTask.CustomRunnable<f> {
             return null;
         }
         f data = customMessage.getData();
-        data.YF = v.uN().uP();
-        data.YG = v.uN().uQ();
+        data.YJ = v.uP().uR();
+        data.YK = v.uP().uS();
         return new CustomResponsedMessage<>(2016100, data);
     }
 }

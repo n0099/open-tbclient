@@ -1,21 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.pluginArch.InstallCallback;
+import com.baidu.tbadk.pluginArch.Plugin;
+import com.baidu.tbadk.pluginArch.PluginCenter;
+import com.baidu.tbadk.pluginArch.PluginNameList;
+import com.baidu.tbadk.plugins.LivePlugin;
 /* loaded from: classes.dex */
-class ap implements Runnable {
-    final /* synthetic */ ao adZ;
-    private final /* synthetic */ CustomMessage aea;
+class ap implements InstallCallback {
+    final /* synthetic */ ao aeg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(ao aoVar, CustomMessage customMessage) {
-        this.adZ = aoVar;
-        this.aea = customMessage;
+    public ap(ao aoVar) {
+        this.aeg = aoVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        aj.a((AccountData) this.aea.getData(), TbadkApplication.m251getInst());
+    @Override // com.baidu.tbadk.pluginArch.InstallCallback
+    public void onFinish(int i, String str) {
+        Plugin pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_LIVE);
+        if (pluginByName != null) {
+            pluginByName.getClassInstance(LivePlugin.class);
+        }
     }
 }

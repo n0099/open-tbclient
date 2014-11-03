@@ -8,31 +8,31 @@ import com.baidu.tieba.square.CarouselRecommendView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class k extends BaseAdapter implements com.baidu.tieba.view.s {
-    private CarouselRecommendView aIE;
+    private CarouselRecommendView aIR;
     private CarouselRecommendView.n mPageAdapter = null;
     private ArrayList<ak> datas = new ArrayList<>();
 
     public k(Context context) {
-        this.aIE = null;
-        this.aIE = new CarouselRecommendView(context, false);
+        this.aIR = null;
+        this.aIR = new CarouselRecommendView(context, false);
     }
 
     public void setData(ArrayList<ak> arrayList) {
         this.datas = arrayList;
-        this.aIE.setData(arrayList);
-        this.mPageAdapter = this.aIE.getPagerAdapter();
+        this.aIR.setData(arrayList);
+        this.mPageAdapter = this.aIR.getPagerAdapter();
         notifyDataSetChanged();
     }
 
     public void startMarqueen() {
-        if (this.aIE != null) {
-            this.aIE.startMarqueen();
+        if (this.aIR != null) {
+            this.aIR.startMarqueen();
         }
     }
 
     public void stopMarqueen() {
-        if (this.aIE != null) {
-            this.aIE.stopMarqueen();
+        if (this.aIR != null) {
+            this.aIR.stopMarqueen();
         }
     }
 
@@ -53,26 +53,26 @@ public class k extends BaseAdapter implements com.baidu.tieba.view.s {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return this.aIE;
+        return this.aIR;
     }
 
     @Override // com.baidu.tieba.view.s
-    public void adn() {
+    public void adq() {
         if (this.mPageAdapter != null) {
-            this.mPageAdapter.adn();
+            this.mPageAdapter.adq();
         }
     }
 
     @Override // com.baidu.tieba.view.s
     public void g(View view, int i, int i2) {
         if (this.mPageAdapter != null) {
-            this.mPageAdapter.g(this.aIE, 0, 0);
+            this.mPageAdapter.g(this.aIR, 0, 0);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.aIE != null) {
-            this.aIE.onChangeSkinType(i);
+        if (this.aIR != null) {
+            this.aIR.onChangeSkinType(i);
         }
     }
 }

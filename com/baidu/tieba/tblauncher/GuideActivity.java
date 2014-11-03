@@ -33,23 +33,23 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class GuideActivity extends BaseActivity {
-    private ArrayList<View> bOa;
-    private ArrayList<ImageView> bOb;
-    private h bOc;
-    private BaseViewPager bOd;
-    private ImageView bOe;
-    private View bOf;
-    private ViewGroup bOi;
-    private boolean bsI;
-    private g bNY = null;
-    private String bNZ = null;
-    private boolean bOg = true;
-    public boolean bOh = true;
-    private final com.baidu.tbadk.core.view.a GY = new b(this);
-    private View.OnClickListener bOj = new c(this);
-    public View.OnClickListener bOk = new d(this);
-    private final ViewPager.OnPageChangeListener bOl = new e(this);
-    private final HttpMessageListener bOm = new f(this, CmdConfigHttp.JUMP_TO_NEW_GUIDE_HTTP_CMD);
+    private ArrayList<View> bOp;
+    private ArrayList<ImageView> bOq;
+    private h bOr;
+    private BaseViewPager bOs;
+    private ImageView bOt;
+    private View bOu;
+    private ViewGroup bOx;
+    private boolean bsW;
+    private g bOn = null;
+    private String bOo = null;
+    private boolean bOv = true;
+    public boolean bOw = true;
+    private final com.baidu.tbadk.core.view.a GZ = new b(this);
+    private View.OnClickListener bOy = new c(this);
+    public View.OnClickListener bOz = new d(this);
+    private final ViewPager.OnPageChangeListener bOA = new e(this);
+    private final HttpMessageListener bOB = new f(this, CmdConfigHttp.JUMP_TO_NEW_GUIDE_HTTP_CMD);
 
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2015000, new a());
@@ -61,83 +61,83 @@ public class GuideActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (bundle != null) {
-            this.bNZ = bundle.getString(GuildActivityConfig.FROM_PAGE);
+            this.bOo = bundle.getString(GuildActivityConfig.FROM_PAGE);
         } else {
-            this.bNZ = getIntent().getStringExtra(GuildActivityConfig.FROM_PAGE);
+            this.bOo = getIntent().getStringExtra(GuildActivityConfig.FROM_PAGE);
         }
-        if (TextUtils.isEmpty(this.bNZ)) {
-            this.bNZ = "";
+        if (TextUtils.isEmpty(this.bOo)) {
+            this.bOo = "";
         }
         try {
             setContentView(com.baidu.tieba.w.guide_activity);
-            aea();
-            this.bOh = com.baidu.tbadk.core.sharedPref.b.lk().getBoolean("jump_to_new_user_guide", true);
-            if (this.bOh) {
-                aeb();
+            aed();
+            this.bOw = com.baidu.tbadk.core.sharedPref.b.lk().getBoolean("jump_to_new_user_guide", true);
+            if (this.bOw) {
+                aee();
             }
             try {
-                adX();
-                this.bOc = new h(this, null);
-                this.bOd = (BaseViewPager) findViewById(com.baidu.tieba.v.guide_pager);
-                this.bOd.setAdapter(this.bOc);
-                this.bOd.setOnFlipOutListener(this.GY);
-                this.bOd.setOnPageChangeListener(this.bOl);
-                com.baidu.tbadk.core.i.l(this, "new_user_guide_pv");
-                if (this.bNZ != null && this.bNZ.equals(GuildActivityConfig.FROM_LOGO_PAGE)) {
-                    this.bNY = new g(this, null);
-                    this.bNY.setSelfExecute(true);
-                    this.bNY.execute(new String[0]);
+                aea();
+                this.bOr = new h(this, null);
+                this.bOs = (BaseViewPager) findViewById(com.baidu.tieba.v.guide_pager);
+                this.bOs.setAdapter(this.bOr);
+                this.bOs.setOnFlipOutListener(this.GZ);
+                this.bOs.setOnPageChangeListener(this.bOA);
+                com.baidu.tbadk.core.j.l(this, "new_user_guide_pv");
+                if (this.bOo != null && this.bOo.equals(GuildActivityConfig.FROM_LOGO_PAGE)) {
+                    this.bOn = new g(this, null);
+                    this.bOn.setSelfExecute(true);
+                    this.bOn.execute(new String[0]);
                     return;
                 }
-                this.bNY = null;
+                this.bOn = null;
             } catch (OutOfMemoryError e) {
-                Yr();
+                Yu();
                 TbadkApplication.m251getInst().onAppMemoryLow();
                 BdLog.detailException(e);
-                this.bOg = true;
-                this.bOh = false;
-                adZ();
+                this.bOv = true;
+                this.bOw = false;
+                aec();
             } catch (RuntimeException e2) {
-                Yr();
+                Yu();
                 TbadkApplication.m251getInst().onAppMemoryLow();
                 BdLog.detailException(e2);
-                this.bOg = true;
-                this.bOh = false;
-                adZ();
+                this.bOv = true;
+                this.bOw = false;
+                aec();
             }
         } catch (RuntimeException e3) {
-            this.bOg = true;
-            this.bOh = false;
-            adZ();
+            this.bOv = true;
+            this.bOw = false;
+            aec();
         }
     }
 
-    private void adX() {
-        this.bOa = new ArrayList<>();
-        this.bOb = new ArrayList<>();
+    private void aea() {
+        this.bOp = new ArrayList<>();
+        this.bOq = new ArrayList<>();
         View a = com.baidu.adp.lib.g.b.ek().a(this, com.baidu.tieba.w.guide_page_first, null, false);
         View a2 = com.baidu.adp.lib.g.b.ek().a(this, com.baidu.tieba.w.guide_page_second, null, false);
         View a3 = com.baidu.adp.lib.g.b.ek().a(this, com.baidu.tieba.w.guide_page_third, null, false);
-        this.bOb.add((ImageView) a.findViewById(com.baidu.tieba.v.image_first));
-        this.bOb.add((ImageView) a2.findViewById(com.baidu.tieba.v.image_second));
-        this.bOb.add((ImageView) a3.findViewById(com.baidu.tieba.v.image_third));
-        this.bOi = (ViewGroup) a3.findViewById(com.baidu.tieba.v.guide_page_end_hao123_open_layout);
-        this.bOe = (ImageView) a3.findViewById(com.baidu.tieba.v.radio_hao123_open);
-        this.bOf = a3.findViewById(com.baidu.tieba.v.start_app);
-        this.bOi.setVisibility(8);
-        this.bOf.setVisibility(0);
-        this.bOf.setOnClickListener(this.bOk);
-        this.bOa.add(a);
-        this.bOa.add(a2);
-        this.bOa.add(a3);
+        this.bOq.add((ImageView) a.findViewById(com.baidu.tieba.v.image_first));
+        this.bOq.add((ImageView) a2.findViewById(com.baidu.tieba.v.image_second));
+        this.bOq.add((ImageView) a3.findViewById(com.baidu.tieba.v.image_third));
+        this.bOx = (ViewGroup) a3.findViewById(com.baidu.tieba.v.guide_page_end_hao123_open_layout);
+        this.bOt = (ImageView) a3.findViewById(com.baidu.tieba.v.radio_hao123_open);
+        this.bOu = a3.findViewById(com.baidu.tieba.v.start_app);
+        this.bOx.setVisibility(8);
+        this.bOu.setVisibility(0);
+        this.bOu.setOnClickListener(this.bOz);
+        this.bOp.add(a);
+        this.bOp.add(a2);
+        this.bOp.add(a3);
     }
 
-    public void adY() {
+    public void aeb() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2012117));
     }
 
-    public void adZ() {
-        if (this.bNZ != null && !this.bNZ.equals(GuildActivityConfig.FROM_ABOUT_PAGE)) {
+    public void aec() {
+        if (this.bOo != null && !this.bOo.equals(GuildActivityConfig.FROM_ABOUT_PAGE)) {
             oq();
         }
         closeActivity();
@@ -146,23 +146,23 @@ public class GuideActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        Yr();
-        if (this.bNY != null) {
-            this.bNY.cancel(true);
-            this.bNY = null;
+        Yu();
+        if (this.bOn != null) {
+            this.bOn.cancel(true);
+            this.bOn = null;
         }
     }
 
-    protected void Yr() {
-        if (this.bOd != null) {
-            this.bOd.setBackgroundDrawable(null);
+    protected void Yu() {
+        if (this.bOs != null) {
+            this.bOs.setBackgroundDrawable(null);
         }
-        if (this.bOb != null) {
+        if (this.bOq != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.bOb.size()) {
-                    ImageView imageView = this.bOb.get(i2);
+                if (i2 < this.bOq.size()) {
+                    ImageView imageView = this.bOq.get(i2);
                     imageView.setBackgroundDrawable(null);
                     imageView.setImageBitmap(null);
                     i = i2 + 1;
@@ -187,7 +187,7 @@ public class GuideActivity extends BaseActivity {
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         switch (i) {
             case 4:
-                adZ();
+                aec();
                 return true;
             default:
                 return super.onKeyDown(i, keyEvent);
@@ -196,8 +196,8 @@ public class GuideActivity extends BaseActivity {
 
     public void oq() {
         boolean isFirstUse = TbadkApplication.m251getInst().getIsFirstUse();
-        if (this.bOg) {
-            if (!this.bOh) {
+        if (this.bOv) {
+            if (!this.bOw) {
                 if (!isFirstUse) {
                     sendMessage(new CustomMessage(2015001, new MainTabActivityConfig(this).createNormalCfg(1)));
                 } else {
@@ -205,7 +205,7 @@ public class GuideActivity extends BaseActivity {
                     sendMessage(new CustomMessage(2015001, new MainTabActivityConfig(this).createNormalCfg(4)));
                 }
             } else {
-                aec();
+                aef();
                 com.baidu.tbadk.core.sharedPref.b.lk().putBoolean("jump_to_new_user_guide", false);
             }
             if (isFirstUse) {
@@ -214,30 +214,30 @@ public class GuideActivity extends BaseActivity {
                 TbadkApplication.m251getInst().setFirstGoFrs(true);
             }
             finish();
-            this.bOg = false;
+            this.bOv = false;
         }
     }
 
-    public void aea() {
+    public void aed() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.JUMP_TO_NEW_GUIDE_HTTP_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.JUMP_TO_NEW_USER_CHOOSE_BAR);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setResponsedClass(ShowNewUserGuideResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        registerListener(this.bOm);
+        registerListener(this.bOB);
     }
 
-    public void aeb() {
+    public void aee() {
         String currentAccount = TbadkApplication.getCurrentAccount();
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.JUMP_TO_NEW_GUIDE_HTTP_CMD);
         httpMessage.addParam(SapiAccountManager.SESSION_UID, currentAccount);
         sendMessage(httpMessage);
     }
 
-    public void aec() {
+    public void aef() {
         sendMessage(new CustomMessage(2012116, new NewUserGuideActivityConfig(this, false, true)));
     }
 
-    public void aed() {
+    public void aeg() {
         Intent intent = new Intent();
         intent.addCategory("android.intent.category.LAUNCHER");
         intent.setAction("android.intent.action.MAIN");
@@ -251,7 +251,7 @@ public class GuideActivity extends BaseActivity {
         sendBroadcast(intent2);
     }
 
-    public boolean aee() {
+    public boolean aeh() {
         String str;
         try {
             ContentResolver contentResolver = getContentResolver();

@@ -4,23 +4,23 @@ import android.content.DialogInterface;
 import android.view.View;
 /* loaded from: classes.dex */
 public interface a {
-    boolean LL();
+    boolean LP();
 
-    View LV();
+    View LZ();
 
-    View Li();
+    View Lm();
 
-    void Mh();
+    void Ml();
 
-    String RI();
+    String RL();
 
-    View RJ();
+    View RM();
 
-    void RK();
+    void RN();
 
-    int RL();
+    int RO();
 
-    boolean RM();
+    boolean RP();
 
     void c(DialogInterface.OnClickListener onClickListener);
 

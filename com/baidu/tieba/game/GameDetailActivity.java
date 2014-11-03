@@ -18,13 +18,13 @@ import com.baidu.tbadk.game.RequestGameDetailMessage;
 import com.baidu.tbadk.game.ResponseGameDetailMessage;
 /* loaded from: classes.dex */
 public class GameDetailActivity extends BaseFragmentActivity implements RadioGroup.OnCheckedChangeListener {
-    private String aAw;
-    private y aGY;
-    private GameInfoData aGZ;
-    private GameRankInfoData aHa;
-    private com.baidu.tbadk.c.f aHb;
-    private final CustomMessageListener aHc = new p(this, 2001121);
-    private final com.baidu.adp.framework.listener.e Tb = new q(this, 303009);
+    private String aAG;
+    private y aHi;
+    private GameInfoData aHj;
+    private GameRankInfoData aHk;
+    private com.baidu.tbadk.c.f aHl;
+    private final CustomMessageListener aHm = new p(this, 2001121);
+    private final com.baidu.adp.framework.listener.e Tf = new q(this, 303009);
 
     static {
         TbadkApplication.m251getInst().RegisterIntent(GameDetailActivityConfig.class, GameDetailActivity.class);
@@ -39,17 +39,17 @@ public class GameDetailActivity extends BaseFragmentActivity implements RadioGro
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.aGY = new y(this);
-        registerListener(this.Tb);
-        registerListener(this.aHc);
+        this.aHi = new y(this);
+        registerListener(this.Tf);
+        registerListener(this.aHm);
         Intent intent = getIntent();
         String stringExtra = intent == null ? "" : intent.getStringExtra(GameDetailActivityConfig.GAME_ID_KEY);
         if (!TextUtils.isEmpty(stringExtra)) {
-            this.aHb = new com.baidu.tbadk.c.f(this);
-            this.aHb.b(this.aGY.Hm(), true);
-            this.aAw = intent == null ? "" : intent.getStringExtra(GameDetailActivityConfig.SOURCE);
-            if (TextUtils.isEmpty(this.aAw)) {
-                this.aAw = "3000301";
+            this.aHl = new com.baidu.tbadk.c.f(this);
+            this.aHl.b(this.aHi.Ho(), true);
+            this.aAG = intent == null ? "" : intent.getStringExtra(GameDetailActivityConfig.SOURCE);
+            if (TextUtils.isEmpty(this.aAG)) {
+                this.aAG = "3000301";
             }
             RequestGameDetailMessage requestGameDetailMessage = new RequestGameDetailMessage();
             requestGameDetailMessage.setGameId(stringExtra);
@@ -57,49 +57,50 @@ public class GameDetailActivity extends BaseFragmentActivity implements RadioGro
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    protected void onChangeSkinType(int i) {
-        this.aGY.onChangeSkinType(i);
-        if (this.aHb != null) {
-            this.aHb.sB();
+    public void onChangeSkinType(int i) {
+        this.aHi.onChangeSkinType(i);
+        if (this.aHl != null) {
+            this.aHl.sD();
         }
     }
 
     @Override // android.widget.RadioGroup.OnCheckedChangeListener
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        Hk();
+        Hm();
         if (i == com.baidu.tieba.v.radio_intro) {
-            this.aGY.ek(0);
+            this.aHi.ek(0);
         } else if (i == com.baidu.tieba.v.radio_rank) {
             TiebaStatic.eventStat(this, "game_detail_rank", "visit", 1, new Object[0]);
-            this.aGY.ek(1);
+            this.aHi.ek(1);
         }
-        Hl();
+        Hn();
     }
 
-    private void Hk() {
-        Fragment findFragmentByTag = getSupportFragmentManager().findFragmentByTag(this.aGY.Hp()[this.aGY.getCurrentPage()]);
+    private void Hm() {
+        Fragment findFragmentByTag = getSupportFragmentManager().findFragmentByTag(this.aHi.Hr()[this.aHi.getCurrentPage()]);
         if (findFragmentByTag != null) {
             getSupportFragmentManager().beginTransaction().hide(findFragmentByTag).commit();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Hl() {
+    public void Hn() {
         Fragment sVar;
-        int currentPage = this.aGY.getCurrentPage();
-        Fragment findFragmentByTag = getSupportFragmentManager().findFragmentByTag(this.aGY.Hp()[currentPage]);
+        int currentPage = this.aHi.getCurrentPage();
+        Fragment findFragmentByTag = getSupportFragmentManager().findFragmentByTag(this.aHi.Hr()[currentPage]);
         if (findFragmentByTag == null) {
-            String str = this.aGY.Hp()[currentPage];
+            String str = this.aHi.Hr()[currentPage];
             if (currentPage == 0) {
                 sVar = new r();
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("gameInfo", this.aGZ);
+                bundle.putSerializable("gameInfo", this.aHj);
                 sVar.setArguments(bundle);
             } else {
                 sVar = new s();
                 Bundle bundle2 = new Bundle();
-                bundle2.putSerializable("gameRank", this.aHa);
+                bundle2.putSerializable("gameRank", this.aHk);
                 sVar.setArguments(bundle2);
             }
             getSupportFragmentManager().beginTransaction().add(com.baidu.tieba.v.fragment, sVar, str).commit();

@@ -8,13 +8,13 @@ import tbclient.ForumRecommend.ForumRecommendResIdl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements com.baidu.adp.lib.cache.u<byte[]> {
-    final /* synthetic */ n bou;
-    private final /* synthetic */ com.baidu.tieba.data.o bov;
+    final /* synthetic */ n boI;
+    private final /* synthetic */ com.baidu.tieba.data.o boJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar, com.baidu.tieba.data.o oVar) {
-        this.bou = nVar;
-        this.bov = oVar;
+        this.boI = nVar;
+        this.boJ = oVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,22 +23,22 @@ public class o implements com.baidu.adp.lib.cache.u<byte[]> {
     public void d(String str, byte[] bArr) {
         Handler handler;
         if (bArr != null) {
-            this.bov.ab(true);
+            this.boJ.ab(true);
             try {
                 ForumRecommendResIdl forumRecommendResIdl = (ForumRecommendResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumRecommendResIdl.class);
                 if (forumRecommendResIdl.data != null && (forumRecommendResIdl.data instanceof DataRes)) {
-                    this.bov.a(forumRecommendResIdl.data);
-                    this.bov.bp(true);
+                    this.boJ.a(forumRecommendResIdl.data);
+                    this.boJ.bp(true);
                 }
             } catch (Exception e) {
-                this.bov.ab(false);
+                this.boJ.ab(false);
             }
-            if (this.bov.isSuccess() && !this.bov.yS()) {
-                this.bov.yQ().zy();
+            if (this.boJ.isSuccess() && !this.boJ.yU()) {
+                this.boJ.yS().zA();
             }
-            BdLog.d("EnterForumTask,TYPE_DB,data.isEmpty=" + this.bov.isEmpty());
-            handler = this.bou.mUIHandler;
-            handler.post(new p(this, this.bov));
+            BdLog.d("EnterForumTask,TYPE_DB,data.isEmpty=" + this.boJ.isEmpty());
+            handler = this.boI.mUIHandler;
+            handler.post(new p(this, this.boJ));
         }
     }
 }

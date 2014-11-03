@@ -7,11 +7,11 @@ import com.baidu.tieba.data.FriendFeedThreadData;
 import com.baidu.tieba.frs.df;
 /* loaded from: classes.dex */
 class m implements v {
-    final /* synthetic */ FriendFeedActivity ayL;
+    final /* synthetic */ FriendFeedActivity ayU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(FriendFeedActivity friendFeedActivity) {
-        this.ayL = friendFeedActivity;
+        this.ayU = friendFeedActivity;
     }
 
     @Override // com.baidu.tieba.friendfeed.v
@@ -21,20 +21,20 @@ class m implements v {
         y yVar3;
         boolean z;
         df dfVar;
-        yVar = this.ayL.ayq;
-        if (i != yVar.EQ().EM() || view2 == null || view == null) {
-            yVar2 = this.ayL.ayq;
-            if (i != yVar2.EQ().EL()) {
-                yVar3 = this.ayL.ayq;
-                yVar3.EQ().EN();
+        yVar = this.ayU.ayz;
+        if (i != yVar.ES().EO() || view2 == null || view == null) {
+            yVar2 = this.ayU.ayz;
+            if (i != yVar2.ES().EN()) {
+                yVar3 = this.ayU.ayz;
+                yVar3.ES().EP();
                 return;
             }
-            this.ayL.ayu = friendFeedThreadData;
-            z = this.ayL.ayt;
+            this.ayU.ayD = friendFeedThreadData;
+            z = this.ayU.ayC;
             if (!z) {
-                this.ayL.ayt = true;
+                this.ayU.ayC = true;
                 int isLike = friendFeedThreadData.getPraise() == null ? 0 : friendFeedThreadData.getPraise().getIsLike();
-                dfVar = this.ayL.ayI;
+                dfVar = this.ayU.ayR;
                 dfVar.a(friendFeedThreadData.getFirst_post_id(), friendFeedThreadData.getTid(), isLike, "friendfeed");
                 return;
             }
@@ -43,6 +43,6 @@ class m implements v {
         Rect rect = new Rect();
         view.getDrawingRect(rect);
         ((ViewGroup) view2).offsetDescendantRectToMyCoords(view, rect);
-        this.ayL.a(i2, friendFeedThreadData, rect.bottom);
+        this.ayU.a(i2, friendFeedThreadData, rect.bottom);
     }
 }

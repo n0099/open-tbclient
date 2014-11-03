@@ -10,11 +10,11 @@ public class a extends i {
     public final String abtest;
     public final String apk_name;
     public final String apk_url;
-    public final int bHi;
-    public final int bHj;
-    public final int bHk;
-    public final b[] bHl;
-    public b bHm;
+    public b bHA;
+    public final int bHw;
+    public final int bHx;
+    public final int bHy;
+    public final b[] bHz;
     public final String ext_info;
     public final String first_name;
     public final String id;
@@ -31,7 +31,7 @@ public class a extends i {
     public a() {
         this.id = null;
         this.name = null;
-        this.bHi = 0;
+        this.bHw = 0;
         this.url = null;
         this.ios_url = null;
         this.apk_url = null;
@@ -42,20 +42,20 @@ public class a extends i {
         this.price = null;
         this.zp = 0;
         this.abtest = null;
-        this.bHj = 0;
+        this.bHx = 0;
         this.user_id = null;
         this.verify = null;
         this.ext_info = null;
-        this.bHk = 0;
-        this.bHl = null;
-        this.bHm = null;
+        this.bHy = 0;
+        this.bHz = null;
+        this.bHA = null;
     }
 
     public a(JSONObject jSONObject) {
         a aVar = (a) i.objectWithJsonStr(jSONObject.toString(), a.class);
         this.id = aVar.id;
         this.name = aVar.name;
-        this.bHi = aVar.bHi;
+        this.bHw = aVar.bHw;
         this.url = aVar.url;
         this.ios_url = aVar.ios_url;
         this.apk_url = aVar.apk_url;
@@ -65,17 +65,17 @@ public class a extends i {
         this.second_name = aVar.second_name;
         this.zp = aVar.zp;
         this.abtest = aVar.abtest;
-        this.bHj = aVar.bHj;
+        this.bHx = aVar.bHx;
         this.user_id = aVar.user_id;
         this.verify = aVar.verify;
         this.ext_info = aVar.ext_info;
         this.price = aVar.price;
-        this.bHk = aVar.bHk;
-        this.bHl = aVar.bHl;
-        if (this.bHl != null && this.bHl.length > 0) {
-            this.bHm = this.bHl[0];
+        this.bHy = aVar.bHy;
+        this.bHz = aVar.bHz;
+        if (this.bHz != null && this.bHz.length > 0) {
+            this.bHA = this.bHz[0];
         } else {
-            this.bHm = null;
+            this.bHA = null;
         }
     }
 
@@ -83,7 +83,7 @@ public class a extends i {
         if (app == null) {
             this.id = null;
             this.name = null;
-            this.bHi = 0;
+            this.bHw = 0;
             this.url = null;
             this.ios_url = null;
             this.apk_url = null;
@@ -94,18 +94,18 @@ public class a extends i {
             this.zp = 0;
             this.price = null;
             this.abtest = null;
-            this.bHj = 0;
+            this.bHx = 0;
             this.user_id = null;
             this.verify = null;
             this.ext_info = null;
-            this.bHk = 0;
-            this.bHl = null;
-            this.bHm = null;
+            this.bHy = 0;
+            this.bHz = null;
+            this.bHA = null;
             return;
         }
         this.id = app.id;
         this.name = app.name;
-        this.bHi = app.url_type.intValue();
+        this.bHw = app.url_type.intValue();
         this.url = app.url;
         this.apk_url = app.apk_url;
         this.apk_name = app.apk_name;
@@ -116,16 +116,16 @@ public class a extends i {
         this.zp = app.cpid.intValue();
         this.price = app.price;
         this.abtest = app.abtest;
-        this.bHj = app.plan_id.intValue();
+        this.bHx = app.plan_id.intValue();
         this.user_id = app.user_id;
         this.verify = app.verify;
         this.ext_info = app.ext_info;
-        this.bHk = app.app_time.intValue();
-        this.bHl = null;
+        this.bHy = app.app_time.intValue();
+        this.bHz = null;
         if (app.goods_info != null) {
             for (GoodsInfo goodsInfo : app.goods_info) {
                 if (goodsInfo != null) {
-                    this.bHm = new b(goodsInfo);
+                    this.bHA = new b(goodsInfo);
                     return;
                 }
             }
@@ -133,17 +133,17 @@ public class a extends i {
     }
 
     public boolean jF() {
-        if (this.bHi == 2) {
+        if (this.bHw == 2) {
             return false;
         }
         return jG() || jH();
     }
 
     public boolean jG() {
-        return (this.bHi != 3 || StringUtils.isNull(this.apk_name) || StringUtils.isNull(this.apk_url)) ? false : true;
+        return (this.bHw != 3 || StringUtils.isNull(this.apk_name) || StringUtils.isNull(this.apk_url)) ? false : true;
     }
 
     public boolean jH() {
-        return this.bHi == 1 && !StringUtils.isNull(this.url);
+        return this.bHw == 1 && !StringUtils.isNull(this.url);
     }
 }

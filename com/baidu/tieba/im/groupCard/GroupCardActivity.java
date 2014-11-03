@@ -22,20 +22,20 @@ import java.text.MessageFormat;
 public class GroupCardActivity extends BaseActivity implements View.OnClickListener {
     public static String GROUP_ID = "groupid";
     public static String GROUP_NAME = "groupname";
-    public static String aZC = "groupportrait";
+    public static String aZP = "groupportrait";
     private static String imageUrl = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/p/groupShareImg?group_id=";
-    private d aZz = null;
-    private b aZA = null;
+    private d aZM = null;
+    private b aZN = null;
     private long groupId = 0;
     private String groupName = "";
-    private String aZB = "";
+    private String aZO = "";
 
     public static void a(Activity activity, long j, String str, String str2) {
         Intent intent = new Intent(activity, GroupCardActivity.class);
         if (j != 0) {
             intent.putExtra(GROUP_ID, j);
             intent.putExtra(GROUP_NAME, str);
-            intent.putExtra(aZC, str2);
+            intent.putExtra(aZP, str2);
             activity.startActivity(intent);
         }
     }
@@ -48,11 +48,11 @@ public class GroupCardActivity extends BaseActivity implements View.OnClickListe
         initData();
     }
 
-    public boolean Kf() {
+    public boolean Kj() {
         if (s.bm()) {
             return true;
         }
-        this.aZz.showErr(0, getString(y.voice_error_sdcard));
+        this.aZM.showErr(0, getString(y.voice_error_sdcard));
         return false;
     }
 
@@ -60,51 +60,51 @@ public class GroupCardActivity extends BaseActivity implements View.OnClickListe
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.aZz.onChangeSkinType(i);
+        this.aZM.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.aZz.Ot()) {
-            if (Kf()) {
+        if (view == this.aZM.Ow()) {
+            if (Kj()) {
                 TiebaStatic.eventStat(this, "group_card_save", "click", 1, new Object[0]);
-                this.aZA.Oq();
+                this.aZN.Ot();
             }
-        } else if (view == this.aZz.Ov()) {
+        } else if (view == this.aZM.Oy()) {
             finish();
-        } else if (view == this.aZz.Ou()) {
+        } else if (view == this.aZM.Ox()) {
             TiebaStatic.eventStat(this, "group_card_share", "click", 1, new Object[0]);
-            Hv();
+            Hw();
         }
     }
 
-    private void Hv() {
+    private void Hw() {
         h hVar = new h();
         hVar.title = MessageFormat.format(getString(y.im_share_title), this.groupName);
         hVar.content = MessageFormat.format(getString(y.im_share_content), this.groupName, String.valueOf(this.groupId));
-        hVar.MW = String.valueOf(TiebaIMConfig.IM_GROUP_SHARE_URL) + this.groupId;
+        hVar.Na = String.valueOf(TiebaIMConfig.IM_GROUP_SHARE_URL) + this.groupId;
         try {
-            hVar.MX = Uri.parse(String.valueOf(imageUrl) + this.groupId + "&w=" + LocalViewSize.lV().lW());
+            hVar.Nb = Uri.parse(String.valueOf(imageUrl) + this.groupId + "&w=" + LocalViewSize.lV().lW());
         } catch (Throwable th) {
         }
         com.baidu.tbadk.coreExtra.share.d dVar = new com.baidu.tbadk.coreExtra.share.d(this);
         dVar.a(hVar, true);
-        dVar.a(3, Oo(), true);
+        dVar.a(3, Or(), true);
         dVar.a(getShareMtjStatInfo());
         dVar.show();
     }
 
-    private h Oo() {
+    private h Or() {
         h hVar = new h();
         hVar.title = MessageFormat.format(getString(y.im_share_title), this.groupName);
         hVar.content = MessageFormat.format(getString(y.im_share_content), this.groupName, String.valueOf(this.groupId));
-        hVar.MW = String.valueOf(TiebaIMConfig.IM_GROUP_SHARE_URL) + this.groupId;
+        hVar.Na = String.valueOf(TiebaIMConfig.IM_GROUP_SHARE_URL) + this.groupId;
         try {
-            if (this.aZB == null || this.aZB.equals("")) {
+            if (this.aZO == null || this.aZO.equals("")) {
                 hVar.f(BitmapFactory.decodeResource(getResources(), u.icon));
-            } else if (this.aZB.startsWith("http")) {
-                hVar.MX = Uri.parse(this.aZB);
+            } else if (this.aZO.startsWith("http")) {
+                hVar.Nb = Uri.parse(this.aZO);
             } else {
                 hVar.f(s.K(null, TbConfig.GROUP_HEAD_FILE));
             }
@@ -125,21 +125,21 @@ public class GroupCardActivity extends BaseActivity implements View.OnClickListe
     }
 
     private void nu() {
-        this.aZz = new d(this, null);
+        this.aZM = new d(this, null);
     }
 
     private void initData() {
-        this.aZz.showProgress();
+        this.aZM.showProgress();
         Intent intent = getIntent();
         this.groupId = intent.getLongExtra(GROUP_ID, 0L);
         this.groupName = intent.getStringExtra(GROUP_NAME);
-        this.aZB = intent.getStringExtra(aZC);
-        this.aZA = new b(this.groupId, this);
-        if (this.aZA != null) {
+        this.aZO = intent.getStringExtra(aZP);
+        this.aZN = new b(this.groupId, this);
+        if (this.aZN != null) {
             int n = m.n(this) - m.dip2px(this, 10.0f);
-            int o = (m.o(this) - this.aZz.Ow().getHeight()) - this.aZz.Ox().getHeight();
+            int o = (m.o(this) - this.aZM.Oz().getHeight()) - this.aZM.OA().getHeight();
             a aVar = new a(this);
-            String O = this.aZA.O(n, o);
+            String O = this.aZN.O(n, o);
             if (O != null) {
                 com.baidu.adp.lib.f.d.ef().a(O, 10, aVar, n, o, getUniqueId(), new Object[0]);
             }

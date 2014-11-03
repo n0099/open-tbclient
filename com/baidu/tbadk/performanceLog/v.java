@@ -7,32 +7,32 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class v {
-    private static volatile v ZA;
-    private static String Zx = "tb_perfor_samllflow_time";
-    private long Zz;
-    private boolean Zv = false;
-    private long Zy = 86400;
-    private long Zw = com.baidu.tbadk.core.sharedPref.b.lk().getLong(Zx, 0);
+    private static String ZB = "tb_perfor_samllflow_time";
+    private static volatile v ZE;
+    private long ZD;
+    private boolean Zz = false;
+    private long ZC = 86400;
+    private long ZA = com.baidu.tbadk.core.sharedPref.b.lk().getLong(ZB, 0);
 
-    public static v uN() {
-        if (ZA == null) {
+    public static v uP() {
+        if (ZE == null) {
             synchronized (v.class) {
-                if (ZA == null) {
-                    ZA = new v();
+                if (ZE == null) {
+                    ZE = new v();
                 }
             }
         }
-        return ZA;
+        return ZE;
     }
 
     private v() {
-        this.Zz = 0L;
-        this.Zz = this.Zy;
+        this.ZD = 0L;
+        this.ZD = this.ZC;
     }
 
-    public boolean uO() {
-        if (!this.Zv || (System.currentTimeMillis() - this.Zw) / 1000 <= this.Zz) {
-            return this.Zv;
+    public boolean uQ() {
+        if (!this.Zz || (System.currentTimeMillis() - this.ZA) / 1000 <= this.ZD) {
+            return this.Zz;
         }
         return false;
     }
@@ -40,18 +40,18 @@ public class v {
     public void aI(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.Zw || currentTimeMillis - this.Zw >= this.Zz) {
-                this.Zw = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.lk().putLong(Zx, this.Zw);
+            if (0 == this.ZA || currentTimeMillis - this.ZA >= this.ZD) {
+                this.ZA = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.lk().putLong(ZB, this.ZA);
             }
         } else {
-            this.Zw = 0L;
-            com.baidu.tbadk.core.sharedPref.b.lk().putLong(Zx, this.Zw);
+            this.ZA = 0L;
+            com.baidu.tbadk.core.sharedPref.b.lk().putLong(ZB, this.ZA);
         }
-        this.Zv = z;
+        this.Zz = z;
     }
 
-    public String uP() {
+    public String uR() {
         try {
             Runtime runtime = Runtime.getRuntime();
             StringBuffer stringBuffer = new StringBuffer();
@@ -95,19 +95,19 @@ public class v {
     }
 
     public u dp(int i) {
-        if (uO()) {
+        if (uQ()) {
             switch (i) {
                 case 1000:
                     x xVar = new x();
-                    xVar.Zu = "frs";
+                    xVar.Zy = "frs";
                     return xVar;
                 case 1001:
                     x xVar2 = new x();
-                    xVar2.Zu = "pb";
+                    xVar2.Zy = "pb";
                     return xVar2;
                 case 1002:
                     q qVar = new q();
-                    qVar.Zu = "im";
+                    qVar.Zy = "im";
                     return qVar;
                 default:
                     return null;
@@ -118,7 +118,7 @@ public class v {
 
     public void s(long j) {
         if (j > 0) {
-            this.Zz = j;
+            this.ZD = j;
         }
     }
 
@@ -137,7 +137,7 @@ public class v {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int uQ() {
+    public int uS() {
         BufferedReader bufferedReader;
         Process process;
         String str;

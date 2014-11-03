@@ -13,13 +13,13 @@ import tbclient.GetGameCenter.RecommendGame;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class as extends CustomMessageListener {
-    final /* synthetic */ ao aIm;
+    final /* synthetic */ ao aIz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public as(ao aoVar, int i) {
         super(i);
-        this.aIm = aoVar;
+        this.aIz = aoVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,21 +33,21 @@ public class as extends CustomMessageListener {
         au auVar3;
         List<GameInfo> list;
         GameCenterActivity gameCenterActivity;
-        ao aoVar = this.aIm;
-        avVar = this.aIm.aIh;
-        aoVar.hideLoadingView(avVar.HF());
-        avVar2 = this.aIm.aIh;
-        avVar2.Hx().setVisibility(0);
-        this.aIm.bK(true);
+        ao aoVar = this.aIz;
+        avVar = this.aIz.aIt;
+        aoVar.hideLoadingView(avVar.HJ());
+        avVar2 = this.aIz.aIt;
+        avVar2.HA().setVisibility(0);
+        this.aIz.bK(true);
         if (!(customResponsedMessage instanceof ResponseGameCenterLocalMessage)) {
-            ao aoVar2 = this.aIm;
-            gameCenterActivity = this.aIm.aIg;
+            ao aoVar2 = this.aIz;
+            gameCenterActivity = this.aIz.aIs;
             aoVar2.showToast(gameCenterActivity.getResources().getString(com.baidu.tieba.y.neterror));
             return;
         }
         ResponseGameCenterLocalMessage responseGameCenterLocalMessage = (ResponseGameCenterLocalMessage) customResponsedMessage;
         if (responseGameCenterLocalMessage.getOrginalMessage() instanceof RequestGameCenterLocalMessage) {
-            this.aIm.aIl = true;
+            this.aIz.aIx = true;
             GameList gameList = responseGameCenterLocalMessage.getGameList();
             List<AdList> adList = responseGameCenterLocalMessage.getAdList();
             List<RecommendGame> recommendGames = responseGameCenterLocalMessage.getRecommendGames();
@@ -56,10 +56,10 @@ public class as extends CustomMessageListener {
             } else {
                 z = gameList.has_more.intValue() == 1;
             }
-            auVar = this.aIm.aIi;
+            auVar = this.aIz.aIu;
             auVar.setHasMore(z);
-            auVar2 = this.aIm.aIi;
-            auVar3 = this.aIm.aIi;
+            auVar2 = this.aIz.aIu;
+            auVar3 = this.aIz.aIu;
             auVar2.setPageNum(auVar3.getPageNum() + 1);
             LinkedList linkedList = new LinkedList();
             LinkedList linkedList2 = new LinkedList();

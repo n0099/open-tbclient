@@ -6,23 +6,23 @@ import com.baidu.tieba.im.model.LocalPicModel;
 /* renamed from: com.baidu.tieba.im.chat.do  reason: invalid class name */
 /* loaded from: classes.dex */
 public class Cdo extends com.baidu.adp.base.h {
-    final /* synthetic */ TalkableActivity aQc;
+    final /* synthetic */ TalkableActivity aQq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Cdo(TalkableActivity talkableActivity) {
-        this.aQc = talkableActivity;
+        this.aQq = talkableActivity;
     }
 
     @Override // com.baidu.adp.base.h
     public void a(Object obj) {
         if (obj != null && (obj instanceof LocalPicModel.ResponseData)) {
             LocalPicModel.ResponseData responseData = (LocalPicModel.ResponseData) obj;
-            if (this.aQc.aPQ != null) {
-                this.aQc.aPQ.sendPicMessage(responseData.getSPathGen(), responseData.getBitmap());
+            if (this.aQq.aQe != null) {
+                this.aQq.aQe.sendPicMessage(responseData.getSPathGen(), responseData.getBitmap());
                 return;
             }
             return;
         }
-        this.aQc.showToast(TbadkApplication.m251getInst().getString(com.baidu.tieba.y.pic_parser_error));
+        this.aQq.showToast(TbadkApplication.m251getInst().getString(com.baidu.tieba.y.pic_parser_error));
     }
 }

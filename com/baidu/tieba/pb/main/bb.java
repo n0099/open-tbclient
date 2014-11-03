@@ -3,15 +3,15 @@ package com.baidu.tieba.pb.main;
 import android.view.View;
 /* loaded from: classes.dex */
 class bb implements Runnable {
-    final /* synthetic */ ba bvq;
-    private final /* synthetic */ com.baidu.tieba.data.ar bvr;
-    private final /* synthetic */ View bvs;
+    final /* synthetic */ ba bvE;
+    private final /* synthetic */ com.baidu.tieba.data.ar bvF;
+    private final /* synthetic */ View bvG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(ba baVar, com.baidu.tieba.data.ar arVar, View view) {
-        this.bvq = baVar;
-        this.bvr = arVar;
-        this.bvs = view;
+        this.bvE = baVar;
+        this.bvF = arVar;
+        this.bvG = view;
     }
 
     @Override // java.lang.Runnable
@@ -20,12 +20,12 @@ class bb implements Runnable {
         bv bvVar;
         PbActivity pbActivity2;
         bn bnVar;
-        pbActivity = this.bvq.bvg;
-        bvVar = pbActivity.buL;
-        com.baidu.tieba.data.ar arVar = this.bvr;
-        View view = this.bvs;
-        pbActivity2 = this.bvq.bvg;
-        bnVar = pbActivity2.buG;
-        bvVar.a(false, arVar, true, null, null, view, bnVar.getPbData().zQ());
+        pbActivity = this.bvE.bvu;
+        bvVar = pbActivity.buZ;
+        com.baidu.tieba.data.ar arVar = this.bvF;
+        View view = this.bvG;
+        pbActivity2 = this.bvE.bvu;
+        bnVar = pbActivity2.buU;
+        bvVar.a(false, arVar, true, null, null, view, bnVar.getPbData().zS());
     }
 }

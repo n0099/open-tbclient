@@ -9,12 +9,12 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 class d extends BdAsyncTask<ArrayList<com.baidu.tbadk.core.data.a>, List<DownloadData>, List<DownloadData>> {
-    final /* synthetic */ b Rc;
-    ArrayList<com.baidu.tbadk.core.data.a> Rd;
+    final /* synthetic */ b Rg;
+    ArrayList<com.baidu.tbadk.core.data.a> Rh;
 
     private d(b bVar) {
-        this.Rc = bVar;
-        this.Rd = null;
+        this.Rg = bVar;
+        this.Rh = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,12 +32,12 @@ class d extends BdAsyncTask<ArrayList<com.baidu.tbadk.core.data.a>, List<Downloa
         if (arrayList == null) {
             return linkedList;
         }
-        this.Rd = arrayList;
+        this.Rh = arrayList;
         Iterator<com.baidu.tbadk.core.data.a> it = arrayList.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.core.data.a next = it.next();
             String str = next.zl;
-            if (s.br(this.Rc.getFileOfUrl(next.zk)) != null) {
+            if (s.br(this.Rg.getFileOfUrl(next.zk)) != null) {
                 DownloadData downloadData = new DownloadData(str);
                 downloadData.setStatus(3);
                 linkedList.add(downloadData);
@@ -55,14 +55,14 @@ class d extends BdAsyncTask<ArrayList<com.baidu.tbadk.core.data.a>, List<Downloa
         if (list == null) {
             list = new LinkedList<>();
         }
-        for (DownloadData downloadData : g.rk().rm()) {
-            Iterator<com.baidu.tbadk.core.data.a> it = this.Rd.iterator();
+        for (DownloadData downloadData : g.rm().ro()) {
+            Iterator<com.baidu.tbadk.core.data.a> it = this.Rh.iterator();
             while (it.hasNext()) {
                 if (TextUtils.equals(it.next().zl, downloadData.getId())) {
                     list.add(downloadData);
                 }
             }
         }
-        this.Rc.h(list);
+        this.Rg.h(list);
     }
 }

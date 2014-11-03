@@ -18,99 +18,99 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class r extends com.baidu.adp.base.f {
-    private final DailyRecommendActivity bIp;
-    private final PinnedHeaderListView bIq;
-    private final View bIr;
-    private final TextView bIs;
-    private final i bIt;
-    private final z bxJ;
-    public final PbListView bxK;
+    private final DailyRecommendActivity bID;
+    private final PinnedHeaderListView bIE;
+    private final View bIF;
+    private final TextView bIG;
+    private final i bIH;
+    private final z bxX;
+    public final PbListView bxY;
     private final NavigationBar mNavigationBar;
     private final ProgressBar mProgress;
     private final View mView;
 
     public r(DailyRecommendActivity dailyRecommendActivity, aa aaVar, l lVar) {
         super(dailyRecommendActivity);
-        this.bIp = dailyRecommendActivity;
+        this.bID = dailyRecommendActivity;
         this.mView = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, w.daily_recommend_view, null);
-        this.bIp.setContentView(this.mView);
-        this.bIq = (PinnedHeaderListView) this.mView.findViewById(v.pinnedHeaderListview);
-        this.bIt = new i(dailyRecommendActivity, lVar);
-        this.bIs = (TextView) this.mView.findViewById(v.text_info);
-        this.bxJ = new z(this.mContext);
-        this.bIq.setPullRefresh(this.bxJ);
-        this.bIq.setAdapter((ListAdapter) this.bIt);
-        this.bIq.setOnSrollToBottomListener(aaVar);
+        this.bID.setContentView(this.mView);
+        this.bIE = (PinnedHeaderListView) this.mView.findViewById(v.pinnedHeaderListview);
+        this.bIH = new i(dailyRecommendActivity, lVar);
+        this.bIG = (TextView) this.mView.findViewById(v.text_info);
+        this.bxX = new z(this.mContext);
+        this.bIE.setPullRefresh(this.bxX);
+        this.bIE.setAdapter((ListAdapter) this.bIH);
+        this.bIE.setOnSrollToBottomListener(aaVar);
         this.mProgress = (ProgressBar) this.mView.findViewById(v.progress);
         this.mProgress.setVisibility(8);
-        this.bxK = new PbListView(this.bIp);
-        this.bxK.setOnClickListener(new s(this));
-        this.bIr = this.bxK.getView().findViewById(v.pb_more_view);
-        this.mNavigationBar = (NavigationBar) this.bIp.findViewById(v.view_navigation_bar);
+        this.bxY = new PbListView(this.bID);
+        this.bxY.setOnClickListener(new s(this));
+        this.bIF = this.bxY.getView().findViewById(v.pb_more_view);
+        this.mNavigationBar = (NavigationBar) this.bID.findViewById(v.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.bIp.getString(y.dailyrecommend_title));
+        this.mNavigationBar.setTitleText(this.bID.getString(y.dailyrecommend_title));
     }
 
-    public void XB() {
-        this.bxK.YH();
+    public void XE() {
+        this.bxY.YK();
     }
 
-    public void YH() {
+    public void YK() {
         this.mProgress.setVisibility(0);
     }
 
     public void d(boolean z, String str) {
         this.mProgress.setVisibility(8);
         if (!z && str != null) {
-            this.bIp.showToast(str);
+            this.bID.showToast(str);
         }
     }
 
     public void onDestroy() {
         this.mProgress.setVisibility(8);
-        this.bxK.XT();
+        this.bxY.XW();
     }
 
     public void a(com.baidu.tieba.data.l lVar, boolean z) {
-        this.bIq.hN();
+        this.bIE.hN();
         if (z) {
-            this.bxK.setText(this.bIp.getString(y.pb_load_more));
+            this.bxY.setText(this.bID.getString(y.pb_load_more));
         } else {
-            this.bxK.setText(this.bIp.getString(y.no_more_to_load));
+            this.bxY.setText(this.bID.getString(y.no_more_to_load));
         }
-        this.bxK.XT();
+        this.bxY.XW();
         if (lVar != null) {
-            if (lVar.yG().size() > 0) {
-                this.bIq.setNextPage(this.bxK);
+            if (lVar.yI().size() > 0) {
+                this.bIE.setNextPage(this.bxY);
             }
-            this.bIt.b(lVar);
-            this.bIt.notifyDataSetChanged();
+            this.bIH.b(lVar);
+            this.bIH.notifyDataSetChanged();
         }
     }
 
-    public void abL() {
+    public void abO() {
         Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, com.baidu.tieba.p.custom_home_text_info);
-        this.bIs.setVisibility(0);
+        this.bIG.setVisibility(0);
         loadAnimation.setAnimationListener(new t(this));
-        this.bIs.startAnimation(loadAnimation);
+        this.bIG.startAnimation(loadAnimation);
     }
 
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(i);
-        aw.h(this.bIq, com.baidu.tieba.s.cp_bg_line_c);
-        this.bxJ.bM(i);
-        if (this.bxK != null) {
-            this.bxK.bM(i);
+        aw.h(this.bIE, com.baidu.tieba.s.cp_bg_line_c);
+        this.bxX.bM(i);
+        if (this.bxY != null) {
+            this.bxY.bM(i);
         }
-        aw.b(this.bIs, com.baidu.tieba.s.cp_link_tip_d, 1);
-        aw.h((View) this.bIs, u.bg_update);
-        this.bIt.notifyDataSetChanged();
+        aw.b(this.bIG, com.baidu.tieba.s.cp_link_tip_d, 1);
+        aw.h((View) this.bIG, u.bg_update);
+        this.bIH.notifyDataSetChanged();
     }
 
     public void onResume() {
     }
 
     public void a(com.baidu.adp.widget.ListView.f fVar) {
-        this.bxJ.a(fVar);
+        this.bxX.a(fVar);
     }
 }

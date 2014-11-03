@@ -1,33 +1,32 @@
 package com.baidu.tbadk.core;
 
-import android.content.Context;
-import android.graphics.Rect;
-import android.view.ViewTreeObserver;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbadkApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements ViewTreeObserver.OnGlobalLayoutListener {
+public class e extends CustomMessageListener {
     final /* synthetic */ BaseFragmentActivity yG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(BaseFragmentActivity baseFragmentActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e(BaseFragmentActivity baseFragmentActivity, int i) {
+        super(i);
         this.yG = baseFragmentActivity;
     }
 
-    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-    public void onGlobalLayout() {
-        Rect rect = new Rect();
-        this.yG.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
-        int height = this.yG.getWindow().getDecorView().getRootView().getHeight();
-        int i = height - (rect.bottom - rect.top);
-        Context applicationContext = this.yG.getApplicationContext();
-        int identifier = applicationContext.getResources().getIdentifier("status_bar_height", "dimen", "android");
-        if (identifier > 0) {
-            i -= applicationContext.getResources().getDimensionPixelSize(identifier);
-        }
-        if (TbadkApplication.m251getInst().isKeyboardHeightCanSet(i) && i < (height * 2) / 3 && TbadkApplication.m251getInst().getKeyboardHeight() != i) {
-            TbadkApplication.m251getInst().setKeyboardHeight(i);
-            this.yG.onKeyboardHeightChanged(i);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        d dVar;
+        d dVar2;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005017) {
+            dVar = this.yG.mLayoutMode;
+            if (dVar != null) {
+                dVar2 = this.yG.mLayoutMode;
+                dVar2.a(null);
+                this.yG.onChangeSkinType(TbadkApplication.m251getInst().getSkinType());
+            }
         }
     }
 }

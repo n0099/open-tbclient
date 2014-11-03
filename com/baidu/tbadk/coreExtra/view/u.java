@@ -7,11 +7,11 @@ import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements View.OnClickListener {
-    final /* synthetic */ r Oy;
+    final /* synthetic */ r OC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(r rVar) {
-        this.Oy = rVar;
+        this.OC = rVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,27 +23,27 @@ public class u implements View.OnClickListener {
         y yVar2;
         y yVar3;
         x xVar2;
-        editText = this.Oy.Og;
+        editText = this.OC.Ok;
         String editable = editText.getText().toString();
         if (editable != null && editable.length() > 0) {
-            xVar = this.Oy.Oq;
+            xVar = this.OC.Ou;
             if (xVar != null) {
-                xVar2 = this.Oy.Oq;
+                xVar2 = this.OC.Ou;
                 xVar2.cancel();
             }
-            yVar = this.Oy.Op;
+            yVar = this.OC.Ot;
             if (yVar == null) {
-                this.Oy.Op = new y(this.Oy, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.INPUT_USERNAME_ADDRESS, editable);
-                yVar2 = this.Oy.Op;
+                this.OC.Ot = new y(this.OC, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.INPUT_USERNAME_ADDRESS, editable);
+                yVar2 = this.OC.Ot;
                 yVar2.setPriority(3);
-                yVar3 = this.Oy.Op;
+                yVar3 = this.OC.Ot;
                 yVar3.execute(new String[0]);
                 return;
             }
             return;
         }
-        r rVar = this.Oy;
-        baseActivity = this.Oy.On;
+        r rVar = this.OC;
+        baseActivity = this.OC.Or;
         rVar.cM(baseActivity.getString(com.baidu.tieba.y.input_name));
     }
 }

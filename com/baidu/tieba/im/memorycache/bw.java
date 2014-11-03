@@ -22,7 +22,7 @@ public class bw extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         String valueOf = String.valueOf(customResponsedMessage.getData());
-        c.PK().D(valueOf, 9);
+        c.PN().D(valueOf, 9);
         CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new bx(this, valueOf));
         customMessageTask.setParallel(TiebaIMConfig.getParallel());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);

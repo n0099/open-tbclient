@@ -6,15 +6,15 @@ import com.baidu.tieba.data.MarkData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ak implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PbActivity bvg;
-    private final /* synthetic */ MarkData bvn;
-    private final /* synthetic */ MarkData bvo;
+    private final /* synthetic */ MarkData bvB;
+    private final /* synthetic */ MarkData bvC;
+    final /* synthetic */ PbActivity bvu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(PbActivity pbActivity, MarkData markData, MarkData markData2) {
-        this.bvg = pbActivity;
-        this.bvn = markData;
-        this.bvo = markData2;
+        this.bvu = pbActivity;
+        this.bvB = markData;
+        this.bvC = markData2;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
@@ -25,23 +25,23 @@ public class ak implements com.baidu.tbadk.core.dialog.d {
         com.baidu.tieba.model.aj ajVar4;
         com.baidu.tieba.model.aj ajVar5;
         com.baidu.tieba.model.aj ajVar6;
-        ajVar = this.bvg.buH;
-        if (ajVar.zN()) {
-            ajVar5 = this.bvg.buH;
-            ajVar5.TJ();
-            ajVar6 = this.bvg.buH;
+        ajVar = this.bvu.buV;
+        if (ajVar.zP()) {
+            ajVar5 = this.bvu.buV;
+            ajVar5.TM();
+            ajVar6 = this.bvu.buV;
             ajVar6.bs(false);
         }
-        ajVar2 = this.bvg.buH;
-        ajVar2.b(this.bvn);
-        ajVar3 = this.bvg.buH;
+        ajVar2 = this.bvu.buV;
+        ajVar2.b(this.bvB);
+        ajVar3 = this.bvu.buV;
         ajVar3.bs(true);
-        ajVar4 = this.bvg.buH;
-        ajVar4.TI();
-        this.bvo.setPostId(this.bvn.getPostId());
+        ajVar4 = this.bvu.buV;
+        ajVar4.TL();
+        this.bvC.setPostId(this.bvB.getPostId());
         Intent intent = new Intent();
-        intent.putExtra(PbActivityConfig.KEY_MARK, this.bvo);
-        this.bvg.setResult(-1, intent);
-        this.bvg.Wi();
+        intent.putExtra(PbActivityConfig.KEY_MARK, this.bvC);
+        this.bvu.setResult(-1, intent);
+        this.bvu.Wl();
     }
 }

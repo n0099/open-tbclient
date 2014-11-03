@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.data.IconData;
@@ -24,28 +24,28 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class ad extends BaseAdapter {
-    private final MembersActivity aXR;
-    private af aXS;
-    private boolean aXU;
-    private boolean ayM;
-    private final Set<Long> aXV = new HashSet();
-    private final List<UserData> aHm = new ArrayList();
-    private ArrayList<IconData> ayQ = null;
-    private boolean aXT = false;
+    private final MembersActivity aYf;
+    private af aYg;
+    private boolean aYi;
+    private boolean ayV;
+    private final Set<Long> aYj = new HashSet();
+    private final List<UserData> aHw = new ArrayList();
+    private ArrayList<IconData> ayZ = null;
+    private boolean aYh = false;
 
     public void a(af afVar) {
-        this.aXS = afVar;
+        this.aYg = afVar;
     }
 
     public void F(List<UserData> list) {
-        this.aHm.addAll(list);
+        this.aHw.addAll(list);
     }
 
     public void W(List<Long> list) {
         if (list != null && list.size() > 0) {
             for (Long l : list) {
                 long longValue = l.longValue();
-                Iterator<UserData> it = this.aHm.iterator();
+                Iterator<UserData> it = this.aHw.iterator();
                 while (it.hasNext()) {
                     if (it.next().getUserIdLong() == longValue) {
                         it.remove();
@@ -55,63 +55,63 @@ public class ad extends BaseAdapter {
         }
     }
 
-    public void NH() {
-        this.aXV.clear();
+    public void NL() {
+        this.aYj.clear();
     }
 
-    public Set<Long> NI() {
-        return this.aXV;
+    public Set<Long> NM() {
+        return this.aYj;
     }
 
     public void a(Long l) {
-        if (this.aXV.contains(l)) {
-            this.aXV.remove(l);
+        if (this.aYj.contains(l)) {
+            this.aYj.remove(l);
         } else {
-            this.aXV.add(l);
+            this.aYj.add(l);
         }
         notifyDataSetChanged();
-        if (this.aXS != null) {
-            this.aXS.fI(this.aXV.size());
+        if (this.aYg != null) {
+            this.aYg.fI(this.aYj.size());
         }
     }
 
     public void bM(boolean z) {
         if (z) {
-            this.aHm.clear();
+            this.aHw.clear();
         }
-        this.aXT = false;
-        this.ayM = true;
+        this.aYh = false;
+        this.ayV = true;
     }
 
     public ad(MembersActivity membersActivity) {
-        this.aXR = membersActivity;
+        this.aYf = membersActivity;
     }
 
     public void bO(boolean z) {
-        this.ayM = z;
+        this.ayV = z;
     }
 
-    public boolean EJ() {
-        return this.ayM;
+    public boolean EL() {
+        return this.ayV;
     }
 
     public void cY(boolean z) {
-        this.aXT = z;
+        this.aYh = z;
     }
 
-    public boolean NJ() {
-        return this.aXU;
+    public boolean NN() {
+        return this.aYi;
     }
 
     public void cZ(boolean z) {
-        this.aXU = z;
+        this.aYi = z;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aHm != null) {
-            int size = this.aHm.size();
-            if (this.aXT) {
+        if (this.aHw != null) {
+            int size = this.aHw.size();
+            if (this.aYh) {
                 return size + 1;
             }
             return size;
@@ -121,15 +121,15 @@ public class ad extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (i < 0 || i >= this.aHm.size()) {
+        if (i < 0 || i >= this.aHw.size()) {
             return null;
         }
-        return this.aHm.get(i);
+        return this.aHw.get(i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.aXT && i == getCount() - 1) {
+        if (this.aYh && i == getCount() - 1) {
             return -2L;
         }
         return i;
@@ -149,27 +149,27 @@ public class ad extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         ag agVar;
         View view2;
-        if (this.aHm != null) {
+        if (this.aHw != null) {
             if (view == null) {
                 ag agVar2 = new ag();
                 if (getItemViewType(i) == 1) {
-                    View a = com.baidu.adp.lib.g.b.ek().a(this.aXR, com.baidu.tieba.w.im_members_list_foot, viewGroup, false);
-                    agVar2.ayZ = (LinearLayout) a.findViewById(com.baidu.tieba.v.list_more);
-                    agVar2.aza = (TextView) a.findViewById(com.baidu.tieba.v.more_title);
-                    agVar2.azb = (ProgressBar) a.findViewById(com.baidu.tieba.v.more_progress);
+                    View a = com.baidu.adp.lib.g.b.ek().a(this.aYf, com.baidu.tieba.w.im_members_list_foot, viewGroup, false);
+                    agVar2.azi = (LinearLayout) a.findViewById(com.baidu.tieba.v.list_more);
+                    agVar2.azj = (TextView) a.findViewById(com.baidu.tieba.v.more_title);
+                    agVar2.azk = (ProgressBar) a.findViewById(com.baidu.tieba.v.more_progress);
                     view2 = a;
                 } else {
-                    View a2 = com.baidu.adp.lib.g.b.ek().a(this.aXR, com.baidu.tieba.w.im_members_list_item, viewGroup, false);
-                    agVar2.aXY = (HeadImageView) a2.findViewById(com.baidu.tieba.v.item_head);
-                    agVar2.aXY.setIsRound(false);
-                    agVar2.aXY.setAutoChangeStyle(true);
-                    agVar2.aWu = (TextView) a2.findViewById(com.baidu.tieba.v.item_name);
-                    agVar2.aXZ = (ImageView) a2.findViewById(com.baidu.tieba.v.item_sex);
-                    agVar2.aYa = (TextView) a2.findViewById(com.baidu.tieba.v.item_time);
-                    agVar2.aYb = (TextView) a2.findViewById(com.baidu.tieba.v.item_address);
-                    agVar2.aXX = (ImageView) a2.findViewById(com.baidu.tieba.v.item_check);
-                    agVar2.azj = (UserIconBox) a2.findViewById(com.baidu.tieba.v.user_tshow_icon_box);
-                    agVar2.aYc = a2.findViewById(com.baidu.tieba.v.list_line);
+                    View a2 = com.baidu.adp.lib.g.b.ek().a(this.aYf, com.baidu.tieba.w.im_members_list_item, viewGroup, false);
+                    agVar2.aYm = (HeadImageView) a2.findViewById(com.baidu.tieba.v.item_head);
+                    agVar2.aYm.setIsRound(false);
+                    agVar2.aYm.setAutoChangeStyle(true);
+                    agVar2.aWI = (TextView) a2.findViewById(com.baidu.tieba.v.item_name);
+                    agVar2.aYn = (ImageView) a2.findViewById(com.baidu.tieba.v.item_sex);
+                    agVar2.aYo = (TextView) a2.findViewById(com.baidu.tieba.v.item_time);
+                    agVar2.aYp = (TextView) a2.findViewById(com.baidu.tieba.v.item_address);
+                    agVar2.aYl = (ImageView) a2.findViewById(com.baidu.tieba.v.item_check);
+                    agVar2.azs = (UserIconBox) a2.findViewById(com.baidu.tieba.v.user_tshow_icon_box);
+                    agVar2.aYq = a2.findViewById(com.baidu.tieba.v.list_line);
                     view2 = a2;
                 }
                 view2.setTag(agVar2);
@@ -179,49 +179,49 @@ public class ad extends BaseAdapter {
                 agVar = (ag) view.getTag();
             }
             if (getItemViewType(i) == 1) {
-                if (this.ayM) {
-                    agVar.aza.setText(com.baidu.tieba.y.members_load_more_person);
-                    agVar.azb.setVisibility(0);
+                if (this.ayV) {
+                    agVar.azj.setText(com.baidu.tieba.y.members_load_more_person);
+                    agVar.azk.setVisibility(0);
                 } else {
-                    agVar.aza.setText(com.baidu.tieba.y.members_no_more_person);
-                    agVar.azb.setVisibility(8);
+                    agVar.azj.setText(com.baidu.tieba.y.members_no_more_person);
+                    agVar.azk.setVisibility(8);
                 }
             } else {
                 TbadkApplication.m251getInst().getSkinType();
                 UserData userData = (UserData) getItem(i);
-                agVar.aXY.setTag(null);
+                agVar.aYm.setTag(null);
                 String portrait = userData.getPortrait();
                 if (!TextUtils.isEmpty(portrait)) {
-                    agVar.aXY.c(portrait, 12, false);
+                    agVar.aYm.c(portrait, 12, false);
                 }
-                agVar.aWu.setText(userData.getUserName());
+                agVar.aWI.setText(userData.getUserName());
                 switch (userData.getSex()) {
                     case 1:
-                        agVar.aXZ.setVisibility(0);
-                        aw.c(agVar.aXZ, com.baidu.tieba.u.icon_pop_qz_boy);
+                        agVar.aYn.setVisibility(0);
+                        aw.c(agVar.aYn, com.baidu.tieba.u.icon_pop_qz_boy);
                         break;
                     case 2:
-                        agVar.aXZ.setVisibility(0);
-                        aw.c(agVar.aXZ, com.baidu.tieba.u.icon_pop_qz_girl);
+                        agVar.aYn.setVisibility(0);
+                        aw.c(agVar.aYn, com.baidu.tieba.u.icon_pop_qz_girl);
                         break;
                     default:
-                        agVar.aXZ.setVisibility(8);
+                        agVar.aYn.setVisibility(8);
                         break;
                 }
-                agVar.aYa.setText(b(userData));
-                agVar.aYb.setText(userData.getPosition());
-                this.ayQ = userData.getTShowInfo();
-                if (agVar.azj != null) {
-                    agVar.azj.a(this.ayQ, 2, this.aXR.getResources().getDimensionPixelSize(com.baidu.tieba.t.big_icon_width), this.aXR.getResources().getDimensionPixelSize(com.baidu.tieba.t.big_icon_height), this.aXR.getResources().getDimensionPixelSize(com.baidu.tieba.t.big_icon_margin), true);
+                agVar.aYo.setText(b(userData));
+                agVar.aYp.setText(userData.getPosition());
+                this.ayZ = userData.getTShowInfo();
+                if (agVar.azs != null) {
+                    agVar.azs.a(this.ayZ, 2, this.aYf.getResources().getDimensionPixelSize(com.baidu.tieba.t.big_icon_width), this.aYf.getResources().getDimensionPixelSize(com.baidu.tieba.t.big_icon_height), this.aYf.getResources().getDimensionPixelSize(com.baidu.tieba.t.big_icon_margin), true);
                 }
-                if (this.aXU) {
-                    agVar.aXX.setVisibility(userData.getPermission().isController() ? 4 : 0);
+                if (this.aYi) {
+                    agVar.aYl.setVisibility(userData.getPermission().isController() ? 4 : 0);
                     Long valueOf = Long.valueOf(userData.getUserIdLong());
-                    agVar.aXX.setTag(valueOf);
-                    agVar.aXX.setSelected(this.aXV.contains(valueOf));
-                    agVar.aXX.setOnClickListener(new ae(this));
+                    agVar.aYl.setTag(valueOf);
+                    agVar.aYl.setSelected(this.aYj.contains(valueOf));
+                    agVar.aYl.setOnClickListener(new ae(this));
                 } else {
-                    agVar.aXX.setVisibility(8);
+                    agVar.aYl.setVisibility(8);
                 }
                 F(view);
             }
@@ -230,14 +230,14 @@ public class ad extends BaseAdapter {
     }
 
     private void F(View view) {
-        this.aXR.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
-        this.aXR.getLayoutMode().h(view);
+        this.aYf.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
+        this.aYf.getLayoutMode().h(view);
     }
 
     private String b(UserData userData) {
         long lastReplyTime;
-        MembersModel NB = this.aXR.NB();
-        switch (NB.getOrderType()) {
+        MembersModel NF = this.aYf.NF();
+        switch (NF.getOrderType()) {
             case 0:
                 lastReplyTime = userData.getLoginTime();
                 break;
@@ -252,11 +252,11 @@ public class ad extends BaseAdapter {
                 break;
         }
         if (lastReplyTime <= 0) {
-            if (NB.getOrderType() == 1) {
-                return this.aXR.getString(com.baidu.tieba.y.members_no_speak);
+            if (NF.getOrderType() == 1) {
+                return this.aYf.getString(com.baidu.tieba.y.members_no_speak);
             }
             return "";
         }
-        return ay.f(new Date(lastReplyTime * 1000));
+        return az.f(new Date(lastReplyTime * 1000));
     }
 }

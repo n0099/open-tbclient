@@ -4,11 +4,11 @@ import android.app.TimePickerDialog;
 import android.widget.TimePicker;
 /* loaded from: classes.dex */
 class i implements TimePickerDialog.OnTimeSetListener {
-    final /* synthetic */ h aYX;
+    final /* synthetic */ h aZk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.aYX = hVar;
+        this.aZk = hVar;
     }
 
     @Override // android.app.TimePickerDialog.OnTimeSetListener
@@ -19,16 +19,16 @@ class i implements TimePickerDialog.OnTimeSetListener {
         TimePickerDialog timePickerDialog;
         e eVar4;
         e eVar5;
-        eVar = this.aYX.aYU;
-        eVar.aYR = i;
-        eVar2 = this.aYX.aYU;
-        eVar2.aYS = i2;
-        eVar3 = this.aYX.aYU;
-        timePickerDialog = eVar3.aYM;
+        eVar = this.aZk.aZh;
+        eVar.aZe = i;
+        eVar2 = this.aZk.aZh;
+        eVar2.aZf = i2;
+        eVar3 = this.aZk.aZh;
+        timePickerDialog = eVar3.aYZ;
         timePickerDialog.dismiss();
-        eVar4 = this.aYX.aYU;
-        eVar4.NZ();
-        eVar5 = this.aYX.aYU;
-        eVar5.aYT = true;
+        eVar4 = this.aZk.aZh;
+        eVar4.Oc();
+        eVar5 = this.aZk.aZh;
+        eVar5.aZg = true;
     }
 }

@@ -14,12 +14,12 @@ import com.baidu.tbadk.core.atomData.WriteShareActivityConfig;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 /* loaded from: classes.dex */
 public class ShareToTBActivity extends BaseActivity {
-    private String bIX;
-    private String bIY;
-    private String bIZ;
-    private String bJa;
-    private String bJb;
-    private String bJc;
+    private String bJl;
+    private String bJm;
+    private String bJn;
+    private String bJo;
+    private String bJp;
+    private String bJq;
     private String mShareContent;
     private String mShareTitle;
 
@@ -27,26 +27,26 @@ public class ShareToTBActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        abU();
-        abV();
-        com.baidu.tbadk.core.i.l(this, "share4sdk");
+        abX();
+        abY();
+        com.baidu.tbadk.core.j.l(this, "share4sdk");
     }
 
-    private void abU() {
+    private void abX() {
         Bundle extras = getIntent().getExtras();
-        this.bIX = extras.getString("ShareUrl");
-        this.bIY = extras.getString("ShareImageUrl");
+        this.bJl = extras.getString("ShareUrl");
+        this.bJm = extras.getString("ShareImageUrl");
         this.mShareTitle = extras.getString("ShareTitle");
         this.mShareContent = extras.getString("ShareContent");
-        this.bIZ = extras.getString("mShareTargetBaName");
-        this.bJa = extras.getString("appName");
-        this.bJb = extras.getString("appKey");
-        this.bJc = extras.getString("appSign");
+        this.bJn = extras.getString("mShareTargetBaName");
+        this.bJo = extras.getString("appName");
+        this.bJp = extras.getString("appKey");
+        this.bJq = extras.getString("appSign");
     }
 
-    private void abV() {
+    private void abY() {
         if (TbadkApplication.isLogin()) {
-            abW();
+            abZ();
             return;
         }
         TbadkApplication.isSDKLogin = true;
@@ -66,8 +66,8 @@ public class ShareToTBActivity extends BaseActivity {
         if (i == 23008) {
             if (i2 == -1) {
                 if (intent != null) {
-                    this.bIZ = intent.getStringExtra("bar_name");
-                    abX();
+                    this.bJn = intent.getStringExtra("bar_name");
+                    aca();
                     return;
                 }
                 finish();
@@ -77,26 +77,26 @@ public class ShareToTBActivity extends BaseActivity {
         } else if (i == 11003) {
             TbadkApplication.isSDKLogin = false;
             if (i2 == -1) {
-                abW();
+                abZ();
             } else {
                 finish();
             }
         }
     }
 
-    private void abW() {
-        if (TextUtils.isEmpty(this.bIZ)) {
+    private void abZ() {
+        if (TextUtils.isEmpty(this.bJn)) {
             sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(this, TbadkApplication.getCurrentAccount(), 0, true, 23008)));
         } else {
-            abX();
+            aca();
         }
     }
 
-    private void abX() {
+    private void aca() {
         finish();
-        if (this.bIX == null) {
-            this.bIX = "";
+        if (this.bJl == null) {
+            this.bJl = "";
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteShareActivityConfig(this, this.bIZ, this.mShareTitle, this.mShareContent, this.bIY, this.bIX, this.bJb, this.bJa, this.bJc)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteShareActivityConfig(this, this.bJn, this.mShareTitle, this.mShareContent, this.bJm, this.bJl, this.bJp, this.bJo, this.bJq)));
     }
 }

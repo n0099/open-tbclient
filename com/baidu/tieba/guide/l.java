@@ -4,11 +4,11 @@ import android.view.View;
 import com.baidu.tieba.view.RightSlideViewPager;
 /* loaded from: classes.dex */
 class l implements View.OnClickListener {
-    final /* synthetic */ j aLn;
+    final /* synthetic */ j aLB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(j jVar) {
-        this.aLn = jVar;
+        this.aLB = jVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -17,18 +17,18 @@ class l implements View.OnClickListener {
         NewUserGuideActivity newUserGuideActivity2;
         NewUserGuideActivity newUserGuideActivity3;
         NewUserGuideActivity newUserGuideActivity4;
-        newUserGuideActivity = this.aLn.aLi;
+        newUserGuideActivity = this.aLB.aLw;
         if (newUserGuideActivity != null) {
-            newUserGuideActivity2 = this.aLn.aLi;
-            if (newUserGuideActivity2.Iv().TO()) {
-                newUserGuideActivity4 = this.aLn.aLi;
-                newUserGuideActivity4.Ix();
+            newUserGuideActivity2 = this.aLB.aLw;
+            if (newUserGuideActivity2.Iz().TR()) {
+                newUserGuideActivity4 = this.aLB.aLw;
+                newUserGuideActivity4.IB();
                 return;
             }
-            newUserGuideActivity3 = this.aLn.aLi;
-            RightSlideViewPager Iu = newUserGuideActivity3.Iu();
-            if (Iu != null) {
-                Iu.setCurrentItem(1, true);
+            newUserGuideActivity3 = this.aLB.aLw;
+            RightSlideViewPager Iy = newUserGuideActivity3.Iy();
+            if (Iy != null) {
+                Iy.setCurrentItem(1, true);
             }
         }
     }

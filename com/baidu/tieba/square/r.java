@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.aw;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class r extends BaseAdapter {
-    private ArrayList<u> bMv = null;
-    View.OnClickListener bMw = new s(this);
+    private ArrayList<u> bMK = null;
+    View.OnClickListener bML = new s(this);
     private Context mContext;
 
     public r(Context context) {
@@ -23,11 +23,11 @@ public class r extends BaseAdapter {
 
     public void a(u uVar) {
         if (uVar != null) {
-            this.bMv = J(uVar.sE());
+            this.bMK = K(uVar.sG());
         }
     }
 
-    private ArrayList<u> J(ArrayList<u> arrayList) {
+    private ArrayList<u> K(ArrayList<u> arrayList) {
         if (arrayList != null) {
             int size = (arrayList.size() / 2) * 2;
             int i = size <= 4 ? size : 4;
@@ -41,10 +41,10 @@ public class r extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bMv == null) {
+        if (this.bMK == null) {
             return 0;
         }
-        return Math.round(this.bMv.size() / 2) + 1;
+        return Math.round(this.bMK.size() / 2) + 1;
     }
 
     @Override // android.widget.Adapter
@@ -81,25 +81,25 @@ public class r extends BaseAdapter {
         baseFragmentActivity.getLayoutMode().h(view);
         if (count > 2) {
             if (i == 0) {
-                aw.h(tVar.Hk, com.baidu.tieba.u.bg_hot_up);
+                aw.h(tVar.Hl, com.baidu.tieba.u.bg_hot_up);
             } else if (i == count - 2) {
-                aw.h(tVar.Hk, com.baidu.tieba.u.bg_hot_down);
+                aw.h(tVar.Hl, com.baidu.tieba.u.bg_hot_down);
             }
         } else if (count == 2 && i == 0) {
-            aw.h(tVar.Hk, com.baidu.tieba.u.bg_hot);
+            aw.h(tVar.Hl, com.baidu.tieba.u.bg_hot);
         }
-        if (i >= 0 && this.bMv != null) {
-            if (i * 2 < this.bMv.size()) {
-                u uVar = this.bMv.get(i * 2);
-                tVar.bMy.setText(uVar.getTitle());
+        if (i >= 0 && this.bMK != null) {
+            if (i * 2 < this.bMK.size()) {
+                u uVar = this.bMK.get(i * 2);
+                tVar.bMN.setText(uVar.getTitle());
                 uVar.hs(String.valueOf(String.valueOf(i)) + "_first");
-                tVar.bMy.setTag(uVar);
+                tVar.bMN.setTag(uVar);
             }
-            if ((i * 2) + 1 < this.bMv.size()) {
-                u uVar2 = this.bMv.get((i * 2) + 1);
-                tVar.bMz.setText(uVar2.getTitle());
+            if ((i * 2) + 1 < this.bMK.size()) {
+                u uVar2 = this.bMK.get((i * 2) + 1);
+                tVar.bMO.setText(uVar2.getTitle());
                 uVar2.hs(String.valueOf(String.valueOf(i)) + "_second");
-                tVar.bMz.setTag(uVar2);
+                tVar.bMO.setTag(uVar2);
             }
         }
         return view;
@@ -109,13 +109,13 @@ public class r extends BaseAdapter {
         if (i2 == 0) {
             View inflate = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.w.forum_list_recommend_item, null);
             t tVar = new t(this, null);
-            tVar.Hk = (LinearLayout) inflate.findViewById(com.baidu.tieba.v.container);
-            tVar.bMy = (TextView) inflate.findViewById(com.baidu.tieba.v.forum_list_title_1);
-            tVar.bMz = (TextView) inflate.findViewById(com.baidu.tieba.v.forum_list_title_2);
-            tVar.bMy.setClickable(true);
-            tVar.bMz.setClickable(true);
-            tVar.bMy.setOnClickListener(this.bMw);
-            tVar.bMz.setOnClickListener(this.bMw);
+            tVar.Hl = (LinearLayout) inflate.findViewById(com.baidu.tieba.v.container);
+            tVar.bMN = (TextView) inflate.findViewById(com.baidu.tieba.v.forum_list_title_1);
+            tVar.bMO = (TextView) inflate.findViewById(com.baidu.tieba.v.forum_list_title_2);
+            tVar.bMN.setClickable(true);
+            tVar.bMO.setClickable(true);
+            tVar.bMN.setOnClickListener(this.bML);
+            tVar.bMO.setOnClickListener(this.bML);
             inflate.setTag(tVar);
             return inflate;
         } else if (i2 == 1) {

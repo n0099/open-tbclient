@@ -1,9 +1,9 @@
 package com.baidu.tieba.editortool;
 /* loaded from: classes.dex */
 public interface at {
-    void Cx();
+    void CA();
 
-    void Cy();
+    void Cz();
 
     void b(an anVar);
 }

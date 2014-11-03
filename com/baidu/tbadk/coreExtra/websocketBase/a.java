@@ -5,24 +5,24 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private String Pl;
-    private List<String> Pm;
-    private c Pn;
-    private boolean Po;
+    private String Pp;
+    private List<String> Pq;
+    private c Pr;
+    private boolean Ps;
 
-    public static a qo() {
+    public static a qq() {
         a aVar;
-        aVar = e.Ps;
+        aVar = e.Pw;
         return aVar;
     }
 
     private a() {
-        this.Pl = null;
-        this.Pm = null;
-        this.Pn = null;
-        this.Po = false;
-        this.Po = false;
-        this.Pm = null;
+        this.Pp = null;
+        this.Pq = null;
+        this.Pr = null;
+        this.Ps = false;
+        this.Ps = false;
+        this.Pq = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -30,57 +30,57 @@ public class a {
         this();
     }
 
-    public int qp() {
+    public int qr() {
         return com.baidu.tbadk.core.sharedPref.b.lk().getInt("KeyOfSharedPrefImCount", 0);
     }
 
-    public String qq() {
-        int qp = qp();
-        if (qp >= 10) {
+    public String qs() {
+        int qr = qr();
+        if (qr >= 10) {
             com.baidu.tbadk.core.sharedPref.b.lk().putInt("KeyOfSharedPrefImCount", 0);
             com.baidu.tbadk.core.sharedPref.b.lk().putString("KeyOfSharedPrefValidIp", "");
-            this.Pl = null;
+            this.Pp = null;
             return null;
         }
-        if (this.Pl == null) {
-            this.Pl = com.baidu.tbadk.core.sharedPref.b.lk().getString("KeyOfSharedPrefValidIp", null);
+        if (this.Pp == null) {
+            this.Pp = com.baidu.tbadk.core.sharedPref.b.lk().getString("KeyOfSharedPrefValidIp", null);
         }
-        if (!com.baidu.adp.lib.util.l.aA(this.Pl)) {
-            com.baidu.tbadk.core.sharedPref.b.lk().putInt("KeyOfSharedPrefImCount", qp + 1);
+        if (!com.baidu.adp.lib.util.l.aA(this.Pp)) {
+            com.baidu.tbadk.core.sharedPref.b.lk().putInt("KeyOfSharedPrefImCount", qr + 1);
         } else {
-            this.Pl = null;
+            this.Pp = null;
         }
-        return this.Pl;
+        return this.Pp;
     }
 
     public void cO(String str) {
         if (!TiebaIMConfig.defaultUrl.equals(str)) {
-            this.Pl = str;
+            this.Pp = str;
             com.baidu.tbadk.core.sharedPref.b.lk().putString("KeyOfSharedPrefValidIp", str);
         }
     }
 
-    public List<String> qr() {
-        if (this.Pm == null) {
-            this.Pm = cP(com.baidu.tbadk.core.sharedPref.b.lk().getString("KeyOfSharedPrefIpList", null));
+    public List<String> qt() {
+        if (this.Pq == null) {
+            this.Pq = cP(com.baidu.tbadk.core.sharedPref.b.lk().getString("KeyOfSharedPrefIpList", null));
         }
-        return this.Pm;
+        return this.Pq;
     }
 
-    public void qs() {
-        this.Po = false;
+    public void qu() {
+        this.Ps = false;
     }
 
-    public boolean qt() {
-        return this.Po;
+    public boolean qv() {
+        return this.Ps;
     }
 
     public void a(b bVar) {
-        if (this.Pn == null) {
-            this.Po = true;
-            this.Pn = new c(this, bVar);
-            this.Pn.setSelfExecute(true);
-            this.Pn.execute(new Object[0]);
+        if (this.Pr == null) {
+            this.Ps = true;
+            this.Pr = new c(this, bVar);
+            this.Pr.setSelfExecute(true);
+            this.Pr.execute(new Object[0]);
         }
     }
 

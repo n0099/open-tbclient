@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 class a extends BaseAdapter {
-    private List<ConfigInfos.PluginConfig> bGH = new ArrayList();
+    private List<ConfigInfos.PluginConfig> bGV = new ArrayList();
     private BaseActivity mActivity;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,19 +28,19 @@ class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.bGH.size();
+        return this.bGV.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: he */
     public ConfigInfos.PluginConfig getItem(int i) {
-        return this.bGH.get(i);
+        return this.bGV.get(i);
     }
 
     public void aj(List<ConfigInfos.PluginConfig> list) {
-        this.bGH.clear();
-        this.bGH.addAll(list);
+        this.bGV.clear();
+        this.bGV.addAll(list);
     }
 
     @Override // android.widget.Adapter
@@ -54,50 +54,50 @@ class a extends BaseAdapter {
         if (view == null) {
             view = View.inflate(this.mActivity, w.plugin_center_list_item, null);
             b bVar2 = new b(null);
-            bVar2.aBM = (HeadImageView) view.findViewById(v.icon);
-            bVar2.bGI = (TextView) view.findViewById(v.description);
-            bVar2.avZ = (TextView) view.findViewById(v.name);
-            bVar2.atC = (TextView) view.findViewById(v.status);
-            bVar2.bGJ = view.findViewById(v.top_divider);
-            bVar2.bGK = view.findViewById(v.bot_divider);
-            bVar2.bGL = (ImageView) view.findViewById(v.new_mark);
+            bVar2.aBW = (HeadImageView) view.findViewById(v.icon);
+            bVar2.bGW = (TextView) view.findViewById(v.description);
+            bVar2.awi = (TextView) view.findViewById(v.name);
+            bVar2.atL = (TextView) view.findViewById(v.status);
+            bVar2.bGX = view.findViewById(v.top_divider);
+            bVar2.bGY = view.findViewById(v.bot_divider);
+            bVar2.bGZ = (ImageView) view.findViewById(v.new_mark);
             view.setTag(bVar2);
             bVar = bVar2;
         } else {
             bVar = (b) view.getTag();
         }
         if (i == 0) {
-            bVar.bGJ.setPadding(0, 0, 0, 0);
-            bVar.bGK.setVisibility(4);
+            bVar.bGX.setPadding(0, 0, 0, 0);
+            bVar.bGY.setVisibility(4);
         } else if (i == getCount() - 1) {
-            bVar.bGJ.setPadding(m.dip2px(this.mActivity, 15.0f), 0, m.dip2px(this.mActivity, 15.0f), 0);
-            bVar.bGK.setVisibility(0);
-            bVar.bGK.setPadding(0, 0, 0, 0);
+            bVar.bGX.setPadding(m.dip2px(this.mActivity, 15.0f), 0, m.dip2px(this.mActivity, 15.0f), 0);
+            bVar.bGY.setVisibility(0);
+            bVar.bGY.setPadding(0, 0, 0, 0);
         } else {
-            bVar.bGJ.setPadding(m.dip2px(this.mActivity, 15.0f), 0, m.dip2px(this.mActivity, 15.0f), 0);
-            bVar.bGK.setVisibility(4);
+            bVar.bGX.setPadding(m.dip2px(this.mActivity, 15.0f), 0, m.dip2px(this.mActivity, 15.0f), 0);
+            bVar.bGY.setVisibility(4);
         }
         ConfigInfos.PluginConfig item = getItem(i);
         if (item != null) {
-            bVar.bGI.setText(item.verbose);
-            bVar.avZ.setText(item.description);
+            bVar.bGW.setText(item.verbose);
+            bVar.awi.setText(item.description);
             if (PluginCenter.getInstance().checkPluginInstalled(item.name)) {
                 if (PluginCenter.getInstance().hasUpdate(item.name)) {
-                    bVar.bGL.setVisibility(0);
-                    bVar.atC.setText(y.plugin_update);
+                    bVar.bGZ.setVisibility(0);
+                    bVar.atL.setText(y.plugin_update);
                 } else {
-                    bVar.bGL.setVisibility(4);
+                    bVar.bGZ.setVisibility(4);
                     if (!PluginCenter.getInstance().isEnabled(item.name)) {
-                        bVar.atC.setText(this.mActivity.getString(y.plugin_unenabled));
+                        bVar.atL.setText(this.mActivity.getString(y.plugin_unenabled));
                     } else {
-                        bVar.atC.setText(this.mActivity.getString(y.plugin_enabled));
+                        bVar.atL.setText(this.mActivity.getString(y.plugin_enabled));
                     }
                 }
             } else {
-                bVar.atC.setText(this.mActivity.getString(y.plugin_disabled));
+                bVar.atL.setText(this.mActivity.getString(y.plugin_disabled));
             }
-            bVar.aBM.setTag(item.icon);
-            bVar.aBM.c(item.icon, 10, false);
+            bVar.aBW.setTag(item.icon);
+            bVar.aBW.c(item.icon, 10, false);
         }
         this.mActivity.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
         this.mActivity.getLayoutMode().h(view);

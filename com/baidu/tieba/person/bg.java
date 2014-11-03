@@ -2,17 +2,16 @@ package com.baidu.tieba.person;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.widget.ProgressBar;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bg implements DialogInterface.OnClickListener {
-    final /* synthetic */ PersonImageActivity bCI;
+    final /* synthetic */ PersonImageActivity bCW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bg(PersonImageActivity personImageActivity) {
-        this.bCI = personImageActivity;
+        this.bCW = personImageActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -20,23 +19,21 @@ public class bg implements DialogInterface.OnClickListener {
         AlertDialog listMenu;
         MultiImageView multiImageView;
         MultiImageView multiImageView2;
-        bi biVar;
-        ProgressBar progressBar;
-        listMenu = this.bCI.getListMenu();
+        bj bjVar;
+        listMenu = this.bCW.getListMenu();
         if (dialogInterface == listMenu && i == 0) {
             try {
-                multiImageView = this.bCI.aNr;
+                multiImageView = this.bCW.aNF;
                 byte[] currentImageData = multiImageView.getCurrentImageData();
                 if (currentImageData != null) {
-                    multiImageView2 = this.bCI.aNr;
+                    multiImageView2 = this.bCW.aNF;
                     String currentImageUrl = multiImageView2.getCurrentImageUrl();
-                    this.bCI.bCH = new bi(this.bCI, currentImageUrl, currentImageData);
-                    biVar = this.bCI.bCH;
-                    biVar.execute(new String[0]);
-                    progressBar = this.bCI.mProgress;
-                    progressBar.setVisibility(0);
+                    this.bCW.bCV = new bj(this.bCW, currentImageUrl, currentImageData);
+                    bjVar = this.bCW.bCV;
+                    bjVar.execute(new String[0]);
+                    this.bCW.showProgressBarWithOffset(0, 0);
                 } else {
-                    this.bCI.showToast(this.bCI.getString(com.baidu.tieba.y.no_data));
+                    this.bCW.showToast(this.bCW.getString(com.baidu.tieba.y.no_data));
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

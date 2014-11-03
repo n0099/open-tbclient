@@ -14,12 +14,12 @@ class ax extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
             if (com.baidu.adp.lib.g.c.f(customResponsedMessage.getData().toString(), 1) == 1) {
-                FrsActivity.aAl = false;
-                FrsActivity.aAk = false;
+                FrsActivity.aAv = false;
+                FrsActivity.aAu = false;
                 return;
             }
-            FrsActivity.aAm = false;
-            FrsActivity.aAk = false;
+            FrsActivity.aAw = false;
+            FrsActivity.aAu = false;
         }
     }
 }

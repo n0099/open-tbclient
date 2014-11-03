@@ -7,16 +7,16 @@ import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements com.baidu.tbadk.core.dialog.d {
-    private final /* synthetic */ Activity Ft;
+    private final /* synthetic */ Activity Fu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(Activity activity) {
-        this.Ft = activity;
+        this.Fu = activity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.Ft, true, 23004, "remind")));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.Fu, true, 23004, "remind")));
     }
 }

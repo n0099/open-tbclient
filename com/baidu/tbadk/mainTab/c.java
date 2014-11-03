@@ -6,20 +6,20 @@ import com.baidu.tbadk.core.util.aw;
 import com.baidu.tieba.u;
 /* loaded from: classes.dex */
 public class c {
-    public boolean VQ = true;
-    public int VR;
-    public int VS;
-    public FragmentTabIndicator VT;
+    public boolean VU = true;
+    public int VV;
+    public int VW;
+    public FragmentTabIndicator VX;
     public int jI;
     public View view;
 
     public void bN(int i) {
-        if (this.VR != 0) {
-            aw.h(this.view, this.VR);
+        if (this.VV != 0) {
+            aw.h(this.view, this.VV);
         }
         if (this.view instanceof TextView) {
-            if (this.VS != 0) {
-                aw.b((TextView) this.view, this.VS, 1);
+            if (this.VW != 0) {
+                aw.b((TextView) this.view, this.VW, 1);
             }
             int b = b((TextView) this.view);
             if (b > 0 && b < 10) {

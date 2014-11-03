@@ -31,16 +31,16 @@ import tbclient.GameInfo;
 import tbclient.GetGameCategoryDetail.GetGameCategoryDetailResIdl;
 /* loaded from: classes.dex */
 public class GameCategoryDetailActivity extends AbsGameClassifyActivity implements aa {
-    private boolean aJD;
-    private List<GameInfoData> aJE;
-    private BdListView aJn;
-    private int aKA;
-    private a aKy;
-    private boolean aKz;
+    private BdListView aJA;
+    private boolean aJQ;
+    private List<GameInfoData> aJR;
+    private a aKM;
+    private boolean aKN;
+    private int aKO;
     private String mTitle;
-    private int aJC = 0;
+    private int aJP = 0;
     private int rn = 20;
-    private int aKB = 2;
+    private int aKP = 2;
 
     static {
         TbadkApplication.m251getInst().RegisterIntent(GameCategoryDetailActivityConfig.class, GameCategoryDetailActivity.class);
@@ -50,34 +50,34 @@ public class GameCategoryDetailActivity extends AbsGameClassifyActivity implemen
     @Override // com.baidu.tieba.game.base.AbsGameClassifyActivity
     public void e(Bundle bundle) {
         super.e(bundle);
-        this.aJn = new BdListView(this);
-        this.aJn.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        this.aJn.setCacheColorHint(0);
-        this.aJn.setDividerHeight(0);
-        setContentView(this.aJn);
-        this.aKy = new a(this);
-        this.aJn.setAdapter((ListAdapter) this.aKy);
-        this.aJn.setOnItemClickListener(this);
-        this.aJn.setOnSrollToBottomListener(this);
+        this.aJA = new BdListView(this);
+        this.aJA.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        this.aJA.setCacheColorHint(0);
+        this.aJA.setDividerHeight(0);
+        setContentView(this.aJA);
+        this.aKM = new a(this);
+        this.aJA.setAdapter((ListAdapter) this.aKM);
+        this.aJA.setOnItemClickListener(this);
+        this.aJA.setOnSrollToBottomListener(this);
         if (getIntent() != null && getIntent().getExtras() != null) {
             this.mTitle = getIntent().getExtras().getString(GameCategoryDetailActivityConfig.CATEGORY_TITLE);
-            this.aKA = getIntent().getExtras().getInt(GameCategoryDetailActivityConfig.CATEGORY_ID);
+            this.aKO = getIntent().getExtras().getInt(GameCategoryDetailActivityConfig.CATEGORY_ID);
         } else {
             this.mTitle = bundle.getString(GameCategoryDetailActivityConfig.CATEGORY_TITLE);
-            this.aKA = bundle.getInt(GameCategoryDetailActivityConfig.CATEGORY_ID);
+            this.aKO = bundle.getInt(GameCategoryDetailActivityConfig.CATEGORY_ID);
         }
         if (StringUtils.isNull(this.mTitle)) {
             this.mTitle = getString(y.game_classify_text_default);
         }
-        this.bhx.setTitleText(this.mTitle);
-        fx("key_prefix_categorydetail" + this.aKA);
+        this.bhL.setTitleText(this.mTitle);
+        fx("key_prefix_categorydetail" + this.aKO);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putString(GameCategoryDetailActivityConfig.CATEGORY_TITLE, this.mTitle);
-        bundle.putInt(GameCategoryDetailActivityConfig.CATEGORY_ID, this.aKA);
+        bundle.putInt(GameCategoryDetailActivityConfig.CATEGORY_ID, this.aKO);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -89,16 +89,16 @@ public class GameCategoryDetailActivity extends AbsGameClassifyActivity implemen
             if (getGameCategoryDetailResIdl != null && getGameCategoryDetailResIdl.data != null) {
                 if (getGameCategoryDetailResIdl.data.has_more != null) {
                     if (1 == getGameCategoryDetailResIdl.data.has_more.intValue()) {
-                        this.aKz = true;
+                        this.aKN = true;
                     } else {
-                        this.aKz = false;
+                        this.aKN = false;
                     }
                 }
-                this.aJC = 0;
-                this.aJD = false;
+                this.aJP = 0;
+                this.aJQ = false;
                 if (getGameCategoryDetailResIdl.data.game_list != null) {
                     List<GameInfoData> N = N(getGameCategoryDetailResIdl.data.game_list);
-                    com.baidu.tieba.game.a.a.Ij().M(N);
+                    com.baidu.tieba.game.a.a.In().M(N);
                     O(N);
                 }
             }
@@ -108,22 +108,22 @@ public class GameCategoryDetailActivity extends AbsGameClassifyActivity implemen
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.game.base.AbsGameClassifyActivity
-    public void d(HttpResponsedMessage httpResponsedMessage) {
+    public void c(HttpResponsedMessage httpResponsedMessage) {
         if (httpResponsedMessage instanceof GameCategoryDetailHttpMessage) {
             GameCategoryDetailHttpMessage gameCategoryDetailHttpMessage = (GameCategoryDetailHttpMessage) httpResponsedMessage;
             if (gameCategoryDetailHttpMessage == null || gameCategoryDetailHttpMessage.getGameInfoList() == null) {
                 a(r.a(NoDataViewFactory.ImgType.NODATA), s.bL(y.game_classify_no_data_text), (q) null);
                 return;
             }
-            this.aJC++;
-            this.aJD = false;
+            this.aJP++;
+            this.aJQ = false;
             if (gameCategoryDetailHttpMessage.getHasMore() == 1) {
-                this.aKz = true;
+                this.aKN = true;
             } else {
-                this.aKz = false;
+                this.aKN = false;
             }
             List<GameInfoData> N = N(gameCategoryDetailHttpMessage.getGameInfoList());
-            com.baidu.tieba.game.a.a.Ij().M(N);
+            com.baidu.tieba.game.a.a.In().M(N);
             O(N);
         }
     }
@@ -137,15 +137,15 @@ public class GameCategoryDetailActivity extends AbsGameClassifyActivity implemen
                 a(r.a(NoDataViewFactory.ImgType.NODATA), s.bL(y.game_classify_no_data_text), (q) null);
                 return;
             }
-            this.aJC++;
-            this.aJD = false;
+            this.aJP++;
+            this.aJQ = false;
             if (gameCategoryDetailSocketMessage.getHasMore() == 1) {
-                this.aKz = true;
+                this.aKN = true;
             } else {
-                this.aKz = false;
+                this.aKN = false;
             }
             List<GameInfoData> N = N(gameCategoryDetailSocketMessage.getGameInfoList());
-            com.baidu.tieba.game.a.a.Ij().M(N);
+            com.baidu.tieba.game.a.a.In().M(N);
             O(N);
         }
     }
@@ -164,93 +164,93 @@ public class GameCategoryDetailActivity extends AbsGameClassifyActivity implemen
     }
 
     @Override // com.baidu.tieba.game.base.AbsGameClassifyActivity
-    protected NetMessage HU() {
+    protected NetMessage HY() {
         GameCategoryDetailMessage gameCategoryDetailMessage = new GameCategoryDetailMessage();
-        gameCategoryDetailMessage.setCategoryId(this.aKA);
-        gameCategoryDetailMessage.setPageNum(this.aJC + 1);
+        gameCategoryDetailMessage.setCategoryId(this.aKO);
+        gameCategoryDetailMessage.setPageNum(this.aJP + 1);
         gameCategoryDetailMessage.setRn(this.rn);
-        gameCategoryDetailMessage.setPlatform(this.aKB);
+        gameCategoryDetailMessage.setPlatform(this.aKP);
         return gameCategoryDetailMessage;
     }
 
     @Override // com.baidu.tieba.game.base.AbsGameClassifyActivity
-    protected String HV() {
+    protected String HZ() {
         return TbConfig.GET_GAME_GATEGORY_DETAIL;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.game.base.AbsGameClassifyActivity
-    public Class<? extends HttpResponsedMessage> HW() {
+    public Class<? extends HttpResponsedMessage> Ia() {
         return GameCategoryDetailHttpMessage.class;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.game.base.AbsGameClassifyActivity
-    public Class<? extends SocketResponsedMessage> HX() {
+    public Class<? extends SocketResponsedMessage> Ib() {
         return GameCategoryDetailSocketMessage.class;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean getHasMore() {
-        return this.aKz;
+        return this.aKN;
     }
 
     @Override // com.baidu.adp.widget.ListView.aa
     public void hQ() {
-        Is();
+        Iw();
     }
 
-    public void Is() {
-        if (!this.aJD && this.aKz) {
-            this.aJD = true;
+    public void Iw() {
+        if (!this.aJQ && this.aKN) {
+            this.aJQ = true;
             GameCategoryDetailMessage gameCategoryDetailMessage = new GameCategoryDetailMessage();
-            gameCategoryDetailMessage.setCategoryId(this.aKA);
+            gameCategoryDetailMessage.setCategoryId(this.aKO);
             gameCategoryDetailMessage.setRn(this.rn);
-            gameCategoryDetailMessage.setPageNum(this.aJC + 1);
-            gameCategoryDetailMessage.setPlatform(this.aKB);
+            gameCategoryDetailMessage.setPageNum(this.aJP + 1);
+            gameCategoryDetailMessage.setPlatform(this.aKP);
             sendMessage(gameCategoryDetailMessage);
         }
     }
 
     public void O(List<GameInfoData> list) {
         if (list != null) {
-            if (this.aJE == null) {
-                this.aJE = new ArrayList();
+            if (this.aJR == null) {
+                this.aJR = new ArrayList();
             }
-            if (this.aJC == 1) {
-                Id();
+            if (this.aJP == 1) {
+                Ih();
             }
-            this.aJE.addAll(list);
-            if (this.aJE.size() > 0) {
-                this.aJn.setVisibility(0);
-                abO();
-                this.aKy.setData(this.aJE);
-                this.aKy.notifyDataSetChanged();
+            this.aJR.addAll(list);
+            if (this.aJR.size() > 0) {
+                this.aJA.setVisibility(0);
+                abR();
+                this.aKM.setData(this.aJR);
+                this.aKM.notifyDataSetChanged();
                 return;
             }
-            this.aJn.setVisibility(8);
+            this.aJA.setVisibility(8);
             a(r.a(NoDataViewFactory.ImgType.NODATA), s.bL(y.game_classify_no_data_text), (q) null);
         }
     }
 
-    private void Id() {
-        if (this.aJE != null) {
-            this.aJE.clear();
+    private void Ih() {
+        if (this.aJR != null) {
+            this.aJR.clear();
         } else {
-            this.aJE = new ArrayList();
+            this.aJR = new ArrayList();
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        GameInfoData item = this.aKy.getItem(i);
+        GameInfoData item = this.aKM.getItem(i);
         if (item != null) {
             if (!UtilHelper.isNetOk()) {
                 showToast(y.neterror);
                 return;
             }
             sendMessage(new CustomMessage(2002001, new GameDetailActivityConfig(this, item.getGameId(), "5000901")));
-            com.baidu.tieba.game.a.a.Ij().a(view, item);
+            com.baidu.tieba.game.a.a.In().a(getUniqueId(), view, item);
         }
     }
 }

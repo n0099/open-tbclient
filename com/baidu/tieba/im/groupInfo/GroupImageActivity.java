@@ -20,20 +20,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class GroupImageActivity extends BaseActivity {
-    private TextView aNq;
-    private String aNu;
+    private TextView aNE;
+    private String aNI;
+    private View bav;
     private int mq;
-    private ArrayList<String> baf = null;
+    private ArrayList<String> bat = null;
     private int mIndex = 0;
-    private j bag = null;
-    private MultiImageView aNr = null;
+    private k bau = null;
+    private MultiImageView aNF = null;
     private View.OnClickListener mOnClickListener = null;
-    private View.OnLongClickListener NU = null;
-    private DialogInterface.OnClickListener aNs = null;
-    private com.baidu.tbadk.core.view.a aNt = null;
+    private View.OnLongClickListener NY = null;
+    private DialogInterface.OnClickListener aNG = null;
+    private com.baidu.tbadk.core.view.a aNH = null;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = null;
-    private long aNw = 0;
-    private HashMap<String, Boolean> aNx = null;
+    private long aNK = 0;
+    private HashMap<String, Boolean> aNL = null;
 
     public static void a(Context context, String str, ArrayList<String> arrayList, long j) {
         if (j != 0 && context != null) {
@@ -53,12 +54,12 @@ public class GroupImageActivity extends BaseActivity {
         setContentView(com.baidu.tieba.w.image_activity_2);
         d(bundle);
         initUI();
-        int size = this.baf.size();
+        int size = this.bat.size();
         int i = 0;
         while (true) {
             if (i < size) {
-                String str = this.baf.get(i);
-                if (TextUtils.isEmpty(str) || !str.equals(this.aNu)) {
+                String str = this.bat.get(i);
+                if (TextUtils.isEmpty(str) || !str.equals(this.aNI)) {
                     i++;
                 } else {
                     this.mIndex = i;
@@ -69,11 +70,11 @@ public class GroupImageActivity extends BaseActivity {
             }
         }
         this.mq = size;
-        OA();
-        this.aNr.setIsFromCDN(true);
-        this.aNr.setAllowLocalUrl(true);
-        this.aNr.setUrlData(this.baf);
-        this.aNr.setCurrentItem(this.mIndex, false);
+        OD();
+        this.aNF.setIsFromCDN(true);
+        this.aNF.setAllowLocalUrl(true);
+        this.aNF.setUrlData(this.bat);
+        this.aNF.setCurrentItem(this.mIndex, false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -81,9 +82,9 @@ public class GroupImageActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1) {
-            this.aNr.setBackgroundColor(aw.by(i));
+            this.aNF.setBackgroundColor(aw.by(i));
         } else {
-            this.aNr.setBackgroundColor(-16777216);
+            this.aNF.setBackgroundColor(-16777216);
         }
     }
 
@@ -91,19 +92,19 @@ public class GroupImageActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.aNr.onPause();
+        this.aNF.onPause();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.aNr.onResume();
+        this.aNF.onResume();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
     public void releaseResouce() {
-        this.aNr.onDestroy();
+        this.aNF.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -111,10 +112,10 @@ public class GroupImageActivity extends BaseActivity {
     public void onDestroy() {
         TbadkApplication.m251getInst().delRemoteActivity(this);
         M(this.mIndex, this.mIndex);
-        this.aNr.onDestroy();
-        if (this.bag != null) {
-            this.bag.cancel();
-            this.bag = null;
+        this.aNF.onDestroy();
+        if (this.bau != null) {
+            this.bau.cancel();
+            this.bau = null;
         }
         hideProgressBar();
         super.onDestroy();
@@ -123,6 +124,10 @@ public class GroupImageActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
+            if (this.bav != null && this.bav.getVisibility() == 0) {
+                this.bav.setVisibility(8);
+                return true;
+            }
             Intent intent = new Intent();
             intent.putExtra(ImageViewerConfig.INDEX, this.mIndex);
             setResult(-1, intent);
@@ -133,39 +138,56 @@ public class GroupImageActivity extends BaseActivity {
     }
 
     private void initUI() {
+        long j;
+        int i;
         this.mOnClickListener = new e(this);
-        this.NU = new f(this);
-        this.aNs = new g(this);
+        this.NY = new f(this);
+        this.aNG = new g(this);
         this.mOnPageChangeListener = new h(this);
-        this.aNt = new i(this);
-        this.aNq = (TextView) findViewById(com.baidu.tieba.v.page_num);
-        this.aNr = (MultiImageView) findViewById(com.baidu.tieba.v.viewpager);
-        this.aNr.setPageMargin(com.baidu.adp.lib.util.m.dip2px(this, 8.0f));
-        this.aNr.u(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
-        this.aNr.setOnPageChangeListener(this.mOnPageChangeListener);
-        this.aNr.setItemOnLongClickListener(this.NU);
-        this.aNr.setItemOnclickListener(this.mOnClickListener);
-        this.aNr.setCurrentItem(Jm(), false);
-        this.aNr.setOnScrollOutListener(this.aNt);
-        this.aNr.setHasNext(false);
-        this.aNr.setNextTitle("mNextTitle");
+        this.aNH = new i(this);
+        this.bav = findViewById(com.baidu.tieba.v.tip_mask);
+        String string = com.baidu.tbadk.core.sharedPref.b.lk().getString("image_viewer_tip", "");
+        if (string == null || string.indexOf(",") <= 0) {
+            j = 0;
+            i = 0;
+        } else {
+            String[] split = string.split(",");
+            i = com.baidu.adp.lib.g.c.f(split[0], 0);
+            j = com.baidu.adp.lib.g.c.a(split[1], 0L);
+        }
+        if (i < 5 && (j == 0 || System.currentTimeMillis() - j > 86400000)) {
+            this.bav.setVisibility(0);
+            this.bav.setOnClickListener(new j(this));
+            com.baidu.tbadk.core.sharedPref.b.lk().putString("image_viewer_tip", String.valueOf(i + 1) + "," + System.currentTimeMillis());
+        }
+        this.aNE = (TextView) findViewById(com.baidu.tieba.v.page_num);
+        this.aNF = (MultiImageView) findViewById(com.baidu.tieba.v.viewpager);
+        this.aNF.setPageMargin(com.baidu.adp.lib.util.m.dip2px(this, 8.0f));
+        this.aNF.u(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
+        this.aNF.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.aNF.setItemOnLongClickListener(this.NY);
+        this.aNF.setItemOnclickListener(this.mOnClickListener);
+        this.aNF.setCurrentItem(Jq(), false);
+        this.aNF.setOnScrollOutListener(this.aNH);
+        this.aNF.setHasNext(false);
+        this.aNF.setNextTitle("mNextTitle");
         M(this.mIndex, this.mIndex);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void OA() {
-        if (this.baf != null) {
+    public void OD() {
+        if (this.bat != null) {
             String valueOf = String.valueOf(this.mIndex + 1);
             if (this.mq > 0) {
                 valueOf = String.valueOf(String.valueOf(valueOf) + "/") + this.mq;
             }
-            this.aNq.setText(valueOf);
+            this.aNE.setText(valueOf);
         }
     }
 
-    private int Jm() {
-        if (this.baf != null && this.baf.size() > 0) {
-            int size = this.baf.size();
+    private int Jq() {
+        if (this.bat != null && this.bat.size() > 0) {
+            int size = this.bat.size();
             if (this.mIndex >= size) {
                 this.mIndex = size - 1;
             }
@@ -180,41 +202,41 @@ public class GroupImageActivity extends BaseActivity {
 
     private void d(Bundle bundle) {
         if (bundle != null) {
-            this.baf = bundle.getStringArrayList(ImageViewerConfig.URL);
+            this.bat = bundle.getStringArrayList(ImageViewerConfig.URL);
             this.mIndex = bundle.getInt(ImageViewerConfig.INDEX, -1);
-            this.aNu = bundle.getString("curImgUrl");
+            this.aNI = bundle.getString("curImgUrl");
         } else {
             Intent intent = getIntent();
             if (intent != null) {
-                this.baf = intent.getStringArrayListExtra(ImageViewerConfig.URL);
-                this.aNu = intent.getStringExtra("curImgUrl");
+                this.bat = intent.getStringArrayListExtra(ImageViewerConfig.URL);
+                this.aNI = intent.getStringExtra("curImgUrl");
                 this.mIndex = 0;
             }
         }
-        this.aNx = new HashMap<>();
+        this.aNL = new HashMap<>();
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putStringArrayList(ImageViewerConfig.URL, this.baf);
+        bundle.putStringArrayList(ImageViewerConfig.URL, this.bat);
         bundle.putInt(ImageViewerConfig.INDEX, this.mIndex);
-        bundle.putString("curImgUrl", this.aNu);
+        bundle.putString("curImgUrl", this.aNI);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        this.aNr.setCurrentItem(this.mIndex, true);
+        this.aNF.setCurrentItem(this.mIndex, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void M(int i, int i2) {
-        synchronized (this.aNx) {
-            if (System.nanoTime() - this.aNw > 300000000 && this.baf != null && i < this.baf.size()) {
-                this.aNx.put(this.baf.get(i), true);
+        synchronized (this.aNL) {
+            if (System.nanoTime() - this.aNK > 300000000 && this.bat != null && i < this.bat.size()) {
+                this.aNL.put(this.bat.get(i), true);
             }
-            this.aNw = System.nanoTime();
+            this.aNK = System.nanoTime();
         }
     }
 }

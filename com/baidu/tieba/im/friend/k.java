@@ -8,13 +8,13 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 class k extends CustomMessageListener {
-    final /* synthetic */ InviteFriendListActivity aVN;
+    final /* synthetic */ InviteFriendListActivity aWb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(InviteFriendListActivity inviteFriendListActivity, int i) {
         super(i);
-        this.aVN = inviteFriendListActivity;
+        this.aWb = inviteFriendListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,19 +24,19 @@ class k extends CustomMessageListener {
         s sVar;
         s sVar2;
         if (customResponsedMessage instanceof GetContactListResponsedMessage) {
-            atomicBoolean = this.aVN.aVL;
+            atomicBoolean = this.aWb.aVZ;
             atomicBoolean.set(false);
-            sVar = this.aVN.aVG;
-            sVar.MV();
-            this.aVN.closeLoadingDialog();
+            sVar = this.aWb.aVU;
+            sVar.MZ();
+            this.aWb.closeLoadingDialog();
             List<com.baidu.tbadk.coreExtra.relationship.b> contacts = ((GetContactListResponsedMessage) customResponsedMessage).getContacts();
             if (contacts == null) {
                 contacts = new LinkedList<>();
             }
-            this.aVN.aVI = contacts;
-            sVar2 = this.aVN.aVG;
+            this.aWb.aVW = contacts;
+            sVar2 = this.aWb.aVU;
             if (sVar2 != null) {
-                this.aVN.Nb();
+                this.aWb.Nf();
             }
         }
     }

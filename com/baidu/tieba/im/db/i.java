@@ -18,8 +18,8 @@ public class i extends Handler {
         super.handleMessage(message);
         switch (message.what) {
             case 1:
-                ImDbShrinkStatic.a(ImDbShrinkStatic.MC()).removeMessages(1);
-                ImDbShrinkStatic.b(ImDbShrinkStatic.MC());
+                ImDbShrinkStatic.a(ImDbShrinkStatic.MG()).removeMessages(1);
+                ImDbShrinkStatic.b(ImDbShrinkStatic.MG());
                 return;
             default:
                 return;

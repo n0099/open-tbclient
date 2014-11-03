@@ -6,13 +6,13 @@ import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq extends BdAsyncTask<Object, FacePackageDownloadData, FacePackageDownloadData> {
-    final /* synthetic */ ap atY;
-    private String atn;
+    private String atw;
+    final /* synthetic */ ap auh;
     private com.baidu.tbadk.core.util.ac mNetWork;
 
     public aq(ap apVar, String str) {
-        this.atY = apVar;
-        this.atn = str;
+        this.auh = apVar;
+        this.atw = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,25 +25,25 @@ public class aq extends BdAsyncTask<Object, FacePackageDownloadData, FacePackage
         int i2;
         float f;
         try {
-            if (this.atn != null && this.atn.length() > 0) {
+            if (this.atw != null && this.atw.length() > 0) {
                 this.mNetWork = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_PACKAGE_DOWNLOAD_URL);
-                this.mNetWork.k("pid", this.atn);
+                this.mNetWork.k("pid", this.atw);
                 com.baidu.tbadk.core.util.ac acVar = this.mNetWork;
-                i = this.atY.ats;
+                i = this.auh.atB;
                 acVar.k("scr_w", String.valueOf(i));
                 com.baidu.tbadk.core.util.ac acVar2 = this.mNetWork;
-                i2 = this.atY.att;
+                i2 = this.auh.atC;
                 acVar2.k("scr_h", String.valueOf(i2));
                 com.baidu.tbadk.core.util.ac acVar3 = this.mNetWork;
-                f = this.atY.atu;
+                f = this.auh.atD;
                 acVar3.k("scr_dip", String.valueOf(f));
                 String lA = this.mNetWork.lA();
-                this.atY.atX = (FacePackageDownloadData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(lA, FacePackageDownloadData.class);
+                this.auh.aug = (FacePackageDownloadData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(lA, FacePackageDownloadData.class);
             }
         } catch (Exception e) {
             BdLog.detailException(e);
         }
-        facePackageDownloadData = this.atY.atX;
+        facePackageDownloadData = this.auh.aug;
         return facePackageDownloadData;
     }
 
@@ -53,8 +53,8 @@ public class aq extends BdAsyncTask<Object, FacePackageDownloadData, FacePackage
     /* renamed from: a */
     public void onPostExecute(FacePackageDownloadData facePackageDownloadData) {
         com.baidu.adp.base.h hVar;
-        this.atY.atW = null;
-        hVar = this.atY.mLoadDataCallBack;
+        this.auh.auf = null;
+        hVar = this.auh.mLoadDataCallBack;
         hVar.a(facePackageDownloadData);
         super.onPostExecute(facePackageDownloadData);
     }
@@ -66,6 +66,6 @@ public class aq extends BdAsyncTask<Object, FacePackageDownloadData, FacePackage
             this.mNetWork.dM();
             this.mNetWork = null;
         }
-        this.atY.atW = null;
+        this.auh.auf = null;
     }
 }

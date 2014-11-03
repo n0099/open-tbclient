@@ -6,14 +6,14 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ar extends BdAsyncTask<Void, Void, Bitmap> {
-    final /* synthetic */ w aNM;
-    private final /* synthetic */ String aNW;
+    final /* synthetic */ w aOa;
+    private final /* synthetic */ String aOk;
     private final /* synthetic */ String fR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(w wVar, String str, String str2) {
-        this.aNM = wVar;
-        this.aNW = str;
+        this.aOa = wVar;
+        this.aOk = str;
         this.fR = str2;
     }
 
@@ -22,7 +22,7 @@ public class ar extends BdAsyncTask<Void, Void, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: e */
     public Bitmap doInBackground(Void... voidArr) {
-        return BitmapFactory.decodeFile(this.aNW);
+        return BitmapFactory.decodeFile(this.aOk);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,6 +30,6 @@ public class ar extends BdAsyncTask<Void, Void, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: e */
     public void onPostExecute(Bitmap bitmap) {
-        this.aNM.e(this.fR, new com.baidu.adp.widget.a.a(bitmap, false));
+        this.aOa.e(this.fR, new com.baidu.adp.widget.a.a(bitmap, false));
     }
 }

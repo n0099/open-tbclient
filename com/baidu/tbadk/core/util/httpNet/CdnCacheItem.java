@@ -8,7 +8,7 @@ public class CdnCacheItem implements Serializable {
     private static final long serialVersionUID = 6622778689529331355L;
     private ArrayList<TBIPListItem> ipList;
     private static Object mLock = new Object();
-    private static Object FO = new Object();
+    private static Object FP = new Object();
     private boolean isUsedIp = false;
     public long lastTachometerTime = 0;
     public long firstUseIpTime = 0;
@@ -85,7 +85,7 @@ public class CdnCacheItem implements Serializable {
 
     public int setCdnDomainRank(int i, float f) {
         int i2;
-        synchronized (FO) {
+        synchronized (FP) {
             this.cdnDomainRank += i;
             if (this.cdnDomainRank < 0) {
                 this.cdnDomainRank = 0;

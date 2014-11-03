@@ -6,23 +6,23 @@ import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 class bm {
-    TextView JM;
-    int Uy;
-    TbImageView anF;
-    ImageView atG;
-    TbImageView atZ;
-    int atm;
-    TextView auA;
-    TextView auB;
-    FrameLayout auC;
-    TextView auD;
-    TbImageView auE;
-    String auF;
-    final /* synthetic */ bi auv;
-    FrameLayout auz;
+    TextView JN;
+    int UC;
+    TbImageView anO;
+    ImageView atP;
+    int atv;
+    final /* synthetic */ bi auE;
+    FrameLayout auI;
+    TextView auJ;
+    TextView auK;
+    FrameLayout auL;
+    TextView auM;
+    TbImageView auN;
+    String auO;
+    TbImageView aui;
 
     private bm(bi biVar) {
-        this.auv = biVar;
+        this.auE = biVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

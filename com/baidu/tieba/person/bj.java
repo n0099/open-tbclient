@@ -1,16 +1,57 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bj implements CustomMessageTask.CustomRunnable<PersonInfoActivityConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<PersonInfoActivityConfig> run(CustomMessage<PersonInfoActivityConfig> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            PersonInfoActivityStatic.b(customMessage.getData().getContext(), customMessage.getData().getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.USER_ID), customMessage.getData().getIntent().getStringExtra(com.baidu.tbadk.core.frameworkData.a.USER_NAME), customMessage.getData().getIntent().getStringExtra("from"), customMessage.getData().getIntent().getStringExtra("st_type"));
+public class bj extends BdAsyncTask<String, Integer, String> {
+    final /* synthetic */ PersonImageActivity bCW;
+    byte[] dL;
+    String mUrl;
+
+    public bj(PersonImageActivity personImageActivity, String str, byte[] bArr) {
+        this.bCW = personImageActivity;
+        this.mUrl = null;
+        this.dL = null;
+        this.mUrl = str;
+        this.dL = bArr;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: h */
+    public String doInBackground(String... strArr) {
+        switch (com.baidu.tbadk.core.util.s.a(this.mUrl, this.dL, this.bCW)) {
+            case -2:
+                return com.baidu.tbadk.core.util.s.lu();
+            case -1:
+            default:
+                return this.bCW.getString(com.baidu.tieba.y.save_error);
+            case 0:
+                return this.bCW.getString(com.baidu.tieba.y.save_image_to_album);
         }
-        return null;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPostExecute(String str) {
+        super.onPostExecute((bj) str);
+        this.bCW.showToast(str);
+        this.bCW.bCV = null;
+        this.bCW.hideProgressBar();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onCancelled() {
+        super.onCancelled();
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        this.bCW.bCV = null;
+        this.bCW.hideProgressBar();
+        super.cancel(true);
     }
 }

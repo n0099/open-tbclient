@@ -3,48 +3,48 @@ package com.baidu.tieba.square;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class am extends com.baidu.adp.base.e {
-    private long azR;
-    private long azS;
-    private long azT;
-    private long azU;
-    private ao bNa;
-    private ah bNb;
-    private an bNc;
+    private long aAa;
+    private long aAb;
+    private long aAc;
+    private long aAd;
+    private ao bNp;
+    private ah bNq;
+    private an bNr;
 
     public am(Context context) {
         super(context);
-        this.bNa = null;
-        this.bNb = null;
-        this.bNc = null;
-        this.azR = 0L;
-        this.azS = 0L;
-        this.azT = 0L;
-        this.azU = 0L;
-        this.bNb = new ah();
-    }
-
-    public long EZ() {
-        return this.azU;
-    }
-
-    public long Fa() {
-        return this.azS;
+        this.bNp = null;
+        this.bNq = null;
+        this.bNr = null;
+        this.aAa = 0L;
+        this.aAb = 0L;
+        this.aAc = 0L;
+        this.aAd = 0L;
+        this.bNq = new ah();
     }
 
     public long Fb() {
-        return this.azT;
+        return this.aAd;
     }
 
     public long Fc() {
-        return this.azR;
+        return this.aAb;
     }
 
-    public ah ady() {
-        return this.bNb;
+    public long Fd() {
+        return this.aAc;
+    }
+
+    public long Fe() {
+        return this.aAa;
+    }
+
+    public ah adB() {
+        return this.bNq;
     }
 
     public void a(an anVar) {
-        this.bNc = anVar;
+        this.bNr = anVar;
     }
 
     @Override // com.baidu.adp.base.e
@@ -54,27 +54,27 @@ public class am extends com.baidu.adp.base.e {
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.bNa != null) {
-            this.bNa.cancel();
+        if (this.bNp != null) {
+            this.bNp.cancel();
             return false;
         }
         return false;
     }
 
-    public boolean adz() {
+    public boolean adC() {
         return ho(1);
     }
 
-    public boolean adA() {
+    public boolean adD() {
         return ho(0);
     }
 
     public boolean ho(int i) {
-        if (this.bNa != null) {
+        if (this.bNp != null) {
             return false;
         }
-        this.bNa = new ao(this, i);
-        this.bNa.execute(new Object[0]);
+        this.bNp = new ao(this, i);
+        this.bNp.execute(new Object[0]);
         return true;
     }
 }

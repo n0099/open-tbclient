@@ -62,7 +62,7 @@ class c implements a {
     }
 
     @Override // com.baidu.tbadk.live.service.a
-    public void su() {
+    public void sw() {
         Parcel obtain = Parcel.obtain();
         Parcel obtain2 = Parcel.obtain();
         try {

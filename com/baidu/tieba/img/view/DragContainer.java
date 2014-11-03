@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.Scroller;
 /* loaded from: classes.dex */
 public class DragContainer extends LinearLayout {
-    private Bitmap bkN;
+    private Bitmap blb;
     private final int delay;
     private Scroller mScroller;
     private Rect mTempRect;
@@ -39,7 +39,7 @@ public class DragContainer extends LinearLayout {
         this.view = view;
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache();
-        this.bkN = Bitmap.createBitmap(view.getDrawingCache());
+        this.blb = Bitmap.createBitmap(view.getDrawingCache());
         view.destroyDrawingCache();
         view.setDrawingCacheEnabled(false);
         view.getDrawingRect(this.mTempRect);
@@ -54,15 +54,15 @@ public class DragContainer extends LinearLayout {
         if (this.view != null) {
             if (this.mScroller.computeScrollOffset()) {
                 canvas.save();
-                canvas.drawBitmap(this.bkN, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
+                canvas.drawBitmap(this.blb, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
                 canvas.restore();
                 postInvalidateDelayed(16L);
                 return;
             }
-            if (this.bkN != null) {
-                this.bkN.recycle();
+            if (this.blb != null) {
+                this.blb.recycle();
             }
-            this.bkN = null;
+            this.blb = null;
             this.view = null;
         }
     }
@@ -71,10 +71,10 @@ public class DragContainer extends LinearLayout {
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         this.mScroller.forceFinished(true);
-        if (this.bkN != null) {
-            this.bkN.recycle();
+        if (this.blb != null) {
+            this.blb.recycle();
         }
-        this.bkN = null;
+        this.blb = null;
         this.view = null;
     }
 }

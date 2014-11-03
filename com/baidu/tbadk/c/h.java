@@ -12,32 +12,32 @@ import com.baidu.tieba.v;
 import com.baidu.tieba.w;
 /* loaded from: classes.dex */
 public class h extends a {
-    private ImageView VG;
-    private TextView VH;
-    private TextView VI;
-    private TextView VJ;
+    private ImageView VK;
+    private TextView VL;
+    private TextView VM;
+    private TextView VN;
 
     public h(Context context, View.OnClickListener onClickListener) {
         super(com.baidu.adp.lib.g.b.ek().inflate(context, w.net_refresh_view_layout, null));
-        this.VG = (ImageView) this.Vz.findViewById(v.net_refresh_image);
-        this.VH = (TextView) this.Vz.findViewById(v.net_refresh_desc);
-        this.VI = (TextView) this.Vz.findViewById(v.net_refresh_title);
-        this.VJ = (TextView) this.Vz.findViewById(v.net_refresh_button);
-        this.VJ.setOnClickListener(onClickListener);
-        sB();
+        this.VK = (ImageView) this.VD.findViewById(v.net_refresh_image);
+        this.VL = (TextView) this.VD.findViewById(v.net_refresh_desc);
+        this.VM = (TextView) this.VD.findViewById(v.net_refresh_title);
+        this.VN = (TextView) this.VD.findViewById(v.net_refresh_button);
+        this.VN.setOnClickListener(onClickListener);
+        sD();
     }
 
     public void dF(String str) {
-        this.VH.setText(str);
+        this.VL.setText(str);
     }
 
-    public void sB() {
+    public void sD() {
         int skinType = TbadkApplication.m251getInst().getSkinType();
-        aw.c(this.VG, u.net_refresh_emotion);
-        aw.a(this.VH, s.cp_cont_d, 1, skinType);
-        aw.a(this.VI, s.cp_cont_b, 1, skinType);
-        aw.a(this.VJ, s.cp_cont_g, 1, skinType);
-        aw.c(this.VJ, u.btn_appdownload, skinType);
-        aw.i(this.Vz, s.cp_bg_line_d);
+        aw.c(this.VK, u.net_refresh_emotion);
+        aw.a(this.VL, s.cp_cont_d, 1, skinType);
+        aw.a(this.VM, s.cp_cont_b, 1, skinType);
+        aw.a(this.VN, s.cp_cont_g, 1, skinType);
+        aw.c(this.VN, u.btn_appdownload, skinType);
+        aw.i(this.VD, s.cp_bg_line_d);
     }
 }

@@ -13,25 +13,25 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class aa extends BaseFragment implements AbsListView.OnScrollListener, com.baidu.tbadk.imageManager.d {
-    public static boolean aWP = false;
-    private BaseFragmentActivity axV;
+    public static boolean aXd = false;
+    private BaseFragmentActivity aye;
     private NavigationBar mNavigationBar;
-    private aq bML = null;
-    private am bMM = null;
-    private boolean bMN = false;
-    private boolean bMO = false;
-    private long aAK = -1;
+    private aq bNa = null;
+    private am bNb = null;
+    private boolean bNc = false;
+    private boolean bNd = false;
+    private long aAU = -1;
     private Handler mHandler = null;
-    private Runnable atU = null;
-    private final an bMP = new ab(this);
-    private final com.baidu.tbadk.core.view.u ati = new ac(this);
-    private final View.OnKeyListener aMn = new ad(this);
+    private Runnable aud = null;
+    private final an bNe = new ab(this);
+    private final com.baidu.tbadk.core.view.u atr = new ac(this);
+    private final View.OnKeyListener aMB = new ad(this);
     private final com.baidu.adp.widget.ListView.f uo = new ae(this);
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        this.axV = (BaseFragmentActivity) activity;
+        this.aye = (BaseFragmentActivity) activity;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -42,7 +42,7 @@ public class aa extends BaseFragment implements AbsListView.OnScrollListener, co
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.aAK = System.currentTimeMillis();
+        this.aAU = System.currentTimeMillis();
         dF();
         initUI();
         initData();
@@ -66,39 +66,39 @@ public class aa extends BaseFragment implements AbsListView.OnScrollListener, co
     }
 
     private void initUI() {
-        this.bML = new aq(this.axV, this, this.aMn);
-        this.bML.a(this.uo);
-        this.bML.adB().setClickStatKey("sq_tb_search");
-        this.mNavigationBar = (NavigationBar) this.axV.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.bNa = new aq(this.aye, this, this.aMB);
+        this.bNa.a(this.uo);
+        this.bNa.adE().setClickStatKey("sq_tb_search");
+        this.mNavigationBar = (NavigationBar) this.aye.findViewById(com.baidu.tieba.v.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new af(this));
-        this.mNavigationBar.setTitleText(this.axV.getString(com.baidu.tieba.y.ba_square));
+        this.mNavigationBar.setTitleText(this.aye.getString(com.baidu.tieba.y.ba_square));
     }
 
     private void initData() {
-        this.bMM = new am(this.axV);
-        this.bMM.a(this.bMP);
-        this.bMO = true;
-        eH(this.bMO);
+        this.bNb = new am(this.aye);
+        this.bNb.a(this.bNe);
+        this.bNd = true;
+        eH(this.bNd);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void CS() {
-        this.bML.c(this.ati);
+    public void CU() {
+        this.bNa.c(this.atr);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void CT() {
-        this.bML.d(this.ati);
+    public void CV() {
+        this.bNa.d(this.atr);
     }
 
     public void dF() {
         this.mHandler = new Handler();
-        this.atU = new ag(this);
+        this.aud = new ag(this);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onStop() {
-        this.bML.onStop();
+        this.bNa.onStop();
         super.onStop();
     }
 
@@ -106,14 +106,14 @@ public class aa extends BaseFragment implements AbsListView.OnScrollListener, co
     public void onResume() {
         super.onResume();
         if (isShow()) {
-            if (aWP) {
+            if (aXd) {
                 eH(true);
-                aWP = false;
+                aXd = false;
             }
-            if (this.mHandler != null && !this.bMO) {
-                this.mHandler.removeCallbacks(this.atU);
-                this.mHandler.postDelayed(this.atU, 0L);
-                this.bML.onResume();
+            if (this.mHandler != null && !this.bNd) {
+                this.mHandler.removeCallbacks(this.aud);
+                this.mHandler.postDelayed(this.aud, 0L);
+                this.bNa.onResume();
             }
         }
     }
@@ -122,32 +122,32 @@ public class aa extends BaseFragment implements AbsListView.OnScrollListener, co
     public void onPause() {
         super.onPause();
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.atU);
+            this.mHandler.removeCallbacks(this.aud);
         }
-        this.bML.onPause();
+        this.bNa.onPause();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.atU);
+            this.mHandler.removeCallbacks(this.aud);
         }
-        this.bML.onDestroy();
-        so();
+        this.bNa.onDestroy();
+        sq();
         super.onDestroy();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.bML != null) {
-            this.bML.onChangeSkinType(i);
+        if (this.bNa != null) {
+            this.bNa.onChangeSkinType(i);
             this.mNavigationBar.onChangeSkinType(i);
         }
     }
 
-    private void so() {
-        this.bMM.cancelLoadData();
+    private void sq() {
+        this.bNb.cancelLoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -156,28 +156,28 @@ public class aa extends BaseFragment implements AbsListView.OnScrollListener, co
         boolean z3;
         boolean z4 = true;
         boolean z5 = false;
-        if (this.bMM != null) {
-            boolean z6 = this.bMM.ady() == null || this.bMM.ady().isEmpty();
+        if (this.bNb != null) {
+            boolean z6 = this.bNb.adB() == null || this.bNb.adB().isEmpty();
             boolean z7 = z;
             if (com.baidu.adp.lib.util.j.fh()) {
                 boolean z8 = z6;
                 z2 = z7;
                 z3 = z8;
             } else {
-                this.bMO = false;
+                this.bNd = false;
                 z3 = true;
                 z2 = false;
             }
-            if (!this.bMO) {
+            if (!this.bNd) {
                 z4 = z3;
                 z5 = z2;
             }
             if (z4 || z5) {
-                so();
+                sq();
                 if (z5) {
-                    this.bMM.adz();
+                    this.bNb.adC();
                 } else {
-                    this.bMM.adA();
+                    this.bNb.adD();
                 }
             }
         }
@@ -191,7 +191,7 @@ public class aa extends BaseFragment implements AbsListView.OnScrollListener, co
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        this.mHandler.removeCallbacks(this.atU);
-        this.mHandler.postDelayed(this.atU, 90L);
+        this.mHandler.removeCallbacks(this.aud);
+        this.mHandler.postDelayed(this.aud, 90L);
     }
 }

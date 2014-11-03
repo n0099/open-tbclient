@@ -1,8 +1,8 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class b {
-    private long Ld;
-    private int Le;
+    private long Le;
+    private int Lf;
     private String mMd5;
 
     public String ou() {
@@ -14,18 +14,18 @@ public class b {
     }
 
     public long ov() {
-        return this.Ld;
-    }
-
-    public void l(long j) {
-        this.Ld = j;
-    }
-
-    public int ow() {
         return this.Le;
     }
 
+    public void l(long j) {
+        this.Le = j;
+    }
+
+    public int ow() {
+        return this.Lf;
+    }
+
     public void bV(int i) {
-        this.Le = i;
+        this.Lf = i;
     }
 }

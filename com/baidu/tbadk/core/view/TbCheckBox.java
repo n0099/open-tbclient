@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import com.baidu.tbadk.core.util.aw;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private w Is;
+    private w It;
 
     public void setTagData(x xVar) {
         setTag(xVar);
@@ -29,7 +29,7 @@ public class TbCheckBox extends ImageView {
     }
 
     public void setStatedChangedListener(w wVar) {
-        this.Is = wVar;
+        this.It = wVar;
     }
 
     public void nz() {
@@ -59,8 +59,8 @@ public class TbCheckBox extends ImageView {
             ((x) tag).setChecked(z);
         }
         nz();
-        if (this.Is != null) {
-            this.Is.a(this, z, getTag());
+        if (this.It != null) {
+            this.It.a(this, z, getTag());
         }
     }
 }

@@ -19,9 +19,9 @@ public class g {
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String ajW = null;
-    private SpannableStringBuilder ajX = null;
-    private boolean ajV = false;
+    private String akf = null;
+    private SpannableStringBuilder akg = null;
+    private boolean ake = false;
 
     public static boolean E(int i, int i2) {
         return i == 0 && i2 != 3;
@@ -43,20 +43,20 @@ public class g {
         return this.text;
     }
 
-    public String yC() {
+    public String yE() {
         return this.c;
     }
 
-    public SpannableStringBuilder yD() {
-        return this.ajX;
+    public SpannableStringBuilder yF() {
+        return this.akg;
     }
 
     public SpannableStringBuilder a(SpannableString spannableString) {
-        if (this.ajX == null) {
-            this.ajX = new SpannableStringBuilder();
+        if (this.akg == null) {
+            this.akg = new SpannableStringBuilder();
         }
-        this.ajX.append((CharSequence) spannableString);
-        return this.ajX;
+        this.akg.append((CharSequence) spannableString);
+        return this.akg;
     }
 
     public SpannableString M(Context context) {
@@ -73,7 +73,7 @@ public class g {
                 return spannableString;
             case 2:
                 SpannableString spannableString2 = new SpannableString(String.valueOf(this.text) + " ");
-                com.baidu.adp.widget.a.a dY = com.baidu.tieba.aj.wk().dY(this.text);
+                com.baidu.adp.widget.a.a dY = com.baidu.tieba.aj.wm().dY(this.text);
                 if (dY != null) {
                     BitmapDrawable hn = dY.hn();
                     hn.setBounds(0, 0, dY.getWidth(), dY.getHeight());
@@ -119,7 +119,7 @@ public class g {
                 if (this.type == 3) {
                     this.link = jSONObject.optString("src");
                     this.text = jSONObject.optString("bsize");
-                    this.ajW = jSONObject.optString("cdn_src", null);
+                    this.akf = jSONObject.optString("cdn_src", null);
                     if (this.text != null && this.text.length() > 0) {
                         String[] split = this.text.split(",");
                         if (split.length > 1) {
@@ -134,7 +134,7 @@ public class g {
                         this.height = 1;
                     }
                     if (this.link != null && this.link.indexOf(".baidu.com") != -1) {
-                        this.ajV = true;
+                        this.ake = true;
                     }
                 } else if (this.type == 4) {
                     this.text = jSONObject.optString("text");
@@ -144,7 +144,7 @@ public class g {
                 } else {
                     this.text = jSONObject.optString("text");
                     this.link = jSONObject.optString("link");
-                    if (this.type == 2 && TbFaceManager.sf().dd(this.text) == 0) {
+                    if (this.type == 2 && TbFaceManager.sh().dd(this.text) == 0) {
                         this.type = 0;
                         this.text = "[" + jSONObject.optString("c") + "]";
                     }

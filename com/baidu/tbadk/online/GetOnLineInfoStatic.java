@@ -6,16 +6,16 @@ import com.baidu.adp.framework.task.SocketMessageTask;
 /* loaded from: classes.dex */
 public class GetOnLineInfoStatic {
     static {
-        uo();
-        up();
         uq();
+        ur();
+        us();
     }
 
-    private static void uo() {
+    private static void uq() {
         MessageManager.getInstance().registerListener(new a(1001));
     }
 
-    private static void up() {
+    private static void ur() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(205005);
         bVar.setResponsedClass(GetOnLineInfoSocketResMessage.class);
         bVar.f(false);
@@ -23,7 +23,7 @@ public class GetOnLineInfoStatic {
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private static void uq() {
+    private static void us() {
         c cVar = new c(205005);
         cVar.setSelfListener(true);
         MessageManager.getInstance().registerListener(cVar);
@@ -41,7 +41,7 @@ public class GetOnLineInfoStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void ur() {
+    public static void ut() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001236, true));
     }
 }

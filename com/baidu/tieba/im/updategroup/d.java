@@ -6,13 +6,13 @@ import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 class d extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ UpdateGroupActivity biz;
+    final /* synthetic */ UpdateGroupActivity biN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(UpdateGroupActivity updateGroupActivity, int i) {
         super(i);
-        this.biz = updateGroupActivity;
+        this.biN = updateGroupActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,23 +21,23 @@ class d extends com.baidu.adp.framework.listener.e {
         a aVar;
         a aVar2;
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 103102) {
-            aVar = this.biz.bix;
+            aVar = this.biN.biL;
             aVar.setIsLoading(false);
             if (!(socketResponsedMessage instanceof ResponseUpdateGroupMessage)) {
-                this.biz.showToast(y.group_update_fail);
+                this.biN.showToast(y.group_update_fail);
                 return;
             }
             ResponseUpdateGroupMessage responseUpdateGroupMessage = (ResponseUpdateGroupMessage) socketResponsedMessage;
             if (responseUpdateGroupMessage.getError() != 0) {
-                this.biz.t(responseUpdateGroupMessage.getErrorString(), responseUpdateGroupMessage.getError());
+                this.biN.t(responseUpdateGroupMessage.getErrorString(), responseUpdateGroupMessage.getError());
                 return;
             }
-            this.biz.showToast(y.group_update_success);
-            Intent intent = this.biz.getIntent();
-            aVar2 = this.biz.bix;
+            this.biN.showToast(y.group_update_success);
+            Intent intent = this.biN.getIntent();
+            aVar2 = this.biN.biL;
             intent.putExtra("group_text", aVar2.getText());
-            this.biz.setResult(-1, intent);
-            this.biz.finish();
+            this.biN.setResult(-1, intent);
+            this.biN.finish();
         }
     }
 }

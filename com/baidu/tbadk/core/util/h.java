@@ -1,12 +1,12 @@
 package com.baidu.tbadk.core.util;
 /* loaded from: classes.dex */
 class h {
-    final /* synthetic */ e Dg;
-    StringBuffer Di;
+    final /* synthetic */ e Dh;
+    StringBuffer Dj;
 
     private h(e eVar) {
-        this.Dg = eVar;
-        this.Di = new StringBuffer(100);
+        this.Dh = eVar;
+        this.Dj = new StringBuffer(100);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,17 +15,17 @@ class h {
     }
 
     public void bo(int i) {
-        if (this.Di.length() != 0) {
-            this.Di.append(",");
+        if (this.Dj.length() != 0) {
+            this.Dj.append(",");
         }
-        this.Di.append(i);
+        this.Dj.append(i);
     }
 
     public void clear() {
-        this.Di.setLength(0);
+        this.Dj.setLength(0);
     }
 
     public String toString() {
-        return this.Di.toString();
+        return this.Dj.toString();
     }
 }

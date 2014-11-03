@@ -10,15 +10,15 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.util.AntiHelper;
 /* loaded from: classes.dex */
 class an implements com.baidu.tieba.model.as {
-    final /* synthetic */ WriteActivity bTX;
+    final /* synthetic */ WriteActivity bUm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(WriteActivity writeActivity) {
-        this.bTX = writeActivity;
+        this.bUm = writeActivity;
     }
 
     @Override // com.baidu.tieba.model.as
-    public void a(boolean z, String str, com.baidu.tbadk.coreExtra.data.f fVar, WriteData writeData, AntiData antiData) {
+    public void a(boolean z, String str, com.baidu.tbadk.coreExtra.data.g gVar, WriteData writeData, AntiData antiData) {
         WriteData writeData2;
         WriteData writeData3;
         WriteData writeData4;
@@ -27,53 +27,53 @@ class an implements com.baidu.tieba.model.as {
         WriteData writeData7;
         WriteData writeData8;
         WriteData writeData9;
-        this.bTX.EA();
-        this.bTX.closeLoadingDialog();
+        this.bUm.EC();
+        this.bUm.closeLoadingDialog();
         if (!z) {
-            if (fVar != null && writeData != null && fVar.getVcode_pic_url() != null) {
+            if (gVar != null && writeData != null && gVar.getVcode_pic_url() != null) {
                 if (!AntiHelper.e(antiData)) {
-                    writeData.setVcodeMD5(fVar.getVcode_md5());
-                    writeData.setVcodeUrl(fVar.getVcode_pic_url());
-                    if (fVar.oA().equals("4")) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.bTX, 12006, writeData, false)));
+                    writeData.setVcodeMD5(gVar.getVcode_md5());
+                    writeData.setVcodeUrl(gVar.getVcode_pic_url());
+                    if (gVar.oC().equals("4")) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.bUm, 12006, writeData, false)));
                         return;
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.bTX, writeData, 12006)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.bUm, writeData, 12006)));
                         return;
                     }
                 }
-                this.bTX.b(antiData, str);
+                this.bUm.a(false, antiData, str);
                 return;
             }
-            this.bTX.b(antiData, str);
+            this.bUm.a(false, antiData, str);
             return;
         }
-        this.bTX.b(antiData, str);
-        writeData2 = this.bTX.bpv;
+        this.bUm.a(true, antiData, str);
+        writeData2 = this.bUm.bpJ;
         if (writeData2.getType() == 0) {
-            writeData7 = this.bTX.bpv;
+            writeData7 = this.bUm.bpJ;
             if (writeData7.getLiveCardData() == null) {
-                writeData9 = this.bTX.bpv;
+                writeData9 = this.bUm.bpJ;
                 com.baidu.tieba.util.l.a(writeData9.getForumId(), (WriteData) null);
             } else {
-                writeData8 = this.bTX.bpv;
+                writeData8 = this.bUm.bpJ;
                 com.baidu.tieba.util.l.a(writeData8.getLiveCardData().getGroupId(), (WriteData) null);
             }
         } else {
-            writeData3 = this.bTX.bpv;
+            writeData3 = this.bUm.bpJ;
             if (writeData3.getType() == 1) {
-                writeData4 = this.bTX.bpv;
+                writeData4 = this.bUm.bpJ;
                 com.baidu.tieba.util.l.b(writeData4.getThreadId(), (WriteData) null);
             }
         }
-        writeData5 = this.bTX.bpv;
+        writeData5 = this.bUm.bpJ;
         if (writeData5.getLiveCardData() != null) {
-            WriteActivity writeActivity = this.bTX;
-            FrsActivityConfig frsActivityConfig = new FrsActivityConfig(this.bTX);
-            writeData6 = this.bTX.bpv;
+            WriteActivity writeActivity = this.bUm;
+            FrsActivityConfig frsActivityConfig = new FrsActivityConfig(this.bUm);
+            writeData6 = this.bUm.bpJ;
             writeActivity.sendMessage(new CustomMessage(2003001, frsActivityConfig.createRefreshCfgShowContent(writeData6.getForumName(), "post live's thread")));
         }
-        this.bTX.setResult(-1);
-        this.bTX.finish();
+        this.bUm.setResult(-1);
+        this.bUm.finish();
     }
 }

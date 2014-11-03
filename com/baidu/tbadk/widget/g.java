@@ -9,9 +9,9 @@ import java.io.InputStream;
 import java.util.Vector;
 /* loaded from: classes.dex */
 public class g {
-    protected Bitmap aaE;
-    protected Vector<h> aaF;
-    private int aaH;
+    protected Bitmap aaI;
+    protected Vector<h> aaJ;
+    private int aaL;
     protected int bgColor;
     protected boolean hY;
     protected int hZ;
@@ -50,12 +50,12 @@ public class g {
     protected int iG = 0;
     protected boolean iH = false;
     protected int delay = 0;
-    protected int aaG = 0;
+    protected int aaK = 0;
     private volatile boolean interrupted = false;
 
     public g(int i) {
-        this.aaH = GravityCompat.RELATIVE_LAYOUT_DIRECTION;
-        this.aaH = i;
+        this.aaL = GravityCompat.RELATIVE_LAYOUT_DIRECTION;
+        this.aaL = i;
     }
 
     public boolean isInterrupted() {
@@ -64,8 +64,8 @@ public class g {
 
     public int ds(int i) {
         this.delay = -1;
-        if (i >= 0 && i < this.iO && this.aaF != null && i < this.aaF.size()) {
-            this.delay = this.aaF.elementAt(i).delay;
+        if (i >= 0 && i < this.iO && this.aaJ != null && i < this.aaJ.size()) {
+            this.delay = this.aaJ.elementAt(i).delay;
         }
         return this.delay;
     }
@@ -81,13 +81,13 @@ public class g {
             if (this.iG == 3) {
                 int i2 = this.iO - 2;
                 if (i2 > 0) {
-                    this.aaE = dt(i2 - 1);
+                    this.aaI = dt(i2 - 1);
                 } else {
-                    this.aaE = null;
+                    this.aaI = null;
                 }
             }
-            if (this.aaE != null) {
-                this.aaE.getPixels(iArr, 0, this.width, 0, 0, this.width, this.height);
+            if (this.aaI != null) {
+                this.aaI.getPixels(iArr, 0, this.width, 0, 0, this.width, this.height);
                 if (this.iG == 2) {
                     int i3 = !this.iH ? this.ih : 0;
                     for (int i4 = 0; i4 < this.iy; i4++) {
@@ -154,8 +154,8 @@ public class g {
 
     public Bitmap dt(int i) {
         int i2;
-        if (this.iO > 0 && (i2 = i % this.iO) < this.aaF.size()) {
-            return this.aaF.elementAt(i2).iz;
+        if (this.iO > 0 && (i2 = i % this.iO) < this.aaJ.size()) {
+            return this.aaJ.elementAt(i2).iz;
         }
         return null;
     }
@@ -170,7 +170,7 @@ public class g {
             dp();
             if (!dk()) {
                 dm();
-                if (this.aaG >= this.aaH) {
+                if (this.aaK >= this.aaL) {
                     return 3;
                 }
                 if (this.iO < 0) {
@@ -195,7 +195,7 @@ public class g {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:79:0x00df */
     /* JADX DEBUG: Multi-variable search result rejected for r6v13, resolved type: short */
     /* JADX WARN: Multi-variable type inference failed */
-    protected void vt() {
+    protected void vv() {
         int i;
         int i2;
         int i3;
@@ -339,7 +339,7 @@ public class g {
     protected void init() {
         this.status = 0;
         this.iO = 0;
-        this.aaF = new Vector<>();
+        this.aaJ = new Vector<>();
         this.ib = null;
         this.ic = null;
     }
@@ -405,7 +405,7 @@ public class g {
         boolean z = false;
         while (!z && !dk() && !this.interrupted) {
             int read = read();
-            if (this.aaG < this.aaH) {
+            if (this.aaK < this.aaL) {
                 switch (read) {
                     case 33:
                         switch (read()) {
@@ -436,7 +436,7 @@ public class g {
                                 continue;
                         }
                     case 44:
-                        vu();
+                        vw();
                         break;
                     case 59:
                         z = true;
@@ -481,7 +481,7 @@ public class g {
         }
     }
 
-    protected void vu() {
+    protected void vw() {
         int i = 0;
         this.im = dt();
         this.iq = dt();
@@ -509,14 +509,14 @@ public class g {
             this.status = 1;
         }
         if (!dk()) {
-            vt();
+            vv();
             dv();
             if (!dk()) {
                 this.iO++;
                 this.iz = Bitmap.createBitmap(this.width, this.height, Bitmap.Config.ARGB_4444);
                 df();
-                this.aaF.addElement(new h(this.iz, this.delay));
-                this.aaG += this.width * this.height * 2;
+                this.aaJ.addElement(new h(this.iz, this.delay));
+                this.aaK += this.width * this.height * 2;
                 if (this.iH) {
                     this.ie[this.iI] = i;
                 }
@@ -557,7 +557,7 @@ public class g {
         this.iw = this.iq;
         this.ix = this.ir;
         this.iy = this.is;
-        this.aaE = this.iz;
+        this.aaI = this.iz;
         this.ih = this.bgColor;
         this.iF = 0;
         this.iH = false;
@@ -575,14 +575,14 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void vf() {
+    public void vh() {
         this.interrupted = true;
-        if (this.aaF != null) {
+        if (this.aaJ != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.aaF.size()) {
-                    this.aaF.get(i2).iz = null;
+                if (i2 < this.aaJ.size()) {
+                    this.aaJ.get(i2).iz = null;
                     i = i2 + 1;
                 } else {
                     return;

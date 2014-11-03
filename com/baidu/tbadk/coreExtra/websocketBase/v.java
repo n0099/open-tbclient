@@ -12,23 +12,23 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.coreExtra.message.UpdateClientInfoMessage;
 /* loaded from: classes.dex */
 public class v {
-    private static v Qf = null;
-    private int Qc;
-    private com.baidu.adp.framework.client.socket.link.g Qd = null;
-    private UpdateClientInfoMessage Qe = null;
+    private static v Qj = null;
+    private int Qg;
+    private com.baidu.adp.framework.client.socket.link.g Qh = null;
+    private UpdateClientInfoMessage Qi = null;
     private final com.baidu.adp.framework.client.socket.link.g bn = new w(this);
 
-    public static synchronized v qL() {
+    public static synchronized v qN() {
         v vVar;
         synchronized (v.class) {
-            if (Qf == null) {
+            if (Qj == null) {
                 synchronized (v.class) {
-                    if (Qf == null) {
-                        Qf = new v();
+                    if (Qj == null) {
+                        Qj = new v();
                     }
                 }
             }
-            vVar = Qf;
+            vVar = Qj;
         }
         return vVar;
     }
@@ -42,7 +42,7 @@ public class v {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public UpdateClientInfoMessage qM() {
+    public UpdateClientInfoMessage qO() {
         UpdateClientInfoMessage updateClientInfoMessage = new UpdateClientInfoMessage();
         updateClientInfoMessage.addUserInfo("_client_type", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
         updateClientInfoMessage.addUserInfo("_client_version", TbConfig.getVersion());
@@ -103,21 +103,21 @@ public class v {
         return updateClientInfoMessage;
     }
 
-    public boolean qN() {
-        return this.Qc >= 5;
+    public boolean qP() {
+        return this.Qg >= 5;
     }
 
-    public void qO() {
-        this.Qc++;
-        if (qN()) {
+    public void qQ() {
+        this.Qg++;
+        if (qP()) {
             BdSocketLinkService.setAvailable(false);
             NoNetworkView.nx();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qP() {
-        this.Qc = 0;
+    public void qR() {
+        this.Qg = 0;
         MessageManager.getInstance().getSocketClient().aw();
         NoNetworkView.nx();
         BdSocketLinkService.stopReConnStrategy("online succ");
@@ -125,11 +125,11 @@ public class v {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, int i2, String str) {
-        qO();
+        qQ();
         BdSocketLinkService.close(8, "online error = " + i2);
     }
 
     public void a(com.baidu.adp.framework.client.socket.link.g gVar) {
-        this.Qd = gVar;
+        this.Qh = gVar;
     }
 }

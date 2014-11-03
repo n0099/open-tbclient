@@ -5,11 +5,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cd implements View.OnClickListener {
-    final /* synthetic */ bv byI;
+    final /* synthetic */ bv byW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cd(bv bvVar) {
-        this.byI = bvVar;
+        this.byW = bvVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -17,10 +17,10 @@ public class cd implements View.OnClickListener {
         Dialog dialog;
         Dialog dialog2;
         PbActivity pbActivity;
-        dialog = this.byI.bxO;
+        dialog = this.byW.byc;
         if (dialog instanceof Dialog) {
-            dialog2 = this.byI.bxO;
-            pbActivity = this.byI.bwQ;
+            dialog2 = this.byW.byc;
+            pbActivity = this.byW.bxe;
             com.baidu.adp.lib.g.j.b(dialog2, pbActivity);
         }
     }

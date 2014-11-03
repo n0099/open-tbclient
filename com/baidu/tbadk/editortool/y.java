@@ -22,12 +22,12 @@ public class y extends ad {
     @Override // com.baidu.tbadk.editortool.ad
     public String cG(int i) {
         int i2;
-        if (i < 0 || i >= v.Sj.size()) {
+        if (i < 0 || i >= v.Sn.size()) {
             i2 = 0;
         } else {
-            i2 = v.Sj.get(i).intValue();
+            i2 = v.Sn.get(i).intValue();
         }
-        for (Map.Entry<String, Integer> entry : v.Sk.entrySet()) {
+        for (Map.Entry<String, Integer> entry : v.So.entrySet()) {
             if (entry.getValue().intValue() == i2) {
                 return entry.getKey();
             }
@@ -37,13 +37,13 @@ public class y extends ad {
 
     @Override // com.baidu.tbadk.editortool.ad
     public boolean cY(String str) {
-        return v.Sk.get(str) != null;
+        return v.So.get(str) != null;
     }
 
     @Override // com.baidu.tbadk.editortool.ad
     public com.baidu.adp.widget.a.a cZ(String str) {
         Bitmap a;
-        Integer num = v.Sk.get(str);
+        Integer num = v.So.get(str);
         if (num != null && (a = com.baidu.adp.lib.util.c.eS().a(TbadkApplication.m251getInst().getApp(), num.intValue())) != null) {
             return new com.baidu.adp.widget.a.a(a, false, str);
         }
@@ -52,7 +52,7 @@ public class y extends ad {
 
     @Override // com.baidu.tbadk.editortool.ad
     public int getEmotionsCount() {
-        return v.Sj.size();
+        return v.Sn.size();
     }
 
     @Override // com.baidu.tbadk.editortool.ad
@@ -61,7 +61,7 @@ public class y extends ad {
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public EmotionGroupType rr() {
+    public EmotionGroupType rt() {
         return EmotionGroupType.LOCAL;
     }
 
@@ -86,7 +86,7 @@ public class y extends ad {
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public boolean rs() {
+    public boolean ru() {
         return true;
     }
 }

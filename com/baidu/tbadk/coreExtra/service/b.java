@@ -10,24 +10,24 @@ import com.baidu.tbadk.coreExtra.data.AudioInfoData;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    private String MA;
-    private c Mx;
-    private com.baidu.tbadk.coreExtra.data.c My;
-    private String Mz;
+    private c MA;
+    private com.baidu.tbadk.coreExtra.data.c MB;
+    private String MC;
+    private String MD;
     private ac yV;
 
     public b(String str, String str2) {
-        this.Mz = str;
-        this.MA = str2;
+        this.MC = str;
+        this.MD = str2;
     }
 
-    public com.baidu.tbadk.coreExtra.data.c cH(String str) {
+    public com.baidu.tbadk.coreExtra.data.c cI(String str) {
         try {
             File file = new File(str);
             if (file == null || !file.exists()) {
                 return null;
             }
-            this.yV = new ac(String.valueOf(TbConfig.SERVER_ADDRESS) + this.Mz);
+            this.yV = new ac(String.valueOf(TbConfig.SERVER_ADDRESS) + this.MC);
             return a(str, file);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -48,33 +48,33 @@ public class b {
             bn.bV(0);
             bn.l(file.length());
         }
-        this.Mx = new c(this, str, bn, String.valueOf(TbConfig.SERVER_ADDRESS) + this.Mz, b);
-        this.My = this.Mx.pF();
-        if (this.My.isSuccess() && (a = a(b, bn)) != null && !a.equals("")) {
+        this.MA = new c(this, str, bn, String.valueOf(TbConfig.SERVER_ADDRESS) + this.MC, b);
+        this.MB = this.MA.pH();
+        if (this.MB.isSuccess() && (a = a(b, bn)) != null && !a.equals("")) {
             AudioInfoData audioInfoData = new AudioInfoData();
             audioInfoData.parserJson(a);
             if (audioInfoData.getErrorCode() <= 0 && audioInfoData.getVoiceId() != null) {
                 bn.cn(audioInfoData.getVoiceId());
-                this.My.b(bn);
+                this.MB.b(bn);
             } else {
-                this.My.setErrorCode(audioInfoData.getErrorCode());
-                this.My.setErrorString(audioInfoData.getErrorMsg());
-                this.My.ab(false);
+                this.MB.setErrorCode(audioInfoData.getErrorCode());
+                this.MB.setErrorString(audioInfoData.getErrorMsg());
+                this.MB.ab(false);
             }
         }
-        return this.My;
+        return this.MB;
     }
 
     private String a(String str, com.baidu.tbadk.coreExtra.data.b bVar) {
-        this.yV = new ac(String.valueOf(TbConfig.SERVER_ADDRESS) + this.MA);
+        this.yV = new ac(String.valueOf(TbConfig.SERVER_ADDRESS) + this.MD);
         this.yV.k("voice_md5", bVar.ou());
         String lA = this.yV.lA();
         if (lA == null || !this.yV.mc().nb().jq()) {
             bVar.bV((int) n(bVar.ov()));
             i.a(bVar);
-            this.My.setErrorCode(this.yV.mg());
-            this.My.setErrorString(this.yV.getErrorString());
-            this.My.ab(false);
+            this.MB.setErrorCode(this.yV.mg());
+            this.MB.setErrorString(this.yV.getErrorString());
+            this.MB.ab(false);
             return null;
         }
         i.bm(str);

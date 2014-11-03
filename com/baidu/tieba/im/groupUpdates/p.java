@@ -9,7 +9,7 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class p {
-    private List<UpdatesItemData> bch = new ArrayList();
+    private List<UpdatesItemData> bcv = new ArrayList();
 
     public static void a(UpdatesItemData updatesItemData, com.baidu.tieba.im.a<Boolean> aVar) {
         if (updatesItemData != null) {
@@ -21,16 +21,16 @@ public class p {
         com.baidu.tieba.im.e.a(new r(this), aVar);
     }
 
-    public String Pf() {
+    public String Pi() {
         String str;
         String str2 = "";
-        if (this.bch == null || this.bch.size() == 0) {
+        if (this.bcv == null || this.bcv.size() == 0) {
             return null;
         }
-        int size = this.bch.size();
+        int size = this.bcv.size();
         int i = 0;
         while (i < size) {
-            UpdatesItemData updatesItemData = this.bch.get(i);
+            UpdatesItemData updatesItemData = this.bcv.get(i);
             if (updatesItemData == null || TextUtils.isEmpty(updatesItemData.getNotice_id()) || !TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
                 str = str2;
             } else {
@@ -45,31 +45,31 @@ public class p {
         return str2;
     }
 
-    public void Pg() {
-        this.bch.clear();
+    public void Pj() {
+        this.bcv.clear();
     }
 
-    public void xY() {
-        Pg();
+    public void ya() {
+        Pj();
     }
 
     public void d(UpdatesItemData updatesItemData) {
-        this.bch.add(updatesItemData);
+        this.bcv.add(updatesItemData);
     }
 
     public void e(UpdatesItemData updatesItemData) {
-        this.bch.remove(updatesItemData);
+        this.bcv.remove(updatesItemData);
     }
 
-    public int Ph() {
-        return this.bch.size();
+    public int Pk() {
+        return this.bcv.size();
     }
 
     public void X(List<UpdatesItemData> list) {
         if (list != null) {
             for (UpdatesItemData updatesItemData : list) {
                 if (updatesItemData.isSelected()) {
-                    this.bch.add(updatesItemData);
+                    this.bcv.add(updatesItemData);
                 }
             }
         }

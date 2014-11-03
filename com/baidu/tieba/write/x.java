@@ -8,11 +8,11 @@ import android.widget.EditText;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
 class x implements View.OnClickListener {
-    final /* synthetic */ VcodeActivity bTr;
+    final /* synthetic */ VcodeActivity bTG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(VcodeActivity vcodeActivity) {
-        this.bTr = vcodeActivity;
+        this.bTG = vcodeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,29 +26,29 @@ class x implements View.OnClickListener {
         ab abVar2;
         ab abVar3;
         ab abVar4;
-        VcodeActivity vcodeActivity = this.bTr;
-        inputMethodManager = this.bTr.mInputManager;
-        editText = this.bTr.bBX;
+        VcodeActivity vcodeActivity = this.bTG;
+        inputMethodManager = this.bTG.mInputManager;
+        editText = this.bTG.bCl;
         vcodeActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        VcodeActivity vcodeActivity2 = this.bTr;
-        VcodeActivity vcodeActivity3 = this.bTr;
-        String string = this.bTr.getString(com.baidu.tieba.y.sending);
-        onCancelListener = this.bTr.bCh;
+        VcodeActivity vcodeActivity2 = this.bTG;
+        VcodeActivity vcodeActivity3 = this.bTG;
+        String string = this.bTG.getString(com.baidu.tieba.y.sending);
+        onCancelListener = this.bTG.bCv;
         vcodeActivity2.mWaitingDialog = ProgressDialog.show(vcodeActivity3, "", string, true, false, onCancelListener);
-        progressDialog = this.bTr.mWaitingDialog;
+        progressDialog = this.bTG.mWaitingDialog;
         progressDialog.setCanceledOnTouchOutside(false);
-        abVar = this.bTr.bTp;
+        abVar = this.bTG.bTE;
         if (abVar != null) {
-            abVar4 = this.bTr.bTp;
+            abVar4 = this.bTG.bTE;
             abVar4.cancel();
         }
-        VcodeActivity vcodeActivity4 = this.bTr;
-        VcodeActivity vcodeActivity5 = this.bTr;
-        writeData = this.bTr.bTb;
-        vcodeActivity4.bTp = new ab(vcodeActivity5, writeData);
-        abVar2 = this.bTr.bTp;
+        VcodeActivity vcodeActivity4 = this.bTG;
+        VcodeActivity vcodeActivity5 = this.bTG;
+        writeData = this.bTG.bTq;
+        vcodeActivity4.bTE = new ab(vcodeActivity5, writeData);
+        abVar2 = this.bTG.bTE;
         abVar2.setPriority(3);
-        abVar3 = this.bTr.bTp;
+        abVar3 = this.bTG.bTE;
         abVar3.execute(0);
     }
 }

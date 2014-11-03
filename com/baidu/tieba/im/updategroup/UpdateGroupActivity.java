@@ -12,12 +12,12 @@ import com.baidu.tieba.im.model.UpdateGroupModel;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class UpdateGroupActivity extends BaseActivity {
-    private UpdateGroupModel biy;
-    private a bix = null;
-    private int JA = 1;
-    DialogInterface.OnClickListener aUv = new b(this);
-    DialogInterface.OnClickListener aUw = new c(this);
-    private com.baidu.adp.framework.listener.e ayJ = new d(this, 103102);
+    private UpdateGroupModel biM;
+    private a biL = null;
+    private int JB = 1;
+    DialogInterface.OnClickListener aUJ = new b(this);
+    DialogInterface.OnClickListener aUK = new c(this);
+    private com.baidu.adp.framework.listener.e ayS = new d(this, 103102);
 
     public static void a(Activity activity, int i, int i2, int i3, String str) {
         Intent intent = new Intent(activity, UpdateGroupActivity.class);
@@ -45,79 +45,79 @@ public class UpdateGroupActivity extends BaseActivity {
         int intExtra2 = intent.getIntExtra("group_id", 0);
         String stringExtra = intent.getStringExtra("group_text");
         Q(intExtra, intExtra2);
-        this.biy = new UpdateGroupModel(this);
-        this.biy.setUniqueId(getUniqueId());
-        this.bix.gE(stringExtra);
-        this.bix.c(this.aUw);
-        this.bix.d(this.aUv);
-        HJ();
+        this.biM = new UpdateGroupModel(this);
+        this.biM.setUniqueId(getUniqueId());
+        this.biL.gE(stringExtra);
+        this.biL.c(this.aUK);
+        this.biL.d(this.aUJ);
+        HN();
     }
 
-    private void HJ() {
-        registerListener(this.ayJ);
+    private void HN() {
+        registerListener(this.ayS);
     }
 
     private void Q(int i, int i2) {
         if (i == 1) {
-            this.bix = new f(this);
+            this.biL = new f(this);
         } else if (i == 2) {
-            this.bix = new e(this);
+            this.biL = new e(this);
         }
-        this.JA = i;
-        this.bix.setGroupId(i2);
+        this.JB = i;
+        this.biL.setGroupId(i2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.bix.onChangeSkinType(i);
+        this.biL.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.bix.LV()) {
-            if (((g) this.bix).RP()) {
+        if (view == this.biL.LZ()) {
+            if (((g) this.biL).RS()) {
                 finish();
-            } else if (this.bix.RM() && this.bix.LL()) {
-                RO();
+            } else if (this.biL.RP() && this.biL.LP()) {
+                RR();
             } else {
-                showToast(this.bix.RL());
+                showToast(this.biL.RO());
             }
-        } else if (view == this.bix.Li()) {
-            this.bix.clearText();
-        } else if (view == this.bix.RJ() && !RN()) {
+        } else if (view == this.biL.Lm()) {
+            this.biL.clearText();
+        } else if (view == this.biL.RM() && !RQ()) {
             finish();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && keyEvent.getRepeatCount() == 0 && RN()) {
+        if (i == 4 && keyEvent.getRepeatCount() == 0 && RQ()) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private boolean RN() {
-        if (TextUtils.isEmpty(this.bix.getText()) || !this.bix.LL() || this.bix.getText().equals(this.bix.RI())) {
+    private boolean RQ() {
+        if (TextUtils.isEmpty(this.biL.getText()) || !this.biL.LP() || this.biL.getText().equals(this.biL.RL())) {
             return false;
         }
-        this.bix.Mh();
+        this.biL.Ml();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void RO() {
-        this.bix.setIsLoading(true);
-        this.biy.setGroupId(this.bix.getGroupId());
-        if (this.JA == 1) {
-            this.biy.setName(this.bix.getText());
-            this.biy.sendMessage(2);
-        } else if (this.JA == 2) {
-            this.biy.setIntro(this.bix.getText());
-            this.biy.sendMessage(1);
+    public void RR() {
+        this.biL.setIsLoading(true);
+        this.biM.setGroupId(this.biL.getGroupId());
+        if (this.JB == 1) {
+            this.biM.setName(this.biL.getText());
+            this.biM.sendMessage(2);
+        } else if (this.JB == 2) {
+            this.biM.setIntro(this.biL.getText());
+            this.biM.sendMessage(1);
         }
     }
 
@@ -126,6 +126,6 @@ public class UpdateGroupActivity extends BaseActivity {
     public void onDestroy() {
         releaseResouce();
         super.onDestroy();
-        this.biy.cancelMessage();
+        this.biM.cancelMessage();
     }
 }

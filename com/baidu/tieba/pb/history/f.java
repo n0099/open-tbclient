@@ -9,22 +9,22 @@ public class f extends com.baidu.tbadk.mvc.model.a<ai> {
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public Class<ai> sT() {
+    public Class<ai> sV() {
         return ai.class;
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public int sU() {
+    public int sW() {
         return 2001190;
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public int sV() {
+    public int sX() {
         return 2001191;
     }
 
     @Override // com.baidu.tbadk.mvc.a.b
-    public String sW() {
+    public String sY() {
         return "tb.pb_history";
     }
 }

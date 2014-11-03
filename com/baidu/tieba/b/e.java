@@ -1,19 +1,19 @@
 package com.baidu.tieba.b;
 /* loaded from: classes.dex */
 public class e {
-    public boolean amW;
-    public String amX;
-    public d amY = new d();
-    public d amZ = new d();
-    public d ana = new d();
+    public boolean anf;
+    public String ang;
+    public d anh = new d();
+    public d ani = new d();
+    public d anj = new d();
     public String type;
 
     public e(String str, String str2, boolean z) {
-        this.amW = false;
-        this.amX = null;
+        this.anf = false;
+        this.ang = null;
         this.type = null;
         this.type = str;
-        this.amX = str2;
-        this.amW = z;
+        this.ang = str2;
+        this.anf = z;
     }
 }

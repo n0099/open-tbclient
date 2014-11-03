@@ -1,26 +1,20 @@
 package com.baidu.tieba.shareSDK;
 
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 /* loaded from: classes.dex */
 class k implements View.OnClickListener {
-    final /* synthetic */ WriteShareActivity bJq;
+    final /* synthetic */ WriteShareActivity bJF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(WriteShareActivity writeShareActivity) {
-        this.bJq = writeShareActivity;
+        this.bJF = writeShareActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        o oVar;
-        InputMethodManager inputMethodManager;
-        o oVar2;
-        oVar = this.bJq.bJe;
-        oVar.acl().requestFocus();
-        WriteShareActivity writeShareActivity = this.bJq;
-        inputMethodManager = this.bJq.mInputManager;
-        oVar2 = this.bJq.bJe;
-        writeShareActivity.ShowSoftKeyPad(inputMethodManager, oVar2.acl());
+        this.bJF.acd();
+        com.baidu.tbadk.core.b.b.a(this.bJF, Constants.MEDIA_INFO, false);
+        this.bJF.finish();
     }
 }

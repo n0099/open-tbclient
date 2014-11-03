@@ -13,10 +13,10 @@ import com.baidu.tieba.w;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class BdToast {
-    private static HashMap<DefaultIcon, Integer> BN = new HashMap<>(2);
+    private static HashMap<DefaultIcon, Integer> BO = new HashMap<>(2);
     private static Toast nr;
-    private final ImageView BL;
-    private CharSequence BM;
+    private final ImageView BM;
+    private CharSequence BN;
     private final Context mContext;
     private final ViewGroup mRootView;
     private final TextView mTextView;
@@ -29,7 +29,7 @@ public class BdToast {
         SUCCESS,
         FAILURE;
 
-        /* JADX DEBUG: Replace access to removed values field (BO) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (BP) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static DefaultIcon[] valuesCustom() {
             DefaultIcon[] valuesCustom = values();
@@ -41,19 +41,19 @@ public class BdToast {
     }
 
     static {
-        BN.put(DefaultIcon.SUCCESS, Integer.valueOf(u.icon_unite_pass));
-        BN.put(DefaultIcon.FAILURE, Integer.valueOf(u.icon_unite_lose));
+        BO.put(DefaultIcon.SUCCESS, Integer.valueOf(u.icon_unite_pass));
+        BO.put(DefaultIcon.FAILURE, Integer.valueOf(u.icon_unite_lose));
     }
 
     private BdToast(Context context) {
         this.mContext = context;
         this.mRootView = (ViewGroup) com.baidu.adp.lib.g.b.ek().inflate(context, w.dialog_bdtoast, null);
-        this.BL = (ImageView) this.mRootView.findViewById(v.toast_icon);
+        this.BM = (ImageView) this.mRootView.findViewById(v.toast_icon);
         this.mTextView = (TextView) this.mRootView.findViewById(v.toast_message);
     }
 
     public BdToast a(CharSequence charSequence) {
-        this.BM = charSequence;
+        this.BN = charSequence;
         return this;
     }
 
@@ -73,13 +73,13 @@ public class BdToast {
         }
         nr = new Toast(this.mContext);
         if (this.Bn != -1) {
-            aw.c(this.BL, this.Bn);
-            this.BL.setVisibility(0);
+            aw.c(this.BM, this.Bn);
+            this.BM.setVisibility(0);
         } else {
-            this.BL.setVisibility(8);
+            this.BM.setVisibility(8);
         }
         aw.b(this.mTextView, s.toast_text, 1);
-        this.mTextView.setText(this.BM);
+        this.mTextView.setText(this.BN);
         nr.setView(this.mRootView);
         nr.setGravity(this.mGravity, 0, 0);
         nr.setDuration(this.vu);
@@ -104,10 +104,10 @@ public class BdToast {
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon) {
-        return new BdToast(context).a(charSequence).bh(BN.get(defaultIcon).intValue()).lb();
+        return new BdToast(context).a(charSequence).bh(BO.get(defaultIcon).intValue()).lb();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon, int i) {
-        return new BdToast(context).a(charSequence).bh(BN.get(defaultIcon).intValue()).bi(i).lb();
+        return new BdToast(context).a(charSequence).bh(BO.get(defaultIcon).intValue()).bi(i).lb();
     }
 }

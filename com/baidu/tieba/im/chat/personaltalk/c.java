@@ -5,13 +5,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tieba.im.pushNotify.b {
-    private static c aSl = new c();
+    private static c aSz = new c();
 
     private c() {
     }
 
-    public static c KF() {
-        return aSl;
+    public static c KJ() {
+        return aSz;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,8 +23,8 @@ public class c extends com.baidu.tieba.im.pushNotify.b {
             return null;
         }
         String str3 = String.valueOf(str) + "@" + str2;
-        synchronized (this.bhi) {
-            com.baidu.tieba.im.pushNotify.a aVar = this.bhi.get(str3);
+        synchronized (this.bhw) {
+            com.baidu.tieba.im.pushNotify.a aVar = this.bhw.get(str3);
             personalSettingItemData = (aVar == null || !(aVar instanceof PersonalSettingItemData)) ? null : (PersonalSettingItemData) aVar;
         }
         if (personalSettingItemData == null) {
@@ -42,7 +42,7 @@ public class c extends com.baidu.tieba.im.pushNotify.b {
         return personalSettingItemData;
     }
 
-    public void KB() {
+    public void KF() {
         super.h(PersonalSettingItemData.class);
     }
 
@@ -57,7 +57,7 @@ public class c extends com.baidu.tieba.im.pushNotify.b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.pushNotify.b
-    public com.baidu.adp.lib.cache.t<String> KC() {
+    public com.baidu.adp.lib.cache.t<String> KG() {
         return com.baidu.tbadk.core.a.a.kS().bd("tb.im_personal_chat_setting");
     }
 
@@ -73,13 +73,13 @@ public class c extends com.baidu.tieba.im.pushNotify.b {
                 }
                 return;
             }
-            com.baidu.adp.lib.cache.t<String> KC = KC();
+            com.baidu.adp.lib.cache.t<String> KG = KG();
             String str = String.valueOf(myUid) + "@" + toUid;
             String jsonStrWithObject = com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(personalSettingItemData);
-            synchronized (this.bhi) {
-                this.bhi.put(str, personalSettingItemData);
+            synchronized (this.bhw) {
+                this.bhw.put(str, personalSettingItemData);
             }
-            KC.b(str, jsonStrWithObject);
+            KG.b(str, jsonStrWithObject);
         }
     }
 
@@ -95,8 +95,8 @@ public class c extends com.baidu.tieba.im.pushNotify.b {
                 return;
             }
             String str = String.valueOf(myUid) + "@" + toUid;
-            synchronized (this.bhi) {
-                this.bhi.put(str, personalSettingItemData);
+            synchronized (this.bhw) {
+                this.bhw.put(str, personalSettingItemData);
             }
             com.baidu.tieba.im.e.a(new d(this, personalSettingItemData, str), aVar2);
         }

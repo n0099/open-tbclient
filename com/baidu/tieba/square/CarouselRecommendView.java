@@ -22,6 +22,7 @@ public class CarouselRecommendView<T extends y> extends FrameLayout {
     public static final String MODULE_NAME = "carousel_recommend";
     private List<T> dataCache;
     private View mCarouselBottomLine;
+    private CarouselRecommendView<T>.p mCarouselRecommendPagerChangeListener;
     private Context mContext;
     private String mGameRefId;
     private float mHWProportion;
@@ -57,6 +58,7 @@ public class CarouselRecommendView<T extends y> extends FrameLayout {
         this.mIsForGameCenter = true;
         this.dataCache = new ArrayList();
         this.mHandler = new l(this);
+        this.mCarouselRecommendPagerChangeListener = null;
         this.mTouchListener = new m(this);
         this.mContext = context;
         this.mIsForGameCenter = z;
@@ -105,9 +107,10 @@ public class CarouselRecommendView<T extends y> extends FrameLayout {
             this.dataCache.add(list.get(0));
             this.dataCache.add(0, list.get(list.size() - 1));
         }
+        this.mCarouselRecommendPagerChangeListener = new p(this, null);
         this.mPageAdapter.setData(this.dataCache);
         this.mPager.setAdapter(this.mPageAdapter);
-        this.mPager.setOnPageChangeListener(new p(this, null));
+        this.mPager.setOnPageChangeListener(this.mCarouselRecommendPagerChangeListener);
         this.mPager.setCurrentItem(size > 1 ? 1 : 0, false);
         this.mPager.invalidate();
         if (size > 1) {
@@ -144,19 +147,35 @@ public class CarouselRecommendView<T extends y> extends FrameLayout {
         this.mGameRefId = str;
     }
 
+    public void onDestroy() {
+        if (this.mPager != null) {
+            this.mPager.setOnPageChangeListener(null);
+        }
+        if (this.mPageAdapter != null) {
+            this.mPageAdapter.Hy();
+        }
+    }
+
     /* loaded from: classes.dex */
     public class n extends PagerAdapter implements com.baidu.tbadk.imageManager.d, com.baidu.tieba.view.s {
-        private View agA;
+        private View agI;
         private Context mContext;
-        private List<T> bMn = null;
+        private List<T> bMC = null;
         private int count = 0;
-        private List<View> bMo = new ArrayList();
-        public List<TbImageView> bMp = new ArrayList();
+        private List<View> bMD = new ArrayList();
+        public List<TbImageView> bME = new ArrayList();
 
         public n(Context context) {
-            CarouselRecommendView.this = r3;
             this.mContext = null;
             this.mContext = context;
+        }
+
+        public void Hy() {
+            for (TbImageView tbImageView : this.bME) {
+                tbImageView.setOnClickListener(null);
+            }
+            this.bME.clear();
+            this.bMD.clear();
         }
 
         private void a(TbImageView tbImageView, T t, int i) {
@@ -164,7 +183,7 @@ public class CarouselRecommendView<T extends y> extends FrameLayout {
                 tbImageView.a(t.kJ().trim(), 10, CarouselRecommendView.this.mWidth - (CarouselRecommendView.this.mViewHorizontalPadding * 2), (CarouselRecommendView.this.mHeight - CarouselRecommendView.this.mViewTopPadding) - CarouselRecommendView.this.mViewBottomPadding, false);
                 tbImageView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
                 tbImageView.setOnClickListener(new o(this, t, tbImageView, i));
-                this.bMp.add(tbImageView);
+                this.bME.add(tbImageView);
             }
         }
 
@@ -172,7 +191,7 @@ public class CarouselRecommendView<T extends y> extends FrameLayout {
             clear();
             if (list != null && list.size() != 0) {
                 this.count = list.size();
-                this.bMn = list;
+                this.bMC = list;
                 int i = 0;
                 while (i < this.count) {
                     TbImageView tbImageView = (TbImageView) com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.w.carousel_topics_recommend_item, null);
@@ -183,7 +202,7 @@ public class CarouselRecommendView<T extends y> extends FrameLayout {
                         tbImageView.setDrawBorder(true);
                     }
                     a(tbImageView, (TbImageView) list.get(i), i > 0 ? i - 1 : 0);
-                    this.bMo.add(tbImageView);
+                    this.bMD.add(tbImageView);
                     i++;
                 }
                 notifyDataSetChanged();
@@ -192,15 +211,15 @@ public class CarouselRecommendView<T extends y> extends FrameLayout {
 
         @Override // android.support.v4.view.PagerAdapter
         public int getCount() {
-            if (this.bMo == null) {
+            if (this.bMD == null) {
                 return 0;
             }
-            return this.bMo.size();
+            return this.bMD.size();
         }
 
         @Override // android.support.v4.view.PagerAdapter
         public Object instantiateItem(ViewGroup viewGroup, int i) {
-            View view = this.bMo.get(i);
+            View view = this.bMD.get(i);
             view.setTag(Integer.valueOf(i));
             view.invalidate();
             viewGroup.addView(view);
@@ -208,8 +227,8 @@ public class CarouselRecommendView<T extends y> extends FrameLayout {
         }
 
         public void onChangeSkinType(int i) {
-            if (this.bMp != null && this.bMp.size() > 0) {
-                for (TbImageView tbImageView : this.bMp) {
+            if (this.bME != null && this.bME.size() > 0) {
+                for (TbImageView tbImageView : this.bME) {
                     tbImageView.invalidate();
                 }
             }
@@ -226,14 +245,14 @@ public class CarouselRecommendView<T extends y> extends FrameLayout {
         }
 
         private void clear() {
-            this.bMo.clear();
+            this.bMD.clear();
             this.count = 0;
-            this.bMn = null;
+            this.bMC = null;
             notifyDataSetChanged();
         }
 
         @Override // com.baidu.tieba.view.s
-        public void adn() {
+        public void adq() {
         }
 
         @Override // com.baidu.tieba.view.s
@@ -243,9 +262,63 @@ public class CarouselRecommendView<T extends y> extends FrameLayout {
         @Override // com.baidu.tbadk.imageManager.d
         public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
             HeadImageView headImageView;
-            if (this.agA != null && (headImageView = (HeadImageView) this.agA.findViewWithTag(str)) != null) {
+            if (this.agI != null && (headImageView = (HeadImageView) this.agI.findViewWithTag(str)) != null) {
                 headImageView.setDefaultScaleType(ImageView.ScaleType.CENTER);
                 headImageView.invalidate();
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    class p implements ViewPager.OnPageChangeListener {
+        private p() {
+        }
+
+        /* synthetic */ p(CarouselRecommendView carouselRecommendView, p pVar) {
+            this();
+        }
+
+        @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+        public void onPageScrolled(int i, float f, int i2) {
+            if (CarouselRecommendView.this.mIndicator != null && CarouselRecommendView.this.mPageAdapter != null && CarouselRecommendView.this.dataCache.size() > 1) {
+                int count = CarouselRecommendView.this.mPageAdapter.getCount();
+                if (i == 0) {
+                    CarouselRecommendView.this.mIndicator.setPosition((count - 3) + f);
+                } else if (i == count - 1) {
+                    CarouselRecommendView.this.mIndicator.setPosition(f);
+                } else {
+                    CarouselRecommendView.this.mIndicator.setPosition((i - 1) + f);
+                }
+            }
+        }
+
+        @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+        public void onPageSelected(int i) {
+        }
+
+        @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+        public void onPageScrollStateChanged(int i) {
+            if (CarouselRecommendView.this.mPager != null && CarouselRecommendView.this.mPageAdapter != null) {
+                if (i == 0) {
+                    if (CarouselRecommendView.this.dataCache.size() > 1) {
+                        int currentItem = CarouselRecommendView.this.mPager.getCurrentItem();
+                        if (currentItem < 1) {
+                            CarouselRecommendView.this.mPager.setCurrentItem(CarouselRecommendView.this.mPageAdapter.getCount() - 2, false);
+                            CarouselRecommendView.this.mPager.invalidate();
+                        } else if (currentItem > CarouselRecommendView.this.mPageAdapter.getCount() - 2) {
+                            CarouselRecommendView.this.mPager.setCurrentItem(1, false);
+                            CarouselRecommendView.this.mPager.invalidate();
+                            CarouselRecommendView.this.mHandler.removeMessages(0);
+                            CarouselRecommendView.this.mHandler.sendEmptyMessageDelayed(0, CarouselRecommendView.CAROUSEL_FREQUENCY);
+                        } else {
+                            CarouselRecommendView.this.mHandler.removeMessages(0);
+                            CarouselRecommendView.this.mHandler.sendEmptyMessageDelayed(0, CarouselRecommendView.CAROUSEL_FREQUENCY);
+                        }
+                    }
+                    CarouselRecommendView.this.mPager.requestDisallowInterceptTouchEvent(false);
+                } else if (i == 1) {
+                    CarouselRecommendView.this.mPager.requestDisallowInterceptTouchEvent(true);
+                }
             }
         }
     }

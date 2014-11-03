@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements View.OnClickListener {
-    final /* synthetic */ EmotionTabHorizonScrollView RV;
+    final /* synthetic */ EmotionTabHorizonScrollView RZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(EmotionTabHorizonScrollView emotionTabHorizonScrollView) {
-        this.RV = emotionTabHorizonScrollView;
+        this.RZ = emotionTabHorizonScrollView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.adp.lib.util.m.showToast(this.RV.getContext(), com.baidu.tieba.y.emotion_cant_show);
+        com.baidu.adp.lib.util.m.showToast(this.RZ.getContext(), com.baidu.tieba.y.emotion_cant_show);
     }
 }

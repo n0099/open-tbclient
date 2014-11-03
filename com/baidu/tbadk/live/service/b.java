@@ -48,7 +48,7 @@ public abstract class b extends Binder implements a {
                 return true;
             case 4:
                 parcel.enforceInterface("com.baidu.tbadk.live.service.ILiveGroupManagerService");
-                su();
+                sw();
                 parcel2.writeNoException();
                 return true;
             case 5:

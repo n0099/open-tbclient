@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 class a implements com.baidu.tbadk.mvc.model.d<ai> {
-    final /* synthetic */ PbHistoryActivity bul;
+    final /* synthetic */ PbHistoryActivity buz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(PbHistoryActivity pbHistoryActivity) {
-        this.bul = pbHistoryActivity;
+        this.buz = pbHistoryActivity;
     }
 
     @Override // com.baidu.tbadk.mvc.model.d
@@ -21,16 +21,16 @@ class a implements com.baidu.tbadk.mvc.model.d<ai> {
         if (readCacheRespMsg == null || readCacheRespMsg.getData() == null) {
             return;
         }
-        this.bul.ah(readCacheRespMsg.getData());
+        this.buz.ah(readCacheRespMsg.getData());
     }
 
     @Override // com.baidu.tbadk.mvc.model.d
     public void a(WriteCacheRespMsg<List<ai>> writeCacheRespMsg, WriteCacheMessage<ai> writeCacheMessage) {
         if (writeCacheRespMsg != null && writeCacheRespMsg.isSuccess()) {
             if (!writeCacheMessage.isClear()) {
-                this.bul.VX();
+                this.buz.Wa();
             } else {
-                this.bul.ah(new ArrayList());
+                this.buz.ah(new ArrayList());
             }
         }
     }

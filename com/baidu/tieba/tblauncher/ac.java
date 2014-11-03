@@ -19,24 +19,24 @@ class ac extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ArrayList<com.baidu.tbadk.mainTab.b> sE;
+        ArrayList<com.baidu.tbadk.mainTab.b> sG;
         FragmentTabHost fragmentTabHost;
         FragmentTabHost fragmentTabHost2;
         MainTabActivity mainTabActivity;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (sE = ((com.baidu.tbadk.mainTab.e) customResponsedMessage.getData()).sE()) != null && sE.size() != 0) {
-            fragmentTabHost = this.this$0.bfz;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (sG = ((com.baidu.tbadk.mainTab.e) customResponsedMessage.getData()).sG()) != null && sG.size() != 0) {
+            fragmentTabHost = this.this$0.bfN;
             fragmentTabHost.reset();
-            Iterator<com.baidu.tbadk.mainTab.b> it = sE.iterator();
+            Iterator<com.baidu.tbadk.mainTab.b> it = sG.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.mainTab.b next = it.next();
                 if (next != null) {
-                    com.baidu.tbadk.mainTab.d sD = next.sD();
+                    com.baidu.tbadk.mainTab.d sF = next.sF();
                     MainTabActivity mainTabActivity2 = this.this$0;
-                    mainTabActivity = this.this$0.bOO;
-                    mainTabActivity2.a(sD, next.z(mainTabActivity));
+                    mainTabActivity = this.this$0.bPd;
+                    mainTabActivity2.a(sF, next.z(mainTabActivity));
                 }
             }
-            fragmentTabHost2 = this.this$0.bfz;
+            fragmentTabHost2 = this.this$0.bfN;
             fragmentTabHost2.initViewPager();
             this.this$0.o(this.this$0.getIntent());
         }

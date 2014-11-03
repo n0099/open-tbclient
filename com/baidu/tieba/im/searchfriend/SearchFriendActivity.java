@@ -27,17 +27,17 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class SearchFriendActivity extends BaseActivity implements ae {
-    private View agJ;
-    private h bhD;
-    private BdListView bhE;
-    private l bhF;
-    private View bhG;
-    private NavigationBar bhx;
-    private k bhH = new a(this);
-    private com.baidu.adp.framework.listener.e bhI = new b(this, 304106);
-    private CustomMessageListener aAP = new c(this, 2001197);
-    private CustomMessageListener bhJ = new d(this, 2001199);
-    private final HttpMessageListener bhK = new e(this, CmdConfigHttp.SEARCH_FRIEND_CMD);
+    private View agS;
+    private NavigationBar bhL;
+    private h bhR;
+    private BdListView bhS;
+    private l bhT;
+    private View bhU;
+    private k bhV = new a(this);
+    private com.baidu.adp.framework.listener.e bhW = new b(this, 304106);
+    private CustomMessageListener aAZ = new c(this, 2001197);
+    private CustomMessageListener bhX = new d(this, 2001199);
+    private final HttpMessageListener bhY = new e(this, CmdConfigHttp.SEARCH_FRIEND_CMD);
 
     static {
         TbadkApplication.m251getInst().RegisterIntent(SearchFriendActivityConfig.class, SearchFriendActivity.class);
@@ -47,12 +47,12 @@ public class SearchFriendActivity extends BaseActivity implements ae {
         MessageManager.getInstance().registerTask(customMessageTask2);
     }
 
-    private void Ru() {
+    private void Rx() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SEARCH_FRIEND_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.SEARCH_FRIEND);
         tbHttpMessageTask.setResponsedClass(ResponseSearchFriendMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
-        registerListener(this.bhK);
+        registerListener(this.bhY);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -60,30 +60,30 @@ public class SearchFriendActivity extends BaseActivity implements ae {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(w.activity_search_friend);
-        this.agJ = findViewById(v.new_search_friend_root_view);
+        this.agS = findViewById(v.new_search_friend_root_view);
         f fVar = new f(this);
-        this.agJ.setOnClickListener(fVar);
-        this.bhx = (NavigationBar) findViewById(v.new_search_friend_navigation_bar);
-        this.bhx.setTitleText(y.find_friend);
-        this.bhx.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new g(this));
-        this.bhE = (BdListView) findViewById(v.new_search_friend_recommend);
-        this.bhG = com.baidu.adp.lib.g.b.ek().a(this, w.add_friend_recommend_header, null, false);
-        this.bhD = new h(this, this.bhG);
-        this.bhG.setOnClickListener(fVar);
-        this.bhD.a(this.bhH);
-        this.bhE.addHeaderView(this.bhG);
-        this.bhF = new l(this);
-        this.bhE.setAdapter((ListAdapter) this.bhF);
-        com.baidu.tbadk.core.i.m(TbadkApplication.m251getInst().getApplicationContext(), "add_new");
-        registerListener(this.bhI);
-        registerListener(this.aAP);
-        registerListener(this.bhJ);
+        this.agS.setOnClickListener(fVar);
+        this.bhL = (NavigationBar) findViewById(v.new_search_friend_navigation_bar);
+        this.bhL.setTitleText(y.find_friend);
+        this.bhL.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new g(this));
+        this.bhS = (BdListView) findViewById(v.new_search_friend_recommend);
+        this.bhU = com.baidu.adp.lib.g.b.ek().a(this, w.add_friend_recommend_header, null, false);
+        this.bhR = new h(this, this.bhU);
+        this.bhU.setOnClickListener(fVar);
+        this.bhR.a(this.bhV);
+        this.bhS.addHeaderView(this.bhU);
+        this.bhT = new l(this);
+        this.bhS.setAdapter((ListAdapter) this.bhT);
+        com.baidu.tbadk.core.j.m(TbadkApplication.m251getInst().getApplicationContext(), "add_new");
+        registerListener(this.bhW);
+        registerListener(this.aAZ);
+        registerListener(this.bhX);
         sendMessage(new RequestRecommendReadMessage());
-        MessageManager.getInstance().registerTask(rg());
-        Ru();
+        MessageManager.getInstance().registerTask(ri());
+        Rx();
     }
 
-    private SocketMessageTask rg() {
+    private SocketMessageTask ri() {
         SocketMessageTask socketMessageTask = new SocketMessageTask(304106);
         socketMessageTask.e(true);
         socketMessageTask.setResponsedClass(ResponsedRecommendMessage.class);
@@ -95,15 +95,15 @@ public class SearchFriendActivity extends BaseActivity implements ae {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.bhx.onChangeSkinType(i);
-        this.bhD.bM(i);
-        getLayoutMode().h(this.bhG);
-        getLayoutMode().h(this.agJ);
+        this.bhL.onChangeSkinType(i);
+        this.bhR.bM(i);
+        getLayoutMode().h(this.bhU);
+        getLayoutMode().h(this.agS);
     }
 
     @Override // com.baidu.tbadk.core.view.ae
     public ListView getListView() {
-        return this.bhE;
+        return this.bhS;
     }
 
     @Override // com.baidu.tbadk.core.view.ae

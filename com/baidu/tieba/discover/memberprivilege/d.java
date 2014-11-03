@@ -5,7 +5,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 class d {
-    public ArrayList<b> apl = new ArrayList<>();
+    public ArrayList<b> apv = new ArrayList<>();
     public String mClassName;
 
     public void parseJson(JSONObject jSONObject) {
@@ -18,7 +18,7 @@ class d {
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                     b bVar = new b();
                     bVar.parseJson(jSONObject2);
-                    this.apl.add(bVar);
+                    this.apv.add(bVar);
                 }
             }
         }

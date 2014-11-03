@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class PbLocationInfoView extends TextView {
-    private Rect ary;
+    private Rect arH;
     private int mState;
 
     public PbLocationInfoView(Context context) {
@@ -21,14 +21,14 @@ public class PbLocationInfoView extends TextView {
     }
 
     private void init() {
-        this.ary = new Rect(0, 0, getResources().getDimensionPixelSize(com.baidu.tieba.t.ds32), getResources().getDimensionPixelSize(com.baidu.tieba.t.ds32));
+        this.arH = new Rect(0, 0, getResources().getDimensionPixelSize(com.baidu.tieba.t.ds32), getResources().getDimensionPixelSize(com.baidu.tieba.t.ds32));
         k(0, null);
-        sB();
+        sD();
     }
 
-    public void sB() {
+    public void sD() {
         setTextColor(com.baidu.tbadk.core.util.aw.getColor(com.baidu.tieba.s.cp_cont_c));
-        BW();
+        BY();
     }
 
     public void k(int i, String str) {
@@ -49,18 +49,18 @@ public class PbLocationInfoView extends TextView {
             }
             setText(str);
         }
-        BW();
+        BY();
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void BW() {
+    public void BY() {
         if (this.mState == 1) {
             Drawable drawable = com.baidu.tbadk.core.util.aw.getDrawable(com.baidu.tieba.u.icon_posts_pin_loading_anim);
             if (drawable != null) {
-                drawable.setBounds(this.ary);
+                drawable.setBounds(this.arH);
             }
             setCompoundDrawables(drawable, null, null, null);
             com.baidu.tbadk.core.a.a(getContext(), (Animatable) drawable);
@@ -68,7 +68,7 @@ public class PbLocationInfoView extends TextView {
         }
         Drawable drawable2 = com.baidu.tbadk.core.util.aw.getDrawable(com.baidu.tieba.u.icon_tips_site);
         if (drawable2 != null) {
-            drawable2.setBounds(this.ary);
+            drawable2.setBounds(this.arH);
         }
         setCompoundDrawables(drawable2, null, null, null);
     }

@@ -20,9 +20,9 @@ class af extends CustomMessageListener {
         TextView textView;
         if (customResponsedMessage != null) {
             MainTabActivity mainTabActivity = this.this$0;
-            textView = this.this$0.aEv;
+            textView = this.this$0.aEF;
             mainTabActivity.p(textView, 0);
-            MainTabActivity.bOo = false;
+            MainTabActivity.bOD = false;
         }
     }
 }

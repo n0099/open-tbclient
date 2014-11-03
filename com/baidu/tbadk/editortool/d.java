@@ -5,7 +5,7 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d extends ad {
-    private ArrayList<String> Rm = new ArrayList<>();
+    private ArrayList<String> Rq = new ArrayList<>();
     private String groupId;
     private String groupName;
     private int height;
@@ -22,41 +22,41 @@ public class d extends ad {
     private void init() {
         cK(2);
         cJ(4);
-        Bitmap U = aa.rz().U(this.groupId, "panel.png");
-        Bitmap U2 = aa.rz().U(this.groupId, "panel_momo.png");
+        Bitmap U = aa.rB().U(this.groupId, "panel.png");
+        Bitmap U2 = aa.rB().U(this.groupId, "panel_momo.png");
         if (U != null) {
             b(new com.baidu.adp.widget.a.a(U, false));
         }
         if (U2 != null) {
             c(new com.baidu.adp.widget.a.a(U2, false));
         }
-        this.Rm.clear();
-        for (EmotionData emotionData : u.rw().dc(this.groupId)) {
-            this.Rm.add(emotionData.getSharpText());
+        this.Rq.clear();
+        for (EmotionData emotionData : u.ry().dc(this.groupId)) {
+            this.Rq.add(emotionData.getSharpText());
         }
     }
 
     @Override // com.baidu.tbadk.editortool.ad
     public String cG(int i) {
-        if (i >= this.Rm.size()) {
+        if (i >= this.Rq.size()) {
             return null;
         }
-        return this.Rm.get(i);
+        return this.Rq.get(i);
     }
 
     @Override // com.baidu.tbadk.editortool.ad
     public boolean cY(String str) {
-        return this.Rm.contains(str);
+        return this.Rq.contains(str);
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public EmotionGroupType rr() {
+    public EmotionGroupType rt() {
         return EmotionGroupType.BIG_EMOTION;
     }
 
     @Override // com.baidu.tbadk.editortool.ad
     public com.baidu.adp.widget.a.a cZ(String str) {
-        Bitmap U = aa.rz().U(this.groupId, aa.rz().m(str, false));
+        Bitmap U = aa.rB().U(this.groupId, aa.rB().m(str, false));
         if (U == null) {
             return null;
         }
@@ -65,12 +65,12 @@ public class d extends ad {
 
     @Override // com.baidu.tbadk.editortool.ad
     public com.baidu.adp.widget.a.a da(String str) {
-        return aa.rz().V(this.groupId, aa.rz().m(str, true));
+        return aa.rB().V(this.groupId, aa.rB().m(str, true));
     }
 
     @Override // com.baidu.tbadk.editortool.ad
     public int getEmotionsCount() {
-        return this.Rm.size();
+        return this.Rq.size();
     }
 
     @Override // com.baidu.tbadk.editortool.ad
@@ -94,7 +94,7 @@ public class d extends ad {
     }
 
     @Override // com.baidu.tbadk.editortool.ad
-    public boolean rs() {
+    public boolean ru() {
         return false;
     }
 }

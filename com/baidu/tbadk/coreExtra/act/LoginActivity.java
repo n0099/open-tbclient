@@ -21,15 +21,15 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.download.CancelDownloadMessage;
 /* loaded from: classes.dex */
 public class LoginActivity extends BaseActivity {
-    private static boolean KY = false;
-    private SapiWebView Kg;
-    private boolean Kp = false;
-    private com.baidu.tbadk.coreExtra.view.r Kh = null;
-    private final com.baidu.tbadk.core.account.g BW = new ak(this);
+    private static boolean KZ = false;
+    private SapiWebView Kh;
+    private boolean Kq = false;
+    private com.baidu.tbadk.coreExtra.view.r Ki = null;
+    private final com.baidu.tbadk.core.account.g BX = new ak(this);
 
     static {
         checkPassV6Switch();
-        if (KY) {
+        if (KZ) {
             TbadkApplication.m251getInst().RegisterIntent(LoginActivityConfig.class, Login2Activity.class);
         } else {
             TbadkApplication.m251getInst().RegisterIntent(LoginActivityConfig.class, LoginActivity.class);
@@ -38,22 +38,22 @@ public class LoginActivity extends BaseActivity {
 
     public static void checkPassV6Switch() {
         if (Build.VERSION.SDK_INT < 9 || TbConfig.USE_OLD_LOGIN || !TbadkApplication.m251getInst().isPassportV6ShouldOpen()) {
-            KY = true;
+            KZ = true;
         } else if (Build.VERSION.SDK_INT <= 10) {
             if (UtilHelper.webViewIsProbablyCorrupt(TbadkApplication.m251getInst())) {
                 TbadkApplication.m251getInst().incPassportV6CrashCount();
-                KY = true;
+                KZ = true;
                 return;
             }
-            KY = false;
+            KZ = false;
         } else {
-            KY = false;
+            KZ = false;
         }
     }
 
     public static void x(Context context) {
         Intent intent = new Intent(context, LoginActivity.class);
-        if (KY) {
+        if (KZ) {
             intent = new Intent(context, Login2Activity.class);
             intent.putExtra(LoginActivityConfig.HAS_EXIT_DIALOG, false);
         }
@@ -62,7 +62,7 @@ public class LoginActivity extends BaseActivity {
 
     public static void a(Activity activity, int i, String str, int i2) {
         Intent intent = new Intent(activity, LoginActivity.class);
-        if (KY) {
+        if (KZ) {
             intent = new Intent(activity, Login2Activity.class);
             intent.putExtra(LoginActivityConfig.HAS_EXIT_DIALOG, false);
             intent.putExtra(LoginActivityConfig.INFO, str);
@@ -73,7 +73,7 @@ public class LoginActivity extends BaseActivity {
 
     public static void a(Activity activity, String str, boolean z, int i) {
         Intent intent = new Intent(activity, LoginActivity.class);
-        if (KY) {
+        if (KZ) {
             intent = new Intent(activity, Login2Activity.class);
             intent.putExtra(LoginActivityConfig.HAS_EXIT_DIALOG, false);
             intent.putExtra(LoginActivityConfig.INFO, str);
@@ -84,7 +84,7 @@ public class LoginActivity extends BaseActivity {
 
     public static void o(Context context, String str) {
         Intent intent = new Intent(context, LoginActivity.class);
-        if (KY) {
+        if (KZ) {
             intent = new Intent(context, Login2Activity.class);
             intent.putExtra(LoginActivityConfig.ACCOUNT, str);
             intent.putExtra(LoginActivityConfig.HAS_EXIT_DIALOG, false);
@@ -94,7 +94,7 @@ public class LoginActivity extends BaseActivity {
 
     public static void g(Context context, int i) {
         Intent intent = new Intent(context, LoginActivity.class);
-        if (KY) {
+        if (KZ) {
             intent = new Intent(context, Login2Activity.class);
             intent.putExtra(LoginActivityConfig.LOGIN_TYPE, i);
             intent.putExtra(LoginActivityConfig.HAS_EXIT_DIALOG, false);
@@ -107,22 +107,22 @@ public class LoginActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(com.baidu.tieba.w.layout_sapi_webview_login);
-        this.Kp = getIntent().getBooleanExtra(LoginActivityConfig.CLOSE, false);
+        this.Kq = getIntent().getBooleanExtra(LoginActivityConfig.CLOSE, false);
         oa();
     }
 
     protected void oa() {
-        this.Kg = (SapiWebView) findViewById(com.baidu.tieba.v.sapi_webview);
-        com.baidu.tbadk.core.account.j.a(this, this.Kg);
-        this.Kg.setOnFinishCallback(new am(this));
-        this.Kg.setAuthorizationListener(new an(this));
-        this.Kg.loadLogin();
+        this.Kh = (SapiWebView) findViewById(com.baidu.tieba.v.sapi_webview);
+        com.baidu.tbadk.core.account.j.a(this, this.Kh);
+        this.Kh.setOnFinishCallback(new am(this));
+        this.Kh.setAuthorizationListener(new an(this));
+        this.Kh.loadLogin();
     }
 
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        this.Kg.onAuthorizedResult(i, i2, intent);
+        this.Kh.onAuthorizedResult(i, i2, intent);
         if (i2 == -1 && i == 11003) {
             oq();
         }
@@ -132,7 +132,7 @@ public class LoginActivity extends BaseActivity {
     public void ob() {
         int i = 1;
         TbadkApplication.m251getInst().onUserChanged();
-        if (this.Kp) {
+        if (this.Kq) {
             Intent intent = new Intent();
             intent.putExtra("BDUSS", TbadkApplication.getCurrentBduss());
             setResult(-1, intent);
@@ -154,19 +154,19 @@ public class LoginActivity extends BaseActivity {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
-            com.baidu.tbadk.core.account.f.a(session.username, session.bduss, session.ptoken, this.BW);
+            com.baidu.tbadk.core.account.f.a(session.username, session.bduss, session.ptoken, this.BX);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(AccountData accountData) {
-        if (this.Kh == null) {
-            this.Kh = new com.baidu.tbadk.coreExtra.view.r(this);
-            this.Kh.a(new ao(this));
+        if (this.Ki == null) {
+            this.Ki = new com.baidu.tbadk.coreExtra.view.r(this);
+            this.Ki.a(new ao(this));
         }
-        this.Kh.qa();
-        this.Kh.g(accountData);
-        this.Kh.pX();
+        this.Ki.qc();
+        this.Ki.g(accountData);
+        this.Ki.pZ();
     }
 
     private void oq() {

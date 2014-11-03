@@ -13,50 +13,50 @@ import java.net.SocketTimeoutException;
 import java.net.URL;
 /* loaded from: classes.dex */
 public class v {
-    private static long Dr = 0;
     private static long Ds = 0;
-    private static w Dt = new w(null);
-    private static x Du = new x(null);
+    private static long Dt = 0;
+    private static w Du = new w(null);
     private static x Dv = new x(null);
-    private static String Dw = null;
+    private static x Dw = new x(null);
+    private static String Dx = null;
     private static Object lu = new Object();
 
     private static x a(boolean z, boolean z2, String str, boolean z3) {
         if (z) {
             if (z2 && !z3) {
-                return Dt.Dz;
+                return Du.DA;
             }
             if (str.startsWith("http://tb.himg")) {
-                return Dt.DA;
+                return Du.DB;
             }
             if (str.startsWith("http://c.tieba.baidu.com")) {
-                return Dt.DB;
+                return Du.DC;
             }
             if (z2 && z3) {
-                return Dt.DD;
+                return Du.DE;
             }
-            return Dt.DC;
+            return Du.DD;
         } else if (com.baidu.adp.lib.network.willdelete.h.eb()) {
             if (z2) {
-                return Dt.DE;
+                return Du.DF;
             }
             if (str.startsWith("http://tb.himg")) {
-                return Dt.DF;
+                return Du.DG;
             }
             if (str.startsWith("http://c.tieba.baidu.com")) {
-                return Dt.DG;
+                return Du.DH;
             }
-            return Dt.DH;
+            return Du.DI;
         } else if (z2) {
-            return Dt.DJ;
+            return Du.DK;
         } else {
             if (str.startsWith("http://tb.himg")) {
-                return Dt.DK;
+                return Du.DL;
             }
             if (str.startsWith("http://c.tieba.baidu.com")) {
-                return Dt.DL;
+                return Du.DM;
             }
-            return Dt.DM;
+            return Du.DN;
         }
     }
 
@@ -67,9 +67,9 @@ public class v {
     public static void a(com.baidu.adp.lib.stats.q qVar, String str, boolean z, long j, boolean z2) {
         if (z && z2) {
             synchronized (lu) {
-                Du.num++;
-                Du.time += j;
-                if (Du.num >= 100) {
+                Dv.num++;
+                Dv.time += j;
+                if (Dv.num >= 100) {
                     lE();
                 }
             }
@@ -77,14 +77,14 @@ public class v {
     }
 
     public static void lE() {
-        if (Du.num > 10) {
+        if (Dv.num > 10) {
             com.baidu.adp.lib.stats.q logItem = getLogItem();
             logItem.n("act", "locStat");
-            logItem.n("costTime", String.valueOf(Du.time));
-            logItem.n("num", String.valueOf(Du.num));
+            logItem.n("costTime", String.valueOf(Dv.time));
+            logItem.n("num", String.valueOf(Dv.num));
             logItem.n("isWifi", "1");
             com.baidu.adp.lib.stats.f.er().a("img", logItem);
-            Du.reset();
+            Dv.reset();
         }
     }
 
@@ -124,7 +124,7 @@ public class v {
                 }
             }
             if (z4) {
-                Dw = str;
+                Dx = str;
             }
             boolean z7 = false;
             if (dVar.ku != null && dVar.ku.length() > 0) {
@@ -132,22 +132,22 @@ public class v {
             }
             synchronized (lu) {
                 x a = a(fi, z4, str2, z7);
-                boolean z8 = Dt.Dy;
+                boolean z8 = Du.Dz;
                 if (a != null) {
                     a.num++;
                     if (z) {
                         a.time += j;
-                        Dt.Dy = true;
+                        Du.Dz = true;
                         if (z5) {
-                            a.DP++;
+                            a.DQ++;
                         }
                     } else {
-                        a.DO++;
-                        Dt.Dy = false;
+                        a.DP++;
+                        Du.Dz = false;
                     }
                 }
-                int lN = Dt.lN();
-                if (lN > 100 || (lN > 0 && z8 != Dt.Dy)) {
+                int lN = Du.lN();
+                if (lN > 100 || (lN > 0 && z8 != Du.Dz)) {
                     lF();
                 }
             }
@@ -198,7 +198,7 @@ public class v {
                     qVar.n(PluginLogger.KEY_REASON, str3);
                     com.baidu.adp.lib.stats.f.er().a("img", qVar);
                     if (z4 && !TextUtils.isEmpty(str6) && TextUtils.isEmpty(str4) && !z) {
-                        Dt.Dx++;
+                        Du.Dy++;
                     }
                 }
             }
@@ -209,35 +209,35 @@ public class v {
         String str = "";
         String str2 = "";
         String str3 = "";
-        if (Dt.lN() > 10) {
-            if (Dt.lM() > 0) {
+        if (Du.lN() > 10) {
+            if (Du.lM() > 0) {
                 if (TextUtils.isEmpty("")) {
                     str = y.lT().lU();
                 }
-                if (Dw != null && TextUtils.isEmpty("")) {
-                    str2 = y.lT().bE(Dw);
+                if (Dx != null && TextUtils.isEmpty("")) {
+                    str2 = y.lT().bE(Dx);
                 }
                 if (TextUtils.isEmpty("")) {
                     str3 = lH();
                 }
                 com.baidu.adp.lib.stats.q logItem = getLogItem();
                 logItem.n("act", "dlStat");
-                logItem.n("cdnCostTime", String.valueOf(Dt.Dz.time));
-                logItem.n("cdnNum", String.valueOf(Dt.Dz.num));
-                logItem.n("cdnFailnum", String.valueOf(Dt.Dz.DO));
-                logItem.n("portraitCostTime", String.valueOf(Dt.DA.time));
-                logItem.n("portraitNum", String.valueOf(Dt.DA.num));
-                logItem.n("portraitFailnum", String.valueOf(Dt.DA.DO));
-                logItem.n("tiebaCostTime", String.valueOf(Dt.DB.time));
-                logItem.n("tiebaNum", String.valueOf(Dt.DB.num));
-                logItem.n("tiebaFailnum", String.valueOf(Dt.DB.DO));
-                logItem.n("otherCostTime", String.valueOf(Dt.DC.time));
-                logItem.n("otherNum", String.valueOf(Dt.DC.num));
-                logItem.n("otherFailnum", String.valueOf(Dt.DC.DO));
-                logItem.n("directIpCostTime", String.valueOf(Dt.DD.time));
-                logItem.n("directIpNum", String.valueOf(Dt.DD.num));
-                logItem.n("directIpFailnum", String.valueOf(Dt.DD.DO));
-                logItem.n("dnsFailNum", String.valueOf(Dt.Dx));
+                logItem.n("cdnCostTime", String.valueOf(Du.DA.time));
+                logItem.n("cdnNum", String.valueOf(Du.DA.num));
+                logItem.n("cdnFailnum", String.valueOf(Du.DA.DP));
+                logItem.n("portraitCostTime", String.valueOf(Du.DB.time));
+                logItem.n("portraitNum", String.valueOf(Du.DB.num));
+                logItem.n("portraitFailnum", String.valueOf(Du.DB.DP));
+                logItem.n("tiebaCostTime", String.valueOf(Du.DC.time));
+                logItem.n("tiebaNum", String.valueOf(Du.DC.num));
+                logItem.n("tiebaFailnum", String.valueOf(Du.DC.DP));
+                logItem.n("otherCostTime", String.valueOf(Du.DD.time));
+                logItem.n("otherNum", String.valueOf(Du.DD.num));
+                logItem.n("otherFailnum", String.valueOf(Du.DD.DP));
+                logItem.n("directIpCostTime", String.valueOf(Du.DE.time));
+                logItem.n("directIpNum", String.valueOf(Du.DE.num));
+                logItem.n("directIpFailnum", String.valueOf(Du.DE.DP));
+                logItem.n("dnsFailNum", String.valueOf(Du.Dy));
                 logItem.n("isWifi", "1");
                 logItem.n("localIp", j.getIp());
                 logItem.n("tbIp", str);
@@ -245,23 +245,23 @@ public class v {
                 logItem.n("dnsIp", str3);
                 com.baidu.adp.lib.stats.f.er().a("img", logItem);
             }
-            Dt.lQ();
-            Dt.lR();
-            Dt.lS();
-            Dt.reset();
+            Du.lQ();
+            Du.lR();
+            Du.lS();
+            Du.reset();
         }
     }
 
     public static void a(com.baidu.adp.lib.stats.q qVar, String str, String str2, boolean z, boolean z2, boolean z3, int i, String str3, long j, String str4) {
         if (com.baidu.adp.lib.util.m.isNetOk()) {
             synchronized (lu) {
-                Dv.num++;
+                Dw.num++;
                 if (z) {
-                    Dv.time += j;
+                    Dw.time += j;
                 } else {
-                    Dv.DO++;
+                    Dw.DP++;
                 }
-                if (Dv.num >= 100) {
+                if (Dw.num >= 100) {
                     lG();
                 }
             }
@@ -285,15 +285,15 @@ public class v {
     }
 
     public static void lG() {
-        if (Dv.num > 10) {
+        if (Dw.num > 10) {
             com.baidu.adp.lib.stats.q logItem = getLogItem();
             logItem.n("act", "dcStat");
-            logItem.n("costTime", String.valueOf(Dv.time));
-            logItem.n("num", String.valueOf(Dv.num));
-            logItem.n("failnum", String.valueOf(Dv.DO));
+            logItem.n("costTime", String.valueOf(Dw.time));
+            logItem.n("num", String.valueOf(Dw.num));
+            logItem.n("failnum", String.valueOf(Dw.DP));
             com.baidu.adp.lib.stats.f.er().a("img", logItem);
-            com.baidu.tbadk.performanceLog.t.a(Dv.num, Dv.DO, Dv.time);
-            Dv.reset();
+            com.baidu.tbadk.performanceLog.t.a(Dw.num, Dw.DP, Dw.time);
+            Dw.reset();
         }
     }
 
@@ -327,8 +327,8 @@ public class v {
     private static long lI() {
         HttpURLConnection httpURLConnection;
         long j;
-        if (Dr >= 3) {
-            return Ds;
+        if (Ds >= 3) {
+            return Dt;
         }
         long currentTimeMillis = System.currentTimeMillis();
         HttpURLConnection httpURLConnection2 = null;
@@ -364,19 +364,19 @@ public class v {
             th = th2;
         }
         if (j > 0) {
-            if (Dr > -1) {
-                Ds = ((Ds * Dr) + j) / (Dr + 1);
+            if (Ds > -1) {
+                Dt = ((Dt * Ds) + j) / (Ds + 1);
             } else {
-                Ds = j;
+                Dt = j;
             }
-            Dr++;
+            Ds++;
             return j;
         }
         return j;
     }
 
     private static String lJ() {
-        return com.baidu.tbadk.imageManager.e.sg().bU();
+        return com.baidu.tbadk.imageManager.e.si().bU();
     }
 
     private static String lK() {

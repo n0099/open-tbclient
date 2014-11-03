@@ -11,13 +11,13 @@ import com.baidu.tieba.im.message.ResponseUserPermissionMessage;
 import com.baidu.tieba.im.model.NearbyGroupsModel;
 /* loaded from: classes.dex */
 class e extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ NearbyGroupsActivity bgc;
+    final /* synthetic */ NearbyGroupsActivity bgq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(NearbyGroupsActivity nearbyGroupsActivity, int i) {
         super(i);
-        this.bgc = nearbyGroupsActivity;
+        this.bgq = nearbyGroupsActivity;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [347=4] */
@@ -39,7 +39,7 @@ class e extends com.baidu.adp.framework.listener.e {
             if (socketResponsedMessage instanceof ResponseUpgradeMemberGroupMessage) {
                 ResponseUpgradeMemberGroupMessage responseUpgradeMemberGroupMessage = (ResponseUpgradeMemberGroupMessage) socketResponsedMessage;
                 if (responseUpgradeMemberGroupMessage.getError() == 0 || responseUpgradeMemberGroupMessage.getError() == 2230110) {
-                    nearbyGroupsModel4 = this.bgc.bga;
+                    nearbyGroupsModel4 = this.bgq.bgo;
                     nearbyGroupsModel4.sendMessage();
                 }
             }
@@ -48,49 +48,49 @@ class e extends com.baidu.adp.framework.listener.e {
                 try {
                     ResponseUserPermissionMessage responseUserPermissionMessage = (ResponseUserPermissionMessage) socketResponsedMessage;
                     if (responseUserPermissionMessage.getError() > 0) {
-                        this.bgc.showToast(responseUserPermissionMessage.getErrorString());
+                        this.bgq.showToast(responseUserPermissionMessage.getErrorString());
                         return;
                     }
                     GroupPermData groupPermData = responseUserPermissionMessage.getGroupPermData();
                     if (groupPermData != null) {
                         if (groupPermData.isCreatePersonal()) {
-                            CreateGroupStepActivity.a(this.bgc, 2, 0, 1011, groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum());
+                            CreateGroupStepActivity.a(this.bgq, 2, 0, 1011, groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum());
                         } else if (!TextUtils.isEmpty(groupPermData.getCreatePersonalTip())) {
-                            this.bgc.showToast(groupPermData.getCreatePersonalTip());
+                            this.bgq.showToast(groupPermData.getCreatePersonalTip());
                         }
                     }
                 } catch (Exception e) {
                 } finally {
-                    this.bgc.hideProgressBar();
+                    this.bgq.hideProgressBar();
                 }
             }
         } else {
-            nearbyGroupsModel = this.bgc.bga;
+            nearbyGroupsModel = this.bgq.bgo;
             nearbyGroupsModel.setIsLoading(false);
             if (!(socketResponsedMessage instanceof ResponseNearbyGroupsMessage)) {
-                mVar4 = this.bgc.bfZ;
-                mVar4.Rb();
+                mVar4 = this.bgq.bgn;
+                mVar4.Re();
                 return;
             }
-            com.baidu.tieba.im.c.Je().C(System.currentTimeMillis());
+            com.baidu.tieba.im.c.Ji().C(System.currentTimeMillis());
             ResponseNearbyGroupsMessage responseNearbyGroupsMessage = (ResponseNearbyGroupsMessage) socketResponsedMessage;
             if (responseNearbyGroupsMessage.getError() > 0) {
-                this.bgc.showToast(responseNearbyGroupsMessage.getErrorString());
+                this.bgq.showToast(responseNearbyGroupsMessage.getErrorString());
             } else {
                 NearbyGroupsData nearbyGroups = responseNearbyGroupsMessage.getNearbyGroups();
                 if (nearbyGroups != null) {
-                    nearbyGroupsModel2 = this.bgc.bga;
+                    nearbyGroupsModel2 = this.bgq.bgo;
                     nearbyGroupsModel2.setHasMore(nearbyGroups.getHasMore());
-                    nearbyGroupsModel3 = this.bgc.bga;
+                    nearbyGroupsModel3 = this.bgq.bgo;
                     nearbyGroupsModel3.setGeo(nearbyGroups.getGeo());
-                    mVar = this.bgc.bfZ;
+                    mVar = this.bgq.bgn;
                     mVar.a(nearbyGroups);
                 }
             }
-            mVar2 = this.bgc.bfZ;
-            mVar2.Rb();
-            mVar3 = this.bgc.bfZ;
-            mVar3.DG();
+            mVar2 = this.bgq.bgn;
+            mVar2.Re();
+            mVar3 = this.bgq.bgn;
+            mVar3.DI();
         }
     }
 }

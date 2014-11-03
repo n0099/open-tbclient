@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.selectpoi.ResponsedSelectLocation;
 /* loaded from: classes.dex */
 class bi extends CustomMessageListener {
-    final /* synthetic */ WriteActivity bTX;
+    final /* synthetic */ WriteActivity bUm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bi(WriteActivity writeActivity, int i) {
         super(i);
-        this.bTX = writeActivity;
+        this.bUm = writeActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,17 +25,17 @@ class bi extends CustomMessageListener {
         if (customResponsedMessage instanceof ResponsedSelectLocation) {
             ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
             if (responsedSelectLocation.isShowLocation()) {
-                dVar2 = this.bTX.ays;
+                dVar2 = this.bUm.ayB;
                 dVar2.dx(false);
-                dVar3 = this.bTX.ays;
+                dVar3 = this.bUm.ayB;
                 dVar3.gL(responsedSelectLocation.getName());
-                jVar2 = this.bTX.bTE;
+                jVar2 = this.bUm.bTT;
                 jVar2.j(2, responsedSelectLocation.getName());
                 return;
             }
-            dVar = this.bTX.ays;
+            dVar = this.bUm.ayB;
             dVar.dx(true);
-            jVar = this.bTX.bTE;
+            jVar = this.bUm.bTT;
             jVar.setLocationInfoViewState(0);
         }
     }

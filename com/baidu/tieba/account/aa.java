@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.coreExtra.act.LoginActivity;
 /* loaded from: classes.dex */
 class aa implements com.baidu.tbadk.core.account.g {
-    final /* synthetic */ SapiFastRegActivity afL;
+    final /* synthetic */ SapiFastRegActivity afT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(SapiFastRegActivity sapiFastRegActivity) {
-        this.afL = sapiFastRegActivity;
+        this.afT = sapiFastRegActivity;
     }
 
     @Override // com.baidu.tbadk.core.account.g
@@ -20,17 +20,17 @@ class aa implements com.baidu.tbadk.core.account.g {
     @Override // com.baidu.tbadk.core.account.g
     public void onSuccess(AccountData accountData) {
         if (!TextUtils.isEmpty(accountData.getAccount())) {
-            this.afL.afK = "login_user";
-            this.afL.h(accountData);
+            this.afT.afS = "login_user";
+            this.afT.h(accountData);
             return;
         }
-        this.afL.e(accountData);
+        this.afT.e(accountData);
     }
 
     @Override // com.baidu.tbadk.core.account.g
     public void onFailure(String str, int i, String str2) {
-        this.afL.showToast(com.baidu.tieba.y.register_retry);
-        LoginActivity.a((Activity) this.afL, (String) null, true, 11003);
-        this.afL.finish();
+        this.afT.showToast(com.baidu.tieba.y.register_retry);
+        LoginActivity.a((Activity) this.afT, (String) null, true, 11003);
+        this.afT.finish();
     }
 }

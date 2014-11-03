@@ -8,36 +8,36 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class v {
-    private ak akV;
-    private ArrayList<g> akW;
+    private ak ale;
+    private ArrayList<g> alf;
     private Context mContext;
-    private String akU = null;
+    private String ald = null;
     private String imageUrl = null;
-    private String abG = null;
-    private String abH = null;
+    private String abL = null;
+    private String abM = null;
     private int width = 0;
     private int height = 0;
-    private String akX = null;
-    private String akY = null;
+    private String alg = null;
+    private String alh = null;
     private String userName = null;
-    private String akZ = null;
+    private String ali = null;
     private int index = -1;
 
     public v(Context context) {
-        this.akV = null;
-        this.akW = null;
+        this.ale = null;
+        this.alf = null;
         this.mContext = null;
         this.mContext = context;
-        this.akV = new ak();
-        this.akW = new ArrayList<>();
+        this.ale = new ak();
+        this.alf = new ArrayList<>();
     }
 
     public String getImageUrl() {
         return this.imageUrl;
     }
 
-    public String zq() {
-        return this.akU;
+    public String zs() {
+        return this.ald;
     }
 
     public int getWidth() {
@@ -52,41 +52,41 @@ public class v {
         return this.index;
     }
 
-    public String vJ() {
-        return this.abH;
+    public String vL() {
+        return this.abM;
     }
 
     public void paserJson(JSONObject jSONObject) {
         JSONObject optJSONObject;
         try {
-            this.akX = jSONObject.optString("post_id");
+            this.alg = jSONObject.optString("post_id");
             this.userName = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_NAME);
-            this.akZ = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_ID);
-            this.akY = jSONObject.optString("comment_amount");
+            this.ali = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_ID);
+            this.alh = jSONObject.optString("comment_amount");
             JSONObject optJSONObject2 = jSONObject.optJSONObject("img");
             this.index = jSONObject.optInt(ImageViewerConfig.INDEX, -1);
             if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("original")) != null) {
-                this.akU = optJSONObject.optString("id");
+                this.ald = optJSONObject.optString("id");
                 this.imageUrl = optJSONObject.optString(ImageViewerConfig.URL);
                 this.width = optJSONObject.optInt("width", 0);
                 this.height = optJSONObject.optInt("height", 0);
-                this.abG = optJSONObject.optString("cdn_src", "");
-                if (this.abG == null || this.abG.length() == 0) {
-                    this.abG = this.imageUrl;
+                this.abL = optJSONObject.optString("cdn_src", "");
+                if (this.abL == null || this.abL.length() == 0) {
+                    this.abL = this.imageUrl;
                 }
-                this.abH = optJSONObject.optString("big_cdn_src", null);
+                this.abM = optJSONObject.optString("big_cdn_src", null);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("descr");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     g gVar = new g();
                     gVar.parserJson(optJSONArray.optJSONObject(i));
-                    this.akW.add(gVar);
+                    this.alf.add(gVar);
                 }
             }
-            this.akV.setContent(this.akW);
+            this.ale.setContent(this.alf);
             if (this.mContext != null) {
-                this.akV.P(this.mContext);
+                this.ale.P(this.mContext);
             }
         } catch (Exception e) {
             BdLog.detailException(e);

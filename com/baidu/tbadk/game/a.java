@@ -42,12 +42,12 @@ public class a {
     public static void a(Context context, String str, String str2, String str3) {
         Plugin pluginByName;
         LightAppPlugin lightAppPlugin;
-        b.rS().W(str3, str2);
+        b.rU().W(str3, str2);
         if (f.db().U("t5core") == 0 && (pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_LIGHT_APP)) != null && (lightAppPlugin = (LightAppPlugin) pluginByName.getClassInstance(LightAppPlugin.class)) != null) {
             lightAppPlugin.launchLightApp(context, TbConfig.api_key, str2);
             return;
         }
-        d.rV().q(str3, 2);
+        d.rX().q(str3, 2);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GameWebViewActivityConfig(context, str, str2, str3, true)));
     }
 }

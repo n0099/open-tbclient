@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends CustomMessageListener {
-    final /* synthetic */ a YE;
+    final /* synthetic */ a YI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(a aVar, int i) {
         super(i);
-        this.YE = aVar;
+        this.YI = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,13 +19,13 @@ public class e extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         f fVar;
         int i;
-        if (customResponsedMessage != null && (fVar = (f) customResponsedMessage.getData()) != null && customResponsedMessage.getOrginalMessage().getTag() == this.YE.mId) {
-            a aVar = this.YE;
-            i = aVar.Yy;
-            aVar.Yy = i + 1;
-            this.YE.dM(fVar.YF);
-            this.YE.dl(fVar.YG);
-            this.YE.uA();
+        if (customResponsedMessage != null && (fVar = (f) customResponsedMessage.getData()) != null && customResponsedMessage.getOrginalMessage().getTag() == this.YI.mId) {
+            a aVar = this.YI;
+            i = aVar.YC;
+            aVar.YC = i + 1;
+            this.YI.dM(fVar.YJ);
+            this.YI.dl(fVar.YK);
+            this.YI.uC();
         }
     }
 }

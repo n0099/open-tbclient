@@ -9,12 +9,12 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class a {
     public static Context mContext = TbadkApplication.m251getInst().getContext();
-    private static com.baidu.adp.framework.listener.e blE = new b(205001);
-    private static com.baidu.adp.framework.listener.e blF = new c(202001);
+    private static com.baidu.adp.framework.listener.e blS = new b(205001);
+    private static com.baidu.adp.framework.listener.e blT = new c(202001);
 
     public a() {
-        MessageManager.getInstance().registerListener(blE);
-        MessageManager.getInstance().registerListener(blF);
+        MessageManager.getInstance().registerListener(blS);
+        MessageManager.getInstance().registerListener(blT);
     }
 
     public static int A(ChatMessage chatMessage) {

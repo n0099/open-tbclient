@@ -19,15 +19,15 @@ public class z extends com.baidu.adp.base.h {
         ac acVar4;
         ac acVar5;
         PersonChangeData personChangeData = new PersonChangeData();
-        acVar = this.this$0.bqV;
+        acVar = this.this$0.brj;
         if (acVar.getUser() != null) {
-            acVar2 = this.this$0.bqV;
+            acVar2 = this.this$0.brj;
             personChangeData.setName(acVar2.getUser().getName_show());
-            acVar3 = this.this$0.bqV;
+            acVar3 = this.this$0.brj;
             personChangeData.setIntro(acVar3.getUser().getIntro());
-            acVar4 = this.this$0.bqV;
+            acVar4 = this.this$0.brj;
             personChangeData.setPortrait(acVar4.getUser().getPortrait());
-            acVar5 = this.this$0.bqV;
+            acVar5 = this.this$0.brj;
             personChangeData.setSex(acVar5.getUser().getSex());
             this.this$0.b(personChangeData);
         }

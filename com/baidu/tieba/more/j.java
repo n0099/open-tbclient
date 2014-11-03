@@ -8,12 +8,12 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends BdAsyncTask<Object, Integer, String> {
-    final /* synthetic */ AppsActivity bqi;
+    final /* synthetic */ AppsActivity bqw;
     private com.baidu.tbadk.core.util.ac mNetWork = null;
     private String url;
 
     public j(AppsActivity appsActivity, String str) {
-        this.bqi = appsActivity;
+        this.bqw = appsActivity;
         this.url = null;
         this.url = str;
     }
@@ -24,11 +24,11 @@ public class j extends BdAsyncTask<Object, Integer, String> {
         ProgressBar progressBar;
         LinearLayout linearLayout;
         BaseWebView baseWebView;
-        progressBar = this.bqi.bqg;
+        progressBar = this.bqw.bqu;
         progressBar.setVisibility(0);
-        linearLayout = this.bqi.bqf;
+        linearLayout = this.bqw.bqt;
         linearLayout.setVisibility(8);
-        baseWebView = this.bqi.mWebView;
+        baseWebView = this.bqw.mWebView;
         baseWebView.setVisibility(0);
     }
 
@@ -40,7 +40,7 @@ public class j extends BdAsyncTask<Object, Integer, String> {
             return null;
         }
         this.mNetWork = new com.baidu.tbadk.core.util.ac(this.url);
-        this.mNetWork.mc().na().nd().Gm = false;
+        this.mNetWork.mc().na().nd().Gn = false;
         this.mNetWork.k("client", "android");
         return this.mNetWork.lA();
     }
@@ -51,9 +51,9 @@ public class j extends BdAsyncTask<Object, Integer, String> {
         if (this.mNetWork != null) {
             this.mNetWork.dM();
         }
-        progressBar = this.bqi.bqg;
+        progressBar = this.bqw.bqu;
         progressBar.setVisibility(8);
-        this.bqi.bqe = null;
+        this.bqw.bqs = null;
         super.cancel(true);
     }
 
@@ -62,31 +62,31 @@ public class j extends BdAsyncTask<Object, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         ProgressBar progressBar;
-        boolean Uf;
+        boolean Ui;
         BaseWebView baseWebView;
         BaseWebView baseWebView2;
         LinearLayout linearLayout;
         BaseWebView baseWebView3;
-        progressBar = this.bqi.bqg;
+        progressBar = this.bqw.bqu;
         progressBar.setVisibility(8);
         if (this.mNetWork != null && this.mNetWork.mf() && str != null && str.length() > 0) {
             com.baidu.adp.lib.g.k.el().b(new k(this, str));
             com.baidu.tbadk.core.sharedPref.b.lk().putLong("app_inverval", System.currentTimeMillis());
-            baseWebView3 = this.bqi.mWebView;
+            baseWebView3 = this.bqw.mWebView;
             baseWebView3.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, "text/html", "utf-8", "");
             return;
         }
-        Uf = this.bqi.Uf();
-        if (!Uf && str == null) {
-            baseWebView2 = this.bqi.mWebView;
+        Ui = this.bqw.Ui();
+        if (!Ui && str == null) {
+            baseWebView2 = this.bqw.mWebView;
             baseWebView2.setVisibility(8);
-            linearLayout = this.bqi.bqf;
+            linearLayout = this.bqw.bqt;
             linearLayout.setVisibility(0);
-            this.bqi.showToast(this.bqi.getString(com.baidu.tieba.y.neterror));
+            this.bqw.showToast(this.bqw.getString(com.baidu.tieba.y.neterror));
             return;
         }
-        String string = this.bqi.getString(com.baidu.tieba.y.server_404);
-        baseWebView = this.bqi.mWebView;
+        String string = this.bqw.getString(com.baidu.tieba.y.server_404);
+        baseWebView = this.bqw.mWebView;
         baseWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, string, "text/html", "utf-8", "");
     }
 }

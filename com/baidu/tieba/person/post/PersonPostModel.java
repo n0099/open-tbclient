@@ -18,8 +18,8 @@ import tbclient.UserPost.UserPostResIdl;
 /* loaded from: classes.dex */
 public class PersonPostModel extends com.baidu.adp.base.e implements Serializable {
     public static final int PAGE_SIZE = 20;
-    private static int bDy = 0;
-    private static String bDz = "";
+    private static int bDM = 0;
+    private static String bDN = "";
     public int hide_post;
     public List<PostList> post_list;
 
@@ -46,11 +46,11 @@ public class PersonPostModel extends com.baidu.adp.base.e implements Serializabl
     }
 
     public void fetchPost(Activity activity, g gVar, boolean z, String str, boolean z2) {
-        if (z || !str.equals(bDz)) {
-            bDy = 1;
-            bDz = str;
+        if (z || !str.equals(bDN)) {
+            bDM = 1;
+            bDN = str;
         } else {
-            bDy++;
+            bDM++;
         }
         if (activity instanceof BdBaseActivity) {
             this.unique_id = ((BdBaseActivity) activity).getUniqueId();
@@ -58,8 +58,8 @@ public class PersonPostModel extends com.baidu.adp.base.e implements Serializabl
             this.unique_id = ((BdBaseFragmentActivity) activity).getUniqueId();
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
-        userPostPageRequestMessage.setUid(bDz);
-        userPostPageRequestMessage.setPn(bDy);
+        userPostPageRequestMessage.setUid(bDN);
+        userPostPageRequestMessage.setPn(bDM);
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(z2);
         userPostPageRequestMessage.setNeedContent(true);
@@ -173,7 +173,7 @@ public class PersonPostModel extends com.baidu.adp.base.e implements Serializabl
                 if (media.big_pic != null) {
                     as asVar = new as();
                     asVar.AI = media.big_pic;
-                    asVar.ER = 10;
+                    asVar.ES = 10;
                     arrayList.add(asVar);
                 }
             }

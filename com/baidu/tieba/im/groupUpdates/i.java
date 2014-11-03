@@ -7,7 +7,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.u;
 import com.baidu.tieba.v;
@@ -16,93 +16,93 @@ import com.baidu.tieba.y;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class i extends com.baidu.adp.base.d<UpdatesItemData> {
-    private TextView HW;
-    private UpdatesActivity bbW;
-    private View bbX;
-    private HeadImageView bbY;
-    private TextView bbZ;
-    private TextView bca;
-    private TextView bcb;
-    private ImageView bcc;
-    private RelativeLayout bcd;
-    private RelativeLayout bce;
-    private UpdatesItemData bcf;
+    private TextView HX;
+    private UpdatesActivity bck;
+    private View bcl;
+    private HeadImageView bcm;
+    private TextView bcn;
+    private TextView bco;
+    private TextView bcp;
+    private ImageView bcq;
+    private RelativeLayout bcr;
+    private RelativeLayout bcs;
+    private UpdatesItemData bct;
 
     public i(UpdatesActivity updatesActivity) {
         super(updatesActivity, w.updates_item);
-        this.bbW = updatesActivity;
+        this.bck = updatesActivity;
         nu();
     }
 
     void nu() {
-        this.bbX = this.ay.findViewById(v.root_view);
-        this.bbY = (HeadImageView) this.bbX.findViewById(v.iv_head);
-        this.bbZ = (TextView) this.bbX.findViewById(v.tv_group_name);
-        this.bca = (TextView) this.bbX.findViewById(v.tv_content);
-        this.HW = (TextView) this.bbX.findViewById(v.tv_title);
-        this.bcb = (TextView) this.bbX.findViewById(v.tv_time);
-        this.bcc = (ImageView) this.bbX.findViewById(v.cb_select);
-        this.bcd = (RelativeLayout) this.bbX.findViewById(v.layout_body);
-        this.bce = (RelativeLayout) this.bbX.findViewById(v.layout_title);
-        this.bbY.setOnClickListener(new j(this));
-        this.bcd.setClickable(true);
-        this.bcd.setLongClickable(true);
-        this.bce.setClickable(true);
-        this.bce.setLongClickable(true);
-        this.bcd.setOnClickListener(new k(this));
-        this.bcd.setOnLongClickListener(new l(this));
-        this.bce.setOnClickListener(new m(this));
-        this.bce.setOnLongClickListener(new n(this));
-        this.bcc.setOnClickListener(new o(this));
+        this.bcl = this.ay.findViewById(v.root_view);
+        this.bcm = (HeadImageView) this.bcl.findViewById(v.iv_head);
+        this.bcn = (TextView) this.bcl.findViewById(v.tv_group_name);
+        this.bco = (TextView) this.bcl.findViewById(v.tv_content);
+        this.HX = (TextView) this.bcl.findViewById(v.tv_title);
+        this.bcp = (TextView) this.bcl.findViewById(v.tv_time);
+        this.bcq = (ImageView) this.bcl.findViewById(v.cb_select);
+        this.bcr = (RelativeLayout) this.bcl.findViewById(v.layout_body);
+        this.bcs = (RelativeLayout) this.bcl.findViewById(v.layout_title);
+        this.bcm.setOnClickListener(new j(this));
+        this.bcr.setClickable(true);
+        this.bcr.setLongClickable(true);
+        this.bcs.setClickable(true);
+        this.bcs.setLongClickable(true);
+        this.bcr.setOnClickListener(new k(this));
+        this.bcr.setOnLongClickListener(new l(this));
+        this.bcs.setOnClickListener(new m(this));
+        this.bcs.setOnLongClickListener(new n(this));
+        this.bcq.setOnClickListener(new o(this));
     }
 
     public void refresh() {
-        if (this.bcf != null) {
-            if (this.bbW.Pe()) {
-                this.bcc.setVisibility(0);
+        if (this.bct != null) {
+            if (this.bck.Ph()) {
+                this.bcq.setVisibility(0);
             } else {
-                this.bcc.setVisibility(8);
-                this.bcd.setSelected(false);
+                this.bcq.setVisibility(8);
+                this.bcr.setSelected(false);
             }
-            String groupHeadUrl = this.bcf.getGroupHeadUrl();
+            String groupHeadUrl = this.bct.getGroupHeadUrl();
             if (!TextUtils.isEmpty(groupHeadUrl)) {
-                this.bbY.setTag(groupHeadUrl);
-                this.bbY.c(groupHeadUrl, 10, false);
+                this.bcm.setTag(groupHeadUrl);
+                this.bcm.c(groupHeadUrl, 10, false);
             } else {
-                this.bbY.setTag(null);
+                this.bcm.setTag(null);
             }
-            this.bbY.setClickable(false);
-            if (!TextUtils.isEmpty(this.bcf.getTitle())) {
-                this.HW.setText(this.bcf.getTitle());
+            this.bcm.setClickable(false);
+            if (!TextUtils.isEmpty(this.bct.getTitle())) {
+                this.HX.setText(this.bct.getTitle());
             } else {
-                this.HW.setText(this.bbW.getString(y.alert_title));
+                this.HX.setText(this.bck.getString(y.alert_title));
             }
             Date date = new Date();
-            date.setTime(this.bcf.getTime());
-            this.bcb.setText(ay.f(date));
-            if (!TextUtils.isEmpty(this.bcf.getContent())) {
-                this.bca.setText(this.bcf.getContent());
+            date.setTime(this.bct.getTime());
+            this.bcp.setText(az.f(date));
+            if (!TextUtils.isEmpty(this.bct.getContent())) {
+                this.bco.setText(this.bct.getContent());
             } else {
-                this.bca.setText("");
+                this.bco.setText("");
             }
-            if (!TextUtils.isEmpty(this.bcf.getGroupName())) {
-                this.bbZ.setText(this.bcf.getGroupName());
+            if (!TextUtils.isEmpty(this.bct.getGroupName())) {
+                this.bcn.setText(this.bct.getGroupName());
             } else {
-                this.bbZ.setText("");
+                this.bcn.setText("");
             }
-            int paddingLeft = this.bcd.getPaddingLeft();
-            int paddingTop = this.bcd.getPaddingTop();
-            int paddingRight = this.bcd.getPaddingRight();
-            int paddingBottom = this.bcd.getPaddingBottom();
-            this.bbW.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
-            this.bbW.getLayoutMode().h(this.ay);
-            this.bcc.setSelected(this.bcf.isSelected());
-            if (this.bcf.isSelected()) {
-                aw.h(this.bcd, u.bg_information_down_s);
+            int paddingLeft = this.bcr.getPaddingLeft();
+            int paddingTop = this.bcr.getPaddingTop();
+            int paddingRight = this.bcr.getPaddingRight();
+            int paddingBottom = this.bcr.getPaddingBottom();
+            this.bck.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
+            this.bck.getLayoutMode().h(this.ay);
+            this.bcq.setSelected(this.bct.isSelected());
+            if (this.bct.isSelected()) {
+                aw.h(this.bcr, u.bg_information_down_s);
             } else {
-                aw.h(this.bcd, u.selector_group_updates_bottom_bg);
+                aw.h(this.bcr, u.selector_group_updates_bottom_bg);
             }
-            this.bcd.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+            this.bcr.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
         }
     }
 
@@ -112,6 +112,6 @@ public class i extends com.baidu.adp.base.d<UpdatesItemData> {
     }
 
     public void c(UpdatesItemData updatesItemData) {
-        this.bcf = updatesItemData;
+        this.bct = updatesItemData;
     }
 }

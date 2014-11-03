@@ -18,11 +18,11 @@ import java.util.HashMap;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class TiebaSDK implements Serializable {
-    private static HashMap<String, Field[]> bPl = new HashMap<>();
+    private static HashMap<String, Field[]> bPA = new HashMap<>();
     private static final long serialVersionUID = -3424378401905406520L;
 
     public static void init(Application application) {
-        aj.wk().init(application);
+        aj.wm().init(application);
     }
 
     public static void openBar(Context context, String str) {
@@ -41,7 +41,7 @@ public class TiebaSDK implements Serializable {
         ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
         arrayList.add(new BasicNameValuePair("kw", str));
         arrayList.add(new BasicNameValuePair("pn", String.valueOf(1)));
-        if (aj.wk().jw()) {
+        if (aj.wm().jw()) {
             basicNameValuePair = new BasicNameValuePair("rn", String.valueOf(35));
         } else {
             basicNameValuePair = new BasicNameValuePair("rn", String.valueOf(50));
@@ -136,10 +136,10 @@ public class TiebaSDK implements Serializable {
     public static int[] getStyleableIDByName(Context context, String str) {
         try {
             String packageName = context.getPackageName();
-            Field[] fieldArr = bPl.get(packageName);
+            Field[] fieldArr = bPA.get(packageName);
             if (fieldArr == null) {
                 fieldArr = Class.forName(String.valueOf(packageName) + ".R$styleable").getFields();
-                bPl.put(packageName, fieldArr);
+                bPA.put(packageName, fieldArr);
             }
             Field[] fieldArr2 = fieldArr;
             for (Field field : fieldArr2) {
@@ -155,10 +155,10 @@ public class TiebaSDK implements Serializable {
     public static int getAttrIDByName(Context context, String str) {
         try {
             String packageName = context.getPackageName();
-            Field[] fieldArr = bPl.get(packageName);
+            Field[] fieldArr = bPA.get(packageName);
             if (fieldArr == null) {
                 fieldArr = Class.forName(String.valueOf(packageName) + ".R$styleable").getFields();
-                bPl.put(packageName, fieldArr);
+                bPA.put(packageName, fieldArr);
             }
             Field[] fieldArr2 = fieldArr;
             for (Field field : fieldArr2) {

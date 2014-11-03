@@ -19,7 +19,7 @@ class ag extends CustomMessageListener {
         MainTabActivity mainTabActivity;
         if (customResponsedMessage != null && com.baidu.tbadk.core.b.b.ld() == null) {
             ai aiVar = new ai();
-            mainTabActivity = this.this$0.bOO;
+            mainTabActivity = this.this$0.bPd;
             aiVar.a(mainTabActivity);
             com.baidu.tbadk.core.b.b.a(aiVar);
         }

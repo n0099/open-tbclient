@@ -10,86 +10,86 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 /* loaded from: classes.dex */
 public class am extends com.baidu.adp.base.f {
-    private BaseActivity On;
-    private SettingTextSwitchView aRA;
-    private RelativeLayout aRB;
-    private RelativeLayout aRC;
-    private Button aRD;
-    private BarImageView aRx;
-    private TextView aRy;
-    private TextView aRz;
-    private NavigationBar aog;
+    private BaseActivity Or;
+    private BarImageView aRL;
+    private TextView aRM;
+    private TextView aRN;
+    private SettingTextSwitchView aRO;
+    private RelativeLayout aRP;
+    private RelativeLayout aRQ;
+    private Button aRR;
+    private NavigationBar aop;
     private View mRoot;
 
     public am(BaseActivity baseActivity) {
         super(baseActivity);
-        this.On = baseActivity;
+        this.Or = baseActivity;
         nu();
     }
 
     private void nu() {
-        this.mRoot = View.inflate(this.On, com.baidu.tieba.w.official_bar_info_activity, null);
-        this.On.setContentView(this.mRoot);
-        this.aog = (NavigationBar) this.mRoot.findViewById(com.baidu.tieba.v.view_navigation_bar);
-        this.aog.setTitleText(com.baidu.tieba.y.officical_bar_info_title);
-        this.aog.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.aRx = (BarImageView) this.mRoot.findViewById(com.baidu.tieba.v.bar_img);
-        this.aRy = (TextView) this.mRoot.findViewById(com.baidu.tieba.v.bar_name);
-        this.aRz = (TextView) this.mRoot.findViewById(com.baidu.tieba.v.bar_authen_content);
-        this.aRA = (SettingTextSwitchView) this.mRoot.findViewById(com.baidu.tieba.v.bar_notify);
-        this.aRB = (RelativeLayout) this.mRoot.findViewById(com.baidu.tieba.v.bar_info_clean_lay);
-        this.aRC = (RelativeLayout) this.mRoot.findViewById(com.baidu.tieba.v.bar_info_history_lay);
-        this.aRD = (Button) this.mRoot.findViewById(com.baidu.tieba.v.bar_info_goto_btn);
+        this.mRoot = View.inflate(this.Or, com.baidu.tieba.w.official_bar_info_activity, null);
+        this.Or.setContentView(this.mRoot);
+        this.aop = (NavigationBar) this.mRoot.findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.aop.setTitleText(com.baidu.tieba.y.officical_bar_info_title);
+        this.aop.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.aRL = (BarImageView) this.mRoot.findViewById(com.baidu.tieba.v.bar_img);
+        this.aRM = (TextView) this.mRoot.findViewById(com.baidu.tieba.v.bar_name);
+        this.aRN = (TextView) this.mRoot.findViewById(com.baidu.tieba.v.bar_authen_content);
+        this.aRO = (SettingTextSwitchView) this.mRoot.findViewById(com.baidu.tieba.v.bar_notify);
+        this.aRP = (RelativeLayout) this.mRoot.findViewById(com.baidu.tieba.v.bar_info_clean_lay);
+        this.aRQ = (RelativeLayout) this.mRoot.findViewById(com.baidu.tieba.v.bar_info_history_lay);
+        this.aRR = (Button) this.mRoot.findViewById(com.baidu.tieba.v.bar_info_goto_btn);
     }
 
     public void cH(boolean z) {
         if (z) {
-            this.aRA.gN();
+            this.aRO.gN();
         } else {
-            this.aRA.gO();
+            this.aRO.gO();
         }
     }
 
-    public RelativeLayout Ks() {
-        return this.aRB;
+    public RelativeLayout Kw() {
+        return this.aRP;
     }
 
-    public RelativeLayout Kt() {
-        return this.aRC;
+    public RelativeLayout Kx() {
+        return this.aRQ;
     }
 
-    public Button Ku() {
-        return this.aRD;
+    public Button Ky() {
+        return this.aRR;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.aRB.setOnClickListener(onClickListener);
-        this.aRC.setOnClickListener(onClickListener);
-        this.aRD.setOnClickListener(onClickListener);
+        this.aRP.setOnClickListener(onClickListener);
+        this.aRQ.setOnClickListener(onClickListener);
+        this.aRR.setOnClickListener(onClickListener);
     }
 
     public void fC(String str) {
-        this.aRz.setText(str);
+        this.aRN.setText(str);
     }
 
     public void setName(String str) {
-        String str2 = String.valueOf(str) + this.On.getString(com.baidu.tieba.y.bar);
-        this.aRy.setText(str2);
-        this.aRD.setText(String.valueOf(this.On.getString(com.baidu.tieba.y.visit)) + str2);
+        String str2 = String.valueOf(str) + this.Or.getString(com.baidu.tieba.y.bar);
+        this.aRM.setText(str2);
+        this.aRR.setText(String.valueOf(this.Or.getString(com.baidu.tieba.y.visit)) + str2);
     }
 
     public void fD(String str) {
-        this.aRx.c(str, 10, false);
+        this.aRL.c(str, 10, false);
     }
 
     public void a(com.baidu.adp.widget.BdSwitchView.c cVar) {
-        this.aRA.setSwitchStateChangeListener(cVar);
+        this.aRO.setSwitchStateChangeListener(cVar);
     }
 
     public void onChangeSkinType(int i) {
-        this.On.getLayoutMode().L(i == 1);
-        this.On.getLayoutMode().h(this.mRoot);
-        this.aog.onChangeSkinType(i);
-        this.aRA.cu(i);
+        this.Or.getLayoutMode().L(i == 1);
+        this.Or.getLayoutMode().h(this.mRoot);
+        this.aop.onChangeSkinType(i);
+        this.aRO.cu(i);
     }
 }

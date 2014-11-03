@@ -3,12 +3,12 @@ package com.baidu.tieba.editortool;
 import android.view.View;
 /* loaded from: classes.dex */
 class aq implements View.OnClickListener {
-    private final int CH;
-    final /* synthetic */ PrivilegeTabHorizonScrollView arI;
+    private final int CI;
+    final /* synthetic */ PrivilegeTabHorizonScrollView arR;
 
     private aq(PrivilegeTabHorizonScrollView privilegeTabHorizonScrollView, int i) {
-        this.arI = privilegeTabHorizonScrollView;
-        this.CH = i;
+        this.arR = privilegeTabHorizonScrollView;
+        this.CI = i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,6 +18,6 @@ class aq implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        PrivilegeTabHorizonScrollView.a(this.arI).cH(this.CH);
+        PrivilegeTabHorizonScrollView.a(this.arR).cH(this.CI);
     }
 }

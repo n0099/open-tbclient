@@ -9,35 +9,34 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends HttpMessageListener {
-    final /* synthetic */ ReloginManager BX;
+    final /* synthetic */ ReloginManager BY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(ReloginManager reloginManager, int i) {
         super(i);
-        this.BX = reloginManager;
+        this.BY = reloginManager;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: b */
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
         ArrayList arrayList;
         if (httpResponsedMessage != null && (httpResponsedMessage instanceof ReloginManager.BgLoginHttpResponsedMessage)) {
-            this.BX.BS = false;
+            this.BY.BT = false;
             ReloginManager.BgLoginHttpResponsedMessage bgLoginHttpResponsedMessage = (ReloginManager.BgLoginHttpResponsedMessage) httpResponsedMessage;
             int statusCode = bgLoginHttpResponsedMessage.getStatusCode();
             int error = bgLoginHttpResponsedMessage.getError();
             if ((statusCode == 200 && error != 0) || statusCode != 200) {
-                this.BX.d(TbadkApplication.getCurrentAccountObj());
+                this.BY.d(TbadkApplication.getCurrentAccountObj());
                 if (bgLoginHttpResponsedMessage.getErrorString() != null) {
                     m.showToast(TbadkApplication.m251getInst().getContext(), bgLoginHttpResponsedMessage.getErrorString());
                 }
-                arrayList = this.BX.BU;
+                arrayList = this.BY.BV;
                 arrayList.clear();
                 return;
             }
-            this.BX.lg();
+            this.BY.lg();
         }
     }
 }

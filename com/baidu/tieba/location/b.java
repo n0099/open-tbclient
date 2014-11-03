@@ -14,7 +14,7 @@ public class b {
         this.name = str;
     }
 
-    public String Sn() {
+    public String Sq() {
         return this.addr;
     }
 

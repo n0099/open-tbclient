@@ -4,11 +4,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
-    final /* synthetic */ ChatterboxDialog bjf;
+    final /* synthetic */ ChatterboxDialog bjt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(ChatterboxDialog chatterboxDialog) {
-        this.bjf = chatterboxDialog;
+        this.bjt = chatterboxDialog;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,14 +18,14 @@ public class a implements View.OnClickListener {
         ChatterboxEditDialog chatterboxEditDialog2;
         String str2;
         ChatterboxEditDialog chatterboxEditDialog3;
-        chatterboxEditDialog = this.bjf.mChatterboxEditDialog;
-        str = this.bjf.mSelectedText;
+        chatterboxEditDialog = this.bjt.mChatterboxEditDialog;
+        str = this.bjt.mSelectedText;
         chatterboxEditDialog.setSelectText(str);
-        chatterboxEditDialog2 = this.bjf.mChatterboxEditDialog;
-        str2 = this.bjf.mSelectedContent;
+        chatterboxEditDialog2 = this.bjt.mChatterboxEditDialog;
+        str2 = this.bjt.mSelectedContent;
         chatterboxEditDialog2.setSelectedContent(str2);
-        chatterboxEditDialog3 = this.bjf.mChatterboxEditDialog;
+        chatterboxEditDialog3 = this.bjt.mChatterboxEditDialog;
         chatterboxEditDialog3.show();
-        this.bjf.cancel();
+        this.bjt.cancel();
     }
 }

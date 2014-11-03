@@ -7,34 +7,34 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ AbsGameClassifyActivity aJm;
+    final /* synthetic */ AbsGameClassifyActivity aJz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(AbsGameClassifyActivity absGameClassifyActivity, int i, int i2) {
         super(i, i2);
-        this.aJm = absGameClassifyActivity;
+        this.aJz = absGameClassifyActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
     public void onMessage(ResponsedMessage<?> responsedMessage) {
-        View abP;
-        AbsGameClassifyActivity absGameClassifyActivity = this.aJm;
-        abP = this.aJm.abP();
-        absGameClassifyActivity.hideLoadingView(abP);
+        View abS;
+        AbsGameClassifyActivity absGameClassifyActivity = this.aJz;
+        abS = this.aJz.abS();
+        absGameClassifyActivity.hideLoadingView(abS);
         if (responsedMessage == null) {
-            this.aJm.EG();
+            this.aJz.EI();
         } else if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-            this.aJm.showToast(responsedMessage.getErrorString());
-            this.aJm.EG();
+            this.aJz.showToast(responsedMessage.getErrorString());
+            this.aJz.EI();
         } else {
-            Class<? extends SocketResponsedMessage> HX = this.aJm.HX();
-            if (HX != null && HX.isInstance(responsedMessage)) {
-                this.aJm.e((SocketResponsedMessage) responsedMessage);
+            Class<? extends SocketResponsedMessage> Ib = this.aJz.Ib();
+            if (Ib != null && Ib.isInstance(responsedMessage)) {
+                this.aJz.e((SocketResponsedMessage) responsedMessage);
             }
-            Class<? extends HttpResponsedMessage> HW = this.aJm.HW();
-            if (HW != null && HW.isInstance(responsedMessage)) {
-                this.aJm.d((HttpResponsedMessage) responsedMessage);
+            Class<? extends HttpResponsedMessage> Ia = this.aJz.Ia();
+            if (Ia != null && Ia.isInstance(responsedMessage)) {
+                this.aJz.c((HttpResponsedMessage) responsedMessage);
             }
         }
     }

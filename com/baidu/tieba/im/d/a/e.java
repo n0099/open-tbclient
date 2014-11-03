@@ -1,9 +1,9 @@
 package com.baidu.tieba.im.d.a;
 
-import com.baidu.tieba.im.groupInfo.z;
+import com.baidu.tieba.im.groupInfo.aa;
 /* loaded from: classes.dex */
 public class e extends a {
     public e() {
-        super(z.Pb(), 2001146);
+        super(aa.Pe(), 2001146);
     }
 }

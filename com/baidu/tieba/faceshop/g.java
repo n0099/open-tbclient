@@ -12,30 +12,30 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private static g asg = new g();
-    private j ash;
-    private List<String> asi;
+    private static g asp = new g();
+    private j asq;
+    private List<String> asr;
     private int max = 5;
-    private CustomMessageListener asj = new h(this, 2001144);
-    private CustomMessageListener Sc = new i(this, 2001123);
+    private CustomMessageListener ass = new h(this, 2001144);
+    private CustomMessageListener Sg = new i(this, 2001123);
 
     private g() {
-        MessageManager.getInstance().registerListener(this.Sc);
-        MessageManager.getInstance().registerListener(this.asj);
+        MessageManager.getInstance().registerListener(this.Sg);
+        MessageManager.getInstance().registerListener(this.ass);
     }
 
-    public static g CH() {
-        return asg;
+    public static g CJ() {
+        return asp;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void C(List<String> list) {
-        this.ash = new j(this);
-        this.ash.execute(list);
+        this.asq = new j(this);
+        this.asq.execute(list);
     }
 
     public void l(String str, String str2, String str3) {
-        if (!com.baidu.tbadk.core.util.ay.aA(str) && !com.baidu.tbadk.core.util.ay.aA(str3)) {
+        if (!com.baidu.tbadk.core.util.az.aA(str) && !com.baidu.tbadk.core.util.az.aA(str3)) {
             DownloadData downloadData = new DownloadData(str, str2, str3, new f());
             downloadData.setStatusMsg(TbadkApplication.getCurrentAccount());
             downloadData.setType(11);
@@ -76,16 +76,16 @@ public class g {
             sb.append(str);
             downloadData.setPath(sb.toString());
             BdLog.d("download:path:" + downloadData.getPath());
-            com.baidu.tbadk.download.g.rk().a(downloadData, this.max);
+            com.baidu.tbadk.download.g.rm().a(downloadData, this.max);
         }
     }
 
     public void eL(String str) {
-        com.baidu.tbadk.download.g.rk().p(str, 11);
+        com.baidu.tbadk.download.g.rm().p(str, 11);
     }
 
-    public void CI() {
-        com.baidu.tbadk.download.g.rk().cF(11);
+    public void CK() {
+        com.baidu.tbadk.download.g.rm().cF(11);
     }
 
     public void a(DownloadData downloadData) {

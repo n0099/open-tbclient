@@ -5,18 +5,17 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class dg extends HttpMessageListener {
-    final /* synthetic */ df aEr;
+    final /* synthetic */ df aEB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public dg(df dfVar, int i) {
         super(i);
-        this.aEr = dfVar;
+        this.aEB = dfVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /* renamed from: b */
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
         dh dhVar;
         dh dhVar2;
@@ -25,9 +24,9 @@ public class dg extends HttpMessageListener {
         dh dhVar5;
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
             if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
-                dhVar = this.aEr.aEn;
+                dhVar = this.aEB.aEx;
                 if (dhVar != null) {
-                    dhVar2 = this.aEr.aEn;
+                    dhVar2 = this.aEB.aEx;
                     dhVar2.fb(null);
                     return;
                 }
@@ -35,13 +34,13 @@ public class dg extends HttpMessageListener {
             }
             PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
             if (praiseResponseMessage.getError() == 0) {
-                dhVar5 = this.aEr.aEn;
+                dhVar5 = this.aEB.aEx;
                 dhVar5.fa(praiseResponseMessage.getErrMsg());
                 return;
             }
-            dhVar3 = this.aEr.aEn;
+            dhVar3 = this.aEB.aEx;
             if (dhVar3 != null) {
-                dhVar4 = this.aEr.aEn;
+                dhVar4 = this.aEB.aEx;
                 dhVar4.fb(praiseResponseMessage.getErrMsg());
             }
         }

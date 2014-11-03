@@ -25,12 +25,12 @@ public class w implements View.OnClickListener {
         com.baidu.adp.lib.g.j.a(morePopupWindow, this.this$0);
         if (TbadkApplication.m251getInst().isLiveSDKOpen()) {
             MainTabActivity mainTabActivity3 = this.this$0;
-            mainTabActivity2 = this.this$0.bOO;
+            mainTabActivity2 = this.this$0.bPd;
             mainTabActivity3.sendMessage(new CustomMessage(2002001, new MyLiveActivityConfig(mainTabActivity2)));
             return;
         }
         MainTabActivity mainTabActivity4 = this.this$0;
-        mainTabActivity = this.this$0.bOO;
+        mainTabActivity = this.this$0.bPd;
         mainTabActivity4.sendMessage(new CustomMessage(2002001, new BackupMyLiveActivityConfig(mainTabActivity)));
     }
 }

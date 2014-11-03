@@ -7,18 +7,18 @@ import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
 import com.baidu.tbadk.pluginArch.PluginNameList;
 /* loaded from: classes.dex */
 class f implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ d MV;
+    final /* synthetic */ d MZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(d dVar) {
-        this.MV = dVar;
+        this.MZ = dVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         Context context;
         MessageManager messageManager = MessageManager.getInstance();
-        context = this.MV.mContext;
+        context = this.MZ.mContext;
         messageManager.sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(context, PluginNameList.NAME_SOCIAL_SHARE)));
         aVar.dismiss();
     }

@@ -6,10 +6,10 @@ import com.baidu.tieba.model.Hao123Model;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class au extends BdAsyncTask<Void, Void, Void> {
-    final /* synthetic */ SystemHelpSettingActivity bsJ;
+    final /* synthetic */ SystemHelpSettingActivity bsX;
 
     private au(SystemHelpSettingActivity systemHelpSettingActivity) {
-        this.bsJ = systemHelpSettingActivity;
+        this.bsX = systemHelpSettingActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

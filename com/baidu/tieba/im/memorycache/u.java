@@ -40,8 +40,8 @@ public class u extends com.baidu.adp.framework.listener.e {
             chatMessage.setMsgId(msgId);
             chatMessage.setRecordId(recordId);
         }
-        c.PK().a(chatMessage.getCustomGroupType(), chatMessage, chatMessage.getGroupId(), 3);
-        CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new v(this, c.PK().B(chatMessage.getGroupId(), chatMessage.getCustomGroupType()), chatMessage, socketResponsedMessage));
+        c.PN().a(chatMessage.getCustomGroupType(), chatMessage, chatMessage.getGroupId(), 3);
+        CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new v(this, c.PN().B(chatMessage.getGroupId(), chatMessage.getCustomGroupType()), chatMessage, socketResponsedMessage));
         customMessageTask.setParallel(TiebaIMConfig.getParallel());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         customMessageTask.setPriority(4);

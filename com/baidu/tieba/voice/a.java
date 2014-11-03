@@ -31,38 +31,38 @@ import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class a extends ViewGroup implements View.OnClickListener, m, n {
     private AlertDialog Bf;
-    private final int[] bRI;
-    private int bRJ;
-    private int bRK;
-    private final int bRL;
-    private final int bRM;
-    private final int bRN;
-    private final int bRO;
-    private final int bRP;
-    private final int bRQ;
-    private final BitmapDrawable bRR;
-    private final Paint bRS;
-    private final Rect bRT;
-    private final RectF bRU;
-    private TextView bRV;
-    private TextView bRW;
-    private TextView bRX;
-    private TextView bRY;
-    private VoiceBnt bRZ;
-    private TextView bSa;
-    private ImageView bSb;
-    private ImageView bSc;
-    private boolean bSd;
-    private float bSe;
-    private float bSf;
-    private f bSg;
-    private long bSh;
-    private long bSi;
-    private final int[] bSj;
-    private final g bSk;
-    private SweepGradient bSl;
-    private int bSm;
-    private ImageView btk;
+    private final int[] bRX;
+    private int bRY;
+    private int bRZ;
+    private SweepGradient bSA;
+    private int bSB;
+    private final int bSa;
+    private final int bSb;
+    private final int bSc;
+    private final int bSd;
+    private final int bSe;
+    private final int bSf;
+    private final BitmapDrawable bSg;
+    private final Paint bSh;
+    private final Rect bSi;
+    private final RectF bSj;
+    private TextView bSk;
+    private TextView bSl;
+    private TextView bSm;
+    private TextView bSn;
+    private VoiceBnt bSo;
+    private TextView bSp;
+    private ImageView bSq;
+    private ImageView bSr;
+    private boolean bSs;
+    private float bSt;
+    private float bSu;
+    private f bSv;
+    private long bSw;
+    private long bSx;
+    private final int[] bSy;
+    private final g bSz;
+    private ImageView btz;
     private int mIntervalMaxVolume;
     private long mLastRecordTime;
     VoiceData.VoiceModel mModel;
@@ -74,36 +74,36 @@ public class a extends ViewGroup implements View.OnClickListener, m, n {
     public a(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mLastRecordTime = 0L;
-        this.bRI = new int[4];
-        this.bRS = new Paint(1);
-        this.bRT = new Rect();
-        this.bRU = new RectF();
-        this.bSj = new int[2];
-        this.bSk = new g(this, null);
+        this.bRX = new int[4];
+        this.bSh = new Paint(1);
+        this.bSi = new Rect();
+        this.bSj = new RectF();
+        this.bSy = new int[2];
+        this.bSz = new g(this, null);
         this.mIntervalMaxVolume = 0;
-        this.bSm = 0;
-        this.bRI[0] = context.getResources().getDimensionPixelSize(t.record_voice_btn_marginleft);
-        this.bRI[1] = context.getResources().getDimensionPixelSize(t.record_voice_btn_margintop);
-        this.bRI[2] = context.getResources().getDimensionPixelSize(t.record_voice_btn_marginright);
-        this.bRI[3] = context.getResources().getDimensionPixelSize(t.record_voice_btn_marginbottom);
-        this.bRJ = context.getResources().getDimensionPixelSize(t.record_voice_btn_paddingtop);
-        this.bRK = context.getResources().getDimensionPixelSize(t.record_voice_btn_channel_paddingtop);
-        this.bRL = context.getResources().getDimensionPixelSize(t.record_voice_btn_restart_button_paddingleft);
-        this.bRM = context.getResources().getDimensionPixelSize(t.record_voice_btn_restart_button_paddingbottom);
-        this.bRN = context.getResources().getDimensionPixelSize(t.record_voice_btn_duration_time_offset_y);
-        this.bRO = context.getResources().getDimensionPixelSize(t.record_voice_btn_dot_glow_padding);
-        this.bRP = context.getResources().getDimensionPixelSize(t.record_voice_btn_paint_stroke_width);
-        this.bRQ = context.getResources().getDimensionPixelSize(t.record_voice_btn_progress_padding);
-        this.bRS.setStyle(Paint.Style.STROKE);
-        this.bRS.setStrokeWidth(this.bRP);
-        this.bRR = (BitmapDrawable) getResources().getDrawable(u.dot_play_schedule);
+        this.bSB = 0;
+        this.bRX[0] = context.getResources().getDimensionPixelSize(t.record_voice_btn_marginleft);
+        this.bRX[1] = context.getResources().getDimensionPixelSize(t.record_voice_btn_margintop);
+        this.bRX[2] = context.getResources().getDimensionPixelSize(t.record_voice_btn_marginright);
+        this.bRX[3] = context.getResources().getDimensionPixelSize(t.record_voice_btn_marginbottom);
+        this.bRY = context.getResources().getDimensionPixelSize(t.record_voice_btn_paddingtop);
+        this.bRZ = context.getResources().getDimensionPixelSize(t.record_voice_btn_channel_paddingtop);
+        this.bSa = context.getResources().getDimensionPixelSize(t.record_voice_btn_restart_button_paddingleft);
+        this.bSb = context.getResources().getDimensionPixelSize(t.record_voice_btn_restart_button_paddingbottom);
+        this.bSc = context.getResources().getDimensionPixelSize(t.record_voice_btn_duration_time_offset_y);
+        this.bSd = context.getResources().getDimensionPixelSize(t.record_voice_btn_dot_glow_padding);
+        this.bSe = context.getResources().getDimensionPixelSize(t.record_voice_btn_paint_stroke_width);
+        this.bSf = context.getResources().getDimensionPixelSize(t.record_voice_btn_progress_padding);
+        this.bSh.setStyle(Paint.Style.STROKE);
+        this.bSh.setStrokeWidth(this.bSe);
+        this.bSg = (BitmapDrawable) getResources().getDrawable(u.dot_play_schedule);
         init(context);
     }
 
     public void init(Context context) {
         al(context);
-        this.bSj[0] = aw.getColor(s.record_voice_progress_start);
-        this.bSj[1] = aw.getColor(s.record_voice_progress_end);
+        this.bSy[0] = aw.getColor(s.record_voice_progress_start);
+        this.bSy[1] = aw.getColor(s.record_voice_progress_end);
         VoiceManager voiceManager = getVoiceManager();
         if (voiceManager != null) {
             voiceManager.setAllowChangeVoiceMode(false);
@@ -125,71 +125,71 @@ public class a extends ViewGroup implements View.OnClickListener, m, n {
         int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(t.pb_editor_faceview_height);
         int dimensionPixelSize2 = getContext().getResources().getDimensionPixelSize(t.record_voice_btn_paddingtop);
         int dimensionPixelSize3 = getContext().getResources().getDimensionPixelSize(t.record_voice_btn_channel_paddingtop);
-        this.bRJ = dimensionPixelSize2 + ((i4 - dimensionPixelSize) / 2);
-        this.bRK = ((i4 - dimensionPixelSize) / 2) + dimensionPixelSize3;
+        this.bRY = dimensionPixelSize2 + ((i4 - dimensionPixelSize) / 2);
+        this.bRZ = ((i4 - dimensionPixelSize) / 2) + dimensionPixelSize3;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int i5 = i3 - i;
-        int measuredWidth = this.bRZ.getMeasuredWidth();
-        this.bRZ.layout((i5 - measuredWidth) >> 1, this.bRJ + i2, (measuredWidth + i5) >> 1, this.bRZ.getMeasuredHeight() + this.bRJ + i2);
-        int i6 = this.bRI[1];
-        int measuredWidth2 = this.bRW.getMeasuredWidth();
-        int measuredHeight = this.bRW.getMeasuredHeight();
-        int top = this.bRZ.getTop();
-        this.bRW.layout((i5 - measuredWidth2) >> 1, (top - i6) - measuredHeight, (measuredWidth2 + i5) >> 1, top - i6);
-        int measuredWidth3 = this.bRY.getMeasuredWidth();
-        int measuredHeight2 = this.bRY.getMeasuredHeight();
-        int top2 = this.bRZ.getTop();
-        this.bRY.layout((i5 - measuredWidth3) >> 1, (top2 - i6) - measuredHeight2, (measuredWidth3 + i5) >> 1, top2 - i6);
-        int measuredWidth4 = this.bRV.getMeasuredWidth();
-        int measuredHeight3 = this.bRV.getMeasuredHeight();
-        int right = this.bRZ.getRight() - this.bRL;
-        int bottom = this.bRZ.getBottom() - this.bRM;
-        this.bRV.layout(right, bottom - measuredHeight3, measuredWidth4 + right, bottom);
-        int measuredWidth5 = this.btk.getMeasuredWidth();
-        this.btk.layout((i5 - measuredWidth5) >> 1, this.bRJ + i2, (measuredWidth5 + i5) >> 1, this.btk.getMeasuredHeight() + this.bRJ + i2);
-        int measuredWidth6 = this.bSa.getMeasuredWidth();
-        this.bSa.layout((i5 - measuredWidth6) >> 1, (this.bRZ.getBottom() - this.bSa.getMeasuredHeight()) - this.bRN, (measuredWidth6 + i5) >> 1, (this.bRZ.getBottom() + i2) - this.bRN);
-        int measuredWidth7 = this.bSb.getMeasuredWidth();
-        int measuredHeight4 = this.bSb.getMeasuredHeight();
-        int left = this.bRZ.getLeft();
-        this.bSb.layout((left - this.bRI[0]) - measuredWidth7, this.bRK + i2, left - this.bRI[0], measuredHeight4 + this.bRK + i2);
-        int measuredWidth8 = this.bSc.getMeasuredWidth();
-        int measuredHeight5 = this.bSc.getMeasuredHeight();
-        int right2 = this.bRZ.getRight();
-        this.bSc.layout(this.bRI[2] + right2, this.bRK + i2, measuredWidth8 + right2 + this.bRI[2], measuredHeight5 + this.bRK + i2);
-        int measuredWidth9 = this.bRX.getMeasuredWidth();
-        int measuredHeight6 = this.bRX.getMeasuredHeight();
-        int bottom2 = this.bRZ.getBottom();
-        this.bRX.layout((i5 - measuredWidth9) >> 1, this.bRI[3] + bottom2, (measuredWidth9 + i5) >> 1, measuredHeight6 + bottom2 + this.bRI[3]);
-        this.bRT.set((i5 - this.bRR.getIntrinsicWidth()) >> 1, this.btk.getTop() - this.bRO, (i5 + this.bRR.getIntrinsicHeight()) >> 1, (this.btk.getTop() + this.bRR.getIntrinsicHeight()) - this.bRO);
-        this.bRR.setBounds(this.bRT);
-        this.bRU.set(this.btk.getLeft() + (this.bRP >> 1) + this.bRQ, this.btk.getTop() + (this.bRP >> 1) + this.bRQ, (this.btk.getRight() - (this.bRP >> 1)) - this.bRQ, (this.btk.getBottom() - (this.bRP >> 1)) - this.bRQ);
-        if (this.bSl == null) {
-            this.bSl = new SweepGradient(this.bRU.centerX(), this.bRU.centerY(), this.bSj, new float[]{0.0f, 0.7f});
+        int measuredWidth = this.bSo.getMeasuredWidth();
+        this.bSo.layout((i5 - measuredWidth) >> 1, this.bRY + i2, (measuredWidth + i5) >> 1, this.bSo.getMeasuredHeight() + this.bRY + i2);
+        int i6 = this.bRX[1];
+        int measuredWidth2 = this.bSl.getMeasuredWidth();
+        int measuredHeight = this.bSl.getMeasuredHeight();
+        int top = this.bSo.getTop();
+        this.bSl.layout((i5 - measuredWidth2) >> 1, (top - i6) - measuredHeight, (measuredWidth2 + i5) >> 1, top - i6);
+        int measuredWidth3 = this.bSn.getMeasuredWidth();
+        int measuredHeight2 = this.bSn.getMeasuredHeight();
+        int top2 = this.bSo.getTop();
+        this.bSn.layout((i5 - measuredWidth3) >> 1, (top2 - i6) - measuredHeight2, (measuredWidth3 + i5) >> 1, top2 - i6);
+        int measuredWidth4 = this.bSk.getMeasuredWidth();
+        int measuredHeight3 = this.bSk.getMeasuredHeight();
+        int right = this.bSo.getRight() - this.bSa;
+        int bottom = this.bSo.getBottom() - this.bSb;
+        this.bSk.layout(right, bottom - measuredHeight3, measuredWidth4 + right, bottom);
+        int measuredWidth5 = this.btz.getMeasuredWidth();
+        this.btz.layout((i5 - measuredWidth5) >> 1, this.bRY + i2, (measuredWidth5 + i5) >> 1, this.btz.getMeasuredHeight() + this.bRY + i2);
+        int measuredWidth6 = this.bSp.getMeasuredWidth();
+        this.bSp.layout((i5 - measuredWidth6) >> 1, (this.bSo.getBottom() - this.bSp.getMeasuredHeight()) - this.bSc, (measuredWidth6 + i5) >> 1, (this.bSo.getBottom() + i2) - this.bSc);
+        int measuredWidth7 = this.bSq.getMeasuredWidth();
+        int measuredHeight4 = this.bSq.getMeasuredHeight();
+        int left = this.bSo.getLeft();
+        this.bSq.layout((left - this.bRX[0]) - measuredWidth7, this.bRZ + i2, left - this.bRX[0], measuredHeight4 + this.bRZ + i2);
+        int measuredWidth8 = this.bSr.getMeasuredWidth();
+        int measuredHeight5 = this.bSr.getMeasuredHeight();
+        int right2 = this.bSo.getRight();
+        this.bSr.layout(this.bRX[2] + right2, this.bRZ + i2, measuredWidth8 + right2 + this.bRX[2], measuredHeight5 + this.bRZ + i2);
+        int measuredWidth9 = this.bSm.getMeasuredWidth();
+        int measuredHeight6 = this.bSm.getMeasuredHeight();
+        int bottom2 = this.bSo.getBottom();
+        this.bSm.layout((i5 - measuredWidth9) >> 1, this.bRX[3] + bottom2, (measuredWidth9 + i5) >> 1, measuredHeight6 + bottom2 + this.bRX[3]);
+        this.bSi.set((i5 - this.bSg.getIntrinsicWidth()) >> 1, this.btz.getTop() - this.bSd, (i5 + this.bSg.getIntrinsicHeight()) >> 1, (this.btz.getTop() + this.bSg.getIntrinsicHeight()) - this.bSd);
+        this.bSg.setBounds(this.bSi);
+        this.bSj.set(this.btz.getLeft() + (this.bSe >> 1) + this.bSf, this.btz.getTop() + (this.bSe >> 1) + this.bSf, (this.btz.getRight() - (this.bSe >> 1)) - this.bSf, (this.btz.getBottom() - (this.bSe >> 1)) - this.bSf);
+        if (this.bSA == null) {
+            this.bSA = new SweepGradient(this.bSj.centerX(), this.bSj.centerY(), this.bSy, new float[]{0.0f, 0.7f});
             Matrix matrix = new Matrix();
-            this.bSl.getLocalMatrix(matrix);
-            matrix.postRotate(-90.0f, this.bRU.centerX(), this.bRU.centerY());
-            this.bSl.setLocalMatrix(matrix);
-            this.bRS.setShader(this.bSl);
+            this.bSA.getLocalMatrix(matrix);
+            matrix.postRotate(-90.0f, this.bSj.centerX(), this.bSj.centerY());
+            this.bSA.setLocalMatrix(matrix);
+            this.bSh.setShader(this.bSA);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.bSd) {
-            canvas.drawArc(this.bRU, -90.0f, this.bSf, false, this.bRS);
+        if (this.bSs) {
+            canvas.drawArc(this.bSj, -90.0f, this.bSu, false, this.bSh);
             int save = canvas.save();
-            canvas.rotate(this.bSf, this.bRU.centerX(), this.bRU.centerY());
-            this.bRR.draw(canvas);
+            canvas.rotate(this.bSu, this.bSj.centerX(), this.bSj.centerY());
+            this.bSg.draw(canvas);
             canvas.restoreToCount(save);
         }
     }
 
-    private void aeV() {
+    private void aeY() {
         if (this.Bf == null) {
             this.Bf = new AlertDialog.Builder(getContext()).setTitle(getContext().getString(y.voice_restart_tip)).setPositiveButton(getContext().getString(y.voice_restart), new b(this)).setNegativeButton(getContext().getString(y.cancel), new c(this)).create();
         }
@@ -206,71 +206,71 @@ public class a extends ViewGroup implements View.OnClickListener, m, n {
     private void al(Context context) {
         com.baidu.adp.lib.g.b.ek().a(context, w.record_voice_area, this, true);
         setClickable(true);
-        this.bRW = (TextView) findViewById(v.tip_error);
-        this.bRX = (TextView) findViewById(v.tip_operator);
-        this.bRY = (TextView) findViewById(v.tip_time_out);
-        this.bRZ = (VoiceBnt) findViewById(v.voice_bnt);
-        this.bRV = (TextView) findViewById(v.restart);
-        this.btk = (ImageView) findViewById(v.play_img);
-        this.bSa = (TextView) findViewById(v.play_time);
-        this.bSb = (ImageView) findViewById(v.left_chanel);
-        this.bSc = (ImageView) findViewById(v.right_chanel);
-        this.bRV.setOnClickListener(this);
-        this.btk.setOnClickListener(this);
-        this.bRZ.setRecorderView(this);
-        aeX();
+        this.bSl = (TextView) findViewById(v.tip_error);
+        this.bSm = (TextView) findViewById(v.tip_operator);
+        this.bSn = (TextView) findViewById(v.tip_time_out);
+        this.bSo = (VoiceBnt) findViewById(v.voice_bnt);
+        this.bSk = (TextView) findViewById(v.restart);
+        this.btz = (ImageView) findViewById(v.play_img);
+        this.bSp = (TextView) findViewById(v.play_time);
+        this.bSq = (ImageView) findViewById(v.left_chanel);
+        this.bSr = (ImageView) findViewById(v.right_chanel);
+        this.bSk.setOnClickListener(this);
+        this.btz.setOnClickListener(this);
+        this.bSo.setRecorderView(this);
+        afa();
     }
 
-    private void aeW() {
-        this.bRZ.setVisibility(4);
-        this.bSb.setVisibility(4);
-        this.bSc.setVisibility(4);
-        this.bSa.setVisibility(0);
-        this.bRV.setVisibility(0);
-        this.btk.setVisibility(0);
+    private void aeZ() {
+        this.bSo.setVisibility(4);
+        this.bSq.setVisibility(4);
+        this.bSr.setVisibility(4);
+        this.bSp.setVisibility(0);
+        this.bSk.setVisibility(0);
+        this.btz.setVisibility(0);
         if (this.mModel != null) {
-            this.bSa.setText(VoiceManager.formatVoiceTime(this.mModel.duration));
-            aw.c(this.btk, u.but_posts_record_play_selector);
+            this.bSp.setText(VoiceManager.formatVoiceTime(this.mModel.duration));
+            aw.c(this.btz, u.but_posts_record_play_selector);
         }
-        aw.b(this.bRX, s.record_voice_tip_down_text, 1);
-        this.bRX.setText(getContext().getString(y.voice_play_tip));
+        aw.b(this.bSm, s.record_voice_tip_down_text, 1);
+        this.bSm.setText(getContext().getString(y.voice_play_tip));
     }
 
-    public void aeX() {
-        aw.c(this.bRZ, u.but_posts_record_zero_selector);
-        this.bRZ.setVisibility(0);
-        this.bSb.setVisibility(0);
-        this.bSc.setVisibility(0);
-        aw.c(this.bSb, u.btn_posts_record_left_zero);
-        aw.c(this.bSc, u.btn_posts_record_right_zero);
-        this.btk.setVisibility(4);
-        this.bSa.setVisibility(4);
-        this.bRV.setVisibility(4);
-        this.bRY.setVisibility(4);
-        aw.b(this.bRX, s.record_voice_tip_down_text, 1);
-        this.bRX.setText(getContext().getString(y.voice_record_press_to_record));
+    public void afa() {
+        aw.c(this.bSo, u.but_posts_record_zero_selector);
+        this.bSo.setVisibility(0);
+        this.bSq.setVisibility(0);
+        this.bSr.setVisibility(0);
+        aw.c(this.bSq, u.btn_posts_record_left_zero);
+        aw.c(this.bSr, u.btn_posts_record_right_zero);
+        this.btz.setVisibility(4);
+        this.bSp.setVisibility(4);
+        this.bSk.setVisibility(4);
+        this.bSn.setVisibility(4);
+        aw.b(this.bSm, s.record_voice_tip_down_text, 1);
+        this.bSm.setText(getContext().getString(y.voice_record_press_to_record));
     }
 
     public void reset() {
-        aeX();
+        afa();
         this.mModel = null;
     }
 
     public void d(VoiceData.VoiceModel voiceModel) {
         this.mModel = voiceModel;
-        this.bRW.setText("");
-        this.bRW.setVisibility(4);
-        aeW();
-        if (this.bSg != null) {
-            this.bSg.BU();
+        this.bSl.setText("");
+        this.bSl.setVisibility(4);
+        aeZ();
+        if (this.bSv != null) {
+            this.bSv.BW();
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.n
     public void onStartedRecorder(boolean z) {
         if (z) {
-            aeX();
-            this.bRX.setText(getContext().getString(y.voice_record_release_to_stop));
+            afa();
+            this.bSm.setText(getContext().getString(y.voice_record_release_to_stop));
         }
     }
 
@@ -284,23 +284,23 @@ public class a extends ViewGroup implements View.OnClickListener, m, n {
 
     @Override // com.baidu.tbadk.core.voice.m
     public void a(VoiceData.VoiceModel voiceModel) {
-        if (this.btk != null && this.bSa != null) {
+        if (this.btz != null && this.bSp != null) {
             switch (voiceModel.voice_status.intValue()) {
                 case 1:
-                    this.bSd = false;
-                    this.bSa.setText(VoiceManager.formatVoiceTime(voiceModel.duration));
-                    aw.c(this.btk, u.but_posts_record_play_selector);
-                    this.bRX.setText(getContext().getString(y.voice_play_tip));
-                    aeZ();
+                    this.bSs = false;
+                    this.bSp.setText(VoiceManager.formatVoiceTime(voiceModel.duration));
+                    aw.c(this.btz, u.but_posts_record_play_selector);
+                    this.bSm.setText(getContext().getString(y.voice_play_tip));
+                    afc();
                     return;
                 case 2:
                 default:
                     return;
                 case 3:
-                    this.bSd = true;
-                    aw.c(this.btk, u.but_posts_record_stop_selector);
-                    this.bRX.setText(getContext().getString(y.voice_stop_tip));
-                    aeY();
+                    this.bSs = true;
+                    aw.c(this.btz, u.but_posts_record_stop_selector);
+                    this.bSm.setText(getContext().getString(y.voice_stop_tip));
+                    afb();
                     return;
             }
         }
@@ -308,33 +308,33 @@ public class a extends ViewGroup implements View.OnClickListener, m, n {
 
     @Override // com.baidu.tbadk.core.voice.m
     public void onShowErr(int i, String str) {
-        aw.b(this.bRY, s.record_voice_tip_up_text, 1);
-        aw.b(this.bRW, s.record_voice_tip_up_text, 1);
-        aw.b(this.bRX, s.record_voice_tip_down_text, 1);
+        aw.b(this.bSn, s.record_voice_tip_up_text, 1);
+        aw.b(this.bSl, s.record_voice_tip_up_text, 1);
+        aw.b(this.bSm, s.record_voice_tip_down_text, 1);
         if (!StringUtils.isNull(str)) {
             if (i == 3) {
                 postDelayed(new d(this, str), 300L);
             } else if (i == 2) {
-                this.bRW.setVisibility(0);
-                this.bRW.setText(str);
-                this.bRX.setText(y.voice_record_press_to_record);
-                aw.c(this.bSb, u.btn_posts_record_left_zero);
-                aw.c(this.bSc, u.btn_posts_record_right_zero);
+                this.bSl.setVisibility(0);
+                this.bSl.setText(str);
+                this.bSm.setText(y.voice_record_press_to_record);
+                aw.c(this.bSq, u.btn_posts_record_left_zero);
+                aw.c(this.bSr, u.btn_posts_record_right_zero);
                 postDelayed(new e(this), 2000L);
             } else if (i == 5) {
-                this.bRW.setVisibility(0);
-                this.bRW.setText(str);
+                this.bSl.setVisibility(0);
+                this.bSl.setText(str);
             } else {
-                aeX();
-                this.bRW.setVisibility(0);
-                this.bRW.setText(str);
+                afa();
+                this.bSl.setVisibility(0);
+                this.bSl.setText(str);
             }
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.n
     public void onSendVoice(String str, int i) {
-        this.bRW.setVisibility(4);
+        this.bSl.setVisibility(4);
         VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
         voiceModel.duration = i;
         voiceModel.isLocal = true;
@@ -346,16 +346,16 @@ public class a extends ViewGroup implements View.OnClickListener, m, n {
     @Override // com.baidu.tbadk.core.voice.n
     public void onDeletedVoice(String str) {
         this.mModel = null;
-        if (this.bSg != null) {
-            this.bSg.BV();
+        if (this.bSv != null) {
+            this.bSv.BX();
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.n
     public void onShowRecordTime(int i) {
-        aw.b(this.bRW, s.record_voice_tip_up_text, 1);
-        this.bRW.setVisibility(0);
-        this.bRW.setText(VoiceManager.formatVoiceTime(i));
+        aw.b(this.bSl, s.record_voice_tip_up_text, 1);
+        this.bSl.setVisibility(0);
+        this.bSl.setText(VoiceManager.formatVoiceTime(i));
     }
 
     @Override // com.baidu.tbadk.core.voice.n
@@ -367,54 +367,54 @@ public class a extends ViewGroup implements View.OnClickListener, m, n {
             this.mLastRecordTime = uptimeMillis;
         }
         if (this.mIntervalMaxVolume < 10) {
-            aw.c(this.bSb, u.btn_posts_record_left_zero);
-            aw.c(this.bSc, u.btn_posts_record_right_zero);
+            aw.c(this.bSq, u.btn_posts_record_left_zero);
+            aw.c(this.bSr, u.btn_posts_record_right_zero);
         } else if (this.mIntervalMaxVolume < 20) {
-            aw.c(this.bSb, u.btn_posts_record_left_one);
-            aw.c(this.bSc, u.btn_posts_record_right_one);
+            aw.c(this.bSq, u.btn_posts_record_left_one);
+            aw.c(this.bSr, u.btn_posts_record_right_one);
         } else if (this.mIntervalMaxVolume < 30) {
-            aw.c(this.bSb, u.btn_posts_record_left_two);
-            aw.c(this.bSc, u.btn_posts_record_right_two);
+            aw.c(this.bSq, u.btn_posts_record_left_two);
+            aw.c(this.bSr, u.btn_posts_record_right_two);
         } else if (this.mIntervalMaxVolume < 40) {
-            aw.c(this.bSb, u.btn_posts_record_left_three);
-            aw.c(this.bSc, u.btn_posts_record_right_three);
+            aw.c(this.bSq, u.btn_posts_record_left_three);
+            aw.c(this.bSr, u.btn_posts_record_right_three);
         } else if (this.mIntervalMaxVolume < 50) {
-            aw.c(this.bSb, u.btn_posts_record_left_four);
-            aw.c(this.bSc, u.btn_posts_record_right_four);
+            aw.c(this.bSq, u.btn_posts_record_left_four);
+            aw.c(this.bSr, u.btn_posts_record_right_four);
         } else if (this.mIntervalMaxVolume < 60) {
-            aw.c(this.bSb, u.btn_posts_record_left_five);
-            aw.c(this.bSc, u.btn_posts_record_right_five);
+            aw.c(this.bSq, u.btn_posts_record_left_five);
+            aw.c(this.bSr, u.btn_posts_record_right_five);
         } else {
-            aw.c(this.bSb, u.btn_posts_record_left_six);
-            aw.c(this.bSc, u.btn_posts_record_right_six);
+            aw.c(this.bSq, u.btn_posts_record_left_six);
+            aw.c(this.bSr, u.btn_posts_record_right_six);
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.m
     public void bP(int i) {
-        if (this.mModel != null && this.bSa != null) {
+        if (this.mModel != null && this.bSp != null) {
             int i2 = i / 1000;
-            if (this.bSm != i2) {
-                this.bSa.setText(VoiceManager.formatVoiceTime(this.mModel.duration - i2));
+            if (this.bSB != i2) {
+                this.bSp.setText(VoiceManager.formatVoiceTime(this.mModel.duration - i2));
             }
-            this.bSm = i2;
+            this.bSB = i2;
         }
     }
 
-    private void aeY() {
+    private void afb() {
         if (this.mModel != null) {
-            this.bSe = 360.0f / (this.mModel.duration2 > 0 ? this.mModel.duration2 / 1000.0f : this.mModel.duration);
-            this.bSh = SystemClock.uptimeMillis();
-            this.bSi = this.bSh + 25;
-            this.bSk.sendEmptyMessageAtTime(1, this.bSi);
+            this.bSt = 360.0f / (this.mModel.duration2 > 0 ? this.mModel.duration2 / 1000.0f : this.mModel.duration);
+            this.bSw = SystemClock.uptimeMillis();
+            this.bSx = this.bSw + 25;
+            this.bSz.sendEmptyMessageAtTime(1, this.bSx);
             invalidate();
         }
     }
 
-    private void aeZ() {
-        this.bSe = 0.0f;
-        this.bSf = 0.0f;
-        this.bSk.removeMessages(1);
+    private void afc() {
+        this.bSt = 0.0f;
+        this.bSu = 0.0f;
+        this.bSz.removeMessages(1);
         ((ViewGroup) getParent()).invalidate();
     }
 
@@ -433,7 +433,7 @@ public class a extends ViewGroup implements View.OnClickListener, m, n {
             int id = view.getId();
             if (id == v.restart) {
                 voiceManager.stopPlay();
-                aeV();
+                aeY();
             } else if (id == v.play_img && this.mModel != null) {
                 if (this.mModel.voice_status.intValue() == 3) {
                     voiceManager.stopPlay();
@@ -470,8 +470,8 @@ public class a extends ViewGroup implements View.OnClickListener, m, n {
         return this.mModel;
     }
 
-    public void afa() {
-        aeX();
+    public void afd() {
+        afa();
         if (getVoiceManager() != null && this.mModel != null) {
             getVoiceManager().delRecord(this.mModel.voiceId);
             this.mModel = null;
@@ -479,7 +479,7 @@ public class a extends ViewGroup implements View.OnClickListener, m, n {
     }
 
     public void setCallback(f fVar) {
-        this.bSg = fVar;
+        this.bSv = fVar;
     }
 
     @Override // com.baidu.tbadk.core.voice.m

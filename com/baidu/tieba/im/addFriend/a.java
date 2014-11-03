@@ -8,13 +8,13 @@ import com.baidu.tieba.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ AddFriendActivity aNn;
+    final /* synthetic */ AddFriendActivity aNB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(AddFriendActivity addFriendActivity, int i) {
         super(i);
-        this.aNn = addFriendActivity;
+        this.aNB = addFriendActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,19 +28,19 @@ public class a extends com.baidu.adp.framework.listener.e {
             int error = responseAddFriendMessage.getError();
             String errorString = responseAddFriendMessage.getErrorString();
             if (error == 0) {
-                str = this.aNn.userId;
-                str2 = this.aNn.name;
+                str = this.aNB.userId;
+                str2 = this.aNB.name;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001197, new com.baidu.tbadk.coreExtra.data.e(str, str2)));
-                z = this.aNn.aNm;
+                z = this.aNB.aNA;
                 if (z) {
-                    this.aNn.showToast(this.aNn.getString(y.add_ok_but_level_is_lower), false);
+                    this.aNB.showToast(this.aNB.getString(y.add_ok_but_level_is_lower), false);
                 } else {
-                    this.aNn.showToast(this.aNn.getString(y.group_apply_succ), false);
+                    this.aNB.showToast(this.aNB.getString(y.group_apply_succ), false);
                 }
-                this.aNn.finish();
+                this.aNB.finish();
                 return;
             }
-            this.aNn.showToast(errorString);
+            this.aNB.showToast(errorString);
         }
     }
 }

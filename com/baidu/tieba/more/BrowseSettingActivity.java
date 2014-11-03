@@ -10,20 +10,20 @@ import com.baidu.tbadk.pluginArch.PluginCenter;
 import com.baidu.tbadk.pluginArch.PluginNameList;
 /* loaded from: classes.dex */
 public class BrowseSettingActivity extends BaseActivity implements com.baidu.adp.widget.BdSwitchView.c {
-    private l bql = null;
+    private l bqz = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bql = new l(this);
+        this.bqz = new l(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.bql.onChangeSkinType(i);
+        this.bqz.onChangeSkinType(i);
     }
 
     public static void ae(Context context) {
@@ -32,28 +32,28 @@ public class BrowseSettingActivity extends BaseActivity implements com.baidu.adp
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bql.Ug()) {
-            this.bql.Ul();
-        } else if (view == this.bql.Uh()) {
-            this.bql.Um();
-        } else if (view == this.bql.Ui()) {
-            this.bql.Un();
-        } else if (view == this.bql.Uj()) {
-            this.bql.Uo();
-        } else if (view == this.bql.Uk()) {
-            this.bql.Up();
+        if (view == this.bqz.Uj()) {
+            this.bqz.Uo();
+        } else if (view == this.bqz.Uk()) {
+            this.bqz.Up();
+        } else if (view == this.bqz.Ul()) {
+            this.bqz.Uq();
+        } else if (view == this.bqz.Um()) {
+            this.bqz.Ur();
+        } else if (view == this.bqz.Un()) {
+            this.bqz.Us();
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, BdSwitchView.SwitchState switchState) {
         if (!PluginCenter.getInstance().checkPluginInstalled(PluginNameList.NAME_NIGHT_RESOURCE)) {
-            this.bql.Uw().B(false);
+            this.bqz.Uz().B(false);
             showToast(com.baidu.tieba.y.plugin_night_resource_init_doing);
         } else if (switchState == BdSwitchView.SwitchState.ON) {
-            this.bql.gG(1);
+            this.bqz.gG(1);
         } else {
-            this.bql.gG(0);
+            this.bqz.gG(0);
         }
     }
 }

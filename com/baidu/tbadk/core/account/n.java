@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.account.AccountLoginHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ac;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -50,10 +50,10 @@ public class n {
             acVar.mc().na().mIsNeedAddCommenParam = false;
             acVar.mc().na().mIsUseCurrentBDUSS = false;
             acVar.h(arrayList);
-            acVar.mc().na().nd().Gl = true;
+            acVar.mc().na().nd().Gm = true;
             acVar.mc().na().nd().mIsBaiduServer = false;
             String lA = acVar.lA();
-            if (acVar.mc().nb().jq() && !ay.aA(lA)) {
+            if (acVar.mc().nb().jq() && !az.aA(lA)) {
                 JSONObject jSONObject2 = new JSONObject(lA);
                 if ("0".equals(jSONObject2.optString("errno"))) {
                     ourToken2 = new AccountLoginHelper.OurToken();
