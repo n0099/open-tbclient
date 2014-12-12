@@ -1,35 +1,18 @@
 package com.baidu.tieba.tblauncher;
 
-import android.widget.TextView;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.data.NewsNotifyMessage;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aa extends CustomMessageListener {
+public class aa implements DialogInterface.OnClickListener {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aa(MainTabActivity mainTabActivity, int i) {
-        super(i);
+    public aa(MainTabActivity mainTabActivity) {
         this.this$0 = mainTabActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        TextView textView;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124) {
-            if (!(customResponsedMessage instanceof NewsNotifyMessage)) {
-                BdLog.e("transform error");
-            } else if (MainTabActivity.bOD) {
-                NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
-                int msgReplyme = newsNotifyMessage.getMsgReplyme() + newsNotifyMessage.getMsgAtme();
-                MainTabActivity mainTabActivity = this.this$0;
-                textView = this.this$0.aEF;
-                mainTabActivity.p(textView, msgReplyme);
-            }
-        }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        com.baidu.tbadk.core.b.b.a(this.this$0.getPageContext().getPageActivity(), 12, false);
     }
 }

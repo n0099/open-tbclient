@@ -1,35 +1,44 @@
 package com.baidu.tbadk.core.data;
 
+import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.FrsPage.TopNews;
+import tbclient.ForumRecommend.Banner;
 /* loaded from: classes.dex */
-public class u {
-    private String AQ;
-    private String summary;
+public class u implements k {
+    protected String img_url = null;
+    protected String link = null;
 
-    public String kR() {
-        return this.AQ;
+    @Override // com.baidu.tbadk.core.data.k
+    public String mN() {
+        return this.img_url;
     }
 
-    public String kK() {
-        return this.summary;
+    public void bR(String str) {
+        this.img_url = str;
     }
 
-    public void a(TopNews topNews) {
-        if (topNews != null) {
-            this.AQ = topNews.news_link;
-            this.summary = topNews.summary;
+    @Override // com.baidu.tbadk.core.data.k
+    public String getLink() {
+        return this.link;
+    }
+
+    public void setLink(String str) {
+        this.link = str;
+    }
+
+    public void a(Banner banner) {
+        if (banner != null) {
+            a(banner, null);
         }
     }
 
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
+    public void a(Banner banner, Context context) {
+        if (banner != null) {
             try {
-                this.AQ = jSONObject.optString("news_link");
-                this.summary = jSONObject.optString("summary");
+                bR(banner.pic_url);
+                setLink(banner.link);
             } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                BdLog.detailException(e);
             }
         }
     }

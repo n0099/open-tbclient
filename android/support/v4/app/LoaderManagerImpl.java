@@ -527,6 +527,7 @@ public class LoaderManagerImpl extends LoaderManager {
             for (int size = this.mLoaders.size() - 1; size >= 0; size--) {
                 this.mLoaders.valueAt(size).destroy();
             }
+            this.mLoaders.clear();
         }
         if (DEBUG) {
             Log.v(TAG, "Destroying Inactive in " + this);

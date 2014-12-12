@@ -3,10 +3,10 @@ package com.baidu.tieba.im.db.pojo;
 import android.text.TextUtils;
 import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.adp.lib.g.c;
-import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.adp.lib.util.k;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.im.chat.w;
+import com.baidu.tieba.im.c.a;
 import com.baidu.tieba.im.data.MsgLocalData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
@@ -77,7 +77,7 @@ public class CommonMsgPojo extends i implements Serializable {
             if (chatMessage instanceof CommonGroupChatMessage) {
                 this.gid = ((CommonGroupChatMessage) chatMessage).getGroupId();
             } else {
-                this.gid = String.valueOf(w.aNT);
+                this.gid = String.valueOf(a.bnb);
             }
             this.mid = chatMessage.getMsgId();
             this.uid = String.valueOf(chatMessage.getUserId());
@@ -187,7 +187,7 @@ public class CommonMsgPojo extends i implements Serializable {
             toUserInfo = personalChatMessage.getToUserInfo();
             if (toUserInfo != null) {
             }
-            com.baidu.tieba.im.util.i.v(personalChatMessage);
+            com.baidu.tieba.im.util.i.u(personalChatMessage);
             personalChatMessage.setIsFriend(this.isFriend);
             return personalChatMessage;
         }
@@ -216,7 +216,7 @@ public class CommonMsgPojo extends i implements Serializable {
             personalChatMessage.setContent(this.content);
             userInfo = personalChatMessage.getUserInfo();
             if (userInfo != null) {
-                if (l.aA(userInfo.getUserId()) && (oldUserData2 = (OldUserData) i.objectWithJsonStr(this.user_info, OldUserData.class)) != null) {
+                if (k.isEmpty(userInfo.getUserId()) && (oldUserData2 = (OldUserData) i.objectWithJsonStr(this.user_info, OldUserData.class)) != null) {
                     oldUserData2.setToUserData(userInfo);
                 }
                 try {
@@ -228,7 +228,7 @@ public class CommonMsgPojo extends i implements Serializable {
             }
             toUserInfo = personalChatMessage.getToUserInfo();
             if (toUserInfo != null) {
-                if (l.aA(toUserInfo.getUserId()) && (oldUserData = (OldUserData) i.objectWithJsonStr(this.to_user_info, OldUserData.class)) != null) {
+                if (k.isEmpty(toUserInfo.getUserId()) && (oldUserData = (OldUserData) i.objectWithJsonStr(this.to_user_info, OldUserData.class)) != null) {
                     oldUserData.setToUserData(toUserInfo);
                 }
                 try {
@@ -237,7 +237,7 @@ public class CommonMsgPojo extends i implements Serializable {
                 }
                 personalChatMessage.setToUserId(j5);
             }
-            com.baidu.tieba.im.util.i.v(personalChatMessage);
+            com.baidu.tieba.im.util.i.u(personalChatMessage);
             personalChatMessage.setIsFriend(this.isFriend);
             return personalChatMessage;
         }
@@ -265,7 +265,7 @@ public class CommonMsgPojo extends i implements Serializable {
         toUserInfo = personalChatMessage.getToUserInfo();
         if (toUserInfo != null) {
         }
-        com.baidu.tieba.im.util.i.v(personalChatMessage);
+        com.baidu.tieba.im.util.i.u(personalChatMessage);
         personalChatMessage.setIsFriend(this.isFriend);
         return personalChatMessage;
     }
@@ -321,7 +321,7 @@ public class CommonMsgPojo extends i implements Serializable {
         if (this.user_info_data == null || this.to_user_info_data == null) {
             return null;
         }
-        if (c.a(TbadkApplication.getCurrentAccount(), 0L) == this.user_info_data.getUserIdLong()) {
+        if (c.a(TbadkCoreApplication.getCurrentAccount(), 0L) == this.user_info_data.getUserIdLong()) {
             return this.to_user_info_data;
         }
         return this.user_info_data;
@@ -385,8 +385,8 @@ public class CommonMsgPojo extends i implements Serializable {
     }
 
     public void checkRidAndSelf() {
-        if (!TextUtils.isEmpty(TbadkApplication.getCurrentAccount())) {
-            if (TbadkApplication.getCurrentAccount().equals(this.uid)) {
+        if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            if (TbadkCoreApplication.getCurrentAccount().equals(this.uid)) {
                 this.isSelf = true;
             }
         } else {

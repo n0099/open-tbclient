@@ -33,7 +33,11 @@ public class MainTabActivityConfig extends a {
     public MainTabActivityConfig createRefreshCfg(int i, boolean z) {
         Intent intent = getIntent();
         intent.setFlags(603979776);
-        intent.putExtra(FrsActivityConfig.KEY_REFRESH, true);
+        if (i == 200 || i == 12 || i == 11) {
+            intent.putExtra(FrsActivityConfig.KEY_REFRESH, false);
+        } else {
+            intent.putExtra(FrsActivityConfig.KEY_REFRESH, true);
+        }
         if (i >= 0) {
             intent.putExtra("locate_type", i);
         }

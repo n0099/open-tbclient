@@ -2,15 +2,18 @@ package com.baidu.adp.widget.ListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements Runnable {
-    final /* synthetic */ BdListView vg;
+    final /* synthetic */ BdListView xm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(BdListView bdListView) {
-        this.vg = bdListView;
+        this.xm = bdListView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.vg.setSelection(this.vg.getCount() - 1);
+        com.baidu.adp.base.l B = com.baidu.adp.base.m.B(this.xm.getContext());
+        if (B != null) {
+            B.onPreLoad(this.xm);
+        }
     }
 }

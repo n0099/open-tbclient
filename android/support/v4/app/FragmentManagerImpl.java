@@ -30,6 +30,7 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class FragmentManagerImpl extends FragmentManager {
@@ -226,6 +227,11 @@ public final class FragmentManagerImpl extends FragmentManager {
             return fragment;
         }
         return fragment;
+    }
+
+    @Override // android.support.v4.app.FragmentManager
+    public List<Fragment> getFragments() {
+        return this.mActive;
     }
 
     @Override // android.support.v4.app.FragmentManager
@@ -852,7 +858,7 @@ public final class FragmentManagerImpl extends FragmentManager {
         if (!fragment.mHidden) {
             fragment.mHidden = true;
             if (fragment.mView != null) {
-                Animation loadAnimation = loadAnimation(fragment, i, true, i2);
+                Animation loadAnimation = loadAnimation(fragment, i, false, i2);
                 if (loadAnimation != null) {
                     fragment.mView.startAnimation(loadAnimation);
                 }
@@ -1002,7 +1008,7 @@ public final class FragmentManagerImpl extends FragmentManager {
             checkStateLoss();
         }
         synchronized (this) {
-            if (this.mActivity == null) {
+            if (this.mDestroyed || this.mActivity == null) {
                 throw new IllegalStateException("Activity has been destroyed");
             }
             if (this.mPendingActions == null) {

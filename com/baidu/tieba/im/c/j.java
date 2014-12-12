@@ -1,38 +1,28 @@
 package com.baidu.tieba.im.c;
 
-import android.util.SparseArray;
-import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.message.MessageSyncMessage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j extends com.baidu.adp.framework.a.k {
-    public j() {
-        super(202003);
+public class j implements com.baidu.tieba.im.g<Boolean> {
+    final /* synthetic */ a bni;
+    private final /* synthetic */ CommonGroupChatMessage bnn;
+    private final /* synthetic */ ChatMessage val$chatMessage;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public j(a aVar, CommonGroupChatMessage commonGroupChatMessage, ChatMessage chatMessage) {
+        this.bni = aVar;
+        this.bnn = commonGroupChatMessage;
+        this.val$chatMessage = chatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.a.f
-    /* renamed from: d */
-    public SocketMessage a(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        String str;
-        StringBuilder sb = new StringBuilder((int) Constants.MEDIA_INFO);
-        if (socketMessage instanceof MessageSyncMessage) {
-            SparseArray<Long> groupMids = ((MessageSyncMessage) socketMessage).getGroupMids();
-            for (int i = 0; i < groupMids.size(); i++) {
-                sb.append(groupMids.keyAt(i));
-                sb.append("-");
-                sb.append(groupMids.valueAt(i));
-                sb.append("|");
-            }
-            if (((MessageSyncMessage) socketMessage).isForTimer()) {
-                str = "active";
-            } else {
-                str = "passive";
-            }
-            TiebaStatic.imLog(202003, ((MessageSyncMessage) socketMessage).getSquencedId(), str, "MessageSync-send-pullmsg", "succ", 0, "", 0L, 0, sb.toString());
-        }
-        return socketMessage;
+    @Override // com.baidu.tieba.im.g
+    public void onReturnDataInUI(Boolean bool) {
+        this.bnn.setLogTime(System.currentTimeMillis());
+        MessageManager.getInstance().sendMessage(this.bnn);
+        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new com.baidu.tieba.im.message.f(this.bnn.getGroupId(), this.val$chatMessage.getCustomGroupType(), this.val$chatMessage, 3)));
     }
 }

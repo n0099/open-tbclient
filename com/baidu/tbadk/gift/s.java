@@ -4,10 +4,10 @@ import android.text.Editable;
 import android.text.TextWatcher;
 /* loaded from: classes.dex */
 class s implements TextWatcher {
-    final /* synthetic */ BuyGiftActivity Uy;
+    final /* synthetic */ BuyGiftActivity aaD;
 
     private s(BuyGiftActivity buyGiftActivity) {
-        this.Uy = buyGiftActivity;
+        this.aaD = buyGiftActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,13 +26,13 @@ class s implements TextWatcher {
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r0v2 int)] */
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
-        int f = com.baidu.adp.lib.g.c.f(editable.toString(), 0);
-        if (editable.toString().length() == String.valueOf(f).length()) {
-            BuyGiftActivity.b(this.Uy, true);
+        int i = com.baidu.adp.lib.g.c.toInt(editable.toString(), 0);
+        if (editable.toString().length() == String.valueOf(i).length()) {
+            BuyGiftActivity.b(this.aaD, true);
             return;
         }
-        int i = f >= 0 ? f : 0;
-        BuyGiftActivity.c(this.Uy).setText(new StringBuilder().append(i).toString());
-        BuyGiftActivity.c(this.Uy).setSelection(String.valueOf(i).length());
+        int i2 = i >= 0 ? i : 0;
+        BuyGiftActivity.c(this.aaD).setText(new StringBuilder().append(i2).toString());
+        BuyGiftActivity.c(this.aaD).setSelection(String.valueOf(i2).length());
     }
 }

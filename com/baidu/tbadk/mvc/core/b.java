@@ -5,44 +5,44 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends a {
-    private final List<a> Xk;
+    private final List<a> ado;
 
-    public b(MvcActivity<?, ?> mvcActivity) {
-        super(mvcActivity);
-        this.Xk = new ArrayList();
+    public b(e<?, ?, ?> eVar) {
+        super(eVar);
+        this.ado = new ArrayList();
     }
 
     public boolean a(a aVar) {
-        if (this.Xk == null || !this.Xk.add(aVar)) {
+        if (this.ado == null || !this.ado.add(aVar)) {
             return false;
         }
-        aVar.Xh = this;
-        aVar.a(this.Xj);
+        aVar.adl = this;
+        aVar.a(this.adn);
         return true;
     }
 
     public int getChildCount() {
-        if (this.Xk == null) {
+        if (this.ado == null) {
             return 0;
         }
-        return this.Xk.size();
+        return this.ado.size();
     }
 
-    public a df(int i) {
-        if (this.Xk != null && i >= 0 && i < this.Xk.size()) {
-            return this.Xk.get(i);
+    public a dA(int i) {
+        if (this.ado != null && i >= 0 && i < this.ado.size()) {
+            return this.ado.get(i);
         }
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.core.a
-    public void b(Bundle bundle) {
-        super.b(bundle);
+    public void f(Bundle bundle) {
+        super.f(bundle);
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
-            a df = df(i);
-            if (df != null) {
-                df.b(bundle);
+            a dA = dA(i);
+            if (dA != null) {
+                dA.f(bundle);
             }
         }
     }
@@ -52,21 +52,21 @@ public class b extends a {
         super.onSaveInstanceState(bundle);
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
-            a df = df(i);
-            if (df != null) {
-                df.onSaveInstanceState(bundle);
+            a dA = dA(i);
+            if (dA != null) {
+                dA.onSaveInstanceState(bundle);
             }
         }
     }
 
     @Override // com.baidu.tbadk.mvc.core.a
-    void a(MvcActivity<?, ?> mvcActivity) {
-        super.a(mvcActivity);
+    void a(e<?, ?, ?> eVar) {
+        super.a(eVar);
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
-            a df = df(i);
-            if (df != null) {
-                df.a(mvcActivity);
+            a dA = dA(i);
+            if (dA != null) {
+                dA.a(eVar);
             }
         }
     }

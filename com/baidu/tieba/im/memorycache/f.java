@@ -6,13 +6,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements b {
-    final /* synthetic */ c bdi;
-    private final /* synthetic */ List bdj;
+    final /* synthetic */ c bgA;
+    private final /* synthetic */ List bgB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar, List list) {
-        this.bdi = cVar;
-        this.bdj = list;
+        this.bgA = cVar;
+        this.bgB = list;
     }
 
     @Override // com.baidu.tieba.im.memorycache.b
@@ -20,7 +20,7 @@ public class f implements b {
         while (it.hasNext()) {
             ImMessageCenterPojo next = it.next();
             if (next.getCustomGroupType() == 2 && next.getIsFriend() == 0) {
-                this.bdj.add(next);
+                this.bgB.add(next);
             }
         }
     }

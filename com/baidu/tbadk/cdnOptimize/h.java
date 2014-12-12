@@ -1,76 +1,89 @@
 package com.baidu.tbadk.cdnOptimize;
 
+import android.content.Intent;
+import android.os.Handler;
+import android.os.Looper;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.util.v;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class h extends HttpMessageListener {
-    final /* synthetic */ g yc;
+public class h {
+    private static Object lock = new Object();
+    private static long mobileLastTachometerTime = 0;
+    private BdUniqueId unique_id = BdUniqueId.gen();
+    private final int BN = 10001;
+    private final int BO = 10002;
+    private HttpMessageListener BP = new i(this, CmdConfigHttp.MOBILE_CDN_IPLIST_CMD);
+    private final Handler handler = new j(this, Looper.getMainLooper());
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h(g gVar, int i) {
-        super(i);
-        this.yc = gVar;
+    public h() {
+        this.handler.sendEmptyMessage(10001);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        BdUniqueId bdUniqueId;
-        i iVar;
-        String str;
-        boolean z;
-        boolean z2;
-        int i;
-        i iVar2;
-        i iVar3;
-        if (httpResponsedMessage != null) {
-            bdUniqueId = this.yc.unique_id;
-            if (bdUniqueId == httpResponsedMessage.getOrginalMessage().getTag() && (httpResponsedMessage instanceof TbCdnGetIPListHttpResponseMsg)) {
-                f fVar = ((TbCdnGetIPListHttpResponseMsg) httpResponsedMessage).ipListData;
-                if (httpResponsedMessage.getError() != 0 || fVar == null || fVar.xU != 0) {
-                    iVar = this.yc.xZ;
-                    if (iVar != null) {
-                        int error = httpResponsedMessage.getError();
-                        String errorString = httpResponsedMessage.getErrorString();
-                        if (httpResponsedMessage.getError() == 0) {
-                            z2 = false;
-                            z = false;
-                            i = fVar.xU;
-                            str = fVar.errorString;
-                        } else {
-                            str = errorString;
-                            z = true;
-                            z2 = false;
-                            i = error;
-                        }
+    /* JADX INFO: Access modifiers changed from: private */
+    public void lB() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MOBILE_CDN_IPLIST_CMD, "http://httpdns.baidu.com/ips/v1");
+        tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
+        tbHttpMessageTask.setResponsedClass(TbMobileCdnGetIPListHttpResponseMsg.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        MessageManager.getInstance().unRegisterListener(this.BP);
+        MessageManager.getInstance().registerListener(this.BP);
+    }
+
+    public void lC() {
+        long currentTimeMillis;
+        if (!com.baidu.adp.lib.util.i.fh() && TbadkCoreApplication.m255getInst().isMainProcess(true)) {
+            synchronized (lock) {
+                try {
+                    if (0 == mobileLastTachometerTime) {
+                        mobileLastTachometerTime = com.baidu.tbadk.core.sharedPref.b.og().getLong("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", 0L);
                     }
-                    i = -1;
-                    z2 = true;
-                    str = "";
-                    z = true;
-                } else {
-                    iVar2 = this.yc.xZ;
-                    if (iVar2 != null) {
-                        iVar3 = this.yc.xZ;
-                        iVar3.a(fVar);
-                    }
-                    if (fVar.xW.size() == 0) {
-                        i = -1;
-                        z2 = true;
-                        str = "noList";
-                        z = true;
-                    }
-                    i = -1;
-                    z2 = true;
-                    str = "";
-                    z = true;
+                    currentTimeMillis = System.currentTimeMillis();
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
                 }
-                v.a(z2, z, String.valueOf(i), str);
+                if (0 == mobileLastTachometerTime || currentTimeMillis - mobileLastTachometerTime >= 300000) {
+                    mobileLastTachometerTime = currentTimeMillis;
+                    com.baidu.tbadk.core.sharedPref.b.og().putLong("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", currentTimeMillis);
+                    this.handler.sendEmptyMessage(10002);
+                }
             }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void lD() {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.MOBILE_CDN_IPLIST_CMD);
+        httpMessage.addParam("domain", "hiphotos.jomodns.com");
+        httpMessage.setTag(this.unique_id);
+        MessageManager.getInstance().sendMessage(httpMessage);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void m(ArrayList<String> arrayList) {
+        if (arrayList != null) {
+            Intent intent = new Intent();
+            intent.setAction(TbCDNTachometerService.TB_CDNIP_BROADCASE_ACTION);
+            intent.putExtra(TbCDNTachometerService.TB_CDNIP_BROADCASE_KEY, arrayList);
+            intent.putExtra(TbCDNTachometerService.TB_CDNIP_BROADCASE_ISMOBILE, true);
+            TbadkCoreApplication.m255getInst().sendBroadcast(intent);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(p pVar) {
+        if (pVar != null) {
+            m(pVar.mobileIpList);
+            k kVar = new k(this, pVar);
+            kVar.setPriority(4);
+            kVar.execute(new Object[0]);
         }
     }
 }

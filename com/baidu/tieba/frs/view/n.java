@@ -1,23 +1,25 @@
 package com.baidu.tieba.frs.view;
 
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.PopupWindow;
 /* loaded from: classes.dex */
-class n implements View.OnClickListener {
-    final /* synthetic */ FrsOfficalBanner aGi;
+class n implements View.OnTouchListener {
+    final /* synthetic */ FrsHeaderView aHJ;
+    private final /* synthetic */ PopupWindow aHK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(FrsOfficalBanner frsOfficalBanner) {
-        this.aGi = frsOfficalBanner;
+    public n(FrsHeaderView frsHeaderView, PopupWindow popupWindow) {
+        this.aHJ = frsHeaderView;
+        this.aHK = popupWindow;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tbadk.coreExtra.view.b bVar;
-        com.baidu.tbadk.coreExtra.view.b bVar2;
-        bVar = this.aGi.Nz;
-        if (bVar != null) {
-            bVar2 = this.aGi.Nz;
-            bVar2.pV();
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 4) {
+            com.baidu.adp.lib.g.k.a(this.aHK);
+            return false;
         }
+        return false;
     }
 }

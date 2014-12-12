@@ -25,25 +25,25 @@ public class q extends TextView {
         try {
             super.onMeasure(i, i2);
         } catch (IndexOutOfBoundsException e) {
-            y(i, i2);
+            C(i, i2);
         }
     }
 
-    private void y(int i, int i2) {
+    private void C(int i, int i2) {
         CharSequence text = getText();
         if (text instanceof Spanned) {
             a(new SpannableStringBuilder(text), i, i2);
         } else {
-            z(i, i2);
+            D(i, i2);
         }
     }
 
     private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         r b = b(spannableStringBuilder, i, i2);
-        if (b.abl) {
+        if (b.aiX) {
             a(i, i2, spannableStringBuilder, b);
         } else {
-            z(i, i2);
+            D(i, i2);
         }
     }
 
@@ -53,50 +53,50 @@ public class q extends TextView {
         ArrayList arrayList2 = new ArrayList(spans.length);
         for (Object obj : spans) {
             int spanStart = spannableStringBuilder.getSpanStart(obj);
-            if (a(spannableStringBuilder, spanStart - 1)) {
+            if (b(spannableStringBuilder, spanStart - 1)) {
                 spannableStringBuilder.insert(spanStart, " ");
                 arrayList.add(obj);
             }
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
-            if (a(spannableStringBuilder, spanEnd)) {
+            if (b(spannableStringBuilder, spanEnd)) {
                 spannableStringBuilder.insert(spanEnd, " ");
                 arrayList2.add(obj);
             }
             try {
-                a((CharSequence) spannableStringBuilder, i, i2);
+                c(spannableStringBuilder, i, i2);
                 return r.a(arrayList, arrayList2);
             } catch (IndexOutOfBoundsException e) {
                 BdLog.e(e.getMessage());
             }
         }
-        return r.vz();
+        return r.zK();
     }
 
-    private boolean a(CharSequence charSequence, int i) {
+    private boolean b(CharSequence charSequence, int i) {
         return i < 0 || charSequence.charAt(i) != ' ';
     }
 
-    private void a(CharSequence charSequence, int i, int i2) {
+    private void c(CharSequence charSequence, int i, int i2) {
         setText(charSequence);
         super.onMeasure(i, i2);
     }
 
     private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, r rVar) {
-        for (Object obj : rVar.abn) {
+        for (Object obj : rVar.aiZ) {
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             spannableStringBuilder.delete(spanEnd, spanEnd + 1);
             try {
-                a((CharSequence) spannableStringBuilder, i, i2);
+                c(spannableStringBuilder, i, i2);
             } catch (IndexOutOfBoundsException e) {
                 spannableStringBuilder.insert(spanEnd, " ");
             }
         }
         boolean z = true;
-        for (Object obj2 : rVar.abm) {
+        for (Object obj2 : rVar.aiY) {
             int spanStart = spannableStringBuilder.getSpanStart(obj2);
             spannableStringBuilder.delete(spanStart - 1, spanStart);
             try {
-                a((CharSequence) spannableStringBuilder, i, i2);
+                c(spannableStringBuilder, i, i2);
                 z = false;
             } catch (IndexOutOfBoundsException e2) {
                 spannableStringBuilder.insert(spanStart - 1, " ");
@@ -109,7 +109,7 @@ public class q extends TextView {
         }
     }
 
-    private void z(int i, int i2) {
-        a(getText().toString(), i, i2);
+    private void D(int i, int i2) {
+        c(getText().toString(), i, i2);
     }
 }

@@ -1,35 +1,50 @@
 package com.baidu.tbadk.mainTab;
 
 import android.content.Context;
-import java.util.ArrayList;
-import java.util.Iterator;
 /* loaded from: classes.dex */
-public class e {
-    private ArrayList<b> Wa = new ArrayList<>();
+public abstract class e {
+    private int WE;
+    private int acd;
+    private int ace;
+    private boolean acf = false;
+    private int iconId;
     private Context mContext;
 
-    public e(Context context) {
+    public abstract void onClick();
+
+    public e(Context context, int i, int i2, int i3, int i4) {
         this.mContext = context;
+        this.WE = i;
+        this.iconId = i2;
+        this.acd = i3;
+        this.ace = i4;
     }
 
-    public void a(b bVar) {
-        if (bVar != null && bVar.sF() != null) {
-            Iterator<b> it = this.Wa.iterator();
-            while (it.hasNext()) {
-                b next = it.next();
-                if (next != null && next.sF() != null && next.sF().type == bVar.sF().type) {
-                    return;
-                }
-            }
-            this.Wa.add(bVar);
-        }
+    public boolean wf() {
+        return this.acf;
     }
 
-    public ArrayList<b> sG() {
-        return this.Wa;
+    public void aL(boolean z) {
+        this.acf = z;
     }
 
-    public Context getContext() {
-        return this.mContext;
+    public int uB() {
+        return this.iconId;
+    }
+
+    public int uC() {
+        return this.WE;
+    }
+
+    public void du(int i) {
+        this.ace = i;
+    }
+
+    public int wg() {
+        return this.ace;
+    }
+
+    public int wh() {
+        return this.acd;
     }
 }

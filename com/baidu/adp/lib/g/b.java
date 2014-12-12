@@ -8,16 +8,16 @@ import android.view.ViewGroup;
 import com.baidu.adp.base.BdBaseApplication;
 /* loaded from: classes.dex */
 public class b {
-    private static b lv = new b();
+    private static b lw = new b();
 
     private b() {
     }
 
     public static b ek() {
-        return lv;
+        return lw;
     }
 
-    private LayoutInflater h(Context context) {
+    private LayoutInflater F(Context context) {
         if (context == null) {
             return null;
         }
@@ -34,7 +34,7 @@ public class b {
                     break;
                 }
                 try {
-                    view = h(context).inflate(i, viewGroup);
+                    view = F(context).inflate(i, viewGroup);
                     break;
                 } catch (OutOfMemoryError e) {
                     if (i3 == 2) {
@@ -63,7 +63,7 @@ public class b {
                     break;
                 }
                 try {
-                    view = h(context).inflate(i, viewGroup, z);
+                    view = F(context).inflate(i, viewGroup, z);
                     break;
                 } catch (OutOfMemoryError e) {
                     if (i3 == 2) {
@@ -89,6 +89,7 @@ public class b {
             try {
                 activity.setContentView(i);
             } catch (Throwable th) {
+                th.printStackTrace();
                 return false;
             }
         }

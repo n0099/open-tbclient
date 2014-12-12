@@ -5,6 +5,9 @@ public class f {
     private int hide;
     private long time;
 
+    public f() {
+    }
+
     public f(String str, long j, int i) {
         this.distance = str;
         this.time = j;
@@ -15,7 +18,7 @@ public class f {
         return this.distance;
     }
 
-    public void cG(String str) {
+    public void dD(String str) {
         this.distance = str;
     }
 
@@ -27,11 +30,11 @@ public class f {
         this.time = j;
     }
 
-    public int pD() {
+    public int sX() {
         return this.hide;
     }
 
-    public void co(int i) {
+    public void cO(int i) {
         this.hide = i;
     }
 }

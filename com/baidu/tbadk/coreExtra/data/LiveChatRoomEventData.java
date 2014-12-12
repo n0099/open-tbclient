@@ -26,16 +26,16 @@ public class LiveChatRoomEventData {
             this.mEventId = jSONObject.optString("eventId");
             JSONObject optJSONObject = jSONObject.optJSONObject("eventParam");
             if (optJSONObject != null) {
-                this.mGroupId = com.baidu.adp.lib.g.c.f(optJSONObject.optString("groupId"), 0);
-                this.mListeners = com.baidu.adp.lib.g.c.f(optJSONObject.optString("listeners"), 0);
-                this.mLikers = com.baidu.adp.lib.g.c.f(optJSONObject.optString("likes"), 0);
+                this.mGroupId = com.baidu.adp.lib.g.c.toInt(optJSONObject.optString("groupId"), 0);
+                this.mListeners = com.baidu.adp.lib.g.c.toInt(optJSONObject.optString("listeners"), 0);
+                this.mLikers = com.baidu.adp.lib.g.c.toInt(optJSONObject.optString("likes"), 0);
                 JSONArray optJSONArray = optJSONObject.optJSONArray("users");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         MetaData metaData = new MetaData();
                         JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                        metaData.setUserId(optJSONObject2.optString(com.baidu.tbadk.core.frameworkData.a.USER_ID));
-                        metaData.setUserName(optJSONObject2.optString(com.baidu.tbadk.core.frameworkData.a.USER_NAME));
+                        metaData.setUserId(optJSONObject2.optString("user_id"));
+                        metaData.setUserName(optJSONObject2.optString("user_name"));
                         metaData.setPortrait(optJSONObject2.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT));
                         this.mLikeUserList.add(metaData);
                     }

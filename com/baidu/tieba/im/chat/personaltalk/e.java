@@ -1,19 +1,23 @@
 package com.baidu.tieba.im.chat.personaltalk;
 
-import android.content.DialogInterface;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-class e implements DialogInterface.OnClickListener {
-    final /* synthetic */ PersonalTalkSettingActivity aSE;
+public class e {
+    private HashMap<String, a> aTN = new HashMap<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public e(PersonalTalkSettingActivity personalTalkSettingActivity) {
-        this.aSE = personalTalkSettingActivity;
+    public void a(String str, a aVar) {
+        this.aTN.put(str, aVar);
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        n nVar;
-        nVar = this.aSE.aSD;
-        nVar.cM(false);
+    public boolean fT(String str) {
+        a aVar;
+        return (this.aTN == null || (aVar = this.aTN.get(str)) == null || Math.abs(System.currentTimeMillis() - aVar.CN()) >= 300000) ? false : true;
+    }
+
+    public com.baidu.tbadk.coreExtra.relationship.f fU(String str) {
+        if (this.aTN.get(str) != null) {
+            return this.aTN.get(str).KL();
+        }
+        return null;
     }
 }

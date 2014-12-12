@@ -1,20 +1,21 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
+import android.support.v4.media.TransportMediator;
+import android.widget.ScrollView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements View.OnFocusChangeListener {
-    final /* synthetic */ PersonChangeActivity bCA;
+public class ab implements Runnable {
+    final /* synthetic */ PersonChangeActivity bGa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(PersonChangeActivity personChangeActivity) {
-        this.bCA = personChangeActivity;
+        this.bGa = personChangeActivity;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        if (!z) {
-            this.bCA.ZT();
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        ScrollView scrollView;
+        scrollView = this.bGa.bFH;
+        scrollView.fullScroll(TransportMediator.KEYCODE_MEDIA_RECORD);
     }
 }

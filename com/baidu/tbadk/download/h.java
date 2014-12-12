@@ -5,11 +5,11 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends Handler {
-    final /* synthetic */ g Rn;
+    final /* synthetic */ g Xk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.Rn = gVar;
+        this.Xk = gVar;
     }
 
     @Override // android.os.Handler
@@ -23,20 +23,20 @@ public class h extends Handler {
         DownloadData downloadData7;
         super.handleMessage(message);
         if (message.what == 900002 && message.arg2 > 0) {
-            downloadData = g.Rk;
+            downloadData = g.Xh;
             if (downloadData != null) {
-                downloadData2 = g.Rk;
+                downloadData2 = g.Xh;
                 downloadData2.setLength(message.arg1);
-                downloadData3 = g.Rk;
+                downloadData3 = g.Xh;
                 downloadData3.setSize(message.arg2);
-                downloadData4 = g.Rk;
+                downloadData4 = g.Xh;
                 downloadData4.setStatus(1);
-                downloadData5 = g.Rk;
+                downloadData5 = g.Xh;
                 if (downloadData5.getCallback() != null) {
-                    downloadData6 = g.Rk;
+                    downloadData6 = g.Xh;
                     f callback = downloadData6.getCallback();
-                    downloadData7 = g.Rk;
-                    callback.onFileUpdateProgress(downloadData7);
+                    downloadData7 = g.Xh;
+                    callback.a(downloadData7);
                 }
             }
         }

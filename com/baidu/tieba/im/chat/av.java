@@ -1,41 +1,24 @@
 package com.baidu.tieba.im.chat;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.TextView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.im.message.FakeSystemGroupChatMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
-public class av implements com.baidu.tieba.im.a<LinkedHashMap<String, String>> {
-    final /* synthetic */ w aOa;
-    private final /* synthetic */ bs aOm;
+public class av extends com.baidu.adp.base.e<MsglistActivity<?>> {
+    private TextView mTextView;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public av(w wVar, bs bsVar) {
-        this.aOa = wVar;
-        this.aOm = bsVar;
+    public av(TbPageContext<MsglistActivity<?>> tbPageContext) {
+        super(tbPageContext, com.baidu.tieba.x.msg_msg_chat_rule_view);
+        this.mTextView = (TextView) findViewById(com.baidu.tieba.w.tex_msgcontent);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    /* renamed from: b */
-    public void onReturnDataInUI(LinkedHashMap<String, String> linkedHashMap) {
-        LinkedHashMap<String, String> linkedHashMap2 = new LinkedHashMap<>();
-        if (linkedHashMap != null && linkedHashMap.size() > 0) {
-            ArrayList arrayList = new ArrayList(linkedHashMap.size());
-            for (String str : linkedHashMap.keySet()) {
-                arrayList.add(str);
-            }
-            Collections.reverse(arrayList);
-            Iterator it = arrayList.iterator();
-            while (it.hasNext()) {
-                String str2 = (String) it.next();
-                String v = com.baidu.tieba.im.util.i.v(linkedHashMap.get(str2), true);
-                if (v != null) {
-                    linkedHashMap2.put(str2, v);
-                }
-            }
+    public void setData(ChatMessage chatMessage) {
+        String str;
+        if (chatMessage == null) {
+            this.mTextView = null;
+        } else if ((chatMessage instanceof FakeSystemGroupChatMessage) && (str = ((FakeSystemGroupChatMessage) chatMessage).mSystemMsg) != null) {
+            this.mTextView.setText(str);
         }
-        this.aOm.a(linkedHashMap2);
     }
 }

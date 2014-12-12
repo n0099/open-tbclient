@@ -9,18 +9,18 @@ class c implements Parcelable.Creator<Configuration> {
     /* renamed from: c */
     public Configuration createFromParcel(Parcel parcel) {
         Configuration configuration = new Configuration();
-        configuration.jh = parcel.readInt();
-        configuration.ji = parcel.readInt();
-        configuration.jj = parcel.readInt();
-        configuration.jk = parcel.readInt();
-        configuration.jl = parcel.readByte() == 1;
-        configuration.jm = parcel.readByte() == 1;
+        configuration.mAlpha = parcel.readInt();
+        configuration.jm = parcel.readInt();
+        configuration.jn = parcel.readInt();
+        configuration.jo = parcel.readInt();
+        configuration.jp = parcel.readByte() == 1;
+        configuration.jq = parcel.readByte() == 1;
         return configuration;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: z */
+    /* renamed from: H */
     public Configuration[] newArray(int i) {
         return new Configuration[i];
     }

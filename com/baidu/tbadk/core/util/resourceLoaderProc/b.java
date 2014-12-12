@@ -1,28 +1,28 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class b extends a {
-    private float GC = 0.43f;
-    private boolean GD;
-    private boolean GE;
-    private boolean GF;
+    private boolean KM;
+    private boolean KN;
+    private boolean KO;
+    private float scale = 0.43f;
     private int width;
 
     public b(boolean z, boolean z2, boolean z3) {
         this.width = 0;
-        this.GD = true;
-        this.GE = false;
-        this.GF = false;
-        this.GD = z;
-        this.GE = z2;
-        this.GF = z3;
-        this.width = com.baidu.adp.lib.util.m.n(TbadkApplication.m251getInst().getApp());
+        this.KM = true;
+        this.KN = false;
+        this.KO = false;
+        this.KM = z;
+        this.KN = z2;
+        this.KO = z3;
+        this.width = com.baidu.adp.lib.util.l.M(TbadkCoreApplication.m255getInst().getApp());
         if (this.width <= 0 || this.width > 644) {
             this.width = 644;
         }
-        if (this.width > com.baidu.adp.lib.util.m.dip2px(TbadkApplication.m251getInst().getApp(), 430.0f)) {
-            this.width = com.baidu.adp.lib.util.m.dip2px(TbadkApplication.m251getInst().getApp(), 430.0f);
+        if (this.width > com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.m255getInst().getApp(), 430.0f)) {
+            this.width = com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.m255getInst().getApp(), 430.0f);
         }
     }
 
@@ -33,21 +33,21 @@ public class b extends a {
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public int getHeight() {
-        return (int) (this.width * this.GC);
+        return (int) (this.width * this.scale);
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public boolean isFromCDN() {
-        return this.GD;
+        return this.KM;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean nk() {
-        return this.GF;
+    public boolean qf() {
+        return this.KO;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean nl() {
-        return this.GE;
+    public boolean qg() {
+        return this.KN;
     }
 }

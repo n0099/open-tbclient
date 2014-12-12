@@ -7,105 +7,105 @@ import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class m {
-    private static m pi = null;
-    private String[] po;
-    private l ps;
-    private String pj = null;
-    private List<BasicNameValuePair> pl = null;
-    private String pp = null;
-    private o pq = null;
-    private ArrayList<l> pr = new ArrayList<>();
+    private static m pg = null;
+    private String[] pj;
+    private l pq;
+    private String ph = null;
+    private List<BasicNameValuePair> pi = null;
+    private String pl = null;
+    private o po = null;
+    private ArrayList<l> pp = new ArrayList<>();
 
-    public static synchronized m fT() {
+    public static synchronized m fV() {
         m mVar;
         synchronized (m.class) {
-            if (pi == null) {
-                pi = new m();
+            if (pg == null) {
+                pg = new m();
             }
-            mVar = pi;
+            mVar = pg;
         }
         return mVar;
     }
 
     public void a(String str, String str2, String[] strArr, List<BasicNameValuePair> list) {
-        this.pj = str;
-        this.pp = str2;
-        this.po = strArr;
-        this.pl = list;
-        fY();
+        this.ph = str;
+        this.pl = str2;
+        this.pj = strArr;
+        this.pi = list;
+        ga();
     }
 
     private m() {
-        this.ps = null;
-        this.ps = new n(this);
+        this.pq = null;
+        this.pq = new n(this);
     }
 
-    public boolean fU() {
-        if (fY()) {
-            com.baidu.adp.lib.util.m.ft();
+    public boolean fW() {
+        if (ga()) {
+            com.baidu.adp.lib.util.l.ft();
         }
-        if (this.pq != null) {
-            if (this.pq.fX() || this.pq.isOpen()) {
-                fY();
+        if (this.po != null) {
+            if (this.po.fZ() || this.po.isOpen()) {
+                ga();
                 return true;
             }
-            this.pq.close(1, null);
-            this.pq = null;
+            this.po.close(1, null);
+            this.po = null;
         }
-        this.pq = new o();
+        this.po = new o();
         try {
             am amVar = new am();
-            amVar.aK(this.pp);
-            this.pq.a(this.pj, this.po, this.ps, amVar, this.pl);
+            amVar.aM(this.pl);
+            this.po.a(this.ph, this.pj, this.pq, amVar, this.pi);
             return true;
         } catch (WebSocketException e) {
-            this.pq = null;
+            this.po = null;
             return false;
         }
     }
 
     public void close(int i, String str) {
-        if (this.pq != null) {
-            o oVar = this.pq;
-            this.pq = null;
+        if (this.po != null) {
+            o oVar = this.po;
+            this.po = null;
             oVar.close(i, str);
-            if (this.pq != null) {
+            if (this.po != null) {
                 BdLog.e("close is opened and thread is leaded!!!");
-                this.pq = null;
+                this.po = null;
             }
         }
     }
 
-    public boolean fV() {
-        if (fY()) {
-            com.baidu.adp.lib.util.m.ft();
-        }
-        return (this.pq == null || !this.pq.isOpen() || this.pq.gg()) ? false : true;
-    }
-
-    public boolean fW() {
-        if (fY()) {
-            com.baidu.adp.lib.util.m.ft();
-        }
-        return this.pq != null && this.pq.isOpen();
-    }
-
     public boolean fX() {
-        if (fY()) {
-            com.baidu.adp.lib.util.m.ft();
+        if (ga()) {
+            com.baidu.adp.lib.util.l.ft();
         }
-        return this.pq != null && this.pq.fX();
+        return (this.po == null || !this.po.isOpen() || this.po.gh()) ? false : true;
+    }
+
+    public boolean fY() {
+        if (ga()) {
+            com.baidu.adp.lib.util.l.ft();
+        }
+        return this.po != null && this.po.isOpen();
+    }
+
+    public boolean fZ() {
+        if (ga()) {
+            com.baidu.adp.lib.util.l.ft();
+        }
+        return this.po != null && this.po.fZ();
     }
 
     public synchronized boolean sendMessage(d dVar) {
         boolean z = false;
         synchronized (this) {
             if (dVar != null) {
-                com.baidu.adp.lib.util.m.ft();
-                if (this.pq != null) {
-                    z = this.pq.sendMessage(dVar);
+                com.baidu.adp.lib.util.l.ft();
+                if (this.po != null) {
+                    z = this.po.sendMessage(dVar);
                 } else if (dVar != null) {
-                    dVar.i(1);
+                    dVar.u(1);
                 }
             }
         }
@@ -115,80 +115,80 @@ public class m {
     public boolean a(l lVar) {
         if (lVar != null) {
             synchronized (m.class) {
-                if (!this.pr.contains(lVar)) {
-                    return this.pr.add(lVar);
+                if (!this.pp.contains(lVar)) {
+                    return this.pp.add(lVar);
                 }
             }
         }
         return false;
     }
 
-    private boolean fY() {
+    private boolean ga() {
         return BdBaseApplication.getInst().isDebugMode();
     }
 
-    public void fZ() {
-        if (this.pq != null) {
-            this.pq.fZ();
+    public void gb() {
+        if (this.po != null) {
+            this.po.gb();
         }
     }
 
     public long getUpFlowSize() {
-        if (this.pq != null) {
-            return this.pq.getUpFlowSize();
+        if (this.po != null) {
+            return this.po.getUpFlowSize();
         }
         return 0L;
     }
 
-    public void ga() {
-        if (this.pq != null) {
-            this.pq.ga();
+    public void gd() {
+        if (this.po != null) {
+            this.po.gd();
         }
     }
 
     public long getDownFlowSize() {
-        if (this.pq != null) {
-            return this.pq.getDownFlowSize();
+        if (this.po != null) {
+            return this.po.getDownFlowSize();
         }
         return 0L;
     }
 
-    public long fR() {
-        if (this.pq != null) {
-            return this.pq.gh();
+    public long fT() {
+        if (this.po != null) {
+            return this.po.gi();
         }
         return 0L;
     }
 
-    public String fQ() {
-        if (this.pq != null) {
-            return this.pq.gi();
+    public String fS() {
+        if (this.po != null) {
+            return this.po.gj();
         }
         return null;
     }
 
-    public long gb() {
-        if (this.pq != null) {
-            return this.pq.gj();
+    public long ge() {
+        if (this.po != null) {
+            return this.po.gk();
         }
         return 0L;
     }
 
     public String fv() {
-        if (this.pq != null) {
-            return this.pq.fv();
+        if (this.po != null) {
+            return this.po.fv();
         }
         return null;
     }
 
     public String fw() {
-        if (this.pq != null) {
-            return this.pq.fw();
+        if (this.po != null) {
+            return this.po.fw();
         }
         return null;
     }
 
     public String getUrl() {
-        return this.pj;
+        return this.ph;
     }
 }

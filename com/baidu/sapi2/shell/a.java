@@ -111,7 +111,7 @@ public final class a {
                     this.b.clientId = SapiUtils.getClientId(this.b.context);
                 }
                 hashMap.put("cuid", this.b.clientId);
-                hashMap.put("cert_id", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
+                hashMap.put("cert_id", "2");
                 hashMap.put("isdpass", "0");
                 hashMap.put("username", reloginCredentials.account);
                 hashMap.put("password", reloginCredentials.password);
@@ -119,7 +119,7 @@ public final class a {
                 hashMap.put("isphone", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equals(reloginCredentials.accountType) ? "1" : "0");
                 hashMap.put(LoginActivityConfig.LOGIN_TYPE, TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
                 hashMap.put("key", bVar.a());
-                hashMap.put("sdk_version", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
+                hashMap.put("sdk_version", "2");
                 hashMap.put("pinfo", com.baidu.sapi2.utils.c.b());
                 hashMap.put("sig", a(hashMap, this.b.appSignKey));
                 this.c.post(this.b.context, p(), new RequestParams(hashMap), new t(sapiCallBack, reloginCredentials));
@@ -188,7 +188,7 @@ public final class a {
                 this.b.clientId = SapiUtils.getClientId(this.b.context);
             }
             hashMap.put("cuid", this.b.clientId);
-            hashMap.put("cert_id", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
+            hashMap.put("cert_id", "2");
             hashMap.put("isdpass", "0");
             hashMap.put("username", reloginCredentials.account);
             hashMap.put("password", reloginCredentials.password);
@@ -196,7 +196,7 @@ public final class a {
             hashMap.put("isphone", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equals(reloginCredentials.accountType) ? "1" : "0");
             hashMap.put(LoginActivityConfig.LOGIN_TYPE, TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
             hashMap.put("key", bVar.a());
-            hashMap.put("sdk_version", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
+            hashMap.put("sdk_version", "2");
             hashMap.put("pinfo", com.baidu.sapi2.utils.c.b());
             hashMap.put("sig", a(hashMap, this.b.appSignKey));
             ArrayList arrayList = new ArrayList();
@@ -367,7 +367,7 @@ public final class a {
         jSONObject.put("password", str4);
         jSONObject.put(LoginActivityConfig.LOGIN_TYPE, TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
         jSONObject.put("key", bVar.a());
-        jSONObject.put("sdk_version", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
+        jSONObject.put("sdk_version", "2");
         jSONObject.put("pinfo", com.baidu.sapi2.utils.c.b());
         hashMap.put("userinfo", bVar.a(str, jSONObject.toString()));
         hashMap.put("sig", a(hashMap, this.b.appSignKey));

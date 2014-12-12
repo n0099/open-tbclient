@@ -7,20 +7,20 @@ import java.util.Set;
 import java.util.TreeSet;
 /* loaded from: classes.dex */
 public class b implements c {
-    public Cursor ex;
-    private final Set<String> ey;
+    public Cursor gx;
+    private final Set<String> gy;
     private final ContentValues values;
 
     public b(Cursor cursor) {
-        this.ex = cursor;
+        this.gx = cursor;
         this.values = null;
-        this.ey = new TreeSet();
+        this.gy = new TreeSet();
         if (cursor != null) {
             int columnCount = cursor.getColumnCount();
             for (int i = 0; i < columnCount; i++) {
                 String columnName = cursor.getColumnName(i);
                 if (columnName != null) {
-                    this.ey.add(columnName);
+                    this.gy.add(columnName);
                 }
             }
         }
@@ -28,12 +28,12 @@ public class b implements c {
 
     public b(ContentValues contentValues) {
         this.values = contentValues;
-        this.ey = new TreeSet();
+        this.gy = new TreeSet();
     }
 
     @Override // com.baidu.adp.lib.a.b.a.c.c
-    public Set<String> bQ() {
-        return this.ey;
+    public Set<String> cq() {
+        return this.gy;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:38:0x0058 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -49,53 +49,53 @@ public class b implements c {
     public Object getObject(String str) {
         Object valueOf;
         Object string;
-        int columnIndex = this.ex.getColumnIndex(str);
-        if (columnIndex <= 0 || columnIndex >= this.ex.getColumnCount()) {
+        int columnIndex = this.gx.getColumnIndex(str);
+        if (columnIndex <= 0 || columnIndex >= this.gx.getColumnCount()) {
             return null;
         }
         if (0 == 0) {
             try {
-                valueOf = Short.valueOf(this.ex.getShort(columnIndex));
+                valueOf = Short.valueOf(this.gx.getShort(columnIndex));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Integer.valueOf(this.ex.getInt(columnIndex));
+                    valueOf = Integer.valueOf(this.gx.getInt(columnIndex));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Long.valueOf(this.ex.getLong(columnIndex));
+                    valueOf = Long.valueOf(this.gx.getLong(columnIndex));
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Float.valueOf(this.ex.getFloat(columnIndex));
+                    valueOf = Float.valueOf(this.gx.getFloat(columnIndex));
                 } catch (Exception e4) {
                     e4.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Double.valueOf(this.ex.getDouble(columnIndex));
+                    valueOf = Double.valueOf(this.gx.getDouble(columnIndex));
                 } catch (Exception e5) {
                     e5.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    string = this.ex.getString(columnIndex);
+                    string = this.gx.getString(columnIndex);
                 } catch (Exception e6) {
                     e6.printStackTrace();
                 }
                 if (string == null) {
                     try {
-                        return this.ex.getBlob(columnIndex);
+                        return this.gx.getBlob(columnIndex);
                     } catch (Exception e7) {
                         e7.printStackTrace();
                         return string;
@@ -124,7 +124,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.adp.lib.a.b.a.c.c
-    public void a(String str, Object obj) {
+    public void e(String str, Object obj) {
         if (str != null) {
             if (obj == null) {
                 this.values.putNull(str);
@@ -155,9 +155,9 @@ public class b implements c {
         Object object = getObject(str);
         if (object != null) {
             com.baidu.adp.lib.a.b.a.e.c cVar = new com.baidu.adp.lib.a.b.a.e.c(type);
-            com.baidu.adp.lib.a.b.a.d.h d = com.baidu.adp.lib.a.b.a.e.g.d(object);
-            if (d != null) {
-                return d.g(cVar);
+            com.baidu.adp.lib.a.b.a.d.h i = com.baidu.adp.lib.a.b.a.e.g.i(object);
+            if (i != null) {
+                return i.g(cVar);
             }
             return object;
         }

@@ -1,28 +1,35 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
+import com.baidu.tieba.im.model.PersonalMsglistModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bw implements View.OnLongClickListener {
-    final /* synthetic */ MsgActivityView aPa;
+public class bw implements com.baidu.tieba.im.g<com.baidu.tieba.im.data.b> {
+    final /* synthetic */ PersonalChatActivity aRE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bw(MsgActivityView msgActivityView) {
-        this.aPa = msgActivityView;
+    public bw(PersonalChatActivity personalChatActivity) {
+        this.aRE = personalChatActivity;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        com.baidu.adp.lib.c.b bVar;
-        com.baidu.adp.lib.c.b bVar2;
-        int i;
-        bVar = this.aPa.aOZ;
-        if (bVar != null) {
-            bVar2 = this.aPa.aOZ;
-            i = this.aPa.UC;
-            bVar2.b(view, 8, i, 0L);
-            return true;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.g
+    /* renamed from: a */
+    public void onReturnDataInUI(com.baidu.tieba.im.data.b bVar) {
+        PersonalMsglistModel personalMsglistModel;
+        PersonalMsglistModel personalMsglistModel2;
+        PersonalChatView personalChatView;
+        PersonalChatView personalChatView2;
+        personalMsglistModel = this.aRE.aRz;
+        PersonalMsglistModel.CardStatus currentStatus = personalMsglistModel.getCurrentStatus(bVar);
+        personalMsglistModel2 = this.aRE.aRz;
+        personalMsglistModel2.setCardStatus(currentStatus);
+        if (currentStatus != PersonalMsglistModel.CardStatus.AGREE) {
+            personalChatView = this.aRE.aRA;
+            personalChatView.a(currentStatus, false, new String[0]);
+            return;
         }
-        return true;
+        String content = bVar.getContent();
+        personalChatView2 = this.aRE.aRA;
+        personalChatView2.a(currentStatus, false, content);
     }
 }

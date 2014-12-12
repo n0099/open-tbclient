@@ -1,24 +1,13 @@
 package com.baidu.tieba.pb.main;
 
-import com.baidu.tieba.editortool.PbEditor;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
-public class bw implements com.baidu.tieba.bubble.t {
-    final /* synthetic */ bv byW;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bw(bv bvVar) {
-        this.byW = bvVar;
-    }
-
-    @Override // com.baidu.tieba.bubble.t
-    public void hz() {
-        PbEditor pbEditor;
-        PbEditor pbEditor2;
-        pbEditor = this.byW.byB;
-        if (pbEditor != null) {
-            pbEditor2 = this.byW.byB;
-            pbEditor2.refresh();
-        }
+class bw implements CustomMessageTask.CustomRunnable<Object> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        bv.Xz().reset();
+        return null;
     }
 }

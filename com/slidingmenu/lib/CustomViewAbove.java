@@ -23,6 +23,7 @@ import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
 import com.baidu.location.BDLocation;
+import com.baidu.tbadk.TbConfig;
 import com.slidingmenu.lib.SlidingMenu;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,10 +31,10 @@ import java.util.List;
 public class CustomViewAbove extends ViewGroup {
     private static final boolean DEBUG = false;
     private static final int INVALID_POINTER = -1;
-    private static final int MAX_SETTLE_DURATION = 600;
     private static final int MIN_DISTANCE_FOR_FLING = 25;
     private static final String TAG = "CustomViewAbove";
     private static final boolean USE_CACHE = false;
+    private static int max_settle_duration = TbConfig.POST_IMAGE_SMALL;
     private static final Interpolator sInterpolator = new Interpolator() { // from class: com.slidingmenu.lib.CustomViewAbove.1
         @Override // android.animation.TimeInterpolator
         public float getInterpolation(float f) {
@@ -66,6 +67,7 @@ public class CustomViewAbove extends ViewGroup {
     private boolean mScrollingCacheEnabled;
     protected int mTouchMode;
     private int mTouchSlop;
+    private SlidingMenu.CanvasTransformer mTransformer;
     protected VelocityTracker mVelocityTracker;
     private CustomViewBehind mViewBehind;
 
@@ -74,6 +76,10 @@ public class CustomViewAbove extends ViewGroup {
         void onPageScrolled(int i, float f, int i2);
 
         void onPageSelected(int i);
+    }
+
+    public void setSettleDuration(int i) {
+        max_settle_duration = i;
     }
 
     /* loaded from: classes.dex */
@@ -316,9 +322,9 @@ public class CustomViewAbove extends ViewGroup {
             i4 = Math.round(1000.0f * Math.abs(distanceInfluenceForSnapDuration / abs)) * 4;
         } else {
             int abs2 = (int) (((Math.abs(i5) / behindWidth) + 1.0f) * 100.0f);
-            i4 = 600;
+            i4 = max_settle_duration;
         }
-        this.mScroller.startScroll(scrollX, scrollY, i5, i6, Math.min(i4, 600));
+        this.mScroller.startScroll(scrollX, scrollY, i5, i6, Math.min(i4, max_settle_duration));
         invalidate();
     }
 
@@ -655,11 +661,22 @@ public class CustomViewAbove extends ViewGroup {
         return Math.abs(this.mScrollX - this.mContent.getLeft()) / getBehindWidth();
     }
 
+    public void setCanvasTransformer(SlidingMenu.CanvasTransformer canvasTransformer) {
+        this.mTransformer = canvasTransformer;
+    }
+
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        super.dispatchDraw(canvas);
-        this.mViewBehind.drawShadow(this.mContent, canvas);
         this.mViewBehind.drawFade(this.mContent, canvas, getPercentOpen());
+        if (this.mTransformer != null) {
+            canvas.save();
+            this.mTransformer.transformCanvas(canvas, getPercentOpen());
+            super.dispatchDraw(canvas);
+            canvas.restore();
+        } else {
+            super.dispatchDraw(canvas);
+        }
+        this.mViewBehind.drawShadow(this.mContent, canvas);
         this.mViewBehind.drawSelector(this.mContent, canvas, getPercentOpen());
     }
 

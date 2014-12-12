@@ -13,9 +13,14 @@ public class LongSparseArray<E> implements Cloneable {
 
     public LongSparseArray(int i) {
         this.mGarbage = false;
-        int idealLongArraySize = idealLongArraySize(i);
-        this.mKeys = new long[idealLongArraySize];
-        this.mValues = new Object[idealLongArraySize];
+        if (i == 0) {
+            this.mKeys = ContainerHelpers.EMPTY_LONGS;
+            this.mValues = ContainerHelpers.EMPTY_OBJECTS;
+        } else {
+            int idealLongArraySize = ContainerHelpers.idealLongArraySize(i);
+            this.mKeys = new long[idealLongArraySize];
+            this.mValues = new Object[idealLongArraySize];
+        }
         this.mSize = 0;
     }
 
@@ -41,12 +46,12 @@ public class LongSparseArray<E> implements Cloneable {
     }
 
     public E get(long j, E e) {
-        int binarySearch = binarySearch(this.mKeys, 0, this.mSize, j);
+        int binarySearch = ContainerHelpers.binarySearch(this.mKeys, this.mSize, j);
         return (binarySearch < 0 || this.mValues[binarySearch] == DELETED) ? e : (E) this.mValues[binarySearch];
     }
 
     public void delete(long j) {
-        int binarySearch = binarySearch(this.mKeys, 0, this.mSize, j);
+        int binarySearch = ContainerHelpers.binarySearch(this.mKeys, this.mSize, j);
         if (binarySearch >= 0 && this.mValues[binarySearch] != DELETED) {
             this.mValues[binarySearch] = DELETED;
             this.mGarbage = true;
@@ -85,7 +90,7 @@ public class LongSparseArray<E> implements Cloneable {
     }
 
     public void put(long j, E e) {
-        int binarySearch = binarySearch(this.mKeys, 0, this.mSize, j);
+        int binarySearch = ContainerHelpers.binarySearch(this.mKeys, this.mSize, j);
         if (binarySearch >= 0) {
             this.mValues[binarySearch] = e;
             return;
@@ -98,10 +103,10 @@ public class LongSparseArray<E> implements Cloneable {
         }
         if (this.mGarbage && this.mSize >= this.mKeys.length) {
             gc();
-            i = binarySearch(this.mKeys, 0, this.mSize, j) ^ (-1);
+            i = ContainerHelpers.binarySearch(this.mKeys, this.mSize, j) ^ (-1);
         }
         if (this.mSize >= this.mKeys.length) {
-            int idealLongArraySize = idealLongArraySize(this.mSize + 1);
+            int idealLongArraySize = ContainerHelpers.idealLongArraySize(this.mSize + 1);
             long[] jArr = new long[idealLongArraySize];
             Object[] objArr = new Object[idealLongArraySize];
             System.arraycopy(this.mKeys, 0, jArr, 0, this.mKeys.length);
@@ -150,7 +155,7 @@ public class LongSparseArray<E> implements Cloneable {
         if (this.mGarbage) {
             gc();
         }
-        return binarySearch(this.mKeys, 0, this.mSize, j);
+        return ContainerHelpers.binarySearch(this.mKeys, this.mSize, j);
     }
 
     public int indexOfValue(E e) {
@@ -185,7 +190,7 @@ public class LongSparseArray<E> implements Cloneable {
         }
         int i = this.mSize;
         if (i >= this.mKeys.length) {
-            int idealLongArraySize = idealLongArraySize(i + 1);
+            int idealLongArraySize = ContainerHelpers.idealLongArraySize(i + 1);
             long[] jArr = new long[idealLongArraySize];
             Object[] objArr = new Object[idealLongArraySize];
             System.arraycopy(this.mKeys, 0, jArr, 0, this.mKeys.length);
@@ -198,33 +203,26 @@ public class LongSparseArray<E> implements Cloneable {
         this.mSize = i + 1;
     }
 
-    private static int binarySearch(long[] jArr, int i, int i2, long j) {
-        int i3 = i - 1;
-        int i4 = i + i2;
-        while (i4 - i3 > 1) {
-            int i5 = (i4 + i3) / 2;
-            if (jArr[i5] < j) {
-                i3 = i5;
+    public String toString() {
+        if (size() <= 0) {
+            return "{}";
+        }
+        StringBuilder sb = new StringBuilder(this.mSize * 28);
+        sb.append('{');
+        for (int i = 0; i < this.mSize; i++) {
+            if (i > 0) {
+                sb.append(", ");
+            }
+            sb.append(keyAt(i));
+            sb.append('=');
+            E valueAt = valueAt(i);
+            if (valueAt != this) {
+                sb.append(valueAt);
             } else {
-                i4 = i5;
+                sb.append("(this Map)");
             }
         }
-        if (i4 == i + i2) {
-            return (i + i2) ^ (-1);
-        }
-        return jArr[i4] != j ? i4 ^ (-1) : i4;
-    }
-
-    public static int idealByteArraySize(int i) {
-        for (int i2 = 4; i2 < 32; i2++) {
-            if (i <= (1 << i2) - 12) {
-                return (1 << i2) - 12;
-            }
-        }
-        return i;
-    }
-
-    public static int idealLongArraySize(int i) {
-        return idealByteArraySize(i * 8) / 8;
+        sb.append('}');
+        return sb.toString();
     }
 }

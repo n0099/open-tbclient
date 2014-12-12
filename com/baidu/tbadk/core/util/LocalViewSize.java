@@ -4,7 +4,7 @@ import android.content.Context;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class LocalViewSize {
-    private static LocalViewSize DX = null;
+    private static LocalViewSize Ik = null;
     private Context mContext = null;
 
     /* loaded from: classes.dex */
@@ -13,17 +13,17 @@ public class LocalViewSize {
         public int width;
     }
 
-    public static LocalViewSize lV() {
-        if (DX == null) {
-            DX = new LocalViewSize();
+    public static LocalViewSize oQ() {
+        if (Ik == null) {
+            Ik = new LocalViewSize();
         }
-        return DX;
+        return Ik;
     }
 
     private LocalViewSize() {
     }
 
-    public void l(Context context) {
+    public void K(Context context) {
         this.mContext = context;
     }
 
@@ -54,25 +54,25 @@ public class LocalViewSize {
         return imageSize2;
     }
 
-    public int lW() {
-        int n = com.baidu.adp.lib.util.m.n(this.mContext);
-        if (n >= 1080) {
+    public int oR() {
+        int M = com.baidu.adp.lib.util.l.M(this.mContext);
+        if (M >= 1080) {
             return 1080;
         }
-        return (n < 720 || n >= 1080) ? 480 : 720;
+        return (M < 720 || M >= 1080) ? 480 : 720;
     }
 
-    public ImageSize lX() {
+    public ImageSize getMsgSPicMaxSize() {
         int i = 240;
-        int n = com.baidu.adp.lib.util.m.n(this.mContext);
-        if (n < 240) {
-            i = n / 3;
-        } else if (n <= 320) {
+        int M = com.baidu.adp.lib.util.l.M(this.mContext);
+        if (M < 240) {
+            i = M / 3;
+        } else if (M <= 320) {
             i = 80;
-        } else if (n <= 480) {
+        } else if (M <= 480) {
             i = 160;
-        } else if (n > 720) {
-            i = n / 3;
+        } else if (M > 720) {
+            i = M / 3;
         }
         ImageSize imageSize = new ImageSize();
         imageSize.height = i;
@@ -80,15 +80,15 @@ public class LocalViewSize {
         return imageSize;
     }
 
-    public ImageSize lY() {
+    public ImageSize oS() {
         ImageSize imageSize = new ImageSize();
-        imageSize.height = com.baidu.adp.lib.util.m.o(this.mContext);
-        imageSize.width = com.baidu.adp.lib.util.m.n(this.mContext);
+        imageSize.height = com.baidu.adp.lib.util.l.N(this.mContext);
+        imageSize.width = com.baidu.adp.lib.util.l.M(this.mContext);
         return imageSize;
     }
 
-    public int lZ() {
-        ImageSize lX = lX();
-        return lX.height >= lX.width ? lX.height : lX.width;
+    public int oT() {
+        ImageSize msgSPicMaxSize = getMsgSPicMaxSize();
+        return msgSPicMaxSize.height >= msgSPicMaxSize.width ? msgSPicMaxSize.height : msgSPicMaxSize.width;
     }
 }

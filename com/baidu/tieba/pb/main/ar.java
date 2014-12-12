@@ -1,23 +1,29 @@
 package com.baidu.tieba.pb.main;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.FileDownloader;
+import android.app.Activity;
+import android.text.TextUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar implements DialogInterface.OnClickListener {
-    final /* synthetic */ PbActivity bvu;
+public class ar implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ PbActivity bzj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(PbActivity pbActivity) {
-        this.bvu = pbActivity;
+        this.bzj = pbActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        if (!com.baidu.tbadk.core.util.s.bm()) {
-            this.bvu.showToast(com.baidu.tbadk.core.util.s.lu());
-        } else {
-            FileDownloader.download(this.bvu, "http://bcscdn.baidu.com/videoandroid/baiduvideo_4099e.apk", null, this.bvu.getString(com.baidu.tieba.y.download_baidu_video));
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.tbadk.core.dialog.a aVar2;
+        String str;
+        String str2;
+        aVar2 = this.bzj.byx;
+        aVar2.dismiss();
+        str = this.bzj.byy;
+        if (!TextUtils.isEmpty(str)) {
+            Activity pageActivity = this.bzj.getPageContext().getPageActivity();
+            str2 = this.bzj.byy;
+            com.baidu.tbadk.browser.a.b(pageActivity, false, str2);
         }
     }
 }

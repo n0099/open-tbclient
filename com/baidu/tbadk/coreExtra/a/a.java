@@ -1,49 +1,49 @@
 package com.baidu.tbadk.coreExtra.a;
 
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ba;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 /* loaded from: classes.dex */
 public class a {
-    private static a Ld;
-    private boolean Lc;
+    private static a Qo;
+    private boolean Qn;
 
     private a() {
-        this.Lc = false;
+        this.Qn = false;
         try {
-            if (!az.aA(new BufferedReader(new InputStreamReader(TbadkApplication.m251getInst().getApp().getAssets().open("apk_ab_test.txt"))).readLine())) {
-                this.Lc = true;
+            if (!ba.isEmpty(new BufferedReader(new InputStreamReader(TbadkCoreApplication.m255getInst().getApp().getAssets().open("apk_ab_test.txt"))).readLine())) {
+                this.Qn = true;
             }
         } catch (Throwable th) {
-            this.Lc = false;
+            this.Qn = false;
         }
     }
 
-    public static synchronized a or() {
+    public static synchronized a rr() {
         a aVar;
         synchronized (a.class) {
-            if (Ld == null) {
-                Ld = new a();
+            if (Qo == null) {
+                Qo = new a();
             }
-            aVar = Ld;
+            aVar = Qo;
         }
         return aVar;
     }
 
-    public boolean os() {
-        return this.Lc;
+    public boolean rs() {
+        return this.Qn;
     }
 
-    public HttpURLConnection f(HttpURLConnection httpURLConnection) {
-        if (this.Lc && httpURLConnection != null) {
+    public HttpURLConnection g(HttpURLConnection httpURLConnection) {
+        if (this.Qn && httpURLConnection != null) {
             httpURLConnection.setRequestProperty("Cookie", "pub_env=3;");
         }
         return httpURLConnection;
     }
 
-    public String ot() {
-        return this.Lc ? "pub_env=3;" : "";
+    public String rt() {
+        return this.Qn ? "pub_env=3;" : "";
     }
 }

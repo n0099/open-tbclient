@@ -3,19 +3,19 @@ package com.baidu.tieba.guide;
 import android.view.View;
 /* loaded from: classes.dex */
 class o implements p {
-    final /* synthetic */ n aLT;
+    final /* synthetic */ n aNL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.aLT = nVar;
+        this.aNL = nVar;
     }
 
     @Override // com.baidu.tieba.guide.p
-    public void IF() {
+    public void IW() {
         m mVar;
         View view;
-        mVar = this.aLT.aLS;
-        view = mVar.aLD;
+        mVar = this.aNL.aNK;
+        view = mVar.aNw;
         view.setVisibility(8);
     }
 }

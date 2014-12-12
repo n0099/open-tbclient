@@ -1,23 +1,29 @@
 package com.baidu.tieba.im.b;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class h extends BroadcastReceiver {
-    final /* synthetic */ c this$0;
-
-    private h(c cVar) {
-        this.this$0 = cVar;
-    }
+public class h extends CustomMessageListener {
+    final /* synthetic */ b biq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ h(c cVar, h hVar) {
-        this(cVar);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h(b bVar, int i) {
+        super(i);
+        this.biq = bVar;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        this.this$0.gp(this.this$0.Pz());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage instanceof BackgroundSwitchMessage) {
+            if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
+                this.biq.Ra();
+            } else {
+                this.biq.QZ();
+            }
+        }
     }
 }

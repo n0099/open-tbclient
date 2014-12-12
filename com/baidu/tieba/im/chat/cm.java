@@ -1,19 +1,31 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
+import android.view.animation.Animation;
+import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cm implements View.OnLongClickListener {
-    final /* synthetic */ cc aPy;
+public class cm implements Animation.AnimationListener {
+    final /* synthetic */ PersonalChatView aRR;
+    private final /* synthetic */ Animation aRS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cm(cc ccVar) {
-        this.aPy = ccVar;
+    public cm(PersonalChatView personalChatView, Animation animation) {
+        this.aRR = personalChatView;
+        this.aRS = animation;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        this.aPy.aOZ.b(view, 7, this.aPy.UC, 0L);
-        return true;
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        TextView textView;
+        textView = this.aRR.aRO;
+        textView.startAnimation(this.aRS);
     }
 }

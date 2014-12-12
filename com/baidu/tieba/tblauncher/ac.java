@@ -2,9 +2,8 @@ package com.baidu.tieba.tblauncher;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.data.NewsNotifyMessage;
 /* loaded from: classes.dex */
 class ac extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
@@ -19,26 +18,16 @@ class ac extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ArrayList<com.baidu.tbadk.mainTab.b> sG;
-        FragmentTabHost fragmentTabHost;
-        FragmentTabHost fragmentTabHost2;
-        MainTabActivity mainTabActivity;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (sG = ((com.baidu.tbadk.mainTab.e) customResponsedMessage.getData()).sG()) != null && sG.size() != 0) {
-            fragmentTabHost = this.this$0.bfN;
-            fragmentTabHost.reset();
-            Iterator<com.baidu.tbadk.mainTab.b> it = sG.iterator();
-            while (it.hasNext()) {
-                com.baidu.tbadk.mainTab.b next = it.next();
-                if (next != null) {
-                    com.baidu.tbadk.mainTab.d sF = next.sF();
-                    MainTabActivity mainTabActivity2 = this.this$0;
-                    mainTabActivity = this.this$0.bPd;
-                    mainTabActivity2.a(sF, next.z(mainTabActivity));
-                }
+        an anVar;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124) {
+            if (!(customResponsedMessage instanceof NewsNotifyMessage)) {
+                BdLog.e("transform error");
+            } else if (MainTabActivity.caN) {
+                NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
+                int msgReplyme = newsNotifyMessage.getMsgReplyme() + newsNotifyMessage.getMsgAtme();
+                anVar = this.this$0.caU;
+                anVar.ih(msgReplyme);
             }
-            fragmentTabHost2 = this.this$0.bfN;
-            fragmentTabHost2.initViewPager();
-            this.this$0.o(this.this$0.getIntent());
         }
     }
 }

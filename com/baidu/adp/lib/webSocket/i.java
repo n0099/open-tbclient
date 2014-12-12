@@ -9,56 +9,56 @@ import java.net.Socket;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 class i implements g {
-    private byte[] dL;
-    private OutputStream dP;
-    private long oZ;
+    private OutputStream fS;
+    private byte[] mData;
+    private InputStream mInputStream;
+    private long oY;
+    private String oZ;
     private String pa;
     private String pd;
-    private String pe;
-    private Socket pf;
-    private InputStream pg;
+    private Socket pe;
 
     public i(String str, int i, am amVar) {
-        this.pf = null;
-        this.pg = null;
-        this.dP = null;
-        this.dL = null;
-        this.oZ = 0L;
+        this.pe = null;
+        this.mInputStream = null;
+        this.fS = null;
+        this.mData = null;
+        this.oY = 0L;
+        this.oZ = null;
         this.pa = null;
         this.pd = null;
-        this.pe = null;
-        this.pf = new Socket();
+        this.pe = new Socket();
         long currentTimeMillis = System.currentTimeMillis();
         InetSocketAddress inetSocketAddress = new InetSocketAddress(str, i);
         if (inetSocketAddress.getAddress() != null) {
-            this.pa = inetSocketAddress.getAddress().getHostAddress();
-            this.oZ = System.currentTimeMillis() - currentTimeMillis;
+            this.oZ = inetSocketAddress.getAddress().getHostAddress();
+            this.oY = System.currentTimeMillis() - currentTimeMillis;
         }
-        this.pf.connect(inetSocketAddress, amVar.go());
-        this.pf.setSoTimeout(amVar.gn());
-        this.pf.setTcpNoDelay(amVar.getTcpNoDelay());
-        this.pg = this.pf.getInputStream();
-        this.dP = this.pf.getOutputStream();
-        this.dL = new byte[1024];
-        this.pd = com.baidu.adp.lib.util.m.fv();
-        this.pe = com.baidu.adp.lib.util.m.fw();
+        this.pe.connect(inetSocketAddress, amVar.gp());
+        this.pe.setSoTimeout(amVar.go());
+        this.pe.setTcpNoDelay(amVar.getTcpNoDelay());
+        this.mInputStream = this.pe.getInputStream();
+        this.fS = this.pe.getOutputStream();
+        this.mData = new byte[1024];
+        this.pa = com.baidu.adp.lib.util.l.fv();
+        this.pd = com.baidu.adp.lib.util.l.fw();
     }
 
     @Override // com.baidu.adp.lib.webSocket.g
     public void close() {
         try {
-            this.pg.close();
+            this.mInputStream.close();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
         try {
-            this.dP.close();
+            this.fS.close();
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
-        if (this.pf != null) {
+        if (this.pe != null) {
             try {
-                this.pf.close();
+                this.pe.close();
             } catch (IOException e3) {
                 throw e3;
             } catch (Throwable th) {
@@ -68,17 +68,17 @@ class i implements g {
 
     @Override // com.baidu.adp.lib.webSocket.g
     public boolean isConnected() {
-        if (this.pf != null) {
-            return this.pf.isConnected();
+        if (this.pe != null) {
+            return this.pe.isConnected();
         }
         return false;
     }
 
     @Override // com.baidu.adp.lib.webSocket.g
     public int read(ByteBuffer byteBuffer) {
-        int read = this.pg.read(this.dL);
+        int read = this.mInputStream.read(this.mData);
         if (read > 0) {
-            byteBuffer.put(this.dL, 0, read);
+            byteBuffer.put(this.mData, 0, read);
         }
         return read;
     }
@@ -89,28 +89,28 @@ class i implements g {
         if (remaining > 0) {
             byte[] bArr = new byte[remaining];
             byteBuffer.get(bArr);
-            this.dP.write(bArr);
+            this.fS.write(bArr);
         }
         return remaining;
     }
 
     @Override // com.baidu.adp.lib.webSocket.g
-    public String fQ() {
-        return this.pa;
-    }
-
-    @Override // com.baidu.adp.lib.webSocket.g
-    public long fR() {
+    public String fS() {
         return this.oZ;
     }
 
     @Override // com.baidu.adp.lib.webSocket.g
+    public long fT() {
+        return this.oY;
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.g
     public String fv() {
-        return this.pd;
+        return this.pa;
     }
 
     @Override // com.baidu.adp.lib.webSocket.g
     public String fw() {
-        return this.pe;
+        return this.pd;
     }
 }

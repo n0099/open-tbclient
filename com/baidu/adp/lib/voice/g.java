@@ -46,12 +46,12 @@ class g implements Handler.Callback {
             case 3:
                 pVar9 = f.oi;
                 if (pVar9 != null) {
-                    if (com.baidu.adp.lib.util.d.eU()) {
+                    if (com.baidu.adp.lib.util.d.eV()) {
                         pVar11 = f.oi;
-                        pVar11.c(message.what, q.getString(R.string.voice_err_create_file_fail));
+                        pVar11.error(message.what, q.getString(R.string.voice_err_create_file_fail));
                     } else {
                         pVar10 = f.oi;
-                        pVar10.c(message.what, q.getString(R.string.voice_err_sdcard_nospace));
+                        pVar10.error(message.what, q.getString(R.string.voice_err_sdcard_nospace));
                     }
                     f.oi = null;
                     break;
@@ -61,7 +61,7 @@ class g implements Handler.Callback {
                 pVar3 = f.oi;
                 if (pVar3 != null) {
                     pVar4 = f.oi;
-                    pVar4.c(message.what, q.getString(R.string.voice_err_file_fail));
+                    pVar4.error(message.what, q.getString(R.string.voice_err_file_fail));
                     f.oi = null;
                     break;
                 }
@@ -70,7 +70,7 @@ class g implements Handler.Callback {
                 pVar18 = f.oi;
                 if (pVar18 != null) {
                     pVar19 = f.oi;
-                    pVar19.U(message.arg1);
+                    pVar19.ac(message.arg1);
                     break;
                 }
                 break;
@@ -78,7 +78,7 @@ class g implements Handler.Callback {
                 pVar5 = f.oi;
                 if (pVar5 != null) {
                     pVar6 = f.oi;
-                    pVar6.c(message.what, q.getString(R.string.voice_err_load_lib_fail));
+                    pVar6.error(message.what, q.getString(R.string.voice_err_load_lib_fail));
                     f.oi = null;
                     break;
                 }
@@ -87,7 +87,7 @@ class g implements Handler.Callback {
                 pVar = f.oi;
                 if (pVar != null) {
                     pVar2 = f.oi;
-                    pVar2.c(message.what, q.getString(R.string.voice_err_init_fail));
+                    pVar2.error(message.what, q.getString(R.string.voice_err_init_fail));
                     f.oi = null;
                     break;
                 }
@@ -96,7 +96,7 @@ class g implements Handler.Callback {
                 pVar14 = f.oi;
                 if (pVar14 != null) {
                     pVar15 = f.oi;
-                    pVar15.c(message.what, q.getString(R.string.voice_record_timeout_tip));
+                    pVar15.error(message.what, q.getString(R.string.voice_record_timeout_tip));
                     f.oi = null;
                     break;
                 }
@@ -105,7 +105,7 @@ class g implements Handler.Callback {
                 pVar12 = f.oi;
                 if (pVar12 != null) {
                     pVar13 = f.oi;
-                    pVar13.c(message.what, q.getString(R.string.voice_record_short_tip));
+                    pVar13.error(message.what, q.getString(R.string.voice_record_short_tip));
                     f.oi = null;
                     break;
                 }
@@ -114,7 +114,7 @@ class g implements Handler.Callback {
                 pVar16 = f.oi;
                 if (pVar16 != null) {
                     pVar17 = f.oi;
-                    pVar17.W(message.arg1);
+                    pVar17.ae(message.arg1);
                     break;
                 }
                 break;
@@ -122,7 +122,7 @@ class g implements Handler.Callback {
                 pVar7 = f.oi;
                 if (pVar7 != null) {
                     pVar8 = f.oi;
-                    pVar8.fJ();
+                    pVar8.fL();
                     break;
                 }
                 break;
@@ -130,7 +130,7 @@ class g implements Handler.Callback {
                 pVar22 = f.oi;
                 if (pVar22 != null) {
                     pVar23 = f.oi;
-                    pVar23.c(message.what, q.getString(R.string.voice_err_other));
+                    pVar23.error(message.what, q.getString(R.string.voice_err_other));
                     f.oi = null;
                     break;
                 }

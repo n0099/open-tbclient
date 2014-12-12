@@ -3,7 +3,10 @@ package android.support.v4.net;
 import android.net.TrafficStats;
 import java.net.Socket;
 /* loaded from: classes.dex */
-public class TrafficStatsCompatIcs {
+class TrafficStatsCompatIcs {
+    TrafficStatsCompatIcs() {
+    }
+
     public static void clearThreadStatsTag() {
         TrafficStats.clearThreadStatsTag();
     }

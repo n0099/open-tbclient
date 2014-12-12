@@ -12,41 +12,41 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.text.style.DynamicDrawableSpan;
 import android.util.Log;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ax;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class m extends DynamicDrawableSpan {
-    private Uri aaS;
-    private int aaT;
-    private n aaU;
-    private Rect dZ;
+    private Uri aiE;
+    private int aiF;
+    private n aiG;
     private Context mContext;
-    private Drawable tt;
+    private Rect mRect;
+    private Drawable vC;
 
     public void setDrawable(Drawable drawable) {
-        this.tt = drawable;
+        this.vC = drawable;
     }
 
     public m(n nVar, int i, int i2) {
         super(i2);
-        this.dZ = new Rect();
-        this.aaT = i;
-        this.aaU = nVar;
+        this.mRect = new Rect();
+        this.aiF = i;
+        this.aiG = nVar;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        if (this.tt != null || this.aaU == null) {
+        if (this.vC != null || this.aiG == null) {
             return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
         }
         if (fontMetricsInt != null) {
-            fontMetricsInt.ascent = -this.dZ.bottom;
+            fontMetricsInt.ascent = -this.mRect.bottom;
             fontMetricsInt.descent = 0;
             fontMetricsInt.top = fontMetricsInt.ascent;
             fontMetricsInt.bottom = 0;
         }
-        return this.dZ.right;
+        return this.mRect.right;
     }
 
     @Override // android.text.style.DynamicDrawableSpan
@@ -56,17 +56,17 @@ public class m extends DynamicDrawableSpan {
         Exception e;
         InputStream openInputStream;
         Drawable drawable3 = null;
-        if (this.tt != null) {
-            drawable3 = this.tt;
-        } else if (this.aaU != null) {
-            drawable3 = this.aaU.a(this);
+        if (this.vC != null) {
+            drawable3 = this.vC;
+        } else if (this.aiG != null) {
+            drawable3 = this.aiG.a(this);
         }
         if (drawable3 != null) {
             return drawable3;
         }
-        if (this.aaS != null) {
+        if (this.aiE != null) {
             try {
-                openInputStream = this.mContext.getContentResolver().openInputStream(this.aaS);
+                openInputStream = this.mContext.getContentResolver().openInputStream(this.aiE);
                 drawable2 = new BitmapDrawable(this.mContext.getResources(), BitmapFactory.decodeStream(openInputStream));
             } catch (Exception e2) {
                 drawable2 = drawable3;
@@ -78,12 +78,12 @@ public class m extends DynamicDrawableSpan {
                 return drawable2;
             } catch (Exception e3) {
                 e = e3;
-                Log.e("sms", "Failed to loaded content " + this.aaS, e);
+                Log.e("sms", "Failed to loaded content " + this.aiE, e);
                 return drawable2;
             }
         }
         try {
-            drawable = aw.getDrawable(this.aaT);
+            drawable = ax.getDrawable(this.aiF);
         } catch (Exception e4) {
             drawable = drawable3;
         }
@@ -91,7 +91,7 @@ public class m extends DynamicDrawableSpan {
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
             return drawable;
         } catch (Exception e5) {
-            Log.e("sms", "Unable to find resource: " + this.aaT);
+            Log.e("sms", "Unable to find resource: " + this.aiF);
             return drawable;
         }
     }
@@ -106,7 +106,7 @@ public class m extends DynamicDrawableSpan {
                 i5 = i4;
             }
             canvas.translate(f, i5 - (drawable.getBounds().bottom - 4));
-            if (TbadkApplication.m251getInst().getSkinType() == 1) {
+            if (TbadkCoreApplication.m255getInst().getSkinType() == 1) {
                 drawable.setColorFilter(new PorterDuffColorFilter(-5000269, PorterDuff.Mode.MULTIPLY));
             }
             drawable.draw(canvas);
@@ -114,7 +114,7 @@ public class m extends DynamicDrawableSpan {
         }
     }
 
-    public void d(int i, int i2, int i3, int i4) {
-        this.dZ.set(i, i2, i3, i4);
+    public void e(int i, int i2, int i3, int i4) {
+        this.mRect.set(i, i2, i3, i4);
     }
 }

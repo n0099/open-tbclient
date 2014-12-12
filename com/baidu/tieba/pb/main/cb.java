@@ -1,36 +1,34 @@
 package com.baidu.tieba.pb.main;
 
-import android.app.Dialog;
-import android.util.SparseArray;
 import android.view.View;
+import android.view.animation.Animation;
+import android.widget.RelativeLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cb implements View.OnClickListener {
-    final /* synthetic */ bv byW;
+public class cb implements Animation.AnimationListener {
+    final /* synthetic */ bz bCR;
+    private final /* synthetic */ View bCS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cb(bv bvVar) {
-        this.byW = bvVar;
+    public cb(bz bzVar, View view) {
+        this.bCR = bzVar;
+        this.bCS = view;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        Dialog dialog2;
-        Dialog dialog3;
-        PbActivity pbActivity;
-        dialog = this.byW.byb;
-        if (dialog != null) {
-            dialog2 = this.byW.byb;
-            if (dialog2 instanceof Dialog) {
-                dialog3 = this.byW.byb;
-                pbActivity = this.byW.bxe;
-                com.baidu.adp.lib.g.j.b(dialog3, pbActivity);
-            }
-        }
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            this.byW.a(((Integer) sparseArray.get(com.baidu.tieba.v.tag_del_post_type)).intValue(), (String) sparseArray.get(com.baidu.tieba.v.tag_del_post_id), ((Integer) sparseArray.get(com.baidu.tieba.v.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(com.baidu.tieba.v.tag_del_post_is_self)).booleanValue());
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+        this.bCS.setVisibility(0);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        RelativeLayout relativeLayout;
+        relativeLayout = this.bCR.bBI;
+        relativeLayout.setVisibility(8);
+        this.bCS.setVisibility(8);
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

@@ -3,13 +3,13 @@ package com.baidu.tieba.im.more;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 /* loaded from: classes.dex */
 public interface j {
-    void QN();
+    void Rm();
 
-    void QO();
+    void Rn();
 
-    void QP();
+    void Ro();
 
-    void QQ();
+    void Rp();
 
     void a(BdSwitchView.SwitchState switchState);
 

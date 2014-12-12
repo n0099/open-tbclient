@@ -1,19 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.pluginArch.PluginCenter;
-import com.baidu.tbadk.pluginArch.PluginNameList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.location.Address;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
-public class ao implements Runnable {
-    final /* synthetic */ aj aee;
+class ao implements com.baidu.adp.lib.d.d {
+    final /* synthetic */ al alv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(aj ajVar) {
-        this.aee = ajVar;
+    public ao(al alVar) {
+        this.alv = alVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        PluginCenter.getInstance().installPluginFromAsset(PluginNameList.NAME_LIVE, new ap(this));
+    @Override // com.baidu.adp.lib.d.d
+    public void b(int i, String str, Address address) {
+        if (i == 0 && address != null) {
+            try {
+                String valueOf = String.valueOf(address.getLatitude());
+                String valueOf2 = String.valueOf(address.getLongitude());
+                if (!TextUtils.isEmpty(valueOf) && !TextUtils.isEmpty(valueOf2)) {
+                    TbadkApplication.getInst().setLocationLat(valueOf);
+                    TbadkApplication.getInst().setLocationLng(valueOf2);
+                    TbadkApplication.getInst().setLocationPos(address.getAddressLine(0));
+                }
+            } catch (IllegalStateException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 }

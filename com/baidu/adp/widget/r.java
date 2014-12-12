@@ -6,7 +6,7 @@ import com.baidu.sapi2.shell.SapiErrorCode;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r extends Handler {
-    final /* synthetic */ VerticalTranslateLayout wV;
+    final /* synthetic */ VerticalTranslateLayout yX;
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
@@ -15,28 +15,28 @@ public class r extends Handler {
         s sVar3;
         s sVar4;
         s sVar5;
-        sVar = this.wV.wQ;
-        if (sVar.sQ) {
+        sVar = this.yX.yS;
+        if (sVar.vd) {
             switch (message.what) {
                 case SapiErrorCode.GET_CERT_FAIL /* -105 */:
-                    sVar5 = this.wV.wQ;
-                    sVar5.iD();
+                    sVar5 = this.yX.yS;
+                    sVar5.ks();
                     return;
                 case SapiErrorCode.GETTING_CERT /* -104 */:
-                    sVar2 = this.wV.wQ;
-                    sVar2.iC();
+                    sVar2 = this.yX.yS;
+                    sVar2.kr();
                     return;
                 case SapiErrorCode.INVALID_ARG /* -103 */:
                 case -102:
                 default:
                     return;
                 case -101:
-                    sVar3 = this.wV.wQ;
-                    sVar3.iB();
+                    sVar3 = this.yX.yS;
+                    sVar3.kq();
                     return;
                 case -100:
-                    sVar4 = this.wV.wQ;
-                    sVar4.iA();
+                    sVar4 = this.yX.yS;
+                    sVar4.kp();
                     return;
             }
         }

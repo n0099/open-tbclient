@@ -9,7 +9,7 @@ public class PersonListActivityConfig extends a {
     public PersonListActivityConfig(Context context, boolean z, String str, int i) {
         super(context);
         getIntent().putExtra(FOLLOW, z);
-        getIntent().putExtra(a.USER_ID, str);
+        getIntent().putExtra("user_id", str);
         getIntent().putExtra(a.USER_SEX, i);
     }
 }

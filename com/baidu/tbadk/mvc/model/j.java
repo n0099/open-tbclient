@@ -1,11 +1,22 @@
 package com.baidu.tbadk.mvc.model;
 
-import com.baidu.tbadk.mvc.b.g;
-import com.baidu.tbadk.mvc.b.i;
-import com.baidu.tbadk.mvc.message.MvcHttpMessage;
-import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
-import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.z;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface j<T extends com.baidu.tbadk.mvc.b.g, D extends com.baidu.tbadk.mvc.b.i> {
-    void a(MvcHttpResponsedMessage<D> mvcHttpResponsedMessage, MvcHttpMessage<T, D> mvcHttpMessage, MvcNetMessage<T, D> mvcNetMessage);
+public class j implements Runnable {
+    final /* synthetic */ NetModel this$0;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public j(NetModel netModel) {
+        this.this$0 = netModel;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        TbPageContext tbPageContext;
+        NetModel netModel = this.this$0;
+        tbPageContext = this.this$0.mPageContext;
+        netModel.t(-1, tbPageContext.getString(z.neterror));
+    }
 }

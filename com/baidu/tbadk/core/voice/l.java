@@ -19,7 +19,7 @@ public class l extends BdAsyncTask<Void, Void, Void> {
         this(voiceManager);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1629=4, 1630=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1631=4, 1632=4] */
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Removed duplicated region for block: B:49:0x00a7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -48,7 +48,7 @@ public class l extends BdAsyncTask<Void, Void, Void> {
                 } catch (FileNotFoundException e2) {
                     e = e2;
                     com.baidu.tbadk.core.util.r rVar = new com.baidu.tbadk.core.util.r();
-                    rVar.g("path", "/sys/class/switch/h2w/state");
+                    rVar.h("path", "/sys/class/switch/h2w/state");
                     TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_HEADSET, "CheckHeadsetPlugAsyncTask exception: " + e.getMessage(), rVar.toString());
                     if (fileReader != null) {
                         try {
@@ -60,7 +60,7 @@ public class l extends BdAsyncTask<Void, Void, Void> {
                 } catch (Exception e4) {
                     e = e4;
                     com.baidu.tbadk.core.util.r rVar2 = new com.baidu.tbadk.core.util.r();
-                    rVar2.g("path", "/sys/class/switch/h2w/state");
+                    rVar2.h("path", "/sys/class/switch/h2w/state");
                     TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_HEADSET, "CheckHeadsetPlugAsyncTask exception: " + e.getMessage(), rVar2.toString());
                     if (fileReader != null) {
                         try {

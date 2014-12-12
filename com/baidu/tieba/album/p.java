@@ -5,95 +5,95 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 public class p {
-    private int RO;
-    private WriteImagesInfo aib;
-    private String aic;
-    private List<ImageFileInfo> aid;
+    private WriteImagesInfo apq;
+    private String apr;
+    private List<ImageFileInfo> aps;
+    private int mCurrentIndex;
 
     public void addChooseFile(ImageFileInfo imageFileInfo) {
-        if (this.aib == null) {
-            this.aib = new WriteImagesInfo();
+        if (this.apq == null) {
+            this.apq = new WriteImagesInfo();
         }
-        this.aib.addChooseFile(imageFileInfo);
+        this.apq.addChooseFile(imageFileInfo);
     }
 
     public void delChooseFile(ImageFileInfo imageFileInfo) {
-        if (this.aib != null) {
-            this.aib.delChooseFile(imageFileInfo);
+        if (this.apq != null) {
+            this.apq.delChooseFile(imageFileInfo);
         }
     }
 
     public boolean isAdded(ImageFileInfo imageFileInfo) {
-        if (this.aib == null) {
+        if (this.apq == null) {
             return false;
         }
-        return this.aib.isAdded(imageFileInfo);
+        return this.apq.isAdded(imageFileInfo);
     }
 
-    public List<ImageFileInfo> xV() {
-        if (this.aib != null) {
-            return this.aib.getChosedFiles();
+    public List<ImageFileInfo> Bo() {
+        if (this.apq != null) {
+            return this.apq.getChosedFiles();
         }
         return null;
     }
 
     public WriteImagesInfo getWriteImagesInfo() {
-        return this.aib;
+        return this.apq;
     }
 
     public void setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
-        this.aib = writeImagesInfo;
+        this.apq = writeImagesInfo;
     }
 
     public String getLastAlbumId() {
-        if (this.aib != null) {
-            return this.aib.getLastAlbumId();
+        if (this.apq != null) {
+            return this.apq.getLastAlbumId();
         }
         return null;
     }
 
     public void setLastAlbumId(String str) {
-        if (this.aib == null) {
-            this.aib = new WriteImagesInfo();
+        if (this.apq == null) {
+            this.apq = new WriteImagesInfo();
         }
-        this.aib.setLastAlbumId(str);
+        this.apq.setLastAlbumId(str);
     }
 
     public int getMaxImagesAllowed() {
-        if (this.aib != null) {
-            return this.aib.getMaxImagesAllowed();
+        if (this.apq != null) {
+            return this.apq.getMaxImagesAllowed();
         }
         return 0;
     }
 
-    public String xW() {
-        return this.aic;
+    public String Bp() {
+        return this.apr;
     }
 
-    public void eo(String str) {
-        this.aic = str;
+    public void eT(String str) {
+        this.apr = str;
     }
 
-    public List<ImageFileInfo> xX() {
-        return this.aid;
+    public List<ImageFileInfo> Bq() {
+        return this.aps;
     }
 
-    public void y(List<ImageFileInfo> list) {
-        this.aid = list;
+    public void D(List<ImageFileInfo> list) {
+        this.aps = list;
     }
 
     public int getCurrentIndex() {
-        return this.RO;
+        return this.mCurrentIndex;
     }
 
-    public void dP(int i) {
-        this.RO = i;
+    public void setCurrentIndex(int i) {
+        this.mCurrentIndex = i;
     }
 
     public int size() {
-        if (this.aib == null) {
+        if (this.apq == null) {
             return 0;
         }
-        return this.aib.size();
+        return this.apq.size();
     }
 }

@@ -11,99 +11,99 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.data.ak;
-import com.baidu.tieba.u;
+import com.baidu.tieba.aa;
+import com.baidu.tieba.t;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
-import com.baidu.tieba.z;
+import com.baidu.tieba.x;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a extends BaseAdapter {
-    protected View.OnClickListener bzZ;
+    protected View.OnClickListener bDJ;
     protected Context mContext;
-    protected ArrayList<ak> aeE = null;
-    protected View.OnClickListener bzY = null;
-    protected int boZ = 0;
-    protected boolean bAa = false;
-    protected boolean bvK = false;
-    protected boolean bAb = false;
+    protected ArrayList<com.baidu.tieba.tbadkCore.b.k> mData = null;
+    protected View.OnClickListener bDI = null;
+    protected int bDK = 0;
+    protected boolean bDL = false;
+    protected boolean bzz = false;
+    protected boolean bDM = false;
     private boolean mIsFromCDN = true;
 
     public a(Context context, View.OnClickListener onClickListener) {
         this.mContext = null;
-        this.bzZ = null;
+        this.bDJ = null;
         this.mContext = context;
-        this.bzZ = onClickListener;
+        this.bDJ = onClickListener;
     }
 
     public void setIsFromCDN(boolean z) {
         this.mIsFromCDN = z;
     }
 
-    public int gZ(String str) {
-        if (this.aeE == null) {
+    public int hy(String str) {
+        if (this.mData == null) {
             return -1;
         }
-        int size = this.aeE.size();
+        int size = this.mData.size();
         for (int i = 0; i < size; i++) {
-            if (this.aeE.get(i).getId().equals(str)) {
+            if (this.mData.get(i).getId().equals(str)) {
                 return i;
             }
         }
         return -1;
     }
 
-    public void setDatas(ArrayList<ak> arrayList) {
+    public void setDatas(ArrayList<com.baidu.tieba.tbadkCore.b.k> arrayList) {
         if (arrayList == null) {
-            this.aeE = new ArrayList<>();
+            this.mData = new ArrayList<>();
             return;
         }
-        Iterator<ak> it = arrayList.iterator();
+        Iterator<com.baidu.tieba.tbadkCore.b.k> it = arrayList.iterator();
         while (it.hasNext()) {
-            ak next = it.next();
+            com.baidu.tieba.tbadkCore.b.k next = it.next();
             if (next != null && next.getAuthor() != null) {
                 next.getAuthor().setPortrait(null);
             }
         }
-        this.aeE = arrayList;
+        this.mData = arrayList;
     }
 
-    public void u(View.OnClickListener onClickListener) {
-        this.bzY = onClickListener;
+    public void A(View.OnClickListener onClickListener) {
+        this.bDI = onClickListener;
     }
 
     public void t(int i, boolean z) {
-        this.boZ = i;
-        this.bAa = z;
+        this.bDK = i;
+        this.bDL = z;
+    }
+
+    public void dJ(boolean z) {
+        this.bzz = false;
     }
 
     public void dY(boolean z) {
-        this.bvK = false;
-    }
-
-    public void en(boolean z) {
-        this.bAb = z;
+        this.bDM = z;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aeE == null) {
+        if (this.mData == null) {
             return 0;
         }
-        return this.aeE.size();
+        return this.mData.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.aeE == null || i < 0 || i >= this.aeE.size()) {
+        if (this.mData == null || i < 0 || i >= this.mData.size()) {
             return null;
         }
-        return this.aeE.get(i);
+        return this.mData.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -114,27 +114,27 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = hA();
+            view = jx();
         }
-        b bVar = (b) ((SparseArray) view.getTag()).get(v.tag_holder);
+        b bVar = (b) ((SparseArray) view.getTag()).get(w.tag_holder);
         if (getItem(i) != null) {
-            a(bVar, (ak) getItem(i), !(!this.bAb && i + 1 >= getCount()), i == 0);
+            a(bVar, (com.baidu.tieba.tbadkCore.b.k) getItem(i), !(!this.bDM && i + 1 >= getCount()), i == 0);
         }
         return view;
     }
 
-    public View hA() {
+    public View jx() {
         b bVar = new b(this);
-        View inflate = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, w.new_sub_pb_list_item, null);
-        bVar.Xm = inflate;
-        bVar.bAc = (LinearLayout) inflate.findViewById(v.sub_pb_item_columnlayout);
-        bVar.bAd = (TextView) inflate.findViewById(v.manage_btn);
-        bVar.bwi = (TbRichTextView) inflate.findViewById(v.new_sub_pb_list_richText);
-        bVar.bwi.setTextSize(TbConfig.getContentSizeOfLzl(this.mContext));
-        bVar.bwi.setTextColor(aw.getColor(com.baidu.tieba.s.gray_day_3));
-        bVar.bAd.setOnClickListener(this.bzY);
+        View inflate = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, x.new_sub_pb_list_item, null);
+        bVar.rootView = inflate;
+        bVar.bDN = (LinearLayout) inflate.findViewById(w.sub_pb_item_columnlayout);
+        bVar.bDO = (TextView) inflate.findViewById(w.manage_btn);
+        bVar.bzZ = (TbRichTextView) inflate.findViewById(w.new_sub_pb_list_richText);
+        bVar.bzZ.setTextSize(TbConfig.getContentSizeOfLzl(this.mContext));
+        bVar.bzZ.setTextColor(ax.getColor(t.gray_day_3));
+        bVar.bDO.setOnClickListener(this.bDI);
         SparseArray sparseArray = new SparseArray();
-        sparseArray.put(v.tag_holder, bVar);
+        sparseArray.put(w.tag_holder, bVar);
         inflate.setTag(sparseArray);
         return inflate;
     }
@@ -151,75 +151,75 @@ public class a extends BaseAdapter {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(b bVar, ak akVar, boolean z, boolean z2) {
+    public void a(b bVar, com.baidu.tieba.tbadkCore.b.k kVar, boolean z, boolean z2) {
         boolean z3;
         boolean z4;
         boolean z5;
         SparseArray sparseArray;
         com.baidu.tbadk.widget.richText.c cVar;
         TextAppearanceSpan textAppearanceSpan;
-        if (bVar != null && akVar != null) {
-            bVar.bwi.setPadding(0, 0, 0, 0);
-            int skinType = TbadkApplication.m251getInst().getSkinType();
-            if (akVar.getAuthor() != null) {
-                String userName = akVar.getAuthor().getUserName();
-                SparseArray sparseArray2 = (SparseArray) bVar.Xm.getTag();
+        if (bVar != null && kVar != null) {
+            bVar.bzZ.setPadding(0, 0, 0, 0);
+            int skinType = TbadkCoreApplication.m255getInst().getSkinType();
+            if (kVar.getAuthor() != null) {
+                String userName = kVar.getAuthor().getUserName();
+                SparseArray sparseArray2 = (SparseArray) bVar.rootView.getTag();
                 if (sparseArray2 == null) {
                     sparseArray2 = new SparseArray();
-                    bVar.Xm.setTag(sparseArray2);
+                    bVar.rootView.setTag(sparseArray2);
                 }
-                sparseArray2.put(v.tag_photo_username, userName);
-                sparseArray2.put(v.tag_clip_board, akVar);
-                sparseArray2.put(v.tag_is_subpb, true);
+                sparseArray2.put(w.tag_photo_username, userName);
+                sparseArray2.put(w.tag_clip_board, kVar);
+                sparseArray2.put(w.tag_is_subpb, true);
             }
-            bVar.bwi.setLinkTextColor(aw.getColor(com.baidu.tieba.s.common_link_text));
-            com.baidu.tbadk.widget.richText.a Ah = akVar.Ah();
-            if (Ah != null) {
-                ArrayList<com.baidu.tbadk.widget.richText.c> vA = Ah.vA();
-                if (vA.size() > 0) {
-                    com.baidu.tbadk.widget.richText.c cVar2 = vA.get(vA.size() - 1);
+            bVar.bzZ.setLinkTextColor(ax.getColor(t.cp_link_tip_c));
+            com.baidu.tbadk.widget.richText.a agU = kVar.agU();
+            if (agU != null) {
+                ArrayList<com.baidu.tbadk.widget.richText.c> zL = agU.zL();
+                if (zL.size() > 0) {
+                    com.baidu.tbadk.widget.richText.c cVar2 = zL.get(zL.size() - 1);
                     int type = cVar2.getType();
                     String str = "";
                     if (type == 1) {
-                        str = (vA.size() <= 1 || vA.get(vA.size() + (-2)).getType() == type) ? "  " + az.j(akVar.getTime()) : az.j(akVar.getTime());
-                        SpannableStringBuilder vG = cVar2.vG();
-                        if (Ah.abr) {
-                            vG.delete(vG.length() - Ah.abt, vG.length());
+                        str = (zL.size() <= 1 || zL.get(zL.size() + (-2)).getType() == type) ? "  " + ba.n(kVar.getTime()) : ba.n(kVar.getTime());
+                        SpannableStringBuilder zR = cVar2.zR();
+                        if (agU.ajd) {
+                            zR.delete(zR.length() - agU.aje, zR.length());
                         }
-                        vG.append((CharSequence) str);
-                        Ah.abr = true;
-                        Ah.abt = str.length();
+                        zR.append((CharSequence) str);
+                        agU.ajd = true;
+                        agU.aje = str.length();
                         cVar = cVar2;
-                    } else if (Ah.abr) {
+                    } else if (agU.ajd) {
                         cVar = cVar2;
                     } else {
-                        str = az.j(akVar.getTime());
+                        str = ba.n(kVar.getTime());
                         com.baidu.tbadk.widget.richText.c cVar3 = new com.baidu.tbadk.widget.richText.c(1);
                         cVar3.append(str);
-                        Ah.abr = true;
-                        Ah.abt = str.length();
-                        vA.add(cVar3);
+                        agU.ajd = true;
+                        agU.aje = str.length();
+                        zL.add(cVar3);
                         cVar = cVar3;
                     }
                     if (skinType == 1) {
-                        textAppearanceSpan = new TextAppearanceSpan(this.mContext, z.subtext_1);
+                        textAppearanceSpan = new TextAppearanceSpan(this.mContext, aa.subtext_1);
                     } else {
-                        textAppearanceSpan = new TextAppearanceSpan(this.mContext, z.subtext);
+                        textAppearanceSpan = new TextAppearanceSpan(this.mContext, aa.subtext);
                     }
-                    SpannableStringBuilder vG2 = cVar.vG();
-                    vG2.setSpan(textAppearanceSpan, vG2.length() - str.length(), vG2.length(), 33);
+                    SpannableStringBuilder zR2 = cVar.zR();
+                    zR2.setSpan(textAppearanceSpan, zR2.length() - str.length(), zR2.length(), 33);
                 }
-                bVar.bwi.setVoiceViewRes(w.voice_play_btn);
-                bVar.bwi.setIsFromCDN(this.mIsFromCDN);
-                bVar.bwi.setText(akVar.Ah());
+                bVar.bzZ.setVoiceViewRes(x.voice_play_btn);
+                bVar.bzZ.setIsFromCDN(this.mIsFromCDN);
+                bVar.bzZ.setText(kVar.agU());
             }
             boolean z6 = false;
             boolean z7 = false;
-            String userId = akVar.getAuthor().getUserId();
-            if (this.boZ != 0) {
+            String userId = kVar.getAuthor().getUserId();
+            if (this.bDK != 0) {
                 z6 = true;
                 z7 = true;
-                if (userId != null && userId.equals(TbadkApplication.getCurrentAccount())) {
+                if (userId != null && userId.equals(TbadkCoreApplication.getCurrentAccount())) {
                     z6 = false;
                 }
                 if (userId == null || userId.equals("0") || userId.length() == 0) {
@@ -227,36 +227,36 @@ public class a extends BaseAdapter {
                     z4 = true;
                     z5 = false;
                     if (!z4 && z3) {
-                        bVar.bAd.setVisibility(0);
-                        bVar.bAd.setCompoundDrawablesWithIntrinsicBounds(aw.getDrawable(u.icon_floor_manage_n), (Drawable) null, (Drawable) null, (Drawable) null);
+                        bVar.bDO.setVisibility(0);
+                        bVar.bDO.setCompoundDrawablesWithIntrinsicBounds(ax.getDrawable(v.icon_floor_manage_n), (Drawable) null, (Drawable) null, (Drawable) null);
                     } else if (z4) {
-                        bVar.bAd.setVisibility(0);
-                        bVar.bAd.setCompoundDrawablesWithIntrinsicBounds(aw.getDrawable(u.icon_floor_delete_n), (Drawable) null, (Drawable) null, (Drawable) null);
+                        bVar.bDO.setVisibility(0);
+                        bVar.bDO.setCompoundDrawablesWithIntrinsicBounds(ax.getDrawable(v.icon_floor_delete_n), (Drawable) null, (Drawable) null, (Drawable) null);
                     } else {
-                        bVar.bAd.setVisibility(8);
+                        bVar.bDO.setVisibility(8);
                     }
-                    sparseArray = (SparseArray) bVar.bAd.getTag();
+                    sparseArray = (SparseArray) bVar.bDO.getTag();
                     if (sparseArray == null) {
                         sparseArray = new SparseArray();
-                        bVar.bAd.setTag(sparseArray);
+                        bVar.bDO.setTag(sparseArray);
                     }
-                    if (bVar.bAd.getVisibility() == 0) {
-                        sparseArray.put(v.tag_manage_user_identity, Integer.valueOf(this.boZ));
+                    if (bVar.bDO.getVisibility() == 0) {
+                        sparseArray.put(w.tag_manage_user_identity, Integer.valueOf(this.bDK));
                     }
                     if (z4) {
-                        sparseArray.put(v.tag_del_post_is_self, Boolean.valueOf(z5));
-                        sparseArray.put(v.tag_del_post_type, 2);
-                        sparseArray.put(v.tag_del_post_id, akVar.getId());
+                        sparseArray.put(w.tag_del_post_is_self, Boolean.valueOf(z5));
+                        sparseArray.put(w.tag_del_post_type, 2);
+                        sparseArray.put(w.tag_del_post_id, kVar.getId());
                     } else {
-                        sparseArray.put(v.tag_del_post_is_self, Boolean.valueOf(z5));
-                        sparseArray.put(v.tag_del_post_type, 0);
-                        sparseArray.put(v.tag_del_post_id, "");
+                        sparseArray.put(w.tag_del_post_is_self, Boolean.valueOf(z5));
+                        sparseArray.put(w.tag_del_post_type, 0);
+                        sparseArray.put(w.tag_del_post_id, "");
                     }
                     if (z3) {
-                        sparseArray.put(v.tag_forbid_user_name, akVar.getAuthor().getUserName());
+                        sparseArray.put(w.tag_forbid_user_name, kVar.getAuthor().getUserName());
                         return;
                     } else {
-                        sparseArray.put(v.tag_forbid_user_name, "");
+                        sparseArray.put(w.tag_forbid_user_name, "");
                         return;
                     }
                 }
@@ -267,22 +267,22 @@ public class a extends BaseAdapter {
                 }
                 if (z4) {
                 }
-                sparseArray = (SparseArray) bVar.bAd.getTag();
+                sparseArray = (SparseArray) bVar.bDO.getTag();
                 if (sparseArray == null) {
                 }
-                if (bVar.bAd.getVisibility() == 0) {
+                if (bVar.bDO.getVisibility() == 0) {
                 }
                 if (z4) {
                 }
                 if (z3) {
                 }
             } else {
-                if (this.bAa) {
+                if (this.bDL) {
                     z3 = false;
                     z4 = true;
                     z5 = false;
                 } else {
-                    if (userId != null && userId.equals(TbadkApplication.getCurrentAccount())) {
+                    if (userId != null && userId.equals(TbadkCoreApplication.getCurrentAccount())) {
                         z3 = false;
                         z4 = true;
                         z5 = true;
@@ -295,10 +295,10 @@ public class a extends BaseAdapter {
                 }
                 if (z4) {
                 }
-                sparseArray = (SparseArray) bVar.bAd.getTag();
+                sparseArray = (SparseArray) bVar.bDO.getTag();
                 if (sparseArray == null) {
                 }
-                if (bVar.bAd.getVisibility() == 0) {
+                if (bVar.bDO.getVisibility() == 0) {
                 }
                 if (z4) {
                 }

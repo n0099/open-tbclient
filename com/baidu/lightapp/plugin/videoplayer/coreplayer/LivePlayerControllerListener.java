@@ -13,9 +13,13 @@ public interface LivePlayerControllerListener {
 
     void onError(int i);
 
+    void onHardDecodeFailed(int i);
+
     void onPlayStatusChanged(LivePlayerControl.PLAYER_STATUS player_status, int i, int i2);
 
     void onPositionUpdate(int i);
+
+    void onReadedBytes(int i);
 
     void onWarning(int i);
 }

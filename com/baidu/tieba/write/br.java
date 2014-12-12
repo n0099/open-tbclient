@@ -22,29 +22,29 @@ public class br implements View.OnClickListener {
         boolean z2;
         Bitmap bitmap;
         Bitmap bitmap2;
-        boolean hK;
+        boolean iw;
         boolean z3;
         Bitmap bitmap3;
         Bitmap bitmap4;
-        boolean hK2;
-        z = this.this$0.bwW;
+        boolean iw2;
+        z = this.this$0.bAO;
         if (!z) {
-            i = this.this$0.JW;
+            i = this.this$0.requestCode;
             if (i == 12003) {
                 Intent intent = new Intent();
                 intent.putExtra(WriteImageActivityConfig.DELET_FLAG, true);
                 this.this$0.setResult(-1, intent);
             } else {
                 Intent intent2 = new Intent();
-                z2 = this.this$0.JV;
+                z2 = this.this$0.Pg;
                 if (z2) {
-                    bitmap = this.this$0.JO;
+                    bitmap = this.this$0.OZ;
                     if (bitmap != null) {
-                        bitmap2 = this.this$0.JO;
+                        bitmap2 = this.this$0.OZ;
                         if (!bitmap2.isRecycled()) {
                             String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                            hK = this.this$0.hK(str);
-                            if (hK) {
+                            iw = this.this$0.iw(str);
+                            if (iw) {
                                 intent2.putExtra("change", true);
                                 intent2.putExtra("file_name", str);
                             } else {
@@ -63,15 +63,15 @@ public class br implements View.OnClickListener {
             return;
         }
         Intent intent3 = new Intent();
-        z3 = this.this$0.JV;
+        z3 = this.this$0.Pg;
         if (z3) {
-            bitmap3 = this.this$0.JO;
+            bitmap3 = this.this$0.OZ;
             if (bitmap3 != null) {
-                bitmap4 = this.this$0.JO;
+                bitmap4 = this.this$0.OZ;
                 if (!bitmap4.isRecycled()) {
                     String str2 = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                    hK2 = this.this$0.hK(str2);
-                    if (hK2) {
+                    iw2 = this.this$0.iw(str2);
+                    if (iw2) {
                         intent3.putExtra("filename", str2);
                     }
                 }

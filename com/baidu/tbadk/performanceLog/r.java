@@ -1,24 +1,28 @@
 package com.baidu.tbadk.performanceLog;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes.dex */
-public class r {
-    public static int Zo;
-    public static int Zp;
-    public static int Zq;
 
-    public static void uG() {
-        com.baidu.adp.lib.stats.q logItem = q.getLogItem();
-        logItem.n("action", "imbusy");
-        logItem.n("totalNum", String.valueOf(Zo));
-        logItem.n("tfailNum", String.valueOf(Zp));
-        logItem.n("qfailNum", String.valueOf(Zq));
-        com.baidu.adp.lib.stats.f.er().b("im", logItem);
-        resetData();
+import android.os.Handler;
+import android.os.Looper;
+/* loaded from: classes.dex */
+public class r extends u {
+    public int afX;
+    public long agf;
+    public long agg;
+    public long agh;
+    public int agi;
+    private t agj = null;
+    private final Handler agk = new s(this, Looper.getMainLooper());
+    public long kf;
+    public long vx;
+
+    public void yX() {
+        this.agk.sendEmptyMessage(0);
     }
 
-    public static void resetData() {
-        Zo = 0;
-        Zp = 0;
-        Zq = 0;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void yY() {
+        x xVar = (x) ac.zh().dT(this.mSubType);
+        if (xVar != null) {
+            xVar.c(this);
+        }
     }
 }

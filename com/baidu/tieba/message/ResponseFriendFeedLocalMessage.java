@@ -3,7 +3,7 @@ package com.baidu.tieba.message;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tieba.data.FriendFeedThreadData;
-import com.baidu.tieba.data.s;
+import com.baidu.tieba.data.i;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,18 +12,18 @@ import tbclient.FriendFeedPage.FriendThreadInfo;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class ResponseFriendFeedLocalMessage extends CustomResponsedMessage<Object> {
-    private s friendFeedData;
+    private i friendFeedData;
 
     public ResponseFriendFeedLocalMessage() {
         super(2001172);
     }
 
-    public s getFriendFeedData() {
+    public i getFriendFeedData() {
         return this.friendFeedData;
     }
 
-    public void setFriendFeedData(s sVar) {
-        this.friendFeedData = sVar;
+    public void setFriendFeedData(i iVar) {
+        this.friendFeedData = iVar;
     }
 
     public void decodeInBackGround(int i, byte[] bArr) {
@@ -32,9 +32,9 @@ public class ResponseFriendFeedLocalMessage extends CustomResponsedMessage<Objec
             setError(friendFeedPageResIdl.error.errorno.intValue());
             setErrorString(friendFeedPageResIdl.error.usermsg);
             if (getError() == 0 && friendFeedPageResIdl.data != null) {
-                setFriendFeedData(new s());
+                setFriendFeedData(new i());
                 if (friendFeedPageResIdl.data.thread_list != null) {
-                    getFriendFeedData().z(new ArrayList());
+                    getFriendFeedData().E(new ArrayList());
                     List<FriendThreadInfo> list = friendFeedPageResIdl.data.thread_list;
                     if (list != null) {
                         for (int i2 = 0; i2 < list.size(); i2++) {
@@ -42,7 +42,7 @@ public class ResponseFriendFeedLocalMessage extends CustomResponsedMessage<Objec
                             friendFeedThreadData.setUserMap(getFriendFeedData().getUserMap());
                             friendFeedThreadData.parserProtobuf(list.get(i2));
                             friendFeedThreadData.parser_title();
-                            getFriendFeedData().zh().add(friendFeedThreadData);
+                            getFriendFeedData().Ct().add(friendFeedThreadData);
                         }
                     }
                     getFriendFeedData().setHasMore(friendFeedPageResIdl.data.has_more.intValue());

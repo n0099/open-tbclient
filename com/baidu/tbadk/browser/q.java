@@ -5,58 +5,43 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import com.baidu.tbadk.core.util.aw;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends WebViewClient {
-    final /* synthetic */ TbWebViewActivity xA;
+    final /* synthetic */ WebTbActivity By;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public q(TbWebViewActivity tbWebViewActivity) {
-        this.xA = tbWebViewActivity;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public q(WebTbActivity webTbActivity) {
+        this.By = webTbActivity;
     }
 
     @Override // android.webkit.WebViewClient
     public void onPageFinished(WebView webView, String str) {
-        String str2;
         ImageView imageView;
         ImageView imageView2;
         ProgressBar progressBar;
         ImageView imageView3;
         ImageView imageView4;
-        String str3;
-        String str4;
-        String str5;
+        ImageView imageView5;
         super.onPageFinished(webView, str);
-        if (this.xA.mWebView != null) {
-            this.xA.mUrl = this.xA.mWebView.getUrl();
-            str2 = this.xA.mUrl;
-            if (str2 != null) {
-                str3 = this.xA.mUrl;
-                int indexOf = str3.indexOf(47, 8);
-                if (indexOf > 8) {
-                    str5 = this.xA.mUrl;
-                    str4 = str5.substring(0, indexOf);
-                } else {
-                    str4 = this.xA.mUrl;
-                }
-                if (!str4.contains("lecai.com") && !str4.contains("baidu.com")) {
-                    this.xA.shouldShowInstallPluginDialog();
-                }
-            }
-            if (this.xA.mWebView.canGoBack()) {
-                imageView3 = this.xA.mBottomBack;
-                imageView3.setEnabled(true);
-                imageView4 = this.xA.mBottomBack;
-                aw.c(imageView4, com.baidu.tieba.u.icon_webview_return_n);
-            } else {
-                imageView = this.xA.mBottomBack;
-                imageView.setEnabled(false);
-                imageView2 = this.xA.mBottomBack;
-                imageView2.setImageDrawable(this.xA.getResources().getDrawable(com.baidu.tieba.u.icon_webview_return_dd));
-            }
-            progressBar = this.xA.mProgressBar;
-            progressBar.setVisibility(8);
+        if (this.By.mWebView.canGoBack()) {
+            imageView5 = this.By.Bo;
+            imageView5.setEnabled(true);
+        } else {
+            imageView = this.By.Bo;
+            imageView.setEnabled(false);
         }
+        if (this.By.mWebView.canGoForward()) {
+            imageView4 = this.By.Bp;
+            imageView4.setEnabled(true);
+        } else {
+            imageView2 = this.By.Bp;
+            imageView2.setEnabled(false);
+        }
+        progressBar = this.By.Bs;
+        progressBar.setVisibility(8);
+        imageView3 = this.By.Bq;
+        imageView3.setVisibility(0);
     }
 
     @Override // android.webkit.WebViewClient
@@ -65,24 +50,34 @@ public class q extends WebViewClient {
         ImageView imageView2;
         ProgressBar progressBar;
         ImageView imageView3;
+        ImageView imageView4;
+        ImageView imageView5;
         super.onPageStarted(webView, str, bitmap);
-        if (this.xA.mWebView != null) {
-            imageView = this.xA.mBottomBack;
-            imageView.setImageDrawable(this.xA.getResources().getDrawable(com.baidu.tieba.u.icon_webview_return_dd));
-            if (this.xA.mWebView.canGoBack()) {
-                imageView3 = this.xA.mBottomBack;
-                imageView3.setEnabled(true);
-            } else {
-                imageView2 = this.xA.mBottomBack;
-                imageView2.setEnabled(false);
-            }
-            progressBar = this.xA.mProgressBar;
-            progressBar.setVisibility(0);
+        if (this.By.mWebView.canGoBack()) {
+            imageView5 = this.By.Bo;
+            imageView5.setEnabled(true);
+        } else {
+            imageView = this.By.Bo;
+            imageView.setEnabled(false);
         }
+        if (this.By.mWebView.canGoForward()) {
+            imageView4 = this.By.Bp;
+            imageView4.setEnabled(true);
+        } else {
+            imageView2 = this.By.Bp;
+            imageView2.setEnabled(false);
+        }
+        progressBar = this.By.Bs;
+        progressBar.setVisibility(0);
+        imageView3 = this.By.Bq;
+        imageView3.setVisibility(4);
     }
 
     @Override // android.webkit.WebViewClient
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        return this.xA.shouldOverrideUrlLoading(webView, str);
+        if ((this.By.Bx == null || !this.By.Bx.bJ(str)) && !com.baidu.tbadk.util.l.a(this.By, str)) {
+            return super.shouldOverrideUrlLoading(webView, str);
+        }
+        return true;
     }
 }

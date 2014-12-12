@@ -3,10 +3,10 @@ package com.baidu.adp.framework.client.socket.link;
 import android.os.Binder;
 /* loaded from: classes.dex */
 class b extends Binder {
-    final /* synthetic */ BdSocketDaemonService cr;
+    final /* synthetic */ BdSocketDaemonService ey;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(BdSocketDaemonService bdSocketDaemonService) {
-        this.cr = bdSocketDaemonService;
+        this.ey = bdSocketDaemonService;
     }
 }

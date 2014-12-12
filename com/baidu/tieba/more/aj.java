@@ -1,106 +1,38 @@
 package com.baidu.tieba.more;
 
-import android.view.View;
-import com.baidu.tbadk.coreExtra.view.TbSettingTextNewDotView;
-import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.TimePickerDialog;
+import android.widget.TimePicker;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class aj implements View.OnClickListener {
-    final /* synthetic */ ag brD;
+class aj implements TimePickerDialog.OnTimeSetListener {
+    final /* synthetic */ MsgRemindActivity buU;
+    private final /* synthetic */ TbadkCoreApplication buV;
+    private final /* synthetic */ int val$id;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(ag agVar) {
-        this.brD = agVar;
+    public aj(MsgRemindActivity msgRemindActivity, int i, TbadkCoreApplication tbadkCoreApplication) {
+        this.buU = msgRemindActivity;
+        this.val$id = i;
+        this.buV = tbadkCoreApplication;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        View view2;
-        SettingTextImageView settingTextImageView;
-        TbSettingTextTipView tbSettingTextTipView;
-        TbSettingTextTipView tbSettingTextTipView2;
-        TbSettingTextTipView tbSettingTextTipView3;
-        TbSettingTextTipView tbSettingTextTipView4;
-        SettingTextVersionView settingTextVersionView;
-        TbSettingTextTipView tbSettingTextTipView5;
-        TbSettingTextTipView tbSettingTextTipView6;
-        TbSettingTextNewDotView tbSettingTextNewDotView;
-        TbSettingTextTipView tbSettingTextTipView7;
-        r rVar;
-        r rVar2;
-        r rVar3;
-        r rVar4;
-        r rVar5;
-        r rVar6;
-        r rVar7;
-        r rVar8;
-        r rVar9;
-        r rVar10;
-        r rVar11;
-        view2 = this.brD.brC;
-        if (view == view2) {
-            rVar11 = this.brD.bro;
-            rVar11.gF(0);
-            return;
-        }
-        settingTextImageView = this.brD.brq;
-        if (view == settingTextImageView) {
-            rVar10 = this.brD.bro;
-            rVar10.gF(1);
-            return;
-        }
-        tbSettingTextTipView = this.brD.brr;
-        if (view == tbSettingTextTipView) {
-            rVar9 = this.brD.bro;
-            rVar9.gF(2);
-            return;
-        }
-        tbSettingTextTipView2 = this.brD.brs;
-        if (view == tbSettingTextTipView2) {
-            rVar8 = this.brD.bro;
-            rVar8.gF(3);
-            return;
-        }
-        tbSettingTextTipView3 = this.brD.brt;
-        if (view == tbSettingTextTipView3) {
-            rVar7 = this.brD.bro;
-            rVar7.gF(4);
-            return;
-        }
-        tbSettingTextTipView4 = this.brD.bru;
-        if (view == tbSettingTextTipView4) {
-            rVar6 = this.brD.bro;
-            rVar6.gF(9);
-            return;
-        }
-        settingTextVersionView = this.brD.brv;
-        if (view == settingTextVersionView) {
-            rVar5 = this.brD.bro;
-            rVar5.gF(6);
-            return;
-        }
-        tbSettingTextTipView5 = this.brD.brw;
-        if (view == tbSettingTextTipView5) {
-            rVar4 = this.brD.bro;
-            rVar4.gF(7);
-            return;
-        }
-        tbSettingTextTipView6 = this.brD.brx;
-        if (view == tbSettingTextTipView6) {
-            rVar3 = this.brD.bro;
-            rVar3.gF(8);
-            return;
-        }
-        tbSettingTextNewDotView = this.brD.brz;
-        if (view == tbSettingTextNewDotView) {
-            rVar2 = this.brD.bro;
-            rVar2.gF(5);
-            return;
-        }
-        tbSettingTextTipView7 = this.brD.brA;
-        if (view == tbSettingTextTipView7) {
-            rVar = this.brD.bro;
-            rVar.gF(10);
+    @Override // android.app.TimePickerDialog.OnTimeSetListener
+    public void onTimeSet(TimePicker timePicker, int i, int i2) {
+        ak akVar;
+        ak akVar2;
+        if (this.val$id == com.baidu.tieba.w.sign_remind) {
+            this.buV.setSignAlertTime(i, i2);
+            akVar2 = this.buU.buT;
+            akVar2.Vw();
+        } else if (this.val$id == com.baidu.tieba.w.no_disturb_end_time || this.val$id == com.baidu.tieba.w.no_disturb_start_time) {
+            String str = String.valueOf(String.valueOf(i < 10 ? "0" : "") + i) + ":" + (String.valueOf(i2 < 10 ? "0" : "") + i2);
+            if (this.val$id == com.baidu.tieba.w.no_disturb_start_time) {
+                this.buV.setNoDisturbStartTime(str);
+            } else {
+                this.buV.setNoDisturbEndTime(str);
+            }
+            akVar = this.buU.buT;
+            akVar.Vx();
         }
     }
 }

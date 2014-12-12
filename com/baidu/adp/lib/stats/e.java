@@ -3,10 +3,10 @@ package com.baidu.adp.lib.stats;
 import java.util.Comparator;
 /* loaded from: classes.dex */
 class e implements Comparator<s> {
-    final /* synthetic */ BdNormalStatBase lF;
+    final /* synthetic */ BdNormalStatBase lG;
 
     private e(BdNormalStatBase bdNormalStatBase) {
-        this.lF = bdNormalStatBase;
+        this.lG = bdNormalStatBase;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,8 +18,8 @@ class e implements Comparator<s> {
     @Override // java.util.Comparator
     /* renamed from: a */
     public int compare(s sVar, s sVar2) {
-        long j = sVar.mD;
-        long j2 = sVar2.mD;
+        long j = sVar.mB;
+        long j2 = sVar2.mB;
         if (j > j2) {
             return 1;
         }

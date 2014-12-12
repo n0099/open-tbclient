@@ -8,13 +8,13 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends Handler {
-    final /* synthetic */ GifView TN;
+    final /* synthetic */ GifView ZS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(GifView gifView, Looper looper) {
         super(looper);
-        this.TN = gifView;
+        this.ZS = gifView;
     }
 
     @Override // android.os.Handler
@@ -26,47 +26,47 @@ public class b extends Handler {
         boolean z;
         int i3;
         Bitmap bitmap;
-        d dVar;
-        d dVar2;
+        e eVar;
+        e eVar2;
         int i4;
         boolean z2;
-        weakReference = this.TN.Tr;
+        weakReference = this.ZS.Zw;
         if (weakReference != null) {
-            weakReference2 = this.TN.Tr;
+            weakReference2 = this.ZS.Zw;
             com.baidu.adp.gif.c cVar = (com.baidu.adp.gif.c) weakReference2.get();
             if (cVar != null && message.what == 1) {
-                GifView gifView = this.TN;
-                i = gifView.Ts;
-                gifView.Ts = i + 1;
-                i2 = this.TN.Ts;
-                if (i2 >= cVar.bj()) {
-                    z2 = this.TN.TI;
+                GifView gifView = this.ZS;
+                i = gifView.Zx;
+                gifView.Zx = i + 1;
+                i2 = this.ZS.Zx;
+                if (i2 >= cVar.bK()) {
+                    z2 = this.ZS.ZN;
                     if (z2) {
-                        this.TN.setVisibility(4);
-                        this.TN.TI = false;
+                        this.ZS.setVisibility(4);
+                        this.ZS.ZN = false;
                         z = true;
                     } else {
                         z = false;
                     }
-                    this.TN.Ts = 0;
+                    this.ZS.Zx = 0;
                 } else {
                     z = false;
                 }
-                i3 = this.TN.Ts;
-                cVar.k(i3);
-                bitmap = this.TN.mBitmap;
+                i3 = this.ZS.Zx;
+                cVar.w(i3);
+                bitmap = this.ZS.mBitmap;
                 cVar.a(bitmap, null);
-                this.TN.invalidate();
+                this.ZS.invalidate();
                 removeMessages(1);
                 if (!z) {
-                    i4 = this.TN.Ts;
-                    sendEmptyMessageDelayed(1, cVar.l(i4));
+                    i4 = this.ZS.Zx;
+                    sendEmptyMessageDelayed(1, cVar.x(i4));
                     return;
                 }
-                dVar = this.TN.Tt;
-                if (dVar != null) {
-                    dVar2 = this.TN.Tt;
-                    dVar2.onStop();
+                eVar = this.ZS.Zy;
+                if (eVar != null) {
+                    eVar2 = this.ZS.Zy;
+                    eVar2.onStop();
                 }
             }
         }

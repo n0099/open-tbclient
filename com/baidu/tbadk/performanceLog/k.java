@@ -1,28 +1,18 @@
 package com.baidu.tbadk.performanceLog;
 
-import android.os.Handler;
-import android.os.Looper;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
-public class k extends n {
-    public int YK;
-    public long YQ;
-    public long YR;
-    public long YS;
-    public int YT;
-    private m YU = null;
-    private final Handler YV = new l(this, Looper.getMainLooper());
-    public long kd;
-    public long tm;
-
-    public void uF() {
-        this.YV.sendEmptyMessage(0);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void uG() {
-        q qVar = (q) v.uP().dp(this.mSubType);
-        if (qVar != null) {
-            qVar.c(this);
+class k implements CustomMessageTask.CustomRunnable<m> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<m> customMessage) {
+        if (customMessage == null) {
+            return null;
         }
+        m data = customMessage.getData();
+        data.afW = ac.zh().zj();
+        data.afX = ac.zh().zk();
+        return new CustomResponsedMessage<>(2016100, data);
     }
 }

@@ -1,0 +1,174 @@
+package com.baidu.tbadk.core.data;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+/* loaded from: classes.dex */
+public class ImMessageCenterShowItemData extends com.baidu.tbadk.core.util.a implements Serializable, Cloneable {
+    private static final long serialVersionUID = 3133087680118197014L;
+    protected String friendId;
+    protected String friendName;
+    protected String friendPortrait;
+    private int friendStatus;
+    private com.baidu.tieba.im.pushNotify.a groupSetting;
+    private boolean isSelf;
+    protected String msgContent;
+    protected String ownerId;
+    protected String ownerName;
+    private int sendStatus;
+    protected long serverTime;
+    protected int status;
+    private String title;
+    protected int unReadCount;
+    protected int unReadCountExtra;
+    private int userType;
+
+    public String getPK() {
+        return String.valueOf(this.ownerId) + "@" + this.friendId;
+    }
+
+    public String getOwnerId() {
+        return this.ownerId;
+    }
+
+    public void setOwnerId(String str) {
+        this.ownerId = str;
+    }
+
+    public String getFriendId() {
+        return this.friendId;
+    }
+
+    public void setFriendId(String str) {
+        this.friendId = str;
+    }
+
+    public String getFriendPortrait() {
+        return this.friendPortrait;
+    }
+
+    public void setFriendPortrait(String str) {
+        this.friendPortrait = str;
+    }
+
+    public int getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(int i) {
+        this.status = i;
+    }
+
+    public long getServerTime() {
+        return this.serverTime;
+    }
+
+    public void setServerTime(long j) {
+        this.serverTime = j;
+    }
+
+    public String getMsgContent() {
+        return this.msgContent;
+    }
+
+    public void setMsgContent(String str) {
+        this.msgContent = str;
+    }
+
+    public int getUnReadCount() {
+        return this.unReadCount;
+    }
+
+    public void setUnReadCount(int i) {
+        this.unReadCount = i;
+    }
+
+    public String getOwnerName() {
+        return this.ownerName;
+    }
+
+    public void setOwnerName(String str) {
+        this.ownerName = str;
+    }
+
+    public String getFriendName() {
+        return this.friendName;
+    }
+
+    public void setFriendName(String str) {
+        this.friendName = str;
+    }
+
+    public com.baidu.tieba.im.pushNotify.a getGroupSetting() {
+        return this.groupSetting;
+    }
+
+    public void setGroupSetting(com.baidu.tieba.im.pushNotify.a aVar) {
+        this.groupSetting = aVar;
+    }
+
+    public int getUnReadCountExtra() {
+        return this.unReadCountExtra;
+    }
+
+    public void setUnReadCountExtra(int i) {
+        this.unReadCountExtra = i;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String str) {
+        this.title = str;
+    }
+
+    public boolean isSelf() {
+        return this.isSelf;
+    }
+
+    public void setSelf(boolean z) {
+        this.isSelf = z;
+    }
+
+    @Override // com.baidu.tbadk.core.util.a
+    public ArrayList<String> getImageUrl() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add(getFriendPortrait());
+        return arrayList;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: clone */
+    public ImMessageCenterShowItemData m256clone() {
+        try {
+            return (ImMessageCenterShowItemData) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+            return this;
+        }
+    }
+
+    public void setFriendStatus(int i) {
+        this.friendStatus = i;
+    }
+
+    public int getFriendStatus() {
+        return this.friendStatus;
+    }
+
+    public int getSendStatus() {
+        return this.sendStatus;
+    }
+
+    public void setSendStatus(int i) {
+        this.sendStatus = i;
+    }
+
+    public int getUserType() {
+        return this.userType;
+    }
+
+    public void setUserType(int i) {
+        this.userType = i;
+    }
+}

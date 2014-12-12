@@ -9,9 +9,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.adp.plugin.proxy.activity.ActivityProxy;
+import com.baidu.tbadk.ProxyAdkBaseActivity;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class NavigationBar extends RelativeLayout {
     private int containerWidth;
@@ -30,7 +30,7 @@ public class NavigationBar extends RelativeLayout {
         HORIZONTAL_CENTER,
         HORIZONTAL_RIGHT;
 
-        /* JADX DEBUG: Replace access to removed values field (HR) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (MK) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ControlAlign[] valuesCustom() {
             ControlAlign[] valuesCustom = values();
@@ -45,7 +45,7 @@ public class NavigationBar extends RelativeLayout {
     public enum ControlType {
         BACK_BUTTON;
 
-        /* JADX DEBUG: Replace access to removed values field (HS) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (ML) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ControlType[] valuesCustom() {
             ControlType[] valuesCustom = values();
@@ -60,7 +60,7 @@ public class NavigationBar extends RelativeLayout {
         super(context);
         this.mClickIsVaild = true;
         this.containerWidth = 0;
-        this.mOnClickListener = new n(this);
+        this.mOnClickListener = new w(this);
         init(context);
     }
 
@@ -68,7 +68,7 @@ public class NavigationBar extends RelativeLayout {
         super(context, attributeSet);
         this.mClickIsVaild = true;
         this.containerWidth = 0;
-        this.mOnClickListener = new n(this);
+        this.mOnClickListener = new w(this);
         init(context);
     }
 
@@ -76,17 +76,17 @@ public class NavigationBar extends RelativeLayout {
         super(context, attributeSet, i);
         this.mClickIsVaild = true;
         this.containerWidth = 0;
-        this.mOnClickListener = new n(this);
+        this.mOnClickListener = new w(this);
         init(context);
     }
 
     private void init(Context context) {
         this.mCurrentActivity = (Activity) context;
-        View a = com.baidu.adp.lib.g.b.ek().a(context, com.baidu.tieba.w.widget_navigation_bar, this, true);
-        this.mLeftBox = (LinearLayout) a.findViewById(com.baidu.tieba.v.leftBox);
-        this.mCenterBox = (LinearLayout) a.findViewById(com.baidu.tieba.v.centerBox);
-        this.mRightBox = (LinearLayout) a.findViewById(com.baidu.tieba.v.rightBox);
-        this.mNavBottomLine = (TextView) a.findViewById(com.baidu.tieba.v.navBottomLine);
+        View a = com.baidu.adp.lib.g.b.ek().a(context, com.baidu.tieba.x.widget_navigation_bar, this, true);
+        this.mLeftBox = (LinearLayout) a.findViewById(com.baidu.tieba.w.leftBox);
+        this.mCenterBox = (LinearLayout) a.findViewById(com.baidu.tieba.w.centerBox);
+        this.mRightBox = (LinearLayout) a.findViewById(com.baidu.tieba.w.rightBox);
+        this.mNavBottomLine = (TextView) a.findViewById(com.baidu.tieba.w.navBottomLine);
         setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
         setGravity(48);
         initPadding();
@@ -94,7 +94,7 @@ public class NavigationBar extends RelativeLayout {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void initPadding() {
-        setPadding(com.baidu.adp.lib.util.m.dip2px(this.mCurrentActivity, getResources().getDimension(com.baidu.tieba.t.navi_padding_left)), com.baidu.adp.lib.util.m.dip2px(this.mCurrentActivity, getResources().getDimension(com.baidu.tieba.t.navi_padding_top)), com.baidu.adp.lib.util.m.dip2px(this.mCurrentActivity, getResources().getDimension(com.baidu.tieba.t.navi_padding_right)), com.baidu.adp.lib.util.m.dip2px(this.mCurrentActivity, getResources().getDimension(com.baidu.tieba.t.navi_padding_bottom)));
+        setPadding(com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(com.baidu.tieba.u.navi_padding_left)), com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(com.baidu.tieba.u.navi_padding_top)), com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(com.baidu.tieba.u.navi_padding_right)), com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(com.baidu.tieba.u.navi_padding_bottom)));
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
@@ -113,7 +113,7 @@ public class NavigationBar extends RelativeLayout {
 
     public TextView setTitleText(String str) {
         if (this.mTextTitle == null) {
-            this.mTextTitle = (TextView) getViewFromLayoutFile(com.baidu.tieba.w.widget_nb_item_title);
+            this.mTextTitle = (TextView) getViewFromLayoutFile(com.baidu.tieba.x.widget_nb_item_title);
             getViewGroup(ControlAlign.HORIZONTAL_CENTER).addView(this.mTextTitle);
         }
         this.mTextTitle.setText(str);
@@ -138,7 +138,7 @@ public class NavigationBar extends RelativeLayout {
 
     public View addSystemImageButton(ControlAlign controlAlign, ControlType controlType, View.OnClickListener onClickListener) {
         LinearLayout linearLayout = null;
-        if (controlType == ControlType.BACK_BUTTON && (linearLayout = (LinearLayout) findViewById(com.baidu.tieba.v.navigationBarGoBack)) == null && (linearLayout = (LinearLayout) getViewFromLayoutFile(com.baidu.tieba.w.widget_nb_item_back)) != null) {
+        if (controlType == ControlType.BACK_BUTTON && (linearLayout = (LinearLayout) findViewById(com.baidu.tieba.w.navigationBarGoBack)) == null && (linearLayout = (LinearLayout) getViewFromLayoutFile(com.baidu.tieba.x.widget_nb_item_back)) != null) {
             getViewGroup(controlAlign).addView(linearLayout);
             if (onClickListener != null) {
                 linearLayout.setOnClickListener(onClickListener);
@@ -152,10 +152,10 @@ public class NavigationBar extends RelativeLayout {
     }
 
     public TextView addCreateGroupButton(ControlAlign controlAlign, View.OnClickListener onClickListener) {
-        TextView textView = (TextView) getViewFromLayoutFile(com.baidu.tieba.w.widget_nb_item_create_group);
+        TextView textView = (TextView) getViewFromLayoutFile(com.baidu.tieba.x.widget_nb_item_create_group);
         if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-            int dimension = (int) getResources().getDimension(com.baidu.tieba.t.navi_btn_margin_right);
+            int dimension = (int) getResources().getDimension(com.baidu.tieba.u.navi_btn_margin_right);
             layoutParams.setMargins(0, dimension, dimension, dimension);
             textView.setLayoutParams(layoutParams);
         }
@@ -167,11 +167,11 @@ public class NavigationBar extends RelativeLayout {
     }
 
     public Button addRightButton(ControlAlign controlAlign, String str) {
-        Button button = (Button) getViewFromLayoutFile(com.baidu.tieba.w.widget_nb_item_stepbtn);
+        Button button = (Button) getViewFromLayoutFile(com.baidu.tieba.x.widget_nb_item_stepbtn);
         button.setText(str);
         if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-            int dimension = (int) getResources().getDimension(com.baidu.tieba.t.navi_btn_margin_right);
+            int dimension = (int) getResources().getDimension(com.baidu.tieba.u.navi_btn_margin_right);
             layoutParams.setMargins(0, dimension, dimension, dimension);
             button.setLayoutParams(layoutParams);
         }
@@ -184,16 +184,16 @@ public class NavigationBar extends RelativeLayout {
     }
 
     public TextView addTextButton(ControlAlign controlAlign, String str, View.OnClickListener onClickListener) {
-        TextView textView = (TextView) getViewFromLayoutFile(com.baidu.tieba.w.widget_nb_item_textbtn);
+        TextView textView = (TextView) getViewFromLayoutFile(com.baidu.tieba.x.widget_nb_item_textbtn);
         textView.setText(str);
         if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-            int dimension = (int) getResources().getDimension(com.baidu.tieba.t.navi_btn_margin_right);
+            int dimension = (int) getResources().getDimension(com.baidu.tieba.u.navi_btn_margin_right);
             layoutParams.setMargins(0, dimension, dimension, dimension);
             textView.setLayoutParams(layoutParams);
         } else if (ControlAlign.HORIZONTAL_LEFT == controlAlign) {
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -1);
-            int dimension2 = (int) getResources().getDimension(com.baidu.tieba.t.navi_btn_margin_right);
+            int dimension2 = (int) getResources().getDimension(com.baidu.tieba.u.navi_btn_margin_right);
             layoutParams2.setMargins(dimension2, dimension2, 0, dimension2);
             textView.setLayoutParams(layoutParams2);
         }
@@ -236,18 +236,20 @@ public class NavigationBar extends RelativeLayout {
         return com.baidu.adp.lib.g.b.ek().a(this.mCurrentActivity, i, this, false);
     }
 
-    public void onChangeSkinType(int i) {
-        aw.h(this, com.baidu.tieba.u.bg_bar);
-        aw.i((View) this.mNavBottomLine, com.baidu.tieba.s.navi_line);
+    public void onChangeSkinType(com.baidu.adp.base.j<?> jVar, int i) {
+        com.baidu.tbadk.core.util.ax.i(this, com.baidu.tieba.v.bg_bar);
+        com.baidu.tbadk.core.util.ax.j((View) this.mNavBottomLine, com.baidu.tieba.t.cp_other_f_1);
         initPadding();
-        if (this.mCurrentActivity instanceof BaseActivity) {
-            BaseActivity baseActivity = (BaseActivity) this.mCurrentActivity;
-            baseActivity.getLayoutMode().L(i == 1);
-            baseActivity.getLayoutMode().h(this);
-        } else if (this.mCurrentActivity instanceof BaseFragmentActivity) {
-            BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.mCurrentActivity;
-            baseFragmentActivity.getLayoutMode().L(i == 1);
-            baseFragmentActivity.getLayoutMode().h(this);
+        if (jVar instanceof TbPageContext) {
+            ((TbPageContext) jVar).getLayoutMode().ab(i == 1);
+            ((TbPageContext) jVar).getLayoutMode().h(this);
+        } else if (this.mCurrentActivity instanceof ActivityProxy) {
+            ActivityProxy activityProxy = (ActivityProxy) this.mCurrentActivity;
+            if (activityProxy.hi() instanceof ProxyAdkBaseActivity) {
+                ProxyAdkBaseActivity proxyAdkBaseActivity = (ProxyAdkBaseActivity) activityProxy.hi();
+                proxyAdkBaseActivity.getLayoutMode().ab(i == 1);
+                proxyAdkBaseActivity.getLayoutMode().h(this);
+            }
         }
     }
 }

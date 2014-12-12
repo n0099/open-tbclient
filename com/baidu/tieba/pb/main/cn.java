@@ -1,38 +1,34 @@
 package com.baidu.tieba.pb.main;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.view.KeyEvent;
-import android.widget.EditText;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-public class cn implements DialogInterface.OnKeyListener {
-    final /* synthetic */ bv byW;
+class cn implements Animation.AnimationListener {
+    final /* synthetic */ bz bCR;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.b.o bCV;
+    private final /* synthetic */ boolean bCW;
+    private final /* synthetic */ String bCX;
+    private final /* synthetic */ String bCY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cn(bv bvVar) {
-        this.byW = bvVar;
+    public cn(bz bzVar, com.baidu.tieba.tbadkCore.b.o oVar, boolean z, String str, String str2) {
+        this.bCR = bzVar;
+        this.bCV = oVar;
+        this.bCW = z;
+        this.bCX = str;
+        this.bCY = str2;
     }
 
-    @Override // android.content.DialogInterface.OnKeyListener
-    public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
-        PbActivity pbActivity;
-        EditText editText;
-        Dialog dialog;
-        Dialog dialog2;
-        PbActivity pbActivity2;
-        if (i == 4) {
-            pbActivity = this.byW.bxe;
-            editText = this.byW.bxW;
-            com.baidu.adp.lib.util.m.b(pbActivity, editText);
-            dialog = this.byW.bxT;
-            if (dialog instanceof Dialog) {
-                dialog2 = this.byW.bxT;
-                pbActivity2 = this.byW.bxe;
-                com.baidu.adp.lib.g.j.b(dialog2, pbActivity2);
-            }
-            return true;
-        }
-        return false;
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        new Handler().post(new co(this, this.bCV, this.bCW, this.bCX, this.bCY));
     }
 }

@@ -8,32 +8,32 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdTypeListView extends BdListView {
-    ao vy;
+    ap xB;
 
     public BdTypeListView(Context context) {
         super(context);
-        this.vy = null;
+        this.xB = null;
         init();
     }
 
     public BdTypeListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.vy = null;
+        this.xB = null;
         init();
     }
 
     public BdTypeListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.vy = null;
+        this.xB = null;
         init();
     }
 
     private void init() {
-        if (this.vy == null) {
-            this.vy = new ao();
+        if (this.xB == null) {
+            this.xB = new ap();
         }
-        super.setOnItemClickListener(new aj(this));
-        super.setOnItemLongClickListener(new ak(this));
+        super.setOnItemClickListener(new ak(this));
+        super.setOnItemLongClickListener(new al(this));
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AdapterView
@@ -46,23 +46,23 @@ public class BdTypeListView extends BdListView {
     public void setOnItemLongClickListener(AdapterView.OnItemLongClickListener onItemLongClickListener) {
     }
 
-    public void e(List<a> list) {
+    public void h(List<a> list) {
         Iterator<a> it = list.iterator();
         while (it.hasNext()) {
-            this.vy.a(it.next());
+            this.xB.a(it.next());
         }
-        setAdapter((ListAdapter) this.vy);
+        setAdapter((ListAdapter) this.xB);
     }
 
-    public void setData(List<al> list) {
-        this.vy.setData(list);
+    public void setData(List<am> list) {
+        this.xB.setData(list);
     }
 
-    public List<al> getData() {
-        return this.vy.getData();
+    public List<am> getData() {
+        return this.xB.getData();
     }
 
-    public al ai(int i) {
-        return this.vy.getItem(i);
+    public am ay(int i) {
+        return this.xB.getItem(i);
     }
 }

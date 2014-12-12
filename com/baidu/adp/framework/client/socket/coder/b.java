@@ -4,25 +4,23 @@ import com.baidu.adp.framework.client.socket.l;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.adp.lib.util.f;
-import com.baidu.adp.lib.util.w;
+import com.baidu.adp.lib.util.ab;
+import com.baidu.adp.lib.util.e;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class b {
-    private static b cj = null;
+    private static b ep = null;
 
-    public static b aK() {
-        if (cj == null) {
+    public static b bk() {
+        if (ep == null) {
             synchronized (b.class) {
-                if (cj == null) {
-                    cj = new b();
+                if (ep == null) {
+                    ep = new b();
                 }
             }
         }
-        return cj;
+        return ep;
     }
 
     private b() {
@@ -35,60 +33,60 @@ public class b {
         try {
             byte[] encodeInBackGround = socketMessage.encodeInBackGround();
             if (encodeInBackGround != null && z) {
-                encodeInBackGround = b(encodeInBackGround, 0, encodeInBackGround.length);
+                encodeInBackGround = c(encodeInBackGround, 0, encodeInBackGround.length);
             }
             if (encodeInBackGround != null && z2) {
-                encodeInBackGround = w.a(d.aL().getSecretKey(), encodeInBackGround);
+                encodeInBackGround = ab.a(d.bl().getSecretKey(), encodeInBackGround);
             }
             return a.a(z2, z, socketMessage.getCmd(), i, encodeInBackGround);
         } catch (Throwable th) {
-            throw new CoderException(l.bD);
+            throw new CoderException(l.dJ);
         }
     }
 
     public c a(c cVar) {
-        if (cVar == null || cVar.ck == null || cVar.cl == null) {
-            throw new CoderException(l.bt);
+        if (cVar == null || cVar.eq == null || cVar.er == null) {
+            throw new CoderException(l.dz);
         }
-        a aVar = cVar.ck;
-        if (aVar.aI() && cVar.cn > 0) {
-            if (d.aL().getSecretKey() == null) {
-                throw new CoderException(l.bA);
+        a aVar = cVar.eq;
+        if (aVar.bi() && cVar.eu > 0) {
+            if (d.bl().getSecretKey() == null) {
+                throw new CoderException(l.dG);
             }
             try {
-                cVar.cl = w.a(d.aL().getSecretKey(), cVar.cl, cVar.cm, cVar.cn);
-                cVar.cm = 0;
-                cVar.cn = cVar.cl.length;
+                cVar.er = ab.a(d.bl().getSecretKey(), cVar.er, cVar.es, cVar.eu);
+                cVar.es = 0;
+                cVar.eu = cVar.er.length;
             } catch (Exception e) {
-                throw new CoderException(l.bC);
+                throw new CoderException(l.dI);
             }
         }
-        if (aVar.aG() && cVar.cn > 0) {
+        if (aVar.bg() && cVar.eu > 0) {
             try {
-                cVar.cl = a(cVar.cl, cVar.cm, cVar.cn);
-                cVar.cm = 0;
-                cVar.cn = cVar.cl.length;
+                cVar.er = b(cVar.er, cVar.es, cVar.eu);
+                cVar.es = 0;
+                cVar.eu = cVar.er.length;
             } catch (Exception e2) {
-                throw new CoderException(l.bz);
+                throw new CoderException(l.dF);
             }
         }
         return cVar;
     }
 
-    public c f(byte[] bArr) {
-        int aF = a.aF();
-        if (bArr == null || bArr.length < aF) {
-            throw new CoderException(l.bt);
+    public c g(byte[] bArr) {
+        int bf = a.bf();
+        if (bArr == null || bArr.length < bf) {
+            throw new CoderException(l.dz);
         }
-        a e = a.e(bArr);
-        if (e == null) {
-            throw new CoderException(l.bt);
+        a f = a.f(bArr);
+        if (f == null) {
+            throw new CoderException(l.dz);
         }
         c cVar = new c();
-        cVar.ck = e;
-        cVar.cl = bArr;
-        cVar.cm = aF;
-        cVar.cn = bArr.length - aF;
+        cVar.eq = f;
+        cVar.er = bArr;
+        cVar.es = bf;
+        cVar.eu = bArr.length - bf;
         return cVar;
     }
 
@@ -109,20 +107,7 @@ public class b {
             newInstance.decodeInBackGround(i, bArr);
             return newInstance;
         } finally {
-            CoderException coderException = new CoderException(l.bw);
-        }
-    }
-
-    protected byte[] a(byte[] bArr, int i, int i2) {
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        try {
-            f.a(byteArrayInputStream, byteArrayOutputStream);
-            byteArrayOutputStream.flush();
-            return byteArrayOutputStream.toByteArray();
-        } finally {
-            com.baidu.adp.lib.g.a.a((OutputStream) byteArrayOutputStream);
-            com.baidu.adp.lib.g.a.a((InputStream) byteArrayInputStream);
+            CoderException coderException = new CoderException(l.dC);
         }
     }
 
@@ -130,12 +115,25 @@ public class b {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
-            f.b(byteArrayInputStream, byteArrayOutputStream);
+            e.b(byteArrayInputStream, byteArrayOutputStream);
             byteArrayOutputStream.flush();
             return byteArrayOutputStream.toByteArray();
         } finally {
-            com.baidu.adp.lib.g.a.a((OutputStream) byteArrayOutputStream);
-            com.baidu.adp.lib.g.a.a((InputStream) byteArrayInputStream);
+            com.baidu.adp.lib.g.a.b(byteArrayOutputStream);
+            com.baidu.adp.lib.g.a.d(byteArrayInputStream);
+        }
+    }
+
+    protected byte[] c(byte[] bArr, int i, int i2) {
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        try {
+            e.c(byteArrayInputStream, byteArrayOutputStream);
+            byteArrayOutputStream.flush();
+            return byteArrayOutputStream.toByteArray();
+        } finally {
+            com.baidu.adp.lib.g.a.b(byteArrayOutputStream);
+            com.baidu.adp.lib.g.a.d(byteArrayInputStream);
         }
     }
 }

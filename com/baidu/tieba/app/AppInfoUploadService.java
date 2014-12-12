@@ -1,11 +1,11 @@
 package com.baidu.tieba.app;
 
-import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.network.willdelete.f;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.l;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import java.util.Random;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class AppInfoUploadService extends Service {
+public class AppInfoUploadService extends BdBaseService {
     private static final String UID = "uid";
     private String mCH;
     private String mCuid;
@@ -22,9 +22,9 @@ public class AppInfoUploadService extends Service {
     private String mUid;
 
     public static void startService(String str) {
-        Intent intent = new Intent(TbadkApplication.m251getInst().getApp(), AppInfoUploadService.class);
+        Intent intent = new Intent(TbadkApplication.getInst().getApp(), AppInfoUploadService.class);
         intent.putExtra("uid", str);
-        TbadkApplication.m251getInst().getApp().startService(intent);
+        TbadkApplication.getInst().getApp().startService(intent);
     }
 
     @Override // android.app.Service
@@ -32,8 +32,7 @@ public class AppInfoUploadService extends Service {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:19:0x0089 -> B:20:0x008c). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:46:0x0089 -> B:47:0x008c). Please submit an issue!!! */
     public boolean Upload(String str) {
         if (str != null && str.length() > 0) {
             try {
@@ -42,8 +41,8 @@ public class AppInfoUploadService extends Service {
                 arrayList.add(new BasicNameValuePair("cuid", this.mCuid));
                 arrayList.add(new BasicNameValuePair("uid", this.mUid));
                 arrayList.add(new BasicNameValuePair("x", str));
-                f b = com.baidu.adp.lib.network.willdelete.e.dY().b(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.APP_UPLOAD, false, arrayList, null, 3, -1, null, null, null, null);
-                if (b != null && b.kU == 200) {
+                f b = com.baidu.adp.lib.network.willdelete.e.dX().b(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.APP_UPLOAD, false, arrayList, null, 3, -1, null, null, null, null);
+                if (b != null && b.kV == 200) {
                     try {
                         if (new JSONObject(new String(b.data, "utf-8")).optInt("error_code", -1) == 0) {
                             return true;
@@ -61,9 +60,9 @@ public class AppInfoUploadService extends Service {
     }
 
     public String genPostData() {
-        a yi = e.yh().yi();
-        ArrayList<b> arrayList = yi.aiU;
-        ArrayList<b> arrayList2 = yi.aiV;
+        a Bz = e.By().Bz();
+        ArrayList<b> arrayList = Bz.aqg;
+        ArrayList<b> arrayList2 = Bz.aqh;
         StringBuilder sb = new StringBuilder();
         int addList = addList(arrayList2, sb, 100, 0);
         if (addList < 100) {
@@ -76,7 +75,7 @@ public class AppInfoUploadService extends Service {
         int i3 = 0;
         while (i3 < arrayList.size() && i3 < i) {
             b bVar = arrayList.get(i3);
-            sb.append(String.format("%s,%s,%s,%d;", bVar.aiW, bVar.mPackageName, Integer.valueOf(bVar.aiY), Integer.valueOf(i2)));
+            sb.append(String.format("%s,%s,%s,%d;", bVar.aqi, bVar.mPackageName, Integer.valueOf(bVar.aqk), Integer.valueOf(i2)));
             i3++;
         }
         return i3;
@@ -102,13 +101,12 @@ public class AppInfoUploadService extends Service {
         if (intent != null) {
             this.mUid = intent.getStringExtra("uid");
         }
-        this.mCuid = TbadkApplication.m251getInst().getCuid();
+        this.mCuid = TbadkApplication.getInst().getCuid();
         this.mCH = TbConfig.getFrom();
         this.mTask = new c(this, null);
         this.mTask.execute(new Object[0]);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public String getEncrypt(String str) {
         StringBuilder sb = new StringBuilder();
         try {
@@ -119,11 +117,11 @@ public class AppInfoUploadService extends Service {
             for (int i = 0; i < bytes2.length; i++) {
                 bArr[i] = (byte) (bytes[i % length] ^ bytes2[i]);
             }
-            String k = l.k(bArr);
+            String base64Encode = k.base64Encode(bArr);
             String radomGen5 = radomGen5();
             String radomGen52 = radomGen5();
             sb.append(radomGen5);
-            sb.append(k);
+            sb.append(base64Encode);
             sb.append(radomGen52);
         } catch (Exception e) {
             BdLog.e(e);

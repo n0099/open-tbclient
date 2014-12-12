@@ -4,12 +4,12 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c implements CustomMessageTask.CustomRunnable<Object> {
-    public static final List<String> af(List<com.baidu.adp.lib.cache.v<String>> list) {
+    public static final List<String> aC(List<com.baidu.adp.lib.cache.v<String>> list) {
         LinkedList linkedList = new LinkedList();
         if (list != null) {
             for (com.baidu.adp.lib.cache.v<String> vVar : list) {
@@ -27,13 +27,13 @@ public class c implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage == null || !(customMessage instanceof RequestSearchPersonHistoryReadMessage)) {
             return null;
         }
-        String currentAccount = TbadkApplication.getCurrentAccount();
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null) {
             currentAccount = "";
         }
-        List<String> af = af(com.baidu.adp.lib.util.s.b(com.baidu.tbadk.core.a.a.kS().D("tb.searchperson_history", currentAccount)));
+        List<String> aC = aC(com.baidu.adp.lib.util.x.b(com.baidu.tbadk.core.a.a.nS().O("tb.searchperson_history", currentAccount)));
         ResponseSearchPersonHistoryReadMessage responseSearchPersonHistoryReadMessage = new ResponseSearchPersonHistoryReadMessage();
-        responseSearchPersonHistoryReadMessage.datas.addAll(af);
+        responseSearchPersonHistoryReadMessage.datas.addAll(aC);
         return responseSearchPersonHistoryReadMessage;
     }
 }

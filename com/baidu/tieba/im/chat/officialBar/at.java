@@ -1,30 +1,34 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
-import com.baidu.tieba.im.model.OfficialBarTipModel;
+import android.content.Context;
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.bh;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class at implements DialogInterface.OnClickListener {
-    final /* synthetic */ as aSj;
-    private final /* synthetic */ ImMessageCenterShowItemData aSk;
+public class at implements View.OnClickListener {
+    private final /* synthetic */ TbPageContext aSJ;
+    private final /* synthetic */ p aSK;
+    private final /* synthetic */ int aSL;
+    final /* synthetic */ ar aTM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public at(as asVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        this.aSj = asVar;
-        this.aSk = imMessageCenterShowItemData;
+    public at(ar arVar, TbPageContext tbPageContext, p pVar, int i) {
+        this.aTM = arVar;
+        this.aSJ = tbPageContext;
+        this.aSK = pVar;
+        this.aSL = i;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        OfficialBarTipActivity officialBarTipActivity;
-        OfficialBarTipModel officialBarTipModel;
-        OfficialBarTipActivity officialBarTipActivity2;
-        com.baidu.tieba.im.chat.notify.a aVar;
-        officialBarTipActivity = this.aSj.aSi;
-        officialBarTipModel = officialBarTipActivity.aSg;
-        ImMessageCenterShowItemData imMessageCenterShowItemData = this.aSk;
-        officialBarTipActivity2 = this.aSj.aSi;
-        aVar = officialBarTipActivity2.aQP;
-        officialBarTipModel.deleteItem(imMessageCenterShowItemData, aVar);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        bh.pK().b(this.aSJ, new String[]{this.aSK.url});
+        if (this.aSL == 1) {
+            context = this.aTM.mContext;
+            TiebaStatic.eventStat(context, "official_msg_ck", "click", 1, ImageViewerConfig.FORUM_ID, this.aSK.fid);
+        }
     }
 }

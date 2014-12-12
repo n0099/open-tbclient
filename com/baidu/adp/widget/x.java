@@ -5,15 +5,15 @@ import android.view.VelocityTracker;
 import com.baidu.adp.widget.VerticalTranslateLayout;
 /* loaded from: classes.dex */
 public class x {
-    private static /* synthetic */ int[] wX;
-    VelocityTracker sS;
-    boolean sT;
-    final int sU;
-    final int sV;
-    final /* synthetic */ VerticalTranslateLayout wV;
+    private static /* synthetic */ int[] yZ;
+    VelocityTracker vf;
+    boolean vg;
+    final int vh;
+    final int vi;
+    final /* synthetic */ VerticalTranslateLayout yX;
 
-    static /* synthetic */ int[] iG() {
-        int[] iArr = wX;
+    static /* synthetic */ int[] kv() {
+        int[] iArr = yZ;
         if (iArr == null) {
             iArr = new int[VerticalTranslateLayout.TrackDirection.valuesCustom().length];
             try {
@@ -32,12 +32,12 @@ public class x {
                 iArr[VerticalTranslateLayout.TrackDirection.vertical.ordinal()] = 3;
             } catch (NoSuchFieldError e4) {
             }
-            wX = iArr;
+            yZ = iArr;
         }
         return iArr;
     }
 
-    public boolean ae(int i) {
+    public boolean au(int i) {
         VerticalTranslateLayout.TrackDirection trackDirection;
         w wVar;
         w wVar2;
@@ -45,46 +45,46 @@ public class x {
         int i3;
         int i4;
         int i5;
-        int[] iG = iG();
-        trackDirection = this.wV.wK;
-        switch (iG[trackDirection.ordinal()]) {
+        int[] kv = kv();
+        trackDirection = this.yX.yM;
+        switch (kv[trackDirection.ordinal()]) {
             case 1:
-                i4 = this.wV.su;
+                i4 = this.yX.uH;
                 if (i4 != 10004) {
-                    i5 = this.wV.su;
+                    i5 = this.yX.uH;
                     if (i5 != 10000) {
                         return false;
                     }
                 }
                 break;
             case 2:
-                i2 = this.wV.su;
+                i2 = this.yX.uH;
                 if (i2 != 10004) {
-                    i3 = this.wV.su;
+                    i3 = this.yX.uH;
                     if (i3 != 10001) {
                         return false;
                     }
                 }
                 break;
             case 3:
-                wVar = this.wV.wU;
+                wVar = this.yX.yW;
                 if (wVar != null) {
-                    wVar2 = this.wV.wU;
-                    wVar2.an(i);
+                    wVar2 = this.yX.yW;
+                    wVar2.aC(i);
                     break;
                 }
                 break;
         }
-        this.sS = VelocityTracker.obtain();
-        this.sT = true;
+        this.vf = VelocityTracker.obtain();
+        this.vg = true;
         return true;
     }
 
-    public void hg() {
-        this.sT = false;
+    public void jd() {
+        this.vg = false;
     }
 
-    public void af(int i) {
+    public void av(int i) {
         int i2;
         VerticalTranslateLayout.TrackDirection trackDirection;
         float f;
@@ -98,48 +98,48 @@ public class x {
         float f4;
         int i8;
         int i9;
-        if (this.sT) {
-            i2 = this.wV.wH;
+        if (this.vg) {
+            i2 = this.yX.yJ;
             int i10 = i2 - i;
-            int[] iG = iG();
-            trackDirection = this.wV.wK;
-            switch (iG[trackDirection.ordinal()]) {
+            int[] kv = kv();
+            trackDirection = this.yX.yM;
+            switch (kv[trackDirection.ordinal()]) {
                 case 1:
                     Log.d("VerticalTranslateLayout", "@move top");
-                    f4 = this.wV.wD;
-                    i8 = this.wV.sk;
+                    f4 = this.yX.yF;
+                    i8 = this.yX.uy;
                     if (i10 > f4 - i8 && i10 < 0) {
-                        VerticalTranslateLayout verticalTranslateLayout = this.wV;
-                        i9 = verticalTranslateLayout.wH;
-                        verticalTranslateLayout.wH = i9 - i;
-                        this.wV.invalidate();
+                        VerticalTranslateLayout verticalTranslateLayout = this.yX;
+                        i9 = verticalTranslateLayout.yJ;
+                        verticalTranslateLayout.yJ = i9 - i;
+                        this.yX.invalidate();
                         return;
                     }
                     return;
                 case 2:
                     Log.d("VerticalTranslateLayout", "@move bottom");
-                    i6 = this.wV.sk;
-                    f3 = this.wV.wF;
+                    i6 = this.yX.uy;
+                    f3 = this.yX.yH;
                     if (i10 < i6 - f3 && i10 > 0) {
-                        VerticalTranslateLayout verticalTranslateLayout2 = this.wV;
-                        i7 = verticalTranslateLayout2.wH;
-                        verticalTranslateLayout2.wH = i7 - i;
-                        this.wV.invalidate();
+                        VerticalTranslateLayout verticalTranslateLayout2 = this.yX;
+                        i7 = verticalTranslateLayout2.yJ;
+                        verticalTranslateLayout2.yJ = i7 - i;
+                        this.yX.invalidate();
                         return;
                     }
                     return;
                 case 3:
                     Log.d("VerticalTranslateLayout", "@move vertical");
-                    f = this.wV.wD;
-                    i3 = this.wV.sk;
+                    f = this.yX.yF;
+                    i3 = this.yX.uy;
                     if (i10 >= f - i3) {
-                        i4 = this.wV.sk;
-                        f2 = this.wV.wF;
+                        i4 = this.yX.uy;
+                        f2 = this.yX.yH;
                         if (i10 <= i4 - f2) {
-                            VerticalTranslateLayout verticalTranslateLayout3 = this.wV;
-                            i5 = verticalTranslateLayout3.wH;
-                            verticalTranslateLayout3.wH = i5 - i;
-                            this.wV.invalidate();
+                            VerticalTranslateLayout verticalTranslateLayout3 = this.yX;
+                            i5 = verticalTranslateLayout3.yJ;
+                            verticalTranslateLayout3.yJ = i5 - i;
+                            this.yX.invalidate();
                             return;
                         }
                         return;
@@ -151,35 +151,35 @@ public class x {
         }
     }
 
-    public void hh() {
+    public void je() {
         float max;
         VerticalTranslateLayout.TrackDirection trackDirection;
-        this.sS.computeCurrentVelocity(this.sU);
-        float yVelocity = this.sS.getYVelocity();
+        this.vf.computeCurrentVelocity(this.vh);
+        float yVelocity = this.vf.getYVelocity();
         Log.d("VerticalTranslateLayout", "@fling y " + yVelocity);
         if (yVelocity < 0.0f) {
-            max = Math.min(yVelocity, -this.sV);
+            max = Math.min(yVelocity, -this.vi);
         } else {
-            max = Math.max(yVelocity, this.sV);
+            max = Math.max(yVelocity, this.vi);
         }
-        int[] iG = iG();
-        trackDirection = this.wV.wK;
-        switch (iG[trackDirection.ordinal()]) {
+        int[] kv = kv();
+        trackDirection = this.yX.yM;
+        switch (kv[trackDirection.ordinal()]) {
             case 1:
-                q(max);
-                break;
-            case 2:
                 r(max);
                 break;
+            case 2:
+                s(max);
+                break;
             case 3:
-                p(max);
+                q(max);
                 break;
         }
-        this.sS.recycle();
-        this.sS = null;
+        this.vf.recycle();
+        this.vf = null;
     }
 
-    private void p(float f) {
+    private void q(float f) {
         int i;
         int i2;
         float f2;
@@ -190,59 +190,59 @@ public class x {
         s sVar3;
         s sVar4;
         Log.d("VerticalTranslateLayout", "@verticalFling");
-        i = this.wV.wH;
+        i = this.yX.yJ;
         if (i <= 0) {
-            f3 = this.wV.wD;
-            i3 = this.wV.sk;
+            f3 = this.yX.yF;
+            i3 = this.yX.uy;
             if (i >= f3 - i3) {
                 if (f < 0.0f) {
-                    sVar4 = this.wV.wQ;
-                    sVar4.n(f);
+                    sVar4 = this.yX.yS;
+                    sVar4.o(f);
                     return;
                 }
-                sVar3 = this.wV.wQ;
-                sVar3.l(f);
+                sVar3 = this.yX.yS;
+                sVar3.m(f);
                 return;
             }
         }
         if (i >= 0) {
-            i2 = this.wV.sk;
-            f2 = this.wV.wF;
+            i2 = this.yX.uy;
+            f2 = this.yX.yH;
             if (i <= i2 - f2) {
                 if (f < 0.0f) {
-                    sVar2 = this.wV.wQ;
-                    sVar2.m(f);
+                    sVar2 = this.yX.yS;
+                    sVar2.n(f);
                     return;
                 }
-                sVar = this.wV.wQ;
-                sVar.o(f);
+                sVar = this.yX.yS;
+                sVar.p(f);
             }
         }
-    }
-
-    private void q(float f) {
-        s sVar;
-        s sVar2;
-        Log.d("VerticalTranslateLayout", "@topFling");
-        if (f < 0.0f) {
-            sVar2 = this.wV.wQ;
-            sVar2.n(f);
-            return;
-        }
-        sVar = this.wV.wQ;
-        sVar.l(f);
     }
 
     private void r(float f) {
         s sVar;
         s sVar2;
-        Log.d("VerticalTranslateLayout", "@bottomFling");
+        Log.d("VerticalTranslateLayout", "@topFling");
         if (f < 0.0f) {
-            sVar2 = this.wV.wQ;
-            sVar2.m(f);
+            sVar2 = this.yX.yS;
+            sVar2.o(f);
             return;
         }
-        sVar = this.wV.wQ;
-        sVar.o(f);
+        sVar = this.yX.yS;
+        sVar.m(f);
+    }
+
+    private void s(float f) {
+        s sVar;
+        s sVar2;
+        Log.d("VerticalTranslateLayout", "@bottomFling");
+        if (f < 0.0f) {
+            sVar2 = this.yX.yS;
+            sVar2.n(f);
+            return;
+        }
+        sVar = this.yX.yS;
+        sVar.p(f);
     }
 }

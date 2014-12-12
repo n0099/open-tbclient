@@ -1,62 +1,45 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.data.VoiceMsgData;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
-import com.baidu.tieba.im.message.chat.OfficialChatMessage;
-import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-import com.baidu.tieba.im.model.MsglistModel;
-import com.baidu.tieba.im.model.VoiceSendModel;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.core.data.GroupData;
+import com.baidu.tbadk.live.message.ResponseDismissGroupMessage;
+import com.baidu.tieba.im.model.CommonGroupMsglistModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements VoiceSendModel.UploadVoiceCallback {
-    final /* synthetic */ w aOa;
+public class x extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ CommonGroupChatActiviy aQi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(w wVar) {
-        this.aOa = wVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x(CommonGroupChatActiviy commonGroupChatActiviy, int i) {
+        super(i);
+        this.aQi = commonGroupChatActiviy;
     }
 
-    @Override // com.baidu.tieba.im.model.VoiceSendModel.UploadVoiceCallback
-    public void callback(String str, ChatMessage chatMessage) {
-        MsglistModel.SendCallback sendCallback;
-        MsglistModel.SendCallback sendCallback2;
-        try {
-            w.Js().d(chatMessage);
-            if (chatMessage != null) {
-                if (str != null && str.length() > 0) {
-                    VoiceMsgData v = com.baidu.tieba.im.util.i.v(chatMessage);
-                    if (v != null) {
-                        v.setVoice_md5(str);
-                        chatMessage.setContent("[" + com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(v) + "]");
-                    }
-                    TiebaStatic.imLog(chatMessage.getCmd(), 0, "", "", "upload voice http suc vid = " + str, 0, "upload voice http success ", System.currentTimeMillis() - chatMessage.getLogTime());
-                    w.Js().f(chatMessage);
-                    sendCallback = this.aOa.mSendCallback;
-                    if (sendCallback != null) {
-                        sendCallback2 = this.aOa.mSendCallback;
-                        sendCallback2.onSend(2);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        GroupData group;
+        if (socketResponsedMessage != null) {
+            switch (socketResponsedMessage.getCmd()) {
+                case 103101:
+                case 103110:
+                case 103112:
+                    this.aQi.mListView.refresh();
+                    return;
+                case 103104:
+                    if (socketResponsedMessage instanceof ResponseDismissGroupMessage) {
+                        ResponseDismissGroupMessage responseDismissGroupMessage = (ResponseDismissGroupMessage) socketResponsedMessage;
+                        if (responseDismissGroupMessage.getError() == 0 && (this.aQi.mListModel instanceof CommonGroupMsglistModel) && (group = ((CommonGroupMsglistModel) this.aQi.mListModel).getGroup()) != null && group.getGroupId() == responseDismissGroupMessage.getGroupId()) {
+                            this.aQi.finish();
+                            return;
+                        }
                         return;
                     }
                     return;
-                }
-                TiebaStatic.imLog(chatMessage.getCmd(), 0, "", "", "", -1, "upload voice http fail", System.currentTimeMillis() - chatMessage.getLogTime());
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001221, chatMessage));
-                if (chatMessage instanceof CommonGroupChatMessage) {
-                    CommonGroupChatMessage commonGroupChatMessage = (CommonGroupChatMessage) chatMessage;
-                    com.baidu.tieba.im.e.a(new y(this, commonGroupChatMessage), new z(this, commonGroupChatMessage));
-                } else if (chatMessage instanceof PersonalChatMessage) {
-                    PersonalChatMessage personalChatMessage = (PersonalChatMessage) chatMessage;
-                    com.baidu.tieba.im.e.a(new aa(this, personalChatMessage), new ab(this, personalChatMessage));
-                } else if (chatMessage instanceof OfficialChatMessage) {
-                    OfficialChatMessage officialChatMessage = (OfficialChatMessage) chatMessage;
-                    com.baidu.tieba.im.e.a(new ac(this, officialChatMessage), new ad(this, officialChatMessage));
-                }
+                default:
+                    return;
             }
-        } catch (Exception e) {
         }
     }
 }

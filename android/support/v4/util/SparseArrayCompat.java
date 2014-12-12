@@ -1,6 +1,6 @@
 package android.support.v4.util;
 /* loaded from: classes.dex */
-public class SparseArrayCompat<E> {
+public class SparseArrayCompat<E> implements Cloneable {
     private static final Object DELETED = new Object();
     private boolean mGarbage;
     private int[] mKeys;
@@ -13,10 +13,32 @@ public class SparseArrayCompat<E> {
 
     public SparseArrayCompat(int i) {
         this.mGarbage = false;
-        int idealIntArraySize = idealIntArraySize(i);
-        this.mKeys = new int[idealIntArraySize];
-        this.mValues = new Object[idealIntArraySize];
+        if (i == 0) {
+            this.mKeys = ContainerHelpers.EMPTY_INTS;
+            this.mValues = ContainerHelpers.EMPTY_OBJECTS;
+        } else {
+            int idealIntArraySize = ContainerHelpers.idealIntArraySize(i);
+            this.mKeys = new int[idealIntArraySize];
+            this.mValues = new Object[idealIntArraySize];
+        }
         this.mSize = 0;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: clone */
+    public SparseArrayCompat<E> m1clone() {
+        try {
+            SparseArrayCompat<E> sparseArrayCompat = (SparseArrayCompat) super.clone();
+            try {
+                sparseArrayCompat.mKeys = (int[]) this.mKeys.clone();
+                sparseArrayCompat.mValues = (Object[]) this.mValues.clone();
+                return sparseArrayCompat;
+            } catch (CloneNotSupportedException e) {
+                return sparseArrayCompat;
+            }
+        } catch (CloneNotSupportedException e2) {
+            return null;
+        }
     }
 
     public E get(int i) {
@@ -24,12 +46,12 @@ public class SparseArrayCompat<E> {
     }
 
     public E get(int i, E e) {
-        int binarySearch = binarySearch(this.mKeys, 0, this.mSize, i);
+        int binarySearch = ContainerHelpers.binarySearch(this.mKeys, this.mSize, i);
         return (binarySearch < 0 || this.mValues[binarySearch] == DELETED) ? e : (E) this.mValues[binarySearch];
     }
 
     public void delete(int i) {
-        int binarySearch = binarySearch(this.mKeys, 0, this.mSize, i);
+        int binarySearch = ContainerHelpers.binarySearch(this.mKeys, this.mSize, i);
         if (binarySearch >= 0 && this.mValues[binarySearch] != DELETED) {
             this.mValues[binarySearch] = DELETED;
             this.mGarbage = true;
@@ -66,6 +88,7 @@ public class SparseArrayCompat<E> {
                 if (i3 != i2) {
                     iArr[i2] = iArr[i3];
                     objArr[i2] = obj;
+                    objArr[i3] = null;
                 }
                 i2++;
             }
@@ -75,7 +98,7 @@ public class SparseArrayCompat<E> {
     }
 
     public void put(int i, E e) {
-        int binarySearch = binarySearch(this.mKeys, 0, this.mSize, i);
+        int binarySearch = ContainerHelpers.binarySearch(this.mKeys, this.mSize, i);
         if (binarySearch >= 0) {
             this.mValues[binarySearch] = e;
             return;
@@ -88,10 +111,10 @@ public class SparseArrayCompat<E> {
         }
         if (this.mGarbage && this.mSize >= this.mKeys.length) {
             gc();
-            i2 = binarySearch(this.mKeys, 0, this.mSize, i) ^ (-1);
+            i2 = ContainerHelpers.binarySearch(this.mKeys, this.mSize, i) ^ (-1);
         }
         if (this.mSize >= this.mKeys.length) {
-            int idealIntArraySize = idealIntArraySize(this.mSize + 1);
+            int idealIntArraySize = ContainerHelpers.idealIntArraySize(this.mSize + 1);
             int[] iArr = new int[idealIntArraySize];
             Object[] objArr = new Object[idealIntArraySize];
             System.arraycopy(this.mKeys, 0, iArr, 0, this.mKeys.length);
@@ -140,7 +163,7 @@ public class SparseArrayCompat<E> {
         if (this.mGarbage) {
             gc();
         }
-        return binarySearch(this.mKeys, 0, this.mSize, i);
+        return ContainerHelpers.binarySearch(this.mKeys, this.mSize, i);
     }
 
     public int indexOfValue(E e) {
@@ -175,7 +198,7 @@ public class SparseArrayCompat<E> {
         }
         int i2 = this.mSize;
         if (i2 >= this.mKeys.length) {
-            int idealIntArraySize = idealIntArraySize(i2 + 1);
+            int idealIntArraySize = ContainerHelpers.idealIntArraySize(i2 + 1);
             int[] iArr = new int[idealIntArraySize];
             Object[] objArr = new Object[idealIntArraySize];
             System.arraycopy(this.mKeys, 0, iArr, 0, this.mKeys.length);
@@ -188,33 +211,26 @@ public class SparseArrayCompat<E> {
         this.mSize = i2 + 1;
     }
 
-    private static int binarySearch(int[] iArr, int i, int i2, int i3) {
-        int i4 = i - 1;
-        int i5 = i + i2;
-        while (i5 - i4 > 1) {
-            int i6 = (i5 + i4) / 2;
-            if (iArr[i6] < i3) {
-                i4 = i6;
+    public String toString() {
+        if (size() <= 0) {
+            return "{}";
+        }
+        StringBuilder sb = new StringBuilder(this.mSize * 28);
+        sb.append('{');
+        for (int i = 0; i < this.mSize; i++) {
+            if (i > 0) {
+                sb.append(", ");
+            }
+            sb.append(keyAt(i));
+            sb.append('=');
+            E valueAt = valueAt(i);
+            if (valueAt != this) {
+                sb.append(valueAt);
             } else {
-                i5 = i6;
+                sb.append("(this Map)");
             }
         }
-        if (i5 == i + i2) {
-            return (i + i2) ^ (-1);
-        }
-        return iArr[i5] != i3 ? i5 ^ (-1) : i5;
-    }
-
-    static int idealByteArraySize(int i) {
-        for (int i2 = 4; i2 < 32; i2++) {
-            if (i <= (1 << i2) - 12) {
-                return (1 << i2) - 12;
-            }
-        }
-        return i;
-    }
-
-    static int idealIntArraySize(int i) {
-        return idealByteArraySize(i * 4) / 4;
+        sb.append('}');
+        return sb.toString();
     }
 }

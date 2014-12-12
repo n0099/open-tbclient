@@ -2,18 +2,20 @@ package com.baidu.tieba.im.selectfriend;
 
 import android.view.View;
 import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 class h {
-    View UM;
-    TextView ahk;
-    final /* synthetic */ f bix;
+    View aaQ;
+    HeadImageView aop;
+    TextView aoq;
+    final /* synthetic */ g bmZ;
 
-    private h(f fVar) {
-        this.bix = fVar;
+    private h(g gVar) {
+        this.bmZ = gVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ h(f fVar, h hVar) {
-        this(fVar);
+    public /* synthetic */ h(g gVar, h hVar) {
+        this(gVar);
     }
 }

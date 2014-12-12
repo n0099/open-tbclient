@@ -1,5 +1,6 @@
 package com.baidu.location;
 
+import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class BDLocation {
@@ -172,9 +173,9 @@ public final class BDLocation {
             JSONObject jSONObject2 = jSONObject.getJSONObject("result");
             int parseInt = Integer.parseInt(jSONObject2.getString("error"));
             setLocType(parseInt);
-            setTime(jSONObject2.getString("time"));
+            setTime(jSONObject2.getString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME));
             if (parseInt == 61) {
-                JSONObject jSONObject3 = jSONObject.getJSONObject("content");
+                JSONObject jSONObject3 = jSONObject.getJSONObject(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT);
                 JSONObject jSONObject4 = jSONObject3.getJSONObject("point");
                 setLatitude(Double.parseDouble(jSONObject4.getString("y")));
                 setLongitude(Double.parseDouble(jSONObject4.getString("x")));
@@ -184,7 +185,7 @@ public final class BDLocation {
                 setSatelliteNumber(Integer.parseInt(jSONObject3.getString("n")));
             } else if (parseInt != 161) {
                 if (parseInt == 66 || parseInt == 68) {
-                    JSONObject jSONObject5 = jSONObject.getJSONObject("content");
+                    JSONObject jSONObject5 = jSONObject.getJSONObject(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT);
                     JSONObject jSONObject6 = jSONObject5.getJSONObject("point");
                     setLatitude(Double.parseDouble(jSONObject6.getString("y")));
                     setLongitude(Double.parseDouble(jSONObject6.getString("x")));
@@ -192,7 +193,7 @@ public final class BDLocation {
                     a(Boolean.valueOf(Boolean.parseBoolean(jSONObject5.getString("isCellChanged"))));
                 }
             } else {
-                JSONObject jSONObject7 = jSONObject.getJSONObject("content");
+                JSONObject jSONObject7 = jSONObject.getJSONObject(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT);
                 JSONObject jSONObject8 = jSONObject7.getJSONObject("point");
                 setLatitude(Double.parseDouble(jSONObject8.getString("y")));
                 setLongitude(Double.parseDouble(jSONObject8.getString("x")));

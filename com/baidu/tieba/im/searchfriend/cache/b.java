@@ -1,22 +1,30 @@
 package com.baidu.tieba.im.searchfriend.cache;
 
+import android.text.TextUtils;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.cache.t;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        com.baidu.tieba.im.searchfriend.a.a friendInfo;
-        com.baidu.tbadk.core.a.a kS;
-        t<String> bd;
-        if (customMessage != null && (customMessage instanceof RequestRecommendWriteMessage) && (friendInfo = ((RequestRecommendWriteMessage) customMessage).getFriendInfo()) != null && (kS = com.baidu.tbadk.core.a.a.kS()) != null && (bd = kS.bd("tb.recommend_friend")) != null) {
-            String currentAccount = TbadkApplication.getCurrentAccount();
-            bd.remove(currentAccount);
-            bd.b(currentAccount, friendInfo.RC().toString());
+        if (customMessage == null || !(customMessage instanceof RequestRecommendReadMessage)) {
+            return null;
         }
-        return null;
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (currentAccount == null) {
+            currentAccount = "";
+        }
+        String str = com.baidu.tbadk.core.a.a.nS().bV("tb.recommend_friend").get(currentAccount);
+        com.baidu.tieba.im.searchfriend.a.a aVar = new com.baidu.tieba.im.searchfriend.a.a();
+        if (!TextUtils.isEmpty(str)) {
+            try {
+                aVar.i(new JSONObject(str));
+            } catch (Exception e) {
+            }
+        }
+        return new ResponseRecommendReadMessage(aVar);
     }
 }

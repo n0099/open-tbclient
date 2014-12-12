@@ -5,46 +5,25 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
 public class InvokeMessageCenterStatic {
     static {
-        Qo();
-        Qq();
-        Qp();
-        Qr();
-        Qs();
-        Qt();
+        QR();
+        QS();
+        QT();
     }
 
-    private static void Qo() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2005002, new d());
+    private static void QR() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2008004, new a());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void Qp() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2005003, new g());
+    private static void QS() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2008005, new b());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void Qq() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2008002, new h());
-        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(customMessageTask);
-    }
-
-    private static void Qr() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2008004, new i());
-        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(customMessageTask);
-    }
-
-    private static void Qs() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2008005, new j());
-        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(customMessageTask);
-    }
-
-    private static void Qt() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2008018, new k());
+    private static void QT() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2008018, new c());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }

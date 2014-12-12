@@ -3,18 +3,19 @@ package com.baidu.tbadk.mvc.message;
 import android.text.TextUtils;
 import com.baidu.adp.lib.cache.t;
 import com.baidu.adp.lib.util.b;
-import com.baidu.adp.lib.util.q;
+import com.baidu.adp.lib.util.v;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tbadk.mvc.b.d;
-import com.baidu.tbadk.mvc.b.i;
+import com.baidu.tbadk.mvc.b.e;
+import com.baidu.tbadk.mvc.b.j;
 import com.squareup.wire.Message;
 import com.squareup.wire.Wire;
 import java.lang.reflect.Field;
 import java.util.List;
 import protobuf.Error;
 /* loaded from: classes.dex */
-public abstract class MvcSocketResponsedMessage<D extends i, M extends Message> extends TbSocketReponsedMessage {
+public abstract class MvcSocketResponsedMessage<D extends j, M extends Message> extends TbSocketReponsedMessage {
     private D data;
 
     protected abstract Class<M> getProtobufResponseIdlClass();
@@ -26,14 +27,27 @@ public abstract class MvcSocketResponsedMessage<D extends i, M extends Message> 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.b
     public void decodeInBackGround(int i, byte[] bArr) {
+        boolean z;
+        List<Field> a;
         Message parseFrom = new Wire(new Class[0]).parseFrom(bArr, getProtobufResponseIdlClass());
-        List<Field> a = b.a(parseFrom, Error.class);
-        if (a != null && a.size() > 0) {
-            Object a2 = q.a(parseFrom, a.get(0));
-            if (a2 instanceof Error) {
-                Error error = (Error) a2;
+        List<Field> a2 = b.a(parseFrom, Error.class);
+        if (a2 == null || a2.size() <= 0) {
+            z = false;
+        } else {
+            Object a3 = v.a(parseFrom, a2.get(0));
+            if (a3 instanceof Error) {
+                Error error = (Error) a3;
                 setError(error.errorno.intValue());
                 setErrorString(error.usermsg);
+            }
+            z = true;
+        }
+        if (!z && (a = b.a(parseFrom, tbclient.Error.class)) != null && a.size() > 0) {
+            Object a4 = v.a(parseFrom, a.get(0));
+            if (a4 instanceof tbclient.Error) {
+                tbclient.Error error2 = (tbclient.Error) a4;
+                setError(error2.errorno.intValue());
+                setErrorString(error2.usermsg);
             }
         }
         if (getError() == 0) {
@@ -43,7 +57,7 @@ public abstract class MvcSocketResponsedMessage<D extends i, M extends Message> 
             } else if (getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof MvcNetMessage)) {
                 obj = createData(((MvcNetMessage) getOrginalMessage().getExtra()).getResponseDataClass());
             }
-            if (obj instanceof i) {
+            if (obj instanceof j) {
                 this.data = (D) obj;
                 this.data.a(parseFrom);
             }
@@ -53,30 +67,31 @@ public abstract class MvcSocketResponsedMessage<D extends i, M extends Message> 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        d dVar;
-        t<byte[]> bc;
+        e eVar;
+        t<byte[]> N;
         super.afterDispatchInBackGround(i, (int) bArr);
         if (getError() == 0 && bArr != null) {
             if (getOrginalMessage() instanceof MvcSocketMessage) {
                 MvcSocketMessage mvcSocketMessage = (MvcSocketMessage) getOrginalMessage();
-                if (mvcSocketMessage.isNeedCache() && (mvcSocketMessage.getData() instanceof d)) {
-                    dVar = (d) mvcSocketMessage.getData();
+                if (mvcSocketMessage.isNeedCache() && (mvcSocketMessage.getData() instanceof e)) {
+                    eVar = (e) mvcSocketMessage.getData();
                 }
-                dVar = null;
+                eVar = null;
             } else {
                 if (getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof MvcNetMessage)) {
                     MvcNetMessage mvcNetMessage = (MvcNetMessage) getOrginalMessage().getExtra();
-                    if (mvcNetMessage.isNeedCache() && (mvcNetMessage.getRequestData() instanceof d)) {
-                        dVar = (d) mvcNetMessage.getRequestData();
+                    if (mvcNetMessage.isNeedCache() && (mvcNetMessage.getRequestData() instanceof e)) {
+                        eVar = (e) mvcNetMessage.getRequestData();
                     }
                 }
-                dVar = null;
+                eVar = null;
             }
-            if (dVar != null) {
-                String cacheKey = dVar.getCacheKey();
-                String sY = dVar.sY();
-                if (cacheKey != null && !TextUtils.isEmpty(sY) && bArr != null && (bc = a.kS().bc(sY)) != null) {
-                    bc.b(cacheKey, bArr);
+            if (eVar != null) {
+                String cacheKey = eVar.getCacheKey();
+                String lq = eVar.lq();
+                String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
+                if (cacheKey != null && !TextUtils.isEmpty(lq) && bArr != null && (N = a.nS().N(lq, currentAccount)) != null) {
+                    N.f(cacheKey, bArr);
                 }
             }
         }

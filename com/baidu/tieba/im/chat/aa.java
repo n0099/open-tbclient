@@ -1,21 +1,22 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.im.message.chat.PersonalChatMessage;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.GroupData;
 /* loaded from: classes.dex */
-class aa extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ x aOb;
-    private final /* synthetic */ PersonalChatMessage aOd;
+class aa extends com.baidu.tieba.im.h<Boolean> {
+    final /* synthetic */ GroupChatActivity aQj;
+    private final /* synthetic */ GroupData val$groupData;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(x xVar, PersonalChatMessage personalChatMessage) {
-        this.aOb = xVar;
-        this.aOd = personalChatMessage;
+    public aa(GroupChatActivity groupChatActivity, GroupData groupData) {
+        this.aQj = groupChatActivity;
+        this.val$groupData = groupData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.im.b
+    @Override // com.baidu.tieba.im.h
     public Boolean doInBackground() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.o.MU().a(this.aOd.getUserId(), this.aOd.getToUserId(), String.valueOf(this.aOd.getRecordId()), String.valueOf(this.aOd.getMsgId()), 2));
+        return Boolean.valueOf(com.baidu.tieba.im.settingcache.c.SV().aE(TbadkApplication.getCurrentAccount(), String.valueOf(this.val$groupData.getGroupId())));
     }
 }

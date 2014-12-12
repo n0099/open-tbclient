@@ -1,23 +1,46 @@
 package com.baidu.tbadk.performanceLog;
 /* loaded from: classes.dex */
 public class w extends u {
-    public static void a(long j, long j2, long j3) {
-        if (v.uP().uQ()) {
-            com.baidu.adp.lib.stats.q logItem = getLogItem();
-            logItem.n("procname", "main");
-            logItem.n("atime", String.valueOf(j));
-            logItem.n("logoctime", String.valueOf(j2));
-            logItem.n("logoresutime", String.valueOf(j3));
-            com.baidu.adp.lib.stats.f.er().b("startt", logItem);
+    public boolean agA;
+    public long ago;
+    public long agp;
+    public long agq;
+    public long agr;
+    public long ags;
+    public long agt;
+    public long agu;
+    public long agv;
+    public long agw;
+    public long agx;
+    public long agy;
+    public long agz;
+    public boolean isSuccess;
+
+    public void zb() {
+        ae aeVar = (ae) ac.zh().dT(this.mSubType);
+        if (aeVar != null) {
+            aeVar.b(this);
         }
     }
 
-    public static void t(long j) {
-        if (v.uP().uQ()) {
-            com.baidu.adp.lib.stats.q logItem = getLogItem();
-            logItem.n("procname", "remote");
-            logItem.n("costt", String.valueOf(j));
-            com.baidu.adp.lib.stats.f.er().b("startt", logItem);
+    public void zc() {
+        ae aeVar = (ae) ac.zh().dT(this.mSubType);
+        if (aeVar != null) {
+            aeVar.a(this);
+        }
+    }
+
+    public void zd() {
+        ae aeVar = (ae) ac.zh().dT(this.mSubType);
+        if (aeVar != null) {
+            aeVar.c(this);
+        }
+    }
+
+    public void ze() {
+        ae aeVar = (ae) ac.zh().dT(this.mSubType);
+        if (aeVar != null) {
+            aeVar.d(this);
         }
     }
 }

@@ -7,11 +7,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements TextWatcher {
-    final /* synthetic */ AtListActivity bST;
+    final /* synthetic */ AtListActivity cdZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(AtListActivity atListActivity) {
-        this.bST = atListActivity;
+        this.cdZ = atListActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -23,30 +23,30 @@ public class c implements TextWatcher {
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        String a = com.baidu.adp.lib.util.l.a(editable, null);
+        String a = com.baidu.adp.lib.util.k.a(editable, null);
         if (a != null) {
-            str = this.bST.bSN;
+            str = this.cdZ.cdT;
             if (!a.equals(str)) {
-                handler = this.bST.mHandler;
-                runnable = this.bST.bSS;
+                handler = this.cdZ.mHandler;
+                runnable = this.cdZ.cdY;
                 handler.removeCallbacks(runnable);
-                handler2 = this.bST.mHandler;
-                runnable2 = this.bST.bSS;
+                handler2 = this.cdZ.mHandler;
+                runnable2 = this.cdZ.cdY;
                 handler2.postDelayed(runnable2, 300L);
             }
             if (a.length() > 0) {
-                textView2 = this.bST.bSH;
+                textView2 = this.cdZ.cdN;
                 textView2.setVisibility(0);
                 return;
             }
-            textView = this.bST.bSH;
+            textView = this.cdZ.cdN;
             textView.setVisibility(8);
         }
     }
 
     @Override // android.text.TextWatcher
     public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.bST.bSN = com.baidu.adp.lib.util.l.a(charSequence, null);
+        this.cdZ.cdT = com.baidu.adp.lib.util.k.a(charSequence, null);
     }
 
     @Override // android.text.TextWatcher

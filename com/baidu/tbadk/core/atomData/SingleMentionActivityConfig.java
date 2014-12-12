@@ -4,16 +4,10 @@ import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.a;
 /* loaded from: classes.dex */
 public class SingleMentionActivityConfig extends a {
-    public static final String KEY_IS_SHOW_CHAT = "is_show_chat";
     private static Class<?> sMentionClass;
-    private static boolean sShowChat;
 
     public SingleMentionActivityConfig(Context context, int i) {
         this(context, i, false);
-    }
-
-    public SingleMentionActivityConfig(Context context, boolean z) {
-        this(context, 16, z);
     }
 
     public SingleMentionActivityConfig(Context context) {
@@ -25,8 +19,6 @@ public class SingleMentionActivityConfig extends a {
         getIntent().putExtra("showBack", true);
         getIntent().putExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, i);
         getIntent().addFlags(268435456);
-        getIntent().putExtra(KEY_IS_SHOW_CHAT, z);
-        sShowChat = z;
         MentionActivityConfig.newJumpIn = true;
         MentionActivityConfig.jumpInTab = i;
     }
@@ -44,9 +36,5 @@ public class SingleMentionActivityConfig extends a {
             return null;
         }
         return sMentionClass.getName();
-    }
-
-    public static boolean isShowChat() {
-        return sShowChat;
     }
 }

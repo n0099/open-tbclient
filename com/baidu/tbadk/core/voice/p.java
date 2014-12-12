@@ -64,7 +64,7 @@ public class p implements com.baidu.adp.lib.voice.j {
     }
 
     @Override // com.baidu.adp.lib.voice.n
-    public void c(int i, String str) {
+    public void error(int i, String str) {
         m mVar;
         m mVar2;
         VoiceData.VoiceModel voiceModel;
@@ -86,17 +86,17 @@ public class p implements com.baidu.adp.lib.voice.j {
     }
 
     @Override // com.baidu.adp.lib.voice.n
-    public void U(int i) {
+    public void ac(int i) {
     }
 
     @Override // com.baidu.adp.lib.voice.j
-    public void T(int i) {
+    public void ab(int i) {
         m playView;
         VoiceData.VoiceModel voiceModel;
         VoiceData.VoiceModel voiceModel2;
         playView = this.this$0.getPlayView();
         if (playView != null) {
-            playView.bP(i);
+            playView.cn(i);
         }
         voiceModel = this.this$0.mCurPlayModel;
         if (voiceModel != null) {

@@ -4,24 +4,25 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import android.webkit.WebSettings;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.account.AccountLoginHelper;
-import com.baidu.tbadk.core.util.az;
-import com.baidu.tbadk.pluginArch.Plugin;
-import com.baidu.tbadk.pluginArch.PluginCenter;
-import com.baidu.tbadk.pluginArch.PluginNameList;
-import com.baidu.tbadk.plugins.BdBrowserDelegate;
+import com.baidu.tbadk.core.atomData.T5WebViewActivityConfig;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.plugins.LightAppPlugin;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String x(String str, String str2) {
+    public static String I(String str, String str2) {
         String str3;
         if (!str.startsWith("http://")) {
             str = "http://".concat(str);
@@ -34,147 +35,60 @@ public class a {
         return str.concat(str3);
     }
 
-    public static void a(Context context, String str, boolean z) {
+    public static void c(Context context, String str, boolean z) {
         if (z) {
-            AccountLoginHelper.parseBDUSS(TbadkApplication.getCurrentBduss());
-            TbWebViewActivity.startActivity(context, "", aQ(aP(str)));
+            AccountLoginHelper.parseBDUSS(TbadkCoreApplication.getCurrentBduss());
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(context, "", appendVersionCode(appendCuidParam(str)), true, true, false, false, false)));
             return;
         }
-        i(context, str);
+        y(context, str);
     }
 
-    public static void i(Context context, String str) {
-        a(context, true, str);
+    public static void y(Context context, String str) {
+        b(context, true, str);
     }
 
-    public static void a(Context context, boolean z, String str) {
-        boolean z2;
-        boolean z3 = false;
-        BdBrowserDelegate bdBrowserDelegate = null;
+    public static void b(Context context, boolean z, String str) {
+        String appendVersionCode;
+        if (z) {
+            try {
+                appendVersionCode = appendVersionCode(appendCuidParam(str));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return;
+            }
+        } else {
+            appendVersionCode = str;
+        }
+        if (((LightAppPlugin) PluginCenter.gX().he()) != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new T5WebViewActivityConfig(context, null, appendVersionCode, true, true, true, true, true)));
+        } else {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(context, null, appendVersionCode, true, true, true, true, true)));
+        }
+    }
+
+    public static void f(Context context, String str, String str2) {
         try {
-            int U = com.baidu.adp.lib.b.f.db().U("baidu_webview");
-            AccountLoginHelper.OurToken parseBDUSS = AccountLoginHelper.parseBDUSS(TbadkApplication.getCurrentBduss());
-            String aQ = z ? aQ(aP(str)) : str;
-            boolean z4 = aQ.indexOf("tbwebview=1") > 0;
-            boolean z5 = aQ.indexOf("tborientation=1") > 0;
-            boolean z6 = aQ.indexOf("tbfullscreen=1") > 0;
-            Plugin pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_BROWSER);
-            if (pluginByName != null) {
-                bdBrowserDelegate = (BdBrowserDelegate) pluginByName.getClassInstance(BdBrowserDelegate.class);
-                z2 = !pluginByName.checkEnable();
+            String appendVersionCode = appendVersionCode(appendCuidParam(str2));
+            if (((LightAppPlugin) PluginCenter.gX().he()) != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new T5WebViewActivityConfig(context, str, appendVersionCode, true, true, true, true, true)));
             } else {
-                z2 = true;
-            }
-            if (!z4 && PluginCenter.getInstance() != null && bdBrowserDelegate != null && !z2) {
-                z3 = true;
-            }
-            if (z4) {
-                TbWebViewActivity.startActivityWithoutNavBar(context, aQ, true, null);
-            } else if (U == 1 || !z3) {
-                if (parseBDUSS != null && z) {
-                    WebTbActivity.a(context, aQ, parseBDUSS.mBduss, parseBDUSS.mPtoken, z5, z6);
-                } else {
-                    WebTbActivity.a(context, aQ, null, null, z5, z6);
-                }
-            } else if (Build.VERSION.SDK_INT >= 7 && U == 0) {
-                if (parseBDUSS != null && z) {
-                    WebBdActivity.a(context, aQ, parseBDUSS.mBduss, parseBDUSS.mPtoken, z5, z6);
-                } else {
-                    WebBdActivity.a(context, aQ, null, null, z5, z6);
-                }
-            } else {
-                k(context, aQ);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(context, str, appendVersionCode, true, true, true, true, true)));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public static void a(Context context, String str, String str2) {
-        boolean z;
-        boolean z2 = false;
-        BdBrowserDelegate bdBrowserDelegate = null;
-        try {
-            int U = com.baidu.adp.lib.b.f.db().U("baidu_webview");
-            AccountLoginHelper.OurToken parseBDUSS = AccountLoginHelper.parseBDUSS(TbadkApplication.getCurrentBduss());
-            String aQ = aQ(aP(str2));
-            boolean z3 = aQ.indexOf("tbwebview=1") > 0;
-            boolean z4 = aQ.indexOf("tborientation=1") > 0;
-            boolean z5 = aQ.indexOf("tbfullscreen=1") > 0;
-            Plugin pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_BROWSER);
-            if (pluginByName != null) {
-                bdBrowserDelegate = (BdBrowserDelegate) pluginByName.getClassInstance(BdBrowserDelegate.class);
-                z = !pluginByName.checkEnable();
-            } else {
-                z = true;
-            }
-            if (!z3 && PluginCenter.getInstance() != null && bdBrowserDelegate != null && !z) {
-                z2 = true;
-            }
-            if (z3) {
-                TbWebViewActivity.startActivityWithoutNavBar(context, str, aQ, true, null);
-            } else if (U == 1 || !z2) {
-                if (parseBDUSS != null) {
-                    WebTbActivity.a(context, aQ, parseBDUSS.mBduss, parseBDUSS.mPtoken, z4, z5);
-                } else {
-                    WebTbActivity.a(context, aQ, null, null, z4, z5);
-                }
-            } else if (Build.VERSION.SDK_INT >= 7 && U == 0) {
-                if (parseBDUSS != null) {
-                    WebBdActivity.a(context, aQ, parseBDUSS.mBduss, parseBDUSS.mPtoken, z4, z5);
-                } else {
-                    WebBdActivity.a(context, aQ, null, null, z4, z5);
-                }
-            } else {
-                k(context, aQ);
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    public static void z(Context context, String str) {
+        b(context, true, str);
     }
 
-    public static void j(Context context, String str) {
-        boolean z;
-        BdBrowserDelegate bdBrowserDelegate = null;
-        boolean z2 = false;
-        String aQ = aQ(aP(str));
-        try {
-            int U = com.baidu.adp.lib.b.f.db().U("baidu_webview");
-            AccountLoginHelper.OurToken parseBDUSS = AccountLoginHelper.parseBDUSS(TbadkApplication.getCurrentBduss());
-            boolean z3 = aQ.indexOf("tbwebview=1") > 0;
-            boolean z4 = aQ.indexOf("tborientation=1") > 0;
-            boolean z5 = aQ.indexOf("tbfullscreen=1") > 0;
-            Plugin pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_BROWSER);
-            if (pluginByName != null) {
-                bdBrowserDelegate = (BdBrowserDelegate) pluginByName.getClassInstance(BdBrowserDelegate.class);
-                z = !pluginByName.checkEnable();
-            } else {
-                z = true;
-            }
-            if (!z3 && PluginCenter.getInstance() != null && bdBrowserDelegate != null && !z) {
-                z2 = true;
-            }
-            if (!z3 && Build.VERSION.SDK_INT > 7 && U == 0 && z2) {
-                if (parseBDUSS != null) {
-                    WebBdActivity.a(context, aQ, parseBDUSS.mBduss, parseBDUSS.mPtoken, z4, z5);
-                } else {
-                    WebBdActivity.a(context, aQ, null, null, z4, z5);
-                }
-            } else if (parseBDUSS != null) {
-                WebTbActivity.a(context, aQ, parseBDUSS.mBduss, parseBDUSS.mPtoken, z4, z5);
-            } else {
-                WebTbActivity.a(context, aQ, null, null, z4, z5);
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public static void k(Context context, String str) {
-        String aQ = aQ(aP(str));
+    public static void A(Context context, String str) {
+        String appendVersionCode = appendVersionCode(appendCuidParam(str));
         try {
             Intent intent = new Intent("android.intent.action.VIEW");
-            intent.setData(Uri.parse(aQ));
+            intent.setData(Uri.parse(appendVersionCode));
             if (!(context instanceof Activity)) {
                 intent.addFlags(268435456);
             }
@@ -184,8 +98,8 @@ public class a {
         }
     }
 
-    public static String aP(String str) {
-        if (!az.aA(str) && str.indexOf("cuid=") <= -1) {
+    public static String appendCuidParam(String str) {
+        if (!ba.isEmpty(str) && str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
@@ -194,7 +108,7 @@ public class a {
                 sb.append("?");
             }
             sb.append("cuid=");
-            sb.append(TbadkApplication.m251getInst().getCuid());
+            sb.append(TbadkCoreApplication.m255getInst().getCuid());
             sb.append("&timestamp=");
             sb.append(Long.toString(System.currentTimeMillis()));
             return sb.toString();
@@ -202,12 +116,12 @@ public class a {
         return str;
     }
 
-    public static String aQ(String str) {
-        return (az.aA(str) || str.indexOf("_client_version=") <= -1) ? String.valueOf(str) + "&_client_version=" + TbConfig.getVersion() : str;
+    public static String appendVersionCode(String str) {
+        return (ba.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? String.valueOf(str) + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
-    public static void s(Context context) {
-        AccountLoginHelper.OurToken parseBDUSS = AccountLoginHelper.parseBDUSS(TbadkApplication.getCurrentBduss());
+    public static void Q(Context context) {
+        AccountLoginHelper.OurToken parseBDUSS = AccountLoginHelper.parseBDUSS(TbadkCoreApplication.getCurrentBduss());
         CookieSyncManager.createInstance(context);
         CookieManager cookieManager = CookieManager.getInstance();
         if (parseBDUSS != null) {

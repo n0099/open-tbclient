@@ -1,15 +1,15 @@
 package com.baidu.tieba.service;
 
-import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
+import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import java.io.File;
 import java.util.Date;
 /* loaded from: classes.dex */
-public class ClearTempService extends Service {
+public class ClearTempService extends BdBaseService {
     private static final int DELETE_FILE_COUNT = 300;
     private static final int MAX_FILE_COUNT = 500;
     private volatile boolean interrupted = false;
@@ -64,7 +64,7 @@ public class ClearTempService extends Service {
     }
 
     private void deleteImageCacheByName() {
-        String str = com.baidu.tbadk.core.util.s.mI + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME;
+        String str = com.baidu.tbadk.core.util.s.mG + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME;
         for (int i = 0; i < 20; i++) {
             File file = new File(String.valueOf(str) + "/" + i);
             if (file.exists() && file.isDirectory()) {

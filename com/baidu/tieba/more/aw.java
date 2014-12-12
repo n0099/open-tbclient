@@ -1,64 +1,94 @@
 package com.baidu.tieba.more;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TiebaDatabase;
-import com.baidu.tbadk.pluginArch.Plugin;
-import com.baidu.tbadk.pluginArch.PluginCenter;
-import com.baidu.tbadk.pluginArch.PluginNameList;
-import com.baidu.tbadk.plugins.BaobaoSdkDelegate;
-import com.baidu.tieba.model.MoreModel;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.RelativeLayout;
+import com.baidu.adp.plugin.PluginCenter;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
+import com.baidu.tbadk.coreExtra.view.TbSettingTextNewDotView;
+import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
+import com.baidu.tbadk.plugins.Hao123Plugin;
 /* loaded from: classes.dex */
-public class aw extends BdAsyncTask<String, Integer, String> {
-    final /* synthetic */ av bta;
+public class aw extends com.baidu.adp.base.g {
+    private SettingTextSwitchView bwA;
+    private TbSettingTextTipView bwB;
+    private TbSettingTextTipView bwC;
+    private TbSettingTextNewDotView bwD;
+    private SystemHelpSettingActivity bwy;
+    private SettingTextSwitchView bwz;
+    private NavigationBar mNavigationBar;
+    private RelativeLayout mParent;
 
-    private aw(av avVar) {
-        this.bta = avVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ aw(av avVar, aw awVar) {
-        this(avVar);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
-        BaseActivity.LoadDataCallBack loadDataCallBack;
-        BaseActivity.LoadDataCallBack loadDataCallBack2;
-        super.onPostExecute((aw) str);
-        this.bta.bsY = null;
-        loadDataCallBack = this.bta.ats;
-        if (loadDataCallBack == null) {
-            return;
+    public aw(SystemHelpSettingActivity systemHelpSettingActivity) {
+        super(systemHelpSettingActivity.getPageContext());
+        this.bwy = null;
+        this.mParent = null;
+        this.bwz = null;
+        this.bwA = null;
+        this.bwB = null;
+        this.bwC = null;
+        this.bwD = null;
+        this.bwy = systemHelpSettingActivity;
+        this.bwy.setContentView(com.baidu.tieba.x.system_help_activity);
+        this.mNavigationBar = (NavigationBar) this.bwy.findViewById(com.baidu.tieba.w.view_navigation_bar);
+        this.mNavigationBar.setTitleText(this.bwy.getPageContext().getString(com.baidu.tieba.z.systemhelpsetting));
+        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.bwz = (SettingTextSwitchView) this.bwy.findViewById(com.baidu.tieba.w.tieba_helper_open);
+        this.bwz.setSwitchStateChangeListener(this.bwy);
+        this.bwA = (SettingTextSwitchView) this.bwy.findViewById(com.baidu.tieba.w.sv_earphone);
+        this.bwB = (TbSettingTextTipView) this.bwy.findViewById(com.baidu.tieba.w.clear_cache);
+        this.bwB.tG();
+        this.bwB.setOnClickListener(this.bwy);
+        this.bwC = (TbSettingTextTipView) this.bwy.findViewById(com.baidu.tieba.w.clear_im);
+        this.bwC.tG();
+        this.bwC.setOnClickListener(this.bwy);
+        this.bwA.setSwitchStateChangeListener(this.bwy);
+        this.mParent = (RelativeLayout) this.bwy.findViewById(com.baidu.tieba.w.parent);
+        if (TbadkCoreApplication.isLogin()) {
+            this.bwC.setVisibility(0);
+        } else {
+            this.bwC.setVisibility(8);
         }
-        loadDataCallBack2 = this.bta.ats;
-        loadDataCallBack2.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
+        this.bwD = (TbSettingTextNewDotView) systemHelpSettingActivity.findViewById(com.baidu.tieba.w.sv_plugin_center);
+        this.bwD.setOnClickListener(this.bwy);
+        if (((Hao123Plugin) PluginCenter.gX().hc()) == null) {
+            this.bwz.setVisibility(8);
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: h */
-    public String doInBackground(String... strArr) {
-        BaobaoSdkDelegate baobaoSdkDelegate;
-        TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().R();
-        com.baidu.tbadk.core.voice.a.b.nJ();
-        try {
-            com.baidu.tbadk.core.util.ay.my().mz();
-            com.baidu.tbadk.core.util.ay.my().mA();
-            Plugin pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_BAOBAO);
-            if (pluginByName != null && (baobaoSdkDelegate = (BaobaoSdkDelegate) pluginByName.getClassInstance(BaobaoSdkDelegate.class)) != null) {
-                baobaoSdkDelegate.clearImage();
-                return null;
-            }
-            return null;
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return null;
-        }
+    public BdSwitchView VQ() {
+        return this.bwz.getSwitchView();
+    }
+
+    public SettingTextSwitchView VR() {
+        return this.bwz;
+    }
+
+    public BdSwitchView VS() {
+        return this.bwA.getSwitchView();
+    }
+
+    public TbSettingTextTipView VT() {
+        return this.bwB;
+    }
+
+    public TbSettingTextTipView VU() {
+        return this.bwC;
+    }
+
+    public void onChangeSkinType(int i) {
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+        this.bwA.cT(i);
+        this.bwz.cT(i);
+        ax.i(this.bwA, com.baidu.tieba.v.more_all);
+        ax.i(this.bwB, com.baidu.tieba.v.more_all);
+        this.bwy.getLayoutMode().ab(i == 1);
+        this.bwy.getLayoutMode().h(this.mParent);
+    }
+
+    public TbSettingTextNewDotView VV() {
+        return this.bwD;
     }
 }

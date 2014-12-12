@@ -2,8 +2,8 @@ package com.baidu.tbadk.live.service;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l {
-    public String VC;
     public String accessToken;
+    public String deviceId;
     public String groupId;
     public String streamId;
     public String url;

@@ -3,17 +3,17 @@ package com.baidu.tieba.im.more;
 import android.text.TextUtils;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.y;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 class c extends HttpMessageListener {
-    final /* synthetic */ SecretSettingActivity bfh;
+    final /* synthetic */ SecretSettingActivity biA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(SecretSettingActivity secretSettingActivity, int i, boolean z) {
         super(i, z);
-        this.bfh = secretSettingActivity;
+        this.biA = secretSettingActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,33 +25,33 @@ class c extends HttpMessageListener {
         g gVar3;
         g gVar4;
         if (httpResponsedMessage != null) {
-            this.bfh.hideProgressBar();
+            this.biA.hideProgressBar();
             if (httpResponsedMessage.getOrginalMessage() instanceof PrivacySettingMessage) {
                 PrivacySettingMessage privacySettingMessage = (PrivacySettingMessage) httpResponsedMessage.getOrginalMessage();
                 String operation = privacySettingMessage.getOperation();
                 int type = privacySettingMessage.getType();
                 if (httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
-                    this.bfh.showToast(httpResponsedMessage.getErrorString());
+                    this.biA.showToast(httpResponsedMessage.getErrorString());
                     if (TextUtils.equals("location", operation)) {
-                        gVar = this.bfh.bfb;
-                        this.bfh.mHandler.postDelayed(new d(this, gVar.QS()), 500L);
+                        gVar = this.biA.biu;
+                        this.biA.mHandler.postDelayed(new d(this, gVar.Rr()), 500L);
                         return;
                     }
                     return;
                 }
-                this.bfh.showToast(y.success);
+                this.biA.showToast(z.success);
                 if (!TextUtils.equals("location", operation)) {
-                    aVar = this.bfh.bfc;
-                    aVar.H(operation, type);
-                    gVar2 = this.bfh.bfb;
-                    gVar2.J(operation, type);
+                    aVar = this.biA.biv;
+                    aVar.N(operation, type);
+                    gVar2 = this.biA.biu;
+                    gVar2.Q(operation, type);
                     return;
                 }
-                TbadkApplication m251getInst = TbadkApplication.m251getInst();
-                gVar3 = this.bfh.bfb;
-                m251getInst.setLocationShared(gVar3.QS());
-                gVar4 = this.bfh.bfb;
-                gVar4.dp(TbadkApplication.m251getInst().getLocationShared());
+                TbadkCoreApplication m255getInst = TbadkCoreApplication.m255getInst();
+                gVar3 = this.biA.biu;
+                m255getInst.setLocationShared(gVar3.Rr());
+                gVar4 = this.biA.biu;
+                gVar4.dd(TbadkCoreApplication.m255getInst().getLocationShared());
             }
         }
     }

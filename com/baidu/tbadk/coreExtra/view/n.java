@@ -1,11 +1,11 @@
 package com.baidu.tbadk.coreExtra.view;
 /* loaded from: classes.dex */
 class n implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ j NT;
+    final /* synthetic */ j TF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(j jVar) {
-        this.NT = jVar;
+        this.TF = jVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d

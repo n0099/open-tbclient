@@ -1,20 +1,24 @@
 package com.baidu.tieba.mainentrance;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.Activity;
+import android.widget.EditText;
 /* loaded from: classes.dex */
-public class m implements View.OnFocusChangeListener {
-    final /* synthetic */ SquareSearchActivity bnc;
+class m implements Runnable {
+    final /* synthetic */ SquareSearchActivity brF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(SquareSearchActivity squareSearchActivity) {
-        this.bnc = squareSearchActivity;
+        this.brF = squareSearchActivity;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        if (!z) {
-            com.baidu.adp.lib.util.m.b(this.bnc, view);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        EditText editText;
+        EditText editText2;
+        editText = this.brF.bqY;
+        editText.requestFocus();
+        Activity pageActivity = this.brF.getPageContext().getPageActivity();
+        editText2 = this.brF.bqY;
+        com.baidu.adp.lib.util.l.d(pageActivity, editText2);
     }
 }

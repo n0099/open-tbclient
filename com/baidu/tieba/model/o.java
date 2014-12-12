@@ -1,44 +1,53 @@
 package com.baidu.tieba.model;
 
-import android.os.Handler;
-import com.baidu.adp.lib.util.BdLog;
-import com.squareup.wire.Wire;
-import tbclient.ForumRecommend.DataRes;
-import tbclient.ForumRecommend.ForumRecommendResIdl;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.data.InterestFrsData;
 /* loaded from: classes.dex */
-public class o implements com.baidu.adp.lib.cache.u<byte[]> {
-    final /* synthetic */ n boI;
-    private final /* synthetic */ com.baidu.tieba.data.o boJ;
+public class o extends com.baidu.adp.base.f<BaseFragmentActivity> {
+    private static final String btk = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/gettaglist";
+    private boolean btl;
+    private InterestFrsData btm;
+    private p bto;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public o(n nVar, com.baidu.tieba.data.o oVar) {
-        this.boI = nVar;
-        this.boJ = oVar;
+    public o(BaseFragmentActivity baseFragmentActivity) {
+        super(baseFragmentActivity.getPageContext());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.cache.u
-    /* renamed from: i */
-    public void d(String str, byte[] bArr) {
-        Handler handler;
-        if (bArr != null) {
-            this.boJ.ab(true);
-            try {
-                ForumRecommendResIdl forumRecommendResIdl = (ForumRecommendResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumRecommendResIdl.class);
-                if (forumRecommendResIdl.data != null && (forumRecommendResIdl.data instanceof DataRes)) {
-                    this.boJ.a(forumRecommendResIdl.data);
-                    this.boJ.bp(true);
-                }
-            } catch (Exception e) {
-                this.boJ.ab(false);
-            }
-            if (this.boJ.isSuccess() && !this.boJ.yU()) {
-                this.boJ.yS().zA();
-            }
-            BdLog.d("EnterForumTask,TYPE_DB,data.isEmpty=" + this.boJ.isEmpty());
-            handler = this.boI.mUIHandler;
-            handler.post(new p(this, this.boJ));
+    public boolean Uo() {
+        return this.btl;
+    }
+
+    public void dt(boolean z) {
+        this.btl = z;
+    }
+
+    public InterestFrsData Up() {
+        return this.btm;
+    }
+
+    public void e(InterestFrsData interestFrsData) {
+        this.btm = interestFrsData;
+    }
+
+    public void a(int i, int i2, int i3, q qVar) {
+        this.bto = new p(i, i2, i3, qVar);
+        this.bto.execute(new Void[0]);
+    }
+
+    public void Uq() {
+        if (this.bto != null) {
+            this.bto.cancel();
         }
+    }
+
+    @Override // com.baidu.adp.base.f
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.f
+    public boolean cancelLoadData() {
+        return false;
     }
 }

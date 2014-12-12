@@ -4,11 +4,11 @@ import com.baidu.adp.framework.MessageManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements Runnable {
-    final /* synthetic */ a Yw;
+    final /* synthetic */ a afh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.Yw = aVar;
+        this.afh = aVar;
     }
 
     @Override // java.lang.Runnable

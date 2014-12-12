@@ -9,8 +9,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.util.ac;
-import com.baidu.tieba.aj;
+import com.baidu.tbadk.core.util.ad;
+import com.baidu.tieba.al;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -18,11 +18,11 @@ import java.util.HashMap;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class TiebaSDK implements Serializable {
-    private static HashMap<String, Field[]> bPA = new HashMap<>();
+    private static HashMap<String, Field[]> ccA = new HashMap<>();
     private static final long serialVersionUID = -3424378401905406520L;
 
     public static void init(Application application) {
-        aj.wm().init(application);
+        al.Ar().init(application);
     }
 
     public static void openBar(Context context, String str) {
@@ -31,17 +31,17 @@ public class TiebaSDK implements Serializable {
 
     public static String getBarData(String str) {
         BasicNameValuePair basicNameValuePair;
-        ac acVar;
+        ad adVar;
         if (str == null || str.trim().length() == 0) {
             return "";
         }
         StringBuffer stringBuffer = new StringBuffer(30);
         stringBuffer.append(TbConfig.SERVER_ADDRESS);
-        stringBuffer.append("c/f/frs/page");
+        stringBuffer.append(TbConfig.FRS_ADDRESS);
         ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
         arrayList.add(new BasicNameValuePair("kw", str));
         arrayList.add(new BasicNameValuePair("pn", String.valueOf(1)));
-        if (aj.wm().jw()) {
+        if (al.Ar().mg()) {
             basicNameValuePair = new BasicNameValuePair("rn", String.valueOf(35));
         } else {
             basicNameValuePair = new BasicNameValuePair("rn", String.valueOf(50));
@@ -49,16 +49,16 @@ public class TiebaSDK implements Serializable {
         arrayList.add(basicNameValuePair);
         arrayList.add(new BasicNameValuePair("st_type", FrsActivityConfig.FRS_FROM_LIKE));
         try {
-            acVar = new ac(stringBuffer.toString());
-            acVar.h(arrayList);
+            adVar = new ad(stringBuffer.toString());
+            adVar.q(arrayList);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        return !acVar.mc().nb().jq() ? "" : acVar.lA();
+        return !adVar.oW().pW().ma() ? "" : adVar.ov();
     }
 
     public static void setFrom(String str) {
-        TbadkApplication.m251getInst().setFrom(str);
+        TbadkApplication.getInst().setFrom(str);
     }
 
     public static int getResIdByName(Context context, String str) {
@@ -136,10 +136,10 @@ public class TiebaSDK implements Serializable {
     public static int[] getStyleableIDByName(Context context, String str) {
         try {
             String packageName = context.getPackageName();
-            Field[] fieldArr = bPA.get(packageName);
+            Field[] fieldArr = ccA.get(packageName);
             if (fieldArr == null) {
                 fieldArr = Class.forName(String.valueOf(packageName) + ".R$styleable").getFields();
-                bPA.put(packageName, fieldArr);
+                ccA.put(packageName, fieldArr);
             }
             Field[] fieldArr2 = fieldArr;
             for (Field field : fieldArr2) {
@@ -155,10 +155,10 @@ public class TiebaSDK implements Serializable {
     public static int getAttrIDByName(Context context, String str) {
         try {
             String packageName = context.getPackageName();
-            Field[] fieldArr = bPA.get(packageName);
+            Field[] fieldArr = ccA.get(packageName);
             if (fieldArr == null) {
                 fieldArr = Class.forName(String.valueOf(packageName) + ".R$styleable").getFields();
-                bPA.put(packageName, fieldArr);
+                ccA.put(packageName, fieldArr);
             }
             Field[] fieldArr2 = fieldArr;
             for (Field field : fieldArr2) {

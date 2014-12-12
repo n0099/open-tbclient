@@ -4,11 +4,11 @@ import android.app.Activity;
 import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.relogin.ReloginManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ba;
 /* loaded from: classes.dex */
 public class AccountLoginHelper {
     private static AccountLoginHelper mHelper = null;
@@ -32,14 +32,14 @@ public class AccountLoginHelper {
         @Override // com.baidu.tbadk.core.account.g
         public void onFailure(final String str, int i, String str2) {
             if (i == 1) {
-                ReloginManager.lf().d(null);
+                ReloginManager.ob().d(null);
             }
             BdAsyncTask<Void, Void, AccountData> bdAsyncTask = new BdAsyncTask<Void, Void, AccountData>() { // from class: com.baidu.tbadk.core.account.AccountLoginHelper.1.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public AccountData doInBackground(Void... voidArr) {
-                    return a.aX(str);
+                    return a.bO(str);
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -47,7 +47,7 @@ public class AccountLoginHelper {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(AccountData accountData) {
                     super.onPostExecute((C00221) accountData);
-                    if (accountData != null && !az.aA(accountData.getPassword())) {
+                    if (accountData != null && !ba.isEmpty(accountData.getPassword())) {
                         c.a(accountData.getAccount(), accountData.getPassword(), AccountLoginHelper.this.mLoginCallBackForCacheAccount);
                     }
                 }
@@ -67,8 +67,8 @@ public class AccountLoginHelper {
                     if (accountData != null) {
                         a.a(accountData);
                         a.b(accountData);
-                        TbadkApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
-                        TbadkApplication.setCurrentAccount(accountData, AccountLoginHelper.this.mActivity);
+                        TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
+                        TbadkCoreApplication.setCurrentAccount(accountData, AccountLoginHelper.this.mActivity);
                     }
                     return null;
                 }
@@ -81,7 +81,7 @@ public class AccountLoginHelper {
         @Override // com.baidu.tbadk.core.account.d
         public void onFailure(String str) {
             if (!TextUtils.isEmpty(str)) {
-                a.aW(str);
+                a.bN(str);
             }
         }
     };
@@ -154,9 +154,9 @@ public class AccountLoginHelper {
 
     public void reLoginByCacheAccount(Activity activity) {
         OurToken parseBDUSS;
-        if (com.baidu.adp.lib.util.j.fh()) {
+        if (com.baidu.adp.lib.util.i.fg()) {
             this.mActivity = activity;
-            AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
+            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null && (parseBDUSS = parseBDUSS(currentAccountObj.getBDUSS())) != null) {
                 f.a(currentAccountObj.getAccount(), parseBDUSS.mBduss, parseBDUSS.mPtoken, this.mReLoginCallbackForCacheAccount);
             }
@@ -165,7 +165,7 @@ public class AccountLoginHelper {
 
     public void baiduMtjStat(String str) {
         try {
-            TiebaStatic.eventStat(TbadkApplication.m251getInst().getApp(), str, "click", 1, new Object[0]);
+            TiebaStatic.eventStat(TbadkCoreApplication.m255getInst().getApp(), str, "click", 1, new Object[0]);
         } catch (Exception e) {
             e.printStackTrace();
         }

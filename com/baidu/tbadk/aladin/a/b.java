@@ -7,11 +7,11 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
+    private String Ax;
     private int errorCode = 0;
     private Intent intent;
     private String response;
     private String url;
-    private String xl;
 
     public b(a aVar) {
         if (aVar != null) {
@@ -19,21 +19,21 @@ public class b {
         }
     }
 
-    public boolean iK() {
-        HashMap<String, String> f;
-        if (this.url == null || (f = f(this.url.split("&"))) == null) {
+    public boolean kW() {
+        HashMap<String, String> i;
+        if (this.url == null || (i = i(this.url.split("&"))) == null) {
             return false;
         }
-        for (Map.Entry<String, String> entry : f.entrySet()) {
+        for (Map.Entry<String, String> entry : i.entrySet()) {
             if (entry != null) {
                 String key = entry.getKey();
                 String value = entry.getValue();
                 if (key != null && value != null) {
                     if ("intent".equals(key)) {
-                        aO(value);
+                        bB(value);
                     } else if (!"t".equals(key) && "callback".equals(key)) {
-                        this.xl = value;
-                        iL();
+                        this.Ax = value;
+                        kX();
                     }
                 }
             }
@@ -41,7 +41,7 @@ public class b {
         return (this.intent == null || this.response == null) ? false : true;
     }
 
-    private void aO(String str) {
+    private void bB(String str) {
         String[] split;
         boolean z;
         boolean z2;
@@ -110,13 +110,13 @@ public class b {
         }
     }
 
-    private void iL() {
-        if (this.xl != null) {
-            this.response = String.valueOf(this.xl) + "({\"error\":" + this.errorCode + "})";
+    private void kX() {
+        if (this.Ax != null) {
+            this.response = String.valueOf(this.Ax) + "({\"error\":" + this.errorCode + "})";
         }
     }
 
-    private HashMap<String, String> f(String[] strArr) {
+    private HashMap<String, String> i(String[] strArr) {
         if (strArr != null && strArr.length > 0) {
             HashMap<String, String> hashMap = new HashMap<>(strArr.length);
             for (String str : strArr) {
@@ -143,13 +143,13 @@ public class b {
 
     public String getResponse() {
         if (this.response == null) {
-            iL();
+            kX();
         }
         return this.response;
     }
 
     public void setErrorCode(int i) {
         this.errorCode = i;
-        iL();
+        kX();
     }
 }

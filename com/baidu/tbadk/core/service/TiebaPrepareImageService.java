@@ -1,14 +1,14 @@
 package com.baidu.tbadk.core.service;
 
-import android.app.Service;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.IBinder;
+import com.baidu.adp.base.BdBaseService;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class TiebaPrepareImageService extends Service {
+public class TiebaPrepareImageService extends BdBaseService {
     private static final String DISPLAY_SIZE = "display_size";
     public static final String FILE_NAME = "file_name";
     public static volatile boolean IS_DECODING = false;
@@ -24,22 +24,22 @@ public class TiebaPrepareImageService extends Service {
     private final Runnable mStartRun = new a(this);
 
     public static void StartService(int i, Uri uri, int i2, int i3, String str) {
-        Intent intent = new Intent(TbadkApplication.m251getInst().getApp(), TiebaPrepareImageService.class);
+        Intent intent = new Intent(TbadkCoreApplication.m255getInst().getApp(), TiebaPrepareImageService.class);
         intent.putExtra("request_code", i);
         intent.putExtra(MAX_SIZE, i2);
         intent.putExtra("display_size", i3);
         intent.putExtra("file_name", str);
         intent.setData(uri);
-        TbadkApplication.m251getInst().getApp().startService(intent);
+        TbadkCoreApplication.m255getInst().getApp().startService(intent);
     }
 
     public static void StartService(int i, Uri uri, int i2, int i3) {
-        Intent intent = new Intent(TbadkApplication.m251getInst().getApp(), TiebaPrepareImageService.class);
+        Intent intent = new Intent(TbadkCoreApplication.m255getInst().getApp(), TiebaPrepareImageService.class);
         intent.putExtra("request_code", i);
         intent.putExtra(MAX_SIZE, i2);
         intent.putExtra("display_size", i3);
         intent.setData(uri);
-        TbadkApplication.m251getInst().getApp().startService(intent);
+        TbadkCoreApplication.m255getInst().getApp().startService(intent);
     }
 
     public static void StartService(int i, Uri uri, int i2) {
@@ -47,7 +47,7 @@ public class TiebaPrepareImageService extends Service {
     }
 
     public static void StopService() {
-        TbadkApplication.m251getInst().getApp().stopService(new Intent(TbadkApplication.m251getInst().getApp(), TiebaPrepareImageService.class));
+        TbadkCoreApplication.m255getInst().getApp().stopService(new Intent(TbadkCoreApplication.m255getInst().getApp(), TiebaPrepareImageService.class));
     }
 
     @Override // android.app.Service
@@ -87,7 +87,7 @@ public class TiebaPrepareImageService extends Service {
         this.mRequestCode = intent.getIntExtra("request_code", 0);
         this.mMaxSize = intent.getIntExtra(MAX_SIZE, TbConfig.POST_IMAGE_MIDDLE);
         this.mDisplaySize = intent.getIntExtra("display_size", 0);
-        TbadkApplication.m251getInst().addRemoteActivity(null);
+        TbadkCoreApplication.m255getInst().addRemoteActivity(null);
         if (!IS_DECODING) {
             this.mTask = new b(this, this.mRequestCode, this.mUri, this.mFileName);
             this.mTask.execute(new Object[0]);

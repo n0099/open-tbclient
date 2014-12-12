@@ -9,29 +9,29 @@ import android.widget.TextView;
 import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
 public interface j {
-    void b(Context context, String str, String str2);
+    com.baidu.adp.lib.e.b<GifView> getGifViewPool();
+
+    com.baidu.adp.lib.e.b<ImageView> getImageViewPool();
 
     ListView getListView();
 
-    void s(Context context, String str);
+    int getRichTextViewId();
 
-    void t(Context context, String str);
+    com.baidu.adp.lib.e.b<TextView> getTextViewPool();
 
-    void u(Context context, String str);
+    com.baidu.adp.lib.e.b<LinearLayout> getTextVoiceViewPool();
 
-    void v(Context context, String str);
+    com.baidu.adp.lib.e.b<View> getVoiceViewPool();
 
-    int vP();
+    void onAtClicked(Context context, String str);
 
-    com.baidu.adp.lib.e.b<ImageView> vQ();
+    void onLinkClicked(Context context, String str);
 
-    com.baidu.adp.lib.e.b<TextView> vR();
+    void onPhoneClicked(Context context, String str, String str2);
 
-    com.baidu.adp.lib.e.b<GifView> vS();
+    void onSongClicked(Context context, String str);
 
-    com.baidu.adp.lib.e.b<View> vT();
+    void onVideoClicked(Context context, String str);
 
-    com.baidu.adp.lib.e.b<LinearLayout> vU();
-
-    void w(Context context, String str);
+    void onVideoP2PClicked(Context context, String str);
 }

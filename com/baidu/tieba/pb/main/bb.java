@@ -1,31 +1,41 @@
 package com.baidu.tieba.pb.main;
 
-import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class bb implements Runnable {
-    final /* synthetic */ ba bvE;
-    private final /* synthetic */ com.baidu.tieba.data.ar bvF;
-    private final /* synthetic */ View bvG;
+class bb implements com.baidu.tieba.tbadkCore.aq {
+    final /* synthetic */ PbActivity bzj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(ba baVar, com.baidu.tieba.data.ar arVar, View view) {
-        this.bvE = baVar;
-        this.bvF = arVar;
-        this.bvG = view;
+    public bb(PbActivity pbActivity) {
+        this.bzj = pbActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        PbActivity pbActivity;
-        bv bvVar;
-        PbActivity pbActivity2;
-        bn bnVar;
-        pbActivity = this.bvE.bvu;
-        bvVar = pbActivity.buZ;
-        com.baidu.tieba.data.ar arVar = this.bvF;
-        View view = this.bvG;
-        pbActivity2 = this.bvE.bvu;
-        bnVar = pbActivity2.buU;
-        bvVar.a(false, arVar, true, null, null, view, bnVar.getPbData().zS());
+    @Override // com.baidu.tieba.tbadkCore.aq
+    public void fv(String str) {
+        com.baidu.tieba.tbadkCore.ao aoVar;
+        bq bqVar;
+        this.bzj.aAE = false;
+        aoVar = this.bzj.aAT;
+        if (aoVar != null) {
+            bqVar = this.bzj.byJ;
+            com.baidu.tieba.tbadkCore.b.i pbData = bqVar.getPbData();
+            if (pbData.agE().getPraise().getIsLike() == 1) {
+                this.bzj.eB(0);
+            } else {
+                this.bzj.eB(1);
+            }
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2004004, pbData.agE()));
+        }
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.aq
+    public void fw(String str) {
+        com.baidu.tieba.tbadkCore.ao aoVar;
+        this.bzj.aAE = false;
+        aoVar = this.bzj.aAT;
+        if (aoVar != null && str != null) {
+            this.bzj.showToast(str);
+        }
     }
 }

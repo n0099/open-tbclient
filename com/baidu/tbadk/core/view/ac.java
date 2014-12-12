@@ -1,49 +1,26 @@
 package com.baidu.tbadk.core.view;
 
-import android.content.Context;
-import com.baidu.tbadk.widget.TbImageView;
+import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements com.baidu.adp.lib.e.c<TbImageView> {
-    private final /* synthetic */ Context val$context;
+public class ac implements Animation.AnimationListener {
+    final /* synthetic */ NoNetworkView Nl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(Context context) {
-        this.val$context = context;
+    public ac(NoNetworkView noNetworkView) {
+        this.Nl = noNetworkView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: nB */
-    public TbImageView ee() {
-        return new TbImageView(this.val$context);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: a */
-    public void i(TbImageView tbImageView) {
-        tbImageView.setBackgroundResource(0);
-        tbImageView.setImageDrawable(null);
-        tbImageView.setTag(null);
-        tbImageView.setOnClickListener(null);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: b */
-    public TbImageView j(TbImageView tbImageView) {
-        return tbImageView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: c */
-    public TbImageView k(TbImageView tbImageView) {
-        tbImageView.setBackgroundResource(0);
-        tbImageView.setImageDrawable(null);
-        tbImageView.setTag(null);
-        tbImageView.setOnClickListener(null);
-        return tbImageView;
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        this.Nl.setVisibility(8);
     }
 }

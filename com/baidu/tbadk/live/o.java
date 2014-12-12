@@ -3,10 +3,10 @@ package com.baidu.tbadk.live;
 import android.telephony.PhoneStateListener;
 /* loaded from: classes.dex */
 class o extends PhoneStateListener {
-    final /* synthetic */ LiveGroupManager Vy;
+    final /* synthetic */ LiveGroupManager abA;
 
     private o(LiveGroupManager liveGroupManager) {
-        this.Vy = liveGroupManager;
+        this.abA = liveGroupManager;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,11 +18,11 @@ class o extends PhoneStateListener {
     public void onCallStateChanged(int i, String str) {
         switch (i) {
             case 0:
-                this.Vy.onEndCall();
+                this.abA.onEndCall();
                 break;
             case 1:
             case 2:
-                this.Vy.onIncomingOrPlacingCall();
+                this.abA.onIncomingOrPlacingCall();
                 break;
         }
         super.onCallStateChanged(i, str);

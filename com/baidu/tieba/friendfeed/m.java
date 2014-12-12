@@ -4,14 +4,14 @@ import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tieba.data.FriendFeedThreadData;
-import com.baidu.tieba.frs.df;
+import com.baidu.tieba.tbadkCore.ao;
 /* loaded from: classes.dex */
 class m implements v {
-    final /* synthetic */ FriendFeedActivity ayU;
+    final /* synthetic */ FriendFeedActivity aAU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(FriendFeedActivity friendFeedActivity) {
-        this.ayU = friendFeedActivity;
+        this.aAU = friendFeedActivity;
     }
 
     @Override // com.baidu.tieba.friendfeed.v
@@ -20,22 +20,22 @@ class m implements v {
         y yVar2;
         y yVar3;
         boolean z;
-        df dfVar;
-        yVar = this.ayU.ayz;
-        if (i != yVar.ES().EO() || view2 == null || view == null) {
-            yVar2 = this.ayU.ayz;
-            if (i != yVar2.ES().EN()) {
-                yVar3 = this.ayU.ayz;
-                yVar3.ES().EP();
+        ao aoVar;
+        yVar = this.aAU.aAB;
+        if (i != yVar.Fk().Ff() || view2 == null || view == null) {
+            yVar2 = this.aAU.aAB;
+            if (i != yVar2.Fk().Fe()) {
+                yVar3 = this.aAU.aAB;
+                yVar3.Fk().Fg();
                 return;
             }
-            this.ayU.ayD = friendFeedThreadData;
-            z = this.ayU.ayC;
+            this.aAU.aAF = friendFeedThreadData;
+            z = this.aAU.aAE;
             if (!z) {
-                this.ayU.ayC = true;
+                this.aAU.aAE = true;
                 int isLike = friendFeedThreadData.getPraise() == null ? 0 : friendFeedThreadData.getPraise().getIsLike();
-                dfVar = this.ayU.ayR;
-                dfVar.a(friendFeedThreadData.getFirst_post_id(), friendFeedThreadData.getTid(), isLike, "friendfeed");
+                aoVar = this.aAU.aAT;
+                aoVar.a(friendFeedThreadData.getFirst_post_id(), friendFeedThreadData.getTid(), isLike, "friendfeed");
                 return;
             }
             return;
@@ -43,6 +43,6 @@ class m implements v {
         Rect rect = new Rect();
         view.getDrawingRect(rect);
         ((ViewGroup) view2).offsetDescendantRectToMyCoords(view, rect);
-        this.ayU.a(i2, friendFeedThreadData, rect.bottom);
+        this.aAU.a(i2, friendFeedThreadData, rect.bottom);
     }
 }

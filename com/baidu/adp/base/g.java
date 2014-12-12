@@ -1,22 +1,59 @@
 package com.baidu.adp.base;
 
-import android.app.Activity;
+import android.os.Handler;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
-class g implements Runnable {
-    final /* synthetic */ f az;
-    private View mView;
+public class g<T> {
+    protected j<T> mContext;
+    private InputMethodManager mInputManager = null;
 
-    public g(f fVar, View view) {
-        this.az = fVar;
-        this.mView = null;
-        this.mView = view;
+    public g(j<T> jVar) {
+        this.mContext = null;
+        this.mContext = jVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        if (this.az.mContext != null && (this.az.mContext instanceof Activity) && !((Activity) this.az.mContext).isFinishing()) {
-            this.az.ShowSoftKeyPad(this.mView);
+    public j<T> getPageContext() {
+        return this.mContext;
+    }
+
+    public void destroy() {
+    }
+
+    public void setInputMethodManager(InputMethodManager inputMethodManager) {
+        this.mInputManager = inputMethodManager;
+    }
+
+    public InputMethodManager getInputMethodManager() {
+        if (this.mInputManager == null) {
+            this.mInputManager = (InputMethodManager) this.mContext.getContext().getSystemService("input_method");
         }
+        return this.mInputManager;
+    }
+
+    public void HidenSoftKeyPad(View view) {
+        try {
+            if (this.mInputManager == null) {
+                getInputMethodManager();
+            }
+            if (this.mInputManager != null && view != null) {
+                this.mInputManager.hideSoftInputFromWindow(view.getWindowToken(), 2);
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public void ShowSoftKeyPad(View view) {
+        try {
+            getInputMethodManager().showSoftInput(view, 0);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public void ShowSoftKeyPadDelay(View view, int i) {
+        new Handler().postDelayed(new h(this, view), i);
     }
 }

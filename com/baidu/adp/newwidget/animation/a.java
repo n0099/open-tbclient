@@ -5,10 +5,10 @@ import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements Animation.AnimationListener {
-    private ImageView rK;
+    private ImageView mImageView;
 
     public a(CircleRippleView circleRippleView, ImageView imageView) {
-        this.rK = imageView;
+        this.mImageView = imageView;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -17,7 +17,7 @@ public class a implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        this.rK.setVisibility(8);
+        this.mImageView.setVisibility(8);
     }
 
     @Override // android.view.animation.Animation.AnimationListener

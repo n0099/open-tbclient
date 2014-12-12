@@ -1,19 +1,21 @@
 package com.baidu.tieba.write;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.img.WriteImagesInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq implements DialogInterface.OnClickListener {
-    final /* synthetic */ WriteActivity bUm;
+    final /* synthetic */ WriteActivity cft;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(WriteActivity writeActivity) {
-        this.bUm = writeActivity;
+        this.cft = writeActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -25,25 +27,25 @@ public class aq implements DialogInterface.OnClickListener {
         WriteImagesInfo writeImagesInfo5;
         String str;
         if (i == 0) {
-            writeImagesInfo4 = this.bUm.writeImagesInfo;
+            writeImagesInfo4 = this.cft.writeImagesInfo;
             int size = writeImagesInfo4.size();
-            writeImagesInfo5 = this.bUm.writeImagesInfo;
+            writeImagesInfo5 = this.cft.writeImagesInfo;
             if (size < writeImagesInfo5.getMaxImagesAllowed()) {
-                this.bUm.ayG = String.valueOf(System.currentTimeMillis());
-                WriteActivity writeActivity = this.bUm;
-                str = this.bUm.ayG;
-                com.baidu.tbadk.core.util.av.a(writeActivity, str);
+                this.cft.aAI = String.valueOf(System.currentTimeMillis());
+                TbPageContext pageContext = this.cft.getPageContext();
+                str = this.cft.aAI;
+                com.baidu.tbadk.core.util.aw.a(pageContext, str);
                 return;
             }
-            this.bUm.showToast(String.format(this.bUm.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
+            this.cft.showToast(String.format(this.cft.getPageContext().getString(com.baidu.tieba.z.editor_mutiiamge_max), 10));
         } else if (i == 1) {
-            writeImagesInfo = this.bUm.writeImagesInfo;
+            writeImagesInfo = this.cft.writeImagesInfo;
             if (writeImagesInfo != null) {
-                writeImagesInfo2 = this.bUm.writeImagesInfo;
+                writeImagesInfo2 = this.cft.writeImagesInfo;
                 if (!TextUtils.isEmpty(writeImagesInfo2.toJsonString())) {
-                    WriteActivity writeActivity2 = this.bUm;
-                    writeImagesInfo3 = this.bUm.writeImagesInfo;
-                    AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(writeActivity2, writeImagesInfo3.toJsonString());
+                    Activity pageActivity = this.cft.getPageContext().getPageActivity();
+                    writeImagesInfo3 = this.cft.writeImagesInfo;
+                    AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(pageActivity, writeImagesInfo3.toJsonString());
                     albumActivityConfig.setRequestCode(12002);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
                 }

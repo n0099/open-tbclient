@@ -10,7 +10,9 @@ import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.PraiseData;
 import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.a;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tieba.v;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,9 +22,9 @@ import tbclient.FriendFeedPage.FriendThreadInfo;
 import tbclient.Media;
 import tbclient.Voice;
 /* loaded from: classes.dex */
-public class FriendFeedThreadData extends com.baidu.tbadk.core.util.a implements Serializable {
+public class FriendFeedThreadData extends a implements Serializable {
     private static final long serialVersionUID = -8881889728582490817L;
-    private transient SpannableString Aw;
+    private transient SpannableString EI;
     private String abstract_text;
     private String authorId;
     private String fid;
@@ -53,7 +55,7 @@ public class FriendFeedThreadData extends com.baidu.tbadk.core.util.a implements
     }
 
     public SpannableString getSpan_str() {
-        return this.Aw;
+        return this.EI;
     }
 
     public String getFname() {
@@ -223,7 +225,7 @@ public class FriendFeedThreadData extends com.baidu.tbadk.core.util.a implements
                 this.praise.setUserMap(this.userMap);
                 this.praise.parserProtobuf(friendThreadInfo.zan);
                 this.anchorInfoData.parserProtobuf(friendThreadInfo.anchor_info);
-                if (!com.baidu.adp.lib.util.l.aA(this.title)) {
+                if (!com.baidu.adp.lib.util.k.isEmpty(this.title)) {
                     this.praise.setTitle(this.title);
                 } else {
                     this.praise.setTitle(this.abstract_text);
@@ -239,16 +241,16 @@ public class FriendFeedThreadData extends com.baidu.tbadk.core.util.a implements
         if (this.title != null) {
             ArrayList arrayList = new ArrayList();
             if (this.is_livepost == 1) {
-                arrayList.add(Integer.valueOf(com.baidu.tieba.u.icon_live));
+                arrayList.add(Integer.valueOf(v.icon_live));
             }
             if (getIs_good() == 1) {
-                arrayList.add(Integer.valueOf(com.baidu.tieba.u.icon_elite));
+                arrayList.add(Integer.valueOf(v.icon_elite));
             }
             if (this.is_voice_thread == 1) {
-                arrayList.add(Integer.valueOf(com.baidu.tieba.u.icon_voice));
+                arrayList.add(Integer.valueOf(v.icon_voice));
             }
             if (this.anchorInfoData != null && this.anchorInfoData.getGroup_id() != 0) {
-                arrayList.add(Integer.valueOf(com.baidu.tieba.u.icon_live_on));
+                arrayList.add(Integer.valueOf(v.icon_live_on));
             }
             if (arrayList.size() > 0) {
                 StringBuilder sb = new StringBuilder();
@@ -258,9 +260,9 @@ public class FriendFeedThreadData extends com.baidu.tbadk.core.util.a implements
                 SpannableString spannableString2 = new SpannableString(String.valueOf(sb.toString()) + this.title);
                 int i2 = 0;
                 for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                    Bitmap bA = aw.bA(((Integer) arrayList.get(i3)).intValue());
-                    BitmapDrawable bitmapDrawable = new BitmapDrawable(bA);
-                    bitmapDrawable.setBounds(0, 0, bA.getWidth(), bA.getHeight());
+                    Bitmap bX = ax.bX(((Integer) arrayList.get(i3)).intValue());
+                    BitmapDrawable bitmapDrawable = new BitmapDrawable(bX);
+                    bitmapDrawable.setBounds(0, 0, bX.getWidth(), bX.getHeight());
                     spannableString2.setSpan(new ImageSpan(bitmapDrawable, 1), i2, i2 + 1, 33);
                     i2 += 2;
                 }
@@ -268,7 +270,7 @@ public class FriendFeedThreadData extends com.baidu.tbadk.core.util.a implements
             } else {
                 spannableString = new SpannableString(this.title);
             }
-            this.Aw = spannableString;
+            this.EI = spannableString;
         }
     }
 

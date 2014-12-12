@@ -1,25 +1,33 @@
 package com.baidu.tieba.frs.view;
 
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.PopupWindow;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class m implements View.OnTouchListener {
-    final /* synthetic */ FrsHeaderView aGd;
-    private final /* synthetic */ PopupWindow aGe;
+public class m implements View.OnClickListener {
+    final /* synthetic */ FrsHeaderView aHJ;
+    private final /* synthetic */ PopupWindow aHK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(FrsHeaderView frsHeaderView, PopupWindow popupWindow) {
-        this.aGd = frsHeaderView;
-        this.aGe = popupWindow;
+        this.aHJ = frsHeaderView;
+        this.aHK = popupWindow;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 4) {
-            com.baidu.adp.lib.g.j.a(this.aGe);
-            return false;
-        }
-        return false;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TbPageContext tbPageContext;
+        TbPageContext tbPageContext2;
+        this.aHK.dismiss();
+        tbPageContext = this.aHJ.mContext;
+        String string = tbPageContext.getResources().getString(com.baidu.tieba.z.experion_speed);
+        MessageManager messageManager = MessageManager.getInstance();
+        tbPageContext2 = this.aHJ.mContext;
+        messageManager.sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(tbPageContext2.getPageActivity(), string, String.valueOf(com.baidu.tbadk.data.b.SERVER_ADDRESS_WEB_VIEW) + "mo/q/tbeanrights?type=7&_client_version=" + TbConfig.getVersion() + "&nohead=1", true, true, false, true, true)));
     }
 }

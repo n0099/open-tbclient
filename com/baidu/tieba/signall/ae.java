@@ -1,9 +1,20 @@
 package com.baidu.tieba.signall;
 
-import com.baidu.tbadk.core.data.SignData;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface ae {
-    void aC(String str, String str2);
+public class ae implements View.OnClickListener {
+    final /* synthetic */ ad bQt;
 
-    void d(SignData signData);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ae(ad adVar) {
+        this.bQt = adVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        SignAllForumActivity signAllForumActivity;
+        signAllForumActivity = this.bQt.bQj;
+        signAllForumActivity.finish();
+    }
 }

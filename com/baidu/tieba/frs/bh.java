@@ -1,19 +1,16 @@
 package com.baidu.tieba.frs;
 
-import android.view.animation.Animation;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-class bh extends com.baidu.adp.lib.g.e {
-    final /* synthetic */ bf aBR;
-    private final /* synthetic */ com.baidu.adp.lib.guide.d aBT;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bh(bf bfVar, com.baidu.adp.lib.guide.d dVar) {
-        this.aBR = bfVar;
-        this.aBT = dVar;
-    }
-
-    @Override // com.baidu.adp.lib.g.e
-    public void b(Animation animation) {
-        this.aBT.dismiss();
-    }
+public class bh {
+    LinearLayout aDA;
+    HeadImageView aDB;
+    TextView aDC;
+    TextView aDD;
+    TextView aDE;
+    TbImageView aDF;
+    TextView aDG;
 }

@@ -7,45 +7,45 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class BaseViewPager extends ViewPager implements GestureDetector.OnGestureListener {
-    private GestureDetector GX;
-    private a GY;
-    private a GZ;
+    private a Lh;
+    private a Li;
+    private GestureDetector mGestureDetector;
 
     public BaseViewPager(Context context) {
         super(context);
-        this.GX = null;
-        this.GY = null;
-        this.GZ = null;
+        this.mGestureDetector = null;
+        this.Lh = null;
+        this.Li = null;
         init();
     }
 
     public BaseViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.GX = null;
-        this.GY = null;
-        this.GZ = null;
+        this.mGestureDetector = null;
+        this.Lh = null;
+        this.Li = null;
         init();
     }
 
     public void setOnFlipOutListener(a aVar) {
-        this.GY = aVar;
+        this.Lh = aVar;
     }
 
     public void setOnScrollOutListener(a aVar) {
-        this.GZ = aVar;
+        this.Li = aVar;
     }
 
     @Override // android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.GX == null || getAdapter() == null || getAdapter().getCount() == 0 || (getCurrentItem() != 0 && getAdapter().getCount() != getCurrentItem() + 1)) {
+        if (this.mGestureDetector == null || getAdapter() == null || getAdapter().getCount() == 0 || (getCurrentItem() != 0 && getAdapter().getCount() != getCurrentItem() + 1)) {
             return super.onTouchEvent(motionEvent);
         }
-        this.GX.onTouchEvent(motionEvent);
+        this.mGestureDetector.onTouchEvent(motionEvent);
         return super.onTouchEvent(motionEvent);
     }
 
     private void init() {
-        this.GX = new GestureDetector(this);
+        this.mGestureDetector = new GestureDetector(this);
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
@@ -55,12 +55,12 @@ public class BaseViewPager extends ViewPager implements GestureDetector.OnGestur
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        if (this.GY != null) {
+        if (this.Lh != null) {
             if (f < 0.0f && getAdapter().getCount() == getCurrentItem() + 1) {
-                this.GY.bE(0);
+                this.Lh.cb(0);
                 return true;
             } else if (f > 0.0f && getCurrentItem() == 0) {
-                this.GY.bE(1);
+                this.Lh.cb(1);
                 return true;
             }
         }
@@ -73,12 +73,12 @@ public class BaseViewPager extends ViewPager implements GestureDetector.OnGestur
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        if (this.GZ != null) {
+        if (this.Li != null) {
             if (f > 0.0f && getAdapter().getCount() == getCurrentItem() + 1) {
-                this.GZ.bE(0);
+                this.Li.cb(0);
                 return true;
             } else if (f < 0.0f && getCurrentItem() == 0) {
-                this.GZ.bE(1);
+                this.Li.cb(1);
                 return true;
             }
         }

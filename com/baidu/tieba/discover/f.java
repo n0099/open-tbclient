@@ -1,66 +1,34 @@
 package com.baidu.tieba.discover;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
-import com.baidu.tbadk.coreExtra.view.BannerView;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements n {
-    final /* synthetic */ a anL;
+public class f extends CustomMessageListener {
+    final /* synthetic */ a asV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(a aVar) {
-        this.anL = aVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f(a aVar, int i) {
+        super(i);
+        this.asV = aVar;
     }
 
-    @Override // com.baidu.tieba.discover.n
-    public void a(p pVar) {
-        BdPullRefreshScrollView bdPullRefreshScrollView;
-        BannerView bannerView;
-        boolean z;
-        long j;
-        boolean q;
-        boolean z2;
-        BannerView bannerView2;
-        BannerView bannerView3;
-        bdPullRefreshScrollView = this.anL.anv;
-        bdPullRefreshScrollView.ig();
-        this.anL.anw = true;
-        bannerView = this.anL.anm;
-        bannerView.reset();
-        if (pVar.aoe != null && !TextUtils.isEmpty(pVar.aoe.aod)) {
-            bannerView2 = this.anL.anm;
-            bannerView2.R("discover_tab_banner_click", "discover_tab_banner_close");
-            bannerView3 = this.anL.anm;
-            bannerView3.S(pVar.aoe.aod, pVar.aoe.abu);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2009503) {
+            return;
         }
-        this.anL.anx = pVar.anx;
-        if (pVar.aof != null) {
-            this.anL.anz = pVar.aof.aog;
-            this.anL.any = pVar.aof.any;
-            a aVar = this.anL;
-            a aVar2 = this.anL;
-            j = this.anL.any;
-            q = aVar2.q(j);
-            aVar.anA = q;
-            z2 = this.anL.anA;
-            if (z2) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001236, true));
+        this.asV.bp(false);
+        if (customResponsedMessage.getData() instanceof Integer) {
+            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
+            if (intValue == 2902001) {
+                TiebaStatic.eventStat(this.asV.getPageContext().getPageActivity(), "plugin_discover_neighbors", null);
+            } else if (intValue == 2902040) {
+                TiebaStatic.eventStat(this.asV.getPageContext().getPageActivity(), "plugin_discover_randchat", null);
             }
         }
-        this.anL.anB = pVar.anB;
-        a aVar3 = this.anL;
-        z = this.anL.anA;
-        aVar3.bv(z);
-    }
-
-    @Override // com.baidu.tieba.discover.n
-    public void b(p pVar) {
-        BdPullRefreshScrollView bdPullRefreshScrollView;
-        bdPullRefreshScrollView = this.anL.anv;
-        bdPullRefreshScrollView.ig();
-        this.anL.anw = false;
     }
 }

@@ -5,68 +5,68 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.gif.GiftGifView;
-import com.baidu.tieba.y;
+import com.baidu.tieba.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements com.baidu.tbadk.gif.g {
-    final /* synthetic */ i aaP;
+public class j implements com.baidu.tbadk.gif.h {
+    final /* synthetic */ i aiB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar) {
-        this.aaP = iVar;
+        this.aiB = iVar;
     }
 
-    @Override // com.baidu.tbadk.gif.g
+    @Override // com.baidu.tbadk.gif.h
     public void onStop() {
         GiftGifView giftGifView;
         LinearLayout linearLayout;
         Dialog dialog;
         Activity activity;
-        giftGifView = this.aaP.aaO;
+        giftGifView = this.aiB.aiA;
         giftGifView.setIsHide(true);
-        linearLayout = this.aaP.aaN;
+        linearLayout = this.aiB.aiz;
         linearLayout.setVisibility(8);
-        dialog = this.aaP.aaM;
-        activity = this.aaP.mActivity;
-        com.baidu.adp.lib.g.j.b(dialog, activity);
+        dialog = this.aiB.aiy;
+        activity = this.aiB.mActivity;
+        com.baidu.adp.lib.g.k.b(dialog, activity);
     }
 
-    @Override // com.baidu.tbadk.gif.g
+    @Override // com.baidu.tbadk.gif.h
     public void onStart() {
         ProgressDialog progressDialog;
         Dialog dialog;
         Activity activity;
         GiftGifView giftGifView;
         LinearLayout linearLayout;
-        progressDialog = this.aaP.mWaitingDialog;
-        com.baidu.adp.lib.util.m.a(progressDialog);
-        dialog = this.aaP.aaM;
-        activity = this.aaP.mActivity;
-        com.baidu.adp.lib.g.j.a(dialog, activity);
-        giftGifView = this.aaP.aaO;
+        progressDialog = this.aiB.mWaitingDialog;
+        com.baidu.adp.lib.util.l.a(progressDialog);
+        dialog = this.aiB.aiy;
+        activity = this.aiB.mActivity;
+        com.baidu.adp.lib.g.k.a(dialog, activity);
+        giftGifView = this.aiB.aiA;
         giftGifView.setVisibility(0);
-        linearLayout = this.aaP.aaN;
+        linearLayout = this.aiB.aiz;
         linearLayout.setVisibility(0);
     }
 
-    @Override // com.baidu.tbadk.gif.g
+    @Override // com.baidu.tbadk.gif.h
     public void onFail() {
         ProgressDialog progressDialog;
         Dialog dialog;
         Activity activity;
         Activity activity2;
         Activity activity3;
-        progressDialog = this.aaP.mWaitingDialog;
-        com.baidu.adp.lib.util.m.a(progressDialog);
-        dialog = this.aaP.aaM;
-        activity = this.aaP.mActivity;
-        com.baidu.adp.lib.g.j.b(dialog, activity);
-        if (com.baidu.adp.lib.util.m.isNetOk()) {
-            activity3 = this.aaP.mActivity;
-            com.baidu.adp.lib.util.m.showToast(activity3, y.gif_play_failed_tip);
+        progressDialog = this.aiB.mWaitingDialog;
+        com.baidu.adp.lib.util.l.a(progressDialog);
+        dialog = this.aiB.aiy;
+        activity = this.aiB.mActivity;
+        com.baidu.adp.lib.g.k.b(dialog, activity);
+        if (com.baidu.adp.lib.util.l.isNetOk()) {
+            activity3 = this.aiB.mActivity;
+            com.baidu.adp.lib.util.l.showToast(activity3, z.gif_play_failed_tip);
             return;
         }
-        activity2 = this.aaP.mActivity;
-        com.baidu.adp.lib.util.m.showToast(activity2, y.neterror);
+        activity2 = this.aiB.mActivity;
+        com.baidu.adp.lib.util.l.showToast(activity2, z.neterror);
     }
 }

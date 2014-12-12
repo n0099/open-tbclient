@@ -25,40 +25,22 @@ public class HttpClient extends a<HttpMessage, HttpMessageTask> {
     }
 
     public LinkedList<HttpMessage> a(BdUniqueId bdUniqueId) {
-        LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(bdUniqueId);
-        LinkedList linkedList = new LinkedList();
-        Iterator<BdAsyncTask<?, ?, ?>> it = searchAllTask.iterator();
-        while (it.hasNext()) {
-            BdAsyncTask<?, ?, ?> next = it.next();
-            if (next instanceof d) {
-                linkedList.add(((d) next).T());
-            }
-        }
-        return a(searchAllTask);
-    }
-
-    public LinkedList<HttpMessage> a(LinkedList<BdAsyncTask<?, ?, ?>> linkedList) {
-        HttpMessage T;
-        LinkedList<HttpMessage> linkedList2 = new LinkedList<>();
-        Iterator<BdAsyncTask<?, ?, ?>> it = linkedList.iterator();
-        while (it.hasNext()) {
-            BdAsyncTask<?, ?, ?> next = it.next();
-            if (next != null && (next instanceof d) && (T = ((d) next).T()) != null) {
-                linkedList2.add(T);
-            }
-        }
-        return linkedList2;
+        return a((String) null, bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.a
     public LinkedList<HttpMessage> findMessage(int i, BdUniqueId bdUniqueId) {
-        LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(bdUniqueId, String.valueOf(i));
+        return a(String.valueOf(i), bdUniqueId);
+    }
+
+    public LinkedList<HttpMessage> a(String str, BdUniqueId bdUniqueId) {
+        LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(bdUniqueId, str);
         LinkedList<HttpMessage> linkedList = new LinkedList<>();
         Iterator<BdAsyncTask<?, ?, ?>> it = searchAllTask.iterator();
         while (it.hasNext()) {
             BdAsyncTask<?, ?, ?> next = it.next();
             if (next instanceof d) {
-                linkedList.add(((d) next).T());
+                linkedList.add(((d) next).at());
             }
         }
         return linkedList;

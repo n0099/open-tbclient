@@ -1,25 +1,18 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aa implements View.OnClickListener {
-    final /* synthetic */ FrsActivity aBu;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(FrsActivity frsActivity) {
-        this.aBu = frsActivity;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        int i;
-        int i2;
-        i = this.aBu.aAz;
-        if (i > 1) {
-            FrsActivity frsActivity = this.aBu;
-            i2 = frsActivity.aAz;
-            frsActivity.aAz = i2 - 1;
-            this.aBu.eF(2);
+public class aa implements CustomMessageTask.CustomRunnable<FrsActivityConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<FrsActivityConfig> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), FrsActivity.class);
+            customMessage.getData().startActivity();
         }
+        return null;
     }
 }

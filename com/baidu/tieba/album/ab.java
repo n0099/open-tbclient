@@ -6,31 +6,31 @@ import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ab extends BaseAdapter implements AbsListView.OnScrollListener {
-    private List<ImageFileInfo> WB;
-    private boolean ahR;
-    private com.baidu.tbadk.img.e ahw;
-    private AlbumActivity ahz;
-    private z aiA;
-    private aa aiB;
-    private p aiz;
+    private com.baidu.tbadk.img.e aoM;
+    private AlbumActivity aoO;
+    private p apM;
+    private z apN;
+    private aa apO;
+    private boolean isScrolling;
+    private List<ImageFileInfo> mList;
     private int mWidth;
 
     public ab(AlbumActivity albumActivity, p pVar) {
-        this.ahz = albumActivity;
-        this.ahw = albumActivity.xK();
-        this.aiz = pVar;
-        this.mWidth = (int) this.ahz.getResources().getDimension(com.baidu.tieba.t.album_gridview_item_height);
+        this.aoO = albumActivity;
+        this.aoM = albumActivity.Bd();
+        this.apM = pVar;
+        this.mWidth = (int) this.aoO.getResources().getDimension(com.baidu.tieba.u.album_gridview_item_height);
     }
 
     public void setData(List<ImageFileInfo> list) {
-        this.WB = list;
+        this.mList = list;
         notifyDataSetChanged();
     }
 
@@ -38,7 +38,7 @@ public class ab extends BaseAdapter implements AbsListView.OnScrollListener {
         if (imageFileInfo == null || imageFileInfo.getFilePath() == null) {
             return -1;
         }
-        if (this.WB == null || this.WB.size() == 0) {
+        if (this.mList == null || this.mList.size() == 0) {
             return -1;
         }
         int i = 0;
@@ -47,7 +47,7 @@ public class ab extends BaseAdapter implements AbsListView.OnScrollListener {
             if (i2 >= getCount()) {
                 return -1;
             }
-            ImageFileInfo imageFileInfo2 = this.WB.get(i2);
+            ImageFileInfo imageFileInfo2 = this.mList.get(i2);
             if (imageFileInfo2 == null || imageFileInfo2.getFilePath() == null || !imageFileInfo2.getFilePath().equals(imageFileInfo.getFilePath())) {
                 i = i2 + 1;
             } else {
@@ -58,20 +58,20 @@ public class ab extends BaseAdapter implements AbsListView.OnScrollListener {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.WB != null) {
-            return this.WB.size();
+        if (this.mList != null) {
+            return this.mList.size();
         }
         return 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: dM */
+    /* renamed from: eg */
     public ImageFileInfo getItem(int i) {
-        if (this.WB == null || i < 0 || i >= this.WB.size()) {
+        if (this.mList == null || i < 0 || i >= this.mList.size()) {
             return null;
         }
-        return this.WB.get(i);
+        return this.mList.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -83,60 +83,60 @@ public class ab extends BaseAdapter implements AbsListView.OnScrollListener {
     public View getView(int i, View view, ViewGroup viewGroup) {
         ag agVar;
         if (view == null) {
-            view = com.baidu.adp.lib.g.b.ek().a(this.ahz, com.baidu.tieba.w.album_image_item_view, viewGroup, false);
+            view = com.baidu.adp.lib.g.b.ek().a(this.aoO.getPageContext().getContext(), com.baidu.tieba.x.album_image_item_view, viewGroup, false);
             agVar = new ag(this, null);
-            agVar.aiI = (HeadImageView) view.findViewById(com.baidu.tieba.v.pic);
-            agVar.aiJ = (ImageView) view.findViewById(com.baidu.tieba.v.select_icon);
-            agVar.aiK = (RelativeLayout) view.findViewById(com.baidu.tieba.v.lay_select);
+            agVar.apV = (HeadImageView) view.findViewById(com.baidu.tieba.w.pic);
+            agVar.apW = (ImageView) view.findViewById(com.baidu.tieba.w.select_icon);
+            agVar.apX = (RelativeLayout) view.findViewById(com.baidu.tieba.w.lay_select);
             view.setTag(agVar);
         } else {
             agVar = (ag) view.getTag();
         }
-        agVar.aiI.setTag(null);
-        agVar.aiI.setRadius(1);
-        agVar.aiI.setDefaultResource(com.baidu.tieba.u.pic_image_h_not);
-        agVar.aiI.c(null, 12, false);
-        agVar.aiI.invalidate();
+        agVar.apV.setTag(null);
+        agVar.apV.setRadius(1);
+        agVar.apV.setDefaultResource(com.baidu.tieba.v.pic_image_h_not);
+        agVar.apV.d(null, 12, false);
+        agVar.apV.invalidate();
         ImageFileInfo item = getItem(i);
         af afVar = new af(this, null);
-        afVar.aiH = true;
+        afVar.apU = true;
         if (item != null) {
             item.clearPageActions();
-            item.addPageAction(com.baidu.tbadk.img.effect.d.w(this.mWidth, this.mWidth));
-            agVar.aiI.setTag(item.toCachedKey(false));
-            if (this.ahw.a(item, false) != null) {
-                agVar.aiI.invalidate();
+            item.addPageAction(com.baidu.tbadk.img.effect.d.z(this.mWidth, this.mWidth));
+            agVar.apV.setTag(item.toCachedKey(false));
+            if (this.aoM.a(item, false) != null) {
+                agVar.apV.invalidate();
             } else {
-                this.ahw.a(item, new ac(this, viewGroup, afVar), false, this.ahz.isScroll());
+                this.aoM.a(item, new ac(this, viewGroup, afVar), false, this.aoO.isScroll());
             }
         } else {
-            afVar.aiH = false;
+            afVar.apU = false;
         }
-        int skinType = TbadkApplication.m251getInst().getSkinType();
-        this.ahz.getLayoutMode().L(skinType == 1);
-        this.ahz.getLayoutMode().h(view);
-        if (this.aiz != null) {
-            if (this.aiz.isAdded(item)) {
-                aw.h(agVar.aiJ, com.baidu.tieba.u.btn_choose_photo_s);
+        int skinType = TbadkCoreApplication.m255getInst().getSkinType();
+        this.aoO.getLayoutMode().ab(skinType == 1);
+        this.aoO.getLayoutMode().h(view);
+        if (this.apM != null) {
+            if (this.apM.isAdded(item)) {
+                ax.i(agVar.apW, com.baidu.tieba.v.btn_choose_photo_s);
             } else {
-                aw.h(agVar.aiJ, com.baidu.tieba.u.btn_choose_photo_n);
+                ax.i(agVar.apW, com.baidu.tieba.v.btn_choose_photo_n);
             }
-            a(agVar, afVar, i, item, skinType, this.aiz);
+            a(agVar, afVar, i, item, skinType, this.apM);
         }
-        agVar.aiI.setOnClickListener(new ad(this, afVar, i, item));
+        agVar.apV.setOnClickListener(new ad(this, afVar, i, item));
         return view;
     }
 
     public void a(z zVar) {
-        this.aiA = zVar;
+        this.apN = zVar;
     }
 
     public void a(aa aaVar) {
-        this.aiB = aaVar;
+        this.apO = aaVar;
     }
 
     private void a(ag agVar, af afVar, int i, ImageFileInfo imageFileInfo, int i2, p pVar) {
-        agVar.aiK.setOnClickListener(new ae(this, afVar, pVar, imageFileInfo, i, agVar));
+        agVar.apX.setOnClickListener(new ae(this, afVar, pVar, imageFileInfo, i, agVar));
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -146,13 +146,13 @@ public class ab extends BaseAdapter implements AbsListView.OnScrollListener {
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 0) {
-            this.ahR = false;
-            if (this.ahw != null) {
-                this.ahw.sq();
+            this.isScrolling = false;
+            if (this.aoM != null) {
+                this.aoM.vT();
             }
             notifyDataSetChanged();
             return;
         }
-        this.ahR = true;
+        this.isScrolling = true;
     }
 }

@@ -94,4 +94,8 @@ public class AccessibilityEventCompat {
     public static AccessibilityRecordCompat getRecord(AccessibilityEvent accessibilityEvent, int i) {
         return new AccessibilityRecordCompat(IMPL.getRecord(accessibilityEvent, i));
     }
+
+    public static AccessibilityRecordCompat asRecord(AccessibilityEvent accessibilityEvent) {
+        return new AccessibilityRecordCompat(accessibilityEvent);
+    }
 }

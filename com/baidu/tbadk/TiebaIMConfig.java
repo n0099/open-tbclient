@@ -3,7 +3,7 @@ package com.baidu.tbadk;
 import android.content.Context;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import com.baidu.adp.lib.util.m;
+import com.baidu.adp.lib.util.l;
 import com.baidu.adp.lib.webSocket.a;
 /* loaded from: classes.dex */
 public class TiebaIMConfig {
@@ -17,7 +17,7 @@ public class TiebaIMConfig {
     private static final BdAsyncTaskParallel sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, IM_ASYCTASK_UNIQUEID);
     public static final String defaultUrl = "ws://im.tieba.baidu.com:8000";
     public static String url = defaultUrl;
-    public static int[] reconStrategy = {30, 60, TbConfig.READ_IMAGE_CACHE_TIMEOUT_WIFI, TbConfig.POST_IMAGE_SMALL, 1800, 3600, 7200, 14400};
+    public static int[] reconStrategy = {30, 60, 300, TbConfig.POST_IMAGE_SMALL, 1800, 3600, 7200, 14400};
     public static String POST_IMAGE_PATH = "post_image";
     public static int POST_IMAGE_DEFAULT_WIDTH = 30;
     public static int POST_IMAGE_DEFAULT_HEIGHT = 30;
@@ -30,7 +30,7 @@ public class TiebaIMConfig {
     }
 
     public static int getMaxChatImageWidthInPx(Context context) {
-        return m.dip2px(context, 300.0f);
+        return l.dip2px(context, 300.0f);
     }
 
     public static BdAsyncTaskParallel getParallel() {

@@ -1,5 +1,17 @@
 package com.baidu.tbadk.widget;
+
+import android.graphics.Bitmap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface f {
-    void a(a aVar, boolean z, boolean z2);
+public class f {
+    public Bitmap air;
+    public int delay;
+
+    private f() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ f(f fVar) {
+        this();
+    }
 }

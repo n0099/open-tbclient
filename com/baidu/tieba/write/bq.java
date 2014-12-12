@@ -23,23 +23,23 @@ public class bq implements View.OnClickListener {
         boolean z2;
         Bitmap bitmap;
         Bitmap bitmap2;
-        boolean hK;
-        z = this.this$0.bwW;
+        boolean iw;
+        z = this.this$0.bAO;
         if (!z) {
-            i = this.this$0.JW;
+            i = this.this$0.requestCode;
             if (i == 12003) {
                 Intent intent = new Intent();
                 progressBar = this.this$0.mProgress;
                 if (progressBar.getVisibility() != 0) {
-                    z2 = this.this$0.JV;
+                    z2 = this.this$0.Pg;
                     if (z2) {
-                        bitmap = this.this$0.JO;
+                        bitmap = this.this$0.OZ;
                         if (bitmap != null) {
-                            bitmap2 = this.this$0.JO;
+                            bitmap2 = this.this$0.OZ;
                             if (!bitmap2.isRecycled()) {
                                 String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                                hK = this.this$0.hK(str);
-                                if (hK) {
+                                iw = this.this$0.iw(str);
+                                if (iw) {
                                     intent.putExtra("change", true);
                                     intent.putExtra("file_name", str);
                                 } else {

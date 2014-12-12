@@ -2,10 +2,10 @@ package com.baidu.tbadk.core.account;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.tbadk.core.util.ac;
+import com.baidu.tbadk.core.util.ad;
 /* loaded from: classes.dex */
 public class c {
     public static void a(String str, String str2, d dVar) {
@@ -15,56 +15,56 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static AccountData A(String str, String str2) {
-        ac acVar;
-        String lA;
+    public static AccountData L(String str, String str2) {
+        ad adVar;
+        String ov;
         try {
             StringBuilder sb = new StringBuilder(32);
             sb.append(TbConfig.LOGIN_FULL_ADDRESS);
-            acVar = new ac(sb.toString());
-            acVar.k("un", str);
-            acVar.k("passwd", str2);
-            acVar.k("isphone", "0");
-            acVar.k("channel_id", TbadkApplication.m251getInst().getPushChannelId());
-            acVar.k("channel_uid", TbadkApplication.m251getInst().getPushChannelUserId());
-            acVar.mc().na().nd().Gm = true;
-            acVar.mc().na().mIsNeedAddCommenParam = false;
-            acVar.mc().na().mIsUseCurrentBDUSS = false;
-            lA = acVar.lA();
+            adVar = new ad(sb.toString());
+            adVar.o("un", str);
+            adVar.o("passwd", str2);
+            adVar.o("isphone", "0");
+            adVar.o("channel_id", TbadkCoreApplication.m255getInst().getPushChannelId());
+            adVar.o("channel_uid", TbadkCoreApplication.m255getInst().getPushChannelUserId());
+            adVar.oW().pV().pY().Kx = true;
+            adVar.oW().pV().mIsNeedAddCommenParam = false;
+            adVar.oW().pV().mIsUseCurrentBDUSS = false;
+            ov = adVar.ov();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (acVar.mc().nb().jq() && lA != null) {
-            com.baidu.tbadk.core.data.j jVar = new com.baidu.tbadk.core.data.j();
-            jVar.parserJson(lA);
-            String userId = jVar.getUser().getUserId();
+        if (adVar.oW().pW().ma() && ov != null) {
+            com.baidu.tbadk.core.data.m mVar = new com.baidu.tbadk.core.data.m();
+            mVar.parserJson(ov);
+            String userId = mVar.getUser().getUserId();
             if (userId == null || userId.length() <= 0) {
                 return null;
             }
             AccountData accountData = new AccountData();
-            accountData.setAccount(jVar.getUser().getUserName());
-            if (jVar.getUser().getPassword() != null) {
-                accountData.setPassword(jVar.getUser().getPassword());
+            accountData.setAccount(mVar.getUser().getUserName());
+            if (mVar.getUser().getPassword() != null) {
+                accountData.setPassword(mVar.getUser().getPassword());
             } else {
                 accountData.setPassword(str2);
             }
-            accountData.setID(jVar.getUser().getUserId());
-            accountData.setBDUSS(jVar.getUser().getBDUSS());
-            accountData.setPortrait(jVar.getUser().getPortrait());
+            accountData.setID(mVar.getUser().getUserId());
+            accountData.setBDUSS(mVar.getUser().getBDUSS());
+            accountData.setPortrait(mVar.getUser().getPortrait());
             accountData.setIsActive(1);
-            if (jVar.jZ() != null) {
-                accountData.setTbs(jVar.jZ().getTbs());
+            if (mVar.mP() != null) {
+                accountData.setTbs(mVar.mP().getTbs());
                 return accountData;
             }
             return accountData;
         }
-        if (acVar.mf()) {
-            switch (acVar.mg()) {
+        if (adVar.oZ()) {
+            switch (adVar.pa()) {
                 case 1:
                 case 2:
                 case 5:
-                    acVar.dM();
-                    ReloginManager.lf().d(null);
+                    adVar.dL();
+                    ReloginManager.ob().d(null);
                     break;
             }
             return null;

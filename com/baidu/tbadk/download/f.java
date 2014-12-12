@@ -1,13 +1,13 @@
 package com.baidu.tbadk.download;
 /* loaded from: classes.dex */
 public interface f {
-    void onFileDownloadFailed(DownloadData downloadData, int i, String str);
+    void a(DownloadData downloadData);
 
-    void onFileDownloadSucceed(DownloadData downloadData);
+    void a(DownloadData downloadData, int i, String str);
 
-    boolean onFileDownloaded(DownloadData downloadData);
+    boolean b(DownloadData downloadData);
 
-    void onFileUpdateProgress(DownloadData downloadData);
+    boolean c(DownloadData downloadData);
 
-    boolean onPreDownload(DownloadData downloadData);
+    void d(DownloadData downloadData);
 }

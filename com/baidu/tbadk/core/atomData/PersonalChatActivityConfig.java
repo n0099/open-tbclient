@@ -10,6 +10,7 @@ public class PersonalChatActivityConfig extends a {
     public static final int IS_NOT_FRIEND = 0;
     public static final String KEY_IS_FRIEND = "key_is_friend";
     public static final String KEY_LEAVE_MSG = "key_leave_msg";
+    public static final String KEY_REPLY_CONTENT = "key_reply_content";
     public static final String KEY_SHARE_MSG = "key_share_msg";
     public static final String KEY_USER_ID = "key_user_id";
     public static final String KEY_USER_NAME = "key_user_name";
@@ -30,14 +31,28 @@ public class PersonalChatActivityConfig extends a {
         intent.putExtra("chat_mode", 1);
         intent.putExtra("user", userData);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-        intent.putExtra(KEY_IS_FRIEND, i2);
+        intent.putExtra("key_is_friend", i2);
+    }
+
+    public PersonalChatActivityConfig(Context context, long j, String str, String str2, int i, int i2, String str3) {
+        super(context);
+        this.mUserData = null;
+        UserData userData = new UserData(j, str, str2, i);
+        this.mUserData = userData;
+        Intent intent = getIntent();
+        intent.putExtra(a.IS_ACCEPT_NOTIFY, true);
+        intent.putExtra("chat_mode", 1);
+        intent.putExtra("user", userData);
+        intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
+        intent.putExtra("key_is_friend", i2);
+        intent.putExtra(KEY_REPLY_CONTENT, str3);
     }
 
     public PersonalChatActivityConfig(Context context, long j, String str, String str2, int i, String str3, String str4) {
         this(context, j, str, str2, i);
         Intent intent = getIntent();
-        intent.putExtra(KEY_LEAVE_MSG, str3);
-        intent.putExtra(KEY_SHARE_MSG, str4);
+        intent.putExtra("key_leave_msg", str3);
+        intent.putExtra("key_share_msg", str4);
     }
 
     public UserData getUserData() {

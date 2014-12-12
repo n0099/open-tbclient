@@ -1,19 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.pluginArch.PluginCenter;
-import com.baidu.tbadk.pluginArch.PluginNameList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
+import android.os.Message;
 /* loaded from: classes.dex */
-public class an implements Runnable {
-    final /* synthetic */ aj aee;
+class an extends Handler {
+    final /* synthetic */ al alv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(aj ajVar) {
-        this.aee = ajVar;
+    public an(al alVar) {
+        this.alv = alVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        PluginCenter.getInstance().installPluginFromAsset(PluginNameList.NAME_DQ_SDK, null);
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
     }
 }

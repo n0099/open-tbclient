@@ -1,25 +1,30 @@
 package com.baidu.tbadk.coreExtra.share;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
-import com.baidu.tbadk.pluginArch.PluginNameList;
+import android.graphics.Bitmap;
+import android.location.Location;
+import android.net.Uri;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.s;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-class f implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ d MZ;
+public class f {
+    public static final String SP = s.mG + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
+    public String title = null;
+    public String content = null;
+    public String SJ = null;
+    public Uri SL = null;
+    public Location SM = null;
+    private WeakReference<Bitmap> SO = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(d dVar) {
-        this.MZ = dVar;
+    public Bitmap getImageData() {
+        Bitmap bitmap;
+        if (this.SO == null || (bitmap = this.SO.get()) == null || bitmap.isRecycled()) {
+            return null;
+        }
+        return bitmap;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        Context context;
-        MessageManager messageManager = MessageManager.getInstance();
-        context = this.MZ.mContext;
-        messageManager.sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(context, PluginNameList.NAME_SOCIAL_SHARE)));
-        aVar.dismiss();
+    public void h(Bitmap bitmap) {
+        this.SO = new WeakReference<>(bitmap);
     }
 }

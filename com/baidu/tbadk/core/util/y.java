@@ -1,47 +1,30 @@
 package com.baidu.tbadk.core.util;
 /* loaded from: classes.dex */
-public class y {
-    private static y DW;
-    private long DR = 0;
-    private long DS = 0;
-    private String DT = "";
-    private String DU = "";
-    private final long DV = 120000;
+class y {
+    int Ib;
+    long Ic;
+    int Id;
+    int num;
+    long time;
 
-    public static y lT() {
-        if (DW == null) {
-            synchronized (y.class) {
-                if (DW == null) {
-                    DW = new y();
-                }
-            }
-        }
-        return DW;
+    private y() {
+        this.num = 0;
+        this.Ib = 0;
+        this.time = 0L;
+        this.Ic = 0L;
+        this.Id = 0;
     }
 
-    public String lU() {
-        long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.DR > 120000) {
-            if (com.baidu.adp.lib.util.m.fu()) {
-                return "";
-            }
-            this.DR = currentTimeMillis;
-            this.DT = UtilHelper.getIpFromDomain("tieba.baidu.com");
-        }
-        return this.DT;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ y(y yVar) {
+        this();
     }
 
-    public String bE(String str) {
-        long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.DS > 120000) {
-            int indexOf = str.indexOf("hiphotos.baidu.com");
-            if (indexOf <= 0 || com.baidu.adp.lib.util.m.fu()) {
-                return "";
-            }
-            this.DS = currentTimeMillis;
-            this.DU = UtilHelper.getIpFromDomain(String.valueOf(str.substring(0, indexOf).replace("http://", "")) + "hiphotos.baidu.com");
-            return this.DU;
-        }
-        return this.DU;
+    public void reset() {
+        this.num = 0;
+        this.Ib = 0;
+        this.time = 0L;
+        this.Ic = 0L;
+        this.Id = 0;
     }
 }

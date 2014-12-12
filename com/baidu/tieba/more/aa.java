@@ -1,23 +1,26 @@
 package com.baidu.tieba.more;
 
-import com.baidu.tieba.model.MoreModel;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa extends com.baidu.adp.base.h {
+public class aa extends BroadcastReceiver {
     final /* synthetic */ MoreActivity this$0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(MoreActivity moreActivity) {
+    private aa(MoreActivity moreActivity) {
         this.this$0 = moreActivity;
     }
 
-    @Override // com.baidu.adp.base.h
-    public void a(Object obj) {
-        if (obj != null && (obj instanceof MoreModel.TaskType)) {
-            if (obj == MoreModel.TaskType.DO_CACHE_CLEAR) {
-                this.this$0.showToast(this.this$0.getString(com.baidu.tieba.y.image_cash_del_suc));
-            }
-            this.this$0.closeLoadingDialog();
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ aa(MoreActivity moreActivity, aa aaVar) {
+        this(moreActivity);
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        af afVar;
+        afVar = this.this$0.buv;
+        afVar.refreshNewVersion();
     }
 }

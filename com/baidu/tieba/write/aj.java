@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aj implements View.OnClickListener {
-    final /* synthetic */ WriteActivity bUm;
+    final /* synthetic */ WriteActivity cft;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(WriteActivity writeActivity) {
-        this.bUm = writeActivity;
+        this.cft = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.bUm.showDialog(com.baidu.tieba.v.live_time_rel);
+        this.cft.showDialog(com.baidu.tieba.w.live_time_rel);
     }
 }

@@ -2,32 +2,32 @@ package com.baidu.tbadk.mainTab;
 
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tieba.u;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tieba.v;
 /* loaded from: classes.dex */
 public class c {
-    public boolean VU = true;
-    public int VV;
-    public int VW;
-    public FragmentTabIndicator VX;
-    public int jI;
+    public boolean abX = true;
+    public int abY;
+    public int abZ;
+    public FragmentTabIndicator aca;
+    public int jM;
     public View view;
 
-    public void bN(int i) {
-        if (this.VV != 0) {
-            aw.h(this.view, this.VV);
+    public void cm(int i) {
+        if (this.abY != 0) {
+            ax.i(this.view, this.abY);
         }
         if (this.view instanceof TextView) {
-            if (this.VW != 0) {
-                aw.b((TextView) this.view, this.VW, 1);
+            if (this.abZ != 0) {
+                ax.b((TextView) this.view, this.abZ, 1);
             }
             int b = b((TextView) this.view);
             if (b > 0 && b < 10) {
-                aw.h((View) ((TextView) this.view), u.icon_news_head_prompt_one);
+                ax.i((View) ((TextView) this.view), v.icon_news_head_prompt_one);
             } else if (b >= 10 && b < 100) {
-                aw.h((View) ((TextView) this.view), u.icon_news_head_prompt_two);
+                ax.i((View) ((TextView) this.view), v.icon_news_head_prompt_two);
             } else if (b >= 100) {
-                aw.h((View) ((TextView) this.view), u.icon_news_head_prompt_more);
+                ax.i((View) ((TextView) this.view), v.icon_news_head_prompt_more);
             }
         }
     }
@@ -40,6 +40,6 @@ public class c {
         if ("   ".equals(charSequence)) {
             return 100;
         }
-        return com.baidu.adp.lib.g.c.f(charSequence, -1);
+        return com.baidu.adp.lib.g.c.toInt(charSequence, -1);
     }
 }

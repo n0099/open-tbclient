@@ -1,29 +1,43 @@
 package com.baidu.tbadk.core.voice.service;
 
-import android.media.MediaPlayer;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Intent;
+import android.os.Handler;
 /* loaded from: classes.dex */
-public class e implements MediaPlayer.OnCompletionListener {
-    final /* synthetic */ MediaService IX;
+class e implements Runnable {
+    final /* synthetic */ MediaService Of;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(MediaService mediaService) {
-        this.IX = mediaService;
+        this.Of = mediaService;
     }
 
-    @Override // android.media.MediaPlayer.OnCompletionListener
-    public void onCompletion(MediaPlayer mediaPlayer) {
-        g gVar;
-        Voice voice;
-        g gVar2;
-        gVar = this.IX.mPlayer;
-        if (gVar != null) {
-            voice = this.IX.mVoice;
-            if (voice != null) {
-                gVar2 = this.IX.mPlayer;
-                gVar2.nM();
-                this.IX.stopVoice(null);
-            }
+    @Override // java.lang.Runnable
+    public void run() {
+        Handler handler;
+        i iVar;
+        int i;
+        int i2;
+        Handler handler2;
+        Runnable runnable;
+        int i3;
+        handler = this.Of.mHandler;
+        if (handler == null) {
+            return;
         }
+        iVar = this.Of.mPlayer;
+        int fF = iVar.fF();
+        i = this.Of.mCurBeginSecond;
+        int i4 = fF + i;
+        i2 = this.Of.mElapsedTime;
+        if (i4 != i2) {
+            this.Of.mElapsedTime = i4;
+            Intent intent = new Intent("com.baidu.playElapsedTime");
+            i3 = this.Of.mElapsedTime;
+            intent.putExtra("com.baidu.msg.playElapsedTime", i3);
+            this.Of.sendBroadcast(intent);
+        }
+        handler2 = this.Of.mHandler;
+        runnable = this.Of.mPlayTimeThread;
+        handler2.postDelayed(runnable, 100L);
     }
 }

@@ -1,36 +1,34 @@
 package com.baidu.tieba.topRec;
-
-import android.content.Context;
 /* loaded from: classes.dex */
-public class j extends com.baidu.adp.base.e {
-    private boolean avl;
-    k bQe;
-    l bQf;
+public class j extends com.baidu.adp.base.f<TopRecActivity> {
+    private boolean ayu;
+    k cde;
+    l cdf;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public j(Context context) {
-        super(context);
-        this.avl = false;
+    public j(TopRecActivity topRecActivity) {
+        super(topRecActivity.getPageContext());
+        this.ayu = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.f
     public boolean LoadData() {
-        this.bQe = new k(this, null);
-        this.bQe.execute(new Object[0]);
+        this.cde = new k(this, null);
+        this.cde.execute(new Object[0]);
         return true;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.f
     public boolean cancelLoadData() {
-        if (this.bQe != null) {
-            this.bQe.cancel();
+        if (this.cde != null) {
+            this.cde.cancel();
             return false;
         }
         return false;
     }
 
     public void a(l lVar) {
-        this.bQf = lVar;
+        this.cdf = lVar;
     }
 }

@@ -1,13 +1,13 @@
 package com.baidu.tbadk.live.service;
 
-import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import com.baidu.adp.base.BdBaseService;
 import com.baidu.tbadk.core.data.GroupData;
 import com.baidu.tbadk.live.LiveGroupManager;
 import com.baidu.tbadk.live.LiveGroupNotifyManager;
 /* loaded from: classes.dex */
-public class LiveGroupControlService extends Service {
+public class LiveGroupControlService extends BdBaseService {
     public static final String ACTION_LIVE_CLOSE = "com.baidu.tieba.im.live.service.close";
     public static final String ACTION_LIVE_PAUSE = "com.baidu.tieba.im.live.service.pause";
     public static final String ACTION_LIVE_PLAY = "com.baidu.tieba.im.live.service.play";

@@ -5,21 +5,22 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa extends BdAsyncTask<String, Integer, Bitmap> {
-    final /* synthetic */ VcodeActivity bTG;
-    com.baidu.tbadk.coreExtra.data.g bTH;
-    private volatile boolean kJ;
-    volatile com.baidu.tbadk.core.util.ac mNetWork;
+    volatile com.baidu.tbadk.core.util.ad AR;
+    final /* synthetic */ VcodeActivity ceN;
+    com.baidu.tbadk.coreExtra.data.j ceO;
+    private volatile boolean kK;
 
     private aa(VcodeActivity vcodeActivity) {
-        this.bTG = vcodeActivity;
-        this.mNetWork = null;
-        this.bTH = null;
-        this.kJ = false;
+        this.ceN = vcodeActivity;
+        this.AR = null;
+        this.ceO = null;
+        this.kK = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -30,12 +31,12 @@ public class aa extends BdAsyncTask<String, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.bTG.bTF = null;
-        if (this.mNetWork != null) {
-            this.mNetWork.dM();
+        this.ceN.ceM = null;
+        if (this.AR != null) {
+            this.AR.dL();
         }
-        this.kJ = true;
-        progressBar = this.bTG.mProgressBar;
+        this.kK = true;
+        progressBar = this.ceN.mProgressBar;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -43,7 +44,7 @@ public class aa extends BdAsyncTask<String, Integer, Bitmap> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: j */
+    /* renamed from: n */
     public Bitmap doInBackground(String... strArr) {
         WriteData writeData;
         WriteData writeData2;
@@ -53,66 +54,65 @@ public class aa extends BdAsyncTask<String, Integer, Bitmap> {
         WriteData writeData6;
         String str = strArr[0];
         if (str == null || str.length() <= 0) {
-            this.mNetWork = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
-            com.baidu.tbadk.core.util.ac acVar = this.mNetWork;
-            writeData = this.bTG.bTq;
-            acVar.k(ImageViewerConfig.FORUM_ID, writeData.getForumId());
-            com.baidu.tbadk.core.util.ac acVar2 = this.mNetWork;
-            writeData2 = this.bTG.bTq;
-            acVar2.k("kw", writeData2.getForumName());
-            this.mNetWork.k("new_vcode", "1");
-            com.baidu.tbadk.core.util.ac acVar3 = this.mNetWork;
-            writeData3 = this.bTG.bTq;
-            acVar3.k("title", writeData3.getTitle());
-            com.baidu.tbadk.core.util.ac acVar4 = this.mNetWork;
-            writeData4 = this.bTG.bTq;
-            acVar4.k("content", writeData4.getContent());
-            writeData5 = this.bTG.bTq;
+            this.AR = new com.baidu.tbadk.core.util.ad(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
+            com.baidu.tbadk.core.util.ad adVar = this.AR;
+            writeData = this.ceN.cex;
+            adVar.o(ImageViewerConfig.FORUM_ID, writeData.getForumId());
+            com.baidu.tbadk.core.util.ad adVar2 = this.AR;
+            writeData2 = this.ceN.cex;
+            adVar2.o("kw", writeData2.getForumName());
+            this.AR.o("new_vcode", "1");
+            com.baidu.tbadk.core.util.ad adVar3 = this.AR;
+            writeData3 = this.ceN.cex;
+            adVar3.o("title", writeData3.getTitle());
+            com.baidu.tbadk.core.util.ad adVar4 = this.AR;
+            writeData4 = this.ceN.cex;
+            adVar4.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, writeData4.getContent());
+            writeData5 = this.ceN.cex;
             if (writeData5.getType() == 0) {
-                this.mNetWork.k("pub_type", "1");
+                this.AR.o("pub_type", "1");
             } else {
-                this.mNetWork.k("pub_type", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
-                com.baidu.tbadk.core.util.ac acVar5 = this.mNetWork;
-                writeData6 = this.bTG.bTq;
-                acVar5.k("tid", writeData6.getThreadId());
+                this.AR.o("pub_type", "2");
+                com.baidu.tbadk.core.util.ad adVar5 = this.AR;
+                writeData6 = this.ceN.cex;
+                adVar5.o("tid", writeData6.getThreadId());
             }
-            String lA = this.mNetWork.lA();
-            if (!this.mNetWork.mc().nb().jq()) {
+            String ov = this.AR.ov();
+            if (!this.AR.oW().pW().ma()) {
                 return null;
             }
-            this.bTH = new com.baidu.tbadk.coreExtra.data.g();
-            this.bTH.parserJson(lA);
-            str = this.bTH.getVcode_pic_url();
+            this.ceO = new com.baidu.tbadk.coreExtra.data.j();
+            this.ceO.parserJson(ov);
+            str = this.ceO.getVcode_pic_url();
         }
-        if (this.kJ) {
+        if (this.kK) {
             return null;
         }
-        this.mNetWork = new com.baidu.tbadk.core.util.ac(str);
-        return com.baidu.tbadk.core.util.d.w(this.mNetWork.lB());
+        this.AR = new com.baidu.tbadk.core.util.ad(str);
+        return com.baidu.tbadk.core.util.d.v(this.AR.ow());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: e */
     public void onPostExecute(Bitmap bitmap) {
         ProgressBar progressBar;
         WriteData writeData;
         WriteData writeData2;
         ImageView imageView;
-        this.bTG.bTF = null;
+        this.ceN.ceM = null;
         if (bitmap != null) {
-            imageView = this.bTG.acK;
+            imageView = this.ceN.akv;
             imageView.setImageBitmap(bitmap);
         }
-        progressBar = this.bTG.mProgressBar;
+        progressBar = this.ceN.mProgressBar;
         progressBar.setVisibility(8);
-        if (this.bTH != null) {
-            writeData = this.bTG.bTq;
-            writeData.setVcodeMD5(this.bTH.getVcode_md5());
-            writeData2 = this.bTG.bTq;
-            writeData2.setVcodeUrl(this.bTH.getVcode_pic_url());
+        if (this.ceO != null) {
+            writeData = this.ceN.cex;
+            writeData.setVcodeMD5(this.ceO.getVcode_md5());
+            writeData2 = this.ceN.cex;
+            writeData2.setVcodeUrl(this.ceO.getVcode_pic_url());
         }
-        super.onPostExecute(bitmap);
+        super.onPostExecute((aa) bitmap);
     }
 }

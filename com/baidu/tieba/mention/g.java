@@ -1,22 +1,34 @@
 package com.baidu.tieba.mention;
 
-import com.baidu.adp.widget.ListView.BdListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.mvc.model.NetModel;
 /* loaded from: classes.dex */
-public class g implements Runnable {
-    final /* synthetic */ c bnx;
-    private final /* synthetic */ int val$pos;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g(c cVar, int i) {
-        this.bnx = cVar;
-        this.val$pos = i;
+public class g extends NetModel<h, i, SingleMentionActivity> {
+    public g(TbPageContext<SingleMentionActivity> tbPageContext, h hVar) {
+        super(tbPageContext, hVar, NetModel.NetModelType.TYPE_NETWORK);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        BdListView bdListView;
-        bdListView = this.bnx.aoo;
-        bdListView.setSelection(this.val$pos);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    public int kL() {
+        return CmdConfigHttp.REPLYME_HTTP_CMD;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    public String kM() {
+        return "c/u/feed/atme";
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    public Class<i> getResponseDataClass() {
+        return i.class;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    protected int kN() {
+        return 0;
     }
 }

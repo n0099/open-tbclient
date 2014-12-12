@@ -1,50 +1,33 @@
 package com.baidu.tieba.more;
 
-import android.view.View;
-import android.widget.Scroller;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tieba.model.MoreModel;
 /* loaded from: classes.dex */
-public class an implements Runnable {
-    final /* synthetic */ am bsT;
+class an extends BaseActivity<SystemHelpSettingActivity>.LoadDataCallBack {
+    final /* synthetic */ SystemHelpSettingActivity bwu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(am amVar) {
-        this.bsT = amVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public an(SystemHelpSettingActivity systemHelpSettingActivity, BaseActivity baseActivity) {
+        super();
+        this.bwu = systemHelpSettingActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Scroller scroller;
-        boolean z;
-        View view;
-        Scroller scroller2;
-        View view2;
-        View view3;
-        View view4;
-        View view5;
-        View view6;
-        View view7;
-        scroller = this.bsT.mScroller;
-        if (scroller.computeScrollOffset()) {
-            scroller2 = this.bsT.mScroller;
-            int currX = scroller2.getCurrX();
-            view2 = this.bsT.mView;
-            view3 = this.bsT.mView;
-            int paddingLeft = view3.getPaddingLeft();
-            view4 = this.bsT.mView;
-            int paddingRight = view4.getPaddingRight();
-            view5 = this.bsT.mView;
-            view2.setPadding(paddingLeft, currX, paddingRight, view5.getPaddingBottom());
-            view6 = this.bsT.mView;
-            view6.invalidate();
-            view7 = this.bsT.mView;
-            view7.post(this);
-            return;
-        }
-        z = this.bsT.iC;
-        if (!z) {
-            view = this.bsT.mView;
-            view.setVisibility(8);
+    @Override // com.baidu.tbadk.BaseActivity.LoadDataCallBack
+    public void callback(Object... objArr) {
+        aw awVar;
+        aw awVar2;
+        Object obj = objArr[0];
+        if (objArr != null && (obj instanceof MoreModel.TaskType)) {
+            if (obj == MoreModel.TaskType.DO_CACHE_CLEAR) {
+                this.bwu.closeLoadingDialog();
+                awVar2 = this.bwu.bwr;
+                awVar2.VT().setTip("");
+                this.bwu.showToast(com.baidu.tieba.z.systemhelpsetting_clear_cache_success);
+            } else if (obj == MoreModel.TaskType.GET_SIZE) {
+                awVar = this.bwu.bwr;
+                awVar.VT().setTip((String) objArr[1]);
+            }
         }
     }
 }

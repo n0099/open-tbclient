@@ -1,45 +1,44 @@
 package com.baidu.tieba.guide;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.view.View;
 import android.view.animation.ScaleAnimation;
+import com.baidu.tieba.aa;
 import com.baidu.tieba.data.InterestFrsData;
-import com.baidu.tieba.model.ag;
-import com.baidu.tieba.model.bc;
-import com.baidu.tieba.z;
+import com.baidu.tieba.tbadkCore.ac;
+import com.baidu.tieba.tbadkCore.au;
 /* loaded from: classes.dex */
 public class t implements View.OnClickListener {
-    private NewUserGuideActivity aLW;
-    private a aLX;
-    private bc aLY;
-    private InterestFrsData.Tag aLs;
-    private ag avA;
+    private NewUserGuideActivity aNO;
+    private a aNP;
+    private au aNQ;
+    private InterestFrsData.Tag aNm;
+    private ac zm;
 
     public t(NewUserGuideActivity newUserGuideActivity, InterestFrsData.Tag tag, p pVar) {
-        this.aLW = newUserGuideActivity;
-        this.aLs = tag;
+        this.aNO = newUserGuideActivity;
+        this.aNm = tag;
         int btype = tag.getBtype();
         if (btype == 1) {
-            this.aLX = new r(this.aLW, z.NewUserDialog);
+            this.aNP = new r(this.aNO.getPageContext().getPageActivity(), aa.NewUserDialog);
         } else if (btype == 2) {
-            this.aLX = new e(this.aLW, z.NewUserDialog);
+            this.aNP = new e(this.aNO.getPageContext().getPageActivity(), aa.NewUserDialog);
         } else if (btype == 3) {
-            this.aLX = new i(this.aLW, z.NewUserDialog);
+            this.aNP = new i(this.aNO.getPageContext().getPageActivity(), aa.NewUserDialog);
         }
-        this.avA = new ag(newUserGuideActivity);
-        this.avA.setLoadDataCallBack(new u(this));
-        this.aLY = new bc();
-        this.aLY.a(new v(this));
-        this.aLX.setOnClickListener(this);
-        this.aLX.a(this.aLs);
-        ((Dialog) this.aLX).setOnDismissListener(new w(this, pVar));
+        this.zm = new ac(newUserGuideActivity.getPageContext());
+        this.zm.setLoadDataCallBack(new u(this));
+        this.aNQ = new au();
+        this.aNQ.a(new v(this));
+        this.aNP.setOnClickListener(this);
+        this.aNP.a(this.aNm);
+        ((Dialog) this.aNP).setOnDismissListener(new w(this, pVar));
     }
 
     public void n(int i, boolean z) {
-        for (int i2 = 0; i2 < this.aLs.getCard_list().size(); i2++) {
-            if (this.aLs.getCard_list().get(i2).getFid() == i) {
-                this.aLs.getCard_list().get(i2).setIs_like(z ? 1 : 0);
+        for (int i2 = 0; i2 < this.aNm.getCard_list().size(); i2++) {
+            if (this.aNm.getCard_list().get(i2).getFid() == i) {
+                this.aNm.getCard_list().get(i2).setIs_like(z ? 1 : 0);
                 return;
             }
         }
@@ -47,24 +46,24 @@ public class t implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == com.baidu.tieba.v.box_close_layout) {
-            this.aLX.hide();
-        } else if ((view.getId() == com.baidu.tieba.v.ll_like || view.getId() == com.baidu.tieba.v.pic_layout) && view.getTag() != null && (view.getTag() instanceof InterestFrsData.Card)) {
+        if (view.getId() == com.baidu.tieba.w.box_close_layout) {
+            this.aNP.hide();
+        } else if ((view.getId() == com.baidu.tieba.w.ll_like || view.getId() == com.baidu.tieba.w.pic_layout) && view.getTag() != null && (view.getTag() instanceof InterestFrsData.Card)) {
             InterestFrsData.Card card = (InterestFrsData.Card) view.getTag();
             if (card.getIs_like() == 1) {
-                this.aLY.g(card.getFname(), card.getFid());
+                this.aNQ.i(card.getFname(), card.getFid());
             } else {
-                this.avA.o(card.getFname(), String.valueOf(card.getFid()), "newuser");
+                this.zm.r(card.getFname(), String.valueOf(card.getFid()), "newuser");
             }
         }
     }
 
     public void show() {
-        if (!(this.aLW instanceof Activity) || com.baidu.adp.lib.g.j.e(this.aLW)) {
+        if (this.aNO == null || com.baidu.adp.lib.g.k.k(this.aNO.getPageContext().getPageActivity())) {
             ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f, 2, 0.5f, 2, 0.5f);
             scaleAnimation.setDuration(350L);
-            this.aLX.getRootView().setAnimation(scaleAnimation);
-            this.aLX.show();
+            this.aNP.getRootView().setAnimation(scaleAnimation);
+            this.aNP.show();
         }
     }
 }

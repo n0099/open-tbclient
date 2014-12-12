@@ -1,36 +1,64 @@
 package com.baidu.tieba.data;
 
 import android.content.Context;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.model.Hao123Model;
+import com.baidu.tieba.tbadkCore.ab;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import tbclient.ForumRecommend.LikeForum;
 /* loaded from: classes.dex */
-public class j extends com.baidu.tieba.util.k {
-    final /* synthetic */ g akh;
+public class j {
+    private boolean aso;
+    private int level;
+    private ArrayList<ab> likeForums = new ArrayList<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j(g gVar, Context context) {
-        super(context);
-        this.akh = gVar;
+    public ArrayList<ab> Cu() {
+        return this.likeForums;
     }
 
-    @Override // com.baidu.tieba.util.k, android.text.style.ClickableSpan
-    public void onClick(View view) {
-        String str;
-        String str2;
-        String str3;
-        String str4 = null;
-        str = this.akh.text;
-        if (str != null) {
-            str3 = this.akh.text;
-            str4 = str3.replace("@", "").replace(" ", "");
+    public void setLevel(int i) {
+        this.level = i;
+    }
+
+    public boolean Ch() {
+        return this.aso;
+    }
+
+    public void Cv() {
+        Iterator<ab> it = this.likeForums.iterator();
+        while (it.hasNext()) {
+            it.next().hB(0);
         }
-        MessageManager messageManager = MessageManager.getInstance();
-        Context context = getContext();
-        str2 = this.akh.link;
-        messageManager.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(context, str2, str4)));
+    }
+
+    public void i(List<?> list) {
+        if (list != null) {
+            a(list, null);
+        }
+    }
+
+    public void a(List<?> list, Context context) {
+        if (list != null) {
+            try {
+                Hao123Model.setHao123Cache(Hao123Model.getHao123JosnStr(Hao123Model.parserLikeForumsProtoBuf(list)));
+                int size = list.size();
+                for (int i = 0; i < size; i++) {
+                    if (list.get(i) instanceof LikeForum) {
+                        ab abVar = new ab();
+                        abVar.a((LikeForum) list.get(i));
+                        if (abVar.getLevel() >= this.level) {
+                            this.aso = true;
+                        }
+                        this.likeForums.add(abVar);
+                    } else {
+                        return;
+                    }
+                }
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
+        }
     }
 }

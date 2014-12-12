@@ -22,9 +22,9 @@ public class WriteImageActivityConfig extends a {
     public WriteImageActivityConfig(Context context, int i, int i2, Uri uri, String str, String str2, AntiData antiData, int i3, String str3, String str4, String str5, String str6) {
         super(context);
         setIntentAction(IntentAction.ActivityForResult);
-        getIntent().putExtra(FROMCODE, i);
+        getIntent().putExtra("request", i);
         getIntent().putExtra("from", str5);
-        getIntent().putExtra(FORUMID, str);
+        getIntent().putExtra("forumid", str);
         getIntent().putExtra(FORUMNAME, str2);
         getIntent().putExtra(DISPLAY_SIZE, i3);
         if (str3 != null) {
@@ -43,9 +43,9 @@ public class WriteImageActivityConfig extends a {
     public WriteImageActivityConfig(Context context, int i, int i2, Uri uri, String str, String str2, AntiData antiData, int i3, String str3, String str4, String str5) {
         super(context);
         setIntentAction(IntentAction.ActivityForResult);
-        getIntent().putExtra(FROMCODE, i);
+        getIntent().putExtra("request", i);
         getIntent().putExtra("from", str5);
-        getIntent().putExtra(FORUMID, str);
+        getIntent().putExtra("forumid", str);
         getIntent().putExtra(FORUMNAME, str2);
         getIntent().putExtra(DISPLAY_SIZE, i3);
         if (str3 != null) {

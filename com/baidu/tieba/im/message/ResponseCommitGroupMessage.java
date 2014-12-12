@@ -1,6 +1,5 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.tieba.im.chat.bu;
 import com.squareup.wire.Wire;
 import protobuf.CommitGroupMsg.CommitGroupMsgResIdl;
 /* loaded from: classes.dex */
@@ -16,7 +15,7 @@ public class ResponseCommitGroupMessage extends ResponseCommitMessage {
         setError(commitGroupMsgResIdl.error.errorno.intValue());
         setErrorString(commitGroupMsgResIdl.error.usermsg);
         if (getError() == 0) {
-            setMsgId(bu.F(commitGroupMsgResIdl.data.msgId.longValue()));
+            setMsgId(com.baidu.tieba.im.util.h.af(commitGroupMsgResIdl.data.msgId.longValue()));
             setRecordId(commitGroupMsgResIdl.data.recordId.longValue());
             setGroupId(String.valueOf(commitGroupMsgResIdl.data.groupId));
         }

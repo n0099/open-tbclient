@@ -1,7 +1,7 @@
 package com.baidu.tbadk.live.message;
 
 import com.baidu.adp.framework.message.Message;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.live.data.HotLiveListData;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
@@ -75,11 +75,11 @@ public class ResponseMyLiveListMessage extends TbSocketReponsedMessage {
         Message<?> orginalMessage = getOrginalMessage();
         if (orginalMessage != null && (orginalMessage instanceof RequestMyLiveListMessage) && getError() == 0) {
             String valueOf = String.valueOf(((RequestMyLiveListMessage) orginalMessage).getType());
-            String currentAccount = TbadkApplication.getCurrentAccount();
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount == null) {
                 currentAccount = "";
             }
-            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.a.kS().bc("tb.live_hotlist"), "mylive_" + valueOf + currentAccount, bArr);
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.a.a.nS().bU("tb.live_hotlist"), "mylive_" + valueOf + currentAccount, bArr);
         }
     }
 }

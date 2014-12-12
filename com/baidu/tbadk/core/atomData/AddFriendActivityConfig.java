@@ -21,10 +21,11 @@ public class AddFriendActivityConfig extends a {
     public static final String TYPE_PB_HEAD = "pb_head";
     public static final String TYPE_REPLY_ME = "reply_pg";
     public static final String TYPE_SEARCH = "search";
+    public static final String TYPE_STRANGER_CHAT = "stranger_chat";
 
     public AddFriendActivityConfig(Context context, String str, String str2, String str3, String str4, boolean z, String str5) {
         super(context);
-        getIntent().putExtra(a.USER_ID, str);
+        getIntent().putExtra("user_id", str);
         getIntent().putExtra(a.NAME_SHOW, str2);
         getIntent().putExtra(a.PORTRAIT, str3);
         getIntent().putExtra("from", str4);
@@ -34,7 +35,7 @@ public class AddFriendActivityConfig extends a {
 
     public AddFriendActivityConfig(Context context, String str, String str2, String str3, String str4, boolean z, String str5, String str6) {
         super(context);
-        getIntent().putExtra(a.USER_ID, str);
+        getIntent().putExtra("user_id", str);
         getIntent().putExtra(a.NAME_SHOW, str2);
         getIntent().putExtra(a.PORTRAIT, str3);
         getIntent().putExtra("from", str4);

@@ -6,13 +6,14 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class FeedBackTopListView extends LinearLayout {
-    private ArrayList<com.baidu.tbadk.core.data.q> bTb;
+    private ArrayList<com.baidu.tbadk.core.data.w> ceh;
     private Context mContext;
+    private TbPageContext<?> mPageContext;
     private int mSkinType;
 
     public FeedBackTopListView(Context context) {
@@ -22,29 +23,30 @@ public class FeedBackTopListView extends LinearLayout {
     public FeedBackTopListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = null;
-        this.bTb = null;
+        this.ceh = null;
         this.mSkinType = -1;
         this.mContext = context;
-        this.mSkinType = TbadkApplication.m251getInst().getSkinType();
+        this.mSkinType = TbadkCoreApplication.m255getInst().getSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void setData(ArrayList<com.baidu.tbadk.core.data.q> arrayList) {
+    public void a(ArrayList<com.baidu.tbadk.core.data.w> arrayList, TbPageContext<?> tbPageContext) {
         int i = 0;
+        this.mPageContext = tbPageContext;
         if (arrayList == null || arrayList.size() == 0) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
         if (arrayList.size() > 3) {
-            this.bTb = new ArrayList<>(arrayList.subList(0, 3));
+            this.ceh = new ArrayList<>(arrayList.subList(0, 3));
         } else {
-            this.bTb = arrayList;
+            this.ceh = arrayList;
         }
         while (true) {
             int i2 = i;
-            if (i2 < this.bTb.size()) {
-                addView(b(this.bTb.get(i2), i2));
+            if (i2 < this.ceh.size()) {
+                addView(b(this.ceh.get(i2), i2));
                 i = i2 + 1;
             } else {
                 return;
@@ -52,20 +54,20 @@ public class FeedBackTopListView extends LinearLayout {
         }
     }
 
-    private View b(com.baidu.tbadk.core.data.q qVar, int i) {
-        if (qVar == null) {
+    private View b(com.baidu.tbadk.core.data.w wVar, int i) {
+        if (wVar == null) {
             return null;
         }
-        View inflate = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.w.frs_top_item, null);
-        LinearLayout linearLayout = (LinearLayout) inflate.findViewById(com.baidu.tieba.v.frs_top_item);
-        TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.v.frs_top_title);
-        inflate.findViewById(com.baidu.tieba.v.frs_top_divider);
-        String tid = qVar.getTid();
-        textView.setText(qVar.getTitle());
-        ((BaseActivity) this.mContext).getLayoutMode().L(this.mSkinType == 1);
-        ((BaseActivity) this.mContext).getLayoutMode().h(inflate);
-        BitmapDrawable bitmapDrawable = (BitmapDrawable) com.baidu.tbadk.core.util.aw.getDrawable(com.baidu.tieba.u.icon_notice);
-        com.baidu.tbadk.core.util.aw.h(linearLayout, com.baidu.tieba.u.bg_frs_top_middle_selector);
+        View inflate = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.x.frs_top_item, null);
+        LinearLayout linearLayout = (LinearLayout) inflate.findViewById(com.baidu.tieba.w.frs_top_item);
+        TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.w.frs_top_title);
+        inflate.findViewById(com.baidu.tieba.w.frs_top_divider);
+        String tid = wVar.getTid();
+        textView.setText(wVar.getTitle());
+        this.mPageContext.getLayoutMode().ab(this.mSkinType == 1);
+        this.mPageContext.getLayoutMode().h(inflate);
+        BitmapDrawable bitmapDrawable = (BitmapDrawable) com.baidu.tbadk.core.util.ax.getDrawable(com.baidu.tieba.v.icon_notice);
+        com.baidu.tbadk.core.util.ax.i(linearLayout, com.baidu.tieba.v.bg_frs_top_middle_selector);
         if (bitmapDrawable != null) {
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
         }

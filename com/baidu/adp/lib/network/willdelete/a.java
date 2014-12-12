@@ -3,12 +3,12 @@ package com.baidu.adp.lib.network.willdelete;
 import java.net.HttpURLConnection;
 /* loaded from: classes.dex */
 public class a {
-    private HttpURLConnection kI;
-    private boolean kJ = false;
+    private HttpURLConnection kJ;
+    private boolean kK = false;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void d(HttpURLConnection httpURLConnection) {
-        if (this.kJ) {
+    public void e(HttpURLConnection httpURLConnection) {
+        if (this.kK) {
             if (httpURLConnection != null) {
                 try {
                     httpURLConnection.disconnect();
@@ -20,26 +20,26 @@ public class a {
             }
             return;
         }
-        this.kI = httpURLConnection;
+        this.kJ = httpURLConnection;
     }
 
     public void cancel() {
-        this.kJ = true;
-        if (this.kI != null) {
+        this.kK = true;
+        if (this.kJ != null) {
             try {
-                this.kI.disconnect();
+                this.kJ.disconnect();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        this.kI = null;
+        this.kJ = null;
     }
 
     public void finish() {
-        this.kI = null;
+        this.kJ = null;
     }
 
     public boolean isCanceled() {
-        return this.kJ;
+        return this.kK;
     }
 }

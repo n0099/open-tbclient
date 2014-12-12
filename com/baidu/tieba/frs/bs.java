@@ -1,74 +1,48 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.data.LiveCardData;
-import java.util.ArrayList;
-import java.util.List;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bs {
-    final /* synthetic */ bp aCo;
-    private List<LiveCardData> aCt;
-    private List<LiveCardData> aCu;
-    private final boolean aCv;
+public class bs implements com.baidu.adp.lib.guide.b {
+    final /* synthetic */ bq aFg;
 
-    public bs(bp bpVar, List<LiveCardData> list) {
-        this.aCo = bpVar;
-        this.aCt = list;
-        if (list != null && list.size() > 1) {
-            this.aCv = true;
-        } else {
-            this.aCv = false;
-        }
-        this.aCu = E(this.aCt);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bs(bq bqVar) {
+        this.aFg = bqVar;
     }
 
-    private List<LiveCardData> E(List<LiveCardData> list) {
-        ArrayList arrayList = new ArrayList();
-        if (list != null) {
-            arrayList.addAll(list);
-            if (this.aCv && list.size() >= 1) {
-                arrayList.add(0, list.get(list.size() - 1));
-                arrayList.add(list.get(0));
-            }
-        }
-        return arrayList;
+    @Override // com.baidu.adp.lib.guide.b
+    public View a(LayoutInflater layoutInflater) {
+        FrsActivity frsActivity;
+        frsActivity = this.aFg.aDc;
+        ImageView imageView = new ImageView(frsActivity.getPageContext().getPageActivity());
+        imageView.setBackgroundResource(com.baidu.tieba.v.good_threads_tip);
+        return imageView;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public int eL(int i) {
-        if (this.aCv) {
-            int size = this.aCu.size();
-            if (i == 0) {
-                return size - 2;
-            }
-            if (i == size - 1) {
-                return 1;
-            }
-            return i;
-        }
-        return i;
+    @Override // com.baidu.adp.lib.guide.b
+    public int dx() {
+        return 4;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public int eM(int i) {
-        if (this.aCv) {
-            return i - 1;
-        }
-        return i;
+    @Override // com.baidu.adp.lib.guide.b
+    public int dy() {
+        return 16;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public int FT() {
-        if (this.aCt == null) {
-            return 0;
-        }
-        return this.aCt.size();
+    @Override // com.baidu.adp.lib.guide.b
+    public int getXOffset() {
+        FrsActivity frsActivity;
+        FrsActivity frsActivity2;
+        frsActivity = this.aFg.aDc;
+        frsActivity2 = this.aFg.aDc;
+        return (int) ((frsActivity.getResources().getDimensionPixelSize(com.baidu.tieba.u.ds138) - 0.5f) / frsActivity2.getResources().getDisplayMetrics().density);
     }
 
-    public int FU() {
-        return this.aCv ? 1 : 0;
-    }
-
-    public List<LiveCardData> FV() {
-        return this.aCu;
+    @Override // com.baidu.adp.lib.guide.b
+    public int getYOffset() {
+        return 0;
     }
 }

@@ -13,15 +13,15 @@ class m implements com.baidu.adp.lib.e.c<TextView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: vY */
-    public TextView ee() {
+    /* renamed from: Ae */
+    public TextView ed() {
         return new com.baidu.tbadk.widget.q(this.val$context);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
     /* renamed from: c */
-    public void i(TextView textView) {
+    public void k(TextView textView) {
         textView.setText((CharSequence) null);
         textView.setTag(null);
         textView.setSingleLine(false);
@@ -31,14 +31,14 @@ class m implements com.baidu.adp.lib.e.c<TextView> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
     /* renamed from: d */
-    public TextView j(TextView textView) {
+    public TextView l(TextView textView) {
         return textView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
     /* renamed from: e */
-    public TextView k(TextView textView) {
+    public TextView m(TextView textView) {
         textView.setText((CharSequence) null);
         textView.setTag(null);
         textView.setSingleLine(false);

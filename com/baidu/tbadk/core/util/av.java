@@ -1,94 +1,61 @@
 package com.baidu.tbadk.core.util;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import java.io.File;
 /* loaded from: classes.dex */
-public class av {
-    public static void h(Activity activity) {
-        try {
-            if (!s.bm()) {
-                if (activity instanceof BaseActivity) {
-                    ((BaseActivity) activity).showToast(s.lu());
-                } else if (activity instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) activity).showToast(s.lu());
-                }
-            } else {
-                File bt = s.bt("camera.jpg");
-                if (bt != null) {
-                    Uri fromFile = Uri.fromFile(bt);
-                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", fromFile);
-                    activity.startActivityForResult(intent, 12001);
-                } else if (activity instanceof BaseActivity) {
-                    ((BaseActivity) activity).showToast(activity.getString(com.baidu.tieba.y.error_sd_error));
-                } else if (activity instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) activity).showToast(activity.getString(com.baidu.tieba.y.error_sd_error));
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+public class av extends Thread {
+    private String El;
+    private String Jf;
+    private boolean Jg;
+    private String mObjTp;
+    private String my;
+
+    public av(String str) {
+        this.my = null;
+        this.El = null;
+        this.Jf = null;
+        this.mObjTp = null;
+        this.Jg = false;
+        this.my = str;
+        this.Jg = false;
     }
 
-    public static void a(Activity activity, String str) {
-        String str2;
-        try {
-            if (!s.bm()) {
-                if (activity instanceof BaseActivity) {
-                    ((BaseActivity) activity).showToast(s.lu());
-                    return;
-                } else if (activity instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) activity).showToast(s.lu());
-                    return;
-                } else {
-                    return;
-                }
-            }
-            boolean z = false;
-            if (s.bo(s.mI + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR)) {
-                File file = new File(String.valueOf(str2) + "/" + str);
-                if (!file.exists()) {
-                    z = file.createNewFile();
-                } else {
-                    z = true;
-                }
-                if (z) {
-                    Uri fromFile = Uri.fromFile(file);
-                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", fromFile);
-                    activity.startActivityForResult(intent, 12001);
-                }
-            }
-            if (!z) {
-                if (activity instanceof BaseActivity) {
-                    ((BaseActivity) activity).showToast(activity.getString(com.baidu.tieba.y.error_sd_error));
-                } else if (activity instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) activity).showToast(activity.getString(com.baidu.tieba.y.error_sd_error));
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    public av(String str, String str2) {
+        this.my = null;
+        this.El = null;
+        this.Jf = null;
+        this.mObjTp = null;
+        this.Jg = false;
+        this.my = str;
+        this.El = str2;
     }
 
-    public static void i(Activity activity) {
-        j(activity);
-    }
-
-    public static void j(Activity activity) {
-        try {
-            Intent intent = new Intent();
-            intent.setType("image/*");
-            intent.setAction("android.intent.action.GET_CONTENT");
-            activity.startActivityForResult(intent, 12002);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        String str;
+        super.run();
+        if (this.Jg) {
+            str = TbConfig.IN_PV_ADDRESS;
+        } else {
+            str = TbConfig.LOAD_REG_PV_ADDRESS;
         }
+        ad adVar = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + str);
+        if (!this.Jg) {
+            String po = al.pl().po();
+            if (!ba.isEmpty(po)) {
+                al.pl().pn();
+                adVar.o("st_record", po);
+            }
+        }
+        adVar.o("st_type", this.my);
+        if (this.El != null) {
+            adVar.o("st_param", this.El);
+        }
+        if (this.Jf != null) {
+            adVar.o("obj", this.Jf);
+        }
+        if (this.mObjTp != null) {
+            adVar.o("obj_tp", this.mObjTp);
+        }
+        adVar.ov();
     }
 }

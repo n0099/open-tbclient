@@ -10,11 +10,11 @@ import com.baidu.tieba.im.data.InviteMsgData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
-    final /* synthetic */ Invite2GroupView bkr;
+    final /* synthetic */ Invite2GroupView bpG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Invite2GroupView invite2GroupView) {
-        this.bkr = invite2GroupView;
+        this.bpG = invite2GroupView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,14 +23,14 @@ public class a implements View.OnClickListener {
         InviteMsgData inviteMsgData;
         InviteMsgData inviteMsgData2;
         InviteMsgData inviteMsgData3;
-        button = this.bkr.bkp;
+        button = this.bpG.bpE;
         Context context = button.getContext();
         StringBuilder sb = new StringBuilder();
-        inviteMsgData = this.bkr.bkq;
+        inviteMsgData = this.bpG.bpF;
         String sb2 = sb.append(inviteMsgData.getGroupId()).toString();
-        inviteMsgData2 = this.bkr.bkq;
+        inviteMsgData2 = this.bpG.bpF;
         long fromUid = inviteMsgData2.getFromUid();
-        inviteMsgData3 = this.bkr.bkq;
+        inviteMsgData3 = this.bpG.bpF;
         MessageManager.getInstance().sendMessage(new CustomMessage(2008014, new ApplyJoinGroupActivityConfig(context, sb2, fromUid, inviteMsgData3.getText())));
     }
 }

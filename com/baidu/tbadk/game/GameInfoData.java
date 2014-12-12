@@ -1,31 +1,38 @@
 package com.baidu.tbadk.game;
 
+import android.text.TextUtils;
 import java.io.Serializable;
 import java.util.List;
 import tbclient.GameInfo;
 import tbclient.GetGameCenter.RecommendGame;
 /* loaded from: classes.dex */
-public class GameInfoData implements Serializable {
+public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
     public static final int APP_TYPE = 1;
     public static final int H5_TYPE = 2;
     public static final int NEW_MARK = 2;
     public static final int NO_MARK = 0;
     public static final int WAITING_MARK = 1;
     private static final long serialVersionUID = -3662330595966807760L;
+    private String app_id;
     private String apple_id;
     private String bundle_id;
     private int category_id;
     private String category_name;
+    private String category_name_sim;
     private int day_downloads;
     private long deadline;
     private long downloadTime;
     private String editor_rec;
+    private String game_desc;
     private String game_id;
     private String game_link;
     private String game_name;
     private List<String> game_pic;
     private int game_status;
     private int game_type;
+    private String icon_pic1;
+    private String icon_pic2;
+    private String icon_pic3;
     private String icon_url;
     private long installTime;
     private String introduce;
@@ -96,7 +103,7 @@ public class GameInfoData implements Serializable {
     }
 
     public void setPackageSize(String str) {
-        this.package_size = str;
+        this.package_size = eh(str);
     }
 
     public String getGameLink() {
@@ -219,6 +226,14 @@ public class GameInfoData implements Serializable {
         this.category_name = str;
     }
 
+    public String getCategoryNameSim() {
+        return this.category_name_sim;
+    }
+
+    public void setCategoryNameSim(String str) {
+        this.category_name_sim = str;
+    }
+
     public String getVersion() {
         return this.version;
     }
@@ -268,15 +283,27 @@ public class GameInfoData implements Serializable {
             gameInfoData.setGameLink(gameInfo.game_link);
             gameInfoData.setGameName(gameInfo.game_name);
             gameInfoData.setGamePic(gameInfo.game_pic);
-            gameInfoData.setIconUrl(gameInfo.icon_url);
+            if (TextUtils.isEmpty(gameInfo.icon_pic1)) {
+                gameInfoData.setIconUrl(gameInfo.icon_url);
+            } else {
+                gameInfoData.setIconUrl(gameInfo.icon_pic1);
+            }
             gameInfoData.setGameType(gameInfo.game_type.intValue());
             gameInfoData.setMark(gameInfo.mark.intValue());
             gameInfoData.setPackageLink(gameInfo.package_link);
             gameInfoData.setPackageSize(gameInfo.package_size);
             gameInfoData.setPlayerNum(gameInfo.player_num);
             gameInfoData.setSchemaUrl(gameInfo.schema_url);
-            gameInfoData.setIntroduce(gameInfo.introduce);
-            gameInfoData.setLauncherActivity(gameInfo.launch_component);
+            if (TextUtils.isEmpty(gameInfo.game_desc)) {
+                gameInfoData.setIntroduce(gameInfo.introduce);
+            } else {
+                gameInfoData.setIntroduce(gameInfo.game_desc);
+            }
+            if (TextUtils.isEmpty(gameInfo.launchComponent)) {
+                gameInfoData.setLauncherActivity(gameInfo.launch_component);
+            } else {
+                gameInfoData.setLauncherActivity(gameInfo.launchComponent);
+            }
             gameInfoData.setPackageName(gameInfo.andr_pk_name);
             if (gameInfo.deadline != null) {
                 gameInfoData.setDeadline(gameInfo.deadline.longValue());
@@ -285,10 +312,17 @@ public class GameInfoData implements Serializable {
             gameInfoData.setDayDownloads(gameInfo.day_downloads.intValue());
             gameInfoData.setCategoryId(gameInfo.category_id.intValue());
             gameInfoData.setCategoryName(gameInfo.category_name);
+            gameInfoData.setCategoryNameSim(gameInfo.category_name_sim);
             gameInfoData.setVersion(gameInfo.version);
             gameInfoData.setStar(gameInfo.star.intValue());
             gameInfoData.setSecretKey(gameInfo.secret_key);
-            gameInfoData.setSuperscriptColor(gameInfo.superscript_color);
+            if (TextUtils.isEmpty(gameInfo.subscript_color)) {
+                gameInfoData.setSuperscriptColor(gameInfo.superscript_color);
+            } else {
+                gameInfoData.setSuperscriptColor(gameInfo.subscript_color);
+            }
+            gameInfoData.setApp_id(String.valueOf(gameInfo.app_id));
+            gameInfoData.setRefId("5000901");
         }
         return gameInfoData;
     }
@@ -313,6 +347,7 @@ public class GameInfoData implements Serializable {
             gameInfoData.setLauncherActivity(recommendGame.launch_component);
             gameInfoData.setPackageName(recommendGame.andr_pk_name);
             gameInfoData.setSecretKey(recommendGame.secret_key);
+            gameInfoData.setRefId("5000901");
             if (recommendGame.deadline != null) {
                 gameInfoData.setDeadline(recommendGame.deadline.longValue());
             }
@@ -349,5 +384,49 @@ public class GameInfoData implements Serializable {
 
     public void setRefId(String str) {
         this.ref_id = str;
+    }
+
+    public String getApp_id() {
+        return this.app_id;
+    }
+
+    public void setApp_id(String str) {
+        this.app_id = str;
+    }
+
+    private String eh(String str) {
+        return String.format("%.1f", Float.valueOf(com.baidu.adp.lib.g.c.a(str, 0.0f)));
+    }
+
+    public String getIconPic1() {
+        return this.icon_pic1;
+    }
+
+    public void setIconPic1(String str) {
+        this.icon_pic1 = str;
+    }
+
+    public String getIconPic2() {
+        return this.icon_pic2;
+    }
+
+    public void setIconPic2(String str) {
+        this.icon_pic2 = str;
+    }
+
+    public String getIconPic3() {
+        return this.icon_pic3;
+    }
+
+    public void setIconPic3(String str) {
+        this.icon_pic3 = str;
+    }
+
+    public String getGameDesc() {
+        return this.game_desc;
+    }
+
+    public void setGameDesc(String str) {
+        this.game_desc = str;
     }
 }

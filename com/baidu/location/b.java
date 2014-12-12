@@ -149,10 +149,10 @@ public class b {
             if (currentTimeMillis - b.this.C > 400 && b.this.e && b.this.s.size() > 0) {
                 try {
                     c cVar = new c(b.this.s, b.this.g, b.this.f74try, b.this.m);
-                    if (cVar.m92if()) {
+                    if (cVar.m95if()) {
                         j.f206void = cVar.c();
                         if (j.f206void > 0) {
-                            String unused = b.p = String.format("&ll=%.5f|%.5f&s=%.1f&d=%.1f&ll_r=%d&ll_n=%d&ll_h=%.2f&nmea=%.1f|%.1f&ll_t=%d&g_tp=%d", Double.valueOf(cVar.d()), Double.valueOf(cVar.l()), Double.valueOf(cVar.m86case()), Double.valueOf(cVar.j()), 0, Integer.valueOf(cVar.m91goto()), Double.valueOf(cVar.m96try()), Double.valueOf(cVar.a()), Double.valueOf(cVar.b()), Long.valueOf(currentTimeMillis / 1000), Integer.valueOf(j.f206void));
+                            String unused = b.p = String.format("&ll=%.5f|%.5f&s=%.1f&d=%.1f&ll_r=%d&ll_n=%d&ll_h=%.2f&nmea=%.1f|%.1f&ll_t=%d&g_tp=%d", Double.valueOf(cVar.d()), Double.valueOf(cVar.l()), Double.valueOf(cVar.m89case()), Double.valueOf(cVar.j()), 0, Integer.valueOf(cVar.m94goto()), Double.valueOf(cVar.m99try()), Double.valueOf(cVar.a()), Double.valueOf(cVar.b()), Long.valueOf(currentTimeMillis / 1000), Integer.valueOf(j.f206void));
                         }
                     } else {
                         j.f206void = 0;
@@ -314,17 +314,17 @@ public class b {
             }
 
             /* renamed from: do  reason: not valid java name */
-            public int m98do() {
+            public int m101do() {
                 return this.f88do;
             }
 
             /* renamed from: for  reason: not valid java name */
-            public int m99for() {
+            public int m102for() {
                 return this.f91int;
             }
 
             /* renamed from: if  reason: not valid java name */
-            public int m100if() {
+            public int m103if() {
                 return this.f90if;
             }
         }
@@ -340,7 +340,7 @@ public class b {
             this.q = str2;
             this.p = str3;
             this.e = new ArrayList();
-            m97void();
+            m100void();
         }
 
         private boolean a(String str) {
@@ -370,19 +370,19 @@ public class b {
             if (list == null || list.size() <= 0) {
                 return null;
             }
-            double[] m84if = m84if(90 - ((a) list.get(0)).m100if(), ((a) list.get(0)).a());
+            double[] m87if = m87if(90 - ((a) list.get(0)).m103if(), ((a) list.get(0)).a());
             if (list.size() > 1) {
                 for (int i = 1; i < list.size(); i++) {
-                    double[] m84if2 = m84if(90 - ((a) list.get(i)).m100if(), ((a) list.get(i)).a());
-                    m84if[0] = (m84if[0] + m84if2[0]) / 2.0d;
-                    m84if[1] = (m84if[1] + m84if2[1]) / 2.0d;
+                    double[] m87if2 = m87if(90 - ((a) list.get(i)).m103if(), ((a) list.get(i)).a());
+                    m87if[0] = (m87if[0] + m87if2[0]) / 2.0d;
+                    m87if[1] = (m87if[1] + m87if2[1]) / 2.0d;
                 }
             }
-            return m84if;
+            return m87if;
         }
 
         /* renamed from: if  reason: not valid java name */
-        private double[] m84if(double d, double d2) {
+        private double[] m87if(double d, double d2) {
             return new double[]{Math.sin(Math.toRadians(d2)) * d, Math.cos(Math.toRadians(d2)) * d};
         }
 
@@ -431,7 +431,7 @@ public class b {
                         if (!it.hasNext()) {
                             break;
                         }
-                        i3 = ((a) it.next()).m98do() >= j.f202int ? i2 + 1 : i2;
+                        i3 = ((a) it.next()).m101do() >= j.f202int ? i2 + 1 : i2;
                     }
                     if (i2 >= j.f201if) {
                         return 1;
@@ -456,8 +456,8 @@ public class b {
                             break;
                         }
                         a aVar = (a) it2.next();
-                        if (aVar.m98do() >= 10 && aVar.m100if() >= 1) {
-                            ((List) arrayList.get((aVar.m98do() - 10) / 5)).add(aVar);
+                        if (aVar.m101do() >= 10 && aVar.m103if() >= 1) {
+                            ((List) arrayList.get((aVar.m101do() - 10) / 5)).add(aVar);
                             i++;
                         }
                         i5 = i;
@@ -517,7 +517,7 @@ public class b {
         }
 
         /* renamed from: byte  reason: not valid java name */
-        public String m85byte() {
+        public String m88byte() {
             return this.k;
         }
 
@@ -526,12 +526,12 @@ public class b {
         }
 
         /* renamed from: case  reason: not valid java name */
-        public double m86case() {
+        public double m89case() {
             return this.j;
         }
 
         /* renamed from: char  reason: not valid java name */
-        public boolean m87char() {
+        public boolean m90char() {
             return this.r;
         }
 
@@ -540,7 +540,7 @@ public class b {
         }
 
         /* renamed from: do  reason: not valid java name */
-        public List m88do() {
+        public List m91do() {
             return this.e;
         }
 
@@ -549,7 +549,7 @@ public class b {
         }
 
         /* renamed from: else  reason: not valid java name */
-        public List m89else() {
+        public List m92else() {
             return this.f85new;
         }
 
@@ -558,7 +558,7 @@ public class b {
         }
 
         /* renamed from: for  reason: not valid java name */
-        public double m90for() {
+        public double m93for() {
             return this.f80char;
         }
 
@@ -567,7 +567,7 @@ public class b {
         }
 
         /* renamed from: goto  reason: not valid java name */
-        public int m91goto() {
+        public int m94goto() {
             return this.m;
         }
 
@@ -580,12 +580,12 @@ public class b {
         }
 
         /* renamed from: if  reason: not valid java name */
-        public boolean m92if() {
+        public boolean m95if() {
             return this.f;
         }
 
         /* renamed from: int  reason: not valid java name */
-        public String m93int() {
+        public String m96int() {
             return this.f83goto;
         }
 
@@ -602,7 +602,7 @@ public class b {
         }
 
         /* renamed from: long  reason: not valid java name */
-        public boolean m94long() {
+        public boolean m97long() {
             return this.f87void;
         }
 
@@ -615,17 +615,17 @@ public class b {
         }
 
         /* renamed from: new  reason: not valid java name */
-        public char m95new() {
+        public char m98new() {
             return this.c;
         }
 
         /* renamed from: try  reason: not valid java name */
-        public double m96try() {
+        public double m99try() {
             return this.o;
         }
 
         /* renamed from: void  reason: not valid java name */
-        public void m97void() {
+        public void m100void() {
             String str;
             if (a(this.d)) {
                 String substring = this.d.substring(0, this.d.length() - 3);
@@ -736,7 +736,7 @@ public class b {
         }
 
         private boolean a(String str) {
-            String m3if;
+            String m6if;
             int length;
             if (str == null || !str.startsWith("&nr")) {
                 return false;
@@ -748,7 +748,7 @@ public class b {
                     int readInt = randomAccessFile.readInt();
                     int readInt2 = randomAccessFile.readInt();
                     int readInt3 = randomAccessFile.readInt();
-                    if (!b.m70if(readInt, readInt2, readInt3)) {
+                    if (!b.m73if(readInt, readInt2, readInt3)) {
                         randomAccessFile.close();
                         b.d();
                         return false;
@@ -765,11 +765,11 @@ public class b {
                         }
                     }
                     randomAccessFile.seek(((readInt3 - 1) * 1024) + 12 + 0);
-                    if (str.length() > 750 || (length = (m3if = Jni.m3if(str)).length()) > 1020) {
+                    if (str.length() > 750 || (length = (m6if = Jni.m6if(str)).length()) > 1020) {
                         return false;
                     }
                     randomAccessFile.writeInt(length);
-                    randomAccessFile.writeBytes(m3if);
+                    randomAccessFile.writeBytes(m6if);
                     if (readInt == 0) {
                         randomAccessFile.seek(0L);
                         randomAccessFile.writeInt(1);
@@ -822,7 +822,7 @@ public class b {
                     int readInt = randomAccessFile.readInt();
                     int readInt2 = randomAccessFile.readInt();
                     int readInt3 = randomAccessFile.readInt();
-                    if (b.m70if(readInt3, readInt2, readInt3)) {
+                    if (b.m73if(readInt3, readInt2, readInt3)) {
                         return readInt;
                     }
                     randomAccessFile.close();
@@ -841,7 +841,7 @@ public class b {
                     RandomAccessFile randomAccessFile = new RandomAccessFile(b.y, "rw");
                     randomAccessFile.seek(0L);
                     int readInt = randomAccessFile.readInt();
-                    if (!b.m70if(readInt, randomAccessFile.readInt(), randomAccessFile.readInt())) {
+                    if (!b.m73if(readInt, randomAccessFile.readInt(), randomAccessFile.readInt())) {
                         randomAccessFile.close();
                         b.d();
                         return null;
@@ -908,7 +908,7 @@ public class b {
             long j = time - b.f62byte;
             if (fArr[0] >= j.i || j >= j.g) {
                 if (b.w == null) {
-                    b.m47byte();
+                    b.m50byte();
                     int unused8 = b.c = 0;
                     StringBuffer unused9 = b.w = new StringBuffer("");
                     b.w.append(String.format("&nr=%s&traj=%d,%.5f,%.5f|", this.a, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
@@ -941,24 +941,24 @@ public class b {
         }
 
         /* renamed from: do  reason: not valid java name */
-        public void m101do() {
+        public void m104do() {
             if (b.w != null && b.w.length() >= 100) {
                 a(b.w.toString());
             }
-            b.m78void();
+            b.m81void();
         }
 
         /* renamed from: for  reason: not valid java name */
-        public boolean m102for() {
+        public boolean m105for() {
             if (b.y.exists()) {
                 b.y.delete();
             }
-            b.m78void();
+            b.m81void();
             return !b.y.exists();
         }
 
         /* renamed from: if  reason: not valid java name */
-        public boolean m103if() {
+        public boolean m106if() {
             return j.m;
         }
     }
@@ -1042,7 +1042,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z2) {
         this.A = z2;
-        if ((!z2 || m80for()) && j.b != z2) {
+        if ((!z2 || m83for()) && j.b != z2) {
             j.b = z2;
             if (j.I) {
                 this.F.obtainMessage(53).sendToTarget();
@@ -1066,7 +1066,7 @@ public class b {
     }
 
     /* renamed from: byte  reason: not valid java name */
-    static /* synthetic */ int m47byte() {
+    static /* synthetic */ int m50byte() {
         int i2 = f63case + 1;
         f63case = i2;
         return i2;
@@ -1088,7 +1088,7 @@ public class b {
             randomAccessFile.writeInt(0);
             randomAccessFile.writeInt(1);
             randomAccessFile.close();
-            m78void();
+            m81void();
             return y.exists();
         } catch (IOException e) {
             e.printStackTrace();
@@ -1105,7 +1105,7 @@ public class b {
                 int readInt = randomAccessFile.readInt();
                 int readInt2 = randomAccessFile.readInt();
                 int readInt3 = randomAccessFile.readInt();
-                if (!m70if(readInt, readInt2, readInt3)) {
+                if (!m73if(readInt, readInt2, readInt3)) {
                     randomAccessFile.close();
                     d();
                     return null;
@@ -1137,7 +1137,7 @@ public class b {
     }
 
     /* renamed from: if  reason: not valid java name */
-    public static String m66if(Location location) {
+    public static String m69if(Location location) {
         if (location == null) {
             return null;
         }
@@ -1146,7 +1146,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: if  reason: not valid java name */
-    public static boolean m70if(int i2, int i3, int i4) {
+    public static boolean m73if(int i2, int i3, int i4) {
         if (i2 < 0 || i2 > j.l) {
             return false;
         }
@@ -1162,7 +1162,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: void  reason: not valid java name */
-    public static void m78void() {
+    public static void m81void() {
         f64char = true;
         w = null;
         f63case = 0;
@@ -1176,7 +1176,7 @@ public class b {
     }
 
     /* renamed from: do  reason: not valid java name */
-    public String m79do() {
+    public String m82do() {
         if (this.D == null) {
             j.a("baidu_location_service", "gps man getGpsJson but gpslocation is null");
             return null;
@@ -1184,19 +1184,19 @@ public class b {
         String str = "{\"result\":{\"time\":\"" + j.a() + "\",\"error\":\"61\"},\"content\":{\"point\":{\"x\":\"%f\",\"y\":\"%f\"},\"radius\":\"%d\",\"d\":\"%f\",\"s\":\"%f\",\"n\":\"%d\"}}";
         int accuracy = (int) (this.D.hasAccuracy() ? this.D.getAccuracy() : 10.0f);
         float speed = (float) (this.D.getSpeed() * 3.6d);
-        double[] m4if = Jni.m4if(this.D.getLongitude(), this.D.getLatitude(), "gps2gcj");
-        if (m4if[0] <= 0.0d && m4if[1] <= 0.0d) {
-            m4if[0] = this.D.getLongitude();
-            m4if[1] = this.D.getLatitude();
+        double[] m7if = Jni.m7if(this.D.getLongitude(), this.D.getLatitude(), "gps2gcj");
+        if (m7if[0] <= 0.0d && m7if[1] <= 0.0d) {
+            m7if[0] = this.D.getLongitude();
+            m7if[1] = this.D.getLatitude();
         }
-        String format = String.format(str, Double.valueOf(m4if[0]), Double.valueOf(m4if[1]), Integer.valueOf(accuracy), Float.valueOf(this.D.getBearing()), Float.valueOf(speed), Integer.valueOf(k));
-        j.a("baidu_location_service", "wgs84: " + this.D.getLongitude() + " " + this.D.getLatitude() + " gcj02: " + m4if[0] + " " + m4if[1]);
+        String format = String.format(str, Double.valueOf(m7if[0]), Double.valueOf(m7if[1]), Integer.valueOf(accuracy), Float.valueOf(this.D.getBearing()), Float.valueOf(speed), Integer.valueOf(k));
+        j.a("baidu_location_service", "wgs84: " + this.D.getLongitude() + " " + this.D.getLatitude() + " gcj02: " + m7if[0] + " " + m7if[1]);
         return format;
     }
 
     /* renamed from: for  reason: not valid java name */
-    public boolean m80for() {
-        if (m82new()) {
+    public boolean m83for() {
+        if (m85new()) {
             long currentTimeMillis = System.currentTimeMillis();
             if (!this.f71int || currentTimeMillis - this.f72long <= 3000) {
                 return k >= 3 || currentTimeMillis - this.d < 3000;
@@ -1223,7 +1223,7 @@ public class b {
     }
 
     /* renamed from: int  reason: not valid java name */
-    public Location m81int() {
+    public Location m84int() {
         return this.D;
     }
 
@@ -1239,7 +1239,7 @@ public class b {
                         this.f69do.removeNmeaListener(this.f73new);
                     }
                     if (this.f70for != null) {
-                        this.f70for.m101do();
+                        this.f70for.m104do();
                     }
                 } catch (Exception e) {
                 }
@@ -1253,12 +1253,12 @@ public class b {
     }
 
     /* renamed from: new  reason: not valid java name */
-    public boolean m82new() {
+    public boolean m85new() {
         return (this.D == null || this.D.getLatitude() == 0.0d || this.D.getLongitude() == 0.0d) ? false : true;
     }
 
     /* renamed from: try  reason: not valid java name */
-    public String m83try() {
+    public String m86try() {
         return this.B;
     }
 }

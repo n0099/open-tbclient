@@ -171,7 +171,7 @@ public final class SapiAccountService {
         if (this.b.quickUserEnabled) {
             arrayList.add(new BasicNameValuePair("quick_user", "1"));
             if (this.b.registMode == RegistMode.QUICK_USER) {
-                arrayList.add(new BasicNameValuePair("regtype", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT));
+                arrayList.add(new BasicNameValuePair("regtype", "2"));
             }
         }
         if (this.b.collapseFastLoginArea) {

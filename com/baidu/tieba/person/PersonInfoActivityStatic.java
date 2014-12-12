@@ -1,38 +1,41 @@
 package com.baidu.tieba.person;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tieba.personInfo.PersonInfoActivity;
 /* loaded from: classes.dex */
 public class PersonInfoActivityStatic {
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2002003, new bk());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2002003, new bc());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void b(Context context, String str, String str2, String str3, String str4) {
-        if (str != null && str.length() > 0 && !str.equals("0") && !str.startsWith("-")) {
-            Intent intent = new Intent(context, PersonInfoActivity.class);
-            if (TbadkApplication.getCurrentAccount() != null && TbadkApplication.getCurrentAccount().equals(str)) {
+    public static void a(PersonInfoActivityConfig personInfoActivityConfig) {
+        Context context = personInfoActivityConfig.getContext();
+        String stringExtra = personInfoActivityConfig.getIntent().getStringExtra("user_id");
+        String stringExtra2 = personInfoActivityConfig.getIntent().getStringExtra("user_name");
+        String stringExtra3 = personInfoActivityConfig.getIntent().getStringExtra("from");
+        String stringExtra4 = personInfoActivityConfig.getIntent().getStringExtra("st_type");
+        if (stringExtra != null && stringExtra.length() > 0 && !stringExtra.equals("0") && !stringExtra.startsWith("-")) {
+            Intent intent = personInfoActivityConfig.getIntent();
+            intent.setClass(context, PersonInfoActivity.class);
+            if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(stringExtra)) {
                 intent.putExtra("self", true);
             } else {
                 intent.putExtra("self", false);
             }
-            intent.putExtra("un", str);
-            intent.putExtra("name", str2);
-            intent.putExtra("from_forum", str3);
-            intent.putExtra("st_type", str4);
+            intent.putExtra("un", stringExtra);
+            intent.putExtra("name", stringExtra2);
+            intent.putExtra("from_forum", stringExtra3);
+            intent.putExtra("st_type", stringExtra4);
             intent.putExtra("tab_page", false);
-            if (!(context instanceof Activity)) {
-                intent.setFlags(268435456);
-            }
-            context.startActivity(intent);
+            personInfoActivityConfig.run();
         }
     }
 }

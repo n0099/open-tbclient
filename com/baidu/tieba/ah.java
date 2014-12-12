@@ -1,14 +1,25 @@
 package com.baidu.tieba;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.view.View;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public interface ah {
-    void aL(boolean z);
+class ah implements View.OnClickListener {
+    final /* synthetic */ af alf;
 
-    void aM(boolean z);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ah(af afVar) {
+        this.alf = afVar;
+    }
 
-    void stopService();
-
-    void wf();
-
-    void wg();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TextView textView;
+        ak akVar;
+        boolean z;
+        textView = this.alf.akW;
+        textView.setEnabled(false);
+        akVar = this.alf.alc;
+        z = this.alf.akL;
+        akVar.bc(z);
+    }
 }

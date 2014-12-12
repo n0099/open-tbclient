@@ -7,13 +7,13 @@ import com.baidu.tbadk.coreExtra.live.LiveStatusRequestMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends CustomMessageListener {
-    final /* synthetic */ LiveGroupManager Vy;
+    final /* synthetic */ LiveGroupManager abA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(LiveGroupManager liveGroupManager, int i) {
         super(i);
-        this.Vy = liveGroupManager;
+        this.abA = liveGroupManager;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,7 +23,7 @@ public class e extends CustomMessageListener {
         if (!(customResponsedMessage instanceof LiveStatusRequestMessage) || ((LiveStatusRequestMessage) customResponsedMessage).hasError()) {
             return;
         }
-        handler = this.Vy.mHandler;
+        handler = this.abA.mHandler;
         handler.sendEmptyMessage(10);
     }
 }

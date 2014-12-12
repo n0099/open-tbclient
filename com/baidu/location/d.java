@@ -1,7 +1,6 @@
 package com.baidu.location;
 
 import android.support.v4.view.MotionEventCompat;
-import com.baidu.tbadk.BaseActivity;
 import java.security.MessageDigest;
 /* loaded from: classes.dex */
 class d {
@@ -31,13 +30,13 @@ class d {
             for (int i2 = 0; i2 < (length + 31) / 32; i2++) {
                 int i3 = i2 * 32;
                 for (int i4 = 0; i4 < 32 && i3 + i4 < length; i4++) {
-                    bArr2[i3 + i4] = (byte) ((a3[i4] & 255) ^ (bArr[i3 + i4] & BaseActivity.KEYBOARD_STATE_INIT));
+                    bArr2[i3 + i4] = (byte) ((a3[i4] & 255) ^ (bArr[i3 + i4] & 255));
                 }
             }
             for (int i5 = 0; i5 < length2; i5++) {
                 bArr2[length + i5] = (byte) str2.charAt(i5);
             }
-            return new String(m118if(bArr2));
+            return new String(m121if(bArr2));
         } catch (Exception e) {
             e.printStackTrace();
             return "UnsupportedEncodingException";
@@ -65,23 +64,23 @@ class d {
     }
 
     /* renamed from: if  reason: not valid java name */
-    private static char[] m118if(byte[] bArr) {
+    private static char[] m121if(byte[] bArr) {
         boolean z;
         boolean z2;
         char[] cArr = new char[((bArr.length + 2) / 3) * 4];
         int i = 0;
         int i2 = 0;
         while (i2 < bArr.length) {
-            int i3 = (bArr[i2] & BaseActivity.KEYBOARD_STATE_INIT) << 8;
+            int i3 = (bArr[i2] & 255) << 8;
             if (i2 + 1 < bArr.length) {
-                i3 |= bArr[i2 + 1] & BaseActivity.KEYBOARD_STATE_INIT;
+                i3 |= bArr[i2 + 1] & 255;
                 z = true;
             } else {
                 z = false;
             }
             int i4 = i3 << 8;
             if (i2 + 2 < bArr.length) {
-                i4 |= bArr[i2 + 2] & BaseActivity.KEYBOARD_STATE_INIT;
+                i4 |= bArr[i2 + 2] & 255;
                 z2 = true;
             } else {
                 z2 = false;

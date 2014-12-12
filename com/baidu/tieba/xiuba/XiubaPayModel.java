@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.pay.ResponseGetPayinfoMessage;
-import com.baidu.tieba.ai;
+import com.baidu.tieba.tbadkCore.a.a;
 /* loaded from: classes.dex */
 public class XiubaPayModel {
     private static GetPayCallback getPayCallback;
@@ -23,7 +23,7 @@ public class XiubaPayModel {
     }
 
     static {
-        ai.a(308006, ResponseXiubaPayMessage.class, false, false);
+        a.a(308006, ResponseXiubaPayMessage.class, false, false);
         sendPayListener = new e(308006) { // from class: com.baidu.tieba.xiuba.XiubaPayModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -79,6 +79,6 @@ public class XiubaPayModel {
     }
 
     public void sendPurchaseTask() {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new BuyTBeanActivityConfig(TbadkApplication.m251getInst(), 0)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new BuyTBeanActivityConfig(TbadkApplication.getInst(), 0)));
     }
 }

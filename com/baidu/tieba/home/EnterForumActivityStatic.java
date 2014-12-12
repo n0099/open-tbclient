@@ -4,11 +4,11 @@ import com.baidu.adp.framework.MessageManager;
 /* loaded from: classes.dex */
 public class EnterForumActivityStatic {
     static {
-        IM();
+        Jh();
     }
 
-    private static void IM() {
-        com.baidu.tieba.b.b.AJ();
-        MessageManager.getInstance().registerListener(new n(2012117));
+    private static void Jh() {
+        com.baidu.tieba.tbadkCore.d.b.ahl();
+        MessageManager.getInstance().registerListener(new o(2012117));
     }
 }

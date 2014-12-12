@@ -7,47 +7,47 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class f {
-    private static f hW = null;
-    private HashMap<String, e> hX;
+    private static f ie = null;
+    private HashMap<String, e> ig;
 
     private f() {
-        this.hX = null;
-        this.hX = new HashMap<>();
+        this.ig = null;
+        this.ig = new HashMap<>();
     }
 
-    public static synchronized f db() {
+    public static synchronized f dc() {
         f fVar;
         synchronized (f.class) {
-            if (hW == null) {
-                hW = new f();
+            if (ie == null) {
+                ie = new f();
             }
-            fVar = hW;
+            fVar = ie;
         }
         return fVar;
     }
 
     public void a(c cVar) {
-        if (cVar != null && !this.hX.containsKey(cVar.getName())) {
-            this.hX.put(cVar.getName(), new e(cVar));
+        if (cVar != null && !this.ig.containsKey(cVar.getName())) {
+            this.ig.put(cVar.getName(), new e(cVar));
         }
     }
 
     public void crash(String str) {
-        Iterator<e> it = this.hX.values().iterator();
-        while (it.hasNext() && !it.next().T(str)) {
+        Iterator<e> it = this.ig.values().iterator();
+        while (it.hasNext() && !it.next().Y(str)) {
         }
     }
 
-    public boolean c(String str, int i) {
+    public boolean d(String str, int i) {
         e eVar;
-        if (i >= 0 && (eVar = this.hX.get(str)) != null) {
-            return eVar.s(i);
+        if (i >= 0 && (eVar = this.ig.get(str)) != null) {
+            return eVar.A(i);
         }
         return false;
     }
 
-    public int U(String str) {
-        e eVar = this.hX.get(str);
+    public int Z(String str) {
+        e eVar = this.ig.get(str);
         if (eVar != null) {
             return eVar.getType();
         }
@@ -55,20 +55,20 @@ public class f {
     }
 
     public void clear() {
-        if (this.hX != null) {
+        if (this.ig != null) {
             SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-            for (e eVar : this.hX.values()) {
+            for (e eVar : this.ig.values()) {
                 if (eVar != null) {
-                    eVar.v(0);
-                    edit.putInt(String.valueOf(eVar.getName()) + e.hR, 0);
-                    edit.putInt(String.valueOf(eVar.getName()) + e.hS, eVar.getDefaultType());
+                    eVar.D(0);
+                    edit.putInt(String.valueOf(eVar.getName()) + e.hY, 0);
+                    edit.putInt(String.valueOf(eVar.getName()) + e.hZ, eVar.getDefaultType());
                 }
             }
             edit.commit();
         }
     }
 
-    public void d(Class<?> cls) {
+    public void l(Class<?> cls) {
         try {
             cls.newInstance();
         } catch (IllegalAccessException e) {
@@ -78,10 +78,10 @@ public class f {
         }
     }
 
-    public void a(HashMap<String, Integer> hashMap) {
+    public void b(HashMap<String, Integer> hashMap) {
         if (hashMap != null && hashMap.size() > 0) {
             for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
-                c(entry.getKey(), entry.getValue().intValue());
+                d(entry.getKey(), entry.getValue().intValue());
             }
         }
     }

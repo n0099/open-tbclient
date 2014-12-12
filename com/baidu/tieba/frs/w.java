@@ -1,39 +1,23 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-class w extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ FrsActivity aBu;
+class w implements View.OnClickListener {
+    final /* synthetic */ FrsActivity aCV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w(FrsActivity frsActivity, int i) {
-        super(i);
-        this.aBu = frsActivity;
+    public w(FrsActivity frsActivity) {
+        this.aCV = frsActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        dd ddVar;
-        com.baidu.tieba.b.a aVar;
-        com.baidu.tieba.b.a aVar2;
-        if (socketResponsedMessage instanceof FRSPageSocketResponsedMessage) {
-            FRSPageSocketResponsedMessage fRSPageSocketResponsedMessage = (FRSPageSocketResponsedMessage) socketResponsedMessage;
-            e eVar = new e();
-            eVar.aAl = fRSPageSocketResponsedMessage.getError() < -13 || fRSPageSocketResponsedMessage.getError() > -10;
-            eVar.isSuccess = fRSPageSocketResponsedMessage.hasNetworkError() ? false : true;
-            eVar.errorCode = fRSPageSocketResponsedMessage.getError();
-            eVar.errorMsg = fRSPageSocketResponsedMessage.getErrorString();
-            eVar.aAm = fRSPageSocketResponsedMessage.getDownSize();
-            ddVar = this.aBu.aBd;
-            ddVar.a(fRSPageSocketResponsedMessage.getUpdateType(), false, eVar);
-            aVar = this.aBu.aAO;
-            if (aVar != null) {
-                aVar2 = this.aBu.aAO;
-                aVar2.a(false, eVar.isSuccess, eVar.errorCode, eVar.errorMsg, eVar.aAm);
-                this.aBu.aAO = null;
-            }
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int i;
+        TiebaStatic.eventStat(this.aCV.getPageContext().getPageActivity(), "frs_nextpage", "frsclick", 1, new Object[0]);
+        FrsActivity frsActivity = this.aCV;
+        i = frsActivity.aBR;
+        frsActivity.aBR = i + 1;
+        this.aCV.eD(1);
     }
 }

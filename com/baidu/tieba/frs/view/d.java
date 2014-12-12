@@ -21,7 +21,7 @@ public class d {
     public void setOnClickListener(View.OnClickListener onClickListener) {
     }
 
-    public boolean D(View view) {
+    public boolean y(View view) {
         return false;
     }
 }

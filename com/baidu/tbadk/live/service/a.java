@@ -5,21 +5,11 @@ import android.os.IInterface;
 public interface a extends IInterface {
     void a(d dVar);
 
-    void a(String str, String str2, String str3, String str4, String str5, String str6);
-
-    void a(String str, String str2, String str3, String str4, String str5, String str6, boolean z, boolean z2);
-
-    void ax(boolean z);
-
     void b(d dVar);
 
-    void c(String str, String str2, int i);
+    void closePublish(String str, boolean z);
 
-    void dC(String str);
-
-    void dD(String str);
-
-    void dE(String str);
+    void connectAndPublish(String str, String str2, String str3, String str4, String str5, String str6);
 
     String getCurrentGroupId();
 
@@ -37,11 +27,15 @@ public interface a extends IInterface {
 
     int getSignalStrength();
 
-    void o(String str, boolean z);
-
-    void p(String str, boolean z);
+    void pausePlay(String str);
 
     void pausePublish(String str);
+
+    void playOrRecord(String str, String str2, String str3, String str4, String str5, String str6, boolean z, boolean z2);
+
+    void requestStatusRebroadcast();
+
+    void resumePlay(String str);
 
     void resumePublish(String str);
 
@@ -51,13 +45,19 @@ public interface a extends IInterface {
 
     void setPublisherPaused(boolean z);
 
+    void startPlay(String str, String str2, int i);
+
+    void startPublish(String str);
+
     void startRecordInPublish(String str);
+
+    void stopAnyRunning(boolean z);
+
+    void stopPlay(String str, boolean z);
 
     void stopPublish(String str);
 
     void stopRecordInPublish(String str);
-
-    void sw();
 
     int whatIsRunning();
 }

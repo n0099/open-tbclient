@@ -1,21 +1,21 @@
 package com.baidu.tbadk.coreExtra.act;
 
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u implements com.baidu.tbadk.coreExtra.view.w {
-    final /* synthetic */ FillUProfileActivity Kj;
+public class u implements com.baidu.tbadk.coreExtra.view.y {
+    final /* synthetic */ FillUProfileActivity Pr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(FillUProfileActivity fillUProfileActivity) {
-        this.Kj = fillUProfileActivity;
+        this.Pr = fillUProfileActivity;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.w
+    @Override // com.baidu.tbadk.coreExtra.view.y
     public void f(AccountData accountData) {
         com.baidu.tbadk.core.account.a.a(accountData);
-        TbadkApplication.setCurrentAccount(accountData, this.Kj.getBaseContext());
-        this.Kj.ob();
+        TbadkCoreApplication.setCurrentAccount(accountData, this.Pr.getBaseContext());
+        this.Pr.rc();
     }
 }

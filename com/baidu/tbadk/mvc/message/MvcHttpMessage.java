@@ -1,10 +1,10 @@
 package com.baidu.tbadk.mvc.message;
 
 import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.mvc.b.f;
-import com.baidu.tbadk.mvc.b.i;
+import com.baidu.tbadk.mvc.b.g;
+import com.baidu.tbadk.mvc.b.j;
 /* loaded from: classes.dex */
-public class MvcHttpMessage<T extends f, D extends i> extends HttpMessage {
+public class MvcHttpMessage<T extends g, D extends j> extends HttpMessage {
     private boolean isNeedCache;
     private T requestData;
     private Class<D> responseDataClass;

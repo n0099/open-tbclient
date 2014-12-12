@@ -16,7 +16,7 @@ public abstract class e extends a {
         if (view == null || bVar == null) {
             return null;
         }
-        com.baidu.tbadk.mvc.g.a.a(bVar, view);
+        com.baidu.tbadk.mvc.h.a.a(bVar, view);
         if (this.rootViewClickListener == null) {
             this.rootViewClickListener = new f(this);
         }
@@ -28,7 +28,7 @@ public abstract class e extends a {
         if (view == null || bVar == null) {
             return null;
         }
-        com.baidu.tbadk.mvc.g.a.a(bVar, view);
+        com.baidu.tbadk.mvc.h.a.a(bVar, view);
         if (this.rootViewLongClickListener == null) {
             this.rootViewLongClickListener = new g(this);
         }
@@ -36,33 +36,36 @@ public abstract class e extends a {
         return this.rootViewLongClickListener;
     }
 
+    @Deprecated
     public DialogInterface.OnClickListener setDialogClickListener(Dialog dialog, com.baidu.tbadk.mvc.c.b bVar) {
         if (dialog == null || bVar == null) {
             return null;
         }
-        com.baidu.tbadk.mvc.g.a.a(bVar, dialog);
+        com.baidu.tbadk.mvc.h.a.a(bVar, dialog);
         if (this.dialogClickListener == null) {
             this.dialogClickListener = new h(this);
         }
         return this.dialogClickListener;
     }
 
+    @Deprecated
     public AdapterView.OnItemClickListener setItemClickListener(View view, com.baidu.tbadk.mvc.c.b bVar) {
         if (view == null || bVar == null) {
             return null;
         }
-        com.baidu.tbadk.mvc.g.a.a(bVar, view);
+        com.baidu.tbadk.mvc.h.a.a(bVar, view);
         if (this.itemClickListener == null) {
             this.itemClickListener = new i(this);
         }
         return this.itemClickListener;
     }
 
+    @Deprecated
     public AdapterView.OnItemLongClickListener setItemLongClickListener(View view, com.baidu.tbadk.mvc.c.b bVar) {
         if (view == null || bVar == null) {
             return null;
         }
-        com.baidu.tbadk.mvc.g.a.a(bVar, view);
+        com.baidu.tbadk.mvc.h.a.a(bVar, view);
         if (this.itemLongClickListener == null) {
             this.itemLongClickListener = new j(this);
         }

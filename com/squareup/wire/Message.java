@@ -1,6 +1,5 @@
 package com.squareup.wire;
 
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.squareup.wire.UnknownFieldMap;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -184,7 +183,7 @@ public abstract class Message {
                 case 13:
                 case 16:
                     return WireType.FIXED32;
-                case DealIntentService.CLASS_TYPE_GROUP_EVENT /* 14 */:
+                case 14:
                 case 15:
                 case 17:
                     return WireType.FIXED64;

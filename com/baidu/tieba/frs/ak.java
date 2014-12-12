@@ -1,42 +1,52 @@
 package com.baidu.tieba.frs;
+
+import android.content.DialogInterface;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements com.baidu.tieba.model.bd {
-    final /* synthetic */ FrsActivity aBu;
+public class ak implements DialogInterface.OnClickListener {
+    final /* synthetic */ FrsActivity aCV;
+    private final /* synthetic */ com.baidu.tbadk.core.data.w aDa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(FrsActivity frsActivity) {
-        this.aBu = frsActivity;
+    public ak(FrsActivity frsActivity, com.baidu.tbadk.core.data.w wVar) {
+        this.aCV = frsActivity;
+        this.aDa = wVar;
     }
 
-    @Override // com.baidu.tieba.model.bd
-    public void d(String str, long j) {
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        String str;
         String str2;
-        b bVar;
-        String str3;
-        String str4;
-        bu buVar;
-        bu buVar2;
-        a EX = a.EX();
-        str2 = this.aBu.aAx;
-        EX.u(str2, false);
-        bVar = this.aBu.azN;
-        bVar.zL().setLike(0);
-        str3 = this.aBu.mPageType;
-        if (str3.equals("normal_page")) {
-            buVar2 = this.aBu.aAF;
-            buVar2.eT(0);
-        } else {
-            str4 = this.aBu.mPageType;
-            if (str4.equals("frs_page")) {
-                buVar = this.aBu.aAF;
-                buVar.eU(0);
-            }
+        boolean z;
+        bq bqVar;
+        switch (i) {
+            case 0:
+                str = this.aCV.mThreadId;
+                if (str != null) {
+                    FrsActivity frsActivity = this.aCV;
+                    PbActivityConfig pbActivityConfig = new PbActivityConfig(this.aCV.getPageContext().getPageActivity());
+                    com.baidu.tbadk.core.data.w wVar = this.aDa;
+                    str2 = this.aCV.aBP;
+                    z = this.aCV.aBW;
+                    frsActivity.sendMessage(new CustomMessage(2004001, pbActivityConfig.createFromThreadCfg(wVar, str2, null, 18003, true, false, z)));
+                    break;
+                }
+                break;
+            case 1:
+                this.aCV.b(this.aDa);
+                break;
+            case 2:
+                this.aCV.c(this.aDa);
+                break;
         }
-        com.baidu.tieba.aj.wm().dX(str);
-    }
-
-    @Override // com.baidu.tieba.model.bd
-    public void e(String str, long j) {
+        com.baidu.tieba.tbadkCore.util.l readThreadHistory = TbadkCoreApplication.m255getInst().getReadThreadHistory();
+        if (readThreadHistory != null && this.aDa != null && !readThreadHistory.ip(this.aDa.getId())) {
+            readThreadHistory.io(this.aDa.getId());
+        }
+        bqVar = this.aCV.aBX;
+        bqVar.Gw();
     }
 }

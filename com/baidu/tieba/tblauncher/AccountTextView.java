@@ -23,7 +23,7 @@ public class AccountTextView extends TextView {
 
     @Override // android.widget.TextView, android.view.View
     protected void onMeasure(int i, int i2) {
-        String a = com.baidu.adp.lib.util.l.a(getText(), "");
+        String a = com.baidu.adp.lib.util.k.a(getText(), "");
         int size = View.MeasureSpec.getSize(i);
         int measureText = (int) (getPaint().measureText(a) + getCompoundPaddingLeft() + getCompoundPaddingRight());
         if (!TextUtils.isEmpty(a) && !a.equals(this.text) && measureText > size) {

@@ -4,10 +4,10 @@ import com.baidu.tbadk.core.data.UserData;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetGameDetail.RankInfo;
-import tbclient.GetGameDetail.RankItem;
+import tbclient.GetGameDetailNew.RankInfo;
+import tbclient.GetGameDetailNew.RankItem;
 /* loaded from: classes.dex */
-public class GameRankInfoData implements Serializable {
+public class GameRankInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
     private static final long serialVersionUID = 7332418717314248175L;
     private List<UserData> rankList = new ArrayList();
 

@@ -1,28 +1,30 @@
 package com.baidu.tieba.service;
 
-import android.app.Service;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.os.Handler;
 import android.os.IBinder;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
+import com.baidu.adp.base.BdBaseService;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.data.VersionData;
+import com.baidu.tbadk.coreExtra.data.VersionData;
+import com.baidu.tieba.z;
 import java.io.File;
 /* loaded from: classes.dex */
-public class TiebaUpdateService extends Service {
+public class TiebaUpdateService extends BdBaseService {
     private static final long MAX_WAIT_MILLS = 20000;
     private static final int MSG_DOWNLOAD_PROCESS = 0;
     private static final int MSG_MAIN_APK_EXIST = 1;
     private static final int MSG_OTHER_APK_EXIST = 2;
     private static boolean sHasStart = false;
     private String info;
-    private u mDowndMainApkTask;
-    private v mDowndOtherApkTask;
+    private q mDowndMainApkTask;
+    private r mDowndOtherApkTask;
     private boolean mHasAs;
     private boolean mHasOther;
     private boolean mHasTieba;
@@ -41,56 +43,57 @@ public class TiebaUpdateService extends Service {
     private int mProgressAfter;
     private int mProgressBefore;
     private VersionData mVersionData;
-    private final Handler mMainApkHandler = new w(this, null);
-    private final Handler mOtherApkHandler = new x(this, null);
+    private final Handler mMainApkHandler = new s(this, null);
+    private final Handler mOtherApkHandler = new t(this, null);
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         String string;
-        if (intent != null && "action_stop".equals(intent.getAction()) && (this.mHasTieba || this.mHasAs)) {
-            stopSelf();
-        } else if (!sHasStart && intent != null) {
-            sHasStart = true;
-            this.mMainTaskWaitingTimestamp = System.currentTimeMillis();
-            this.mOtherTaskWaitingTimestamp = System.currentTimeMillis();
-            this.mMainApkUrl = intent.getStringExtra("key_tieba_apk_url");
-            this.mVersionData = (VersionData) intent.getSerializableExtra("tieba_apk_data");
-            if (URLUtil.isNetworkUrl(this.mMainApkUrl)) {
-                this.mHasTieba = true;
-                this.mMainApkFileName = String.valueOf(getString(com.baidu.tieba.y.app_name)) + TbadkApplication.m251getInst().getVersionName() + ".apk";
+        if (intent != null) {
+            if ("action_stop".equals(intent.getAction()) && (this.mHasTieba || this.mHasAs)) {
+                stopSelf();
+            } else if (sHasStart) {
+                sendBroadcast("action_background_downloading", true);
             } else {
-                this.mMainApkUrl = intent.getStringExtra("as_apk_url");
+                sHasStart = true;
+                this.mMainTaskWaitingTimestamp = System.currentTimeMillis();
+                this.mOtherTaskWaitingTimestamp = System.currentTimeMillis();
+                this.mMainApkUrl = intent.getStringExtra(UpdateDialogConfig.KEY_TIEBA_APK_URL);
+                this.mVersionData = (VersionData) intent.getSerializableExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA);
                 if (URLUtil.isNetworkUrl(this.mMainApkUrl)) {
-                    this.mHasAs = true;
-                    this.mMainApkFileName = getFileOfUrl(this.mMainApkUrl);
-                }
-            }
-            this.mOtherApkUrl = intent.getStringExtra("other_apk_url");
-            this.mOtherApkFileName = getFileOfUrl(this.mOtherApkUrl);
-            if (URLUtil.isNetworkUrl(this.mOtherApkUrl) && this.mOtherApkFileName.length() >= 4) {
-                this.mHasOther = true;
-            } else {
-                this.mMainApkInstallEnable = true;
-            }
-            if (!this.mHasTieba && !this.mHasAs && !this.mHasOther) {
-                stopSelf(i);
-                return;
-            }
-            if (this.mHasTieba || this.mHasAs) {
-                if (this.mHasTieba) {
-                    string = getString(com.baidu.tieba.y.tieba_downloading);
+                    this.mHasTieba = true;
+                    this.mMainApkFileName = String.valueOf(getString(z.app_name)) + TbadkCoreApplication.m255getInst().getVersionName() + ".apk";
                 } else {
-                    string = getString(com.baidu.tieba.y.as_downloading);
+                    this.mMainApkUrl = intent.getStringExtra(UpdateDialogConfig.KEY_AS_APK_URL);
+                    if (URLUtil.isNetworkUrl(this.mMainApkUrl)) {
+                        this.mHasAs = true;
+                        this.mMainApkFileName = getFileOfUrl(this.mMainApkUrl);
+                    }
                 }
-                sendBroadcast(0);
-                downloadMainApk(string);
-                if (this.mHasOther) {
+                this.mOtherApkUrl = intent.getStringExtra(UpdateDialogConfig.KEY_OTHER_APK_URL);
+                this.mOtherApkFileName = getFileOfUrl(this.mOtherApkUrl);
+                if (URLUtil.isNetworkUrl(this.mOtherApkUrl) && this.mOtherApkFileName.length() >= 4) {
+                    this.mHasOther = true;
+                } else {
+                    this.mMainApkInstallEnable = true;
+                }
+                if (!this.mHasTieba && !this.mHasAs && !this.mHasOther) {
+                    stopSelf(i);
+                } else if (this.mHasTieba || this.mHasAs) {
+                    if (this.mHasTieba) {
+                        string = getString(z.tieba_downloading);
+                    } else {
+                        string = getString(z.as_downloading);
+                    }
+                    downloadMainApk(string);
+                    if (this.mHasOther) {
+                        downloadOtherApk();
+                    }
+                } else {
+                    this.info = getString(z.downloading);
                     downloadOtherApk();
                 }
-            } else {
-                downloadOtherApk();
             }
-            super.onStart(intent, i);
         }
     }
 
@@ -102,23 +105,23 @@ public class TiebaUpdateService extends Service {
     */
     private void downloadMainApk(String str) {
         boolean z;
-        File br;
+        File cj;
         PackageInfo packageArchiveInfo;
-        String bq = com.baidu.tbadk.core.util.s.bq(this.mMainApkFileName);
-        if (bq != null && (packageArchiveInfo = getPackageManager().getPackageArchiveInfo(bq, 1)) != null) {
+        String ci = com.baidu.tbadk.core.util.s.ci(this.mMainApkFileName);
+        if (ci != null && (packageArchiveInfo = getPackageManager().getPackageArchiveInfo(ci, 1)) != null) {
             String str2 = packageArchiveInfo.versionName;
             if (!TextUtils.isEmpty(str2) && str2.compareTo(TbConfig.getVersion()) >= 0) {
                 z = true;
-                br = com.baidu.tbadk.core.util.s.br(this.mMainApkFileName);
-                if (br == null && br.exists() && z) {
+                cj = com.baidu.tbadk.core.util.s.cj(this.mMainApkFileName);
+                if (cj == null && cj.exists() && z) {
                     this.mMainApkHandler.sendMessageDelayed(this.mMainApkHandler.obtainMessage(1, null), 100L);
                     return;
                 }
-                if (br != null) {
-                    br.delete();
+                if (cj != null) {
+                    cj.delete();
                 }
                 if (this.mDowndMainApkTask != null) {
-                    this.mDowndMainApkTask = new u(this, null);
+                    this.mDowndMainApkTask = new q(this, null);
                     this.mDowndMainApkTask.execute(new String[0]);
                     this.info = str;
                     NotificationHelper.showProgressNotification(this, 10, null, 0, null, str, true);
@@ -128,22 +131,22 @@ public class TiebaUpdateService extends Service {
             }
         }
         z = false;
-        br = com.baidu.tbadk.core.util.s.br(this.mMainApkFileName);
-        if (br == null) {
+        cj = com.baidu.tbadk.core.util.s.cj(this.mMainApkFileName);
+        if (cj == null) {
         }
-        if (br != null) {
+        if (cj != null) {
         }
         if (this.mDowndMainApkTask != null) {
         }
     }
 
     private void downloadOtherApk() {
-        if (com.baidu.tbadk.core.util.s.br(this.mOtherApkFileName) != null) {
+        if (com.baidu.tbadk.core.util.s.cj(this.mOtherApkFileName) != null) {
             this.mHasOther = false;
             this.mOtherApkHandler.sendMessageDelayed(this.mOtherApkHandler.obtainMessage(2, null), 100L);
         } else if (this.mDowndOtherApkTask == null) {
             this.mHasOther = true;
-            this.mDowndOtherApkTask = new v(this, null);
+            this.mDowndOtherApkTask = new r(this, null);
             this.mDowndOtherApkTask.execute(new String[0]);
         }
     }
@@ -180,10 +183,10 @@ public class TiebaUpdateService extends Service {
     }
 
     public void renameFile(String str) {
-        File bs;
-        com.baidu.tbadk.core.util.s.bx(str);
-        File br = com.baidu.tbadk.core.util.s.br(String.valueOf(str) + ".tmp");
-        if (br != null && (bs = com.baidu.tbadk.core.util.s.bs(str)) != null && !br.renameTo(bs)) {
+        File ck;
+        com.baidu.tbadk.core.util.s.cp(str);
+        File cj = com.baidu.tbadk.core.util.s.cj(String.valueOf(str) + ".tmp");
+        if (cj != null && (ck = com.baidu.tbadk.core.util.s.ck(str)) != null && !cj.renameTo(ck)) {
             TiebaStatic.file("renameTo erro", "TiebaUpdateService.DownLoadingOtherAsyncTask");
         }
     }
@@ -192,7 +195,7 @@ public class TiebaUpdateService extends Service {
         Intent intent = new Intent();
         intent.setClass(this, AsInstallService.class);
         if (this.mVersionData != null) {
-            intent.putExtra("tieba_apk_data", this.mVersionData);
+            intent.putExtra(UpdateDialogConfig.KEY_TIEBA_APK_DATA, this.mVersionData);
             startService(intent);
         }
     }
@@ -201,19 +204,20 @@ public class TiebaUpdateService extends Service {
         sendBroadcast("action_update_complete", true);
         NotificationHelper.cancelNotification(this, 10);
         if (this.mOtherApkFileName != null && this.mOtherApkFileName.length() > 4) {
-            TbadkApplication.m251getInst().setInstallOtherApp(this.mOtherApkFileName);
+            TbadkCoreApplication.m255getInst().setInstallOtherApp(this.mOtherApkFileName);
         }
         stopSelf();
     }
 
     public void updateProgress(long j, long j2) {
         if (j2 > 0) {
+            int i = (int) ((100 * j) / j2);
             StringBuffer stringBuffer = new StringBuffer(20);
             stringBuffer.append(String.valueOf(j / 1000));
             stringBuffer.append("K/");
             stringBuffer.append(String.valueOf(j2 / 1000));
             stringBuffer.append("K");
-            NotificationHelper.showProgressNotification(this, 10, null, (int) ((100 * j) / j2), stringBuffer.toString(), this.info, true);
+            NotificationHelper.showProgressNotification(this, 10, null, i, String.valueOf(i) + "%", this.info, true);
         }
     }
 

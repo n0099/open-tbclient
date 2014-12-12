@@ -5,61 +5,61 @@ import android.widget.Toast;
 import com.baidu.adp.base.BdBaseApplication;
 /* loaded from: classes.dex */
 public class k {
-    private static Toast nr;
-    private boolean Dm;
+    private static Toast nq;
+    private boolean Hz;
     private static Handler mHandler = new Handler();
-    private static Runnable Dl = new l();
+    private static Runnable Hy = new l();
 
-    public static k lt() {
+    public static k oo() {
         return new k();
     }
 
     private k() {
     }
 
-    public void b(String str, int i, int i2) {
-        if (!this.Dm && str != null) {
+    public void c(String str, int i, int i2) {
+        if (!this.Hz && str != null) {
             String trim = str.trim();
             if (trim.length() != 0) {
-                mHandler.removeCallbacks(Dl);
-                if (nr != null) {
-                    nr.setText(trim);
+                mHandler.removeCallbacks(Hy);
+                if (nq != null) {
+                    nq.setText(trim);
                 } else {
-                    nr = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
-                    nr.setGravity(17, 0, i2);
+                    nq = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
+                    nq.setGravity(17, 0, i2);
                 }
-                mHandler.postDelayed(Dl, i);
-                nr.show();
+                mHandler.postDelayed(Hy, i);
+                nq.show();
             }
         }
     }
 
     public void showToast(String str, int i) {
-        b(str, i, com.baidu.adp.lib.util.m.dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
+        c(str, i, com.baidu.adp.lib.util.l.dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
     }
 
     public void showToast(int i, int i2) {
         showToast(BdBaseApplication.getInst().getApp().getResources().getString(i), i2);
     }
 
-    public void k(int i, int i2, int i3) {
-        b(BdBaseApplication.getInst().getApp().getResources().getString(i), i2, i3);
+    public void p(int i, int i2, int i3) {
+        c(BdBaseApplication.getInst().getApp().getResources().getString(i), i2, i3);
     }
 
     public void onPause() {
-        this.Dm = true;
+        this.Hz = true;
         cancel();
     }
 
     public void onResume() {
-        this.Dm = false;
+        this.Hz = false;
     }
 
     public static void cancel() {
-        if (nr != null) {
-            mHandler.removeCallbacks(Dl);
-            nr.cancel();
-            nr = null;
+        if (nq != null) {
+            mHandler.removeCallbacks(Hy);
+            nq.cancel();
+            nq = null;
         }
     }
 }

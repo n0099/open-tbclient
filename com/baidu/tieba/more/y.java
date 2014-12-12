@@ -1,13 +1,9 @@
 package com.baidu.tieba.more;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements r {
+public class y extends com.baidu.adp.base.i {
     final /* synthetic */ MoreActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,67 +11,25 @@ public class y implements r {
         this.this$0 = moreActivity;
     }
 
-    @Override // com.baidu.tieba.more.r
-    public void gF(int i) {
-        ag agVar;
-        if (i != 0) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            if (i != 6) {
-                                if (i != 7) {
-                                    if (i != 8) {
-                                        if (i == 5) {
-                                            SystemHelpSettingActivity.ae(this.this$0);
-                                            return;
-                                        } else if (i != 9) {
-                                            if (i == 10) {
-                                                agVar = this.this$0.brh;
-                                                agVar.Vc();
-                                                return;
-                                            } else if (i == 12) {
-                                                String currentAccount = TbadkApplication.getCurrentAccount();
-                                                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, currentAccount));
-                                                com.baidu.tieba.util.j.hB(currentAccount);
-                                                TbadkApplication.setCurrentAccount(null, this.this$0);
-                                                TbadkApplication.m251getInst().onUserChanged();
-                                                com.baidu.tbadk.core.b.b.a(this.this$0, 11, false);
-                                                return;
-                                            } else if (i == 11) {
-                                                TbadkSettings.getInst().saveBoolean("is_exit_app_not_start_websocket", true);
-                                                BdSocketLinkService.close("exit app");
-                                                com.baidu.tbadk.core.b.b.a(this.this$0, 12, false);
-                                                return;
-                                            } else {
-                                                return;
-                                            }
-                                        } else {
-                                            this.this$0.UY();
-                                            return;
-                                        }
-                                    }
-                                    this.this$0.UR();
-                                    return;
-                                }
-                                this.this$0.UQ();
-                                return;
-                            }
-                            this.this$0.US();
-                            return;
-                        }
-                        this.this$0.UX();
-                        return;
-                    }
-                    this.this$0.UT();
-                    return;
-                }
-                this.this$0.UU();
-                return;
-            }
-            this.this$0.UV();
-            return;
+    @Override // com.baidu.adp.base.i
+    public void c(Object obj) {
+        ab abVar;
+        ab abVar2;
+        ab abVar3;
+        ab abVar4;
+        ab abVar5;
+        PersonChangeData personChangeData = new PersonChangeData();
+        abVar = this.this$0.bux;
+        if (abVar.getUser() != null) {
+            abVar2 = this.this$0.bux;
+            personChangeData.setName(abVar2.getUser().getName_show());
+            abVar3 = this.this$0.bux;
+            personChangeData.setIntro(abVar3.getUser().getIntro());
+            abVar4 = this.this$0.bux;
+            personChangeData.setPortrait(abVar4.getUser().getPortrait());
+            abVar5 = this.this$0.bux;
+            personChangeData.setSex(abVar5.getUser().getSex());
+            this.this$0.a(personChangeData);
         }
-        this.this$0.UW();
     }
 }

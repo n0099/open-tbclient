@@ -25,13 +25,13 @@ public class w extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         MemoryClearStrangerItemsMessage memoryClearStrangerItemsMessage;
         com.baidu.tieba.im.message.e data;
-        if (customResponsedMessage != null && (customResponsedMessage instanceof MemoryClearStrangerItemsMessage) && (data = (memoryClearStrangerItemsMessage = (MemoryClearStrangerItemsMessage) customResponsedMessage).getData()) != null && data.aKa != null) {
+        if (customResponsedMessage != null && (customResponsedMessage instanceof MemoryClearStrangerItemsMessage) && (data = (memoryClearStrangerItemsMessage = (MemoryClearStrangerItemsMessage) customResponsedMessage).getData()) != null && data.datas != null) {
             ArrayList arrayList = new ArrayList();
-            for (com.baidu.tieba.im.message.g gVar : data.aKa) {
-                c.PN().d(gVar.id, gVar.customGroupType, gVar.Rs);
+            for (com.baidu.tieba.im.message.g gVar : data.datas) {
+                c.Qs().e(gVar.id, gVar.customGroupType, gVar.Xp);
             }
             if (memoryClearStrangerItemsMessage.isAllClear()) {
-                c.PN().e("-1001", -7, false);
+                c.Qs().f("-1001", -7, false);
             }
             CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new x(this, arrayList, memoryClearStrangerItemsMessage));
             customMessageTask.setParallel(TiebaIMConfig.getParallel());

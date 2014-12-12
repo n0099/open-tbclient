@@ -1,20 +1,21 @@
 package com.baidu.tieba.mention;
 
-import android.widget.AbsListView;
+import android.view.View;
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes.dex */
-class e implements AbsListView.OnScrollListener {
-    final /* synthetic */ c bnx;
+class e implements View.OnClickListener {
+    final /* synthetic */ b brO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(c cVar) {
-        this.bnx = cVar;
+    public e(b bVar) {
+        this.brO = bVar;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ViewEventCenter wx;
+        com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(9484, this.brO.getData(), null, null);
+        wx = this.brO.wx();
+        wx.dispatchMvcEvent(bVar);
     }
 }

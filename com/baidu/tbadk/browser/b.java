@@ -1,35 +1,49 @@
 package com.baidu.tbadk.browser;
 
-import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.plugin.PluginCenter;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.DailyRecommendActivityConfig;
 import com.baidu.tbadk.core.atomData.ForumRankActivityConfig;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.bj;
+import com.baidu.tbadk.plugins.XiubaPlugin;
+import com.baidu.tieba.z;
 /* loaded from: classes.dex */
-class b implements bi {
-    @Override // com.baidu.tbadk.core.util.bi
-    public boolean a(Context context, String[] strArr) {
+class b implements bj {
+    @Override // com.baidu.tbadk.core.util.bj
+    public boolean a(TbPageContext<?> tbPageContext, String[] strArr) {
         String str = strArr[0];
-        String str2 = strArr.length > 1 ? strArr[1] : null;
-        String str3 = strArr.length > 2 ? strArr[2] : null;
+        String str2 = strArr.length > 2 ? strArr[2] : null;
+        String str3 = strArr.length > 1 ? strArr[1] : null;
         if (str.startsWith("opfeature:")) {
-            a.i(context, a.x(str.replaceFirst("opfeature:", ""), str3));
+            a.y(tbPageContext.getContext(), a.I(str.replaceFirst("opfeature:", ""), str2));
         } else if (str.startsWith("web:")) {
-            a.i(context, a.x(str.replaceFirst("web:", ""), str3));
+            a.y(tbPageContext.getContext(), a.I(str.replaceFirst("web:", ""), str2));
         } else if (str.startsWith("topic:")) {
-            TbWebViewActivity.startActivityWithCookie(context, str.substring(6), str2);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(tbPageContext.getContext(), str.substring(6), str3, true, true, false, true, false)));
         } else if (str.startsWith("zb:")) {
-            TbWebViewActivity.startActivity(context, context.getString(com.baidu.tieba.y.kn_zhibo), str.substring(3));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(tbPageContext.getContext(), tbPageContext.getString(z.kn_zhibo), str.substring(3), true, true, false, false, false)));
         } else if (str.startsWith("jctj:")) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2010020, new DailyRecommendActivityConfig(context, null)));
-        } else if (!str.startsWith("list:")) {
-            return false;
-        } else {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2902022, new DailyRecommendActivityConfig(tbPageContext.getContext(), null)));
+        } else if (str.startsWith("list:")) {
             String substring = str.substring(5);
             if (!TextUtils.isEmpty(substring)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumRankActivityConfig(context, substring, str3)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2902028, new ForumRankActivityConfig(tbPageContext.getContext(), substring, str2)));
+            }
+        } else if (!str.startsWith("xiuba:")) {
+            return false;
+        } else {
+            if (!UtilHelper.isNetOk()) {
+                UtilHelper.showToast(tbPageContext.getContext(), z.neterror);
+            } else {
+                XiubaPlugin xiubaPlugin = (XiubaPlugin) PluginCenter.gX().hf();
+                if (xiubaPlugin != null) {
+                    xiubaPlugin.startXiuba(tbPageContext.getContext());
+                }
             }
         }
         return true;

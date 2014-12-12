@@ -3,7 +3,13 @@ package com.baidu.tbadk.core.frameworkData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.a.b.a.a.i;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.plugin.PluginCenter;
+import com.baidu.adp.plugin.packageManager.pluginSettings.h;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class a extends i {
@@ -115,6 +121,31 @@ public class a extends i {
         }
     }
 
+    public void startActivityForResult(int i, Message<?> message) {
+        if (message != null) {
+            if (TextUtils.isEmpty(h.iy().ar(message.getCmd()))) {
+                if (this.mIntent != null) {
+                    try {
+                        if (com.baidu.adp.plugin.pluginBase.c.class.isAssignableFrom(BdBaseApplication.getInst().getClassLoader().loadClass(this.mIntent.getComponent().getClassName()))) {
+                            PluginCenter.gX().a(this.mContext, message.getCmd(), this.mIntent);
+                            return;
+                        }
+                    } catch (Exception e) {
+                        BdLog.detailException(e);
+                    }
+                }
+                try {
+                    startActivityForResult(i);
+                    return;
+                } catch (Throwable th) {
+                    BdLog.detailException(th);
+                    return;
+                }
+            }
+            PluginCenter.gX().a(this.mContext, message.getCmd(), this.mIntent);
+        }
+    }
+
     public void startService() {
         this.mContext.startService(this.mIntent);
     }
@@ -125,5 +156,30 @@ public class a extends i {
 
     public int getRequestCode() {
         return this.mRequestCode;
+    }
+
+    public void startActivity(Message<?> message) {
+        if (message != null) {
+            if (TextUtils.isEmpty(h.iy().ar(message.getCmd()))) {
+                if (this.mIntent != null) {
+                    try {
+                        if (com.baidu.adp.plugin.pluginBase.c.class.isAssignableFrom(BdBaseApplication.getInst().getClassLoader().loadClass(this.mIntent.getComponent().getClassName()))) {
+                            PluginCenter.gX().a(this.mContext, message.getCmd(), this.mIntent);
+                            return;
+                        }
+                    } catch (Exception e) {
+                        BdLog.detailException(e);
+                    }
+                }
+                try {
+                    this.mContext.startActivity(this.mIntent);
+                    return;
+                } catch (Throwable th) {
+                    BdLog.detailException(th);
+                    return;
+                }
+            }
+            PluginCenter.gX().a(this.mContext, message.getCmd(), this.mIntent);
+        }
     }
 }

@@ -112,6 +112,9 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
         this.mContainerId = obtainStyledAttributes.getResourceId(0, 0);
         obtainStyledAttributes.recycle();
         super.setOnTabChangedListener(this);
+    }
+
+    private void ensureHierarchy(Context context) {
         if (findViewById(16908307) == null) {
             LinearLayout linearLayout = new LinearLayout(context);
             linearLayout.setOrientation(1);
@@ -137,6 +140,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
     }
 
     public void setup(Context context, FragmentManager fragmentManager) {
+        ensureHierarchy(context);
         super.setup();
         this.mContext = context;
         this.mFragmentManager = fragmentManager;
@@ -144,6 +148,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
     }
 
     public void setup(Context context, FragmentManager fragmentManager, int i) {
+        ensureHierarchy(context);
         super.setup();
         this.mContext = context;
         this.mFragmentManager = fragmentManager;

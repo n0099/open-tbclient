@@ -5,9 +5,9 @@ import java.nio.ByteBuffer;
 interface g {
     void close();
 
-    String fQ();
+    String fS();
 
-    long fR();
+    long fT();
 
     String fv();
 

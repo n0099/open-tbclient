@@ -1,34 +1,29 @@
 package com.baidu.tieba.pb.main;
 
-import android.view.MotionEvent;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
+import android.view.animation.Animation;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-public class cp implements com.baidu.tieba.c.e {
-    final /* synthetic */ bv byW;
+class cp implements Animation.AnimationListener {
+    final /* synthetic */ bz bCR;
+    private final /* synthetic */ ImageView bDa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cp(bv bvVar) {
-        this.byW = bvVar;
+    public cp(bz bzVar, ImageView imageView) {
+        this.bCR = bzVar;
+        this.bDa = imageView;
     }
 
-    @Override // com.baidu.tieba.c.e
-    public boolean a(View view, MotionEvent motionEvent) {
-        this.byW.ef(false);
-        this.byW.V(view);
-        this.byW.ef(true);
-        return true;
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
     }
 
-    @Override // com.baidu.tieba.c.e
-    public boolean b(View view, MotionEvent motionEvent) {
-        return false;
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 
-    @Override // com.baidu.tieba.c.e
-    public boolean c(View view, MotionEvent motionEvent) {
-        this.byW.Xk();
-        this.byW.Yg();
-        return false;
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        new Handler().post(new cq(this, this.bDa));
     }
 }

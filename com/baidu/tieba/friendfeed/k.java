@@ -1,39 +1,39 @@
 package com.baidu.tieba.friendfeed;
 /* loaded from: classes.dex */
-class k implements com.baidu.tieba.location.j {
-    final /* synthetic */ FriendFeedActivity ayU;
+class k implements com.baidu.tieba.tbadkCore.location.j {
+    final /* synthetic */ FriendFeedActivity aAU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(FriendFeedActivity friendFeedActivity) {
-        this.ayU = friendFeedActivity;
+        this.aAU = friendFeedActivity;
     }
 
-    @Override // com.baidu.tieba.location.j
-    public void EJ() {
+    @Override // com.baidu.tieba.tbadkCore.location.j
+    public void Fa() {
         y yVar;
         y yVar2;
         y yVar3;
-        yVar = this.ayU.ayz;
+        yVar = this.aAU.aAB;
         if (yVar != null) {
-            yVar2 = this.ayU.ayz;
-            if (yVar2.EQ() != null) {
-                yVar3 = this.ayU.ayz;
-                yVar3.EQ().setLocationViewVisibility(8);
+            yVar2 = this.aAU.aAB;
+            if (yVar2.Fh() != null) {
+                yVar3 = this.aAU.aAB;
+                yVar3.Fh().setLocationViewVisibility(8);
             }
         }
     }
 
-    @Override // com.baidu.tieba.location.j
-    public void eZ(String str) {
+    @Override // com.baidu.tieba.tbadkCore.location.j
+    public void fu(String str) {
         y yVar;
         y yVar2;
         y yVar3;
-        yVar = this.ayU.ayz;
-        if (yVar.EQ() != null) {
-            yVar2 = this.ayU.ayz;
-            yVar2.EQ().setLocationViewVisibility(0);
-            yVar3 = this.ayU.ayz;
-            yVar3.EQ().j(2, str);
+        yVar = this.aAU.aAB;
+        if (yVar.Fh() != null) {
+            yVar2 = this.aAU.aAB;
+            yVar2.Fh().setLocationViewVisibility(0);
+            yVar3 = this.aAU.aAB;
+            yVar3.Fh().B(2, str);
         }
     }
 }

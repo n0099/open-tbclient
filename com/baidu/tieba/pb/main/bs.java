@@ -1,119 +1,79 @@
 package com.baidu.tieba.pb.main;
 
-import android.os.Parcelable;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tbadk.core.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bs {
-    private boolean bwN;
-    private boolean bwO;
-    private com.baidu.tieba.data.ah bwZ;
-    private String bxp;
-    private boolean bxq;
-    private boolean bxr;
-    private Parcelable bxs;
-
-    public static bs Xc() {
-        bs bsVar;
-        bsVar = bt.bxt;
-        return bsVar;
-    }
-
-    private bs() {
-        this.bxp = null;
-        this.bxq = false;
-        this.bwZ = null;
-        this.bxr = false;
-        this.bxs = null;
-        this.bwO = true;
-        this.bwN = false;
-    }
+public class bs extends com.baidu.adp.framework.listener.a {
+    final /* synthetic */ bq bBa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bs(bs bsVar) {
-        this();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bs(bq bqVar, int i, int i2) {
+        super(i, i2);
+        this.bBa = bqVar;
     }
 
-    public void A(String str, boolean z) {
-        this.bxq = false;
-        if (z) {
-            str = null;
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        boolean z;
+        int i;
+        boolean z2;
+        boolean z3;
+        bt btVar;
+        bt btVar2;
+        PbActivity pbActivity;
+        PbActivity pbActivity2;
+        int i2 = 0;
+        if (((responsedMessage instanceof pbPageSocketResponseMessage) || (responsedMessage instanceof pbPageHttpResponseMessage)) && responsedMessage.getOrginalMessage().getTag() == this.bBa.getUniqueId()) {
+            if (responsedMessage.hasError()) {
+                if (UtilHelper.isNetOk()) {
+                    pbActivity2 = this.bBa.bAW;
+                    pbActivity2.showToast(responsedMessage.getErrorString());
+                }
+                if (responsedMessage.getError() == 4) {
+                    pbActivity = this.bBa.bAW;
+                    pbActivity.finish();
+                }
+                z = false;
+            } else {
+                z = true;
+            }
+            if (responsedMessage instanceof pbPageSocketResponseMessage) {
+                pbPageSocketResponseMessage pbpagesocketresponsemessage = (pbPageSocketResponseMessage) responsedMessage;
+                this.bBa.a(pbpagesocketresponsemessage);
+                i = pbpagesocketresponsemessage.getDownSize();
+            } else {
+                i = 0;
+            }
+            if (responsedMessage instanceof pbPageHttpResponseMessage) {
+                pbPageHttpResponseMessage pbpagehttpresponsemessage = (pbPageHttpResponseMessage) responsedMessage;
+                this.bBa.a(pbpagehttpresponsemessage);
+                i2 = pbpagehttpresponsemessage.getDownSize();
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            z3 = this.bBa.bAX;
+            if (!z3) {
+                this.bBa.bAX = true;
+                com.baidu.tbadk.performanceLog.w wVar = new com.baidu.tbadk.performanceLog.w();
+                wVar.dR(1001);
+                wVar.agA = z2;
+                wVar.isSuccess = z;
+                wVar.agp = responsedMessage.performanceData.eZ;
+                wVar.agq = responsedMessage.performanceData.fa;
+                wVar.agr = responsedMessage.performanceData.fb;
+                wVar.ags = responsedMessage.performanceData.fc;
+                wVar.agt = responsedMessage.performanceData.fd;
+                wVar.agy = i;
+                wVar.agz = i2;
+                btVar = this.bBa.bAS;
+                if (btVar != null) {
+                    btVar2 = this.bBa.bAS;
+                    btVar2.e(wVar);
+                }
+            }
         }
-        if (str == null || str.length() < 1) {
-            reset();
-            this.bxp = null;
-        } else if (!str.equals(this.bxp)) {
-            reset();
-            this.bxp = str;
-        } else {
-            this.bxq = true;
-        }
-    }
-
-    public com.baidu.tieba.data.ah getPbData() {
-        if (!this.bxq) {
-            this.bxr = false;
-            return null;
-        } else if (this.bwZ != null && this.bwZ.zN() != null && this.bwZ.zN().size() > 0) {
-            this.bxr = true;
-            com.baidu.tieba.data.ah ahVar = this.bwZ;
-            this.bwZ = null;
-            return ahVar;
-        } else {
-            this.bxr = false;
-            this.bwZ = null;
-            return null;
-        }
-    }
-
-    public Parcelable Xd() {
-        if (this.bxr) {
-            this.bxr = false;
-            Parcelable parcelable = this.bxs;
-            this.bxs = null;
-            return parcelable;
-        }
-        this.bxs = null;
-        return null;
-    }
-
-    public boolean WJ() {
-        return this.bwO;
-    }
-
-    public boolean Xe() {
-        return this.bwN;
-    }
-
-    public boolean a(com.baidu.tieba.data.ah ahVar, Parcelable parcelable, boolean z, boolean z2) {
-        this.bxq = false;
-        if (this.bxp == null) {
-            reset();
-            return false;
-        } else if (ahVar == null) {
-            reset();
-            return false;
-        } else if (ahVar.zN() == null) {
-            reset();
-            return false;
-        } else if (ahVar.zN().size() < 1) {
-            reset();
-            return false;
-        } else if (parcelable == null) {
-            reset();
-            return false;
-        } else {
-            this.bwZ = ahVar;
-            this.bxr = false;
-            this.bxs = parcelable;
-            this.bwO = z;
-            this.bwN = z2;
-            return true;
-        }
-    }
-
-    public void reset() {
-        this.bxq = false;
-        this.bwZ = null;
-        this.bxr = false;
-        this.bxs = null;
     }
 }

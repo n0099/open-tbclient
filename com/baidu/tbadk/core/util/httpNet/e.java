@@ -1,19 +1,21 @@
 package com.baidu.tbadk.core.util.httpNet;
 /* loaded from: classes.dex */
 public class e {
-    private f FQ = new f();
-    private g FR = new g();
-    private h FS = new h();
+    public int Ki;
+    public int Kj;
+    public String Kk = null;
+    public boolean gg = false;
+    public String mErrorString;
 
-    public f na() {
-        return this.FQ;
+    public boolean oZ() {
+        return this.Ki == 200;
     }
 
-    public g nb() {
-        return this.FR;
+    public boolean ma() {
+        return this.Ki == 200 && this.Kj == 0;
     }
 
-    public h nc() {
-        return this.FS;
+    public boolean pg() {
+        return this.Ki == 200 || this.Ki == 206;
     }
 }

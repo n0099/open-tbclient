@@ -7,7 +7,7 @@ public class ac<T> implements t<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.t
-    public v<T> G(String str) {
+    public v<T> U(String str) {
         return null;
     }
 
@@ -16,7 +16,7 @@ public class ac<T> implements t<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.t
-    public void b(String str, T t) {
+    public void f(String str, T t) {
     }
 
     @Override // com.baidu.adp.lib.cache.t
@@ -32,10 +32,10 @@ public class ac<T> implements t<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.t
-    public void c(String str, T t) {
+    public void g(String str, T t) {
     }
 
     @Override // com.baidu.adp.lib.cache.t
-    public void H(String str) {
+    public void V(String str) {
     }
 }

@@ -1,32 +1,41 @@
 package com.baidu.tbadk.core.view;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.tbadk.widget.TbImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class ab implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ UserIconBox IA;
+public class ab {
+    String Nd;
+    String Ne;
+    String mTitle;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(UserIconBox userIconBox) {
-        this.IA = userIconBox;
+    private ab() {
     }
 
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewRemoved(View view, View view2) {
-        com.baidu.adp.lib.e.b bVar;
-        com.baidu.adp.lib.e.b bVar2;
-        if (view2 instanceof TbImageView) {
-            bVar = this.IA.Iv;
-            if (bVar != null) {
-                bVar2 = this.IA.Iv;
-                bVar2.h((TbImageView) view2);
-            }
-        }
+    public static ab ci(int i) {
+        return cU(TbadkCoreApplication.m255getInst().getResources().getString(i));
     }
 
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewAdded(View view, View view2) {
+    public static ab t(int i, int i2) {
+        return Z(TbadkCoreApplication.m255getInst().getResources().getString(i), TbadkCoreApplication.m255getInst().getResources().getString(i2));
+    }
+
+    public static ab cU(String str) {
+        ab abVar = new ab();
+        abVar.Nd = str;
+        return abVar;
+    }
+
+    public static ab Z(String str, String str2) {
+        ab abVar = new ab();
+        abVar.mTitle = str2;
+        abVar.Nd = str;
+        return abVar;
+    }
+
+    public static ab m(String str, String str2, String str3) {
+        ab abVar = new ab();
+        abVar.mTitle = str2;
+        abVar.Nd = str;
+        abVar.Ne = str3;
+        return abVar;
     }
 }

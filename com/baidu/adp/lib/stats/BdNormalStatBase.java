@@ -56,17 +56,17 @@ public abstract class BdNormalStatBase extends BdStatBase {
         boolean z2 = false;
         if (isLogDataFull()) {
             z2 = true;
-        } else if (z && System.currentTimeMillis() - getmLastUploadTime() >= f.er().ex()) {
+        } else if (z && System.currentTimeMillis() - getmLastUploadTime() >= f.es().ey()) {
             z2 = true;
         }
         if (z2) {
             a aVar = new a(this, this.mLogDir, getCurrentLogFile(), this.mLogDir, getUploadingLogFile(), DiskFileOperate.Action.RENAME, this);
-            aVar.m(this.mUseSdCard);
+            aVar.q(this.mUseSdCard);
             if (this.mCanTrySuccess) {
                 aVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-                aVar.n(3);
+                aVar.z(3);
             }
-            aVar.bF();
+            aVar.cg();
         }
         return true;
     }
@@ -96,53 +96,53 @@ public abstract class BdNormalStatBase extends BdStatBase {
         if (!checkFileFailed()) {
             if (this.mMemCacheCount > 0) {
                 b bVar = new b(this, this.mLogDir, getCurrentLogFile(), DiskFileOperate.Action.APPEND, this, z);
-                bVar.m(this.mUseSdCard);
+                bVar.q(this.mUseSdCard);
                 bVar.setContent(this.mMemCache.toString());
                 clearMemData();
                 if (this.mCanTrySuccess) {
                     bVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-                    bVar.n(3);
+                    bVar.z(3);
                 }
-                if (!com.baidu.adp.lib.Disk.d.bn().c(bVar)) {
+                if (!com.baidu.adp.lib.Disk.d.bO().c(bVar)) {
                     this.mFileExceptionCount++;
                 }
             } else if (z) {
-                f.er().b(this, z);
+                f.es().b(this, z);
             }
         }
     }
 
-    private File[] em() {
+    private File[] en() {
         DiskFileOperate diskFileOperate = new DiskFileOperate(this.mLogDir, null, DiskFileOperate.Action.INFO);
-        diskFileOperate.m(this.mUseSdCard);
+        diskFileOperate.q(this.mUseSdCard);
         diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-        com.baidu.adp.lib.Disk.d.bn().b(diskFileOperate);
-        if (diskFileOperate.bD() != null) {
-            return diskFileOperate.bD().listFiles();
+        com.baidu.adp.lib.Disk.d.bO().b(diskFileOperate);
+        if (diskFileOperate.ce() != null) {
+            return diskFileOperate.ce().listFiles();
         }
         return null;
     }
 
     @Override // com.baidu.adp.lib.stats.BdStatBase
     public void clearLogResource() {
-        ArrayList<s> en;
+        ArrayList<s> eo;
         int i;
         int logFilesMaxSize = getLogFilesMaxSize();
-        if (logFilesMaxSize > 0 && (en = en()) != null && en.size() != 0) {
+        if (logFilesMaxSize > 0 && (eo = eo()) != null && eo.size() != 0) {
             int i2 = 0;
-            Iterator<s> it = en.iterator();
+            Iterator<s> it = eo.iterator();
             while (true) {
                 i = i2;
                 if (!it.hasNext()) {
                     break;
                 }
-                i2 = (int) (it.next().mC + i);
+                i2 = (int) (it.next().mA + i);
             }
             int i3 = i - logFilesMaxSize;
             if (i3 > 0) {
                 ArrayList<String> arrayList = new ArrayList<>();
-                Collections.sort(en, new e(this, null));
-                Iterator<s> it2 = en.iterator();
+                Collections.sort(eo, new e(this, null));
+                Iterator<s> it2 = eo.iterator();
                 while (true) {
                     int i4 = i3;
                     if (!it2.hasNext()) {
@@ -150,59 +150,59 @@ public abstract class BdNormalStatBase extends BdStatBase {
                     }
                     s next = it2.next();
                     arrayList.add(next.mFileName);
-                    i3 = (int) (i4 - next.mC);
+                    i3 = (int) (i4 - next.mA);
                     if (i3 <= 0) {
                         break;
                     }
                 }
-                d(arrayList);
+                g(arrayList);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ac(String str) {
+    public void ag(String str) {
         DiskFileOperate diskFileOperate = new DiskFileOperate(this.mLogDir, str, DiskFileOperate.Action.DELETE);
-        diskFileOperate.m(this.mUseSdCard);
+        diskFileOperate.q(this.mUseSdCard);
         diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-        com.baidu.adp.lib.Disk.d.bn().c(diskFileOperate);
+        com.baidu.adp.lib.Disk.d.bO().c(diskFileOperate);
     }
 
-    private void d(ArrayList<String> arrayList) {
+    private void g(ArrayList<String> arrayList) {
         d dVar = new d(this, this.mLogDir, null, DiskFileOperate.Action.DELETE_FILES, arrayList);
-        dVar.m(this.mUseSdCard);
+        dVar.q(this.mUseSdCard);
         dVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-        com.baidu.adp.lib.Disk.d.bn().b(dVar);
+        com.baidu.adp.lib.Disk.d.bO().b(dVar);
     }
 
-    private void e(ArrayList<String> arrayList) {
+    private void h(ArrayList<String> arrayList) {
         d dVar = new d(this, this.mLogDir, null, DiskFileOperate.Action.DELETE_FILES, arrayList);
-        dVar.m(this.mUseSdCard);
+        dVar.q(this.mUseSdCard);
         dVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-        com.baidu.adp.lib.Disk.d.bn().c(dVar);
+        com.baidu.adp.lib.Disk.d.bO().c(dVar);
     }
 
     @Override // com.baidu.adp.lib.stats.BdStatBase
     public BdUploadingLogInfo getLogFiles() {
         BdUploadingLogInfo bdUploadingLogInfo = new BdUploadingLogInfo(this.mLogDir, this.mUseSdCard, this.mCanTrySuccess);
-        ArrayList<s> en = en();
-        if (en != null && en.size() > 0) {
-            if (en.size() > 1) {
-                Collections.sort(en, new e(this, null));
+        ArrayList<s> eo = eo();
+        if (eo != null && eo.size() > 0) {
+            if (eo.size() > 1) {
+                Collections.sort(eo, new e(this, null));
             }
             long j = 0;
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < en.size(); i++) {
-                s sVar = en.get(i);
-                if (sVar.mC + j <= 102400) {
-                    j += sVar.mC;
+            for (int i = 0; i < eo.size(); i++) {
+                s sVar = eo.get(i);
+                if (sVar.mA + j <= 102400) {
+                    j += sVar.mA;
                     arrayList.add(sVar);
                 } else {
                     if (arrayList != null && arrayList.size() > 0) {
                         bdUploadingLogInfo.add(arrayList);
                     }
                     arrayList = new ArrayList();
-                    j = sVar.mC;
+                    j = sVar.mA;
                     arrayList.add(sVar);
                 }
             }
@@ -213,15 +213,15 @@ public abstract class BdNormalStatBase extends BdStatBase {
         return bdUploadingLogInfo;
     }
 
-    private ArrayList<s> en() {
+    private ArrayList<s> eo() {
         ArrayList<s> arrayList;
         String name;
         String str = "Uploading" + this.mFileSuffixString;
         String str2 = String.valueOf(this.mFilePrefixString) + "Writing" + this.mFileSuffixString;
         ArrayList<s> arrayList2 = new ArrayList<>();
-        File[] em = em();
-        if (em != null) {
-            for (File file : em) {
+        File[] en = en();
+        if (en != null) {
+            for (File file : en) {
                 if (file.isFile() && (name = file.getName()) != null && !name.equals(getCurrentLogFile())) {
                     long length = file.length();
                     if (name.endsWith(str) && name.startsWith(this.mFilePrefixString)) {
@@ -244,7 +244,7 @@ public abstract class BdNormalStatBase extends BdStatBase {
             while (it.hasNext()) {
                 s next = it.next();
                 if (next != null) {
-                    long j = next.mD;
+                    long j = next.mB;
                     if (j != 0 && j + 259200000 < currentTimeMillis) {
                         arrayList4.add(next.mFileName);
                     } else {
@@ -257,7 +257,7 @@ public abstract class BdNormalStatBase extends BdStatBase {
             arrayList = arrayList2;
         }
         if (arrayList4.size() > 0) {
-            e(arrayList4);
+            h(arrayList4);
         }
         return arrayList;
     }
@@ -278,16 +278,16 @@ public abstract class BdNormalStatBase extends BdStatBase {
             arrayList2.add(it.next().mFileName);
         }
         if (arrayList2.size() > 0) {
-            e(arrayList2);
+            h(arrayList2);
         }
         this.mLastUploadTime = System.currentTimeMillis();
     }
 
-    private String ad(String str) {
+    private String ah(String str) {
         com.baidu.adp.lib.Disk.ops.e eVar = new com.baidu.adp.lib.Disk.ops.e(this.mLogDir, str, DiskFileOperate.Action.READ);
-        eVar.m(this.mUseSdCard);
+        eVar.q(this.mUseSdCard);
         eVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-        com.baidu.adp.lib.Disk.d.bn().b(eVar);
+        com.baidu.adp.lib.Disk.d.bO().b(eVar);
         if (eVar.isSuccess()) {
             return eVar.getContent();
         }
@@ -296,9 +296,9 @@ public abstract class BdNormalStatBase extends BdStatBase {
 
     @Override // com.baidu.adp.lib.stats.BdStatBase
     public ArrayList<String> readLogFile(String str) {
-        String ad = ad(str);
-        if (!TextUtils.isEmpty(ad)) {
-            String[] split = ad.split("\r\n");
+        String ah = ah(str);
+        if (!TextUtils.isEmpty(ah)) {
+            String[] split = ah.split("\r\n");
             ArrayList<String> arrayList = new ArrayList<>();
             for (String str2 : split) {
                 arrayList.add(str2);
@@ -310,28 +310,28 @@ public abstract class BdNormalStatBase extends BdStatBase {
 
     @Override // com.baidu.adp.lib.stats.BdStatBase
     public void splitFile() {
-        ArrayList<s> en = en();
-        if (en != null && en.size() > 0) {
+        ArrayList<s> eo = eo();
+        if (eo != null && eo.size() > 0) {
             ArrayList arrayList = new ArrayList();
-            Iterator<s> it = en.iterator();
+            Iterator<s> it = eo.iterator();
             while (it.hasNext()) {
                 s next = it.next();
-                if (next.mC > 122880) {
+                if (next.mA > 122880) {
                     arrayList.add(next);
                 }
             }
             Iterator it2 = arrayList.iterator();
             while (it2.hasNext()) {
-                ae(((s) it2.next()).mFileName);
+                ai(((s) it2.next()).mFileName);
             }
         }
     }
 
-    private void ae(String str) {
+    private void ai(String str) {
         DiskFileOperate diskFileOperate = new DiskFileOperate(this.mLogDir, str, DiskFileOperate.Action.CUSTOM);
         diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-        diskFileOperate.k(true);
+        diskFileOperate.o(true);
         diskFileOperate.a(new c(this));
-        com.baidu.adp.lib.Disk.d.bn().b(diskFileOperate);
+        com.baidu.adp.lib.Disk.d.bO().b(diskFileOperate);
     }
 }

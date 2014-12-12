@@ -1,133 +1,142 @@
 package com.baidu.tieba.im.groupUpdates;
 
-import android.text.TextUtils;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ProgressBar;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.im.data.UpdatesItemData;
+import com.baidu.tieba.w;
+import com.baidu.tieba.x;
+import com.baidu.tieba.z;
 import java.util.List;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class p {
-    private List<UpdatesItemData> bcv = new ArrayList();
+public class p extends com.baidu.adp.base.g<UpdatesActivity> {
+    private View back;
+    private UpdatesActivity bfS;
+    private h bgb;
+    private Button btn_cancel;
+    private Button btn_delete;
+    private Button btn_edit;
+    private View leftView;
+    private NavigationBar mNavigationBar;
+    private View parent;
+    private ProgressBar pro_load;
+    private View rightView;
+    private BdListView updates_list;
 
-    public static void a(UpdatesItemData updatesItemData, com.baidu.tieba.im.a<Boolean> aVar) {
-        if (updatesItemData != null) {
-            com.baidu.tieba.im.e.a(new q(updatesItemData), aVar);
+    public p(UpdatesActivity updatesActivity) {
+        super(updatesActivity.getPageContext());
+        this.bfS = updatesActivity;
+        initView();
+        this.bgb = new h(this.bfS);
+        this.updates_list.setAdapter((ListAdapter) this.bgb);
+        this.updates_list.setOnScrollListener(this.bfS);
+    }
+
+    void initView() {
+        this.parent = View.inflate(this.bfS.getPageContext().getPageActivity(), x.updates_activity, null);
+        this.bfS.setContentView(this.parent);
+        this.mNavigationBar = (NavigationBar) this.bfS.findViewById(w.view_navigation_bar);
+        this.back = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mNavigationBar.setTitleText(this.bfS.getPageContext().getString(z.updates_activity_title));
+        this.leftView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, x.updates_activity_nav_left, (View.OnClickListener) null);
+        this.rightView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, x.updates_activity_nav_right, (View.OnClickListener) null);
+        this.btn_delete = (Button) this.leftView.findViewById(w.btn_delete);
+        this.btn_delete.setOnClickListener(this.bfS);
+        this.back.setOnClickListener(this.bfS);
+        this.updates_list = (BdListView) this.parent.findViewById(w.updates_list);
+        this.pro_load = (ProgressBar) this.parent.findViewById(w.pro_load);
+        this.btn_edit = (Button) this.rightView.findViewById(w.btn_edit);
+        this.btn_edit.setOnClickListener(this.bfS);
+        this.btn_cancel = (Button) this.rightView.findViewById(w.btn_cancel);
+        this.btn_cancel.setOnClickListener(this.bfS);
+        setDelCount(0);
+        setLoadProgressBarVisable(false);
+    }
+
+    @Override // com.baidu.adp.base.g
+    public void destroy() {
+        super.destroy();
+        if (this.bgb != null) {
+            this.bgb.destroy();
+            this.bgb = null;
+        }
+        this.bfS = null;
+    }
+
+    public h PY() {
+        return this.bgb;
+    }
+
+    public void changeToEditMode() {
+        this.btn_edit.setVisibility(8);
+        this.back.setVisibility(8);
+        this.btn_cancel.setVisibility(0);
+        this.leftView.setVisibility(0);
+        refreshList();
+    }
+
+    public void cancelEditMode() {
+        this.btn_edit.setVisibility(0);
+        this.back.setVisibility(0);
+        this.btn_cancel.setVisibility(8);
+        this.leftView.setVisibility(8);
+        setDelCount(0);
+        refreshList();
+    }
+
+    public void refreshList() {
+        if (this.bgb != null) {
+            this.bgb.notifyDataSetChanged();
         }
     }
 
-    public void b(com.baidu.tieba.im.a<Boolean> aVar) {
-        com.baidu.tieba.im.e.a(new r(this), aVar);
+    public void setData(List<UpdatesItemData> list) {
+        if (this.bgb != null) {
+            this.bgb.setData(list);
+        }
     }
 
-    public String Pi() {
-        String str;
-        String str2 = "";
-        if (this.bcv == null || this.bcv.size() == 0) {
-            return null;
-        }
-        int size = this.bcv.size();
-        int i = 0;
-        while (i < size) {
-            UpdatesItemData updatesItemData = this.bcv.get(i);
-            if (updatesItemData == null || TextUtils.isEmpty(updatesItemData.getNotice_id()) || !TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
-                str = str2;
+    public void setDelCount(int i) {
+        if (this.btn_delete != null && this.bfS != null) {
+            this.btn_delete.setText(String.format(this.bfS.getPageContext().getString(z.del_count), Integer.valueOf(i)));
+            if (i == 0) {
+                this.btn_delete.setEnabled(false);
             } else {
-                str = String.valueOf(str2) + (Long.parseLong(updatesItemData.getNotice_id()) / 100);
-                if (i < size - 1) {
-                    str = String.valueOf(str) + ",";
-                }
-            }
-            i++;
-            str2 = str;
-        }
-        return str2;
-    }
-
-    public void Pj() {
-        this.bcv.clear();
-    }
-
-    public void ya() {
-        Pj();
-    }
-
-    public void d(UpdatesItemData updatesItemData) {
-        this.bcv.add(updatesItemData);
-    }
-
-    public void e(UpdatesItemData updatesItemData) {
-        this.bcv.remove(updatesItemData);
-    }
-
-    public int Pk() {
-        return this.bcv.size();
-    }
-
-    public void X(List<UpdatesItemData> list) {
-        if (list != null) {
-            for (UpdatesItemData updatesItemData : list) {
-                if (updatesItemData.isSelected()) {
-                    this.bcv.add(updatesItemData);
-                }
+                this.btn_delete.setEnabled(true);
             }
         }
     }
 
-    public static void c(com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> aVar) {
-        com.baidu.tieba.im.e.a(new s(), aVar);
+    public void setLoadProgressBarVisable(boolean z) {
+        this.pro_load.setVisibility(z ? 0 : 8);
     }
 
-    public static List<UpdatesItemData> n(LinkedList<GroupNewsPojo> linkedList) {
-        LinkedList linkedList2 = new LinkedList();
-        if (linkedList == null) {
-            return linkedList2;
-        }
-        Iterator<GroupNewsPojo> it = linkedList.iterator();
-        while (it.hasNext()) {
-            UpdatesItemData f = f(it.next());
-            if (f != null) {
-                linkedList2.add(f);
-            }
-        }
-        return linkedList2;
+    public void onChangeSkinType(int i) {
+        this.bfS.getLayoutMode().ab(i == 1);
+        this.bfS.getLayoutMode().h(this.parent);
+        this.mNavigationBar.onChangeSkinType(this.bfS.getPageContext(), i);
     }
 
-    public static UpdatesItemData f(GroupNewsPojo groupNewsPojo) {
-        UpdatesItemData updatesItemData;
-        String content = groupNewsPojo.getContent();
-        if (TextUtils.isEmpty(content)) {
-            return null;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(content);
-            if (jSONObject.isNull("notice_id")) {
-                updatesItemData = new UpdatesItemData();
-                updatesItemData.setNotice_id(groupNewsPojo.getNotice_id());
-                updatesItemData.setContent(jSONObject.optString("userMsg"));
-                JSONObject optJSONObject = jSONObject.optJSONObject("eventParam");
-                if (optJSONObject == null) {
-                    updatesItemData = null;
-                } else {
-                    updatesItemData.setUpdatesType(groupNewsPojo.getCmd());
-                    updatesItemData.setGroupHeadUrl(optJSONObject.optString("groupImage"));
-                    updatesItemData.setGroupId(optJSONObject.optString("groupId"));
-                    updatesItemData.setGroupName(optJSONObject.optString("groupName"));
-                    updatesItemData.setAuthorId(optJSONObject.optString("                                                                                                                                                                   "));
-                    updatesItemData.setAuthorName(optJSONObject.optString("authorName"));
-                    updatesItemData.setTime(groupNewsPojo.getTime());
-                    updatesItemData.setTitle(optJSONObject.optString("title"));
-                    updatesItemData.setEventLink(optJSONObject.optString("eventLink"));
-                    updatesItemData.setGroupActivityId(optJSONObject.optString("activityId"));
-                }
-            } else {
-                updatesItemData = (UpdatesItemData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(content, UpdatesItemData.class);
-            }
-            return updatesItemData;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+    public View getBack() {
+        return this.back;
+    }
+
+    public BdListView getValidate_list() {
+        return this.updates_list;
+    }
+
+    public Button getBtn_edit() {
+        return this.btn_edit;
+    }
+
+    public Button getBtn_cancel() {
+        return this.btn_cancel;
+    }
+
+    public Button getBtn_delete() {
+        return this.btn_delete;
     }
 }

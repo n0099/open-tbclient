@@ -1,30 +1,30 @@
 package com.baidu.tieba.guide;
 
-import com.baidu.tieba.model.bd;
-import com.baidu.tieba.y;
+import com.baidu.tieba.tbadkCore.av;
+import com.baidu.tieba.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements bd {
-    final /* synthetic */ t aLZ;
+public class v implements av {
+    final /* synthetic */ t aNR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(t tVar) {
-        this.aLZ = tVar;
+        this.aNR = tVar;
     }
 
-    @Override // com.baidu.tieba.model.bd
-    public void d(String str, long j) {
+    @Override // com.baidu.tieba.tbadkCore.av
+    public void f(String str, long j) {
         a aVar;
-        int f = com.baidu.adp.lib.g.c.f(String.valueOf(j), 0);
-        aVar = this.aLZ.aLX;
-        aVar.fl(f);
-        this.aLZ.n(f, false);
+        int i = com.baidu.adp.lib.g.c.toInt(String.valueOf(j), 0);
+        aVar = this.aNR.aNP;
+        aVar.fm(i);
+        this.aNR.n(i, false);
     }
 
-    @Override // com.baidu.tieba.model.bd
-    public void e(String str, long j) {
+    @Override // com.baidu.tieba.tbadkCore.av
+    public void g(String str, long j) {
         NewUserGuideActivity newUserGuideActivity;
-        newUserGuideActivity = this.aLZ.aLW;
-        newUserGuideActivity.showToast(y.error);
+        newUserGuideActivity = this.aNR.aNO;
+        newUserGuideActivity.showToast(z.error);
     }
 }

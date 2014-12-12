@@ -1,39 +1,21 @@
 package com.baidu.tieba.im.c;
 
-import com.baidu.adp.lib.webSocket.m;
-import java.util.Map;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* loaded from: classes.dex */
-public class e implements com.baidu.adp.framework.client.socket.link.g {
-    final /* synthetic */ b beX;
+class e extends com.baidu.tieba.im.h<Boolean> {
+    final /* synthetic */ b bnj;
+    private final /* synthetic */ PersonalChatMessage bnl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(b bVar) {
-        this.beX = bVar;
+    public e(b bVar, PersonalChatMessage personalChatMessage) {
+        this.bnj = bVar;
+        this.bnl = personalChatMessage;
     }
 
-    @Override // com.baidu.adp.framework.client.socket.link.g
-    public boolean a(int i, String str) {
-        this.beX.stop();
-        return false;
-    }
-
-    @Override // com.baidu.adp.framework.client.socket.link.g
-    public void b(Map<String, String> map) {
-        this.beX.start();
-        com.baidu.adp.lib.stats.f.er().a("lc_con", (String) null, (String) null, m.fT().gb(), 0, (String) null, "dns", Long.valueOf(m.fT().fR()), "ip", m.fT().fQ(), "net", com.baidu.adp.lib.stats.f.er().eu(), "localdns", m.fT().fv(), "localdnsbak", m.fT().fw());
-        com.baidu.adp.framework.client.socket.i.at().a(map);
-    }
-
-    @Override // com.baidu.adp.framework.client.socket.link.g
-    public void d(byte[] bArr) {
-    }
-
-    @Override // com.baidu.adp.framework.client.socket.link.g
-    public void a(com.baidu.adp.lib.webSocket.d dVar) {
-    }
-
-    @Override // com.baidu.adp.framework.client.socket.link.g
-    public void j(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // com.baidu.tieba.im.h
+    public Boolean doInBackground() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.o.MO().a(this.bnl.getUserId(), this.bnl.getToUserId(), String.valueOf(this.bnl.getRecordId()), String.valueOf(this.bnl.getMsgId()), 2));
     }
 }

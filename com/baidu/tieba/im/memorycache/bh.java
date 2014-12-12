@@ -15,10 +15,10 @@ public class bh implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        c.PN().a(-2, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
+        c.Qs().a(-2, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
-    public void b(String str, List<CommonMsgPojo> list) {
+    public void c(String str, List<CommonMsgPojo> list) {
     }
 }

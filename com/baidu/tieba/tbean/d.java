@@ -7,16 +7,16 @@ import java.util.List;
 import tbclient.GetIconList.IconInfo;
 import tbclient.GetIconList.UserInfo;
 /* loaded from: classes.dex */
-public class d extends com.baidu.adp.base.e {
-    private BuyTBeanActivity bNP;
-    private i bNQ;
+public class d extends com.baidu.adp.base.f<BuyTBeanActivity> {
+    private BuyTBeanActivity bZZ;
+    private i caa;
     private List<IconInfo> iconInfoList;
     private UserInfo userInfo;
 
     public d(BuyTBeanActivity buyTBeanActivity, i iVar) {
-        super(buyTBeanActivity);
-        this.bNP = buyTBeanActivity;
-        this.bNQ = iVar;
+        super(buyTBeanActivity.getPageContext());
+        this.bZZ = buyTBeanActivity;
+        this.caa = iVar;
     }
 
     public UserInfo getUserInfo() {
@@ -24,40 +24,40 @@ public class d extends com.baidu.adp.base.e {
     }
 
     public List<IconInfo> getIconInfoList() {
-        return ak(this.iconInfoList);
+        return aG(this.iconInfoList);
     }
 
-    public void adO() {
+    public void aii() {
         sendMessage(new GetYinJiRequestMessage());
     }
 
-    public void adP() {
+    public void aij() {
         e eVar = new e(this, 306001);
         eVar.setSelfListener(true);
         registerListener(eVar);
     }
 
-    public void adQ() {
+    public void aik() {
         f fVar = new f(this, CmdConfigHttp.CMD_HTTP_GET_YINJI);
         fVar.setSelfListener(true);
         registerListener(fVar);
     }
 
-    public void adR() {
+    public void ail() {
         registerListener(new g(this, CmdConfigHttp.GETPAYINFO_CMD));
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.f
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.f
     public boolean cancelLoadData() {
         return false;
     }
 
-    private List<IconInfo> ak(List<IconInfo> list) {
+    private List<IconInfo> aG(List<IconInfo> list) {
         if (list == null || list.size() <= 0) {
             return null;
         }

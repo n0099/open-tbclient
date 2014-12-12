@@ -7,6 +7,7 @@ import android.hardware.Camera;
 import android.os.Build;
 import android.provider.Settings;
 import android.support.v4.view.MotionEventCompat;
+import android.support.v4.view.ViewCompat;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -413,7 +414,7 @@ public class CompatibleUtile {
         }
 
         public void openGpu(Activity activity) {
-            activity.getWindow().setFlags(16777216, 16777216);
+            activity.getWindow().setFlags(ViewCompat.MEASURED_STATE_TOO_SMALL, ViewCompat.MEASURED_STATE_TOO_SMALL);
         }
 
         public boolean isUseHw(View view) {

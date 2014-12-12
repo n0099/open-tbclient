@@ -1,29 +1,35 @@
 package com.baidu.tieba.frs.view;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.PraiseData;
+import android.widget.PopupWindow;
+import com.baidu.tbadk.TbPageContext;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements View.OnClickListener {
-    final /* synthetic */ FrsPraiseView aGo;
+public class p implements Runnable {
+    final /* synthetic */ o aHR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(FrsPraiseView frsPraiseView) {
-        this.aGo = frsPraiseView;
+    public p(o oVar) {
+        this.aHR = oVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PraiseData praiseData;
-        Context context;
-        praiseData = this.aGo.aGm;
-        MetaData metaData = praiseData.getUser().get(1);
-        if (metaData != null) {
-            context = this.aGo.mContext;
-            com.baidu.tbadk.util.f.a(2002003, new PersonInfoActivityConfig(context, metaData.getUserId(), metaData.getName_show()));
+    @Override // java.lang.Runnable
+    public void run() {
+        PopupWindow popupWindow;
+        PopupWindow popupWindow2;
+        boolean z;
+        PopupWindow popupWindow3;
+        TbPageContext tbPageContext;
+        popupWindow = this.aHR.aHa;
+        if (popupWindow != null) {
+            popupWindow2 = this.aHR.aHa;
+            if (popupWindow2.isShowing()) {
+                z = this.aHR.aHD;
+                if (!z) {
+                    popupWindow3 = this.aHR.aHa;
+                    tbPageContext = this.aHR.mContext;
+                    com.baidu.adp.lib.g.k.a(popupWindow3, tbPageContext.getPageActivity());
+                }
+            }
         }
     }
 }

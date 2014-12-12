@@ -1,36 +1,25 @@
 package com.baidu.tieba.im.c;
 
-import android.os.Handler;
-import android.os.Message;
+import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
+import java.util.LinkedList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class i extends Handler {
-    private i() {
-    }
+public class i extends com.baidu.tieba.im.h<Boolean> {
+    final /* synthetic */ a bni;
+    private final /* synthetic */ CommonGroupChatMessage bnn;
+    private final /* synthetic */ LinkedList val$list;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ i(i iVar) {
-        this();
+    public i(a aVar, CommonGroupChatMessage commonGroupChatMessage, LinkedList linkedList) {
+        this.bni = aVar;
+        this.bnn = commonGroupChatMessage;
+        this.val$list = linkedList;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        super.handleMessage(message);
-        switch (message.what) {
-            case 2:
-                b.a(b.Qy()).removeMessages(2);
-                b.Qy().QE();
-                return;
-            case 3:
-                b.a(b.Qy()).removeMessages(3);
-                if (b.e(b.Qy()) == 3) {
-                    b.Qy().QF();
-                } else {
-                    b.Qy().QE();
-                }
-                b.a(b.Qy()).sendMessageDelayed(b.a(b.Qy()).obtainMessage(3), b.f(b.Qy()));
-                return;
-            default:
-                return;
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // com.baidu.tieba.im.h
+    public Boolean doInBackground() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.c.Mu().a(this.bnn.getGroupId(), this.val$list, false));
     }
 }

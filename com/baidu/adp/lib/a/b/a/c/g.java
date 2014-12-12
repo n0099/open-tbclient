@@ -8,34 +8,34 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class g implements c {
-    private Message eB;
-    private Set<String> ey;
+    private Message gB;
+    private Set<String> gy;
 
     public g(Message message) {
-        this.eB = message;
-        List<Field> b = com.baidu.adp.lib.a.a.a.b(message.getClass());
-        this.ey = new HashSet();
-        if (b != null && b.size() > 0) {
-            for (Field field : b) {
+        this.gB = message;
+        List<Field> k = com.baidu.adp.lib.a.a.a.k(message.getClass());
+        this.gy = new HashSet();
+        if (k != null && k.size() > 0) {
+            for (Field field : k) {
                 if (field != null) {
-                    this.ey.add(field.getName());
+                    this.gy.add(field.getName());
                 }
             }
         }
     }
 
     @Override // com.baidu.adp.lib.a.b.a.c.c
-    public Set<String> bQ() {
-        return this.ey;
+    public Set<String> cq() {
+        return this.gy;
     }
 
     public Object getObject(String str) {
-        return com.baidu.adp.lib.a.a.a.a(this.eB, str);
+        return com.baidu.adp.lib.a.a.a.b(this.gB, str);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.c.c
-    public void a(String str, Object obj) {
-        com.baidu.adp.lib.a.a.a.a(this.eB, str, obj);
+    public void e(String str, Object obj) {
+        com.baidu.adp.lib.a.a.a.a(this.gB, str, obj);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.c.c
@@ -43,9 +43,9 @@ public class g implements c {
         Object object = getObject(str);
         if (object != null) {
             com.baidu.adp.lib.a.b.a.e.c cVar = new com.baidu.adp.lib.a.b.a.e.c(type);
-            com.baidu.adp.lib.a.b.a.d.h d = com.baidu.adp.lib.a.b.a.e.g.d(object);
-            if (d != null) {
-                return d.g(cVar);
+            com.baidu.adp.lib.a.b.a.d.h i = com.baidu.adp.lib.a.b.a.e.g.i(object);
+            if (i != null) {
+                return i.g(cVar);
             }
             return object;
         }

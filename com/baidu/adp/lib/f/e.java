@@ -5,7 +5,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.stats.q;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.m;
+import com.baidu.adp.lib.util.l;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -13,55 +13,55 @@ import java.util.Map;
 public class e<T> extends BdAsyncTask<String, Object, T> {
     private Object[] args;
     private int height;
-    private final String lh;
-    private final int li;
-    private q lj;
-    private int lk = 2;
-    private final Map<c<T>, BdUniqueId> ll = new HashMap();
-    private final a lm = new a();
-    final /* synthetic */ d ln;
+    private final String li;
+    private final int lj;
+    private q lk;
+    private int ll = 2;
+    private final Map<c<T>, BdUniqueId> lm = new HashMap();
+    private final a ln = new a();
+    final /* synthetic */ d lo;
     private int width;
 
     public e(d dVar, String str, int i, int i2, int i3, BdUniqueId bdUniqueId, c<T> cVar, q qVar, Object... objArr) {
-        this.ln = dVar;
+        this.lo = dVar;
         this.width = 0;
         this.height = 0;
         this.args = null;
-        this.lj = null;
-        this.lh = str;
-        this.li = i;
+        this.lk = null;
+        this.li = str;
+        this.lj = i;
         this.width = i2;
         this.height = i3;
-        this.lj = qVar;
+        this.lk = qVar;
         this.args = objArr;
         a(cVar, bdUniqueId);
     }
 
     public void a(c<T> cVar, BdUniqueId bdUniqueId) {
-        m.ft();
-        if (!this.ll.containsKey(cVar)) {
-            this.ll.put(cVar, bdUniqueId);
+        l.ft();
+        if (!this.lm.containsKey(cVar)) {
+            this.lm.put(cVar, bdUniqueId);
         }
     }
 
     public void a(c<T> cVar) {
-        m.ft();
-        this.ll.remove(cVar);
+        l.ft();
+        this.lm.remove(cVar);
         if (cVar != null) {
-            cVar.aa(this.lh);
+            cVar.onCancelled(this.li);
         }
-        if (this.ll.size() == 0) {
+        if (this.lm.size() == 0) {
             cancel();
         }
     }
 
     public void b(BdUniqueId bdUniqueId, c<T> cVar) {
-        m.ft();
-        if (this.ll.size() == 0) {
+        l.ft();
+        if (this.lm.size() == 0) {
             cancel();
             return;
         }
-        Iterator<Map.Entry<c<T>, BdUniqueId>> it = this.ll.entrySet().iterator();
+        Iterator<Map.Entry<c<T>, BdUniqueId>> it = this.lm.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry<c<T>, BdUniqueId> next = it.next();
             c<T> key = next.getKey();
@@ -70,25 +70,25 @@ public class e<T> extends BdAsyncTask<String, Object, T> {
                 it.remove();
             }
         }
-        if (this.ll.size() == 0) {
+        if (this.lm.size() == 0) {
             cancel();
         }
     }
 
     public void f(BdUniqueId bdUniqueId) {
-        m.ft();
-        if (this.ll.size() == 0) {
+        l.ft();
+        if (this.lm.size() == 0) {
             cancel();
             return;
         }
-        Iterator<Map.Entry<c<T>, BdUniqueId>> it = this.ll.entrySet().iterator();
+        Iterator<Map.Entry<c<T>, BdUniqueId>> it = this.lm.entrySet().iterator();
         while (it.hasNext()) {
             BdUniqueId value = it.next().getValue();
             if (value != null && value == bdUniqueId) {
                 it.remove();
             }
         }
-        if (this.ll.size() == 0) {
+        if (this.lm.size() == 0) {
             cancel();
         }
     }
@@ -109,15 +109,15 @@ public class e<T> extends BdAsyncTask<String, Object, T> {
         T t;
         Exception e2;
         Object obj;
-        if (this.lj != null) {
-            q logItem = f.getLogItem();
-            logItem.eL();
-            qVar = logItem;
+        if (this.lk != null) {
+            q ef = f.ef();
+            ef.startTimer();
+            qVar = ef;
         } else {
             qVar = null;
         }
-        sparseArray = this.ln.ld;
-        g gVar = (g) sparseArray.get(this.li);
+        sparseArray = this.lo.le;
+        g gVar = (g) sparseArray.get(this.lj);
         if (gVar == null) {
             return null;
         }
@@ -130,11 +130,11 @@ public class e<T> extends BdAsyncTask<String, Object, T> {
         if (isCancelled()) {
             return null;
         }
-        t = (T) gVar.a(this.lh, key, this.lm, this.args);
+        t = (T) gVar.a(this.li, key, this.ln, this.args);
         if (t != null) {
             try {
                 if (!isCancelled()) {
-                    f.a(this.lj, qVar);
+                    f.a(this.lk, qVar);
                 }
                 return t;
             } catch (Exception e4) {
@@ -147,12 +147,12 @@ public class e<T> extends BdAsyncTask<String, Object, T> {
         }
         T t22 = t;
         if (isCancelled()) {
-            this.lk = 3;
+            this.ll = 3;
             try {
-                obj = gVar.a(this.lh, key, this.width, this.height, this, this.lm, this.args);
+                obj = gVar.a(this.li, key, this.width, this.height, this, this.ln, this.args);
                 try {
                     if (!isCancelled()) {
-                        f.b(this.lj, qVar);
+                        f.b(this.lk, qVar);
                     }
                 } catch (Exception e5) {
                     e2 = e5;
@@ -172,19 +172,19 @@ public class e<T> extends BdAsyncTask<String, Object, T> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(T t) {
         SparseArray sparseArray;
-        String e;
+        String f;
         if (t != null) {
-            sparseArray = this.ln.ld;
-            g gVar = (g) sparseArray.get(this.li);
+            sparseArray = this.lo.le;
+            g gVar = (g) sparseArray.get(this.lj);
             if (gVar != null) {
-                e = this.ln.e(this.lh, this.li);
-                gVar.a(e, t, this.args);
+                f = this.lo.f(this.li, this.lj);
+                gVar.a(f, t, this.args);
             }
         }
-        for (Map.Entry<c<T>, BdUniqueId> entry : this.ll.entrySet()) {
+        for (Map.Entry<c<T>, BdUniqueId> entry : this.lm.entrySet()) {
             c<T> key = entry.getKey();
             if (key != null) {
-                key.a(t, this.lh, this.lk);
+                key.onLoaded(t, this.li, this.ll);
             }
         }
     }
@@ -192,7 +192,7 @@ public class e<T> extends BdAsyncTask<String, Object, T> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onProgressUpdate(Object... objArr) {
-        for (Map.Entry<c<T>, BdUniqueId> entry : this.ll.entrySet()) {
+        for (Map.Entry<c<T>, BdUniqueId> entry : this.lm.entrySet()) {
             c<T> key = entry.getKey();
             if (key != null) {
                 key.onProgressUpdate(objArr);
@@ -203,17 +203,17 @@ public class e<T> extends BdAsyncTask<String, Object, T> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel();
-        if (this.lm != null && this.lm.lb != null) {
-            this.lm.lb.cancel();
+        if (this.ln != null && this.ln.lc != null) {
+            this.ln.lc.cancel();
         }
-        if (this.ll.size() != 0) {
-            for (Map.Entry<c<T>, BdUniqueId> entry : this.ll.entrySet()) {
+        if (this.lm.size() != 0) {
+            for (Map.Entry<c<T>, BdUniqueId> entry : this.lm.entrySet()) {
                 c<T> key = entry.getKey();
                 if (key != null) {
-                    key.aa(this.lh);
+                    key.onCancelled(this.li);
                 }
             }
-            this.ll.clear();
+            this.lm.clear();
         }
     }
 }

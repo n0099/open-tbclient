@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.cache.t;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.message.RequestFriendFeedLocalMessage;
 import com.baidu.tieba.message.ResponseFriendFeedLocalMessage;
 /* loaded from: classes.dex */
@@ -14,9 +14,9 @@ public class a implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage == null || !(customMessage instanceof RequestFriendFeedLocalMessage)) {
             return null;
         }
-        String str = "friend_feed_data" + TbadkApplication.getCurrentAccount();
-        t<byte[]> bc = com.baidu.tbadk.core.a.a.kS().bc("tb.friend_feed");
-        byte[] bArr = bc != null ? bc.get(str) : null;
+        String str = "friend_feed_data" + TbadkCoreApplication.getCurrentAccount();
+        t<byte[]> bU = com.baidu.tbadk.core.a.a.nS().bU("tb.friend_feed");
+        byte[] bArr = bU != null ? bU.get(str) : null;
         ResponseFriendFeedLocalMessage responseFriendFeedLocalMessage = new ResponseFriendFeedLocalMessage();
         try {
             responseFriendFeedLocalMessage.decodeInBackGround(2001172, bArr);

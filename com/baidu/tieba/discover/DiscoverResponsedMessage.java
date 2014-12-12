@@ -6,7 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class DiscoverResponsedMessage extends JsonHttpResponsedMessage {
-    p mData;
+    v mData;
 
     public DiscoverResponsedMessage(int i) {
         super(i);
@@ -21,31 +21,31 @@ public class DiscoverResponsedMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public static p parseJson(JSONObject jSONObject) {
-        p pVar = new p();
-        pVar.afd = jSONObject.optInt("errno");
-        pVar.mErrMsg = jSONObject.optString("errmsg");
+    public static v parseJson(JSONObject jSONObject) {
+        v vVar = new v();
+        vVar.amt = jSONObject.optInt("errno");
+        vVar.mErrMsg = jSONObject.optString("errmsg");
         JSONObject optJSONObject = jSONObject.optJSONObject("banner");
         if (optJSONObject != null) {
-            pVar.aoe = new o(optJSONObject.optString("link"), optJSONObject.optString("pic_url"), optJSONObject.optString("title"));
+            vVar.atg = new u(optJSONObject.optString("link"), optJSONObject.optString("pic_url"), optJSONObject.optString("title"));
         }
         JSONArray optJSONArray = jSONObject.optJSONArray("menu_list");
         if (optJSONArray != null) {
-            pVar.anB = new ArrayList(optJSONArray.length());
+            vVar.atf = new ArrayList(optJSONArray.length());
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
                 JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                pVar.anB.add(new s(jSONObject2.optString("icon_url"), jSONObject2.optString("title"), jSONObject2.optString("link_url"), jSONObject2.optInt("is_new")));
+                vVar.atf.add(new y(jSONObject2.optString("icon_url"), jSONObject2.optString("title"), jSONObject2.optString("link_url"), jSONObject2.optInt("is_new")));
             }
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("msign");
         if (optJSONObject2 != null) {
-            pVar.anx = new r(optJSONObject2.optString("msign_text"), optJSONObject2.optInt("can_msign", 0));
+            vVar.ath = new x(optJSONObject2.optString("msign_text"), optJSONObject2.optInt("can_msign", 0));
         }
         JSONObject optJSONObject3 = jSONObject.optJSONObject("game_center");
         if (optJSONObject3 != null) {
-            pVar.aof = new q(optJSONObject3.optLong("game_last_launchtime", 0L), optJSONObject3.optString("link_url"));
+            vVar.ati = new w(optJSONObject3.optLong("gameLastLaunchtime", 0L), optJSONObject3.optString("link_url"));
         }
-        return pVar;
+        return vVar;
     }
 }

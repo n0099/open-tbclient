@@ -1,31 +1,26 @@
 package com.baidu.tieba.person;
 
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.BarImageView;
+import android.app.Dialog;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class y {
-    BarImageView awf;
-    TextView awi;
-    StringBuffer bBU;
-    TextView bBV;
-    TextView bBW;
-    TextView bBX;
-    TextView bBY;
-    TextView bBZ;
-    TextView bCa;
-    Button bCb;
-    ImageView bCc;
-    final /* synthetic */ x bCd;
-    ImageView bgc;
-
-    private y(x xVar) {
-        this.bCd = xVar;
-    }
+public class y implements DialogInterface.OnClickListener {
+    final /* synthetic */ PersonChangeActivity bGa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ y(x xVar, y yVar) {
-        this(xVar);
+    public y(PersonChangeActivity personChangeActivity) {
+        this.bGa = personChangeActivity;
+    }
+
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        Dialog dialog;
+        Dialog dialog2;
+        dialog = this.bGa.bFW;
+        if (dialog != null) {
+            dialog2 = this.bGa.bFW;
+            com.baidu.adp.lib.g.k.b(dialog2, this.bGa.getPageContext());
+        }
+        this.bGa.aao();
     }
 }

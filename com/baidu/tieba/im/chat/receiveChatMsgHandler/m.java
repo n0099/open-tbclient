@@ -1,20 +1,18 @@
 package com.baidu.tieba.im.chat.receiveChatMsgHandler;
 
 import android.text.TextUtils;
-import com.baidu.tieba.im.chat.bu;
-import com.baidu.tieba.im.chat.w;
+import com.baidu.tbadk.util.ChatStatusManager;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.stranger.StrangerListActivity;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m {
     public static void b(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, c cVar) {
-        a.a(groupMsgData, imMessageCenterPojo, cVar, new n(), StrangerListActivity.isOpen, new o());
+        a.a(groupMsgData, imMessageCenterPojo, cVar, new n(), ChatStatusManager.getInst().getIsOpen(5), new o());
     }
 
-    public static long m(ChatMessage chatMessage) {
+    public static long f(ChatMessage chatMessage) {
         JSONObject optJSONObject;
         if (chatMessage == null || chatMessage.getMsgType() != 22) {
             return -1L;
@@ -26,10 +24,10 @@ public class m {
             }
             JSONObject jSONObject = new JSONObject(content);
             String optString = jSONObject.optString("eventId");
-            if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject("eventParam")) == null || optJSONObject.optLong("groupId") != w.aNT) {
+            if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject("eventParam")) == null || optJSONObject.optLong("groupId") != com.baidu.tieba.im.c.a.bnb) {
                 return -1L;
             }
-            return bu.F(optJSONObject.optLong("readMsgId"));
+            return com.baidu.tieba.im.util.h.af(optJSONObject.optLong("readMsgId"));
         } catch (Exception e) {
             return -1L;
         }

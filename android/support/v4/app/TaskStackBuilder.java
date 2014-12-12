@@ -19,6 +19,11 @@ public class TaskStackBuilder implements Iterable<Intent> {
     private final ArrayList<Intent> mIntents = new ArrayList<>();
     private final Context mSourceContext;
 
+    /* loaded from: classes.dex */
+    public interface SupportParentable {
+        Intent getSupportParentActivityIntent();
+    }
+
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface TaskStackBuilderImpl {
@@ -100,7 +105,11 @@ public class TaskStackBuilder implements Iterable<Intent> {
     }
 
     public TaskStackBuilder addParentStack(Activity activity) {
-        Intent parentActivityIntent = NavUtils.getParentActivityIntent(activity);
+        Intent intent = null;
+        if (activity instanceof SupportParentable) {
+            intent = ((SupportParentable) activity).getSupportParentActivityIntent();
+        }
+        Intent parentActivityIntent = intent == null ? NavUtils.getParentActivityIntent(activity) : intent;
         if (parentActivityIntent != null) {
             ComponentName component = parentActivityIntent.getComponent();
             if (component == null) {

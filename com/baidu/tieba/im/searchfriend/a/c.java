@@ -2,6 +2,7 @@ package com.baidu.tieba.im.searchfriend.a;
 
 import android.text.TextUtils;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
 import com.baidu.tbadk.coreExtra.relationship.f;
@@ -10,24 +11,24 @@ import org.json.JSONObject;
 import tbclient.RecommendFriend.UserInfo;
 /* loaded from: classes.dex */
 public class c {
-    private String Ai;
-    private String Ak;
-    private String Al;
-    private IconData Am = new IconData();
+    private String Et;
+    private String Ev;
+    private String Ew;
     private int distance;
     private boolean isAdded;
-    private f lbsInfo;
     private String name;
     private int sex;
     private String st_type;
     private String tag_name;
     private int userId;
+    private IconData Ex = new IconData();
+    private f lbsInfo = new f();
 
-    public void kq() {
+    public void nj() {
         this.isAdded = true;
     }
 
-    public boolean kr() {
+    public boolean nk() {
         return this.isAdded;
     }
 
@@ -35,21 +36,23 @@ public class c {
         if (userInfo != null) {
             this.isAdded = false;
             this.userId = userInfo.id.intValue();
-            this.Ak = userInfo.portrait;
+            this.Ev = userInfo.portrait;
             this.name = userInfo.name;
             this.sex = userInfo.sex.intValue();
             this.distance = userInfo.distance.intValue();
-            this.Al = userInfo.intro;
+            this.Ew = userInfo.intro;
             this.tag_name = userInfo.tag_name;
             this.st_type = userInfo.st_type;
-            this.Ai = userInfo.message;
+            this.Et = userInfo.message;
             if (userInfo.tshow_icon != null) {
-                this.Am.setIcon(userInfo.tshow_icon.icon);
-                this.Am.setIconName(userInfo.tshow_icon.name);
-                this.Am.setUrl(userInfo.tshow_icon.url);
+                this.Ex.setIcon(userInfo.tshow_icon.icon);
+                this.Ex.setIconName(userInfo.tshow_icon.name);
+                this.Ex.setUrl(userInfo.tshow_icon.url);
             }
             if (userInfo.location != null) {
-                this.lbsInfo = new f(userInfo.location.distance, userInfo.location.time.longValue(), userInfo.location.is_hide.intValue());
+                this.lbsInfo.dD(userInfo.location.distance);
+                this.lbsInfo.setTime(userInfo.location.time.longValue());
+                this.lbsInfo.cO(userInfo.location.is_hide.intValue());
             }
         }
     }
@@ -58,76 +61,76 @@ public class c {
         return this.userId;
     }
 
-    public String ks() {
-        return this.Ak;
+    public String nl() {
+        return this.Ev;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public boolean kt() {
+    public boolean nm() {
         return 2 == this.sex;
     }
 
-    public String ku() {
-        return this.Al;
+    public String nn() {
+        return this.Ew;
     }
 
-    public IconData kv() {
-        return this.Am;
+    public IconData no() {
+        return this.Ex;
     }
 
     public boolean isEmpty() {
-        return this.userId == 0 && TextUtils.isEmpty(this.Ak) && TextUtils.isEmpty(this.name);
+        return this.userId == 0 && TextUtils.isEmpty(this.Ev) && TextUtils.isEmpty(this.name);
     }
 
-    public JSONObject RE() {
+    public JSONObject SQ() {
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("id", this.userId);
         jSONObject.put("name", this.name);
-        jSONObject.put("portait", this.Ak);
+        jSONObject.put("portait", this.Ev);
         jSONObject.put(MyGiftListActivityConfig.USER_SEX, this.sex);
         jSONObject.put("recommend_is_added", this.isAdded);
         jSONObject.put("distance", this.distance);
-        jSONObject.put("intro", this.Al);
+        jSONObject.put("intro", this.Ew);
         jSONObject.put("tag_name", this.tag_name);
         jSONObject.put("st_type", this.st_type);
-        jSONObject.put(AddFriendActivityConfig.DEFAULT_MESSAGE, this.Ai);
+        jSONObject.put(AddFriendActivityConfig.DEFAULT_MESSAGE, this.Et);
         JSONObject jSONObject2 = new JSONObject();
-        jSONObject2.put("icon", this.Am.getIcon());
-        jSONObject2.put("name", this.Am.getIconName());
-        jSONObject2.put(ImageViewerConfig.URL, this.Am.getUrl());
+        jSONObject2.put("icon", this.Ex.getIcon());
+        jSONObject2.put("name", this.Ex.getIconName());
+        jSONObject2.put(ImageViewerConfig.URL, this.Ex.getUrl());
         jSONObject.put("crown_info", jSONObject2);
         JSONObject jSONObject3 = new JSONObject();
         jSONObject3.put("distance", this.lbsInfo.getDistance());
-        jSONObject3.put("time", this.lbsInfo.getTime());
-        jSONObject3.put("is_hide", this.lbsInfo.pD());
+        jSONObject3.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, this.lbsInfo.getTime());
+        jSONObject3.put("is_hide", this.lbsInfo.sX());
         jSONObject.put("location", jSONObject3);
         return jSONObject;
     }
 
-    public void b(JSONObject jSONObject) {
+    public void f(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.userId = jSONObject.optInt("id");
             this.name = jSONObject.optString("name");
-            this.Ak = jSONObject.optString("portait");
+            this.Ev = jSONObject.optString("portait");
             this.sex = jSONObject.optInt(MyGiftListActivityConfig.USER_SEX);
             this.isAdded = jSONObject.optBoolean("recommend_is_added");
             this.distance = jSONObject.optInt("distance");
-            this.Al = jSONObject.optString("intro");
-            this.Ai = jSONObject.optString(AddFriendActivityConfig.DEFAULT_MESSAGE);
+            this.Ew = jSONObject.optString("intro");
+            this.Et = jSONObject.optString(AddFriendActivityConfig.DEFAULT_MESSAGE);
             JSONObject optJSONObject = jSONObject.optJSONObject("crown_info");
             if (optJSONObject != null) {
-                this.Am.setIcon(optJSONObject.optString("icon"));
-                this.Am.setIconName(optJSONObject.optString("name"));
-                this.Am.setUrl(optJSONObject.optString(ImageViewerConfig.URL));
+                this.Ex.setIcon(optJSONObject.optString("icon"));
+                this.Ex.setIconName(optJSONObject.optString("name"));
+                this.Ex.setUrl(optJSONObject.optString(ImageViewerConfig.URL));
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("location");
             if (optJSONObject2 != null) {
-                this.lbsInfo.cG(optJSONObject2.optString("distance"));
-                this.lbsInfo.setTime(optJSONObject2.optLong("time"));
-                this.lbsInfo.co(optJSONObject2.optInt("is_hide"));
+                this.lbsInfo.dD(optJSONObject2.optString("distance"));
+                this.lbsInfo.setTime(optJSONObject2.optLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME));
+                this.lbsInfo.cO(optJSONObject2.optInt("is_hide"));
             }
         }
     }
@@ -140,11 +143,11 @@ public class c {
         return this.tag_name;
     }
 
-    public String RF() {
+    public String SR() {
         return this.st_type;
     }
 
-    public String kp() {
-        return this.Ai;
+    public String ni() {
+        return this.Et;
     }
 }

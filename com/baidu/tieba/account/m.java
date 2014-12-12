@@ -6,15 +6,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class m {
-    View ML;
-    TextView aeF;
-    TextView aeG;
-    ImageView aeH;
-    Button aeI;
-    final /* synthetic */ l aeJ;
+    TextView alW;
+    TextView alX;
+    ImageView alY;
+    Button alZ;
+    final /* synthetic */ l ama;
+    View mLine;
 
     private m(l lVar) {
-        this.aeJ = lVar;
+        this.ama = lVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

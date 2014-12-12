@@ -1,17 +1,27 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.model.LocalPicModel;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cu implements View.OnClickListener {
-    final /* synthetic */ MsgrightView aPN;
+public class cu extends com.baidu.adp.base.i {
+    final /* synthetic */ TalkableActivity aRW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cu(MsgrightView msgrightView) {
-        this.aPN = msgrightView;
+    public cu(TalkableActivity talkableActivity) {
+        this.aRW = talkableActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.aPN.aOY.a(view, 1, this.aPN.UC, 0L);
+    @Override // com.baidu.adp.base.i
+    public void c(Object obj) {
+        if (obj != null && (obj instanceof LocalPicModel.ResponseData)) {
+            LocalPicModel.ResponseData responseData = (LocalPicModel.ResponseData) obj;
+            if (this.aRW.mListModel != null) {
+                this.aRW.mListModel.sendPicMessage(responseData.getSPathGen(), responseData.getBitmap());
+                return;
+            }
+            return;
+        }
+        this.aRW.showToast(TbadkCoreApplication.m255getInst().getString(com.baidu.tieba.z.pic_parser_error));
     }
 }

@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v4.util.DebugUtils;
+import android.support.v4.util.SimpleArrayMap;
 import android.util.AttributeSet;
 import android.util.SparseArray;
 import android.view.ContextMenu;
@@ -22,7 +23,6 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-import java.util.HashMap;
 /* loaded from: classes.dex */
 public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuListener {
     static final int ACTIVITY_CREATED = 2;
@@ -31,7 +31,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     static final int RESUMED = 5;
     static final int STARTED = 4;
     static final int STOPPED = 3;
-    private static final HashMap<String, Class<?>> sClassMap = new HashMap<>();
+    private static final SimpleArrayMap<String, Class<?>> sClassMap = new SimpleArrayMap<>();
     FragmentActivity mActivity;
     boolean mAdded;
     View mAnimatingAway;
@@ -146,6 +146,20 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             throw new InstantiationException("Unable to instantiate fragment " + str + ": make sure class name exists, is public, and has an empty constructor that is public", e2);
         } catch (java.lang.InstantiationException e3) {
             throw new InstantiationException("Unable to instantiate fragment " + str + ": make sure class name exists, is public, and has an empty constructor that is public", e3);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static boolean isSupportFragmentClass(Context context, String str) {
+        try {
+            Class<?> cls = sClassMap.get(str);
+            if (cls == null) {
+                cls = context.getClassLoader().loadClass(str);
+                sClassMap.put(str, cls);
+            }
+            return Fragment.class.isAssignableFrom(cls);
+        } catch (ClassNotFoundException e) {
+            return false;
         }
     }
 
@@ -316,6 +330,14 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     public final boolean isHidden() {
         return this.mHidden;
+    }
+
+    public final boolean hasOptionsMenu() {
+        return this.mHasMenu;
+    }
+
+    public final boolean isMenuVisible() {
+        return this.mMenuVisible;
     }
 
     public void onHiddenChanged(boolean z) {

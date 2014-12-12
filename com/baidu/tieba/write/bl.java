@@ -4,15 +4,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.editortool.EditorToolComponetContainer;
-import com.baidu.tieba.editortool.TbEditorToolButtonContainer;
+import com.baidu.tieba.tbadkCore.PbEditor.EditorToolComponetContainer;
+import com.baidu.tieba.tbadkCore.PbEditor.TbEditorToolButtonContainer;
 /* loaded from: classes.dex */
 class bl implements View.OnFocusChangeListener {
-    final /* synthetic */ WriteActivity bUm;
+    final /* synthetic */ WriteActivity cft;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bl(WriteActivity writeActivity) {
-        this.bUm = writeActivity;
+        this.cft = writeActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x0017, code lost:
@@ -39,51 +39,51 @@ class bl implements View.OnFocusChangeListener {
         EditText editText7;
         View view2;
         TextView textView2;
-        editText = this.bUm.bJG;
+        editText = this.cft.bNW;
         if (view != editText) {
-            view2 = this.bUm.Jt;
+            view2 = this.cft.mBack;
             if (view != view2) {
-                textView2 = this.bUm.bJL;
+                textView2 = this.cft.bOb;
             }
         }
         if (!z) {
-            editText2 = this.bUm.bJG;
+            editText2 = this.cft.bNW;
             if (view == editText2) {
-                textView = this.bUm.bJM;
+                textView = this.cft.bOc;
                 textView.setVisibility(0);
             }
         } else {
-            this.bUm.bUk = true;
-            this.bUm.afu();
-            tbEditorToolButtonContainer = this.bUm.bTU;
-            tbEditorToolButtonContainer.Bi();
-            editorToolComponetContainer = this.bUm.arn;
-            editText3 = this.bUm.bJG;
-            editorToolComponetContainer.x(editText3);
+            this.cft.cfr = true;
+            this.cft.ajY();
+            tbEditorToolButtonContainer = this.cft.cfb;
+            tbEditorToolButtonContainer.aeS();
+            editorToolComponetContainer = this.cft.bUs;
+            editText3 = this.cft.bNW;
+            editorToolComponetContainer.V(editText3);
         }
-        editText4 = this.bUm.bJK;
+        editText4 = this.cft.bOa;
         if (view == editText4) {
             if (!z) {
-                writeData = this.bUm.bpJ;
+                writeData = this.cft.bNF;
                 if (writeData.getType() == 0) {
-                    editText5 = this.bUm.bJK;
-                    editText5.setHint(com.baidu.tieba.y.content);
+                    editText5 = this.cft.bOa;
+                    editText5.setHint(com.baidu.tieba.z.content);
                     return;
                 }
                 return;
             }
-            this.bUm.bUk = false;
-            writeData2 = this.bUm.bpJ;
+            this.cft.cfr = false;
+            writeData2 = this.cft.bNF;
             if (writeData2.getType() == 0) {
-                editText7 = this.bUm.bJK;
+                editText7 = this.cft.bOa;
                 editText7.setHint((CharSequence) null);
             }
-            this.bUm.afu();
-            tbEditorToolButtonContainer2 = this.bUm.bTU;
-            tbEditorToolButtonContainer2.Bi();
-            editorToolComponetContainer2 = this.bUm.arn;
-            editText6 = this.bUm.bJK;
-            editorToolComponetContainer2.x(editText6);
+            this.cft.ajY();
+            tbEditorToolButtonContainer2 = this.cft.cfb;
+            tbEditorToolButtonContainer2.aeS();
+            editorToolComponetContainer2 = this.cft.bUs;
+            editText6 = this.cft.bOa;
+            editorToolComponetContainer2.V(editText6);
         }
     }
 }

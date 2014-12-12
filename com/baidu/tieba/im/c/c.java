@@ -1,21 +1,21 @@
 package com.baidu.tieba.im.c;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.websocketBase.PingManager;
+import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
 /* loaded from: classes.dex */
-class c extends CustomMessageListener {
+class c extends com.baidu.tieba.im.h<Boolean> {
+    final /* synthetic */ b bnj;
+    private final /* synthetic */ CommonGroupChatMessage bnk;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(int i) {
-        super(i);
+    public c(b bVar, CommonGroupChatMessage commonGroupChatMessage) {
+        this.bnj = bVar;
+        this.bnk = commonGroupChatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2008017) {
-            PingManager.qE().qF();
-            b.Qy().Qz();
-        }
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // com.baidu.tieba.im.h
+    public Boolean doInBackground() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.c.Mu().b(this.bnk.getGroupId(), String.valueOf(this.bnk.getRecordId()), String.valueOf(this.bnk.getMsgId()), 2));
     }
 }

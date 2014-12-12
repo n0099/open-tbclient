@@ -1,23 +1,19 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tbadk.core.data.VoiceData;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bd implements v {
-    final /* synthetic */ GroupChatActivity aOr;
+public class bd implements View.OnLongClickListener {
+    final /* synthetic */ az aRi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(GroupChatActivity groupChatActivity) {
-        this.aOr = groupChatActivity;
+    public bd(az azVar) {
+        this.aRi = azVar;
     }
 
-    @Override // com.baidu.tieba.im.chat.v
-    public void c(VoiceData.VoiceModel voiceModel) {
-        if (voiceModel != null) {
-            this.aOr.aQe.sendMsgVoice(voiceModel.voiceId, voiceModel.duration);
-        }
-    }
-
-    @Override // com.baidu.tieba.im.chat.v
-    public void BX() {
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        this.aRi.mItemViewLongClickListener.onItemViewLongClick(view, 11, this.aRi.mPosition, 0L);
+        return true;
     }
 }

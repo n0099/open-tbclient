@@ -5,11 +5,11 @@ import java.util.Map;
 public interface g {
     void a(com.baidu.adp.lib.webSocket.d dVar);
 
-    boolean a(int i, String str);
+    void c(Map<String, String> map);
 
-    void b(Map<String, String> map);
+    void e(byte[] bArr);
 
-    void d(byte[] bArr);
+    boolean k(int i, String str);
 
-    void j(String str);
+    void y(String str);
 }

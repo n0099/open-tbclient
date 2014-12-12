@@ -6,33 +6,33 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class z extends e {
-    private static z Sq = new z();
-    private LinkedList<ad> Sr;
+    private static z Ym = new z();
+    private LinkedList<ae> Yn;
 
     @Override // com.baidu.tbadk.editortool.e
     public int getIndex() {
         return 1;
     }
 
-    public static synchronized z rA() {
+    public static synchronized z vb() {
         z zVar;
         synchronized (z.class) {
-            zVar = Sq;
+            zVar = Ym;
         }
         return zVar;
     }
 
-    public List<ad> getGroups() {
-        return this.Sr;
+    public List<ae> getGroups() {
+        return this.Yn;
     }
 
     @Override // com.baidu.tbadk.editortool.e
     public void a(f fVar) {
-        if (this.Sr == null) {
-            this.Sr = new LinkedList<>();
-            if (TbFaceManager.sh().rz() > 0) {
+        if (this.Yn == null) {
+            this.Yn = new LinkedList<>();
+            if (TbFaceManager.vK().va() > 0) {
                 y yVar = new y();
-                this.Sr.add(yVar);
+                this.Yn.add(yVar);
                 if (fVar != null) {
                     fVar.a(yVar);
                     return;
@@ -41,9 +41,9 @@ public class z extends e {
             }
             return;
         }
-        Iterator<ad> it = this.Sr.iterator();
+        Iterator<ae> it = this.Yn.iterator();
         while (it.hasNext()) {
-            ad next = it.next();
+            ae next = it.next();
             if (fVar != null) {
                 fVar.a(next);
             }
@@ -51,10 +51,10 @@ public class z extends e {
     }
 
     @Override // com.baidu.tbadk.editortool.e
-    public void op() {
+    public void register() {
     }
 
     public boolean isEmpty() {
-        return this.Sr == null || this.Sr.size() == 0;
+        return this.Yn == null || this.Yn.size() == 0;
     }
 }

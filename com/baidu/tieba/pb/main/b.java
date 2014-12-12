@@ -4,24 +4,24 @@ import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
 class b implements Handler.Callback {
-    final /* synthetic */ PbActivity bvu;
+    final /* synthetic */ PbActivity bzj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(PbActivity pbActivity) {
-        this.bvu = pbActivity;
+        this.bzj = pbActivity;
     }
 
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
-        bn bnVar;
-        bn bnVar2;
+        bq bqVar;
+        bq bqVar2;
         switch (message.what) {
             case 2:
-                bnVar = this.bvu.buU;
-                if (bnVar != null) {
-                    bnVar2 = this.bvu.buU;
-                    if (bnVar2.zP()) {
-                        this.bvu.Wp();
+                bqVar = this.bzj.byJ;
+                if (bqVar != null) {
+                    bqVar2 = this.bzj.byJ;
+                    if (bqVar2.li()) {
+                        this.bzj.WM();
                         break;
                     }
                 }

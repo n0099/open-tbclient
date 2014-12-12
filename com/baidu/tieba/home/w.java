@@ -1,21 +1,18 @@
 package com.baidu.tieba.home;
+
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.BarImageView;
 /* loaded from: classes.dex */
-class w {
-    private int mSkinType = -1;
-
-    public void setSkinType(int i) {
-        this.mSkinType = i;
-    }
-
-    public int getSkinType() {
-        return this.mSkinType;
-    }
-
-    public boolean bF(int i) {
-        if (i == getSkinType()) {
-            return false;
-        }
-        setSkinType(i);
-        return true;
-    }
+final class w extends x {
+    TextView aPA;
+    TextView aPB;
+    LinearLayout aPC;
+    TextView aPD;
+    TextView aPs;
+    RelativeLayout aPw;
+    LinearLayout aPx;
+    BarImageView aPy;
+    TextView aPz;
 }

@@ -3,9 +3,7 @@ package com.baidu.tieba.xiuba;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import com.baidu.tbadk.pluginArch.Plugin;
-import com.baidu.tbadk.pluginArch.PluginCenter;
-import com.baidu.tbadk.pluginArch.PluginNameList;
+import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.tbadk.plugins.XiubaPlugin;
 /* loaded from: classes.dex */
 public class Xiu8PushService extends Service {
@@ -14,12 +12,9 @@ public class Xiu8PushService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        Plugin pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_XIUBA);
-        if (pluginByName != null) {
-            this.xiubaPlugin = (XiubaPlugin) pluginByName.getClassInstance(XiubaPlugin.class);
-            if (this.xiubaPlugin != null) {
-                this.xiubaPlugin.Xiu8PushService_onCreate(this);
-            }
+        this.xiubaPlugin = (XiubaPlugin) PluginCenter.gX().hf();
+        if (this.xiubaPlugin != null) {
+            this.xiubaPlugin.Xiu8PushService_onCreate(this);
         }
     }
 

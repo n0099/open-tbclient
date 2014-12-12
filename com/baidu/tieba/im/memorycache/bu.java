@@ -23,10 +23,10 @@ public class bu extends com.baidu.adp.framework.listener.e {
         if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseEnterChatRoomMessage) && !socketResponsedMessage.hasError() && (randChatRoomData = ((ResponseEnterChatRoomMessage) socketResponsedMessage).getRandChatRoomData()) != null && randChatRoomData.getUserNum() > 0) {
             ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
             imMessageCenterPojo.setGid(String.valueOf(randChatRoomData.getGroupId()));
-            imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.chat.bu.F(randChatRoomData.getLastMessageId()));
+            imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.util.h.af(randChatRoomData.getLastMessageId()));
             imMessageCenterPojo.setCustomGroupType(3);
             imMessageCenterPojo.setIs_hidden(1);
-            c.PN().g(imMessageCenterPojo);
+            c.Qs().n(imMessageCenterPojo);
         }
     }
 }

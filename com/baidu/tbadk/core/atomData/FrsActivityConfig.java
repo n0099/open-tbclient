@@ -11,9 +11,11 @@ public class FrsActivityConfig extends a {
     public static final String CONTENT_SHOW = "content_show";
     public static final String FLAG = "flag";
     public static final String FROM = "from";
+    public static final String FROM_HAO123 = "from_hao123";
     public static final String FROM_SHORT_CUT = "from_short_cut";
     public static final int FRS_FLAG_ADD_SEARCH_HIS = 1;
     public static final int FRS_FLAG_NORMAL = 0;
+    public static final String FRS_FROM_ENTERFORUM_RECOMMEND = "recom_flist";
     public static final String FRS_FROM_LIKE = "tb_forumlist";
     public static final String FRS_FROM_PB = "tb_pb";
     public static final String FRS_FROM_RECOMMEND = "dimension_door";
@@ -24,6 +26,8 @@ public class FrsActivityConfig extends a {
     public static String HAS_SHOWN_FRS_GUIDE = "has_shown_frs_guide";
     public static final String KEY_REFRESH = "refresh_all";
     public static final String NAME = "name";
+    public static final int READ_CHAT = 1;
+    public static final int READ_REPLYORAT = 0;
     public static final String REFRESH_TO_FRS = "tb_frslist";
 
     public FrsActivityConfig(Context context) {

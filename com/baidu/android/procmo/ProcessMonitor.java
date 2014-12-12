@@ -7,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Build;
-import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.text.TextUtils;
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,29 +14,34 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class ProcessMonitor {
+    private static final boolean DEBUG = false;
+    private static final String EXE_FILE_NAME = "libprocmox_v1_4.so";
+    private static final String LIB_NAME = "procmoi_v1_4";
+    private static final String TAG = "procmo";
+    public static final int TYPE_URL = 0;
+    private String mAppId;
+    private String mBrowser;
     private Context mContext;
-    private String wZ;
-    private String xa;
-    private String xb;
+    private String mFeedbackUrl;
 
     static {
-        System.loadLibrary("procmoi_v1_4");
+        System.loadLibrary(LIB_NAME);
     }
 
     public ProcessMonitor(Context context, String str, String str2, String str3, int i) {
         String str4;
-        this.wZ = "";
-        this.xa = "";
-        this.xb = "";
+        this.mAppId = "";
+        this.mFeedbackUrl = "";
+        this.mBrowser = "";
         this.mContext = context;
-        this.wZ = str;
-        this.xa = str2;
-        this.xb = str3;
-        if (TextUtils.isEmpty(this.xb)) {
+        this.mAppId = str;
+        this.mFeedbackUrl = str2;
+        this.mBrowser = str3;
+        if (TextUtils.isEmpty(this.mBrowser)) {
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("http://www.baidu.com"));
             ResolveInfo resolveActivity = this.mContext.getPackageManager().resolveActivity(intent, 0);
             if (resolveActivity != null && resolveActivity.activityInfo != null && resolveActivity.activityInfo.packageName.equals("android") && resolveActivity.activityInfo.name.equals("com.android.internal.app.ResolverActivity")) {
-                for (ResolveInfo resolveInfo : this.mContext.getPackageManager().queryIntentActivities(intent, AccessibilityEventCompat.TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED)) {
+                for (ResolveInfo resolveInfo : this.mContext.getPackageManager().queryIntentActivities(intent, 65536)) {
                     if ((resolveInfo.activityInfo.applicationInfo.flags & 1) != 0) {
                         str4 = resolveInfo.activityInfo.packageName + "/" + resolveInfo.activityInfo.name;
                         break;
@@ -45,19 +49,19 @@ public class ProcessMonitor {
                 }
             }
             str4 = "";
-            this.xb = str4;
+            this.mBrowser = str4;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aN(String str) {
+    public void executeMonitorProcess(String str) {
         if (str == null) {
             return;
         }
         try {
-            String r = r(this.mContext);
-            String str2 = this.xa;
-            Runtime.getRuntime().exec(str + " " + this.mContext.getApplicationInfo().dataDir + " " + r + " " + this.wZ + " " + str2 + " " + (Build.VERSION.SDK_INT >= 17 ? 1 : 0) + " " + this.xb);
+            String nativeLibraryDir = getNativeLibraryDir(this.mContext);
+            String str2 = this.mFeedbackUrl;
+            Runtime.getRuntime().exec(str + " " + this.mContext.getApplicationInfo().dataDir + " " + nativeLibraryDir + " " + this.mAppId + " " + str2 + " " + (Build.VERSION.SDK_INT >= 17 ? 1 : 0) + " " + this.mBrowser);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -66,12 +70,22 @@ public class ProcessMonitor {
     /* JADX INFO: Access modifiers changed from: private */
     public native void exitIfRunning(String str);
 
+    private static String getNativeLibraryDir(Context context) {
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            return Build.VERSION.SDK_INT >= 9 ? packageInfo.applicationInfo.nativeLibraryDir : new File(packageInfo.applicationInfo.dataDir, "lib").getAbsolutePath();
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return "";
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
-    public String iH() {
+    public String iniExeFile() {
         int i = 0;
         try {
-            File file = new File(this.mContext.getFilesDir(), "libprocmox_v1_4.so");
-            File file2 = new File(r(this.mContext), "libprocmox_v1_4.so");
+            File file = new File(this.mContext.getFilesDir(), EXE_FILE_NAME);
+            File file2 = new File(getNativeLibraryDir(this.mContext), EXE_FILE_NAME);
             if (file.exists() && file.length() == file2.length()) {
                 return file.getAbsolutePath();
             }
@@ -121,20 +135,16 @@ public class ProcessMonitor {
         }
     }
 
-    private static String r(Context context) {
-        try {
-            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-            return Build.VERSION.SDK_INT >= 9 ? packageInfo.applicationInfo.nativeLibraryDir : new File(packageInfo.applicationInfo.dataDir, "lib").getAbsolutePath();
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-            return "";
-        }
-    }
-
     private static native int setPermissions(String str, int i, int i2, int i3);
 
     public void start() {
-        Thread thread = new Thread(new a(this));
+        Thread thread = new Thread(new Runnable() { // from class: com.baidu.android.procmo.ProcessMonitor.1
+            @Override // java.lang.Runnable
+            public void run() {
+                ProcessMonitor.this.exitIfRunning(ProcessMonitor.this.mAppId);
+                ProcessMonitor.this.executeMonitorProcess(ProcessMonitor.this.iniExeFile());
+            }
+        });
         thread.setName("ProcessMonitor-init");
         thread.start();
     }

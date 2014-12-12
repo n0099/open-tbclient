@@ -1,26 +1,25 @@
 package com.baidu.tieba.im.newFriend;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z extends com.baidu.tieba.im.b<Void> {
-    private final /* synthetic */ long aPi;
-    final /* synthetic */ w bgS;
+class z extends com.baidu.tieba.im.h<Void> {
+    private final /* synthetic */ long aQT;
+    final /* synthetic */ w bjK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(w wVar, long j) {
-        this.bgS = wVar;
-        this.aPi = j;
+        this.bjK = wVar;
+        this.aQT = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: Kf */
+    @Override // com.baidu.tieba.im.h
+    /* renamed from: Kp */
     public Void doInBackground() {
-        if (0 != this.aPi && com.baidu.tieba.im.db.m.MO().P(this.aPi)) {
-            com.baidu.tieba.im.data.e eVar = new com.baidu.tieba.im.data.e();
-            eVar.setId(this.aPi);
-            eVar.setStatus(2);
-            eVar.fw(0);
-            com.baidu.tieba.im.db.m.MO().b(eVar);
+        if (0 != this.aQT && com.baidu.tieba.im.db.m.MI().W(this.aQT)) {
+            com.baidu.tieba.im.data.b bVar = new com.baidu.tieba.im.data.b();
+            bVar.setId(this.aQT);
+            bVar.setStatus(2);
+            bVar.fz(0);
+            com.baidu.tieba.im.db.m.MI().c(bVar);
         }
         return null;
     }

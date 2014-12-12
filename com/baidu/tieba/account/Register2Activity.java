@@ -20,348 +20,348 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.Register2ActivityConfig;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.data.RegistData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class Register2Activity extends BaseActivity {
-    private static int afj = 1000;
-    private static int afk = 27;
-    private static int afl = 29;
-    private static int afm = 28;
-    private static int afn = 6;
+public class Register2Activity extends BaseActivity<Register2Activity> {
+    private static int amA = 1000;
+    private static int amB = 27;
+    private static int amC = 29;
+    private static int amD = 28;
+    private static int amE = 6;
     private NavigationBar mNavigationBar;
-    private View KC = null;
-    private TextView afo = null;
-    private Button afp = null;
-    private ImageView afq = null;
-    private ImageView afr = null;
-    private Button afs = null;
-    private RadioGroup aft = null;
-    private RadioButton afu = null;
-    private RadioButton afv = null;
-    private RadioButton afw = null;
-    private TextView afx = null;
-    private TextView KK = null;
-    private EditText afy = null;
-    private EditText afz = null;
-    private EditText afA = null;
-    private EditText Kv = null;
-    private RelativeLayout afB = null;
-    private LinearLayout afC = null;
-    private LinearLayout afD = null;
-    private LinearLayout afE = null;
-    private LinearLayout afF = null;
-    private LinearLayout afG = null;
+    private View PM = null;
+    private TextView amF = null;
+    private Button amG = null;
+    private ImageView amH = null;
+    private ImageView amI = null;
+    private Button amJ = null;
+    private RadioGroup amK = null;
+    private RadioButton amL = null;
+    private RadioButton amM = null;
+    private RadioButton amN = null;
+    private TextView amO = null;
+    private TextView PV = null;
+    private EditText amP = null;
+    private EditText amQ = null;
+    private EditText amR = null;
+    private EditText PE = null;
+    private RelativeLayout amS = null;
+    private LinearLayout amT = null;
+    private LinearLayout amU = null;
+    private LinearLayout amV = null;
+    private LinearLayout amW = null;
+    private LinearLayout amX = null;
     private ProgressBar mProgressBar = null;
-    private ProgressBar afH = null;
-    private ImageView Kx = null;
-    private int afb = 0;
-    private int afc = 0;
-    private boolean afI = false;
-    private boolean afJ = true;
-    private int afK = -1;
+    private ProgressBar amY = null;
+    private ImageView PG = null;
+    private int amr = 0;
+    private int ams = 0;
+    private boolean amZ = false;
+    private boolean ana = true;
+    private int anb = -1;
     private String mErrorString = null;
-    RelativeLayout KP = null;
-    TextView afL = null;
-    private y afM = null;
-    private z afN = null;
-    private com.baidu.tbadk.core.data.j afO = null;
-    private final View.OnClickListener afP = new t(this);
-    private final TextWatcher afe = new u(this);
-    private final View.OnFocusChangeListener aff = new v(this);
-    private final RadioGroup.OnCheckedChangeListener afQ = new w(this);
+    RelativeLayout Qa = null;
+    TextView anc = null;
+    private z and = null;
+    private aa ane = null;
+    private com.baidu.tbadk.core.data.m anf = null;
+    private final View.OnClickListener ang = new u(this);
+    private final TextWatcher amu = new v(this);
+    private final View.OnFocusChangeListener amv = new w(this);
+    private final RadioGroup.OnCheckedChangeListener anh = new x(this);
 
     static {
-        TbadkApplication.m251getInst().RegisterIntent(Register2ActivityConfig.class, Register2Activity.class);
+        TbadkCoreApplication.m255getInst().RegisterIntent(Register2ActivityConfig.class, Register2Activity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.w.account_register2_activity);
+        setContentView(com.baidu.tieba.x.account_register2_activity);
         initUI();
-        new au(TbConfig.ST_TYPE_REG).start();
+        new av(TbConfig.ST_TYPE_REG).start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xi() {
-        int selectionStart = this.afz.getSelectionStart();
-        if (!this.afJ) {
-            this.afp.setText(getString(com.baidu.tieba.y.hide));
-            this.afz.setTransformationMethod(new SingleLineTransformationMethod());
-            this.afz.setSelection(selectionStart);
-            this.afJ = true;
+    public void AB() {
+        int selectionStart = this.amQ.getSelectionStart();
+        if (!this.ana) {
+            this.amG.setText(getPageContext().getString(com.baidu.tieba.z.hide));
+            this.amQ.setTransformationMethod(new SingleLineTransformationMethod());
+            this.amQ.setSelection(selectionStart);
+            this.ana = true;
             return;
         }
-        this.afp.setText(getString(com.baidu.tieba.y.show));
-        this.afz.setTransformationMethod(new PasswordTransformationMethod());
-        this.afz.setSelection(selectionStart);
-        this.afJ = false;
+        this.amG.setText(getPageContext().getString(com.baidu.tieba.z.show));
+        this.amQ.setTransformationMethod(new PasswordTransformationMethod());
+        this.amQ.setSelection(selectionStart);
+        this.ana = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.afN != null) {
-            this.afN.cancel();
+        if (this.ane != null) {
+            this.ane.cancel();
         }
-        if (this.afM != null) {
-            this.afM.cancel();
+        if (this.and != null) {
+            this.and.cancel();
         }
     }
 
     private void initUI() {
-        this.KP = (RelativeLayout) findViewById(com.baidu.tieba.v.container);
-        this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
-        this.KC = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.afP);
-        this.mNavigationBar.setTitleText(getString(com.baidu.tieba.y.account_regedit_baidu));
-        this.afo = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(com.baidu.tieba.y.account_login), this.afP);
-        this.afL = (TextView) findViewById(com.baidu.tieba.v.reg_text);
-        this.afx = (TextView) findViewById(com.baidu.tieba.v.reg_info);
-        this.afB = (RelativeLayout) findViewById(com.baidu.tieba.v.register);
-        this.afB.setEnabled(false);
-        this.afp = (Button) findViewById(com.baidu.tieba.v.show);
-        this.afz = (EditText) findViewById(com.baidu.tieba.v.edit_psw);
-        this.afy = (EditText) findViewById(com.baidu.tieba.v.edit_user_name);
-        this.afq = (ImageView) findViewById(com.baidu.tieba.v.del_user_name);
-        this.afq.setOnClickListener(this.afP);
-        this.afr = (ImageView) findViewById(com.baidu.tieba.v.del_phone);
-        this.afr.setOnClickListener(this.afP);
-        this.afy.setOnFocusChangeListener(this.aff);
-        this.afA = (EditText) findViewById(com.baidu.tieba.v.edit_phone);
-        this.afA.setOnFocusChangeListener(this.aff);
-        this.afp.setOnClickListener(this.afP);
-        this.afy.addTextChangedListener(this.afe);
-        this.afz.addTextChangedListener(this.afe);
-        this.afA.addTextChangedListener(this.afe);
-        this.mProgressBar = (ProgressBar) findViewById(com.baidu.tieba.v.progress_reg);
-        this.afH = (ProgressBar) findViewById(com.baidu.tieba.v.image_progress);
-        this.afu = (RadioButton) findViewById(com.baidu.tieba.v.choose_name1);
-        this.afv = (RadioButton) findViewById(com.baidu.tieba.v.choose_name2);
-        this.afw = (RadioButton) findViewById(com.baidu.tieba.v.choose_name3);
-        this.aft = (RadioGroup) findViewById(com.baidu.tieba.v.name_group);
-        this.aft.setOnCheckedChangeListener(this.afQ);
-        this.afB.setOnClickListener(this.afP);
-        this.afC = (LinearLayout) findViewById(com.baidu.tieba.v.user_name_bg);
-        this.afb = this.afC.getPaddingLeft();
-        this.afc = this.afC.getPaddingRight();
-        this.afD = (LinearLayout) findViewById(com.baidu.tieba.v.recommend_bg);
-        this.afE = (LinearLayout) findViewById(com.baidu.tieba.v.input_psw_bg);
-        this.afF = (LinearLayout) findViewById(com.baidu.tieba.v.input_phone_bg);
-        this.afG = (LinearLayout) findViewById(com.baidu.tieba.v.input_vcode_bg);
-        this.KK = (TextView) findViewById(com.baidu.tieba.v.text_error);
-        this.Kx = (ImageView) findViewById(com.baidu.tieba.v.image_vcode);
-        this.afs = (Button) findViewById(com.baidu.tieba.v.change_vcode);
-        this.Kx.setOnClickListener(this.afP);
-        this.afs.setOnClickListener(this.afP);
-        this.Kv = (EditText) findViewById(com.baidu.tieba.v.edit_vcode);
-        this.Kv.addTextChangedListener(this.afe);
-        xi();
-        ShowSoftKeyPadDelay(this.afy, 150);
+        this.Qa = (RelativeLayout) findViewById(com.baidu.tieba.w.container);
+        this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.w.view_navigation_bar);
+        this.PM = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.ang);
+        this.mNavigationBar.setTitleText(getPageContext().getString(com.baidu.tieba.z.account_regedit_baidu));
+        this.amF = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(com.baidu.tieba.z.account_login), this.ang);
+        this.anc = (TextView) findViewById(com.baidu.tieba.w.reg_text);
+        this.amO = (TextView) findViewById(com.baidu.tieba.w.reg_info);
+        this.amS = (RelativeLayout) findViewById(com.baidu.tieba.w.register);
+        this.amS.setEnabled(false);
+        this.amG = (Button) findViewById(com.baidu.tieba.w.show);
+        this.amQ = (EditText) findViewById(com.baidu.tieba.w.edit_psw);
+        this.amP = (EditText) findViewById(com.baidu.tieba.w.edit_user_name);
+        this.amH = (ImageView) findViewById(com.baidu.tieba.w.del_user_name);
+        this.amH.setOnClickListener(this.ang);
+        this.amI = (ImageView) findViewById(com.baidu.tieba.w.del_phone);
+        this.amI.setOnClickListener(this.ang);
+        this.amP.setOnFocusChangeListener(this.amv);
+        this.amR = (EditText) findViewById(com.baidu.tieba.w.edit_phone);
+        this.amR.setOnFocusChangeListener(this.amv);
+        this.amG.setOnClickListener(this.ang);
+        this.amP.addTextChangedListener(this.amu);
+        this.amQ.addTextChangedListener(this.amu);
+        this.amR.addTextChangedListener(this.amu);
+        this.mProgressBar = (ProgressBar) findViewById(com.baidu.tieba.w.progress_reg);
+        this.amY = (ProgressBar) findViewById(com.baidu.tieba.w.image_progress);
+        this.amL = (RadioButton) findViewById(com.baidu.tieba.w.choose_name1);
+        this.amM = (RadioButton) findViewById(com.baidu.tieba.w.choose_name2);
+        this.amN = (RadioButton) findViewById(com.baidu.tieba.w.choose_name3);
+        this.amK = (RadioGroup) findViewById(com.baidu.tieba.w.name_group);
+        this.amK.setOnCheckedChangeListener(this.anh);
+        this.amS.setOnClickListener(this.ang);
+        this.amT = (LinearLayout) findViewById(com.baidu.tieba.w.user_name_bg);
+        this.amr = this.amT.getPaddingLeft();
+        this.ams = this.amT.getPaddingRight();
+        this.amU = (LinearLayout) findViewById(com.baidu.tieba.w.recommend_bg);
+        this.amV = (LinearLayout) findViewById(com.baidu.tieba.w.input_psw_bg);
+        this.amW = (LinearLayout) findViewById(com.baidu.tieba.w.input_phone_bg);
+        this.amX = (LinearLayout) findViewById(com.baidu.tieba.w.input_vcode_bg);
+        this.PV = (TextView) findViewById(com.baidu.tieba.w.text_error);
+        this.PG = (ImageView) findViewById(com.baidu.tieba.w.image_vcode);
+        this.amJ = (Button) findViewById(com.baidu.tieba.w.change_vcode);
+        this.PG.setOnClickListener(this.ang);
+        this.amJ.setOnClickListener(this.ang);
+        this.PE = (EditText) findViewById(com.baidu.tieba.w.edit_vcode);
+        this.PE.addTextChangedListener(this.amu);
+        AB();
+        ShowSoftKeyPadDelay(this.amP, 150);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.mNavigationBar.onChangeSkinType(i);
-        aw.a(this.afL, i);
-        aw.f(this.KP, i);
-        xo();
-        xl();
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+        ax.b(this.anc, i);
+        ax.g(this.Qa, i);
+        AH();
+        AE();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xj() {
-        bh(false);
+    public void AC() {
+        bg(false);
     }
 
-    private void xk() {
-        this.afC.setPadding(this.afb, 0, this.afc, 0);
-        this.afD.setPadding(this.afb, 0, this.afc, 0);
-        this.afE.setPadding(this.afb, 0, this.afc, 0);
-        this.afF.setPadding(this.afb, 0, this.afc, 0);
-        this.afG.setPadding(this.afb, 0, this.afc, 0);
+    private void AD() {
+        this.amT.setPadding(this.amr, 0, this.ams, 0);
+        this.amU.setPadding(this.amr, 0, this.ams, 0);
+        this.amV.setPadding(this.amr, 0, this.ams, 0);
+        this.amW.setPadding(this.amr, 0, this.ams, 0);
+        this.amX.setPadding(this.amr, 0, this.ams, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xl() {
-        this.KK.setText(this.mErrorString);
+    public void AE() {
+        this.PV.setText(this.mErrorString);
         if (this.mErrorString != null) {
-            this.KK.setVisibility(0);
+            this.PV.setVisibility(0);
         } else {
-            this.KK.setVisibility(4);
+            this.PV.setVisibility(4);
         }
-        if (this.afK == afk) {
-            aw.h(this.afC, com.baidu.tieba.u.login_input_topwrong);
-        } else if (this.afK == afl) {
-            aw.h(this.afE, com.baidu.tieba.u.login_input_middlewrong);
-        } else if (this.afK == afm) {
-            if (this.afI) {
-                aw.h(this.afF, com.baidu.tieba.u.login_input_middlewrong);
+        if (this.anb == amB) {
+            ax.i(this.amT, com.baidu.tieba.v.login_input_topwrong);
+        } else if (this.anb == amC) {
+            ax.i(this.amV, com.baidu.tieba.v.login_input_middlewrong);
+        } else if (this.anb == amD) {
+            if (this.amZ) {
+                ax.i(this.amW, com.baidu.tieba.v.login_input_middlewrong);
             } else {
-                aw.h(this.afF, com.baidu.tieba.u.login_input_underwrong);
+                ax.i(this.amW, com.baidu.tieba.v.login_input_underwrong);
             }
-        } else if (this.afK == afn) {
-            aw.h(this.afG, com.baidu.tieba.u.login_input_underwrong);
+        } else if (this.anb == amE) {
+            ax.i(this.amX, com.baidu.tieba.v.login_input_underwrong);
         } else {
-            aw.h(this.afC, com.baidu.tieba.u.login_input_top);
-            aw.h(this.afE, com.baidu.tieba.u.login_input_middle);
-            if (this.afI) {
-                aw.h(this.afF, com.baidu.tieba.u.login_input_middle);
+            ax.i(this.amT, com.baidu.tieba.v.login_input_top);
+            ax.i(this.amV, com.baidu.tieba.v.login_input_middle);
+            if (this.amZ) {
+                ax.i(this.amW, com.baidu.tieba.v.login_input_middle);
             } else {
-                aw.h(this.afF, com.baidu.tieba.u.login_input_under);
+                ax.i(this.amW, com.baidu.tieba.v.login_input_under);
             }
-            aw.h(this.afG, com.baidu.tieba.u.login_input_under);
+            ax.i(this.amX, com.baidu.tieba.v.login_input_under);
         }
-        xk();
+        AD();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bg(boolean z) {
-        this.afI = z;
-        if (this.afI) {
-            this.afG.setVisibility(0);
-            if (this.Kv.length() <= 0) {
-                this.afB.setEnabled(false);
+    public void bf(boolean z) {
+        this.amZ = z;
+        if (this.amZ) {
+            this.amX.setVisibility(0);
+            if (this.PE.length() <= 0) {
+                this.amS.setEnabled(false);
             }
-            if (this.afK != afm) {
-                this.afF.setBackgroundResource(com.baidu.tieba.u.login_input_middle);
+            if (this.anb != amD) {
+                this.amW.setBackgroundResource(com.baidu.tieba.v.login_input_middle);
             }
-            if (this.afM != null) {
-                this.afM.cancel();
+            if (this.and != null) {
+                this.and.cancel();
             }
-            if (this.afO != null) {
-                this.afM = new y(this, this.afO.jZ().getVcode_pic_url());
-                this.afM.setPriority(3);
-                this.afM.execute(new String[0]);
+            if (this.anf != null) {
+                this.and = new z(this, this.anf.mP().getVcode_pic_url());
+                this.and.setPriority(3);
+                this.and.execute(new String[0]);
             }
         } else {
-            this.afG.setVisibility(8);
-            this.Kv.setText((CharSequence) null);
-            if (this.afK != afm) {
-                this.afF.setBackgroundResource(com.baidu.tieba.u.login_input_under);
+            this.amX.setVisibility(8);
+            this.PE.setText((CharSequence) null);
+            if (this.anb != amD) {
+                this.amW.setBackgroundResource(com.baidu.tieba.v.login_input_under);
             }
         }
-        xl();
+        AE();
     }
 
-    private void bh(boolean z) {
-        this.afy.setEnabled(z);
-        this.afy.setFocusable(z);
-        this.afy.setFocusableInTouchMode(z);
-        this.Kv.setEnabled(z);
-        this.Kv.setFocusable(z);
-        this.Kv.setFocusableInTouchMode(z);
-        this.afz.setEnabled(z);
-        this.afz.setFocusable(z);
-        this.afz.setFocusableInTouchMode(z);
-        this.afp.setEnabled(z);
-        this.afA.setEnabled(z);
-        this.afA.setFocusable(z);
-        this.afA.setFocusableInTouchMode(z);
-        this.afr.setEnabled(z);
-        this.afu.setEnabled(z);
-        this.afv.setEnabled(z);
-        this.afw.setEnabled(z);
-        this.Kx.setEnabled(z);
-        this.afs.setEnabled(z);
-        this.afx.setEnabled(z);
+    private void bg(boolean z) {
+        this.amP.setEnabled(z);
+        this.amP.setFocusable(z);
+        this.amP.setFocusableInTouchMode(z);
+        this.PE.setEnabled(z);
+        this.PE.setFocusable(z);
+        this.PE.setFocusableInTouchMode(z);
+        this.amQ.setEnabled(z);
+        this.amQ.setFocusable(z);
+        this.amQ.setFocusableInTouchMode(z);
+        this.amG.setEnabled(z);
+        this.amR.setEnabled(z);
+        this.amR.setFocusable(z);
+        this.amR.setFocusableInTouchMode(z);
+        this.amI.setEnabled(z);
+        this.amL.setEnabled(z);
+        this.amM.setEnabled(z);
+        this.amN.setEnabled(z);
+        this.PG.setEnabled(z);
+        this.amJ.setEnabled(z);
+        this.amO.setEnabled(z);
         if (z) {
-            this.afy.setTextColor(getResources().getColor(com.baidu.tieba.s.reg_font_color));
-            this.Kv.setTextColor(getResources().getColor(com.baidu.tieba.s.reg_font_color));
-            this.afz.setTextColor(getResources().getColor(com.baidu.tieba.s.reg_font_color));
-            this.afA.setTextColor(getResources().getColor(com.baidu.tieba.s.reg_font_color));
-            this.afu.setTextColor(getResources().getColor(com.baidu.tieba.s.reg_font_color));
-            this.afv.setTextColor(getResources().getColor(com.baidu.tieba.s.reg_font_color));
-            this.afw.setTextColor(getResources().getColor(com.baidu.tieba.s.reg_font_color));
+            this.amP.setTextColor(getResources().getColor(com.baidu.tieba.t.reg_font_color));
+            this.PE.setTextColor(getResources().getColor(com.baidu.tieba.t.reg_font_color));
+            this.amQ.setTextColor(getResources().getColor(com.baidu.tieba.t.reg_font_color));
+            this.amR.setTextColor(getResources().getColor(com.baidu.tieba.t.reg_font_color));
+            this.amL.setTextColor(getResources().getColor(com.baidu.tieba.t.reg_font_color));
+            this.amM.setTextColor(getResources().getColor(com.baidu.tieba.t.reg_font_color));
+            this.amN.setTextColor(getResources().getColor(com.baidu.tieba.t.reg_font_color));
             return;
         }
-        this.afy.setTextColor(getResources().getColor(com.baidu.tieba.s.text_hint_color));
-        this.Kv.setTextColor(getResources().getColor(com.baidu.tieba.s.text_hint_color));
-        this.afz.setTextColor(getResources().getColor(com.baidu.tieba.s.text_hint_color));
-        this.afA.setTextColor(getResources().getColor(com.baidu.tieba.s.text_hint_color));
-        this.afu.setTextColor(getResources().getColor(com.baidu.tieba.s.text_hint_color));
-        this.afv.setTextColor(getResources().getColor(com.baidu.tieba.s.text_hint_color));
-        this.afw.setTextColor(getResources().getColor(com.baidu.tieba.s.text_hint_color));
+        this.amP.setTextColor(getResources().getColor(com.baidu.tieba.t.text_hint_color));
+        this.PE.setTextColor(getResources().getColor(com.baidu.tieba.t.text_hint_color));
+        this.amQ.setTextColor(getResources().getColor(com.baidu.tieba.t.text_hint_color));
+        this.amR.setTextColor(getResources().getColor(com.baidu.tieba.t.text_hint_color));
+        this.amL.setTextColor(getResources().getColor(com.baidu.tieba.t.text_hint_color));
+        this.amM.setTextColor(getResources().getColor(com.baidu.tieba.t.text_hint_color));
+        this.amN.setTextColor(getResources().getColor(com.baidu.tieba.t.text_hint_color));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xm() {
-        bh(true);
+    public void AF() {
+        bg(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public RegistData xn() {
+    public RegistData AG() {
         RegistData registData = new RegistData();
-        registData.setName(this.afy.getText().toString());
-        registData.setPsw(this.afz.getText().toString());
-        registData.setPhone(this.afA.getText().toString());
-        if (this.afI) {
-            registData.setVcode(this.Kv.getText().toString());
+        registData.setName(this.amP.getText().toString());
+        registData.setPsw(this.amQ.getText().toString());
+        registData.setPhone(this.amR.getText().toString());
+        if (this.amZ) {
+            registData.setVcode(this.PE.getText().toString());
         }
-        if (this.afO != null) {
-            registData.setVcodeMd5(this.afO.jZ().getVcode_md5());
-            registData.setSmsCodeTime(this.afO.getSmsCodeTime());
+        if (this.anf != null) {
+            registData.setVcodeMd5(this.anf.mP().getVcode_md5());
+            registData.setSmsCodeTime(this.anf.getSmsCodeTime());
         }
         return registData;
     }
 
-    private void xo() {
+    private void AH() {
         String string;
-        int length = getString(com.baidu.tieba.y.reg_info).length();
-        String str = String.valueOf(string) + getString(com.baidu.tieba.y.user_server_agreement);
+        int length = getPageContext().getString(com.baidu.tieba.z.reg_info).length();
+        String str = String.valueOf(string) + getPageContext().getString(com.baidu.tieba.z.user_server_agreement);
         int length2 = str.length();
         SpannableString spannableString = new SpannableString(str);
-        spannableString.setSpan(new x(this, this), length, length2, 33);
+        spannableString.setSpan(new y(this, getPageContext().getPageActivity()), length, length2, 33);
         if (this.mSkinType == 1) {
-            spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.s.skin_1_common_color)), 0, length, 33);
+            spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(com.baidu.tieba.t.skin_1_common_color)), 0, length, 33);
         }
-        this.afx.setMovementMethod(LinkMovementMethod.getInstance());
-        this.afx.setText(spannableString);
+        this.amO.setMovementMethod(LinkMovementMethod.getInstance());
+        this.amO.setText(spannableString);
     }
 
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (i == afj && i2 == -1) {
+        if (i == amA && i2 == -1) {
             setResult(-1);
             finish();
         }
     }
 
-    public void qb() {
-        this.afD.setVisibility(8);
-        this.aft.clearCheck();
-        this.afu.setVisibility(8);
-        this.afv.setVisibility(8);
-        this.afw.setVisibility(8);
+    public void tu() {
+        this.amU.setVisibility(8);
+        this.amK.clearCheck();
+        this.amL.setVisibility(8);
+        this.amM.setVisibility(8);
+        this.amN.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void j(ArrayList<String> arrayList) {
+    public void t(ArrayList<String> arrayList) {
         int size;
-        qb();
+        tu();
         if (arrayList != null && (size = arrayList.size()) > 0) {
-            this.afD.setVisibility(0);
+            this.amU.setVisibility(0);
             if (size > 0 && arrayList.get(0) != null) {
-                this.afu.setText(arrayList.get(0));
-                this.afu.setVisibility(0);
+                this.amL.setText(arrayList.get(0));
+                this.amL.setVisibility(0);
             }
             if (size > 1 && arrayList.get(1) != null) {
-                this.afv.setText(arrayList.get(1));
-                this.afv.setVisibility(0);
+                this.amM.setText(arrayList.get(1));
+                this.amM.setVisibility(0);
             }
             if (size > 2 && arrayList.get(2) != null) {
-                this.afw.setText(arrayList.get(2));
-                this.afw.setVisibility(0);
+                this.amN.setText(arrayList.get(2));
+                this.amN.setVisibility(0);
             }
         }
     }

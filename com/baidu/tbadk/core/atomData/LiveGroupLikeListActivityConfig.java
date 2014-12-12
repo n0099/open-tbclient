@@ -10,6 +10,6 @@ public class LiveGroupLikeListActivityConfig extends a {
         super(context);
         getIntent().putExtra("group_name", str);
         getIntent().putExtra("group_id", i);
-        getIntent().putExtra("likers", i2);
+        getIntent().putExtra(LIKERS, i2);
     }
 }

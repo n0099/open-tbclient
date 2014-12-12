@@ -1,9 +1,9 @@
 package com.baidu.tieba.more;
 
-import com.baidu.tieba.data.PersonChangeData;
+import com.baidu.tieba.model.MoreModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z extends com.baidu.adp.base.h {
+public class z extends com.baidu.adp.base.i {
     final /* synthetic */ MoreActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,25 +11,13 @@ public class z extends com.baidu.adp.base.h {
         this.this$0 = moreActivity;
     }
 
-    @Override // com.baidu.adp.base.h
-    public void a(Object obj) {
-        ac acVar;
-        ac acVar2;
-        ac acVar3;
-        ac acVar4;
-        ac acVar5;
-        PersonChangeData personChangeData = new PersonChangeData();
-        acVar = this.this$0.brj;
-        if (acVar.getUser() != null) {
-            acVar2 = this.this$0.brj;
-            personChangeData.setName(acVar2.getUser().getName_show());
-            acVar3 = this.this$0.brj;
-            personChangeData.setIntro(acVar3.getUser().getIntro());
-            acVar4 = this.this$0.brj;
-            personChangeData.setPortrait(acVar4.getUser().getPortrait());
-            acVar5 = this.this$0.brj;
-            personChangeData.setSex(acVar5.getUser().getSex());
-            this.this$0.b(personChangeData);
+    @Override // com.baidu.adp.base.i
+    public void c(Object obj) {
+        if (obj != null && (obj instanceof MoreModel.TaskType)) {
+            if (obj == MoreModel.TaskType.DO_CACHE_CLEAR) {
+                this.this$0.showToast(this.this$0.getPageContext().getString(com.baidu.tieba.z.image_cash_del_suc));
+            }
+            this.this$0.closeLoadingDialog();
         }
     }
 }

@@ -3,7 +3,6 @@ package com.baidu.adp.base;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -13,22 +12,22 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.util.m;
 import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.megapp.ma.MAFragmentActivity;
 /* loaded from: classes.dex */
-public class BdBaseFragmentActivity extends FragmentActivity implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, i {
+public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, k<T>, l {
     private final int PRELOAD_DELAY = 100;
     private BdUniqueId mId = null;
     private boolean mIsScroll = false;
     protected final Handler mHandler = new Handler();
-    private final Runnable preLoadRunnable = new c(this);
+    private final Runnable preLoadRunnable = new d(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mId = BdUniqueId.gen();
-        a.M().a(this);
+        a.ah().g(getPageContext().getPageActivity());
     }
 
     @Override // android.app.Activity
@@ -65,7 +64,7 @@ public class BdBaseFragmentActivity extends FragmentActivity implements DialogIn
     }
 
     public void showToast(String str) {
-        m.showToast(getApplicationContext(), str);
+        com.baidu.adp.lib.util.l.showToast(getApplicationContext(), str);
     }
 
     public void releaseResouce() {
@@ -112,7 +111,21 @@ public class BdBaseFragmentActivity extends FragmentActivity implements DialogIn
         MessageManager.getInstance().registerListener(i, messageListener);
     }
 
-    @Override // com.baidu.adp.base.i
+    public void registerListener(com.baidu.adp.framework.listener.a aVar) {
+        if (aVar != null && aVar.getTag() == null) {
+            aVar.setTag(this.mId);
+        }
+        MessageManager.getInstance().registerListener(aVar);
+    }
+
+    public void registerListener(int i, com.baidu.adp.framework.listener.a aVar) {
+        if (aVar != null && aVar.getTag() == null) {
+            aVar.setTag(this.mId);
+        }
+        MessageManager.getInstance().registerListener(i, aVar);
+    }
+
+    @Override // com.baidu.adp.base.l
     public BdUniqueId getUniqueId() {
         return this.mId;
     }
@@ -123,16 +136,16 @@ public class BdBaseFragmentActivity extends FragmentActivity implements DialogIn
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        com.baidu.adp.lib.f.d.ef().d(this.mId);
+        com.baidu.adp.lib.f.d.ee().d(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
-        a.M().b(this);
+        a.ah().h(getPageContext().getPageActivity());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.adp.lib.f.d.ef().e(this.mId);
+        com.baidu.adp.lib.f.d.ee().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -149,21 +162,21 @@ public class BdBaseFragmentActivity extends FragmentActivity implements DialogIn
         super.onStop();
         BdListView onGetPreLoadListView = onGetPreLoadListView();
         if (onGetPreLoadListView != null) {
-            onGetPreLoadListView.hM();
+            onGetPreLoadListView.jI();
         }
     }
 
-    @Override // com.baidu.adp.base.i
+    @Override // com.baidu.adp.base.l
     public boolean isScroll() {
         return this.mIsScroll;
     }
 
-    @Override // com.baidu.adp.base.i
+    @Override // com.baidu.adp.base.l
     public void setIsScroll(boolean z) {
         this.mIsScroll = z;
     }
 
-    @Override // com.baidu.adp.base.i
+    @Override // com.baidu.adp.base.l
     public void onPreLoad(BdListView bdListView) {
     }
 

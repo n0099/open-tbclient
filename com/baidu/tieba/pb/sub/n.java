@@ -4,17 +4,17 @@ import android.view.View;
 import android.widget.AdapterView;
 /* loaded from: classes.dex */
 class n implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ l bAZ;
+    final /* synthetic */ l bEM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(l lVar) {
-        this.bAZ = lVar;
+        this.bEM = lVar;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (this.bAZ.bAS != null) {
-            this.bAZ.bAS.onLongClick(view);
+        if (this.bEM.bEF != null) {
+            this.bEM.bEF.onLongClick(view);
             return false;
         }
         return false;

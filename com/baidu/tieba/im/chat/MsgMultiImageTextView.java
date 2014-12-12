@@ -1,34 +1,34 @@
 package com.baidu.tieba.im.chat;
 
-import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.officialBar.MultiContentView;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.List;
 /* loaded from: classes.dex */
-public class MsgMultiImageTextView extends cc {
-    private MultiContentView aPk;
+public class MsgMultiImageTextView extends az {
+    private MultiContentView aQV;
 
-    public MsgMultiImageTextView(Context context) {
-        super(context, com.baidu.tieba.w.msg_multi_pictext_view);
+    public MsgMultiImageTextView(TbPageContext<MsglistActivity<?>> tbPageContext) {
+        super(tbPageContext, com.baidu.tieba.x.msg_multi_pictext_view);
         init();
     }
 
     private void init() {
-        this.auq = (TextView) findViewById(com.baidu.tieba.v.tex_msgitem_time);
-        this.aPk = (MultiContentView) findViewById(com.baidu.tieba.v.msg_content);
+        this.axA = (TextView) findViewById(com.baidu.tieba.w.tex_msgitem_time);
+        this.aQV = (MultiContentView) findViewById(com.baidu.tieba.w.msg_content);
     }
 
-    public void a(ChatMessage chatMessage, View view) {
+    public void a(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
         if (chatMessage != null) {
-            h(chatMessage);
-            List<com.baidu.tieba.im.chat.officialBar.p> ak = com.baidu.tieba.im.chat.officialBar.o.ak(chatMessage.getContent(), chatMessage.getUserInfo().getUserId());
-            this.aPk.setPosition(this.UC);
-            this.aPk.setOnItemViewLongClickListener(this.aOZ);
-            this.aPk.setNeedNightMode(false);
-            this.aPk.setType(1);
-            this.aPk.a(ak, view);
+            b(chatMessage);
+            List<com.baidu.tieba.im.chat.officialBar.p> au = com.baidu.tieba.im.chat.officialBar.o.au(chatMessage.getContent(), chatMessage.getUserInfo().getUserId());
+            this.aQV.setPosition(this.mPosition);
+            this.aQV.setOnItemViewLongClickListener(this.mItemViewLongClickListener);
+            this.aQV.setNeedNightMode(false);
+            this.aQV.setType(1);
+            this.aQV.a(tbPageContext, au, view);
         }
     }
 }

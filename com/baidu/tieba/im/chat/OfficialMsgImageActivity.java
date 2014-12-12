@@ -1,21 +1,16 @@
 package com.baidu.tieba.im.chat;
 
-import android.content.Context;
-import android.content.Intent;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.atomData.OfficialMsgImageActivityConfig;
+import com.baidu.tieba.im.c.ad;
 /* loaded from: classes.dex */
 public class OfficialMsgImageActivity extends AbsMsgImageActivity {
     @Override // com.baidu.tieba.im.chat.AbsMsgImageActivity
-    protected void a(String str, bs bsVar) {
-        w.Js().d(str, bsVar);
+    protected void a(String str, ad adVar) {
+        com.baidu.tieba.im.c.a.SS().d(str, adVar);
     }
 
-    public static void a(Context context, String str, long j, String str2) {
-        if (j != 0 && context != null) {
-            Intent intent = new Intent(context, OfficialMsgImageActivity.class);
-            intent.putExtra("current_url", str);
-            intent.putExtra("id", String.valueOf(j));
-            intent.putExtra("uniqueid", str2);
-            context.startActivity(intent);
-        }
+    static {
+        TbadkApplication.getInst().RegisterIntent(OfficialMsgImageActivityConfig.class, OfficialMsgImageActivity.class);
     }
 }

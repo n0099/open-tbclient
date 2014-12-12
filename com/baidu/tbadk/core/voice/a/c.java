@@ -7,10 +7,10 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.f.g;
 import com.baidu.adp.lib.voice.q;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.httpNet.k;
+import com.baidu.tbadk.core.util.httpNet.i;
 import com.baidu.tbadk.core.util.resourceLoaderProc.d;
 import com.baidu.tbadk.core.util.s;
-import com.baidu.tieba.y;
+import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class c implements g<a> {
     @Override // com.baidu.adp.lib.f.g
@@ -24,21 +24,21 @@ public class c implements g<a> {
     public a a(String str, String str2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
         DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.INFO);
         diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-        diskFileOperate.k(false);
-        diskFileOperate.l(false);
+        diskFileOperate.o(false);
+        diskFileOperate.p(false);
         if (aVar != null) {
             d dVar = new d();
             dVar.g(diskFileOperate);
-            aVar.lb = dVar;
+            aVar.lc = dVar;
         }
-        diskFileOperate.bp();
+        diskFileOperate.bQ();
         if (!diskFileOperate.isSuccess()) {
             return null;
         }
-        String bH = diskFileOperate.bH();
+        String ci = diskFileOperate.ci();
         a aVar2 = new a();
         aVar2.md5 = str;
-        aVar2.path = bH;
+        aVar2.path = ci;
         return aVar2;
     }
 
@@ -53,40 +53,40 @@ public class c implements g<a> {
             str4 = String.valueOf(objArr[0]);
         }
         a aVar2 = new a();
-        k kVar = new k();
+        i iVar = new i();
         if (aVar != null) {
-            aVar.lb = kVar;
+            aVar.lc = iVar;
         }
-        byte[] bY = kVar.bY(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
-        if (!kVar.ni()) {
+        byte[] cQ = iVar.cQ(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
+        if (!iVar.qc()) {
             aVar2.error_code = 3;
-            aVar2.error_msg = q.getString(y.neterror);
+            aVar2.error_msg = q.getString(z.neterror);
             return aVar2;
-        } else if (bY == null || bY.length == 0) {
+        } else if (cQ == null || cQ.length == 0) {
             aVar2.error_code = 4;
-            aVar2.error_msg = q.getString(y.voice_cache_error_no_file);
+            aVar2.error_msg = q.getString(z.voice_cache_error_no_file);
             return aVar2;
         } else {
             String str5 = null;
             if (str == null) {
                 i3 = 5;
-            } else if (bY == null || bY.length == 0) {
+            } else if (cQ == null || cQ.length == 0) {
                 i3 = 6;
             } else {
                 DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.WRITE);
                 diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-                diskFileOperate.k(false);
-                diskFileOperate.setData(bY);
+                diskFileOperate.o(false);
+                diskFileOperate.setData(cQ);
                 if (aVar != null) {
                     d dVar = new d();
                     dVar.g(diskFileOperate);
-                    aVar.lb = dVar;
+                    aVar.lc = dVar;
                 }
-                diskFileOperate.bp();
-                if (diskFileOperate.isSuccess() && diskFileOperate.bD() != null) {
-                    str5 = diskFileOperate.bD().getAbsolutePath();
+                diskFileOperate.bQ();
+                if (diskFileOperate.isSuccess() && diskFileOperate.ce() != null) {
+                    str5 = diskFileOperate.ce().getAbsolutePath();
                     i3 = 0;
-                } else if (s.lx() < bY.length) {
+                } else if (s.os() < cQ.length) {
                     i3 = 2;
                 } else {
                     i3 = 1;
@@ -97,7 +97,7 @@ public class c implements g<a> {
                 aVar2.md5 = str;
             } else {
                 aVar2.error_code = i3;
-                aVar2.error_msg = a.bQ(i3);
+                aVar2.error_msg = a.co(i3);
             }
             return aVar2;
         }
@@ -119,8 +119,8 @@ public class c implements g<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.f.g
-    /* renamed from: c */
-    public a a(String str, String str2, Object... objArr) {
+    /* renamed from: g */
+    public a c(String str, String str2, Object... objArr) {
         return null;
     }
 }

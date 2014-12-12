@@ -1,18 +1,18 @@
 package com.baidu.tieba.im.chat.notify;
 
 import android.content.DialogInterface;
-import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
+import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.model.ImMessageCenterModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements DialogInterface.OnClickListener {
-    final /* synthetic */ g aQQ;
-    private final /* synthetic */ ImMessageCenterShowItemData aQS;
+    final /* synthetic */ g aSu;
+    private final /* synthetic */ ImMessageCenterShowItemData aSw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(g gVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        this.aQQ = gVar;
-        this.aQS = imMessageCenterShowItemData;
+        this.aSu = gVar;
+        this.aSw = imMessageCenterShowItemData;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -21,9 +21,9 @@ public class o implements DialogInterface.OnClickListener {
         a aVar;
         switch (i) {
             case 0:
-                imMessageCenterModel = this.aQQ.aQA;
-                ImMessageCenterShowItemData imMessageCenterShowItemData = this.aQS;
-                aVar = this.aQQ.aQP;
+                imMessageCenterModel = this.aSu.aSe;
+                ImMessageCenterShowItemData imMessageCenterShowItemData = this.aSw;
+                aVar = this.aSu.aSt;
                 imMessageCenterModel.deleteItem(imMessageCenterShowItemData, aVar);
                 return;
             default:

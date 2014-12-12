@@ -6,23 +6,23 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements b {
-    final /* synthetic */ c bdi;
-    private final /* synthetic */ SparseArray bdn;
+    final /* synthetic */ c bgA;
+    private final /* synthetic */ SparseArray bgF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(c cVar, SparseArray sparseArray) {
-        this.bdi = cVar;
-        this.bdn = sparseArray;
+        this.bgA = cVar;
+        this.bgF = sparseArray;
     }
 
     @Override // com.baidu.tieba.im.memorycache.b
     public void a(Iterator<ImMessageCenterPojo> it) {
-        boolean j;
+        boolean q;
         while (it.hasNext()) {
             ImMessageCenterPojo next = it.next();
-            j = this.bdi.j(next);
-            if (j) {
-                this.bdn.put(com.baidu.adp.lib.g.c.f(next.getGid(), 0), Long.valueOf(com.baidu.tieba.im.chat.bu.G(next.getPulled_msgId())));
+            q = this.bgA.q(next);
+            if (q) {
+                this.bgF.put(com.baidu.adp.lib.g.c.toInt(next.getGid(), 0), Long.valueOf(com.baidu.tieba.im.util.h.ag(next.getPulled_msgId())));
             }
         }
     }

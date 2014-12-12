@@ -14,34 +14,38 @@ import android.util.SparseArray;
 import java.io.ByteArrayOutputStream;
 /* loaded from: classes.dex */
 public class c {
-    private static c mE = null;
-    private volatile SparseArray<Bitmap> mF = new SparseArray<>();
+    private static c mC = null;
+    private volatile SparseArray<Bitmap> mD = new SparseArray<>();
     private Context mContext = null;
-    private Bitmap.Config mG = Bitmap.Config.RGB_565;
+    private Bitmap.Config mE = Bitmap.Config.RGB_565;
 
     public static synchronized c eS() {
         c cVar;
         synchronized (c.class) {
-            if (mE == null) {
-                mE = new c();
+            if (mC == null) {
+                mC = new c();
             }
-            cVar = mE;
+            cVar = mC;
         }
         return cVar;
     }
 
-    public synchronized void l(Context context) {
+    public synchronized void K(Context context) {
         this.mContext = context;
     }
 
     private c() {
     }
 
-    public Bitmap ao(String str) {
+    public synchronized void eT() {
+        this.mD.clear();
+    }
+
+    public Bitmap ar(String str) {
         return BitmapFactory.decodeFile(str);
     }
 
-    public Bitmap a(Context context, int i) {
+    public Bitmap b(Context context, int i) {
         try {
             return BitmapFactory.decodeResource(context.getResources(), i, new BitmapFactory.Options());
         } catch (Exception e) {
@@ -50,7 +54,7 @@ public class c {
         }
     }
 
-    public Bitmap a(Bitmap bitmap, int i, int i2) {
+    public Bitmap resizeBitmap(Bitmap bitmap, int i, int i2) {
         float f;
         if (i <= 0 || i2 < 0 || bitmap == null || bitmap.isRecycled()) {
             return null;
@@ -74,8 +78,8 @@ public class c {
         return bitmap;
     }
 
-    public Bitmap a(Bitmap bitmap, int i) {
-        return a(bitmap, i, i);
+    public Bitmap d(Bitmap bitmap, int i) {
+        return resizeBitmap(bitmap, i, i);
     }
 
     public Bitmap a(Bitmap bitmap, float f) {
@@ -96,7 +100,7 @@ public class c {
         return createBitmap;
     }
 
-    public byte[] b(Bitmap bitmap, int i) {
+    public byte[] e(Bitmap bitmap, int i) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
         return byteArrayOutputStream.toByteArray();

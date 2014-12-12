@@ -1,28 +1,31 @@
 package com.baidu.tbadk.performanceLog;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l extends Handler {
-    final /* synthetic */ k YW;
+public class l extends CustomMessageListener {
+    final /* synthetic */ h afV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l(k kVar, Looper looper) {
-        super(looper);
-        this.YW = kVar;
+    public l(h hVar, int i) {
+        super(i);
+        this.afV = hVar;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         m mVar;
-        m mVar2;
-        this.YW.YU = new m(this.YW);
-        mVar = this.YW.YU;
-        mVar.setSelfExecute(true);
-        mVar2 = this.YW.YU;
-        mVar2.execute(new String[0]);
+        int i;
+        if (customResponsedMessage != null && (mVar = (m) customResponsedMessage.getData()) != null && customResponsedMessage.getOrginalMessage().getTag() == this.afV.mId) {
+            h hVar = this.afV;
+            i = hVar.afP;
+            hVar.afP = i + 1;
+            this.afV.eB(mVar.afW);
+            this.afV.dQ(mVar.afX);
+            this.afV.yU();
+        }
     }
 }

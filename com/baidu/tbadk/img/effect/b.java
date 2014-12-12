@@ -5,11 +5,11 @@ import android.graphics.Bitmap;
 public abstract class b {
     public abstract Bitmap b(Bitmap bitmap, boolean z);
 
-    public abstract void dw(String str);
+    public abstract void eq(String str);
 
-    public abstract String sr();
+    public abstract String getActionName();
 
-    public Bitmap dx(String str) {
-        return b(com.baidu.tbadk.core.util.d.bk(str), true);
+    public Bitmap er(String str) {
+        return b(com.baidu.tbadk.core.util.d.cc(str), true);
     }
 }

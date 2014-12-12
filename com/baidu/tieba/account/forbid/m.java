@@ -2,37 +2,37 @@ package com.baidu.tieba.account.forbid;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.ac;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ad;
+import com.baidu.tbadk.core.util.ba;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends BdAsyncTask<String, Object, ForbidTplData> {
-    private String agf;
-    private String agg;
-    private WeakReference<n> agj;
+    private WeakReference<n> anA;
+    private String anw;
+    private String anx;
 
     public m(String str, String str2, n nVar) {
-        this.agf = str;
-        this.agg = str2;
-        this.agj = new WeakReference<>(nVar);
+        this.anw = str;
+        this.anx = str2;
+        this.anA = new WeakReference<>(nVar);
         setPriority(3);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: r */
+    /* renamed from: u */
     public ForbidTplData doInBackground(String... strArr) {
         String str;
-        str = l.agA;
-        ac acVar = new ac(str);
-        acVar.k("forum_id", this.agf);
-        acVar.k(com.baidu.tbadk.core.frameworkData.a.USER_ID, this.agg);
-        String lA = acVar.lA();
-        if (acVar.mc().nb().jq()) {
+        str = l.anR;
+        ad adVar = new ad(str);
+        adVar.o("forum_id", this.anw);
+        adVar.o("user_id", this.anx);
+        String ov = adVar.ov();
+        if (adVar.oW().pW().ma()) {
             try {
-                return (ForbidTplData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(lA, ForbidTplData.class);
+                return (ForbidTplData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(ov, ForbidTplData.class);
             } catch (Exception e) {
                 BdLog.detailException(e);
                 ForbidTplData forbidTplData = new ForbidTplData();
@@ -41,8 +41,8 @@ public class m extends BdAsyncTask<String, Object, ForbidTplData> {
             }
         }
         ForbidTplData forbidTplData2 = new ForbidTplData();
-        forbidTplData2.error.errno = acVar.mg();
-        forbidTplData2.error.errMsg = acVar.getErrorString();
+        forbidTplData2.error.errno = adVar.pa();
+        forbidTplData2.error.errMsg = adVar.getErrorString();
         return forbidTplData2;
     }
 
@@ -52,9 +52,9 @@ public class m extends BdAsyncTask<String, Object, ForbidTplData> {
     /* renamed from: c */
     public void onPostExecute(ForbidTplData forbidTplData) {
         super.onPostExecute(forbidTplData);
-        n nVar = this.agj.get();
+        n nVar = this.anA.get();
         if (nVar != null) {
-            if (forbidTplData.error.errno == 0 && az.aA(forbidTplData.error.errMsg)) {
+            if (forbidTplData.error.errno == 0 && ba.isEmpty(forbidTplData.error.errMsg)) {
                 nVar.a(forbidTplData);
             } else {
                 nVar.b(forbidTplData);

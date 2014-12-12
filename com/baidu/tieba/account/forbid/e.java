@@ -5,62 +5,60 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tieba.s;
-import com.baidu.tieba.u;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tieba.t;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
+import com.baidu.tieba.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends BaseAdapter {
-    private String[] ags;
-    private int agt = 0;
-    private View.OnClickListener agu = new f(this);
+    private String[] anJ;
+    private int anK = 0;
+    private View.OnClickListener anL = new f(this);
 
     public e(String[] strArr) {
-        this.ags = strArr;
+        this.anJ = strArr;
     }
 
-    public String xu() {
-        if (this.ags != null) {
-            return this.ags[this.agt];
+    public String AN() {
+        if (this.anJ != null) {
+            return this.anJ[this.anK];
         }
         return null;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.ags == null) {
+        if (this.anJ == null) {
             return 0;
         }
-        return this.ags.length;
+        return this.anJ.length;
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         g gVar;
         if (view == null) {
-            view = com.baidu.adp.lib.g.b.ek().inflate(viewGroup.getContext(), w.forbid_list_item, null);
+            view = com.baidu.adp.lib.g.b.ek().inflate(viewGroup.getContext(), x.forbid_list_item, null);
             g gVar2 = new g(null);
-            gVar2.agw = (TextView) view.findViewById(v.reason_text);
-            gVar2.agx = (ImageView) view.findViewById(v.check_img);
+            gVar2.anN = (TextView) view.findViewById(w.reason_text);
+            gVar2.anO = (ImageView) view.findViewById(w.check_img);
             view.setTag(gVar2);
-            view.setOnClickListener(this.agu);
+            view.setOnClickListener(this.anL);
             gVar = gVar2;
         } else {
             gVar = (g) view.getTag();
         }
         gVar.mIndex = i;
-        TbadkApplication.m251getInst().getSkinType();
-        gVar.agw.setText(this.ags[i]);
-        if (gVar.mIndex == this.agt) {
-            aw.c(gVar.agx, u.icon_found_information_choose);
-            gVar.agx.setVisibility(0);
-            aw.b(gVar.agw, s.forbid_selected_txt, 1);
+        gVar.anN.setText(this.anJ[i]);
+        if (gVar.mIndex == this.anK) {
+            ax.c(gVar.anO, v.icon_found_information_choose);
+            gVar.anO.setVisibility(0);
+            ax.b(gVar.anN, t.forbid_selected_txt, 1);
         } else {
-            gVar.agx.setVisibility(4);
-            aw.b(gVar.agw, s.appeal_com_text, 1);
+            gVar.anO.setVisibility(4);
+            ax.b(gVar.anN, t.appeal_com_text, 1);
         }
         return view;
     }

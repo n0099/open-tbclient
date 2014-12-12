@@ -3,38 +3,39 @@ package com.baidu.tieba.im.groupUpdates;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import com.baidu.tieba.im.data.UpdatesItemData;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h extends BaseAdapter {
-    private List<UpdatesItemData> aKa = new ArrayList();
-    private UpdatesActivity bck;
+    private UpdatesActivity bfS;
+    private List<UpdatesItemData> datas = new ArrayList();
 
     public h(UpdatesActivity updatesActivity) {
-        this.bck = updatesActivity;
+        this.bfS = updatesActivity;
     }
 
     public void destroy() {
-        this.bck = null;
+        this.bfS = null;
     }
 
     public List<UpdatesItemData> getDatas() {
-        return this.aKa;
+        return this.datas;
     }
 
     public void setData(List<UpdatesItemData> list) {
         if (list != null) {
-            this.aKa = list;
+            this.datas = list;
             notifyDataSetChanged();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aKa == null) {
+        if (this.datas == null) {
             return 0;
         }
-        return this.aKa.size();
+        return this.datas.size();
     }
 
     @Override // android.widget.Adapter
@@ -43,14 +44,14 @@ public class h extends BaseAdapter {
         if (view != null) {
             iVar = (i) view.getTag();
         }
-        i iVar2 = iVar == null ? new i(this.bck) : iVar;
-        iVar2.b(this.aKa.get(i));
-        return iVar2.O();
+        i iVar2 = iVar == null ? new i(this.bfS) : iVar;
+        iVar2.refresh(this.datas.get(i));
+        return iVar2.getConvertView();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.aKa.get(i);
+        return this.datas.get(i);
     }
 
     @Override // android.widget.Adapter

@@ -15,24 +15,24 @@ import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends BdAsyncTask<Object, Integer, List<a>> {
-    private final o ahI;
-    final /* synthetic */ e ahJ;
+    private final o aoX;
+    final /* synthetic */ e aoY;
 
     public f(e eVar, o oVar) {
-        this.ahJ = eVar;
-        this.ahI = oVar;
+        this.aoY = eVar;
+        this.aoX = oVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: j */
+    /* renamed from: n */
     public List<a> doInBackground(Object... objArr) {
         Context context;
         Context context2;
-        context = this.ahJ.mContext;
+        context = this.aoY.mContext;
         List<a> a = a(context, null, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        context2 = this.ahJ.mContext;
+        context2 = this.aoY.mContext;
         return a(context2, a, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
     }
 
@@ -40,19 +40,19 @@ public class f extends BdAsyncTask<Object, Integer, List<a>> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         super.onPreExecute();
-        if (this.ahI != null) {
-            this.ahI.hL();
+        if (this.aoX != null) {
+            this.aoX.jH();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: i */
+    /* renamed from: m */
     public void onPostExecute(List<a> list) {
         super.onPostExecute(list);
-        if (this.ahI != null) {
-            this.ahI.x(list);
+        if (this.aoX != null) {
+            this.aoX.C(list);
         }
     }
 
@@ -92,8 +92,8 @@ public class f extends BdAsyncTask<Object, Integer, List<a>> {
                             File file = new File(string3.substring(0, string3.lastIndexOf("/")));
                             if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
                                 for (File file2 : listFiles) {
-                                    String en = this.ahJ.en(file2.getAbsolutePath());
-                                    if (en != null && (matcher = compile.matcher(en)) != null && matcher.matches()) {
+                                    String mimeType = this.aoY.getMimeType(file2.getAbsolutePath());
+                                    if (mimeType != null && (matcher = compile.matcher(mimeType)) != null && matcher.matches()) {
                                         i++;
                                     }
                                 }
@@ -101,14 +101,14 @@ public class f extends BdAsyncTask<Object, Integer, List<a>> {
                             if (i != 0) {
                                 String sb = new StringBuilder(String.valueOf(i)).toString();
                                 a aVar = new a();
-                                aVar.el(string);
-                                aVar.em(sb);
+                                aVar.eR(string);
+                                aVar.eS(sb);
                                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                                 imageFileInfo.setFilePath(string3);
                                 aVar.d(imageFileInfo);
                                 aVar.setName(string2);
                                 if (string2 != null) {
-                                    str = this.ahJ.ahF;
+                                    str = this.aoY.aoU;
                                     if (string2.equals(str)) {
                                         list.add(0, aVar);
                                     }
@@ -116,20 +116,20 @@ public class f extends BdAsyncTask<Object, Integer, List<a>> {
                                 list.add(aVar);
                             }
                         } while (cursor.moveToNext());
-                        com.baidu.adp.lib.g.a.a(cursor);
+                        com.baidu.adp.lib.g.a.b(cursor);
                         return list;
                     }
-                    com.baidu.adp.lib.g.a.a(cursor);
+                    com.baidu.adp.lib.g.a.b(cursor);
                     return list;
                 } catch (Exception e) {
                     e = e;
                     BdLog.detailException(e);
-                    com.baidu.adp.lib.g.a.a(cursor);
+                    com.baidu.adp.lib.g.a.b(cursor);
                     return list;
                 }
             } catch (Throwable th) {
                 th = th;
-                com.baidu.adp.lib.g.a.a((Cursor) r2);
+                com.baidu.adp.lib.g.a.b((Cursor) r2);
                 throw th;
             }
         } catch (Exception e2) {
@@ -138,7 +138,7 @@ public class f extends BdAsyncTask<Object, Integer, List<a>> {
         } catch (Throwable th2) {
             th = th2;
             r2 = 0;
-            com.baidu.adp.lib.g.a.a((Cursor) r2);
+            com.baidu.adp.lib.g.a.b((Cursor) r2);
             throw th;
         }
     }

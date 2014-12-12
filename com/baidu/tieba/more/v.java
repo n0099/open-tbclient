@@ -1,100 +1,111 @@
 package com.baidu.tieba.more;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.text.TextUtils;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.ScrollView;
+import com.baidu.tbadk.core.view.NavigationBar;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-public class v extends FrameLayout {
-    protected LinearLayout Pg;
-    protected TextView Ph;
-    protected TextView Pi;
-    protected ImageView Pl;
-    protected LinearLayout brc;
-    protected TextView brd;
-    protected Context mContext;
+public class v extends com.baidu.adp.base.g {
+    ImageProblemActivity but;
+    private Button buu;
+    private LinearLayout mLayout;
+    private NavigationBar mNavigationBar;
+    private View mParent;
+    private ScrollView mScrollView;
 
-    public v(Context context) {
-        super(context);
-        this.mContext = context;
-        qo();
-    }
-
-    public void setTipColor(int i) {
-        if (this.Pi != null) {
-            this.Pi.setTextColor(i);
+    public v(ImageProblemActivity imageProblemActivity, s sVar) {
+        super(imageProblemActivity.getPageContext());
+        this.but = imageProblemActivity;
+        this.but.setContentView(com.baidu.tieba.x.image_problem_activity);
+        this.mParent = this.but.findViewById(com.baidu.tieba.w.parent);
+        this.mNavigationBar = (NavigationBar) this.but.findViewById(com.baidu.tieba.w.view_navigation_bar);
+        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mNavigationBar.setTitleText(this.but.getPageContext().getString(com.baidu.tieba.z.image_problem));
+        this.mScrollView = (ScrollView) this.but.findViewById(com.baidu.tieba.w.scrollView);
+        this.buu = (Button) this.but.findViewById(com.baidu.tieba.w.check_btn);
+        this.buu.setOnClickListener(imageProblemActivity);
+        this.mLayout = new LinearLayout(this.but.getPageContext().getPageActivity());
+        this.mLayout.setOrientation(1);
+        this.mScrollView.addView(this.mLayout);
+        Iterator<t> it = sVar.bum.iterator();
+        while (it.hasNext()) {
+            u uVar = new u(this.but.getPageContext().getPageActivity());
+            uVar.tG();
+            uVar.setText(it.next().title);
+            this.mLayout.addView(uVar);
         }
     }
 
-    public void qn() {
-        this.Pl.setVisibility(8);
+    public Button UZ() {
+        return this.buu;
     }
 
-    public void UM() {
-        this.Pl.setVisibility(0);
-    }
-
-    public void setArrowImg(int i) {
-        this.Pl.setImageResource(i);
-    }
-
-    public void setHelpText(String str) {
-        if (TextUtils.isEmpty(str)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.brc.getLayoutParams();
-            layoutParams.bottomMargin = (int) getResources().getDimension(com.baidu.tieba.t.ds26);
-            this.brc.setLayoutParams(layoutParams);
-            this.brd.setText("");
-            this.brd.setVisibility(8);
-            return;
-        }
-        this.brc.setVisibility(0);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.brc.getLayoutParams();
-        layoutParams2.bottomMargin = (int) getResources().getDimension(com.baidu.tieba.t.ds10);
-        this.brc.setLayoutParams(layoutParams2);
-        this.brd.setText(str);
-        this.brd.setVisibility(0);
-    }
-
-    public void setStatus(int i) {
-        if (i == 1) {
-            this.Ph.setTextColor(getResources().getColor(com.baidu.tieba.s.cp_cont_b));
-        } else if (i == 2) {
-            this.Ph.setTextColor(getResources().getColor(com.baidu.tieba.s.cp_link_tip_d));
-        } else if (i == 3) {
-            this.Ph.setTextColor(getResources().getColor(com.baidu.tieba.s.cp_cont_e));
+    public void start() {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < this.mLayout.getChildCount()) {
+                View childAt = this.mLayout.getChildAt(i2);
+                if (childAt instanceof u) {
+                    u uVar = (u) childAt;
+                    uVar.setStatus(3);
+                    uVar.tG();
+                    uVar.setHelpText("");
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
         }
     }
 
-    public void setText(String str) {
-        this.Ph.setText(str);
+    public void complete() {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < this.mLayout.getChildCount()) {
+                View childAt = this.mLayout.getChildAt(i2);
+                if (childAt instanceof u) {
+                    ((u) childAt).setStatus(1);
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
+        }
     }
 
-    public void setText(int i) {
-        this.Ph.setText(i);
+    public void b(int i, ArrayList<t> arrayList) {
+        int i2 = i - 1;
+        if (i2 >= 0) {
+            View childAt = this.mLayout.getChildAt(i2);
+            if (childAt instanceof u) {
+                u uVar = (u) childAt;
+                uVar.setStatus(1);
+                uVar.UY();
+                if (arrayList.get(i2).buo == 0) {
+                    uVar.setHelpText("");
+                    uVar.setArrowImg(com.baidu.tieba.v.icon_diagnose_ok);
+                } else {
+                    uVar.setHelpText(arrayList.get(i2).bup);
+                    uVar.setArrowImg(com.baidu.tieba.v.icon_error);
+                }
+            }
+        }
+        if (i < this.mLayout.getChildCount()) {
+            View childAt2 = this.mLayout.getChildAt(i);
+            if (childAt2 instanceof u) {
+                ((u) childAt2).setStatus(2);
+            }
+        }
     }
 
-    public void setTip(String str) {
-        this.Pi.setText(str);
-    }
-
-    public CharSequence getTip() {
-        return this.Pi.getText();
-    }
-
-    public void setTipBackground(Drawable drawable) {
-        this.Pi.setBackgroundDrawable(drawable);
-    }
-
-    protected void qo() {
-        com.baidu.adp.lib.g.b.ek().a(this.mContext, com.baidu.tieba.w.image_problem_item_view, this, true);
-        this.Pg = (LinearLayout) findViewById(com.baidu.tieba.v.container);
-        this.Ph = (TextView) findViewById(com.baidu.tieba.v.text);
-        this.Pi = (TextView) findViewById(com.baidu.tieba.v.tip);
-        this.Pl = (ImageView) findViewById(com.baidu.tieba.v.arrow2);
-        this.brc = (LinearLayout) findViewById(com.baidu.tieba.v.ll_container);
-        this.brd = (TextView) findViewById(com.baidu.tieba.v.tv_help);
+    public void onChangeSkinType(int i) {
+        this.but.getLayoutMode().ab(i == 1);
+        this.but.getLayoutMode().h(this.mParent);
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }
 }

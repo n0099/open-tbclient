@@ -12,82 +12,87 @@ import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.SearchFriendActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.core.view.ae;
+import com.baidu.tbadk.core.view.ar;
 import com.baidu.tbadk.coreExtra.search.ResponseSearchFriendMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.im.searchfriend.cache.RequestRecommendReadMessage;
-import com.baidu.tieba.v;
 import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
+import com.baidu.tieba.z;
 /* loaded from: classes.dex */
-public class SearchFriendActivity extends BaseActivity implements ae {
-    private View agS;
-    private NavigationBar bhL;
-    private h bhR;
-    private BdListView bhS;
-    private l bhT;
-    private View bhU;
-    private k bhV = new a(this);
-    private com.baidu.adp.framework.listener.e bhW = new b(this, 304106);
-    private CustomMessageListener aAZ = new c(this, 2001197);
-    private CustomMessageListener bhX = new d(this, 2001199);
-    private final HttpMessageListener bhY = new e(this, CmdConfigHttp.SEARCH_FRIEND_CMD);
+public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> implements ar {
+    private NavigationBar aey;
+    private View aoi;
+    private j bmt;
+    private BdListView bmu;
+    private n bmv;
+    private View bmw;
+    private m bmx = new a(this);
+    private com.baidu.adp.framework.listener.e bmy = new b(this, 304106);
+    private CustomMessageListener aCA = new c(this, 2001197);
+    private CustomMessageListener bmz = new d(this, 2001199);
+    private CustomMessageListener bmA = new e(this, 2001272);
+    private final HttpMessageListener bmB = new f(this, CmdConfigHttp.SEARCH_FRIEND_CMD);
 
     static {
-        TbadkApplication.m251getInst().RegisterIntent(SearchFriendActivityConfig.class, SearchFriendActivity.class);
-        CustomMessageTask customMessageTask = new CustomMessageTask(2001199, new com.baidu.tieba.im.searchfriend.cache.a());
-        CustomMessageTask customMessageTask2 = new CustomMessageTask(2001198, new com.baidu.tieba.im.searchfriend.cache.b());
+        TbadkCoreApplication.m255getInst().RegisterIntent(SearchFriendActivityConfig.class, SearchFriendActivity.class);
+        CustomMessageTask customMessageTask = new CustomMessageTask(2001199, new com.baidu.tieba.im.searchfriend.cache.b());
+        CustomMessageTask customMessageTask2 = new CustomMessageTask(2001198, new com.baidu.tieba.im.searchfriend.cache.c());
+        CustomMessageTask customMessageTask3 = new CustomMessageTask(2001272, new com.baidu.tieba.im.searchfriend.cache.a());
         MessageManager.getInstance().registerTask(customMessageTask);
         MessageManager.getInstance().registerTask(customMessageTask2);
+        MessageManager.getInstance().registerTask(customMessageTask3);
     }
 
-    private void Rx() {
+    private void SK() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SEARCH_FRIEND_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.SEARCH_FRIEND);
         tbHttpMessageTask.setResponsedClass(ResponseSearchFriendMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
-        registerListener(this.bhY);
+        registerListener(this.bmB);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(w.activity_search_friend);
-        this.agS = findViewById(v.new_search_friend_root_view);
-        f fVar = new f(this);
-        this.agS.setOnClickListener(fVar);
-        this.bhL = (NavigationBar) findViewById(v.new_search_friend_navigation_bar);
-        this.bhL.setTitleText(y.find_friend);
-        this.bhL.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new g(this));
-        this.bhS = (BdListView) findViewById(v.new_search_friend_recommend);
-        this.bhU = com.baidu.adp.lib.g.b.ek().a(this, w.add_friend_recommend_header, null, false);
-        this.bhR = new h(this, this.bhU);
-        this.bhU.setOnClickListener(fVar);
-        this.bhR.a(this.bhV);
-        this.bhS.addHeaderView(this.bhU);
-        this.bhT = new l(this);
-        this.bhS.setAdapter((ListAdapter) this.bhT);
-        com.baidu.tbadk.core.j.m(TbadkApplication.m251getInst().getApplicationContext(), "add_new");
-        registerListener(this.bhW);
-        registerListener(this.aAZ);
-        registerListener(this.bhX);
+        setContentView(x.activity_search_friend);
+        this.aoi = findViewById(w.new_search_friend_root_view);
+        g gVar = new g(this);
+        this.aoi.setOnClickListener(gVar);
+        this.aey = (NavigationBar) findViewById(w.new_search_friend_navigation_bar);
+        this.aey.setTitleText(z.find_friend);
+        this.aey.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new h(this));
+        this.bmu = (BdListView) findViewById(w.new_search_friend_recommend);
+        this.bmu.setOnScrollListener(new i(this));
+        this.bmw = com.baidu.adp.lib.g.b.ek().a(getPageContext().getPageActivity(), x.add_friend_recommend_header, null, false);
+        this.bmt = new j(getPageContext(), this.bmw);
+        this.bmw.setOnClickListener(gVar);
+        this.bmt.a(this.bmx);
+        this.bmu.addHeaderView(this.bmw);
+        this.bmv = new n(this);
+        this.bmu.setAdapter((ListAdapter) this.bmv);
+        com.baidu.tbadk.core.i.C(TbadkCoreApplication.m255getInst().getApplicationContext(), "add_new");
+        registerListener(this.bmy);
+        registerListener(this.aCA);
+        registerListener(this.bmz);
+        registerListener(this.bmA);
         sendMessage(new RequestRecommendReadMessage());
-        MessageManager.getInstance().registerTask(ri());
-        Rx();
+        MessageManager.getInstance().registerTask(uJ());
+        SK();
     }
 
-    private SocketMessageTask ri() {
+    private SocketMessageTask uJ() {
         SocketMessageTask socketMessageTask = new SocketMessageTask(304106);
-        socketMessageTask.e(true);
+        socketMessageTask.i(true);
         socketMessageTask.setResponsedClass(ResponsedRecommendMessage.class);
-        socketMessageTask.f(false);
+        socketMessageTask.j(false);
         return socketMessageTask;
     }
 
@@ -95,24 +100,24 @@ public class SearchFriendActivity extends BaseActivity implements ae {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.bhL.onChangeSkinType(i);
-        this.bhR.bM(i);
-        getLayoutMode().h(this.bhU);
-        getLayoutMode().h(this.agS);
+        this.aey.onChangeSkinType(getPageContext(), i);
+        this.bmt.cl(i);
+        getLayoutMode().h(this.bmw);
+        getLayoutMode().h(this.aoi);
     }
 
-    @Override // com.baidu.tbadk.core.view.ae
+    @Override // com.baidu.tbadk.core.view.ar
     public ListView getListView() {
-        return this.bhS;
+        return this.bmu;
     }
 
-    @Override // com.baidu.tbadk.core.view.ae
-    public int nC() {
-        return v.recommend_new_crown;
+    @Override // com.baidu.tbadk.core.view.ar
+    public int qD() {
+        return w.recommend_new_crown;
     }
 
-    @Override // com.baidu.tbadk.core.view.ae
-    public com.baidu.adp.lib.e.b<TbImageView> nD() {
-        return UserIconBox.f(this, 8);
+    @Override // com.baidu.tbadk.core.view.ar
+    public com.baidu.adp.lib.e.b<TbImageView> qE() {
+        return UserIconBox.g(getPageContext().getPageActivity(), 8);
     }
 }

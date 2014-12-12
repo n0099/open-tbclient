@@ -1,33 +1,26 @@
 package com.baidu.tieba;
 
-import android.location.Address;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbadkApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
+import com.baidu.tbadk.coreExtra.data.VersionData;
 /* loaded from: classes.dex */
-public class aw implements com.baidu.adp.lib.d.d {
-    final /* synthetic */ aj aee;
+class aw implements Runnable {
+    final /* synthetic */ av alH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(aj ajVar) {
-        this.aee = ajVar;
+    public aw(av avVar) {
+        this.alH = avVar;
     }
 
-    @Override // com.baidu.adp.lib.d.d
-    public void OnLocationGeted(int i, String str, Address address) {
-        if (i == 0 && address != null) {
-            try {
-                String valueOf = String.valueOf(address.getLatitude());
-                String valueOf2 = String.valueOf(address.getLongitude());
-                if (!TextUtils.isEmpty(valueOf) && !TextUtils.isEmpty(valueOf2)) {
-                    TbadkApplication.m251getInst().setLocationLat(valueOf);
-                    TbadkApplication.m251getInst().setLocationLng(valueOf2);
-                    TbadkApplication.m251getInst().setLocationPos(address.getAddressLine(0));
-                }
-            } catch (IllegalStateException e) {
-                BdLog.e(e.getMessage());
-            }
+    @Override // java.lang.Runnable
+    public void run() {
+        UpdateDialog updateDialog;
+        VersionData versionData;
+        UpdateDialog updateDialog2;
+        updateDialog = this.alH.this$0;
+        versionData = updateDialog.alD;
+        if (versionData.forceUpdate()) {
+            updateDialog2 = this.alH.this$0;
+            com.baidu.tbadk.core.b.b.e(updateDialog2.getPageContext().getPageActivity(), Constants.MEDIA_INFO);
         }
     }
 }

@@ -11,7 +11,7 @@ public abstract class b extends Binder implements a {
         attachInterface(this, "com.baidu.tbadk.live.service.ILiveGroupManagerService");
     }
 
-    public static a a(IBinder iBinder) {
+    public static a b(IBinder iBinder) {
         if (iBinder == null) {
             return null;
         }
@@ -32,12 +32,12 @@ public abstract class b extends Binder implements a {
         switch (i) {
             case 1:
                 parcel.enforceInterface("com.baidu.tbadk.live.service.ILiveGroupManagerService");
-                a(e.b(parcel.readStrongBinder()));
+                a(e.c(parcel.readStrongBinder()));
                 parcel2.writeNoException();
                 return true;
             case 2:
                 parcel.enforceInterface("com.baidu.tbadk.live.service.ILiveGroupManagerService");
-                b(e.b(parcel.readStrongBinder()));
+                b(e.c(parcel.readStrongBinder()));
                 parcel2.writeNoException();
                 return true;
             case 3:
@@ -48,7 +48,7 @@ public abstract class b extends Binder implements a {
                 return true;
             case 4:
                 parcel.enforceInterface("com.baidu.tbadk.live.service.ILiveGroupManagerService");
-                sw();
+                requestStatusRebroadcast();
                 parcel2.writeNoException();
                 return true;
             case 5:
@@ -65,7 +65,7 @@ public abstract class b extends Binder implements a {
                 return true;
             case 7:
                 parcel.enforceInterface("com.baidu.tbadk.live.service.ILiveGroupManagerService");
-                a(parcel.readString(), parcel.readString(), parcel.readString(), parcel.readString(), parcel.readString(), parcel.readString());
+                connectAndPublish(parcel.readString(), parcel.readString(), parcel.readString(), parcel.readString(), parcel.readString(), parcel.readString());
                 parcel2.writeNoException();
                 return true;
             case 8:
@@ -90,37 +90,37 @@ public abstract class b extends Binder implements a {
                 return true;
             case 12:
                 parcel.enforceInterface("com.baidu.tbadk.live.service.ILiveGroupManagerService");
-                o(parcel.readString(), parcel.readInt() != 0);
+                closePublish(parcel.readString(), parcel.readInt() != 0);
                 parcel2.writeNoException();
                 return true;
             case 13:
                 parcel.enforceInterface("com.baidu.tbadk.live.service.ILiveGroupManagerService");
-                dC(parcel.readString());
+                startPublish(parcel.readString());
                 parcel2.writeNoException();
                 return true;
-            case DealIntentService.CLASS_TYPE_GROUP_EVENT /* 14 */:
+            case 14:
                 parcel.enforceInterface("com.baidu.tbadk.live.service.ILiveGroupManagerService");
                 stopPublish(parcel.readString());
                 parcel2.writeNoException();
                 return true;
             case 15:
                 parcel.enforceInterface("com.baidu.tbadk.live.service.ILiveGroupManagerService");
-                c(parcel.readString(), parcel.readString(), parcel.readInt());
+                startPlay(parcel.readString(), parcel.readString(), parcel.readInt());
                 parcel2.writeNoException();
                 return true;
             case 16:
                 parcel.enforceInterface("com.baidu.tbadk.live.service.ILiveGroupManagerService");
-                p(parcel.readString(), parcel.readInt() != 0);
+                stopPlay(parcel.readString(), parcel.readInt() != 0);
                 parcel2.writeNoException();
                 return true;
             case 17:
                 parcel.enforceInterface("com.baidu.tbadk.live.service.ILiveGroupManagerService");
-                dD(parcel.readString());
+                pausePlay(parcel.readString());
                 parcel2.writeNoException();
                 return true;
             case 18:
                 parcel.enforceInterface("com.baidu.tbadk.live.service.ILiveGroupManagerService");
-                dE(parcel.readString());
+                resumePlay(parcel.readString());
                 parcel2.writeNoException();
                 return true;
             case 19:
@@ -159,15 +159,15 @@ public abstract class b extends Binder implements a {
                 return true;
             case DealIntentService.CLASS_TYPE_NATIVE_BUY_TBEAN /* 25 */:
                 parcel.enforceInterface("com.baidu.tbadk.live.service.ILiveGroupManagerService");
-                ax(parcel.readInt() != 0);
+                stopAnyRunning(parcel.readInt() != 0);
                 parcel2.writeNoException();
                 return true;
-            case 26:
+            case DealIntentService.CLASS_TYPE_XIUBA /* 26 */:
                 parcel.enforceInterface("com.baidu.tbadk.live.service.ILiveGroupManagerService");
-                a(parcel.readString(), parcel.readString(), parcel.readString(), parcel.readString(), parcel.readString(), parcel.readString(), parcel.readInt() != 0, parcel.readInt() != 0);
+                playOrRecord(parcel.readString(), parcel.readString(), parcel.readString(), parcel.readString(), parcel.readString(), parcel.readString(), parcel.readInt() != 0, parcel.readInt() != 0);
                 parcel2.writeNoException();
                 return true;
-            case 27:
+            case DealIntentService.CLASS_TYPE_ENTER_OFFICIAL /* 27 */:
                 parcel.enforceInterface("com.baidu.tbadk.live.service.ILiveGroupManagerService");
                 int signalStrength = getSignalStrength();
                 parcel2.writeNoException();

@@ -3,17 +3,17 @@ package com.baidu.tbadk.coreExtra.act;
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
 class al implements DialogInterface.OnCancelListener {
-    final /* synthetic */ ak Lb;
+    final /* synthetic */ ak Qm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(ak akVar) {
-        this.Lb = akVar;
+        this.Qm = akVar;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
         LoginActivity loginActivity;
-        loginActivity = this.Lb.La;
+        loginActivity = this.Qm.Ql;
         loginActivity.destroyWaitingDialog();
     }
 }

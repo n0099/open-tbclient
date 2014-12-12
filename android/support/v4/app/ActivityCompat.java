@@ -30,4 +30,12 @@ public class ActivityCompat extends ContextCompat {
             activity.startActivityForResult(intent, i);
         }
     }
+
+    public static void finishAffinity(Activity activity) {
+        if (Build.VERSION.SDK_INT >= 16) {
+            ActivityCompatJB.finishAffinity(activity);
+        } else {
+            activity.finish();
+        }
+    }
 }

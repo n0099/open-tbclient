@@ -11,14 +11,20 @@ public class by extends com.baidu.adp.framework.a.a {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a.g
-    /* renamed from: f */
+    /* renamed from: g */
     public CustomResponsedMessage a(CustomResponsedMessage customResponsedMessage) {
-        ImMessageCenterPojo data;
         if (customResponsedMessage == null) {
             return null;
         }
-        if ((customResponsedMessage instanceof MemoryChangedMessage) && (data = ((MemoryChangedMessage) customResponsedMessage).getData()) != null && data.getCustomGroupType() == -8) {
-            return new MemoryChangedMessage(bz.l(data), ((MemoryChangedMessage) customResponsedMessage).isFromServer(), ((MemoryChangedMessage) customResponsedMessage).getType());
+        if (customResponsedMessage instanceof MemoryChangedMessage) {
+            ImMessageCenterPojo data = ((MemoryChangedMessage) customResponsedMessage).getData();
+            if (data != null && data.getCustomGroupType() == -8) {
+                return new MemoryChangedMessage(bz.s(data), ((MemoryChangedMessage) customResponsedMessage).isFromServer(), ((MemoryChangedMessage) customResponsedMessage).getType());
+            }
+            if (data != null && data.getCustomGroupType() == -7) {
+                return new MemoryChangedMessage(cb.t(data), ((MemoryChangedMessage) customResponsedMessage).isFromServer(), ((MemoryChangedMessage) customResponsedMessage).getType());
+            }
+            return customResponsedMessage;
         }
         return customResponsedMessage;
     }

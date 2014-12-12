@@ -1,147 +1,31 @@
 package com.baidu.tbadk.editortool;
 
-import android.graphics.Bitmap;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.UtilHelper;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import android.app.Activity;
+import android.widget.ListView;
+import com.baidu.tieba.tbadkCore.PbEditor.PbEditor;
 /* loaded from: classes.dex */
-public class aa {
-    private static aa Ss = new aa();
-    private static BdAsyncTaskParallel parallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-    private ArrayList<ad> St = new ArrayList<>();
-    private final List<e> Su = new ArrayList();
+public class aa implements Runnable {
+    private PbEditor Yo;
+    private ListView Yp;
+    private Activity Yq;
+    private int Yr;
+    private int distance;
+    private int position;
 
-    public static aa rB() {
-        return Ss;
+    public aa(Activity activity, int i, int i2, PbEditor pbEditor, ListView listView, int i3) {
+        this.distance = i2;
+        this.position = i;
+        this.Yo = pbEditor;
+        this.Yp = listView;
+        this.Yr = i3;
+        this.Yq = activity;
     }
 
-    private aa() {
-    }
-
-    public void b(e eVar) {
-        synchronized (this.Su) {
-            if (!this.Su.contains(eVar)) {
-                this.Su.add(eVar);
-                Collections.sort(this.Su);
-            }
-        }
-    }
-
-    public void rC() {
-        new ab(this).execute(new Void[0]);
-    }
-
-    public boolean cY(String str) {
-        Iterator<ad> it = this.St.iterator();
-        while (it.hasNext()) {
-            if (it.next().cY(str)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public com.baidu.adp.widget.a.a dg(String str) {
-        return com.baidu.tbadk.imageManager.e.si().dt(str);
-    }
-
-    public String m(String str, boolean z) {
-        long hashCode = str.hashCode();
-        if (hashCode < 0) {
-            hashCode *= -1;
-        }
-        return String.valueOf(z ? "d_" : "s_") + hashCode;
-    }
-
-    public com.baidu.adp.widget.a.a T(String str, String str2) {
-        com.baidu.adp.widget.a.a aVar;
-        Bitmap U;
-        com.baidu.adp.widget.a.a dt = com.baidu.tbadk.imageManager.e.si().dt(str2);
-        if (dt != null) {
-            return dt;
-        }
-        Iterator<ad> it = this.St.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                aVar = dt;
-                break;
-            }
-            ad next = it.next();
-            if (next.cY(str2)) {
-                aVar = next.cZ(str2);
-                break;
-            }
-        }
-        if (aVar == null && str != null && (U = U(str, m(str2, false))) != null) {
-            aVar = new com.baidu.adp.widget.a.a(U, false, str2);
-        }
-        a(str2, aVar, false);
-        return aVar;
-    }
-
-    public String n(String str, boolean z) {
-        if (!z.rA().isEmpty()) {
-            List<ad> groups = z.rA().getGroups();
-            if (z) {
-                for (ad adVar : groups) {
-                    if (adVar.cY(str)) {
-                        return str;
-                    }
-                }
-                return "#@" + str;
-            }
-            return str;
-        }
-        return str;
-    }
-
-    public void a(String str, com.baidu.adp.widget.a.a aVar, boolean z) {
-        if (aVar != null) {
-            if (z) {
-                com.baidu.tbadk.imageManager.e.si().c(n(str, z), aVar, true);
-                return;
-            }
-            com.baidu.tbadk.imageManager.e.si().c(str, aVar, false);
-        }
-    }
-
-    public ArrayList<ad> rD() {
-        return this.St;
-    }
-
-    public ad dh(String str) {
-        Iterator<ad> it = this.St.iterator();
-        while (it.hasNext()) {
-            ad next = it.next();
-            if (next.getGroupId().equals(str)) {
-                return next;
-            }
-        }
-        return null;
-    }
-
-    public Bitmap U(String str, String str2) {
-        return com.baidu.tbadk.core.util.s.K(".emotions/" + str, str2);
-    }
-
-    public com.baidu.adp.widget.a.a V(String str, String str2) {
-        File file = new File(com.baidu.tbadk.core.util.s.mI + "/" + TbConfig.getTempDirName() + "/.emotions/" + str + "/", str2);
-        if (file.exists()) {
-            if (!UtilHelper.hasAvaiableSDCardSpace(1024)) {
-                Bitmap U = U(str, str2);
-                if (U != null) {
-                    return new com.baidu.adp.widget.a.a(U, false, str2);
-                }
-                return null;
-            }
-            return com.baidu.adp.gif.b.bi().m(file.getAbsolutePath());
-        }
-        return null;
+    @Override // java.lang.Runnable
+    public void run() {
+        int[] iArr = new int[2];
+        this.Yo.getLocationInWindow(iArr);
+        this.Yp.setSelectionFromTop(this.position + this.Yp.getHeaderViewsCount(), ((iArr[1] - this.distance) - this.Yr) - com.baidu.adp.lib.util.l.l(this.Yq));
+        this.Yp.invalidate();
     }
 }

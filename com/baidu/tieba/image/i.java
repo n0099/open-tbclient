@@ -1,79 +1,42 @@
 package com.baidu.tieba.image;
 
-import android.content.Intent;
-import android.support.v4.view.ViewPager;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.coreExtra.view.MultiImageView;
-import java.util.ArrayList;
-import java.util.HashMap;
+import android.view.animation.Animation;
+import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
-class i implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ ImageViewerActivity this$0;
+class i implements Animation.AnimationListener {
+    final /* synthetic */ h bqF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(ImageViewerActivity imageViewerActivity) {
-        this.this$0 = imageViewerActivity;
+    public i(h hVar) {
+        this.bqF = hVar;
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        ImageViewerActivity imageViewerActivity;
+        ImageViewerActivity imageViewerActivity2;
         boolean z;
-        a aVar;
-        MultiImageView multiImageView;
-        a aVar2;
-        int i2;
-        z = this.this$0.bkW;
-        if (!z) {
-            aVar = this.this$0.bkQ;
-            if (aVar != null) {
-                multiImageView = this.this$0.bkO;
-                if (i > multiImageView.getItemNum() - 5) {
-                    aVar2 = this.this$0.bkQ;
-                    aVar2.Sc();
-                }
-            }
-        } else {
-            Intent intent = new Intent(TbConfig.getBroadcastActionPageChanged());
-            intent.putExtra(ImageViewerConfig.INDEX, i);
-            this.this$0.sendBroadcast(intent);
+        ImageViewerActivity imageViewerActivity3;
+        ImageViewerActivity imageViewerActivity4;
+        NavigationBar navigationBar;
+        imageViewerActivity = this.bqF.this$0;
+        imageViewerActivity.aPW = true;
+        imageViewerActivity2 = this.bqF.this$0;
+        z = imageViewerActivity2.aPX;
+        if (z) {
+            imageViewerActivity3 = this.bqF.this$0;
+            imageViewerActivity3.aPX = false;
+            imageViewerActivity4 = this.bqF.this$0;
+            navigationBar = imageViewerActivity4.aId;
+            navigationBar.setVisibility(8);
         }
-        ImageViewerActivity imageViewerActivity = this.this$0;
-        i2 = this.this$0.mIndex;
-        imageViewerActivity.M(i2, i);
-        this.this$0.mIndex = i;
-        this.this$0.OD();
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
-        long j;
-        ArrayList arrayList;
-        int i2;
-        ArrayList arrayList2;
-        HashMap hashMap;
-        ArrayList arrayList3;
-        int i3;
-        if (i == 1) {
-            long nanoTime = System.nanoTime();
-            j = this.this$0.bkR;
-            if (nanoTime - j > 300000000) {
-                arrayList = this.this$0.bkK;
-                if (arrayList != null) {
-                    i2 = this.this$0.mIndex;
-                    arrayList2 = this.this$0.bkK;
-                    if (i2 < arrayList2.size()) {
-                        hashMap = this.this$0.bkS;
-                        arrayList3 = this.this$0.bkK;
-                        i3 = this.this$0.mIndex;
-                        hashMap.put((String) arrayList3.get(i3), true);
-                    }
-                }
-            }
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
     }
 }

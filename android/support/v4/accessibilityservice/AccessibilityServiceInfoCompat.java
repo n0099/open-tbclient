@@ -5,12 +5,25 @@ import android.content.pm.ResolveInfo;
 import android.os.Build;
 /* loaded from: classes.dex */
 public class AccessibilityServiceInfoCompat {
+    public static final int CAPABILITY_CAN_FILTER_KEY_EVENTS = 8;
+    public static final int CAPABILITY_CAN_REQUEST_ENHANCED_WEB_ACCESSIBILITY = 4;
+    public static final int CAPABILITY_CAN_REQUEST_TOUCH_EXPLORATION = 2;
+    public static final int CAPABILITY_CAN_RETRIEVE_WINDOW_CONTENT = 1;
+    public static final int DEFAULT = 1;
     public static final int FEEDBACK_ALL_MASK = -1;
+    public static final int FEEDBACK_BRAILLE = 32;
+    public static final int FLAG_INCLUDE_NOT_IMPORTANT_VIEWS = 2;
+    public static final int FLAG_REPORT_VIEW_IDS = 16;
+    public static final int FLAG_REQUEST_ENHANCED_WEB_ACCESSIBILITY = 8;
+    public static final int FLAG_REQUEST_FILTER_KEY_EVENTS = 32;
+    public static final int FLAG_REQUEST_TOUCH_EXPLORATION_MODE = 4;
     private static final AccessibilityServiceInfoVersionImpl IMPL;
 
     /* loaded from: classes.dex */
     interface AccessibilityServiceInfoVersionImpl {
         boolean getCanRetrieveWindowContent(AccessibilityServiceInfo accessibilityServiceInfo);
+
+        int getCapabilities(AccessibilityServiceInfo accessibilityServiceInfo);
 
         String getDescription(AccessibilityServiceInfo accessibilityServiceInfo);
 
@@ -50,6 +63,11 @@ public class AccessibilityServiceInfoCompat {
         public String getSettingsActivityName(AccessibilityServiceInfo accessibilityServiceInfo) {
             return null;
         }
+
+        @Override // android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoVersionImpl
+        public int getCapabilities(AccessibilityServiceInfo accessibilityServiceInfo) {
+            return 0;
+        }
     }
 
     /* loaded from: classes.dex */
@@ -81,10 +99,28 @@ public class AccessibilityServiceInfoCompat {
         public String getSettingsActivityName(AccessibilityServiceInfo accessibilityServiceInfo) {
             return AccessibilityServiceInfoCompatIcs.getSettingsActivityName(accessibilityServiceInfo);
         }
+
+        @Override // android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoStubImpl, android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoVersionImpl
+        public int getCapabilities(AccessibilityServiceInfo accessibilityServiceInfo) {
+            return getCanRetrieveWindowContent(accessibilityServiceInfo) ? 1 : 0;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    class AccessibilityServiceInfoJellyBeanMr2 extends AccessibilityServiceInfoIcsImpl {
+        AccessibilityServiceInfoJellyBeanMr2() {
+        }
+
+        @Override // android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoIcsImpl, android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoStubImpl, android.support.v4.accessibilityservice.AccessibilityServiceInfoCompat.AccessibilityServiceInfoVersionImpl
+        public int getCapabilities(AccessibilityServiceInfo accessibilityServiceInfo) {
+            return AccessibilityServiceInfoCompatJellyBeanMr2.getCapabilities(accessibilityServiceInfo);
+        }
     }
 
     static {
-        if (Build.VERSION.SDK_INT >= 14) {
+        if (Build.VERSION.SDK_INT >= 18) {
+            IMPL = new AccessibilityServiceInfoJellyBeanMr2();
+        } else if (Build.VERSION.SDK_INT >= 14) {
             IMPL = new AccessibilityServiceInfoIcsImpl();
         } else {
             IMPL = new AccessibilityServiceInfoStubImpl();
@@ -149,8 +185,41 @@ public class AccessibilityServiceInfoCompat {
         switch (i) {
             case 1:
                 return "DEFAULT";
+            case 2:
+                return "FLAG_INCLUDE_NOT_IMPORTANT_VIEWS";
+            case 4:
+                return "FLAG_REQUEST_TOUCH_EXPLORATION_MODE";
+            case 8:
+                return "FLAG_REQUEST_ENHANCED_WEB_ACCESSIBILITY";
+            case 16:
+                return "FLAG_REPORT_VIEW_IDS";
+            case 32:
+                return "FLAG_REQUEST_FILTER_KEY_EVENTS";
             default:
                 return null;
+        }
+    }
+
+    public static int getCapabilities(AccessibilityServiceInfo accessibilityServiceInfo) {
+        return IMPL.getCapabilities(accessibilityServiceInfo);
+    }
+
+    public static String capabilityToString(int i) {
+        switch (i) {
+            case 1:
+                return "CAPABILITY_CAN_RETRIEVE_WINDOW_CONTENT";
+            case 2:
+                return "CAPABILITY_CAN_REQUEST_TOUCH_EXPLORATION";
+            case 3:
+            case 5:
+            case 6:
+            case 7:
+            default:
+                return "UNKNOWN";
+            case 4:
+                return "CAPABILITY_CAN_REQUEST_ENHANCED_WEB_ACCESSIBILITY";
+            case 8:
+                return "CAPABILITY_CAN_FILTER_KEY_EVENTS";
         }
     }
 }

@@ -1,41 +1,30 @@
 package com.baidu.tieba.im.chat;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax implements com.baidu.tieba.im.a<LinkedHashMap<String, String>> {
-    final /* synthetic */ w aOa;
-    private final /* synthetic */ bs aOm;
+public class ax implements View.OnClickListener {
+    private final /* synthetic */ String aQN;
+    final /* synthetic */ aw aQS;
+    private final /* synthetic */ long aQT;
+    private final /* synthetic */ String aQU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(w wVar, bs bsVar) {
-        this.aOa = wVar;
-        this.aOm = bsVar;
+    public ax(aw awVar, long j, String str, String str2) {
+        this.aQS = awVar;
+        this.aQT = j;
+        this.aQN = str;
+        this.aQU = str2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    /* renamed from: b */
-    public void onReturnDataInUI(LinkedHashMap<String, String> linkedHashMap) {
-        LinkedHashMap<String, String> linkedHashMap2 = new LinkedHashMap<>();
-        if (linkedHashMap != null && linkedHashMap.size() > 0) {
-            ArrayList arrayList = new ArrayList(linkedHashMap.size());
-            for (String str : linkedHashMap.keySet()) {
-                arrayList.add(str);
-            }
-            Collections.reverse(arrayList);
-            Iterator it = arrayList.iterator();
-            while (it.hasNext()) {
-                String str2 = (String) it.next();
-                String v = com.baidu.tieba.im.util.i.v(linkedHashMap.get(str2), true);
-                if (v != null) {
-                    linkedHashMap2.put(str2, v);
-                }
-            }
-        }
-        this.aOm.a(linkedHashMap2);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.adp.base.j jVar;
+        MessageManager messageManager = MessageManager.getInstance();
+        jVar = this.aQS.mContext;
+        messageManager.sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(jVar.getPageActivity(), String.valueOf(this.aQT), this.aQN, this.aQU, "", false, AddFriendActivityConfig.TYPE_NEW_FRD)));
     }
 }

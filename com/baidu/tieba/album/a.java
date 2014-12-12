@@ -3,16 +3,16 @@ package com.baidu.tieba.album;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 public class a {
-    private String ahx;
-    private ImageFileInfo ahy;
     private String albumId;
+    private ImageFileInfo aoN;
+    private String count;
     private String name;
 
     public String getAlbumId() {
         return this.albumId;
     }
 
-    public void el(String str) {
+    public void eR(String str) {
         this.albumId = str;
     }
 
@@ -24,19 +24,19 @@ public class a {
         this.name = str;
     }
 
-    public String xN() {
-        return this.ahx;
+    public String Bg() {
+        return this.count;
     }
 
-    public void em(String str) {
-        this.ahx = str;
+    public void eS(String str) {
+        this.count = str;
     }
 
-    public ImageFileInfo xO() {
-        return this.ahy;
+    public ImageFileInfo Bh() {
+        return this.aoN;
     }
 
     public void d(ImageFileInfo imageFileInfo) {
-        this.ahy = imageFileInfo;
+        this.aoN = imageFileInfo;
     }
 }

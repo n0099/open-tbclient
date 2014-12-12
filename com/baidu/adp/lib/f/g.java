@@ -8,9 +8,9 @@ public interface g<T> {
 
     T a(String str, String str2, a aVar, Object... objArr);
 
-    T a(String str, String str2, Object... objArr);
-
     void a(String str, Object obj, Object... objArr);
+
+    T c(String str, String str2, Object... objArr);
 
     boolean eh();
 

@@ -1,15 +1,15 @@
 package com.baidu.tieba.service;
 
-import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
+import com.baidu.adp.base.BdBaseService;
 /* loaded from: classes.dex */
-public class SyncLoginService extends Service {
+public class SyncLoginService extends BdBaseService {
     private static String mStatistics = null;
-    private o mSyncTask = null;
+    private k mSyncTask = null;
     private Handler mHandler = new Handler();
-    private Runnable mRunnable = new n(this);
+    private Runnable mRunnable = new j(this);
 
     public static void setMsgType(String str) {
         mStatistics = str;
@@ -25,7 +25,7 @@ public class SyncLoginService extends Service {
         if (this.mSyncTask != null) {
             this.mSyncTask.cancel();
         }
-        this.mSyncTask = new o(this, null);
+        this.mSyncTask = new k(this, null);
         this.mSyncTask.execute(new String[0]);
     }
 

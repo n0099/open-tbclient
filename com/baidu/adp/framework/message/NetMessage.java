@@ -18,7 +18,7 @@ public abstract class NetMessage {
         HTTP,
         AUTO;
 
-        /* JADX DEBUG: Replace access to removed values field (cS) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (eY) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static NetType[] valuesCustom() {
             NetType[] valuesCustom = values();
@@ -54,7 +54,7 @@ public abstract class NetMessage {
         if (this.mHttpMessage == null) {
             this.mHttpMessage = new HttpMessage(this.httpCmd, this.tag);
             this.mHttpMessage.setExtra(this);
-            this.mHttpMessage.addParam(HTTP_DATA_KEY, encode(true));
+            this.mHttpMessage.addParam("data", encode(true));
             this.mHttpMessage.addHeader(HTTP_HEADER_KEY, "protobuf");
         }
         return this.mHttpMessage;

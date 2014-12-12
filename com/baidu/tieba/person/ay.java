@@ -1,37 +1,25 @@
 package com.baidu.tieba.person;
 
+import android.content.DialogInterface;
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ay implements AdapterView.OnItemClickListener {
-    final /* synthetic */ at bCN;
+public class ay implements View.OnLongClickListener {
+    final /* synthetic */ PersonImageActivity bGv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ay(at atVar) {
-        this.bCN = atVar;
+    public ay(PersonImageActivity personImageActivity) {
+        this.bGv = personImageActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        bb bbVar;
-        bb bbVar2;
-        bb bbVar3;
-        PersonFriendActivity aab;
-        bbVar = this.bCN.bCF;
-        if (bbVar != null) {
-            bbVar2 = this.bCN.bCF;
-            if (bbVar2.getItemViewType(i) == 0) {
-                bbVar3 = this.bCN.bCF;
-                UserData userData = (UserData) bbVar3.getItem(i);
-                if (userData != null && userData.getUserId() != null) {
-                    at atVar = this.bCN;
-                    aab = this.bCN.aab();
-                    atVar.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(aab, userData.getUserId(), userData.getName_show())));
-                }
-            }
-        }
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        DialogInterface.OnClickListener onClickListener;
+        String[] strArr = {this.bGv.getPageContext().getString(com.baidu.tieba.z.save)};
+        PersonImageActivity personImageActivity = this.bGv;
+        onClickListener = this.bGv.bqA;
+        personImageActivity.createListMenu(strArr, onClickListener);
+        this.bGv.showListMenu();
+        return false;
     }
 }

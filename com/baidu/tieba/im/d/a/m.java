@@ -4,9 +4,10 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.im.chat.officialBar.RequestLocalHistoryMessage;
 import com.baidu.tieba.im.chat.officialBar.ResponseLocalHistoryMessage;
-import com.baidu.tieba.im.chat.officialBar.az;
+import com.baidu.tieba.im.chat.officialBar.aq;
 import com.squareup.wire.Wire;
 import java.util.Date;
 import java.util.LinkedList;
@@ -19,7 +20,7 @@ public class m implements CustomMessageTask.CustomRunnable<String> {
         if (customMessage == null || !(customMessage instanceof RequestLocalHistoryMessage)) {
             return null;
         }
-        byte[] bArr = com.baidu.tbadk.core.a.a.kS().bc("tb.im_official_history").get(String.valueOf(TbadkApplication.getCurrentAccount()) + "@" + ((RequestLocalHistoryMessage) customMessage).getData());
+        byte[] bArr = com.baidu.tbadk.core.a.a.nS().bU("tb.im_official_history").get(String.valueOf(TbadkApplication.getCurrentAccount()) + "@" + ((RequestLocalHistoryMessage) customMessage).getData());
         if (bArr == null) {
             return null;
         }
@@ -28,15 +29,15 @@ public class m implements CustomMessageTask.CustomRunnable<String> {
             QueryHistoryMsgResIdl queryHistoryMsgResIdl = (QueryHistoryMsgResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryHistoryMsgResIdl.class);
             if (queryHistoryMsgResIdl.data.res != null) {
                 for (MsgInfo msgInfo : queryHistoryMsgResIdl.data.res) {
-                    az azVar = new az();
+                    aq aqVar = new aq();
                     if (msgInfo != null) {
                         Date date = new Date();
                         date.setTime(msgInfo.sendTime.longValue() * 1000);
-                        azVar.time = com.baidu.tbadk.core.util.az.c(date);
-                        azVar.type = msgInfo.type.intValue();
-                        azVar.content = msgInfo.content;
-                        azVar.id = msgInfo.id.intValue();
-                        linkedList.add(azVar);
+                        aqVar.time = ba.c(date);
+                        aqVar.type = msgInfo.type.intValue();
+                        aqVar.content = msgInfo.content;
+                        aqVar.id = msgInfo.id.intValue();
+                        linkedList.add(aqVar);
                     }
                 }
             }

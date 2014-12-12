@@ -8,41 +8,41 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ax;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class l extends BaseAdapter {
-    private View.OnClickListener If;
-    private BaseActivity Or;
-    private ArrayList<AccountData> aeE = null;
-    private boolean aeD = false;
+    private View.OnClickListener MY;
+    private BaseActivity Ud;
+    private ArrayList<AccountData> mData = null;
+    private boolean alV = false;
 
     public l(BaseActivity baseActivity, View.OnClickListener onClickListener) {
-        this.Or = baseActivity;
-        this.If = onClickListener;
+        this.Ud = baseActivity;
+        this.MY = onClickListener;
     }
 
-    public void setData(ArrayList<AccountData> arrayList) {
-        this.aeE = arrayList;
+    public void r(ArrayList<AccountData> arrayList) {
+        this.mData = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
         int i = 0;
-        if (this.aeE != null) {
-            i = this.aeE.size();
+        if (this.mData != null) {
+            i = this.mData.size();
         }
         return i + 1;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.aeE == null || i < 0 || i >= this.aeE.size()) {
+        if (this.mData == null || i < 0 || i >= this.mData.size()) {
             return null;
         }
-        return this.aeE.get(i);
+        return this.mData.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -54,9 +54,9 @@ public class l extends BaseAdapter {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [136=4] */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x0104  */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x016d  */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x016f  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0114  */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x017d  */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x017f  */
     @Override // android.widget.Adapter
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -71,85 +71,85 @@ public class l extends BaseAdapter {
                         mVar = (m) view.getTag();
                         view2 = view;
                     } else if (getItemViewType(i) == 0) {
-                        view2 = com.baidu.adp.lib.g.b.ek().inflate(this.Or, com.baidu.tieba.w.account_item, null);
+                        view2 = com.baidu.adp.lib.g.b.ek().inflate(this.Ud.getPageContext().getContext(), com.baidu.tieba.x.account_item, null);
                         mVar = new m(this, null);
-                        mVar.aeF = (TextView) view2.findViewById(com.baidu.tieba.v.account);
-                        mVar.aeH = (ImageView) view2.findViewById(com.baidu.tieba.v.active);
-                        mVar.aeI = (Button) view2.findViewById(com.baidu.tieba.v.delete);
-                        mVar.ML = view2.findViewById(com.baidu.tieba.v.account_item_line_layout);
-                        mVar.aeI.setOnClickListener(this.If);
+                        mVar.alW = (TextView) view2.findViewById(com.baidu.tieba.w.account);
+                        mVar.alY = (ImageView) view2.findViewById(com.baidu.tieba.w.active);
+                        mVar.alZ = (Button) view2.findViewById(com.baidu.tieba.w.delete);
+                        mVar.mLine = view2.findViewById(com.baidu.tieba.w.account_item_line_layout);
+                        mVar.alZ.setOnClickListener(this.MY);
                         view2.setTag(mVar);
                     } else {
-                        view2 = com.baidu.adp.lib.g.b.ek().inflate(this.Or, com.baidu.tieba.w.account_add_item, null);
+                        view2 = com.baidu.adp.lib.g.b.ek().inflate(this.Ud.getPageContext().getContext(), com.baidu.tieba.x.account_add_item, null);
                         mVar = new m(this, null);
-                        mVar.aeG = (TextView) view2.findViewById(com.baidu.tieba.v.add_text);
+                        mVar.alX = (TextView) view2.findViewById(com.baidu.tieba.w.add_text);
                         view2.setTag(mVar);
                     }
                     if (getItemViewType(i) == 0) {
-                        if (TbadkApplication.m251getInst().getSkinType() == 1) {
-                            mVar.aeF.setTextColor(aw.bx(1));
+                        if (TbadkCoreApplication.m255getInst().getSkinType() == 1) {
+                            mVar.alW.setTextColor(ax.bU(1));
                         } else {
-                            mVar.aeF.setTextColor(-12895429);
+                            mVar.alW.setTextColor(-12895429);
                         }
                         AccountData accountData = (AccountData) getItem(i);
-                        mVar.aeH.setVisibility(8);
-                        mVar.aeI.setVisibility(8);
-                        mVar.aeI.setTag(accountData);
+                        mVar.alY.setVisibility(8);
+                        mVar.alZ.setVisibility(8);
+                        mVar.alZ.setTag(accountData);
                         if (accountData != null) {
-                            mVar.aeF.setText(accountData.getAccount());
+                            mVar.alW.setText(accountData.getAccount());
                             if (accountData.getIsActive() == 1) {
-                                mVar.aeH.setVisibility(0);
+                                mVar.alY.setVisibility(0);
                             }
-                            if (this.aeD) {
-                                mVar.aeI.setVisibility(0);
+                            if (this.alV) {
+                                mVar.alZ.setVisibility(0);
                             }
                         }
                         if (i == getCount() - 2) {
-                            mVar.ML.setVisibility(8);
+                            mVar.mLine.setVisibility(8);
                         } else {
-                            mVar.ML.setVisibility(0);
+                            mVar.mLine.setVisibility(0);
                         }
-                    } else if (TbadkApplication.m251getInst().getSkinType() == 1) {
-                        mVar.aeG.setTextColor(aw.bx(1));
+                    } else if (TbadkCoreApplication.m255getInst().getSkinType() == 1) {
+                        mVar.alX.setTextColor(ax.bU(1));
                     } else {
-                        mVar.aeG.setTextColor(-12895429);
+                        mVar.alX.setTextColor(-12895429);
                     }
-                    this.Or.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
-                    this.Or.getLayoutMode().h(view2);
+                    this.Ud.getLayoutMode().ab(TbadkCoreApplication.m255getInst().getSkinType() == 1);
+                    this.Ud.getLayoutMode().h(view2);
                     return view2;
                 } catch (Exception e) {
                     e = e;
                     BdLog.detailException(e);
-                    this.Or.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() != 1);
-                    this.Or.getLayoutMode().h(view);
+                    this.Ud.getLayoutMode().ab(TbadkCoreApplication.m255getInst().getSkinType() != 1);
+                    this.Ud.getLayoutMode().h(view);
                     return view;
                 }
             } catch (Throwable th) {
                 th = th;
-                this.Or.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
-                this.Or.getLayoutMode().h(view);
+                this.Ud.getLayoutMode().ab(TbadkCoreApplication.m255getInst().getSkinType() == 1);
+                this.Ud.getLayoutMode().h(view);
                 throw th;
             }
         } catch (Exception e2) {
             e = e2;
             BdLog.detailException(e);
-            this.Or.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() != 1);
-            this.Or.getLayoutMode().h(view);
+            this.Ud.getLayoutMode().ab(TbadkCoreApplication.m255getInst().getSkinType() != 1);
+            this.Ud.getLayoutMode().h(view);
             return view;
         } catch (Throwable th2) {
             th = th2;
-            this.Or.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
-            this.Or.getLayoutMode().h(view);
+            this.Ud.getLayoutMode().ab(TbadkCoreApplication.m255getInst().getSkinType() == 1);
+            this.Ud.getLayoutMode().h(view);
             throw th;
         }
     }
 
     public void setEditState(boolean z) {
-        this.aeD = z;
+        this.alV = z;
     }
 
-    public boolean xf() {
-        return this.aeD;
+    public boolean Ay() {
+        return this.alV;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter

@@ -1,14 +1,15 @@
 package com.baidu.tieba.im.groupUpdates;
 
 import android.view.View;
+import com.baidu.tieba.im.data.UpdatesItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ i bcu;
+    final /* synthetic */ i bga;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(i iVar) {
-        this.bcu = iVar;
+        this.bga = iVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -16,9 +17,9 @@ public class o implements View.OnClickListener {
         UpdatesActivity updatesActivity;
         UpdatesItemData updatesItemData;
         view.setSelected(!view.isSelected());
-        updatesActivity = this.bcu.bck;
+        updatesActivity = this.bga.bfS;
         boolean isSelected = view.isSelected();
-        updatesItemData = this.bcu.bct;
-        updatesActivity.a(view, isSelected, updatesItemData);
+        updatesItemData = this.bga.data;
+        updatesActivity.onCheckedChanged(view, isSelected, updatesItemData);
     }
 }

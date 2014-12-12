@@ -4,31 +4,31 @@ import android.os.Build;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.account.AccountLoginHelper;
-import com.baidu.tbadk.core.util.ac;
+import com.baidu.tbadk.core.util.ad;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.coreExtra.message.UpdateClientInfoMessage;
 /* loaded from: classes.dex */
 public class v {
-    private static v Qj = null;
-    private int Qg;
-    private com.baidu.adp.framework.client.socket.link.g Qh = null;
-    private UpdateClientInfoMessage Qi = null;
-    private final com.baidu.adp.framework.client.socket.link.g bn = new w(this);
+    private static v VU = null;
+    private int VR;
+    private com.baidu.adp.framework.client.socket.link.g VS = null;
+    private UpdateClientInfoMessage VT = null;
+    private final com.baidu.adp.framework.client.socket.link.g dt = new w(this);
 
-    public static synchronized v qN() {
+    public static synchronized v uf() {
         v vVar;
         synchronized (v.class) {
-            if (Qj == null) {
+            if (VU == null) {
                 synchronized (v.class) {
-                    if (Qj == null) {
-                        Qj = new v();
+                    if (VU == null) {
+                        VU = new v();
                     }
                 }
             }
-            vVar = Qj;
+            vVar = VU;
         }
         return vVar;
     }
@@ -38,98 +38,98 @@ public class v {
     }
 
     public void init() {
-        MessageManager.getInstance().getSocketClient().a(this.bn);
+        MessageManager.getInstance().getSocketClient().a(this.dt);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public UpdateClientInfoMessage qO() {
+    public UpdateClientInfoMessage ug() {
         UpdateClientInfoMessage updateClientInfoMessage = new UpdateClientInfoMessage();
-        updateClientInfoMessage.addUserInfo("_client_type", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
+        updateClientInfoMessage.addUserInfo("_client_type", "2");
         updateClientInfoMessage.addUserInfo("_client_version", TbConfig.getVersion());
-        if (TbadkApplication.m251getInst().getImei() != null) {
-            updateClientInfoMessage.addUserInfo("_phone_imei", TbadkApplication.m251getInst().getImei());
+        if (TbadkCoreApplication.m255getInst().getImei() != null) {
+            updateClientInfoMessage.addUserInfo("_phone_imei", TbadkCoreApplication.m255getInst().getImei());
         }
-        String clientId = TbadkApplication.getClientId();
+        String clientId = TbadkCoreApplication.getClientId();
         if (clientId != null) {
             updateClientInfoMessage.addUserInfo("_client_id", clientId);
         }
-        String from = TbadkApplication.getFrom();
+        String from = TbadkCoreApplication.getFrom();
         if (from != null && from.length() > 0) {
             updateClientInfoMessage.addUserInfo("from", from);
         }
-        String str = new ac().mc().na().nd().mNetType;
+        String str = new ad().oW().pV().pY().mNetType;
         if (str != null) {
             updateClientInfoMessage.addUserInfo("net_type", str);
         }
-        String valueOf = String.valueOf(com.baidu.adp.lib.util.j.fm());
+        String valueOf = String.valueOf(com.baidu.adp.lib.util.i.fl());
         if (valueOf != null) {
             updateClientInfoMessage.addUserInfo("net", valueOf);
         }
-        updateClientInfoMessage.addUserInfo("cuid", TbadkApplication.m251getInst().getCuid());
+        updateClientInfoMessage.addUserInfo("cuid", TbadkCoreApplication.m255getInst().getCuid());
         updateClientInfoMessage.addUserInfo("timestamp", Long.toString(System.currentTimeMillis()));
         updateClientInfoMessage.addUserInfo("model", Build.MODEL);
         updateClientInfoMessage.addUserInfo("_os_version", Build.VERSION.RELEASE);
         StringBuffer stringBuffer = new StringBuffer(15);
-        stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.m.n(TbadkApplication.m251getInst().getApp())));
+        stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.l.M(TbadkCoreApplication.m255getInst().getApp())));
         stringBuffer.append(",");
-        stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.m.o(TbadkApplication.m251getInst().getApp())));
+        stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.l.N(TbadkCoreApplication.m255getInst().getApp())));
         updateClientInfoMessage.addUserInfo("_phone_screen", stringBuffer.toString());
-        if (TbadkApplication.m251getInst().getMsgFrequency() > 0) {
+        if (TbadkCoreApplication.m255getInst().getMsgFrequency() > 0) {
             updateClientInfoMessage.addUserInfo("_msg_status", "0");
         } else {
             updateClientInfoMessage.addUserInfo("_msg_status", "1");
         }
-        updateClientInfoMessage.addUserInfo("_pic_quality", String.valueOf(TbadkApplication.m251getInst().getViewImageQuality()));
+        updateClientInfoMessage.addUserInfo("_pic_quality", String.valueOf(TbadkCoreApplication.m255getInst().getViewImageQuality()));
         try {
-            if (TbadkApplication.isLogin()) {
-                AccountLoginHelper.OurToken parseBDUSS = AccountLoginHelper.parseBDUSS(TbadkApplication.getCurrentBduss());
+            if (TbadkCoreApplication.isLogin()) {
+                AccountLoginHelper.OurToken parseBDUSS = AccountLoginHelper.parseBDUSS(TbadkCoreApplication.getCurrentBduss());
                 if (parseBDUSS != null) {
                     updateClientInfoMessage.setBduss(parseBDUSS.mBduss);
                 } else {
-                    updateClientInfoMessage.setBduss(TbadkApplication.getCurrentBduss());
+                    updateClientInfoMessage.setBduss(TbadkCoreApplication.getCurrentBduss());
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        int dip2px = com.baidu.adp.lib.util.m.dip2px(TbadkApplication.m251getInst().getContext(), 70.0f);
-        updateClientInfoMessage.setHeight(com.baidu.adp.lib.util.m.dip2px(TbadkApplication.m251getInst().getContext(), 70.0f));
+        int dip2px = com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.m255getInst().getContext(), 70.0f);
+        updateClientInfoMessage.setHeight(com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.m255getInst().getContext(), 70.0f));
         updateClientInfoMessage.setWidth(dip2px);
-        if (com.baidu.tbadk.coreExtra.a.a.or().os()) {
+        if (com.baidu.tbadk.coreExtra.a.a.rr().rs()) {
             updateClientInfoMessage.setPub_env(3);
         }
-        updateClientInfoMessage.setSecretKey(com.baidu.adp.framework.client.socket.coder.d.aL().aM());
+        updateClientInfoMessage.setSecretKey(com.baidu.adp.framework.client.socket.coder.d.bl().bm());
         updateClientInfoMessage.addUserInfo("pversion", TiebaIMConfig.PROTOBUF_VERSION);
         return updateClientInfoMessage;
     }
 
-    public boolean qP() {
-        return this.Qg >= 5;
+    public boolean uh() {
+        return this.VR >= 5;
     }
 
-    public void qQ() {
-        this.Qg++;
-        if (qP()) {
+    public void ui() {
+        this.VR++;
+        if (uh()) {
             BdSocketLinkService.setAvailable(false);
-            NoNetworkView.nx();
+            NoNetworkView.qw();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qR() {
-        this.Qg = 0;
-        MessageManager.getInstance().getSocketClient().aw();
-        NoNetworkView.nx();
+    public void uj() {
+        this.VR = 0;
+        MessageManager.getInstance().getSocketClient().aW();
+        NoNetworkView.qw();
         BdSocketLinkService.stopReConnStrategy("online succ");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, int i2, String str) {
-        qQ();
+        ui();
         BdSocketLinkService.close(8, "online error = " + i2);
     }
 
     public void a(com.baidu.adp.framework.client.socket.link.g gVar) {
-        this.Qh = gVar;
+        this.VS = gVar;
     }
 }

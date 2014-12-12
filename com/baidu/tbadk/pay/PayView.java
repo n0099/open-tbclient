@@ -2,26 +2,26 @@ package com.baidu.tbadk.pay;
 
 import android.view.View;
 import android.widget.ProgressBar;
-import com.baidu.adp.base.f;
+import com.baidu.adp.base.g;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.v;
 import com.baidu.tieba.w;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
-public class PayView extends f {
+public class PayView extends g {
     private BaseActivity mActivity;
     private ProgressBar mProgressBar;
     private View mRoot;
 
     public PayView(BaseActivity baseActivity) {
-        super(baseActivity);
+        super(baseActivity.getPageContext());
         this.mActivity = baseActivity;
         initUI();
     }
 
     private void initUI() {
-        this.mActivity.setContentView(w.pay_activity);
-        this.mRoot = this.mActivity.findViewById(v.container);
-        this.mProgressBar = (ProgressBar) this.mActivity.findViewById(v.pay_progress);
+        this.mActivity.setContentView(x.pay_activity);
+        this.mRoot = this.mActivity.findViewById(w.container);
+        this.mProgressBar = (ProgressBar) this.mActivity.findViewById(w.pay_progress);
     }
 
     public void showProgress() {
@@ -33,7 +33,7 @@ public class PayView extends f {
     }
 
     public void onChangeSkinType(int i) {
-        this.mActivity.getLayoutMode().L(i == 1);
+        this.mActivity.getLayoutMode().ab(i == 1);
         this.mActivity.getLayoutMode().h(this.mRoot);
     }
 }

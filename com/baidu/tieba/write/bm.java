@@ -1,25 +1,25 @@
 package com.baidu.tieba.write;
 
-import com.baidu.tieba.editortool.TbEditorToolButtonContainer;
+import com.baidu.tieba.tbadkCore.PbEditor.TbEditorToolButtonContainer;
 /* loaded from: classes.dex */
-class bm implements com.baidu.tieba.bubble.t {
-    final /* synthetic */ WriteActivity bUm;
+class bm implements com.baidu.tieba.tbadkCore.bubble.y {
+    final /* synthetic */ WriteActivity cft;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bm(WriteActivity writeActivity) {
-        this.bUm = writeActivity;
+        this.cft = writeActivity;
     }
 
-    @Override // com.baidu.tieba.bubble.t
-    public void hz() {
+    @Override // com.baidu.tieba.tbadkCore.bubble.y
+    public void jw() {
         TbEditorToolButtonContainer tbEditorToolButtonContainer;
         TbEditorToolButtonContainer tbEditorToolButtonContainer2;
-        this.bUm.aqi = null;
-        this.bUm.eM(false);
-        tbEditorToolButtonContainer = this.bUm.bTU;
+        this.cft.bTi = null;
+        this.cft.eL(false);
+        tbEditorToolButtonContainer = this.cft.cfb;
         if (tbEditorToolButtonContainer != null) {
-            tbEditorToolButtonContainer2 = this.bUm.bTU;
-            tbEditorToolButtonContainer2.rI();
+            tbEditorToolButtonContainer2 = this.cft.cfb;
+            tbEditorToolButtonContainer2.vj();
         }
     }
 }

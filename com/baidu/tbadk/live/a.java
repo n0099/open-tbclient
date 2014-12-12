@@ -6,44 +6,44 @@ import com.baidu.adp.lib.cache.t;
 import com.baidu.tbadk.core.account.AccountLoginHelper;
 /* loaded from: classes.dex */
 public class a {
-    private static a Vu = new a();
-    private com.baidu.adp.framework.listener.e Vv = new b(this, 107201);
+    private static a aby = new a();
+    private com.baidu.adp.framework.listener.e accessTokenListener = new b(this, 107201);
 
-    public static a su() {
-        return Vu;
+    public static a vV() {
+        return aby;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public t<String> sv() {
-        return BdCacheService.cr().a("accessToken", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.NO_EVICT, 1);
+    public t<String> getTokenCache() {
+        return BdCacheService.cS().a("accessToken", BdCacheService.CacheStorage.SQLite_CACHE_PER_TABLE, BdCacheService.CacheEvictPolicy.NO_EVICT, 1);
     }
 
     private a() {
-        MessageManager.getInstance().registerListener(this.Vv);
+        MessageManager.getInstance().registerListener(this.accessTokenListener);
     }
 
-    public void dy(String str) {
-        if (com.baidu.adp.lib.util.m.fu()) {
-            com.baidu.adp.lib.g.k.el().b(new c(this, str));
+    public void asyncLoadAccessToken(String str) {
+        if (com.baidu.adp.lib.util.l.fu()) {
+            com.baidu.adp.lib.g.l.em().c(new c(this, str));
         } else {
-            dz(str);
+            getAccesssTokenInBackground(str);
         }
     }
 
-    public boolean dz(String str) {
-        if (com.baidu.adp.lib.util.l.aA(str)) {
+    public boolean getAccesssTokenInBackground(String str) {
+        if (com.baidu.adp.lib.util.k.isEmpty(str)) {
             return false;
         }
         AccountLoginHelper.OurToken parseBDUSS = AccountLoginHelper.parseBDUSS(str);
         if (parseBDUSS != null) {
             str = parseBDUSS.mBduss;
         }
-        sv().a(str, new d(this));
+        getTokenCache().a(str, new d(this));
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void X(String str, String str2) {
+    public void onAccessTokenLoaded(String str, String str2) {
         AccessTokenUpdatedMessage accessTokenUpdatedMessage = new AccessTokenUpdatedMessage();
         accessTokenUpdatedMessage.setAccessToken(str2);
         accessTokenUpdatedMessage.setBduss(str);
@@ -51,7 +51,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dA(String str) {
+    public void updateAccessTokenFromServer(String str) {
         RequestGetAccessTokenMessage requestGetAccessTokenMessage = new RequestGetAccessTokenMessage();
         requestGetAccessTokenMessage.setBduss(str);
         MessageManager.getInstance().sendMessageFromBackground(requestGetAccessTokenMessage);

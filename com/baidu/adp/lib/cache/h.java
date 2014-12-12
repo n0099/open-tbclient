@@ -1,9 +1,9 @@
 package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
 public interface h extends f {
-    void cn();
+    void cO();
 
-    void co();
+    void cP();
 
     String e(m<?> mVar);
 

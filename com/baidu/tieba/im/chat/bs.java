@@ -1,7 +1,20 @@
 package com.baidu.tieba.im.chat;
 
-import java.util.LinkedHashMap;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public interface bs {
-    void a(LinkedHashMap<String, String> linkedHashMap);
+class bs extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bs(int i) {
+        super(i);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016) {
+            return;
+        }
+        PersonalChatActivity.aRy = null;
+    }
 }

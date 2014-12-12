@@ -6,51 +6,52 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.gift.GiftCommonList;
 import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.z;
 import java.util.List;
 /* loaded from: classes.dex */
 public class u extends BaseAdapter {
-    private List<GiftCommonList.GiftItem> UD;
-    private RelativeLayout.LayoutParams UE;
-    private int Uk = -1;
+    private List<GiftCommonList.GiftItem> aaH;
+    private RelativeLayout.LayoutParams aaI;
+    private int aap = -1;
     private Context mContext;
 
     public u(Context context) {
         this.mContext = context;
-        this.UE = new RelativeLayout.LayoutParams(-1, (context.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds450) - 8) / 2);
+        this.aaI = new RelativeLayout.LayoutParams(-1, (context.getResources().getDimensionPixelSize(com.baidu.tieba.u.ds450) - 8) / 2);
     }
 
     public void setGiftItems(List<GiftCommonList.GiftItem> list) {
-        this.UD = list;
+        this.aaH = list;
         notifyDataSetChanged();
     }
 
-    public void cM(int i) {
-        this.Uk = i;
+    public void dk(int i) {
+        this.aap = i;
     }
 
-    public int sg() {
-        return this.Uk;
+    public int vJ() {
+        return this.aap;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.UD == null) {
+        if (this.aaH == null) {
             return 0;
         }
-        return this.UD.size();
+        return this.aaH.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: cN */
+    /* renamed from: dl */
     public GiftCommonList.GiftItem getItem(int i) {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        return this.UD.get(i);
+        return this.aaH.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -62,31 +63,31 @@ public class u extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         v vVar;
         if (view == null || view.getTag() == null) {
-            view = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.w.gift_list_item, null);
+            view = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.x.gift_list_item, null);
             v vVar2 = new v(this, null);
-            vVar2.UF = (TbImageView) view.findViewById(com.baidu.tieba.v.image);
-            vVar2.UG = view.findViewById(com.baidu.tieba.v.mask);
-            vVar2.UH = (TextView) view.findViewById(com.baidu.tieba.v.name);
-            vVar2.UI = (TextView) view.findViewById(com.baidu.tieba.v.price);
+            vVar2.aaJ = (TbImageView) view.findViewById(com.baidu.tieba.w.image);
+            vVar2.aaK = view.findViewById(com.baidu.tieba.w.mask);
+            vVar2.aaL = (TextView) view.findViewById(com.baidu.tieba.w.name);
+            vVar2.aaM = (TextView) view.findViewById(com.baidu.tieba.w.price);
             view.setTag(vVar2);
             vVar = vVar2;
         } else {
             vVar = (v) view.getTag();
         }
-        vVar.UG.setLayoutParams(this.UE);
-        aw.h(view, com.baidu.tieba.s.cp_bg_line_d);
-        aw.b(vVar.UH, com.baidu.tieba.s.cp_cont_b, 1);
-        aw.b(vVar.UI, com.baidu.tieba.s.cp_cont_h, 1);
-        if (i == this.Uk) {
-            aw.h(vVar.UG, com.baidu.tieba.u.chx_box_gift_s);
+        vVar.aaK.setLayoutParams(this.aaI);
+        ax.i(view, com.baidu.tieba.t.cp_bg_line_d);
+        ax.b(vVar.aaL, com.baidu.tieba.t.cp_cont_b, 1);
+        ax.b(vVar.aaM, com.baidu.tieba.t.cp_cont_h, 1);
+        if (i == this.aap) {
+            ax.i(vVar.aaK, com.baidu.tieba.v.chx_box_gift_s);
         } else {
-            vVar.UG.setBackgroundResource(com.baidu.tieba.s.transparent);
+            vVar.aaK.setBackgroundResource(com.baidu.tieba.t.transparent);
         }
         GiftCommonList.GiftItem item = getItem(i);
         if (item != null) {
-            vVar.UH.setText(item.getName());
-            vVar.UI.setText(String.format(this.mContext.getString(com.baidu.tieba.y.tdou_price_format), Integer.valueOf(item.getPrice())));
-            vVar.UF.c(item.getThumbnailUrl(), 10, false);
+            vVar.aaL.setText(item.getName());
+            vVar.aaM.setText(String.format(this.mContext.getString(z.tdou_price_format), Integer.valueOf(item.getPrice())));
+            vVar.aaJ.d(item.getThumbnailUrl(), 10, false);
         }
         return view;
     }

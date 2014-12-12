@@ -1,22 +1,22 @@
 package com.baidu.tieba.im.model;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import com.baidu.adp.base.e;
+import com.baidu.adp.base.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.message.RequestGetMaskInfoMessage;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 /* loaded from: classes.dex */
-public class MaskMessageModel extends e {
+public class MaskMessageModel extends f {
     public static final int TYPE_ONLY_ATTENTION_SEND = 8;
 
-    public MaskMessageModel(Context context) {
-        super(context);
+    public MaskMessageModel(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.f
     public boolean cancelLoadData() {
         return false;
     }
@@ -61,7 +61,7 @@ public class MaskMessageModel extends e {
     public void saveInstance(Bundle bundle) {
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.f
     protected boolean LoadData() {
         return false;
     }

@@ -1,51 +1,83 @@
 package com.baidu.tieba.account;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.LinearLayout;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
-class p implements TextWatcher {
-    final /* synthetic */ ActivationActivity afg;
+class p implements View.OnClickListener {
+    final /* synthetic */ ActivationActivity amw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(ActivationActivity activationActivity) {
-        this.afg = activationActivity;
+        this.amw = activationActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        View view2;
         RelativeLayout relativeLayout;
-        int i;
-        LinearLayout linearLayout;
-        LinearLayout linearLayout2;
-        int i2;
-        int i3;
         RelativeLayout relativeLayout2;
-        if (editable.length() == 6) {
-            relativeLayout2 = this.afg.aeR;
-            relativeLayout2.setEnabled(true);
-        } else {
-            relativeLayout = this.afg.aeR;
-            relativeLayout.setEnabled(false);
+        ImageView imageView;
+        EditText editText;
+        boolean z;
+        t tVar;
+        s sVar;
+        t tVar2;
+        t tVar3;
+        s sVar2;
+        t tVar4;
+        s sVar3;
+        s sVar4;
+        view2 = this.amw.mBack;
+        if (view != view2) {
+            relativeLayout = this.amw.ami;
+            if (view != relativeLayout) {
+                relativeLayout2 = this.amw.amj;
+                if (view != relativeLayout2) {
+                    imageView = this.amw.amd;
+                    if (view == imageView) {
+                        editText = this.amw.amh;
+                        editText.setText((CharSequence) null);
+                        return;
+                    }
+                    return;
+                }
+                z = this.amw.amm;
+                if (z) {
+                    tVar = this.amw.amk;
+                    if (tVar == null) {
+                        sVar = this.amw.aml;
+                        if (sVar == null) {
+                            this.amw.amk = new t(this.amw, null);
+                            tVar2 = this.amw.amk;
+                            tVar2.setPriority(3);
+                            tVar3 = this.amw.amk;
+                            tVar3.execute(new String[0]);
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                }
+                return;
+            }
+            sVar2 = this.amw.aml;
+            if (sVar2 == null) {
+                tVar4 = this.amw.amk;
+                if (tVar4 == null) {
+                    this.amw.aml = new s(this.amw, null);
+                    sVar3 = this.amw.aml;
+                    sVar3.setPriority(3);
+                    sVar4 = this.amw.aml;
+                    sVar4.execute(new String[0]);
+                    return;
+                }
+                return;
+            }
+            return;
         }
-        i = this.afg.afd;
-        if (i != 0) {
-            this.afg.afd = 0;
-            linearLayout = this.afg.aeL;
-            linearLayout.setBackgroundResource(com.baidu.tieba.u.pass_input);
-            linearLayout2 = this.afg.aeL;
-            i2 = this.afg.afb;
-            i3 = this.afg.afc;
-            linearLayout2.setPadding(i2, 0, i3, 0);
-        }
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        this.amw.setResult(0);
+        this.amw.finish();
     }
 }

@@ -1,18 +1,17 @@
 package com.baidu.tbadk.browser;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements View.OnClickListener {
-    final /* synthetic */ TbWebViewActivity xA;
+class j implements View.OnClickListener {
+    final /* synthetic */ TbWebViewActivity Bj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(TbWebViewActivity tbWebViewActivity) {
-        this.xA = tbWebViewActivity;
+        this.Bj = tbWebViewActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.xA.refresh();
+        this.Bj.refresh();
     }
 }

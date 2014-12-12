@@ -1,38 +1,40 @@
 package com.baidu.tieba.model;
 
 import android.content.Context;
+import com.baidu.adp.base.i;
+import com.baidu.tieba.more.AboutActivity;
 /* loaded from: classes.dex */
-public class a extends com.baidu.adp.base.e {
-    private b bon;
+public class a extends com.baidu.adp.base.f<AboutActivity> {
+    private b bsI;
     private Context mContext;
-    protected com.baidu.adp.base.h mLoadDataCallBack;
+    protected i mLoadDataCallBack;
 
-    public a(Context context, com.baidu.adp.base.h hVar) {
-        super(context);
+    public a(AboutActivity aboutActivity, i iVar) {
+        super(aboutActivity.getPageContext());
         this.mLoadDataCallBack = null;
-        this.mContext = context;
-        this.mLoadDataCallBack = hVar;
+        this.mContext = aboutActivity.getPageContext().getPageActivity();
+        this.mLoadDataCallBack = iVar;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.f
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.f
     public boolean cancelLoadData() {
-        if (this.bon != null) {
-            this.bon.cancel();
+        if (this.bsI != null) {
+            this.bsI.cancel();
             return false;
         }
         return false;
     }
 
-    public void Td() {
-        if (this.bon == null) {
-            this.bon = new b(this, null);
+    public void TW() {
+        if (this.bsI == null) {
+            this.bsI = new b(this, null);
         }
-        this.bon.setPriority(3);
-        this.bon.execute(new String[0]);
+        this.bsI.setPriority(3);
+        this.bsI.execute(new String[0]);
     }
 }

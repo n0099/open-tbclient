@@ -1,29 +1,29 @@
 package com.baidu.tieba.frs.view;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.PraiseData;
+import android.app.Activity;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q implements View.OnClickListener {
-    final /* synthetic */ FrsPraiseView aGo;
+public class q implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ o aHR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(FrsPraiseView frsPraiseView) {
-        this.aGo = frsPraiseView;
+    public q(o oVar) {
+        this.aHR = oVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PraiseData praiseData;
-        Context context;
-        praiseData = this.aGo.aGm;
-        MetaData metaData = praiseData.getUser().get(0);
-        if (metaData != null) {
-            context = this.aGo.mContext;
-            com.baidu.tbadk.util.f.a(2002003, new PersonInfoActivityConfig(context, metaData.getUserId(), metaData.getName_show()));
-        }
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        TbPageContext tbPageContext;
+        int i;
+        MessageManager messageManager = MessageManager.getInstance();
+        tbPageContext = this.aHR.mContext;
+        Activity pageActivity = tbPageContext.getPageActivity();
+        i = this.aHR.aHy;
+        messageManager.sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(pageActivity, i, "exp_acce")));
+        aVar.dismiss();
     }
 }

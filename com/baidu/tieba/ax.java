@@ -1,17 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.InvokeOnCreateOnMainThreadMessageConfig;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax implements CustomMessageTask.CustomRunnable<InvokeOnCreateOnMainThreadMessageConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<InvokeOnCreateOnMainThreadMessageConfig> run(CustomMessage<InvokeOnCreateOnMainThreadMessageConfig> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            aj.wm().wp();
+public class ax implements View.OnClickListener {
+    final /* synthetic */ UpdateDialog this$0;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ax(UpdateDialog updateDialog) {
+        this.this$0 = updateDialog;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        af afVar;
+        z = this.this$0.akM;
+        if (z) {
+            this.this$0.Aw();
         }
-        return null;
+        afVar = this.this$0.alF;
+        afVar.dismiss();
+        this.this$0.finish();
     }
 }

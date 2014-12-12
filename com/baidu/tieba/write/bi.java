@@ -2,41 +2,41 @@ package com.baidu.tieba.write;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.selectpoi.ResponsedSelectLocation;
+import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 /* loaded from: classes.dex */
 class bi extends CustomMessageListener {
-    final /* synthetic */ WriteActivity bUm;
+    final /* synthetic */ WriteActivity cft;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bi(WriteActivity writeActivity, int i) {
         super(i);
-        this.bUm = writeActivity;
+        this.cft = writeActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.location.d dVar;
-        com.baidu.tieba.editortool.j jVar;
-        com.baidu.tieba.location.d dVar2;
-        com.baidu.tieba.location.d dVar3;
-        com.baidu.tieba.editortool.j jVar2;
+        com.baidu.tieba.tbadkCore.location.d dVar;
+        com.baidu.tieba.tbadkCore.PbEditor.k kVar;
+        com.baidu.tieba.tbadkCore.location.d dVar2;
+        com.baidu.tieba.tbadkCore.location.d dVar3;
+        com.baidu.tieba.tbadkCore.PbEditor.k kVar2;
         if (customResponsedMessage instanceof ResponsedSelectLocation) {
             ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
             if (responsedSelectLocation.isShowLocation()) {
-                dVar2 = this.bUm.ayB;
-                dVar2.dx(false);
-                dVar3 = this.bUm.ayB;
-                dVar3.gL(responsedSelectLocation.getName());
-                jVar2 = this.bUm.bTT;
-                jVar2.j(2, responsedSelectLocation.getName());
+                dVar2 = this.cft.aAD;
+                dVar2.ex(false);
+                dVar3 = this.cft.aAD;
+                dVar3.aP(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                kVar2 = this.cft.cfa;
+                kVar2.B(2, responsedSelectLocation.getName());
                 return;
             }
-            dVar = this.bUm.ayB;
-            dVar.dx(true);
-            jVar = this.bUm.bTT;
-            jVar.setLocationInfoViewState(0);
+            dVar = this.cft.aAD;
+            dVar.ex(true);
+            kVar = this.cft.cfa;
+            kVar.setLocationInfoViewState(0);
         }
     }
 }

@@ -1,43 +1,28 @@
 package com.baidu.tieba.person;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.coreExtra.view.MultiImageView;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bg implements DialogInterface.OnClickListener {
-    final /* synthetic */ PersonImageActivity bCW;
+public class bg implements View.OnClickListener {
+    final /* synthetic */ PersonListActivity bGG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bg(PersonImageActivity personImageActivity) {
-        this.bCW = personImageActivity;
+    public bg(PersonListActivity personListActivity) {
+        this.bGG = personListActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        AlertDialog listMenu;
-        MultiImageView multiImageView;
-        MultiImageView multiImageView2;
-        bj bjVar;
-        listMenu = this.bCW.getListMenu();
-        if (dialogInterface == listMenu && i == 0) {
-            try {
-                multiImageView = this.bCW.aNF;
-                byte[] currentImageData = multiImageView.getCurrentImageData();
-                if (currentImageData != null) {
-                    multiImageView2 = this.bCW.aNF;
-                    String currentImageUrl = multiImageView2.getCurrentImageUrl();
-                    this.bCW.bCV = new bj(this.bCW, currentImageUrl, currentImageData);
-                    bjVar = this.bCW.bCV;
-                    bjVar.execute(new String[0]);
-                    this.bCW.showProgressBarWithOffset(0, 0);
-                } else {
-                    this.bCW.showToast(this.bCW.getString(com.baidu.tieba.y.no_data));
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.bGG.bGg = ((Integer) view.getTag()).intValue();
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (currentAccount == null || currentAccount.length() <= 0) {
+            this.bGG.sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) this.bGG.getPageContext().getPageActivity(), this.bGG.getPageContext().getString(com.baidu.tieba.z.login_to_chat), true, 11028)));
+        } else {
+            this.bGG.aau();
         }
     }
 }

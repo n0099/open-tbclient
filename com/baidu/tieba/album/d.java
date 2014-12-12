@@ -5,11 +5,11 @@ import android.widget.ImageView;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 class d implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ b ahE;
+    final /* synthetic */ b aoT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.ahE = bVar;
+        this.aoT = bVar;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -22,26 +22,26 @@ class d implements ViewPager.OnPageChangeListener {
         p pVar2;
         ImageView imageView;
         ImageView imageView2;
-        this.ahE.RO = i;
-        b bVar = this.ahE;
-        i2 = this.ahE.RO;
-        bVar.dL(i2 + 1);
-        hVar = this.ahE.ahB;
+        this.aoT.mCurrentIndex = i;
+        b bVar = this.aoT;
+        i2 = this.aoT.mCurrentIndex;
+        bVar.ef(i2 + 1);
+        hVar = this.aoT.aoQ;
         if (hVar != null) {
-            pVar = this.ahE.aht;
+            pVar = this.aoT.aoJ;
             if (pVar != null) {
-                hVar2 = this.ahE.ahB;
-                i3 = this.ahE.RO;
-                ImageFileInfo dM = hVar2.dM(i3);
-                pVar2 = this.ahE.aht;
-                if (pVar2.isAdded(dM)) {
-                    b bVar2 = this.ahE;
-                    imageView2 = this.ahE.ahC;
+                hVar2 = this.aoT.aoQ;
+                i3 = this.aoT.mCurrentIndex;
+                ImageFileInfo eg = hVar2.eg(i3);
+                pVar2 = this.aoT.aoJ;
+                if (pVar2.isAdded(eg)) {
+                    b bVar2 = this.aoT;
+                    imageView2 = this.aoT.aoR;
                     bVar2.a(imageView2, true);
                     return;
                 }
-                b bVar3 = this.ahE;
-                imageView = this.ahE.ahC;
+                b bVar3 = this.aoT;
+                imageView = this.aoT.aoR;
                 bVar3.a(imageView, false);
             }
         }

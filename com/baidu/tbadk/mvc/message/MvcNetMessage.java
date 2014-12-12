@@ -1,10 +1,10 @@
 package com.baidu.tbadk.mvc.message;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.mvc.b.g;
-import com.baidu.tbadk.mvc.b.i;
+import com.baidu.tbadk.mvc.b.h;
+import com.baidu.tbadk.mvc.b.j;
 /* loaded from: classes.dex */
-public class MvcNetMessage<T extends g, D extends i> extends NetMessage {
+public class MvcNetMessage<T extends h, D extends j> extends NetMessage {
     private boolean isNeedCache;
     private T requestData;
     private Class<D> responseDataClass;
@@ -17,7 +17,7 @@ public class MvcNetMessage<T extends g, D extends i> extends NetMessage {
 
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
-        return this.requestData.ay(z);
+        return this.requestData.X(z);
     }
 
     public T getRequestData() {

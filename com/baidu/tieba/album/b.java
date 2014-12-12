@@ -8,46 +8,46 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 public class b extends BaseFragment {
-    private ViewPager Cu;
-    private TextView JN;
-    private int RO = -1;
-    private View ahA;
-    private h ahB;
-    private ImageView ahC;
-    private View ahD;
-    private p aht;
-    private com.baidu.tbadk.img.e ahw;
-    private AlbumActivity ahz;
+    private p aoJ;
+    private com.baidu.tbadk.img.e aoM;
+    private AlbumActivity aoO;
+    private View aoP;
+    private h aoQ;
+    private ImageView aoR;
+    private View aoS;
+    private int mCurrentIndex = -1;
     private NavigationBar mNavigationBar;
     private View mRoot;
+    private TextView mTitle;
+    private ViewPager mViewPager;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.ahz = (AlbumActivity) getActivity();
-        this.aht = this.ahz.xJ();
+        this.aoO = (AlbumActivity) getBaseFragmentActivity();
+        this.aoJ = this.aoO.Bc();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.mRoot = layoutInflater.inflate(com.baidu.tieba.w.album_big_image_view, (ViewGroup) null);
-        this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(com.baidu.tieba.v.navigation_bar);
-        this.ahA = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.ahz);
-        this.JN = this.mNavigationBar.setTitleText("");
-        View inflate = layoutInflater.inflate(com.baidu.tieba.w.album_big_image_choose, (ViewGroup) null);
-        this.ahC = (ImageView) inflate.findViewById(com.baidu.tieba.v.img_choose);
+        this.mRoot = layoutInflater.inflate(com.baidu.tieba.x.album_big_image_view, (ViewGroup) null);
+        this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(com.baidu.tieba.w.navigation_bar);
+        this.aoP = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.aoO);
+        this.mTitle = this.mNavigationBar.setTitleText("");
+        View inflate = layoutInflater.inflate(com.baidu.tieba.x.album_big_image_choose, (ViewGroup) null);
+        this.aoR = (ImageView) inflate.findViewById(com.baidu.tieba.w.img_choose);
         this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, inflate, new c(this));
-        this.Cu = (ViewPager) this.mRoot.findViewById(com.baidu.tieba.v.viewPager);
-        this.ahw = this.ahz.xK();
-        this.Cu.setOnPageChangeListener(new d(this));
-        this.ahD = this.mRoot.findViewById(com.baidu.tieba.v.album_no_data);
+        this.mViewPager = (ViewPager) this.mRoot.findViewById(com.baidu.tieba.w.viewPager);
+        this.aoM = this.aoO.Bd();
+        this.mViewPager.setOnPageChangeListener(new d(this));
+        this.aoS = this.mRoot.findViewById(com.baidu.tieba.w.album_no_data);
         return this.mRoot;
     }
 
@@ -55,96 +55,96 @@ public class b extends BaseFragment {
     public void onResume() {
         super.onResume();
         if (isShow()) {
-            xR();
+            Bk();
         }
     }
 
-    private void xP() {
-        if (this.aht == null && this.ahz != null) {
-            this.aht = this.ahz.xJ();
+    private void Bi() {
+        if (this.aoJ == null && this.aoO != null) {
+            this.aoJ = this.aoO.Bc();
         }
-        if (this.aht != null && this.aht.xX() != null) {
-            int currentIndex = this.aht.getCurrentIndex();
+        if (this.aoJ != null && this.aoJ.Bq() != null) {
+            int currentIndex = this.aoJ.getCurrentIndex();
             if (currentIndex >= 0) {
-                this.RO = currentIndex;
-                if (this.RO > this.aht.xX().size() - 1) {
-                    this.RO = this.aht.xX().size() - 1;
+                this.mCurrentIndex = currentIndex;
+                if (this.mCurrentIndex > this.aoJ.Bq().size() - 1) {
+                    this.mCurrentIndex = this.aoJ.Bq().size() - 1;
                 }
-                this.aht.dP(-1);
-                dL(this.RO + 1);
-                this.ahB = null;
-                this.ahB = new h(this.ahz, this.ahw);
-                this.Cu.setAdapter(this.ahB);
-                if (this.RO == 0 && this.aht.xX() != null) {
-                    if (this.aht.isAdded(this.aht.xX().get(this.RO))) {
-                        a(this.ahC, true);
+                this.aoJ.setCurrentIndex(-1);
+                ef(this.mCurrentIndex + 1);
+                this.aoQ = null;
+                this.aoQ = new h(this.aoO, this.aoM);
+                this.mViewPager.setAdapter(this.aoQ);
+                if (this.mCurrentIndex == 0 && this.aoJ.Bq() != null) {
+                    if (this.aoJ.isAdded(this.aoJ.Bq().get(this.mCurrentIndex))) {
+                        a(this.aoR, true);
                     } else {
-                        a(this.ahC, false);
+                        a(this.aoR, false);
                     }
                 }
             }
-            this.ahB.setData(this.aht.xX());
-            this.Cu.setCurrentItem(this.RO, false);
+            this.aoQ.setData(this.aoJ.Bq());
+            this.mViewPager.setCurrentItem(this.mCurrentIndex, false);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onHiddenChanged(boolean z) {
         super.onHiddenChanged(z);
-        if (z && this.ahB != null) {
-            this.ahB.setData(null);
+        if (z && this.aoQ != null) {
+            this.aoQ.setData(null);
         }
     }
 
-    public View xQ() {
-        return this.ahA;
+    public View Bj() {
+        return this.aoP;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.ahz.getLayoutMode().L(i == 1);
-        this.ahz.getLayoutMode().h(this.mRoot);
+        this.aoO.getLayoutMode().ab(i == 1);
+        this.aoO.getLayoutMode().h(this.mRoot);
         if (this.mNavigationBar != null) {
-            this.mNavigationBar.onChangeSkinType(i);
+            this.mNavigationBar.onChangeSkinType(this.aoO.getPageContext(), i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ImageView imageView, boolean z) {
         if (imageView != null) {
-            TbadkApplication.m251getInst().getSkinType();
+            TbadkCoreApplication.m255getInst().getSkinType();
             if (z) {
-                aw.h(imageView, com.baidu.tieba.u.btn_add_finish_s);
+                ax.i(imageView, com.baidu.tieba.v.btn_add_finish_s);
             } else {
-                aw.h(imageView, com.baidu.tieba.u.btn_add_finish_n);
+                ax.i(imageView, com.baidu.tieba.v.btn_add_finish_n);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dL(int i) {
-        if (this.aht != null && this.aht.xX() != null) {
-            String string = this.ahz.getString(com.baidu.tieba.y.album_big_image_title, new Object[]{Integer.valueOf(i), Integer.valueOf(this.aht.xX().size())});
+    public void ef(int i) {
+        if (this.aoJ != null && this.aoJ.Bq() != null) {
+            String string = this.aoO.getPageContext().getContext().getString(com.baidu.tieba.z.album_big_image_title, Integer.valueOf(i), Integer.valueOf(this.aoJ.Bq().size()));
             if (TextUtils.isEmpty(string)) {
                 string = "";
             }
-            this.JN.setText(string);
+            this.mTitle.setText(string);
         }
     }
 
     public void e(ImageFileInfo imageFileInfo, boolean z) {
-        ImageFileInfo dM;
-        if (imageFileInfo != null && imageFileInfo.getFilePath() != null && this.ahB != null && (dM = this.ahB.dM(this.RO)) != null && dM.getFilePath() != null && dM.getFilePath().equals(imageFileInfo.getFilePath())) {
-            a(this.ahC, z);
+        ImageFileInfo eg;
+        if (imageFileInfo != null && imageFileInfo.getFilePath() != null && this.aoQ != null && (eg = this.aoQ.eg(this.mCurrentIndex)) != null && eg.getFilePath() != null && eg.getFilePath().equals(imageFileInfo.getFilePath())) {
+            a(this.aoR, z);
         }
     }
 
-    private void xR() {
+    private void Bk() {
         if (!isHidden()) {
-            this.ahD.setVisibility(8);
-            this.Cu.setVisibility(0);
-            xP();
+            this.aoS.setVisibility(8);
+            this.mViewPager.setVisibility(0);
+            Bi();
         }
     }
 }

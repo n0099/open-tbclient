@@ -10,47 +10,70 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.v;
 import com.baidu.tieba.w;
+import com.baidu.tieba.x;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageChangeListener, c {
-    private FragmentTabWidget Cq;
-    private int Cr;
-    private b Cs;
-    private final List<b> Ct;
-    private ViewPager Cu;
-    private a Cv;
+    private FragmentTabWidget GB;
+    private int GC;
+    private b GD;
+    private final List<b> GE;
+    private a GF;
     private Context mContext;
     private FragmentManager mFragmentManager;
     private ViewPager.OnPageChangeListener mOnPageChangeListener;
+    private ViewPager mViewPager;
 
     public FragmentTabHost(Context context) {
         super(context);
-        this.Ct = new ArrayList();
+        this.GE = new ArrayList();
         this.mOnPageChangeListener = null;
         init(context);
     }
 
     public FragmentTabHost(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Ct = new ArrayList();
+        this.GE = new ArrayList();
         this.mOnPageChangeListener = null;
         init(context);
     }
 
     private void init(Context context) {
         this.mContext = context;
-        com.baidu.adp.lib.g.b.ek().a(context, w.fragment_tabhost, this, true);
-        this.Cr = -1;
-        this.Cs = null;
+        com.baidu.adp.lib.g.b.ek().a(context, x.fragment_tabhost, this, true);
+        this.GC = -1;
+        this.GD = null;
+    }
+
+    public void setTabWidgetViewHeight(int i) {
+        if (this.GB != null) {
+            this.GB.getLayoutParams().height = i;
+            this.GB.requestLayout();
+        }
+    }
+
+    public void setShouldDrawIndicatorLine(boolean z) {
+        if (this.GB != null) {
+            this.GB.setShouldDrawIndicatorLine(z);
+        }
+    }
+
+    public void setTabWidgetBackgroundRes(int i) {
+        if (this.GB != null) {
+            this.GB.setBackGroundDrawableResId(i);
+        }
     }
 
     public void setup(FragmentManager fragmentManager) {
         this.mFragmentManager = fragmentManager;
-        this.Cq = (FragmentTabWidget) findViewById(v.tabcontainer);
-        this.Cq.setTabSelectionListener(this);
+        this.GB = (FragmentTabWidget) findViewById(w.tabcontainer);
+        this.GB.setTabSelectionListener(this);
+    }
+
+    public void c(int i, int i2, int i3, int i4) {
+        this.GB.setPadding(i, i2, i3, i4);
     }
 
     public void a(b bVar) {
@@ -58,37 +81,45 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
     }
 
     public void a(b bVar, int i) {
-        if (bVar.Cy == null) {
+        if (bVar.GH == null) {
             throw new IllegalArgumentException("you must create the tab indicator.");
         }
-        if (bVar.Cz == null) {
+        if (bVar.GI == null) {
             throw new IllegalArgumentException("you must create the tab content");
         }
-        if (!this.Ct.contains(bVar)) {
-            this.Cq.addView(bVar.Cy, i);
+        if (!this.GE.contains(bVar)) {
+            this.GB.addView(bVar.GH, i);
             if (i == -1) {
-                this.Ct.add(bVar);
+                this.GE.add(bVar);
             } else {
-                this.Ct.add(i, bVar);
+                this.GE.add(i, bVar);
             }
-            if (this.Cr != -1 && i <= this.Cr) {
-                this.Cr++;
+            if (this.GC != -1 && i <= this.GC) {
+                this.GC++;
             }
         }
     }
 
     public void initViewPager() {
-        if (this.Cu != null) {
-            removeView(this.Cu);
+        bG(0);
+    }
+
+    public void bG(int i) {
+        if (this.mViewPager != null) {
+            removeView(this.mViewPager);
         }
-        this.Cu = new ViewPager(this.mContext);
-        this.Cu.setId(v.tab_content);
-        this.Cu.setLayoutParams(new LinearLayout.LayoutParams(-1, 0, 1.0f));
-        addView(this.Cu);
-        this.Cu.setOffscreenPageLimit(this.Ct.size() - 1);
-        this.Cu.setOnPageChangeListener(this);
-        this.Cv = new a(this.mFragmentManager, this.Ct);
-        this.Cu.setAdapter(this.Cv);
+        this.mViewPager = new ViewPager(this.mContext);
+        this.mViewPager.setId(w.tab_content);
+        this.mViewPager.setLayoutParams(new LinearLayout.LayoutParams(-1, 0, 1.0f));
+        if (i == 1) {
+            addView(this.mViewPager, 0);
+        } else {
+            addView(this.mViewPager);
+        }
+        this.mViewPager.setOffscreenPageLimit(this.GE.size() - 1);
+        this.mViewPager.setOnPageChangeListener(this);
+        this.GF = new a(this.mFragmentManager, this.GE);
+        this.mViewPager.setAdapter(this.GF);
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
@@ -96,23 +127,23 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
     }
 
     public void setCurrentTab(int i) {
-        if (i >= 0 && i < this.Ct.size() && i != this.Cr) {
-            this.Cr = i;
-            this.Cs = this.Ct.get(this.Cr);
-            this.Cq.d(this.Cr, true);
-            this.Cu.setCurrentItem(this.Cr, false);
+        if (i >= 0 && i < this.GE.size() && i != this.GC) {
+            this.GC = i;
+            this.GD = this.GE.get(this.GC);
+            this.GB.d(this.GC, true);
+            this.mViewPager.setCurrentItem(this.GC, false);
         }
     }
 
     public void setCurrentTabByType(int i) {
         int i2;
-        int size = this.Ct.size();
+        int size = this.GE.size();
         int i3 = 0;
         while (true) {
             if (i3 >= size) {
                 i2 = -1;
                 break;
-            } else if (i == this.Ct.get(i3).mType) {
+            } else if (i == this.GE.get(i3).mType) {
                 i2 = i3;
                 break;
             } else {
@@ -121,7 +152,7 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
         }
         if (i2 != -1) {
             setCurrentTab(i2);
-        } else if (this.Cr == -1) {
+        } else if (this.GC == -1) {
             setCurrentTab(0);
         }
     }
@@ -132,33 +163,33 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
     }
 
     public void setTabWidgetBackgroundColor(int i) {
-        this.Cq.setBackgroundColor(i);
+        this.GB.setBackgroundColor(i);
     }
 
     public int getCurrentTabIndex() {
-        return this.Cr;
+        return this.GC;
     }
 
     public int getCurrentTabType() {
-        if (this.Cr < 0 || this.Cr >= this.Ct.size()) {
+        if (this.GC < 0 || this.GC >= this.GE.size()) {
             return -1;
         }
-        return this.Ct.get(this.Cr).mType;
+        return this.GE.get(this.GC).mType;
     }
 
     public Fragment getCurrentFragment() {
-        if (this.Cs != null) {
-            return this.Cs.Cz;
+        if (this.GD != null) {
+            return this.GD.GI;
         }
         return null;
     }
 
     public FragmentTabWidget getFragmentTabWidget() {
-        return this.Cq;
+        return this.GB;
     }
 
-    public b bk(int i) {
-        for (b bVar : this.Ct) {
+    public b bH(int i) {
+        for (b bVar : this.GE) {
             if (i == bVar.mType) {
                 return bVar;
             }
@@ -168,18 +199,18 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
 
     public void reset() {
         FragmentTransaction beginTransaction = this.mFragmentManager.beginTransaction();
-        int size = this.Ct.size();
+        int size = this.GE.size();
         for (int i = 0; i < size; i++) {
-            Fragment findFragmentByTag = this.mFragmentManager.findFragmentByTag(makeFragmentName(this.Cu.getId(), this.Cv.getItemId(i)));
+            Fragment findFragmentByTag = this.mFragmentManager.findFragmentByTag(makeFragmentName(this.mViewPager.getId(), this.GF.getItemId(i)));
             if (findFragmentByTag != null) {
                 beginTransaction.remove(findFragmentByTag);
             }
         }
         beginTransaction.commitAllowingStateLoss();
-        this.Ct.clear();
-        this.Cs = null;
-        this.Cr = -1;
-        this.Cq.reset();
+        this.GE.clear();
+        this.GD = null;
+        this.GC = -1;
+        this.GB.reset();
     }
 
     private static String makeFragmentName(int i, long j) {
@@ -187,14 +218,14 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
     }
 
     public void onChangeSkinType(int i) {
-        this.Cq.onChangeSkinType(i);
-        for (b bVar : this.Ct) {
-            bVar.Cy.bN(i);
+        this.GB.onChangeSkinType(i);
+        for (b bVar : this.GE) {
+            bVar.GH.cm(i);
         }
-        if (this.Cv != null) {
-            int count = this.Cv.getCount();
+        if (this.GF != null) {
+            int count = this.GF.getCount();
             for (int i2 = 0; i2 < count; i2++) {
-                Fragment item = this.Cv.getItem(i2);
+                Fragment item = this.GF.getItem(i2);
                 if (item != null && (item instanceof BaseFragment)) {
                     ((BaseFragment) item).changeSkinType(i);
                 }
@@ -211,7 +242,7 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrolled(int i, float f, int i2) {
-        this.Cq.a(i, f);
+        this.GB.a(i, f);
         if (this.mOnPageChangeListener != null) {
             this.mOnPageChangeListener.onPageScrolled(i, f, i2);
         }
@@ -222,10 +253,10 @@ public class FragmentTabHost extends LinearLayout implements ViewPager.OnPageCha
         if (this.mOnPageChangeListener != null) {
             this.mOnPageChangeListener.onPageSelected(i);
         }
-        this.Cr = i;
-        this.Cs = this.Ct.get(i);
-        this.Cq.d(this.Cr, false);
-        ViewGroup viewGroup = (ViewGroup) this.Cs.Cz.getView();
+        this.GC = i;
+        this.GD = this.GE.get(i);
+        this.GB.d(this.GC, false);
+        ViewGroup viewGroup = (ViewGroup) this.GD.GI.getView();
         if (viewGroup != null && viewGroup.getChildCount() > 0) {
             View childAt = viewGroup.getChildAt(0);
             if (childAt instanceof FragmentTabRootView) {

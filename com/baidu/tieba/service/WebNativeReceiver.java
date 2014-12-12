@@ -3,8 +3,10 @@ package com.baidu.tieba.service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.CreateBarActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.atomData.InviteFriendListActivityConfig;
 import com.baidu.tbadk.core.atomData.PayActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
@@ -27,7 +29,7 @@ public class WebNativeReceiver extends BroadcastReceiver {
                 intent2.putExtra("class", 0);
                 intent2.putExtra(ImageViewerConfig.URL, intent.getStringExtra(ImageViewerConfig.URL));
                 intent2.putExtra("from", stringExtra2);
-                TiebaStatic.eventStat(TbadkApplication.m251getInst().getApp(), "aladdin", null, 1, "st_type", stringExtra2, "st_param", intent.getStringExtra(ImageViewerConfig.URL));
+                TiebaStatic.eventStat(TbadkCoreApplication.m255getInst().getApp(), "aladdin", null, 1, "st_type", stringExtra2, "st_param", intent.getStringExtra(ImageViewerConfig.URL));
             } else if (stringExtra.equals("pb")) {
                 intent2.putExtra("class", 1);
                 intent2.putExtra("id", intent.getStringExtra("id"));
@@ -38,7 +40,7 @@ public class WebNativeReceiver extends BroadcastReceiver {
                 intent2.putExtra("from", stringExtra2);
             } else if (stringExtra.equals("groupinfo")) {
                 intent2.putExtra("class", 13);
-                intent2.putExtra("groupid", intent.getStringExtra("groupid"));
+                intent2.putExtra(InviteFriendListActivityConfig.GROUP_ID, intent.getStringExtra(InviteFriendListActivityConfig.GROUP_ID));
             } else if (stringExtra.equals("pay")) {
                 intent2.putExtra("class", 15);
                 intent2.putExtra("pay_type", intent.getStringExtra("pay_type"));
@@ -48,11 +50,11 @@ public class WebNativeReceiver extends BroadcastReceiver {
                 intent2.putExtra(PayActivityConfig.PROPS_MON, intent.getStringExtra(PayActivityConfig.PROPS_MON));
             } else if (stringExtra.equals("livegroup")) {
                 intent2.putExtra("class", 17);
-                intent2.putExtra("groupid", intent.getStringExtra("groupid"));
+                intent2.putExtra(InviteFriendListActivityConfig.GROUP_ID, intent.getStringExtra(InviteFriendListActivityConfig.GROUP_ID));
             } else if (stringExtra.equals("officialba_msg")) {
                 intent2.putExtra("class", 22);
                 intent2.putExtra("barid", intent.getStringExtra("barid"));
-                intent2.putExtra("barname", intent.getStringExtra("barname"));
+                intent2.putExtra(CreateBarActivityConfig.BAR_NAME_STRING, intent.getStringExtra(CreateBarActivityConfig.BAR_NAME_STRING));
                 intent2.putExtra(com.baidu.tbadk.core.frameworkData.a.PORTRAIT, intent.getStringExtra(com.baidu.tbadk.core.frameworkData.a.PORTRAIT));
             } else {
                 return;

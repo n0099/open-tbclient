@@ -57,9 +57,13 @@ public class BMediaController extends RelativeLayout implements View.OnClickList
 
         boolean isPlaying();
 
+        void mute(int i);
+
         void pause();
 
         void play();
+
+        void resume();
 
         void seekTo(double d);
 

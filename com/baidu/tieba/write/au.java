@@ -5,11 +5,11 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class au implements DialogInterface.OnClickListener {
-    final /* synthetic */ WriteActivity bUm;
+    final /* synthetic */ WriteActivity cft;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(WriteActivity writeActivity) {
-        this.bUm = writeActivity;
+        this.cft = writeActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -17,15 +17,15 @@ public class au implements DialogInterface.OnClickListener {
         WriteData writeData;
         WriteData writeData2;
         WriteData writeData3;
-        writeData = this.bUm.bpJ;
+        writeData = this.cft.bNF;
         int type = writeData.getType();
         if (type == 0) {
-            writeData3 = this.bUm.bpJ;
-            com.baidu.tieba.util.l.a(writeData3.getForumId(), (WriteData) null);
+            writeData3 = this.cft.bNF;
+            com.baidu.tieba.tbadkCore.al.a(writeData3.getForumId(), (WriteData) null);
         } else if (type == 1) {
-            writeData2 = this.bUm.bpJ;
-            com.baidu.tieba.util.l.b(writeData2.getThreadId(), (WriteData) null);
+            writeData2 = this.cft.bNF;
+            com.baidu.tieba.tbadkCore.al.b(writeData2.getThreadId(), (WriteData) null);
         }
-        this.bUm.finish();
+        this.cft.finish();
     }
 }

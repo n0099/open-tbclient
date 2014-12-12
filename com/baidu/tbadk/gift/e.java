@@ -3,14 +3,15 @@ package com.baidu.tbadk.gift;
 import android.view.View;
 import android.widget.EditText;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ BuyGiftActivity Uy;
+    final /* synthetic */ BuyGiftActivity aaD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(BuyGiftActivity buyGiftActivity) {
-        this.Uy = buyGiftActivity;
+        this.aaD = buyGiftActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,20 +21,20 @@ public class e implements View.OnClickListener {
         String str;
         View view3;
         EditText editText2;
-        view2 = this.Uy.Ut;
+        view2 = this.aaD.aay;
         view2.setVisibility(8);
-        BuyGiftActivity buyGiftActivity = this.Uy;
-        editText = this.Uy.Uq;
+        BuyGiftActivity buyGiftActivity = this.aaD;
+        editText = this.aaD.aav;
         buyGiftActivity.mPassword = editText.getText().toString();
-        str = this.Uy.mPassword;
+        str = this.aaD.mPassword;
         if (!StringUtils.isValidPassWord(str)) {
-            this.Uy.showToast(com.baidu.tieba.y.wrong_password);
-            view3 = this.Uy.Ut;
+            this.aaD.showToast(z.wrong_password);
+            view3 = this.aaD.aay;
             view3.setVisibility(0);
             return;
         }
-        this.Uy.sd();
-        editText2 = this.Uy.Uq;
+        this.aaD.vG();
+        editText2 = this.aaD.aav;
         editText2.setText("");
     }
 }

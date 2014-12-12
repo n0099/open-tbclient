@@ -3,7 +3,7 @@ package com.baidu.tieba.xiuba;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.e;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.ai;
+import com.baidu.tieba.tbadkCore.a.a;
 /* loaded from: classes.dex */
 public class XiubaSendMsgModel {
     public static SendMsgCallback sendMsgCallback;
@@ -15,7 +15,7 @@ public class XiubaSendMsgModel {
     }
 
     static {
-        ai.a(107202, ResponseSendXiubaMessage.class, false, false);
+        a.a(107202, ResponseSendXiubaMessage.class, false, false);
         sendMsgListener = new e(107202) { // from class: com.baidu.tieba.xiuba.XiubaSendMsgModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener

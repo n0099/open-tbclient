@@ -1,32 +1,31 @@
 package com.baidu.tbadk.core;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbadkApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.graphics.Rect;
+import android.view.ViewTreeObserver;
 /* loaded from: classes.dex */
-public class e extends CustomMessageListener {
-    final /* synthetic */ BaseFragmentActivity yG;
+class e implements ViewTreeObserver.OnGlobalLayoutListener {
+    final /* synthetic */ BaseFragmentActivity CA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(BaseFragmentActivity baseFragmentActivity, int i) {
-        super(i);
-        this.yG = baseFragmentActivity;
+    public e(BaseFragmentActivity baseFragmentActivity) {
+        this.CA = baseFragmentActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        d dVar;
-        d dVar2;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005017) {
-            dVar = this.yG.mLayoutMode;
-            if (dVar != null) {
-                dVar2 = this.yG.mLayoutMode;
-                dVar2.a(null);
-                this.yG.onChangeSkinType(TbadkApplication.m251getInst().getSkinType());
-            }
+    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+    public void onGlobalLayout() {
+        Rect rect = new Rect();
+        this.CA.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
+        int height = this.CA.getWindow().getDecorView().getRootView().getHeight();
+        int i = height - (rect.bottom - rect.top);
+        Context applicationContext = this.CA.getApplicationContext();
+        int identifier = applicationContext.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (identifier > 0) {
+            i -= applicationContext.getResources().getDimensionPixelSize(identifier);
+        }
+        if (TbadkCoreApplication.m255getInst().isKeyboardHeightCanSet(i) && i < (height * 2) / 3 && TbadkCoreApplication.m255getInst().getKeyboardHeight() != i) {
+            TbadkCoreApplication.m255getInst().setKeyboardHeight(i);
+            this.CA.onKeyboardHeightChanged(i);
         }
     }
 }

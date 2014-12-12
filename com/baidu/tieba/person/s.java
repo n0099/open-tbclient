@@ -1,51 +1,95 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-class s implements View.OnClickListener {
-    final /* synthetic */ o bBP;
+public class s extends com.baidu.adp.base.f {
+    private static final String bkk = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/like";
+    private static TbHttpMessageTask bkl = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, bkk);
+    private int bFj;
+    private f mData;
+    private String mId;
+    private boolean mIsHost;
+    private int mSex;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public s(o oVar) {
-        this.bBP = oVar;
+    static {
+        bkl.setResponsedClass(PersonBarResponseMessage.class);
+        MessageManager.getInstance().registerTask(bkl);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        x xVar;
-        x xVar2;
-        x xVar3;
-        TextView textView;
-        TextView textView2;
-        x xVar4;
-        x xVar5;
-        TextView textView3;
-        TextView textView4;
-        x xVar6;
-        xVar = this.bBP.bBH;
-        if (xVar != null) {
-            xVar2 = this.bBP.bBH;
-            if (!xVar2.xf()) {
-                xVar5 = this.bBP.bBH;
-                xVar5.setEditState(true);
-                textView3 = this.bBP.aes;
-                textView3.setText(com.baidu.tieba.y.done);
-                textView4 = this.bBP.aes;
-                com.baidu.tbadk.core.util.aw.f(textView4, TbadkApplication.m251getInst().getSkinType());
-                xVar6 = this.bBP.bBH;
-                xVar6.notifyDataSetChanged();
-                return;
+    public s(TbPageContext tbPageContext, boolean z) {
+        super(tbPageContext);
+        this.mData = new f();
+        this.mIsHost = z;
+    }
+
+    public void setId(String str) {
+        this.mId = str;
+    }
+
+    public String getId() {
+        return this.mId;
+    }
+
+    public void setSex(int i) {
+        this.mSex = i;
+    }
+
+    public void hf(int i) {
+        this.bFj = i;
+    }
+
+    public f aaj() {
+        return this.mData;
+    }
+
+    public void CK() {
+        super.sendMessage(new PersonBarByUidLocalMessage());
+    }
+
+    public void a(boolean z, String str, int i, int i2) {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_LIKE_BAR_CMD);
+        httpMessage.addParam(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
+        httpMessage.addParam("friend_uid", str);
+        httpMessage.addParam("is_guest", String.valueOf(1));
+        httpMessage.addParam("page_size", Integer.valueOf(i2));
+        httpMessage.addParam("page_no", Integer.valueOf(i));
+        httpMessage.setExtra(str);
+        super.sendMessage(httpMessage);
+    }
+
+    @Override // com.baidu.adp.base.f
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.f
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public void hF(String str) {
+        if (this.bFj == 1 && this.mIsHost) {
+            String str2 = "";
+            if (TbadkCoreApplication.getCurrentAccountObj() != null) {
+                str2 = TbadkCoreApplication.getCurrentAccountObj().getID();
             }
-            xVar3 = this.bBP.bBH;
-            xVar3.setEditState(false);
-            textView = this.bBP.aes;
-            textView.setText(com.baidu.tieba.y.edit);
-            textView2 = this.bBP.aes;
-            com.baidu.tbadk.core.util.aw.h(textView2, TbadkApplication.m251getInst().getSkinType());
-            xVar4 = this.bBP.bBH;
-            xVar4.notifyDataSetChanged();
+            if (str != null) {
+                try {
+                    com.baidu.adp.lib.cache.t<String> bV = com.baidu.tbadk.core.a.a.nS().bV("tb.my_pages");
+                    if (bV != null) {
+                        bV.a(str2, str, TbConfig.APP_OVERDUR_DRAFT_BOX);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

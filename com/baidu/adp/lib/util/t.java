@@ -1,23 +1,82 @@
 package com.baidu.adp.lib.util;
 
-import java.util.Comparator;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.Reader;
 /* loaded from: classes.dex */
-class t implements Comparator<com.baidu.adp.lib.cache.v<?>> {
-    private t() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ t(t tVar) {
-        this();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(com.baidu.adp.lib.cache.v<?> vVar, com.baidu.adp.lib.cache.v<?> vVar2) {
-        if (vVar.fN == vVar2.fN) {
-            return 0;
+public class t {
+    public static void d(InputStream inputStream) {
+        if (inputStream != null) {
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
+            }
         }
-        return vVar.fN > vVar2.fN ? -1 : 1;
+    }
+
+    public static void c(Closeable closeable) {
+        if (closeable != null) {
+            try {
+                closeable.close();
+            } catch (Throwable th) {
+                BdLog.e(th.getMessage());
+            }
+        }
+    }
+
+    public static void b(OutputStream outputStream) {
+        if (outputStream != null) {
+            try {
+                outputStream.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void a(Reader reader) {
+        if (reader != null) {
+            try {
+                reader.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void b(Cursor cursor) {
+        if (cursor != null) {
+            try {
+                cursor.close();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void i(SQLiteDatabase sQLiteDatabase) {
+        if (sQLiteDatabase != null) {
+            try {
+                sQLiteDatabase.close();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void a(SQLiteStatement sQLiteStatement) {
+        if (sQLiteStatement != null) {
+            try {
+                sQLiteStatement.close();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 }

@@ -28,10 +28,10 @@ public class bs extends com.baidu.adp.framework.listener.e {
             String valueOf = String.valueOf(liveGroupInfo.groupId);
             ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
             imMessageCenterPojo.setGid(valueOf);
-            imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.chat.bu.F(liveGroupInfo.lastMsgId.longValue()));
+            imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.util.h.af(liveGroupInfo.lastMsgId.longValue()));
             imMessageCenterPojo.setCustomGroupType(9);
             imMessageCenterPojo.setIs_hidden(1);
-            c.PN().g(imMessageCenterPojo);
+            c.Qs().n(imMessageCenterPojo);
             CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new bt(this, valueOf));
             customMessageTask.setParallel(TiebaIMConfig.getParallel());
             customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);

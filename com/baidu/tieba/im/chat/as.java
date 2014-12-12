@@ -1,22 +1,26 @@
 package com.baidu.tieba.im.chat;
 
-import java.util.LinkedHashMap;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class as extends com.baidu.tieba.im.b<LinkedHashMap<String, String>> {
-    final /* synthetic */ w aOa;
-    private final /* synthetic */ String aOl;
+public class as implements View.OnClickListener {
+    final /* synthetic */ MsgActivityView aQL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public as(w wVar, String str) {
-        this.aOa = wVar;
-        this.aOl = str;
+    public as(MsgActivityView msgActivityView) {
+        this.aQL = msgActivityView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: Jt */
-    public LinkedHashMap<String, String> doInBackground() {
-        return com.baidu.tieba.im.db.c.MA().a(this.aOl, 2, null, 1000);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.adp.lib.c.a aVar;
+        com.baidu.adp.lib.c.a aVar2;
+        int i;
+        aVar = this.aQL.mItemViewClickListener;
+        if (aVar != null) {
+            aVar2 = this.aQL.mItemViewClickListener;
+            i = this.aQL.mPosition;
+            aVar2.onItemViewClick(view, 8, i, 0L);
+        }
     }
 }

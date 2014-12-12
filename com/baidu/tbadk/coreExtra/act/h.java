@@ -7,14 +7,14 @@ import com.baidu.tbadk.widget.EditHeadsImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
-    private final /* synthetic */ String Kb;
+    private final /* synthetic */ String Pl;
     final /* synthetic */ EditHeadActivity this$0;
     private final /* synthetic */ int val$id;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(EditHeadActivity editHeadActivity, String str, int i) {
         this.this$0 = editHeadActivity;
-        this.Kb = str;
+        this.Pl = str;
         this.val$id = i;
     }
 
@@ -25,12 +25,12 @@ public class h implements View.OnClickListener {
         Bitmap bitmap;
         progressBar = this.this$0.mProgress;
         if (progressBar.getVisibility() != 0) {
-            editHeadsImageView = this.this$0.JA;
+            editHeadsImageView = this.this$0.OH;
             bitmap = this.this$0.mBitmap;
-            editHeadsImageView.g(bitmap);
-            this.this$0.JV = false;
-            this.this$0.cl(this.Kb);
-            this.this$0.JR = this.val$id;
+            editHeadsImageView.replaceImageBitmap(bitmap);
+            this.this$0.Pg = false;
+            this.this$0.de(this.Pl);
+            this.this$0.Pc = this.val$id;
         }
     }
 }

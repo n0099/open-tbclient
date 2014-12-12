@@ -7,9 +7,9 @@ import com.baidu.tbadk.TbConfig;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class e {
-    private final String ahF = TbConfig.getTempDirName();
-    private f ahG;
-    private g ahH;
+    private final String aoU = TbConfig.getTempDirName();
+    private f aoV;
+    private g aoW;
     private final Context mContext;
 
     public e(Context context) {
@@ -20,10 +20,10 @@ public class e {
         if (oVar == null) {
             return false;
         }
-        xS();
-        this.ahG = new f(this, oVar);
-        this.ahG.setPriority(3);
-        this.ahG.execute(new Object[0]);
+        Bl();
+        this.aoV = new f(this, oVar);
+        this.aoV.setPriority(3);
+        this.aoV.execute(new Object[0]);
         return true;
     }
 
@@ -31,28 +31,28 @@ public class e {
         if (alVar == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        xT();
-        this.ahH = new g(this, str, alVar);
-        this.ahH.setPriority(3);
-        this.ahH.execute(new Object[0]);
+        Bm();
+        this.aoW = new g(this, str, alVar);
+        this.aoW.setPriority(3);
+        this.aoW.execute(new Object[0]);
         return true;
     }
 
-    public void xS() {
-        if (this.ahG != null) {
-            this.ahG.cancel();
-            this.ahG = null;
+    public void Bl() {
+        if (this.aoV != null) {
+            this.aoV.cancel();
+            this.aoV = null;
         }
     }
 
-    public void xT() {
-        if (this.ahH != null) {
-            this.ahH.cancel();
-            this.ahH = null;
+    public void Bm() {
+        if (this.aoW != null) {
+            this.aoW.cancel();
+            this.aoW = null;
         }
     }
 
-    public String en(String str) {
+    public String getMimeType(String str) {
         String fileExtensionFromUrl = getFileExtensionFromUrl(str);
         if (fileExtensionFromUrl == null) {
             return null;

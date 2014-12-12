@@ -1,34 +1,35 @@
 package com.baidu.tieba.light.share;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.Toast;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.TbadkApplication;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.v;
+import com.baidu.tieba.w;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
-public class a {
-    public static Context mContext = TbadkApplication.m251getInst().getContext();
-    private static com.baidu.adp.framework.listener.e blS = new b(205001);
-    private static com.baidu.adp.framework.listener.e blT = new c(202001);
-
-    public a() {
-        MessageManager.getInstance().registerListener(blS);
-        MessageManager.getInstance().registerListener(blT);
+class a extends com.baidu.adp.framework.listener.e {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public a(int i) {
+        super(i);
     }
 
-    public static int A(ChatMessage chatMessage) {
-        if (chatMessage.getContent() == null || chatMessage.getContent().length() == 0) {
-            return -1;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        ChatMessage chatMessage;
+        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 205001 && (chatMessage = (ChatMessage) socketResponsedMessage.getOrginalMessage()) != null && GameShareListenerStatic.z(chatMessage) == 1) {
+            if (socketResponsedMessage.getError() == 0) {
+                GameShareListenerStatic.e(GameShareListenerStatic.mContext, com.baidu.adp.lib.g.b.ek().inflate(GameShareListenerStatic.mContext, x.tip_game_share, null));
+                TiebaStatic.eventStat(GameShareListenerStatic.mContext, "game_share_tbf_ok", "click", 1, "dev_id", com.baidu.tbadk.game.b.vv().getGameInfoData().getGameId(), "share_type", 5);
+                return;
+            }
+            LinearLayout linearLayout = (LinearLayout) com.baidu.adp.lib.g.b.ek().inflate(GameShareListenerStatic.mContext, x.tip_game_share, null);
+            ((ImageView) linearLayout.findViewById(w.tip_iamge)).setImageResource(v.icon_toast_game_error);
+            ((TextView) linearLayout.findViewById(w.tip_text)).setText("分享失败");
+            GameShareListenerStatic.e(GameShareListenerStatic.mContext, linearLayout);
         }
-        return new com.baidu.tieba.im.widget.a().aw(chatMessage.getContent(), "game-share-parse");
-    }
-
-    public static void e(Context context, View view) {
-        Toast toast = new Toast(context);
-        toast.setView(view);
-        toast.setGravity(17, 0, 0);
-        toast.setDuration(3000);
-        toast.show();
     }
 }

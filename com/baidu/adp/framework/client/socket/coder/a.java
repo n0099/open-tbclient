@@ -3,22 +3,22 @@ package com.baidu.adp.framework.client.socket.coder;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class a {
-    private static byte cd = Byte.MIN_VALUE;
-    private static byte ce = 64;
-    private boolean cf = false;
-    private boolean cg = false;
-    private int ch;
-    private int ci;
+    private static byte ej = Byte.MIN_VALUE;
+    private static byte ek = 64;
+    private boolean el = false;
+    private boolean em = false;
+    private int en;
+    private int eo;
 
-    public static int aF() {
+    public static int bf() {
         return 9;
     }
 
     public static byte[] a(boolean z, boolean z2, int i, int i2, byte[] bArr) {
-        ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + aF());
-        byte b = z ? (byte) (cd | 0) : (byte) 0;
+        ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + bf());
+        byte b = z ? (byte) (ej | 0) : (byte) 0;
         if (z2) {
-            b = (byte) (b | ce);
+            b = (byte) (b | ek);
         }
         allocate.put(b);
         allocate.putInt(i);
@@ -30,34 +30,34 @@ public class a {
         return allocate.array();
     }
 
-    public static a e(byte[] bArr) {
-        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, aF());
+    public static a f(byte[] bArr) {
+        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, bf());
         a aVar = new a();
         byte b = wrap.get();
-        if ((cd & b) != 0) {
-            aVar.cf = true;
+        if ((ej & b) != 0) {
+            aVar.el = true;
         }
-        if ((b & ce) != 0) {
-            aVar.cg = true;
+        if ((b & ek) != 0) {
+            aVar.em = true;
         }
-        aVar.ch = wrap.getInt();
-        aVar.ci = wrap.getInt();
+        aVar.en = wrap.getInt();
+        aVar.eo = wrap.getInt();
         return aVar;
     }
 
-    public boolean aG() {
-        return this.cg;
+    public boolean bg() {
+        return this.em;
     }
 
-    public int aH() {
-        return this.ch;
+    public int bh() {
+        return this.en;
     }
 
-    public boolean aI() {
-        return this.cf;
+    public boolean bi() {
+        return this.el;
     }
 
-    public int aJ() {
-        return this.ci;
+    public int bj() {
+        return this.eo;
     }
 }

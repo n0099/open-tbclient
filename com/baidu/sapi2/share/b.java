@@ -16,7 +16,6 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.L;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
-import com.baidu.tbadk.BaseActivity;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -229,7 +228,7 @@ public final class b {
             return sb.toString();
         }
         for (byte b2 : bArr) {
-            String hexString = Integer.toHexString(b2 & BaseActivity.KEYBOARD_STATE_INIT);
+            String hexString = Integer.toHexString(b2 & 255);
             if (hexString.length() == 1) {
                 sb.append("0");
             }

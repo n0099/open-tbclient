@@ -34,78 +34,78 @@ public class CustomTextView extends TextView {
         try {
             super.onMeasure(i, i2);
         } catch (IndexOutOfBoundsException e) {
-            y(i, i2);
+            C(i, i2);
         }
     }
 
-    private void y(int i, int i2) {
+    private void C(int i, int i2) {
         CharSequence text = getText();
         if (text instanceof Spanned) {
             a(new SpannableStringBuilder(text), i, i2);
         } else {
-            z(i, i2);
+            D(i, i2);
         }
     }
 
     private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
-        h c = c(spannableStringBuilder, i, i2);
-        if (c.abl) {
+        f c = c(spannableStringBuilder, i, i2);
+        if (c.aiX) {
             a(i, i2, spannableStringBuilder, c);
         } else {
-            z(i, i2);
+            D(i, i2);
         }
     }
 
-    private h c(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
+    private f c(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         Object[] spans = spannableStringBuilder.getSpans(0, spannableStringBuilder.length(), Object.class);
         ArrayList arrayList = new ArrayList(spans.length);
         ArrayList arrayList2 = new ArrayList(spans.length);
         for (Object obj : spans) {
             int spanStart = spannableStringBuilder.getSpanStart(obj);
-            if (a(spannableStringBuilder, spanStart - 1)) {
+            if (b(spannableStringBuilder, spanStart - 1)) {
                 spannableStringBuilder.insert(spanStart, " ");
                 arrayList.add(obj);
             }
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
-            if (a(spannableStringBuilder, spanEnd)) {
+            if (b(spannableStringBuilder, spanEnd)) {
                 spannableStringBuilder.insert(spanEnd, " ");
                 arrayList2.add(obj);
             }
             try {
-                a((CharSequence) spannableStringBuilder, i, i2);
-                return h.b(arrayList, arrayList2);
+                c((CharSequence) spannableStringBuilder, i, i2);
+                return f.d(arrayList, arrayList2);
             } catch (IndexOutOfBoundsException e) {
                 BdLog.e(e.getMessage());
             }
         }
-        return h.aeS();
+        return f.ajH();
     }
 
-    private boolean a(CharSequence charSequence, int i) {
+    private boolean b(CharSequence charSequence, int i) {
         return i < 0 || charSequence.charAt(i) != ' ';
     }
 
-    private void a(CharSequence charSequence, int i, int i2) {
+    private void c(CharSequence charSequence, int i, int i2) {
         setText(charSequence);
         measure(i, i2);
     }
 
-    private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, h hVar) {
-        for (Object obj : hVar.abn) {
+    private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, f fVar) {
+        for (Object obj : fVar.aiZ) {
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             spannableStringBuilder.delete(spanEnd, spanEnd + 1);
             try {
-                a((CharSequence) spannableStringBuilder, i, i2);
+                c((CharSequence) spannableStringBuilder, i, i2);
             } catch (IndexOutOfBoundsException e) {
                 spannableStringBuilder.insert(spanEnd, " ");
             }
         }
         boolean z = true;
-        for (Object obj2 : hVar.abm) {
+        for (Object obj2 : fVar.aiY) {
             int spanStart = spannableStringBuilder.getSpanStart(obj2);
             spannableStringBuilder.delete(spanStart - 1, spanStart);
             try {
-                a((CharSequence) spannableStringBuilder, i, i2);
+                c((CharSequence) spannableStringBuilder, i, i2);
                 z = false;
             } catch (IndexOutOfBoundsException e2) {
                 spannableStringBuilder.insert(spanStart - 1, " ");
@@ -118,7 +118,7 @@ public class CustomTextView extends TextView {
         }
     }
 
-    private void z(int i, int i2) {
-        a(getText().toString(), i, i2);
+    private void D(int i, int i2) {
+        c(getText().toString(), i, i2);
     }
 }

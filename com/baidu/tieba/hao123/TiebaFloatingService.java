@@ -1,16 +1,14 @@
 package com.baidu.tieba.hao123;
 
 import android.app.Notification;
-import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.view.View;
-import com.baidu.tbadk.pluginArch.Plugin;
-import com.baidu.tbadk.pluginArch.PluginCenter;
-import com.baidu.tbadk.pluginArch.PluginNameList;
+import com.baidu.adp.base.BdBaseService;
+import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.tbadk.plugins.Hao123Plugin;
 /* loaded from: classes.dex */
-public class TiebaFloatingService extends Service implements View.OnClickListener, Runnable {
+public class TiebaFloatingService extends BdBaseService implements View.OnClickListener, Runnable {
     public static final String TAG = "DemoService";
     private Hao123Plugin.IFloatingServiceCallback mFloatingServiceCallback = new Hao123Plugin.IFloatingServiceCallback() { // from class: com.baidu.tieba.hao123.TiebaFloatingService.1
         @Override // com.baidu.tbadk.plugins.Hao123Plugin.IFloatingServiceCallback
@@ -41,12 +39,9 @@ public class TiebaFloatingService extends Service implements View.OnClickListene
 
     @Override // android.app.Service
     public void onCreate() {
-        Plugin pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_HAO123);
-        if (pluginByName != null && pluginByName.checkEnable()) {
-            this.mHao123Plugin = (Hao123Plugin) pluginByName.getClassInstance(Hao123Plugin.class);
-            if (this.mHao123Plugin != null) {
-                this.mHao123Plugin.floatingServiceOnCreate(this, this.mFloatingServiceCallback);
-            }
+        this.mHao123Plugin = (Hao123Plugin) PluginCenter.gX().hc();
+        if (this.mHao123Plugin != null) {
+            this.mHao123Plugin.floatingServiceOnCreate(this, this.mFloatingServiceCallback);
         }
     }
 

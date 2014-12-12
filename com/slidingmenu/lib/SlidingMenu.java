@@ -25,6 +25,8 @@ import android.widget.RelativeLayout;
 import com.slidingmenu.lib.CustomViewAbove;
 /* loaded from: classes.dex */
 public class SlidingMenu extends RelativeLayout {
+    public static final int FADE_TYPE_BEHIND = 1;
+    public static final int FADE_TYPE_WHOLE = 0;
     public static final int LEFT = 0;
     public static final int LEFT_RIGHT = 2;
     public static final int RIGHT = 1;
@@ -34,6 +36,7 @@ public class SlidingMenu extends RelativeLayout {
     public static final int TOUCHMODE_FULLSCREEN = 1;
     public static final int TOUCHMODE_MARGIN = 0;
     public static final int TOUCHMODE_NONE = 2;
+    private OnAboveViewScrollListener mAboveViewScrollListener;
     private boolean mActionbarOverlay;
     private OnCloseListener mCloseListener;
     private Handler mHandler;
@@ -44,6 +47,11 @@ public class SlidingMenu extends RelativeLayout {
     /* loaded from: classes.dex */
     public interface CanvasTransformer {
         void transformCanvas(Canvas canvas, float f);
+    }
+
+    /* loaded from: classes.dex */
+    public interface OnAboveViewScrollListener {
+        void onPageScrolled(int i, float f, int i2);
     }
 
     /* loaded from: classes.dex */
@@ -97,6 +105,9 @@ public class SlidingMenu extends RelativeLayout {
 
             @Override // com.slidingmenu.lib.CustomViewAbove.OnPageChangeListener
             public void onPageScrolled(int i2, float f, int i3) {
+                if (SlidingMenu.this.mAboveViewScrollListener != null) {
+                    SlidingMenu.this.mAboveViewScrollListener.onPageScrolled(i2, f, i3);
+                }
             }
 
             @Override // com.slidingmenu.lib.CustomViewAbove.OnPageChangeListener
@@ -210,6 +221,10 @@ public class SlidingMenu extends RelativeLayout {
         setMenu(LayoutInflater.from(getContext()).inflate(i, (ViewGroup) null));
     }
 
+    public float getPercentOpen() {
+        return this.mViewAbove.getPercentOpen();
+    }
+
     public void setMenu(View view) {
         this.mViewBehind.setContent(view);
     }
@@ -232,6 +247,10 @@ public class SlidingMenu extends RelativeLayout {
 
     public void setSlidingEnabled(boolean z) {
         this.mViewAbove.setSlidingEnabled(z);
+    }
+
+    public void setSettleDuration(int i) {
+        this.mViewAbove.setSettleDuration(i);
     }
 
     public boolean isSlidingEnabled() {
@@ -365,6 +384,10 @@ public class SlidingMenu extends RelativeLayout {
         this.mViewBehind.setCanvasTransformer(canvasTransformer);
     }
 
+    public void setAboveCanvasTransformer(CanvasTransformer canvasTransformer) {
+        this.mViewAbove.setCanvasTransformer(canvasTransformer);
+    }
+
     public int getTouchModeAbove() {
         return this.mViewAbove.getTouchMode();
     }
@@ -409,6 +432,10 @@ public class SlidingMenu extends RelativeLayout {
 
     public void setFadeEnabled(boolean z) {
         this.mViewBehind.setFadeEnabled(z);
+    }
+
+    public void setFadeType(int i) {
+        this.mViewBehind.setFadeType(i);
     }
 
     public void setFadeDegree(float f) {
@@ -457,6 +484,10 @@ public class SlidingMenu extends RelativeLayout {
 
     public void setOnClosedListener(OnClosedListener onClosedListener) {
         this.mViewAbove.setOnClosedListener(onClosedListener);
+    }
+
+    public void setOnAboveViewScrollListener(OnAboveViewScrollListener onAboveViewScrollListener) {
+        this.mAboveViewScrollListener = onAboveViewScrollListener;
     }
 
     /* loaded from: classes.dex */

@@ -1,65 +1,34 @@
 package com.baidu.tbadk.cdnOptimize;
-
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f {
-    public ArrayList<ArrayList<String>> xW;
-    public int xU = 0;
-    public String errorString = null;
-    public String imageUrl = null;
-    public String xV = null;
-    boolean xX = false;
-    public String xY = null;
+    final /* synthetic */ TbCDNTachometerService BG;
+    public String cdnIp;
+    public m cdnTachometerModel;
+    public g ipListData;
+    public boolean isSuccess;
+    public int pos;
+    public long vx;
+    private boolean isNormal = false;
+    private String BH = null;
 
-    public void parseJson(JSONObject jSONObject) {
-        JSONArray optJSONArray;
-        if (jSONObject != null) {
-            try {
-                JSONObject optJSONObject = jSONObject.optJSONObject("error");
-                if (optJSONObject != null) {
-                    this.xU = optJSONObject.optInt("errorno");
-                    this.errorString = optJSONObject.optString("errmsg");
-                }
-                if (1 == jSONObject.optInt("cdn_switch")) {
-                    this.xX = true;
-                } else {
-                    this.xX = false;
-                }
-                this.xY = jSONObject.optString("cdn_domain");
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("cdn_img_info");
-                if (optJSONObject2 != null) {
-                    this.imageUrl = optJSONObject2.optString("img_url");
-                    this.xV = optJSONObject2.optString("img_md5");
-                }
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("ip_list");
-                if (optJSONArray2 != null) {
-                    int length = optJSONArray2.length();
-                    ArrayList<ArrayList<String>> arrayList = new ArrayList<>();
-                    for (int i = 0; i < length; i++) {
-                        JSONObject jSONObject2 = optJSONArray2.getJSONObject(i);
-                        if (jSONObject2 != null && (optJSONArray = jSONObject2.optJSONArray("ip")) != null) {
-                            int length2 = optJSONArray.length();
-                            ArrayList<String> arrayList2 = new ArrayList<>();
-                            for (int i2 = 0; i2 < length2; i2++) {
-                                String string = optJSONArray.getString(i2);
-                                if (string != null && string.length() > 0) {
-                                    arrayList2.add(string);
-                                }
-                            }
-                            if (arrayList2.size() > 0) {
-                                arrayList.add(arrayList2);
-                            }
-                        }
-                    }
-                    if (arrayList.size() > 0) {
-                        this.xW = arrayList;
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.cdnOptimize.b.run(com.baidu.adp.framework.message.CustomMessage<com.baidu.tbadk.cdnOptimize.f>):com.baidu.adp.framework.message.CustomResponsedMessage<?>] */
+    public static /* synthetic */ boolean b(f fVar) {
+        return fVar.isNormal;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.cdnOptimize.b.run(com.baidu.adp.framework.message.CustomMessage<com.baidu.tbadk.cdnOptimize.f>):com.baidu.adp.framework.message.CustomResponsedMessage<?>] */
+    public static /* synthetic */ String a(f fVar) {
+        return fVar.BH;
+    }
+
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.cdnOptimize.b.run(com.baidu.adp.framework.message.CustomMessage<com.baidu.tbadk.cdnOptimize.f>):com.baidu.adp.framework.message.CustomResponsedMessage<?>] */
+    public static /* synthetic */ void a(f fVar, String str) {
+        fVar.BH = str;
+    }
+
+    public f(TbCDNTachometerService tbCDNTachometerService, g gVar, int i) {
+        this.BG = tbCDNTachometerService;
+        this.ipListData = gVar;
+        this.pos = i;
     }
 }

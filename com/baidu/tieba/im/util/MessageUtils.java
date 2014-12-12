@@ -1,10 +1,14 @@
 package com.baidu.tieba.im.util;
 
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.im.chat.w;
+import com.baidu.tieba.im.c.a;
 import com.baidu.tieba.im.data.MsgLocalData;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.memorycache.c;
+import com.baidu.tieba.im.message.RequestPersonalMsgReadMessage;
 import com.baidu.tieba.im.message.chat.GroupChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* loaded from: classes.dex */
@@ -13,7 +17,7 @@ public class MessageUtils {
     }
 
     public static void createPersonalChatMessage(int i, String str, long j, String str2, String str3) {
-        createPersonalChatMessage(com.baidu.tieba.im.memorycache.c.PN().G(String.valueOf(j), 2), i, str, j, str2, str3);
+        createPersonalChatMessage(c.Qs().M(String.valueOf(j), 2), i, str, j, str2, str3);
     }
 
     public static void createPersonalChatMessage(long j, int i, String str, long j2, String str2, String str3) {
@@ -35,12 +39,12 @@ public class MessageUtils {
             personalChatMessage.setMsgId(j);
             personalChatMessage.setTime(System.currentTimeMillis() / 1000);
             UserData userData2 = new UserData();
-            userData2.setUserName(TbadkApplication.getCurrentAccountName());
-            userData2.setUserId(TbadkApplication.getCurrentAccount());
-            userData2.setPortrait(com.baidu.tieba.im.c.Jj());
+            userData2.setUserName(TbadkCoreApplication.getCurrentAccountName());
+            userData2.setUserId(TbadkCoreApplication.getCurrentAccount());
+            userData2.setPortrait(TbadkCoreApplication.getCurrentPortrait());
             personalChatMessage.setUserInfo(userData2);
             try {
-                j3 = com.baidu.adp.lib.g.c.a(TbadkApplication.getCurrentAccount(), 0L);
+                j3 = com.baidu.adp.lib.g.c.a(TbadkCoreApplication.getCurrentAccount(), 0L);
             } catch (Exception e) {
                 j3 = 0;
             }
@@ -51,12 +55,12 @@ public class MessageUtils {
             msgLocalData.setRetry(0L);
             msgLocalData.setUpload_offset(null);
             personalChatMessage.setLocalData(msgLocalData);
-            w.Js().f(personalChatMessage);
+            a.SS().m(personalChatMessage);
         }
     }
 
     public static void createGroupChatMessage(int i, String str, long j) {
-        createGroupChatMessage(com.baidu.tieba.im.memorycache.c.PN().G(String.valueOf(j), 1), i, str, j);
+        createGroupChatMessage(c.Qs().M(String.valueOf(j), 1), i, str, j);
     }
 
     public static void createGroupChatMessage(long j, int i, String str, long j2) {
@@ -72,12 +76,12 @@ public class MessageUtils {
             groupChatMessage.setMsgId(j);
             groupChatMessage.setTime(System.currentTimeMillis() / 1000);
             UserData userData = new UserData();
-            userData.setUserName(TbadkApplication.getCurrentAccountName());
-            userData.setUserId(TbadkApplication.getCurrentAccount());
-            userData.setPortrait(com.baidu.tieba.im.c.Jj());
+            userData.setUserName(TbadkCoreApplication.getCurrentAccountName());
+            userData.setUserId(TbadkCoreApplication.getCurrentAccount());
+            userData.setPortrait(TbadkCoreApplication.getCurrentPortrait());
             groupChatMessage.setUserInfo(userData);
             try {
-                j3 = com.baidu.adp.lib.g.c.a(TbadkApplication.getCurrentAccount(), 0L);
+                j3 = com.baidu.adp.lib.g.c.a(TbadkCoreApplication.getCurrentAccount(), 0L);
             } catch (Exception e) {
                 j3 = 0;
             }
@@ -88,7 +92,20 @@ public class MessageUtils {
             msgLocalData.setRetry(0L);
             msgLocalData.setUpload_offset(null);
             groupChatMessage.setLocalData(msgLocalData);
-            w.Js().f(groupChatMessage);
+            a.SS().m(groupChatMessage);
+        }
+    }
+
+    public static void sendHasReadMessage(String str, int i) {
+        ImMessageCenterPojo H;
+        if (!StringUtils.isNull(str) && i == 2 && (H = c.Qs().H(str, 2)) != null) {
+            long pulled_msgId = H.getPulled_msgId();
+            if (pulled_msgId > H.getSent_msgId()) {
+                RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(h.ag(pulled_msgId), Long.parseLong(str));
+                if (!MessageManager.getInstance().getSocketClient().a(requestPersonalMsgReadMessage)) {
+                    MessageManager.getInstance().sendMessage(requestPersonalMsgReadMessage);
+                }
+            }
         }
     }
 }

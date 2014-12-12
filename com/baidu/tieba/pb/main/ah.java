@@ -1,57 +1,27 @@
 package com.baidu.tieba.pb.main;
 
-import android.content.DialogInterface;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.img.WriteImagesInfo;
+import android.os.Environment;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbConfig;
+import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah implements DialogInterface.OnClickListener {
-    final /* synthetic */ PbActivity bvu;
+public class ah extends BdAsyncTask<Void, Integer, Void> {
+    final /* synthetic */ PbActivity bzj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(PbActivity pbActivity) {
-        this.bvu = pbActivity;
+        this.bzj = pbActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        WriteImagesInfo writeImagesInfo;
-        WriteImagesInfo writeImagesInfo2;
-        WriteImagesInfo writeImagesInfo3;
-        WriteImagesInfo writeImagesInfo4;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void doInBackground(Void... voidArr) {
         String str;
-        WriteImagesInfo writeImagesInfo5;
-        WriteImagesInfo writeImagesInfo6;
-        if (i == 0) {
-            writeImagesInfo4 = this.bvu.writeImagesInfo;
-            if (writeImagesInfo4.getChosedFiles() != null) {
-                writeImagesInfo5 = this.bvu.writeImagesInfo;
-                int size = writeImagesInfo5.getChosedFiles().size();
-                writeImagesInfo6 = this.bvu.writeImagesInfo;
-                if (size >= writeImagesInfo6.getMaxImagesAllowed()) {
-                    this.bvu.showToast(String.format(this.bvu.getString(com.baidu.tieba.y.editor_mutiiamge_max), 10));
-                    return;
-                }
-            }
-            this.bvu.ayG = String.valueOf(System.currentTimeMillis());
-            PbActivity pbActivity = this.bvu;
-            str = this.bvu.ayG;
-            com.baidu.tbadk.core.util.av.a(pbActivity, str);
-        } else if (i == 1) {
-            writeImagesInfo = this.bvu.writeImagesInfo;
-            if (writeImagesInfo != null) {
-                writeImagesInfo2 = this.bvu.writeImagesInfo;
-                if (!TextUtils.isEmpty(writeImagesInfo2.toJsonString())) {
-                    PbActivity pbActivity2 = this.bvu;
-                    writeImagesInfo3 = this.bvu.writeImagesInfo;
-                    AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(pbActivity2, writeImagesInfo3.toJsonString());
-                    albumActivityConfig.setRequestCode(12002);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
-                }
-            }
-        }
+        StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(TbConfig.getTempDirName()).append("/");
+        str = this.bzj.aAI;
+        com.baidu.tbadk.core.util.s.deleteFile(new File(append.append(str).toString()));
+        return null;
     }
 }

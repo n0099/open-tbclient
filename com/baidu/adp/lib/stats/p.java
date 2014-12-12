@@ -3,23 +3,24 @@ package com.baidu.adp.lib.stats;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.v4.os.EnvironmentCompat;
 import android.telephony.TelephonyManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.service.NetworkChangeReceiver;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class p {
-    private static Random my = new Random();
+    private static Random mw = new Random();
 
-    public static String eK() {
+    public static String eL() {
         try {
-            return Long.toHexString(Math.abs(my.nextLong()));
+            return Long.toHexString(Math.abs(mw.nextLong()));
         } catch (Exception e) {
             return Long.toHexString(System.currentTimeMillis());
         }
     }
 
-    public static String j(Context context) {
+    public static String getNetType(Context context) {
         NetworkInfo activeNetworkInfo;
         if (context == null) {
             return null;
@@ -32,9 +33,9 @@ public class p {
                     return NetworkChangeReceiver.WIFI_STRING;
                 }
                 if (type == 0) {
-                    int fp = com.baidu.adp.lib.util.j.fp();
+                    int fo = com.baidu.adp.lib.util.i.fo();
                     StringBuilder sb = new StringBuilder();
-                    switch (fp) {
+                    switch (fo) {
                         case 1:
                             sb.append('M');
                             break;
@@ -80,13 +81,13 @@ public class p {
                     return sb.toString();
                 }
             }
-            return "unknown";
+            return EnvironmentCompat.MEDIA_UNKNOWN;
         } catch (Exception e) {
             return null;
         }
     }
 
-    public static String k(Context context) {
+    public static String H(Context context) {
         if (context == null) {
             return null;
         }
@@ -96,10 +97,10 @@ public class p {
                 if (activeNetworkInfo.getTypeName().equalsIgnoreCase(NetworkChangeReceiver.WIFI_STRING)) {
                     return TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE;
                 }
-                String fq = com.baidu.adp.lib.util.j.fq();
-                if (fq != null) {
-                    if (fq.length() > 0) {
-                        return TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT;
+                String fp = com.baidu.adp.lib.util.i.fp();
+                if (fp != null) {
+                    if (fp.length() > 0) {
+                        return "2";
                     }
                 }
                 return "1";

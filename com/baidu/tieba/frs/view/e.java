@@ -1,41 +1,42 @@
 package com.baidu.tieba.frs.view;
 
-import android.app.Activity;
+import android.content.Context;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tieba.frs.bn;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tieba.frs.bj;
+import com.baidu.tieba.tbadkCore.GoodGridView;
 /* loaded from: classes.dex */
 public class e {
-    private GoodGridView aEY;
-    private ImageView aEZ;
-    private View agI;
+    private GoodGridView aGF;
+    private ImageView aGG;
+    private View mParent;
 
-    public e(Activity activity) {
-        this.agI = null;
-        this.aEY = null;
-        this.aEZ = null;
-        this.agI = com.baidu.adp.lib.g.b.ek().inflate(activity, com.baidu.tieba.w.dialog_good, null);
-        this.aEY = (GoodGridView) this.agI.findViewById(com.baidu.tieba.v.good_gridview);
-        this.aEZ = (ImageView) this.agI.findViewById(com.baidu.tieba.v.divider_line);
+    public e(Context context) {
+        this.mParent = null;
+        this.aGF = null;
+        this.aGG = null;
+        this.mParent = com.baidu.adp.lib.g.b.ek().inflate(context, com.baidu.tieba.x.dialog_good, null);
+        this.aGF = (GoodGridView) this.mParent.findViewById(com.baidu.tieba.w.good_gridview);
+        this.aGG = (ImageView) this.mParent.findViewById(com.baidu.tieba.w.divider_line);
     }
 
-    public void a(bn bnVar) {
-        this.aEY.setAdapter((ListAdapter) bnVar);
+    public void a(bj bjVar) {
+        this.aGF.setAdapter((ListAdapter) bjVar);
     }
 
     public void c(AdapterView.OnItemClickListener onItemClickListener) {
-        this.aEY.setOnItemClickListener(onItemClickListener);
+        this.aGF.setOnItemClickListener(onItemClickListener);
     }
 
     public View getView() {
-        return this.agI;
+        return this.mParent;
     }
 
     public void changeSkinType(int i) {
-        aw.i(this.aEY, com.baidu.tieba.s.frs_goodheader_bg);
-        aw.h(this.aEZ, com.baidu.tieba.s.frs_goodheader_line_end);
+        ax.j(this.aGF, com.baidu.tieba.t.cp_bg_line_d);
+        ax.i(this.aGG, com.baidu.tieba.t.frs_goodheader_line_end);
     }
 }

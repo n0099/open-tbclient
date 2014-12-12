@@ -1,37 +1,24 @@
 package com.baidu.tieba.pb.main;
-
-import com.baidu.tbadk.core.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PbActivity bvu;
+class s implements com.baidu.tbadk.core.view.ad {
+    final /* synthetic */ PbActivity bzj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(PbActivity pbActivity) {
-        this.bvu = pbActivity;
+        this.bzj = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.tieba.location.i iVar;
-        bv bvVar;
-        com.baidu.tieba.location.d dVar;
-        bv bvVar2;
-        bv bvVar3;
-        if (UtilHelper.isNetOk()) {
-            bvVar = this.bvu.buZ;
-            if (bvVar.EQ() != null) {
-                bvVar2 = this.bvu.buZ;
-                bvVar2.EQ().setLocationInfoViewState(1);
-                bvVar3 = this.bvu.buZ;
-                bvVar3.EQ().setLocationViewVisibility(0);
+    @Override // com.baidu.tbadk.core.view.ad
+    public void ar(boolean z) {
+        boolean z2;
+        bq bqVar;
+        z2 = this.bzj.aqe;
+        if (!z2 && z) {
+            bqVar = this.bzj.byJ;
+            if (bqVar.Xk()) {
+                return;
             }
-            dVar = this.bvu.ayB;
-            dVar.Sz();
-        } else {
-            iVar = this.bvu.ayM;
-            iVar.EI();
+            this.bzj.WR();
         }
-        aVar.dismiss();
     }
 }

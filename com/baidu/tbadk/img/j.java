@@ -15,7 +15,7 @@ class j implements Parcelable.Creator<WriteImagesInfo> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: cS */
+    /* renamed from: dr */
     public WriteImagesInfo[] newArray(int i) {
         return new WriteImagesInfo[i];
     }

@@ -15,7 +15,7 @@ public class ProgressCountDownView extends FrameLayout {
     public static final int SHOW_TYPE_SECOND = 2;
     private String mFinalText;
     private boolean mFlickFlag;
-    private aq mListerner;
+    private ar mListerner;
     private ProgressBar mProgress;
     private View mRoot;
     private String mStrText;
@@ -41,9 +41,9 @@ public class ProgressCountDownView extends FrameLayout {
     }
 
     private void init(Context context) {
-        this.mRoot = com.baidu.adp.lib.g.b.ek().inflate(context, com.baidu.tieba.w.progress_count_down_view, this);
-        this.mTextView = (TextView) this.mRoot.findViewById(com.baidu.tieba.v.progress_count_down_text);
-        this.mProgress = (ProgressBar) this.mRoot.findViewById(com.baidu.tieba.v.progress_count_down_progress);
+        this.mRoot = com.baidu.adp.lib.g.b.ek().inflate(context, com.baidu.tieba.x.progress_count_down_view, this);
+        this.mTextView = (TextView) this.mRoot.findViewById(com.baidu.tieba.w.progress_count_down_text);
+        this.mProgress = (ProgressBar) this.mRoot.findViewById(com.baidu.tieba.w.progress_count_down_progress);
     }
 
     public void setFinalText(String str) {
@@ -53,7 +53,7 @@ public class ProgressCountDownView extends FrameLayout {
     public void setTime(long j, long j2, long j3) {
         this.mTotal = j;
         this.mWarnTime = j3;
-        this.mTimer = new ap(this, j, j2);
+        this.mTimer = new aq(this, j, j2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -105,7 +105,7 @@ public class ProgressCountDownView extends FrameLayout {
         }
     }
 
-    public void setOnFinishlistener(aq aqVar) {
-        this.mListerner = aqVar;
+    public void setOnFinishlistener(ar arVar) {
+        this.mListerner = arVar;
     }
 }

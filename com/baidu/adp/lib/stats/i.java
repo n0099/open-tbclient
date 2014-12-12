@@ -29,7 +29,7 @@ public class i extends BdAsyncTask<Object, Integer, BdStatSwitchData> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
+    /* renamed from: e */
     public BdStatSwitchData doInBackground(Object... objArr) {
         boolean z;
         String str;
@@ -42,16 +42,16 @@ public class i extends BdAsyncTask<Object, Integer, BdStatSwitchData> {
         if (!this.mk) {
             z = this.this$0.lY;
             if (!z) {
-                this.this$0.ev();
+                this.this$0.ew();
                 str = null;
             } else {
-                str = this.this$0.ew();
+                str = this.this$0.ex();
             }
         } else {
-            this.this$0.ev();
+            this.this$0.ew();
             z3 = this.this$0.lY;
-            str = z3 ? this.this$0.ew() : null;
-            this.this$0.et();
+            str = z3 ? this.this$0.ex() : null;
+            this.this$0.eu();
         }
         z2 = this.this$0.lY;
         if (z2) {

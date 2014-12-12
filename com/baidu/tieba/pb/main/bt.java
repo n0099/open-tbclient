@@ -1,5 +1,11 @@
 package com.baidu.tieba.pb.main;
 /* loaded from: classes.dex */
-class bt {
-    private static bs bxt = new bs(null);
+public interface bt {
+    void a(com.baidu.tieba.tbadkCore.b.i iVar);
+
+    void a(boolean z, int i, int i2, int i3, com.baidu.tieba.tbadkCore.b.i iVar, String str, int i4);
+
+    void dG(boolean z);
+
+    void e(com.baidu.tbadk.performanceLog.w wVar);
 }

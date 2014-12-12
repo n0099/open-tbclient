@@ -37,4 +37,30 @@ public class LoginActivityConfig extends a {
         getIntent().putExtra(ACCOUNT, str);
         getIntent().putExtra(HAS_EXIT_DIALOG, z);
     }
+
+    public LoginActivityConfig(Context context, String str, boolean z, int i) {
+        super(context);
+        getIntent().putExtra(HAS_EXIT_DIALOG, false);
+        getIntent().putExtra(INFO, str);
+        getIntent().putExtra(CLOSE, z);
+        setRequestCode(i);
+        setIntentAction(IntentAction.ActivityForResult);
+    }
+
+    public LoginActivityConfig(Context context, String str) {
+        super(context);
+        getIntent().putExtra(ACCOUNT, str);
+        getIntent().putExtra(HAS_EXIT_DIALOG, false);
+    }
+
+    public LoginActivityConfig(Context context, int i) {
+        super(context);
+        getIntent().putExtra(LOGIN_TYPE, i);
+        getIntent().putExtra(HAS_EXIT_DIALOG, false);
+    }
+
+    public LoginActivityConfig(Context context) {
+        super(context);
+        getIntent().putExtra(HAS_EXIT_DIALOG, false);
+    }
 }

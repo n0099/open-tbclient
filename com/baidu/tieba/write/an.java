@@ -7,18 +7,18 @@ import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
 import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.util.AntiHelper;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
-class an implements com.baidu.tieba.model.as {
-    final /* synthetic */ WriteActivity bUm;
+class an implements com.baidu.tieba.tbadkCore.f.c {
+    final /* synthetic */ WriteActivity cft;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(WriteActivity writeActivity) {
-        this.bUm = writeActivity;
+        this.cft = writeActivity;
     }
 
-    @Override // com.baidu.tieba.model.as
-    public void a(boolean z, String str, com.baidu.tbadk.coreExtra.data.g gVar, WriteData writeData, AntiData antiData) {
+    @Override // com.baidu.tieba.tbadkCore.f.c
+    public void a(boolean z, com.baidu.tieba.tbadkCore.f.f fVar, com.baidu.tbadk.coreExtra.data.j jVar, WriteData writeData, AntiData antiData) {
         WriteData writeData2;
         WriteData writeData3;
         WriteData writeData4;
@@ -27,53 +27,57 @@ class an implements com.baidu.tieba.model.as {
         WriteData writeData7;
         WriteData writeData8;
         WriteData writeData9;
-        this.bUm.EC();
-        this.bUm.closeLoadingDialog();
+        this.cft.stopVoice();
+        this.cft.closeLoadingDialog();
+        String str = "";
+        if (fVar != null) {
+            str = fVar.getErrorString();
+        }
         if (!z) {
-            if (gVar != null && writeData != null && gVar.getVcode_pic_url() != null) {
+            if (jVar != null && writeData != null && jVar.getVcode_pic_url() != null) {
                 if (!AntiHelper.e(antiData)) {
-                    writeData.setVcodeMD5(gVar.getVcode_md5());
-                    writeData.setVcodeUrl(gVar.getVcode_pic_url());
-                    if (gVar.oC().equals("4")) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.bUm, 12006, writeData, false)));
+                    writeData.setVcodeMD5(jVar.getVcode_md5());
+                    writeData.setVcodeUrl(jVar.getVcode_pic_url());
+                    if (jVar.rD().equals("4")) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.cft.getPageContext().getPageActivity(), 12006, writeData, false)));
                         return;
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.bUm, writeData, 12006)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.cft.getPageContext().getPageActivity(), writeData, 12006)));
                         return;
                     }
                 }
-                this.bUm.a(false, antiData, str);
+                this.cft.a(false, antiData, str);
                 return;
             }
-            this.bUm.a(false, antiData, str);
+            this.cft.a(false, antiData, str);
             return;
         }
-        this.bUm.a(true, antiData, str);
-        writeData2 = this.bUm.bpJ;
+        this.cft.a(true, antiData, fVar);
+        writeData2 = this.cft.bNF;
         if (writeData2.getType() == 0) {
-            writeData7 = this.bUm.bpJ;
+            writeData7 = this.cft.bNF;
             if (writeData7.getLiveCardData() == null) {
-                writeData9 = this.bUm.bpJ;
-                com.baidu.tieba.util.l.a(writeData9.getForumId(), (WriteData) null);
+                writeData9 = this.cft.bNF;
+                com.baidu.tieba.tbadkCore.al.a(writeData9.getForumId(), (WriteData) null);
             } else {
-                writeData8 = this.bUm.bpJ;
-                com.baidu.tieba.util.l.a(writeData8.getLiveCardData().getGroupId(), (WriteData) null);
+                writeData8 = this.cft.bNF;
+                com.baidu.tieba.tbadkCore.al.a(writeData8.getLiveCardData().getGroupId(), (WriteData) null);
             }
         } else {
-            writeData3 = this.bUm.bpJ;
+            writeData3 = this.cft.bNF;
             if (writeData3.getType() == 1) {
-                writeData4 = this.bUm.bpJ;
-                com.baidu.tieba.util.l.b(writeData4.getThreadId(), (WriteData) null);
+                writeData4 = this.cft.bNF;
+                com.baidu.tieba.tbadkCore.al.b(writeData4.getThreadId(), (WriteData) null);
             }
         }
-        writeData5 = this.bUm.bpJ;
+        writeData5 = this.cft.bNF;
         if (writeData5.getLiveCardData() != null) {
-            WriteActivity writeActivity = this.bUm;
-            FrsActivityConfig frsActivityConfig = new FrsActivityConfig(this.bUm);
-            writeData6 = this.bUm.bpJ;
+            WriteActivity writeActivity = this.cft;
+            FrsActivityConfig frsActivityConfig = new FrsActivityConfig(this.cft.getPageContext().getPageActivity());
+            writeData6 = this.cft.bNF;
             writeActivity.sendMessage(new CustomMessage(2003001, frsActivityConfig.createRefreshCfgShowContent(writeData6.getForumName(), "post live's thread")));
         }
-        this.bUm.setResult(-1);
-        this.bUm.finish();
+        this.cft.setResult(-1);
+        this.cft.finish();
     }
 }

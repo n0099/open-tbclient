@@ -1,19 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.pluginArch.PluginCenter;
-import com.baidu.tbadk.pluginArch.PluginNameList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
-public class ar implements Runnable {
-    final /* synthetic */ aj aee;
+class ar implements Runnable {
+    final /* synthetic */ aq alw;
+    private final /* synthetic */ CustomMessage alx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(aj ajVar) {
-        this.aee = ajVar;
+    public ar(aq aqVar, CustomMessage customMessage) {
+        this.alw = aqVar;
+        this.alx = customMessage;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        PluginCenter.getInstance().installPluginFromAsset(PluginNameList.NAME_HAO123, null);
+        al.a((AccountData) this.alx.getData(), TbadkApplication.getInst().getApp());
     }
 }

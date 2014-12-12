@@ -1,6 +1,9 @@
 package com.baidu.tieba.im.chat.officialBar;
 
 import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.OfficialHistoryImageActivityConfig;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -20,15 +23,15 @@ public class ae implements View.OnClickListener {
         if (intValue < 0) {
             return;
         }
-        list = this.this$0.WB;
+        list = this.this$0.mList;
         if (intValue >= list.size()) {
             return;
         }
-        list2 = this.this$0.WB;
-        az azVar = (az) list2.get(intValue);
-        String v = com.baidu.tieba.im.util.i.v("[" + azVar.content + "]", true);
-        if (v != null) {
-            OfficialHistoryImageActivity.startActivity(this.this$0.mContext, v, String.valueOf(azVar.id));
+        list2 = this.this$0.mList;
+        aq aqVar = (aq) list2.get(intValue);
+        String s = com.baidu.tieba.im.util.i.s("[" + aqVar.content + "]", true);
+        if (s != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new OfficialHistoryImageActivityConfig(this.this$0.mContext, s, String.valueOf(aqVar.id))));
         }
     }
 }

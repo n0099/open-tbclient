@@ -1,33 +1,35 @@
 package com.baidu.tbadk.mvc.i;
-
-import android.view.View;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tbadk.mvc.e.c;
 /* loaded from: classes.dex */
-public abstract class d<D, S extends com.baidu.tbadk.mvc.e.c> implements com.baidu.tbadk.e.a {
-    private final View Xm;
-    private S Xv;
-    private final ViewEventCenter Yl;
-    private D data;
-
-    public abstract void r(D d);
-
-    public d(View view, ViewEventCenter viewEventCenter) {
-        this.Xm = view;
-        this.Yl = viewEventCenter;
+public abstract class d extends e {
+    public d(com.baidu.tbadk.mvc.core.e<?, ?, ?> eVar) {
+        super(eVar);
     }
 
-    public View getRootView() {
-        return this.Xm;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void aT(boolean z) {
+        wx().addEventDelegate(this);
+        dz(16777218);
     }
 
-    public void a(D d, S s) {
-        this.data = d;
-        this.Xv = s;
-        r(d);
-        c(s);
+    protected void yh() {
     }
 
-    public void c(S s) {
+    protected void yi() {
+    }
+
+    @Override // com.baidu.tbadk.mvc.i.e, com.baidu.tbadk.mvc.i.a, com.baidu.tbadk.mvc.core.c, com.baidu.tbadk.mvc.c.a
+    public boolean a(com.baidu.tbadk.mvc.c.b bVar) {
+        if (super.a(bVar)) {
+            return true;
+        }
+        if (bVar.xc() == 33554439) {
+            yh();
+            return true;
+        } else if (bVar.xc() == 33554440) {
+            yi();
+            return true;
+        } else {
+            return false;
+        }
     }
 }

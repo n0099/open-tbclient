@@ -4,12 +4,12 @@ import android.content.Context;
 import android.widget.ImageView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tieba.u;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.v;
+import com.baidu.tieba.x;
+import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class AddressListDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private static ImageView agB;
+    private static ImageView anS;
 
     static {
         a aVar = new a(2007002);
@@ -28,28 +28,29 @@ public class AddressListDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.d sE() {
+    public com.baidu.tbadk.mainTab.d wd() {
         if (isAvailable()) {
             com.baidu.tbadk.mainTab.d dVar = new com.baidu.tbadk.mainTab.d();
-            dVar.VY = new d();
+            dVar.acb = new d();
             dVar.type = 4;
-            dVar.VZ = y.contacts;
+            dVar.acc = z.contacts;
+            dVar.abS = v.icon_tabbar_contact;
             return dVar;
         }
         return null;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public FragmentTabIndicator z(Context context) {
-        this.VQ = (FragmentTabIndicator) com.baidu.adp.lib.g.b.ek().inflate(context, w.fragmenttabindicator, null);
-        agB = new ImageView(context);
+    public FragmentTabIndicator W(Context context) {
+        this.abP = (FragmentTabIndicator) com.baidu.adp.lib.g.b.ek().inflate(context, x.fragmenttabindicator, null);
+        anS = new ImageView(context);
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.VX = this.VQ;
-        cVar.jI = com.baidu.adp.lib.util.m.dip2px(context, 7.0f);
-        cVar.view = agB;
-        cVar.VV = u.icon_news_down_bar_one;
-        agB.setVisibility(8);
-        this.VQ.a("addresslist", cVar);
-        return this.VQ;
+        cVar.aca = this.abP;
+        cVar.jM = com.baidu.adp.lib.util.l.dip2px(context, 7.0f);
+        cVar.view = anS;
+        cVar.abY = v.icon_news_down_bar_one;
+        anS.setVisibility(8);
+        this.abP.a("addresslist", cVar);
+        return this.abP;
     }
 }

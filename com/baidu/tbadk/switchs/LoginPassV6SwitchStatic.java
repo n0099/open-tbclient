@@ -5,7 +5,7 @@ import com.baidu.adp.lib.b.f;
 /* loaded from: classes.dex */
 public class LoginPassV6SwitchStatic extends a {
     static {
-        f.db().d(LoginPassV6SwitchStatic.class);
+        f.dc().l(LoginPassV6SwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

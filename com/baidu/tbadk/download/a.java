@@ -1,22 +1,22 @@
 package com.baidu.tbadk.download;
 
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
 public class a implements f {
     @Override // com.baidu.tbadk.download.f
-    public void onFileUpdateProgress(DownloadData downloadData) {
+    public void a(DownloadData downloadData) {
         if (downloadData != null) {
             if (downloadData.getStatus() == 1) {
-                b.rj().b(downloadData);
+                b.uK().f(downloadData);
             }
-            b.rj().a(downloadData);
+            b.uK().e(downloadData);
         }
     }
 
     @Override // com.baidu.tbadk.download.f
-    public boolean onPreDownload(DownloadData downloadData) {
+    public boolean b(DownloadData downloadData) {
         if (downloadData == null) {
             return false;
         }
@@ -25,7 +25,7 @@ public class a implements f {
     }
 
     @Override // com.baidu.tbadk.download.f
-    public boolean onFileDownloaded(DownloadData downloadData) {
+    public boolean c(DownloadData downloadData) {
         if (downloadData == null) {
             return false;
         }
@@ -34,13 +34,13 @@ public class a implements f {
     }
 
     @Override // com.baidu.tbadk.download.f
-    public void onFileDownloadSucceed(DownloadData downloadData) {
-        NotificationHelper.cancelNotification(TbadkApplication.m251getInst().getApp(), downloadData.getNotifyId());
-        UtilHelper.install_apk(TbadkApplication.m251getInst().getApp(), String.valueOf(downloadData.getId().replace(".", "_")) + ".apk");
+    public void d(DownloadData downloadData) {
+        NotificationHelper.cancelNotification(TbadkCoreApplication.m255getInst().getApp(), downloadData.getNotifyId());
+        UtilHelper.install_apk(TbadkCoreApplication.m255getInst().getApp(), String.valueOf(downloadData.getId().replace(".", "_")) + ".apk");
     }
 
     @Override // com.baidu.tbadk.download.f
-    public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
-        b.rj().c(downloadData);
+    public void a(DownloadData downloadData, int i, String str) {
+        b.uK().g(downloadData);
     }
 }

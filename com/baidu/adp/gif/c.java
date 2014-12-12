@@ -6,7 +6,7 @@ import android.graphics.Canvas;
 public interface c {
     boolean a(Bitmap bitmap, Canvas canvas);
 
-    int bj();
+    int bK();
 
     void close();
 
@@ -14,7 +14,7 @@ public interface c {
 
     int getWidth();
 
-    boolean k(int i);
+    boolean w(int i);
 
-    int l(int i);
+    int x(int i);
 }

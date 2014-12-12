@@ -23,17 +23,17 @@ public class w extends com.baidu.adp.framework.listener.e {
             String portrait = responsePassFriendMessage.getPortrait();
             String key = responsePassFriendMessage.getKey();
             String quanpin = responsePassFriendMessage.getQuanpin();
-            com.baidu.tieba.im.data.e eVar = new com.baidu.tieba.im.data.e();
-            eVar.setId(friendId);
-            eVar.setStatus(2);
-            eVar.fw(0);
+            com.baidu.tieba.im.data.b bVar = new com.baidu.tieba.im.data.b();
+            bVar.setId(friendId);
+            bVar.setStatus(2);
+            bVar.fz(0);
             if (error == 0) {
-                com.baidu.tieba.im.e.a(new x(this, friendId, eVar), new y(this, friendId, portrait, name, key, quanpin));
+                com.baidu.tieba.im.i.a(new x(this, friendId, bVar), new y(this, friendId, portrait, name, key, quanpin));
             } else if (error == 3100098) {
                 Message<?> orginalMessage = responsePassFriendMessage.getOrginalMessage();
                 if (orginalMessage instanceof RequestPassFriendMessage) {
                     long friendId2 = ((RequestPassFriendMessage) orginalMessage).getFriendId();
-                    com.baidu.tieba.im.e.a(new z(this, friendId2), new aa(this, friendId2));
+                    com.baidu.tieba.im.i.a(new z(this, friendId2), new aa(this, friendId2));
                 }
             }
         }

@@ -1,21 +1,14 @@
 package com.baidu.tieba.person;
 
-import android.app.AlertDialog;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.BaseFragment;
 /* loaded from: classes.dex */
-public class al implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity bCA;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public al(PersonChangeActivity personChangeActivity) {
-        this.bCA = personChangeActivity;
+public class al extends d {
+    public al(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
+        super(basePersonInfoActivity, z);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        AlertDialog alertDialog;
-        alertDialog = this.bCA.ayP;
-        com.baidu.adp.lib.g.j.a(alertDialog, this.bCA);
+    @Override // com.baidu.tieba.person.d
+    protected BaseFragment ZW() {
+        return new am();
     }
 }

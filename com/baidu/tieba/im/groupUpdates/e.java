@@ -1,26 +1,28 @@
 package com.baidu.tieba.im.groupUpdates;
+
+import com.baidu.tieba.im.model.UpdatesModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ UpdatesActivity bci;
-    private final /* synthetic */ com.baidu.tieba.im.a bcj;
+public class e implements com.baidu.tieba.im.g<Boolean> {
+    final /* synthetic */ UpdatesActivity bfR;
+    private final /* synthetic */ com.baidu.tieba.im.g val$getDataCallBackWithBroadcast;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(UpdatesActivity updatesActivity, com.baidu.tieba.im.a aVar) {
-        this.bci = updatesActivity;
-        this.bcj = aVar;
+    public e(UpdatesActivity updatesActivity, com.baidu.tieba.im.g gVar) {
+        this.bfR = updatesActivity;
+        this.val$getDataCallBackWithBroadcast = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
+    @Override // com.baidu.tieba.im.g
     public void onReturnDataInUI(Boolean bool) {
+        UpdatesModel updatesModel;
         p pVar;
-        t tVar;
-        pVar = this.bci.bch;
-        pVar.Pj();
-        tVar = this.bci.bca;
-        tVar.Po();
-        this.bci.df(false);
-        p.c(this.bcj);
+        updatesModel = this.bfR.bfQ;
+        updatesModel.clearSelect();
+        pVar = this.bfR.bfO;
+        pVar.cancelEditMode();
+        this.bfR.setEditMode(false);
+        UpdatesModel.requestUpdatesDataFromDB(this.val$getDataCallBackWithBroadcast);
     }
 }

@@ -7,12 +7,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.j;
-import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.message.NetWorkChangeMessage;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.pluginArch.PluginCenter;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class NetworkChangeReceiver extends BroadcastReceiver {
@@ -33,14 +30,14 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
                 if (activeNetworkInfo.getTypeName().equalsIgnoreCase(WIFI_STRING)) {
                     if (this.NETWORK_STATUS != 1) {
                         if (this.NETWORK_STATUS != -1) {
-                            ba.mD().V(true);
+                            bb.px().am(true);
                             MessageManager.getInstance().dispatchResponsedMessage(new NetWorkChangeMessage(1));
                         }
                         this.NETWORK_STATUS = 1;
                     }
                 } else if (this.NETWORK_STATUS != 2) {
                     if (this.NETWORK_STATUS != -1) {
-                        ba.mD().V(false);
+                        bb.px().am(false);
                         MessageManager.getInstance().dispatchResponsedMessage(new NetWorkChangeMessage(2));
                     }
                     this.NETWORK_STATUS = 2;
@@ -48,9 +45,6 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
             } else if (this.NETWORK_STATUS != 0) {
                 this.NETWORK_STATUS = 0;
                 MessageManager.getInstance().dispatchResponsedMessage(new NetWorkChangeMessage(0));
-            }
-            if (intent != null && "android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction()) && j.fh() && TbadkApplication.m251getInst().isMainProcess(false) && PluginCenter.getInstance().getNetConfigInfos() == null) {
-                PluginCenter.getInstance().loadNetConfigInfos();
             }
             CompatibleUtile.dealWebView(null);
         } catch (Throwable th) {

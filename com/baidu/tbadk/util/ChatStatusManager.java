@@ -5,8 +5,12 @@ import android.util.SparseArray;
 public class ChatStatusManager {
     public static final int GROUP_CHAT = 2;
     public static final int OFFICIALBAR_CHAT = 1;
+    public static final int OFFICIAL_MERGE = 4;
     public static final int PERSONAL_CHAT = 0;
     public static final int SNAP_CHAT = 3;
+    public static final int STRANGER_MERGE = 5;
+    public static final int UPDATES = 6;
+    public static final int VALIDATE = 7;
     private static ChatStatusManager instance;
     private SparseArray<c> mStatus = new SparseArray<>();
 
@@ -34,7 +38,7 @@ public class ChatStatusManager {
         if (cVar == null) {
             return "";
         }
-        return cVar.ZK;
+        return cVar.ahu;
     }
 
     public void setIsOpen(int i, boolean z) {
@@ -51,11 +55,11 @@ public class ChatStatusManager {
     public void setCurId(int i, String str) {
         c cVar = this.mStatus.get(i);
         if (cVar != null) {
-            cVar.ZK = str;
+            cVar.ahu = str;
             return;
         }
         c cVar2 = new c();
-        cVar2.ZK = str;
+        cVar2.ahu = str;
         this.mStatus.put(i, cVar2);
     }
 

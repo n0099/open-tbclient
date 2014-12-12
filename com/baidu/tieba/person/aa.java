@@ -1,56 +1,47 @@
 package com.baidu.tieba.person;
 
 import android.app.Dialog;
-import android.content.Intent;
-import android.view.View;
+import android.content.DialogInterface;
+import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aa implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity bCA;
+public class aa implements DialogInterface.OnClickListener {
+    final /* synthetic */ PersonChangeActivity bGa;
+    private final /* synthetic */ String bGb;
+    private final /* synthetic */ String bGc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(PersonChangeActivity personChangeActivity) {
-        this.bCA = personChangeActivity;
+    public aa(PersonChangeActivity personChangeActivity, String str, String str2) {
+        this.bGa = personChangeActivity;
+        this.bGb = str;
+        this.bGc = str2;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.model.au auVar;
-        int i;
-        boolean z;
-        com.baidu.tieba.model.au auVar2;
-        com.baidu.tieba.model.au auVar3;
-        Boolean bool;
-        com.baidu.tieba.model.au auVar4;
-        com.baidu.tieba.model.au auVar5;
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        TextView textView;
+        int i2;
+        com.baidu.tbadk.coreExtra.c.f fVar;
         Dialog dialog;
-        auVar = this.bCA.bCr;
-        int sex = auVar.TW().getSex();
-        i = this.bCA.mSex;
-        if (sex != i) {
-            this.bCA.JV = true;
+        TextView textView2;
+        TextView textView3;
+        if (i == 0) {
+            this.bGa.mSex = 1;
+            textView3 = this.bGa.bFK;
+            textView3.setText(this.bGb);
+        } else if (i == 1) {
+            this.bGa.mSex = 2;
+            textView = this.bGa.bFK;
+            textView.setText(this.bGc);
         }
-        z = this.bCA.JV;
-        if (!z) {
-            auVar2 = this.bCA.bCr;
-            if (auVar2 != null) {
-                auVar3 = this.bCA.bCr;
-                if (auVar3.TW().getPhotoChanged()) {
-                    Intent intent = new Intent();
-                    bool = this.bCA.bCe;
-                    if (bool.booleanValue()) {
-                        auVar5 = this.bCA.bCr;
-                        intent.putExtra("person_change_data", auVar5.TW());
-                    } else {
-                        auVar4 = this.bCA.bCr;
-                        intent.putExtra("data", auVar4.TW());
-                    }
-                    this.bCA.setResult(-1, intent);
-                }
-            }
-            this.bCA.finish();
-            return;
+        this.bGa.aam();
+        i2 = this.bGa.mSex;
+        fVar = this.bGa.bFR;
+        if (i2 != fVar.sl().getSex()) {
+            textView2 = this.bGa.ben;
+            textView2.setEnabled(true);
         }
-        dialog = this.bCA.bCw;
-        com.baidu.adp.lib.g.j.a(dialog, this.bCA);
+        dialog = this.bGa.bFX;
+        com.baidu.adp.lib.g.k.b(dialog, this.bGa.getPageContext());
     }
 }

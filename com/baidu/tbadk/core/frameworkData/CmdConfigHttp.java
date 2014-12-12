@@ -1,11 +1,15 @@
 package com.baidu.tbadk.core.frameworkData;
 /* loaded from: classes.dex */
 public class CmdConfigHttp {
+    public static final int ATME_HTTP_CMD = 1002210;
     public static final int BG_LOGIN_HTTP_CMD = 1001101;
     public static final int BUYPROPS_CMD = 1001504;
     public static final int CDN_IPLIST_CMD = 1002600;
     public static final int CLEAR_LOCATION_INFO = 1001508;
+    public static final int CMD_FOUND_NEW = 1003003;
     public static final int CMD_GET_MUTIL_GAME_LIST = 1002800;
+    public static final int CMD_GET_SUGGESTLOCSTION_BY_NAME = 1003002;
+    public static final int CMD_GET_USER_INFO = 1003001;
     public static final int CMD_HTTP_GET_YINJI = 1001533;
     public static final int COMMON_PRAISE_Y_OR_N = 1001600;
     public static final int DISCOVER_TAB_HTTP_CMD = 1001300;
@@ -19,6 +23,7 @@ public class CmdConfigHttp {
     public static final int FRS_WATER_FALL_LIST_HTTP_CMD = 1001701;
     public static final int FRS_WATER_FALL_PHOTO_HTTP_CMD = 1001702;
     public static final int GETPAYINFO_CMD = 1001505;
+    public static final int GET_GAME_DETAIL_NEW_CMD = 1002930;
     public static final int GET_GIFT_LIST = 1001509;
     public static final int GET_HOT_GAME_LIST_CMD = 1002900;
     public static final int GET_LOCATION_PRI_CMD = 1001507;
@@ -28,9 +33,16 @@ public class CmdConfigHttp {
     private static final int LOGIN_HTTP_BASE_CMD = 1001100;
     public static final int MEMBER_PAY_CMD = 1001532;
     public static final int MEMBER_PRIVILEGE_CMD = 1001531;
+    public static final int MOBILE_CDN_IPLIST_CMD = 1002601;
+    public static final int MSG_ADD_MYGAME = 1002507;
+    public static final int MSG_DELETE_MYGAME = 1002506;
+    public static final int MSG_FORUM_DETAIL_CMD = 1002509;
     public static final int MSG_GAME_CATEGORY_DETAIL = 1002504;
+    public static final int MSG_GAME_INDEX_CMD = 1002508;
     public static final int MSG_GAME_LIST_TYPE_CMD = 1002502;
     public static final int MSG_GAME_SEARCH_CMD = 1002503;
+    public static final int MSG_GAME_SINGLE_CMD = 1002931;
+    public static final int MSG_GET_MYGMAE_LIST = 1002505;
     public static final int MSG_REMINDER_CMD = 1002500;
     public static final int PB_HTTP_CMD = 1001800;
     public static final int PB_PAGE_HTTP_CMD = 1001801;

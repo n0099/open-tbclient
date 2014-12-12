@@ -1,14 +1,14 @@
 package com.baidu.adp.framework.client.socket.link;
 
 import android.app.Notification;
-import android.app.Service;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Build;
 import android.os.IBinder;
 import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.base.BdBaseService;
 /* loaded from: classes.dex */
-public class BdSocketDaemonService extends Service {
+public class BdSocketDaemonService extends BdBaseService {
     private b myBinder = new b(this);
     private ServiceConnection conn = new a(this);
 
@@ -23,7 +23,7 @@ public class BdSocketDaemonService extends Service {
     }
 
     public void bindServiceInternal() {
-        com.baidu.adp.lib.g.i.a(this, new Intent(this, BdSocketLinkService.class), this.conn, 1);
+        com.baidu.adp.lib.g.j.a(this, new Intent(this, BdSocketLinkService.class), this.conn, 1);
     }
 
     @Override // android.app.Service
@@ -45,6 +45,6 @@ public class BdSocketDaemonService extends Service {
     }
 
     public static void startService() {
-        com.baidu.adp.lib.g.i.b(BdBaseApplication.getInst().getApp(), new Intent(BdBaseApplication.getInst().getApp(), BdSocketDaemonService.class));
+        com.baidu.adp.lib.g.j.f(BdBaseApplication.getInst().getApp(), new Intent(BdBaseApplication.getInst().getApp(), BdSocketDaemonService.class));
     }
 }

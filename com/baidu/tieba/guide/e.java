@@ -9,17 +9,18 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.data.InterestFrsData;
+import com.baidu.tieba.x;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class e extends Dialog implements a {
-    private TextView JN;
-    private View aGj;
-    private TextView aLg;
-    private View aLh;
-    private LinearLayout aLi;
-    private View.OnClickListener aLj;
-    private LinearLayout aLk;
+    private View aNa;
+    private LinearLayout aNb;
+    private View.OnClickListener aNc;
+    private View aNd;
+    private LinearLayout aNe;
     private Context mContext;
+    private TextView mSubTitle;
+    private TextView mTitle;
 
     public e(Context context, int i) {
         super(context, i);
@@ -28,27 +29,27 @@ public class e extends Dialog implements a {
     }
 
     private void init() {
-        this.aGj = View.inflate(this.mContext, com.baidu.tieba.w.new_user_box, null);
-        setContentView(this.aGj);
+        this.aNd = View.inflate(this.mContext, x.new_user_box, null);
+        setContentView(this.aNd);
         setCanceledOnTouchOutside(true);
-        this.aLk = (LinearLayout) this.aGj.findViewById(com.baidu.tieba.v.box_close_layout);
-        this.JN = (TextView) this.aGj.findViewById(com.baidu.tieba.v.prompt_title);
-        this.aLg = (TextView) this.aGj.findViewById(com.baidu.tieba.v.prompt_sub_title);
-        this.aLh = this.aGj.findViewById(com.baidu.tieba.v.view_layout);
-        this.aLi = (LinearLayout) findViewById(com.baidu.tieba.v.layout_content);
-        this.aLh.setBackgroundDrawable(this.mContext.getResources().getDrawable(com.baidu.tieba.u.bg_startpage2_card_purple_up));
+        this.aNe = (LinearLayout) this.aNd.findViewById(com.baidu.tieba.w.box_close_layout);
+        this.mTitle = (TextView) this.aNd.findViewById(com.baidu.tieba.w.prompt_title);
+        this.mSubTitle = (TextView) this.aNd.findViewById(com.baidu.tieba.w.prompt_sub_title);
+        this.aNa = this.aNd.findViewById(com.baidu.tieba.w.view_layout);
+        this.aNb = (LinearLayout) findViewById(com.baidu.tieba.w.layout_content);
+        this.aNa.setBackgroundDrawable(this.mContext.getResources().getDrawable(com.baidu.tieba.v.bg_startpage2_card_purple_up));
     }
 
     @Override // com.baidu.tieba.guide.a
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.aLj = onClickListener;
-        this.aLk.setOnClickListener(onClickListener);
+        this.aNc = onClickListener;
+        this.aNe.setOnClickListener(onClickListener);
     }
 
     @Override // android.app.Dialog, com.baidu.tieba.guide.a
     public void hide() {
         if (this.mContext instanceof Activity) {
-            com.baidu.adp.lib.g.j.b(this, (Activity) this.mContext);
+            com.baidu.adp.lib.g.k.b(this, (Activity) this.mContext);
         } else {
             super.dismiss();
         }
@@ -56,49 +57,49 @@ public class e extends Dialog implements a {
 
     @Override // com.baidu.tieba.guide.a
     public void a(InterestFrsData.Tag tag) {
-        this.JN.setText(tag.getBname());
-        this.aLg.setText(tag.getBdesc());
+        this.mTitle.setText(tag.getBname());
+        this.mSubTitle.setText(tag.getBdesc());
         ArrayList<InterestFrsData.Card> card_list = tag.getCard_list();
         int i = 0;
         while (i < card_list.size()) {
             InterestFrsData.Card card = card_list.get(i);
-            View view = new f(this, card, this.aLj).getView();
-            this.aLi.addView(view);
+            View view = new f(this, card, this.aNc).getView();
+            this.aNb.addView(view);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view.getLayoutParams();
-            int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds20);
-            layoutParams.setMargins(0, i == 0 ? this.mContext.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds44) : dimensionPixelSize, 0, dimensionPixelSize);
+            int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(com.baidu.tieba.u.ds20);
+            layoutParams.setMargins(0, i == 0 ? this.mContext.getResources().getDimensionPixelSize(com.baidu.tieba.u.ds44) : dimensionPixelSize, 0, dimensionPixelSize);
             view.setLayoutParams(layoutParams);
             if (i != card_list.size() - 1) {
-                this.aLi.addView(com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.w.new_user_line_item, null));
+                this.aNb.addView(com.baidu.adp.lib.g.b.ek().inflate(this.mContext, x.new_user_line_item, null));
             }
-            ((TbImageView) this.aLi.findViewWithTag(card.getAvatar())).c(card.getAvatar(), 10, false);
+            ((TbImageView) this.aNb.findViewWithTag(card.getAvatar())).d(card.getAvatar(), 10, false);
             i++;
         }
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
-        float dimensionPixelSize2 = getContext().getResources().getDisplayMetrics().heightPixels - getContext().getResources().getDimensionPixelSize(com.baidu.tieba.t.ds120);
-        if ((getContext().getResources().getDimensionPixelSize(com.baidu.tieba.t.ds140) * card_list.size()) + getContext().getResources().getDimensionPixelSize(com.baidu.tieba.t.ds188) + getContext().getResources().getDimensionPixelSize(com.baidu.tieba.t.ds100) > dimensionPixelSize2) {
+        float dimensionPixelSize2 = getContext().getResources().getDisplayMetrics().heightPixels - getContext().getResources().getDimensionPixelSize(com.baidu.tieba.u.ds120);
+        if ((getContext().getResources().getDimensionPixelSize(com.baidu.tieba.u.ds140) * card_list.size()) + getContext().getResources().getDimensionPixelSize(com.baidu.tieba.u.ds188) + getContext().getResources().getDimensionPixelSize(com.baidu.tieba.u.ds100) > dimensionPixelSize2) {
             attributes.height = (int) dimensionPixelSize2;
         }
     }
 
     @Override // com.baidu.tieba.guide.a
-    public void fk(int i) {
-        View findViewWithTag = this.aLi.findViewWithTag(Integer.valueOf(i));
+    public void fl(int i) {
+        View findViewWithTag = this.aNb.findViewWithTag(Integer.valueOf(i));
         if (findViewWithTag != null && (findViewWithTag instanceof LinearLayout)) {
-            new f(this, findViewWithTag).cs(true);
+            new f(this, findViewWithTag).cg(true);
         }
     }
 
     @Override // com.baidu.tieba.guide.a
-    public void fl(int i) {
-        View findViewWithTag = this.aLi.findViewWithTag(Integer.valueOf(i));
+    public void fm(int i) {
+        View findViewWithTag = this.aNb.findViewWithTag(Integer.valueOf(i));
         if (findViewWithTag != null && (findViewWithTag instanceof LinearLayout)) {
-            new f(this, findViewWithTag).cs(false);
+            new f(this, findViewWithTag).cg(false);
         }
     }
 
     @Override // com.baidu.tieba.guide.a
     public View getRootView() {
-        return this.aGj;
+        return this.aNd;
     }
 }

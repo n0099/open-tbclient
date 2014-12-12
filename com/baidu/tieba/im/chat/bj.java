@@ -1,22 +1,19 @@
 package com.baidu.tieba.im.chat;
+
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bj extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ bi aOD;
+public class bj implements View.OnLongClickListener {
+    final /* synthetic */ az aRi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bj(bi biVar) {
-        this.aOD = biVar;
+    public bj(az azVar) {
+        this.aRi = azVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.im.b
-    public Boolean doInBackground() {
-        GroupSettingActivity groupSettingActivity;
-        bm bmVar;
-        com.baidu.tieba.im.db.c MA = com.baidu.tieba.im.db.c.MA();
-        groupSettingActivity = this.aOD.aOC;
-        bmVar = groupSettingActivity.aOw;
-        return Boolean.valueOf(MA.fV(bmVar.getGroupId()));
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        this.aRi.mItemViewLongClickListener.onItemViewLongClick(view, 7, this.aRi.mPosition, 0L);
+        return true;
     }
 }

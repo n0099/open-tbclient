@@ -1,43 +1,17 @@
 package com.baidu.tieba.im.chat.notify;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.tbadk.core.view.y;
-import com.baidu.tieba.s;
+import android.support.v4.app.Fragment;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.InvokeNewImMessageCenterFragmentConfig;
 /* loaded from: classes.dex */
-public class p extends y {
-    public p(Context context) {
-        super(context);
-    }
-
-    @Override // com.baidu.adp.widget.ListView.d, com.baidu.adp.widget.ListView.i
-    public View hA() {
-        View hA = super.hA();
-        this.uk.setVisibility(4);
-        this.ul.setVisibility(4);
-        this.um.setVisibility(4);
-        return hA;
-    }
-
-    @Override // com.baidu.tbadk.core.view.y
-    public void bM(int i) {
-        super.bM(i);
-        this.uj.setBackgroundColor(getContext().getResources().getColor(s.transparent));
-    }
-
-    @Override // com.baidu.adp.widget.ListView.d, com.baidu.adp.widget.ListView.i
-    public void E(boolean z) {
-    }
-
-    @Override // com.baidu.adp.widget.ListView.d, com.baidu.adp.widget.ListView.i
-    public void hE() {
-    }
-
-    @Override // com.baidu.adp.widget.ListView.d, com.baidu.adp.widget.ListView.i
-    public void hF() {
-    }
-
-    @Override // com.baidu.adp.widget.ListView.d, com.baidu.adp.widget.ListView.i
-    public void F(boolean z) {
+class p implements CustomMessageTask.CustomRunnable<InvokeNewImMessageCenterFragmentConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<Fragment> run(CustomMessage<InvokeNewImMessageCenterFragmentConfig> customMessage) {
+        if (customMessage == null) {
+            return null;
+        }
+        return new CustomResponsedMessage<>(2008002, new g());
     }
 }

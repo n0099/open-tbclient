@@ -1,24 +1,23 @@
 package com.baidu.tieba.light.share;
 
-import android.view.View;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements View.OnClickListener {
-    final /* synthetic */ LightappGameShare blY;
+public class f implements DialogInterface.OnDismissListener {
+    final /* synthetic */ LightappGameShare bqN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(LightappGameShare lightappGameShare) {
-        this.blY = lightappGameShare;
+        this.bqN = lightappGameShare;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // android.content.DialogInterface.OnDismissListener
+    public void onDismiss(DialogInterface dialogInterface) {
         com.baidu.tbadk.coreExtra.share.d dVar;
-        com.baidu.tbadk.coreExtra.share.d dVar2;
-        dVar = this.blY.aIl;
+        dVar = this.bqN.aIX;
         if (dVar != null) {
-            dVar2 = this.blY.aIl;
-            dVar2.dismiss();
+            this.bqN.aIX = null;
         }
+        this.bqN.finish();
     }
 }

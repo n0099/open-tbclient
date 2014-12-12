@@ -1,19 +1,22 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-public class cg implements View.OnLongClickListener {
-    final /* synthetic */ cc aPy;
+class cg extends com.baidu.tieba.im.h<Boolean> {
+    final /* synthetic */ PersonalChatActivity aRE;
+    private final /* synthetic */ UserData aRI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cg(cc ccVar) {
-        this.aPy = ccVar;
+    public cg(PersonalChatActivity personalChatActivity, UserData userData) {
+        this.aRE = personalChatActivity;
+        this.aRI = userData;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        this.aPy.aOZ.b(view, 11, this.aPy.UC, 0L);
-        return true;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // com.baidu.tieba.im.h
+    public Boolean doInBackground() {
+        return Boolean.valueOf(com.baidu.tieba.im.settingcache.j.SY().aE(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.aRI.getUserId())));
     }
 }

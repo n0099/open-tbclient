@@ -1,15 +1,41 @@
 package com.baidu.tbadk.core;
 
-import com.baidu.tbadk.core.util.TbErrInfo;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class k {
-    private static int BASE_ERROR_NO = -100000000;
-    public static final int yI = BASE_ERROR_NO - 1000;
-    public static final int yJ = BASE_ERROR_NO + TbErrInfo.ERR_IMG_GET_REMOTE;
-    public static final int yK = BASE_ERROR_NO + TbErrInfo.ERR_IMG_SEND;
-    public static final int yL = BASE_ERROR_NO - 2000;
-    public static final int yM = BASE_ERROR_NO - 2001;
-    public static final int yN = BASE_ERROR_NO - 2002;
-    public static final int yO = BASE_ERROR_NO - 3000;
-    public static final int yP = BASE_ERROR_NO - 3001;
+class k extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public k(int i) {
+        super(i);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            switch (customResponsedMessage.getCmd()) {
+                case 2005009:
+                    TbadkCoreApplication.m255getInst().startSyncService();
+                    return;
+                case 2005010:
+                    TbadkCoreApplication.m255getInst().stopSyncService();
+                    return;
+                case 2005011:
+                    TbadkCoreApplication.m255getInst().startActiveService();
+                    return;
+                case 2005012:
+                    TbadkCoreApplication.m255getInst().stopActiveServide();
+                    return;
+                case 2005013:
+                    TbadkCoreApplication.m255getInst().startClearTempService();
+                    return;
+                case 2005014:
+                default:
+                    return;
+                case 2005015:
+                    TbadkCoreApplication.m255getInst().startSyncLoginService();
+                    return;
+            }
+        }
+    }
 }

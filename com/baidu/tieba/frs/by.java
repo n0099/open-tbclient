@@ -1,18 +1,17 @@
 package com.baidu.tieba.frs;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class by implements com.baidu.tbadk.editortool.w {
-    final /* synthetic */ bu aDD;
-    private final /* synthetic */ com.baidu.tbadk.editortool.w arw;
+class by implements com.baidu.tieba.tbadkCore.bubble.y {
+    final /* synthetic */ bq aFg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public by(bu buVar, com.baidu.tbadk.editortool.w wVar) {
-        this.aDD = buVar;
-        this.arw = wVar;
+    public by(bq bqVar) {
+        this.aFg = bqVar;
     }
 
-    @Override // com.baidu.tbadk.editortool.w
-    public void handleAction(int i, Object obj) {
-        this.arw.handleAction(i, obj);
+    @Override // com.baidu.tieba.tbadkCore.bubble.y
+    public void jw() {
+        if (this.aFg.Fh() != null) {
+            this.aFg.Fh().refresh();
+        }
     }
 }

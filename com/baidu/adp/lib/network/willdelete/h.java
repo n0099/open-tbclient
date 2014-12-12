@@ -2,8 +2,7 @@ package com.baidu.adp.lib.network.willdelete;
 
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import com.baidu.adp.lib.util.j;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.adp.lib.util.i;
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;
 import java.io.File;
@@ -14,9 +13,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class h {
-    public static boolean dZ() {
+    public static boolean dY() {
         try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) e.dY().getContext().getSystemService("connectivity")).getActiveNetworkInfo();
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) e.dX().getContext().getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo != null) {
                 if (activeNetworkInfo.getType() == 0) {
                     return true;
@@ -27,10 +26,10 @@ public class h {
         return false;
     }
 
-    public static int ea() {
-        if (dZ()) {
+    public static int dZ() {
+        if (dY()) {
             try {
-                return F(((ConnectivityManager) e.dY().getContext().getSystemService("connectivity")).getActiveNetworkInfo().getSubtype());
+                return N(((ConnectivityManager) e.dX().getContext().getSystemService("connectivity")).getActiveNetworkInfo().getSubtype());
             } catch (Exception e) {
                 return 0;
             }
@@ -38,11 +37,11 @@ public class h {
         return 0;
     }
 
-    public static boolean eb() {
-        return 1 == ea();
+    public static boolean ea() {
+        return 1 == dZ();
     }
 
-    public static int F(int i) {
+    public static int N(int i) {
         switch (i) {
             case 1:
             case 2:
@@ -57,7 +56,7 @@ public class h {
             case 9:
             case 10:
             case 12:
-            case DealIntentService.CLASS_TYPE_GROUP_EVENT /* 14 */:
+            case 14:
             case 15:
                 return 2;
             case 13:
@@ -67,11 +66,11 @@ public class h {
         }
     }
 
-    public static boolean Y(String str) {
+    public static boolean ad(String str) {
         return str != null && str.contains("vnd.wap.wml");
     }
 
-    public static String Z(String str) {
+    public static String ae(String str) {
         String[] split;
         if (str == null) {
             return "utf-8";
@@ -119,25 +118,25 @@ public class h {
                     try {
                         randomAccessFile.seek(j);
                         randomAccessFile.write(bArr, i, i2);
-                        com.baidu.adp.lib.g.a.a(randomAccessFile);
+                        com.baidu.adp.lib.g.a.c(randomAccessFile);
                         exists = randomAccessFile;
                     } catch (FileNotFoundException e2) {
                         e = e2;
                         e.printStackTrace();
-                        com.baidu.adp.lib.g.a.a(randomAccessFile);
+                        com.baidu.adp.lib.g.a.c(randomAccessFile);
                         exists = randomAccessFile;
                         return true;
                     } catch (IOException e3) {
                         e = e3;
                         closeable = randomAccessFile;
                         e.printStackTrace();
-                        com.baidu.adp.lib.g.a.a(closeable);
+                        com.baidu.adp.lib.g.a.c(closeable);
                         return true;
                     }
                 } catch (Throwable th) {
                     th = th;
                     closeable = exists;
-                    com.baidu.adp.lib.g.a.a(closeable);
+                    com.baidu.adp.lib.g.a.c(closeable);
                     throw th;
                 }
             } catch (FileNotFoundException e4) {
@@ -152,7 +151,7 @@ public class h {
         }
     }
 
-    public static byte[] c(ArrayList<byte[]> arrayList) {
+    public static byte[] f(ArrayList<byte[]> arrayList) {
         try {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             Iterator<byte[]> it = arrayList.iterator();
@@ -166,7 +165,7 @@ public class h {
         }
     }
 
-    public static int ec() {
-        return j.fi() ? 500000 : 200000;
+    public static int eb() {
+        return i.fh() ? 500000 : 200000;
     }
 }

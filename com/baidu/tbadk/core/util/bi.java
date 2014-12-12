@@ -1,7 +1,8 @@
 package com.baidu.tbadk.core.util;
-
-import android.content.Context;
 /* loaded from: classes.dex */
-public interface bi {
-    boolean a(Context context, String[] strArr);
+class bi extends bh {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bi() {
+        super(null);
+    }
 }

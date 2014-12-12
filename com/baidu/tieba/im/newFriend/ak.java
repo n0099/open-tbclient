@@ -5,10 +5,10 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 class ak {
-    HeadImageView bhb;
-    TextView bhc;
-    TextView bhd;
-    TextView bhe;
+    HeadImageView bjT;
+    TextView bjU;
+    TextView bjV;
+    TextView bjW;
 
     private ak() {
     }
@@ -18,16 +18,16 @@ class ak {
         this();
     }
 
-    public void e(com.baidu.tieba.im.data.e eVar) {
-        this.bhb.c(eVar.getPortrait(), 12, false);
-        this.bhc.setText(eVar.getName());
-        if (!TextUtils.isEmpty(eVar.getContent())) {
-            this.bhd.setText(eVar.getContent());
+    public void f(com.baidu.tieba.im.data.b bVar) {
+        this.bjT.d(bVar.getPortrait(), 12, false);
+        this.bjU.setText(bVar.getName());
+        if (!TextUtils.isEmpty(bVar.getContent())) {
+            this.bjV.setText(bVar.getContent());
         } else {
-            this.bhd.setText("");
+            this.bjV.setText("");
         }
-        int status = eVar.getStatus();
-        this.bhe.setText(((Integer) ah.Ri().get(status)).intValue());
-        this.bhe.setEnabled(status == 0 || status == 1);
+        int status = bVar.getStatus();
+        this.bjW.setText(((Integer) ah.RC().get(status)).intValue());
+        this.bjW.setEnabled(status == 0 || status == 1);
     }
 }

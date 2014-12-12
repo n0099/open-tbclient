@@ -12,7 +12,7 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     private Context context;
     private boolean hasNetworkError;
     private boolean isFromMark;
-    private com.baidu.tieba.data.ah pbData;
+    private com.baidu.tieba.tbadkCore.b.i pbData;
     private int updateType;
 
     public pbPageHttpResponseMessage(int i) {
@@ -31,7 +31,7 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
         return this.isFromMark;
     }
 
-    public com.baidu.tieba.data.ah getPbData() {
+    public com.baidu.tieba.tbadkCore.b.i getPbData() {
         return this.pbData;
     }
 
@@ -62,7 +62,7 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
         setError(pbPageResIdl.error.errorno.intValue());
         setErrorString(pbPageResIdl.error.usermsg);
         if (getError() == 0) {
-            this.pbData = new com.baidu.tieba.data.ah();
+            this.pbData = new com.baidu.tieba.tbadkCore.b.i();
             this.pbData.a(pbPageResIdl.data, this.context);
             BdLog.detailException(null);
         }
@@ -73,10 +73,10 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         switch (this.updateType) {
             case 3:
-                bm.WE().a(this.cacheKey, this.isFromMark, bArr);
+                bp.Xb().a(this.cacheKey, this.isFromMark, bArr);
                 return;
             case 4:
-                bm.WE().j(this.cacheKey, bArr);
+                bp.Xb().l(this.cacheKey, bArr);
                 return;
             default:
                 return;

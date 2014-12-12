@@ -10,32 +10,32 @@ import tbclient.RecommendFriend.LikeUserInfo;
 import tbclient.RecommendFriend.PostInfo;
 /* loaded from: classes.dex */
 public class b {
-    String Ac;
-    int Af;
-    String Ai;
-    c biq = new c();
-    ArrayList<String> Ah = new ArrayList<>();
-    ArrayList<String> Aj = new ArrayList<>();
+    String En;
+    int Ep;
+    String Et;
+    c bmQ = new c();
+    ArrayList<String> Es = new ArrayList<>();
+    ArrayList<String> Eu = new ArrayList<>();
 
-    public String RD() {
-        return this.Ai;
+    public String SP() {
+        return this.Et;
     }
 
-    public int kj() {
-        return this.Af;
+    public int nc() {
+        return this.Ep;
     }
 
     public void a(LikeUserInfo likeUserInfo) {
         if (likeUserInfo != null) {
-            this.Ai = likeUserInfo.message;
-            if (likeUserInfo.user_info != null && this.biq != null) {
-                this.biq.a(likeUserInfo.user_info);
+            this.Et = likeUserInfo.message;
+            if (likeUserInfo.user_info != null && this.bmQ != null) {
+                this.bmQ.a(likeUserInfo.user_info);
             }
             if (likeUserInfo.forum_info != null) {
                 StringBuffer stringBuffer = new StringBuffer();
-                this.Af = likeUserInfo.forum_info.size();
-                int i = this.Af;
-                if (this.Af > 2) {
+                this.Ep = likeUserInfo.forum_info.size();
+                int i = this.Ep;
+                if (this.Ep > 2) {
                     i = 2;
                 }
                 for (int i2 = 0; i2 < i; i2++) {
@@ -43,57 +43,57 @@ public class b {
                         stringBuffer.append(likeUserInfo.forum_info.get(i2).common_forum);
                         if (i - 1 > i2) {
                             stringBuffer.append("、");
-                        } else if (this.Af > i) {
+                        } else if (this.Ep > i) {
                             stringBuffer.append("...");
                         }
                     }
                 }
-                this.Ac = stringBuffer.toString();
+                this.En = stringBuffer.toString();
             }
             if (likeUserInfo.post_info != null) {
                 for (PostInfo postInfo : likeUserInfo.post_info) {
-                    this.Ah.add(postInfo.common_post_pic);
-                    this.Aj.add(postInfo.large_post_pic);
+                    this.Es.add(postInfo.common_post_pic);
+                    this.Eu.add(postInfo.large_post_pic);
                 }
             }
         }
     }
 
-    public String kk() {
-        return this.Ac;
+    public String nd() {
+        return this.En;
     }
 
-    public c RA() {
-        return this.biq;
+    public c SM() {
+        return this.bmQ;
     }
 
-    public ArrayList<String> kn() {
-        return this.Ah;
+    public ArrayList<String> ng() {
+        return this.Es;
     }
 
-    public ArrayList<String> ko() {
-        return this.Aj;
+    public ArrayList<String> nh() {
+        return this.Eu;
     }
 
-    public JSONObject RE() {
+    public JSONObject SQ() {
         JSONObject jSONObject = new JSONObject();
-        if (this.biq != null) {
-            jSONObject.put("recommend_new_user", this.biq.RE());
+        if (this.bmQ != null) {
+            jSONObject.put("recommend_new_user", this.bmQ.SQ());
         }
-        jSONObject.put("common_forum", this.Ac);
-        jSONObject.put("common_forum_count", this.Af);
-        jSONObject.put(AddFriendActivityConfig.DEFAULT_MESSAGE, this.Ai);
-        if (this.Ah != null && this.Ah.size() > 0) {
+        jSONObject.put("common_forum", this.En);
+        jSONObject.put("common_forum_count", this.Ep);
+        jSONObject.put(AddFriendActivityConfig.DEFAULT_MESSAGE, this.Et);
+        if (this.Es != null && this.Es.size() > 0) {
             JSONArray jSONArray = new JSONArray();
-            Iterator<String> it = this.Ah.iterator();
+            Iterator<String> it = this.Es.iterator();
             while (it.hasNext()) {
                 jSONArray.put(it.next());
             }
             jSONObject.put("common_pic_urls", jSONArray);
         }
-        if (this.Aj != null && this.Aj.size() > 0) {
+        if (this.Eu != null && this.Eu.size() > 0) {
             JSONArray jSONArray2 = new JSONArray();
-            Iterator<String> it2 = this.Aj.iterator();
+            Iterator<String> it2 = this.Eu.iterator();
             while (it2.hasNext()) {
                 jSONArray2.put(it2.next());
             }
@@ -102,34 +102,34 @@ public class b {
         return jSONObject;
     }
 
-    public void b(JSONObject jSONObject) {
+    public void f(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.biq == null) {
-                this.biq = new c();
+            if (this.bmQ == null) {
+                this.bmQ = new c();
             }
-            this.biq.b(jSONObject.optJSONObject("recommend_new_user"));
-            this.Ac = jSONObject.optString("common_forum");
-            this.Af = jSONObject.optInt("common_forum_count");
-            this.Ai = jSONObject.optString(AddFriendActivityConfig.DEFAULT_MESSAGE);
+            this.bmQ.f(jSONObject.optJSONObject("recommend_new_user"));
+            this.En = jSONObject.optString("common_forum");
+            this.Ep = jSONObject.optInt("common_forum_count");
+            this.Et = jSONObject.optString(AddFriendActivityConfig.DEFAULT_MESSAGE);
             JSONArray optJSONArray = jSONObject.optJSONArray("common_pic_urls");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                if (this.Ah == null) {
-                    this.Ah = new ArrayList<>();
+                if (this.Es == null) {
+                    this.Es = new ArrayList<>();
                 }
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     if (!TextUtils.isEmpty(optJSONArray.optString(i))) {
-                        this.Ah.add(optJSONArray.optString(i));
+                        this.Es.add(optJSONArray.optString(i));
                     }
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("large_post_pic");
             if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                if (this.Aj == null) {
-                    this.Aj = new ArrayList<>();
+                if (this.Eu == null) {
+                    this.Eu = new ArrayList<>();
                 }
                 for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                     if (!TextUtils.isEmpty(optJSONArray2.optString(i2))) {
-                        this.Aj.add(optJSONArray2.optString(i2));
+                        this.Eu.add(optJSONArray2.optString(i2));
                     }
                 }
             }

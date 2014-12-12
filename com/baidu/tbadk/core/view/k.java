@@ -1,15 +1,20 @@
 package com.baidu.tbadk.core.view;
-/* loaded from: classes.dex */
-class k implements Runnable {
-    final /* synthetic */ HorizontalListView HO;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k(HorizontalListView horizontalListView) {
-        this.HO = horizontalListView;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+/* loaded from: classes.dex */
+class k extends LinearLayout {
+    public k(Context context, String str) {
+        super(context);
+        LayoutInflater.from(getContext()).inflate(com.baidu.tieba.x.floatview_item_layout, this);
+        setGravity(17);
+        ((TextView) findViewById(com.baidu.tieba.w.floatview_item_tv)).setText(str);
+        setTag(str);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.HO.requestLayout();
+    public static LinearLayout.LayoutParams qs() {
+        return new LinearLayout.LayoutParams(-2, -1);
     }
 }

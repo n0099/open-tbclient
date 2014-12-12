@@ -1,22 +1,29 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements View.OnClickListener {
+public class v extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(MainTabActivity mainTabActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v(MainTabActivity mainTabActivity, int i) {
+        super(i);
         this.this$0 = mainTabActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        MainTabActivity mainTabActivity;
-        MainTabActivity mainTabActivity2 = this.this$0;
-        mainTabActivity = this.this$0.bPd;
-        mainTabActivity2.sendMessage(new CustomMessage(2015002, new com.baidu.tbadk.core.frameworkData.a(mainTabActivity)));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        an anVar;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007007 && customResponsedMessage.getData() != null) {
+            com.baidu.tbadk.mainTab.f fVar = (com.baidu.tbadk.mainTab.f) customResponsedMessage.getData();
+            if (fVar.wi() != null) {
+                anVar = this.this$0.caU;
+                anVar.b(fVar);
+            }
+        }
     }
 }

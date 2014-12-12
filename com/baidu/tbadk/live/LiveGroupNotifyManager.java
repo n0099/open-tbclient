@@ -4,13 +4,12 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
-import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.GroupData;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.live.service.LiveGroupControlService;
-import com.baidu.tieba.v;
 import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
+import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class LiveGroupNotifyManager {
     public static LiveGroupNotifyManager mManager = new LiveGroupNotifyManager();
@@ -54,37 +53,32 @@ public class LiveGroupNotifyManager {
     }
 
     private PendingIntent buildPendingIntent(Context context, GroupData groupData, String str) {
-        Intent intent;
-        if (TbadkApplication.m251getInst().isLiveSDKOpen()) {
-            intent = new Intent("com.baidu.tieba.live.LIVEROOMCHAT");
-        } else {
-            intent = new Intent("com.baidu.tieba.live.BACKUPLIVEROOMCHAT");
-        }
+        Intent intent = new Intent("com.baidu.tieba.live.LIVEROOMCHAT");
         intent.setFlags(335544320);
         intent.putExtra("gid", groupData.getGroupId());
         intent.putExtra("group", groupData);
         intent.putExtra("forum_name", str);
-        return PendingIntent.getActivity(context, y.app_name, intent, 134217728);
+        return PendingIntent.getActivity(context, z.app_name, intent, 134217728);
     }
 
     private RemoteViews buildRemoteViews(Context context, String str, GroupData groupData, String str2, String str3, boolean z) {
-        RemoteViews remoteViews = new RemoteViews(context.getPackageName(), w.noti_live_bar);
-        remoteViews.setTextViewText(v.noti_live_title, str);
-        remoteViews.setTextViewText(v.noti_live_content, context.getResources().getString(y.live_room_notify));
+        RemoteViews remoteViews = new RemoteViews(context.getPackageName(), x.noti_live_bar);
+        remoteViews.setTextViewText(w.noti_live_title, str);
+        remoteViews.setTextViewText(w.noti_live_content, context.getResources().getString(z.live_room_notify));
         if (z) {
-            remoteViews.setViewVisibility(v.noti_live_btn_pause, 8);
+            remoteViews.setViewVisibility(w.noti_live_btn_pause, 8);
             Intent buildIntent = buildIntent(context, str, groupData, str2, str3);
             buildIntent.setAction(LiveGroupControlService.ACTION_LIVE_PLAY);
-            remoteViews.setOnClickPendingIntent(v.noti_live_btn_play, PendingIntent.getService(context, v.noti_live_btn_play, buildIntent, 134217728));
+            remoteViews.setOnClickPendingIntent(w.noti_live_btn_play, PendingIntent.getService(context, w.noti_live_btn_play, buildIntent, 134217728));
         } else {
-            remoteViews.setViewVisibility(v.noti_live_btn_play, 8);
+            remoteViews.setViewVisibility(w.noti_live_btn_play, 8);
             Intent buildIntent2 = buildIntent(context, str, groupData, str2, str3);
             buildIntent2.setAction(LiveGroupControlService.ACTION_LIVE_PAUSE);
-            remoteViews.setOnClickPendingIntent(v.noti_live_btn_pause, PendingIntent.getService(context, v.noti_live_btn_pause, buildIntent2, 134217728));
+            remoteViews.setOnClickPendingIntent(w.noti_live_btn_pause, PendingIntent.getService(context, w.noti_live_btn_pause, buildIntent2, 134217728));
         }
         Intent buildIntent3 = buildIntent(context, str, groupData, str2, str3);
         buildIntent3.setAction(LiveGroupControlService.ACTION_LIVE_CLOSE);
-        remoteViews.setOnClickPendingIntent(v.noti_live_btn_close, PendingIntent.getService(context, v.noti_live_btn_close, buildIntent3, 134217728));
+        remoteViews.setOnClickPendingIntent(w.noti_live_btn_close, PendingIntent.getService(context, w.noti_live_btn_close, buildIntent3, 134217728));
         return remoteViews;
     }
 

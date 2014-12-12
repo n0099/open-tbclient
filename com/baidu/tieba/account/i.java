@@ -7,20 +7,20 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.coreExtra.download.CancelDownloadMessage;
+import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 import java.util.Iterator;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask<Object, Integer, Boolean> {
-    final /* synthetic */ AccountActivity aew;
+    final /* synthetic */ AccountActivity alO;
     private AccountData mAccount;
 
     public i(AccountActivity accountActivity, AccountData accountData) {
-        this.aew = accountActivity;
+        this.alO = accountActivity;
         this.mAccount = null;
         this.mAccount = accountData;
     }
@@ -30,7 +30,7 @@ public class i extends BdAsyncTask<Object, Integer, Boolean> {
     public void onPreExecute() {
         BdSocketLinkService.setAvailable(false);
         BdSocketLinkService.close("account changed");
-        this.aew.showLoadingDialog(this.aew.getString(com.baidu.tieba.y.account_logining), new j(this));
+        this.alO.showLoadingDialog(this.alO.getPageContext().getString(com.baidu.tieba.z.account_logining), new j(this));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,7 +39,7 @@ public class i extends BdAsyncTask<Object, Integer, Boolean> {
         com.baidu.sapi2.SapiAccountManager.getInstance().validate(r0);
      */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: e */
+    /* renamed from: i */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -79,14 +79,14 @@ public class i extends BdAsyncTask<Object, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: b */
     public void onPostExecute(Boolean bool) {
-        TbadkApplication.setCurrentAccount(this.mAccount, this.aew.getBaseContext());
+        TbadkCoreApplication.setCurrentAccount(this.mAccount, this.alO.getBaseContext());
         if (this.mAccount != null) {
-            new k(this.aew, this.mAccount.getBDUSS()).start();
+            new k(this.alO, this.mAccount.getBDUSS()).start();
         }
-        this.aew.closeLoadingDialog();
+        this.alO.closeLoadingDialog();
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
-        TbadkApplication.m251getInst().onUserChanged();
-        com.baidu.tbadk.core.b.b.a(this.aew, 1, false);
-        this.aew.aeu = null;
+        TbadkCoreApplication.m255getInst().onUserChanged();
+        com.baidu.tbadk.core.b.b.a(this.alO.getPageContext().getPageActivity(), 1, false);
+        this.alO.alM = null;
     }
 }

@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.account.AccountLoginHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends CustomMessageListener {
-    final /* synthetic */ LiveGroupManager Vy;
+    final /* synthetic */ LiveGroupManager abA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(LiveGroupManager liveGroupManager, int i) {
         super(i);
-        this.Vy = liveGroupManager;
+        this.abA = liveGroupManager;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,14 +28,14 @@ public class f extends CustomMessageListener {
                 String accessToken = accessTokenUpdatedMessage.getAccessToken();
                 AccountLoginHelper.OurToken parseBDUSS = AccountLoginHelper.parseBDUSS(TbadkApplication.getCurrentBduss());
                 if (parseBDUSS != null && bduss != null && bduss.equals(parseBDUSS.mBduss) && accessToken != null && accessToken.length() > 0) {
-                    str = this.Vy.mAccessToken;
+                    str = this.abA.mAccessToken;
                     if (str != null) {
-                        str2 = this.Vy.mAccessToken;
+                        str2 = this.abA.mAccessToken;
                         if (accessToken.equals(str2)) {
                             return;
                         }
                     }
-                    this.Vy.mAccessToken = accessToken;
+                    this.abA.mAccessToken = accessToken;
                 }
             }
         }

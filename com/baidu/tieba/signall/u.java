@@ -1,74 +1,73 @@
 package com.baidu.tieba.signall;
 
-import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class u extends com.baidu.adp.base.e {
-    private static u bLH;
+public class u extends com.baidu.adp.base.f<SignAllForumActivity> {
+    private static u bPY;
     private static String userId;
-    private w bLD;
-    private s bLE;
-    private v bLF;
-    private b bLG;
-    public boolean cs;
+    private w bPU;
+    private s bPV;
+    private v bPW;
+    private b bPX;
+    public boolean ez;
 
-    public static u ai(Context context) {
-        String currentAccount = TbadkApplication.getCurrentAccount();
-        if (bLH == null) {
-            bLH = new u(context);
+    public static u e(SignAllForumActivity signAllForumActivity) {
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (bPY == null) {
+            bPY = new u(signAllForumActivity);
         } else if (!TextUtils.isEmpty(userId) && !TextUtils.equals(userId, currentAccount)) {
-            bLH = new u(context);
+            bPY = new u(signAllForumActivity);
         }
-        return bLH;
+        return bPY;
     }
 
-    private u(Context context) {
-        super(context);
-        this.bLD = null;
-        this.bLE = null;
-        this.bLF = null;
-        userId = TbadkApplication.getCurrentAccount();
-        this.bLE = new s();
+    private u(SignAllForumActivity signAllForumActivity) {
+        super(signAllForumActivity.getPageContext());
+        this.bPU = null;
+        this.bPV = null;
+        this.bPW = null;
+        userId = TbadkCoreApplication.getCurrentAccount();
+        this.bPV = new s();
     }
 
     public void a(v vVar) {
-        this.bLF = vVar;
+        this.bPW = vVar;
     }
 
     public void c(b bVar) {
-        this.bLG = bVar;
+        this.bPX = bVar;
     }
 
-    public b add() {
-        return this.bLG;
+    public b adz() {
+        return this.bPX;
     }
 
-    private String ade() {
-        ArrayList<d> acD = this.bLG.acD();
-        if (acD == null) {
+    private String adA() {
+        ArrayList<d> acY = this.bPX.acY();
+        if (acY == null) {
             return "";
         }
-        if (!this.bLG.acE()) {
+        if (!this.bPX.acZ()) {
             ArrayList arrayList = new ArrayList();
-            Iterator<d> it = acD.iterator();
+            Iterator<d> it = acY.iterator();
             while (it.hasNext()) {
                 d next = it.next();
-                if (next.zB() < this.bLG.getLevel()) {
+                if (next.adi() < this.bPX.getLevel()) {
                     arrayList.add(next);
                 }
             }
-            acD.removeAll(arrayList);
+            acY.removeAll(arrayList);
         }
-        int size = acD.size();
+        int size = acY.size();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < size; i++) {
-            d dVar = acD.get(i);
-            if (dVar.acQ()) {
-                if (!dVar.acR()) {
-                    dVar.eF(true);
+            d dVar = acY.get(i);
+            if (dVar.adm()) {
+                if (!dVar.adn()) {
+                    dVar.em(true);
                 }
             }
             if (i > 0) {
@@ -80,21 +79,21 @@ public class u extends com.baidu.adp.base.e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.f
     public boolean LoadData() {
-        if (this.bLD != null) {
+        if (this.bPU != null) {
             return false;
         }
-        String ade = ade();
-        this.bLD = new w(this);
-        this.bLD.execute(ade);
+        String adA = adA();
+        this.bPU = new w(this);
+        this.bPU.execute(adA);
         return true;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.f
     public boolean cancelLoadData() {
-        if (this.bLD != null) {
-            this.bLD.cancel();
+        if (this.bPU != null) {
+            this.bPU.cancel();
             return true;
         }
         return false;

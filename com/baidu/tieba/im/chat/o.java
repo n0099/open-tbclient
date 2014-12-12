@@ -1,23 +1,24 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
-import android.widget.ImageView;
+import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements View.OnClickListener {
-    final /* synthetic */ AbsMsglistView aNP;
+public class o implements AbsListView.OnScrollListener {
+    final /* synthetic */ AbsMsglistView aQh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(AbsMsglistView absMsglistView) {
-        this.aNP = absMsglistView;
+        this.aQh = absMsglistView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ImageView imageView;
-        this.aNP.sendmsgCloseMore();
-        this.aNP.sendmsgShowText();
-        imageView = this.aNP.mBtnMsgSendSoftkey;
-        imageView.postDelayed(new p(this), 100L);
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        this.aQh.sendmsgCloseSoftkey();
+        this.aQh.sendmsgCloseMore();
+        this.aQh.sendmsgCloseExpression();
     }
 }

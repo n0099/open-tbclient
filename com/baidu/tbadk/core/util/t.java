@@ -1,15 +1,15 @@
 package com.baidu.tbadk.core.util;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.io.File;
 /* loaded from: classes.dex */
 public class t {
-    public static final String Dr = TbadkApplication.m251getInst().getApp().getFileStreamPath("").getAbsolutePath();
+    public static final String HD = TbadkCoreApplication.m255getInst().getApp().getFileStreamPath("").getAbsolutePath();
 
-    public static boolean bz(String str) {
+    public static boolean cr(String str) {
         try {
-            return new File(new StringBuilder(String.valueOf(Dr)).append("/").append(str).toString()).exists();
+            return new File(new StringBuilder(String.valueOf(HD)).append("/").append(str).toString()).exists();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             TiebaStatic.file(e, "FileHelper.checkFile " + str);
@@ -17,9 +17,9 @@ public class t {
         }
     }
 
-    public static boolean bA(String str) {
+    public static boolean cs(String str) {
         try {
-            File file = new File(String.valueOf(Dr) + "/" + str);
+            File file = new File(String.valueOf(HD) + "/" + str);
             if (file.exists()) {
                 return false;
             }
@@ -53,9 +53,9 @@ public class t {
         }
     }
 
-    public static boolean bB(String str) {
+    public static boolean ct(String str) {
         try {
-            File file = new File(String.valueOf(Dr) + "/" + str);
+            File file = new File(String.valueOf(HD) + "/" + str);
             if (file.exists()) {
                 if (!file.isDirectory()) {
                     return false;
@@ -70,10 +70,10 @@ public class t {
         }
     }
 
-    public static String bC(String str) {
+    public static String cu(String str) {
         String str2 = null;
         try {
-            File file = new File(String.valueOf(Dr) + "/" + str);
+            File file = new File(String.valueOf(HD) + "/" + str);
             if (file.exists() && file.isDirectory()) {
                 File[] listFiles = file.listFiles();
                 int length = listFiles.length;

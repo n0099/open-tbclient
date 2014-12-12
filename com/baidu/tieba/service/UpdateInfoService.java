@@ -1,19 +1,18 @@
 package com.baidu.tieba.service;
 
-import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.text.TextUtils;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.adp.base.BdBaseService;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.UpdateInfoServiceConfig;
-import com.baidu.tieba.model.av;
 /* loaded from: classes.dex */
-public class UpdateInfoService extends Service {
-    private com.baidu.adp.lib.d.d locationCallBack = new y(this);
-    private av mModel;
+public class UpdateInfoService extends BdBaseService {
+    private com.baidu.adp.lib.d.d locationCallBack = new u(this);
+    private com.baidu.tieba.model.r mModel;
 
     static {
-        TbadkApplication.m251getInst().RegisterIntent(UpdateInfoServiceConfig.class, UpdateInfoService.class);
+        TbadkCoreApplication.m255getInst().RegisterIntent(UpdateInfoServiceConfig.class, UpdateInfoService.class);
     }
 
     @Override // android.app.Service
@@ -24,16 +23,16 @@ public class UpdateInfoService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        this.mModel = new av(null);
-        this.mModel.TZ();
-        this.mModel.W(540000L);
-        this.mModel.a(new z(this));
+        this.mModel = new com.baidu.tieba.model.r(null);
+        this.mModel.Us();
+        this.mModel.ah(540000L);
+        this.mModel.a(new v(this));
     }
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (!TextUtils.isEmpty(TbadkApplication.getCurrentAccount()) && TbadkApplication.m251getInst().getLocationShared() && this.mModel.TX()) {
+        if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.m255getInst().getLocationShared() && this.mModel.canSend()) {
             findLocationFromLocal();
         }
     }
@@ -46,10 +45,10 @@ public class UpdateInfoService extends Service {
     }
 
     private void findLocationFromLocal() {
-        com.baidu.adp.lib.d.a.dE().a(true, this.locationCallBack);
+        com.baidu.adp.lib.d.a.dD().a(true, this.locationCallBack);
     }
 
     private void unRegisterLocalLocation() {
-        com.baidu.adp.lib.d.a.dE().a(this.locationCallBack);
+        com.baidu.adp.lib.d.a.dD().a(this.locationCallBack);
     }
 }

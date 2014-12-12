@@ -1,85 +1,42 @@
 package com.baidu.tieba.mention;
-
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.widget.ListView.BdListView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ x bnY;
+public class y extends com.baidu.adp.base.f<SingleMentionActivity> {
+    private SingleMentionActivity bso;
+    private aa bsp;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y(x xVar, int i, int i2) {
-        super(i, i2);
-        this.bnY = xVar;
+    static {
+        com.baidu.tieba.tbadkCore.a.a.c(303010, CheckPostResponseMessage.class, false);
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        BdListView bdListView;
-        BdListView bdListView2;
-        com.baidu.tieba.b.a aVar;
-        k kVar;
-        k kVar2;
-        int i;
-        com.baidu.tieba.b.a aVar2;
-        com.baidu.tieba.b.a aVar3;
-        k kVar3;
-        k kVar4;
-        int i2;
-        com.baidu.tieba.b.a aVar4;
-        if ((responsedMessage instanceof ReplyMeSocketResponseMessage) || (responsedMessage instanceof ReplyMeHttpResponseMessage)) {
-            if (responsedMessage instanceof ReplyMeSocketResponseMessage) {
-                ReplyMeSocketResponseMessage replyMeSocketResponseMessage = (ReplyMeSocketResponseMessage) responsedMessage;
-                aVar3 = this.bnY.aAO;
-                if (aVar3 != null) {
-                    long downSize = replyMeSocketResponseMessage.getDownSize();
-                    long costTime = replyMeSocketResponseMessage.getCostTime();
-                    aVar4 = this.bnY.aAO;
-                    aVar4.a(false, !responsedMessage.hasError(), replyMeSocketResponseMessage.getError(), replyMeSocketResponseMessage.getErrorString(), downSize, 0L, costTime);
-                    this.bnY.aAO = null;
-                }
-                if (!replyMeSocketResponseMessage.hasError() && replyMeSocketResponseMessage.getModel() != null) {
-                    x xVar = this.bnY;
-                    com.baidu.tieba.model.am model = replyMeSocketResponseMessage.getModel();
-                    i2 = this.bnY.aAo;
-                    xVar.a(model, i2 == 4, false);
-                } else {
-                    this.bnY.dA(false);
-                    kVar3 = this.bnY.bnp;
-                    kVar3.bO(false);
-                    kVar4 = this.bnY.bnp;
-                    kVar4.notifyDataSetChanged();
-                }
-            }
-            if (responsedMessage instanceof ReplyMeHttpResponseMessage) {
-                ReplyMeHttpResponseMessage replyMeHttpResponseMessage = (ReplyMeHttpResponseMessage) responsedMessage;
-                aVar = this.bnY.aAO;
-                if (aVar != null) {
-                    long downSize2 = replyMeHttpResponseMessage.getDownSize();
-                    long costTime2 = replyMeHttpResponseMessage.getCostTime();
-                    aVar2 = this.bnY.aAO;
-                    aVar2.a(true, !responsedMessage.hasError(), replyMeHttpResponseMessage.getError(), replyMeHttpResponseMessage.getErrorString(), downSize2, costTime2, 0L);
-                    this.bnY.aAO = null;
-                }
-                if (!replyMeHttpResponseMessage.hasError() && replyMeHttpResponseMessage.getModel() != null) {
-                    x xVar2 = this.bnY;
-                    com.baidu.tieba.model.am model2 = replyMeHttpResponseMessage.getModel();
-                    i = this.bnY.aAo;
-                    xVar2.a(model2, i == 4, false);
-                } else {
-                    this.bnY.dA(false);
-                    kVar = this.bnY.bnp;
-                    kVar.bO(false);
-                    kVar2 = this.bnY.bnp;
-                    kVar2.notifyDataSetChanged();
-                }
-            }
-            bdListView = this.bnY.aoo;
-            if (bdListView != null) {
-                bdListView2 = this.bnY.aoo;
-                bdListView2.hN();
-            }
-        }
+    public y(SingleMentionActivity singleMentionActivity) {
+        super(singleMentionActivity.getPageContext());
+        this.bso = singleMentionActivity;
+        TS();
+    }
+
+    public void a(long j, int i, String str) {
+        CheckPostRequestMessage checkPostRequestMessage = new CheckPostRequestMessage();
+        checkPostRequestMessage.setPid(j);
+        checkPostRequestMessage.setPostType(i);
+        checkPostRequestMessage.setForumName(str);
+        sendMessage(checkPostRequestMessage);
+    }
+
+    public void TS() {
+        registerListener(new z(this, 303010));
+    }
+
+    @Override // com.baidu.adp.base.f
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.f
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public void a(aa aaVar) {
+        this.bsp = aaVar;
     }
 }

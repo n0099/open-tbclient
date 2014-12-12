@@ -3,18 +3,18 @@ package com.baidu.tieba.write;
 import android.widget.EditText;
 /* loaded from: classes.dex */
 class a implements Runnable {
-    final /* synthetic */ AtListActivity bST;
+    final /* synthetic */ AtListActivity cdZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(AtListActivity atListActivity) {
-        this.bST = atListActivity;
+        this.cdZ = atListActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         EditText editText;
-        AtListActivity atListActivity = this.bST;
-        editText = this.bST.mEditText;
-        atListActivity.hI(com.baidu.adp.lib.util.l.a(editText.getText(), ""));
+        AtListActivity atListActivity = this.cdZ;
+        editText = this.cdZ.mEditText;
+        atListActivity.iu(com.baidu.adp.lib.util.k.a(editText.getText(), ""));
     }
 }

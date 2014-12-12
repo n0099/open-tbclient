@@ -34,7 +34,7 @@ public class BdStatSecondSwitchData implements Serializable {
                 int optInt = jSONObject.optInt("percent", 100);
                 boolean z2 = jSONObject.optInt("is_open", 0) != 0;
                 if (z2) {
-                    String imei = f.er().getImei();
+                    String imei = f.es().getImei();
                     if (!TextUtils.isEmpty(imei)) {
                         if (imei.hashCode() % 100 >= optInt) {
                             z = false;

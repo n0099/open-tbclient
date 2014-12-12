@@ -1,83 +1,93 @@
 package com.baidu.tieba.im.searchGroup;
 
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
-import com.baidu.adp.base.f;
+import com.baidu.adp.base.g;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.v;
 import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
+import com.baidu.tieba.z;
 /* loaded from: classes.dex */
-public class b extends f {
-    private ProgressBar aTV;
-    private View bhK;
-    private NavigationBar bhL;
-    private EditText bhM;
-    private ImageButton bhN;
-    private Button bhO;
-    private AddGroupActivity bhP;
-    private View iZ;
+public class b extends g<AddGroupActivity> {
+    private ProgressBar aVw;
+    private NavigationBar aey;
+    private View bmm;
+    private EditText bmn;
+    private ImageButton bmo;
+    private View bmp;
+    private View bmq;
+    private AddGroupActivity bmr;
+    private View jf;
 
     public b(AddGroupActivity addGroupActivity) {
-        super(addGroupActivity);
-        this.bhK = null;
-        this.bhL = null;
-        this.iZ = null;
-        this.bhM = null;
-        this.bhN = null;
-        this.aTV = null;
-        this.bhO = null;
-        this.bhP = null;
-        this.bhP = addGroupActivity;
+        super(addGroupActivity.getPageContext());
+        this.bmm = null;
+        this.aey = null;
+        this.jf = null;
+        this.bmn = null;
+        this.bmo = null;
+        this.aVw = null;
+        this.bmp = null;
+        this.bmr = null;
+        this.bmr = addGroupActivity;
         initUI();
     }
 
-    public View LF() {
-        return this.bhN;
+    public View LE() {
+        return this.bmo;
     }
 
-    public View Ru() {
-        return this.bhO;
+    public View SH() {
+        return this.bmp;
     }
 
-    public View Rv() {
-        return this.iZ;
+    public View Ss() {
+        return this.jf;
     }
 
-    public void Rw() {
-        if (this.bhM != null) {
-            this.bhM.setText("");
+    public View SI() {
+        return this.bmq;
+    }
+
+    public void SJ() {
+        if (this.bmn != null) {
+            this.bmn.setText("");
         }
     }
 
-    public void da(boolean z) {
-        this.aTV.setVisibility(z ? 0 : 8);
+    public void cR(boolean z) {
+        this.aVw.setVisibility(z ? 0 : 8);
     }
 
     public void changeSkinType(int i) {
-        this.bhP.getLayoutMode().L(i == 1);
-        this.bhP.getLayoutMode().h(this.bhK);
-        this.bhL.onChangeSkinType(i);
+        this.bmr.getLayoutMode().ab(i == 1);
+        this.bmr.getLayoutMode().h(this.bmm);
+        this.aey.onChangeSkinType(this.bmr.getPageContext(), i);
     }
 
     private void initUI() {
-        this.bhP.setContentView(w.im_add_group_activity);
-        this.bhK = this.bhP.findViewById(v.addgroup_rootlayout);
-        this.bhL = (NavigationBar) this.bhP.findViewById(v.addgroup_navigationbar);
-        this.iZ = this.bhL.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.bhL.setTitleText(this.bhP.getResources().getString(y.add_group_title_main));
-        this.bhM = (EditText) this.bhP.findViewById(v.addgroup_input);
-        this.bhM.setInputType(2);
-        this.bhN = (ImageButton) this.bhP.findViewById(v.addgroup_delbtn);
-        this.bhO = (Button) this.bhP.findViewById(v.addgroup_searchbutton);
-        this.bhM.addTextChangedListener(new c(this));
-        this.bhO = (Button) this.bhP.findViewById(v.addgroup_searchbutton);
-        this.aTV = (ProgressBar) this.bhP.findViewById(v.addgroup_progress);
-        this.iZ.setOnClickListener(this.bhP);
-        this.bhN.setOnClickListener(this.bhP);
-        this.bhO.setOnClickListener(this.bhP);
+        this.bmr.setContentView(x.im_add_group_activity);
+        this.bmm = this.bmr.findViewById(w.addgroup_rootlayout);
+        this.aey = (NavigationBar) this.bmr.findViewById(w.addgroup_navigationbar);
+        this.jf = this.aey.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.aey.setTitleText(this.bmr.getResources().getString(z.add_group_title_main));
+        this.bmn = (EditText) this.bmr.findViewById(w.addgroup_input);
+        this.bmn.setInputType(2);
+        this.bmo = (ImageButton) this.bmr.findViewById(w.addgroup_delbtn);
+        this.bmp = this.bmr.findViewById(w.addgroup_searchbutton);
+        this.bmq = this.bmr.findViewById(w.addgroup_vcode);
+        this.bmn.addTextChangedListener(new c(this));
+        this.bmp = this.bmr.findViewById(w.addgroup_searchbutton);
+        this.aVw = (ProgressBar) this.bmr.findViewById(w.addgroup_progress);
+        this.jf.setOnClickListener(this.bmr);
+        this.bmo.setOnClickListener(this.bmr);
+        this.bmp.setOnClickListener(this.bmr);
+        this.bmq.setOnClickListener(this.bmr);
+        if (!TbadkCoreApplication.m255getInst().appResponseToCmd(2902030)) {
+            this.bmq.setVisibility(8);
+        }
     }
 }

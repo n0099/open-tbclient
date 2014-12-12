@@ -8,28 +8,28 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class l implements h {
-    private Map<String, Object> eq;
+    private Map<String, Object> gr;
 
     public l(Map<String, Object> map) {
-        this.eq = map;
+        this.gr = map;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object a(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        Type[] bR = cVar.bR();
-        Set<String> keySet = this.eq.keySet();
+        Type[] cr = cVar.cr();
+        Set<String> keySet = this.gr.keySet();
         JSONObject jSONObject = new JSONObject();
         for (String str : keySet) {
-            Object obj = this.eq.get(str);
-            if (bR != null && bR.length >= 2) {
+            Object obj = this.gr.get(str);
+            if (cr != null && cr.length >= 2) {
                 try {
-                    jSONObject.put(str, com.baidu.adp.lib.a.b.a.e.f.c(obj).a(new com.baidu.adp.lib.a.b.a.e.c(bR[1])));
+                    jSONObject.put(str, com.baidu.adp.lib.a.b.a.e.f.h(obj).a(new com.baidu.adp.lib.a.b.a.e.c(cr[1])));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             } else {
                 try {
-                    jSONObject.put(str, com.baidu.adp.lib.a.b.a.e.f.c(obj).a(new com.baidu.adp.lib.a.b.a.e.c(cVar.bS())));
+                    jSONObject.put(str, com.baidu.adp.lib.a.b.a.e.f.h(obj).a(new com.baidu.adp.lib.a.b.a.e.c(cVar.cs())));
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
@@ -54,7 +54,7 @@ public class l implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object d(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return this.eq;
+        return this.gr;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
@@ -74,6 +74,6 @@ public class l implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object f(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return this.eq;
+        return this.gr;
     }
 }

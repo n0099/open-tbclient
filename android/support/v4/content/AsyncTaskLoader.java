@@ -128,6 +128,7 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
     void dispatchOnCancelled(AsyncTaskLoader<D>.LoadTask loadTask, D d) {
         onCanceled(d);
         if (this.mCancellingTask == loadTask) {
+            rollbackContentChanged();
             this.mLastLoadCompleteTime = SystemClock.uptimeMillis();
             this.mCancellingTask = null;
             executePendingTask();
@@ -140,6 +141,7 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
         } else if (isAbandoned()) {
             onCanceled(d);
         } else {
+            commitContentChanged();
             this.mLastLoadCompleteTime = SystemClock.uptimeMillis();
             this.mTask = null;
             deliverResult(d);

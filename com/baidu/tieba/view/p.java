@@ -1,5 +1,0 @@
-package com.baidu.tieba.view;
-/* loaded from: classes.dex */
-public interface p {
-    void bO(int i);
-}

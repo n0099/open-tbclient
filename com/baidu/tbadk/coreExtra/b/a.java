@@ -1,29 +1,20 @@
 package com.baidu.tbadk.coreExtra.b;
 
-import com.baidu.adp.base.h;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 /* loaded from: classes.dex */
-public class a {
-    private b LE;
-    private h mLoadDataCallBack;
-
-    public a(h hVar) {
-        this.mLoadDataCallBack = hVar;
+public class a extends SQLiteOpenHelper {
+    public a(Context context) {
+        super(context, "game.db", (SQLiteDatabase.CursorFactory) null, 1);
     }
 
-    public void a(boolean z, String str, String str2) {
-        if (this.LE == null) {
-            this.LE = new b(this, null);
-            this.LE.setPriority(2);
-            this.LE.ag(z);
-            this.LE.setPortrait(str);
-            this.LE.setToUid(str2);
-            this.LE.execute(new Integer[0]);
-        }
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        c.rG().o(sQLiteDatabase);
     }
 
-    public void cancel() {
-        if (this.LE != null) {
-            this.LE.cancel();
-        }
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
     }
 }

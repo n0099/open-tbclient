@@ -1,30 +1,25 @@
 package com.baidu.tieba.shareSDK;
 
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
+import com.baidu.tbadk.coreExtra.message.ShareSDKResultMessage;
 /* loaded from: classes.dex */
 class l implements View.OnClickListener {
-    final /* synthetic */ WriteShareActivity bJF;
+    final /* synthetic */ WriteShareActivity bNV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(WriteShareActivity writeShareActivity) {
-        this.bJF = writeShareActivity;
+        this.bNV = writeShareActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        InputMethodManager inputMethodManager;
-        p pVar;
-        InputMethodManager inputMethodManager2;
-        p pVar2;
-        WriteShareActivity writeShareActivity = this.bJF;
-        inputMethodManager = this.bJF.mInputManager;
-        pVar = this.bJF.bJs;
-        writeShareActivity.HidenSoftKeyPad(inputMethodManager, pVar.acn());
-        WriteShareActivity writeShareActivity2 = this.bJF;
-        inputMethodManager2 = this.bJF.mInputManager;
-        pVar2 = this.bJF.bJs;
-        writeShareActivity2.HidenSoftKeyPad(inputMethodManager2, pVar2.aco());
-        this.bJF.acg();
+        boolean z;
+        this.bNV.acy();
+        z = this.bNV.bNK;
+        MessageManager.getInstance().dispatchResponsedMessage(new ShareSDKResultMessage(Boolean.valueOf(z)));
+        com.baidu.tbadk.core.b.b.a(this.bNV.getPageContext().getPageActivity(), Constants.MEDIA_INFO, false);
+        this.bNV.finish();
     }
 }

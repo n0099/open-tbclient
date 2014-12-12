@@ -1,47 +1,63 @@
 package com.baidu.tbadk.core;
 
-import android.view.animation.Animation;
-import java.lang.ref.WeakReference;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.data.NewErrorData;
+import com.baidu.tbadk.core.util.ad;
 /* loaded from: classes.dex */
-public class h implements Animation.AnimationListener {
-    private final /* synthetic */ Animation.AnimationListener val$listener;
-    private final /* synthetic */ WeakReference val$reference;
-    final /* synthetic */ BaseFragmentActivity yG;
+public class h {
+    protected ad AR;
+    protected NewErrorData CB = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public h(BaseFragmentActivity baseFragmentActivity, Animation.AnimationListener animationListener, WeakReference weakReference) {
-        this.yG = baseFragmentActivity;
-        this.val$listener = animationListener;
-        this.val$reference = weakReference;
+    public h() {
+        this.AR = null;
+        this.AR = new ad();
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-        if (this.val$listener != null) {
-            this.val$listener.onAnimationStart(animation);
+    public void cancel() {
+        if (this.AR != null) {
+            this.AR.dL();
         }
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-        if (this.val$listener != null) {
-            this.val$listener.onAnimationRepeat(animation);
-        }
+    protected void setUrl(String str) {
+        this.AR.setUrl(str);
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        List list;
-        List list2;
-        if (this.val$listener != null) {
-            this.val$listener.onAnimationEnd(animation);
+    public void o(String str, String str2) {
+        this.AR.o(str, str2);
+    }
+
+    protected String lZ() {
+        String ov = this.AR.ov();
+        this.CB = new NewErrorData();
+        this.CB.parserJson(ov);
+        return ov;
+    }
+
+    public boolean ma() {
+        if (this.AR != null) {
+            return this.AR.oW().pW().ma();
         }
-        list = this.yG.animationList;
-        synchronized (list) {
-            list2 = this.yG.animationList;
-            list2.remove(this.val$reference);
+        return false;
+    }
+
+    public String mb() {
+        if (this.AR != null) {
+            return this.AR.getErrorString();
         }
+        return null;
+    }
+
+    public int getErrorCode() {
+        if (this.CB != null) {
+            return this.CB.getErrorNumber();
+        }
+        return -1;
+    }
+
+    public String getErrorMsg() {
+        if (this.CB != null) {
+            return this.CB.getErrorMsg();
+        }
+        return null;
     }
 }

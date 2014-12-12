@@ -15,7 +15,7 @@ public class q implements CustomMessageTask.CustomRunnable<OfficalBarChatActivit
         if (customMessage != null && customMessage.getData() != null && (userData = customMessage.getData().getUserData()) != null) {
             LinkedList linkedList = new LinkedList();
             linkedList.add(String.valueOf(userData.getUserId()));
-            com.baidu.tieba.im.e.a(new r(this, linkedList), new s(this, customMessage));
+            com.baidu.tieba.im.i.a(new r(this, linkedList), new s(this, customMessage));
         }
         return null;
     }

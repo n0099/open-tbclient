@@ -1,11 +1,7 @@
 package com.baidu.adp.lib.stats;
 /* loaded from: classes.dex */
 public interface r {
-    void am(String str);
-
-    void d(long j);
-
-    void e(long j);
+    void aq(String str);
 
     String eN();
 
@@ -17,7 +13,11 @@ public interface r {
 
     long eR();
 
-    void f(long j);
+    void h(long j);
 
-    void g(long j);
+    void i(long j);
+
+    void j(long j);
+
+    void k(long j);
 }

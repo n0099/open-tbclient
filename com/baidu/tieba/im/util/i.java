@@ -2,13 +2,14 @@ package com.baidu.tieba.im.util;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.adp.lib.g.c;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.data.SystemMsgData;
 import com.baidu.tieba.im.data.VoiceMsgData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.y;
+import com.baidu.tieba.z;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
@@ -16,9 +17,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class i {
-    private static Pattern Ft = Pattern.compile("(#\\([^#\\)\\(]+\\))");
+    private static Pattern JC = Pattern.compile("(#\\([^#\\)\\(]+\\))");
 
-    public static String v(String str, boolean z) {
+    public static String s(String str, boolean z) {
         String str2 = null;
         if (str == null) {
             return null;
@@ -31,11 +32,11 @@ public class i {
         }
     }
 
-    public static long o(ChatMessage chatMessage) {
+    public static long n(ChatMessage chatMessage) {
         if (chatMessage == null) {
             return -1L;
         }
-        if (com.baidu.adp.lib.g.c.a(TbadkApplication.getCurrentAccount(), -1L) == chatMessage.getUserId()) {
+        if (c.a(TbadkCoreApplication.getCurrentAccount(), -1L) == chatMessage.getUserId()) {
             return chatMessage.getToUserId();
         }
         return chatMessage.getUserId();
@@ -45,22 +46,22 @@ public class i {
         return jSONObject.optString(z ? "big_src" : "src");
     }
 
-    public static boolean p(ChatMessage chatMessage) {
+    public static boolean o(ChatMessage chatMessage) {
         return chatMessage != null && chatMessage.getMsgType() == 2;
     }
 
-    public static boolean q(ChatMessage chatMessage) {
+    public static boolean p(ChatMessage chatMessage) {
         return chatMessage != null && chatMessage.getMsgType() == 4;
     }
 
-    public static boolean r(ChatMessage chatMessage) {
+    public static boolean q(ChatMessage chatMessage) {
         return chatMessage != null && chatMessage.getMsgType() == 3;
     }
 
-    public static boolean s(ChatMessage chatMessage) {
+    public static boolean r(ChatMessage chatMessage) {
         try {
-            if (chatMessage.getMsgType() != 11 && TbadkApplication.isLogin()) {
-                return chatMessage.getUserInfo().getUserId().equals(TbadkApplication.getCurrentAccount());
+            if (chatMessage.getMsgType() != 11 && TbadkCoreApplication.isLogin()) {
+                return chatMessage.getUserInfo().getUserId().equals(TbadkCoreApplication.getCurrentAccount());
             }
             return false;
         } catch (Exception e) {
@@ -68,11 +69,11 @@ public class i {
         }
     }
 
-    public static boolean t(ChatMessage chatMessage) {
+    public static boolean s(ChatMessage chatMessage) {
         return chatMessage != null && chatMessage.getMsgType() == 6;
     }
 
-    public static MsgCacheData u(ChatMessage chatMessage) {
+    public static MsgCacheData t(ChatMessage chatMessage) {
         try {
             MsgCacheData msgCacheData = new MsgCacheData();
             msgCacheData.setRich_content(null);
@@ -82,7 +83,7 @@ public class i {
         }
     }
 
-    public static VoiceMsgData v(ChatMessage chatMessage) {
+    public static VoiceMsgData u(ChatMessage chatMessage) {
         VoiceMsgData voiceMsgData;
         if (chatMessage == null || chatMessage.getMsgType() != 3) {
             return null;
@@ -122,7 +123,7 @@ public class i {
         }
     }
 
-    private static final String gF(String str) {
+    private static final String hk(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -151,7 +152,7 @@ public class i {
         return sb.toString();
     }
 
-    private static final String gG(String str) {
+    private static final String hl(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -161,7 +162,7 @@ public class i {
             if (jSONArray.length() >= 2) {
                 String optString = jSONArray.optString(0);
                 if (1 == jSONArray.optInt(1)) {
-                    sb.append(TbadkApplication.m251getInst().getString(y.last_msg_extra_share));
+                    sb.append(TbadkCoreApplication.m255getInst().getString(z.last_msg_extra_share));
                 }
                 if (optString != null) {
                     sb.append(optString);
@@ -173,37 +174,40 @@ public class i {
         return sb.toString();
     }
 
-    public static String w(ChatMessage chatMessage) {
-        return chatMessage == null ? "" : m(chatMessage.getMsgType(), chatMessage.getContent());
+    public static String v(ChatMessage chatMessage) {
+        return chatMessage == null ? "" : w(chatMessage.getMsgType(), chatMessage.getContent());
     }
 
-    public static String m(int i, String str) {
+    public static String w(int i, String str) {
         int i2 = 0;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         if (i == 1) {
-            String gF = (str.length() <= 1 || str.charAt(0) != '[') ? null : gF(str);
-            if (TextUtils.isEmpty(gF)) {
-                gF = str;
+            String hk = (str.length() <= 1 || str.charAt(0) != '[') ? null : hk(str);
+            if (TextUtils.isEmpty(hk)) {
+                hk = str;
             }
-            if (gF != null) {
-                Matcher matcher = Ft.matcher(gF);
+            if (hk != null) {
+                Matcher matcher = JC.matcher(hk);
                 while (matcher.find()) {
                     String group = matcher.group();
-                    gF = gF.replace(group, group.replace("#(", "[").replace(")", "]"));
+                    hk = hk.replace(group, group.replace("#(", "[").replace(")", "]"));
                 }
-                return gF;
+                return hk;
             }
             return null;
         } else if (i == 2) {
-            return TbadkApplication.m251getInst().getApp().getString(y.last_msg_pic);
+            return TbadkCoreApplication.m255getInst().getApp().getString(z.last_msg_pic);
         } else {
             if (i == 3) {
-                return TbadkApplication.m251getInst().getApp().getString(y.last_msg_voice);
+                return TbadkCoreApplication.m255getInst().getApp().getString(z.last_msg_voice);
             }
             if (i == 11) {
-                return gH(str);
+                return hm(str);
+            }
+            if (i == 23) {
+                return TbadkCoreApplication.m255getInst().getApp().getString(z.last_msg_reply_card);
             }
             if (i == 4) {
                 try {
@@ -230,7 +234,7 @@ public class i {
                     }
                 }
             } else if (i == 5) {
-                return TbadkApplication.m251getInst().getApp().getString(y.last_msg_invite);
+                return TbadkCoreApplication.m255getInst().getApp().getString(z.last_msg_invite);
             } else {
                 if (i == 6) {
                     String str2 = "";
@@ -241,7 +245,7 @@ public class i {
                     }
                     return str2;
                 } else if (i == 7) {
-                    String string = TbadkApplication.m251getInst().getApp().getString(y.last_msg_pic_text);
+                    String string = TbadkCoreApplication.m255getInst().getApp().getString(z.last_msg_pic_text);
                     if (!TextUtils.isEmpty(str)) {
                         try {
                             JSONArray jSONArray2 = new JSONArray(str);
@@ -268,7 +272,7 @@ public class i {
                         return string;
                     }
                 } else if (i == 9) {
-                    return gG(str);
+                    return hl(str);
                 } else {
                     return null;
                 }
@@ -276,7 +280,7 @@ public class i {
         }
     }
 
-    public static String x(ChatMessage chatMessage) {
+    public static String w(ChatMessage chatMessage) {
         if (chatMessage == null) {
             return null;
         }
@@ -285,22 +289,22 @@ public class i {
         if (userInfo != null && !TextUtils.isEmpty(userInfo.getUserName())) {
             str = chatMessage.getUserInfo().getUserName();
         }
-        if (userInfo != null && !TextUtils.isEmpty(userInfo.getUserId()) && userInfo.getUserId().equals(TbadkApplication.getCurrentAccount())) {
-            return w(chatMessage);
+        if (userInfo != null && !TextUtils.isEmpty(userInfo.getUserId()) && userInfo.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+            return v(chatMessage);
         }
         if (chatMessage.getMsgType() == 11) {
-            return w(chatMessage);
+            return v(chatMessage);
         }
         if (chatMessage.getToUserId() != 0) {
-            return w(chatMessage);
+            return v(chatMessage);
         }
         if (!TextUtils.isEmpty(str)) {
-            return String.valueOf(str) + ":" + w(chatMessage);
+            return String.valueOf(str) + ":" + v(chatMessage);
         }
-        return w(chatMessage);
+        return v(chatMessage);
     }
 
-    private static String gH(String str) {
+    private static String hm(String str) {
         String str2 = null;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -313,27 +317,27 @@ public class i {
                         str2 = optString2;
                     } else if (optJSONObject != null) {
                         if (optString.equals("003")) {
-                            str2 = TbadkApplication.m251getInst().getApp().getString(y.kick_out_myself);
+                            str2 = TbadkCoreApplication.m255getInst().getApp().getString(z.kick_out_myself);
                         } else if (optString.equals("122") || optString.equals("121")) {
                             str2 = optString2;
                         } else if (optString.equals("105")) {
                             String optString3 = optJSONObject.optString("userId");
                             String optString4 = optJSONObject.optString("userName");
-                            if (optString3.equals(TbadkApplication.getCurrentAccount())) {
-                                str2 = TbadkApplication.m251getInst().getApp().getString(y.join_group_myself);
+                            if (optString3.equals(TbadkCoreApplication.getCurrentAccount())) {
+                                str2 = TbadkCoreApplication.m255getInst().getApp().getString(z.join_group_myself);
                             } else {
-                                str2 = String.valueOf(optString4) + TbadkApplication.m251getInst().getApp().getString(y.join_group);
+                                str2 = String.valueOf(optString4) + TbadkCoreApplication.m255getInst().getApp().getString(z.join_group);
                             }
                         } else if (optString.equals("106")) {
-                            str2 = optJSONObject.optString("userId").equals(TbadkApplication.getCurrentAccount()) ? TbadkApplication.m251getInst().getApp().getString(y.kick_out_myself) : optString2;
+                            str2 = optJSONObject.optString("userId").equals(TbadkCoreApplication.getCurrentAccount()) ? TbadkCoreApplication.m255getInst().getApp().getString(z.kick_out_myself) : optString2;
                         } else if (optString.equals("002")) {
-                            str2 = TbadkApplication.m251getInst().getApp().getString(y.join_group_myself);
+                            str2 = TbadkCoreApplication.m255getInst().getApp().getString(z.join_group_myself);
                         } else if (optString.equals("109")) {
                             str2 = optString2;
                         } else if (optString.equals("110")) {
                             str2 = optString2;
                         } else if (optString.equals("202")) {
-                            str2 = String.valueOf(optJSONObject.optString("userName")) + TbadkApplication.m251getInst().getApp().getString(y.snap_group_chat_exit);
+                            str2 = String.valueOf(optJSONObject.optString("userName")) + TbadkCoreApplication.m255getInst().getApp().getString(z.snap_group_chat_exit);
                         } else if (optString.equals("123")) {
                             str2 = optString2;
                         } else if (optString.equals("304")) {
@@ -350,7 +354,7 @@ public class i {
         return str2;
     }
 
-    public static SystemMsgData y(ChatMessage chatMessage) {
+    public static SystemMsgData x(ChatMessage chatMessage) {
         if (chatMessage == null || chatMessage.getMsgType() != 11 || TextUtils.isEmpty(chatMessage.getContent())) {
             return null;
         }
@@ -365,7 +369,7 @@ public class i {
             if (optString.equals("003")) {
                 SystemMsgData systemMsgData = new SystemMsgData();
                 systemMsgData.setIsSelf(true);
-                systemMsgData.setContent(TbadkApplication.m251getInst().getApp().getString(y.kick_out_myself));
+                systemMsgData.setContent(TbadkCoreApplication.m255getInst().getApp().getString(z.kick_out_myself));
                 return systemMsgData;
             } else if (optString.equals("122") || optString.equals("121")) {
                 SystemMsgData systemMsgData2 = new SystemMsgData();
@@ -376,20 +380,20 @@ public class i {
                 String optString3 = optJSONObject.optString("userId");
                 String optString4 = optJSONObject.optString("userName");
                 SystemMsgData systemMsgData3 = new SystemMsgData();
-                if (optString3.equals(TbadkApplication.getCurrentAccount())) {
+                if (optString3.equals(TbadkCoreApplication.getCurrentAccount())) {
                     systemMsgData3.setIsSelf(true);
-                    systemMsgData3.setContent(TbadkApplication.m251getInst().getApp().getString(y.join_group_myself));
+                    systemMsgData3.setContent(TbadkCoreApplication.m255getInst().getApp().getString(z.join_group_myself));
                 } else {
                     systemMsgData3.setIsSelf(false);
-                    systemMsgData3.setContent(String.valueOf(optString4) + TbadkApplication.m251getInst().getApp().getString(y.join_group));
+                    systemMsgData3.setContent(String.valueOf(optString4) + TbadkCoreApplication.m255getInst().getApp().getString(z.join_group));
                 }
                 return systemMsgData3;
             } else if (optString.equals("106")) {
                 String optString5 = optJSONObject.optString("userId");
                 SystemMsgData systemMsgData4 = new SystemMsgData();
-                if (optString5.equals(TbadkApplication.getCurrentAccount())) {
+                if (optString5.equals(TbadkCoreApplication.getCurrentAccount())) {
                     systemMsgData4.setIsSelf(true);
-                    systemMsgData4.setContent(TbadkApplication.m251getInst().getApp().getString(y.kick_out_myself));
+                    systemMsgData4.setContent(TbadkCoreApplication.m255getInst().getApp().getString(z.kick_out_myself));
                 } else {
                     systemMsgData4.setIsSelf(false);
                     systemMsgData4.setContent(optString2);
@@ -398,7 +402,7 @@ public class i {
             } else if (optString.equals("002")) {
                 SystemMsgData systemMsgData5 = new SystemMsgData();
                 systemMsgData5.setIsSelf(true);
-                systemMsgData5.setContent(TbadkApplication.m251getInst().getApp().getString(y.join_group_myself));
+                systemMsgData5.setContent(TbadkCoreApplication.m255getInst().getApp().getString(z.join_group_myself));
                 return null;
             } else if (optString.equals("123")) {
                 SystemMsgData systemMsgData6 = new SystemMsgData();
@@ -414,7 +418,7 @@ public class i {
         }
     }
 
-    public static int k(Context context, int i) {
+    public static int j(Context context, int i) {
         return context.getResources().getDimensionPixelSize(i);
     }
 }

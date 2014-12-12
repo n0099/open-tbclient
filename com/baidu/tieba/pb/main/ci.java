@@ -1,24 +1,20 @@
 package com.baidu.tieba.pb.main;
 
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.CompoundButton;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ci implements Runnable {
-    private final /* synthetic */ ImageView byX;
-    final /* synthetic */ ch byY;
+public class ci implements CompoundButton.OnCheckedChangeListener {
+    final /* synthetic */ bz bCR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ci(ch chVar, ImageView imageView) {
-        this.byY = chVar;
-        this.byX = imageView;
+    public ci(bz bzVar) {
+        this.bCR = bzVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        bv bvVar;
-        RelativeLayout relativeLayout;
-        bvVar = this.byY.byW;
-        relativeLayout = bvVar.ahW;
-        relativeLayout.removeView(this.byX);
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        if (z) {
+            this.bCR.bCo = (String) compoundButton.getTag();
+        }
     }
 }

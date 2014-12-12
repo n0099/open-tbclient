@@ -1,12 +1,12 @@
 package com.baidu.tieba.im.model;
 
-import android.content.Context;
-import com.baidu.adp.base.e;
+import com.baidu.adp.base.f;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.message.RequestCheckUserMaskMessage;
 import com.baidu.tbadk.core.message.RequestGetMaskInfoMessage;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 /* loaded from: classes.dex */
-public class BlackListModel extends e {
+public class BlackListModel extends f {
     public static final int ISMASK_FALSE_FROM_SERVER = 0;
     public static final int ISMASK_TRUE_FROM_SERVER = 1;
     public static final int MASK_TYPE = 10;
@@ -16,17 +16,17 @@ public class BlackListModel extends e {
     private int mMaskType;
     private RequestUpdateMaskInfoMessage mUpdateMessage;
 
-    public BlackListModel(Context context) {
-        super(context);
+    public BlackListModel(BaseActivity baseActivity) {
+        super(baseActivity.getPageContext());
         this.mMaskType = 2;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.f
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.f
     public boolean cancelLoadData() {
         super.cancelMessage();
         return false;

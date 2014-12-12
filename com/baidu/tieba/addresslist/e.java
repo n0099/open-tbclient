@@ -1,56 +1,31 @@
 package com.baidu.tieba.addresslist;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.coreExtra.relationship.ResponseGetAddressListMessage;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.tbadk.core.message.NetWorkChangeMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ d agQ;
+public class e extends CustomMessageListener {
+    final /* synthetic */ d aog;
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(d dVar) {
-        super(304001);
-        this.agQ = dVar;
+    public e(d dVar, int i) {
+        super(i);
+        this.aog = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         BdListView bdListView;
-        com.baidu.tieba.addresslist.c.a aVar;
-        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001) {
-            this.agQ.agP = false;
-            bdListView = this.agQ.agL;
-            bdListView.hN();
-            if (socketResponsedMessage.hasError() || !(socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
-                String errorString = socketResponsedMessage.getErrorString();
-                if (!TextUtils.isEmpty(errorString)) {
-                    this.agQ.showToast(errorString, false);
-                    return;
-                }
-                return;
+        if (customResponsedMessage.getCmd() == 2001121 && (customResponsedMessage instanceof NetWorkChangeMessage)) {
+            if (((NetWorkChangeMessage) customResponsedMessage).mState == 0 || !BdSocketLinkService.isAvailable()) {
+                bdListView = this.aog.aob;
+                bdListView.jJ();
             }
-            com.baidu.tbadk.coreExtra.relationship.a addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
-            ArrayList arrayList = new ArrayList();
-            if (addressListData != null) {
-                for (com.baidu.tbadk.coreExtra.relationship.h hVar : addressListData.getAddressList()) {
-                    List<com.baidu.tbadk.coreExtra.relationship.b> contacts = hVar.getContacts();
-                    if (contacts.size() > 0) {
-                        com.baidu.tbadk.coreExtra.relationship.b bVar = new com.baidu.tbadk.coreExtra.relationship.b();
-                        bVar.cF(hVar.getKey());
-                        arrayList.add(bVar);
-                    }
-                    for (com.baidu.tbadk.coreExtra.relationship.b bVar2 : contacts) {
-                        arrayList.add(bVar2);
-                    }
-                }
-            }
-            aVar = this.agQ.agC;
-            aVar.w(arrayList);
         }
     }
 }

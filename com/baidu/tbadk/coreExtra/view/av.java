@@ -1,45 +1,16 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.graphics.Bitmap;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.Activity;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
-public class av extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ au Po;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public av(au auVar) {
-        this.Po = auVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.c
-    public void aa(String str) {
-        this.Po.Pm.setVisibility(0);
-        this.Po.mProgressBar.setVisibility(8);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.c
-    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        aw awVar;
-        aw awVar2;
-        this.Po.mProgressBar.setVisibility(8);
-        if (aVar != null) {
-            awVar = this.Po.Pn;
-            if (awVar != null) {
-                awVar2 = this.Po.Pn;
-                awVar2.g(aVar.getUrl(), aVar.hq());
-            }
-            Bitmap hl = aVar.hl();
-            if (hl == null) {
-                this.Po.Pm.vn();
-            } else if (aVar.bM()) {
-                this.Po.Pm.a(aVar.hq(), hl);
-            } else {
-                this.Po.Pm.setImageBitmap(hl);
-                this.Po.Pm.setImageData(aVar.hq());
-            }
+class av implements CustomMessageTask.CustomRunnable<Activity> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<q> run(CustomMessage<Activity> customMessage) {
+        if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Activity)) {
+            return null;
         }
+        return new CustomResponsedMessage<>(2001269, new LivePlayingImageView(customMessage.getData()));
     }
 }

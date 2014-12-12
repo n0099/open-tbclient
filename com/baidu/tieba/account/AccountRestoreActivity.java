@@ -1,7 +1,5 @@
 package com.baidu.tieba.account;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
@@ -10,35 +8,33 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.account.AccountLoginHelper;
+import com.baidu.tbadk.core.atomData.AccountRestoreActivityConfig;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.personInfo.PersonInfoActivity;
-import com.baidu.tieba.util.AntiHelper;
+import com.baidu.tbadk.util.PageType;
 /* loaded from: classes.dex */
-public class AccountRestoreActivity extends BaseActivity {
+public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity> {
     private static final String PAGE_TYPE = "page_type";
     private NavigationBar mNavigationBar;
     private String mPageType;
     private BaseWebView mWebView;
 
-    public static void startActivity(Context context, AntiHelper.PageType pageType) {
-        Intent intent = new Intent(context, AccountRestoreActivity.class);
-        intent.putExtra(PAGE_TYPE, pageType.toString());
-        context.startActivity(intent);
+    static {
+        TbadkCoreApplication.m255getInst().RegisterIntent(AccountRestoreActivityConfig.class, AccountRestoreActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(com.baidu.tieba.w.account_restore_activity);
+        setContentView(com.baidu.tieba.x.account_restore_activity);
         this.mPageType = getIntent().getStringExtra(PAGE_TYPE);
-        this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.v.view_navigation_bar);
+        this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.w.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(getString(com.baidu.tieba.y.anti_account_restore));
-        this.mWebView = (BaseWebView) findViewById(com.baidu.tieba.v.webview_acc_restore);
+        this.mNavigationBar.setTitleText(getPageContext().getString(com.baidu.tieba.z.anti_account_restore));
+        this.mWebView = (BaseWebView) findViewById(com.baidu.tieba.w.webview_acc_restore);
         this.mWebView.getSettings().setJavaScriptEnabled(true);
         this.mWebView.addJavascriptInterface(this, "AccountJsBridge");
         initCookie();
@@ -47,8 +43,8 @@ public class AccountRestoreActivity extends BaseActivity {
 
     public void initCookie() {
         try {
-            AccountLoginHelper.OurToken parseBDUSS = AccountLoginHelper.parseBDUSS(TbadkApplication.getCurrentBduss());
-            CookieSyncManager.createInstance(this);
+            AccountLoginHelper.OurToken parseBDUSS = AccountLoginHelper.parseBDUSS(TbadkCoreApplication.getCurrentBduss());
+            CookieSyncManager.createInstance(getPageContext().getPageActivity());
             CookieManager cookieManager = CookieManager.getInstance();
             cookieManager.setAcceptCookie(true);
             cookieManager.setCookie("baidu.com", "BDUSS=" + parseBDUSS.mBduss + "; domain=.baidu.com;");
@@ -63,14 +59,14 @@ public class AccountRestoreActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.mNavigationBar.onChangeSkinType(i);
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }
 
     @JavascriptInterface
     public void exit(int i) {
-        if (AntiHelper.PageType.PERSON_INFO.toString().equals(this.mPageType)) {
-            PersonInfoActivity.ex(true);
-        } else if (AntiHelper.PageType.FRS.toString().equals(this.mPageType)) {
+        if (PageType.PERSON_INFO.toString().equals(this.mPageType)) {
+            TbadkCoreApplication.setRefreshFlag(true);
+        } else if (PageType.FRS.toString().equals(this.mPageType)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003003, null));
         }
         finish();

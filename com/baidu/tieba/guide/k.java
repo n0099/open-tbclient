@@ -5,21 +5,21 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends Handler {
-    final /* synthetic */ j aLB;
+    final /* synthetic */ j aNu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.aLB = jVar;
+        this.aNu = jVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         switch (message.what) {
             case 0:
-                this.aLB.ID();
+                this.aNu.IU();
                 return;
             case 1:
-                this.aLB.IC();
+                this.aNu.IT();
                 return;
             default:
                 return;

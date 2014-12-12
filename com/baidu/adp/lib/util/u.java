@@ -1,65 +1,6 @@
 package com.baidu.adp.lib.util;
 
-import java.io.InputStream;
-import java.security.MessageDigest;
+import java.util.Queue;
 /* loaded from: classes.dex */
-public class u {
-    private static final char[] nB = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-
-    public static String n(byte[] bArr) {
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.update(bArr);
-            return o(messageDigest.digest());
-        } catch (Exception e) {
-            BdLog.e(e);
-            return null;
-        }
-    }
-
-    public static String o(byte[] bArr) {
-        if (bArr == null) {
-            return null;
-        }
-        StringBuilder sb = new StringBuilder(bArr.length * 2);
-        for (int i = 0; i < bArr.length; i++) {
-            sb.append(nB[(bArr[i] & 240) >>> 4]);
-            sb.append(nB[bArr[i] & 15]);
-        }
-        return sb.toString();
-    }
-
-    public static String b(InputStream inputStream) {
-        String str = null;
-        if (inputStream != null) {
-            try {
-                byte[] bArr = new byte[1024];
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read <= 0) {
-                        break;
-                    }
-                    messageDigest.update(bArr, 0, read);
-                }
-                str = o(messageDigest.digest());
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            } finally {
-                p.a(inputStream);
-            }
-        }
-        return str;
-    }
-
-    public static String aE(String str) {
-        if (str == null) {
-            return null;
-        }
-        try {
-            return n(str.getBytes("UTF-8"));
-        } catch (Exception e) {
-            return null;
-        }
-    }
+public interface u extends Queue {
 }

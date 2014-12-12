@@ -1,64 +1,72 @@
 package com.baidu.tbadk.mvc.d;
 
+import android.os.Bundle;
 import com.baidu.tbadk.core.data.ErrorData;
-import com.baidu.tbadk.mvc.b.g;
-import com.baidu.tbadk.mvc.b.i;
-import com.baidu.tbadk.mvc.core.MvcActivity;
+import com.baidu.tbadk.mvc.b.h;
+import com.baidu.tbadk.mvc.b.j;
+import com.baidu.tbadk.mvc.core.e;
 import com.baidu.tbadk.mvc.message.MvcHttpMessage;
 import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tbadk.mvc.model.q;
 /* loaded from: classes.dex */
-public abstract class a<T extends g, R extends i> extends com.baidu.tbadk.mvc.core.a implements com.baidu.tbadk.mvc.c.a, com.baidu.tbadk.mvc.model.i<T, R> {
-    protected abstract boolean tz();
+public abstract class a<T extends h, R extends j> extends com.baidu.tbadk.mvc.core.b implements q<T, R> {
+    protected abstract boolean kK();
 
-    public a(MvcActivity<?, ?> mvcActivity) {
-        super(mvcActivity);
+    public a(e<?, ?, ?> eVar) {
+        super(eVar);
     }
 
-    protected boolean a(T t, R r) {
+    @Override // com.baidu.tbadk.mvc.core.b, com.baidu.tbadk.mvc.core.a
+    public void f(Bundle bundle) {
+        super.f(bundle);
+        wx().addEventDelegate(this);
+    }
+
+    @Override // com.baidu.tbadk.mvc.core.a, com.baidu.tbadk.mvc.c.a
+    public boolean wy() {
         return true;
     }
 
-    @Override // com.baidu.tbadk.mvc.c.a
-    public boolean tk() {
-        return true;
-    }
-
-    @Override // com.baidu.tbadk.mvc.c.a
+    @Override // com.baidu.tbadk.mvc.core.a, com.baidu.tbadk.mvc.c.a
     public boolean a(com.baidu.tbadk.mvc.c.b bVar) {
-        if (bVar == null) {
+        if (super.a(bVar)) {
             return true;
         }
-        if (bVar.tr() == 16777216) {
-            if (tz()) {
-                de(33554435);
+        if (bVar.xc() == 16777216) {
+            if (kK()) {
+                dz(33554435);
                 return true;
             }
-            de(33554436);
+            dz(33554436);
             return true;
         }
         return false;
     }
 
-    @Override // com.baidu.tbadk.mvc.model.j
+    @Override // com.baidu.tbadk.mvc.model.r
     public void a(MvcHttpResponsedMessage<R> mvcHttpResponsedMessage, MvcHttpMessage<T, R> mvcHttpMessage, MvcNetMessage<T, R> mvcNetMessage) {
         T t;
-        if (mvcHttpResponsedMessage != null) {
+        if (mvcHttpResponsedMessage == null || mvcHttpResponsedMessage.hasError()) {
+            t = null;
+        } else {
             R data = mvcHttpResponsedMessage.getData();
             r0 = mvcHttpMessage != null ? mvcHttpMessage.getRequestData() : null;
             if (mvcNetMessage != null) {
-                t = mvcHttpMessage.getRequestData();
+                t = mvcNetMessage.getRequestData();
                 r0 = (T) data;
             } else {
                 t = r0;
                 r0 = (T) data;
             }
-        } else {
-            t = null;
         }
         if (t == null || r0 == null || !a(t, r0)) {
+            if (mvcHttpResponsedMessage != null) {
+                this.mErrorCode = mvcHttpResponsedMessage.getError();
+                this.mErrorString = mvcHttpResponsedMessage.getErrorString();
+            }
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
@@ -66,7 +74,7 @@ public abstract class a<T extends g, R extends i> extends com.baidu.tbadk.mvc.co
         }
     }
 
-    @Override // com.baidu.tbadk.mvc.model.k
+    @Override // com.baidu.tbadk.mvc.model.s
     public void a(MvcSocketResponsedMessage<R, ?> mvcSocketResponsedMessage, MvcSocketMessage<T, R> mvcSocketMessage, MvcNetMessage<T, R> mvcNetMessage) {
         T t;
         if (mvcSocketResponsedMessage == null || mvcSocketResponsedMessage.hasError()) {
@@ -75,7 +83,7 @@ public abstract class a<T extends g, R extends i> extends com.baidu.tbadk.mvc.co
             R data = mvcSocketResponsedMessage.getData();
             r0 = mvcSocketMessage != null ? mvcSocketMessage.getRequestData() : null;
             if (mvcNetMessage != null) {
-                t = mvcSocketMessage.getRequestData();
+                t = mvcNetMessage.getRequestData();
                 r0 = (T) data;
             } else {
                 t = r0;
@@ -83,6 +91,10 @@ public abstract class a<T extends g, R extends i> extends com.baidu.tbadk.mvc.co
             }
         }
         if (t == null || r0 == null || !a(t, r0)) {
+            if (mvcSocketResponsedMessage != null) {
+                this.mErrorCode = mvcSocketResponsedMessage.getError();
+                this.mErrorString = mvcSocketResponsedMessage.getErrorString();
+            }
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
@@ -91,12 +103,17 @@ public abstract class a<T extends g, R extends i> extends com.baidu.tbadk.mvc.co
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
+    public boolean a(T t, R r) {
+        return true;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
     public void a(com.baidu.tbadk.mvc.e.c cVar) {
         dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b.c(cVar));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(com.baidu.tbadk.mvc.b.a aVar) {
+    public void b(com.baidu.tbadk.mvc.b.a aVar) {
         dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b.b(aVar));
     }
 }

@@ -1,47 +1,47 @@
 package com.baidu.tieba.personInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements com.baidu.adp.widget.ListView.b {
-    final /* synthetic */ PersonInfoActivity bER;
+public class c implements com.baidu.adp.widget.ListView.c {
+    final /* synthetic */ PersonInfoActivity bIm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(PersonInfoActivity personInfoActivity) {
-        this.bER = personInfoActivity;
+        this.bIm = personInfoActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.b
-    public void hz() {
+    @Override // com.baidu.adp.widget.ListView.c
+    public void jw() {
         v vVar;
         ae aeVar;
         ae aeVar2;
-        vVar = this.bER.bEG;
-        vVar.abc();
-        aeVar = this.bER.bEH;
-        if (aeVar.abf() != null) {
-            aeVar2 = this.bER.bEH;
-            aeVar2.abf().hx();
+        vVar = this.bIm.bIb;
+        vVar.aby();
+        aeVar = this.bIm.bIc;
+        if (aeVar.abB() != null) {
+            aeVar2 = this.bIm.bIc;
+            aeVar2.abB().ju();
         }
     }
 
-    @Override // com.baidu.adp.widget.ListView.b
-    public void hy() {
+    @Override // com.baidu.adp.widget.ListView.c
+    public void jv() {
         ae aeVar;
         ae aeVar2;
-        aeVar = this.bER.bEH;
-        if (aeVar.abf() != null) {
-            aeVar2 = this.bER.bEH;
-            aeVar2.abf().hideProgress();
+        aeVar = this.bIm.bIc;
+        if (aeVar.abB() != null) {
+            aeVar2 = this.bIm.bIc;
+            aeVar2.abB().hideProgress();
         }
     }
 
-    @Override // com.baidu.adp.widget.ListView.b
-    public void j(float f) {
+    @Override // com.baidu.adp.widget.ListView.c
+    public void k(float f) {
         ae aeVar;
         ae aeVar2;
-        aeVar = this.bER.bEH;
-        if (aeVar.abf() != null) {
-            aeVar2 = this.bER.bEH;
-            aeVar2.abf().i(f);
+        aeVar = this.bIm.bIc;
+        if (aeVar.abB() != null) {
+            aeVar2 = this.bIm.bIc;
+            aeVar2.abB().j(f);
         }
     }
 }
