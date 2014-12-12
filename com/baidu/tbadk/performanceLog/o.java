@@ -1,22 +1,27 @@
 package com.baidu.tbadk.performanceLog;
-/* loaded from: classes.dex */
-public class o extends n {
-    public boolean YY;
-    public boolean isSuccess;
-    public String tl;
-    public long tm;
 
-    public void uH() {
-        x xVar;
-        if (v.uP().uQ() && (xVar = (x) v.uP().dp(this.mSubType)) != null) {
-            xVar.a(this, "head");
-        }
+import android.os.Handler;
+import android.os.Message;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public class o extends Handler {
+    final /* synthetic */ n age;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public o(n nVar) {
+        this.age = nVar;
     }
 
-    public void uI() {
-        x xVar;
-        if (v.uP().uQ() && (xVar = (x) v.uP().dp(this.mSubType)) != null) {
-            xVar.a(this, "img");
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        q qVar;
+        q qVar2;
+        int i;
+        qVar = this.age.agc;
+        if (qVar != null) {
+            qVar2 = this.age.agc;
+            i = this.age.afS;
+            qVar2.dO(i);
         }
     }
 }

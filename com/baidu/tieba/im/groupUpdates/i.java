@@ -6,112 +6,113 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.u;
+import com.baidu.tieba.im.data.UpdatesItemData;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
+import com.baidu.tieba.z;
 import java.util.Date;
 /* loaded from: classes.dex */
-public class i extends com.baidu.adp.base.d<UpdatesItemData> {
-    private TextView HX;
-    private UpdatesActivity bck;
-    private View bcl;
-    private HeadImageView bcm;
-    private TextView bcn;
-    private TextView bco;
-    private TextView bcp;
-    private ImageView bcq;
-    private RelativeLayout bcr;
-    private RelativeLayout bcs;
-    private UpdatesItemData bct;
+public class i extends com.baidu.adp.base.e<UpdatesActivity> {
+    private TextView MQ;
+    private View avy;
+    private UpdatesActivity bfS;
+    private HeadImageView bfT;
+    private TextView bfU;
+    private TextView bfV;
+    private TextView bfW;
+    private ImageView bfX;
+    private RelativeLayout bfY;
+    private RelativeLayout bfZ;
+    private UpdatesItemData data;
 
     public i(UpdatesActivity updatesActivity) {
-        super(updatesActivity, w.updates_item);
-        this.bck = updatesActivity;
-        nu();
+        super(updatesActivity.getPageContext(), x.updates_item);
+        this.bfS = updatesActivity;
+        initView();
     }
 
-    void nu() {
-        this.bcl = this.ay.findViewById(v.root_view);
-        this.bcm = (HeadImageView) this.bcl.findViewById(v.iv_head);
-        this.bcn = (TextView) this.bcl.findViewById(v.tv_group_name);
-        this.bco = (TextView) this.bcl.findViewById(v.tv_content);
-        this.HX = (TextView) this.bcl.findViewById(v.tv_title);
-        this.bcp = (TextView) this.bcl.findViewById(v.tv_time);
-        this.bcq = (ImageView) this.bcl.findViewById(v.cb_select);
-        this.bcr = (RelativeLayout) this.bcl.findViewById(v.layout_body);
-        this.bcs = (RelativeLayout) this.bcl.findViewById(v.layout_title);
-        this.bcm.setOnClickListener(new j(this));
-        this.bcr.setClickable(true);
-        this.bcr.setLongClickable(true);
-        this.bcs.setClickable(true);
-        this.bcs.setLongClickable(true);
-        this.bcr.setOnClickListener(new k(this));
-        this.bcr.setOnLongClickListener(new l(this));
-        this.bcs.setOnClickListener(new m(this));
-        this.bcs.setOnLongClickListener(new n(this));
-        this.bcq.setOnClickListener(new o(this));
+    void initView() {
+        this.avy = this.mConvertView.findViewById(w.root_view);
+        this.bfT = (HeadImageView) this.avy.findViewById(w.iv_head);
+        this.bfU = (TextView) this.avy.findViewById(w.tv_group_name);
+        this.bfV = (TextView) this.avy.findViewById(w.tv_content);
+        this.MQ = (TextView) this.avy.findViewById(w.tv_title);
+        this.bfW = (TextView) this.avy.findViewById(w.tv_time);
+        this.bfX = (ImageView) this.avy.findViewById(w.cb_select);
+        this.bfY = (RelativeLayout) this.avy.findViewById(w.layout_body);
+        this.bfZ = (RelativeLayout) this.avy.findViewById(w.layout_title);
+        this.bfT.setOnClickListener(new j(this));
+        this.bfY.setClickable(true);
+        this.bfY.setLongClickable(true);
+        this.bfZ.setClickable(true);
+        this.bfZ.setLongClickable(true);
+        this.bfY.setOnClickListener(new k(this));
+        this.bfY.setOnLongClickListener(new l(this));
+        this.bfZ.setOnClickListener(new m(this));
+        this.bfZ.setOnLongClickListener(new n(this));
+        this.bfX.setOnClickListener(new o(this));
     }
 
     public void refresh() {
-        if (this.bct != null) {
-            if (this.bck.Ph()) {
-                this.bcq.setVisibility(0);
+        if (this.data != null) {
+            if (this.bfS.isEditMode()) {
+                this.bfX.setVisibility(0);
             } else {
-                this.bcq.setVisibility(8);
-                this.bcr.setSelected(false);
+                this.bfX.setVisibility(8);
+                this.bfY.setSelected(false);
             }
-            String groupHeadUrl = this.bct.getGroupHeadUrl();
+            String groupHeadUrl = this.data.getGroupHeadUrl();
             if (!TextUtils.isEmpty(groupHeadUrl)) {
-                this.bcm.setTag(groupHeadUrl);
-                this.bcm.c(groupHeadUrl, 10, false);
+                this.bfT.setTag(groupHeadUrl);
+                this.bfT.d(groupHeadUrl, 10, false);
             } else {
-                this.bcm.setTag(null);
+                this.bfT.setTag(null);
             }
-            this.bcm.setClickable(false);
-            if (!TextUtils.isEmpty(this.bct.getTitle())) {
-                this.HX.setText(this.bct.getTitle());
+            this.bfT.setClickable(false);
+            if (!TextUtils.isEmpty(this.data.getTitle())) {
+                this.MQ.setText(this.data.getTitle());
             } else {
-                this.HX.setText(this.bck.getString(y.alert_title));
+                this.MQ.setText(this.bfS.getPageContext().getString(z.alert_title));
             }
             Date date = new Date();
-            date.setTime(this.bct.getTime());
-            this.bcp.setText(az.f(date));
-            if (!TextUtils.isEmpty(this.bct.getContent())) {
-                this.bco.setText(this.bct.getContent());
+            date.setTime(this.data.getTime());
+            this.bfW.setText(ba.f(date));
+            if (!TextUtils.isEmpty(this.data.getContent())) {
+                this.bfV.setText(this.data.getContent());
             } else {
-                this.bco.setText("");
+                this.bfV.setText("");
             }
-            if (!TextUtils.isEmpty(this.bct.getGroupName())) {
-                this.bcn.setText(this.bct.getGroupName());
+            if (!TextUtils.isEmpty(this.data.getGroupName())) {
+                this.bfU.setText(this.data.getGroupName());
             } else {
-                this.bcn.setText("");
+                this.bfU.setText("");
             }
-            int paddingLeft = this.bcr.getPaddingLeft();
-            int paddingTop = this.bcr.getPaddingTop();
-            int paddingRight = this.bcr.getPaddingRight();
-            int paddingBottom = this.bcr.getPaddingBottom();
-            this.bck.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
-            this.bck.getLayoutMode().h(this.ay);
-            this.bcq.setSelected(this.bct.isSelected());
-            if (this.bct.isSelected()) {
-                aw.h(this.bcr, u.bg_information_down_s);
+            int paddingLeft = this.bfY.getPaddingLeft();
+            int paddingTop = this.bfY.getPaddingTop();
+            int paddingRight = this.bfY.getPaddingRight();
+            int paddingBottom = this.bfY.getPaddingBottom();
+            this.bfS.getLayoutMode().ab(TbadkApplication.getInst().getSkinType() == 1);
+            this.bfS.getLayoutMode().h(this.mConvertView);
+            this.bfX.setSelected(this.data.isSelected());
+            if (this.data.isSelected()) {
+                ax.i(this.bfY, v.bg_information_down_s);
             } else {
-                aw.h(this.bcr, u.selector_group_updates_bottom_bg);
+                ax.i(this.bfY, v.selector_group_updates_bottom_bg);
             }
-            this.bcr.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+            this.bfY.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
         }
     }
 
-    public void b(UpdatesItemData updatesItemData) {
-        c(updatesItemData);
+    public void refresh(UpdatesItemData updatesItemData) {
+        setData(updatesItemData);
         refresh();
     }
 
-    public void c(UpdatesItemData updatesItemData) {
-        this.bct = updatesItemData;
+    public void setData(UpdatesItemData updatesItemData) {
+        this.data = updatesItemData;
     }
 }

@@ -9,28 +9,28 @@ import java.net.ServerSocket;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class a extends Thread {
-    private AladinServer xe;
-    private ServerSocket xd = null;
-    private boolean xf = false;
-    private boolean xg = false;
-    private int xh = 6257;
+    private AladinServer Ar;
+    private ServerSocket Aq = null;
+    private boolean As = false;
+    private boolean At = false;
+    private int mPort = 6257;
 
     public a(AladinServer aladinServer) {
-        this.xe = aladinServer;
+        this.Ar = aladinServer;
     }
 
     private void init(int i) {
-        this.xd = new ServerSocket();
-        this.xd.setReuseAddress(true);
-        this.xd.setSoTimeout(0);
-        this.xd.bind(new InetSocketAddress(i));
+        this.Aq = new ServerSocket();
+        this.Aq.setReuseAddress(true);
+        this.Aq.setSoTimeout(0);
+        this.Aq.bind(new InetSocketAddress(i));
     }
 
     public void quit() {
-        this.xg = true;
+        this.At = true;
         try {
-            if (!this.xd.isClosed()) {
-                this.xd.close();
+            if (!this.Aq.isClosed()) {
+                this.Aq.close();
             }
         } catch (Throwable th) {
         }
@@ -38,16 +38,16 @@ public class a extends Thread {
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        this.xh = com.baidu.tbadk.core.sharedPref.b.lk().getInt("aladin_port", -1);
-        if (this.xh == -1) {
-            this.xh = 6257;
+        this.mPort = com.baidu.tbadk.core.sharedPref.b.og().getInt("aladin_port", -1);
+        if (this.mPort == -1) {
+            this.mPort = 6257;
         }
         try {
-            init(this.xh);
+            init(this.mPort);
             while (true) {
                 try {
-                    this.xf = true;
-                    Socket accept = this.xd.accept();
+                    this.As = true;
+                    Socket accept = this.Aq.accept();
                     if (accept != null) {
                         if (!com.baidu.tbadk.aladin.b.b.a(accept.getInetAddress())) {
                             try {
@@ -57,50 +57,50 @@ public class a extends Thread {
                             } catch (Throwable th) {
                             }
                         } else {
-                            new b(accept, this.xe, this).start();
+                            new b(accept, this.Ar, this).start();
                         }
                     }
                 } catch (Throwable th2) {
                     try {
                         BdLog.detailException(th2);
-                        this.xf = false;
-                        if (this.xd != null) {
+                        this.As = false;
+                        if (this.Aq != null) {
                             try {
-                                if (!this.xd.isClosed()) {
-                                    this.xd.close();
+                                if (!this.Aq.isClosed()) {
+                                    this.Aq.close();
                                 }
                             } catch (Throwable th3) {
                                 BdLog.detailException(th3);
                             }
                         }
-                        if (!this.xg && this.xe != null) {
+                        if (!this.At && this.Ar != null) {
                             try {
                                 Thread.sleep(TbConfig.NOTIFY_SOUND_INTERVAL);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
-                            this.xe.reStartListener();
+                            this.Ar.reStartListener();
                             return;
                         }
                         return;
                     } catch (Throwable th4) {
-                        this.xf = false;
-                        if (this.xd != null) {
+                        this.As = false;
+                        if (this.Aq != null) {
                             try {
-                                if (!this.xd.isClosed()) {
-                                    this.xd.close();
+                                if (!this.Aq.isClosed()) {
+                                    this.Aq.close();
                                 }
                             } catch (Throwable th5) {
                                 BdLog.detailException(th5);
                             }
                         }
-                        if (!this.xg && this.xe != null) {
+                        if (!this.At && this.Ar != null) {
                             try {
                                 Thread.sleep(TbConfig.NOTIFY_SOUND_INTERVAL);
                             } catch (InterruptedException e2) {
                                 e2.printStackTrace();
                             }
-                            this.xe.reStartListener();
+                            this.Ar.reStartListener();
                         }
                         throw th4;
                     }
@@ -108,14 +108,14 @@ public class a extends Thread {
             }
         } catch (Throwable th6) {
             BdLog.detailException(th6);
-            TiebaStatic.aladinPortError("", TbErrInfo.ERR_ALADIN_PORT_ERROR, th6.getMessage(), new StringBuilder(String.valueOf(this.xh)).toString());
-            if (this.xe != null) {
-                this.xe.stopSelf();
+            TiebaStatic.aladinPortError("", TbErrInfo.ERR_ALADIN_PORT_ERROR, th6.getMessage(), new StringBuilder(String.valueOf(this.mPort)).toString());
+            if (this.Ar != null) {
+                this.Ar.stopSelf();
             }
-            if (this.xd != null) {
+            if (this.Aq != null) {
                 try {
-                    if (!this.xd.isClosed()) {
-                        this.xd.close();
+                    if (!this.Aq.isClosed()) {
+                        this.Aq.close();
                     }
                 } catch (Throwable th7) {
                     BdLog.detailException(th7);
@@ -124,7 +124,7 @@ public class a extends Thread {
         }
     }
 
-    public boolean iI() {
-        return this.xf;
+    public boolean kU() {
+        return this.As;
     }
 }

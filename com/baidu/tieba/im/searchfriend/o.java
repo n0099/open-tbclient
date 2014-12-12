@@ -7,13 +7,11 @@ import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ l bik;
-    private final /* synthetic */ com.baidu.tieba.im.searchfriend.a.b bil;
+    final /* synthetic */ n bmL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(l lVar, com.baidu.tieba.im.searchfriend.a.b bVar) {
-        this.bik = lVar;
-        this.bil = bVar;
+    public o(n nVar) {
+        this.bmL = nVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,11 +20,11 @@ public class o implements View.OnClickListener {
         SearchFriendActivity searchFriendActivity2;
         if (view.getTag() instanceof com.baidu.tieba.im.searchfriend.a.c) {
             com.baidu.tieba.im.searchfriend.a.c cVar = (com.baidu.tieba.im.searchfriend.a.c) view.getTag();
-            searchFriendActivity = this.bik.bij;
-            com.baidu.tbadk.core.j.l(searchFriendActivity, cVar.RF());
+            searchFriendActivity = this.bmL.bmK;
+            com.baidu.tbadk.core.i.B(searchFriendActivity.getPageContext().getPageActivity(), cVar.SR());
             MessageManager messageManager = MessageManager.getInstance();
-            searchFriendActivity2 = this.bik.bij;
-            messageManager.sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(searchFriendActivity2, String.valueOf(cVar.getUserId()), cVar.getName(), cVar.ks(), null, false, cVar.RF(), this.bil.RD())));
+            searchFriendActivity2 = this.bmL.bmK;
+            messageManager.sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(searchFriendActivity2.getPageContext().getPageActivity(), String.valueOf(cVar.getUserId()), cVar.getName(), cVar.nl(), null, false, cVar.SR(), cVar.ni())));
         }
     }
 }

@@ -17,7 +17,7 @@ class t extends com.baidu.adp.framework.listener.e {
             int error = responseDeleteFriendMessage.getError();
             long friendId = responseDeleteFriendMessage.getFriendId();
             if (error == 0) {
-                com.baidu.tieba.im.e.a(new u(this, friendId), new v(this, friendId));
+                com.baidu.tieba.im.i.a(new u(this, friendId), new v(this, friendId));
             }
         }
     }

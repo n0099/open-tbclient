@@ -1,53 +1,22 @@
 package com.baidu.tieba.tblauncher;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class ai implements com.baidu.tbadk.core.b.a {
-    private i bPz;
+class ai extends CustomMessageListener {
+    final /* synthetic */ MainTabActivity this$0;
 
-    @Override // com.baidu.tbadk.core.b.a
-    public void d(Context context, int i) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2015001, new MainTabActivityConfig(context).createNormalCfg(i)));
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ai(MainTabActivity mainTabActivity, int i) {
+        super(i);
+        this.this$0 = mainTabActivity;
     }
 
-    @Override // com.baidu.tbadk.core.b.a
-    public void t(Context context) {
-        String currentAccount = TbadkApplication.getCurrentAccount();
-        if (currentAccount != null && currentAccount.length() > 0) {
-            d(context, 1);
-        } else {
-            d(context, 0);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.b.a
-    public void a(Context context, int i, boolean z) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2015001, new MainTabActivityConfig(context).createRefreshCfg(i, z)));
-    }
-
-    @Override // com.baidu.tbadk.core.b.a
-    public Class<?> ld() {
-        return MainTabActivity.class;
-    }
-
-    @Override // com.baidu.tbadk.core.b.a
-    public String le() {
-        return MainTabActivity.class.getName();
-    }
-
-    @Override // com.baidu.tbadk.core.b.a
-    public int getCurrentTabType() {
-        if (this.bPz != null) {
-            return this.bPz.getCurrentTabType();
-        }
-        return -1;
-    }
-
-    public void a(i iVar) {
-        this.bPz = iVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.this$0.cbb = false;
+        this.this$0.eA(false);
     }
 }

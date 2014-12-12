@@ -1,31 +1,18 @@
 package com.baidu.tieba.im.messageCenter;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.im.pushNotify.PushNotifyMessage;
-import com.baidu.tieba.im.pushNotify.PushNotifyMessageDecoder;
-import java.util.Iterator;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.atomData.InvokeLiveNotifyActivityIsOpenConfig;
 /* loaded from: classes.dex */
-public class c extends com.baidu.adp.framework.a.j {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(int i) {
-        super(i);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.a.g
-    /* renamed from: d */
-    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-        if (socketResponsedMessage instanceof PushNotifyMessageDecoder) {
-            PushNotifyMessageDecoder pushNotifyMessageDecoder = (PushNotifyMessageDecoder) socketResponsedMessage;
-            if (pushNotifyMessageDecoder.getMsgList() != null) {
-                Iterator<PushNotifyMessage> it = pushNotifyMessageDecoder.getMsgList().iterator();
-                while (it.hasNext()) {
-                    MessageManager.getInstance().dispatchResponsedMessageToUI(it.next());
-                }
-            }
+class c implements CustomMessageTask.CustomRunnable<InvokeLiveNotifyActivityIsOpenConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<Boolean> run(CustomMessage<InvokeLiveNotifyActivityIsOpenConfig> customMessage) {
+        if (customMessage == null) {
+            return null;
         }
-        return socketResponsedMessage;
+        return new CustomResponsedMessage<>(2008018, Boolean.valueOf(TbadkApplication.getInst().getSharedPreferences(TbConfig.SETTINGFILE, 0).getBoolean("live_notify_page_showing", false)));
     }
 }

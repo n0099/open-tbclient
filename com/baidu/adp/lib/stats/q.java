@@ -9,55 +9,55 @@ import java.util.Iterator;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class q {
-    private String mA;
-    private StringBuilder mB;
     private long mStartTime;
-    private ArrayList<BasicNameValuePair> mz;
+    private ArrayList<BasicNameValuePair> mx;
+    private String my;
+    private StringBuilder mz;
 
     public q(String str) {
-        this.mA = null;
-        this.mB = new StringBuilder(100);
-        this.mA = str;
+        this.my = null;
+        this.mz = new StringBuilder(100);
+        this.my = str;
     }
 
     public q() {
-        this.mA = null;
-        this.mB = new StringBuilder(100);
+        this.my = null;
+        this.mz = new StringBuilder(100);
     }
 
     public void b(Object obj, Object obj2) {
         if (obj != null && obj2 != null) {
-            if (this.mz == null) {
-                this.mz = new ArrayList<>();
+            if (this.mx == null) {
+                this.mx = new ArrayList<>();
             }
-            this.mz.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
+            this.mx.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
         }
     }
 
     public String toString() {
-        if (this.mz != null) {
-            Iterator<BasicNameValuePair> it = this.mz.iterator();
+        if (this.mx != null) {
+            Iterator<BasicNameValuePair> it = this.mx.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
-                    if (this.mB.length() > 0) {
-                        this.mB.append('&');
+                    if (this.mz.length() > 0) {
+                        this.mz.append('&');
                     }
-                    this.mB.append(next.getName());
-                    this.mB.append('=');
+                    this.mz.append(next.getName());
+                    this.mz.append('=');
                     try {
-                        this.mB.append(URLEncoder.encode(al(next.getValue()), "utf-8"));
+                        this.mz.append(URLEncoder.encode(ap(next.getValue()), "utf-8"));
                     } catch (UnsupportedEncodingException e) {
                         BdLog.e(e);
-                        this.mB.append(al(next.getValue()));
+                        this.mz.append(ap(next.getValue()));
                     }
                 }
             }
         }
-        return this.mB.toString();
+        return this.mz.toString();
     }
 
-    public void c(Object... objArr) {
+    public void f(Object... objArr) {
         if (objArr != null) {
             for (int i = 0; i < objArr.length / 2; i++) {
                 if ((i * 2) + 1 < objArr.length) {
@@ -67,26 +67,26 @@ public class q {
         }
     }
 
-    public void n(String str, String str2) {
+    public void r(String str, String str2) {
         if (!TextUtils.isEmpty(str)) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
-            if (this.mB.length() > 0) {
-                this.mB.append('&');
+            if (this.mz.length() > 0) {
+                this.mz.append('&');
             }
-            this.mB.append(str);
-            this.mB.append("=");
+            this.mz.append(str);
+            this.mz.append("=");
             try {
-                this.mB.append(URLEncoder.encode(al(str2), "utf-8"));
+                this.mz.append(URLEncoder.encode(ap(str2), "utf-8"));
             } catch (Throwable th) {
                 BdLog.e(th);
-                this.mB.append(al(str2));
+                this.mz.append(ap(str2));
             }
         }
     }
 
-    public void eL() {
+    public void startTimer() {
         this.mStartTime = System.currentTimeMillis();
     }
 
@@ -94,7 +94,7 @@ public class q {
         return System.currentTimeMillis() - this.mStartTime;
     }
 
-    private String al(String str) {
+    private String ap(String str) {
         return str.replace(" ", "_").replace("[", "(").replace("]", "").replace("&", "|");
     }
 }

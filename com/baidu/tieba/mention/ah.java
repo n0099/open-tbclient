@@ -1,29 +1,22 @@
 package com.baidu.tieba.mention;
-
-import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah implements AbsListView.OnScrollListener {
-    final /* synthetic */ ae bog;
+public class ah implements aa {
+    final /* synthetic */ af bsE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(ae aeVar) {
-        this.bog = aeVar;
+    public ah(af afVar) {
+        this.bsE = afVar;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        boolean z;
-        if (i != 0) {
-            z = this.bog.bof;
-            if (!z) {
-                this.bog.bof = true;
-                this.bog.ER();
-            }
-        }
+    @Override // com.baidu.tieba.mention.aa
+    public void b(long j, long j2, long j3) {
+        FeedData feedData;
+        this.bsE.mForumId = String.valueOf(j);
+        this.bsE.bsz = j2;
+        this.bsE.bsA = j3;
+        af afVar = this.bsE;
+        feedData = this.bsE.bsy;
+        afVar.c(feedData);
     }
 }

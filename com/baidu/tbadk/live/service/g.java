@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.coreExtra.live.LiveStatusChangeDefinition;
 /* loaded from: classes.dex */
 class g extends b {
-    final /* synthetic */ LiveGroupManagerService Vz;
+    final /* synthetic */ LiveGroupManagerService abB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(LiveGroupManagerService liveGroupManagerService) {
-        this.Vz = liveGroupManagerService;
+        this.abB = liveGroupManagerService;
     }
 
     @Override // com.baidu.tbadk.live.service.a
@@ -21,14 +21,14 @@ class g extends b {
         String str;
         Handler handler2;
         if (dVar != null) {
-            this.Vz.mCallbacks.register(dVar);
-            handler = this.Vz.mHandler;
+            this.abB.mCallbacks.register(dVar);
+            handler = this.abB.mHandler;
             handler.sendEmptyMessage(1);
-            str = this.Vz.mErrorPrompt;
+            str = this.abB.mErrorPrompt;
             if (str == null) {
                 return;
             }
-            handler2 = this.Vz.mHandler;
+            handler2 = this.abB.mHandler;
             handler2.sendEmptyMessage(2);
         }
     }
@@ -36,51 +36,51 @@ class g extends b {
     @Override // com.baidu.tbadk.live.service.a
     public void b(d dVar) {
         if (dVar != null) {
-            this.Vz.mCallbacks.unregister(dVar);
+            this.abB.mCallbacks.unregister(dVar);
         }
     }
 
     @Override // com.baidu.tbadk.live.service.a
     public int getCurrentStatus() {
         int i;
-        i = this.Vz.mStatus;
+        i = this.abB.mStatus;
         return i;
     }
 
     @Override // com.baidu.tbadk.live.service.a
-    public void sw() {
+    public void requestStatusRebroadcast() {
         Handler handler;
-        handler = this.Vz.mHandler;
+        handler = this.abB.mHandler;
         handler.sendEmptyMessage(1);
     }
 
     @Override // com.baidu.tbadk.live.service.a
     public String getCurrentGroupId() {
         String str;
-        str = this.Vz.mGroupId;
+        str = this.abB.mGroupId;
         return str;
     }
 
     @Override // com.baidu.tbadk.live.service.a
     public String getCurrentUrl() {
         String str;
-        str = this.Vz.mUrl;
+        str = this.abB.mUrl;
         return str;
     }
 
     @Override // com.baidu.tbadk.live.service.a
-    public void a(String str, String str2, String str3, String str4, String str5, String str6) {
+    public void connectAndPublish(String str, String str2, String str3, String str4, String str5, String str6) {
         Handler handler;
         Handler handler2;
         l lVar = new l(null);
         lVar.streamId = str;
         lVar.groupId = str2;
-        lVar.VC = str3;
+        lVar.deviceId = str3;
         lVar.url = str4;
         lVar.accessToken = str5;
         lVar.userId = str6;
-        handler = this.Vz.mHandler;
-        handler2 = this.Vz.mHandler;
+        handler = this.abB.mHandler;
+        handler2 = this.abB.mHandler;
         handler.sendMessage(handler2.obtainMessage(10, lVar));
     }
 
@@ -92,15 +92,15 @@ class g extends b {
         if (str == null) {
             return;
         }
-        str2 = this.Vz.mGroupId;
+        str2 = this.abB.mGroupId;
         if (!str.equals(str2)) {
             return;
         }
-        liveSenderControl = this.Vz.mLiveSenderControl;
+        liveSenderControl = this.abB.mLiveSenderControl;
         if (liveSenderControl == null) {
             return;
         }
-        handler = this.Vz.mHandler;
+        handler = this.abB.mHandler;
         handler.sendEmptyMessage(11);
     }
 
@@ -112,15 +112,15 @@ class g extends b {
         if (str == null) {
             return;
         }
-        str2 = this.Vz.mGroupId;
+        str2 = this.abB.mGroupId;
         if (!str.equals(str2)) {
             return;
         }
-        liveSenderControl = this.Vz.mLiveSenderControl;
+        liveSenderControl = this.abB.mLiveSenderControl;
         if (liveSenderControl == null) {
             return;
         }
-        handler = this.Vz.mHandler;
+        handler = this.abB.mHandler;
         handler.sendEmptyMessage(12);
     }
 
@@ -132,15 +132,15 @@ class g extends b {
         if (str == null) {
             return;
         }
-        str2 = this.Vz.mGroupId;
+        str2 = this.abB.mGroupId;
         if (!str.equals(str2)) {
             return;
         }
-        liveSenderControl = this.Vz.mLiveSenderControl;
+        liveSenderControl = this.abB.mLiveSenderControl;
         if (liveSenderControl == null) {
             return;
         }
-        handler = this.Vz.mHandler;
+        handler = this.abB.mHandler;
         handler.sendEmptyMessage(13);
     }
 
@@ -152,58 +152,58 @@ class g extends b {
         if (str == null) {
             return;
         }
-        str2 = this.Vz.mGroupId;
+        str2 = this.abB.mGroupId;
         if (!str.equals(str2)) {
             return;
         }
-        liveSenderControl = this.Vz.mLiveSenderControl;
+        liveSenderControl = this.abB.mLiveSenderControl;
         if (liveSenderControl == null) {
             return;
         }
-        handler = this.Vz.mHandler;
+        handler = this.abB.mHandler;
         handler.sendEmptyMessage(14);
     }
 
     @Override // com.baidu.tbadk.live.service.a
-    public void o(String str, boolean z) {
+    public void closePublish(String str, boolean z) {
         String str2;
         LiveSenderControl liveSenderControl;
         Handler handler;
         if (str == null) {
             return;
         }
-        str2 = this.Vz.mGroupId;
+        str2 = this.abB.mGroupId;
         if (!str.equals(str2)) {
             return;
         }
-        liveSenderControl = this.Vz.mLiveSenderControl;
+        liveSenderControl = this.abB.mLiveSenderControl;
         if (liveSenderControl == null) {
             return;
         }
-        handler = this.Vz.mHandler;
+        handler = this.abB.mHandler;
         handler.sendEmptyMessage(15);
         if (!z) {
-            NotificationHelper.cancelNotification(this.Vz, 20);
+            NotificationHelper.cancelNotification(this.abB, 20);
         }
     }
 
     @Override // com.baidu.tbadk.live.service.a
-    public void dC(String str) {
+    public void startPublish(String str) {
         String str2;
         LiveSenderControl liveSenderControl;
         Handler handler;
         if (str == null) {
             return;
         }
-        str2 = this.Vz.mGroupId;
+        str2 = this.abB.mGroupId;
         if (!str.equals(str2)) {
             return;
         }
-        liveSenderControl = this.Vz.mLiveSenderControl;
+        liveSenderControl = this.abB.mLiveSenderControl;
         if (liveSenderControl == null) {
             return;
         }
-        handler = this.Vz.mHandler;
+        handler = this.abB.mHandler;
         handler.sendEmptyMessage(16);
     }
 
@@ -215,83 +215,83 @@ class g extends b {
         if (str == null) {
             return;
         }
-        str2 = this.Vz.mGroupId;
+        str2 = this.abB.mGroupId;
         if (!str.equals(str2)) {
             return;
         }
-        liveSenderControl = this.Vz.mLiveSenderControl;
+        liveSenderControl = this.abB.mLiveSenderControl;
         if (liveSenderControl == null) {
             return;
         }
-        handler = this.Vz.mHandler;
+        handler = this.abB.mHandler;
         handler.sendEmptyMessage(17);
     }
 
     @Override // com.baidu.tbadk.live.service.a
-    public void c(String str, String str2, int i) {
+    public void startPlay(String str, String str2, int i) {
         LivePlayerControl livePlayerControl;
         Handler handler;
         Handler handler2;
         if (str == null || str2 == null) {
             return;
         }
-        livePlayerControl = this.Vz.mPlayerCtrl;
+        livePlayerControl = this.abB.mPlayerCtrl;
         if (livePlayerControl != null) {
             k kVar = new k(null);
             kVar.groupId = str;
             kVar.url = str2;
-            kVar.VB = i;
-            handler = this.Vz.mHandler;
-            handler2 = this.Vz.mHandler;
+            kVar.startPos = i;
+            handler = this.abB.mHandler;
+            handler2 = this.abB.mHandler;
             handler.sendMessage(handler2.obtainMessage(18, kVar));
         }
     }
 
     @Override // com.baidu.tbadk.live.service.a
-    public void p(String str, boolean z) {
+    public void stopPlay(String str, boolean z) {
         String str2;
         Handler handler;
         if (str == null) {
             return;
         }
-        str2 = this.Vz.mGroupId;
+        str2 = this.abB.mGroupId;
         if (!str.equals(str2)) {
             return;
         }
-        handler = this.Vz.mHandler;
+        handler = this.abB.mHandler;
         handler.sendEmptyMessage(19);
         if (!z && !LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY.equals(str)) {
-            NotificationHelper.cancelNotification(this.Vz, 20);
+            NotificationHelper.cancelNotification(this.abB, 20);
         }
     }
 
     @Override // com.baidu.tbadk.live.service.a
-    public void dD(String str) {
+    public void pausePlay(String str) {
         String str2;
         Handler handler;
         if (str == null) {
             return;
         }
-        str2 = this.Vz.mGroupId;
+        str2 = this.abB.mGroupId;
         if (!str.equals(str2)) {
             return;
         }
-        handler = this.Vz.mHandler;
+        handler = this.abB.mHandler;
         handler.sendEmptyMessage(20);
     }
 
     @Override // com.baidu.tbadk.live.service.a
-    public void dE(String str) {
+    public void resumePlay(String str) {
         String str2;
         Handler handler;
         if (str == null) {
             return;
         }
-        str2 = this.Vz.mGroupId;
+        str2 = this.abB.mGroupId;
         if (!str.equals(str2)) {
             return;
         }
-        handler = this.Vz.mHandler;
+        handler = this.abB.mHandler;
         handler.sendEmptyMessage(21);
     }
 
@@ -299,8 +299,8 @@ class g extends b {
     public void seekPlayRecord(int i) {
         Handler handler;
         Handler handler2;
-        handler = this.Vz.mHandler;
-        handler2 = this.Vz.mHandler;
+        handler = this.abB.mHandler;
+        handler2 = this.abB.mHandler;
         handler.sendMessage(handler2.obtainMessage(22, i, i));
     }
 
@@ -310,14 +310,14 @@ class g extends b {
         LivePlayerControl livePlayerControl;
         LivePlayerControl livePlayerControl2;
         int i;
-        str = this.Vz.mGroupId;
+        str = this.abB.mGroupId;
         if (LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY.equals(str)) {
-            livePlayerControl = this.Vz.mPlayerCtrl;
+            livePlayerControl = this.abB.mPlayerCtrl;
             if (livePlayerControl != null) {
-                LiveGroupManagerService liveGroupManagerService = this.Vz;
-                livePlayerControl2 = this.Vz.mPlayerCtrl;
+                LiveGroupManagerService liveGroupManagerService = this.abB;
+                livePlayerControl2 = this.abB.mPlayerCtrl;
                 liveGroupManagerService.mPlayDuration = livePlayerControl2.getDuration();
-                i = this.Vz.mPlayDuration;
+                i = this.abB.mPlayDuration;
                 return i;
             }
         }
@@ -330,14 +330,14 @@ class g extends b {
         LivePlayerControl livePlayerControl;
         LivePlayerControl livePlayerControl2;
         int i;
-        str = this.Vz.mGroupId;
+        str = this.abB.mGroupId;
         if (LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY.equals(str)) {
-            livePlayerControl = this.Vz.mPlayerCtrl;
+            livePlayerControl = this.abB.mPlayerCtrl;
             if (livePlayerControl != null) {
-                LiveGroupManagerService liveGroupManagerService = this.Vz;
-                livePlayerControl2 = this.Vz.mPlayerCtrl;
+                LiveGroupManagerService liveGroupManagerService = this.abB;
+                livePlayerControl2 = this.abB.mPlayerCtrl;
                 liveGroupManagerService.mPlayPosition = livePlayerControl2.getCurrentPosition();
-                i = this.Vz.mPlayPosition;
+                i = this.abB.mPlayPosition;
                 return i;
             }
         }
@@ -350,16 +350,16 @@ class g extends b {
         String str;
         String str2;
         int i2;
-        i = this.Vz.mStatus;
+        i = this.abB.mStatus;
         if (i != 19) {
-            i2 = this.Vz.mStatus;
+            i2 = this.abB.mStatus;
             if (i2 != 18) {
                 return;
             }
         }
-        str = this.Vz.mGroupId;
-        str2 = this.Vz.mUrl;
-        a(null, str, null, str2, null, null, true, true);
+        str = this.abB.mGroupId;
+        str2 = this.abB.mUrl;
+        playOrRecord(null, str, null, str2, null, null, true, true);
     }
 
     @Override // com.baidu.tbadk.live.service.a
@@ -367,14 +367,14 @@ class g extends b {
         int i;
         boolean z;
         int i2;
-        i = this.Vz.mStatus;
+        i = this.abB.mStatus;
         if (i != 3) {
-            i2 = this.Vz.mStatus;
+            i2 = this.abB.mStatus;
             if (i2 != 4) {
                 return 1;
             }
         }
-        z = this.Vz.mIsRecording;
+        z = this.abB.mIsRecording;
         return !z ? 2 : 3;
     }
 
@@ -385,22 +385,22 @@ class g extends b {
         int i3;
         String str;
         int i4;
-        i = this.Vz.mStatus;
+        i = this.abB.mStatus;
         if (i >= 1) {
-            i4 = this.Vz.mStatus;
+            i4 = this.abB.mStatus;
             if (i4 < 17) {
                 return 1;
             }
         }
-        i2 = this.Vz.mStatus;
+        i2 = this.abB.mStatus;
         if (i2 < 17) {
-            i3 = this.Vz.mStatus;
+            i3 = this.abB.mStatus;
             if (i3 == 0) {
                 return 0;
             }
             return -1;
         }
-        str = this.Vz.mGroupId;
+        str = this.abB.mGroupId;
         if (LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY.equals(str)) {
             return 3;
         }
@@ -408,18 +408,18 @@ class g extends b {
     }
 
     @Override // com.baidu.tbadk.live.service.a
-    public void ax(boolean z) {
+    public void stopAnyRunning(boolean z) {
         String str;
         String str2;
         switch (whatIsRunning()) {
             case 1:
-                str2 = this.Vz.mGroupId;
-                o(str2, z);
+                str2 = this.abB.mGroupId;
+                closePublish(str2, z);
                 return;
             case 2:
             case 3:
-                str = this.Vz.mGroupId;
-                p(str, z);
+                str = this.abB.mGroupId;
+                stopPlay(str, z);
                 return;
             default:
                 return;
@@ -427,7 +427,7 @@ class g extends b {
     }
 
     @Override // com.baidu.tbadk.live.service.a
-    public void a(String str, String str2, String str3, String str4, String str5, String str6, boolean z, boolean z2) {
+    public void playOrRecord(String str, String str2, String str3, String str4, String str5, String str6, boolean z, boolean z2) {
         int i;
         int i2;
         l lVar;
@@ -446,52 +446,52 @@ class g extends b {
         if (str2 == null || str4 == null) {
             return;
         }
-        i = this.Vz.mStatus;
+        i = this.abB.mStatus;
         if (i == -1) {
             return;
         }
-        i2 = this.Vz.mStatus;
+        i2 = this.abB.mStatus;
         if (i2 != 0) {
             if (!z) {
-                str7 = this.Vz.mGroupId;
+                str7 = this.abB.mGroupId;
                 if (str2.equals(str7)) {
-                    str8 = this.Vz.mUrl;
+                    str8 = this.abB.mUrl;
                     compareUrlsBeforeQuestionMark = LiveGroupManagerService.compareUrlsBeforeQuestionMark(str4, str8);
                     if (compareUrlsBeforeQuestionMark) {
-                        i3 = this.Vz.mStatus;
+                        i3 = this.abB.mStatus;
                         if (i3 != 4) {
-                            i4 = this.Vz.mStatus;
+                            i4 = this.abB.mStatus;
                             if (i4 != 20) {
                                 return;
                             }
-                            str9 = this.Vz.mGroupId;
-                            dE(str9);
+                            str9 = this.abB.mGroupId;
+                            resumePlay(str9);
                             return;
                         }
-                        str10 = this.Vz.mGroupId;
+                        str10 = this.abB.mGroupId;
                         resumePublish(str10);
                         return;
                     }
                 }
             }
-            ax(z2);
-            this.Vz.argsToBeStarted = new l(null);
-            lVar = this.Vz.argsToBeStarted;
+            stopAnyRunning(z2);
+            this.abB.argsToBeStarted = new l(null);
+            lVar = this.abB.argsToBeStarted;
             lVar.groupId = str2;
-            lVar2 = this.Vz.argsToBeStarted;
+            lVar2 = this.abB.argsToBeStarted;
             lVar2.url = str4;
-            lVar3 = this.Vz.argsToBeStarted;
+            lVar3 = this.abB.argsToBeStarted;
             lVar3.streamId = str;
-            lVar4 = this.Vz.argsToBeStarted;
-            lVar4.VC = str3;
-            lVar5 = this.Vz.argsToBeStarted;
+            lVar4 = this.abB.argsToBeStarted;
+            lVar4.deviceId = str3;
+            lVar5 = this.abB.argsToBeStarted;
             lVar5.accessToken = str5;
-            lVar6 = this.Vz.argsToBeStarted;
+            lVar6 = this.abB.argsToBeStarted;
             lVar6.userId = str6;
         } else if (StringUtils.isNull(str)) {
-            c(str2, str4, 0);
+            startPlay(str2, str4, 0);
         } else {
-            a(str, str2, str3, str4, str5, str6);
+            connectAndPublish(str, str2, str3, str4, str5, str6);
         }
     }
 
@@ -503,19 +503,19 @@ class g extends b {
         LivePlayerControl livePlayerControl2;
         LiveSenderControl liveSenderControl;
         LiveSenderControl liveSenderControl2;
-        i = this.Vz.mStatus;
+        i = this.abB.mStatus;
         if (i == 3) {
-            liveSenderControl = this.Vz.mLiveSenderControl;
+            liveSenderControl = this.abB.mLiveSenderControl;
             if (liveSenderControl != null) {
-                liveSenderControl2 = this.Vz.mLiveSenderControl;
+                liveSenderControl2 = this.abB.mLiveSenderControl;
                 return liveSenderControl2.querySignalStrength();
             }
         }
-        i2 = this.Vz.mStatus;
+        i2 = this.abB.mStatus;
         if (i2 == 19) {
-            livePlayerControl = this.Vz.mPlayerCtrl;
+            livePlayerControl = this.abB.mPlayerCtrl;
             if (livePlayerControl != null) {
-                livePlayerControl2 = this.Vz.mPlayerCtrl;
+                livePlayerControl2 = this.abB.mPlayerCtrl;
                 return livePlayerControl2.getSignalStrength();
             }
         }
@@ -525,17 +525,17 @@ class g extends b {
     @Override // com.baidu.tbadk.live.service.a
     public int getRecordTime() {
         int i;
-        i = this.Vz.mRecordTime;
+        i = this.abB.mRecordTime;
         return i;
     }
 
     @Override // com.baidu.tbadk.live.service.a
     public void setPublisherPaused(boolean z) {
         int i;
-        i = this.Vz.mStatus;
+        i = this.abB.mStatus;
         if (i != 19) {
             return;
         }
-        this.Vz.mIsPublisherPaused = z;
+        this.abB.mIsPublisherPaused = z;
     }
 }

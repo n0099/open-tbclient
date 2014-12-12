@@ -1,38 +1,31 @@
 package com.baidu.tieba.pb.main;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.editortool.PbEditor;
+import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cu implements com.baidu.tbadk.editortool.w {
-    final /* synthetic */ bv byW;
+public class cu implements com.baidu.tieba.b.c {
+    final /* synthetic */ bz bCR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cu(bv bvVar) {
-        this.byW = bvVar;
+    public cu(bz bzVar) {
+        this.bCR = bzVar;
     }
 
-    @Override // com.baidu.tbadk.editortool.w
-    public void handleAction(int i, Object obj) {
-        com.baidu.tbadk.editortool.w wVar;
-        com.baidu.tbadk.editortool.w wVar2;
-        PbEditor pbEditor;
-        PbEditor pbEditor2;
+    @Override // com.baidu.tieba.b.c
+    public void GS() {
+        BdListView bdListView;
+        BdListView bdListView2;
+        bdListView = this.bCR.mListView;
+        if (bdListView != null) {
+            bdListView2 = this.bCR.mListView;
+            bdListView2.setSelection(0);
+        }
+    }
+
+    @Override // com.baidu.tieba.b.c
+    public void GR() {
         PbActivity pbActivity;
-        if (i == 35) {
-            pbEditor = this.byW.byB;
-            if (!pbEditor.BD()) {
-                pbEditor2 = this.byW.byB;
-                if (!pbEditor2.BU()) {
-                    pbActivity = this.byW.bxe;
-                    TiebaStatic.eventStat(pbActivity, "pb_reply", "pbclick", 1, new Object[0]);
-                }
-            }
-        }
-        wVar = this.byW.byC;
-        if (wVar != null) {
-            wVar2 = this.byW.byC;
-            wVar2.handleAction(i, obj);
-        }
+        pbActivity = this.bCR.bAW;
+        pbActivity.FM();
     }
 }

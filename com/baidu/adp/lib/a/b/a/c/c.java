@@ -6,7 +6,7 @@ import java.util.Set;
 public interface c {
     Object a(String str, Type type);
 
-    void a(String str, Object obj);
+    Set<String> cq();
 
-    Set<String> bQ();
+    void e(String str, Object obj);
 }

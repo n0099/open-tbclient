@@ -1,29 +1,36 @@
 package com.baidu.tieba.frs.view;
 
-import android.content.Context;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FrsGroupActivityConfig;
 /* loaded from: classes.dex */
 public class a {
-    protected boolean aEU;
+    protected boolean aGA;
+    protected boolean aGz;
 
-    public boolean GT() {
-        return this.aEU;
+    public a() {
+        this.aGA = TbadkCoreApplication.m255getInst().getIntentClass(FrsGroupActivityConfig.class) != null;
     }
 
-    public void a(Context context, View view, float f, float f2) {
+    public boolean Ha() {
+        return this.aGz;
+    }
+
+    public void a(TbPageContextSupport<?> tbPageContextSupport, View view, float f, float f2) {
         ScaleAnimation scaleAnimation = new ScaleAnimation(f, f2, 1.0f, 1.0f);
         scaleAnimation.setFillAfter(true);
         scaleAnimation.setDuration(1000L);
-        com.baidu.tbadk.core.a.a(context, view, scaleAnimation, (Animation.AnimationListener) null);
+        com.baidu.tieba.tbadkCore.a.a(tbPageContextSupport, view, scaleAnimation, (Animation.AnimationListener) null);
     }
 
-    public void b(Context context, View view, float f, float f2) {
+    public void b(TbPageContextSupport<?> tbPageContextSupport, View view, float f, float f2) {
         ScaleAnimation scaleAnimation = new ScaleAnimation(f, 1.0f, 1.0f, 1.0f);
         scaleAnimation.setFillAfter(true);
         scaleAnimation.setDuration(400L);
-        com.baidu.tbadk.core.a.a(context, view, scaleAnimation, new b(this, context, view, f2));
+        com.baidu.tieba.tbadkCore.a.a(tbPageContextSupport, view, scaleAnimation, new b(this, tbPageContextSupport, view, f2));
     }
 
     public void a(boolean z, float f) {

@@ -1,25 +1,24 @@
 package com.baidu.tbadk.core.view;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.bq;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
 /* loaded from: classes.dex */
-class aa implements bq {
-    final /* synthetic */ z IB;
-    private final /* synthetic */ String IC;
+public class aa {
+    NoDataViewFactory.ImgType Nb = NoDataViewFactory.ImgType.NONE;
+    int mHeight = -1;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(z zVar, String str) {
-        this.IB = zVar;
-        this.IC = str;
+    private aa() {
     }
 
-    @Override // com.baidu.tbadk.core.util.bq
-    public boolean k(View view) {
-        Object tag = view.getTag();
-        if (tag != null && this.IC.equals(tag)) {
-            view.invalidate();
-            return false;
-        }
-        return false;
+    public static aa a(NoDataViewFactory.ImgType imgType, int i) {
+        aa aaVar = new aa();
+        aaVar.Nb = imgType;
+        aaVar.mHeight = i;
+        return aaVar;
+    }
+
+    public static aa a(NoDataViewFactory.ImgType imgType) {
+        aa aaVar = new aa();
+        aaVar.Nb = imgType;
+        return aaVar;
     }
 }

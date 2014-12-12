@@ -6,7 +6,7 @@ import android.os.Process;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.u;
+import com.baidu.adp.lib.util.z;
 import com.baidu.tbadk.TbConfig;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
@@ -74,12 +74,12 @@ public abstract class BdStatBase implements Serializable {
         this.mContext = context;
         this.mLogDir = str;
         this.mLastLogTime = System.currentTimeMillis();
-        com.baidu.adp.lib.util.d.av(this.mLogDir);
+        com.baidu.adp.lib.util.d.ay(this.mLogDir);
         if (TextUtils.isEmpty(mProcessNameMd5)) {
             if (z) {
                 mProcessNameMd5 = "44f94582";
             } else {
-                mProcessNameMd5 = eo();
+                mProcessNameMd5 = ep();
             }
         }
         this.mMemCache = new StringBuffer();
@@ -162,9 +162,9 @@ public abstract class BdStatBase implements Serializable {
             }
         }
         if (System.currentTimeMillis() - this.mLastLogTime > TbConfig.USE_TIME_INTERVAL) {
-            f.er().a(this, true, false);
+            f.es().a(this, true, false);
         } else {
-            f.er().a(this, false, false);
+            f.es().a(this, false, false);
         }
         this.mLastLogTime = System.currentTimeMillis();
     }
@@ -226,7 +226,7 @@ public abstract class BdStatBase implements Serializable {
     public void handleException() {
     }
 
-    private String eo() {
+    private String ep() {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
         if (this.mContext == null) {
             return null;
@@ -244,7 +244,7 @@ public abstract class BdStatBase implements Serializable {
                     String str = runningAppProcesses.get(i2).processName;
                     if (!TextUtils.isEmpty(str)) {
                         try {
-                            String n = u.n(str.getBytes("UTF-8"));
+                            String n = z.n(str.getBytes("UTF-8"));
                             if (!TextUtils.isEmpty(n) && n.length() > 8) {
                                 return n.substring(n.length() - 8);
                             }

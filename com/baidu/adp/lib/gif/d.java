@@ -4,10 +4,10 @@ import android.graphics.BitmapFactory;
 import android.os.SystemClock;
 /* loaded from: classes.dex */
 class d extends Thread {
-    final /* synthetic */ GifView jd;
+    final /* synthetic */ GifView jj;
 
     private d(GifView gifView) {
-        this.jd = gifView;
+        this.jj = gifView;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,21 +17,21 @@ class d extends Thread {
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        if (GifView.a(this.jd) != null) {
-            while (GifView.a(this.jd).bj() != 1) {
-                if (!GifView.c(this.jd)) {
-                    c dg = GifView.a(this.jd).dg();
-                    if (dg == null) {
+        if (this.jj.jb != null) {
+            while (this.jj.jb.bK() != 1) {
+                if (!this.jj.jd) {
+                    c df = this.jj.jb.df();
+                    if (df == null) {
                         SystemClock.sleep(50L);
                     } else {
-                        if (dg.iz != null) {
-                            GifView.a(this.jd, dg.iz);
-                        } else if (dg.iT != null) {
-                            GifView.a(this.jd, BitmapFactory.decodeFile(dg.iT));
+                        if (df.iG != null) {
+                            this.jj.jc = df.iG;
+                        } else if (df.iZ != null) {
+                            this.jj.jc = BitmapFactory.decodeFile(df.iZ);
                         }
-                        long j = dg.delay;
-                        if (GifView.d(this.jd) != null) {
-                            GifView.b(this.jd);
+                        long j = df.delay;
+                        if (this.jj.jh != null) {
+                            this.jj.dv();
                             SystemClock.sleep(j);
                         } else {
                             return;
@@ -41,9 +41,9 @@ class d extends Thread {
                     SystemClock.sleep(50L);
                 }
             }
-            GifView.a(this.jd, GifView.a(this.jd).dg().iz);
-            GifView.a(this.jd).dd();
-            GifView.b(this.jd);
+            this.jj.jc = this.jj.jb.df().iG;
+            this.jj.jb.free();
+            this.jj.dv();
         }
     }
 }

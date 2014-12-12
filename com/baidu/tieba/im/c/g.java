@@ -1,40 +1,21 @@
 package com.baidu.tieba.im.c;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 /* loaded from: classes.dex */
-public class g extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ b beX;
+class g extends com.baidu.tieba.im.h<Boolean> {
+    final /* synthetic */ b bnj;
+    private final /* synthetic */ OfficialChatMessage bnm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g(b bVar, int i) {
-        super(i);
-        this.beX = bVar;
+    public g(b bVar, OfficialChatMessage officialChatMessage) {
+        this.bnj = bVar;
+        this.bnm = officialChatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        if (socketResponsedMessage != null) {
-            if (socketResponsedMessage.getCmd() == 1003) {
-                if (!(socketResponsedMessage instanceof ResponsedMessage) || socketResponsedMessage.getError() != 0) {
-                    return;
-                }
-                this.beX.QC();
-            } else if (socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
-                ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
-                TiebaStatic.imNet(responseOnlineMessage);
-                if (responseOnlineMessage.getError() == 0) {
-                    this.beX.beR = responseOnlineMessage.getGroupInfos();
-                    if (com.baidu.tieba.im.memorycache.c.PN().PM()) {
-                        this.beX.Qv();
-                    }
-                }
-            }
-        }
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // com.baidu.tieba.im.h
+    public Boolean doInBackground() {
+        return Boolean.valueOf(com.baidu.tieba.im.db.n.MN().a(this.bnm.getUserId(), this.bnm.getToUserId(), String.valueOf(this.bnm.getRecordId()), String.valueOf(this.bnm.getMsgId()), 2));
     }
 }

@@ -1,21 +1,26 @@
 package com.baidu.tieba.home;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.view.ad;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements Runnable {
-    final /* synthetic */ f aMC;
+public class l implements ad {
+    final /* synthetic */ f aOG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(f fVar) {
-        this.aMC = fVar;
+        this.aOG = fVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        r rVar;
-        BdLog.d("First enter , startPullRefresh after loadCache !");
-        rVar = this.aMC.aMr;
-        rVar.hO();
+    @Override // com.baidu.tbadk.core.view.ad
+    public void ar(boolean z) {
+        s sVar;
+        s sVar2;
+        if (z) {
+            sVar2 = this.aOG.aOs;
+            sVar2.jK();
+            return;
+        }
+        sVar = this.aOG.aOs;
+        sVar.Jm();
     }
 }

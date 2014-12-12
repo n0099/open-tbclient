@@ -1,15 +1,15 @@
 package com.baidu.tieba.signall;
 /* loaded from: classes.dex */
 class z implements Runnable {
-    final /* synthetic */ x bLR;
+    final /* synthetic */ x bQh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(x xVar) {
-        this.bLR = xVar;
+        this.bQh = xVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.bLR.postDelayed(this, 2000L);
+        this.bQh.postDelayed(this, 2000L);
     }
 }

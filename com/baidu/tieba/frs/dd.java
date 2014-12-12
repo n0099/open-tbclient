@@ -1,9 +1,11 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
-public interface dd {
-    void a(int i, boolean z, e eVar);
+public class dd {
+    final /* synthetic */ db aGv;
+    public String aGw;
+    public String name;
 
-    void eH(int i);
-
-    void g(b bVar);
+    public dd(db dbVar) {
+        this.aGv = dbVar;
+    }
 }

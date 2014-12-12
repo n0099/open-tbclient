@@ -10,6 +10,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -18,7 +19,7 @@ import com.baidu.tbadk.coreExtra.live.LiveErrorMessage;
 import com.baidu.tbadk.coreExtra.live.LiveStatusChangeDefinition;
 import com.baidu.tbadk.coreExtra.live.LiveStatusChangeMessage;
 import com.baidu.tbadk.live.service.LiveGroupManagerService;
-import com.baidu.tieba.y;
+import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class LiveGroupManager {
     private static final int LIVE_ERROR_EVENT = 2;
@@ -55,10 +56,10 @@ public class LiveGroupManager {
     public void onAccountChanged() {
         if (mManager != null && this.mInit) {
             stopAnyRunning();
-            this.mUserId = TbadkApplication.getCurrentAccount();
+            this.mUserId = TbadkCoreApplication.getCurrentAccount();
             String currentBduss = TbadkApplication.getCurrentBduss();
             if (currentBduss != null) {
-                a.su().dy(currentBduss);
+                a.vV().asyncLoadAccessToken(currentBduss);
             } else {
                 this.mAccessToken = null;
             }
@@ -79,8 +80,8 @@ public class LiveGroupManager {
             MessageManager.getInstance().registerListener(this.mNetworkChangeWatcher);
             MessageManager.getInstance().registerListener(this.mChatRoomMessageListener);
             MessageManager.getInstance().registerListener(this.mExitAppMessageListener);
-            a.su().dy(TbadkApplication.getCurrentBduss());
-            this.mUserId = TbadkApplication.getCurrentAccount();
+            a.vV().asyncLoadAccessToken(TbadkApplication.getCurrentBduss());
+            this.mUserId = TbadkCoreApplication.getCurrentAccount();
             doBindRemoteService();
             createPhoneListener();
             this.mInit = true;
@@ -123,7 +124,7 @@ public class LiveGroupManager {
 
     public void createPhoneListener() {
         try {
-            ((TelephonyManager) TbadkApplication.m251getInst().getApp().getSystemService("phone")).listen(new o(this, null), 32);
+            ((TelephonyManager) TbadkApplication.getInst().getApp().getSystemService("phone")).listen(new o(this, null), 32);
         } catch (SecurityException e) {
         }
     }
@@ -148,7 +149,7 @@ public class LiveGroupManager {
         try {
             if (this.mRemoteService != null) {
                 int currentStatus = this.mRemoteService.getCurrentStatus();
-                this.mRemoteService.sw();
+                this.mRemoteService.requestStatusRebroadcast();
                 return currentStatus;
             }
         } catch (RemoteException e) {
@@ -185,15 +186,15 @@ public class LiveGroupManager {
     public void connectAndStartPublish(String str, String str2, String str3, String str4) {
         if (str != null && str2 != null && str3 != null && str4 != null) {
             if (this.mAccessToken == null) {
-                UtilHelper.showToast(TbadkApplication.m251getInst().getApp(), y.live_error_accesstoken_null_or_expire);
-                a.su().dy(TbadkApplication.getCurrentBduss());
+                UtilHelper.showToast(TbadkApplication.getInst().getApp(), z.live_error_accesstoken_null_or_expire);
+                a.vV().asyncLoadAccessToken(TbadkApplication.getCurrentBduss());
                 TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_TOKEN_EXPIRED, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_TOKEN_EXPIRED), "");
             } else if (this.mUserId == null) {
-                UtilHelper.showToast(TbadkApplication.m251getInst().getApp(), y.live_error_user_not_login);
+                UtilHelper.showToast(TbadkApplication.getInst().getApp(), z.live_error_user_not_login);
             } else {
                 try {
                     if (this.mRemoteService != null) {
-                        this.mRemoteService.a(str, str2, str3, str4, this.mAccessToken, this.mUserId);
+                        this.mRemoteService.connectAndPublish(str, str2, str3, str4, this.mAccessToken, this.mUserId);
                     }
                 } catch (RemoteException e) {
                     TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
@@ -250,7 +251,7 @@ public class LiveGroupManager {
     public void stopPublish(String str) {
         try {
             if (this.mRemoteService != null) {
-                this.mRemoteService.o(str, false);
+                this.mRemoteService.closePublish(str, false);
             }
         } catch (RemoteException e) {
             TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
@@ -261,7 +262,7 @@ public class LiveGroupManager {
     public void startPlayLive(String str, String str2) {
         try {
             if (this.mRemoteService != null) {
-                this.mRemoteService.c(str, str2, 0);
+                this.mRemoteService.startPlay(str, str2, 0);
             }
         } catch (RemoteException e) {
             TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
@@ -272,7 +273,7 @@ public class LiveGroupManager {
     public void pausePlayLive(String str) {
         try {
             if (this.mRemoteService != null) {
-                this.mRemoteService.dD(str);
+                this.mRemoteService.pausePlay(str);
             }
         } catch (RemoteException e) {
             TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
@@ -283,7 +284,7 @@ public class LiveGroupManager {
     public void resumePlayLive(String str) {
         try {
             if (this.mRemoteService != null) {
-                this.mRemoteService.dE(str);
+                this.mRemoteService.resumePlay(str);
             }
         } catch (RemoteException e) {
             TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
@@ -294,7 +295,7 @@ public class LiveGroupManager {
     public void startPlayRecord(String str, int i) {
         try {
             if (this.mRemoteService != null) {
-                this.mRemoteService.c(LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY, str, i);
+                this.mRemoteService.startPlay(LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY, str, i);
             }
         } catch (RemoteException e) {
             TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
@@ -307,7 +308,7 @@ public class LiveGroupManager {
         this.mUrlStoppedForCall = null;
         try {
             if (this.mRemoteService != null) {
-                this.mRemoteService.p(str, false);
+                this.mRemoteService.stopPlay(str, false);
             }
         } catch (RemoteException e) {
             TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
@@ -321,7 +322,7 @@ public class LiveGroupManager {
         this.mStopPostionOfRecord = 0;
         try {
             if (this.mRemoteService != null) {
-                this.mRemoteService.p(LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY, false);
+                this.mRemoteService.stopPlay(LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY, false);
             }
         } catch (RemoteException e) {
             TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
@@ -332,7 +333,7 @@ public class LiveGroupManager {
     public void pausePlayRecord() {
         try {
             if (this.mRemoteService != null) {
-                this.mRemoteService.dD(LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY);
+                this.mRemoteService.pausePlay(LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY);
             }
         } catch (RemoteException e) {
             TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
@@ -343,7 +344,7 @@ public class LiveGroupManager {
     public void resumePlayRecord() {
         try {
             if (this.mRemoteService != null) {
-                this.mRemoteService.dE(LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY);
+                this.mRemoteService.resumePlay(LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY);
             }
         } catch (RemoteException e) {
             TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
@@ -424,7 +425,7 @@ public class LiveGroupManager {
     public void stopAnyRunning() {
         try {
             if (this.mRemoteService != null) {
-                this.mRemoteService.ax(false);
+                this.mRemoteService.stopAnyRunning(false);
             }
         } catch (RemoteException e) {
             TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
@@ -435,17 +436,17 @@ public class LiveGroupManager {
     public void playOrRecord(String str, String str2, String str3, String str4, boolean z) {
         if (str2 != null && str4 != null) {
             if (this.mAccessToken == null) {
-                UtilHelper.showToast(TbadkApplication.m251getInst().getApp(), y.live_error_accesstoken_null_or_expire);
-                a.su().dy(TbadkApplication.getCurrentBduss());
+                UtilHelper.showToast(TbadkApplication.getInst().getApp(), z.live_error_accesstoken_null_or_expire);
+                a.vV().asyncLoadAccessToken(TbadkApplication.getCurrentBduss());
                 TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_TOKEN_EXPIRED, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_TOKEN_EXPIRED), "");
                 broadcastLiveError(LiveStatusChangeDefinition.ERROR_PROMPT_TOKEN_EXPIRED);
             } else if (this.mUserId == null) {
-                UtilHelper.showToast(TbadkApplication.m251getInst().getApp(), y.live_error_user_not_login);
+                UtilHelper.showToast(TbadkApplication.getInst().getApp(), z.live_error_user_not_login);
                 broadcastLiveError(LiveStatusChangeDefinition.ERROR_PROMPT_USER_NULL);
             } else {
                 try {
                     if (this.mRemoteService != null) {
-                        this.mRemoteService.a(str, str2, str3, str4, this.mAccessToken, this.mUserId, z, false);
+                        this.mRemoteService.playOrRecord(str, str2, str3, str4, this.mAccessToken, this.mUserId, z, false);
                     }
                 } catch (RemoteException e) {
                     TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
@@ -517,19 +518,14 @@ public class LiveGroupManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyGroup() {
-        Intent intent;
-        String string = TbadkApplication.m251getInst().getApp().getResources().getString(y.app_name);
-        String string2 = TbadkApplication.m251getInst().getApp().getResources().getString(y.live_end_notify);
-        if (TbadkApplication.m251getInst().isLiveSDKOpen()) {
-            intent = new Intent("com.baidu.tieba.live.HOTLIVELIST");
-        } else {
-            intent = new Intent("com.baidu.tieba.live.BACKUPHOTLIVELIST");
-        }
+        String string = TbadkApplication.getInst().getApp().getResources().getString(z.app_name);
+        String string2 = TbadkApplication.getInst().getApp().getResources().getString(z.live_end_notify);
+        Intent intent = new Intent("com.baidu.tieba.live.HOTLIVELIST");
         intent.setFlags(268435456);
-        NotificationHelper.showNotification(TbadkApplication.m251getInst().getApp(), 22, string, string2, string, PendingIntent.getActivity(TbadkApplication.m251getInst().getApp(), y.app_name, intent, 134217728), false);
+        NotificationHelper.showNotification(TbadkApplication.getInst().getApp(), 22, string, string2, string, PendingIntent.getActivity(TbadkApplication.getInst().getApp(), z.app_name, intent, 134217728), false);
     }
 
     private void doBindRemoteService() {
-        TbadkApplication.m251getInst().getApp().bindService(new Intent(LiveGroupManagerService.ACTION), this.servRemoteConnection, 1);
+        TbadkApplication.getInst().getApp().bindService(new Intent(LiveGroupManagerService.ACTION), this.servRemoteConnection, 1);
     }
 }

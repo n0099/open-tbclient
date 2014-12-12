@@ -1,21 +1,19 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.coreExtra.message.NewMsgArriveRequestMessage;
-import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
+import android.view.View;
 /* loaded from: classes.dex */
-class q implements CustomMessageTask.CustomRunnable<Integer> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
-        if (customMessage != null && (customMessage instanceof NewMsgArriveRequestMessage)) {
-            int intValue = ((NewMsgArriveRequestMessage) customMessage).getData().intValue();
-            if (intValue == 2) {
-                MainTabActivity.bOD = true;
-            }
-            return new NewMsgArriveResponsedMessage(intValue);
-        }
-        return null;
+class q implements View.OnClickListener {
+    final /* synthetic */ MainTabActivity this$0;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public q(MainTabActivity mainTabActivity) {
+        this.this$0 = mainTabActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        an anVar;
+        anVar = this.this$0.caU;
+        anVar.aiX();
     }
 }

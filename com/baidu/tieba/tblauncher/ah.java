@@ -1,45 +1,49 @@
 package com.baidu.tieba.tblauncher;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class ah extends BroadcastReceiver {
+class ah extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
 
-    private ah(MainTabActivity mainTabActivity) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ah(MainTabActivity mainTabActivity, int i) {
+        super(i);
         this.this$0 = mainTabActivity;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ah(MainTabActivity mainTabActivity, ah ahVar) {
-        this(mainTabActivity);
-    }
-
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        if (intent.getAction().equals(TbConfig.getBroadcastActionNewVersion())) {
-            refreshNewVersion();
-        }
-    }
-
-    private void refreshNewVersion() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Removed duplicated region for block: B:11:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:8:0x0019  */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        int i;
         boolean z;
-        boolean checkNeedShowNewVersion = TbadkApplication.checkNeedShowNewVersion();
-        if (checkNeedShowNewVersion) {
-            z = this.this$0.adC;
-            if (!z) {
-                this.this$0.bPj = true;
+        an anVar;
+        an anVar2;
+        int i2;
+        this.this$0.cba = false;
+        i = this.this$0.caW;
+        if (i <= 0) {
+            i2 = this.this$0.caY;
+            if (i2 <= 0) {
+                z = false;
+                if (z) {
+                    anVar = this.this$0.caU;
+                    anVar.eE(false);
+                    anVar2 = this.this$0.caU;
+                    anVar2.aja().eH(false);
+                    return;
+                }
+                return;
             }
         }
-        if (checkNeedShowNewVersion) {
-            this.this$0.adC = true;
-        } else {
-            this.this$0.adC = false;
+        z = true;
+        if (z) {
         }
-        this.this$0.eJ(false);
     }
 }

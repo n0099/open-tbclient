@@ -1,18 +1,18 @@
 package com.baidu.tieba.im.chat.personaltalk;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
 class g implements DialogInterface.OnClickListener {
-    final /* synthetic */ PersonalTalkSettingActivity aSE;
+    final /* synthetic */ PersonalTalkSettingActivity aTQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(PersonalTalkSettingActivity personalTalkSettingActivity) {
-        this.aSE = personalTalkSettingActivity;
+        this.aTQ = personalTalkSettingActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        this.aSE.showLoadingDialog(null);
-        com.baidu.tieba.im.e.a(new h(this), new i(this));
+        com.baidu.adp.lib.g.k.b((Dialog) dialogInterface, this.aTQ.getPageContext());
     }
 }

@@ -1,32 +1,24 @@
 package com.baidu.tbadk.core.view;
+
+import android.content.Context;
+import android.view.View;
+import com.baidu.tbadk.core.data.MediaData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements Runnable {
-    final /* synthetic */ HaloView Hy;
+public class h implements View.OnClickListener {
+    final /* synthetic */ CommonImageLayout LV;
+    private final /* synthetic */ MediaData LW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(HaloView haloView) {
-        this.Hy = haloView;
+    public h(CommonImageLayout commonImageLayout, MediaData mediaData) {
+        this.LV = commonImageLayout;
+        this.LW = mediaData;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        boolean z;
-        boolean z2;
-        int i;
-        z = this.Hy.Hx;
-        if (!z) {
-            z2 = this.Hy.Hv;
-            if (!z2) {
-                HaloView haloView = this.Hy;
-                HaloView haloView2 = this.Hy;
-                i = haloView2.Hw;
-                int i2 = i + 1;
-                haloView2.Hw = i2;
-                haloView.Hw = i2 % 4;
-            }
-            this.Hy.postDelayed(this, 800L);
-            this.Hy.invalidate();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        context = this.LV.mContext;
+        com.baidu.tbadk.browser.a.y(context, this.LW.getVideoUrl());
     }
 }

@@ -5,14 +5,14 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class AudioInfoData extends com.baidu.tbadk.core.data.e implements Serializable {
+public class AudioInfoData extends com.baidu.tbadk.core.data.g implements Serializable {
     private static final long serialVersionUID = -3295150133270063363L;
     private int errorCode;
     private String errorMsg;
     private String errorUserMsg;
     private String voiceId;
 
-    @Override // com.baidu.tbadk.core.data.e
+    @Override // com.baidu.tbadk.core.data.g
     public void parserJson(String str) {
         if (str != null) {
             try {
@@ -23,7 +23,7 @@ public class AudioInfoData extends com.baidu.tbadk.core.data.e implements Serial
         }
     }
 
-    @Override // com.baidu.tbadk.core.data.e
+    @Override // com.baidu.tbadk.core.data.g
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {

@@ -1,64 +1,92 @@
 package com.baidu.tbadk.mvc.core;
 
 import android.os.Bundle;
-import com.baidu.adp.base.e;
+import com.baidu.tbadk.core.data.ErrorData;
 /* loaded from: classes.dex */
-public abstract class a extends e {
-    b Xh;
-    private com.baidu.tbadk.mvc.c.c Xi;
-    protected MvcActivity<?, ?> Xj;
+public abstract class a extends com.baidu.adp.base.f implements com.baidu.tbadk.mvc.c.a {
+    b adl;
+    private com.baidu.tbadk.mvc.c.c adm;
+    protected e<?, ?, ?> adn;
 
-    public a(MvcActivity<?, ?> mvcActivity) {
-        super(mvcActivity);
-        this.Xj = mvcActivity;
+    public a(e<?, ?, ?> eVar) {
+        super(eVar.getPageContext());
+        this.adn = eVar;
     }
 
-    public void b(Bundle bundle) {
+    public void f(Bundle bundle) {
     }
 
     public void onSaveInstanceState(Bundle bundle) {
     }
 
+    protected void a(ErrorData errorData) {
+    }
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(MvcActivity<?, ?> mvcActivity) {
-        this.Xj = mvcActivity;
+    public void a(e<?, ?, ?> eVar) {
+        this.adn = eVar;
     }
 
-    public final MvcActivity<?, ?> sZ() {
-        return this.Xj;
+    public final e<?, ?, ?> ww() {
+        return this.adn;
     }
 
-    public final ViewEventCenter ta() {
-        return this.Xj.ta();
+    public final ViewEventCenter wx() {
+        return this.adn.wx();
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.f
     @Deprecated
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.f
     @Deprecated
     public boolean cancelLoadData() {
         return false;
     }
 
-    public com.baidu.tbadk.mvc.c.c tb() {
-        if (this.Xi == null) {
-            this.Xi = new com.baidu.tbadk.mvc.c.c(this.unique_id);
-        }
-        return this.Xi;
+    @Override // com.baidu.tbadk.mvc.c.a
+    public boolean wy() {
+        return true;
     }
 
-    public boolean de(int i) {
-        return dispatchMvcEvent(tb().dj(i));
+    @Override // com.baidu.tbadk.mvc.c.a
+    public boolean a(com.baidu.tbadk.mvc.c.b bVar) {
+        if (bVar == null) {
+            return true;
+        }
+        if (bVar instanceof com.baidu.tbadk.mvc.c.b.a) {
+            com.baidu.tbadk.mvc.c.b.a aVar = (com.baidu.tbadk.mvc.c.b.a) bVar;
+            if (aVar.getUniqueId() == this.unique_id) {
+                a(aVar.getExtra());
+                return true;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public com.baidu.tbadk.mvc.c.c wz() {
+        if (this.adm == null) {
+            this.adm = new com.baidu.tbadk.mvc.c.c(this.unique_id);
+        }
+        return this.adm;
+    }
+
+    public boolean dz(int i) {
+        return dispatchMvcEvent(wz().dD(i));
+    }
+
+    public boolean g(int i, boolean z) {
+        return dispatchMvcEvent(wz().i(i, z));
     }
 
     public boolean dispatchMvcEvent(com.baidu.tbadk.mvc.c.b bVar) {
         if (bVar != null) {
             bVar.setUniqueId(this.unique_id);
         }
-        return ta().dispatchMvcEvent(bVar);
+        return wx().dispatchMvcEvent(bVar);
     }
 }

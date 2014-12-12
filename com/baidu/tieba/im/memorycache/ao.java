@@ -29,13 +29,13 @@ public class ao extends com.baidu.adp.framework.listener.e {
             RequestAddGroupMessage requestAddGroupMessage = (RequestAddGroupMessage) responseAddGroupMessage.getOrginalMessage();
             ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
             imMessageCenterPojo.setGroup_name(requestAddGroupMessage.getName());
-            imMessageCenterPojo.setCustomGroupType(com.baidu.tieba.im.c.a.fX(requestAddGroupMessage.getGroupType()));
+            imMessageCenterPojo.setCustomGroupType(com.baidu.tieba.im.b.a.gg(requestAddGroupMessage.getGroupType()));
             AddGroupInfoData addGroupInfo = responseAddGroupMessage.getAddGroupInfo();
             if (addGroupInfo != null) {
                 imMessageCenterPojo.setGroup_head(addGroupInfo.getPortrait());
                 imMessageCenterPojo.setGid(String.valueOf(addGroupInfo.getGroupId()));
-                imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.chat.bu.F(1L));
-                c.PN().f(imMessageCenterPojo);
+                imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.util.h.af(1L));
+                c.Qs().m(imMessageCenterPojo);
                 CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new ap(this, imMessageCenterPojo));
                 customMessageTask.setParallel(TiebaIMConfig.getParallel());
                 customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);

@@ -1,10 +1,10 @@
 package com.baidu.tbadk.browser;
 
-import com.baidu.tbadk.core.util.bg;
+import com.baidu.tbadk.core.util.bh;
 /* loaded from: classes.dex */
 public class Static {
     static {
-        bg.mR().a(new b());
-        bg.mR().a(new c());
+        bh.pK().a(new b());
+        bh.pK().a(new c());
     }
 }

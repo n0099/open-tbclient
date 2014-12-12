@@ -1,26 +1,22 @@
 package com.baidu.tieba.shareSDK;
 
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.view.MotionEvent;
+import android.view.View;
 /* loaded from: classes.dex */
-class x implements TextWatcher {
-    final /* synthetic */ p bJX;
+class x implements View.OnTouchListener {
+    final /* synthetic */ q bOn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(p pVar) {
-        this.bJX = pVar;
+    public x(q qVar) {
+        this.bOn = qVar;
     }
 
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        this.bJX.acl();
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 1) {
+            view.requestFocus();
+            return false;
+        }
+        return false;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mvc.b;
-
-import java.util.HashMap;
 /* loaded from: classes.dex */
-public interface f extends h {
-    HashMap<String, Object> tq();
+public interface f extends d {
+    boolean bH(String str);
+
+    String lw();
 }

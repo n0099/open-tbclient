@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    public static final Object a(Class<?> cls) {
+    public static final Object j(Class<?> cls) {
         Object obj = null;
         try {
             Constructor<?>[] declaredConstructors = cls.getDeclaredConstructors();
@@ -82,7 +82,7 @@ public class a {
         return cls2.isAssignableFrom(cls);
     }
 
-    public static final List<Field> b(Class<?> cls) {
+    public static final List<Field> k(Class<?> cls) {
         LinkedList linkedList = new LinkedList();
         while (cls != Object.class) {
             Field[] declaredFields = cls.getDeclaredFields();
@@ -98,7 +98,7 @@ public class a {
         return linkedList;
     }
 
-    public static final Field a(Class<?> cls, String str) {
+    public static final Field b(Class<?> cls, String str) {
         Field field = null;
         while (cls != Object.class && field == null) {
             try {
@@ -110,12 +110,12 @@ public class a {
         return field;
     }
 
-    public static final Object a(Object obj, String str) {
-        Field a = a(obj.getClass(), str);
-        if (a != null) {
+    public static final Object b(Object obj, String str) {
+        Field b = b(obj.getClass(), str);
+        if (b != null) {
             try {
-                a.setAccessible(true);
-                return a.get(obj);
+                b.setAccessible(true);
+                return b.get(obj);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (IllegalArgumentException e2) {
@@ -126,11 +126,11 @@ public class a {
     }
 
     public static final boolean a(Object obj, String str, Object obj2) {
-        Field a = a(obj.getClass(), str);
-        if (a != null) {
+        Field b = b(obj.getClass(), str);
+        if (b != null) {
             try {
-                a.setAccessible(true);
-                a.set(obj, obj2);
+                b.setAccessible(true);
+                b.set(obj, obj2);
                 return true;
             } catch (IllegalAccessException e) {
                 e.printStackTrace();

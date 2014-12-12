@@ -4,175 +4,180 @@ import android.os.Handler;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.core.view.aa;
+import com.baidu.tbadk.core.view.ab;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.data.FriendFeedThreadData;
-import com.baidu.tieba.editortool.PbEditor;
-import com.baidu.tieba.frs.ch;
+import com.baidu.tieba.tbadkCore.PbEditor.PbEditor;
+import com.baidu.tieba.tbadkCore.af;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class y extends com.baidu.adp.base.f {
-    private com.baidu.tbadk.core.view.o ahX;
-    private NoNetworkView aoS;
-    private FriendFeedActivity azF;
-    private q azG;
-    private ViewGroup azH;
-    private BdListView azI;
-    private PbEditor azJ;
-    private ch azK;
+public class y extends com.baidu.adp.base.g<FriendFeedActivity> {
+    TbPageContext<FriendFeedActivity> aBA;
+    private FriendFeedActivity aBB;
+    private q aBC;
+    private ViewGroup aBD;
+    private PbEditor aBE;
+    private af aBF;
     private Handler handler;
+    private BdListView mBdListView;
     private NavigationBar mNavigationBar;
+    private com.baidu.tbadk.core.view.x mNoDataView;
+    private NoNetworkView mNoNetworkView;
     private ViewGroup mRootView;
 
-    public y(FriendFeedActivity friendFeedActivity) {
-        super(friendFeedActivity);
+    public y(TbPageContext<FriendFeedActivity> tbPageContext) {
+        super(tbPageContext);
         this.handler = null;
-        this.azK = null;
-        this.azF = friendFeedActivity;
-        friendFeedActivity.setContentView(com.baidu.tieba.w.friend_feed_view);
+        this.aBF = null;
+        this.aBA = tbPageContext;
+        this.aBB = tbPageContext.getOrignalPage();
+        this.aBB.setContentView(com.baidu.tieba.x.friend_feed_view);
         this.handler = new Handler();
-        s(friendFeedActivity);
-        t(friendFeedActivity);
+        initHeader();
+        Fi();
     }
 
-    public PbEditor EQ() {
-        return this.azJ;
+    public PbEditor Fh() {
+        return this.aBE;
     }
 
-    private void s(FriendFeedActivity friendFeedActivity) {
-        this.mRootView = (ViewGroup) this.azF.findViewById(com.baidu.tieba.v.content);
-        this.mNavigationBar = (NavigationBar) this.azF.findViewById(com.baidu.tieba.v.view_navigation_bar);
-        this.mNavigationBar.setTitleText(this.azF.getString(com.baidu.tieba.y.friendfeed_title));
+    private void initHeader() {
+        this.mRootView = (ViewGroup) this.aBB.findViewById(com.baidu.tieba.w.content);
+        this.mNavigationBar = (NavigationBar) this.aBB.findViewById(com.baidu.tieba.w.view_navigation_bar);
+        this.mNavigationBar.setTitleText(this.aBB.getPageContext().getString(com.baidu.tieba.z.friendfeed_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
     }
 
-    private void t(FriendFeedActivity friendFeedActivity) {
-        this.aoS = (NoNetworkView) this.azF.findViewById(com.baidu.tieba.v.view_no_network);
-        this.azH = (ViewGroup) this.azF.findViewById(com.baidu.tieba.v.content_with_data);
-        this.ahX = NoDataViewFactory.a(this.azF, this.mRootView, com.baidu.tbadk.core.view.r.a(NoDataViewFactory.ImgType.NODATA), com.baidu.tbadk.core.view.s.bL(com.baidu.tieba.y.friendfeed__no_data), null);
-        this.azI = (BdListView) friendFeedActivity.findViewById(com.baidu.tieba.v.friend_feed_list);
-        this.azG = new q(this.azF, com.baidu.adp.lib.util.m.n(this.azF), ba.mD().mF());
-        this.azI.setAdapter((ListAdapter) this.azG);
-        this.azJ = (PbEditor) this.azF.findViewById(com.baidu.tieba.v.friendfeed_editor);
-        this.azJ.setHideBaobao(true);
-        this.azJ.au(false);
+    private void Fi() {
+        this.mNoNetworkView = (NoNetworkView) this.aBB.findViewById(com.baidu.tieba.w.view_no_network);
+        this.aBD = (ViewGroup) this.aBB.findViewById(com.baidu.tieba.w.content_with_data);
+        this.mNoDataView = NoDataViewFactory.a(this.aBB.getPageContext().getPageActivity(), this.mRootView, aa.a(NoDataViewFactory.ImgType.NODATA), ab.ci(com.baidu.tieba.z.friendfeed__no_data), null);
+        this.mBdListView = (BdListView) this.aBB.findViewById(com.baidu.tieba.w.friend_feed_list);
+        this.aBC = new q(this.aBB, com.baidu.adp.lib.util.l.M(this.aBB.getPageContext().getPageActivity()), bb.px().pz());
+        this.mBdListView.setAdapter((ListAdapter) this.aBC);
+        this.aBE = (PbEditor) this.aBB.findViewById(com.baidu.tieba.w.friendfeed_editor);
+        this.aBE.setHideBaobao(true);
+        this.aBE.aI(false);
     }
 
     public void onChangeSkinType(int i) {
-        this.azF.getLayoutMode().L(i == 1);
-        this.azF.getLayoutMode().h(this.mRootView);
-        this.mNavigationBar.onChangeSkinType(i);
-        this.aoS.onChangeSkinType(i);
-        if (this.azJ != null) {
-            this.azJ.changeSkinType(i);
+        this.aBA.getLayoutMode().ab(i == 1);
+        this.aBA.getLayoutMode().h(this.mRootView);
+        this.mNavigationBar.onChangeSkinType(this.aBA, i);
+        this.mNoNetworkView.onChangeSkinType(this.aBA, i);
+        if (this.aBE != null) {
+            this.aBE.b(this.aBA, i);
         }
-        if (this.ahX != null) {
-            this.ahX.onChangeSkinType(i);
+        if (this.mNoDataView != null) {
+            this.mNoDataView.onChangeSkinType(this.aBA, i);
         }
     }
 
-    public void ER() {
-        this.azJ.w(this.azJ.getEditText());
-        this.azJ.hide();
+    public void Fj() {
+        this.aBE.U(this.aBE.getEditText());
+        this.aBE.hide();
     }
 
     public void a(int i, FriendFeedThreadData friendFeedThreadData, int i2) {
-        this.azJ.Bc();
-        this.azJ.refresh();
-        if (this.azJ.BD()) {
-            this.azJ.Ch();
+        this.aBE.yB();
+        this.aBE.refresh();
+        if (this.aBE.afj()) {
+            this.aBE.Zz();
         } else {
-            this.azJ.getEditText().requestFocus();
-            this.azJ.v(this.azJ.getEditText());
+            this.aBE.getEditText().requestFocus();
+            this.aBE.T(this.aBE.getEditText());
         }
-        I(i, i2);
+        J(i, i2);
     }
 
-    protected void I(int i, int i2) {
-        this.azK = new ch(this.azF, i, i2, this.azJ, this.azI, this.mNavigationBar.getHeight());
-        this.handler.postDelayed(this.azK, 300L);
+    protected void J(int i, int i2) {
+        this.aBF = new af(this.aBB.getPageContext().getPageActivity(), i, i2, this.aBE, this.mBdListView, this.mNavigationBar.getHeight());
+        this.handler.postDelayed(this.aBF, 300L);
     }
 
     public void hideProgress() {
-        this.azI.hN();
+        this.mBdListView.jJ();
     }
 
-    public q ES() {
-        return this.azG;
+    public q Fk() {
+        return this.aBC;
     }
 
-    public void bP(boolean z) {
+    public void showNoDataTip(boolean z) {
         if (z) {
-            this.azH.setVisibility(8);
-            this.ahX.setVisibility(0);
+            this.aBD.setVisibility(8);
+            this.mNoDataView.setVisibility(0);
             return;
         }
-        this.azH.setVisibility(0);
-        this.ahX.setVisibility(8);
+        this.aBD.setVisibility(0);
+        this.mNoDataView.setVisibility(8);
     }
 
-    public BdListView ET() {
-        return this.azI;
+    public BdListView getBdListView() {
+        return this.mBdListView;
     }
 
-    public boolean Cj() {
-        return this.azJ.Cj();
+    public boolean Fl() {
+        return this.aBE.Fl();
     }
 
-    public void EU() {
-        if (this.azG != null) {
-            this.azG.notifyDataSetChanged();
+    public void Fm() {
+        if (this.aBC != null) {
+            this.aBC.notifyDataSetChanged();
         }
     }
 
-    public void bQ(boolean z) {
-        this.azF.hideProgressBar();
+    public void bD(boolean z) {
+        this.aBB.hideProgressBar();
         if (z) {
-            this.azJ.getEditText().setText("");
-            this.azJ.Ca();
-            this.azJ.clearData();
+            this.aBE.getEditText().setText("");
+            this.aBE.afC();
+            this.aBE.clearData();
         }
     }
 
-    public void fc(String str) {
-        this.azJ.setContent(str);
+    public void fx(String str) {
+        this.aBE.setContent(str);
     }
 
     public void a(WriteImagesInfo writeImagesInfo, boolean z) {
-        this.azJ.arn.a(writeImagesInfo, z);
+        this.aBE.bUs.a(writeImagesInfo, z);
     }
 
-    public void EV() {
-        this.azF.showProgressBar();
+    public void Fn() {
+        this.aBB.showProgressBar();
     }
 
-    public void p(ArrayList<String> arrayList) {
-        this.azJ.p(arrayList);
+    public void z(ArrayList<String> arrayList) {
+        this.aBE.z(arrayList);
     }
 
-    public String EW() {
-        return this.azJ.getContent();
+    public String Fo() {
+        return this.aBE.getContent();
     }
 
     public VoiceData.VoiceModel getAudioData() {
-        return this.azJ.getAudioData();
+        return this.aBE.getAudioData();
     }
 
-    public void BR() {
-        this.azJ.BR();
+    public void Fp() {
+        this.aBE.Fp();
     }
 
-    public void BS() {
-        this.azJ.BS();
+    public void Fq() {
+        this.aBE.Fq();
     }
 
     public void setOnActionListener(com.baidu.tbadk.editortool.w wVar) {
         if (wVar != null) {
-            this.azJ.setOnActionListener(new z(this, wVar));
+            this.aBE.a(this.aBA, new z(this, wVar));
         }
     }
 }

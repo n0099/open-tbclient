@@ -6,12 +6,12 @@ import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends BdAsyncTask<String, Integer, String> {
+    private com.baidu.tbadk.core.util.ad CV;
     final /* synthetic */ EditHeadActivity this$0;
-    private com.baidu.tbadk.core.util.ac yV;
 
     private o(EditHeadActivity editHeadActivity) {
         this.this$0 = editHeadActivity;
-        this.yV = null;
+        this.CV = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -22,25 +22,25 @@ public class o extends BdAsyncTask<String, Integer, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
-        this.this$0.showLoadingDialog(this.this$0.getString(com.baidu.tieba.y.upload_head));
+        this.this$0.showLoadingDialog(this.this$0.getPageContext().getString(com.baidu.tieba.z.upload_head));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: h */
+    /* renamed from: l */
     public String doInBackground(String... strArr) {
         String str;
         Exception e;
-        this.yV = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PROFILE_HEAD_MODIFY);
+        this.CV = new com.baidu.tbadk.core.util.ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PROFILE_HEAD_MODIFY);
         try {
-            str = this.yV.bG(TbConfig.PERSON_HEAD_FILE);
+            str = this.CV.cz(TbConfig.PERSON_HEAD_FILE);
         } catch (Exception e2) {
             str = null;
             e = e2;
         }
         try {
-            if (this.yV.mc().nb().jq()) {
+            if (this.CV.oW().pW().ma()) {
                 return str;
             }
             return null;
@@ -54,9 +54,9 @@ public class o extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         this.this$0.closeLoadingDialog();
-        this.this$0.JM = null;
-        if (this.yV != null) {
-            this.yV.dM();
+        this.this$0.OY = null;
+        if (this.CV != null) {
+            this.CV.dL();
         }
         super.cancel(true);
     }
@@ -66,14 +66,14 @@ public class o extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         this.this$0.closeLoadingDialog();
-        if (this.yV != null) {
-            if (this.yV.mc().nb().jq()) {
+        if (this.CV != null) {
+            if (this.CV.oW().pW().ma()) {
                 this.this$0.setResult(-1);
                 this.this$0.finish();
-                this.this$0.showToast(this.this$0.getString(com.baidu.tieba.y.upload_head_ok));
+                this.this$0.showToast(this.this$0.getPageContext().getString(com.baidu.tieba.z.upload_head_ok));
                 return;
             }
-            this.this$0.showToast(this.yV.getErrorString());
+            this.this$0.showToast(this.CV.getErrorString());
         }
     }
 }

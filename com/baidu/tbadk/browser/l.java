@@ -5,14 +5,13 @@ import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
 import android.webkit.WebStorage;
 import android.widget.FrameLayout;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l extends WebChromeClient {
-    final /* synthetic */ TbWebViewActivity xA;
+class l extends WebChromeClient {
+    final /* synthetic */ TbWebViewActivity Bj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(TbWebViewActivity tbWebViewActivity) {
-        this.xA = tbWebViewActivity;
+        this.Bj = tbWebViewActivity;
     }
 
     @Override // android.webkit.WebChromeClient
@@ -23,7 +22,7 @@ public class l extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public View getVideoLoadingProgressView() {
-        FrameLayout frameLayout = new FrameLayout(this.xA);
+        FrameLayout frameLayout = new FrameLayout(this.Bj.getPageContext().getContext());
         frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         return frameLayout;
     }

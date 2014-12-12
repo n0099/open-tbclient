@@ -1,27 +1,26 @@
 package com.baidu.tieba.im.chat;
-
-import android.view.MotionEvent;
-import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cr implements View.OnTouchListener {
-    final /* synthetic */ MsgleftView aPE;
+public class cr extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ cq aRU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cr(MsgleftView msgleftView) {
-        this.aPE = msgleftView;
+    public cr(cq cqVar) {
+        this.aRU = cqVar;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        TouchType touchType;
-        TouchType touchType2;
-        touchType = this.aPE.aPC;
-        if (touchType.get() && motionEvent.getAction() == 1) {
-            this.aPE.aOZ.b(view, 2, this.aPE.UC, 0L);
-            touchType2 = this.aPE.aPC;
-            touchType2.set(false);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.c
+    public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        String j;
+        super.onLoaded((cr) aVar, str, i);
+        if (aVar != null) {
+            cq cqVar = this.aRU;
+            j = this.aRU.j(this.aRU.mUrl, aVar.jl());
+            cqVar.showToast(j);
+            return;
         }
-        return false;
+        this.aRU.showToast(this.aRU.mActivity.getPageContext().getString(com.baidu.tieba.z.save_error));
     }
 }

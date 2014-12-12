@@ -3,24 +3,24 @@ package com.baidu.tieba.im.chat.officialBar;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tieba.im.model.MsglistModel;
 /* loaded from: classes.dex */
-class w implements com.baidu.tieba.im.chat.v {
-    final /* synthetic */ OfficialBarChatActivity aRt;
+class w implements com.baidu.tieba.im.chat.w {
+    final /* synthetic */ OfficialBarChatActivity aSZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(OfficialBarChatActivity officialBarChatActivity) {
-        this.aRt = officialBarChatActivity;
+        this.aSZ = officialBarChatActivity;
     }
 
-    @Override // com.baidu.tieba.im.chat.v
-    public void c(VoiceData.VoiceModel voiceModel) {
+    @Override // com.baidu.tieba.im.chat.w
+    public void b(VoiceData.VoiceModel voiceModel) {
         MsglistModel msglistModel;
         if (voiceModel != null) {
-            msglistModel = this.aRt.aQe;
+            msglistModel = this.aSZ.mListModel;
             msglistModel.sendMsgVoice(voiceModel.voiceId, voiceModel.duration);
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.v
-    public void BX() {
+    @Override // com.baidu.tieba.im.chat.w
+    public void JN() {
     }
 }

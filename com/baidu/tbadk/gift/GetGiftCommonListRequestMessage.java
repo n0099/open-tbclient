@@ -27,7 +27,7 @@ public class GetGiftCommonListRequestMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.timestamp = 0;
         if (z) {
-            com.baidu.tbadk.util.g.a(builder, true);
+            com.baidu.tbadk.util.h.a(builder, true);
         }
         GetGiftCommonListReqIdl.Builder builder2 = new GetGiftCommonListReqIdl.Builder();
         builder2.data = builder.build(false);

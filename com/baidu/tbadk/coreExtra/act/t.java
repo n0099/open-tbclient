@@ -5,22 +5,22 @@ import com.baidu.sapi2.shell.listener.AuthorizationListener;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends AuthorizationListener {
-    final /* synthetic */ FillUProfileActivity Kj;
+    final /* synthetic */ FillUProfileActivity Pr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(FillUProfileActivity fillUProfileActivity) {
-        this.Kj = fillUProfileActivity;
+        this.Pr = fillUProfileActivity;
     }
 
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
     public void onSuccess() {
-        Toast.makeText(this.Kj, "正常化成功", 0).show();
-        this.Kj.oc();
+        Toast.makeText(this.Pr.getPageContext().getPageActivity(), "正常化成功", 0).show();
+        this.Pr.rd();
     }
 
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
     public void onFailed(int i, String str) {
-        Toast.makeText(this.Kj, String.format("%s(%d)", str, Integer.valueOf(i)), 0).show();
-        this.Kj.finish();
+        Toast.makeText(this.Pr.getPageContext().getPageActivity(), String.format("%s(%d)", str, Integer.valueOf(i)), 0).show();
+        this.Pr.finish();
     }
 }

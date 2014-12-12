@@ -6,30 +6,31 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tieba.im.message.LoadHistoryMessage;
 import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.d;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public abstract class c implements CustomMessageTask.CustomRunnable<com.baidu.tieba.im.message.c> {
-    private com.baidu.tieba.im.db.a biJ;
+    private com.baidu.tieba.im.db.a bnZ;
     private int mCmd;
 
     public c(com.baidu.tieba.im.db.a aVar, int i) {
-        this.biJ = aVar;
+        this.bnZ = aVar;
         this.mCmd = i;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tieba.im.message.c> customMessage) {
-        if (customMessage == null || !(customMessage instanceof LoadHistoryMessage) || this.biJ == null) {
-            return gl(this.mCmd);
+        if (customMessage == null || !(customMessage instanceof LoadHistoryMessage) || this.bnZ == null) {
+            return gy(this.mCmd);
         }
         com.baidu.tieba.im.message.c data = customMessage.getData();
         LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(this.mCmd);
-        LinkedList<ChatMessage> a = this.biJ.a(com.baidu.adp.lib.g.c.a(data.id, 0L), data.beu, data.bev, data.limit);
+        LinkedList<ChatMessage> a = this.bnZ.a(com.baidu.adp.lib.g.c.a(data.id, 0L), data.bhN, data.bhO, data.limit);
         if (a == null) {
-            return gl(this.mCmd);
+            return gy(this.mCmd);
         }
-        com.baidu.tieba.im.message.d dVar = new com.baidu.tieba.im.message.d();
-        if (data.beu == null) {
+        d dVar = new d();
+        if (data.bhN == null) {
             dVar.isFirst = true;
         } else {
             dVar.isFirst = false;
@@ -44,7 +45,7 @@ public abstract class c implements CustomMessageTask.CustomRunnable<com.baidu.ti
         return loadHistoryResponsedMessage;
     }
 
-    private LoadHistoryResponsedMessage gl(int i) {
+    private LoadHistoryResponsedMessage gy(int i) {
         LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
         loadHistoryResponsedMessage.setError(-18);
         return loadHistoryResponsedMessage;

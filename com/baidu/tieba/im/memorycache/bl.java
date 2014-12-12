@@ -18,15 +18,15 @@ public class bl implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        c.PN().e(imMessageCenterPojo);
-        c.PN().a(-1, imMessageCenterPojo.getPulled_msgId(), String.valueOf(com.baidu.tieba.im.chat.w.aNT));
+        c.Qs().l(imMessageCenterPojo);
+        c.Qs().a(-1, imMessageCenterPojo.getPulled_msgId(), String.valueOf(com.baidu.tieba.im.c.a.bnb));
         if (z) {
             MessageManager.getInstance().sendMessage(new NewMsgArriveRequestMessage(4));
         }
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
-    public void b(String str, List<CommonMsgPojo> list) {
+    public void c(String str, List<CommonMsgPojo> list) {
         for (CommonMsgPojo commonMsgPojo : list) {
             if (commonMsgPojo != null && !commonMsgPojo.isSelf()) {
                 RequestSendPVTJMessage.sendOfficialBarPVTJ(RequestSendPVTJMessage.TYPE_V_MPUSH, commonMsgPojo.getUid());

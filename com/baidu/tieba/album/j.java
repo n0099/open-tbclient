@@ -6,51 +6,51 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 public class j extends BaseAdapter implements AbsListView.OnScrollListener {
-    private List<a> WB;
-    private int ahQ;
-    private boolean ahR;
-    private com.baidu.tbadk.img.e ahw;
-    private AlbumActivity ahz;
+    private com.baidu.tbadk.img.e aoM;
+    private AlbumActivity aoO;
+    private int apf;
+    private boolean isScrolling;
+    private List<a> mList;
     private int mWidth;
 
     public j(AlbumActivity albumActivity) {
-        this.ahz = albumActivity;
-        this.ahw = albumActivity.xK();
-        this.mWidth = (int) this.ahz.getResources().getDimension(com.baidu.tieba.t.album_image_height);
-        this.ahQ = com.baidu.adp.lib.util.m.n(this.ahz) / 2;
+        this.aoO = albumActivity;
+        this.aoM = albumActivity.Bd();
+        this.mWidth = (int) this.aoO.getResources().getDimension(com.baidu.tieba.u.album_image_height);
+        this.apf = com.baidu.adp.lib.util.l.M(this.aoO.getPageContext().getPageActivity()) / 2;
     }
 
     public void setData(List<a> list) {
-        this.WB = list;
+        this.mList = list;
         notifyDataSetChanged();
     }
 
     public List<a> getData() {
-        return this.WB;
+        return this.mList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.WB != null) {
-            return this.WB.size();
+        if (this.mList != null) {
+            return this.mList.size();
         }
         return 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: dO */
+    /* renamed from: ei */
     public a getItem(int i) {
-        if (this.WB == null || i < 0 || i >= this.WB.size()) {
+        if (this.mList == null || i < 0 || i >= this.mList.size()) {
             return null;
         }
-        return this.WB.get(i);
+        return this.mList.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -64,42 +64,42 @@ public class j extends BaseAdapter implements AbsListView.OnScrollListener {
         if (view != null) {
             lVar = (l) view.getTag();
         } else {
-            view = com.baidu.adp.lib.g.b.ek().a(this.ahz, com.baidu.tieba.w.album_list_item, viewGroup, false);
+            view = com.baidu.adp.lib.g.b.ek().a(this.aoO.getPageContext().getContext(), com.baidu.tieba.x.album_list_item, viewGroup, false);
             l lVar2 = new l(this, null);
-            lVar2.ahU = (HeadImageView) view.findViewById(com.baidu.tieba.v.item_head);
-            lVar2.ahV = (TextView) view.findViewById(com.baidu.tieba.v.album_name);
+            lVar2.apj = (HeadImageView) view.findViewById(com.baidu.tieba.w.item_head);
+            lVar2.apk = (TextView) view.findViewById(com.baidu.tieba.w.album_name);
             view.setTag(lVar2);
             lVar = lVar2;
         }
-        lVar.ahU.setTag(null);
-        lVar.ahU.setDefaultResource(com.baidu.tieba.u.pic_image_h_not);
-        lVar.ahU.c(null, 12, false);
-        lVar.ahU.invalidate();
+        lVar.apj.setTag(null);
+        lVar.apj.setDefaultResource(com.baidu.tieba.v.pic_image_h_not);
+        lVar.apj.d(null, 12, false);
+        lVar.apj.invalidate();
         a item = getItem(i);
         if (item != null) {
             if (!TextUtils.isEmpty(item.getName())) {
                 item.getName();
-                lVar.ahV.setText(String.valueOf(com.baidu.adp.lib.util.m.a(lVar.ahV.getPaint(), item.getName(), this.ahQ)) + "(" + item.xN() + ")");
+                lVar.apk.setText(String.valueOf(com.baidu.adp.lib.util.l.a(lVar.apk.getPaint(), item.getName(), this.apf)) + "(" + item.Bg() + ")");
             } else {
-                lVar.ahV.setText("");
+                lVar.apk.setText("");
             }
-            ImageFileInfo xO = item.xO();
-            if (xO != null) {
-                xO.clearPageActions();
-                xO.addPageAction(com.baidu.tbadk.img.effect.d.w(this.mWidth, this.mWidth));
-                com.baidu.adp.widget.a.a a = this.ahw.a(xO, false);
-                lVar.ahU.setTag(xO.toCachedKey(false));
+            ImageFileInfo Bh = item.Bh();
+            if (Bh != null) {
+                Bh.clearPageActions();
+                Bh.addPageAction(com.baidu.tbadk.img.effect.d.z(this.mWidth, this.mWidth));
+                com.baidu.adp.widget.a.a a = this.aoM.a(Bh, false);
+                lVar.apj.setTag(Bh.toCachedKey(false));
                 if (a != null) {
-                    lVar.ahU.invalidate();
+                    lVar.apj.invalidate();
                 } else {
-                    this.ahw.a(xO, new k(this, viewGroup), false, this.ahz.isScroll());
+                    this.aoM.a(Bh, new k(this, viewGroup), false, this.aoO.isScroll());
                 }
             }
         } else {
-            lVar.ahV.setText("");
+            lVar.apk.setText("");
         }
-        this.ahz.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
-        this.ahz.getLayoutMode().h(view);
+        this.aoO.getLayoutMode().ab(TbadkCoreApplication.m255getInst().getSkinType() == 1);
+        this.aoO.getLayoutMode().h(view);
         return view;
     }
 
@@ -110,13 +110,13 @@ public class j extends BaseAdapter implements AbsListView.OnScrollListener {
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 0) {
-            this.ahR = false;
-            if (this.ahw != null) {
-                this.ahw.sq();
+            this.isScrolling = false;
+            if (this.aoM != null) {
+                this.aoM.vT();
             }
             notifyDataSetChanged();
             return;
         }
-        this.ahR = true;
+        this.isScrolling = true;
     }
 }

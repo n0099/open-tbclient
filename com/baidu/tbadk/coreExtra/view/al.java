@@ -1,41 +1,33 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.view.View;
-import android.widget.Button;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.coreExtra.view.LivePlayingStatusMgr;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements View.OnClickListener {
-    final /* synthetic */ MultiImageView OZ;
+public class al extends Handler {
+    final /* synthetic */ LivePlayingStatusMgr Uy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(MultiImageView multiImageView) {
-        this.OZ = multiImageView;
+    public al(LivePlayingStatusMgr livePlayingStatusMgr) {
+        this.Uy = livePlayingStatusMgr;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:10:0x001c, code lost:
-        r0 = r1.OZ.getCurrentImageView();
-     */
-    @Override // android.view.View.OnClickListener
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onClick(View view) {
-        Button button;
-        Button button2;
-        com.baidu.tbadk.widget.a currentImageView;
-        com.baidu.tbadk.widget.a currentImageView2;
-        button = this.OZ.OQ;
-        if (view != button) {
-            button2 = this.OZ.OR;
-            if (view == button2 && currentImageView != null) {
-                currentImageView.vp();
-                return;
+    @Override // android.os.Handler
+    public void dispatchMessage(Message message) {
+        LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus;
+        if (message != null) {
+            LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus2 = (LivePlayingStatusMgr.LivePlayingStatus) message.obj;
+            try {
+                this.Uy.Uv = (LivePlayingStatusMgr.LivePlayingStatus) message.obj;
+                this.Uy.gid = message.arg1;
+                LivePlayingStatusMgr livePlayingStatusMgr = this.Uy;
+                livePlayingStatus = this.Uy.Uv;
+                livePlayingStatusMgr.b(livePlayingStatus);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            return;
-        }
-        currentImageView2 = this.OZ.getCurrentImageView();
-        if (currentImageView2 != null) {
-            currentImageView2.vo();
         }
     }
 }

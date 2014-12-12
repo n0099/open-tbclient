@@ -10,21 +10,28 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class AccessibilityNodeInfoCompat {
     public static final int ACTION_ACCESSIBILITY_FOCUS = 64;
+    public static final String ACTION_ARGUMENT_EXTEND_SELECTION_BOOLEAN = "ACTION_ARGUMENT_EXTEND_SELECTION_BOOLEAN";
     public static final String ACTION_ARGUMENT_HTML_ELEMENT_STRING = "ACTION_ARGUMENT_HTML_ELEMENT_STRING";
     public static final String ACTION_ARGUMENT_MOVEMENT_GRANULARITY_INT = "ACTION_ARGUMENT_MOVEMENT_GRANULARITY_INT";
+    public static final String ACTION_ARGUMENT_SELECTION_END_INT = "ACTION_ARGUMENT_SELECTION_END_INT";
+    public static final String ACTION_ARGUMENT_SELECTION_START_INT = "ACTION_ARGUMENT_SELECTION_START_INT";
     public static final int ACTION_CLEAR_ACCESSIBILITY_FOCUS = 128;
     public static final int ACTION_CLEAR_FOCUS = 2;
     public static final int ACTION_CLEAR_SELECTION = 8;
     public static final int ACTION_CLICK = 16;
+    public static final int ACTION_COPY = 16384;
+    public static final int ACTION_CUT = 65536;
     public static final int ACTION_FOCUS = 1;
     public static final int ACTION_LONG_CLICK = 32;
     public static final int ACTION_NEXT_AT_MOVEMENT_GRANULARITY = 256;
     public static final int ACTION_NEXT_HTML_ELEMENT = 1024;
+    public static final int ACTION_PASTE = 32768;
     public static final int ACTION_PREVIOUS_AT_MOVEMENT_GRANULARITY = 512;
     public static final int ACTION_PREVIOUS_HTML_ELEMENT = 2048;
     public static final int ACTION_SCROLL_BACKWARD = 8192;
     public static final int ACTION_SCROLL_FORWARD = 4096;
     public static final int ACTION_SELECT = 4;
+    public static final int ACTION_SET_SELECTION = 131072;
     public static final int FOCUS_ACCESSIBILITY = 2;
     public static final int FOCUS_INPUT = 1;
     private static final AccessibilityNodeInfoImpl IMPL;
@@ -35,8 +42,9 @@ public class AccessibilityNodeInfoCompat {
     public static final int MOVEMENT_GRANULARITY_WORD = 2;
     private final Object mInfo;
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    interface AccessibilityNodeInfoImpl {
+    public interface AccessibilityNodeInfoImpl {
         void addAction(Object obj, int i);
 
         void addChild(Object obj, View view);
@@ -63,6 +71,8 @@ public class AccessibilityNodeInfoCompat {
 
         CharSequence getContentDescription(Object obj);
 
+        int getLiveRegion(Object obj);
+
         int getMovementGranularities(Object obj);
 
         CharSequence getPackageName(Object obj);
@@ -70,6 +80,8 @@ public class AccessibilityNodeInfoCompat {
         Object getParent(Object obj);
 
         CharSequence getText(Object obj);
+
+        String getViewIdResourceName(Object obj);
 
         int getWindowId(Object obj);
 
@@ -133,6 +145,8 @@ public class AccessibilityNodeInfoCompat {
 
         void setFocused(Object obj, boolean z);
 
+        void setLiveRegion(Object obj, int i);
+
         void setLongClickable(Object obj, boolean z);
 
         void setMovementGranularities(Object obj, int i);
@@ -154,6 +168,8 @@ public class AccessibilityNodeInfoCompat {
         void setSource(Object obj, View view, int i);
 
         void setText(Object obj, CharSequence charSequence);
+
+        void setViewIdResourceName(Object obj, String str);
 
         void setVisibleToUser(Object obj, boolean z);
     }
@@ -432,6 +448,24 @@ public class AccessibilityNodeInfoCompat {
 
         @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
         public void setParent(Object obj, View view, int i) {
+        }
+
+        @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
+        public String getViewIdResourceName(Object obj) {
+            return null;
+        }
+
+        @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
+        public void setViewIdResourceName(Object obj, String str) {
+        }
+
+        @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
+        public int getLiveRegion(Object obj) {
+            return 0;
+        }
+
+        @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
+        public void setLiveRegion(Object obj, int i) {
         }
     }
 
@@ -747,8 +781,44 @@ public class AccessibilityNodeInfoCompat {
         }
     }
 
+    /* loaded from: classes.dex */
+    class AccessibilityNodeInfoJellybeanMr2Impl extends AccessibilityNodeInfoJellybeanImpl {
+        AccessibilityNodeInfoJellybeanMr2Impl() {
+        }
+
+        @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
+        public String getViewIdResourceName(Object obj) {
+            return AccessibilityNodeInfoCompatJellybeanMr2.getViewIdResourceName(obj);
+        }
+
+        @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
+        public void setViewIdResourceName(Object obj, String str) {
+            AccessibilityNodeInfoCompatJellybeanMr2.setViewIdResourceName(obj, str);
+        }
+    }
+
+    /* loaded from: classes.dex */
+    class AccessibilityNodeInfoKitKatImpl extends AccessibilityNodeInfoJellybeanMr2Impl {
+        AccessibilityNodeInfoKitKatImpl() {
+        }
+
+        @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
+        public int getLiveRegion(Object obj) {
+            return AccessibilityNodeInfoCompatKitKat.getLiveRegion(obj);
+        }
+
+        @Override // android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoStubImpl, android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityNodeInfoImpl
+        public void setLiveRegion(Object obj, int i) {
+            AccessibilityNodeInfoCompatKitKat.setLiveRegion(obj, i);
+        }
+    }
+
     static {
-        if (Build.VERSION.SDK_INT >= 16) {
+        if (Build.VERSION.SDK_INT >= 19) {
+            IMPL = new AccessibilityNodeInfoKitKatImpl();
+        } else if (Build.VERSION.SDK_INT >= 18) {
+            IMPL = new AccessibilityNodeInfoJellybeanMr2Impl();
+        } else if (Build.VERSION.SDK_INT >= 16) {
             IMPL = new AccessibilityNodeInfoJellybeanImpl();
         } else if (Build.VERSION.SDK_INT >= 14) {
             IMPL = new AccessibilityNodeInfoIcsImpl();
@@ -1019,6 +1089,22 @@ public class AccessibilityNodeInfoCompat {
         IMPL.recycle(this.mInfo);
     }
 
+    public void setViewIdResourceName(String str) {
+        IMPL.setViewIdResourceName(this.mInfo, str);
+    }
+
+    public String getViewIdResourceName() {
+        return IMPL.getViewIdResourceName(this.mInfo);
+    }
+
+    public int getLiveRegion() {
+        return IMPL.getLiveRegion(this.mInfo);
+    }
+
+    public void setLiveRegion(int i) {
+        IMPL.setLiveRegion(this.mInfo, i);
+    }
+
     public int hashCode() {
         if (this.mInfo == null) {
             return 0;
@@ -1035,5 +1121,85 @@ public class AccessibilityNodeInfoCompat {
             return this.mInfo == null ? accessibilityNodeInfoCompat.mInfo == null : this.mInfo.equals(accessibilityNodeInfoCompat.mInfo);
         }
         return false;
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.toString());
+        Rect rect = new Rect();
+        getBoundsInParent(rect);
+        sb.append("; boundsInParent: " + rect);
+        getBoundsInScreen(rect);
+        sb.append("; boundsInScreen: " + rect);
+        sb.append("; packageName: ").append(getPackageName());
+        sb.append("; className: ").append(getClassName());
+        sb.append("; text: ").append(getText());
+        sb.append("; contentDescription: ").append(getContentDescription());
+        sb.append("; viewId: ").append(getViewIdResourceName());
+        sb.append("; checkable: ").append(isCheckable());
+        sb.append("; checked: ").append(isChecked());
+        sb.append("; focusable: ").append(isFocusable());
+        sb.append("; focused: ").append(isFocused());
+        sb.append("; selected: ").append(isSelected());
+        sb.append("; clickable: ").append(isClickable());
+        sb.append("; longClickable: ").append(isLongClickable());
+        sb.append("; enabled: ").append(isEnabled());
+        sb.append("; password: ").append(isPassword());
+        sb.append("; scrollable: " + isScrollable());
+        sb.append("; [");
+        int actions = getActions();
+        while (actions != 0) {
+            int numberOfTrailingZeros = 1 << Integer.numberOfTrailingZeros(actions);
+            actions &= numberOfTrailingZeros ^ (-1);
+            sb.append(getActionSymbolicName(numberOfTrailingZeros));
+            if (actions != 0) {
+                sb.append(", ");
+            }
+        }
+        sb.append("]");
+        return sb.toString();
+    }
+
+    private static String getActionSymbolicName(int i) {
+        switch (i) {
+            case 1:
+                return "ACTION_FOCUS";
+            case 2:
+                return "ACTION_CLEAR_FOCUS";
+            case 4:
+                return "ACTION_SELECT";
+            case 8:
+                return "ACTION_CLEAR_SELECTION";
+            case 16:
+                return "ACTION_CLICK";
+            case 32:
+                return "ACTION_LONG_CLICK";
+            case 64:
+                return "ACTION_ACCESSIBILITY_FOCUS";
+            case 128:
+                return "ACTION_CLEAR_ACCESSIBILITY_FOCUS";
+            case 256:
+                return "ACTION_NEXT_AT_MOVEMENT_GRANULARITY";
+            case 512:
+                return "ACTION_PREVIOUS_AT_MOVEMENT_GRANULARITY";
+            case 1024:
+                return "ACTION_NEXT_HTML_ELEMENT";
+            case 2048:
+                return "ACTION_PREVIOUS_HTML_ELEMENT";
+            case 4096:
+                return "ACTION_SCROLL_FORWARD";
+            case 8192:
+                return "ACTION_SCROLL_BACKWARD";
+            case 16384:
+                return "ACTION_COPY";
+            case 32768:
+                return "ACTION_PASTE";
+            case 65536:
+                return "ACTION_CUT";
+            case 131072:
+                return "ACTION_SET_SELECTION";
+            default:
+                return "ACTION_UNKNOWN";
+        }
     }
 }

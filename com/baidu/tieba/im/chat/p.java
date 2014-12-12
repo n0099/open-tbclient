@@ -1,17 +1,23 @@
 package com.baidu.tieba.im.chat;
+
+import android.view.MotionEvent;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class p implements Runnable {
-    final /* synthetic */ o aNQ;
+public class p implements View.OnTouchListener {
+    final /* synthetic */ AbsMsglistView aQh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(o oVar) {
-        this.aNQ = oVar;
+    public p(AbsMsglistView absMsglistView) {
+        this.aQh = absMsglistView;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        AbsMsglistView absMsglistView;
-        absMsglistView = this.aNQ.aNP;
-        absMsglistView.sendmsgShowSoftkey();
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        this.aQh.sendmsgCloseSoftkey();
+        this.aQh.sendmsgCloseMore();
+        this.aQh.sendmsgCloseExpression();
+        this.aQh.MainOnTouch();
+        return false;
     }
 }

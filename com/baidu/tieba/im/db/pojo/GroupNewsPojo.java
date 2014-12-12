@@ -1,12 +1,12 @@
 package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
-import com.baidu.tieba.im.groupUpdates.p;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.data.UpdatesItemData;
+import com.baidu.tieba.im.data.ValidateItemData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.validate.ValidateItemData;
-import com.baidu.tieba.im.validate.l;
+import com.baidu.tieba.im.model.UpdatesModel;
+import com.baidu.tieba.im.model.ValidateModel;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -96,7 +96,7 @@ public class GroupNewsPojo implements Serializable {
             setContent(chatMessage.getContent());
             setTime(chatMessage.getTime() * 1000);
             setNotice_id(String.valueOf(chatMessage.getMsgId()));
-            MV();
+            MP();
             String content = getContent();
             if (!TextUtils.isEmpty(content)) {
                 try {
@@ -109,18 +109,18 @@ public class GroupNewsPojo implements Serializable {
                 }
             }
             if (str2.equals("apply_join_group")) {
-                b(l.g(this));
+                b(ValidateModel.convertToValidateItemData(this));
             }
         }
     }
 
-    private void MV() {
-        UpdatesItemData f;
+    private void MP() {
+        UpdatesItemData convertToUpdatesItem;
         if (!TextUtils.isEmpty(getCmd())) {
-            if ((getCmd().equals("group_intro_change") || getCmd().equals("group_name_change") || getCmd().equals("group_notice_change")) && (f = p.f(this)) != null) {
-                String currentAccount = TbadkApplication.getCurrentAccount();
+            if ((getCmd().equals("group_intro_change") || getCmd().equals("group_name_change") || getCmd().equals("group_notice_change")) && (convertToUpdatesItem = UpdatesModel.convertToUpdatesItem(this)) != null) {
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (!TextUtils.isEmpty(currentAccount)) {
-                    String authorId = f.getAuthorId();
+                    String authorId = convertToUpdatesItem.getAuthorId();
                     if (!TextUtils.isEmpty(authorId)) {
                         if (currentAccount.equals(authorId)) {
                             setContent_status(2);

@@ -4,18 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements View.OnClickListener {
-    final /* synthetic */ AbsMsglistView aNP;
+    final /* synthetic */ AbsMsglistView aQh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(AbsMsglistView absMsglistView) {
-        this.aNP = absMsglistView;
+        this.aQh = absMsglistView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.aNP.sendmsgCloseSoftkey();
-        this.aNP.sendmsgCloseExpression();
-        this.aNP.sendmsgCloseMore();
-        this.aNP.sendmsgShowVoice();
+        this.aQh.sendSoftkeyEvent();
     }
 }

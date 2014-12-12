@@ -1,13 +1,10 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
-    private static final int CACHETIME = 604800000;
-    private n data;
+    private f data;
     private int errCode;
     private String resultString;
 
@@ -22,14 +19,14 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
     public PersonBarResponseMessage(int i) {
         super(i);
         this.errCode = 0;
-        this.data = new n();
+        this.data = new f();
     }
 
-    public void setPersonBarData(n nVar) {
-        this.data = nVar;
+    public void setPersonBarData(f fVar) {
+        this.data = fVar;
     }
 
-    public n getPersonBarData() {
+    public f getPersonBarData() {
         return this.data;
     }
 
@@ -49,29 +46,6 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
             this.resultString = jSONObject.toString();
             this.errCode = jSONObject.optInt("error_code");
             this.data.parserJson(jSONObject);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        com.baidu.adp.lib.cache.t<String> bd;
-        if (isSuccess() && this.errCode == 0) {
-            HttpMessage httpMessage = (HttpMessage) getOrginalMessage();
-            String str = "";
-            if (TbadkApplication.getCurrentAccountObj() != null) {
-                str = TbadkApplication.getCurrentAccountObj().getID();
-            }
-            if (httpMessage.getExtra() == null) {
-                try {
-                    String parseToString = parseToString(bArr);
-                    if (parseToString != null && (bd = com.baidu.tbadk.core.a.a.kS().bd("tb.my_pages")) != null) {
-                        bd.a(str, parseToString, 604800000L);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
 }

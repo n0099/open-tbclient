@@ -5,11 +5,11 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class TbCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessage {
-    public f ipListData;
+    public g ipListData;
 
     public TbCdnGetIPListHttpResponseMsg(int i) {
         super(i);
-        this.ipListData = new f();
+        this.ipListData = new g();
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage

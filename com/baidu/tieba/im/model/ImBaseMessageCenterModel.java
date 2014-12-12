@@ -1,12 +1,12 @@
 package com.baidu.tieba.im.model;
 
-import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.adp.base.e;
+import com.baidu.adp.base.f;
+import com.baidu.adp.base.j;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.chat.notify.a;
-import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.MemoryModifyVisibilityMessage;
 import com.baidu.tieba.im.message.g;
@@ -14,7 +14,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
-public abstract class ImBaseMessageCenterModel extends e {
+public abstract class ImBaseMessageCenterModel extends f<Object> {
     protected final LinkedList<ImMessageCenterShowItemData> mList;
 
     protected abstract int getCustomGroupType(ImMessageCenterShowItemData imMessageCenterShowItemData);
@@ -26,19 +26,24 @@ public abstract class ImBaseMessageCenterModel extends e {
     protected abstract void processMsg(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public ImBaseMessageCenterModel(Context context) {
-        super(context);
+    public ImBaseMessageCenterModel(j jVar) {
+        super(jVar);
         this.mList = new LinkedList<>();
     }
 
     public void insertOrUpdate(ImMessageCenterPojo imMessageCenterPojo, a aVar) {
         if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGid()) && isAccept(imMessageCenterPojo)) {
             ImMessageCenterShowItemData removeItem = removeItem(imMessageCenterPojo);
-            if (isToShow(imMessageCenterPojo)) {
-                processMsg(imMessageCenterPojo, removeItem);
+            if (!isToShow(imMessageCenterPojo)) {
                 if (aVar != null) {
-                    aVar.Km();
+                    aVar.onComplete();
+                    return;
                 }
+                return;
+            }
+            processMsg(imMessageCenterPojo, removeItem);
+            if (aVar != null) {
+                aVar.onComplete();
             }
         }
     }
@@ -58,7 +63,7 @@ public abstract class ImBaseMessageCenterModel extends e {
         if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGid())) {
             removeItem(imMessageCenterPojo);
             if (aVar != null) {
-                aVar.Km();
+                aVar.onComplete();
             }
         }
     }
@@ -67,7 +72,7 @@ public abstract class ImBaseMessageCenterModel extends e {
         this.mList.clear();
         if (list == null) {
             if (aVar != null) {
-                aVar.Km();
+                aVar.onComplete();
                 return;
             }
             return;
@@ -78,7 +83,7 @@ public abstract class ImBaseMessageCenterModel extends e {
             }
         }
         if (aVar != null) {
-            aVar.Km();
+            aVar.onComplete();
         }
     }
 
@@ -93,8 +98,9 @@ public abstract class ImBaseMessageCenterModel extends e {
         if (imMessageCenterShowItemData == null) {
             imMessageCenterShowItemData = new ImMessageCenterShowItemData();
         }
+        imMessageCenterShowItemData.setUserType(imMessageCenterPojo.getUserType());
         imMessageCenterShowItemData.setFriendId(imMessageCenterPojo.getGid());
-        imMessageCenterShowItemData.setOwnerId(TbadkApplication.getCurrentAccount());
+        imMessageCenterShowItemData.setOwnerId(TbadkCoreApplication.getCurrentAccount());
         imMessageCenterShowItemData.setFriendName(imMessageCenterPojo.getGroup_name());
         imMessageCenterShowItemData.setFriendPortrait(imMessageCenterPojo.getGroup_head());
         imMessageCenterShowItemData.setServerTime(imMessageCenterPojo.getLast_content_time());
@@ -143,7 +149,7 @@ public abstract class ImBaseMessageCenterModel extends e {
                     }
                 }
                 if (aVar != null) {
-                    aVar.Km();
+                    aVar.onComplete();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyVisibilityMessage(new g(friendId, getCustomGroupType(imMessageCenterShowItemData), false)));
             }
@@ -160,12 +166,12 @@ public abstract class ImBaseMessageCenterModel extends e {
         }
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.f
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.f
     public boolean cancelLoadData() {
         return false;
     }

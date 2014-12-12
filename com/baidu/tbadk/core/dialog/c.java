@@ -4,20 +4,20 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ a Bj;
-    private final a Bl;
-    private final d Bm;
+    final /* synthetic */ a Fu;
+    private final a Fw;
+    private final d Fx;
 
     public c(a aVar, a aVar2, d dVar) {
-        this.Bj = aVar;
-        this.Bl = aVar2;
-        this.Bm = dVar;
+        this.Fu = aVar;
+        this.Fw = aVar2;
+        this.Fx = dVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.Bm != null) {
-            this.Bm.onClick(this.Bl);
+        if (this.Fx != null) {
+            this.Fx.onClick(this.Fw);
         }
     }
 }

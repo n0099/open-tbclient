@@ -1,19 +1,25 @@
 package com.baidu.tieba.im.chat;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ck implements View.OnLongClickListener {
-    final /* synthetic */ cc aPy;
+class ck implements View.OnClickListener {
+    final /* synthetic */ PersonalChatView aRR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ck(cc ccVar) {
-        this.aPy = ccVar;
+    public ck(PersonalChatView personalChatView) {
+        this.aRR = personalChatView;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        this.aPy.aOZ.b(view, 3, this.aPy.UC, 0L);
-        return true;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PersonalChatActivity personalChatActivity;
+        PersonalChatActivity personalChatActivity2;
+        personalChatActivity = this.aRR.aRJ;
+        if (!personalChatActivity.Kn()) {
+            personalChatActivity2 = this.aRR.aRJ;
+            personalChatActivity2.showToast(com.baidu.tieba.z.add_friend_cannot_send);
+            return;
+        }
+        this.aRR.sendGovoiceEvent();
     }
 }

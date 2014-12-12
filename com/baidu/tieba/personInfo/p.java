@@ -7,22 +7,22 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class p extends BaseAdapter {
-    private PersonInfoActivity bES;
-    private z bET;
-    private q bEU;
-    private r bEV;
-    private t bEW;
-    private x bEX;
+    private PersonInfoActivity bIn;
+    private z bIo;
+    private q bIp;
+    private r bIq;
+    private t bIr;
+    private x bIs;
     private boolean mIsHost;
 
     public p(PersonInfoActivity personInfoActivity, boolean z) {
-        this.bES = personInfoActivity;
+        this.bIn = personInfoActivity;
         this.mIsHost = z;
-        this.bET = new z(this.bES, this.mIsHost);
-        this.bEU = new q(this.bES, this.mIsHost);
-        this.bEV = new r(this.bES, this.mIsHost);
-        this.bEW = new t(this.bES, this.mIsHost);
-        this.bEX = new x(this.bES, this.mIsHost);
+        this.bIo = new z(this.bIn, this.mIsHost);
+        this.bIp = new q(this.bIn, this.mIsHost);
+        this.bIq = new r(this.bIn, this.mIsHost);
+        this.bIr = new t(this.bIn, this.mIsHost);
+        this.bIs = new x(this.bIn, this.mIsHost);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -79,70 +79,74 @@ public class p extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         int itemViewType = getItemViewType(i);
         if (itemViewType == 0) {
-            this.bET.aaJ();
-            return this.bET.getRootView();
+            this.bIo.abe();
+            return this.bIo.getRootView();
         } else if (itemViewType == 1) {
-            this.bEU.aaJ();
-            return this.bEU.getRootView();
+            this.bIp.abe();
+            return this.bIp.getRootView();
         } else if (itemViewType == 2) {
-            this.bEV.aaJ();
-            return this.bEV.getRootView();
+            this.bIq.abe();
+            return this.bIq.getRootView();
         } else if (itemViewType == 3) {
-            this.bEW.aaJ();
-            return this.bEW.getRootView();
+            this.bIr.abe();
+            return this.bIr.getRootView();
         } else if (itemViewType == 4) {
-            this.bEX.aaJ();
-            return this.bEX.getRootView();
+            this.bIs.abe();
+            return this.bIs.getRootView();
         } else {
             return null;
         }
     }
 
-    public RelativeLayout aay() {
-        return this.bEV.aay();
+    public RelativeLayout aaS() {
+        return this.bIq.aaS();
     }
 
-    public RelativeLayout aaz() {
-        return this.bEU.aaI();
+    public void aaT() {
+        this.bIq.aaT();
     }
 
-    public RelativeLayout aaA() {
-        return this.bEU.aaA();
+    public RelativeLayout aaU() {
+        return this.bIp.abd();
     }
 
-    public TextView aaB() {
-        return this.bEV.aaB();
+    public RelativeLayout aaV() {
+        return this.bIp.aaV();
     }
 
-    public RelativeLayout aaC() {
-        return this.bEU.aaC();
+    public TextView aaW() {
+        return this.bIq.aaW();
     }
 
-    public RelativeLayout aaD() {
-        return this.bEV.aaD();
+    public RelativeLayout aaX() {
+        return this.bIp.aaX();
     }
 
-    public RelativeLayout aaE() {
-        return this.bEV.aaE();
+    public RelativeLayout aaY() {
+        return this.bIq.aaY();
     }
 
-    public RelativeLayout aaF() {
-        return this.bEW.aaF();
+    public RelativeLayout aaZ() {
+        return this.bIq.aaZ();
     }
 
-    public RelativeLayout aaG() {
-        return this.bEW.aaA();
+    public RelativeLayout aba() {
+        return this.bIr.aba();
     }
 
-    public RelativeLayout aaH() {
-        return this.bEX.aaH();
+    public RelativeLayout abb() {
+        return this.bIr.aaV();
     }
 
-    public void ey(boolean z) {
-        this.bEV.ey(z);
+    public RelativeLayout abc() {
+        return this.bIs.abc();
     }
 
-    public void hc(int i) {
-        this.bEV.hc(i);
+    public void ee(boolean z) {
+        this.bIq.ee(z);
+    }
+
+    public void hl(int i) {
+        this.bIq.hl(i);
     }
 }

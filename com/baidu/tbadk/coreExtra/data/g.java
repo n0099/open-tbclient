@@ -1,47 +1,20 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import android.text.TextUtils;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
-    private String vcode_md5 = null;
-    private String vcode_pic_url = null;
-    private String Lm = null;
-
-    public String getVcode_md5() {
-        return this.vcode_md5;
-    }
-
-    public String getVcode_pic_url() {
-        return this.vcode_pic_url;
-    }
-
-    public String oC() {
-        return this.Lm;
-    }
-
-    public void parserJson(String str) {
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            JSONObject optJSONObject = jSONObject.optJSONObject(LoginActivityConfig.INFO);
-            if (optJSONObject == null) {
-                optJSONObject = jSONObject.optJSONObject("anti");
-            }
-            parserJson(optJSONObject);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
+    private int QJ;
+    private String link;
+    private String title;
 
     public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.vcode_md5 = jSONObject.optString("vcode_md5");
-                this.vcode_pic_url = jSONObject.optString("vcode_pic_url");
-                this.Lm = jSONObject.optString("vcode_type");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (jSONObject != null && jSONObject != null) {
+            this.QJ = jSONObject.optInt("offline");
+            this.title = jSONObject.optString("title");
+            this.link = jSONObject.optString("link");
+            if (!TextUtils.isEmpty(this.link)) {
+                this.link = this.link.replaceFirst("webview:", "http://");
             }
         }
     }

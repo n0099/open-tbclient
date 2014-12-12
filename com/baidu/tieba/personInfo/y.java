@@ -3,7 +3,7 @@ package com.baidu.tieba.personInfo;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.squareup.wire.Wire;
 import java.io.IOException;
 import tbclient.Profile.ProfileResIdl;
@@ -15,7 +15,7 @@ public class y implements CustomMessageTask.CustomRunnable<Object> {
         ResponsePersonInfoMessage responsePersonInfoMessage = null;
         if (customMessage instanceof RequestPersonInfoMessage) {
             try {
-                profileResIdl = (ProfileResIdl) new Wire(new Class[0]).parseFrom(com.baidu.tbadk.core.a.a.kS().C("tb_user_profile", TbadkApplication.getCurrentAccountName()).get("profile_cache_key"), ProfileResIdl.class);
+                profileResIdl = (ProfileResIdl) new Wire(new Class[0]).parseFrom(com.baidu.tbadk.core.a.a.nS().N("tb_user_profile", TbadkCoreApplication.getCurrentAccountName()).get("profile_cache_key"), ProfileResIdl.class);
             } catch (IOException e) {
                 e.printStackTrace();
                 profileResIdl = null;

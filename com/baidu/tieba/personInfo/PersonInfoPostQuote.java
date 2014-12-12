@@ -1,5 +1,6 @@
 package com.baidu.tieba.personInfo;
 
+import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Quote;
@@ -35,10 +36,10 @@ public class PersonInfoPostQuote implements Serializable {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.postId = jSONObject.optLong("post_id");
-            this.userName = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_NAME);
-            this.userId = jSONObject.optLong(com.baidu.tbadk.core.frameworkData.a.USER_ID);
+            this.userName = jSONObject.optString("user_name");
+            this.userId = jSONObject.optLong("user_id");
             this.ip = jSONObject.optString("ip");
-            this.content = jSONObject.optString("content");
+            this.content = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT);
         }
     }
 

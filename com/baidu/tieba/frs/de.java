@@ -1,43 +1,46 @@
 package com.baidu.tieba.frs;
 
-import android.support.v4.view.PagerAdapter;
-import android.view.View;
-import android.view.ViewGroup;
-import java.util.ArrayList;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-public class de extends PagerAdapter {
-    private ArrayList<View> zO;
+public class de extends com.baidu.adp.base.f {
+    private df aGx;
+    private String mForumId;
+    private String mForumName;
 
-    public de(ArrayList<View> arrayList) {
-        this.zO = arrayList;
+    public de(BaseActivity baseActivity) {
+        super(baseActivity.getPageContext());
+        this.mForumName = null;
+        this.mForumId = null;
+        this.aGx = null;
     }
 
-    @Override // android.support.v4.view.PagerAdapter
-    public int getCount() {
-        if (this.zO == null) {
-            return 0;
+    @Override // com.baidu.adp.base.f
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.f
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public void GZ() {
+        if (this.aGx != null) {
+            this.aGx.cancel();
+            this.aGx = null;
         }
-        return this.zO.size();
     }
 
-    @Override // android.support.v4.view.PagerAdapter
-    public boolean isViewFromObject(View view, Object obj) {
-        return view == obj;
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public Object instantiateItem(ViewGroup viewGroup, int i) {
-        if (this.zO == null) {
-            return null;
-        }
-        viewGroup.addView(this.zO.get(i));
-        return this.zO.get(i);
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        if (this.zO != null) {
-            viewGroup.removeView(this.zO.get(i));
+    public void an(String str, String str2) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.aGx == null) {
+            this.mForumName = str;
+            this.mForumId = str2;
+            this.aGx = new df(this, null);
+            this.aGx.setPriority(2);
+            this.aGx.execute(new Object[0]);
+            TiebaStatic.eventStat(TbadkCoreApplication.m255getInst().getContext(), "sign_start_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
         }
     }
 }

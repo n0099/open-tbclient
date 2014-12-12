@@ -1,19 +1,20 @@
 package com.baidu.tieba.home;
 
+import android.support.v4.internal.view.SupportMenu;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.y;
+import com.baidu.tieba.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements TextWatcher {
-    final /* synthetic */ CreateBarActivity aMo;
+    final /* synthetic */ CreateBarActivity aOo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(CreateBarActivity createBarActivity) {
-        this.aMo = createBarActivity;
+        this.aOo = createBarActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -24,7 +25,7 @@ public class b implements TextWatcher {
     public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:12:0x0068  */
+    /* JADX WARN: Removed duplicated region for block: B:12:0x006c  */
     /* JADX WARN: Removed duplicated region for block: B:9:0x0040  */
     @Override // android.text.TextWatcher
     /*
@@ -39,28 +40,28 @@ public class b implements TextWatcher {
         TextView textView4;
         EditText editText2;
         RelativeLayout relativeLayout2;
-        editText = this.aMo.aMc;
+        editText = this.aOo.aOc;
         int length = editText.getText().toString().trim().length();
         if (length > 0 && length < 32) {
-            editText2 = this.aMo.Kv;
+            editText2 = this.aOo.PE;
             if (editText2.getText().toString().trim().length() > 0) {
-                relativeLayout2 = this.aMo.aMd;
+                relativeLayout2 = this.aOo.aOd;
                 relativeLayout2.setEnabled(true);
                 if (length < 32) {
-                    textView3 = this.aMo.aMj;
-                    textView3.setText(this.aMo.getString(y.bar_name_long));
-                    textView4 = this.aMo.aMj;
-                    textView4.setTextColor(-65536);
+                    textView3 = this.aOo.aOj;
+                    textView3.setText(this.aOo.getPageContext().getString(z.bar_name_long));
+                    textView4 = this.aOo.aOj;
+                    textView4.setTextColor(SupportMenu.CATEGORY_MASK);
                     return;
                 }
-                textView = this.aMo.aMj;
-                textView.setText(this.aMo.getString(y.bar_name_rule));
-                textView2 = this.aMo.aMj;
+                textView = this.aOo.aOj;
+                textView.setText(this.aOo.getPageContext().getString(z.bar_name_rule));
+                textView2 = this.aOo.aOj;
                 textView2.setTextColor(-6250336);
                 return;
             }
         }
-        relativeLayout = this.aMo.aMd;
+        relativeLayout = this.aOo.aOd;
         relativeLayout.setEnabled(false);
         if (length < 32) {
         }

@@ -1,96 +1,40 @@
 package com.baidu.tbadk.core.util;
 
-import android.text.TextUtils;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
-public class ar {
-    public static void a(ListView listView, BdUniqueId bdUniqueId) {
-        ListAdapter adapter;
-        ArrayList<as> images;
-        int pbImageSize;
-        if (listView != null && com.baidu.adp.lib.util.j.fi() && (adapter = listView.getAdapter()) != null) {
-            int i = 0;
-            int i2 = 0;
-            int i3 = 0;
-            int bigImageMaxUsedMemory = (int) (TbConfig.getBigImageMaxUsedMemory() * 0.8f);
-            boolean mN = ba.mN();
-            int firstVisiblePosition = listView.getFirstVisiblePosition();
-            int lastVisiblePosition = listView.getLastVisiblePosition();
-            com.baidu.adp.lib.f.d.ef().a(bdUniqueId, (com.baidu.adp.lib.f.c) null);
-            while (true) {
-                int i4 = firstVisiblePosition;
-                if (i4 < adapter.getCount()) {
-                    Object item = adapter.getItem(i4);
-                    if ((item instanceof at) && (images = ((at) item).getImages()) != null && images.size() != 0) {
-                        Iterator<as> it = images.iterator();
-                        int i5 = i3;
-                        int i6 = i;
-                        int i7 = i2;
-                        while (it.hasNext()) {
-                            as next = it.next();
-                            if (com.baidu.adp.lib.f.d.ef().J(next.ES)) {
-                                if (12 == next.ES) {
-                                    int i8 = i5 + 1;
-                                    if (i8 > 30 || i4 <= lastVisiblePosition || TextUtils.isEmpty(next.AI)) {
-                                        i5 = i8;
-                                    } else {
-                                        com.baidu.adp.lib.f.d.ef().a(next.AI, 12, null, bdUniqueId);
-                                        i5 = i8;
-                                    }
-                                } else {
-                                    int i9 = next.width * next.height;
-                                    if (i9 > 0) {
-                                        if (next.ET != null) {
-                                            pbImageSize = i7 + (i9 * 4);
-                                        } else {
-                                            pbImageSize = i7 + (i9 * 2);
-                                        }
-                                    } else if (next.ET != null) {
-                                        BdLog.e("missing big emotion image width and height!");
-                                        pbImageSize = i7 + TbConfig.getBigEmotionsSize();
-                                    } else {
-                                        pbImageSize = i7 + TbConfig.getPbImageSize();
-                                    }
-                                    int i10 = i6 + 1;
-                                    if (i10 <= 13 && pbImageSize < bigImageMaxUsedMemory && i4 > lastVisiblePosition) {
-                                        if (next.ET != null) {
-                                            com.baidu.tbadk.widget.richText.e eVar = next.ET;
-                                            String str = mN ? eVar.TJ.Tl : eVar.TJ.Tk;
-                                            if (!TextUtils.isEmpty(str)) {
-                                                com.baidu.adp.lib.f.d.ef().a(eVar.TJ.Tj, next.ES, null, 0, 0, bdUniqueId, eVar.TJ.Tm, eVar.TJ.Tj, Boolean.valueOf(mN), str);
-                                                i7 = pbImageSize;
-                                                i6 = i10;
-                                            }
-                                        } else {
-                                            String str2 = next.AI;
-                                            if (!TextUtils.isEmpty(str2)) {
-                                                com.baidu.adp.lib.f.d.ef().a(str2, next.ES, null, bdUniqueId);
-                                            }
-                                        }
-                                    }
-                                    i7 = pbImageSize;
-                                    i6 = i10;
-                                }
-                            }
-                        }
-                        if ((i6 > 13 || i7 >= bigImageMaxUsedMemory) && i5 > 30) {
-                            return;
-                        }
-                        i3 = i5;
-                        i2 = i7;
-                        i = i6;
-                    }
-                    firstVisiblePosition = i4 + 1;
-                } else {
-                    return;
-                }
-            }
+public class ar extends BdAsyncTask<String, String, String> {
+    private final String IY;
+    private final boolean IZ;
+    private final boolean Ja;
+    private final boolean Jb;
+    final /* synthetic */ aq Jc;
+    private final String imageUrl;
+
+    public ar(aq aqVar, String str, String str2, boolean z, boolean z2, boolean z3) {
+        BdUniqueId bdUniqueId;
+        this.Jc = aqVar;
+        this.imageUrl = str;
+        this.IY = str2;
+        this.IZ = z;
+        this.Ja = z2;
+        this.Jb = z3;
+        BdAsyncTaskParallel.BdAsyncTaskParallelType bdAsyncTaskParallelType = BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL;
+        bdUniqueId = aq.IX;
+        setParallel(new BdAsyncTaskParallel(bdAsyncTaskParallelType, bdUniqueId));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: l */
+    public String doInBackground(String... strArr) {
+        try {
+            this.Jc.a(this.imageUrl, this.IY, this.IZ, this.Ja, this.Jb);
+        } catch (Throwable th) {
+            TiebaStatic.imgError("", TbErrInfo.ERR_IMG_CACHE, "pic cache img err: " + th.toString(), null);
         }
+        return null;
     }
 }

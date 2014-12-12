@@ -1,68 +1,36 @@
 package com.baidu.tieba.im.chat.personaltalk;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.tieba.im.model.BlackListModel;
-import protobuf.QueryUserInfos.DataRes;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class n {
-    private final BlackListModel aSJ;
-    private PersonalTalkSettingActivity aSK;
-    private s aSL;
-    private DataRes data;
-    private com.baidu.tbadk.coreExtra.b.a aSG = new com.baidu.tbadk.coreExtra.b.a(null);
-    private boolean Lo = false;
-    private boolean aSH = false;
-    private boolean aSI = false;
-    private com.baidu.adp.framework.listener.e ayS = new o(this, 0);
-    private CustomMessageListener mCustomListener = new p(this, 0);
+class n extends BdAsyncTask<Void, Void, Void> {
+    final /* synthetic */ PersonalTalkSettingActivity aTQ;
+    private final /* synthetic */ BdSwitchView.SwitchState aTS;
 
-    public boolean KK() {
-        return this.aSI;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public n(PersonalTalkSettingActivity personalTalkSettingActivity, BdSwitchView.SwitchState switchState) {
+        this.aTQ = personalTalkSettingActivity;
+        this.aTS = switchState;
     }
 
-    public void cL(boolean z) {
-        this.aSI = z;
-    }
-
-    public DataRes KL() {
-        return this.data;
-    }
-
-    public boolean KM() {
-        return this.aSH;
-    }
-
-    public n(PersonalTalkSettingActivity personalTalkSettingActivity, s sVar, long j) {
-        this.aSK = personalTalkSettingActivity;
-        this.aSL = sVar;
-        this.aSJ = new BlackListModel(personalTalkSettingActivity);
-        personalTalkSettingActivity.showProgressBar();
-        com.baidu.tieba.im.e.a(new q(this, j), new r(this, j, personalTalkSettingActivity));
-    }
-
-    public void cM(boolean z) {
-        this.aSK.showLoadingDialog(null);
-        if (z) {
-            this.aSJ.addToBlackList(this.data.id.longValue());
-        } else {
-            this.aSJ.removeFromBlackList(this.data.id.longValue());
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void doInBackground(Void... voidArr) {
+        long j;
+        long j2;
+        if (this.aTS == BdSwitchView.SwitchState.OFF) {
+            com.baidu.tieba.im.settingcache.j SY = com.baidu.tieba.im.settingcache.j.SY();
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            j2 = this.aTQ.userId;
+            SY.f(currentAccount, String.valueOf(j2), false);
+            return null;
         }
-    }
-
-    public void onDestory() {
-        if (this.aSG != null) {
-            this.aSG.cancel();
-        }
-        if (this.aSJ != null) {
-            this.aSJ.cancelLoadData();
-        }
-    }
-
-    public com.baidu.adp.framework.listener.e KN() {
-        return this.ayS;
-    }
-
-    public CustomMessageListener KO() {
-        return this.mCustomListener;
+        com.baidu.tieba.im.settingcache.j SY2 = com.baidu.tieba.im.settingcache.j.SY();
+        String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
+        j = this.aTQ.userId;
+        SY2.f(currentAccount2, String.valueOf(j), true);
+        return null;
     }
 }

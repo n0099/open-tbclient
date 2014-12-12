@@ -12,81 +12,81 @@ import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class o implements k {
     private String pA;
-    private int pB;
-    private String pC;
-    private String pD;
-    private l pE;
-    protected am pF;
-    private boolean pG = false;
-    private boolean pH = false;
-    private volatile boolean pI = false;
-    private long pJ = 0;
-    private d pK = null;
-    private List<BasicNameValuePair> pl;
-    private String[] po;
-    protected Handler pu;
-    protected volatile an pv;
-    protected volatile aq pw;
-    protected g px;
-    private URI py;
-    private String pz;
+    private String pB;
+    private l pC;
+    protected am pD;
+    private boolean pE = false;
+    private boolean pF = false;
+    private volatile boolean pG = false;
+    private long pH = 0;
+    private d pI = null;
+    private List<BasicNameValuePair> pi;
+    private String[] pj;
+    protected Handler ps;
+    protected volatile an pt;
+    protected volatile aq pu;
+    protected g pv;
+    private URI pw;
+    private String px;
+    private String py;
+    private int pz;
 
     public o() {
-        gd();
+        createHandler();
     }
 
     public boolean sendMessage(d dVar) {
         if (dVar == null) {
             return false;
         }
-        if (this.pK != null || !isOpen()) {
-            fY();
+        if (this.pI != null || !isOpen()) {
+            ga();
             if (dVar != null) {
-                dVar.i(1);
+                dVar.u(1);
                 return false;
             }
             return false;
         }
-        this.pK = dVar;
-        return d(this.pK);
+        this.pI = dVar;
+        return d(this.pI);
     }
 
     private boolean d(d dVar) {
-        if (this.pw == null) {
-            l(new y(new Exception("mWriter = null")));
+        if (this.pu == null) {
+            n(new y(new Exception("mWriter = null")));
             return false;
         }
-        return this.pw.o(new ab(dVar));
+        return this.pu.q(new ab(dVar));
     }
 
     public void close(int i, String str) {
-        this.pG = false;
-        this.pI = true;
+        this.pE = false;
+        this.pG = true;
+        if (this.pt != null) {
+            this.pt.quit();
+            this.pt = null;
+        }
+        if (this.pu != null) {
+            this.pu.quit();
+            this.pu = null;
+        }
         if (this.pv != null) {
-            this.pv.quit();
-            this.pv = null;
-        }
-        if (this.pw != null) {
-            this.pw.quit();
-            this.pw = null;
-        }
-        if (this.px != null) {
             try {
-                this.px.close();
+                this.pv.close();
             } catch (Throwable th) {
-                if (fY()) {
+                if (ga()) {
                     th.printStackTrace();
                 }
             }
-            this.px = null;
+            this.pv = null;
         }
-        l lVar = this.pE;
-        this.pE = null;
+        l lVar = this.pC;
+        this.pC = null;
         if (lVar != null) {
             try {
-                lVar.b(i, str);
+                lVar.l(i, str);
             } catch (Exception e) {
-                if (fY()) {
+                if (ga()) {
                     BdLog.d(e.getMessage());
                 }
             }
@@ -94,46 +94,46 @@ public class o implements k {
     }
 
     public void a(String str, String[] strArr, l lVar, am amVar, List<BasicNameValuePair> list) {
-        this.pH = true;
-        if (this.px != null && this.px.isConnected()) {
+        this.pF = true;
+        if (this.pv != null && this.pv.isConnected()) {
             throw new WebSocketException("already connected");
         }
         try {
-            this.py = new URI(str);
-            if (!this.py.getScheme().equals("ws") && !this.py.getScheme().equals("wss")) {
+            this.pw = new URI(str);
+            if (!this.pw.getScheme().equals("ws") && !this.pw.getScheme().equals("wss")) {
                 throw new WebSocketException("unsupported scheme for WebSockets URI");
             }
-            if (this.py.getScheme().equals("wss")) {
+            if (this.pw.getScheme().equals("wss")) {
                 throw new WebSocketException("secure WebSockets not implemented");
             }
-            this.pz = this.py.getScheme();
-            if (this.py.getPort() == -1) {
-                if (this.pz.equals("ws")) {
-                    this.pB = 80;
+            this.px = this.pw.getScheme();
+            if (this.pw.getPort() == -1) {
+                if (this.px.equals("ws")) {
+                    this.pz = 80;
                 } else {
-                    this.pB = 443;
+                    this.pz = 443;
                 }
             } else {
-                this.pB = this.py.getPort();
+                this.pz = this.pw.getPort();
             }
-            if (this.py.getHost() == null) {
+            if (this.pw.getHost() == null) {
                 throw new WebSocketException("no host specified in WebSockets URI");
             }
-            this.pA = this.py.getHost();
-            if (this.py.getPath() == null || this.py.getPath().equals("")) {
-                this.pC = "/";
+            this.py = this.pw.getHost();
+            if (this.pw.getPath() == null || this.pw.getPath().equals("")) {
+                this.pA = "/";
             } else {
-                this.pC = this.py.getPath();
+                this.pA = this.pw.getPath();
             }
-            if (this.py.getQuery() == null || this.py.getQuery().equals("")) {
-                this.pD = null;
+            if (this.pw.getQuery() == null || this.pw.getQuery().equals("")) {
+                this.pB = null;
             } else {
-                this.pD = this.py.getQuery();
+                this.pB = this.pw.getQuery();
             }
-            this.po = strArr;
-            this.pl = list;
-            this.pE = lVar;
-            this.pF = new am(amVar);
+            this.pj = strArr;
+            this.pi = list;
+            this.pC = lVar;
+            this.pD = new am(amVar);
             new q(this, null).start();
         } catch (URISyntaxException e) {
             throw new WebSocketException("invalid WebSockets URI");
@@ -141,104 +141,104 @@ public class o implements k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void l(Object obj) {
-        Message obtainMessage = this.pu.obtainMessage();
+    public void n(Object obj) {
+        Message obtainMessage = this.ps.obtainMessage();
         obtainMessage.obj = obj;
-        this.pu.sendMessage(obtainMessage);
+        this.ps.sendMessage(obtainMessage);
     }
 
-    protected void gd() {
-        this.pu = new p(this);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void m(Object obj) {
+    protected void createHandler() {
+        this.ps = new p(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ge() {
-        HandlerThread handlerThread = new HandlerThread("WebSocketWriter");
-        handlerThread.start();
-        this.pw = new aq(handlerThread.getLooper(), this.pu, this.px, this.pF);
+    public void o(Object obj) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void gf() {
-        this.pv = new an(this.pu, this.px, this.pF, "WebSocketReader");
-        this.pv.start();
+        HandlerThread handlerThread = new HandlerThread("WebSocketWriter");
+        handlerThread.start();
+        this.pu = new aq(handlerThread.getLooper(), this.ps, this.pv, this.pD);
     }
 
-    public boolean gg() {
-        return this.pK != null;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void gg() {
+        this.pt = new an(this.ps, this.pv, this.pD, "WebSocketReader");
+        this.pt.start();
     }
 
-    public boolean fX() {
-        return this.pH;
+    public boolean gh() {
+        return this.pI != null;
+    }
+
+    public boolean fZ() {
+        return this.pF;
     }
 
     public boolean isOpen() {
-        return this.pG;
+        return this.pE;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean fY() {
+    public boolean ga() {
         return BdBaseApplication.getInst().isDebugMode();
     }
 
-    public void fZ() {
-        if (this.pw != null) {
-            this.pw.fZ();
+    public void gb() {
+        if (this.pu != null) {
+            this.pu.gb();
         }
     }
 
     public long getUpFlowSize() {
-        if (this.pw != null) {
-            return this.pw.getUpFlowSize();
+        if (this.pu != null) {
+            return this.pu.getUpFlowSize();
         }
         return 0L;
     }
 
-    public void ga() {
-        if (this.pv != null) {
-            this.pv.ga();
+    public void gd() {
+        if (this.pt != null) {
+            this.pt.gd();
         }
     }
 
     public long getDownFlowSize() {
+        if (this.pt != null) {
+            return this.pt.getDownFlowSize();
+        }
+        return 0L;
+    }
+
+    public long gi() {
         if (this.pv != null) {
-            return this.pv.getDownFlowSize();
+            return this.pv.fT();
         }
         return 0L;
     }
 
-    public long gh() {
-        if (this.px != null) {
-            return this.px.fR();
-        }
-        return 0L;
-    }
-
-    public String gi() {
-        if (this.px != null) {
-            return this.px.fQ();
+    public String gj() {
+        if (this.pv != null) {
+            return this.pv.fS();
         }
         return null;
     }
 
-    public long gj() {
-        return this.pJ;
+    public long gk() {
+        return this.pH;
     }
 
     public String fv() {
-        if (this.px != null) {
-            return this.px.fv();
+        if (this.pv != null) {
+            return this.pv.fv();
         }
         return null;
     }
 
     public String fw() {
-        if (this.px != null) {
-            return this.px.fw();
+        if (this.pv != null) {
+            return this.pv.fw();
         }
         return null;
     }

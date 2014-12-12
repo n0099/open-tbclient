@@ -8,7 +8,7 @@ import android.os.StatFs;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,29 +19,29 @@ import java.io.InputStream;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class s {
-    public static final File mI = Environment.getExternalStorageDirectory();
-    private static final File Dq = TbadkApplication.m251getInst().getApp().getCacheDir();
+    public static final File mG = Environment.getExternalStorageDirectory();
+    private static final File HC = TbadkCoreApplication.m255getInst().getApp().getCacheDir();
 
-    public static boolean bm() {
+    public static boolean bN() {
         return Environment.getExternalStorageState().equals("mounted");
     }
 
-    public static String lu() {
+    public static String op() {
         String externalStorageState = Environment.getExternalStorageState();
         if (externalStorageState.equals("removed")) {
-            return TbadkApplication.m251getInst().getApp().getString(com.baidu.tieba.y.error_no_sdcard);
+            return TbadkCoreApplication.m255getInst().getApp().getString(com.baidu.tieba.z.error_no_sdcard);
         }
         if (externalStorageState.equals("unmounted") || externalStorageState.equals("unmountable")) {
-            return TbadkApplication.m251getInst().getApp().getString(com.baidu.tieba.y.error_sd_unmount);
+            return TbadkCoreApplication.m255getInst().getApp().getString(com.baidu.tieba.z.error_sd_unmount);
         }
         if (externalStorageState.equals("shared")) {
-            return TbadkApplication.m251getInst().getApp().getString(com.baidu.tieba.y.error_sd_shared);
+            return TbadkCoreApplication.m255getInst().getApp().getString(com.baidu.tieba.z.error_sd_shared);
         }
-        return TbadkApplication.m251getInst().getApp().getString(com.baidu.tieba.y.error_sd_error);
+        return TbadkCoreApplication.m255getInst().getApp().getString(com.baidu.tieba.z.error_sd_error);
     }
 
-    public static boolean bo(String str) {
-        if (bm()) {
+    public static boolean cg(String str) {
+        if (bN()) {
             File file = new File(str);
             if (file.exists()) {
                 return true;
@@ -49,56 +49,56 @@ public class s {
             try {
                 return file.mkdirs();
             } catch (Exception e) {
-                TiebaStatic.file(e, com.baidu.adp.lib.util.l.e("FileHelper", ".", "CheckTempDir", " ", str));
+                TiebaStatic.file(e, com.baidu.adp.lib.util.k.e("FileHelper", ".", "CheckTempDir", " ", str));
                 return false;
             }
         }
         return false;
     }
 
-    public static boolean lv() {
-        return bo(mI + "/" + TbConfig.getTempDirName() + "/");
+    public static boolean oq() {
+        return cg(mG + "/" + TbConfig.getTempDirName() + "/");
     }
 
-    public static boolean bp(String str) {
-        if (bm()) {
+    public static boolean ch(String str) {
+        if (bN()) {
             try {
-                return new File(new StringBuilder().append(mI).append("/").append(TbConfig.getTempDirName()).append("/").append(str).toString()).exists();
+                return new File(new StringBuilder().append(mG).append("/").append(TbConfig.getTempDirName()).append("/").append(str).toString()).exists();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                TiebaStatic.file(e, com.baidu.adp.lib.util.l.e("FileHelper", ".", "CheckFile", " ", str));
+                TiebaStatic.file(e, com.baidu.adp.lib.util.k.e("FileHelper", ".", "CheckFile", " ", str));
                 return false;
             }
         }
         return false;
     }
 
-    public static long I(String str, String str2) {
-        if (bm()) {
+    public static long S(String str, String str2) {
+        if (bN()) {
             try {
-                if (new File(mI + "/" + TbConfig.getTempDirName() + "/" + str + "/" + str2).exists()) {
+                if (new File(mG + "/" + TbConfig.getTempDirName() + "/" + str + "/" + str2).exists()) {
                     return TbConfig.getBigImageSize();
                 }
                 return -1L;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                TiebaStatic.file(e, com.baidu.adp.lib.util.l.e("FileHelper", ".", "checkImageFileSize", " ", str, "/", str2));
+                TiebaStatic.file(e, com.baidu.adp.lib.util.k.e("FileHelper", ".", "checkImageFileSize", " ", str, "/", str2));
                 return -1L;
             }
         }
         return -1L;
     }
 
-    public static String bq(String str) {
+    public static String ci(String str) {
         if (str == null) {
             return null;
         }
-        return mI + "/" + TbConfig.getTempDirName() + "/" + str;
+        return mG + "/" + TbConfig.getTempDirName() + "/" + str;
     }
 
-    public static File br(String str) {
-        if (lv()) {
-            File file = new File(mI + "/" + TbConfig.getTempDirName() + "/" + str);
+    public static File cj(String str) {
+        if (oq()) {
+            File file = new File(mG + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
                 if (file.exists()) {
                     return file;
@@ -106,23 +106,23 @@ public class s {
                 return null;
             } catch (SecurityException e) {
                 BdLog.e(e.getMessage());
-                TiebaStatic.file(e, com.baidu.adp.lib.util.l.e("FileHelper", ".", "GetFile", " ", str));
+                TiebaStatic.file(e, com.baidu.adp.lib.util.k.e("FileHelper", ".", "GetFile", " ", str));
                 return null;
             }
         }
         return null;
     }
 
-    public static File bs(String str) {
-        if (!lv()) {
+    public static File ck(String str) {
+        if (!oq()) {
             return null;
         }
-        return new File(mI + "/" + TbConfig.getTempDirName() + "/" + str);
+        return new File(mG + "/" + TbConfig.getTempDirName() + "/" + str);
     }
 
-    public static File bt(String str) {
-        if (lv()) {
-            File file = new File(mI + "/" + TbConfig.getTempDirName() + "/" + str);
+    public static File cl(String str) {
+        if (oq()) {
+            File file = new File(mG + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
                 if (!file.exists() || file.delete()) {
                     if (file.createNewFile()) {
@@ -133,16 +133,16 @@ public class s {
                 return null;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                TiebaStatic.file(e, com.baidu.adp.lib.util.l.e("FileHelper", ".", "CreateFile", " ", str));
+                TiebaStatic.file(e, com.baidu.adp.lib.util.k.e("FileHelper", ".", "CreateFile", " ", str));
                 return null;
             }
         }
         return null;
     }
 
-    public static File bu(String str) {
-        if (lv()) {
-            File file = new File(mI + "/" + TbConfig.getTempDirName() + "/" + str);
+    public static File cm(String str) {
+        if (oq()) {
+            File file = new File(mG + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
                 if (file.exists()) {
                     return file;
@@ -153,14 +153,14 @@ public class s {
                 return null;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                TiebaStatic.file(e, com.baidu.adp.lib.util.l.e("FileHelper", ".", "CreateFileIfNotFound", " ", str));
+                TiebaStatic.file(e, com.baidu.adp.lib.util.k.e("FileHelper", ".", "CreateFileIfNotFound", " ", str));
                 return null;
             }
         }
         return null;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [418=4, 419=4, 421=4, 422=4, 423=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [417=4, 418=4, 420=4, 421=4, 422=4] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x01a6 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:59:0x014f A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -170,18 +170,18 @@ public class s {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean J(String str, String str2) {
+    public static boolean T(String str, String str2) {
         FileInputStream fileInputStream;
         IOException e;
         boolean z;
         FileNotFoundException e2;
-        ?? sb = new StringBuilder(String.valueOf(str != null ? mI + "/" + TbConfig.getTempDirName() + "/" + str + "/" : mI + "/" + TbConfig.getTempDirName() + "/"));
+        ?? sb = new StringBuilder(String.valueOf(str != null ? mG + "/" + TbConfig.getTempDirName() + "/" + str + "/" : mG + "/" + TbConfig.getTempDirName() + "/"));
         try {
             try {
                 fileInputStream = new FileInputStream(new File(sb.append(str2).toString()));
                 try {
                     byte[] bArr = new byte[7];
-                    z = fileInputStream.read(bArr, 0, 6) == 6 ? com.baidu.adp.lib.util.m.l(bArr) : false;
+                    z = fileInputStream.read(bArr, 0, 6) == 6 ? com.baidu.adp.lib.util.l.l(bArr) : false;
                     if (fileInputStream != null) {
                         try {
                             fileInputStream.close();
@@ -189,26 +189,26 @@ public class s {
                         } catch (FileNotFoundException e3) {
                             e2 = e3;
                             e2.printStackTrace();
-                            TiebaStatic.file(e2, com.baidu.adp.lib.util.l.e("FileHelper", ".", "isGif", " ", str, "/", str2));
+                            TiebaStatic.file(e2, com.baidu.adp.lib.util.k.e("FileHelper", ".", "isGif", " ", str, "/", str2));
                             if (fileInputStream != null) {
                                 try {
                                     fileInputStream.close();
                                 } catch (Exception e4) {
                                     e4.printStackTrace();
-                                    TiebaStatic.file(e4, com.baidu.adp.lib.util.l.e("FileHelper", ".", "isGif", " ", str, "/", str2));
+                                    TiebaStatic.file(e4, com.baidu.adp.lib.util.k.e("FileHelper", ".", "isGif", " ", str, "/", str2));
                                 }
                             }
                             return z;
                         } catch (IOException e5) {
                             e = e5;
                             e.printStackTrace();
-                            TiebaStatic.file(e, com.baidu.adp.lib.util.l.e("FileHelper", "isGif", " ", str, "/", str2));
+                            TiebaStatic.file(e, com.baidu.adp.lib.util.k.e("FileHelper", "isGif", " ", str, "/", str2));
                             if (fileInputStream != null) {
                                 try {
                                     fileInputStream.close();
                                 } catch (Exception e6) {
                                     e6.printStackTrace();
-                                    TiebaStatic.file(e6, com.baidu.adp.lib.util.l.e("FileHelper", ".", "isGif", " ", str, "/", str2));
+                                    TiebaStatic.file(e6, com.baidu.adp.lib.util.k.e("FileHelper", ".", "isGif", " ", str, "/", str2));
                                 }
                             }
                             return z;
@@ -219,7 +219,7 @@ public class s {
                             fileInputStream.close();
                         } catch (Exception e7) {
                             e7.printStackTrace();
-                            TiebaStatic.file(e7, com.baidu.adp.lib.util.l.e("FileHelper", ".", "isGif", " ", str, "/", str2));
+                            TiebaStatic.file(e7, com.baidu.adp.lib.util.k.e("FileHelper", ".", "isGif", " ", str, "/", str2));
                         }
                     }
                 } catch (FileNotFoundException e8) {
@@ -236,7 +236,7 @@ public class s {
                         sb.close();
                     } catch (Exception e10) {
                         e10.printStackTrace();
-                        TiebaStatic.file(e10, com.baidu.adp.lib.util.l.e("FileHelper", ".", "isGif", " ", str, "/", str2));
+                        TiebaStatic.file(e10, com.baidu.adp.lib.util.k.e("FileHelper", ".", "isGif", " ", str, "/", str2));
                     }
                 }
                 throw th;
@@ -265,11 +265,11 @@ public class s {
             return null;
         }
         if (str != null) {
-            str3 = mI + "/" + TbConfig.getTempDirName() + "/" + str + "/";
+            str3 = mG + "/" + TbConfig.getTempDirName() + "/" + str + "/";
         } else {
-            str3 = mI + "/" + TbConfig.getTempDirName() + "/";
+            str3 = mG + "/" + TbConfig.getTempDirName() + "/";
         }
-        if (!bo(str3) || bitmap == null) {
+        if (!cg(str3) || bitmap == null) {
             return null;
         }
         File file = new File(String.valueOf(str3) + str2);
@@ -284,7 +284,7 @@ public class s {
             return null;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            TiebaStatic.file(e, com.baidu.adp.lib.util.l.e("FileHelper", ".", "SaveFile1", " '", str, "/", str2));
+            TiebaStatic.file(e, com.baidu.adp.lib.util.k.e("FileHelper", ".", "SaveFile1", " '", str, "/", str2));
             return null;
         }
     }
@@ -294,8 +294,8 @@ public class s {
         if (bitmap == null) {
             return null;
         }
-        if (bm()) {
-            dataDirectory = new File(mI + "/" + TbConfig.getTempDirName());
+        if (bN()) {
+            dataDirectory = new File(mG + "/" + TbConfig.getTempDirName());
         } else {
             dataDirectory = Environment.getDataDirectory();
         }
@@ -317,67 +317,67 @@ public class s {
             return null;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            TiebaStatic.file(e, com.baidu.adp.lib.util.l.e("FileHelper", ".", "saveFileToSDOrMemory", " ", file.getAbsolutePath()));
+            TiebaStatic.file(e, com.baidu.adp.lib.util.k.e("FileHelper", ".", "saveFileToSDOrMemory", " ", file.getAbsolutePath()));
             return null;
         }
     }
 
-    public static String a(String str, String str2, String str3, String str4) {
+    public static String d(String str, String str2, String str3, String str4) {
         String str5;
         String str6;
         if (str != null) {
-            str5 = mI + "/" + TbConfig.getTempDirName() + "/" + str + "/";
+            str5 = mG + "/" + TbConfig.getTempDirName() + "/" + str + "/";
         } else {
-            str5 = mI + "/" + TbConfig.getTempDirName() + "/";
+            str5 = mG + "/" + TbConfig.getTempDirName() + "/";
         }
         if (str3 != null) {
-            str6 = mI + "/" + TbConfig.getTempDirName() + "/" + str3 + "/";
+            str6 = mG + "/" + TbConfig.getTempDirName() + "/" + str3 + "/";
         } else {
-            str6 = mI + "/" + TbConfig.getTempDirName() + "/";
+            str6 = mG + "/" + TbConfig.getTempDirName() + "/";
         }
-        if (bo(str5) && bo(str6)) {
+        if (cg(str5) && cg(str6)) {
             File file = new File(String.valueOf(str5) + str2);
             File file2 = new File(String.valueOf(str6) + str4);
             if (file.renameTo(file2)) {
                 return file2.getAbsolutePath();
             }
-            TiebaStatic.file(com.baidu.adp.lib.util.l.e("renameTo", "err"), com.baidu.adp.lib.util.l.e("FileHelper", ".", "renameTo"));
+            TiebaStatic.file(com.baidu.adp.lib.util.k.e("renameTo", "err"), com.baidu.adp.lib.util.k.e("FileHelper", ".", "renameTo"));
             return null;
         }
         return null;
     }
 
-    public static Bitmap K(String str, String str2) {
+    public static Bitmap U(String str, String str2) {
         String str3;
         if (str != null) {
-            str3 = mI + "/" + TbConfig.getTempDirName() + "/" + str + "/";
+            str3 = mG + "/" + TbConfig.getTempDirName() + "/" + str + "/";
         } else {
-            str3 = mI + "/" + TbConfig.getTempDirName() + "/";
+            str3 = mG + "/" + TbConfig.getTempDirName() + "/";
         }
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inPreferredConfig = TbConfig.BitmapConfig;
             return BitmapFactory.decodeFile(String.valueOf(str3) + str2, options);
         } catch (OutOfMemoryError e) {
-            TiebaStatic.file(e.getMessage(), com.baidu.adp.lib.util.l.e("FileHelper", ".", "getImage", " ", str, "/", str2));
+            TiebaStatic.file(e.getMessage(), com.baidu.adp.lib.util.k.e("FileHelper", ".", "getImage", " ", str, "/", str2));
             System.gc();
             try {
                 return BitmapFactory.decodeFile(String.valueOf(str3) + str2);
             } catch (OutOfMemoryError e2) {
-                TiebaStatic.file(e.getMessage(), com.baidu.adp.lib.util.l.e("FileHelper", ".", "getImage", " ", str, "/", str2));
+                TiebaStatic.file(e.getMessage(), com.baidu.adp.lib.util.k.e("FileHelper", ".", "getImage", " ", str, "/", str2));
                 return null;
             }
         }
     }
 
-    public static String d(String str, byte[] bArr) {
-        return b((String) null, str, bArr);
+    public static String f(String str, byte[] bArr) {
+        return e(null, str, bArr);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [696=5, 697=5, 699=5, 700=5, 701=5] */
-    public static String b(String str, String str2, byte[] bArr) {
-        String str3 = str != null ? mI + "/" + TbConfig.getTempDirName() + "/" + str + "/" : mI + "/" + TbConfig.getTempDirName() + "/";
-        if (!bo(str3) || bArr == null || str2 == null) {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [695=5, 696=5, 698=5, 699=5, 700=5] */
+    public static String e(String str, String str2, byte[] bArr) {
+        String str3 = str != null ? mG + "/" + TbConfig.getTempDirName() + "/" + str + "/" : mG + "/" + TbConfig.getTempDirName() + "/";
+        if (!cg(str3) || bArr == null || str2 == null) {
             return null;
         }
         File file = new File(String.valueOf(str3) + str2);
@@ -397,7 +397,7 @@ public class s {
                             fileOutputStream.close();
                         } catch (Throwable th) {
                             BdLog.e(th.getMessage());
-                            TiebaStatic.file(th.getMessage(), com.baidu.adp.lib.util.l.e("FileHelper", ".", "SaveFile", " ", str, "/", str2));
+                            TiebaStatic.file(th.getMessage(), com.baidu.adp.lib.util.k.e("FileHelper", ".", "SaveFile", " ", str, "/", str2));
                         }
                     }
                     return null;
@@ -407,7 +407,7 @@ public class s {
                             fileOutputStream.close();
                         } catch (Throwable th2) {
                             BdLog.e(th2.getMessage());
-                            TiebaStatic.file(th2.getMessage(), com.baidu.adp.lib.util.l.e("FileHelper", ".", "SaveFile", " ", str, "/", str2));
+                            TiebaStatic.file(th2.getMessage(), com.baidu.adp.lib.util.k.e("FileHelper", ".", "SaveFile", " ", str, "/", str2));
                         }
                     }
                     return null;
@@ -425,7 +425,7 @@ public class s {
                                 return path;
                             } catch (Throwable th3) {
                                 BdLog.e(th3.getMessage());
-                                TiebaStatic.file(th3.getMessage(), com.baidu.adp.lib.util.l.e("FileHelper", ".", "SaveFile", " ", str, "/", str2));
+                                TiebaStatic.file(th3.getMessage(), com.baidu.adp.lib.util.k.e("FileHelper", ".", "SaveFile", " ", str, "/", str2));
                                 return path;
                             }
                         }
@@ -434,13 +434,13 @@ public class s {
                         e = e;
                         fileOutputStream = fileOutputStream2;
                         BdLog.e(e.getMessage());
-                        TiebaStatic.file(e, com.baidu.adp.lib.util.l.e("FileHelper", ".", "SaveFile", " ", str, "/", str2));
+                        TiebaStatic.file(e, com.baidu.adp.lib.util.k.e("FileHelper", ".", "SaveFile", " ", str, "/", str2));
                         if (fileOutputStream != null) {
                             try {
                                 fileOutputStream.close();
                             } catch (Throwable th4) {
                                 BdLog.e(th4.getMessage());
-                                TiebaStatic.file(th4.getMessage(), com.baidu.adp.lib.util.l.e("FileHelper", ".", "SaveFile", " ", str, "/", str2));
+                                TiebaStatic.file(th4.getMessage(), com.baidu.adp.lib.util.k.e("FileHelper", ".", "SaveFile", " ", str, "/", str2));
                             }
                         }
                         return null;
@@ -452,7 +452,7 @@ public class s {
                                 fileOutputStream.close();
                             } catch (Throwable th6) {
                                 BdLog.e(th6.getMessage());
-                                TiebaStatic.file(th6.getMessage(), com.baidu.adp.lib.util.l.e("FileHelper", ".", "SaveFile", " ", str, "/", str2));
+                                TiebaStatic.file(th6.getMessage(), com.baidu.adp.lib.util.k.e("FileHelper", ".", "SaveFile", " ", str, "/", str2));
                             }
                         }
                         throw th;
@@ -466,7 +466,7 @@ public class s {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [755=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [754=5] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x00fb */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r2v10, types: [java.io.OutputStream] */
@@ -478,7 +478,7 @@ public class s {
     public static String a(String str, String str2, InputStream inputStream) {
         String str3;
         FileOutputStream fileOutputStream;
-        if (!bo(str != null ? mI + "/" + TbConfig.getTempDirName() + "/" + str + "/" : mI + "/" + TbConfig.getTempDirName() + "/") || inputStream == null || str2 == null) {
+        if (!cg(str != null ? mG + "/" + TbConfig.getTempDirName() + "/" + str + "/" : mG + "/" + TbConfig.getTempDirName() + "/") || inputStream == null || str2 == null) {
             return null;
         }
         File file = new File(String.valueOf(str3) + str2);
@@ -497,10 +497,10 @@ public class s {
         try {
             try {
                 if (file.exists() && !file.delete()) {
-                    com.baidu.adp.lib.util.p.a((OutputStream) null);
+                    com.baidu.adp.lib.util.t.b((OutputStream) null);
                     return null;
                 } else if (!file.createNewFile()) {
-                    com.baidu.adp.lib.util.p.a((OutputStream) null);
+                    com.baidu.adp.lib.util.t.b((OutputStream) null);
                     return null;
                 } else {
                     fileOutputStream = new FileOutputStream(file);
@@ -511,7 +511,7 @@ public class s {
                             if (read == -1) {
                                 fileOutputStream.flush();
                                 String path = file.getPath();
-                                com.baidu.adp.lib.util.p.a((OutputStream) fileOutputStream);
+                                com.baidu.adp.lib.util.t.b(fileOutputStream);
                                 return path;
                             }
                             fileOutputStream.write(bArr, 0, read);
@@ -520,13 +520,13 @@ public class s {
                         e = e;
                         BdLog.e(e.getMessage());
                         TiebaStatic.file(e, "FileHelper.saveFile " + str + "/" + str2);
-                        com.baidu.adp.lib.util.p.a((OutputStream) fileOutputStream);
+                        com.baidu.adp.lib.util.t.b(fileOutputStream);
                         return null;
                     }
                 }
             } catch (Throwable th) {
                 th = th;
-                com.baidu.adp.lib.util.p.a((OutputStream) r2);
+                com.baidu.adp.lib.util.t.b((OutputStream) r2);
                 throw th;
             }
         } catch (IOException e2) {
@@ -535,20 +535,20 @@ public class s {
         } catch (Throwable th2) {
             th = th2;
             r2 = 0;
-            com.baidu.adp.lib.util.p.a((OutputStream) r2);
+            com.baidu.adp.lib.util.t.b((OutputStream) r2);
             throw th;
         }
     }
 
-    public static byte[] L(String str, String str2) {
+    public static byte[] V(String str, String str2) {
         String str3;
-        if (!lv() || str2 == null) {
+        if (!oq() || str2 == null) {
             return null;
         }
         if (str != null) {
-            str3 = mI + "/" + TbConfig.getTempDirName() + "/" + str + "/";
+            str3 = mG + "/" + TbConfig.getTempDirName() + "/" + str + "/";
         } else {
-            str3 = mI + "/" + TbConfig.getTempDirName() + "/";
+            str3 = mG + "/" + TbConfig.getTempDirName() + "/";
         }
         File file = new File(String.valueOf(str3) + str2);
         try {
@@ -576,8 +576,8 @@ public class s {
         }
     }
 
-    private static String h(String str, boolean z) {
-        return (z && str.startsWith(mI.toString())) ? str : mI + "/" + TbConfig.getTempDirName() + "/" + str;
+    private static String j(String str, boolean z) {
+        return (z && str.startsWith(mG.toString())) ? str : mG + "/" + TbConfig.getTempDirName() + "/" + str;
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -588,15 +588,15 @@ public class s {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [841=4, 842=4, 844=4, 845=4, 846=4, 849=4, 850=4, 852=4, 853=4, 854=4] */
-    public static boolean a(java.lang.String r8, java.lang.String r9, boolean r10) {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [840=4, 841=4, 843=4, 844=4, 845=4, 848=4, 849=4, 851=4, 852=4, 853=4] */
+    public static boolean c(java.lang.String r8, java.lang.String r9, boolean r10) {
         /*
             r0 = 0
             r3 = 0
             r1 = 0
             r2 = 0
-            java.lang.String r4 = h(r8, r10)
-            java.lang.String r5 = h(r9, r10)
+            java.lang.String r4 = j(r8, r10)
+            java.lang.String r5 = j(r9, r10)
             java.io.File r6 = new java.io.File     // Catch: java.lang.Throwable -> L1ed
             r6.<init>(r4)     // Catch: java.lang.Throwable -> L1ed
             java.io.File r7 = new java.io.File     // Catch: java.lang.Throwable -> L1ed
@@ -813,15 +813,15 @@ public class s {
             r1 = move-exception
             goto Ld2
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tbadk.core.util.s.a(java.lang.String, java.lang.String, boolean):boolean");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tbadk.core.util.s.c(java.lang.String, java.lang.String, boolean):boolean");
     }
 
-    public static boolean M(String str, String str2) {
-        return a(str, str2, false);
+    public static boolean W(String str, String str2) {
+        return c(str, str2, false);
     }
 
-    public static InputStream bv(String str) {
-        return k(br(str));
+    public static InputStream cn(String str) {
+        return l(cj(str));
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:4:0x000a, code lost:
@@ -830,7 +830,7 @@ public class s {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static InputStream bw(String str) {
+    public static InputStream co(String str) {
         File file = null;
         File file2 = new File(str);
         try {
@@ -838,15 +838,15 @@ public class s {
             } catch (SecurityException e) {
                 BdLog.e(e.getMessage());
                 TiebaStatic.file(e, "FileHelper.GetStreamFromTmpFile " + str);
-                return k(file);
+                return l(file);
             }
         } catch (Throwable th) {
         }
         file = file2;
-        return k(file);
+        return l(file);
     }
 
-    public static InputStream k(File file) {
+    public static InputStream l(File file) {
         if (file != null) {
             try {
                 return new FileInputStream(file);
@@ -859,9 +859,9 @@ public class s {
         return null;
     }
 
-    public static boolean bx(String str) {
-        if (lv()) {
-            File file = new File(mI + "/" + TbConfig.getTempDirName() + "/" + str);
+    public static boolean cp(String str) {
+        if (oq()) {
+            File file = new File(mG + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
                 if (file.exists()) {
                     return file.delete();
@@ -876,11 +876,11 @@ public class s {
         return false;
     }
 
-    public static String lw() {
-        return mI + "/" + TbConfig.getTempDirName() + "/";
+    public static String or() {
+        return mG + "/" + TbConfig.getTempDirName() + "/";
     }
 
-    public static boolean N(String str, String str2) {
+    public static boolean X(String str, String str2) {
         File file = new File(str);
         File file2 = new File(str2);
         String parent = file2.getParent();
@@ -896,9 +896,9 @@ public class s {
         return false;
     }
 
-    public static long lx() {
+    public static long os() {
         String absolutePath;
-        if (bm()) {
+        if (bN()) {
             absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
         } else {
             absolutePath = Environment.getRootDirectory().getAbsolutePath();
@@ -910,18 +910,18 @@ public class s {
         return statFs.getBlockSize() * statFs.getAvailableBlocks();
     }
 
-    public static String f(int i, String str) {
-        return a(i, str, false);
+    public static String o(int i, String str) {
+        return b(i, str, false);
     }
 
-    private static String a(int i, String str, boolean z) {
-        if (Dq == null) {
+    private static String b(int i, String str, boolean z) {
+        if (HC == null) {
             return null;
         }
-        File[] listFiles = Dq.listFiles();
-        String bp = bp(i);
+        File[] listFiles = HC.listFiles();
+        String bM = bM(i);
         for (int i2 = 0; i2 < listFiles.length; i2++) {
-            if (listFiles[i2] != null && listFiles[i2].getName().startsWith(bp)) {
+            if (listFiles[i2] != null && listFiles[i2].getName().startsWith(bM)) {
                 if (listFiles[i2].getName().endsWith(str)) {
                     return listFiles[i2].getAbsolutePath();
                 }
@@ -933,7 +933,7 @@ public class s {
         return null;
     }
 
-    public static String bp(int i) {
+    public static String bM(int i) {
         switch (i) {
             case 1:
                 return "voice";
@@ -950,38 +950,38 @@ public class s {
         if (str == null) {
             return null;
         }
-        if (bm()) {
-            if (bp(b(str, i, false))) {
+        if (bN()) {
+            if (ch(b(str, i, false))) {
                 return b(str, i, true);
             }
             return null;
         }
-        return f(1, str);
+        return o(1, str);
     }
 
     public static String b(String str, int i, boolean z) {
-        if (!bm()) {
+        if (!bN()) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
         if (z) {
-            sb.append(lw());
+            sb.append(or());
         }
-        sb.append(bp(i));
+        sb.append(bM(i));
         sb.append(File.separator);
         sb.append(str);
         return sb.toString();
     }
 
-    public static long by(String str) {
-        return l(new File(str));
+    public static long cq(String str) {
+        return m(new File(str));
     }
 
     /* JADX WARN: Removed duplicated region for block: B:38:0x0031 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static long l(File file) {
+    public static long m(File file) {
         FileInputStream fileInputStream;
         long j = 0;
         FileInputStream fileInputStream2 = null;
@@ -1036,7 +1036,7 @@ public class s {
         return j;
     }
 
-    public static boolean m(File file) {
+    public static boolean deleteFile(File file) {
         try {
             return file.delete();
         } catch (Exception e) {
@@ -1045,7 +1045,7 @@ public class s {
         }
     }
 
-    public static long i(String str, boolean z) {
+    public static long k(String str, boolean z) {
         return a(new File(str), z);
     }
 
@@ -1066,7 +1066,7 @@ public class s {
         return j;
     }
 
-    public static void av(String str) {
+    public static void ay(String str) {
         try {
             File file = new File(str);
             if (!file.exists()) {
@@ -1079,30 +1079,30 @@ public class s {
 
     public static int a(String str, byte[] bArr, Context context) {
         String str2;
-        String bQ;
+        String cI;
         Bitmap decodeByteArray;
         int i = -1;
         if (bArr == null || str == null || str.length() == 0 || context == null) {
             return -1;
         }
         try {
-            if (!com.baidu.adp.lib.util.m.l(bArr)) {
+            if (!com.baidu.adp.lib.util.l.l(bArr)) {
                 str2 = ".jpg";
             } else {
                 str2 = ".gif";
             }
-            if (com.baidu.adp.lib.util.m.m(bArr) && (decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length)) != null) {
-                bArr = com.baidu.adp.lib.util.c.eS().b(decodeByteArray, 100);
+            if (com.baidu.adp.lib.util.l.m(bArr) && (decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length)) != null) {
+                bArr = com.baidu.adp.lib.util.c.eS().e(decodeByteArray, 100);
                 decodeByteArray.recycle();
             }
-            if (bb.bQ(str) != null) {
-                String str3 = String.valueOf(bQ) + str2;
-                for (int i2 = 0; bp(str3) && i2 < 10000; i2++) {
-                    str3 = String.valueOf(bQ) + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str2;
+            if (bc.cI(str) != null) {
+                String str3 = String.valueOf(cI) + str2;
+                for (int i2 = 0; ch(str3) && i2 < 10000; i2++) {
+                    str3 = String.valueOf(cI) + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str2;
                 }
-                String d = d(str3, bArr);
-                if (d != null) {
-                    new aa(context).bF(d);
+                String f = f(str3, bArr);
+                if (f != null) {
+                    new ab(context).cy(f);
                     i = 0;
                     return 0;
                 }

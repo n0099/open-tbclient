@@ -2,59 +2,64 @@ package com.baidu.tieba.plugins;
 
 import android.os.Bundle;
 import android.view.WindowManager;
+import com.baidu.adp.plugin.packageManager.PluginPackageManager;
+import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PluginDownloadActivityConfig;
-import com.baidu.tbadk.pluginArch.PluginCenter;
-import com.baidu.tbadk.pluginArch.bean.ConfigInfos;
-import com.baidu.tieba.v;
-import com.baidu.tieba.y;
+import com.baidu.tieba.aa;
+import com.baidu.tieba.w;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
-public class PluginDownloadActivity extends BaseActivity {
-    private ConfigInfos.PluginConfig bHe;
-    private boolean bHf;
-    private g bHh;
-    private boolean bHi;
+public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity> {
+    private g bKB;
+    private boolean bKC;
+    private PluginNetConfigInfos.PluginConfig bKz;
+    private boolean mFinished;
 
     static {
-        TbadkApplication.m251getInst().RegisterIntent(PluginDownloadActivityConfig.class, PluginDownloadActivity.class);
+        TbadkCoreApplication.m255getInst().RegisterIntent(PluginDownloadActivityConfig.class, PluginDownloadActivity.class);
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    protected void onCreate(Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bHe = (ConfigInfos.PluginConfig) getIntent().getSerializableExtra(PluginDownloadActivityConfig.PLUGIN_CONFIG);
-        if (this.bHe == null) {
-            showToast(getString(y.plugin_config_not_found), false);
+        this.bKz = (PluginNetConfigInfos.PluginConfig) getIntent().getSerializableExtra(PluginDownloadActivityConfig.PLUGIN_CONFIG);
+        if (this.bKz == null) {
+            showToast(getPageContext().getString(z.plugin_config_not_found), false);
             finish();
             return;
         }
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.alpha = 0.0f;
         getWindow().setAttributes(attributes);
-        this.bHh = new g(this, this, z.common_alert_dialog);
-        this.bHh.setCancelable(false);
-        this.bHh.setOnKeyListener(new e(this));
-        this.bHh.setOnDismissListener(new f(this));
+        this.bKB = new g(this, getPageContext().getPageActivity(), aa.common_alert_dialog);
+        this.bKB.setCancelable(false);
+        this.bKB.setOnKeyListener(new e(this));
+        this.bKB.setOnDismissListener(new f(this));
     }
 
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        this.bHh.show();
+        this.bKB.show();
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
-    protected void onChangeSkinType(int i) {
+    public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        getLayoutMode().L(i == 1);
-        getLayoutMode().h(this.bHh.findViewById(v.dialog_layout));
+        getLayoutMode().ab(i == 1);
+        getLayoutMode().h(this.bKB.findViewById(w.dialog_layout));
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    protected void onDestroy() {
-        PluginCenter.getInstance().cancelDownloadForeground();
+    public void onDestroy() {
+        if (this.bKz != null) {
+            PluginPackageManager.ic().bl(this.bKz.package_name);
+        }
         super.onDestroy();
     }
 }

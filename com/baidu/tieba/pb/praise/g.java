@@ -1,42 +1,42 @@
 package com.baidu.tieba.pb.praise;
 
-import com.baidu.tbadk.mvc.b.i;
+import com.baidu.tbadk.mvc.b.j;
 import com.squareup.wire.Message;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class g implements i {
-    private int bzK = 0;
-    private List<a> bzL = null;
+public class g implements j {
+    private int bDC = 0;
+    private List<a> bDD = null;
 
-    @Override // com.baidu.tbadk.mvc.b.i
-    public void d(JSONObject jSONObject) {
-        this.bzK = jSONObject.optInt("num");
+    @Override // com.baidu.tbadk.mvc.b.j
+    public void c(JSONObject jSONObject) {
+        this.bDC = jSONObject.optInt("num");
         JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
         if (optJSONArray != null) {
-            this.bzL = new ArrayList();
+            this.bDD = new ArrayList();
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     a aVar = new a();
-                    aVar.d(optJSONObject);
-                    this.bzL.add(aVar);
+                    aVar.c(optJSONObject);
+                    this.bDD.add(aVar);
                 }
             }
         }
     }
 
-    @Override // com.baidu.tbadk.mvc.b.i
+    @Override // com.baidu.tbadk.mvc.b.j
     public void a(Message message) {
     }
 
-    public int YE() {
-        return this.bzK;
+    public int Zc() {
+        return this.bDC;
     }
 
-    public List<a> YF() {
-        return this.bzL;
+    public List<a> Zd() {
+        return this.bDD;
     }
 }

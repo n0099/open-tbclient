@@ -8,7 +8,6 @@ import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
@@ -17,20 +16,19 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.ai;
-import com.baidu.tieba.v;
-import com.baidu.tieba.y;
+import com.baidu.tieba.w;
+import com.baidu.tieba.z;
 import tbclient.GetIconList.IconInfo;
 /* loaded from: classes.dex */
-public class BuyTBeanActivity extends BaseActivity implements i {
-    private d bNE;
-    private j bNF;
-    private int bNG;
+public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements i {
+    private d bZO;
+    private j bZP;
+    private int bZQ;
 
     static {
-        TbadkApplication.m251getInst().RegisterIntent(BuyTBeanActivityConfig.class, BuyTBeanActivity.class);
-        ai.b(306001, GetYinJiResponseMessage.class, false);
-        adN();
+        TbadkApplication.getInst().RegisterIntent(BuyTBeanActivityConfig.class, BuyTBeanActivity.class);
+        com.baidu.tieba.tbadkCore.a.a.c(306001, GetYinJiResponseMessage.class, false);
+        aih();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -38,86 +36,86 @@ public class BuyTBeanActivity extends BaseActivity implements i {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (bundle != null) {
-            this.bNG = bundle.getInt(BuyTBeanActivityConfig.GIFT_TBEAN);
+            this.bZQ = bundle.getInt(BuyTBeanActivityConfig.GIFT_TBEAN);
         }
-        n(getIntent());
-        showLoadingDialog(getString(y.flist_loading));
-        this.bNF = new j(this);
-        this.bNE = new d(this, this);
-        this.bNE.adP();
-        this.bNE.adQ();
-        this.bNE.adR();
-        this.bNE.adO();
+        U(getIntent());
+        showLoadingDialog(getPageContext().getString(z.flist_loading));
+        this.bZP = new j(this);
+        this.bZO = new d(this, this);
+        this.bZO.aij();
+        this.bZO.aik();
+        this.bZO.ail();
+        this.bZO.aii();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.bNF.onChangeSkinType(i);
+        this.bZP.onChangeSkinType(i);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putInt(BuyTBeanActivityConfig.GIFT_TBEAN, this.bNG);
+        bundle.putInt(BuyTBeanActivityConfig.GIFT_TBEAN, this.bZQ);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        int adV;
+        int aip;
         IconInfo iconInfo;
-        if (this.bNF != null && this.bNE != null && this.bNE.getIconInfoList() != null && (adV = this.bNF.adV()) >= 0 && adV < this.bNE.getIconInfoList().size() && (iconInfo = this.bNE.getIconInfoList().get(adV)) != null) {
-            if (view.getId() == v.buy_btn_tv) {
-                if (this.bNF.adX() <= 0) {
-                    showToast(y.buy_num_zeor_tip);
+        if (this.bZP != null && this.bZO != null && this.bZO.getIconInfoList() != null && (aip = this.bZP.aip()) >= 0 && aip < this.bZO.getIconInfoList().size() && (iconInfo = this.bZO.getIconInfoList().get(aip)) != null) {
+            if (view.getId() == w.buy_btn_tv) {
+                if (this.bZP.air() <= 0) {
+                    showToast(z.buy_num_zeor_tip);
                     return;
                 }
                 String str = iconInfo.iconId;
-                String sb = new StringBuilder(String.valueOf(this.bNF.adW())).toString();
-                String sb2 = new StringBuilder(String.valueOf(this.bNF.adX())).toString();
-                Intent intent = new Intent(this, DealIntentService.class);
+                String sb = new StringBuilder(String.valueOf(this.bZP.aiq())).toString();
+                String sb2 = new StringBuilder(String.valueOf(this.bZP.air())).toString();
+                Intent intent = new Intent(getPageContext().getPageActivity(), DealIntentService.class);
                 intent.putExtra("class", 15);
-                intent.putExtra("pay_type", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
+                intent.putExtra("pay_type", "2");
                 intent.putExtra(PayActivityConfig.PROPS_ID, str);
                 intent.putExtra("quan_num", sb);
                 intent.putExtra(PayActivityConfig.PROPS_MON, sb2);
-                UtilHelper.commenDealIntent(this, intent);
-            } else if (view.getId() == v.bottom_tip_tv) {
-                sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this, 2, "pay")));
+                UtilHelper.commenDealIntent(getPageContext().getPageActivity(), intent);
+            } else if (view.getId() == w.bottom_tip_tv) {
+                sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(getPageContext().getPageActivity(), 2, "pay")));
             }
         }
     }
 
-    private void n(Intent intent) {
-        this.bNG = intent.getIntExtra(BuyTBeanActivityConfig.GIFT_TBEAN, 0);
+    private void U(Intent intent) {
+        this.bZQ = intent.getIntExtra(BuyTBeanActivityConfig.GIFT_TBEAN, 0);
     }
 
-    public int adM() {
-        return this.bNG;
+    public int aig() {
+        return this.bZQ;
     }
 
     @Override // com.baidu.tieba.tbean.i
-    public void hw(String str) {
+    public void onFailed(String str) {
         showToast(str);
         closeLoadingDialog();
-        this.bNF.adT();
+        this.bZP.ain();
     }
 
     @Override // com.baidu.tieba.tbean.i
     public void onSuccess() {
         closeLoadingDialog();
-        this.bNF.e(this.bNE);
+        this.bZP.e(this.bZO);
     }
 
     public void refresh() {
-        if (this.bNE != null) {
-            showLoadingDialog(getString(y.flist_loading));
-            this.bNE.adO();
+        if (this.bZO != null) {
+            showLoadingDialog(getPageContext().getString(z.flist_loading));
+            this.bZO.aii();
         }
     }
 
-    private static void adN() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_YINJI, ai.s("c/e/pay/geticonlist", 306001));
+    private static void aih() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_YINJI, com.baidu.tieba.tbadkCore.a.a.O("c/e/pay/geticonlist", 306001));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -129,7 +127,7 @@ public class BuyTBeanActivity extends BaseActivity implements i {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            this.bNF.eI(false);
+            this.bZP.ez(false);
             this.mHandler.postDelayed(new a(this), 100L);
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -138,8 +136,8 @@ public class BuyTBeanActivity extends BaseActivity implements i {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (this.bNF.adZ()) {
-                this.bNF.adY();
+            if (this.bZP.ait()) {
+                this.bZP.ais();
             } else {
                 finish();
             }

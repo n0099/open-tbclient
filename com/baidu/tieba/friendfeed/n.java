@@ -1,38 +1,38 @@
 package com.baidu.tieba.friendfeed;
 
 import android.text.TextUtils;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.data.FriendFeedThreadData;
-import com.baidu.tieba.frs.dh;
-import com.baidu.tieba.pb.main.bs;
+import com.baidu.tieba.tbadkCore.aq;
 /* loaded from: classes.dex */
-class n implements dh {
-    final /* synthetic */ FriendFeedActivity ayU;
+class n implements aq {
+    final /* synthetic */ FriendFeedActivity aAU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(FriendFeedActivity friendFeedActivity) {
-        this.ayU = friendFeedActivity;
+        this.aAU = friendFeedActivity;
     }
 
-    @Override // com.baidu.tieba.frs.dh
-    public void fa(String str) {
+    @Override // com.baidu.tieba.tbadkCore.aq
+    public void fv(String str) {
         boolean z;
         FriendFeedThreadData friendFeedThreadData;
-        z = this.ayU.ayE;
+        z = this.aAU.aAG;
         if (z) {
-            friendFeedThreadData = this.ayU.ayD;
-            this.ayU.eD(friendFeedThreadData.getPraise().getIsLike() == 1 ? 0 : 1);
+            friendFeedThreadData = this.aAU.aAF;
+            this.aAU.eB(friendFeedThreadData.getPraise().getIsLike() == 1 ? 0 : 1);
         }
-        this.ayU.ayC = false;
-        bs.Xc().reset();
+        this.aAU.aAE = false;
+        TbadkApplication.getInst().resetPbRecorder();
     }
 
-    @Override // com.baidu.tieba.frs.dh
-    public void fb(String str) {
+    @Override // com.baidu.tieba.tbadkCore.aq
+    public void fw(String str) {
         boolean z;
-        z = this.ayU.ayE;
+        z = this.aAU.aAG;
         if (z && !TextUtils.isEmpty(str)) {
-            this.ayU.showToast(str);
+            this.aAU.showToast(str);
         }
-        this.ayU.ayC = false;
+        this.aAU.aAE = false;
     }
 }

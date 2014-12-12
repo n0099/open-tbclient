@@ -15,11 +15,11 @@ public class bi implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        c.PN().e(imMessageCenterPojo);
-        c.PN().a(9, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
+        c.Qs().l(imMessageCenterPojo);
+        c.Qs().a(9, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
-    public void b(String str, List<CommonMsgPojo> list) {
+    public void c(String str, List<CommonMsgPojo> list) {
     }
 }

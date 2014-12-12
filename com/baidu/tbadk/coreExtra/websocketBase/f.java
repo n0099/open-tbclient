@@ -1,9 +1,9 @@
 package com.baidu.tbadk.coreExtra.websocketBase;
 /* loaded from: classes.dex */
 public class f {
-    public static f qy() {
+    public static f tR() {
         f fVar;
-        fVar = g.Px;
+        fVar = g.Vj;
         return fVar;
     }
 
@@ -15,19 +15,19 @@ public class f {
         this();
     }
 
-    public void qz() {
-        cR("kLCSError=1");
+    public void tS() {
+        dN("kLCSError=1");
     }
 
-    public void cv(int i) {
-        cR("kNetStatus=" + i);
+    public void cU(int i) {
+        dN("kNetStatus=" + i);
     }
 
-    public void cQ(String str) {
-        cR("kNewIpResult=" + str);
+    public void dM(String str) {
+        dN("kNewIpResult=" + str);
     }
 
-    private void cR(String str) {
-        com.baidu.adp.framework.client.socket.m.a("IpReconnLogHelper", 0, 0, (String) null, com.baidu.tbadk.core.k.yO, str);
+    private void dN(String str) {
+        com.baidu.adp.framework.client.socket.m.a("IpReconnLogHelper", 0, 0, (String) null, com.baidu.tbadk.core.j.CJ, str);
     }
 }

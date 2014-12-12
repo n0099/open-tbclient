@@ -1,45 +1,67 @@
 package com.baidu.tieba.pb.main;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.pb.sub.SubPbLayout;
+import com.baidu.tieba.tbadkCore.FrsPraiseView;
+import com.baidu.tieba.view.BaobaoTailView;
 /* loaded from: classes.dex */
-public class bo extends CustomMessageListener {
-    final /* synthetic */ bn bxi;
+class bo {
+    UserIconBox aBn;
+    public TextView aFV;
+    public UserIconBox aUb;
+    public TextView bAa;
+    public TbRichTextView bAb;
+    public View bAc;
+    public FrsPraiseView bAd;
+    public ImageView bAe;
+    public RelativeLayout bAf;
+    private LinearLayout bAg;
+    private ImageView bAh;
+    public SubPbLayout bAi;
+    public BaobaoTailView bAj;
+    public LinearLayout bAk;
+    public TextView bAl;
+    public LinearLayout bAm;
+    public Button bAn;
+    public LinearLayout bAo;
+    public TextView bAp;
+    public View bAq;
+    public View bAr;
+    public LinearLayout bAs;
+    public ImageView bAt;
+    public TextView bAu;
+    public LinearLayout bAv;
+    public ImageView bAw;
+    public TextView bAx;
+    final /* synthetic */ bi bzJ;
+    public View bzN;
+    public View bzO;
+    public View bzP;
+    public View bzQ;
+    public View bzR;
+    public HeadImageView bzS;
+    public TextView bzT;
+    public ImageView bzU;
+    public TextView bzV;
+    public TextView bzW;
+    public ImageView bzX;
+    public ImageView bzY;
+    public TbRichTextView bzZ;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bo(bn bnVar, int i) {
-        super(i);
-        this.bxi = bnVar;
+    private bo(bi biVar) {
+        this.bzJ = biVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        BdUniqueId bdUniqueId;
-        BdUniqueId bdUniqueId2;
-        PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage;
-        com.baidu.tieba.data.ah pbData;
-        bq bqVar;
-        bq bqVar2;
-        bq bqVar3;
-        bdUniqueId = this.bxi.unique_id;
-        if (bdUniqueId == customResponsedMessage.getOrginalMessage().getTag() && customResponsedMessage != null && (customResponsedMessage instanceof PbPageReadLocalResponseMessage)) {
-            BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
-            bdUniqueId2 = this.bxi.unique_id;
-            if (tag != bdUniqueId2 || (pbData = (pbPageReadLocalResponseMessage = (PbPageReadLocalResponseMessage) customResponsedMessage).getPbData()) == null) {
-                return;
-            }
-            this.bxi.c(pbData);
-            bqVar = this.bxi.bxa;
-            if (bqVar != null && pbData != null) {
-                bqVar2 = this.bxi.bxa;
-                bqVar2.a(true, 0, pbPageReadLocalResponseMessage.getUpdateType(), 0, pbData, pbPageReadLocalResponseMessage.getErrorString(), 0);
-                bqVar3 = this.bxi.bxa;
-                bqVar3.dV(false);
-            }
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bo(bi biVar, bo boVar) {
+        this(biVar);
     }
 }

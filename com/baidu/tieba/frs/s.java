@@ -1,37 +1,63 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tieba.tbadkCore.FrsPageHttpResponseMessage;
 /* loaded from: classes.dex */
-class s implements View.OnClickListener {
-    final /* synthetic */ FrsActivity aBu;
+class s extends HttpMessageListener {
+    final /* synthetic */ FrsActivity aCV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(FrsActivity frsActivity) {
-        this.aBu = frsActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s(FrsActivity frsActivity, int i) {
+        super(i);
+        this.aCV = frsActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        bu buVar;
-        int intValue = ((Integer) view.getTag()).intValue();
-        buVar = this.aBu.aAF;
-        com.baidu.adp.widget.ListView.al ai = buVar.GJ().ai(intValue);
-        if (ai instanceof com.baidu.tbadk.core.data.a) {
-            com.baidu.tbadk.core.data.a aVar = (com.baidu.tbadk.core.data.a) ai;
-            int i = aVar.zf;
-            if (i == 0) {
-                if (com.baidu.adp.lib.util.j.fh() && !com.baidu.adp.lib.util.j.fi()) {
-                    this.aBu.a(aVar, intValue);
-                } else {
-                    this.aBu.a(aVar, "btn_download");
-                    this.aBu.b(aVar, "download");
-                    this.aBu.b((com.baidu.tbadk.core.data.a) ai, intValue);
-                }
-            } else if (i == 2) {
-                com.baidu.tieba.frs.a.a.x(this.aBu, aVar.zl);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        com.baidu.tieba.tbadkCore.x xVar;
+        com.baidu.tieba.tbadkCore.d.a aVar;
+        boolean z;
+        com.baidu.tieba.tbadkCore.x xVar2;
+        com.baidu.tieba.tbadkCore.d.a aVar2;
+        if (httpResponsedMessage instanceof FrsPageHttpResponseMessage) {
+            FrsPageHttpResponseMessage frsPageHttpResponseMessage = (FrsPageHttpResponseMessage) httpResponsedMessage;
+            com.baidu.tieba.tbadkCore.h hVar = new com.baidu.tieba.tbadkCore.h();
+            hVar.bSk = frsPageHttpResponseMessage.getError() < -13 || frsPageHttpResponseMessage.getError() > -10;
+            hVar.isSuccess = !frsPageHttpResponseMessage.hasNetworkError();
+            hVar.errorCode = frsPageHttpResponseMessage.getError();
+            hVar.errorMsg = frsPageHttpResponseMessage.getErrorString();
+            hVar.bSl = frsPageHttpResponseMessage.getDownSize();
+            xVar = this.aCV.aCF;
+            xVar.a(frsPageHttpResponseMessage.getUpdateType(), false, hVar);
+            this.aCV.Fu();
+            aVar = this.aCV.aCg;
+            if (aVar != null) {
+                aVar2 = this.aCV.aCg;
+                aVar2.a(true, hVar.isSuccess, hVar.errorCode, hVar.errorMsg, hVar.bSl);
+                this.aCV.aCg = null;
             }
-            TiebaStatic.eventStat(this.aBu, "frs_tb_btc", "");
+            z = this.aCV.aCv;
+            if (!z) {
+                this.aCV.aCv = true;
+                com.baidu.tbadk.performanceLog.w wVar = new com.baidu.tbadk.performanceLog.w();
+                wVar.dR(1000);
+                wVar.agA = true;
+                wVar.isSuccess = hVar.isSuccess;
+                wVar.agp = httpResponsedMessage.performanceData.eZ;
+                wVar.agq = httpResponsedMessage.performanceData.fa;
+                wVar.agr = httpResponsedMessage.performanceData.fb;
+                wVar.ags = httpResponsedMessage.performanceData.fc;
+                wVar.agt = httpResponsedMessage.performanceData.fd;
+                wVar.agy = 0L;
+                wVar.agz = hVar.bSl;
+                xVar2 = this.aCV.aCF;
+                if (xVar2 != null) {
+                    this.aCV.e(wVar);
+                }
+            }
         }
     }
 }

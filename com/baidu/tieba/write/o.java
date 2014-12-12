@@ -1,29 +1,28 @@
 package com.baidu.tieba.write;
 
-import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class o extends com.baidu.adp.base.e {
-    private p bTa;
-    private ArrayList<com.baidu.tbadk.core.data.q> bTb;
-    private Context mContext;
+public class o extends com.baidu.adp.base.f<WriteActivity> {
+    private p ceg;
+    private ArrayList<com.baidu.tbadk.core.data.w> ceh;
+    private WriteActivity cei;
     private int mErrCode;
 
-    public o(Context context) {
-        super(context);
-        this.bTa = null;
-        this.bTb = null;
+    public o(WriteActivity writeActivity) {
+        super(writeActivity.getPageContext());
+        this.ceg = null;
+        this.ceh = null;
         this.mErrCode = 0;
-        this.mContext = context;
-        this.bTb = new ArrayList<>();
+        this.cei = writeActivity;
+        this.ceh = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<com.baidu.tbadk.core.data.q> aff() {
-        return this.bTb;
+    public ArrayList<com.baidu.tbadk.core.data.w> ajJ() {
+        return this.ceh;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,11 +31,11 @@ public class o extends com.baidu.adp.base.e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void hJ(String str) {
-        if (this.bTa == null) {
-            this.bTa = new p(this, null);
-            this.bTa.setPriority(3);
-            this.bTa.execute(str);
+    public void iv(String str) {
+        if (this.ceg == null) {
+            this.ceg = new p(this, null);
+            this.ceg.setPriority(3);
+            this.ceg.execute(str);
         }
     }
 
@@ -58,9 +57,9 @@ public class o extends com.baidu.adp.base.e {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
-                            com.baidu.tbadk.core.data.q qVar = new com.baidu.tbadk.core.data.q();
-                            qVar.parserJson(jSONObject2);
-                            this.bTb.add(qVar);
+                            com.baidu.tbadk.core.data.w wVar = new com.baidu.tbadk.core.data.w();
+                            wVar.parserJson(jSONObject2);
+                            this.ceh.add(wVar);
                         }
                     }
                 }
@@ -70,15 +69,15 @@ public class o extends com.baidu.adp.base.e {
         }
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.f
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.f
     public boolean cancelLoadData() {
-        if (this.bTa != null) {
-            this.bTa.cancel();
+        if (this.ceg != null) {
+            this.ceg.cancel();
             return true;
         }
         return true;

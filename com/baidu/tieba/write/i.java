@@ -7,13 +7,13 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.r> {
-    final /* synthetic */ AtListActivity bST;
-    private com.baidu.tbadk.core.util.ac yV;
+public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.h> {
+    private com.baidu.tbadk.core.util.ad CV;
+    final /* synthetic */ AtListActivity cdZ;
 
     private i(AtListActivity atListActivity) {
-        this.bST = atListActivity;
-        this.yV = null;
+        this.cdZ = atListActivity;
+        this.CV = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,7 +25,7 @@ public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.r> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         ProgressBar progressBar;
-        progressBar = this.bST.mProgress;
+        progressBar = this.cdZ.mProgress;
         progressBar.setVisibility(0);
         super.onPreExecute();
     }
@@ -33,11 +33,11 @@ public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.r> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        if (this.yV != null) {
-            this.yV.dM();
+        if (this.CV != null) {
+            this.CV.dL();
         }
-        this.bST.bSK = null;
-        progressBar = this.bST.mProgress;
+        this.cdZ.cdQ = null;
+        progressBar = this.cdZ.mProgress;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -46,23 +46,23 @@ public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.r> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: D */
-    public com.baidu.tieba.data.r doInBackground(String... strArr) {
-        this.yV = new com.baidu.tbadk.core.util.ac();
-        this.yV.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/follow/list");
-        String lA = this.yV.lA();
-        if (!this.yV.mc().nb().jq()) {
+    public com.baidu.tieba.data.h doInBackground(String... strArr) {
+        this.CV = new com.baidu.tbadk.core.util.ad();
+        this.CV.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/follow/list");
+        String ov = this.CV.ov();
+        if (!this.CV.oW().pW().ma()) {
             return null;
         }
-        com.baidu.tieba.data.r rVar = new com.baidu.tieba.data.r();
-        rVar.es(lA);
-        return rVar;
+        com.baidu.tieba.data.h hVar = new com.baidu.tieba.data.h();
+        hVar.eY(ov);
+        return hVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: b */
-    public void onPostExecute(com.baidu.tieba.data.r rVar) {
+    public void onPostExecute(com.baidu.tieba.data.h hVar) {
         ProgressBar progressBar;
         com.baidu.tieba.model.c cVar;
         j jVar;
@@ -73,46 +73,46 @@ public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.r> {
         j jVar3;
         j jVar4;
         BdListView bdListView;
-        this.bST.bSK = null;
-        progressBar = this.bST.mProgress;
+        this.cdZ.cdQ = null;
+        progressBar = this.cdZ.mProgress;
         progressBar.setVisibility(8);
-        if (this.yV.mc().nb().jq()) {
-            cVar = this.bST.bSL;
-            cVar.a(rVar);
-            jVar = this.bST.bSM;
+        if (this.CV.oW().pW().ma()) {
+            cVar = this.cdZ.cdR;
+            cVar.a(hVar);
+            jVar = this.cdZ.cdS;
             if (jVar != null) {
-                editText = this.bST.mEditText;
-                if (com.baidu.adp.lib.util.l.a(editText.getText(), "").length() != 0) {
-                    cVar2 = this.bST.bSL;
-                    if (cVar2.Tf() != null) {
-                        if (!rVar.zg().isEmpty()) {
-                            this.bST.eK(false);
+                editText = this.cdZ.mEditText;
+                if (com.baidu.adp.lib.util.k.a(editText.getText(), "").length() != 0) {
+                    cVar2 = this.cdZ.cdR;
+                    if (cVar2.TY() != null) {
+                        if (!hVar.Cs().isEmpty()) {
+                            this.cdZ.eJ(false);
                         }
-                        cVar3 = this.bST.bSL;
-                        cVar3.Tf().c(rVar.zg());
-                        jVar2 = this.bST.bSM;
+                        cVar3 = this.cdZ.cdR;
+                        cVar3.TY().d(hVar.Cs());
+                        jVar2 = this.cdZ.cdS;
                         jVar2.notifyDataSetInvalidated();
                     }
                 } else {
-                    if (rVar.zf().isEmpty()) {
-                        this.bST.eK(true);
+                    if (hVar.Cr().isEmpty()) {
+                        this.cdZ.eJ(true);
                     } else {
-                        this.bST.eK(false);
+                        this.cdZ.eJ(false);
                     }
-                    this.bST.bSG = rVar.zf();
-                    jVar3 = this.bST.bSM;
-                    jVar3.setData(this.bST.bSG);
-                    jVar4 = this.bST.bSM;
+                    this.cdZ.cdM = hVar.Cr();
+                    jVar3 = this.cdZ.cdS;
+                    jVar3.r(this.cdZ.cdM);
+                    jVar4 = this.cdZ.cdS;
                     jVar4.notifyDataSetInvalidated();
-                    bdListView = this.bST.vl;
+                    bdListView = this.cdZ.mListView;
                     bdListView.setSelection(0);
                 }
             } else {
                 return;
             }
         } else {
-            this.bST.showToast(this.yV.getErrorString());
+            this.cdZ.showToast(this.CV.getErrorString());
         }
-        super.onPostExecute(rVar);
+        super.onPostExecute(hVar);
     }
 }

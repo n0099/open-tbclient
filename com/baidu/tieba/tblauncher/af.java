@@ -1,6 +1,5 @@
 package com.baidu.tieba.tblauncher;
 
-import android.widget.TextView;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
@@ -17,12 +16,16 @@ class af extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        TextView textView;
+        an anVar;
+        an anVar2;
         if (customResponsedMessage != null) {
-            MainTabActivity mainTabActivity = this.this$0;
-            textView = this.this$0.aEF;
-            mainTabActivity.p(textView, 0);
-            MainTabActivity.bOD = false;
+            if (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.g) {
+                this.this$0.a((com.baidu.tbadk.data.g) customResponsedMessage.getData());
+            }
+            anVar = this.this$0.caU;
+            anVar.aja().ajl();
+            anVar2 = this.this$0.caU;
+            anVar2.aiV();
         }
     }
 }

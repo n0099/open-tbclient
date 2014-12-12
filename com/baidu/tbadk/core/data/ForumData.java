@@ -2,8 +2,8 @@ package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,10 +22,12 @@ import tbclient.FrsPage.SignUser;
 import tbclient.FrsPage.TagInfo;
 import tbclient.SimpleForum;
 /* loaded from: classes.dex */
-public class ForumData implements at, Serializable {
+public class ForumData implements au, Serializable {
     public static final int ANCHOR_HAVE_POWER = 1;
     public static final int ANCHOR_NOT_SHOW = 0;
     public static final int ANCHOR_SHOW_BUT_NO_POWER = 2;
+    public static final int FORUM_LIKE = 1;
+    public static final int FORUM_UNLIKE = 0;
     private static final long serialVersionUID = -5446966999595522426L;
     private String accelerate_cotent;
     private AnchorPower anchorPower;
@@ -36,18 +38,18 @@ public class ForumData implements at, Serializable {
     private int is_support_local;
     private String level_name;
     private int levelup_score;
-    private final ArrayList<c> mBadgeData;
-    private final d mBannerListData;
-    private final g mFrsBannerData;
+    private final ArrayList<e> mBadgeData;
+    private final f mBannerListData;
+    private final i mFrsBannerData;
     private final PostPrefixData mPrefixData;
-    private ArrayList<n> mRecommendForumData;
-    private final o mRecommendLikeUser;
-    private u news_info;
+    private ArrayList<r> mRecommendForumData;
+    private final s mRecommendLikeUser;
+    private aa news_info;
     private String slogan;
     private String tag_color;
     private String tag_id;
-    private r top_code;
-    private s top_notice_data;
+    private x top_code;
+    private y top_notice_data;
     private String id = null;
     private String name = null;
     private String first_class = null;
@@ -62,7 +64,7 @@ public class ForumData implements at, Serializable {
     private int album_open_photo_frs = 0;
     private SignData mSignData = new SignData();
     private ArrayList<String> managers = new ArrayList<>();
-    private ArrayList<h> good_classify = new ArrayList<>();
+    private ArrayList<j> good_classify = new ArrayList<>();
     private String tag_name = null;
 
     public ForumData() {
@@ -72,15 +74,15 @@ public class ForumData implements at, Serializable {
         this.levelup_score = 0;
         this.is_support_local = 0;
         this.is_local_effect = 0;
-        this.top_notice_data = new s();
+        this.top_notice_data = new y();
         this.mBadgeData = new ArrayList<>();
-        this.mFrsBannerData = new g();
-        this.mBannerListData = new d();
+        this.mFrsBannerData = new i();
+        this.mBannerListData = new f();
         this.mRecommendForumData = new ArrayList<>();
         this.mPrefixData = new PostPrefixData();
-        this.mRecommendLikeUser = new o();
-        this.top_code = new r();
-        this.news_info = new u();
+        this.mRecommendLikeUser = new s();
+        this.top_code = new x();
+        this.news_info = new aa();
     }
 
     public AnchorPower getAnchorPower() {
@@ -215,12 +217,12 @@ public class ForumData implements at, Serializable {
         this.mSignData = signData;
     }
 
-    public s getTop_notice_data() {
+    public y getTop_notice_data() {
         return this.top_notice_data;
     }
 
-    public void setTop_notice_data(s sVar) {
-        this.top_notice_data = sVar;
+    public void setTop_notice_data(y yVar) {
+        this.top_notice_data = yVar;
     }
 
     public void setManagers(ArrayList<String> arrayList) {
@@ -231,11 +233,11 @@ public class ForumData implements at, Serializable {
         return this.managers;
     }
 
-    public void setGood_classify(ArrayList<h> arrayList) {
+    public void setGood_classify(ArrayList<j> arrayList) {
         this.good_classify = arrayList;
     }
 
-    public ArrayList<h> getGood_classify() {
+    public ArrayList<j> getGood_classify() {
         return this.good_classify;
     }
 
@@ -247,23 +249,23 @@ public class ForumData implements at, Serializable {
         this.level_name = str;
     }
 
-    public ArrayList<c> getBadgeData() {
+    public ArrayList<e> getBadgeData() {
         return this.mBadgeData;
     }
 
-    public g getFrsBannerData() {
+    public i getFrsBannerData() {
         return this.mFrsBannerData;
     }
 
-    public d getBannerListData() {
+    public f getBannerListData() {
         return this.mBannerListData;
     }
 
-    public o getRecommendLikeUser() {
+    public s getRecommendLikeUser() {
         return this.mRecommendLikeUser;
     }
 
-    public ArrayList<n> getRecommendForumData() {
+    public ArrayList<r> getRecommendForumData() {
         return this.mRecommendForumData;
     }
 
@@ -316,9 +318,9 @@ public class ForumData implements at, Serializable {
                 List<Classify> list2 = forumInfo.good_classify;
                 if (list2 != null) {
                     for (int i2 = 0; i2 < list2.size(); i2++) {
-                        h hVar = new h();
-                        hVar.a(list2.get(i2));
-                        this.good_classify.add(hVar);
+                        j jVar = new j();
+                        jVar.a(list2.get(i2));
+                        this.good_classify.add(jVar);
                     }
                 }
                 SignInfo signInfo = forumInfo.sign_in_info;
@@ -345,17 +347,17 @@ public class ForumData implements at, Serializable {
                 List<Badges> list3 = forumInfo.badges;
                 if (list3 != null && list3.size() > 0) {
                     for (int i3 = 0; i3 < list3.size(); i3++) {
-                        c cVar = new c();
-                        cVar.a(list3.get(i3));
-                        this.mBadgeData.add(cVar);
+                        e eVar = new e();
+                        eVar.a(list3.get(i3));
+                        this.mBadgeData.add(eVar);
                     }
                 }
                 List<RecommendForum> list4 = forumInfo.recommend_forum;
                 if (list4 != null && list4.size() > 0) {
                     for (int i4 = 0; i4 < list4.size(); i4++) {
-                        n nVar = new n();
-                        nVar.a(list4.get(i4));
-                        this.mRecommendForumData.add(nVar);
+                        r rVar = new r();
+                        rVar.a(list4.get(i4));
+                        this.mRecommendForumData.add(rVar);
                     }
                 }
                 this.mFrsBannerData.a(forumInfo.banner);
@@ -433,9 +435,9 @@ public class ForumData implements at, Serializable {
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("good_classify");
                 if (optJSONArray2 != null) {
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        h hVar = new h();
-                        hVar.parserJson(optJSONArray2.optJSONObject(i2));
-                        this.good_classify.add(hVar);
+                        j jVar = new j();
+                        jVar.parserJson(optJSONArray2.optJSONObject(i2));
+                        this.good_classify.add(jVar);
                     }
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("sign_in_info");
@@ -462,17 +464,17 @@ public class ForumData implements at, Serializable {
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("badges");
                 if (optJSONArray3 != null && optJSONArray3.length() > 0) {
                     for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                        c cVar = new c();
-                        cVar.parserJson(optJSONArray3.optJSONObject(i3));
-                        this.mBadgeData.add(cVar);
+                        e eVar = new e();
+                        eVar.parserJson(optJSONArray3.optJSONObject(i3));
+                        this.mBadgeData.add(eVar);
                     }
                 }
                 JSONArray optJSONArray4 = jSONObject.optJSONArray("recommend_forum");
                 if (optJSONArray4 != null && optJSONArray4.length() > 0) {
                     for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
-                        n nVar = new n();
-                        nVar.parserJson(optJSONArray4.optJSONObject(i4));
-                        this.mRecommendForumData.add(nVar);
+                        r rVar = new r();
+                        rVar.parserJson(optJSONArray4.optJSONObject(i4));
+                        this.mRecommendForumData.add(rVar);
                     }
                 }
                 try {
@@ -486,7 +488,7 @@ public class ForumData implements at, Serializable {
                     BdLog.e(e2.getMessage());
                 }
                 try {
-                    this.mRecommendLikeUser.b(jSONObject.optJSONObject("recommend_user_info"));
+                    this.mRecommendLikeUser.f(jSONObject.optJSONObject("recommend_user_info"));
                 } catch (Exception e3) {
                     BdLog.e(e3.getMessage());
                 }
@@ -577,29 +579,29 @@ public class ForumData implements at, Serializable {
         return this.mPrefixData;
     }
 
-    public void setTopCode(r rVar) {
-        this.top_code = rVar;
+    public void setTopCode(x xVar) {
+        this.top_code = xVar;
     }
 
-    public void setNewsInfo(u uVar) {
-        this.news_info = uVar;
+    public void setNewsInfo(aa aaVar) {
+        this.news_info = aaVar;
     }
 
-    public r getTopCode() {
+    public x getTopCode() {
         return this.top_code;
     }
 
-    public u getNewsInfo() {
+    public aa getNewsInfo() {
         return this.news_info;
     }
 
-    @Override // com.baidu.tbadk.core.util.at
-    public ArrayList<as> getImages() {
-        ArrayList<as> arrayList = new ArrayList<>();
-        as asVar = new as();
-        asVar.AI = this.image_url;
-        asVar.ES = 10;
-        arrayList.add(asVar);
+    @Override // com.baidu.tbadk.core.util.au
+    public ArrayList<at> getImages() {
+        ArrayList<at> arrayList = new ArrayList<>();
+        at atVar = new at();
+        atVar.imgUrl = this.image_url;
+        atVar.Jd = 10;
+        arrayList.add(atVar);
         return arrayList;
     }
 }

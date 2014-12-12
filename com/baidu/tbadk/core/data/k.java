@@ -1,4 +1,7 @@
 package com.baidu.tbadk.core.data;
 /* loaded from: classes.dex */
-public class k {
+public interface k {
+    String getLink();
+
+    String mN();
 }

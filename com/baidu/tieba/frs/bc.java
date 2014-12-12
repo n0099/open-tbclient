@@ -1,34 +1,40 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.LayoutInflater;
+import android.view.View;
 /* loaded from: classes.dex */
-public class bc extends BdAsyncTask<String, Integer, Boolean> {
-    final /* synthetic */ FrsActivity aBu;
-    private final String name;
+class bc implements com.baidu.adp.lib.guide.b {
+    final /* synthetic */ bb aDt;
+    private final /* synthetic */ View aDu;
 
-    public bc(FrsActivity frsActivity, String str) {
-        this.aBu = frsActivity;
-        this.name = str;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bc(bb bbVar, View view) {
+        this.aDt = bbVar;
+        this.aDu = view;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: l */
-    public Boolean doInBackground(String... strArr) {
-        return Boolean.valueOf(com.baidu.tieba.frs.a.a.z(this.aBu, this.name));
+    @Override // com.baidu.adp.lib.guide.b
+    public View a(LayoutInflater layoutInflater) {
+        return this.aDu;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public void onPostExecute(Boolean bool) {
-        if (bool.booleanValue()) {
-            this.aBu.showToast(com.baidu.tieba.y.shortcut_has_add);
-        } else {
-            this.aBu.ff(this.name);
-        }
+    @Override // com.baidu.adp.lib.guide.b
+    public int dx() {
+        return 5;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int dy() {
+        return 32;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int getXOffset() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int getYOffset() {
+        return 0;
     }
 }

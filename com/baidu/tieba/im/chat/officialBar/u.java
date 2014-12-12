@@ -5,31 +5,31 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.im.message.ResponseSendOfficialBarMenuMessage;
 /* loaded from: classes.dex */
 class u extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ OfficialBarChatActivity aRt;
+    final /* synthetic */ OfficialBarChatActivity aSZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u(OfficialBarChatActivity officialBarChatActivity, int i) {
         super(i);
-        this.aRt = officialBarChatActivity;
+        this.aSZ = officialBarChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         OfficialBarMsglistView officialBarMsglistView;
-        officialBarMsglistView = this.aRt.aRm;
-        officialBarMsglistView.cJ(false);
+        officialBarMsglistView = this.aSZ.aSS;
+        officialBarMsglistView.cw(false);
         if (!(socketResponsedMessage instanceof ResponseSendOfficialBarMenuMessage)) {
-            this.aRt.showToast(com.baidu.tieba.y.neterror);
+            this.aSZ.showToast(com.baidu.tieba.z.neterror);
             return;
         }
         ResponseSendOfficialBarMenuMessage responseSendOfficialBarMenuMessage = (ResponseSendOfficialBarMenuMessage) socketResponsedMessage;
         if (responseSendOfficialBarMenuMessage.hasError()) {
             if (responseSendOfficialBarMenuMessage.getError() > 0 && !TextUtils.isEmpty(responseSendOfficialBarMenuMessage.getErrorString())) {
-                this.aRt.showToast(responseSendOfficialBarMenuMessage.getErrorString());
+                this.aSZ.showToast(responseSendOfficialBarMenuMessage.getErrorString());
             } else {
-                this.aRt.showToast(com.baidu.tieba.y.neterror);
+                this.aSZ.showToast(com.baidu.tieba.z.neterror);
             }
         }
     }

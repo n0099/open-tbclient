@@ -1,73 +1,49 @@
 package com.baidu.tieba.person;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tieba.personInfo.PersonInfoActivity;
 /* loaded from: classes.dex */
-public class bd extends com.baidu.adp.base.e {
-    private static final String aEy = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/r/friend/listFriend";
-    private static TbHttpMessageTask aEz = new TbHttpMessageTask(1002000, aEy);
-    private com.baidu.tieba.data.aj mData;
-    private String mId;
-    private boolean mIsHost;
-    private int mSex;
+public class bd extends com.baidu.adp.base.g {
+    TextView bGw;
+    TextView bGx;
+    View mView;
 
-    static {
-        aEz.setResponsedClass(PersonFriendResponseMessage.class);
-        MessageManager.getInstance().registerTask(aEz);
+    public bd(PersonInfoActivity personInfoActivity) {
+        super(personInfoActivity.getPageContext());
+        a(personInfoActivity);
     }
 
-    public bd(Context context, boolean z) {
-        super(context);
-        this.mData = new com.baidu.tieba.data.aj();
-        this.mIsHost = z;
+    private void a(PersonInfoActivity personInfoActivity) {
+        this.mView = com.baidu.adp.lib.g.b.ek().inflate(personInfoActivity.getPageContext().getPageActivity(), com.baidu.tieba.x.person_info_more_view, null);
+        this.bGw = (TextView) this.mView.findViewById(com.baidu.tieba.w.person_info_more_view_item_friend);
+        this.bGw.setOnClickListener(personInfoActivity);
+        this.bGx = (TextView) this.mView.findViewById(com.baidu.tieba.w.person_info_more_view_item_black);
+        this.bGx.setOnClickListener(personInfoActivity);
     }
 
-    public void setId(String str) {
-        this.mId = str;
-    }
-
-    public String getId() {
-        return this.mId;
-    }
-
-    public void setSex(int i) {
-        this.mSex = i;
-    }
-
-    public void setData(com.baidu.tieba.data.aj ajVar) {
-        this.mData = ajVar;
-    }
-
-    public com.baidu.tieba.data.aj getData() {
-        return this.mData;
-    }
-
-    public void ZQ() {
-        super.sendMessage(new PersonFriendByUidLocalMessage());
-    }
-
-    public void a(boolean z, String str, int i, int i2) {
-        HttpMessage httpMessage = new HttpMessage(1002000);
-        if (!z) {
-            httpMessage.addParam("friend_uid", str);
-            httpMessage.addParam("is_guest", String.valueOf(1));
-            httpMessage.setExtra(str);
+    public void h(boolean z, boolean z2) {
+        if (z) {
+            this.bGw.setVisibility(0);
+        } else {
+            this.bGw.setVisibility(8);
         }
-        httpMessage.addParam("page_num", new StringBuilder(String.valueOf(i)).toString());
-        httpMessage.addParam("res_num", new StringBuilder(String.valueOf(i2)).toString());
-        super.sendMessage(httpMessage);
+        if (z2) {
+            this.bGx.setText(com.baidu.tieba.z.remove_block_chat);
+        } else {
+            this.bGx.setText(com.baidu.tieba.z.block_chat_message);
+        }
     }
 
-    @Override // com.baidu.adp.base.e
-    protected boolean LoadData() {
-        return false;
+    public View getView() {
+        return this.mView;
     }
 
-    @Override // com.baidu.adp.base.e
-    public boolean cancelLoadData() {
-        return false;
+    public View aav() {
+        return this.bGw;
+    }
+
+    public View aaw() {
+        return this.bGx;
     }
 }

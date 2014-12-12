@@ -1,14 +1,14 @@
 package com.baidu.tieba.account;
 
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 class h extends Thread {
-    final /* synthetic */ AccountActivity aew;
+    final /* synthetic */ AccountActivity alO;
     private String mBduss;
 
     public h(AccountActivity accountActivity, String str) {
-        this.aew = accountActivity;
+        this.alO = accountActivity;
         this.mBduss = null;
         this.mBduss = str;
     }
@@ -16,12 +16,12 @@ class h extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        com.baidu.tbadk.core.util.ac acVar = new com.baidu.tbadk.core.util.ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/logout");
-        acVar.mc().na().FU = false;
-        acVar.mc().na().mIsUseCurrentBDUSS = false;
-        acVar.k("BDUSS", this.mBduss);
-        acVar.k("channel_id", TbadkApplication.m251getInst().getPushChannelId());
-        acVar.k("channel_uid", TbadkApplication.m251getInst().getPushChannelUserId());
-        acVar.lA();
+        com.baidu.tbadk.core.util.ad adVar = new com.baidu.tbadk.core.util.ad(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/logout");
+        adVar.oW().pV().Ke = false;
+        adVar.oW().pV().mIsUseCurrentBDUSS = false;
+        adVar.o("BDUSS", this.mBduss);
+        adVar.o("channel_id", TbadkCoreApplication.m255getInst().getPushChannelId());
+        adVar.o("channel_uid", TbadkCoreApplication.m255getInst().getPushChannelUserId());
+        adVar.ov();
     }
 }

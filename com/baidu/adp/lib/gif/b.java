@@ -3,7 +3,7 @@ package com.baidu.adp.lib.gif;
 import android.graphics.Bitmap;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MotionEventCompat;
-import com.baidu.tbadk.BaseActivity;
+import android.support.v4.view.ViewCompat;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -11,59 +11,59 @@ import java.io.InputStream;
 /* loaded from: classes.dex */
 public class b extends Thread {
     private int bgColor;
-    private boolean hY;
-    private int hZ;
     public int height;
-    private Bitmap iA;
-    private int iI;
-    private short[] iJ;
-    private byte[] iK;
-    private byte[] iL;
-    private byte[] iM;
-    private c iN;
+    private int iA;
+    private int iB;
+    private int iC;
+    private int iD;
+    private int iE;
+    private int iF;
+    private Bitmap iG;
+    private Bitmap iH;
     private int iO;
-    private a iP;
-    private int[] ib;
-    private int[] ic;
-    private int[] ie;
-    private int ig;
-    private int ih;
+    private short[] iP;
+    private byte[] iQ;
+    private byte[] iR;
+    private byte[] iS;
+    private c iT;
+    private int iU;
+    private a iV;
+    private boolean ih;
     private int ii;
-    private boolean ij;
-    private boolean ik;
-    private int il;
-    private int im;
+    private int[] ik;
+    private int[] il;
+    private int[] im;
     private InputStream in;
+    private int io;
     private int iq;
     private int ir;
-    private int is;
-    private int iu;
-    private int iw;
+    private boolean iu;
+    private boolean iw;
     private int ix;
     private int iy;
-    private Bitmap iz;
+    private int iz;
     private int status;
     public int width;
-    private int ia = 1;
-    private c iB = null;
-    private boolean iC = false;
-    private final byte[] iD = new byte[256];
-    private int iE = 0;
-    private int iF = 0;
-    private int iG = 0;
-    private boolean iH = false;
+    private int ij = 1;
+    private c iI = null;
+    private boolean isShow = false;
+    private final byte[] iJ = new byte[256];
+    private int iK = 0;
+    private int iL = 0;
+    private int iM = 0;
+    private boolean iN = false;
     private int delay = 0;
-    private byte[] iQ = null;
-    private String iR = null;
-    private boolean iS = false;
+    private byte[] iW = null;
+    private String iX = null;
+    private boolean iY = false;
 
     public b(a aVar) {
-        this.iP = null;
-        this.iP = aVar;
+        this.iV = null;
+        this.iV = aVar;
     }
 
     public void setGifImage(byte[] bArr) {
-        this.iQ = bArr;
+        this.iW = bArr;
     }
 
     public void setGifImage(InputStream inputStream) {
@@ -72,7 +72,7 @@ public class b extends Thread {
 
     private void d(String str, boolean z) {
         try {
-            V(str);
+            aa(str);
             if (z) {
                 new File(str.toString()).delete();
             }
@@ -80,7 +80,7 @@ public class b extends Thread {
         }
     }
 
-    private boolean V(String str) {
+    private boolean aa(String str) {
         File file;
         boolean z = false;
         File file2 = new File(str);
@@ -103,7 +103,7 @@ public class b extends Thread {
                 file.delete();
                 z = z2;
             } else if (file.isDirectory()) {
-                V(String.valueOf(str) + File.separator + list[i]);
+                aa(String.valueOf(str) + File.separator + list[i]);
                 d(String.valueOf(str) + File.separator + list[i], true);
                 z = true;
             } else {
@@ -113,13 +113,13 @@ public class b extends Thread {
         }
     }
 
-    private synchronized String dc() {
+    private synchronized String dd() {
         return String.valueOf(System.currentTimeMillis());
     }
 
-    private void a(Bitmap bitmap, String str) {
+    private void b(Bitmap bitmap, String str) {
         try {
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, new FileOutputStream(String.valueOf(this.iR) + File.separator + dc() + ".png"));
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, new FileOutputStream(String.valueOf(this.iX) + File.separator + dd() + ".png"));
         } catch (Exception e) {
         }
     }
@@ -127,25 +127,25 @@ public class b extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         if (this.in != null) {
-            di();
-        } else if (this.iQ != null) {
             dh();
+        } else if (this.iW != null) {
+            dg();
         }
     }
 
-    public void dd() {
-        c cVar = this.iN;
-        if (!this.iS) {
+    public void free() {
+        c cVar = this.iT;
+        if (!this.iY) {
             while (cVar != null) {
-                if (cVar.iz != null && !cVar.iz.isRecycled()) {
-                    cVar.iz.recycle();
+                if (cVar.iG != null && !cVar.iG.isRecycled()) {
+                    cVar.iG.recycle();
                 }
-                cVar.iz = null;
-                this.iN = this.iN.iU;
-                cVar = this.iN;
+                cVar.iG = null;
+                this.iT = this.iT.ja;
+                cVar = this.iT;
             }
         } else {
-            d(this.iR, true);
+            d(this.iX, true);
         }
         if (this.in != null) {
             try {
@@ -154,38 +154,38 @@ public class b extends Thread {
             }
             this.in = null;
         }
-        this.iQ = null;
+        this.iW = null;
         this.status = 0;
-        this.iB = null;
+        this.iI = null;
     }
 
-    public int bj() {
-        return this.iO;
+    public int bK() {
+        return this.iU;
     }
 
-    public Bitmap de() {
-        return w(0);
+    public Bitmap getImage() {
+        return E(0);
     }
 
-    private void df() {
+    private void de() {
         int i;
         int[] iArr = new int[this.width * this.height];
-        if (this.iG > 0) {
-            if (this.iG == 3) {
-                int i2 = this.iO - 2;
+        if (this.iM > 0) {
+            if (this.iM == 3) {
+                int i2 = this.iU - 2;
                 if (i2 > 0) {
-                    this.iA = w(i2 - 1);
+                    this.iH = E(i2 - 1);
                 } else {
-                    this.iA = null;
+                    this.iH = null;
                 }
             }
-            if (this.iA != null) {
-                this.iA.getPixels(iArr, 0, this.width, 0, 0, this.width, this.height);
-                if (this.iG == 2) {
-                    int i3 = !this.iH ? this.ih : 0;
-                    for (int i4 = 0; i4 < this.iy; i4++) {
-                        int i5 = ((this.iw + i4) * this.width) + this.iu;
-                        int i6 = this.ix + i5;
+            if (this.iH != null) {
+                this.iH.getPixels(iArr, 0, this.width, 0, 0, this.width, this.height);
+                if (this.iM == 2) {
+                    int i3 = !this.iN ? this.iq : 0;
+                    for (int i4 = 0; i4 < this.iF; i4++) {
+                        int i5 = ((this.iD + i4) * this.width) + this.iC;
+                        int i6 = this.iE + i5;
                         while (i5 < i6) {
                             iArr[i5] = i3;
                             i5++;
@@ -197,9 +197,9 @@ public class b extends Thread {
         int i7 = 8;
         int i8 = 1;
         int i9 = 0;
-        for (int i10 = 0; i10 < this.is; i10++) {
-            if (this.ik) {
-                if (i9 >= this.is) {
+        for (int i10 = 0; i10 < this.iB; i10++) {
+            if (this.iw) {
+                if (i9 >= this.iB) {
                     i8++;
                     switch (i8) {
                         case 2:
@@ -221,19 +221,19 @@ public class b extends Thread {
             } else {
                 i = i10;
             }
-            int i12 = i + this.iq;
+            int i12 = i + this.iz;
             if (i12 < this.height) {
                 int i13 = this.width * i12;
-                int i14 = i13 + this.im;
-                int i15 = this.ir + i14;
+                int i14 = i13 + this.iy;
+                int i15 = this.iA + i14;
                 if (this.width + i13 < i15) {
                     i15 = this.width + i13;
                 }
-                int i16 = this.ir * i10;
+                int i16 = this.iA * i10;
                 int i17 = i14;
                 while (i17 < i15) {
                     int i18 = i16 + 1;
-                    int i19 = this.ie[this.iM[i16] & BaseActivity.KEYBOARD_STATE_INIT];
+                    int i19 = this.im[this.iS[i16] & 255];
                     if (i19 != 0) {
                         iArr[i17] = i19;
                     }
@@ -242,20 +242,20 @@ public class b extends Thread {
                 }
             }
         }
-        this.iz = Bitmap.createBitmap(iArr, this.width, this.height, Bitmap.Config.ARGB_4444);
+        this.iG = Bitmap.createBitmap(iArr, this.width, this.height, Bitmap.Config.ARGB_4444);
     }
 
-    public Bitmap w(int i) {
-        c x = x(i);
-        if (x == null) {
+    public Bitmap E(int i) {
+        c F = F(i);
+        if (F == null) {
             return null;
         }
-        return x.iz;
+        return F.iG;
     }
 
-    public c x(int i) {
+    public c F(int i) {
         int i2 = 0;
-        for (c cVar = this.iN; cVar != null; cVar = cVar.iU) {
+        for (c cVar = this.iT; cVar != null; cVar = cVar.ja) {
             if (i2 == i) {
                 return cVar;
             }
@@ -264,45 +264,45 @@ public class b extends Thread {
         return null;
     }
 
-    public c dg() {
-        if (!this.iC) {
-            this.iC = true;
-            return this.iN;
-        } else if (this.iB == null) {
+    public c df() {
+        if (!this.isShow) {
+            this.isShow = true;
+            return this.iT;
+        } else if (this.iI == null) {
             return null;
         } else {
             if (this.status == 0) {
-                if (this.iB.iU != null) {
-                    this.iB = this.iB.iU;
+                if (this.iI.ja != null) {
+                    this.iI = this.iI.ja;
                 }
             } else {
-                this.iB = this.iB.iU;
-                if (this.iB == null) {
-                    this.iB = this.iN;
+                this.iI = this.iI.ja;
+                if (this.iI == null) {
+                    this.iI = this.iT;
                 }
             }
-            return this.iB;
+            return this.iI;
         }
     }
 
-    private int dh() {
-        this.in = new ByteArrayInputStream(this.iQ);
-        this.iQ = null;
-        return di();
+    private int dg() {
+        this.in = new ByteArrayInputStream(this.iW);
+        this.iW = null;
+        return dh();
     }
 
-    private int di() {
+    private int dh() {
         init();
         if (this.in != null) {
-            dp();
-            if (!dk()) {
-                dm();
-                if (this.iO < 0) {
+            dn();
+            if (!dj()) {
+                dl();
+                if (this.iU < 0) {
                     this.status = 1;
-                    this.iP.a(false, -1);
+                    this.iV.a(false, -1);
                 } else {
                     this.status = -1;
-                    this.iP.a(true, -1);
+                    this.iV.a(true, -1);
                 }
             }
             try {
@@ -312,7 +312,7 @@ public class b extends Thread {
             }
         } else {
             this.status = 2;
-            this.iP.a(false, -1);
+            this.iV.a(false, -1);
         }
         return this.status;
     }
@@ -320,7 +320,7 @@ public class b extends Thread {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:79:0x00df */
     /* JADX DEBUG: Multi-variable search result rejected for r6v13, resolved type: short */
     /* JADX WARN: Multi-variable type inference failed */
-    private void dj() {
+    private void di() {
         int i;
         int i2;
         int i3;
@@ -331,18 +331,18 @@ public class b extends Thread {
         int i8;
         int i9;
         short s;
-        int i10 = this.ir * this.is;
-        if (this.iM == null || this.iM.length < i10) {
-            this.iM = new byte[i10];
+        int i10 = this.iA * this.iB;
+        if (this.iS == null || this.iS.length < i10) {
+            this.iS = new byte[i10];
         }
-        if (this.iJ == null) {
-            this.iJ = new short[4096];
+        if (this.iP == null) {
+            this.iP = new short[4096];
         }
-        if (this.iK == null) {
-            this.iK = new byte[4096];
+        if (this.iQ == null) {
+            this.iQ = new byte[4096];
         }
-        if (this.iL == null) {
-            this.iL = new byte[FragmentTransaction.TRANSIT_FRAGMENT_OPEN];
+        if (this.iR == null) {
+            this.iR = new byte[FragmentTransaction.TRANSIT_FRAGMENT_OPEN];
         }
         int read = read();
         int i11 = 1 << read;
@@ -351,8 +351,8 @@ public class b extends Thread {
         int i14 = read + 1;
         int i15 = (1 << i14) - 1;
         for (int i16 = 0; i16 < i11; i16++) {
-            this.iJ[i16] = 0;
-            this.iK[i16] = (byte) i16;
+            this.iP[i16] = 0;
+            this.iQ[i16] = (byte) i16;
         }
         int i17 = 0;
         int i18 = 0;
@@ -375,13 +375,13 @@ public class b extends Thread {
                 i8 = i13;
             } else if (i23 < i14) {
                 if (i22 == 0) {
-                    i22 = dl();
+                    i22 = dk();
                     if (i22 <= 0) {
                         break;
                     }
                     i25 = 0;
                 }
-                i20 += (this.iD[i25] & BaseActivity.KEYBOARD_STATE_INIT) << i23;
+                i20 += (this.iJ[i25] & 255) << i23;
                 i23 += 8;
                 i25++;
                 i22--;
@@ -397,32 +397,32 @@ public class b extends Thread {
                     i13 = i11 + 2;
                     i24 = -1;
                 } else if (i24 == -1) {
-                    this.iL[i18] = this.iK[i26];
+                    this.iR[i18] = this.iQ[i26];
                     i18++;
                     i24 = i26;
                     i19 = i26;
                 } else {
                     if (i26 == i13) {
                         i9 = i18 + 1;
-                        this.iL[i18] = (byte) i19;
+                        this.iR[i18] = (byte) i19;
                         s = i24;
                     } else {
                         i9 = i18;
                         s = i26;
                     }
                     while (s > i11) {
-                        this.iL[i9] = this.iK[s];
-                        s = this.iJ[s];
+                        this.iR[i9] = this.iQ[s];
+                        s = this.iP[s];
                         i9++;
                     }
-                    int i27 = this.iK[s] & BaseActivity.KEYBOARD_STATE_INIT;
+                    int i27 = this.iQ[s] & 255;
                     if (i13 >= 4096) {
                         break;
                     }
                     int i28 = i9 + 1;
-                    this.iL[i9] = (byte) i27;
-                    this.iJ[i13] = (short) i24;
-                    this.iK[i13] = (byte) i27;
+                    this.iR[i9] = (byte) i27;
+                    this.iP[i13] = (short) i24;
+                    this.iQ[i13] = (byte) i27;
                     i8 = i13 + 1;
                     if ((i8 & i15) == 0 && i8 < 4096) {
                         i14++;
@@ -438,7 +438,7 @@ public class b extends Thread {
                 }
             }
             int i29 = i5 - 1;
-            this.iM[i17] = this.iL[i29];
+            this.iS[i17] = this.iR[i29];
             i21++;
             i17++;
             i14 = i4;
@@ -452,20 +452,20 @@ public class b extends Thread {
             i24 = i30;
         }
         for (int i31 = i17; i31 < i10; i31++) {
-            this.iM[i31] = 0;
+            this.iS[i31] = 0;
         }
     }
 
-    private boolean dk() {
+    private boolean dj() {
         return this.status != 0;
     }
 
     private void init() {
         this.status = 0;
-        this.iO = 0;
-        this.iN = null;
-        this.ib = null;
-        this.ic = null;
+        this.iU = 0;
+        this.iT = null;
+        this.ik = null;
+        this.il = null;
     }
 
     private int read() {
@@ -477,13 +477,13 @@ public class b extends Thread {
         }
     }
 
-    private int dl() {
-        this.iE = read();
+    private int dk() {
+        this.iK = read();
         int i = 0;
-        if (this.iE > 0) {
-            while (i < this.iE) {
+        if (this.iK > 0) {
+            while (i < this.iK) {
                 try {
-                    int read = this.in.read(this.iD, i, this.iE - i);
+                    int read = this.in.read(this.iJ, i, this.iK - i);
                     if (read == -1) {
                         break;
                     }
@@ -492,14 +492,14 @@ public class b extends Thread {
                     e.printStackTrace();
                 }
             }
-            if (i < this.iE) {
+            if (i < this.iK) {
                 this.status = 1;
             }
         }
         return i;
     }
 
-    private int[] y(int i) {
+    private int[] G(int i) {
         int i2;
         int i3 = i * 3;
         int[] iArr = null;
@@ -519,42 +519,42 @@ public class b extends Thread {
                 int i6 = i4 + 1;
                 int i7 = i6 + 1;
                 i4 = i7 + 1;
-                iArr[i5] = ((bArr[i4] & BaseActivity.KEYBOARD_STATE_INIT) << 16) | (-16777216) | ((bArr[i6] & BaseActivity.KEYBOARD_STATE_INIT) << 8) | (bArr[i7] & BaseActivity.KEYBOARD_STATE_INIT);
+                iArr[i5] = ((bArr[i4] & 255) << 16) | ViewCompat.MEASURED_STATE_MASK | ((bArr[i6] & 255) << 8) | (bArr[i7] & 255);
             }
         }
         return iArr;
     }
 
-    private void dm() {
+    private void dl() {
         boolean z = false;
-        while (!z && !dk()) {
+        while (!z && !dj()) {
             switch (read()) {
                 case 0:
                     break;
                 case 33:
                     switch (read()) {
                         case 249:
-                            dn();
+                            dm();
                             continue;
                         case MotionEventCompat.ACTION_MASK /* 255 */:
-                            dl();
+                            dk();
                             String str = "";
                             for (int i = 0; i < 11; i++) {
-                                str = String.valueOf(str) + ((char) this.iD[i]);
+                                str = String.valueOf(str) + ((char) this.iJ[i]);
                             }
                             if (str.equals("NETSCAPE2.0")) {
-                                ds();
+                                dr();
                                 break;
                             } else {
-                                dv();
+                                du();
                                 continue;
                             }
                         default:
-                            dv();
+                            du();
                             continue;
                     }
                 case 44:
-                    dq();
+                    dp();
                     break;
                 case 59:
                     z = true;
@@ -566,20 +566,20 @@ public class b extends Thread {
         }
     }
 
-    private void dn() {
+    private void dm() {
         read();
         int read = read();
-        this.iF = (read & 28) >> 2;
-        if (this.iF == 0) {
-            this.iF = 1;
+        this.iL = (read & 28) >> 2;
+        if (this.iL == 0) {
+            this.iL = 1;
         }
-        this.iH = (read & 1) != 0;
-        this.delay = dt() * 10;
-        this.iI = read();
+        this.iN = (read & 1) != 0;
+        this.delay = ds() * 10;
+        this.iO = read();
         read();
     }
 
-    private void dp() {
+    private void dn() {
         String str = "";
         for (int i = 0; i < 6; i++) {
             str = String.valueOf(str) + ((char) read());
@@ -588,124 +588,124 @@ public class b extends Thread {
             this.status = 1;
             return;
         }
-        dr();
-        if (this.hY && !dk()) {
-            this.ib = y(this.hZ);
-            this.bgColor = this.ib[this.ig];
+        dq();
+        if (this.ih && !dj()) {
+            this.ik = G(this.ii);
+            this.bgColor = this.ik[this.io];
+        }
+    }
+
+    private void dp() {
+        int i = 0;
+        this.iy = ds();
+        this.iz = ds();
+        this.iA = ds();
+        this.iB = ds();
+        int read = read();
+        this.iu = (read & 128) != 0;
+        this.iw = (read & 64) != 0;
+        this.ix = 2 << (read & 7);
+        if (this.iu) {
+            this.il = G(this.ix);
+            this.im = this.il;
+        } else {
+            this.im = this.ik;
+            if (this.io == this.iO) {
+                this.bgColor = 0;
+            }
+        }
+        if (this.iN) {
+            int i2 = this.im[this.iO];
+            this.im[this.iO] = 0;
+            i = i2;
+        }
+        if (this.im == null) {
+            this.status = 1;
+        }
+        if (!dj()) {
+            di();
+            du();
+            if (!dj()) {
+                this.iU++;
+                this.iG = Bitmap.createBitmap(this.width, this.height, Bitmap.Config.ARGB_4444);
+                de();
+                if (this.iT == null) {
+                    if (this.iY) {
+                        String dd = dd();
+                        this.iT = new c(String.valueOf(this.iX) + File.separator + dd + ".png", this.delay);
+                        b(this.iG, dd);
+                    } else {
+                        this.iT = new c(this.iG, this.delay);
+                    }
+                    this.iI = this.iT;
+                } else {
+                    c cVar = this.iT;
+                    while (cVar.ja != null) {
+                        cVar = cVar.ja;
+                    }
+                    if (this.iY) {
+                        String dd2 = dd();
+                        cVar.ja = new c(String.valueOf(this.iX) + File.separator + dd2 + ".png", this.delay);
+                        b(this.iG, dd2);
+                    } else {
+                        cVar.ja = new c(this.iG, this.delay);
+                    }
+                }
+                if (this.iN) {
+                    this.im[this.iO] = i;
+                }
+                dt();
+                this.iV.a(true, this.iU);
+            }
         }
     }
 
     private void dq() {
-        int i = 0;
-        this.im = dt();
-        this.iq = dt();
-        this.ir = dt();
-        this.is = dt();
+        this.width = ds();
+        this.height = ds();
         int read = read();
-        this.ij = (read & 128) != 0;
-        this.ik = (read & 64) != 0;
-        this.il = 2 << (read & 7);
-        if (this.ij) {
-            this.ic = y(this.il);
-            this.ie = this.ic;
-        } else {
-            this.ie = this.ib;
-            if (this.ig == this.iI) {
-                this.bgColor = 0;
-            }
-        }
-        if (this.iH) {
-            int i2 = this.ie[this.iI];
-            this.ie[this.iI] = 0;
-            i = i2;
-        }
-        if (this.ie == null) {
-            this.status = 1;
-        }
-        if (!dk()) {
-            dj();
-            dv();
-            if (!dk()) {
-                this.iO++;
-                this.iz = Bitmap.createBitmap(this.width, this.height, Bitmap.Config.ARGB_4444);
-                df();
-                if (this.iN == null) {
-                    if (this.iS) {
-                        String dc = dc();
-                        this.iN = new c(String.valueOf(this.iR) + File.separator + dc + ".png", this.delay);
-                        a(this.iz, dc);
-                    } else {
-                        this.iN = new c(this.iz, this.delay);
-                    }
-                    this.iB = this.iN;
-                } else {
-                    c cVar = this.iN;
-                    while (cVar.iU != null) {
-                        cVar = cVar.iU;
-                    }
-                    if (this.iS) {
-                        String dc2 = dc();
-                        cVar.iU = new c(String.valueOf(this.iR) + File.separator + dc2 + ".png", this.delay);
-                        a(this.iz, dc2);
-                    } else {
-                        cVar.iU = new c(this.iz, this.delay);
-                    }
-                }
-                if (this.iH) {
-                    this.ie[this.iI] = i;
-                }
-                du();
-                this.iP.a(true, this.iO);
-            }
-        }
+        this.ih = (read & 128) != 0;
+        this.ii = 2 << (read & 7);
+        this.io = read();
+        this.ir = read();
     }
 
     private void dr() {
-        this.width = dt();
-        this.height = dt();
-        int read = read();
-        this.hY = (read & 128) != 0;
-        this.hZ = 2 << (read & 7);
-        this.ig = read();
-        this.ii = read();
-    }
-
-    private void ds() {
         do {
-            dl();
-            if (this.iD[0] == 1) {
-                this.ia = (this.iD[1] & BaseActivity.KEYBOARD_STATE_INIT) | ((this.iD[2] & BaseActivity.KEYBOARD_STATE_INIT) << 8);
+            dk();
+            if (this.iJ[0] == 1) {
+                this.ij = (this.iJ[1] & 255) | ((this.iJ[2] & 255) << 8);
             }
-            if (this.iE <= 0) {
+            if (this.iK <= 0) {
                 return;
             }
-        } while (!dk());
+        } while (!dj());
     }
 
-    private int dt() {
+    private int ds() {
         return read() | (read() << 8);
     }
 
-    private void du() {
-        this.iG = this.iF;
-        this.iu = this.im;
-        this.iw = this.iq;
-        this.ix = this.ir;
-        this.iy = this.is;
-        this.iA = this.iz;
-        this.ih = this.bgColor;
-        this.iF = 0;
-        this.iH = false;
+    private void dt() {
+        this.iM = this.iL;
+        this.iC = this.iy;
+        this.iD = this.iz;
+        this.iE = this.iA;
+        this.iF = this.iB;
+        this.iH = this.iG;
+        this.iq = this.bgColor;
+        this.iL = 0;
+        this.iN = false;
         this.delay = 0;
-        this.ic = null;
+        this.il = null;
     }
 
-    private void dv() {
+    private void du() {
         do {
-            dl();
-            if (this.iE <= 0) {
+            dk();
+            if (this.iK <= 0) {
                 return;
             }
-        } while (!dk());
+        } while (!dj());
     }
 }

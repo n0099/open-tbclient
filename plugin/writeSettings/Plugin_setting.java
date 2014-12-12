@@ -1,10 +1,10 @@
 package plugin.writeSettings;
 
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 /* loaded from: classes.dex */
 public final class Plugin_setting extends Message {
+    public static final String DEFAULT_ABANDON_APK_PATH = "";
     public static final String DEFAULT_APK_PATH = "";
     public static final String DEFAULT_CMD_RANGE = "";
     public static final String DEFAULT_DISPLAY_NAME = "";
@@ -14,9 +14,11 @@ public final class Plugin_setting extends Message {
     public static final String DEFAULT_TEMP_MD5 = "";
     public static final String DEFAULT_URL = "";
     public static final String DEFAULT_VERSION = "";
+    @ProtoField(tag = 17, type = Message.Datatype.STRING)
+    public final String abandon_apk_path;
     @ProtoField(tag = 3, type = Message.Datatype.STRING)
     public final String apk_path;
-    @ProtoField(tag = DealIntentService.CLASS_TYPE_GROUP_EVENT, type = Message.Datatype.STRING)
+    @ProtoField(tag = 14, type = Message.Datatype.STRING)
     public final String cmd_range;
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
     public final String display_name;
@@ -26,6 +28,8 @@ public final class Plugin_setting extends Message {
     public final Integer forbidden;
     @ProtoField(tag = 9, type = Message.Datatype.UINT32)
     public final Integer install_status;
+    @ProtoField(tag = 16, type = Message.Datatype.UINT32)
+    public final Integer is_inject_classloader;
     @ProtoField(tag = 7, type = Message.Datatype.STRING)
     public final String md5;
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
@@ -50,6 +54,7 @@ public final class Plugin_setting extends Message {
     public static final Integer DEFAULT_INSTALL_STATUS = 0;
     public static final Integer DEFAULT_TEMP_VERSION_CODE = 0;
     public static final Integer DEFAULT_VERSION_CODE = 0;
+    public static final Integer DEFAULT_IS_INJECT_CLASSLOADER = 0;
 
     /* synthetic */ Plugin_setting(Builder builder, boolean z, Plugin_setting plugin_setting) {
         this(builder, z);
@@ -130,9 +135,19 @@ public final class Plugin_setting extends Message {
             }
             if (builder.version_code == null) {
                 this.version_code = DEFAULT_VERSION_CODE;
-                return;
             } else {
                 this.version_code = builder.version_code;
+            }
+            if (builder.is_inject_classloader == null) {
+                this.is_inject_classloader = DEFAULT_IS_INJECT_CLASSLOADER;
+            } else {
+                this.is_inject_classloader = builder.is_inject_classloader;
+            }
+            if (builder.abandon_apk_path == null) {
+                this.abandon_apk_path = "";
+                return;
+            } else {
+                this.abandon_apk_path = builder.abandon_apk_path;
                 return;
             }
         }
@@ -151,16 +166,20 @@ public final class Plugin_setting extends Message {
         this.requireLoad = builder.requireLoad;
         this.cmd_range = builder.cmd_range;
         this.version_code = builder.version_code;
+        this.is_inject_classloader = builder.is_inject_classloader;
+        this.abandon_apk_path = builder.abandon_apk_path;
     }
 
     /* loaded from: classes.dex */
     public final class Builder extends Message.Builder<Plugin_setting> {
+        public String abandon_apk_path;
         public String apk_path;
         public String cmd_range;
         public String display_name;
         public Integer enable;
         public Integer forbidden;
         public Integer install_status;
+        public Integer is_inject_classloader;
         public String md5;
         public String package_name;
         public String requireLoad;
@@ -189,6 +208,8 @@ public final class Plugin_setting extends Message {
                 this.requireLoad = plugin_setting.requireLoad;
                 this.cmd_range = plugin_setting.cmd_range;
                 this.version_code = plugin_setting.version_code;
+                this.is_inject_classloader = plugin_setting.is_inject_classloader;
+                this.abandon_apk_path = plugin_setting.abandon_apk_path;
             }
         }
 

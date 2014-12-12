@@ -15,7 +15,7 @@ public class ResponseLocationJsonHttpMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && jSONObject.has("location")) {
-            switch (c.f(jSONObject.getString("location"), 1)) {
+            switch (c.toInt(jSONObject.getString("location"), 1)) {
                 case 1:
                     this.isLocationShared = true;
                     return;

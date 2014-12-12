@@ -1,16 +1,22 @@
 package com.baidu.tbadk.aladin;
 
-import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
-import com.baidu.adp.lib.g.i;
+import com.baidu.adp.base.BdBaseService;
+import com.baidu.adp.lib.g.j;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AladinServerConfig;
 /* loaded from: classes.dex */
-public class AladinServer extends Service {
+public class AladinServer extends BdBaseService {
     private a mTcpListener = null;
 
+    static {
+        TbadkCoreApplication.m255getInst().RegisterIntent(AladinServerConfig.class, AladinServer.class);
+    }
+
     public static void start(Context context) {
-        i.b(context, new Intent(context, AladinServer.class));
+        j.f(context, new Intent(context, AladinServer.class));
     }
 
     @Override // android.app.Service
@@ -20,7 +26,7 @@ public class AladinServer extends Service {
     }
 
     public void reStartListener() {
-        if (this.mTcpListener == null || !this.mTcpListener.iI()) {
+        if (this.mTcpListener == null || !this.mTcpListener.kU()) {
             if (this.mTcpListener != null) {
                 this.mTcpListener.quit();
             }

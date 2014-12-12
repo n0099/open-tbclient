@@ -5,16 +5,17 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.coreExtra.view.LivePlayingStatusMgr;
 /* loaded from: classes.dex */
-public class LivePlayingImageView extends ImageView {
-    private static /* synthetic */ int[] OH;
-    private ah OG;
+public class LivePlayingImageView extends ImageView implements q {
+    private static /* synthetic */ int[] Us;
+    private r Ur;
     private String mStatisticsKey;
 
-    static /* synthetic */ int[] qf() {
-        int[] iArr = OH;
+    static /* synthetic */ int[] tx() {
+        int[] iArr = Us;
         if (iArr == null) {
             iArr = new int[LivePlayingStatusMgr.LivePlayingStatus.valuesCustom().length];
             try {
@@ -37,7 +38,7 @@ public class LivePlayingImageView extends ImageView {
                 iArr[LivePlayingStatusMgr.LivePlayingStatus.PLAYING.ordinal()] = 3;
             } catch (NoSuchFieldError e5) {
             }
-            OH = iArr;
+            Us = iArr;
         }
         return iArr;
     }
@@ -46,16 +47,18 @@ public class LivePlayingImageView extends ImageView {
         return this.mStatisticsKey;
     }
 
+    @Override // com.baidu.tbadk.coreExtra.view.q
     public void setStatisticsKey(String str) {
         this.mStatisticsKey = str;
     }
 
-    public ah getVisibleChangeCallback() {
-        return this.OG;
+    public r getVisibleChangeCallback() {
+        return this.Ur;
     }
 
-    public void setVisibleChangeCallback(ah ahVar) {
-        this.OG = ahVar;
+    @Override // com.baidu.tbadk.coreExtra.view.q
+    public void setVisibleChangeCallback(r rVar) {
+        this.Ur = rVar;
     }
 
     public LivePlayingImageView(Context context) {
@@ -74,8 +77,13 @@ public class LivePlayingImageView extends ImageView {
     }
 
     private void init() {
-        setOnClickListener(new ag(this));
-        a(LivePlayingStatusMgr.qg().qh());
+        setOnClickListener(new ai(this));
+        a(LivePlayingStatusMgr.ty().tz());
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.view.q
+    public void tr() {
+        a(LivePlayingStatusMgr.ty().tz());
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -89,30 +97,30 @@ public class LivePlayingImageView extends ImageView {
                 ((AnimationDrawable) drawable).stop();
             }
         }
-        if (this.OG != null) {
-            this.OG.ct(i);
+        if (this.Ur != null) {
+            this.Ur.onVisibleChange(i);
         }
     }
 
     public void a(LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus) {
-        switch (qf()[livePlayingStatus.ordinal()]) {
+        switch (tx()[livePlayingStatus.ordinal()]) {
             case 1:
                 setVisibility(8);
                 return;
             case 2:
-                setImageDrawable(TbadkApplication.m251getInst().getResources().getDrawable(com.baidu.tieba.u.icon_live_play_default));
+                setImageDrawable(TbadkApplication.getInst().getResources().getDrawable(com.baidu.tieba.v.icon_live_play_default));
                 setVisibility(0);
                 return;
             case 3:
-                setImageDrawable(TbadkApplication.m251getInst().getResources().getDrawable(com.baidu.tieba.u.live_play));
+                setImageDrawable(TbadkApplication.getInst().getResources().getDrawable(com.baidu.tieba.v.live_play));
                 setVisibility(0);
                 return;
             case 4:
-                setImageDrawable(TbadkApplication.m251getInst().getResources().getDrawable(com.baidu.tieba.u.icon_live_play_default));
+                setImageDrawable(TbadkApplication.getInst().getResources().getDrawable(com.baidu.tieba.v.icon_live_play_default));
                 setVisibility(0);
                 return;
             case 5:
-                setImageDrawable(TbadkApplication.m251getInst().getResources().getDrawable(com.baidu.tieba.u.icon_live_play_default));
+                setImageDrawable(TbadkApplication.getInst().getResources().getDrawable(com.baidu.tieba.v.icon_live_play_default));
                 setVisibility(0);
                 return;
             default:
@@ -123,12 +131,26 @@ public class LivePlayingImageView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        LivePlayingStatusMgr.qg().a(this);
+        LivePlayingStatusMgr.ty().a(this);
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        LivePlayingStatusMgr.qg().b(this);
+        LivePlayingStatusMgr.ty().b(this);
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.view.q
+    public ImageView getView() {
+        return this;
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.view.q
+    public void onChangeSkinType(com.baidu.adp.base.j<?> jVar, int i) {
+        if (jVar instanceof TbPageContext) {
+            ((TbPageContext) jVar).getLayoutMode().ab(i == 1);
+            ((TbPageContext) jVar).getLayoutMode().h(this);
+        }
+        com.baidu.tbadk.core.util.ax.c(this, com.baidu.tieba.v.title_icon_bg, i);
     }
 }

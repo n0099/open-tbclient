@@ -1,54 +1,57 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.t;
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class f extends a {
-    private final boolean GD = false;
-    private final boolean GE = false;
-    private final boolean GF = false;
-    private int height;
-    private int width;
+    private boolean KM;
+    private boolean KN;
+    private boolean KO;
+    private int KR;
+    private int KS;
 
-    public f(boolean z) {
-        this.width = 0;
-        this.height = 0;
-        if (z) {
-            this.width = TbadkApplication.m251getInst().getApp().getResources().getDimensionPixelSize(t.frs_starheader_photo_width);
-            this.height = this.width;
-            return;
+    public f(boolean z, boolean z2, boolean z3) {
+        this.KM = true;
+        this.KN = false;
+        this.KO = false;
+        this.KR = 0;
+        this.KS = 0;
+        this.KM = z;
+        this.KN = z2;
+        this.KO = z3;
+        int M = com.baidu.adp.lib.util.l.M(TbadkCoreApplication.m255getInst().getApp());
+        this.KR = M <= 0 ? Constants.MEDIA_INFO : M;
+        if (this.KR > 480) {
+            this.KR = 480;
         }
-        this.width = TbadkApplication.m251getInst().getApp().getResources().getDimensionPixelSize(t.frs_header_photo_width);
-        this.height = TbadkApplication.m251getInst().getApp().getResources().getDimensionPixelSize(t.frs_header_photo_height);
-    }
-
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a, com.baidu.adp.lib.f.g
-    public boolean eh() {
-        return true;
+        if (this.KR > com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.m255getInst().getApp(), 320.0f)) {
+            this.KR = com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.m255getInst().getApp(), 320.0f);
+        }
+        this.KS = (int) (this.KR * 0.4f);
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public int getWidth() {
-        return this.width;
+        return com.baidu.adp.lib.util.i.fh() ? this.KR : this.KS;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public int getHeight() {
-        return this.height;
+        return getWidth();
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public boolean isFromCDN() {
-        return false;
+        return this.KM;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean nk() {
-        return false;
+    public boolean qf() {
+        return this.KO;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean nl() {
-        return false;
+    public boolean qg() {
+        return this.KN;
     }
 }

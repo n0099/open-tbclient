@@ -1,11 +1,11 @@
 package com.baidu.tieba.im.chat.receiveChatMsgHandler;
 
 import android.text.TextUtils;
-import com.baidu.tieba.im.chat.GroupChatActivity;
+import com.baidu.tbadk.util.ChatStatusManager;
 /* loaded from: classes.dex */
 class f implements d {
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.d
-    public boolean fH(String str) {
-        return !TextUtils.isEmpty(str) && GroupChatActivity.aOq && str.equals(GroupChatActivity.ZK);
+    public boolean fW(String str) {
+        return !TextUtils.isEmpty(str) && ChatStatusManager.getInst().getIsOpen(2) && str.equals(ChatStatusManager.getInst().getCurId(2));
     }
 }

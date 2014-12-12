@@ -7,114 +7,114 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.ba;
 import java.util.List;
 /* loaded from: classes.dex */
 public class x {
-    private View HT;
-    private PersonInfoActivity bES;
-    private ImageView bGA;
-    private RelativeLayout bGv;
-    private TextView bGw;
-    private TextView bGx;
-    private LinearLayout bGy;
-    private TextView bGz;
+    private ImageView aYt;
+    private PersonInfoActivity bIn;
+    private RelativeLayout bJQ;
+    private TextView bJR;
+    private TextView bJS;
+    private LinearLayout bJT;
+    private TextView bJU;
     private boolean mIsHost;
+    private View mRootView;
 
     public x(PersonInfoActivity personInfoActivity, boolean z) {
-        this.bES = personInfoActivity;
+        this.bIn = personInfoActivity;
         this.mIsHost = z;
-        this.HT = com.baidu.adp.lib.g.b.ek().inflate(this.bES, com.baidu.tieba.w.personinfo_post_view, null);
-        nu();
+        this.mRootView = com.baidu.adp.lib.g.b.ek().inflate(this.bIn.getPageContext().getPageActivity(), com.baidu.tieba.x.personinfo_post_view, null);
+        initView();
     }
 
-    private void nu() {
-        this.bGv = (RelativeLayout) this.HT.findViewById(com.baidu.tieba.v.post_ll);
-        this.bGv.setOnClickListener(this.bES);
-        this.bGw = (TextView) this.HT.findViewById(com.baidu.tieba.v.post_num);
-        this.bGx = (TextView) this.HT.findViewById(com.baidu.tieba.v.post_num_text);
-        this.bGy = (LinearLayout) this.HT.findViewById(com.baidu.tieba.v.post_info_ll);
-        this.bGz = (TextView) this.HT.findViewById(com.baidu.tieba.v.no_post_tip);
-        this.bGA = (ImageView) this.HT.findViewById(com.baidu.tieba.v.arrow);
-        pU();
+    private void initView() {
+        this.bJQ = (RelativeLayout) this.mRootView.findViewById(com.baidu.tieba.w.post_ll);
+        this.bJQ.setOnClickListener(this.bIn);
+        this.bJR = (TextView) this.mRootView.findViewById(com.baidu.tieba.w.post_num);
+        this.bJS = (TextView) this.mRootView.findViewById(com.baidu.tieba.w.post_num_text);
+        this.bJT = (LinearLayout) this.mRootView.findViewById(com.baidu.tieba.w.post_info_ll);
+        this.bJU = (TextView) this.mRootView.findViewById(com.baidu.tieba.w.no_post_tip);
+        this.aYt = (ImageView) this.mRootView.findViewById(com.baidu.tieba.w.arrow);
+        kE();
         if (this.mIsHost) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bGv.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bJQ.getLayoutParams();
             layoutParams.bottomMargin = 0;
-            this.bGv.setLayoutParams(layoutParams);
+            this.bJQ.setLayoutParams(layoutParams);
         }
     }
 
-    public void pU() {
-        aw.h(this.bGv, com.baidu.tieba.u.personinfo_select_bg);
-        aw.b(this.bGw, com.baidu.tieba.s.cp_cont_f, 1);
-        aw.b(this.bGx, com.baidu.tieba.s.cp_cont_d, 1);
-        aw.b(this.bGz, com.baidu.tieba.s.cp_cont_e, 1);
-        aw.h(this.bGA, com.baidu.tieba.u.icon_dredge_arrow_r_n);
+    public void kE() {
+        ax.i(this.bJQ, com.baidu.tieba.v.personinfo_select_bg);
+        ax.b(this.bJR, com.baidu.tieba.t.cp_cont_f, 1);
+        ax.b(this.bJS, com.baidu.tieba.t.cp_cont_d, 1);
+        ax.b(this.bJU, com.baidu.tieba.t.cp_cont_e, 1);
+        ax.i(this.aYt, com.baidu.tieba.v.icon_dredge_arrow_r_n);
     }
 
-    public void aaJ() {
-        v aar = this.bES.aar();
-        UserData userData = aar.getUserData();
+    public void abe() {
+        v aaL = this.bIn.aaL();
+        UserData userData = aaL.getUserData();
         if (userData != null) {
-            com.baidu.tbadk.data.c personPrivate = userData.getPersonPrivate();
-            PersonTainInfo aaV = aar.aaV();
-            int qW = personPrivate != null ? personPrivate.qW() : 1;
-            int isFriend = aaV != null ? aaV.getIsFriend() : 1;
+            com.baidu.tbadk.data.h personPrivate = userData.getPersonPrivate();
+            PersonTainInfo abr = aaL.abr();
+            int uy = personPrivate != null ? personPrivate.uy() : 1;
+            int isFriend = abr != null ? abr.getIsFriend() : 1;
             if (this.mIsHost) {
-                a(userData, aar);
-            } else if (qW == 1 || (qW == 2 && isFriend == 1)) {
-                a(userData, aar);
+                a(userData, aaL);
+            } else if (uy == 1 || (uy == 2 && isFriend == 1)) {
+                a(userData, aaL);
             } else {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bGx.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bJS.getLayoutParams();
                 layoutParams.topMargin = 0;
-                this.bGx.setLayoutParams(layoutParams);
-                this.bGw.setText("");
-                this.bGw.setTextSize(0.0f);
-                aw.h((View) this.bGw, com.baidu.tieba.u.icon_mycenter_lock);
-                this.bGz.setVisibility(0);
-                this.bGz.setText(com.baidu.tieba.y.set_private);
-                this.bGy.setVisibility(8);
-                this.bGA.setVisibility(8);
+                this.bJS.setLayoutParams(layoutParams);
+                this.bJR.setText("");
+                this.bJR.setTextSize(0.0f);
+                ax.i((View) this.bJR, com.baidu.tieba.v.icon_mycenter_lock);
+                this.bJU.setVisibility(0);
+                this.bJU.setText(com.baidu.tieba.z.set_private);
+                this.bJT.setVisibility(8);
+                this.aYt.setVisibility(8);
             }
         }
     }
 
     private void a(UserData userData, v vVar) {
-        String bB = az.bB(userData.getPosts_num());
-        this.bGw.setTextSize(0, this.bES.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds72));
-        if (bB.contains("w") && bB.length() > 3) {
-            this.bGw.setTextSize(0, this.bES.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds48));
+        String bY = ba.bY(userData.getPosts_num());
+        this.bJR.setTextSize(0, this.bIn.getResources().getDimensionPixelSize(com.baidu.tieba.u.ds72));
+        if (bY.contains("w") && bY.length() > 3) {
+            this.bJR.setTextSize(0, this.bIn.getResources().getDimensionPixelSize(com.baidu.tieba.u.ds48));
         }
-        this.bGw.setBackgroundDrawable(null);
-        this.bGw.setText(bB);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bGx.getLayoutParams();
-        layoutParams.topMargin = -this.bES.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds10);
-        this.bGx.setLayoutParams(layoutParams);
-        List<PersonInfoPostList> aaU = vVar.aaU();
-        if (aaU == null || aaU.size() <= 0) {
-            this.bGy.setVisibility(8);
-            this.bGA.setVisibility(8);
-            this.bGz.setVisibility(0);
-            this.bGz.setText(com.baidu.tieba.y.no_post_tip);
+        this.bJR.setBackgroundDrawable(null);
+        this.bJR.setText(bY);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bJS.getLayoutParams();
+        layoutParams.topMargin = -this.bIn.getResources().getDimensionPixelSize(com.baidu.tieba.u.ds10);
+        this.bJS.setLayoutParams(layoutParams);
+        List<PersonInfoPostList> abq = vVar.abq();
+        if (abq == null || abq.size() <= 0) {
+            this.bJT.setVisibility(8);
+            this.aYt.setVisibility(8);
+            this.bJU.setVisibility(0);
+            this.bJU.setText(com.baidu.tieba.z.no_post_tip);
             return;
         }
-        this.bGy.setVisibility(0);
-        this.bGA.setVisibility(0);
-        this.bGz.setVisibility(8);
+        this.bJT.setVisibility(0);
+        this.aYt.setVisibility(0);
+        this.bJU.setVisibility(8);
         com.baidu.adp.lib.g.b ek = com.baidu.adp.lib.g.b.ek();
-        this.bGy.removeAllViews();
-        int size = aaU.size();
+        this.bJT.removeAllViews();
+        int size = abq.size();
         int i = size > 3 ? 3 : size;
         for (int i2 = 0; i2 < i; i2++) {
-            PersonInfoPostList personInfoPostList = aaU.get(i2);
-            View inflate = ek.inflate(this.bES, com.baidu.tieba.w.personinfo_post_item, null);
-            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.v.post_title);
-            TextView textView2 = (TextView) inflate.findViewById(com.baidu.tieba.v.post_content);
-            View findViewById = inflate.findViewById(com.baidu.tieba.v.line);
-            aw.b(textView, com.baidu.tieba.s.cp_cont_b, 1);
-            aw.b(textView2, com.baidu.tieba.s.cp_cont_f, 1);
-            aw.i(findViewById, com.baidu.tieba.s.cp_bg_line_b);
+            PersonInfoPostList personInfoPostList = abq.get(i2);
+            View inflate = ek.inflate(this.bIn.getPageContext().getPageActivity(), com.baidu.tieba.x.personinfo_post_item, null);
+            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.w.post_title);
+            TextView textView2 = (TextView) inflate.findViewById(com.baidu.tieba.w.post_content);
+            View findViewById = inflate.findViewById(com.baidu.tieba.w.line);
+            ax.b(textView, com.baidu.tieba.t.cp_cont_b, 1);
+            ax.b(textView2, com.baidu.tieba.t.cp_cont_f, 1);
+            ax.j(findViewById, com.baidu.tieba.t.cp_bg_line_b);
             textView.setText(personInfoPostList.getTitle());
             List<PersonInfoAbstract> abstractThread = personInfoPostList.getAbstractThread();
             if (abstractThread != null && abstractThread.size() > 0 && !StringUtils.isNull(abstractThread.get(0).getText())) {
@@ -126,17 +126,17 @@ public class x {
             if (i2 == 0) {
                 layoutParams2.topMargin = 0;
             } else {
-                layoutParams2.topMargin = this.bES.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds26);
+                layoutParams2.topMargin = this.bIn.getResources().getDimensionPixelSize(com.baidu.tieba.u.ds26);
             }
-            this.bGy.addView(inflate, layoutParams2);
+            this.bJT.addView(inflate, layoutParams2);
         }
     }
 
-    public RelativeLayout aaH() {
-        return this.bGv;
+    public RelativeLayout abc() {
+        return this.bJQ;
     }
 
     public View getRootView() {
-        return this.HT;
+        return this.mRootView;
     }
 }

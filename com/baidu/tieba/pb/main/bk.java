@@ -1,19 +1,40 @@
 package com.baidu.tieba.pb.main;
 
-import java.util.Comparator;
+import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bk implements Comparator<Integer> {
-    final /* synthetic */ bh bvU;
+public class bk implements View.OnClickListener {
+    private final /* synthetic */ String aFm;
+    private final /* synthetic */ String aFo;
+    final /* synthetic */ bi bzJ;
+    private final /* synthetic */ String bzK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bk(bh bhVar) {
-        this.bvU = bhVar;
+    public bk(bi biVar, String str, String str2, String str3) {
+        this.bzJ = biVar;
+        this.aFm = str;
+        this.bzK = str2;
+        this.aFo = str3;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(Integer num, Integer num2) {
-        return (num != null ? num.intValue() : 0) - (num != null ? num2.intValue() : 0);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TbPageContext tbPageContext;
+        TbPageContext tbPageContext2;
+        TbPageContext tbPageContext3;
+        if (TbadkCoreApplication.m255getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.aFm) && !StringUtils.isNull(this.bzK)) {
+            if (!com.baidu.adp.lib.util.i.fg()) {
+                tbPageContext3 = this.bzJ.mContext;
+                tbPageContext3.showToast(com.baidu.tieba.z.neterror);
+                return;
+            }
+            tbPageContext = this.bzJ.mContext;
+            String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.aFm) + "," + this.bzK, this.aFo, this.aFo, tbPageContext.getString(com.baidu.tieba.z.app_info_for_map));
+            tbPageContext2 = this.bzJ.mContext;
+            com.baidu.tbadk.browser.a.y(tbPageContext2.getPageActivity(), format);
+        }
     }
 }

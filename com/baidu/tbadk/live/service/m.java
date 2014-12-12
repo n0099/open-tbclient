@@ -13,7 +13,7 @@ class m implements Parcelable.Creator<LiveStatusParcelable> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: cX */
+    /* renamed from: dt */
     public LiveStatusParcelable[] newArray(int i) {
         return new LiveStatusParcelable[i];
     }

@@ -1,13 +1,12 @@
 package com.baidu.tbadk.widget.richText;
 
 import android.content.Context;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.text.TextPaint;
 import android.text.style.ClickableSpan;
 import android.view.View;
 /* loaded from: classes.dex */
 public class h extends ClickableSpan {
-    private String abO;
+    private String ajA;
     private Context mContext;
     private int mType;
     private String mUrl;
@@ -21,8 +20,8 @@ public class h extends ClickableSpan {
         this.mType = i;
     }
 
-    public void dR(String str) {
-        this.abO = str;
+    public void eK(String str) {
+        this.ajA = str;
     }
 
     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -40,22 +39,22 @@ public class h extends ClickableSpan {
         if (jVar != null) {
             switch (this.mType) {
                 case 2:
-                    jVar.t(this.mContext, this.mUrl);
+                    jVar.onLinkClicked(this.mContext, this.mUrl);
                     return;
                 case 16:
-                    jVar.s(this.mContext, this.mUrl);
+                    jVar.onAtClicked(this.mContext, this.mUrl);
                     return;
-                case AccessibilityNodeInfoCompat.ACTION_LONG_CLICK /* 32 */:
-                    jVar.u(this.mContext, this.mUrl);
+                case 32:
+                    jVar.onVideoClicked(this.mContext, this.mUrl);
                     return;
                 case 64:
-                    jVar.v(this.mContext, this.mUrl);
+                    jVar.onSongClicked(this.mContext, this.mUrl);
                     return;
                 case 128:
-                    jVar.w(this.mContext, this.mUrl);
+                    jVar.onVideoP2PClicked(this.mContext, this.mUrl);
                     return;
                 case 256:
-                    jVar.b(this.mContext, this.mUrl, this.abO);
+                    jVar.onPhoneClicked(this.mContext, this.mUrl, this.ajA);
                     return;
                 default:
                     return;

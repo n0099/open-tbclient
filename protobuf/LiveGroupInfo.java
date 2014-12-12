@@ -20,13 +20,13 @@ public final class LiveGroupInfo extends Message {
     public final Integer authorId;
     @ProtoField(tag = 4, type = Message.Datatype.STRING)
     public final String authorName;
-    @ProtoField(tag = DealIntentService.CLASS_TYPE_GROUP_EVENT, type = Message.Datatype.STRING)
+    @ProtoField(tag = 14, type = Message.Datatype.STRING)
     public final String background;
     @ProtoField(tag = 9, type = Message.Datatype.INT32)
     public final Integer createTime;
     @ProtoField(tag = 11, type = Message.Datatype.INT32)
     public final Integer deviceId;
-    @ProtoField(tag = 26, type = Message.Datatype.INT32)
+    @ProtoField(tag = DealIntentService.CLASS_TYPE_XIUBA, type = Message.Datatype.INT32)
     public final Integer flag;
     @ProtoField(tag = 3, type = Message.Datatype.INT32)
     public final Integer forumId;

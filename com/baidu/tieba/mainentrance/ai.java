@@ -1,26 +1,44 @@
 package com.baidu.tieba.mainentrance;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import java.util.ArrayList;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-class ai extends CustomMessageListener {
-    final /* synthetic */ SquareSearchActivity bnc;
+class ai implements Runnable {
+    final /* synthetic */ SquareSearchActivity brF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ai(SquareSearchActivity squareSearchActivity, int i) {
-        super(i);
-        this.bnc = squareSearchActivity;
+    public ai(SquareSearchActivity squareSearchActivity) {
+        this.brF = squareSearchActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        Object data;
-        if (customResponsedMessage == null || (data = customResponsedMessage.getData()) == null || !(data instanceof ArrayList)) {
-            return;
+    @Override // java.lang.Runnable
+    public void run() {
+        String str;
+        String str2;
+        String str3;
+        ak akVar;
+        ak akVar2;
+        try {
+            str = this.brF.brr;
+            if (str != null) {
+                str2 = this.brF.brr;
+                if (str2.length() > 0) {
+                    StringBuffer stringBuffer = new StringBuffer(30);
+                    stringBuffer.append(TbConfig.SERVER_ADDRESS);
+                    stringBuffer.append("c/f/forum/search");
+                    str3 = this.brF.brr;
+                    BasicNameValuePair basicNameValuePair = new BasicNameValuePair("query", str3.trim());
+                    this.brF.rp();
+                    this.brF.brp = new ak(this.brF, stringBuffer.toString(), basicNameValuePair, true);
+                    akVar = this.brF.brp;
+                    akVar.setPriority(3);
+                    akVar2 = this.brF.brp;
+                    akVar2.execute(stringBuffer.toString(), basicNameValuePair);
+                }
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
-        this.bnc.a(4, (ArrayList) data);
     }
 }

@@ -1,22 +1,20 @@
 package com.baidu.tieba.im.validate;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import java.util.LinkedList;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n extends BdAsyncTask<Void, Void, Void> {
-    private final /* synthetic */ LinkedList val$list;
+public class n implements View.OnClickListener {
+    final /* synthetic */ m boD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(LinkedList linkedList) {
-        this.val$list = linkedList;
+    public n(m mVar) {
+        this.boD = mVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
-        com.baidu.tieba.im.db.d.MB().k(this.val$list);
-        return null;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ValidateActivity validateActivity;
+        validateActivity = this.boD.bou;
+        validateActivity.finish();
     }
 }

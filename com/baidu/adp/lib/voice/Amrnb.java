@@ -25,14 +25,14 @@ public class Amrnb {
 
     static {
         bLoadLibrary = false;
-        bLoadLibrary = com.baidu.adp.lib.util.g.eW().a("amrnb", 2, new k());
+        bLoadLibrary = com.baidu.adp.lib.util.f.eW().a("amrnb", 2, new k());
         if (bLoadLibrary) {
             try {
                 native_init();
                 bLoadLibrary = true;
             } catch (Throwable th) {
                 bLoadLibrary = false;
-                com.baidu.adp.lib.stats.f.er().a("so", "initAmrnb", "", "", -9104, String.valueOf(th.getClass().getName()) + " " + th.getMessage(), new Object[0]);
+                com.baidu.adp.lib.stats.f.es().a("so", "initAmrnb", "", "", -9104, String.valueOf(th.getClass().getName()) + " " + th.getMessage(), new Object[0]);
             }
         }
     }

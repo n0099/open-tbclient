@@ -3,12 +3,11 @@ package com.baidu.tieba.pb.sub;
 import android.content.Context;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.data.ar;
 import com.squareup.wire.Wire;
 import tbclient.PbFloor.PbFloorResIdl;
 /* loaded from: classes.dex */
 public class SubPbSocketResponseMessage extends SocketResponsedMessage {
-    public ar pbFloorData;
+    public com.baidu.tieba.tbadkCore.b.o pbFloorData;
     private boolean treatDelPage;
 
     public boolean isTreatDelPage() {
@@ -25,7 +24,7 @@ public class SubPbSocketResponseMessage extends SocketResponsedMessage {
     @Override // com.baidu.adp.framework.message.b
     public void decodeInBackGround(int i, byte[] bArr) {
         Context context;
-        ar arVar = null;
+        com.baidu.tieba.tbadkCore.b.o oVar = null;
         Object extra = getOrginalMessage().getExtra();
         if (extra == null || !(extra instanceof SubPbRequestMessage)) {
             context = null;
@@ -37,9 +36,9 @@ public class SubPbSocketResponseMessage extends SocketResponsedMessage {
         try {
             PbFloorResIdl pbFloorResIdl = (PbFloorResIdl) new Wire(new Class[0]).parseFrom(bArr, PbFloorResIdl.class);
             if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
-                arVar = ar.a(pbFloorResIdl.data, context);
-                if (arVar != null) {
-                    arVar.amM = pbFloorResIdl.error;
+                oVar = com.baidu.tieba.tbadkCore.b.o.a(pbFloorResIdl.data, context);
+                if (oVar != null) {
+                    oVar.bXj = pbFloorResIdl.error;
                 } else if (pbFloorResIdl.error != null) {
                     if (pbFloorResIdl.error.errorno != null) {
                         setError(pbFloorResIdl.error.errorno.intValue());
@@ -50,6 +49,6 @@ public class SubPbSocketResponseMessage extends SocketResponsedMessage {
         } catch (Exception e) {
             BdLog.detailException(e);
         }
-        this.pbFloorData = arVar;
+        this.pbFloorData = oVar;
     }
 }

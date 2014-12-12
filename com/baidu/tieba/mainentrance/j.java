@@ -1,17 +1,26 @@
 package com.baidu.tieba.mainentrance;
 
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
 import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements CustomMessageTask.CustomRunnable {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<ArrayList<String>> run(CustomMessage customMessage) {
-        if (customMessage == null) {
-            return null;
+class j extends CustomMessageListener {
+    final /* synthetic */ SquareSearchActivity brF;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j(SquareSearchActivity squareSearchActivity, int i) {
+        super(i);
+        this.brF = squareSearchActivity;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Object data;
+        if (customResponsedMessage == null || (data = customResponsedMessage.getData()) == null || !(data instanceof ArrayList)) {
+            return;
         }
-        return new CustomResponsedMessage<>(2009002, com.baidu.tieba.util.j.aeE());
+        this.brF.a(5, (ArrayList) data);
     }
 }

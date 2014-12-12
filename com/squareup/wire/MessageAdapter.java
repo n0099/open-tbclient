@@ -1,6 +1,5 @@
 package com.squareup.wire;
 
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.squareup.wire.ExtendableMessage;
 import com.squareup.wire.Message;
 import java.io.IOException;
@@ -239,7 +238,7 @@ public final class MessageAdapter<M extends Message> {
 
     private Class<Message.Builder<M>> getBuilderType(Class<M> cls) {
         try {
-            return (Class<Message.Builder<M>>) Class.forName(String.valueOf(cls.getName()) + "$Builder");
+            return (Class<Message.Builder<M>>) cls.getClassLoader().loadClass(String.valueOf(cls.getName()) + "$Builder");
         } catch (ClassNotFoundException e) {
             throw new IllegalArgumentException("No builder class found for message type " + cls.getName());
         }
@@ -493,7 +492,7 @@ public final class MessageAdapter<M extends Message> {
             case 13:
             case 16:
                 return 4;
-            case DealIntentService.CLASS_TYPE_GROUP_EVENT /* 14 */:
+            case 14:
             case 15:
             case 17:
                 return 8;
@@ -580,7 +579,7 @@ public final class MessageAdapter<M extends Message> {
             case 13:
                 wireOutput.writeFixed32(((Integer) obj).intValue());
                 return;
-            case DealIntentService.CLASS_TYPE_GROUP_EVENT /* 14 */:
+            case 14:
             case 15:
                 wireOutput.writeFixed64(((Long) obj).longValue());
                 return;
@@ -711,7 +710,7 @@ public final class MessageAdapter<M extends Message> {
             case 12:
             case 13:
                 return Integer.valueOf(wireInput.readFixed32());
-            case DealIntentService.CLASS_TYPE_GROUP_EVENT /* 14 */:
+            case 14:
             case 15:
                 return Long.valueOf(wireInput.readFixed64());
             case 16:

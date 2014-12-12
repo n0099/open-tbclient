@@ -5,9 +5,9 @@ import android.view.View;
 import android.widget.AbsoluteLayout;
 import android.widget.ProgressBar;
 import com.baidu.sapi2.SapiWebView;
-import com.baidu.tieba.t;
-import com.baidu.tieba.v;
+import com.baidu.tieba.u;
 import com.baidu.tieba.w;
+import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class j {
     public static void a(Context context, SapiWebView sapiWebView) {
@@ -17,19 +17,19 @@ public class j {
     }
 
     public static void b(Context context, SapiWebView sapiWebView) {
-        View inflate = com.baidu.adp.lib.g.b.ek().inflate(context, w.layout_sapi_network_unavailable, null);
-        inflate.findViewById(v.btn_network_settings).setOnClickListener(new k(context));
+        View inflate = com.baidu.adp.lib.g.b.ek().inflate(context, x.layout_sapi_network_unavailable, null);
+        inflate.findViewById(w.btn_network_settings).setOnClickListener(new k(context));
         sapiWebView.setNoNetworkView(inflate);
     }
 
     public static void c(Context context, SapiWebView sapiWebView) {
-        View inflate = com.baidu.adp.lib.g.b.ek().inflate(context, w.layout_sapi_loading_timeout, null);
-        inflate.findViewById(v.btn_retry).setOnClickListener(new l(sapiWebView, inflate));
+        View inflate = com.baidu.adp.lib.g.b.ek().inflate(context, x.layout_sapi_loading_timeout, null);
+        inflate.findViewById(w.btn_retry).setOnClickListener(new l(sapiWebView, inflate));
         sapiWebView.setTimeoutView(inflate);
     }
 
     public static void d(Context context, SapiWebView sapiWebView) {
-        int dimensionPixelSize = context.getResources().getDimensionPixelSize(t.ds8);
+        int dimensionPixelSize = context.getResources().getDimensionPixelSize(u.ds8);
         ProgressBar progressBar = new ProgressBar(context, null, 16842872);
         progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, dimensionPixelSize, 0, 0));
         sapiWebView.setProgressBar(progressBar);

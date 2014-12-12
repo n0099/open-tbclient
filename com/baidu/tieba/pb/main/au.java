@@ -1,25 +1,21 @@
 package com.baidu.tieba.pb.main;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.SelectFriendActivityConfig;
+import android.app.Dialog;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class au implements View.OnClickListener {
-    final /* synthetic */ PbActivity bvu;
+public class au implements DialogInterface.OnClickListener {
+    final /* synthetic */ PbActivity bzj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(PbActivity pbActivity) {
-        this.bvu = pbActivity;
+        this.bzj = pbActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.bvu.aIl != null) {
-            this.bvu.aIl.dismiss();
-            this.bvu.aIl = null;
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        if (dialogInterface instanceof Dialog) {
+            com.baidu.adp.lib.g.k.b((Dialog) dialogInterface, this.bzj.getPageContext().getPageActivity());
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectFriendActivityConfig(this.bvu, 23007)));
     }
 }

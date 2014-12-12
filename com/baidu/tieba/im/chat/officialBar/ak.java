@@ -1,33 +1,17 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.OfficialBarTipActivityConfig;
 /* loaded from: classes.dex */
-public class ak extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ OfficialBarInfoActivity aRJ;
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ak(OfficialBarInfoActivity officialBarInfoActivity) {
-        super(208001);
-        this.aRJ = officialBarInfoActivity;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        am amVar;
-        am amVar2;
-        if (socketResponsedMessage == null) {
-            this.aRJ.hideProgressBar();
-            return;
+class ak implements CustomMessageTask.CustomRunnable<OfficialBarTipActivityConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<OfficialBarTipActivityConfig> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), OfficialBarTipActivity.class);
+            customMessage.getData().startActivity();
         }
-        if (socketResponsedMessage.getCmd() == 208001 && (socketResponsedMessage instanceof ResponseOfficialBarInfoMessage)) {
-            ResponseOfficialBarInfoMessage responseOfficialBarInfoMessage = (ResponseOfficialBarInfoMessage) socketResponsedMessage;
-            amVar = this.aRJ.aRH;
-            amVar.fC(responseOfficialBarInfoMessage.getAuthen());
-            amVar2 = this.aRJ.aRH;
-            amVar2.fD(responseOfficialBarInfoMessage.getPortrait());
-        }
-        this.aRJ.hideProgressBar();
+        return null;
     }
 }

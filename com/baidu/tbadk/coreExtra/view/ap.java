@@ -1,31 +1,37 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import com.baidu.tbadk.coreExtra.util.TbCountDownTimer;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ap extends TbCountDownTimer {
-    final /* synthetic */ ProgressCountDownView Pa;
+public class ap implements com.baidu.tbadk.widget.g {
+    final /* synthetic */ MultiImageView UK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ap(ProgressCountDownView progressCountDownView, long j, long j2) {
-        super(j, j2);
-        this.Pa = progressCountDownView;
+    public ap(MultiImageView multiImageView) {
+        this.UK = multiImageView;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.util.TbCountDownTimer
-    public void onTick(long j) {
-        this.Pa.refreshPregress(j);
-        this.Pa.refreshText(j);
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.util.TbCountDownTimer
-    public void onFinish() {
-        aq aqVar;
-        aq aqVar2;
-        aqVar = this.Pa.mListerner;
-        if (aqVar != null) {
-            aqVar2 = this.Pa.mListerner;
-            aqVar2.onFinish();
+    @Override // com.baidu.tbadk.widget.g
+    public void a(com.baidu.tbadk.widget.a aVar) {
+        p pVar;
+        boolean z;
+        p pVar2;
+        p pVar3;
+        pVar = this.UK.UE;
+        if (aVar == pVar.getCurrentView()) {
+            z = this.UK.UI;
+            if (z) {
+                pVar2 = this.UK.UE;
+                int childCount = pVar2.getChildCount();
+                for (int i = 0; i < childCount; i++) {
+                    pVar3 = this.UK.UE;
+                    View childAt = pVar3.getChildAt(i);
+                    if (childAt != null && (childAt instanceof ay) && ((ay) childAt).getImageView() != aVar) {
+                        ((ay) childAt).release();
+                    }
+                }
+            }
+            aVar.play();
         }
     }
 }

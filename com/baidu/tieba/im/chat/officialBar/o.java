@@ -9,7 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class o {
-    public static List<p> ak(String str, String str2) {
+    public static List<p> au(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

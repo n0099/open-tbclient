@@ -1,18 +1,18 @@
 package com.baidu.adp.widget;
 
-import com.baidu.adp.widget.ListView.ac;
+import com.baidu.adp.widget.ListView.ad;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements ac {
-    final /* synthetic */ PinnedHeaderListView vR;
+public class p implements ad {
+    final /* synthetic */ PinnedHeaderListView xU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(PinnedHeaderListView pinnedHeaderListView) {
-        this.vR = pinnedHeaderListView;
+        this.xU = pinnedHeaderListView;
     }
 
-    @Override // com.baidu.adp.widget.ListView.ac
-    public void I(boolean z) {
-        this.vR.vP = z;
+    @Override // com.baidu.adp.widget.ListView.ad
+    public void T(boolean z) {
+        this.xU.xS = z;
     }
 }

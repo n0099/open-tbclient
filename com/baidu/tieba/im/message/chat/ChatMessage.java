@@ -35,6 +35,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a {
     private Object objContent;
     private int progressValue;
     private long recordId;
+    private String st_type;
     private String stat;
     private long taskId;
     private long time;
@@ -106,15 +107,15 @@ public abstract class ChatMessage extends TbSocketMessage implements a {
                 int optInt = jSONObject.optInt("size_width");
                 int optInt2 = jSONObject.optInt("size_height");
                 com.baidu.tbadk.gif.a aVar = new com.baidu.tbadk.gif.a();
-                aVar.Ti = false;
-                aVar.Tj = optString;
-                aVar.Tk = optString2;
-                aVar.Tl = optString3;
-                aVar.Tm = optString4;
-                aVar.Tn = optInt;
-                aVar.To = optInt2;
+                aVar.Zn = false;
+                aVar.Zo = optString;
+                aVar.Zp = optString2;
+                aVar.Zq = optString3;
+                aVar.Zr = optString4;
+                aVar.Zs = optInt;
+                aVar.Zt = optInt2;
                 aVar.mPackageName = optString5;
-                aVar.Tp = optString6;
+                aVar.Zu = optString6;
                 this.gifInfo = aVar;
                 return aVar;
             }
@@ -123,6 +124,14 @@ public abstract class ChatMessage extends TbSocketMessage implements a {
         jSONObject = null;
         if (jSONObject == null) {
         }
+    }
+
+    public String getSt_type() {
+        return this.st_type;
+    }
+
+    public void setSt_type(String str) {
+        this.st_type = str;
     }
 
     public String getLink() {

@@ -1,7 +1,7 @@
 package com.baidu.adp.lib.g;
 /* loaded from: classes.dex */
 public abstract class c {
-    public static int f(String str, int i) {
+    public static int toInt(String str, int i) {
         if (str != null) {
             try {
                 return Integer.parseInt(str);

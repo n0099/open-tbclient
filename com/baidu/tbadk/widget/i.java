@@ -8,15 +8,15 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.gif.GiftGifView;
-import com.baidu.tieba.v;
+import com.baidu.tieba.aa;
 import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class i implements DialogInterface.OnCancelListener, View.OnClickListener {
-    private Dialog aaM;
-    private LinearLayout aaN;
-    private GiftGifView aaO;
+    private GiftGifView aiA;
+    private Dialog aiy;
+    private LinearLayout aiz;
     private Activity mActivity;
     private ProgressDialog mWaitingDialog;
 
@@ -26,42 +26,42 @@ public class i implements DialogInterface.OnCancelListener, View.OnClickListener
     }
 
     private void init() {
-        this.aaM = vx();
-        this.aaN = (LinearLayout) this.aaM.findViewById(v.gift_gif_ll);
-        this.aaO = (GiftGifView) this.aaM.findViewById(v.gift_gif_view);
-        this.aaN.setOnClickListener(this);
-        this.aaO.setOnClickListener(this);
-        this.aaO.setAutoPlay(true);
-        this.aaO.setPlayCallback(new j(this));
+        this.aiy = zI();
+        this.aiz = (LinearLayout) this.aiy.findViewById(w.gift_gif_ll);
+        this.aiA = (GiftGifView) this.aiy.findViewById(w.gift_gif_view);
+        this.aiz.setOnClickListener(this);
+        this.aiA.setOnClickListener(this);
+        this.aiA.setAutoPlay(true);
+        this.aiA.setPlayCallback(new j(this));
     }
 
-    public void dP(String str) {
+    public void play(String str) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.tbadk.gif.a aVar = new com.baidu.tbadk.gif.a();
-            aVar.Tj = str;
-            aVar.Tl = str;
-            this.aaO.setIsHide(false);
-            this.aaO.a(aVar);
-            this.mWaitingDialog = com.baidu.adp.lib.util.m.a(this.mActivity, this.mActivity.getString(y.loading), this);
+            aVar.Zo = str;
+            aVar.Zq = str;
+            this.aiA.setIsHide(false);
+            this.aiA.a(aVar);
+            this.mWaitingDialog = com.baidu.adp.lib.util.l.a(this.mActivity, this.mActivity.getString(z.loading), this);
         }
     }
 
-    private Dialog vx() {
-        Dialog dialog = new Dialog(this.mActivity, z.dialog_full_screen);
-        dialog.setContentView(w.gif_play_dialog);
+    private Dialog zI() {
+        Dialog dialog = new Dialog(this.mActivity, aa.dialog_full_screen);
+        dialog.setContentView(x.gif_play_dialog);
         dialog.setOnDismissListener(new k(this));
         return dialog;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
-        this.aaO.rZ();
-        com.baidu.adp.lib.g.j.b(this.aaM, this.mActivity);
+        this.aiA.vE();
+        com.baidu.adp.lib.g.k.b(this.aiy, this.mActivity);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.aaO.stop();
-        com.baidu.adp.lib.g.j.b(this.aaM, this.mActivity);
+        this.aiA.stop();
+        com.baidu.adp.lib.g.k.b(this.aiy, this.mActivity);
     }
 }

@@ -1,9 +1,18 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tbadk.core.data.VoiceData;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface v {
-    void BX();
+public class v implements View.OnClickListener {
+    final /* synthetic */ AbsMsglistView aQh;
 
-    void c(VoiceData.VoiceModel voiceModel);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public v(AbsMsglistView absMsglistView) {
+        this.aQh = absMsglistView;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.aQh.sendMore2Event();
+    }
 }

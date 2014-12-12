@@ -1,22 +1,18 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.GroupData;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bb extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ GroupChatActivity aOr;
-    private final /* synthetic */ GroupData aOs;
+public class bb implements View.OnClickListener {
+    final /* synthetic */ az aRi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(GroupChatActivity groupChatActivity, GroupData groupData) {
-        this.aOr = groupChatActivity;
-        this.aOs = groupData;
+    public bb(az azVar) {
+        this.aRi = azVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.im.b
-    public Boolean doInBackground() {
-        return Boolean.valueOf(com.baidu.tieba.im.groupInfo.aa.Pe().av(TbadkApplication.getCurrentAccount(), String.valueOf(this.aOs.getGroupId())));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.aRi.mItemViewClickListener.onItemViewClick(view, 11, this.aRi.mPosition, 0L);
     }
 }

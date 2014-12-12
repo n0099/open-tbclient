@@ -4,20 +4,20 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements com.baidu.tieba.im.a<Void> {
-    private final /* synthetic */ long beo;
-    final /* synthetic */ t bgR;
+public class v implements com.baidu.tieba.im.g<Void> {
+    private final /* synthetic */ long bhG;
+    final /* synthetic */ t bjJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(t tVar, long j) {
-        this.bgR = tVar;
-        this.beo = j;
+        this.bjJ = tVar;
+        this.bhG = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    /* renamed from: b */
+    @Override // com.baidu.tieba.im.g
+    /* renamed from: d */
     public void onReturnDataInUI(Void r9) {
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(1, this.beo, "", "", "", ""));
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(1, this.bhG, "", "", "", ""));
     }
 }

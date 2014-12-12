@@ -10,47 +10,47 @@ import com.baidu.adp.framework.task.SocketMessageTask;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class d extends c<SocketMessage, SocketMessageTask, k, SocketResponsedMessage> {
-    private j cP;
+    private j eV;
 
     public d(MessageManager messageManager) {
         super(messageManager);
-        this.cP = null;
-        this.cP = new j(messageManager);
-        this.cL = com.baidu.adp.framework.c.c.aX();
+        this.eV = null;
+        this.eV = new j(messageManager);
+        this.eS = com.baidu.adp.framework.c.c.by();
     }
 
     public void removeMessage(BdUniqueId bdUniqueId) {
-        this.cP.removeMessage(bdUniqueId);
+        this.eV.removeMessage(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.a
     public void removeMessage(int i, BdUniqueId bdUniqueId) {
-        this.cP.removeMessage(i, bdUniqueId);
+        this.eV.removeMessage(i, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a
     /* renamed from: a */
     public void sendMessage(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        this.cP.sendMessage(socketMessage, socketMessageTask);
+        this.eV.sendMessage(socketMessage, socketMessageTask);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.b.c
     public SocketMessage c(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        return this.aH.getController().b(socketMessage, socketMessageTask);
+        return this.cN.getController().b(socketMessage, socketMessageTask);
     }
 
     public LinkedList<SocketMessage> a(BdUniqueId bdUniqueId) {
-        return this.cP.a(bdUniqueId);
+        return this.eV.a(bdUniqueId);
     }
 
     @Override // com.baidu.adp.framework.a
     public LinkedList<SocketMessage> findMessage(int i, BdUniqueId bdUniqueId) {
-        return this.cP.findMessage(i, bdUniqueId);
+        return this.eV.findMessage(i, bdUniqueId);
     }
 
     public j getSocketClient() {
-        return this.cP;
+        return this.eV;
     }
 }

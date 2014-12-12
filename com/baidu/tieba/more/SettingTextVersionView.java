@@ -4,12 +4,13 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
-import com.baidu.tieba.data.VersionData;
 /* loaded from: classes.dex */
 public final class SettingTextVersionView extends TbSettingTextTipView {
-    public static String bsP = "has_shown_funtion_intro";
+    public static String bwm = "has_shown_funtion_intro";
 
     public SettingTextVersionView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -17,18 +18,19 @@ public final class SettingTextVersionView extends TbSettingTextTipView {
 
     public void refresh() {
         boolean z = true;
-        boolean z2 = TbadkApplication.m251getInst().getSkinType() == 1;
-        VersionData wK = com.baidu.tieba.aj.wm().wK();
-        if (wK == null || !wK.hasNewVer()) {
+        boolean z2 = TbadkCoreApplication.m255getInst().getSkinType() == 1;
+        VersionData versionData = TbadkCoreApplication.m255getInst().getVersionData();
+        if (versionData == null || !versionData.hasNewVer()) {
             z = false;
         }
-        boolean z3 = com.baidu.tbadk.core.sharedPref.b.lk().getBoolean(bsP, false);
+        boolean z3 = com.baidu.tbadk.core.sharedPref.b.og().getBoolean(bwm, false);
         if (z || (!z && !z3)) {
-            com.baidu.tbadk.core.util.aw.h((View) this.Pi, com.baidu.tieba.u.icon_news_head_new);
+            ax.i((View) this.UU, com.baidu.tieba.v.icon_news_head_new);
+            this.UU.setText((CharSequence) null);
             return;
         }
-        this.Pi.setText(TbConfig.getVersion());
-        this.Pi.setBackgroundDrawable(null);
-        this.Pi.setTextAppearance(this.mContext, z2 ? com.baidu.tieba.z.setting_version_text_1 : com.baidu.tieba.z.setting_version_text);
+        this.UU.setText(TbConfig.getVersion());
+        this.UU.setBackgroundDrawable(null);
+        this.UU.setTextAppearance(this.mContext, z2 ? com.baidu.tieba.aa.setting_version_text_1 : com.baidu.tieba.aa.setting_version_text);
     }
 }

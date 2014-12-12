@@ -1,29 +1,42 @@
 package com.baidu.tieba.im.chat;
 
-import android.content.DialogInterface;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.animation.Animation;
+import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes.dex */
-public class b implements View.OnLongClickListener {
-    final /* synthetic */ AbsMsgImageActivity aNO;
+class b implements Animation.AnimationListener {
+    final /* synthetic */ a aQf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(AbsMsgImageActivity absMsgImageActivity) {
-        this.aNO = absMsgImageActivity;
+    public b(a aVar) {
+        this.aQf = aVar;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        AbsMsgImageActivity absMsgImageActivity;
+        AbsMsgImageActivity absMsgImageActivity2;
         boolean z;
-        DialogInterface.OnClickListener onClickListener;
-        z = this.aNO.aNN;
-        if (!z) {
-            String[] strArr = {this.aNO.getString(com.baidu.tieba.y.save)};
-            AbsMsgImageActivity absMsgImageActivity = this.aNO;
-            onClickListener = this.aNO.aNG;
-            absMsgImageActivity.createListMenu(strArr, onClickListener);
-            this.aNO.showListMenu();
+        AbsMsgImageActivity absMsgImageActivity3;
+        AbsMsgImageActivity absMsgImageActivity4;
+        NavigationBar navigationBar;
+        absMsgImageActivity = this.aQf.aQe;
+        absMsgImageActivity.aPW = true;
+        absMsgImageActivity2 = this.aQf.aQe;
+        z = absMsgImageActivity2.aPX;
+        if (z) {
+            absMsgImageActivity3 = this.aQf.aQe;
+            absMsgImageActivity3.aPX = false;
+            absMsgImageActivity4 = this.aQf.aQe;
+            navigationBar = absMsgImageActivity4.aPT;
+            navigationBar.setVisibility(8);
         }
-        return false;
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
     }
 }

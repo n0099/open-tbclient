@@ -1,6 +1,7 @@
 package android.support.v4.view;
 
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
@@ -10,10 +11,14 @@ import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
 /* loaded from: classes.dex */
 public class ViewCompat {
+    public static final int ACCESSIBILITY_LIVE_REGION_ASSERTIVE = 2;
+    public static final int ACCESSIBILITY_LIVE_REGION_NONE = 0;
+    public static final int ACCESSIBILITY_LIVE_REGION_POLITE = 1;
     private static final long FAKE_FRAME_TIME = 10;
     static final ViewCompatImpl IMPL;
     public static final int IMPORTANT_FOR_ACCESSIBILITY_AUTO = 0;
     public static final int IMPORTANT_FOR_ACCESSIBILITY_NO = 2;
+    public static final int IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS = 4;
     public static final int IMPORTANT_FOR_ACCESSIBILITY_YES = 1;
     public static final int LAYER_TYPE_HARDWARE = 2;
     public static final int LAYER_TYPE_NONE = 0;
@@ -22,18 +27,25 @@ public class ViewCompat {
     public static final int LAYOUT_DIRECTION_LOCALE = 3;
     public static final int LAYOUT_DIRECTION_LTR = 0;
     public static final int LAYOUT_DIRECTION_RTL = 1;
+    public static final int MEASURED_HEIGHT_STATE_SHIFT = 16;
+    public static final int MEASURED_SIZE_MASK = 16777215;
+    public static final int MEASURED_STATE_MASK = -16777216;
+    public static final int MEASURED_STATE_TOO_SMALL = 16777216;
     public static final int OVER_SCROLL_ALWAYS = 0;
     public static final int OVER_SCROLL_IF_CONTENT_SCROLLS = 1;
     public static final int OVER_SCROLL_NEVER = 2;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public interface ViewCompatImpl {
+    interface ViewCompatImpl {
         boolean canScrollHorizontally(View view, int i);
 
         boolean canScrollVertically(View view, int i);
 
+        int getAccessibilityLiveRegion(View view);
+
         AccessibilityNodeProviderCompat getAccessibilityNodeProvider(View view);
+
+        float getAlpha(View view);
 
         int getImportantForAccessibility(View view);
 
@@ -43,11 +55,19 @@ public class ViewCompat {
 
         int getLayoutDirection(View view);
 
+        int getMeasuredHeightAndState(View view);
+
+        int getMeasuredState(View view);
+
+        int getMeasuredWidthAndState(View view);
+
         int getOverScrollMode(View view);
 
         ViewParent getParentForAccessibility(View view);
 
         boolean hasTransientState(View view);
+
+        boolean isOpaque(View view);
 
         void onInitializeAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent);
 
@@ -65,7 +85,11 @@ public class ViewCompat {
 
         void postOnAnimationDelayed(View view, Runnable runnable, long j);
 
+        int resolveSizeAndState(int i, int i2, int i3);
+
         void setAccessibilityDelegate(View view, AccessibilityDelegateCompat accessibilityDelegateCompat);
+
+        void setAccessibilityLiveRegion(View view, int i);
 
         void setHasTransientState(View view, boolean z);
 
@@ -175,6 +199,11 @@ public class ViewCompat {
         }
 
         @Override // android.support.v4.view.ViewCompat.ViewCompatImpl
+        public float getAlpha(View view) {
+            return 1.0f;
+        }
+
+        @Override // android.support.v4.view.ViewCompat.ViewCompatImpl
         public void setLayerType(View view, int i, Paint paint) {
         }
 
@@ -209,10 +238,56 @@ public class ViewCompat {
         public ViewParent getParentForAccessibility(View view) {
             return view.getParent();
         }
+
+        @Override // android.support.v4.view.ViewCompat.ViewCompatImpl
+        public boolean isOpaque(View view) {
+            Drawable background = view.getBackground();
+            return background != null && background.getOpacity() == -1;
+        }
+
+        @Override // android.support.v4.view.ViewCompat.ViewCompatImpl
+        public int resolveSizeAndState(int i, int i2, int i3) {
+            return View.resolveSize(i, i2);
+        }
+
+        @Override // android.support.v4.view.ViewCompat.ViewCompatImpl
+        public int getMeasuredWidthAndState(View view) {
+            return view.getMeasuredWidth();
+        }
+
+        @Override // android.support.v4.view.ViewCompat.ViewCompatImpl
+        public int getMeasuredHeightAndState(View view) {
+            return view.getMeasuredHeight();
+        }
+
+        @Override // android.support.v4.view.ViewCompat.ViewCompatImpl
+        public int getMeasuredState(View view) {
+            return 0;
+        }
+
+        @Override // android.support.v4.view.ViewCompat.ViewCompatImpl
+        public int getAccessibilityLiveRegion(View view) {
+            return 0;
+        }
+
+        @Override // android.support.v4.view.ViewCompat.ViewCompatImpl
+        public void setAccessibilityLiveRegion(View view, int i) {
+        }
     }
 
     /* loaded from: classes.dex */
-    class GBViewCompatImpl extends BaseViewCompatImpl {
+    class EclairMr1ViewCompatImpl extends BaseViewCompatImpl {
+        EclairMr1ViewCompatImpl() {
+        }
+
+        @Override // android.support.v4.view.ViewCompat.BaseViewCompatImpl, android.support.v4.view.ViewCompat.ViewCompatImpl
+        public boolean isOpaque(View view) {
+            return ViewCompatEclairMr1.isOpaque(view);
+        }
+    }
+
+    /* loaded from: classes.dex */
+    class GBViewCompatImpl extends EclairMr1ViewCompatImpl {
         GBViewCompatImpl() {
         }
 
@@ -238,6 +313,11 @@ public class ViewCompat {
         }
 
         @Override // android.support.v4.view.ViewCompat.BaseViewCompatImpl, android.support.v4.view.ViewCompat.ViewCompatImpl
+        public float getAlpha(View view) {
+            return ViewCompatHC.getAlpha(view);
+        }
+
+        @Override // android.support.v4.view.ViewCompat.BaseViewCompatImpl, android.support.v4.view.ViewCompat.ViewCompatImpl
         public void setLayerType(View view, int i, Paint paint) {
             ViewCompatHC.setLayerType(view, i, paint);
         }
@@ -251,6 +331,26 @@ public class ViewCompat {
         public void setLayerPaint(View view, Paint paint) {
             setLayerType(view, getLayerType(view), paint);
             view.invalidate();
+        }
+
+        @Override // android.support.v4.view.ViewCompat.BaseViewCompatImpl, android.support.v4.view.ViewCompat.ViewCompatImpl
+        public int resolveSizeAndState(int i, int i2, int i3) {
+            return ViewCompatHC.resolveSizeAndState(i, i2, i3);
+        }
+
+        @Override // android.support.v4.view.ViewCompat.BaseViewCompatImpl, android.support.v4.view.ViewCompat.ViewCompatImpl
+        public int getMeasuredWidthAndState(View view) {
+            return ViewCompatHC.getMeasuredWidthAndState(view);
+        }
+
+        @Override // android.support.v4.view.ViewCompat.BaseViewCompatImpl, android.support.v4.view.ViewCompat.ViewCompatImpl
+        public int getMeasuredHeightAndState(View view) {
+            return ViewCompatHC.getMeasuredHeightAndState(view);
+        }
+
+        @Override // android.support.v4.view.ViewCompat.BaseViewCompatImpl, android.support.v4.view.ViewCompat.ViewCompatImpl
+        public int getMeasuredState(View view) {
+            return ViewCompatHC.getMeasuredState(view);
         }
     }
 
@@ -386,9 +486,27 @@ public class ViewCompat {
         }
     }
 
+    /* loaded from: classes.dex */
+    class KitKatViewCompatImpl extends JbMr1ViewCompatImpl {
+        KitKatViewCompatImpl() {
+        }
+
+        @Override // android.support.v4.view.ViewCompat.BaseViewCompatImpl, android.support.v4.view.ViewCompat.ViewCompatImpl
+        public int getAccessibilityLiveRegion(View view) {
+            return ViewCompatKitKat.getAccessibilityLiveRegion(view);
+        }
+
+        @Override // android.support.v4.view.ViewCompat.BaseViewCompatImpl, android.support.v4.view.ViewCompat.ViewCompatImpl
+        public void setAccessibilityLiveRegion(View view, int i) {
+            ViewCompatKitKat.setAccessibilityLiveRegion(view, i);
+        }
+    }
+
     static {
         int i = Build.VERSION.SDK_INT;
-        if (i >= 17) {
+        if (i >= 19) {
+            IMPL = new KitKatViewCompatImpl();
+        } else if (i >= 17) {
             IMPL = new JbMr1ViewCompatImpl();
         } else if (i >= 16) {
             IMPL = new JBViewCompatImpl();
@@ -475,6 +593,10 @@ public class ViewCompat {
         return IMPL.getAccessibilityNodeProvider(view);
     }
 
+    public static float getAlpha(View view) {
+        return IMPL.getAlpha(view);
+    }
+
     public static void setLayerType(View view, int i, Paint paint) {
         IMPL.setLayerType(view, i, paint);
     }
@@ -505,5 +627,33 @@ public class ViewCompat {
 
     public static ViewParent getParentForAccessibility(View view) {
         return IMPL.getParentForAccessibility(view);
+    }
+
+    public static boolean isOpaque(View view) {
+        return IMPL.isOpaque(view);
+    }
+
+    public static int resolveSizeAndState(int i, int i2, int i3) {
+        return IMPL.resolveSizeAndState(i, i2, i3);
+    }
+
+    public static int getMeasuredWidthAndState(View view) {
+        return IMPL.getMeasuredWidthAndState(view);
+    }
+
+    public static int getMeasuredHeightAndState(View view) {
+        return IMPL.getMeasuredHeightAndState(view);
+    }
+
+    public static int getMeasuredState(View view) {
+        return IMPL.getMeasuredState(view);
+    }
+
+    public int getAccessibilityLiveRegion(View view) {
+        return IMPL.getAccessibilityLiveRegion(view);
+    }
+
+    public void setAccessibilityLiveRegion(View view, int i) {
+        IMPL.setAccessibilityLiveRegion(view, i);
     }
 }

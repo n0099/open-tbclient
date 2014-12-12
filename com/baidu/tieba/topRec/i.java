@@ -2,15 +2,15 @@ package com.baidu.tieba.topRec;
 
 import android.view.animation.Animation;
 import android.widget.Button;
-import com.baidu.tieba.y;
+import com.baidu.tieba.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements Animation.AnimationListener {
-    final /* synthetic */ g bQd;
+    final /* synthetic */ g cdd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(g gVar) {
-        this.bQd = gVar;
+        this.cdd = gVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -22,19 +22,19 @@ public class i implements Animation.AnimationListener {
         Button button3;
         TopRecActivity topRecActivity2;
         int i2;
-        i = this.bQd.bPZ;
+        i = this.cdd.ccZ;
         if (i < 100) {
-            button3 = this.bQd.bPU;
-            topRecActivity2 = this.bQd.bPO;
-            StringBuilder append = new StringBuilder(String.valueOf(topRecActivity2.getString(y.done))).append("(");
-            i2 = this.bQd.bPZ;
+            button3 = this.cdd.ccU;
+            topRecActivity2 = this.cdd.ccO;
+            StringBuilder append = new StringBuilder(String.valueOf(topRecActivity2.getPageContext().getString(z.done))).append("(");
+            i2 = this.cdd.ccZ;
             button3.setText(append.append(i2).append(")").toString());
         } else {
-            button = this.bQd.bPU;
-            topRecActivity = this.bQd.bPO;
-            button.setText(String.valueOf(topRecActivity.getString(y.done)) + "(99+)");
+            button = this.cdd.ccU;
+            topRecActivity = this.cdd.ccO;
+            button.setText(String.valueOf(topRecActivity.getPageContext().getString(z.done)) + "(99+)");
         }
-        button2 = this.bQd.bPU;
+        button2 = this.cdd.ccU;
         button2.invalidate();
     }
 

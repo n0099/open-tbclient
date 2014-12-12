@@ -5,8 +5,8 @@ import android.util.AttributeSet;
 import com.baidu.tbadk.widget.TbClipImageView;
 /* loaded from: classes.dex */
 public class ShareSDKImageView extends TbClipImageView {
-    private int GV;
-    private int GW;
+    private int Lf;
+    private int Lg;
 
     public ShareSDKImageView(Context context) {
         this(context, null, 0);
@@ -18,8 +18,8 @@ public class ShareSDKImageView extends TbClipImageView {
 
     public ShareSDKImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.GV = com.baidu.tieba.u.pic_share_link;
-        this.GW = com.baidu.tieba.s.cp_cont_e;
+        this.Lf = com.baidu.tieba.v.pic_share_link;
+        this.Lg = com.baidu.tieba.t.cp_cont_e;
         init();
     }
 
@@ -28,7 +28,7 @@ public class ShareSDKImageView extends TbClipImageView {
         setGifIconSupport(false);
         setDrawBorder(false);
         setIsRound(false);
-        setDefaultResource(this.GV);
-        setDefaultBgResource(this.GW);
+        setDefaultResource(this.Lf);
+        setDefaultBgResource(this.Lg);
     }
 }

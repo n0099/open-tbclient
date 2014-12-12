@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
+import java.util.List;
 /* loaded from: classes.dex */
 public abstract class FragmentManager {
     public static final int POP_BACK_STACK_INCLUSIVE = 1;
@@ -45,6 +46,8 @@ public abstract class FragmentManager {
     public abstract int getBackStackEntryCount();
 
     public abstract Fragment getFragment(Bundle bundle, String str);
+
+    public abstract List<Fragment> getFragments();
 
     public abstract void popBackStack();
 

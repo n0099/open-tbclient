@@ -5,16 +5,16 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements View.OnTouchListener {
-    final /* synthetic */ s aWt;
+    final /* synthetic */ s baL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(s sVar) {
-        this.aWt = sVar;
+        this.baL = sVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.aWt.Nm();
+        this.baL.hideKeyboard();
         return false;
     }
 }

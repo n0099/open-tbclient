@@ -3,39 +3,38 @@ package com.baidu.tieba;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.TextView;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class ag implements View.OnClickListener {
-    final /* synthetic */ ac adt;
+    final /* synthetic */ af alf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(ac acVar) {
-        this.adt = acVar;
+    public ag(af afVar) {
+        this.alf = afVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
+        TextView textView;
         boolean z;
         boolean z2;
-        TextView textView;
+        ak akVar;
+        boolean z3;
         TextView textView2;
-        z = this.adt.acZ;
-        if (!z) {
-            z2 = this.adt.acY;
-            if (z2) {
-                Drawable drawable = com.baidu.tbadk.core.util.aw.getDrawable(u.btn_dailog_choose_n);
-                drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                textView2 = this.adt.adh;
-                textView2.setCompoundDrawables(drawable, null, null, null);
-                this.adt.acX = false;
-                this.adt.acY = false;
-                return;
-            }
-            Drawable drawable2 = com.baidu.tbadk.core.util.aw.getDrawable(u.btn_dailog_choose_s);
-            drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-            textView = this.adt.adh;
-            textView.setCompoundDrawables(drawable2, null, null, null);
-            this.adt.acX = true;
-            this.adt.acY = true;
+        textView = this.alf.akV;
+        textView.setEnabled(false);
+        z = this.alf.akK;
+        TiebaStatic.eventStat(this.alf.getContext(), "upgrade_channel", z ? "withOtherApp" : "withoutOtherApp", 1, new Object[0]);
+        this.alf.akM = true;
+        z2 = this.alf.akL;
+        if (z2) {
+            Drawable drawable = com.baidu.tbadk.core.util.ax.getDrawable(v.btn_dailog_choose_d);
+            drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+            textView2 = this.alf.akT;
+            textView2.setCompoundDrawables(drawable, null, null, null);
         }
+        akVar = this.alf.alc;
+        z3 = this.alf.akL;
+        akVar.bb(z3);
     }
 }

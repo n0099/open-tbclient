@@ -1,11 +1,11 @@
 package com.baidu.adp.lib.e;
 /* loaded from: classes.dex */
 public interface c<T> {
-    T ee();
+    T ed();
 
-    void i(T t);
+    void k(T t);
 
-    T j(T t);
+    T l(T t);
 
-    T k(T t);
+    T m(T t);
 }

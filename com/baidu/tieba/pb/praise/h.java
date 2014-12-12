@@ -8,182 +8,184 @@ import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ErrorData;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.core.view.q;
-import com.baidu.tbadk.core.view.r;
-import com.baidu.tbadk.core.view.s;
-import com.baidu.tieba.u;
+import com.baidu.tbadk.core.view.aa;
+import com.baidu.tbadk.core.view.ab;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
+import com.baidu.tieba.z;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class h extends com.baidu.tbadk.mvc.h.a {
-    private com.baidu.tbadk.mvc.i.c<a, com.baidu.tbadk.mvc.e.c, b> bzM;
-    private PraiseListActivity bzN;
-    private View bzO;
-    private NavigationBar bzP;
-    private View bzQ;
-    private TextView bzR;
-    private BdListView bzS;
-    private View bzT;
-    private TextView bzU;
-    private TextView bzV;
-    private ProgressBar bzW;
-    private ProgressBar bzX;
+public class h extends com.baidu.tbadk.mvc.i.c {
+    private com.baidu.tbadk.mvc.j.c<a, com.baidu.tbadk.mvc.e.c, b> bDE;
+    private PraiseListActivity bDF;
+    private View bDG;
+    private ProgressBar bDH;
+    private String head;
+    private TextView mPageFootTextContinue;
+    private TextView mPageFootTextMore;
+    private View mPageFootView;
+    private TextView mPageHeadText;
+    private View mPageHeadView;
+    private BdListView mPageListView;
+    private NavigationBar mPageNavigationBar;
+    private ProgressBar mPageProgressBar;
 
     public h(PraiseListActivity praiseListActivity) {
         super(praiseListActivity);
-        this.bzM = null;
-        this.bzN = null;
-        this.bzO = null;
-        this.bzP = null;
-        this.bzQ = null;
-        this.bzR = null;
-        this.bzS = null;
-        this.bzT = null;
-        this.bzU = null;
-        this.bzV = null;
-        this.bzW = null;
-        this.bzX = null;
-        this.bzN = praiseListActivity;
-        ta().addEventDelegate(this);
+        this.bDE = null;
+        this.bDF = null;
+        this.bDG = null;
+        this.mPageNavigationBar = null;
+        this.mPageHeadView = null;
+        this.mPageHeadText = null;
+        this.mPageListView = null;
+        this.mPageFootView = null;
+        this.mPageFootTextContinue = null;
+        this.mPageFootTextMore = null;
+        this.mPageProgressBar = null;
+        this.bDH = null;
+        this.bDF = praiseListActivity;
+        wx().addEventDelegate(this);
     }
 
     @Override // com.baidu.tbadk.mvc.core.c
-    protected int tj() {
-        return w.zan_list_activity;
+    protected int kI() {
+        return x.zan_list_activity;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void ti() {
-        this.bzO = getView().findViewById(v.zan_list_page_parent);
-        this.bzP = (NavigationBar) getView().findViewById(v.zan_list_page_navigationbar);
-        this.bzS = (BdListView) getView().findViewById(v.zan_list_page_list);
-        this.bzW = (ProgressBar) getView().findViewById(v.zan_list_page_progress);
-        this.bzM = new com.baidu.tbadk.mvc.i.c<>(this.Xj, b.class, w.zan_list_item, null);
-        this.bzM.a(r.a(NoDataViewFactory.ImgType.NODATA), s.bL(y.praise_list_no_data), (q) null, (FrameLayout.LayoutParams) null);
-        this.bzS.setAdapter((ListAdapter) this.bzM);
-        this.bzP.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.bzP.setTitleText("");
-        this.bzQ = getLayoutInflater().inflate(w.zan_list_head, (ViewGroup) null);
-        this.bzQ.setOnClickListener(this.bzN);
-        this.bzR = (TextView) this.bzQ.findViewById(v.zan_list_head_text);
-        this.bzS.addHeaderView(this.bzQ);
-        this.bzT = getLayoutInflater().inflate(w.zan_list_foot, (ViewGroup) null);
-        this.bzU = (TextView) this.bzT.findViewById(v.zan_list_foot_text_continue);
-        this.bzV = (TextView) this.bzT.findViewById(v.zan_list_foot_text_more);
-        this.bzX = (ProgressBar) this.bzT.findViewById(v.zan_list_foot_progress);
-        ta().setViewClickListener(this.bzU, uc());
-        this.bzT.setVisibility(8);
-        this.bzS.addFooterView(this.bzT);
-        this.bzS.setOnItemClickListener(this.bzN);
+    public void kJ() {
+        this.bDG = getView().findViewById(w.zan_list_page_parent);
+        this.mPageNavigationBar = (NavigationBar) getView().findViewById(w.zan_list_page_navigationbar);
+        this.mPageListView = (BdListView) getView().findViewById(w.zan_list_page_list);
+        this.mPageProgressBar = (ProgressBar) getView().findViewById(w.zan_list_page_progress);
+        this.bDE = new com.baidu.tbadk.mvc.j.c<>(this.adn.getPageContext(), b.class, x.zan_list_item, null);
+        this.bDE.a(aa.a(NoDataViewFactory.ImgType.NODATA), ab.ci(z.praise_list_no_data), (com.baidu.tbadk.core.view.z) null, (FrameLayout.LayoutParams) null);
+        this.mPageListView.setAdapter((ListAdapter) this.bDE);
+        this.mPageNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mPageNavigationBar.setTitleText("");
+        this.mPageHeadView = getLayoutInflater().inflate(x.zan_list_head, (ViewGroup) null);
+        this.mPageHeadView.setOnClickListener(this.bDF);
+        this.mPageHeadText = (TextView) this.mPageHeadView.findViewById(w.zan_list_head_text);
+        this.mPageListView.addHeaderView(this.mPageHeadView);
+        this.mPageFootView = getLayoutInflater().inflate(x.zan_list_foot, (ViewGroup) null);
+        this.mPageFootTextContinue = (TextView) this.mPageFootView.findViewById(w.zan_list_foot_text_continue);
+        this.mPageFootTextMore = (TextView) this.mPageFootView.findViewById(w.zan_list_foot_text_more);
+        this.bDH = (ProgressBar) this.mPageFootView.findViewById(w.zan_list_foot_progress);
+        wx().setViewClickListener(this.mPageFootTextContinue, yg());
+        this.mPageFootView.setVisibility(8);
+        this.mPageListView.addFooterView(this.mPageFootView);
+        this.mPageListView.setOnItemClickListener(this.bDF);
+        this.mPageHeadText.setText(this.head);
+        yf();
+        dX(false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void c(Bundle bundle) {
-        super.c(bundle);
-        this.bzR.setText(bundle.getString(com.baidu.tbadk.core.frameworkData.a.POST_DESC));
-        ub();
-        em(false);
+    public void g(Bundle bundle) {
+        super.g(bundle);
+        this.head = bundle.getString(com.baidu.tbadk.core.frameworkData.a.POST_DESC);
     }
 
-    public void em(boolean z) {
+    public void dX(boolean z) {
         if (z) {
-            this.bzX.setVisibility(0);
+            this.bDH.setVisibility(0);
         } else {
-            this.bzW.setVisibility(0);
+            this.mPageProgressBar.setVisibility(0);
         }
     }
 
-    public void YG() {
-        this.bzW.setVisibility(8);
-        this.bzX.setVisibility(8);
+    public void stopLoadData() {
+        this.mPageProgressBar.setVisibility(8);
+        this.bDH.setVisibility(8);
     }
 
-    @Override // com.baidu.tbadk.mvc.h.a
-    protected void b(com.baidu.tbadk.mvc.b.a aVar) {
+    @Override // com.baidu.tbadk.mvc.i.a
+    protected void a(com.baidu.tbadk.mvc.b.a aVar) {
         if (aVar instanceof c) {
             c cVar = (c) aVar;
-            int Yz = cVar.Yz();
-            List<a> YB = cVar.YB();
-            int Yz2 = cVar.Yz() - cVar.YA();
-            YG();
-            if (Yz > 0) {
-                this.bzP.setTitleText(String.format(this.bzN.getString(y.praise_list_title_count), Integer.valueOf(Yz)));
+            int YX = cVar.YX();
+            List<a> YZ = cVar.YZ();
+            int YX2 = cVar.YX() - cVar.YY();
+            stopLoadData();
+            if (YX > 0) {
+                this.mPageNavigationBar.setTitleText(String.format(this.bDF.getPageContext().getString(z.praise_list_title_count), Integer.valueOf(YX)));
             } else {
-                this.bzP.setTitleText("");
+                this.mPageNavigationBar.setTitleText("");
             }
-            if (YB == null || YB.size() < 1) {
-                this.bzM.r(new ArrayList());
-                YH();
+            if (YZ == null || YZ.size() < 1) {
+                this.bDE.w(new ArrayList());
+                showNoData();
                 return;
             }
-            this.bzM.r(YB);
+            this.bDE.w(YZ);
             switch (cVar.getStatus()) {
                 case 1001:
-                    this.bzT.setVisibility(0);
-                    this.bzU.setVisibility(0);
-                    this.bzV.setVisibility(8);
+                    this.mPageFootView.setVisibility(0);
+                    this.mPageFootTextContinue.setVisibility(0);
+                    this.mPageFootTextMore.setVisibility(8);
                     return;
                 case 1002:
-                    this.bzT.setVisibility(8);
+                    this.mPageFootView.setVisibility(8);
                     return;
                 case 1003:
-                    this.bzT.setVisibility(0);
-                    aw.h(this.bzT, u.bg_pack);
-                    this.bzU.setVisibility(8);
-                    this.bzV.setVisibility(0);
-                    this.bzV.setText(String.format(this.bzN.getString(y.praise_item_more), Integer.valueOf(Yz2)));
+                    this.mPageFootView.setVisibility(0);
+                    ax.i(this.mPageFootView, v.bg_pack);
+                    this.mPageFootTextContinue.setVisibility(8);
+                    this.mPageFootTextMore.setVisibility(0);
+                    this.mPageFootTextMore.setText(String.format(this.bDF.getPageContext().getString(z.praise_item_more), Integer.valueOf(YX2)));
                     return;
                 default:
-                    this.bzT.setVisibility(8);
+                    this.mPageFootView.setVisibility(8);
                     return;
             }
         }
     }
 
-    public void YH() {
-        this.bzW.setVisibility(8);
-        this.bzX.setVisibility(8);
-        this.bzT.setVisibility(8);
+    public void showNoData() {
+        this.mPageProgressBar.setVisibility(8);
+        this.bDH.setVisibility(8);
+        this.mPageFootView.setVisibility(8);
     }
 
-    @Override // com.baidu.tbadk.mvc.core.c, com.baidu.tbadk.e.a
-    public boolean dg(int i) {
-        super.dg(i);
-        com.baidu.tbadk.e.b.u(this.bzO);
-        com.baidu.tbadk.e.b.u(this.bzQ);
-        com.baidu.tbadk.e.b.u(this.bzT);
-        this.bzP.onChangeSkinType(i);
-        this.bzM.dg(i);
-        aw.h(this.bzT, u.bg_pack);
+    @Override // com.baidu.tbadk.mvc.core.d, com.baidu.tbadk.mvc.core.c, com.baidu.tieba.tbadkCore.y
+    public boolean a(TbPageContext<?> tbPageContext, int i) {
+        super.a(tbPageContext, i);
+        com.baidu.tbadk.g.a.a(tbPageContext, this.bDG);
+        com.baidu.tbadk.g.a.a(tbPageContext, this.mPageHeadView);
+        com.baidu.tbadk.g.a.a(tbPageContext, this.mPageFootView);
+        this.mPageNavigationBar.onChangeSkinType(tbPageContext, i);
+        this.bDE.a(tbPageContext, i);
+        ax.i(this.mPageFootView, v.bg_pack);
         return true;
     }
 
-    public View YI() {
-        return this.bzQ;
+    public View getPageHeadView() {
+        return this.mPageHeadView;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
     public void a(ErrorData errorData) {
-        YG();
+        stopLoadData();
     }
 
-    @Override // com.baidu.tbadk.mvc.h.a
-    protected void ue() {
-        YG();
+    @Override // com.baidu.tbadk.mvc.i.a
+    protected void kG() {
+        stopLoadData();
     }
 
-    @Override // com.baidu.tbadk.mvc.h.a
-    protected void ud() {
-        em(true);
+    @Override // com.baidu.tbadk.mvc.i.a
+    protected void kH() {
+        dX(true);
     }
 }

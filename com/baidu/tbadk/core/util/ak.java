@@ -1,171 +1,83 @@
 package com.baidu.tbadk.core.util;
 
-import android.content.IntentFilter;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import java.util.LinkedList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class ak {
-    private static final String[] ED = {"/c/s/pv", "/c/f/pb/page", "/c/s/msg", "/c/f/pb/floor", "/c/m/getmsg", "/c/u/feed/replyme", "/c/f/forum/search", "/c/f/frs/page", "/c/f/forum/favocommend", "/c/u/user/profile"};
-    private static List<Integer> EE = new LinkedList();
-    private static ak EF;
-    private static al EG;
+    private static ak II;
+    private static long IK;
+    public static int IN;
+    private static volatile int IJ = 0;
+    private static int IL = 300000;
+    private static int IM = 10;
 
     private ak() {
-        EG = new al(this, null);
-        try {
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            TbadkApplication.m251getInst().getApp().registerReceiver(EG, intentFilter);
-        } catch (Throwable th) {
-            BdLog.e(th.getMessage());
-        }
+        IN = TbadkCoreApplication.m255getInst().getNetWorkCoreType();
     }
 
-    private static synchronized void mq() {
+    public static synchronized ak pi() {
+        ak akVar;
         synchronized (ak.class) {
-            if (EF == null) {
-                EF = new ak();
+            if (II == null) {
+                II = new ak();
             }
+            akVar = II;
+        }
+        return akVar;
+    }
+
+    public v a(com.baidu.tbadk.core.util.httpNet.c cVar) {
+        switch (IN) {
+            case 0:
+                return new ae(cVar);
+            case 1:
+                return new ag(cVar);
+            default:
+                return new ae(cVar);
         }
     }
 
-    public static ak mr() {
-        if (EF == null) {
-            mq();
-        }
-        return EF;
-    }
-
-    public static int bJ(String str) {
-        if (az.aA(str)) {
-            return -1;
-        }
-        for (int i = 0; i < ED.length; i++) {
-            if (str.contains(ED[i])) {
-                return i + 1;
-            }
-        }
-        return -1;
-    }
-
-    public synchronized void l(int i, int i2) {
-        List<am> list;
-        int i3;
-        if (i > 0 && i2 > 0) {
-            String string = com.baidu.tbadk.core.sharedPref.b.lk().getString("network_error_record", "");
-            if (az.aA(string)) {
-                list = new LinkedList<>();
-                am amVar = new am(this, null);
-                amVar.port = i;
-                amVar.action = i2;
-                amVar.count = 1;
-                list.add(amVar);
-            } else {
-                List<am> bL = bL(string);
-                int i4 = -1;
-                int i5 = 0;
-                while (i5 < bL.size()) {
-                    if (bL.get(i5).port == i && bL.get(i5).action == i2) {
-                        bL.get(i5).count++;
-                        i3 = i5;
-                    } else {
-                        i3 = i4;
+    public static synchronized void pj() {
+        synchronized (ak.class) {
+            if (IN == 1) {
+                long currentTimeMillis = System.currentTimeMillis();
+                if (currentTimeMillis - IK < IL) {
+                    IJ++;
+                    if (IJ > IM) {
+                        IN = 0;
+                        BdLog.e("切换会老的网络内核");
+                        TbadkCoreApplication.m255getInst().setNetWorkCoreType(IN);
+                        TiebaStatic.eventStat(TbadkCoreApplication.m255getInst().getApp().getApplicationContext(), "network_core", "current Net：" + com.baidu.adp.lib.util.i.fm() + ", TelType:" + com.baidu.adp.lib.util.i.fo() + ", wap:" + getNetType(), 1, new Object[0]);
                     }
-                    i5++;
-                    i4 = i3;
+                } else {
+                    IJ = 0;
+                    IK = currentTimeMillis;
                 }
-                if (i4 < 0) {
-                    am amVar2 = new am(this, null);
-                    amVar2.port = i;
-                    amVar2.action = i2;
-                    amVar2.count = 1;
-                    bL.add(amVar2);
-                }
-                list = bL;
-            }
-            String f = f(list);
-            if (!az.aA(f)) {
-                com.baidu.tbadk.core.sharedPref.b.lk().putString("network_error_record", f);
             }
         }
     }
 
-    public synchronized void ms() {
-        for (Integer num : EE) {
-            l(num.intValue(), 2);
-        }
-    }
-
-    public synchronized void bt(int i) {
-        if (i > 0) {
-            EE.add(Integer.valueOf(i));
-        }
-    }
-
-    public synchronized void bu(int i) {
-        if (i > 0) {
-            EE.remove(Integer.valueOf(i));
-        }
-    }
-
-    public synchronized void mt() {
-        com.baidu.tbadk.core.sharedPref.b.lk().remove("network_error_record");
-    }
-
-    public static void bK(String str) {
+    public static String getNetType() {
         try {
-            int bJ = bJ(str);
-            if (bJ > 0) {
-                mr().bu(bJ);
+            if (com.baidu.adp.lib.util.i.fg()) {
+                if (com.baidu.adp.lib.util.i.fh()) {
+                    return "wifi";
+                }
+                String fp = com.baidu.adp.lib.util.i.fp();
+                if (fp != null) {
+                    if (fp.length() > 0) {
+                        return "wap";
+                    }
+                }
+                return "net";
             }
+            return null;
         } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public synchronized String mu() {
-        return com.baidu.tbadk.core.sharedPref.b.lk().getString("network_error_record", "");
-    }
-
-    private String f(List<am> list) {
-        JSONArray jSONArray = new JSONArray();
-        try {
-            for (am amVar : list) {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("port", amVar.port);
-                jSONObject.put("action", amVar.action);
-                jSONObject.put(ImageViewerConfig.COUNT, amVar.count);
-                jSONArray.put(jSONObject);
-            }
-            return jSONArray.toString();
-        } catch (Throwable th) {
-            BdLog.e(th.getMessage());
             return null;
         }
     }
 
-    private List<am> bL(String str) {
-        LinkedList linkedList = new LinkedList();
-        try {
-            JSONArray jSONArray = new JSONArray(str);
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                am amVar = new am(this, null);
-                amVar.port = optJSONObject.getInt("port");
-                amVar.action = optJSONObject.getInt("action");
-                amVar.count = optJSONObject.getInt(ImageViewerConfig.COUNT);
-                linkedList.add(amVar);
-            }
-        } catch (JSONException e) {
-            BdLog.e(e.getMessage());
-        }
-        return linkedList;
+    public static void bP(int i) {
+        IN = i;
     }
 }

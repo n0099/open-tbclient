@@ -4,12 +4,11 @@ import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.data.ar;
 import com.squareup.wire.Wire;
 import tbclient.PbFloor.PbFloorResIdl;
 /* loaded from: classes.dex */
 public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
-    public ar pbFloorData;
+    public com.baidu.tieba.tbadkCore.b.o pbFloorData;
     private boolean treatDelPage;
 
     public boolean isTreatDelPage() {
@@ -25,7 +24,7 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) {
         Context context;
-        ar arVar = null;
+        com.baidu.tieba.tbadkCore.b.o oVar = null;
         super.decodeInBackGround(i, bArr);
         Object extra = getOrginalMessage().getExtra();
         if (extra == null || !(extra instanceof SubPbRequestMessage)) {
@@ -38,9 +37,9 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
         try {
             PbFloorResIdl pbFloorResIdl = (PbFloorResIdl) new Wire(new Class[0]).parseFrom(bArr, PbFloorResIdl.class);
             if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
-                arVar = ar.a(pbFloorResIdl.data, context);
-                if (arVar != null) {
-                    arVar.amM = pbFloorResIdl.error;
+                oVar = com.baidu.tieba.tbadkCore.b.o.a(pbFloorResIdl.data, context);
+                if (oVar != null) {
+                    oVar.bXj = pbFloorResIdl.error;
                 } else if (pbFloorResIdl.error != null) {
                     if (pbFloorResIdl.error.errorno != null) {
                         setError(pbFloorResIdl.error.errorno.intValue());
@@ -51,6 +50,6 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
         } catch (Exception e) {
             BdLog.detailException(e);
         }
-        this.pbFloorData = arVar;
+        this.pbFloorData = oVar;
     }
 }

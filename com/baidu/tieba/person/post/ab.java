@@ -2,21 +2,29 @@ package com.baidu.tieba.person.post;
 
 import android.content.Context;
 import android.view.View;
-import android.widget.ProgressBar;
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab {
-    com.baidu.tbadk.core.view.o ahX = null;
-    BdListView azI;
-    ProgressBar bEt;
-
-    public BdListView ET() {
-        return this.azI;
-    }
+public class ab implements View.OnClickListener {
+    final /* synthetic */ ReplyLinearLayout bHV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(Context context, View view) {
-        this.azI = (BdListView) view.findViewById(com.baidu.tieba.v.list);
-        this.bEt = (ProgressBar) view.findViewById(com.baidu.tieba.v.progress);
+    public ab(ReplyLinearLayout replyLinearLayout) {
+        this.bHV = replyLinearLayout;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String[] strArr = (String[]) view.getTag();
+        if (strArr != null) {
+            Context context = this.bHV.getContext();
+            if ("0".equals(strArr[3])) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(context).createNormalCfg(strArr[1], strArr[2], "person_post_reply")));
+            } else {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(context).createSubPbCfg(strArr[1], strArr[2], "person_post_reply")));
+            }
+        }
     }
 }

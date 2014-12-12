@@ -1,58 +1,109 @@
 package com.baidu.tbadk.core.util;
 
-import android.content.pm.PackageInfo;
-import com.baidu.adp.lib.util.BdLog;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class bb {
-    public static String a(PackageInfo packageInfo) {
-        long j = 0;
-        String b = b(packageInfo);
-        if (b == null || b.length() < 32) {
-            return "-1";
-        }
-        String substring = b.substring(8, 24);
-        long j2 = 0;
-        for (int i = 0; i < 8; i++) {
-            j2 = (j2 * 16) + Integer.parseInt(substring.substring(i, i + 1), 16);
-        }
-        for (int i2 = 8; i2 < substring.length(); i2++) {
-            j = (j * 16) + Integer.parseInt(substring.substring(i2, i2 + 1), 16);
-        }
-        return String.valueOf((j + j2) & 4294967295L);
-    }
+    private static bb Js = null;
+    private boolean Jt = false;
+    private boolean Ju = false;
+    private int Jv = TbConfig.POST_IMAGE_SMALL;
+    private String Jw = String.valueOf(45);
 
-    private static String b(PackageInfo packageInfo) {
-        if (packageInfo == null) {
-            return null;
-        }
-        try {
-            return com.baidu.adp.lib.util.u.n(packageInfo.signatures[0].toCharsString().getBytes());
-        } catch (Exception e) {
-            BdLog.detailException(e);
-            return null;
-        }
-    }
-
-    public static String c(PackageInfo packageInfo) {
-        if (packageInfo == null) {
-            return null;
-        }
-        File file = new File(packageInfo.applicationInfo.publicSourceDir);
-        if (file.exists()) {
-            try {
-                return com.baidu.adp.lib.util.u.b(new FileInputStream(file));
-            } catch (FileNotFoundException e) {
-                BdLog.detailException(e);
-                return null;
+    public static bb px() {
+        if (Js == null) {
+            synchronized (bb.class) {
+                Js = new bb();
             }
         }
-        return null;
+        return Js;
     }
 
-    public static String bQ(String str) {
-        return com.baidu.adp.lib.util.u.aE(str);
+    public bb() {
+        pA();
+        py();
+    }
+
+    private void py() {
+        pE();
+        pF();
+        pG();
+    }
+
+    public void al(boolean z) {
+        this.Ju = z;
+    }
+
+    public boolean pz() {
+        return this.Ju;
+    }
+
+    public void am(boolean z) {
+        this.Jt = z;
+        py();
+    }
+
+    private void pA() {
+        this.Jt = com.baidu.adp.lib.util.i.fh();
+    }
+
+    public boolean pB() {
+        return this.Jt;
+    }
+
+    public String pC() {
+        return this.Jw;
+    }
+
+    public int pD() {
+        pG();
+        return this.Jv;
+    }
+
+    public void pE() {
+        boolean z = true;
+        if (com.baidu.tbadk.core.l.mc().getViewImageQuality() != 0 ? com.baidu.tbadk.core.l.mc().getViewImageQuality() != 1 : !this.Jt) {
+            z = false;
+        }
+        al(z);
+    }
+
+    public void pF() {
+        String valueOf = String.valueOf(45);
+        if (com.baidu.tbadk.core.l.mc().getViewImageQuality() == 0) {
+            if (pB()) {
+                valueOf = String.valueOf(80);
+            }
+        } else if (com.baidu.tbadk.core.l.mc().getViewImageQuality() == 1) {
+            valueOf = String.valueOf(80);
+        }
+        this.Jw = valueOf;
+    }
+
+    public void pG() {
+        int i = TbConfig.POST_IMAGE_BIG;
+        switch (com.baidu.tbadk.core.l.mc().mf()) {
+            case 0:
+                if (!pB()) {
+                    i = 600;
+                    break;
+                }
+                break;
+            case 1:
+                break;
+            case 2:
+                i = 750;
+                break;
+            case 3:
+                i = 600;
+                break;
+            default:
+                i = 750;
+                break;
+        }
+        this.Jv = i;
+    }
+
+    public static boolean pH() {
+        return s.bN() && com.baidu.adp.gif.f.bM();
     }
 }

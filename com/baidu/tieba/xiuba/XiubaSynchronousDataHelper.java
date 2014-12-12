@@ -10,7 +10,7 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
-import com.baidu.adp.lib.g.i;
+import com.baidu.adp.lib.g.j;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
@@ -34,7 +34,7 @@ public class XiubaSynchronousDataHelper {
     private XiubaPay xiubaPay;
     private Messenger mReplyMessenger = new Messenger(new IncomingHandler(this, null));
     private Connection mConnection = new Connection(this, null);
-    private Context mContext = TbadkApplication.m251getInst().getApplicationContext();
+    private Context mContext = TbadkApplication.getInst().getApplicationContext();
 
     private XiubaSynchronousDataHelper() {
     }
@@ -173,15 +173,15 @@ public class XiubaSynchronousDataHelper {
 
     public void start() {
         Intent intent = new Intent(this.mContext, XiubaSynchronousDataService.class);
-        i.a(this.mContext, this.mConnection);
-        i.a(this.mContext, intent, this.mConnection, 1);
+        j.a(this.mContext, this.mConnection);
+        j.a(this.mContext, intent, this.mConnection, 1);
     }
 
     public void close() {
         sendDisConnect();
         BdLog.i(LoginActivityConfig.CLOSE);
         if (this.mSendMessenger != null) {
-            i.a(this.mContext, this.mConnection);
+            j.a(this.mContext, this.mConnection);
         }
     }
 

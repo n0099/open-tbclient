@@ -1,20 +1,19 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cv extends CustomMessageListener {
+public class cv implements com.baidu.tbadk.img.b<ChatMessage> {
+    final /* synthetic */ TalkableActivity aRW;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cv(int i) {
-        super(i);
+    public cv(TalkableActivity talkableActivity) {
+        this.aRW = talkableActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016) {
-            return;
-        }
-        PersonalChatActivity.aPS = null;
+    @Override // com.baidu.tbadk.img.b
+    public void a(int i, ChatMessage chatMessage) {
+        this.aRW.mListView.updateAdapter(i, chatMessage);
     }
 }

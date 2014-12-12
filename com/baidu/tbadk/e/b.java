@@ -1,33 +1,42 @@
 package com.baidu.tbadk.e;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.adp.plugin.packageManager.pluginFileDownload.BdFileDownloadData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b {
-    public static final boolean u(View view) {
-        if (view == null) {
-            return false;
-        }
-        return d(view.getContext(), view);
+public class b extends Handler {
+    final /* synthetic */ a ahj;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public b(a aVar) {
+        this.ahj = aVar;
     }
 
-    public static final boolean d(Context context, View view) {
-        if (context == null || view == null) {
-            return false;
-        }
-        if (context instanceof BaseActivity) {
-            ((BaseActivity) context).getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
-            ((BaseActivity) context).getLayoutMode().h(view);
-            return true;
-        } else if (context instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) context).getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
-            ((BaseFragmentActivity) context).getLayoutMode().h(view);
-            return true;
-        } else {
-            return false;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        BdFileDownloadData bdFileDownloadData;
+        BdFileDownloadData bdFileDownloadData2;
+        BdFileDownloadData bdFileDownloadData3;
+        BdFileDownloadData bdFileDownloadData4;
+        BdFileDownloadData bdFileDownloadData5;
+        BdFileDownloadData bdFileDownloadData6;
+        super.handleMessage(message);
+        if (message.what == 900002 && message.arg2 > 0) {
+            bdFileDownloadData = a.ahh;
+            if (bdFileDownloadData != null) {
+                bdFileDownloadData2 = a.ahh;
+                bdFileDownloadData2.setLength(message.arg1);
+                bdFileDownloadData3 = a.ahh;
+                bdFileDownloadData3.setSize(message.arg2);
+                bdFileDownloadData4 = a.ahh;
+                if (bdFileDownloadData4.getCallback() != null) {
+                    bdFileDownloadData5 = a.ahh;
+                    com.baidu.adp.plugin.packageManager.pluginFileDownload.a callback = bdFileDownloadData5.getCallback();
+                    bdFileDownloadData6 = a.ahh;
+                    callback.e(bdFileDownloadData6);
+                }
+            }
         }
     }
 }

@@ -75,9 +75,9 @@ class h {
     }
 
     public static String a(int i, int i2, int i3) {
-        a m220if = m220if(i, i2, i3);
-        if (m220if != null) {
-            return String.format("{\"result\":{\"time\":\"" + j.a() + "\",\"error\":\"65\"},\"content\":{\"point\":{\"x\":\"%f\",\"y\":\"%f\"},\"radius\":\"%d\"}}", Double.valueOf(m220if.f179new), Double.valueOf(m220if.f178int), Integer.valueOf((int) m220if.f176for));
+        a m223if = m223if(i, i2, i3);
+        if (m223if != null) {
+            return String.format("{\"result\":{\"time\":\"" + j.a() + "\",\"error\":\"65\"},\"content\":{\"point\":{\"x\":\"%f\",\"y\":\"%f\"},\"radius\":\"%d\"}}", Double.valueOf(m223if.f179new), Double.valueOf(m223if.f178int), Integer.valueOf((int) m223if.f176for));
         }
         return null;
     }
@@ -114,11 +114,11 @@ class h {
             return;
         }
         float f2 = f < f170for ? f170for : f;
-        a m220if = m220if(aVar.f108if, aVar.f107for, aVar.f111try);
-        if (m220if != null) {
-            m220if.f179new = d;
-            m220if.f178int = d2;
-            m220if.f176for = f2;
+        a m223if = m223if(aVar.f108if, aVar.f107for, aVar.f111try);
+        if (m223if != null) {
+            m223if.f179new = d;
+            m223if.f178int = d2;
+            m223if.f176for = f2;
             j.a(f171if, "locCache update loc cache ...");
             return;
         }
@@ -133,7 +133,7 @@ class h {
     }
 
     /* renamed from: do  reason: not valid java name */
-    private static void m219do() {
+    private static void m222do() {
         File file;
         if (f172int == null) {
             return;
@@ -181,7 +181,7 @@ class h {
     }
 
     /* renamed from: if  reason: not valid java name */
-    private static a m220if(int i, int i2, int i3) {
+    private static a m223if(int i, int i2, int i3) {
         try {
             if (f172int == null || f172int.size() < 1) {
                 a();
@@ -202,7 +202,7 @@ class h {
     }
 
     /* renamed from: if  reason: not valid java name */
-    public static void m221if() {
-        m219do();
+    public static void m224if() {
+        m222do();
     }
 }

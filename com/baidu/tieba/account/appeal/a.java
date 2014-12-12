@@ -3,16 +3,15 @@ package com.baidu.tieba.account.appeal;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.TextView;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tieba.s;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class a implements TextWatcher {
-    final /* synthetic */ AppealActivity agb;
+    final /* synthetic */ AppealActivity ans;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(AppealActivity appealActivity) {
-        this.agb = appealActivity;
+        this.ans = appealActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -29,17 +28,16 @@ class a implements TextWatcher {
         TextView textView2;
         TextView textView3;
         TextView textView4;
-        textView = this.agb.afW;
+        textView = this.ans.ann;
         int length = 150 - textView.getText().toString().length();
-        textView2 = this.agb.afX;
+        textView2 = this.ans.ano;
         textView2.setText(String.valueOf(length));
         if (length < 0) {
-            textView4 = this.agb.afX;
-            textView4.setTextColor(this.agb.getResources().getColor(s.red));
+            textView4 = this.ans.ano;
+            textView4.setTextColor(this.ans.getResources().getColor(t.red));
             return;
         }
-        TbadkApplication.m251getInst().getSkinType();
-        textView3 = this.agb.afX;
-        aw.b(textView3, s.appeal_hint, 1);
+        textView3 = this.ans.ano;
+        ax.b(textView3, t.appeal_hint, 1);
     }
 }

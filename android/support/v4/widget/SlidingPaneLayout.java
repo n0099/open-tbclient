@@ -180,7 +180,7 @@ public class SlidingPaneLayout extends ViewGroup {
         int width = getWidth() - getPaddingRight();
         int paddingTop = getPaddingTop();
         int height = getHeight() - getPaddingBottom();
-        if (view != null && hasOpaqueBackground(view)) {
+        if (view != null && viewIsOpaque(view)) {
             i4 = view.getLeft();
             i3 = view.getRight();
             i2 = view.getTop();
@@ -221,9 +221,12 @@ public class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    private static boolean hasOpaqueBackground(View view) {
-        Drawable background = view.getBackground();
-        return background != null && background.getOpacity() == -1;
+    private static boolean viewIsOpaque(View view) {
+        Drawable background;
+        if (ViewCompat.isOpaque(view)) {
+            return true;
+        }
+        return Build.VERSION.SDK_INT < 18 && (background = view.getBackground()) != null && background.getOpacity() == -1;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -246,13 +249,16 @@ public class SlidingPaneLayout extends ViewGroup {
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         int i3;
+        int i4;
+        int i5;
+        int i6;
         int paddingTop;
         int makeMeasureSpec;
         int makeMeasureSpec2;
         int makeMeasureSpec3;
         int makeMeasureSpec4;
-        int i4;
-        int i5;
+        int i7;
+        int i8;
         boolean z;
         float f;
         int mode = View.MeasureSpec.getMode(i);
@@ -260,64 +266,93 @@ public class SlidingPaneLayout extends ViewGroup {
         int mode2 = View.MeasureSpec.getMode(i2);
         int size2 = View.MeasureSpec.getSize(i2);
         if (mode != 1073741824) {
-            throw new IllegalStateException("Width must have an exact value or MATCH_PARENT");
+            if (isInEditMode()) {
+                if (mode == Integer.MIN_VALUE) {
+                    i3 = mode2;
+                    i4 = size;
+                    i5 = size2;
+                } else {
+                    if (mode == 0) {
+                        i3 = mode2;
+                        i4 = 300;
+                        i5 = size2;
+                    }
+                    i3 = mode2;
+                    i4 = size;
+                    i5 = size2;
+                }
+            } else {
+                throw new IllegalStateException("Width must have an exact value or MATCH_PARENT");
+            }
+        } else {
+            if (mode2 == 0) {
+                if (isInEditMode()) {
+                    if (mode2 == 0) {
+                        i3 = Integer.MIN_VALUE;
+                        i4 = size;
+                        i5 = 300;
+                    }
+                } else {
+                    throw new IllegalStateException("Height must not be UNSPECIFIED");
+                }
+            }
+            i3 = mode2;
+            i4 = size;
+            i5 = size2;
         }
-        if (mode2 == 0) {
-            throw new IllegalStateException("Height must not be UNSPECIFIED");
-        }
-        switch (mode2) {
-            case Integer.MIN_VALUE:
-                i3 = 0;
-                paddingTop = (size2 - getPaddingTop()) - getPaddingBottom();
+        switch (i3) {
+            case ExploreByTouchHelper.INVALID_ID /* -2147483648 */:
+                i6 = 0;
+                paddingTop = (i5 - getPaddingTop()) - getPaddingBottom();
                 break;
             case 1073741824:
-                i3 = (size2 - getPaddingTop()) - getPaddingBottom();
-                paddingTop = i3;
+                i6 = (i5 - getPaddingTop()) - getPaddingBottom();
+                paddingTop = i6;
                 break;
             default:
-                i3 = 0;
+                i6 = 0;
                 paddingTop = -1;
                 break;
         }
         boolean z2 = false;
-        int paddingLeft = (size - getPaddingLeft()) - getPaddingRight();
+        int paddingLeft = (i4 - getPaddingLeft()) - getPaddingRight();
         int childCount = getChildCount();
         if (childCount > 2) {
             Log.e(TAG, "onMeasure: More than two child views are not supported.");
         }
         this.mSlideableView = null;
-        int i6 = 0;
-        int i7 = i3;
+        int i9 = 0;
+        int i10 = i6;
         float f2 = 0.0f;
-        while (i6 < childCount) {
-            View childAt = getChildAt(i6);
+        while (i9 < childCount) {
+            View childAt = getChildAt(i9);
             LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
             if (childAt.getVisibility() == 8) {
                 layoutParams.dimWhenOffset = false;
-                i4 = paddingLeft;
+                i7 = paddingLeft;
                 f = f2;
-                i5 = i7;
+                i8 = i10;
                 z = z2;
             } else {
                 if (layoutParams.weight > 0.0f) {
                     f2 += layoutParams.weight;
                     if (layoutParams.width == 0) {
-                        i4 = paddingLeft;
+                        i7 = paddingLeft;
                         f = f2;
-                        i5 = i7;
+                        i8 = i10;
                         z = z2;
                     }
                 }
-                int i8 = layoutParams.leftMargin + layoutParams.rightMargin;
+                int i11 = layoutParams.leftMargin + layoutParams.rightMargin;
                 if (layoutParams.width == -2) {
-                    makeMeasureSpec3 = View.MeasureSpec.makeMeasureSpec(size - i8, Integer.MIN_VALUE);
+                    makeMeasureSpec3 = View.MeasureSpec.makeMeasureSpec(i4 - i11, ExploreByTouchHelper.INVALID_ID);
                 } else if (layoutParams.width == -1) {
-                    makeMeasureSpec3 = View.MeasureSpec.makeMeasureSpec(size - i8, 1073741824);
+                    makeMeasureSpec3 = View.MeasureSpec.makeMeasureSpec(i4 - i11, 1073741824);
                 } else {
                     makeMeasureSpec3 = View.MeasureSpec.makeMeasureSpec(layoutParams.width, 1073741824);
                 }
                 if (layoutParams.height == -2) {
-                    makeMeasureSpec4 = View.MeasureSpec.makeMeasureSpec(paddingTop, Integer.MIN_VALUE);
+                    makeMeasureSpec4 = View.MeasureSpec.makeMeasureSpec(paddingTop, ExploreByTouchHelper.INVALID_ID);
                 } else if (layoutParams.height == -1) {
                     makeMeasureSpec4 = View.MeasureSpec.makeMeasureSpec(paddingTop, 1073741824);
                 } else {
@@ -326,77 +361,79 @@ public class SlidingPaneLayout extends ViewGroup {
                 childAt.measure(makeMeasureSpec3, makeMeasureSpec4);
                 int measuredWidth = childAt.getMeasuredWidth();
                 int measuredHeight = childAt.getMeasuredHeight();
-                if (mode2 == Integer.MIN_VALUE && measuredHeight > i7) {
-                    i7 = Math.min(measuredHeight, paddingTop);
+                if (i3 == Integer.MIN_VALUE && measuredHeight > i10) {
+                    i10 = Math.min(measuredHeight, paddingTop);
                 }
-                int i9 = paddingLeft - measuredWidth;
-                boolean z3 = i9 < 0;
+                int i12 = paddingLeft - measuredWidth;
+                boolean z3 = i12 < 0;
                 layoutParams.slideable = z3;
                 boolean z4 = z3 | z2;
                 if (layoutParams.slideable) {
                     this.mSlideableView = childAt;
                 }
-                i4 = i9;
-                i5 = i7;
+                i7 = i12;
+                i8 = i10;
                 float f3 = f2;
                 z = z4;
                 f = f3;
             }
-            i6++;
+            i9++;
             z2 = z;
-            i7 = i5;
+            i10 = i8;
             f2 = f;
-            paddingLeft = i4;
+            paddingLeft = i7;
         }
         if (z2 || f2 > 0.0f) {
-            int i10 = size - this.mOverhangSize;
-            for (int i11 = 0; i11 < childCount; i11++) {
-                View childAt2 = getChildAt(i11);
+            int i13 = i4 - this.mOverhangSize;
+            for (int i14 = 0; i14 < childCount; i14++) {
+                View childAt2 = getChildAt(i14);
                 if (childAt2.getVisibility() != 8) {
                     LayoutParams layoutParams2 = (LayoutParams) childAt2.getLayoutParams();
-                    boolean z5 = layoutParams2.width == 0 && layoutParams2.weight > 0.0f;
-                    int measuredWidth2 = z5 ? 0 : childAt2.getMeasuredWidth();
-                    if (z2 && childAt2 != this.mSlideableView) {
-                        if (layoutParams2.width < 0 && (measuredWidth2 > i10 || layoutParams2.weight > 0.0f)) {
-                            if (z5) {
-                                if (layoutParams2.height == -2) {
-                                    makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(paddingTop, Integer.MIN_VALUE);
-                                } else if (layoutParams2.height == -1) {
-                                    makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(paddingTop, 1073741824);
+                    if (childAt2.getVisibility() != 8) {
+                        boolean z5 = layoutParams2.width == 0 && layoutParams2.weight > 0.0f;
+                        int measuredWidth2 = z5 ? 0 : childAt2.getMeasuredWidth();
+                        if (z2 && childAt2 != this.mSlideableView) {
+                            if (layoutParams2.width < 0 && (measuredWidth2 > i13 || layoutParams2.weight > 0.0f)) {
+                                if (z5) {
+                                    if (layoutParams2.height == -2) {
+                                        makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(paddingTop, ExploreByTouchHelper.INVALID_ID);
+                                    } else if (layoutParams2.height == -1) {
+                                        makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(paddingTop, 1073741824);
+                                    } else {
+                                        makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(layoutParams2.height, 1073741824);
+                                    }
                                 } else {
-                                    makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(layoutParams2.height, 1073741824);
+                                    makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(childAt2.getMeasuredHeight(), 1073741824);
+                                }
+                                childAt2.measure(View.MeasureSpec.makeMeasureSpec(i13, 1073741824), makeMeasureSpec2);
+                            }
+                        } else if (layoutParams2.weight > 0.0f) {
+                            if (layoutParams2.width == 0) {
+                                if (layoutParams2.height == -2) {
+                                    makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(paddingTop, ExploreByTouchHelper.INVALID_ID);
+                                } else if (layoutParams2.height == -1) {
+                                    makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(paddingTop, 1073741824);
+                                } else {
+                                    makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(layoutParams2.height, 1073741824);
                                 }
                             } else {
-                                makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(childAt2.getMeasuredHeight(), 1073741824);
+                                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(childAt2.getMeasuredHeight(), 1073741824);
                             }
-                            childAt2.measure(View.MeasureSpec.makeMeasureSpec(i10, 1073741824), makeMeasureSpec2);
-                        }
-                    } else if (layoutParams2.weight > 0.0f) {
-                        if (layoutParams2.width == 0) {
-                            if (layoutParams2.height == -2) {
-                                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(paddingTop, Integer.MIN_VALUE);
-                            } else if (layoutParams2.height == -1) {
-                                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(paddingTop, 1073741824);
+                            if (z2) {
+                                int i15 = i4 - (layoutParams2.rightMargin + layoutParams2.leftMargin);
+                                int makeMeasureSpec5 = View.MeasureSpec.makeMeasureSpec(i15, 1073741824);
+                                if (measuredWidth2 != i15) {
+                                    childAt2.measure(makeMeasureSpec5, makeMeasureSpec);
+                                }
                             } else {
-                                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(layoutParams2.height, 1073741824);
+                                childAt2.measure(View.MeasureSpec.makeMeasureSpec(((int) ((layoutParams2.weight * Math.max(0, paddingLeft)) / f2)) + measuredWidth2, 1073741824), makeMeasureSpec);
                             }
-                        } else {
-                            makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(childAt2.getMeasuredHeight(), 1073741824);
-                        }
-                        if (z2) {
-                            int i12 = size - (layoutParams2.rightMargin + layoutParams2.leftMargin);
-                            int makeMeasureSpec5 = View.MeasureSpec.makeMeasureSpec(i12, 1073741824);
-                            if (measuredWidth2 != i12) {
-                                childAt2.measure(makeMeasureSpec5, makeMeasureSpec);
-                            }
-                        } else {
-                            childAt2.measure(View.MeasureSpec.makeMeasureSpec(((int) ((layoutParams2.weight * Math.max(0, paddingLeft)) / f2)) + measuredWidth2, 1073741824), makeMeasureSpec);
                         }
                     }
                 }
             }
         }
-        setMeasuredDimension(size, i7);
+        setMeasuredDimension(i4, i10);
         this.mCanSlide = z2;
         if (this.mDragHelper.getViewDragState() != 0 && !z2) {
             this.mDragHelper.abort();
@@ -1014,20 +1051,28 @@ public class SlidingPaneLayout extends ViewGroup {
         public void onInitializeAccessibilityNodeInfo(View view, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
             AccessibilityNodeInfoCompat obtain = AccessibilityNodeInfoCompat.obtain(accessibilityNodeInfoCompat);
             super.onInitializeAccessibilityNodeInfo(view, obtain);
+            copyNodeInfoNoChildren(accessibilityNodeInfoCompat, obtain);
+            obtain.recycle();
+            accessibilityNodeInfoCompat.setClassName(SlidingPaneLayout.class.getName());
             accessibilityNodeInfoCompat.setSource(view);
             ViewParent parentForAccessibility = ViewCompat.getParentForAccessibility(view);
             if (parentForAccessibility instanceof View) {
                 accessibilityNodeInfoCompat.setParent((View) parentForAccessibility);
             }
-            copyNodeInfoNoChildren(accessibilityNodeInfoCompat, obtain);
-            obtain.recycle();
             int childCount = SlidingPaneLayout.this.getChildCount();
             for (int i = 0; i < childCount; i++) {
                 View childAt = SlidingPaneLayout.this.getChildAt(i);
-                if (!filter(childAt)) {
+                if (!filter(childAt) && childAt.getVisibility() == 0) {
+                    ViewCompat.setImportantForAccessibility(childAt, 1);
                     accessibilityNodeInfoCompat.addChild(childAt);
                 }
             }
+        }
+
+        @Override // android.support.v4.view.AccessibilityDelegateCompat
+        public void onInitializeAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
+            super.onInitializeAccessibilityEvent(view, accessibilityEvent);
+            accessibilityEvent.setClassName(SlidingPaneLayout.class.getName());
         }
 
         @Override // android.support.v4.view.AccessibilityDelegateCompat
@@ -1060,6 +1105,7 @@ public class SlidingPaneLayout extends ViewGroup {
             accessibilityNodeInfoCompat.setSelected(accessibilityNodeInfoCompat2.isSelected());
             accessibilityNodeInfoCompat.setLongClickable(accessibilityNodeInfoCompat2.isLongClickable());
             accessibilityNodeInfoCompat.addAction(accessibilityNodeInfoCompat2.getActions());
+            accessibilityNodeInfoCompat.setMovementGranularities(accessibilityNodeInfoCompat2.getMovementGranularities());
         }
     }
 

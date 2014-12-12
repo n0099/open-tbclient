@@ -3,5 +3,5 @@ package com.baidu.tbadk.widget;
 public interface p {
     void onCancel();
 
-    void q(String str, boolean z);
+    void onComplete(String str, boolean z);
 }

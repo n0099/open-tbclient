@@ -1,49 +1,50 @@
 package com.baidu.tbadk.widget;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.performanceLog.v;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ TbImageView abk;
+    final /* synthetic */ TbImageView aiW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(TbImageView tbImageView) {
-        this.abk = tbImageView;
+        this.aiW = tbImageView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.f.c
-    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+    public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
         p pVar;
         long j;
         p pVar2;
-        this.abk.stopLoading();
+        this.aiW.stopLoading();
         BdLog.i("imagecallback. resourceFrom-" + i);
-        pVar = this.abk.aaW;
+        pVar = this.aiW.aiI;
         if (pVar != null) {
             if (aVar != null) {
-                this.abk.abh = aVar.getWidth();
-                this.abk.abi = aVar.getHeight();
+                this.aiW.aiT = aVar.getWidth();
+                this.aiW.aiU = aVar.getHeight();
             }
-            pVar2 = this.abk.aaW;
-            pVar2.q(str, aVar != null);
+            pVar2 = this.aiW.aiI;
+            pVar2.onComplete(str, aVar != null);
         }
         if (aVar != null) {
-            if (aVar.tj != null) {
-                this.abk.abf.tl = aVar.tj.tl;
-                this.abk.abf.isSuccess = aVar.tj.tn;
-                this.abk.abf.tm = aVar.tj.tm;
+            if (aVar.vu != null) {
+                this.aiW.aiR.vw = aVar.vu.vw;
+                this.aiW.aiR.isSuccess = aVar.vu.vy;
+                this.aiW.aiR.vx = aVar.vu.vx;
             }
         } else {
-            this.abk.abf.tl = "net";
-            this.abk.abf.isSuccess = false;
-            com.baidu.tbadk.performanceLog.o oVar = this.abk.abf;
+            this.aiW.aiR.vw = "net";
+            this.aiW.aiR.isSuccess = false;
+            v vVar = this.aiW.aiR;
             long currentTimeMillis = System.currentTimeMillis();
-            j = this.abk.abg;
-            oVar.tm = currentTimeMillis - j;
+            j = this.aiW.aiS;
+            vVar.vx = currentTimeMillis - j;
         }
-        this.abk.nt();
+        this.aiW.qu();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -54,14 +55,14 @@ public class o extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.f.c
-    public void aa(String str) {
+    public void onCancelled(String str) {
         p pVar;
         p pVar2;
-        super.aa(str);
-        this.abk.stopLoading();
-        pVar = this.abk.aaW;
+        super.onCancelled(str);
+        this.aiW.stopLoading();
+        pVar = this.aiW.aiI;
         if (pVar != null) {
-            pVar2 = this.abk.aaW;
+            pVar2 = this.aiW.aiI;
             pVar2.onCancel();
         }
     }

@@ -2,14 +2,15 @@ package com.baidu.tieba.im.groupUpdates;
 
 import android.view.View;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
+import com.baidu.tieba.im.data.UpdatesItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnLongClickListener {
-    final /* synthetic */ i bcu;
+    final /* synthetic */ i bga;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(i iVar) {
-        this.bcu = iVar;
+        this.bga = iVar;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -17,10 +18,10 @@ public class l implements View.OnLongClickListener {
         UpdatesActivity updatesActivity;
         View view2;
         UpdatesItemData updatesItemData;
-        updatesActivity = this.bcu.bck;
-        view2 = this.bcu.bcl;
-        updatesItemData = this.bcu.bct;
-        updatesActivity.b(view2, Constants.MEDIA_INFO, 0, 0L, updatesItemData);
+        updatesActivity = this.bga.bfS;
+        view2 = this.bga.avy;
+        updatesItemData = this.bga.data;
+        updatesActivity.onItemViewLongClick(view2, Constants.MEDIA_INFO, 0, 0L, updatesItemData);
         return true;
     }
 }

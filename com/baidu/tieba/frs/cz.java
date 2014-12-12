@@ -1,34 +1,17 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class cz {
-    private long aEu;
-    private long aEv;
-    private long aEw;
+class cz {
+    LinearLayout aDw;
+    TextView mTitle;
 
-    public cz(Context context) {
-        z(0L);
-        A(0L);
+    private cz() {
     }
 
-    public void z(long j) {
-        this.aEu = j;
-    }
-
-    public long GN() {
-        return this.aEu + this.aEv;
-    }
-
-    public void A(long j) {
-        this.aEv = j;
-    }
-
-    public long GO() {
-        return this.aEw;
-    }
-
-    public void B(long j) {
-        this.aEw = j;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ cz(cz czVar) {
+        this();
     }
 }

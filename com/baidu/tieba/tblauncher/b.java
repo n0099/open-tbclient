@@ -5,30 +5,30 @@ import com.baidu.tbadk.core.view.BaseViewPager;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 class b implements com.baidu.tbadk.core.view.a {
-    final /* synthetic */ GuideActivity bOC;
+    final /* synthetic */ GuideActivity caM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(GuideActivity guideActivity) {
-        this.bOC = guideActivity;
+        this.caM = guideActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.a
-    public void bE(int i) {
+    public void cb(int i) {
         BaseViewPager baseViewPager;
         String str;
         BaseViewPager baseViewPager2;
         if (i == 0) {
-            baseViewPager = this.bOC.bOs;
+            baseViewPager = this.caM.caC;
             if (baseViewPager != null) {
-                baseViewPager2 = this.bOC.bOs;
+                baseViewPager2 = this.caM.caC;
                 baseViewPager2.setOnScrollOutListener(null);
             }
-            str = this.bOC.bOo;
+            str = this.caM.cay;
             if (!str.equals(GuildActivityConfig.FROM_ABOUT_PAGE)) {
-                this.bOC.oq();
+                this.caM.rq();
             }
-            CompatibleUtile.setAnim(this.bOC, 0, com.baidu.tieba.p.left);
-            this.bOC.closeActivity();
+            CompatibleUtile.setAnim(this.caM.getPageContext().getPageActivity(), 0, com.baidu.tieba.q.left);
+            this.caM.closeActivity();
         }
     }
 }

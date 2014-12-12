@@ -5,6 +5,7 @@ import com.squareup.wire.ProtoField;
 /* loaded from: classes.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_CONTENT = "";
+    public static final String DEFAULT_ST_TYPE = "";
     @ProtoField(tag = 4, type = Message.Datatype.STRING)
     public final String content;
     @ProtoField(tag = 5, type = Message.Datatype.INT32)
@@ -15,6 +16,8 @@ public final class DataReq extends Message {
     public final Integer msgType;
     @ProtoField(tag = 6, type = Message.Datatype.INT64)
     public final Long recordId;
+    @ProtoField(tag = 8, type = Message.Datatype.STRING)
+    public final String st_type;
     @ProtoField(tag = 2, type = Message.Datatype.INT64)
     public final Long toUid;
     @ProtoField(tag = 7, type = Message.Datatype.INT32)
@@ -65,9 +68,14 @@ public final class DataReq extends Message {
             }
             if (builder.toUserType == null) {
                 this.toUserType = DEFAULT_TOUSERTYPE;
-                return;
             } else {
                 this.toUserType = builder.toUserType;
+            }
+            if (builder.st_type == null) {
+                this.st_type = "";
+                return;
+            } else {
+                this.st_type = builder.st_type;
                 return;
             }
         }
@@ -78,6 +86,7 @@ public final class DataReq extends Message {
         this.duration = builder.duration;
         this.recordId = builder.recordId;
         this.toUserType = builder.toUserType;
+        this.st_type = builder.st_type;
     }
 
     /* loaded from: classes.dex */
@@ -87,6 +96,7 @@ public final class DataReq extends Message {
         public Integer groupId;
         public Integer msgType;
         public Long recordId;
+        public String st_type;
         public Long toUid;
         public Integer toUserType;
 
@@ -100,6 +110,7 @@ public final class DataReq extends Message {
                 this.duration = dataReq.duration;
                 this.recordId = dataReq.recordId;
                 this.toUserType = dataReq.toUserType;
+                this.st_type = dataReq.st_type;
             }
         }
 

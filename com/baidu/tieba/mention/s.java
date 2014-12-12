@@ -1,25 +1,29 @@
 package com.baidu.tieba.mention;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
-public class s extends CustomMessageListener {
-    final /* synthetic */ r bnT;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s(r rVar, int i) {
-        super(i);
-        this.bnT = rVar;
+public class s extends com.baidu.tbadk.mvc.model.a<ae, SingleMentionActivity> {
+    public s(TbPageContext<SingleMentionActivity> tbPageContext) {
+        super(tbPageContext);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001124) {
-            return;
-        }
-        this.bnT.d(customResponsedMessage);
+    @Override // com.baidu.tbadk.mvc.a.b
+    public Class<ae> ln() {
+        return ae.class;
+    }
+
+    @Override // com.baidu.tbadk.mvc.a.b
+    public int lo() {
+        return 2001264;
+    }
+
+    @Override // com.baidu.tbadk.mvc.a.b
+    public int lp() {
+        return 2001264;
+    }
+
+    @Override // com.baidu.tbadk.mvc.a.b
+    public String lq() {
+        return "tb_user_replyme";
     }
 }

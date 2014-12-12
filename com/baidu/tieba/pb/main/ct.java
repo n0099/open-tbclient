@@ -1,25 +1,34 @@
 package com.baidu.tieba.pb.main;
 
-import android.util.SparseArray;
+import android.view.MotionEvent;
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ct implements View.OnClickListener {
-    final /* synthetic */ bv byW;
+public class ct implements com.baidu.tieba.b.e {
+    final /* synthetic */ bz bCR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ct(bv bvVar) {
-        this.byW = bvVar;
+    public ct(bz bzVar) {
+        this.bCR = bzVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            if (!"".equals(sparseArray.get(com.baidu.tieba.v.tag_forbid_user_name)) && !"".equals(sparseArray.get(com.baidu.tieba.v.tag_del_post_id))) {
-                this.byW.W(view);
-            } else {
-                this.byW.a(((Integer) sparseArray.get(com.baidu.tieba.v.tag_del_post_type)).intValue(), (String) sparseArray.get(com.baidu.tieba.v.tag_del_post_id), ((Integer) sparseArray.get(com.baidu.tieba.v.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(com.baidu.tieba.v.tag_del_post_is_self)).booleanValue());
-            }
-        }
+    @Override // com.baidu.tieba.b.e
+    public boolean a(View view, MotionEvent motionEvent) {
+        this.bCR.dQ(false);
+        this.bCR.M(view);
+        this.bCR.dQ(true);
+        return true;
+    }
+
+    @Override // com.baidu.tieba.b.e
+    public boolean b(View view, MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override // com.baidu.tieba.b.e
+    public boolean c(View view, MotionEvent motionEvent) {
+        this.bCR.XH();
+        this.bCR.YE();
+        return false;
     }
 }

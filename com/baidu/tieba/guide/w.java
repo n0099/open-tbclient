@@ -3,17 +3,17 @@ package com.baidu.tieba.guide;
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
 class w implements DialogInterface.OnDismissListener {
-    final /* synthetic */ t aLZ;
-    private final /* synthetic */ p aMa;
+    final /* synthetic */ t aNR;
+    private final /* synthetic */ p aNS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(t tVar, p pVar) {
-        this.aLZ = tVar;
-        this.aMa = pVar;
+        this.aNR = tVar;
+        this.aNS = pVar;
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        this.aMa.IF();
+        this.aNS.IW();
     }
 }

@@ -1,25 +1,26 @@
 package com.baidu.tieba.im.stranger;
 
-import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.im.chat.personaltalk.PersonalSettingItemData;
-import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.MemoryClearStrangerItemsMessage;
 import com.baidu.tieba.im.message.g;
 import com.baidu.tieba.im.model.ImBaseMessageCenterModel;
+import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
+import com.baidu.tieba.im.settingcache.j;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class StrangerListModel extends ImBaseMessageCenterModel {
     /* JADX INFO: Access modifiers changed from: protected */
-    public StrangerListModel(Context context) {
-        super(context);
+    public StrangerListModel(TbPageContext tbPageContext) {
+        super(tbPageContext);
     }
 
-    public void RG() {
+    public void Ta() {
         LinkedList linkedList = new LinkedList();
         Iterator<ImMessageCenterShowItemData> it = this.mList.iterator();
         while (it.hasNext()) {
@@ -41,9 +42,9 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
         ImMessageCenterShowItemData buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData);
         if (buildNormalItem != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
-            PersonalSettingItemData am = com.baidu.tieba.im.chat.personaltalk.c.KJ().am(TbadkApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-            if (am != null) {
-                buildNormalItem.setGroupSetting(am);
+            PersonalSettingItemData aD = j.SY().aD(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            if (aD != null) {
+                buildNormalItem.setGroupSetting(aD);
             }
             insertShowData(buildNormalItem, this.mList);
         }
@@ -56,11 +57,11 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
     protected boolean isAccept(ImMessageCenterPojo imMessageCenterPojo) {
-        return (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != 2 || TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) || TextUtils.isEmpty(imMessageCenterPojo.getGroup_name())) ? false : true;
+        return (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != 2 || TextUtils.isEmpty(imMessageCenterPojo.getGroup_name())) ? false : true;
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
     protected boolean isToShow(ImMessageCenterPojo imMessageCenterPojo) {
-        return (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != 2 || imMessageCenterPojo.getIsFriend() != 0 || TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) || TextUtils.isEmpty(imMessageCenterPojo.getGroup_name())) ? false : true;
+        return imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 2 && imMessageCenterPojo.getIsFriend() == 0 && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name());
     }
 }

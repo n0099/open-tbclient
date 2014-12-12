@@ -1,7 +1,6 @@
 package android.support.v4.content;
 
 import android.content.Context;
-import android.database.ContentObserver;
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.v4.content.Loader;
@@ -25,13 +24,9 @@ public class CursorLoader extends AsyncTaskLoader<Cursor> {
         Cursor query = getContext().getContentResolver().query(this.mUri, this.mProjection, this.mSelection, this.mSelectionArgs, this.mSortOrder);
         if (query != null) {
             query.getCount();
-            registerContentObserver(query, this.mObserver);
+            query.registerContentObserver(this.mObserver);
         }
         return query;
-    }
-
-    void registerContentObserver(Cursor cursor, ContentObserver contentObserver) {
-        cursor.registerContentObserver(this.mObserver);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

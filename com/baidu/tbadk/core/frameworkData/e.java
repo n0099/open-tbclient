@@ -4,13 +4,13 @@ import android.content.pm.ComponentInfo;
 import android.content.pm.PackageInfo;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.v;
+import com.baidu.adp.lib.util.aa;
 /* loaded from: classes.dex */
 public class e {
     public static void initial() {
         String packageName = BdBaseApplication.getInst().getApp().getPackageName();
         try {
-            v.fA();
+            aa.fC();
             PackageInfo packageInfo = BdBaseApplication.getInst().getApp().getPackageManager().getPackageInfo(packageName, 7);
             a(packageInfo.activities);
             a(packageInfo.services);

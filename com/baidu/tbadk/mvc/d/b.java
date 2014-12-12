@@ -1,29 +1,12 @@
 package com.baidu.tbadk.mvc.d;
 
-import com.baidu.tbadk.mvc.b.g;
-import com.baidu.tbadk.mvc.b.i;
-import com.baidu.tbadk.mvc.core.MvcActivity;
+import com.baidu.tbadk.mvc.b.h;
+import com.baidu.tbadk.mvc.b.j;
+import com.baidu.tbadk.mvc.core.e;
+import com.baidu.tbadk.mvc.model.q;
 /* loaded from: classes.dex */
-public abstract class b<T extends g, R extends i> extends c<T, R> {
-    protected abstract boolean tA();
-
-    public b(MvcActivity<?, ?> mvcActivity) {
-        super(mvcActivity);
-    }
-
-    @Override // com.baidu.tbadk.mvc.d.c, com.baidu.tbadk.mvc.d.a, com.baidu.tbadk.mvc.c.a
-    public boolean a(com.baidu.tbadk.mvc.c.b bVar) {
-        if (super.a(bVar)) {
-            return true;
-        }
-        if (bVar.tr() == 16777218) {
-            if (tA()) {
-                de(33554439);
-                return true;
-            }
-            de(33554440);
-            return true;
-        }
-        return false;
+public abstract class b<T extends h, R extends j> extends a<T, R> implements com.baidu.tbadk.mvc.c.a, q<T, R> {
+    public b(e<?, ?, ?> eVar) {
+        super(eVar);
     }
 }

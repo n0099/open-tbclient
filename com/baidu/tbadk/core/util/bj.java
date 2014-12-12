@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.util;
 
-import android.content.Context;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public interface bj {
-    void a(Context context, String str, String str2, boolean z, bk bkVar);
+    boolean a(TbPageContext<?> tbPageContext, String[] strArr);
 }

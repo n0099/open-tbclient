@@ -6,12 +6,12 @@ import com.baidu.tbadk.core.view.BaseViewPager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements View.OnClickListener {
-    private int UC;
-    final /* synthetic */ BuyGiftActivity Uy;
+    final /* synthetic */ BuyGiftActivity aaD;
+    private int mPosition;
 
     public t(BuyGiftActivity buyGiftActivity, int i) {
-        this.Uy = buyGiftActivity;
-        this.UC = i;
+        this.aaD = buyGiftActivity;
+        this.mPosition = i;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,18 +20,18 @@ public class t implements View.OnClickListener {
         BaseViewPager baseViewPager;
         int i;
         SparseIntArray sparseIntArray2;
-        int i2 = this.UC;
-        sparseIntArray = this.Uy.Um;
+        int i2 = this.mPosition;
+        sparseIntArray = this.aaD.aar;
         int min = Math.min(i2, sparseIntArray.size());
         int i3 = 0;
         for (int i4 = 0; i4 < min; i4++) {
-            sparseIntArray2 = this.Uy.Um;
+            sparseIntArray2 = this.aaD.aar;
             i3 += sparseIntArray2.get(i4);
         }
-        this.Uy.Ui = i3;
-        baseViewPager = this.Uy.TX;
-        i = this.Uy.Ui;
+        this.aaD.aan = i3;
+        baseViewPager = this.aaD.aac;
+        i = this.aaD.aan;
         baseViewPager.setCurrentItem(i);
-        this.Uy.sf();
+        this.aaD.vI();
     }
 }

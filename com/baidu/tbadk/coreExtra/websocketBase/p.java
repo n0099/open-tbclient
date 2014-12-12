@@ -8,10 +8,10 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class p {
-    private boolean PV = false;
-    private int PW = 0;
+    private boolean VG = false;
+    private int VH = 0;
 
-    public void cS(String str) {
+    public void dO(String str) {
         int lastIndexOf;
         Exception e;
         String str2;
@@ -19,8 +19,8 @@ public class p {
         int i2;
         String str3 = null;
         int i3 = 0;
-        this.PV = false;
-        this.PW = 0;
+        this.VG = false;
+        this.VH = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             try {
                 str2 = str.substring(5, lastIndexOf);
@@ -45,11 +45,11 @@ public class p {
                     long currentTimeMillis = System.currentTimeMillis();
                     try {
                         try {
-                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.g.c.f(String.valueOf(str3), LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_8)), qI());
+                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.g.c.toInt(String.valueOf(str3), LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_8)), getTimeout());
                             if (socket.isConnected()) {
                                 int i6 = i3 + 1;
                                 int currentTimeMillis2 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i5);
-                                this.PV = true;
+                                this.VG = true;
                                 i = i6;
                                 i2 = currentTimeMillis2;
                             } else {
@@ -83,23 +83,23 @@ public class p {
                         throw th;
                     }
                 }
-                if (this.PV && i3 > 0) {
-                    this.PW = i5 / i3;
+                if (this.VG && i3 > 0) {
+                    this.VH = i5 / i3;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.PV;
+        return this.VG;
     }
 
-    public int qH() {
-        return this.PW;
+    public int ua() {
+        return this.VH;
     }
 
-    private int qI() {
-        switch (com.baidu.adp.lib.util.j.fm()) {
+    private int getTimeout() {
+        switch (com.baidu.adp.lib.util.i.fl()) {
             case 1:
                 return 3000;
             case 2:

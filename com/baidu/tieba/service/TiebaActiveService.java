@@ -1,9 +1,9 @@
 package com.baidu.tieba.service;
 
-import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
+import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -12,30 +12,30 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 /* loaded from: classes.dex */
-public class TiebaActiveService extends Service {
+public class TiebaActiveService extends BdBaseService {
     private static final int ACTIVE_FAIL = 1;
     private static final int ACTIVE_SUCC = 2;
-    private q mActiveTask = null;
+    private m mActiveTask = null;
     private int mHaveRetry = 0;
     private Handler mHandler = new Handler();
-    private Runnable mRunnable = new p(this);
+    private Runnable mRunnable = new l(this);
 
     private String getChannelByShare() {
-        return com.baidu.tbadk.core.sharedPref.b.lk().getString("channel_id", null);
+        return com.baidu.tbadk.core.sharedPref.b.og().getString("channel_id", null);
     }
 
     private void saveChannelToShare(String str) {
         if (str != null && str.length() > 0) {
-            com.baidu.tbadk.core.sharedPref.b.lk().putString("channel_id", str);
+            com.baidu.tbadk.core.sharedPref.b.og().putString("channel_id", str);
         }
     }
 
     private String getChannelyFile() {
         String str = null;
         try {
-            File br = com.baidu.tbadk.core.util.s.br(TbConfig.CHANNEL_FILE);
-            if (br != null) {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(br));
+            File cj = com.baidu.tbadk.core.util.s.cj(TbConfig.CHANNEL_FILE);
+            if (cj != null) {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(cj));
                 str = bufferedReader.readLine();
                 if (bufferedReader != null) {
                     bufferedReader.close();
@@ -51,9 +51,9 @@ public class TiebaActiveService extends Service {
     private void saveChannelToFile(String str) {
         if (str != null && str.length() > 0) {
             try {
-                File bt = com.baidu.tbadk.core.util.s.bt(TbConfig.CHANNEL_FILE);
-                if (bt != null) {
-                    FileWriter fileWriter = new FileWriter(bt);
+                File cl = com.baidu.tbadk.core.util.s.cl(TbConfig.CHANNEL_FILE);
+                if (cl != null) {
+                    FileWriter fileWriter = new FileWriter(cl);
                     fileWriter.append((CharSequence) str);
                     fileWriter.flush();
                     fileWriter.close();
@@ -96,7 +96,7 @@ public class TiebaActiveService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (isActived() && com.baidu.tbadk.core.sharedPref.b.lk().getInt("active", 2) != 1) {
+        if (isActived() && com.baidu.tbadk.core.sharedPref.b.og().getInt("active", 2) != 1) {
             stopSelf();
         } else {
             sendActive();
@@ -118,7 +118,7 @@ public class TiebaActiveService extends Service {
         if (this.mActiveTask != null) {
             this.mActiveTask.cancel();
         }
-        this.mActiveTask = new q(this, null);
+        this.mActiveTask = new m(this, null);
         this.mActiveTask.execute(new String[0]);
     }
 }

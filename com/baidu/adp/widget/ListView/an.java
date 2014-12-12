@@ -5,5 +5,5 @@ import android.widget.AdapterView;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public interface an {
-    boolean b(View view, al alVar, BdUniqueId bdUniqueId, AdapterView<?> adapterView, int i, long j);
+    void a(View view, am amVar, BdUniqueId bdUniqueId, AdapterView<?> adapterView, int i, long j);
 }

@@ -1,6 +1,6 @@
 package protobuf;
 
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import com.baidu.channelrtc.medialivesender.Constants;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
@@ -18,11 +18,11 @@ public final class GroupInfo extends Message {
     public static final String DEFAULT_NOTICE = "";
     public static final String DEFAULT_PORTRAIT = "";
     public static final String DEFAULT_POSITION = "";
-    @ProtoField(tag = 27, type = Message.Datatype.INT32)
+    @ProtoField(tag = DealIntentService.CLASS_TYPE_ENTER_OFFICIAL, type = Message.Datatype.INT32)
     public final Integer activeDay;
     @ProtoField(tag = 11, type = Message.Datatype.STRING)
     public final String album;
-    @ProtoField(tag = DealIntentService.CLASS_TYPE_GROUP_EVENT, type = Message.Datatype.INT32)
+    @ProtoField(tag = 14, type = Message.Datatype.INT32)
     public final Integer authorId;
     @ProtoField(tag = 29, type = Message.Datatype.INT32)
     public final Integer authorIsMeizhi;
@@ -42,7 +42,7 @@ public final class GroupInfo extends Message {
     public final Integer forumId;
     @ProtoField(tag = DealIntentService.CLASS_TYPE_NATIVE_BUY_TBEAN, type = Message.Datatype.STRING)
     public final String forumName;
-    @ProtoField(tag = 31, type = Message.Datatype.STRING)
+    @ProtoField(tag = Constants.SOURCE_ALL, type = Message.Datatype.STRING)
     public final String forumShowName;
     @ProtoField(tag = 22, type = Message.Datatype.INT32)
     public final Integer grade;
@@ -58,7 +58,7 @@ public final class GroupInfo extends Message {
     public final Integer isHidePosition;
     @ProtoField(tag = 34, type = Message.Datatype.INT32)
     public final Integer isMemberGroup;
-    @ProtoField(tag = AccessibilityNodeInfoCompat.ACTION_LONG_CLICK, type = Message.Datatype.INT32)
+    @ProtoField(tag = 32, type = Message.Datatype.INT32)
     public final Integer isNewlyCreate;
     @ProtoField(tag = 33, type = Message.Datatype.INT32)
     public final Integer isRecentlyReply;
@@ -76,7 +76,7 @@ public final class GroupInfo extends Message {
     public final Integer memberNum;
     @ProtoField(tag = 3, type = Message.Datatype.STRING)
     public final String name;
-    @ProtoField(tag = 26, type = Message.Datatype.STRING)
+    @ProtoField(tag = DealIntentService.CLASS_TYPE_XIUBA, type = Message.Datatype.STRING)
     public final String nickName;
     @ProtoField(tag = 10, type = Message.Datatype.STRING)
     public final String notice;

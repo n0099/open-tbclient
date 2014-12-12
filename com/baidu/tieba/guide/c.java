@@ -2,40 +2,38 @@ package com.baidu.tieba.guide;
 
 import android.support.v4.app.FragmentPagerAdapter;
 import com.baidu.tieba.data.InterestFrsData;
-import com.baidu.tieba.model.ao;
-import com.baidu.tieba.model.aq;
 import com.baidu.tieba.view.RightSlideViewPager;
-import com.baidu.tieba.y;
+import com.baidu.tieba.z;
 /* loaded from: classes.dex */
-class c implements aq {
-    final /* synthetic */ NewUserGuideActivity aLf;
+class c implements com.baidu.tieba.model.q {
+    final /* synthetic */ NewUserGuideActivity aMZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(NewUserGuideActivity newUserGuideActivity) {
-        this.aLf = newUserGuideActivity;
+        this.aMZ = newUserGuideActivity;
     }
 
-    @Override // com.baidu.tieba.model.aq
+    @Override // com.baidu.tieba.model.q
     public void a(InterestFrsData interestFrsData) {
-        ao aoVar;
-        ao aoVar2;
+        com.baidu.tieba.model.o oVar;
+        com.baidu.tieba.model.o oVar2;
         RightSlideViewPager rightSlideViewPager;
-        aoVar = this.aLf.aKZ;
-        aoVar.dH(false);
-        aoVar2 = this.aLf.aKZ;
-        aoVar2.e(interestFrsData);
-        rightSlideViewPager = this.aLf.aLd;
+        oVar = this.aMZ.aMT;
+        oVar.dt(false);
+        oVar2 = this.aMZ.aMT;
+        oVar2.e(interestFrsData);
+        rightSlideViewPager = this.aMZ.aMX;
         ((m) ((FragmentPagerAdapter) rightSlideViewPager.getAdapter()).getItem(1)).c(interestFrsData);
     }
 
-    @Override // com.baidu.tieba.model.aq
+    @Override // com.baidu.tieba.model.q
     public void b(InterestFrsData interestFrsData) {
-        ao aoVar;
-        ao aoVar2;
-        aoVar = this.aLf.aKZ;
-        aoVar.dH(true);
-        aoVar2 = this.aLf.aKZ;
-        aoVar2.e(null);
-        this.aLf.showToast(y.neterror);
+        com.baidu.tieba.model.o oVar;
+        com.baidu.tieba.model.o oVar2;
+        oVar = this.aMZ.aMT;
+        oVar.dt(true);
+        oVar2 = this.aMZ.aMT;
+        oVar2.e(null);
+        this.aMZ.showToast(z.neterror);
     }
 }

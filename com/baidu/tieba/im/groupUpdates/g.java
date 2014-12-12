@@ -1,27 +1,28 @@
 package com.baidu.tieba.im.groupUpdates;
 
 import android.content.DialogInterface;
+import com.baidu.tieba.im.data.UpdatesItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements DialogInterface.OnClickListener {
-    final /* synthetic */ UpdatesActivity bci;
+    final /* synthetic */ UpdatesActivity bfR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(UpdatesActivity updatesActivity) {
-        this.bci = updatesActivity;
+        this.bfR = updatesActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        t tVar;
+        p pVar;
         UpdatesItemData updatesItemData;
         switch (i) {
             case 0:
-                tVar = this.bci.bca;
-                tVar.dg(true);
-                UpdatesActivity updatesActivity = this.bci;
-                updatesItemData = this.bci.bcg;
-                updatesActivity.a(updatesItemData);
+                pVar = this.bfR.bfO;
+                pVar.setLoadProgressBarVisable(true);
+                UpdatesActivity updatesActivity = this.bfR;
+                updatesItemData = this.bfR.pendingToDel;
+                updatesActivity.processDel(updatesItemData);
                 return;
             default:
                 return;

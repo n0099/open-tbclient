@@ -4,49 +4,49 @@ import android.graphics.drawable.BitmapDrawable;
 /* loaded from: classes.dex */
 public class d {
     public volatile boolean isDefault = true;
-    public BitmapDrawable rk;
-    public com.baidu.adp.widget.a.a rl;
-
-    public boolean gD() {
-        return (this.rk == null || this.rk.getBitmap() == null) ? false : true;
-    }
+    public BitmapDrawable re;
+    public com.baidu.adp.widget.a.a rf;
 
     public boolean gE() {
-        return this.rl != null && this.rl.hm();
+        return (this.re == null || this.re.getBitmap() == null) ? false : true;
+    }
+
+    public boolean gF() {
+        return this.rf != null && this.rf.jj();
     }
 
     public boolean isAvailable() {
-        return gD() || gE();
+        return gE() || gF();
     }
 
     public int getWidth() {
-        if (gD()) {
-            return this.rk.getIntrinsicWidth();
-        }
         if (gE()) {
-            return this.rl.getWidth();
+            return this.re.getIntrinsicWidth();
+        }
+        if (gF()) {
+            return this.rf.getWidth();
         }
         return 0;
     }
 
     public int getHeight() {
-        if (gD()) {
-            return this.rk.getIntrinsicHeight();
-        }
         if (gE()) {
-            return this.rl.getHeight();
+            return this.re.getIntrinsicHeight();
+        }
+        if (gF()) {
+            return this.rf.getHeight();
         }
         return 0;
     }
 
     public void reset() {
-        this.rl = null;
-        this.rk = null;
+        this.rf = null;
+        this.re = null;
     }
 
-    public boolean bM() {
-        if (gE()) {
-            return this.rl.bM();
+    public boolean cm() {
+        if (gF()) {
+            return this.rf.cm();
         }
         return false;
     }

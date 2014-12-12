@@ -54,14 +54,14 @@ public class FileDownloader extends Service {
             } else {
                 fileOfUrl = getFileOfUrl(stringExtra);
             }
-            if (com.baidu.tbadk.core.util.s.br(fileOfUrl) != null) {
+            if (com.baidu.tbadk.core.util.s.cj(fileOfUrl) != null) {
                 this.handler.sendMessageDelayed(this.handler.obtainMessage(1, fileOfUrl), 100L);
             } else if (this.mDowndingTask == null) {
                 this.mDowndingTask = new f(this, stringExtra, fileOfUrl);
                 this.mDowndingTask.execute(new String[0]);
                 NotificationHelper.showProgressNotification(getBaseContext(), 10, null, 0, "0/0", this.mInfo, true);
             } else {
-                com.baidu.adp.lib.util.m.showToast(getApplicationContext(), y.downloading_tip);
+                com.baidu.adp.lib.util.l.showToast(getApplicationContext(), z.downloading_tip);
             }
         }
         super.onStart(intent, i);

@@ -1,15 +1,15 @@
 package com.baidu.tieba.frs.view;
 
-import android.app.Activity;
 import android.widget.PopupWindow;
+import com.baidu.tbadk.TbPageContext;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements Runnable {
-    final /* synthetic */ FrsHeaderView aGd;
+    final /* synthetic */ FrsHeaderView aHJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(FrsHeaderView frsHeaderView) {
-        this.aGd = frsHeaderView;
+        this.aHJ = frsHeaderView;
     }
 
     @Override // java.lang.Runnable
@@ -18,16 +18,16 @@ public class f implements Runnable {
         PopupWindow popupWindow2;
         boolean z;
         PopupWindow popupWindow3;
-        Activity activity;
-        popupWindow = this.aGd.aFv;
+        TbPageContext tbPageContext;
+        popupWindow = this.aHJ.aHa;
         if (popupWindow != null) {
-            popupWindow2 = this.aGd.aFv;
+            popupWindow2 = this.aHJ.aHa;
             if (popupWindow2.isShowing()) {
-                z = this.aGd.aFY;
+                z = this.aHJ.aHD;
                 if (!z) {
-                    popupWindow3 = this.aGd.aFv;
-                    activity = this.aGd.aBP;
-                    com.baidu.adp.lib.g.j.a(popupWindow3, activity);
+                    popupWindow3 = this.aHJ.aHa;
+                    tbPageContext = this.aHJ.mContext;
+                    com.baidu.adp.lib.g.k.a(popupWindow3, tbPageContext.getPageActivity());
                 }
             }
         }

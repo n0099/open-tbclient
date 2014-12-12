@@ -1,6 +1,7 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
+import com.baidu.tbadk.core.util.ba;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Profile.CommonLocation;
@@ -13,7 +14,7 @@ public class DistanceInfo implements Serializable {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.distance = jSONObject.optString("distance");
-            this.time = jSONObject.optLong("time");
+            this.time = jSONObject.optLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
         }
     }
 
@@ -33,6 +34,6 @@ public class DistanceInfo implements Serializable {
     }
 
     public String getTimeFormat() {
-        return this.time != 0 ? az.i(this.time) : "";
+        return this.time != 0 ? ba.m(this.time) : "";
     }
 }

@@ -1,24 +1,24 @@
 package com.baidu.tieba.im.model;
 
-import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.im.chat.officialBar.OfficialSettingItemData;
-import com.baidu.tieba.im.chat.officialBar.ax;
-import com.baidu.tieba.im.data.ImMessageCenterShowItemData;
+import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.settingcache.OfficialSettingItemData;
+import com.baidu.tieba.im.settingcache.h;
 /* loaded from: classes.dex */
 public class OfficialBarTipModel extends ImBaseMessageCenterModel {
-    public OfficialBarTipModel(Context context) {
-        super(context);
+    public OfficialBarTipModel(TbPageContext tbPageContext) {
+        super(tbPageContext);
     }
 
-    @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel, com.baidu.adp.base.e
+    @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel, com.baidu.adp.base.f
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel, com.baidu.adp.base.e
+    @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel, com.baidu.adp.base.f
     public boolean cancelLoadData() {
         return false;
     }
@@ -28,9 +28,9 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
         ImMessageCenterShowItemData buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData);
         if (buildNormalItem != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
-            OfficialSettingItemData am = ax.KE().am(TbadkApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-            if (am != null) {
-                buildNormalItem.setGroupSetting(am);
+            OfficialSettingItemData aD = h.SX().aD(TbadkApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            if (aD != null) {
+                buildNormalItem.setGroupSetting(aD);
             }
             insertShowData(buildNormalItem, this.mList);
         }
@@ -52,6 +52,9 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
     }
 
     private boolean isNeed(ImMessageCenterPojo imMessageCenterPojo) {
-        return (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != 4 || TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) || TextUtils.isEmpty(imMessageCenterPojo.getGroup_name())) ? false : true;
+        if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 4) {
+            return (imMessageCenterPojo.getUserType() == 1 || imMessageCenterPojo.getUserType() == 3) && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name());
+        }
+        return false;
     }
 }

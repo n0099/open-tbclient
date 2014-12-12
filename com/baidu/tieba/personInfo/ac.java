@@ -2,11 +2,11 @@ package com.baidu.tieba.personInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ z bGF;
+    final /* synthetic */ z bJZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(z zVar) {
-        this.bGF = zVar;
+        this.bJZ = zVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d

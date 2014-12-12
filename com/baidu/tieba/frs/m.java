@@ -1,24 +1,30 @@
 package com.baidu.tieba.frs;
 
-import com.slidingmenu.lib.SlidingMenu;
+import android.view.View;
 /* loaded from: classes.dex */
-class m implements SlidingMenu.OnClosedListener {
-    final /* synthetic */ FrsActivity aBu;
+class m implements View.OnClickListener {
+    final /* synthetic */ FrsActivity aCV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(FrsActivity frsActivity) {
-        this.aBu = frsActivity;
+        this.aCV = frsActivity;
     }
 
-    @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
-    public void onClosed() {
-        bu buVar;
-        bu buVar2;
-        buVar = this.aBu.aAF;
-        if (buVar.Gk().GQ()) {
-            buVar2 = this.aBu.aAF;
-            buVar2.Gk().ch(false);
-            this.aBu.refresh();
+    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: com.baidu.tieba.frs.FrsActivity */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        bq bqVar;
+        int intValue = ((Integer) view.getTag()).intValue();
+        bqVar = this.aCV.aBX;
+        com.baidu.adp.widget.ListView.am ay = bqVar.GO().ay(intValue);
+        if (ay instanceof com.baidu.tbadk.core.data.c) {
+            com.baidu.tbadk.core.data.c cVar = (com.baidu.tbadk.core.data.c) ay;
+            if (cVar.mw()) {
+                this.aCV.a(cVar, "btn_click");
+                this.aCV.b(cVar, "click");
+                com.baidu.tbadk.core.util.bh.pK().b(this.aCV.getPageContext(), new String[]{cVar.Do});
+            }
         }
     }
 }

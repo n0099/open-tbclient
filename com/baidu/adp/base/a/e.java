@@ -6,78 +6,78 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.File;
 /* loaded from: classes.dex */
 public abstract class e implements a {
-    private SQLiteDatabase aA = null;
-    private b aD;
-    private final String aF;
-    private int mVersion;
-
-    public abstract void b(SQLiteDatabase sQLiteDatabase);
+    private SQLiteDatabase cl = null;
+    private b co;
+    private int cq;
+    private final String cr;
 
     public abstract void d(SQLiteDatabase sQLiteDatabase);
 
+    public abstract void f(SQLiteDatabase sQLiteDatabase);
+
     @Override // com.baidu.adp.base.a.a
     public void a(b bVar) {
-        this.aD = bVar;
+        this.co = bVar;
     }
 
     public e(String str, int i) {
-        this.mVersion = 1;
-        this.mVersion = i;
-        this.aF = str;
+        this.cq = 1;
+        this.cq = i;
+        this.cr = str;
     }
 
     @Override // com.baidu.adp.base.a.a
     public SQLiteDatabase getWritableDatabase() {
-        File file = new File(this.aF);
+        File file = new File(this.cr);
         if (file.getParentFile() != null && (file.getParentFile().exists() || file.getParentFile().mkdirs())) {
             boolean exists = file.exists();
-            this.aA = SQLiteDatabase.openOrCreateDatabase(this.aF, (SQLiteDatabase.CursorFactory) null);
-            if (this.aA != null) {
+            this.cl = SQLiteDatabase.openOrCreateDatabase(this.cr, (SQLiteDatabase.CursorFactory) null);
+            if (this.cl != null) {
                 if (!exists) {
-                    e(this.aA);
-                    this.aA.setVersion(this.mVersion);
+                    g(this.cl);
+                    this.cl.setVersion(this.cq);
                 } else {
-                    int version = this.aA.getVersion();
-                    if (version != this.mVersion) {
-                        a(this.aA, version, this.mVersion);
-                        this.aA.setVersion(this.mVersion);
+                    int version = this.cl.getVersion();
+                    if (version != this.cq) {
+                        b(this.cl, version, this.cq);
+                        this.cl.setVersion(this.cq);
                     }
                 }
             }
         }
-        return this.aA;
+        return this.cl;
     }
 
-    private void e(SQLiteDatabase sQLiteDatabase) {
+    private void g(SQLiteDatabase sQLiteDatabase) {
         onCreate(sQLiteDatabase);
-        c(sQLiteDatabase);
+        e(sQLiteDatabase);
     }
 
-    private void a(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+    private void b(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         if (i2 > i) {
             onUpgrade(sQLiteDatabase, i, i2);
         } else {
-            b(sQLiteDatabase, i, i2);
+            onDowngrade(sQLiteDatabase, i, i2);
         }
-        c(sQLiteDatabase);
+        e(sQLiteDatabase);
     }
 
-    private void c(SQLiteDatabase sQLiteDatabase) {
-        if (this.aD != null) {
-            this.aD.a(sQLiteDatabase);
+    private void e(SQLiteDatabase sQLiteDatabase) {
+        if (this.co != null) {
+            this.co.c(sQLiteDatabase);
         }
     }
 
     @Override // com.baidu.adp.base.a.a
-    public boolean f(Context context) {
-        File file = new File(this.aF);
+    public boolean E(Context context) {
+        File file = new File(this.cr);
         if (file.exists()) {
             return file.delete();
         }
         return false;
     }
 
-    public boolean a(SQLiteDatabase sQLiteDatabase, String str) {
+    public boolean b(SQLiteDatabase sQLiteDatabase, String str) {
         try {
             sQLiteDatabase.execSQL(str);
             return true;
@@ -88,11 +88,11 @@ public abstract class e implements a {
     }
 
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        b(sQLiteDatabase);
+        d(sQLiteDatabase);
     }
 
-    public void b(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        f(sQLiteDatabase);
         d(sQLiteDatabase);
-        b(sQLiteDatabase);
     }
 }

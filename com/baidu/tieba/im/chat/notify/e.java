@@ -13,7 +13,7 @@ class e extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
-            ((com.baidu.tbadk.mainTab.e) customResponsedMessage.getData()).a(new ImMessageCenterDelegateStatic());
+            ((com.baidu.tbadk.mainTab.g) customResponsedMessage.getData()).a(new ImMessageCenterDelegateStatic());
         }
     }
 }

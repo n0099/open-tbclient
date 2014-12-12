@@ -37,7 +37,7 @@ class f implements d {
     }
 
     @Override // com.baidu.tbadk.live.service.d
-    public void dB(String str) {
+    public void onLiveErrorEvent(String str) {
         Parcel obtain = Parcel.obtain();
         Parcel obtain2 = Parcel.obtain();
         try {
@@ -52,7 +52,7 @@ class f implements d {
     }
 
     @Override // com.baidu.tbadk.live.service.d
-    public void e(String str, int i, int i2) {
+    public void onLivePlayProgressUpdate(String str, int i, int i2) {
         Parcel obtain = Parcel.obtain();
         Parcel obtain2 = Parcel.obtain();
         try {
@@ -69,7 +69,7 @@ class f implements d {
     }
 
     @Override // com.baidu.tbadk.live.service.d
-    public void cU(int i) {
+    public void onLiveRecordTimeUpdate(int i) {
         Parcel obtain = Parcel.obtain();
         Parcel obtain2 = Parcel.obtain();
         try {
@@ -84,7 +84,7 @@ class f implements d {
     }
 
     @Override // com.baidu.tbadk.live.service.d
-    public void cV(int i) {
+    public void onLivePlayWarning(int i) {
         Parcel obtain = Parcel.obtain();
         Parcel obtain2 = Parcel.obtain();
         try {

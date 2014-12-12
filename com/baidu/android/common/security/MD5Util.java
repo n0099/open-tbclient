@@ -1,6 +1,5 @@
 package com.baidu.android.common.security;
 
-import com.baidu.tbadk.BaseActivity;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes.dex */
@@ -11,7 +10,7 @@ public class MD5Util {
     public static String toHexString(byte[] bArr, String str, boolean z) {
         StringBuilder sb = new StringBuilder();
         for (byte b : bArr) {
-            String hexString = Integer.toHexString(b & BaseActivity.KEYBOARD_STATE_INIT);
+            String hexString = Integer.toHexString(b & 255);
             if (z) {
                 hexString = hexString.toUpperCase();
             }

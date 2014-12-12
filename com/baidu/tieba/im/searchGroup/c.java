@@ -2,17 +2,17 @@ package com.baidu.tieba.im.searchGroup;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.widget.Button;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements TextWatcher {
-    final /* synthetic */ b bhQ;
+    final /* synthetic */ b bms;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.bhQ = bVar;
+        this.bms = bVar;
     }
 
     @Override // android.text.TextWatcher
@@ -20,13 +20,13 @@ public class c implements TextWatcher {
         EditText editText;
         ImageButton imageButton;
         ImageButton imageButton2;
-        editText = this.bhQ.bhM;
+        editText = this.bms.bmn;
         if (editText.length() > 0) {
-            imageButton2 = this.bhQ.bhN;
+            imageButton2 = this.bms.bmo;
             imageButton2.setVisibility(0);
             return;
         }
-        imageButton = this.bhQ.bhN;
+        imageButton = this.bms.bmo;
         imageButton.setVisibility(8);
     }
 
@@ -36,8 +36,8 @@ public class c implements TextWatcher {
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
-        Button button;
-        button = this.bhQ.bhO;
-        button.setTag(editable.toString().trim());
+        View view;
+        view = this.bms.bmp;
+        view.setTag(editable.toString().trim());
     }
 }

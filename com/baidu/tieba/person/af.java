@@ -1,26 +1,18 @@
 package com.baidu.tieba.person;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af implements DialogInterface.OnClickListener {
-    final /* synthetic */ PersonChangeActivity bCA;
+public class af implements View.OnClickListener {
+    final /* synthetic */ PersonChangeActivity bGa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(PersonChangeActivity personChangeActivity) {
-        this.bCA = personChangeActivity;
+        this.bGa = personChangeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        Dialog dialog;
-        Dialog dialog2;
-        dialog = this.bCA.bCw;
-        if (dialog != null) {
-            dialog2 = this.bCA.bCw;
-            com.baidu.adp.lib.g.j.b(dialog2, this.bCA);
-        }
-        this.bCA.ZX();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.bGa.aao();
     }
 }

@@ -1,32 +1,31 @@
 package com.baidu.tieba.service;
 
-import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
+import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.SyncServiceConfig;
-import com.baidu.tieba.model.bb;
 /* loaded from: classes.dex */
-public class TiebaSyncService extends Service {
+public class TiebaSyncService extends BdBaseService {
     private static String mStatistics = null;
     private static long MIN_SYNC_INTERVAL = 300000;
-    private t mSyncTask = null;
+    private p mSyncTask = null;
     private int mHaveRetry = 0;
-    private bb mModel = null;
+    private com.baidu.tbadk.coreExtra.c.g mModel = null;
     private long mLastSyncTime = -1;
     private Handler mHandler = new Handler();
-    private Runnable mRunnable = new r(this);
-    private com.baidu.adp.framework.listener.e mOnlineListener = new s(this, 1001);
+    private Runnable mRunnable = new n(this);
+    private com.baidu.adp.framework.listener.e mOnlineListener = new o(this, 1001);
 
     static {
-        TbadkApplication.m251getInst().RegisterIntent(SyncServiceConfig.class, TiebaSyncService.class);
+        TbadkCoreApplication.m255getInst().RegisterIntent(SyncServiceConfig.class, TiebaSyncService.class);
     }
 
     public void checkVersion(String str) {
-        String Ub;
-        if (str != null && this.mModel != null && (Ub = this.mModel.Ub()) != null && !Ub.equalsIgnoreCase(str) && checkAutoSyncInterval()) {
+        String sn;
+        if (str != null && this.mModel != null && (sn = this.mModel.sn()) != null && !sn.equalsIgnoreCase(str) && checkAutoSyncInterval()) {
             this.mLastSyncTime = System.currentTimeMillis();
             checkUpdata();
         }
@@ -60,7 +59,7 @@ public class TiebaSyncService extends Service {
         if (this.mSyncTask != null) {
             this.mSyncTask.cancel();
         }
-        this.mSyncTask = new t(this, null);
+        this.mSyncTask = new p(this, null);
         this.mSyncTask.execute(new String[0]);
     }
 
@@ -85,7 +84,7 @@ public class TiebaSyncService extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     public void broadcastNewVersion() {
         if (this.mModel != null) {
-            sendBroadcast(new Intent(com.baidu.tieba.data.e.yy()));
+            sendBroadcast(new Intent(com.baidu.tbadk.data.b.un()));
         }
     }
 }

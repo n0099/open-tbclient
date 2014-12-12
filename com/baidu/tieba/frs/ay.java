@@ -1,31 +1,34 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ay extends CustomMessageListener {
-    final /* synthetic */ FrsActivity aBu;
+public class ay extends BdAsyncTask<String, Integer, Boolean> {
+    final /* synthetic */ FrsActivity aCV;
+    private final String name;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ay(FrsActivity frsActivity, int i) {
-        super(i);
-        this.aBu = frsActivity;
+    public ay(FrsActivity frsActivity, String str) {
+        this.aCV = frsActivity;
+        this.name = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2012111) {
-            int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
-            if (intValue == 1 || intValue == 4 || intValue == 3) {
-                FrsActivity.aAv = true;
-            } else if (intValue == 2) {
-                FrsActivity.aAw = true;
-            }
-            FrsActivity.aAu = true;
-            this.aBu.Fs();
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: f */
+    public Boolean doInBackground(String... strArr) {
+        return Boolean.valueOf(com.baidu.tieba.frs.utils.a.I(this.aCV.getPageContext().getPageActivity(), this.name));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public void onPostExecute(Boolean bool) {
+        if (bool.booleanValue()) {
+            this.aCV.showToast(com.baidu.tieba.z.shortcut_has_add);
+        } else {
+            this.aCV.fy(this.name);
         }
     }
 }

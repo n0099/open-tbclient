@@ -1,35 +1,35 @@
 package com.baidu.tbadk.core.account;
 
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.ac;
+import com.baidu.tbadk.core.util.ad;
 /* loaded from: classes.dex */
 public class f {
     public static void a(String str, String str2, String str3, g gVar) {
         new h(str, str2, str3, gVar, false).execute(new String[0]);
     }
 
-    public static AccountData f(String str, String str2, String str3) {
-        ac acVar = new ac(TbConfig.LOGIN_FULL_ADDRESS);
-        acVar.mc().na().mIsUseCurrentBDUSS = false;
-        acVar.k("bdusstoken", String.valueOf(str2) + "|" + str3);
-        acVar.k("channel_id", TbadkApplication.m251getInst().getPushChannelId());
-        acVar.k("channel_uid", TbadkApplication.m251getInst().getPushChannelUserId());
-        acVar.mc().na().FU = false;
-        String lA = acVar.lA();
-        if (acVar.mc().nb().jq() && lA != null) {
-            com.baidu.tbadk.core.data.j jVar = new com.baidu.tbadk.core.data.j();
-            jVar.parserJson(lA);
+    public static AccountData j(String str, String str2, String str3) {
+        ad adVar = new ad(TbConfig.LOGIN_FULL_ADDRESS);
+        adVar.oW().pV().mIsUseCurrentBDUSS = false;
+        adVar.o("bdusstoken", String.valueOf(str2) + "|" + str3);
+        adVar.o("channel_id", TbadkCoreApplication.m255getInst().getPushChannelId());
+        adVar.o("channel_uid", TbadkCoreApplication.m255getInst().getPushChannelUserId());
+        adVar.oW().pV().Ke = false;
+        String ov = adVar.ov();
+        if (adVar.oW().pW().ma() && ov != null) {
+            com.baidu.tbadk.core.data.m mVar = new com.baidu.tbadk.core.data.m();
+            mVar.parserJson(ov);
             AccountData accountData = new AccountData();
-            accountData.setAccount(jVar.getUser().getUserName());
+            accountData.setAccount(mVar.getUser().getUserName());
             accountData.setPassword("");
-            accountData.setID(jVar.getUser().getUserId());
-            accountData.setBDUSS(jVar.getUser().getBDUSS());
-            accountData.setPortrait(jVar.getUser().getPortrait());
+            accountData.setID(mVar.getUser().getUserId());
+            accountData.setBDUSS(mVar.getUser().getBDUSS());
+            accountData.setPortrait(mVar.getUser().getPortrait());
             accountData.setIsActive(1);
-            if (jVar.jZ() != null) {
-                accountData.setTbs(jVar.jZ().getTbs());
+            if (mVar.mP() != null) {
+                accountData.setTbs(mVar.mP().getTbs());
                 return accountData;
             }
             return accountData;

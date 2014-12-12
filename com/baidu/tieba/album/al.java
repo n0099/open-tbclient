@@ -6,5 +6,5 @@ import java.util.List;
 public interface al {
     void a(List<ImageFileInfo> list, String str);
 
-    void hL();
+    void jH();
 }

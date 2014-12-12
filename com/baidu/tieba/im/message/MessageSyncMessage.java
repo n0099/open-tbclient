@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import android.util.SparseArray;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import java.util.ArrayList;
 import protobuf.GetGroupMsg.DataReq;
@@ -132,7 +132,7 @@ public class MessageSyncMessage extends TbSocketMessage {
             }
         }
         GetGroupMsgReqIdl.Builder builder3 = new GetGroupMsgReqIdl.Builder();
-        builder3.cuid = TbadkApplication.getUniqueIdentifier();
+        builder3.cuid = TbadkCoreApplication.getUniqueIdentifier();
         builder3.data = builder.build(false);
         return builder3.build(false);
     }

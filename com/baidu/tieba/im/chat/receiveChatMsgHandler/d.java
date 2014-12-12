@@ -1,5 +1,5 @@
 package com.baidu.tieba.im.chat.receiveChatMsgHandler;
 /* loaded from: classes.dex */
 public interface d {
-    boolean fH(String str);
+    boolean fW(String str);
 }

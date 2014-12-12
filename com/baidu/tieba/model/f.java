@@ -1,50 +1,33 @@
 package com.baidu.tieba.model;
-
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.message.ResponseBubbleListMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f extends HttpMessageListener {
-    final /* synthetic */ e bov;
+public class f implements Runnable {
+    private final /* synthetic */ com.baidu.tieba.data.e bsT;
+    final /* synthetic */ e bsU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(e eVar, int i) {
-        super(i);
-        this.bov = eVar;
+    public f(e eVar, com.baidu.tieba.data.e eVar2) {
+        this.bsU = eVar;
+        this.bsT = eVar2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+    @Override // java.lang.Runnable
+    public void run() {
+        d dVar;
+        d dVar2;
         h hVar;
-        h hVar2;
-        h hVar3;
-        h hVar4;
-        h hVar5;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001500) {
-            hVar = this.bov.aje;
-            if (hVar != null) {
-                int statusCode = httpResponsedMessage.getStatusCode();
-                int error = httpResponsedMessage.getError();
-                if (!(httpResponsedMessage instanceof ResponseBubbleListMessage)) {
-                    hVar5 = this.bov.aje;
-                    hVar5.b(null);
-                    return;
-                }
-                ResponseBubbleListMessage responseBubbleListMessage = (ResponseBubbleListMessage) httpResponsedMessage;
-                if (statusCode != 200 || error != 0) {
-                    hVar2 = this.bov.aje;
-                    hVar2.b(responseBubbleListMessage.getBubbleListData());
-                } else if (responseBubbleListMessage.getBubbleListData() == null) {
-                    hVar4 = this.bov.aje;
-                    hVar4.b(responseBubbleListMessage.getBubbleListData());
-                } else {
-                    hVar3 = this.bov.aje;
-                    hVar3.a(responseBubbleListMessage.getBubbleListData());
-                }
-            }
+        dVar = this.bsU.bsS;
+        g gVar = new g(dVar);
+        gVar.type = 0;
+        if (this.bsT != null && this.bsT.isSuccess()) {
+            gVar.ayu = true;
+            gVar.bsW = this.bsT;
+        } else {
+            gVar.ayu = false;
+            gVar.bsW = this.bsT;
         }
+        dVar2 = this.bsU.bsS;
+        hVar = dVar2.bsN;
+        hVar.a(gVar);
     }
 }

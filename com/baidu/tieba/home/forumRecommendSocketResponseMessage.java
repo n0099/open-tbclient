@@ -1,13 +1,14 @@
 package com.baidu.tieba.home;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.ForumRecommend.Banner;
 import tbclient.ForumRecommend.ForumRecommendResIdl;
 import tbclient.ForumRecommend.LikeForum;
 import tbclient.ForumRecommend.NewRecommend;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes.dex */
 public class forumRecommendSocketResponseMessage extends SocketResponsedMessage {
     private List<Banner> banner;
@@ -18,6 +19,7 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
     private String msign_text;
     private Integer msign_valid;
     private List<NewRecommend> new_recommend;
+    private List<RecommendForumInfo> recommend_forum_info;
     private Integer time;
 
     public forumRecommendSocketResponseMessage() {
@@ -60,6 +62,10 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
         return this.is_mem;
     }
 
+    public List<RecommendForumInfo> GetRecommendForumInfoList() {
+        return this.recommend_forum_info;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.b
     public void decodeInBackGround(int i, byte[] bArr) {
@@ -81,6 +87,7 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
                 this.msign_level = forumRecommendResIdl.data.msign_level;
                 this.time = forumRecommendResIdl.data.time;
                 this.is_mem = forumRecommendResIdl.data.is_mem;
+                this.recommend_forum_info = forumRecommendResIdl.data.recommend_forum_info;
             }
         }
     }
@@ -89,7 +96,7 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (bArr != null && bArr.length > 0 && getError() == 0) {
-            com.baidu.tbadk.core.a.a.kS().C("tb_forum_recommend", TbadkApplication.getCurrentAccountName()).c("forumRecommend_cache_key", bArr);
+            com.baidu.tbadk.core.a.a.nS().N("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).g("forumRecommend_cache_key", bArr);
         }
     }
 }

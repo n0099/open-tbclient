@@ -1,47 +1,31 @@
 package com.baidu.tbadk.core.view;
 
-import android.content.Context;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-class ag implements com.baidu.adp.lib.e.c<HeadImageView> {
-    private final /* synthetic */ Context val$context;
+class ag implements View.OnClickListener {
+    final /* synthetic */ ae Nv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(Context context) {
-        this.val$context = context;
+    public ag(ae aeVar) {
+        this.Nv = aeVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: nE */
-    public HeadImageView ee() {
-        return new HeadImageView(this.val$context);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: a */
-    public void i(HeadImageView headImageView) {
-        headImageView.setBackgroundResource(0);
-        headImageView.setImageDrawable(null);
-        headImageView.setTag(null);
-        headImageView.setOnClickListener(null);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: b */
-    public HeadImageView j(HeadImageView headImageView) {
-        return headImageView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: c */
-    public HeadImageView k(HeadImageView headImageView) {
-        headImageView.setBackgroundResource(0);
-        headImageView.setImageDrawable(null);
-        headImageView.setTag(null);
-        headImageView.setOnClickListener(null);
-        return headImageView;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Activity activity;
+        String str;
+        Activity activity2;
+        if (view.getId() == com.baidu.tieba.w.search_bg_layout) {
+            activity = this.Nv.mCurrentActivity;
+            str = this.Nv.Nq;
+            TiebaStatic.eventStat(activity, str, "click", 1, new Object[0]);
+            MessageManager messageManager = MessageManager.getInstance();
+            activity2 = this.Nv.mCurrentActivity;
+            messageManager.sendMessage(new CustomMessage(2015002, new com.baidu.tbadk.core.frameworkData.a(activity2)));
+        }
     }
 }

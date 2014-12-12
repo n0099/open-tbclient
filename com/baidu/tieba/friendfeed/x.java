@@ -7,37 +7,37 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
-import com.baidu.tieba.frs.view.FrsPraiseView;
-import com.baidu.tieba.view.FrsCommonImageLayout;
-import com.baidu.tieba.voice.PlayVoiceBnt;
+import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
+import com.baidu.tieba.tbadkCore.FrsPraiseView;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x {
-    TextView JN;
-    TextView azA;
-    View azB;
-    LinearLayout azC;
-    LinearLayout azD;
-    LiveBroadcastCard azE;
-    final /* synthetic */ q azg;
-    LinearLayout azl;
-    LinearLayout azm;
-    TextView azn;
-    PlayVoiceBnt azo;
-    FrsCommonImageLayout azp;
-    TextView azq;
-    TextView azr;
-    UserIconBox azs;
-    HeadImageView azt;
-    LinearLayout azu;
-    ImageView azv;
-    TextView azw;
-    LinearLayout azx;
-    TextView azy;
-    FrsPraiseView azz;
+    final /* synthetic */ q aBe;
+    LinearLayout aBg;
+    LinearLayout aBh;
+    TextView aBi;
+    PlayVoiceBnt aBj;
+    FrsCommonImageLayout aBk;
+    TextView aBl;
+    TextView aBm;
+    UserIconBox aBn;
+    HeadImageView aBo;
+    LinearLayout aBp;
+    ImageView aBq;
+    TextView aBr;
+    LinearLayout aBs;
+    TextView aBt;
+    FrsPraiseView aBu;
+    TextView aBv;
+    View aBw;
+    LinearLayout aBx;
+    LinearLayout aBy;
+    LiveBroadcastCard aBz;
+    TextView mTitle;
 
     private x(q qVar) {
-        this.azg = qVar;
+        this.aBe = qVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

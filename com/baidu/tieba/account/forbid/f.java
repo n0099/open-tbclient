@@ -4,16 +4,16 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    final /* synthetic */ e agv;
+    final /* synthetic */ e anM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.agv = eVar;
+        this.anM = eVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.agv.agt = ((g) view.getTag()).mIndex;
-        this.agv.notifyDataSetChanged();
+        this.anM.anK = ((g) view.getTag()).mIndex;
+        this.anM.notifyDataSetChanged();
     }
 }

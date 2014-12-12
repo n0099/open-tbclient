@@ -1,9 +1,13 @@
 package com.baidu.tbadk.performanceLog;
+
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class u {
-    public String Zy = null;
+    protected BdUniqueId mId = BdUniqueId.gen();
+    public long agm = 0;
+    protected int mSubType = 0;
 
-    public static com.baidu.adp.lib.stats.q getLogItem() {
-        return com.baidu.adp.lib.stats.f.er().ag("pfmonitor");
+    public void dR(int i) {
+        this.mSubType = i;
     }
 }

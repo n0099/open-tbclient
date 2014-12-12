@@ -1,42 +1,41 @@
 package com.baidu.tieba.frs;
-
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.slidingmenu.lib.SlidingMenu;
-import java.util.ArrayList;
-import java.util.Iterator;
 /* loaded from: classes.dex */
-class p implements SlidingMenu.OnOpenedListener {
-    final /* synthetic */ FrsActivity aBu;
+class p implements com.baidu.tbadk.core.view.ad {
+    final /* synthetic */ FrsActivity aCV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(FrsActivity frsActivity) {
-        this.aBu = frsActivity;
+        this.aCV = frsActivity;
     }
 
-    @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
-    public void onOpened() {
-        bu buVar;
-        cz czVar;
-        boolean z;
+    @Override // com.baidu.tbadk.core.view.ad
+    public void ar(boolean z) {
+        bq bqVar;
+        com.baidu.tieba.tbadkCore.e eVar;
+        bq bqVar2;
         boolean z2;
-        boolean z3;
-        bu buVar2;
-        b bVar;
-        buVar = this.aBu.aAF;
-        czVar = this.aBu.aAR;
-        z = FrsActivity.aAu;
-        z2 = FrsActivity.aAv;
-        z3 = FrsActivity.aAw;
-        buVar.a(czVar, z, z2, z3);
-        buVar2 = this.aBu.aAF;
-        buVar2.ER();
-        TiebaStatic.eventStat(this.aBu, "frs_total_more", "frsclick", 1, new Object[0]);
-        bVar = this.aBu.azN;
-        ArrayList<com.baidu.tbadk.core.data.n> recommendForumData = bVar.zL().getRecommendForumData();
-        if (recommendForumData != null) {
-            Iterator<com.baidu.tbadk.core.data.n> it = recommendForumData.iterator();
-            while (it.hasNext()) {
-                TiebaStatic.eventStat(this.aBu, "sidebar_show", "sidebar_click", 1, "st_param", it.next().Aa);
+        bq bqVar3;
+        com.baidu.tieba.tbadkCore.e eVar2;
+        if (z) {
+            bqVar = this.aCV.aBX;
+            if (!bqVar.Gs()) {
+                eVar = this.aCV.aCh;
+                if (eVar != null) {
+                    eVar2 = this.aCV.aCh;
+                    if (eVar2.aek().size() != 0) {
+                        return;
+                    }
+                }
+                FrsActivity frsActivity = this.aCV;
+                bqVar2 = this.aCV.aBX;
+                frsActivity.hideNetRefreshView(bqVar2.getRootView());
+                z2 = this.aCV.aBL;
+                if (!z2) {
+                    FrsActivity frsActivity2 = this.aCV;
+                    bqVar3 = this.aCV.aBX;
+                    frsActivity2.showLoadingView(bqVar3.getRootView(), true);
+                }
+                this.aCV.refresh();
             }
         }
     }

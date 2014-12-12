@@ -1,31 +1,30 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.MotionEvent;
-import android.view.View;
+import android.os.Handler;
+import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements View.OnTouchListener {
-    final /* synthetic */ AbsMsglistView aNP;
+public class i extends Handler {
+    final /* synthetic */ AbsMsglistView aQh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(AbsMsglistView absMsglistView) {
-        this.aNP = absMsglistView;
+        this.aQh = absMsglistView;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 1) {
-            this.aNP.mEdtMsgSendText.setCursorVisible(true);
-            this.aNP.sendmsgCloseMore();
-        } else if (motionEvent.getAction() == 0) {
-            this.aNP.listGo2New();
-            if (this.aNP.mFaceView.getVisibility() == 0) {
-                this.aNP.sendmsgCloseExpression();
-                this.aNP.sendmsgShowSoftkey();
-                this.aNP.setEditTextSelectLast();
-                return true;
-            }
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        Handler handler;
+        super.handleMessage(message);
+        switch (message.what) {
+            case 1:
+                handler = this.aQh.mHandler;
+                handler.removeMessages(1);
+                this.aQh.closeRecordCancel();
+                this.aQh.closeRecordTooShort();
+                return;
+            default:
+                return;
         }
-        return false;
     }
 }

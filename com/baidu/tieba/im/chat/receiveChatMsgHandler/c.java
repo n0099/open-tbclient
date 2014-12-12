@@ -7,5 +7,5 @@ import java.util.List;
 public interface c {
     void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z);
 
-    void b(String str, List<CommonMsgPojo> list);
+    void c(String str, List<CommonMsgPojo> list);
 }

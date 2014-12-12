@@ -1,44 +1,44 @@
 package com.baidu.tieba.im.more;
 
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.tieba.y;
+import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 class b implements j {
-    final /* synthetic */ SecretSettingActivity bfh;
+    final /* synthetic */ SecretSettingActivity biA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(SecretSettingActivity secretSettingActivity) {
-        this.bfh = secretSettingActivity;
+        this.biA = secretSettingActivity;
     }
 
     @Override // com.baidu.tieba.im.more.j
-    public void QN() {
-        this.bfh.QM();
+    public void Rm() {
+        this.biA.Rl();
     }
 
     @Override // com.baidu.tieba.im.more.j
     public void onBackPressed() {
-        this.bfh.finish();
+        this.biA.finish();
     }
 
     @Override // com.baidu.tieba.im.more.j
-    public void QO() {
-        this.bfh.au("group", this.bfh.getString(y.privacy_setting_attention_group));
+    public void Rn() {
+        this.biA.aA("group", this.biA.getPageContext().getString(z.privacy_setting_attention_group));
     }
 
     @Override // com.baidu.tieba.im.more.j
-    public void QP() {
-        this.bfh.au("post", this.bfh.getString(y.privacy_setting_attention_forum));
+    public void Ro() {
+        this.biA.aA("post", this.biA.getPageContext().getString(z.privacy_setting_attention_forum));
     }
 
     @Override // com.baidu.tieba.im.more.j
-    public void QQ() {
-        this.bfh.au("like", this.bfh.getString(y.privacy_setting_attention_bar));
+    public void Rp() {
+        this.biA.aA("like", this.biA.getPageContext().getString(z.privacy_setting_attention_bar));
     }
 
     @Override // com.baidu.tieba.im.more.j
     public void a(BdSwitchView.SwitchState switchState) {
-        this.bfh.I("location", BdSwitchView.SwitchState.ON == switchState ? 1 : 3);
-        this.bfh.showProgressBar();
+        this.biA.P("location", BdSwitchView.SwitchState.ON == switchState ? 1 : 3);
+        this.biA.showProgressBar();
     }
 }

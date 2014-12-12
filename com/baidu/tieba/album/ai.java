@@ -3,11 +3,11 @@ package com.baidu.tieba.album;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 class ai implements aa {
-    final /* synthetic */ ah aiT;
+    final /* synthetic */ ah aqf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(ah ahVar) {
-        this.aiT = ahVar;
+        this.aqf = ahVar;
     }
 
     @Override // com.baidu.tieba.album.aa
@@ -15,10 +15,10 @@ class ai implements aa {
         AlbumActivity albumActivity;
         AlbumActivity albumActivity2;
         if (z) {
-            albumActivity2 = this.aiT.ahz;
+            albumActivity2 = this.aqf.aoO;
             return albumActivity2.b(imageFileInfo);
         }
-        albumActivity = this.aiT.ahz;
+        albumActivity = this.aqf.aoO;
         return albumActivity.c(imageFileInfo);
     }
 }

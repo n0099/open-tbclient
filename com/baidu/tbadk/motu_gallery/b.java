@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class b {
-    public static Bitmap a(Context context, Uri uri, int i, int i2) {
+    public static Bitmap getBitmapSample(Context context, Uri uri, int i, int i2) {
         int i3;
         int i4;
         int i5;
@@ -61,36 +61,36 @@ public class b {
         return decodeStream;
     }
 
-    public static Bitmap b(Context context, Uri uri, int i, int i2) {
+    public static Bitmap a(Context context, Uri uri, int i, int i2) {
         return a(context, uri, i, i2, false);
     }
 
     public static Bitmap a(Context context, Uri uri, int i, int i2, boolean z) {
-        Bitmap a;
-        Bitmap a2 = a(context, uri, i, i2);
-        if (a2 == null) {
+        Bitmap resizeBitmap;
+        Bitmap bitmapSample = getBitmapSample(context, uri, i, i2);
+        if (bitmapSample == null) {
             throw new OtherException();
         }
         try {
-            if (a2.getWidth() > a2.getHeight()) {
-                a = a(a2, i, i2);
+            if (bitmapSample.getWidth() > bitmapSample.getHeight()) {
+                resizeBitmap = resizeBitmap(bitmapSample, i, i2);
             } else {
-                a = a(a2, i2, i);
+                resizeBitmap = resizeBitmap(bitmapSample, i2, i);
             }
             int b = w.b(context, uri, z);
             if (b != 0) {
                 Matrix matrix = new Matrix();
                 matrix.setRotate(b);
-                return Bitmap.createBitmap(a, 0, 0, a.getWidth(), a.getHeight(), matrix, true);
+                return Bitmap.createBitmap(resizeBitmap, 0, 0, resizeBitmap.getWidth(), resizeBitmap.getHeight(), matrix, true);
             }
-            return a;
+            return resizeBitmap;
         } catch (Exception e) {
             e.printStackTrace();
             throw new OtherException();
         }
     }
 
-    public static Bitmap a(Bitmap bitmap, int i, int i2) {
+    public static Bitmap resizeBitmap(Bitmap bitmap, int i, int i2) {
         float width = bitmap.getWidth() / i;
         float height = bitmap.getHeight() / i2;
         if (width <= height) {
@@ -105,10 +105,10 @@ public class b {
             bitmap.recycle();
             return copy;
         }
-        return b(bitmap, width);
+        return scaleBitmap(bitmap, width);
     }
 
-    public static Bitmap b(Bitmap bitmap, float f) {
+    public static Bitmap scaleBitmap(Bitmap bitmap, float f) {
         Bitmap createBitmap;
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
@@ -125,7 +125,7 @@ public class b {
         return createBitmap;
     }
 
-    public static boolean dH(String str) {
+    public static boolean eu(String str) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(str, options);

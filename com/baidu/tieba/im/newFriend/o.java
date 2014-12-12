@@ -19,18 +19,18 @@ class o extends com.baidu.adp.framework.listener.e {
             RequestAddFriendMessage requestAddFriendMessage = (RequestAddFriendMessage) responseAddFriendMessage.getOrginalMessage();
             int error = responseAddFriendMessage.getError();
             long friendId = responseAddFriendMessage.getFriendId();
-            com.baidu.tieba.im.data.e eVar = new com.baidu.tieba.im.data.e();
-            eVar.setId(friendId);
-            eVar.fw(0);
-            eVar.setContent(requestAddFriendMessage.getMessage());
+            com.baidu.tieba.im.data.b bVar = new com.baidu.tieba.im.data.b();
+            bVar.setId(friendId);
+            bVar.fz(0);
+            bVar.setContent(requestAddFriendMessage.getMessage());
             if (error == 0) {
-                eVar.setStatus(3);
-                com.baidu.tieba.im.e.a(new p(this, friendId, eVar), new q(this, requestAddFriendMessage));
+                bVar.setStatus(3);
+                com.baidu.tieba.im.i.a(new p(this, friendId, bVar), new q(this, friendId, requestAddFriendMessage));
             } else if (error == 3100097) {
                 Message<?> orginalMessage = responseAddFriendMessage.getOrginalMessage();
                 if (orginalMessage instanceof RequestAddFriendMessage) {
                     long friendId2 = ((RequestAddFriendMessage) orginalMessage).getFriendId();
-                    com.baidu.tieba.im.e.a(new r(this, friendId2), new s(this, friendId2));
+                    com.baidu.tieba.im.i.a(new r(this, friendId2), new s(this, friendId2));
                 }
             }
         }

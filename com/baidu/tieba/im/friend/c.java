@@ -5,22 +5,22 @@ import com.baidu.tieba.im.model.BlackListModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements DialogInterface.OnCancelListener {
-    final /* synthetic */ IMBlackListActivity aVH;
+    final /* synthetic */ IMBlackListActivity aZY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(IMBlackListActivity iMBlackListActivity) {
-        this.aVH = iMBlackListActivity;
+        this.aZY = iMBlackListActivity;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
         BlackListModel blackListModel;
         BlackListModel blackListModel2;
-        blackListModel = this.aVH.aVE;
+        blackListModel = this.aZY.aZV;
         if (blackListModel != null) {
-            blackListModel2 = this.aVH.aVE;
+            blackListModel2 = this.aZY.aZV;
             blackListModel2.cancelLoadData();
-            this.aVH.aVG = null;
+            this.aZY.aZX = null;
         }
     }
 }

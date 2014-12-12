@@ -1,36 +1,45 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bn implements View.OnClickListener {
-    final /* synthetic */ PersonListActivity bDh;
+public class bn extends HttpMessageListener {
+    final /* synthetic */ bm bGT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bn(PersonListActivity personListActivity) {
-        this.bDh = personListActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bn(bm bmVar, int i) {
+        super(i);
+        this.bGT = bmVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        bs bsVar;
-        bs bsVar2;
-        bs bsVar3;
-        int intValue = ((Integer) view.getTag()).intValue();
-        bsVar = this.bDh.bDc;
-        if (bsVar != null) {
-            bsVar2 = this.bDh.bDc;
-            if (bsVar2.getItemViewType(intValue) == 0) {
-                bsVar3 = this.bDh.bDc;
-                UserData userData = (UserData) bsVar3.getItem(intValue);
-                if (userData != null && userData.getUserId() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.bDh, userData.getUserId(), userData.getName_show(), null, AddFriendActivityConfig.TYPE_FOCUS)));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        bp bpVar;
+        bp bpVar2;
+        bp bpVar3;
+        bp bpVar4;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002003 && (httpResponsedMessage instanceof ResponseNetPersonListMessage)) {
+            int statusCode = httpResponsedMessage.getStatusCode();
+            int error = httpResponsedMessage.getError();
+            if (statusCode != 200 || error != 0) {
+                bpVar = this.bGT.bGF;
+                if (bpVar != null) {
+                    bpVar2 = this.bGT.bGF;
+                    bpVar2.B(httpResponsedMessage.getErrorString(), false);
+                    return;
                 }
+                return;
+            }
+            ResponseNetPersonListMessage responseNetPersonListMessage = (ResponseNetPersonListMessage) httpResponsedMessage;
+            responseNetPersonListMessage.setModel(this.bGT);
+            com.baidu.tbadk.core.data.q data = responseNetPersonListMessage.getData();
+            bpVar3 = this.bGT.bGF;
+            if (bpVar3 != null) {
+                bpVar4 = this.bGT.bGF;
+                bpVar4.d(data, false);
             }
         }
     }

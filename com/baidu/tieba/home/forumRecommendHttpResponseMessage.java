@@ -1,6 +1,6 @@
 package com.baidu.tieba.home;
 
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import java.util.List;
@@ -8,6 +8,7 @@ import tbclient.ForumRecommend.Banner;
 import tbclient.ForumRecommend.ForumRecommendResIdl;
 import tbclient.ForumRecommend.LikeForum;
 import tbclient.ForumRecommend.NewRecommend;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes.dex */
 public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
     private List<Banner> banner;
@@ -18,6 +19,7 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
     private String msign_text;
     private Integer msign_valid;
     private List<NewRecommend> new_recommend;
+    private List<RecommendForumInfo> recommend_forum_info;
     private Integer time;
 
     public forumRecommendHttpResponseMessage(int i) {
@@ -60,6 +62,10 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
         return this.is_mem;
     }
 
+    public List<RecommendForumInfo> GetRecommendForumInfoList() {
+        return this.recommend_forum_info;
+    }
+
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) {
         ForumRecommendResIdl forumRecommendResIdl;
@@ -80,6 +86,7 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
                 this.msign_level = forumRecommendResIdl.data.msign_level;
                 this.time = forumRecommendResIdl.data.time;
                 this.is_mem = forumRecommendResIdl.data.is_mem;
+                this.recommend_forum_info = forumRecommendResIdl.data.recommend_forum_info;
             }
         }
     }
@@ -88,7 +95,7 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (bArr != null && bArr.length > 0 && getError() == 0) {
-            com.baidu.tbadk.core.a.a.kS().C("tb_forum_recommend", TbadkApplication.getCurrentAccountName()).c("forumRecommend_cache_key", bArr);
+            com.baidu.tbadk.core.a.a.nS().N("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).g("forumRecommend_cache_key", bArr);
         }
     }
 }

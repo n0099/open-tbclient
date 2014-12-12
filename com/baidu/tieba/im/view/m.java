@@ -7,34 +7,38 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.tieba.im.data.c;
+import com.baidu.tieba.im.util.i;
 import com.baidu.tieba.t;
 import com.baidu.tieba.u;
+import com.baidu.tieba.v;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends BaseAdapter {
-    private List<com.baidu.tieba.im.data.f> anB;
+    private List<c> atf;
     private Context mContext;
 
-    public m(Context context, List<com.baidu.tieba.im.data.f> list) {
+    public m(Context context, List<c> list) {
         this.mContext = context;
-        this.anB = list;
+        this.atf = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.anB == null) {
+        if (this.atf == null) {
             return 0;
         }
-        return (this.anB.size() * 2) - 1;
+        return (this.atf.size() * 2) - 1;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
         int itemId = (int) getItemId(i);
-        if (this.anB != null && itemId >= 0 && itemId < this.anB.size()) {
-            return this.anB.get(itemId);
+        if (this.atf != null && itemId >= 0 && itemId < this.atf.size()) {
+            return this.atf.get(itemId);
         }
         return null;
     }
@@ -57,41 +61,44 @@ public class m extends BaseAdapter {
         return 2;
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r8v3, types: [android.view.View] */
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        TextView textView;
+        LinearLayout linearLayout;
         int itemViewType = getItemViewType(i);
         View view2 = view;
         if (view == null) {
             n nVar = new n(this);
             if (itemViewType == 0) {
-                TextView textView2 = new TextView(this.mContext);
-                textView2.setLayoutParams(new AbsListView.LayoutParams(-1, com.baidu.tieba.im.util.i.k(this.mContext, t.ds96)));
-                textView2.setTextSize(0, com.baidu.tieba.im.util.i.k(this.mContext, t.ds32));
-                textView2.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.s.official_bar_menu_text_color));
-                textView2.setGravity(17);
-                textView2.setBackgroundResource(u.official_bar_menu_text_bg);
-                textView2.setSingleLine();
-                textView2.setEllipsize(TextUtils.TruncateAt.END);
-                nVar.bjN = textView2;
-                textView = textView2;
+                TextView textView = new TextView(this.mContext);
+                textView.setLayoutParams(new AbsListView.LayoutParams(-1, i.j(this.mContext, u.ds96)));
+                textView.setTextSize(0, i.j(this.mContext, u.ds32));
+                textView.setTextColor(this.mContext.getResources().getColor(t.cp_cont_b));
+                textView.setGravity(17);
+                textView.setBackgroundResource(v.official_bar_menu_text_bg);
+                textView.setSingleLine();
+                textView.setEllipsize(TextUtils.TruncateAt.END);
+                nVar.boX = textView;
+                linearLayout = textView;
             } else {
-                textView = view;
+                linearLayout = view;
                 if (itemViewType == 1) {
+                    LinearLayout linearLayout2 = new LinearLayout(this.mContext);
+                    linearLayout2.setLayoutParams(new AbsListView.LayoutParams(-1, i.j(this.mContext, u.ds1)));
                     ImageView imageView = new ImageView(this.mContext);
-                    imageView.setLayoutParams(new AbsListView.LayoutParams(-1, com.baidu.tieba.im.util.i.k(this.mContext, t.ds1)));
-                    imageView.setBackgroundColor(this.mContext.getResources().getColor(com.baidu.tieba.s.official_bar_menu_bottom_line));
-                    textView = imageView;
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
+                    layoutParams.setMargins(i.j(this.mContext, u.ds30), 0, i.j(this.mContext, u.ds30), 0);
+                    imageView.setLayoutParams(layoutParams);
+                    imageView.setBackgroundColor(this.mContext.getResources().getColor(t.cp_bg_line_b));
+                    linearLayout2.addView(imageView);
+                    linearLayout = linearLayout2;
                 }
             }
-            textView.setTag(nVar);
-            view2 = textView;
+            linearLayout.setTag(nVar);
+            view2 = linearLayout;
         }
         n nVar2 = (n) view2.getTag();
         if (itemViewType == 0) {
-            nVar2.bjN.setText(((com.baidu.tieba.im.data.f) getItem(i)).getName());
+            nVar2.boX.setText(((c) getItem(i)).getName());
         }
         return view2;
     }

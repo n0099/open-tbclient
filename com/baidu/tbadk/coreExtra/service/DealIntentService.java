@@ -1,12 +1,13 @@
 package com.baidu.tbadk.coreExtra.service;
 
-import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import com.baidu.adp.base.BdBaseService;
 /* loaded from: classes.dex */
-public class DealIntentService extends Service {
+public class DealIntentService extends BdBaseService {
     private static String ACTION_ON_POST_EXSIT = "TaskExsits";
     private static String ACTION_ON_POST_START = "TaskNeedsTobeStart";
+    public static final int CLASS_TYPE_ENTER_OFFICIAL = 27;
     public static final int CLASS_TYPE_FRS = 2;
     public static final int CLASS_TYPE_GIFT_INFO = 24;
     public static final int CLASS_TYPE_GROUP_EVENT = 14;
@@ -32,6 +33,7 @@ public class DealIntentService extends Service {
     public static final int CLASS_TYPE_SQUARESEARCH_ACTIVITY = 18;
     public static final int CLASS_TYPE_VOTE = 8;
     public static final int CLASS_TYPE_WEB = 0;
+    public static final int CLASS_TYPE_XIUBA = 26;
     private a mDealAsyncTask = null;
 
     @Override // android.app.Service

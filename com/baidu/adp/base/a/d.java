@@ -6,27 +6,27 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public abstract class d extends SQLiteOpenHelper implements a {
-    private b aD;
-    private final String aE;
+    private b co;
+    private final String cp;
 
-    public abstract void b(SQLiteDatabase sQLiteDatabase);
+    public abstract void d(SQLiteDatabase sQLiteDatabase);
 
     @Override // com.baidu.adp.base.a.a
     public void a(b bVar) {
-        this.aD = bVar;
+        this.co = bVar;
     }
 
     public d(Context context, String str, int i) {
         super(context, str, (SQLiteDatabase.CursorFactory) null, i);
-        this.aE = str;
+        this.cp = str;
     }
 
     @Override // com.baidu.adp.base.a.a
-    public boolean f(Context context) {
-        return context.deleteDatabase(this.aE);
+    public boolean E(Context context) {
+        return context.deleteDatabase(this.cp);
     }
 
-    public boolean a(SQLiteDatabase sQLiteDatabase, String str) {
+    public boolean b(SQLiteDatabase sQLiteDatabase, String str) {
         try {
             sQLiteDatabase.execSQL(str);
             return true;
@@ -38,13 +38,13 @@ public abstract class d extends SQLiteOpenHelper implements a {
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        b(sQLiteDatabase);
-        c(sQLiteDatabase);
+        d(sQLiteDatabase);
+        e(sQLiteDatabase);
     }
 
-    private void c(SQLiteDatabase sQLiteDatabase) {
-        if (this.aD != null) {
-            this.aD.a(sQLiteDatabase);
+    private void e(SQLiteDatabase sQLiteDatabase) {
+        if (this.co != null) {
+            this.co.c(sQLiteDatabase);
         }
     }
 }

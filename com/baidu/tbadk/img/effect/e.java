@@ -1,18 +1,18 @@
 package com.baidu.tbadk.img.effect;
 
 import android.graphics.Bitmap;
-import com.baidu.adp.lib.util.m;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.adp.lib.util.l;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class e extends b {
-    private int Vs = 0;
+    private int abw = 0;
 
     @Override // com.baidu.tbadk.img.effect.b
-    public String sr() {
+    public String getActionName() {
         return "rotate";
     }
 
-    public static ImageOperation cT(int i) {
+    public static ImageOperation ds(int i) {
         ImageOperation imageOperation = new ImageOperation();
         imageOperation.actionName = "rotate";
         imageOperation.actionParam = String.valueOf(i);
@@ -20,9 +20,9 @@ public class e extends b {
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public void dw(String str) {
+    public void eq(String str) {
         if (str != null) {
-            this.Vs = Integer.parseInt(str);
+            this.abw = Integer.parseInt(str);
         }
     }
 
@@ -31,19 +31,19 @@ public class e extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.e.si().cR(com.baidu.tbadk.core.util.d.a(bitmap) * 2);
-        if (this.Vs == 0 || this.Vs == 1) {
-            return com.baidu.tbadk.core.util.d.d(bitmap, this.Vs);
+        com.baidu.tbadk.imageManager.e.vL().dq(com.baidu.tbadk.core.util.d.d(bitmap) * 2);
+        if (this.abw == 0 || this.abw == 1) {
+            return com.baidu.tbadk.core.util.d.g(bitmap, this.abw);
         }
-        if (this.Vs == 2 || this.Vs == 3) {
-            return com.baidu.tbadk.core.util.d.f(bitmap, this.Vs);
+        if (this.abw == 2 || this.abw == 3) {
+            return com.baidu.tbadk.core.util.d.i(bitmap, this.abw);
         }
         return bitmap;
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap dx(String str) {
-        int max = Math.max(m.n(TbadkApplication.m251getInst().getApp()), m.o(TbadkApplication.m251getInst().getApp()));
-        return b(com.baidu.tbadk.core.util.d.a(str, max, max), true);
+    public Bitmap er(String str) {
+        int max = Math.max(l.M(TbadkCoreApplication.m255getInst().getApp()), l.N(TbadkCoreApplication.m255getInst().getApp()));
+        return b(com.baidu.tbadk.core.util.d.b(str, max, max), true);
     }
 }

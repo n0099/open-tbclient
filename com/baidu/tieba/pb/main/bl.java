@@ -1,64 +1,40 @@
 package com.baidu.tieba.pb.main;
 
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.frs.view.FrsPraiseView;
-import com.baidu.tieba.pb.sub.SubPbLayout;
-import com.baidu.tieba.view.BaobaoTailView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bl {
-    public TextView aEq;
-    public UserIconBox aSO;
-    UserIconBox azs;
-    final /* synthetic */ bh bvU;
-    public View bvX;
-    public View bvY;
-    public View bvZ;
-    public ImageView bwA;
-    public TextView bwB;
-    public LinearLayout bwC;
-    public ImageView bwD;
-    public TextView bwE;
-    public View bwa;
-    public HeadImageView bwb;
-    public TextView bwc;
-    public ImageView bwd;
-    public TextView bwe;
-    public TextView bwf;
-    public ImageView bwg;
-    public ImageView bwh;
-    public TbRichTextView bwi;
-    public View bwj;
-    public FrsPraiseView bwk;
-    public ImageView bwl;
-    public RelativeLayout bwm;
-    private LinearLayout bwn;
-    private ImageView bwo;
-    public SubPbLayout bwp;
-    public BaobaoTailView bwq;
-    public LinearLayout bwr;
-    public TextView bws;
-    public LinearLayout bwt;
-    public Button bwu;
-    public LinearLayout bwv;
-    public TextView bww;
-    public View bwx;
-    public View bwy;
-    public LinearLayout bwz;
-
-    private bl(bh bhVar) {
-        this.bvU = bhVar;
-    }
+public class bl implements View.OnClickListener {
+    private final /* synthetic */ String aFm;
+    private final /* synthetic */ String aFo;
+    final /* synthetic */ bi bzJ;
+    private final /* synthetic */ String bzK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bl(bh bhVar, bl blVar) {
-        this(bhVar);
+    public bl(bi biVar, String str, String str2, String str3) {
+        this.bzJ = biVar;
+        this.aFm = str;
+        this.bzK = str2;
+        this.aFo = str3;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TbPageContext tbPageContext;
+        TbPageContext tbPageContext2;
+        TbPageContext tbPageContext3;
+        if (TbadkCoreApplication.m255getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.aFm) && !StringUtils.isNull(this.bzK)) {
+            if (!com.baidu.adp.lib.util.i.fg()) {
+                tbPageContext3 = this.bzJ.mContext;
+                tbPageContext3.showToast(com.baidu.tieba.z.neterror);
+                return;
+            }
+            tbPageContext = this.bzJ.mContext;
+            String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.aFm) + "," + this.bzK, this.aFo, this.aFo, tbPageContext.getString(com.baidu.tieba.z.app_info_for_map));
+            tbPageContext2 = this.bzJ.mContext;
+            com.baidu.tbadk.browser.a.y(tbPageContext2.getPageActivity(), format);
+        }
     }
 }

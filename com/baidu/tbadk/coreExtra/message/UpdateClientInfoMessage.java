@@ -2,7 +2,7 @@ package com.baidu.tbadk.coreExtra.message;
 
 import com.baidu.adp.lib.g.c;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import com.squareup.wire.ByteString;
 import java.util.HashMap;
@@ -25,9 +25,9 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         super(1001);
         this.device = new HashMap();
         try {
-            if (TbadkApplication.m251getInst().getLocationShared()) {
-                this.lat = c.a(TbadkApplication.m251getInst().getLocationLat(), 0.0d);
-                this.lng = c.a(TbadkApplication.m251getInst().getLocationLng(), 0.0d);
+            if (TbadkCoreApplication.m255getInst().getLocationShared()) {
+                this.lat = c.a(TbadkCoreApplication.m255getInst().getLocationLat(), 0.0d);
+                this.lng = c.a(TbadkCoreApplication.m255getInst().getLocationLng(), 0.0d);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -114,7 +114,7 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         builder.lat = Double.valueOf(getLat());
         builder.lng = Double.valueOf(getLng());
         UpdateClientInfoReqIdl.Builder builder2 = new UpdateClientInfoReqIdl.Builder();
-        builder2.cuid = TbadkApplication.getUniqueIdentifier();
+        builder2.cuid = TbadkCoreApplication.getUniqueIdentifier();
         builder2.data = builder.build(false);
         return builder2.build(false);
     }

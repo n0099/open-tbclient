@@ -9,13 +9,13 @@ class c extends DiskFileOperate implements com.baidu.adp.lib.Disk.a {
     }
 
     @Override // com.baidu.adp.lib.Disk.a
-    public boolean b(File file) {
+    public boolean c(File file) {
         return file != null && file.lastModified() + 259200000 < System.currentTimeMillis();
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public void h(boolean z) {
-        super.h(z);
+    public void l(boolean z) {
+        super.l(z);
         ImagesInvalidService.stopService();
         ImagesInvalidReceiver.broadcast(z);
     }

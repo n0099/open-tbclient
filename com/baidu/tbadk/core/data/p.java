@@ -1,80 +1,94 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.data.IconData;
+import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
-import tbclient.FrsPage.UserInfo;
+import tbclient.Page;
 /* loaded from: classes.dex */
 public class p {
-    private String Ak;
-    private String Al;
-    private IconData Am = new IconData();
-    private boolean isAdded;
-    private String name;
-    private int sex;
-    private int userId;
+    private int Eb = 0;
+    private int total_num = 0;
+    private int current_page = 0;
+    private int Ed = 0;
+    private int has_more = 0;
+    private int Ee = 0;
+    private int Ec = 0;
 
-    public void kq() {
-        this.isAdded = true;
+    public int mS() {
+        return this.Eb;
     }
 
-    public boolean kr() {
-        return this.isAdded;
+    public void bj(int i) {
+        this.Eb = i;
     }
 
-    public void a(UserInfo userInfo) {
-        if (userInfo != null) {
-            this.isAdded = false;
-            this.userId = userInfo.user_id.intValue();
-            this.Ak = userInfo.portrait;
-            this.name = userInfo.user_name;
-            this.sex = userInfo.gender.intValue();
-            this.Al = userInfo.intro;
-            if (userInfo.tshow_icon != null) {
-                this.Am.setIcon(userInfo.tshow_icon.icon);
-                this.Am.setIconName(userInfo.tshow_icon.name);
-                this.Am.setUrl(userInfo.tshow_icon.url);
-            }
+    public int mt() {
+        return this.total_num;
+    }
+
+    public void bk(int i) {
+        this.total_num = i;
+    }
+
+    public int mT() {
+        return this.Ec;
+    }
+
+    public int mU() {
+        return this.current_page;
+    }
+
+    public void bl(int i) {
+        this.current_page = i;
+    }
+
+    public int mV() {
+        return this.Ed;
+    }
+
+    public void bm(int i) {
+        this.Ed = i;
+    }
+
+    public void bn(int i) {
+        this.has_more = i;
+    }
+
+    public int mW() {
+        return this.has_more;
+    }
+
+    public void bo(int i) {
+        this.Ee = i;
+    }
+
+    public int mX() {
+        return this.Ee;
+    }
+
+    public void a(Page page) {
+        if (page != null) {
+            this.Eb = page.total_page.intValue();
+            this.total_num = page.total_num.intValue();
+            this.Ec = page.total_count.intValue();
+            this.current_page = page.current_page.intValue();
+            this.Ed = page.page_size.intValue();
+            this.has_more = page.has_more.intValue();
+            this.Ee = page.has_prev.intValue();
         }
     }
 
-    public int getUserId() {
-        return this.userId;
-    }
-
-    public String ks() {
-        return this.Ak;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public boolean kt() {
-        return 2 == this.sex;
-    }
-
-    public String ku() {
-        return this.Al;
-    }
-
-    public IconData kv() {
-        return this.Am;
-    }
-
-    public void b(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.userId = jSONObject.optInt(com.baidu.tbadk.core.frameworkData.a.USER_ID);
-            this.name = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_NAME);
-            this.Ak = jSONObject.optString("portait");
-            this.sex = jSONObject.optInt("gender");
-            this.isAdded = jSONObject.optBoolean("recommend_is_added");
-            this.Al = jSONObject.optString("intro");
-            JSONObject optJSONObject = jSONObject.optJSONObject("crown_info");
-            if (optJSONObject != null) {
-                this.Am.setIcon(optJSONObject.optString("icon"));
-                this.Am.setIconName(optJSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_NAME));
-                this.Am.setUrl(optJSONObject.optString(ImageViewerConfig.URL));
+            try {
+                this.Eb = jSONObject.optInt("total_page", 0);
+                this.total_num = jSONObject.optInt("total_num", 0);
+                this.Ec = jSONObject.optInt("total_count", 0);
+                this.current_page = jSONObject.optInt("current_page", 0);
+                this.Ed = jSONObject.optInt("page_size", 0);
+                this.has_more = jSONObject.optInt("has_more", 0);
+                this.Ee = jSONObject.optInt("has_prev", 0);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }

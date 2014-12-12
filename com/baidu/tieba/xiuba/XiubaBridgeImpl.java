@@ -1,7 +1,7 @@
 package com.baidu.tieba.xiuba;
 
 import android.content.Context;
-import android.util.Log;
+import android.content.Intent;
 import com.baidu.tieba.xiuba.XiubaGetUserInfoModel;
 import com.baidu.tieba.xiuba.XiubaPayModel;
 import com.baidu.tieba.xiuba.XiubaSendMsgModel;
@@ -19,7 +19,11 @@ public class XiubaBridgeImpl implements XiubaBridgeInterface {
 
     @Override // com.baidu.tieba.xiuba.XiubaBridgeInterface
     public void sendXiubaMsg(XiubaMsg xiubaMsg, XiubaSendMsgModel.SendMsgCallback sendMsgCallback) {
-        Log.i("DDF", "sendXiubaMsg");
         XiubaSynchronousDataHelper.getInstance().startSendXiubaMsg(xiubaMsg, sendMsgCallback);
+    }
+
+    @Override // com.baidu.tieba.xiuba.XiubaBridgeInterface
+    public Intent createShortcutIntent(Context context) {
+        return new Intent(context, DealShortCutActivity.class);
     }
 }

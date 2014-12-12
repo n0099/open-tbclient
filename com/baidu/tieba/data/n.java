@@ -1,53 +1,30 @@
 package com.baidu.tieba.data;
 
+import com.baidu.adp.lib.util.StringUtils;
 import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes.dex */
 public class n {
-    private boolean TP;
-    private String akm;
-    private String akn;
-    private ArrayList<m> ako = new ArrayList<>();
-    private String time;
+    ArrayList<m> asv = new ArrayList<>();
 
-    public String yK() {
-        return this.akm;
+    public List<m> Cy() {
+        return this.asv;
     }
 
-    public String getTime() {
-        return this.time;
-    }
-
-    public ArrayList<m> yL() {
-        return this.ako;
-    }
-
-    public boolean yM() {
-        return this.TP;
-    }
-
-    public void bo(boolean z) {
-        this.TP = z;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        try {
-            this.time = jSONObject.optString("publish_time");
-            this.akm = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.TOTAL);
-            this.akn = jSONObject.optString("update_time");
-            JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
-            if (optJSONArray != null) {
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
+    public void F(List<RecommendForumInfo> list) {
+        if (list != null && list.size() > 0) {
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                if (list.get(i) instanceof RecommendForumInfo) {
+                    RecommendForumInfo recommendForumInfo = list.get(i);
                     m mVar = new m();
-                    mVar.parserJson(optJSONArray.getJSONObject(i));
-                    this.ako.add(mVar);
+                    if (recommendForumInfo != null && recommendForumInfo.forum_id != null && recommendForumInfo.forum_id.longValue() != 0 && !StringUtils.isNull(recommendForumInfo.forum_name) && recommendForumInfo.is_like != null && recommendForumInfo.is_like.intValue() != 1) {
+                        mVar.b(recommendForumInfo);
+                        this.asv.add(mVar);
+                    }
                 }
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
     }
 }

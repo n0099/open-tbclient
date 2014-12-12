@@ -1,58 +1,20 @@
 package com.baidu.tieba.im.data;
+
+import android.os.Parcel;
+import android.os.Parcelable;
 /* loaded from: classes.dex */
-public class e {
-    private int aVg;
-    private String content;
-    private long id;
-    private String name;
-    private String portrait;
-    private int status;
-
-    public long getId() {
-        return this.id;
+class e implements Parcelable.Creator<RandChatRoomData> {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.Parcelable.Creator
+    /* renamed from: g */
+    public RandChatRoomData createFromParcel(Parcel parcel) {
+        return new RandChatRoomData(parcel, null);
     }
 
-    public void setId(long j) {
-        this.id = j;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String str) {
-        this.name = str;
-    }
-
-    public String getPortrait() {
-        return this.portrait;
-    }
-
-    public void setPortrait(String str) {
-        this.portrait = str;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String str) {
-        this.content = str;
-    }
-
-    public int getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(int i) {
-        this.status = i;
-    }
-
-    public int Mr() {
-        return this.aVg;
-    }
-
-    public void fw(int i) {
-        this.aVg = i;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.Parcelable.Creator
+    /* renamed from: fD */
+    public RandChatRoomData[] newArray(int i) {
+        return new RandChatRoomData[i];
     }
 }

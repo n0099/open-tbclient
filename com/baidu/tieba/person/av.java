@@ -1,45 +1,28 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
-public class av extends HttpMessageListener {
-    final /* synthetic */ at bCN;
+class av {
+    HeadImageView aBo;
+    TextView axW;
+    TextView azp;
+    ImageView bGr;
+    TextView bGs;
+    final /* synthetic */ au bGt;
+    ImageView bjq;
+    LinearLayout mInfo;
+    ProgressBar mProgress;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public av(at atVar, int i) {
-        super(i);
-        this.bCN = atVar;
+    private av(au auVar) {
+        this.bGt = auVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        PersonFriendActivity aab;
-        PersonFriendActivity aab2;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002000) {
-            this.bCN.bCJ = false;
-            aab = this.bCN.aab();
-            if (aab != null) {
-                BdUniqueId tag = httpResponsedMessage.getOrginalMessage().getTag();
-                aab2 = this.bCN.aab();
-                if (tag == aab2.getUniqueId()) {
-                    this.bCN.vl.hN();
-                    if (httpResponsedMessage.getStatusCode() == 200 && (httpResponsedMessage instanceof PersonFriendResponseMessage)) {
-                        PersonFriendResponseMessage personFriendResponseMessage = (PersonFriendResponseMessage) httpResponsedMessage;
-                        if (personFriendResponseMessage.getError() == 0) {
-                            this.bCN.a(personFriendResponseMessage.getPersonListData(), false);
-                            return;
-                        }
-                        this.bCN.showToast(httpResponsedMessage.getErrorString());
-                        return;
-                    }
-                    this.bCN.showToast(httpResponsedMessage.getErrorString());
-                }
-            }
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ av(au auVar, av avVar) {
+        this(auVar);
     }
 }

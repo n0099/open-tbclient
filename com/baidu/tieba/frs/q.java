@@ -1,28 +1,35 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class q implements View.OnClickListener {
-    final /* synthetic */ FrsActivity aBu;
+class q extends CustomMessageListener {
+    final /* synthetic */ FrsActivity aCV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(FrsActivity frsActivity) {
-        this.aBu = frsActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q(FrsActivity frsActivity, int i) {
+        super(i);
+        this.aCV = frsActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        bu buVar;
-        int intValue = ((Integer) view.getTag()).intValue();
-        buVar = this.aBu.aAF;
-        com.baidu.adp.widget.ListView.al ai = buVar.GJ().ai(intValue);
-        if (ai instanceof com.baidu.tbadk.core.data.a) {
-            com.baidu.tbadk.core.data.a aVar = (com.baidu.tbadk.core.data.a) ai;
-            if (aVar.jH()) {
-                this.aBu.a(aVar, "btn_click");
-                this.aBu.b(aVar, "click");
-                com.baidu.tbadk.core.util.bg.mR().b(this.aBu, new String[]{aVar.zj});
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        onMessage2((CustomResponsedMessage) customResponsedMessage);
+    }
+
+    /* renamed from: onMessage  reason: avoid collision after fix types in other method */
+    public void onMessage2(CustomResponsedMessage customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            if (customResponsedMessage.getCmd() != 2001124) {
+                if (customResponsedMessage.getCmd() != 2001122) {
+                    return;
+                }
+                this.aCV.e(customResponsedMessage);
+                return;
             }
+            this.aCV.d(customResponsedMessage);
         }
     }
 }

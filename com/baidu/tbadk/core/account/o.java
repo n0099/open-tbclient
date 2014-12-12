@@ -1,21 +1,21 @@
 package com.baidu.tbadk.core.account;
 
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class o {
-    public static HashMap<String, Integer> zc = new HashMap<>();
+    public static HashMap<String, Integer> Dc = new HashMap<>();
 
-    public static int aL(int i) {
-        String str = String.valueOf(TbadkApplication.getCurrentAccount()) + "@" + i;
-        if (zc.containsKey(str)) {
-            return zc.get(str).intValue();
+    public static int bh(int i) {
+        String str = String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@" + i;
+        if (Dc.containsKey(str)) {
+            return Dc.get(str).intValue();
         }
-        zc.put(str, 1);
+        Dc.put(str, 1);
         return 1;
     }
 
-    public static void k(int i, int i2) {
-        zc.put(String.valueOf(TbadkApplication.getCurrentAccount()) + "@" + i, Integer.valueOf(i2));
+    public static void n(int i, int i2) {
+        Dc.put(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@" + i, Integer.valueOf(i2));
     }
 }

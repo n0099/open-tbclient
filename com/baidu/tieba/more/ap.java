@@ -1,22 +1,21 @@
 package com.baidu.tieba.more;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-class ap extends CustomMessageListener {
-    final /* synthetic */ SystemHelpSettingActivity bsX;
+class ap implements DialogInterface.OnClickListener {
+    final /* synthetic */ SystemHelpSettingActivity bwu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ap(SystemHelpSettingActivity systemHelpSettingActivity, int i) {
-        super(i);
-        this.bsX = systemHelpSettingActivity;
+    public ap(SystemHelpSettingActivity systemHelpSettingActivity) {
+        this.bwu = systemHelpSettingActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.bsX.closeLoadingDialog();
-        this.bsX.showToast(com.baidu.tieba.y.systemhelpsetting_clear_im_success);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        at atVar;
+        this.bwu.showLoadingDialog(this.bwu.getPageContext().getString(com.baidu.tieba.z.deleting));
+        atVar = this.bwu.bws;
+        atVar.VN();
+        dialogInterface.cancel();
     }
 }

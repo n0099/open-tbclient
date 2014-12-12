@@ -4,50 +4,50 @@ import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ac;
+import com.baidu.tbadk.core.util.ad;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, Integer, String> {
-    private String aMm;
-    final /* synthetic */ CreateBarActivity aMo;
+    private ad CV = null;
+    private String aOm;
+    final /* synthetic */ CreateBarActivity aOo;
     private String mVcode;
-    private ac yV = null;
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
         super.cancel(true);
-        if (this.yV != null) {
-            this.yV.dM();
+        if (this.CV != null) {
+            this.CV.dL();
         }
-        progressBar = this.aMo.mProgress;
+        progressBar = this.aOo.mProgress;
         progressBar.setVisibility(8);
-        this.aMo.aMg = null;
+        this.aOo.aOg = null;
     }
 
     public c(CreateBarActivity createBarActivity, String str, String str2) {
-        this.aMo = createBarActivity;
-        this.aMm = null;
+        this.aOo = createBarActivity;
+        this.aOm = null;
         this.mVcode = null;
-        this.aMm = str;
+        this.aOm = str;
         this.mVcode = str2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: h */
+    /* renamed from: l */
     public String doInBackground(String... strArr) {
         String str;
         try {
-            this.yV = new ac(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/create");
-            this.yV.mc().na().mIsNeedTbs = true;
-            this.yV.k("kw", this.aMm);
-            this.yV.k("vcode", this.mVcode);
-            ac acVar = this.yV;
-            str = this.aMo.aMi;
-            acVar.k("vcode_md5", str);
-            this.yV.lA();
+            this.CV = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/create");
+            this.CV.oW().pV().mIsNeedTbs = true;
+            this.CV.o("kw", this.aOm);
+            this.CV.o("vcode", this.mVcode);
+            ad adVar = this.CV;
+            str = this.aOo.aOi;
+            adVar.o("vcode_md5", str);
+            this.CV.ov();
             return null;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -61,17 +61,17 @@ public class c extends BdAsyncTask<String, Integer, String> {
     public void onPostExecute(String str) {
         ProgressBar progressBar;
         super.onPostExecute((c) str);
-        progressBar = this.aMo.mProgress;
+        progressBar = this.aOo.mProgress;
         progressBar.setVisibility(8);
-        this.aMo.aMg = null;
-        if (this.yV.mc().nb().jq()) {
-            CreateBarSuccessActivity.startActivity(this.aMo, this.aMm);
-            this.aMo.finish();
+        this.aOo.aOg = null;
+        if (this.CV.oW().pW().ma()) {
+            CreateBarSuccessActivity.L(this.aOo.getPageContext().getPageActivity(), this.aOm);
+            this.aOo.finish();
             return;
         }
-        this.aMo.showToast(this.yV.getErrorString());
-        if (this.yV.mf()) {
-            this.aMo.IH();
+        this.aOo.showToast(this.CV.getErrorString());
+        if (this.CV.oZ()) {
+            this.aOo.Ja();
         }
     }
 
@@ -80,7 +80,7 @@ public class c extends BdAsyncTask<String, Integer, String> {
     public void onPreExecute() {
         ProgressBar progressBar;
         super.onPreExecute();
-        progressBar = this.aMo.mProgress;
+        progressBar = this.aOo.mProgress;
         progressBar.setVisibility(0);
     }
 }

@@ -6,10 +6,10 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class CustomMessageTask extends MessageTask {
-    private CustomRunnable<?> de;
-    private TASK_TYPE df;
-    private boolean dg;
-    private BdAsyncTaskParallel dh;
+    private CustomRunnable<?> fk;
+    private TASK_TYPE fl;
+    private boolean fm;
+    private BdAsyncTaskParallel fn;
 
     /* loaded from: classes.dex */
     public interface CustomRunnable<T> {
@@ -34,39 +34,39 @@ public class CustomMessageTask extends MessageTask {
 
     public CustomMessageTask(int i, CustomRunnable<?> customRunnable) {
         super(i);
-        this.de = null;
-        this.df = TASK_TYPE.ASYNCHRONIZED;
-        this.dg = false;
-        this.dh = null;
-        this.de = customRunnable;
+        this.fk = null;
+        this.fl = TASK_TYPE.ASYNCHRONIZED;
+        this.fm = false;
+        this.fn = null;
+        this.fk = customRunnable;
     }
 
-    public CustomRunnable<?> ba() {
-        return this.de;
+    public CustomRunnable<?> bB() {
+        return this.fk;
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
     public boolean checkCmd() {
-        return FrameHelper.g(this.mCmd);
+        return FrameHelper.s(this.mCmd);
     }
 
-    public TASK_TYPE bb() {
-        return this.df;
+    public TASK_TYPE bC() {
+        return this.fl;
     }
 
     public void a(TASK_TYPE task_type) {
-        this.df = task_type;
+        this.fl = task_type;
     }
 
-    public boolean bc() {
-        return this.dg;
+    public boolean bD() {
+        return this.fm;
     }
 
-    public BdAsyncTaskParallel bd() {
-        return this.dh;
+    public BdAsyncTaskParallel bE() {
+        return this.fn;
     }
 
     public void a(BdAsyncTaskParallel bdAsyncTaskParallel) {
-        this.dh = bdAsyncTaskParallel;
+        this.fn = bdAsyncTaskParallel;
     }
 }

@@ -1,46 +1,31 @@
 package com.baidu.tbadk.performanceLog;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p extends n {
-    public long YZ;
-    public long Za;
-    public long Zb;
-    public long Zc;
-    public long Zd;
-    public long Ze;
-    public long Zf;
-    public long Zg;
-    public long Zh;
-    public long Zi;
-    public long Zj;
-    public long Zk;
-    public boolean Zl;
-    public boolean isSuccess;
+public class p implements e {
+    final /* synthetic */ n age;
 
-    public void uJ() {
-        x xVar = (x) v.uP().dp(this.mSubType);
-        if (xVar != null) {
-            xVar.b(this);
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public p(n nVar) {
+        this.age = nVar;
     }
 
-    public void uK() {
-        x xVar = (x) v.uP().dp(this.mSubType);
-        if (xVar != null) {
-            xVar.a(this);
-        }
-    }
-
-    public void uL() {
-        x xVar = (x) v.uP().dp(this.mSubType);
-        if (xVar != null) {
-            xVar.c(this);
-        }
-    }
-
-    public void uM() {
-        x xVar = (x) v.uP().dp(this.mSubType);
-        if (xVar != null) {
-            xVar.d(this);
+    /* JADX WARN: Incorrect condition in loop: B:4:0x0008 */
+    @Override // com.baidu.tbadk.performanceLog.e
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void ez(String str) {
+        String[] strArr;
+        String[] strArr2;
+        int i;
+        for (int i2 = 0; i2 < strArr.length; i2++) {
+            strArr2 = this.age.afZ;
+            if (str.contains(strArr2[i2])) {
+                n nVar = this.age;
+                i = nVar.afS;
+                nVar.afS = i + 1;
+                return;
+            }
         }
     }
 }

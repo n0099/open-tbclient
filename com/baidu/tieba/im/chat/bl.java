@@ -1,17 +1,19 @@
 package com.baidu.tieba.im.chat;
 
-import android.content.DialogInterface;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bl implements DialogInterface.OnClickListener {
-    final /* synthetic */ GroupSettingActivity aOC;
+public class bl implements View.OnLongClickListener {
+    final /* synthetic */ az aRi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bl(GroupSettingActivity groupSettingActivity) {
-        this.aOC = groupSettingActivity;
+    public bl(az azVar) {
+        this.aRi = azVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.cancel();
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        this.aRi.mItemViewLongClickListener.onItemViewLongClick(view, 10, this.aRi.mPosition, 0L);
+        return true;
     }
 }

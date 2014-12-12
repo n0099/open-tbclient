@@ -2,16 +2,15 @@ package com.baidu.tieba.friendfeed;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.message.ResponseFriendFeedMessage;
-import com.baidu.tieba.model.ac;
 /* loaded from: classes.dex */
 class o extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ FriendFeedActivity ayU;
+    final /* synthetic */ FriendFeedActivity aAU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(FriendFeedActivity friendFeedActivity, int i) {
         super(i);
-        this.ayU = friendFeedActivity;
+        this.aAU = friendFeedActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,47 +18,47 @@ class o extends com.baidu.adp.framework.listener.e {
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         y yVar;
         boolean isFirstLoad;
-        ac acVar;
+        com.baidu.tieba.model.l lVar;
         boolean isFirstLoad2;
         y yVar2;
-        yVar = this.ayU.ayz;
-        q ES = yVar.ES();
-        this.ayU.hideProgress();
+        yVar = this.aAU.aAB;
+        q Fk = yVar.Fk();
+        this.aAU.hideProgress();
         if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseFriendFeedMessage)) {
-            this.ayU.showToast(com.baidu.tieba.y.neterror);
+            this.aAU.showToast(com.baidu.tieba.z.neterror);
             return;
         }
         ResponseFriendFeedMessage responseFriendFeedMessage = (ResponseFriendFeedMessage) socketResponsedMessage;
         if (responseFriendFeedMessage.getError() != 0) {
             if (responseFriendFeedMessage.getError() > 0) {
-                this.ayU.showToast(responseFriendFeedMessage.getErrorString());
+                this.aAU.showToast(responseFriendFeedMessage.getErrorString());
                 return;
             }
-            ES.bN(false);
-            ES.notifyDataSetChanged();
-            this.ayU.showToast(com.baidu.tieba.y.neterror);
+            Fk.bB(false);
+            Fk.notifyDataSetChanged();
+            this.aAU.showToast(com.baidu.tieba.z.neterror);
             return;
         }
-        com.baidu.tieba.data.s friendFeedData = responseFriendFeedMessage.getFriendFeedData();
+        com.baidu.tieba.data.i friendFeedData = responseFriendFeedMessage.getFriendFeedData();
         if (friendFeedData != null) {
-            isFirstLoad = this.ayU.isFirstLoad();
+            isFirstLoad = this.aAU.isFirstLoad();
             if (isFirstLoad) {
-                ES.bM(true);
+                Fk.reset(true);
             }
-            ES.bO(friendFeedData.isHasMore());
+            Fk.bC(friendFeedData.isHasMore());
             if (!friendFeedData.isHasMore()) {
-                isFirstLoad2 = this.ayU.isFirstLoad();
-                if (isFirstLoad2 && friendFeedData.zh().size() == 0) {
-                    yVar2 = this.ayU.ayz;
-                    yVar2.bP(true);
+                isFirstLoad2 = this.aAU.isFirstLoad();
+                if (isFirstLoad2 && friendFeedData.Ct().size() == 0) {
+                    yVar2 = this.aAU.aAB;
+                    yVar2.showNoDataTip(true);
                     return;
                 }
             }
-            ES.bN(true);
-            ES.a(friendFeedData);
-            acVar = this.ayU.ayA;
-            acVar.setTimeline(ES.EM());
-            ES.notifyDataSetChanged();
+            Fk.bB(true);
+            Fk.a(friendFeedData);
+            lVar = this.aAU.aAC;
+            lVar.setTimeline(Fk.Fd());
+            Fk.notifyDataSetChanged();
         }
     }
 }

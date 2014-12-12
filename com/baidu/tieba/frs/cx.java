@@ -1,30 +1,34 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.widget.TbImageView;
+import android.content.Context;
 /* loaded from: classes.dex */
-class cx {
-    LinearLayout aEb;
-    LinearLayout aEc;
-    cy aEd;
-    TextView aEe;
-    TextView aEf;
-    TextView aEg;
-    TextView aEh;
-    TbImageView aEi;
-    TbImageView aEj;
-    TbImageView aEk;
-    LinearLayout aEl;
-    LinearLayout aEm;
-    View aEn;
+public class cx {
+    private long aFZ;
+    private long aGa;
+    private long aGb;
 
-    private cx() {
+    public cx(Context context) {
+        K(0L);
+        L(0L);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ cx(cx cxVar) {
-        this();
+    public void K(long j) {
+        this.aFZ = j;
+    }
+
+    public long GT() {
+        return this.aFZ + this.aGa;
+    }
+
+    public void L(long j) {
+        this.aGa = j;
+    }
+
+    public long GU() {
+        return this.aGb;
+    }
+
+    public void M(long j) {
+        this.aGb = j;
     }
 }

@@ -1,15 +1,15 @@
 package com.baidu.tbadk.core.voice.service;
 /* loaded from: classes.dex */
 class b implements Runnable {
-    final /* synthetic */ a IW;
+    final /* synthetic */ a NX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.IW = aVar;
+        this.NX = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.IW.nK();
+        this.NX.qL();
     }
 }

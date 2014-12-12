@@ -11,64 +11,65 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-public class v extends com.baidu.adp.base.f {
-    private Runnable NM;
-    private com.baidu.tbadk.img.e ahw;
-    private AlbumActivity ahz;
-    private final int aij;
-    private String aik;
-    private String ail;
-    private String aim;
-    private Button ain;
-    private HorizontalScrollView aio;
-    private LinearLayout aip;
-    private RelativeLayout aiq;
-    private ImageView air;
-    private Fragment[] ais;
-    private String[] ait;
-    private FrameLayout[] aiu;
-    private int aiv;
+public class v extends com.baidu.adp.base.g<BaseFragmentActivity> {
+    private Runnable Tx;
+    private com.baidu.tbadk.img.e aoM;
+    private AlbumActivity aoO;
+    private Button apA;
+    private HorizontalScrollView apB;
+    private LinearLayout apC;
+    private RelativeLayout apD;
+    private ImageView apE;
+    private Fragment[] apF;
+    private String[] apG;
+    private FrameLayout[] apH;
+    private int apI;
+    private final int apw;
+    private String apx;
+    private String apy;
+    private String apz;
     private Handler mHandler;
     private int mPadding;
     private LinearLayout mParent;
 
     public v(AlbumActivity albumActivity) {
-        super(albumActivity);
-        this.aij = 3;
-        this.aik = "tag_album";
-        this.ail = "tag_image";
-        this.aim = "tag_b_image";
+        super(albumActivity.getPageContext());
+        this.apw = 3;
+        this.apx = "tag_album";
+        this.apy = "tag_image";
+        this.apz = "tag_b_image";
         this.mHandler = new Handler();
-        this.ahz = albumActivity;
-        this.ahw = new com.baidu.tbadk.img.e(albumActivity);
+        this.aoO = albumActivity;
+        this.aoM = new com.baidu.tbadk.img.e(albumActivity.getPageContext().getContext());
         a(albumActivity);
     }
 
     private void a(AlbumActivity albumActivity) {
-        albumActivity.setContentView(com.baidu.tieba.w.album_activity);
-        this.mParent = (LinearLayout) albumActivity.findViewById(com.baidu.tieba.v.parent);
-        this.ain = (Button) albumActivity.findViewById(com.baidu.tieba.v.btn_done);
-        this.ain.setOnClickListener(albumActivity);
-        this.aio = (HorizontalScrollView) albumActivity.findViewById(com.baidu.tieba.v.bottom_scroll);
-        this.aip = (LinearLayout) albumActivity.findViewById(com.baidu.tieba.v.bottom_container);
-        this.aiq = (RelativeLayout) albumActivity.findViewById(com.baidu.tieba.v.lay_bottom);
-        this.air = (ImageView) albumActivity.findViewById(com.baidu.tieba.v.add_more);
-        this.aiv = (int) this.ahz.getResources().getDimension(com.baidu.tieba.t.album_bottom_item_height);
-        this.mPadding = (int) this.ahz.getResources().getDimension(com.baidu.tieba.t.default_gap_4);
+        albumActivity.setContentView(com.baidu.tieba.x.album_activity);
+        this.mParent = (LinearLayout) albumActivity.findViewById(com.baidu.tieba.w.parent);
+        this.apA = (Button) albumActivity.findViewById(com.baidu.tieba.w.btn_done);
+        this.apA.setOnClickListener(albumActivity);
+        this.apB = (HorizontalScrollView) albumActivity.findViewById(com.baidu.tieba.w.bottom_scroll);
+        this.apC = (LinearLayout) albumActivity.findViewById(com.baidu.tieba.w.bottom_container);
+        this.apD = (RelativeLayout) albumActivity.findViewById(com.baidu.tieba.w.lay_bottom);
+        this.apE = (ImageView) albumActivity.findViewById(com.baidu.tieba.w.add_more);
+        this.apI = (int) this.aoO.getResources().getDimension(com.baidu.tieba.u.album_bottom_item_height);
+        this.mPadding = (int) this.aoO.getResources().getDimension(com.baidu.tieba.u.default_gap_4);
     }
 
-    public void dQ(int i) {
-        this.aiu = new FrameLayout[i];
+    public void ej(int i) {
+        this.apH = new FrameLayout[i];
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.aiu.length) {
-                this.aiu[i3] = (FrameLayout) com.baidu.adp.lib.g.b.ek().inflate(this.ahz, com.baidu.tieba.w.album_bottom_item_view, null);
+            if (i3 < this.apH.length) {
+                this.apH[i3] = (FrameLayout) com.baidu.adp.lib.g.b.ek().inflate(this.aoO.getPageContext().getContext(), com.baidu.tieba.x.album_bottom_item_view, null);
                 i2 = i3 + 1;
             } else {
                 return;
@@ -81,112 +82,112 @@ public class v extends com.baidu.adp.base.f {
         if (frameLayout == null) {
             return null;
         }
-        return (TbImageView) frameLayout.findViewById(com.baidu.tieba.v.item_iv);
+        return (TbImageView) frameLayout.findViewById(com.baidu.tieba.w.item_iv);
     }
 
-    public void yb() {
-        this.ais = new Fragment[3];
-        this.ait = new String[3];
-        this.ais[0] = new m();
-        this.ait[0] = this.aik;
-        this.ais[1] = new ah();
-        this.ait[1] = this.ail;
-        this.ais[2] = new b();
-        this.ait[2] = this.aim;
+    public void Bs() {
+        this.apF = new Fragment[3];
+        this.apG = new String[3];
+        this.apF[0] = new m();
+        this.apG[0] = this.apx;
+        this.apF[1] = new ah();
+        this.apG[1] = this.apy;
+        this.apF[2] = new b();
+        this.apG[2] = this.apz;
     }
 
-    public Fragment dR(int i) {
+    public Fragment ek(int i) {
         if (i < 0 || i > 2) {
             return null;
         }
-        return this.ais[i];
+        return this.apF[i];
     }
 
-    public String dS(int i) {
+    public String el(int i) {
         if (i < 0 || i > 2) {
             return null;
         }
-        return this.ait[i];
+        return this.apG[i];
     }
 
     public void onChangeSkinType(int i) {
-        this.ahz.getLayoutMode().L(i == 1);
-        this.ahz.getLayoutMode().h(this.mParent);
+        this.aoO.getLayoutMode().ab(i == 1);
+        this.aoO.getLayoutMode().h(this.mParent);
     }
 
-    public Button yc() {
-        return this.ain;
+    public Button Bt() {
+        return this.apA;
     }
 
-    public View yd() {
-        Fragment dR = dR(0);
-        if (dR == null || !(dR instanceof m)) {
+    public View Bu() {
+        Fragment ek = ek(0);
+        if (ek == null || !(ek instanceof m)) {
             return null;
         }
-        return ((m) dR).getBtnBack();
+        return ((m) ek).getBtnBack();
     }
 
-    public View ye() {
-        Fragment dR = dR(1);
-        if (dR == null || !(dR instanceof ah)) {
+    public View Bv() {
+        Fragment ek = ek(1);
+        if (ek == null || !(ek instanceof ah)) {
             return null;
         }
-        return ((ah) dR).xQ();
+        return ((ah) ek).Bj();
     }
 
-    public View yf() {
-        Fragment dR = dR(2);
-        if (dR == null || !(dR instanceof b)) {
+    public View Bw() {
+        Fragment ek = ek(2);
+        if (ek == null || !(ek instanceof b)) {
             return null;
         }
-        return ((b) dR).xQ();
+        return ((b) ek).Bj();
     }
 
-    public TextView yg() {
-        Fragment dR = dR(1);
-        if (dR == null || !(dR instanceof ah)) {
+    public TextView Bx() {
+        Fragment ek = ek(1);
+        if (ek == null || !(ek instanceof ah)) {
             return null;
         }
-        return ((ah) dR).yg();
+        return ((ah) ek).Bx();
     }
 
-    public void b(boolean z, String str) {
-        this.ain.setEnabled(z);
+    public void e(boolean z, String str) {
+        this.apA.setEnabled(z);
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        this.ain.setText(str);
+        this.apA.setText(str);
     }
 
     public void e(ImageFileInfo imageFileInfo) {
         TbImageView a;
         if (imageFileInfo != null) {
-            int length = this.aiu.length;
+            int length = this.apH.length;
             for (int i = 0; i < length; i++) {
-                if (this.aiu[i] != null && (a = a(this.aiu[i])) != null && a.getTag() == null) {
+                if (this.apH[i] != null && (a = a(this.apH[i])) != null && a.getTag() == null) {
                     a.setDefaultResource(0);
                     a.setDefaultBgResource(0);
-                    a.setLayoutParams(new FrameLayout.LayoutParams(this.aiv, this.aiv));
+                    a.setLayoutParams(new FrameLayout.LayoutParams(this.apI, this.apI));
                     a.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.aiv + (this.mPadding * 2), this.aiv + (this.mPadding * 2));
-                    layoutParams.bottomMargin = ((int) this.ahz.getResources().getDimension(com.baidu.tieba.t.album_bottom_item_margin_bottom)) - this.mPadding;
-                    layoutParams.topMargin = ((int) this.ahz.getResources().getDimension(com.baidu.tieba.t.album_bottom_item_margin_top)) - this.mPadding;
-                    layoutParams.leftMargin = ((int) this.ahz.getResources().getDimension(com.baidu.tieba.t.album_bottom_item_margin_left)) - this.mPadding;
-                    this.aiu[i].setLayoutParams(layoutParams);
-                    aw.h(this.aiu[i], com.baidu.tieba.u.bg_add_photo);
-                    this.aip.addView(this.aiu[i], this.aip.getChildCount() - 1);
-                    a(this.aio);
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.apI + (this.mPadding * 2), this.apI + (this.mPadding * 2));
+                    layoutParams.bottomMargin = ((int) this.aoO.getResources().getDimension(com.baidu.tieba.u.album_bottom_item_margin_bottom)) - this.mPadding;
+                    layoutParams.topMargin = ((int) this.aoO.getResources().getDimension(com.baidu.tieba.u.album_bottom_item_margin_top)) - this.mPadding;
+                    layoutParams.leftMargin = ((int) this.aoO.getResources().getDimension(com.baidu.tieba.u.album_bottom_item_margin_left)) - this.mPadding;
+                    this.apH[i].setLayoutParams(layoutParams);
+                    ax.i(this.apH[i], com.baidu.tieba.v.bg_add_photo);
+                    this.apC.addView(this.apH[i], this.apC.getChildCount() - 1);
+                    a(this.apB);
                     a.setOnClickListener(new w(this, imageFileInfo));
                     a.setTag(null);
                     imageFileInfo.clearPageActions();
-                    imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.w(this.aiv, this.aiv));
+                    imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.z(this.apI, this.apI));
                     a.setTag(imageFileInfo.toCachedKey(false));
-                    com.baidu.adp.widget.a.a a2 = this.ahw.a(imageFileInfo, false);
+                    com.baidu.adp.widget.a.a a2 = this.aoM.a(imageFileInfo, false);
                     if (a2 != null) {
                         a2.a(a);
                         return;
                     } else {
-                        this.ahw.a(imageFileInfo, new x(this, imageFileInfo), false);
+                        this.aoM.a(imageFileInfo, new x(this, imageFileInfo), false);
                         return;
                     }
                 }
@@ -199,14 +200,14 @@ public class v extends com.baidu.adp.base.f {
         TbImageView a;
         if (imageFileInfo != null) {
             imageFileInfo.clearPageActions();
-            imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.w(this.aiv, this.aiv));
+            imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.z(this.apI, this.apI));
             if (!TextUtils.isEmpty(imageFileInfo.toCachedKey(false))) {
-                int childCount = this.aip.getChildCount();
+                int childCount = this.apC.getChildCount();
                 for (int i = 0; i < childCount; i++) {
-                    if (this.aip.getChildAt(i) != null && (this.aip.getChildAt(i) instanceof FrameLayout) && (a = a((frameLayout = (FrameLayout) this.aip.getChildAt(i)))) != null && a.getTag() != null && a.getTag().equals(imageFileInfo.toCachedKey(false))) {
+                    if (this.apC.getChildAt(i) != null && (this.apC.getChildAt(i) instanceof FrameLayout) && (a = a((frameLayout = (FrameLayout) this.apC.getChildAt(i)))) != null && a.getTag() != null && a.getTag().equals(imageFileInfo.toCachedKey(false))) {
                         a.setTag(null);
                         a.setImageDrawable(null);
-                        this.aip.removeView(frameLayout);
+                        this.apC.removeView(frameLayout);
                         return;
                     }
                 }
@@ -214,46 +215,46 @@ public class v extends com.baidu.adp.base.f {
         }
     }
 
-    public void bm(boolean z) {
-        if (this.air != null) {
+    public void bl(boolean z) {
+        if (this.apE != null) {
             if (z) {
-                this.air.setVisibility(0);
+                this.apE.setVisibility(0);
             } else {
-                this.air.setVisibility(8);
+                this.apE.setVisibility(8);
             }
         }
     }
 
     private void a(HorizontalScrollView horizontalScrollView) {
-        if (this.aio != null) {
-            if (this.NM == null) {
-                this.NM = new y(this, horizontalScrollView);
+        if (this.apB != null) {
+            if (this.Tx == null) {
+                this.Tx = new y(this, horizontalScrollView);
             }
-            this.mHandler.removeCallbacks(this.NM);
-            this.mHandler.postDelayed(this.NM, 10L);
+            this.mHandler.removeCallbacks(this.Tx);
+            this.mHandler.postDelayed(this.Tx, 10L);
         }
     }
 
     public void onDestroy() {
-        if (this.mHandler != null && this.NM != null) {
-            this.mHandler.removeCallbacks(this.NM);
+        if (this.mHandler != null && this.Tx != null) {
+            this.mHandler.removeCallbacks(this.Tx);
         }
-        if (this.ahw != null) {
-            this.ahw.sq();
+        if (this.aoM != null) {
+            this.aoM.vT();
         }
     }
 
-    public void dT(int i) {
-        if (TbadkApplication.m251getInst().getSkinType() != 1) {
+    public void em(int i) {
+        if (TbadkCoreApplication.m255getInst().getSkinType() != 1) {
             if (i == 2) {
-                this.aiq.setBackgroundResource(com.baidu.tieba.u.bg_pic_bottom_bar_special);
-                this.ain.setBackgroundResource(com.baidu.tieba.u.album_done_btn_special);
-                this.air.setBackgroundResource(com.baidu.tieba.u.icon_bottom_add_photo_special);
+                this.apD.setBackgroundResource(com.baidu.tieba.v.bg_pic_bottom_bar_special);
+                this.apA.setBackgroundResource(com.baidu.tieba.v.album_done_btn_special);
+                this.apE.setBackgroundResource(com.baidu.tieba.v.icon_bottom_add_photo_special);
                 return;
             }
-            this.aiq.setBackgroundResource(com.baidu.tieba.u.bg_pic_bottom_bar);
-            this.ain.setBackgroundResource(com.baidu.tieba.u.album_done_btn);
-            this.air.setBackgroundResource(com.baidu.tieba.u.icon_bottom_add_photo);
+            this.apD.setBackgroundResource(com.baidu.tieba.v.bg_pic_bottom_bar);
+            this.apA.setBackgroundResource(com.baidu.tieba.v.album_done_btn);
+            this.apE.setBackgroundResource(com.baidu.tieba.v.icon_bottom_add_photo);
         }
     }
 }

@@ -4,6 +4,8 @@ import java.io.Serializable;
 /* loaded from: classes.dex */
 public class AccountData implements Serializable {
     private static final long serialVersionUID = 4126203103788833116L;
+    private String mMemberIconUrl;
+    private int mSex;
     private String portrait;
     private String mID = null;
     private String mAccount = null;
@@ -87,5 +89,21 @@ public class AccountData implements Serializable {
 
     public void setPersonalGid(int i) {
         this.mPersonalGid = i;
+    }
+
+    public int getSex() {
+        return this.mSex;
+    }
+
+    public void setSex(int i) {
+        this.mSex = i;
+    }
+
+    public String getMemberIconUrl() {
+        return this.mMemberIconUrl;
+    }
+
+    public void setMemberIconUrl(String str) {
+        this.mMemberIconUrl = str;
     }
 }

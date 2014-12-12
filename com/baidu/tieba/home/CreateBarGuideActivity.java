@@ -2,17 +2,21 @@ package com.baidu.tieba.home;
 
 import android.os.Bundle;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.CreateBarGuideActivityConfig;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.core.view.aa;
+import com.baidu.tbadk.core.view.ab;
+import com.baidu.tbadk.core.view.y;
+import com.baidu.tbadk.core.view.z;
 import com.baidu.tieba.selectpoi.NavigationBarActivity;
-import com.baidu.tieba.y;
 /* loaded from: classes.dex */
 public class CreateBarGuideActivity extends NavigationBarActivity {
-    com.baidu.tbadk.core.view.o aHu;
-    private com.baidu.tbadk.core.view.q aMp = null;
+    private z aOp = null;
+    com.baidu.tbadk.core.view.x zO;
 
     static {
-        TbadkApplication.m251getInst().RegisterIntent(CreateBarGuideActivityConfig.class, CreateBarGuideActivity.class);
+        TbadkApplication.getInst().RegisterIntent(CreateBarGuideActivityConfig.class, CreateBarGuideActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -20,15 +24,15 @@ public class CreateBarGuideActivity extends NavigationBarActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         String stringExtra = getIntent().getStringExtra(CreateBarGuideActivityConfig.EXTRA_KEY_FORUM_NAME);
-        this.bhL.setTitleText(y.frs_create_forum);
-        this.aMp = com.baidu.tbadk.core.view.q.a(new com.baidu.tbadk.core.view.p(getResources().getString(y.create_bar), new e(this, stringExtra)));
-        this.aHu = NoDataViewFactory.a(this, getRootView(), com.baidu.tbadk.core.view.r.a(NoDataViewFactory.ImgType.CREATE), com.baidu.tbadk.core.view.s.j(getResources().getString(y.frs_remind_noforum), getResources().getString(y.frs_remind_create), stringExtra), this.aMp);
-        this.aHu.setVisibility(0);
+        this.aey.setTitleText(com.baidu.tieba.z.frs_create_forum);
+        this.aOp = z.a(new y(getResources().getString(com.baidu.tieba.z.create_bar), new e(this, stringExtra)));
+        this.zO = NoDataViewFactory.a(getPageContext().getPageActivity(), getRootView(), aa.a(NoDataViewFactory.ImgType.CREATE), ab.m(getResources().getString(com.baidu.tieba.z.frs_remind_noforum), getResources().getString(com.baidu.tieba.z.frs_remind_create), stringExtra), this.aOp);
+        this.zO.setVisibility(0);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void changeSkinType(int i) {
         super.changeSkinType(i);
-        this.aHu.onChangeSkinType(TbadkApplication.m251getInst().getSkinType());
+        this.zO.onChangeSkinType(getPageContext(), TbadkCoreApplication.m255getInst().getSkinType());
     }
 }

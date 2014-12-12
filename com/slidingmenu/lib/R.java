@@ -4,40 +4,40 @@ public final class R {
 
     /* loaded from: classes.dex */
     public final class attr {
-        public static int behindOffset = com.baidu.tieba.R.attr.segmentMargin;
-        public static int behindScrollScale = com.baidu.tieba.R.attr.textSize;
-        public static int behindWidth = com.baidu.tieba.R.attr.textPadding;
-        public static int fadeDegree = com.baidu.tieba.R.attr.defaultImage;
-        public static int fadeEnabled = com.baidu.tieba.R.attr.maxImageHeight;
-        public static int mode = com.baidu.tieba.R.attr.isblack;
-        public static int selectorDrawable = com.baidu.tieba.R.attr.faceHeight;
-        public static int selectorEnabled = com.baidu.tieba.R.attr.faceWidth;
-        public static int shadowDrawable = com.baidu.tieba.R.attr.lineSpacing;
-        public static int shadowWidth = com.baidu.tieba.R.attr.maxImageWidth;
-        public static int touchModeAbove = com.baidu.tieba.R.attr.textColor;
-        public static int touchModeBehind = com.baidu.tieba.R.attr.linkColor;
-        public static int viewAbove = com.baidu.tieba.R.attr.is_left;
-        public static int viewBehind = com.baidu.tieba.R.attr.isShowGifTag;
+        public static int behindOffset = com.baidu.tieba.R.attr.borderWidth;
+        public static int behindScrollScale = com.baidu.tieba.R.attr.borderSurroundContent;
+        public static int behindWidth = com.baidu.tieba.R.attr.borderColor;
+        public static int fadeDegree = com.baidu.tieba.R.attr.adjustViewBounds;
+        public static int fadeEnabled = com.baidu.tieba.R.attr.maxHeight;
+        public static int mode = com.baidu.tieba.R.attr.radius;
+        public static int selectorDrawable = com.baidu.tieba.R.attr.corner_radius;
+        public static int selectorEnabled = com.baidu.tieba.R.attr.foregroundColor;
+        public static int shadowDrawable = com.baidu.tieba.R.attr.drawerType;
+        public static int shadowWidth = com.baidu.tieba.R.attr.maxWidth;
+        public static int touchModeAbove = com.baidu.tieba.R.attr.showGifIcon;
+        public static int touchModeBehind = com.baidu.tieba.R.attr.gifIcon;
+        public static int viewAbove = com.baidu.tieba.R.attr.isRound;
+        public static int viewBehind = com.baidu.tieba.R.attr.hasBorder;
     }
 
     /* loaded from: classes.dex */
     public final class id {
-        public static int fullscreen = com.baidu.tieba.R.layout.emotion_tab_content;
-        public static int left = com.baidu.tieba.R.layout.activity_live_entrance;
-        public static int margin = com.baidu.tieba.R.layout.editor_tool_more;
-        public static int right = com.baidu.tieba.R.layout.chat_image_with_tail_item;
-        public static int selected_view = com.baidu.tieba.R.layout.emotion_tab_host;
-        public static int slidingmenumain = com.baidu.tieba.R.layout.emotion_tab_widget;
+        public static int fullscreen = com.baidu.tieba.R.layout.account_appeal_activity;
+        public static int left = com.baidu.tieba.R.layout.about_activity;
+        public static int margin = com.baidu.tieba.R.layout.account_add_item;
+        public static int right = com.baidu.tieba.R.layout.account_activity;
+        public static int selected_view = com.baidu.tieba.R.layout.account_forbid_activity;
+        public static int slidingmenumain = com.baidu.tieba.R.layout.account_item;
     }
 
     /* loaded from: classes.dex */
     public final class layout {
-        public static int slidingmenumain = com.baidu.tieba.R.drawable.avatar_poto_defaul140;
+        public static int slidingmenumain = com.baidu.tieba.R.drawable.activity_join_num_bg;
     }
 
     /* loaded from: classes.dex */
     public final class styleable {
-        public static final int[] SlidingMenu = {com.baidu.tieba.R.attr.isblack, com.baidu.tieba.R.attr.is_left, com.baidu.tieba.R.attr.isShowGifTag, com.baidu.tieba.R.attr.segmentMargin, com.baidu.tieba.R.attr.textPadding, com.baidu.tieba.R.attr.textSize, com.baidu.tieba.R.attr.textColor, com.baidu.tieba.R.attr.linkColor, com.baidu.tieba.R.attr.lineSpacing, com.baidu.tieba.R.attr.maxImageWidth, com.baidu.tieba.R.attr.maxImageHeight, com.baidu.tieba.R.attr.defaultImage, com.baidu.tieba.R.attr.faceWidth, com.baidu.tieba.R.attr.faceHeight};
+        public static final int[] SlidingMenu = {com.baidu.tieba.R.attr.radius, com.baidu.tieba.R.attr.isRound, com.baidu.tieba.R.attr.hasBorder, com.baidu.tieba.R.attr.borderWidth, com.baidu.tieba.R.attr.borderColor, com.baidu.tieba.R.attr.borderSurroundContent, com.baidu.tieba.R.attr.showGifIcon, com.baidu.tieba.R.attr.gifIcon, com.baidu.tieba.R.attr.drawerType, com.baidu.tieba.R.attr.maxWidth, com.baidu.tieba.R.attr.maxHeight, com.baidu.tieba.R.attr.adjustViewBounds, com.baidu.tieba.R.attr.foregroundColor, com.baidu.tieba.R.attr.corner_radius};
         public static final int SlidingMenu_behindOffset = 0x00000003;
         public static final int SlidingMenu_behindScrollScale = 0x00000005;
         public static final int SlidingMenu_behindWidth = 0x00000004;

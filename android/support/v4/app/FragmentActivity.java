@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Parcelable;
+import android.support.v4.util.SimpleArrayMap;
+import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -22,7 +24,6 @@ import com.baidu.sapi2.utils.SapiUtils;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.HashMap;
 /* loaded from: classes.dex */
 public class FragmentActivity extends Activity {
     static final String FRAGMENTS_TAG = "android:support:fragments";
@@ -30,7 +31,7 @@ public class FragmentActivity extends Activity {
     static final int MSG_REALLY_STOPPED = 1;
     static final int MSG_RESUME_PENDING = 2;
     private static final String TAG = "FragmentActivity";
-    HashMap<String, LoaderManagerImpl> mAllLoaderManagers;
+    SimpleArrayMap<String, LoaderManagerImpl> mAllLoaderManagers;
     boolean mCheckedForLoaderManager;
     boolean mCreated;
     LoaderManagerImpl mLoaderManager;
@@ -71,10 +72,10 @@ public class FragmentActivity extends Activity {
     /* loaded from: classes.dex */
     final class NonConfigurationInstances {
         Object activity;
-        HashMap<String, Object> children;
+        SimpleArrayMap<String, Object> children;
         Object custom;
         ArrayList<Fragment> fragments;
-        HashMap<String, LoaderManagerImpl> loaders;
+        SimpleArrayMap<String, LoaderManagerImpl> loaders;
 
         NonConfigurationInstances() {
         }
@@ -156,9 +157,9 @@ public class FragmentActivity extends Activity {
         return super.onCreatePanelMenu(i, menu);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x005c */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0064 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:22:0x006e */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0067 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x006f */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0079 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r1v0, types: [android.view.View] */
     /* JADX WARN: Type inference failed for: r1v1 */
@@ -180,6 +181,9 @@ public class FragmentActivity extends Activity {
         int resourceId = obtainStyledAttributes.getResourceId(1, -1);
         String string = obtainStyledAttributes.getString(2);
         obtainStyledAttributes.recycle();
+        if (!Fragment.isSupportFragmentClass(this, attributeValue)) {
+            return super.onCreateView(str, context, attributeSet);
+        }
         int id = 0 != 0 ? r1.getId() : 0;
         if (id == -1 && resourceId == -1 && string == null) {
             throw new IllegalArgumentException(attributeSet.getPositionDescription() + ": Must specify unique android:id, android:tag, or have a parent with an id for " + attributeValue);
@@ -328,36 +332,41 @@ public class FragmentActivity extends Activity {
             menu.clear();
             onCreatePanelMenu(i, menu);
         }
-        return (super.onPreparePanel(i, view, menu) || this.mFragments.dispatchPrepareOptionsMenu(menu)) && menu.hasVisibleItems();
+        return onPrepareOptionsPanel(view, menu) | this.mFragments.dispatchPrepareOptionsMenu(menu);
+    }
+
+    protected boolean onPrepareOptionsPanel(View view, Menu menu) {
+        return super.onPreparePanel(0, view, menu);
     }
 
     @Override // android.app.Activity
     public final Object onRetainNonConfigurationInstance() {
-        int i = 0;
+        boolean z;
         if (this.mStopped) {
             doReallyStop(true);
         }
         Object onRetainCustomNonConfigurationInstance = onRetainCustomNonConfigurationInstance();
         ArrayList<Fragment> retainNonConfig = this.mFragments.retainNonConfig();
         if (this.mAllLoaderManagers != null) {
-            LoaderManagerImpl[] loaderManagerImplArr = new LoaderManagerImpl[this.mAllLoaderManagers.size()];
-            this.mAllLoaderManagers.values().toArray(loaderManagerImplArr);
-            if (loaderManagerImplArr != null) {
-                int i2 = 0;
-                while (i < loaderManagerImplArr.length) {
-                    LoaderManagerImpl loaderManagerImpl = loaderManagerImplArr[i];
-                    if (loaderManagerImpl.mRetaining) {
-                        i2 = 1;
-                    } else {
-                        loaderManagerImpl.doDestroy();
-                        this.mAllLoaderManagers.remove(loaderManagerImpl.mWho);
-                    }
-                    i++;
-                }
-                i = i2;
+            int size = this.mAllLoaderManagers.size();
+            LoaderManagerImpl[] loaderManagerImplArr = new LoaderManagerImpl[size];
+            for (int i = size - 1; i >= 0; i--) {
+                loaderManagerImplArr[i] = this.mAllLoaderManagers.valueAt(i);
             }
+            z = false;
+            for (int i2 = 0; i2 < size; i2++) {
+                LoaderManagerImpl loaderManagerImpl = loaderManagerImplArr[i2];
+                if (loaderManagerImpl.mRetaining) {
+                    z = true;
+                } else {
+                    loaderManagerImpl.doDestroy();
+                    this.mAllLoaderManagers.remove(loaderManagerImpl.mWho);
+                }
+            }
+        } else {
+            z = false;
         }
-        if (retainNonConfig == null && i == 0 && onRetainCustomNonConfigurationInstance == null) {
+        if (retainNonConfig == null && !z && onRetainCustomNonConfigurationInstance == null) {
             return null;
         }
         NonConfigurationInstances nonConfigurationInstances = new NonConfigurationInstances();
@@ -397,7 +406,7 @@ public class FragmentActivity extends Activity {
             if (this.mLoaderManager != null) {
                 this.mLoaderManager.doStart();
             } else if (!this.mCheckedForLoaderManager) {
-                this.mLoaderManager = getLoaderManager(null, this.mLoadersStarted, false);
+                this.mLoaderManager = getLoaderManager("(root)", this.mLoadersStarted, false);
                 if (this.mLoaderManager != null && !this.mLoaderManager.mStarted) {
                     this.mLoaderManager.doStart();
                 }
@@ -406,13 +415,15 @@ public class FragmentActivity extends Activity {
         }
         this.mFragments.dispatchStart();
         if (this.mAllLoaderManagers != null) {
-            LoaderManagerImpl[] loaderManagerImplArr = new LoaderManagerImpl[this.mAllLoaderManagers.size()];
-            this.mAllLoaderManagers.values().toArray(loaderManagerImplArr);
-            if (loaderManagerImplArr != null) {
-                for (LoaderManagerImpl loaderManagerImpl : loaderManagerImplArr) {
-                    loaderManagerImpl.finishRetain();
-                    loaderManagerImpl.doReportStart();
-                }
+            int size = this.mAllLoaderManagers.size();
+            LoaderManagerImpl[] loaderManagerImplArr = new LoaderManagerImpl[size];
+            for (int i = size - 1; i >= 0; i--) {
+                loaderManagerImplArr[i] = this.mAllLoaderManagers.valueAt(i);
+            }
+            for (int i2 = 0; i2 < size; i2++) {
+                LoaderManagerImpl loaderManagerImpl = loaderManagerImplArr[i2];
+                loaderManagerImpl.finishRetain();
+                loaderManagerImpl.doReportStart();
             }
         }
     }
@@ -527,7 +538,7 @@ public class FragmentActivity extends Activity {
             Resources resources = view.getResources();
             if (id != 0 && resources != null) {
                 switch ((-16777216) & id) {
-                    case 16777216:
+                    case ViewCompat.MEASURED_STATE_TOO_SMALL /* 16777216 */:
                         resourcePackageName = "android";
                         String resourceTypeName = resources.getResourceTypeName(id);
                         String resourceEntryName = resources.getResourceEntryName(id);
@@ -650,14 +661,14 @@ public class FragmentActivity extends Activity {
             return this.mLoaderManager;
         }
         this.mCheckedForLoaderManager = true;
-        this.mLoaderManager = getLoaderManager(null, this.mLoadersStarted, true);
+        this.mLoaderManager = getLoaderManager("(root)", this.mLoadersStarted, true);
         return this.mLoaderManager;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public LoaderManagerImpl getLoaderManager(String str, boolean z, boolean z2) {
         if (this.mAllLoaderManagers == null) {
-            this.mAllLoaderManagers = new HashMap<>();
+            this.mAllLoaderManagers = new SimpleArrayMap<>();
         }
         LoaderManagerImpl loaderManagerImpl = this.mAllLoaderManagers.get(str);
         if (loaderManagerImpl == null) {

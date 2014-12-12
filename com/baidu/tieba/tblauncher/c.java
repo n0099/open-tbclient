@@ -2,18 +2,16 @@ package com.baidu.tieba.tblauncher;
 
 import android.view.View;
 import android.widget.ImageView;
+import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.pluginArch.Plugin;
-import com.baidu.tbadk.pluginArch.PluginCenter;
-import com.baidu.tbadk.pluginArch.PluginNameList;
 import com.baidu.tbadk.plugins.Hao123Plugin;
 /* loaded from: classes.dex */
 class c implements View.OnClickListener {
-    final /* synthetic */ GuideActivity bOC;
+    final /* synthetic */ GuideActivity caM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(GuideActivity guideActivity) {
-        this.bOC = guideActivity;
+        this.caM = guideActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,31 +19,29 @@ class c implements View.OnClickListener {
         ImageView imageView;
         ImageView imageView2;
         ImageView imageView3;
-        Hao123Plugin hao123Plugin;
         boolean z;
-        Hao123Plugin hao123Plugin2;
-        imageView = this.bOC.bOt;
-        imageView2 = this.bOC.bOt;
+        imageView = this.caM.caD;
+        imageView2 = this.caM.caD;
         imageView.setSelected(!imageView2.isSelected());
-        imageView3 = this.bOC.bOt;
+        imageView3 = this.caM.caD;
         if (imageView3.isSelected()) {
-            TbadkApplication.m251getInst().setTiebaHelperOpen(true);
-            Plugin pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_HAO123);
-            if (pluginByName != null && (hao123Plugin2 = (Hao123Plugin) pluginByName.getClassInstance(Hao123Plugin.class)) != null) {
-                hao123Plugin2.openFloating(this.bOC);
+            TbadkApplication.getInst().setTiebaHelperOpen(true);
+            Hao123Plugin hao123Plugin = (Hao123Plugin) PluginCenter.gX().hc();
+            if (hao123Plugin != null) {
+                hao123Plugin.openFloating(this.caM.getPageContext().getPageActivity());
             }
-            z = this.bOC.bsW;
+            z = this.caM.bwt;
             if (!z) {
-                this.bOC.bsW = true;
-                this.bOC.aeb();
+                this.caM.bwt = true;
+                this.caM.aiv();
             }
-            com.baidu.tbadk.core.j.l(this.bOC, "tb_zs_loading");
+            com.baidu.tbadk.core.i.B(this.caM.getPageContext().getPageActivity(), "tb_zs_loading");
             return;
         }
-        TbadkApplication.m251getInst().setTiebaHelperOpen(false);
-        Plugin pluginByName2 = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_HAO123);
-        if (pluginByName2 != null && (hao123Plugin = (Hao123Plugin) pluginByName2.getClassInstance(Hao123Plugin.class)) != null) {
-            hao123Plugin.closeFloating(this.bOC);
+        TbadkApplication.getInst().setTiebaHelperOpen(false);
+        Hao123Plugin hao123Plugin2 = (Hao123Plugin) PluginCenter.gX().hc();
+        if (hao123Plugin2 != null) {
+            hao123Plugin2.closeFloating(this.caM.getPageContext().getPageActivity());
         }
     }
 }

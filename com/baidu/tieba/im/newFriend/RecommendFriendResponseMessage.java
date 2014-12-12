@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
-    private List<com.baidu.tieba.im.data.e> mDatas;
+    private List<com.baidu.tieba.im.data.b> mDatas;
     private int mErrCode;
     private String mErrMsg;
 
@@ -26,7 +26,7 @@ public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
         return this.mErrMsg;
     }
 
-    public List<com.baidu.tieba.im.data.e> getDatas() {
+    public List<com.baidu.tieba.im.data.b> getDatas() {
         return this.mDatas;
     }
 
@@ -42,19 +42,19 @@ public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
             if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("recommend_list")) != null) {
                 this.mDatas = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    com.baidu.tieba.im.data.e eVar = new com.baidu.tieba.im.data.e();
+                    com.baidu.tieba.im.data.b bVar = new com.baidu.tieba.im.data.b();
                     JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                    eVar.setId(jSONObject2.optLong(com.baidu.tbadk.core.frameworkData.a.USER_ID));
-                    eVar.setName(jSONObject2.optString(com.baidu.tbadk.core.frameworkData.a.USER_NAME));
-                    eVar.setPortrait(jSONObject2.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT));
-                    eVar.setContent(jSONObject2.optString("message"));
+                    bVar.setId(jSONObject2.optLong("user_id"));
+                    bVar.setName(jSONObject2.optString("user_name"));
+                    bVar.setPortrait(jSONObject2.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT));
+                    bVar.setContent(jSONObject2.optString("message"));
                     if (jSONObject2.optInt("type") == 0) {
-                        eVar.setStatus(0);
+                        bVar.setStatus(0);
                     } else {
-                        eVar.setStatus(1);
+                        bVar.setStatus(1);
                     }
-                    eVar.fw(1);
-                    this.mDatas.add(eVar);
+                    bVar.fz(1);
+                    this.mDatas.add(bVar);
                 }
             }
         }

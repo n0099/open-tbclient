@@ -1,21 +1,33 @@
 package com.baidu.tieba.frs;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
 /* loaded from: classes.dex */
-public class at implements DialogInterface.OnClickListener {
-    final /* synthetic */ FrsActivity aBu;
-
+class at extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public at(FrsActivity frsActivity) {
-        this.aBu = frsActivity;
+    public at(int i) {
+        super(i);
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        if (dialogInterface instanceof Dialog) {
-            com.baidu.adp.lib.g.j.b((Dialog) dialogInterface, this.aBu);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        boolean Ft;
+        if (customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
+            int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
+            if (intValue == 1 || intValue == 4 || intValue == 3) {
+                FrsActivity.aBN = true;
+            } else if (intValue == 2) {
+                FrsActivity.aBO = true;
+            }
+            boolean z = intValue == 3;
+            Ft = FrsActivity.Ft();
+            if (!z || !Ft) {
+                FrsActivity.aBM = true;
+            } else {
+                FrsActivity.aBM = false;
+            }
         }
     }
 }

@@ -3,16 +3,16 @@ package com.baidu.adp.lib.guide;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 class j extends ViewGroup.LayoutParams {
-    public int jG;
-    public int jH;
-    public int jI;
-    public int jJ;
+    public int jK;
+    public int jL;
+    public int jM;
+    public int jN;
 
     public j(int i, int i2) {
         super(i, i2);
-        this.jG = 4;
-        this.jH = 32;
-        this.jI = 0;
-        this.jJ = 0;
+        this.jK = 4;
+        this.jL = 32;
+        this.jM = 0;
+        this.jN = 0;
     }
 }

@@ -1,21 +1,21 @@
 package com.baidu.tieba.im.newFriend;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i extends com.baidu.tieba.im.b<Void> {
-    final /* synthetic */ NewFriendDbManagerStatic bgL;
-    private final /* synthetic */ com.baidu.tieba.im.data.e bgM;
+public class i extends com.baidu.tieba.im.h<Void> {
+    final /* synthetic */ NewFriendDbManagerStatic bjD;
+    private final /* synthetic */ com.baidu.tieba.im.data.b bjE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(NewFriendDbManagerStatic newFriendDbManagerStatic, com.baidu.tieba.im.data.e eVar) {
-        this.bgL = newFriendDbManagerStatic;
-        this.bgM = eVar;
+    public i(NewFriendDbManagerStatic newFriendDbManagerStatic, com.baidu.tieba.im.data.b bVar) {
+        this.bjD = newFriendDbManagerStatic;
+        this.bjE = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: Kf */
+    @Override // com.baidu.tieba.im.h
+    /* renamed from: Kp */
     public Void doInBackground() {
-        com.baidu.tieba.im.db.m.MO().a(this.bgM);
+        com.baidu.tieba.im.db.m.MI().b(this.bjE);
         return null;
     }
 }

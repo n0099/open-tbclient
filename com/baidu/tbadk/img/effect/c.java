@@ -5,18 +5,18 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c Vq = new c();
-    private final HashMap<String, Class<? extends b>> Vr = new HashMap<>();
+    private static c abu = new c();
+    private final HashMap<String, Class<? extends b>> abv = new HashMap<>();
 
-    public static c ss() {
-        return Vq;
+    public static c vU() {
+        return abu;
     }
 
     private c() {
-        e(d.class);
-        e(f.class);
-        e(a.class);
-        e(e.class);
+        o(d.class);
+        o(f.class);
+        o(a.class);
+        o(e.class);
     }
 
     public Bitmap a(Bitmap bitmap, boolean z, List<ImageOperation> list) {
@@ -32,7 +32,7 @@ public class c {
                     ImageOperation imageOperation = list.get(i3);
                     if ("resize".equals(imageOperation.actionName)) {
                         d dVar2 = (d) a(imageOperation);
-                        if (dVar != null && dVar2.getMaxWidth() > dVar.getMaxWidth() && dVar2.st() > dVar.st()) {
+                        if (dVar != null && dVar2.getMaxWidth() > dVar.getMaxWidth() && dVar2.getMaxHeight() > dVar.getMaxHeight()) {
                             dVar2 = dVar;
                         }
                         list.remove(i3);
@@ -71,7 +71,7 @@ public class c {
         return bitmap;
     }
 
-    public Bitmap a(String str, List<ImageOperation> list) {
+    public Bitmap b(String str, List<ImageOperation> list) {
         d dVar;
         int i;
         int i2 = 0;
@@ -85,7 +85,7 @@ public class c {
                 ImageOperation imageOperation = list.get(i3);
                 if ("resize".equals(imageOperation.actionName)) {
                     d dVar2 = (d) a(imageOperation);
-                    if (dVar != null && dVar2.getMaxWidth() > dVar.getMaxWidth() && dVar2.st() > dVar.st()) {
+                    if (dVar != null && dVar2.getMaxWidth() > dVar.getMaxWidth() && dVar2.getMaxHeight() > dVar.getMaxHeight()) {
                         dVar2 = dVar;
                     }
                     list.remove(i3);
@@ -99,20 +99,20 @@ public class c {
         } else {
             dVar = null;
         }
-        Bitmap dx = dVar != null ? dVar.dx(str) : null;
+        Bitmap er = dVar != null ? dVar.er(str) : null;
         if (list == null) {
-            return dx;
+            return er;
         }
         while (true) {
-            Bitmap bitmap = dx;
+            Bitmap bitmap = er;
             if (i2 < list.size()) {
                 b a = a(list.get(i2));
                 if (a == null) {
-                    dx = bitmap;
+                    er = bitmap;
                 } else if (bitmap == null) {
-                    dx = a.dx(str);
+                    er = a.er(str);
                 } else {
-                    dx = a.b(bitmap, true);
+                    er = a.b(bitmap, true);
                 }
                 i2++;
             } else {
@@ -122,23 +122,23 @@ public class c {
     }
 
     protected b a(ImageOperation imageOperation) {
-        b f;
-        Class<? extends b> cls = this.Vr.get(imageOperation.actionName);
-        if (cls != null && (f = f(cls)) != null) {
-            f.dw(imageOperation.actionParam);
-            return f;
+        b p;
+        Class<? extends b> cls = this.abv.get(imageOperation.actionName);
+        if (cls != null && (p = p(cls)) != null) {
+            p.eq(imageOperation.actionParam);
+            return p;
         }
         return null;
     }
 
-    private void e(Class<? extends b> cls) {
-        b f = f(cls);
-        if (f != null) {
-            this.Vr.put(f.sr(), cls);
+    private void o(Class<? extends b> cls) {
+        b p = p(cls);
+        if (p != null) {
+            this.abv.put(p.getActionName(), cls);
         }
     }
 
-    private b f(Class<? extends b> cls) {
+    private b p(Class<? extends b> cls) {
         try {
             return cls.newInstance();
         } catch (IllegalAccessException e) {

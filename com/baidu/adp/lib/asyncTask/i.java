@@ -5,16 +5,16 @@ import android.os.Process;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 class i extends j {
-    final /* synthetic */ f fb;
+    final /* synthetic */ f hc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(f fVar, k kVar) {
         super(kVar);
-        this.fb = fVar;
+        this.hc = fVar;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [137=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [144=4] */
     @Override // java.lang.Runnable
     public void run() {
         Handler handler;
@@ -33,11 +33,11 @@ class i extends j {
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
-            bW();
+            cx();
         } finally {
             if (!isSelfExecute()) {
-                handler = this.fb.mHandler;
-                handler2 = this.fb.mHandler;
+                handler = this.hc.mHandler;
+                handler2 = this.hc.mHandler;
                 handler.sendMessageDelayed(handler2.obtainMessage(2, this), 1L);
             }
         }

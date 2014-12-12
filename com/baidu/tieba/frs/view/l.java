@@ -1,30 +1,29 @@
 package com.baidu.tieba.frs.view;
 
 import android.app.Activity;
-import android.view.View;
-import android.widget.PopupWindow;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.browser.TbWebViewActivity;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements View.OnClickListener {
-    final /* synthetic */ FrsHeaderView aGd;
-    private final /* synthetic */ PopupWindow aGe;
+public class l implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ FrsHeaderView aHJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(FrsHeaderView frsHeaderView, PopupWindow popupWindow) {
-        this.aGd = frsHeaderView;
-        this.aGe = popupWindow;
+    public l(FrsHeaderView frsHeaderView) {
+        this.aHJ = frsHeaderView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Activity activity;
-        Activity activity2;
-        this.aGe.dismiss();
-        activity = this.aGd.aBP;
-        String string = activity.getResources().getString(com.baidu.tieba.y.experion_speed);
-        activity2 = this.aGd.aBP;
-        TbWebViewActivity.startActivity(activity2, string, String.valueOf(com.baidu.tieba.data.e.ajC) + "mo/q/tbeanrights?type=7&_client_version=" + TbConfig.getVersion() + "&nohead=1", true, false, true, true, null);
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        TbPageContext tbPageContext;
+        int i;
+        MessageManager messageManager = MessageManager.getInstance();
+        tbPageContext = this.aHJ.mContext;
+        Activity pageActivity = tbPageContext.getPageActivity();
+        i = this.aHJ.aHy;
+        messageManager.sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(pageActivity, i, "exp_acce")));
+        aVar.dismiss();
     }
 }

@@ -6,13 +6,13 @@ import com.baidu.tieba.im.message.ResponseOfficialBarMenuMessage;
 import com.baidu.tieba.im.model.OfficialBarMsglistModel;
 /* loaded from: classes.dex */
 class t extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ OfficialBarChatActivity aRt;
+    final /* synthetic */ OfficialBarChatActivity aSZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t(OfficialBarChatActivity officialBarChatActivity, int i) {
         super(i);
-        this.aRt = officialBarChatActivity;
+        this.aSZ = officialBarChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,43 +20,49 @@ class t extends com.baidu.adp.framework.listener.e {
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         OfficialBarMsglistView officialBarMsglistView;
         OfficialBarMsglistView officialBarMsglistView2;
-        OfficialBarMsglistModel officialBarMsglistModel;
         OfficialBarMsglistView officialBarMsglistView3;
-        OfficialBarMsglistModel officialBarMsglistModel2;
+        OfficialBarMsglistModel officialBarMsglistModel;
         OfficialBarMsglistView officialBarMsglistView4;
-        officialBarMsglistView = this.aRt.aRm;
-        officialBarMsglistView.cJ(false);
+        OfficialBarMsglistModel officialBarMsglistModel2;
+        OfficialBarMsglistView officialBarMsglistView5;
+        officialBarMsglistView = this.aSZ.aSS;
+        officialBarMsglistView.cw(false);
         if (!(socketResponsedMessage instanceof ResponseOfficialBarMenuMessage)) {
-            this.aRt.showToast(com.baidu.tieba.y.neterror);
+            this.aSZ.showToast(com.baidu.tieba.z.neterror);
             return;
         }
         ResponseOfficialBarMenuMessage responseOfficialBarMenuMessage = (ResponseOfficialBarMenuMessage) socketResponsedMessage;
         if (responseOfficialBarMenuMessage.hasError()) {
             if (responseOfficialBarMenuMessage.getError() > 0 && !TextUtils.isEmpty(responseOfficialBarMenuMessage.getErrorString())) {
-                this.aRt.showToast(responseOfficialBarMenuMessage.getErrorString());
+                this.aSZ.showToast(responseOfficialBarMenuMessage.getErrorString());
             } else {
-                this.aRt.showToast(com.baidu.tieba.y.neterror);
+                this.aSZ.showToast(com.baidu.tieba.z.neterror);
             }
-            officialBarMsglistModel2 = this.aRt.aRn;
-            com.baidu.tieba.im.data.g officialBarMenuDatas = officialBarMsglistModel2.getOfficialBarMenuDatas();
-            if (officialBarMenuDatas == null || officialBarMenuDatas.Mw() == null || officialBarMenuDatas.Mw().size() == 0) {
-                officialBarMsglistView4 = this.aRt.aRm;
-                officialBarMsglistView4.cI(true);
+            officialBarMsglistModel2 = this.aSZ.aST;
+            com.baidu.tieba.im.data.d officialBarMenuDatas = officialBarMsglistModel2.getOfficialBarMenuDatas();
+            if (officialBarMenuDatas == null || officialBarMenuDatas.Mp() == null || officialBarMenuDatas.Mp().size() == 0) {
+                officialBarMsglistView5 = this.aSZ.aSS;
+                officialBarMsglistView5.cv(true);
                 return;
             }
             return;
         }
-        com.baidu.tieba.im.data.g officialBarMenuDatas2 = responseOfficialBarMenuMessage.getOfficialBarMenuDatas();
+        com.baidu.tieba.im.data.d officialBarMenuDatas2 = responseOfficialBarMenuMessage.getOfficialBarMenuDatas();
         if (officialBarMenuDatas2 != null) {
-            if (!officialBarMenuDatas2.Mu()) {
-                officialBarMsglistView2 = this.aRt.aRm;
-                officialBarMsglistView2.cI(true);
-            } else if (officialBarMenuDatas2.Mw() != null && officialBarMenuDatas2.Mw().size() > 0) {
-                officialBarMsglistModel = this.aRt.aRn;
-                officialBarMsglistModel.setOfficialBarMenuDatas(officialBarMenuDatas2);
-                officialBarMsglistView3 = this.aRt.aRm;
-                officialBarMsglistView3.P(officialBarMenuDatas2.Mw());
+            if (officialBarMenuDatas2.Mn()) {
+                officialBarMsglistView3 = this.aSZ.aSS;
+                officialBarMsglistView3.cv(false);
+                if (officialBarMenuDatas2.Mp() != null && officialBarMenuDatas2.Mp().size() > 0) {
+                    officialBarMsglistModel = this.aSZ.aST;
+                    officialBarMsglistModel.setOfficialBarMenuDatas(officialBarMenuDatas2);
+                    officialBarMsglistView4 = this.aSZ.aSS;
+                    officialBarMsglistView4.ak(officialBarMenuDatas2.Mp());
+                    return;
+                }
+                return;
             }
+            officialBarMsglistView2 = this.aSZ.aSS;
+            officialBarMsglistView2.cv(true);
         }
     }
 }

@@ -25,7 +25,7 @@ public class ak extends com.baidu.adp.framework.listener.e {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        ImMessageCenterPojo B;
+        ImMessageCenterPojo H;
         if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseCommitPersonalMessage)) {
             this.this$0.f(socketResponsedMessage);
             ResponseCommitPersonalMessage responseCommitPersonalMessage = (ResponseCommitPersonalMessage) socketResponsedMessage;
@@ -38,23 +38,23 @@ public class ak extends com.baidu.adp.framework.listener.e {
                 chatMessage.setMsgId(msgId);
                 chatMessage.setRecordId(recordId);
                 chatMessage.getLocalData().setStatus((short) 3);
-                com.baidu.tieba.im.chat.w.fm(com.baidu.adp.lib.g.c.f(responseCommitPersonalMessage.getGroupId(), 0));
+                com.baidu.tieba.im.c.a.gw(com.baidu.adp.lib.g.c.toInt(responseCommitPersonalMessage.getGroupId(), 0));
             }
             if (chatMessage instanceof PersonalChatMessage) {
-                c.PN().a(2, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
+                c.Qs().a(2, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                c.PN().a(4, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
+                c.Qs().a(4, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
             } else {
                 return;
             }
             if (chatMessage instanceof PersonalChatMessage) {
-                B = c.PN().B(String.valueOf(com.baidu.tieba.im.util.i.o(chatMessage)), 2);
+                H = c.Qs().H(String.valueOf(com.baidu.tieba.im.util.i.n(chatMessage)), 2);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                B = c.PN().B(String.valueOf(com.baidu.tieba.im.util.i.o(chatMessage)), 4);
+                H = c.Qs().H(String.valueOf(com.baidu.tieba.im.util.i.n(chatMessage)), 4);
             } else {
                 return;
             }
-            CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new al(this, B, chatMessage, socketResponsedMessage));
+            CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new al(this, H, chatMessage, socketResponsedMessage));
             customMessageTask.setParallel(TiebaIMConfig.getParallel());
             customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
             customMessageTask.setPriority(4);

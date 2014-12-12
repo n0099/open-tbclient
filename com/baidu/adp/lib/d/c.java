@@ -5,11 +5,11 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements Handler.Callback {
-    final /* synthetic */ a jY;
+    final /* synthetic */ a kb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.jY = aVar;
+        this.kb = aVar;
     }
 
     @Override // android.os.Handler.Callback
@@ -18,9 +18,9 @@ public class c implements Handler.Callback {
         int i2;
         switch (message.what) {
             case 0:
-                this.jY.dH();
+                this.kb.dG();
                 String str = "";
-                i = this.jY.errorCode;
+                i = this.kb.errorCode;
                 switch (i) {
                     case 1:
                         str = "糟糕！检测不到地理位置信息哦亲，请在手机设置中开启GPS功能";
@@ -35,8 +35,8 @@ public class c implements Handler.Callback {
                         str = "糟糕！定位失败，请稍后再试";
                         break;
                 }
-                a aVar = this.jY;
-                i2 = this.jY.errorCode;
+                a aVar = this.kb;
+                i2 = this.kb.errorCode;
                 aVar.a(i2, str, null);
                 return false;
             default:

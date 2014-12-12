@@ -6,6 +6,7 @@ import android.database.DataSetObserver;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.ExploreByTouchHelper;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
@@ -149,7 +150,7 @@ public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
 
     public void setNonPrimaryAlpha(float f) {
         this.mNonPrimaryAlpha = ((int) (255.0f * f)) & MotionEventCompat.ACTION_MASK;
-        int i = (this.mNonPrimaryAlpha << 24) | (this.mTextColor & 16777215);
+        int i = (this.mNonPrimaryAlpha << 24) | (this.mTextColor & ViewCompat.MEASURED_SIZE_MASK);
         this.mPrevText.setTextColor(i);
         this.mNextText.setTextColor(i);
     }
@@ -157,7 +158,7 @@ public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
     public void setTextColor(int i) {
         this.mTextColor = i;
         this.mCurrText.setTextColor(i);
-        int i2 = (this.mNonPrimaryAlpha << 24) | (this.mTextColor & 16777215);
+        int i2 = (this.mNonPrimaryAlpha << 24) | (this.mTextColor & ViewCompat.MEASURED_SIZE_MASK);
         this.mPrevText.setTextColor(i2);
         this.mNextText.setTextColor(i2);
     }
@@ -209,8 +210,8 @@ public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
             charSequence = pagerAdapter.getPageTitle(i + 1);
         }
         this.mNextText.setText(charSequence);
-        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec((int) (((getWidth() - getPaddingLeft()) - getPaddingRight()) * 0.8f), Integer.MIN_VALUE);
-        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec((getHeight() - getPaddingTop()) - getPaddingBottom(), Integer.MIN_VALUE);
+        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec((int) (((getWidth() - getPaddingLeft()) - getPaddingRight()) * 0.8f), ExploreByTouchHelper.INVALID_ID);
+        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec((getHeight() - getPaddingTop()) - getPaddingBottom(), ExploreByTouchHelper.INVALID_ID);
         this.mPrevText.measure(makeMeasureSpec, makeMeasureSpec2);
         this.mCurrText.measure(makeMeasureSpec, makeMeasureSpec2);
         this.mNextText.measure(makeMeasureSpec, makeMeasureSpec2);
@@ -321,8 +322,8 @@ public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
         }
         int minHeight = getMinHeight();
         int paddingTop = getPaddingTop() + getPaddingBottom();
-        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec((int) (size * 0.8f), Integer.MIN_VALUE);
-        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(size2 - paddingTop, Integer.MIN_VALUE);
+        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec((int) (size * 0.8f), ExploreByTouchHelper.INVALID_ID);
+        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(size2 - paddingTop, ExploreByTouchHelper.INVALID_ID);
         this.mPrevText.measure(makeMeasureSpec, makeMeasureSpec2);
         this.mCurrText.measure(makeMeasureSpec, makeMeasureSpec2);
         this.mNextText.measure(makeMeasureSpec, makeMeasureSpec2);

@@ -1,23 +1,17 @@
 package com.baidu.tieba.mainentrance;
 
-import android.widget.EditText;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import java.util.ArrayList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l implements Runnable {
-    final /* synthetic */ SquareSearchActivity bnc;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l(SquareSearchActivity squareSearchActivity) {
-        this.bnc = squareSearchActivity;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        EditText editText;
-        EditText editText2;
-        editText = this.bnc.bmv;
-        editText.requestFocus();
-        SquareSearchActivity squareSearchActivity = this.bnc;
-        editText2 = this.bnc.bmv;
-        com.baidu.adp.lib.util.m.c(squareSearchActivity, editText2);
+public class l implements CustomMessageTask.CustomRunnable {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<ArrayList<String>> run(CustomMessage customMessage) {
+        if (customMessage == null) {
+            return null;
+        }
+        return new CustomResponsedMessage<>(2009001, com.baidu.tieba.tbadkCore.util.j.ahM());
     }
 }

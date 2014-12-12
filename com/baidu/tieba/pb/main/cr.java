@@ -1,69 +1,40 @@
 package com.baidu.tieba.pb.main;
 
-import android.view.View;
-import com.baidu.tieba.editortool.PbEditor;
-import com.baidu.tieba.editortool.PbEditorToolView;
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.view.KeyEvent;
+import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cr implements View.OnClickListener {
-    final /* synthetic */ bv byW;
+public class cr implements DialogInterface.OnKeyListener {
+    final /* synthetic */ bz bCR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cr(bv bvVar) {
-        this.byW = bvVar;
+    public cr(bz bzVar) {
+        this.bCR = bzVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PbEditor pbEditor;
-        PbEditor pbEditor2;
-        View view2;
-        View view3;
-        View view4;
-        boolean z;
-        PbEditor pbEditor3;
+    @Override // android.content.DialogInterface.OnKeyListener
+    public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
         PbActivity pbActivity;
+        EditText editText;
+        Dialog dialog;
+        Dialog dialog2;
         PbActivity pbActivity2;
-        PbEditor pbEditor4;
-        com.baidu.tieba.bubble.t tVar;
-        PbActivity pbActivity3;
-        PbActivity pbActivity4;
-        pbEditor = this.byW.byB;
-        if (pbEditor == null) {
-            this.byW.Xn();
-        }
-        pbEditor2 = this.byW.byB;
-        if (pbEditor2 != null) {
-            z = this.byW.byU;
-            if (z) {
-                this.byW.Bv();
-            } else {
-                this.byW.Bu();
+        if (i == 4) {
+            pbActivity = this.bCR.bAW;
+            Activity pageActivity = pbActivity.getPageContext().getPageActivity();
+            editText = this.bCR.bBN;
+            com.baidu.adp.lib.util.l.c(pageActivity, editText);
+            dialog = this.bCR.bBK;
+            if (dialog instanceof Dialog) {
+                dialog2 = this.bCR.bBK;
+                pbActivity2 = this.bCR.bAW;
+                com.baidu.adp.lib.g.k.b(dialog2, pbActivity2.getPageContext());
             }
-            pbEditor3 = this.byW.byB;
-            pbEditor3.Bc();
-            pbActivity = this.byW.bxe;
-            if (pbActivity != null) {
-                pbActivity3 = this.byW.bxe;
-                pbActivity3.Wf();
-                pbActivity4 = this.byW.bxe;
-                pbActivity4.EB();
-            }
-            this.byW.eg(false);
-            this.byW.byK = false;
-            pbActivity2 = this.byW.bxe;
-            pbEditor4 = this.byW.byB;
-            PbEditorToolView editorToolButtonContainer = pbEditor4.getEditorToolButtonContainer();
-            tVar = this.byW.aDB;
-            com.baidu.tieba.bubble.h.a(pbActivity2, editorToolButtonContainer, false, tVar);
+            return true;
         }
-        view2 = this.byW.byE;
-        if (view2 != null) {
-            view3 = this.byW.byE;
-            view3.setVisibility(8);
-            view4 = this.byW.byD;
-            view4.setVisibility(8);
-            this.byW.byK = false;
-        }
+        return false;
     }
 }

@@ -1,22 +1,36 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.OfficalBarChatActivityConfig;
+import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
+import com.baidu.tieba.im.message.RequestSendPVTJMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class al extends CustomMessageListener {
-    final /* synthetic */ OfficialBarInfoActivity aRJ;
+public class al implements AdapterView.OnItemClickListener {
+    final /* synthetic */ OfficialBarTipActivity aTB;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public al(OfficialBarInfoActivity officialBarInfoActivity) {
-        super(2001155);
-        this.aRJ = officialBarInfoActivity;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public al(OfficialBarTipActivity officialBarTipActivity) {
+        this.aTB = officialBarTipActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001155) {
-            this.aRJ.showToast(com.baidu.tieba.y.cash_del_suc);
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        ao aoVar;
+        aoVar = this.aTB.aTA;
+        ImMessageCenterShowItemData fu = aoVar.KK().getItem(i);
+        if (fu != null) {
+            ImMessageCenterShowItemData imMessageCenterShowItemData = fu;
+            try {
+                long parseLong = Long.parseLong(imMessageCenterShowItemData.getFriendId());
+                RequestSendPVTJMessage.sendOfficialBarPVTJ(RequestSendPVTJMessage.TYPE_V_MREAD, new StringBuilder(String.valueOf(parseLong)).toString());
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.aTB.getPageContext().getContext(), parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendPortrait(), 0, imMessageCenterShowItemData.getUserType())));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

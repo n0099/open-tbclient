@@ -15,6 +15,7 @@ public class Loader<D> {
     boolean mAbandoned = false;
     boolean mReset = true;
     boolean mContentChanged = false;
+    boolean mProcessingChange = false;
 
     /* loaded from: classes.dex */
     public interface OnLoadCompleteListener<D> {
@@ -126,6 +127,7 @@ public class Loader<D> {
         this.mStarted = false;
         this.mAbandoned = false;
         this.mContentChanged = false;
+        this.mProcessingChange = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -135,7 +137,18 @@ public class Loader<D> {
     public boolean takeContentChanged() {
         boolean z = this.mContentChanged;
         this.mContentChanged = false;
+        this.mProcessingChange |= z;
         return z;
+    }
+
+    public void commitContentChanged() {
+        this.mProcessingChange = false;
+    }
+
+    public void rollbackContentChanged() {
+        if (this.mProcessingChange) {
+            this.mContentChanged = true;
+        }
     }
 
     public void onContentChanged() {
@@ -168,14 +181,21 @@ public class Loader<D> {
         printWriter.print(this.mId);
         printWriter.print(" mListener=");
         printWriter.println(this.mListener);
-        printWriter.print(str);
-        printWriter.print("mStarted=");
-        printWriter.print(this.mStarted);
-        printWriter.print(" mContentChanged=");
-        printWriter.print(this.mContentChanged);
-        printWriter.print(" mAbandoned=");
-        printWriter.print(this.mAbandoned);
-        printWriter.print(" mReset=");
-        printWriter.println(this.mReset);
+        if (this.mStarted || this.mContentChanged || this.mProcessingChange) {
+            printWriter.print(str);
+            printWriter.print("mStarted=");
+            printWriter.print(this.mStarted);
+            printWriter.print(" mContentChanged=");
+            printWriter.print(this.mContentChanged);
+            printWriter.print(" mProcessingChange=");
+            printWriter.println(this.mProcessingChange);
+        }
+        if (this.mAbandoned || this.mReset) {
+            printWriter.print(str);
+            printWriter.print("mAbandoned=");
+            printWriter.print(this.mAbandoned);
+            printWriter.print(" mReset=");
+            printWriter.println(this.mReset);
+        }
     }
 }

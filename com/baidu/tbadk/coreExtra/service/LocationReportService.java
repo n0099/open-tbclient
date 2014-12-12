@@ -1,13 +1,13 @@
 package com.baidu.tbadk.coreExtra.service;
 
-import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.UpdateInfoServiceConfig;
 /* loaded from: classes.dex */
-public class LocationReportService extends Service {
+public class LocationReportService extends BdBaseService {
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
         return null;

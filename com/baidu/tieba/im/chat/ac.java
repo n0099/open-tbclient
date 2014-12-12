@@ -1,21 +1,23 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.im.message.chat.OfficialChatMessage;
+import com.baidu.tbadk.core.data.VoiceData;
 /* loaded from: classes.dex */
-class ac extends com.baidu.tieba.im.b<Boolean> {
-    final /* synthetic */ x aOb;
-    private final /* synthetic */ OfficialChatMessage aOe;
+class ac implements w {
+    final /* synthetic */ GroupChatActivity aQj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(x xVar, OfficialChatMessage officialChatMessage) {
-        this.aOb = xVar;
-        this.aOe = officialChatMessage;
+    public ac(GroupChatActivity groupChatActivity) {
+        this.aQj = groupChatActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.im.b
-    public Boolean doInBackground() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.n.MT().a(this.aOe.getUserId(), this.aOe.getToUserId(), String.valueOf(this.aOe.getRecordId()), String.valueOf(this.aOe.getMsgId()), 2));
+    @Override // com.baidu.tieba.im.chat.w
+    public void b(VoiceData.VoiceModel voiceModel) {
+        if (voiceModel != null) {
+            this.aQj.mListModel.sendMsgVoice(voiceModel.voiceId, voiceModel.duration);
+        }
+    }
+
+    @Override // com.baidu.tieba.im.chat.w
+    public void JN() {
     }
 }

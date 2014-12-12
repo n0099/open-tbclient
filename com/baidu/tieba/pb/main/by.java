@@ -1,29 +1,63 @@
 package com.baidu.tieba.pb.main;
 
-import android.view.animation.Animation;
-import android.widget.RelativeLayout;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class by implements Animation.AnimationListener {
-    final /* synthetic */ bv byW;
+public class by extends com.baidu.adp.base.g<PbActivity> {
+    private TextView bBb;
+    private PbActivity bBf;
+    private TextView bBl;
+    private ImageView bBm;
+    private boolean bBn;
+    private View.OnClickListener mClickListener;
+    private View mView;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public by(bv bvVar) {
-        this.byW = bvVar;
+    public boolean XD() {
+        return this.bBn;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+    public void dO(boolean z) {
+        this.bBn = z;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        RelativeLayout relativeLayout;
-        relativeLayout = this.byW.bxR;
-        relativeLayout.setVisibility(0);
+    public by(PbActivity pbActivity, View.OnClickListener onClickListener) {
+        super(pbActivity.getPageContext());
+        this.mView = null;
+        this.bBb = null;
+        this.bBl = null;
+        this.bBm = null;
+        this.bBf = null;
+        this.mClickListener = null;
+        this.bBn = true;
+        this.bBf = pbActivity;
+        this.mClickListener = onClickListener;
+        initUI();
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    public View getView() {
+        return this.mView;
+    }
+
+    public TextView Xu() {
+        return this.bBb;
+    }
+
+    public TextView XE() {
+        return this.bBl;
+    }
+
+    public ImageView XF() {
+        return this.bBm;
+    }
+
+    private void initUI() {
+        this.mView = com.baidu.adp.lib.g.b.ek().inflate(this.bBf.getPageContext().getPageActivity(), com.baidu.tieba.x.pb_reply_view, null);
+        this.bBb = (TextView) this.mView.findViewById(com.baidu.tieba.w.pb_reply_view_item_mark);
+        this.bBb.setOnClickListener(this.mClickListener);
+        this.bBl = (TextView) this.mView.findViewById(com.baidu.tieba.w.pb_reply_view_item_reply);
+        this.bBl.setOnClickListener(this.mClickListener);
+        this.bBm = (ImageView) this.mView.findViewById(com.baidu.tieba.w.pb_reply_view_item_manage);
+        this.bBm.setOnClickListener(this.mClickListener);
     }
 }

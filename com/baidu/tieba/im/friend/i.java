@@ -4,28 +4,28 @@ import android.view.View;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 class i implements View.OnClickListener {
-    final /* synthetic */ InviteFriendCandidateList aVT;
+    final /* synthetic */ InviteFriendCandidateList baj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(InviteFriendCandidateList inviteFriendCandidateList) {
-        this.aVT = inviteFriendCandidateList;
+        this.baj = inviteFriendCandidateList;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         LinearLayout linearLayout;
-        boolean Nc;
+        boolean On;
         j jVar;
         j jVar2;
-        linearLayout = this.aVT.mLayout;
+        linearLayout = this.baj.mLayout;
         linearLayout.removeView(view);
-        Nc = this.aVT.Nc();
-        if (!Nc) {
-            this.aVT.Na();
+        On = this.baj.On();
+        if (!On) {
+            this.baj.Ol();
         }
-        jVar = this.aVT.aVS;
+        jVar = this.baj.bai;
         if (jVar != null) {
-            jVar2 = this.aVT.aVS;
+            jVar2 = this.baj.bai;
             jVar2.a(view, view.getTag());
         }
     }

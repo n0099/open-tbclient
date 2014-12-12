@@ -1,11 +1,11 @@
 package com.baidu.tbadk.live.service;
 
-import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;
+import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.channelrtc.medialivesender.LiveNativeSender;
 import com.baidu.channelrtc.medialivesender.LiveSenderControl;
@@ -19,12 +19,9 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.live.LiveStatusChangeDefinition;
-import com.baidu.tbadk.pluginArch.PluginCenter;
-import com.baidu.tbadk.pluginArch.PluginHelper;
-import com.baidu.tbadk.pluginArch.PluginNameList;
 import java.util.Timer;
 /* loaded from: classes.dex */
-public class LiveGroupManagerService extends Service implements OnStatusEventListener, OnUserCmdEventListener, LivePlayerControllerListener {
+public class LiveGroupManagerService extends BdBaseService implements OnStatusEventListener, OnUserCmdEventListener, LivePlayerControllerListener {
     public static final String ACTION = "com.baidu.tieba.im.live.service.BACKUPLiveGroup";
     private static final int CLOSE_PUBLISH_EVENT = 15;
     private static final int CONNECT_PUBLISH_EVENT = 10;
@@ -88,17 +85,10 @@ public class LiveGroupManagerService extends Service implements OnStatusEventLis
         } else {
             boolean z = true;
             try {
-                if (PluginHelper.isOsArchARM()) {
-                    System.loadLibrary(LiveNativeSender.FFMPEGLIB);
-                    System.loadLibrary(LiveNativeSender.AUDIOENGINE);
-                    System.loadLibrary(LiveNativeSender.LIVESENDER);
-                    System.loadLibrary("liveplayer");
-                } else {
-                    PluginCenter.getInstance().loadNativeLibrary(PluginNameList.NAME_LIVE, LiveNativeSender.FFMPEGLIB);
-                    PluginCenter.getInstance().loadNativeLibrary(PluginNameList.NAME_LIVE, LiveNativeSender.AUDIOENGINE);
-                    PluginCenter.getInstance().loadNativeLibrary(PluginNameList.NAME_LIVE, LiveNativeSender.LIVESENDER);
-                    PluginCenter.getInstance().loadNativeLibrary(PluginNameList.NAME_LIVE, "liveplayer");
-                }
+                System.loadLibrary(LiveNativeSender.FFMPEGLIB);
+                System.loadLibrary(LiveNativeSender.AUDIOENGINE);
+                System.loadLibrary(LiveNativeSender.LIVESENDER);
+                System.loadLibrary("liveplayer");
             } catch (UnsatisfiedLinkError e) {
                 z = false;
             }
@@ -112,7 +102,7 @@ public class LiveGroupManagerService extends Service implements OnStatusEventLis
                 this.mLiveSenderControl.setUserCmdListener(this);
                 this.mPlayerCtrl = new LivePlayerControl();
                 this.mPlayerCtrl.setControllerListener(this);
-                if (TbadkApplication.m251getInst().isDebugMode()) {
+                if (TbadkApplication.getInst().isDebugMode()) {
                     this.mLiveSenderControl.setLogLevel(3);
                     this.mPlayerCtrl.setLogLevel(Constants.LOGLEVEL.LOG_LEVEL_I);
                 }
@@ -186,7 +176,7 @@ public class LiveGroupManagerService extends Service implements OnStatusEventLis
             case -3:
                 this.mErrorPrompt = LiveStatusChangeDefinition.ERROR_PROMPT_CREATE_ENGINE_FAILED;
                 try {
-                    this.mBinder.o(this.mGroupId, false);
+                    this.mBinder.closePublish(this.mGroupId, false);
                     break;
                 } catch (RemoteException e) {
                     TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
@@ -195,7 +185,7 @@ public class LiveGroupManagerService extends Service implements OnStatusEventLis
             case -2:
                 this.mErrorPrompt = LiveStatusChangeDefinition.ERROR_PROMPT_START_PUB;
                 try {
-                    this.mBinder.o(this.mGroupId, false);
+                    this.mBinder.closePublish(this.mGroupId, false);
                     break;
                 } catch (RemoteException e2) {
                     TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e2.getMessage());
@@ -219,7 +209,7 @@ public class LiveGroupManagerService extends Service implements OnStatusEventLis
                     this.mHandler.sendEmptyMessage(1);
                     if (this.argsToBeStarted != null && !StringUtils.isNull(this.argsToBeStarted.groupId)) {
                         try {
-                            this.mBinder.a(this.argsToBeStarted.streamId, this.argsToBeStarted.groupId, this.argsToBeStarted.VC, this.argsToBeStarted.url, this.argsToBeStarted.accessToken, this.argsToBeStarted.userId, false, false);
+                            this.mBinder.playOrRecord(this.argsToBeStarted.streamId, this.argsToBeStarted.groupId, this.argsToBeStarted.deviceId, this.argsToBeStarted.url, this.argsToBeStarted.accessToken, this.argsToBeStarted.userId, false, false);
                         } catch (RemoteException e) {
                             TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
                         }
@@ -238,7 +228,7 @@ public class LiveGroupManagerService extends Service implements OnStatusEventLis
                     if (this.mExecStartOnceConnected) {
                         this.mExecStartOnceConnected = false;
                         try {
-                            this.mBinder.dC(this.mGroupId);
+                            this.mBinder.startPublish(this.mGroupId);
                         } catch (RemoteException e2) {
                             TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e2.getMessage());
                         }
@@ -290,7 +280,7 @@ public class LiveGroupManagerService extends Service implements OnStatusEventLis
             case -102:
                 this.mErrorPrompt = LiveStatusChangeDefinition.ERROR_PROMPT_PLAY_NET_ERROR;
                 try {
-                    this.mBinder.p(this.mGroupId, false);
+                    this.mBinder.stopPlay(this.mGroupId, false);
                     break;
                 } catch (RemoteException e) {
                     TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
@@ -299,7 +289,7 @@ public class LiveGroupManagerService extends Service implements OnStatusEventLis
             case -101:
                 this.mErrorPrompt = LiveStatusChangeDefinition.ERROR_PROMPT_PLAY_INVALID_CODEC;
                 try {
-                    this.mBinder.p(this.mGroupId, false);
+                    this.mBinder.stopPlay(this.mGroupId, false);
                     break;
                 } catch (RemoteException e2) {
                     TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e2.getMessage());
@@ -308,7 +298,7 @@ public class LiveGroupManagerService extends Service implements OnStatusEventLis
             case -100:
                 this.mErrorPrompt = LiveStatusChangeDefinition.ERROR_PROMPT_PLAY_FILE_ERROR;
                 try {
-                    this.mBinder.p(this.mGroupId, false);
+                    this.mBinder.stopPlay(this.mGroupId, false);
                     break;
                 } catch (RemoteException e3) {
                     TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e3.getMessage());
@@ -331,7 +321,7 @@ public class LiveGroupManagerService extends Service implements OnStatusEventLis
                 this.mHandler.sendEmptyMessage(1);
                 if (this.argsToBeStarted != null && !StringUtils.isNull(this.argsToBeStarted.groupId)) {
                     try {
-                        this.mBinder.a(this.argsToBeStarted.streamId, this.argsToBeStarted.groupId, this.argsToBeStarted.VC, this.argsToBeStarted.url, this.argsToBeStarted.accessToken, this.argsToBeStarted.userId, false, false);
+                        this.mBinder.playOrRecord(this.argsToBeStarted.streamId, this.argsToBeStarted.groupId, this.argsToBeStarted.deviceId, this.argsToBeStarted.url, this.argsToBeStarted.accessToken, this.argsToBeStarted.userId, false, false);
                     } catch (RemoteException e) {
                         TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
                     }
@@ -377,7 +367,7 @@ public class LiveGroupManagerService extends Service implements OnStatusEventLis
             } catch (RemoteException e) {
                 TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
                 try {
-                    this.mBinder.ax(false);
+                    this.mBinder.stopAnyRunning(false);
                 } catch (RemoteException e2) {
                 }
             }
@@ -391,11 +381,11 @@ public class LiveGroupManagerService extends Service implements OnStatusEventLis
             int beginBroadcast = this.mCallbacks.beginBroadcast();
             for (int i = 0; i < beginBroadcast; i++) {
                 try {
-                    this.mCallbacks.getBroadcastItem(i).dB(this.mErrorPrompt);
+                    this.mCallbacks.getBroadcastItem(i).onLiveErrorEvent(this.mErrorPrompt);
                 } catch (RemoteException e) {
                     TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
                     try {
-                        this.mBinder.ax(false);
+                        this.mBinder.stopAnyRunning(false);
                     } catch (RemoteException e2) {
                     }
                 }
@@ -410,11 +400,11 @@ public class LiveGroupManagerService extends Service implements OnStatusEventLis
         int beginBroadcast = this.mCallbacks.beginBroadcast();
         for (int i = 0; i < beginBroadcast; i++) {
             try {
-                this.mCallbacks.getBroadcastItem(i).e(this.mUrl, this.mPlayDuration, this.mPlayPosition);
+                this.mCallbacks.getBroadcastItem(i).onLivePlayProgressUpdate(this.mUrl, this.mPlayDuration, this.mPlayPosition);
             } catch (RemoteException e) {
                 TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
                 try {
-                    this.mBinder.ax(false);
+                    this.mBinder.stopAnyRunning(false);
                 } catch (RemoteException e2) {
                 }
             }
@@ -427,11 +417,11 @@ public class LiveGroupManagerService extends Service implements OnStatusEventLis
         int beginBroadcast = this.mCallbacks.beginBroadcast();
         for (int i2 = 0; i2 < beginBroadcast; i2++) {
             try {
-                this.mCallbacks.getBroadcastItem(i2).cU(i);
+                this.mCallbacks.getBroadcastItem(i2).onLiveRecordTimeUpdate(i);
             } catch (RemoteException e) {
                 TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
                 try {
-                    this.mBinder.ax(false);
+                    this.mBinder.stopAnyRunning(false);
                 } catch (RemoteException e2) {
                 }
             }
@@ -446,11 +436,11 @@ public class LiveGroupManagerService extends Service implements OnStatusEventLis
                 int beginBroadcast = this.mCallbacks.beginBroadcast();
                 for (int i2 = 0; i2 < beginBroadcast; i2++) {
                     try {
-                        this.mCallbacks.getBroadcastItem(i2).cV(i);
+                        this.mCallbacks.getBroadcastItem(i2).onLivePlayWarning(i);
                     } catch (RemoteException e) {
                         TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_REMOTE_EXCEPTION), e.getMessage());
                         try {
-                            this.mBinder.ax(false);
+                            this.mBinder.stopAnyRunning(false);
                         } catch (RemoteException e2) {
                         }
                     }
@@ -480,5 +470,17 @@ public class LiveGroupManagerService extends Service implements OnStatusEventLis
     @Override // com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControllerListener
     public void onWarning(int i) {
         this.mHandler.sendMessage(this.mHandler.obtainMessage(5, i, i));
+    }
+
+    @Override // com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControllerListener
+    public void onHardDecodeFailed(int i) {
+    }
+
+    @Override // com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControllerListener
+    public void onReadedBytes(int i) {
+    }
+
+    @Override // com.baidu.channelrtc.medialivesender.OnStatusEventListener
+    public void onLogReport(String str) {
     }
 }

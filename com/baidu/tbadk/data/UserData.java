@@ -2,8 +2,8 @@ package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.GroupLevelActivityConfig;
 import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
-import com.baidu.tieba.im.model.GroupLevelModel;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,10 +12,13 @@ import org.json.JSONObject;
 import tbclient.GiftInfo;
 import tbclient.LikeForumInfo;
 import tbclient.MyGroupInfo;
+import tbclient.PayMemberInfo;
 import tbclient.PrivSets;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class UserData extends MetaData {
+    public static final int NORMAL_ACCOUNT = 0;
+    public static final int OFFICIAL_ACCOUNT = 1;
     private static final long serialVersionUID = -1871115639893992930L;
     private String BDUSS;
     private int bimg_end_time;
@@ -29,6 +32,7 @@ public class UserData extends MetaData {
     private int isFriend;
     private boolean isManager;
     private boolean isMask;
+    private int isOfficialAccount;
     private int is_mem;
     private long lastReplyTime;
     private String lat;
@@ -42,20 +46,21 @@ public class UserData extends MetaData {
     private List<MyLikeForum> mLikeForum;
     private int managerLevel;
     private String password;
+    private g payMemberInfo;
     private Permission permission;
-    private c personPrivate;
+    private h personPrivate;
     private String position;
     private int posts_num;
     private int sex;
     private String tb_age;
     private int userType;
 
-    public c getPersonPrivate() {
+    public h getPersonPrivate() {
         return this.personPrivate;
     }
 
-    public void setPersonPrivate(c cVar) {
-        this.personPrivate = cVar;
+    public void setPersonPrivate(h hVar) {
+        this.personPrivate = hVar;
     }
 
     public List<MyLikeForum> getLikeForum() {
@@ -185,6 +190,7 @@ public class UserData extends MetaData {
             this.posts_num = user.post_num.intValue();
             this.tb_age = user.tb_age;
             this.managerLevel = user.is_manager.intValue();
+            this.isOfficialAccount = user.is_guanfang.intValue();
             if (user.is_manager.intValue() == 1) {
                 this.isManager = true;
             } else {
@@ -198,8 +204,13 @@ public class UserData extends MetaData {
             this.isFriend = user.is_friend.intValue();
             PrivSets privSets = user.priv_sets;
             if (privSets != null) {
-                this.personPrivate = new c();
+                this.personPrivate = new h();
                 this.personPrivate.a(privSets);
+            }
+            PayMemberInfo payMemberInfo = user.pay_member_info;
+            if (payMemberInfo != null) {
+                this.payMemberInfo = new g();
+                this.payMemberInfo.a(payMemberInfo);
             }
             if (user.is_mask.intValue() == 1) {
                 this.isMask = true;
@@ -271,19 +282,26 @@ public class UserData extends MetaData {
                 this.password = jSONObject.optString("passwd");
                 this.posts_num = jSONObject.optInt("post_num", 0);
                 this.tb_age = jSONObject.optString("tb_age");
-                if (jSONObject.optInt("is_manager", 0) == 1) {
+                int optInt = jSONObject.optInt("is_manager", 0);
+                this.isOfficialAccount = jSONObject.optInt("is_guanfang", 0);
+                if (optInt == 1) {
                     this.isManager = true;
                 } else {
                     this.isManager = false;
                 }
                 this.bimg_url = jSONObject.optString("bimg_url");
                 this.bimg_end_time = jSONObject.optInt("bimg_end_time", 0);
-                this.is_mem = jSONObject.optInt(GroupLevelModel.IS_MEM);
+                this.is_mem = jSONObject.optInt(GroupLevelActivityConfig.IS_MEM);
                 this.mGiftNum = jSONObject.optInt("gift_num");
                 JSONObject optJSONObject = jSONObject.optJSONObject("priv_sets");
                 if (optJSONObject != null) {
-                    this.personPrivate = new c();
+                    this.personPrivate = new h();
                     this.personPrivate.parserJson(optJSONObject);
+                }
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("pay_member_info");
+                if (optJSONObject2 != null) {
+                    this.payMemberInfo = new g();
+                    this.payMemberInfo.parseJson(optJSONObject2);
                 }
                 if (jSONObject.optInt("is_mask") == 1) {
                     this.isMask = true;
@@ -293,10 +311,10 @@ public class UserData extends MetaData {
                 JSONArray optJSONArray = jSONObject.optJSONArray("likeForum");
                 if (optJSONArray != null) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
-                        JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                        if (optJSONObject2 != null) {
+                        JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
+                        if (optJSONObject3 != null) {
                             MyLikeForum myLikeForum = new MyLikeForum();
-                            myLikeForum.parseJson(optJSONObject2);
+                            myLikeForum.parseJson(optJSONObject3);
                             this.mLikeForum.add(myLikeForum);
                         }
                     }
@@ -304,10 +322,10 @@ public class UserData extends MetaData {
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("groupList");
                 if (optJSONArray2 != null) {
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i2);
-                        if (optJSONObject3 != null) {
+                        JSONObject optJSONObject4 = optJSONArray2.optJSONObject(i2);
+                        if (optJSONObject4 != null) {
                             MyGroup myGroup = new MyGroup();
-                            myGroup.parseJson(optJSONObject3);
+                            myGroup.parseJson(optJSONObject4);
                             this.mGroup.add(myGroup);
                         }
                     }
@@ -315,10 +333,10 @@ public class UserData extends MetaData {
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("gift_list");
                 if (optJSONArray3 != null) {
                     for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                        JSONObject optJSONObject4 = optJSONArray3.optJSONObject(i3);
-                        if (optJSONObject4 != null) {
+                        JSONObject optJSONObject5 = optJSONArray3.optJSONObject(i3);
+                        if (optJSONObject5 != null) {
                             MyGift myGift = new MyGift();
-                            myGift.parseJson(optJSONObject4);
+                            myGift.parseJson(optJSONObject5);
                             this.mGift.add(myGift);
                         }
                     }
@@ -410,6 +428,10 @@ public class UserData extends MetaData {
         return this.sex;
     }
 
+    public g getPayMemberInfoData() {
+        return this.payMemberInfo;
+    }
+
     public Permission getPermission() {
         return this.permission;
     }
@@ -476,6 +498,14 @@ public class UserData extends MetaData {
 
     public void setMask(boolean z) {
         this.isMask = z;
+    }
+
+    public int getIsOfficialAccount() {
+        return this.isOfficialAccount;
+    }
+
+    public void setIsOfficialAccount(int i) {
+        this.isOfficialAccount = i;
     }
 
     /* loaded from: classes.dex */

@@ -5,27 +5,27 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.data.SignData;
 /* loaded from: classes.dex */
 class k extends CustomMessageListener {
-    final /* synthetic */ SignAllForumActivity bLc;
+    final /* synthetic */ SignAllForumActivity bPs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(SignAllForumActivity signAllForumActivity, int i) {
         super(i);
-        this.bLc = signAllForumActivity;
+        this.bPs = signAllForumActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ab abVar;
-        ab abVar2;
+        ad adVar;
+        ad adVar2;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData)) {
-            abVar = this.bLc.bKV;
-            b adj = abVar.adj();
-            if (adj != null) {
-                adj.c((SignData) customResponsedMessage.getData());
-                abVar2 = this.bLc.bKV;
-                abVar2.adk().notifyDataSetChanged();
+            adVar = this.bPs.bPl;
+            b adH = adVar.adH();
+            if (adH != null) {
+                adH.b((SignData) customResponsedMessage.getData());
+                adVar2 = this.bPs.bPl;
+                adVar2.adI().notifyDataSetChanged();
             }
         }
     }

@@ -1,13 +1,14 @@
 package com.baidu.tieba.person;
 
 import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     private static final int CACHETIME = 604800000;
-    private com.baidu.tieba.data.aj data;
+    private com.baidu.tbadk.core.data.q data;
     private int errCode;
     private String resultString;
 
@@ -22,14 +23,14 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     public PersonFriendResponseMessage(int i) {
         super(i);
         this.errCode = -1;
-        this.data = new com.baidu.tieba.data.aj();
+        this.data = new com.baidu.tbadk.core.data.q();
     }
 
-    public void setPersonListData(com.baidu.tieba.data.aj ajVar) {
-        this.data = ajVar;
+    public void setPersonListData(com.baidu.tbadk.core.data.q qVar) {
+        this.data = qVar;
     }
 
-    public com.baidu.tieba.data.aj getPersonListData() {
+    public com.baidu.tbadk.core.data.q getPersonListData() {
         return this.data;
     }
 
@@ -55,18 +56,18 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        com.baidu.adp.lib.cache.t<String> bd;
+        com.baidu.adp.lib.cache.t<String> bV;
         if (isSuccess() && this.errCode == 0) {
             HttpMessage httpMessage = (HttpMessage) getOrginalMessage();
             String str = "";
-            if (TbadkApplication.getCurrentAccountObj() != null) {
-                str = TbadkApplication.getCurrentAccountObj().getID();
+            if (TbadkCoreApplication.getCurrentAccountObj() != null) {
+                str = TbadkCoreApplication.getCurrentAccountObj().getID();
             }
             if (httpMessage.getExtra() == null) {
                 try {
                     String parseToString = parseToString(bArr);
-                    if (parseToString != null && (bd = com.baidu.tbadk.core.a.a.kS().bd("tb.my_pages")) != null) {
-                        bd.a(String.valueOf("personal_myfollow") + "_" + str, parseToString, 604800000L);
+                    if (parseToString != null && (bV = com.baidu.tbadk.core.a.a.nS().bV("tb.my_pages")) != null) {
+                        bV.a(String.valueOf("personal_myfollow") + "_" + str, parseToString, TbConfig.APP_OVERDUR_DRAFT_BOX);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

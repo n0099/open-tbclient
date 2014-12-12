@@ -1,23 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.data.AccountData;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ay implements CustomMessageTask.CustomRunnable<AccountData> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<AccountData> customMessage) {
-        if (com.baidu.adp.lib.util.m.fu()) {
-            aj.a(customMessage.getData(), TbadkApplication.m251getInst());
-            return null;
-        } else if (aj.wm() != null) {
-            aj.wm().handler.post(new az(this, customMessage));
-            return null;
-        } else {
-            return null;
-        }
+public class ay implements View.OnClickListener {
+    final /* synthetic */ UpdateDialog this$0;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ay(UpdateDialog updateDialog) {
+        this.this$0 = updateDialog;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        af afVar;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        afVar = this.this$0.alF;
+        afVar.An();
+        UpdateDialog updateDialog = this.this$0;
+        z = this.this$0.alA;
+        z2 = this.this$0.alB;
+        z3 = this.this$0.alC;
+        updateDialog.b(z, z2, z3);
     }
 }

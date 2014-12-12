@@ -1,277 +1,375 @@
 package com.baidu.tbadk.coreExtra.b;
 
-import java.util.HashMap;
-import java.util.Set;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.t;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.GameCategoryDetailActivityConfig;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.game.GameInfoData;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private String LY;
-    private String LZ;
-    private String Ma;
-    private String Mb;
-    private String Me;
-    private String Mf;
-    private String Mg;
-    private String Mh;
-    private String Mi;
-    private String Mj;
-    private String Mk;
-    private String Ml;
-    private int LG = 0;
-    private int LH = 0;
-    private int LI = 0;
-    private int LJ = 0;
-    private int LK = 0;
-    private int LL = 0;
-    private int LM = 0;
-    private int LN = 0;
-    private int LO = 0;
-    private int LP = 0;
-    private int LQ = 0;
-    private int LR = 0;
-    private int LS = 0;
-    private int LT = 0;
-    private int LU = 0;
-    private int LV = 0;
-    private boolean LW = true;
-    private boolean LX = true;
-    private HashMap<String, String> Mc = new HashMap<>();
-    private HashMap<String, String> Md = new HashMap<>();
-    private String Mm = null;
-    private String Mn = null;
+    private static c QN;
 
-    public void oY() {
-        HashMap<String, String> pq = pq();
-        Set<String> keySet = pq.keySet();
-        if (keySet.size() != 1) {
-            cv(null);
-        } else {
-            cv(pq.get(keySet.iterator().next()));
+    private c() {
+    }
+
+    public static synchronized c rG() {
+        c cVar;
+        synchronized (c.class) {
+            if (QN == null) {
+                QN = new c();
+            }
+            cVar = QN;
+        }
+        return cVar;
+    }
+
+    private ContentValues a(GameInfoData gameInfoData) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("game_id", gameInfoData.getGameId());
+        contentValues.put("game_name", gameInfoData.getGameName());
+        contentValues.put("game_type", Integer.valueOf(gameInfoData.getGameType()));
+        contentValues.put("icon_url", gameInfoData.getIconUrl());
+        contentValues.put("player_num", Integer.valueOf(gameInfoData.getPlayerNum()));
+        contentValues.put("package_link", gameInfoData.getPackageLink());
+        contentValues.put("package_size", gameInfoData.getPackageSize());
+        contentValues.put("game_link", gameInfoData.getGameLink());
+        contentValues.put(PbActivityConfig.KEY_MARK, Integer.valueOf(gameInfoData.getMark()));
+        contentValues.put("bundle_id", gameInfoData.getBundleId());
+        contentValues.put("introduce", gameInfoData.getIntroduce());
+        contentValues.put("launch_component", gameInfoData.getLauncherActivity());
+        contentValues.put("andr_pk_name", gameInfoData.getPackageName());
+        contentValues.put("day_downloads", Integer.valueOf(gameInfoData.getDayDownloads()));
+        contentValues.put("secret_key", gameInfoData.getSecretKey());
+        contentValues.put("superscript_color", gameInfoData.getSuperscriptColor());
+        contentValues.put("star", Integer.valueOf(gameInfoData.getStar()));
+        contentValues.put(GameCategoryDetailActivityConfig.CATEGORY_ID, Integer.valueOf(gameInfoData.getCategoryId()));
+        contentValues.put("category_name", gameInfoData.getCategoryName());
+        contentValues.put("version", gameInfoData.getVersion());
+        contentValues.put("deadline", Long.valueOf(gameInfoData.getDeadline()));
+        contentValues.put("editor_rec", gameInfoData.getEditorRec());
+        contentValues.put("app_id", gameInfoData.getApp_id());
+        contentValues.put("current_Time", Long.valueOf(System.currentTimeMillis()));
+        contentValues.put("label", (Integer) 0);
+        return contentValues;
+    }
+
+    public boolean b(GameInfoData gameInfoData) {
+        SQLiteDatabase rF = b.rF();
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (gameInfoData == null || rF == null || TextUtils.isEmpty(currentAccount) || TextUtils.isEmpty(gameInfoData.getGameId())) {
+            return false;
+        }
+        try {
+            o(rF);
+            ContentValues a = a(gameInfoData);
+            if (rF.update("table_download" + currentAccount, a, "game_id = ?", new String[]{gameInfoData.getGameId()}) == 0) {
+                rF.insert("table_download" + currentAccount, null, a);
+                return true;
+            }
+            return true;
+        } catch (Exception e) {
+            TiebaStatic.printDBExceptionLog(e, "GameDownloadDao.addGameInfoItem", new Object[0]);
+            return false;
         }
     }
 
-    public void oZ() {
-        HashMap<String, String> pw = pw();
-        Set<String> keySet = pw.keySet();
-        if (keySet.size() != 1) {
-            cB(null);
-        } else {
-            cB(pw.get(keySet.iterator().next()));
+    public boolean q(String str, int i) {
+        SQLiteDatabase rF = b.rF();
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (TextUtils.isEmpty(str) || rF == null || TextUtils.isEmpty(currentAccount)) {
+            return false;
         }
+        try {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("label", Integer.valueOf(i));
+            if (rF.update("table_download" + currentAccount, contentValues, "game_id = ?", new String[]{str}) > 0) {
+                return true;
+            }
+        } catch (Exception e) {
+            TiebaStatic.printDBExceptionLog(e, "GameDownloadDao.updateToFinish", new Object[0]);
+        }
+        return false;
     }
 
-    public int pa() {
-        return this.LG;
+    public boolean dj(String str) {
+        SQLiteDatabase rF = b.rF();
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (TextUtils.isEmpty(str) || rF == null || TextUtils.isEmpty(currentAccount)) {
+            return false;
+        }
+        try {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("current_Time", Long.valueOf(System.currentTimeMillis()));
+            if (rF.update("table_download" + currentAccount, contentValues, "game_id = ?", new String[]{str}) > 0) {
+                return true;
+            }
+        } catch (Exception e) {
+            TiebaStatic.printDBExceptionLog(e, "GameDownloadDao.updateDownloadTime", new Object[0]);
+        }
+        return false;
     }
 
-    public void ca(int i) {
-        this.LG = i;
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [198=4] */
+    public boolean dk(String str) {
+        Cursor cursor;
+        SQLiteDatabase rF = b.rF();
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (TextUtils.isEmpty(str) || rF == null || TextUtils.isEmpty(currentAccount)) {
+            return false;
+        }
+        try {
+            cursor = rF.query("table_download" + currentAccount, new String[]{"count(*)"}, "game_id = ?", new String[]{str}, null, null, null);
+            if (cursor != null) {
+                try {
+                    try {
+                        if (cursor.getCount() > 0) {
+                            if (rF.delete("table_download" + currentAccount, "game_id = ?", new String[]{str}) > 0) {
+                                t.b(cursor);
+                                return true;
+                            }
+                        }
+                    } catch (Exception e) {
+                        e = e;
+                        e.printStackTrace();
+                        TiebaStatic.printDBExceptionLog(e, "GameDownloadDao.deleteItem", new Object[0]);
+                        t.b(cursor);
+                        return false;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    t.b(cursor);
+                    throw th;
+                }
+            }
+            t.b(cursor);
+        } catch (Exception e2) {
+            e = e2;
+            cursor = null;
+        } catch (Throwable th2) {
+            th = th2;
+            cursor = null;
+            t.b(cursor);
+            throw th;
+        }
+        return false;
     }
 
-    public int pb() {
-        return this.LJ;
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [252=4] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0191 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.CharSequence, java.lang.String] */
+    /* JADX WARN: Type inference failed for: r1v1, types: [android.database.Cursor] */
+    /* JADX WARN: Type inference failed for: r1v2 */
+    /* JADX WARN: Type inference failed for: r2v2, types: [java.lang.StringBuilder] */
+    public GameInfoData dl(String str) {
+        Cursor cursor;
+        SQLiteDatabase rF = b.rF();
+        ?? currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (rF != null) {
+            try {
+                if (!TextUtils.isEmpty(currentAccount)) {
+                    try {
+                        cursor = rF.query("table_download" + currentAccount, null, "andr_pk_name= ?", new String[]{str}, null, null, null);
+                        if (cursor != null) {
+                            try {
+                                if (cursor.moveToFirst()) {
+                                    GameInfoData gameInfoData = new GameInfoData();
+                                    gameInfoData.setGameId(cursor.getString(cursor.getColumnIndex("game_id")));
+                                    gameInfoData.setGameName(cursor.getString(cursor.getColumnIndex("game_name")));
+                                    gameInfoData.setGameType(cursor.getInt(cursor.getColumnIndex("game_type")));
+                                    gameInfoData.setIconUrl(cursor.getString(cursor.getColumnIndex("icon_url")));
+                                    gameInfoData.setPlayerNum(Integer.valueOf(cursor.getInt(cursor.getColumnIndex("player_num"))));
+                                    gameInfoData.setPackageLink(cursor.getString(cursor.getColumnIndex("package_link")));
+                                    gameInfoData.setPackageSize(cursor.getString(cursor.getColumnIndex("package_size")));
+                                    gameInfoData.setGameLink(cursor.getString(cursor.getColumnIndex("game_link")));
+                                    gameInfoData.setMark(cursor.getInt(cursor.getColumnIndex(PbActivityConfig.KEY_MARK)));
+                                    gameInfoData.setBundleId(cursor.getString(cursor.getColumnIndex("bundle_id")));
+                                    gameInfoData.setIntroduce(cursor.getString(cursor.getColumnIndex("introduce")));
+                                    gameInfoData.setLauncherActivity(cursor.getString(cursor.getColumnIndex("launch_component")));
+                                    gameInfoData.setPackageName(cursor.getString(cursor.getColumnIndex("andr_pk_name")));
+                                    gameInfoData.setDayDownloads(cursor.getInt(cursor.getColumnIndex("day_downloads")));
+                                    gameInfoData.setSecretKey(cursor.getString(cursor.getColumnIndex("secret_key")));
+                                    gameInfoData.setSuperscriptColor(cursor.getString(cursor.getColumnIndex("superscript_color")));
+                                    gameInfoData.setStar(cursor.getInt(cursor.getColumnIndex("star")));
+                                    gameInfoData.setCategoryId(cursor.getInt(cursor.getColumnIndex(GameCategoryDetailActivityConfig.CATEGORY_ID)));
+                                    gameInfoData.setCategoryName(cursor.getString(cursor.getColumnIndex("category_name")));
+                                    gameInfoData.setVersion(cursor.getString(cursor.getColumnIndex("version")));
+                                    gameInfoData.setDeadline(cursor.getInt(cursor.getColumnIndex("deadline")));
+                                    gameInfoData.setEditorRec(cursor.getString(cursor.getColumnIndex("editor_rec")));
+                                    gameInfoData.setApp_id(cursor.getString(cursor.getColumnIndex("app_id")));
+                                    t.b(cursor);
+                                    return gameInfoData;
+                                }
+                            } catch (Exception e) {
+                                e = e;
+                                e.printStackTrace();
+                                TiebaStatic.printDBExceptionLog(e, "GameDownloadDao.getGameItemByPackageName", new Object[0]);
+                                t.b(cursor);
+                                return null;
+                            }
+                        }
+                        t.b(cursor);
+                    } catch (Exception e2) {
+                        e = e2;
+                        cursor = null;
+                    } catch (Throwable th) {
+                        th = th;
+                        currentAccount = 0;
+                        t.b((Cursor) currentAccount);
+                        throw th;
+                    }
+                    return null;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        }
+        return null;
     }
 
-    public void cb(int i) {
-        this.LJ = i;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x01a3 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.CharSequence, java.lang.String] */
+    /* JADX WARN: Type inference failed for: r1v1, types: [android.database.Cursor] */
+    /* JADX WARN: Type inference failed for: r1v2 */
+    /* JADX WARN: Type inference failed for: r2v2, types: [java.lang.StringBuilder] */
+    public List<GameInfoData> rH() {
+        Cursor cursor;
+        SQLiteDatabase rF = b.rF();
+        ?? currentAccount = TbadkCoreApplication.getCurrentAccount();
+        ArrayList arrayList = new ArrayList();
+        if (rF != null) {
+            try {
+                if (!TextUtils.isEmpty(currentAccount)) {
+                    try {
+                        cursor = rF.query("table_download" + currentAccount, null, "label=0 OR label=1", null, null, null, "current_Time DESC");
+                        if (cursor != null) {
+                            while (cursor.moveToNext()) {
+                                try {
+                                    GameInfoData gameInfoData = new GameInfoData();
+                                    gameInfoData.setGameId(cursor.getString(cursor.getColumnIndex("game_id")));
+                                    gameInfoData.setGameName(cursor.getString(cursor.getColumnIndex("game_name")));
+                                    gameInfoData.setGameType(cursor.getInt(cursor.getColumnIndex("game_type")));
+                                    gameInfoData.setIconUrl(cursor.getString(cursor.getColumnIndex("icon_url")));
+                                    gameInfoData.setPlayerNum(Integer.valueOf(cursor.getInt(cursor.getColumnIndex("player_num"))));
+                                    gameInfoData.setPackageLink(cursor.getString(cursor.getColumnIndex("package_link")));
+                                    gameInfoData.setPackageSize(cursor.getString(cursor.getColumnIndex("package_size")));
+                                    gameInfoData.setGameLink(cursor.getString(cursor.getColumnIndex("game_link")));
+                                    gameInfoData.setMark(cursor.getInt(cursor.getColumnIndex(PbActivityConfig.KEY_MARK)));
+                                    gameInfoData.setBundleId(cursor.getString(cursor.getColumnIndex("bundle_id")));
+                                    gameInfoData.setIntroduce(cursor.getString(cursor.getColumnIndex("introduce")));
+                                    gameInfoData.setLauncherActivity(cursor.getString(cursor.getColumnIndex("launch_component")));
+                                    gameInfoData.setPackageName(cursor.getString(cursor.getColumnIndex("andr_pk_name")));
+                                    gameInfoData.setDayDownloads(cursor.getInt(cursor.getColumnIndex("day_downloads")));
+                                    gameInfoData.setSecretKey(cursor.getString(cursor.getColumnIndex("secret_key")));
+                                    gameInfoData.setSuperscriptColor(cursor.getString(cursor.getColumnIndex("superscript_color")));
+                                    gameInfoData.setStar(cursor.getInt(cursor.getColumnIndex("star")));
+                                    gameInfoData.setCategoryId(cursor.getInt(cursor.getColumnIndex(GameCategoryDetailActivityConfig.CATEGORY_ID)));
+                                    gameInfoData.setCategoryName(cursor.getString(cursor.getColumnIndex("category_name")));
+                                    gameInfoData.setVersion(cursor.getString(cursor.getColumnIndex("version")));
+                                    gameInfoData.setDeadline(cursor.getInt(cursor.getColumnIndex("deadline")));
+                                    gameInfoData.setEditorRec(cursor.getString(cursor.getColumnIndex("editor_rec")));
+                                    gameInfoData.setApp_id(cursor.getString(cursor.getColumnIndex("app_id")));
+                                    int i = cursor.getInt(cursor.getColumnIndex("label"));
+                                    if (i == 0) {
+                                        gameInfoData.setGamestatus(0);
+                                    } else if (i == 1) {
+                                        gameInfoData.setGamestatus(1);
+                                    }
+                                    arrayList.add(gameInfoData);
+                                } catch (Exception e) {
+                                    e = e;
+                                    e.printStackTrace();
+                                    TiebaStatic.printDBExceptionLog(e, "GameDownloadDao.getGameDownloadList", new Object[0]);
+                                    t.b(cursor);
+                                    return arrayList;
+                                }
+                            }
+                        }
+                        t.b(cursor);
+                    } catch (Exception e2) {
+                        e = e2;
+                        cursor = null;
+                    } catch (Throwable th) {
+                        th = th;
+                        currentAccount = 0;
+                        t.b((Cursor) currentAccount);
+                        throw th;
+                    }
+                    return arrayList;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        }
+        return arrayList;
     }
 
-    public int pc() {
-        return this.LK;
+    public List<GameInfoData> ct(int i) {
+        Cursor cursor;
+        SQLiteDatabase rF = b.rF();
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        ArrayList arrayList = new ArrayList();
+        if (rF == null || TextUtils.isEmpty(currentAccount)) {
+            return arrayList;
+        }
+        if (i == 3 || i == 2) {
+            try {
+                cursor = rF.query("table_download" + currentAccount, null, "label=" + i, null, "current_TimeDESC", null, null);
+                if (cursor != null) {
+                    while (cursor.moveToNext()) {
+                        try {
+                            try {
+                                GameInfoData gameInfoData = new GameInfoData();
+                                gameInfoData.setGameId(cursor.getString(cursor.getColumnIndex("game_id")));
+                                gameInfoData.setApp_id(cursor.getString(cursor.getColumnIndex("app_id")));
+                                arrayList.add(gameInfoData);
+                            } catch (Exception e) {
+                                e = e;
+                                e.printStackTrace();
+                                TiebaStatic.printDBExceptionLog(e, "GameDownloadDao.getAllFinishList", new Object[0]);
+                                t.b(cursor);
+                                return arrayList;
+                            }
+                        } catch (Throwable th) {
+                            th = th;
+                            t.b(cursor);
+                            throw th;
+                        }
+                    }
+                }
+                t.b(cursor);
+            } catch (Exception e2) {
+                e = e2;
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                cursor = null;
+                t.b(cursor);
+                throw th;
+            }
+            return arrayList;
+        }
+        return arrayList;
     }
 
-    public int pd() {
-        return this.LO;
-    }
-
-    public void cc(int i) {
-        this.LO = i;
-    }
-
-    public int pe() {
-        return this.LS;
-    }
-
-    public void cd(int i) {
-        this.LS = i;
-    }
-
-    public int pf() {
-        return this.LR;
-    }
-
-    public void ce(int i) {
-        this.LR = i;
-    }
-
-    public int pg() {
-        return this.LG;
-    }
-
-    public String ph() {
-        return this.Mk;
-    }
-
-    public void cs(String str) {
-        this.Mk = str;
-    }
-
-    public String pi() {
-        return this.Ml;
-    }
-
-    public void ct(String str) {
-        this.Ml = str;
-    }
-
-    public int pj() {
-        return this.LI;
-    }
-
-    public void cf(int i) {
-        this.LI = i;
-    }
-
-    public boolean pk() {
-        return this.LW;
-    }
-
-    public void ah(boolean z) {
-        this.LW = z;
-    }
-
-    public String pl() {
-        return this.LY;
-    }
-
-    public void cu(String str) {
-        this.LY = str;
-    }
-
-    public String pm() {
-        return this.Me;
-    }
-
-    public void cv(String str) {
-        this.Me = str;
-    }
-
-    public void cw(String str) {
-        this.Mf = str;
-    }
-
-    public int pn() {
-        return this.LH;
-    }
-
-    public void cg(int i) {
-        this.LH = i;
-    }
-
-    public void cx(String str) {
-        this.Mg = str;
-    }
-
-    public String po() {
-        return this.Mi;
-    }
-
-    public String pp() {
-        return this.Mj;
-    }
-
-    public HashMap<String, String> pq() {
-        return this.Mc;
-    }
-
-    public int pr() {
-        return this.LL;
-    }
-
-    public void ch(int i) {
-        this.LL = i;
-    }
-
-    public int ps() {
-        return this.LP;
-    }
-
-    public void ci(int i) {
-        this.LP = i;
-    }
-
-    public int pt() {
-        return this.LT;
-    }
-
-    public void cj(int i) {
-        this.LT = i;
-    }
-
-    public void cy(String str) {
-        this.LZ = str;
-    }
-
-    public void cz(String str) {
-        this.Ma = str;
-    }
-
-    public int pu() {
-        return this.LQ;
-    }
-
-    public void ck(int i) {
-        this.LQ = i;
-    }
-
-    public String pv() {
-        return this.Mb;
-    }
-
-    public void cA(String str) {
-        this.Mb = str;
-    }
-
-    public HashMap<String, String> pw() {
-        return this.Md;
-    }
-
-    public String px() {
-        return this.Mh;
-    }
-
-    public void cB(String str) {
-        this.Mh = str;
-    }
-
-    public int py() {
-        return this.LM;
-    }
-
-    public int pz() {
-        return this.LN;
-    }
-
-    public void cl(int i) {
-        this.LM = i;
-    }
-
-    public void cm(int i) {
-        this.LN = i;
-    }
-
-    public void cC(String str) {
-        this.Mm = str;
-    }
-
-    public void cD(String str) {
-        this.Mn = str;
-    }
-
-    public int pA() {
-        return this.LV;
-    }
-
-    public void cn(int i) {
-        this.LV = i;
+    public void o(SQLiteDatabase sQLiteDatabase) {
+        try {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (!TextUtils.isEmpty(currentAccount)) {
+                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS table_download" + currentAccount + "(game_id TEXT PRIMARY KEY, game_name TEXT, game_type INTEGER, icon_url TEXT, player_num TEXT, package_link TEXT, package_size TEXT, game_link TEXT, " + PbActivityConfig.KEY_MARK + " INTEGER, bundle_id TEXT, introduce TEXT, launch_component TEXT, andr_pk_name TEXT, day_downloads TEXT, secret_key TEXT, superscript_color TEXT, star INTEGER, " + GameCategoryDetailActivityConfig.CATEGORY_ID + " INTEGER, category_name TEXT, version INTEGER, deadline TEXT, editor_rec TEXT, app_id TEXT, current_Time LONG, label INTEGER );");
+            }
+        } catch (Exception e) {
+            TiebaStatic.printDBExceptionLog(e, "GameDbHelper.createTables", new Object[0]);
+            BdLog.e("create table wrong " + e.toString());
+        }
     }
 }

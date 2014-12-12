@@ -1,20 +1,23 @@
 package com.baidu.tieba.person;
 
-import android.widget.ScrollView;
+import android.view.MotionEvent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai implements Runnable {
-    final /* synthetic */ PersonChangeActivity bCA;
+public class ai implements View.OnTouchListener {
+    final /* synthetic */ PersonChangeActivity bGa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(PersonChangeActivity personChangeActivity) {
-        this.bCA = personChangeActivity;
+        this.bGa = personChangeActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        ScrollView scrollView;
-        scrollView = this.bCA.bCg;
-        scrollView.fullScroll(130);
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 1) {
+            this.bGa.bFQ = true;
+            return false;
+        }
+        return false;
     }
 }

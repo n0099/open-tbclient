@@ -1,18 +1,22 @@
 package com.baidu.tieba.im.chat;
-
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ch implements View.OnClickListener {
-    final /* synthetic */ cc aPy;
+class ch implements com.baidu.tieba.im.g<Boolean> {
+    final /* synthetic */ PersonalChatActivity aRE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ch(cc ccVar) {
-        this.aPy = ccVar;
+    public ch(PersonalChatActivity personalChatActivity) {
+        this.aRE = personalChatActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.aPy.aOY.a(view, 4, this.aPy.UC, 0L);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.g
+    public void onReturnDataInUI(Boolean bool) {
+        if (bool != null) {
+            if (bool.booleanValue()) {
+                this.aRE.mListView.closeNotNotify();
+            } else {
+                this.aRE.mListView.showNotNotfiy();
+            }
+        }
     }
 }

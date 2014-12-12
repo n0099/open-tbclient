@@ -1,12 +1,12 @@
 package com.baidu.tieba.im.data;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class GroupInfoData extends com.baidu.tbadk.core.util.a implements at, Serializable {
+public class GroupInfoData extends com.baidu.tbadk.core.util.a implements au, Serializable {
     private static final long serialVersionUID = 5616188082014345808L;
     private int authorId;
     private int authorIsMeizhi;
@@ -155,13 +155,13 @@ public class GroupInfoData extends com.baidu.tbadk.core.util.a implements at, Se
         return arrayList;
     }
 
-    @Override // com.baidu.tbadk.core.util.at
-    public ArrayList<as> getImages() {
-        ArrayList<as> arrayList = new ArrayList<>();
-        as asVar = new as();
-        asVar.AI = this.portrait;
-        asVar.ES = 10;
-        arrayList.add(asVar);
+    @Override // com.baidu.tbadk.core.util.au
+    public ArrayList<at> getImages() {
+        ArrayList<at> arrayList = new ArrayList<>();
+        at atVar = new at();
+        atVar.imgUrl = this.portrait;
+        atVar.Jd = 10;
+        arrayList.add(atVar);
         return arrayList;
     }
 }

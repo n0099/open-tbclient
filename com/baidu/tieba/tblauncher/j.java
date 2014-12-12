@@ -1,15 +1,21 @@
 package com.baidu.tieba.tblauncher;
-/* loaded from: classes.dex */
-class j implements Runnable {
-    final /* synthetic */ MainTabActivity this$0;
 
+import android.app.Activity;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* loaded from: classes.dex */
+class j extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(MainTabActivity mainTabActivity) {
-        this.this$0 = mainTabActivity;
+    public j(int i) {
+        super(i);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.this$0.ael();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Object data = customResponsedMessage.getData();
+        if (data instanceof Activity) {
+            com.baidu.tbadk.core.b.b.R((Activity) data);
+        }
     }
 }

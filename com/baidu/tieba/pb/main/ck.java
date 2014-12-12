@@ -1,43 +1,27 @@
 package com.baidu.tieba.pb.main;
+
+import android.app.Dialog;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ck implements Runnable {
-    private final /* synthetic */ com.baidu.tieba.data.ar byZ;
-    private final /* synthetic */ boolean bza;
-    private final /* synthetic */ String bzb;
-    private final /* synthetic */ String bzc;
-    final /* synthetic */ cj bzd;
+public class ck implements View.OnClickListener {
+    final /* synthetic */ bz bCR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ck(cj cjVar, com.baidu.tieba.data.ar arVar, boolean z, String str, String str2) {
-        this.bzd = cjVar;
-        this.byZ = arVar;
-        this.bza = z;
-        this.bzb = str;
-        this.bzc = str2;
+    public ck(bz bzVar) {
+        this.bCR = bzVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        bv bvVar;
-        cw cwVar;
-        bv bvVar2;
-        bv bvVar3;
-        com.baidu.tieba.pb.sub.l lVar;
-        bv bvVar4;
-        cw cwVar2;
-        bvVar = this.bzd.byW;
-        cwVar = bvVar.byw;
-        if (cwVar != null) {
-            bvVar4 = this.bzd.byW;
-            cwVar2 = bvVar4.byw;
-            cwVar2.a(this.byZ);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Dialog dialog;
+        Dialog dialog2;
+        PbActivity pbActivity;
+        dialog = this.bCR.bCi;
+        if (dialog instanceof Dialog) {
+            dialog2 = this.bCR.bCi;
+            pbActivity = this.bCR.bAW;
+            com.baidu.adp.lib.g.k.b(dialog2, pbActivity.getPageContext());
         }
-        if (this.bza) {
-            bvVar3 = this.bzd.byW;
-            lVar = bvVar3.bxU;
-            lVar.aB(this.bzb, this.bzc);
-        }
-        bvVar2 = this.bzd.byW;
-        bvVar2.Yj();
     }
 }

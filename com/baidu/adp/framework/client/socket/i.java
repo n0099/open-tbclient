@@ -5,41 +5,41 @@ import java.util.Map;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class i {
-    private static i bi = null;
-    private int aU = 0;
+    private static i dn = null;
+    private int da = 0;
 
-    public static i at() {
-        if (bi == null) {
+    public static i aT() {
+        if (dn == null) {
             synchronized (i.class) {
-                if (bi == null) {
-                    bi = new i();
+                if (dn == null) {
+                    dn = new i();
                 }
             }
         }
-        return bi;
+        return dn;
     }
 
-    public synchronized void a(Map<String, String> map) {
+    public synchronized void b(Map<String, String> map) {
         if (map != null) {
             try {
-                this.aU = Integer.valueOf(map.get("Seq-Id")).intValue();
+                this.da = Integer.valueOf(map.get("Seq-Id")).intValue();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                m.a("SequenceManager", 0, 0, "setSequenceId", l.bU, "parser Seq-Id error");
-                if (this.aU == 0) {
-                    this.aU = new Random().nextInt();
+                m.a("SequenceManager", 0, 0, "setSequenceId", l.ea, "parser Seq-Id error");
+                if (this.da == 0) {
+                    this.da = new Random().nextInt();
                 }
             }
         }
     }
 
-    public synchronized int an() {
+    public synchronized int aN() {
         int i;
-        if (this.aU == 0) {
-            this.aU++;
+        if (this.da == 0) {
+            this.da++;
         }
-        i = this.aU;
-        this.aU = i + 1;
+        i = this.da;
+        this.da = i + 1;
         return i;
     }
 }

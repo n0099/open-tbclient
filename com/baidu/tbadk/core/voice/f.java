@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.voice.service.MediaService;
-import com.baidu.tieba.y;
+import com.baidu.tieba.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends BroadcastReceiver {
@@ -81,9 +81,9 @@ public class f extends BroadcastReceiver {
                             voiceModel13 = this.this$0.mCurPlayModel;
                             if (voiceModel13 != null) {
                                 voiceModel14 = this.this$0.mCurPlayModel;
-                                rVar.g("id", voiceModel14.getId());
+                                rVar.h("id", voiceModel14.getId());
                                 voiceModel15 = this.this$0.mCurPlayModel;
-                                rVar.g("from", voiceModel15.from);
+                                rVar.h("from", voiceModel15.from);
                             }
                             TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_UPDATEVIEW, "mVoicePlayerReceiver.onReceive exception: " + e.getMessage(), rVar.toString());
                         }
@@ -93,7 +93,7 @@ public class f extends BroadcastReceiver {
                 int intExtra = intent.getIntExtra("com.baidu.msg.playElapsedTime", 0);
                 playView4 = this.this$0.getPlayView();
                 if (playView4 != null) {
-                    playView4.bP(intExtra);
+                    playView4.cn(intExtra);
                 }
                 voiceModel10 = this.this$0.mCurPlayModel;
                 if (voiceModel10 != null) {
@@ -147,7 +147,7 @@ public class f extends BroadcastReceiver {
                     }
                     playView2 = this.this$0.getPlayView();
                     if (playView2 != null) {
-                        playView2.nH();
+                        playView2.qI();
                     }
                     MediaService.startPlay(context);
                     return;
@@ -155,9 +155,9 @@ public class f extends BroadcastReceiver {
                 playView = this.this$0.getPlayView();
                 if (playView != null) {
                     if (intExtra2 == 2) {
-                        string = com.baidu.adp.lib.voice.q.getString(y.voice_err_io);
+                        string = com.baidu.adp.lib.voice.q.getString(z.voice_err_io);
                     } else {
-                        string = com.baidu.adp.lib.voice.q.getString(y.voice_err_play);
+                        string = com.baidu.adp.lib.voice.q.getString(z.voice_err_play);
                     }
                     playView.onShowErr(5, string);
                 }

@@ -2,6 +2,7 @@ package com.baidu.sapi2.shell;
 
 import android.text.TextUtils;
 import com.baidu.android.common.security.Base64;
+import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.baidu.sapi2.utils.L;
 import com.baidu.sapi2.utils.e;
 import com.baidu.sapi2.utils.f;
@@ -40,22 +41,22 @@ public class b {
         PublicKey publicKey = X509Certificate.getInstance(new ByteArrayInputStream(str.getBytes())).getPublicKey();
         JSONArray jSONArray = new JSONArray();
         byte[] bytes = str2.getBytes("UTF-8");
-        if (bytes.length % 116 == 0) {
-            length = bytes.length / 116;
+        if (bytes.length % Constants.MEDIA_HARD_DECODE_FAILED == 0) {
+            length = bytes.length / Constants.MEDIA_HARD_DECODE_FAILED;
         } else {
-            length = (bytes.length / 116) + 1;
+            length = (bytes.length / Constants.MEDIA_HARD_DECODE_FAILED) + 1;
         }
         for (int i = 0; i < length; i++) {
             if (1 == length) {
                 jSONArray.put(Base64.encode(a(publicKey, bytes), "UTF-8"));
             } else if (i != length - 1) {
-                byte[] bArr = new byte[116];
-                System.arraycopy(bytes, i * 116, bArr, 0, 116);
+                byte[] bArr = new byte[Constants.MEDIA_HARD_DECODE_FAILED];
+                System.arraycopy(bytes, i * Constants.MEDIA_HARD_DECODE_FAILED, bArr, 0, Constants.MEDIA_HARD_DECODE_FAILED);
                 jSONArray.put(Base64.encode(a(publicKey, bArr), "UTF-8"));
             } else {
-                int length2 = bytes.length - (i * 116);
+                int length2 = bytes.length - (i * Constants.MEDIA_HARD_DECODE_FAILED);
                 byte[] bArr2 = new byte[length2];
-                System.arraycopy(bytes, i * 116, bArr2, 0, length2);
+                System.arraycopy(bytes, i * Constants.MEDIA_HARD_DECODE_FAILED, bArr2, 0, length2);
                 jSONArray.put(Base64.encode(a(publicKey, bArr2), "UTF-8"));
             }
         }

@@ -5,13 +5,13 @@ import com.baidu.tbadk.core.data.VoiceData;
 public interface m {
     void a(VoiceData.VoiceModel voiceModel);
 
-    void bP(int i);
+    void cn(int i);
 
     m getRealView();
 
     VoiceData.VoiceModel getVoiceModel();
 
-    void nH();
-
     void onShowErr(int i, String str);
+
+    void qI();
 }

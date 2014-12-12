@@ -3,64 +3,63 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.baidu.tbadk.core.util.aw;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private w It;
+    private ai Nw;
 
-    public void setTagData(x xVar) {
-        setTag(xVar);
-        nz();
+    public void setTagData(aj ajVar) {
+        setTag(ajVar);
+        qA();
     }
 
     public TbCheckBox(Context context) {
         super(context);
-        ny();
+        initialize();
     }
 
     public TbCheckBox(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        ny();
+        initialize();
     }
 
-    private void ny() {
-        setOnClickListener(new v(this));
-        nz();
+    private void initialize() {
+        setOnClickListener(new ah(this));
+        qA();
     }
 
-    public void setStatedChangedListener(w wVar) {
-        this.It = wVar;
+    public void setStatedChangedListener(ai aiVar) {
+        this.Nw = aiVar;
     }
 
-    public void nz() {
-        if (nA()) {
-            aw.c(this, com.baidu.tieba.u.btn_friend_choose_s);
+    public void qA() {
+        if (qB()) {
+            com.baidu.tbadk.core.util.ax.c(this, com.baidu.tieba.v.btn_friend_choose_s);
         } else {
-            aw.c(this, com.baidu.tieba.u.btn_friend_choose_n);
+            com.baidu.tbadk.core.util.ax.c(this, com.baidu.tieba.v.btn_friend_choose_n);
         }
     }
 
     public boolean isChecked() {
-        return nA();
+        return qB();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean nA() {
+    public boolean qB() {
         Object tag = getTag();
-        if (tag == null || !(tag instanceof x)) {
+        if (tag == null || !(tag instanceof aj)) {
             return false;
         }
-        return ((x) tag).isChecked();
+        return ((aj) tag).isChecked();
     }
 
     public void setChecked(boolean z) {
         Object tag = getTag();
-        if (tag != null && (tag instanceof x)) {
-            ((x) tag).setChecked(z);
+        if (tag != null && (tag instanceof aj)) {
+            ((aj) tag).setChecked(z);
         }
-        nz();
-        if (this.It != null) {
-            this.It.a(this, z, getTag());
+        qA();
+        if (this.Nw != null) {
+            this.Nw.a(this, z, getTag());
         }
     }
 }

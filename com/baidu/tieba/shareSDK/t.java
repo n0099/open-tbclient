@@ -1,37 +1,37 @@
 package com.baidu.tieba.shareSDK;
 
+import android.view.View;
 import android.widget.TextView;
-import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tieba.write.ch;
-import com.baidu.tieba.write.ci;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements ci {
-    final /* synthetic */ p bJX;
+public class t implements View.OnClickListener {
+    final /* synthetic */ q bOn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(p pVar) {
-        this.bJX = pVar;
+    public t(q qVar) {
+        this.bOn = qVar;
     }
 
-    @Override // com.baidu.tieba.write.ci
-    public void hj(int i) {
-        WriteShareActivity writeShareActivity;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         TextView textView;
-        PostPrefixData postPrefixData;
         ch chVar;
-        ch chVar2;
+        WriteShareActivity writeShareActivity;
         WriteShareActivity writeShareActivity2;
-        writeShareActivity = this.bJX.bJV;
-        writeShareActivity.hi(i);
-        textView = this.bJX.bJM;
-        postPrefixData = this.bJX.mPrefixData;
-        textView.setText(postPrefixData.getPrefixs().get(i));
-        chVar = this.bJX.bJN;
-        chVar.dP(i);
-        this.bJX.acl();
-        chVar2 = this.bJX.bJN;
-        writeShareActivity2 = this.bJX.bJV;
-        com.baidu.adp.lib.g.j.a(chVar2, writeShareActivity2);
+        WriteShareActivity writeShareActivity3;
+        WriteShareActivity writeShareActivity4;
+        textView = this.bOn.bOc;
+        textView.setSelected(true);
+        chVar = this.bOn.bOd;
+        writeShareActivity = this.bOn.bOl;
+        int dip2px = com.baidu.adp.lib.util.l.dip2px(writeShareActivity.getPageContext().getContext(), 15.0f);
+        writeShareActivity2 = this.bOn.bOl;
+        com.baidu.adp.lib.g.k.showPopupWindowAsDropDown(chVar, view, dip2px, com.baidu.adp.lib.util.l.dip2px(writeShareActivity2.getPageContext().getContext(), 1.0f));
+        writeShareActivity3 = this.bOn.bOl;
+        if (writeShareActivity3 != null) {
+            writeShareActivity4 = this.bOn.bOl;
+            writeShareActivity4.acC();
+        }
     }
 }

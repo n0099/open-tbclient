@@ -10,18 +10,13 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.az;
-import com.baidu.tieba.data.SearchPostModel;
-import com.baidu.tieba.data.aq;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.ba;
 /* loaded from: classes.dex */
 public class e extends BaseAdapter {
-    private SearchPostModel bmn = null;
-    private int bmo = 0;
-    private ArrayList<ProgressBar> bmp = null;
+    private SearchPostModel bqR = null;
+    private int bqS = 0;
     private Context mContext;
 
     public e(Context context) {
@@ -30,50 +25,41 @@ public class e extends BaseAdapter {
     }
 
     public void setRefreshing(int i) {
-        this.bmo = i;
+        this.bqS = i;
     }
 
-    public int SA() {
-        return this.bmo;
+    public int TD() {
+        return this.bqS;
     }
 
-    public void SB() {
-        if (this.bmp != null) {
-            Iterator<ProgressBar> it = this.bmp.iterator();
-            while (it.hasNext()) {
-                it.next().setVisibility(8);
-            }
-        }
-    }
-
-    public boolean SC() {
-        if (this.bmn == null) {
+    public boolean TE() {
+        if (this.bqR == null) {
             return false;
         }
-        return this.bmn.hasPre();
+        return this.bqR.hasPre();
     }
 
-    public boolean SD() {
-        if (this.bmn == null) {
+    public boolean TF() {
+        if (this.bqR == null) {
             return false;
         }
-        return this.bmn.hasMore();
+        return this.bqR.hasMore();
     }
 
     public void a(SearchPostModel searchPostModel) {
-        this.bmn = searchPostModel;
+        this.bqR = searchPostModel;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bmn == null || this.bmn.getData() == null) {
+        if (this.bqR == null || this.bqR.getData() == null) {
             return 0;
         }
-        int size = this.bmn.getData().size();
-        if (SC()) {
+        int size = this.bqR.getData().size();
+        if (TE()) {
             size++;
         }
-        if (SD()) {
+        if (TF()) {
             return size + 1;
         }
         return size;
@@ -82,10 +68,10 @@ public class e extends BaseAdapter {
     @Override // android.widget.Adapter
     public Object getItem(int i) {
         int itemId;
-        if (this.bmn == null || this.bmn.getData() == null || (itemId = (int) getItemId(i)) < 0 || itemId >= this.bmn.getData().size()) {
+        if (this.bqR == null || this.bqR.getData() == null || (itemId = (int) getItemId(i)) < 0 || itemId >= this.bqR.getData().size()) {
             return null;
         }
-        return this.bmn.getData().get(itemId);
+        return this.bqR.getData().get(itemId);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -95,15 +81,15 @@ public class e extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.bmn == null || this.bmn.getData() == null) {
+        if (this.bqR == null || this.bqR.getData() == null) {
             return -1L;
         }
-        if (SC()) {
-            if (i <= this.bmn.getData().size()) {
+        if (TE()) {
+            if (i <= this.bqR.getData().size()) {
                 return i - 1;
             }
             return -2L;
-        } else if (i < this.bmn.getData().size()) {
+        } else if (i < this.bqR.getData().size()) {
             return i;
         } else {
             return -2L;
@@ -119,29 +105,25 @@ public class e extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         f fVar;
         g gVar;
-        if (this.bmn != null) {
+        if (this.bqR != null) {
             if (view == null) {
                 if (getItemViewType(i) == 0) {
                     gVar = new g(this, null);
-                    view = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.w.search_post_item, null);
-                    gVar.JN = (TextView) view.findViewById(com.baidu.tieba.v.title);
-                    gVar.ML = view.findViewById(com.baidu.tieba.v.search_post_lv_search_forum_divider);
-                    gVar.bmt = (TextView) view.findViewById(com.baidu.tieba.v.content);
-                    gVar.axz = (TextView) view.findViewById(com.baidu.tieba.v.forum);
-                    gVar.auq = (TextView) view.findViewById(com.baidu.tieba.v.time);
-                    gVar.bmu = (LinearLayout) view.findViewById(com.baidu.tieba.v.square_search_content_layout);
+                    view = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.x.search_post_item, null);
+                    gVar.mTitle = (TextView) view.findViewById(com.baidu.tieba.w.title);
+                    gVar.mLine = view.findViewById(com.baidu.tieba.w.search_post_lv_search_forum_divider);
+                    gVar.bqW = (TextView) view.findViewById(com.baidu.tieba.w.content);
+                    gVar.aPs = (TextView) view.findViewById(com.baidu.tieba.w.forum);
+                    gVar.axA = (TextView) view.findViewById(com.baidu.tieba.w.time);
+                    gVar.bqX = (LinearLayout) view.findViewById(com.baidu.tieba.w.square_search_content_layout);
                     view.setTag(gVar);
                     fVar = null;
                 } else {
                     f fVar2 = new f(this, null);
-                    view = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.w.page_item, null);
-                    fVar2.bmq = (RelativeLayout) view.findViewById(com.baidu.tieba.v.page_container);
-                    fVar2.bmr = (TextView) view.findViewById(com.baidu.tieba.v.page_text);
-                    fVar2.xM = (ProgressBar) view.findViewById(com.baidu.tieba.v.progress);
-                    if (this.bmp == null) {
-                        this.bmp = new ArrayList<>();
-                    }
-                    this.bmp.add(fVar2.xM);
+                    view = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.x.page_item, null);
+                    fVar2.bqT = (RelativeLayout) view.findViewById(com.baidu.tieba.w.page_container);
+                    fVar2.bqU = (TextView) view.findViewById(com.baidu.tieba.w.page_text);
+                    fVar2.Bs = (ProgressBar) view.findViewById(com.baidu.tieba.w.progress);
                     view.setTag(fVar2);
                     fVar = fVar2;
                     gVar = null;
@@ -153,54 +135,54 @@ public class e extends BaseAdapter {
                 fVar = (f) view.getTag();
                 gVar = null;
             }
-            int skinType = TbadkApplication.m251getInst().getSkinType();
+            int skinType = TbadkCoreApplication.m255getInst().getSkinType();
             if (getItemViewType(i) == 0) {
-                aq aqVar = (aq) getItem(i);
-                if (aqVar != null) {
-                    gVar.axz.setText(String.valueOf(aqVar.As()) + this.mContext.getString(com.baidu.tieba.y.bar));
-                    gVar.auq.setText(az.j(aqVar.getTime()));
-                    if (aqVar.getContent() == null || aqVar.getContent().length() < 1) {
-                        gVar.bmu.setVisibility(8);
+                h hVar = (h) getItem(i);
+                if (hVar != null) {
+                    gVar.aPs.setText(String.valueOf(hVar.TH()) + this.mContext.getString(com.baidu.tieba.z.bar));
+                    gVar.axA.setText(ba.n(hVar.getTime()));
+                    if (hVar.getContent() == null || hVar.getContent().length() < 1) {
+                        gVar.bqX.setVisibility(8);
                     } else {
-                        gVar.bmu.setVisibility(0);
-                        gVar.bmt.setText(Html.fromHtml(az.a(aqVar.getContent(), (Color) null)));
+                        gVar.bqX.setVisibility(0);
+                        gVar.bqW.setText(Html.fromHtml(ba.a(hVar.getContent(), (Color) null)));
                     }
-                    gVar.JN.setText(Html.fromHtml(az.a(aqVar.getTitle(), (Color) null)));
-                    aw.b(gVar.bmt, skinType);
+                    gVar.mTitle.setText(Html.fromHtml(ba.a(hVar.getTitle(), (Color) null)));
+                    ax.c(gVar.bqW, skinType);
                     if (skinType == 0) {
-                        gVar.axz.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.s.post_search_text_content));
-                        gVar.auq.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.s.post_search_text_content));
-                        gVar.bmt.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.s.square_search_text_content));
+                        gVar.aPs.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.t.cp_cont_d));
+                        gVar.axA.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.t.cp_cont_d));
+                        gVar.bqW.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.t.cp_cont_b));
                     } else {
-                        gVar.axz.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.s.post_search_text_content_night));
-                        gVar.auq.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.s.post_search_text_content_night));
-                        gVar.bmt.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.s.square_search_text_content_night));
+                        gVar.aPs.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.t.cp_cont_d_1));
+                        gVar.axA.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.t.cp_cont_d_1));
+                        gVar.bqW.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.t.cp_cont_b_1));
                     }
-                    aw.i(gVar.ML, com.baidu.tieba.s.square_dividing_line);
-                    aw.h(gVar.bmu, com.baidu.tieba.u.bg_search_tiezi);
-                    aw.b(gVar.JN, com.baidu.tieba.s.search_text_title, 1);
+                    ax.j(gVar.mLine, com.baidu.tieba.t.cp_bg_line_b);
+                    ax.i(gVar.bqX, com.baidu.tieba.v.bg_search_tiezi);
+                    ax.b(gVar.mTitle, com.baidu.tieba.t.cp_cont_c, 1);
                 }
             } else {
                 if (getItemId(i) == -1) {
-                    if (this.bmo == 1) {
-                        fVar.xM.setVisibility(0);
-                        fVar.bmr.setText(this.mContext.getString(com.baidu.tieba.y.loading));
+                    if (this.bqS == 1) {
+                        fVar.Bs.setVisibility(0);
+                        fVar.bqU.setText(this.mContext.getString(com.baidu.tieba.z.loading));
                     } else {
-                        fVar.xM.setVisibility(8);
-                        fVar.bmr.setText(this.mContext.getString(com.baidu.tieba.y.pre_page));
+                        fVar.Bs.setVisibility(8);
+                        fVar.bqU.setText(this.mContext.getString(com.baidu.tieba.z.pre_page));
                     }
-                    aw.b(fVar.bmr, skinType);
+                    ax.c(fVar.bqU, skinType);
                 } else {
-                    if (this.bmo == 2) {
-                        fVar.xM.setVisibility(0);
-                        fVar.bmr.setText(this.mContext.getString(com.baidu.tieba.y.loading));
+                    if (this.bqS == 2) {
+                        fVar.Bs.setVisibility(0);
+                        fVar.bqU.setText(this.mContext.getString(com.baidu.tieba.z.loading));
                     } else {
-                        fVar.xM.setVisibility(8);
-                        fVar.bmr.setText(this.mContext.getString(com.baidu.tieba.y.next_page));
+                        fVar.Bs.setVisibility(8);
+                        fVar.bqU.setText(this.mContext.getString(com.baidu.tieba.z.next_page));
                     }
-                    aw.b(fVar.bmr, skinType);
+                    ax.c(fVar.bqU, skinType);
                 }
-                aw.h(fVar.bmq, com.baidu.tieba.u.list_item_selector);
+                ax.i(fVar.bqT, com.baidu.tieba.v.list_item_selector);
             }
         }
         return view;

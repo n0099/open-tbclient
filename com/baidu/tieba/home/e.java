@@ -1,20 +1,22 @@
 package com.baidu.tieba.home;
 
 import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.CreateBarActivityConfig;
 /* loaded from: classes.dex */
 class e implements View.OnClickListener {
-    final /* synthetic */ CreateBarGuideActivity aMq;
-    private final /* synthetic */ String axu;
+    final /* synthetic */ CreateBarGuideActivity aOq;
+    private final /* synthetic */ String aOr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(CreateBarGuideActivity createBarGuideActivity, String str) {
-        this.aMq = createBarGuideActivity;
-        this.axu = str;
+        this.aOq = createBarGuideActivity;
+        this.aOr = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        CreateBarActivity.b(this.aMq, this.axu, true);
-        this.aMq.finish();
+        this.aOq.sendMessage(new CustomMessage(2002001, new CreateBarActivityConfig(this.aOq.getPageContext().getPageActivity(), this.aOr, true)));
+        this.aOq.finish();
     }
 }

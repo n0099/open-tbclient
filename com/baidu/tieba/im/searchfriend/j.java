@@ -1,37 +1,62 @@
 package com.baidu.tieba.im.searchfriend;
 
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
+import android.content.Context;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.TextView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tieba.w;
 /* loaded from: classes.dex */
-public class j implements TextWatcher {
-    final /* synthetic */ h bih;
+public class j {
+    private EditText bmD;
+    private TextView bmE;
+    private ImageView bmF;
+    private m bmG;
+    private View.OnClickListener bmH = new k(this);
+    private Context context;
+    private TbPageContext<?> mPageContext;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(h hVar) {
-        this.bih = hVar;
+    public void df(boolean z) {
+        this.bmE.setClickable(z);
     }
 
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public void hg(String str) {
+        this.bmD.setText(str);
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public j(TbPageContext<?> tbPageContext, View view) {
+        this.mPageContext = tbPageContext;
+        this.context = this.mPageContext.getPageActivity();
+        this.bmD = (EditText) view.findViewById(w.new_search_friend_input);
+        this.bmE = (TextView) view.findViewById(w.new_search_friend_search);
+        this.bmF = (ImageView) view.findViewById(w.new_search_friend_del);
+        this.bmE.setOnClickListener(this.bmH);
+        this.bmF.setOnClickListener(this.bmH);
+        this.bmD.addTextChangedListener(new l(this));
+        cl(TbadkCoreApplication.m255getInst().getSkinType());
     }
 
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        ImageView imageView;
-        ImageView imageView2;
-        if (TextUtils.isEmpty(editable)) {
-            imageView2 = this.bih.bic;
-            imageView2.setVisibility(8);
-            return;
+    public void hideSoftKeyboard() {
+        com.baidu.adp.lib.util.l.c(this.context, this.bmD);
+    }
+
+    public void a(m mVar) {
+        this.bmG = mVar;
+    }
+
+    public void cl(int i) {
+        ax.b(this.bmE, com.baidu.tieba.t.cp_cont_g, 1);
+        this.bmD.setHintTextColor(ax.getColor(com.baidu.tieba.t.cp_cont_e));
+        ax.c(this.bmF, com.baidu.tieba.v.icon_search_close);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void fR(String str) {
+        if (this.bmG != null) {
+            this.bmG.hf(str);
         }
-        imageView = this.bih.bic;
-        imageView.setVisibility(0);
     }
 }

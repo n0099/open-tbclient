@@ -1,17 +1,17 @@
 package com.baidu.tieba.model;
 
-import com.baidu.tieba.data.PersonChangeData;
+import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* loaded from: classes.dex */
-public class MoreModel extends com.baidu.adp.base.e {
-    private PersonChangeData adW;
-    private boolean bpB;
+public class MoreModel extends com.baidu.adp.base.f {
+    private boolean bti;
+    private PersonChangeData mPersonChangeData;
 
     /* loaded from: classes.dex */
     public enum TaskType {
         DO_CACHE_CLEAR,
         GET_SIZE;
 
-        /* JADX DEBUG: Replace access to removed values field (bpC) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (btj) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static TaskType[] valuesCustom() {
             TaskType[] valuesCustom = values();
@@ -24,37 +24,37 @@ public class MoreModel extends com.baidu.adp.base.e {
 
     public MoreModel(PersonChangeData personChangeData) {
         super(null);
-        this.adW = null;
-        this.bpB = false;
-        this.adW = personChangeData;
-        if (this.adW == null) {
-            this.adW = new PersonChangeData();
+        this.mPersonChangeData = null;
+        this.bti = false;
+        this.mPersonChangeData = personChangeData;
+        if (this.mPersonChangeData == null) {
+            this.mPersonChangeData = new PersonChangeData();
         }
     }
 
-    public void a(PersonChangeData personChangeData) {
-        this.adW = personChangeData;
+    public void setPersonChangeData(PersonChangeData personChangeData) {
+        this.mPersonChangeData = personChangeData;
     }
 
-    public void dG(boolean z) {
-        this.bpB = z;
+    public void ds(boolean z) {
+        this.bti = z;
     }
 
-    public boolean TP() {
-        return this.bpB;
+    public boolean Un() {
+        return this.bti;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.f
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.f
     public boolean cancelLoadData() {
         return false;
     }
 
-    public PersonChangeData TQ() {
-        return this.adW;
+    public PersonChangeData getPersonChangeData() {
+        return this.mPersonChangeData;
     }
 }

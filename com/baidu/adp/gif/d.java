@@ -1,10 +1,10 @@
 package com.baidu.adp.gif;
 
-import com.baidu.adp.lib.util.i;
+import com.baidu.adp.lib.util.h;
 /* loaded from: classes.dex */
-class d extends i {
-    @Override // com.baidu.adp.lib.util.i
-    public void h(boolean z) {
-        NSGif.ds = z;
+class d extends h {
+    @Override // com.baidu.adp.lib.util.h
+    public void l(boolean z) {
+        NSGif.fx = z;
     }
 }

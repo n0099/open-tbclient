@@ -1,12 +1,12 @@
 package com.baidu.tieba.service;
 
-import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
-public class FatalErrorService extends Service {
+public class FatalErrorService extends BdBaseService {
     private f mTask = null;
 
     static {

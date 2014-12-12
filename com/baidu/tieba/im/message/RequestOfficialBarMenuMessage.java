@@ -31,7 +31,7 @@ public class RequestOfficialBarMenuMessage extends TbSocketMessage {
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     public Object encode() {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.forum_id = Integer.valueOf(com.baidu.adp.lib.g.c.f(getForum_id(), 0));
+        builder.forum_id = Integer.valueOf(com.baidu.adp.lib.g.c.toInt(getForum_id(), 0));
         builder.update_time = Integer.valueOf((int) getTimestamp());
         ForumMenuReqIdl.Builder builder2 = new ForumMenuReqIdl.Builder();
         builder2.data = builder.build(false);

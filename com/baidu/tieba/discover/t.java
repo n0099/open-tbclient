@@ -1,65 +1,49 @@
 package com.baidu.tieba.discover;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.square.BestStringsFitTextView;
-import com.baidu.tieba.y;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tieba.discover.data.FoundNewHttpResponsedMessage;
+import com.baidu.tieba.discover.data.FoundNewSocketResponsedMessage;
 /* loaded from: classes.dex */
-public class t extends BaseAdapter {
-    private static final int[] aok = {com.baidu.tieba.u.icon_ba_news, com.baidu.tieba.u.icon_hot_check, com.baidu.tieba.u.icon_me_dynamic};
-    private static final int[] aol = {y.ba_square_description, y.post_recommend_title_description, y.ba_dongtai_description};
-    private static final int[] aom = {y.ba_square, y.post_recommend_title, y.ba_dongtai};
-    Context mContext;
-
-    public t(Context context) {
-        this.mContext = context;
+public class t extends com.baidu.tbadk.mvc.model.e<com.baidu.tieba.discover.data.b, com.baidu.tieba.discover.data.a, BaseFragmentActivity> {
+    public t(TbPageContext<BaseFragmentActivity> tbPageContext, com.baidu.tieba.discover.data.b bVar) {
+        super(tbPageContext, bVar);
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        return aol.length;
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    protected Class<? extends MvcProtobufHttpResponsedMessage> kP() {
+        return FoundNewHttpResponsedMessage.class;
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return Integer.valueOf(i);
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    protected Class<? extends MvcSocketResponsedMessage> kO() {
+        return FoundNewSocketResponsedMessage.class;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    public int kL() {
+        return CmdConfigHttp.CMD_FOUND_NEW;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        u uVar;
-        if (view == null) {
-            view = com.baidu.adp.lib.g.b.ek().a(this.mContext, com.baidu.tieba.w.discover_square_item, viewGroup, false);
-            u uVar2 = new u(null);
-            uVar2.QK = (TextView) view.findViewById(com.baidu.tieba.v.squre_name);
-            uVar2.aon = (BestStringsFitTextView) view.findViewById(com.baidu.tieba.v.description);
-            uVar2.QJ = (HeadImageView) view.findViewById(com.baidu.tieba.v.portrait);
-            view.setTag(uVar2);
-            uVar = uVar2;
-        } else {
-            uVar = (u) view.getTag();
-        }
-        uVar.QK.setText(aom[i]);
-        uVar.aon.setText(aol[i]);
-        uVar.QJ.setImageResource(aok[i]);
-        int skinType = TbadkApplication.m251getInst().getSkinType();
-        DiscoverSquareActivity discoverSquareActivity = (DiscoverSquareActivity) this.mContext;
-        discoverSquareActivity.getLayoutMode().L(skinType == 1);
-        discoverSquareActivity.getLayoutMode().h(view);
-        return view;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    public String kM() {
+        return TbConfig.FOUND_NEW_ADDRESS;
     }
 
-    public void onChangeSkinType(int i) {
-        notifyDataSetChanged();
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    public Class<com.baidu.tieba.discover.data.a> getResponseDataClass() {
+        return com.baidu.tieba.discover.data.a.class;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    protected int kN() {
+        return 303023;
     }
 }

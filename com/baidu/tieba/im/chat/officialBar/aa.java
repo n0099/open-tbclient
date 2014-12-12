@@ -6,12 +6,12 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ OfficialBarHistoryActivity aRA;
+    final /* synthetic */ OfficialBarHistoryActivity aTg;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public aa(OfficialBarHistoryActivity officialBarHistoryActivity) {
         super(208002);
-        this.aRA = officialBarHistoryActivity;
+        this.aTg = officialBarHistoryActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,31 +20,31 @@ public class aa extends com.baidu.adp.framework.listener.e {
         RequestHistoryMessage requestHistoryMessage;
         List list;
         af afVar;
-        List<az> list2;
-        this.aRA.hideProgressBar();
-        this.aRA.aRz = false;
+        List<aq> list2;
+        this.aTg.hideProgressBar();
+        this.aTg.aTf = false;
         if (socketResponsedMessage == null) {
-            this.aRA.showToast(com.baidu.tieba.y.neterror);
+            this.aTg.showToast(com.baidu.tieba.z.neterror);
         } else if (socketResponsedMessage.getError() != 0) {
-            this.aRA.showToast(socketResponsedMessage.getErrorString());
+            this.aTg.showToast(socketResponsedMessage.getErrorString());
         } else if (socketResponsedMessage.getCmd() == 208002 && (socketResponsedMessage instanceof ResponseHistoryMessage)) {
             ResponseHistoryMessage responseHistoryMessage = (ResponseHistoryMessage) socketResponsedMessage;
             if (!responseHistoryMessage.getMsg().isEmpty() && (requestHistoryMessage = (RequestHistoryMessage) responseHistoryMessage.getOrginalMessage()) != null) {
                 if (requestHistoryMessage.getRequestId() == 0) {
-                    this.aRA.aRy = responseHistoryMessage.getMsg();
+                    this.aTg.aTe = responseHistoryMessage.getMsg();
                 } else {
-                    list = this.aRA.aRy;
+                    list = this.aTg.aTe;
                     list.addAll(responseHistoryMessage.getMsg());
                 }
-                afVar = this.aRA.aRv;
-                list2 = this.aRA.aRy;
+                afVar = this.aTg.aTb;
+                list2 = this.aTg.aTe;
                 afVar.setData(list2);
                 if (responseHistoryMessage.getMsg().size() != 0) {
                     new Handler().post(new ab(this));
                 }
             }
         } else {
-            this.aRA.showToast(com.baidu.tieba.y.neterror);
+            this.aTg.showToast(com.baidu.tieba.z.neterror);
         }
     }
 }

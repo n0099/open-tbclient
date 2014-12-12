@@ -5,82 +5,81 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.m;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tieba.aj;
-import com.baidu.tieba.s;
+import com.baidu.tieba.t;
 import com.baidu.tieba.topRec.TRForumListData;
-import com.baidu.tieba.v;
 import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
+import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class e extends BaseAdapter implements View.OnClickListener {
-    private TRForumListData bPF;
-    private TopRecActivity bPO;
-    private boolean bPN = false;
-    private int bPP = 0;
-    private int bPQ = 0;
-    private int blq = 0;
-    private boolean bPR = true;
+    private TRForumListData ccF;
+    private TopRecActivity ccO;
+    private boolean ccN = false;
+    private int ccP = 0;
+    private int ccQ = 0;
+    private int bXQ = 0;
+    private boolean ccR = true;
 
     public e(TopRecActivity topRecActivity) {
-        this.bPO = topRecActivity;
+        this.ccO = topRecActivity;
     }
 
     public void a(TRForumListData tRForumListData) {
-        this.bPF = tRForumListData;
-        if (this.bPR && this.bPF.forum_list.length >= 20) {
-            this.blq = 20;
-            this.bPR = false;
+        this.ccF = tRForumListData;
+        if (this.ccR && this.ccF.forum_list.length >= 20) {
+            this.bXQ = 20;
+            this.ccR = false;
         }
         notifyDataSetChanged();
     }
 
-    public void aet() {
-        if (this.bPF != null) {
-            if (this.bPF.forum_list.length - this.blq > 20) {
-                this.blq += 20;
-                this.bPN = false;
+    public void ajx() {
+        if (this.ccF != null) {
+            if (this.ccF.forum_list.length - this.bXQ > 20) {
+                this.bXQ += 20;
+                this.ccN = false;
             } else {
-                this.blq = this.bPF.forum_list.length;
-                this.bPN = true;
+                this.bXQ = this.ccF.forum_list.length;
+                this.ccN = true;
             }
             notifyDataSetChanged();
         }
     }
 
-    public boolean aeu() {
-        return this.bPN;
+    public boolean ajy() {
+        return this.ccN;
     }
 
-    public void H(int i, int i2) {
-        this.bPP = i;
-        this.bPQ = i2;
+    public void I(int i, int i2) {
+        this.ccP = i;
+        this.ccQ = i2;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bPF == null) {
+        if (this.ccF == null) {
             return 0;
         }
-        return this.blq < this.bPF.forum_list.length ? this.blq : this.bPF.forum_list.length;
+        return this.bXQ < this.ccF.forum_list.length ? this.bXQ : this.ccF.forum_list.length;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (i < this.bPF.forum_list.length) {
-            return this.bPF.forum_list[i];
+        if (i < this.ccF.forum_list.length) {
+            return this.ccF.forum_list[i];
         }
         return null;
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (i < this.bPF.forum_list.length) {
+        if (i < this.ccF.forum_list.length) {
             return i;
         }
         return 0L;
@@ -89,85 +88,85 @@ public class e extends BaseAdapter implements View.OnClickListener {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null || view.getTag() == null) {
-            view = View.inflate(this.bPO, w.top_recommended_list_item, null);
+            view = View.inflate(this.ccO.getPageContext().getPageActivity(), x.top_recommended_list_item, null);
             f fVar = new f(this);
-            fVar.awf = (BarImageView) view.findViewById(v.forum_avatar);
-            fVar.awi = (TextView) view.findViewById(v.name);
-            fVar.awj = (TextView) view.findViewById(v.member_count);
-            fVar.awk = (TextView) view.findViewById(v.thread_count);
-            fVar.awl = (TextView) view.findViewById(v.slogan);
-            fVar.awm = (TextView) view.findViewById(v.like);
+            fVar.azm = (BarImageView) view.findViewById(w.forum_avatar);
+            fVar.azp = (TextView) view.findViewById(w.name);
+            fVar.azq = (TextView) view.findViewById(w.member_count);
+            fVar.azr = (TextView) view.findViewById(w.thread_count);
+            fVar.azs = (TextView) view.findViewById(w.slogan);
+            fVar.azt = (TextView) view.findViewById(w.like);
             view.setTag(fVar);
             view.setOnClickListener(this);
         }
         f fVar2 = (f) view.getTag();
-        int skinType = TbadkApplication.m251getInst().getSkinType();
-        aw.c(fVar2.awi, skinType);
-        aw.c(fVar2.awj, skinType);
-        aw.c(fVar2.awk, skinType);
-        aw.c(fVar2.awl, skinType);
-        aw.c(fVar2.awm, skinType);
+        int skinType = TbadkCoreApplication.m255getInst().getSkinType();
+        ax.d(fVar2.azp, skinType);
+        ax.d(fVar2.azq, skinType);
+        ax.d(fVar2.azr, skinType);
+        ax.d(fVar2.azs, skinType);
+        ax.d(fVar2.azt, skinType);
         if (skinType != 1) {
-            fVar2.awi.setTextColor(-14277082);
-            fVar2.awj.setTextColor(-6775644);
-            fVar2.awk.setTextColor(-6775644);
-            fVar2.awl.setTextColor(-6842215);
+            fVar2.azp.setTextColor(-14277082);
+            fVar2.azq.setTextColor(-6775644);
+            fVar2.azr.setTextColor(-6775644);
+            fVar2.azs.setTextColor(-6842215);
         }
         if (skinType == 1) {
-            view.setBackgroundColor(this.bPO.getResources().getColor(s.flist_item_color_night));
+            view.setBackgroundColor(this.ccO.getResources().getColor(t.flist_item_color_night));
         } else {
-            view.setBackgroundColor(this.bPO.getResources().getColor(s.flist_item_color_even_day));
+            view.setBackgroundColor(this.ccO.getResources().getColor(t.flist_item_color_even_day));
         }
-        TRForumListData.TRForum tRForum = this.bPF.forum_list[i];
+        TRForumListData.TRForum tRForum = this.ccF.forum_list[i];
         String str = tRForum.avatar;
-        fVar2.awf.setTag(str);
-        fVar2.awf.a(str, 10, 400, 400, false);
-        fVar2.awi.setText(tRForum.forum_name);
-        fVar2.awj.setText(String.valueOf(this.bPO.getString(y.forum_list_attention_tv)) + " " + String.valueOf(tRForum.member_count));
-        fVar2.awk.setText(String.valueOf(this.bPO.getString(y.forum_list_thread_tv)) + " " + String.valueOf(tRForum.thread_count));
-        fVar2.awl.setText(tRForum.slogan);
+        fVar2.azm.setTag(str);
+        fVar2.azm.a(str, 10, 400, 400, false);
+        fVar2.azp.setText(tRForum.forum_name);
+        fVar2.azq.setText(String.valueOf(this.ccO.getPageContext().getString(z.forum_list_attention_tv)) + " " + String.valueOf(tRForum.member_count));
+        fVar2.azr.setText(String.valueOf(this.ccO.getPageContext().getString(z.forum_list_thread_tv)) + " " + String.valueOf(tRForum.thread_count));
+        fVar2.azs.setText(tRForum.slogan);
         if (tRForum.is_like == 1) {
-            if (this.bPQ != 0) {
-                aw.h((View) fVar2.awm, this.bPQ);
+            if (this.ccQ != 0) {
+                ax.i((View) fVar2.azt, this.ccQ);
             }
-            fVar2.awm.setText(y.attention_y);
-            fVar2.awm.setGravity(17);
-            if (TbadkApplication.m251getInst().getSkinType() == 1) {
-                fVar2.awm.setTextColor(this.bPO.getResources().getColor(s.forum_list_already_attention_night));
+            fVar2.azt.setText(z.attention_y);
+            fVar2.azt.setGravity(17);
+            if (TbadkCoreApplication.m255getInst().getSkinType() == 1) {
+                fVar2.azt.setTextColor(this.ccO.getResources().getColor(t.forum_list_already_attention_night));
             } else {
-                fVar2.awm.setTextColor(this.bPO.getResources().getColor(s.forum_list_attention));
+                fVar2.azt.setTextColor(this.ccO.getResources().getColor(t.forum_list_attention));
             }
-            fVar2.awm.setPadding(0, 0, 0, m.dip2px(this.bPO, 2.0f));
-            fVar2.awm.setTag(Integer.valueOf(tRForum.forum_id));
-            fVar2.awm.setOnClickListener(this.bPO);
+            fVar2.azt.setPadding(0, 0, 0, com.baidu.adp.lib.util.l.dip2px(this.ccO.getPageContext().getPageActivity(), 2.0f));
+            fVar2.azt.setTag(Integer.valueOf(tRForum.forum_id));
+            fVar2.azt.setOnClickListener(this.ccO);
         } else {
-            if (this.bPP != 0) {
-                aw.h((View) fVar2.awm, this.bPP);
+            if (this.ccP != 0) {
+                ax.i((View) fVar2.azt, this.ccP);
             }
-            fVar2.awm.setText(y.attention_n);
-            fVar2.awm.setTextColor(this.bPO.getResources().getColor(s.forum_list_attention));
-            fVar2.awm.setPadding(m.dip2px(this.bPO, 30.0f), 0, m.dip2px(this.bPO, 10.0f), m.dip2px(this.bPO, 2.0f));
-            fVar2.awm.setGravity(16);
-            fVar2.awm.setTag(Integer.valueOf(tRForum.forum_id));
-            fVar2.awm.setOnClickListener(this.bPO);
+            fVar2.azt.setText(z.attention_n);
+            fVar2.azt.setTextColor(this.ccO.getResources().getColor(t.forum_list_attention));
+            fVar2.azt.setPadding(com.baidu.adp.lib.util.l.dip2px(this.ccO.getPageContext().getPageActivity(), 30.0f), 0, com.baidu.adp.lib.util.l.dip2px(this.ccO.getPageContext().getPageActivity(), 10.0f), com.baidu.adp.lib.util.l.dip2px(this.ccO.getPageContext().getPageActivity(), 2.0f));
+            fVar2.azt.setGravity(16);
+            fVar2.azt.setTag(Integer.valueOf(tRForum.forum_id));
+            fVar2.azt.setOnClickListener(this.ccO);
         }
         return view;
     }
 
-    public int aev() {
-        if (this.bPF == null || this.bPF.forum_list == null) {
+    public int ajz() {
+        if (this.ccF == null || this.ccF.forum_list == null) {
             return 0;
         }
         int i = 0;
-        for (int i2 = 0; i2 < this.bPF.forum_list.length; i2++) {
-            int dV = aj.wm().dV(this.bPF.forum_list[i2].forum_name);
-            if (dV == 1) {
-                if (this.bPF.forum_list[i2].is_like == 0) {
-                    this.bPF.forum_list[i2].is_like = 1;
+        for (int i2 = 0; i2 < this.ccF.forum_list.length; i2++) {
+            int hasLikeForum = TbadkApplication.getInst().hasLikeForum(this.ccF.forum_list[i2].forum_name);
+            if (hasLikeForum == 1) {
+                if (this.ccF.forum_list[i2].is_like == 0) {
+                    this.ccF.forum_list[i2].is_like = 1;
                     i++;
                 }
-            } else if (dV == -1 && this.bPF.forum_list[i2].is_like == 1) {
-                this.bPF.forum_list[i2].is_like = 0;
+            } else if (hasLikeForum == -1 && this.ccF.forum_list[i2].is_like == 1) {
+                this.ccF.forum_list[i2].is_like = 0;
                 i--;
             }
         }
@@ -176,6 +175,6 @@ public class e extends BaseAdapter implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.bPO.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.bPO).createNormalCfg(((f) view.getTag()).awi.getText().toString(), null)));
+        this.ccO.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.ccO.getPageContext().getPageActivity()).createNormalCfg(((f) view.getTag()).azp.getText().toString(), null)));
     }
 }

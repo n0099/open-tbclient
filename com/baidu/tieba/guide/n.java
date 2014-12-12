@@ -3,17 +3,17 @@ package com.baidu.tieba.guide;
 import android.view.View;
 import android.widget.Button;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tieba.aj;
 import com.baidu.tieba.data.InterestFrsData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements View.OnClickListener {
-    final /* synthetic */ m aLS;
+    final /* synthetic */ m aNK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(m mVar) {
-        this.aLS = mVar;
+        this.aNK = mVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -28,34 +28,34 @@ public class n implements View.OnClickListener {
         NewUserGuideActivity newUserGuideActivity5;
         View view2;
         if (view.getTag() == null || !(view.getTag() instanceof InterestFrsData.Tag)) {
-            button = this.aLS.aLP;
+            button = this.aNK.mNext;
             if (view == button) {
-                newUserGuideActivity = this.aLS.aLw;
-                if (newUserGuideActivity.Ix()) {
-                    aj.wm().aR(true);
+                newUserGuideActivity = this.aNK.aNp;
+                if (newUserGuideActivity.IO()) {
+                    TbadkApplication.getInst().setLikeBarChanged(true);
                 }
-                m mVar = this.aLS;
-                newUserGuideActivity2 = this.aLS.aLw;
-                MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(newUserGuideActivity2);
-                z = this.aLS.aLb;
+                m mVar = this.aNK;
+                newUserGuideActivity2 = this.aNK.aNp;
+                MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(newUserGuideActivity2.getPageContext().getPageActivity());
+                z = this.aNK.aMV;
                 mVar.sendMessage(new CustomMessage(2015001, mainTabActivityConfig.createNewUserCfg(1, z)));
-                newUserGuideActivity3 = this.aLS.aLw;
+                newUserGuideActivity3 = this.aNK.aNp;
                 newUserGuideActivity3.finish();
                 return;
             }
             return;
         }
-        z2 = this.aLS.aLR;
+        z2 = this.aNK.aNJ;
         if (z2) {
-            this.aLS.aLR = false;
-            newUserGuideActivity4 = this.aLS.aLw;
-            com.baidu.tbadk.core.j.l(newUserGuideActivity4, "newUserInterestSelect");
-            newUserGuideActivity5 = this.aLS.aLw;
+            this.aNK.aNJ = false;
+            newUserGuideActivity4 = this.aNK.aNp;
+            com.baidu.tbadk.core.i.B(newUserGuideActivity4.getPageContext().getPageActivity(), "newUserInterestSelect");
+            newUserGuideActivity5 = this.aNK.aNp;
             t tVar = new t(newUserGuideActivity5, (InterestFrsData.Tag) view.getTag(), new o(this));
-            view2 = this.aLS.aLD;
+            view2 = this.aNK.aNw;
             view2.setVisibility(0);
             tVar.show();
-            this.aLS.aLR = true;
+            this.aNK.aNJ = true;
         }
     }
 }

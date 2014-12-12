@@ -10,15 +10,15 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.live.LiveStatusChangeDefinition;
 import com.baidu.tbadk.coreExtra.live.LiveStatusChangeMessage;
 import com.baidu.tbadk.live.service.LiveStatusParcelable;
-import com.baidu.tieba.y;
+import com.baidu.tieba.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends Handler {
-    final /* synthetic */ LiveGroupManager Vy;
+    final /* synthetic */ LiveGroupManager abA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(LiveGroupManager liveGroupManager) {
-        this.Vy = liveGroupManager;
+        this.abA = liveGroupManager;
     }
 
     @Override // android.os.Handler
@@ -35,21 +35,21 @@ public class k extends Handler {
             case 1:
                 LiveStatusParcelable liveStatusParcelable = (LiveStatusParcelable) message.obj;
                 if (liveStatusParcelable != null) {
-                    i2 = this.Vy.mLastStatusBroadcasted;
+                    i2 = this.abA.mLastStatusBroadcasted;
                     if (i2 != liveStatusParcelable.status) {
                         LiveStatusChangeMessage.LiveStatusData liveStatusData = new LiveStatusChangeMessage.LiveStatusData();
                         liveStatusData.status = liveStatusParcelable.status;
                         liveStatusData.groupId = liveStatusParcelable.groupId;
                         liveStatusData.url = liveStatusParcelable.url;
                         liveStatusData.errorString = liveStatusParcelable.errorString;
-                        this.Vy.broadcastLiveStatusChanged(liveStatusData);
+                        this.abA.broadcastLiveStatusChanged(liveStatusData);
                         if (liveStatusParcelable.status == 3) {
-                            i3 = this.Vy.mLastStatusBroadcasted;
+                            i3 = this.abA.mLastStatusBroadcasted;
                             if (i3 != 4) {
-                                TiebaStatic.eventStat(TbadkApplication.m251getInst().getApp(), "has_live_bhv", "", 1, "group_id", liveStatusParcelable.groupId);
+                                TiebaStatic.eventStat(TbadkApplication.getInst().getApp(), "has_live_bhv", "", 1, "group_id", liveStatusParcelable.groupId);
                             }
                         }
-                        this.Vy.mLastStatusBroadcasted = liveStatusParcelable.status;
+                        this.abA.mLastStatusBroadcasted = liveStatusParcelable.status;
                         return;
                     }
                     return;
@@ -60,58 +60,58 @@ public class k extends Handler {
                 if (!StringUtils.isNull(str)) {
                     if (str.equals(LiveStatusChangeDefinition.ERROR_PROMPT_NOT_SUPPORT)) {
                         TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_NOT_SUPPORT, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_NOT_SUPPORT), "");
-                        UtilHelper.showToast(TbadkApplication.m251getInst().getApp(), y.live_error_system_not_support);
+                        UtilHelper.showToast(TbadkApplication.getInst().getApp(), z.live_error_system_not_support);
                     } else if (str.equals(LiveStatusChangeDefinition.ERROR_PROMPT_CONNECT_PREPARE)) {
                         TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_SDK_INIT_FAILED, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_SDK_INIT_FAILED), "");
-                        UtilHelper.showToast(TbadkApplication.m251getInst().getApp(), y.live_error_init_failed);
+                        UtilHelper.showToast(TbadkApplication.getInst().getApp(), z.live_error_init_failed);
                     } else if (str.equals(LiveStatusChangeDefinition.ERROR_PROMPT_START_PUB)) {
                         TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_SDK_PUB_FAILED, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_SDK_PUB_FAILED), "");
-                        UtilHelper.showToast(TbadkApplication.m251getInst().getApp(), y.live_error_publish_failed);
+                        UtilHelper.showToast(TbadkApplication.getInst().getApp(), z.live_error_publish_failed);
                     } else if (str.equals(LiveStatusChangeDefinition.ERROR_PROMPT_CREATE_ENGINE_FAILED)) {
                         TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_MM_MODULE_FAILED, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_MM_MODULE_FAILED), "");
-                        UtilHelper.showToast(TbadkApplication.m251getInst().getApp(), y.live_error_create_engine_failed);
+                        UtilHelper.showToast(TbadkApplication.getInst().getApp(), z.live_error_create_engine_failed);
                     } else if (str.equals(LiveStatusChangeDefinition.ERROR_PROMPT_TOKEN_EXPIRED)) {
                         TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_TOKEN_EXPIRED, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_TOKEN_EXPIRED), "");
-                        UtilHelper.showToast(TbadkApplication.m251getInst().getApp(), y.live_error_accesstoken_null_or_expire);
+                        UtilHelper.showToast(TbadkApplication.getInst().getApp(), z.live_error_accesstoken_null_or_expire);
                     } else if (str.equals(LiveStatusChangeDefinition.ERROR_PROMPT_CONNECTION_CLOSED)) {
                         TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_CONNECTION_KICKED, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_CONNECTION_KICKED), "");
-                        UtilHelper.showToast(TbadkApplication.m251getInst().getApp(), y.live_error_connection_closed);
+                        UtilHelper.showToast(TbadkApplication.getInst().getApp(), z.live_error_connection_closed);
                     } else if (str.equals(LiveStatusChangeDefinition.ERROR_PROMPT_PLAY_FILE_ERROR)) {
                         TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_PLAY_FILE, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_PLAY_FILE), "");
-                        UtilHelper.showToast(TbadkApplication.m251getInst().getApp(), y.live_error_play_file);
+                        UtilHelper.showToast(TbadkApplication.getInst().getApp(), z.live_error_play_file);
                     } else if (str.equals(LiveStatusChangeDefinition.ERROR_PROMPT_PLAY_NET_ERROR)) {
                         TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_PLAY_NETWORK, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_PLAY_NETWORK), "");
-                        UtilHelper.showToast(TbadkApplication.m251getInst().getApp(), y.live_error_play_network);
+                        UtilHelper.showToast(TbadkApplication.getInst().getApp(), z.live_error_play_network);
                     } else if (str.equals(LiveStatusChangeDefinition.ERROR_PROMPT_PLAY_INVALID_CODEC)) {
                         TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_PLAY_INVALID_CODEC, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_PLAY_INVALID_CODEC), "");
-                        UtilHelper.showToast(TbadkApplication.m251getInst().getApp(), y.live_error_play_invalid_codec);
+                        UtilHelper.showToast(TbadkApplication.getInst().getApp(), z.live_error_play_invalid_codec);
                     }
-                    this.Vy.broadcastLiveError(str);
+                    this.abA.broadcastLiveError(str);
                     return;
                 }
                 return;
             case 3:
-                this.Vy.notifyPositionEvent((String) message.obj, message.arg1, message.arg2);
+                this.abA.notifyPositionEvent((String) message.obj, message.arg1, message.arg2);
                 return;
             case 4:
                 int i4 = message.arg1;
-                nVar = this.Vy.mRecordTimeWatcher;
+                nVar = this.abA.mRecordTimeWatcher;
                 if (nVar != null) {
-                    nVar2 = this.Vy.mRecordTimeWatcher;
-                    nVar2.cW(i4);
+                    nVar2 = this.abA.mRecordTimeWatcher;
+                    nVar2.onLiveRecordTimeTicked(i4);
                     return;
                 }
                 return;
             case 5:
                 TiebaStatic.liveError("", TbErrInfo.ERR_LIVE_PLAY_INVALID_CODEC, TbErrInfo.getErrMsg(TbErrInfo.ERR_LIVE_PLAY_INVALID_CODEC), "");
-                LiveGroupManager liveGroupManager = this.Vy;
+                LiveGroupManager liveGroupManager = this.abA;
                 i = liveGroupManager.mAccTimesWhenNoStreamWarning;
                 liveGroupManager.mAccTimesWhenNoStreamWarning = i + 1;
-                z = this.Vy.mHasBookedWarningTask;
+                z = this.abA.mHasBookedWarningTask;
                 if (!z) {
-                    this.Vy.mHasBookedWarningTask = true;
-                    handler = this.Vy.mHandler;
-                    runnable = this.Vy.mStreamWarningTask;
+                    this.abA.mHasBookedWarningTask = true;
+                    handler = this.abA.mHandler;
+                    runnable = this.abA.mStreamWarningTask;
                     handler.postDelayed(runnable, 20000L);
                     return;
                 }
@@ -124,7 +124,7 @@ public class k extends Handler {
                 super.handleMessage(message);
                 return;
             case 10:
-                this.Vy.queryCurrentStatus();
+                this.abA.queryCurrentStatus();
                 return;
         }
     }

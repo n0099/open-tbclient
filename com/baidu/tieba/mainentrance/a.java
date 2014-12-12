@@ -6,41 +6,41 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ax;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a extends BaseAdapter {
-    private final BaseActivity Or;
-    private final String aAx;
-    private ArrayList<String> aeE;
-    private boolean bmk = true;
+    private final BaseActivity Ud;
+    private final String aBP;
+    private boolean bqO = true;
+    private ArrayList<String> mData;
 
     public a(BaseActivity baseActivity, ArrayList<String> arrayList) {
-        this.Or = baseActivity;
-        this.aeE = arrayList;
-        this.aAx = this.Or.getText(com.baidu.tieba.y.forum).toString();
+        this.Ud = baseActivity;
+        this.mData = arrayList;
+        this.aBP = this.Ud.getPageContext().getPageActivity().getText(com.baidu.tieba.z.forum).toString();
     }
 
-    public void setData(ArrayList<String> arrayList) {
-        this.aeE = arrayList;
+    public void r(ArrayList<String> arrayList) {
+        this.mData = arrayList;
     }
 
-    public void dy(boolean z) {
-        this.bmk = z;
+    public void dj(boolean z) {
+        this.bqO = z;
     }
 
-    public void gs(int i) {
-        this.aeE.remove(i);
-        this.aeE.add(0, this.aeE.get(i));
+    public void gD(int i) {
+        this.mData.remove(i);
+        this.mData.add(0, this.mData.get(i));
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aeE == null) {
+        if (this.mData == null) {
             return 0;
         }
-        return this.aeE.size();
+        return this.mData.size();
     }
 
     @Override // android.widget.Adapter
@@ -49,7 +49,7 @@ public class a extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.aeE.get(i);
+        return this.mData.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -66,17 +66,17 @@ public class a extends BaseAdapter {
         Object item;
         try {
             if (view == null) {
-                view3 = com.baidu.adp.lib.g.b.ek().inflate(this.Or, com.baidu.tieba.w.home_dialog_search_item, null);
+                view3 = com.baidu.adp.lib.g.b.ek().inflate(this.Ud.getPageContext().getPageActivity(), com.baidu.tieba.x.home_dialog_search_item, null);
                 try {
                     bVar = new b(this, null);
-                    bVar.axz = (TextView) view3.findViewById(com.baidu.tieba.v.home_lv_search_forum);
-                    bVar.bml = view3.findViewById(com.baidu.tieba.v.home_dialog_lv_search_forum_divider);
+                    bVar.aPs = (TextView) view3.findViewById(com.baidu.tieba.w.home_lv_search_forum);
+                    bVar.bqP = view3.findViewById(com.baidu.tieba.w.home_dialog_lv_search_forum_divider);
                     view3.setTag(bVar);
                 } catch (Exception e) {
                     view2 = view3;
                     exc = e;
                     BdLog.e(exc.getMessage());
-                    F(view2);
+                    applyNightMode(view2);
                     return view2;
                 }
             } else {
@@ -91,30 +91,30 @@ public class a extends BaseAdapter {
         if (item == null) {
             return view3;
         }
-        if (TbadkApplication.m251getInst().getSkinType() == 1) {
-            bVar.axz.setTextColor(-6574132);
+        if (TbadkCoreApplication.m255getInst().getSkinType() == 1) {
+            bVar.aPs.setTextColor(-6574132);
         } else {
-            bVar.axz.setTextColor(-13553101);
+            bVar.aPs.setTextColor(-13553101);
         }
-        aw.i(bVar.bml, com.baidu.tieba.s.square_dividing_line);
+        ax.j(bVar.bqP, com.baidu.tieba.t.cp_bg_line_b);
         String str = (String) item;
-        if (this.bmk) {
-            bVar.axz.setText(str.concat(this.aAx));
+        if (this.bqO) {
+            bVar.aPs.setText(str.concat(this.aBP));
             view2 = view3;
         } else {
-            bVar.axz.setText(str);
+            bVar.aPs.setText(str);
             view2 = view3;
         }
-        F(view2);
+        applyNightMode(view2);
         return view2;
     }
 
-    private void F(View view) {
-        this.Or.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
-        this.Or.getLayoutMode().h(view);
-        View findViewById = view.findViewById(com.baidu.tieba.v.parent);
+    private void applyNightMode(View view) {
+        this.Ud.getLayoutMode().ab(TbadkCoreApplication.m255getInst().getSkinType() == 1);
+        this.Ud.getLayoutMode().h(view);
+        View findViewById = view.findViewById(com.baidu.tieba.w.parent);
         if (findViewById != null) {
-            aw.h(findViewById, com.baidu.tieba.u.common_list_item_bg_selector);
+            ax.i(findViewById, com.baidu.tieba.v.common_list_item_bg_selector);
         }
     }
 }

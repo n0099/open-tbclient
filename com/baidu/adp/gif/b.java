@@ -1,37 +1,49 @@
 package com.baidu.adp.gif;
 /* loaded from: classes.dex */
 public class b implements a {
-    private static a dp;
-    private int dq;
-    private final g dr = new g();
+    private static a fu;
+    private int fv;
+    private final g fw = new g();
 
     public b() {
-        this.dq = 0;
-        if (NSGif.ds) {
-            this.dq = 0;
+        this.fv = 0;
+        if (NSGif.fx) {
+            this.fv = 0;
         } else {
-            this.dq = 1;
+            this.fv = 1;
         }
     }
 
-    public static synchronized a bi() {
+    public static synchronized a bJ() {
         a aVar;
         synchronized (b.class) {
-            if (dp == null) {
-                dp = new b();
+            if (fu == null) {
+                fu = new b();
             }
-            aVar = dp;
+            aVar = fu;
         }
         return aVar;
     }
 
     @Override // com.baidu.adp.gif.a
-    public com.baidu.adp.widget.a.a m(String str) {
-        if (this.dq != 0) {
+    public com.baidu.adp.widget.a.a B(String str) {
+        if (this.fv != 0) {
             return null;
         }
         try {
-            return this.dr.m(str);
+            return this.fw.B(str);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    @Override // com.baidu.adp.gif.a
+    public com.baidu.adp.widget.a.a d(byte[] bArr, int i, int i2) {
+        if (this.fv != 0) {
+            return null;
+        }
+        try {
+            return this.fw.d(bArr, i, i2);
         } catch (Exception e) {
             return null;
         }

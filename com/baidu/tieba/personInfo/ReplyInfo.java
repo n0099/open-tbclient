@@ -1,5 +1,6 @@
 package com.baidu.tieba.personInfo;
 
+import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.Profile.ReplyList;
@@ -45,10 +46,10 @@ public class ReplyInfo implements Serializable {
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.userId = jSONObject.optInt(com.baidu.tbadk.core.frameworkData.a.USER_ID, 0);
+            this.userId = jSONObject.optInt("user_id", 0);
             this.friendId = jSONObject.optInt("friend_id", 0);
             this.message = jSONObject.optString("message");
-            this.time = jSONObject.optInt("time");
+            this.time = jSONObject.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
         }
     }
 

@@ -4,13 +4,13 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ PingManager PU;
+    final /* synthetic */ PingManager VF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n(PingManager pingManager, int i) {
         super(i);
-        this.PU = pingManager;
+        this.VF = pingManager;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,6 +19,6 @@ public class n extends com.baidu.adp.framework.listener.e {
         if (socketResponsedMessage == null) {
             return;
         }
-        this.PU.c(socketResponsedMessage);
+        this.VF.c(socketResponsedMessage);
     }
 }

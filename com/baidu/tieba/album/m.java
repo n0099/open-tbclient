@@ -14,96 +14,96 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import java.util.List;
 /* loaded from: classes.dex */
 public class m extends BaseFragment implements AdapterView.OnItemClickListener {
-    private View ahA;
-    private RelativeLayout ahW;
-    private com.baidu.tbadk.core.view.o ahX;
-    private j ahY;
-    private e ahZ;
-    private p aht;
-    private AlbumActivity ahz;
+    private p aoJ;
+    private AlbumActivity aoO;
+    private View aoP;
+    private RelativeLayout apl;
+    private j apm;
+    private e apn;
+    private BdListView mListView;
     private NavigationBar mNavigationBar;
+    private com.baidu.tbadk.core.view.x mNoDataView;
     private View mView;
-    private BdListView vl;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.ahz = (AlbumActivity) getActivity();
-        this.aht = this.ahz.xJ();
+        this.aoO = (AlbumActivity) getBaseFragmentActivity();
+        this.aoJ = this.aoO.Bc();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.mView = layoutInflater.inflate(com.baidu.tieba.w.album_list_view, (ViewGroup) null);
-        this.ahW = (RelativeLayout) this.mView.findViewById(com.baidu.tieba.v.parent);
-        this.vl = (BdListView) this.mView.findViewById(com.baidu.tieba.v.album_list);
-        this.mNavigationBar = (NavigationBar) this.mView.findViewById(com.baidu.tieba.v.view_navigation_bar);
-        this.ahA = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.ahz);
-        this.mNavigationBar.setTitleText(this.ahz.getString(com.baidu.tieba.y.album));
-        this.ahX = NoDataViewFactory.a(this.ahz, this.ahW, com.baidu.tbadk.core.view.r.a(NoDataViewFactory.ImgType.NODATA), com.baidu.tbadk.core.view.s.q(com.baidu.tieba.y.album_list_no_data, com.baidu.tieba.y.album_list_no_data_1), null);
-        this.ahY = new j(this.ahz);
-        this.vl.setAdapter((ListAdapter) this.ahY);
-        this.vl.setOnScrollListener(this.ahY);
-        this.vl.setOnItemClickListener(this);
+        this.mView = layoutInflater.inflate(com.baidu.tieba.x.album_list_view, (ViewGroup) null);
+        this.apl = (RelativeLayout) this.mView.findViewById(com.baidu.tieba.w.parent);
+        this.mListView = (BdListView) this.mView.findViewById(com.baidu.tieba.w.album_list);
+        this.mNavigationBar = (NavigationBar) this.mView.findViewById(com.baidu.tieba.w.view_navigation_bar);
+        this.aoP = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.aoO);
+        this.mNavigationBar.setTitleText(this.aoO.getPageContext().getString(com.baidu.tieba.z.album));
+        this.mNoDataView = NoDataViewFactory.a(this.aoO.getPageContext().getContext(), this.apl, com.baidu.tbadk.core.view.aa.a(NoDataViewFactory.ImgType.NODATA), com.baidu.tbadk.core.view.ab.t(com.baidu.tieba.z.album_list_no_data, com.baidu.tieba.z.album_list_no_data_1), null);
+        this.apm = new j(this.aoO);
+        this.mListView.setAdapter((ListAdapter) this.apm);
+        this.mListView.setOnScrollListener(this.apm);
+        this.mListView.setOnItemClickListener(this);
         return this.mView;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
-        xR();
+        Bk();
     }
 
     public void setData(List<a> list) {
-        if (this.ahY != null) {
-            this.ahY.setData(list);
+        if (this.apm != null) {
+            this.apm.setData(list);
         }
     }
 
-    private void xU() {
-        if (this.ahZ == null) {
-            this.ahZ = new e(this.ahz);
+    private void Bn() {
+        if (this.apn == null) {
+            this.apn = new e(this.aoO.getPageContext().getContext());
         }
-        this.ahZ.a(new n(this));
+        this.apn.a(new n(this));
     }
 
     public View getBtnBack() {
-        return this.ahA;
+        return this.aoP;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         a item;
         super.onItemClick(adapterView, view, i, j);
-        if (this.ahY != null && (item = this.ahY.getItem(i)) != null && this.aht != null && this.ahz != null) {
-            this.aht.eo(item.getAlbumId());
-            this.aht.setLastAlbumId(item.getAlbumId());
-            this.ahz.dK(1);
+        if (this.apm != null && (item = this.apm.getItem(i)) != null && this.aoJ != null && this.aoO != null) {
+            this.aoJ.eT(item.getAlbumId());
+            this.aoJ.setLastAlbumId(item.getAlbumId());
+            this.aoO.ee(1);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.ahz.getLayoutMode().L(i == 1);
-        this.ahz.getLayoutMode().h(this.mView);
-        this.mNavigationBar.onChangeSkinType(i);
-        if (this.ahX != null) {
-            this.ahX.onChangeSkinType(i);
+        this.aoO.getLayoutMode().ab(i == 1);
+        this.aoO.getLayoutMode().h(this.mView);
+        this.mNavigationBar.onChangeSkinType(this.aoO.getPageContext(), i);
+        if (this.mNoDataView != null) {
+            this.mNoDataView.onChangeSkinType(getPageContext(), i);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.ahZ != null) {
-            this.ahZ.xS();
+        if (this.apn != null) {
+            this.apn.Bl();
         }
     }
 
-    private void xR() {
-        this.vl.setVisibility(0);
-        this.ahX.setVisibility(8);
-        xU();
+    private void Bk() {
+        this.mListView.setVisibility(0);
+        this.mNoDataView.setVisibility(8);
+        Bn();
     }
 }

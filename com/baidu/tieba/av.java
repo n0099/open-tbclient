@@ -1,18 +1,21 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class av extends Handler {
-    final /* synthetic */ aj aee;
+public class av implements DialogInterface.OnDismissListener {
+    final /* synthetic */ UpdateDialog this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(aj ajVar) {
-        this.aee = ajVar;
+    public av(UpdateDialog updateDialog) {
+        this.this$0 = updateDialog;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    @Override // android.content.DialogInterface.OnDismissListener
+    public void onDismiss(DialogInterface dialogInterface) {
+        af afVar;
+        afVar = this.this$0.alF;
+        afVar.dismiss();
+        this.this$0.mHandler.postDelayed(new aw(this), 100L);
     }
 }

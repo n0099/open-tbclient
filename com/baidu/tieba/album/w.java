@@ -5,13 +5,13 @@ import com.baidu.tbadk.img.ImageFileInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements View.OnClickListener {
-    final /* synthetic */ v aiw;
-    private final /* synthetic */ ImageFileInfo aix;
+    final /* synthetic */ v apJ;
+    private final /* synthetic */ ImageFileInfo apK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(v vVar, ImageFileInfo imageFileInfo) {
-        this.aiw = vVar;
-        this.aix = imageFileInfo;
+        this.apJ = vVar;
+        this.apK = imageFileInfo;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,11 +19,11 @@ public class w implements View.OnClickListener {
         AlbumActivity albumActivity;
         AlbumActivity albumActivity2;
         AlbumActivity albumActivity3;
-        albumActivity = this.aiw.ahz;
-        albumActivity.c(this.aix);
-        albumActivity2 = this.aiw.ahz;
-        albumActivity2.c(this.aix, false);
-        albumActivity3 = this.aiw.ahz;
-        albumActivity3.d(this.aix, false);
+        albumActivity = this.apJ.aoO;
+        albumActivity.c(this.apK);
+        albumActivity2 = this.apJ.aoO;
+        albumActivity2.c(this.apK, false);
+        albumActivity3 = this.apJ.aoO;
+        albumActivity3.d(this.apK, false);
     }
 }

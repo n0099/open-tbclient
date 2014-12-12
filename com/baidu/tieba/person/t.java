@@ -1,71 +1,57 @@
 package com.baidu.tieba.person;
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.view.View;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* loaded from: classes.dex */
 class t implements View.OnClickListener {
-    final /* synthetic */ o bBP;
+    final /* synthetic */ PersonChangeActivity bGa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(o oVar) {
-        this.bBP = oVar;
+    public t(PersonChangeActivity personChangeActivity) {
+        this.bGa = personChangeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
+        com.baidu.tbadk.coreExtra.c.f fVar;
         int i;
-        int i2;
-        x xVar;
         boolean z;
-        x xVar2;
-        int i3;
-        ForumData forumData;
-        ForumData forumData2;
-        ForumData forumData3;
-        ForumData forumData4;
-        ForumData forumData5;
-        String str;
-        ForumData forumData6;
-        this.bBP.bBi = ((Integer) view.getTag()).intValue();
-        i = this.bBP.bBi;
-        if (i >= 0) {
-            i2 = this.bBP.bBi;
-            xVar = this.bBP.bBH;
-            if (i2 < xVar.getCount()) {
-                z = this.bBP.bBL;
-                if (!z) {
-                    o oVar = this.bBP;
-                    xVar2 = this.bBP.bBH;
-                    i3 = this.bBP.bBi;
-                    oVar.bBK = (ForumData) xVar2.getItem(i3);
-                    forumData = this.bBP.bBK;
-                    if (forumData != null) {
-                        forumData2 = this.bBP.bBK;
-                        if (forumData2.getId() != null) {
-                            forumData3 = this.bBP.bBK;
-                            if (forumData3.getName() != null) {
-                                o oVar2 = this.bBP;
-                                forumData4 = this.bBP.bBK;
-                                oVar2.bBI = forumData4.getName();
-                                this.bBP.bBL = true;
-                                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_DEL_LIKE_BAR_CMD);
-                                forumData5 = this.bBP.bBK;
-                                httpMessage.addParam(ImageViewerConfig.FORUM_ID, forumData5.getId());
-                                str = this.bBP.bBI;
-                                httpMessage.addParam("kw", str);
-                                forumData6 = this.bBP.bBK;
-                                httpMessage.addParam("favo_type", String.valueOf(forumData6.getFavo_type()));
-                                httpMessage.addParam("tbs", TbadkApplication.m251getInst().getTbs());
-                                this.bBP.sendMessage(httpMessage);
-                            }
-                        }
+        com.baidu.tbadk.coreExtra.c.f fVar2;
+        com.baidu.tbadk.coreExtra.c.f fVar3;
+        Boolean bool;
+        com.baidu.tbadk.coreExtra.c.f fVar4;
+        com.baidu.tbadk.coreExtra.c.f fVar5;
+        Dialog dialog;
+        fVar = this.bGa.bFR;
+        int sex = fVar.sl().getSex();
+        i = this.bGa.mSex;
+        if (sex != i) {
+            this.bGa.Pg = true;
+        }
+        z = this.bGa.Pg;
+        if (!z) {
+            fVar2 = this.bGa.bFR;
+            if (fVar2 != null) {
+                fVar3 = this.bGa.bFR;
+                if (fVar3.sl().getPhotoChanged()) {
+                    Intent intent = new Intent();
+                    bool = this.bGa.bFG;
+                    if (bool.booleanValue()) {
+                        fVar5 = this.bGa.bFR;
+                        intent.putExtra(PersonChangeData.TAG_PERSON_INFO, fVar5.sl());
+                    } else {
+                        fVar4 = this.bGa.bFR;
+                        intent.putExtra("data", fVar4.sl());
                     }
+                    this.bGa.setResult(-1, intent);
                 }
             }
+            this.bGa.finish();
+            return;
         }
+        dialog = this.bGa.bFW;
+        com.baidu.adp.lib.g.k.a(dialog, this.bGa.getPageContext());
     }
 }

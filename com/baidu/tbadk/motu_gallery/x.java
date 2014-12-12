@@ -5,11 +5,12 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import com.baidu.tieba.z;
 import java.io.FileNotFoundException;
 /* loaded from: classes.dex */
 public class x extends LinearLayout {
-    ImageView Xf;
-    Bitmap Xg;
+    ImageView adj;
+    Bitmap adk;
     Context mContext;
     Uri mUri;
 
@@ -20,21 +21,21 @@ public class x extends LinearLayout {
     }
 
     private void init() {
-        com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.w.motu_albums_selected_item, this);
-        this.Xf = (ImageView) findViewById(com.baidu.tieba.v.image);
+        com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.x.motu_albums_selected_item, this);
+        this.adj = (ImageView) findViewById(com.baidu.tieba.w.image);
     }
 
     public Uri getUri() {
         return this.mUri;
     }
 
-    public boolean g(Uri uri) {
+    public boolean h(Uri uri) {
         boolean z = true;
         this.mUri = uri;
-        int dimension = (int) this.mContext.getResources().getDimension(com.baidu.tieba.t.jigsawSelectedImageWidth);
+        int dimension = (int) this.mContext.getResources().getDimension(com.baidu.tieba.u.jigsawSelectedImageWidth);
         if (uri != null) {
             try {
-                this.Xg = b.b(this.mContext, uri, dimension, dimension);
+                this.adk = b.a(this.mContext, uri, dimension, dimension);
             } catch (OtherException e) {
                 e.printStackTrace();
                 z = false;
@@ -46,13 +47,13 @@ public class x extends LinearLayout {
                 z = false;
             }
         }
-        if (this.Xg != null) {
-            this.Xf.setImageBitmap(this.Xg);
+        if (this.adk != null) {
+            this.adj.setImageBitmap(this.adk);
         } else {
             z = false;
         }
         if (!z) {
-            y.dc(com.baidu.tieba.y.open_error);
+            y.showToastLong(z.open_error);
         }
         return z;
     }

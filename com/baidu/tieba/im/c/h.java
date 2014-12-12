@@ -1,29 +1,20 @@
 package com.baidu.tieba.im.c;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 /* loaded from: classes.dex */
-public class h extends CustomMessageListener {
-    final /* synthetic */ b beX;
+class h implements com.baidu.tieba.im.g<Boolean> {
+    final /* synthetic */ b bnj;
+    private final /* synthetic */ OfficialChatMessage bnm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h(b bVar, int i) {
-        super(i);
-        this.beX = bVar;
+    public h(b bVar, OfficialChatMessage officialChatMessage) {
+        this.bnj = bVar;
+        this.bnm = officialChatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage instanceof BackgroundSwitchMessage) {
-            if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                this.beX.QB();
-            } else {
-                this.beX.QA();
-            }
-        }
+    @Override // com.baidu.tieba.im.g
+    public void onReturnDataInUI(Boolean bool) {
+        a.h(this.bnm);
     }
 }

@@ -1,22 +1,21 @@
 package com.baidu.tbadk.widget.richText;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements View.OnClickListener {
-    final /* synthetic */ TbRichTextView acw;
-    private final /* synthetic */ c acx;
+class o implements View.OnClickListener {
+    final /* synthetic */ TbRichTextView aki;
+    private final /* synthetic */ c akj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(TbRichTextView tbRichTextView, c cVar) {
-        this.acw = tbRichTextView;
-        this.acx = cVar;
+        this.aki = tbRichTextView;
+        this.akj = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if ((this.acw.getContext() instanceof j) && this.acx.vG() != null) {
-            ((j) this.acw.getContext()).u(this.acw.getContext(), this.acx.vG().toString());
+        if ((this.aki.getContext() instanceof j) && this.akj.zR() != null) {
+            ((j) this.aki.getContext()).onVideoClicked(this.aki.getContext(), this.akj.zR().toString());
         }
     }
 }

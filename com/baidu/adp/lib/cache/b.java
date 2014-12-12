@@ -10,9 +10,9 @@ public class b extends c<byte[]> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public String r(String str) {
+    public String G(String str) {
         String str2 = "cache_kv_b" + Math.abs(str.hashCode());
-        this.fi.g("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
+        this.hk.t("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
         return str2;
     }
 
@@ -21,34 +21,34 @@ public class b extends c<byte[]> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public int ce() {
+    public int cF() {
         return 1;
     }
 
     /* JADX WARN: Type inference failed for: r2v15, types: [T, byte[]] */
     @Override // com.baidu.adp.lib.cache.c
-    protected m<byte[]> b(SQLiteDatabase sQLiteDatabase, String str) {
+    protected m<byte[]> c(SQLiteDatabase sQLiteDatabase, String str) {
         Cursor cursor;
         Throwable th;
         m<byte[]> mVar = null;
         try {
-            cursor = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.fj + " where m_key = ?", new String[]{str});
+            cursor = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.hl + " where m_key = ?", new String[]{str});
             try {
                 if (cursor.moveToNext()) {
                     mVar = new m<>();
-                    mVar.fu = cursor.getString(0);
-                    mVar.fw = cursor.getLong(1);
-                    mVar.fx = cursor.getLong(2);
-                    mVar.fy = cursor.getLong(3);
-                    mVar.value = cursor.getBlob(4);
-                    com.baidu.adp.lib.g.a.a(cursor);
+                    mVar.hw = cursor.getString(0);
+                    mVar.hy = cursor.getLong(1);
+                    mVar.hz = cursor.getLong(2);
+                    mVar.hA = cursor.getLong(3);
+                    mVar.gJ = cursor.getBlob(4);
+                    com.baidu.adp.lib.g.a.b(cursor);
                 } else {
-                    com.baidu.adp.lib.g.a.a(cursor);
+                    com.baidu.adp.lib.g.a.b(cursor);
                 }
                 return mVar;
             } catch (Throwable th2) {
                 th = th2;
-                com.baidu.adp.lib.g.a.a(cursor);
+                com.baidu.adp.lib.g.a.b(cursor);
                 throw th;
             }
         } catch (Throwable th3) {
@@ -60,22 +60,22 @@ public class b extends c<byte[]> {
     @Override // com.baidu.adp.lib.cache.c
     protected ContentValues a(m<byte[]> mVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("m_key", mVar.fu);
-        contentValues.put("m_value", mVar.value);
-        contentValues.put("saveTime", Long.valueOf(mVar.fw));
-        contentValues.put("lastHitTime", Long.valueOf(mVar.fx));
-        contentValues.put("timeToExpire", Long.valueOf(mVar.fy));
+        contentValues.put("m_key", mVar.hw);
+        contentValues.put("m_value", mVar.gJ);
+        contentValues.put("saveTime", Long.valueOf(mVar.hy));
+        contentValues.put("lastHitTime", Long.valueOf(mVar.hz));
+        contentValues.put("timeToExpire", Long.valueOf(mVar.hA));
         return contentValues;
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public Cursor c(SQLiteDatabase sQLiteDatabase, String str) {
-        return sQLiteDatabase.rawQuery("select * from " + this.fj, new String[0]);
+    public Cursor d(SQLiteDatabase sQLiteDatabase, String str) {
+        return sQLiteDatabase.rawQuery("select * from " + this.hl, new String[0]);
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    protected boolean s(String str) {
-        this.fi.g("DROP TABLE IF EXISTS " + this.fj);
+    protected boolean I(String str) {
+        this.hk.t("DROP TABLE IF EXISTS " + this.hl);
         return true;
     }
 }

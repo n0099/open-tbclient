@@ -16,8 +16,8 @@ class ae extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null) {
-            MainTabActivity.ht(1);
+        if (customResponsedMessage != null && customResponsedMessage.getError() == 0) {
+            this.this$0.aiC();
         }
     }
 }

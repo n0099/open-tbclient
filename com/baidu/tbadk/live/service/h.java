@@ -4,17 +4,15 @@ import android.os.Handler;
 import android.os.Message;
 import com.baidu.channelrtc.medialivesender.LiveSenderControl;
 import com.baidu.lightapp.plugin.videoplayer.coreplayer.LivePlayerControl;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.coreExtra.live.LiveStatusChangeDefinition;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import java.util.Timer;
 /* loaded from: classes.dex */
 class h extends Handler {
-    final /* synthetic */ LiveGroupManagerService Vz;
+    final /* synthetic */ LiveGroupManagerService abB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(LiveGroupManagerService liveGroupManagerService) {
-        this.Vz = liveGroupManagerService;
+        this.abB = liveGroupManagerService;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:72:0x0323, code lost:
@@ -116,19 +114,19 @@ class h extends Handler {
         Handler handler;
         switch (message.what) {
             case 1:
-                this.Vz.broadcastLiveStatusChanged();
+                this.abB.broadcastLiveStatusChanged();
                 return;
             case 2:
-                this.Vz.broadcastLiveError();
+                this.abB.broadcastLiveError();
                 return;
             case 3:
-                this.Vz.notifyPlayProgressEvent();
+                this.abB.notifyPlayProgressEvent();
                 return;
             case 4:
-                this.Vz.notifyRecordTimeEvent(message.arg1);
+                this.abB.notifyRecordTimeEvent(message.arg1);
                 return;
             case 5:
-                this.Vz.broadcastPlayWarningEvent(message.arg1);
+                this.abB.broadcastPlayWarningEvent(message.arg1);
                 return;
             case 6:
             case 7:
@@ -138,230 +136,230 @@ class h extends Handler {
                 super.handleMessage(message);
                 return;
             case 10:
-                i24 = this.Vz.mStatus;
+                i24 = this.abB.mStatus;
                 if (i24 != 0) {
                     return;
                 }
-                liveSenderControl14 = this.Vz.mLiveSenderControl;
+                liveSenderControl14 = this.abB.mLiveSenderControl;
                 if (liveSenderControl14 == null || (lVar = (l) message.obj) == null) {
                     return;
                 }
-                this.Vz.mStreamId = lVar.streamId;
-                this.Vz.mGroupId = lVar.groupId;
-                this.Vz.mDeviceId = lVar.VC;
-                this.Vz.mUrl = lVar.url;
-                this.Vz.mAccessToken = lVar.accessToken;
-                this.Vz.mUserId = lVar.userId;
-                liveSenderControl15 = this.Vz.mLiveSenderControl;
+                this.abB.mStreamId = lVar.streamId;
+                this.abB.mGroupId = lVar.groupId;
+                this.abB.mDeviceId = lVar.deviceId;
+                this.abB.mUrl = lVar.url;
+                this.abB.mAccessToken = lVar.accessToken;
+                this.abB.mUserId = lVar.userId;
+                liveSenderControl15 = this.abB.mLiveSenderControl;
                 liveSenderControl15.prepare();
-                liveSenderControl16 = this.Vz.mLiveSenderControl;
-                str3 = this.Vz.mStreamId;
+                liveSenderControl16 = this.abB.mLiveSenderControl;
+                str3 = this.abB.mStreamId;
                 liveSenderControl16.setOption("guid", str3);
-                liveSenderControl17 = this.Vz.mLiveSenderControl;
-                str4 = this.Vz.mGroupId;
+                liveSenderControl17 = this.abB.mLiveSenderControl;
+                str4 = this.abB.mGroupId;
                 StringBuilder append = new StringBuilder(String.valueOf(str4)).append("_");
-                str5 = this.Vz.mUserId;
+                str5 = this.abB.mUserId;
                 liveSenderControl17.setOption("publishtoken", append.append(str5).toString());
-                liveSenderControl18 = this.Vz.mLiveSenderControl;
-                str6 = this.Vz.mDeviceId;
+                liveSenderControl18 = this.abB.mLiveSenderControl;
+                str6 = this.abB.mDeviceId;
                 liveSenderControl18.setOption("devid", str6);
-                liveSenderControl19 = this.Vz.mLiveSenderControl;
-                str7 = this.Vz.mAccessToken;
+                liveSenderControl19 = this.abB.mLiveSenderControl;
+                str7 = this.abB.mAccessToken;
                 liveSenderControl19.setOption("accesstoken", str7);
-                liveSenderControl20 = this.Vz.mLiveSenderControl;
-                liveSenderControl20.setOption("devtype", TbConfig.ST_PARAM_TAB_MSG_CREATE_CHAT);
-                liveSenderControl21 = this.Vz.mLiveSenderControl;
+                liveSenderControl20 = this.abB.mLiveSenderControl;
+                liveSenderControl20.setOption("devtype", "2");
+                liveSenderControl21 = this.abB.mLiveSenderControl;
                 liveSenderControl21.setOption("extjson", "");
-                liveSenderControl22 = this.Vz.mLiveSenderControl;
-                str8 = this.Vz.mUserId;
+                liveSenderControl22 = this.abB.mLiveSenderControl;
+                str8 = this.abB.mUserId;
                 liveSenderControl22.setOption("userId", str8);
-                liveSenderControl23 = this.Vz.mLiveSenderControl;
-                str9 = this.Vz.mGroupId;
+                liveSenderControl23 = this.abB.mLiveSenderControl;
+                str9 = this.abB.mGroupId;
                 liveSenderControl23.setOption("groupId", str9);
-                liveSenderControl24 = this.Vz.mLiveSenderControl;
+                liveSenderControl24 = this.abB.mLiveSenderControl;
                 liveSenderControl24.setOption("identity", "1");
-                liveSenderControl25 = this.Vz.mLiveSenderControl;
-                str10 = this.Vz.mStreamId;
+                liveSenderControl25 = this.abB.mLiveSenderControl;
+                str10 = this.abB.mStreamId;
                 liveSenderControl25.setOption("streamId", str10);
-                liveSenderControl26 = this.Vz.mLiveSenderControl;
+                liveSenderControl26 = this.abB.mLiveSenderControl;
                 liveSenderControl26.setAudioParams(LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_22_05, 2);
-                this.Vz.mExecStartOnceConnected = true;
-                liveSenderControl27 = this.Vz.mLiveSenderControl;
-                str11 = this.Vz.mUrl;
+                this.abB.mExecStartOnceConnected = true;
+                liveSenderControl27 = this.abB.mLiveSenderControl;
+                str11 = this.abB.mUrl;
                 if (liveSenderControl27.connect(str11) == 0) {
                     return;
                 }
-                this.Vz.mErrorPrompt = LiveStatusChangeDefinition.ERROR_PROMPT_CONNECT_FAILED;
-                handler = this.Vz.mHandler;
+                this.abB.mErrorPrompt = LiveStatusChangeDefinition.ERROR_PROMPT_CONNECT_FAILED;
+                handler = this.abB.mHandler;
                 handler.sendEmptyMessage(2);
                 return;
             case 11:
-                i23 = this.Vz.mStatus;
+                i23 = this.abB.mStatus;
                 if (i23 != 3) {
                     return;
                 }
-                liveSenderControl12 = this.Vz.mLiveSenderControl;
+                liveSenderControl12 = this.abB.mLiveSenderControl;
                 liveSenderControl12.pause();
-                liveSenderControl13 = this.Vz.mLiveSenderControl;
+                liveSenderControl13 = this.abB.mLiveSenderControl;
                 liveSenderControl13.sendUserCmd("pausePublish", "");
-                z6 = this.Vz.mIsRecording;
+                z6 = this.abB.mIsRecording;
                 if (!z6) {
                     return;
                 }
-                this.Vz.mIsRecordPaused = true;
-                timer7 = this.Vz.mRecordTimer;
+                this.abB.mIsRecordPaused = true;
+                timer7 = this.abB.mRecordTimer;
                 if (timer7 == null) {
                     return;
                 }
-                timer8 = this.Vz.mRecordTimer;
+                timer8 = this.abB.mRecordTimer;
                 timer8.cancel();
-                this.Vz.mRecordTimer = null;
+                this.abB.mRecordTimer = null;
                 return;
             case 12:
-                i22 = this.Vz.mStatus;
+                i22 = this.abB.mStatus;
                 if (i22 != 4) {
                     return;
                 }
-                liveSenderControl10 = this.Vz.mLiveSenderControl;
+                liveSenderControl10 = this.abB.mLiveSenderControl;
                 liveSenderControl10.resume();
-                liveSenderControl11 = this.Vz.mLiveSenderControl;
+                liveSenderControl11 = this.abB.mLiveSenderControl;
                 liveSenderControl11.sendUserCmd("resumePublish", "");
-                z4 = this.Vz.mIsRecording;
+                z4 = this.abB.mIsRecording;
                 if (!z4) {
                     return;
                 }
-                z5 = this.Vz.mIsRecordPaused;
+                z5 = this.abB.mIsRecordPaused;
                 if (!z5) {
                     return;
                 }
-                this.Vz.mIsRecordPaused = false;
+                this.abB.mIsRecordPaused = false;
                 i iVar = new i(this);
-                this.Vz.mRecordTimer = null;
-                this.Vz.mRecordTimer = new Timer();
-                timer6 = this.Vz.mRecordTimer;
+                this.abB.mRecordTimer = null;
+                this.abB.mRecordTimer = new Timer();
+                timer6 = this.abB.mRecordTimer;
                 timer6.schedule(iVar, 1000L, 1000L);
                 return;
             case 13:
-                z3 = this.Vz.mIsRecording;
+                z3 = this.abB.mIsRecording;
                 if (z3) {
                     return;
                 }
-                i18 = this.Vz.mStatus;
+                i18 = this.abB.mStatus;
                 if (i18 != 2) {
-                    i20 = this.Vz.mStatus;
+                    i20 = this.abB.mStatus;
                     if (i20 != 3) {
-                        i21 = this.Vz.mStatus;
+                        i21 = this.abB.mStatus;
                         if (i21 != 4) {
                             return;
                         }
                     }
                 }
-                LiveGroupManagerService liveGroupManagerService = this.Vz;
-                liveSenderControl9 = this.Vz.mLiveSenderControl;
+                LiveGroupManagerService liveGroupManagerService = this.abB;
+                liveSenderControl9 = this.abB.mLiveSenderControl;
                 liveGroupManagerService.mCmdIdStartRecord = liveSenderControl9.sendUserCmd("startRecord", "");
-                this.Vz.mIsRecording = true;
-                this.Vz.mRecordTime = 0;
-                i19 = this.Vz.mStatus;
+                this.abB.mIsRecording = true;
+                this.abB.mRecordTime = 0;
+                i19 = this.abB.mStatus;
                 if (i19 == 4) {
-                    this.Vz.mIsRecordPaused = true;
+                    this.abB.mIsRecordPaused = true;
                     return;
                 }
-                this.Vz.mIsRecordPaused = false;
+                this.abB.mIsRecordPaused = false;
                 j jVar = new j(this);
-                this.Vz.mRecordTimer = null;
-                this.Vz.mRecordTimer = new Timer();
-                timer5 = this.Vz.mRecordTimer;
+                this.abB.mRecordTimer = null;
+                this.abB.mRecordTimer = new Timer();
+                timer5 = this.abB.mRecordTimer;
                 timer5.schedule(jVar, 1000L, 1000L);
                 return;
-            case DealIntentService.CLASS_TYPE_GROUP_EVENT /* 14 */:
-                z2 = this.Vz.mIsRecording;
+            case 14:
+                z2 = this.abB.mIsRecording;
                 if (!z2) {
                     return;
                 }
-                i15 = this.Vz.mStatus;
+                i15 = this.abB.mStatus;
                 if (i15 != 2) {
-                    i16 = this.Vz.mStatus;
+                    i16 = this.abB.mStatus;
                     if (i16 != 3) {
-                        i17 = this.Vz.mStatus;
+                        i17 = this.abB.mStatus;
                         if (i17 != 4) {
                             return;
                         }
                     }
                 }
-                LiveGroupManagerService liveGroupManagerService2 = this.Vz;
-                liveSenderControl8 = this.Vz.mLiveSenderControl;
+                LiveGroupManagerService liveGroupManagerService2 = this.abB;
+                liveSenderControl8 = this.abB.mLiveSenderControl;
                 liveGroupManagerService2.mCmdIdStopRecord = liveSenderControl8.sendUserCmd("stopRecord", "");
-                this.Vz.mIsRecording = false;
-                this.Vz.mIsRecordPaused = false;
-                timer3 = this.Vz.mRecordTimer;
+                this.abB.mIsRecording = false;
+                this.abB.mIsRecordPaused = false;
+                timer3 = this.abB.mRecordTimer;
                 if (timer3 != null) {
-                    timer4 = this.Vz.mRecordTimer;
+                    timer4 = this.abB.mRecordTimer;
                     timer4.cancel();
-                    this.Vz.mRecordTimer = null;
+                    this.abB.mRecordTimer = null;
                 }
-                this.Vz.mRecordTime = 0;
+                this.abB.mRecordTime = 0;
                 return;
             case 15:
-                i9 = this.Vz.mStatus;
+                i9 = this.abB.mStatus;
                 if (i9 != 1) {
-                    i12 = this.Vz.mStatus;
+                    i12 = this.abB.mStatus;
                     if (i12 != 2) {
-                        i13 = this.Vz.mStatus;
+                        i13 = this.abB.mStatus;
                         if (i13 != 3) {
-                            i14 = this.Vz.mStatus;
+                            i14 = this.abB.mStatus;
                             if (i14 != 4) {
                                 return;
                             }
                         }
                     }
                 }
-                liveSenderControl3 = this.Vz.mLiveSenderControl;
+                liveSenderControl3 = this.abB.mLiveSenderControl;
                 if (liveSenderControl3 == null) {
                     return;
                 }
-                z = this.Vz.mIsRecording;
+                z = this.abB.mIsRecording;
                 if (z) {
-                    LiveGroupManagerService liveGroupManagerService3 = this.Vz;
-                    liveSenderControl7 = this.Vz.mLiveSenderControl;
+                    LiveGroupManagerService liveGroupManagerService3 = this.abB;
+                    liveSenderControl7 = this.abB.mLiveSenderControl;
                     liveGroupManagerService3.mCmdIdStopRecord = liveSenderControl7.sendUserCmd("stopRecord", "");
-                    this.Vz.mIsRecording = false;
-                    timer = this.Vz.mRecordTimer;
+                    this.abB.mIsRecording = false;
+                    timer = this.abB.mRecordTimer;
                     if (timer != null) {
-                        timer2 = this.Vz.mRecordTimer;
+                        timer2 = this.abB.mRecordTimer;
                         timer2.cancel();
-                        this.Vz.mRecordTimer = null;
+                        this.abB.mRecordTimer = null;
                     }
-                    this.Vz.mRecordTime = 0;
+                    this.abB.mRecordTime = 0;
                 }
-                i10 = this.Vz.mStatus;
+                i10 = this.abB.mStatus;
                 if (i10 != 3) {
-                    i11 = this.Vz.mStatus;
+                    i11 = this.abB.mStatus;
                     break;
                 }
-                liveSenderControl4 = this.Vz.mLiveSenderControl;
+                liveSenderControl4 = this.abB.mLiveSenderControl;
                 liveSenderControl4.stop();
-                liveSenderControl5 = this.Vz.mLiveSenderControl;
+                liveSenderControl5 = this.abB.mLiveSenderControl;
                 liveSenderControl5.close();
-                liveSenderControl6 = this.Vz.mLiveSenderControl;
+                liveSenderControl6 = this.abB.mLiveSenderControl;
                 liveSenderControl6.shutdown();
                 return;
             case 16:
-                i8 = this.Vz.mStatus;
+                i8 = this.abB.mStatus;
                 if (i8 != 2) {
                     return;
                 }
-                liveSenderControl2 = this.Vz.mLiveSenderControl;
+                liveSenderControl2 = this.abB.mLiveSenderControl;
                 liveSenderControl2.start();
                 return;
             case 17:
-                i6 = this.Vz.mStatus;
+                i6 = this.abB.mStatus;
                 if (i6 != 3) {
-                    i7 = this.Vz.mStatus;
+                    i7 = this.abB.mStatus;
                     if (i7 != 4) {
                         return;
                     }
                 }
-                liveSenderControl = this.Vz.mLiveSenderControl;
+                liveSenderControl = this.abB.mLiveSenderControl;
                 liveSenderControl.stop();
                 return;
             case 18:
@@ -369,78 +367,78 @@ class h extends Handler {
                 if (kVar == null) {
                     return;
                 }
-                i5 = this.Vz.mStatus;
+                i5 = this.abB.mStatus;
                 if (i5 != 0) {
                     return;
                 }
-                this.Vz.mGroupId = kVar.groupId;
-                this.Vz.mUrl = kVar.url;
-                int i25 = kVar.VB;
-                livePlayerControl9 = this.Vz.mPlayerCtrl;
-                str2 = this.Vz.mUrl;
+                this.abB.mGroupId = kVar.groupId;
+                this.abB.mUrl = kVar.url;
+                int i25 = kVar.startPos;
+                livePlayerControl9 = this.abB.mPlayerCtrl;
+                str2 = this.abB.mUrl;
                 livePlayerControl9.setVideoPath(str2);
-                LiveGroupManagerService liveGroupManagerService4 = this.Vz;
-                this.Vz.mPlayDuration = 0;
+                LiveGroupManagerService liveGroupManagerService4 = this.abB;
+                this.abB.mPlayDuration = 0;
                 liveGroupManagerService4.mPlayPosition = 0;
                 if (i25 > 0) {
-                    livePlayerControl11 = this.Vz.mPlayerCtrl;
+                    livePlayerControl11 = this.abB.mPlayerCtrl;
                     livePlayerControl11.start(i25);
-                    this.Vz.mPlayDuration = i25;
+                    this.abB.mPlayDuration = i25;
                     return;
                 }
-                livePlayerControl10 = this.Vz.mPlayerCtrl;
+                livePlayerControl10 = this.abB.mPlayerCtrl;
                 livePlayerControl10.start();
                 return;
             case 19:
-                livePlayerControl7 = this.Vz.mPlayerCtrl;
+                livePlayerControl7 = this.abB.mPlayerCtrl;
                 if (livePlayerControl7 == null) {
                     return;
                 }
-                livePlayerControl8 = this.Vz.mPlayerCtrl;
+                livePlayerControl8 = this.abB.mPlayerCtrl;
                 livePlayerControl8.exit();
                 return;
             case 20:
-                livePlayerControl5 = this.Vz.mPlayerCtrl;
+                livePlayerControl5 = this.abB.mPlayerCtrl;
                 if (livePlayerControl5 == null) {
                     return;
                 }
-                i4 = this.Vz.mStatus;
+                i4 = this.abB.mStatus;
                 if (i4 != 19) {
                     return;
                 }
-                livePlayerControl6 = this.Vz.mPlayerCtrl;
+                livePlayerControl6 = this.abB.mPlayerCtrl;
                 livePlayerControl6.pause();
                 return;
             case 21:
-                livePlayerControl3 = this.Vz.mPlayerCtrl;
+                livePlayerControl3 = this.abB.mPlayerCtrl;
                 if (livePlayerControl3 == null) {
                     return;
                 }
-                i3 = this.Vz.mStatus;
+                i3 = this.abB.mStatus;
                 if (i3 != 20) {
                     return;
                 }
-                livePlayerControl4 = this.Vz.mPlayerCtrl;
+                livePlayerControl4 = this.abB.mPlayerCtrl;
                 livePlayerControl4.play();
                 return;
             case 22:
-                str = this.Vz.mGroupId;
+                str = this.abB.mGroupId;
                 if (!LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY.equals(str)) {
                     return;
                 }
-                livePlayerControl = this.Vz.mPlayerCtrl;
+                livePlayerControl = this.abB.mPlayerCtrl;
                 if (livePlayerControl != null) {
                     int i26 = message.arg1;
-                    i = this.Vz.mPlayDuration;
+                    i = this.abB.mPlayDuration;
                     if (i26 < i) {
                         if (i26 < 0) {
                             i26 = 0;
                         }
                     } else {
-                        i2 = this.Vz.mPlayDuration;
+                        i2 = this.abB.mPlayDuration;
                         i26 = i2 - 1;
                     }
-                    livePlayerControl2 = this.Vz.mPlayerCtrl;
+                    livePlayerControl2 = this.abB.mPlayerCtrl;
                     livePlayerControl2.seekTo(i26);
                     return;
                 }

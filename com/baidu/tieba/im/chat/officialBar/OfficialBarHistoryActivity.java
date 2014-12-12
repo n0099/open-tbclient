@@ -1,72 +1,69 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.atomData.OfficialBarHistoryActivityConfig;
 import java.util.List;
 /* loaded from: classes.dex */
-public class OfficialBarHistoryActivity extends BaseActivity implements com.baidu.adp.widget.ListView.aa {
-    private af aRv;
-    private aa aRw;
-    private ac aRx;
-    private List<az> aRy;
-    private int aRu = 0;
-    private boolean aRz = false;
+public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryActivity> implements com.baidu.adp.widget.ListView.ab {
+    private af aTb;
+    private aa aTc;
+    private ac aTd;
+    private List<aq> aTe;
+    private int aTa = 0;
+    private boolean aTf = false;
 
-    public static void j(Context context, int i) {
-        Intent intent = new Intent(context, OfficialBarHistoryActivity.class);
-        intent.putExtra("forum_id", i);
-        context.startActivity(intent);
+    static {
+        TbadkApplication.getInst().RegisterIntent(OfficialBarHistoryActivityConfig.class, OfficialBarHistoryActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        HN();
+        JJ();
         initUI();
-        d(bundle);
+        initData(bundle);
     }
 
-    private void HN() {
-        this.aRw = new aa(this);
-        this.aRx = new ac(this);
-        registerListener(this.aRw);
-        registerListener(this.aRx);
+    private void JJ() {
+        this.aTc = new aa(this);
+        this.aTd = new ac(this);
+        registerListener(this.aTc);
+        registerListener(this.aTd);
     }
 
     private void initUI() {
-        this.aRv = new af(this);
-        this.aRv.b(this);
+        this.aTb = new af(this);
+        this.aTb.b(this);
     }
 
-    private void d(Bundle bundle) {
-        this.aRu = getIntent().getIntExtra("forum_id", 0);
-        MessageManager.getInstance().sendMessage(new RequestLocalHistoryMessage(String.valueOf(this.aRu)));
-        Ku();
+    private void initData(Bundle bundle) {
+        this.aTa = getIntent().getIntExtra("forum_id", 0);
+        MessageManager.getInstance().sendMessage(new RequestLocalHistoryMessage(String.valueOf(this.aTa)));
+        KD();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ku() {
-        int i = (this.aRy == null || this.aRy.isEmpty()) ? 0 : this.aRy.get(this.aRy.size() - 1).id;
-        this.aRz = true;
-        MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.aRu, com.baidu.adp.lib.g.c.f(TbadkApplication.getCurrentAccount(), 0), i));
+    public void KD() {
+        int i = (this.aTe == null || this.aTe.isEmpty()) ? 0 : this.aTe.get(this.aTe.size() - 1).id;
+        this.aTf = true;
+        MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.aTa, com.baidu.adp.lib.g.c.toInt(TbadkApplication.getCurrentAccount(), 0), i));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.aRv.onChangeSkinType(i);
+        this.aTb.onChangeSkinType(i);
     }
 
-    @Override // com.baidu.adp.widget.ListView.aa
-    public void hQ() {
-        if (!this.aRz) {
-            Ku();
+    @Override // com.baidu.adp.widget.ListView.ab
+    public void onScrollToBottom() {
+        if (!this.aTf) {
+            KD();
         }
     }
 }

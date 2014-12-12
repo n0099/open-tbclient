@@ -1,18 +1,16 @@
 package com.baidu.tieba.tbean;
-
-import com.baidu.tieba.view.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements u {
-    final /* synthetic */ j bOm;
+public class k implements com.baidu.tieba.view.k {
+    final /* synthetic */ j caw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.bOm = jVar;
+        this.caw = jVar;
     }
 
-    @Override // com.baidu.tieba.view.u
-    public void dz(boolean z) {
-        this.bOm.bOg = z;
+    @Override // com.baidu.tieba.view.k
+    public void dk(boolean z) {
+        this.caw.caq = z;
     }
 }

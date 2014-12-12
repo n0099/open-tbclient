@@ -3,7 +3,7 @@ package com.baidu.tbadk.coreExtra.act;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.widget.TextView;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n extends BroadcastReceiver {
@@ -20,18 +20,18 @@ public class n extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        TextView textView;
-        TextView textView2;
+        View view;
+        View view2;
         this.this$0.releaseResouce();
         if (intent.getBooleanExtra("result", false)) {
             this.this$0.initData();
             return;
         }
         this.this$0.showToast(intent.getStringExtra("error"));
-        textView = this.this$0.JC;
-        if (textView != null) {
-            textView2 = this.this$0.JC;
-            textView2.setEnabled(false);
+        view = this.this$0.OL;
+        if (view != null) {
+            view2 = this.this$0.OL;
+            view2.setEnabled(false);
         }
     }
 }

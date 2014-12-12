@@ -11,46 +11,46 @@ import android.widget.ProgressBar;
 import android.widget.Scroller;
 import android.widget.TextView;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ax;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class x extends FrameLayout {
-    private TextView atL;
-    private boolean bKh;
-    private int bLK;
-    private ImageView bLL;
-    private TextView bLM;
-    private TextView bLN;
-    private Runnable bLO;
-    private Runnable bLP;
-    private Runnable bLQ;
+    private TextView awU;
+    private boolean bOx;
+    private int bQb;
+    private TextView bQc;
+    private TextView bQd;
+    private Runnable bQe;
+    private Runnable bQf;
+    private Runnable bQg;
     private int duration;
     private Context mContext;
+    private ImageView mIcon;
     private ProgressBar mProgress;
     private Scroller mScroller;
 
     public x(Context context) {
         super(context);
-        this.bLK = 0;
+        this.bQb = 0;
         this.duration = TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI;
-        this.bLO = new y(this);
-        this.bLP = new z(this);
-        this.bLQ = new aa(this);
+        this.bQe = new y(this);
+        this.bQf = new z(this);
+        this.bQg = new aa(this);
         init();
     }
 
     private void init() {
         this.mContext = getContext();
-        com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.w.signallforum_progress_view, this);
-        this.mProgress = (ProgressBar) findViewById(com.baidu.tieba.v.signallforum_progress);
-        this.bLL = (ImageView) findViewById(com.baidu.tieba.v.signallforum_icon);
-        this.atL = (TextView) findViewById(com.baidu.tieba.v.signallforun_status);
-        this.bLM = (TextView) findViewById(com.baidu.tieba.v.signallforun_message1);
-        this.bLN = (TextView) findViewById(com.baidu.tieba.v.signallforun_message2);
-        nx();
+        com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.x.signallforum_progress_view, this);
+        this.mProgress = (ProgressBar) findViewById(com.baidu.tieba.w.signallforum_progress);
+        this.mIcon = (ImageView) findViewById(com.baidu.tieba.w.signallforum_icon);
+        this.awU = (TextView) findViewById(com.baidu.tieba.w.signallforun_status);
+        this.bQc = (TextView) findViewById(com.baidu.tieba.w.signallforun_message1);
+        this.bQd = (TextView) findViewById(com.baidu.tieba.w.signallforun_message2);
+        qw();
         this.mScroller = new Scroller(this.mContext, new DecelerateInterpolator());
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), com.baidu.tieba.u.bg_all_sign));
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), com.baidu.tieba.v.bg_all_sign));
         bitmapDrawable.setTileModeXY(Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
         setBackgroundDrawable(bitmapDrawable);
     }
@@ -59,68 +59,68 @@ public class x extends FrameLayout {
     protected void dispatchSetPressed(boolean z) {
     }
 
-    public void nx() {
-        removeCallbacks(this.bLO);
-        removeCallbacks(this.bLP);
-        TbadkApplication.m251getInst().getSkinType();
-        if (this.bKh) {
-            this.mProgress.setProgressDrawable(getResources().getDrawable(com.baidu.tieba.u.vip_singnallforum_progress));
+    public void qw() {
+        removeCallbacks(this.bQe);
+        removeCallbacks(this.bQf);
+        TbadkCoreApplication.m255getInst().getSkinType();
+        if (this.bOx) {
+            this.mProgress.setProgressDrawable(getResources().getDrawable(com.baidu.tieba.v.vip_singnallforum_progress));
         } else {
-            this.mProgress.setProgressDrawable(getResources().getDrawable(com.baidu.tieba.u.singnallforum_progress));
+            this.mProgress.setProgressDrawable(getResources().getDrawable(com.baidu.tieba.v.singnallforum_progress));
         }
-        switch (this.bLK) {
+        switch (this.bQb) {
             case 0:
                 this.mProgress.setClickable(true);
                 this.mProgress.setProgress(0);
                 this.mProgress.setSecondaryProgress(0);
-                if (this.bKh) {
-                    aw.h(this.mProgress, com.baidu.tieba.u.btn_vip_all_sign);
-                    aw.c(this.bLL, com.baidu.tieba.u.icon_vip_sign);
+                if (this.bOx) {
+                    ax.i(this.mProgress, com.baidu.tieba.v.btn_vip_all_sign);
+                    ax.c(this.mIcon, com.baidu.tieba.v.icon_vip_sign);
                 } else {
-                    aw.h(this.mProgress, com.baidu.tieba.u.btn_all_sign);
-                    aw.c(this.bLL, com.baidu.tieba.u.icon_all_sign);
+                    ax.i(this.mProgress, com.baidu.tieba.v.btn_all_sign);
+                    ax.c(this.mIcon, com.baidu.tieba.v.icon_all_sign);
                 }
-                this.atL.setText(com.baidu.tieba.y.signallforum_begin);
+                this.awU.setText(com.baidu.tieba.z.signallforum_begin);
                 return;
             case 1:
-                post(this.bLQ);
+                post(this.bQg);
                 this.mProgress.setClickable(false);
-                aw.h(this.mProgress, com.baidu.tieba.u.bg_all_sign_conduct);
-                if (this.bKh) {
-                    aw.c(this.bLL, com.baidu.tieba.u.icon_vip_sign);
+                ax.i(this.mProgress, com.baidu.tieba.v.bg_all_sign_conduct);
+                if (this.bOx) {
+                    ax.c(this.mIcon, com.baidu.tieba.v.icon_vip_sign);
                 } else {
-                    aw.c(this.bLL, com.baidu.tieba.u.icon_all_sign);
+                    ax.c(this.mIcon, com.baidu.tieba.v.icon_all_sign);
                 }
-                this.atL.setText(com.baidu.tieba.y.signallforum_ing);
+                this.awU.setText(com.baidu.tieba.z.signallforum_ing);
                 int nextInt = ((new Random(System.currentTimeMillis()).nextInt(30) + 50) * this.mProgress.getMax()) / 100;
                 if (nextInt - this.mProgress.getProgress() < 0) {
                     this.mScroller.startScroll(nextInt, 0, this.mProgress.getProgress() - nextInt, 0, this.duration);
                 } else {
                     this.mScroller.startScroll(this.mProgress.getProgress(), 0, nextInt - this.mProgress.getProgress(), 0, this.duration);
                 }
-                post(this.bLO);
+                post(this.bQe);
                 return;
             case 2:
                 this.mProgress.setClickable(true);
-                if (this.bKh) {
-                    aw.h(this.mProgress, com.baidu.tieba.u.bg_vip_sign_ok_d);
-                    aw.c(this.bLL, com.baidu.tieba.u.icon_vip_sign_ok);
+                if (this.bOx) {
+                    ax.i(this.mProgress, com.baidu.tieba.v.bg_vip_sign_ok_d);
+                    ax.c(this.mIcon, com.baidu.tieba.v.icon_vip_sign_ok);
                 } else {
-                    aw.h(this.mProgress, com.baidu.tieba.u.bg_all_sign_ok_d);
-                    aw.c(this.bLL, com.baidu.tieba.u.icon_all_sign_ok);
+                    ax.i(this.mProgress, com.baidu.tieba.v.bg_all_sign_ok_d);
+                    ax.c(this.mIcon, com.baidu.tieba.v.icon_all_sign_ok);
                 }
                 this.mProgress.setProgress(0);
-                this.atL.setText(com.baidu.tieba.y.signallforum_success);
+                this.awU.setText(com.baidu.tieba.z.signallforum_success);
                 return;
             case 3:
                 this.mProgress.setClickable(false);
-                if (this.bKh) {
-                    aw.c(this.bLL, com.baidu.tieba.u.icon_vip_sign);
+                if (this.bOx) {
+                    ax.c(this.mIcon, com.baidu.tieba.v.icon_vip_sign);
                 } else {
-                    aw.c(this.bLL, com.baidu.tieba.u.icon_all_sign);
+                    ax.c(this.mIcon, com.baidu.tieba.v.icon_all_sign);
                 }
-                aw.h(this.mProgress, com.baidu.tieba.u.bg_all_sign_conduct);
-                this.atL.setText(com.baidu.tieba.y.can_not_sign);
+                ax.i(this.mProgress, com.baidu.tieba.v.bg_all_sign_conduct);
+                this.awU.setText(com.baidu.tieba.z.can_not_sign);
                 return;
             default:
                 return;
@@ -128,21 +128,21 @@ public class x extends FrameLayout {
     }
 
     public int getCurrentStatus() {
-        return this.bLK;
+        return this.bQb;
     }
 
     public void setSigning(int i) {
-        if (this.bLK != 1 && this.bLK == 0) {
+        if (this.bQb != 1 && this.bQb == 0) {
             this.mProgress.setProgress(i);
-            this.bLK = 1;
-            nx();
+            this.bQb = 1;
+            qw();
         }
     }
 
-    public void adf() {
-        if (this.bLK != 2) {
-            this.bLK = 2;
-            nx();
+    public void adB() {
+        if (this.bQb != 2) {
+            this.bQb = 2;
+            qw();
         }
     }
 
@@ -151,19 +151,19 @@ public class x extends FrameLayout {
     }
 
     public ImageView getIcon() {
-        return this.bLL;
+        return this.mIcon;
     }
 
     public TextView getmStatus() {
-        return this.atL;
+        return this.awU;
     }
 
     public TextView getMessage1() {
-        return this.bLM;
+        return this.bQc;
     }
 
     public TextView getMessage2() {
-        return this.bLN;
+        return this.bQd;
     }
 
     public int getProgress() {
@@ -175,8 +175,8 @@ public class x extends FrameLayout {
     }
 
     public void setmCurrentStatus(int i) {
-        this.bLK = i;
-        nx();
+        this.bQb = i;
+        qw();
     }
 
     public void setmContext(Context context) {
@@ -188,19 +188,19 @@ public class x extends FrameLayout {
     }
 
     public void setmIcon(ImageView imageView) {
-        this.bLL = imageView;
+        this.mIcon = imageView;
     }
 
     public void setmStatus(TextView textView) {
-        this.atL = textView;
+        this.awU = textView;
     }
 
     public void setmMessage1(TextView textView) {
-        this.bLM = textView;
+        this.bQc = textView;
     }
 
     public void setmMessage2(TextView textView) {
-        this.bLN = textView;
+        this.bQd = textView;
     }
 
     public void setmScroller(Scroller scroller) {
@@ -208,19 +208,19 @@ public class x extends FrameLayout {
     }
 
     public void setHasPrivilege(boolean z) {
-        this.bKh = z;
-        nx();
+        this.bOx = z;
+        qw();
     }
 
     public void setProgressAnimation(Runnable runnable) {
-        this.bLO = runnable;
+        this.bQe = runnable;
     }
 
     public void setCheckRunnable(Runnable runnable) {
-        this.bLP = runnable;
+        this.bQf = runnable;
     }
 
     public void setChangeSizeRunnable(Runnable runnable) {
-        this.bLQ = runnable;
+        this.bQg = runnable;
     }
 }

@@ -3,29 +3,24 @@ package com.baidu.tieba.im.d.a;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.im.message.GroupsByLocationLocalMessage;
-import com.baidu.tieba.im.message.ResponseNearbyGroupsLocalMessage;
+import com.baidu.adp.lib.cache.t;
+import com.baidu.tieba.im.message.RequestSearchGroupsLocalMessage;
+import com.baidu.tieba.im.message.ResponseSearchGroupLocalMessage;
 /* loaded from: classes.dex */
 public class s implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        if (customMessage == null || !(customMessage instanceof GroupsByLocationLocalMessage)) {
+        if (customMessage == null || !(customMessage instanceof RequestSearchGroupsLocalMessage)) {
             return null;
         }
-        String str = "";
-        if (TbadkApplication.getCurrentAccountObj() != null) {
-            str = TbadkApplication.getCurrentAccountObj().getID();
-        }
-        byte[] bArr = com.baidu.tbadk.core.a.a.kS().bc("tb.im_entergroup").get("p_nearby_group_info" + str);
-        ResponseNearbyGroupsLocalMessage responseNearbyGroupsLocalMessage = new ResponseNearbyGroupsLocalMessage();
-        if (bArr != null) {
-            try {
-                responseNearbyGroupsLocalMessage.decodeInBackGround(2001115, bArr);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return responseNearbyGroupsLocalMessage;
+        long groupId = ((RequestSearchGroupsLocalMessage) customMessage).getGroupId();
+        ResponseSearchGroupLocalMessage responseSearchGroupLocalMessage = new ResponseSearchGroupLocalMessage(2001213);
+        responseSearchGroupLocalMessage.setOrginalMessage(customMessage);
+        responseSearchGroupLocalMessage.setError(0);
+        responseSearchGroupLocalMessage.setGid(groupId);
+        String sb = new StringBuilder(String.valueOf(groupId)).toString();
+        t<String> bV = com.baidu.tbadk.core.a.a.nS().bV("tb.im_group_search_history");
+        bV.f(sb, bV.get(sb));
+        return responseSearchGroupLocalMessage;
     }
 }

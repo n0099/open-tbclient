@@ -1,34 +1,28 @@
 package com.baidu.tieba.pb.main;
 
-import android.os.Handler;
-import android.view.animation.Animation;
+import android.view.View;
+import com.baidu.tbadk.core.view.PbListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cj implements Animation.AnimationListener {
-    final /* synthetic */ bv byW;
-    private final /* synthetic */ com.baidu.tieba.data.ar byZ;
-    private final /* synthetic */ boolean bza;
-    private final /* synthetic */ String bzb;
-    private final /* synthetic */ String bzc;
+public class cj implements View.OnClickListener {
+    final /* synthetic */ bz bCR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cj(bv bvVar, com.baidu.tieba.data.ar arVar, boolean z, String str, String str2) {
-        this.byW = bvVar;
-        this.byZ = arVar;
-        this.bza = z;
-        this.bzb = str;
-        this.bzc = str2;
+    public cj(bz bzVar) {
+        this.bCR = bzVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        new Handler().post(new ck(this, this.byZ, this.bza, this.bzb, this.bzc));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PbListView pbListView;
+        boolean z;
+        pbListView = this.bCR.bCH;
+        pbListView.startLoadData();
+        if (this.bCR.bza != null) {
+            bh bhVar = this.bCR.bza;
+            z = this.bCR.bzA;
+            bhVar.dF(z);
+        }
+        this.bCR.Yv();
     }
 }

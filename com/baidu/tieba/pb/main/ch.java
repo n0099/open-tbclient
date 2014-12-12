@@ -1,29 +1,27 @@
 package com.baidu.tieba.pb.main;
 
-import android.os.Handler;
-import android.view.animation.Animation;
-import android.widget.ImageView;
+import android.app.Dialog;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ch implements Animation.AnimationListener {
-    final /* synthetic */ bv byW;
-    private final /* synthetic */ ImageView byX;
+public class ch implements View.OnClickListener {
+    final /* synthetic */ bz bCR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ch(bv bvVar, ImageView imageView) {
-        this.byW = bvVar;
-        this.byX = imageView;
+    public ch(bz bzVar) {
+        this.bCR = bzVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        new Handler().post(new ci(this, this.byX));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Dialog dialog;
+        Dialog dialog2;
+        PbActivity pbActivity;
+        dialog = this.bCR.bBU;
+        if (dialog instanceof Dialog) {
+            dialog2 = this.bCR.bBU;
+            pbActivity = this.bCR.bAW;
+            com.baidu.adp.lib.g.k.b(dialog2, pbActivity.getPageContext());
+        }
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.adp.widget.ListView;
 /* loaded from: classes.dex */
 public interface ac {
-    void I(boolean z);
+    void s(BdListView bdListView);
 }

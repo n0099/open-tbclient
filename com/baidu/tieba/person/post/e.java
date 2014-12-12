@@ -5,19 +5,19 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
 class e implements View.OnClickListener {
-    final /* synthetic */ PersonPostActivity bDJ;
+    final /* synthetic */ PersonPostActivity bHk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(PersonPostActivity personPostActivity) {
-        this.bDJ = personPostActivity;
+        this.bHk = personPostActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.bDJ.bfD = com.baidu.tbadk.core.account.o.aL(4) % 3;
+        this.bHk.biQ = com.baidu.tbadk.core.account.o.bh(4) % 3;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
         httpMessage.addParam("opt", "post");
-        httpMessage.addParam("val", String.valueOf(this.bDJ.bfD + 1));
-        this.bDJ.sendMessage(httpMessage);
+        httpMessage.addParam("val", String.valueOf(this.bHk.biQ + 1));
+        this.bHk.sendMessage(httpMessage);
     }
 }

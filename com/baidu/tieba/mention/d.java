@@ -1,32 +1,21 @@
 package com.baidu.tieba.mention;
 
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.data.FeedData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes.dex */
-public class d implements AdapterView.OnItemClickListener {
-    final /* synthetic */ c bnx;
+class d implements View.OnClickListener {
+    final /* synthetic */ b brO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(c cVar) {
-        this.bnx = cVar;
+    public d(b bVar) {
+        this.brO = bVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        k kVar = (k) ((BdListView) adapterView).getWrappedAdapter();
-        long itemId = kVar.getItemId(i);
-        if (itemId == -1) {
-            this.bnx.refresh();
-        } else if (itemId != -2) {
-            FeedData feedData = (FeedData) kVar.getItem(i);
-            if (feedData != null) {
-                this.bnx.a(feedData);
-            }
-        } else {
-            this.bnx.SN();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ViewEventCenter wx;
+        com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(9485, this.brO.getData(), null, null);
+        wx = this.brO.wx();
+        wx.dispatchMvcEvent(bVar);
     }
 }

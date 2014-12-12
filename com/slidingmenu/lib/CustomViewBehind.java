@@ -22,6 +22,7 @@ public class CustomViewBehind extends ViewGroup {
     private float mFadeDegree;
     private boolean mFadeEnabled;
     private final Paint mFadePaint;
+    private int mFadeType;
     private int mMarginThreshold;
     private int mMode;
     private float mScrollScale;
@@ -198,6 +199,10 @@ public class CustomViewBehind extends ViewGroup {
         this.mFadeEnabled = z;
     }
 
+    public void setFadeType(int i) {
+        this.mFadeType = i;
+    }
+
     public void setFadeDegree(float f) {
         if (f > 1.0f || f < 0.0f) {
             throw new IllegalStateException("The BehindFadeDegree must be between 0.0f and 1.0f");
@@ -356,24 +361,29 @@ public class CustomViewBehind extends ViewGroup {
     }
 
     public void drawFade(View view, Canvas canvas, float f) {
-        int i;
-        int i2 = 0;
+        int left;
+        int i = 0;
         if (this.mFadeEnabled) {
             this.mFadePaint.setColor(Color.argb((int) (this.mFadeDegree * 255.0f * Math.abs(1.0f - f)), 0, 0, 0));
-            if (this.mMode == 0) {
-                i = view.getLeft() - getBehindWidth();
-                i2 = view.getLeft();
-            } else if (this.mMode == 1) {
-                i = view.getRight();
-                i2 = view.getRight() + getBehindWidth();
-            } else if (this.mMode == 2) {
-                canvas.drawRect(view.getLeft() - getBehindWidth(), 0.0f, view.getLeft(), getHeight(), this.mFadePaint);
-                i = view.getRight();
-                i2 = view.getRight() + getBehindWidth();
+            if (this.mFadeType == 1) {
+                if (this.mMode == 0) {
+                    left = view.getLeft() - getBehindWidth();
+                    i = view.getLeft();
+                } else if (this.mMode == 1) {
+                    left = view.getRight();
+                    i = view.getRight() + getBehindWidth();
+                } else if (this.mMode == 2) {
+                    canvas.drawRect(view.getLeft() - getBehindWidth(), 0.0f, view.getLeft(), getHeight(), this.mFadePaint);
+                    left = view.getRight();
+                    i = view.getRight() + getBehindWidth();
+                } else {
+                    left = 0;
+                }
             } else {
-                i = 0;
+                left = view.getLeft() - getBehindWidth();
+                i = view.getRight() + getBehindWidth();
             }
-            canvas.drawRect(i, 0.0f, i2, getHeight(), this.mFadePaint);
+            canvas.drawRect(left, 0.0f, i, getHeight(), this.mFadePaint);
         }
     }
 

@@ -1,23 +1,22 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tbadk.core.data.VoiceData;
+import android.app.Dialog;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cx implements v {
-    final /* synthetic */ PersonalChatActivity aPW;
+public class cx implements DialogInterface.OnClickListener {
+    private final /* synthetic */ int LK;
+    final /* synthetic */ TalkableActivity aRW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cx(PersonalChatActivity personalChatActivity) {
-        this.aPW = personalChatActivity;
+    public cx(TalkableActivity talkableActivity, int i) {
+        this.aRW = talkableActivity;
+        this.LK = i;
     }
 
-    @Override // com.baidu.tieba.im.chat.v
-    public void c(VoiceData.VoiceModel voiceModel) {
-        if (voiceModel != null) {
-            this.aPW.aQe.sendMsgVoice(voiceModel.voiceId, voiceModel.duration);
-        }
-    }
-
-    @Override // com.baidu.tieba.im.chat.v
-    public void BX() {
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        com.baidu.adp.lib.g.k.b((Dialog) dialogInterface, this.aRW.getPageContext());
+        this.aRW.reSendMsg(this.LK);
     }
 }

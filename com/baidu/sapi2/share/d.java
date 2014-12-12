@@ -100,7 +100,7 @@ class d {
                             if (!TextUtils.isEmpty(string4)) {
                                 try {
                                     long parseLong = Long.parseLong(com.baidu.sapi2.share.a.b(context, string4));
-                                    String string5 = extras.getString(i);
+                                    String string5 = extras.getString("data");
                                     HashMap hashMap = new HashMap();
                                     if (!TextUtils.isEmpty(string5)) {
                                         JSONObject jSONObject = new JSONObject(com.baidu.sapi2.share.a.b(context, string5));

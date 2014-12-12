@@ -23,19 +23,19 @@ public class d implements Runnable {
         int i2;
         Handler handler3;
         AudioTrack audioTrack2;
-        audioTrack = this.oe.nW;
+        audioTrack = this.oe.mAudioTrack;
         if (audioTrack != null) {
             try {
-                audioTrack2 = this.oe.nW;
+                audioTrack2 = this.oe.mAudioTrack;
                 if (audioTrack2.getPlayState() != 3) {
                     return;
                 }
             } catch (NullPointerException e) {
             }
-            int fD = this.oe.fD() + 0;
+            int fF = this.oe.fF() + 0;
             i = this.oe.mElapsedTime;
-            if (fD != i) {
-                this.oe.mElapsedTime = fD;
+            if (fF != i) {
+                this.oe.mElapsedTime = fF;
                 handler2 = this.oe.mHandler;
                 Message obtainMessage = handler2.obtainMessage(6);
                 i2 = this.oe.mElapsedTime;

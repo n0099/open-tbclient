@@ -1,32 +1,48 @@
 package com.baidu.adp.lib.util;
 
-import android.content.ActivityNotFoundException;
-import android.content.Context;
-import android.content.Intent;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes.dex */
 public class e {
-    Context mContext;
-
-    public e(Context context) {
-        init(context);
-    }
-
-    private void init(Context context) {
-        this.mContext = context;
-    }
-
-    public void eV() {
-        Intent intent = new Intent();
-        intent.setAction("android.settings.LOCATION_SOURCE_SETTINGS");
-        intent.setFlags(268435456);
-        try {
-            this.mContext.startActivity(intent);
-        } catch (ActivityNotFoundException e) {
-            intent.setAction("android.settings.SETTINGS");
-            try {
-                this.mContext.startActivity(intent);
-            } catch (Exception e2) {
+    public static void b(InputStream inputStream, OutputStream outputStream) {
+        GZIPInputStream gZIPInputStream = new GZIPInputStream(inputStream);
+        byte[] bArr = new byte[1024];
+        while (true) {
+            int read = gZIPInputStream.read(bArr, 0, 1024);
+            if (read != -1) {
+                outputStream.write(bArr, 0, read);
+            } else {
+                gZIPInputStream.close();
+                return;
             }
+        }
+    }
+
+    public static void c(InputStream inputStream, OutputStream outputStream) {
+        GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
+        byte[] bArr = new byte[1024];
+        while (true) {
+            int read = inputStream.read(bArr, 0, 1024);
+            if (read != -1) {
+                gZIPOutputStream.write(bArr, 0, read);
+            } else {
+                gZIPOutputStream.flush();
+                gZIPOutputStream.finish();
+                gZIPOutputStream.close();
+                return;
+            }
+        }
+    }
+
+    public static void a(byte[] bArr, OutputStream outputStream) {
+        if (bArr != null && bArr.length != 0) {
+            GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
+            gZIPOutputStream.write(bArr, 0, bArr.length);
+            gZIPOutputStream.flush();
+            gZIPOutputStream.finish();
+            gZIPOutputStream.close();
         }
     }
 }

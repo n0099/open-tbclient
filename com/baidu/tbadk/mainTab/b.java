@@ -3,14 +3,14 @@ package com.baidu.tbadk.mainTab;
 import android.content.Context;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected d VP = sE();
-    protected FragmentTabIndicator VQ;
+    protected d abO = wd();
+    protected FragmentTabIndicator abP;
 
-    public abstract d sE();
+    public abstract FragmentTabIndicator W(Context context);
 
-    public abstract FragmentTabIndicator z(Context context);
+    public abstract d wd();
 
-    public d sF() {
-        return this.VP;
+    public d we() {
+        return this.abO;
     }
 }

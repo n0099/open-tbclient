@@ -3,8 +3,8 @@ package com.baidu.tieba.im.chat.receiveChatMsgHandler;
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
@@ -12,29 +12,29 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class s {
-    private static s aST;
+    private static s aUh;
 
     private s() {
     }
 
-    public static synchronized s KQ() {
+    public static synchronized s KS() {
         s sVar;
         synchronized (s.class) {
-            if (aST == null) {
-                aST = new s();
+            if (aUh == null) {
+                aUh = new s();
             }
-            sVar = aST;
+            sVar = aUh;
         }
         return sVar;
     }
 
-    public void f(String str, long j) {
+    public void h(String str, long j) {
         if (!TextUtils.isEmpty(str) && j > 0) {
             TbadkSettings.getInst().saveLong("tb_group_msg_" + str, j);
         }
     }
 
-    public long fs(int i) {
+    public long fv(int i) {
         return TbadkSettings.getInst().loadLong("tb_group_msg_" + i, -1L);
     }
 
@@ -62,14 +62,14 @@ public class s {
             while (it.hasNext()) {
                 ChatMessage next = it.next();
                 if (!TextUtils.isEmpty(next.getStat())) {
-                    TiebaStatic.eventStat(TbadkApplication.m251getInst().getApp().getApplicationContext(), "push_noti:" + next.getStat(), "taskId:" + next.getTaskId() + ";link:" + next.getLink() + ";uid:" + TbadkApplication.getCurrentAccount());
+                    TiebaStatic.eventStat(TbadkCoreApplication.m255getInst().getApp().getApplicationContext(), "push_noti:" + next.getStat(), "taskId:" + next.getTaskId() + ";link:" + next.getLink() + ";uid:" + TbadkCoreApplication.getCurrentAccount());
                 }
                 if (!TextUtils.isEmpty(next.getLink()) && !TextUtils.isEmpty(next.getStat())) {
                     TiebaStatic.pushMsg(next.getMsgId(), 1, next.getLink(), next.getStat());
                 }
-                if (TbadkApplication.m251getInst().isPromotedMessageOn()) {
+                if (TbadkCoreApplication.m255getInst().isPromotedMessageOn()) {
                     CustomMessage customMessage = new CustomMessage(2012100);
-                    customMessage.setData(new com.baidu.tbadk.core.data.l(next.getMsgId(), next.getTaskId(), next.getLink(), next.getContent(), next.getStat()));
+                    customMessage.setData(new com.baidu.tbadk.core.data.o(next.getMsgId(), next.getTaskId(), next.getLink(), next.getContent(), next.getStat()));
                     MessageManager.getInstance().sendMessage(customMessage);
                 } else {
                     return;

@@ -1,58 +1,35 @@
 package com.baidu.tieba.im.chat;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.text.method.LinkMovementMethod;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tieba.im.message.TopicSystemGroupChatMessage;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import android.os.Handler;
+import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-public class cb extends com.baidu.adp.base.d<ChatMessage> {
-    private TextView aPd;
-    private Context mContext;
-    private LinearLayout mLayout;
-    private TextView mTextTitle;
+class cb implements Runnable {
+    final /* synthetic */ PersonalChatActivity aRE;
 
-    public cb(Context context) {
-        super(context, com.baidu.tieba.w.msg_msgtopic_view);
-        this.mTextTitle = null;
-        this.aPd = null;
-        this.mLayout = null;
-        this.mContext = null;
-        this.mContext = context;
-        nu();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cb(PersonalChatActivity personalChatActivity) {
+        this.aRE = personalChatActivity;
     }
 
-    private void nu() {
-        this.aPd = (TextView) findViewById(com.baidu.tieba.v.tex_content);
-        this.mTextTitle = (TextView) findViewById(com.baidu.tieba.v.tex_title);
-        this.aPd.setMovementMethod(LinkMovementMethod.getInstance());
-        this.mTextTitle.setMovementMethod(LinkMovementMethod.getInstance());
-        this.mLayout = (LinearLayout) findViewById(com.baidu.tieba.v.topic_title_layout);
-    }
-
-    public void setData(ChatMessage chatMessage) {
-        if (chatMessage != null && (chatMessage instanceof TopicSystemGroupChatMessage)) {
-            TopicSystemGroupChatMessage topicSystemGroupChatMessage = (TopicSystemGroupChatMessage) chatMessage;
-            if (!TextUtils.isEmpty(topicSystemGroupChatMessage.mSystemMsg)) {
-                this.mTextTitle.setText(topicSystemGroupChatMessage.mSystemMsg);
-            } else {
-                this.mTextTitle.setText("");
-            }
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mLayout.getLayoutParams();
-            if (!TextUtils.isEmpty(topicSystemGroupChatMessage.mSystemContent)) {
-                this.aPd.setVisibility(0);
-                this.aPd.setText(topicSystemGroupChatMessage.mSystemContent);
-                layoutParams.topMargin = this.mContext.getResources().getDimensionPixelSize(com.baidu.tieba.t.ds24);
-                this.mLayout.setLayoutParams(layoutParams);
-                return;
-            }
-            this.aPd.setText("");
-            this.aPd.setVisibility(8);
-            layoutParams.topMargin = 0;
-            this.mLayout.setLayoutParams(layoutParams);
+    @Override // java.lang.Runnable
+    public void run() {
+        UserData userData;
+        com.baidu.tbadk.coreExtra.relationship.f fVar;
+        long j;
+        Handler handler;
+        Runnable runnable;
+        long j2;
+        AbsMsglistView absMsglistView = this.aRE.mListView;
+        userData = this.aRE.mUser;
+        String userName = userData.getUserName();
+        fVar = this.aRE.aRw;
+        absMsglistView.refreshPersonalHeadFooter(userName, fVar);
+        j = this.aRE.aRv;
+        if (j != 0) {
+            handler = this.aRE.mHandler;
+            runnable = this.aRE.aRB;
+            j2 = this.aRE.aRv;
+            handler.postDelayed(runnable, j2);
         }
     }
 }

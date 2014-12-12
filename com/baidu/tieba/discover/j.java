@@ -1,23 +1,28 @@
 package com.baidu.tieba.discover;
 
-import android.widget.ImageView;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class j extends CustomMessageListener {
+public class j implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ a asV;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(int i) {
-        super(i);
+    public j(a aVar) {
+        this.asV = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ImageView imageView;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007004 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.mainTab.a)) {
-            boolean z = ((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).VO;
-            imageView = DiscoverDelegateStatic.anM;
-            imageView.setVisibility(z ? 0 : 8);
-        }
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+        TbadkApplication.getInst().setLocationShared(true);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2902001, new com.baidu.tbadk.core.frameworkData.a(this.asV.getPageContext().getPageActivity())));
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
+        httpMessage.addParam("opt", "location");
+        httpMessage.addParam("val", String.valueOf(1));
+        this.asV.sendMessage(httpMessage);
     }
 }

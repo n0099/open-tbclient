@@ -6,7 +6,7 @@ import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 /* loaded from: classes.dex */
 public class d {
-    public static void b(InputStream inputStream, OutputStream outputStream) {
+    public static void c(InputStream inputStream, OutputStream outputStream) {
         GZIPOutputStream gZIPOutputStream;
         try {
             gZIPOutputStream = new GZIPOutputStream(outputStream);
@@ -40,7 +40,7 @@ public class d {
         }
     }
 
-    public static void a(InputStream inputStream, OutputStream outputStream) {
+    public static void b(InputStream inputStream, OutputStream outputStream) {
         GZIPInputStream gZIPInputStream;
         try {
             gZIPInputStream = new GZIPInputStream(inputStream);

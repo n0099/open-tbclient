@@ -43,7 +43,7 @@ public class SubPbRequestMessage extends NetMessage {
         builder.scr_dip = Double.valueOf(this.scr_dip);
         builder.st_type = this.stType;
         if (z) {
-            com.baidu.tbadk.util.g.a(builder, true);
+            com.baidu.tbadk.util.h.a(builder, true);
         }
         PbFloorReqIdl.Builder builder2 = new PbFloorReqIdl.Builder();
         builder2.data = builder.build(false);

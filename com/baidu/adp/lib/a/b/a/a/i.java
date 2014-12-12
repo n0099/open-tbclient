@@ -8,43 +8,43 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class i extends a {
     public static final i objectWithBundle(Bundle bundle, Class<?> cls) {
-        i iVar = (i) com.baidu.adp.lib.a.a.a.a(cls);
-        if (iVar.fillByBundle(bundle)) {
-            return iVar;
+        i iVar = (i) com.baidu.adp.lib.a.a.a.j(cls);
+        if (iVar == null || !iVar.fillByBundle(bundle)) {
+            return null;
         }
-        return null;
+        return iVar;
     }
 
     public static final Bundle bundleWithObject(i iVar) {
         Bundle bundle = new Bundle();
-        if (iVar.fillInBundle(bundle)) {
-            return bundle;
+        if (iVar == null || !iVar.fillInBundle(bundle)) {
+            return null;
         }
-        return null;
+        return bundle;
     }
 
     public static final i objectWithIntent(Intent intent, Class<?> cls) {
-        i iVar = (i) com.baidu.adp.lib.a.a.a.a(cls);
-        if (iVar.fillByIntent(intent)) {
-            return iVar;
+        i iVar = (i) com.baidu.adp.lib.a.a.a.j(cls);
+        if (iVar == null || !iVar.fillByIntent(intent)) {
+            return null;
         }
-        return null;
+        return iVar;
     }
 
     public static final Intent intentWithObject(i iVar) {
         Intent intent = new Intent();
-        if (iVar.fillByIntent(intent)) {
-            return intent;
+        if (iVar == null || !iVar.fillByIntent(intent)) {
+            return null;
         }
-        return null;
+        return intent;
     }
 
     public static final i objectWithJson(JSONObject jSONObject, Class<?> cls) {
-        i iVar = (i) com.baidu.adp.lib.a.a.a.a(cls);
-        if (iVar.fillByJsonObject(jSONObject)) {
-            return iVar;
+        i iVar = (i) com.baidu.adp.lib.a.a.a.j(cls);
+        if (iVar == null || !iVar.fillByJsonObject(jSONObject)) {
+            return null;
         }
-        return null;
+        return iVar;
     }
 
     public static final i objectWithJsonStr(String str, Class<?> cls) {
@@ -61,10 +61,10 @@ public class i extends a {
 
     public static final JSONObject jsonWithObject(i iVar) {
         JSONObject jSONObject = new JSONObject();
-        if (iVar.fillInJsonObject(jSONObject)) {
-            return jSONObject;
+        if (iVar == null || !iVar.fillInJsonObject(jSONObject)) {
+            return null;
         }
-        return null;
+        return jSONObject;
     }
 
     public static final String jsonStrWithObject(i iVar) {
@@ -76,18 +76,18 @@ public class i extends a {
     }
 
     public static final i objectWithMap(Map<String, Object> map, Class<?> cls) {
-        i iVar = (i) com.baidu.adp.lib.a.a.a.a(cls);
-        if (iVar.fillByMap(map)) {
-            return iVar;
+        i iVar = (i) com.baidu.adp.lib.a.a.a.j(cls);
+        if (iVar == null || !iVar.fillByMap(map)) {
+            return null;
         }
-        return null;
+        return iVar;
     }
 
     public static final Map<String, Object> mapWithObject(i iVar) {
         HashMap hashMap = new HashMap();
-        if (iVar.fillInMap(hashMap)) {
-            return hashMap;
+        if (iVar == null || !iVar.fillInMap(hashMap)) {
+            return null;
         }
-        return null;
+        return hashMap;
     }
 }

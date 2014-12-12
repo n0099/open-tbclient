@@ -2,16 +2,16 @@ package com.baidu.tieba.write;
 
 import android.view.View;
 import android.widget.EditText;
-import com.baidu.tieba.editortool.EditorToolComponetContainer;
-import com.baidu.tieba.editortool.TbEditorToolButtonContainer;
+import com.baidu.tieba.tbadkCore.PbEditor.EditorToolComponetContainer;
+import com.baidu.tieba.tbadkCore.PbEditor.TbEditorToolButtonContainer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag implements View.OnClickListener {
-    final /* synthetic */ WriteActivity bUm;
+    final /* synthetic */ WriteActivity cft;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(WriteActivity writeActivity) {
-        this.bUm = writeActivity;
+        this.cft = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,14 +21,14 @@ public class ag implements View.OnClickListener {
         EditorToolComponetContainer editorToolComponetContainer;
         EditorToolComponetContainer editorToolComponetContainer2;
         EditText editText2;
-        editText = this.bUm.bJK;
+        editText = this.cft.bOa;
         editText.requestFocus();
-        tbEditorToolButtonContainer = this.bUm.bTU;
-        tbEditorToolButtonContainer.Bi();
-        editorToolComponetContainer = this.bUm.arn;
-        editorToolComponetContainer.BF();
-        editorToolComponetContainer2 = this.bUm.arn;
-        editText2 = this.bUm.bJK;
-        editorToolComponetContainer2.v(editText2);
+        tbEditorToolButtonContainer = this.cft.cfb;
+        tbEditorToolButtonContainer.aeS();
+        editorToolComponetContainer = this.cft.bUs;
+        editorToolComponetContainer.afk();
+        editorToolComponetContainer2 = this.cft.bUs;
+        editText2 = this.cft.bOa;
+        editorToolComponetContainer2.T(editText2);
     }
 }

@@ -1,33 +1,55 @@
 package com.baidu.tieba.addresslist;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.coreExtra.relationship.ResponseGetAddressListMessage;
+import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f extends CustomMessageListener {
-    final /* synthetic */ d agQ;
+public class f extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ d aog;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(d dVar) {
-        super(2001182);
-        this.agQ = dVar;
+        super(304001);
+        this.aog = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.addresslist.c.a aVar;
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         BdListView bdListView;
-        if (!com.baidu.tbadk.core.sharedPref.b.lk().getBoolean("get_addresslist_switch" + TbadkApplication.getCurrentAccount(), true)) {
-            bdListView = this.agQ.agL;
-            bdListView.hN();
-        }
-        if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-            aVar = this.agQ.agC;
-            aVar.w((List) customResponsedMessage.getData());
+        com.baidu.tieba.addresslist.c.a aVar;
+        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001) {
+            bdListView = this.aog.aob;
+            bdListView.jJ();
+            if (!socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
+                this.aog.aof = false;
+                com.baidu.tbadk.coreExtra.relationship.a addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
+                ArrayList arrayList = new ArrayList();
+                if (addressListData != null) {
+                    for (com.baidu.tbadk.coreExtra.relationship.h hVar : addressListData.getAddressList()) {
+                        List<com.baidu.tbadk.coreExtra.relationship.b> contacts = hVar.getContacts();
+                        if (contacts.size() > 0) {
+                            com.baidu.tbadk.coreExtra.relationship.b bVar = new com.baidu.tbadk.coreExtra.relationship.b();
+                            bVar.dC(hVar.getKey());
+                            arrayList.add(bVar);
+                        }
+                        for (com.baidu.tbadk.coreExtra.relationship.b bVar2 : contacts) {
+                            arrayList.add(bVar2);
+                        }
+                    }
+                }
+                aVar = this.aog.anT;
+                aVar.B(arrayList);
+                return;
+            }
+            String errorString = socketResponsedMessage.getErrorString();
+            if (!TextUtils.isEmpty(errorString)) {
+                this.aog.showToast(errorString, false);
+            }
         }
     }
 }

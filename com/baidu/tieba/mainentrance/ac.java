@@ -1,25 +1,42 @@
 package com.baidu.tieba.mainentrance;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.frs.FRSPageSocketResponsedMessage;
+import android.widget.EditText;
+import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
+import com.baidu.tbadk.core.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ac extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ SquareSearchActivity bnc;
+public class ac implements com.baidu.tbadk.core.tabHost.c {
+    final /* synthetic */ SquareSearchActivity brF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ac(SquareSearchActivity squareSearchActivity, int i, boolean z) {
-        super(i, z);
-        this.bnc = squareSearchActivity;
+    public ac(SquareSearchActivity squareSearchActivity) {
+        this.brF = squareSearchActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        this.bnc.bmS = true;
-        if (!(socketResponsedMessage instanceof FRSPageSocketResponsedMessage)) {
-            return;
+    @Override // com.baidu.tbadk.core.tabHost.c
+    public void c(int i, boolean z) {
+        EditText editText;
+        FragmentTabWidget fragmentTabWidget;
+        FragmentTabWidget fragmentTabWidget2;
+        FragmentTabWidget fragmentTabWidget3;
+        if (i == 0) {
+            this.brF.gE(0);
+            fragmentTabWidget3 = this.brF.brC;
+            fragmentTabWidget3.d(i, true);
         }
-        this.bnc.a(socketResponsedMessage, !((FRSPageSocketResponsedMessage) socketResponsedMessage).hasNetworkError());
+        if (i == 1) {
+            this.brF.gE(1);
+            fragmentTabWidget2 = this.brF.brC;
+            fragmentTabWidget2.d(i, true);
+        }
+        if (i == 2) {
+            this.brF.gE(3);
+            fragmentTabWidget = this.brF.brC;
+            fragmentTabWidget.d(i, true);
+        }
+        if (i == 3) {
+            editText = this.brF.bqY;
+            UtilHelper.startBaiDuBar(this.brF.getPageContext().getPageActivity(), editText.getText().toString().trim());
+        }
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.tieba.write;
 
 import android.content.Context;
+import android.support.v4.widget.ExploreByTouchHelper;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -10,28 +11,28 @@ import android.widget.ScrollView;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class ch extends PopupWindow {
-    private LinearLayout Pg;
-    private int RO;
-    private ci bUQ;
+    private LinearLayout US;
+    private ci cfY;
     private Context context;
     private int count;
+    private int mCurrentIndex;
     private int maxHeight;
 
     public ch(Context context) {
         super(context);
-        this.RO = -1;
+        this.mCurrentIndex = -1;
         this.context = context;
         init(context);
     }
 
     private void init(Context context) {
         ScrollView scrollView = new ScrollView(context);
-        this.Pg = new LinearLayout(context);
-        this.Pg.setOrientation(1);
-        this.Pg.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        scrollView.addView(this.Pg);
+        this.US = new LinearLayout(context);
+        this.US.setOrientation(1);
+        this.US.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        scrollView.addView(this.US);
         scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        scrollView.setPadding(0, 0, com.baidu.adp.lib.util.m.dip2px(context, 1.0f), com.baidu.adp.lib.util.m.dip2px(context, 1.0f));
+        scrollView.setPadding(0, 0, com.baidu.adp.lib.util.l.dip2px(context, 1.0f), com.baidu.adp.lib.util.l.dip2px(context, 1.0f));
         scrollView.setFadingEdgeLength(0);
         try {
             Method declaredMethod = scrollView.getClass().getDeclaredMethod("setOverScrollMode", Integer.TYPE);
@@ -44,7 +45,7 @@ public class ch extends PopupWindow {
 
     @Override // android.widget.PopupWindow
     public void showAsDropDown(View view, int i, int i2) {
-        getContentView().measure(View.MeasureSpec.makeMeasureSpec(this.context.getResources().getDisplayMetrics().widthPixels, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(this.context.getResources().getDisplayMetrics().heightPixels, Integer.MIN_VALUE));
+        getContentView().measure(View.MeasureSpec.makeMeasureSpec(this.context.getResources().getDisplayMetrics().widthPixels, ExploreByTouchHelper.INVALID_ID), View.MeasureSpec.makeMeasureSpec(this.context.getResources().getDisplayMetrics().heightPixels, ExploreByTouchHelper.INVALID_ID));
         int measuredWidth = getContentView().getMeasuredWidth();
         if (measuredWidth < view.getWidth()) {
             measuredWidth = view.getWidth();
@@ -59,8 +60,8 @@ public class ch extends PopupWindow {
     }
 
     public void addView(View view) {
-        view.setOnClickListener(new cj(this.count, this.bUQ));
-        this.Pg.addView(view);
+        view.setOnClickListener(new cj(this.count, this.cfY));
+        this.US.addView(view);
         this.count++;
     }
 
@@ -68,15 +69,15 @@ public class ch extends PopupWindow {
         this.maxHeight = i;
     }
 
-    public void dP(int i) {
-        if (this.RO != -1) {
-            this.Pg.getChildAt(this.RO).setSelected(false);
+    public void setCurrentIndex(int i) {
+        if (this.mCurrentIndex != -1) {
+            this.US.getChildAt(this.mCurrentIndex).setSelected(false);
         }
-        this.RO = i;
-        this.Pg.getChildAt(this.RO).setSelected(true);
+        this.mCurrentIndex = i;
+        this.US.getChildAt(this.mCurrentIndex).setSelected(true);
     }
 
     public void a(ci ciVar) {
-        this.bUQ = ciVar;
+        this.cfY = ciVar;
     }
 }

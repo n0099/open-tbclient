@@ -1,17 +1,16 @@
 package com.baidu.tieba.im.chat;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t implements Runnable {
-    final /* synthetic */ s aNR;
+public class t implements Runnable {
+    final /* synthetic */ AbsMsglistView aQh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(s sVar) {
-        this.aNR = sVar;
+    public t(AbsMsglistView absMsglistView) {
+        this.aQh = absMsglistView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        AbsMsglistView absMsglistView;
-        absMsglistView = this.aNR.aNP;
-        absMsglistView.sendmsgShowMore();
+        this.aQh.sendmsgShowSoftkey();
     }
 }

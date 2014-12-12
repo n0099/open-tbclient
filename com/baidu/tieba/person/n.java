@@ -1,116 +1,59 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Intent;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
 import com.baidu.tbadk.core.data.ForumData;
-import java.util.ArrayList;
-import java.util.Date;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class n {
-    private int bBF = 0;
-    private int bBG = 0;
-    private ArrayList<ForumData> bBC = new ArrayList<>();
-    private ArrayList<ForumData> bBD = new ArrayList<>();
-    private com.baidu.tbadk.core.data.m alT = new com.baidu.tbadk.core.data.m();
-    private Date bBE = null;
-    private boolean Ln = true;
+class n implements AdapterView.OnItemClickListener {
+    final /* synthetic */ g bFr;
 
-    public int ZK() {
-        return this.bBF;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public n(g gVar) {
+        this.bFr = gVar;
     }
 
-    public void gV(int i) {
-        this.bBF = i;
-    }
-
-    public int ZL() {
-        return this.bBG;
-    }
-
-    public void gW(int i) {
-        this.bBG = i;
-    }
-
-    public ArrayList<ForumData> ZM() {
-        return this.bBC;
-    }
-
-    public void F(ArrayList<ForumData> arrayList) {
-        this.bBC = arrayList;
-    }
-
-    public ArrayList<ForumData> ZN() {
-        return this.bBD;
-    }
-
-    public void G(ArrayList<ForumData> arrayList) {
-        this.bBD = arrayList;
-    }
-
-    public void parserJson(String str) {
-        if (str != null) {
-            try {
-                parserJson(new JSONObject(str));
-            } catch (Exception e) {
-                this.Ln = false;
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        try {
-            JSONObject optJSONObject = jSONObject.optJSONObject("forum_list");
-            if (optJSONObject != null) {
-                JSONArray optJSONArray = optJSONObject.optJSONArray("gconforum");
-                if (optJSONArray != null) {
-                    this.bBF = optJSONArray.length();
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        ForumData forumData = new ForumData();
-                        forumData.parserJson(optJSONArray.getJSONObject(i));
-                        this.bBC.add(forumData);
-                    }
-                }
-                JSONArray optJSONArray2 = optJSONObject.optJSONArray("non-gconforum");
-                if (optJSONArray2 != null) {
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        ForumData forumData2 = new ForumData();
-                        forumData2.parserJson(optJSONArray2.getJSONObject(i2));
-                        this.bBC.add(forumData2);
-                    }
-                }
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("common_forum_list");
-                if (optJSONObject2 != null) {
-                    JSONArray optJSONArray3 = optJSONObject2.optJSONArray("gconforum");
-                    if (optJSONArray3 != null) {
-                        this.bBG = optJSONArray3.length();
-                        for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                            ForumData forumData3 = new ForumData();
-                            forumData3.parserJson(optJSONArray3.getJSONObject(i3));
-                            this.bBD.add(forumData3);
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        q qVar;
+        boolean z;
+        q qVar2;
+        PersonBarActivity aag;
+        boolean z2;
+        PersonBarActivity aag2;
+        PersonBarActivity aag3;
+        PersonBarActivity aag4;
+        qVar = this.bFr.bFg;
+        if (qVar.getItem(i) != null) {
+            z = this.bFr.bFm;
+            if (!z) {
+                this.bFr.bwG = i;
+                qVar2 = this.bFr.bFg;
+                ForumData forumData = (ForumData) qVar2.getItem(i);
+                if (forumData != null) {
+                    aag = this.bFr.aag();
+                    if (aag != null) {
+                        z2 = this.bFr.bEP;
+                        if (z2) {
+                            Intent intent = new Intent();
+                            intent.putExtra(PersonBarActivityConfig.BAR_NAME, forumData.getName());
+                            intent.putExtra(PersonBarActivityConfig.BAR_ID, forumData.getId());
+                            aag3 = this.bFr.aag();
+                            this.bFr.aag();
+                            aag3.setResult(-1, intent);
+                            aag4 = this.bFr.aag();
+                            aag4.finish();
+                            return;
                         }
-                    }
-                    JSONArray optJSONArray4 = optJSONObject2.optJSONArray("non-gconforum");
-                    if (optJSONArray4 != null) {
-                        for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
-                            ForumData forumData4 = new ForumData();
-                            forumData4.parserJson(optJSONArray4.getJSONObject(i4));
-                            this.bBD.add(forumData4);
-                        }
-                    }
-                    this.alT.parserJson(jSONObject.optJSONObject("page"));
-                    long optLong = jSONObject.optLong("ctime", 0L);
-                    if (optLong > 0) {
-                        this.bBE = new Date(optLong);
-                    } else {
-                        this.bBE = new Date();
+                        g gVar = this.bFr;
+                        aag2 = this.bFr.aag();
+                        gVar.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(aag2.getPageContext().getPageActivity()).createNormalCfg(forumData.getName(), "tb_mytieba")));
                     }
                 }
             }
-        } catch (Exception e) {
-            this.Ln = false;
-            BdLog.e(e.getMessage());
         }
     }
 }

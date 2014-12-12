@@ -23,8 +23,11 @@ public class PostPrefixData implements Serializable {
                 if (!TextUtils.isEmpty(optString2)) {
                     String optString3 = jSONObject.optString("type");
                     if (!TextUtils.isEmpty(optString3)) {
-                        for (String str : optString3.split(" ")) {
-                            this.prefixs.add(optString2.replace("#type#", str));
+                        String[] split = optString3.split(" ");
+                        for (int i = 0; i < split.length; i++) {
+                            if (!TextUtils.isEmpty(split[i].trim())) {
+                                this.prefixs.add(optString2.replace("#type#", split[i]));
+                            }
                         }
                         return;
                     }
@@ -52,8 +55,10 @@ public class PostPrefixData implements Serializable {
                     String str3 = postPrefix.type;
                     if (!TextUtils.isEmpty(str3)) {
                         String[] split = str3.split(" ");
-                        for (String str4 : split) {
-                            this.prefixs.add(str2.replace("#type#", str4));
+                        for (int i = 0; i < split.length; i++) {
+                            if (!TextUtils.isEmpty(split[i].trim())) {
+                                this.prefixs.add(str2.replace("#type#", split[i]));
+                            }
                         }
                         return;
                     }

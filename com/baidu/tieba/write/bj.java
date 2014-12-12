@@ -1,14 +1,14 @@
 package com.baidu.tieba.write;
 
 import android.widget.EditText;
-import com.baidu.tieba.editortool.EditorToolComponetContainer;
+import com.baidu.tieba.tbadkCore.PbEditor.EditorToolComponetContainer;
 /* loaded from: classes.dex */
 class bj implements Runnable {
-    final /* synthetic */ WriteActivity bUm;
+    final /* synthetic */ WriteActivity cft;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bj(WriteActivity writeActivity) {
-        this.bUm = writeActivity;
+        this.cft = writeActivity;
     }
 
     @Override // java.lang.Runnable
@@ -18,15 +18,15 @@ class bj implements Runnable {
         EditText editText2;
         EditorToolComponetContainer editorToolComponetContainer2;
         EditText editText3;
-        editText = this.bUm.bJG;
+        editText = this.cft.bNW;
         if (editText.getVisibility() == 0) {
-            editorToolComponetContainer2 = this.bUm.arn;
-            editText3 = this.bUm.bJG;
-            editorToolComponetContainer2.x(editText3);
+            editorToolComponetContainer2 = this.cft.bUs;
+            editText3 = this.cft.bNW;
+            editorToolComponetContainer2.V(editText3);
             return;
         }
-        editorToolComponetContainer = this.bUm.arn;
-        editText2 = this.bUm.bJK;
-        editorToolComponetContainer.x(editText2);
+        editorToolComponetContainer = this.cft.bUs;
+        editText2 = this.cft.bOa;
+        editorToolComponetContainer.V(editText2);
     }
 }

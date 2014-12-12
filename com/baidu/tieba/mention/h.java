@@ -1,9 +1,18 @@
 package com.baidu.tieba.mention;
 /* loaded from: classes.dex */
-public interface h {
-    String SM();
+public class h extends ad {
+    @Override // com.baidu.tieba.mention.ad, com.baidu.tbadk.mvc.b.e
+    public String lq() {
+        return "tb_user_atme";
+    }
 
-    void delete();
+    @Override // com.baidu.tieba.mention.ad, com.baidu.tbadk.mvc.b.d
+    public String getCacheKey() {
+        return "atme_cache";
+    }
 
-    void gN(String str);
+    @Override // com.baidu.tieba.mention.ad, com.baidu.tbadk.mvc.b.e
+    public boolean xb() {
+        return false;
+    }
 }

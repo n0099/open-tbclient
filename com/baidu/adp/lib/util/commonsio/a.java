@@ -6,23 +6,24 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.math.BigInteger;
 import java.nio.channels.FileChannel;
 import java.nio.charset.Charset;
 /* loaded from: classes.dex */
 public class a {
-    public static final BigInteger nE = BigInteger.valueOf(1024);
-    public static final BigInteger nF = nE.multiply(nE);
-    public static final BigInteger nG = nE.multiply(nF);
-    public static final BigInteger nH = nE.multiply(nG);
-    public static final BigInteger nI = nE.multiply(nH);
-    public static final BigInteger nJ = nE.multiply(nI);
-    public static final BigInteger nK = BigInteger.valueOf(1024).multiply(BigInteger.valueOf(1152921504606846976L));
-    public static final BigInteger nL = nE.multiply(nK);
-    public static final File[] nM = new File[0];
-    private static final Charset nN = Charset.forName("UTF-8");
+    public static final BigInteger nG = BigInteger.valueOf(1024);
+    public static final BigInteger nH = nG.multiply(nG);
+    public static final BigInteger nI = nG.multiply(nH);
+    public static final BigInteger nJ = nG.multiply(nI);
+    public static final BigInteger nK = nG.multiply(nJ);
+    public static final BigInteger nL = nG.multiply(nK);
+    public static final BigInteger nM = BigInteger.valueOf(1024).multiply(BigInteger.valueOf(1152921504606846976L));
+    public static final BigInteger nN = nG.multiply(nM);
+    public static final File[] nO = new File[0];
+    private static final Charset nP = Charset.forName("UTF-8");
 
-    public static void a(File file, File file2) {
+    public static void copyFile(File file, File file2) {
         a(file, file2, true);
     }
 
@@ -83,10 +84,10 @@ public class a {
                             long size = fileChannel2.size();
                             for (long j = 0; j < size; j += channel.transferFrom(fileChannel2, j, size - j > 31457280 ? 31457280L : size - j)) {
                             }
-                            c.b(channel);
-                            c.c(fileOutputStream);
-                            c.b(fileChannel2);
-                            c.c(fileInputStream2);
+                            c.d(channel);
+                            c.d((OutputStream) fileOutputStream);
+                            c.d(fileChannel2);
+                            c.f(fileInputStream2);
                             if (file.length() != file2.length()) {
                                 throw new IOException("Failed to copy full contents from '" + file + "' to '" + file2 + "'");
                             }
@@ -98,10 +99,10 @@ public class a {
                             th = th3;
                             fileChannel = fileChannel2;
                             closeable = channel;
-                            c.b(closeable);
-                            c.c(fileOutputStream);
-                            c.b(fileChannel);
-                            c.c(fileInputStream);
+                            c.d(closeable);
+                            c.d((OutputStream) fileOutputStream);
+                            c.d(fileChannel);
+                            c.f(fileInputStream);
                             throw th;
                         }
                     } catch (Error e) {
@@ -114,10 +115,10 @@ public class a {
                             fileChannel = fileChannel2;
                             closeable = null;
                             th = th4;
-                            c.b(closeable);
-                            c.c(fileOutputStream);
-                            c.b(fileChannel);
-                            c.c(fileInputStream);
+                            c.d(closeable);
+                            c.d((OutputStream) fileOutputStream);
+                            c.d(fileChannel);
+                            c.f(fileInputStream);
                             throw th;
                         }
                     }
@@ -155,10 +156,10 @@ public class a {
         }
     }
 
-    public static void e(File file) {
+    public static void f(File file) {
         if (file.exists()) {
-            if (!j(file)) {
-                g(file);
+            if (!k(file)) {
+                h(file);
             }
             if (!file.delete()) {
                 throw new IOException("Unable to delete directory " + file + ".");
@@ -166,13 +167,13 @@ public class a {
         }
     }
 
-    public static boolean f(File file) {
+    public static boolean g(File file) {
         if (file == null) {
             return false;
         }
         try {
             if (file.isDirectory()) {
-                g(file);
+                h(file);
             }
         } catch (Exception e) {
         }
@@ -183,7 +184,7 @@ public class a {
         }
     }
 
-    public static void g(File file) {
+    public static void h(File file) {
         if (!file.exists()) {
             throw new IllegalArgumentException(file + " does not exist");
         }
@@ -197,7 +198,7 @@ public class a {
         IOException e = null;
         for (File file2 : listFiles) {
             try {
-                h(file2);
+                i(file2);
             } catch (IOException e2) {
                 e = e2;
             }
@@ -207,9 +208,9 @@ public class a {
         }
     }
 
-    public static void h(File file) {
+    public static void i(File file) {
         if (file.isDirectory()) {
-            e(file);
+            f(file);
             return;
         }
         boolean exists = file.exists();
@@ -221,7 +222,7 @@ public class a {
         }
     }
 
-    public static void i(File file) {
+    public static void j(File file) {
         if (file.exists()) {
             if (!file.isDirectory()) {
                 throw new IOException("File " + file + " exists and is not a directory. Unable to create directory.");
@@ -231,11 +232,11 @@ public class a {
         }
     }
 
-    public static boolean j(File file) {
+    public static boolean k(File file) {
         if (file == null) {
             throw new NullPointerException("File must not be null");
         }
-        if (b.fB()) {
+        if (b.fD()) {
             return false;
         }
         if (file.getParent() != null) {

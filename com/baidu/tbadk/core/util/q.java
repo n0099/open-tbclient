@@ -7,10 +7,10 @@ public class q extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        ac acVar = new ac(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.IN_PV_ADDRESS);
-        acVar.k("st_type", TbConfig.ST_TYPE_ENTER_FORE);
-        acVar.k("os_version", Build.VERSION.RELEASE);
-        acVar.k("subapp_type", "im");
-        acVar.lA();
+        ad adVar = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.IN_PV_ADDRESS);
+        adVar.o("st_type", TbConfig.ST_TYPE_ENTER_FORE);
+        adVar.o("os_version", Build.VERSION.RELEASE);
+        adVar.o("subapp_type", "im");
+        adVar.ov();
     }
 }

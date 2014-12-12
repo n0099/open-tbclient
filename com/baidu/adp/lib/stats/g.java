@@ -35,7 +35,7 @@ public class g extends Handler {
                 f fVar4 = this.this$0;
                 bdPerformanceLog = this.this$0.mc;
                 fVar4.a((BdStatBase) bdPerformanceLog, true, true);
-                this.this$0.ey();
+                this.this$0.ez();
                 return;
             case 3:
                 this.this$0.c((BdStatBase) message.obj, message.arg1 > 0);

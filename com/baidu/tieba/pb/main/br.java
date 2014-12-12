@@ -1,67 +1,45 @@
 package com.baidu.tieba.pb.main;
 
-import android.view.View;
-import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class br extends com.baidu.adp.base.f {
-    private View.OnClickListener He;
-    private TextView bxj;
-    private TextView bxk;
-    private View bxl;
-    private TextView bxm;
-    private TextView bxn;
-    private PbActivity bxo;
-    private View mView;
+public class br extends CustomMessageListener {
+    final /* synthetic */ bq bBa;
 
-    public br(PbActivity pbActivity, View.OnClickListener onClickListener) {
-        super(pbActivity);
-        this.mView = null;
-        this.bxj = null;
-        this.bxk = null;
-        this.bxl = null;
-        this.bxm = null;
-        this.bxn = null;
-        this.bxo = null;
-        this.He = null;
-        this.bxo = pbActivity;
-        this.He = onClickListener;
-        initUI();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public br(bq bqVar, int i) {
+        super(i);
+        this.bBa = bqVar;
     }
 
-    public View getView() {
-        return this.mView;
-    }
-
-    public TextView WX() {
-        return this.bxj;
-    }
-
-    public TextView WY() {
-        return this.bxk;
-    }
-
-    public View WZ() {
-        return this.bxl;
-    }
-
-    public TextView Xa() {
-        return this.bxm;
-    }
-
-    public TextView Xb() {
-        return this.bxn;
-    }
-
-    private void initUI() {
-        this.mView = com.baidu.adp.lib.g.b.ek().inflate(this.bxo, com.baidu.tieba.w.pb_more_view, null);
-        this.bxj = (TextView) this.mView.findViewById(com.baidu.tieba.v.pb_more_view_item_mark);
-        this.bxj.setOnClickListener(this.He);
-        this.bxk = (TextView) this.mView.findViewById(com.baidu.tieba.v.pb_more_view_item_share);
-        this.bxl = this.mView.findViewById(com.baidu.tieba.v.pb_more_view_item_line_share);
-        this.bxk.setOnClickListener(this.He);
-        this.bxm = (TextView) this.mView.findViewById(com.baidu.tieba.v.pb_more_view_item_jump);
-        this.bxm.setOnClickListener(this.He);
-        this.bxn = (TextView) this.mView.findViewById(com.baidu.tieba.v.pb_more_view_item_see);
-        this.bxn.setOnClickListener(this.He);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        BdUniqueId bdUniqueId;
+        BdUniqueId bdUniqueId2;
+        PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage;
+        com.baidu.tieba.tbadkCore.b.i pbData;
+        bt btVar;
+        bt btVar2;
+        bt btVar3;
+        bdUniqueId = this.bBa.unique_id;
+        if (bdUniqueId == customResponsedMessage.getOrginalMessage().getTag() && customResponsedMessage != null && (customResponsedMessage instanceof PbPageReadLocalResponseMessage)) {
+            BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
+            bdUniqueId2 = this.bBa.unique_id;
+            if (tag != bdUniqueId2 || (pbData = (pbPageReadLocalResponseMessage = (PbPageReadLocalResponseMessage) customResponsedMessage).getPbData()) == null) {
+                return;
+            }
+            this.bBa.c(pbData);
+            btVar = this.bBa.bAS;
+            if (btVar != null && pbData != null) {
+                btVar2 = this.bBa.bAS;
+                btVar2.a(true, 0, pbPageReadLocalResponseMessage.getUpdateType(), 0, pbData, pbPageReadLocalResponseMessage.getErrorString(), 0);
+                btVar3 = this.bBa.bAS;
+                btVar3.dG(false);
+            }
+        }
     }
 }

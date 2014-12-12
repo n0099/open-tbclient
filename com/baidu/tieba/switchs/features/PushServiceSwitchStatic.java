@@ -10,7 +10,7 @@ public class PushServiceSwitchStatic extends a {
     public static final String[] PUSHSERVICE_KEY;
 
     static {
-        f.db().d(PushServiceSwitchStatic.class);
+        f.dc().l(PushServiceSwitchStatic.class);
         PUSHSERVICE_KEY = new String[]{"com.baidu.android.pushservice", "com.baidu.android.moplus", "com.baidu.android.nebula", "com.baidu.android.systemmonitor", "com.baidu.loc.strWebApp"};
     }
 

@@ -4,9 +4,9 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 /* loaded from: classes.dex */
 public interface a {
-    void a(b bVar);
+    boolean E(Context context);
 
-    boolean f(Context context);
+    void a(b bVar);
 
     SQLiteDatabase getWritableDatabase();
 

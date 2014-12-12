@@ -7,14 +7,14 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai extends BdAsyncTask<String, Integer, Bitmap> {
-    final /* synthetic */ Login2Activity KU;
-    private volatile boolean kJ;
-    com.baidu.tbadk.core.util.ac mNetWork;
+    com.baidu.tbadk.core.util.ad AR;
+    final /* synthetic */ Login2Activity Qf;
+    private volatile boolean kK;
 
     private ai(Login2Activity login2Activity) {
-        this.KU = login2Activity;
-        this.mNetWork = null;
-        this.kJ = false;
+        this.Qf = login2Activity;
+        this.AR = null;
+        this.kK = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -24,12 +24,12 @@ public class ai extends BdAsyncTask<String, Integer, Bitmap> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.KU.KS = null;
-        if (this.mNetWork != null) {
-            this.mNetWork.dM();
-            this.mNetWork = null;
+        this.Qf.Qd = null;
+        if (this.AR != null) {
+            this.AR.dL();
+            this.AR = null;
         }
-        this.kJ = true;
+        this.kK = true;
         super.cancel(true);
     }
 
@@ -37,41 +37,40 @@ public class ai extends BdAsyncTask<String, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         ImageView imageView;
-        imageView = this.KU.Kx;
+        imageView = this.Qf.PG;
         imageView.setImageDrawable(null);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: j */
+    /* renamed from: n */
     public Bitmap doInBackground(String... strArr) {
         String str = strArr[0];
-        if (str == null || str.length() <= 0 || this.kJ) {
+        if (str == null || str.length() <= 0 || this.kK) {
             return null;
         }
-        this.mNetWork = new com.baidu.tbadk.core.util.ac(str);
-        return com.baidu.tbadk.core.util.d.w(this.mNetWork.lB());
+        this.AR = new com.baidu.tbadk.core.util.ad(str);
+        return com.baidu.tbadk.core.util.d.v(this.AR.ow());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: e */
     public void onPostExecute(Bitmap bitmap) {
         ImageView imageView;
         ProgressBar progressBar;
         ImageView imageView2;
-        this.KU.KS = null;
+        this.Qf.Qd = null;
         if (bitmap != null) {
-            imageView2 = this.KU.Kx;
+            imageView2 = this.Qf.PG;
             imageView2.setImageBitmap(bitmap);
         } else {
-            imageView = this.KU.Kx;
-            imageView.setImageResource(com.baidu.tieba.u.background);
+            imageView = this.Qf.PG;
+            imageView.setImageResource(com.baidu.tieba.v.background);
         }
-        progressBar = this.KU.mProgressBar;
+        progressBar = this.Qf.mProgressBar;
         progressBar.setVisibility(8);
-        super.onPostExecute(bitmap);
+        super.onPostExecute((ai) bitmap);
     }
 }

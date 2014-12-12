@@ -4,23 +4,23 @@ import android.database.DataSetObserver;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends DataSetObserver {
-    final /* synthetic */ PinnedHeaderListView vR;
+    final /* synthetic */ PinnedHeaderListView xU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(PinnedHeaderListView pinnedHeaderListView) {
-        this.vR = pinnedHeaderListView;
+        this.xU = pinnedHeaderListView;
     }
 
     @Override // android.database.DataSetObserver
     public void onChanged() {
-        this.vR.requestLayout();
-        this.vR.invalidate();
+        this.xU.requestLayout();
+        this.xU.invalidate();
     }
 
     @Override // android.database.DataSetObserver
     public void onInvalidated() {
-        this.vR.vL = -1;
-        this.vR.requestLayout();
-        this.vR.invalidate();
+        this.xU.xO = -1;
+        this.xU.requestLayout();
+        this.xU.invalidate();
     }
 }

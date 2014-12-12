@@ -4,16 +4,16 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FaceShopActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements View.OnClickListener {
-    final /* synthetic */ EmotionTabHorizonScrollView RZ;
+    final /* synthetic */ EmotionTabHorizonScrollView XV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(EmotionTabHorizonScrollView emotionTabHorizonScrollView) {
-        this.RZ = emotionTabHorizonScrollView;
+        this.XV = emotionTabHorizonScrollView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,14 +22,14 @@ public class n implements View.OnClickListener {
         int i;
         String str;
         g gVar;
-        textView = this.RZ.RV;
+        textView = this.XV.XR;
         if (textView != null) {
-            gVar = this.RZ.RN;
+            gVar = this.XV.XK;
             gVar.setNewViewVisible(false);
         }
-        TbadkApplication.m251getInst().setFaceShopVersion(TbadkApplication.m251getInst().getTempFaceShopVersion());
-        TbadkApplication.m251getInst().setFaceShopNew(false);
-        i = this.RZ.from;
+        TbadkCoreApplication.m255getInst().setFaceShopVersion(TbadkCoreApplication.m255getInst().getTempFaceShopVersion());
+        TbadkCoreApplication.m255getInst().setFaceShopNew(false);
+        i = this.XV.from;
         switch (i) {
             case 1:
                 str = "faceshop_from_write_shop";
@@ -44,6 +44,6 @@ public class n implements View.OnClickListener {
                 str = "";
                 break;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceShopActivityConfig(this.RZ.getContext(), str)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2902010, new FaceShopActivityConfig(this.XV.getContext(), str)));
     }
 }

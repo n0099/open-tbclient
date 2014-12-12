@@ -1,55 +1,54 @@
 package com.baidu.tieba.data;
 
-import org.json.JSONObject;
+import com.baidu.adp.lib.util.BdLog;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes.dex */
 public class m {
-    private String AI;
-    private String akk;
-    private String akl;
-    private String forumName;
-    private String link;
-    private String summary;
-    private String title;
-    private String type;
-    private String userName;
+    private String asr;
+    private int ass;
+    private int ast;
+    private String asu;
+    private long mForumId;
+    private String mForumName;
+    private int mIsLike;
 
-    public String getLink() {
-        return this.link;
+    public String getAvatar() {
+        return this.asr;
     }
 
-    public String getTitle() {
-        return this.title;
-    }
-
-    public String kK() {
-        return this.summary;
+    public long getForumId() {
+        return this.mForumId;
     }
 
     public String getForumName() {
-        return this.forumName;
+        return this.mForumName;
     }
 
-    public String getUserName() {
-        return this.userName;
+    public int Cw() {
+        return this.ass;
     }
 
-    public String getType() {
-        return this.type;
+    public int Cx() {
+        return this.ast;
     }
 
-    public String yJ() {
-        return this.akk;
+    public String getSlogan() {
+        return this.asu;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        this.link = jSONObject.optString("link");
-        this.title = jSONObject.optString("title");
-        this.summary = jSONObject.optString("abstract");
-        this.forumName = jSONObject.optString("forum_name");
-        this.AI = jSONObject.optString("img");
-        this.type = jSONObject.optString("post_type");
-        this.userName = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_NAME);
-        this.akk = jSONObject.optString("reply_num");
-        this.akl = jSONObject.optString("proper");
+    public void b(RecommendForumInfo recommendForumInfo) {
+        if (recommendForumInfo != null) {
+            try {
+                this.asr = recommendForumInfo.avatar;
+                this.mForumId = recommendForumInfo.forum_id.longValue();
+                this.mForumName = recommendForumInfo.forum_name;
+                this.mIsLike = recommendForumInfo.is_like.intValue();
+                this.ass = recommendForumInfo.member_count.intValue();
+                this.ast = recommendForumInfo.thread_count.intValue();
+                this.asu = recommendForumInfo.slogan;
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
+        }
     }
 }

@@ -1,60 +1,60 @@
 package com.baidu.tieba.addresslist.c;
 
-import android.content.Context;
-import com.baidu.adp.base.e;
+import com.baidu.adp.base.f;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.coreExtra.relationship.RequestGetAddressListMessage;
 import com.baidu.tbadk.coreExtra.relationship.o;
 import java.util.List;
 /* loaded from: classes.dex */
-public class a extends e {
-    private com.baidu.tieba.addresslist.b.a ahq;
+public class a extends f<BaseFragmentActivity> {
+    private com.baidu.tieba.addresslist.b.a aoG;
 
-    public a(Context context) {
-        super(context);
-        this.ahq = com.baidu.tieba.addresslist.b.a.xB();
+    public a(BaseFragmentActivity baseFragmentActivity) {
+        super(baseFragmentActivity.getPageContext());
+        this.aoG = com.baidu.tieba.addresslist.b.a.AU();
     }
 
     public void a(com.baidu.tieba.addresslist.b.b bVar) {
-        this.ahq.a(bVar);
+        this.aoG.a(bVar);
     }
 
     public void b(com.baidu.tieba.addresslist.b.b bVar) {
-        this.ahq.b(bVar);
+        this.aoG.b(bVar);
     }
 
-    public List<com.baidu.tbadk.coreExtra.relationship.b> xD() {
-        return this.ahq.xC();
+    public List<com.baidu.tbadk.coreExtra.relationship.b> AW() {
+        return this.aoG.AV();
     }
 
-    public void xE() {
+    public void AX() {
         sendMessage(new CustomMessage(2001182));
     }
 
-    public void xF() {
+    public void AY() {
         super.sendMessage(new RequestGetAddressListMessage(304001));
     }
 
-    public void w(List<com.baidu.tbadk.coreExtra.relationship.b> list) {
-        this.ahq.v(list);
+    public void B(List<com.baidu.tbadk.coreExtra.relationship.b> list) {
+        this.aoG.A(list);
     }
 
     public void c(com.baidu.tbadk.coreExtra.relationship.b bVar) {
-        this.ahq.c(bVar);
+        this.aoG.c(bVar);
     }
 
-    public void w(long j) {
-        this.ahq.w(j);
+    public void G(long j) {
+        this.aoG.G(j);
     }
 
-    public int ej(String str) {
+    public int eP(String str) {
         int i;
-        if (o.cH(str)) {
-            List<com.baidu.tbadk.coreExtra.relationship.b> xC = this.ahq.xC();
-            if (xC != null) {
-                for (com.baidu.tbadk.coreExtra.relationship.b bVar : xC) {
-                    if (str.equals(bVar.pC())) {
-                        i = xC.indexOf(bVar);
+        if (o.dE(str)) {
+            List<com.baidu.tbadk.coreExtra.relationship.b> AV = this.aoG.AV();
+            if (AV != null) {
+                for (com.baidu.tbadk.coreExtra.relationship.b bVar : AV) {
+                    if (str.equals(bVar.sW())) {
+                        i = AV.indexOf(bVar);
                         break;
                     }
                 }
@@ -65,12 +65,12 @@ public class a extends e {
         return -1;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.f
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.e
+    @Override // com.baidu.adp.base.f
     public boolean cancelLoadData() {
         return false;
     }

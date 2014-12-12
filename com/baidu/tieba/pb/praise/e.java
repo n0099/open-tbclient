@@ -1,43 +1,43 @@
 package com.baidu.tieba.pb.praise;
 
 import android.os.Bundle;
-import com.baidu.tbadk.mvc.model.j;
+import com.baidu.tbadk.mvc.model.r;
 /* loaded from: classes.dex */
-public class e extends com.baidu.tbadk.mvc.d.a<f, g> {
-    public final c bzE;
-    public final f bzF;
-    private d bzG;
+public class e extends com.baidu.tbadk.mvc.d.b<f, g> {
+    public final c bDw;
+    public final f bDx;
+    private d bDy;
 
     public e(PraiseListActivity praiseListActivity) {
         super(praiseListActivity);
-        this.bzE = new c();
-        this.bzF = new f();
+        this.bDw = new c();
+        this.bDx = new f();
     }
 
-    @Override // com.baidu.tbadk.mvc.core.a
+    @Override // com.baidu.tbadk.mvc.core.b, com.baidu.tbadk.mvc.core.a
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putAll(this.bzF.toBundle());
-        bundle.putInt("KeyIntentPraiseId", this.bzE.Yz());
+        bundle.putAll(this.bDx.toBundle());
+        bundle.putInt("KeyIntentPraiseId", this.bDw.YX());
     }
 
-    @Override // com.baidu.tbadk.mvc.core.a
-    public void b(Bundle bundle) {
-        super.b(bundle);
+    @Override // com.baidu.tbadk.mvc.d.a, com.baidu.tbadk.mvc.core.b, com.baidu.tbadk.mvc.core.a
+    public void f(Bundle bundle) {
+        super.f(bundle);
         if (bundle != null) {
-            this.bzF.l(bundle);
+            this.bDx.l(bundle);
         }
-        this.bzG = new d(sZ(), this.bzF);
-        this.bzG.a((j) this);
+        this.bDy = new d(ww().getPageContext(), this.bDx);
+        this.bDy.a((r) this);
         if (bundle.containsKey("KeyIntentPraiseId")) {
-            this.bzE.gR(bundle.getInt("KeyIntentPraiseId"));
+            this.bDw.gX(bundle.getInt("KeyIntentPraiseId"));
         }
-        ta().addEventDelegate(this);
+        wx().addEventDelegate(this);
     }
 
     @Override // com.baidu.tbadk.mvc.d.a
-    protected boolean tz() {
-        this.bzG.tN();
+    protected boolean kK() {
+        this.bDy.xv();
         return true;
     }
 
@@ -45,16 +45,16 @@ public class e extends com.baidu.tbadk.mvc.d.a<f, g> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.d.a
     public boolean a(f fVar, g gVar) {
-        this.bzE.a(gVar);
-        this.bzF.YD();
-        this.bzE.setStatus(1001);
-        if (this.bzF.getPageNum() > 5) {
-            this.bzE.setStatus(1003);
+        this.bDw.a(gVar);
+        this.bDx.Zb();
+        this.bDw.setStatus(1001);
+        if (this.bDx.getPageNum() > 5) {
+            this.bDw.setStatus(1003);
         }
-        if (this.bzE.YA() >= this.bzE.Yz()) {
-            this.bzE.setStatus(1002);
+        if (this.bDw.YY() >= this.bDw.YX()) {
+            this.bDw.setStatus(1002);
         }
-        a(this.bzE);
+        b(this.bDw);
         return true;
     }
 }

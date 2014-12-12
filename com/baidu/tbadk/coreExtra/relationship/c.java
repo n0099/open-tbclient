@@ -14,16 +14,16 @@ public class c implements Comparator<b> {
         if (bVar2 == null) {
             return 1;
         }
-        String pC = bVar.pC();
-        String pC2 = bVar2.pC();
-        if (!TextUtils.isEmpty(pC) && !TextUtils.isEmpty(pC2) && !pC.equals(pC2)) {
-            if ("#".equals(pC)) {
+        String sW = bVar.sW();
+        String sW2 = bVar2.sW();
+        if (!TextUtils.isEmpty(sW) && !TextUtils.isEmpty(sW2) && !sW.equals(sW2)) {
+            if ("#".equals(sW)) {
                 return 1;
             }
-            if ("#".equals(pC2)) {
+            if ("#".equals(sW2)) {
                 return -1;
             }
-            return pC.compareToIgnoreCase(pC2);
+            return sW.compareToIgnoreCase(sW2);
         }
         String userName = bVar.getUserName();
         String userName2 = bVar2.getUserName();

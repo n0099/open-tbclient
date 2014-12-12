@@ -3,7 +3,7 @@ package com.baidu.tieba.xiuba;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ac;
+import com.baidu.tbadk.core.util.ad;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
@@ -35,11 +35,11 @@ public class XiubaGetUserInfoModel {
         stringBuffer.append("c/e/xiuba/getopenid");
         try {
             ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
-            ac acVar = new ac(stringBuffer.toString());
-            acVar.h(arrayList);
-            String lA = acVar.lA();
+            ad adVar = new ad(stringBuffer.toString());
+            adVar.q(arrayList);
+            String ov = adVar.ov();
             UserInfo userInfo = new UserInfo();
-            userInfo.parseJson(lA);
+            userInfo.parseJson(ov);
             return userInfo;
         } catch (Exception e) {
             BdLog.e(e.getMessage());

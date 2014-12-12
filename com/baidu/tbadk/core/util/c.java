@@ -3,44 +3,44 @@ package com.baidu.tbadk.core.util;
 import com.baidu.tbadk.TbadkSettings;
 /* loaded from: classes.dex */
 public class c implements com.baidu.adp.lib.stats.r {
-    private static c CL = null;
+    private static c GX = null;
 
     private c() {
     }
 
-    public static synchronized c lo() {
+    public static synchronized c ok() {
         c cVar;
         synchronized (c.class) {
-            if (CL == null) {
-                CL = new c();
+            if (GX == null) {
+                GX = new c();
             }
-            cVar = CL;
+            cVar = GX;
         }
         return cVar;
     }
 
     @Override // com.baidu.adp.lib.stats.r
-    public void am(String str) {
+    public void aq(String str) {
         TbadkSettings.getInst().saveString("log_stat_switch_data", str);
     }
 
     @Override // com.baidu.adp.lib.stats.r
-    public void d(long j) {
+    public void h(long j) {
         TbadkSettings.getInst().saveLong("log_stat_upload_time ", j);
     }
 
     @Override // com.baidu.adp.lib.stats.r
-    public void e(long j) {
+    public void i(long j) {
         TbadkSettings.getInst().saveLong("log_stat_debug_time", j);
     }
 
     @Override // com.baidu.adp.lib.stats.r
-    public void g(long j) {
+    public void k(long j) {
         TbadkSettings.getInst().saveLong("log_stat_error_time", j);
     }
 
     @Override // com.baidu.adp.lib.stats.r
-    public void f(long j) {
+    public void j(long j) {
         TbadkSettings.getInst().saveLong("log_stat_perfor_time", j);
     }
 

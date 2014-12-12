@@ -1,109 +1,117 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.data.RegistData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t implements View.OnClickListener {
-    final /* synthetic */ Register2Activity afR;
+public class t extends BdAsyncTask<String, Integer, Boolean> {
+    private com.baidu.tbadk.core.util.ad AR;
+    final /* synthetic */ ActivationActivity amw;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public t(Register2Activity register2Activity) {
-        this.afR = register2Activity;
+    private t(ActivationActivity activationActivity) {
+        this.amw = activationActivity;
+        this.AR = null;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        View view2;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ t(ActivationActivity activationActivity, t tVar) {
+        this(activationActivity);
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        ProgressBar progressBar;
+        EditText editText;
+        RelativeLayout relativeLayout;
+        this.amw.amk = null;
+        progressBar = this.amw.ame;
+        progressBar.setVisibility(8);
+        editText = this.amw.amh;
+        if (editText.length() == 6) {
+            relativeLayout = this.amw.ami;
+            relativeLayout.setEnabled(true);
+        }
+        if (this.AR != null) {
+            this.AR.dL();
+        }
+        super.cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: f */
+    public Boolean doInBackground(String... strArr) {
+        RegistData registData;
+        boolean z = false;
+        try {
+            this.AR = new com.baidu.tbadk.core.util.ad(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/getsmscode");
+            com.baidu.tbadk.core.util.ad adVar = this.AR;
+            registData = this.amw.amn;
+            adVar.o("phonenum", registData.getPhone());
+            this.AR.ov();
+            if (this.AR.oW().pW().ma()) {
+                z = true;
+            }
+        } catch (Exception e) {
+            BdLog.detailException(e);
+        }
+        return Boolean.valueOf(z);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public void onPostExecute(Boolean bool) {
+        ProgressBar progressBar;
+        EditText editText;
         TextView textView;
         TextView textView2;
-        Button button;
-        ImageView imageView;
-        ImageView imageView2;
         RelativeLayout relativeLayout;
-        ImageView imageView3;
-        y yVar;
-        com.baidu.tbadk.core.data.j jVar;
-        com.baidu.tbadk.core.data.j jVar2;
-        y yVar2;
-        Button button2;
-        z zVar;
-        y yVar3;
-        z zVar2;
-        z zVar3;
-        y yVar4;
-        EditText editText;
-        EditText editText2;
-        view2 = this.afR.KC;
-        if (view != view2) {
-            textView2 = this.afR.afo;
-            if (view != textView2) {
-                button = this.afR.afp;
-                if (view != button) {
-                    imageView = this.afR.afq;
-                    if (view != imageView) {
-                        imageView2 = this.afR.afr;
-                        if (view == imageView2) {
-                            editText = this.afR.afA;
-                            editText.setText((CharSequence) null);
-                            return;
-                        }
-                        relativeLayout = this.afR.afB;
-                        if (view != relativeLayout) {
-                            imageView3 = this.afR.Kx;
-                            if (view != imageView3) {
-                                button2 = this.afR.afs;
-                                if (view != button2) {
-                                    return;
-                                }
-                            }
-                            yVar = this.afR.afM;
-                            if (yVar == null) {
-                                jVar = this.afR.afO;
-                                if (jVar != null) {
-                                    Register2Activity register2Activity = this.afR;
-                                    Register2Activity register2Activity2 = this.afR;
-                                    jVar2 = this.afR.afO;
-                                    register2Activity.afM = new y(register2Activity2, jVar2.jZ().getVcode_pic_url());
-                                    yVar2 = this.afR.afM;
-                                    yVar2.execute(new String[0]);
-                                    return;
-                                }
-                                return;
-                            }
-                            return;
-                        }
-                        zVar = this.afR.afN;
-                        if (zVar == null) {
-                            yVar3 = this.afR.afM;
-                            if (yVar3 != null) {
-                                yVar4 = this.afR.afM;
-                                yVar4.cancel();
-                            }
-                            this.afR.afN = new z(this.afR, null);
-                            zVar2 = this.afR.afN;
-                            zVar2.setPriority(3);
-                            zVar3 = this.afR.afN;
-                            zVar3.execute(new String[0]);
-                            return;
-                        }
-                        return;
-                    }
-                    editText2 = this.afR.afy;
-                    editText2.setText((CharSequence) null);
-                    return;
-                }
-                this.afR.xi();
-                return;
-            }
+        super.onPostExecute(bool);
+        this.amw.amk = null;
+        progressBar = this.amw.ame;
+        progressBar.setVisibility(8);
+        editText = this.amw.amh;
+        if (editText.length() == 6) {
+            relativeLayout = this.amw.ami;
+            relativeLayout.setEnabled(true);
         }
-        textView = this.afR.afo;
-        if (view == textView) {
-            this.afR.setResult(0);
+        if (bool.booleanValue()) {
+            this.amw.Az();
+            return;
         }
-        this.afR.finish();
+        String errorString = this.AR.getErrorString();
+        if (errorString != null && errorString.length() > 0) {
+            textView = this.amw.Uh;
+            textView.setVisibility(0);
+            textView2 = this.amw.Uh;
+            textView2.setText(errorString);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
+        ProgressBar progressBar;
+        TextView textView;
+        TextView textView2;
+        RelativeLayout relativeLayout;
+        progressBar = this.amw.ame;
+        progressBar.setVisibility(0);
+        textView = this.amw.Uh;
+        textView.setVisibility(4);
+        textView2 = this.amw.Uh;
+        textView2.setText((CharSequence) null);
+        relativeLayout = this.amw.ami;
+        relativeLayout.setEnabled(false);
+        super.onPreExecute();
     }
 }

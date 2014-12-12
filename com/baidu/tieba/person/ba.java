@@ -1,25 +1,14 @@
 package com.baidu.tieba.person;
 /* loaded from: classes.dex */
-class ba implements com.baidu.adp.widget.ListView.aa {
-    final /* synthetic */ at bCN;
+class ba implements com.baidu.tbadk.core.view.a {
+    final /* synthetic */ PersonImageActivity bGv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ba(at atVar) {
-        this.bCN = atVar;
+    public ba(PersonImageActivity personImageActivity) {
+        this.bGv = personImageActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.aa
-    public void hQ() {
-        boolean z;
-        bd bdVar;
-        z = this.bCN.bCJ;
-        if (!z) {
-            this.bCN.bCI = false;
-            at atVar = this.bCN;
-            bdVar = this.bCN.bCE;
-            atVar.pageNum = bdVar.getData().zO().kf() + 1;
-            this.bCN.bCJ = true;
-            this.bCN.aac();
-        }
+    @Override // com.baidu.tbadk.core.view.a
+    public void cb(int i) {
     }
 }

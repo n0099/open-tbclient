@@ -1,38 +1,39 @@
 package com.baidu.tieba.im.friend;
 
-import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.TbCheckBox;
+import com.baidu.tbadk.core.view.ai;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends BaseAdapter {
-    private com.baidu.tbadk.core.view.w aWd;
-    private r aWe = null;
-    private ViewGroup aWf = null;
-    private boolean aWg;
-    private final Context mContext;
+    private final TbPageContextSupport bau;
+    private ai bav;
+    private r baw = null;
+    private ViewGroup bax = null;
+    private boolean bay;
     private List<com.baidu.tbadk.coreExtra.relationship.b> mData;
 
-    public p(Context context, boolean z) {
-        this.mContext = context;
-        this.aWg = z;
+    public p(TbPageContextSupport tbPageContextSupport, boolean z) {
+        this.bau = tbPageContextSupport;
+        this.bay = z;
     }
 
     public void a(r rVar) {
-        this.aWe = rVar;
+        this.baw = rVar;
     }
 
     public void setData(List<com.baidu.tbadk.coreExtra.relationship.b> list) {
         this.mData = list;
     }
 
-    public void a(com.baidu.tbadk.core.view.w wVar) {
-        this.aWd = wVar;
+    public void a(ai aiVar) {
+        this.bav = aiVar;
     }
 
     @Override // android.widget.Adapter
@@ -59,8 +60,8 @@ public class p extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         q qVar;
-        if (this.aWf == null) {
-            this.aWf = viewGroup;
+        if (this.bax == null) {
+            this.bax = viewGroup;
         }
         com.baidu.tbadk.coreExtra.relationship.b bVar = (com.baidu.tbadk.coreExtra.relationship.b) getItem(i);
         if (bVar != null) {
@@ -69,7 +70,7 @@ public class p extends BaseAdapter {
             qVar = null;
         }
         if (qVar != null) {
-            return qVar.Xm;
+            return qVar.rootView;
         }
         return null;
     }
@@ -77,44 +78,44 @@ public class p extends BaseAdapter {
     private q a(Object obj, com.baidu.tbadk.coreExtra.relationship.b bVar) {
         q qVar;
         if (obj == null) {
-            qVar = Ng();
+            qVar = Or();
         } else {
             qVar = (q) obj;
         }
-        if (this.aWe != null) {
-            this.aWe.a(qVar.Xm, bVar);
+        if (this.baw != null) {
+            this.baw.a(qVar.rootView, bVar);
         }
         a(bVar, qVar, bVar.getUserPortrait());
-        qVar.aEq.setText(bVar.getUserName());
-        if (this.aWg) {
-            qVar.aWh.setVisibility(8);
+        qVar.aFV.setText(bVar.getUserName());
+        if (this.bay) {
+            qVar.baz.setVisibility(8);
         } else {
-            qVar.aWh.setTagData(bVar);
+            qVar.baz.setTagData(bVar);
         }
-        if (this.mContext instanceof InviteFriendListActivity) {
-            ((InviteFriendListActivity) this.mContext).getLayoutMode().h(qVar.Xm);
+        if (this.bau instanceof InviteFriendListActivity) {
+            ((InviteFriendListActivity) this.bau).getLayoutMode().h(qVar.rootView);
         }
         return qVar;
     }
 
     private void a(com.baidu.tbadk.coreExtra.relationship.b bVar, q qVar, String str) {
         if (bVar != null) {
-            qVar.aVK.setTag(str);
-            qVar.aVK.c(str, 12, false);
+            qVar.bab.setTag(str);
+            qVar.bab.d(str, 12, false);
         }
     }
 
-    private q Ng() {
+    private q Or() {
         q qVar = new q(this);
-        qVar.Xm = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.w.invite_friend_list_item, null);
-        qVar.aVK = (HeadImageView) qVar.Xm.findViewById(com.baidu.tieba.v.photo);
-        qVar.aVK.setIsRound(false);
-        qVar.aEq = (TextView) qVar.Xm.findViewById(com.baidu.tieba.v.txt_user_name);
-        qVar.aWh = (TbCheckBox) qVar.Xm.findViewById(com.baidu.tieba.v.ckb_select);
-        if (this.aWd != null) {
-            qVar.aWh.setStatedChangedListener(this.aWd);
+        qVar.rootView = com.baidu.adp.lib.g.b.ek().inflate(this.bau.getPageContext().getContext(), com.baidu.tieba.x.invite_friend_list_item, null);
+        qVar.bab = (HeadImageView) qVar.rootView.findViewById(com.baidu.tieba.w.photo);
+        qVar.bab.setIsRound(false);
+        qVar.aFV = (TextView) qVar.rootView.findViewById(com.baidu.tieba.w.txt_user_name);
+        qVar.baz = (TbCheckBox) qVar.rootView.findViewById(com.baidu.tieba.w.ckb_select);
+        if (this.bav != null) {
+            qVar.baz.setStatedChangedListener(this.bav);
         }
-        qVar.Xm.setTag(qVar);
+        qVar.rootView.setTag(qVar);
         return qVar;
     }
 }

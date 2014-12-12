@@ -2,12 +2,17 @@ package android.support.v4.view;
 
 import android.os.Build;
 import android.view.KeyEvent;
+import android.view.View;
 /* loaded from: classes.dex */
 public class KeyEventCompat {
     static final KeyEventVersionImpl IMPL;
 
     /* loaded from: classes.dex */
     interface KeyEventVersionImpl {
+        boolean dispatch(KeyEvent keyEvent, KeyEvent.Callback callback, Object obj, Object obj2);
+
+        Object getKeyDispatcherState(View view);
+
         boolean isTracking(KeyEvent keyEvent);
 
         boolean metaStateHasModifiers(int i, int i2);
@@ -70,6 +75,16 @@ public class KeyEventCompat {
         public boolean isTracking(KeyEvent keyEvent) {
             return false;
         }
+
+        @Override // android.support.v4.view.KeyEventCompat.KeyEventVersionImpl
+        public Object getKeyDispatcherState(View view) {
+            return null;
+        }
+
+        @Override // android.support.v4.view.KeyEventCompat.KeyEventVersionImpl
+        public boolean dispatch(KeyEvent keyEvent, KeyEvent.Callback callback, Object obj, Object obj2) {
+            return keyEvent.dispatch(callback);
+        }
     }
 
     /* loaded from: classes.dex */
@@ -85,6 +100,16 @@ public class KeyEventCompat {
         @Override // android.support.v4.view.KeyEventCompat.BaseKeyEventVersionImpl, android.support.v4.view.KeyEventCompat.KeyEventVersionImpl
         public boolean isTracking(KeyEvent keyEvent) {
             return KeyEventCompatEclair.isTracking(keyEvent);
+        }
+
+        @Override // android.support.v4.view.KeyEventCompat.BaseKeyEventVersionImpl, android.support.v4.view.KeyEventCompat.KeyEventVersionImpl
+        public Object getKeyDispatcherState(View view) {
+            return KeyEventCompatEclair.getKeyDispatcherState(view);
+        }
+
+        @Override // android.support.v4.view.KeyEventCompat.BaseKeyEventVersionImpl, android.support.v4.view.KeyEventCompat.KeyEventVersionImpl
+        public boolean dispatch(KeyEvent keyEvent, KeyEvent.Callback callback, Object obj, Object obj2) {
+            return KeyEventCompatEclair.dispatch(keyEvent, callback, obj, obj2);
         }
     }
 
@@ -143,5 +168,13 @@ public class KeyEventCompat {
 
     public static boolean isTracking(KeyEvent keyEvent) {
         return IMPL.isTracking(keyEvent);
+    }
+
+    public static Object getKeyDispatcherState(View view) {
+        return IMPL.getKeyDispatcherState(view);
+    }
+
+    public static boolean dispatch(KeyEvent keyEvent, KeyEvent.Callback callback, Object obj, Object obj2) {
+        return IMPL.dispatch(keyEvent, callback, obj, obj2);
     }
 }

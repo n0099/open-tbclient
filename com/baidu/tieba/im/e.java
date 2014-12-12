@@ -1,23 +1,31 @@
 package com.baidu.tieba.im;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TiebaIMConfig;
 /* loaded from: classes.dex */
 public class e {
-    private static final BdUniqueId aNs = BdUniqueId.gen();
-
-    public static <T> void a(b<T> bVar, a<T> aVar) {
-        if (bVar != null) {
-            f fVar = new f(bVar, aVar);
-            fVar.setParallel(TiebaIMConfig.getParallel());
-            fVar.setTag(aNs);
-            fVar.setPriority(4);
-            fVar.execute(new String[0]);
-        }
+    public static com.baidu.tbadk.task.b b(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
+        com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(i);
+        bVar.setResponsedClass(cls);
+        bVar.j(z);
+        bVar.setParallel(TiebaIMConfig.getParallel());
+        MessageManager.getInstance().registerTask(bVar);
+        return bVar;
     }
 
-    public static void Jo() {
-        BdAsyncTask.removeAllTask(aNs);
+    public static com.baidu.tbadk.task.a b(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
+        try {
+            com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(i, cls.newInstance());
+            MessageManager.getInstance().registerTask(aVar);
+            return aVar;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+            return null;
+        } catch (InstantiationException e2) {
+            e2.printStackTrace();
+            return null;
+        }
     }
 }

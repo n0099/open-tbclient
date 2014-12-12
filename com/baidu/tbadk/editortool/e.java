@@ -5,11 +5,11 @@ public abstract class e implements Comparable<e> {
 
     public abstract int getIndex();
 
-    protected abstract void op();
+    protected abstract void register();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e() {
-        op();
+        register();
     }
 
     /* JADX DEBUG: Method merged with bridge method */

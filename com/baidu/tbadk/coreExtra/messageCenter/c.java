@@ -13,9 +13,8 @@ class c extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Object data;
-        if (customResponsedMessage == null || (data = customResponsedMessage.getData()) == null || !(data instanceof Boolean)) {
-            return;
+        if (customResponsedMessage != null && (data = customResponsedMessage.getData()) != null && (data instanceof Boolean)) {
+            a.Rc = ((Boolean) data).booleanValue();
         }
-        a.LA = ((Boolean) data).booleanValue();
     }
 }

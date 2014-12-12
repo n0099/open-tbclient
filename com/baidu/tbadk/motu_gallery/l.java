@@ -7,34 +7,34 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l extends Thread {
-    final /* synthetic */ JigsawAlbumActivity Wz;
+    final /* synthetic */ JigsawAlbumActivity acF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(JigsawAlbumActivity jigsawAlbumActivity) {
-        this.Wz = jigsawAlbumActivity;
+        this.acF = jigsawAlbumActivity;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         byte[] bArr;
         ArrayList arrayList;
-        c cZ;
+        c dw;
         Map map;
         u uVar;
         Map map2;
-        bArr = this.Wz.Wt;
+        bArr = this.acF.acz;
         synchronized (bArr) {
             try {
-                arrayList = this.Wz.Wi;
+                arrayList = this.acF.acn;
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
-                    cZ = this.Wz.cZ(((c) it.next()).type);
-                    map = this.Wz.Wj;
-                    if (!map.containsKey(cZ.path)) {
-                        uVar = this.Wz.Wm;
-                        Bitmap a = uVar.a(this.Wz, cZ, this.Wz.s(70.0f));
-                        map2 = this.Wz.Wj;
-                        map2.put(cZ.path, a);
+                    dw = this.acF.dw(((c) it.next()).type);
+                    map = this.acF.aco;
+                    if (!map.containsKey(dw.path)) {
+                        uVar = this.acF.acr;
+                        Bitmap a = uVar.a(this.acF.getPageContext().getPageActivity(), dw, this.acF.dip2px(70.0f));
+                        map2 = this.acF.aco;
+                        map2.put(dw.path, a);
                     }
                 }
             } catch (Exception e) {

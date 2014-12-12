@@ -1,48 +1,21 @@
 package com.baidu.tieba.pb.main;
 
-import android.widget.LinearLayout;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ax implements com.baidu.adp.lib.e.c<LinearLayout> {
-    final /* synthetic */ PbActivity bvu;
+public class ax implements View.OnClickListener {
+    final /* synthetic */ PbActivity bzj;
+    private final /* synthetic */ com.baidu.tbadk.coreExtra.share.f bzs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(PbActivity pbActivity) {
-        this.bvu = pbActivity;
+    public ax(PbActivity pbActivity, com.baidu.tbadk.coreExtra.share.f fVar) {
+        this.bzj = pbActivity;
+        this.bzs = fVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: Wz */
-    public LinearLayout ee() {
-        LinearLayout linearLayout = new LinearLayout(this.bvu);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        linearLayout.setLayoutParams(layoutParams);
-        linearLayout.setGravity(16);
-        linearLayout.setBaselineAligned(true);
-        linearLayout.setOrientation(0);
-        linearLayout.setLayoutParams(layoutParams);
-        return linearLayout;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: a */
-    public void i(LinearLayout linearLayout) {
-        linearLayout.removeAllViews();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: b */
-    public LinearLayout j(LinearLayout linearLayout) {
-        return linearLayout;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: c */
-    public LinearLayout k(LinearLayout linearLayout) {
-        linearLayout.removeAllViews();
-        return linearLayout;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.adp.lib.util.a.copyToClipboard(this.bzs.SJ);
+        com.baidu.adp.lib.util.l.showToast(this.bzj.getPageContext().getPageActivity(), view.getResources().getString(com.baidu.tieba.z.copy_pb_url_success));
     }
 }

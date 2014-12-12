@@ -5,11 +5,11 @@ import android.os.IInterface;
 public interface d extends IInterface {
     void a(LiveStatusParcelable liveStatusParcelable);
 
-    void cU(int i);
+    void onLiveErrorEvent(String str);
 
-    void cV(int i);
+    void onLivePlayProgressUpdate(String str, int i, int i2);
 
-    void dB(String str);
+    void onLivePlayWarning(int i);
 
-    void e(String str, int i, int i2);
+    void onLiveRecordTimeUpdate(int i);
 }

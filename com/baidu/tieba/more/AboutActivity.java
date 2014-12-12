@@ -1,124 +1,122 @@
 package com.baidu.tieba.more;
 
-import android.content.Context;
-import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.pluginArch.Plugin;
-import com.baidu.tbadk.pluginArch.PluginCenter;
-import com.baidu.tbadk.pluginArch.PluginNameList;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AboutActivityConfig;
+import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 import com.baidu.tbadk.plugins.Hao123Plugin;
-import com.baidu.tieba.UpdateDialog;
-import com.baidu.tieba.model.bb;
 import java.util.Date;
 /* loaded from: classes.dex */
-public class AboutActivity extends BaseActivity {
-    private d bqe;
-    private com.baidu.tieba.model.a bqf;
-    private c bqg = null;
-    private String bqh = String.valueOf(com.baidu.tieba.data.e.ajC) + "mo/q/topic_page/110_1";
+public class AboutActivity extends BaseActivity<AboutActivity> {
+    private d bts;
+    private com.baidu.tieba.model.a btt;
+    private c btu = null;
+    private String btv = String.valueOf(com.baidu.tbadk.data.b.SERVER_ADDRESS_WEB_VIEW) + TbConfig.FUNCTION_INTRO_WEBVIEW;
 
-    public static void ae(Context context) {
-        context.startActivity(new Intent(context, AboutActivity.class));
+    static {
+        TbadkCoreApplication.m255getInst().RegisterIntent(AboutActivityConfig.class, AboutActivity.class);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bqe = new d(this, new a(this));
-        this.bqe.Ug();
-        nY();
+        this.bts = new d(this, new a(this));
+        this.bts.Uu();
+        regReceiver();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.bqe != null) {
-            this.bqe.Ug();
+        if (this.bts != null) {
+            this.bts.Uu();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        Jx();
-        if (this.bqf != null) {
-            this.bqf.cancelLoadData();
+        unregReceiver();
+        if (this.btt != null) {
+            this.btt.cancelLoadData();
         }
-        if (this.bqe != null) {
-            this.bqe.hideProgress();
+        if (this.bts != null) {
+            this.bts.hideProgress();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.bqe != null) {
-            this.bqe.cu(i);
+        if (this.bts != null) {
+            this.bts.cT(i);
         }
     }
 
     public void checkUpdata() {
-        if (this.bqf == null) {
-            this.bqf = new com.baidu.tieba.model.a(this, new b(this));
+        if (this.btt == null) {
+            this.btt = new com.baidu.tieba.model.a(this, new b(this));
         } else {
-            this.bqf.cancelLoadData();
+            this.btt.cancelLoadData();
         }
-        this.bqf.Td();
-        if (this.bqe != null) {
-            this.bqe.Uf();
+        this.btt.TW();
+        if (this.bts != null) {
+            this.bts.Ut();
         }
     }
 
-    public void x(Object obj) {
-        Hao123Plugin hao123Plugin;
-        if (this.bqe != null) {
-            this.bqe.hideProgress();
+    public void E(Object obj) {
+        if (this.bts != null) {
+            this.bts.hideProgress();
         }
-        bb bbVar = obj != null ? (bb) obj : null;
-        if (bbVar != null) {
-            com.baidu.tieba.aj.wm().a(bbVar.Ud());
-            TbadkApplication.m251getInst().refreshNewVersion(false);
-            if (bbVar.Ud().hasNewVer()) {
-                if (bbVar.Ud().forceUpdate()) {
-                    UpdateDialog.a(com.baidu.tieba.aj.wm().getApp(), bbVar.Ud(), bbVar.Uc());
+        com.baidu.tbadk.coreExtra.c.g gVar = obj != null ? (com.baidu.tbadk.coreExtra.c.g) obj : null;
+        if (gVar != null) {
+            TbadkCoreApplication.m255getInst().setVersionData(gVar.sp());
+            TbadkCoreApplication.m255getInst().refreshNewVersion(false);
+            if (gVar.sp().hasNewVer()) {
+                if (gVar.sp().forceUpdate()) {
+                    sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.m255getInst().getApp(), gVar.sp(), gVar.so())));
                 } else {
-                    TbadkApplication.m251getInst().setUpdateNotifyTime(Long.valueOf(new Date().getTime()).longValue());
-                    UpdateDialog.a(com.baidu.tieba.aj.wm().getApp(), bbVar.Ud(), bbVar.Uc());
+                    Long valueOf = Long.valueOf(new Date().getTime());
+                    CustomMessage customMessage = new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.m255getInst().getApp(), gVar.sp(), gVar.so()));
+                    TbadkCoreApplication.m255getInst().setUpdateNotifyTime(valueOf.longValue());
+                    sendMessage(customMessage);
                 }
             } else {
-                showToast(getResources().getString(com.baidu.tieba.y.neednot_update));
+                showToast(getResources().getString(com.baidu.tieba.z.neednot_update));
             }
-            if (this.bqe != null) {
-                this.bqe.Ug();
+            if (this.bts != null) {
+                this.bts.Uu();
             }
-            if (!TbadkApplication.m251getInst().isHao123HelperShouldOpen() && TbadkApplication.m251getInst().isTiebaHelperOpen()) {
-                TbadkApplication.m251getInst().setTiebaHelperOpen(false);
-                Plugin pluginByName = PluginCenter.getInstance().getPluginByName(PluginNameList.NAME_HAO123);
-                if (pluginByName != null && pluginByName.checkEnable() && (hao123Plugin = (Hao123Plugin) pluginByName.getClassInstance(Hao123Plugin.class)) != null) {
-                    hao123Plugin.closeFloating(this);
+            if (!TbadkCoreApplication.m255getInst().isHao123HelperShouldOpen() && TbadkCoreApplication.m255getInst().isTiebaHelperOpen()) {
+                TbadkCoreApplication.m255getInst().setTiebaHelperOpen(false);
+                Hao123Plugin hao123Plugin = (Hao123Plugin) PluginCenter.gX().hc();
+                if (hao123Plugin != null) {
+                    hao123Plugin.closeFloating(getPageContext().getPageActivity());
                     return;
                 }
                 return;
             }
             return;
         }
-        showToast(getResources().getString(com.baidu.tieba.y.neterror));
+        showToast(getResources().getString(com.baidu.tieba.z.neterror));
     }
 
-    private void nY() {
-        this.bqg = new c(this, null);
+    private void regReceiver() {
+        this.btu = new c(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
-        registerReceiver(this.bqg, intentFilter);
+        registerReceiver(this.btu, intentFilter);
     }
 
-    private void Jx() {
-        if (this.bqg != null) {
-            unregisterReceiver(this.bqg);
+    private void unregReceiver() {
+        if (this.btu != null) {
+            unregisterReceiver(this.btu);
         }
     }
 }

@@ -1,32 +1,46 @@
 package com.baidu.tieba.person;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.widget.ProgressBar;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.coreExtra.view.MultiImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class az implements com.baidu.adp.widget.ListView.f {
-    final /* synthetic */ at bCN;
+public class az implements DialogInterface.OnClickListener {
+    final /* synthetic */ PersonImageActivity bGv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public az(at atVar) {
-        this.bCN = atVar;
+    public az(PersonImageActivity personImageActivity) {
+        this.bGv = personImageActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.f
-    public void H(boolean z) {
-        PersonFriendActivity aab;
-        bd bdVar;
-        boolean z2;
-        PersonFriendActivity aab2;
-        int i;
-        int i2;
-        aab = this.bCN.aab();
-        if (aab != null) {
-            this.bCN.pageNum = 0;
-            this.bCN.bCI = true;
-            bdVar = this.bCN.bCE;
-            z2 = this.bCN.mIsHost;
-            aab2 = this.bCN.aab();
-            String uid = aab2.getUid();
-            i = this.bCN.pageNum;
-            i2 = this.bCN.bCK;
-            bdVar.a(z2, uid, i, i2);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        AlertDialog listMenu;
+        MultiImageView multiImageView;
+        MultiImageView multiImageView2;
+        bb bbVar;
+        ProgressBar progressBar;
+        listMenu = this.bGv.getListMenu();
+        if (dialogInterface == listMenu && i == 0) {
+            try {
+                multiImageView = this.bGv.aPU;
+                byte[] currentImageData = multiImageView.getCurrentImageData();
+                if (currentImageData != null) {
+                    multiImageView2 = this.bGv.aPU;
+                    String currentImageUrl = multiImageView2.getCurrentImageUrl();
+                    this.bGv.bGu = new bb(this.bGv, currentImageUrl, currentImageData);
+                    bbVar = this.bGv.bGu;
+                    bbVar.execute(new String[0]);
+                    progressBar = this.bGv.mProgress;
+                    progressBar.setVisibility(0);
+                } else {
+                    this.bGv.showToast(this.bGv.getPageContext().getString(com.baidu.tieba.z.no_data));
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
     }
 }

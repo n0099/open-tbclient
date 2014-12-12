@@ -1,29 +1,24 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-class h extends CustomMessageListener {
-    final /* synthetic */ FrsActivity aBu;
+class h implements SlidingMenu.OnClosedListener {
+    final /* synthetic */ FrsActivity aCV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h(FrsActivity frsActivity, int i) {
-        super(i);
-        this.aBu = frsActivity;
+    public h(FrsActivity frsActivity) {
+        this.aCV = frsActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        bu buVar;
-        bu buVar2;
-        if (customResponsedMessage != null) {
-            buVar = this.aBu.aAF;
-            if (buVar != null) {
-                buVar2 = this.aBu.aAF;
-                buVar2.hO();
-            }
+    @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
+    public void onClosed() {
+        bq bqVar;
+        bq bqVar2;
+        bqVar = this.aCV.aBX;
+        if (bqVar.Go().GW()) {
+            bqVar2 = this.aCV.aBX;
+            bqVar2.Go().bU(false);
+            this.aCV.refresh();
         }
     }
 }

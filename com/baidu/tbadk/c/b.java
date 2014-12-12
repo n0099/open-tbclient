@@ -1,16 +1,27 @@
 package com.baidu.tbadk.c;
 
+import android.graphics.drawable.Drawable;
 import android.view.View;
-import android.widget.FrameLayout;
 /* loaded from: classes.dex */
 public class b implements c {
-    @Override // com.baidu.tbadk.c.c
-    public void a(View view, View view2, boolean z) {
-        FrameLayout frameLayout = (FrameLayout) view;
-        if (z) {
-            frameLayout.addView(view2, 0);
-        } else {
-            frameLayout.addView(view2);
-        }
+    private View.OnClickListener mClickListener;
+    private Drawable mIcon;
+    private int mPosition;
+    private String mTitle;
+
+    public void setPosition(int i) {
+        this.mPosition = i;
+    }
+
+    public void setIcon(Drawable drawable) {
+        this.mIcon = drawable;
+    }
+
+    public void setTitle(String str) {
+        this.mTitle = str;
+    }
+
+    public void d(View.OnClickListener onClickListener) {
+        this.mClickListener = onClickListener;
     }
 }

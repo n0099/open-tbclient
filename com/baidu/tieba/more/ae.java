@@ -1,31 +1,26 @@
 package com.baidu.tieba.more;
-
-import com.squareup.wire.Wire;
-import tbclient.Profile.ProfileResIdl;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ae implements com.baidu.adp.lib.cache.u<byte[]> {
-    final /* synthetic */ ac brm;
+public class ae implements Runnable {
+    final /* synthetic */ ad buB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(ac acVar) {
-        this.brm = acVar;
+    public ae(ad adVar) {
+        this.buB = adVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.cache.u
-    /* renamed from: i */
-    public void d(String str, byte[] bArr) {
-        boolean z;
-        if (bArr != null) {
-            try {
-                this.brm.a(((ProfileResIdl) new Wire(new Class[0]).parseFrom(bArr, ProfileResIdl.class)).data);
-                z = true;
-            } catch (Exception e) {
-                z = false;
-            }
-            if (z) {
-                this.brm.mUIHandler.post(new af(this));
-            }
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        ab abVar;
+        ab abVar2;
+        ab abVar3;
+        com.baidu.adp.base.i iVar;
+        abVar = this.buB.buA;
+        abVar.mLoadDataMode = 2;
+        abVar2 = this.buB.buA;
+        abVar2.setErrorString(null);
+        abVar3 = this.buB.buA;
+        iVar = abVar3.mLoadDataCallBack;
+        iVar.c(true);
     }
 }

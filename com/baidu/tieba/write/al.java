@@ -7,11 +7,11 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import java.util.Date;
 /* loaded from: classes.dex */
 class al implements TimePickerDialog.OnTimeSetListener {
-    final /* synthetic */ WriteActivity bUm;
+    final /* synthetic */ WriteActivity cft;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(WriteActivity writeActivity) {
-        this.bUm = writeActivity;
+        this.cft = writeActivity;
     }
 
     @Override // android.app.TimePickerDialog.OnTimeSetListener
@@ -23,22 +23,22 @@ class al implements TimePickerDialog.OnTimeSetListener {
         TextView textView;
         WriteData writeData5;
         WriteData writeData6;
-        writeData = this.bUm.bpJ;
+        writeData = this.cft.bNF;
         if (writeData.getLiveCardData() != null) {
             Date date = new Date();
             Date date2 = new Date(date.getYear(), date.getMonth(), date.getDate(), i, i2);
-            writeData2 = this.bUm.bpJ;
+            writeData2 = this.cft.bNF;
             long startTime = writeData2.getLiveCardData().getStartTime();
-            writeData3 = this.bUm.bpJ;
+            writeData3 = this.cft.bNF;
             writeData3.getLiveCardData().setStartTime(date2.getTime() / 1000);
-            writeData4 = this.bUm.bpJ;
+            writeData4 = this.cft.bNF;
             if (startTime / 60 != writeData4.getLiveCardData().getStartTime() / 60) {
-                writeData6 = this.bUm.bpJ;
+                writeData6 = this.cft.bNF;
                 writeData6.getLiveCardData().setModifyTime(true);
             }
-            textView = this.bUm.bUd;
-            writeData5 = this.bUm.bpJ;
-            textView.setText(com.baidu.tbadk.core.util.az.k(writeData5.getLiveCardData().getStartTime() * 1000));
+            textView = this.cft.cfk;
+            writeData5 = this.cft.bNF;
+            textView.setText(com.baidu.tbadk.core.util.ba.o(writeData5.getLiveCardData().getStartTime() * 1000));
         }
     }
 }

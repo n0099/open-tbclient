@@ -1,13 +1,13 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
+import com.baidu.tbadk.util.ChatStatusManager;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.MemoryChangedMessage;
 import com.baidu.tieba.im.message.MemoryInitCompleteMessage;
@@ -16,17 +16,20 @@ import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
 import com.baidu.tieba.im.model.OfficialBarTipModel;
 import java.util.List;
 /* loaded from: classes.dex */
-public class OfficialBarTipActivity extends BaseActivity {
-    public static boolean isOpen = false;
-    private final CustomMessageListener aQO = new ap(this, 0);
-    private com.baidu.tieba.im.chat.notify.a aQP = new aq(this);
-    private OfficialBarTipModel aSg;
-    private au aSh;
+public class OfficialBarTipActivity extends BaseActivity<OfficialBarTipActivity> {
+    private final CustomMessageListener aSs = new ai(this, 0);
+    private com.baidu.tieba.im.chat.notify.a aSt = new aj(this);
+    private ao aTA;
+    private OfficialBarTipModel aTz;
 
-    public static void ac(Context context) {
-        if (context != null) {
-            context.startActivity(new Intent(context, OfficialBarTipActivity.class));
-        }
+    static {
+        Kv();
+    }
+
+    private static void Kv() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2008022, new ak());
+        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -38,17 +41,17 @@ public class OfficialBarTipActivity extends BaseActivity {
     }
 
     private void registerListener() {
-        registerListener(2016003, this.aQO);
-        registerListener(2016006, this.aQO);
-        registerListener(2016000, this.aQO);
-        registerListener(2016011, this.aQO);
-        registerListener(2016001, this.aQO);
+        registerListener(2016003, this.aSs);
+        registerListener(2016006, this.aSs);
+        registerListener(2016000, this.aSs);
+        registerListener(2016011, this.aSs);
+        registerListener(2016001, this.aSs);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.aSh.KC().notifyDataSetChanged();
+        this.aTA.KK().notifyDataSetChanged();
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new com.baidu.tbadk.live.message.a("-1000", -8)));
     }
 
@@ -58,37 +61,37 @@ public class OfficialBarTipActivity extends BaseActivity {
     }
 
     private void initData() {
-        this.aSg = new OfficialBarTipModel(this);
+        this.aTz = new OfficialBarTipModel(getPageContext());
     }
 
     @Override // android.app.Activity
     protected void onRestart() {
         super.onRestart();
-        isOpen = true;
+        ChatStatusManager.getInst().setIsOpen(4, true);
     }
 
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        isOpen = true;
+        ChatStatusManager.getInst().setIsOpen(4, true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        isOpen = false;
+        ChatStatusManager.getInst().setIsOpen(4, false);
     }
 
     private void initUI() {
-        this.aSh = new au(this);
-        this.aSh.ET().setOnItemClickListener(new ar(this));
-        this.aSh.ET().setOnItemLongClickListener(new as(this));
+        this.aTA = new ao(this);
+        this.aTA.getBdListView().setOnItemClickListener(new al(this));
+        this.aTA.getBdListView().setOnItemLongClickListener(new am(this));
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.aSh.onChangeSkinType(i);
+        this.aTA.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -104,11 +107,11 @@ public class OfficialBarTipActivity extends BaseActivity {
             MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
             ImMessageCenterPojo data = memoryChangedMessage.getData();
             if (memoryChangedMessage.getType() == 1) {
-                if (this.aSg != null) {
-                    this.aSg.insertOrUpdate(data, this.aQP);
+                if (this.aTz != null) {
+                    this.aTz.insertOrUpdate(data, this.aSt);
                 }
-            } else if (memoryChangedMessage.getType() == 2 && this.aSg != null) {
-                this.aSg.remove(data, this.aQP);
+            } else if (memoryChangedMessage.getType() == 2 && this.aTz != null) {
+                this.aTz.remove(data, this.aSt);
             }
         }
     }
@@ -118,8 +121,8 @@ public class OfficialBarTipActivity extends BaseActivity {
         if (customResponsedMessage instanceof ResponsedMemoryListMessage) {
             ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
             List<ImMessageCenterPojo> data = responsedMemoryListMessage.getData();
-            if (responsedMemoryListMessage.getType() == 2 && this.aSg != null) {
-                this.aSg.setData(data, this.aQP);
+            if (responsedMemoryListMessage.getType() == 2 && this.aTz != null) {
+                this.aTz.setData(data, this.aSt);
             }
         }
     }

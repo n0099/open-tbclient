@@ -1,10 +1,13 @@
 package com.baidu.android.glview;
 
 import android.content.Context;
+import android.graphics.SurfaceTexture;
+import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.support.v4.view.MotionEventCompat;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.view.Surface;
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
@@ -20,11 +23,15 @@ public class GL2RenderJNIView extends GLSurfaceView {
     public static final int DISPLAY_SCALE_TO_FIT = 2;
     public static final int DISPLAY_SCALE_TO_FIT_WITH_CROPPING = 1;
     private static String TAG = "GL2JNIView";
-    private static boolean mfixed = false;
-    private static boolean mloaded = false;
     private int mActionState;
     private int mAspectRatio;
+    public Renderer mRender;
     private int mScaleMode;
+    public Surface mSurface;
+    int mSurfaceTexID;
+    SurfaceTexture mSurfaceTexture;
+    private boolean mfixed;
+    private boolean mloaded;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -133,28 +140,52 @@ public class GL2RenderJNIView extends GLSurfaceView {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class Renderer implements GLSurfaceView.Renderer {
-        private Renderer() {
+    public class Renderer implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView.Renderer {
+        public boolean mAllocSurfaceTex;
+        protected GL2RenderJNIView m_SurfaceView;
+        private boolean mUpdateSurfaceTex = false;
+        private float[] mSTMatrix = new float[16];
+        public int m_hRender = GL2JNILib.create();
+
+        public Renderer(GL2RenderJNIView gL2RenderJNIView) {
+            this.mAllocSurfaceTex = false;
+            this.m_SurfaceView = gL2RenderJNIView;
+            this.mAllocSurfaceTex = false;
         }
 
         @Override // android.opengl.GLSurfaceView.Renderer
         public void onDrawFrame(GL10 gl10) {
-            if (GL2RenderJNIView.mloaded) {
-                GL2JNILib.render();
+            if (GL2RenderJNIView.this.mSurfaceTexID > 0 && this.mUpdateSurfaceTex) {
+                GL2RenderJNIView.this.mSurfaceTexture.updateTexImage();
+                GL2RenderJNIView.this.mSurfaceTexture.getTransformMatrix(this.mSTMatrix);
+                GLES20.glUniformMatrix4fv(GL2JNILib.getSTMatrixHandle(this.m_hRender), 1, false, this.mSTMatrix, 0);
+                Log.w(GL2RenderJNIView.TAG, String.format("%s%d\n", "start ondraw frame", Integer.valueOf(GL2RenderJNIView.this.mSurfaceTexID)));
             }
+            GL2JNILib.render(this.m_hRender);
+        }
+
+        @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
+        public void onFrameAvailable(SurfaceTexture surfaceTexture) {
+            Log.i(GL2RenderJNIView.TAG, String.format("onFrameAvailable:=======\n", new Object[0]));
+            this.mUpdateSurfaceTex = true;
+            this.m_SurfaceView.requestRender();
         }
 
         @Override // android.opengl.GLSurfaceView.Renderer
         public void onSurfaceChanged(GL10 gl10, int i, int i2) {
-            GL2JNILib.setviewport(i, i2);
-            GL2JNILib.ratio(GL2RenderJNIView.this.mAspectRatio);
-            GL2JNILib.stretch(GL2RenderJNIView.this.mScaleMode);
-            boolean unused = GL2RenderJNIView.mloaded = true;
+            GL2JNILib.setviewport(this.m_hRender, i, i2);
+            GL2JNILib.ratio(this.m_hRender, GL2RenderJNIView.this.mAspectRatio);
+            GL2JNILib.stretch(this.m_hRender, GL2RenderJNIView.this.mScaleMode);
         }
 
         @Override // android.opengl.GLSurfaceView.Renderer
         public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
-            GL2JNILib.init();
+            GL2JNILib.init(this.m_hRender, this.m_SurfaceView);
+            GL2RenderJNIView.this.mloaded = true;
+        }
+
+        public void setSurfaceTexture(Surface surface, int i) {
+            GL2JNILib.setSurfaceTex(this.m_hRender, surface, i);
         }
     }
 
@@ -162,6 +193,8 @@ public class GL2RenderJNIView extends GLSurfaceView {
         super(context);
         this.mAspectRatio = 0;
         this.mScaleMode = 1;
+        this.mfixed = false;
+        this.mloaded = false;
         init(false, 0, 0);
     }
 
@@ -169,6 +202,8 @@ public class GL2RenderJNIView extends GLSurfaceView {
         super(context);
         this.mAspectRatio = 0;
         this.mScaleMode = 1;
+        this.mfixed = false;
+        this.mloaded = false;
         init(z, i, i2);
     }
 
@@ -189,16 +224,24 @@ public class GL2RenderJNIView extends GLSurfaceView {
         }
         setEGLContextFactory(new ContextFactory());
         setEGLConfigChooser(!z ? new ConfigChooser(8, 8, 8, 8, i, i2) : new ConfigChooser(5, 6, 5, 0, i, i2));
-        setRenderer(new Renderer());
+        this.mRender = new Renderer(this);
+        setRenderer(this.mRender);
+        setRenderMode(0);
+        this.mSurface = null;
+        this.mSurfaceTexture = null;
+    }
+
+    public int GetRenderHandle() {
+        return this.mRender.m_hRender;
     }
 
     public void close() {
-        mloaded = false;
-        GL2JNILib.close();
+        this.mloaded = false;
+        GL2JNILib.close(this.mRender.m_hRender);
     }
 
     public Boolean getFixed() {
-        return Boolean.valueOf(mfixed);
+        return Boolean.valueOf(this.mfixed);
     }
 
     public int getRatio() {
@@ -209,10 +252,18 @@ public class GL2RenderJNIView extends GLSurfaceView {
         return this.mScaleMode;
     }
 
+    public void initSurfaceTex(int i) {
+        this.mSurfaceTexID = i;
+        this.mSurfaceTexture = new SurfaceTexture(this.mSurfaceTexID);
+        this.mSurfaceTexture.setOnFrameAvailableListener(this.mRender);
+        this.mSurface = new Surface(this.mSurfaceTexture);
+        this.mRender.setSurfaceTexture(this.mSurface, this.mSurfaceTexID);
+    }
+
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         float x;
-        if (!mfixed) {
+        if (!this.mfixed) {
             float f = 0.0f;
             float x2 = motionEvent.getX(0);
             float y = motionEvent.getY(0);
@@ -229,20 +280,27 @@ public class GL2RenderJNIView extends GLSurfaceView {
             if (this.mActionState == 6) {
                 this.mActionState = 0;
             }
-            GL2JNILib.transform(x2, x, y, f, motionEvent.getAction() & MotionEventCompat.ACTION_MASK);
+            GL2JNILib.transform(this.mRender.m_hRender, x2, x, y, f, motionEvent.getAction() & MotionEventCompat.ACTION_MASK);
         }
         return false;
     }
 
+    public void releaseSurfaceTex() {
+        this.mSurfaceTexture.release();
+        this.mSurface.release();
+        this.mSurfaceTexture = null;
+        this.mSurface = null;
+    }
+
     public void setFixed(Boolean bool) {
-        mfixed = bool.booleanValue();
+        this.mfixed = bool.booleanValue();
     }
 
     public void setRatio(int i) {
         if (this.mAspectRatio != i) {
             this.mAspectRatio = i;
-            if (mloaded) {
-                GL2JNILib.ratio(this.mAspectRatio);
+            if (this.mloaded) {
+                GL2JNILib.ratio(this.mRender.m_hRender, this.mAspectRatio);
             }
         }
     }
@@ -250,8 +308,8 @@ public class GL2RenderJNIView extends GLSurfaceView {
     public void setStretch(int i) {
         if (this.mScaleMode != i) {
             this.mScaleMode = i;
-            if (mloaded) {
-                GL2JNILib.stretch(this.mScaleMode);
+            if (this.mloaded) {
+                GL2JNILib.stretch(this.mRender.m_hRender, this.mScaleMode);
             }
         }
     }

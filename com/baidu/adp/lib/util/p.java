@@ -1,82 +1,106 @@
 package com.baidu.adp.lib.util;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteStatement;
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.Reader;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes.dex */
-public class p {
-    public static void a(InputStream inputStream) {
-        if (inputStream != null) {
-            try {
-                inputStream.close();
-            } catch (IOException e) {
-                BdLog.e(e.getMessage());
+abstract class p implements Iterator<E> {
+    final /* synthetic */ BlockingLinkedDeque nA;
+    E nextItem;
+    s<E> ny;
+    private s<E> nz;
+
+    abstract s<E> c(s<E> sVar);
+
+    abstract s<E> fA();
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: E */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: E */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v7, resolved type: E */
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: Multi-variable type inference failed */
+    public p(BlockingLinkedDeque blockingLinkedDeque) {
+        this.nA = blockingLinkedDeque;
+        ReentrantLock reentrantLock = blockingLinkedDeque.lock;
+        reentrantLock.lock();
+        try {
+            this.ny = fA();
+            this.nextItem = this.ny == null ? 0 : this.ny.item;
+        } finally {
+            reentrantLock.unlock();
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:0:?, code lost:
+        r3 = r3;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private s<E> d(s<E> sVar) {
+        Object obj;
+        while (true) {
+            s<E> c = c(obj);
+            if (c == 0) {
+                return null;
+            }
+            if (c.item == 0) {
+                if (c == obj) {
+                    return fA();
+                }
+                obj = c;
+            } else {
+                return c;
             }
         }
     }
 
-    public static void a(Closeable closeable) {
-        if (closeable != null) {
-            try {
-                closeable.close();
-            } catch (Throwable th) {
-                BdLog.e(th.getMessage());
-            }
+    /* JADX DEBUG: Multi-variable search result rejected for r0v7, resolved type: E */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v8, resolved type: E */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v9, resolved type: E */
+    /* JADX WARN: Multi-variable type inference failed */
+    void advance() {
+        ReentrantLock reentrantLock = this.nA.lock;
+        reentrantLock.lock();
+        try {
+            this.ny = d(this.ny);
+            this.nextItem = this.ny == null ? 0 : this.ny.item;
+        } finally {
+            reentrantLock.unlock();
         }
     }
 
-    public static void a(OutputStream outputStream) {
-        if (outputStream != null) {
-            try {
-                outputStream.close();
-            } catch (IOException e) {
-                BdLog.e(e.getMessage());
-            }
-        }
+    @Override // java.util.Iterator
+    public boolean hasNext() {
+        return this.ny != null;
     }
 
-    public static void a(Reader reader) {
-        if (reader != null) {
-            try {
-                reader.close();
-            } catch (IOException e) {
-                BdLog.e(e.getMessage());
-            }
+    @Override // java.util.Iterator
+    public E next() {
+        if (this.ny == null) {
+            throw new NoSuchElementException();
         }
+        this.nz = this.ny;
+        E e = this.nextItem;
+        advance();
+        return e;
     }
 
-    public static void a(Cursor cursor) {
-        if (cursor != null) {
-            try {
-                cursor.close();
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+    @Override // java.util.Iterator
+    public void remove() {
+        s<E> sVar = this.nz;
+        if (sVar == 0) {
+            throw new IllegalStateException();
         }
-    }
-
-    public static void g(SQLiteDatabase sQLiteDatabase) {
-        if (sQLiteDatabase != null) {
-            try {
-                sQLiteDatabase.close();
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        this.nz = null;
+        ReentrantLock reentrantLock = this.nA.lock;
+        reentrantLock.lock();
+        try {
+            if (sVar.item != 0) {
+                this.nA.unlink(sVar);
             }
-        }
-    }
-
-    public static void a(SQLiteStatement sQLiteStatement) {
-        if (sQLiteStatement != null) {
-            try {
-                sQLiteStatement.close();
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+        } finally {
+            reentrantLock.unlock();
         }
     }
 }

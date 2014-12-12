@@ -8,32 +8,32 @@ import java.util.LinkedList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class e {
-    private static e kT;
+    private static e kU;
     private Context mContext;
 
-    public static synchronized e dY() {
+    public static synchronized e dX() {
         e eVar;
         synchronized (e.class) {
-            if (kT == null) {
-                kT = new e();
+            if (kU == null) {
+                kU = new e();
             }
-            eVar = kT;
+            eVar = kU;
         }
         return eVar;
     }
 
     public void init(Context context, boolean z) {
         this.mContext = context;
-        b.kK = z;
+        b.kL = z;
         System.setProperty("http.keepAlive", "false");
     }
 
-    public void X(String str) {
+    public void ac(String str) {
         b.cookie = str;
     }
 
     public void setUserAgent(String str) {
-        b.kL = str;
+        b.kM = str;
     }
 
     public void setUid(String str) {
@@ -42,16 +42,16 @@ public class e {
 
     public f a(String str, boolean z, int i, int i2, int i3, d dVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
         f a = b.a(str, z, i, i3, dVar, aVar, linkedList);
-        if (a != null && a.kU == 206) {
+        if (a != null && a.kV == 206) {
             int length = a.data.length;
             int length2 = a.data.length;
             ArrayList arrayList = new ArrayList();
             arrayList.add(a.data);
             a.data = b.a(str, length, length2, arrayList, i, i2, i3, dVar, aVar, linkedList);
-            a.kU = Constants.MEDIA_INFO;
-        } else if (a != null && a.kU == 413) {
-            a.data = b.a(str, 0L, h.ec(), new ArrayList(), i, i2, i3, dVar, aVar, linkedList);
-            a.kU = a.data != null ? Constants.MEDIA_INFO : a.kU;
+            a.kV = Constants.MEDIA_INFO;
+        } else if (a != null && a.kV == 413) {
+            a.data = b.a(str, 0L, h.eb(), new ArrayList(), i, i2, i3, dVar, aVar, linkedList);
+            a.kV = a.data != null ? Constants.MEDIA_INFO : a.kV;
         }
         if (dVar != null) {
             dVar.a(a);

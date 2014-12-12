@@ -10,7 +10,7 @@ public class TencentMMSwitchStatic extends a {
     public static final int MM_OFF_TYPE = 1;
 
     static {
-        f.db().d(TencentMMSwitchStatic.class);
+        f.dc().l(TencentMMSwitchStatic.class);
         MM_KEY = new String[]{"com.tencent.mm"};
     }
 

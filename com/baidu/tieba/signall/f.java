@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends HttpMessageListener {
-    final /* synthetic */ e bKT;
+    final /* synthetic */ e bPj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(e eVar, int i) {
         super(i);
-        this.bKT = eVar;
+        this.bPj = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,28 +28,28 @@ public class f extends HttpMessageListener {
             int error = httpResponsedMessage.getError();
             if (!httpResponsedMessage.isSuccess()) {
                 String errorString = httpResponsedMessage.getErrorString();
-                gVar5 = this.bKT.bKO;
-                gVar5.fw(errorString);
+                gVar5 = this.bPj.bPe;
+                gVar5.gF(errorString);
             } else if (error == 0) {
-                this.bKT.bKN = ((GetForumResponsed) httpResponsedMessage).listData;
-                gVar2 = this.bKT.bKO;
+                this.bPj.bPd = ((GetForumResponsed) httpResponsedMessage).listData;
+                gVar2 = this.bPj.bPe;
                 if (gVar2 != null) {
-                    bVar = this.bKT.bKN;
+                    bVar = this.bPj.bPd;
                     if (bVar != null) {
-                        gVar4 = this.bKT.bKO;
-                        bVar2 = this.bKT.bKN;
+                        gVar4 = this.bPj.bPe;
+                        bVar2 = this.bPj.bPd;
                         gVar4.a(bVar2);
                     }
                 }
                 String errorString2 = httpResponsedMessage.getErrorString();
-                gVar3 = this.bKT.bKO;
-                gVar3.fw(errorString2);
+                gVar3 = this.bPj.bPe;
+                gVar3.gF(errorString2);
             } else {
                 String errorString3 = httpResponsedMessage.getErrorString();
-                gVar = this.bKT.bKO;
-                gVar.fw(errorString3);
+                gVar = this.bPj.bPe;
+                gVar.gF(errorString3);
             }
-            this.bKT.bKP = null;
+            this.bPj.bPf = null;
         }
     }
 }

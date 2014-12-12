@@ -10,7 +10,7 @@ public abstract class e extends Binder implements d {
         attachInterface(this, "com.baidu.tbadk.live.service.IRemoteCallback");
     }
 
-    public static d b(IBinder iBinder) {
+    public static d c(IBinder iBinder) {
         if (iBinder == null) {
             return null;
         }
@@ -42,22 +42,22 @@ public abstract class e extends Binder implements d {
                 return true;
             case 2:
                 parcel.enforceInterface("com.baidu.tbadk.live.service.IRemoteCallback");
-                dB(parcel.readString());
+                onLiveErrorEvent(parcel.readString());
                 parcel2.writeNoException();
                 return true;
             case 3:
                 parcel.enforceInterface("com.baidu.tbadk.live.service.IRemoteCallback");
-                e(parcel.readString(), parcel.readInt(), parcel.readInt());
+                onLivePlayProgressUpdate(parcel.readString(), parcel.readInt(), parcel.readInt());
                 parcel2.writeNoException();
                 return true;
             case 4:
                 parcel.enforceInterface("com.baidu.tbadk.live.service.IRemoteCallback");
-                cU(parcel.readInt());
+                onLiveRecordTimeUpdate(parcel.readInt());
                 parcel2.writeNoException();
                 return true;
             case 5:
                 parcel.enforceInterface("com.baidu.tbadk.live.service.IRemoteCallback");
-                cV(parcel.readInt());
+                onLivePlayWarning(parcel.readInt());
                 parcel2.writeNoException();
                 return true;
             case 1598968902:

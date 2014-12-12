@@ -1,52 +1,41 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbadkApplication;
+import android.support.v4.view.ViewPager;
+import com.baidu.adp.widget.IndicatorView;
 /* loaded from: classes.dex */
-public abstract class bm<T> extends com.baidu.adp.widget.ListView.a<T> {
-    protected FrsActivity aBz;
-    protected b aCf;
-    protected be aCg;
-    protected int aCh;
-    protected final int aza;
-    protected final int azb;
-    protected ListView aze;
-    protected boolean mIsFromCDN;
-    protected int mSkinType;
+class bm implements ViewPager.OnPageChangeListener {
+    final /* synthetic */ bl aDP;
+    private final /* synthetic */ bo aDQ;
+    private final /* synthetic */ ViewPager aDR;
+    private final /* synthetic */ IndicatorView aDS;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public bm(FrsActivity frsActivity, BdUniqueId bdUniqueId) {
-        super(frsActivity, bdUniqueId);
-        this.mIsFromCDN = false;
-        this.aBz = frsActivity;
-        this.aza = this.mContext.getResources().getDimensionPixelSize(com.baidu.tieba.t.listview_item_margin);
-        this.azb = this.mContext.getResources().getDimensionPixelSize(com.baidu.tieba.t.listview_divider_height);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bm(bl blVar, bo boVar, ViewPager viewPager, IndicatorView indicatorView) {
+        this.aDP = blVar;
+        this.aDQ = boVar;
+        this.aDR = viewPager;
+        this.aDS = indicatorView;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View b(int i, View view, ViewGroup viewGroup, T t) {
-        this.mSkinType = TbadkApplication.m251getInst().getSkinType();
-        this.aze = (ListView) viewGroup;
-        return null;
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
+        int eJ;
+        int eK;
+        eJ = this.aDQ.eJ(i);
+        if (eJ != i) {
+            this.aDR.setCurrentItem(eJ, false);
+        } else if (this.aDS != null) {
+            IndicatorView indicatorView = this.aDS;
+            eK = this.aDQ.eK(i);
+            indicatorView.setPosition(eK);
+        }
     }
 
-    public void setFromCDN(boolean z) {
-        this.mIsFromCDN = z;
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrolled(int i, float f, int i2) {
     }
 
-    public void h(b bVar) {
-        this.aCf = bVar;
-    }
-
-    public void a(be beVar) {
-        this.aCg = beVar;
-    }
-
-    public void eI(int i) {
-        this.aCh = i;
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrollStateChanged(int i) {
     }
 }

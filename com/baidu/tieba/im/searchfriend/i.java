@@ -1,41 +1,28 @@
 package com.baidu.tieba.im.searchfriend;
 
-import android.text.TextUtils;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AbsListView;
 /* loaded from: classes.dex */
-public class i implements View.OnClickListener {
-    final /* synthetic */ h bih;
+class i implements AbsListView.OnScrollListener {
+    final /* synthetic */ SearchFriendActivity bmC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(h hVar) {
-        this.bih = hVar;
+    public i(SearchFriendActivity searchFriendActivity) {
+        this.bmC = searchFriendActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TextView textView;
-        ImageView imageView;
-        EditText editText;
-        TextView textView2;
-        textView = this.bih.bib;
-        if (view == textView) {
-            editText = this.bih.bia;
-            String a = com.baidu.adp.lib.util.l.a(editText.getText(), null);
-            if (TextUtils.isEmpty(a) || a.trim().length() == 0) {
-                return;
-            }
-            this.bih.fz(a.trim());
-            textView2 = this.bih.bib;
-            textView2.setClickable(false);
-            return;
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        View view;
+        if (i == 1) {
+            this.bmC.HidenSoftKeyPad((InputMethodManager) this.bmC.getSystemService("input_method"), this.bmC.getActivity().getWindow().getDecorView());
+            view = this.bmC.bmw;
+            view.clearFocus();
         }
-        imageView = this.bih.bic;
-        if (view == imageView) {
-            this.bih.gC("");
-        }
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

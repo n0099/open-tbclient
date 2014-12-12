@@ -5,15 +5,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class t implements View.OnClickListener {
-    private final /* synthetic */ x WA;
-    final /* synthetic */ s WW;
-    private final /* synthetic */ a WX;
+    private final /* synthetic */ x acG;
+    final /* synthetic */ s adb;
+    private final /* synthetic */ a adc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(s sVar, x xVar, a aVar) {
-        this.WW = sVar;
-        this.WA = xVar;
-        this.WX = aVar;
+        this.adb = sVar;
+        this.acG = xVar;
+        this.adc = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -32,25 +32,25 @@ class t implements View.OnClickListener {
         JigsawAlbumListActivity jigsawAlbumListActivity5;
         r rVar6;
         JigsawAlbumListActivity jigsawAlbumListActivity6;
-        rVar = this.WW.WU;
-        jigsawAlbumListActivity = rVar.WR;
-        u uVar = jigsawAlbumListActivity.Wm;
-        rVar2 = this.WW.WU;
-        jigsawAlbumListActivity2 = rVar2.WR;
-        uVar.b(jigsawAlbumListActivity2, this.WA.getUri());
-        this.WX.setIsSelected(false);
-        rVar3 = this.WW.WU;
-        jigsawAlbumListActivity3 = rVar3.WR;
-        linearLayout = jigsawAlbumListActivity3.Ww;
+        rVar = this.adb.acZ;
+        jigsawAlbumListActivity = rVar.acW;
+        u uVar = jigsawAlbumListActivity.acr;
+        rVar2 = this.adb.acZ;
+        jigsawAlbumListActivity2 = rVar2.acW;
+        uVar.d(jigsawAlbumListActivity2.getPageContext().getContext(), this.acG.getUri());
+        this.adc.setIsSelected(false);
+        rVar3 = this.adb.acZ;
+        jigsawAlbumListActivity3 = rVar3.acW;
+        linearLayout = jigsawAlbumListActivity3.acC;
         linearLayout.removeView(view);
-        rVar4 = this.WW.WU;
-        jigsawAlbumListActivity4 = rVar4.WR;
-        textView = jigsawAlbumListActivity4.Wv;
-        rVar5 = this.WW.WU;
-        jigsawAlbumListActivity5 = rVar5.WR;
-        u uVar2 = jigsawAlbumListActivity5.Wm;
-        rVar6 = this.WW.WU;
-        jigsawAlbumListActivity6 = rVar6.WR;
-        textView.setText(uVar2.E(jigsawAlbumListActivity6));
+        rVar4 = this.adb.acZ;
+        jigsawAlbumListActivity4 = rVar4.acW;
+        textView = jigsawAlbumListActivity4.acB;
+        rVar5 = this.adb.acZ;
+        jigsawAlbumListActivity5 = rVar5.acW;
+        u uVar2 = jigsawAlbumListActivity5.acr;
+        rVar6 = this.adb.acZ;
+        jigsawAlbumListActivity6 = rVar6.acW;
+        textView.setText(uVar2.ab(jigsawAlbumListActivity6.getPageContext().getContext()));
     }
 }

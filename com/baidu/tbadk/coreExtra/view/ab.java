@@ -1,24 +1,28 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class ab implements View.OnClickListener {
-    final /* synthetic */ LiveBroadcastCard OD;
+class ab extends CustomMessageListener {
+    final /* synthetic */ LiveBroadcastCard Up;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(LiveBroadcastCard liveBroadcastCard) {
-        this.OD = liveBroadcastCard;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ab(LiveBroadcastCard liveBroadcastCard, int i) {
+        super(i);
+        this.Up = liveBroadcastCard;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        af afVar;
-        af afVar2;
-        afVar = this.OD.mDeleteListener;
-        if (afVar != null) {
-            afVar2 = this.OD.mDeleteListener;
-            afVar2.p(view);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        long j;
+        if (customResponsedMessage != null) {
+            j = this.Up.mStartTime;
+            if (j <= 0) {
+                return;
+            }
+            this.Up.dealStatusWillStart();
         }
     }
 }

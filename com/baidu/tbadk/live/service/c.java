@@ -62,7 +62,7 @@ class c implements a {
     }
 
     @Override // com.baidu.tbadk.live.service.a
-    public void sw() {
+    public void requestStatusRebroadcast() {
         Parcel obtain = Parcel.obtain();
         Parcel obtain2 = Parcel.obtain();
         try {
@@ -106,7 +106,7 @@ class c implements a {
     }
 
     @Override // com.baidu.tbadk.live.service.a
-    public void a(String str, String str2, String str3, String str4, String str5, String str6) {
+    public void connectAndPublish(String str, String str2, String str3, String str4, String str5, String str6) {
         Parcel obtain = Parcel.obtain();
         Parcel obtain2 = Parcel.obtain();
         try {
@@ -186,7 +186,7 @@ class c implements a {
     }
 
     @Override // com.baidu.tbadk.live.service.a
-    public void o(String str, boolean z) {
+    public void closePublish(String str, boolean z) {
         Parcel obtain = Parcel.obtain();
         Parcel obtain2 = Parcel.obtain();
         try {
@@ -202,7 +202,7 @@ class c implements a {
     }
 
     @Override // com.baidu.tbadk.live.service.a
-    public void dC(String str) {
+    public void startPublish(String str) {
         Parcel obtain = Parcel.obtain();
         Parcel obtain2 = Parcel.obtain();
         try {
@@ -232,7 +232,7 @@ class c implements a {
     }
 
     @Override // com.baidu.tbadk.live.service.a
-    public void c(String str, String str2, int i) {
+    public void startPlay(String str, String str2, int i) {
         Parcel obtain = Parcel.obtain();
         Parcel obtain2 = Parcel.obtain();
         try {
@@ -249,7 +249,7 @@ class c implements a {
     }
 
     @Override // com.baidu.tbadk.live.service.a
-    public void p(String str, boolean z) {
+    public void stopPlay(String str, boolean z) {
         Parcel obtain = Parcel.obtain();
         Parcel obtain2 = Parcel.obtain();
         try {
@@ -265,7 +265,7 @@ class c implements a {
     }
 
     @Override // com.baidu.tbadk.live.service.a
-    public void dD(String str) {
+    public void pausePlay(String str) {
         Parcel obtain = Parcel.obtain();
         Parcel obtain2 = Parcel.obtain();
         try {
@@ -280,7 +280,7 @@ class c implements a {
     }
 
     @Override // com.baidu.tbadk.live.service.a
-    public void dE(String str) {
+    public void resumePlay(String str) {
         Parcel obtain = Parcel.obtain();
         Parcel obtain2 = Parcel.obtain();
         try {
@@ -384,7 +384,7 @@ class c implements a {
     }
 
     @Override // com.baidu.tbadk.live.service.a
-    public void ax(boolean z) {
+    public void stopAnyRunning(boolean z) {
         Parcel obtain = Parcel.obtain();
         Parcel obtain2 = Parcel.obtain();
         try {
@@ -399,7 +399,7 @@ class c implements a {
     }
 
     @Override // com.baidu.tbadk.live.service.a
-    public void a(String str, String str2, String str3, String str4, String str5, String str6, boolean z, boolean z2) {
+    public void playOrRecord(String str, String str2, String str3, String str4, String str5, String str6, boolean z, boolean z2) {
         Parcel obtain = Parcel.obtain();
         Parcel obtain2 = Parcel.obtain();
         try {

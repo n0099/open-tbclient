@@ -1,125 +1,139 @@
 package com.baidu.tieba.mainentrance;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tieba.model.BarSuggestModel;
 import java.util.ArrayList;
+import java.util.Iterator;
+import org.apache.http.message.BasicNameValuePair;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al extends BaseAdapter {
-    private final String aAx;
-    private final boolean bmk = true;
-    private ArrayList<BarSuggestModel.Forum> bnh;
-    private final BaseActivity mActivity;
+public class al extends BdAsyncTask<Object, Integer, SearchPostModel> {
+    private com.baidu.tbadk.core.util.ad CV = null;
+    final /* synthetic */ SquareSearchActivity brF;
+    ArrayList<BasicNameValuePair> brJ;
+    private String mUrl;
 
-    public al(BaseActivity baseActivity, ArrayList<BarSuggestModel.Forum> arrayList) {
-        this.mActivity = baseActivity;
-        this.aAx = baseActivity.getText(com.baidu.tieba.y.forum).toString();
-        this.bnh = arrayList;
+    public al(SquareSearchActivity squareSearchActivity, String str, ArrayList<BasicNameValuePair> arrayList) {
+        this.brF = squareSearchActivity;
+        this.mUrl = null;
+        this.brJ = null;
+        this.mUrl = str;
+        this.brJ = arrayList;
     }
 
-    public void y(ArrayList<BarSuggestModel.Forum> arrayList) {
-        this.bnh = arrayList;
-        if (this.bnh != null) {
-            notifyDataSetChanged();
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
+        com.baidu.tbadk.core.view.x xVar;
+        ListView listView;
+        ProgressBar progressBar;
+        xVar = this.brF.mNoDataView;
+        xVar.setVisibility(8);
+        listView = this.brF.brh;
+        if (listView.getVisibility() != 0) {
+            progressBar = this.brF.mProgress;
+            progressBar.setVisibility(0);
         }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.bnh == null) {
-            return 0;
-        }
-        return this.bnh.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: gu */
-    public BarSuggestModel.Forum getItem(int i) {
-        int count = getCount();
-        if (count <= 0 || i >= count) {
-            return null;
-        }
-        return this.bnh.get(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        Exception e;
-        View view2;
-        am amVar;
-        BarSuggestModel.Forum item;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: y */
+    public SearchPostModel doInBackground(Object... objArr) {
+        Exception exc;
+        SearchPostModel searchPostModel;
+        String str;
         try {
-            if (view == null) {
-                view = com.baidu.adp.lib.g.b.ek().inflate(this.mActivity, com.baidu.tieba.w.square_dialog_search_item, null);
-                amVar = new am(this, null);
-                amVar.awf = (BarImageView) view.findViewById(com.baidu.tieba.v.forum_avatar);
-                amVar.awf.setGifIconSupport(false);
-                amVar.awf.setSupportNoImage(false);
-                amVar.axz = (TextView) view.findViewById(com.baidu.tieba.v.name);
-                amVar.awj = (TextView) view.findViewById(com.baidu.tieba.v.member_count);
-                amVar.awk = (TextView) view.findViewById(com.baidu.tieba.v.thread_count);
-                amVar.awl = (TextView) view.findViewById(com.baidu.tieba.v.slogan);
-                view.setTag(amVar);
-                view2 = view;
-            } else {
-                amVar = (am) view.getTag();
-                view2 = view;
+            this.CV = new com.baidu.tbadk.core.util.ad(this.mUrl);
+            Iterator<BasicNameValuePair> it = this.brJ.iterator();
+            while (it.hasNext()) {
+                this.CV.a(it.next());
             }
+            String ov = this.CV.ov();
+            if (!this.CV.oW().pW().oZ() || ov == null) {
+                return null;
+            }
+            SearchPostModel searchPostModel2 = new SearchPostModel();
             try {
-                item = getItem(i);
-            } catch (Exception e2) {
-                e = e2;
-                BdLog.e(e.getMessage());
-                F(view2);
-                return view2;
+                searchPostModel2.parserJson(ov);
+                if (ov != null && this.CV != null && this.CV.oW().pW().ma()) {
+                    Iterator<BasicNameValuePair> it2 = this.brJ.iterator();
+                    while (it2.hasNext()) {
+                        BasicNameValuePair next = it2.next();
+                        if ("word".equals(next.getName())) {
+                            this.brF.brt = next.getValue();
+                        }
+                        if ("pn".equals(next.getName())) {
+                            this.brF.bru = Integer.valueOf(next.getValue()).intValue();
+                        }
+                    }
+                }
+                if (this.CV.oW().pW().ma()) {
+                    str = this.brF.brr;
+                    com.baidu.tieba.tbadkCore.util.j.im(str);
+                    return searchPostModel2;
+                }
+                return searchPostModel2;
+            } catch (Exception e) {
+                searchPostModel = searchPostModel2;
+                exc = e;
+                BdLog.e(exc.getMessage());
+                return searchPostModel;
             }
-        } catch (Exception e3) {
-            e = e3;
-            view2 = view;
+        } catch (Exception e2) {
+            exc = e2;
+            searchPostModel = null;
         }
-        if (item != null) {
-            this.mActivity.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
-            this.mActivity.getLayoutMode().h(view2);
-            String str = item.avatar;
-            amVar.awf.setTag(str);
-            amVar.awf.c(str, 10, false);
-            amVar.awf.invalidate();
-            if (this.bmk) {
-                amVar.axz.setText(item.forum_name.concat(this.aAx));
-            } else {
-                amVar.axz.setText(item.forum_name);
-            }
-            amVar.awf.setTag(item.avatar);
-            amVar.awj.setText(String.valueOf(this.mActivity.getString(com.baidu.tieba.y.forum_list_attention_tv)) + " " + eB(item.member_num));
-            amVar.awk.setText(String.valueOf(this.mActivity.getString(com.baidu.tieba.y.forum_list_thread_tv)) + " " + eB(item.thread_num));
-            amVar.awl.setText(item.slogan);
-            F(view2);
-        }
-        return view2;
     }
 
-    private void F(View view) {
-        this.mActivity.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
-        this.mActivity.getLayoutMode().h(view);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public void onPostExecute(SearchPostModel searchPostModel) {
+        ProgressBar progressBar;
+        e eVar;
+        e eVar2;
+        e eVar3;
+        progressBar = this.brF.mProgress;
+        progressBar.setVisibility(8);
+        eVar = this.brF.brk;
+        eVar.setRefreshing(0);
+        eVar2 = this.brF.brk;
+        eVar2.notifyDataSetChanged();
+        if (searchPostModel == null || this.CV == null || !this.CV.oW().pW().oZ()) {
+            this.brF.showToast(this.brF.getPageContext().getString(com.baidu.tieba.z.neterror));
+        } else if (this.CV.oW().pW().ma()) {
+            this.brF.bro = searchPostModel;
+            eVar3 = this.brF.brk;
+            eVar3.notifyDataSetChanged();
+            this.brF.refresh();
+        } else {
+            this.brF.showToast(this.CV.getErrorString());
+        }
+        this.brF.brq = null;
     }
 
-    public String eB(int i) {
-        if (i >= 100000) {
-            return String.valueOf(String.valueOf(i / TbConfig.BIG_IMAGE_MIN_CAPACITY)) + this.mActivity.getString(com.baidu.tieba.y.member_count_unit);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onCancelled() {
+        e eVar;
+        e eVar2;
+        ProgressBar progressBar;
+        eVar = this.brF.brk;
+        eVar.setRefreshing(0);
+        eVar2 = this.brF.brk;
+        eVar2.notifyDataSetChanged();
+        if (this.CV != null) {
+            this.CV.dL();
+            this.CV = null;
         }
-        return String.valueOf(i);
+        progressBar = this.brF.mProgress;
+        progressBar.setVisibility(8);
+        this.brF.brq = null;
+        super.onCancelled();
     }
 }

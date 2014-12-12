@@ -7,6 +7,7 @@ public class GroupIdTypeData implements Serializable {
     private int groupId;
     private int groupType;
     private int mCustomType = 1;
+    private int userType;
 
     public int getGroupId() {
         return this.groupId;
@@ -30,5 +31,13 @@ public class GroupIdTypeData implements Serializable {
 
     public void setCustomType(int i) {
         this.mCustomType = i;
+    }
+
+    public int getUserType() {
+        return this.userType;
+    }
+
+    public void setUserType(int i) {
+        this.userType = i;
     }
 }

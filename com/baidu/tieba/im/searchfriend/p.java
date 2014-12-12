@@ -1,27 +1,36 @@
 package com.baidu.tieba.im.searchfriend;
 
 import android.view.View;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tieba.v;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnClickListener {
-    final /* synthetic */ l bik;
+    final /* synthetic */ n bmL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(l lVar) {
-        this.bik = lVar;
+    public p(n nVar) {
+        this.bmL = nVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         SearchFriendActivity searchFriendActivity;
         SearchFriendActivity searchFriendActivity2;
-        com.baidu.tieba.im.searchfriend.a.b bVar = (com.baidu.tieba.im.searchfriend.a.b) view.getTag(v.tag_first);
-        int intValue = ((Integer) view.getTag(v.tag_second)).intValue();
-        searchFriendActivity = this.bik.bij;
-        searchFriendActivity2 = this.bik.bij;
-        searchFriendActivity.sendMessage(new CustomMessage(2010000, new ImageViewerConfig(searchFriendActivity2).createConfig(bVar.ko(), intValue, bVar.kk(), "", "", true, bVar.ko().get(bVar.ko().size() - 1), true)));
+        if (view.getTag() instanceof com.baidu.tieba.im.searchfriend.a.c) {
+            com.baidu.tieba.im.searchfriend.a.c cVar = (com.baidu.tieba.im.searchfriend.a.c) view.getTag();
+            if (!UtilHelper.isNetOk() || cVar == null) {
+                searchFriendActivity = this.bmL.bmK;
+                searchFriendActivity.showToast(z.im_error_default);
+                return;
+            }
+            MessageManager messageManager = MessageManager.getInstance();
+            searchFriendActivity2 = this.bmL.bmK;
+            messageManager.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(searchFriendActivity2.getPageContext().getPageActivity(), String.valueOf(cVar.getUserId()), cVar.getName(), null, AddFriendActivityConfig.TYPE_ADD_FRD)));
+        }
     }
 }

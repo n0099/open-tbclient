@@ -1,5 +1,6 @@
 package com.baidu.tieba.personInfo;
 
+import com.baidu.tbadk.core.atomData.LiveGroupLikeListActivityConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.AnchorInfo;
@@ -29,7 +30,7 @@ public class PersonInfoPostAnchor implements Serializable {
             this.author_id = jSONObject.optInt("author_id");
             this.author_name = jSONObject.optString("author_name");
             this.listeners = jSONObject.optInt("listeners");
-            this.likers = jSONObject.optInt("likers");
+            this.likers = jSONObject.optInt(LiveGroupLikeListActivityConfig.LIKERS);
             this.group_id = jSONObject.optInt("group_id");
             this.intro = jSONObject.optString("intro");
             this.publisherPortrait = jSONObject.optString("publisherPortrait");

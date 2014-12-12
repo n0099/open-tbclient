@@ -1,106 +1,112 @@
 package com.baidu.tieba.plugins;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
+import com.baidu.adp.plugin.packageManager.PluginPackageManager;
+import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.pluginArch.PluginCenter;
-import com.baidu.tbadk.pluginArch.bean.ConfigInfos;
-import com.baidu.tieba.s;
-import com.baidu.tieba.v;
+import com.baidu.tieba.t;
 import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
+import com.baidu.tieba.z;
 /* loaded from: classes.dex */
-public class PluginDetailActivity extends BaseActivity {
-    private HeadImageView aBW;
-    private TextView awi;
-    private TextView bHa;
-    private TextView bHb;
-    private TextView bHc;
-    private TextView bHd;
-    private ConfigInfos.PluginConfig bHe;
-    private boolean bHf;
+public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
+    private HeadImageView aDy;
+    private TextView azp;
+    private TextView bKu;
+    private TextView bKv;
+    private TextView bKw;
+    private TextView bKx;
+    private String bKy;
+    private PluginNetConfigInfos.PluginConfig bKz;
+    private boolean mFinished;
     private NavigationBar mNavigationBar;
-    private String mPluginName;
     private int mStatus;
 
     static {
-        TbadkApplication.m251getInst().RegisterIntent(PluginDetailActivityConfig.class, PluginDetailActivity.class);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void startActivity(Context context, String str) {
-        Intent intent = new Intent(context, PluginDetailActivity.class);
-        intent.putExtra("name", str);
-        context.startActivity(intent);
+        TbadkCoreApplication.m255getInst().RegisterIntent(PluginDetailActivityConfig.class, PluginDetailActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(w.plugin_detail_activity);
-        this.mNavigationBar = (NavigationBar) findViewById(v.navigation_bar);
-        this.mNavigationBar.setTitleText(y.plugin_center);
+        setContentView(x.plugin_detail_activity);
+        this.mNavigationBar = (NavigationBar) findViewById(w.navigation_bar);
+        this.mNavigationBar.setTitleText(z.plugin_center);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
-        this.aBW = (HeadImageView) findViewById(v.icon);
-        this.awi = (TextView) findViewById(v.name);
-        this.bHa = (TextView) findViewById(v.status);
-        this.bHb = (TextView) findViewById(v.changelog);
-        this.bHc = (TextView) findViewById(v.size);
-        this.bHd = (TextView) findViewById(v.enable);
-        this.bHd.setOnClickListener(this);
-        this.mPluginName = getIntent().getStringExtra("name");
-        this.bHe = PluginCenter.getInstance().getNetConfigInfo(this.mPluginName);
+        this.aDy = (HeadImageView) findViewById(w.icon);
+        this.azp = (TextView) findViewById(w.name);
+        this.bKu = (TextView) findViewById(w.status);
+        this.bKv = (TextView) findViewById(w.changelog);
+        this.bKw = (TextView) findViewById(w.size);
+        this.bKx = (TextView) findViewById(w.enable);
+        this.bKx.setOnClickListener(this);
+        this.bKy = getIntent().getStringExtra("name");
+        if (com.baidu.adp.plugin.packageManager.pluginServerConfig.d.is().it() != null) {
+            this.bKz = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.is().it().getPluginConfig(this.bKy);
+        }
     }
 
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        if (this.bHe != null) {
-            this.aBW.c(this.bHe.icon, 10, false);
-            this.awi.setText(this.bHe.description);
-            abk();
-            this.bHb.setText(this.bHe.newest.changelog);
-            this.bHc.setText(String.valueOf(getString(y.plugin_size)) + String.valueOf(this.bHe.newest.size / 1024) + "KB");
-            this.bHd.setOnClickListener(this);
+        if (this.bKz != null) {
+            this.aDy.d(this.bKz.icon, 10, false);
+            if (this.bKz.display_name == null) {
+                this.bKz.display_name = "";
+            }
+            this.azp.setText(this.bKz.display_name);
+            abG();
+            if (this.bKz.newest != null) {
+                if (TextUtils.isEmpty(this.bKz.newest.change_log)) {
+                    this.bKv.setText("");
+                } else {
+                    this.bKv.setText(this.bKz.newest.change_log);
+                }
+                if (this.bKz.newest.size <= 0) {
+                    this.bKw.setText("");
+                } else {
+                    this.bKw.setText(String.valueOf(getPageContext().getString(z.plugin_size)) + String.valueOf(this.bKz.newest.size / 1024) + "KB");
+                }
+            }
+            this.bKx.setOnClickListener(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abk() {
-        if (PluginCenter.getInstance().hasUpdate(this.mPluginName)) {
-            this.bHa.setText(y.plugin_enabled);
-            this.bHd.setText(y.plugin_update);
-            this.bHd.setEnabled(true);
-            aw.b(this.bHd, s.cp_cont_g, 1);
+    public void abG() {
+        if (PluginPackageManager.ic().bk(this.bKy) && PluginPackageManager.ic().bi(this.bKy)) {
+            this.bKu.setText(z.plugin_enabled);
+            this.bKx.setText(z.plugin_update);
+            this.bKx.setEnabled(true);
+            ax.b(this.bKx, t.cp_cont_g, 1);
             this.mStatus = 1;
-        } else if (PluginCenter.getInstance().checkPluginInstalled(this.mPluginName)) {
-            this.bHd.setEnabled(true);
-            aw.b(this.bHd, s.cp_cont_g, 1);
-            boolean isEnabled = PluginCenter.getInstance().isEnabled(this.mPluginName);
-            if (!isEnabled) {
-                this.bHa.setText(y.plugin_unenabled);
-                this.bHd.setText(y.plugin_enable);
+        } else if (PluginPackageManager.ic().bi(this.bKy)) {
+            this.bKx.setEnabled(true);
+            ax.b(this.bKx, t.cp_cont_g, 1);
+            if (PluginPackageManager.ic().bj(this.bKy)) {
+                this.bKu.setText(z.plugin_unenabled);
+                this.bKx.setText(z.plugin_enable);
                 this.mStatus = 2;
-            } else if (isEnabled) {
-                this.bHa.setText(y.plugin_enabled);
-                this.bHd.setText(y.plugin_unenable);
-                this.mStatus = 3;
+                return;
             }
+            this.bKu.setText(z.plugin_enabled);
+            this.bKx.setText(z.plugin_unenable);
+            this.mStatus = 3;
         } else {
-            this.bHa.setText(y.plugin_disabled);
-            this.bHd.setText(y.plugin_enable);
-            this.bHd.setEnabled(true);
-            aw.b(this.bHd, s.cp_cont_g, 1);
+            this.bKu.setText(z.plugin_disabled);
+            this.bKx.setText(z.plugin_enable);
+            this.bKx.setEnabled(true);
+            ax.b(this.bKx, t.cp_cont_g, 1);
             this.mStatus = 0;
         }
     }
@@ -109,34 +115,34 @@ public class PluginDetailActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.mNavigationBar.onChangeSkinType(i);
-        getLayoutMode().L(i == 1);
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+        getLayoutMode().ab(i == 1);
         getLayoutMode().h(findViewById(16908290));
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bHd) {
+        if (view == this.bKx) {
             if (this.mStatus == 0 || this.mStatus == 1) {
-                abl();
+                abH();
             } else if (this.mStatus == 3) {
-                PluginCenter.getInstance().setEnabled(this.mPluginName, true);
-                abk();
+                PluginPackageManager.ic().bg(this.bKy);
+                abG();
             } else if (this.mStatus == 2) {
-                PluginCenter.getInstance().setEnabled(this.mPluginName, false);
-                abk();
+                PluginPackageManager.ic().bh(this.bKy);
+                abG();
             }
         }
     }
 
-    private void abl() {
-        if (!com.baidu.adp.lib.util.j.fh()) {
-            showToast(y.neterror);
+    private void abH() {
+        if (!com.baidu.adp.lib.util.i.fg()) {
+            showToast(z.neterror);
             return;
         }
-        aw.b(this.bHd, s.cp_cont_d, 1);
-        this.bHd.setEnabled(false);
-        PluginCenter.getInstance().startDownloadForeground(this.bHe, new d(this));
+        ax.b(this.bKx, t.cp_cont_d, 1);
+        this.bKx.setEnabled(false);
+        PluginPackageManager.ic().a(this.bKz, new d(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -6,47 +6,47 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.tieba.v;
 import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
+import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class SubPbLoadPreviousView extends LinearLayout {
-    private TextView bAn;
+    private TextView bDY;
     private Context mContext;
     private ProgressBar mProgress;
 
     public SubPbLoadPreviousView(Context context) {
         super(context);
         this.mContext = context;
-        ny();
+        initialize();
     }
 
     public SubPbLoadPreviousView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        ny();
+        initialize();
     }
 
-    private void ny() {
+    private void initialize() {
         setOrientation(0);
         setClickable(true);
-        com.baidu.adp.lib.g.b.ek().a(this.mContext, w.sub_pb_load_previous, this, true);
-        this.bAn = (TextView) findViewById(v.btn_loadprevious);
-        this.mProgress = (ProgressBar) findViewById(v.progress);
+        com.baidu.adp.lib.g.b.ek().a(this.mContext, x.sub_pb_load_previous, this, true);
+        this.bDY = (TextView) findViewById(w.btn_loadprevious);
+        this.mProgress = (ProgressBar) findViewById(w.progress);
     }
 
     @Override // android.view.View
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.bAn.setOnClickListener(onClickListener);
+        this.bDY.setOnClickListener(onClickListener);
     }
 
-    public void XD() {
-        this.bAn.setText(y.loading);
+    public void Ya() {
+        this.bDY.setText(z.loading);
         this.mProgress.setVisibility(0);
     }
 
-    public void YM() {
-        this.bAn.setText(y.view_previous_floor);
+    public void Zg() {
+        this.bDY.setText(z.view_previous_floor);
         this.mProgress.setVisibility(8);
     }
 
@@ -57,7 +57,7 @@ public class SubPbLoadPreviousView extends LinearLayout {
         setVisibility(8);
     }
 
-    public void Bc() {
+    public void yB() {
         setVisibility(0);
     }
 }

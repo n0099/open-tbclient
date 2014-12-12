@@ -6,96 +6,105 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.lib.util.m;
+import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.SelectFriendActivityConfig;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.core.view.o;
-import com.baidu.tbadk.core.view.r;
-import com.baidu.tbadk.core.view.s;
+import com.baidu.tbadk.core.view.aa;
+import com.baidu.tbadk.core.view.ab;
+import com.baidu.tbadk.core.view.x;
 import com.baidu.tbadk.coreExtra.relationship.GetContactListRequestMessage;
 import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
-import com.baidu.tieba.t;
-import com.baidu.tieba.v;
+import com.baidu.tieba.u;
 import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.z;
 /* loaded from: classes.dex */
-public class SelectFriendActivity extends BaseActivity {
-    private LinearLayout aHQ;
-    BdListView aJA;
-    private o ahX;
-    NavigationBar bhL;
-    f bis;
-    private int bir = -1;
-    private CustomMessageListener bit = new a(this, 2001188);
+public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
+    private LinearLayout Ae;
+    NavigationBar aey;
+    BdListView aez;
+    g bmS;
+    private CustomMessageListener bmT;
+    private x mNoDataView;
+    private int bmR = -1;
+    private CustomMessageListener bmU = new a(this, 2001188);
     private AdapterView.OnItemClickListener itemClickListener = new b(this);
 
     static {
-        TbadkApplication.m251getInst().RegisterIntent(SelectFriendActivityConfig.class, SelectFriendActivity.class);
+        TbadkCoreApplication.m255getInst().RegisterIntent(SelectFriendActivityConfig.class, SelectFriendActivity.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(w.select_friend_main);
-        this.aHQ = (LinearLayout) findViewById(v.select_friend_root_view);
-        this.bhL = (NavigationBar) findViewById(v.select_friend_nevigation_bar);
-        this.bhL.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
-        this.bhL.setTitleText(y.select_friend_title);
-        this.aJA = (BdListView) findViewById(v.select_friend_listview);
-        this.bis = new f(this);
-        this.aJA.setAdapter((ListAdapter) this.bis);
-        this.aJA.setOnItemClickListener(this.itemClickListener);
-        registerListener(this.bit);
+        setContentView(com.baidu.tieba.x.select_friend_main);
+        this.Ae = (LinearLayout) findViewById(w.select_friend_root_view);
+        this.aey = (NavigationBar) findViewById(w.select_friend_nevigation_bar);
+        this.aey.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new d(this));
+        this.aey.setTitleText(z.select_friend_title);
+        this.aez = (BdListView) findViewById(w.select_friend_listview);
+        this.bmS = new g(getPageContext().getPageActivity());
+        this.aez.setAdapter((ListAdapter) this.bmS);
+        this.aez.setOnItemClickListener(this.itemClickListener);
+        registerListener(this.bmU);
         MessageManager.getInstance().sendMessage(new GetContactListRequestMessage());
-        this.ahX = NoDataViewFactory.a(this, null, r.a(NoDataViewFactory.ImgType.NODATA), s.bL(y.select_friend_no_data_tip), null);
-        this.aHQ.addView(this.ahX, 1);
+        this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), null, aa.a(NoDataViewFactory.ImgType.NODATA), ab.ci(z.select_friend_no_data_tip), null);
+        this.Ae.addView(this.mNoDataView, 1);
         if (bundle != null) {
-            this.bir = bundle.getInt("key_from_where");
+            this.bmR = bundle.getInt("key_from_where");
         } else if (getIntent() != null) {
-            this.bir = getIntent().getIntExtra("key_from_where", -1);
+            this.bmR = getIntent().getIntExtra("key_from_where", -1);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        if (this.bmT != null) {
+            this.bmT = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.bhL.onChangeSkinType(i);
-        if (this.ahX != null) {
-            this.ahX.onChangeSkinType(i);
+        this.aey.onChangeSkinType(getPageContext(), i);
+        if (this.mNoDataView != null) {
+            this.mNoDataView.onChangeSkinType(getPageContext(), i);
         }
-        getLayoutMode().L(i == 1);
-        getLayoutMode().h(findViewById(v.select_friend_root_view));
+        getLayoutMode().ab(i == 1);
+        getLayoutMode().h(findViewById(w.select_friend_root_view));
     }
 
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        this.ahX.nv();
+        this.mNoDataView.f(getPageContext());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.ahX.onActivityStop();
+        this.mNoDataView.onActivityStop();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ShareFromGameCenterMsgData shareFromGameCenterMsgData, long j, String str, String str2) {
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this);
-        aVar.a(new LinearLayout.LayoutParams(m.c(this, t.ds640), -2));
-        aVar.bf(shareFromGameCenterMsgData.getTitle());
-        com.baidu.tieba.im.mygroup.a aVar2 = new com.baidu.tieba.im.mygroup.a(this);
-        aVar2.setData(shareFromGameCenterMsgData);
-        aVar.j(aVar2);
-        aVar.a(y.share, new d(this, j, shareFromGameCenterMsgData, str, str2, aVar2));
-        aVar.b(y.alert_no_button, new e(this, aVar2));
-        aVar.P(false);
-        aVar.kT().kW();
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
+        aVar.a(new LinearLayout.LayoutParams(l.d(getPageContext().getPageActivity(), u.ds640), -2));
+        aVar.bX(shareFromGameCenterMsgData.getTitle());
+        com.baidu.tieba.im.widget.b bVar = new com.baidu.tieba.im.widget.b(getPageContext().getPageActivity());
+        bVar.setData(shareFromGameCenterMsgData);
+        aVar.j(bVar);
+        aVar.a(z.share, new e(this, j, shareFromGameCenterMsgData, str, str2, bVar));
+        aVar.b(z.alert_no_button, new f(this, bVar));
+        aVar.ag(false);
+        aVar.b(getPageContext()).nU();
     }
 }

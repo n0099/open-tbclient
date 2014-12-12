@@ -16,6 +16,11 @@ public class Constants {
     public static final int LOG_LEVEL_NO = 0;
     public static final int LOG_VERBOSE = 5;
     public static final int LOG_WARN = 2;
+    public static final int SOURCE_ALL = 31;
+    public static final int SOURCE_AUDIO_FILE = 4;
+    public static final int SOURCE_AUDIO_MIC = 2;
+    public static final int SOURCE_PIPELINE = 16;
+    public static final int SOURCE_VIDEO_CAMERA = 1;
     public static final int STATE_CONNECT_CLOSED = 105;
     public static final int STATE_CONNECT_ESTABLISHED = 102;
     public static final int STATE_IDLE = 100;

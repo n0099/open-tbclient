@@ -1,24 +1,20 @@
 package com.baidu.tieba.home;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements com.baidu.tbadk.core.view.u {
-    final /* synthetic */ f aMC;
+public class k implements com.baidu.adp.widget.ListView.g {
+    final /* synthetic */ f aOG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(f fVar) {
-        this.aMC = fVar;
+        this.aOG = fVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.u
-    public void aa(boolean z) {
-        r rVar;
-        r rVar2;
-        if (z) {
-            rVar2 = this.aMC.aMr;
-            rVar2.hO();
-            return;
-        }
-        rVar = this.aMC.aMr;
-        rVar.IR();
+    @Override // com.baidu.adp.widget.ListView.g
+    public void onListPullRefresh(boolean z) {
+        com.baidu.tieba.model.d dVar;
+        Boolean bool;
+        dVar = this.aOG.aOu;
+        bool = this.aOG.aOy;
+        dVar.dp(bool.booleanValue());
     }
 }

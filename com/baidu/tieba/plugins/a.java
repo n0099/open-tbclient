@@ -5,20 +5,19 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.m;
+import com.baidu.adp.plugin.packageManager.PluginPackageManager;
+import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.pluginArch.PluginCenter;
-import com.baidu.tbadk.pluginArch.bean.ConfigInfos;
-import com.baidu.tieba.v;
 import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import com.baidu.tieba.x;
+import com.baidu.tieba.z;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 class a extends BaseAdapter {
-    private List<ConfigInfos.PluginConfig> bGV = new ArrayList();
+    private List<PluginNetConfigInfos.PluginConfig> bKp = new ArrayList();
     private BaseActivity mActivity;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,19 +27,19 @@ class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.bGV.size();
+        return this.bKp.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: he */
-    public ConfigInfos.PluginConfig getItem(int i) {
-        return this.bGV.get(i);
+    /* renamed from: hn */
+    public PluginNetConfigInfos.PluginConfig getItem(int i) {
+        return this.bKp.get(i);
     }
 
-    public void aj(List<ConfigInfos.PluginConfig> list) {
-        this.bGV.clear();
-        this.bGV.addAll(list);
+    public void addAll(List<PluginNetConfigInfos.PluginConfig> list) {
+        this.bKp.clear();
+        this.bKp.addAll(list);
     }
 
     @Override // android.widget.Adapter
@@ -52,54 +51,54 @@ class a extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         b bVar;
         if (view == null) {
-            view = View.inflate(this.mActivity, w.plugin_center_list_item, null);
+            view = View.inflate(this.mActivity.getPageContext().getPageActivity(), x.plugin_center_list_item, null);
             b bVar2 = new b(null);
-            bVar2.aBW = (HeadImageView) view.findViewById(v.icon);
-            bVar2.bGW = (TextView) view.findViewById(v.description);
-            bVar2.awi = (TextView) view.findViewById(v.name);
-            bVar2.atL = (TextView) view.findViewById(v.status);
-            bVar2.bGX = view.findViewById(v.top_divider);
-            bVar2.bGY = view.findViewById(v.bot_divider);
-            bVar2.bGZ = (ImageView) view.findViewById(v.new_mark);
+            bVar2.aDy = (HeadImageView) view.findViewById(w.icon);
+            bVar2.bKq = (TextView) view.findViewById(w.description);
+            bVar2.azp = (TextView) view.findViewById(w.name);
+            bVar2.awU = (TextView) view.findViewById(w.status);
+            bVar2.bKr = view.findViewById(w.top_divider);
+            bVar2.bKs = view.findViewById(w.bot_divider);
+            bVar2.bKt = (ImageView) view.findViewById(w.new_mark);
             view.setTag(bVar2);
             bVar = bVar2;
         } else {
             bVar = (b) view.getTag();
         }
         if (i == 0) {
-            bVar.bGX.setPadding(0, 0, 0, 0);
-            bVar.bGY.setVisibility(4);
+            bVar.bKr.setPadding(0, 0, 0, 0);
+            bVar.bKs.setVisibility(4);
         } else if (i == getCount() - 1) {
-            bVar.bGX.setPadding(m.dip2px(this.mActivity, 15.0f), 0, m.dip2px(this.mActivity, 15.0f), 0);
-            bVar.bGY.setVisibility(0);
-            bVar.bGY.setPadding(0, 0, 0, 0);
+            bVar.bKr.setPadding(com.baidu.adp.lib.util.l.dip2px(this.mActivity.getPageContext().getPageActivity(), 15.0f), 0, com.baidu.adp.lib.util.l.dip2px(this.mActivity.getPageContext().getPageActivity(), 15.0f), 0);
+            bVar.bKs.setVisibility(0);
+            bVar.bKs.setPadding(0, 0, 0, 0);
         } else {
-            bVar.bGX.setPadding(m.dip2px(this.mActivity, 15.0f), 0, m.dip2px(this.mActivity, 15.0f), 0);
-            bVar.bGY.setVisibility(4);
+            bVar.bKr.setPadding(com.baidu.adp.lib.util.l.dip2px(this.mActivity.getPageContext().getPageActivity(), 15.0f), 0, com.baidu.adp.lib.util.l.dip2px(this.mActivity.getPageContext().getPageActivity(), 15.0f), 0);
+            bVar.bKs.setVisibility(4);
         }
-        ConfigInfos.PluginConfig item = getItem(i);
+        PluginNetConfigInfos.PluginConfig item = getItem(i);
         if (item != null) {
-            bVar.bGW.setText(item.verbose);
-            bVar.awi.setText(item.description);
-            if (PluginCenter.getInstance().checkPluginInstalled(item.name)) {
-                if (PluginCenter.getInstance().hasUpdate(item.name)) {
-                    bVar.bGZ.setVisibility(0);
-                    bVar.atL.setText(y.plugin_update);
+            bVar.bKq.setText(item.verbose);
+            bVar.azp.setText(item.display_name);
+            if (PluginPackageManager.ic().bi(item.package_name)) {
+                if (PluginPackageManager.ic().bk(item.package_name)) {
+                    bVar.bKt.setVisibility(0);
+                    bVar.awU.setText(z.plugin_update);
                 } else {
-                    bVar.bGZ.setVisibility(4);
-                    if (!PluginCenter.getInstance().isEnabled(item.name)) {
-                        bVar.atL.setText(this.mActivity.getString(y.plugin_unenabled));
+                    bVar.bKt.setVisibility(4);
+                    if (PluginPackageManager.ic().bj(item.package_name)) {
+                        bVar.awU.setText(this.mActivity.getPageContext().getString(z.plugin_unenabled));
                     } else {
-                        bVar.atL.setText(this.mActivity.getString(y.plugin_enabled));
+                        bVar.awU.setText(this.mActivity.getPageContext().getString(z.plugin_enabled));
                     }
                 }
             } else {
-                bVar.atL.setText(this.mActivity.getString(y.plugin_disabled));
+                bVar.awU.setText(this.mActivity.getPageContext().getString(z.plugin_disabled));
             }
-            bVar.aBW.setTag(item.icon);
-            bVar.aBW.c(item.icon, 10, false);
+            bVar.aDy.setTag(item.icon);
+            bVar.aDy.d(item.icon, 10, false);
         }
-        this.mActivity.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
+        this.mActivity.getLayoutMode().ab(TbadkCoreApplication.m255getInst().getSkinType() == 1);
         this.mActivity.getLayoutMode().h(view);
         return view;
     }

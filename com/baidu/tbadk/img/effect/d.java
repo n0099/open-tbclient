@@ -7,11 +7,11 @@ public class d extends b {
     private int maxWidth;
 
     @Override // com.baidu.tbadk.img.effect.b
-    public String sr() {
+    public String getActionName() {
         return "resize";
     }
 
-    public static ImageOperation w(int i, int i2) {
+    public static ImageOperation z(int i, int i2) {
         ImageOperation imageOperation = new ImageOperation();
         imageOperation.actionName = "resize";
         imageOperation.actionParam = String.valueOf(i) + "," + i2;
@@ -19,12 +19,12 @@ public class d extends b {
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public void dw(String str) {
+    public void eq(String str) {
         if (str != null) {
             String[] split = str.split(",");
             if (split.length == 2) {
-                this.maxWidth = com.baidu.adp.lib.g.c.f(split[0], 0);
-                this.maxHeight = com.baidu.adp.lib.g.c.f(split[1], 0);
+                this.maxWidth = com.baidu.adp.lib.g.c.toInt(split[0], 0);
+                this.maxHeight = com.baidu.adp.lib.g.c.toInt(split[1], 0);
             }
         }
     }
@@ -34,20 +34,20 @@ public class d extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.e.si().cR(com.baidu.tbadk.core.util.d.a(bitmap) * 2);
+        com.baidu.tbadk.imageManager.e.vL().dq(com.baidu.tbadk.core.util.d.d(bitmap) * 2);
         return com.baidu.tbadk.core.util.d.a(bitmap, this.maxWidth, this.maxHeight, z);
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap dx(String str) {
-        return b(com.baidu.tbadk.core.util.d.a(str, this.maxWidth, this.maxHeight), true);
+    public Bitmap er(String str) {
+        return b(com.baidu.tbadk.core.util.d.b(str, this.maxWidth, this.maxHeight), true);
     }
 
     public int getMaxWidth() {
         return this.maxWidth;
     }
 
-    public int st() {
+    public int getMaxHeight() {
         return this.maxHeight;
     }
 }

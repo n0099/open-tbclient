@@ -1,7 +1,7 @@
 package com.baidu.adp.lib.voice;
 /* loaded from: classes.dex */
 public class o {
-    public static float V(int i) {
+    public static float ad(int i) {
         switch (i) {
             case 1:
                 return 6.6f;

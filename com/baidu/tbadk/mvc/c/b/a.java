@@ -6,12 +6,12 @@ public class a extends com.baidu.tbadk.mvc.c.b {
     public a(ErrorData errorData) {
         super(33554434, null, null, null);
         setExtra(errorData);
-        aA(false);
+        aN(false);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.c.b
-    /* renamed from: ty */
+    /* renamed from: xj */
     public ErrorData getExtra() {
         Object extra = super.getExtra();
         if (extra instanceof ErrorData) {

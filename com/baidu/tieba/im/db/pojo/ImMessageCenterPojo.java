@@ -2,8 +2,9 @@ package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.a.b.a.a.i;
-import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.adp.lib.g.c;
+import com.baidu.adp.lib.util.k;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import java.io.Serializable;
 /* loaded from: classes.dex */
@@ -34,6 +35,7 @@ public class ImMessageCenterPojo implements Serializable {
     private long sent_msgId;
     int type;
     int unread_count;
+    private int userType;
 
     public boolean isSelf() {
         return this.isSelf;
@@ -175,14 +177,23 @@ public class ImMessageCenterPojo implements Serializable {
         this.orderCol = j;
     }
 
+    public int getUserType() {
+        return this.userType;
+    }
+
+    public void setUserType(int i) {
+        this.userType = i;
+    }
+
     public static ImMessageCenterPojo fromCommonMsg(CommonMsgPojo commonMsgPojo) {
+        int userType;
         boolean z;
         OldUserData oldUserData;
         OldUserData oldUserData2;
         if (commonMsgPojo == null) {
             return null;
         }
-        String currentAccount = TbadkApplication.getCurrentAccount();
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (TextUtils.isEmpty(currentAccount)) {
             return null;
         }
@@ -197,17 +208,16 @@ public class ImMessageCenterPojo implements Serializable {
         if (userData == null) {
             return null;
         }
-        if (l.aA(userData.getUserId()) && (oldUserData2 = (OldUserData) i.objectWithJsonStr(commonMsgPojo.getUser_info(), OldUserData.class)) != null) {
+        if (k.isEmpty(userData.getUserId()) && (oldUserData2 = (OldUserData) i.objectWithJsonStr(commonMsgPojo.getUser_info(), OldUserData.class)) != null) {
             oldUserData2.setToUserData(userData);
         }
         String toUid = commonMsgPojo.getToUid();
         if (!TextUtils.isEmpty(toUid) && toUid.equals(gid) && currentAccount.equals(gid)) {
             return null;
         }
-        String uid = commonMsgPojo.getUid();
-        if (currentAccount.equals(uid)) {
+        if (currentAccount.equals(commonMsgPojo.getUid())) {
             if (userData2 != null) {
-                if (l.aA(userData2.getUserId()) && (oldUserData = (OldUserData) i.objectWithJsonStr(commonMsgPojo.getToUser_info(), OldUserData.class)) != null) {
+                if (k.isEmpty(userData2.getUserId()) && (oldUserData = (OldUserData) i.objectWithJsonStr(commonMsgPojo.getToUser_info(), OldUserData.class)) != null) {
                     oldUserData.setToUserData(userData2);
                 }
                 imMessageCenterPojo.setGroup_name(userData2.getUserName());
@@ -217,23 +227,22 @@ public class ImMessageCenterPojo implements Serializable {
             imMessageCenterPojo.setGroup_name(userData.getUserName());
             imMessageCenterPojo.setGroup_head(userData.getPortrait());
         }
-        if (currentAccount.equals(uid)) {
-            if (userData2 != null && userData2.getUserType() == 1) {
-                imMessageCenterPojo.setCustomGroupType(4);
-                z = true;
-            }
+        if (c.a(TbadkCoreApplication.getCurrentAccount(), 0L) != userData.getUserIdLong()) {
+            userType = userData.getUserType();
+        } else {
+            userType = userData2.getUserType();
+        }
+        if (userType != 1 && userType != 3 && userType != 4) {
             z = false;
         } else {
-            if (userData != null && userData.getUserType() == 1) {
-                imMessageCenterPojo.setCustomGroupType(4);
-                z = true;
-            }
-            z = false;
+            imMessageCenterPojo.setCustomGroupType(4);
+            z = true;
         }
+        imMessageCenterPojo.setUserType(userType);
         if (!z) {
             imMessageCenterPojo.setCustomGroupType(2);
         }
-        imMessageCenterPojo.setLast_content(com.baidu.tieba.im.util.i.m(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
+        imMessageCenterPojo.setLast_content(com.baidu.tieba.im.util.i.w(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
         imMessageCenterPojo.setLast_user_name(userData.getUserName());
         imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
         imMessageCenterPojo.setSelf(commonMsgPojo.isSelf);

@@ -7,7 +7,6 @@ import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
-import com.baidu.tbadk.BaseActivity;
 import java.io.FileInputStream;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
@@ -110,7 +109,7 @@ public class c {
         public static String a(byte[] bArr) {
             StringBuilder sb = new StringBuilder();
             for (byte b2 : bArr) {
-                sb.append(Integer.toString((b2 & BaseActivity.KEYBOARD_STATE_INIT) + 256, 16).substring(1));
+                sb.append(Integer.toString((b2 & 255) + 256, 16).substring(1));
             }
             return sb.toString();
         }
@@ -126,11 +125,11 @@ public class c {
             int i5 = 0;
             do {
                 if (i5 > 0 && i4 > 0) {
-                    b2 = (byte) (((byte) (((bArr[i3] & BaseActivity.KEYBOARD_STATE_INIT) << i4) | ((bArr[i3 + 1] & BaseActivity.KEYBOARD_STATE_INIT) >> (8 - i4)))) & 63);
+                    b2 = (byte) (((byte) (((bArr[i3] & 255) << i4) | ((bArr[i3 + 1] & 255) >> (8 - i4)))) & 63);
                     i5 = 8 - i4;
                     i4 = 6 - i5;
                 } else if (i5 == 0) {
-                    b2 = (byte) ((bArr[i3] & BaseActivity.KEYBOARD_STATE_INIT) >> (8 - i4));
+                    b2 = (byte) ((bArr[i3] & 255) >> (8 - i4));
                     i5 = 2;
                     i4 = 4;
                 } else if (i4 == 0) {

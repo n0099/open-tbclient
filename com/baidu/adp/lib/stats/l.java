@@ -20,7 +20,7 @@ public class l extends BdAsyncTask<Object, Integer, Void> {
         if (bdAsyncTaskParallel == null) {
             fVar.mi = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
         }
-        bdUniqueId = f.lJ;
+        bdUniqueId = f.lK;
         setTag(bdUniqueId);
         bdAsyncTaskParallel2 = fVar.mi;
         setParallel(bdAsyncTaskParallel2);
@@ -29,7 +29,6 @@ public class l extends BdAsyncTask<Object, Integer, Void> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
     public Void doInBackground(Object... objArr) {
         this.this$0.c(this.ml);
         return null;
@@ -38,10 +37,11 @@ public class l extends BdAsyncTask<Object, Integer, Void> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
     public void onPostExecute(Void r6) {
         BdStatSwitchData bdStatSwitchData;
         BdStatSwitchData bdStatSwitchData2;
-        super.onPostExecute((l) r6);
+        super.onPostExecute(r6);
         bdStatSwitchData = this.this$0.md;
         if (!bdStatSwitchData.inSpecStrategy()) {
             bdStatSwitchData2 = this.this$0.md;

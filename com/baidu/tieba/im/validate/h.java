@@ -1,81 +1,61 @@
 package com.baidu.tieba.im.validate;
 
-import android.text.TextUtils;
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.v;
-import com.baidu.tieba.w;
-import com.baidu.tieba.y;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import com.baidu.tieba.im.data.ValidateItemData;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class h extends com.baidu.adp.base.d<ValidateItemData> {
-    private View bcl;
-    private HeadImageView bcm;
-    private TextView bcn;
-    private ValidateActivity bjg;
-    private TextView bjh;
-    private TextView bji;
-    private TextView bjj;
-    private ValidateItemData bjk;
+public class h extends BaseAdapter {
+    ValidateActivity bou;
+    List<ValidateItemData> datas = new ArrayList();
 
     public h(ValidateActivity validateActivity) {
-        super(validateActivity, w.validate_item);
-        this.bjg = validateActivity;
-        nu();
+        this.bou = validateActivity;
     }
 
-    void nu() {
-        this.bcl = this.ay.findViewById(v.root_view);
-        this.bcm = (HeadImageView) this.bcl.findViewById(v.iv_head);
-        this.bcm.setIsRound(false);
-        this.bjh = (TextView) this.bcl.findViewById(v.tv_user_name);
-        this.bcn = (TextView) this.bcl.findViewById(v.tv_group_name);
-        this.bji = (TextView) this.bcl.findViewById(v.tv_apply_reason);
-        this.bjj = (TextView) this.bcl.findViewById(v.btn_pass);
-        this.bjj.setOnClickListener(new i(this));
-        this.bcm.setOnClickListener(new j(this));
-        this.bcl.setOnLongClickListener(new k(this));
+    public void destroy() {
+        this.bou = null;
     }
 
-    public void refresh() {
-        if (this.bjk != null) {
-            this.bjg.getLayoutMode().L(TbadkApplication.m251getInst().getSkinType() == 1);
-            this.bjg.getLayoutMode().h(this.bcl);
-            String portrait = this.bjk.getPortrait();
-            this.bcm.setTag(portrait);
-            this.bcm.c(portrait, 12, false);
-            if (!TextUtils.isEmpty(this.bjk.getUserName())) {
-                this.bjh.setText(this.bjk.getUserName());
-            }
-            if (!TextUtils.isEmpty(this.bjk.getGroupName())) {
-                this.bcn.setText(String.valueOf(this.bjg.getString(y.validate_im_apply_prefix)) + this.bjk.getGroupName());
-            }
-            if (!TextUtils.isEmpty(this.bjk.getApplyReason())) {
-                this.bji.setText(String.valueOf(this.bjg.getString(y.validate_im_reason_prefix)) + this.bjk.getApplyReason());
-            }
-            if (this.bjk.isPass()) {
-                this.bjj.setEnabled(false);
-                this.bjj.setText(this.bjg.getString(y.validate_im_btn_passed));
-                this.bjj.setTextColor(getContext().getResources().getColor(com.baidu.tieba.s.cp_cont_d));
-                this.bjj.setBackgroundDrawable(null);
-            } else {
-                this.bjj.setEnabled(true);
-                this.bjj.setText(this.bjg.getString(y.validate_im_btn_pass));
-            }
-            if (!this.bjk.isShown()) {
-                aw.h(this.bcl, com.baidu.tieba.s.validate_item_background_sean);
-            }
+    public void setData(List<ValidateItemData> list) {
+        if (list != null) {
+            this.datas.addAll(list);
+            notifyDataSetChanged();
         }
     }
 
-    public void f(ValidateItemData validateItemData) {
-        g(validateItemData);
-        refresh();
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.datas == null) {
+            return 0;
+        }
+        return this.datas.size();
     }
 
-    public void g(ValidateItemData validateItemData) {
-        this.bjk = validateItemData;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        i iVar = null;
+        if (view != null) {
+            iVar = (i) view.getTag();
+        }
+        i iVar2 = iVar == null ? new i(this.bou) : iVar;
+        iVar2.f(this.datas.get(i));
+        return iVar2.getConvertView();
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        return this.datas.get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    public List<ValidateItemData> getDatas() {
+        return this.datas;
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.adp.lib.b.f;
 /* loaded from: classes.dex */
 public class Hao123HelperSwitchStatic extends a {
     static {
-        f.db().d(Hao123HelperSwitchStatic.class);
+        f.dc().l(Hao123HelperSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -12,7 +12,7 @@ public class f extends BitmapDrawable {
     private Context mContext;
     private int mId;
     private String mKey;
-    private Rect dZ = null;
+    private Rect mRect = null;
     private Matrix mMatrix = null;
 
     public f(Context context, int i) {
@@ -26,21 +26,21 @@ public class f extends BitmapDrawable {
 
     @Override // android.graphics.drawable.Drawable
     public void setBounds(int i, int i2, int i3, int i4) {
-        this.dZ = new Rect(i, i2, i3, i4);
+        this.mRect = new Rect(i, i2, i3, i4);
         this.mMatrix = null;
         super.setBounds(i, i2, i3, i4);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setBounds(Rect rect) {
-        this.dZ = new Rect(rect);
+        this.mRect = new Rect(rect);
         this.mMatrix = null;
         super.setBounds(rect);
     }
 
-    public void C(int i, int i2) {
-        if (this.dZ != null) {
-            super.setBounds(this.dZ.left, this.dZ.top, this.dZ.right + i, this.dZ.bottom + i2);
+    public void G(int i, int i2) {
+        if (this.mRect != null) {
+            super.setBounds(this.mRect.left, this.mRect.top, this.mRect.right + i, this.mRect.bottom + i2);
         }
     }
 
@@ -48,32 +48,32 @@ public class f extends BitmapDrawable {
     public void draw(Canvas canvas) {
         com.baidu.adp.widget.a.a aVar;
         if (this.mId > 0 && this.mContext != null) {
-            com.baidu.tbadk.imageManager.e si = com.baidu.tbadk.imageManager.e.si();
-            com.baidu.adp.widget.a.a dt = (si == null || this.mKey == null) ? null : si.dt(this.mKey);
-            if (dt == null) {
-                Bitmap a = com.baidu.tbadk.core.util.d.a(this.mContext, this.mId);
-                if (a != null) {
-                    dt = new com.baidu.adp.widget.a.a(a, false, null);
+            com.baidu.tbadk.imageManager.e vL = com.baidu.tbadk.imageManager.e.vL();
+            com.baidu.adp.widget.a.a en = (vL == null || this.mKey == null) ? null : vL.en(this.mKey);
+            if (en == null) {
+                Bitmap b = com.baidu.tbadk.core.util.d.b(this.mContext, this.mId);
+                if (b != null) {
+                    en = new com.baidu.adp.widget.a.a(b, false, null);
                 }
-                if (si != null && dt != null && this.mKey != null) {
-                    si.c(this.mKey, dt);
+                if (vL != null && en != null && this.mKey != null) {
+                    vL.c(this.mKey, en);
                 }
-                aVar = dt;
+                aVar = en;
             } else {
-                aVar = dt;
+                aVar = en;
             }
             if (aVar != null) {
                 int width = aVar.getWidth();
                 int height = aVar.getHeight();
-                if (width > 0 && height > 0 && this.dZ != null) {
+                if (width > 0 && height > 0 && this.mRect != null) {
                     canvas.save();
                     canvas.clipRect(super.getBounds());
-                    if (height > this.dZ.bottom - this.dZ.top || width > this.dZ.right - this.dZ.left) {
+                    if (height > this.mRect.bottom - this.mRect.top || width > this.mRect.right - this.mRect.left) {
                         if (this.mMatrix == null) {
                             this.mMatrix = new Matrix();
                             this.mMatrix.postTranslate(0.0f, 0.0f);
-                            float f = (this.dZ.right - this.dZ.left) / width;
-                            float f2 = (this.dZ.bottom - this.dZ.top) / height;
+                            float f = (this.mRect.right - this.mRect.left) / width;
+                            float f2 = (this.mRect.bottom - this.mRect.top) / height;
                             if (f >= f2) {
                                 f = f2;
                             }

@@ -1,35 +1,22 @@
 package com.baidu.tieba.im.chat.personaltalk;
-
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.tieba.im.message.GroupDeleteMsgResponsedMessage;
-import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
 /* loaded from: classes.dex */
-class i implements com.baidu.tieba.im.a<Boolean> {
-    final /* synthetic */ g aSF;
+class i extends com.baidu.tieba.im.h<Boolean> {
+    final /* synthetic */ h aTR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(g gVar) {
-        this.aSF = gVar;
+    public i(h hVar) {
+        this.aTR = hVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void onReturnDataInUI(Boolean bool) {
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // com.baidu.tieba.im.h
+    public Boolean doInBackground() {
         PersonalTalkSettingActivity personalTalkSettingActivity;
-        PersonalTalkSettingActivity personalTalkSettingActivity2;
         long j;
-        PersonalTalkSettingActivity personalTalkSettingActivity3;
-        long j2;
-        personalTalkSettingActivity = this.aSF.aSE;
-        personalTalkSettingActivity.closeLoadingDialog();
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new GroupDeleteMsgResponsedMessage());
-        personalTalkSettingActivity2 = this.aSF.aSE;
-        j = personalTalkSettingActivity2.userId;
-        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new com.baidu.tieba.im.message.f(String.valueOf(j), 2, null, 1)));
-        StringBuilder sb = new StringBuilder("clear cache by person:");
-        personalTalkSettingActivity3 = this.aSF.aSE;
-        j2 = personalTalkSettingActivity3.userId;
-        BdSocketLinkService.startService(true, sb.append(j2).toString());
+        com.baidu.tieba.im.db.o MO = com.baidu.tieba.im.db.o.MO();
+        personalTalkSettingActivity = this.aTR.aTQ;
+        j = personalTalkSettingActivity.userId;
+        return Boolean.valueOf(MO.gl(String.valueOf(j)));
     }
 }

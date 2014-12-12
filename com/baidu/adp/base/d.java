@@ -1,23 +1,16 @@
 package com.baidu.adp.base;
-
-import android.content.Context;
-import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d<T> extends f {
-    protected View ay;
+public class d implements Runnable {
+    final /* synthetic */ BdBaseFragmentActivity cj;
 
-    public d(Context context, int i) {
-        super(context);
-        this.ay = null;
-        this.ay = com.baidu.adp.lib.g.b.ek().inflate(context, i, null);
-        this.ay.setTag(this);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public d(BdBaseFragmentActivity bdBaseFragmentActivity) {
+        this.cj = bdBaseFragmentActivity;
     }
 
-    public View O() {
-        return this.ay;
-    }
-
-    public View findViewById(int i) {
-        return this.ay.findViewById(i);
+    @Override // java.lang.Runnable
+    public void run() {
+        this.cj.onPreLoad(this.cj.onGetPreLoadListView());
     }
 }

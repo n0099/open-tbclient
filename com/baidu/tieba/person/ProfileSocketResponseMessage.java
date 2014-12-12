@@ -1,7 +1,7 @@
 package com.baidu.tieba.person;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Anti;
@@ -83,9 +83,9 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        com.baidu.adp.lib.cache.t<byte[]> C = com.baidu.tbadk.core.a.a.kS().C("tb_user_profile", TbadkApplication.getCurrentAccountName());
+        com.baidu.adp.lib.cache.t<byte[]> N = com.baidu.tbadk.core.a.a.nS().N("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
-            C.b(PROFILE_CACHE_KEY, bArr);
+            N.f(PROFILE_CACHE_KEY, bArr);
         }
     }
 }

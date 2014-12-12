@@ -1,26 +1,21 @@
 package com.baidu.tieba.shareSDK;
 
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.view.View;
+import android.widget.PopupWindow;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class v implements TextWatcher {
-    final /* synthetic */ p bJX;
+public class v implements PopupWindow.OnDismissListener {
+    final /* synthetic */ q bOn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(p pVar) {
-        this.bJX = pVar;
+    public v(q qVar) {
+        this.bOn = qVar;
     }
 
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        this.bJX.acl();
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    @Override // android.widget.PopupWindow.OnDismissListener
+    public void onDismiss() {
+        View view;
+        view = this.bOn.bOf;
+        view.setSelected(false);
     }
 }

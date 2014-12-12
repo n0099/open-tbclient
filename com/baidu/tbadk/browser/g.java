@@ -1,20 +1,19 @@
 package com.baidu.tbadk.browser;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements com.baidu.tbadk.core.view.m {
-    final /* synthetic */ TbWebViewActivity xA;
+class g implements com.baidu.tbadk.core.view.v {
+    final /* synthetic */ TbWebViewActivity Bj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(TbWebViewActivity tbWebViewActivity) {
-        this.xA = tbWebViewActivity;
+        this.Bj = tbWebViewActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.m
-    public void iR() {
-        this.xA.showPopMenu();
+    @Override // com.baidu.tbadk.core.view.v
+    public void lx() {
+        this.Bj.showPopMenu();
     }
 
-    @Override // com.baidu.tbadk.core.view.m
-    public void iS() {
+    @Override // com.baidu.tbadk.core.view.v
+    public void ly() {
     }
 }

@@ -2,42 +2,42 @@ package com.baidu.tieba.write;
 
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
-class az implements com.baidu.tieba.location.i {
-    final /* synthetic */ WriteActivity bUm;
+class az implements com.baidu.tieba.tbadkCore.location.i {
+    final /* synthetic */ WriteActivity cft;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public az(WriteActivity writeActivity) {
-        this.bUm = writeActivity;
+        this.cft = writeActivity;
     }
 
-    @Override // com.baidu.tieba.location.i
-    public void EI() {
-        com.baidu.tieba.editortool.j jVar;
-        this.bUm.showToast(com.baidu.tieba.y.no_network_guide);
-        jVar = this.bUm.bTT;
-        jVar.setLocationInfoViewState(0);
+    @Override // com.baidu.tieba.tbadkCore.location.i
+    public void EZ() {
+        com.baidu.tieba.tbadkCore.PbEditor.k kVar;
+        this.cft.showToast(com.baidu.tieba.z.no_network_guide);
+        kVar = this.cft.cfa;
+        kVar.setLocationInfoViewState(0);
     }
 
-    @Override // com.baidu.tieba.location.i
-    public void eY(String str) {
-        com.baidu.tieba.editortool.j jVar;
-        WriteActivity writeActivity = this.bUm;
+    @Override // com.baidu.tieba.tbadkCore.location.i
+    public void ft(String str) {
+        com.baidu.tieba.tbadkCore.PbEditor.k kVar;
+        WriteActivity writeActivity = this.cft;
         if (StringUtils.isNull(str)) {
-            str = this.bUm.getString(com.baidu.tieba.y.location_fail);
+            str = this.cft.getPageContext().getString(com.baidu.tieba.z.location_fail);
         }
         writeActivity.showToast(str);
-        jVar = this.bUm.bTT;
-        jVar.setLocationInfoViewState(0);
+        kVar = this.cft.cfa;
+        kVar.setLocationInfoViewState(0);
     }
 
-    @Override // com.baidu.tieba.location.i
-    public void a(com.baidu.tieba.location.a aVar) {
-        com.baidu.tieba.editortool.j jVar;
-        if (aVar != null && !StringUtils.isNull(aVar.So())) {
-            jVar = this.bUm.bTT;
-            jVar.j(2, aVar.So());
+    @Override // com.baidu.tieba.tbadkCore.location.i
+    public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
+        com.baidu.tieba.tbadkCore.PbEditor.k kVar;
+        if (aVar != null && !StringUtils.isNull(aVar.ahu())) {
+            kVar = this.cft.cfa;
+            kVar.B(2, aVar.ahu());
             return;
         }
-        eY(null);
+        ft(null);
     }
 }

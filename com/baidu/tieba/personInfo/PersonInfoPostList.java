@@ -1,5 +1,6 @@
 package com.baidu.tieba.personInfo;
 
+import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,13 +53,13 @@ public class PersonInfoPostList implements Serializable {
             this.forumName = jSONObject.optString("forum_name");
             this.title = jSONObject.optString("title");
             this.contentThread = jSONObject.optString("content_thread");
-            this.userName = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.USER_NAME);
+            this.userName = jSONObject.optString("user_name");
             this.ip = jSONObject.optString("ip");
             this.isPostDeleted = jSONObject.optInt("is_post_deleted");
             this.pType = jSONObject.optString("ptype");
             this._abstract = jSONObject.optString("_abstract");
             this.replyNum = jSONObject.optInt("reply_num");
-            this.userId = jSONObject.optLong(com.baidu.tbadk.core.frameworkData.a.USER_ID);
+            this.userId = jSONObject.optLong("user_id");
             this.userPortrait = jSONObject.optString("user_portrait");
             this.postType = jSONObject.optString("post_type");
             this.hidePost = jSONObject.optInt("hide_post");
@@ -115,7 +116,7 @@ public class PersonInfoPostList implements Serializable {
                     }
                 }
             }
-            JSONArray optJSONArray4 = jSONObject.optJSONArray("content");
+            JSONArray optJSONArray4 = jSONObject.optJSONArray(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT);
             if (optJSONArray4 != null) {
                 for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
                     JSONObject optJSONObject6 = optJSONArray4.optJSONObject(i4);

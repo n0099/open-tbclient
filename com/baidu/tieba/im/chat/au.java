@@ -1,22 +1,24 @@
 package com.baidu.tieba.im.chat;
 
-import java.util.LinkedHashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 /* loaded from: classes.dex */
-public class au extends com.baidu.tieba.im.b<LinkedHashMap<String, String>> {
-    final /* synthetic */ w aOa;
-    private final /* synthetic */ String aOn;
+class au implements View.OnClickListener {
+    final /* synthetic */ MsgActivityView aQL;
+    private final /* synthetic */ String aQM;
+    private final /* synthetic */ String aQN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public au(w wVar, String str) {
-        this.aOa = wVar;
-        this.aOn = str;
+    public au(MsgActivityView msgActivityView, String str, String str2) {
+        this.aQL = msgActivityView;
+        this.aQM = str;
+        this.aQN = str2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.b
-    /* renamed from: Jt */
-    public LinkedHashMap<String, String> doInBackground() {
-        return com.baidu.tieba.im.db.o.MU().a(this.aOn, 2, (String) null, 1000);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.aQL.getPageContext().getPageActivity(), this.aQM, this.aQN)));
     }
 }

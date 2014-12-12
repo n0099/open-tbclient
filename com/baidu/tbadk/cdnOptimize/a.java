@@ -1,51 +1,47 @@
 package com.baidu.tbadk.cdnOptimize;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.util.BdLog;
-import java.util.ArrayList;
+import com.baidu.tbadk.TbConfig;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-class a implements CustomMessageTask.CustomRunnable<e> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<e> customMessage) {
-        boolean z;
-        if (customMessage != null) {
+public class a {
+    public int Bz = 1500;
+    public int BA = 3000;
+    public int BB = 6000;
+    public int BC = 3000;
+    public int BD = 5000;
+    public int BE = TbConfig.BIG_IMAGE_MIN_CAPACITY;
+    public boolean BF = true;
+
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
             try {
-                long currentTimeMillis = System.currentTimeMillis();
-                e data = customMessage.getData();
-                if (data == null || data.ipListData == null || data.ipListData.xW == null) {
-                    return null;
+                int optInt = jSONObject.optInt("wifiSlow", -1);
+                if (optInt > 0) {
+                    this.Bz = optInt;
                 }
-                String str = "";
-                if (e.a(data) == null) {
-                    if (data.pos < data.ipListData.xW.size()) {
-                        ArrayList<String> arrayList = data.ipListData.xW.get(data.pos);
-                        if (arrayList.size() > 0) {
-                            z = false;
-                            str = arrayList.get(0);
-                        }
-                    }
-                    z = false;
-                } else if (e.a(data).length() <= 0) {
-                    return null;
-                } else {
-                    str = e.a(data);
-                    z = true;
+                int optInt2 = jSONObject.optInt("threeGSlow", -1);
+                if (optInt2 > 0) {
+                    this.BA = optInt2;
                 }
-                if (str.length() > 0) {
-                    data.isSuccess = data.cdnTachometerModel.a(data.ipListData.imageUrl, str, data.ipListData.xY, data.ipListData.xV, e.b(data));
-                    data.tm = System.currentTimeMillis() - currentTimeMillis;
-                    data.cdnIp = str;
-                    if (z) {
-                        e.a(data, str);
-                    }
-                    return new CustomResponsedMessage<>(2017000, data);
+                int optInt3 = jSONObject.optInt("twoGSlow", -1);
+                if (optInt3 > 0) {
+                    this.BB = optInt3;
                 }
+                int optInt4 = jSONObject.optInt("wifiLog", -1);
+                if (optInt4 > 0) {
+                    this.BC = optInt4;
+                }
+                int optInt5 = jSONObject.optInt("threeGLog", -1);
+                if (optInt5 > 0) {
+                    this.BD = optInt5;
+                }
+                int optInt6 = jSONObject.optInt("twoGLog", -1);
+                if (optInt6 > 0) {
+                    this.BE = optInt6;
+                }
+                this.BF = jSONObject.optInt("mobile_cdn_switch", 1) == 1;
             } catch (Exception e) {
-                BdLog.e(e);
             }
         }
-        return null;
     }
 }

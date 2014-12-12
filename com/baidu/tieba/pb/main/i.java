@@ -2,29 +2,24 @@ package com.baidu.tieba.pb.main;
 
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-class i implements com.baidu.adp.widget.ListView.aa {
-    final /* synthetic */ PbActivity bvu;
+class i implements com.baidu.adp.widget.ListView.g {
+    final /* synthetic */ PbActivity bzj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(PbActivity pbActivity) {
-        this.bvu = pbActivity;
+        this.bzj = pbActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.aa
-    public void hQ() {
-        bn bnVar;
-        bv bvVar;
-        bn bnVar2;
-        bv bvVar2;
-        bnVar = this.bvu.buU;
-        if (bnVar.dZ(false)) {
-            bvVar2 = this.bvu.buZ;
-            bvVar2.XE();
-            TiebaStatic.eventStat(this.bvu, "pb_more", "pbclick", 1, new Object[0]);
+    @Override // com.baidu.adp.widget.ListView.g
+    public void onListPullRefresh(boolean z) {
+        bq bqVar;
+        bz bzVar;
+        bqVar = this.bzj.byJ;
+        if (!bqVar.dL(true)) {
+            bzVar = this.bzj.byO;
+            bzVar.Ye();
             return;
         }
-        bvVar = this.bvu.buZ;
-        bnVar2 = this.bvu.buU;
-        bvVar.h(bnVar2.getPbData());
+        TiebaStatic.eventStat(this.bzj.getPageContext().getPageActivity(), "pb_pulldown", "pbclick", 1, new Object[0]);
     }
 }

@@ -10,23 +10,23 @@ import com.baidu.tbadk.core.view.BarImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r {
-    final /* synthetic */ o bLe;
-    public BarImageView bLj;
-    public LinearLayout bLk;
-    public TextView bLl;
-    public TextView bLm;
-    public TextView bLn;
-    public FrameLayout bLo;
-    public TextView bLp;
-    public RelativeLayout bLq;
-    public ImageView bLr;
-    public ProgressBar bLs;
-    public TextView bLt;
-    public TextView bLu;
-    public TextView bLv;
+    public BarImageView bPA;
+    public LinearLayout bPB;
+    public TextView bPC;
+    public TextView bPD;
+    public TextView bPE;
+    public FrameLayout bPF;
+    public TextView bPG;
+    public RelativeLayout bPH;
+    public ImageView bPI;
+    public ProgressBar bPJ;
+    public TextView bPK;
+    public TextView bPL;
+    public TextView bPM;
+    final /* synthetic */ o bPv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(o oVar) {
-        this.bLe = oVar;
+        this.bPv = oVar;
     }
 }

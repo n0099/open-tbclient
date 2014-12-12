@@ -2,7 +2,6 @@ package com.baidu.tieba.tblauncher;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.pluginArch.PluginCenter;
 /* loaded from: classes.dex */
 class n extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
@@ -17,11 +16,11 @@ class n extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001230) {
-            if (PluginCenter.getInstance().isTipUpdate()) {
-                this.this$0.bPn = true;
-            }
-            this.this$0.eJ(false);
+        an anVar;
+        if (customResponsedMessage != null) {
+            anVar = this.this$0.caU;
+            anVar.ih(0);
+            MainTabActivity.caN = false;
         }
     }
 }

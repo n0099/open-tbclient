@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.TbCheckBox;
 /* loaded from: classes.dex */
 public class q {
-    public View Xm;
-    public TextView aEq;
-    public HeadImageView aVK;
-    public TbCheckBox aWh;
-    final /* synthetic */ p aWi;
+    public TextView aFV;
+    final /* synthetic */ p baA;
+    public HeadImageView bab;
+    public TbCheckBox baz;
+    public View rootView;
 
     public q(p pVar) {
-        this.aWi = pVar;
+        this.baA = pVar;
     }
 }

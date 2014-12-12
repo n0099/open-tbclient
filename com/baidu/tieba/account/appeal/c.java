@@ -1,23 +1,23 @@
 package com.baidu.tieba.account.appeal;
 
-import com.baidu.tbadk.core.util.az;
-import com.baidu.tieba.y;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 class c implements h {
-    final /* synthetic */ b agc;
+    final /* synthetic */ b ant;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.agc = bVar;
+        this.ant = bVar;
     }
 
     @Override // com.baidu.tieba.account.appeal.h
     public void a(AppealData appealData) {
         AppealActivity appealActivity;
         AppealActivity appealActivity2;
-        appealActivity = this.agc.agb;
-        appealActivity2 = this.agc.agb;
-        appealActivity.r(appealActivity2.getString(y.appeal_post_success), true);
+        appealActivity = this.ant.ans;
+        appealActivity2 = this.ant.ans;
+        appealActivity.q(appealActivity2.getPageContext().getString(z.appeal_post_success), true);
     }
 
     @Override // com.baidu.tieba.account.appeal.h
@@ -25,13 +25,13 @@ class c implements h {
         AppealActivity appealActivity;
         AppealActivity appealActivity2;
         String string;
-        appealActivity = this.agc.agb;
-        if (az.aA(appealData.errMsg)) {
-            appealActivity2 = this.agc.agb;
-            string = appealActivity2.getString(y.appeal_post_failure);
+        appealActivity = this.ant.ans;
+        if (ba.isEmpty(appealData.errMsg)) {
+            appealActivity2 = this.ant.ans;
+            string = appealActivity2.getPageContext().getString(z.appeal_post_failure);
         } else {
             string = appealData.errMsg;
         }
-        appealActivity.r(string, false);
+        appealActivity.q(string, false);
     }
 }

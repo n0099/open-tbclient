@@ -3,36 +3,37 @@ package com.baidu.tieba.person.post;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
+import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 /* loaded from: classes.dex */
 public class f extends FragmentPagerAdapter {
-    private u bDK;
-    private l bDL;
-    private int[] bfV;
+    private t bHl;
+    private k bHm;
+    private int[] bjh;
 
     public f(PersonPostActivity personPostActivity) {
         super(personPostActivity.getSupportFragmentManager());
         Bundle bundle = new Bundle();
         bundle.putString("key_uid", personPostActivity.getUid());
-        bundle.putString("key_portrait_url", personPostActivity.aal());
-        bundle.putString("key_empty_view_text", personPostActivity.aam());
-        this.bDL = new l();
-        this.bDL.setArguments(bundle);
-        this.bDK = new u();
-        this.bDK.setArguments(bundle);
-        this.bfV = new int[]{0, 1};
+        bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.aaC());
+        bundle.putString("key_empty_view_text", personPostActivity.aaD());
+        this.bHm = new k();
+        this.bHm.setArguments(bundle);
+        this.bHl = new t();
+        this.bHl.setArguments(bundle);
+        this.bjh = new int[]{0, 1};
     }
 
-    public u aan() {
-        return this.bDK;
+    public t aaE() {
+        return this.bHl;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
         switch (i) {
             case 0:
-                return this.bDK;
+                return this.bHl;
             case 1:
-                return this.bDL;
+                return this.bHm;
             default:
                 return null;
         }
@@ -43,7 +44,7 @@ public class f extends FragmentPagerAdapter {
         return 2;
     }
 
-    public int gf(int i) {
-        return this.bfV[i];
+    public int go(int i) {
+        return this.bjh[i];
     }
 }

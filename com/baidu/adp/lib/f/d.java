@@ -7,62 +7,62 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.stats.q;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.j;
+import com.baidu.adp.lib.util.i;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class d {
-    private static d le;
-    private static BdAsyncTaskParallel lf = null;
+    private static d lf;
     private static BdAsyncTaskParallel lg = null;
-    private final BdUniqueId lc = BdUniqueId.gen();
-    private SparseArray<g<?>> ld;
+    private static BdAsyncTaskParallel lh = null;
+    private final BdUniqueId ld = BdUniqueId.gen();
+    private SparseArray<g<?>> le;
 
-    public static d ef() {
-        if (le == null) {
+    public static d ee() {
+        if (lf == null) {
             synchronized (d.class) {
-                if (le == null) {
-                    le = new d();
+                if (lf == null) {
+                    lf = new d();
                 }
             }
         }
-        return le;
+        return lf;
     }
 
     private d() {
-        this.ld = null;
+        this.le = null;
         BdUniqueId gen = BdUniqueId.gen();
-        lf = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, gen);
-        lg = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, gen);
-        this.ld = new SparseArray<>();
+        lg = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, gen);
+        lh = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, gen);
+        this.le = new SparseArray<>();
     }
 
     public synchronized <T> void a(int i, g<T> gVar) {
         if (gVar != null) {
-            if (this.ld.get(i) == null) {
-                this.ld.put(i, gVar);
+            if (this.le.get(i) == null) {
+                this.le.put(i, gVar);
             } else {
                 throw new IllegalArgumentException("registerLoaderProc key has been registered. The key is " + i);
             }
         }
     }
 
-    public void d(String str, int i) {
-        e ab = ab(e(str, i));
-        if (ab != null) {
-            ab.cancel();
+    public void e(String str, int i) {
+        e af = af(f(str, i));
+        if (af != null) {
+            af.cancel();
         }
     }
 
     public <T> void a(String str, int i, c<T> cVar) {
-        e<T> ab = ab(e(str, i));
-        if (ab != null) {
-            ab.a(cVar);
+        e<T> af = af(f(str, i));
+        if (af != null) {
+            af.a(cVar);
         }
     }
 
     public void d(BdUniqueId bdUniqueId) {
-        LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(this.lc);
+        LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(this.ld);
         if (searchAllTask != null && searchAllTask.size() != 0) {
             Iterator<BdAsyncTask<?, ?, ?>> it = searchAllTask.iterator();
             while (it.hasNext()) {
@@ -75,7 +75,7 @@ public class d {
     }
 
     public <T> void a(BdUniqueId bdUniqueId, c<T> cVar) {
-        LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask = BdAsyncTask.searchWaitingTask(this.lc);
+        LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask = BdAsyncTask.searchWaitingTask(this.ld);
         if (searchWaitingTask != null && searchWaitingTask.size() != 0) {
             Iterator<BdAsyncTask<?, ?, ?>> it = searchWaitingTask.iterator();
             while (it.hasNext()) {
@@ -88,7 +88,7 @@ public class d {
     }
 
     public void e(BdUniqueId bdUniqueId) {
-        LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask = BdAsyncTask.searchWaitingTask(this.lc);
+        LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask = BdAsyncTask.searchWaitingTask(this.ld);
         if (searchWaitingTask != null && searchWaitingTask.size() != 0) {
             Iterator<BdAsyncTask<?, ?, ?>> it = searchWaitingTask.iterator();
             while (it.hasNext()) {
@@ -100,8 +100,8 @@ public class d {
         }
     }
 
-    public boolean J(int i) {
-        g<?> gVar = this.ld.get(i);
+    public boolean R(int i) {
+        g<?> gVar = this.le.get(i);
         if (gVar == null) {
             BdLog.e("Can't find the ResourceLoaderProc with type " + i);
             return false;
@@ -113,12 +113,12 @@ public class d {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("resKey can not be null");
         }
-        g<?> gVar = this.ld.get(i);
+        g<?> gVar = this.le.get(i);
         if (gVar == null) {
             BdLog.e("Can't find the ResourceLoaderProc with type " + i);
             return null;
         }
-        return gVar.a(e(str, i), str, objArr);
+        return gVar.c(f(str, i), str, objArr);
     }
 
     public <T> Object a(String str, int i, c<T> cVar, BdUniqueId bdUniqueId) {
@@ -132,58 +132,58 @@ public class d {
             BdLog.e("resKey can not be null");
             return null;
         }
-        g<?> gVar = this.ld.get(i);
+        g<?> gVar = this.le.get(i);
         if (gVar == null) {
             BdLog.e("Can't find the ResourceLoaderProc with type " + i);
             return null;
         }
-        String e = e(str, i);
+        String f = f(str, i);
         try {
-            Object a = gVar.a(e, str, objArr);
-            if (a != null) {
+            Object c = gVar.c(f, str, objArr);
+            if (c != null) {
                 if (cVar != 0) {
-                    cVar.a(a, str, 1);
-                    return a;
+                    cVar.onLoaded(c, str, 1);
+                    return c;
                 }
-                return a;
+                return c;
             }
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
-        e<T> ab = ab(e);
-        if (ab != null && ab.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
-            ab.a(cVar, bdUniqueId);
+        e<T> af = af(f);
+        if (af != null && af.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
+            af.a(cVar, bdUniqueId);
         } else {
-            boolean fi = j.fi();
-            boolean fk = j.fk();
+            boolean fh = i.fh();
+            boolean fj = i.fj();
             q qVar = null;
-            if (fi) {
-                qVar = f.getLogItem();
-                qVar.eL();
+            if (fh) {
+                qVar = f.ef();
+                qVar.startTimer();
             }
             e eVar = new e(this, str, i, i2, i3, bdUniqueId, cVar, qVar, objArr);
-            eVar.setKey(e);
-            eVar.setTag(this.lc);
+            eVar.setKey(f);
+            eVar.setTag(this.ld);
             int ej = gVar.ej();
             if (ej == 0) {
                 ej = 1;
             }
             eVar.setPriority(ej);
-            if (fi || fk) {
+            if (fh || fj) {
                 if (gVar.ei() == null) {
-                    eVar.setParallel(lg);
+                    eVar.setParallel(lh);
                 } else {
                     eVar.setParallel(gVar.ei());
                 }
             } else {
-                eVar.setParallel(lf);
+                eVar.setParallel(lg);
             }
             eVar.execute(new String[0]);
         }
         return null;
     }
 
-    private <T> e<T> ab(String str) {
+    private <T> e<T> af(String str) {
         BdAsyncTask<?, ?, ?> searchTask;
         if (!TextUtils.isEmpty(str) && (searchTask = BdAsyncTask.searchTask(str)) != null) {
             if (!(searchTask instanceof e)) {
@@ -201,7 +201,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String e(String str, int i) {
+    public String f(String str, int i) {
         if (str == null) {
             str = "";
         }
