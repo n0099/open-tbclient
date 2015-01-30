@@ -5,11 +5,11 @@ import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class u extends aa {
     public String mHost;
-    public String pL;
+    public String pQ;
     public String mPath = "/";
     public String mOrigin = null;
-    public String[] pM = null;
-    public List<BasicNameValuePair> pN = null;
+    public String[] pR = null;
+    public List<BasicNameValuePair> pS = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(String str) {

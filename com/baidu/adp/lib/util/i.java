@@ -9,15 +9,15 @@ import com.baidu.adp.base.BdBaseApplication;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class i {
-    private static Pattern kg = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8);
-    private static i mW;
-    private NetworkInfo mO = null;
-    private boolean mP = true;
-    private boolean mQ = false;
-    private boolean mS = true;
-    private int mT = 0;
-    private int mU = 0;
-    private int mV = -1;
+    private static Pattern kj = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8);
+    private static i nb;
+    private NetworkInfo mS = null;
+    private boolean mT = true;
+    private boolean mU = false;
+    private boolean mV = true;
+    private int mW = 0;
+    private int mZ = 0;
+    private int na = -1;
     private String mProxyHost = null;
     private int mProxyPort = -1;
 
@@ -27,122 +27,122 @@ public class i {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
             BdBaseApplication.getInst().getApp().registerReceiver(jVar, intentFilter);
-            ff().eX();
+            fe().eW();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        mW = null;
+        nb = null;
     }
 
-    public void eX() {
+    public void eW() {
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
         if (activeNetworkInfo != null) {
-            this.mO = activeNetworkInfo;
+            this.mS = activeNetworkInfo;
             if (activeNetworkInfo.getType() == 1) {
-                this.mP = true;
-                this.mQ = false;
+                this.mT = true;
+                this.mU = false;
             } else if (activeNetworkInfo.getType() == 0) {
-                this.mP = false;
-                this.mQ = true;
+                this.mT = false;
+                this.mU = true;
             } else {
-                this.mP = false;
-                this.mQ = false;
+                this.mT = false;
+                this.mU = false;
             }
-            this.mS = true;
-            this.mT = activeNetworkInfo.getSubtype();
-            if (this.mQ) {
-                this.mU = N(this.mT);
+            this.mV = true;
+            this.mW = activeNetworkInfo.getSubtype();
+            if (this.mU) {
+                this.mZ = S(this.mW);
             } else {
-                this.mU = 0;
+                this.mZ = 0;
             }
         } else {
-            this.mP = false;
-            this.mQ = false;
-            this.mS = false;
-            this.mT = 0;
-            this.mT = 0;
+            this.mT = false;
+            this.mU = false;
+            this.mV = false;
+            this.mW = 0;
+            this.mW = 0;
         }
-        this.mV = fe();
+        this.na = fd();
         this.mProxyHost = Proxy.getDefaultHost();
         this.mProxyPort = Proxy.getDefaultPort();
     }
 
     private NetworkInfo getActiveNetworkInfo() {
         try {
-            return ((ConnectivityManager) com.baidu.adp.lib.network.willdelete.e.dX().getContext().getSystemService("connectivity")).getActiveNetworkInfo();
+            return ((ConnectivityManager) com.baidu.adp.lib.network.willdelete.e.dV().getContext().getSystemService("connectivity")).getActiveNetworkInfo();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    public boolean eY() {
-        if (this.mO == null) {
-            eX();
-        }
-        return this.mS;
-    }
-
-    public boolean isWifi() {
-        if (this.mO == null) {
-            eX();
-        }
-        return this.mP;
-    }
-
-    public boolean dY() {
-        if (this.mO == null) {
-            eX();
-        }
-        return this.mQ;
-    }
-
-    public int eZ() {
-        if (this.mO == null) {
-            eX();
-        }
-        return this.mU;
-    }
-
-    public int fa() {
-        if (this.mV == -1) {
-            try {
-                this.mV = fe();
-            } catch (Exception e) {
-                this.mV = 0;
-            }
+    public boolean eX() {
+        if (this.mS == null) {
+            eW();
         }
         return this.mV;
     }
 
+    public boolean isWifi() {
+        if (this.mS == null) {
+            eW();
+        }
+        return this.mT;
+    }
+
+    public boolean dW() {
+        if (this.mS == null) {
+            eW();
+        }
+        return this.mU;
+    }
+
+    public int eY() {
+        if (this.mS == null) {
+            eW();
+        }
+        return this.mZ;
+    }
+
+    public int eZ() {
+        if (this.na == -1) {
+            try {
+                this.na = fd();
+            } catch (Exception e) {
+                this.na = 0;
+            }
+        }
+        return this.na;
+    }
+
     public static boolean aB(String str) {
-        if (kg.matcher(str).find()) {
+        if (kj.matcher(str).find()) {
             return true;
         }
         return false;
     }
 
-    public String fb() {
+    public String fa() {
         if (this.mProxyHost == null) {
             this.mProxyHost = Proxy.getDefaultHost();
         }
         return this.mProxyHost;
     }
 
-    public int fc() {
+    public int fb() {
         if (-1 == this.mProxyPort) {
             this.mProxyPort = Proxy.getDefaultPort();
         }
         return this.mProxyPort;
     }
 
-    public static boolean fd() {
-        return (ff().mP || fe() == 1 || k.aD(Proxy.getDefaultHost())) ? false : true;
+    public static boolean fc() {
+        return (fe().mT || fd() == 1 || k.aD(Proxy.getDefaultHost())) ? false : true;
     }
 
-    private static int fe() {
+    private static int fd() {
         int i;
-        String networkOperator = ((TelephonyManager) com.baidu.adp.lib.network.willdelete.e.dX().getContext().getSystemService("phone")).getNetworkOperator();
+        String networkOperator = ((TelephonyManager) com.baidu.adp.lib.network.willdelete.e.dV().getContext().getSystemService("phone")).getNetworkOperator();
         if (networkOperator == null || networkOperator.length() < 4 || k.aD(networkOperator)) {
             return 0;
         }
@@ -172,7 +172,7 @@ public class i {
         }
     }
 
-    public static int N(int i) {
+    public static int S(int i) {
         switch (i) {
             case 1:
             case 2:
@@ -197,56 +197,56 @@ public class i {
         }
     }
 
-    public static synchronized i ff() {
+    public static synchronized i fe() {
         i iVar;
         synchronized (i.class) {
-            if (mW == null) {
-                mW = new i();
+            if (nb == null) {
+                nb = new i();
             }
-            iVar = mW;
+            iVar = nb;
         }
         return iVar;
     }
 
+    public static boolean ff() {
+        return fe().eX();
+    }
+
     public static boolean fg() {
-        return ff().eY();
+        return fe().isWifi();
     }
 
     public static boolean fh() {
-        return ff().isWifi();
+        return fe().dW();
     }
 
     public static boolean fi() {
-        return ff().dY();
+        return 3 == fe().eY();
     }
 
     public static boolean fj() {
-        return 3 == ff().eZ();
+        return 2 == fe().eY();
     }
 
-    public static boolean fk() {
-        return 2 == ff().eZ();
+    public static boolean dY() {
+        return 1 == fe().eY();
     }
 
-    public static boolean ea() {
-        return 1 == ff().eZ();
-    }
-
-    public static int fl() {
-        if (fh()) {
+    public static int fk() {
+        if (fg()) {
             return 1;
         }
-        if (ea()) {
+        if (dY()) {
             return 2;
         }
-        if (fk()) {
+        if (fj()) {
             return 3;
         }
-        return (fj() || fg()) ? 4 : 0;
+        return (fi() || ff()) ? 4 : 0;
     }
 
-    public static String fm() {
-        switch (fl()) {
+    public static String fl() {
+        switch (fk()) {
             case 1:
                 return "wifi";
             case 2:
@@ -260,23 +260,23 @@ public class i {
         }
     }
 
-    public static String fn() {
-        String fm = fm();
-        if (fm != null) {
-            return fm.toUpperCase();
+    public static String fm() {
+        String fl = fl();
+        if (fl != null) {
+            return fl.toUpperCase();
         }
-        return fm;
+        return fl;
     }
 
-    public static int fo() {
-        return ff().fa();
+    public static int fn() {
+        return fe().eZ();
     }
 
-    public static String fp() {
-        return ff().fb();
+    public static String fo() {
+        return fe().fa();
     }
 
-    public static int fq() {
-        return ff().fc();
+    public static int fp() {
+        return fe().fb();
     }
 }

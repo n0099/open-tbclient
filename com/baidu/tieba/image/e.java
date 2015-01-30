@@ -8,31 +8,31 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private AntiData bqf;
-    private LinkedList<d> bqg;
-    private String asx = null;
+    private AntiData brD;
+    private LinkedList<d> brE;
+    private String atD = null;
     private String fid = null;
-    private int bqe = 0;
+    private int brC = 0;
     private Context mContext = null;
-    private String bqh = null;
-    private String bqi = null;
+    private String brF = null;
+    private String brG = null;
     private String tid = null;
     private String title = null;
-    private int arY = 0;
+    private int atd = 0;
 
-    public String Tw() {
-        return this.bqh;
+    public String TS() {
+        return this.brF;
     }
 
-    public String Tx() {
-        return this.bqi;
+    public String TT() {
+        return this.brG;
     }
 
     public e() {
-        this.bqf = null;
-        this.bqg = null;
-        this.bqg = new LinkedList<>();
-        this.bqf = new AntiData();
+        this.brD = null;
+        this.brE = null;
+        this.brE = new LinkedList<>();
+        this.brD = new AntiData();
     }
 
     public void t(String str, boolean z) {
@@ -43,24 +43,24 @@ public class e {
         }
     }
 
-    public LinkedList<d> Ty() {
-        return this.bqg;
+    public LinkedList<d> TU() {
+        return this.brE;
     }
 
-    public int Tz() {
-        return this.bqe;
+    public int TV() {
+        return this.brC;
     }
 
     public void a(JSONObject jSONObject, Boolean bool) {
         if (jSONObject != null) {
             try {
-                gC(jSONObject.optInt("is_new_url", 0));
+                gL(jSONObject.optInt("is_new_url", 0));
                 JSONObject optJSONObject = jSONObject.optJSONObject("forum");
                 if (optJSONObject != null) {
-                    this.asx = optJSONObject.optString("name");
+                    this.atD = optJSONObject.optString("name");
                     this.fid = optJSONObject.optString("id");
                 }
-                this.bqe = jSONObject.optInt("pic_amount", 0);
+                this.brC = jSONObject.optInt("pic_amount", 0);
                 JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
                 if (optJSONArray != null) {
                     if (bool.booleanValue()) {
@@ -68,8 +68,8 @@ public class e {
                             d dVar = new d(this.mContext);
                             dVar.paserJson(optJSONArray.optJSONObject(i));
                             int index = dVar.getIndex();
-                            if (index >= 1 && index <= this.bqe) {
-                                this.bqg.addLast(dVar);
+                            if (index >= 1 && index <= this.brC) {
+                                this.brE.addLast(dVar);
                             }
                         }
                     } else {
@@ -77,22 +77,22 @@ public class e {
                             d dVar2 = new d(this.mContext);
                             dVar2.paserJson(optJSONArray.getJSONObject(length));
                             int index2 = dVar2.getIndex();
-                            if (index2 >= 1 && index2 <= this.bqe) {
-                                this.bqg.addFirst(dVar2);
+                            if (index2 >= 1 && index2 <= this.brC) {
+                                this.brE.addFirst(dVar2);
                             }
                         }
                     }
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONArray("album_list").optJSONObject(0);
-                this.bqh = optJSONObject2.optString("tid");
-                this.bqi = optJSONObject2.optString("title");
+                this.brF = optJSONObject2.optString("tid");
+                this.brG = optJSONObject2.optString("title");
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
     }
 
-    public void gC(int i) {
-        this.arY = i;
+    public void gL(int i) {
+        this.atd = i;
     }
 }

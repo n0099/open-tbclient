@@ -9,7 +9,7 @@ public class c {
         this.uniqueId = bdUniqueId;
     }
 
-    public b dD(int i) {
+    public b dJ(int i) {
         b bVar = new b(i);
         bVar.setUniqueId(this.uniqueId);
         return bVar;
@@ -18,14 +18,14 @@ public class c {
     public b B(int i, int i2) {
         b bVar = new b(i);
         bVar.setUniqueId(this.uniqueId);
-        bVar.dC(i2);
+        bVar.dI(i2);
         return bVar;
     }
 
     public b i(int i, boolean z) {
         b bVar = new b(i);
         bVar.setUniqueId(this.uniqueId);
-        bVar.aM(z);
+        bVar.aO(z);
         return bVar;
     }
 }

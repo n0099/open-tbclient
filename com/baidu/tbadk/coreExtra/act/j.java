@@ -15,16 +15,16 @@ import com.baidu.tbadk.widget.EditHeadsImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends BdAsyncTask<String, Void, Bitmap> {
-    private Boolean Pm;
-    private Boolean Pn;
+    private Boolean PO;
+    private Boolean PP;
     private Bitmap bitmap;
     private String mLabel;
     final /* synthetic */ EditHeadActivity this$0;
 
     private j(EditHeadActivity editHeadActivity) {
         this.this$0 = editHeadActivity;
-        this.Pm = false;
-        this.Pn = false;
+        this.PO = false;
+        this.PP = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -44,7 +44,7 @@ public class j extends BdAsyncTask<String, Void, Bitmap> {
         if (bm == PluginPackageManager.PluginStatus.NROMAL) {
             progressBar = this.this$0.mProgress;
             progressBar.setVisibility(0);
-            view = this.this$0.OL;
+            view = this.this$0.Po;
             view.setEnabled(false);
             return;
         }
@@ -82,38 +82,38 @@ public class j extends BdAsyncTask<String, Void, Bitmap> {
         this.mLabel = strArr[0];
         bitmap = this.this$0.mBitmap;
         if (bitmap == null) {
-            bitmap9 = this.this$0.OZ;
+            bitmap9 = this.this$0.Pz;
             if (bitmap9 == null) {
                 return null;
             }
         }
         if (this.mLabel.equals("0") || this.mLabel.equals("1")) {
-            this.Pm = true;
+            this.PO = true;
         } else if (this.mLabel.equals("2") || this.mLabel.equals(TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE)) {
-            this.Pn = true;
+            this.PP = true;
         }
-        if (!this.Pm.booleanValue() && !this.Pn.booleanValue()) {
+        if (!this.PO.booleanValue() && !this.PP.booleanValue()) {
             bitmap7 = this.this$0.mBitmap;
             bitmap8 = this.this$0.mBitmap;
             this.bitmap = bitmap7.copy(bitmap8.getConfig(), true);
         } else {
-            bitmap2 = this.this$0.OZ;
+            bitmap2 = this.this$0.Pz;
             if (bitmap2 == null) {
                 bitmap3 = this.this$0.mBitmap;
                 bitmap4 = this.this$0.mBitmap;
                 this.bitmap = bitmap3.copy(bitmap4.getConfig(), true);
             } else {
-                bitmap5 = this.this$0.OZ;
-                bitmap6 = this.this$0.OZ;
+                bitmap5 = this.this$0.Pz;
+                bitmap6 = this.this$0.Pz;
                 this.bitmap = bitmap5.copy(bitmap6.getConfig(), true);
             }
         }
-        if (this.Pm.booleanValue()) {
+        if (this.PO.booleanValue()) {
             this.bitmap = com.baidu.tbadk.core.util.d.g(this.bitmap, Integer.parseInt(this.mLabel));
-        } else if (this.Pn.booleanValue()) {
+        } else if (this.PP.booleanValue()) {
             this.bitmap = com.baidu.tbadk.core.util.d.i(this.bitmap, Integer.parseInt(this.mLabel));
         } else {
-            MotuPlugin motuPlugin = (MotuPlugin) PluginCenter.gX().hd();
+            MotuPlugin motuPlugin = (MotuPlugin) PluginCenter.gW().hb();
             if (motuPlugin != null) {
                 this.bitmap = motuPlugin.createOneKeyFilterAndApply(this.this$0.getPageContext().getPageActivity(), this.mLabel, this.bitmap);
             }
@@ -127,7 +127,7 @@ public class j extends BdAsyncTask<String, Void, Bitmap> {
         View view;
         Bitmap bitmap;
         if (this.bitmap != null && !this.bitmap.isRecycled()) {
-            bitmap = this.this$0.OZ;
+            bitmap = this.this$0.Pz;
             if (bitmap != this.bitmap) {
                 this.bitmap.recycle();
             }
@@ -135,7 +135,7 @@ public class j extends BdAsyncTask<String, Void, Bitmap> {
         this.bitmap = null;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(8);
-        view = this.this$0.OL;
+        view = this.this$0.Po;
         view.setClickable(true);
         super.cancel(true);
     }
@@ -165,14 +165,14 @@ public class j extends BdAsyncTask<String, Void, Bitmap> {
         EditHeadsImageView editHeadsImageView2;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(8);
-        view = this.this$0.OL;
+        view = this.this$0.Po;
         view.setClickable(true);
-        view2 = this.this$0.OL;
+        view2 = this.this$0.Po;
         view2.setEnabled(true);
         if (bitmap != null && !bitmap.isRecycled()) {
-            this.this$0.Pg = true;
-            if (this.Pm.booleanValue() || this.Pn.booleanValue()) {
-                editHeadsImageView = this.this$0.OH;
+            this.this$0.PH = true;
+            if (this.PO.booleanValue() || this.PP.booleanValue()) {
+                editHeadsImageView = this.this$0.Pl;
                 editHeadsImageView.setImageBitmap(bitmap);
                 bitmap2 = this.this$0.mBitmap;
                 if (bitmap2.getWidth() <= 750) {
@@ -181,28 +181,28 @@ public class j extends BdAsyncTask<String, Void, Bitmap> {
                 EditHeadActivity editHeadActivity = this.this$0;
                 bitmap3 = this.this$0.mBitmap;
                 editHeadActivity.mBitmap = com.baidu.tbadk.core.util.d.d(bitmap3, TbConfig.POST_IMAGE_MIDDLE);
-                if (this.Pm.booleanValue()) {
+                if (this.PO.booleanValue()) {
                     EditHeadActivity editHeadActivity2 = this.this$0;
                     bitmap5 = this.this$0.mBitmap;
                     editHeadActivity2.mBitmap = com.baidu.tbadk.core.util.d.g(bitmap5, Integer.parseInt(this.mLabel));
-                } else if (this.Pn.booleanValue()) {
+                } else if (this.PP.booleanValue()) {
                     EditHeadActivity editHeadActivity3 = this.this$0;
                     bitmap4 = this.this$0.mBitmap;
                     editHeadActivity3.mBitmap = com.baidu.tbadk.core.util.d.i(bitmap4, Integer.parseInt(this.mLabel));
                 }
             } else {
-                editHeadsImageView2 = this.this$0.OH;
+                editHeadsImageView2 = this.this$0.Pl;
                 editHeadsImageView2.replaceImageBitmap(bitmap);
             }
-            bitmap7 = this.this$0.OZ;
+            bitmap7 = this.this$0.Pz;
             if (bitmap7 != null) {
-                bitmap8 = this.this$0.OZ;
+                bitmap8 = this.this$0.Pz;
                 if (!bitmap8.isRecycled()) {
-                    bitmap9 = this.this$0.OZ;
+                    bitmap9 = this.this$0.Pz;
                     bitmap9.recycle();
                 }
             }
-            this.this$0.OZ = bitmap;
+            this.this$0.Pz = bitmap;
         }
     }
 }

@@ -1,38 +1,32 @@
 package com.baidu.tieba.write;
 
-import java.util.ArrayList;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tieba.tbadkCore.PbEditor.EditorToolComponetContainer;
+import com.baidu.tieba.tbadkCore.PbEditor.TbEditorToolButtonContainer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ap extends com.baidu.adp.base.i {
-    final /* synthetic */ WriteActivity cft;
+public class ap implements View.OnClickListener {
+    final /* synthetic */ WriteActivity cgS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(WriteActivity writeActivity) {
-        this.cft = writeActivity;
+        this.cgS = writeActivity;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.write.WriteActivity */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.adp.base.i
-    public void c(Object obj) {
-        FeedBackTopListView feedBackTopListView;
-        FeedBackTopListView feedBackTopListView2;
-        FeedBackTopListView feedBackTopListView3;
-        this.cft.hideProgressBar();
-        if (obj == null || !(obj instanceof o)) {
-            feedBackTopListView = this.cft.ceT;
-            feedBackTopListView.setVisibility(8);
-            this.cft.showToast(com.baidu.tieba.z.neterror);
-            return;
-        }
-        o oVar = (o) obj;
-        if (oVar.getErrCode() != 0) {
-            feedBackTopListView2 = this.cft.ceT;
-            feedBackTopListView2.setVisibility(8);
-            return;
-        }
-        ArrayList<com.baidu.tbadk.core.data.w> ajJ = oVar.ajJ();
-        feedBackTopListView3 = this.cft.ceT;
-        feedBackTopListView3.a(ajJ, this.cft.getPageContext());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TextView textView;
+        ch chVar;
+        TbEditorToolButtonContainer tbEditorToolButtonContainer;
+        EditorToolComponetContainer editorToolComponetContainer;
+        textView = this.cgS.bPM;
+        textView.setSelected(true);
+        chVar = this.cgS.bPN;
+        com.baidu.adp.lib.g.k.showPopupWindowAsDropDown(chVar, view, 0, com.baidu.adp.lib.util.l.dip2px(this.cgS.getPageContext().getPageActivity(), 1.0f));
+        tbEditorToolButtonContainer = this.cgS.cgA;
+        tbEditorToolButtonContainer.afw();
+        editorToolComponetContainer = this.cgS.bWk;
+        editorToolComponetContainer.hideAll();
     }
 }

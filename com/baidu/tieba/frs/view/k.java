@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs.view;
 /* loaded from: classes.dex */
 class k implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ FrsHeaderView aHJ;
+    final /* synthetic */ FrsHeaderView aIT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(FrsHeaderView frsHeaderView) {
-        this.aHJ = frsHeaderView;
+        this.aIT = frsHeaderView;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d

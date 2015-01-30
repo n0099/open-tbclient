@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ay extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ WriteActivity cft;
-    private final /* synthetic */ boolean cfw;
+    final /* synthetic */ WriteActivity cgS;
+    private final /* synthetic */ boolean cgV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ay(WriteActivity writeActivity, boolean z) {
-        this.cft = writeActivity;
-        this.cfw = z;
+        this.cgS = writeActivity;
+        this.cgV = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,17 +23,17 @@ public class ay extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
         EditText editText2;
         com.baidu.tieba.tbadkCore.bubble.y yVar;
         super.onLoaded((ay) aVar, str, i);
-        if (aVar != null && aVar.ji() != null && aVar.jm() != null) {
-            NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(TbadkCoreApplication.m255getInst().getResources(), aVar.ji(), aVar.ji().getNinePatchChunk(), aVar.jm(), null);
+        if (aVar != null && aVar.jj() != null && aVar.jn() != null) {
+            NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(TbadkCoreApplication.m255getInst().getResources(), aVar.jj(), aVar.jj().getNinePatchChunk(), aVar.jn(), null);
             if (TbadkCoreApplication.m255getInst().getSkinType() == 1) {
                 ninePatchDrawable.getPaint().setAlpha(com.baidu.tieba.tbadkCore.ak.mAlpha);
             }
-            editText = this.cft.bOa;
+            editText = this.cgS.bPK;
             editText.setBackgroundDrawable(ninePatchDrawable);
-            if (this.cfw) {
-                WriteActivity writeActivity = this.cft;
-                editText2 = this.cft.bOa;
-                yVar = this.cft.aFe;
+            if (this.cgV) {
+                WriteActivity writeActivity = this.cgS;
+                editText2 = this.cgS.bPK;
+                yVar = this.cgS.aGh;
                 com.baidu.tieba.tbadkCore.bubble.m.a(writeActivity, editText2, true, yVar);
             }
         }

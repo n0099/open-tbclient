@@ -8,16 +8,16 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.dialog.d;
 /* loaded from: classes.dex */
 class n implements d {
-    private final /* synthetic */ BaseActivity aZC;
+    private final /* synthetic */ BaseActivity baZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(BaseActivity baseActivity) {
-        this.aZC = baseActivity;
+        this.baZ = baseActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(a aVar) {
         aVar.dismiss();
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.aZC.getPageContext().getPageActivity(), true, 23004, "remind")));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.baZ.getPageContext().getPageActivity(), true, 23004, "remind")));
     }
 }

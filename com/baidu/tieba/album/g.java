@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.img.ImageFileInfo;
@@ -12,32 +13,54 @@ import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
-    final /* synthetic */ e aoY;
-    private final al aoZ;
-    private final String apa;
-    private String apb;
+public class g extends BdAsyncTask<Void, Integer, List<ImageFileInfo>> {
+    final /* synthetic */ e apW;
+    private final aq apX;
+    private final String apY;
+    private String apZ;
+    private List<a> aqa;
 
-    public g(e eVar, String str, al alVar) {
-        this.aoY = eVar;
-        this.aoZ = alVar;
-        this.apa = str;
+    public g(e eVar, String str, aq aqVar) {
+        this.apW = eVar;
+        this.apX = aqVar;
+        this.apY = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: n */
-    public List<ImageFileInfo> doInBackground(Object... objArr) {
+    /* renamed from: d */
+    public List<ImageFileInfo> doInBackground(Void... voidArr) {
+        List<a> BM;
+        List<ImageFileInfo> eW;
+        if (TextUtils.isEmpty(this.apY)) {
+            return null;
+        }
+        if (!this.apY.equals("-1")) {
+            return eW(this.apY);
+        }
+        ArrayList arrayList = new ArrayList();
+        BM = this.apW.BM();
+        this.aqa = BM;
+        if (this.aqa != null) {
+            for (a aVar : this.aqa) {
+                String albumId = aVar.getAlbumId();
+                if (!TextUtils.isEmpty(albumId) && (eW = eW(albumId)) != null && eW.size() > 0) {
+                    arrayList.addAll(eW);
+                }
+            }
+        }
+        return arrayList;
+    }
+
+    private List<ImageFileInfo> eW(String str) {
         Context context;
         Context context2;
-        String str = this.apa;
-        context = this.aoY.mContext;
+        context = this.apW.mContext;
         List<ImageFileInfo> a = a(str, context, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         if (a == null || a.size() <= 0) {
-            String str2 = this.apa;
-            context2 = this.aoY.mContext;
-            return a(str2, context2, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+            context2 = this.apW.mContext;
+            return a(str, context2, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         }
         return a;
     }
@@ -46,8 +69,8 @@ public class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreCancel() {
         super.onPreCancel();
-        if (this.aoZ != null) {
-            this.aoZ.jH();
+        if (this.apX != null) {
+            this.apX.jG();
         }
     }
 
@@ -57,8 +80,8 @@ public class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
     /* renamed from: m */
     public void onPostExecute(List<ImageFileInfo> list) {
         super.onPostExecute(list);
-        if (this.aoZ != null) {
-            this.aoZ.a(list, this.apb);
+        if (this.apX != null) {
+            this.apX.a(this.aqa, list, this.apZ);
         }
     }
 
@@ -94,7 +117,7 @@ public class g extends BdAsyncTask<Object, Integer, List<ImageFileInfo>> {
             int columnIndex2 = cursor.getColumnIndex("bucket_display_name");
             do {
                 String string = cursor.getString(columnIndex);
-                this.apb = cursor.getString(columnIndex2);
+                this.apZ = cursor.getString(columnIndex2);
                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                 imageFileInfo.setAlbumnId(str);
                 imageFileInfo.setFilePath(string);

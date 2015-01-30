@@ -8,11 +8,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements com.baidu.tbadk.mvc.model.d<com.baidu.tieba.discover.data.a> {
-    final /* synthetic */ p atd;
+    final /* synthetic */ p auk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar) {
-        this.atd = pVar;
+        this.auk = pVar;
     }
 
     @Override // com.baidu.tbadk.mvc.model.d
@@ -24,23 +24,23 @@ public class q implements com.baidu.tbadk.mvc.model.d<com.baidu.tieba.discover.d
         com.baidu.tieba.discover.data.b bVar;
         s sVar4;
         if (readCacheRespMsg == null || readCacheRespMsg.getData() == null || readCacheRespMsg.getData().size() <= 0 || readCacheRespMsg.getData().get(0) == null) {
-            sVar = this.atd.atc;
+            sVar = this.auk.auj;
             if (sVar != null) {
-                sVar2 = this.atd.atc;
-                sVar2.a(false, this.atd.CM(), true);
+                sVar2 = this.auk.auj;
+                sVar2.a(false, this.auk.Dl(), true);
             }
         } else {
             com.baidu.tieba.discover.data.a aVar = readCacheRespMsg.getData().get(0);
-            sVar3 = this.atd.atc;
+            sVar3 = this.auk.auj;
             if (sVar3 != null) {
-                sVar4 = this.atd.atc;
+                sVar4 = this.auk.auj;
                 sVar4.a(false, aVar, true);
             }
-            bVar = this.atd.atb;
-            bVar.H(aVar.CN());
+            bVar = this.auk.aui;
+            bVar.H(aVar.Dm());
         }
-        tVar = this.atd.ata;
-        tVar.xv();
+        tVar = this.auk.auh;
+        tVar.xL();
     }
 
     @Override // com.baidu.tbadk.mvc.model.d

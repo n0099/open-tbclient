@@ -1,45 +1,38 @@
 package com.baidu.tieba.person.post;
 
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.util.bc;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements b {
-    final /* synthetic */ g bHr;
+public class i extends a {
+    public ReplyLinearLayout bJe;
+    public TextView bJf;
+    private View bJg;
+    private View bJh;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(g gVar) {
-        this.bHr = gVar;
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public i(View view) {
+        super(view, r0);
+        TbPageContext tbPageContext;
+        tbPageContext = f.MA;
+        this.bJe = (ReplyLinearLayout) view.findViewById(com.baidu.tieba.w.content_container);
+        this.bJf = (TextView) view.findViewById(com.baidu.tieba.w.original_post_title);
+        this.bJg = view.findViewById(com.baidu.tieba.w.reply_top_line);
+        this.bJh = view.findViewById(com.baidu.tieba.w.reply_bottom_line);
+        this.bJf.setOnClickListener(this);
     }
 
-    @Override // com.baidu.tieba.person.post.b
-    public void O(View view) {
-        String[] strArr;
-        TbPageContext tbPageContext;
-        TbPageContext tbPageContext2;
-        TbPageContext tbPageContext3;
-        TbPageContext tbPageContext4;
-        int id = view.getId();
-        if (id == com.baidu.tieba.w.portrait) {
-            tbPageContext4 = g.Me;
-            ((BaseFragmentActivity) tbPageContext4.getOrignalPage()).finish();
-        } else if (id == com.baidu.tieba.w.username) {
-            tbPageContext3 = g.Me;
-            ((BaseFragmentActivity) tbPageContext3.getOrignalPage()).finish();
-        } else if ((id == com.baidu.tieba.w.item_header || id == com.baidu.tieba.w.original_post_title || id == com.baidu.tieba.w.item_footer) && (strArr = (String[]) view.getTag()) != null) {
-            if ("0".equals(strArr[2]) || strArr[1] == null) {
-                MessageManager messageManager = MessageManager.getInstance();
-                tbPageContext = g.Me;
-                messageManager.sendMessage(new CustomMessage(2004001, new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_post_reply")));
-                return;
-            }
-            MessageManager messageManager2 = MessageManager.getInstance();
-            tbPageContext2 = g.Me;
-            messageManager2.sendMessage(new CustomMessage(2004001, new PbActivityConfig(tbPageContext2.getPageActivity()).createSubPbCfg(strArr[0], strArr[1], "person_post_reply")));
-        }
+    @Override // com.baidu.tieba.person.post.a
+    public void cs(int i) {
+        super.cs(i);
+        bc.i((View) this.bJf, com.baidu.tieba.t.cp_bg_line_e);
+        bc.b(this.bJf, com.baidu.tieba.t.cp_cont_b, 1);
+        bc.i(this.bJg, com.baidu.tieba.t.cp_bg_line_b);
+        bc.i(this.bJh, com.baidu.tieba.t.cp_bg_line_b);
     }
 }

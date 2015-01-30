@@ -16,7 +16,7 @@ public class r extends Handler {
         s sVar4;
         s sVar5;
         sVar = this.yX.yS;
-        if (sVar.vd) {
+        if (sVar.vj) {
             switch (message.what) {
                 case SapiErrorCode.GET_CERT_FAIL /* -105 */:
                     sVar5 = this.yX.yS;
@@ -27,14 +27,14 @@ public class r extends Handler {
                     sVar2.kr();
                     return;
                 case SapiErrorCode.INVALID_ARG /* -103 */:
-                case -102:
+                case SapiErrorCode.NOT_INIT /* -102 */:
                 default:
                     return;
-                case -101:
+                case SapiErrorCode.SENT_SUCCEED /* -101 */:
                     sVar3 = this.yX.yS;
                     sVar3.kq();
                     return;
-                case -100:
+                case SapiErrorCode.ERROR_UNKNOWN /* -100 */:
                     sVar4 = this.yX.yS;
                     sVar4.kp();
                     return;

@@ -11,7 +11,7 @@ public interface a {
 
     int getCurrentTabType();
 
-    Class<?> nZ();
+    Class<?> oc();
 
-    String oa();
+    String od();
 }

@@ -7,18 +7,18 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.v;
 /* loaded from: classes.dex */
 public class d {
-    private final g Kd = new g();
+    private final g Kw = new g();
     public boolean mIsNeedTbs = false;
-    public boolean Ke = true;
+    public boolean Kx = true;
     public boolean mIsUseCurrentBDUSS = true;
     public boolean mIsNeedAddCommenParam = true;
     public boolean mIsFromCDN = false;
-    public String Kf = p.eL();
-    public boolean Kg = false;
-    public int Kh = 0;
+    public String Ky = p.eJ();
+    public boolean Kz = false;
+    public int KA = 0;
 
-    public g pY() {
-        return this.Kd;
+    public g qj() {
+        return this.Kw;
     }
 
     public void a(v vVar) {
@@ -47,15 +47,15 @@ public class d {
         }
         String netType = h.getNetType();
         if (netType != null) {
-            String rt = com.baidu.tbadk.coreExtra.a.a.rr().rt();
+            String rF = com.baidu.tbadk.coreExtra.a.a.rD().rF();
             if (TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(netType)) {
                 if (TbadkCoreApplication.m255getInst().getKeepaliveWifi() == 1) {
-                    rt = String.valueOf(rt) + "ka=open";
+                    rF = String.valueOf(rF) + "ka=open";
                 }
             } else if (TbadkCoreApplication.m255getInst().getKeepaliveNonWifi() == 1) {
-                rt = String.valueOf(rt) + "ka=open";
+                rF = String.valueOf(rF) + "ka=open";
             }
-            com.baidu.adp.lib.network.willdelete.e.dX().ac(rt);
+            com.baidu.adp.lib.network.willdelete.e.dV().ac(rF);
         }
         if (this.mIsNeedTbs) {
             vVar.o("tbs", TbadkCoreApplication.m255getInst().getTbs());
@@ -65,18 +65,18 @@ public class d {
         vVar.o("model", Build.MODEL);
     }
 
-    public String pZ() {
-        if (this.Kd.mUrl == null) {
+    public String qk() {
+        if (this.Kw.mUrl == null) {
             return null;
         }
         String str = TbConfig.SERVER_ADDRESS;
-        if (this.Kd.mUrl.startsWith(str)) {
-            int indexOf = this.Kd.mUrl.indexOf(63);
+        if (this.Kw.mUrl.startsWith(str)) {
+            int indexOf = this.Kw.mUrl.indexOf(63);
             if (indexOf < 0) {
-                indexOf = this.Kd.mUrl.length();
+                indexOf = this.Kw.mUrl.length();
             }
-            return this.Kd.mUrl.substring(str.length(), indexOf);
+            return this.Kw.mUrl.substring(str.length(), indexOf);
         }
-        return this.Kd.mUrl;
+        return this.Kw.mUrl;
     }
 }

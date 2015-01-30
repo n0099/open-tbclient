@@ -1,21 +1,15 @@
 package com.baidu.tieba.tblauncher;
-
-import com.slidingmenu.lib.SlidingMenu;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw implements SlidingMenu.OnAboveViewScrollListener {
-    final /* synthetic */ an ccc;
+class aw implements com.baidu.tieba.tblauncher.a.j {
+    final /* synthetic */ ai cdw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(an anVar) {
-        this.ccc = anVar;
+    public aw(ai aiVar) {
+        this.cdw = aiVar;
     }
 
-    @Override // com.slidingmenu.lib.SlidingMenu.OnAboveViewScrollListener
-    public void onPageScrolled(int i, float f, int i2) {
-        SlidingMenu slidingMenu;
-        an anVar = this.ccc;
-        slidingMenu = this.ccc.aED;
-        anVar.z(1.0f - slidingMenu.getPercentOpen());
+    @Override // com.baidu.tieba.tblauncher.a.j
+    public void in(int i) {
+        this.cdw.onChangeSkinType(i);
     }
 }

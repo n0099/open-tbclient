@@ -6,13 +6,13 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements View.OnFocusChangeListener {
-    final /* synthetic */ BuyGiftActivity aaD;
-    private final /* synthetic */ InputMethodManager aaE;
+    final /* synthetic */ BuyGiftActivity abe;
+    private final /* synthetic */ InputMethodManager abf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(BuyGiftActivity buyGiftActivity, InputMethodManager inputMethodManager) {
-        this.aaD = buyGiftActivity;
-        this.aaE = inputMethodManager;
+        this.abe = buyGiftActivity;
+        this.abf = inputMethodManager;
     }
 
     @Override // android.view.View.OnFocusChangeListener
@@ -20,15 +20,15 @@ public class n implements View.OnFocusChangeListener {
         EditText editText;
         EditText editText2;
         if (z) {
-            BuyGiftActivity buyGiftActivity = this.aaD;
-            InputMethodManager inputMethodManager = this.aaE;
-            editText2 = this.aaD.ZZ;
+            BuyGiftActivity buyGiftActivity = this.abe;
+            InputMethodManager inputMethodManager = this.abf;
+            editText2 = this.abe.aaA;
             buyGiftActivity.ShowSoftKeyPad(inputMethodManager, editText2);
             return;
         }
-        BuyGiftActivity buyGiftActivity2 = this.aaD;
-        InputMethodManager inputMethodManager2 = this.aaE;
-        editText = this.aaD.ZZ;
+        BuyGiftActivity buyGiftActivity2 = this.abe;
+        InputMethodManager inputMethodManager2 = this.abf;
+        editText = this.abe.aaA;
         buyGiftActivity2.HidenSoftKeyPad(inputMethodManager2, editText);
     }
 }

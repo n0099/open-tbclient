@@ -1,25 +1,22 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-class cj implements View.OnClickListener {
-    final /* synthetic */ PersonalChatView aRR;
+class cj extends com.baidu.tieba.im.h<Boolean> {
+    final /* synthetic */ PersonalChatActivity aSN;
+    private final /* synthetic */ UserData aSR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cj(PersonalChatView personalChatView) {
-        this.aRR = personalChatView;
+    public cj(PersonalChatActivity personalChatActivity, UserData userData) {
+        this.aSN = personalChatActivity;
+        this.aSR = userData;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PersonalChatActivity personalChatActivity;
-        PersonalChatActivity personalChatActivity2;
-        personalChatActivity = this.aRR.aRJ;
-        if (!personalChatActivity.Kn()) {
-            personalChatActivity2 = this.aRR.aRJ;
-            personalChatActivity2.showToast(com.baidu.tieba.z.add_friend_cannot_send);
-            return;
-        }
-        this.aRR.SendMore1Event();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // com.baidu.tieba.im.h
+    public Boolean doInBackground() {
+        return Boolean.valueOf(com.baidu.tieba.im.settingcache.j.Tu().aH(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.aSR.getUserId())));
     }
 }

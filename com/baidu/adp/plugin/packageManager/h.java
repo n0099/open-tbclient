@@ -15,12 +15,12 @@ public class h implements com.baidu.adp.plugin.install.a {
         long j;
         if (z) {
             com.baidu.adp.plugin.packageManager.pluginSettings.h iy = com.baidu.adp.plugin.packageManager.pluginSettings.h.iy();
-            str = this.this$0.sH;
+            str = this.this$0.sQ;
             iy.br(str);
             if (PluginPackageManager.ic().il()) {
                 com.baidu.adp.plugin.b.a hU = com.baidu.adp.plugin.b.a.hU();
                 long currentTimeMillis = System.currentTimeMillis();
-                j = this.this$0.sJ;
+                j = this.this$0.sS;
                 hU.b("plugin_install", currentTimeMillis - j);
             }
         }

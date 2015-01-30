@@ -17,13 +17,13 @@ public class j {
     }
 
     public static void b(Context context, SapiWebView sapiWebView) {
-        View inflate = com.baidu.adp.lib.g.b.ek().inflate(context, x.layout_sapi_network_unavailable, null);
+        View inflate = com.baidu.adp.lib.g.b.ei().inflate(context, x.layout_sapi_network_unavailable, null);
         inflate.findViewById(w.btn_network_settings).setOnClickListener(new k(context));
         sapiWebView.setNoNetworkView(inflate);
     }
 
     public static void c(Context context, SapiWebView sapiWebView) {
-        View inflate = com.baidu.adp.lib.g.b.ek().inflate(context, x.layout_sapi_loading_timeout, null);
+        View inflate = com.baidu.adp.lib.g.b.ei().inflate(context, x.layout_sapi_loading_timeout, null);
         inflate.findViewById(w.btn_retry).setOnClickListener(new l(sapiWebView, inflate));
         sapiWebView.setTimeoutView(inflate);
     }

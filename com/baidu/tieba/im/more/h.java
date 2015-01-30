@@ -5,11 +5,11 @@ import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
-    final /* synthetic */ g biN;
+    final /* synthetic */ g bkk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.biN = gVar;
+        this.bkk = gVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,37 +25,37 @@ public class h implements View.OnClickListener {
         j jVar4;
         j jVar5;
         j jVar6;
-        jVar = this.biN.bix;
+        jVar = this.bkk.bjU;
         if (jVar != null) {
-            view2 = this.biN.mBack;
+            view2 = this.bkk.mBack;
             if (view != view2) {
-                tbSettingTextTipView = this.biN.biE;
+                tbSettingTextTipView = this.bkk.bkb;
                 if (view != tbSettingTextTipView) {
-                    tbSettingTextTipView2 = this.biN.biF;
+                    tbSettingTextTipView2 = this.bkk.bkc;
                     if (view != tbSettingTextTipView2) {
-                        tbSettingTextTipView3 = this.biN.biG;
+                        tbSettingTextTipView3 = this.bkk.bkd;
                         if (view != tbSettingTextTipView3) {
-                            tbSettingTextTipView4 = this.biN.biH;
+                            tbSettingTextTipView4 = this.bkk.bke;
                             if (view != tbSettingTextTipView4) {
                                 return;
                             }
-                            jVar2 = this.biN.bix;
-                            jVar2.Rn();
+                            jVar2 = this.bkk.bjU;
+                            jVar2.RJ();
                             return;
                         }
-                        jVar3 = this.biN.bix;
-                        jVar3.Ro();
+                        jVar3 = this.bkk.bjU;
+                        jVar3.RK();
                         return;
                     }
-                    jVar4 = this.biN.bix;
-                    jVar4.Rp();
+                    jVar4 = this.bkk.bjU;
+                    jVar4.RL();
                     return;
                 }
-                jVar5 = this.biN.bix;
-                jVar5.Rm();
+                jVar5 = this.bkk.bjU;
+                jVar5.RI();
                 return;
             }
-            jVar6 = this.biN.bix;
+            jVar6 = this.bkk.bjU;
             jVar6.onBackPressed();
         }
     }

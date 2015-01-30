@@ -11,7 +11,7 @@ class k implements m {
     }
 
     @Override // com.baidu.tbadk.browser.m
-    public Object n(Activity activity) {
+    public Object o(Activity activity) {
         return new TbJsBridge(activity);
     }
 }

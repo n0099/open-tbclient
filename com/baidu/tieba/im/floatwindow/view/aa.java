@@ -7,11 +7,11 @@ import com.baidu.tieba.im.model.MsglistModel;
 import com.baidu.tieba.im.model.PersonalMsglistModel;
 /* loaded from: classes.dex */
 class aa implements com.baidu.adp.lib.d.d {
-    final /* synthetic */ FloatingPersonalChatActivity aYF;
+    final /* synthetic */ FloatingPersonalChatActivity bab;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(FloatingPersonalChatActivity floatingPersonalChatActivity) {
-        this.aYF = floatingPersonalChatActivity;
+        this.bab = floatingPersonalChatActivity;
     }
 
     @Override // com.baidu.adp.lib.d.d
@@ -22,16 +22,16 @@ class aa implements com.baidu.adp.lib.d.d {
         if (i == 0 && address != null) {
             String valueOf = String.valueOf(address.getLatitude());
             String valueOf2 = String.valueOf(address.getLongitude());
-            msglistModel = this.aYF.mListModel;
+            msglistModel = this.bab.mListModel;
             if (msglistModel instanceof PersonalMsglistModel) {
-                msglistModel2 = this.aYF.mListModel;
+                msglistModel2 = this.bab.mListModel;
                 userData = ((PersonalMsglistModel) msglistModel2).getUser();
             } else {
                 userData = null;
             }
             if (userData != null) {
-                this.aYF.mUser = userData;
-                this.aYF.sendMessage(new RequestPersonalLbsInfoMessage(205101, userData.getUserIdLong(), valueOf, valueOf2));
+                this.bab.mUser = userData;
+                this.bab.sendMessage(new RequestPersonalLbsInfoMessage(205101, userData.getUserIdLong(), valueOf, valueOf2));
             }
         }
     }

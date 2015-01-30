@@ -4,17 +4,17 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements View.OnClickListener {
-    final /* synthetic */ ad bQt;
+    final /* synthetic */ ad bSe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(ad adVar) {
-        this.bQt = adVar;
+        this.bSe = adVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         SignAllForumActivity signAllForumActivity;
-        signAllForumActivity = this.bQt.bQj;
+        signAllForumActivity = this.bSe.bRU;
         signAllForumActivity.finish();
     }
 }

@@ -18,7 +18,7 @@ public class x implements q {
     }
 
     @Override // com.baidu.tieba.more.q
-    public void gJ(int i) {
+    public void gS(int i) {
         af afVar;
         if (i != 0) {
             if (i != 1) {
@@ -33,8 +33,8 @@ public class x implements q {
                                             return;
                                         } else if (i != 9) {
                                             if (i == 10) {
-                                                afVar = this.this$0.buv;
-                                                afVar.Vp();
+                                                afVar = this.this$0.bvR;
+                                                afVar.VN();
                                                 return;
                                             } else if (i == 12) {
                                                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -53,31 +53,31 @@ public class x implements q {
                                                 return;
                                             }
                                         } else {
-                                            this.this$0.Vk();
+                                            this.this$0.VI();
                                             return;
                                         }
                                     }
-                                    this.this$0.Vd();
+                                    this.this$0.VB();
                                     return;
                                 }
-                                this.this$0.Vc();
+                                this.this$0.VA();
                                 return;
                             }
-                            this.this$0.Ve();
+                            this.this$0.VC();
                             return;
                         }
-                        this.this$0.Vj();
+                        this.this$0.VH();
                         return;
                     }
-                    this.this$0.Vf();
+                    this.this$0.VD();
                     return;
                 }
-                this.this$0.Vg();
+                this.this$0.VE();
                 return;
             }
-            this.this$0.Vh();
+            this.this$0.VF();
             return;
         }
-        this.this$0.Vi();
+        this.this$0.VG();
     }
 }

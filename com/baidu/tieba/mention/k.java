@@ -6,24 +6,24 @@ import org.json.JSONObject;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class k {
-    private int brZ;
+    private int btw;
     private String mId = "";
     private String mName = "";
-    private String atY = "";
+    private String auY = "";
     private String mPortrait = "";
     private int mUserType = 0;
-    private int brY = 0;
+    private int btv = 0;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.mId = jSONObject.optString("id");
                 this.mUserType = jSONObject.optInt(OfficalBarChatActivityConfig.USER_TYPE);
-                this.brY = jSONObject.optInt("is_verify");
+                this.btv = jSONObject.optInt("is_verify");
                 this.mName = jSONObject.optString("name");
-                this.atY = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW);
+                this.auY = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW);
                 this.mPortrait = jSONObject.optString(com.baidu.tbadk.core.frameworkData.a.PORTRAIT);
-                this.brZ = jSONObject.optInt("is_friend");
+                this.btw = jSONObject.optInt("is_friend");
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -35,11 +35,11 @@ public class k {
             try {
                 this.mId = String.valueOf(user.id);
                 this.mUserType = user.user_type.intValue();
-                this.brY = user.is_verify.intValue();
+                this.btv = user.is_verify.intValue();
                 this.mName = user.name;
-                this.atY = user.name_show;
+                this.auY = user.name_show;
                 this.mPortrait = user.portrait;
-                this.brZ = user.is_friend.intValue();
+                this.btw = user.is_friend.intValue();
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -54,8 +54,8 @@ public class k {
         return this.mName;
     }
 
-    public String TP() {
-        return this.atY;
+    public String Um() {
+        return this.auY;
     }
 
     public String getPortrait() {
@@ -63,6 +63,6 @@ public class k {
     }
 
     public int getIsMyFriend() {
-        return this.brZ;
+        return this.btw;
     }
 }

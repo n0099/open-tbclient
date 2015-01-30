@@ -15,9 +15,9 @@ class y implements Comparator<com.baidu.adp.lib.cache.v<?>> {
     @Override // java.util.Comparator
     /* renamed from: a */
     public int compare(com.baidu.adp.lib.cache.v<?> vVar, com.baidu.adp.lib.cache.v<?> vVar2) {
-        if (vVar.hP == vVar2.hP) {
+        if (vVar.hR == vVar2.hR) {
             return 0;
         }
-        return vVar.hP > vVar2.hP ? -1 : 1;
+        return vVar.hR > vVar2.hR ? -1 : 1;
     }
 }

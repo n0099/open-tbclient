@@ -7,13 +7,13 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements com.baidu.tieba.im.g<Boolean> {
-    final /* synthetic */ a bni;
+    final /* synthetic */ a boF;
     private final /* synthetic */ ChatMessage val$chatMessage;
     private final /* synthetic */ PersonalChatMessage val$personalChatMessage;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(a aVar, PersonalChatMessage personalChatMessage, ChatMessage chatMessage) {
-        this.bni = aVar;
+        this.boF = aVar;
         this.val$personalChatMessage = personalChatMessage;
         this.val$chatMessage = chatMessage;
     }

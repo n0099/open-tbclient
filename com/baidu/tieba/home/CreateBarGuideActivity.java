@@ -7,13 +7,14 @@ import com.baidu.tbadk.core.atomData.CreateBarGuideActivityConfig;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.aa;
 import com.baidu.tbadk.core.view.ab;
+import com.baidu.tbadk.core.view.x;
 import com.baidu.tbadk.core.view.y;
 import com.baidu.tbadk.core.view.z;
 import com.baidu.tieba.selectpoi.NavigationBarActivity;
 /* loaded from: classes.dex */
 public class CreateBarGuideActivity extends NavigationBarActivity {
-    private z aOp = null;
-    com.baidu.tbadk.core.view.x zO;
+    private z aPy = null;
+    x zO;
 
     static {
         TbadkApplication.getInst().RegisterIntent(CreateBarGuideActivityConfig.class, CreateBarGuideActivity.class);
@@ -24,9 +25,9 @@ public class CreateBarGuideActivity extends NavigationBarActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         String stringExtra = getIntent().getStringExtra(CreateBarGuideActivityConfig.EXTRA_KEY_FORUM_NAME);
-        this.aey.setTitleText(com.baidu.tieba.z.frs_create_forum);
-        this.aOp = z.a(new y(getResources().getString(com.baidu.tieba.z.create_bar), new e(this, stringExtra)));
-        this.zO = NoDataViewFactory.a(getPageContext().getPageActivity(), getRootView(), aa.a(NoDataViewFactory.ImgType.CREATE), ab.m(getResources().getString(com.baidu.tieba.z.frs_remind_noforum), getResources().getString(com.baidu.tieba.z.frs_remind_create), stringExtra), this.aOp);
+        this.aeV.setTitleText(com.baidu.tieba.z.frs_create_forum);
+        this.aPy = z.a(new y(getResources().getString(com.baidu.tieba.z.create_bar), new e(this, stringExtra)));
+        this.zO = NoDataViewFactory.a(getPageContext().getPageActivity(), getRootView(), aa.a(NoDataViewFactory.ImgType.CREATE), ab.m(getResources().getString(com.baidu.tieba.z.frs_remind_noforum), getResources().getString(com.baidu.tieba.z.frs_remind_create), stringExtra), this.aPy);
         this.zO.setVisibility(0);
     }
 

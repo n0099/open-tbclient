@@ -1,20 +1,19 @@
 package com.baidu.tbadk.mvc.model;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements Runnable {
-    private final /* synthetic */ CustomMessageListener aej;
+class m implements Runnable {
+    private final /* synthetic */ CustomMessageListener aeG;
     final /* synthetic */ NetModel this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(NetModel netModel, CustomMessageListener customMessageListener) {
         this.this$0 = netModel;
-        this.aej = customMessageListener;
+        this.aeG = customMessageListener;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.this$0.registerListener(this.aej);
+        this.this$0.registerListener(this.aeG);
     }
 }

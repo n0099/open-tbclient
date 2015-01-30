@@ -2,8 +2,10 @@ package com.baidu.tieba.tblauncher;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.mainTab.f;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class u extends CustomMessageListener {
+public class u extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,9 +18,7 @@ class u extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2009503) {
-            return;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007007 && customResponsedMessage.getData() != null && ((f) customResponsedMessage.getData()).wy() == null) {
         }
-        this.this$0.aiC();
     }
 }

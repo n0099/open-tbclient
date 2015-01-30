@@ -19,23 +19,23 @@ import com.baidu.adp.lib.util.l;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class i {
-    private final LinkedList<d> eD = new LinkedList<>();
-    private final LinkedList<k> eE = new LinkedList<>();
-    private final LinkedList<b> eF = new LinkedList<>();
-    private final LinkedList<c> eG = new LinkedList<>();
-    private final LinkedList<j> eH = new LinkedList<>();
-    private final LinkedList<a> eI = new LinkedList<>();
-    private final LinkedList<e> eJ = new LinkedList<>();
+    private final LinkedList<d> eF = new LinkedList<>();
+    private final LinkedList<k> eG = new LinkedList<>();
+    private final LinkedList<b> eH = new LinkedList<>();
+    private final LinkedList<c> eI = new LinkedList<>();
+    private final LinkedList<j> eJ = new LinkedList<>();
+    private final LinkedList<a> eK = new LinkedList<>();
+    private final LinkedList<e> eL = new LinkedList<>();
 
     public void addMessageRule(f<?, ?> fVar) {
         if (fVar != null) {
-            l.ft();
+            l.fs();
             if (fVar instanceof d) {
-                FrameHelper.a(this.eD, (d) fVar);
+                FrameHelper.a(this.eF, (d) fVar);
             } else if (fVar instanceof k) {
-                FrameHelper.a(this.eE, (k) fVar);
+                FrameHelper.a(this.eG, (k) fVar);
             } else if (fVar instanceof b) {
-                FrameHelper.a(this.eF, (b) fVar);
+                FrameHelper.a(this.eH, (b) fVar);
             } else {
                 BdLog.e("rule invalid");
             }
@@ -44,13 +44,13 @@ public class i {
 
     public void removeMessageRule(f<?, ?> fVar) {
         if (fVar != null) {
-            l.ft();
+            l.fs();
             if (fVar instanceof d) {
-                this.eD.remove(fVar);
-            } else if (fVar instanceof k) {
-                this.eE.remove(fVar);
-            } else if (fVar instanceof b) {
                 this.eF.remove(fVar);
+            } else if (fVar instanceof k) {
+                this.eG.remove(fVar);
+            } else if (fVar instanceof b) {
+                this.eH.remove(fVar);
             } else {
                 BdLog.e("rule invalid");
             }
@@ -59,13 +59,13 @@ public class i {
 
     public void a(g<?> gVar) {
         if (gVar != null) {
-            l.ft();
+            l.fs();
             if (gVar instanceof c) {
-                FrameHelper.a(this.eG, (c) gVar);
+                FrameHelper.a(this.eI, (c) gVar);
             } else if (gVar instanceof j) {
-                FrameHelper.a(this.eH, (j) gVar);
+                FrameHelper.a(this.eJ, (j) gVar);
             } else if (gVar instanceof a) {
-                FrameHelper.a(this.eI, (a) gVar);
+                FrameHelper.a(this.eK, (a) gVar);
             } else {
                 BdLog.e("rule invalid");
             }
@@ -74,13 +74,13 @@ public class i {
 
     public void b(g<?> gVar) {
         if (gVar != null) {
-            l.ft();
+            l.fs();
             if (gVar instanceof c) {
-                this.eG.remove(gVar);
-            } else if (gVar instanceof j) {
-                this.eH.remove(gVar);
-            } else if (gVar instanceof a) {
                 this.eI.remove(gVar);
+            } else if (gVar instanceof j) {
+                this.eJ.remove(gVar);
+            } else if (gVar instanceof a) {
+                this.eK.remove(gVar);
             } else {
                 BdLog.e("rule invalid");
             }
@@ -88,15 +88,15 @@ public class i {
     }
 
     public HttpMessage b(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        return (HttpMessage) a(this.eD, httpMessage, httpMessageTask);
+        return (HttpMessage) a(this.eF, httpMessage, httpMessageTask);
     }
 
     public SocketMessage b(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        return (SocketMessage) a(this.eE, socketMessage, socketMessageTask);
+        return (SocketMessage) a(this.eG, socketMessage, socketMessageTask);
     }
 
     public CustomMessage<?> b(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
-        return (CustomMessage) a(this.eF, customMessage, customMessageTask);
+        return (CustomMessage) a(this.eH, customMessage, customMessageTask);
     }
 
     private <M extends Message<?>, T extends MessageTask> M a(LinkedList<? extends f<M, T>> linkedList, M m, T t) {
@@ -121,15 +121,15 @@ public class i {
     }
 
     public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
-        return (HttpResponsedMessage) a(this.eG, httpResponsedMessage);
+        return (HttpResponsedMessage) a(this.eI, httpResponsedMessage);
     }
 
     public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
-        return (SocketResponsedMessage) a(this.eH, socketResponsedMessage);
+        return (SocketResponsedMessage) a(this.eJ, socketResponsedMessage);
     }
 
     public CustomResponsedMessage<?> b(CustomResponsedMessage<?> customResponsedMessage) {
-        return (CustomResponsedMessage) a(this.eI, customResponsedMessage);
+        return (CustomResponsedMessage) a(this.eK, customResponsedMessage);
     }
 
     private <M extends ResponsedMessage<?>> M a(LinkedList<? extends g<M>> linkedList, M m) {
@@ -154,24 +154,24 @@ public class i {
     }
 
     public void a(e eVar) {
-        this.eJ.add(eVar);
+        this.eL.add(eVar);
     }
 
     public void b(e eVar) {
-        this.eJ.remove(eVar);
+        this.eL.remove(eVar);
     }
 
-    public void b(int i, BdUniqueId bdUniqueId) {
-        int size = this.eJ.size();
+    public void c(int i, BdUniqueId bdUniqueId) {
+        int size = this.eL.size();
         for (int i2 = 0; i2 < size; i2++) {
-            this.eJ.get(i2).a(i, bdUniqueId);
+            this.eL.get(i2).b(i, bdUniqueId);
         }
     }
 
     public void c(BdUniqueId bdUniqueId) {
-        int size = this.eJ.size();
+        int size = this.eL.size();
         for (int i = 0; i < size; i++) {
-            this.eJ.get(i).b(bdUniqueId);
+            this.eL.get(i).b(bdUniqueId);
         }
     }
 }

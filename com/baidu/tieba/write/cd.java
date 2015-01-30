@@ -28,9 +28,9 @@ public class cd extends BroadcastReceiver {
             return;
         }
         this.this$0.showToast(intent.getStringExtra("error"));
-        view = this.this$0.cfA;
+        view = this.this$0.cha;
         if (view != null) {
-            view2 = this.this$0.cfA;
+            view2 = this.this$0.cha;
             view2.setEnabled(false);
         }
     }

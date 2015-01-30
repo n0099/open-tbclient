@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.im.chat.officialBar.RequestLocalHistoryMessage;
 import com.baidu.tieba.im.chat.officialBar.ResponseLocalHistoryMessage;
 import com.baidu.tieba.im.chat.officialBar.aq;
@@ -20,7 +20,7 @@ public class m implements CustomMessageTask.CustomRunnable<String> {
         if (customMessage == null || !(customMessage instanceof RequestLocalHistoryMessage)) {
             return null;
         }
-        byte[] bArr = com.baidu.tbadk.core.a.a.nS().bU("tb.im_official_history").get(String.valueOf(TbadkApplication.getCurrentAccount()) + "@" + ((RequestLocalHistoryMessage) customMessage).getData());
+        byte[] bArr = com.baidu.tbadk.core.a.a.nV().bS("tb.im_official_history").get(String.valueOf(TbadkApplication.getCurrentAccount()) + "@" + ((RequestLocalHistoryMessage) customMessage).getData());
         if (bArr == null) {
             return null;
         }
@@ -33,7 +33,7 @@ public class m implements CustomMessageTask.CustomRunnable<String> {
                     if (msgInfo != null) {
                         Date date = new Date();
                         date.setTime(msgInfo.sendTime.longValue() * 1000);
-                        aqVar.time = ba.c(date);
+                        aqVar.time = bf.c(date);
                         aqVar.type = msgInfo.type.intValue();
                         aqVar.content = msgInfo.content;
                         aqVar.id = msgInfo.id.intValue();

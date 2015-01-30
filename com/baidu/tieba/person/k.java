@@ -5,11 +5,11 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 class k implements View.OnClickListener {
-    final /* synthetic */ g bFr;
+    final /* synthetic */ g bHc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(g gVar) {
-        this.bFr = gVar;
+        this.bHc = gVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,27 +24,27 @@ class k implements View.OnClickListener {
         TextView textView3;
         TextView textView4;
         q qVar6;
-        qVar = this.bFr.bFg;
+        qVar = this.bHc.bGR;
         if (qVar != null) {
-            qVar2 = this.bFr.bFg;
-            if (!qVar2.Ay()) {
-                qVar5 = this.bFr.bFg;
+            qVar2 = this.bHc.bGR;
+            if (!qVar2.AZ()) {
+                qVar5 = this.bHc.bGR;
                 qVar5.setEditState(true);
-                textView3 = this.bFr.alK;
+                textView3 = this.bHc.amE;
                 textView3.setText(com.baidu.tieba.z.done);
-                textView4 = this.bFr.alK;
-                com.baidu.tbadk.core.util.ax.g(textView4, TbadkCoreApplication.m255getInst().getSkinType());
-                qVar6 = this.bFr.bFg;
+                textView4 = this.bHc.amE;
+                com.baidu.tbadk.core.util.bc.g(textView4, TbadkCoreApplication.m255getInst().getSkinType());
+                qVar6 = this.bHc.bGR;
                 qVar6.notifyDataSetChanged();
                 return;
             }
-            qVar3 = this.bFr.bFg;
+            qVar3 = this.bHc.bGR;
             qVar3.setEditState(false);
-            textView = this.bFr.alK;
+            textView = this.bHc.amE;
             textView.setText(com.baidu.tieba.z.edit);
-            textView2 = this.bFr.alK;
-            com.baidu.tbadk.core.util.ax.i(textView2, TbadkCoreApplication.m255getInst().getSkinType());
-            qVar4 = this.bFr.bFg;
+            textView2 = this.bHc.amE;
+            com.baidu.tbadk.core.util.bc.i(textView2, TbadkCoreApplication.m255getInst().getSkinType());
+            qVar4 = this.bHc.bGR;
             qVar4.notifyDataSetChanged();
         }
     }

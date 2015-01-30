@@ -4,18 +4,18 @@ import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements DialogInterface.OnClickListener {
-    final /* synthetic */ EditorToolComponetContainer bUi;
+    final /* synthetic */ EditorToolComponetContainer bWa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(EditorToolComponetContainer editorToolComponetContainer) {
-        this.bUi = editorToolComponetContainer;
+        this.bWa = editorToolComponetContainer;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         com.baidu.tbadk.editortool.w wVar;
-        this.bUi.bTK.setmImagetype(2);
-        wVar = this.bUi.XD;
+        this.bWa.bVC.setmImagetype(2);
+        wVar = this.bWa.Yj;
         wVar.handleAction(23, null);
     }
 }

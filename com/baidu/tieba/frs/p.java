@@ -1,41 +1,41 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 class p implements com.baidu.tbadk.core.view.ad {
-    final /* synthetic */ FrsActivity aCV;
+    final /* synthetic */ FrsActivity aDW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(FrsActivity frsActivity) {
-        this.aCV = frsActivity;
+        this.aDW = frsActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.ad
-    public void ar(boolean z) {
-        bq bqVar;
+    public void at(boolean z) {
+        bp bpVar;
         com.baidu.tieba.tbadkCore.e eVar;
-        bq bqVar2;
+        bp bpVar2;
         boolean z2;
-        bq bqVar3;
+        bp bpVar3;
         com.baidu.tieba.tbadkCore.e eVar2;
         if (z) {
-            bqVar = this.aCV.aBX;
-            if (!bqVar.Gs()) {
-                eVar = this.aCV.aCh;
+            bpVar = this.aDW.aCY;
+            if (!bpVar.GP()) {
+                eVar = this.aDW.aDi;
                 if (eVar != null) {
-                    eVar2 = this.aCV.aCh;
-                    if (eVar2.aek().size() != 0) {
+                    eVar2 = this.aDW.aDi;
+                    if (eVar2.aeO().size() != 0) {
                         return;
                     }
                 }
-                FrsActivity frsActivity = this.aCV;
-                bqVar2 = this.aCV.aBX;
-                frsActivity.hideNetRefreshView(bqVar2.getRootView());
-                z2 = this.aCV.aBL;
+                FrsActivity frsActivity = this.aDW;
+                bpVar2 = this.aDW.aCY;
+                frsActivity.hideNetRefreshView(bpVar2.getRootView());
+                z2 = this.aDW.aCM;
                 if (!z2) {
-                    FrsActivity frsActivity2 = this.aCV;
-                    bqVar3 = this.aCV.aBX;
-                    frsActivity2.showLoadingView(bqVar3.getRootView(), true);
+                    FrsActivity frsActivity2 = this.aDW;
+                    bpVar3 = this.aDW.aCY;
+                    frsActivity2.showLoadingView(bpVar3.getRootView(), true);
                 }
-                this.aCV.refresh();
+                this.aDW.refresh();
             }
         }
     }

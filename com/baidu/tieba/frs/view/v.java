@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements View.OnClickListener {
-    final /* synthetic */ o aHR;
+    final /* synthetic */ o aJb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(o oVar) {
-        this.aHR = oVar;
+        this.aJb = oVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,9 +21,9 @@ public class v implements View.OnClickListener {
         TbPageContext tbPageContext;
         String str;
         MessageManager messageManager = MessageManager.getInstance();
-        tbPageContext = this.aHR.mContext;
+        tbPageContext = this.aJb.mContext;
         Context context = tbPageContext.getContext();
-        str = this.aHR.aHh;
+        str = this.aJb.aIr;
         messageManager.sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(context, str, "2", "1")));
     }
 }

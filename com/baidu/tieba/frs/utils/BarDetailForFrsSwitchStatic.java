@@ -4,7 +4,7 @@ import com.baidu.adp.lib.b.f;
 /* loaded from: classes.dex */
 public class BarDetailForFrsSwitchStatic extends com.baidu.adp.lib.b.a {
     static {
-        f.dc().l(BarDetailForFrsSwitchStatic.class);
+        f.da().l(BarDetailForFrsSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

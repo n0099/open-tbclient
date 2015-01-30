@@ -1,49 +1,35 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tieba.personInfo.PersonInfoActivity;
+import android.text.TextUtils;
+import android.widget.ProgressBar;
 /* loaded from: classes.dex */
-public class bd extends com.baidu.adp.base.g {
-    TextView bGw;
-    TextView bGx;
-    View mView;
+class bd implements bo {
+    final /* synthetic */ PersonListActivity bIs;
 
-    public bd(PersonInfoActivity personInfoActivity) {
-        super(personInfoActivity.getPageContext());
-        a(personInfoActivity);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bd(PersonListActivity personListActivity) {
+        this.bIs = personListActivity;
     }
 
-    private void a(PersonInfoActivity personInfoActivity) {
-        this.mView = com.baidu.adp.lib.g.b.ek().inflate(personInfoActivity.getPageContext().getPageActivity(), com.baidu.tieba.x.person_info_more_view, null);
-        this.bGw = (TextView) this.mView.findViewById(com.baidu.tieba.w.person_info_more_view_item_friend);
-        this.bGw.setOnClickListener(personInfoActivity);
-        this.bGx = (TextView) this.mView.findViewById(com.baidu.tieba.w.person_info_more_view_item_black);
-        this.bGx.setOnClickListener(personInfoActivity);
-    }
-
-    public void h(boolean z, boolean z2) {
-        if (z) {
-            this.bGw.setVisibility(0);
-        } else {
-            this.bGw.setVisibility(8);
-        }
-        if (z2) {
-            this.bGx.setText(com.baidu.tieba.z.remove_block_chat);
-        } else {
-            this.bGx.setText(com.baidu.tieba.z.block_chat_message);
+    @Override // com.baidu.tieba.person.bo
+    public void A(String str, boolean z) {
+        ProgressBar progressBar;
+        ProgressBar progressBar2;
+        if (!z) {
+            progressBar = this.bIs.mProgress;
+            if (progressBar.isShown()) {
+                progressBar2 = this.bIs.mProgress;
+                progressBar2.setVisibility(8);
+            }
+            if (!TextUtils.isEmpty(str)) {
+                this.bIs.showToast(str);
+            }
         }
     }
 
-    public View getView() {
-        return this.mView;
-    }
-
-    public View aav() {
-        return this.bGw;
-    }
-
-    public View aaw() {
-        return this.bGx;
+    @Override // com.baidu.tieba.person.bo
+    public com.baidu.tbadk.core.data.r d(com.baidu.tbadk.core.data.r rVar, boolean z) {
+        this.bIs.a(rVar, z);
+        return null;
     }
 }

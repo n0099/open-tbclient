@@ -10,7 +10,7 @@ import com.baidu.tieba.personInfo.PersonInfoActivity;
 /* loaded from: classes.dex */
 public class PersonInfoActivityStatic {
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2002003, new bc());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2002003, new bb());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }

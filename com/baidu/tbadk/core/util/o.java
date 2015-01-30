@@ -6,24 +6,24 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class o extends DiskFileOperate {
-    protected p HA;
-    protected BitmapFactory.Options gc;
+    protected p HJ;
+    protected BitmapFactory.Options ge;
     protected Bitmap mBitmap;
 
     public o(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
         this.mBitmap = null;
-        this.gc = null;
-        this.HA = null;
-        this.HA = new p();
+        this.ge = null;
+        this.HJ = null;
+        this.HJ = new p();
     }
 
-    public boolean cm() {
-        return this.HA.gg;
+    public boolean ck() {
+        return this.HJ.gi;
     }
 
     public void r(boolean z) {
-        this.HA.gg = z;
+        this.HJ.gi = z;
     }
 
     public Bitmap getBitmap() {
@@ -33,17 +33,17 @@ public class o extends DiskFileOperate {
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public void setData(byte[] bArr) {
         super.setData(bArr);
-        if (!cm() && com.baidu.adp.lib.util.l.l(bArr)) {
+        if (!ck() && com.baidu.adp.lib.util.l.l(bArr)) {
             r(true);
         }
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public byte[] bZ() {
+    public byte[] bX() {
         if (this.mData == null) {
             return null;
         }
-        return this.HA.toByteArray();
+        return this.HJ.toByteArray();
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -51,18 +51,18 @@ public class o extends DiskFileOperate {
         if (bArr == null) {
             return false;
         }
-        if (this.gc == null) {
-            this.gc = new BitmapFactory.Options();
-            this.gc.inPreferredConfig = Bitmap.Config.RGB_565;
+        if (this.ge == null) {
+            this.ge = new BitmapFactory.Options();
+            this.ge.inPreferredConfig = Bitmap.Config.RGB_565;
         }
-        boolean k = this.HA.k(bArr);
-        if (this.HA.gh == 0 || this.HA.gh >= System.currentTimeMillis()) {
-            int cp = p.cp();
+        boolean k = this.HJ.k(bArr);
+        if (this.HJ.gj == 0 || this.HJ.gj >= System.currentTimeMillis()) {
+            int cn = p.cn();
             if (!k) {
-                cp = 0;
+                cn = 0;
             }
             try {
-                this.mBitmap = BitmapFactory.decodeByteArray(bArr, cp, bArr.length - cp, this.gc);
+                this.mBitmap = BitmapFactory.decodeByteArray(bArr, cn, bArr.length - cn, this.ge);
             } catch (Error e) {
                 BdLog.e(e.getMessage());
             }

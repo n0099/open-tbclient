@@ -1,7 +1,7 @@
 package android.support.v4.text;
 /* loaded from: classes.dex */
 class i implements j {
-    public static final i bs = new i();
+    public static final i bt = new i();
 
     @Override // android.support.v4.text.j
     public int a(CharSequence charSequence, int i, int i2) {

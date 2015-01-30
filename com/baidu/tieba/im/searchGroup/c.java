@@ -8,11 +8,11 @@ import android.widget.ImageButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements TextWatcher {
-    final /* synthetic */ b bms;
+    final /* synthetic */ b bnP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.bms = bVar;
+        this.bnP = bVar;
     }
 
     @Override // android.text.TextWatcher
@@ -20,13 +20,13 @@ public class c implements TextWatcher {
         EditText editText;
         ImageButton imageButton;
         ImageButton imageButton2;
-        editText = this.bms.bmn;
+        editText = this.bnP.bnK;
         if (editText.length() > 0) {
-            imageButton2 = this.bms.bmo;
+            imageButton2 = this.bnP.bnL;
             imageButton2.setVisibility(0);
             return;
         }
-        imageButton = this.bms.bmo;
+        imageButton = this.bnP.bnL;
         imageButton.setVisibility(8);
     }
 
@@ -37,7 +37,7 @@ public class c implements TextWatcher {
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
         View view;
-        view = this.bms.bmp;
+        view = this.bnP.bnM;
         view.setTag(editable.toString().trim());
     }
 }

@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements View.OnClickListener {
-    final /* synthetic */ o aHR;
+    final /* synthetic */ o aJb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(o oVar) {
-        this.aHR = oVar;
+        this.aJb = oVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,14 +23,14 @@ public class s implements View.OnClickListener {
         TbPageContext tbPageContext;
         TbPageContext tbPageContext2;
         String str2;
-        str = this.aHR.aHC;
+        str = this.aJb.aIM;
         if (!TextUtils.isEmpty(str)) {
             MessageManager messageManager = MessageManager.getInstance();
-            tbPageContext = this.aHR.mContext;
+            tbPageContext = this.aJb.mContext;
             Activity pageActivity = tbPageContext.getPageActivity();
-            tbPageContext2 = this.aHR.mContext;
+            tbPageContext2 = this.aJb.mContext;
             String string = tbPageContext2.getString(com.baidu.tieba.z.frs_badge_intro);
-            str2 = this.aHR.aHC;
+            str2 = this.aJb.aIM;
             messageManager.sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(pageActivity, string, str2, true, true, false, false, false)));
         }
     }

@@ -6,30 +6,30 @@ import com.baidu.sapi2.shell.listener.AuthorizationListener;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an extends AuthorizationListener {
-    final /* synthetic */ LoginActivity Ql;
+    final /* synthetic */ LoginActivity QM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(LoginActivity loginActivity) {
-        this.Ql = loginActivity;
+        this.QM = loginActivity;
     }
 
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
     public void onSuccess() {
-        this.Ql.rd();
+        this.QM.ro();
     }
 
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
     public void onFailed(int i, String str) {
         if (TextUtils.isEmpty(str)) {
-            this.Ql.showToast(com.baidu.tieba.z.data_load_error);
+            this.QM.showToast(com.baidu.tieba.z.data_load_error);
         } else {
-            this.Ql.showToast(str);
+            this.QM.showToast(str);
         }
     }
 
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
     public boolean onForgetPwd() {
-        this.Ql.startActivity(new Intent(this.Ql.getPageContext().getPageActivity(), ForgetPwdActivity.class));
+        this.QM.startActivity(new Intent(this.QM.getPageContext().getPageActivity(), ForgetPwdActivity.class));
         return true;
     }
 }

@@ -1,17 +1,17 @@
 package com.baidu.tbadk.data;
 /* loaded from: classes.dex */
 public class f {
-    final /* synthetic */ NewsNotifyMessage Wt;
-    private int QS = 0;
-    private int QT = 0;
-    private int QU = 0;
-    private int QW = 0;
-    private int QV = 0;
-    private int QX = 0;
-    private int Wr = 0;
-    private int Ws = 0;
+    final /* synthetic */ NewsNotifyMessage WY;
+    private int Rv = 0;
+    private int Rw = 0;
+    private int Rx = 0;
+    private int Rz = 0;
+    private int Ry = 0;
+    private int RA = 0;
+    private int WW = 0;
+    private int WX = 0;
 
     public f(NewsNotifyMessage newsNotifyMessage) {
-        this.Wt = newsNotifyMessage;
+        this.WY = newsNotifyMessage;
     }
 }

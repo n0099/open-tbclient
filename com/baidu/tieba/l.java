@@ -3,11 +3,11 @@ package com.baidu.tieba;
 import android.os.Handler;
 /* loaded from: classes.dex */
 class l extends Thread {
-    final /* synthetic */ LogoActivity akC;
+    final /* synthetic */ LogoActivity alk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(LogoActivity logoActivity) {
-        this.akC = logoActivity;
+        this.alk = logoActivity;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -16,12 +16,12 @@ class l extends Thread {
         Handler handler2;
         super.run();
         try {
-            com.baidu.tbadk.core.util.i.on();
-            this.akC.q(this.akC.getPageContext().getPageActivity().getCacheDir());
+            com.baidu.tbadk.core.util.i.oq();
+            this.alk.t(this.alk.getPageContext().getPageActivity().getCacheDir());
         } catch (Exception e) {
         }
-        handler = this.akC.mHandler;
-        handler2 = this.akC.mHandler;
+        handler = this.alk.mHandler;
+        handler2 = this.alk.mHandler;
         handler.sendMessage(handler2.obtainMessage());
     }
 }

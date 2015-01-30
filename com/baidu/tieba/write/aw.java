@@ -8,11 +8,11 @@ import com.baidu.tieba.tbadkCore.PbEditor.TbEditorToolButtonContainer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aw implements View.OnTouchListener {
-    final /* synthetic */ WriteActivity cft;
+    final /* synthetic */ WriteActivity cgS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(WriteActivity writeActivity) {
-        this.cft = writeActivity;
+        this.cgS = writeActivity;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -22,11 +22,11 @@ public class aw implements View.OnTouchListener {
         EditText editText;
         if (motionEvent.getAction() == 1) {
             view.requestFocus();
-            tbEditorToolButtonContainer = this.cft.cfb;
-            tbEditorToolButtonContainer.aeS();
-            editorToolComponetContainer = this.cft.bUs;
-            editText = this.cft.bOa;
-            editorToolComponetContainer.V(editText);
+            tbEditorToolButtonContainer = this.cgS.cgA;
+            tbEditorToolButtonContainer.afw();
+            editorToolComponetContainer = this.cgS.bWk;
+            editText = this.cgS.bPK;
+            editorToolComponetContainer.X(editText);
             return false;
         }
         return false;

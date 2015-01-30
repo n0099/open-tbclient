@@ -13,7 +13,7 @@ class ae extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null) {
-            com.baidu.tbadk.core.sharedPref.b.og().remove("get_addresslist_switch" + ((String) customResponsedMessage.getData()));
+            com.baidu.tbadk.core.sharedPref.b.oj().remove("get_addresslist_switch" + ((String) customResponsedMessage.getData()));
         }
     }
 }

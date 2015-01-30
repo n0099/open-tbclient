@@ -7,7 +7,7 @@ public class f {
     public g ipListData;
     public boolean isSuccess;
     public int pos;
-    public long vx;
+    public long vD;
     private boolean isNormal = false;
     private String BH = null;
 

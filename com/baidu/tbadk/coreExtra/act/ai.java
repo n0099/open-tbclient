@@ -8,13 +8,13 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class ai extends BdAsyncTask<String, Integer, Bitmap> {
     com.baidu.tbadk.core.util.ad AR;
-    final /* synthetic */ Login2Activity Qf;
-    private volatile boolean kK;
+    final /* synthetic */ Login2Activity QG;
+    private volatile boolean kN;
 
     private ai(Login2Activity login2Activity) {
-        this.Qf = login2Activity;
+        this.QG = login2Activity;
         this.AR = null;
-        this.kK = false;
+        this.kN = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -24,12 +24,12 @@ public class ai extends BdAsyncTask<String, Integer, Bitmap> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.Qf.Qd = null;
+        this.QG.QE = null;
         if (this.AR != null) {
-            this.AR.dL();
+            this.AR.dJ();
             this.AR = null;
         }
-        this.kK = true;
+        this.kN = true;
         super.cancel(true);
     }
 
@@ -37,7 +37,7 @@ public class ai extends BdAsyncTask<String, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         ImageView imageView;
-        imageView = this.Qf.PG;
+        imageView = this.QG.Qi;
         imageView.setImageDrawable(null);
     }
 
@@ -47,11 +47,11 @@ public class ai extends BdAsyncTask<String, Integer, Bitmap> {
     /* renamed from: n */
     public Bitmap doInBackground(String... strArr) {
         String str = strArr[0];
-        if (str == null || str.length() <= 0 || this.kK) {
+        if (str == null || str.length() <= 0 || this.kN) {
             return null;
         }
         this.AR = new com.baidu.tbadk.core.util.ad(str);
-        return com.baidu.tbadk.core.util.d.v(this.AR.ow());
+        return com.baidu.tbadk.core.util.d.v(this.AR.oz());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,15 +61,15 @@ public class ai extends BdAsyncTask<String, Integer, Bitmap> {
         ImageView imageView;
         ProgressBar progressBar;
         ImageView imageView2;
-        this.Qf.Qd = null;
+        this.QG.QE = null;
         if (bitmap != null) {
-            imageView2 = this.Qf.PG;
+            imageView2 = this.QG.Qi;
             imageView2.setImageBitmap(bitmap);
         } else {
-            imageView = this.Qf.PG;
+            imageView = this.QG.Qi;
             imageView.setImageResource(com.baidu.tieba.v.background);
         }
-        progressBar = this.Qf.mProgressBar;
+        progressBar = this.QG.mProgressBar;
         progressBar.setVisibility(8);
         super.onPostExecute((ai) bitmap);
     }

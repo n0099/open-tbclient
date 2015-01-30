@@ -14,18 +14,36 @@ class af extends CustomMessageListener {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Removed duplicated region for block: B:11:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:8:0x0019  */
     @Override // com.baidu.adp.framework.listener.MessageListener
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        an anVar;
-        an anVar2;
-        if (customResponsedMessage != null) {
-            if (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.g) {
-                this.this$0.a((com.baidu.tbadk.data.g) customResponsedMessage.getData());
+        int i;
+        boolean z;
+        ai aiVar;
+        ai aiVar2;
+        int i2;
+        this.this$0.ccQ = false;
+        i = this.this$0.ccM;
+        if (i <= 0) {
+            i2 = this.this$0.ccO;
+            if (i2 <= 0) {
+                z = false;
+                if (z) {
+                    aiVar = this.this$0.ccK;
+                    aiVar.eJ(false);
+                    aiVar2 = this.this$0.ccK;
+                    aiVar2.ajB().eM(false);
+                    return;
+                }
+                return;
             }
-            anVar = this.this$0.caU;
-            anVar.aja().ajl();
-            anVar2 = this.this$0.caU;
-            anVar2.aiV();
+        }
+        z = true;
+        if (z) {
         }
     }
 }

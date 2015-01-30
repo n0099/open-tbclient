@@ -1,23 +1,17 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-public class at implements View.OnClickListener {
-    final /* synthetic */ an ccc;
+class at implements SlidingMenu.OnClosedListener {
+    final /* synthetic */ ai cdw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public at(an anVar) {
-        this.ccc = anVar;
+    public at(ai aiVar) {
+        this.cdw = aiVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        MainTabActivity mainTabActivity;
-        MainTabActivity mainTabActivity2;
-        mainTabActivity = this.ccc.cbW;
-        mainTabActivity2 = this.ccc.cbW;
-        mainTabActivity.sendMessage(new CustomMessage(2015002, new com.baidu.tbadk.core.frameworkData.a(mainTabActivity2.getPageContext().getPageActivity())));
+    @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
+    public void onClosed() {
+        this.cdw.y(1.0f);
     }
 }

@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ BuyGiftActivity aaD;
+    final /* synthetic */ BuyGiftActivity abe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(BuyGiftActivity buyGiftActivity) {
-        this.aaD = buyGiftActivity;
+        this.abe = buyGiftActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.aaD.vG();
+        this.abe.vZ();
     }
 }

@@ -5,8 +5,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.bf;
 /* loaded from: classes.dex */
 public class n extends WebViewClient {
     final /* synthetic */ TbWebViewActivity Bj;
@@ -45,7 +45,7 @@ public class n extends WebViewClient {
                 imageView3 = this.Bj.mBottomBack;
                 imageView3.setEnabled(true);
                 imageView4 = this.Bj.mBottomBack;
-                ax.c(imageView4, com.baidu.tieba.v.icon_webview_return_n);
+                bc.c(imageView4, com.baidu.tieba.v.icon_webview_return_n);
             } else {
                 imageView = this.Bj.mBottomBack;
                 imageView.setEnabled(false);
@@ -81,10 +81,10 @@ public class n extends WebViewClient {
 
     @Override // android.webkit.WebViewClient
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        if (ba.isEmpty(str)) {
+        if (bf.isEmpty(str)) {
             return false;
         }
-        if (com.baidu.tbadk.util.l.a(this.Bj, str)) {
+        if (com.baidu.tbadk.util.o.a(this.Bj, str)) {
             return true;
         }
         this.Bj.mUrl = str;

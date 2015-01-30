@@ -11,13 +11,13 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().QO;
+        return getData().Rs;
     }
 
     public boolean isAttention() {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().QP;
+        return getData().Rt;
     }
 }

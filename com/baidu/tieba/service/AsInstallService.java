@@ -17,7 +17,7 @@ public class AsInstallService extends BdBaseService {
     private Runnable mStopReceivingRunnable;
     private VersionData mVersionData;
 
-    @Override // android.app.Service
+    @Override // com.baidu.adp.base.BdBaseService, android.app.Service
     public void onCreate() {
         super.onCreate();
         this.mReceiver = new b(this, null);

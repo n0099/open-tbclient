@@ -2,15 +2,15 @@ package com.baidu.tieba.frs;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cj implements Runnable {
-    final /* synthetic */ cg aFl;
+    final /* synthetic */ cf aGt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cj(cg cgVar) {
-        this.aFl = cgVar;
+    public cj(cf cfVar) {
+        this.aGt = cfVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.aFl.praiseStopTime = System.currentTimeMillis();
+        this.aGt.praiseStopTime = System.currentTimeMillis();
     }
 }

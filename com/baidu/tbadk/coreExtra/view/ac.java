@@ -6,11 +6,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements View.OnClickListener {
-    final /* synthetic */ LiveBroadcastCard Up;
+    final /* synthetic */ LiveBroadcastCard UW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(LiveBroadcastCard liveBroadcastCard) {
-        this.Up = liveBroadcastCard;
+        this.UW = liveBroadcastCard;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,18 +20,18 @@ public class ac implements View.OnClickListener {
         String str;
         Context context;
         String str2;
-        aeVar = this.Up.mCardListener;
+        aeVar = this.UW.mCardListener;
         if (aeVar != null) {
-            aeVar2 = this.Up.mCardListener;
-            aeVar2.onClick(this.Up);
+            aeVar2 = this.UW.mCardListener;
+            aeVar2.onClick(this.UW);
             return;
         }
-        str = this.Up.mStatisticsKey;
+        str = this.UW.mStatisticsKey;
         if (!TextUtils.isEmpty(str)) {
-            context = this.Up.mContext;
-            str2 = this.Up.mStatisticsKey;
-            com.baidu.tbadk.core.i.B(context, str2);
+            context = this.UW.mContext;
+            str2 = this.UW.mStatisticsKey;
+            com.baidu.tbadk.core.i.A(context, str2);
         }
-        this.Up.goToLiveBroadcastAcvitity();
+        this.UW.goToLiveBroadcastAcvitity();
     }
 }

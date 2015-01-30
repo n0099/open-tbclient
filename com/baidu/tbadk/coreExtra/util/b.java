@@ -6,11 +6,11 @@ import android.os.SystemClock;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends Handler {
-    final /* synthetic */ TbCountDownTimer Td;
+    final /* synthetic */ TbCountDownTimer TH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(TbCountDownTimer tbCountDownTimer) {
-        this.Td = tbCountDownTimer;
+        this.TH = tbCountDownTimer;
     }
 
     @Override // android.os.Handler
@@ -19,27 +19,27 @@ public class b extends Handler {
         long j2;
         long j3;
         long j4;
-        synchronized (this.Td) {
-            j = this.Td.mStopTimeInFuture;
+        synchronized (this.TH) {
+            j = this.TH.mStopTimeInFuture;
             long elapsedRealtime = j - SystemClock.elapsedRealtime();
             if (elapsedRealtime > 0) {
-                j2 = this.Td.mCountdownInterval;
+                j2 = this.TH.mCountdownInterval;
                 if (elapsedRealtime < j2) {
-                    this.Td.onTick(0L);
+                    this.TH.onTick(0L);
                     sendMessageDelayed(obtainMessage(1), elapsedRealtime);
                 } else {
                     long elapsedRealtime2 = SystemClock.elapsedRealtime();
-                    this.Td.onTick(elapsedRealtime);
-                    j3 = this.Td.mCountdownInterval;
+                    this.TH.onTick(elapsedRealtime);
+                    j3 = this.TH.mCountdownInterval;
                     long elapsedRealtime3 = (j3 + elapsedRealtime2) - SystemClock.elapsedRealtime();
                     while (elapsedRealtime3 < 0) {
-                        j4 = this.Td.mCountdownInterval;
+                        j4 = this.TH.mCountdownInterval;
                         elapsedRealtime3 += j4;
                     }
                     sendMessageDelayed(obtainMessage(1), elapsedRealtime3);
                 }
             } else {
-                this.Td.onFinish();
+                this.TH.onFinish();
             }
         }
     }

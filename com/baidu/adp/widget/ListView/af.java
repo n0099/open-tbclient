@@ -28,18 +28,18 @@ public class af {
         this.xo = jVar;
         this.mListView = bdListView;
         View view = this.xo.getView();
-        view.setPadding(0, -this.xo.jE(), 0, 0);
+        view.setPadding(0, -this.xo.jD(), 0, 0);
         view.invalidate();
         this.mListView.f(view);
     }
 
-    public j jM() {
+    public j jL() {
         return this.xo;
     }
 
     public void done() {
         this.mState = 3;
-        this.xo.setPadding(0, -this.xo.jE(), 0, 0);
+        this.xo.setPadding(0, -this.xo.jD(), 0, 0);
         this.xo.R(true);
         if (this.wV != null) {
             this.wV.T(false);
@@ -48,8 +48,8 @@ public class af {
 
     public void U(boolean z) {
         this.mState = 2;
-        this.xo.setPadding(0, 0, 0, 0);
-        this.xo.jB();
+        this.xo.setPadding(0, this.xo.jB(), 0, 0);
+        this.xo.jA();
         this.xo.S(z);
     }
 
@@ -58,7 +58,7 @@ public class af {
     }
 
     public void a(MotionEvent motionEvent, int i) {
-        if (motionEvent.getAction() == 0 && jM().jD()) {
+        if (motionEvent.getAction() == 0 && jL().jC()) {
             this.xp = false;
             this.xq = false;
             if (i == 0 && !this.xp) {
@@ -69,14 +69,14 @@ public class af {
     }
 
     public void b(MotionEvent motionEvent, int i) {
-        if (jM().jD()) {
+        if (jL().jC()) {
             switch (motionEvent.getAction()) {
                 case 1:
                 case 3:
                     if (this.mState != 2) {
                         if (this.mState == 1) {
                             this.mState = 3;
-                            this.xo.setPadding(0, -this.xo.jE(), 0, 0);
+                            this.xo.setPadding(0, -this.xo.jD(), 0, 0);
                             this.xo.R(false);
                             if (this.wV != null) {
                                 this.wV.T(true);
@@ -107,7 +107,7 @@ public class af {
                     if (this.mState != 2 && this.xp) {
                         if (this.mState == 0) {
                             this.mListView.setSelection(0);
-                            if (((int) ((y - this.mStartY) / xn)) < this.xo.jE() && y - this.mStartY > 0) {
+                            if (((int) ((y - this.mStartY) / xn)) < this.xo.jD() && y - this.mStartY > 0) {
                                 this.mState = 1;
                                 this.xo.Q(this.xq.booleanValue());
                                 this.xq = false;
@@ -116,7 +116,7 @@ public class af {
                                 }
                             } else if (y - this.mStartY <= 0) {
                                 this.mState = 3;
-                                this.xo.setPadding(0, -this.xo.jE(), 0, 0);
+                                this.xo.setPadding(0, -this.xo.jD(), 0, 0);
                                 this.xo.R(false);
                                 if (this.wV != null) {
                                     this.wV.T(true);
@@ -124,16 +124,16 @@ public class af {
                             }
                         } else if (this.mState == 1) {
                             this.mListView.setSelection(0);
-                            if (((int) ((y - this.mStartY) / xn)) >= this.xo.jE()) {
+                            if (((int) ((y - this.mStartY) / xn)) >= this.xo.jD()) {
                                 this.mState = 0;
                                 this.xq = true;
-                                this.xo.jA();
+                                this.xo.jz();
                                 if (this.wV != null) {
                                     this.wV.T(true);
                                 }
                             } else if (y - this.mStartY <= 0) {
                                 this.mState = 3;
-                                this.xo.setPadding(0, -this.xo.jE(), 0, 0);
+                                this.xo.setPadding(0, -this.xo.jD(), 0, 0);
                                 this.xo.R(false);
                                 if (this.wV != null) {
                                     this.wV.T(true);
@@ -152,7 +152,7 @@ public class af {
                             }
                         }
                         if (this.mState == 1 || this.mState == 0) {
-                            this.xo.setPadding(0, ((int) ((y - this.mStartY) / xn)) - this.xo.jE(), 0, 0);
+                            this.xo.setPadding(0, ((int) ((y - this.mStartY) / xn)) - this.xo.jD(), 0, 0);
                             return;
                         }
                         return;
@@ -165,18 +165,18 @@ public class af {
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.ListView.BdListView.jJ():void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.ListView.BdListView.jI():void] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(af afVar) {
-        afVar.jN();
+        afVar.jM();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jN() {
+    public void jM() {
         View view;
-        j jM = jM();
-        if (jM != null && (view = jM.getView()) != null) {
-            ah ahVar = new ah(view.getContext(), 0, -jM.jE(), this.xr);
+        j jL = jL();
+        if (jL != null && (view = jL.getView()) != null) {
+            ah ahVar = new ah(view.getContext(), 0, -jL.jD(), this.xr);
             ahVar.a(new ag(this));
             ahVar.g(view);
         }

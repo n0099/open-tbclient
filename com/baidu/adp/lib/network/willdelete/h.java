@@ -13,9 +13,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class h {
-    public static boolean dY() {
+    public static boolean dW() {
         try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) e.dX().getContext().getSystemService("connectivity")).getActiveNetworkInfo();
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) e.dV().getContext().getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo != null) {
                 if (activeNetworkInfo.getType() == 0) {
                     return true;
@@ -26,10 +26,10 @@ public class h {
         return false;
     }
 
-    public static int dZ() {
-        if (dY()) {
+    public static int dX() {
+        if (dW()) {
             try {
-                return N(((ConnectivityManager) e.dX().getContext().getSystemService("connectivity")).getActiveNetworkInfo().getSubtype());
+                return S(((ConnectivityManager) e.dV().getContext().getSystemService("connectivity")).getActiveNetworkInfo().getSubtype());
             } catch (Exception e) {
                 return 0;
             }
@@ -37,11 +37,11 @@ public class h {
         return 0;
     }
 
-    public static boolean ea() {
-        return 1 == dZ();
+    public static boolean dY() {
+        return 1 == dX();
     }
 
-    public static int N(int i) {
+    public static int S(int i) {
         switch (i) {
             case 1:
             case 2:
@@ -165,7 +165,7 @@ public class h {
         }
     }
 
-    public static int eb() {
-        return i.fh() ? 500000 : 200000;
+    public static int dZ() {
+        return i.fg() ? 500000 : 200000;
     }
 }

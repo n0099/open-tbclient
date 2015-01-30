@@ -6,15 +6,15 @@ public abstract class d extends e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aT(boolean z) {
-        wx().addEventDelegate(this);
-        dz(16777218);
+    public void aV(boolean z) {
+        wN().addEventDelegate(this);
+        dF(16777218);
     }
 
-    protected void yh() {
+    protected void yx() {
     }
 
-    protected void yi() {
+    protected void yy() {
     }
 
     @Override // com.baidu.tbadk.mvc.i.e, com.baidu.tbadk.mvc.i.a, com.baidu.tbadk.mvc.core.c, com.baidu.tbadk.mvc.c.a
@@ -22,11 +22,11 @@ public abstract class d extends e {
         if (super.a(bVar)) {
             return true;
         }
-        if (bVar.xc() == 33554439) {
-            yh();
+        if (bVar.xs() == 33554439) {
+            yx();
             return true;
-        } else if (bVar.xc() == 33554440) {
-            yi();
+        } else if (bVar.xs() == 33554440) {
+            yy();
             return true;
         } else {
             return false;

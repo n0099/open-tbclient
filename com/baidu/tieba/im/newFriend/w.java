@@ -26,7 +26,7 @@ public class w extends com.baidu.adp.framework.listener.e {
             com.baidu.tieba.im.data.b bVar = new com.baidu.tieba.im.data.b();
             bVar.setId(friendId);
             bVar.setStatus(2);
-            bVar.fz(0);
+            bVar.fE(0);
             if (error == 0) {
                 com.baidu.tieba.im.i.a(new x(this, friendId, bVar), new y(this, friendId, portrait, name, key, quanpin));
             } else if (error == 3100098) {

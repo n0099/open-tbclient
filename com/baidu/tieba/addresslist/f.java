@@ -9,12 +9,12 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ d aog;
+    final /* synthetic */ d apb;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(d dVar) {
         super(304001);
-        this.aog = dVar;
+        this.apb = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,10 +23,10 @@ public class f extends com.baidu.adp.framework.listener.e {
         BdListView bdListView;
         com.baidu.tieba.addresslist.c.a aVar;
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001) {
-            bdListView = this.aog.aob;
-            bdListView.jJ();
+            bdListView = this.apb.aoW;
+            bdListView.jI();
             if (!socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
-                this.aog.aof = false;
+                this.apb.apa = false;
                 com.baidu.tbadk.coreExtra.relationship.a addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
                 ArrayList arrayList = new ArrayList();
                 if (addressListData != null) {
@@ -34,7 +34,7 @@ public class f extends com.baidu.adp.framework.listener.e {
                         List<com.baidu.tbadk.coreExtra.relationship.b> contacts = hVar.getContacts();
                         if (contacts.size() > 0) {
                             com.baidu.tbadk.coreExtra.relationship.b bVar = new com.baidu.tbadk.coreExtra.relationship.b();
-                            bVar.dC(hVar.getKey());
+                            bVar.dB(hVar.getKey());
                             arrayList.add(bVar);
                         }
                         for (com.baidu.tbadk.coreExtra.relationship.b bVar2 : contacts) {
@@ -42,13 +42,13 @@ public class f extends com.baidu.adp.framework.listener.e {
                         }
                     }
                 }
-                aVar = this.aog.anT;
+                aVar = this.apb.aoO;
                 aVar.B(arrayList);
                 return;
             }
             String errorString = socketResponsedMessage.getErrorString();
             if (!TextUtils.isEmpty(errorString)) {
-                this.aog.showToast(errorString, false);
+                this.apb.showToast(errorString, false);
             }
         }
     }

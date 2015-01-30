@@ -5,8 +5,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.t;
 import com.baidu.tieba.v;
@@ -17,12 +17,12 @@ import java.util.List;
 import tbclient.GetIconList.IconInfo;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
-    private int aVU;
-    private j bZP;
+    private int aXn;
+    private j cbI;
     private List<IconInfo> mData;
 
     public b(j jVar) {
-        this.bZP = jVar;
+        this.cbI = jVar;
     }
 
     @Override // android.widget.Adapter
@@ -52,25 +52,25 @@ public class b extends BaseAdapter {
         c cVar;
         if (this.mData != null && (iconInfo = this.mData.get(i)) != null) {
             if (view == null || !(view.getTag() instanceof c)) {
-                view = com.baidu.adp.lib.g.b.ek().inflate(viewGroup.getContext(), x.buy_tbean_item, null);
+                view = com.baidu.adp.lib.g.b.ei().inflate(viewGroup.getContext(), x.buy_tbean_item, null);
                 c cVar2 = new c(null);
-                cVar2.bZS = (LinearLayout) view.findViewById(w.item_parent_ll);
-                cVar2.bZT = (LinearLayout) view.findViewById(w.item_child_ll);
-                cVar2.bZU = (TextView) view.findViewById(w.tbean_num_tv);
-                cVar2.bZV = (TextView) view.findViewById(w.price_tv);
-                cVar2.bZX = (TextView) view.findViewById(w.name_tv);
-                cVar2.bZW = (TbImageView) view.findViewById(w.thumb_tiv);
-                cVar2.bZY = view.findViewById(w.left_empty_view);
+                cVar2.cbM = (LinearLayout) view.findViewById(w.item_parent_ll);
+                cVar2.cbN = (LinearLayout) view.findViewById(w.item_child_ll);
+                cVar2.cbO = (TextView) view.findViewById(w.tbean_num_tv);
+                cVar2.cbP = (TextView) view.findViewById(w.price_tv);
+                cVar2.cbR = (TextView) view.findViewById(w.name_tv);
+                cVar2.cbQ = (TbImageView) view.findViewById(w.thumb_tiv);
+                cVar2.cbS = view.findViewById(w.left_empty_view);
                 view.setTag(cVar2);
                 cVar = cVar2;
             } else {
                 cVar = (c) view.getTag();
             }
-            cVar.bZY.setVisibility(i == 0 ? 0 : 8);
-            cVar.bZX.setText(ba.h(iconInfo.name, 10));
-            cVar.bZV.setText(String.valueOf(this.bZP.getString(z.yinji_price_tip)) + " " + this.bZP.ib(iconInfo.dubi.intValue()));
-            cVar.bZU.setText(String.valueOf(this.bZP.getString(z.tbean_give_tip)) + " " + this.bZP.a(iconInfo) + this.bZP.getString(z.tbean_title));
-            cVar.bZW.d(iconInfo.picUrl, 10, false);
+            cVar.cbS.setVisibility(i == 0 ? 0 : 8);
+            cVar.cbR.setText(bf.h(iconInfo.name, 10));
+            cVar.cbP.setText(String.valueOf(this.cbI.getString(z.yinji_price_tip)) + " " + this.cbI.il(iconInfo.dubi.intValue()));
+            cVar.cbO.setText(String.valueOf(this.cbI.getString(z.tbean_give_tip)) + " " + this.cbI.a(iconInfo) + this.cbI.getString(z.tbean_title));
+            cVar.cbQ.d(iconInfo.picUrl, 10, false);
             a(cVar, i);
             return view;
         }
@@ -78,20 +78,20 @@ public class b extends BaseAdapter {
     }
 
     private void a(c cVar, int i) {
-        ax.b(cVar.bZX, t.cp_cont_d, 1);
-        ax.b(cVar.bZV, t.cp_cont_b, 1);
-        ax.b(cVar.bZU, t.cp_cont_b, 1);
-        ax.i(cVar.bZS, t.cp_bg_line_d);
-        if (this.aVU == i) {
-            ax.i(cVar.bZT, v.chx_box_gift_s);
+        bc.b(cVar.cbR, t.cp_cont_d, 1);
+        bc.b(cVar.cbP, t.cp_cont_b, 1);
+        bc.b(cVar.cbO, t.cp_cont_b, 1);
+        bc.i(cVar.cbM, t.cp_bg_line_d);
+        if (this.aXn == i) {
+            bc.i(cVar.cbN, v.chx_box_gift_s);
         } else {
-            ax.i(cVar.bZT, v.chx_box_gift_n);
+            bc.i(cVar.cbN, v.chx_box_gift_n);
         }
     }
 
-    public void hY(int i) {
-        if (this.aVU != i) {
-            this.aVU = i;
+    public void ii(int i) {
+        if (this.aXn != i) {
+            this.aXn = i;
         }
     }
 

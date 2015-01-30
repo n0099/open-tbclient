@@ -26,7 +26,7 @@ public class bu extends com.baidu.adp.framework.listener.e {
             imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.util.h.af(randChatRoomData.getLastMessageId()));
             imMessageCenterPojo.setCustomGroupType(3);
             imMessageCenterPojo.setIs_hidden(1);
-            c.Qs().n(imMessageCenterPojo);
+            c.QO().n(imMessageCenterPojo);
         }
     }
 }

@@ -13,29 +13,29 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class HorizontalTranslateLayout extends FrameLayout {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private float uA;
-    private float uB;
-    private int uC;
-    private final int uD;
-    private boolean uE;
-    private boolean uF;
-    private TrackDirection uG;
-    private int uH;
-    private final Rect uI;
-    private final Rect uJ;
-    private final Paint uK;
-    private int uL;
-    private int uM;
+    private int uD;
+    private float uG;
+    private float uH;
+    private int uI;
+    private final int uJ;
+    private boolean uK;
+    private boolean uL;
+    private TrackDirection uM;
     private int uN;
-    private boolean uO;
-    private final f uP;
-    private final g uQ;
-    private final l uR;
-    private i uS;
-    private k uT;
-    private final List<j> uU;
-    private h uV;
-    private int ux;
+    private final Rect uO;
+    private final Rect uP;
+    private final Paint uQ;
+    private int uR;
+    private int uS;
+    private int uT;
+    private boolean uU;
+    private final f uV;
+    private final g uW;
+    private final l uX;
+    private i uY;
+    private k uZ;
+    private final List<j> va;
+    private h vb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -45,7 +45,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
         horizontal,
         none;
 
-        /* JADX DEBUG: Replace access to removed values field (ve) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (vk) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static TrackDirection[] valuesCustom() {
             TrackDirection[] valuesCustom = values();
@@ -62,100 +62,100 @@ public class HorizontalTranslateLayout extends FrameLayout {
 
     @Override // android.view.View
     public void setBackgroundColor(int i) {
-        this.uK.setColor(i);
+        this.uQ.setColor(i);
         invalidate();
     }
 
     public void setProportion(float f) {
         if (f >= -1.0f && f <= 1.0f) {
             if (f < 0.0f) {
-                this.uC = (int) ((this.uA - this.ux) * (-f));
+                this.uI = (int) ((this.uG - this.uD) * (-f));
             } else if (f > 0.0f) {
-                this.uC = (int) ((this.ux - this.uB) * f);
+                this.uI = (int) ((this.uD - this.uH) * f);
             } else if (f == 0.0f) {
-                this.uC = 0;
-                this.uH = 10004;
+                this.uI = 0;
+                this.uN = 10004;
             } else if (f == -1.0f) {
-                this.uA -= getMeasuredWidth();
-                this.uH = TbConfig.BIG_IMAGE_MIN_CAPACITY;
+                this.uG -= getMeasuredWidth();
+                this.uN = TbConfig.BIG_IMAGE_MIN_CAPACITY;
             } else if (f == 1.0f) {
-                this.uA = getMeasuredWidth() - this.uB;
-                this.uH = 10001;
+                this.uG = getMeasuredWidth() - this.uH;
+                this.uN = 10001;
             }
             invalidate();
         }
     }
 
     public int getLeftOffset() {
-        return (int) this.uA;
+        return (int) this.uG;
     }
 
     public int getRightOffset() {
-        return (int) this.uB;
+        return (int) this.uH;
     }
 
     public void setLeftTapBack(boolean z) {
-        this.uE = z;
+        this.uK = z;
     }
 
     public void setRightTapBack(boolean z) {
-        this.uF = z;
+        this.uL = z;
     }
 
     public int getState() {
-        return this.uH;
+        return this.uN;
     }
 
     public void setLeftAnimationListener(i iVar) {
-        this.uS = iVar;
+        this.uY = iVar;
     }
 
     public void setRightAnimationListener(k kVar) {
-        this.uT = kVar;
+        this.uZ = kVar;
     }
 
     public void setHorizontalTrackListener(h hVar) {
-        this.uV = hVar;
+        this.vb = hVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         canvas.save();
-        canvas.translate(this.uC, 0.0f);
-        Log.d("HorizontalTranslateLayout", "@dispatchDraw " + this.uC);
-        canvas.drawRect(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight(), this.uK);
+        canvas.translate(this.uI, 0.0f);
+        Log.d("HorizontalTranslateLayout", "@dispatchDraw " + this.uI);
+        canvas.drawRect(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight(), this.uQ);
         super.dispatchDraw(canvas);
         canvas.restore();
     }
 
     public int getLeftTranslate() {
-        return this.uC;
+        return this.uI;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.uG == TrackDirection.none) {
+        if (this.uM == TrackDirection.none) {
             return false;
         }
         int action = motionEvent.getAction() & MotionEventCompat.ACTION_MASK;
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
-        if (this.uH == 10004) {
+        if (this.uN == 10004) {
             switch (action) {
                 case 0:
-                    this.uL = x;
-                    this.uM = y;
-                    this.uP.removeMessages(-100);
-                    this.uP.removeMessages(SapiErrorCode.GETTING_CERT);
-                    this.uP.removeMessages(-101);
-                    this.uP.removeMessages(SapiErrorCode.GET_CERT_FAIL);
+                    this.uR = x;
+                    this.uS = y;
+                    this.uV.removeMessages(-100);
+                    this.uV.removeMessages(SapiErrorCode.GETTING_CERT);
+                    this.uV.removeMessages(SapiErrorCode.SENT_SUCCEED);
+                    this.uV.removeMessages(SapiErrorCode.GET_CERT_FAIL);
                     return false;
                 case 1:
                 default:
                     return false;
                 case 2:
                     Log.d("HorizontalTranslateLayout", "@interceptInterceptTouchEvent");
-                    motionEvent.offsetLocation(-this.uC, 0.0f);
+                    motionEvent.offsetLocation(-this.uI, 0.0f);
                     return g(x, y);
             }
         }
@@ -164,7 +164,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     }
 
     private boolean g(int i, int i2) {
-        return i2 >= this.uM - this.uD && i2 <= this.uM + this.uD && (i < this.uL - this.uD || i > this.uL + this.uD) && this.uR.au(i - this.uL);
+        return i2 >= this.uS - this.uJ && i2 <= this.uS + this.uJ && (i < this.uR - this.uJ || i > this.uR + this.uJ) && this.uX.az(i - this.uR);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -173,33 +173,33 @@ public class HorizontalTranslateLayout extends FrameLayout {
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
         int action = motionEvent.getAction() & MotionEventCompat.ACTION_MASK;
-        if (this.uH == 10004) {
+        if (this.uN == 10004) {
             switch (action) {
                 case 1:
                 case 3:
                     Log.d("HorizontalTranslateLayout", "@onTouchEvent up");
-                    this.uO = false;
-                    if (this.uR.vg) {
+                    this.uU = false;
+                    if (this.uX.vm) {
                         Log.d("HorizontalTranslateLayout", "@onTouchEvent tracking");
-                        this.uR.jd();
-                        l.a(this.uR);
+                        this.uX.je();
+                        l.a(this.uX);
                         return true;
                     }
                     return true;
                 case 2:
-                    if (this.uR.vg) {
-                        if (!this.uO) {
-                            if (x > this.uL) {
-                                this.uN = this.uL + this.uD;
-                                this.uO = true;
+                    if (this.uX.vm) {
+                        if (!this.uU) {
+                            if (x > this.uR) {
+                                this.uT = this.uR + this.uJ;
+                                this.uU = true;
                             } else {
-                                this.uN = this.uL - this.uD;
-                                this.uO = true;
+                                this.uT = this.uR - this.uJ;
+                                this.uU = true;
                             }
                         }
-                        this.uR.av(this.uN - x);
-                        this.uN = x;
-                        this.uR.vf.addMovement(motionEvent);
+                        this.uX.aA(this.uT - x);
+                        this.uT = x;
+                        this.uX.vl.addMovement(motionEvent);
                         return true;
                     }
                     return true;
@@ -208,24 +208,24 @@ public class HorizontalTranslateLayout extends FrameLayout {
             }
         }
         Log.d("HorizontalTranslateLayout", String.format("collapse x=%d, y=%d", Integer.valueOf(x), Integer.valueOf(y)));
-        Log.d("HorizontalTranslateLayout", "left tap back frame = " + this.uI);
-        Log.d("HorizontalTranslateLayout", "right tap back frame = " + this.uJ);
+        Log.d("HorizontalTranslateLayout", "left tap back frame = " + this.uO);
+        Log.d("HorizontalTranslateLayout", "right tap back frame = " + this.uP);
         switch (action) {
             case 0:
-                if ((this.uH != 10000 || !this.uI.contains(x, y)) && (this.uH != 10001 || !this.uJ.contains(x, y))) {
+                if ((this.uN != 10000 || !this.uO.contains(x, y)) && (this.uN != 10001 || !this.uP.contains(x, y))) {
                     return false;
                 }
-                if (!this.uR.vg) {
-                    this.uN = x;
-                    this.uR.au(x);
+                if (!this.uX.vm) {
+                    this.uT = x;
+                    this.uX.az(x);
                     break;
                 }
                 break;
             case 1:
             case 3:
-                if (this.uR.vg) {
-                    this.uR.jd();
-                    l.a(this.uR);
+                if (this.uX.vm) {
+                    this.uX.je();
+                    l.a(this.uX);
                     return true;
                 }
                 return true;
@@ -234,10 +234,10 @@ public class HorizontalTranslateLayout extends FrameLayout {
             default:
                 return true;
         }
-        if (this.uR.vg) {
-            this.uR.av(this.uN - x);
-            this.uN = x;
-            this.uR.vf.addMovement(motionEvent);
+        if (this.uX.vm) {
+            this.uX.aA(this.uT - x);
+            this.uT = x;
+            this.uX.vl.addMovement(motionEvent);
             return true;
         }
         return true;
@@ -247,15 +247,15 @@ public class HorizontalTranslateLayout extends FrameLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            if (this.uA != -1.0f) {
-                this.uI.set(i, i2, (int) (i + this.uA), i4);
+            if (this.uG != -1.0f) {
+                this.uO.set(i, i2, (int) (i + this.uG), i4);
             }
-            if (this.uB != -1.0f) {
-                this.uJ.set((int) (i3 - this.uB), i2, i3, i4);
+            if (this.uH != -1.0f) {
+                this.uP.set((int) (i3 - this.uH), i2, i3, i4);
             }
         }
-        if (!this.uQ.vd && !this.uR.vg) {
-            iR();
+        if (!this.uW.vj && !this.uX.vm) {
+            iS();
         }
     }
 
@@ -263,24 +263,24 @@ public class HorizontalTranslateLayout extends FrameLayout {
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
         int i3 = 1073741823 & i;
-        if (!$assertionsDisabled && i3 < this.uA) {
+        if (!$assertionsDisabled && i3 < this.uG) {
             throw new AssertionError("top offset should not be larger than the view's width");
         }
-        if (!$assertionsDisabled && i3 < this.uB) {
+        if (!$assertionsDisabled && i3 < this.uH) {
             throw new AssertionError("bottom offset should not be larger than the view's width");
         }
-        this.ux = getMeasuredWidth();
+        this.uD = getMeasuredWidth();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void iR() {
-        switch (this.uH) {
+    public void iS() {
+        switch (this.uN) {
             case TbConfig.BIG_IMAGE_MIN_CAPACITY /* 10000 */:
-                this.uC = (int) (this.uA - getMeasuredWidth());
+                this.uI = (int) (this.uG - getMeasuredWidth());
                 invalidate();
                 return;
             case 10001:
-                this.uC = (int) (getMeasuredWidth() - this.uB);
+                this.uI = (int) (getMeasuredWidth() - this.uH);
                 invalidate();
                 return;
             case 10002:
@@ -288,7 +288,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
             default:
                 return;
             case 10004:
-                this.uC = 0;
+                this.uI = 0;
                 invalidate();
                 return;
         }

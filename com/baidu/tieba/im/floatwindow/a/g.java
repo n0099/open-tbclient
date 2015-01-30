@@ -1,9 +1,9 @@
 package com.baidu.tieba.im.floatwindow.a;
 /* loaded from: classes.dex */
 public class g implements c {
-    private int aXQ;
-    private int aXR;
-    private h aXS;
+    private int aZm;
+    private int aZn;
+    private h aZo;
     private final int speed;
     private int start;
 
@@ -13,33 +13,33 @@ public class g implements c {
 
     public void setStart(int i) {
         this.start = i;
-        this.aXR = i;
+        this.aZn = i;
     }
 
-    public void fH(int i) {
-        this.aXQ = i;
+    public void fM(int i) {
+        this.aZm = i;
     }
 
     public void a(h hVar) {
-        this.aXS = hVar;
+        this.aZo = hVar;
     }
 
     @Override // com.baidu.tieba.im.floatwindow.a.c
     public boolean execute() {
-        if (this.aXR != this.aXQ) {
-            if (this.aXQ > this.start) {
-                this.aXR += this.speed;
-                if (this.aXR > this.aXQ) {
-                    this.aXR = this.aXQ;
+        if (this.aZn != this.aZm) {
+            if (this.aZm > this.start) {
+                this.aZn += this.speed;
+                if (this.aZn > this.aZm) {
+                    this.aZn = this.aZm;
                 }
             } else {
-                this.aXR -= this.speed;
-                if (this.aXR < this.aXQ) {
-                    this.aXR = this.aXQ;
+                this.aZn -= this.speed;
+                if (this.aZn < this.aZm) {
+                    this.aZn = this.aZm;
                 }
             }
-            if (this.aXS != null) {
-                this.aXS.dO(this.aXR);
+            if (this.aZo != null) {
+                this.aZo.dU(this.aZn);
             }
             return false;
         }

@@ -11,7 +11,6 @@ public class FrsActivityConfig extends a {
     public static final String CONTENT_SHOW = "content_show";
     public static final String FLAG = "flag";
     public static final String FROM = "from";
-    public static final String FROM_HAO123 = "from_hao123";
     public static final String FROM_SHORT_CUT = "from_short_cut";
     public static final int FRS_FLAG_ADD_SEARCH_HIS = 1;
     public static final int FRS_FLAG_NORMAL = 0;

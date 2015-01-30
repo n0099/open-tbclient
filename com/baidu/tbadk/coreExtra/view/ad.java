@@ -4,20 +4,20 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements View.OnClickListener {
-    final /* synthetic */ LiveBroadcastCard Up;
+    final /* synthetic */ LiveBroadcastCard UW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(LiveBroadcastCard liveBroadcastCard) {
-        this.Up = liveBroadcastCard;
+        this.UW = liveBroadcastCard;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         ah ahVar;
         ah ahVar2;
-        ahVar = this.Up.mDeleteListener;
+        ahVar = this.UW.mDeleteListener;
         if (ahVar != null) {
-            ahVar2 = this.Up.mDeleteListener;
+            ahVar2 = this.UW.mDeleteListener;
             ahVar2.onDeleteClick(view);
         }
     }

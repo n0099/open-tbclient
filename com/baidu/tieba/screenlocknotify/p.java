@@ -4,15 +4,15 @@ import android.view.View;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class p {
-    TextView bMD;
-    TextView bME;
-    final /* synthetic */ o bMF;
-    TextView bMb;
-    TextView bMc;
-    View mLine;
+    View Td;
+    TextView bNL;
+    TextView bNM;
+    TextView bOn;
+    TextView bOo;
+    final /* synthetic */ o bOp;
 
     private p(o oVar) {
-        this.bMF = oVar;
+        this.bOp = oVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -1,11 +1,11 @@
 package com.baidu.tieba.screenlocknotify;
 /* loaded from: classes.dex */
 public class t {
-    public long IK;
-    public int bMK;
-    public String bML;
-    public long bMM;
-    public boolean bMN;
+    public long IU;
+    public int bOu;
+    public String bOv;
+    public long bOw;
+    public boolean bOx;
     public String content;
     public int customGroupType;
     public String groupId;

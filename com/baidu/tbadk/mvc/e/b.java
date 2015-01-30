@@ -1,60 +1,60 @@
 package com.baidu.tbadk.mvc.e;
 /* loaded from: classes.dex */
 public class b implements d, e, f {
-    private boolean aen = false;
-    private boolean aeo = true;
-    private boolean aep = false;
-    private boolean aeq = true;
-    private boolean aer = true;
-    private boolean aes = false;
-    private boolean aet = true;
-    private boolean aeu = true;
+    private boolean aeK = false;
+    private boolean aeL = true;
+    private boolean aeM = false;
+    private boolean aeN = true;
+    private boolean aeO = true;
+    private boolean aeP = false;
+    private boolean aeQ = true;
+    private boolean aeR = true;
 
-    public boolean xE() {
-        return this.aes;
+    public boolean xU() {
+        return this.aeP;
     }
 
-    public boolean xF() {
-        return this.aet;
+    public boolean xV() {
+        return this.aeQ;
     }
 
-    public boolean xG() {
-        return this.aeu;
+    public boolean xW() {
+        return this.aeR;
     }
 
-    public boolean xH() {
-        return this.aen;
-    }
-
-    public void aP(boolean z) {
-        this.aen = z;
-    }
-
-    public boolean xI() {
-        return this.aeo;
-    }
-
-    public boolean xJ() {
-        return this.aep;
-    }
-
-    public void aQ(boolean z) {
-        this.aep = z;
-    }
-
-    public boolean xK() {
-        return this.aeq;
+    public boolean xX() {
+        return this.aeK;
     }
 
     public void aR(boolean z) {
-        this.aeq = z;
+        this.aeK = z;
     }
 
-    public boolean xL() {
-        return this.aer;
+    public boolean xY() {
+        return this.aeL;
+    }
+
+    public boolean xZ() {
+        return this.aeM;
     }
 
     public void aS(boolean z) {
-        this.aer = z;
+        this.aeM = z;
+    }
+
+    public boolean ya() {
+        return this.aeN;
+    }
+
+    public void aT(boolean z) {
+        this.aeN = z;
+    }
+
+    public boolean yb() {
+        return this.aeO;
+    }
+
+    public void aU(boolean z) {
+        this.aeO = z;
     }
 }

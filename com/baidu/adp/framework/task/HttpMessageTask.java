@@ -17,7 +17,7 @@ public class HttpMessageTask extends MessageTask {
         GET,
         POST;
 
-        /* JADX DEBUG: Replace access to removed values field (fo) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (fq) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static HTTP_METHOD[] valuesCustom() {
             HTTP_METHOD[] valuesCustom = values();

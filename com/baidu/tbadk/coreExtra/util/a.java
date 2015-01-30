@@ -25,14 +25,14 @@ public class a {
         String string = TbadkCoreApplication.m255getInst().getContext().getString(z.setup);
         String string2 = TbadkCoreApplication.m255getInst().getContext().getString(z.alert_no_button);
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-        aVar.bY(TbadkCoreApplication.m255getInst().getContext().getString(i));
+        aVar.bW(TbadkCoreApplication.m255getInst().getContext().getString(i));
         aVar.a(string, dVar);
         aVar.b(string2, dVar2);
         aVar.b(tbPageContext);
         if (z) {
-            aVar.nT();
+            aVar.nW();
         } else {
-            aVar.nU();
+            aVar.nX();
         }
         return aVar;
     }

@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.data.w;
+import com.baidu.tbadk.core.data.x;
 import com.baidu.tbadk.core.frameworkData.a;
 /* loaded from: classes.dex */
 public class PbActivityConfig extends a {
@@ -137,15 +137,15 @@ public class PbActivityConfig extends a {
         return this;
     }
 
-    public PbActivityConfig createFromThreadCfg(w wVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
-        if (wVar != null) {
+    public PbActivityConfig createFromThreadCfg(x xVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
+        if (xVar != null) {
             Intent intent = getIntent();
-            intent.putExtra("thread_id", wVar.getId());
-            intent.putExtra(KEY_IS_GOOD, wVar.getIs_good());
-            intent.putExtra(KEY_IS_TOP, wVar.getIs_top());
-            intent.putExtra(KEY_THREAD_TIME, wVar.getLast_time_int());
+            intent.putExtra("thread_id", xVar.getId());
+            intent.putExtra(KEY_IS_GOOD, xVar.getIs_good());
+            intent.putExtra(KEY_IS_TOP, xVar.getIs_top());
+            intent.putExtra(KEY_THREAD_TIME, xVar.getLast_time_int());
             intent.putExtra("st_type", str2);
-            intent.putExtra(KEY_FROM_FRS, wVar.getIs_top() != 2);
+            intent.putExtra(KEY_FROM_FRS, xVar.getIs_top() != 2);
             intent.putExtra(KEY_SQUENCE, z);
             intent.putExtra(KEY_HOST_ONLY, z2);
             intent.putExtra("is_ad", z3);
@@ -153,7 +153,7 @@ public class PbActivityConfig extends a {
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             intent.putExtra(KYE_IS_START_FOR_RESULT, "1");
             intent.putExtra(a.REQUEST_CODE, i);
-            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (wVar.getPraise() == null ? 0L : wVar.getPraise().getNum()));
+            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (xVar.getPraise() == null ? 0L : xVar.getPraise().getNum()));
         }
         return this;
     }

@@ -1,20 +1,16 @@
 package com.baidu.tieba.service;
 
+import android.app.Application;
 import android.os.Handler;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.ad;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Message;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
-public class r extends BdAsyncTask<String, Integer, Boolean> {
-    private ad AR;
-    final /* synthetic */ TiebaUpdateService bNs;
-    private volatile boolean kK;
+class r extends Handler {
+    final /* synthetic */ TiebaUpdateService bPc;
 
     private r(TiebaUpdateService tiebaUpdateService) {
-        this.bNs = tiebaUpdateService;
-        this.AR = null;
-        this.kK = false;
+        this.bPc = tiebaUpdateService;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -22,151 +18,125 @@ public class r extends BdAsyncTask<String, Integer, Boolean> {
         this(tiebaUpdateService);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0090, code lost:
-        r0 = r7.bNs.mHasTieba;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0096, code lost:
-        if (r0 != false) goto L36;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x0098, code lost:
-        r0 = r7.bNs.mHasAs;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x009e, code lost:
-        if (r0 == false) goto L26;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x00a0, code lost:
-        r0 = r7.bNs.mIsMainApkDone;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x00a6, code lost:
-        if (r0 == false) goto L26;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x00a8, code lost:
-        r7.bNs.sendBroadcast("action_update_progress_interrupted", true);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x00b0, code lost:
-        r0 = r1;
-     */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: f */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public Boolean doInBackground(String... strArr) {
-        Boolean bool;
-        Exception e;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        boolean z;
+        boolean z2;
         String str;
-        String str2;
-        String str3;
-        Handler handler;
-        boolean z;
         long j;
-        Boolean bool2 = false;
-        while (true) {
-            try {
-                if (this.kK) {
-                    break;
-                }
-                str2 = this.bNs.mOtherApkUrl;
-                this.AR = new ad(str2);
-                ad adVar = this.AR;
-                str3 = this.bNs.mOtherApkFileName;
-                String str4 = String.valueOf(str3) + ".tmp";
-                handler = this.bNs.mOtherApkHandler;
-                bool2 = Boolean.valueOf(adVar.a(str4, handler, 0));
-                if (bool2.booleanValue()) {
-                    break;
-                } else if (this.AR.pa() == -2) {
-                    bool = bool2;
-                    break;
-                } else {
-                    if (!this.AR.oW().pW().pg()) {
-                        try {
-                            Thread.sleep(10000L);
-                        } catch (Exception e2) {
-                        }
-                    }
-                    z = TiebaUpdateService.sHasStart;
-                    if (z) {
-                        long currentTimeMillis = System.currentTimeMillis();
-                        j = this.bNs.mOtherTaskWaitingTimestamp;
-                        if (currentTimeMillis - j > 20000) {
-                            break;
-                        }
-                    }
-                }
-            } catch (Exception e3) {
-                bool = bool2;
-                e = e3;
-            }
-        }
-        bool = bool2;
-        try {
-            if (bool.booleanValue()) {
-                TiebaUpdateService tiebaUpdateService = this.bNs;
-                str = this.bNs.mOtherApkFileName;
-                tiebaUpdateService.renameFile(str);
-            }
-        } catch (Exception e4) {
-            e = e4;
-            BdLog.e(e.getMessage());
-            return bool;
-        }
-        return bool;
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        boolean z;
-        boolean z2;
-        super.cancel(true);
-        this.bNs.mDowndOtherApkTask = null;
-        this.kK = true;
-        if (this.AR != null) {
-            this.AR.dL();
-        }
-        z = this.bNs.mHasTieba;
-        if (!z) {
-            z2 = this.bNs.mHasAs;
-            if (!z2) {
-                TiebaUpdateService.sHasStart = false;
-                this.bNs.stopSelf();
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public void onPostExecute(Boolean bool) {
-        boolean z;
-        boolean z2;
-        Handler handler;
-        Handler handler2;
+        long j2;
+        long j3;
+        long j4;
+        long j5;
+        long j6;
         boolean z3;
-        super.onPostExecute(bool);
-        this.bNs.mDowndOtherApkTask = null;
-        if (bool.booleanValue()) {
-            this.bNs.mOtherTaskWaitingTimestamp = System.currentTimeMillis();
-        }
-        z = this.bNs.mHasTieba;
-        if (!z) {
-            z3 = this.bNs.mHasAs;
-            if (!z3) {
-                TiebaUpdateService.sHasStart = false;
-                this.bNs.stopSelf();
+        boolean z4;
+        boolean z5;
+        long j7;
+        long j8;
+        long j9;
+        long j10;
+        long j11;
+        long j12;
+        long j13;
+        long j14;
+        long j15;
+        long j16;
+        int i;
+        int i2;
+        long j17;
+        long j18;
+        long j19;
+        long j20;
+        int i3;
+        int i4;
+        super.handleMessage(message);
+        if (message.what == 0) {
+            if (message.arg2 > 0) {
+                this.bPc.mMainApkCurSize = message.arg1;
+                this.bPc.mMainApkSize = message.arg2;
+                j = this.bPc.mMainApkSize;
+                j2 = this.bPc.mMainApkCurSize;
+                if (j > j2) {
+                    this.bPc.mMainTaskWaitingTimestamp = System.currentTimeMillis();
+                }
+                j3 = this.bPc.mMainApkSize;
+                j4 = this.bPc.mMainApkCurSize;
+                if (j3 <= j4) {
+                    this.bPc.mIsMainApkDone = true;
+                }
+                j5 = this.bPc.mMainApkCurSize;
+                j6 = this.bPc.mMainApkSize;
+                int i5 = (int) ((j5 * 100) / j6);
+                z3 = this.bPc.mHasOther;
+                if (z3) {
+                    j12 = this.bPc.mOtherApkSize;
+                    if (j12 != 0) {
+                        TiebaUpdateService tiebaUpdateService = this.bPc;
+                        j13 = this.bPc.mMainApkCurSize;
+                        j14 = this.bPc.mOtherApkCurSize;
+                        j15 = this.bPc.mMainApkSize;
+                        j16 = this.bPc.mOtherApkSize;
+                        tiebaUpdateService.mProgressAfter = (int) (((j13 + j14) * 100) / (j15 + j16));
+                        i = this.bPc.mProgressAfter;
+                        i2 = this.bPc.mProgressBefore;
+                        if (i > i2) {
+                            TiebaUpdateService tiebaUpdateService2 = this.bPc;
+                            j17 = this.bPc.mMainApkCurSize;
+                            j18 = this.bPc.mOtherApkCurSize;
+                            long j21 = j17 + j18;
+                            j19 = this.bPc.mMainApkSize;
+                            j20 = this.bPc.mOtherApkSize;
+                            tiebaUpdateService2.updateProgress(j21, j19 + j20);
+                            TiebaUpdateService tiebaUpdateService3 = this.bPc;
+                            i3 = this.bPc.mProgressAfter;
+                            tiebaUpdateService3.sendBroadcast(i3);
+                            TiebaUpdateService tiebaUpdateService4 = this.bPc;
+                            i4 = this.bPc.mProgressAfter;
+                            tiebaUpdateService4.mProgressBefore = i4;
+                            return;
+                        }
+                        return;
+                    }
+                }
+                z4 = this.bPc.mHasOther;
+                if (z4) {
+                    j9 = this.bPc.mOtherApkSize;
+                    if (j9 == 0) {
+                        if (i5 < 70) {
+                            TiebaUpdateService tiebaUpdateService5 = this.bPc;
+                            j10 = this.bPc.mMainApkCurSize;
+                            j11 = this.bPc.mMainApkSize;
+                            tiebaUpdateService5.updateProgress(j10, j11);
+                            this.bPc.sendBroadcast(i5);
+                            return;
+                        }
+                        return;
+                    }
+                }
+                z5 = this.bPc.mHasOther;
+                if (!z5) {
+                    TiebaUpdateService tiebaUpdateService6 = this.bPc;
+                    j7 = this.bPc.mMainApkCurSize;
+                    j8 = this.bPc.mMainApkSize;
+                    tiebaUpdateService6.updateProgress(j7, j8);
+                    this.bPc.sendBroadcast(i5);
+                }
+            }
+        } else if (message.what == 1) {
+            z = this.bPc.mMainApkInstallEnable;
+            if (z) {
+                z2 = this.bPc.mHasAs;
+                if (z2) {
+                    this.bPc.startAsInstallService();
+                }
+                Application app = TbadkCoreApplication.m255getInst().getApp();
+                str = this.bPc.mMainApkFileName;
+                UtilHelper.install_apk(app, str);
+                this.bPc.finishDownload();
                 return;
             }
+            this.bPc.mMainApkInstallEnable = true;
         }
-        z2 = this.bNs.mMainApkInstallEnable;
-        if (!z2) {
-            this.bNs.mMainApkInstallEnable = true;
-            return;
-        }
-        handler = this.bNs.mOtherApkHandler;
-        handler2 = this.bNs.mOtherApkHandler;
-        handler.sendMessageDelayed(handler2.obtainMessage(2, null), 100L);
     }
 }

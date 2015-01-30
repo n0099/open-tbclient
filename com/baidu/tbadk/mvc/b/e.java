@@ -5,5 +5,5 @@ public interface e extends d {
 
     String lq();
 
-    boolean xb();
+    boolean xr();
 }

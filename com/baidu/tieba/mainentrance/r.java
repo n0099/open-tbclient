@@ -5,17 +5,17 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements View.OnClickListener {
-    final /* synthetic */ SquareSearchActivity brF;
+    final /* synthetic */ SquareSearchActivity btb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(SquareSearchActivity squareSearchActivity) {
-        this.brF = squareSearchActivity;
+        this.btb = squareSearchActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EditText editText;
-        editText = this.brF.bqY;
+        editText = this.btb.bsw;
         editText.setText("");
     }
 }

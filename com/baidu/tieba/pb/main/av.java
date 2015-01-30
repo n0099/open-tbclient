@@ -7,19 +7,19 @@ import com.baidu.tbadk.core.atomData.SelectFriendActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class av implements View.OnClickListener {
-    final /* synthetic */ PbActivity bzj;
+    final /* synthetic */ PbActivity bAT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(PbActivity pbActivity) {
-        this.bzj = pbActivity;
+        this.bAT = pbActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.bzj.aIX != null) {
-            this.bzj.aIX.dismiss();
-            this.bzj.aIX = null;
+        if (this.bAT.aKh != null) {
+            this.bAT.aKh.dismiss();
+            this.bAT.aKh = null;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectFriendActivityConfig(this.bzj.getPageContext().getPageActivity(), 23007)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectFriendActivityConfig(this.bAT.getPageContext().getPageActivity(), 23007)));
     }
 }

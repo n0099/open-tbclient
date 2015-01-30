@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class v extends com.baidu.adp.base.g {
-    ImageProblemActivity but;
-    private Button buu;
+    ImageProblemActivity bvP;
+    private Button bvQ;
     private LinearLayout mLayout;
     private NavigationBar mNavigationBar;
     private View mParent;
@@ -18,29 +18,29 @@ public class v extends com.baidu.adp.base.g {
 
     public v(ImageProblemActivity imageProblemActivity, s sVar) {
         super(imageProblemActivity.getPageContext());
-        this.but = imageProblemActivity;
-        this.but.setContentView(com.baidu.tieba.x.image_problem_activity);
-        this.mParent = this.but.findViewById(com.baidu.tieba.w.parent);
-        this.mNavigationBar = (NavigationBar) this.but.findViewById(com.baidu.tieba.w.view_navigation_bar);
+        this.bvP = imageProblemActivity;
+        this.bvP.setContentView(com.baidu.tieba.x.image_problem_activity);
+        this.mParent = this.bvP.findViewById(com.baidu.tieba.w.parent);
+        this.mNavigationBar = (NavigationBar) this.bvP.findViewById(com.baidu.tieba.w.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.but.getPageContext().getString(com.baidu.tieba.z.image_problem));
-        this.mScrollView = (ScrollView) this.but.findViewById(com.baidu.tieba.w.scrollView);
-        this.buu = (Button) this.but.findViewById(com.baidu.tieba.w.check_btn);
-        this.buu.setOnClickListener(imageProblemActivity);
-        this.mLayout = new LinearLayout(this.but.getPageContext().getPageActivity());
+        this.mNavigationBar.setTitleText(this.bvP.getPageContext().getString(com.baidu.tieba.z.image_problem));
+        this.mScrollView = (ScrollView) this.bvP.findViewById(com.baidu.tieba.w.scrollView);
+        this.bvQ = (Button) this.bvP.findViewById(com.baidu.tieba.w.check_btn);
+        this.bvQ.setOnClickListener(imageProblemActivity);
+        this.mLayout = new LinearLayout(this.bvP.getPageContext().getPageActivity());
         this.mLayout.setOrientation(1);
         this.mScrollView.addView(this.mLayout);
-        Iterator<t> it = sVar.bum.iterator();
+        Iterator<t> it = sVar.bvI.iterator();
         while (it.hasNext()) {
-            u uVar = new u(this.but.getPageContext().getPageActivity());
-            uVar.tG();
+            u uVar = new u(this.bvP.getPageContext().getPageActivity());
+            uVar.tX();
             uVar.setText(it.next().title);
             this.mLayout.addView(uVar);
         }
     }
 
-    public Button UZ() {
-        return this.buu;
+    public Button Vx() {
+        return this.bvQ;
     }
 
     public void start() {
@@ -52,7 +52,7 @@ public class v extends com.baidu.adp.base.g {
                 if (childAt instanceof u) {
                     u uVar = (u) childAt;
                     uVar.setStatus(3);
-                    uVar.tG();
+                    uVar.tX();
                     uVar.setHelpText("");
                 }
                 i = i2 + 1;
@@ -85,12 +85,12 @@ public class v extends com.baidu.adp.base.g {
             if (childAt instanceof u) {
                 u uVar = (u) childAt;
                 uVar.setStatus(1);
-                uVar.UY();
-                if (arrayList.get(i2).buo == 0) {
+                uVar.Vw();
+                if (arrayList.get(i2).bvK == 0) {
                     uVar.setHelpText("");
                     uVar.setArrowImg(com.baidu.tieba.v.icon_diagnose_ok);
                 } else {
-                    uVar.setHelpText(arrayList.get(i2).bup);
+                    uVar.setHelpText(arrayList.get(i2).bvL);
                     uVar.setArrowImg(com.baidu.tieba.v.icon_error);
                 }
             }
@@ -104,8 +104,8 @@ public class v extends com.baidu.adp.base.g {
     }
 
     public void onChangeSkinType(int i) {
-        this.but.getLayoutMode().ab(i == 1);
-        this.but.getLayoutMode().h(this.mParent);
+        this.bvP.getLayoutMode().ab(i == 1);
+        this.bvP.getLayoutMode().h(this.mParent);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }
 }

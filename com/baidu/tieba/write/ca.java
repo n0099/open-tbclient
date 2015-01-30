@@ -1,11 +1,11 @@
 package com.baidu.tieba.write;
 /* loaded from: classes.dex */
 class ca implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ bw cfH;
+    final /* synthetic */ bw chh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ca(bw bwVar) {
-        this.cfH = bwVar;
+        this.chh = bwVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d

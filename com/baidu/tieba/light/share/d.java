@@ -8,25 +8,25 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ LightappGameShare bqN;
+    final /* synthetic */ LightappGameShare bsl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(LightappGameShare lightappGameShare) {
-        this.bqN = lightappGameShare;
+        this.bsl = lightappGameShare;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.tbadk.coreExtra.share.d dVar;
         com.baidu.tbadk.coreExtra.share.d dVar2;
-        dVar = this.bqN.aIX;
+        dVar = this.bsl.aKh;
         if (dVar != null) {
-            dVar2 = this.bqN.aIX;
+            dVar2 = this.bsl.aKh;
             dVar2.dismiss();
-            this.bqN.aIX = null;
+            this.bsl.aKh = null;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectFriendActivityConfig(this.bqN.getPageContext().getPageActivity(), 23007, 0)));
-        TiebaStatic.eventStat(this.bqN.getPageContext().getPageActivity(), "game_share_tbf", "click", 1, "dev_id", this.bqN.aIZ.getGameId(), "share_type", 5);
-        this.bqN.finish();
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectFriendActivityConfig(this.bsl.getPageContext().getPageActivity(), 23007, 0)));
+        TiebaStatic.eventStat(this.bsl.getPageContext().getPageActivity(), "game_share_tbf", "click", 1, "dev_id", this.bsl.aKj.getGameId(), "share_type", 5);
+        this.bsl.finish();
     }
 }

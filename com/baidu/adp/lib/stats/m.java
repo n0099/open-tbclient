@@ -4,71 +4,71 @@ import com.baidu.tbadk.core.atomData.GroupInfoActivityConfig;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class m {
-    private static m mo;
-    private HashMap<String, n> mm = new HashMap<>();
-    private HashMap<String, o> mn = new HashMap<>();
+    private static m mr;
+    private HashMap<String, n> mp = new HashMap<>();
+    private HashMap<String, o> mq = new HashMap<>();
 
-    public static m eC() {
-        if (mo == null) {
+    public static m eA() {
+        if (mr == null) {
             synchronized (BdStatSwitchData.class) {
-                if (mo == null) {
-                    mo = new m();
+                if (mr == null) {
+                    mr = new m();
                 }
             }
         }
-        return mo;
+        return mr;
     }
 
     public m() {
         o oVar = new o(this, null);
-        oVar.T(3000);
-        oVar.U(120000);
-        oVar.V(500);
-        this.mn.put("net", oVar);
-        this.mn.put("op", oVar);
-        this.mn.put("stat", oVar);
+        oVar.Y(3000);
+        oVar.Z(120000);
+        oVar.aa(500);
+        this.mq.put("net", oVar);
+        this.mq.put("op", oVar);
+        this.mq.put("stat", oVar);
         o oVar2 = new o(this, null);
-        oVar2.T(GroupInfoActivityConfig.JOIN_BUTTON_DISABLE_MAX_DURATION);
-        oVar2.U(120000);
-        oVar2.V(100);
-        this.mn.put("file", oVar2);
-        this.mn.put("db", oVar2);
-        this.mn.put("img", oVar2);
-        this.mn.put("voice", oVar2);
+        oVar2.Y(GroupInfoActivityConfig.JOIN_BUTTON_DISABLE_MAX_DURATION);
+        oVar2.Z(120000);
+        oVar2.aa(100);
+        this.mq.put("file", oVar2);
+        this.mq.put("db", oVar2);
+        this.mq.put("img", oVar2);
+        this.mq.put("voice", oVar2);
     }
 
     public boolean ao(String str) {
-        o oVar = this.mn.get(str);
+        o oVar = this.mq.get(str);
         if (oVar == null) {
             return false;
         }
-        n nVar = this.mm.get(str);
+        n nVar = this.mp.get(str);
         long currentTimeMillis = System.currentTimeMillis();
         if (nVar == null) {
             nVar = new n(this, null);
             nVar.D(false);
             nVar.C(false);
             nVar.g(currentTimeMillis);
-            this.mm.put(str, nVar);
+            this.mp.put(str, nVar);
         }
-        if (nVar.eD()) {
+        if (nVar.eB()) {
             return true;
         }
-        if (nVar.eH()) {
-            nVar.S(nVar.eF() + 1);
-            if (currentTimeMillis - nVar.eE() < oVar.eJ()) {
-                if (nVar.eF() >= oVar.eK()) {
+        if (nVar.eF()) {
+            nVar.X(nVar.eD() + 1);
+            if (currentTimeMillis - nVar.eC() < oVar.eH()) {
+                if (nVar.eD() >= oVar.eI()) {
                     nVar.C(true);
-                    f.es().a(false, "d", "logfast", null, null, 0L, 99999, str, new Object[0]);
+                    f.eq().a(false, "d", "logfast", null, null, 0L, 99999, str, new Object[0]);
                     return true;
                 }
                 return false;
             }
             nVar.D(false);
-            nVar.S(0);
+            nVar.X(0);
             nVar.g(currentTimeMillis);
             return false;
-        } else if (currentTimeMillis - nVar.eG() < oVar.eI()) {
+        } else if (currentTimeMillis - nVar.eE() < oVar.eG()) {
             nVar.D(true);
             nVar.f(currentTimeMillis);
             return false;

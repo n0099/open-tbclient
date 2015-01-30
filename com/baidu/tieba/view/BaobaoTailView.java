@@ -5,36 +5,36 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.t;
 import com.baidu.tieba.w;
 import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class BaobaoTailView extends LinearLayout {
-    private View.OnClickListener MY;
-    private TextView alX;
-    private TbImageView avI;
-    private com.baidu.tbadk.data.a cdh;
+    private View.OnClickListener Nu;
+    private TextView amR;
+    private TbImageView awI;
+    private com.baidu.tbadk.data.a ceG;
 
     public BaobaoTailView(Context context) {
         super(context);
-        this.MY = new a(this);
+        this.Nu = new f(this);
         init();
     }
 
     public BaobaoTailView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.MY = new a(this);
+        this.Nu = new f(this);
         init();
     }
 
     private void init() {
         setOrientation(0);
-        com.baidu.adp.lib.g.b.ek().inflate(getContext(), x.baobao_tail_layout, this);
-        this.avI = (TbImageView) findViewById(w.baobao_icon);
-        this.alX = (TextView) findViewById(w.baobao_tail_text);
-        setOnClickListener(this.MY);
+        com.baidu.adp.lib.g.b.ei().inflate(getContext(), x.baobao_tail_layout, this);
+        this.awI = (TbImageView) findViewById(w.baobao_icon);
+        this.amR = (TextView) findViewById(w.baobao_tail_text);
+        setOnClickListener(this.Nu);
     }
 
     public void setData(com.baidu.tbadk.data.a aVar) {
@@ -42,12 +42,12 @@ public class BaobaoTailView extends LinearLayout {
             setVisibility(8);
             return;
         }
-        this.cdh = aVar;
-        this.alX.setText(aVar.getContent());
-        this.avI.d(aVar.getIconUrl(), 10, false);
+        this.ceG = aVar;
+        this.amR.setText(aVar.getContent());
+        this.awI.d(aVar.getIconUrl(), 10, false);
     }
 
     public void changeSkinType(int i) {
-        ax.b(this.alX, t.cp_link_tip_c, 1);
+        bc.b(this.amR, t.cp_link_tip_c, 1);
     }
 }

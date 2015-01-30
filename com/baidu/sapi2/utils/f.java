@@ -54,18 +54,16 @@ public class f {
         if (bArr == null || bArr.length == 0) {
             throw new Exception("Empty string");
         }
+        byte[] bArr2 = new byte[0];
         try {
             IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.d));
             SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f);
             Cipher cipher = Cipher.getInstance(this.e);
             cipher.init(2, secretKeySpec, ivParameterSpec);
             return cipher.doFinal(bArr);
-        } catch (NoSuchAlgorithmException e) {
-            L.e(e);
-            return null;
-        } catch (NoSuchPaddingException e2) {
-            L.e(e2);
-            return null;
+        } catch (Throwable th) {
+            L.e(th);
+            return bArr2;
         }
     }
 

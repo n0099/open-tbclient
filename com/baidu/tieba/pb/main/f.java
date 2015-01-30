@@ -1,107 +1,111 @@
 package com.baidu.tieba.pb.main;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
-import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-class f implements com.baidu.tieba.tbadkCore.f.c {
-    final /* synthetic */ PbActivity bzj;
+class f implements com.baidu.tieba.pb.sub.g {
+    final /* synthetic */ PbActivity bAT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(PbActivity pbActivity) {
-        this.bzj = pbActivity;
+        this.bAT = pbActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.f.c
-    public void a(boolean z, com.baidu.tieba.tbadkCore.f.f fVar, com.baidu.tbadk.coreExtra.data.j jVar, WriteData writeData, AntiData antiData) {
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00bb  */
+    /* JADX WARN: Removed duplicated region for block: B:58:? A[RETURN, SYNTHETIC] */
+    @Override // com.baidu.tieba.pb.sub.g
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(boolean z, int i, String str, com.baidu.tieba.tbadkCore.b.o oVar) {
         bz bzVar;
         bz bzVar2;
-        WriteImagesInfo writeImagesInfo;
-        bz bzVar3;
-        bz bzVar4;
-        com.baidu.tieba.tbadkCore.f.a aVar;
-        com.baidu.tieba.tbadkCore.f.a aVar2;
-        com.baidu.tieba.tbadkCore.f.a aVar3;
-        bq bqVar;
-        bq bqVar2;
-        bq bqVar3;
-        bz bzVar5;
         com.baidu.tieba.pb.sub.e eVar;
+        bq bqVar;
+        com.baidu.tieba.pb.sub.e eVar2;
+        bz bzVar3;
+        bq bqVar2;
+        AntiData abT;
+        com.baidu.tieba.pb.sub.e eVar3;
+        String str2;
+        bz bzVar4;
+        bq bqVar3;
+        String str3;
+        com.baidu.tieba.pb.sub.e eVar4;
         bq bqVar4;
-        bz bzVar6;
-        bq bqVar5;
-        WriteImagesInfo writeImagesInfo2;
-        WriteData writeData2;
-        this.bzj.stopVoice();
-        bzVar = this.bzj.byO;
-        bzVar.bD(z);
-        bzVar2 = this.bzj.byO;
-        writeImagesInfo = this.bzj.writeImagesInfo;
-        bzVar2.a(writeImagesInfo, true);
-        String str = "";
-        if (fVar != null) {
-            str = fVar.getErrorString();
-        }
-        if (z) {
-            bzVar3 = this.bzj.byO;
-            bzVar3.YE();
-            bzVar4 = this.bzj.byO;
-            bzVar4.XH();
-            aVar = this.bzj.aAK;
-            WriteData EV = aVar.EV();
-            aVar2 = this.bzj.aAK;
-            aVar2.c((WriteData) null);
-            aVar3 = this.bzj.aAK;
-            aVar3.ey(false);
-            bqVar = this.bzj.byJ;
-            bqVar.Xs();
-            this.bzj.a(antiData, fVar);
-            bqVar2 = this.bzj.byJ;
-            if (!bqVar2.Xj()) {
-                bqVar5 = this.bzj.byJ;
-                com.baidu.tieba.tbadkCore.al.b(bqVar5.Xf(), (WriteData) null);
-                writeImagesInfo2 = this.bzj.baobaoImagesInfo;
-                writeImagesInfo2.clear();
-                writeData2 = this.bzj.aCr;
-                writeData2.setIsBaobao(false);
+        this.bAT.stopVoice();
+        bzVar = this.bAT.bAx;
+        bzVar.showToast(str);
+        bzVar2 = this.bAT.bAx;
+        bzVar2.YR();
+        if (!z) {
+            if (i == 4 || i == 28) {
+                bqVar4 = this.bAT.bAs;
+                if (bqVar4.XO()) {
+                    this.bAT.closeActivity();
+                }
             }
-            if (EV != null) {
-                String floor = EV.getFloor();
-                if (EV == null || EV.getType() != 2) {
-                    bqVar3 = this.bzj.byJ;
-                    if (bqVar3.Xm()) {
-                        bzVar5 = this.bzj.byO;
-                        bzVar5.Ya();
+        } else if (oVar != null) {
+            eVar = this.bAT.bAv;
+            String lt = eVar.lt();
+            bqVar = this.bAT.bAs;
+            ArrayList<com.baidu.tieba.tbadkCore.b.k> ahk = bqVar.getPbData().ahk();
+            int i2 = 0;
+            while (true) {
+                if (i2 < ahk.size()) {
+                    com.baidu.tieba.tbadkCore.b.k kVar = ahk.get(i2);
+                    if (kVar.getId() == null || !kVar.getId().equals(lt)) {
+                        i2++;
+                    } else {
+                        ArrayList<com.baidu.tieba.tbadkCore.b.k> ahJ = oVar.ahJ();
+                        kVar.hW(ahJ.size());
+                        int size = kVar.ahv().size();
+                        while (true) {
+                            int i3 = size;
+                            if (i3 >= 2 || i3 >= ahJ.size()) {
+                                break;
+                            }
+                            kVar.ahv().add(oVar.ahJ().get(i3));
+                            size = i3 + 1;
+                        }
+                    }
+                } else {
+                    break;
+                }
+            }
+            eVar2 = this.bAT.bAv;
+            String stType = eVar2.getStType();
+            if (stType != null) {
+                eVar3 = this.bAT.bAv;
+                if ("mention".equals(eVar3.getStType()) || stType.equals("person_post_reply")) {
+                    str2 = this.bAT.bAD;
+                    if (str2 != null) {
+                        bzVar4 = this.bAT.bAx;
+                        bqVar3 = this.bAT.bAs;
+                        int ahl = bqVar3.getPbData().ahl();
+                        str3 = this.bAT.bAD;
+                        boolean z2 = oVar.ahI() > 1;
+                        eVar4 = this.bAT.bAv;
+                        bzVar4.a(oVar, ahl, str3, z2, eVar4.UI() == 1);
+                        abT = oVar.abT();
+                        if (abT == null) {
+                            Boolean valueOf = Boolean.valueOf(abT.isIfvoice());
+                            this.bAT.bAr = abT.getVoice_message();
+                            if (oVar.ahL() != null) {
+                                this.bAT.a(oVar.ahL().getName(), valueOf);
+                                return;
+                            }
+                            return;
+                        }
                         return;
                     }
-                    return;
                 }
-                eVar = this.bzj.byM;
-                eVar.Zk();
-                if (floor != null) {
-                    bqVar4 = this.bzj.byJ;
-                    com.baidu.tieba.tbadkCore.b.i pbData = bqVar4.getPbData();
-                    bzVar6 = this.bzj.byO;
-                    bzVar6.e(pbData);
-                }
-                com.baidu.tieba.tbadkCore.al.a(EV.getThreadId(), (com.baidu.tieba.tbadkCore.am) this.bzj.getPageContext().getOrignalPage());
             }
-        } else if (jVar == null || writeData == null || jVar.getVcode_pic_url() == null) {
-            this.bzj.a(antiData, str);
-        } else if (AntiHelper.e(antiData)) {
-            this.bzj.a(antiData, str);
-        } else {
-            writeData.setVcodeMD5(jVar.getVcode_md5());
-            writeData.setVcodeUrl(jVar.getVcode_pic_url());
-            if (jVar.rD().equals("4")) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.bzj.getPageContext().getPageActivity(), 12006, writeData, false)));
-            } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.bzj.getPageContext().getPageActivity(), writeData, 12006)));
+            bzVar3 = this.bAT.bAx;
+            bqVar2 = this.bAT.bAs;
+            bzVar3.a(oVar, bqVar2.getPbData().ahl());
+            abT = oVar.abT();
+            if (abT == null) {
             }
         }
     }

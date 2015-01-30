@@ -25,7 +25,7 @@ public class d extends BroadcastReceiver {
                 if (!"com.baidu.adp.plugin.installed".equals(action)) {
                     if ("com.baidu.adp.plugin.installfail".equals(action)) {
                         if (z) {
-                            this.this$0.sk = false;
+                            this.this$0.ss = false;
                         }
                         this.this$0.e(stringExtra, z);
                         return;

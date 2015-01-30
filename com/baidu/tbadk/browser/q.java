@@ -75,7 +75,7 @@ public class q extends WebViewClient {
 
     @Override // android.webkit.WebViewClient
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        if ((this.By.Bx == null || !this.By.Bx.bJ(str)) && !com.baidu.tbadk.util.l.a(this.By, str)) {
+        if ((this.By.Bx == null || !this.By.Bx.bH(str)) && !com.baidu.tbadk.util.o.a(this.By, str)) {
             return super.shouldOverrideUrlLoading(webView, str);
         }
         return true;

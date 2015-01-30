@@ -4,11 +4,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class as implements View.OnLongClickListener {
-    final /* synthetic */ ar aTM;
+    final /* synthetic */ ar aVf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(ar arVar) {
-        this.aTM = arVar;
+        this.aVf = arVar;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -16,10 +16,10 @@ public class as implements View.OnLongClickListener {
         com.baidu.adp.lib.c.b bVar;
         com.baidu.adp.lib.c.b bVar2;
         int i;
-        bVar = this.aTM.mItemViewLongClickListener;
+        bVar = this.aVf.mItemViewLongClickListener;
         if (bVar != null) {
-            bVar2 = this.aTM.mItemViewLongClickListener;
-            i = this.aTM.mPosition;
+            bVar2 = this.aVf.mItemViewLongClickListener;
+            i = this.aVf.mPosition;
             bVar2.onItemViewLongClick(view, 9, i, 0L);
             return false;
         }

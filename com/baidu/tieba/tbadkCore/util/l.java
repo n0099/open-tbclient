@@ -5,53 +5,53 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class l {
-    private volatile int blF;
-    private volatile HashMap<Long, Integer> bYQ = new HashMap<>();
-    private volatile int bYP = 0;
+    private volatile int bnc;
+    private volatile HashMap<Long, Integer> caJ = new HashMap<>();
+    private volatile int caI = 0;
 
     public l(int i) {
-        this.blF = i;
+        this.bnc = i;
     }
 
-    public void io(String str) {
+    public void iv(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.bYQ.size() >= this.blF) {
-                    ahR();
+                if (this.caJ.size() >= this.bnc) {
+                    aiv();
                 }
-                this.bYP++;
-                this.bYQ.put(valueOf, Integer.valueOf(this.bYP));
+                this.caI++;
+                this.caJ.put(valueOf, Integer.valueOf(this.caI));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void ahR() {
+    public void aiv() {
         synchronized (this) {
             int i = 134217727;
             Long l = null;
-            for (Map.Entry<Long, Integer> entry : this.bYQ.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.caJ.entrySet()) {
                 if (entry.getValue().intValue() < i) {
                     i = entry.getValue().intValue();
                     l = entry.getKey();
                 }
             }
             if (l != null) {
-                this.bYQ.remove(l);
+                this.caJ.remove(l);
             } else {
-                this.bYQ.clear();
+                this.caJ.clear();
             }
         }
     }
 
-    public boolean ip(String str) {
+    public boolean iw(String str) {
         boolean z = false;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.bYQ.get(valueOf) != null) {
+                if (this.caJ.get(valueOf) != null) {
                     z = true;
                 }
             }

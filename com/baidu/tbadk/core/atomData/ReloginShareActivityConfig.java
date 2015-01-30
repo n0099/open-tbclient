@@ -1,16 +1,16 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.data.n;
+import com.baidu.tbadk.core.data.o;
 import com.baidu.tbadk.core.frameworkData.a;
 /* loaded from: classes.dex */
 public class ReloginShareActivityConfig extends a {
     public int mGotoType;
-    public n mRawData;
+    public o mRawData;
 
-    public ReloginShareActivityConfig(Context context, n nVar, int i) {
+    public ReloginShareActivityConfig(Context context, o oVar, int i) {
         super(context);
         this.mGotoType = i;
-        this.mRawData = nVar;
+        this.mRawData = oVar;
     }
 }

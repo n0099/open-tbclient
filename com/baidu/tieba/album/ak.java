@@ -1,39 +1,39 @@
 package com.baidu.tieba.album;
 
 import android.text.TextUtils;
-import android.widget.TextView;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.img.ImageFileInfo;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ak implements al {
-    final /* synthetic */ ah aqf;
+class ak implements x {
+    final /* synthetic */ ah ari;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(ah ahVar) {
-        this.aqf = ahVar;
+        this.ari = ahVar;
     }
 
-    @Override // com.baidu.tieba.album.al
-    public void jH() {
-    }
-
-    @Override // com.baidu.tieba.album.al
-    public void a(List<ImageFileInfo> list, String str) {
+    @Override // com.baidu.tieba.album.x
+    public void onClick(int i, ImageFileInfo imageFileInfo) {
+        n nVar;
+        n nVar2;
+        n nVar3;
         AlbumActivity albumActivity;
-        TextView textView;
-        if (list == null || list.size() == 0) {
-            albumActivity = this.aqf.aoO;
-            albumActivity.ee(0);
-            this.aqf.aqb = false;
+        AlbumActivity albumActivity2;
+        nVar = this.ari.apH;
+        int maxImagesAllowed = nVar.getMaxImagesAllowed();
+        nVar2 = this.ari.apH;
+        if (nVar2.size() < maxImagesAllowed) {
+            nVar3 = this.ari.apH;
+            String BS = nVar3.BS();
+            if (!TextUtils.isEmpty(BS)) {
+                albumActivity2 = this.ari.apM;
+                bb.a(albumActivity2.getPageContext(), BS);
+                return;
+            }
+            albumActivity = this.ari.apM;
+            bb.a(albumActivity.getPageContext());
             return;
         }
-        this.aqf.aqb = true;
-        this.aqf.mList = list;
-        this.aqf.setData(list);
-        if (!TextUtils.isEmpty(str)) {
-            textView = this.aqf.mTitle;
-            textView.setText(str);
-        }
+        this.ari.showToast(String.format(this.ari.getPageContext().getString(com.baidu.tieba.z.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
     }
 }

@@ -1,18 +1,26 @@
 package com.baidu.tieba.im.chat.personaltalk;
-
-import android.app.Dialog;
-import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class g implements DialogInterface.OnClickListener {
-    final /* synthetic */ PersonalTalkSettingActivity aTQ;
+public class g implements Runnable {
+    private final /* synthetic */ boolean aRz;
+    final /* synthetic */ PersonalTalkSettingActivity aVk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(PersonalTalkSettingActivity personalTalkSettingActivity) {
-        this.aTQ = personalTalkSettingActivity;
+    public g(PersonalTalkSettingActivity personalTalkSettingActivity, boolean z) {
+        this.aVk = personalTalkSettingActivity;
+        this.aRz = z;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.adp.lib.g.k.b((Dialog) dialogInterface, this.aTQ.getPageContext());
+    @Override // java.lang.Runnable
+    public void run() {
+        x xVar;
+        x xVar2;
+        x xVar3;
+        xVar = this.aVk.aVh;
+        xVar.a((com.baidu.adp.widget.BdSwitchView.c) null);
+        xVar2 = this.aVk.aVh;
+        xVar2.cF(!this.aRz);
+        xVar3 = this.aVk.aVh;
+        xVar3.a(this.aVk);
     }
 }

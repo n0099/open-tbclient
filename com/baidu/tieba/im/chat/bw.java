@@ -1,35 +1,24 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.im.model.PersonalMsglistModel;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.util.ChatStatusManager;
 /* loaded from: classes.dex */
-public class bw implements com.baidu.tieba.im.g<com.baidu.tieba.im.data.b> {
-    final /* synthetic */ PersonalChatActivity aRE;
+class bw extends com.baidu.tieba.im.h<Void> {
+    final /* synthetic */ PersonalChatActivity aSN;
+    private final /* synthetic */ UserData aSO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bw(PersonalChatActivity personalChatActivity) {
-        this.aRE = personalChatActivity;
+    public bw(PersonalChatActivity personalChatActivity, UserData userData) {
+        this.aSN = personalChatActivity;
+        this.aSO = userData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.g
-    /* renamed from: a */
-    public void onReturnDataInUI(com.baidu.tieba.im.data.b bVar) {
-        PersonalMsglistModel personalMsglistModel;
-        PersonalMsglistModel personalMsglistModel2;
-        PersonalChatView personalChatView;
-        PersonalChatView personalChatView2;
-        personalMsglistModel = this.aRE.aRz;
-        PersonalMsglistModel.CardStatus currentStatus = personalMsglistModel.getCurrentStatus(bVar);
-        personalMsglistModel2 = this.aRE.aRz;
-        personalMsglistModel2.setCardStatus(currentStatus);
-        if (currentStatus != PersonalMsglistModel.CardStatus.AGREE) {
-            personalChatView = this.aRE.aRA;
-            personalChatView.a(currentStatus, false, new String[0]);
-            return;
-        }
-        String content = bVar.getContent();
-        personalChatView2 = this.aRE.aRA;
-        personalChatView2.a(currentStatus, false, content);
+    @Override // com.baidu.tieba.im.h
+    /* renamed from: KK */
+    public Void doInBackground() {
+        com.baidu.tieba.im.settingcache.j.Tu().a(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(0), this.aSO);
+        return null;
     }
 }

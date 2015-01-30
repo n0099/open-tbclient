@@ -33,13 +33,13 @@ public class m extends BdAsyncTask<Object, Integer, Bitmap> {
         HashMap hashMap;
         Bitmap bitmap = null;
         try {
-            Bitmap U = com.baidu.tbadk.core.util.s.U(null, TbConfig.IMAGE_RESIZED_FILE);
+            Bitmap X = com.baidu.tbadk.core.util.s.X(null, TbConfig.IMAGE_RESIZED_FILE);
             try {
-                if (U.getWidth() > 750 || U.getHeight() > 750) {
-                    Bitmap d = com.baidu.tbadk.core.util.d.d(U, TbConfig.POST_IMAGE_MIDDLE);
+                if (X.getWidth() > 750 || X.getHeight() > 750) {
+                    Bitmap d = com.baidu.tbadk.core.util.d.d(X, TbConfig.POST_IMAGE_MIDDLE);
                     try {
-                        U.recycle();
-                        U = d;
+                        X.recycle();
+                        X = d;
                     } catch (Exception e) {
                         e = e;
                         bitmap = d;
@@ -47,26 +47,26 @@ public class m extends BdAsyncTask<Object, Integer, Bitmap> {
                         return bitmap;
                     }
                 }
-                if (isCancelled() && U != null && !U.isRecycled()) {
-                    U.recycle();
+                if (isCancelled() && X != null && !X.isRecycled()) {
+                    X.recycle();
                     return null;
                 }
                 int dip2px = com.baidu.adp.lib.util.l.dip2px(this.this$0.getPageContext().getPageActivity(), 63.5f);
                 if (Build.VERSION.SDK_INT >= 7) {
-                    z = this.this$0.Pd;
+                    z = this.this$0.PE;
                     if (z) {
-                        Bitmap f = com.baidu.tbadk.core.util.d.f(U, dip2px);
-                        Bitmap a = com.baidu.tbadk.core.util.d.a(f, com.baidu.adp.lib.util.l.dip2px(this.this$0.getPageContext().getPageActivity(), 5.0f), U != f);
-                        this.this$0.Ph = new HashMap();
-                        this.this$0.Pi = new HashMap();
-                        hashMap = this.this$0.Ph;
+                        Bitmap f = com.baidu.tbadk.core.util.d.f(X, dip2px);
+                        Bitmap a = com.baidu.tbadk.core.util.d.a(f, com.baidu.adp.lib.util.l.dip2px(this.this$0.getPageContext().getPageActivity(), 5.0f), X != f);
+                        this.this$0.PJ = new HashMap();
+                        this.this$0.PK = new HashMap();
+                        hashMap = this.this$0.PJ;
                         hashMap.put(WriteImageActivityConfig.FILTER_NAME_NORMAL, a);
-                        return U;
+                        return X;
                     }
                 }
-                return U;
+                return X;
             } catch (Exception e2) {
-                bitmap = U;
+                bitmap = X;
                 e = e2;
             }
         } catch (Exception e3) {
@@ -81,7 +81,7 @@ public class m extends BdAsyncTask<Object, Integer, Bitmap> {
         View view;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(0);
-        view = this.this$0.OL;
+        view = this.this$0.Po;
         view.setClickable(false);
     }
 
@@ -90,12 +90,12 @@ public class m extends BdAsyncTask<Object, Integer, Bitmap> {
         ProgressBar progressBar;
         View view;
         View view2;
-        this.this$0.OQ = null;
+        this.this$0.Ps = null;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(8);
-        view = this.this$0.OL;
+        view = this.this$0.Po;
         view.setClickable(true);
-        view2 = this.this$0.OL;
+        view2 = this.this$0.Po;
         view2.setEnabled(true);
         super.cancel(true);
     }
@@ -112,25 +112,25 @@ public class m extends BdAsyncTask<Object, Integer, Bitmap> {
         boolean z;
         String[] strArr;
         super.onPostExecute((m) bitmap);
-        this.this$0.OQ = null;
+        this.this$0.Ps = null;
         this.this$0.mBitmap = bitmap;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(8);
-        view = this.this$0.OL;
+        view = this.this$0.Po;
         view.setClickable(true);
-        view2 = this.this$0.OL;
+        view2 = this.this$0.Po;
         view2.setEnabled(true);
         if (bitmap == null || bitmap.isRecycled()) {
-            editHeadsImageView = this.this$0.OH;
+            editHeadsImageView = this.this$0.Pl;
             editHeadsImageView.setImageDrawable(null);
         } else if (bitmap != null) {
-            editHeadsImageView2 = this.this$0.OH;
+            editHeadsImageView2 = this.this$0.Pl;
             editHeadsImageView2.setImageBitmap(bitmap);
             if (Build.VERSION.SDK_INT >= 7) {
-                z = this.this$0.Pd;
+                z = this.this$0.PE;
                 if (z) {
                     EditHeadActivity editHeadActivity = this.this$0;
-                    strArr = EditHeadActivity.OG;
+                    strArr = EditHeadActivity.Pk;
                     editHeadActivity.m(strArr);
                 }
             }

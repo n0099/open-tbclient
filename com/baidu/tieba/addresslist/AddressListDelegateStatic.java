@@ -9,7 +9,7 @@ import com.baidu.tieba.x;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class AddressListDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private static ImageView anS;
+    private static ImageView aoN;
 
     static {
         a aVar = new a(2007002);
@@ -28,13 +28,13 @@ public class AddressListDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.d wd() {
+    public com.baidu.tbadk.mainTab.d wv() {
         if (isAvailable()) {
             com.baidu.tbadk.mainTab.d dVar = new com.baidu.tbadk.mainTab.d();
-            dVar.acb = new d();
+            dVar.acz = new d();
             dVar.type = 4;
-            dVar.acc = z.contacts;
-            dVar.abS = v.icon_tabbar_contact;
+            dVar.acA = z.contacts;
+            dVar.acp = v.icon_tabbar_contact;
             return dVar;
         }
         return null;
@@ -42,15 +42,15 @@ public class AddressListDelegateStatic extends com.baidu.tbadk.mainTab.b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator W(Context context) {
-        this.abP = (FragmentTabIndicator) com.baidu.adp.lib.g.b.ek().inflate(context, x.fragmenttabindicator, null);
-        anS = new ImageView(context);
+        this.acm = (FragmentTabIndicator) com.baidu.adp.lib.g.b.ei().inflate(context, x.fragmenttabindicator, null);
+        aoN = new ImageView(context);
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.aca = this.abP;
-        cVar.jM = com.baidu.adp.lib.util.l.dip2px(context, 7.0f);
-        cVar.view = anS;
-        cVar.abY = v.icon_news_down_bar_one;
-        anS.setVisibility(8);
-        this.abP.a("addresslist", cVar);
-        return this.abP;
+        cVar.acy = this.acm;
+        cVar.jO = com.baidu.adp.lib.util.l.dip2px(context, 7.0f);
+        cVar.view = aoN;
+        cVar.acw = v.icon_news_down_bar_one;
+        aoN.setVisibility(8);
+        this.acm.a("addresslist", cVar);
+        return this.acm;
     }
 }

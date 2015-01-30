@@ -1,21 +1,19 @@
 package com.baidu.tieba.person.post;
+
+import java.util.TimerTask;
 /* loaded from: classes.dex */
-class x implements com.baidu.adp.widget.ListView.g {
-    final /* synthetic */ t bHQ;
+class x extends TimerTask {
+    final /* synthetic */ s bJC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(t tVar) {
-        this.bHQ = tVar;
+    public x(s sVar) {
+        this.bJC = sVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.g
-    public void onListPullRefresh(boolean z) {
-        q qVar;
-        q qVar2;
-        qVar = this.bHQ.bHN;
-        if (qVar != null) {
-            qVar2 = this.bHQ.bHN;
-            qVar2.ed(true);
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public void run() {
+        if (this.bJC.getActivity() != null && !this.bJC.getActivity().isFinishing()) {
+            this.bJC.getActivity().finish();
         }
     }
 }

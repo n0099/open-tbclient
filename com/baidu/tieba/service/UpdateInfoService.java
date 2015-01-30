@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.UpdateInfoServiceConfig;
 /* loaded from: classes.dex */
 public class UpdateInfoService extends BdBaseService {
-    private com.baidu.adp.lib.d.d locationCallBack = new u(this);
+    private com.baidu.adp.lib.d.d locationCallBack = new t(this);
     private com.baidu.tieba.model.r mModel;
 
     static {
@@ -20,13 +20,13 @@ public class UpdateInfoService extends BdBaseService {
         return null;
     }
 
-    @Override // android.app.Service
+    @Override // com.baidu.adp.base.BdBaseService, android.app.Service
     public void onCreate() {
         super.onCreate();
         this.mModel = new com.baidu.tieba.model.r(null);
-        this.mModel.Us();
+        this.mModel.UQ();
         this.mModel.ah(540000L);
-        this.mModel.a(new v(this));
+        this.mModel.a(new u(this));
     }
 
     @Override // android.app.Service
@@ -45,10 +45,10 @@ public class UpdateInfoService extends BdBaseService {
     }
 
     private void findLocationFromLocal() {
-        com.baidu.adp.lib.d.a.dD().a(true, this.locationCallBack);
+        com.baidu.adp.lib.d.a.dB().a(true, this.locationCallBack);
     }
 
     private void unRegisterLocalLocation() {
-        com.baidu.adp.lib.d.a.dD().a(this.locationCallBack);
+        com.baidu.adp.lib.d.a.dB().a(this.locationCallBack);
     }
 }

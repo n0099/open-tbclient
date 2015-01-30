@@ -16,7 +16,7 @@ class b extends k {
     @Override // com.baidu.adp.framework.a.f
     /* renamed from: d */
     public SocketMessage a(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        if (socketMessage != null && socketMessage.getExtra() != null && (socketMessage.getExtra() instanceof NetMessage) && !h.tU().cV(socketMessage.getCmd())) {
+        if (socketMessage != null && socketMessage.getExtra() != null && (socketMessage.getExtra() instanceof NetMessage) && !h.ul().dc(socketMessage.getCmd())) {
             return null;
         }
         return socketMessage;

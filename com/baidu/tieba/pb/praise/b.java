@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.w;
@@ -41,7 +41,7 @@ public class b extends com.baidu.tbadk.mvc.j.a<a, com.baidu.tbadk.mvc.e.c> {
         super.y(aVar);
         this.mItemName.setText(aVar.getUserName());
         this.mItemHead.setImageDrawable(null);
-        this.mItemTime.setText(ba.n(aVar.YU()));
+        this.mItemTime.setText(bf.n(aVar.Zz()));
         this.mItemHead.d(aVar.getPortrait(), 28, false);
     }
 }

@@ -2,62 +2,53 @@ package com.baidu.adp.framework.client.socket.link;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.os.Message;
-import com.baidu.adp.framework.client.socket.l;
 import com.baidu.adp.lib.util.BdLog;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.webSocket.m;
 /* loaded from: classes.dex */
-public class j extends Handler {
-    final /* synthetic */ i eC;
+public class j {
+    private boolean eB = false;
+    private int eC = 0;
+    private final Handler eD = new k(this, Looper.getMainLooper());
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j(i iVar, Looper looper) {
-        super(looper);
-        this.eC = iVar;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void start(String str) {
+        if (!BdSocketLinkService.isAvailable()) {
+            A("online failed 5");
+        } else if (!this.eB) {
+            this.eB = true;
+            this.eD.removeMessages(1);
+            if (m.fU().fX()) {
+                BdLog.d("启动重连策略失败，  WebSocketClient opened");
+                A("in Opened");
+                return;
+            }
+            bp();
+            BdLog.d("启动重连策略");
+            this.eC = 0;
+            int[] bb = com.baidu.adp.framework.client.socket.l.bb();
+            if (bb != null && bb.length >= 1) {
+                BdLog.i("start reconnStrategy... the first will be delay" + bb[0]);
+                this.eD.sendMessageDelayed(this.eD.obtainMessage(1), bb[0] * 1000);
+                return;
+            }
+            BdLog.i("don't have reconnStrategy!");
+        } else {
+            BdLog.d("重连策略正在运行中， 再次启动无效");
+            com.baidu.adp.framework.client.socket.m.a("reconn", 0, 0, com.baidu.tbadk.core.frameworkData.a.START, BdSocketLinkService.ALLREADY, "have in Running,so invalid");
+        }
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Handler handler;
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        Handler handler2;
-        Handler handler3;
-        int i5;
-        super.handleMessage(message);
-        switch (message.what) {
-            case 1:
-                handler = this.eC.eB;
-                handler.removeMessages(1);
-                StringBuilder sb = new StringBuilder("this is reconn time:");
-                i = this.eC.eA;
-                BdLog.i(sb.append(i).toString());
-                BdSocketLinkService.startService(true, "time to reconnStragety");
-                i iVar = this.eC;
-                i2 = iVar.eA;
-                iVar.eA = i2 + 1;
-                int[] bb = l.bb();
-                if (bb != null) {
-                    i3 = this.eC.eA;
-                    if (i3 < bb.length) {
-                        StringBuilder sb2 = new StringBuilder("Next will be delay:");
-                        i4 = this.eC.eA;
-                        BdLog.i(sb2.append(bb[i4]).toString());
-                        handler2 = this.eC.eB;
-                        handler3 = this.eC.eB;
-                        Message obtainMessage = handler3.obtainMessage(1);
-                        i5 = this.eC.eA;
-                        handler2.sendMessageDelayed(obtainMessage, bb[i5] * 1000);
-                        return;
-                    }
-                }
-                this.eC.A("reconnStragety to the end");
-                return;
-            default:
-                return;
+    private void bp() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void A(String str) {
+        if (this.eB) {
+            com.baidu.adp.framework.client.socket.m.a("reconn", 0, 0, com.baidu.tbadk.core.frameworkData.a.STOP, BdSocketLinkService.STOP_RECONN, "ReConnStrategy:stop");
+            this.eB = false;
+            this.eC = 0;
+            BdLog.i("stop reconnStrategy");
+            this.eD.removeMessages(1);
         }
     }
 }

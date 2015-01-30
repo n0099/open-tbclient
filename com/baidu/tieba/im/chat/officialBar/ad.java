@@ -5,12 +5,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.im.chat.cs;
+import com.baidu.tieba.im.chat.cv;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ad extends BaseAdapter {
-    private View.OnClickListener aTi = new ae(this);
+    private View.OnClickListener aUy = new ae(this);
     BaseActivity mActivity;
     Context mContext;
     private List<aq> mList;
@@ -88,7 +88,7 @@ public class ad extends BaseAdapter {
                     };
                     chatMessage.setContent(aqVar.content);
                     chatMessage.setMsgType(aqVar.type);
-                    cs.a(this.mContext, aVar2.getRichTextView(), chatMessage, "official_history_adapter");
+                    cv.a(this.mContext, aVar2.getRichTextView(), chatMessage, "official_history_adapter");
                     return aVar;
                 case 1:
                     View aVar3 = view == null ? new a(this.mContext) : view;
@@ -103,15 +103,15 @@ public class ad extends BaseAdapter {
                     };
                     chatMessage2.setContent("[" + aqVar.content + "]");
                     chatMessage2.setMsgType(aqVar.type);
-                    cs.a(this.mContext, aVar3, aVar4.getImageView(), chatMessage2, 0L, "official_history_adapter");
+                    cv.a(this.mContext, aVar3, aVar4.getImageView(), chatMessage2, 0L, "official_history_adapter");
                     aVar4.getImageView().setTag(Integer.valueOf(i));
-                    aVar4.getImageView().setOnClickListener(this.aTi);
+                    aVar4.getImageView().setOnClickListener(this.aUy);
                     return aVar3;
                 case 2:
                     View aVar5 = view == null ? new a(this.mContext) : view;
                     MultiContentView multiContentView = new MultiContentView(this.mContext);
                     multiContentView.setTime(aqVar.time);
-                    multiContentView.a(this.mActivity.getPageContext(), o.au(aqVar.content, ""), viewGroup);
+                    multiContentView.a(this.mActivity.getPageContext(), o.ax(aqVar.content, ""), viewGroup);
                     ((a) aVar5).C(multiContentView);
                     return aVar5;
                 default:

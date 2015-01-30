@@ -2,7 +2,6 @@ package com.baidu.adp.framework.client.socket.link;
 
 import android.os.Handler;
 import com.baidu.adp.framework.client.socket.m;
-import com.baidu.adp.lib.util.l;
 import com.baidu.adp.lib.webSocket.r;
 import java.util.Map;
 /* loaded from: classes.dex */
@@ -60,7 +59,7 @@ class d extends r {
     public void l(int i, String str) {
         Handler handler;
         g gVar;
-        i iVar;
+        j jVar;
         g gVar2;
         boolean z = false;
         m.a("linkservice", 0, 0, "onClose", i, str);
@@ -72,9 +71,9 @@ class d extends r {
             gVar2 = BdSocketLinkService.connStateCallBack;
             z = gVar2.k(i, null);
         }
-        if (!z && i != 1 && l.isNetOk()) {
-            iVar = BdSocketLinkService.reConnStra;
-            iVar.start("onClose:" + i + ":" + str);
+        if (!z && i != 1 && com.baidu.adp.lib.util.l.isNetOk()) {
+            jVar = BdSocketLinkService.reConnStra;
+            jVar.start("onClose:" + i + ":" + str);
         }
     }
 }

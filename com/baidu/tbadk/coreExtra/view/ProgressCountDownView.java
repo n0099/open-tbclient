@@ -41,7 +41,7 @@ public class ProgressCountDownView extends FrameLayout {
     }
 
     private void init(Context context) {
-        this.mRoot = com.baidu.adp.lib.g.b.ek().inflate(context, com.baidu.tieba.x.progress_count_down_view, this);
+        this.mRoot = com.baidu.adp.lib.g.b.ei().inflate(context, com.baidu.tieba.x.progress_count_down_view, this);
         this.mTextView = (TextView) this.mRoot.findViewById(com.baidu.tieba.w.progress_count_down_text);
         this.mProgress = (ProgressBar) this.mRoot.findViewById(com.baidu.tieba.w.progress_count_down_progress);
     }

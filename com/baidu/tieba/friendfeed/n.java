@@ -1,38 +1,65 @@
 package com.baidu.tieba.friendfeed;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.data.FriendFeedThreadData;
-import com.baidu.tieba.tbadkCore.aq;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tieba.message.ResponseFriendFeedMessage;
+import com.baidu.tieba.z;
 /* loaded from: classes.dex */
-class n implements aq {
-    final /* synthetic */ FriendFeedActivity aAU;
+class n extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ FriendFeedActivity aBV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(FriendFeedActivity friendFeedActivity) {
-        this.aAU = friendFeedActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n(FriendFeedActivity friendFeedActivity, int i) {
+        super(i);
+        this.aBV = friendFeedActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.aq
-    public void fv(String str) {
-        boolean z;
-        FriendFeedThreadData friendFeedThreadData;
-        z = this.aAU.aAG;
-        if (z) {
-            friendFeedThreadData = this.aAU.aAF;
-            this.aAU.eB(friendFeedThreadData.getPraise().getIsLike() == 1 ? 0 : 1);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        x xVar;
+        boolean isFirstLoad;
+        com.baidu.tieba.model.l lVar;
+        boolean isFirstLoad2;
+        x xVar2;
+        xVar = this.aBV.aBD;
+        p FI = xVar.FI();
+        this.aBV.hideProgress();
+        if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseFriendFeedMessage)) {
+            this.aBV.showToast(z.neterror);
+            return;
         }
-        this.aAU.aAE = false;
-        TbadkApplication.getInst().resetPbRecorder();
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.aq
-    public void fw(String str) {
-        boolean z;
-        z = this.aAU.aAG;
-        if (z && !TextUtils.isEmpty(str)) {
-            this.aAU.showToast(str);
+        ResponseFriendFeedMessage responseFriendFeedMessage = (ResponseFriendFeedMessage) socketResponsedMessage;
+        if (responseFriendFeedMessage.getError() != 0) {
+            if (responseFriendFeedMessage.getError() > 0) {
+                this.aBV.showToast(responseFriendFeedMessage.getErrorString());
+                return;
+            }
+            FI.bE(false);
+            FI.notifyDataSetChanged();
+            this.aBV.showToast(z.neterror);
+            return;
         }
-        this.aAU.aAE = false;
+        com.baidu.tieba.data.i friendFeedData = responseFriendFeedMessage.getFriendFeedData();
+        if (friendFeedData != null) {
+            isFirstLoad = this.aBV.isFirstLoad();
+            if (isFirstLoad) {
+                FI.reset(true);
+            }
+            FI.bF(friendFeedData.isHasMore());
+            if (!friendFeedData.isHasMore()) {
+                isFirstLoad2 = this.aBV.isFirstLoad();
+                if (isFirstLoad2 && friendFeedData.CS().size() == 0) {
+                    xVar2 = this.aBV.aBD;
+                    xVar2.showNoDataTip(true);
+                    return;
+                }
+            }
+            FI.bE(true);
+            FI.a(friendFeedData);
+            lVar = this.aBV.aBE;
+            lVar.setTimeline(FI.FB());
+            FI.notifyDataSetChanged();
+        }
     }
 }

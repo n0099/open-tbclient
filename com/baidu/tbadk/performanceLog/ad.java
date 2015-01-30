@@ -1,126 +1,126 @@
 package com.baidu.tbadk.performanceLog;
 /* loaded from: classes.dex */
 public class ad extends ab {
-    private static ad ahf = null;
-    private boolean agT = false;
-    private long agU = -1;
-    private long agV = -1;
-    private long agW = -1;
-    private long agX = -1;
-    private long agY = -1;
-    private long agZ = -1;
-    private long aha = -1;
-    private long ahb = -1;
-    private long ahc = -1;
-    private long ahd = -1;
-    private long ahe = -1;
+    private static ad ahD = null;
+    private boolean ahr = false;
+    private long ahs = -1;
+    private long aht = -1;
+    private long ahu = -1;
+    private long ahv = -1;
+    private long ahw = -1;
+    private long ahx = -1;
+    private long ahy = -1;
+    private long ahz = -1;
+    private long ahA = -1;
+    private long ahB = -1;
+    private long ahC = -1;
 
-    public void aX(boolean z) {
-        this.agT = z;
+    public void aZ(boolean z) {
+        this.ahr = z;
     }
 
     public void w(long j) {
-        this.agU = j;
+        this.ahs = j;
     }
 
     public void x(long j) {
-        this.agV = j;
+        this.aht = j;
     }
 
     public void a(long j, long j2, long j3, long j4) {
-        this.agW = j;
-        this.agX = j2;
-        this.agY = j3;
-        this.agZ = j4;
+        this.ahu = j;
+        this.ahv = j2;
+        this.ahw = j3;
+        this.ahx = j4;
     }
 
     public void y(long j) {
-        this.aha = j;
+        this.ahy = j;
     }
 
     public void z(long j) {
-        this.ahb = j;
+        this.ahz = j;
     }
 
     public void A(long j) {
-        this.ahc = j;
+        this.ahA = j;
     }
 
     public void B(long j) {
-        this.ahd = j;
+        this.ahB = j;
     }
 
     public void C(long j) {
-        this.ahe = j;
+        this.ahC = j;
     }
 
-    public static ad zl() {
-        if (ahf == null) {
+    public static ad zC() {
+        if (ahD == null) {
             synchronized (ad.class) {
-                if (ahf == null) {
-                    ahf = new ad();
+                if (ahD == null) {
+                    ahD = new ad();
                 }
             }
         }
-        return ahf;
+        return ahD;
     }
 
-    public void zm() {
-        if (this.agU > 0) {
-            if (ac.zh().zi()) {
-                long j = this.agV - this.agU;
-                long j2 = this.aha - this.agV;
-                long j3 = this.ahc - this.ahb;
-                long j4 = this.ahd - this.ahc;
-                long j5 = this.ahe - this.ahd;
-                long j6 = this.ahe - this.agU;
-                com.baidu.adp.lib.stats.q ef = ef();
-                ef.r("procname", "main");
-                ef.r("appc", String.valueOf(j));
-                ef.r("loadclass", String.valueOf(this.agW));
-                ef.r("sapiinit", String.valueOf(this.agX));
-                ef.r("acctinit", String.valueOf(this.agY));
-                ef.r("iminit", String.valueOf(this.agZ));
-                ef.r("logores", String.valueOf(j2));
-                if (this.ahb > 0 && j3 > 0 && this.ahc > 0 && j4 > 0) {
-                    ef.r("adc", String.valueOf(j3));
-                    ef.r("adshow", String.valueOf(j4));
-                    ef.r("hasad", "1");
+    public void zD() {
+        if (this.ahs > 0) {
+            if (ac.zy().zz()) {
+                long j = this.aht - this.ahs;
+                long j2 = this.ahy - this.aht;
+                long j3 = this.ahA - this.ahz;
+                long j4 = this.ahB - this.ahA;
+                long j5 = this.ahC - this.ahB;
+                long j6 = this.ahC - this.ahs;
+                com.baidu.adp.lib.stats.q ed = ed();
+                ed.r("procname", "main");
+                ed.r("appc", String.valueOf(j));
+                ed.r("loadclass", String.valueOf(this.ahu));
+                ed.r("sapiinit", String.valueOf(this.ahv));
+                ed.r("acctinit", String.valueOf(this.ahw));
+                ed.r("iminit", String.valueOf(this.ahx));
+                ed.r("logores", String.valueOf(j2));
+                if (this.ahz > 0 && j3 > 0 && this.ahA > 0 && j4 > 0) {
+                    ed.r("adc", String.valueOf(j3));
+                    ed.r("adshow", String.valueOf(j4));
+                    ed.r("hasad", "1");
                 } else {
-                    ef.r("hasad", "0");
+                    ed.r("hasad", "0");
                 }
-                ef.r("tabc", String.valueOf(j5));
-                ef.r("costt", String.valueOf(j6));
-                ef.r("newinst", this.agT ? "1" : "0");
-                com.baidu.adp.lib.stats.f.es().b("startt", ef);
+                ed.r("tabc", String.valueOf(j5));
+                ed.r("costt", String.valueOf(j6));
+                ed.r("newinst", this.ahr ? "1" : "0");
+                com.baidu.adp.lib.stats.f.eq().b("startt", ed);
             } else {
                 return;
             }
         }
-        zn();
+        zE();
     }
 
     public void D(long j) {
-        if (ac.zh().zi()) {
-            com.baidu.adp.lib.stats.q ef = ef();
-            ef.r("procname", "remote");
-            ef.r("costt", String.valueOf(j));
-            com.baidu.adp.lib.stats.f.es().b("startt", ef);
+        if (ac.zy().zz()) {
+            com.baidu.adp.lib.stats.q ed = ed();
+            ed.r("procname", "remote");
+            ed.r("costt", String.valueOf(j));
+            com.baidu.adp.lib.stats.f.eq().b("startt", ed);
         }
     }
 
-    private void zn() {
-        this.agT = false;
-        this.agU = -1L;
-        this.agV = -1L;
-        this.agW = -1L;
-        this.agX = -1L;
-        this.agY = -1L;
-        this.agZ = -1L;
-        this.aha = -1L;
-        this.ahb = -1L;
-        this.ahc = -1L;
-        this.ahd = -1L;
-        this.ahe = -1L;
+    private void zE() {
+        this.ahr = false;
+        this.ahs = -1L;
+        this.aht = -1L;
+        this.ahu = -1L;
+        this.ahv = -1L;
+        this.ahw = -1L;
+        this.ahx = -1L;
+        this.ahy = -1L;
+        this.ahz = -1L;
+        this.ahA = -1L;
+        this.ahB = -1L;
+        this.ahC = -1L;
     }
 }

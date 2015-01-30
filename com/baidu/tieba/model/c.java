@@ -1,22 +1,24 @@
 package com.baidu.tieba.model;
+
+import com.baidu.tieba.data.q;
 /* loaded from: classes.dex */
 public class c {
-    private com.baidu.tieba.data.h bsK = null;
-    private com.baidu.tieba.data.q bsL = null;
+    private com.baidu.tieba.data.h bui = null;
+    private q buj = null;
 
-    public com.baidu.tieba.data.h TX() {
-        return this.bsK;
+    public com.baidu.tieba.data.h Uv() {
+        return this.bui;
     }
 
     public void a(com.baidu.tieba.data.h hVar) {
-        this.bsK = hVar;
+        this.bui = hVar;
     }
 
-    public com.baidu.tieba.data.q TY() {
-        return this.bsL;
+    public q Uw() {
+        return this.buj;
     }
 
-    public void a(com.baidu.tieba.data.q qVar) {
-        this.bsL = qVar;
+    public void a(q qVar) {
+        this.buj = qVar;
     }
 }

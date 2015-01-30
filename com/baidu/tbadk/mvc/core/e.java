@@ -23,5 +23,5 @@ public interface e<V extends c, M extends a, T> extends View.OnClickListener, Tb
 
     void showLoadingView(View view);
 
-    ViewEventCenter wx();
+    ViewEventCenter wN();
 }

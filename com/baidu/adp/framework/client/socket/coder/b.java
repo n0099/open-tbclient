@@ -10,17 +10,17 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 /* loaded from: classes.dex */
 public class b {
-    private static b ep = null;
+    private static b er = null;
 
     public static b bk() {
-        if (ep == null) {
+        if (er == null) {
             synchronized (b.class) {
-                if (ep == null) {
-                    ep = new b();
+                if (er == null) {
+                    er = new b();
                 }
             }
         }
-        return ep;
+        return er;
     }
 
     private b() {
@@ -40,34 +40,34 @@ public class b {
             }
             return a.a(z2, z, socketMessage.getCmd(), i, encodeInBackGround);
         } catch (Throwable th) {
-            throw new CoderException(l.dJ);
+            throw new CoderException(l.dK);
         }
     }
 
     public c a(c cVar) {
-        if (cVar == null || cVar.eq == null || cVar.er == null) {
-            throw new CoderException(l.dz);
+        if (cVar == null || cVar.es == null || cVar.eu == null) {
+            throw new CoderException(l.dA);
         }
-        a aVar = cVar.eq;
-        if (aVar.bi() && cVar.eu > 0) {
+        a aVar = cVar.es;
+        if (aVar.bi() && cVar.ew > 0) {
             if (d.bl().getSecretKey() == null) {
-                throw new CoderException(l.dG);
+                throw new CoderException(l.dH);
             }
             try {
-                cVar.er = ab.a(d.bl().getSecretKey(), cVar.er, cVar.es, cVar.eu);
-                cVar.es = 0;
-                cVar.eu = cVar.er.length;
+                cVar.eu = ab.a(d.bl().getSecretKey(), cVar.eu, cVar.ev, cVar.ew);
+                cVar.ev = 0;
+                cVar.ew = cVar.eu.length;
             } catch (Exception e) {
-                throw new CoderException(l.dI);
+                throw new CoderException(l.dJ);
             }
         }
-        if (aVar.bg() && cVar.eu > 0) {
+        if (aVar.bg() && cVar.ew > 0) {
             try {
-                cVar.er = b(cVar.er, cVar.es, cVar.eu);
-                cVar.es = 0;
-                cVar.eu = cVar.er.length;
+                cVar.eu = b(cVar.eu, cVar.ev, cVar.ew);
+                cVar.ev = 0;
+                cVar.ew = cVar.eu.length;
             } catch (Exception e2) {
-                throw new CoderException(l.dF);
+                throw new CoderException(l.dG);
             }
         }
         return cVar;
@@ -76,26 +76,22 @@ public class b {
     public c g(byte[] bArr) {
         int bf = a.bf();
         if (bArr == null || bArr.length < bf) {
-            throw new CoderException(l.dz);
+            throw new CoderException(l.dA);
         }
         a f = a.f(bArr);
         if (f == null) {
-            throw new CoderException(l.dz);
+            throw new CoderException(l.dA);
         }
         c cVar = new c();
-        cVar.eq = f;
-        cVar.er = bArr;
-        cVar.es = bf;
-        cVar.eu = bArr.length - bf;
+        cVar.es = f;
+        cVar.eu = bArr;
+        cVar.ev = bf;
+        cVar.ew = bArr.length - bf;
         return cVar;
     }
 
     public SocketResponsedMessage a(int i, byte[] bArr, SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
         SocketResponsedMessage newInstance;
-        int i2;
-        if (bArr == null) {
-            throw new CoderException(i2);
-        }
         try {
             Class<? extends SocketResponsedMessage> responsedClass = socketMessageTask.getResponsedClass();
             try {
@@ -106,8 +102,8 @@ public class b {
             newInstance.setOrginalMessage(socketMessage);
             newInstance.decodeInBackGround(i, bArr);
             return newInstance;
-        } finally {
-            CoderException coderException = new CoderException(l.dC);
+        } catch (Throwable th) {
+            throw new CoderException(l.dD);
         }
     }
 

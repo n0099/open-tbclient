@@ -8,7 +8,6 @@ import android.net.Proxy;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
-import com.baidu.channelrtc.medialivesender.LiveSenderControl;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
@@ -60,7 +59,7 @@ public class g {
     private static boolean f158char = false;
     private static boolean g = false;
     private static ArrayList e = null;
-    private static int a = LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_12;
+    private static int a = 12000;
 
     /* renamed from: if  reason: not valid java name */
     private static Uri f163if = null;

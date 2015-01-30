@@ -3,18 +3,18 @@ package com.baidu.tbadk.core.util;
 import com.baidu.tbadk.TbadkSettings;
 /* loaded from: classes.dex */
 public class c implements com.baidu.adp.lib.stats.r {
-    private static c GX = null;
+    private static c Hg = null;
 
     private c() {
     }
 
-    public static synchronized c ok() {
+    public static synchronized c on() {
         c cVar;
         synchronized (c.class) {
-            if (GX == null) {
-                GX = new c();
+            if (Hg == null) {
+                Hg = new c();
             }
-            cVar = GX;
+            cVar = Hg;
         }
         return cVar;
     }
@@ -45,27 +45,27 @@ public class c implements com.baidu.adp.lib.stats.r {
     }
 
     @Override // com.baidu.adp.lib.stats.r
-    public String eN() {
+    public String eM() {
         return TbadkSettings.getInst().loadString("log_stat_switch_data", null);
     }
 
     @Override // com.baidu.adp.lib.stats.r
-    public long eO() {
+    public long eN() {
         return TbadkSettings.getInst().loadLong("log_stat_upload_time ", 0L);
     }
 
     @Override // com.baidu.adp.lib.stats.r
-    public long eP() {
+    public long eO() {
         return TbadkSettings.getInst().loadLong("log_stat_debug_time", 0L);
     }
 
     @Override // com.baidu.adp.lib.stats.r
-    public long eR() {
+    public long eQ() {
         return TbadkSettings.getInst().loadLong("log_stat_error_time", 0L);
     }
 
     @Override // com.baidu.adp.lib.stats.r
-    public long eQ() {
+    public long eP() {
         return TbadkSettings.getInst().loadLong("log_stat_perfor_time", 0L);
     }
 }

@@ -22,11 +22,11 @@ class b extends com.baidu.adp.framework.listener.e {
         ChatMessage chatMessage;
         if (socketResponsedMessage != null && (chatMessage = (ChatMessage) socketResponsedMessage.getOrginalMessage()) != null && GameShareListenerStatic.z(chatMessage) == 1) {
             if (socketResponsedMessage.getError() == 0) {
-                GameShareListenerStatic.e(GameShareListenerStatic.mContext, com.baidu.adp.lib.g.b.ek().inflate(GameShareListenerStatic.mContext, x.tip_game_share, null));
-                TiebaStatic.eventStat(GameShareListenerStatic.mContext, "game_share_tbg_ok", "click", 1, "dev_id", com.baidu.tbadk.game.b.vv().getGameInfoData().getGameId(), "share_type", 5);
+                GameShareListenerStatic.e(GameShareListenerStatic.mContext, com.baidu.adp.lib.g.b.ei().inflate(GameShareListenerStatic.mContext, x.tip_game_share, null));
+                TiebaStatic.eventStat(GameShareListenerStatic.mContext, "game_share_tbg_ok", "click", 1, "dev_id", com.baidu.tbadk.game.b.vN().getGameInfoData().getGameId(), "share_type", 5);
                 return;
             }
-            LinearLayout linearLayout = (LinearLayout) com.baidu.adp.lib.g.b.ek().inflate(GameShareListenerStatic.mContext, x.tip_game_share, null);
+            LinearLayout linearLayout = (LinearLayout) com.baidu.adp.lib.g.b.ei().inflate(GameShareListenerStatic.mContext, x.tip_game_share, null);
             ((TextView) linearLayout.findViewById(w.tip_text)).setText("分享失败");
             ((ImageView) linearLayout.findViewById(w.tip_iamge)).setImageResource(v.icon_toast_game_error);
             GameShareListenerStatic.e(GameShareListenerStatic.mContext, linearLayout);

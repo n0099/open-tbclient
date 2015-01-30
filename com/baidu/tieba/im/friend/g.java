@@ -6,14 +6,14 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 class g {
-    public TextView aFV;
-    final /* synthetic */ e baa;
-    public HeadImageView bab;
-    public Button bac;
+    public TextView aHf;
+    final /* synthetic */ e bbx;
+    public HeadImageView bby;
+    public Button bbz;
     public View rootView;
 
     private g(e eVar) {
-        this.baa = eVar;
+        this.bbx = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

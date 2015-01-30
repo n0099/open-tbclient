@@ -5,7 +5,7 @@ import com.baidu.adp.lib.b.f;
 /* loaded from: classes.dex */
 public class LbsWebViewSwitchStatic extends a {
     static {
-        f.dc().l(LbsWebViewSwitchStatic.class);
+        f.da().l(LbsWebViewSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

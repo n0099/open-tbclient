@@ -11,7 +11,7 @@ public class FrameHelper {
         SOCKET,
         CUSTOM;
 
-        /* JADX DEBUG: Replace access to removed values field (cM) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (cN) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static TYPE[] valuesCustom() {
             TYPE[] valuesCustom = values();

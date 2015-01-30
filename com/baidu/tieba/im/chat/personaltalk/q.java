@@ -1,61 +1,36 @@
 package com.baidu.tieba.im.chat.personaltalk;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import com.baidu.tieba.z;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q extends CustomMessageListener {
-    final /* synthetic */ o aTZ;
+public class q extends BdAsyncTask<Void, Void, Void> {
+    private final /* synthetic */ boolean aRz;
+    final /* synthetic */ PersonalTalkSettingActivity aVk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q(o oVar, int i) {
-        super(i);
-        this.aTZ = oVar;
+    public q(PersonalTalkSettingActivity personalTalkSettingActivity, boolean z) {
+        this.aVk = personalTalkSettingActivity;
+        this.aRz = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        PersonalTalkSettingActivity personalTalkSettingActivity;
-        PersonalTalkSettingActivity personalTalkSettingActivity2;
-        PersonalTalkSettingActivity personalTalkSettingActivity3;
-        t tVar;
-        t tVar2;
-        boolean z;
-        PersonalTalkSettingActivity personalTalkSettingActivity4;
-        PersonalTalkSettingActivity personalTalkSettingActivity5;
-        if (customResponsedMessage instanceof UpdateAttentionMessage) {
-            UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-            if (!updateAttentionMessage.isSucc()) {
-                personalTalkSettingActivity = this.aTZ.aTX;
-                if (personalTalkSettingActivity != null && !TextUtils.isEmpty(updateAttentionMessage.getErrorString())) {
-                    personalTalkSettingActivity2 = this.aTZ.aTX;
-                    personalTalkSettingActivity2.showToast(updateAttentionMessage.getErrorString());
-                    return;
-                }
-                return;
-            }
-            this.aTZ.QP = updateAttentionMessage.isAttention();
-            personalTalkSettingActivity3 = this.aTZ.aTX;
-            if (personalTalkSettingActivity3 != null) {
-                z = this.aTZ.QP;
-                if (z) {
-                    personalTalkSettingActivity5 = this.aTZ.aTX;
-                    personalTalkSettingActivity5.showToast(z.add_succ);
-                } else {
-                    personalTalkSettingActivity4 = this.aTZ.aTX;
-                    personalTalkSettingActivity4.showToast(z.remove_succ);
-                }
-            }
-            tVar = this.aTZ.aTY;
-            if (tVar != null) {
-                tVar2 = this.aTZ.aTY;
-                tVar2.qw();
-            }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void doInBackground(Void... voidArr) {
+        long j;
+        long j2;
+        if (!this.aRz) {
+            com.baidu.tieba.im.settingcache.j Tu = com.baidu.tieba.im.settingcache.j.Tu();
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            j2 = this.aVk.userId;
+            Tu.f(currentAccount, String.valueOf(j2), false);
+            return null;
         }
+        com.baidu.tieba.im.settingcache.j Tu2 = com.baidu.tieba.im.settingcache.j.Tu();
+        String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
+        j = this.aVk.userId;
+        Tu2.f(currentAccount2, String.valueOf(j), true);
+        return null;
     }
 }

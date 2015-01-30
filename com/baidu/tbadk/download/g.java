@@ -1,6 +1,7 @@
 package com.baidu.tbadk.download;
 
 import android.os.Handler;
+import android.os.Looper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.s;
 import com.baidu.tieba.z;
@@ -9,24 +10,24 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private static g Xg = new g();
-    private static DownloadData Xh = null;
-    private static List<DownloadData> Xb = new LinkedList();
-    private i Xi = null;
+    private static g XM = new g();
+    private static DownloadData XN = null;
+    private static List<DownloadData> XH = new LinkedList();
+    private i XO = null;
     private int max = 20;
-    private Handler Xj = new h(this);
+    private Handler XP = new h(this, Looper.getMainLooper());
 
     private g() {
     }
 
-    public static g uO() {
-        return Xg;
+    public static g vf() {
+        return XM;
     }
 
     public void a(DownloadData downloadData, int i) {
         int type = downloadData.getType();
         int i2 = 0;
-        for (DownloadData downloadData2 : Xb) {
+        for (DownloadData downloadData2 : XH) {
             if (downloadData2.getType() == type) {
                 i2++;
             }
@@ -45,7 +46,7 @@ public class g {
 
     public void i(DownloadData downloadData) {
         if (downloadData != null) {
-            if (!s.bN()) {
+            if (!s.bL()) {
                 downloadData.setStatusMsg(TbadkCoreApplication.m255getInst().getApp().getString(z.download_fail_no_sd));
                 downloadData.setStatus(2);
             }
@@ -59,8 +60,8 @@ public class g {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < Xb.size()) {
-                    DownloadData downloadData2 = Xb.get(i2);
+                if (i2 < XH.size()) {
+                    DownloadData downloadData2 = XH.get(i2);
                     if (downloadData2 == null || !downloadData2.getUrl().equals(downloadData.getUrl()) || !downloadData2.getId().equals(downloadData.getId())) {
                         i = i2 + 1;
                     } else {
@@ -68,8 +69,8 @@ public class g {
                     }
                 } else {
                     downloadData.setStatus(5);
-                    Xb.add(downloadData);
-                    uP();
+                    XH.add(downloadData);
+                    vg();
                     return;
                 }
             }
@@ -77,23 +78,23 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uP() {
-        if (Xh == null && !Xb.isEmpty()) {
-            Xh = Xb.get(0);
-            if (Xh != null) {
-                this.Xi = new i(this);
-                this.Xi.execute(Xh);
+    public void vg() {
+        if (XN == null && !XH.isEmpty()) {
+            XN = XH.get(0);
+            if (XN != null) {
+                this.XO = new i(this);
+                this.XO.execute(XN);
             }
         }
     }
 
-    public void bn(String str) {
-        if (Xh != null && Xh.getUrl().equals(str)) {
-            this.Xi.cancel(true);
+    public void dT(String str) {
+        if (XN != null && XN.getUrl().equals(str)) {
+            this.XO.cancel(true);
             return;
         }
         LinkedList<DownloadData> linkedList = new LinkedList();
-        Iterator<DownloadData> it = Xb.iterator();
+        Iterator<DownloadData> it = XH.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -108,17 +109,17 @@ public class g {
             }
         }
         for (DownloadData downloadData : linkedList) {
-            Xb.remove(downloadData);
+            XH.remove(downloadData);
         }
     }
 
     public void r(String str, int i) {
-        if (Xh != null && Xh.getId().equals(str) && Xh.getType() == i) {
-            this.Xi.cancel(true);
+        if (XN != null && XN.getId().equals(str) && XN.getType() == i) {
+            this.XO.cancel(true);
             return;
         }
         LinkedList<DownloadData> linkedList = new LinkedList();
-        Iterator<DownloadData> it = Xb.iterator();
+        Iterator<DownloadData> it = XH.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -134,16 +135,16 @@ public class g {
             }
         }
         for (DownloadData downloadData : linkedList) {
-            Xb.remove(downloadData);
+            XH.remove(downloadData);
         }
     }
 
-    public void dd(int i) {
-        if (Xh != null && Xh.getType() == i) {
-            this.Xi.cancel(true);
+    public void dk(int i) {
+        if (XN != null && XN.getType() == i) {
+            this.XO.cancel(true);
         }
         LinkedList<DownloadData> linkedList = new LinkedList();
-        for (DownloadData downloadData : Xb) {
+        for (DownloadData downloadData : XH) {
             if (downloadData.getType() == i) {
                 downloadData.setStatus(4);
                 downloadData.setStatusMsg(null);
@@ -154,11 +155,11 @@ public class g {
             }
         }
         for (DownloadData downloadData2 : linkedList) {
-            Xb.remove(downloadData2);
+            XH.remove(downloadData2);
         }
     }
 
-    public List<DownloadData> uQ() {
-        return Xb;
+    public List<DownloadData> vh() {
+        return XH;
     }
 }

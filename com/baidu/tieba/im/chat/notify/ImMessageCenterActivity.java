@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes.dex */
 public class ImMessageCenterActivity extends BaseFragmentActivity {
     static {
-        Kv();
+        KQ();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -21,7 +21,7 @@ public class ImMessageCenterActivity extends BaseFragmentActivity {
         beginTransaction.commit();
     }
 
-    private static void Kv() {
+    private static void KQ() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2008012, new d());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

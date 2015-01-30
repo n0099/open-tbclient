@@ -8,18 +8,18 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n extends ClickableSpan {
-    final /* synthetic */ k bWY;
+    final /* synthetic */ k bYR;
     private Context mContext;
     private String mId;
     private String mName;
 
     public n(k kVar, Context context, String str, String str2) {
-        this.bWY = kVar;
+        this.bYR = kVar;
         this.mName = null;
         this.mId = null;
         this.mContext = null;
@@ -31,7 +31,7 @@ public class n extends ClickableSpan {
     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
     public void updateDrawState(TextPaint textPaint) {
         if (this.mContext != null) {
-            textPaint.setColor(ax.getColor(t.cp_link_tip_c));
+            textPaint.setColor(bc.getColor(t.cp_link_tip_c));
         }
         textPaint.setUnderlineText(false);
         textPaint.setFakeBoldText(false);

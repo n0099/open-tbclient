@@ -4,11 +4,11 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class r implements com.baidu.tieba.im.g<Void> {
-    final /* synthetic */ p aWU;
+    final /* synthetic */ p aYq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(p pVar) {
-        this.aWU = pVar;
+        this.aYq = pVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

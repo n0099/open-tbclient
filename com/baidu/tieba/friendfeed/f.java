@@ -1,7 +1,6 @@
 package com.baidu.tieba.friendfeed;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -9,26 +8,24 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.atomData.AtListActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
+import com.baidu.tieba.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements com.baidu.tbadk.editortool.w {
-    final /* synthetic */ FriendFeedActivity aAU;
+    final /* synthetic */ FriendFeedActivity aBV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(FriendFeedActivity friendFeedActivity) {
-        this.aAU = friendFeedActivity;
+        this.aBV = friendFeedActivity;
     }
 
     @Override // com.baidu.tbadk.editortool.w
     public void handleAction(int i, Object obj) {
-        y yVar;
-        y yVar2;
-        AlertDialog alertDialog;
-        AlertDialog alertDialog2;
-        AlertDialog alertDialog3;
+        x xVar;
+        x xVar2;
         WriteImagesInfo writeImagesInfo;
         WriteImagesInfo writeImagesInfo2;
         WriteImagesInfo writeImagesInfo3;
@@ -38,94 +35,97 @@ public class f implements com.baidu.tbadk.editortool.w {
         WriteImagesInfo writeImagesInfo7;
         WriteImagesInfo writeImagesInfo8;
         WriteImagesInfo writeImagesInfo9;
+        WriteImagesInfo writeImagesInfo10;
+        WriteImagesInfo writeImagesInfo11;
+        WriteImagesInfo writeImagesInfo12;
         String str;
-        y yVar3;
+        x xVar3;
         int i2 = 0;
         if (i == 0) {
-            yVar3 = this.aAU.aAB;
-            if (yVar3.Fl()) {
-                this.aAU.showToast(com.baidu.tieba.z.over_limit_tip);
+            xVar3 = this.aBV.aBD;
+            if (xVar3.FJ()) {
+                this.aBV.showToast(z.over_limit_tip);
             } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.aAU.getPageContext().getPageActivity(), 12004, true)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.aBV.getPageContext().getPageActivity(), 12004, true)));
             }
         } else if (i != 10) {
             if (i != 4) {
                 if (i == 22) {
-                    writeImagesInfo8 = this.aAU.apq;
-                    int size = writeImagesInfo8.size();
-                    writeImagesInfo9 = this.aAU.apq;
-                    if (size < writeImagesInfo9.getMaxImagesAllowed()) {
-                        this.aAU.aAI = String.valueOf(System.currentTimeMillis());
-                        TbPageContext pageContext = this.aAU.getPageContext();
-                        str = this.aAU.aAI;
-                        aw.a(pageContext, str);
+                    writeImagesInfo11 = this.aBV.aql;
+                    int size = writeImagesInfo11.size();
+                    writeImagesInfo12 = this.aBV.aql;
+                    if (size < writeImagesInfo12.getMaxImagesAllowed()) {
+                        this.aBV.aBK = String.valueOf(System.currentTimeMillis());
+                        TbPageContext pageContext = this.aBV.getPageContext();
+                        str = this.aBV.aBK;
+                        bb.a(pageContext, str);
                         return;
                     }
-                    this.aAU.showToast(String.format(this.aAU.getPageContext().getString(com.baidu.tieba.z.editor_mutiiamge_max), 10));
+                    this.aBV.showToast(String.format(this.aBV.getPageContext().getString(z.editor_mutiiamge_max), 10));
                 } else if (i == 23) {
-                    writeImagesInfo5 = this.aAU.apq;
-                    if (writeImagesInfo5 != null) {
-                        writeImagesInfo6 = this.aAU.apq;
-                        if (!TextUtils.isEmpty(writeImagesInfo6.toJsonString())) {
-                            Activity pageActivity = this.aAU.getPageContext().getPageActivity();
-                            writeImagesInfo7 = this.aAU.apq;
-                            AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(pageActivity, writeImagesInfo7.toJsonString());
+                    writeImagesInfo8 = this.aBV.aql;
+                    if (writeImagesInfo8 != null) {
+                        writeImagesInfo9 = this.aBV.aql;
+                        if (!TextUtils.isEmpty(writeImagesInfo9.toJsonString())) {
+                            Activity pageActivity = this.aBV.getPageContext().getPageActivity();
+                            writeImagesInfo10 = this.aBV.aql;
+                            AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(pageActivity, writeImagesInfo10.toJsonString());
                             albumActivityConfig.setRequestCode(12002);
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
                         }
                     }
                 } else if (i == 42) {
                     int intValue = ((Integer) obj).intValue();
-                    writeImagesInfo = this.aAU.apq;
-                    if (writeImagesInfo != null) {
-                        writeImagesInfo2 = this.aAU.apq;
-                        if (writeImagesInfo2.getChosedFiles() != null) {
-                            writeImagesInfo3 = this.aAU.apq;
-                            int size2 = writeImagesInfo3.getChosedFiles().size();
+                    writeImagesInfo4 = this.aBV.aql;
+                    if (writeImagesInfo4 != null) {
+                        writeImagesInfo5 = this.aBV.aql;
+                        if (writeImagesInfo5.getChosedFiles() != null) {
+                            writeImagesInfo6 = this.aBV.aql;
+                            int size2 = writeImagesInfo6.getChosedFiles().size();
                             if (size2 >= 1 && intValue >= 0 && intValue < size2) {
                                 MessageManager messageManager = MessageManager.getInstance();
-                                Activity pageActivity2 = this.aAU.getPageContext().getPageActivity();
-                                writeImagesInfo4 = this.aAU.apq;
-                                messageManager.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(pageActivity2, 12012, writeImagesInfo4, intValue)));
+                                Activity pageActivity2 = this.aBV.getPageContext().getPageActivity();
+                                writeImagesInfo7 = this.aBV.aql;
+                                messageManager.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(pageActivity2, 12012, writeImagesInfo7, intValue)));
                             }
                         }
                     }
-                } else if (i != 7) {
-                    if (i == 52) {
-                        yVar = this.aAU.aAB;
-                        if (yVar.Fh() != null) {
-                            yVar2 = this.aAU.aAB;
-                            i2 = yVar2.Fh().getLocationInfoViewState();
+                } else if (i == 7) {
+                    writeImagesInfo = this.aBV.aql;
+                    if (writeImagesInfo != null) {
+                        writeImagesInfo2 = this.aBV.aql;
+                        if (!TextUtils.isEmpty(writeImagesInfo2.toJsonString())) {
+                            String valueOf = String.valueOf(System.currentTimeMillis());
+                            Activity pageActivity3 = this.aBV.getPageContext().getPageActivity();
+                            writeImagesInfo3 = this.aBV.aql;
+                            AlbumActivityConfig albumActivityConfig2 = new AlbumActivityConfig(pageActivity3, writeImagesInfo3.toJsonString(), valueOf);
+                            albumActivityConfig2.setRequestCode(12002);
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig2));
                         }
-                        switch (i2) {
-                            case 0:
-                                this.aAU.ER();
-                                return;
-                            case 1:
-                            default:
-                                return;
-                            case 2:
-                                this.aAU.EQ();
-                                return;
-                        }
-                    } else if (i == 53) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
                     }
-                } else {
-                    alertDialog = this.aAU.aAR;
-                    if (alertDialog == null) {
-                        this.aAU.EU();
+                } else if (i == 52) {
+                    xVar = this.aBV.aBD;
+                    if (xVar.FF() != null) {
+                        xVar2 = this.aBV.aBD;
+                        i2 = xVar2.FF().getLocationInfoViewState();
                     }
-                    alertDialog2 = this.aAU.aAR;
-                    if (alertDialog2 == null) {
-                        return;
+                    switch (i2) {
+                        case 0:
+                            this.aBV.Fq();
+                            return;
+                        case 1:
+                        default:
+                            return;
+                        case 2:
+                            this.aBV.Fp();
+                            return;
                     }
-                    alertDialog3 = this.aAU.aAR;
-                    com.baidu.adp.lib.g.k.a(alertDialog3, this.aAU.getPageContext());
+                } else if (i == 53) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
                 }
             }
         } else {
-            this.aAU.fs(null);
+            this.aBV.fx(null);
         }
     }
 }

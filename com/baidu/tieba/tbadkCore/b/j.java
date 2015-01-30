@@ -3,170 +3,170 @@ package com.baidu.tieba.tbadkCore.b;
 import tbclient.App;
 /* loaded from: classes.dex */
 public class j extends k implements g {
-    private int Dk;
-    public String Gb;
-    public String aBV;
-    private a bWM;
-    public boolean bWN = false;
+    private int Dm;
+    public String aCW;
+    private a bYE;
+    public boolean bYF = false;
+    public String bYG;
     public long threadId;
 
     public void b(App app) {
-        this.bWM = new a(app);
+        this.bYE = new a(app);
     }
 
-    public a agJ() {
-        return this.bWM;
+    public a aho() {
+        return this.bYE;
     }
 
-    public String agK() {
-        return this.bWM == null ? "" : this.bWM.id;
+    public String ahp() {
+        return this.bYE == null ? "" : this.bYE.id;
     }
 
-    public int agL() {
-        return this.Dk;
+    public int ahq() {
+        return this.Dm;
     }
 
     @Override // com.baidu.tieba.tbadkCore.v
-    public void hA(int i) {
-        this.Dk = i;
+    public void hJ(int i) {
+        this.Dm = i;
     }
 
     public boolean mu() {
-        if (this.bWM == null) {
+        if (this.bYE == null) {
             return false;
         }
-        return this.bWM.mu();
+        return this.bYE.mu();
     }
 
-    public boolean agM() {
-        if (this.bWM == null) {
+    public boolean ahr() {
+        if (this.bYE == null) {
             return false;
         }
-        return this.bWM.mv();
+        return this.bYE.mv();
     }
 
-    public boolean agN() {
-        if (this.bWM == null) {
+    public boolean ahs() {
+        if (this.bYE == null) {
             return false;
         }
-        return this.bWM.mw();
+        return this.bYE.mw();
     }
 
     @Override // com.baidu.tieba.tbadkCore.v
     public String getPkgName() {
-        if (this.bWM == null) {
+        if (this.bYE == null) {
             return null;
         }
-        return this.bWM.apk_name;
+        return this.bYE.apk_name;
     }
 
     @Override // com.baidu.tieba.tbadkCore.v
     public String getDownloadUrl() {
-        if (this.bWM == null) {
+        if (this.bYE == null) {
             return null;
         }
-        return this.bWM.apk_url;
+        return this.bYE.apk_url;
     }
 
     @Override // com.baidu.tieba.tbadkCore.v
     public String getAppName() {
-        return this.bWM == null ? "" : this.bWM.name;
+        return this.bYE == null ? "" : this.bYE.name;
     }
 
     @Override // com.baidu.tieba.tbadkCore.b.h
-    public String agy() {
-        if (this.bWM == null || this.bWM.bWy == null) {
+    public String ahd() {
+        if (this.bYE == null || this.bYE.bYq == null) {
             return null;
         }
-        return this.bWM.bWy.user_name;
+        return this.bYE.bYq.user_name;
     }
 
     @Override // com.baidu.tieba.tbadkCore.b.h
-    public String agz() {
-        if (this.bWM == null || this.bWM.bWy == null) {
+    public String ahe() {
+        if (this.bYE == null || this.bYE.bYq == null) {
             return null;
         }
-        return this.bWM.bWy.user_portrait;
+        return this.bYE.bYq.user_portrait;
     }
 
     @Override // com.baidu.tieba.tbadkCore.b.h
-    public String agA() {
-        if (this.bWM == null || this.bWM.bWy == null) {
+    public String ahf() {
+        if (this.bYE == null || this.bYE.bYq == null) {
             return null;
         }
-        return this.bWM.bWy.thread_title;
+        return this.bYE.bYq.thread_title;
     }
 
     @Override // com.baidu.tieba.tbadkCore.b.h
-    public String agB() {
-        if (this.bWM == null || this.bWM.bWy == null) {
+    public String ahg() {
+        if (this.bYE == null || this.bYE.bYq == null) {
             return null;
         }
-        return this.bWM.bWy.thread_pic;
+        return this.bYE.bYq.thread_pic;
     }
 
     @Override // com.baidu.tieba.tbadkCore.b.h
-    public long agC() {
-        if (this.bWM == null) {
+    public long ahh() {
+        if (this.bYE == null) {
             return 0L;
         }
-        return this.bWM.bWw * 1000;
+        return this.bYE.bYo * 1000;
     }
 
     public int getShowType() {
-        if (this.bWM == null || this.bWM.bWy == null) {
+        if (this.bYE == null || this.bYE.bYq == null) {
             return -1;
         }
-        return this.bWM.bWy.bWz;
+        return this.bYE.bYq.bYr;
     }
 
     public int getPosition() {
-        int i = this.bWM != null ? com.baidu.adp.lib.g.c.toInt(this.bWM.pos_name, 0) : 0;
+        int i = this.bYE != null ? com.baidu.adp.lib.g.c.toInt(this.bYE.pos_name, 0) : 0;
         if (i < 2 || i > 30) {
             return 7;
         }
         return i;
     }
 
-    public String agO() {
-        if (this.bWM == null || this.bWM.bWy == null) {
+    public String aht() {
+        if (this.bYE == null || this.bYE.bYq == null) {
             return null;
         }
-        return this.bWM.bWy.pop_window_text;
+        return this.bYE.bYq.pop_window_text;
     }
 
-    public com.baidu.tbadk.core.data.c agP() {
+    public com.baidu.tbadk.core.data.c ahu() {
         com.baidu.tbadk.core.data.c cVar = new com.baidu.tbadk.core.data.c();
-        if (this.bWM != null) {
-            cVar.Dl = this.bWM.id;
-            cVar.Dm = this.bWM.name;
-            cVar.Dn = this.bWM.bWu;
-            cVar.Do = this.bWM.url;
-            cVar.Dp = this.bWM.apk_url;
-            cVar.Dq = this.bWM.apk_name;
+        if (this.bYE != null) {
+            cVar.Dn = this.bYE.id;
+            cVar.Do = this.bYE.name;
+            cVar.Dp = this.bYE.bYm;
+            cVar.Dq = this.bYE.url;
+            cVar.Dr = this.bYE.apk_url;
+            cVar.Ds = this.bYE.apk_name;
             try {
-                cVar.Dr = Integer.parseInt(this.bWM.pos_name.trim());
+                cVar.Dt = Integer.parseInt(this.bYE.pos_name.trim());
             } catch (Exception e) {
-                cVar.Dr = -1;
+                cVar.Dt = -1;
             }
-            cVar.Ds = this.bWM.first_name;
-            cVar.Dt = this.bWM.second_name;
-            cVar.Du = this.bWM.Du;
-            cVar.abtest = this.bWM.abtest;
-            cVar.Dv = this.bWM.bWv;
-            cVar.userId = this.bWM.user_id;
-            cVar.Dw = this.bWM.verify;
-            cVar.price = this.bWM.price;
-            cVar.Dx = this.bWM.ext_info;
-            cVar.Dy = this.bWM.bWw * 1000;
-            if (this.bWM.bWy != null) {
-                cVar.Dz.DF = this.bWM.bWy.pop_window_text;
-                cVar.Dz.DB = this.bWM.bWy.id;
-                cVar.Dz.DE = this.bWM.bWy.thread_pic;
-                cVar.Dz.DG = this.bWM.bWy.bWz;
-                cVar.Dz.DD = this.bWM.bWy.thread_title;
-                cVar.Dz.userName = this.bWM.bWy.user_name;
-                cVar.Dz.userPortrait = this.bWM.bWy.user_portrait;
+            cVar.Du = this.bYE.first_name;
+            cVar.Dv = this.bYE.second_name;
+            cVar.Dw = this.bYE.Dw;
+            cVar.abtest = this.bYE.abtest;
+            cVar.Dx = this.bYE.bYn;
+            cVar.userId = this.bYE.user_id;
+            cVar.Dy = this.bYE.verify;
+            cVar.price = this.bYE.price;
+            cVar.Dz = this.bYE.ext_info;
+            cVar.DA = this.bYE.bYo * 1000;
+            if (this.bYE.bYq != null) {
+                cVar.DB.DH = this.bYE.bYq.pop_window_text;
+                cVar.DB.DE = this.bYE.bYq.id;
+                cVar.DB.DG = this.bYE.bYq.thread_pic;
+                cVar.DB.DI = this.bYE.bYq.bYr;
+                cVar.DB.DF = this.bYE.bYq.thread_title;
+                cVar.DB.userName = this.bYE.bYq.user_name;
+                cVar.DB.userPortrait = this.bYE.bYq.user_portrait;
             }
         }
         return cVar;

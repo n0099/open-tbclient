@@ -1,16 +1,22 @@
 package com.baidu.tieba.frs;
 
-import android.widget.ImageView;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class cw {
-    HeadImageView aFT;
-    UserIconBox aFU;
-    TextView aFV;
-    TextView aFW;
-    TextView aFX;
-    ImageView aFY;
-    TextView aoy;
+    LinearLayout aGQ;
+    LinearLayout aGR;
+    cx aGS;
+    TextView aGT;
+    TextView aGU;
+    TextView aGV;
+    TextView aGW;
+    TbImageView aGX;
+    TbImageView aGY;
+    TbImageView aGZ;
+    LinearLayout aHa;
+    LinearLayout aHb;
+    View aHc;
 }

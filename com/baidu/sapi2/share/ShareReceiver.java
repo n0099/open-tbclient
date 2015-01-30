@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Handler;
+import android.os.HandlerThread;
 import android.os.Looper;
 import android.text.TextUtils;
 import com.baidu.sapi2.SapiAccount;
@@ -20,6 +21,7 @@ public final class ShareReceiver extends BroadcastReceiver {
     private static e d;
     private static boolean e = false;
     private static Handler f;
+    private static Handler g;
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
@@ -42,7 +44,7 @@ public final class ShareReceiver extends BroadcastReceiver {
                         if (intent.getSerializableExtra("RUNTIME_ENVIRONMENT") == null || !(intent.getSerializableExtra("RUNTIME_ENVIRONMENT") instanceof Domain) || ((Domain) intent.getSerializableExtra("RUNTIME_ENVIRONMENT")) == SapiAccountManager.getInstance().getSapiConfiguration().environment) {
                             com.baidu.sapi2.share.b.c(context, intent.getStringExtra("RELOGIN_CREDENTIALS"));
                             if (d != null) {
-                                d.a(shareModel);
+                                g.post(new a(shareModel));
                             }
                         } else {
                             return;
@@ -55,7 +57,7 @@ public final class ShareReceiver extends BroadcastReceiver {
                 }
             }
             if ("baidu.intent.action.SHARE".equals(action) || "baidu.intent.action.NEWSHARE".equals(action)) {
-                d.a(context, intent, b, d);
+                com.baidu.sapi2.share.d.a(context, intent, b, d);
             }
         }
     }
@@ -73,12 +75,29 @@ public final class ShareReceiver extends BroadcastReceiver {
         }
     }
 
+    /* loaded from: classes.dex */
+    class a implements Runnable {
+        final /* synthetic */ ShareModel a;
+
+        a(ShareModel shareModel) {
+            this.a = shareModel;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            ShareReceiver.d.a(this.a);
+        }
+    }
+
     void a(Context context) {
         try {
             a = context;
             c = com.baidu.sapi2.c.a(context);
             b = SapiAccountManager.getInstance().getSapiConfiguration().loginShareStrategy();
-            d = new a();
+            d = new b();
+            HandlerThread handlerThread = new HandlerThread("ReceiverThread");
+            handlerThread.start();
+            g = new Handler(handlerThread.getLooper());
             e = true;
         } catch (IllegalStateException e2) {
             e = false;
@@ -87,14 +106,14 @@ public final class ShareReceiver extends BroadcastReceiver {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class a implements e {
-        a() {
+    public class b implements e {
+        b() {
         }
 
         @Override // com.baidu.sapi2.share.e
         public void a(ShareModel shareModel) {
             if (shareModel != null && ShareReceiver.b != LoginShareStrategy.DISABLED) {
-                switch (b.a[shareModel.b().ordinal()]) {
+                switch (d.a[shareModel.b().ordinal()]) {
                     case 1:
                         com.baidu.sapi2.share.b.a(ShareReceiver.a, ShareReceiver.b, shareModel);
                         return;
@@ -115,7 +134,7 @@ public final class ShareReceiver extends BroadcastReceiver {
     }
 
     /* loaded from: classes.dex */
-    /* synthetic */ class b {
+    /* synthetic */ class d {
         static final /* synthetic */ int[] a = new int[ShareEvent.values().length];
 
         static {

@@ -1,31 +1,31 @@
 package com.baidu.tieba.write;
 
-import android.content.DialogInterface;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class au implements DialogInterface.OnClickListener {
-    final /* synthetic */ WriteActivity cft;
+public class au implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ WriteActivity cgS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(WriteActivity writeActivity) {
-        this.cft = writeActivity;
+        this.cgS = writeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         WriteData writeData;
         WriteData writeData2;
         WriteData writeData3;
-        writeData = this.cft.bNF;
+        aVar.dismiss();
+        writeData = this.cgS.bPp;
         int type = writeData.getType();
         if (type == 0) {
-            writeData3 = this.cft.bNF;
+            writeData3 = this.cgS.bPp;
             com.baidu.tieba.tbadkCore.al.a(writeData3.getForumId(), (WriteData) null);
         } else if (type == 1) {
-            writeData2 = this.cft.bNF;
+            writeData2 = this.cgS.bPp;
             com.baidu.tieba.tbadkCore.al.b(writeData2.getThreadId(), (WriteData) null);
         }
-        this.cft.finish();
+        this.cgS.finish();
     }
 }

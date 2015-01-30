@@ -11,7 +11,7 @@ class af extends Handler {
         try {
             ae aeVar = (ae) message.obj;
             if (aeVar != null) {
-                aeVar.dL();
+                aeVar.dJ();
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

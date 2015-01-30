@@ -10,13 +10,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends CustomMessageListener {
-    final /* synthetic */ m bjB;
+    final /* synthetic */ m bkY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(m mVar, int i) {
         super(i);
-        this.bjB = mVar;
+        this.bkY = mVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,40 +27,40 @@ public class q extends CustomMessageListener {
         k kVar2;
         x xVar;
         x xVar2;
-        PersonGroupActivity RA = this.bjB.RA();
-        if (this.bjB.getActivity() != null && this.bjB.bjs != null && RA != null && RA.Rw() != null) {
+        PersonGroupActivity RW = this.bkY.RW();
+        if (this.bkY.getActivity() != null && this.bkY.bkP != null && RW != null && RW.RS() != null) {
             ResponseGroupsByUidLocalMessage responseGroupsByUidLocalMessage = (ResponseGroupsByUidLocalMessage) customResponsedMessage;
             if (responseGroupsByUidLocalMessage.getError() != 0) {
                 if (responseGroupsByUidLocalMessage.getError() != 0 && !TextUtils.isEmpty(responseGroupsByUidLocalMessage.getErrorString())) {
-                    this.bjB.showToast(responseGroupsByUidLocalMessage.getErrorString());
+                    this.bkY.showToast(responseGroupsByUidLocalMessage.getErrorString());
                     return;
                 }
                 return;
             }
-            if (RA.Rv()) {
+            if (RW.RR()) {
                 List<GroupInfoData> groups = responseGroupsByUidLocalMessage.getGroups();
-                i = this.bjB.bjw;
+                i = this.bkY.bkT;
                 if (i == 1) {
                     groups = responseGroupsByUidLocalMessage.getCommonGroups();
                 }
-                RA.X(responseGroupsByUidLocalMessage.getGroupNum(), responseGroupsByUidLocalMessage.getCommonGroupNum());
+                RW.Y(responseGroupsByUidLocalMessage.getGroupNum(), responseGroupsByUidLocalMessage.getCommonGroupNum());
                 if (groups != null) {
-                    kVar = this.bjB.bjt;
-                    kVar.ax(groups);
-                    kVar2 = this.bjB.bjt;
+                    kVar = this.bkY.bkQ;
+                    kVar.aA(groups);
+                    kVar2 = this.bkY.bkQ;
                     kVar2.notifyDataSetChanged();
                     if (groups.size() > 0) {
-                        xVar2 = this.bjB.aeW;
+                        xVar2 = this.bkY.aft;
                         xVar2.setVisibility(8);
                     } else {
-                        xVar = this.bjB.aeW;
+                        xVar = this.bkY.aft;
                         xVar.setVisibility(0);
                     }
-                    this.bjB.bjs.setVisibility(0);
+                    this.bkY.bkP.setVisibility(0);
                 }
             }
-            if (RA.Rw() != null) {
-                RA.Rw().update();
+            if (RW.RS() != null) {
+                RW.RS().update();
             }
         }
     }

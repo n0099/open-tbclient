@@ -8,8 +8,8 @@ import tbclient.ReplyMe.DataReq;
 import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes.dex */
 public class ad implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
-    private int aBR = 1;
-    private int bsu;
+    private int aCS = 1;
+    private int btR;
     private String ids;
 
     public void b(FeedData feedData) {
@@ -18,27 +18,27 @@ public class ad implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
         }
     }
 
-    public void OC() {
-        this.aBR++;
-        this.bsu = 4;
+    public void OZ() {
+        this.aCS++;
+        this.btR = 4;
     }
 
     public void reset() {
-        this.aBR = 1;
-        this.bsu = 1;
+        this.aCS = 1;
+        this.btR = 1;
         this.ids = null;
     }
 
     public int getUpdateType() {
-        return this.bsu;
+        return this.btR;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
     public HashMap<String, Object> kQ() {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
-        hashMap.put("pn", String.valueOf(this.aBR));
-        if (this.bsu == 4 && !TextUtils.isEmpty(this.ids)) {
+        hashMap.put("pn", String.valueOf(this.aCS));
+        if (this.btR == 4 && !TextUtils.isEmpty(this.ids)) {
             hashMap.put("ids", this.ids);
         }
         return hashMap;
@@ -48,10 +48,10 @@ public class ad implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
     public Object X(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.pn = Integer.valueOf(this.aBR);
+            builder.pn = Integer.valueOf(this.aCS);
             builder.ids = this.ids;
             if (z) {
-                com.baidu.tbadk.util.h.a(builder, true);
+                com.baidu.tbadk.util.k.a(builder, true);
             }
             ReplyMeReqIdl.Builder builder2 = new ReplyMeReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -72,7 +72,7 @@ public class ad implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean xb() {
+    public boolean xr() {
         return true;
     }
 

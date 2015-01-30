@@ -7,26 +7,26 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends f<QuickSearchActivity> {
-    private com.baidu.tieba.addresslist.b.a aoG;
-    private byte[] aoH;
+    private com.baidu.tieba.addresslist.b.a apE;
+    private byte[] apF;
 
     public b(QuickSearchActivity quickSearchActivity) {
         super(quickSearchActivity.getPageContext());
-        this.aoH = new byte[0];
-        this.aoG = com.baidu.tieba.addresslist.b.a.AU();
+        this.apF = new byte[0];
+        this.apE = com.baidu.tieba.addresslist.b.a.Bu();
     }
 
-    public List<com.baidu.tbadk.coreExtra.relationship.b> eQ(String str) {
-        synchronized (this.aoH) {
+    public List<com.baidu.tbadk.coreExtra.relationship.b> eS(String str) {
+        synchronized (this.apF) {
             ArrayList arrayList = new ArrayList();
             if (TextUtils.isEmpty(str)) {
                 return arrayList;
             }
-            List<com.baidu.tbadk.coreExtra.relationship.b> AV = this.aoG.AV();
-            if (AV == null) {
+            List<com.baidu.tbadk.coreExtra.relationship.b> Bv = this.apE.Bv();
+            if (Bv == null) {
                 return arrayList;
             }
-            for (com.baidu.tbadk.coreExtra.relationship.b bVar : AV) {
+            for (com.baidu.tbadk.coreExtra.relationship.b bVar : Bv) {
                 String userName = bVar.getUserName();
                 String quanpin = bVar.getQuanpin();
                 if (!TextUtils.isEmpty(userName) && userName.toLowerCase().startsWith(str.toLowerCase())) {
@@ -35,7 +35,7 @@ public class b extends f<QuickSearchActivity> {
                     arrayList.add(bVar);
                 }
             }
-            for (com.baidu.tbadk.coreExtra.relationship.b bVar2 : AV) {
+            for (com.baidu.tbadk.coreExtra.relationship.b bVar2 : Bv) {
                 String userName2 = bVar2.getUserName();
                 String quanpin2 = bVar2.getQuanpin();
                 if (!arrayList.contains(bVar2)) {

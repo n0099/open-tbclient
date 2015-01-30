@@ -24,9 +24,9 @@ public class x {
             try {
                 com.baidu.adp.lib.cache.v vVar = new com.baidu.adp.lib.cache.v();
                 vVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
-                vVar.hP = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                vVar.hA = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                vVar.gJ = cursor.getString(cursor.getColumnIndex("m_value"));
+                vVar.hR = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                vVar.hC = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                vVar.gL = cursor.getString(cursor.getColumnIndex("m_value"));
                 linkedList.add(vVar);
             } catch (Throwable th2) {
                 th = th2;
@@ -62,9 +62,9 @@ public class x {
             try {
                 com.baidu.adp.lib.cache.v vVar = new com.baidu.adp.lib.cache.v();
                 vVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
-                vVar.hP = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                vVar.hA = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                vVar.gJ = cursor.getBlob(cursor.getColumnIndex("m_value"));
+                vVar.hR = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                vVar.hC = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                vVar.gL = cursor.getBlob(cursor.getColumnIndex("m_value"));
                 linkedList.add(vVar);
             } catch (Throwable th2) {
                 th = th2;
@@ -85,9 +85,9 @@ public class x {
     private static Cursor d(com.baidu.adp.lib.cache.t<?> tVar) {
         if (tVar != null && (tVar instanceof com.baidu.adp.lib.cache.w)) {
             com.baidu.adp.lib.cache.w wVar = (com.baidu.adp.lib.cache.w) tVar;
-            if (wVar.cV() instanceof com.baidu.adp.lib.cache.p) {
-                com.baidu.adp.lib.cache.c cR = ((com.baidu.adp.lib.cache.p) wVar.cV()).cR();
-                return cR.d(cR.cI().ak(), wVar.cU());
+            if (wVar.cT() instanceof com.baidu.adp.lib.cache.p) {
+                com.baidu.adp.lib.cache.c cP = ((com.baidu.adp.lib.cache.p) wVar.cT()).cP();
+                return cP.d(cP.cG().ak(), wVar.cS());
             }
             return null;
         }

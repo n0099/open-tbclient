@@ -1,40 +1,19 @@
 package com.baidu.tieba.frs;
 
-import android.view.LayoutInflater;
-import android.view.View;
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-class bc implements com.baidu.adp.lib.guide.b {
-    final /* synthetic */ bb aDt;
-    private final /* synthetic */ View aDu;
+class bc extends com.baidu.adp.lib.g.e {
+    final /* synthetic */ ba aEu;
+    private final /* synthetic */ com.baidu.adp.lib.guide.d aEw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bc(bb bbVar, View view) {
-        this.aDt = bbVar;
-        this.aDu = view;
+    public bc(ba baVar, com.baidu.adp.lib.guide.d dVar) {
+        this.aEu = baVar;
+        this.aEw = dVar;
     }
 
-    @Override // com.baidu.adp.lib.guide.b
-    public View a(LayoutInflater layoutInflater) {
-        return this.aDu;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int dx() {
-        return 5;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int dy() {
-        return 32;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int getXOffset() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int getYOffset() {
-        return 0;
+    @Override // com.baidu.adp.lib.g.e
+    public void b(Animation animation) {
+        this.aEw.dismiss();
     }
 }

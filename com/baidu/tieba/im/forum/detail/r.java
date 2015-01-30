@@ -1,33 +1,35 @@
 package com.baidu.tieba.im.forum.detail;
 
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.tbadkCore.au;
-import tbclient.RecommendForumInfo;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements com.baidu.tbadk.core.dialog.d {
-    private final /* synthetic */ BaseActivity aZC;
-    final /* synthetic */ ItemFootNavView aZz;
+public class r implements View.OnClickListener {
+    private final /* synthetic */ String aPA;
+    final /* synthetic */ ItemFootNavView baW;
+    private final /* synthetic */ ForumDetailActivity baX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(ItemFootNavView itemFootNavView, BaseActivity baseActivity) {
-        this.aZz = itemFootNavView;
-        this.aZC = baseActivity;
+    public r(ItemFootNavView itemFootNavView, ForumDetailActivity forumDetailActivity, String str) {
+        this.baW = itemFootNavView;
+        this.baX = forumDetailActivity;
+        this.aPA = str;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.tbadk.core.dialog.a aVar2;
-        RecommendForumInfo recommendForumInfo;
-        RecommendForumInfo recommendForumInfo2;
-        aVar2 = this.aZz.aZy;
-        aVar2.dismiss();
-        au auVar = new au();
-        auVar.setFrom("bar_detail");
-        auVar.a(new s(this, this.aZC));
-        recommendForumInfo = this.aZz.aZc;
-        String str = recommendForumInfo.forum_name;
-        recommendForumInfo2 = this.aZz.aZc;
-        auVar.i(str, recommendForumInfo2.forum_id.longValue());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        boolean z;
+        context = this.baW.mContext;
+        TiebaStatic.eventStat(context, "detail_enter_forum", "click", 1, new Object[0]);
+        z = this.baW.baT;
+        if (z) {
+            this.baX.finish();
+        } else {
+            this.baX.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.baX.getPageContext().getPageActivity()).createNormalCfg(this.aPA, "bar_detail")));
+        }
     }
 }

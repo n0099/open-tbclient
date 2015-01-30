@@ -9,7 +9,7 @@ import com.baidu.tbadk.plugins.XiubaPlugin;
 public class StartupReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        XiubaPlugin xiubaPlugin = (XiubaPlugin) PluginCenter.gX().hf();
+        XiubaPlugin xiubaPlugin = (XiubaPlugin) PluginCenter.gW().hd();
         if (xiubaPlugin != null) {
             xiubaPlugin.startUpReceiver_onReceive(context, intent);
         }

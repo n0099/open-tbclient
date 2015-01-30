@@ -176,7 +176,19 @@ public class c {
         return false;
     }
 
-    public static void a(LinkedList<g> linkedList, int i, BdUniqueId bdUniqueId) {
+    public static boolean a(LinkedList<g> linkedList, int i, BdUniqueId bdUniqueId) {
+        SocketMessage aK;
+        Iterator<g> it = linkedList.iterator();
+        while (it.hasNext()) {
+            g next = it.next();
+            if (next != null && (aK = next.aK()) != null && ((i != 0 && aK.getTag() == bdUniqueId && i == aK.getCmd()) || (i == 0 && bdUniqueId != null && aK.getTag() == bdUniqueId))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void b(LinkedList<g> linkedList, int i, BdUniqueId bdUniqueId) {
         SocketMessage aK;
         if (linkedList != null) {
             Iterator<g> it = linkedList.iterator();

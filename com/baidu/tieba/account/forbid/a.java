@@ -2,14 +2,14 @@ package com.baidu.tieba.account.forbid;
 
 import android.view.View;
 import android.widget.RadioGroup;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bf;
 /* loaded from: classes.dex */
 class a implements View.OnClickListener {
-    final /* synthetic */ ForbidActivity anH;
+    final /* synthetic */ ForbidActivity aoC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(ForbidActivity forbidActivity) {
-        this.anH = forbidActivity;
+        this.aoC = forbidActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,19 +21,21 @@ class a implements View.OnClickListener {
         String str2;
         String str3;
         String str4;
+        String str5;
         e eVar3;
-        eVar = this.anH.anF;
+        eVar = this.aoC.aoA;
         if (eVar != null) {
-            eVar2 = this.anH.anF;
-            if (!ba.isEmpty(eVar2.AN())) {
-                ForbidActivity forbidActivity = this.anH;
-                radioGroup = this.anH.anC;
-                str = this.anH.mForumId;
-                str2 = this.anH.mForumName;
-                str3 = this.anH.mThreadId;
-                str4 = this.anH.mUserName;
-                eVar3 = this.anH.anF;
-                h.a(str, str2, str3, str4, (String) forbidActivity.findViewById(radioGroup.getCheckedRadioButtonId()).getTag(), eVar3.AN(), new b(this));
+            eVar2 = this.aoC.aoA;
+            if (!bf.isEmpty(eVar2.Bn())) {
+                ForbidActivity forbidActivity = this.aoC;
+                radioGroup = this.aoC.aox;
+                str = this.aoC.mForumId;
+                str2 = this.aoC.mForumName;
+                str3 = this.aoC.mThreadId;
+                str4 = this.aoC.mUserName;
+                str5 = this.aoC.mPostId;
+                eVar3 = this.aoC.aoA;
+                h.a(str, str2, str3, str4, str5, (String) forbidActivity.findViewById(radioGroup.getCheckedRadioButtonId()).getTag(), eVar3.Bn(), new b(this));
             }
         }
     }

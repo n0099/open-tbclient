@@ -52,34 +52,34 @@ public class m<T> extends com.baidu.adp.base.f<T> {
 
     public boolean a(String str, String str2, String str3, String str4, boolean z) {
         boolean z2;
-        if (str == null || str2 == null || str3 == null || str4 == null || !com.baidu.tbadk.util.e.eF(str)) {
+        if (str == null || str2 == null || str3 == null || str4 == null || !com.baidu.tbadk.util.h.eF(str)) {
             return false;
         }
         try {
             long currentTimeMillis = System.currentTimeMillis();
             com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
             ImgHttpClient imgHttpClient = new ImgHttpClient(eVar);
-            eVar.dP().setUrl(str);
-            imgHttpClient.c(str2, str3, 1);
-            byte[] bArr = eVar.dQ().kH;
+            eVar.dN().setUrl(str);
+            imgHttpClient.e(str2, str3, 1);
+            byte[] bArr = eVar.dO().kK;
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-            boolean dV = eVar.dQ().dV();
+            boolean dT = eVar.dO().dT();
             int i = 0;
             String str5 = "";
             if (bArr != null) {
                 i = bArr.length;
                 String n = z.n(bArr);
                 if (str4.equalsIgnoreCase(n)) {
-                    z2 = dV;
+                    z2 = dT;
                 } else {
                     str5 = "MD5Error_" + n + "_" + str4;
                     z2 = false;
                 }
             } else {
                 str5 = "downSizeZero";
-                z2 = dV;
+                z2 = dT;
             }
-            w.a(dV, str, str2, "0", str5, String.valueOf(i), currentTimeMillis2, z);
+            w.a(dT, str, str2, "0", str5, String.valueOf(i), currentTimeMillis2, z);
             return z2;
         } catch (Exception e) {
             StringBuffer stringBuffer = new StringBuffer();

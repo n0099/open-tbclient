@@ -2,6 +2,7 @@ package com.baidu.tieba.tblauncher;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.b.b;
 /* loaded from: classes.dex */
 class o extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
@@ -16,10 +17,10 @@ class o extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && com.baidu.tbadk.core.b.b.nZ() == null) {
-            ak akVar = new ak();
-            akVar.a(this.this$0);
-            com.baidu.tbadk.core.b.b.a(akVar);
+        if (customResponsedMessage != null && b.oc() == null) {
+            ah ahVar = new ah();
+            ahVar.a(this.this$0);
+            b.a(ahVar);
         }
     }
 }

@@ -5,20 +5,20 @@ import com.baidu.tieba.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ PbHistoryActivity aNU;
+    final /* synthetic */ PbHistoryActivity aPd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(PbHistoryActivity pbHistoryActivity) {
-        this.aNU = pbHistoryActivity;
+        this.aPd = pbHistoryActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.aNU.getPageContext().getPageActivity());
-        aVar.bs(z.editor_dialog_title);
-        aVar.bt(z.pb_history_clear_tip);
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.aPd.getPageContext().getPageActivity());
+        aVar.bx(z.editor_dialog_title);
+        aVar.by(z.pb_history_clear_tip);
         aVar.a(z.confirm, new c(this));
         aVar.b(z.cancel, new d(this));
-        aVar.b(this.aNU.getPageContext()).nU();
+        aVar.b(this.aPd.getPageContext()).nX();
     }
 }

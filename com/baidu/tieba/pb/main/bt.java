@@ -5,7 +5,7 @@ public interface bt {
 
     void a(boolean z, int i, int i2, int i3, com.baidu.tieba.tbadkCore.b.i iVar, String str, int i4);
 
-    void dG(boolean z);
+    void dM(boolean z);
 
     void e(com.baidu.tbadk.performanceLog.w wVar);
 }

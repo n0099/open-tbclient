@@ -10,43 +10,43 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class TbSettingTextTipView extends FrameLayout {
-    protected LinearLayout US;
-    protected TextView UT;
-    protected TextView UU;
-    private boolean UW;
-    protected ImageView UX;
+    private boolean VB;
+    protected ImageView VC;
+    protected LinearLayout Vx;
+    protected TextView Vy;
+    protected TextView Vz;
     protected Context mContext;
 
     public TbSettingTextTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.UW = true;
+        this.VB = true;
         this.mContext = context;
-        tH();
+        tY();
         c(attributeSet);
     }
 
     public TbSettingTextTipView(Context context) {
         super(context);
-        this.UW = true;
+        this.VB = true;
         this.mContext = context;
-        tH();
+        tY();
     }
 
-    public void tE() {
-        if (this.UU != null) {
-            this.UU.setVisibility(0);
+    public void tV() {
+        if (this.Vz != null) {
+            this.Vz.setVisibility(0);
         }
     }
 
-    public void tF() {
-        if (this.UU != null) {
-            this.UU.setVisibility(8);
+    public void tW() {
+        if (this.Vz != null) {
+            this.Vz.setVisibility(8);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.UU != null) {
-            this.UU.setTextColor(i);
+        if (this.Vz != null) {
+            this.Vz.setTextColor(i);
         }
     }
 
@@ -56,36 +56,36 @@ public class TbSettingTextTipView extends FrameLayout {
     public void recycle() {
     }
 
-    public void tG() {
-        this.UX.setVisibility(8);
+    public void tX() {
+        this.VC.setVisibility(8);
     }
 
     public void setText(String str) {
-        this.UT.setText(str);
+        this.Vy.setText(str);
     }
 
     public void setText(int i) {
-        this.UT.setText(i);
+        this.Vy.setText(i);
     }
 
     public void setTip(String str) {
-        this.UU.setText(str);
+        this.Vz.setText(str);
     }
 
     public CharSequence getTip() {
-        return this.UU.getText();
+        return this.Vz.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.UU.setBackgroundDrawable(drawable);
+        this.Vz.setBackgroundDrawable(drawable);
     }
 
-    protected void tH() {
-        com.baidu.adp.lib.g.b.ek().a(this.mContext, com.baidu.tieba.x.tb_setting_text_tip_view, this, true);
-        this.US = (LinearLayout) findViewById(com.baidu.tieba.w.container);
-        this.UT = (TextView) findViewById(com.baidu.tieba.w.text);
-        this.UU = (TextView) findViewById(com.baidu.tieba.w.tip);
-        this.UX = (ImageView) findViewById(com.baidu.tieba.w.arrow2);
+    protected void tY() {
+        com.baidu.adp.lib.g.b.ei().a(this.mContext, com.baidu.tieba.x.tb_setting_text_tip_view, this, true);
+        this.Vx = (LinearLayout) findViewById(com.baidu.tieba.w.container);
+        this.Vy = (TextView) findViewById(com.baidu.tieba.w.text);
+        this.Vz = (TextView) findViewById(com.baidu.tieba.w.tip);
+        this.VC = (ImageView) findViewById(com.baidu.tieba.w.arrow2);
     }
 
     protected void c(AttributeSet attributeSet) {
@@ -95,23 +95,23 @@ public class TbSettingTextTipView extends FrameLayout {
         String string2 = obtainStyledAttributes.getString(3);
         int color2 = obtainStyledAttributes.getColor(4, -1);
         if (string != null) {
-            this.UT.setText(string);
+            this.Vy.setText(string);
         }
         if (color > -1) {
-            this.UT.setTextColor(color);
+            this.Vy.setTextColor(color);
         }
         if (string2 != null) {
-            this.UU.setText(string2);
+            this.Vz.setText(string2);
         }
         if (color2 > -1) {
-            this.UU.setTextColor(color2);
+            this.Vz.setTextColor(color2);
         }
-        this.UW = obtainStyledAttributes.getBoolean(5, true);
+        this.VB = obtainStyledAttributes.getBoolean(5, true);
         obtainStyledAttributes.recycle();
-        this.US.setClickable(false);
-        this.US.setFocusable(false);
-        if (!this.UW) {
-            this.UX.setVisibility(4);
+        this.Vx.setClickable(false);
+        this.Vx.setFocusable(false);
+        if (!this.VB) {
+            this.VC.setVisibility(4);
         }
     }
 }

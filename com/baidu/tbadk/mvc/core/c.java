@@ -1,7 +1,6 @@
 package com.baidu.tbadk.mvc.core;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -18,18 +17,18 @@ import com.baidu.tieba.tbadkCore.y;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class c extends g implements com.baidu.tbadk.mvc.c.a, y {
-    private com.baidu.tbadk.mvc.c.c adm;
-    protected e<?, ?, ?> adn;
-    d adp;
-    protected List<com.baidu.tbadk.mvc.j.d<?, ?>> adq;
-    private boolean adr;
-    boolean ads;
-    boolean adt;
-    boolean adu;
-    boolean adv;
-    boolean adw;
-    boolean adx;
-    boolean ady;
+    private com.baidu.tbadk.mvc.c.c adJ;
+    protected e<?, ?, ?> adK;
+    d adM;
+    protected List<com.baidu.tbadk.mvc.j.d<?, ?>> adN;
+    private boolean adO;
+    boolean adP;
+    boolean adQ;
+    boolean adR;
+    boolean adS;
+    boolean adT;
+    boolean adU;
+    boolean adV;
     protected View rootView;
     protected BdUniqueId unique_id;
 
@@ -42,7 +41,7 @@ public abstract class c extends g implements com.baidu.tbadk.mvc.c.a, y {
         super(eVar.getPageContext());
         this.unique_id = null;
         this.unique_id = eVar.getUniqueId();
-        this.adn = eVar;
+        this.adK = eVar;
     }
 
     public c() {
@@ -52,103 +51,103 @@ public abstract class c extends g implements com.baidu.tbadk.mvc.c.a, y {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void i(Bundle bundle) {
-        this.ads = true;
+        this.adP = true;
         g(bundle);
-        if (this.ads && TbadkCoreApplication.m255getInst().isDebugMode()) {
+        if (this.adP && TbadkCoreApplication.m255getInst().isDebugMode()) {
             throw new RuntimeException("super.onActivityCreate must call");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void g(Bundle bundle) {
-        this.ads = false;
+        this.adP = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void wA() {
-        this.adt = true;
+    public void wQ() {
+        this.adQ = true;
         kF();
-        if (this.adt && TbadkCoreApplication.m255getInst().isDebugMode()) {
+        if (this.adQ && TbadkCoreApplication.m255getInst().isDebugMode()) {
             throw new RuntimeException("super.onActivityStart must call");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void kF() {
-        this.adt = false;
+        this.adQ = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void wB() {
-        this.adu = true;
-        wC();
-        if (this.adu && TbadkCoreApplication.m255getInst().isDebugMode()) {
+    public void wR() {
+        this.adR = true;
+        wS();
+        if (this.adR && TbadkCoreApplication.m255getInst().isDebugMode()) {
             throw new RuntimeException("super.onActivityRestart must call");
         }
     }
 
-    protected void wC() {
-        this.adu = false;
+    protected void wS() {
+        this.adR = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void wD() {
-        this.adv = true;
-        wE();
-        if (this.adv && TbadkCoreApplication.m255getInst().isDebugMode()) {
+    public void wT() {
+        this.adS = true;
+        wU();
+        if (this.adS && TbadkCoreApplication.m255getInst().isDebugMode()) {
             throw new RuntimeException("super.onActivityResume must call");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void wE() {
-        this.adv = false;
+    public void wU() {
+        this.adS = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void wF() {
-        this.adw = true;
-        wG();
-        if (this.adw && TbadkCoreApplication.m255getInst().isDebugMode()) {
+    public void wV() {
+        this.adT = true;
+        wW();
+        if (this.adT && TbadkCoreApplication.m255getInst().isDebugMode()) {
             throw new RuntimeException("super.onActivityPause must call");
         }
     }
 
-    protected void wG() {
-        this.adw = false;
+    protected void wW() {
+        this.adT = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void wH() {
-        this.adx = true;
+    public void wX() {
+        this.adU = true;
         onActivityStop();
-        if (this.adx && TbadkCoreApplication.m255getInst().isDebugMode()) {
+        if (this.adU && TbadkCoreApplication.m255getInst().isDebugMode()) {
             throw new RuntimeException("super.onActivityStop must call");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onActivityStop() {
-        this.adx = false;
+        this.adU = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void wI() {
-        this.ady = true;
+    public void wY() {
+        this.adV = true;
         onActivityDestroy();
-        if (this.ady && TbadkCoreApplication.m255getInst().isDebugMode()) {
+        if (this.adV && TbadkCoreApplication.m255getInst().isDebugMode()) {
             throw new RuntimeException("super.onActivityDestroy must call");
         }
     }
 
     protected void onActivityDestroy() {
-        this.ady = false;
+        this.adV = false;
         MessageManager.getInstance().unRegisterListener(this.unique_id);
         MessageManager.getInstance().removeMessage(this.unique_id);
-        com.baidu.adp.lib.f.d.ee().d(this.unique_id);
+        com.baidu.adp.lib.f.d.ec().d(this.unique_id);
     }
 
-    public boolean wJ() {
+    public boolean wZ() {
         return false;
     }
 
@@ -158,25 +157,25 @@ public abstract class c extends g implements com.baidu.tbadk.mvc.c.a, y {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void wK() {
-        this.adr = true;
+    public void xa() {
+        this.adO = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void wL() {
-        this.adr = false;
+    public void xb() {
+        this.adO = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean wM() {
-        return this.adr;
+    public boolean xc() {
+        return this.adO;
     }
 
     public void onSaveInstanceState(Bundle bundle) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public View wN() {
+    public View xd() {
         if (this.rootView == null) {
             this.rootView = getLayoutInflater().inflate(kI(), (ViewGroup) null);
         }
@@ -185,16 +184,16 @@ public abstract class c extends g implements com.baidu.tbadk.mvc.c.a, y {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(e<?, ?, ?> eVar) {
-        this.adn = eVar;
+        this.adK = eVar;
         this.mContext = eVar.getPageContext();
     }
 
-    public final e<?, ?, ?> ww() {
-        return this.adn;
+    public final e<?, ?, ?> wM() {
+        return this.adK;
     }
 
-    public final ViewEventCenter wx() {
-        return this.adn.wx();
+    public final ViewEventCenter wN() {
+        return this.adK.wN();
     }
 
     public final View getView() {
@@ -207,10 +206,10 @@ public abstract class c extends g implements com.baidu.tbadk.mvc.c.a, y {
 
     @Override // com.baidu.tieba.tbadkCore.y
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        if (this.adq != null) {
-            int size = this.adq.size();
+        if (this.adN != null) {
+            int size = this.adN.size();
             for (int i2 = 0; i2 < size; i2++) {
-                com.baidu.tbadk.mvc.j.d<?, ?> dVar = this.adq.get(i2);
+                com.baidu.tbadk.mvc.j.d<?, ?> dVar = this.adN.get(i2);
                 if (dVar != null) {
                     dVar.a(tbPageContext, i);
                 }
@@ -232,11 +231,7 @@ public abstract class c extends g implements com.baidu.tbadk.mvc.c.a, y {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.base.g
     public TbPageContext<?> getPageContext() {
-        return this.adn.getPageContext();
-    }
-
-    public Context getContext() {
-        return getPageContext().getContext();
+        return this.adK.getPageContext();
     }
 
     public Activity getActivity() {
@@ -248,7 +243,7 @@ public abstract class c extends g implements com.baidu.tbadk.mvc.c.a, y {
     }
 
     public LayoutInflater getLayoutInflater() {
-        return this.adn.getLayoutInflater();
+        return this.adK.getLayoutInflater();
     }
 
     public String getString(int i) {
@@ -256,7 +251,7 @@ public abstract class c extends g implements com.baidu.tbadk.mvc.c.a, y {
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean wy() {
+    public boolean wO() {
         return true;
     }
 
@@ -276,25 +271,25 @@ public abstract class c extends g implements com.baidu.tbadk.mvc.c.a, y {
         return false;
     }
 
-    public com.baidu.tbadk.mvc.c.c wz() {
-        if (this.adm == null) {
-            this.adm = new com.baidu.tbadk.mvc.c.c(this.unique_id);
+    public com.baidu.tbadk.mvc.c.c wP() {
+        if (this.adJ == null) {
+            this.adJ = new com.baidu.tbadk.mvc.c.c(this.unique_id);
         }
-        return this.adm;
+        return this.adJ;
     }
 
-    public boolean dz(int i) {
-        return dispatchMvcEvent(wz().dD(i));
+    public boolean dF(int i) {
+        return dispatchMvcEvent(wP().dJ(i));
     }
 
     public boolean g(int i, boolean z) {
-        return dispatchMvcEvent(wz().i(i, z));
+        return dispatchMvcEvent(wP().i(i, z));
     }
 
     public boolean dispatchMvcEvent(com.baidu.tbadk.mvc.c.b bVar) {
         if (bVar != null) {
             bVar.setUniqueId(this.unique_id);
         }
-        return wx().dispatchMvcEvent(bVar);
+        return wN().dispatchMvcEvent(bVar);
     }
 }

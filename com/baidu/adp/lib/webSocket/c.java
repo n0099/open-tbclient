@@ -5,63 +5,63 @@ import java.nio.Buffer;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class c extends OutputStream {
-    private final int oT;
-    private final int oU;
-    private ByteBuffer oV;
+    private final int oY;
+    private final int oZ;
+    private ByteBuffer pa;
 
     public c() {
         this(131072, 65536);
     }
 
     public c(int i, int i2) {
-        this.oT = i;
-        this.oU = i2;
-        this.oV = ByteBuffer.allocateDirect(this.oT);
-        this.oV.clear();
+        this.oY = i;
+        this.oZ = i2;
+        this.pa = ByteBuffer.allocateDirect(this.oY);
+        this.pa.clear();
     }
 
-    public ByteBuffer fP() {
-        return this.oV;
+    public ByteBuffer fO() {
+        return this.pa;
     }
 
     public Buffer flip() {
-        return this.oV.flip();
+        return this.pa.flip();
     }
 
     public Buffer clear() {
-        return this.oV.clear();
+        return this.pa.clear();
     }
 
     public int remaining() {
-        return this.oV.remaining();
+        return this.pa.remaining();
     }
 
-    public synchronized void ai(int i) {
-        if (i > this.oV.capacity()) {
-            ByteBuffer byteBuffer = this.oV;
-            int position = this.oV.position();
-            this.oV = ByteBuffer.allocateDirect(((i / this.oU) + 1) * this.oU);
+    public synchronized void an(int i) {
+        if (i > this.pa.capacity()) {
+            ByteBuffer byteBuffer = this.pa;
+            int position = this.pa.position();
+            this.pa = ByteBuffer.allocateDirect(((i / this.oZ) + 1) * this.oZ);
             byteBuffer.clear();
-            this.oV.clear();
-            this.oV.put(byteBuffer);
-            this.oV.position(position);
+            this.pa.clear();
+            this.pa.put(byteBuffer);
+            this.pa.position(position);
         }
     }
 
     @Override // java.io.OutputStream
     public synchronized void write(int i) {
-        if (this.oV.position() + 1 > this.oV.capacity()) {
-            ai(this.oV.capacity() + 1);
+        if (this.pa.position() + 1 > this.pa.capacity()) {
+            an(this.pa.capacity() + 1);
         }
-        this.oV.put((byte) i);
+        this.pa.put((byte) i);
     }
 
     @Override // java.io.OutputStream
     public synchronized void write(byte[] bArr, int i, int i2) {
-        if (this.oV.position() + i2 > this.oV.capacity()) {
-            ai(this.oV.capacity() + i2);
+        if (this.pa.position() + i2 > this.pa.capacity()) {
+            an(this.pa.capacity() + i2);
         }
-        this.oV.put(bArr, i, i2);
+        this.pa.put(bArr, i, i2);
     }
 
     @Override // java.io.OutputStream
@@ -73,7 +73,7 @@ public class c extends OutputStream {
         write(str.getBytes("UTF-8"));
     }
 
-    public synchronized void fQ() {
+    public synchronized void fP() {
         write(13);
         write(10);
     }

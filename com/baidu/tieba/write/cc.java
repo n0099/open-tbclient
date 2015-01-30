@@ -34,32 +34,32 @@ public class cc extends BdAsyncTask<Object, Integer, Bitmap> {
         HashMap hashMap;
         Bitmap bitmap = null;
         try {
-            Bitmap U = com.baidu.tbadk.core.util.s.U(null, TbConfig.IMAGE_RESIZED_FILE);
+            Bitmap X = com.baidu.tbadk.core.util.s.X(null, TbConfig.IMAGE_RESIZED_FILE);
             try {
-                if (isCancelled() && U != null && !U.isRecycled()) {
-                    U.recycle();
+                if (isCancelled() && X != null && !X.isRecycled()) {
+                    X.recycle();
                     return null;
                 }
-                if (U != null) {
+                if (X != null) {
                     int dip2px = com.baidu.adp.lib.util.l.dip2px(this.this$0.getPageContext().getPageActivity(), 63.5f);
                     if (Build.VERSION.SDK_INT >= 7) {
-                        z = this.this$0.Pd;
+                        z = this.this$0.PE;
                         if (z) {
-                            Bitmap f = com.baidu.tbadk.core.util.d.f(U, dip2px);
+                            Bitmap f = com.baidu.tbadk.core.util.d.f(X, dip2px);
                             if (f != null) {
-                                if (f.equals(U)) {
-                                    U = com.baidu.tbadk.core.util.d.v(com.baidu.tbadk.core.util.d.e(U, 100));
+                                if (f.equals(X)) {
+                                    X = com.baidu.tbadk.core.util.d.v(com.baidu.tbadk.core.util.d.e(X, 100));
                                 }
                                 Bitmap a = com.baidu.tbadk.core.util.d.a(f, com.baidu.adp.lib.util.l.dip2px(this.this$0.getPageContext().getPageActivity(), 5.0f), true);
                                 if (a != null) {
-                                    obj = this.this$0.cfF;
+                                    obj = this.this$0.chf;
                                     synchronized (obj) {
-                                        this.this$0.Ph = new HashMap();
-                                        this.this$0.Pi = new HashMap();
-                                        hashMap = this.this$0.Ph;
+                                        this.this$0.PJ = new HashMap();
+                                        this.this$0.PK = new HashMap();
+                                        hashMap = this.this$0.PJ;
                                         hashMap.put(WriteImageActivityConfig.FILTER_NAME_NORMAL, a);
                                     }
-                                    return U;
+                                    return X;
                                 }
                                 return null;
                             }
@@ -67,9 +67,9 @@ public class cc extends BdAsyncTask<Object, Integer, Bitmap> {
                         }
                     }
                 }
-                return U;
+                return X;
             } catch (Exception e) {
-                bitmap = U;
+                bitmap = X;
                 e = e;
                 e.printStackTrace();
                 BdLog.e(e.toString());
@@ -87,7 +87,7 @@ public class cc extends BdAsyncTask<Object, Integer, Bitmap> {
         View view;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(0);
-        view = this.this$0.cfA;
+        view = this.this$0.cha;
         view.setEnabled(false);
         super.onPreExecute();
     }
@@ -95,7 +95,7 @@ public class cc extends BdAsyncTask<Object, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.this$0.cfB = null;
+        this.this$0.chb = null;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(8);
         super.cancel(true);
@@ -111,20 +111,20 @@ public class cc extends BdAsyncTask<Object, Integer, Bitmap> {
         boolean z;
         String[] strArr;
         super.onPostExecute((cc) bitmap);
-        view = this.this$0.cfA;
+        view = this.this$0.cha;
         view.setEnabled(true);
-        this.this$0.cfB = null;
+        this.this$0.chb = null;
         this.this$0.mBitmap = bitmap;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(8);
         if (bitmap != null && !bitmap.isRecycled() && bitmap != null) {
-            imageView = this.this$0.akv;
+            imageView = this.this$0.anr;
             imageView.setImageBitmap(bitmap);
             if (Build.VERSION.SDK_INT >= 7) {
-                z = this.this$0.Pd;
+                z = this.this$0.PE;
                 if (z) {
                     WriteImageActivity writeImageActivity = this.this$0;
-                    strArr = WriteImageActivity.OG;
+                    strArr = WriteImageActivity.Pk;
                     writeImageActivity.m(strArr);
                 }
             }

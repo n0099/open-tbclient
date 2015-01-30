@@ -6,21 +6,21 @@ import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ AbsMsgImageActivity aQe;
+    final /* synthetic */ AbsMsgImageActivity aRj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(AbsMsgImageActivity absMsgImageActivity) {
-        this.aQe = absMsgImageActivity;
+        this.aRj = absMsgImageActivity;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         int i2;
-        AbsMsgImageActivity absMsgImageActivity = this.aQe;
-        i2 = this.aQe.mIndex;
-        absMsgImageActivity.N(i2, i);
-        this.aQe.mIndex = i;
-        this.aQe.JK();
+        AbsMsgImageActivity absMsgImageActivity = this.aRj;
+        i2 = this.aRj.mIndex;
+        absMsgImageActivity.O(i2, i);
+        this.aRj.mIndex = i;
+        this.aRj.Kf();
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -38,16 +38,16 @@ public class c implements ViewPager.OnPageChangeListener {
         int i3;
         if (i == 1) {
             long nanoTime = System.nanoTime();
-            j = this.aQe.aQa;
+            j = this.aRj.aRf;
             if (nanoTime - j > 300000000) {
-                linkedHashMap = this.aQe.aPQ;
+                linkedHashMap = this.aRj.aQV;
                 if (linkedHashMap != null) {
-                    i2 = this.aQe.mIndex;
-                    linkedHashMap2 = this.aQe.aPQ;
+                    i2 = this.aRj.mIndex;
+                    linkedHashMap2 = this.aRj.aQV;
                     if (i2 < linkedHashMap2.size()) {
-                        hashMap = this.aQe.aQb;
-                        linkedHashMap3 = this.aQe.aPQ;
-                        i3 = this.aQe.mIndex;
+                        hashMap = this.aRj.aRg;
+                        linkedHashMap3 = this.aRj.aQV;
+                        i3 = this.aRj.mIndex;
                         hashMap.put((String) linkedHashMap3.get(Integer.valueOf(i3)), true);
                     }
                 }

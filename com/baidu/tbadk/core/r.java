@@ -1,31 +1,19 @@
 package com.baidu.tbadk.core;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import java.util.HashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 /* loaded from: classes.dex */
-public class r implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.frameworkData.a> {
-    final /* synthetic */ TbadkCoreApplication CR;
+class r implements com.baidu.tbadk.util.e {
+    final /* synthetic */ q CT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(TbadkCoreApplication tbadkCoreApplication) {
-        this.CR = tbadkCoreApplication;
+    public r(q qVar) {
+        this.CT = qVar;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<com.baidu.tbadk.core.frameworkData.a> run(CustomMessage<com.baidu.tbadk.core.frameworkData.a> customMessage) {
-        HashMap hashMap;
-        if (customMessage != null && customMessage.getData() != null) {
-            com.baidu.tbadk.core.frameworkData.a data = customMessage.getData();
-            hashMap = this.CR.mActicyConfig;
-            Class<?> cls = (Class) hashMap.get(data.getClass());
-            if (cls != null) {
-                data.getIntent().setClass(customMessage.getData().getContext(), cls);
-                data.run();
-            }
+    @Override // com.baidu.tbadk.util.e
+    public void ae(boolean z) {
+        if (!z) {
+            BdSocketLinkService.startService(false, "restart");
         }
-        return null;
     }
 }

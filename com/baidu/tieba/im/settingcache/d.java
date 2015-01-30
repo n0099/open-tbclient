@@ -1,27 +1,26 @@
 package com.baidu.tieba.im.settingcache;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d extends com.baidu.tieba.im.h<Boolean> {
-    private final /* synthetic */ String bhK;
-    final /* synthetic */ c bnD;
-    private final /* synthetic */ long bnE;
-    private final /* synthetic */ String bns;
+class d extends com.baidu.tieba.im.h<Boolean> {
+    private final /* synthetic */ String bjf;
+    private final /* synthetic */ String boP;
+    final /* synthetic */ c bpa;
+    private final /* synthetic */ long bpb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, String str, String str2, long j) {
-        this.bnD = cVar;
-        this.bns = str;
-        this.bhK = str2;
-        this.bnE = j;
+        this.bpa = cVar;
+        this.boP = str;
+        this.bjf = str2;
+        this.bpb = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tieba.im.h
     public Boolean doInBackground() {
-        GroupSettingItemData aD = this.bnD.aD(this.bns, this.bhK);
-        if (aD != null && aD.isAlreadyApply()) {
-            if (System.currentTimeMillis() - aD.getLastApplyTimeStamp() <= this.bnE) {
+        GroupSettingItemData aG = this.bpa.aG(this.boP, this.bjf);
+        if (aG != null && aG.isAlreadyApply()) {
+            if (System.currentTimeMillis() - aG.getLastApplyTimeStamp() <= this.bpb) {
                 return false;
             }
         }

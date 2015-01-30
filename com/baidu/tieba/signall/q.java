@@ -4,12 +4,12 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q {
-    final /* synthetic */ o bPv;
-    public TextView bPy;
-    public TextView bPz;
+    final /* synthetic */ o bRf;
+    public TextView bRi;
+    public TextView bRj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(o oVar) {
-        this.bPv = oVar;
+        this.bRf = oVar;
     }
 }

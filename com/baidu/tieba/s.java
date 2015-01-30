@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 /* loaded from: classes.dex */
 public final class s {
-    public static final int activeColor = 2130772103;
-    public static final int activeRadius = 2130772111;
-    public static final int activeType = 2130772109;
     public static final int adjustViewBounds = 2130771979;
     public static final int adpFooterDurationTime = 2130771991;
     public static final int adpFooterNeedRefreshDelta = 2130771988;
@@ -27,8 +24,6 @@ public final class s {
     public static final int border_width = 2130771982;
     public static final int bottomHeight = 2130772013;
     public static final int bottomOffset = 2130772011;
-    public static final int centeredhao123 = 2130772106;
-    public static final int circleSeparation = 2130772110;
     public static final int circle_image = 2130772025;
     public static final int circle_size = 2130772024;
     public static final int color_dark = 2130772095;
@@ -45,7 +40,6 @@ public final class s {
     public static final int expandDistance = 2130772023;
     public static final int faceHeight = 2130772039;
     public static final int faceWidth = 2130772038;
-    public static final int fadeOut = 2130772107;
     public static final int foregroundColor = 2130771980;
     public static final int gifIcon = 2130771975;
     public static final int hasBorder = 2130771970;
@@ -53,9 +47,6 @@ public final class s {
     public static final int hideAudio = 2130772083;
     public static final int hideCamera = 2130772082;
     public static final int hideFace = 2130772084;
-    public static final int hotwords_size = 2130772112;
-    public static final int inactiveColor = 2130772104;
-    public static final int inactiveType = 2130772108;
     public static final int intro_singline = 2130772064;
     public static final int isRadius = 2130772061;
     public static final int isRound = 2130771969;
@@ -85,7 +76,6 @@ public final class s {
     public static final int percent = 2130772060;
     public static final int play_type = 2130772065;
     public static final int radius = 2130771968;
-    public static final int radiushao123 = 2130772105;
     public static final int refresher_content = 2130771996;
     public static final int refresher_head = 2130771995;
     public static final int right = 2130772094;
@@ -104,7 +94,6 @@ public final class s {
     public static final int settingTipColor = 2130772046;
     public static final int showGifIcon = 2130771974;
     public static final int showGifTag = 2130772062;
-    public static final int sidebuffer = 2130772102;
     public static final int singleLine = 2130772041;
     public static final int spacing = 2130771998;
     public static final int spacingLeft = 2130772015;

@@ -12,9 +12,9 @@ import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class h extends BdAsyncTask<String, Integer, AccountData> {
     private final String Bv;
-    private volatile ad CV = null;
-    private final g CW;
-    private final boolean CX;
+    private volatile ad CX = null;
+    private final g CY;
+    private final boolean CZ;
     private final String mName;
     private final String mPtoken;
 
@@ -22,15 +22,15 @@ public class h extends BdAsyncTask<String, Integer, AccountData> {
         this.mName = str;
         this.Bv = str2;
         this.mPtoken = str3;
-        this.CX = z;
-        this.CW = gVar == null ? new i(this) : gVar;
+        this.CZ = z;
+        this.CY = gVar == null ? new i(this) : gVar;
         setPriority(3);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
-        this.CW.onBeforeLogin(this.mName);
+        this.CY.onBeforeLogin(this.mName);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,29 +39,29 @@ public class h extends BdAsyncTask<String, Integer, AccountData> {
     /* renamed from: k */
     public AccountData doInBackground(String... strArr) {
         AccountLoginHelper.OurToken a;
-        this.CV = new ad(TbConfig.LOGIN_FULL_ADDRESS);
-        this.CV.oW().pV().mIsUseCurrentBDUSS = false;
-        this.CV.o("bdusstoken", String.valueOf(this.Bv) + "|" + this.mPtoken);
-        this.CV.o("channel_id", TbadkCoreApplication.m255getInst().getPushChannelId());
-        this.CV.o("channel_uid", TbadkCoreApplication.m255getInst().getPushChannelUserId());
-        this.CV.oW().pV().Ke = false;
-        String ov = this.CV.ov();
-        if (this.CV.oW().pW().ma() && ov != null) {
-            com.baidu.tbadk.core.data.m mVar = new com.baidu.tbadk.core.data.m();
-            mVar.parserJson(ov);
+        this.CX = new ad(TbConfig.LOGIN_FULL_ADDRESS);
+        this.CX.oZ().qg().mIsUseCurrentBDUSS = false;
+        this.CX.o("bdusstoken", String.valueOf(this.Bv) + "|" + this.mPtoken);
+        this.CX.o("channel_id", TbadkCoreApplication.m255getInst().getPushChannelId());
+        this.CX.o("channel_uid", TbadkCoreApplication.m255getInst().getPushChannelUserId());
+        this.CX.oZ().qg().Kx = false;
+        String oy = this.CX.oy();
+        if (this.CX.oZ().qh().ma() && oy != null) {
+            com.baidu.tbadk.core.data.n nVar = new com.baidu.tbadk.core.data.n();
+            nVar.parserJson(oy);
             AccountData accountData = new AccountData();
-            accountData.setAccount(mVar.getUser().getUserName());
+            accountData.setAccount(nVar.getUser().getUserName());
             accountData.setPassword("");
-            accountData.setID(mVar.getUser().getUserId());
-            String bduss = mVar.getUser().getBDUSS();
-            if (this.CX && (a = n.a(AccountLoginHelper.parseBDUSS(bduss))) != null) {
+            accountData.setID(nVar.getUser().getUserId());
+            String bduss = nVar.getUser().getBDUSS();
+            if (this.CZ && (a = n.a(AccountLoginHelper.parseBDUSS(bduss))) != null) {
                 bduss = String.valueOf(a.mBduss) + "|" + a.mPtoken;
             }
             accountData.setBDUSS(bduss);
-            accountData.setPortrait(mVar.getUser().getPortrait());
+            accountData.setPortrait(nVar.getUser().getPortrait());
             accountData.setIsActive(1);
-            if (mVar.mP() != null) {
-                accountData.setTbs(mVar.mP().getTbs());
+            if (nVar.mR() != null) {
+                accountData.setTbs(nVar.mR().getTbs());
                 return accountData;
             }
             return accountData;
@@ -76,29 +76,29 @@ public class h extends BdAsyncTask<String, Integer, AccountData> {
         String str;
         int i;
         super.onPostExecute((h) accountData);
-        ReloginManager.ob().ak(false);
+        ReloginManager.oe().am(false);
         if (accountData != null && accountData.getBDUSS() != null) {
-            this.CW.onSuccess(accountData);
+            this.CY.onSuccess(accountData);
             return;
         }
-        if (this.CV == null) {
+        if (this.CX == null) {
             str = null;
             i = 0;
         } else {
-            str = this.CV.getErrorString();
-            i = this.CV.pa();
+            str = this.CX.getErrorString();
+            i = this.CX.pd();
         }
         if (str == null) {
             str = TbadkCoreApplication.m255getInst().getApp().getResources().getString(z.data_load_error);
         }
-        this.CW.onFailure(this.mName, i, str);
+        this.CY.onFailure(this.mName, i, str);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        if (this.CV != null) {
-            this.CV.dL();
+        if (this.CX != null) {
+            this.CX.dJ();
         }
     }
 }

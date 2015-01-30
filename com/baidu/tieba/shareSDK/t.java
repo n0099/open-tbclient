@@ -6,11 +6,11 @@ import com.baidu.tieba.write.ch;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements View.OnClickListener {
-    final /* synthetic */ q bOn;
+    final /* synthetic */ q bPX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(q qVar) {
-        this.bOn = qVar;
+        this.bPX = qVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,17 +21,17 @@ public class t implements View.OnClickListener {
         WriteShareActivity writeShareActivity2;
         WriteShareActivity writeShareActivity3;
         WriteShareActivity writeShareActivity4;
-        textView = this.bOn.bOc;
+        textView = this.bPX.bPM;
         textView.setSelected(true);
-        chVar = this.bOn.bOd;
-        writeShareActivity = this.bOn.bOl;
+        chVar = this.bPX.bPN;
+        writeShareActivity = this.bPX.bPV;
         int dip2px = com.baidu.adp.lib.util.l.dip2px(writeShareActivity.getPageContext().getContext(), 15.0f);
-        writeShareActivity2 = this.bOn.bOl;
+        writeShareActivity2 = this.bPX.bPV;
         com.baidu.adp.lib.g.k.showPopupWindowAsDropDown(chVar, view, dip2px, com.baidu.adp.lib.util.l.dip2px(writeShareActivity2.getPageContext().getContext(), 1.0f));
-        writeShareActivity3 = this.bOn.bOl;
+        writeShareActivity3 = this.bPX.bPV;
         if (writeShareActivity3 != null) {
-            writeShareActivity4 = this.bOn.bOl;
-            writeShareActivity4.acC();
+            writeShareActivity4 = this.bPX.bPV;
+            writeShareActivity4.adg();
         }
     }
 }

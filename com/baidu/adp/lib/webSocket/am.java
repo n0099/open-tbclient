@@ -1,79 +1,79 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class am {
-    private int pY;
-    private int pZ;
-    private String pl;
-    private boolean qa;
-    private boolean qb;
-    private int qc;
+    private String ps;
     private int qd;
-    private boolean qe;
+    private int qe;
     private boolean qf;
+    private boolean qg;
+    private int qh;
+    private int qi;
+    private boolean qj;
+    private boolean qk;
 
     public am() {
-        this.pl = null;
-        this.pY = 131072;
-        this.pZ = 131072;
-        this.qa = false;
-        this.qb = true;
-        this.qc = 30000;
-        this.qd = 30000;
-        this.qe = true;
-        this.qf = true;
-        this.pl = null;
+        this.ps = null;
+        this.qd = 131072;
+        this.qe = 131072;
+        this.qf = false;
+        this.qg = true;
+        this.qh = 30000;
+        this.qi = 30000;
+        this.qj = true;
+        this.qk = true;
+        this.ps = null;
     }
 
     public am(am amVar) {
-        this.pl = null;
-        this.pY = amVar.pY;
-        this.pZ = amVar.pZ;
-        this.qa = amVar.qa;
-        this.qb = amVar.qb;
-        this.qc = amVar.qc;
+        this.ps = null;
         this.qd = amVar.qd;
         this.qe = amVar.qe;
         this.qf = amVar.qf;
-        this.pl = amVar.pl;
+        this.qg = amVar.qg;
+        this.qh = amVar.qh;
+        this.qi = amVar.qi;
+        this.qj = amVar.qj;
+        this.qk = amVar.qk;
+        this.ps = amVar.ps;
     }
 
-    public boolean gl() {
-        return this.qa;
-    }
-
-    public int gm() {
-        return this.pY;
-    }
-
-    public int gn() {
-        return this.pZ;
-    }
-
-    public boolean getTcpNoDelay() {
-        return this.qb;
-    }
-
-    public int go() {
-        return this.qc;
-    }
-
-    public int gp() {
-        return this.qd;
-    }
-
-    public boolean gq() {
-        return this.qe;
-    }
-
-    public boolean gr() {
+    public boolean gk() {
         return this.qf;
     }
 
-    public String gs() {
-        return this.pl;
+    public int gl() {
+        return this.qd;
+    }
+
+    public int gm() {
+        return this.qe;
+    }
+
+    public boolean getTcpNoDelay() {
+        return this.qg;
+    }
+
+    public int gn() {
+        return this.qh;
+    }
+
+    public int go() {
+        return this.qi;
+    }
+
+    public boolean gp() {
+        return this.qj;
+    }
+
+    public boolean gq() {
+        return this.qk;
+    }
+
+    public String gr() {
+        return this.ps;
     }
 
     public void aM(String str) {
-        this.pl = str;
+        this.ps = str;
     }
 }

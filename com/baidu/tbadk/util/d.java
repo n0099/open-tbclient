@@ -1,75 +1,53 @@
 package com.baidu.tbadk.util;
 
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class d {
-    public static void c(InputStream inputStream, OutputStream outputStream) {
-        GZIPOutputStream gZIPOutputStream;
-        try {
-            gZIPOutputStream = new GZIPOutputStream(outputStream);
-            try {
-                byte[] bArr = new byte[1024];
-                while (true) {
-                    int read = inputStream.read(bArr, 0, 1024);
-                    if (read != -1) {
-                        gZIPOutputStream.write(bArr, 0, read);
-                    } else {
-                        gZIPOutputStream.flush();
-                        try {
-                            gZIPOutputStream.close();
-                            return;
-                        } catch (Exception e) {
-                            return;
-                        }
-                    }
-                }
-            } catch (Throwable th) {
-                th = th;
-                try {
-                    gZIPOutputStream.close();
-                } catch (Exception e2) {
-                }
-                throw th;
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            gZIPOutputStream = null;
-        }
+    private static d ahT = new d();
+    private f ahU;
+    private e ahV;
+
+    private d() {
     }
 
-    public static void b(InputStream inputStream, OutputStream outputStream) {
-        GZIPInputStream gZIPInputStream;
-        try {
-            gZIPInputStream = new GZIPInputStream(inputStream);
-        } catch (Throwable th) {
-            th = th;
-            gZIPInputStream = null;
+    public static d zP() {
+        return ahT;
+    }
+
+    public void a(e eVar) {
+        this.ahV = eVar;
+        if (this.ahU != null) {
+            this.ahU.cancel();
         }
-        try {
-            byte[] bArr = new byte[1024];
-            while (true) {
-                int read = gZIPInputStream.read(bArr, 0, 1024);
-                if (read != -1) {
-                    outputStream.write(bArr, 0, read);
-                } else {
-                    try {
-                        gZIPInputStream.close();
-                        return;
-                    } catch (Exception e) {
-                        return;
-                    }
-                }
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            try {
-                gZIPInputStream.close();
-            } catch (Exception e2) {
-            }
-            throw th;
+        this.ahU = new f(this, null);
+        this.ahU.setPriority(4);
+        this.ahU.execute(new String[0]);
+    }
+
+    public boolean zQ() {
+        int i;
+        long j = 0;
+        byte[] aw = com.baidu.adp.lib.util.d.aw("crash_hour_record.log");
+        String str = null;
+        if (aw != null) {
+            str = new String(aw);
         }
+        long j2 = StringUtils.getyyyyMMddHHTimeForNow();
+        if (TextUtils.isEmpty(str)) {
+            i = 0;
+        } else {
+            String[] split = str.split(":");
+            if (split == null || split.length != 2) {
+                i = 0;
+            } else {
+                i = com.baidu.adp.lib.g.c.toInt(split[0], 0);
+                j = com.baidu.adp.lib.g.c.a(split[1], j2);
+            }
+        }
+        if (j == j2 && i > 2) {
+            return true;
+        }
+        return false;
     }
 }

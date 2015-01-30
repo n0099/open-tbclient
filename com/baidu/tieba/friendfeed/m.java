@@ -1,48 +1,38 @@
 package com.baidu.tieba.friendfeed;
 
-import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewGroup;
+import android.text.TextUtils;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.data.FriendFeedThreadData;
-import com.baidu.tieba.tbadkCore.ao;
+import com.baidu.tieba.tbadkCore.aq;
 /* loaded from: classes.dex */
-class m implements v {
-    final /* synthetic */ FriendFeedActivity aAU;
+class m implements aq {
+    final /* synthetic */ FriendFeedActivity aBV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(FriendFeedActivity friendFeedActivity) {
-        this.aAU = friendFeedActivity;
+        this.aBV = friendFeedActivity;
     }
 
-    @Override // com.baidu.tieba.friendfeed.v
-    public void a(int i, int i2, View view, View view2, FriendFeedThreadData friendFeedThreadData) {
-        y yVar;
-        y yVar2;
-        y yVar3;
+    @Override // com.baidu.tieba.tbadkCore.aq
+    public void fA(String str) {
         boolean z;
-        ao aoVar;
-        yVar = this.aAU.aAB;
-        if (i != yVar.Fk().Ff() || view2 == null || view == null) {
-            yVar2 = this.aAU.aAB;
-            if (i != yVar2.Fk().Fe()) {
-                yVar3 = this.aAU.aAB;
-                yVar3.Fk().Fg();
-                return;
-            }
-            this.aAU.aAF = friendFeedThreadData;
-            z = this.aAU.aAE;
-            if (!z) {
-                this.aAU.aAE = true;
-                int isLike = friendFeedThreadData.getPraise() == null ? 0 : friendFeedThreadData.getPraise().getIsLike();
-                aoVar = this.aAU.aAT;
-                aoVar.a(friendFeedThreadData.getFirst_post_id(), friendFeedThreadData.getTid(), isLike, "friendfeed");
-                return;
-            }
-            return;
+        FriendFeedThreadData friendFeedThreadData;
+        z = this.aBV.aBI;
+        if (z) {
+            friendFeedThreadData = this.aBV.aBH;
+            this.aBV.eH(friendFeedThreadData.getPraise().getIsLike() == 1 ? 0 : 1);
         }
-        Rect rect = new Rect();
-        view.getDrawingRect(rect);
-        ((ViewGroup) view2).offsetDescendantRectToMyCoords(view, rect);
-        this.aAU.a(i2, friendFeedThreadData, rect.bottom);
+        this.aBV.aBG = false;
+        TbadkApplication.getInst().resetPbRecorder();
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.aq
+    public void fB(String str) {
+        boolean z;
+        z = this.aBV.aBI;
+        if (z && !TextUtils.isEmpty(str)) {
+            this.aBV.showToast(str);
+        }
+        this.aBV.aBG = false;
     }
 }

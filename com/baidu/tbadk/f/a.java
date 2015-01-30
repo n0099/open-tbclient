@@ -59,9 +59,9 @@ public class a extends com.baidu.adp.framework.a.d {
         if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
             httpMessage.addHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
         }
-        String eL = p.eL();
-        if (!TextUtils.isEmpty(eL)) {
-            httpMessage.addHeader("sid", eL);
+        String eJ = p.eJ();
+        if (!TextUtils.isEmpty(eJ)) {
+            httpMessage.addHeader("sid", eJ);
         }
         String netType = h.getNetType();
         if (!TextUtils.isEmpty(netType)) {
@@ -88,15 +88,15 @@ public class a extends com.baidu.adp.framework.a.d {
         }
         String netType = h.getNetType();
         if (netType != null) {
-            String rt = com.baidu.tbadk.coreExtra.a.a.rr().rt();
+            String rF = com.baidu.tbadk.coreExtra.a.a.rD().rF();
             if (TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(netType)) {
                 if (TbadkCoreApplication.m255getInst().getKeepaliveWifi() == 1) {
-                    rt = String.valueOf(rt) + "ka=open";
+                    rF = String.valueOf(rF) + "ka=open";
                 }
             } else if (TbadkCoreApplication.m255getInst().getKeepaliveNonWifi() == 1) {
-                rt = String.valueOf(rt) + "ka=open";
+                rF = String.valueOf(rF) + "ka=open";
             }
-            httpMessage.addHeader("Cookie", rt);
+            httpMessage.addHeader("Cookie", rF);
         }
         if (tbHttpMessageTask.isNeedTbs()) {
             httpMessage.addParam("tbs", TbadkCoreApplication.m255getInst().getTbs());
@@ -132,18 +132,18 @@ public class a extends com.baidu.adp.framework.a.d {
     }
 
     private void e(HttpMessage httpMessage) {
-        ap pp = ao.pp();
-        if (pp != null) {
-            httpMessage.addParam("stTime", String.valueOf(pp.mTime));
-            httpMessage.addParam("stSize", String.valueOf(pp.mSize));
-            httpMessage.addParam("stTimesNum", String.valueOf(pp.IV));
-            httpMessage.addParam("stMode", String.valueOf(pp.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(pp.IU));
+        ap ps = ao.ps();
+        if (ps != null) {
+            httpMessage.addParam("stTime", String.valueOf(ps.mTime));
+            httpMessage.addParam("stSize", String.valueOf(ps.mSize));
+            httpMessage.addParam("stTimesNum", String.valueOf(ps.Jf));
+            httpMessage.addParam("stMode", String.valueOf(ps.mMode));
+            httpMessage.addParam("stMethod", String.valueOf(ps.Je));
         }
-        int bS = ao.bS(0);
-        if (bS == 0 && pp != null) {
-            bS = pp.IV;
+        int bX = ao.bX(0);
+        if (bX == 0 && ps != null) {
+            bX = ps.Jf;
         }
-        httpMessage.addParam("stErrorNums", String.valueOf(bS));
+        httpMessage.addParam("stErrorNums", String.valueOf(bX));
     }
 }

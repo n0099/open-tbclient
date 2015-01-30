@@ -11,37 +11,37 @@ public class i implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.d.h
     public Object g(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        Class<?> cs = cVar.cs();
-        if (cs == Byte.class || cs == Byte.TYPE) {
+        Class<?> cq = cVar.cq();
+        if (cq == Byte.class || cq == Byte.TYPE) {
             return Byte.valueOf(this.value.byteValue());
         }
-        if (cs == Short.class || cs == Short.TYPE) {
+        if (cq == Short.class || cq == Short.TYPE) {
             return Short.valueOf(this.value.shortValue());
         }
-        if (cs == Integer.class || cs == Integer.TYPE) {
+        if (cq == Integer.class || cq == Integer.TYPE) {
             return Integer.valueOf(this.value.intValue());
         }
-        if (cs == Long.class || cs == Long.TYPE) {
+        if (cq == Long.class || cq == Long.TYPE) {
             return Long.valueOf(this.value.longValue());
         }
-        if (cs == Float.class || cs == Float.TYPE) {
+        if (cq == Float.class || cq == Float.TYPE) {
             return Float.valueOf(this.value.floatValue());
         }
-        if (cs == Double.class || cs == Double.TYPE) {
+        if (cq == Double.class || cq == Double.TYPE) {
             return Double.valueOf(this.value.doubleValue());
         }
-        if (cs == Character.class || cs == Character.TYPE) {
+        if (cq == Character.class || cq == Character.TYPE) {
             return Character.valueOf((char) this.value.intValue());
         }
-        if (cs == Boolean.class || cs == Boolean.TYPE) {
+        if (cq == Boolean.class || cq == Boolean.TYPE) {
             return Boolean.valueOf(this.value.byteValue() == 0);
-        } else if (cs == String.class) {
+        } else if (cq == String.class) {
             return String.valueOf(this.value);
         } else {
-            if (cs == char[].class) {
+            if (cq == char[].class) {
                 return String.valueOf(this.value).toCharArray();
             }
-            if (cs == byte[].class) {
+            if (cq == byte[].class) {
                 try {
                     return com.baidu.adp.lib.webSocket.a.decode(String.valueOf(this.value), 0);
                 } catch (IOException e) {

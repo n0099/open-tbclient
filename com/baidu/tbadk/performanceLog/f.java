@@ -8,16 +8,16 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.a.a.a implements Runnable {
-    public static String afG = "logcat ";
-    private static Map<String, e> afI = new HashMap();
-    private Process afD;
-    private InputStream afE;
-    private OutputStream afF;
-    private g afH;
+    public static String agd = "logcat ";
+    private static Map<String, e> agf = new HashMap();
+    private Process aga;
+    private InputStream agb;
+    private OutputStream agc;
+    private g age;
 
     public static void a(String str, e eVar) {
-        afI.put(str, eVar);
-        afG = String.valueOf(afG) + " -s " + str;
+        agf.put(str, eVar);
+        agd = String.valueOf(agd) + " -s " + str;
     }
 
     public void eA(String str) {
@@ -26,7 +26,7 @@ public class f extends com.baidu.adp.a.a.a implements Runnable {
         while (true) {
             int i2 = i;
             if (i2 < split.length) {
-                Iterator<Map.Entry<String, e>> it = afI.entrySet().iterator();
+                Iterator<Map.Entry<String, e>> it = agf.entrySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
@@ -49,11 +49,11 @@ public class f extends com.baidu.adp.a.a.a implements Runnable {
         super.start();
         try {
             Runtime.getRuntime().exec("logcat -c");
-            this.afD = Runtime.getRuntime().exec(afG);
-            this.afF = this.afD.getOutputStream();
-            this.afE = this.afD.getInputStream();
-            yN();
-            this.afF.flush();
+            this.aga = Runtime.getRuntime().exec(agd);
+            this.agc = this.aga.getOutputStream();
+            this.agb = this.aga.getInputStream();
+            ze();
+            this.agc.flush();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e2) {
@@ -61,26 +61,26 @@ public class f extends com.baidu.adp.a.a.a implements Runnable {
         }
     }
 
-    private void yN() {
-        this.afH = new g(this, this.afE);
-        this.afH.start();
+    private void ze() {
+        this.age = new g(this, this.agb);
+        this.age.start();
     }
 
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
         try {
-            if (this.afD != null) {
-                this.afD.destroy();
+            if (this.aga != null) {
+                this.aga.destroy();
             }
-            if (this.afH != null) {
-                this.afH.finish();
+            if (this.age != null) {
+                this.age.finish();
             }
-            if (this.afE != null) {
-                this.afE.close();
+            if (this.agb != null) {
+                this.agb.close();
             }
-            if (this.afF != null) {
-                this.afF.close();
+            if (this.agc != null) {
+                this.agc.close();
             }
         } catch (IOException e) {
             e.printStackTrace();

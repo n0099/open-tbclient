@@ -9,10 +9,11 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.PraiseListActivityConfig;
 import com.baidu.tbadk.mvc.core.MvcActivity;
+import com.baidu.tbadk.util.j;
 /* loaded from: classes.dex */
 public class PraiseListActivity extends MvcActivity<h, e, PraiseListActivity> implements View.OnClickListener, AdapterView.OnItemClickListener, com.baidu.tbadk.mvc.c.a {
-    private h bDr = null;
-    private e bDs = null;
+    private h bFc = null;
+    private e bFd = null;
 
     static {
         TbadkCoreApplication.m255getInst().RegisterIntent(PraiseListActivityConfig.class, PraiseListActivity.class);
@@ -22,14 +23,14 @@ public class PraiseListActivity extends MvcActivity<h, e, PraiseListActivity> im
     @Override // com.baidu.tbadk.mvc.core.MvcActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        wx().addEventDelegate(this);
+        wN().addEventDelegate(this);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == ky().getPageHeadView()) {
-            if (!kw().bDx.Za()) {
-                com.baidu.tbadk.util.g.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(kw().bDx.getThreadId(), null, "praise_list"));
+            if (!kw().bFi.ZF()) {
+                j.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(kw().bFi.getThreadId(), null, "praise_list"));
             }
             finish();
         }
@@ -38,28 +39,28 @@ public class PraiseListActivity extends MvcActivity<h, e, PraiseListActivity> im
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         a aVar;
-        if (i >= 0 && i < kw().bDw.YZ().size() && (aVar = kw().bDw.YZ().get(i)) != null) {
-            com.baidu.tbadk.util.g.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), aVar.getUserId(), aVar.YT(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
+        if (i >= 0 && i < kw().bFh.ZE().size() && (aVar = kw().bFh.ZE().get(i)) != null) {
+            j.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), aVar.getUserId(), aVar.Zy(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.core.e
-    /* renamed from: YV */
+    /* renamed from: ZA */
     public e kw() {
-        if (this.bDs == null) {
-            this.bDs = new e(this);
+        if (this.bFd == null) {
+            this.bFd = new e(this);
         }
-        return this.bDs;
+        return this.bFd;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.core.e
-    /* renamed from: YW */
+    /* renamed from: ZB */
     public h ky() {
-        if (this.bDr == null) {
-            this.bDr = new h(this);
+        if (this.bFc == null) {
+            this.bFc = new h(this);
         }
-        return this.bDr;
+        return this.bFc;
     }
 }

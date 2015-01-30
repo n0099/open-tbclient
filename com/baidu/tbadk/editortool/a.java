@@ -7,13 +7,13 @@ public class a extends ae {
 
     public a(x xVar) {
         this.groupId = xVar.getGroupId();
-        di(1);
-        dh(4);
+        dq(1);
+        dp(4);
     }
 
     public boolean a(x xVar, c cVar) {
         if (xVar instanceof AdsEmotionGroupData) {
-            com.baidu.adp.lib.f.d.ee().a(((AdsEmotionGroupData) xVar).getColorCoverUrl(), 10, new b(this, cVar), null);
+            com.baidu.adp.lib.f.d.ec().a(((AdsEmotionGroupData) xVar).getColorCoverUrl(), 10, new b(this, cVar), null);
             if (isReady()) {
                 cVar.a(this);
                 return true;
@@ -24,16 +24,16 @@ public class a extends ae {
     }
 
     @Override // com.baidu.tbadk.editortool.ae
-    public com.baidu.adp.widget.a.a uT() {
-        return super.vs();
+    public com.baidu.adp.widget.a.a vk() {
+        return super.vK();
     }
 
     public boolean isReady() {
-        return vs() != null;
+        return vK() != null;
     }
 
     @Override // com.baidu.tbadk.editortool.ae
-    public String de(int i) {
+    public String dl(int i) {
         return null;
     }
 
@@ -43,7 +43,7 @@ public class a extends ae {
     }
 
     @Override // com.baidu.tbadk.editortool.ae
-    public EmotionGroupType uU() {
+    public EmotionGroupType vl() {
         return EmotionGroupType.PROMOTION;
     }
 
@@ -83,7 +83,7 @@ public class a extends ae {
     }
 
     @Override // com.baidu.tbadk.editortool.ae
-    public boolean uV() {
+    public boolean vm() {
         return false;
     }
 }

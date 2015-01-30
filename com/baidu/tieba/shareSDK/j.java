@@ -9,11 +9,11 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.coreExtra.message.ShareSDKResultMessage;
 /* loaded from: classes.dex */
 class j implements com.baidu.tieba.tbadkCore.f.b {
-    final /* synthetic */ WriteShareActivity bNV;
+    final /* synthetic */ WriteShareActivity bPF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(WriteShareActivity writeShareActivity) {
-        this.bNV = writeShareActivity;
+        this.bPF = writeShareActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.f.b
@@ -22,36 +22,36 @@ class j implements com.baidu.tieba.tbadkCore.f.b {
         com.baidu.tbadk.core.dialog.e eVar2;
         com.baidu.tbadk.core.dialog.e eVar3;
         com.baidu.tbadk.core.dialog.e eVar4;
-        this.bNV.closeLoadingDialog();
+        this.bPF.closeLoadingDialog();
         if (!z) {
             if (jVar != null && writeData != null && jVar.getVcode_pic_url() != null) {
                 writeData.setVcodeMD5(jVar.getVcode_md5());
                 writeData.setVcodeUrl(jVar.getVcode_pic_url());
-                this.bNV.bNJ = true;
-                if (jVar.rD().equals("4")) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.bNV.getPageContext().getPageActivity(), 12006, writeData, false)));
+                this.bPF.bPt = true;
+                if (jVar.rQ().equals("4")) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.bPF.getPageContext().getPageActivity(), 12006, writeData, false)));
                     return;
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.bNV.getPageContext().getPageActivity(), writeData, 12006)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.bPF.getPageContext().getPageActivity(), writeData, 12006)));
                     return;
                 }
             }
-            this.bNV.acx();
-            eVar = this.bNV.bNM;
+            this.bPF.adb();
+            eVar = this.bPF.bPw;
             if (eVar != null) {
-                this.bNV.bNK = false;
-                eVar2 = this.bNV.bNM;
-                eVar2.nV();
+                this.bPF.bPu = false;
+                eVar2 = this.bPF.bPw;
+                eVar2.nY();
                 return;
             }
             return;
         }
-        this.bNV.acw();
-        eVar3 = this.bNV.bNL;
+        this.bPF.ada();
+        eVar3 = this.bPF.bPv;
         if (eVar3 != null) {
-            this.bNV.bNK = true;
-            eVar4 = this.bNV.bNL;
-            eVar4.nV();
+            this.bPF.bPu = true;
+            eVar4 = this.bPF.bPv;
+            eVar4.nY();
             MessageManager.getInstance().dispatchResponsedMessage(new ShareSDKResultMessage(true));
         }
     }

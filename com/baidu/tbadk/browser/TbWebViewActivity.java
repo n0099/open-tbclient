@@ -22,8 +22,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.account.AccountLoginHelper;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.core.view.MorePopupWindow;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
@@ -36,12 +36,11 @@ public class TbWebViewActivity extends BaseActivity<TbWebViewActivity> {
     public static final String KEY_INSTALL_PLUGIN_DIALOG_CLOSED = "install_plugin_dialog_closed";
     public static final String KEY_INSTALL_PLUGIN_DIALOG_SHOWN_TIME = "install_plugin_dialog_shown_time";
     public static final int REQUEST_CODE_PLUGIN_DOWNLOAD_ACTIVITY = 1;
-    private static final long THREE_DAYS = 259200000;
     private static HashMap<String, m> mJsInterfaces = null;
     private ImageView mBottomBack;
     private ImageView mBottomRefresh;
     protected RelativeLayout mBottomTool;
-    private com.baidu.tbadk.util.m mCookieInfo;
+    private com.baidu.tbadk.util.p mCookieInfo;
     private View mCopyLink;
     private boolean mEnableJs;
     protected NavigationBar mNavigationBar;
@@ -86,7 +85,7 @@ public class TbWebViewActivity extends BaseActivity<TbWebViewActivity> {
         }
         this.mNeedCookie = intent.getBooleanExtra(TbWebViewActivityConfig.TAG_COOKIE, false);
         this.mEnableJs = intent.getBooleanExtra(TbWebViewActivityConfig.TAG_ENABLE_JS, false);
-        if (ba.isEmpty(this.mUrl)) {
+        if (bf.isEmpty(this.mUrl)) {
             com.baidu.adp.lib.util.l.showToast(getPageContext().getContext(), getResources().getString(z.url_is_null));
             return;
         }
@@ -110,7 +109,7 @@ public class TbWebViewActivity extends BaseActivity<TbWebViewActivity> {
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(this.mCommonTitle);
         this.mBottomTool = (RelativeLayout) findViewById(com.baidu.tieba.w.webview_bottom_navigation_bar);
-        View inflate = com.baidu.adp.lib.g.b.ek().inflate(getPageContext().getContext(), com.baidu.tieba.x.tb_webview_pop_more, null);
+        View inflate = com.baidu.adp.lib.g.b.ei().inflate(getPageContext().getContext(), com.baidu.tieba.x.tb_webview_pop_more, null);
         this.mPopWindow = new MorePopupWindow(getPageContext().getPageActivity(), inflate, this.mNavigationBar, getResources().getDrawable(com.baidu.tieba.v.bg_pull_down_right_n), new g(this));
         this.mShareFriends = inflate.findViewById(com.baidu.tieba.w.webview_more_pop_item_share_friend_layout);
         this.mShareFriends.setOnClickListener(this);
@@ -147,12 +146,12 @@ public class TbWebViewActivity extends BaseActivity<TbWebViewActivity> {
         if (view == this.mShareFriends) {
             com.baidu.tbadk.coreExtra.share.f fVar = new com.baidu.tbadk.coreExtra.share.f();
             fVar.content = this.mCommonTitle;
-            fVar.SJ = this.mUrl;
+            fVar.Tq = this.mUrl;
             if (fVar != null) {
                 showShareDialog(fVar);
             }
         } else if (view == this.mOpenBrowser) {
-            a.A(getPageContext().getPageActivity(), this.mUrl);
+            a.z(getPageContext().getPageActivity(), this.mUrl);
         } else if (view == this.mCopyLink) {
             com.baidu.adp.lib.util.a.copyToClipboard(this.mUrl);
             com.baidu.adp.lib.util.l.showToast(view.getContext(), view.getResources().getString(z.copy_pb_url_success));
@@ -176,24 +175,24 @@ public class TbWebViewActivity extends BaseActivity<TbWebViewActivity> {
         if (!this.mAutoChangeStyle) {
             i = 0;
         }
-        ax.e(this.mParent, i);
+        bc.e(this.mParent, 0);
         if (this.mWebView != null) {
-            ax.e(this.mWebView, i);
+            bc.e(this.mWebView, 0);
         }
         if (this.mNavigationBar != null && this.mNavigationBar.getVisibility() == 0) {
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         }
-        ax.i(this.mBottomTool, com.baidu.tieba.v.bg_bar);
+        bc.i(this.mBottomTool, com.baidu.tieba.v.bg_bar);
         if (this.mWebView != null && this.mWebView.canGoBack()) {
-            ax.c(this.mBottomBack, com.baidu.tieba.v.icon_webview_return_n);
+            bc.c(this.mBottomBack, com.baidu.tieba.v.icon_webview_return_n);
         } else {
-            ax.c(this.mBottomBack, com.baidu.tieba.v.icon_webview_return_dd);
+            bc.c(this.mBottomBack, com.baidu.tieba.v.icon_webview_return_dd);
         }
-        ax.i(this.mBottomBack, com.baidu.tieba.v.title_icon_bg);
-        ax.c(this.mBottomRefresh, com.baidu.tieba.v.icon_webview_refresh_n);
-        ax.i(this.mBottomRefresh, com.baidu.tieba.v.title_icon_bg);
+        bc.i(this.mBottomBack, com.baidu.tieba.v.title_icon_bg);
+        bc.c(this.mBottomRefresh, com.baidu.tieba.v.icon_webview_refresh_n);
+        bc.i(this.mBottomRefresh, com.baidu.tieba.v.title_icon_bg);
         if (this.mPopWindow != null) {
-            this.mPopWindow.onChangeSkinType(this, i, ax.getDrawable(com.baidu.tieba.v.bg_pull_down_right_n));
+            this.mPopWindow.onChangeSkinType(this, i, bc.getDrawable(com.baidu.tieba.v.bg_pull_down_right_n));
         }
     }
 
@@ -206,7 +205,7 @@ public class TbWebViewActivity extends BaseActivity<TbWebViewActivity> {
             mJsInterfaces.put("TbJsBridge", new k(this));
         }
         for (String str : mJsInterfaces.keySet()) {
-            this.mWebView.addJavascriptInterface(mJsInterfaces.get(str).n(getPageContext().getPageActivity()), str);
+            this.mWebView.addJavascriptInterface(mJsInterfaces.get(str).o(getPageContext().getPageActivity()), str);
         }
     }
 
@@ -214,7 +213,7 @@ public class TbWebViewActivity extends BaseActivity<TbWebViewActivity> {
         if (this.mWebView == null) {
             try {
                 this.mWebView = new BaseWebView(getPageContext().getContext());
-                ax.e(this.mWebView, TbadkCoreApplication.m255getInst().getSkinType());
+                bc.e(this.mWebView, TbadkCoreApplication.m255getInst().getSkinType());
                 this.mWebView.getSettings().setJavaScriptEnabled(true);
                 this.mWebView.getSettings().setAllowFileAccess(true);
                 this.mWebView.getSettings().setDatabaseEnabled(true);
@@ -296,13 +295,13 @@ public class TbWebViewActivity extends BaseActivity<TbWebViewActivity> {
                 if (parseBDUSS.mPtoken != null) {
                     str = str3;
                     str2 = parseBDUSS.mPtoken;
-                    com.baidu.tbadk.util.m mVar = new com.baidu.tbadk.util.m(str, str2);
-                    if (this.mCookieInfo == null && (this.mCookieInfo == null || !this.mCookieInfo.equals(mVar))) {
+                    com.baidu.tbadk.util.p pVar = new com.baidu.tbadk.util.p(str, str2);
+                    if (this.mCookieInfo == null && (this.mCookieInfo == null || !this.mCookieInfo.equals(pVar))) {
                         z = true;
                     } else {
                         z = false;
                     }
-                    this.mCookieInfo = mVar;
+                    this.mCookieInfo = pVar;
                     if (this.mWebView == null && z) {
                         a.Q(getPageContext().getContext());
                         this.mHandler.postDelayed(this.mRunnable, 100L);
@@ -312,11 +311,11 @@ public class TbWebViewActivity extends BaseActivity<TbWebViewActivity> {
             }
             str = str3;
             str2 = "";
-            com.baidu.tbadk.util.m mVar2 = new com.baidu.tbadk.util.m(str, str2);
+            com.baidu.tbadk.util.p pVar2 = new com.baidu.tbadk.util.p(str, str2);
             if (this.mCookieInfo == null) {
             }
             z = false;
-            this.mCookieInfo = mVar2;
+            this.mCookieInfo = pVar2;
             if (this.mWebView == null) {
             }
         }

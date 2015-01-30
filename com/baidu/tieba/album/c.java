@@ -7,11 +7,11 @@ import android.widget.ImageView;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 class c implements View.OnClickListener {
-    final /* synthetic */ b aoT;
+    final /* synthetic */ b apR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.aoT = bVar;
+        this.apR = bVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,11 +19,11 @@ class c implements View.OnClickListener {
         h hVar;
         h hVar2;
         int i;
-        p pVar;
+        n nVar;
         AlbumActivity albumActivity;
         h hVar3;
         int i2;
-        p pVar2;
+        n nVar2;
         AlbumActivity albumActivity2;
         ImageView imageView;
         AlbumActivity albumActivity3;
@@ -34,43 +34,43 @@ class c implements View.OnClickListener {
         ImageView imageView3;
         AlbumActivity albumActivity6;
         int i4;
-        hVar = this.aoT.aoQ;
+        hVar = this.apR.apO;
         if (hVar != null) {
-            hVar2 = this.aoT.aoQ;
-            i = this.aoT.mCurrentIndex;
-            ImageFileInfo eg = hVar2.eg(i);
-            pVar = this.aoT.aoJ;
-            if (pVar != null) {
-                albumActivity = this.aoT.aoO;
+            hVar2 = this.apR.apO;
+            i = this.apR.mCurrentIndex;
+            ImageFileInfo em = hVar2.em(i);
+            nVar = this.apR.apH;
+            if (nVar != null) {
+                albumActivity = this.apR.apM;
                 if (albumActivity != null) {
-                    hVar3 = this.aoT.aoQ;
-                    i2 = this.aoT.mCurrentIndex;
-                    if (hVar3.eh(i2)) {
-                        pVar2 = this.aoT.aoJ;
-                        if (pVar2.isAdded(eg)) {
-                            albumActivity5 = this.aoT.aoO;
-                            if (albumActivity5.c(eg)) {
-                                b bVar = this.aoT;
-                                imageView3 = this.aoT.aoR;
+                    hVar3 = this.apR.apO;
+                    i2 = this.apR.mCurrentIndex;
+                    if (hVar3.en(i2)) {
+                        nVar2 = this.apR.apH;
+                        if (nVar2.isAdded(em)) {
+                            albumActivity5 = this.apR.apM;
+                            if (albumActivity5.c(em)) {
+                                b bVar = this.apR;
+                                imageView3 = this.apR.apP;
                                 bVar.a(imageView3, false);
-                                albumActivity6 = this.aoT.aoO;
-                                i4 = this.aoT.mCurrentIndex;
+                                albumActivity6 = this.apR.apM;
+                                i4 = this.apR.mCurrentIndex;
                                 albumActivity6.k(i4, false);
                                 return;
                             }
                             return;
                         }
-                        albumActivity2 = this.aoT.aoO;
-                        if (albumActivity2.b(eg)) {
-                            b bVar2 = this.aoT;
-                            imageView = this.aoT.aoR;
+                        albumActivity2 = this.apR.apM;
+                        if (albumActivity2.b(em)) {
+                            b bVar2 = this.apR;
+                            imageView = this.apR.apP;
                             bVar2.a(imageView, true);
-                            albumActivity3 = this.aoT.aoO;
-                            i3 = this.aoT.mCurrentIndex;
+                            albumActivity3 = this.apR.apM;
+                            i3 = this.apR.mCurrentIndex;
                             albumActivity3.k(i3, true);
-                            albumActivity4 = this.aoT.aoO;
+                            albumActivity4 = this.apR.apM;
                             Animation loadAnimation = AnimationUtils.loadAnimation(albumActivity4.getPageContext().getContext(), com.baidu.tieba.q.album_choose_icon);
-                            imageView2 = this.aoT.aoR;
+                            imageView2 = this.apR.apP;
                             imageView2.startAnimation(loadAnimation);
                         }
                     }

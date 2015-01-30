@@ -4,7 +4,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.im.chat.MsglistActivity;
-import com.baidu.tieba.im.chat.ar;
+import com.baidu.tieba.im.chat.au;
 import com.baidu.tieba.im.message.GroupSaveDraftMessage;
 import com.baidu.tieba.im.message.LoadGroupDraftMessage;
 import com.baidu.tieba.im.message.LoadGroupHistoryMessage;
@@ -26,7 +26,7 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                ar callback;
+                au callback;
                 if (customResponsedMessage != null) {
                     if (customResponsedMessage.getCmd() == 2013005) {
                         GroupMsglistModel.this.processServerMsg(customResponsedMessage);
@@ -52,17 +52,17 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean loadFirst(ar arVar) {
+    public boolean loadFirst(au auVar) {
         if (this.mGroup == null) {
             return false;
         }
         c cVar = new c();
         cVar.limit = 20;
-        cVar.bhN = null;
-        cVar.bhO = null;
+        cVar.bji = null;
+        cVar.bjj = null;
         cVar.id = new StringBuilder(String.valueOf(this.mGroup.getGroupId())).toString();
         LoadGroupHistoryMessage loadGroupHistoryMessage = new LoadGroupHistoryMessage(cVar);
-        loadGroupHistoryMessage.setCallback(arVar);
+        loadGroupHistoryMessage.setCallback(auVar);
         super.sendMessage(loadGroupHistoryMessage);
         return true;
     }
@@ -80,8 +80,8 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
                 j = this.mDatas.getChatMessages().get(0).getMsgId();
                 j2 = this.mDatas.getChatMessages().get(0).getRecordId();
             }
-            cVar.bhN = String.valueOf(j);
-            cVar.bhO = String.valueOf(j2);
+            cVar.bji = String.valueOf(j);
+            cVar.bjj = String.valueOf(j2);
             cVar.id = new StringBuilder(String.valueOf(this.mGroup.getGroupId())).toString();
             super.sendMessage(new LoadGroupHistoryMessage(cVar));
         }

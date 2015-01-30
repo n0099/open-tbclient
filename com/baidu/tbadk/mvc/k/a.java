@@ -14,8 +14,8 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class a extends i implements y {
-    private e<?, ?, ?> afe;
-    private View aff;
+    private e<?, ?, ?> afB;
+    private View afC;
     private int padding;
     private TextView mTextView = null;
     private ProgressBar mProgressBar = null;
@@ -23,52 +23,52 @@ public class a extends i implements y {
     private View mRoot = null;
 
     public a(e<?, ?, ?> eVar) {
-        this.afe = null;
-        this.afe = eVar;
-        this.padding = this.afe.getResources().getDimensionPixelSize(u.listview_item_margin);
+        this.afB = null;
+        this.afB = eVar;
+        this.padding = this.afB.getResources().getDimensionPixelSize(u.listview_item_margin);
     }
 
     @Override // com.baidu.adp.widget.ListView.i
-    public View jx() {
-        this.mRoot = com.baidu.adp.lib.g.b.ek().inflate(this.afe.getPageContext().getPageActivity(), x.new_pb_list_more, null);
+    public View jy() {
+        this.mRoot = com.baidu.adp.lib.g.b.ei().inflate(this.afB.getPageContext().getPageActivity(), x.new_pb_list_more, null);
         this.mRoot.setPadding(0, this.padding, 0, this.padding);
         this.mTextView = (TextView) this.mRoot.findViewById(w.pb_more_text);
-        this.aff = this.mRoot.findViewById(w.pb_more_view);
-        this.aff.setVisibility(8);
+        this.afC = this.mRoot.findViewById(w.pb_more_view);
+        this.afC.setVisibility(8);
         this.mProgressBar = (ProgressBar) this.mRoot.findViewById(w.progress);
-        a(this.afe.getPageContext(), TbadkCoreApplication.m255getInst().getSkinType());
-        this.aff.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        a(this.afB.getPageContext(), TbadkCoreApplication.m255getInst().getSkinType());
+        this.afC.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         return this.mRoot;
     }
 
     @Override // com.baidu.tieba.tbadkCore.y
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        this.afe.getLayoutMode().h(this.aff);
+        this.afB.getLayoutMode().h(this.afC);
         return true;
     }
 
     public void hide() {
-        this.aff.setVisibility(8);
+        this.afC.setVisibility(8);
         this.mRoot.setPadding(0, 0, 0, 0);
     }
 
-    public void yB() {
-        this.aff.setVisibility(0);
+    public void yR() {
+        this.afC.setVisibility(0);
         this.mRoot.setPadding(0, this.padding, 0, this.padding);
     }
 
-    public void dJ(int i) {
+    public void dP(int i) {
         this.mProgressBar.setVisibility(0);
         this.mTextView.setText(i);
-        this.aff.setVisibility(0);
+        this.afC.setVisibility(0);
     }
 
-    public void dK(int i) {
+    public void dQ(int i) {
         this.mProgressBar.setVisibility(8);
         this.mTextView.setText(i);
     }
 
-    public void dL(int i) {
+    public void dR(int i) {
         this.mProgressBar.setVisibility(8);
         this.mTextView.setText(i);
     }

@@ -16,8 +16,8 @@ class k extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.this$0.caZ = false;
-        this.this$0.cba = false;
-        this.this$0.eA(false);
+        this.this$0.ccP = false;
+        this.this$0.ccQ = false;
+        this.this$0.eH(false);
     }
 }

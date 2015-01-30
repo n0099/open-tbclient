@@ -12,14 +12,14 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class UserPhotoLayout extends LinearLayout implements AbsListView.RecyclerListener {
     private boolean mAutoChangeStyle;
-    private av mChildClickListener;
+    private aw mChildClickListener;
     private int mChildCount;
     private Context mContext;
     private List<MetaData> mDatas;
     private int mItemSize;
     private int mNormalShowCount;
     private int mPadding;
-    private aw mTbRecyclerListener;
+    private ax mTbRecyclerListener;
     private com.baidu.adp.lib.e.b<HeadImageView> mUserPhotoPool;
 
     public void setAutoChangeStyle(boolean z) {
@@ -57,27 +57,27 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         this.mContext = context;
         this.mPadding = com.baidu.adp.lib.util.l.dip2px(this.mContext, this.mPadding);
         this.mItemSize = (int) this.mContext.getResources().getDimension(com.baidu.tieba.u.ds60);
-        if (this.mContext instanceof ax) {
-            ax axVar = (ax) this.mContext;
-            this.mUserPhotoPool = axVar.qH();
-            if (axVar.getListView() != null && this.mTbRecyclerListener == null) {
-                this.mTbRecyclerListener = new aw(axVar.qG());
-                axVar.getListView().setRecyclerListener(this.mTbRecyclerListener);
+        if (this.mContext instanceof ay) {
+            ay ayVar = (ay) this.mContext;
+            this.mUserPhotoPool = ayVar.qS();
+            if (ayVar.getListView() != null && this.mTbRecyclerListener == null) {
+                this.mTbRecyclerListener = new ax(ayVar.qR());
+                ayVar.getListView().setRecyclerListener(this.mTbRecyclerListener);
             }
         }
-        setOnHierarchyChangeListener(new as(this));
+        setOnHierarchyChangeListener(new at(this));
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view) {
         super.addView(view);
-        view.setOnClickListener(new au(this, getChildCount() - 1, null));
+        view.setOnClickListener(new av(this, getChildCount() - 1, null));
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i) {
         super.addView(view, i);
-        view.setOnClickListener(new au(this, getChildCount() - 1, null));
+        view.setOnClickListener(new av(this, getChildCount() - 1, null));
     }
 
     public void setData(List<MetaData> list, boolean z) {
@@ -152,8 +152,8 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         }
     }
 
-    public void setOnChildClickListener(av avVar) {
-        this.mChildClickListener = avVar;
+    public void setOnChildClickListener(aw awVar) {
+        this.mChildClickListener = awVar;
     }
 
     public void reset() {
@@ -170,13 +170,13 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     }
 
     public static com.baidu.adp.lib.e.b<HeadImageView> createUserPhotoPool(Context context, int i) {
-        return new com.baidu.adp.lib.e.b<>(new at(context), i, 0);
+        return new com.baidu.adp.lib.e.b<>(new au(context), i, 0);
     }
 
     private HeadImageView getImageView(Context context) {
         HeadImageView headImageView = null;
         if (this.mUserPhotoPool != null) {
-            headImageView = this.mUserPhotoPool.ec();
+            headImageView = this.mUserPhotoPool.ea();
         }
         if (headImageView == null || headImageView.getParent() != null) {
             return new HeadImageView(context);

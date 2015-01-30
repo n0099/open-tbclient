@@ -6,11 +6,11 @@ import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai implements View.OnClickListener {
-    final /* synthetic */ af buS;
+    final /* synthetic */ af bwo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(af afVar) {
-        this.buS = afVar;
+        this.bwo = afVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -37,70 +37,70 @@ public class ai implements View.OnClickListener {
         q qVar9;
         q qVar10;
         q qVar11;
-        view2 = this.buS.buR;
+        view2 = this.bwo.bwn;
         if (view == view2) {
-            qVar11 = this.buS.buD;
-            qVar11.gJ(0);
+            qVar11 = this.bwo.bvZ;
+            qVar11.gS(0);
             return;
         }
-        settingTextImageView = this.buS.buF;
+        settingTextImageView = this.bwo.bwb;
         if (view == settingTextImageView) {
-            qVar10 = this.buS.buD;
-            qVar10.gJ(1);
+            qVar10 = this.bwo.bvZ;
+            qVar10.gS(1);
             return;
         }
-        tbSettingTextTipView = this.buS.buG;
+        tbSettingTextTipView = this.bwo.bwc;
         if (view == tbSettingTextTipView) {
-            qVar9 = this.buS.buD;
-            qVar9.gJ(2);
+            qVar9 = this.bwo.bvZ;
+            qVar9.gS(2);
             return;
         }
-        tbSettingTextTipView2 = this.buS.buH;
+        tbSettingTextTipView2 = this.bwo.bwd;
         if (view == tbSettingTextTipView2) {
-            qVar8 = this.buS.buD;
-            qVar8.gJ(3);
+            qVar8 = this.bwo.bvZ;
+            qVar8.gS(3);
             return;
         }
-        tbSettingTextTipView3 = this.buS.buI;
+        tbSettingTextTipView3 = this.bwo.bwe;
         if (view == tbSettingTextTipView3) {
-            qVar7 = this.buS.buD;
-            qVar7.gJ(4);
+            qVar7 = this.bwo.bvZ;
+            qVar7.gS(4);
             return;
         }
-        tbSettingTextTipView4 = this.buS.buJ;
+        tbSettingTextTipView4 = this.bwo.bwf;
         if (view == tbSettingTextTipView4) {
-            qVar6 = this.buS.buD;
-            qVar6.gJ(9);
+            qVar6 = this.bwo.bvZ;
+            qVar6.gS(9);
             return;
         }
-        settingTextVersionView = this.buS.buK;
+        settingTextVersionView = this.bwo.bwg;
         if (view == settingTextVersionView) {
-            qVar5 = this.buS.buD;
-            qVar5.gJ(6);
+            qVar5 = this.bwo.bvZ;
+            qVar5.gS(6);
             return;
         }
-        tbSettingTextTipView5 = this.buS.buL;
+        tbSettingTextTipView5 = this.bwo.bwh;
         if (view == tbSettingTextTipView5) {
-            qVar4 = this.buS.buD;
-            qVar4.gJ(7);
+            qVar4 = this.bwo.bvZ;
+            qVar4.gS(7);
             return;
         }
-        tbSettingTextTipView6 = this.buS.buM;
+        tbSettingTextTipView6 = this.bwo.bwi;
         if (view == tbSettingTextTipView6) {
-            qVar3 = this.buS.buD;
-            qVar3.gJ(8);
+            qVar3 = this.bwo.bvZ;
+            qVar3.gS(8);
             return;
         }
-        tbSettingTextNewDotView = this.buS.buO;
+        tbSettingTextNewDotView = this.bwo.bwk;
         if (view == tbSettingTextNewDotView) {
-            qVar2 = this.buS.buD;
-            qVar2.gJ(5);
+            qVar2 = this.bwo.bvZ;
+            qVar2.gS(5);
             return;
         }
-        tbSettingTextTipView7 = this.buS.buP;
+        tbSettingTextTipView7 = this.bwo.bwl;
         if (view == tbSettingTextTipView7) {
-            qVar = this.buS.buD;
-            qVar.gJ(10);
+            qVar = this.bwo.bvZ;
+            qVar.gS(10);
         }
     }
 }

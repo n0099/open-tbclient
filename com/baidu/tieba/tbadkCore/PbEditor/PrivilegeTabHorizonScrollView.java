@@ -8,17 +8,18 @@ import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.widget.TbImageView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PrivilegeTabHorizonScrollView extends HorizontalScrollView {
-    private int XN;
-    private int XO;
-    private TextView XR;
-    private LinearLayout.LayoutParams XS;
-    private View XU;
-    private al bUU;
-    private aw bUV;
+    private View YA;
+    private int Yt;
+    private int Yu;
+    private TextView Yx;
+    private LinearLayout.LayoutParams Yy;
+    private al bWN;
+    private aw bWO;
     private int mCurrentIndex;
     private List<ao> mDatas;
 
@@ -44,21 +45,21 @@ public class PrivilegeTabHorizonScrollView extends HorizontalScrollView {
         removeAllViews();
         setFillViewport(true);
         setHorizontalScrollBarEnabled(false);
-        this.bUU = new al(getContext());
-        this.bUU.setOrientation(0);
-        this.bUU.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        this.bUU.setBaselineAligned(false);
-        addView(this.bUU);
-        this.XN = getResources().getDimensionPixelSize(com.baidu.tieba.u.face_tab_widget_tb_padding);
-        this.XO = getResources().getDimensionPixelSize(com.baidu.tieba.u.face_tab_widget_lr_padding);
-        this.bUU.setPadding(0, getResources().getDimensionPixelSize(com.baidu.tieba.u.default_gap_6), 0, 0);
-        this.XS = new LinearLayout.LayoutParams(getResources().getDimensionPixelSize(com.baidu.tieba.u.face_tab_widget_width), -1);
-        this.XU = new View(getContext());
+        this.bWN = new al(getContext());
+        this.bWN.setOrientation(0);
+        this.bWN.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        this.bWN.setBaselineAligned(false);
+        addView(this.bWN);
+        this.Yt = getResources().getDimensionPixelSize(com.baidu.tieba.u.face_tab_widget_tb_padding);
+        this.Yu = getResources().getDimensionPixelSize(com.baidu.tieba.u.face_tab_widget_lr_padding);
+        this.bWN.setPadding(0, getResources().getDimensionPixelSize(com.baidu.tieba.u.default_gap_6), 0, 0);
+        this.Yy = new LinearLayout.LayoutParams(getResources().getDimensionPixelSize(com.baidu.tieba.u.face_tab_widget_width), -1);
+        this.YA = new View(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1);
         layoutParams.weight = 1.0f;
-        this.XU.setLayoutParams(layoutParams);
-        com.baidu.tbadk.core.util.ax.i(this.XU, com.baidu.tieba.v.bg_expression_bar_n);
-        this.bUU.addView(this.XU);
+        this.YA.setLayoutParams(layoutParams);
+        bc.i(this.YA, com.baidu.tieba.v.bg_expression_bar_n);
+        this.bWN.addView(this.YA);
     }
 
     public void setDatas(List<ao> list) {
@@ -72,13 +73,13 @@ public class PrivilegeTabHorizonScrollView extends HorizontalScrollView {
         LinearLayout linearLayout = new LinearLayout(getContext());
         TbImageView tbImageView = new TbImageView(getContext());
         linearLayout.addView(tbImageView, new LinearLayout.LayoutParams(-1, -1));
-        com.baidu.tbadk.core.util.ax.i(linearLayout, com.baidu.tieba.v.bg_expression_bar);
-        tbImageView.setPadding(this.XO, this.XN, this.XO, this.XN);
+        bc.i(linearLayout, com.baidu.tieba.v.bg_expression_bar);
+        tbImageView.setPadding(this.Yu, this.Yt, this.Yu, this.Yt);
         linearLayout.setClickable(true);
         linearLayout.setFocusable(true);
-        com.baidu.tbadk.core.util.ax.c(tbImageView, aqVar.bUT);
-        linearLayout.setOnClickListener(new ar(this, this.bUU.getChildCount() - 1, null));
-        this.bUU.addView(linearLayout, this.bUU.getChildCount() - 1, this.XS);
+        bc.c(tbImageView, aqVar.bWM);
+        linearLayout.setOnClickListener(new ar(this, this.bWN.getChildCount() - 1, null));
+        this.bWN.addView(linearLayout, this.bWN.getChildCount() - 1, this.Yy);
         return tbImageView;
     }
 
@@ -90,39 +91,39 @@ public class PrivilegeTabHorizonScrollView extends HorizontalScrollView {
     public void setCurrentTab(int i) {
         if (i != this.mCurrentIndex) {
             if (this.mCurrentIndex != -1) {
-                LinearLayout linearLayout = (LinearLayout) this.bUU.getChildAt(this.mCurrentIndex);
+                LinearLayout linearLayout = (LinearLayout) this.bWN.getChildAt(this.mCurrentIndex);
                 linearLayout.setSelected(false);
-                ((TbImageView) linearLayout.getChildAt(0)).setImageResource(this.mDatas.get(this.mCurrentIndex).afR().bUT);
+                ((TbImageView) linearLayout.getChildAt(0)).setImageResource(this.mDatas.get(this.mCurrentIndex).agv().bWM);
             }
             this.mCurrentIndex = i;
-            LinearLayout linearLayout2 = (LinearLayout) this.bUU.getChildAt(this.mCurrentIndex);
+            LinearLayout linearLayout2 = (LinearLayout) this.bWN.getChildAt(this.mCurrentIndex);
             linearLayout2.setSelected(true);
-            com.baidu.tbadk.core.util.ax.c((TbImageView) linearLayout2.getChildAt(0), this.mDatas.get(this.mCurrentIndex).afR().bUS);
+            bc.c((TbImageView) linearLayout2.getChildAt(0), this.mDatas.get(this.mCurrentIndex).agv().bWL);
         }
     }
 
     public void reset() {
         this.mCurrentIndex = -1;
-        this.bUU.removeAllViews();
+        this.bWN.removeAllViews();
     }
 
-    public void cm(int i) {
-        if (this.XR != null) {
-            com.baidu.tbadk.core.util.ax.i((View) this.XR, com.baidu.tieba.v.icon_news_head_prompt_one);
-            this.XR.setTextColor(i == 1 ? Color.parseColor("#ffd2d2d2") : -1);
+    public void ct(int i) {
+        if (this.Yx != null) {
+            bc.i((View) this.Yx, com.baidu.tieba.v.icon_news_head_prompt_one);
+            this.Yx.setTextColor(i == 1 ? Color.parseColor("#ffd2d2d2") : -1);
         }
-        int childCount = this.bUU.getChildCount();
+        int childCount = this.bWN.getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
-            View childAt = this.bUU.getChildAt(i2);
+            View childAt = this.bWN.getChildAt(i2);
             if (childAt != null) {
-                com.baidu.tbadk.core.util.ax.i(childAt, com.baidu.tieba.v.bg_expression_bar);
+                bc.i(childAt, com.baidu.tieba.v.bg_expression_bar);
                 if (i2 != childCount - 1) {
                     TbImageView tbImageView = (TbImageView) ((LinearLayout) childAt).getChildAt(0);
                     if (tbImageView != null) {
                         if (i2 == this.mCurrentIndex) {
-                            com.baidu.tbadk.core.util.ax.c(tbImageView, this.mDatas.get(i2).afR().bUS);
+                            bc.c(tbImageView, this.mDatas.get(i2).agv().bWL);
                         } else {
-                            com.baidu.tbadk.core.util.ax.c(tbImageView, this.mDatas.get(i2).afR().bUT);
+                            bc.c(tbImageView, this.mDatas.get(i2).agv().bWM);
                         }
                     }
                 } else {
@@ -133,6 +134,6 @@ public class PrivilegeTabHorizonScrollView extends HorizontalScrollView {
     }
 
     public void setOnTabSelectedListener(aw awVar) {
-        this.bUV = awVar;
+        this.bWO = awVar;
     }
 }

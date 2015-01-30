@@ -1,18 +1,18 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class v extends aa {
-    public int pO;
-    public String pP;
+    public int pT;
+    public String pU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v() {
-        this.pO = -1;
-        this.pP = null;
+        this.pT = -1;
+        this.pU = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(int i, String str) {
-        this.pO = i;
-        this.pP = str;
+        this.pT = i;
+        this.pU = str;
     }
 }

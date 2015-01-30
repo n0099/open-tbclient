@@ -3,11 +3,11 @@ package com.baidu.tieba.im.chat.officialBar;
 import com.baidu.tieba.im.model.OfficialBarTipModel;
 /* loaded from: classes.dex */
 class aj implements com.baidu.tieba.im.chat.notify.a {
-    final /* synthetic */ OfficialBarTipActivity aTB;
+    final /* synthetic */ OfficialBarTipActivity aUR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(OfficialBarTipActivity officialBarTipActivity) {
-        this.aTB = officialBarTipActivity;
+        this.aUR = officialBarTipActivity;
     }
 
     @Override // com.baidu.tieba.im.chat.notify.a
@@ -18,20 +18,20 @@ class aj implements com.baidu.tieba.im.chat.notify.a {
         OfficialBarTipModel officialBarTipModel2;
         ao aoVar3;
         OfficialBarTipModel officialBarTipModel3;
-        aoVar = this.aTB.aTA;
+        aoVar = this.aUR.aUQ;
         if (aoVar != null) {
-            aoVar2 = this.aTB.aTA;
-            if (aoVar2.KK() != null) {
-                officialBarTipModel = this.aTB.aTz;
+            aoVar2 = this.aUR.aUQ;
+            if (aoVar2.Lf() != null) {
+                officialBarTipModel = this.aUR.aUP;
                 if (officialBarTipModel != null) {
-                    officialBarTipModel2 = this.aTB.aTz;
+                    officialBarTipModel2 = this.aUR.aUP;
                     if (officialBarTipModel2.getData().size() == 0) {
-                        this.aTB.finish();
+                        this.aUR.finish();
                     }
-                    aoVar3 = this.aTB.aTA;
-                    OfficialBarTipListAdapter KK = aoVar3.KK();
-                    officialBarTipModel3 = this.aTB.aTz;
-                    KK.setData(officialBarTipModel3.getData());
+                    aoVar3 = this.aUR.aUQ;
+                    OfficialBarTipListAdapter Lf = aoVar3.Lf();
+                    officialBarTipModel3 = this.aUR.aUP;
+                    Lf.setData(officialBarTipModel3.getData());
                 }
             }
         }

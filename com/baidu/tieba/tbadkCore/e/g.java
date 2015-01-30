@@ -1,15 +1,15 @@
 package com.baidu.tieba.tbadkCore.e;
 
-import com.baidu.tbadk.core.data.j;
+import com.baidu.tbadk.core.data.k;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class g {
-    final /* synthetic */ a bYG;
-    public String bYH;
-    public ArrayList<j> bYJ;
-    public boolean pW;
+    public String caA;
+    public ArrayList<k> caC;
+    final /* synthetic */ a caz;
+    public boolean qb;
 
     public g(a aVar) {
-        this.bYG = aVar;
+        this.caz = aVar;
     }
 }

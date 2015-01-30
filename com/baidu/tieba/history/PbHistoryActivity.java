@@ -19,10 +19,10 @@ import com.baidu.tieba.z;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
-    private com.baidu.tbadk.b.a aNT;
-    private final com.baidu.tbadk.mvc.model.d<com.baidu.tbadk.b.b> adP = new a(this);
-    private RelativeLayout apl;
-    private com.baidu.tbadk.mvc.j.c<com.baidu.tbadk.b.b, com.baidu.tbadk.mvc.e.c, f> asM;
+    private com.baidu.tbadk.b.a aPc;
+    private final com.baidu.tbadk.mvc.model.d<com.baidu.tbadk.b.b> aem = new a(this);
+    private RelativeLayout arb;
+    private com.baidu.tbadk.mvc.j.c<com.baidu.tbadk.b.b, com.baidu.tbadk.mvc.e.c, f> atT;
     private TextView mEditBtn;
     private BdListView mListView;
     private NavigationBar mNavigationBar;
@@ -35,10 +35,10 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.aNT = new com.baidu.tbadk.b.a(this);
-        this.aNT.a(this.adP);
-        this.apl = (RelativeLayout) com.baidu.adp.lib.g.b.ek().inflate(getPageContext().getPageActivity(), x.pb_history_activity, null);
-        setContentView(this.apl);
+        this.aPc = new com.baidu.tbadk.b.a(this);
+        this.aPc.a(this.aem);
+        this.arb = (RelativeLayout) com.baidu.adp.lib.g.b.ei().inflate(getPageContext().getPageActivity(), x.pb_history_activity, null);
+        setContentView(this.arb);
         this.mNavigationBar = (NavigationBar) findViewById(w.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(z.my_history);
@@ -46,9 +46,9 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         this.mEditBtn.setOnClickListener(new b(this));
         this.mEditBtn.setVisibility(8);
         this.mListView = (BdListView) findViewById(w.list);
-        this.asM = new com.baidu.tbadk.mvc.j.c<>(getPageContext(), f.class, x.pb_history_list_item, null);
-        this.asM.a(aa.a(NoDataViewFactory.ImgType.NODATA), ab.t(z.pb_history_no_data_tip, z.pb_history_no_data_tip_2), (com.baidu.tbadk.core.view.z) null, (FrameLayout.LayoutParams) null);
-        this.mListView.setAdapter((ListAdapter) this.asM);
+        this.atT = new com.baidu.tbadk.mvc.j.c<>(getPageContext(), f.class, x.pb_history_list_item, null);
+        this.atT.a(aa.a(NoDataViewFactory.ImgType.NODATA), ab.t(z.pb_history_no_data_tip, z.pb_history_no_data_tip_2), (com.baidu.tbadk.core.view.z) null, (FrameLayout.LayoutParams) null);
+        this.mListView.setAdapter((ListAdapter) this.atT);
         this.mListView.setOnItemClickListener(new e(this));
     }
 
@@ -56,7 +56,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        IX();
+        Jv();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -64,19 +64,19 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.asM.a(getPageContext(), i);
-        getLayoutMode().h(this.apl);
+        this.atT.a(getPageContext(), i);
+        getLayoutMode().h(this.arb);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void IX() {
-        this.aNT.xn();
+    public void Jv() {
+        this.aPc.xD();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aj(List<com.baidu.tbadk.b.b> list) {
-        if (this.asM != null) {
-            this.asM.w(list);
+    public void al(List<com.baidu.tbadk.b.b> list) {
+        if (this.atT != null) {
+            this.atT.w(list);
         }
         if (list == null || list.size() == 0) {
             this.mEditBtn.setVisibility(8);

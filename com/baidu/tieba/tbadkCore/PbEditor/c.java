@@ -8,11 +8,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.tieba.tbadkCore.bubble.k {
-    final /* synthetic */ b bTq;
+    final /* synthetic */ b bVj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.bTq = bVar;
+        this.bVj = bVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.bubble.k
@@ -27,45 +27,45 @@ public class c implements com.baidu.tieba.tbadkCore.bubble.k {
         Context context;
         Context context2;
         if (bubbleListData == null) {
-            this.bTq.afW().afZ();
+            this.bVj.agA().agD();
             return;
         }
-        this.bTq.bTg = bubbleListData.m257clone();
-        hVar = this.bTq.bTf;
-        if (hVar.agp() > 0) {
+        this.bVj.bUZ = bubbleListData.m257clone();
+        hVar = this.bVj.bUY;
+        if (hVar.agU() > 0) {
             List<BubbleListData.BubbleData> b_info = bubbleListData.getB_info();
             if (b_info != null && b_info.size() != 0) {
                 for (BubbleListData.BubbleData bubbleData : b_info) {
                     if (bubbleData != null) {
                         int bcode = bubbleData.getBcode();
-                        hVar3 = this.bTq.bTf;
-                        if (bcode == hVar3.agp()) {
+                        hVar3 = this.bVj.bUY;
+                        if (bcode == hVar3.agU()) {
                             if (!bubbleData.canUse() && !bubbleData.isFree()) {
                                 break;
                             }
-                            hVar4 = this.bTq.bTf;
-                            hVar5 = this.bTq.bTf;
-                            hVar4.hL(hVar5.agp());
-                            hVar6 = this.bTq.bTf;
-                            hVar7 = this.bTq.bTf;
-                            int agp = hVar7.agp();
-                            context = this.bTq.mContext;
+                            hVar4 = this.bVj.bUY;
+                            hVar5 = this.bVj.bUY;
+                            hVar4.hU(hVar5.agU());
+                            hVar6 = this.bVj.bUY;
+                            hVar7 = this.bVj.bUY;
+                            int agU = hVar7.agU();
+                            context = this.bVj.mContext;
                             int M = com.baidu.adp.lib.util.l.M(context);
-                            context2 = this.bTq.mContext;
-                            hVar6.w(agp, M, com.baidu.adp.lib.util.l.N(context2));
+                            context2 = this.bVj.mContext;
+                            hVar6.w(agU, M, com.baidu.adp.lib.util.l.N(context2));
                         } else {
                             continue;
                         }
                     }
                 }
-                hVar2 = this.bTq.bTf;
-                hVar2.hM(-1);
+                hVar2 = this.bVj.bUY;
+                hVar2.hV(-1);
             } else {
                 return;
             }
         }
-        this.bTq.aeL();
-        this.bTq.afW().b(this.bTq);
+        this.bVj.afp();
+        this.bVj.agA().b(this.bVj);
     }
 
     @Override // com.baidu.tieba.tbadkCore.bubble.k
@@ -74,23 +74,23 @@ public class c implements com.baidu.tieba.tbadkCore.bubble.k {
         Context context2;
         Context context3;
         Context context4;
-        this.bTq.bTj = false;
-        this.bTq.bTg = null;
+        this.bVj.bVc = false;
+        this.bVj.bUZ = null;
         if (bubbleListData == null) {
-            context = this.bTq.mContext;
+            context = this.bVj.mContext;
             UtilHelper.showToast(context, com.baidu.tieba.z.neterror);
         } else if (bubbleListData.getError_code().equals("0")) {
-            context2 = this.bTq.mContext;
+            context2 = this.bVj.mContext;
             UtilHelper.showToast(context2, com.baidu.tieba.z.neterror);
         } else if (!TextUtils.isEmpty(bubbleListData.getError_msg())) {
-            context4 = this.bTq.mContext;
+            context4 = this.bVj.mContext;
             UtilHelper.showToast(context4, bubbleListData.getError_msg());
         } else {
-            context3 = this.bTq.mContext;
+            context3 = this.bVj.mContext;
             UtilHelper.showToast(context3, com.baidu.tieba.z.neterror);
         }
-        if (this.bTq.afW() != null) {
-            this.bTq.afW().afZ();
+        if (this.bVj.agA() != null) {
+            this.bVj.agA().agD();
         }
     }
 }

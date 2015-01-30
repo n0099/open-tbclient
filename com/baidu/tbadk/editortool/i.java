@@ -5,13 +5,13 @@ import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements AdapterView.OnItemClickListener {
-    final /* synthetic */ EmotionTabContentView XF;
-    private final /* synthetic */ int XG;
+    final /* synthetic */ EmotionTabContentView Yl;
+    private final /* synthetic */ int Ym;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(EmotionTabContentView emotionTabContentView, int i) {
-        this.XF = emotionTabContentView;
-        this.XG = i;
+        this.Yl = emotionTabContentView;
+        this.Ym = i;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -25,23 +25,23 @@ public class i implements AdapterView.OnItemClickListener {
         ae aeVar6;
         w wVar2;
         adapterView.setSelection(-1);
-        int i2 = this.XG + i;
-        wVar = this.XF.XD;
+        int i2 = this.Ym + i;
+        wVar = this.Yl.Yj;
         if (wVar != null) {
             com.baidu.tbadk.coreExtra.data.f fVar = new com.baidu.tbadk.coreExtra.data.f();
-            aeVar = this.XF.Xq;
-            fVar.setName(aeVar.de(i2));
-            aeVar2 = this.XF.Xq;
-            fVar.a(aeVar2.uU());
-            aeVar3 = this.XF.Xq;
-            fVar.dh(aeVar3.getGroupName());
-            aeVar4 = this.XF.Xq;
+            aeVar = this.Yl.XW;
+            fVar.setName(aeVar.dl(i2));
+            aeVar2 = this.Yl.XW;
+            fVar.a(aeVar2.vl());
+            aeVar3 = this.Yl.XW;
+            fVar.dg(aeVar3.getGroupName());
+            aeVar4 = this.Yl.XW;
             fVar.setPid(aeVar4.getGroupId());
-            aeVar5 = this.XF.Xq;
+            aeVar5 = this.Yl.XW;
             fVar.setWidth(aeVar5.getWidth());
-            aeVar6 = this.XF.Xq;
+            aeVar6 = this.Yl.XW;
             fVar.setHeight(aeVar6.getHeight());
-            wVar2 = this.XF.XD;
+            wVar2 = this.Yl.Yj;
             wVar2.handleAction(20, fVar);
         }
     }

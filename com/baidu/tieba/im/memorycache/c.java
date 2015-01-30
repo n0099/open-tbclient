@@ -24,57 +24,57 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c bgt;
-    private CustomMessage<String> bgy;
+    private static volatile c bhL;
+    private CustomMessage<String> bhQ;
     private BdUniqueId mId;
-    final AtomicBoolean bgu = new AtomicBoolean(false);
-    private final a bgv = new a();
-    private final a bgw = new a();
-    private final a bgx = new a();
-    private CustomMessageListener bgz = new d(this, 2016008);
+    final AtomicBoolean bhM = new AtomicBoolean(false);
+    private final a bhN = new a();
+    private final a bhO = new a();
+    private final a bhP = new a();
+    private CustomMessageListener bhR = new d(this, 2016008);
 
     private c() {
-        MessageManager.getInstance().registerListener(this.bgz);
-        this.bgy = new CustomMessage<>(2016008, TbadkCoreApplication.getCurrentAccount());
+        MessageManager.getInstance().registerListener(this.bhR);
+        this.bhQ = new CustomMessage<>(2016008, TbadkCoreApplication.getCurrentAccount());
         this.mId = BdUniqueId.gen();
-        this.bgy.setTag(this.mId);
+        this.bhQ.setTag(this.mId);
     }
 
     public boolean isInit() {
-        return this.bgu.get();
+        return this.bhM.get();
     }
 
-    public static c Qs() {
-        com.baidu.adp.lib.util.l.ft();
-        if (bgt == null) {
+    public static c QO() {
+        com.baidu.adp.lib.util.l.fs();
+        if (bhL == null) {
             synchronized (c.class) {
-                if (bgt == null) {
-                    bgt = new c();
+                if (bhL == null) {
+                    bhL = new c();
                 }
             }
         }
-        return bgt;
+        return bhL;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void init() {
-        this.bgu.set(false);
+        this.bhM.set(false);
         clear();
         MessageManager.getInstance().removeMessage(2016008, this.mId);
-        this.bgy.setData(TbadkCoreApplication.getCurrentAccount());
+        this.bhQ.setData(TbadkCoreApplication.getCurrentAccount());
         CustomMessageTask customMessageTask = new CustomMessageTask(2016008, new m(this));
         customMessageTask.setParallel(TiebaIMConfig.getParallel());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         customMessageTask.setPriority(4);
-        MessageManager.getInstance().sendMessage(this.bgy, customMessageTask);
+        MessageManager.getInstance().sendMessage(this.bhQ, customMessageTask);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Qt() {
-        ImMessageCenterPojo gR;
-        a gd = gd(-4);
-        if (gd != null && (gR = gd.gR("-1003")) != null) {
-            String last_content = gR.getLast_content();
+    public void QP() {
+        ImMessageCenterPojo gW;
+        a gi = gi(-4);
+        if (gi != null && (gW = gi.gW("-1003")) != null) {
+            String last_content = gW.getLast_content();
             if (!TextUtils.isEmpty(last_content)) {
                 try {
                     JSONObject jSONObject = new JSONObject(last_content);
@@ -93,12 +93,12 @@ public class c {
                         str2 = jSONObject.optString("userName");
                         str3 = jSONObject.optString("groupName");
                     }
-                    ImMessageCenterPojo gR2 = this.bgv.gR(str);
-                    if (gR2 != null) {
-                        str3 = gR2.getGroup_name();
+                    ImMessageCenterPojo gW2 = this.bhN.gW(str);
+                    if (gW2 != null) {
+                        str3 = gW2.getGroup_name();
                     }
                     if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str2)) {
-                        gR.setLast_content(String.valueOf(str2) + TbadkCoreApplication.m255getInst().getApp().getApplicationContext().getString(com.baidu.tieba.z.validate_im_apply_prefix1) + str3);
+                        gW.setLast_content(String.valueOf(str2) + TbadkCoreApplication.m255getInst().getApp().getApplicationContext().getString(com.baidu.tieba.z.validate_im_apply_prefix1) + str3);
                     }
                 } catch (Exception e) {
                     BdLog.detailException(e);
@@ -108,14 +108,14 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Qu() {
-        ImMessageCenterPojo gR;
-        a gd = gd(-3);
-        if (gd != null && (gR = gd.gR("-1002")) != null) {
-            String last_content = gR.getLast_content();
+    public void QQ() {
+        ImMessageCenterPojo gW;
+        a gi = gi(-3);
+        if (gi != null && (gW = gi.gW("-1002")) != null) {
+            String last_content = gW.getLast_content();
             if (!TextUtils.isEmpty(last_content)) {
                 try {
-                    gR.setLast_content(new JSONObject(last_content).optString("userMsg"));
+                    gW.setLast_content(new JSONObject(last_content).optString("userMsg"));
                 } catch (Exception e) {
                     BdLog.detailException(e);
                 }
@@ -124,14 +124,14 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Qv() {
-        ImMessageCenterPojo gR;
-        a gd = gd(-5);
-        if (gd != null && (gR = gd.gR("-1004")) != null) {
-            String last_content = gR.getLast_content();
+    public void QR() {
+        ImMessageCenterPojo gW;
+        a gi = gi(-5);
+        if (gi != null && (gW = gi.gW("-1004")) != null) {
+            String last_content = gW.getLast_content();
             if (!TextUtils.isEmpty(last_content)) {
                 try {
-                    gR.setLast_content(new JSONObject(last_content).optString("userMsg"));
+                    gW.setLast_content(new JSONObject(last_content).optString("userMsg"));
                 } catch (Exception e) {
                     BdLog.detailException(e);
                 }
@@ -142,14 +142,14 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public void j(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo != null) {
-            gd(imMessageCenterPojo.getCustomGroupType()).i(imMessageCenterPojo);
+            gi(imMessageCenterPojo.getCustomGroupType()).i(imMessageCenterPojo);
         }
     }
 
     public ImMessageCenterPojo H(String str, int i) {
-        a gd;
-        if (this.bgu.get() && (gd = gd(i)) != null) {
-            return gd.gR(str);
+        a gi;
+        if (this.bhM.get() && (gi = gi(i)) != null) {
+            return gi.gW(str);
         }
         return null;
     }
@@ -165,23 +165,23 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void J(String str, int i) {
-        a gd;
-        if (this.bgu.get() && (gd = gd(i)) != null) {
+        a gi;
+        if (this.bhM.get() && (gi = gi(i)) != null) {
             if (i == 9) {
                 BdLog.i("quit live group. ");
             }
-            gd.gS(str);
+            gi.gX(str);
         }
     }
 
     private void k(ImMessageCenterPojo imMessageCenterPojo) {
-        if (this.bgu.get()) {
+        if (this.bhM.get()) {
             if (imMessageCenterPojo.getCustomGroupType() == 2) {
                 a(imMessageCenterPojo, false, 2);
-                a(cW(false), false, 1);
+                a(db(false), false, 1);
             } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
                 a(imMessageCenterPojo, false, 2);
-                a(cX(false), false, 1);
+                a(dc(false), false, 1);
             } else {
                 a(imMessageCenterPojo, false, 2);
             }
@@ -190,7 +190,7 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void l(ImMessageCenterPojo imMessageCenterPojo) {
-        if (this.bgu.get()) {
+        if (this.bhM.get()) {
             ImMessageCenterPojo H = H(imMessageCenterPojo.getGid(), imMessageCenterPojo.getCustomGroupType());
             if (H == null) {
                 j(imMessageCenterPojo);
@@ -212,8 +212,8 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void b(ImMessageCenterPojo imMessageCenterPojo, int i) {
-        if (this.bgu.get() && imMessageCenterPojo != null) {
+    public void c(ImMessageCenterPojo imMessageCenterPojo, int i) {
+        if (this.bhM.get() && imMessageCenterPojo != null) {
             ImMessageCenterPojo H = H(imMessageCenterPojo.getGid(), imMessageCenterPojo.getCustomGroupType());
             if (H == null) {
                 imMessageCenterPojo.setUnread_count(i);
@@ -232,16 +232,16 @@ public class c {
     }
 
     private void clear() {
-        this.bgv.Qr();
-        this.bgw.Qr();
-        this.bgx.Qr();
+        this.bhN.QN();
+        this.bhO.QN();
+        this.bhP.QN();
         sendClearMessage();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(int i, ChatMessage chatMessage, String str, int i2) {
         int userType;
-        if (this.bgu.get()) {
+        if (this.bhM.get()) {
             UserData userData = null;
             if ((i == 2 || i == 4) && chatMessage != null) {
                 if (String.valueOf(chatMessage.getUserId()).equals(TbadkCoreApplication.getCurrentAccount())) {
@@ -329,7 +329,7 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ImMessageCenterPojo m(ImMessageCenterPojo imMessageCenterPojo) {
-        if (this.bgu.get() && imMessageCenterPojo != null) {
+        if (this.bhM.get() && imMessageCenterPojo != null) {
             ImMessageCenterPojo H = H(imMessageCenterPojo.getGid(), imMessageCenterPojo.getCustomGroupType());
             if (H == null) {
                 j(imMessageCenterPojo);
@@ -349,7 +349,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ay(String str, String str2) {
+    public void aB(String str, String str2) {
         ImMessageCenterPojo H = H(str, 1);
         if (H != null) {
             H.setGroup_head(str2);
@@ -358,7 +358,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void az(String str, String str2) {
+    public void aC(String str, String str2) {
         ImMessageCenterPojo H = H(str, 1);
         if (H != null) {
             H.setGroup_name(str2);
@@ -368,7 +368,7 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void o(ImMessageCenterPojo imMessageCenterPojo) {
-        if (this.bgu.get() && imMessageCenterPojo != null) {
+        if (this.bhM.get() && imMessageCenterPojo != null) {
             ImMessageCenterPojo H = H(imMessageCenterPojo.getGid(), imMessageCenterPojo.getCustomGroupType());
             if (H == null) {
                 j(imMessageCenterPojo);
@@ -381,17 +381,17 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void reset() {
-        if (this.bgu.get()) {
-            this.bgv.a(new n(this));
-            this.bgw.a(new o(this));
-            this.bgx.a(new p(this));
+        if (this.bhM.get()) {
+            this.bhN.a(new n(this));
+            this.bhO.a(new o(this));
+            this.bhP.a(new p(this));
             sendClearMessage();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void p(ImMessageCenterPojo imMessageCenterPojo) {
-        if (this.bgu.get() && imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGid())) {
+        if (this.bhM.get() && imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGid())) {
             ImMessageCenterPojo H = H(imMessageCenterPojo.getGid(), imMessageCenterPojo.getCustomGroupType());
             if (H == null) {
                 j(imMessageCenterPojo);
@@ -403,7 +403,7 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(int i, long j, String str) {
-        if (this.bgu.get()) {
+        if (this.bhM.get()) {
             ImMessageCenterPojo H = H(str, i);
             if (H == null) {
                 ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
@@ -448,44 +448,44 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void Qw() {
+    public void QS() {
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryInitCompleteMessage(true));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<ImMessageCenterPojo> Qx() {
+    public List<ImMessageCenterPojo> QT() {
         LinkedList linkedList = new LinkedList();
-        this.bgv.a(new q(this, linkedList));
-        this.bgw.a(new r(this, linkedList));
-        this.bgx.a(new s(this, linkedList));
+        this.bhN.a(new q(this, linkedList));
+        this.bhO.a(new r(this, linkedList));
+        this.bhP.a(new s(this, linkedList));
         return linkedList;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<ImMessageCenterPojo> Qy() {
+    public List<ImMessageCenterPojo> QU() {
         LinkedList linkedList = new LinkedList();
-        this.bgv.a(new t(this, linkedList));
+        this.bhN.a(new t(this, linkedList));
         return linkedList;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<ImMessageCenterPojo> Qz() {
+    public List<ImMessageCenterPojo> QV() {
         LinkedList linkedList = new LinkedList();
-        this.bgx.a(new e(this, linkedList));
+        this.bhP.a(new e(this, linkedList));
         return linkedList;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<ImMessageCenterPojo> QA() {
+    public List<ImMessageCenterPojo> QW() {
         LinkedList linkedList = new LinkedList();
-        this.bgw.a(new f(this, linkedList));
+        this.bhO.a(new f(this, linkedList));
         return linkedList;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<ImMessageCenterPojo> QB() {
+    public List<ImMessageCenterPojo> QX() {
         LinkedList linkedList = new LinkedList();
-        this.bgw.a(new g(this, linkedList));
+        this.bhO.a(new g(this, linkedList));
         return linkedList;
     }
 
@@ -498,7 +498,7 @@ public class c {
     }
 
     private void a(ImMessageCenterPojo imMessageCenterPojo, boolean z) {
-        if (this.bgu.get()) {
+        if (this.bhM.get()) {
             if (imMessageCenterPojo.getCustomGroupType() == 2) {
                 b(imMessageCenterPojo, z, 1);
             } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
@@ -511,15 +511,15 @@ public class c {
 
     private void b(ImMessageCenterPojo imMessageCenterPojo, boolean z, int i) {
         a(imMessageCenterPojo, z, i);
-        a(cW(z), z, i);
+        a(db(z), z, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ImMessageCenterPojo cW(boolean z) {
+    public ImMessageCenterPojo db(boolean z) {
         ImMessageCenterPojo imMessageCenterPojo = null;
-        a gd = gd(-7);
-        if (gd != null) {
-            imMessageCenterPojo = gd.gR("-1001");
+        a gi = gi(-7);
+        if (gi != null) {
+            imMessageCenterPojo = gi.gW("-1001");
         }
         if (imMessageCenterPojo == null) {
             imMessageCenterPojo = new ImMessageCenterPojo();
@@ -529,7 +529,7 @@ public class c {
         }
         ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
         imMessageCenterPojo2.setIs_hidden(1);
-        this.bgw.a(new h(this, imMessageCenterPojo2));
+        this.bhO.a(new h(this, imMessageCenterPojo2));
         imMessageCenterPojo.setLast_content(imMessageCenterPojo2.getLast_content());
         imMessageCenterPojo.setLast_content_time(imMessageCenterPojo2.getLast_content_time());
         imMessageCenterPojo.setLast_rid(imMessageCenterPojo2.getLast_rid());
@@ -561,11 +561,11 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ImMessageCenterPojo cX(boolean z) {
+    public ImMessageCenterPojo dc(boolean z) {
         ImMessageCenterPojo imMessageCenterPojo = null;
-        a gd = gd(-8);
-        if (gd != null) {
-            imMessageCenterPojo = gd.gR("-1000");
+        a gi = gi(-8);
+        if (gi != null) {
+            imMessageCenterPojo = gi.gW("-1000");
         }
         if (imMessageCenterPojo == null) {
             imMessageCenterPojo = new ImMessageCenterPojo();
@@ -575,7 +575,7 @@ public class c {
         }
         ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
         imMessageCenterPojo2.setIs_hidden(1);
-        this.bgx.a(new j(this, imMessageCenterPojo2));
+        this.bhP.a(new j(this, imMessageCenterPojo2));
         imMessageCenterPojo.setUserType(imMessageCenterPojo2.getUserType());
         imMessageCenterPojo.setLast_content(imMessageCenterPojo2.getLast_content());
         imMessageCenterPojo.setLast_content_time(imMessageCenterPojo2.getLast_content_time());
@@ -606,13 +606,13 @@ public class c {
 
     private void c(ImMessageCenterPojo imMessageCenterPojo, boolean z, int i) {
         a(imMessageCenterPojo, z, i);
-        a(cX(z), z, i);
+        a(dc(z), z, i);
     }
 
-    public SparseArray<Long> QC() {
+    public SparseArray<Long> QY() {
         SparseArray<Long> sparseArray = new SparseArray<>();
-        if (this.bgu.get()) {
-            this.bgv.a(new l(this, sparseArray));
+        if (this.bhM.get()) {
+            this.bhN.a(new l(this, sparseArray));
         }
         return sparseArray;
     }
@@ -622,7 +622,7 @@ public class c {
         if (imMessageCenterPojo == null) {
             return false;
         }
-        return imMessageCenterPojo.getCustomGroupType() == 1 || imMessageCenterPojo.getCustomGroupType() == 9 || imMessageCenterPojo.getCustomGroupType() == 5 || imMessageCenterPojo.getCustomGroupType() == -1 || imMessageCenterPojo.getCustomGroupType() == 3 || imMessageCenterPojo.getCustomGroupType() == -2 || imMessageCenterPojo.getCustomGroupType() == 8 || imMessageCenterPojo.getCustomGroupType() == 7 || imMessageCenterPojo.getCustomGroupType() == 6;
+        return ca.gj(imMessageCenterPojo.getCustomGroupType());
     }
 
     public long L(String str, int i) {
@@ -642,13 +642,24 @@ public class c {
         return j + 1;
     }
 
-    private a gd(int i) {
+    private a gi(int i) {
         if (i == 2) {
-            return this.bgw;
+            return this.bhO;
         }
         if (i == 4) {
-            return this.bgx;
+            return this.bhP;
         }
-        return this.bgv;
+        return this.bhN;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void ax(List<ImMessageCenterPojo> list) {
+        if (list != null && list.size() != 0) {
+            for (ImMessageCenterPojo imMessageCenterPojo : list) {
+                if (imMessageCenterPojo != null) {
+                    this.bhN.gX(imMessageCenterPojo.getGid());
+                }
+            }
+        }
     }
 }

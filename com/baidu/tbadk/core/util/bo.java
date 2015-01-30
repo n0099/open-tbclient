@@ -1,8 +1,7 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
-public class bo {
-    public UtilHelper.NativePageType JE = UtilHelper.NativePageType.NONE;
-    public String id;
+public interface bo {
+    boolean a(TbPageContext<?> tbPageContext, String[] strArr);
 }

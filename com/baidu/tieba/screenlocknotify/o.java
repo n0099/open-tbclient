@@ -15,8 +15,8 @@ import java.util.Locale;
 /* loaded from: classes.dex */
 public class o extends BaseAdapter {
     private Context mContext;
-    private boolean bMC = false;
-    private List<t> bMB = new ArrayList();
+    private boolean bOm = false;
+    private List<t> bOl = new ArrayList();
 
     public o(Context context) {
         this.mContext = context;
@@ -24,15 +24,15 @@ public class o extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bMB != null) {
-            return this.bMB.size();
+        if (this.bOl != null) {
+            return this.bOl.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.bMB.get(i);
+        return this.bOl.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -42,8 +42,8 @@ public class o extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        t tVar = this.bMB.get(i);
-        if (this.bMC) {
+        t tVar = this.bOl.get(i);
+        if (this.bOm) {
             return a(tVar, view, viewGroup, true);
         }
         if (i == 0) {
@@ -58,18 +58,18 @@ public class o extends BaseAdapter {
             pVar = (p) view.getTag();
         }
         if (pVar == null) {
-            view = com.baidu.adp.lib.g.b.ek().a(this.mContext, x.screenlock_show_item_view_1, viewGroup, false);
-            pVar = P(view);
+            view = com.baidu.adp.lib.g.b.ei().a(this.mContext, x.screenlock_show_item_view_1, viewGroup, false);
+            pVar = R(view);
             view.setTag(pVar);
         }
-        pVar.bMD.setText(tVar.content);
-        pVar.bMb.setText(tVar.groupName);
-        pVar.bME.setText(hq(tVar.bMK));
-        pVar.bMc.setText(aj(tVar.IK));
+        pVar.bOn.setText(tVar.content);
+        pVar.bNL.setText(tVar.groupName);
+        pVar.bOo.setText(hz(tVar.bOu));
+        pVar.bNM.setText(aj(tVar.IU));
         if (z) {
-            pVar.mLine.setVisibility(0);
+            pVar.Td.setVisibility(0);
         } else {
-            pVar.mLine.setVisibility(8);
+            pVar.Td.setVisibility(8);
         }
         return view;
     }
@@ -80,11 +80,11 @@ public class o extends BaseAdapter {
             qVar = (q) view.getTag();
         }
         if (qVar == null) {
-            view = com.baidu.adp.lib.g.b.ek().a(this.mContext, x.screenlock_show_item_view_2, viewGroup, false);
-            qVar = Q(view);
+            view = com.baidu.adp.lib.g.b.ei().a(this.mContext, x.screenlock_show_item_view_2, viewGroup, false);
+            qVar = S(view);
             view.setTag(qVar);
         }
-        qVar.bMD.setText(tVar.content);
+        qVar.bOn.setText(tVar.content);
         return view;
     }
 
@@ -94,11 +94,11 @@ public class o extends BaseAdapter {
             rVar = (r) view.getTag();
         }
         if (rVar == null) {
-            view = com.baidu.adp.lib.g.b.ek().a(this.mContext, x.screenlock_show_item_view_3, viewGroup, false);
-            rVar = R(view);
+            view = com.baidu.adp.lib.g.b.ei().a(this.mContext, x.screenlock_show_item_view_3, viewGroup, false);
+            rVar = T(view);
             view.setTag(rVar);
         }
-        rVar.bMG.setText(tVar.content);
+        rVar.bOq.setText(tVar.content);
         return view;
     }
 
@@ -107,37 +107,37 @@ public class o extends BaseAdapter {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v0 int)] */
-    public String hq(int i) {
+    public String hz(int i) {
         return i < 100 ? new StringBuilder().append(i).toString() : "99+";
     }
 
     public void setData(List<t> list) {
-        this.bMB = list;
+        this.bOl = list;
     }
 
-    private p P(View view) {
+    private p R(View view) {
         p pVar = new p(this, null);
-        pVar.bMb = (TextView) view.findViewById(w.friend_name_show1);
-        pVar.bMc = (TextView) view.findViewById(w.last_msg_time_show1);
-        pVar.bMD = (TextView) view.findViewById(w.one_msg_content_show1);
-        pVar.bME = (TextView) view.findViewById(w.unread_msg_count_show1);
-        pVar.mLine = view.findViewById(w.line);
+        pVar.bNL = (TextView) view.findViewById(w.friend_name_show1);
+        pVar.bNM = (TextView) view.findViewById(w.last_msg_time_show1);
+        pVar.bOn = (TextView) view.findViewById(w.one_msg_content_show1);
+        pVar.bOo = (TextView) view.findViewById(w.unread_msg_count_show1);
+        pVar.Td = view.findViewById(w.line);
         return pVar;
     }
 
-    private q Q(View view) {
+    private q S(View view) {
         q qVar = new q(this, null);
-        qVar.bMD = (TextView) view.findViewById(w.msg_content_2);
+        qVar.bOn = (TextView) view.findViewById(w.msg_content_2);
         return qVar;
     }
 
-    private r R(View view) {
+    private r T(View view) {
         r rVar = new r(this, null);
-        rVar.bMG = (TextView) view.findViewById(w.one_msg_content);
+        rVar.bOq = (TextView) view.findViewById(w.one_msg_content);
         return rVar;
     }
 
-    public void ei(boolean z) {
-        this.bMC = z;
+    public void ep(boolean z) {
+        this.bOm = z;
     }
 }

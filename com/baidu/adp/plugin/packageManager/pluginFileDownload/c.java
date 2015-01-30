@@ -1,37 +1,37 @@
 package com.baidu.adp.plugin.packageManager.pluginFileDownload;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c sX;
-    private b sY;
+    private static volatile c th;
+    private b ti;
 
     public static c iq() {
-        if (sX == null) {
+        if (th == null) {
             synchronized (c.class) {
-                if (sX == null) {
-                    sX = new c();
+                if (th == null) {
+                    th = new c();
                 }
             }
         }
-        return sX;
+        return th;
     }
 
     private c() {
     }
 
     public void a(BdFileDownloadData bdFileDownloadData, a aVar) {
-        if (bdFileDownloadData != null && this.sY != null) {
+        if (bdFileDownloadData != null && this.ti != null) {
             bdFileDownloadData.setCallback(aVar);
-            this.sY.h(bdFileDownloadData);
+            this.ti.h(bdFileDownloadData);
         }
     }
 
     public void bo(String str) {
-        if (this.sY != null) {
-            this.sY.bn(str);
+        if (this.ti != null) {
+            this.ti.bn(str);
         }
     }
 
     public void a(b bVar) {
-        this.sY = bVar;
+        this.ti = bVar;
     }
 }

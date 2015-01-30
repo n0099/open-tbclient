@@ -12,11 +12,11 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag implements com.baidu.tieba.tbadkCore.f.b {
-    final /* synthetic */ af bsE;
+    final /* synthetic */ af bub;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(af afVar) {
-        this.bsE = afVar;
+        this.bub = afVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.f.b
@@ -26,38 +26,38 @@ public class ag implements com.baidu.tieba.tbadkCore.f.b {
         com.baidu.tieba.tbadkCore.f.a aVar2;
         com.baidu.tieba.tbadkCore.f.a aVar3;
         com.baidu.tbadk.mvc.j.c cVar;
-        this.bsE.bD(z);
-        af afVar = this.bsE;
-        writeImagesInfo = this.bsE.apq;
+        this.bub.bG(z);
+        af afVar = this.bub;
+        writeImagesInfo = this.bub.aql;
         afVar.a(writeImagesInfo, true);
         if (z) {
-            this.bsE.Fj();
+            this.bub.FH();
             TbadkCoreApplication.m255getInst().resetPbRecorder();
-            aVar = this.bsE.aAK;
-            aVar.EV();
-            aVar2 = this.bsE.aAK;
+            aVar = this.bub.aBM;
+            aVar.Ft();
+            aVar2 = this.bub.aBM;
             aVar2.c((WriteData) null);
-            aVar3 = this.bsE.aAK;
-            aVar3.ey(false);
-            this.bsE.a(antiData, str);
-            this.bsE.dm(true);
-            cVar = this.bsE.asM;
+            aVar3 = this.bub.aBM;
+            aVar3.eF(false);
+            this.bub.a(antiData, str);
+            this.bub.ds(true);
+            cVar = this.bub.atT;
             cVar.notifyDataSetChanged();
         } else if (jVar != null && writeData != null && jVar.getVcode_pic_url() != null) {
             if (!AntiHelper.e(antiData)) {
                 writeData.setVcodeMD5(jVar.getVcode_md5());
                 writeData.setVcodeUrl(jVar.getVcode_pic_url());
-                if (jVar.rD().equals("4")) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.bsE.getActivity(), 12006, writeData, false)));
+                if (jVar.rQ().equals("4")) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.bub.getActivity(), 12006, writeData, false)));
                     return;
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.bsE.getActivity(), writeData, 12006)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.bub.getActivity(), writeData, 12006)));
                     return;
                 }
             }
-            this.bsE.a(antiData, str);
+            this.bub.a(antiData, str);
         } else {
-            this.bsE.a(antiData, str);
+            this.bub.a(antiData, str);
         }
     }
 }

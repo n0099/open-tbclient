@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.tbadk.coreExtra.data.VersionData;
-import com.baidu.tieba.bb;
+import com.baidu.tieba.be;
 /* loaded from: classes.dex */
 class b extends BroadcastReceiver {
     final /* synthetic */ AsInstallService this$0;
@@ -29,7 +29,7 @@ class b extends BroadcastReceiver {
                 versionData = this.this$0.mVersionData;
                 if (versionData != null) {
                     versionData2 = this.this$0.mVersionData;
-                    bb.a(context, versionData2);
+                    be.a(context, versionData2);
                 }
             }
         }

@@ -29,7 +29,7 @@ public class b {
         return "BDLayoutInfo [TAG=" + this.Cv.toString() + "]";
     }
 
-    public void bK(String str) {
+    public void bI(String str) {
         this.Cv.append(str).append(" || ");
     }
 
@@ -37,7 +37,7 @@ public class b {
         return this.Cp;
     }
 
-    public void aK(int i) {
+    public void aP(int i) {
         this.Cp = i;
     }
 
@@ -45,7 +45,7 @@ public class b {
         return this.Cq;
     }
 
-    public void aL(int i) {
+    public void aQ(int i) {
         this.Cq = i;
     }
 
@@ -53,7 +53,7 @@ public class b {
         return this.Cn;
     }
 
-    public void aM(int i) {
+    public void aR(int i) {
         this.Cn = i;
     }
 
@@ -61,7 +61,7 @@ public class b {
         return this.Co;
     }
 
-    public void aN(int i) {
+    public void aS(int i) {
         this.Co = i;
     }
 
@@ -69,7 +69,7 @@ public class b {
         return this.Cl;
     }
 
-    public void aO(int i) {
+    public void aT(int i) {
         this.Cl = i;
     }
 
@@ -77,7 +77,7 @@ public class b {
         return this.Cm;
     }
 
-    public void aP(int i) {
+    public void aU(int i) {
         this.Cm = i;
     }
 
@@ -89,7 +89,7 @@ public class b {
         return this.Cr;
     }
 
-    public void aQ(int i) {
+    public void aV(int i) {
         this.Cr = i;
     }
 
@@ -97,7 +97,7 @@ public class b {
         return this.Cs;
     }
 
-    public void aR(int i) {
+    public void aW(int i) {
         this.Cs = i;
     }
 
@@ -105,7 +105,7 @@ public class b {
         this.id = str;
     }
 
-    public void bL(String str) {
+    public void bJ(String str) {
         this.Ca = str;
     }
 
@@ -113,7 +113,7 @@ public class b {
         return this.Cb;
     }
 
-    public void aS(int i) {
+    public void aX(int i) {
         this.Cb = i;
     }
 
@@ -121,7 +121,7 @@ public class b {
         return this.Cc;
     }
 
-    public void aT(int i) {
+    public void aY(int i) {
         this.Cc = i;
     }
 
@@ -129,7 +129,7 @@ public class b {
         return this.Cf;
     }
 
-    public void aU(int i) {
+    public void aZ(int i) {
         this.Cf = i;
     }
 
@@ -137,7 +137,7 @@ public class b {
         return this.Cg;
     }
 
-    public void aV(int i) {
+    public void ba(int i) {
         this.Cg = i;
     }
 
@@ -145,7 +145,7 @@ public class b {
         return this.Cd;
     }
 
-    public void aW(int i) {
+    public void bb(int i) {
         this.Cd = i;
     }
 
@@ -153,7 +153,7 @@ public class b {
         return this.Ce;
     }
 
-    public void aX(int i) {
+    public void bc(int i) {
         this.Ce = i;
     }
 
@@ -165,11 +165,11 @@ public class b {
         return this.Ch;
     }
 
-    public void aY(int i) {
+    public void bd(int i) {
         this.Ch = i;
     }
 
-    public void aZ(int i) {
+    public void be(int i) {
         this.Ci = i;
     }
 
@@ -177,7 +177,7 @@ public class b {
         return this.Ck;
     }
 
-    public void ba(int i) {
+    public void bf(int i) {
         this.Ck = i;
     }
 
@@ -185,7 +185,7 @@ public class b {
         return this.Cj;
     }
 
-    public void bb(int i) {
+    public void bg(int i) {
         this.Cj = i;
     }
 
@@ -193,7 +193,7 @@ public class b {
         return this.Ct;
     }
 
-    public void bc(int i) {
+    public void bh(int i) {
         this.Ct = i;
     }
 
@@ -201,7 +201,7 @@ public class b {
         return this.Cu;
     }
 
-    public void bd(int i) {
+    public void bi(int i) {
         this.Cu = i;
     }
 }

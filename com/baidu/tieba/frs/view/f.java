@@ -5,11 +5,11 @@ import com.baidu.tbadk.TbPageContext;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements Runnable {
-    final /* synthetic */ FrsHeaderView aHJ;
+    final /* synthetic */ FrsHeaderView aIT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(FrsHeaderView frsHeaderView) {
-        this.aHJ = frsHeaderView;
+        this.aIT = frsHeaderView;
     }
 
     @Override // java.lang.Runnable
@@ -19,14 +19,14 @@ public class f implements Runnable {
         boolean z;
         PopupWindow popupWindow3;
         TbPageContext tbPageContext;
-        popupWindow = this.aHJ.aHa;
+        popupWindow = this.aIT.aIk;
         if (popupWindow != null) {
-            popupWindow2 = this.aHJ.aHa;
+            popupWindow2 = this.aIT.aIk;
             if (popupWindow2.isShowing()) {
-                z = this.aHJ.aHD;
+                z = this.aIT.aIN;
                 if (!z) {
-                    popupWindow3 = this.aHJ.aHa;
-                    tbPageContext = this.aHJ.mContext;
+                    popupWindow3 = this.aIT.aIk;
+                    tbPageContext = this.aIT.mContext;
                     com.baidu.adp.lib.g.k.a(popupWindow3, tbPageContext.getPageActivity());
                 }
             }

@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends HttpMessageListener {
-    final /* synthetic */ d bYA;
+    final /* synthetic */ d cat;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(d dVar, int i) {
         super(i);
-        this.bYA = dVar;
+        this.cat = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,19 +23,19 @@ public class h extends HttpMessageListener {
         i iVar2;
         if (httpResponsedMessage == null || httpResponsedMessage.getError() != 0) {
             BdLog.i("mOpenShareLocSwitchListener response error!");
-            iVar = this.bYA.bYt;
+            iVar = this.cat.cam;
             if (iVar != null) {
                 String str = null;
                 if (httpResponsedMessage != null && httpResponsedMessage.getError() > 0) {
                     str = httpResponsedMessage.getErrorString();
                 }
-                iVar2 = this.bYA.bYt;
-                iVar2.ft(str);
+                iVar2 = this.cat.cam;
+                iVar2.fy(str);
                 return;
             }
             return;
         }
         TbadkCoreApplication.m255getInst().setLocationShared(true);
-        this.bYA.ahB();
+        this.cat.aif();
     }
 }

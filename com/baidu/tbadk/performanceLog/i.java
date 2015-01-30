@@ -2,25 +2,25 @@ package com.baidu.tbadk.performanceLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements q {
-    final /* synthetic */ h afV;
+    final /* synthetic */ h agt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.afV = hVar;
+        this.agt = hVar;
     }
 
     @Override // com.baidu.tbadk.performanceLog.q
-    public void dO(int i) {
+    public void dU(int i) {
         n nVar;
         n nVar2;
-        nVar = this.afV.afQ;
+        nVar = this.agt.ago;
         nVar.a((q) null);
-        nVar2 = this.afV.afQ;
+        nVar2 = this.agt.ago;
         nVar2.stop();
-        this.afV.afS = i;
-        ae aeVar = (ae) ac.zh().dT(this.afV.mSubType);
+        this.agt.agq = i;
+        ae aeVar = (ae) ac.zy().dZ(this.agt.mSubType);
         if (aeVar != null) {
-            aeVar.h(this.afV);
+            aeVar.h(this.agt);
         }
     }
 }

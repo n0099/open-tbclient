@@ -4,23 +4,23 @@ import com.baidu.adp.gif.NSGif;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 /* loaded from: classes.dex */
 public class a extends DiskFileOperate {
-    private NSGif gb;
+    private NSGif gd;
 
     public a(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
-        this.gb = null;
+        this.gd = null;
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public boolean j(byte[] bArr) {
-        if (bArr == null || !NSGif.fx) {
+        if (bArr == null || !NSGif.fz) {
             return false;
         }
-        this.gb = NSGif.e(bArr, 0, bArr.length);
-        return this.gb != null;
+        this.gd = NSGif.e(bArr, 0, bArr.length);
+        return this.gd != null;
     }
 
-    public NSGif cl() {
-        return this.gb;
+    public NSGif cj() {
+        return this.gd;
     }
 }

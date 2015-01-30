@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.widget.ImageView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.bc;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.notify.b {
@@ -54,7 +54,7 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.notify.b 
     protected void a(com.baidu.tieba.im.chat.notify.c cVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         cVar.zK.setText(this.mContext.getString(com.baidu.tieba.z.official_msg_list_name, imMessageCenterShowItemData.getFriendName()));
         if (imMessageCenterShowItemData.getUserType() == 1) {
-            BitmapDrawable bitmapDrawable = (BitmapDrawable) ax.getDrawable(com.baidu.tieba.v.icon_v);
+            BitmapDrawable bitmapDrawable = (BitmapDrawable) bc.getDrawable(com.baidu.tieba.v.icon_v);
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
             cVar.zK.setCompoundDrawables(null, null, bitmapDrawable, null);
             cVar.zK.setCompoundDrawablePadding(com.baidu.adp.lib.util.l.dip2px(this.mContext, this.mContext.getResources().getDimension(com.baidu.tieba.u.ds8)));

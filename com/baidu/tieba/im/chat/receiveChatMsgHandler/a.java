@@ -26,7 +26,7 @@ public abstract class a {
         return (x == null || x.getIsSelf()) ? false : true;
     }
 
-    public static void fV(String str) {
+    public static void ga(String str) {
         if (!TextUtils.isEmpty(str)) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             try {
@@ -60,7 +60,7 @@ public abstract class a {
                     }
                     int i = TbadkCoreApplication.m255getInst().isMsgNewFansOn() ? optInt3 : 0;
                     if (currentAccount != null && currentAccount.length() > 0) {
-                        com.baidu.tbadk.coreExtra.messageCenter.a.rI().a(optInt, optInt5, com.baidu.tbadk.coreExtra.messageCenter.a.rI().getMsgChat(), i, com.baidu.tbadk.coreExtra.messageCenter.a.rI().getMsgBookmark(), optInt4);
+                        com.baidu.tbadk.coreExtra.messageCenter.a.rY().a(optInt, optInt5, com.baidu.tbadk.coreExtra.messageCenter.a.rY().getMsgChat(), i, com.baidu.tbadk.coreExtra.messageCenter.a.rY().getMsgBookmark(), optInt4);
                     }
                 }
             } catch (Exception e) {
@@ -135,7 +135,7 @@ public abstract class a {
             if (commonMsgPojo != null) {
                 commonMsgPojo.checkRidAndSelf();
             }
-            if (dVar != null && dVar.fW(valueOf)) {
+            if (dVar != null && dVar.gb(valueOf)) {
                 i3 = 0;
             }
             imMessageCenterPojo.setUnread_count(i3);

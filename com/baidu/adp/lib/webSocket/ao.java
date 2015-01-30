@@ -1,13 +1,13 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 class ao {
-    public int qo;
-    public boolean qp;
-    public int qq;
-    public int qr;
-    public int qs;
     public int qt;
-    public byte[] qu;
+    public boolean qu;
+    public int qv;
+    public int qw;
+    public int qx;
+    public int qy;
+    public byte[] qz;
 
     private ao() {
     }

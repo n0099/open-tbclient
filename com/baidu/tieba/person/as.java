@@ -1,32 +1,25 @@
 package com.baidu.tieba.person;
 /* loaded from: classes.dex */
-class as implements com.baidu.adp.widget.ListView.g {
-    final /* synthetic */ am bGm;
+class as implements com.baidu.adp.widget.ListView.ab {
+    final /* synthetic */ al bHX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public as(am amVar) {
-        this.bGm = amVar;
+    public as(al alVar) {
+        this.bHX = alVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.g
-    public void onListPullRefresh(boolean z) {
-        PersonFriendActivity aas;
-        aw awVar;
-        boolean z2;
-        PersonFriendActivity aas2;
-        int i;
-        int i2;
-        aas = this.bGm.aas();
-        if (aas != null) {
-            this.bGm.pageNum = 0;
-            this.bGm.bGi = true;
-            awVar = this.bGm.bGe;
-            z2 = this.bGm.mIsHost;
-            aas2 = this.bGm.aas();
-            String uid = aas2.getUid();
-            i = this.bGm.pageNum;
-            i2 = this.bGm.resNum;
-            awVar.a(z2, uid, i, i2);
+    @Override // com.baidu.adp.widget.ListView.ab
+    public void onScrollToBottom() {
+        boolean z;
+        av avVar;
+        z = this.bHX.bHU;
+        if (!z) {
+            this.bHX.bHT = false;
+            al alVar = this.bHX;
+            avVar = this.bHX.bHP;
+            alVar.pageNum = avVar.getData().na().mW() + 1;
+            this.bHX.bHU = true;
+            this.bHX.aaY();
         }
     }
 }

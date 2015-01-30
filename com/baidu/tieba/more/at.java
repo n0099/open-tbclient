@@ -1,63 +1,19 @@
 package com.baidu.tieba.more;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class at extends com.baidu.adp.base.f {
-    private BaseActivity.LoadDataCallBack AQ;
-    private au bwv;
-    private av bww;
-    private Context mContext;
-
-    public at(SystemHelpSettingActivity systemHelpSettingActivity) {
-        super(systemHelpSettingActivity.getPageContext());
-        this.bwv = null;
-        this.bww = null;
-        this.mContext = null;
-        this.AQ = null;
-        this.mContext = systemHelpSettingActivity.getPageContext().getPageActivity();
+class at extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public at(int i) {
+        super(i);
     }
 
-    public void VN() {
-        if (this.bwv == null) {
-            this.bwv = new au(this, null);
-            this.bwv.execute(new String[0]);
-        }
-    }
-
-    public void VO() {
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (!TextUtils.isEmpty(currentAccount)) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, currentAccount));
-        }
-    }
-
-    public void VP() {
-        if (this.bww == null) {
-            this.bww = new av(this, null);
-            this.bww.execute(new String[0]);
-        }
-    }
-
-    public void setHeadsetModeOn(boolean z) {
-        TbadkCoreApplication.m255getInst().setHeadsetModeOn(z);
-    }
-
-    @Override // com.baidu.adp.base.f
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.f
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    public void a(BaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.AQ = loadDataCallBack;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        MsgRemindStatic.bwC = false;
+        MsgRemindStatic.maskInfo = null;
+        MsgRemindStatic.bwB = false;
     }
 }

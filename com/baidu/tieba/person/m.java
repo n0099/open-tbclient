@@ -6,29 +6,29 @@ import com.baidu.tbadk.core.atomData.OfficalBarChatActivityConfig;
 import com.baidu.tbadk.core.data.ForumData;
 /* loaded from: classes.dex */
 class m implements View.OnClickListener {
-    final /* synthetic */ g bFr;
+    final /* synthetic */ g bHc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(g gVar) {
-        this.bFr = gVar;
+        this.bHc = gVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         q qVar;
         q qVar2;
-        PersonBarActivity aag;
-        PersonBarActivity aag2;
+        PersonBarActivity aaL;
+        PersonBarActivity aaL2;
         int intValue = ((Integer) view.getTag()).intValue();
         if (intValue >= 0) {
-            qVar = this.bFr.bFg;
+            qVar = this.bHc.bGR;
             if (intValue < qVar.getCount()) {
-                qVar2 = this.bFr.bFg;
+                qVar2 = this.bHc.bGR;
                 ForumData forumData = (ForumData) qVar2.getItem(intValue);
-                aag = this.bFr.aag();
-                if (aag != null) {
-                    aag2 = this.bFr.aag();
-                    this.bFr.sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(aag2.getPageContext().getPageActivity(), com.baidu.adp.lib.g.c.a(forumData.getId(), 0L), forumData.getName(), forumData.getImage_url(), 0)));
+                aaL = this.bHc.aaL();
+                if (aaL != null) {
+                    aaL2 = this.bHc.aaL();
+                    this.bHc.sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(aaL2.getPageContext().getPageActivity(), com.baidu.adp.lib.g.c.a(forumData.getId(), 0L), forumData.getName(), forumData.getImage_url(), 0)));
                 }
             }
         }

@@ -18,14 +18,14 @@ public abstract class a extends com.baidu.tbadk.mvc.core.d {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void yf() {
-        wx().addEventDelegate(this);
-        dispatchMvcEvent(yg());
+    public void yv() {
+        wN().addEventDelegate(this);
+        dispatchMvcEvent(yw());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public com.baidu.tbadk.mvc.c.b yg() {
-        return wz().dD(ViewCompat.MEASURED_STATE_TOO_SMALL);
+    public com.baidu.tbadk.mvc.c.b yw() {
+        return wP().dJ(ViewCompat.MEASURED_STATE_TOO_SMALL);
     }
 
     @Override // com.baidu.tbadk.mvc.core.c, com.baidu.tbadk.mvc.c.a
@@ -33,17 +33,17 @@ public abstract class a extends com.baidu.tbadk.mvc.core.d {
         if (super.a(bVar)) {
             return true;
         }
-        if (bVar.xc() == 33554435) {
+        if (bVar.xs() == 33554435) {
             kH();
             return true;
-        } else if (bVar.xc() == 33554436) {
+        } else if (bVar.xs() == 33554436) {
             kG();
             return true;
         } else if (bVar instanceof com.baidu.tbadk.mvc.c.b.b) {
-            a(((com.baidu.tbadk.mvc.c.b.b) bVar).xd());
+            a(((com.baidu.tbadk.mvc.c.b.b) bVar).xt());
             return true;
         } else if (bVar instanceof com.baidu.tbadk.mvc.c.b.c) {
-            b(((com.baidu.tbadk.mvc.c.b.c) bVar).xe());
+            b(((com.baidu.tbadk.mvc.c.b.c) bVar).xu());
             return true;
         } else {
             return false;

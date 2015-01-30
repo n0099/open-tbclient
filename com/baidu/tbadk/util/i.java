@@ -1,33 +1,33 @@
 package com.baidu.tbadk.util;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ad;
+import android.content.Context;
+import android.text.style.ClickableSpan;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
 /* loaded from: classes.dex */
-public class i extends Thread {
-    private int ahw;
-    private int ahx;
-    private String type = null;
+public class i extends ClickableSpan {
+    private Context mContext;
 
-    public i(int i, int i2) {
-        this.ahw = 0;
-        this.ahx = 0;
-        this.ahw = i;
-        this.ahx = i2;
+    public i(Context context) {
+        this.mContext = null;
+        this.mContext = context;
     }
 
-    public void setType(String str) {
-        this.type = str;
+    public Context getContext() {
+        return this.mContext;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        super.run();
-        ad adVar = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LOAD_REG_PV_ADDRESS);
-        adVar.o("img_num", String.valueOf(this.ahw));
-        adVar.o("img_total", String.valueOf(this.ahx));
-        if (this.type != null) {
-            adVar.o("img_type", this.type);
-        }
-        adVar.ov();
+    public void eH(String str) {
+        com.baidu.tbadk.browser.a.x(this.mContext, str);
+    }
+
+    public void eI(String str) {
+        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.mContext).createNormalCfg(str, null, null)));
+    }
+
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View view) {
     }
 }

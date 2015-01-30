@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
-    public static boolean bN(String str) {
+    public static boolean bL(String str) {
         return TiebaDatabase.getInstance().getMainDBDatabaseManager().a("delete from account_data where account=?", new String[]{str});
     }
 
@@ -21,7 +21,7 @@ public class a {
                 mi();
             }
             com.baidu.adp.base.a.c mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            if (!bN(accountData.getAccount()) || !a(accountData, mainDBDatabaseManager)) {
+            if (!bL(accountData.getAccount()) || !a(accountData, mainDBDatabaseManager)) {
                 if (!mainDBDatabaseManager.t("DROP TABLE IF EXISTS account_data")) {
                     mainDBDatabaseManager.am();
                 }
@@ -162,7 +162,7 @@ public class a {
     /* JADX DEBUG: Multi-variable search result rejected for r1v31, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX DEBUG: Multi-variable search result rejected for r2v7, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX WARN: Multi-variable type inference failed */
-    public static AccountData bO(String str) {
+    public static AccountData bM(String str) {
         Cursor cursor;
         Cursor rawQuery;
         AccountData accountData;
@@ -226,12 +226,6 @@ public class a {
         com.baidu.adp.lib.g.a.b(rawQuery);
         accountData = cursor2;
         return accountData;
-    }
-
-    public static void J(String str, String str2) {
-        if (str != null && str2 != null) {
-            TiebaDatabase.getInstance().getMainDBDatabaseManager().a("update account_data set portrait=? where account=?", new String[]{str2, str});
-        }
     }
 
     public static ArrayList<AccountData> ml() {

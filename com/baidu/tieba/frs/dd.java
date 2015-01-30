@@ -1,11 +1,25 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes.dex */
-public class dd {
-    final /* synthetic */ db aGv;
-    public String aGw;
-    public String name;
 
-    public dd(db dbVar) {
-        this.aGv = dbVar;
+import android.view.View;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public class dd implements com.baidu.adp.widget.BdSwitchView.c {
+    final /* synthetic */ dc aHF;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dd(dc dcVar) {
+        this.aHF = dcVar;
+    }
+
+    @Override // com.baidu.adp.widget.BdSwitchView.c
+    public void a(View view, BdSwitchView.SwitchState switchState) {
+        if (switchState == BdSwitchView.SwitchState.ON) {
+            com.baidu.tbadk.core.l.mc().bl(0);
+            com.baidu.tbadk.core.l.mc().ac(true);
+        } else {
+            com.baidu.tbadk.core.l.mc().ac(false);
+        }
+        this.aHF.aHD = true;
     }
 }

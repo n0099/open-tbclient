@@ -39,7 +39,7 @@ public class c {
         this.content = str;
     }
 
-    public void H(String str, String str2) {
+    public void L(String str, String str2) {
         if (str != null && str2 != null) {
             this.Ay.put(str, str2);
         }

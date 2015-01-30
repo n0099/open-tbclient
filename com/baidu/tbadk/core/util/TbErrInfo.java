@@ -123,7 +123,7 @@ public class TbErrInfo {
             case ERR_VOICE_RECORD /* -84 */:
                 return resources.getString(com.baidu.tieba.z.voice_err_other);
             case ERR_UNKNOW /* -52 */:
-            case -7:
+            case ERR_HTTP_UNKNOWN /* -7 */:
             case -2:
             case -1:
                 return resources.getString(com.baidu.tieba.z.neterror);
@@ -161,7 +161,7 @@ public class TbErrInfo {
     }
 
     public static int getFileHelperSDErr() {
-        switch (com.baidu.adp.lib.util.d.eU()) {
+        switch (com.baidu.adp.lib.util.d.eT()) {
             case 1:
                 return -23;
             case 2:

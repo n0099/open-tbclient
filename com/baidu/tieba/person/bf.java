@@ -1,37 +1,28 @@
 package com.baidu.tieba.person;
 
+import android.content.Context;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bf implements View.OnClickListener {
-    final /* synthetic */ PersonListActivity bGG;
+    final /* synthetic */ PersonListActivity bIs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bf(PersonListActivity personListActivity) {
-        this.bGG = personListActivity;
+        this.bIs = personListActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bk bkVar;
-        bk bkVar2;
-        bk bkVar3;
-        int intValue = ((Integer) view.getTag()).intValue();
-        bkVar = this.bGG.bGB;
-        if (bkVar != null) {
-            bkVar2 = this.bGG.bGB;
-            if (bkVar2.getItemViewType(intValue) == 0) {
-                bkVar3 = this.bGG.bGB;
-                UserData userData = (UserData) bkVar3.getItem(intValue);
-                if (userData != null && userData.getUserId() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.bGG.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show(), null, AddFriendActivityConfig.TYPE_FOCUS)));
-                }
-            }
+        this.bIs.bHR = ((Integer) view.getTag()).intValue();
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (currentAccount == null || currentAccount.length() <= 0) {
+            this.bIs.sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) this.bIs.getPageContext().getPageActivity(), this.bIs.getPageContext().getString(com.baidu.tieba.z.login_to_chat), true, 11028)));
+        } else {
+            this.bIs.aaZ();
         }
     }
 }

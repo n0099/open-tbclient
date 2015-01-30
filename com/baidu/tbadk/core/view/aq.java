@@ -1,22 +1,49 @@
 package com.baidu.tbadk.core.view;
 
-import android.view.View;
-import android.widget.AbsListView;
+import android.content.Context;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aq implements AbsListView.RecyclerListener {
-    private int mId;
+public class aq implements com.baidu.adp.lib.e.c<TbImageView> {
+    private final /* synthetic */ Context val$context;
 
-    public aq(int i) {
-        this.mId = 0;
-        this.mId = i;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public aq(Context context) {
+        this.val$context = context;
     }
 
-    @Override // android.widget.AbsListView.RecyclerListener
-    public void onMovedToScrapHeap(View view) {
-        View findViewById = view.findViewById(this.mId);
-        if (findViewById != null && (findViewById instanceof UserIconBox)) {
-            ((UserIconBox) findViewById).a(null, 0, 0, 0, 0);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: qN */
+    public TbImageView eb() {
+        return new TbImageView(this.val$context);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: a */
+    public void k(TbImageView tbImageView) {
+        tbImageView.setBackgroundResource(0);
+        tbImageView.setImageDrawable(null);
+        tbImageView.setTag(null);
+        tbImageView.setOnClickListener(null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: b */
+    public TbImageView l(TbImageView tbImageView) {
+        return tbImageView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: c */
+    public TbImageView m(TbImageView tbImageView) {
+        tbImageView.setBackgroundResource(0);
+        tbImageView.setImageDrawable(null);
+        tbImageView.setTag(null);
+        tbImageView.setOnClickListener(null);
+        return tbImageView;
     }
 }

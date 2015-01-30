@@ -123,11 +123,11 @@ public class a extends i {
 
     public void startActivityForResult(int i, Message<?> message) {
         if (message != null) {
-            if (TextUtils.isEmpty(h.iy().ar(message.getCmd()))) {
+            if (TextUtils.isEmpty(h.iy().aw(message.getCmd()))) {
                 if (this.mIntent != null) {
                     try {
                         if (com.baidu.adp.plugin.pluginBase.c.class.isAssignableFrom(BdBaseApplication.getInst().getClassLoader().loadClass(this.mIntent.getComponent().getClassName()))) {
-                            PluginCenter.gX().a(this.mContext, message.getCmd(), this.mIntent);
+                            PluginCenter.gW().a(this.mContext, message.getCmd(), this.mIntent);
                             return;
                         }
                     } catch (Exception e) {
@@ -142,7 +142,7 @@ public class a extends i {
                     return;
                 }
             }
-            PluginCenter.gX().a(this.mContext, message.getCmd(), this.mIntent);
+            PluginCenter.gW().a(this.mContext, message.getCmd(), this.mIntent);
         }
     }
 
@@ -160,11 +160,11 @@ public class a extends i {
 
     public void startActivity(Message<?> message) {
         if (message != null) {
-            if (TextUtils.isEmpty(h.iy().ar(message.getCmd()))) {
+            if (TextUtils.isEmpty(h.iy().aw(message.getCmd()))) {
                 if (this.mIntent != null) {
                     try {
                         if (com.baidu.adp.plugin.pluginBase.c.class.isAssignableFrom(BdBaseApplication.getInst().getClassLoader().loadClass(this.mIntent.getComponent().getClassName()))) {
-                            PluginCenter.gX().a(this.mContext, message.getCmd(), this.mIntent);
+                            PluginCenter.gW().a(this.mContext, message.getCmd(), this.mIntent);
                             return;
                         }
                     } catch (Exception e) {
@@ -179,7 +179,7 @@ public class a extends i {
                     return;
                 }
             }
-            PluginCenter.gX().a(this.mContext, message.getCmd(), this.mIntent);
+            PluginCenter.gW().a(this.mContext, message.getCmd(), this.mIntent);
         }
     }
 }

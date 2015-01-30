@@ -13,7 +13,7 @@ public class aj implements Runnable {
         this.mScroller = new Scroller(context);
     }
 
-    private void jP() {
+    private void jO() {
         if (this.xz.mHandler != null) {
             this.xz.mHandler.removeCallbacks(this.xz.xy);
         }
@@ -54,7 +54,7 @@ public class aj implements Runnable {
     public void i(int i, int i2) {
         if (this.xz.mView != null && this.mScroller != null) {
             int i3 = i == 0 ? i - 1 : i;
-            jP();
+            jO();
             this.xA = 0;
             this.mScroller.startScroll(0, 0, 0, i3, i2);
             this.xz.mView.post(this);
@@ -63,10 +63,10 @@ public class aj implements Runnable {
 
     /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.ListView.ai.run():void] */
     public static /* synthetic */ void a(aj ajVar) {
-        ajVar.endAnimation();
+        ajVar.jP();
     }
 
-    public void endAnimation() {
+    public void jP() {
         com.baidu.adp.widget.ScrollView.g gVar;
         com.baidu.adp.widget.ScrollView.g gVar2;
         this.xz.mHandler.removeCallbacks(this.xz.xy);
@@ -80,7 +80,7 @@ public class aj implements Runnable {
         gVar = this.xz.xv;
         if (gVar != null) {
             gVar2 = this.xz.xv;
-            gVar2.jO();
+            gVar2.jN();
         }
     }
 }

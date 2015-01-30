@@ -1,35 +1,37 @@
 package com.baidu.tieba.person;
 
-import android.text.TextUtils;
-import android.widget.ProgressBar;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class be implements bp {
-    final /* synthetic */ PersonListActivity bGG;
+public class be implements View.OnClickListener {
+    final /* synthetic */ PersonListActivity bIs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(PersonListActivity personListActivity) {
-        this.bGG = personListActivity;
+        this.bIs = personListActivity;
     }
 
-    @Override // com.baidu.tieba.person.bp
-    public void B(String str, boolean z) {
-        ProgressBar progressBar;
-        ProgressBar progressBar2;
-        if (!z) {
-            progressBar = this.bGG.mProgress;
-            if (progressBar.isShown()) {
-                progressBar2 = this.bGG.mProgress;
-                progressBar2.setVisibility(8);
-            }
-            if (!TextUtils.isEmpty(str)) {
-                this.bGG.showToast(str);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        bj bjVar;
+        bj bjVar2;
+        bj bjVar3;
+        int intValue = ((Integer) view.getTag()).intValue();
+        bjVar = this.bIs.bIn;
+        if (bjVar != null) {
+            bjVar2 = this.bIs.bIn;
+            if (bjVar2.getItemViewType(intValue) == 0) {
+                bjVar3 = this.bIs.bIn;
+                UserData userData = (UserData) bjVar3.getItem(intValue);
+                if (userData != null && userData.getUserId() != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.bIs.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show(), null, AddFriendActivityConfig.TYPE_FOCUS)));
+                }
             }
         }
-    }
-
-    @Override // com.baidu.tieba.person.bp
-    public com.baidu.tbadk.core.data.q d(com.baidu.tbadk.core.data.q qVar, boolean z) {
-        this.bGG.a(qVar, z);
-        return null;
     }
 }

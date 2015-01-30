@@ -1,22 +1,19 @@
 package com.baidu.tieba.im.chat;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cy implements DialogInterface.OnClickListener {
-    private final /* synthetic */ int LK;
-    final /* synthetic */ TalkableActivity aRW;
+public class cy implements com.baidu.tbadk.img.b<ChatMessage> {
+    final /* synthetic */ TalkableActivity aTf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cy(TalkableActivity talkableActivity, int i) {
-        this.aRW = talkableActivity;
-        this.LK = i;
+    public cy(TalkableActivity talkableActivity) {
+        this.aTf = talkableActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.adp.lib.g.k.b((Dialog) dialogInterface, this.aRW.getPageContext());
-        this.aRW.deleteMsg(this.LK);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.img.b
+    public void a(int i, ChatMessage chatMessage) {
+        this.aTf.mListView.updateAdapter(i, chatMessage);
     }
 }

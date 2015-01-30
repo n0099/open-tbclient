@@ -8,57 +8,57 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class as extends LinearLayout implements aw {
-    private int XE;
-    private au bUR;
-    private PrivilegeTabContentView bUX;
-    private PrivilegeTabWidgetView bUY;
+    private int Yk;
+    private ArrayList<ao> amP;
+    private au bWK;
+    private PrivilegeTabContentView bWQ;
+    private PrivilegeTabWidgetView bWR;
     private Context mContext;
     private int mCurrentIndex;
-    private ArrayList<ao> mData;
     private ProgressBar mProgressBar;
 
     public as(Context context) {
         super(context);
-        this.mData = new ArrayList<>();
+        this.amP = new ArrayList<>();
         this.mCurrentIndex = -1;
-        this.XE = -1;
-        this.bUR = new at(this);
+        this.Yk = -1;
+        this.bWK = new at(this);
         init(context);
     }
 
-    private void afY() {
-        this.mData.clear();
-        this.mData.add(new b(this.bUR));
+    private void agC() {
+        this.amP.clear();
+        this.amP.add(new b(this.bWK));
     }
 
     private void init(Context context) {
         this.mContext = context;
         removeAllViews();
-        com.baidu.adp.lib.g.b.ek().a(context, com.baidu.tieba.x.privilege_tab_host, this, true);
-        this.bUX = (PrivilegeTabContentView) findViewById(com.baidu.tieba.w.privilege_tab_content);
-        this.bUY = (PrivilegeTabWidgetView) findViewById(com.baidu.tieba.w.privilege_tab_widget);
+        com.baidu.adp.lib.g.b.ei().a(context, com.baidu.tieba.x.privilege_tab_host, this, true);
+        this.bWQ = (PrivilegeTabContentView) findViewById(com.baidu.tieba.w.privilege_tab_content);
+        this.bWR = (PrivilegeTabWidgetView) findViewById(com.baidu.tieba.w.privilege_tab_widget);
         this.mProgressBar = (ProgressBar) findViewById(com.baidu.tieba.w.privilege_progress);
-        this.bUY.setOnTabSelectedListener(this);
+        this.bWR.setOnTabSelectedListener(this);
         setOrientation(1);
-        this.XE = TbadkCoreApplication.m255getInst().getSkinType();
-        onChangeSkinType(this.XE);
+        this.Yk = TbadkCoreApplication.m255getInst().getSkinType();
+        onChangeSkinType(this.Yk);
         setup();
     }
 
     private void setup() {
-        afY();
+        agC();
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
         int skinType = TbadkCoreApplication.m255getInst().getSkinType();
-        if (skinType != this.XE) {
-            this.XE = skinType;
-            onChangeSkinType(this.XE);
+        if (skinType != this.Yk) {
+            this.Yk = skinType;
+            onChangeSkinType(this.Yk);
         }
         if (i != 8 && i != 4) {
-            Iterator<ao> it = this.mData.iterator();
+            Iterator<ao> it = this.amP.iterator();
             while (it.hasNext()) {
                 it.next().init(this.mContext);
             }
@@ -67,20 +67,20 @@ public class as extends LinearLayout implements aw {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(aq aqVar) {
-        this.bUY.c(aqVar);
+        this.bWR.c(aqVar);
     }
 
     public void setCurrentTab(int i) {
-        if (i >= 0 && i < this.mData.size()) {
-            this.bUX.a(this.mData.get(i));
-            this.bUY.setShowDelete(true);
-            this.bUY.setCurrentTab(i);
+        if (i >= 0 && i < this.amP.size()) {
+            this.bWQ.a(this.amP.get(i));
+            this.bWR.setShowDelete(true);
+            this.bWR.setCurrentTab(i);
             this.mCurrentIndex = i;
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.PbEditor.aw
-    public void df(int i) {
+    public void dm(int i) {
         setCurrentTab(i);
     }
 
@@ -95,23 +95,23 @@ public class as extends LinearLayout implements aw {
     }
 
     public void onChangeSkinType(int i) {
-        this.bUY.onChangeSkinType(i);
-        this.bUX.onChangeSkinType(i);
+        this.bWR.onChangeSkinType(i);
+        this.bWQ.onChangeSkinType(i);
     }
 
     public void setOnDataSelected(com.baidu.tbadk.editortool.w wVar) {
-        Iterator<ao> it = this.mData.iterator();
+        Iterator<ao> it = this.amP.iterator();
         while (it.hasNext()) {
             it.next().b(wVar);
         }
-        this.bUX.setOnDataSelected(wVar);
-        this.bUY.setOnDataSelected(wVar);
+        this.bWQ.setOnDataSelected(wVar);
+        this.bWR.setOnDataSelected(wVar);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        Iterator<ao> it = this.mData.iterator();
+        Iterator<ao> it = this.amP.iterator();
         while (it.hasNext()) {
             it.next().exit();
         }

@@ -8,11 +8,11 @@ import com.baidu.adp.plugin.packageManager.pluginSettings.h;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements d<Message<?>> {
-    final /* synthetic */ a sv;
+    final /* synthetic */ a sE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.sv = aVar;
+        this.sE = aVar;
     }
 
     @Override // com.baidu.adp.framework.listener.d
@@ -20,18 +20,18 @@ public class c implements d<Message<?>> {
         if (message == null) {
             return false;
         }
-        String ar = h.iy().ar(message.getCmd());
-        if (TextUtils.isEmpty(ar) || h.iy().bt(ar)) {
+        String aw = h.iy().aw(message.getCmd());
+        if (TextUtils.isEmpty(aw) || h.iy().bt(aw)) {
             return false;
         }
-        if (PluginCenter.gX().aQ(ar)) {
-            if (PluginCenter.gX().aR(ar)) {
+        if (PluginCenter.gW().aQ(aw)) {
+            if (PluginCenter.gW().aR(aw)) {
                 return false;
             }
-            this.sv.a(ar, message);
+            this.sE.a(aw, message);
             return true;
         }
-        this.sv.a(ar, message);
-        return PluginCenter.gX().aP(ar);
+        this.sE.a(aw, message);
+        return PluginCenter.gW().aP(aw);
     }
 }

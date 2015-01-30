@@ -58,9 +58,6 @@ public class MaskMessageModel extends f {
         MessageManager.getInstance().unRegisterListener(messageListener);
     }
 
-    public void saveInstance(Bundle bundle) {
-    }
-
     @Override // com.baidu.adp.base.f
     protected boolean LoadData() {
         return false;

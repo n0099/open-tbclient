@@ -3,11 +3,11 @@ package com.baidu.tieba.pb.main;
 import java.util.Comparator;
 /* loaded from: classes.dex */
 class bn implements Comparator<Integer> {
-    final /* synthetic */ bi bzJ;
+    final /* synthetic */ bi bBt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bn(bi biVar) {
-        this.bzJ = biVar;
+        this.bBt = biVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

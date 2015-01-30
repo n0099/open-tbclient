@@ -29,7 +29,7 @@ import com.baidu.tbadk.core.c;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.core.util.k;
 import com.baidu.tbadk.core.view.o;
 import com.baidu.tbadk.d.f;
@@ -82,7 +82,7 @@ public class ProxyAdkBaseActivity<T> extends a {
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(getActivity());
-        this.customToast = k.oo();
+        this.customToast = k.or();
         super.onCreate(bundle);
         this.mLayoutMode = new c();
         this.mLayoutInflateFactory = new com.baidu.tbadk.core.a();
@@ -92,7 +92,7 @@ public class ProxyAdkBaseActivity<T> extends a {
             CompatibleUtile.getInstance().openGpu(getActivity());
         }
         TbadkCoreApplication.setIsAppRunning(true);
-        bf.cJ(getClass().getName());
+        bk.cI(getClass().getName());
     }
 
     public TbPageContext<T> getPageContext() {
@@ -188,7 +188,7 @@ public class ProxyAdkBaseActivity<T> extends a {
     public void onDestroy() {
         closeLoadingDialog();
         if (this.mGuidPage != null) {
-            this.mGuidPage.qt();
+            this.mGuidPage.qE();
         }
         if (this.mLayoutMode != null) {
             this.mLayoutMode.destroy();
@@ -297,19 +297,19 @@ public class ProxyAdkBaseActivity<T> extends a {
     }
 
     protected void showToastWithIcon(String str, int i) {
-        BdToast.a(this, str, i).nY();
+        BdToast.a(this, str, i).ob();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(this, str, i, i2).nY();
+        BdToast.a(this, str, i, i2).ob();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(this, str, defaultIcon).nY();
+        BdToast.a(this, str, defaultIcon).ob();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(this, str, defaultIcon, i).nY();
+        BdToast.a(this, str, defaultIcon, i).ob();
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.a
@@ -427,7 +427,7 @@ public class ProxyAdkBaseActivity<T> extends a {
         this.customToast.onResume();
         changeSkinType(TbadkCoreApplication.m255getInst().getSkinType());
         TbadkCoreApplication.m255getInst().AddResumeNum();
-        bf.cJ(getClass().getName());
+        bk.cI(getClass().getName());
     }
 
     public void changeSkinType(int i) {
@@ -712,7 +712,7 @@ public class ProxyAdkBaseActivity<T> extends a {
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.vW();
+        return this.loadingView.wo();
     }
 
     public void hideLoadingView(View view) {

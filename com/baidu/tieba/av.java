@@ -1,21 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
-public class av implements DialogInterface.OnDismissListener {
-    final /* synthetic */ UpdateDialog this$0;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public av(UpdateDialog updateDialog) {
-        this.this$0 = updateDialog;
-    }
-
-    @Override // android.content.DialogInterface.OnDismissListener
-    public void onDismiss(DialogInterface dialogInterface) {
-        af afVar;
-        afVar = this.this$0.alF;
-        afVar.dismiss();
-        this.this$0.mHandler.postDelayed(new aw(this), 100L);
+class av implements CustomMessageTask.CustomRunnable<AccountData> {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<AccountData> customMessage) {
+        com.baidu.tbadk.coreExtra.messageCenter.a.rY().av(true);
+        com.baidu.tieba.tbadkCore.util.j.aiu();
+        com.baidu.tbadk.browser.a.Q(TbadkCoreApplication.m255getInst());
+        return null;
     }
 }

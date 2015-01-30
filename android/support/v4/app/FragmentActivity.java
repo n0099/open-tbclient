@@ -92,8 +92,9 @@ public class FragmentActivity extends Activity {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    protected void onActivityResult(int i, int i2, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         this.mFragments.noteStateNotSaved();
         int i3 = i >> 16;
         if (i3 != 0) {

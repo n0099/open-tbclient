@@ -12,7 +12,7 @@ public class h extends ad {
     }
 
     @Override // com.baidu.tieba.mention.ad, com.baidu.tbadk.mvc.b.e
-    public boolean xb() {
+    public boolean xr() {
         return false;
     }
 }

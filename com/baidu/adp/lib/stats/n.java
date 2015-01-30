@@ -1,18 +1,19 @@
 package com.baidu.adp.lib.stats;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class n {
+public class n {
     private int mCount;
     private boolean mIsRunning;
     private long mLastLogTime;
-    private long mp;
-    private boolean mq;
-    final /* synthetic */ m mr;
+    private long ms;
+    private boolean mt;
+    final /* synthetic */ m mu;
 
     private n(m mVar) {
-        this.mr = mVar;
+        this.mu = mVar;
         this.mIsRunning = false;
         this.mCount = 0;
-        this.mq = false;
+        this.mt = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -20,31 +21,31 @@ class n {
         this(mVar);
     }
 
-    public boolean eD() {
-        return this.mq;
+    public boolean eB() {
+        return this.mt;
     }
 
     public void C(boolean z) {
-        this.mq = z;
+        this.mt = z;
     }
 
-    public long eE() {
-        return this.mp;
+    public long eC() {
+        return this.ms;
     }
 
     public void f(long j) {
-        this.mp = j;
+        this.ms = j;
     }
 
-    public int eF() {
+    public int eD() {
         return this.mCount;
     }
 
-    public void S(int i) {
+    public void X(int i) {
         this.mCount = i;
     }
 
-    public long eG() {
+    public long eE() {
         return this.mLastLogTime;
     }
 
@@ -52,7 +53,7 @@ class n {
         this.mLastLogTime = j;
     }
 
-    public boolean eH() {
+    public boolean eF() {
         return this.mIsRunning;
     }
 

@@ -1,39 +1,25 @@
 package com.baidu.tieba.friendfeed;
+
+import android.widget.AbsListView;
 /* loaded from: classes.dex */
-class k implements com.baidu.tieba.tbadkCore.location.j {
-    final /* synthetic */ FriendFeedActivity aAU;
+class k implements AbsListView.OnScrollListener {
+    final /* synthetic */ FriendFeedActivity aBV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(FriendFeedActivity friendFeedActivity) {
-        this.aAU = friendFeedActivity;
+        this.aBV = friendFeedActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.location.j
-    public void Fa() {
-        y yVar;
-        y yVar2;
-        y yVar3;
-        yVar = this.aAU.aAB;
-        if (yVar != null) {
-            yVar2 = this.aAU.aAB;
-            if (yVar2.Fh() != null) {
-                yVar3 = this.aAU.aAB;
-                yVar3.Fh().setLocationViewVisibility(8);
-            }
-        }
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 
-    @Override // com.baidu.tieba.tbadkCore.location.j
-    public void fu(String str) {
-        y yVar;
-        y yVar2;
-        y yVar3;
-        yVar = this.aAU.aAB;
-        if (yVar.Fh() != null) {
-            yVar2 = this.aAU.aAB;
-            yVar2.Fh().setLocationViewVisibility(0);
-            yVar3 = this.aAU.aAB;
-            yVar3.Fh().B(2, str);
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        x xVar;
+        if (i != 0) {
+            xVar = this.aBV.aBD;
+            xVar.FH();
         }
     }
 }

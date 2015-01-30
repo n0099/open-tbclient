@@ -6,10 +6,10 @@ import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends Thread {
-    final /* synthetic */ o pJ;
+    final /* synthetic */ o pO;
 
     private q(o oVar) {
-        this.pJ = oVar;
+        this.pO = oVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -22,7 +22,7 @@ public class q extends Thread {
         String str;
         int i;
         boolean z;
-        boolean ga;
+        boolean fZ;
         String str2;
         int i2;
         String str3;
@@ -34,50 +34,50 @@ public class q extends Thread {
         long currentTimeMillis = System.currentTimeMillis();
         try {
             f fVar = new f();
-            o oVar = this.pJ;
-            str = this.pJ.py;
-            i = this.pJ.pz;
-            oVar.pv = fVar.a(str, i, this.pJ.pD, false);
-            z = this.pJ.pG;
+            o oVar = this.pO;
+            str = this.pO.pD;
+            i = this.pO.pE;
+            oVar.pA = fVar.a(str, i, this.pO.pI, false);
+            z = this.pO.pL;
             if (!z) {
                 try {
-                    if (this.pJ.pv.isConnected()) {
-                        this.pJ.pH = System.currentTimeMillis() - currentTimeMillis;
-                        this.pJ.gg();
-                        this.pJ.gf();
-                        str2 = this.pJ.py;
+                    if (this.pO.pA.isConnected()) {
+                        this.pO.pM = System.currentTimeMillis() - currentTimeMillis;
+                        this.pO.gf();
+                        this.pO.ge();
+                        str2 = this.pO.pD;
                         StringBuilder append = new StringBuilder(String.valueOf(str2)).append(":");
-                        i2 = this.pJ.pz;
+                        i2 = this.pO.pE;
                         u uVar = new u(append.append(i2).toString());
-                        str3 = this.pJ.pA;
+                        str3 = this.pO.pF;
                         uVar.mPath = str3;
-                        str4 = this.pJ.pB;
-                        uVar.pL = str4;
-                        strArr = this.pJ.pj;
-                        uVar.pM = strArr;
-                        list = this.pJ.pi;
-                        uVar.pN = list;
-                        this.pJ.pu.q(uVar);
-                        z2 = this.pJ.pG;
+                        str4 = this.pO.pG;
+                        uVar.pQ = str4;
+                        strArr = this.pO.pr;
+                        uVar.pR = strArr;
+                        list = this.pO.pq;
+                        uVar.pS = list;
+                        this.pO.pz.q(uVar);
+                        z2 = this.pO.pL;
                         if (z2) {
-                            this.pJ.n(new v());
+                            this.pO.n(new v());
                         }
                     } else {
-                        this.pJ.n(new x(2, "cannot connect"));
+                        this.pO.n(new x(2, "cannot connect"));
                     }
                     return;
                 } catch (Throwable th) {
-                    ga = this.pJ.ga();
-                    if (ga) {
+                    fZ = this.pO.fZ();
+                    if (fZ) {
                         BdLog.e("----WebSocketConnector error. e:" + th.getMessage());
                     }
-                    this.pJ.n(new y(new Exception(th)));
+                    this.pO.n(new y(new Exception(th)));
                     return;
                 }
             }
-            this.pJ.n(new v());
+            this.pO.n(new v());
         } catch (Throwable th2) {
-            this.pJ.n(new x(2, th2.getMessage()));
+            this.pO.n(new x(2, th2.getMessage()));
         }
     }
 }

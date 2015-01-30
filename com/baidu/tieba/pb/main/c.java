@@ -1,68 +1,54 @@
 package com.baidu.tieba.pb.main;
 
-import android.widget.AbsListView;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import java.text.MessageFormat;
 /* loaded from: classes.dex */
-class c implements AbsListView.OnScrollListener {
-    final /* synthetic */ PbActivity bzj;
+class c implements com.baidu.tbadk.baseEditMark.g {
+    final /* synthetic */ PbActivity bAT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(PbActivity pbActivity) {
-        this.bzj = pbActivity;
+        this.bAT = pbActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    @Override // com.baidu.tbadk.baseEditMark.g
+    public void a(boolean z, boolean z2, String str) {
         bz bzVar;
+        com.baidu.tbadk.baseEditMark.e eVar;
+        bq bqVar;
+        bq bqVar2;
         bz bzVar2;
-        boolean z;
-        bz bzVar3;
-        com.baidu.tbadk.performanceLog.h hVar;
-        com.baidu.tbadk.performanceLog.h hVar2;
-        com.baidu.tbadk.performanceLog.h hVar3;
-        bz bzVar4;
-        com.baidu.tbadk.performanceLog.h hVar4;
-        bz bzVar5;
-        com.baidu.tbadk.performanceLog.h hVar5;
-        com.baidu.tbadk.performanceLog.h hVar6;
-        if (i == 2 || i == 1) {
-            bzVar = this.bzj.byO;
-            bzVar.YE();
-            bzVar2 = this.bzj.byO;
-            bzVar2.XH();
-            this.bzj.WD();
-            z = this.bzj.byG;
-            if (!z) {
-                this.bzj.byG = true;
-                bzVar3 = this.bzj.byO;
-                bzVar3.YL();
+        bq bqVar3;
+        com.baidu.tbadk.baseEditMark.e eVar2;
+        bzVar = this.bAT.bAx;
+        bzVar.YI();
+        if (z) {
+            eVar = this.bAT.bAt;
+            eVar.Y(z2);
+            bqVar = this.bAT.bAs;
+            bqVar.dS(z2);
+            bqVar2 = this.bAT.bAs;
+            if (!bqVar2.li()) {
+                bzVar2 = this.bAT.bAx;
+                bqVar3 = this.bAT.bAs;
+                bzVar2.e(bqVar3.getPbData());
+            } else {
+                this.bAT.Xr();
             }
-        }
-        hVar = this.bzj.byH;
-        if (hVar == null) {
-            this.bzj.byH = new com.baidu.tbadk.performanceLog.h();
-            hVar5 = this.bzj.byH;
-            hVar5.dR(1001);
-            hVar6 = this.bzj.byH;
-            hVar6.agm = this.bzj.aCy;
-        }
-        if (i == 0) {
-            bzVar4 = this.bzj.byO;
-            if (bzVar4.XT() != null) {
-                bzVar5 = this.bzj.byO;
-                bzVar5.XT().notifyDataSetChanged();
+            if (z2) {
+                eVar2 = this.bAT.bAt;
+                MarkData lj = eVar2.lj();
+                if (lj != null) {
+                    this.bAT.showToast(MessageFormat.format(this.bAT.getPageContext().getString(com.baidu.tieba.z.add_mark_on_pb), Integer.valueOf(lj.getFloor())));
+                    return;
+                } else {
+                    this.bAT.showToast(this.bAT.getPageContext().getString(com.baidu.tieba.z.add_mark));
+                    return;
+                }
             }
-            hVar4 = this.bzj.byH;
-            hVar4.yO();
-        } else if (i == 1) {
-            hVar3 = this.bzj.byH;
-            hVar3.yO();
-        } else {
-            hVar2 = this.bzj.byH;
-            hVar2.yO();
+            this.bAT.showToast(this.bAT.getPageContext().getString(com.baidu.tieba.z.remove_mark));
+            return;
         }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        this.bAT.showToast(this.bAT.getPageContext().getString(com.baidu.tieba.z.update_mark_failed));
     }
 }

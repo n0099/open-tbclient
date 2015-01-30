@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.account.AccountLoginHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ad;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bf;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -44,17 +44,17 @@ public class n {
             jSONObject.put(SapiAccountManager.SESSION_PTOKEN, ourToken.mPtoken);
             jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.m255getInst().getApp()));
             jSONObject.put("clientid", TbadkCoreApplication.m255getInst().getImei());
-            arrayList.add(new BasicNameValuePair("userinfo", new b().K(mn[1], jSONObject.toString())));
+            arrayList.add(new BasicNameValuePair("userinfo", new b().N(mn[1], jSONObject.toString())));
             arrayList.add(new BasicNameValuePair("sig", a(arrayList, TbConfig.PassConfig.ENC_KEY)));
             ad adVar = new ad(TbConfig.PassConfig.LOGIN_BDUSS_URL);
-            adVar.oW().pV().mIsNeedAddCommenParam = false;
-            adVar.oW().pV().mIsUseCurrentBDUSS = false;
-            adVar.q(arrayList);
-            adVar.oW().pV().pY().Kx = true;
-            adVar.oW().pV().pY().mIsBaiduServer = false;
-            String ov = adVar.ov();
-            if (adVar.oW().pW().ma() && !ba.isEmpty(ov)) {
-                JSONObject jSONObject2 = new JSONObject(ov);
+            adVar.oZ().qg().mIsNeedAddCommenParam = false;
+            adVar.oZ().qg().mIsUseCurrentBDUSS = false;
+            adVar.r(arrayList);
+            adVar.oZ().qg().qj().KQ = true;
+            adVar.oZ().qg().qj().mIsBaiduServer = false;
+            String oy = adVar.oy();
+            if (adVar.oZ().qh().ma() && !bf.isEmpty(oy)) {
+                JSONObject jSONObject2 = new JSONObject(oy);
                 if ("0".equals(jSONObject2.optString("errno"))) {
                     ourToken2 = new AccountLoginHelper.OurToken();
                     ourToken2.mBduss = jSONObject2.optString(SapiAccountManager.SESSION_BDUSS);
@@ -72,9 +72,9 @@ public class n {
     private static String[] mn() {
         try {
             ad adVar = new ad(TbConfig.PassConfig.GET_CERT_URL);
-            adVar.oW().pV().mIsNeedAddCommenParam = false;
-            adVar.oW().pV().mIsUseCurrentBDUSS = false;
-            JSONObject jSONObject = new JSONObject(new String(adVar.ow()));
+            adVar.oZ().qg().mIsNeedAddCommenParam = false;
+            adVar.oZ().qg().mIsUseCurrentBDUSS = false;
+            JSONObject jSONObject = new JSONObject(new String(adVar.oz()));
             return new String[]{jSONObject.optString("cert_id"), jSONObject.optString("cert")};
         } catch (Exception e) {
             return null;
@@ -82,7 +82,7 @@ public class n {
     }
 
     private static String mo() {
-        if (com.baidu.adp.lib.util.i.fh()) {
+        if (com.baidu.adp.lib.util.i.fg()) {
             return UtilHelper.getWifiMac(TbadkCoreApplication.m255getInst().getApp());
         }
         return UtilHelper.getGprsIpAddress();

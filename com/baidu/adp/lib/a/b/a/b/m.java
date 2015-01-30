@@ -4,15 +4,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m implements h {
-    private com.baidu.adp.lib.a.b.a.a.i gs;
+    private com.baidu.adp.lib.a.b.a.a.i gu;
 
     public m(com.baidu.adp.lib.a.b.a.a.i iVar) {
-        this.gs = iVar;
+        this.gu = iVar;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object a(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return com.baidu.adp.lib.a.b.a.a.i.jsonWithObject(this.gs);
+        return com.baidu.adp.lib.a.b.a.a.i.jsonWithObject(this.gu);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
@@ -31,7 +31,7 @@ public class m implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object d(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return this.gs;
+        return this.gu;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
@@ -51,6 +51,6 @@ public class m implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object f(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return this.gs;
+        return this.gu;
     }
 }

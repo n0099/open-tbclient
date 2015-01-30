@@ -4,11 +4,11 @@ import com.baidu.tieba.im.model.ValidateModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements com.baidu.tieba.im.g<Integer> {
-    final /* synthetic */ ValidateActivity bot;
+    final /* synthetic */ ValidateActivity bpQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(ValidateActivity validateActivity) {
-        this.bot = validateActivity;
+        this.bpQ = validateActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,13 +19,13 @@ public class f implements com.baidu.tieba.im.g<Integer> {
         int i2;
         int i3;
         com.baidu.tieba.im.g gVar;
-        this.bot.totalCount = num.intValue();
-        i = this.bot.totalCount;
+        this.bpQ.totalCount = num.intValue();
+        i = this.bpQ.totalCount;
         if (i > 0) {
-            this.bot.aef = true;
-            i2 = this.bot.bor;
-            i3 = this.bot.offset;
-            gVar = this.bot.getDataCallBack;
+            this.bpQ.aeC = true;
+            i2 = this.bpQ.bpO;
+            i3 = this.bpQ.offset;
+            gVar = this.bpQ.getDataCallBack;
             ValidateModel.requestValidateDataFromDB(i2, i3, gVar);
         }
     }

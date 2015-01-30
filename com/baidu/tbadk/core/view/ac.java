@@ -4,11 +4,11 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements Animation.AnimationListener {
-    final /* synthetic */ NoNetworkView Nl;
+    final /* synthetic */ NoNetworkView NH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(NoNetworkView noNetworkView) {
-        this.Nl = noNetworkView;
+        this.NH = noNetworkView;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -21,6 +21,6 @@ public class ac implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        this.Nl.setVisibility(8);
+        this.NH.setVisibility(8);
     }
 }

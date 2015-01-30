@@ -79,7 +79,7 @@ public abstract class BdStatBase implements Serializable {
             if (z) {
                 mProcessNameMd5 = "44f94582";
             } else {
-                mProcessNameMd5 = ep();
+                mProcessNameMd5 = en();
             }
         }
         this.mMemCache = new StringBuffer();
@@ -162,9 +162,9 @@ public abstract class BdStatBase implements Serializable {
             }
         }
         if (System.currentTimeMillis() - this.mLastLogTime > TbConfig.USE_TIME_INTERVAL) {
-            f.es().a(this, true, false);
+            f.eq().a(this, true, false);
         } else {
-            f.es().a(this, false, false);
+            f.eq().a(this, false, false);
         }
         this.mLastLogTime = System.currentTimeMillis();
     }
@@ -226,7 +226,7 @@ public abstract class BdStatBase implements Serializable {
     public void handleException() {
     }
 
-    private String ep() {
+    private String en() {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
         if (this.mContext == null) {
             return null;

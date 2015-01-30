@@ -16,30 +16,30 @@ import com.baidu.tieba.z;
 import java.util.List;
 /* loaded from: classes.dex */
 public class m extends com.baidu.adp.base.g<ValidateActivity> {
-    private ImageView boA;
-    private BdListView boB;
-    private h boC;
-    private ValidateActivity bou;
+    private ValidateActivity bpR;
+    private ImageView bpX;
+    private BdListView bpY;
+    private h bpZ;
     private NavigationBar mNavigationBar;
     private View parent;
     private ProgressBar pro_load;
 
     public m(ValidateActivity validateActivity) {
         super(validateActivity.getPageContext());
-        this.bou = validateActivity;
+        this.bpR = validateActivity;
         initView();
-        this.boC = new h(this.bou);
-        this.boB.setAdapter((ListAdapter) this.boC);
-        this.boB.setOnSrollToBottomListener(this.bou);
+        this.bpZ = new h(this.bpR);
+        this.bpY.setAdapter((ListAdapter) this.bpZ);
+        this.bpY.setOnSrollToBottomListener(this.bpR);
     }
 
     void initView() {
-        this.parent = View.inflate(this.bou.getPageContext().getPageActivity(), x.validate_activity, null);
-        this.bou.setContentView(this.parent);
-        this.mNavigationBar = (NavigationBar) this.bou.findViewById(w.view_navigation_bar);
-        this.mNavigationBar.setTitleText(this.bou.getPageContext().getString(z.validate));
+        this.parent = View.inflate(this.bpR.getPageContext().getPageActivity(), x.validate_activity, null);
+        this.bpR.setContentView(this.parent);
+        this.mNavigationBar = (NavigationBar) this.bpR.findViewById(w.view_navigation_bar);
+        this.mNavigationBar.setTitleText(this.bpR.getPageContext().getString(z.validate));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new n(this));
-        this.boB = (BdListView) this.parent.findViewById(w.validate_list);
+        this.bpY = (BdListView) this.parent.findViewById(w.validate_list);
         this.pro_load = (ProgressBar) this.parent.findViewById(w.pro_load);
         setLoadProgressBarVisable(false);
     }
@@ -47,16 +47,16 @@ public class m extends com.baidu.adp.base.g<ValidateActivity> {
     @Override // com.baidu.adp.base.g
     public void destroy() {
         super.destroy();
-        if (this.boC != null) {
-            this.boC.destroy();
-            this.boC = null;
+        if (this.bpZ != null) {
+            this.bpZ.destroy();
+            this.bpZ = null;
         }
-        this.bou = null;
+        this.bpR = null;
     }
 
     public void setData(List<ValidateItemData> list) {
-        if (this.boC != null) {
-            this.boC.setData(list);
+        if (this.bpZ != null) {
+            this.bpZ.setData(list);
         }
     }
 
@@ -65,23 +65,23 @@ public class m extends com.baidu.adp.base.g<ValidateActivity> {
     }
 
     public void onChangeSkinType(int i) {
-        this.bou.getLayoutMode().ab(i == 1);
-        this.bou.getLayoutMode().h(this.parent);
-        this.mNavigationBar.onChangeSkinType(this.bou.getPageContext(), i);
+        this.bpR.getLayoutMode().ab(i == 1);
+        this.bpR.getLayoutMode().h(this.parent);
+        this.mNavigationBar.onChangeSkinType(this.bpR.getPageContext(), i);
         if (i == 1) {
-            this.boB.setDivider(new ColorDrawable(this.bou.getResources().getColor(t.night_divider)));
-            this.boB.setDividerHeight(this.bou.getResources().getDimensionPixelSize(u.onedip));
+            this.bpY.setDivider(new ColorDrawable(this.bpR.getResources().getColor(t.night_divider)));
+            this.bpY.setDividerHeight(this.bpR.getResources().getDimensionPixelSize(u.onedip));
             return;
         }
-        this.boB.setDivider(new ColorDrawable(this.bou.getResources().getColor(t.day_divider)));
-        this.boB.setDividerHeight(this.bou.getResources().getDimensionPixelSize(u.onedip));
+        this.bpY.setDivider(new ColorDrawable(this.bpR.getResources().getColor(t.day_divider)));
+        this.bpY.setDividerHeight(this.bpR.getResources().getDimensionPixelSize(u.onedip));
     }
 
-    public ImageView Tm() {
-        return this.boA;
+    public ImageView TI() {
+        return this.bpX;
     }
 
-    public h Tn() {
-        return this.boC;
+    public h TJ() {
+        return this.bpZ;
     }
 }

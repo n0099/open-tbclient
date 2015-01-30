@@ -1,13 +1,13 @@
 package com.baidu.tieba.tbadkCore.util;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.bm;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class k {
-    private static String byC = "tbgametype";
+    private static String bAl = "tbgametype";
 
-    public static String in(String str) {
+    public static String iu(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(":")) == null) {
             return null;
@@ -24,10 +24,10 @@ public class k {
         return "";
     }
 
-    public static boolean hs(String str) {
-        Map<String, String> cL;
-        if (!TextUtils.isEmpty(str) && (cL = bh.cL(bh.cM(str))) != null) {
-            String str2 = cL.get(byC);
+    public static boolean hz(String str) {
+        Map<String, String> cK;
+        if (!TextUtils.isEmpty(str) && (cK = bm.cK(bm.cL(str))) != null) {
+            String str2 = cK.get(bAl);
             return !TextUtils.isEmpty(str2) && str2.equals("1");
         }
         return false;

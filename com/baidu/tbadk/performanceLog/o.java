@@ -5,11 +5,11 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends Handler {
-    final /* synthetic */ n age;
+    final /* synthetic */ n agC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.age = nVar;
+        this.agC = nVar;
     }
 
     @Override // android.os.Handler
@@ -17,11 +17,11 @@ public class o extends Handler {
         q qVar;
         q qVar2;
         int i;
-        qVar = this.age.agc;
+        qVar = this.agC.agA;
         if (qVar != null) {
-            qVar2 = this.age.agc;
-            i = this.age.afS;
-            qVar2.dO(i);
+            qVar2 = this.agC.agA;
+            i = this.agC.agq;
+            qVar2.dU(i);
         }
     }
 }

@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.tieba.tbadkCore.b.j;
 /* loaded from: classes.dex */
 public abstract class PbRecBaseViewHolder {
-    protected j bKR;
+    protected j bMC;
     protected boolean mIsFromCDN;
     private int position;
     protected View rootView;
@@ -14,15 +14,15 @@ public abstract class PbRecBaseViewHolder {
     }
 
     public void update(j jVar, int i, boolean z) {
-        if (!jVar.bWN) {
-            com.baidu.tbadk.distribute.a.uD().a(this.rootView.getContext(), jVar.agP(), "show", "pb", jVar.Gb, jVar.threadId);
-            com.baidu.tbadk.distribute.a.uD().a(jVar.agP(), jVar.Gb, jVar.threadId, "PB", "show");
-            jVar.bWN = true;
+        if (!jVar.bYF) {
+            com.baidu.tbadk.distribute.a.uU().a(this.rootView.getContext(), jVar.ahu(), "show", "pb", jVar.bYG, jVar.threadId);
+            com.baidu.tbadk.distribute.a.uU().a(jVar.ahu(), jVar.bYG, jVar.threadId, "PB", "show");
+            jVar.bYF = true;
         }
         if (jVar != null) {
-            com.baidu.tbadk.distribute.a.WK = jVar.aBV;
+            com.baidu.tbadk.distribute.a.Xq = jVar.aCW;
         }
-        this.bKR = jVar;
+        this.bMC = jVar;
         this.position = i;
         this.mIsFromCDN = z;
         this.rootView.setTag(this);
@@ -33,6 +33,6 @@ public abstract class PbRecBaseViewHolder {
     }
 
     public void refresh() {
-        update(this.bKR, this.position, this.mIsFromCDN);
+        update(this.bMC, this.position, this.mIsFromCDN);
     }
 }

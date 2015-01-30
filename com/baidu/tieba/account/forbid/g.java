@@ -4,8 +4,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class g {
-    TextView anN;
-    ImageView anO;
+    TextView aoI;
+    ImageView aoJ;
     int mIndex;
 
     private g() {

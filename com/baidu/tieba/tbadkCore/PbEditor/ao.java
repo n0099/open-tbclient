@@ -3,10 +3,10 @@ package com.baidu.tieba.tbadkCore.PbEditor;
 import android.content.Context;
 /* loaded from: classes.dex */
 public abstract class ao {
-    private com.baidu.tbadk.editortool.w XD;
-    private aq bUP;
-    private ap bUQ;
-    private au bUR;
+    private com.baidu.tbadk.editortool.w Yj;
+    private aq bWI;
+    private ap bWJ;
+    private au bWK;
     private int column = 0;
     private int row = 0;
     private int verticalSpacing = 0;
@@ -19,30 +19,30 @@ public abstract class ao {
     public abstract void init(Context context);
 
     public ao(au auVar) {
-        this.bUR = auVar;
+        this.bWK = auVar;
     }
 
-    public aq afR() {
-        return this.bUP;
+    public aq agv() {
+        return this.bWI;
     }
 
     public void a(aq aqVar) {
-        this.bUP = aqVar;
+        this.bWI = aqVar;
     }
 
-    public ap afS() {
-        return this.bUQ;
+    public ap agw() {
+        return this.bWJ;
     }
 
     public void a(ap apVar) {
-        this.bUQ = apVar;
+        this.bWJ = apVar;
     }
 
-    public int afT() {
+    public int agx() {
         return this.column;
     }
 
-    public void hI(int i) {
+    public void hR(int i) {
         this.column = i;
     }
 
@@ -50,11 +50,11 @@ public abstract class ao {
         return this.row;
     }
 
-    public void hJ(int i) {
+    public void hS(int i) {
         this.row = i;
     }
 
-    public int afU() {
+    public int agy() {
         return this.verticalSpacing;
     }
 
@@ -62,7 +62,7 @@ public abstract class ao {
         this.verticalSpacing = i;
     }
 
-    public int afV() {
+    public int agz() {
         return this.horizontalSpacing;
     }
 
@@ -70,15 +70,15 @@ public abstract class ao {
         this.horizontalSpacing = i;
     }
 
-    public au afW() {
-        return this.bUR;
+    public au agA() {
+        return this.bWK;
     }
 
-    public com.baidu.tbadk.editortool.w afX() {
-        return this.XD;
+    public com.baidu.tbadk.editortool.w agB() {
+        return this.Yj;
     }
 
     public void b(com.baidu.tbadk.editortool.w wVar) {
-        this.XD = wVar;
+        this.Yj = wVar;
     }
 }

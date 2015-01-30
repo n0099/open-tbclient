@@ -15,17 +15,17 @@ public class r implements DownloadListener {
 
     @Override // android.webkit.DownloadListener
     public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
-        String bI;
+        String bG;
         if (!TextUtils.isEmpty(str)) {
             String extensionFromMimeType = MimeTypeMap.getSingleton().getExtensionFromMimeType(str4);
             if (TextUtils.isEmpty(extensionFromMimeType) || !extensionFromMimeType.equalsIgnoreCase("apk")) {
                 return;
             }
-            bI = this.By.bI(str);
-            if (TextUtils.isEmpty(bI)) {
-                bI = String.valueOf(System.currentTimeMillis()) + ".apk";
+            bG = this.By.bG(str);
+            if (TextUtils.isEmpty(bG)) {
+                bG = String.valueOf(System.currentTimeMillis()) + ".apk";
             }
-            com.baidu.tbadk.download.b.uK().a(bI, str, bI, 0, 0);
+            com.baidu.tbadk.download.b.vb().a(bG, str, bG, 0, 0);
         }
     }
 }

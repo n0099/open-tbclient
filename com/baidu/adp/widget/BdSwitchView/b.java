@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ BdSwitchView ui;
+    final /* synthetic */ BdSwitchView uq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(BdSwitchView bdSwitchView) {
-        this.ui = bdSwitchView;
+        this.uq = bdSwitchView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.ui.L(true);
+        this.uq.L(true);
     }
 }

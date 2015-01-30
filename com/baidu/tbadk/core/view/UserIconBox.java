@@ -11,32 +11,32 @@ import com.baidu.tbadk.widget.TbImageView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class UserIconBox extends LinearLayout {
-    private LinearLayout.LayoutParams NA;
-    private boolean NB;
-    com.baidu.tbadk.imageManager.d NC;
-    private com.baidu.adp.lib.e.b<TbImageView> Ny;
-    private aq Nz;
+    private com.baidu.adp.lib.e.b<TbImageView> NY;
+    private ar NZ;
+    private LinearLayout.LayoutParams Oa;
+    private boolean Ob;
+    com.baidu.tbadk.imageManager.d Oc;
     private Context mContext;
 
     public void setAutoChangedStyle(boolean z) {
-        this.NB = z;
+        this.Ob = z;
     }
 
     public UserIconBox(Context context) {
         super(context);
-        this.Ny = null;
-        this.Nz = null;
-        this.NB = true;
-        this.NC = new am(this);
+        this.NY = null;
+        this.NZ = null;
+        this.Ob = true;
+        this.Oc = new an(this);
         init(context);
     }
 
     public UserIconBox(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Ny = null;
-        this.Nz = null;
-        this.NB = true;
-        this.NC = new am(this);
+        this.NY = null;
+        this.NZ = null;
+        this.Ob = true;
+        this.Oc = new an(this);
         init(context);
     }
 
@@ -44,21 +44,21 @@ public class UserIconBox extends LinearLayout {
         this.mContext = context;
         setOrientation(0);
         setGravity(16);
-        if (this.mContext instanceof ar) {
-            ar arVar = (ar) this.mContext;
-            this.Ny = arVar.qE();
-            if (arVar.getListView() != null && this.Nz == null) {
-                this.Nz = new aq(arVar.qD());
-                arVar.getListView().setRecyclerListener(this.Nz);
+        if (this.mContext instanceof as) {
+            as asVar = (as) this.mContext;
+            this.NY = asVar.qP();
+            if (asVar.getListView() != null && this.NZ == null) {
+                this.NZ = new ar(asVar.qO());
+                asVar.getListView().setRecyclerListener(this.NZ);
             }
         }
-        setOnHierarchyChangeListener(new ao(this));
+        setOnHierarchyChangeListener(new ap(this));
     }
 
     private LinearLayout.LayoutParams r(int i, int i2, int i3) {
-        this.NA = new LinearLayout.LayoutParams(i, i2);
-        this.NA.leftMargin = i3;
-        return this.NA;
+        this.Oa = new LinearLayout.LayoutParams(i, i2);
+        this.Oa.leftMargin = i3;
+        return this.Oa;
     }
 
     public void a(List<IconData> list, int i, int i2, int i3, int i4, boolean z) {
@@ -78,7 +78,7 @@ public class UserIconBox extends LinearLayout {
                         }
                         U.setTag(list.get(i5).getIcon());
                         U.setClickable(false);
-                        U.setAutoChangeStyle(this.NB);
+                        U.setAutoChangeStyle(this.Ob);
                         U.a(list.get(i5).getIcon(), 21, i2, i3, false);
                         addView(U);
                         U.invalidate();
@@ -94,7 +94,7 @@ public class UserIconBox extends LinearLayout {
         a(list, i, i2, i3, i4, false);
     }
 
-    public void cm(int i) {
+    public void ct(int i) {
         int childCount = getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
             View childAt = getChildAt(i2);
@@ -106,8 +106,8 @@ public class UserIconBox extends LinearLayout {
 
     private TbImageView U(Context context) {
         TbImageView tbImageView = null;
-        if (this.Ny != null) {
-            tbImageView = this.Ny.ec();
+        if (this.NY != null) {
+            tbImageView = this.NY.ea();
         }
         if (tbImageView == null || tbImageView.getParent() != null) {
             return new TbImageView(context);
@@ -116,6 +116,6 @@ public class UserIconBox extends LinearLayout {
     }
 
     public static com.baidu.adp.lib.e.b<TbImageView> g(Context context, int i) {
-        return new com.baidu.adp.lib.e.b<>(new ap(context), i, 0);
+        return new com.baidu.adp.lib.e.b<>(new aq(context), i, 0);
     }
 }

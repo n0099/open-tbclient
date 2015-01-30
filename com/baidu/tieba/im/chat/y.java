@@ -8,13 +8,13 @@ import com.baidu.tieba.im.message.PushMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y extends CustomMessageListener {
-    final /* synthetic */ CommonGroupChatActiviy aQi;
+    final /* synthetic */ CommonGroupChatActiviy aRn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public y(CommonGroupChatActiviy commonGroupChatActiviy, int i) {
         super(i);
-        this.aQi = commonGroupChatActiviy;
+        this.aRn = commonGroupChatActiviy;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +24,7 @@ public class y extends CustomMessageListener {
         if (customResponsedMessage != null) {
             switch (customResponsedMessage.getCmd()) {
                 case 2001109:
-                    this.aQi.mListView.refresh();
+                    this.aRn.mListView.refresh();
                     return;
                 case 2001130:
                 case 2001132:
@@ -36,20 +36,20 @@ public class y extends CustomMessageListener {
                     if ((customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null) {
                         String cmd = p.getCmd();
                         if (!TextUtils.isEmpty(cmd)) {
-                            this.aQi.mListView.refresh();
+                            this.aRn.mListView.refresh();
                             if (!cmd.equals("apply_join_success")) {
                                 if (!cmd.equals("kick_out")) {
                                     if (!cmd.equals("group_name_change")) {
                                         if (!cmd.equals("dismiss_group")) {
                                             return;
                                         }
-                                        this.aQi.processDismissGroup(p);
+                                        this.aRn.processDismissGroup(p);
                                         return;
                                     }
-                                    this.aQi.processTitleChange(p);
+                                    this.aRn.processTitleChange(p);
                                     return;
                                 }
-                                this.aQi.processKick(p);
+                                this.aRn.processKick(p);
                                 return;
                             }
                             return;

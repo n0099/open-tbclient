@@ -46,7 +46,7 @@ public class WebBdActivity extends BaseActivity<WebBdActivity> implements Observ
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a(getIntent(), bundle);
-        a.c(getPageContext().getPageActivity(), getIntent().getStringExtra(ImageViewerConfig.URL), true);
+        a.d(getPageContext().getPageActivity(), getIntent().getStringExtra(ImageViewerConfig.URL), true);
         finish();
     }
 

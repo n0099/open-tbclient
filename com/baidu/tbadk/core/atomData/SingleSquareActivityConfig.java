@@ -6,7 +6,6 @@ import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class SingleSquareActivityConfig extends a {
     public static final String BACK_SPECIAL = "back_special";
-    public static final String FROM_HAO123 = "from_hao123";
     public static final String PAGE_NAME = "square_page";
     public static final String START_FROM = "start_from";
 

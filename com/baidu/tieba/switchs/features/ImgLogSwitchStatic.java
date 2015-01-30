@@ -9,7 +9,7 @@ public class ImgLogSwitchStatic extends a {
     public static final int ON_TYPE = 0;
 
     static {
-        f.dc().l(ImgLogSwitchStatic.class);
+        f.da().l(ImgLogSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

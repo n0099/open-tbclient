@@ -1,33 +1,34 @@
 package com.baidu.tbadk.util;
 
-import android.content.Context;
-import android.text.style.ClickableSpan;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
-public class f extends ClickableSpan {
-    private Context mContext;
+class f extends BdAsyncTask<String, Integer, Boolean> {
+    final /* synthetic */ d ahW;
 
-    public f(Context context) {
-        this.mContext = null;
-        this.mContext = context;
+    private f(d dVar) {
+        this.ahW = dVar;
     }
 
-    public Context getContext() {
-        return this.mContext;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ f(d dVar, f fVar) {
+        this(dVar);
     }
 
-    public void startWebActivity(String str) {
-        com.baidu.tbadk.browser.a.y(this.mContext, str);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: f */
+    public Boolean doInBackground(String... strArr) {
+        return Boolean.valueOf(d.a(this.ahW));
     }
 
-    public void eH(String str) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.mContext).createNormalCfg(str, null, null)));
-    }
-
-    @Override // android.text.style.ClickableSpan
-    public void onClick(View view) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public void onPostExecute(Boolean bool) {
+        if (d.b(this.ahW) != null && bool != null) {
+            d.b(this.ahW).ae(bool.booleanValue());
+        }
     }
 }

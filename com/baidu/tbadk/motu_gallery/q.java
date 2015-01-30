@@ -5,12 +5,12 @@ import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
 public class q implements Runnable {
-    final /* synthetic */ JigsawAlbumListActivity acW;
-    private volatile boolean acX;
-    private Thread acY;
+    final /* synthetic */ JigsawAlbumListActivity adu;
+    private volatile boolean adv;
+    private Thread adw;
 
     public q(JigsawAlbumListActivity jigsawAlbumListActivity) {
-        this.acW = jigsawAlbumListActivity;
+        this.adu = jigsawAlbumListActivity;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:13:0x0047 */
@@ -33,40 +33,40 @@ public class q implements Runnable {
         ViewphotoLinkedHashMap viewphotoLinkedHashMap3;
         Handler handler;
         int i10;
-        this.acY = Thread.currentThread();
-        this.acX = false;
-        while (!this.acX) {
+        this.adw = Thread.currentThread();
+        this.adv = false;
+        while (!this.adv) {
             i = JigsawAlbumListActivity.currentPosition;
-            if (i + 20 > this.acW.acr.getCount()) {
-                int count = this.acW.acr.getCount();
+            if (i + 20 > this.adu.acP.getCount()) {
+                int count = this.adu.acP.getCount();
                 i10 = JigsawAlbumListActivity.currentPosition;
                 i2 = count - i10;
             } else {
                 i2 = 20;
             }
-            viewphotoLinkedHashMap = this.acW.acN;
+            viewphotoLinkedHashMap = this.adu.adl;
             if (viewphotoLinkedHashMap.size() != 0) {
                 i3 = JigsawAlbumListActivity.currentPosition;
-                JigsawAlbumListActivity.acQ = i3;
-                for (i4 = JigsawAlbumListActivity.acQ; i4 < i5 + i2; i4++) {
-                    i8 = JigsawAlbumListActivity.acQ;
+                JigsawAlbumListActivity.ado = i3;
+                for (i4 = JigsawAlbumListActivity.ado; i4 < i5 + i2; i4++) {
+                    i8 = JigsawAlbumListActivity.ado;
                     i9 = JigsawAlbumListActivity.currentPosition;
                     if (i8 != i9) {
                         break;
                     }
                     try {
-                        viewphotoLinkedHashMap2 = this.acW.acN;
+                        viewphotoLinkedHashMap2 = this.adu.adl;
                         if (viewphotoLinkedHashMap2.containsKey(Integer.valueOf(i4))) {
-                            viewphotoLinkedHashMap3 = this.acW.acN;
+                            viewphotoLinkedHashMap3 = this.adu.adl;
                             if (!viewphotoLinkedHashMap3.get((Object) Integer.valueOf(i4)).getTag().toString().equals("bitmap")) {
                                 try {
-                                    Bitmap a = this.acW.acr.a(this.acW.getPageContext().getContext(), this.acW.acr.dy(i4), this.acW.acT);
+                                    Bitmap a = this.adu.acP.a(this.adu.getPageContext().getContext(), this.adu.acP.dE(i4), this.adu.adr);
                                     if (a != null) {
                                         Message message = new Message();
                                         message.obj = a;
                                         message.arg1 = i4;
                                         message.what = 0;
-                                        handler = this.acW.mHandler;
+                                        handler = this.adu.mHandler;
                                         handler.sendMessage(message);
                                     }
                                 } catch (Exception e) {
@@ -78,7 +78,7 @@ public class q implements Runnable {
                         e2.printStackTrace();
                     }
                 }
-                i6 = JigsawAlbumListActivity.acQ;
+                i6 = JigsawAlbumListActivity.ado;
                 i7 = JigsawAlbumListActivity.currentPosition;
                 if (i6 == i7) {
                     try {
@@ -91,10 +91,10 @@ public class q implements Runnable {
         }
     }
 
-    public void wp() {
-        this.acX = true;
-        if (this.acY != null) {
-            this.acY.interrupt();
+    public void wF() {
+        this.adv = true;
+        if (this.adw != null) {
+            this.adw.interrupt();
         }
     }
 }

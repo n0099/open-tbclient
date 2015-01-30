@@ -13,14 +13,14 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class VerticalTranslateLayout extends FrameLayout {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private final int uD;
-    private int uH;
-    private final Paint uK;
-    private int uL;
-    private int uM;
-    private final List<u> uU;
-    private int ux;
-    private int uy;
+    private int uD;
+    private int uE;
+    private final int uJ;
+    private int uN;
+    private final Paint uQ;
+    private int uR;
+    private int uS;
+    private final List<u> va;
     private float yF;
     private float yG;
     private float yH;
@@ -65,25 +65,25 @@ public class VerticalTranslateLayout extends FrameLayout {
 
     @Override // android.view.View
     public void setBackgroundColor(int i) {
-        this.uK.setColor(i);
+        this.uQ.setColor(i);
         invalidate();
     }
 
     public void setProportion(float f) {
         if (f >= -1.0f && f <= 1.0f) {
             if (f < 0.0f) {
-                this.yJ = (int) ((this.yF - this.uy) * (-f));
+                this.yJ = (int) ((this.yF - this.uE) * (-f));
             } else if (f > 0.0f) {
-                this.yJ = (int) ((this.uy - this.yH) * f);
+                this.yJ = (int) ((this.uE - this.yH) * f);
             } else if (f == 0.0f) {
                 this.yJ = 0;
-                this.uH = 10004;
+                this.uN = 10004;
             } else if (f == -1.0f) {
-                this.yF -= this.uy;
-                this.uH = TbConfig.BIG_IMAGE_MIN_CAPACITY;
+                this.yF -= this.uE;
+                this.uN = TbConfig.BIG_IMAGE_MIN_CAPACITY;
             } else if (f == 1.0f) {
-                this.yF = this.uy - this.yH;
-                this.uH = 10001;
+                this.yF = this.uE - this.yH;
+                this.uN = 10001;
             }
             invalidate();
         }
@@ -106,7 +106,7 @@ public class VerticalTranslateLayout extends FrameLayout {
     }
 
     public int getState() {
-        return this.uH;
+        return this.uN;
     }
 
     public void setTopAnimationListener(v vVar) {
@@ -126,7 +126,7 @@ public class VerticalTranslateLayout extends FrameLayout {
         canvas.save();
         canvas.translate(0.0f, this.yJ);
         Log.d("VerticalTranslateLayout", "@dispatchDraw " + this.yJ);
-        canvas.drawRect(0.0f, 0.0f, this.ux, this.uy, this.uK);
+        canvas.drawRect(0.0f, 0.0f, this.uD, this.uE, this.uQ);
         super.dispatchDraw(canvas);
         canvas.restore();
     }
@@ -143,14 +143,14 @@ public class VerticalTranslateLayout extends FrameLayout {
         int action = motionEvent.getAction() & MotionEventCompat.ACTION_MASK;
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
-        if (this.uH == 10004) {
+        if (this.uN == 10004) {
             switch (action) {
                 case 0:
-                    this.uL = x;
-                    this.uM = y;
+                    this.uR = x;
+                    this.uS = y;
                     this.yR.removeMessages(-100);
                     this.yR.removeMessages(SapiErrorCode.GETTING_CERT);
-                    this.yR.removeMessages(-101);
+                    this.yR.removeMessages(SapiErrorCode.SENT_SUCCEED);
                     this.yR.removeMessages(SapiErrorCode.GET_CERT_FAIL);
                     return false;
                 case 1:
@@ -167,7 +167,7 @@ public class VerticalTranslateLayout extends FrameLayout {
     }
 
     private boolean g(int i, int i2) {
-        return i >= this.uL - this.uD && i <= this.uL + this.uD && (i2 < this.uM - this.uD || i2 > this.uM + this.uD) && this.yT.au(i2 - this.uM);
+        return i >= this.uR - this.uJ && i <= this.uR + this.uJ && (i2 < this.uS - this.uJ || i2 > this.uS + this.uJ) && this.yT.az(i2 - this.uS);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -176,33 +176,33 @@ public class VerticalTranslateLayout extends FrameLayout {
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
         int action = motionEvent.getAction() & MotionEventCompat.ACTION_MASK;
-        if (this.uH == 10004) {
+        if (this.uN == 10004) {
             switch (action) {
                 case 1:
                 case 3:
                     Log.d("VerticalTranslateLayout", "@onTouchEvent up");
                     this.yQ = false;
-                    if (this.yT.vg) {
+                    if (this.yT.vm) {
                         Log.d("VerticalTranslateLayout", "@onTouchEvent tracking");
-                        this.yT.jd();
+                        this.yT.je();
                         x.a(this.yT);
                         return true;
                     }
                     return true;
                 case 2:
-                    if (this.yT.vg) {
+                    if (this.yT.vm) {
                         if (!this.yQ) {
-                            if (y > this.uM) {
-                                this.yP = this.uM + this.uD;
+                            if (y > this.uS) {
+                                this.yP = this.uS + this.uJ;
                                 this.yQ = true;
                             } else {
-                                this.yP = this.uM - this.uD;
+                                this.yP = this.uS - this.uJ;
                                 this.yQ = true;
                             }
                         }
-                        this.yT.av(this.yP - y);
+                        this.yT.aA(this.yP - y);
                         this.yP = y;
-                        this.yT.vf.addMovement(motionEvent);
+                        this.yT.vl.addMovement(motionEvent);
                         return true;
                     }
                     return true;
@@ -212,19 +212,19 @@ public class VerticalTranslateLayout extends FrameLayout {
         }
         switch (action) {
             case 0:
-                if ((this.uH != 10000 || !this.yN.contains(x, y)) && (this.uH != 10001 || !this.yO.contains(x, y))) {
+                if ((this.uN != 10000 || !this.yN.contains(x, y)) && (this.uN != 10001 || !this.yO.contains(x, y))) {
                     return false;
                 }
-                if (!this.yT.vg) {
+                if (!this.yT.vm) {
                     this.yP = y;
-                    this.yT.au(y);
+                    this.yT.az(y);
                     break;
                 }
                 break;
             case 1:
             case 3:
-                if (this.yT.vg) {
-                    this.yT.jd();
+                if (this.yT.vm) {
+                    this.yT.je();
                     x.a(this.yT);
                     return true;
                 }
@@ -234,10 +234,10 @@ public class VerticalTranslateLayout extends FrameLayout {
             default:
                 return true;
         }
-        if (this.yT.vg) {
-            this.yT.av(this.yP - y);
+        if (this.yT.vm) {
+            this.yT.aA(this.yP - y);
             this.yP = y;
-            this.yT.vf.addMovement(motionEvent);
+            this.yT.vl.addMovement(motionEvent);
             return true;
         }
         return true;
@@ -254,8 +254,8 @@ public class VerticalTranslateLayout extends FrameLayout {
                 this.yO.set(i, (int) (i4 - this.yH), i3, i4);
             }
         }
-        if (!this.yS.vd && !this.yT.vg) {
-            iR();
+        if (!this.yS.vj && !this.yT.vm) {
+            iS();
         }
     }
 
@@ -275,19 +275,19 @@ public class VerticalTranslateLayout extends FrameLayout {
         if (!$assertionsDisabled && i3 < this.yH) {
             throw new AssertionError("bottom offset should not be larger than the view's width");
         }
-        this.ux = getMeasuredWidth();
-        this.uy = getMeasuredHeight();
+        this.uD = getMeasuredWidth();
+        this.uE = getMeasuredHeight();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void iR() {
-        switch (this.uH) {
+    public void iS() {
+        switch (this.uN) {
             case TbConfig.BIG_IMAGE_MIN_CAPACITY /* 10000 */:
-                this.yJ = (int) (this.yF - this.uy);
+                this.yJ = (int) (this.yF - this.uE);
                 invalidate();
                 return;
             case 10001:
-                this.yJ = (int) (this.uy - this.yH);
+                this.yJ = (int) (this.uE - this.yH);
                 invalidate();
                 return;
             case 10002:

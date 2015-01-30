@@ -4,33 +4,33 @@ import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ FriendFeedActivity aAU;
+    final /* synthetic */ FriendFeedActivity aBV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(FriendFeedActivity friendFeedActivity) {
-        this.aAU = friendFeedActivity;
+        this.aBV = friendFeedActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         com.baidu.tieba.tbadkCore.location.i iVar;
-        y yVar;
+        x xVar;
         com.baidu.tieba.tbadkCore.location.d dVar;
-        y yVar2;
-        y yVar3;
+        x xVar2;
+        x xVar3;
         if (UtilHelper.isNetOk()) {
-            yVar = this.aAU.aAB;
-            if (yVar.Fh() != null) {
-                yVar2 = this.aAU.aAB;
-                yVar2.Fh().setLocationInfoViewState(1);
-                yVar3 = this.aAU.aAB;
-                yVar3.Fh().setLocationViewVisibility(0);
+            xVar = this.aBV.aBD;
+            if (xVar.FF() != null) {
+                xVar2 = this.aBV.aBD;
+                xVar2.FF().setLocationInfoViewState(1);
+                xVar3 = this.aBV.aBD;
+                xVar3.FF().setLocationViewVisibility(0);
             }
-            dVar = this.aAU.aAD;
-            dVar.ahG();
+            dVar = this.aBV.aBF;
+            dVar.aik();
         } else {
-            iVar = this.aAU.aAO;
-            iVar.EZ();
+            iVar = this.aBV.aBQ;
+            iVar.Fx();
         }
         aVar.dismiss();
     }

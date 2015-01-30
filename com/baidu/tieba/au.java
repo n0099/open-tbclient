@@ -1,21 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
-public class au implements DialogInterface.OnCancelListener {
-    final /* synthetic */ UpdateDialog this$0;
+class au implements Runnable {
+    final /* synthetic */ at amq;
+    private final /* synthetic */ CustomMessage amr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public au(UpdateDialog updateDialog) {
-        this.this$0 = updateDialog;
+    public au(at atVar, CustomMessage customMessage) {
+        this.amq = atVar;
+        this.amr = customMessage;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        af afVar;
-        afVar = this.this$0.alF;
-        afVar.dismiss();
-        this.this$0.finish();
+    @Override // java.lang.Runnable
+    public void run() {
+        ao.a((AccountData) this.amr.getData(), TbadkApplication.getInst().getApp());
     }
 }

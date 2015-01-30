@@ -10,13 +10,13 @@ import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.data.a> {
-    private com.baidu.tbadk.core.util.ad CV = null;
-    final /* synthetic */ t Uo;
+    private com.baidu.tbadk.core.util.ad CX = null;
+    final /* synthetic */ t UV;
     private String mAccount;
     private String mUrl;
 
     public aa(t tVar, String str, String str2) {
-        this.Uo = tVar;
+        this.UV = tVar;
         this.mUrl = null;
         this.mAccount = null;
         this.mUrl = str;
@@ -27,10 +27,10 @@ public class aa extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.d
     public void cancel() {
         ProgressBar progressBar;
         Button button;
-        this.Uo.Uf = null;
-        progressBar = this.Uo.Uj;
+        this.UV.UL = null;
+        progressBar = this.UV.UQ;
         progressBar.setVisibility(8);
-        button = this.Uo.mConfirm;
+        button = this.UV.mConfirm;
         button.setEnabled(true);
     }
 
@@ -47,25 +47,25 @@ public class aa extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.d
         y yVar2;
         AccountData accountData2;
         super.onPostExecute(aVar);
-        this.Uo.Uf = null;
-        progressBar = this.Uo.Uj;
+        this.UV.UL = null;
+        progressBar = this.UV.UQ;
         progressBar.setVisibility(8);
-        button = this.Uo.mConfirm;
+        button = this.UV.mConfirm;
         button.setEnabled(true);
         if (aVar == null) {
-            this.Uo.dI(this.CV.getErrorString());
+            this.UV.dH(this.CX.getErrorString());
         } else if (aVar.getUser().getUserName() == null) {
-            this.Uo.dI(this.CV.getErrorString());
-            this.Uo.t(aVar.mQ());
+            this.UV.dH(this.CX.getErrorString());
+            this.UV.u(aVar.mS());
         } else {
-            this.Uo.tv();
-            accountData = this.Uo.Qe;
-            baseActivity = this.Uo.Ud;
+            this.UV.tM();
+            accountData = this.UV.QF;
+            baseActivity = this.UV.UJ;
             TbadkCoreApplication.setCurrentAccount(accountData, baseActivity.getPageContext().getPageActivity());
-            yVar = this.Uo.Um;
+            yVar = this.UV.UT;
             if (yVar != null) {
-                yVar2 = this.Uo.Um;
-                accountData2 = this.Uo.Qe;
+                yVar2 = this.UV.UT;
+                accountData2 = this.UV.QF;
                 yVar2.f(accountData2);
             }
         }
@@ -76,12 +76,12 @@ public class aa extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.d
     public void onPreExecute() {
         ProgressBar progressBar;
         Button button;
-        progressBar = this.Uo.Uj;
+        progressBar = this.UV.UQ;
         progressBar.setVisibility(0);
-        button = this.Uo.mConfirm;
+        button = this.UV.mConfirm;
         button.setEnabled(false);
-        this.Uo.dI(null);
-        this.Uo.tu();
+        this.UV.dH(null);
+        this.UV.tL();
         super.onPreExecute();
     }
 
@@ -112,7 +112,7 @@ public class aa extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.d
         String str;
         Exception e;
         AccountData accountData;
-        String ov;
+        String oy;
         AccountData accountData2;
         AccountData accountData3;
         AccountData accountData4;
@@ -123,19 +123,19 @@ public class aa extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.d
         str2 = null;
         str2 = null;
         try {
-            this.CV = new com.baidu.tbadk.core.util.ad(this.mUrl);
-            this.CV.o("un", this.mAccount);
-            com.baidu.tbadk.core.util.ad adVar = this.CV;
-            accountData = this.Uo.Qe;
+            this.CX = new com.baidu.tbadk.core.util.ad(this.mUrl);
+            this.CX.o("un", this.mAccount);
+            com.baidu.tbadk.core.util.ad adVar = this.CX;
+            accountData = this.UV.QF;
             adVar.o("BDUSS", accountData.getBDUSS());
-            this.CV.oW().pV().Ke = false;
-            ov = this.CV.ov();
+            this.CX.oZ().qg().Kx = false;
+            oy = this.CX.oy();
         } catch (Exception e2) {
             str = str2;
             e = e2;
         }
-        if (this.CV.oZ()) {
-            str = this.CV.pa();
+        if (this.CX.pc()) {
+            str = this.CX.pd();
             try {
             } catch (Exception e3) {
                 e = e3;
@@ -144,7 +144,7 @@ public class aa extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.d
             }
             if (str == 0) {
                 com.baidu.tbadk.coreExtra.data.a aVar = new com.baidu.tbadk.coreExtra.data.a();
-                aVar.parserJson(ov);
+                aVar.parserJson(oy);
                 String userName = aVar.getUser().getUserName();
                 String bduss = aVar.getUser().getBDUSS();
                 str = aVar;
@@ -152,28 +152,28 @@ public class aa extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.d
                 str2 = userName;
                 str2 = userName;
                 if (userName != null && bduss != null) {
-                    accountData2 = this.Uo.Qe;
+                    accountData2 = this.UV.QF;
                     str = aVar;
                     str2 = userName;
                     if (accountData2 != null) {
-                        accountData3 = this.Uo.Qe;
+                        accountData3 = this.UV.QF;
                         accountData3.setAccount(userName);
-                        accountData4 = this.Uo.Qe;
+                        accountData4 = this.UV.QF;
                         accountData4.setBDUSS(bduss);
-                        accountData5 = this.Uo.Qe;
+                        accountData5 = this.UV.QF;
                         accountData5.setPortrait(aVar.getUser().getPortrait());
-                        r1 = this.Uo.Qe;
+                        r1 = this.UV.QF;
                         com.baidu.tbadk.core.account.a.a(r1);
                         str = aVar;
                         str2 = r1;
                     }
                 }
-            } else if (this.CV.pa() == 36) {
+            } else if (this.CX.pd() == 36) {
                 com.baidu.tbadk.coreExtra.data.a aVar2 = new com.baidu.tbadk.coreExtra.data.a();
-                aVar2.parserJson(ov);
+                aVar2.parserJson(oy);
                 str = aVar2;
-            } else if (this.CV.pa() == 1) {
-                this.Uo.tv();
+            } else if (this.CX.pd() == 1) {
+                this.UV.tM();
                 str = 0;
                 return str;
             }

@@ -5,39 +5,39 @@ import org.json.JSONObject;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.lib.a.b.a.a.i {
-    private String ajv;
-    private String ajw;
-    private String ajx;
-    private boolean ajy;
-    private boolean ajz;
+    private String ajY;
+    private String ajZ;
+    private String aka;
+    private boolean akb;
+    private boolean akc;
     private int mHeight;
     private int mWidth;
 
     public g() {
-        this.ajv = null;
-        this.ajw = null;
-        this.ajx = null;
+        this.ajY = null;
+        this.ajZ = null;
+        this.aka = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.ajy = false;
-        this.ajz = true;
+        this.akb = false;
+        this.akc = true;
     }
 
     public g(PbContent pbContent) {
-        this.ajv = null;
-        this.ajw = null;
-        this.ajx = null;
+        this.ajY = null;
+        this.ajZ = null;
+        this.aka = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.ajy = false;
-        this.ajz = true;
+        this.akb = false;
+        this.akc = true;
         if (pbContent != null) {
-            this.ajv = pbContent.src;
-            this.ajw = pbContent.cdn_src;
-            if (this.ajw == null || this.ajw.length() == 0) {
-                this.ajw = this.ajv;
+            this.ajY = pbContent.src;
+            this.ajZ = pbContent.cdn_src;
+            if (this.ajZ == null || this.ajZ.length() == 0) {
+                this.ajZ = this.ajY;
             }
-            this.ajx = pbContent.big_cdn_src;
+            this.aka = pbContent.big_cdn_src;
             String str = pbContent.bsize;
             if (str != null) {
                 try {
@@ -54,27 +54,27 @@ public class g extends com.baidu.adp.lib.a.b.a.a.i {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            if (this.ajw != null && this.ajw.indexOf(".baidu.com") != -1) {
-                this.ajy = true;
+            if (this.ajZ != null && this.ajZ.indexOf(".baidu.com") != -1) {
+                this.akb = true;
             }
         }
     }
 
     public g(JSONObject jSONObject) {
-        this.ajv = null;
-        this.ajw = null;
-        this.ajx = null;
+        this.ajY = null;
+        this.ajZ = null;
+        this.aka = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.ajy = false;
-        this.ajz = true;
+        this.akb = false;
+        this.akc = true;
         if (jSONObject != null) {
-            this.ajv = jSONObject.optString("src");
-            this.ajw = jSONObject.optString("cdn_src", "");
-            if (this.ajw == null || this.ajw.length() == 0) {
-                this.ajw = this.ajv;
+            this.ajY = jSONObject.optString("src");
+            this.ajZ = jSONObject.optString("cdn_src", "");
+            if (this.ajZ == null || this.ajZ.length() == 0) {
+                this.ajZ = this.ajY;
             }
-            this.ajx = jSONObject.optString("big_cdn_src", null);
+            this.aka = jSONObject.optString("big_cdn_src", null);
             try {
                 String[] split = jSONObject.optString("bsize").split(",");
                 this.mWidth = Integer.valueOf(split[0]).intValue();
@@ -88,14 +88,14 @@ public class g extends com.baidu.adp.lib.a.b.a.a.i {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            if (this.ajw != null && this.ajw.indexOf(".baidu.com") != -1) {
-                this.ajy = true;
+            if (this.ajZ != null && this.ajZ.indexOf(".baidu.com") != -1) {
+                this.akb = true;
             }
         }
     }
 
-    public String zW() {
-        return this.ajx;
+    public String Aq() {
+        return this.aka;
     }
 
     public int getHeight() {
@@ -114,23 +114,23 @@ public class g extends com.baidu.adp.lib.a.b.a.a.i {
         this.mWidth = i;
     }
 
-    public boolean zX() {
-        return this.ajy;
+    public boolean Ar() {
+        return this.akb;
     }
 
     public String getSrc() {
-        return this.ajv;
+        return this.ajY;
     }
 
-    public String zY() {
-        return this.ajw;
+    public String As() {
+        return this.ajZ;
     }
 
-    public boolean zZ() {
-        return this.ajz;
+    public boolean At() {
+        return this.akc;
     }
 
-    public void ba(boolean z) {
-        this.ajz = z;
+    public void bc(boolean z) {
+        this.akc = z;
     }
 }

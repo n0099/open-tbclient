@@ -56,11 +56,6 @@ public class TiebaPrepareImageService extends BdBaseService {
     }
 
     @Override // android.app.Service
-    public void onCreate() {
-        super.onCreate();
-    }
-
-    @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
         if (this.mTask != null) {

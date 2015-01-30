@@ -2,6 +2,8 @@ package com.baidu.tieba.tbadkCore.util;
 
 import android.database.Cursor;
 import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.baseEditMark.MarkData;
@@ -10,10 +12,10 @@ import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class j {
-    private static Boolean bYN = true;
-    private static Boolean bYO = true;
+    private static Boolean caG = true;
+    private static Boolean caH = true;
 
-    public static void ik(String str) {
+    public static void ir(String str) {
         D(13, str);
     }
 
@@ -31,15 +33,15 @@ public class j {
         TiebaDatabase.getInstance().getMainDBDatabaseManager().a("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), (str == null || str.length() == 0) ? "0" : "0"});
     }
 
-    public static ArrayList<String> ahL() {
-        return hW(0);
+    public static ArrayList<String> aip() {
+        return ig(0);
     }
 
-    public static ArrayList<String> ahM() {
-        return hW(1);
+    public static ArrayList<String> aiq() {
+        return ig(1);
     }
 
-    private static ArrayList<String> hW(int i) {
+    private static ArrayList<String> ig(int i) {
         Cursor cursor;
         Throwable th;
         Exception e;
@@ -89,11 +91,11 @@ public class j {
         return arrayList;
     }
 
-    public static void il(String str) {
+    public static void is(String str) {
         E(0, str);
     }
 
-    public static void im(String str) {
+    public static void it(String str) {
         E(1, str);
     }
 
@@ -116,15 +118,15 @@ public class j {
         }
     }
 
-    public static void ahN() {
-        hX(0);
+    public static void air() {
+        ih(0);
     }
 
-    public static void ahO() {
-        hX(1);
+    public static void ais() {
+        ih(1);
     }
 
-    public static void hX(int i) {
+    public static void ih(int i) {
         com.baidu.adp.base.a.c mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         switch (i) {
             case 0:
@@ -138,7 +140,7 @@ public class j {
         }
     }
 
-    public static ArrayList<MarkData> ahP() {
+    public static ArrayList<MarkData> ait() {
         Throwable th;
         Cursor cursor;
         Exception e;
@@ -194,10 +196,10 @@ public class j {
     }
 
     public static void h(Boolean bool) {
-        bYN = bool;
+        caG = bool;
     }
 
-    public static void ahQ() {
+    public static void aiu() {
         if (TbadkCoreApplication.getCurrentAccount() == null || TbadkCoreApplication.getCurrentAccount().length() <= 0 || TbadkCoreApplication.getCurrentAccountName() == null) {
             TbadkCoreApplication.m255getInst().setMsgFrequency(0);
             return;
@@ -271,6 +273,7 @@ public class j {
                 mainDBDatabaseManager.a(e, "getSettingData");
                 com.baidu.adp.lib.g.a.b((Cursor) null);
             }
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001315));
         } catch (Throwable th) {
             com.baidu.adp.lib.g.a.b((Cursor) null);
             throw th;

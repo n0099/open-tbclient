@@ -1,17 +1,18 @@
 package com.baidu.tieba.im.floatwindow.view;
 
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ak implements View.OnClickListener {
-    final /* synthetic */ FloatingPersonalChatView aYV;
+public class ak implements View.OnClickListener {
+    final /* synthetic */ FloatingPersonalChatView bas;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(FloatingPersonalChatView floatingPersonalChatView) {
-        this.aYV = floatingPersonalChatView;
+        this.bas = floatingPersonalChatView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.aYV.NR();
+        this.bas.On();
     }
 }

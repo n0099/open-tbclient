@@ -20,10 +20,10 @@ public class b extends a<CustomMessage<?>, CustomMessageTask> {
     /* renamed from: a */
     public void sendMessage(CustomMessage customMessage, CustomMessageTask customMessageTask) {
         if (customMessage != null && customMessageTask != null) {
-            if (customMessageTask.bC() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
+            if (customMessageTask.bA() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
                 CustomResponsedMessage<?> customResponsedMessage = null;
                 try {
-                    customResponsedMessage = customMessageTask.bB().run(customMessage);
+                    customResponsedMessage = customMessageTask.bz().run(customMessage);
                     if (customResponsedMessage != null) {
                         customResponsedMessage.setOrginalMessage(customMessage);
                     }
@@ -31,7 +31,7 @@ public class b extends a<CustomMessage<?>, CustomMessageTask> {
                     BdLog.detailException(e);
                 }
                 if (customResponsedMessage != null) {
-                    this.cN.dispatchResponsedMessage(customResponsedMessage);
+                    this.cO.dispatchResponsedMessage(customResponsedMessage);
                     return;
                 }
                 return;
@@ -43,14 +43,14 @@ public class b extends a<CustomMessage<?>, CustomMessageTask> {
     public <T> CustomResponsedMessage<T> runTask(CustomMessageTask customMessageTask, Class<T> cls) {
         CustomResponsedMessage<T> customResponsedMessage = null;
         if (customMessageTask != null) {
-            if (customMessageTask.bC() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
+            if (customMessageTask.bA() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
                 try {
-                    customResponsedMessage = (CustomResponsedMessage<T>) customMessageTask.bB().run(null);
+                    customResponsedMessage = (CustomResponsedMessage<T>) customMessageTask.bz().run(null);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                 }
                 if (customResponsedMessage != null) {
-                    this.cN.dispatchResponsedMessage(customResponsedMessage);
+                    this.cO.dispatchResponsedMessage(customResponsedMessage);
                 }
             } else {
                 new c(this, null, customMessageTask).execute(new String[0]);

@@ -153,7 +153,7 @@ public class WebTbActivity extends BaseActivity<WebTbActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String bI(String str) {
+    public String bG(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split("/")) == null || split.length <= 0) {
             return null;

@@ -4,21 +4,21 @@ import android.graphics.Bitmap;
 /* loaded from: classes.dex */
 public class c {
     public int delay;
-    public Bitmap iG;
-    public String iZ;
-    public c ja;
+    public Bitmap iI;
+    public String jb;
+    public c jc;
 
     public c(Bitmap bitmap, int i) {
-        this.iZ = null;
-        this.ja = null;
-        this.iG = bitmap;
+        this.jb = null;
+        this.jc = null;
+        this.iI = bitmap;
         this.delay = i;
     }
 
     public c(String str, int i) {
-        this.iZ = null;
-        this.ja = null;
-        this.iZ = str;
+        this.jb = null;
+        this.jc = null;
+        this.jb = str;
         this.delay = i;
     }
 }

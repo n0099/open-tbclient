@@ -3,11 +3,11 @@ package com.baidu.tieba.im.view;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class n {
-    TextView boX;
-    final /* synthetic */ m boY;
+    TextView bqv;
+    final /* synthetic */ m bqw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(m mVar) {
-        this.boY = mVar;
+        this.bqw = mVar;
     }
 }

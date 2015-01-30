@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class t {
-    private com.baidu.tieba.home.u bOQ = new com.baidu.tieba.home.u();
-    private int bPQ;
-    private int bPR;
-    private int bPS;
-    private int bPT;
+    private com.baidu.tieba.home.t bQA = new com.baidu.tieba.home.t();
+    private int bRA;
+    private int bRB;
+    private int bRC;
+    private int bRD;
     private int forumId;
     private String forumName;
     private int signed;
@@ -21,29 +21,29 @@ public class t {
         return this.signed;
     }
 
-    public int ady() {
-        return this.bPS;
+    public int aec() {
+        return this.bRC;
     }
 
     public int getCurScore() {
-        return this.bPT;
+        return this.bRD;
     }
 
-    public com.baidu.tieba.home.u acW() {
-        return this.bOQ;
+    public com.baidu.tieba.home.t adA() {
+        return this.bQA;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.bOQ.parserJson(jSONObject.optJSONObject("error"));
+                this.bQA.parserJson(jSONObject.optJSONObject("error"));
                 this.forumId = jSONObject.optInt("forum_id");
                 this.forumName = jSONObject.optString("forum_name");
                 this.signed = jSONObject.optInt("signed");
-                this.bPQ = jSONObject.optInt("is_on");
-                this.bPR = jSONObject.optInt("is_filter");
-                this.bPS = jSONObject.optInt("sign_day_count");
-                this.bPT = jSONObject.optInt("cur_score");
+                this.bRA = jSONObject.optInt("is_on");
+                this.bRB = jSONObject.optInt("is_filter");
+                this.bRC = jSONObject.optInt("sign_day_count");
+                this.bRD = jSONObject.optInt("cur_score");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

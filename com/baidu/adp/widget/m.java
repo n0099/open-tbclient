@@ -7,18 +7,18 @@ import android.support.v4.widget.ExploreByTouchHelper;
 import android.util.Log;
 /* loaded from: classes.dex */
 public class m implements ab {
-    private final int vF;
-    private long vG;
-    private long vH;
-    private int vI;
-    private float vJ;
-    private boolean vK;
-    private final n vL = new n(this, null);
-    final /* synthetic */ IndicatorView vM;
+    private final int vL;
+    private long vM;
+    private long vN;
+    private int vO;
+    private float vP;
+    private boolean vQ;
+    private final n vR = new n(this, null);
+    final /* synthetic */ IndicatorView vS;
 
     public m(IndicatorView indicatorView) {
-        this.vM = indicatorView;
-        this.vF = (int) ((indicatorView.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
+        this.vS = indicatorView;
+        this.vL = (int) ((indicatorView.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
     }
 
     @Override // com.baidu.adp.widget.ab
@@ -28,34 +28,34 @@ public class m implements ab {
         int i3;
         Drawable drawable3;
         Drawable drawable4;
-        drawable = this.vM.vC;
+        drawable = this.vS.vI;
         if (drawable != null) {
-            drawable2 = this.vM.vD;
+            drawable2 = this.vS.vJ;
             if (drawable2 != null) {
-                i3 = this.vM.mCount;
+                i3 = this.vS.mCount;
                 if (i3 != 0) {
-                    this.vM.setWillNotDraw(false);
-                    int aw = aw(i);
-                    int ax = ax(i2);
-                    Log.d("IndicatorView$IndicatorView", "@onMeasure width=" + aw);
-                    Log.d("IndicatorView$IndicatorView", "@onMeasure height=" + ax);
-                    this.vM.setMeasuredDimension(aw, ax);
+                    this.vS.setWillNotDraw(false);
+                    int aB = aB(i);
+                    int aC = aC(i2);
+                    Log.d("IndicatorView$IndicatorView", "@onMeasure width=" + aB);
+                    Log.d("IndicatorView$IndicatorView", "@onMeasure height=" + aC);
+                    this.vS.setMeasuredDimension(aB, aC);
                     StringBuilder sb = new StringBuilder("drawable bound = ");
-                    drawable3 = this.vM.vC;
+                    drawable3 = this.vS.vI;
                     Log.d("IndicatorView$IndicatorView", sb.append(drawable3.getBounds().toShortString()).toString());
                     StringBuilder sb2 = new StringBuilder("selector bound = ");
-                    drawable4 = this.vM.vD;
+                    drawable4 = this.vS.vJ;
                     Log.d("IndicatorView$IndicatorView", sb2.append(drawable4.getBounds().toShortString()).toString());
                     return;
                 }
             }
         }
-        this.vM.setWillNotDraw(true);
-        this.vM.setMeasuredDimension(0, 0);
+        this.vS.setWillNotDraw(true);
+        this.vS.setMeasuredDimension(0, 0);
         Log.d("IndicatorView$IndicatorView", "will not draw.");
     }
 
-    private int aw(int i) {
+    private int aB(int i) {
         int i2;
         int i3;
         Drawable drawable;
@@ -81,47 +81,47 @@ public class m implements ab {
         int i8 = i & (-1073741824);
         int i9 = 1073741823 & i;
         Log.d("IndicatorView$IndicatorView", "@measureWidth size=" + i9);
-        i2 = this.vM.vA;
-        i3 = this.vM.mCount;
+        i2 = this.vS.vG;
+        i3 = this.vS.mCount;
         int i10 = i2 * (i3 - 1);
-        drawable = this.vM.vC;
+        drawable = this.vS.vI;
         int intrinsicWidth = drawable.getIntrinsicWidth();
-        drawable2 = this.vM.vD;
+        drawable2 = this.vS.vJ;
         int max = Math.max(intrinsicWidth, drawable2.getIntrinsicWidth());
-        i4 = this.vM.mCount;
+        i4 = this.vS.mCount;
         int i11 = i10 + (max * i4);
         switch (i8) {
             case ExploreByTouchHelper.INVALID_ID /* -2147483648 */:
                 int min = Math.min(i9, i11);
-                drawable11 = this.vM.vC;
-                drawable12 = this.vM.vC;
+                drawable11 = this.vS.vI;
+                drawable12 = this.vS.vI;
                 int intrinsicWidth2 = drawable12.getIntrinsicWidth();
-                drawable13 = this.vM.vC;
+                drawable13 = this.vS.vI;
                 drawable11.setBounds(0, 0, intrinsicWidth2, drawable13.getBounds().height());
-                drawable14 = this.vM.vD;
-                drawable15 = this.vM.vD;
+                drawable14 = this.vS.vJ;
+                drawable15 = this.vS.vJ;
                 int intrinsicWidth3 = drawable15.getIntrinsicWidth();
-                drawable16 = this.vM.vD;
+                drawable16 = this.vS.vJ;
                 drawable14.setBounds(0, 0, intrinsicWidth3, drawable16.getBounds().height());
                 return min;
             case 0:
-                drawable3 = this.vM.vC;
-                drawable4 = this.vM.vC;
+                drawable3 = this.vS.vI;
+                drawable4 = this.vS.vI;
                 drawable3.setBounds(0, 0, drawable4.getIntrinsicWidth(), 0);
-                drawable5 = this.vM.vD;
-                drawable6 = this.vM.vD;
+                drawable5 = this.vS.vJ;
+                drawable6 = this.vS.vJ;
                 drawable5.setBounds(0, 0, drawable6.getIntrinsicWidth(), 0);
                 return i11;
             case 1073741824:
-                i5 = this.vM.vA;
-                i6 = this.vM.mCount;
-                i7 = this.vM.mCount;
+                i5 = this.vS.vG;
+                i6 = this.vS.mCount;
+                i7 = this.vS.mCount;
                 int i12 = (int) ((i9 - (i5 * (i6 - 1))) / i7);
-                drawable7 = this.vM.vD;
-                drawable8 = this.vM.vD;
+                drawable7 = this.vS.vJ;
+                drawable8 = this.vS.vJ;
                 drawable7.setBounds(0, 0, i12, drawable8.getBounds().height());
-                drawable9 = this.vM.vC;
-                drawable10 = this.vM.vC;
+                drawable9 = this.vS.vI;
+                drawable10 = this.vS.vI;
                 drawable9.setBounds(0, 0, i12, drawable10.getBounds().height());
                 return i9;
             default:
@@ -129,7 +129,7 @@ public class m implements ab {
         }
     }
 
-    private int ax(int i) {
+    private int aC(int i) {
         Drawable drawable;
         Drawable drawable2;
         Drawable drawable3;
@@ -146,35 +146,35 @@ public class m implements ab {
         Drawable drawable14;
         int i2 = i & (-1073741824);
         int i3 = 1073741823 & i;
-        drawable = this.vM.vC;
+        drawable = this.vS.vI;
         int intrinsicHeight = drawable.getIntrinsicHeight();
-        drawable2 = this.vM.vD;
+        drawable2 = this.vS.vJ;
         int max = Math.max(intrinsicHeight, drawable2.getIntrinsicHeight());
         switch (i2) {
             case ExploreByTouchHelper.INVALID_ID /* -2147483648 */:
                 int min = Math.min(i3, max);
                 Log.d("IndicatorView$IndicatorView", "min size = " + min);
-                drawable11 = this.vM.vC;
-                drawable12 = this.vM.vC;
+                drawable11 = this.vS.vI;
+                drawable12 = this.vS.vI;
                 drawable11.setBounds(0, 0, drawable12.getBounds().width(), min);
-                drawable13 = this.vM.vD;
-                drawable14 = this.vM.vD;
+                drawable13 = this.vS.vJ;
+                drawable14 = this.vS.vJ;
                 drawable13.setBounds(0, 0, drawable14.getBounds().width(), min);
                 return min;
             case 0:
-                drawable3 = this.vM.vC;
-                drawable4 = this.vM.vC;
+                drawable3 = this.vS.vI;
+                drawable4 = this.vS.vI;
                 drawable3.setBounds(0, 0, drawable4.getBounds().width(), max);
-                drawable5 = this.vM.vD;
-                drawable6 = this.vM.vD;
+                drawable5 = this.vS.vJ;
+                drawable6 = this.vS.vJ;
                 drawable5.setBounds(0, 0, drawable6.getBounds().width(), max);
                 return max;
             case 1073741824:
-                drawable7 = this.vM.vC;
-                drawable8 = this.vM.vC;
+                drawable7 = this.vS.vI;
+                drawable8 = this.vS.vI;
                 drawable7.setBounds(0, 0, drawable8.getBounds().width(), i3);
-                drawable9 = this.vM.vD;
-                drawable10 = this.vM.vD;
+                drawable9 = this.vS.vJ;
+                drawable10 = this.vS.vJ;
                 drawable9.setBounds(0, 0, drawable10.getBounds().width(), i3);
                 return i3;
             default:
@@ -200,62 +200,62 @@ public class m implements ab {
         int save = canvas.save();
         for (int i4 = 0; i4 < i; i4++) {
             if (i4 != 0) {
-                drawable4 = this.vM.vC;
+                drawable4 = this.vS.vI;
                 int width = drawable4.getBounds().width();
-                i3 = this.vM.vA;
+                i3 = this.vS.vG;
                 canvas.translate(width + i3, 0.0f);
             }
-            drawable3 = this.vM.vC;
+            drawable3 = this.vS.vI;
             drawable3.draw(canvas);
         }
         canvas.restoreToCount(save);
         int save2 = canvas.save();
-        drawable = this.vM.vD;
+        drawable = this.vS.vJ;
         int width2 = drawable.getBounds().width();
-        i2 = this.vM.vA;
-        f = this.vM.mPosition;
+        i2 = this.vS.vG;
+        f = this.vS.mPosition;
         canvas.translate((width2 + i2) * f, 0.0f);
-        drawable2 = this.vM.vD;
+        drawable2 = this.vS.vJ;
         drawable2.draw(canvas);
         canvas.restoreToCount(save2);
     }
 
-    public void iS() {
+    public void iT() {
         float f;
         float f2;
         float f3;
         float f4;
         long uptimeMillis = SystemClock.uptimeMillis();
-        this.vJ = ((((float) (uptimeMillis - this.vG)) / 1000.0f) * this.vI) + this.vJ;
-        this.vG = uptimeMillis;
-        this.vH = this.vG + 16;
-        if (this.vI < 0) {
-            float f5 = this.vJ;
-            f3 = this.vM.vB;
+        this.vP = ((((float) (uptimeMillis - this.vM)) / 1000.0f) * this.vO) + this.vP;
+        this.vM = uptimeMillis;
+        this.vN = this.vM + 16;
+        if (this.vO < 0) {
+            float f5 = this.vP;
+            f3 = this.vS.vH;
             if (f5 < f3) {
-                IndicatorView indicatorView = this.vM;
-                f4 = this.vM.vB;
+                IndicatorView indicatorView = this.vS;
+                f4 = this.vS.vH;
                 indicatorView.mPosition = f4;
-                this.vK = false;
+                this.vQ = false;
             } else {
-                this.vM.mPosition = this.vJ;
-                this.vL.removeMessages(1000);
-                this.vL.sendEmptyMessageAtTime(1000, this.vH);
+                this.vS.mPosition = this.vP;
+                this.vR.removeMessages(1000);
+                this.vR.sendEmptyMessageAtTime(1000, this.vN);
             }
         } else {
-            float f6 = this.vJ;
-            f = this.vM.vB;
+            float f6 = this.vP;
+            f = this.vS.vH;
             if (f6 > f) {
-                IndicatorView indicatorView2 = this.vM;
-                f2 = this.vM.vB;
+                IndicatorView indicatorView2 = this.vS;
+                f2 = this.vS.vH;
                 indicatorView2.mPosition = f2;
-                this.vK = false;
+                this.vQ = false;
             } else {
-                this.vM.mPosition = this.vJ;
-                this.vL.removeMessages(1000);
-                this.vL.sendEmptyMessageAtTime(1000, this.vH);
+                this.vS.mPosition = this.vP;
+                this.vR.removeMessages(1000);
+                this.vR.sendEmptyMessageAtTime(1000, this.vN);
             }
         }
-        this.vM.invalidate();
+        this.vS.invalidate();
     }
 }

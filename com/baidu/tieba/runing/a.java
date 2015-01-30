@@ -7,23 +7,23 @@ import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.tieba.message.ResponseQueryCollectUpdateNumMessage;
 /* loaded from: classes.dex */
 public class a {
-    private static a bLU;
-    private long bLV = 0;
+    private static a bNE;
+    private long bNF = 0;
     private final Handler mHandler = new b(this);
     private e mListener = new c(this, 303005);
 
     static {
         com.baidu.tieba.tbadkCore.a.a.a(303005, ResponseQueryCollectUpdateNumMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
-        bLU = null;
+        bNE = null;
     }
 
-    public static synchronized a abX() {
+    public static synchronized a acB() {
         a aVar;
         synchronized (a.class) {
-            if (bLU == null) {
-                bLU = new a();
+            if (bNE == null) {
+                bNE = new a();
             }
-            aVar = bLU;
+            aVar = bNE;
         }
         return aVar;
     }
@@ -32,21 +32,21 @@ public class a {
         MessageManager.getInstance().registerListener(this.mListener);
     }
 
-    public void abY() {
-        this.bLV = 0L;
+    public void acC() {
+        this.bNF = 0L;
         destroy();
         start();
     }
 
     public void start() {
-        long currentTimeMillis = System.currentTimeMillis() - this.bLV;
+        long currentTimeMillis = System.currentTimeMillis() - this.bNF;
         long j = currentTimeMillis > 0 ? currentTimeMillis : 0L;
         if (j >= 1800000) {
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 10000L);
         } else {
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 1800000 - j);
         }
-        this.bLV = System.currentTimeMillis();
+        this.bNF = System.currentTimeMillis();
     }
 
     public void destroy() {

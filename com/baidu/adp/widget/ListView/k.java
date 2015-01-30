@@ -46,7 +46,7 @@ public class k extends BaseAdapter {
         this.wL = mVar;
     }
 
-    public int jF() {
+    public int jE() {
         if (this.mAdapter != null) {
             return this.mAdapter.getCount();
         }
@@ -290,7 +290,7 @@ public class k extends BaseAdapter {
         if (i < headersCount) {
             View view4 = this.wG.get(i).view;
             if (view4 == null) {
-                return jG();
+                return jF();
             }
             return view4;
         }
@@ -307,7 +307,7 @@ public class k extends BaseAdapter {
                 view3 = this.mAdapter.getView(i2, view, viewGroup);
             }
             if (view3 == null) {
-                return jG();
+                return jF();
             }
             return view3;
         }
@@ -318,12 +318,12 @@ public class k extends BaseAdapter {
             view2 = null;
         }
         if (view2 == null) {
-            return jG();
+            return jF();
         }
         return view2;
     }
 
-    private View jG() {
+    private View jF() {
         TextView textView = new TextView(this.mContext);
         textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.load_res_failed));
         int dip2px = com.baidu.adp.lib.util.l.dip2px(this.mContext, 15.0f);

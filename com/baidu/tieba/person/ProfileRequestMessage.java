@@ -123,7 +123,7 @@ public class ProfileRequestMessage extends NetMessage {
             builder.rn = get_rn();
             builder.has_plist = get_has_plist();
             if (z) {
-                com.baidu.tbadk.util.h.a(builder, true);
+                com.baidu.tbadk.util.k.a(builder, true);
             }
             ProfileReqIdl.Builder builder2 = new ProfileReqIdl.Builder();
             builder2.data = builder.build(false);

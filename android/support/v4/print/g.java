@@ -5,17 +5,17 @@ import android.net.Uri;
 import android.print.PrintDocumentAdapter;
 /* loaded from: classes.dex */
 class g extends PrintDocumentAdapter {
-    final /* synthetic */ String aU;
-    final /* synthetic */ int aW;
-    final /* synthetic */ e aX;
-    final /* synthetic */ Uri aY;
+    final /* synthetic */ String aV;
+    final /* synthetic */ int aX;
+    final /* synthetic */ e aY;
+    final /* synthetic */ Uri aZ;
     Bitmap mBitmap = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar, String str, Uri uri, int i) {
-        this.aX = eVar;
-        this.aU = str;
-        this.aY = uri;
-        this.aW = i;
+        this.aY = eVar;
+        this.aV = str;
+        this.aZ = uri;
+        this.aX = i;
     }
 }

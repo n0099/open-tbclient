@@ -17,8 +17,7 @@ public class bm implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        c.Qs().l(imMessageCenterPojo);
-        c.Qs().a(-1, imMessageCenterPojo.getPulled_msgId(), String.valueOf(com.baidu.tieba.im.c.a.bnb));
+        c.QO().l(imMessageCenterPojo);
         if (z) {
             MessageManager.getInstance().sendMessage(new NewMsgArriveRequestMessage(3));
         }

@@ -1,25 +1,23 @@
 package com.baidu.tieba.write;
 
-import com.baidu.tieba.tbadkCore.PbEditor.TbEditorToolButtonContainer;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class bm implements com.baidu.tieba.tbadkCore.bubble.y {
-    final /* synthetic */ WriteActivity cft;
+class bm extends CustomMessageListener {
+    final /* synthetic */ WriteActivity cgS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(WriteActivity writeActivity) {
-        this.cft = writeActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bm(WriteActivity writeActivity, int i) {
+        super(i);
+        this.cgS = writeActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.bubble.y
-    public void jw() {
-        TbEditorToolButtonContainer tbEditorToolButtonContainer;
-        TbEditorToolButtonContainer tbEditorToolButtonContainer2;
-        this.cft.bTi = null;
-        this.cft.eL(false);
-        tbEditorToolButtonContainer = this.cft.cfb;
-        if (tbEditorToolButtonContainer != null) {
-            tbEditorToolButtonContainer2 = this.cft.cfb;
-            tbEditorToolButtonContainer2.vj();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001310) {
+            this.cgS.ajh();
         }
     }
 }

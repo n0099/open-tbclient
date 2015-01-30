@@ -3,7 +3,7 @@ package com.baidu.tbadk.coreExtra.data;
 import android.webkit.URLUtil;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bf;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -33,7 +33,7 @@ public class VersionData implements Serializable {
                 this.newVer = jSONObject.optString("new_version", null);
                 this.size = jSONObject.optString("size", null);
                 String optString = jSONObject.optString("new_four_version", null);
-                if (!ba.isEmpty(optString)) {
+                if (!bf.isEmpty(optString)) {
                     this.newVer = optString;
                 }
                 this.url = jSONObject.optString("new_version_url");
@@ -44,7 +44,7 @@ public class VersionData implements Serializable {
                 this.newVersionCode = jSONObject.optInt("new_version_code", -1);
                 this.tiebaIconUrl = jSONObject.optString("tieba_iconurl", null);
                 this.asDownloadUrl = jSONObject.optString("as_downloadurl", null);
-                if (rE()) {
+                if (rR()) {
                     this.hasNewVer = 1;
                     this.newFile = "tieba_" + this.newVer + ".apk";
                 }
@@ -54,7 +54,7 @@ public class VersionData implements Serializable {
         }
     }
 
-    private boolean rE() {
+    private boolean rR() {
         return (this.newVersionRemind != 1 || this.url == null || !URLUtil.isHttpUrl(this.url) || this.newVer == null || TbConfig.getVersion().equalsIgnoreCase(this.newVer)) ? false : true;
     }
 

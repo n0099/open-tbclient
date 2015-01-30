@@ -1,11 +1,11 @@
 package com.baidu.tieba.tbadkCore.e;
 /* loaded from: classes.dex */
 public class e {
-    final /* synthetic */ a bYG;
-    public String bYH;
-    public boolean pW;
+    public String caA;
+    final /* synthetic */ a caz;
+    public boolean qb;
 
     public e(a aVar) {
-        this.bYG = aVar;
+        this.caz = aVar;
     }
 }

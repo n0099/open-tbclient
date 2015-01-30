@@ -13,8 +13,4 @@ public class RequestRecommendWriteMessage extends CustomMessage<Object> {
     public com.baidu.tieba.im.searchfriend.a.a getFriendInfo() {
         return this.friendInfo;
     }
-
-    public void setFriendInfo(com.baidu.tieba.im.searchfriend.a.a aVar) {
-        this.friendInfo = aVar;
-    }
 }

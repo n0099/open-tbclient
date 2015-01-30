@@ -2,11 +2,11 @@ package com.baidu.tieba.im.newFriend;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements com.baidu.tieba.im.g<Void> {
-    final /* synthetic */ NewFriendDbManagerStatic bjD;
+    final /* synthetic */ NewFriendDbManagerStatic bla;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(NewFriendDbManagerStatic newFriendDbManagerStatic) {
-        this.bjD = newFriendDbManagerStatic;
+        this.bla = newFriendDbManagerStatic;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

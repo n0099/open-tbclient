@@ -2,7 +2,7 @@ package com.baidu.tbadk.coreExtra.view;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.live.LiveGroupManager;
+import com.baidu.tbadk.coreExtra.view.LivePlayingStatusMgr;
 /* loaded from: classes.dex */
 class aw extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +14,7 @@ class aw extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && customResponsedMessage.getData() != null) {
-            LiveGroupManager.getInstance().onAccountChanged();
+            LivePlayingStatusMgr.tP().a(0, LivePlayingStatusMgr.LivePlayingStatus.IDEL);
         }
     }
 }

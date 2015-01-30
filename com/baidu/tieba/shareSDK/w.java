@@ -4,16 +4,16 @@ import android.text.Editable;
 import android.text.TextWatcher;
 /* loaded from: classes.dex */
 class w implements TextWatcher {
-    final /* synthetic */ q bOn;
+    final /* synthetic */ q bPX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(q qVar) {
-        this.bOn = qVar;
+        this.bPX = qVar;
     }
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
-        this.bOn.acG();
+        this.bPX.adk();
     }
 
     @Override // android.text.TextWatcher

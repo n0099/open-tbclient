@@ -15,10 +15,10 @@ public class d extends Handler {
         c cVar = (c) message.obj;
         switch (message.what) {
             case 1:
-                cVar.gQ.finish(cVar.mData[0]);
+                cVar.gS.finish(cVar.mData[0]);
                 return;
             case 2:
-                cVar.gQ.onProgressUpdate(cVar.mData);
+                cVar.gS.onProgressUpdate(cVar.mData);
                 return;
             default:
                 return;

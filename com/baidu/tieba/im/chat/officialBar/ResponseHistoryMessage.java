@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.chat.officialBar;
 
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import java.util.Date;
@@ -41,7 +41,7 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                 if (msgInfo != null) {
                     Date date = new Date();
                     date.setTime(msgInfo.sendTime.longValue() * 1000);
-                    aqVar.time = ba.c(date);
+                    aqVar.time = bf.c(date);
                     aqVar.type = msgInfo.type.intValue();
                     aqVar.content = msgInfo.content;
                     aqVar.id = msgInfo.id.intValue();
@@ -50,10 +50,10 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
             }
         }
         if (!this.msg.isEmpty()) {
-            com.baidu.adp.lib.cache.t<byte[]> bU = com.baidu.tbadk.core.a.a.nS().bU("tb.im_official_history");
+            com.baidu.adp.lib.cache.t<byte[]> bS = com.baidu.tbadk.core.a.a.nV().bS("tb.im_official_history");
             RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) getOrginalMessage();
             if (requestHistoryMessage != null && requestHistoryMessage.getRequestId() == 0) {
-                bU.f(String.valueOf(TbadkApplication.getCurrentAccount()) + "@" + String.valueOf(requestHistoryMessage.getFid()), bArr);
+                bS.f(String.valueOf(TbadkApplication.getCurrentAccount()) + "@" + String.valueOf(requestHistoryMessage.getFid()), bArr);
             }
         }
     }

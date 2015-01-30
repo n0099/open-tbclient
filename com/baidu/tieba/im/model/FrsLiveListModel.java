@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.model;
 
 import android.content.Intent;
-import android.os.Bundle;
 import com.baidu.adp.base.f;
 import com.baidu.adp.base.j;
 import com.baidu.adp.lib.g.c;
@@ -70,9 +69,6 @@ public class FrsLiveListModel extends f {
         return false;
     }
 
-    public void saveInstance(Bundle bundle) {
-    }
-
     private RequestFrsLiveListMessage createMessage(String str, int i, int i2, int i3) {
         RequestFrsLiveListMessage requestFrsLiveListMessage = new RequestFrsLiveListMessage();
         requestFrsLiveListMessage.setForumId(c.toInt(str, 0));
@@ -98,8 +94,5 @@ public class FrsLiveListModel extends f {
     public void initWithIntent(Intent intent) {
         this.forumId = intent.getStringExtra("forum_id");
         this.frsManager = intent.getBooleanExtra("frs_manager", false);
-    }
-
-    public void initWithBundle(Bundle bundle) {
     }
 }

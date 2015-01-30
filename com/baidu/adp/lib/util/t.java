@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Reader;
+import java.io.Writer;
 /* loaded from: classes.dex */
 public class t {
     public static void d(InputStream inputStream) {
@@ -34,6 +35,16 @@ public class t {
         if (outputStream != null) {
             try {
                 outputStream.close();
+            } catch (IOException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public static void a(Writer writer) {
+        if (writer != null) {
+            try {
+                writer.close();
             } catch (IOException e) {
                 BdLog.e(e.getMessage());
             }

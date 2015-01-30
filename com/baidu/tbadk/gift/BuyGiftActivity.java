@@ -28,8 +28,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.BuyGiftActivityConfig;
 import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.core.view.BaseViewPager;
 import com.baidu.tbadk.gift.GiftCommonList;
 import com.baidu.tbadk.task.TbHttpMessageTask;
@@ -39,40 +39,40 @@ import java.util.List;
 import tbclient.SendGift.SendGiftResIdl;
 /* loaded from: classes.dex */
 public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements ViewPager.OnPageChangeListener {
-    private View ZX;
-    private View ZY;
-    private EditText ZZ;
-    private TextView aaa;
-    private TextView aab;
-    private BaseViewPager aac;
-    private IndicatorView aad;
-    private LinearLayout aae;
-    private View aaf;
-    private View aag;
-    private View aah;
-    private ListView aai;
-    private w aak;
-    private y aal;
-    private GiftCommonList aam;
-    private int aan;
-    private int aao;
-    private int aap;
-    private GiftCommonList.GiftItem aaq;
-    private View aat;
-    private View aau;
-    private EditText aav;
-    private View aaw;
-    private View aax;
+    private EditText aaA;
+    private TextView aaB;
+    private TextView aaC;
+    private BaseViewPager aaD;
+    private IndicatorView aaE;
+    private LinearLayout aaF;
+    private View aaG;
+    private View aaH;
+    private View aaI;
+    private ListView aaJ;
+    private w aaL;
+    private y aaM;
+    private GiftCommonList aaN;
+    private int aaO;
+    private int aaP;
+    private int aaQ;
+    private GiftCommonList.GiftItem aaR;
+    private View aaU;
+    private View aaV;
+    private EditText aaW;
+    private View aaX;
+    private View aaY;
+    private View aaZ;
     private View aay;
+    private View aaz;
     private String mPassword;
     private long mReceiverId;
-    private List<View> aaj = new ArrayList();
-    private SparseIntArray aar = new SparseIntArray();
-    private boolean aas = false;
-    private final HttpMessageListener aaz = new a(this, CmdConfigHttp.GET_GIFT_LIST);
-    private final com.baidu.adp.framework.listener.e aaA = new h(this, 308001);
-    private final com.baidu.adp.framework.listener.e aaB = new i(this, 308003);
-    private final CustomMessageListener aaC = new j(this, 2001233);
+    private List<View> aaK = new ArrayList();
+    private SparseIntArray aaS = new SparseIntArray();
+    private boolean aaT = false;
+    private final HttpMessageListener aba = new a(this, CmdConfigHttp.GET_GIFT_LIST);
+    private final com.baidu.adp.framework.listener.e abb = new h(this, 308001);
+    private final com.baidu.adp.framework.listener.e abc = new i(this, 308003);
+    private final CustomMessageListener abd = new j(this, 2001233);
 
     static {
         TbadkApplication.getInst().RegisterIntent(BuyGiftActivityConfig.class, BuyGiftActivity.class);
@@ -88,58 +88,58 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             window.setBackgroundDrawable(getResources().getDrawable(com.baidu.tieba.v.bg_gift_shade));
         }
         setContentView(com.baidu.tieba.x.activity_buy_gift);
-        initViews();
+        vX();
         initData();
     }
 
-    private void initViews() {
-        this.ZX = findViewById(com.baidu.tieba.w.empty_layout);
-        this.ZX.setOnClickListener(new k(this));
-        this.ZY = findViewById(com.baidu.tieba.w.gift_list_layout);
+    private void vX() {
+        this.aay = findViewById(com.baidu.tieba.w.empty_layout);
+        this.aay.setOnClickListener(new k(this));
+        this.aaz = findViewById(com.baidu.tieba.w.gift_list_layout);
         InputMethodManager inputMethodManager = (InputMethodManager) getSystemService("input_method");
-        this.ZZ = (EditText) findViewById(com.baidu.tieba.w.gift_count_input);
-        this.ZZ.setSelection(1);
-        aK(false);
-        this.ZZ.addTextChangedListener(new s(this, null));
-        this.ZZ.setOnClickListener(new l(this, inputMethodManager));
-        this.ZZ.setOnFocusChangeListener(new n(this, inputMethodManager));
-        this.aaa = (TextView) findViewById(com.baidu.tieba.w.gift_count_result);
-        this.aab = (TextView) findViewById(com.baidu.tieba.w.gift_button);
-        this.aab.setEnabled(false);
-        this.aab.setOnClickListener(new o(this));
-        this.aaf = findViewById(com.baidu.tieba.w.gift_lower_layout);
-        this.aac = (BaseViewPager) findViewById(com.baidu.tieba.w.gift_viewpager);
-        this.aac.setOnPageChangeListener(this);
-        this.aad = (IndicatorView) findViewById(com.baidu.tieba.w.gift_tab_indicator);
-        this.aae = (LinearLayout) findViewById(com.baidu.tieba.w.gift_tab_layout);
-        this.aag = findViewById(com.baidu.tieba.w.gift_progress_layout);
-        this.aah = findViewById(com.baidu.tieba.w.gift_num_layout);
-        this.aah.setOnClickListener(new p(this));
-        this.aai = (ListView) findViewById(com.baidu.tieba.w.gift_num_list);
-        this.aai.setOnItemClickListener(new r(this, null));
-        this.aat = findViewById(com.baidu.tieba.w.password_dialog);
-        this.aat.setBackgroundResource(com.baidu.tieba.t.result_view);
-        this.aat.setOnClickListener(new b(this, inputMethodManager));
-        this.aau = this.aat.findViewById(com.baidu.tieba.w.password_dialog_ll);
-        this.aau.setOnClickListener(new d(this));
-        this.aav = (EditText) this.aat.findViewById(com.baidu.tieba.w.password_dialog_input);
-        this.aaw = this.aat.findViewById(com.baidu.tieba.w.password_dialog_ok);
-        this.aaw.setOnClickListener(new e(this));
-        this.aax = this.aat.findViewById(com.baidu.tieba.w.password_dialog_cancel);
-        this.aax.setOnClickListener(new f(this));
-        this.aay = this.aat.findViewById(com.baidu.tieba.w.password_dialog_warning);
+        this.aaA = (EditText) findViewById(com.baidu.tieba.w.gift_count_input);
+        this.aaA.setSelection(1);
+        aM(false);
+        this.aaA.addTextChangedListener(new s(this, null));
+        this.aaA.setOnClickListener(new l(this, inputMethodManager));
+        this.aaA.setOnFocusChangeListener(new n(this, inputMethodManager));
+        this.aaB = (TextView) findViewById(com.baidu.tieba.w.gift_count_result);
+        this.aaC = (TextView) findViewById(com.baidu.tieba.w.gift_button);
+        this.aaC.setEnabled(false);
+        this.aaC.setOnClickListener(new o(this));
+        this.aaG = findViewById(com.baidu.tieba.w.gift_lower_layout);
+        this.aaD = (BaseViewPager) findViewById(com.baidu.tieba.w.gift_viewpager);
+        this.aaD.setOnPageChangeListener(this);
+        this.aaE = (IndicatorView) findViewById(com.baidu.tieba.w.gift_tab_indicator);
+        this.aaF = (LinearLayout) findViewById(com.baidu.tieba.w.gift_tab_layout);
+        this.aaH = findViewById(com.baidu.tieba.w.gift_progress_layout);
+        this.aaI = findViewById(com.baidu.tieba.w.gift_num_layout);
+        this.aaI.setOnClickListener(new p(this));
+        this.aaJ = (ListView) findViewById(com.baidu.tieba.w.gift_num_list);
+        this.aaJ.setOnItemClickListener(new r(this, null));
+        this.aaU = findViewById(com.baidu.tieba.w.password_dialog);
+        this.aaU.setBackgroundResource(com.baidu.tieba.t.result_view);
+        this.aaU.setOnClickListener(new b(this, inputMethodManager));
+        this.aaV = this.aaU.findViewById(com.baidu.tieba.w.password_dialog_ll);
+        this.aaV.setOnClickListener(new d(this));
+        this.aaW = (EditText) this.aaU.findViewById(com.baidu.tieba.w.password_dialog_input);
+        this.aaX = this.aaU.findViewById(com.baidu.tieba.w.password_dialog_ok);
+        this.aaX.setOnClickListener(new e(this));
+        this.aaY = this.aaU.findViewById(com.baidu.tieba.w.password_dialog_cancel);
+        this.aaY.setOnClickListener(new f(this));
+        this.aaZ = this.aaU.findViewById(com.baidu.tieba.w.password_dialog_warning);
     }
 
     private void initData() {
         if (getIntent() != null) {
             this.mReceiverId = getIntent().getLongExtra(BuyGiftActivityConfig.GIFT_RECEIVER_ID, 0L);
         }
-        vB();
+        vT();
         registerListener();
-        vF();
+        vY();
     }
 
-    private void vB() {
+    private void vT() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.GET_GIFT_LIST, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GIFT_COMMONLIST + "?cmd=308001");
         tbHttpMessageTask.setResponsedClass(GetGiftCommonListHttpResponseMessage.class);
@@ -159,23 +159,23 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     }
 
     private void registerListener() {
-        registerListener(this.aaz);
-        registerListener(this.aaA);
-        registerListener(this.aaB);
-        registerListener(this.aaC);
+        registerListener(this.aba);
+        registerListener(this.abb);
+        registerListener(this.abc);
+        registerListener(this.abd);
     }
 
-    private void vF() {
-        this.aag.setVisibility(0);
-        this.aaf.setVisibility(8);
-        this.aah.setVisibility(8);
-        aK(false);
-        HidenSoftKeyPad((InputMethodManager) getSystemService("input_method"), this.ZZ);
+    private void vY() {
+        this.aaH.setVisibility(0);
+        this.aaG.setVisibility(8);
+        this.aaI.setVisibility(8);
+        aM(false);
+        HidenSoftKeyPad((InputMethodManager) getSystemService("input_method"), this.aaA);
         sendMessage(new GetGiftCommonListRequestMessage());
     }
 
     public void p(int i, String str) {
-        if (i != 0 || this.aam == null || this.aam.getGiftInfo() == null || this.aam.getGiftInfo().getTypeInfo().size() <= 0) {
+        if (i != 0 || this.aaN == null || this.aaN.getGiftInfo() == null || this.aaN.getGiftInfo().getTypeInfo().size() <= 0) {
             if (TextUtils.isEmpty(str)) {
                 showToast(z.neterror);
             } else {
@@ -184,52 +184,52 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             closeActivity();
             return;
         }
-        this.aab.setEnabled(true);
-        this.aag.setVisibility(8);
-        this.aaf.setVisibility(0);
-        vH();
+        this.aaC.setEnabled(true);
+        this.aaH.setVisibility(8);
+        this.aaG.setVisibility(0);
+        wa();
     }
 
-    public void vG() {
-        if (this.aaq != null && this.mReceiverId > 0) {
-            if (this.aat.getVisibility() == 0) {
-                this.aaw.setClickable(false);
-                this.aax.setClickable(false);
+    public void vZ() {
+        if (this.aaR != null && this.mReceiverId > 0) {
+            if (this.aaU.getVisibility() == 0) {
+                this.aaX.setClickable(false);
+                this.aaY.setClickable(false);
             }
-            this.aab.setEnabled(false);
-            this.aag.setVisibility(0);
+            this.aaC.setEnabled(false);
+            this.aaH.setVisibility(0);
             RequestSendGiftSocketMessage requestSendGiftSocketMessage = new RequestSendGiftSocketMessage();
-            requestSendGiftSocketMessage.setParams(this.mReceiverId, this.aaq.getGiftId(), this.aaq.getPrice(), com.baidu.adp.lib.g.c.toInt(this.ZZ.getText().toString(), 1), 1, this.mPassword);
+            requestSendGiftSocketMessage.setParams(this.mReceiverId, this.aaR.getGiftId(), this.aaR.getPrice(), com.baidu.adp.lib.g.c.toInt(this.aaA.getText().toString(), 1), 1, this.mPassword);
             sendMessage(requestSendGiftSocketMessage);
         }
     }
 
     public void a(int i, String str, SendGiftResIdl sendGiftResIdl) {
-        if (this.aat.getVisibility() == 0) {
-            this.aaw.setClickable(true);
-            this.aax.setClickable(true);
+        if (this.aaU.getVisibility() == 0) {
+            this.aaX.setClickable(true);
+            this.aaY.setClickable(true);
         }
-        this.aag.setVisibility(8);
+        this.aaH.setVisibility(8);
         this.mPassword = "";
-        if (i == 1990018 && !this.aas) {
-            int aJ = aJ(false);
-            int intValue = (sendGiftResIdl == null || sendGiftResIdl.data == null || sendGiftResIdl.data.money == null) ? 0 : aJ - sendGiftResIdl.data.money.intValue();
+        if (i == 1990018 && !this.aaT) {
+            int aL = aL(false);
+            int intValue = (sendGiftResIdl == null || sendGiftResIdl.data == null || sendGiftResIdl.data.money == null) ? 0 : aL - sendGiftResIdl.data.money.intValue();
             if (intValue > 0) {
                 showToast(String.format(getPageContext().getString(z.not_enough_tdou_format), Integer.valueOf(intValue)));
             }
-            sendMessage(new CustomMessage(2002001, new BuyTBeanActivityConfig(getPageContext().getPageActivity(), aJ)));
+            sendMessage(new CustomMessage(2002001, new BuyTBeanActivityConfig(getPageContext().getPageActivity(), aL)));
         } else if (i == 1990028) {
-            if (this.aat.getVisibility() == 0) {
-                this.aay.setVisibility(0);
+            if (this.aaU.getVisibility() == 0) {
+                this.aaZ.setVisibility(0);
             }
         } else if (i == 1990019) {
             t(str, 0);
-            vF();
+            vY();
         } else if (i == 1990027) {
-            this.aat.setVisibility(0);
-            this.aav.setText("");
-            this.aay.setVisibility(8);
-            this.aav.requestFocus();
+            this.aaU.setVisibility(0);
+            this.aaW.setText("");
+            this.aaZ.setVisibility(8);
+            this.aaW.requestFocus();
             this.mHandler.post(new g(this));
         } else if (i != 0) {
             t(str, z.neterror);
@@ -251,18 +251,18 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         showToast(str);
     }
 
-    private void vH() {
-        if (this.aam != null && this.aam.getGiftInfo() != null) {
-            List<GiftCommonList.TypeInfo> typeInfo = this.aam.getGiftInfo().getTypeInfo();
+    private void wa() {
+        if (this.aaN != null && this.aaN.getGiftInfo() != null) {
+            List<GiftCommonList.TypeInfo> typeInfo = this.aaN.getGiftInfo().getTypeInfo();
             n(typeInfo);
             p(typeInfo);
-            r(this.aam.getGiftInfo().getNumInfo());
+            r(this.aaN.getGiftInfo().getNumInfo());
         }
     }
 
     private void n(List<GiftCommonList.TypeInfo> list) {
         if (list != null && list.size() > 0) {
-            this.aae.removeAllViews();
+            this.aaF.removeAllViews();
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1);
             layoutParams.weight = 1.0f;
             o(list);
@@ -270,17 +270,17 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             for (int i = 0; i < size; i++) {
                 GiftCommonList.TypeInfo typeInfo = list.get(i);
                 if (!TextUtils.isEmpty(typeInfo.getTypeName()) && typeInfo.getGiftItems().size() > 0) {
-                    TextView textView = (TextView) com.baidu.adp.lib.g.b.ek().inflate(getPageContext().getPageActivity(), com.baidu.tieba.x.gift_tab_item, null);
-                    ax.j((View) textView, com.baidu.tieba.t.cp_bg_line_e);
+                    TextView textView = (TextView) com.baidu.adp.lib.g.b.ei().inflate(getPageContext().getPageActivity(), com.baidu.tieba.x.gift_tab_item, null);
+                    bc.j((View) textView, com.baidu.tieba.t.cp_bg_line_e);
                     textView.setText(typeInfo.getTypeName());
                     textView.setOnClickListener(new t(this, i));
                     textView.setSingleLine();
                     textView.setEllipsize(TextUtils.TruncateAt.END);
                     textView.setPadding(8, 0, 8, 0);
-                    this.aae.addView(textView, layoutParams);
+                    this.aaF.addView(textView, layoutParams);
                 }
             }
-            dj(0);
+            dr(0);
         }
     }
 
@@ -296,15 +296,15 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         }
     }
 
-    private void dj(int i) {
-        int childCount = this.aae.getChildCount();
+    private void dr(int i) {
+        int childCount = this.aaF.getChildCount();
         if (i >= 0 && i < childCount) {
             for (int i2 = 0; i2 < childCount; i2++) {
-                TextView textView = (TextView) this.aae.getChildAt(i2);
+                TextView textView = (TextView) this.aaF.getChildAt(i2);
                 if (i2 != i) {
-                    ax.b(textView, com.baidu.tieba.t.gift_tab_textcolor_normal, 1);
+                    bc.b(textView, com.baidu.tieba.t.gift_tab_textcolor_normal, 1);
                 } else {
-                    ax.b(textView, com.baidu.tieba.t.gift_tab_textcolor_selected, 1);
+                    bc.b(textView, com.baidu.tieba.t.gift_tab_textcolor_selected, 1);
                 }
             }
         }
@@ -313,19 +313,19 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     private void p(List<GiftCommonList.TypeInfo> list) {
         List<GiftCommonList.GiftItem> subList;
         if (list != null) {
-            this.aar.clear();
-            this.aaj.clear();
-            this.aac.setAdapter(null);
+            this.aaS.clear();
+            this.aaK.clear();
+            this.aaD.setAdapter(null);
             for (int i = 0; i < list.size(); i++) {
                 List<GiftCommonList.GiftItem> q = q(list.get(i).getGiftItems());
                 int size = q.size();
                 if (size > 0) {
-                    if (this.aaq == null) {
-                        this.aaq = q.get(0);
-                        aJ(true);
+                    if (this.aaR == null) {
+                        this.aaR = q.get(0);
+                        aL(true);
                     }
                     int ceil = (int) Math.ceil(size / 8.0d);
-                    this.aar.append(i, ceil);
+                    this.aaS.append(i, ceil);
                     for (int i2 = 0; i2 < ceil; i2++) {
                         if (i2 == ceil - 1) {
                             if (i2 * 8 == size - 1) {
@@ -339,16 +339,16 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
                             subList = q.subList(i2 * 8, (i2 + 1) * 8);
                         }
                         if (i == 0 && i2 == 0) {
-                            this.aaj.add(b(subList, this.aao));
+                            this.aaK.add(b(subList, this.aaP));
                         } else {
-                            this.aaj.add(b(subList, -1));
+                            this.aaK.add(b(subList, -1));
                         }
                     }
                 }
             }
-            this.aal = new y(this.aaj);
-            this.aac.setAdapter(this.aal);
-            vI();
+            this.aaM = new y(this.aaK);
+            this.aaD.setAdapter(this.aaM);
+            wb();
         }
     }
 
@@ -368,7 +368,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     private GridView b(List<GiftCommonList.GiftItem> list, int i) {
         u uVar = new u(getPageContext().getPageActivity());
         uVar.setGiftItems(list);
-        uVar.dk(i);
+        uVar.ds(i);
         GridView gridView = new GridView(getPageContext().getPageActivity());
         gridView.setVerticalScrollBarEnabled(false);
         gridView.setNumColumns(4);
@@ -381,23 +381,23 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         return gridView;
     }
 
-    public void vI() {
+    public void wb() {
         int i = 0;
-        for (int i2 = 0; i2 < this.aar.size(); i2++) {
-            for (int i3 = 0; i3 < this.aar.get(i2); i3++) {
-                if (i + i3 == this.aan) {
-                    if (this.aar.get(i2) <= 1) {
-                        this.aad.setVisibility(4);
+        for (int i2 = 0; i2 < this.aaS.size(); i2++) {
+            for (int i3 = 0; i3 < this.aaS.get(i2); i3++) {
+                if (i + i3 == this.aaO) {
+                    if (this.aaS.get(i2) <= 1) {
+                        this.aaE.setVisibility(4);
                     } else {
-                        this.aad.setVisibility(0);
+                        this.aaE.setVisibility(0);
                     }
-                    this.aad.setCount(this.aar.get(i2));
-                    this.aad.setPosition(i3);
-                    dj(i2);
+                    this.aaE.setCount(this.aaS.get(i2));
+                    this.aaE.setPosition(i3);
+                    dr(i2);
                     return;
                 }
             }
-            i += this.aar.get(i2);
+            i += this.aaS.get(i2);
         }
     }
 
@@ -411,9 +411,9 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             }
             list.removeAll(arrayList);
         }
-        this.aak = new w(getPageContext().getPageActivity());
-        this.aai.setAdapter((ListAdapter) this.aak);
-        this.aak.s(list);
+        this.aaL = new w(getPageContext().getPageActivity());
+        this.aaJ.setAdapter((ListAdapter) this.aaL);
+        this.aaL.s(list);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -422,65 +422,65 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         super.onChangeSkinType(i);
         boolean z = TbadkCoreApplication.m255getInst().getSkinType() == 1;
         getLayoutMode().ab(z);
-        getLayoutMode().h(this.ZY);
-        getLayoutMode().h(this.aat);
-        if (this.aak != null) {
-            this.aak.notifyDataSetChanged();
+        getLayoutMode().h(this.aaz);
+        getLayoutMode().h(this.aaU);
+        if (this.aaL != null) {
+            this.aaL.notifyDataSetChanged();
         }
         if (z) {
-            this.aad.setSelector(getResources().getDrawable(com.baidu.tieba.v.icon_pagecontrol_on_1));
-            this.aad.setDrawable(getResources().getDrawable(com.baidu.tieba.v.icon_pagecontrol_off_1));
+            this.aaE.setSelector(getResources().getDrawable(com.baidu.tieba.v.icon_pagecontrol_on_1));
+            this.aaE.setDrawable(getResources().getDrawable(com.baidu.tieba.v.icon_pagecontrol_off_1));
             return;
         }
-        this.aad.setSelector(getResources().getDrawable(com.baidu.tieba.v.icon_pagecontrol_on));
-        this.aad.setDrawable(getResources().getDrawable(com.baidu.tieba.v.icon_pagecontrol_off));
+        this.aaE.setSelector(getResources().getDrawable(com.baidu.tieba.v.icon_pagecontrol_on));
+        this.aaE.setDrawable(getResources().getDrawable(com.baidu.tieba.v.icon_pagecontrol_off));
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (this.aat.getVisibility() == 0) {
-                this.aav.clearFocus();
-                this.aat.setVisibility(8);
+            if (this.aaU.getVisibility() == 0) {
+                this.aaW.clearFocus();
+                this.aaU.setVisibility(8);
                 return true;
-            } else if (this.aah.getVisibility() == 0) {
-                this.aah.setVisibility(8);
+            } else if (this.aaI.getVisibility() == 0) {
+                this.aaI.setVisibility(8);
                 return true;
             }
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    public int aJ(boolean z) {
+    public int aL(boolean z) {
         int i;
-        int i2 = com.baidu.adp.lib.g.c.toInt(this.ZZ.getText().toString(), 1);
-        if (this.aaq != null) {
-            i = this.aaq.getPrice() > 0 ? this.aaq.getPrice() : 1;
+        int i2 = com.baidu.adp.lib.g.c.toInt(this.aaA.getText().toString(), 1);
+        if (this.aaR != null) {
+            i = this.aaR.getPrice() > 0 ? this.aaR.getPrice() : 1;
         } else {
             i = 1;
         }
         int i3 = i * i2;
         if (z) {
-            this.aaa.setText(String.format(getPageContext().getString(z.tdou_count_format), ba.bY(i3)));
+            this.aaB.setText(String.format(getPageContext().getString(z.tdou_count_format), bf.cf(i3)));
             if (i3 <= 0) {
-                ax.i((View) this.aab, com.baidu.tieba.v.btn_gift_give_d);
-                this.aab.setEnabled(false);
+                bc.i((View) this.aaC, com.baidu.tieba.v.btn_gift_give_d);
+                this.aaC.setEnabled(false);
             } else {
-                ax.i((View) this.aab, com.baidu.tieba.v.btn_gift_give_normal);
-                this.aab.setEnabled(true);
+                bc.i((View) this.aaC, com.baidu.tieba.v.btn_gift_give_normal);
+                this.aaC.setEnabled(true);
             }
         }
         return i3;
     }
 
-    public void aK(boolean z) {
-        this.ZZ.setCursorVisible(z);
-        this.ZZ.setFocusable(z);
-        this.ZZ.setFocusableInTouchMode(z);
+    public void aM(boolean z) {
+        this.aaA.setCursorVisible(z);
+        this.aaA.setFocusable(z);
+        this.aaA.setFocusableInTouchMode(z);
         if (z) {
-            this.ZZ.requestFocus();
+            this.aaA.requestFocus();
         } else {
-            this.ZZ.clearFocus();
+            this.aaA.clearFocus();
         }
     }
 
@@ -494,18 +494,18 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        this.aan = i;
-        vI();
-        if (i >= 0 && i < this.aaj.size()) {
-            GridView gridView = (GridView) this.aaj.get(i);
+        this.aaO = i;
+        wb();
+        if (i >= 0 && i < this.aaK.size()) {
+            GridView gridView = (GridView) this.aaK.get(i);
             if (gridView.getAdapter() != null) {
                 u uVar = (u) gridView.getAdapter();
-                if (uVar.vJ() >= 0 && i != this.aao) {
-                    uVar.dk(-1);
+                if (uVar.wc() >= 0 && i != this.aaP) {
+                    uVar.ds(-1);
                     uVar.notifyDataSetChanged();
                 }
-                if (uVar.vJ() < 0 && i == this.aao) {
-                    uVar.dk(this.aap);
+                if (uVar.wc() < 0 && i == this.aaP) {
+                    uVar.ds(this.aaQ);
                     uVar.notifyDataSetChanged();
                 }
             }

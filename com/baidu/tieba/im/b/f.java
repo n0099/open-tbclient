@@ -1,54 +1,40 @@
 package com.baidu.tieba.im.b;
 
-import android.os.Handler;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.Message;
-import com.baidu.tbadk.performanceLog.x;
-import com.baidu.tieba.im.message.MessageSyncMessage;
-import java.util.LinkedList;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements com.baidu.tieba.im.g<com.baidu.tieba.im.memorycache.a> {
-    final /* synthetic */ b biq;
+public class f extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ b bjN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(b bVar) {
-        this.biq = bVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f(b bVar, int i) {
+        super(i);
+        this.bjN = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.g
-    /* renamed from: a */
-    public void onReturnDataInUI(com.baidu.tieba.im.memorycache.a aVar) {
-        BdUniqueId bdUniqueId;
-        MessageSyncMessage Rc;
-        Handler handler;
-        Handler handler2;
-        Handler handler3;
-        Handler handler4;
-        if (MessageManager.getInstance().getSocketClient().aY() > 10) {
-            x.a(false, true, false);
-            handler3 = this.biq.mHandler;
-            handler4 = this.biq.mHandler;
-            handler3.sendMessageDelayed(handler4.obtainMessage(2), 2000L);
-        } else if (com.baidu.tieba.im.memorycache.c.Qs().isInit()) {
-            this.biq.bij = false;
-            MessageManager messageManager = MessageManager.getInstance();
-            bdUniqueId = this.biq.mTag;
-            LinkedList<? extends Message> findMessage = messageManager.findMessage(202003, bdUniqueId);
-            if (findMessage != null && findMessage.size() > 0) {
-                x.a(false, false, true);
-                this.biq.bij = true;
-                return;
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        if (socketResponsedMessage != null) {
+            if (socketResponsedMessage.getCmd() == 1003) {
+                if (!(socketResponsedMessage instanceof ResponsedMessage) || socketResponsedMessage.getError() != 0) {
+                    return;
+                }
+                this.bjN.Rx();
+            } else if (socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
+                ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
+                TiebaStatic.imNet(responseOnlineMessage);
+                if (responseOnlineMessage.getError() == 0) {
+                    this.bjN.bjG = responseOnlineMessage.getGroupInfos();
+                    if (com.baidu.tieba.im.memorycache.c.QO().isInit()) {
+                        this.bjN.Rq();
+                    }
+                }
             }
-            Rc = this.biq.Rc();
-            MessageManager.getInstance().sendMessage(Rc);
-            x.a(true, false, false);
-        } else {
-            handler = this.biq.mHandler;
-            handler2 = this.biq.mHandler;
-            handler.sendMessageDelayed(handler2.obtainMessage(2), 2000L);
         }
     }
 }

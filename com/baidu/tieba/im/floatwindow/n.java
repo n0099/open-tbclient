@@ -1,11 +1,11 @@
 package com.baidu.tieba.im.floatwindow;
 /* loaded from: classes.dex */
 public interface n {
-    void Nh();
+    void ND();
 
-    void Ni();
-
-    void Q(int i, int i2);
+    void NE();
 
     void R(int i, int i2);
+
+    void S(int i, int i2);
 }

@@ -10,6 +10,6 @@ public abstract class b {
     public abstract String getActionName();
 
     public Bitmap er(String str) {
-        return b(com.baidu.tbadk.core.util.d.cc(str), true);
+        return b(com.baidu.tbadk.core.util.d.ca(str), true);
     }
 }

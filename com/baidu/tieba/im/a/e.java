@@ -18,37 +18,37 @@ public class e extends com.baidu.adp.framework.listener.e {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        boolean Qk;
+        boolean QG;
         String str;
         String str2;
         String str3;
         String str4;
         List list;
-        Qk = this.this$0.Qk();
-        if (Qk && socketResponsedMessage != null && 202006 == socketResponsedMessage.getCmd() && (socketResponsedMessage instanceof PushNotifyMessage)) {
+        QG = this.this$0.QG();
+        if (QG && socketResponsedMessage != null && 202006 == socketResponsedMessage.getCmd() && (socketResponsedMessage instanceof PushNotifyMessage)) {
             PushNotifyMessage pushNotifyMessage = (PushNotifyMessage) socketResponsedMessage;
             if (pushNotifyMessage.getType() != 3 && pushNotifyMessage.getType() != 4) {
                 b bVar = new b();
                 bVar.emitTime = ((PushNotifyMessage) socketResponsedMessage).getEmitTime();
-                bVar.bgd = this.this$0.Qf();
-                bVar.bge = this.this$0.Qh();
-                str = this.this$0.bgk;
+                bVar.bhv = this.this$0.QB();
+                bVar.bhw = this.this$0.QD();
+                str = this.this$0.bhC;
                 if (str == null) {
-                    this.this$0.bgk = bVar.emitTime;
+                    this.this$0.bhC = bVar.emitTime;
                 }
-                str2 = this.this$0.bgl;
+                str2 = this.this$0.bhD;
                 if (str2 == null) {
-                    this.this$0.bgl = bVar.emitTime;
+                    this.this$0.bhD = bVar.emitTime;
                 }
-                str3 = this.this$0.bgl;
+                str3 = this.this$0.bhD;
                 if (com.baidu.adp.lib.g.c.a(str3, 0L) < com.baidu.adp.lib.g.c.a(bVar.emitTime, 0L)) {
-                    this.this$0.bgl = bVar.emitTime;
+                    this.this$0.bhD = bVar.emitTime;
                 }
-                str4 = this.this$0.bgk;
+                str4 = this.this$0.bhC;
                 if (com.baidu.adp.lib.g.c.a(str4, 0L) > com.baidu.adp.lib.g.c.a(bVar.emitTime, 0L)) {
-                    this.this$0.bgk = bVar.emitTime;
+                    this.this$0.bhC = bVar.emitTime;
                 }
-                list = this.this$0.bgi;
+                list = this.this$0.bhA;
                 list.add(bVar);
             }
         }

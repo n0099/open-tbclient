@@ -154,16 +154,16 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
                     this.xN = 0;
                     invalidate(0, 0, this.xL, this.xM);
                 }
-                int az = az(i);
-                if (az == -1) {
+                int aE = aE(i);
+                if (aE == -1) {
                     this.xR = false;
                     qVar.a(null, this, -1);
-                } else if (az != this.xQ || az == 0) {
-                    qVar.a(this.xJ, this, az);
+                } else if (aE != this.xQ || aE == 0) {
+                    qVar.a(this.xJ, this, aE);
                     j(getMeasuredWidth(), getMeasuredHeight());
                     this.xJ.layout(0, 0, this.xL, this.xM);
                     invalidate(0, 0, this.xL, this.xM);
-                    this.xQ = az;
+                    this.xQ = aE;
                     this.xO = this.xP;
                 }
             } else if (itemViewType == this.xK) {
@@ -179,7 +179,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
         }
     }
 
-    private int az(int i) {
+    private int aE(int i) {
         q qVar = this.xT;
         for (int i2 = i - 1; i2 >= 0; i2--) {
             if (qVar.getItemViewType(i2) == this.xK) {

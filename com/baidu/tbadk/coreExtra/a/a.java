@@ -1,49 +1,49 @@
 package com.baidu.tbadk.coreExtra.a;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bf;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 /* loaded from: classes.dex */
 public class a {
-    private static a Qo;
-    private boolean Qn;
+    private static a QP;
+    private boolean QO;
 
     private a() {
-        this.Qn = false;
+        this.QO = false;
         try {
-            if (!ba.isEmpty(new BufferedReader(new InputStreamReader(TbadkCoreApplication.m255getInst().getApp().getAssets().open("apk_ab_test.txt"))).readLine())) {
-                this.Qn = true;
+            if (!bf.isEmpty(new BufferedReader(new InputStreamReader(TbadkCoreApplication.m255getInst().getApp().getAssets().open("apk_ab_test.txt"))).readLine())) {
+                this.QO = true;
             }
         } catch (Throwable th) {
-            this.Qn = false;
+            this.QO = false;
         }
     }
 
-    public static synchronized a rr() {
+    public static synchronized a rD() {
         a aVar;
         synchronized (a.class) {
-            if (Qo == null) {
-                Qo = new a();
+            if (QP == null) {
+                QP = new a();
             }
-            aVar = Qo;
+            aVar = QP;
         }
         return aVar;
     }
 
-    public boolean rs() {
-        return this.Qn;
+    public boolean rE() {
+        return this.QO;
     }
 
     public HttpURLConnection g(HttpURLConnection httpURLConnection) {
-        if (this.Qn && httpURLConnection != null) {
+        if (this.QO && httpURLConnection != null) {
             httpURLConnection.setRequestProperty("Cookie", "pub_env=3;");
         }
         return httpURLConnection;
     }
 
-    public String rt() {
-        return this.Qn ? "pub_env=3;" : "";
+    public String rF() {
+        return this.QO ? "pub_env=3;" : "";
     }
 }

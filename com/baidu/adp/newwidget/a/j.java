@@ -6,51 +6,51 @@ import android.graphics.Path;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public abstract class j extends c {
-    private k rA;
-    protected Path ry = new Path();
-    protected Paint rz = null;
-    protected boolean rB = false;
+    private k rF;
+    protected Path rD = new Path();
+    protected Paint rE = null;
+    protected boolean rG = false;
 
     @Override // com.baidu.adp.newwidget.a.a
     public void a(d dVar, ImageView imageView, ImageView.ScaleType scaleType) {
         Path a;
         super.a(dVar, imageView, scaleType);
-        if (this.rA != null && (a = this.rA.a(gz())) != null) {
-            this.ry.set(a);
-            if (this.rz == null) {
-                this.rz = new Paint();
-                this.rz.setStyle(Paint.Style.STROKE);
-                this.rz.setAntiAlias(true);
-                this.rz.setColor(637534208);
-                this.rz.setDither(true);
-                this.rz.setStrokeWidth(2.0f);
+        if (this.rF != null && (a = this.rF.a(gy())) != null) {
+            this.rD.set(a);
+            if (this.rE == null) {
+                this.rE = new Paint();
+                this.rE.setStyle(Paint.Style.STROKE);
+                this.rE.setAntiAlias(true);
+                this.rE.setColor(637534208);
+                this.rE.setDither(true);
+                this.rE.setStrokeWidth(2.0f);
             }
-            gH();
+            gG();
         }
     }
 
     @Override // com.baidu.adp.newwidget.a.a
     public void a(Canvas canvas, d dVar, ImageView imageView) {
         super.a(canvas, dVar, imageView);
-        if (this.rB) {
-            canvas.drawPath(this.ry, this.rz);
-            if (this.rA != null) {
-                this.rA.b(canvas);
+        if (this.rG) {
+            canvas.drawPath(this.rD, this.rE);
+            if (this.rF != null) {
+                this.rF.b(canvas);
             }
         }
+    }
+
+    public void gG() {
     }
 
     public void gH() {
     }
 
-    public void gI() {
-    }
-
     public void a(k kVar) {
-        this.rA = kVar;
+        this.rF = kVar;
     }
 
     public void E(boolean z) {
-        this.rB = z;
+        this.rG = z;
     }
 }

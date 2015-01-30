@@ -16,7 +16,7 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         String stringExtra = getIntent().getStringExtra("intent_extra_package_name");
-        if (PluginCenter.gX().aR(stringExtra)) {
+        if (PluginCenter.gW().aR(stringExtra)) {
             finish();
             return;
         }

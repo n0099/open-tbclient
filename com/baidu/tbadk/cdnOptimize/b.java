@@ -35,7 +35,7 @@ class b implements CustomMessageTask.CustomRunnable<f> {
                 }
                 if (str.length() > 0) {
                     data.isSuccess = data.cdnTachometerModel.a(data.ipListData.imageUrl, str, data.ipListData.BM, data.ipListData.BJ, f.b(data));
-                    data.vx = System.currentTimeMillis() - currentTimeMillis;
+                    data.vD = System.currentTimeMillis() - currentTimeMillis;
                     data.cdnIp = str;
                     if (z) {
                         f.a(data, str);

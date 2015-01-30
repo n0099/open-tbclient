@@ -1,13 +1,13 @@
 package com.baidu.tbadk.editortool;
 /* loaded from: classes.dex */
 class b extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ a Xl;
-    private final /* synthetic */ c Xm;
+    final /* synthetic */ a XR;
+    private final /* synthetic */ c XS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, c cVar) {
-        this.Xl = aVar;
-        this.Xm = cVar;
+        this.XR = aVar;
+        this.XS = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -16,10 +16,10 @@ class b extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
     public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
         super.onLoaded((b) aVar, str, i);
         if (aVar != null) {
-            this.Xl.b(aVar);
-            this.Xl.c(aVar);
-            if (this.Xl.isReady()) {
-                this.Xm.a(this.Xl);
+            this.XR.b(aVar);
+            this.XR.c(aVar);
+            if (this.XR.isReady()) {
+                this.XS.a(this.XR);
             }
         }
     }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.addresslist.view;
 /* loaded from: classes.dex */
 public interface a {
-    void AS();
+    void Bs();
 
-    void eM(String str);
+    void eP(String str);
 }

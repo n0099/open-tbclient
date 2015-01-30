@@ -3,7 +3,7 @@ package com.baidu.tbadk.cdnOptimize;
 class l {
     final /* synthetic */ k BS;
     String ip;
-    long vx;
+    long vD;
 
     private l(k kVar) {
         this.BS = kVar;

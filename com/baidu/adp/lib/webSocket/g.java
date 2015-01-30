@@ -5,13 +5,13 @@ import java.nio.ByteBuffer;
 interface g {
     void close();
 
-    String fS();
+    String fR();
 
-    long fT();
+    long fS();
+
+    String fu();
 
     String fv();
-
-    String fw();
 
     boolean isConnected();
 

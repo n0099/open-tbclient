@@ -29,7 +29,7 @@ public class c {
     private Resources Cz;
 
     public void a(String str, Context context, AttributeSet attributeSet) {
-        int[] bM;
+        int[] bK;
         int i;
         boolean z = false;
         try {
@@ -37,82 +37,82 @@ public class c {
             this.Cz = this.Cy;
             int attributeCount = attributeSet.getAttributeCount();
             b bVar = new b();
-            bVar.bL(str);
+            bVar.bJ(str);
             for (int i2 = 0; i2 < attributeCount; i2++) {
                 String attributeName = attributeSet.getAttributeName(i2);
                 String attributeValue = attributeSet.getAttributeValue(i2);
                 if (attributeName.equals("id")) {
                     bVar.setId(attributeValue);
                 } else if (attributeName.equals("tb_background")) {
-                    int[] bM2 = bM(attributeValue);
-                    if (bM2 != null) {
-                        bVar.aS(bM2[0]);
-                        bVar.aT(bM2[1]);
+                    int[] bK2 = bK(attributeValue);
+                    if (bK2 != null) {
+                        bVar.aX(bK2[0]);
+                        bVar.aY(bK2[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_src")) {
-                    int[] bM3 = bM(attributeValue);
-                    if (bM3 != null) {
-                        bVar.aY(bM3[0]);
-                        bVar.aZ(bM3[1]);
+                    int[] bK3 = bK(attributeValue);
+                    if (bK3 != null) {
+                        bVar.bd(bK3[0]);
+                        bVar.be(bK3[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_textColor")) {
-                    int[] bM4 = bM(attributeValue);
-                    if (bM4 != null) {
-                        bVar.aW(bM4[0]);
-                        bVar.aX(bM4[1]);
+                    int[] bK4 = bK(attributeValue);
+                    if (bK4 != null) {
+                        bVar.bb(bK4[0]);
+                        bVar.bc(bK4[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_style")) {
-                    int[] bM5 = bM(attributeValue);
-                    if (bM5 != null) {
-                        bVar.bb(bM5[0]);
-                        bVar.ba(bM5[1]);
+                    int[] bK5 = bK(attributeValue);
+                    if (bK5 != null) {
+                        bVar.bg(bK5[0]);
+                        bVar.bf(bK5[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_divider")) {
-                    int[] bM6 = bM(attributeValue);
-                    if (bM6 != null) {
-                        bVar.aO(bM6[0]);
-                        bVar.aP(bM6[1]);
+                    int[] bK6 = bK(attributeValue);
+                    if (bK6 != null) {
+                        bVar.aT(bK6[0]);
+                        bVar.aU(bK6[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_drawableTop")) {
-                    int[] bM7 = bM(attributeValue);
-                    if (bM7 != null) {
-                        bVar.aM(bM7[0]);
-                        bVar.aN(bM7[1]);
+                    int[] bK7 = bK(attributeValue);
+                    if (bK7 != null) {
+                        bVar.aR(bK7[0]);
+                        bVar.aS(bK7[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_drawableLeft")) {
-                    int[] bM8 = bM(attributeValue);
-                    if (bM8 != null) {
-                        bVar.aK(bM8[0]);
-                        bVar.aL(bM8[1]);
+                    int[] bK8 = bK(attributeValue);
+                    if (bK8 != null) {
+                        bVar.aP(bK8[0]);
+                        bVar.aQ(bK8[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_drawableRight")) {
-                    int[] bM9 = bM(attributeValue);
-                    if (bM9 != null) {
-                        bVar.aQ(bM9[0]);
-                        bVar.aR(bM9[1]);
+                    int[] bK9 = bK(attributeValue);
+                    if (bK9 != null) {
+                        bVar.aV(bK9[0]);
+                        bVar.aW(bK9[1]);
                         z = true;
                     }
                 } else if (attributeName.equals("tb_progressDrawable")) {
-                    int[] bM10 = bM(attributeValue);
-                    if (bM10 != null) {
-                        bVar.bc(bM10[0]);
-                        bVar.bd(bM10[1]);
+                    int[] bK10 = bK(attributeValue);
+                    if (bK10 != null) {
+                        bVar.bh(bK10[0]);
+                        bVar.bi(bK10[1]);
                         z = true;
                     }
-                } else if (attributeName.equals("tb_textColorHint") && (bM = bM(attributeValue)) != null) {
-                    bVar.aU(bM[0]);
-                    bVar.aV(bM[1]);
+                } else if (attributeName.equals("tb_textColorHint") && (bK = bK(attributeValue)) != null) {
+                    bVar.aZ(bK[0]);
+                    bVar.ba(bK[1]);
                     z = true;
                 }
                 if (z && TbConfig.getDebugSwitch() && (i = com.baidu.adp.lib.g.c.toInt(attributeValue.substring(1), 0)) != 0) {
-                    bVar.bK(String.valueOf(attributeName) + "=" + this.Cy.getResourceName(i));
+                    bVar.bI(String.valueOf(attributeName) + "=" + this.Cy.getResourceName(i));
                 }
             }
             if (z) {
@@ -128,7 +128,7 @@ public class c {
         }
     }
 
-    private final int[] bM(String str) {
+    private final int[] bK(String str) {
         int parseInt;
         if (TextUtils.isDigitsOnly(str.substring(1)) && (parseInt = Integer.parseInt(str.substring(1))) != 0) {
             return new int[]{parseInt, a(this.Cy, this.Cz, parseInt)};

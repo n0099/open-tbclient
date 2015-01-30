@@ -28,7 +28,7 @@ public class r implements l {
     }
 
     @Override // com.baidu.adp.lib.webSocket.l
-    public void fU() {
+    public void fT() {
     }
 
     @Override // com.baidu.adp.lib.webSocket.l

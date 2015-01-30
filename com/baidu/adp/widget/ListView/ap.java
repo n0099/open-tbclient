@@ -23,7 +23,7 @@ public class ap extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: ay */
+    /* renamed from: aD */
     public am getItem(int i) {
         if (this.xG != null) {
             int size = this.xG.size();
@@ -55,10 +55,10 @@ public class ap extends BaseAdapter {
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
         am item;
-        if (this.xE == null || this.xE.size() == 0 || (item = getItem(i)) == null || item.jr() == null) {
+        if (this.xE == null || this.xE.size() == 0 || (item = getItem(i)) == null || item.js() == null) {
             return -1;
         }
-        return this.xF.get(item.jr().getId()).intValue();
+        return this.xF.get(item.js().getId()).intValue();
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -70,13 +70,13 @@ public class ap extends BaseAdapter {
     }
 
     public void a(a<am> aVar) {
-        if (aVar != null && aVar.jr() != null) {
+        if (aVar != null && aVar.js() != null) {
             if (this.xE == null) {
                 this.xE = new SparseArray<>();
             }
-            if (aVar.jr() != null) {
+            if (aVar.js() != null) {
                 aVar.a(this);
-                int id = aVar.jr().getId();
+                int id = aVar.js().getId();
                 int size = this.xE.size();
                 this.xE.put(size, aVar);
                 this.xF.put(id, Integer.valueOf(size));
@@ -98,8 +98,8 @@ public class ap extends BaseAdapter {
         if (this.xE != null) {
             am item = getItem(i);
             a<am> valueAt = this.xE.valueAt(getItemViewType(i));
-            if (valueAt != null && valueAt.jp() != null) {
-                valueAt.jp().a(view, item, valueAt.jr(), adapterView, i, j);
+            if (valueAt != null && valueAt.jq() != null) {
+                valueAt.jq().a(view, item, valueAt.js(), adapterView, i, j);
             }
         }
     }
@@ -109,8 +109,8 @@ public class ap extends BaseAdapter {
         if (this.xE != null) {
             am item = getItem(i);
             a<am> valueAt = this.xE.valueAt(getItemViewType(i));
-            if (valueAt != null && valueAt.jq() != null) {
-                valueAt.jq().b(view, item, valueAt.jr(), adapterView, i, j);
+            if (valueAt != null && valueAt.jr() != null) {
+                valueAt.jr().b(view, item, valueAt.js(), adapterView, i, j);
             }
         }
         return false;

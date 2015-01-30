@@ -1,17 +1,16 @@
 package com.baidu.tbadk.core.util;
-
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ay extends CustomMessageListener {
+public class ay implements Runnable {
+    final /* synthetic */ av Js;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ay(int i) {
-        super(i);
+    public ay(av avVar) {
+        this.Js = avVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ax.Ji = null;
+    @Override // java.lang.Runnable
+    public void run() {
+        this.Js.px();
     }
 }

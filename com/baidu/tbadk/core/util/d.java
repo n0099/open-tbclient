@@ -25,17 +25,17 @@ import java.io.InputStream;
 import java.lang.ref.SoftReference;
 /* loaded from: classes.dex */
 public class d {
-    public static final Object vs = new Object();
-    private static volatile SparseArray<SoftReference<Bitmap>> mD = new SparseArray<>();
-    private static volatile SparseArray<SoftReference<Bitmap>> GY = new SparseArray<>();
+    public static final Object vy = new Object();
+    private static volatile SparseArray<SoftReference<Bitmap>> mG = new SparseArray<>();
+    private static volatile SparseArray<SoftReference<Bitmap>> Hh = new SparseArray<>();
 
-    public static synchronized Bitmap bI(int i) {
+    public static synchronized Bitmap bN(int i) {
         Bitmap bitmap;
         synchronized (d.class) {
-            SoftReference<Bitmap> softReference = mD.get(i);
+            SoftReference<Bitmap> softReference = mG.get(i);
             bitmap = softReference != null ? softReference.get() : null;
             if (bitmap == null && (bitmap = b(TbadkCoreApplication.m255getInst().getApp(), i)) != null) {
-                mD.put(i, new SoftReference<>(bitmap));
+                mG.put(i, new SoftReference<>(bitmap));
             }
         }
         return bitmap;
@@ -44,7 +44,7 @@ public class d {
     public static synchronized Bitmap a(Resources resources, int i, int i2) {
         Bitmap bitmap;
         synchronized (d.class) {
-            SoftReference<Bitmap> softReference = GY.get(i2);
+            SoftReference<Bitmap> softReference = Hh.get(i2);
             bitmap = softReference != null ? softReference.get() : null;
             if (bitmap == null) {
                 try {
@@ -53,24 +53,24 @@ public class d {
                     TbadkCoreApplication.m255getInst().onAppMemoryLow();
                 }
                 if (bitmap != null) {
-                    GY.put(i2, new SoftReference<>(bitmap));
+                    Hh.put(i2, new SoftReference<>(bitmap));
                 }
             }
         }
         return bitmap;
     }
 
-    public static synchronized void bJ(int i) {
+    public static synchronized void bO(int i) {
         synchronized (d.class) {
-            mD.remove(i);
-            GY.remove(i);
+            mG.remove(i);
+            Hh.remove(i);
         }
     }
 
-    public static synchronized void eT() {
+    public static synchronized void eS() {
         synchronized (d.class) {
-            mD.clear();
-            GY.clear();
+            mG.clear();
+            Hh.clear();
         }
     }
 
@@ -118,7 +118,7 @@ public class d {
             } else {
                 f = i2 / height;
             }
-            synchronized (vs) {
+            synchronized (vy) {
                 Matrix matrix = new Matrix();
                 matrix.postScale(f, f);
                 createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
@@ -145,7 +145,7 @@ public class d {
             } else {
                 f = i2 / height;
             }
-            synchronized (vs) {
+            synchronized (vy) {
                 Matrix matrix = new Matrix();
                 matrix.postScale(f, f);
                 matrix.postTranslate((i - (width * f)) / 2.0f, (i2 - (height * f)) / 2.0f);
@@ -189,7 +189,7 @@ public class d {
             r4.<init>(r8)
             boolean r2 = r4.exists()
             if (r2 == 0) goto Le
-            java.lang.Object r5 = com.baidu.tbadk.core.util.d.vs     // Catch: java.lang.Throwable -> L6d
+            java.lang.Object r5 = com.baidu.tbadk.core.util.d.vy     // Catch: java.lang.Throwable -> L6d
             monitor-enter(r5)     // Catch: java.lang.Throwable -> L6d
             android.graphics.BitmapFactory$Options r6 = new android.graphics.BitmapFactory$Options     // Catch: java.lang.Throwable -> L5b
             r6.<init>()     // Catch: java.lang.Throwable -> L5b
@@ -269,7 +269,7 @@ public class d {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    public static android.graphics.Bitmap cc(java.lang.String r5) {
+    public static android.graphics.Bitmap ca(java.lang.String r5) {
         /*
             r0 = 0
             if (r5 == 0) goto L9
@@ -282,7 +282,7 @@ public class d {
             r1.<init>(r5)
             boolean r2 = r1.exists()
             if (r2 == 0) goto L9
-            java.lang.Object r3 = com.baidu.tbadk.core.util.d.vs     // Catch: java.lang.Throwable -> L46
+            java.lang.Object r3 = com.baidu.tbadk.core.util.d.vy     // Catch: java.lang.Throwable -> L46
             monitor-enter(r3)     // Catch: java.lang.Throwable -> L46
             android.graphics.BitmapFactory$Options r4 = new android.graphics.BitmapFactory$Options     // Catch: java.lang.Throwable -> L34
             r4.<init>()     // Catch: java.lang.Throwable -> L34
@@ -327,7 +327,7 @@ public class d {
             r1 = move-exception
             goto L36
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tbadk.core.util.d.cc(java.lang.String):android.graphics.Bitmap");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tbadk.core.util.d.ca(java.lang.String):android.graphics.Bitmap");
     }
 
     public static Bitmap m(String str, int i) {
@@ -337,22 +337,22 @@ public class d {
             return null;
         }
         try {
-            synchronized (vs) {
+            synchronized (vy) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream cn = s.cn(str);
-                BitmapFactory.decodeStream(cn, null, options);
+                InputStream cl = s.cl(str);
+                BitmapFactory.decodeStream(cl, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
-                com.baidu.adp.lib.util.t.d(cn);
+                com.baidu.adp.lib.util.t.d(cl);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream cn2 = s.cn(str);
-                        decodeStream = BitmapFactory.decodeStream(cn2, null, options);
-                        com.baidu.adp.lib.util.t.d(cn2);
+                        InputStream cl2 = s.cl(str);
+                        decodeStream = BitmapFactory.decodeStream(cl2, null, options);
+                        com.baidu.adp.lib.util.t.d(cl2);
                     }
                 }
             }
@@ -377,7 +377,7 @@ public class d {
             options.inPreferredConfig = TbConfig.BitmapConfig;
             options.inDither = false;
             options.inJustDecodeBounds = true;
-            synchronized (vs) {
+            synchronized (vy) {
                 BitmapFactory.decodeFileDescriptor(openFileDescriptor.getFileDescriptor(), null, options);
                 while (true) {
                     if (options.outWidth / (i2 + 1) > i || options.outHeight / (i2 + 1) > i) {
@@ -430,7 +430,7 @@ public class d {
     public static Bitmap a(Bitmap bitmap, float f, boolean z) {
         Bitmap bitmap2 = null;
         try {
-            synchronized (vs) {
+            synchronized (vy) {
                 try {
                     Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_4444);
                     try {
@@ -467,7 +467,7 @@ public class d {
         if (bitmap == null) {
             return null;
         }
-        synchronized (vs) {
+        synchronized (vy) {
             if (bitmap.getHeight() < bitmap.getWidth()) {
                 createBitmap = Bitmap.createBitmap(bitmap, (bitmap.getWidth() - bitmap.getHeight()) >> 1, 0, bitmap.getHeight(), bitmap.getHeight());
             } else {
@@ -482,7 +482,7 @@ public class d {
 
     public static byte[] e(Bitmap bitmap, int i) {
         byte[] byteArray;
-        synchronized (vs) {
+        synchronized (vy) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.PNG, i, byteArrayOutputStream);
             byteArray = byteArrayOutputStream.toByteArray();
@@ -505,7 +505,7 @@ public class d {
             options.inPreferredConfig = TbConfig.BitmapConfig;
             try {
                 try {
-                    synchronized (vs) {
+                    synchronized (vy) {
                         try {
                             bitmap2 = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
                             r2 = bitmap2 == null;
@@ -604,7 +604,7 @@ public class d {
             options.inDensity = options.inScreenDensity;
             try {
                 try {
-                    synchronized (vs) {
+                    synchronized (vy) {
                         try {
                             bitmap2 = BitmapFactory.decodeStream(byteArrayInputStream, rect, options);
                             r2 = bitmap2 == null;
@@ -728,7 +728,7 @@ public class d {
         Bitmap bitmap2;
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
-        synchronized (vs) {
+        synchronized (vy) {
             Matrix matrix = new Matrix();
             if (i == 0) {
                 matrix.postRotate(-90.0f);
@@ -754,7 +754,7 @@ public class d {
         Bitmap bitmap2;
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
-        synchronized (vs) {
+        synchronized (vy) {
             Matrix matrix = new Matrix();
             matrix.postRotate(i);
             try {
@@ -772,7 +772,7 @@ public class d {
         return bitmap2;
     }
 
-    public static int cd(String str) {
+    public static int cb(String str) {
         try {
             switch (new ExifInterface(str).getAttributeInt("Orientation", 1)) {
                 case 3:
@@ -803,7 +803,7 @@ public class d {
         } else if (i == 3) {
             matrix.setScale(-1.0f, 1.0f);
         }
-        synchronized (vs) {
+        synchronized (vy) {
             Bitmap createBitmap2 = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
             matrix.setRotate(180.0f);
             createBitmap = Bitmap.createBitmap(createBitmap2, 0, 0, createBitmap2.getWidth(), createBitmap2.getHeight(), matrix, true);
@@ -817,7 +817,7 @@ public class d {
         return createBitmap;
     }
 
-    public static int bK(int i) {
+    public static int bP(int i) {
         if (i > 15) {
             return com.baidu.tieba.v.icon_grade_yellow;
         }

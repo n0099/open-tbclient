@@ -6,72 +6,72 @@ import com.baidu.adp.lib.util.i;
 import com.baidu.tbadk.core.service.NetworkChangeReceiver;
 /* loaded from: classes.dex */
 public class a {
-    private q bXq;
-    private final int bXr = 10;
-    private final int bXs = 3000;
-    public String bXt = null;
-    public boolean Ky = false;
+    private q bZj;
+    private final int bZk = 10;
+    private final int bZl = 3000;
+    public String bZm = null;
+    public boolean KR = false;
 
     public a(String str) {
-        D(str, false);
+        C(str, false);
     }
 
-    public void D(String str, boolean z) {
-        this.bXt = str;
-        this.Ky = z;
-        this.bXq = new q("dbg");
+    public void C(String str, boolean z) {
+        this.bZm = str;
+        this.KR = z;
+        this.bZj = new q("dbg");
         b.g(str, getNetType(), z);
     }
 
     public void start() {
-        this.bXq.startTimer();
+        this.bZj.eK();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j) {
-        long eM = this.bXq.eM();
+        long eL = this.bZj.eL();
         long j2 = 0;
         long j3 = 0;
         if (z) {
-            j2 = eM;
+            j2 = eL;
         } else {
-            j3 = eM;
+            j3 = eL;
         }
         a(z, z2, i, str, j, j2, j3);
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e ahk;
-        if (this.bXq != null && (ahk = ahk()) != null) {
+        e ahP;
+        if (this.bZj != null && (ahP = ahP()) != null) {
             if (z) {
-                if (ahk.bXy != null) {
-                    ahk.bXy.num++;
+                if (ahP.bZr != null) {
+                    ahP.bZr.num++;
                     if (z2) {
-                        ahk.bXy.bXv += j2;
-                        ahk.bXy.size += j;
+                        ahP.bZr.bZo += j2;
+                        ahP.bZr.size += j;
                     } else {
-                        ahk.bXy.bXw++;
+                        ahP.bZr.bZp++;
                     }
                 } else {
                     return;
                 }
-            } else if (ahk.bXz != null) {
-                ahk.bXz.num++;
+            } else if (ahP.bZs != null) {
+                ahP.bZs.num++;
                 if (z2) {
-                    ahk.bXz.bXv += j3;
-                    ahk.bXz.size += j;
+                    ahP.bZs.bZo += j3;
+                    ahP.bZs.size += j;
                     j2 = j3;
                 } else {
-                    ahk.bXz.bXw++;
+                    ahP.bZs.bZp++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.bXq = null;
+            this.bZj = null;
             if (z2) {
-                b.a(ahk, 10);
+                b.a(ahP, 10);
             }
-            if (this.bXt == "frsStat") {
+            if (this.bZm == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     q qVar = new q("dbg");
                     qVar.r("act", "frs");
@@ -81,41 +81,41 @@ public class a {
                     qVar.r("errCode", String.valueOf(i));
                     qVar.r("errMsg", str);
                     qVar.r("down", String.valueOf(j));
-                    f.es().a("frs", qVar);
+                    f.eq().a("frs", qVar);
                 }
             }
         }
     }
 
     public void destory() {
-        e ahk;
-        if (this.bXq != null && (ahk = ahk()) != null && ahk.bXA != null) {
-            long eM = this.bXq.eM();
-            if (eM > 3000) {
-                d dVar = ahk.bXA;
-                dVar.bXv = eM + dVar.bXv;
-                ahk.bXA.num++;
-                b.a(ahk, 10);
+        e ahP;
+        if (this.bZj != null && (ahP = ahP()) != null && ahP.bZt != null) {
+            long eL = this.bZj.eL();
+            if (eL > 3000) {
+                d dVar = ahP.bZt;
+                dVar.bZo = eL + dVar.bZo;
+                ahP.bZt.num++;
+                b.a(ahP, 10);
             }
         }
     }
 
-    private e ahk() {
-        return b.h(this.bXt, getNetType(), this.Ky);
+    private e ahP() {
+        return b.h(this.bZm, getNetType(), this.KR);
     }
 
     private String getNetType() {
-        int fl = i.fl();
-        if (fl == 0) {
+        int fk = i.fk();
+        if (fk == 0) {
             return "N";
         }
-        if (fl == 1) {
+        if (fk == 1) {
             return NetworkChangeReceiver.WIFI_STRING;
         }
-        if (fl == 3) {
+        if (fk == 3) {
             return "3G";
         }
-        if (fl != 2) {
+        if (fk != 2) {
             return "N";
         }
         return "2G";

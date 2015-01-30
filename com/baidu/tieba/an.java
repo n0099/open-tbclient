@@ -1,17 +1,14 @@
 package com.baidu.tieba;
-
-import android.os.Handler;
-import android.os.Message;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class an extends Handler {
-    final /* synthetic */ al alv;
+public interface an {
+    void AM();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public an(al alVar) {
-        this.alv = alVar;
-    }
+    void AN();
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-    }
+    void bd(boolean z);
+
+    void be(boolean z);
+
+    void stopService();
 }

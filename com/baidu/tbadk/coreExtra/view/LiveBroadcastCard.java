@@ -7,9 +7,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -19,12 +19,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.LiveRoomChatActivityConfig;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.GroupImageView;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 /* loaded from: classes.dex */
-public class LiveBroadcastCard extends RelativeLayout {
+public class LiveBroadcastCard extends FrameLayout {
     private static final long TIME_COUNTDOWN_MAX_MINUTE = 300;
     private boolean hasBarName;
     private boolean isListCard;
@@ -119,7 +120,7 @@ public class LiveBroadcastCard extends RelativeLayout {
 
     private void init(Context context, AttributeSet attributeSet) {
         this.mContext = context;
-        View inflate = com.baidu.adp.lib.g.b.ek().inflate(context, com.baidu.tieba.x.livebroadcastcardview, this);
+        View inflate = com.baidu.adp.lib.g.b.ei().inflate(context, com.baidu.tieba.x.livebroadcastcardview, this);
         this.mRootView = (ViewGroup) inflate.findViewById(com.baidu.tieba.w.card_root);
         this.mHeadImageView = (GroupImageView) inflate.findViewById(com.baidu.tieba.w.card_head);
         this.mHeadImageView.setDrawBorder(true);
@@ -163,7 +164,7 @@ public class LiveBroadcastCard extends RelativeLayout {
 
     public void setData(LiveCardData liveCardData) {
         if (liveCardData != null) {
-            af.tw().b(this);
+            af.tN().b(this);
             unRegisterTimeUpdateListener();
             this.mGroupId = liveCardData.getGroupId();
             this.mCardName.setText(liveCardData.getName());
@@ -241,25 +242,25 @@ public class LiveBroadcastCard extends RelativeLayout {
             }
             this.mCardTopTipImage.setVisibility(this.mIsTopTipShow ? 0 : 8);
             if (this.mIsHideSHow) {
-                com.baidu.tbadk.core.util.ax.b(this.mCardName, com.baidu.tieba.t.cp_cont_e, 1);
-                com.baidu.tbadk.core.util.ax.b(this.mBarFrom, com.baidu.tieba.t.cp_cont_e, 1);
-                com.baidu.tbadk.core.util.ax.b(this.mListenerCount, com.baidu.tieba.t.cp_cont_e, 1);
-                com.baidu.tbadk.core.util.ax.b(this.mLikerCount, com.baidu.tieba.t.cp_cont_e, 1);
-                com.baidu.tbadk.core.util.ax.b(this.mCardAuthor, com.baidu.tieba.t.cp_cont_e, 1);
-                com.baidu.tbadk.core.util.ax.b(this.mCardIntro, com.baidu.tieba.t.cp_cont_e, 1);
-                com.baidu.tbadk.core.util.ax.c(this.mCardListenerImage, com.baidu.tieba.v.icon_live_list_pop_d);
-                com.baidu.tbadk.core.util.ax.c(this.mCardLikeImage, com.baidu.tieba.v.icon_live_list_like_d);
-                this.mHeadImageView.setForegroundColor(com.baidu.tbadk.core.util.ax.getColor(com.baidu.tieba.t.live_broadcast_card_head_mask));
+                bc.b(this.mCardName, com.baidu.tieba.t.cp_cont_e, 1);
+                bc.b(this.mBarFrom, com.baidu.tieba.t.cp_cont_e, 1);
+                bc.b(this.mListenerCount, com.baidu.tieba.t.cp_cont_e, 1);
+                bc.b(this.mLikerCount, com.baidu.tieba.t.cp_cont_e, 1);
+                bc.b(this.mCardAuthor, com.baidu.tieba.t.cp_cont_e, 1);
+                bc.b(this.mCardIntro, com.baidu.tieba.t.cp_cont_e, 1);
+                bc.c(this.mCardListenerImage, com.baidu.tieba.v.icon_live_list_pop_d);
+                bc.c(this.mCardLikeImage, com.baidu.tieba.v.icon_live_list_like_d);
+                this.mHeadImageView.setForegroundColor(bc.getColor(com.baidu.tieba.t.live_broadcast_card_head_mask));
                 return;
             }
-            com.baidu.tbadk.core.util.ax.b(this.mCardName, com.baidu.tieba.t.cp_cont_b, 1);
-            com.baidu.tbadk.core.util.ax.b(this.mBarFrom, com.baidu.tieba.t.cp_cont_c, 1);
-            com.baidu.tbadk.core.util.ax.b(this.mListenerCount, com.baidu.tieba.t.cp_cont_c, 1);
-            com.baidu.tbadk.core.util.ax.b(this.mLikerCount, com.baidu.tieba.t.cp_cont_c, 1);
-            com.baidu.tbadk.core.util.ax.b(this.mCardAuthor, com.baidu.tieba.t.cp_cont_c, 1);
-            com.baidu.tbadk.core.util.ax.b(this.mCardIntro, com.baidu.tieba.t.cp_cont_d, 1);
-            com.baidu.tbadk.core.util.ax.c(this.mCardListenerImage, com.baidu.tieba.v.icon_live_list_pop);
-            com.baidu.tbadk.core.util.ax.c(this.mCardLikeImage, com.baidu.tieba.v.icon_live_list_like);
+            bc.b(this.mCardName, com.baidu.tieba.t.cp_cont_b, 1);
+            bc.b(this.mBarFrom, com.baidu.tieba.t.cp_cont_c, 1);
+            bc.b(this.mListenerCount, com.baidu.tieba.t.cp_cont_c, 1);
+            bc.b(this.mLikerCount, com.baidu.tieba.t.cp_cont_c, 1);
+            bc.b(this.mCardAuthor, com.baidu.tieba.t.cp_cont_c, 1);
+            bc.b(this.mCardIntro, com.baidu.tieba.t.cp_cont_d, 1);
+            bc.c(this.mCardListenerImage, com.baidu.tieba.v.icon_live_list_pop);
+            bc.c(this.mCardLikeImage, com.baidu.tieba.v.icon_live_list_like);
             this.mHeadImageView.setForegroundColor(0);
         }
     }
@@ -331,7 +332,7 @@ public class LiveBroadcastCard extends RelativeLayout {
         this.mStateWillStartLayout.setVisibility(8);
         this.mStateClose.setVisibility(8);
         this.mCardStatus = 3;
-        af.tw().b(this);
+        af.tN().b(this);
         unRegisterTimeUpdateListener();
     }
 
@@ -356,7 +357,7 @@ public class LiveBroadcastCard extends RelativeLayout {
         this.mCardStatus = 0;
         dealStatusWillStart();
         registerTimeUpdateListener();
-        af.tw().a(this);
+        af.tN().a(this);
     }
 
     private void updateStatusClose() {
@@ -377,7 +378,7 @@ public class LiveBroadcastCard extends RelativeLayout {
         this.mStateWillStartLayout.setVisibility(8);
         this.mStateClose.setVisibility(0);
         this.mStateClose.setText(com.baidu.tieba.z.live_card_close);
-        com.baidu.tbadk.core.util.ax.b(this.mStateClose, com.baidu.tieba.t.cp_cont_d, 1);
+        bc.b(this.mStateClose, com.baidu.tieba.t.cp_cont_d, 1);
         this.mStateClose.setTextSize(0, getResources().getDimensionPixelSize(com.baidu.tieba.u.ds28));
         this.mCardStatus = 4;
     }
@@ -400,21 +401,21 @@ public class LiveBroadcastCard extends RelativeLayout {
         this.mStateWillStartLayout.setVisibility(8);
         this.mStateClose.setVisibility(0);
         this.mStateClose.setText(com.baidu.tieba.z.live_card_hide);
-        com.baidu.tbadk.core.util.ax.b(this.mStateClose, com.baidu.tieba.t.cp_cont_d, 1);
+        bc.b(this.mStateClose, com.baidu.tieba.t.cp_cont_d, 1);
         this.mStateClose.setTextSize(0, getResources().getDimensionPixelSize(com.baidu.tieba.u.ds32));
         this.mCardStatus = 5;
     }
 
     private void updateStatusWillStartCountDown() {
         this.mStateWillStart.setText(com.baidu.tieba.z.live_card_count_down);
-        com.baidu.tbadk.core.util.ax.i((View) this.mStateWillStart, com.baidu.tieba.v.bg_live_orange);
+        bc.i((View) this.mStateWillStart, com.baidu.tieba.v.bg_live_orange);
         this.mCardStatus = 2;
     }
 
     private void updateStatusWillStartForeShow() {
         this.mCardTime.setText(getFormatHour(this.mStartTime));
         this.mStateWillStart.setText(com.baidu.tieba.z.live_card_foreshowt);
-        com.baidu.tbadk.core.util.ax.i((View) this.mStateWillStart, com.baidu.tieba.v.bg_live_yellow);
+        bc.i((View) this.mStateWillStart, com.baidu.tieba.v.bg_live_yellow);
         this.mCardStatus = 1;
     }
 
@@ -426,7 +427,7 @@ public class LiveBroadcastCard extends RelativeLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        af.tw().b(this);
+        af.tN().b(this);
         unRegisterTimeUpdateListener();
     }
 

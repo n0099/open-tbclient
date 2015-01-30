@@ -1,23 +1,17 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tbadk.core.data.VoiceData;
+import android.view.View;
 /* loaded from: classes.dex */
-class bu implements w {
-    final /* synthetic */ PersonalChatActivity aRE;
+class bu implements View.OnClickListener {
+    final /* synthetic */ MsgrightView aSC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bu(PersonalChatActivity personalChatActivity) {
-        this.aRE = personalChatActivity;
+    public bu(MsgrightView msgrightView) {
+        this.aSC = msgrightView;
     }
 
-    @Override // com.baidu.tieba.im.chat.w
-    public void b(VoiceData.VoiceModel voiceModel) {
-        if (voiceModel != null) {
-            this.aRE.mListModel.sendMsgVoice(voiceModel.voiceId, voiceModel.duration);
-        }
-    }
-
-    @Override // com.baidu.tieba.im.chat.w
-    public void JN() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.aSC.mItemViewClickListener.onItemViewClick(view, 1, this.aSC.mPosition, 0L);
     }
 }

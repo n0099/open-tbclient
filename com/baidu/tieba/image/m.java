@@ -1,6 +1,5 @@
 package com.baidu.tieba.image;
 
-import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import java.util.ArrayList;
@@ -31,28 +30,28 @@ class m implements c {
         MultiImageView multiImageView13;
         MultiImageView multiImageView14;
         if (z2) {
-            multiImageView10 = this.this$0.bqr;
+            multiImageView10 = this.this$0.brP;
             if (multiImageView10.getCurrentItem() <= 4) {
-                multiImageView11 = this.this$0.bqr;
+                multiImageView11 = this.this$0.brP;
                 int itemNum = multiImageView11.getItemNum();
-                multiImageView12 = this.this$0.bqr;
+                multiImageView12 = this.this$0.brP;
                 multiImageView12.setTempSize(itemNum + 100);
-                multiImageView13 = this.this$0.bqr;
+                multiImageView13 = this.this$0.brP;
                 multiImageView13.setCurrentItem(itemNum + 90, false);
-                multiImageView14 = this.this$0.bqr;
+                multiImageView14 = this.this$0.brP;
                 multiImageView14.setTempSize(0);
             }
         }
-        multiImageView = this.this$0.bqr;
+        multiImageView = this.this$0.brP;
         multiImageView.setUrlData(arrayList);
-        multiImageView2 = this.this$0.bqr;
+        multiImageView2 = this.this$0.brP;
         multiImageView2.setHasNext(z);
-        multiImageView3 = this.this$0.bqr;
+        multiImageView3 = this.this$0.brP;
         multiImageView3.setNextTitle(str);
         if (i >= 0) {
-            multiImageView8 = this.this$0.bqr;
+            multiImageView8 = this.this$0.brP;
             if (i < multiImageView8.getItemNum()) {
-                multiImageView9 = this.this$0.bqr;
+                multiImageView9 = this.this$0.brP;
                 multiImageView9.setCurrentItem(i, false);
             }
         }
@@ -60,22 +59,22 @@ class m implements c {
             this.this$0.mCount = i2;
         }
         if (arrayList.size() >= 400) {
-            multiImageView4 = this.this$0.bqr;
+            multiImageView4 = this.this$0.brP;
             if (multiImageView4.getCurrentItem() > 200) {
                 for (int i4 = 0; i4 < 200; i4++) {
                     arrayList.remove(0);
                 }
-                multiImageView5 = this.this$0.bqr;
+                multiImageView5 = this.this$0.brP;
                 multiImageView5.setUrlData(arrayList);
                 ImageViewerActivity imageViewerActivity = this.this$0;
-                i3 = imageViewerActivity.bqj;
-                imageViewerActivity.bqj = i3 + Constants.MEDIA_INFO;
-                multiImageView6 = this.this$0.bqr;
-                multiImageView7 = this.this$0.bqr;
+                i3 = imageViewerActivity.brH;
+                imageViewerActivity.brH = i3 + 200;
+                multiImageView6 = this.this$0.brP;
+                multiImageView7 = this.this$0.brP;
                 multiImageView6.setCurrentItem(multiImageView7.getCurrentItem() + SapiErrorCode.NETWORK_FAILED, false);
             }
         }
-        this.this$0.TB();
+        this.this$0.TX();
     }
 
     @Override // com.baidu.tieba.image.c
@@ -84,9 +83,9 @@ class m implements c {
         this.this$0.showToast(str);
         if (i == 40) {
             ImageViewerActivity imageViewerActivity = this.this$0;
-            arrayList = this.this$0.bqk;
+            arrayList = this.this$0.brI;
             imageViewerActivity.mCount = arrayList.size();
-            this.this$0.TB();
+            this.this$0.TX();
         }
     }
 }

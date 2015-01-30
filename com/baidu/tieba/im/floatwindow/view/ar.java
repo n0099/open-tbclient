@@ -5,13 +5,13 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ar implements com.baidu.tieba.im.g<Integer> {
-    final /* synthetic */ ap aYY;
-    private final /* synthetic */ UserData aYZ;
+    final /* synthetic */ ap bav;
+    private final /* synthetic */ UserData baw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(ap apVar, UserData userData) {
-        this.aYY = apVar;
-        this.aYZ = userData;
+        this.bav = apVar;
+        this.baw = userData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,12 +22,12 @@ public class ar implements com.baidu.tieba.im.g<Integer> {
         as asVar;
         as asVar2;
         if (num != null) {
-            hashMap = this.aYY.aYW;
-            hashMap.put(this.aYZ.getUserId(), num);
-            asVar = this.aYY.aYX;
+            hashMap = this.bav.bat;
+            hashMap.put(this.baw.getUserId(), num);
+            asVar = this.bav.bau;
             if (asVar != null) {
-                asVar2 = this.aYY.aYX;
-                asVar2.NV();
+                asVar2 = this.bav.bau;
+                asVar2.Or();
             }
         }
     }

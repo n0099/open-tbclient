@@ -8,11 +8,11 @@ import com.baidu.tieba.im.message.LoadDraftMessage;
 import com.baidu.tieba.im.message.LoadDraftResponsedMessage;
 /* loaded from: classes.dex */
 public class a implements CustomMessageTask.CustomRunnable<com.baidu.tieba.im.message.a> {
-    private com.baidu.tieba.im.settingcache.a bnY;
+    private com.baidu.tieba.im.settingcache.a bpv;
     private int mCmd;
 
     public a(com.baidu.tieba.im.settingcache.a aVar, int i) {
-        this.bnY = aVar;
+        this.bpv = aVar;
         this.mCmd = i;
     }
 
@@ -21,7 +21,7 @@ public class a implements CustomMessageTask.CustomRunnable<com.baidu.tieba.im.me
         String str;
         LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(this.mCmd);
         if (customMessage == null || !(customMessage instanceof LoadDraftMessage)) {
-            return gx(this.mCmd);
+            return gG(this.mCmd);
         }
         LoadDraftMessage loadDraftMessage = (LoadDraftMessage) customMessage;
         if (TbadkCoreApplication.getCurrentAccountObj() == null) {
@@ -30,11 +30,11 @@ public class a implements CustomMessageTask.CustomRunnable<com.baidu.tieba.im.me
             str = TbadkCoreApplication.getCurrentAccountObj().getID();
         }
         com.baidu.tieba.im.message.a data = loadDraftMessage.getData();
-        com.baidu.tieba.im.pushNotify.a aD = this.bnY.aD(str, data.id);
-        if (aD == null) {
-            return gx(loadDraftMessage.getCmd());
+        com.baidu.tieba.im.pushNotify.a aG = this.bpv.aG(str, data.id);
+        if (aG == null) {
+            return gG(loadDraftMessage.getCmd());
         }
-        String draft = aD.getDraft();
+        String draft = aG.getDraft();
         com.baidu.tieba.im.message.b bVar = new com.baidu.tieba.im.message.b();
         bVar.mDraft = draft;
         bVar.id = data.id;
@@ -46,7 +46,7 @@ public class a implements CustomMessageTask.CustomRunnable<com.baidu.tieba.im.me
         return loadDraftResponsedMessage;
     }
 
-    private LoadDraftResponsedMessage gx(int i) {
+    private LoadDraftResponsedMessage gG(int i) {
         LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(i);
         loadDraftResponsedMessage.setError(-18);
         return loadDraftResponsedMessage;

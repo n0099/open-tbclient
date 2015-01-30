@@ -169,7 +169,7 @@ public class BdListView extends ListView {
         }
     }
 
-    public void jI() {
+    public void jH() {
         removeCallbacks(this.xg);
     }
 
@@ -414,7 +414,7 @@ public class BdListView extends ListView {
 
     public void setPullRefresh(j jVar) {
         if (this.xl != null) {
-            removeHeaderView(this.xl.jM().getView());
+            removeHeaderView(this.xl.jL().getView());
         }
         this.xl = null;
         if (jVar != null) {
@@ -423,13 +423,13 @@ public class BdListView extends ListView {
         }
     }
 
-    public void jJ() {
+    public void jI() {
         if (this.xl != null) {
             af.a(this.xl);
         }
     }
 
-    public void jK() {
+    public void jJ() {
         if (this.xl != null) {
             setSelection(0);
             this.xl.U(true);
@@ -457,7 +457,7 @@ public class BdListView extends ListView {
         }
     }
 
-    public boolean jL() {
+    public boolean jK() {
         return this.xl == null || this.xl.mState == 3;
     }
 }

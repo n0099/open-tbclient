@@ -2,16 +2,15 @@ package com.baidu.tbadk.coreExtra.websocketBase;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.channelrtc.medialivesender.LiveSenderControl;
 import com.baidu.tbadk.TbConfig;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class p {
-    private boolean VG = false;
-    private int VH = 0;
+    private boolean Wl = false;
+    private int Wm = 0;
 
-    public void dO(String str) {
+    public void dN(String str) {
         int lastIndexOf;
         Exception e;
         String str2;
@@ -19,8 +18,8 @@ public class p {
         int i2;
         String str3 = null;
         int i3 = 0;
-        this.VG = false;
-        this.VH = 0;
+        this.Wl = false;
+        this.Wm = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             try {
                 str2 = str.substring(5, lastIndexOf);
@@ -45,11 +44,11 @@ public class p {
                     long currentTimeMillis = System.currentTimeMillis();
                     try {
                         try {
-                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.g.c.toInt(String.valueOf(str3), LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_8)), getTimeout());
+                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.g.c.toInt(String.valueOf(str3), 8000)), getTimeout());
                             if (socket.isConnected()) {
                                 int i6 = i3 + 1;
                                 int currentTimeMillis2 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i5);
-                                this.VG = true;
+                                this.Wl = true;
                                 i = i6;
                                 i2 = currentTimeMillis2;
                             } else {
@@ -83,23 +82,23 @@ public class p {
                         throw th;
                     }
                 }
-                if (this.VG && i3 > 0) {
-                    this.VH = i5 / i3;
+                if (this.Wl && i3 > 0) {
+                    this.Wm = i5 / i3;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.VG;
+        return this.Wl;
     }
 
-    public int ua() {
-        return this.VH;
+    public int ur() {
+        return this.Wm;
     }
 
     private int getTimeout() {
-        switch (com.baidu.adp.lib.util.i.fl()) {
+        switch (com.baidu.adp.lib.util.i.fk()) {
             case 1:
                 return 3000;
             case 2:

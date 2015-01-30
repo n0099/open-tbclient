@@ -3,24 +3,24 @@ package com.baidu.tbadk.c;
 import android.view.View;
 /* loaded from: classes.dex */
 public class d extends b {
-    private com.baidu.tbadk.core.frameworkData.a WC;
-    private com.baidu.tbadk.core.frameworkData.a WD;
+    private com.baidu.tbadk.core.frameworkData.a Xh;
+    private com.baidu.tbadk.core.frameworkData.a Xi;
     private View.OnClickListener mClickListener;
 
     @Override // com.baidu.tbadk.c.b
-    public void d(View.OnClickListener onClickListener) {
+    public void e(View.OnClickListener onClickListener) {
         this.mClickListener = onClickListener;
     }
 
     public void a(com.baidu.tbadk.core.frameworkData.a aVar) {
-        this.WC = aVar;
+        this.Xh = aVar;
     }
 
     public void b(com.baidu.tbadk.core.frameworkData.a aVar) {
-        this.WD = aVar;
+        this.Xi = aVar;
     }
 
-    public com.baidu.tbadk.core.frameworkData.a aC(boolean z) {
-        return z ? this.WC : this.WD;
+    public com.baidu.tbadk.core.frameworkData.a aE(boolean z) {
+        return z ? this.Xh : this.Xi;
     }
 }

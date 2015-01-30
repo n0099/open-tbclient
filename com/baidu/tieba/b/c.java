@@ -1,7 +1,7 @@
 package com.baidu.tieba.b;
 /* loaded from: classes.dex */
 public interface c {
-    void GR();
+    void Ho();
 
-    void GS();
+    void Hp();
 }

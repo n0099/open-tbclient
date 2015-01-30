@@ -3,7 +3,6 @@ package com.baidu.tieba.im.b;
 import android.util.SparseArray;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.message.MessageSyncMessage;
 /* loaded from: classes.dex */
@@ -17,7 +16,7 @@ public class j extends com.baidu.adp.framework.a.k {
     /* renamed from: d */
     public SocketMessage a(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
         String str;
-        StringBuilder sb = new StringBuilder((int) Constants.MEDIA_INFO);
+        StringBuilder sb = new StringBuilder(200);
         if (socketMessage instanceof MessageSyncMessage) {
             SparseArray<Long> groupMids = ((MessageSyncMessage) socketMessage).getGroupMids();
             for (int i = 0; i < groupMids.size(); i++) {

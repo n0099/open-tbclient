@@ -1,6 +1,5 @@
 package protobuf;
 
-import com.baidu.channelrtc.medialivesender.Constants;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
@@ -40,9 +39,9 @@ public final class GroupInfo extends Message {
     public final Integer flag;
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
     public final Integer forumId;
-    @ProtoField(tag = DealIntentService.CLASS_TYPE_NATIVE_BUY_TBEAN, type = Message.Datatype.STRING)
+    @ProtoField(tag = 25, type = Message.Datatype.STRING)
     public final String forumName;
-    @ProtoField(tag = Constants.SOURCE_ALL, type = Message.Datatype.STRING)
+    @ProtoField(tag = 31, type = Message.Datatype.STRING)
     public final String forumShowName;
     @ProtoField(tag = 22, type = Message.Datatype.INT32)
     public final Integer grade;
@@ -54,7 +53,7 @@ public final class GroupInfo extends Message {
     public final String intro;
     @ProtoField(tag = 28, type = Message.Datatype.INT32)
     public final Integer isGroupManager;
-    @ProtoField(tag = DealIntentService.CLASS_TYPE_GIFT_INFO, type = Message.Datatype.INT32)
+    @ProtoField(tag = 24, type = Message.Datatype.INT32)
     public final Integer isHidePosition;
     @ProtoField(tag = 34, type = Message.Datatype.INT32)
     public final Integer isMemberGroup;

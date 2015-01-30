@@ -3,21 +3,21 @@ package com.baidu.adp.lib.util.commonsio;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    public static final String nQ = Character.toString('.');
-    private static final char nR = File.separatorChar;
-    private static final char nS;
+    public static final String nU = Character.toString('.');
+    private static final char nV = File.separatorChar;
+    private static final char nW;
 
     static {
-        if (fD()) {
-            nS = '/';
+        if (fC()) {
+            nW = '/';
         } else {
-            nS = '\\';
+            nW = '\\';
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean fD() {
-        return nR == '\\';
+    public static boolean fC() {
+        return nV == '\\';
     }
 
     public static int aI(String str) {

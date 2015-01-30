@@ -8,28 +8,28 @@ import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, CustomResponsedMessage<?>> {
-    private CustomMessage cO;
-    private CustomMessageTask cP;
-    final /* synthetic */ b cQ;
+    private CustomMessage cP;
+    private CustomMessageTask cQ;
+    final /* synthetic */ b cR;
 
     public CustomMessage as() {
-        return this.cO;
+        return this.cP;
     }
 
     public c(b bVar, CustomMessage customMessage, CustomMessageTask customMessageTask) {
-        this.cQ = bVar;
-        this.cO = null;
+        this.cR = bVar;
         this.cP = null;
+        this.cQ = null;
         setPriority(customMessageTask.getPriority());
         setParallel(customMessageTask.getParallel());
         setTag(customMessage.getTag());
         setKey(String.valueOf(customMessageTask.getCmd()));
-        setParallel(customMessageTask.bE());
-        if (customMessageTask.bD()) {
+        setParallel(customMessageTask.bC());
+        if (customMessageTask.bB()) {
             setPriority(4);
         }
-        this.cO = customMessage;
-        this.cP = customMessageTask;
+        this.cP = customMessage;
+        this.cQ = customMessageTask;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,15 +37,15 @@ public class c extends BdAsyncTask<String, String, CustomResponsedMessage<?>> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: b */
     public CustomResponsedMessage doInBackground(String... strArr) {
-        if (this.cP == null) {
+        if (this.cQ == null) {
             return null;
         }
-        if (this.cP.bB() == null) {
-            BdLog.e("CustomTask :" + this.cP.getClass().getName() + "did not contain a runnable!!");
+        if (this.cQ.bz() == null) {
+            BdLog.e("CustomTask :" + this.cQ.getClass().getName() + "did not contain a runnable!!");
             return null;
         }
         try {
-            return this.cP.bB().run(this.cO);
+            return this.cQ.bz().run(this.cP);
         } catch (Exception e) {
             BdLog.detailException(e);
             return null;
@@ -58,10 +58,10 @@ public class c extends BdAsyncTask<String, String, CustomResponsedMessage<?>> {
     /* renamed from: a */
     public void onPostExecute(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null) {
-            customResponsedMessage.setOrginalMessage(this.cO);
-            this.cQ.cN.dispatchResponsedMessage(customResponsedMessage);
+            customResponsedMessage.setOrginalMessage(this.cP);
+            this.cR.cO.dispatchResponsedMessage(customResponsedMessage);
             return;
         }
-        BdLog.e("CustomTask :" + this.cP.getClass().getName() + "returns a NULL!!");
+        BdLog.e("CustomTask :" + this.cQ.getClass().getName() + "returns a NULL!!");
     }
 }

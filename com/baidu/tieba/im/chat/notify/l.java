@@ -6,13 +6,13 @@ import com.baidu.tieba.im.model.ImMessageCenterModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l extends CustomMessageListener {
-    final /* synthetic */ g aSu;
+    final /* synthetic */ g aTE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(g gVar, int i) {
         super(i);
-        this.aSu = gVar;
+        this.aTE = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,22 +29,22 @@ public class l extends CustomMessageListener {
                 if (customResponsedMessage.getCmd() != 2016003) {
                     if (customResponsedMessage.getCmd() != 2016006) {
                         if (customResponsedMessage.getCmd() == 2016000) {
-                            imMessageCenterModel = this.aSu.aSe;
-                            aVar = this.aSu.aSt;
+                            imMessageCenterModel = this.aTE.aTn;
+                            aVar = this.aTE.aTD;
                             imMessageCenterModel.setData(null, aVar);
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016010) {
-                            imMessageCenterListAdapter3 = this.aSu.aSi;
+                            imMessageCenterListAdapter3 = this.aTE.aTr;
                             if (imMessageCenterListAdapter3 != null) {
-                                imMessageCenterListAdapter4 = this.aSu.aSi;
+                                imMessageCenterListAdapter4 = this.aTE.aTr;
                                 imMessageCenterListAdapter4.notifyDataSetChanged();
                                 return;
                             }
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016011) {
-                            imMessageCenterListAdapter = this.aSu.aSi;
+                            imMessageCenterListAdapter = this.aTE.aTr;
                             if (imMessageCenterListAdapter != null) {
-                                imMessageCenterListAdapter2 = this.aSu.aSi;
+                                imMessageCenterListAdapter2 = this.aTE.aTr;
                                 imMessageCenterListAdapter2.notifyDataSetChanged();
                                 return;
                             }
@@ -53,13 +53,13 @@ public class l extends CustomMessageListener {
                             return;
                         }
                     }
-                    this.aSu.e(customResponsedMessage);
+                    this.aTE.e(customResponsedMessage);
                     return;
                 }
-                this.aSu.d(customResponsedMessage);
+                this.aTE.d(customResponsedMessage);
                 return;
             }
-            this.aSu.c(customResponsedMessage);
+            this.aTE.c(customResponsedMessage);
         }
     }
 }

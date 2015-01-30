@@ -12,23 +12,23 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b {
-    private static a ahg = new a();
-    private static BdFileDownloadData ahh = null;
-    private static List<BdFileDownloadData> Xb = new LinkedList();
-    private c ahi = null;
-    private Handler Xj = new b(this);
+    private static a ahE = new a();
+    private static BdFileDownloadData ahF = null;
+    private static List<BdFileDownloadData> XH = new LinkedList();
+    private c ahG = null;
+    private Handler XP = new b(this);
 
     private a() {
     }
 
-    public static a zo() {
-        return ahg;
+    public static a zF() {
+        return ahE;
     }
 
     @Override // com.baidu.adp.plugin.packageManager.pluginFileDownload.b
     public void a(BdFileDownloadData bdFileDownloadData, int i) {
         if (bdFileDownloadData != null) {
-            if (!s.bN() && i == 2) {
+            if (!s.bL() && i == 2) {
                 bdFileDownloadData.setStatusMsg(TbadkCoreApplication.m255getInst().getApp().getString(z.download_fail_no_sd));
                 bdFileDownloadData.setStatus(2);
             }
@@ -42,8 +42,8 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
             int i2 = 0;
             while (true) {
                 int i3 = i2;
-                if (i3 < Xb.size()) {
-                    BdFileDownloadData bdFileDownloadData2 = Xb.get(i3);
+                if (i3 < XH.size()) {
+                    BdFileDownloadData bdFileDownloadData2 = XH.get(i3);
                     if (bdFileDownloadData2 == null || !bdFileDownloadData2.getUrl().equals(bdFileDownloadData.getUrl()) || !bdFileDownloadData2.getId().equals(bdFileDownloadData.getId())) {
                         i2 = i3 + 1;
                     } else {
@@ -51,8 +51,8 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
                     }
                 } else {
                     bdFileDownloadData.setStatus(1);
-                    Xb.add(bdFileDownloadData);
-                    uP();
+                    XH.add(bdFileDownloadData);
+                    vg();
                     return;
                 }
             }
@@ -60,39 +60,42 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uP() {
-        if (ahh == null && !Xb.isEmpty()) {
-            ahh = Xb.get(0);
-            if (ahh != null) {
-                this.ahi = new c(this);
-                this.ahi.execute(ahh);
+    public void vg() {
+        if (ahF == null && !XH.isEmpty()) {
+            ahF = XH.get(0);
+            if (ahF != null) {
+                this.ahG = new c(this);
+                this.ahG.execute(ahF);
             }
         }
     }
 
     @Override // com.baidu.adp.plugin.packageManager.pluginFileDownload.b
     public void bn(String str) {
-        if (ahh != null && ahh.getUrl().equals(str)) {
-            this.ahi.cancel(true);
-            return;
-        }
-        LinkedList<BdFileDownloadData> linkedList = new LinkedList();
-        Iterator<BdFileDownloadData> it = Xb.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
+        if (!TextUtils.isEmpty(str)) {
+            if (ahF != null && ahF.getId().equals(str)) {
+                this.ahG.cancel(true);
+                return;
             }
-            BdFileDownloadData next = it.next();
-            if (next.getUrl().equals(str)) {
-                next.setStatus(4);
-                if (next.getCallback() != null) {
-                    next.getCallback().e(next);
+            LinkedList<BdFileDownloadData> linkedList = new LinkedList();
+            Iterator<BdFileDownloadData> it = XH.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
                 }
-                linkedList.add(next);
+                BdFileDownloadData next = it.next();
+                if (next.getId().equals(str)) {
+                    next.setStatus(4);
+                    next.setStatusMsg(null);
+                    if (next.getCallback() != null) {
+                        next.getCallback().e(next);
+                    }
+                    linkedList.add(next);
+                }
             }
-        }
-        for (BdFileDownloadData bdFileDownloadData : linkedList) {
-            Xb.remove(bdFileDownloadData);
+            for (BdFileDownloadData bdFileDownloadData : linkedList) {
+                XH.remove(bdFileDownloadData);
+            }
         }
     }
 

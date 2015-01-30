@@ -2,79 +2,67 @@ package com.baidu.tieba.data;
 
 import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.v;
+import com.baidu.tbadk.core.data.w;
 import com.baidu.tbadk.data.b;
 import tbclient.ForumRecommend.DataRes;
 /* loaded from: classes.dex */
 public class e {
-    private boolean QO;
-    private boolean abl;
-    private int arS;
-    private int arT;
-    private int arU;
-    private String arV;
-    private int arW;
+    private boolean Rs;
+    private boolean abO;
+    private int asX;
+    private int asY;
+    private int asZ;
+    private String ata;
+    private int atb;
     private int time = 0;
-    private j arO = new j();
-    private o arP = new o();
-    private v arQ = new v();
-    private n arR = new n();
+    private j asT = new j();
+    private o asU = new o();
+    private w asV = new w();
+    private n asW = new n();
 
-    public boolean BY() {
-        return this.abl;
+    public boolean CB() {
+        return this.abO;
     }
 
-    public void bn(boolean z) {
-        this.abl = z;
+    public void bq(boolean z) {
+        this.abO = z;
     }
 
     public e() {
-        this.QO = true;
-        this.QO = false;
+        this.Rs = true;
+        this.Rs = false;
     }
 
     public void setTime(int i) {
         this.time = i;
     }
 
-    public void en(int i) {
-        this.arU = i;
+    public void et(int i) {
+        this.asZ = i;
     }
 
     public void setIsMem(int i) {
-        this.arW = i;
+        this.atb = i;
     }
 
-    public int BZ() {
-        return this.arS;
+    public void eu(int i) {
+        this.asX = i;
     }
 
-    public void eo(int i) {
-        this.arS = i;
+    public void ev(int i) {
+        this.asY = i;
     }
 
-    public int Ca() {
-        return this.arT;
-    }
-
-    public void ep(int i) {
-        this.arT = i;
-    }
-
-    public String Cb() {
-        return this.arV;
-    }
-
-    public void eW(String str) {
-        this.arV = str;
+    public void fb(String str) {
+        this.ata = str;
     }
 
     public void a(n nVar) {
-        this.arR = nVar;
+        this.asW = nVar;
     }
 
-    public n Cc() {
-        return this.arR;
+    public n CC() {
+        return this.asW;
     }
 
     public void a(DataRes dataRes) {
@@ -86,24 +74,24 @@ public class e {
     public void a(DataRes dataRes, Context context) {
         if (dataRes != null) {
             try {
-                eo(dataRes.msign_valid.intValue());
-                ep(dataRes.msign_level.intValue());
-                en(dataRes.is_login.intValue());
-                eW(dataRes.msign_text);
+                eu(dataRes.msign_valid.intValue());
+                ev(dataRes.msign_level.intValue());
+                et(dataRes.is_login.intValue());
+                fb(dataRes.msign_text);
                 setIsMem(dataRes.is_mem.intValue());
                 setTime(dataRes.time.intValue());
-                this.arO.setLevel(this.arT);
+                this.asT.setLevel(this.asY);
                 if (dataRes.like_forum != null) {
-                    this.arO.i(dataRes.like_forum);
+                    this.asT.i(dataRes.like_forum);
                 }
                 if (dataRes.new_recommend != null) {
-                    this.arP.i(dataRes.new_recommend);
+                    this.asU.i(dataRes.new_recommend);
                 }
                 if (dataRes.banner != null) {
-                    this.arQ.i(dataRes.banner);
+                    this.asV.i(dataRes.banner);
                 }
                 if (dataRes.recommend_forum_info != null) {
-                    this.arR.F(dataRes.recommend_forum_info);
+                    this.asW.H(dataRes.recommend_forum_info);
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -111,57 +99,50 @@ public class e {
         }
     }
 
-    public v Cd() {
-        return this.arQ;
+    public w CD() {
+        return this.asV;
     }
 
-    public void a(v vVar) {
-        this.arQ = vVar;
+    public void a(w wVar) {
+        this.asV = wVar;
     }
 
-    public j Ce() {
-        return this.arO;
+    public j CE() {
+        return this.asT;
     }
 
     public void a(j jVar) {
-        this.arO = jVar;
+        this.asT = jVar;
     }
 
-    public o Cf() {
-        return this.arP;
+    public o CF() {
+        return this.asU;
     }
 
     public void a(o oVar) {
-        this.arP = oVar;
+        this.asU = oVar;
     }
 
-    public void as(boolean z) {
-        this.QO = z;
+    public void au(boolean z) {
+        this.Rs = z;
     }
 
     public boolean isSuccess() {
-        return this.QO;
+        return this.Rs;
     }
 
-    public boolean Cg() {
-        return System.currentTimeMillis() / b.Wa.longValue() == (((long) this.time) * 1000) / b.Wa.longValue();
+    public boolean CG() {
+        return System.currentTimeMillis() / b.WF.longValue() == (((long) this.time) * 1000) / b.WF.longValue();
     }
 
     public boolean isEmpty() {
         boolean z = false;
-        if (this.QO) {
-            if (this.arO == null || this.arO.Cu() == null || this.arO.Cu().size() < 1) {
+        if (this.Rs) {
+            if (this.asT == null || this.asT.CT() == null || this.asT.CT().size() < 1) {
                 z = true;
             }
             return z;
         }
         return true;
-    }
-
-    public boolean Ch() {
-        if (this.arO != null) {
-            return this.arO.Ch();
-        }
-        return false;
     }
 }

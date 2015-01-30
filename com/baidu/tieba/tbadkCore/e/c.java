@@ -1,13 +1,13 @@
 package com.baidu.tieba.tbadkCore.e;
 /* loaded from: classes.dex */
 public class c {
-    public int bYF;
-    final /* synthetic */ a bYG;
-    public String bYH;
+    public String caA;
+    public int cay;
+    final /* synthetic */ a caz;
     public String mPostId;
-    public boolean pW;
+    public boolean qb;
 
     public c(a aVar) {
-        this.bYG = aVar;
+        this.caz = aVar;
     }
 }

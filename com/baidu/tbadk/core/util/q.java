@@ -11,6 +11,6 @@ public class q extends Thread {
         adVar.o("st_type", TbConfig.ST_TYPE_ENTER_FORE);
         adVar.o("os_version", Build.VERSION.RELEASE);
         adVar.o("subapp_type", "im");
-        adVar.ov();
+        adVar.oy();
     }
 }

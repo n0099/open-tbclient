@@ -4,13 +4,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class af extends CustomMessageListener {
-    final /* synthetic */ SquareSearchActivity brF;
+    final /* synthetic */ SquareSearchActivity btb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public af(SquareSearchActivity squareSearchActivity, int i) {
         super(i);
-        this.brF = squareSearchActivity;
+        this.btb = squareSearchActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,6 +19,6 @@ class af extends CustomMessageListener {
         if (customResponsedMessage == null || !(customResponsedMessage instanceof ResponseSearchPersonHistoryReadMessage)) {
             return;
         }
-        this.brF.a(6, ((ResponseSearchPersonHistoryReadMessage) customResponsedMessage).datas);
+        this.btb.a(6, ((ResponseSearchPersonHistoryReadMessage) customResponsedMessage).datas);
     }
 }

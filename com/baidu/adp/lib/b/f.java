@@ -7,47 +7,47 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class f {
-    private static f ie = null;
-    private HashMap<String, e> ig;
+    private static f ih = null;
+    private HashMap<String, e> ii;
 
     private f() {
-        this.ig = null;
-        this.ig = new HashMap<>();
+        this.ii = null;
+        this.ii = new HashMap<>();
     }
 
-    public static synchronized f dc() {
+    public static synchronized f da() {
         f fVar;
         synchronized (f.class) {
-            if (ie == null) {
-                ie = new f();
+            if (ih == null) {
+                ih = new f();
             }
-            fVar = ie;
+            fVar = ih;
         }
         return fVar;
     }
 
     public void a(c cVar) {
-        if (cVar != null && !this.ig.containsKey(cVar.getName())) {
-            this.ig.put(cVar.getName(), new e(cVar));
+        if (cVar != null && !this.ii.containsKey(cVar.getName())) {
+            this.ii.put(cVar.getName(), new e(cVar));
         }
     }
 
     public void crash(String str) {
-        Iterator<e> it = this.ig.values().iterator();
+        Iterator<e> it = this.ii.values().iterator();
         while (it.hasNext() && !it.next().Y(str)) {
         }
     }
 
     public boolean d(String str, int i) {
         e eVar;
-        if (i >= 0 && (eVar = this.ig.get(str)) != null) {
-            return eVar.A(i);
+        if (i >= 0 && (eVar = this.ii.get(str)) != null) {
+            return eVar.F(i);
         }
         return false;
     }
 
     public int Z(String str) {
-        e eVar = this.ig.get(str);
+        e eVar = this.ii.get(str);
         if (eVar != null) {
             return eVar.getType();
         }
@@ -55,13 +55,13 @@ public class f {
     }
 
     public void clear() {
-        if (this.ig != null) {
+        if (this.ii != null) {
             SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-            for (e eVar : this.ig.values()) {
+            for (e eVar : this.ii.values()) {
                 if (eVar != null) {
-                    eVar.D(0);
-                    edit.putInt(String.valueOf(eVar.getName()) + e.hY, 0);
-                    edit.putInt(String.valueOf(eVar.getName()) + e.hZ, eVar.getDefaultType());
+                    eVar.I(0);
+                    edit.putInt(String.valueOf(eVar.getName()) + e.ia, 0);
+                    edit.putInt(String.valueOf(eVar.getName()) + e.ib, eVar.getDefaultType());
                 }
             }
             edit.commit();

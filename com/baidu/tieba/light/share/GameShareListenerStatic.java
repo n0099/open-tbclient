@@ -9,24 +9,24 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class GameShareListenerStatic {
     public static Context mContext = TbadkApplication.getInst().getContext();
-    private static final com.baidu.adp.framework.listener.e bqH = new a(205001);
-    private static final com.baidu.adp.framework.listener.e bqI = new b(202001);
+    private static final com.baidu.adp.framework.listener.e bsf = new a(205001);
+    private static final com.baidu.adp.framework.listener.e bsg = new b(202001);
 
     static {
-        MessageManager.getInstance().registerListener(bqH);
-        MessageManager.getInstance().registerListener(bqI);
+        MessageManager.getInstance().registerListener(bsf);
+        MessageManager.getInstance().registerListener(bsg);
     }
 
     public GameShareListenerStatic() {
-        MessageManager.getInstance().registerListener(bqH);
-        MessageManager.getInstance().registerListener(bqI);
+        MessageManager.getInstance().registerListener(bsf);
+        MessageManager.getInstance().registerListener(bsg);
     }
 
     public static int z(ChatMessage chatMessage) {
         if (chatMessage.getContent() == null || chatMessage.getContent().length() == 0) {
             return -1;
         }
-        return new com.baidu.tieba.im.widget.a().aI(chatMessage.getContent(), "game-share-parse");
+        return new com.baidu.tieba.im.widget.a().aL(chatMessage.getContent(), "game-share-parse");
     }
 
     public static void e(Context context, View view) {

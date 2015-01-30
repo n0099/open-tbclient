@@ -1,17 +1,17 @@
 package com.baidu.tieba.write;
 /* loaded from: classes.dex */
 class at implements Runnable {
-    final /* synthetic */ as cfv;
+    final /* synthetic */ as cgU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(as asVar) {
-        this.cfv = asVar;
+        this.cgU = asVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         WriteActivity writeActivity;
-        writeActivity = this.cfv.cft;
+        writeActivity = this.cgU.cgS;
         writeActivity.finish();
     }
 }

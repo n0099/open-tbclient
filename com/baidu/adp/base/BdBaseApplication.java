@@ -37,7 +37,7 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initHttpManager() {
-        com.baidu.adp.lib.network.willdelete.e.dX().init(this.mContext, false);
+        com.baidu.adp.lib.network.willdelete.e.dV().init(this.mContext, false);
     }
 
     public static BdBaseApplication getInst() {
@@ -79,7 +79,7 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initBitmapHelper() {
-        com.baidu.adp.lib.util.c.eS().K(this.mContext);
+        com.baidu.adp.lib.util.c.eR().K(this.mContext);
     }
 
     public void onAppMemoryLow() {

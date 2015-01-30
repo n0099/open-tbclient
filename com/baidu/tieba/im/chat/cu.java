@@ -1,27 +1,26 @@
 package com.baidu.tieba.im.chat;
-
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.model.LocalPicModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cu extends com.baidu.adp.base.i {
-    final /* synthetic */ TalkableActivity aRW;
+public class cu extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ ct aTd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cu(TalkableActivity talkableActivity) {
-        this.aRW = talkableActivity;
+    public cu(ct ctVar) {
+        this.aTd = ctVar;
     }
 
-    @Override // com.baidu.adp.base.i
-    public void c(Object obj) {
-        if (obj != null && (obj instanceof LocalPicModel.ResponseData)) {
-            LocalPicModel.ResponseData responseData = (LocalPicModel.ResponseData) obj;
-            if (this.aRW.mListModel != null) {
-                this.aRW.mListModel.sendPicMessage(responseData.getSPathGen(), responseData.getBitmap());
-                return;
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.c
+    public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        String j;
+        super.onLoaded((cu) aVar, str, i);
+        if (aVar != null) {
+            ct ctVar = this.aTd;
+            j = this.aTd.j(this.aTd.mUrl, aVar.jm());
+            ctVar.showToast(j);
             return;
         }
-        this.aRW.showToast(TbadkCoreApplication.m255getInst().getString(com.baidu.tieba.z.pic_parser_error));
+        this.aTd.showToast(this.aTd.mActivity.getPageContext().getString(com.baidu.tieba.z.save_error));
     }
 }

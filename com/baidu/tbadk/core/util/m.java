@@ -7,26 +7,26 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class m {
-    private static Toast nq;
+    private static Toast nt;
     private static Handler mHandler = new Handler();
     private static String mText = null;
-    private static Runnable Hy = new n();
+    private static Runnable HH = new n();
 
     public static void showToast(Context context, String str, int i) {
         if (str != null && str.length() > 0) {
-            mHandler.removeCallbacks(Hy);
-            if (nq != null) {
+            mHandler.removeCallbacks(HH);
+            if (nt != null) {
                 if (!str.equals(mText)) {
                     mText = str;
-                    nq.setText(str);
+                    nt.setText(str);
                 }
             } else {
                 mText = str;
-                nq = Toast.makeText(TbadkCoreApplication.m255getInst(), str, 0);
-                nq.setGravity(17, 0, com.baidu.adp.lib.util.l.dip2px(context, 100.0f));
+                nt = Toast.makeText(TbadkCoreApplication.m255getInst(), str, 0);
+                nt.setGravity(17, 0, com.baidu.adp.lib.util.l.dip2px(context, 100.0f));
             }
-            mHandler.postDelayed(Hy, i);
-            nq.show();
+            mHandler.postDelayed(HH, i);
+            nt.show();
         }
     }
 

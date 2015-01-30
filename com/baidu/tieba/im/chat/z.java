@@ -148,13 +148,13 @@ public class z {
                         str2 = String.valueOf(str2) + str3;
                     } else {
                         if (!TextUtils.isEmpty(str2)) {
-                            SpannableString M = M(context, str2);
-                            if (M != null) {
-                                cVar.append(M);
+                            SpannableString L = L(context, str2);
+                            if (L != null) {
+                                cVar.append(L);
                             }
                             str2 = "";
                         }
-                        SpannableString faceSpannableString = getFaceSpannableString(cVar.zP(), name, str3);
+                        SpannableString faceSpannableString = getFaceSpannableString(cVar.Aj(), name, str3);
                         if (faceSpannableString != null) {
                             cVar.append(faceSpannableString);
                         }
@@ -165,9 +165,9 @@ public class z {
                 i++;
             }
             if (!TextUtils.isEmpty(str2)) {
-                SpannableString M2 = M(context, str2);
-                if (M2 != null) {
-                    cVar.append(M2);
+                SpannableString L2 = L(context, str2);
+                if (L2 != null) {
+                    cVar.append(L2);
                 }
             }
         } catch (Exception e) {
@@ -177,16 +177,17 @@ public class z {
 
     private static SpannableString getFaceSpannableString(ArrayList<com.baidu.tbadk.widget.richText.f> arrayList, String str, String str2) {
         SpannableString spannableString = null;
-        int dZ = TbFaceManager.vK().dZ(str);
+        int dZ = TbFaceManager.wd().dZ(str);
         if (dZ != 0) {
             spannableString = new SpannableString(String.valueOf(str2) + " ");
             com.baidu.tbadk.widget.richText.f fVar = new com.baidu.tbadk.widget.richText.f(TbadkCoreApplication.m255getInst(), dZ);
             if (arrayList != null) {
                 arrayList.add(fVar);
             }
-            com.baidu.tbadk.imageManager.c ej = TbFaceManager.vK().ej(str);
+            com.baidu.tbadk.imageManager.c ej = TbFaceManager.wd().ej(str);
             if (ej != null) {
-                fVar.setBounds(new Rect(0, 0, ej.getWidth(), ej.getHeight()));
+                int width = (int) (0.5d * ej.getWidth());
+                fVar.setBounds(new Rect(0, 0, width, width));
             } else {
                 fVar.setBounds(new Rect(0, 0, 0, 0));
             }
@@ -195,10 +196,10 @@ public class z {
         return spannableString;
     }
 
-    private static SpannableString M(Context context, String str) {
+    private static SpannableString L(Context context, String str) {
         if (str == null) {
             return null;
         }
-        return com.baidu.tbadk.core.util.bh.D(context, str);
+        return com.baidu.tbadk.core.util.bm.C(context, str);
     }
 }

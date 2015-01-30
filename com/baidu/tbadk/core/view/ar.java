@@ -1,12 +1,22 @@
 package com.baidu.tbadk.core.view;
 
-import android.widget.ListView;
-import com.baidu.tbadk.widget.TbImageView;
+import android.view.View;
+import android.widget.AbsListView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface ar {
-    ListView getListView();
+public class ar implements AbsListView.RecyclerListener {
+    private int mId;
 
-    int qD();
+    public ar(int i) {
+        this.mId = 0;
+        this.mId = i;
+    }
 
-    com.baidu.adp.lib.e.b<TbImageView> qE();
+    @Override // android.widget.AbsListView.RecyclerListener
+    public void onMovedToScrapHeap(View view) {
+        View findViewById = view.findViewById(this.mId);
+        if (findViewById != null && (findViewById instanceof UserIconBox)) {
+            ((UserIconBox) findViewById).a(null, 0, 0, 0, 0);
+        }
+    }
 }

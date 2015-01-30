@@ -11,25 +11,25 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 public class U9InfoView extends LinearLayout {
-    private View.OnClickListener aYQ;
-    private TextView bVA;
-    private TextView bVB;
-    private View bVC;
-    private TextView bVD;
-    private View bVE;
-    private ForegroundColorSpan bVF;
-    private ImageView bVG;
-    private RelativeLayout bVw;
-    private LinearLayout bVx;
-    private HeadImageView bVy;
-    private TextView bVz;
+    private RelativeLayout bXo;
+    private LinearLayout bXp;
+    private HeadImageView bXq;
+    private TextView bXr;
+    private TextView bXs;
+    private TextView bXt;
+    private View bXu;
+    private TextView bXv;
+    private View bXw;
+    private ForegroundColorSpan bXx;
+    private ImageView bXy;
+    private View.OnClickListener bam;
     private Context mContext;
-    private com.baidu.tbadk.core.data.aa news_info;
-    private com.baidu.tbadk.core.data.x top_code;
+    private com.baidu.tbadk.core.data.ab news_info;
+    private com.baidu.tbadk.core.data.y top_code;
 
     public U9InfoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -44,85 +44,85 @@ public class U9InfoView extends LinearLayout {
     }
 
     public void initView() {
-        com.baidu.adp.lib.g.b.ek().a(this.mContext, com.baidu.tieba.x.u9_info_layout, this, true);
-        this.bVw = (RelativeLayout) findViewById(com.baidu.tieba.w.u9_top_code);
-        this.bVx = (LinearLayout) findViewById(com.baidu.tieba.w.u9_news_info);
-        this.bVy = (HeadImageView) findViewById(com.baidu.tieba.w.top_code_img);
-        this.bVy.setSupportNoImage(false);
-        this.bVz = (TextView) findViewById(com.baidu.tieba.w.top_code_detail_summary_text);
-        this.bVA = (TextView) findViewById(com.baidu.tieba.w.top_code_detail_surplus_text);
-        this.bVB = (TextView) findViewById(com.baidu.tieba.w.top_code_getnum_btn);
-        this.bVC = findViewById(com.baidu.tieba.w.u9_top_code_divider);
-        this.bVG = (ImageView) findViewById(com.baidu.tieba.w.news_info_img);
-        this.bVG.setBackgroundDrawable(ax.getDrawable(com.baidu.tieba.v.icon_frs_news));
-        this.bVD = (TextView) findViewById(com.baidu.tieba.w.news_info_text);
-        this.bVE = findViewById(com.baidu.tieba.w.u9_news_info_divider);
-        this.bVF = new ForegroundColorSpan(ax.getColor(com.baidu.tieba.t.cp_cont_c));
-        this.aYQ = new at(this);
-        agj();
+        com.baidu.adp.lib.g.b.ei().a(this.mContext, com.baidu.tieba.x.u9_info_layout, this, true);
+        this.bXo = (RelativeLayout) findViewById(com.baidu.tieba.w.u9_top_code);
+        this.bXp = (LinearLayout) findViewById(com.baidu.tieba.w.u9_news_info);
+        this.bXq = (HeadImageView) findViewById(com.baidu.tieba.w.top_code_img);
+        this.bXq.setSupportNoImage(false);
+        this.bXr = (TextView) findViewById(com.baidu.tieba.w.top_code_detail_summary_text);
+        this.bXs = (TextView) findViewById(com.baidu.tieba.w.top_code_detail_surplus_text);
+        this.bXt = (TextView) findViewById(com.baidu.tieba.w.top_code_getnum_btn);
+        this.bXu = findViewById(com.baidu.tieba.w.u9_top_code_divider);
+        this.bXy = (ImageView) findViewById(com.baidu.tieba.w.news_info_img);
+        this.bXy.setBackgroundDrawable(bc.getDrawable(com.baidu.tieba.v.icon_frs_news));
+        this.bXv = (TextView) findViewById(com.baidu.tieba.w.news_info_text);
+        this.bXw = findViewById(com.baidu.tieba.w.u9_news_info_divider);
+        this.bXx = new ForegroundColorSpan(bc.getColor(com.baidu.tieba.t.cp_cont_c));
+        this.bam = new at(this);
+        agO();
     }
 
-    public void a(com.baidu.tbadk.core.data.x xVar, com.baidu.tbadk.core.data.aa aaVar) {
-        this.top_code = xVar;
-        this.news_info = aaVar;
+    public void a(com.baidu.tbadk.core.data.y yVar, com.baidu.tbadk.core.data.ab abVar) {
+        this.top_code = yVar;
+        this.news_info = abVar;
         if (this.top_code == null) {
-            this.bVw.setVisibility(8);
-            this.bVC.setVisibility(8);
+            this.bXo.setVisibility(8);
+            this.bXu.setVisibility(8);
         } else if (TextUtils.isEmpty(this.top_code.getSummary()) || TextUtils.isEmpty(this.top_code.getSummary().trim())) {
-            this.bVw.setVisibility(8);
-            this.bVC.setVisibility(8);
+            this.bXo.setVisibility(8);
+            this.bXu.setVisibility(8);
         } else {
-            this.bVw.setVisibility(0);
-            this.bVC.setVisibility(0);
-            this.bVy.d(this.top_code.mN(), 10, false);
-            this.bVz.setText(this.top_code.getSummary());
-            if (TextUtils.isEmpty(this.top_code.nN()) || TextUtils.isEmpty(this.top_code.nN().trim())) {
-                this.bVA.setVisibility(8);
+            this.bXo.setVisibility(0);
+            this.bXu.setVisibility(0);
+            this.bXq.d(this.top_code.mP(), 10, false);
+            this.bXr.setText(this.top_code.getSummary());
+            if (TextUtils.isEmpty(this.top_code.nQ()) || TextUtils.isEmpty(this.top_code.nQ().trim())) {
+                this.bXs.setVisibility(8);
             } else {
-                SpannableString spannableString = new SpannableString(String.valueOf(this.mContext.getResources().getString(com.baidu.tieba.z.u9_shengyu)) + this.top_code.nN());
-                spannableString.setSpan(this.bVF, 0, 2, 34);
-                this.bVA.setText(spannableString);
-                this.bVA.setVisibility(0);
+                SpannableString spannableString = new SpannableString(String.valueOf(this.mContext.getResources().getString(com.baidu.tieba.z.u9_shengyu)) + this.top_code.nQ());
+                spannableString.setSpan(this.bXx, 0, 2, 34);
+                this.bXs.setText(spannableString);
+                this.bXs.setVisibility(0);
             }
-            if (this.top_code.nM() == 2) {
-                this.bVB.setText(this.mContext.getResources().getString(com.baidu.tieba.z.u9_taohao));
+            if (this.top_code.nP() == 2) {
+                this.bXt.setText(this.mContext.getResources().getString(com.baidu.tieba.z.u9_taohao));
             } else {
-                this.bVB.setText(this.mContext.getResources().getString(com.baidu.tieba.z.u9_linghao));
+                this.bXt.setText(this.mContext.getResources().getString(com.baidu.tieba.z.u9_linghao));
             }
         }
-        if (this.news_info == null || TextUtils.isEmpty(aaVar.getSummary())) {
-            this.bVx.setVisibility(8);
-            this.bVE.setVisibility(8);
+        if (this.news_info == null || TextUtils.isEmpty(abVar.getSummary())) {
+            this.bXp.setVisibility(8);
+            this.bXw.setVisibility(8);
             return;
         }
-        this.bVx.setVisibility(0);
-        this.bVE.setVisibility(0);
-        this.bVD.setText(aaVar.getSummary());
+        this.bXp.setVisibility(0);
+        this.bXw.setVisibility(0);
+        this.bXv.setText(abVar.getSummary());
     }
 
-    public void agj() {
-        this.bVw.setOnClickListener(this.aYQ);
-        this.bVx.setOnClickListener(this.aYQ);
+    public void agO() {
+        this.bXo.setOnClickListener(this.bam);
+        this.bXp.setOnClickListener(this.bam);
     }
 
-    public com.baidu.tbadk.core.data.x getTopCode() {
+    public com.baidu.tbadk.core.data.y getTopCode() {
         return this.top_code;
     }
 
-    public void setTopCode(com.baidu.tbadk.core.data.x xVar) {
-        this.top_code = xVar;
+    public void setTopCode(com.baidu.tbadk.core.data.y yVar) {
+        this.top_code = yVar;
     }
 
-    public com.baidu.tbadk.core.data.aa getNewsInfo() {
+    public com.baidu.tbadk.core.data.ab getNewsInfo() {
         return this.news_info;
     }
 
-    public void setNewsInfo(com.baidu.tbadk.core.data.aa aaVar) {
-        this.news_info = aaVar;
+    public void setNewsInfo(com.baidu.tbadk.core.data.ab abVar) {
+        this.news_info = abVar;
     }
 
     public void c(TbPageContext<?> tbPageContext, int i) {
-        ax.i(this.bVG, com.baidu.tieba.v.icon_frs_news);
+        bc.i(this.bXy, com.baidu.tieba.v.icon_frs_news);
         tbPageContext.getLayoutMode().ab(i == 1);
         tbPageContext.getLayoutMode().h(this);
     }

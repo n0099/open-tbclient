@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.data.VoiceData;
 public interface m {
     void a(VoiceData.VoiceModel voiceModel);
 
-    void cn(int i);
+    void cu(int i);
 
     m getRealView();
 
@@ -13,5 +13,5 @@ public interface m {
 
     void onShowErr(int i, String str);
 
-    void qI();
+    void qT();
 }

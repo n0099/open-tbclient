@@ -1,35 +1,33 @@
 package com.baidu.tieba.im.forum.detail;
 
-import android.content.Context;
+import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements View.OnClickListener {
-    private final /* synthetic */ String aOr;
-    private final /* synthetic */ ForumDetailActivity aZA;
-    final /* synthetic */ ItemFootNavView aZz;
+class p implements View.OnTouchListener {
+    final /* synthetic */ m baN;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public p(ItemFootNavView itemFootNavView, ForumDetailActivity forumDetailActivity, String str) {
-        this.aZz = itemFootNavView;
-        this.aZA = forumDetailActivity;
-        this.aOr = str;
+    private p(m mVar) {
+        this.baN = mVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        boolean z;
-        context = this.aZz.mContext;
-        TiebaStatic.eventStat(context, "detail_enter_forum", "click", 1, new Object[0]);
-        z = this.aZz.aZw;
-        if (z) {
-            this.aZA.finish();
-        } else {
-            this.aZA.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.aZA.getPageContext().getPageActivity()).createNormalCfg(this.aOr, "bar_detail")));
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ p(m mVar, p pVar) {
+        this(mVar);
+    }
+
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        switch (motionEvent.getAction()) {
+            case 0:
+                m.a(this.baN).cS(false);
+                break;
+            case 1:
+                m.a(this.baN).cS(true);
+                break;
+            case 2:
+                m.a(this.baN).cS(false);
+                break;
         }
+        return false;
     }
 }

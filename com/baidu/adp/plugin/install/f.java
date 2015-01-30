@@ -53,10 +53,10 @@ public class f extends BdAsyncTask<String, Object, String[]> {
             }
         }
         if (!z2) {
-            aVar = this.this$0.si;
+            aVar = this.this$0.sq;
             if (aVar != null) {
-                aVar2 = this.this$0.si;
-                z = this.this$0.sk;
+                aVar2 = this.this$0.sq;
+                z = this.this$0.ss;
                 aVar2.J(z);
             }
         }

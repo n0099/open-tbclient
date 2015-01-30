@@ -1,81 +1,156 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.data.IconData;
+import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.UserInfo;
+import tbclient.FrsPage.CommonDistance;
+import tbclient.FrsPage.PostInfo;
+import tbclient.FrsPage.RecomUserInfo;
 /* loaded from: classes.dex */
-public class t {
-    private String Ev;
-    private String Ew;
-    private IconData Ex = new IconData();
-    private boolean isAdded;
-    private String name;
-    private int sex;
-    private int userId;
+public class t extends x {
+    public static final BdUniqueId Eq = BdUniqueId.gen();
+    private String Er;
+    private String Es;
+    private int Et;
+    private String Ex;
+    private u Eu = new u();
+    private com.baidu.tbadk.coreExtra.relationship.f Ev = new com.baidu.tbadk.coreExtra.relationship.f();
+    private ArrayList<String> Ew = new ArrayList<>();
+    private ArrayList<String> Ey = new ArrayList<>();
 
-    public void nj() {
-        this.isAdded = true;
+    public int ne() {
+        return this.Et;
     }
 
-    public boolean nk() {
-        return this.isAdded;
+    public com.baidu.tbadk.coreExtra.relationship.f getLbsInfo() {
+        return this.Ev;
     }
 
-    public void a(UserInfo userInfo) {
-        if (userInfo != null) {
-            this.isAdded = false;
-            this.userId = userInfo.user_id.intValue();
-            this.Ev = userInfo.portrait;
-            this.name = userInfo.user_name;
-            this.sex = userInfo.gender.intValue();
-            this.Ew = userInfo.intro;
-            if (userInfo.tshow_icon != null) {
-                this.Ex.setIcon(userInfo.tshow_icon.icon);
-                this.Ex.setIconName(userInfo.tshow_icon.name);
-                this.Ex.setUrl(userInfo.tshow_icon.url);
+    public void a(CommonDistance commonDistance) {
+        if (commonDistance != null && commonDistance.distance != null) {
+            if (this.Ev == null) {
+                this.Ev = new com.baidu.tbadk.coreExtra.relationship.f();
+            }
+            this.Ev.cV(commonDistance.is_hide.intValue());
+            this.Ev.setTime(commonDistance.time.intValue());
+            int intValue = commonDistance.distance.intValue();
+            if (intValue > 0 && intValue <= 100) {
+                this.Ev.dC("100米以内");
+            } else if (intValue > 100 && intValue <= 1000) {
+                this.Ev.dC(String.valueOf(intValue) + "米");
+            } else if (intValue > 1000) {
+                this.Ev.dC(String.valueOf(new BigDecimal(intValue / 1000.0f).setScale(1, 4).floatValue()) + "公里");
             }
         }
     }
 
-    public int getUserId() {
-        return this.userId;
+    public void a(RecomUserInfo recomUserInfo) {
+        if (recomUserInfo != null) {
+            a(recomUserInfo.distanceinfo);
+            bO(recomUserInfo.message);
+            if (recomUserInfo.user_info != null && this.Eu != null) {
+                this.Eu.a(recomUserInfo.user_info);
+            }
+            if (recomUserInfo.common_forum != null) {
+                StringBuffer stringBuffer = new StringBuffer();
+                this.Et = recomUserInfo.common_forum.size();
+                int i = this.Et;
+                if (this.Et > 2) {
+                    i = 2;
+                }
+                for (int i2 = 0; i2 < i; i2++) {
+                    if (recomUserInfo.common_forum.get(i2) != null) {
+                        stringBuffer.append(recomUserInfo.common_forum.get(i2).common_forum);
+                        if (i - 1 > i2) {
+                            stringBuffer.append("、");
+                        } else if (this.Et > i) {
+                            stringBuffer.append("...");
+                        }
+                    }
+                }
+                this.Er = stringBuffer.toString();
+            }
+            if (recomUserInfo.post_info != null) {
+                for (PostInfo postInfo : recomUserInfo.post_info) {
+                    this.Ew.add(postInfo.common_post_pic);
+                    this.Ey.add(postInfo.large_post_pic);
+                }
+            }
+            if (recomUserInfo.pos_name != null) {
+                this.Es = recomUserInfo.pos_name;
+            }
+        }
     }
 
-    public String nl() {
-        return this.Ev;
+    public String nf() {
+        return this.Er;
     }
 
-    public String getName() {
-        return this.name;
+    public String ng() {
+        return this.Es;
     }
 
-    public boolean nm() {
-        return 2 == this.sex;
+    public u nh() {
+        return this.Eu;
     }
 
-    public String nn() {
+    public ArrayList<String> ni() {
         return this.Ew;
     }
 
-    public IconData no() {
-        return this.Ex;
+    public ArrayList<String> nj() {
+        return this.Ey;
     }
 
     public void f(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.userId = jSONObject.optInt("user_id");
-            this.name = jSONObject.optString("user_name");
-            this.Ev = jSONObject.optString("portait");
-            this.sex = jSONObject.optInt("gender");
-            this.isAdded = jSONObject.optBoolean("recommend_is_added");
-            this.Ew = jSONObject.optString("intro");
-            JSONObject optJSONObject = jSONObject.optJSONObject("crown_info");
-            if (optJSONObject != null) {
-                this.Ex.setIcon(optJSONObject.optString("icon"));
-                this.Ex.setIconName(optJSONObject.optString("user_name"));
-                this.Ex.setUrl(optJSONObject.optString(ImageViewerConfig.URL));
+            if (this.Eu == null) {
+                this.Eu = new u();
+            }
+            this.Eu.f(jSONObject.optJSONObject("user_info"));
+            this.Er = jSONObject.optString("common_forum");
+            this.Er = jSONObject.optString("pos_name");
+            this.Et = jSONObject.optInt("common_forum_count");
+            this.Ex = jSONObject.optString(AddFriendActivityConfig.DEFAULT_MESSAGE);
+            JSONArray optJSONArray = jSONObject.optJSONArray("common_pic_urls");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                if (this.Ew == null) {
+                    this.Ew = new ArrayList<>();
+                }
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    if (!TextUtils.isEmpty(optJSONArray.optString(i))) {
+                        this.Ew.add(optJSONArray.optString(i));
+                    }
+                }
+            }
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("large_post_pic");
+            if (optJSONArray2 != null && optJSONArray2.length() > 0) {
+                if (this.Ey == null) {
+                    this.Ey = new ArrayList<>();
+                }
+                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                    if (!TextUtils.isEmpty(optJSONArray2.optString(i2))) {
+                        this.Ey.add(optJSONArray2.optString(i2));
+                    }
+                }
             }
         }
+    }
+
+    @Override // com.baidu.tbadk.core.data.x, com.baidu.adp.widget.ListView.am
+    public BdUniqueId js() {
+        return Eq;
+    }
+
+    public String nk() {
+        return this.Ex;
+    }
+
+    public void bO(String str) {
+        this.Ex = str;
     }
 }

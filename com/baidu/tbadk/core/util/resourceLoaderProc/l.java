@@ -23,18 +23,18 @@ public class l extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean qf() {
+    public boolean qq() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean qg() {
+    public boolean qr() {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public com.baidu.adp.lib.Disk.ops.c cR(String str) {
+    public com.baidu.adp.lib.Disk.ops.c cQ(String str) {
         return new com.baidu.adp.lib.Disk.ops.b(TbConfig.IMAGE_CACHE_DIR_NAME, str, DiskFileOperate.Action.READ);
     }
 

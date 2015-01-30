@@ -1,19 +1,25 @@
 package com.baidu.tieba.im.chat.personaltalk;
 
-import android.content.DialogInterface;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
+import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 /* loaded from: classes.dex */
-class f implements DialogInterface.OnClickListener {
-    final /* synthetic */ PersonalTalkSettingActivity aTQ;
+class f extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ PersonalTalkSettingActivity aVk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(PersonalTalkSettingActivity personalTalkSettingActivity) {
-        this.aTQ = personalTalkSettingActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f(PersonalTalkSettingActivity personalTalkSettingActivity, int i) {
+        super(i);
+        this.aVk = personalTalkSettingActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        o oVar;
-        oVar = this.aTQ.aTP;
-        oVar.cz(false);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        this.aVk.closeLoadingDialog();
+        if ((socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage)) {
+            this.aVk.d(!((ResponseUpdateMaskInfoMessage) socketResponsedMessage).hasError(), ((RequestUpdateMaskInfoMessage) socketResponsedMessage.getOrginalMessage()).isSettingMask());
+        }
     }
 }

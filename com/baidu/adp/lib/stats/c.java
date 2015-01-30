@@ -9,11 +9,11 @@ import java.io.OutputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.adp.lib.Disk.f {
-    final /* synthetic */ BdNormalStatBase lG;
+    final /* synthetic */ BdNormalStatBase lJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(BdNormalStatBase bdNormalStatBase) {
-        this.lG = bdNormalStatBase;
+        this.lJ = bdNormalStatBase;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [535=4, 536=4] */
@@ -30,14 +30,14 @@ public class c implements com.baidu.adp.lib.Disk.f {
         FileInputStream fileInputStream2 = null;
         FileOutputStream fileOutputStream = null;
         try {
-            a = bVar.a(diskFileOperate.getPath(), diskFileOperate.getName(), false, diskFileOperate.cf());
+            a = bVar.a(diskFileOperate.getPath(), diskFileOperate.getName(), false, diskFileOperate.cd());
         } catch (Exception e) {
             e = e;
         } catch (Throwable th) {
             th = th;
             fileInputStream = null;
         }
-        if (a == null || !a.exists() || eVar.bP()) {
+        if (a == null || !a.exists() || eVar.bN()) {
             com.baidu.adp.lib.g.a.d(null);
             com.baidu.adp.lib.g.a.b((OutputStream) null);
             return false;
@@ -55,7 +55,7 @@ public class c implements com.baidu.adp.lib.Disk.f {
                 }
                 i++;
                 if (fileOutputStream == null || file == null) {
-                    file = bVar.a(diskFileOperate.getPath(), this.lG.getUploadingLogFile(), false, diskFileOperate.cf());
+                    file = bVar.a(diskFileOperate.getPath(), this.lJ.getUploadingLogFile(), false, diskFileOperate.cd());
                     fileOutputStream = new FileOutputStream(file);
                 }
                 boolean z2 = i * 10240 >= 102400;
@@ -80,7 +80,7 @@ public class c implements com.baidu.adp.lib.Disk.f {
                     com.baidu.adp.lib.g.a.b(fileOutputStream);
                     if (i2 != read) {
                         try {
-                            File a2 = bVar.a(diskFileOperate.getPath(), this.lG.getUploadingLogFile(), false, diskFileOperate.cf());
+                            File a2 = bVar.a(diskFileOperate.getPath(), this.lJ.getUploadingLogFile(), false, diskFileOperate.cd());
                             fileOutputStream = new FileOutputStream(a2);
                             fileOutputStream.write(bArr, i2, read - i2);
                             fileOutputStream.flush();
@@ -130,7 +130,7 @@ public class c implements com.baidu.adp.lib.Disk.f {
         if (z) {
             return z;
         }
-        this.lG.ag(diskFileOperate.getName());
+        this.lJ.ag(diskFileOperate.getName());
         return z;
     }
 }

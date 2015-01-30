@@ -15,9 +15,9 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static AccountData L(String str, String str2) {
+    public static AccountData O(String str, String str2) {
         ad adVar;
-        String ov;
+        String oy;
         try {
             StringBuilder sb = new StringBuilder(32);
             sb.append(TbConfig.LOGIN_FULL_ADDRESS);
@@ -27,44 +27,44 @@ public class c {
             adVar.o("isphone", "0");
             adVar.o("channel_id", TbadkCoreApplication.m255getInst().getPushChannelId());
             adVar.o("channel_uid", TbadkCoreApplication.m255getInst().getPushChannelUserId());
-            adVar.oW().pV().pY().Kx = true;
-            adVar.oW().pV().mIsNeedAddCommenParam = false;
-            adVar.oW().pV().mIsUseCurrentBDUSS = false;
-            ov = adVar.ov();
+            adVar.oZ().qg().qj().KQ = true;
+            adVar.oZ().qg().mIsNeedAddCommenParam = false;
+            adVar.oZ().qg().mIsUseCurrentBDUSS = false;
+            oy = adVar.oy();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (adVar.oW().pW().ma() && ov != null) {
-            com.baidu.tbadk.core.data.m mVar = new com.baidu.tbadk.core.data.m();
-            mVar.parserJson(ov);
-            String userId = mVar.getUser().getUserId();
+        if (adVar.oZ().qh().ma() && oy != null) {
+            com.baidu.tbadk.core.data.n nVar = new com.baidu.tbadk.core.data.n();
+            nVar.parserJson(oy);
+            String userId = nVar.getUser().getUserId();
             if (userId == null || userId.length() <= 0) {
                 return null;
             }
             AccountData accountData = new AccountData();
-            accountData.setAccount(mVar.getUser().getUserName());
-            if (mVar.getUser().getPassword() != null) {
-                accountData.setPassword(mVar.getUser().getPassword());
+            accountData.setAccount(nVar.getUser().getUserName());
+            if (nVar.getUser().getPassword() != null) {
+                accountData.setPassword(nVar.getUser().getPassword());
             } else {
                 accountData.setPassword(str2);
             }
-            accountData.setID(mVar.getUser().getUserId());
-            accountData.setBDUSS(mVar.getUser().getBDUSS());
-            accountData.setPortrait(mVar.getUser().getPortrait());
+            accountData.setID(nVar.getUser().getUserId());
+            accountData.setBDUSS(nVar.getUser().getBDUSS());
+            accountData.setPortrait(nVar.getUser().getPortrait());
             accountData.setIsActive(1);
-            if (mVar.mP() != null) {
-                accountData.setTbs(mVar.mP().getTbs());
+            if (nVar.mR() != null) {
+                accountData.setTbs(nVar.mR().getTbs());
                 return accountData;
             }
             return accountData;
         }
-        if (adVar.oZ()) {
-            switch (adVar.pa()) {
+        if (adVar.pc()) {
+            switch (adVar.pd()) {
                 case 1:
                 case 2:
                 case 5:
-                    adVar.dL();
-                    ReloginManager.ob().d(null);
+                    adVar.dJ();
+                    ReloginManager.oe().d(null);
                     break;
             }
             return null;

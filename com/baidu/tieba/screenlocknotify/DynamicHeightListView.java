@@ -34,11 +34,6 @@ public class DynamicHeightListView extends ListView {
         setMeasuredDimension(View.MeasureSpec.getSize(i), measuredHeight);
     }
 
-    @Override // android.widget.AbsListView, android.widget.AdapterView, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-    }
-
     public int getMaxHeight() {
         return this.maxHeight;
     }

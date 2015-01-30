@@ -5,23 +5,23 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class e extends a implements Runnable {
-    private int cG;
-    private f cH;
+    private int cH;
+    private f cI;
 
     public f aq() {
         f fVar = new f(this);
-        fVar.cJ = u(String.valueOf("/proc/uid_stat/") + this.cG + "/tcp_rcv");
-        fVar.cK = u(String.valueOf("/proc/uid_stat/") + this.cG + "/tcp_snd");
-        fVar.cI = d.a(fVar.cJ + fVar.cK);
+        fVar.cK = u(String.valueOf("/proc/uid_stat/") + this.cH + "/tcp_rcv");
+        fVar.cL = u(String.valueOf("/proc/uid_stat/") + this.cH + "/tcp_snd");
+        fVar.cJ = d.a(fVar.cK + fVar.cL);
         return fVar;
     }
 
     public f ar() {
         f aq = aq();
-        this.cH.cJ = d.a(aq.cJ - d.ap().cJ);
-        this.cH.cK = d.a(aq.cK - d.ap().cK);
-        this.cH.cI = d.a(aq.cI - d.ap().cI);
-        return this.cH;
+        this.cI.cK = d.a(aq.cK - d.ap().cK);
+        this.cI.cL = d.a(aq.cL - d.ap().cL);
+        this.cI.cJ = d.a(aq.cJ - d.ap().cJ);
+        return this.cI;
     }
 
     public double u(String str) {

@@ -8,11 +8,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements com.baidu.tieba.im.g<LinkedList<GroupNewsPojo>> {
-    final /* synthetic */ UpdatesActivity bfR;
+    final /* synthetic */ UpdatesActivity bhj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(UpdatesActivity updatesActivity) {
-        this.bfR = updatesActivity;
+        this.bhj = updatesActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,15 +24,15 @@ public class f implements com.baidu.tieba.im.g<LinkedList<GroupNewsPojo>> {
         p pVar3;
         UpdatesModel updatesModel2;
         List<UpdatesItemData> convertToUpdatesItemData = UpdatesModel.convertToUpdatesItemData(linkedList);
-        pVar = this.bfR.bfO;
+        pVar = this.bhj.bhg;
         pVar.setData(convertToUpdatesItemData);
-        updatesModel = this.bfR.bfQ;
+        updatesModel = this.bhj.bhi;
         updatesModel.calculateSelects(convertToUpdatesItemData);
-        pVar2 = this.bfR.bfO;
+        pVar2 = this.bhj.bhg;
         pVar2.setLoadProgressBarVisable(false);
-        pVar3 = this.bfR.bfO;
-        updatesModel2 = this.bfR.bfQ;
+        pVar3 = this.bhj.bhg;
+        updatesModel2 = this.bhj.bhi;
         pVar3.setDelCount(updatesModel2.getDeleteSize());
-        this.bfR.loadImage();
+        this.bhj.loadImage();
     }
 }

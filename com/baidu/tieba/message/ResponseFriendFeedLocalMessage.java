@@ -34,7 +34,7 @@ public class ResponseFriendFeedLocalMessage extends CustomResponsedMessage<Objec
             if (getError() == 0 && friendFeedPageResIdl.data != null) {
                 setFriendFeedData(new i());
                 if (friendFeedPageResIdl.data.thread_list != null) {
-                    getFriendFeedData().E(new ArrayList());
+                    getFriendFeedData().G(new ArrayList());
                     List<FriendThreadInfo> list = friendFeedPageResIdl.data.thread_list;
                     if (list != null) {
                         for (int i2 = 0; i2 < list.size(); i2++) {
@@ -42,7 +42,7 @@ public class ResponseFriendFeedLocalMessage extends CustomResponsedMessage<Objec
                             friendFeedThreadData.setUserMap(getFriendFeedData().getUserMap());
                             friendFeedThreadData.parserProtobuf(list.get(i2));
                             friendFeedThreadData.parser_title();
-                            getFriendFeedData().Ct().add(friendFeedThreadData);
+                            getFriendFeedData().CS().add(friendFeedThreadData);
                         }
                     }
                     getFriendFeedData().setHasMore(friendFeedPageResIdl.data.has_more.intValue());

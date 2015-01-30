@@ -4,41 +4,41 @@ import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 class j implements com.baidu.tieba.tbadkCore.aq {
-    final /* synthetic */ FrsActivity aCV;
+    final /* synthetic */ FrsActivity aDW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(FrsActivity frsActivity) {
-        this.aCV = frsActivity;
+        this.aDW = frsActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.aq
-    public void fv(String str) {
+    public void fA(String str) {
         boolean z;
-        com.baidu.tbadk.core.data.w wVar;
-        com.baidu.tbadk.core.data.w wVar2;
+        com.baidu.tbadk.core.data.x xVar;
+        com.baidu.tbadk.core.data.x xVar2;
         int i = 1;
-        z = this.aCV.aAG;
+        z = this.aDW.aBI;
         if (z) {
-            wVar = this.aCV.aBK;
-            if (wVar != null) {
-                wVar2 = this.aCV.aBK;
-                if (wVar2.getPraise().getIsLike() == 1) {
+            xVar = this.aDW.aCL;
+            if (xVar != null) {
+                xVar2 = this.aDW.aCL;
+                if (xVar2.getPraise().getIsLike() == 1) {
                     i = 0;
                 }
             }
-            this.aCV.eB(i);
+            this.aDW.eH(i);
         }
-        this.aCV.aAE = false;
+        this.aDW.aBG = false;
         TbadkCoreApplication.m255getInst().resetPbRecorder();
     }
 
     @Override // com.baidu.tieba.tbadkCore.aq
-    public void fw(String str) {
+    public void fB(String str) {
         boolean z;
-        z = this.aCV.aAG;
+        z = this.aDW.aBI;
         if (z && !TextUtils.isEmpty(str)) {
-            this.aCV.showToast(str);
+            this.aDW.showToast(str);
         }
-        this.aCV.aAE = false;
+        this.aDW.aBG = false;
     }
 }

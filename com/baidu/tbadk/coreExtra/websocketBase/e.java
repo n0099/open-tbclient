@@ -1,5 +1,6 @@
 package com.baidu.tbadk.coreExtra.websocketBase;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class e {
-    private static a Vi = new a(null);
+public class e {
+    private static a VN = new a(null);
 }

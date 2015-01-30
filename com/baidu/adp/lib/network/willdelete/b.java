@@ -28,28 +28,28 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class b {
-    public static boolean kL = true;
+    public static boolean kO = true;
     public static String cookie = "";
-    public static String kM = "";
+    public static String kP = "";
     public static String uid = "";
-    private static String kN = "\r\n";
-    private static String kO = "--";
+    private static String kQ = "\r\n";
+    private static String kR = "--";
     private static String boundary = "--------7da3d81520810*";
 
     public static HttpURLConnection a(String str, LinkedList<BasicNameValuePair> linkedList) {
         HttpURLConnection httpURLConnection;
         String replaceFirst;
         URL url = new URL(str);
-        String fp = i.fp();
-        if (!i.fd()) {
+        String fo = i.fo();
+        if (!i.fc()) {
             HttpURLConnection httpURLConnection2 = (HttpURLConnection) url.openConnection();
             if (!TextUtils.isEmpty(cookie)) {
                 httpURLConnection2.setRequestProperty("Cookie", cookie);
             } else {
                 httpURLConnection2.setRequestProperty("Cookie", "");
             }
-            if (!TextUtils.isEmpty(kM)) {
-                httpURLConnection2.setRequestProperty("User-Agent", kM);
+            if (!TextUtils.isEmpty(kP)) {
+                httpURLConnection2.setRequestProperty("User-Agent", kP);
             }
             if (!TextUtils.isEmpty(uid)) {
                 httpURLConnection2.setRequestProperty("client_user_token", uid);
@@ -57,19 +57,19 @@ public class b {
             a(httpURLConnection2, linkedList);
             return httpURLConnection2;
         }
-        int fq = i.fq();
-        if (fq == -1) {
-            fq = 80;
+        int fp = i.fp();
+        if (fp == -1) {
+            fp = 80;
         }
-        Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(fp, fq));
-        if (i.aB(fp)) {
+        Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(fo, fp));
+        if (i.aB(fo)) {
             String host = url.getHost();
             int port = url.getPort();
             int i = port != -1 ? port : 80;
             if (str.indexOf(String.valueOf(host) + ":" + i) != -1) {
-                replaceFirst = str.replaceFirst(String.valueOf(host) + ":" + i, String.valueOf(fp) + ":" + fq);
+                replaceFirst = str.replaceFirst(String.valueOf(host) + ":" + i, String.valueOf(fo) + ":" + fp);
             } else {
-                replaceFirst = str.replaceFirst(host, String.valueOf(fp) + ":" + fq);
+                replaceFirst = str.replaceFirst(host, String.valueOf(fo) + ":" + fp);
             }
             try {
                 httpURLConnection = (HttpURLConnection) new URL(replaceFirst).openConnection();
@@ -85,8 +85,8 @@ public class b {
         } else {
             httpURLConnection.setRequestProperty("Cookie", "");
         }
-        if (!TextUtils.isEmpty(kM)) {
-            httpURLConnection.setRequestProperty("User-Agent", kM);
+        if (!TextUtils.isEmpty(kP)) {
+            httpURLConnection.setRequestProperty("User-Agent", kP);
         }
         if (!TextUtils.isEmpty(uid)) {
             httpURLConnection.setRequestProperty("client_user_token", uid);
@@ -111,8 +111,8 @@ public class b {
         } else {
             a.setRequestProperty("Cookie", "");
         }
-        if (!TextUtils.isEmpty(kM)) {
-            a.setRequestProperty("User-Agent", kM);
+        if (!TextUtils.isEmpty(kP)) {
+            a.setRequestProperty("User-Agent", kP);
         }
         a.connect();
         return a;
@@ -184,25 +184,25 @@ public class b {
                 throw th;
             }
         }
-        if (kL && !z && bArr != null && bArr.length != 0) {
+        if (kO && !z && bArr != null && bArr.length != 0) {
             httpURLConnection.setRequestProperty("Post-Encoding", "gzip");
         }
         long currentTimeMillis = System.currentTimeMillis();
         if (dVar2 != null) {
-            dVar2.kr = System.currentTimeMillis() - currentTimeMillis;
+            dVar2.ku = System.currentTimeMillis() - currentTimeMillis;
         }
         httpURLConnection.connect();
         if (dVar2 != null) {
-            dVar2.ko = (System.currentTimeMillis() - currentTimeMillis) - dVar2.kr;
+            dVar2.kr = (System.currentTimeMillis() - currentTimeMillis) - dVar2.ku;
         }
         if (aVar == null || !aVar.isCanceled()) {
             if (dVar != null) {
-                dVar.dW();
+                dVar.dU();
             }
             if (z || bArr == null || bArr.length == 0) {
                 dataOutputStream = null;
             } else {
-                if (kL) {
+                if (kO) {
                     ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
                     com.baidu.adp.lib.util.e.c(byteArrayInputStream, byteArrayOutputStream);
@@ -264,13 +264,13 @@ public class b {
                 if (responseCode == 200 || responseCode == 206) {
                     a = a(httpURLConnection, z, gVar, dVar, aVar, dVar2);
                     if (dVar2 != null) {
-                        dVar2.kp = ((System.currentTimeMillis() - currentTimeMillis) - dVar2.ko) - dVar2.kr;
+                        dVar2.ks = ((System.currentTimeMillis() - currentTimeMillis) - dVar2.kr) - dVar2.ku;
                     }
                 } else {
                     a = new f();
                 }
                 if (aVar == null || !aVar.isCanceled()) {
-                    a.kV = responseCode;
+                    a.kY = responseCode;
                     if (dVar != null && responseCode != 206) {
                         dVar.a(a);
                     }
@@ -339,7 +339,7 @@ public class b {
                 break;
             }
             f a2 = a(a, true, (byte[]) null, (g) null, dVar, aVar);
-            if (a2 == null || !(a2.kV == 200 || a2.kV == 206)) {
+            if (a2 == null || !(a2.kY == 200 || a2.kY == 206)) {
                 j3 = j2;
                 i6 = i8;
             } else {
@@ -355,7 +355,7 @@ public class b {
                     }
                     try {
                         if (a2.data.length >= i) {
-                            if (a2.kV == 200) {
+                            if (a2.kY == 200) {
                                 break;
                             }
                         } else {
@@ -413,7 +413,7 @@ public class b {
                     e = e11;
                 }
             }
-            if (a2 != null && (a2.kV == 204 || a2.kV == 416)) {
+            if (a2 != null && (a2.kY == 204 || a2.kY == 416)) {
                 break;
             }
             i7 = i6 + 1;
@@ -451,7 +451,7 @@ public class b {
         c cVar = new c(atomicInteger2, str2, atomicLong, atomicInteger, file);
         do {
             try {
-                j = i.fh() ? 2000000 : 200000;
+                j = i.fg() ? 2000000 : 200000;
                 a = a(str, atomicLong.longValue(), j <= 0 ? j : atomicLong.longValue() + j, i3, linkedList);
             } catch (BdHttpCancelException e) {
             } catch (Exception e2) {
@@ -463,10 +463,10 @@ public class b {
             }
             atomicInteger.set(0);
             f a2 = a(a, true, (byte[]) null, (g) cVar, dVar, aVar);
-            if (a2 != null && (atomicInteger.longValue() < j || a2.kV == 200)) {
+            if (a2 != null && (atomicInteger.longValue() < j || a2.kY == 200)) {
                 return true;
             }
-            if (a2 != null && (a2.kV == 204 || a2.kV == 416)) {
+            if (a2 != null && (a2.kY == 204 || a2.kY == 416)) {
                 return true;
             }
             atomicInteger2.incrementAndGet();
@@ -524,10 +524,10 @@ public class b {
                         fVar = null;
                         if (dVar2 != null) {
                             dVar2.retry = i4;
-                            dVar2.kq = new Date().getTime() - currentTimeMillis;
+                            dVar2.kt = new Date().getTime() - currentTimeMillis;
                         }
                         if (fVar != null) {
-                            fVar.kX = dVar2;
+                            fVar.la = dVar2;
                         }
                         return fVar;
                     }
@@ -594,9 +594,9 @@ public class b {
                 try {
                     if (dVar2 != null) {
                         if (z || bArr == null) {
-                            dVar2.kl = str.length();
+                            dVar2.kp = str.length();
                         } else {
-                            dVar2.kl = bArr.length;
+                            dVar2.kp = bArr.length;
                         }
                     }
                     if (aVar != null) {
@@ -610,7 +610,7 @@ public class b {
                     } else {
                         a.setRequestMethod("POST");
                         a.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-                        if (kL) {
+                        if (kO) {
                             a.setRequestProperty("Post-Encoding", "gzip");
                         }
                     }
@@ -627,20 +627,20 @@ public class b {
                     a.setUseCaches(false);
                     if (aVar == null || !aVar.isCanceled()) {
                         if (dVar2 != null) {
-                            dVar2.kr = System.currentTimeMillis() - currentTimeMillis;
+                            dVar2.ku = System.currentTimeMillis() - currentTimeMillis;
                         }
                         a.connect();
                         if (dVar2 != null) {
-                            dVar2.ko = (System.currentTimeMillis() - currentTimeMillis) - dVar2.kr;
+                            dVar2.kr = (System.currentTimeMillis() - currentTimeMillis) - dVar2.ku;
                         }
                         if (aVar == null || !aVar.isCanceled()) {
                             if (dVar != null) {
-                                dVar.dW();
+                                dVar.dU();
                             }
                             if (z || bArr == null || bArr.length == 0) {
                                 dataOutputStream2 = null;
                             } else {
-                                if (kL) {
+                                if (kO) {
                                     ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
                                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
                                     com.baidu.adp.lib.util.e.c(byteArrayInputStream, byteArrayOutputStream);
@@ -718,9 +718,9 @@ public class b {
                                 }
                                 f a2 = (responseCode == 200 || responseCode == 206) ? a(a, z, (g) null, dVar, aVar, dVar2) : new f();
                                 if (aVar == null || !aVar.isCanceled()) {
-                                    a2.kV = responseCode;
+                                    a2.kY = responseCode;
                                     if (dVar2 != null) {
-                                        dVar2.kp = ((new Date().getTime() - currentTimeMillis) - dVar2.ko) - dVar2.kr;
+                                        dVar2.ks = ((new Date().getTime() - currentTimeMillis) - dVar2.kr) - dVar2.ku;
                                     }
                                     if (dataOutputStream2 != null) {
                                         try {
@@ -781,7 +781,7 @@ public class b {
                     fVar = a(str, z, arrayList, hashMap, i2, dVar, aVar, dVar3, linkedList);
                     if (fVar != null) {
                         try {
-                            if (fVar.kV == 200) {
+                            if (fVar.kY == 200) {
                                 i3 = i4;
                                 break;
                             }
@@ -834,7 +834,7 @@ public class b {
         }
         if (dVar3 != null) {
             dVar3.retry = i3;
-            dVar3.kq = System.currentTimeMillis() - currentTimeMillis;
+            dVar3.kt = System.currentTimeMillis() - currentTimeMillis;
         }
         return fVar;
     }
@@ -897,7 +897,7 @@ public class b {
             a.setRequestMethod("POST");
             a.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
             a.setRequestProperty("Charset", "UTF-8");
-            if (kL) {
+            if (kO) {
                 a.setRequestProperty("Post-Encoding", "gzip");
             }
             if (z) {
@@ -914,17 +914,17 @@ public class b {
             if (aVar == null || !aVar.isCanceled()) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (dVar2 != null) {
-                    dVar2.kr = new Date().getTime() - currentTimeMillis;
+                    dVar2.ku = new Date().getTime() - currentTimeMillis;
                 }
                 a.connect();
                 if (dVar2 != null) {
-                    dVar2.ko = (System.currentTimeMillis() - currentTimeMillis) - dVar2.kr;
+                    dVar2.kr = (System.currentTimeMillis() - currentTimeMillis) - dVar2.ku;
                 }
                 if (aVar == null || !aVar.isCanceled()) {
                     if (dVar != null) {
-                        dVar.dW();
+                        dVar.dU();
                     }
-                    if (kL) {
+                    if (kO) {
                         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
                         if (arrayList != null) {
                             Iterator<BasicNameValuePair> it = arrayList.iterator();
@@ -933,15 +933,15 @@ public class b {
                                 if (next != null) {
                                     String name = next.getName();
                                     String value = next.getValue();
-                                    byteArrayOutputStream.write((String.valueOf(kO) + boundary + kN).getBytes());
-                                    byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + name + "\"" + kN).getBytes());
-                                    byteArrayOutputStream.write(kN.getBytes());
+                                    byteArrayOutputStream.write((String.valueOf(kR) + boundary + kQ).getBytes());
+                                    byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + name + "\"" + kQ).getBytes());
+                                    byteArrayOutputStream.write(kQ.getBytes());
                                     if (value == null) {
                                         byteArrayOutputStream.write("null".getBytes("UTF-8"));
                                     } else {
                                         byteArrayOutputStream.write(value.getBytes("UTF-8"));
                                     }
-                                    byteArrayOutputStream.write(kN.getBytes());
+                                    byteArrayOutputStream.write(kQ.getBytes());
                                 }
                             }
                         }
@@ -950,12 +950,12 @@ public class b {
                                 String key = entry.getKey();
                                 byte[] value2 = entry.getValue();
                                 if (value2 != null) {
-                                    byteArrayOutputStream.write((String.valueOf(kO) + boundary + kN).getBytes());
-                                    byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + key + "\"; filename=\"file\"" + kN).getBytes());
-                                    byteArrayOutputStream.write(kN.getBytes());
+                                    byteArrayOutputStream.write((String.valueOf(kR) + boundary + kQ).getBytes());
+                                    byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + key + "\"; filename=\"file\"" + kQ).getBytes());
+                                    byteArrayOutputStream.write(kQ.getBytes());
                                     byteArrayOutputStream.write(value2);
-                                    byteArrayOutputStream.write(kN.getBytes());
-                                    byteArrayOutputStream.write((String.valueOf(kO) + boundary + kO + kN).getBytes());
+                                    byteArrayOutputStream.write(kQ.getBytes());
+                                    byteArrayOutputStream.write((String.valueOf(kR) + boundary + kR + kQ).getBytes());
                                 }
                             }
                         }
@@ -997,15 +997,15 @@ public class b {
                                     if (next2 != null) {
                                         String name2 = next2.getName();
                                         String value3 = next2.getValue();
-                                        dataOutputStream5.writeBytes(String.valueOf(kO) + boundary + kN);
-                                        dataOutputStream5.writeBytes("Content-Disposition: form-data; name=\"" + name2 + "\"" + kN);
-                                        dataOutputStream5.writeBytes(kN);
+                                        dataOutputStream5.writeBytes(String.valueOf(kR) + boundary + kQ);
+                                        dataOutputStream5.writeBytes("Content-Disposition: form-data; name=\"" + name2 + "\"" + kQ);
+                                        dataOutputStream5.writeBytes(kQ);
                                         if (value3 == null) {
                                             dataOutputStream5.write("null".getBytes("UTF-8"));
                                         } else {
                                             dataOutputStream5.write(value3.getBytes("UTF-8"));
                                         }
-                                        dataOutputStream5.writeBytes(kN);
+                                        dataOutputStream5.writeBytes(kQ);
                                     }
                                 }
                             } catch (Exception e4) {
@@ -1031,12 +1031,12 @@ public class b {
                                 String key2 = entry2.getKey();
                                 byte[] value4 = entry2.getValue();
                                 if (value4 != null) {
-                                    dataOutputStream5.writeBytes(String.valueOf(kO) + boundary + kN);
-                                    dataOutputStream5.writeBytes("Content-Disposition: form-data; name=\"" + key2 + "\"; filename=\"file\"" + kN);
-                                    dataOutputStream5.writeBytes(kN);
+                                    dataOutputStream5.writeBytes(String.valueOf(kR) + boundary + kQ);
+                                    dataOutputStream5.writeBytes("Content-Disposition: form-data; name=\"" + key2 + "\"; filename=\"file\"" + kQ);
+                                    dataOutputStream5.writeBytes(kQ);
                                     dataOutputStream5.write(value4);
-                                    dataOutputStream5.writeBytes(kN);
-                                    dataOutputStream5.writeBytes(String.valueOf(kO) + boundary + kO + kN);
+                                    dataOutputStream5.writeBytes(kQ);
+                                    dataOutputStream5.writeBytes(String.valueOf(kR) + boundary + kR + kQ);
                                 }
                             }
                         }
@@ -1080,9 +1080,9 @@ public class b {
                         }
                         f a2 = (responseCode == 200 || responseCode == 206) ? a(a, false, (g) null, dVar, aVar, dVar2) : new f();
                         if (aVar == null || !aVar.isCanceled()) {
-                            a2.kV = responseCode;
+                            a2.kY = responseCode;
                             if (dVar2 != null) {
-                                dVar2.kp = ((System.currentTimeMillis() - currentTimeMillis) - dVar2.ko) - dVar2.kr;
+                                dVar2.ks = ((System.currentTimeMillis() - currentTimeMillis) - dVar2.kr) - dVar2.ku;
                             }
                             if (dataOutputStream2 != null) {
                                 try {
@@ -1195,7 +1195,7 @@ public class b {
                     }
                 } while (read > 0);
                 if (dVar2 != null) {
-                    dVar2.km = size;
+                    dVar2.kq = size;
                 }
                 if (z2) {
                     ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream.toByteArray());

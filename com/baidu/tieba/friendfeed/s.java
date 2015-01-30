@@ -2,15 +2,15 @@ package com.baidu.tieba.friendfeed;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements Runnable {
-    final /* synthetic */ q aBe;
+    final /* synthetic */ p aCf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(q qVar) {
-        this.aBe = qVar;
+    public s(p pVar) {
+        this.aCf = pVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.aBe.praiseStopTime = System.currentTimeMillis();
+        this.aCf.praiseStopTime = System.currentTimeMillis();
     }
 }

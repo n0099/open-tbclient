@@ -27,11 +27,11 @@ public class u {
                             String optString = jSONObject2.optString("name");
                             Integer valueOf = Integer.valueOf(jSONObject2.optInt("type", 0));
                             if ("switch_login_passv6".equals(optString)) {
-                                com.baidu.adp.lib.b.f.dc().d(optString, valueOf.intValue());
+                                com.baidu.adp.lib.b.f.da().d(optString, valueOf.intValue());
                                 LoginActivity.checkPassV6Switch();
                             }
                             if (TextUtils.equals("uninstall_feed_back_switch", optString)) {
-                                com.baidu.adp.lib.b.f.dc().d(optString, valueOf.intValue());
+                                com.baidu.adp.lib.b.f.da().d(optString, valueOf.intValue());
                             }
                         }
                     }

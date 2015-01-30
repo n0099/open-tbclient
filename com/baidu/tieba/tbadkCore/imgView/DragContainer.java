@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.Scroller;
 /* loaded from: classes.dex */
 public class DragContainer extends LinearLayout {
-    private Bitmap air;
+    private Bitmap aiU;
     private final int delay;
     private Scroller mScroller;
     private Rect mTempRect;
@@ -35,11 +35,11 @@ public class DragContainer extends LinearLayout {
         this.mScroller = new Scroller(context);
     }
 
-    public void W(View view) {
+    public void Y(View view) {
         this.view = view;
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache();
-        this.air = Bitmap.createBitmap(view.getDrawingCache());
+        this.aiU = Bitmap.createBitmap(view.getDrawingCache());
         view.destroyDrawingCache();
         view.setDrawingCacheEnabled(false);
         view.getDrawingRect(this.mTempRect);
@@ -54,15 +54,15 @@ public class DragContainer extends LinearLayout {
         if (this.view != null) {
             if (this.mScroller.computeScrollOffset()) {
                 canvas.save();
-                canvas.drawBitmap(this.air, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
+                canvas.drawBitmap(this.aiU, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
                 canvas.restore();
                 postInvalidateDelayed(16L);
                 return;
             }
-            if (this.air != null) {
-                this.air.recycle();
+            if (this.aiU != null) {
+                this.aiU.recycle();
             }
-            this.air = null;
+            this.aiU = null;
             this.view = null;
         }
     }
@@ -71,10 +71,10 @@ public class DragContainer extends LinearLayout {
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         this.mScroller.forceFinished(true);
-        if (this.air != null) {
-            this.air.recycle();
+        if (this.aiU != null) {
+            this.aiU.recycle();
         }
-        this.air = null;
+        this.aiU = null;
         this.view = null;
     }
 }

@@ -16,13 +16,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.account.AccountLoginHelper;
 import com.baidu.tbadk.core.atomData.T5WebViewActivityConfig;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.plugins.LightAppPlugin;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String I(String str, String str2) {
+    public static String M(String str, String str2) {
         String str3;
         if (!str.startsWith("http://")) {
             str = "http://".concat(str);
@@ -35,16 +35,15 @@ public class a {
         return str.concat(str3);
     }
 
-    public static void c(Context context, String str, boolean z) {
+    public static void d(Context context, String str, boolean z) {
         if (z) {
-            AccountLoginHelper.parseBDUSS(TbadkCoreApplication.getCurrentBduss());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(context, "", appendVersionCode(appendCuidParam(str)), true, true, false, false, false)));
             return;
         }
-        y(context, str);
+        x(context, str);
     }
 
-    public static void y(Context context, String str) {
+    public static void x(Context context, String str) {
         b(context, true, str);
     }
 
@@ -60,7 +59,7 @@ public class a {
         } else {
             appendVersionCode = str;
         }
-        if (((LightAppPlugin) PluginCenter.gX().he()) != null) {
+        if (((LightAppPlugin) PluginCenter.gW().hc()) != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new T5WebViewActivityConfig(context, null, appendVersionCode, true, true, true, true, true)));
         } else {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(context, null, appendVersionCode, true, true, true, true, true)));
@@ -70,7 +69,7 @@ public class a {
     public static void f(Context context, String str, String str2) {
         try {
             String appendVersionCode = appendVersionCode(appendCuidParam(str2));
-            if (((LightAppPlugin) PluginCenter.gX().he()) != null) {
+            if (((LightAppPlugin) PluginCenter.gW().hc()) != null) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new T5WebViewActivityConfig(context, str, appendVersionCode, true, true, true, true, true)));
             } else {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(context, str, appendVersionCode, true, true, true, true, true)));
@@ -80,11 +79,11 @@ public class a {
         }
     }
 
-    public static void z(Context context, String str) {
+    public static void y(Context context, String str) {
         b(context, true, str);
     }
 
-    public static void A(Context context, String str) {
+    public static void z(Context context, String str) {
         String appendVersionCode = appendVersionCode(appendCuidParam(str));
         try {
             Intent intent = new Intent("android.intent.action.VIEW");
@@ -99,7 +98,7 @@ public class a {
     }
 
     public static String appendCuidParam(String str) {
-        if (!ba.isEmpty(str) && str.indexOf("cuid=") <= -1) {
+        if (!bf.isEmpty(str) && str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
@@ -117,7 +116,7 @@ public class a {
     }
 
     public static String appendVersionCode(String str) {
-        return (ba.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? String.valueOf(str) + "&_client_version=" + TbConfig.getVersion() : str;
+        return (bf.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? String.valueOf(str) + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
     public static void Q(Context context) {

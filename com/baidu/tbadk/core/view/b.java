@@ -8,33 +8,33 @@ import com.baidu.tbadk.core.view.CarouselRecommendView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter implements t {
-    private CarouselRecommendView Lp;
+    private CarouselRecommendView LK;
     private TbPageContext<?> mContext;
-    private CarouselRecommendView.e Lo = null;
-    private ArrayList<com.baidu.tbadk.core.data.u> datas = new ArrayList<>();
+    private CarouselRecommendView.e LJ = null;
+    private ArrayList<com.baidu.tbadk.core.data.v> datas = new ArrayList<>();
 
     public b(TbPageContext<?> tbPageContext) {
-        this.Lp = null;
+        this.LK = null;
         this.mContext = tbPageContext;
-        this.Lp = new CarouselRecommendView(tbPageContext.getContext(), false);
+        this.LK = new CarouselRecommendView(tbPageContext.getContext(), false);
     }
 
-    public void r(ArrayList<com.baidu.tbadk.core.data.u> arrayList) {
+    public void s(ArrayList<com.baidu.tbadk.core.data.v> arrayList) {
         this.datas = arrayList;
-        this.Lp.a(this.mContext, arrayList);
-        this.Lo = this.Lp.getPagerAdapter();
+        this.LK.a(this.mContext, arrayList);
+        this.LJ = this.LK.getPagerAdapter();
         notifyDataSetChanged();
     }
 
-    public void qk() {
-        if (this.Lp != null) {
-            this.Lp.qk();
+    public void qv() {
+        if (this.LK != null) {
+            this.LK.qv();
         }
     }
 
-    public void ql() {
-        if (this.Lp != null) {
-            this.Lp.ql();
+    public void qw() {
+        if (this.LK != null) {
+            this.LK.qw();
         }
     }
 
@@ -55,26 +55,26 @@ public class b extends BaseAdapter implements t {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return this.Lp;
+        return this.LK;
     }
 
     @Override // com.baidu.tbadk.core.view.t
-    public void qm() {
-        if (this.Lo != null) {
-            this.Lo.qm();
+    public void qx() {
+        if (this.LJ != null) {
+            this.LJ.qx();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.t
     public void f(View view, int i, int i2) {
-        if (this.Lo != null) {
-            this.Lo.f(this.Lp, 0, 0);
+        if (this.LJ != null) {
+            this.LJ.f(this.LK, 0, 0);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.Lp != null) {
-            this.Lp.onChangeSkinType(i);
+        if (this.LK != null) {
+            this.LK.onChangeSkinType(i);
         }
     }
 }

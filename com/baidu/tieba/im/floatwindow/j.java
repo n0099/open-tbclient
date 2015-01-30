@@ -3,15 +3,15 @@ package com.baidu.tieba.im.floatwindow;
 import android.view.View;
 /* loaded from: classes.dex */
 public class j {
-    private int aXr;
-    private int aXs;
+    private int aYN;
+    private int aYO;
     private int radius;
 
     public boolean a(j jVar) {
-        return ((this.aXr - jVar.aXr) * (this.aXr - jVar.aXr)) + ((this.aXs - jVar.aXs) * (this.aXs - jVar.aXs)) < (this.radius + jVar.radius) * (this.radius + jVar.radius);
+        return ((this.aYN - jVar.aYN) * (this.aYN - jVar.aYN)) + ((this.aYO - jVar.aYO) * (this.aYO - jVar.aYO)) < (this.radius + jVar.radius) * (this.radius + jVar.radius);
     }
 
-    public void F(View view) {
+    public void H(View view) {
         int[] iArr = new int[2];
         view.getLocationOnScreen(iArr);
         int measuredHeight = view.getMeasuredHeight() / 2;
@@ -19,12 +19,12 @@ public class j {
     }
 
     public void t(int i, int i2, int i3) {
-        this.aXr = i;
-        this.aXs = i2;
+        this.aYN = i;
+        this.aYO = i2;
         this.radius = i3;
     }
 
     public boolean isEmpty() {
-        return this.aXr == 0 && this.aXs == 0 && this.radius == 0;
+        return this.aYN == 0 && this.aYO == 0 && this.radius == 0;
     }
 }

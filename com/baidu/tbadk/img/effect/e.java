@@ -5,14 +5,14 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class e extends b {
-    private int abw = 0;
+    private int abY = 0;
 
     @Override // com.baidu.tbadk.img.effect.b
     public String getActionName() {
         return "rotate";
     }
 
-    public static ImageOperation ds(int i) {
+    public static ImageOperation dz(int i) {
         ImageOperation imageOperation = new ImageOperation();
         imageOperation.actionName = "rotate";
         imageOperation.actionParam = String.valueOf(i);
@@ -22,7 +22,7 @@ public class e extends b {
     @Override // com.baidu.tbadk.img.effect.b
     public void eq(String str) {
         if (str != null) {
-            this.abw = Integer.parseInt(str);
+            this.abY = Integer.parseInt(str);
         }
     }
 
@@ -31,12 +31,12 @@ public class e extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.e.vL().dq(com.baidu.tbadk.core.util.d.d(bitmap) * 2);
-        if (this.abw == 0 || this.abw == 1) {
-            return com.baidu.tbadk.core.util.d.g(bitmap, this.abw);
+        com.baidu.tbadk.imageManager.e.we().dx(com.baidu.tbadk.core.util.d.d(bitmap) * 2);
+        if (this.abY == 0 || this.abY == 1) {
+            return com.baidu.tbadk.core.util.d.g(bitmap, this.abY);
         }
-        if (this.abw == 2 || this.abw == 3) {
-            return com.baidu.tbadk.core.util.d.i(bitmap, this.abw);
+        if (this.abY == 2 || this.abY == 3) {
+            return com.baidu.tbadk.core.util.d.i(bitmap, this.abY);
         }
         return bitmap;
     }

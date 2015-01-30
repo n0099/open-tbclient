@@ -14,8 +14,8 @@ import tbclient.UserPost.UserPostResIdl;
 /* loaded from: classes.dex */
 public class PersonPostModel extends com.baidu.adp.base.f<BaseFragmentActivity> implements Serializable {
     public static final int PAGE_SIZE = 20;
-    private static int bGU = 0;
-    private static String bGV = "";
+    private static int bIG = 0;
+    private static String bIH = "";
     public int hide_post;
     public List<PostList> post_list;
 
@@ -40,24 +40,24 @@ public class PersonPostModel extends com.baidu.adp.base.f<BaseFragmentActivity> 
         return false;
     }
 
-    public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, br brVar, boolean z, String str, boolean z2) {
-        if (z || !str.equals(bGV)) {
-            bGU = 1;
-            bGV = str;
+    public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, bq bqVar, boolean z, String str, boolean z2) {
+        if (z || !str.equals(bIH)) {
+            bIG = 1;
+            bIH = str;
         } else {
-            bGU++;
+            bIG++;
         }
         if (tbPageContext != null) {
             this.unique_id = tbPageContext.getUniqueId();
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
-        userPostPageRequestMessage.setUid(bGV);
-        userPostPageRequestMessage.setPn(bGU);
+        userPostPageRequestMessage.setUid(bIH);
+        userPostPageRequestMessage.setPn(bIG);
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(z2);
         userPostPageRequestMessage.setNeedContent(true);
         userPostPageRequestMessage.setReset(z);
-        userPostPageRequestMessage.setmCallbackWeakReference(new WeakReference<>(brVar));
+        userPostPageRequestMessage.setmCallbackWeakReference(new WeakReference<>(bqVar));
         sendMessage(userPostPageRequestMessage);
     }
 
@@ -165,8 +165,8 @@ public class PersonPostModel extends com.baidu.adp.base.f<BaseFragmentActivity> 
             for (Media media : this.media) {
                 if (media.big_pic != null) {
                     com.baidu.tbadk.core.util.at atVar = new com.baidu.tbadk.core.util.at();
-                    atVar.imgUrl = media.big_pic;
-                    atVar.Jd = 10;
+                    atVar.Fa = media.big_pic;
+                    atVar.Jn = 10;
                     arrayList.add(atVar);
                 }
             }

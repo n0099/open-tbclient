@@ -22,27 +22,27 @@ public class d implements View.OnClickListener {
         boolean b;
         int i3;
         String str = TbConfig.PERSON_HEAD_FILE;
-        i = this.this$0.OI;
+        i = this.this$0.Pm;
         if (i != 0) {
             str = TbConfig.GROUP_HEAD_FILE;
         }
-        editHeadsImageView = this.this$0.OH;
-        i2 = this.this$0.OI;
-        Bitmap aZ = editHeadsImageView.aZ(i2 == 0);
-        if (aZ == null) {
+        editHeadsImageView = this.this$0.Pl;
+        i2 = this.this$0.Pm;
+        Bitmap bb = editHeadsImageView.bb(i2 == 0);
+        if (bb == null) {
             return;
         }
-        b = this.this$0.b(str, aZ);
+        b = this.this$0.b(str, bb);
         if (b) {
-            i3 = this.this$0.OI;
+            i3 = this.this$0.Pm;
             if (i3 == 0) {
-                this.this$0.qZ();
+                this.this$0.rk();
                 return;
             }
-            com.baidu.tbadk.img.a aVar = new com.baidu.tbadk.img.a(com.baidu.tbadk.core.util.s.ci(TbConfig.GROUP_HEAD_FILE), "head");
-            aVar.vQ();
+            com.baidu.tbadk.img.a aVar = new com.baidu.tbadk.img.a(com.baidu.tbadk.core.util.s.cg(TbConfig.GROUP_HEAD_FILE), "head");
+            aVar.wj();
             aVar.a(new e(this));
-            aVar.vO();
+            aVar.wh();
             this.this$0.showLoadingDialog(this.this$0.getPageContext().getString(com.baidu.tieba.z.uploading));
         }
     }

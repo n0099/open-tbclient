@@ -60,16 +60,16 @@ public class TbCDNTachometerService extends BdBaseService {
     }
 
     public static void startTachometerService(Context context, boolean z, boolean z2) {
-        if (context != null && com.baidu.adp.lib.util.i.fh() && TbadkCoreApplication.m255getInst().isMainProcess(true)) {
+        if (context != null && com.baidu.adp.lib.util.i.fg() && TbadkCoreApplication.m255getInst().isMainProcess(true)) {
             if (!z2) {
                 synchronized (lock) {
                     if (0 == lastTachometerTime) {
-                        lastTachometerTime = com.baidu.tbadk.core.sharedPref.b.og().getLong(LAST_GETCDNLIST_TIME, 0L);
+                        lastTachometerTime = com.baidu.tbadk.core.sharedPref.b.oj().getLong(LAST_GETCDNLIST_TIME, 0L);
                     }
                     long currentTimeMillis = System.currentTimeMillis();
                     if (0 == lastTachometerTime || currentTimeMillis - lastTachometerTime >= TACHOMETER_INTERVAL) {
                         lastTachometerTime = currentTimeMillis;
-                        com.baidu.tbadk.core.sharedPref.b.og().putLong(LAST_GETCDNLIST_TIME, currentTimeMillis);
+                        com.baidu.tbadk.core.sharedPref.b.oj().putLong(LAST_GETCDNLIST_TIME, currentTimeMillis);
                     } else {
                         return;
                     }
@@ -95,7 +95,7 @@ public class TbCDNTachometerService extends BdBaseService {
         return null;
     }
 
-    @Override // android.app.Service
+    @Override // com.baidu.adp.base.BdBaseService, android.app.Service
     public void onCreate() {
         super.onCreate();
         registerListener();

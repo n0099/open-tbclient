@@ -4,13 +4,13 @@ import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* loaded from: classes.dex */
 class a extends HttpMessageListener {
-    final /* synthetic */ BuyGiftActivity aaD;
+    final /* synthetic */ BuyGiftActivity abe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(BuyGiftActivity buyGiftActivity, int i) {
         super(i);
-        this.aaD = buyGiftActivity;
+        this.abe = buyGiftActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,8 +18,8 @@ class a extends HttpMessageListener {
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
         if (httpResponsedMessage instanceof GetGiftCommonListHttpResponseMessage) {
             GetGiftCommonListHttpResponseMessage getGiftCommonListHttpResponseMessage = (GetGiftCommonListHttpResponseMessage) httpResponsedMessage;
-            this.aaD.aam = getGiftCommonListHttpResponseMessage.getGiftInfo();
-            this.aaD.p(getGiftCommonListHttpResponseMessage.getError(), getGiftCommonListHttpResponseMessage.getErrorString());
+            this.abe.aaN = getGiftCommonListHttpResponseMessage.getGiftInfo();
+            this.abe.p(getGiftCommonListHttpResponseMessage.getError(), getGiftCommonListHttpResponseMessage.getErrorString());
         }
     }
 }

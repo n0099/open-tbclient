@@ -1,49 +1,47 @@
 package com.baidu.tieba.account;
 
+import android.content.DialogInterface;
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ax;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
-public class d implements View.OnClickListener {
-    final /* synthetic */ AccountActivity alO;
+class d implements DialogInterface.OnClickListener {
+    final /* synthetic */ c amJ;
+    private final /* synthetic */ View amK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(AccountActivity accountActivity) {
-        this.alO = accountActivity;
+    public d(c cVar, View view) {
+        this.amJ = cVar;
+        this.amK = view;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        l lVar;
-        l lVar2;
-        TextView textView;
-        TextView textView2;
-        l lVar3;
-        l lVar4;
-        TextView textView3;
-        TextView textView4;
-        l lVar5;
-        lVar = this.alO.alJ;
-        if (!lVar.Ay()) {
-            lVar4 = this.alO.alJ;
-            lVar4.setEditState(true);
-            textView3 = this.alO.alK;
-            textView3.setText(com.baidu.tieba.z.done);
-            textView4 = this.alO.alK;
-            ax.g(textView4, TbadkCoreApplication.m255getInst().getSkinType());
-            lVar5 = this.alO.alJ;
-            lVar5.notifyDataSetChanged();
-            return;
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        AccountActivity accountActivity;
+        AccountActivity accountActivity2;
+        if (this.amK != null) {
+            AccountData accountData = (AccountData) this.amK.getTag();
+            switch (i) {
+                case 0:
+                    if (accountData != null) {
+                        accountActivity2 = this.amJ.amI;
+                        accountActivity2.a(false, accountData);
+                    }
+                    dialogInterface.cancel();
+                    return;
+                case 1:
+                    if (accountData != null) {
+                        accountActivity = this.amJ.amI;
+                        accountActivity.a(true, accountData);
+                    }
+                    dialogInterface.cancel();
+                    return;
+                case 2:
+                    dialogInterface.cancel();
+                    return;
+                default:
+                    dialogInterface.cancel();
+                    return;
+            }
         }
-        lVar2 = this.alO.alJ;
-        lVar2.setEditState(false);
-        textView = this.alO.alK;
-        textView.setText(com.baidu.tieba.z.edit);
-        textView2 = this.alO.alK;
-        ax.i(textView2, TbadkCoreApplication.m255getInst().getSkinType());
-        lVar3 = this.alO.alJ;
-        lVar3.notifyDataSetChanged();
     }
 }

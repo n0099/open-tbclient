@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.baidu.adp.plugin.proxy.activity.ActivityProxy;
 import com.baidu.tbadk.ProxyAdkBaseActivity;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.bc;
 /* loaded from: classes.dex */
 public class NavigationBar extends RelativeLayout {
     private int containerWidth;
@@ -30,7 +31,7 @@ public class NavigationBar extends RelativeLayout {
         HORIZONTAL_CENTER,
         HORIZONTAL_RIGHT;
 
-        /* JADX DEBUG: Replace access to removed values field (MK) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (Nh) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ControlAlign[] valuesCustom() {
             ControlAlign[] valuesCustom = values();
@@ -45,7 +46,7 @@ public class NavigationBar extends RelativeLayout {
     public enum ControlType {
         BACK_BUTTON;
 
-        /* JADX DEBUG: Replace access to removed values field (ML) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (Ni) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ControlType[] valuesCustom() {
             ControlType[] valuesCustom = values();
@@ -82,7 +83,7 @@ public class NavigationBar extends RelativeLayout {
 
     private void init(Context context) {
         this.mCurrentActivity = (Activity) context;
-        View a = com.baidu.adp.lib.g.b.ek().a(context, com.baidu.tieba.x.widget_navigation_bar, this, true);
+        View a = com.baidu.adp.lib.g.b.ei().a(context, com.baidu.tieba.x.widget_navigation_bar, this, true);
         this.mLeftBox = (LinearLayout) a.findViewById(com.baidu.tieba.w.leftBox);
         this.mCenterBox = (LinearLayout) a.findViewById(com.baidu.tieba.w.centerBox);
         this.mRightBox = (LinearLayout) a.findViewById(com.baidu.tieba.w.rightBox);
@@ -233,20 +234,20 @@ public class NavigationBar extends RelativeLayout {
     }
 
     public View getViewFromLayoutFile(int i) {
-        return com.baidu.adp.lib.g.b.ek().a(this.mCurrentActivity, i, this, false);
+        return com.baidu.adp.lib.g.b.ei().a(this.mCurrentActivity, i, this, false);
     }
 
     public void onChangeSkinType(com.baidu.adp.base.j<?> jVar, int i) {
-        com.baidu.tbadk.core.util.ax.i(this, com.baidu.tieba.v.bg_bar);
-        com.baidu.tbadk.core.util.ax.j((View) this.mNavBottomLine, com.baidu.tieba.t.cp_other_f_1);
+        bc.i(this, com.baidu.tieba.v.bg_bar);
+        bc.j((View) this.mNavBottomLine, com.baidu.tieba.t.cp_other_f_1);
         initPadding();
         if (jVar instanceof TbPageContext) {
             ((TbPageContext) jVar).getLayoutMode().ab(i == 1);
             ((TbPageContext) jVar).getLayoutMode().h(this);
         } else if (this.mCurrentActivity instanceof ActivityProxy) {
             ActivityProxy activityProxy = (ActivityProxy) this.mCurrentActivity;
-            if (activityProxy.hi() instanceof ProxyAdkBaseActivity) {
-                ProxyAdkBaseActivity proxyAdkBaseActivity = (ProxyAdkBaseActivity) activityProxy.hi();
+            if (activityProxy.hg() instanceof ProxyAdkBaseActivity) {
+                ProxyAdkBaseActivity proxyAdkBaseActivity = (ProxyAdkBaseActivity) activityProxy.hg();
                 proxyAdkBaseActivity.getLayoutMode().ab(i == 1);
                 proxyAdkBaseActivity.getLayoutMode().h(this);
             }

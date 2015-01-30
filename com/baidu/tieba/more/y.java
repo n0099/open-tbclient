@@ -19,15 +19,15 @@ public class y extends com.baidu.adp.base.i {
         ab abVar4;
         ab abVar5;
         PersonChangeData personChangeData = new PersonChangeData();
-        abVar = this.this$0.bux;
+        abVar = this.this$0.bvT;
         if (abVar.getUser() != null) {
-            abVar2 = this.this$0.bux;
+            abVar2 = this.this$0.bvT;
             personChangeData.setName(abVar2.getUser().getName_show());
-            abVar3 = this.this$0.bux;
+            abVar3 = this.this$0.bvT;
             personChangeData.setIntro(abVar3.getUser().getIntro());
-            abVar4 = this.this$0.bux;
+            abVar4 = this.this$0.bvT;
             personChangeData.setPortrait(abVar4.getUser().getPortrait());
-            abVar5 = this.this$0.bux;
+            abVar5 = this.this$0.bvT;
             personChangeData.setSex(abVar5.getUser().getSex());
             this.this$0.a(personChangeData);
         }

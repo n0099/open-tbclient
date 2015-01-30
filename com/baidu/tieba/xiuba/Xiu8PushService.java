@@ -12,7 +12,7 @@ public class Xiu8PushService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        this.xiubaPlugin = (XiubaPlugin) PluginCenter.gX().hf();
+        this.xiubaPlugin = (XiubaPlugin) PluginCenter.gW().hd();
         if (this.xiubaPlugin != null) {
             this.xiubaPlugin.Xiu8PushService_onCreate(this);
         }

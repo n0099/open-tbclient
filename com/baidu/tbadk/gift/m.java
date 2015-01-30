@@ -3,11 +3,11 @@ package com.baidu.tbadk.gift;
 import android.view.View;
 /* loaded from: classes.dex */
 class m implements Runnable {
-    final /* synthetic */ l aaG;
+    final /* synthetic */ l abh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar) {
-        this.aaG = lVar;
+        this.abh = lVar;
     }
 
     @Override // java.lang.Runnable
@@ -15,10 +15,10 @@ class m implements Runnable {
         BuyGiftActivity buyGiftActivity;
         BuyGiftActivity buyGiftActivity2;
         View view;
-        buyGiftActivity = this.aaG.aaD;
-        buyGiftActivity.aK(false);
-        buyGiftActivity2 = this.aaG.aaD;
-        view = buyGiftActivity2.aah;
+        buyGiftActivity = this.abh.abe;
+        buyGiftActivity.aM(false);
+        buyGiftActivity2 = this.abh.abe;
+        view = buyGiftActivity2.aaI;
         view.setVisibility(0);
     }
 }

@@ -3,12 +3,12 @@ package com.baidu.tieba.model;
 import android.content.Context;
 import android.os.Bundle;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.bg;
 import com.baidu.tieba.message.RequestFriendFeedLocalMessage;
 import com.baidu.tieba.message.RequestFriendFeedMessage;
 /* loaded from: classes.dex */
 public class l extends com.baidu.adp.base.f {
-    private boolean btf;
+    private boolean buD;
     private Context mContext;
     private String timeline;
 
@@ -25,12 +25,12 @@ public class l extends com.baidu.adp.base.f {
         this.timeline = str;
     }
 
-    public boolean isUseCache() {
-        return this.btf;
+    public boolean UK() {
+        return this.buD;
     }
 
     public void setUseCache(boolean z) {
-        this.btf = z;
+        this.buD = z;
     }
 
     @Override // com.baidu.adp.base.f
@@ -51,7 +51,7 @@ public class l extends com.baidu.adp.base.f {
         int N = com.baidu.adp.lib.util.l.N(this.mContext);
         float f = M / 320.0f;
         int i2 = 1;
-        if (bb.px().pz()) {
+        if (bg.pI().pK()) {
             i2 = 2;
         }
         RequestFriendFeedMessage requestFriendFeedMessage = new RequestFriendFeedMessage();
@@ -69,7 +69,7 @@ public class l extends com.baidu.adp.base.f {
         int N = com.baidu.adp.lib.util.l.N(this.mContext);
         float f = M / 320.0f;
         int i2 = 1;
-        if (bb.px().pz()) {
+        if (bg.pI().pK()) {
             i2 = 2;
         }
         RequestFriendFeedLocalMessage requestFriendFeedLocalMessage = new RequestFriendFeedLocalMessage();

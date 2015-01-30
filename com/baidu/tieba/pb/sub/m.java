@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.sub;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.AdapterView;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tieba.w;
 import com.baidu.tieba.z;
 import java.util.ArrayList;
@@ -12,11 +12,11 @@ import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements AdapterView.OnItemClickListener {
-    final /* synthetic */ l bEM;
+    final /* synthetic */ l bGx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar) {
-        this.bEM = lVar;
+        this.bGx = lVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -30,52 +30,52 @@ public class m implements AdapterView.OnItemClickListener {
         ArrayList arrayList2;
         ArrayList arrayList3;
         ArrayList arrayList4;
-        arrayList = this.bEM.bEH;
+        arrayList = this.bGx.bGs;
         if (arrayList != null) {
-            arrayList2 = this.bEM.bEH;
+            arrayList2 = this.bGx.bGs;
             if (i < arrayList2.size()) {
-                arrayList3 = this.bEM.bEH;
+                arrayList3 = this.bGx.bGs;
                 if (arrayList3.get(i) != null) {
-                    l lVar = this.bEM;
-                    arrayList4 = this.bEM.bEH;
-                    lVar.bEI = ((com.baidu.tieba.tbadkCore.b.k) arrayList4.get(i)).getId();
+                    l lVar = this.bGx;
+                    arrayList4 = this.bGx.bGs;
+                    lVar.bGt = ((com.baidu.tieba.tbadkCore.b.k) arrayList4.get(i)).getId();
                     sparseArray = (SparseArray) view.getTag();
                     if (sparseArray == null && (str = (String) sparseArray.get(w.tag_photo_username)) != null) {
-                        String editable = this.bEM.aBE.getEditText().getText().toString();
-                        String string = this.bEM.mActivity.getResources().getString(z.reply_sub_floor);
+                        String editable = this.bGx.aCF.getEditText().getText().toString();
+                        String string = this.bGx.mActivity.getResources().getString(z.reply_sub_floor);
                         String str5 = "^" + string.replace("%s", ".+") + "$";
-                        if (ba.isEmpty(editable) || editable.matches(str5)) {
-                            str2 = this.bEM.bEJ;
+                        if (bf.isEmpty(editable) || editable.matches(str5)) {
+                            str2 = this.bGx.bGu;
                             if (str2 != null) {
                                 Pattern compile = Pattern.compile(string.replace("%s", str));
-                                str3 = this.bEM.bEJ;
+                                str3 = this.bGx.bGu;
                                 if (compile.matcher(str3).lookingAt()) {
-                                    l lVar2 = this.bEM;
-                                    str4 = this.bEM.bEJ;
-                                    lVar2.hD(str4);
+                                    l lVar2 = this.bGx;
+                                    str4 = this.bGx.bGu;
+                                    lVar2.hK(str4);
                                 } else {
-                                    this.bEM.hC(str);
+                                    this.bGx.hJ(str);
                                 }
                             } else {
-                                this.bEM.hC(str);
+                                this.bGx.hJ(str);
                             }
-                            this.bEM.b(i, view);
+                            this.bGx.b(i, view);
                             return;
                         }
                         Matcher matcher = Pattern.compile(string.replace("%s", str)).matcher(editable);
-                        this.bEM.bEJ = editable;
+                        this.bGx.bGu = editable;
                         if (!matcher.lookingAt()) {
-                            this.bEM.hC(str);
+                            this.bGx.hJ(str);
                         } else {
-                            this.bEM.hD(editable);
+                            this.bGx.hK(editable);
                         }
-                        this.bEM.b(i, view);
+                        this.bGx.b(i, view);
                         return;
                     }
                 }
             }
         }
-        this.bEM.bEI = null;
+        this.bGx.bGt = null;
         sparseArray = (SparseArray) view.getTag();
         if (sparseArray == null) {
         }

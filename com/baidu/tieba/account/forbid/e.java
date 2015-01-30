@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tieba.t;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
@@ -13,52 +13,52 @@ import com.baidu.tieba.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends BaseAdapter {
-    private String[] anJ;
-    private int anK = 0;
-    private View.OnClickListener anL = new f(this);
+    private String[] aoE;
+    private int aoF = 0;
+    private View.OnClickListener aoG = new f(this);
 
     public e(String[] strArr) {
-        this.anJ = strArr;
+        this.aoE = strArr;
     }
 
-    public String AN() {
-        if (this.anJ != null) {
-            return this.anJ[this.anK];
+    public String Bn() {
+        if (this.aoE != null) {
+            return this.aoE[this.aoF];
         }
         return null;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.anJ == null) {
+        if (this.aoE == null) {
             return 0;
         }
-        return this.anJ.length;
+        return this.aoE.length;
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         g gVar;
         if (view == null) {
-            view = com.baidu.adp.lib.g.b.ek().inflate(viewGroup.getContext(), x.forbid_list_item, null);
+            view = com.baidu.adp.lib.g.b.ei().inflate(viewGroup.getContext(), x.forbid_list_item, null);
             g gVar2 = new g(null);
-            gVar2.anN = (TextView) view.findViewById(w.reason_text);
-            gVar2.anO = (ImageView) view.findViewById(w.check_img);
+            gVar2.aoI = (TextView) view.findViewById(w.reason_text);
+            gVar2.aoJ = (ImageView) view.findViewById(w.check_img);
             view.setTag(gVar2);
-            view.setOnClickListener(this.anL);
+            view.setOnClickListener(this.aoG);
             gVar = gVar2;
         } else {
             gVar = (g) view.getTag();
         }
         gVar.mIndex = i;
-        gVar.anN.setText(this.anJ[i]);
-        if (gVar.mIndex == this.anK) {
-            ax.c(gVar.anO, v.icon_found_information_choose);
-            gVar.anO.setVisibility(0);
-            ax.b(gVar.anN, t.forbid_selected_txt, 1);
+        gVar.aoI.setText(this.aoE[i]);
+        if (gVar.mIndex == this.aoF) {
+            bc.c(gVar.aoJ, v.icon_found_information_choose);
+            gVar.aoJ.setVisibility(0);
+            bc.b(gVar.aoI, t.forbid_selected_txt, 1);
         } else {
-            gVar.anO.setVisibility(4);
-            ax.b(gVar.anN, t.appeal_com_text, 1);
+            gVar.aoJ.setVisibility(4);
+            bc.b(gVar.aoI, t.appeal_com_text, 1);
         }
         return view;
     }

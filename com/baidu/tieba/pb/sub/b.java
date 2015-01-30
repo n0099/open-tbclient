@@ -6,13 +6,13 @@ import android.widget.TextView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* loaded from: classes.dex */
 public class b {
-    public LinearLayout bDN;
-    public TextView bDO;
-    final /* synthetic */ a bDP;
-    public TbRichTextView bzZ;
+    public TbRichTextView bBJ;
+    final /* synthetic */ a bFA;
+    public LinearLayout bFy;
+    public TextView bFz;
     public View rootView;
 
     public b(a aVar) {
-        this.bDP = aVar;
+        this.bFA = aVar;
     }
 }

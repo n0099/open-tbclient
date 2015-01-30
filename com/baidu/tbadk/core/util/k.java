@@ -5,12 +5,12 @@ import android.widget.Toast;
 import com.baidu.adp.base.BdBaseApplication;
 /* loaded from: classes.dex */
 public class k {
-    private static Toast nq;
-    private boolean Hz;
+    private static Toast nt;
+    private boolean HI;
     private static Handler mHandler = new Handler();
-    private static Runnable Hy = new l();
+    private static Runnable HH = new l();
 
-    public static k oo() {
+    public static k or() {
         return new k();
     }
 
@@ -18,18 +18,18 @@ public class k {
     }
 
     public void c(String str, int i, int i2) {
-        if (!this.Hz && str != null) {
+        if (!this.HI && str != null) {
             String trim = str.trim();
             if (trim.length() != 0) {
-                mHandler.removeCallbacks(Hy);
-                if (nq != null) {
-                    nq.setText(trim);
+                mHandler.removeCallbacks(HH);
+                if (nt != null) {
+                    nt.setText(trim);
                 } else {
-                    nq = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
-                    nq.setGravity(17, 0, i2);
+                    nt = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
+                    nt.setGravity(17, 0, i2);
                 }
-                mHandler.postDelayed(Hy, i);
-                nq.show();
+                mHandler.postDelayed(HH, i);
+                nt.show();
             }
         }
     }
@@ -47,19 +47,19 @@ public class k {
     }
 
     public void onPause() {
-        this.Hz = true;
+        this.HI = true;
         cancel();
     }
 
     public void onResume() {
-        this.Hz = false;
+        this.HI = false;
     }
 
     public static void cancel() {
-        if (nq != null) {
-            mHandler.removeCallbacks(Hy);
-            nq.cancel();
-            nq = null;
+        if (nt != null) {
+            mHandler.removeCallbacks(HH);
+            nt.cancel();
+            nt = null;
         }
     }
 }

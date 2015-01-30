@@ -32,7 +32,7 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
                 int size = list != null ? list.size() : 0;
                 for (int i2 = 0; i2 < size; i2++) {
                     com.baidu.tieba.im.data.a aVar = new com.baidu.tieba.im.data.a();
-                    aVar.gg(list.get(i2).portrait);
+                    aVar.gl(list.get(i2).portrait);
                     aVar.setUserId(list.get(i2).uid.intValue());
                     aVar.setUserName(list.get(i2).name);
                     this.blackList.add(aVar);
@@ -43,6 +43,10 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
 
     public int getIsMask() {
         return this.isMask;
+    }
+
+    public boolean isMask() {
+        return this.isMask != 0;
     }
 
     public String getList() {

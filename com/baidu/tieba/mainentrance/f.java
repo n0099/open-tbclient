@@ -6,12 +6,12 @@ import android.widget.TextView;
 /* loaded from: classes.dex */
 class f {
     ProgressBar Bs;
-    RelativeLayout bqT;
-    TextView bqU;
-    final /* synthetic */ e bqV;
+    RelativeLayout bsr;
+    TextView bss;
+    final /* synthetic */ e bst;
 
     private f(e eVar) {
-        this.bqV = eVar;
+        this.bst = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

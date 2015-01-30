@@ -2,36 +2,41 @@ package com.baidu.tbadk.core.data;
 
 import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
-import java.util.ArrayList;
-import java.util.List;
 import tbclient.ForumRecommend.Banner;
 /* loaded from: classes.dex */
-public class v {
-    private ArrayList<u> Ey = new ArrayList<>();
+public class v implements l {
+    protected String img_url = null;
+    protected String link = null;
 
-    public ArrayList<u> np() {
-        return this.Ey;
+    @Override // com.baidu.tbadk.core.data.l
+    public String mP() {
+        return this.img_url;
     }
 
-    public void i(List<?> list) {
-        if (list != null && !list.isEmpty()) {
-            a(list, null);
+    public void bP(String str) {
+        this.img_url = str;
+    }
+
+    @Override // com.baidu.tbadk.core.data.l
+    public String getLink() {
+        return this.link;
+    }
+
+    public void setLink(String str) {
+        this.link = str;
+    }
+
+    public void a(Banner banner) {
+        if (banner != null) {
+            a(banner, null);
         }
     }
 
-    public void a(List<?> list, Context context) {
-        if (list != null && !list.isEmpty()) {
+    public void a(Banner banner, Context context) {
+        if (banner != null) {
             try {
-                int size = list.size();
-                for (int i = 0; i < size; i++) {
-                    if (list.get(i) instanceof Banner) {
-                        u uVar = new u();
-                        uVar.a((Banner) list.get(i));
-                        this.Ey.add(uVar);
-                    } else {
-                        return;
-                    }
-                }
+                bP(banner.pic_url);
+                setLink(banner.link);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

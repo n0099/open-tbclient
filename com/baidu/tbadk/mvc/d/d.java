@@ -5,7 +5,7 @@ import com.baidu.tbadk.mvc.b.j;
 import com.baidu.tbadk.mvc.core.e;
 /* loaded from: classes.dex */
 public abstract class d<T extends h, R extends j> extends b<T, R> {
-    protected abstract boolean aO(boolean z);
+    protected abstract boolean aQ(boolean z);
 
     public d(e<?, ?, ?> eVar) {
         super(eVar);
@@ -16,12 +16,12 @@ public abstract class d<T extends h, R extends j> extends b<T, R> {
         if (super.a(bVar)) {
             return true;
         }
-        if (bVar.xc() == 16777217) {
-            if (aO(bVar.xg())) {
-                dz(33554437);
+        if (bVar.xs() == 16777217) {
+            if (aQ(bVar.xw())) {
+                dF(33554437);
                 return true;
             }
-            dz(33554438);
+            dF(33554438);
             return true;
         }
         return false;

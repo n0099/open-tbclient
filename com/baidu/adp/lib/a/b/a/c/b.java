@@ -7,20 +7,20 @@ import java.util.Set;
 import java.util.TreeSet;
 /* loaded from: classes.dex */
 public class b implements c {
-    public Cursor gx;
-    private final Set<String> gy;
+    private final Set<String> gA;
+    public Cursor gz;
     private final ContentValues values;
 
     public b(Cursor cursor) {
-        this.gx = cursor;
+        this.gz = cursor;
         this.values = null;
-        this.gy = new TreeSet();
+        this.gA = new TreeSet();
         if (cursor != null) {
             int columnCount = cursor.getColumnCount();
             for (int i = 0; i < columnCount; i++) {
                 String columnName = cursor.getColumnName(i);
                 if (columnName != null) {
-                    this.gy.add(columnName);
+                    this.gA.add(columnName);
                 }
             }
         }
@@ -28,12 +28,12 @@ public class b implements c {
 
     public b(ContentValues contentValues) {
         this.values = contentValues;
-        this.gy = new TreeSet();
+        this.gA = new TreeSet();
     }
 
     @Override // com.baidu.adp.lib.a.b.a.c.c
-    public Set<String> cq() {
-        return this.gy;
+    public Set<String> co() {
+        return this.gA;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:38:0x0058 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -49,53 +49,53 @@ public class b implements c {
     public Object getObject(String str) {
         Object valueOf;
         Object string;
-        int columnIndex = this.gx.getColumnIndex(str);
-        if (columnIndex <= 0 || columnIndex >= this.gx.getColumnCount()) {
+        int columnIndex = this.gz.getColumnIndex(str);
+        if (columnIndex <= 0 || columnIndex >= this.gz.getColumnCount()) {
             return null;
         }
         if (0 == 0) {
             try {
-                valueOf = Short.valueOf(this.gx.getShort(columnIndex));
+                valueOf = Short.valueOf(this.gz.getShort(columnIndex));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Integer.valueOf(this.gx.getInt(columnIndex));
+                    valueOf = Integer.valueOf(this.gz.getInt(columnIndex));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Long.valueOf(this.gx.getLong(columnIndex));
+                    valueOf = Long.valueOf(this.gz.getLong(columnIndex));
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Float.valueOf(this.gx.getFloat(columnIndex));
+                    valueOf = Float.valueOf(this.gz.getFloat(columnIndex));
                 } catch (Exception e4) {
                     e4.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Double.valueOf(this.gx.getDouble(columnIndex));
+                    valueOf = Double.valueOf(this.gz.getDouble(columnIndex));
                 } catch (Exception e5) {
                     e5.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    string = this.gx.getString(columnIndex);
+                    string = this.gz.getString(columnIndex);
                 } catch (Exception e6) {
                     e6.printStackTrace();
                 }
                 if (string == null) {
                     try {
-                        return this.gx.getBlob(columnIndex);
+                        return this.gz.getBlob(columnIndex);
                     } catch (Exception e7) {
                         e7.printStackTrace();
                         return string;

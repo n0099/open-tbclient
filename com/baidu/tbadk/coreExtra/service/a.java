@@ -3,6 +3,7 @@ package com.baidu.tbadk.coreExtra.service;
 import android.app.ActivityManager;
 import android.content.Intent;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -16,11 +17,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends BdAsyncTask<String, Integer, String> {
-    final /* synthetic */ DealIntentService Ss;
+    final /* synthetic */ DealIntentService SY;
     private Intent intent;
 
     public a(DealIntentService dealIntentService, Intent intent) {
-        this.Ss = dealIntentService;
+        this.SY = dealIntentService;
         this.intent = null;
         this.intent = intent;
     }
@@ -47,7 +48,7 @@ public class a extends BdAsyncTask<String, Integer, String> {
         }
         int i = this.intent.getExtras().getInt("class", -1);
         if (this.intent.getExtras().getBoolean("is_notify", false)) {
-            cQ(i);
+            cX(i);
         }
         String string = this.intent.getExtras().getString("stat");
         String stringExtra = this.intent.getStringExtra("link");
@@ -58,9 +59,9 @@ public class a extends BdAsyncTask<String, Integer, String> {
         List<ActivityManager.RunningTaskInfo> runningTasks = ((ActivityManager) TbadkCoreApplication.m255getInst().getApp().getSystemService("activity")).getRunningTasks(500);
         String mentionActivityClassName = SingleMentionActivityConfig.getMentionActivityClassName();
         for (ActivityManager.RunningTaskInfo runningTaskInfo : runningTasks) {
-            if (runningTaskInfo.baseActivity.getClassName().startsWith(this.Ss.getPackageName())) {
+            if (runningTaskInfo.baseActivity.getClassName().startsWith(this.SY.getPackageName())) {
                 if (5 == this.intent.getIntExtra("class", -1)) {
-                    if (!runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(b.oa())) {
+                    if (!runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(b.od())) {
                         this.intent.putExtra("class", 11);
                     }
                     if (mentionActivityClassName != null && runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(mentionActivityClassName)) {
@@ -74,10 +75,10 @@ public class a extends BdAsyncTask<String, Integer, String> {
             }
         }
         if (i == 27) {
-            TiebaStatic.eventStat(this.Ss.getBaseContext(), "open_push", com.baidu.tbadk.core.frameworkData.a.START, 1, new Object[0]);
+            TiebaStatic.eventStat(this.SY.getBaseContext(), "open_push", com.baidu.tbadk.core.frameworkData.a.START, 1, new Object[0]);
         }
         if (this.intent.getExtras().getBoolean("is_notify", false)) {
-            cP(i);
+            cW(i);
         }
         str = DealIntentService.ACTION_ON_POST_START;
         return str;
@@ -94,19 +95,21 @@ public class a extends BdAsyncTask<String, Integer, String> {
             if (!str.equals(str2)) {
                 str3 = DealIntentService.ACTION_ON_POST_START;
                 if (str.equals(str3)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LogoActivityConfig(this.Ss, this.intent)));
+                    Log.e("testxiaomilanuch", "ACTION_ON_POST_START");
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LogoActivityConfig(this.SY, this.intent)));
                 }
             } else {
+                Log.e("testxiaomilanuch", "ACTION_ON_POST_EXSIT");
                 this.intent.addFlags(268435456);
                 CustomMessage customMessage = new CustomMessage(2012000);
                 customMessage.setData(this.intent);
                 MessageManager.getInstance().sendMessage(customMessage);
             }
         }
-        this.Ss.stopSelf();
+        this.SY.stopSelf();
     }
 
-    private void cP(int i) {
+    private void cW(int i) {
         switch (i) {
             case 0:
             case 1:
@@ -122,16 +125,16 @@ public class a extends BdAsyncTask<String, Integer, String> {
         }
     }
 
-    private void cQ(int i) {
+    private void cX(int i) {
         switch (i) {
             case 6:
-                TiebaStatic.eventStat(this.Ss.getBaseContext(), "notify_to_pk_before", "click");
+                TiebaStatic.eventStat(this.SY.getBaseContext(), "notify_to_pk_before", "click");
                 return;
             case 7:
-                TiebaStatic.eventStat(this.Ss.getBaseContext(), "notify_to_pk_end", "click");
+                TiebaStatic.eventStat(this.SY.getBaseContext(), "notify_to_pk_end", "click");
                 return;
             case 8:
-                TiebaStatic.eventStat(this.Ss.getBaseContext(), "notify_to_vote_list", "click");
+                TiebaStatic.eventStat(this.SY.getBaseContext(), "notify_to_vote_list", "click");
                 return;
             case 9:
             case 10:
@@ -141,7 +144,7 @@ public class a extends BdAsyncTask<String, Integer, String> {
             default:
                 return;
             case 14:
-                i.B(this.Ss.getBaseContext(), "notify_group_event_click");
+                i.A(this.SY.getBaseContext(), "notify_group_event_click");
                 return;
         }
     }

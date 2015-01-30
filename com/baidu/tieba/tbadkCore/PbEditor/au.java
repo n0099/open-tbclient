@@ -1,9 +1,9 @@
 package com.baidu.tieba.tbadkCore.PbEditor;
 /* loaded from: classes.dex */
 public interface au {
-    void Oj();
+    void OF();
 
-    void afZ();
+    void agD();
 
     void b(ao aoVar);
 }

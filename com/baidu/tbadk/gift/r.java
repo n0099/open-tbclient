@@ -9,10 +9,10 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements AdapterView.OnItemClickListener {
-    final /* synthetic */ BuyGiftActivity aaD;
+    final /* synthetic */ BuyGiftActivity abe;
 
     private r(BuyGiftActivity buyGiftActivity) {
-        this.aaD = buyGiftActivity;
+        this.abe = buyGiftActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,26 +29,26 @@ public class r implements AdapterView.OnItemClickListener {
         EditText editText;
         View view2;
         EditText editText2;
-        giftCommonList = this.aaD.aam;
+        giftCommonList = this.abe.aaN;
         if (giftCommonList != null) {
-            giftCommonList2 = this.aaD.aam;
+            giftCommonList2 = this.abe.aaN;
             if (giftCommonList2.getGiftInfo() != null) {
-                giftCommonList3 = this.aaD.aam;
+                giftCommonList3 = this.abe.aaN;
                 List<GiftCommonList.NumInfo> numInfo = giftCommonList3.getGiftInfo().getNumInfo();
                 if (i != numInfo.size()) {
                     GiftCommonList.NumInfo numInfo2 = numInfo.get(i);
                     if (numInfo2 != null) {
-                        editText = this.aaD.ZZ;
+                        editText = this.abe.aaA;
                         editText.setText(new StringBuilder().append(numInfo2.getNum()).toString());
                     }
                 } else {
-                    this.aaD.aK(true);
-                    editText2 = this.aaD.ZZ;
+                    this.abe.aM(true);
+                    editText2 = this.abe.aaA;
                     Selection.selectAll(editText2.getText());
                 }
-                view2 = this.aaD.aah;
+                view2 = this.abe.aaI;
                 view2.setVisibility(8);
-                this.aaD.aJ(true);
+                this.abe.aL(true);
             }
         }
     }

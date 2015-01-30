@@ -8,13 +8,13 @@ import tbclient.ForumRecommend.ForumRecommendResIdl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements com.baidu.adp.lib.cache.u<byte[]> {
-    final /* synthetic */ d bsS;
-    private final /* synthetic */ com.baidu.tieba.data.e bsT;
+    final /* synthetic */ d buq;
+    private final /* synthetic */ com.baidu.tieba.data.e bur;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar, com.baidu.tieba.data.e eVar) {
-        this.bsS = dVar;
-        this.bsT = eVar;
+        this.buq = dVar;
+        this.bur = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,22 +23,22 @@ public class e implements com.baidu.adp.lib.cache.u<byte[]> {
     public void onItemGet(String str, byte[] bArr) {
         Handler handler;
         if (bArr != null) {
-            this.bsT.as(true);
+            this.bur.au(true);
             try {
                 ForumRecommendResIdl forumRecommendResIdl = (ForumRecommendResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumRecommendResIdl.class);
                 if (forumRecommendResIdl.data != null && (forumRecommendResIdl.data instanceof DataRes)) {
-                    this.bsT.a(forumRecommendResIdl.data);
-                    this.bsT.bn(true);
+                    this.bur.a(forumRecommendResIdl.data);
+                    this.bur.bq(true);
                 }
             } catch (Exception e) {
-                this.bsT.as(false);
+                this.bur.au(false);
             }
-            if (this.bsT.isSuccess() && !this.bsT.Cg()) {
-                this.bsT.Ce().Cv();
+            if (this.bur.isSuccess() && !this.bur.CG()) {
+                this.bur.CE().CU();
             }
-            BdLog.d("EnterForumTask,TYPE_DB,data.isEmpty=" + this.bsT.isEmpty());
-            handler = this.bsS.mUIHandler;
-            handler.post(new f(this, this.bsT));
+            BdLog.d("EnterForumTask,TYPE_DB,data.isEmpty=" + this.bur.isEmpty());
+            handler = this.buq.mUIHandler;
+            handler.post(new f(this, this.bur));
         }
     }
 }

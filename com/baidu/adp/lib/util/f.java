@@ -14,20 +14,20 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes.dex */
 public class f {
-    private static f mH = null;
+    private static f mK = null;
 
-    public static f eW() {
+    public static f eV() {
         f fVar;
-        if (mH == null) {
+        if (mK == null) {
             synchronized (f.class) {
-                if (mH == null) {
-                    mH = new f();
+                if (mK == null) {
+                    mK = new f();
                 }
-                fVar = mH;
+                fVar = mK;
             }
             return fVar;
         }
-        return mH;
+        return mK;
     }
 
     public boolean a(String str, int i, h hVar) {
@@ -70,7 +70,7 @@ public class f {
                 }
             }
             if (sb.length() > 0) {
-                com.baidu.adp.lib.stats.f.es().a("so", "load_" + str + PluginInstallerService.APK_LIB_SUFFIX, "", "", -9101, sb.toString(), new Object[0]);
+                com.baidu.adp.lib.stats.f.eq().a("so", "load_" + str + PluginInstallerService.APK_LIB_SUFFIX, "", "", -9101, sb.toString(), new Object[0]);
             }
         }
         return z;

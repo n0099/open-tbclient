@@ -86,17 +86,17 @@ public class p implements com.baidu.adp.lib.voice.j {
     }
 
     @Override // com.baidu.adp.lib.voice.n
-    public void ac(int i) {
+    public void ah(int i) {
     }
 
     @Override // com.baidu.adp.lib.voice.j
-    public void ab(int i) {
+    public void ag(int i) {
         m playView;
         VoiceData.VoiceModel voiceModel;
         VoiceData.VoiceModel voiceModel2;
         playView = this.this$0.getPlayView();
         if (playView != null) {
-            playView.cn(i);
+            playView.cu(i);
         }
         voiceModel = this.this$0.mCurPlayModel;
         if (voiceModel != null) {

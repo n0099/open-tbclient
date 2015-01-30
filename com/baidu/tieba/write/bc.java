@@ -9,84 +9,113 @@ import com.baidu.tieba.tbadkCore.PbEditor.EditorToolComponetContainer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bc implements com.baidu.tbadk.editortool.w {
-    final /* synthetic */ WriteActivity cft;
+    final /* synthetic */ WriteActivity cgS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(WriteActivity writeActivity) {
-        this.cft = writeActivity;
+        this.cgS = writeActivity;
     }
 
     @Override // com.baidu.tbadk.editortool.w
     public void handleAction(int i, Object obj) {
-        EditorToolComponetContainer editorToolComponetContainer;
         WriteImagesInfo writeImagesInfo;
+        EditorToolComponetContainer editorToolComponetContainer;
+        EditorToolComponetContainer editorToolComponetContainer2;
         WriteImagesInfo writeImagesInfo2;
+        EditorToolComponetContainer editorToolComponetContainer3;
+        WriteImagesInfo writeImagesInfo3;
+        WriteImagesInfo writeImagesInfo4;
         String str;
         String str2;
         String str3;
         String str4;
-        boolean Fl;
+        boolean FJ;
         if (i == 38) {
-            this.cft.io(38);
+            this.cgS.it(38);
         } else if (i == 39) {
-            this.cft.akh();
+            this.cgS.akF();
         } else if (i == 2) {
-            this.cft.io(2);
+            this.cgS.it(2);
         } else if (i == 3) {
-            this.cft.akh();
+            this.cgS.akF();
+        } else if (i == 56) {
+            this.cgS.akF();
+        } else if (i == 59) {
+            this.cgS.akF();
         } else if (i == 0) {
-            Fl = this.cft.Fl();
-            if (Fl) {
-                this.cft.showToast(com.baidu.tieba.z.over_limit_tip);
+            FJ = this.cgS.FJ();
+            if (FJ) {
+                this.cgS.showToast(com.baidu.tieba.z.over_limit_tip);
             } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.cft.getPageContext().getPageActivity(), 12004, true)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.cgS.getPageContext().getPageActivity(), 12004, true)));
             }
         } else if (i == 8) {
-            this.cft.io(8);
+            this.cgS.it(8);
         } else if (i == 9) {
-            this.cft.akh();
+            this.cgS.akF();
         } else if (i == 4) {
-            str2 = this.cft.byI;
+            str2 = this.cgS.bAr;
             if (str2 != null) {
-                str3 = this.cft.byI;
+                str3 = this.cgS.bAr;
                 if (str3.length() > 0) {
-                    WriteActivity writeActivity = this.cft;
-                    str4 = this.cft.byI;
+                    WriteActivity writeActivity = this.cgS;
+                    str4 = this.cgS.bAr;
                     writeActivity.showToast(str4);
                 }
             }
         } else if (i == 5) {
-            this.cft.io(5);
+            this.cgS.it(5);
         } else if (i == 6) {
-            this.cft.akh();
+            this.cgS.akF();
         } else if (i == 22) {
-            writeImagesInfo = this.cft.writeImagesInfo;
-            int size = writeImagesInfo.size();
-            writeImagesInfo2 = this.cft.writeImagesInfo;
-            if (size < writeImagesInfo2.getMaxImagesAllowed()) {
-                this.cft.aAI = String.valueOf(System.currentTimeMillis());
-                TbPageContext pageContext = this.cft.getPageContext();
-                str = this.cft.aAI;
-                com.baidu.tbadk.core.util.aw.a(pageContext, str);
+            writeImagesInfo3 = this.cgS.writeImagesInfo;
+            int size = writeImagesInfo3.size();
+            writeImagesInfo4 = this.cgS.writeImagesInfo;
+            if (size < writeImagesInfo4.getMaxImagesAllowed()) {
+                this.cgS.aBK = String.valueOf(System.currentTimeMillis());
+                TbPageContext pageContext = this.cgS.getPageContext();
+                str = this.cgS.aBK;
+                com.baidu.tbadk.core.util.bb.a(pageContext, str);
                 return;
             }
-            this.cft.showToast(String.format(this.cft.getPageContext().getString(com.baidu.tieba.z.editor_mutiiamge_max), 10));
+            this.cgS.showToast(String.format(this.cgS.getPageContext().getString(com.baidu.tieba.z.editor_mutiiamge_max), 10));
         } else if (i != 23) {
             if (i == 44) {
-                this.cft.io(i);
+                this.cgS.it(i);
             } else if (i == 45) {
-                this.cft.akh();
+                this.cgS.akF();
             } else if (i != 48) {
                 if (i == 50) {
-                    editorToolComponetContainer = this.cft.bUs;
-                    if (editorToolComponetContainer.aft()) {
-                        this.cft.io(i);
+                    editorToolComponetContainer3 = this.cgS.bWk;
+                    if (editorToolComponetContainer3.afX()) {
+                        this.cgS.it(i);
                     }
                 } else if (i == 49) {
-                    this.cft.akh();
+                    this.cgS.akF();
+                } else if (i != 55 && i != 58) {
+                    if (i == 59) {
+                        this.cgS.it(i);
+                    } else if (i == 60) {
+                        this.cgS.it(60);
+                    } else if (i == 57) {
+                        writeImagesInfo = this.cgS.writeImagesInfo;
+                        if (writeImagesInfo != null) {
+                            writeImagesInfo2 = this.cgS.writeImagesInfo;
+                            if (writeImagesInfo2.size() > 0) {
+                                this.cgS.it(57);
+                                return;
+                            }
+                        }
+                        editorToolComponetContainer = this.cgS.bWk;
+                        if (editorToolComponetContainer.afN()) {
+                            editorToolComponetContainer2 = this.cgS.bWk;
+                            editorToolComponetContainer2.hideAll();
+                        }
+                        this.cgS.akL();
+                    }
                 }
             } else {
-                this.cft.iq(i);
+                this.cgS.iv(i);
             }
         }
     }

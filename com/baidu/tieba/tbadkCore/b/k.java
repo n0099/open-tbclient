@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
@@ -33,46 +33,46 @@ import tbclient.SubPostList;
 /* loaded from: classes.dex */
 public class k implements au {
     private String authorId;
-    private String bWP;
-    private ArrayList<k> bWR;
-    private ArrayList<k> bWT;
-    private int bWV;
-    private com.baidu.tbadk.data.a bWW;
-    private com.baidu.tbadk.data.d bWX;
+    private String bYI;
+    private ArrayList<k> bYK;
+    private ArrayList<k> bYM;
+    private int bYO;
+    private com.baidu.tbadk.data.a bYP;
+    private com.baidu.tbadk.data.d bYQ;
     private String bimg_url;
     private HashMap<String, MetaData> userMap;
-    private com.baidu.tbadk.widget.richText.a bWU = null;
+    private com.baidu.tbadk.widget.richText.a bYN = null;
     private String id = null;
     private String title = null;
-    private int bWO = 0;
+    private int bYH = 0;
     private long time = 0;
     private MetaData author = new MetaData();
-    private ArrayList<c> bqa = new ArrayList<>();
-    private ArrayList<c> bqG = new ArrayList<>();
-    private int bWQ = 0;
-    private int bWS = 0;
+    private ArrayList<c> bry = new ArrayList<>();
+    private ArrayList<c> bse = new ArrayList<>();
+    private int bYJ = 0;
+    private int bYL = 0;
 
     public k() {
-        this.bWR = null;
-        this.bWT = null;
-        this.bWR = new ArrayList<>();
-        this.bWT = new ArrayList<>();
+        this.bYK = null;
+        this.bYM = null;
+        this.bYK = new ArrayList<>();
+        this.bYM = new ArrayList<>();
     }
 
-    public ArrayList<k> agQ() {
-        return this.bWR;
+    public ArrayList<k> ahv() {
+        return this.bYK;
     }
 
-    public void agR() {
-        this.bWQ--;
+    public void ahw() {
+        this.bYJ--;
     }
 
-    public void hN(int i) {
-        this.bWQ = i;
+    public void hW(int i) {
+        this.bYJ = i;
     }
 
-    public ArrayList<k> agS() {
-        return this.bWT;
+    public ArrayList<k> ahx() {
+        return this.bYM;
     }
 
     public void setUserMap(HashMap<String, MetaData> hashMap) {
@@ -91,12 +91,12 @@ public class k implements au {
         this.title = str;
     }
 
-    public int agT() {
-        return this.bWO;
+    public int ahy() {
+        return this.bYH;
     }
 
-    public void hO(int i) {
-        this.bWO = i;
+    public void hX(int i) {
+        this.bYH = i;
     }
 
     public long getTime() {
@@ -115,38 +115,38 @@ public class k implements au {
         this.author = metaData;
     }
 
-    public com.baidu.tbadk.widget.richText.a agU() {
-        return this.bWU;
+    public com.baidu.tbadk.widget.richText.a ahz() {
+        return this.bYN;
     }
 
     public String getBimg_url() {
         return this.bimg_url;
     }
 
-    public com.baidu.tbadk.data.a agV() {
-        return this.bWW;
+    public com.baidu.tbadk.data.a ahA() {
+        return this.bYP;
     }
 
-    public com.baidu.tbadk.data.d agW() {
-        return this.bWX;
+    public com.baidu.tbadk.data.d ahB() {
+        return this.bYQ;
     }
 
     public void a(TbPageContext<?> tbPageContext, boolean z) {
         String str;
         SpannableString spannableString;
         String str2;
-        if (tbPageContext != null && this.bWU != null && this.bWU.zL() != null) {
+        if (tbPageContext != null && this.bYN != null && this.bYN.Af() != null) {
             ArrayList<IconData> tShowInfo = getAuthor().getTShowInfo();
             if (tShowInfo != null) {
                 tShowInfo.size();
             }
             String str3 = z ? " [host]" : "";
-            int b = com.baidu.adp.lib.util.l.b(tbPageContext.getPageActivity(), 15.0f);
+            int dimensionPixelSize = tbPageContext.getPageActivity().getResources().getDimensionPixelSize(u.ds36);
             ArrayList arrayList = new ArrayList();
             if (tShowInfo != null) {
                 Iterator<IconData> it = tShowInfo.iterator();
                 while (it.hasNext()) {
-                    com.baidu.tbadk.widget.m mVar = new com.baidu.tbadk.widget.m(new l(this, it.next(), tbPageContext), v.pic_image_h_not, 1);
+                    com.baidu.tbadk.widget.m mVar = new com.baidu.tbadk.widget.m(new l(this, it.next(), tbPageContext), 0, 1);
                     mVar.e(0, 0, TbadkCoreApplication.m255getInst().getApp().getResources().getDimensionPixelSize(u.small_icon_width), TbadkCoreApplication.m255getInst().getApp().getResources().getDimensionPixelSize(u.small_icon_height));
                     arrayList.add(mVar);
                 }
@@ -175,11 +175,11 @@ public class k implements au {
             n nVar = new n(this, tbPageContext.getPageActivity(), str, str2);
             if (z) {
                 TbadkCoreApplication.m255getInst().getSkinType();
-                Bitmap bX = ax.bX(v.icon_floorhost);
-                if (bX != null) {
-                    int width = (bX.getWidth() * b) / bX.getHeight();
-                    BitmapDrawable bitmapDrawable = new BitmapDrawable(bX);
-                    bitmapDrawable.setBounds(0, 0, width, b);
+                Bitmap ce = bc.ce(v.icon_floorhost);
+                if (ce != null) {
+                    int width = (ce.getWidth() * dimensionPixelSize) / ce.getHeight();
+                    BitmapDrawable bitmapDrawable = new BitmapDrawable(ce);
+                    bitmapDrawable.setBounds(0, 0, width, dimensionPixelSize);
                     ImageSpan imageSpan = new ImageSpan(bitmapDrawable, 1);
                     if (this.author != null) {
                         spannableString.setSpan(imageSpan, sb2.length() + this.author.getName_show().length() + 1, str3.length() + sb2.length() + this.author.getName_show().length(), 17);
@@ -189,66 +189,66 @@ public class k implements au {
                 }
             }
             spannableString.setSpan(nVar, 0, length, 18);
-            ArrayList<com.baidu.tbadk.widget.richText.c> zL = this.bWU.zL();
-            if (zL != null && zL.size() > 0) {
-                com.baidu.tbadk.widget.richText.c cVar = zL.get(0);
-                if (cVar.zR() != null) {
-                    cVar.dX(sb.length());
-                    cVar.zR().insert(0, (CharSequence) spannableString);
+            ArrayList<com.baidu.tbadk.widget.richText.c> Af = this.bYN.Af();
+            if (Af != null && Af.size() > 0) {
+                com.baidu.tbadk.widget.richText.c cVar = Af.get(0);
+                if (cVar.Al() != null) {
+                    cVar.ed(sb.length());
+                    cVar.Al().insert(0, (CharSequence) spannableString);
                     return;
                 }
                 com.baidu.tbadk.widget.richText.c cVar2 = new com.baidu.tbadk.widget.richText.c(768);
-                cVar2.dX(sb.length());
+                cVar2.ed(sb.length());
                 cVar2.append(spannableString);
                 int i3 = 0;
                 while (true) {
                     int i4 = i3;
-                    if (i4 < zL.size()) {
-                        if (zL.get(i4).getType() != 512) {
+                    if (i4 < Af.size()) {
+                        if (Af.get(i4).getType() != 512) {
                             i3 = i4 + 1;
                         } else {
-                            cVar2.a(zL.get(i4).zS());
-                            zL.remove(i4);
+                            cVar2.a(Af.get(i4).Am());
+                            Af.remove(i4);
                             break;
                         }
                     } else {
                         break;
                     }
                 }
-                zL.add(0, cVar2);
+                Af.add(0, cVar2);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Drawable f(com.baidu.adp.widget.a.a aVar) {
-        Bitmap ji;
-        if (aVar == null || (ji = aVar.ji()) == null) {
+        Bitmap jj;
+        if (aVar == null || (jj = aVar.jj()) == null) {
             return null;
         }
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(ji);
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(jj);
         bitmapDrawable.setBounds(0, 0, TbadkCoreApplication.m255getInst().getApp().getApplicationContext().getResources().getDimensionPixelSize(u.small_icon_width), TbadkCoreApplication.m255getInst().getApp().getApplicationContext().getResources().getDimensionPixelSize(u.small_icon_height));
         return bitmapDrawable;
     }
 
-    public int agX() {
-        return this.bWQ;
+    public int ahC() {
+        return this.bYJ;
     }
 
-    public int agY() {
-        return this.bWS;
+    public int ahD() {
+        return this.bYL;
     }
 
-    public void ax(Context context) {
+    public void ay(Context context) {
         int type;
         int i;
         int i2;
-        if (this.bqa != null) {
+        if (this.bry != null) {
             int i3 = -1;
-            int size = this.bqG.size();
+            int size = this.bse.size();
             if (size > 0) {
                 try {
-                    i3 = this.bqG.get(size - 1).getType();
+                    i3 = this.bse.get(size - 1).getType();
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     return;
@@ -256,21 +256,21 @@ public class k implements au {
             }
             int i4 = 0;
             int i5 = i3;
-            while (i4 < this.bqa.size()) {
-                c cVar = this.bqa.get(i4);
-                if (c.ac(i5, cVar.getType())) {
-                    this.bqG.get(size - 1).a(cVar.av(context));
+            while (i4 < this.bry.size()) {
+                c cVar = this.bry.get(i4);
+                if (c.ad(i5, cVar.getType())) {
+                    this.bse.get(size - 1).a(cVar.aw(context));
                     i2 = size;
                     i = i5;
                 } else {
                     if (cVar.getType() == 3 || cVar.getType() == 2 || cVar.getType() == 11) {
-                        this.bqG.add(cVar);
+                        this.bse.add(cVar);
                         type = cVar.getType();
                     } else {
                         c cVar2 = new c();
                         cVar2.setType(0);
-                        cVar2.a(cVar.av(context));
-                        this.bqG.add(cVar2);
+                        cVar2.a(cVar.aw(context));
+                        this.bse.add(cVar2);
                         type = 0;
                     }
                     i = type;
@@ -283,26 +283,26 @@ public class k implements au {
         }
     }
 
-    public void ay(Context context) {
+    public void az(Context context) {
         try {
-            if (this.bWU != null) {
+            if (this.bYN != null) {
                 ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService("clipboard");
-                clipboardManager.setText(this.bWU.toString());
+                clipboardManager.setText(this.bYN.toString());
                 clipboardManager.getText();
                 return;
             }
-            if (this.bqG == null || this.bqG.size() == 0) {
-                ax(context);
+            if (this.bse == null || this.bse.size() == 0) {
+                ay(context);
             }
-            ArrayList<c> arrayList = this.bqG;
+            ArrayList<c> arrayList = this.bse;
             if (arrayList != null) {
                 StringBuilder sb = new StringBuilder();
                 Iterator<c> it = arrayList.iterator();
                 while (it.hasNext()) {
                     c next = it.next();
                     if (next.getType() == 0) {
-                        if (next.agv() != null) {
-                            sb.append((CharSequence) next.agv());
+                        if (next.aha() != null) {
+                            sb.append((CharSequence) next.aha());
                         }
                     } else if (next.getType() == 3) {
                         if (next.getLink() != null) {
@@ -311,14 +311,14 @@ public class k implements au {
                     } else if (next.getType() == 6) {
                         sb.append(context.getString(z.voice_str));
                     } else if (next.getType() == 2) {
-                        String eb = TbFaceManager.vK().eb(next.getText());
+                        String eb = TbFaceManager.wd().eb(next.getText());
                         if (eb != null) {
                             sb.append("[");
                             sb.append(eb);
                             sb.append("]");
                         }
-                    } else if (next.getType() == 11 && !ba.isEmpty(next.agu())) {
-                        sb.append("[").append(next.agu()).append("]");
+                    } else if (next.getType() == 11 && !bf.isEmpty(next.agZ())) {
+                        sb.append("[").append(next.agZ()).append("]");
                     }
                 }
                 ClipboardManager clipboardManager2 = (ClipboardManager) context.getSystemService("clipboard");
@@ -340,7 +340,7 @@ public class k implements au {
             try {
                 this.id = String.valueOf(subPostList.id);
                 this.title = subPostList.title;
-                this.bWO = subPostList.floor.intValue();
+                this.bYH = subPostList.floor.intValue();
                 this.time = subPostList.time.intValue() * 1000;
                 this.authorId = String.valueOf(subPostList.author_id);
                 MetaData metaData2 = new MetaData();
@@ -351,7 +351,7 @@ public class k implements au {
                 if ((this.author.getUserId() == null || this.author.getUserId().length() <= 0 || this.author.getUserId().equals("0")) && metaData2 != null) {
                     this.author = metaData2;
                 }
-                this.bWU = TbRichTextView.a(context, subPostList.content, z);
+                this.bYN = TbRichTextView.a(context, subPostList.content, z);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -363,9 +363,9 @@ public class k implements au {
             try {
                 this.id = String.valueOf(post.id);
                 this.title = post.title;
-                this.bWO = post.floor.intValue();
+                this.bYH = post.floor.intValue();
                 this.time = post.time.intValue() * 1000;
-                this.bWP = post.time_ex;
+                this.bYI = post.time_ex;
                 this.authorId = String.valueOf(post.author_id);
                 if (this.authorId != null && this.authorId.length() > 0 && !this.authorId.equals("0")) {
                     MetaData metaData = this.userMap.get(this.authorId);
@@ -375,9 +375,9 @@ public class k implements au {
                 } else {
                     this.author.parserProtobuf(post.author);
                 }
-                this.bWQ = post.sub_post_number.intValue();
-                this.bWS = post.add_post_number.intValue();
-                this.bWU = TbRichTextView.a(context, post.content, true);
+                this.bYJ = post.sub_post_number.intValue();
+                this.bYL = post.add_post_number.intValue();
+                this.bYN = TbRichTextView.a(context, post.content, true);
                 SubPost subPost = post.sub_post_list;
                 if (subPost != null) {
                     List<SubPostList> list = subPost.sub_post_list;
@@ -386,7 +386,7 @@ public class k implements au {
                             k kVar = new k();
                             kVar.setUserMap(this.userMap);
                             kVar.a(list.get(i), context);
-                            this.bWR.add(kVar);
+                            this.bYK.add(kVar);
                         }
                     }
                 }
@@ -398,23 +398,23 @@ public class k implements au {
                             k kVar2 = new k();
                             kVar2.setUserMap(this.userMap);
                             kVar2.a(subPostList, context);
-                            this.bWT.add(kVar2);
+                            this.bYM.add(kVar2);
                         }
                     }
                 }
                 this.bimg_url = post.bimg_url;
-                if (this.bWT.size() >= 5) {
-                    this.bWV = 5;
+                if (this.bYM.size() >= 5) {
+                    this.bYO = 5;
                 } else {
-                    this.bWV = this.bWT.size();
+                    this.bYO = this.bYM.size();
                 }
                 if (post.tail_info != null) {
-                    this.bWW = new com.baidu.tbadk.data.a();
-                    this.bWW.a(post.tail_info);
+                    this.bYP = new com.baidu.tbadk.data.a();
+                    this.bYP.a(post.tail_info);
                 }
                 if (post.lbs_info != null) {
-                    this.bWX = new com.baidu.tbadk.data.d();
-                    this.bWX.a(post.lbs_info);
+                    this.bYQ = new com.baidu.tbadk.data.d();
+                    this.bYQ.a(post.lbs_info);
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -422,19 +422,19 @@ public class k implements au {
         }
     }
 
-    public String az(Context context) {
-        ArrayList<com.baidu.tbadk.widget.richText.c> zL;
-        if (this.bWU == null || (zL = this.bWU.zL()) == null) {
+    public String aA(Context context) {
+        ArrayList<com.baidu.tbadk.widget.richText.c> Af;
+        if (this.bYN == null || (Af = this.bYN.Af()) == null) {
             return "";
         }
         StringBuffer stringBuffer = new StringBuffer();
-        Iterator<com.baidu.tbadk.widget.richText.c> it = zL.iterator();
+        Iterator<com.baidu.tbadk.widget.richText.c> it = Af.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.widget.richText.c next = it.next();
             if (next.getType() == 1) {
-                stringBuffer.append(next.zR().toString());
+                stringBuffer.append(next.Al().toString());
             } else if (next.getType() == 17) {
-                String str = next.zU().ZO.Zo;
+                String str = next.Ao().aap.ZP;
                 if (str != null && str.startsWith("#(") && str.endsWith(")")) {
                     stringBuffer.append("[" + str.substring(2, str.length() - 1) + "]");
                 }
@@ -449,26 +449,26 @@ public class k implements au {
         return stringBuffer.toString();
     }
 
-    public int agZ() {
-        return this.bWV;
+    public int ahE() {
+        return this.bYO;
     }
 
-    public void hP(int i) {
-        this.bWV = i;
+    public void hY(int i) {
+        this.bYO = i;
     }
 
-    public at aha() {
-        ArrayList<com.baidu.tbadk.widget.richText.c> zL;
-        if (this.bWU != null && (zL = this.bWU.zL()) != null) {
-            Iterator<com.baidu.tbadk.widget.richText.c> it = zL.iterator();
+    public at ahF() {
+        ArrayList<com.baidu.tbadk.widget.richText.c> Af;
+        if (this.bYN != null && (Af = this.bYN.Af()) != null) {
+            Iterator<com.baidu.tbadk.widget.richText.c> it = Af.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.widget.richText.c next = it.next();
                 if (next.getType() == 8) {
                     at atVar = new at();
-                    atVar.width = next.zQ().getWidth();
-                    atVar.height = next.zQ().getHeight();
-                    atVar.imgUrl = next.zQ().zY();
-                    atVar.Jd = 17;
+                    atVar.width = next.Ak().getWidth();
+                    atVar.height = next.Ak().getHeight();
+                    atVar.Fa = next.Ak().As();
+                    atVar.Jn = 17;
                     return atVar;
                 }
             }
@@ -479,64 +479,58 @@ public class k implements au {
 
     @Override // com.baidu.tbadk.core.util.au
     public ArrayList<at> getImages() {
-        ArrayList<com.baidu.tbadk.widget.richText.c> zL;
-        if (this.bWU == null || (zL = this.bWU.zL()) == null) {
+        ArrayList<com.baidu.tbadk.widget.richText.c> Af;
+        if (this.bYN == null || (Af = this.bYN.Af()) == null) {
             return null;
         }
         ArrayList<at> arrayList = new ArrayList<>();
-        Iterator<com.baidu.tbadk.widget.richText.c> it = zL.iterator();
+        Iterator<com.baidu.tbadk.widget.richText.c> it = Af.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.widget.richText.c next = it.next();
             if (next.getType() == 8) {
                 at atVar = new at();
-                atVar.width = next.zQ().getWidth();
-                atVar.height = next.zQ().getHeight();
-                atVar.imgUrl = next.zQ().zY();
-                atVar.Jd = 17;
+                atVar.width = next.Ak().getWidth();
+                atVar.height = next.Ak().getHeight();
+                atVar.Fa = next.Ak().As();
+                atVar.Jn = 17;
                 arrayList.add(atVar);
-            } else if (next.zU() != null) {
+            } else if (next.Ao() != null) {
                 at atVar2 = new at();
-                atVar2.width = next.zU().ZO.Zs;
-                atVar2.height = next.zU().ZO.Zt;
-                atVar2.Je = next.zU();
-                atVar2.Jd = 20;
+                atVar2.width = next.Ao().aap.ZT;
+                atVar2.height = next.Ao().aap.ZU;
+                atVar2.Jo = next.Ao();
+                atVar2.Jn = 20;
                 arrayList.add(atVar2);
             }
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.bWV) {
+            if (i2 >= this.bYO) {
                 break;
             }
-            arrayList.addAll(this.bWT.get(i2).getImages());
+            arrayList.addAll(this.bYM.get(i2).getImages());
             i = i2 + 1;
         }
         if (!TextUtils.isEmpty(this.bimg_url)) {
             at atVar3 = new at();
-            atVar3.imgUrl = this.bimg_url;
+            atVar3.Fa = this.bimg_url;
             atVar3.width = 105;
             atVar3.width = 105;
-            atVar3.Jd = 19;
+            atVar3.Jn = 19;
             arrayList.add(atVar3);
         }
         if (this.author == null) {
             return arrayList;
         }
         at atVar4 = new at();
-        atVar4.imgUrl = this.author.getPortrait();
-        atVar4.Jd = 12;
+        atVar4.Fa = this.author.getPortrait();
+        atVar4.Jn = 28;
         arrayList.add(atVar4);
-        if (this.bWR != null) {
-            Iterator<k> it2 = this.bWR.iterator();
+        if (this.bYM != null) {
+            Iterator<k> it2 = this.bYM.iterator();
             while (it2.hasNext()) {
                 arrayList.addAll(it2.next().getImages());
-            }
-        }
-        if (this.bWT != null) {
-            Iterator<k> it3 = this.bWT.iterator();
-            while (it3.hasNext()) {
-                arrayList.addAll(it3.next().getImages());
             }
         }
         return arrayList;

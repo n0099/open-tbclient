@@ -17,50 +17,50 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes.dex */
 public class f implements Executor {
-    private volatile int gT = 0;
-    private volatile int gU = 0;
     private volatile int gV = 0;
     private volatile int gW = 0;
-    private final SparseIntArray gX = new SparseIntArray();
-    private final LinkedList<j> gY = new LinkedList<>();
-    private final LinkedList<j> gZ = new LinkedList<>();
+    private volatile int gX = 0;
+    private volatile int gY = 0;
+    private final SparseIntArray gZ = new SparseIntArray();
     private final LinkedList<j> ha = new LinkedList<>();
-    private HandlerThread hb;
+    private final LinkedList<j> hb = new LinkedList<>();
+    private final LinkedList<j> hc = new LinkedList<>();
+    private HandlerThread hd;
     private Handler mHandler;
-    private static f gS = null;
+    private static f gU = null;
     private static final ThreadFactory sThreadFactory = new g();
     private static final BlockingQueue<Runnable> sPoolWorkQueue = new SynchronousQueue();
     public static final Executor THREAD_POOL_EXECUTOR = new ThreadPoolExecutor(7, 256, 30, TimeUnit.SECONDS, sPoolWorkQueue, sThreadFactory, new ThreadPoolExecutor.DiscardPolicy());
 
     f() {
-        this.hb = null;
+        this.hd = null;
         this.mHandler = null;
-        this.hb = new HandlerThread("BdAsyncTaskExecutor");
-        this.hb.start();
-        this.mHandler = new h(this, this.hb.getLooper());
+        this.hd = new HandlerThread("BdAsyncTaskExecutor");
+        this.hd.start();
+        this.mHandler = new h(this, this.hd.getLooper());
     }
 
     public String toString() {
-        return "mWaitingTasks = " + this.gY.size() + " mRunningTasks = " + this.gZ.size() + " mTimeOutTasks = " + this.ha.size();
+        return "mWaitingTasks = " + this.ha.size() + " mRunningTasks = " + this.hb.size() + " mTimeOutTasks = " + this.hc.size();
     }
 
-    public String cu() {
-        return String.valueOf(this.gY.size()) + "/" + this.gZ.size() + "/" + this.ha.size();
+    public String cs() {
+        return String.valueOf(this.ha.size()) + "/" + this.hb.size() + "/" + this.hc.size();
     }
 
-    public static void cv() {
-        gS = null;
+    public static void ct() {
+        gU = null;
     }
 
-    public static f cw() {
-        if (gS == null) {
+    public static f cu() {
+        if (gU == null) {
             synchronized (f.class) {
-                if (gS == null) {
-                    gS = new f();
+                if (gU == null) {
+                    gU = new f();
                 }
             }
         }
-        return gS;
+        return gU;
     }
 
     @Override // java.util.concurrent.Executor
@@ -79,12 +79,12 @@ public class f implements Executor {
 
     private synchronized void a(j jVar) {
         if (jVar != null) {
-            int size = this.gY.size();
+            int size = this.ha.size();
             int i = 0;
-            while (i < size && this.gY.get(i).getPriority() >= jVar.getPriority()) {
+            while (i < size && this.ha.get(i).getPriority() >= jVar.getPriority()) {
                 i++;
             }
-            this.gY.add(i, jVar);
+            this.ha.add(i, jVar);
         }
     }
 
@@ -94,9 +94,9 @@ public class f implements Executor {
         c(jVar);
         if (!jVar.isCancelled()) {
             jVar.setTimeout(true);
-            this.ha.add(jVar);
-            if (this.ha.size() > 242 && (poll = this.ha.poll()) != null) {
-                poll.ct();
+            this.hc.add(jVar);
+            if (this.hc.size() > 242 && (poll = this.hc.poll()) != null) {
+                poll.cr();
             }
         } else {
             BdLog.e("task TimeOut but it's cancelled()");
@@ -106,32 +106,32 @@ public class f implements Executor {
 
     private synchronized void c(j jVar) {
         if (jVar != null) {
-            if (jVar.cz()) {
-                this.ha.remove(jVar);
+            if (jVar.cx()) {
+                this.hc.remove(jVar);
             } else {
-                this.gZ.remove(jVar);
+                this.hb.remove(jVar);
                 this.mHandler.removeMessages(1, jVar);
                 switch (jVar.getPriority()) {
                     case 1:
-                        this.gW--;
+                        this.gY--;
                         break;
                     case 2:
-                        this.gV--;
+                        this.gX--;
                         break;
                     case 3:
-                        this.gU--;
+                        this.gW--;
                         break;
                     case 4:
-                        this.gT--;
+                        this.gV--;
                         break;
                 }
-                int cA = jVar.cA();
-                if (cA != 0) {
-                    int i = this.gX.get(cA) - 1;
+                int cy = jVar.cy();
+                if (cy != 0) {
+                    int i = this.gZ.get(cy) - 1;
                     if (i <= 0) {
-                        this.gX.delete(cA);
+                        this.gZ.delete(cy);
                     } else {
-                        this.gX.put(cA, i);
+                        this.gZ.put(cy, i);
                     }
                     if (i < 0) {
                         BdLog.e("removeTask error < 0");
@@ -143,31 +143,31 @@ public class f implements Executor {
 
     private synchronized void d(j jVar) {
         if (jVar != null) {
-            this.gZ.add(jVar);
-            this.gY.remove(jVar);
+            this.hb.add(jVar);
+            this.ha.remove(jVar);
             THREAD_POOL_EXECUTOR.execute(jVar);
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1, jVar), 180000L);
             switch (jVar.getPriority()) {
                 case 1:
-                    this.gW++;
+                    this.gY++;
                     break;
                 case 2:
-                    this.gV++;
+                    this.gX++;
                     break;
                 case 3:
-                    this.gU++;
+                    this.gW++;
                     break;
                 case 4:
-                    this.gT++;
-                    if (this.gT >= 7) {
-                        BdLog.e("SuperHight Task too much num = " + this.gT);
+                    this.gV++;
+                    if (this.gV >= 7) {
+                        BdLog.e("SuperHight Task too much num = " + this.gV);
                         break;
                     }
                     break;
             }
-            int cA = jVar.cA();
-            if (cA != 0) {
-                this.gX.put(cA, this.gX.get(cA, 0) + 1);
+            int cy = jVar.cy();
+            if (cy != 0) {
+                this.gZ.put(cy, this.gZ.get(cy, 0) + 1);
             }
         }
     }
@@ -176,8 +176,8 @@ public class f implements Executor {
         if (jVar == null) {
             return false;
         }
-        BdAsyncTaskParallel.BdAsyncTaskParallelType cB = jVar.cB();
-        return cB == BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL ? i < 1 : cB == BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL ? i < 2 : cB == BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL ? i < 3 : cB == BdAsyncTaskParallel.BdAsyncTaskParallelType.FOUR_PARALLEL ? i < 4 : cB != BdAsyncTaskParallel.BdAsyncTaskParallelType.CUSTOM_PARALLEL || i < jVar.cC();
+        BdAsyncTaskParallel.BdAsyncTaskParallelType cz = jVar.cz();
+        return cz == BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL ? i < 1 : cz == BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL ? i < 2 : cz == BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL ? i < 3 : cz == BdAsyncTaskParallel.BdAsyncTaskParallelType.FOUR_PARALLEL ? i < 4 : cz != BdAsyncTaskParallel.BdAsyncTaskParallelType.CUSTOM_PARALLEL || i < jVar.cA();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -186,33 +186,33 @@ public class f implements Executor {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.gY.size()) {
-                j jVar2 = this.gY.get(i2);
-                int cA = jVar2.cA();
+            if (i2 < this.ha.size()) {
+                j jVar2 = this.ha.get(i2);
+                int cy = jVar2.cy();
                 switch (jVar2.getPriority()) {
                     case 1:
-                        if (this.gU + this.gV + this.gW >= 5) {
+                        if (this.gW + this.gX + this.gY >= 5) {
                             break;
                         }
                         break;
                     case 2:
-                        if (this.gU + this.gV + this.gW >= 6) {
+                        if (this.gW + this.gX + this.gY >= 6) {
                             break;
                         }
                         break;
                     case 3:
-                        if (this.gU + this.gV + this.gW >= 7) {
+                        if (this.gW + this.gX + this.gY >= 7) {
                             break;
                         }
                         break;
                     case 4:
-                        if (cA == 0) {
+                        if (cy == 0) {
                             d(jVar2);
                             break;
                         }
                         break;
                 }
-                if (!a(this.gX.get(cA), jVar2)) {
+                if (!a(this.gZ.get(cy), jVar2)) {
                     i = i2 + 1;
                 } else {
                     d(jVar2);
@@ -227,8 +227,8 @@ public class f implements Executor {
 
     public synchronized void removeAllTask(BdUniqueId bdUniqueId, String str) {
         removeAllWaitingTask(bdUniqueId, str);
-        a(this.gZ, false, bdUniqueId, str);
-        a(this.ha, false, bdUniqueId, str);
+        a(this.hb, false, bdUniqueId, str);
+        a(this.hc, false, bdUniqueId, str);
     }
 
     public synchronized void removeAllWaitingTask(BdUniqueId bdUniqueId) {
@@ -236,7 +236,7 @@ public class f implements Executor {
     }
 
     public synchronized void removeAllWaitingTask(BdUniqueId bdUniqueId, String str) {
-        a(this.gY, true, bdUniqueId, str);
+        a(this.ha, true, bdUniqueId, str);
     }
 
     private synchronized void a(LinkedList<j> linkedList, boolean z, BdUniqueId bdUniqueId, String str) {
@@ -251,7 +251,7 @@ public class f implements Executor {
                     if (z) {
                         it.remove();
                     }
-                    next.ct();
+                    next.cr();
                 }
             }
         }
@@ -264,20 +264,20 @@ public class f implements Executor {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void a(BdAsyncTask<?, ?, ?> bdAsyncTask) {
-        Iterator<j> it = this.gY.iterator();
+        Iterator<j> it = this.ha.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
             j next = it.next();
-            if (next != null && next.cy() == bdAsyncTask) {
+            if (next != null && next.cw() == bdAsyncTask) {
                 break;
             }
         }
     }
 
     public int getTaskNum(String str, BdUniqueId bdUniqueId) {
-        return a(this.gY, str, bdUniqueId) + a(this.gZ, str, bdUniqueId) + a(this.ha, str, bdUniqueId);
+        return a(this.ha, str, bdUniqueId) + a(this.hb, str, bdUniqueId) + a(this.hc, str, bdUniqueId);
     }
 
     private synchronized int a(LinkedList<j> linkedList, String str, BdUniqueId bdUniqueId) {
@@ -292,7 +292,7 @@ public class f implements Executor {
                     int tag = next.getTag();
                     String key = next.getKey();
                     if ((str != null && tag == id && str.equals(key)) || (str == null && id != 0 && tag == id)) {
-                        if (next.cy() != null && !next.cy().isCancelled()) {
+                        if (next.cw() != null && !next.cw().isCancelled()) {
                             i2++;
                         }
                     }
@@ -305,12 +305,12 @@ public class f implements Executor {
 
     public synchronized BdAsyncTask<?, ?, ?> searchTask(String str) {
         BdAsyncTask<?, ?, ?> a;
-        a = a(this.gY, str);
+        a = a(this.ha, str);
         if (a == null) {
-            a = a(this.gZ, str);
+            a = a(this.hb, str);
         }
         if (a == null) {
-            a = a(this.ha, str);
+            a = a(this.hc, str);
         }
         return a;
     }
@@ -322,15 +322,15 @@ public class f implements Executor {
     public synchronized LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask(BdUniqueId bdUniqueId, String str) {
         LinkedList<BdAsyncTask<?, ?, ?>> linkedList;
         linkedList = new LinkedList<>();
-        LinkedList<BdAsyncTask<?, ?, ?>> a = a(this.gY, bdUniqueId, str);
+        LinkedList<BdAsyncTask<?, ?, ?>> a = a(this.ha, bdUniqueId, str);
         if (a != null) {
             linkedList.addAll(a);
         }
-        LinkedList<BdAsyncTask<?, ?, ?>> a2 = a(this.gZ, bdUniqueId, str);
+        LinkedList<BdAsyncTask<?, ?, ?>> a2 = a(this.hb, bdUniqueId, str);
         if (a2 != null) {
             linkedList.addAll(a2);
         }
-        LinkedList<BdAsyncTask<?, ?, ?>> a3 = a(this.ha, bdUniqueId, str);
+        LinkedList<BdAsyncTask<?, ?, ?>> a3 = a(this.hc, bdUniqueId, str);
         if (a3 != null) {
             linkedList.addAll(a3);
         }
@@ -338,13 +338,13 @@ public class f implements Executor {
     }
 
     public synchronized BdAsyncTask<?, ?, ?> searchWaitingTask(String str) {
-        return a(this.gY, str);
+        return a(this.ha, str);
     }
 
     public synchronized LinkedList<BdAsyncTask<?, ?, ?>> searchWaitingTask(BdUniqueId bdUniqueId) {
         LinkedList<BdAsyncTask<?, ?, ?>> linkedList;
         linkedList = new LinkedList<>();
-        LinkedList<BdAsyncTask<?, ?, ?>> a = a(this.gY, bdUniqueId, (String) null);
+        LinkedList<BdAsyncTask<?, ?, ?>> a = a(this.ha, bdUniqueId, (String) null);
         if (a != null) {
             linkedList.addAll(a);
         }
@@ -352,11 +352,11 @@ public class f implements Executor {
     }
 
     public synchronized BdAsyncTask<?, ?, ?> searchActivTask(String str) {
-        return a(this.gZ, str);
+        return a(this.hb, str);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:19:0x0031, code lost:
-        r0 = r0.cy();
+        r0 = r0.cw();
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -372,7 +372,7 @@ public class f implements Executor {
                 }
                 j next = it.next();
                 String key = next.getKey();
-                if (key != null && key.equals(str) && !next.cy().isCancelled()) {
+                if (key != null && key.equals(str) && !next.cw().isCancelled()) {
                     break;
                 }
             }
@@ -395,8 +395,8 @@ public class f implements Executor {
                 int tag = next.getTag();
                 String key = next.getKey();
                 if ((str != null && tag == id && str.equals(key)) || (str == null && id != 0 && tag == id)) {
-                    if (next.cy() != null && !next.cy().isCancelled()) {
-                        linkedList3.add(next.cy());
+                    if (next.cw() != null && !next.cw().isCancelled()) {
+                        linkedList3.add(next.cw());
                     }
                 }
             }

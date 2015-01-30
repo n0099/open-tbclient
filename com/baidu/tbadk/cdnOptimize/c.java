@@ -45,7 +45,7 @@ class c extends CustomMessageListener {
                 if (fVar != null) {
                     String str3 = fVar.cdnIp;
                     boolean z = fVar.isSuccess;
-                    long j = fVar.vx;
+                    long j = fVar.vD;
                     String valueOf = String.valueOf(j);
                     str = fVar.BH;
                     if (str != null) {

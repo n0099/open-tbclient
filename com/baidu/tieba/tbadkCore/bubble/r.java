@@ -4,17 +4,17 @@ import com.baidu.tbadk.BaseActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements Runnable {
-    private final /* synthetic */ BaseActivity aZC;
-    private final /* synthetic */ boolean bVZ;
+    private final /* synthetic */ boolean bXR;
+    private final /* synthetic */ BaseActivity baZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(BaseActivity baseActivity, boolean z) {
-        this.aZC = baseActivity;
-        this.bVZ = z;
+        this.baZ = baseActivity;
+        this.bXR = z;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        m.a(this.aZC.getPageContext().getPageActivity(), this.bVZ);
+        m.a(this.baZ.getPageContext().getPageActivity(), this.bXR);
     }
 }

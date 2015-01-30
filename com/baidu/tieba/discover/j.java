@@ -8,21 +8,21 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ a asV;
+    final /* synthetic */ a auc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(a aVar) {
-        this.asV = aVar;
+        this.auc = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
         TbadkApplication.getInst().setLocationShared(true);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2902001, new com.baidu.tbadk.core.frameworkData.a(this.asV.getPageContext().getPageActivity())));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2902001, new com.baidu.tbadk.core.frameworkData.a(this.auc.getPageContext().getPageActivity())));
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
         httpMessage.addParam("opt", "location");
         httpMessage.addParam("val", String.valueOf(1));
-        this.asV.sendMessage(httpMessage);
+        this.auc.sendMessage(httpMessage);
     }
 }

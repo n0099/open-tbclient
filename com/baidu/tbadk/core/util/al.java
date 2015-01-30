@@ -11,43 +11,43 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class al {
-    private static final String[] IO = {"/c/s/pv", "/c/f/pb/page", "/c/s/msg", "/c/f/pb/floor", "/c/m/getmsg", "/c/u/feed/replyme", "/c/f/forum/search", "/c/f/frs/page", "/c/f/forum/favocommend", "/c/u/user/profile"};
-    private static List<Integer> IP = new LinkedList();
-    private static al IQ;
-    private static am IR;
+    private static final String[] IY = {"/c/s/pv", "/c/f/pb/page", "/c/s/msg", "/c/f/pb/floor", "/c/m/getmsg", "/c/u/feed/replyme", "/c/f/forum/search", "/c/f/frs/page", "/c/f/forum/favocommend", "/c/u/user/profile"};
+    private static List<Integer> IZ = new LinkedList();
+    private static al Ja;
+    private static am Jb;
 
     private al() {
-        IR = new am(this, null);
+        Jb = new am(this, null);
         try {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            TbadkCoreApplication.m255getInst().getApp().registerReceiver(IR, intentFilter);
+            TbadkCoreApplication.m255getInst().getApp().registerReceiver(Jb, intentFilter);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
         }
     }
 
-    private static synchronized void pk() {
+    private static synchronized void pn() {
         synchronized (al.class) {
-            if (IQ == null) {
-                IQ = new al();
+            if (Ja == null) {
+                Ja = new al();
             }
         }
     }
 
-    public static al pl() {
-        if (IQ == null) {
-            pk();
+    public static al po() {
+        if (Ja == null) {
+            pn();
         }
-        return IQ;
+        return Ja;
     }
 
-    public static int cC(String str) {
-        if (ba.isEmpty(str)) {
+    public static int cA(String str) {
+        if (bf.isEmpty(str)) {
             return -1;
         }
-        for (int i = 0; i < IO.length; i++) {
-            if (str.contains(IO[i])) {
+        for (int i = 0; i < IY.length; i++) {
+            if (str.contains(IY[i])) {
                 return i + 1;
             }
         }
@@ -58,8 +58,8 @@ public class al {
         List<an> list;
         int i3;
         if (i > 0 && i2 > 0) {
-            String string = com.baidu.tbadk.core.sharedPref.b.og().getString("network_error_record", "");
-            if (ba.isEmpty(string)) {
+            String string = com.baidu.tbadk.core.sharedPref.b.oj().getString("network_error_record", "");
+            if (bf.isEmpty(string)) {
                 list = new LinkedList<>();
                 an anVar = new an(this, null);
                 anVar.port = i;
@@ -67,12 +67,12 @@ public class al {
                 anVar.count = 1;
                 list.add(anVar);
             } else {
-                List<an> cE = cE(string);
+                List<an> cC = cC(string);
                 int i4 = -1;
                 int i5 = 0;
-                while (i5 < cE.size()) {
-                    if (cE.get(i5).port == i && cE.get(i5).action == i2) {
-                        cE.get(i5).count++;
+                while (i5 < cC.size()) {
+                    if (cC.get(i5).port == i && cC.get(i5).action == i2) {
+                        cC.get(i5).count++;
                         i3 = i5;
                     } else {
                         i3 = i4;
@@ -85,52 +85,52 @@ public class al {
                     anVar2.port = i;
                     anVar2.action = i2;
                     anVar2.count = 1;
-                    cE.add(anVar2);
+                    cC.add(anVar2);
                 }
-                list = cE;
+                list = cC;
             }
             String j = j(list);
-            if (!ba.isEmpty(j)) {
-                com.baidu.tbadk.core.sharedPref.b.og().putString("network_error_record", j);
+            if (!bf.isEmpty(j)) {
+                com.baidu.tbadk.core.sharedPref.b.oj().putString("network_error_record", j);
             }
         }
     }
 
-    public synchronized void pm() {
-        for (Integer num : IP) {
+    public synchronized void pp() {
+        for (Integer num : IZ) {
             o(num.intValue(), 2);
         }
     }
 
-    public synchronized void bQ(int i) {
+    public synchronized void bV(int i) {
         if (i > 0) {
-            IP.add(Integer.valueOf(i));
+            IZ.add(Integer.valueOf(i));
         }
     }
 
-    public synchronized void bR(int i) {
+    public synchronized void bW(int i) {
         if (i > 0) {
-            IP.remove(Integer.valueOf(i));
+            IZ.remove(Integer.valueOf(i));
         }
     }
 
-    public synchronized void pn() {
-        com.baidu.tbadk.core.sharedPref.b.og().remove("network_error_record");
+    public synchronized void pq() {
+        com.baidu.tbadk.core.sharedPref.b.oj().remove("network_error_record");
     }
 
-    public static void cD(String str) {
+    public static void cB(String str) {
         try {
-            int cC = cC(str);
-            if (cC > 0) {
-                pl().bR(cC);
+            int cA = cA(str);
+            if (cA > 0) {
+                po().bW(cA);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public synchronized String po() {
-        return com.baidu.tbadk.core.sharedPref.b.og().getString("network_error_record", "");
+    public synchronized String pr() {
+        return com.baidu.tbadk.core.sharedPref.b.oj().getString("network_error_record", "");
     }
 
     private String j(List<an> list) {
@@ -150,7 +150,7 @@ public class al {
         }
     }
 
-    private List<an> cE(String str) {
+    private List<an> cC(String str) {
         LinkedList linkedList = new LinkedList();
         try {
             JSONArray jSONArray = new JSONArray(str);

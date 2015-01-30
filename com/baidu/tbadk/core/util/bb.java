@@ -1,109 +1,95 @@
 package com.baidu.tbadk.core.util;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import java.io.File;
 /* loaded from: classes.dex */
 public class bb {
-    private static bb Js = null;
-    private boolean Jt = false;
-    private boolean Ju = false;
-    private int Jv = TbConfig.POST_IMAGE_SMALL;
-    private String Jw = String.valueOf(45);
-
-    public static bb px() {
-        if (Js == null) {
-            synchronized (bb.class) {
-                Js = new bb();
-            }
-        }
-        return Js;
-    }
-
-    public bb() {
-        pA();
-        py();
-    }
-
-    private void py() {
-        pE();
-        pF();
-        pG();
-    }
-
-    public void al(boolean z) {
-        this.Ju = z;
-    }
-
-    public boolean pz() {
-        return this.Ju;
-    }
-
-    public void am(boolean z) {
-        this.Jt = z;
-        py();
-    }
-
-    private void pA() {
-        this.Jt = com.baidu.adp.lib.util.i.fh();
-    }
-
-    public boolean pB() {
-        return this.Jt;
-    }
-
-    public String pC() {
-        return this.Jw;
-    }
-
-    public int pD() {
-        pG();
-        return this.Jv;
-    }
-
-    public void pE() {
-        boolean z = true;
-        if (com.baidu.tbadk.core.l.mc().getViewImageQuality() != 0 ? com.baidu.tbadk.core.l.mc().getViewImageQuality() != 1 : !this.Jt) {
-            z = false;
-        }
-        al(z);
-    }
-
-    public void pF() {
-        String valueOf = String.valueOf(45);
-        if (com.baidu.tbadk.core.l.mc().getViewImageQuality() == 0) {
-            if (pB()) {
-                valueOf = String.valueOf(80);
-            }
-        } else if (com.baidu.tbadk.core.l.mc().getViewImageQuality() == 1) {
-            valueOf = String.valueOf(80);
-        }
-        this.Jw = valueOf;
-    }
-
-    public void pG() {
-        int i = TbConfig.POST_IMAGE_BIG;
-        switch (com.baidu.tbadk.core.l.mc().mf()) {
-            case 0:
-                if (!pB()) {
-                    i = 600;
-                    break;
+    public static void a(TbPageContext<?> tbPageContext) {
+        try {
+            if (!s.bL()) {
+                if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(s.os());
+                } else if (tbPageContext instanceof BaseFragmentActivity) {
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(s.os());
                 }
-                break;
-            case 1:
-                break;
-            case 2:
-                i = 750;
-                break;
-            case 3:
-                i = 600;
-                break;
-            default:
-                i = 750;
-                break;
+            } else {
+                File cj = s.cj("camera.jpg");
+                if (cj != null) {
+                    Uri fromFile = Uri.fromFile(cj);
+                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                    intent.putExtra("output", fromFile);
+                    tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
+                } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(com.baidu.tieba.z.error_sd_error));
+                } else if (tbPageContext instanceof BaseFragmentActivity) {
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(com.baidu.tieba.z.error_sd_error));
+                }
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
-        this.Jv = i;
     }
 
-    public static boolean pH() {
-        return s.bN() && com.baidu.adp.gif.f.bM();
+    public static void a(TbPageContext<?> tbPageContext, String str) {
+        String str2;
+        try {
+            if (!s.bL()) {
+                if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(s.os());
+                    return;
+                } else if (tbPageContext instanceof BaseFragmentActivity) {
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(s.os());
+                    return;
+                } else {
+                    return;
+                }
+            }
+            boolean z = false;
+            if (s.ce(s.mJ + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR)) {
+                File file = new File(String.valueOf(str2) + "/" + str);
+                if (!file.exists()) {
+                    z = file.createNewFile();
+                } else {
+                    z = true;
+                }
+                if (z) {
+                    Uri fromFile = Uri.fromFile(file);
+                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                    intent.putExtra("output", fromFile);
+                    tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
+                }
+            }
+            if (!z) {
+                if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(com.baidu.tieba.z.error_sd_error));
+                } else if (tbPageContext instanceof BaseFragmentActivity) {
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(com.baidu.tieba.z.error_sd_error));
+                }
+            }
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public static void p(Activity activity) {
+        q(activity);
+    }
+
+    public static void q(Activity activity) {
+        try {
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.setAction("android.intent.action.GET_CONTENT");
+            activity.startActivityForResult(intent, 12002);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 }
