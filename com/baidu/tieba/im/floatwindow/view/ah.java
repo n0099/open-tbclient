@@ -5,15 +5,15 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ah implements as {
-    final /* synthetic */ FloatingPersonalChatView aYV;
+    final /* synthetic */ FloatingPersonalChatView bas;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(FloatingPersonalChatView floatingPersonalChatView) {
-        this.aYV = floatingPersonalChatView;
+        this.bas = floatingPersonalChatView;
     }
 
     @Override // com.baidu.tieba.im.floatwindow.view.as
-    public void NV() {
+    public void Or() {
         List list;
         int i;
         List list2;
@@ -24,23 +24,23 @@ public class ah implements as {
         ap apVar;
         List list4;
         int i4;
-        list = this.aYV.mUserDataList;
+        list = this.bas.mUserDataList;
         if (list != null) {
-            i = this.aYV.currentIndex;
-            list2 = this.aYV.mUserDataList;
+            i = this.bas.currentIndex;
+            list2 = this.bas.mUserDataList;
             if (i < list2.size()) {
-                i2 = this.aYV.currentIndex;
+                i2 = this.bas.currentIndex;
                 if (i2 >= 0) {
-                    list3 = this.aYV.mUserDataList;
-                    i3 = this.aYV.currentIndex;
+                    list3 = this.bas.mUserDataList;
+                    i3 = this.bas.currentIndex;
                     if (list3.get(i3) == null) {
                         return;
                     }
-                    nVar = this.aYV.aYS;
-                    apVar = this.aYV.aYT;
-                    list4 = this.aYV.mUserDataList;
-                    i4 = this.aYV.currentIndex;
-                    nVar.fK(apVar.b((UserData) list4.get(i4)));
+                    nVar = this.bas.bao;
+                    apVar = this.bas.bap;
+                    list4 = this.bas.mUserDataList;
+                    i4 = this.bas.currentIndex;
+                    nVar.fP(apVar.b((UserData) list4.get(i4)));
                 }
             }
         }

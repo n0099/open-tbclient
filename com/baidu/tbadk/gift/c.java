@@ -4,11 +4,11 @@ import android.view.View;
 import android.widget.EditText;
 /* loaded from: classes.dex */
 class c implements Runnable {
-    final /* synthetic */ b aaF;
+    final /* synthetic */ b abg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.aaF = bVar;
+        this.abg = bVar;
     }
 
     @Override // java.lang.Runnable
@@ -17,11 +17,11 @@ class c implements Runnable {
         EditText editText;
         BuyGiftActivity buyGiftActivity2;
         View view;
-        buyGiftActivity = this.aaF.aaD;
-        editText = buyGiftActivity.aav;
+        buyGiftActivity = this.abg.abe;
+        editText = buyGiftActivity.aaW;
         editText.clearFocus();
-        buyGiftActivity2 = this.aaF.aaD;
-        view = buyGiftActivity2.aat;
+        buyGiftActivity2 = this.abg.abe;
+        view = buyGiftActivity2.aaU;
         view.setVisibility(8);
     }
 }

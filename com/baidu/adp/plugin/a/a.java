@@ -91,19 +91,19 @@ public interface a {
 
     Object aT(String str);
 
-    View ak(int i);
-
-    void al(int i);
-
-    SharedPreferences am(int i);
-
-    void an(int i);
-
-    void ao(int i);
-
-    void ap(int i);
+    View ap(int i);
 
     void aq(int i);
+
+    SharedPreferences ar(int i);
+
+    void as(int i);
+
+    void at(int i);
+
+    void au(int i);
+
+    void av(int i);
 
     void b(Activity activity, int i);
 
@@ -155,13 +155,13 @@ public interface a {
 
     Activity getActivity();
 
-    WindowManager hA();
+    boolean hA();
 
     boolean hB();
 
-    boolean hC();
+    void hC();
 
-    boolean hD();
+    void hD();
 
     void hE();
 
@@ -175,59 +175,59 @@ public interface a {
 
     void hJ();
 
-    void hK();
+    Object hK();
 
-    void hL();
+    boolean hL();
 
-    Object hM();
+    void hM();
 
-    boolean hN();
+    void hN();
 
     void hO();
 
     void hP();
 
-    void hQ();
+    c hg();
 
-    void hR();
+    void hh();
 
-    c hi();
+    void hi();
 
     void hj();
 
-    void hk();
+    Context hk();
 
-    void hl();
+    ComponentName hl();
 
-    Context hm();
+    String hm();
 
-    ComponentName hn();
+    int hn();
 
-    String ho();
+    View ho();
 
-    int hp();
+    Intent hp();
 
-    View hq();
+    LayoutInflater hq();
 
-    Intent hr();
+    String hr();
 
-    LayoutInflater hs();
+    MenuInflater hs();
 
-    String ht();
+    int ht();
 
-    MenuInflater hu();
+    int hu();
 
     int hv();
 
     int hw();
 
-    int hx();
+    Window hx();
 
-    int hy();
+    WindowManager hy();
 
-    Window hz();
+    boolean hz();
 
-    void m(Activity activity);
+    void n(Activity activity);
 
     boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i);
 

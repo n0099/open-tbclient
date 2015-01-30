@@ -3,15 +3,15 @@ package com.baidu.adp.lib.stats;
 public interface r {
     void aq(String str);
 
-    String eN();
+    String eM();
+
+    long eN();
 
     long eO();
 
     long eP();
 
     long eQ();
-
-    long eR();
 
     void h(long j);
 

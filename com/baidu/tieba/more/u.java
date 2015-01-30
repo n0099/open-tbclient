@@ -9,92 +9,92 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class u extends FrameLayout {
-    protected LinearLayout US;
-    protected TextView UT;
-    protected TextView UU;
-    protected ImageView UX;
-    protected LinearLayout bur;
-    protected TextView bus;
+    protected ImageView VC;
+    protected LinearLayout Vx;
+    protected TextView Vy;
+    protected TextView Vz;
+    protected LinearLayout bvN;
+    protected TextView bvO;
     protected Context mContext;
 
     public u(Context context) {
         super(context);
         this.mContext = context;
-        tH();
+        tY();
     }
 
     public void setTipColor(int i) {
-        if (this.UU != null) {
-            this.UU.setTextColor(i);
+        if (this.Vz != null) {
+            this.Vz.setTextColor(i);
         }
     }
 
-    public void tG() {
-        this.UX.setVisibility(8);
+    public void tX() {
+        this.VC.setVisibility(8);
     }
 
-    public void UY() {
-        this.UX.setVisibility(0);
+    public void Vw() {
+        this.VC.setVisibility(0);
     }
 
     public void setArrowImg(int i) {
-        this.UX.setImageResource(i);
+        this.VC.setImageResource(i);
     }
 
     public void setHelpText(String str) {
         if (TextUtils.isEmpty(str)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bur.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bvN.getLayoutParams();
             layoutParams.bottomMargin = (int) getResources().getDimension(com.baidu.tieba.u.ds26);
-            this.bur.setLayoutParams(layoutParams);
-            this.bus.setText("");
-            this.bus.setVisibility(8);
+            this.bvN.setLayoutParams(layoutParams);
+            this.bvO.setText("");
+            this.bvO.setVisibility(8);
             return;
         }
-        this.bur.setVisibility(0);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.bur.getLayoutParams();
+        this.bvN.setVisibility(0);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.bvN.getLayoutParams();
         layoutParams2.bottomMargin = (int) getResources().getDimension(com.baidu.tieba.u.ds10);
-        this.bur.setLayoutParams(layoutParams2);
-        this.bus.setText(str);
-        this.bus.setVisibility(0);
+        this.bvN.setLayoutParams(layoutParams2);
+        this.bvO.setText(str);
+        this.bvO.setVisibility(0);
     }
 
     public void setStatus(int i) {
         if (i == 1) {
-            this.UT.setTextColor(getResources().getColor(com.baidu.tieba.t.cp_cont_b));
+            this.Vy.setTextColor(getResources().getColor(com.baidu.tieba.t.cp_cont_b));
         } else if (i == 2) {
-            this.UT.setTextColor(getResources().getColor(com.baidu.tieba.t.cp_link_tip_d));
+            this.Vy.setTextColor(getResources().getColor(com.baidu.tieba.t.cp_link_tip_d));
         } else if (i == 3) {
-            this.UT.setTextColor(getResources().getColor(com.baidu.tieba.t.cp_cont_e));
+            this.Vy.setTextColor(getResources().getColor(com.baidu.tieba.t.cp_cont_e));
         }
     }
 
     public void setText(String str) {
-        this.UT.setText(str);
+        this.Vy.setText(str);
     }
 
     public void setText(int i) {
-        this.UT.setText(i);
+        this.Vy.setText(i);
     }
 
     public void setTip(String str) {
-        this.UU.setText(str);
+        this.Vz.setText(str);
     }
 
     public CharSequence getTip() {
-        return this.UU.getText();
+        return this.Vz.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.UU.setBackgroundDrawable(drawable);
+        this.Vz.setBackgroundDrawable(drawable);
     }
 
-    protected void tH() {
-        com.baidu.adp.lib.g.b.ek().a(this.mContext, com.baidu.tieba.x.image_problem_item_view, this, true);
-        this.US = (LinearLayout) findViewById(com.baidu.tieba.w.container);
-        this.UT = (TextView) findViewById(com.baidu.tieba.w.text);
-        this.UU = (TextView) findViewById(com.baidu.tieba.w.tip);
-        this.UX = (ImageView) findViewById(com.baidu.tieba.w.arrow2);
-        this.bur = (LinearLayout) findViewById(com.baidu.tieba.w.ll_container);
-        this.bus = (TextView) findViewById(com.baidu.tieba.w.tv_help);
+    protected void tY() {
+        com.baidu.adp.lib.g.b.ei().a(this.mContext, com.baidu.tieba.x.image_problem_item_view, this, true);
+        this.Vx = (LinearLayout) findViewById(com.baidu.tieba.w.container);
+        this.Vy = (TextView) findViewById(com.baidu.tieba.w.text);
+        this.Vz = (TextView) findViewById(com.baidu.tieba.w.tip);
+        this.VC = (ImageView) findViewById(com.baidu.tieba.w.arrow2);
+        this.bvN = (LinearLayout) findViewById(com.baidu.tieba.w.ll_container);
+        this.bvO = (TextView) findViewById(com.baidu.tieba.w.tv_help);
     }
 }

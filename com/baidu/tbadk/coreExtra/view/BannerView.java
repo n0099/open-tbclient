@@ -11,38 +11,38 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class BannerView extends RelativeLayout {
-    private String Te;
-    private String Tf;
-    private Button Tg;
-    private TbImageView Th;
-    private boolean Ti;
-    private float Tj;
-    private boolean Tk;
-    private b Tl;
+    private String TI;
+    private String TJ;
+    private Button TK;
+    private TbImageView TL;
+    private boolean TM;
+    private float TN;
+    private boolean TO;
+    private b TP;
+    View.OnClickListener TQ;
     private String link;
     private TbPageContext<?> mContext;
-    View.OnClickListener onClickListener;
     private String type;
 
     public void setBannerType(String str) {
         this.type = str;
     }
 
-    public void ad(String str, String str2) {
+    public void ag(String str, String str2) {
         if (str != null && str2 != null) {
-            this.Te = str;
-            this.Tf = str2;
+            this.TI = str;
+            this.TJ = str2;
         }
     }
 
     public BannerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Te = "";
-        this.Tf = "";
-        this.Ti = false;
-        this.Tj = 0.1388889f;
-        this.Tk = false;
-        this.onClickListener = new a(this);
+        this.TI = "";
+        this.TJ = "";
+        this.TM = false;
+        this.TN = 0.1388889f;
+        this.TO = false;
+        this.TQ = new a(this);
         init(context);
     }
 
@@ -51,30 +51,30 @@ public class BannerView extends RelativeLayout {
     }
 
     private void init(Context context) {
-        com.baidu.adp.lib.g.b.ek().inflate(context, com.baidu.tieba.x.bannerview, this);
-        this.Tg = (Button) findViewById(com.baidu.tieba.w.btn_close);
-        this.Tg.setOnClickListener(this.onClickListener);
-        this.Th = (TbImageView) findViewById(com.baidu.tieba.w.banner_image);
-        this.Th.setAutoChangeStyle(true);
-        this.Th.setOnClickListener(this.onClickListener);
+        com.baidu.adp.lib.g.b.ei().inflate(context, com.baidu.tieba.x.bannerview, this);
+        this.TK = (Button) findViewById(com.baidu.tieba.w.btn_close);
+        this.TK.setOnClickListener(this.TQ);
+        this.TL = (TbImageView) findViewById(com.baidu.tieba.w.banner_image);
+        this.TL.setAutoChangeStyle(true);
+        this.TL.setOnClickListener(this.TQ);
     }
 
     public void setBannerViewEvent(com.baidu.tbadk.widget.p pVar) {
-        if (this.Th != null && pVar != null) {
-            this.Th.setEvent(pVar);
+        if (this.TL != null && pVar != null) {
+            this.TL.setEvent(pVar);
         }
     }
 
     public void a(TbPageContext<?> tbPageContext, String str, String str2) {
         this.mContext = tbPageContext;
         this.link = str2;
-        this.Tk = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
+        this.TO = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
         setVisibility(8);
-        if (!this.Ti && this.Tk) {
-            ViewGroup.LayoutParams layoutParams = this.Th.getLayoutParams();
-            layoutParams.height = (int) ((com.baidu.adp.lib.util.l.M(getContext()) * this.Tj) + 0.5d);
-            this.Th.setLayoutParams(layoutParams);
-            this.Th.a(str, 10, 720, 100, false);
+        if (!this.TM && this.TO) {
+            ViewGroup.LayoutParams layoutParams = this.TL.getLayoutParams();
+            layoutParams.height = (int) ((com.baidu.adp.lib.util.l.M(getContext()) * this.TN) + 0.5d);
+            this.TL.setLayoutParams(layoutParams);
+            this.TL.a(str, 10, 720, 100, false);
             setVisibility(0);
         }
     }
@@ -84,19 +84,19 @@ public class BannerView extends RelativeLayout {
     }
 
     public void setBannerViewClickListener(b bVar) {
-        this.Tl = bVar;
+        this.TP = bVar;
     }
 
-    public boolean tm() {
-        return this.Tk;
+    public boolean tD() {
+        return this.TO;
     }
 
     public void reset() {
-        this.Ti = false;
-        this.Tk = false;
+        this.TM = false;
+        this.TO = false;
     }
 
     public void kE() {
-        this.Th.postInvalidate();
+        this.TL.postInvalidate();
     }
 }

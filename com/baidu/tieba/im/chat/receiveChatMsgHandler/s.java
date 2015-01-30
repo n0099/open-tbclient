@@ -12,18 +12,18 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class s {
-    private static s aUh;
+    private static s aVA;
 
     private s() {
     }
 
-    public static synchronized s KS() {
+    public static synchronized s Ln() {
         s sVar;
         synchronized (s.class) {
-            if (aUh == null) {
-                aUh = new s();
+            if (aVA == null) {
+                aVA = new s();
             }
-            sVar = aUh;
+            sVar = aVA;
         }
         return sVar;
     }
@@ -34,7 +34,7 @@ public class s {
         }
     }
 
-    public long fv(int i) {
+    public long fA(int i) {
         return TbadkSettings.getInst().loadLong("tb_group_msg_" + i, -1L);
     }
 
@@ -69,7 +69,7 @@ public class s {
                 }
                 if (TbadkCoreApplication.m255getInst().isPromotedMessageOn()) {
                     CustomMessage customMessage = new CustomMessage(2012100);
-                    customMessage.setData(new com.baidu.tbadk.core.data.o(next.getMsgId(), next.getTaskId(), next.getLink(), next.getContent(), next.getStat()));
+                    customMessage.setData(new com.baidu.tbadk.core.data.p(next.getMsgId(), next.getTaskId(), next.getLink(), next.getContent(), next.getStat()));
                     MessageManager.getInstance().sendMessage(customMessage);
                 } else {
                     return;

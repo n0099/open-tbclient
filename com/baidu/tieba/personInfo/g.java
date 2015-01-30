@@ -5,16 +5,15 @@ import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.img.WriteImagesInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements com.baidu.tbadk.core.dialog.l {
-    final /* synthetic */ PersonInfoActivity bIm;
+    final /* synthetic */ PersonInfoActivity bJY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(PersonInfoActivity personInfoActivity) {
-        this.bIm = personInfoActivity;
+        this.bJY = personInfoActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.l
@@ -22,16 +21,14 @@ public class g implements com.baidu.tbadk.core.dialog.l {
         WriteImagesInfo writeImagesInfo;
         if (i != 0) {
             if (i == 1) {
-                aw.a(this.bIm.getPageContext());
-            } else if (i == 2) {
-                Activity pageActivity = this.bIm.getPageContext().getPageActivity();
-                writeImagesInfo = this.bIm.writeImagesInfo;
+                Activity pageActivity = this.bJY.getPageContext().getPageActivity();
+                writeImagesInfo = this.bJY.writeImagesInfo;
                 AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(pageActivity, writeImagesInfo.toJsonString());
                 albumActivityConfig.setRequestCode(12002);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
             }
         } else {
-            this.bIm.aaQ();
+            this.bJY.abu();
         }
         iVar.dismiss();
     }

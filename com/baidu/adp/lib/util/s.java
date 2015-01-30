@@ -3,7 +3,7 @@ package com.baidu.adp.lib.util;
 final class s<E> {
     E item;
     s<E> nB;
-    s<E> ny;
+    s<E> nE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(E e) {

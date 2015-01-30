@@ -4,8 +4,9 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.newFriends.RequestAddFriendMessage;
 import com.baidu.tbadk.newFriends.ResponseAddFriendMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class o extends com.baidu.adp.framework.listener.e {
+public class o extends com.baidu.adp.framework.listener.e {
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(int i) {
         super(i);
@@ -21,7 +22,7 @@ class o extends com.baidu.adp.framework.listener.e {
             long friendId = responseAddFriendMessage.getFriendId();
             com.baidu.tieba.im.data.b bVar = new com.baidu.tieba.im.data.b();
             bVar.setId(friendId);
-            bVar.fz(0);
+            bVar.fE(0);
             bVar.setContent(requestAddFriendMessage.getMessage());
             if (error == 0) {
                 bVar.setStatus(3);

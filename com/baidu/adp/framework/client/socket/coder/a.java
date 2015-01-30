@@ -3,12 +3,12 @@ package com.baidu.adp.framework.client.socket.coder;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class a {
-    private static byte ej = Byte.MIN_VALUE;
-    private static byte ek = 64;
-    private boolean el = false;
-    private boolean em = false;
-    private int en;
-    private int eo;
+    private static byte el = Byte.MIN_VALUE;
+    private static byte em = 64;
+    private boolean en = false;
+    private boolean eo = false;
+    private int ep;
+    private int eq;
 
     public static int bf() {
         return 9;
@@ -16,9 +16,9 @@ public class a {
 
     public static byte[] a(boolean z, boolean z2, int i, int i2, byte[] bArr) {
         ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + bf());
-        byte b = z ? (byte) (ej | 0) : (byte) 0;
+        byte b = z ? (byte) (el | 0) : (byte) 0;
         if (z2) {
-            b = (byte) (b | ek);
+            b = (byte) (b | em);
         }
         allocate.put(b);
         allocate.putInt(i);
@@ -34,30 +34,30 @@ public class a {
         ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, bf());
         a aVar = new a();
         byte b = wrap.get();
-        if ((ej & b) != 0) {
-            aVar.el = true;
+        if ((el & b) != 0) {
+            aVar.en = true;
         }
-        if ((b & ek) != 0) {
-            aVar.em = true;
+        if ((b & em) != 0) {
+            aVar.eo = true;
         }
-        aVar.en = wrap.getInt();
-        aVar.eo = wrap.getInt();
+        aVar.ep = wrap.getInt();
+        aVar.eq = wrap.getInt();
         return aVar;
     }
 
     public boolean bg() {
-        return this.em;
+        return this.eo;
     }
 
     public int bh() {
-        return this.en;
+        return this.ep;
     }
 
     public boolean bi() {
-        return this.el;
+        return this.en;
     }
 
     public int bj() {
-        return this.eo;
+        return this.eq;
     }
 }

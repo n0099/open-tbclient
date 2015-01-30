@@ -6,10 +6,10 @@ import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-class ab implements com.baidu.tbadk.core.util.bj {
+class ab implements com.baidu.tbadk.core.util.bo {
     Pattern frsPattern = Pattern.compile("http://tieba.baidu.com/f\\?kw=([^&]+)");
 
-    @Override // com.baidu.tbadk.core.util.bj
+    @Override // com.baidu.tbadk.core.util.bo
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr) {
         String substring;
         if (strArr == null || strArr[0] == null) {

@@ -131,7 +131,7 @@ public class b extends Thread {
                     response = bVar.getResponse();
                 }
                 com.baidu.tbadk.aladin.a.c cVar = new com.baidu.tbadk.aladin.a.c();
-                cVar.H("Connection", "Close");
+                cVar.L("Connection", "Close");
                 cVar.setContent(response);
                 String kY = cVar.kY();
                 OutputStream outputStream = this.Au.getOutputStream();

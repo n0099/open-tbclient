@@ -4,21 +4,21 @@ import android.app.Activity;
 import android.widget.EditText;
 /* loaded from: classes.dex */
 class m implements Runnable {
-    final /* synthetic */ SquareSearchActivity brF;
+    final /* synthetic */ SquareSearchActivity btb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(SquareSearchActivity squareSearchActivity) {
-        this.brF = squareSearchActivity;
+        this.btb = squareSearchActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         EditText editText;
         EditText editText2;
-        editText = this.brF.bqY;
+        editText = this.btb.bsw;
         editText.requestFocus();
-        Activity pageActivity = this.brF.getPageContext().getPageActivity();
-        editText2 = this.brF.bqY;
+        Activity pageActivity = this.btb.getPageContext().getPageActivity();
+        editText2 = this.btb.bsw;
         com.baidu.adp.lib.util.l.d(pageActivity, editText2);
     }
 }

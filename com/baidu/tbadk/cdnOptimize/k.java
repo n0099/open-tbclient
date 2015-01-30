@@ -42,9 +42,9 @@ public class k extends BdAsyncTask<Object, Integer, ArrayList<String>> {
                             long currentTimeMillis2 = System.currentTimeMillis();
                             com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
                             ImgHttpClient imgHttpClient = new ImgHttpClient(eVar);
-                            eVar.dP().setUrl(str);
-                            imgHttpClient.c(next, host, 1);
-                            byte[] bArr = eVar.dQ().kH;
+                            eVar.dN().setUrl(str);
+                            imgHttpClient.e(next, host, 1);
+                            byte[] bArr = eVar.dO().kK;
                             long currentTimeMillis3 = System.currentTimeMillis() - currentTimeMillis2;
                             boolean z = false;
                             if (bArr != null && str2.equalsIgnoreCase(z.n(bArr))) {
@@ -95,7 +95,7 @@ public class k extends BdAsyncTask<Object, Integer, ArrayList<String>> {
         }
         l lVar = new l(this, null);
         lVar.ip = str;
-        lVar.vx = j;
+        lVar.vD = j;
         if (this.ipList.size() == 0) {
             this.ipList.add(lVar);
         } else if (this.ipList.size() <= 5) {
@@ -104,7 +104,7 @@ public class k extends BdAsyncTask<Object, Integer, ArrayList<String>> {
             while (true) {
                 i = i2;
                 if (i < this.ipList.size()) {
-                    if (this.ipList.get(i).vx > j) {
+                    if (this.ipList.get(i).vD > j) {
                         break;
                     }
                     i2 = i + 1;

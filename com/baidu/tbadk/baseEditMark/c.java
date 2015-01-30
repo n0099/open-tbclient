@@ -41,9 +41,9 @@ public class c extends BdAsyncTask<Boolean, String, a> {
         this.AV = boolArr[0];
         a aVar = new a();
         if (this.AV.booleanValue()) {
-            t<String> bV = com.baidu.tbadk.core.a.a.nS().bV("tb.my_bookmarks");
-            if (bV != null) {
-                publishProgress(bV.get(TbadkCoreApplication.getCurrentAccount()));
+            t<String> bT = com.baidu.tbadk.core.a.a.nV().bT("tb.my_bookmarks");
+            if (bT != null) {
+                publishProgress(bT.get(TbadkCoreApplication.getCurrentAccount()));
             }
             arrayList = this.AT.AM;
             if (arrayList == null) {
@@ -63,22 +63,22 @@ public class c extends BdAsyncTask<Boolean, String, a> {
             this.AR.o("offset", String.valueOf(this.offset));
         }
         this.AR.o("rn", String.valueOf(20));
-        this.AU = this.AR.ov();
+        this.AU = this.AR.oy();
         this.AS.parserJson(this.AU);
-        if (this.AR.oW().pW().ma()) {
-            aVar.bC(this.AU);
+        if (this.AR.oZ().qh().ma()) {
+            aVar.bA(this.AU);
             if (this.offset == 0 && this.AV.booleanValue()) {
-                bE(this.AU);
+                bC(this.AU);
             }
         }
         return aVar;
     }
 
-    private void bE(String str) {
-        t<String> bV;
+    private void bC(String str) {
+        t<String> bT;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (currentAccount != null && (bV = com.baidu.tbadk.core.a.a.nS().bV("tb.my_bookmarks")) != null) {
-            bV.a(currentAccount, str, TbConfig.APP_OVERDUR_DRAFT_BOX);
+        if (currentAccount != null && (bT = com.baidu.tbadk.core.a.a.nV().bT("tb.my_bookmarks")) != null) {
+            bT.a(currentAccount, str, TbConfig.APP_OVERDUR_DRAFT_BOX);
         }
     }
 
@@ -87,16 +87,16 @@ public class c extends BdAsyncTask<Boolean, String, a> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: j */
     public void onProgressUpdate(String... strArr) {
-        ArrayList<MarkData> bD;
+        ArrayList<MarkData> bB;
         super.onProgressUpdate(strArr);
         String str = strArr[0];
         ArrayList<MarkData> arrayList = new ArrayList<>();
         if (str != null) {
-            bD = this.AT.bD(str);
+            bB = this.AT.bB(str);
             if (this.AV.booleanValue()) {
-                this.AT.k(bD);
+                this.AT.k(bB);
             } else {
-                this.AT.l(bD);
+                this.AT.l(bB);
             }
         } else {
             this.AT.k(arrayList);
@@ -108,7 +108,7 @@ public class c extends BdAsyncTask<Boolean, String, a> {
     public void cancel() {
         super.cancel(true);
         if (this.AR != null) {
-            this.AR.dL();
+            this.AR.dJ();
         }
         this.AT.AI = null;
     }
@@ -136,12 +136,12 @@ public class c extends BdAsyncTask<Boolean, String, a> {
         while (it.hasNext()) {
             if (it.next().getNewCounts() > 0) {
                 int i2 = i + 1;
-                this.AT.aH(i2);
+                this.AT.aM(i2);
                 i = i2;
             }
         }
         if (this.AT.AQ != null) {
-            if (this.AR.oW().pW().ma()) {
+            if (this.AR.oZ().qh().ma()) {
                 this.AT.AQ.callback(0, this.AS.getErrorString(), false);
             } else {
                 this.AT.AQ.callback(3, this.AR.getErrorString());

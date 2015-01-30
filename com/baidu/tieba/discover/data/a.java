@@ -13,24 +13,24 @@ import tbclient.FoundNew.Menu;
 import tbclient.FoundNew.Module;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tbadk.mvc.b.b, j {
-    private long atw;
-    private Banner atx;
-    private List<d> aty;
+    private long auv;
+    private Banner auw;
+    private List<d> aux;
 
-    public long CN() {
-        return this.atw;
+    public long Dm() {
+        return this.auv;
     }
 
-    public Banner CO() {
-        return this.atx;
+    public Banner Dn() {
+        return this.auw;
     }
 
-    public List<d> CP() {
-        return this.aty;
+    public List<d> Do() {
+        return this.aux;
     }
 
-    public void J(List<d> list) {
-        this.aty = list;
+    public void L(List<d> list) {
+        this.aux = list;
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
@@ -48,24 +48,24 @@ public class a implements com.baidu.tbadk.mvc.b.b, j {
             FoundNewResIdl foundNewResIdl = (FoundNewResIdl) message;
             if (foundNewResIdl.error.errorno.intValue() == 0 && foundNewResIdl.data != null) {
                 if (foundNewResIdl.data.timestamp != null) {
-                    this.atw = foundNewResIdl.data.timestamp.longValue();
+                    this.auv = foundNewResIdl.data.timestamp.longValue();
                 }
-                this.atx = foundNewResIdl.data.banner;
+                this.auw = foundNewResIdl.data.banner;
                 List<Module> list = foundNewResIdl.data.module;
-                this.aty = new ArrayList(0);
+                this.aux = new ArrayList(0);
                 if (list != null && !list.isEmpty()) {
                     for (Module module : list) {
                         if (module != null && module.menu_list != null && module.menu_list.size() > 0) {
                             d dVar = new d();
                             dVar.setType(module.type == null ? 0 : module.type.intValue());
                             ArrayList arrayList = new ArrayList(0);
-                            dVar.K(arrayList);
+                            dVar.M(arrayList);
                             for (Menu menu : module.menu_list) {
                                 if (menu != null) {
                                     arrayList.add(new c().a(menu));
                                 }
                             }
-                            this.aty.add(dVar);
+                            this.aux.add(dVar);
                         }
                     }
                 }
@@ -74,7 +74,7 @@ public class a implements com.baidu.tbadk.mvc.b.b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] xa() {
+    public byte[] xq() {
         return null;
     }
 

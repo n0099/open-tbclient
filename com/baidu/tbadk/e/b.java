@@ -6,11 +6,11 @@ import com.baidu.adp.plugin.packageManager.pluginFileDownload.BdFileDownloadData
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends Handler {
-    final /* synthetic */ a ahj;
+    final /* synthetic */ a ahH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.ahj = aVar;
+        this.ahH = aVar;
     }
 
     @Override // android.os.Handler
@@ -23,17 +23,17 @@ public class b extends Handler {
         BdFileDownloadData bdFileDownloadData6;
         super.handleMessage(message);
         if (message.what == 900002 && message.arg2 > 0) {
-            bdFileDownloadData = a.ahh;
+            bdFileDownloadData = a.ahF;
             if (bdFileDownloadData != null) {
-                bdFileDownloadData2 = a.ahh;
+                bdFileDownloadData2 = a.ahF;
                 bdFileDownloadData2.setLength(message.arg1);
-                bdFileDownloadData3 = a.ahh;
+                bdFileDownloadData3 = a.ahF;
                 bdFileDownloadData3.setSize(message.arg2);
-                bdFileDownloadData4 = a.ahh;
+                bdFileDownloadData4 = a.ahF;
                 if (bdFileDownloadData4.getCallback() != null) {
-                    bdFileDownloadData5 = a.ahh;
+                    bdFileDownloadData5 = a.ahF;
                     com.baidu.adp.plugin.packageManager.pluginFileDownload.a callback = bdFileDownloadData5.getCallback();
-                    bdFileDownloadData6 = a.ahh;
+                    bdFileDownloadData6 = a.ahF;
                     callback.e(bdFileDownloadData6);
                 }
             }

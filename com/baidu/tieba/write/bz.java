@@ -5,18 +5,18 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
 /* loaded from: classes.dex */
 class bz implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ bw cfH;
+    final /* synthetic */ bw chh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bz(bw bwVar) {
-        this.cfH = bwVar;
+        this.chh = bwVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         WriteImageActivity writeImageActivity;
         MessageManager messageManager = MessageManager.getInstance();
-        writeImageActivity = this.cfH.this$0;
+        writeImageActivity = this.chh.this$0;
         messageManager.sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(writeImageActivity.getPageContext().getPageActivity(), "com.baidu.tieba.pluginMotu")));
         aVar.dismiss();
     }

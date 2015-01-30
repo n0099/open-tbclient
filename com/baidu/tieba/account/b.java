@@ -1,19 +1,28 @@
 package com.baidu.tieba.account;
 
-import android.app.AlertDialog;
-import android.graphics.drawable.Drawable;
-import android.view.View;
+import android.os.Handler;
+import android.os.Message;
 /* loaded from: classes.dex */
-class b implements View.OnClickListener {
-    final /* synthetic */ AccountActivity alO;
+class b extends Handler {
+    final /* synthetic */ AccountActivity amI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(AccountActivity accountActivity) {
-        this.alO = accountActivity;
+        this.amI = accountActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        new AlertDialog.Builder(this.alO.getPageContext().getPageActivity()).setTitle(com.baidu.tieba.z.alert_title).setIcon((Drawable) null).setCancelable(true).setItems(com.baidu.tieba.r.delete_account, new c(this, view)).create().show();
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        super.handleMessage(message);
+        switch (message.what) {
+            case 1:
+                this.amI.AX();
+                return;
+            case 2:
+                this.amI.AW();
+                return;
+            default:
+                return;
+        }
     }
 }

@@ -15,7 +15,7 @@ class a implements q {
     }
 
     @Override // com.baidu.tieba.more.q
-    public void gJ(int i) {
+    public void gS(int i) {
         String str;
         if (i == 0) {
             this.this$0.finish();
@@ -23,11 +23,11 @@ class a implements q {
             if (i == 2) {
                 this.this$0.sendMessage(new CustomMessage(2015000, new GuildActivityConfig(this.this$0.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE)));
             } else if (i == 3) {
-                com.baidu.tbadk.core.sharedPref.b.og().putBoolean(SettingTextFunctionIntroView.bwm, true);
+                com.baidu.tbadk.core.sharedPref.b.oj().putBoolean(SettingTextFunctionIntroView.bxX, true);
                 MessageManager messageManager = MessageManager.getInstance();
                 Activity pageActivity = this.this$0.getPageContext().getPageActivity();
                 String string = this.this$0.getPageContext().getString(com.baidu.tieba.z.setting_funtion_intro);
-                str = this.this$0.btv;
+                str = this.this$0.buS;
                 messageManager.sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(pageActivity, string, str, true, true, false, false, false)));
             }
         } else {

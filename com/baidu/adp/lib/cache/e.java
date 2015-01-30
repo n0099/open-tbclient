@@ -3,8 +3,8 @@ package com.baidu.adp.lib.cache;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public abstract class e<T> implements s<T> {
-    protected final boolean hs;
-    protected final f ht;
+    protected final boolean hu;
+    protected final f hv;
 
     public abstract m<T> O(String str);
 
@@ -15,12 +15,12 @@ public abstract class e<T> implements s<T> {
     public abstract void c(m<T> mVar);
 
     public e(f fVar, boolean z) {
-        this.ht = fVar;
-        this.hs = z;
+        this.hv = fVar;
+        this.hu = z;
     }
 
     protected String j(String str, String str2) {
-        if (this.hs) {
+        if (this.hu) {
             return String.valueOf(str) + "@" + str2;
         }
         return str2;
@@ -32,13 +32,13 @@ public abstract class e<T> implements s<T> {
         if (O == null) {
             BdLog.isDebugMode();
             return null;
-        } else if (O.hA < System.currentTimeMillis()) {
+        } else if (O.hC < System.currentTimeMillis()) {
             Q(j);
             BdLog.isDebugMode();
             return null;
         } else {
-            if (this.ht.cL()) {
-                O.hz = System.currentTimeMillis();
+            if (this.hv.cJ()) {
+                O.hB = System.currentTimeMillis();
                 c(O);
             }
             BdLog.isDebugMode();
@@ -52,7 +52,7 @@ public abstract class e<T> implements s<T> {
         if (k == null) {
             return null;
         }
-        return k.gJ;
+        return k.gL;
     }
 
     @Override // com.baidu.adp.lib.cache.s
@@ -63,21 +63,21 @@ public abstract class e<T> implements s<T> {
         }
         v<T> vVar = new v<>();
         vVar.key = str2;
-        vVar.gJ = k.gJ;
-        vVar.hA = k.hA;
-        vVar.hP = k.hy;
+        vVar.gL = k.gL;
+        vVar.hC = k.hC;
+        vVar.hR = k.hA;
         return vVar;
     }
 
     @Override // com.baidu.adp.lib.cache.s
     public void a(String str, String str2, T t, long j) {
         m<T> mVar = new m<>();
-        mVar.hw = j(str, str2);
-        mVar.hx = str;
-        mVar.hA = j;
-        mVar.gJ = t;
-        mVar.hz = System.currentTimeMillis();
-        mVar.hy = System.currentTimeMillis();
+        mVar.hy = j(str, str2);
+        mVar.hz = str;
+        mVar.hC = j;
+        mVar.gL = t;
+        mVar.hB = System.currentTimeMillis();
+        mVar.hA = System.currentTimeMillis();
         c(mVar);
     }
 
@@ -87,7 +87,7 @@ public abstract class e<T> implements s<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.s
-    public f cJ() {
-        return this.ht;
+    public f cH() {
+        return this.hv;
     }
 }

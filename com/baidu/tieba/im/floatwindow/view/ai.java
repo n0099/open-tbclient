@@ -8,11 +8,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai implements ao {
-    final /* synthetic */ FloatingPersonalChatView aYV;
+    final /* synthetic */ FloatingPersonalChatView bas;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(FloatingPersonalChatView floatingPersonalChatView) {
-        this.aYV = floatingPersonalChatView;
+        this.bas = floatingPersonalChatView;
     }
 
     @Override // com.baidu.tieba.im.floatwindow.view.ao
@@ -22,34 +22,34 @@ public class ai implements ao {
         List list3;
         List list4;
         List list5;
-        list = this.aYV.mUserDataList;
+        list = this.bas.mUserDataList;
         if (list != null) {
-            list2 = this.aYV.mUserDataList;
+            list2 = this.bas.mUserDataList;
             if (!list2.isEmpty()) {
-                list3 = this.aYV.mUserDataList;
+                list3 = this.bas.mUserDataList;
                 UserData userData = (UserData) list3.remove(i);
                 if (userData != null) {
-                    com.baidu.tieba.im.floatwindow.b.MX().gA(userData.getUserId());
-                    Iterator<ImMessageCenterShowItemData> it = this.aYV.mList.iterator();
+                    com.baidu.tieba.im.floatwindow.b.Nt().gF(userData.getUserId());
+                    Iterator<ImMessageCenterShowItemData> it = this.bas.mList.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
                         }
                         ImMessageCenterShowItemData next = it.next();
                         if (next != null && TextUtils.equals(userData.getUserId(), next.getFriendId())) {
-                            this.aYV.mList.remove(next);
+                            this.bas.mList.remove(next);
                             break;
                         }
                     }
-                    list4 = this.aYV.mUserDataList;
+                    list4 = this.bas.mUserDataList;
                     if (list4.size() <= 0) {
-                        this.aYV.NR();
+                        this.bas.On();
                         return;
                     }
-                    FloatingPersonalChatView floatingPersonalChatView = this.aYV;
-                    list5 = this.aYV.mUserDataList;
-                    floatingPersonalChatView.fM(list5.size() - 1);
-                    this.aYV.fN(i);
+                    FloatingPersonalChatView floatingPersonalChatView = this.bas;
+                    list5 = this.bas.mUserDataList;
+                    floatingPersonalChatView.fR(list5.size() - 1);
+                    this.bas.fS(i);
                 }
             }
         }

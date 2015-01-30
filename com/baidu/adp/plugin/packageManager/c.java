@@ -6,19 +6,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c sA;
-    private d sB;
-    private ArrayList<String> sx = new ArrayList<>();
+    private static volatile c sJ;
+    private ArrayList<String> sG = new ArrayList<>();
+    private d sK;
 
     public static c ib() {
-        if (sA == null) {
+        if (sJ == null) {
             synchronized (c.class) {
-                if (sA == null) {
-                    sA = new c();
+                if (sJ == null) {
+                    sJ = new c();
                 }
             }
         }
-        return sA;
+        return sJ;
     }
 
     private c() {
@@ -27,7 +27,7 @@ public class c {
     public void a(PluginSetting pluginSetting) {
         boolean z;
         if (pluginSetting != null && !TextUtils.isEmpty(pluginSetting.packageName)) {
-            Iterator<String> it = this.sx.iterator();
+            Iterator<String> it = this.sG.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -40,7 +40,7 @@ public class c {
                 }
             }
             if (!z) {
-                this.sx.add(pluginSetting.packageName);
+                this.sG.add(pluginSetting.packageName);
             }
             ia();
         }
@@ -48,9 +48,9 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ia() {
-        if (this.sx.size() > 0 && this.sB == null) {
-            this.sB = new d(this, this.sx.get(0));
-            this.sB.execute(new String[0]);
+        if (this.sG.size() > 0 && this.sK == null) {
+            this.sK = new d(this, this.sG.get(0));
+            this.sK.execute(new String[0]);
         }
     }
 }

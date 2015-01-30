@@ -136,7 +136,7 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        com.baidu.adp.lib.f.d.ee().d(this.mId);
+        com.baidu.adp.lib.f.d.ec().d(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
         a.ah().h(getPageContext().getPageActivity());
     }
@@ -145,7 +145,7 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.adp.lib.f.d.ee().e(this.mId);
+        com.baidu.adp.lib.f.d.ec().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -162,7 +162,7 @@ public abstract class BdBaseFragmentActivity<T> extends MAFragmentActivity imple
         super.onStop();
         BdListView onGetPreLoadListView = onGetPreLoadListView();
         if (onGetPreLoadListView != null) {
-            onGetPreLoadListView.jI();
+            onGetPreLoadListView.jH();
         }
     }
 

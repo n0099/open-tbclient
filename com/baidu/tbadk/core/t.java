@@ -1,13 +1,11 @@
 package com.baidu.tbadk.core;
 
-import android.content.Intent;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.util.UtilHelper;
+import android.location.Address;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements CustomMessageTask.CustomRunnable<Intent> {
+public class t implements com.baidu.adp.lib.d.d {
     final /* synthetic */ TbadkCoreApplication CR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,9 +13,20 @@ public class t implements CustomMessageTask.CustomRunnable<Intent> {
         this.CR = tbadkCoreApplication;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Intent> customMessage) {
-        UtilHelper.commenDealIntent(this.CR.getApp(), customMessage.getData());
-        return null;
+    @Override // com.baidu.adp.lib.d.d
+    public void b(int i, String str, Address address) {
+        if (i == 0 && address != null) {
+            try {
+                String valueOf = String.valueOf(address.getLatitude());
+                String valueOf2 = String.valueOf(address.getLongitude());
+                if (!TextUtils.isEmpty(valueOf) && !TextUtils.isEmpty(valueOf2)) {
+                    this.CR.setLocationLat(valueOf);
+                    this.CR.setLocationLng(valueOf2);
+                    this.CR.setLocationPos(address.getAddressLine(0));
+                }
+            } catch (IllegalStateException e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 }

@@ -12,7 +12,7 @@ public class b extends c<byte[]> {
     @Override // com.baidu.adp.lib.cache.c
     public String G(String str) {
         String str2 = "cache_kv_b" + Math.abs(str.hashCode());
-        this.hk.t("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
+        this.hm.t("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
         return str2;
     }
 
@@ -21,7 +21,7 @@ public class b extends c<byte[]> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public int cF() {
+    public int cD() {
         return 1;
     }
 
@@ -32,15 +32,15 @@ public class b extends c<byte[]> {
         Throwable th;
         m<byte[]> mVar = null;
         try {
-            cursor = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.hl + " where m_key = ?", new String[]{str});
+            cursor = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.hn + " where m_key = ?", new String[]{str});
             try {
                 if (cursor.moveToNext()) {
                     mVar = new m<>();
-                    mVar.hw = cursor.getString(0);
-                    mVar.hy = cursor.getLong(1);
-                    mVar.hz = cursor.getLong(2);
-                    mVar.hA = cursor.getLong(3);
-                    mVar.gJ = cursor.getBlob(4);
+                    mVar.hy = cursor.getString(0);
+                    mVar.hA = cursor.getLong(1);
+                    mVar.hB = cursor.getLong(2);
+                    mVar.hC = cursor.getLong(3);
+                    mVar.gL = cursor.getBlob(4);
                     com.baidu.adp.lib.g.a.b(cursor);
                 } else {
                     com.baidu.adp.lib.g.a.b(cursor);
@@ -60,22 +60,22 @@ public class b extends c<byte[]> {
     @Override // com.baidu.adp.lib.cache.c
     protected ContentValues a(m<byte[]> mVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("m_key", mVar.hw);
-        contentValues.put("m_value", mVar.gJ);
-        contentValues.put("saveTime", Long.valueOf(mVar.hy));
-        contentValues.put("lastHitTime", Long.valueOf(mVar.hz));
-        contentValues.put("timeToExpire", Long.valueOf(mVar.hA));
+        contentValues.put("m_key", mVar.hy);
+        contentValues.put("m_value", mVar.gL);
+        contentValues.put("saveTime", Long.valueOf(mVar.hA));
+        contentValues.put("lastHitTime", Long.valueOf(mVar.hB));
+        contentValues.put("timeToExpire", Long.valueOf(mVar.hC));
         return contentValues;
     }
 
     @Override // com.baidu.adp.lib.cache.c
     public Cursor d(SQLiteDatabase sQLiteDatabase, String str) {
-        return sQLiteDatabase.rawQuery("select * from " + this.hl, new String[0]);
+        return sQLiteDatabase.rawQuery("select * from " + this.hn, new String[0]);
     }
 
     @Override // com.baidu.adp.lib.cache.c
     protected boolean I(String str) {
-        this.hk.t("DROP TABLE IF EXISTS " + this.hl);
+        this.hm.t("DROP TABLE IF EXISTS " + this.hn);
         return true;
     }
 }

@@ -4,16 +4,16 @@ import android.widget.ImageView;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.bc;
 /* loaded from: classes.dex */
 class c extends HttpMessageListener {
-    final /* synthetic */ PersonPostActivity bHk;
+    final /* synthetic */ PersonPostActivity bIW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(PersonPostActivity personPostActivity, int i) {
         super(i);
-        this.bHk = personPostActivity;
+        this.bIW = personPostActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,20 +25,20 @@ class c extends HttpMessageListener {
         int[] iArr3;
         if (httpResponsedMessage.isSuccess()) {
             if (httpResponsedMessage.getError() == 0) {
-                iArr = PersonPostActivity.biZ;
-                com.baidu.tbadk.core.account.o.n(4, iArr[this.bHk.biQ]);
-                imageView = this.bHk.biT;
-                iArr2 = PersonPostActivity.biX;
-                ax.c(imageView, iArr2[this.bHk.biQ]);
-                PersonPostActivity personPostActivity = this.bHk;
-                TbPageContext pageContext = this.bHk.getPageContext();
-                iArr3 = PersonPostActivity.biY;
-                personPostActivity.showToastWithIcon(pageContext.getString(iArr3[this.bHk.biQ]), com.baidu.tieba.v.icon_toast_info);
+                iArr = PersonPostActivity.bkw;
+                com.baidu.tbadk.core.account.o.n(4, iArr[this.bIW.bkn]);
+                imageView = this.bIW.bkq;
+                iArr2 = PersonPostActivity.bku;
+                bc.c(imageView, iArr2[this.bIW.bkn]);
+                PersonPostActivity personPostActivity = this.bIW;
+                TbPageContext pageContext = this.bIW.getPageContext();
+                iArr3 = PersonPostActivity.bkv;
+                personPostActivity.showToastWithIcon(pageContext.getString(iArr3[this.bIW.bkn]), com.baidu.tieba.v.icon_toast_info);
                 return;
             }
-            this.bHk.showToast(httpResponsedMessage.getErrorString());
+            this.bIW.showToast(httpResponsedMessage.getErrorString());
             return;
         }
-        this.bHk.showToast(this.bHk.getPageContext().getString(com.baidu.tieba.z.neterror));
+        this.bIW.showToast(this.bIW.getPageContext().getString(com.baidu.tieba.z.neterror));
     }
 }

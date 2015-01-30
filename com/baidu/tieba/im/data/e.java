@@ -1,20 +1,34 @@
 package com.baidu.tieba.im.data;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-class e implements Parcelable.Creator<RandChatRoomData> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.Parcelable.Creator
-    /* renamed from: g */
-    public RandChatRoomData createFromParcel(Parcel parcel) {
-        return new RandChatRoomData(parcel, null);
+public class e {
+    private long aXV;
+    private int aXW;
+    private List<d> parent_menu = new ArrayList();
+
+    public boolean MJ() {
+        return this.aXW == 1;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.Parcelable.Creator
-    /* renamed from: fD */
-    public RandChatRoomData[] newArray(int i) {
-        return new RandChatRoomData[i];
+    public void fH(int i) {
+        this.aXW = i;
+    }
+
+    public long MK() {
+        return this.aXV;
+    }
+
+    public void T(long j) {
+        this.aXV = j;
+    }
+
+    public List<d> ML() {
+        return this.parent_menu;
+    }
+
+    public void ao(List<d> list) {
+        this.parent_menu = list;
     }
 }

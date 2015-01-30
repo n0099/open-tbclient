@@ -5,30 +5,30 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tieba.frs.bj;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tieba.frs.bi;
 import com.baidu.tieba.tbadkCore.GoodGridView;
 /* loaded from: classes.dex */
 public class e {
-    private GoodGridView aGF;
-    private ImageView aGG;
+    private GoodGridView aHP;
+    private ImageView aHQ;
     private View mParent;
 
     public e(Context context) {
         this.mParent = null;
-        this.aGF = null;
-        this.aGG = null;
-        this.mParent = com.baidu.adp.lib.g.b.ek().inflate(context, com.baidu.tieba.x.dialog_good, null);
-        this.aGF = (GoodGridView) this.mParent.findViewById(com.baidu.tieba.w.good_gridview);
-        this.aGG = (ImageView) this.mParent.findViewById(com.baidu.tieba.w.divider_line);
+        this.aHP = null;
+        this.aHQ = null;
+        this.mParent = com.baidu.adp.lib.g.b.ei().inflate(context, com.baidu.tieba.x.dialog_good, null);
+        this.aHP = (GoodGridView) this.mParent.findViewById(com.baidu.tieba.w.good_gridview);
+        this.aHQ = (ImageView) this.mParent.findViewById(com.baidu.tieba.w.divider_line);
     }
 
-    public void a(bj bjVar) {
-        this.aGF.setAdapter((ListAdapter) bjVar);
+    public void a(bi biVar) {
+        this.aHP.setAdapter((ListAdapter) biVar);
     }
 
     public void c(AdapterView.OnItemClickListener onItemClickListener) {
-        this.aGF.setOnItemClickListener(onItemClickListener);
+        this.aHP.setOnItemClickListener(onItemClickListener);
     }
 
     public View getView() {
@@ -36,7 +36,7 @@ public class e {
     }
 
     public void changeSkinType(int i) {
-        ax.j(this.aGF, com.baidu.tieba.t.cp_bg_line_d);
-        ax.i(this.aGG, com.baidu.tieba.t.frs_goodheader_line_end);
+        bc.j(this.aHP, com.baidu.tieba.t.cp_bg_line_d);
+        bc.i(this.aHQ, com.baidu.tieba.t.frs_goodheader_line_end);
     }
 }

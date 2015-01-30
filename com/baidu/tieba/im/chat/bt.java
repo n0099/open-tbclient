@@ -1,24 +1,17 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.util.ChatStatusManager;
+import android.view.View;
 /* loaded from: classes.dex */
-class bt extends com.baidu.tieba.im.h<Void> {
-    final /* synthetic */ PersonalChatActivity aRE;
-    private final /* synthetic */ UserData aRF;
+class bt implements View.OnClickListener {
+    final /* synthetic */ MsgrightView aSC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bt(PersonalChatActivity personalChatActivity, UserData userData) {
-        this.aRE = personalChatActivity;
-        this.aRF = userData;
+    public bt(MsgrightView msgrightView) {
+        this.aSC = msgrightView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.h
-    /* renamed from: Kp */
-    public Void doInBackground() {
-        com.baidu.tieba.im.settingcache.j.SY().a(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(0), this.aRF);
-        return null;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.aSC.mItemViewClickListener.onItemViewClick(view, 6, this.aSC.mPosition, 0L);
     }
 }

@@ -1,21 +1,21 @@
 package com.baidu.tbadk.core;
 
-import android.content.Context;
-import com.baidu.tbadk.core.data.AccountData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.base.BdBaseService;
 /* loaded from: classes.dex */
-public class w implements Runnable {
-    private final /* synthetic */ AccountData CT;
-    private final /* synthetic */ Context val$context;
+class w implements com.baidu.tbadk.util.e {
+    final /* synthetic */ v CV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(AccountData accountData, Context context) {
-        this.CT = accountData;
-        this.val$context = context;
+    public w(v vVar) {
+        this.CV = vVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        TbadkCoreApplication.setCurrentAccountInUI(this.CT, this.val$context);
+    @Override // com.baidu.tbadk.util.e
+    public void ae(boolean z) {
+        if (z) {
+            BdBaseService.serviceStartFlag = 2;
+        } else {
+            BdBaseService.serviceStartFlag = 1;
+        }
     }
 }

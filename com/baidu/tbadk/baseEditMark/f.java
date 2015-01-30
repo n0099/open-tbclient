@@ -48,9 +48,9 @@ public class f extends BdAsyncTask<Boolean, Integer, Boolean> {
             markData2 = this.Bb.AX;
             adVar2.o("tid", markData2.getId());
         }
-        this.AS.parserJson(this.AR.ov());
+        this.AS.parserJson(this.AR.oy());
         boolean z = this.AS.getErrorCode() == 0;
-        if (this.AR.oW().pW().ma() && z) {
+        if (this.AR.oZ().qh().ma() && z) {
             return true;
         }
         return false;
@@ -60,7 +60,7 @@ public class f extends BdAsyncTask<Boolean, Integer, Boolean> {
     public void cancel() {
         super.cancel(true);
         if (this.AR != null) {
-            this.AR.dL();
+            this.AR.dJ();
         }
         this.Bb.AY = null;
     }
@@ -85,7 +85,7 @@ public class f extends BdAsyncTask<Boolean, Integer, Boolean> {
             } else {
                 gVar = this.Bb.AZ;
                 if (gVar != null) {
-                    if (this.AR == null || this.AR.oW().pW().ma()) {
+                    if (this.AR == null || this.AR.oZ().qh().ma()) {
                         gVar2 = this.Bb.AZ;
                         gVar2.a(false, this.Ba, this.AS.getErrorString());
                     } else {

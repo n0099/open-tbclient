@@ -26,50 +26,50 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class a {
-    private static a QY;
-    public static boolean Rc;
-    public static boolean Rd;
-    public static boolean Re;
-    private h Ra;
-    private static Date Rb = null;
+    private static a RB;
+    public static boolean RG;
+    public static boolean RH;
+    public static boolean RI;
+    private h RE;
+    private static Date RF = null;
     private static Handler mHandler = new b();
-    private int QS = 0;
-    private int QT = 0;
-    private int QU = 0;
-    private int QV = 0;
-    private int QW = 0;
-    private int QX = 0;
-    private h QZ = new h();
-    private final int[] Rf = new int[10];
-    private final Context QR = TbadkCoreApplication.m255getInst().getApp();
+    private int Rv = 0;
+    private int Rw = 0;
+    private int Rx = 0;
+    private int Ry = 0;
+    private int Rz = 0;
+    private int RA = 0;
+    private h RC = new h();
+    private final int[] RJ = new int[10];
+    private final Context Ru = TbadkCoreApplication.m255getInst().getApp();
 
-    public static a rI() {
-        if (QY == null) {
-            QY = new a();
+    public static a rY() {
+        if (RB == null) {
+            RB = new a();
         }
-        return QY;
+        return RB;
     }
 
     private a() {
     }
 
     public void a(int i, int i2, int i3, int i4, int i5, int i6) {
-        if (i != this.QS || i2 != this.QT || i3 != this.QU || i4 != this.QW || i5 != this.QV || i6 != this.QX) {
+        if (i != this.Rv || i2 != this.Rw || i3 != this.Rx || i4 != this.Rz || i5 != this.Ry || i6 != this.RA) {
             int i7 = 0;
-            if (i > this.QS || i2 > this.QT || i3 > this.QU || i4 > this.QW || i5 > this.QV || i6 > this.QX) {
+            if (i > this.Rv || i2 > this.Rw || i3 > this.Rx || i4 > this.Rz || i5 > this.Ry || i6 > this.RA) {
                 i7 = 1;
-            } else if (i < this.QS || i2 < this.QT) {
+            } else if (i < this.Rv || i2 < this.Rw) {
                 i7 = 2;
             }
-            this.QS = i;
-            this.QT = i2;
-            this.QU = i3;
-            this.QW = i4;
-            this.QV = i5;
-            this.QX = i6;
-            int i8 = sb() > 0 ? i7 : 2;
+            this.Rv = i;
+            this.Rw = i2;
+            this.Rx = i3;
+            this.Rz = i4;
+            this.Ry = i5;
+            this.RA = i6;
+            int i8 = sr() > 0 ? i7 : 2;
             if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().length() > 0) {
-                rZ();
+                sp();
                 u(i8, 23);
                 u(i8, 16);
                 u(i8, 17);
@@ -79,14 +79,14 @@ public class a {
     }
 
     public void a(int i, int i2, int i3, int i4, int i5) {
-        if (i != this.QS || i2 != this.QT || i3 != this.QU || i4 != this.QW || this.QX != i5) {
-            this.QS = i;
-            this.QT = i2;
-            this.QU = i3;
-            this.QW = i4;
-            this.QX = i5;
-            rZ();
-            if (sb() <= 0) {
+        if (i != this.Rv || i2 != this.Rw || i3 != this.Rx || i4 != this.Rz || this.RA != i5) {
+            this.Rv = i;
+            this.Rw = i2;
+            this.Rx = i3;
+            this.Rz = i4;
+            this.RA = i5;
+            sp();
+            if (sr() <= 0) {
                 u(2, 16);
                 u(2, 17);
                 u(2, 11);
@@ -94,20 +94,20 @@ public class a {
         }
     }
 
-    public static boolean rJ() {
-        if (Rb == null) {
-            Rb = new Date();
+    public static boolean rZ() {
+        if (RF == null) {
+            RF = new Date();
         } else {
             Date date = new Date();
-            if (date.getTime() - Rb.getTime() < 10000) {
+            if (date.getTime() - RF.getTime() < 10000) {
                 return false;
             }
-            Rb = date;
+            RF = date;
         }
         return true;
     }
 
-    public static boolean rK() {
+    public static boolean sa() {
         TbadkCoreApplication m255getInst = TbadkCoreApplication.m255getInst();
         if (m255getInst.isNoDisturbOn()) {
             Calendar calendar = Calendar.getInstance();
@@ -137,31 +137,31 @@ public class a {
             if (i == 1) {
                 StringBuffer stringBuffer = new StringBuffer();
                 if (i2 == 23) {
-                    if (this.QX > 0) {
-                        String format = String.format(this.QR.getString(z.notify_gift), String.valueOf(this.QX));
+                    if (this.RA > 0) {
+                        String format = String.format(this.Ru.getString(z.notify_gift), String.valueOf(this.RA));
                         a(23, null, format, format);
                     }
                 } else if (i2 == 11) {
-                    if (this.QS > 0 || this.QT > 0 || this.QW > 0) {
-                        int i3 = this.QS + this.QT;
+                    if (this.Rv > 0 || this.Rw > 0 || this.Rz > 0) {
+                        int i3 = this.Rv + this.Rw;
                         if (i3 > 0) {
                             stringBuffer.append(String.valueOf(i3));
-                            stringBuffer.append(this.QR.getString(z.notify_msg));
+                            stringBuffer.append(this.Ru.getString(z.notify_msg));
                         }
-                        if (this.QW > 0) {
-                            stringBuffer.append(String.valueOf(this.QW));
-                            stringBuffer.append(this.QR.getString(z.notify_fans));
+                        if (this.Rz > 0) {
+                            stringBuffer.append(String.valueOf(this.Rz));
+                            stringBuffer.append(this.Ru.getString(z.notify_fans));
                         }
-                        stringBuffer.append(this.QR.getString(z.notify_click));
+                        stringBuffer.append(this.Ru.getString(z.notify_click));
                         a(11, null, stringBuffer.toString(), stringBuffer.toString());
                     }
                 } else if (i2 != 16 && TbadkCoreApplication.m255getInst().isGroupMsgOn()) {
                     TbadkCoreApplication.m255getInst().getMsgFrequency();
                 }
             } else if (i == 2) {
-                NotificationHelper.cancelNotification(this.QR, 11);
-                NotificationHelper.cancelNotification(this.QR, 16);
-                NotificationHelper.cancelNotification(this.QR, 17);
+                NotificationHelper.cancelNotification(this.Ru, 11);
+                NotificationHelper.cancelNotification(this.Ru, 16);
+                NotificationHelper.cancelNotification(this.Ru, 17);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -175,8 +175,8 @@ public class a {
     */
     private void a(int i, int i2, h hVar) {
         boolean z;
-        String sD;
-        String sC;
+        String sU;
+        String sT;
         String str;
         boolean z2 = false;
         boolean z3 = true;
@@ -184,93 +184,93 @@ public class a {
             try {
                 if (i == 1) {
                     StringBuffer stringBuffer = new StringBuffer();
-                    if (i2 == 23 && this.QX > 0) {
-                        String format = String.format(this.QR.getString(z.notify_gift), String.valueOf(this.QX));
+                    if (i2 == 23 && this.RA > 0) {
+                        String format = String.format(this.Ru.getString(z.notify_gift), String.valueOf(this.RA));
                         a(23, null, format, format);
                     }
                     if (i2 == 11) {
-                        if (this.QS > 0 || this.QT > 0 || this.QW > 0) {
-                            int i3 = this.QS + this.QT;
+                        if (this.Rv > 0 || this.Rw > 0 || this.Rz > 0) {
+                            int i3 = this.Rv + this.Rw;
                             if (i3 > 0) {
                                 stringBuffer.append(String.valueOf(i3));
-                                stringBuffer.append(this.QR.getString(z.notify_msg));
+                                stringBuffer.append(this.Ru.getString(z.notify_msg));
                             }
-                            if (this.QW > 0) {
-                                stringBuffer.append(String.valueOf(this.QW));
-                                stringBuffer.append(this.QR.getString(z.notify_fans));
+                            if (this.Rz > 0) {
+                                stringBuffer.append(String.valueOf(this.Rz));
+                                stringBuffer.append(this.Ru.getString(z.notify_fans));
                             }
-                            stringBuffer.append(this.QR.getString(z.notify_click));
+                            stringBuffer.append(this.Ru.getString(z.notify_click));
                             a(11, null, stringBuffer.toString(), stringBuffer.toString());
                         }
                     } else if (i2 == 16) {
-                        int st = (!TbadkCoreApplication.m255getInst().isGroupMsgOn() || TbadkCoreApplication.m255getInst().getMsgFrequency() <= 0) ? 0 : hVar.st() - hVar.sA();
+                        int sK = (!TbadkCoreApplication.m255getInst().isGroupMsgOn() || TbadkCoreApplication.m255getInst().getMsgFrequency() <= 0) ? 0 : hVar.sK() - hVar.sR();
                         long j = 0;
                         if (TbadkCoreApplication.m255getInst().isMsgChatOn() && TbadkCoreApplication.m255getInst().getMsgFrequency() > 0) {
-                            j = hVar.sL();
+                            j = hVar.tc();
                         }
                         boolean z4 = j > 0;
-                        long j2 = st + j;
+                        long j2 = sK + j;
                         if (j2 > 1) {
-                            stringBuffer.append(String.format(this.QR.getString(z.notify_chat), Long.valueOf(j2)));
+                            stringBuffer.append(String.format(this.Ru.getString(z.notify_chat), Long.valueOf(j2)));
                             a(16, (String) null, stringBuffer.toString(), stringBuffer.toString(), z4);
                         } else if (j2 == 1) {
-                            hVar.sO();
-                            hVar.sM();
+                            hVar.tf();
+                            hVar.td();
                             if (j == 1) {
-                                sD = hVar.sO();
-                                str = hVar.sM();
-                                sC = String.valueOf(sD) + "：" + str;
-                            } else if (st == 1) {
-                                sD = hVar.sD();
-                                sC = hVar.sC();
-                                str = sC;
+                                sU = hVar.tf();
+                                str = hVar.td();
+                                sT = String.valueOf(sU) + "：" + str;
+                            } else if (sK == 1) {
+                                sU = hVar.sU();
+                                sT = hVar.sT();
+                                str = sT;
                             } else {
                                 return;
                             }
                             if (TextUtils.isEmpty(str)) {
-                                str = stringBuffer.append(String.format(this.QR.getString(z.notify_chat), Long.valueOf(j2))).toString();
+                                str = stringBuffer.append(String.format(this.Ru.getString(z.notify_chat), Long.valueOf(j2))).toString();
                             }
-                            if (TextUtils.isEmpty(sC)) {
-                                sC = str;
+                            if (TextUtils.isEmpty(sT)) {
+                                sT = str;
                             }
-                            a(16, sD, str, sC, z4);
+                            a(16, sU, str, sT, z4);
                         }
                     } else if (i2 == 19) {
-                        List<i> sT = hVar.sT();
-                        if (sT != null && sT.size() != 0) {
-                            for (i iVar : sT) {
-                                if (iVar != null && !StringUtils.isNull(iVar.content) && iVar.gid != 0 && iVar.unReadCount > iVar.Sh) {
+                        List<i> tk = hVar.tk();
+                        if (tk != null && tk.size() != 0) {
+                            for (i iVar : tk) {
+                                if (iVar != null && !StringUtils.isNull(iVar.content) && iVar.gid != 0 && iVar.unReadCount > iVar.SL) {
                                     a(iVar);
                                 }
                             }
                         }
                     } else if (TbadkCoreApplication.m255getInst().isGroupMsgOn() && TbadkCoreApplication.m255getInst().getMsgFrequency() > 0) {
-                        if (hVar.su() + hVar.sw() > 0) {
-                            if (hVar.su() > 0 && !rR()) {
-                                long su = hVar.su() - hVar.sv();
-                                if (su > 0) {
-                                    stringBuffer.append(String.format(this.QR.getString(z.notify_updates), Long.valueOf(su)));
+                        if (hVar.sL() + hVar.sN() > 0) {
+                            if (hVar.sL() > 0 && !sh()) {
+                                long sL = hVar.sL() - hVar.sM();
+                                if (sL > 0) {
+                                    stringBuffer.append(String.format(this.Ru.getString(z.notify_updates), Long.valueOf(sL)));
                                     z = false;
                                     z2 = true;
-                                } else if (hVar.sv() > 0) {
+                                } else if (hVar.sM() > 0) {
                                     z = true;
                                 }
-                                if (hVar.sw() > 0 || rQ()) {
+                                if (hVar.sN() > 0 || sg()) {
                                     z3 = z2;
                                 } else if (!z2) {
-                                    stringBuffer.append(String.format(this.QR.getString(z.notify_validate), Integer.valueOf(hVar.sw())));
+                                    stringBuffer.append(String.format(this.Ru.getString(z.notify_validate), Integer.valueOf(hVar.sN())));
                                 } else {
-                                    stringBuffer.append(String.format(this.QR.getString(z.notify_validate_1), Integer.valueOf(hVar.sw())));
+                                    stringBuffer.append(String.format(this.Ru.getString(z.notify_validate_1), Integer.valueOf(hVar.sN())));
                                 }
                                 if (z3) {
                                     a(17, null, stringBuffer.toString(), stringBuffer.toString());
                                 }
                                 if (z) {
-                                    a(18, hVar.sF(), hVar.sG(), hVar.sG());
+                                    a(18, hVar.sW(), hVar.sX(), hVar.sX());
                                 }
                             }
                             z = false;
-                            if (hVar.sw() > 0) {
+                            if (hVar.sN() > 0) {
                             }
                             z3 = z2;
                             if (z3) {
@@ -278,15 +278,15 @@ public class a {
                             if (z) {
                             }
                         }
-                        if (hVar.sP() > 0 && !rS()) {
-                            String format2 = String.format(this.QR.getString(z.notify_live), Integer.valueOf(hVar.sP()));
+                        if (hVar.tg() > 0 && !si()) {
+                            String format2 = String.format(this.Ru.getString(z.notify_live), Integer.valueOf(hVar.tg()));
                             a(21, null, format2, format2);
                         }
                     }
                 } else if (i == 2) {
-                    NotificationHelper.cancelNotification(this.QR, 11);
-                    NotificationHelper.cancelNotification(this.QR, 16);
-                    NotificationHelper.cancelNotification(this.QR, 17);
+                    NotificationHelper.cancelNotification(this.Ru, 11);
+                    NotificationHelper.cancelNotification(this.Ru, 16);
+                    NotificationHelper.cancelNotification(this.Ru, 17);
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -302,30 +302,30 @@ public class a {
         Intent b = b(iVar);
         if (b != null) {
             b.setFlags(268435456);
-            NotificationHelper.showNotification(this.QR, iVar.gid, iVar.title, iVar.content, iVar.content, PendingIntent.getService(this.QR, iVar.gid, b, 134217728), false);
+            NotificationHelper.showNotification(this.Ru, iVar.gid, iVar.title, iVar.content, iVar.content, PendingIntent.getService(this.Ru, iVar.gid, b, 134217728), false);
         }
     }
 
     private void a(int i, String str, String str2, String str3, boolean z) {
         Intent e;
-        if (i == 23 && this.QX > 0) {
-            e = cu(i);
-        } else if (i == 11 && this.QW > 0 && this.QS == 0 && this.QT == 0) {
-            e = cv(i);
+        if (i == 23 && this.RA > 0) {
+            e = cB(i);
+        } else if (i == 11 && this.Rz > 0 && this.Rv == 0 && this.Rw == 0) {
+            e = cC(i);
         } else if (i == 18) {
-            e = rL();
+            e = sb();
         } else {
             e = e(i, z);
         }
         e.setFlags(268435456);
-        NotificationHelper.showNotification(this.QR, i, str, str2, str3, PendingIntent.getService(this.QR, i, e, 134217728), false);
+        NotificationHelper.showNotification(this.Ru, i, str, str2, str3, PendingIntent.getService(this.Ru, i, e, 134217728), false);
     }
 
-    private Intent cu(int i) {
-        Intent intent = new Intent(this.QR, DealIntentService.class);
+    public Intent cB(int i) {
+        Intent intent = new Intent(this.Ru, DealIntentService.class);
         intent.putExtra("class", 24);
         intent.putExtra("KeyOfNotiId", i);
-        intent.putExtra("gift_num", this.QX);
+        intent.putExtra("gift_num", this.RA);
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
         if (!TextUtils.isEmpty(currentAccount) && !TextUtils.isEmpty(currentAccountName)) {
@@ -335,8 +335,8 @@ public class a {
         return intent;
     }
 
-    private Intent cv(int i) {
-        Intent intent = new Intent(this.QR, DealIntentService.class);
+    public Intent cC(int i) {
+        Intent intent = new Intent(this.Ru, DealIntentService.class);
         intent.putExtra("class", 10);
         intent.putExtra("KeyOfNotiId", i);
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -348,182 +348,182 @@ public class a {
         return intent;
     }
 
-    private Intent b(i iVar) {
+    public Intent b(i iVar) {
         if (iVar == null) {
             return null;
         }
-        Intent intent = new Intent(this.QR, DealIntentService.class);
+        Intent intent = new Intent(this.Ru, DealIntentService.class);
         intent.putExtra("class", 27);
         intent.putExtra(SapiAccountManager.SESSION_UID, iVar.gid);
-        intent.putExtra("uname", iVar.Sg);
+        intent.putExtra("uname", iVar.SJ);
         intent.putExtra(OfficalBarChatActivityConfig.USER_TYPE, iVar.userType);
         return intent;
     }
 
-    private Intent e(int i, boolean z) {
+    public Intent e(int i, boolean z) {
         String str = "";
         if (z) {
-            Set<String> keySet = this.QZ.sN().keySet();
+            Set<String> keySet = this.RC.te().keySet();
             if (keySet.iterator().hasNext()) {
                 str = keySet.iterator().next();
             }
         }
-        Intent intent = new Intent(this.QR, DealIntentService.class);
+        Intent intent = new Intent(this.Ru, DealIntentService.class);
         intent.putExtra("class", 5);
         intent.putExtra("KeyOfNotiId", i);
-        intent.putExtra(AddFriendActivityConfig.TYPE_AT_ME, this.QT);
-        intent.putExtra("reply_me", this.QS);
-        intent.putExtra("fans", this.QW);
+        intent.putExtra(AddFriendActivityConfig.TYPE_AT_ME, this.Rw);
+        intent.putExtra("reply_me", this.Rv);
+        intent.putExtra("fans", this.Rz);
         intent.putExtra("chat", getMsgChat());
-        intent.putExtra("group_msg", this.QZ.st() - this.QZ.sA());
-        intent.putExtra("group_msg_validate", this.QZ.sw());
-        intent.putExtra("group_msg_updates", this.QZ.su());
-        intent.putExtra("live_notify_msg_updates", this.QZ.sP());
-        intent.putExtra("officialbar_msg", this.QZ.sx());
+        intent.putExtra("group_msg", this.RC.sK() - this.RC.sR());
+        intent.putExtra("group_msg_validate", this.RC.sN());
+        intent.putExtra("group_msg_updates", this.RC.sL());
+        intent.putExtra("live_notify_msg_updates", this.RC.tg());
+        intent.putExtra("officialbar_msg", this.RC.sO());
         intent.putExtra("privateGid", str);
         return intent;
     }
 
-    private Intent rL() {
-        Intent intent = new Intent(this.QR, DealIntentService.class);
+    public Intent sb() {
+        Intent intent = new Intent(this.Ru, DealIntentService.class);
         intent.putExtra("class", 14);
-        intent.putExtra("group_msg_updates", this.QZ.sv());
+        intent.putExtra("group_msg_updates", this.RC.sM());
         return intent;
     }
 
-    public void rM() {
-        NotificationHelper.cancelNotification(this.QR, 11);
-        NotificationHelper.cancelNotification(this.QR, 16);
-        NotificationHelper.cancelNotification(this.QR, 17);
-        NotificationHelper.cancelNotification(this.QR, 15);
-        NotificationHelper.cancelNotification(this.QR, 13);
-        NotificationHelper.cancelNotification(this.QR, 12);
+    public void sc() {
+        NotificationHelper.cancelNotification(this.Ru, 11);
+        NotificationHelper.cancelNotification(this.Ru, 16);
+        NotificationHelper.cancelNotification(this.Ru, 17);
+        NotificationHelper.cancelNotification(this.Ru, 15);
+        NotificationHelper.cancelNotification(this.Ru, 13);
+        NotificationHelper.cancelNotification(this.Ru, 12);
     }
 
-    public void rN() {
-        NotificationHelper.cancelNotification(this.QR, 16);
+    public void sd() {
+        NotificationHelper.cancelNotification(this.Ru, 16);
     }
 
-    public void rO() {
-        NotificationHelper.cancelNotification(this.QR, 19);
+    public void se() {
+        NotificationHelper.cancelNotification(this.Ru, 19);
     }
 
-    public void cw(int i) {
-        NotificationHelper.cancelNotification(this.QR, i);
+    public void cD(int i) {
+        NotificationHelper.cancelNotification(this.Ru, i);
     }
 
-    public int rP() {
-        return this.QZ.sL();
+    public int sf() {
+        return this.RC.tc();
+    }
+
+    public void dl(String str) {
+        if (TextUtils.isEmpty(str)) {
+            sd();
+            return;
+        }
+        h ss = ss();
+        if (ss == null) {
+            sd();
+            return;
+        }
+        HashMap<String, String> sY = ss.sY();
+        if (sY == null || sY.isEmpty()) {
+            sd();
+        } else if (sY.containsKey(str)) {
+            sd();
+        }
     }
 
     public void dm(String str) {
         if (TextUtils.isEmpty(str)) {
-            rN();
+            sd();
             return;
         }
-        h sc = sc();
-        if (sc == null) {
-            rN();
+        h ss = ss();
+        if (ss == null) {
+            sd();
             return;
         }
-        HashMap<String, String> sH = sc.sH();
-        if (sH == null || sH.isEmpty()) {
-            rN();
-        } else if (sH.containsKey(str)) {
-            rN();
+        HashMap<String, String> te = ss.te();
+        if (te == null || te.isEmpty()) {
+            sd();
+        } else if (te.containsKey(str)) {
+            sd();
         }
     }
 
-    public void dn(String str) {
-        if (TextUtils.isEmpty(str)) {
-            rN();
-            return;
-        }
-        h sc = sc();
-        if (sc == null) {
-            rN();
-            return;
-        }
-        HashMap<String, String> sN = sc.sN();
-        if (sN == null || sN.isEmpty()) {
-            rN();
-        } else if (sN.containsKey(str)) {
-            rN();
-        }
-    }
-
-    private boolean rQ() {
+    private boolean sg() {
         MessageManager.getInstance().sendMessage(new CustomMessage(2008004));
-        return Rc;
+        return RG;
     }
 
-    private boolean rR() {
+    private boolean sh() {
         MessageManager.getInstance().sendMessage(new CustomMessage(2008005));
-        return Rd;
+        return RH;
     }
 
-    private boolean rS() {
+    private boolean si() {
         MessageManager.getInstance().sendMessage(new CustomMessage(2008018));
-        return Re;
+        return RI;
     }
 
-    public void rT() {
-        NotificationHelper.cancelNotification(this.QR, 17);
+    public void sj() {
+        NotificationHelper.cancelNotification(this.Ru, 17);
     }
 
-    public void cx(int i) {
-        h sc = sc();
-        if (sc == null) {
-            rT();
+    public void cE(int i) {
+        h ss = ss();
+        if (ss == null) {
+            sj();
         } else if (1 == i) {
-            if (sc.su() <= 0) {
-                rT();
+            if (ss.sL() <= 0) {
+                sj();
             }
         } else if (2 == i) {
-            if (sc.sw() <= 0) {
-                rT();
+            if (ss.sN() <= 0) {
+                sj();
             }
-        } else if (3 == i && sc.sP() <= 0) {
-            NotificationHelper.cancelNotification(this.QR, 21);
+        } else if (3 == i && ss.tg() <= 0) {
+            NotificationHelper.cancelNotification(this.Ru, 21);
         }
     }
 
-    public void rU() {
-        NotificationHelper.cancelNotification(this.QR, 18);
+    public void sk() {
+        NotificationHelper.cancelNotification(this.Ru, 18);
     }
 
-    public void rV() {
-        NotificationHelper.cancelNotification(this.QR, 11);
-        NotificationHelper.cancelNotification(this.QR, 16);
-        NotificationHelper.cancelNotification(this.QR, 17);
+    public void sl() {
+        NotificationHelper.cancelNotification(this.Ru, 11);
+        NotificationHelper.cancelNotification(this.Ru, 16);
+        NotificationHelper.cancelNotification(this.Ru, 17);
     }
 
-    public void rW() {
-        NotificationHelper.cancelNotification(this.QR, 21);
-        NotificationHelper.cancelNotification(this.QR, 17);
-        NotificationHelper.cancelNotification(this.QR, 19);
-        NotificationHelper.cancelNotification(this.QR, 16);
-        NotificationHelper.cancelNotification(this.QR, 18);
+    public void sm() {
+        NotificationHelper.cancelNotification(this.Ru, 21);
+        NotificationHelper.cancelNotification(this.Ru, 17);
+        NotificationHelper.cancelNotification(this.Ru, 19);
+        NotificationHelper.cancelNotification(this.Ru, 16);
+        NotificationHelper.cancelNotification(this.Ru, 18);
     }
 
-    public void rX() {
-        NotificationHelper.cancelNotification(this.QR, 11);
+    public void sn() {
+        NotificationHelper.cancelNotification(this.Ru, 11);
     }
 
-    public void rY() {
-        NotificationHelper.cancelNotification(this.QR, 23);
+    public void so() {
+        NotificationHelper.cancelNotification(this.Ru, 23);
     }
 
-    public void rZ() {
+    public void sp() {
         NewsNotifyMessage newsNotifyMessage = new NewsNotifyMessage();
         newsNotifyMessage.setMsgAtme(getMsgAtme());
         newsNotifyMessage.setMsgBookmark(getMsgBookmark());
-        newsNotifyMessage.setMsgChat(sa());
+        newsNotifyMessage.setMsgChat(sq());
         newsNotifyMessage.setMsgFans(getMsgFans());
         newsNotifyMessage.setMsgReplyme(getMsgReplyme());
         newsNotifyMessage.setMsgGiftNum(getMsgGiftNum());
-        newsNotifyMessage.setMsgPrivateChat(this.QZ.sL());
-        newsNotifyMessage.setMsgStrangerChat(this.QZ.sS());
+        newsNotifyMessage.setMsgPrivateChat(this.RC.tc());
+        newsNotifyMessage.setMsgStrangerChat(this.RC.tj());
         MessageManager.getInstance().dispatchResponsedMessageToUI(newsNotifyMessage);
     }
 
@@ -532,112 +532,112 @@ public class a {
             NewsNotifyMessage newsNotifyMessage = new NewsNotifyMessage();
             newsNotifyMessage.setMsgAtme(getMsgAtme());
             newsNotifyMessage.setMsgBookmark(getMsgBookmark());
-            newsNotifyMessage.setMsgChat(((((hVar.sL() + hVar.st()) + hVar.sS()) + hVar.sR()) + hVar.sU()) - hVar.sA());
+            newsNotifyMessage.setMsgChat(((((hVar.tc() + hVar.sK()) + hVar.tj()) + hVar.ti()) + hVar.tl()) - hVar.sR());
             newsNotifyMessage.setMsgFans(getMsgFans());
             newsNotifyMessage.setMsgReplyme(getMsgReplyme());
             newsNotifyMessage.setMsgGiftNum(getMsgGiftNum());
-            newsNotifyMessage.setMsgPrivateChat(hVar.sL());
-            newsNotifyMessage.setMsgStrangerChat(hVar.sS());
+            newsNotifyMessage.setMsgPrivateChat(hVar.tc());
+            newsNotifyMessage.setMsgStrangerChat(hVar.tj());
             MessageManager.getInstance().dispatchResponsedMessageToUI(newsNotifyMessage);
         }
     }
 
     public int getMsgReplyme() {
-        return this.QS;
+        return this.Rv;
     }
 
     public void setMsgReplyme(int i) {
         if (i >= 0) {
-            a(i, this.QT, this.QU, this.QW, this.QV, this.QX);
+            a(i, this.Rw, this.Rx, this.Rz, this.Ry, this.RA);
         }
     }
 
     public int getMsgAtme() {
-        return this.QT;
+        return this.Rw;
     }
 
     public void setMsgAtme(int i) {
         if (i >= 0) {
-            a(this.QS, i, this.QU, this.QW, this.QV, this.QX);
+            a(this.Rv, i, this.Rx, this.Rz, this.Ry, this.RA);
         }
     }
 
     public int getMsgChat() {
-        return this.QU;
+        return this.Rx;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [809=5] */
-    public int sa() {
-        return ((((this.QZ.sL() + this.QZ.st()) + this.QZ.sS()) + this.QZ.sR()) + this.QZ.sU()) - this.QZ.sA();
+    public int sq() {
+        return ((((this.RC.tc() + this.RC.sK()) + this.RC.tj()) + this.RC.ti()) + this.RC.tl()) - this.RC.sR();
     }
 
     public int getMsgFans() {
-        return this.QW;
+        return this.Rz;
     }
 
     public void setMsgFans(int i) {
         if (i >= 0) {
-            a(this.QS, this.QT, this.QU, i, this.QV, this.QX);
+            a(this.Rv, this.Rw, this.Rx, i, this.Ry, this.RA);
         }
     }
 
     public void setMsgChat(int i) {
         if (i >= 0) {
-            a(this.QS, this.QT, i, this.QW, this.QV, this.QX);
+            a(this.Rv, this.Rw, i, this.Rz, this.Ry, this.RA);
         }
     }
 
     public int getMsgBookmark() {
-        return this.QV;
+        return this.Ry;
     }
 
     public void setMsgBookmark(int i) {
         if (i >= 0) {
-            a(this.QS, this.QT, this.QU, this.QW, i, this.QX);
+            a(this.Rv, this.Rw, this.Rx, this.Rz, i, this.RA);
         }
     }
 
     public int getMsgGiftNum() {
-        return this.QX;
+        return this.RA;
     }
 
     public void setMsgGiftNum(int i) {
         if (i >= 0) {
-            this.QX = i;
+            this.RA = i;
         }
     }
 
-    public void at(boolean z) {
+    public void av(boolean z) {
         if (z) {
             a(0, 0, 0, 0, 0, 0);
             return;
         }
-        this.QS = 0;
-        this.QT = 0;
-        this.QU = 0;
-        this.QW = 0;
-        this.QV = 0;
+        this.Rv = 0;
+        this.Rw = 0;
+        this.Rx = 0;
+        this.Rz = 0;
+        this.Ry = 0;
     }
 
-    public int sb() {
-        return this.QS + this.QT + this.QU + this.QW + this.QX;
+    public int sr() {
+        return this.Rv + this.Rw + this.Rx + this.Rz + this.RA;
     }
 
     public void b(h hVar) {
         long j;
-        int sx;
+        int sO;
         int i = 0;
         if (hVar != null) {
-            this.QZ = hVar;
-            this.QU = (hVar.st() - hVar.sA()) + hVar.sL() + hVar.sR() + hVar.sU();
+            this.RC = hVar;
+            this.Rx = (hVar.sK() - hVar.sR()) + hVar.tc() + hVar.ti() + hVar.tl();
             a(hVar);
-            if (hVar.sB()) {
-                this.Ra = null;
+            if (hVar.sS()) {
+                this.RE = null;
                 mHandler.removeMessages(0);
             }
-            if (hVar.sB()) {
+            if (hVar.sS()) {
                 if (TbadkCoreApplication.m255getInst().isGroupMsgOn() && TbadkCoreApplication.m255getInst().getMsgFrequency() > 0) {
-                    i = hVar.st() - hVar.sA();
+                    i = hVar.sK() - hVar.sR();
                 }
                 if (TbadkCoreApplication.m255getInst().isMsgChatOn() && TbadkCoreApplication.m255getInst().getMsgFrequency() > 0) {
                     boolean chatFloatWindowLocked = TbadkCoreApplication.m255getInst().getChatFloatWindowLocked();
@@ -645,24 +645,24 @@ public class a {
                     boolean isMIUIRom = TbadkCoreApplication.m255getInst().isMIUIRom();
                     boolean isFloatingWindowOpened = TbadkCoreApplication.m255getInst().isFloatingWindowOpened();
                     if (isMIUIRom) {
-                        j = hVar.sL();
+                        j = hVar.tc();
                     } else if (isFloatingWindowOpened) {
                         if (!chatFloatWindowLocked || isProcessBackground) {
-                            j = hVar.sL();
+                            j = hVar.tc();
                         }
                     } else {
-                        j = hVar.sL();
+                        j = hVar.tc();
                     }
-                    if ((i <= 0 || j > 0) && ((i > hVar.sE() - hVar.sA() && i > 0) || j > hVar.sy())) {
+                    if ((i <= 0 || j > 0) && ((i > hVar.sV() - hVar.sR() && i > 0) || j > hVar.sP())) {
                         a(1, 16, hVar);
                     }
-                    sx = hVar.sx();
-                    if (sx > 0 && sx > hVar.sK()) {
+                    sO = hVar.sO();
+                    if (sO > 0 && sO > hVar.tb()) {
                         a(1, 19, hVar);
                     }
-                    if (hVar.su() <= hVar.sI() || hVar.sw() > hVar.sJ()) {
-                        if (hVar.su() > hVar.sI() || hVar.sw() != hVar.sJ() || !rR()) {
-                            if (hVar.su() == hVar.sI() || hVar.sw() <= hVar.sJ() || !rQ()) {
+                    if (hVar.sL() <= hVar.sZ() || hVar.sN() > hVar.ta()) {
+                        if (hVar.sL() > hVar.sZ() || hVar.sN() != hVar.ta() || !sh()) {
+                            if (hVar.sL() == hVar.sZ() || hVar.sN() <= hVar.ta() || !sg()) {
                                 a(1, 17, hVar);
                             } else {
                                 return;
@@ -671,7 +671,7 @@ public class a {
                             return;
                         }
                     }
-                    if (hVar.sP() <= hVar.sQ() && !rS()) {
+                    if (hVar.tg() <= hVar.th() && !si()) {
                         a(1, 21, hVar);
                         return;
                     }
@@ -680,32 +680,32 @@ public class a {
                 if (i <= 0) {
                 }
                 a(1, 16, hVar);
-                sx = hVar.sx();
-                if (sx > 0) {
+                sO = hVar.sO();
+                if (sO > 0) {
                     a(1, 19, hVar);
                 }
-                if (hVar.su() <= hVar.sI()) {
+                if (hVar.sL() <= hVar.sZ()) {
                 }
-                if (hVar.su() > hVar.sI()) {
+                if (hVar.sL() > hVar.sZ()) {
                 }
-                if (hVar.su() == hVar.sI()) {
+                if (hVar.sL() == hVar.sZ()) {
                 }
                 a(1, 17, hVar);
-                if (hVar.sP() <= hVar.sQ()) {
+                if (hVar.tg() <= hVar.th()) {
                 }
             }
         }
     }
 
-    public h sc() {
-        return this.QZ;
+    public h ss() {
+        return this.RC;
     }
 
     public void c(h hVar) {
-        this.QZ = hVar;
+        this.RC = hVar;
     }
 
-    public h sd() {
-        return this.Ra;
+    public h st() {
+        return this.RE;
     }
 }

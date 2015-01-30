@@ -39,11 +39,11 @@ public class h {
 
     public void lC() {
         long currentTimeMillis;
-        if (!com.baidu.adp.lib.util.i.fh() && TbadkCoreApplication.m255getInst().isMainProcess(true)) {
+        if (!com.baidu.adp.lib.util.i.fg() && TbadkCoreApplication.m255getInst().isMainProcess(true)) {
             synchronized (lock) {
                 try {
                     if (0 == mobileLastTachometerTime) {
-                        mobileLastTachometerTime = com.baidu.tbadk.core.sharedPref.b.og().getLong("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", 0L);
+                        mobileLastTachometerTime = com.baidu.tbadk.core.sharedPref.b.oj().getLong("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", 0L);
                     }
                     currentTimeMillis = System.currentTimeMillis();
                 } catch (Exception e) {
@@ -51,7 +51,7 @@ public class h {
                 }
                 if (0 == mobileLastTachometerTime || currentTimeMillis - mobileLastTachometerTime >= 300000) {
                     mobileLastTachometerTime = currentTimeMillis;
-                    com.baidu.tbadk.core.sharedPref.b.og().putLong("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", currentTimeMillis);
+                    com.baidu.tbadk.core.sharedPref.b.oj().putLong("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", currentTimeMillis);
                     this.handler.sendEmptyMessage(10002);
                 }
             }

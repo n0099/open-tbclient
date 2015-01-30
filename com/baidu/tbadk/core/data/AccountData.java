@@ -56,9 +56,6 @@ public class AccountData implements Serializable {
         this.mIsActive = i;
     }
 
-    public void logPrint() {
-    }
-
     public void setTbs(String str) {
         this.mTbs = str;
     }

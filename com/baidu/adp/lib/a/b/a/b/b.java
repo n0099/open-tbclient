@@ -1,20 +1,20 @@
 package com.baidu.adp.lib.a.b.a.b;
 /* loaded from: classes.dex */
 public class b implements h {
-    private boolean gl;
+    private boolean gn;
 
     public b(boolean z) {
-        this.gl = z;
+        this.gn = z;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object a(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return Boolean.valueOf(this.gl);
+        return Boolean.valueOf(this.gn);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object b(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return Boolean.valueOf(this.gl);
+        return Boolean.valueOf(this.gn);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
@@ -24,16 +24,16 @@ public class b implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object d(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return Boolean.valueOf(this.gl);
+        return Boolean.valueOf(this.gn);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object e(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return Boolean.valueOf(this.gl);
+        return Boolean.valueOf(this.gn);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object f(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return Boolean.valueOf(this.gl);
+        return Boolean.valueOf(this.gn);
     }
 }

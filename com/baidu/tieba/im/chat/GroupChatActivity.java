@@ -39,12 +39,6 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.CommonGroupChatActiviy, com.baidu.tieba.im.chat.MsglistActivity
-    public void regReceiver() {
-        super.regReceiver();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
@@ -57,7 +51,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         super.onResume();
         ChatStatusManager.getInst().setIsOpen(2, true);
         String curId = ChatStatusManager.getInst().getCurId(2);
-        com.baidu.tbadk.coreExtra.messageCenter.a.rI().dm(curId);
+        com.baidu.tbadk.coreExtra.messageCenter.a.rY().dl(curId);
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new com.baidu.tbadk.live.message.a(curId, 1)));
     }
 
@@ -131,10 +125,10 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
     public void onPageInited() {
-        JO();
+        Kj();
     }
 
-    private void JO() {
+    private void Kj() {
         if (getIntent() != null) {
             String stringExtra = getIntent().getStringExtra(GroupChatActivityConfig.AUTO_SEND_EXTRA_MSG);
             if (!com.baidu.adp.lib.util.k.isEmpty(stringExtra)) {
@@ -150,8 +144,8 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    protected boolean first(ar arVar) {
-        this.mListModel.loadFirst(arVar);
+    protected boolean first(au auVar) {
+        this.mListModel.loadFirst(auVar);
         return true;
     }
 

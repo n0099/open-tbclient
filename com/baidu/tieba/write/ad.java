@@ -1,30 +1,21 @@
 package com.baidu.tieba.write;
 
-import com.baidu.tbadk.core.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.tbadkCore.PbEditor.TbEditorToolButtonContainer;
 /* loaded from: classes.dex */
-public class ad implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ WriteActivity cft;
+class ad implements com.baidu.tieba.tbadkCore.bubble.y {
+    final /* synthetic */ WriteActivity cgS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(WriteActivity writeActivity) {
-        this.cft = writeActivity;
+        this.cgS = writeActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.tieba.tbadkCore.location.i iVar;
-        com.baidu.tieba.tbadkCore.PbEditor.k kVar;
-        com.baidu.tieba.tbadkCore.location.d dVar;
-        if (UtilHelper.isNetOk()) {
-            kVar = this.cft.cfa;
-            kVar.setLocationInfoViewState(1);
-            dVar = this.cft.aAD;
-            dVar.ahG();
-        } else {
-            iVar = this.cft.aAO;
-            iVar.EZ();
-        }
-        aVar.dismiss();
+    @Override // com.baidu.tieba.tbadkCore.bubble.y
+    public void jx() {
+        TbEditorToolButtonContainer tbEditorToolButtonContainer;
+        this.cgS.bVb = null;
+        this.cgS.eQ(false);
+        tbEditorToolButtonContainer = this.cgS.cgA;
+        tbEditorToolButtonContainer.vA();
     }
 }

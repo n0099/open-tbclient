@@ -7,11 +7,11 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements View.OnClickListener {
-    final /* synthetic */ NavigationBar MJ;
+    final /* synthetic */ NavigationBar Ng;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(NavigationBar navigationBar) {
-        this.MJ = navigationBar;
+        this.Ng = navigationBar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,15 +19,15 @@ public class w implements View.OnClickListener {
         boolean z;
         Activity activity;
         Activity activity2;
-        z = this.MJ.mClickIsVaild;
+        z = this.Ng.mClickIsVaild;
         if (z) {
             int id = view.getId();
             if (id == com.baidu.tieba.w.navigationBarGoBack) {
-                activity2 = this.MJ.mCurrentActivity;
+                activity2 = this.Ng.mCurrentActivity;
                 activity2.finish();
             } else if (id == com.baidu.tieba.w.navigationBarHome) {
                 MessageManager messageManager = MessageManager.getInstance();
-                activity = this.MJ.mCurrentActivity;
+                activity = this.Ng.mCurrentActivity;
                 messageManager.dispatchResponsedMessage(new CustomResponsedMessage(2002004, activity));
             }
         }

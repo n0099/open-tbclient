@@ -18,7 +18,7 @@ public abstract class NetMessage {
         HTTP,
         AUTO;
 
-        /* JADX DEBUG: Replace access to removed values field (eY) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (fa) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static NetType[] valuesCustom() {
             NetType[] valuesCustom = values();

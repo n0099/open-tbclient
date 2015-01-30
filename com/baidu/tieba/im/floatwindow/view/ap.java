@@ -6,19 +6,19 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ap {
-    private HashMap<String, Integer> aYW = new HashMap<>();
-    private as aYX;
+    private HashMap<String, Integer> bat = new HashMap<>();
+    private as bau;
 
     public void a(as asVar) {
-        this.aYX = asVar;
+        this.bau = asVar;
     }
 
-    public void ar(List<UserData> list) {
+    public void at(List<UserData> list) {
         if (list != null && !list.isEmpty()) {
             for (UserData userData : list) {
                 if (userData != null) {
                     if (userData.getIsFriend() == 1) {
-                        this.aYW.put(userData.getUserId(), 1);
+                        this.bat.put(userData.getUserId(), 1);
                     } else {
                         com.baidu.tieba.im.i.a(new aq(this, userData), new ar(this, userData));
                     }
@@ -31,24 +31,24 @@ public class ap {
         if (userData == null) {
             return 0;
         }
-        return gE(userData.getUserId());
+        return gJ(userData.getUserId());
     }
 
-    public boolean gC(String str) {
-        int gE = gE(str);
-        return gE == 1 || gE == 3;
+    public boolean gH(String str) {
+        int gJ = gJ(str);
+        return gJ == 1 || gJ == 3;
     }
 
-    public int gE(String str) {
-        if (!StringUtils.isNull(str) && this.aYW.containsKey(str)) {
-            return this.aYW.get(str).intValue();
+    public int gJ(String str) {
+        if (!StringUtils.isNull(str) && this.bat.containsKey(str)) {
+            return this.bat.get(str).intValue();
         }
         return 0;
     }
 
     public void F(String str, int i) {
         if (!StringUtils.isNull(str)) {
-            this.aYW.put(str, Integer.valueOf(i));
+            this.bat.put(str, Integer.valueOf(i));
         }
     }
 
@@ -61,7 +61,7 @@ public class ap {
     }
 
     private int Y(long j) {
-        com.baidu.tieba.im.data.b X = com.baidu.tieba.im.db.m.MI().X(j);
+        com.baidu.tieba.im.data.b X = com.baidu.tieba.im.db.m.Ne().X(j);
         if (X == null || X.getStatus() == 0) {
             return 0;
         }

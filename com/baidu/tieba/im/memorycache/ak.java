@@ -38,19 +38,19 @@ public class ak extends com.baidu.adp.framework.listener.e {
                 chatMessage.setMsgId(msgId);
                 chatMessage.setRecordId(recordId);
                 chatMessage.getLocalData().setStatus((short) 3);
-                com.baidu.tieba.im.c.a.gw(com.baidu.adp.lib.g.c.toInt(responseCommitPersonalMessage.getGroupId(), 0));
+                com.baidu.tieba.im.c.a.gF(com.baidu.adp.lib.g.c.toInt(responseCommitPersonalMessage.getGroupId(), 0));
             }
             if (chatMessage instanceof PersonalChatMessage) {
-                c.Qs().a(2, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
+                c.QO().a(2, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                c.Qs().a(4, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
+                c.QO().a(4, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
             } else {
                 return;
             }
             if (chatMessage instanceof PersonalChatMessage) {
-                H = c.Qs().H(String.valueOf(com.baidu.tieba.im.util.i.n(chatMessage)), 2);
+                H = c.QO().H(String.valueOf(com.baidu.tieba.im.util.i.n(chatMessage)), 2);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                H = c.Qs().H(String.valueOf(com.baidu.tieba.im.util.i.n(chatMessage)), 4);
+                H = c.QO().H(String.valueOf(com.baidu.tieba.im.util.i.n(chatMessage)), 4);
             } else {
                 return;
             }

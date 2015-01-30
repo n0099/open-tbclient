@@ -1,64 +1,34 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ax implements com.baidu.tieba.tbadkCore.location.i {
-    final /* synthetic */ FrsActivity aCV;
+public class ax extends BdAsyncTask<String, Integer, Boolean> {
+    final /* synthetic */ FrsActivity aDW;
+    private final String name;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(FrsActivity frsActivity) {
-        this.aCV = frsActivity;
+    public ax(FrsActivity frsActivity, String str) {
+        this.aDW = frsActivity;
+        this.name = str;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.location.i
-    public void EZ() {
-        bq bqVar;
-        bq bqVar2;
-        bq bqVar3;
-        bqVar = this.aCV.aBX;
-        if (bqVar.Fh() != null) {
-            bqVar2 = this.aCV.aBX;
-            if (bqVar2.Fh().getLocationViewVisibility() == 0) {
-                this.aCV.showToast(com.baidu.tieba.z.no_network_guide);
-            }
-            bqVar3 = this.aCV.aBX;
-            bqVar3.Fh().setLocationInfoViewState(0);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: f */
+    public Boolean doInBackground(String... strArr) {
+        return Boolean.valueOf(com.baidu.tieba.frs.utils.a.H(this.aDW.getPageContext().getPageActivity(), this.name));
     }
 
-    @Override // com.baidu.tieba.tbadkCore.location.i
-    public void ft(String str) {
-        bq bqVar;
-        bq bqVar2;
-        bq bqVar3;
-        bqVar = this.aCV.aBX;
-        if (bqVar.Fh() != null) {
-            bqVar2 = this.aCV.aBX;
-            if (bqVar2.Fh().getLocationViewVisibility() == 0) {
-                FrsActivity frsActivity = this.aCV;
-                if (StringUtils.isNull(str)) {
-                    str = this.aCV.getPageContext().getString(com.baidu.tieba.z.location_fail);
-                }
-                frsActivity.showToast(str);
-            }
-            bqVar3 = this.aCV.aBX;
-            bqVar3.Fh().setLocationInfoViewState(0);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public void onPostExecute(Boolean bool) {
+        if (bool.booleanValue()) {
+            this.aDW.showToast(com.baidu.tieba.z.shortcut_has_add);
+        } else {
+            this.aDW.fD(this.name);
         }
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.location.i
-    public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
-        bq bqVar;
-        bq bqVar2;
-        if (aVar != null && !StringUtils.isNull(aVar.ahu())) {
-            bqVar = this.aCV.aBX;
-            if (bqVar.Fh() != null) {
-                bqVar2 = this.aCV.aBX;
-                bqVar2.Fh().B(2, aVar.ahu());
-                return;
-            }
-            return;
-        }
-        ft(null);
     }
 }

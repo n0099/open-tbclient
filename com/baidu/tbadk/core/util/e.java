@@ -5,40 +5,40 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class e {
-    private static Object Hs = new Object();
-    private static volatile e Ht;
-    private com.baidu.tbadk.core.data.h Hg;
-    private int Hm;
-    private int Hn;
-    private int Ho;
-    private int Hp;
+    private static Object HB = new Object();
+    private static volatile e HC;
+    private com.baidu.tbadk.core.data.h Hp;
+    private int Hv;
+    private int Hw;
+    private int Hx;
+    private int Hy;
     private Handler mHandler;
-    private final int GZ = 5;
-    private final int Ha = 0;
-    private final int Hb = 1;
-    private final int Hc = 2;
-    private final int Hd = 3;
-    private final byte He = 0;
-    private final byte Hf = 1;
-    private int Hh = 0;
     private final int Hi = 5;
+    private final int Hj = 0;
+    private final int Hk = 1;
+    private final int Hl = 2;
+    private final int Hm = 3;
+    private final byte Hn = 0;
+    private final byte Ho = 1;
+    private int Hq = 0;
+    private final int Hr = 5;
     private boolean mIsUploading = false;
     private long mLastUploadTime = 0;
-    private final long Hj = 86400000;
-    private final float Hk = 100.0f;
-    private float Hl = 0.0f;
-    private BdAsyncTaskParallel Hq = null;
-    private final h Hr = new h(this, null);
+    private final long Hs = 86400000;
+    private final float Ht = 100.0f;
+    private float Hu = 0.0f;
+    private BdAsyncTaskParallel Hz = null;
+    private final h HA = new h(this, null);
 
-    public static e ol() {
-        if (Ht == null) {
+    public static e oo() {
+        if (HC == null) {
             synchronized (e.class) {
-                if (Ht == null) {
-                    Ht = new e();
+                if (HC == null) {
+                    HC = new e();
                 }
             }
         }
-        return Ht;
+        return HC;
     }
 
     private e() {
@@ -46,13 +46,13 @@ public class e {
         this.mHandler = new f(this);
     }
 
-    public com.baidu.tbadk.core.data.h om() {
-        return this.Hg;
+    public com.baidu.tbadk.core.data.h op() {
+        return this.Hp;
     }
 
     public void a(com.baidu.tbadk.core.data.h hVar) {
-        synchronized (Hs) {
-            this.Hg = hVar;
+        synchronized (HB) {
+            this.Hp = hVar;
         }
     }
 
@@ -66,32 +66,32 @@ public class e {
 
     public void n(int i, String str) {
         int i2 = 1;
-        synchronized (Hs) {
-            if (om() == null) {
-                this.Hl += 25.0f;
+        synchronized (HB) {
+            if (op() == null) {
+                this.Hu += 25.0f;
             } else {
-                this.Hl += om().mD();
+                this.Hu += op().mD();
             }
-            this.Ho++;
-            this.Hn++;
-            this.Hr.bL(i);
-            int i3 = this.Ho;
-            int i4 = this.Hn;
-            int i5 = this.Hm;
-            int i6 = this.Hm != 0 ? this.Hp / this.Hm : 0;
-            String hVar = this.Hr.toString();
-            if (om() != null && this.mLastUploadTime > 0 && System.currentTimeMillis() - this.mLastUploadTime > 86400000) {
-                om().ae(true);
-                this.Hh = 0;
+            this.Hx++;
+            this.Hw++;
+            this.HA.bQ(i);
+            int i3 = this.Hx;
+            int i4 = this.Hw;
+            int i5 = this.Hv;
+            int i6 = this.Hv != 0 ? this.Hy / this.Hv : 0;
+            String hVar = this.HA.toString();
+            if (op() != null && this.mLastUploadTime > 0 && System.currentTimeMillis() - this.mLastUploadTime > 86400000) {
+                op().af(true);
+                this.Hq = 0;
             }
-            if (om() != null && om().mF()) {
-                if (this.Ho < 5) {
+            if (op() != null && op().mF()) {
+                if (this.Hx < 5) {
                     i2 = 0;
-                } else if (this.Hl < 100.0f || this.Hn < om().mH() || this.Hm < om().mG()) {
-                    if (this.Hl >= 100.0f && this.Hn >= om().mH()) {
+                } else if (this.Hu < 100.0f || this.Hw < op().mH() || this.Hv < op().mG()) {
+                    if (this.Hu >= 100.0f && this.Hw >= op().mH()) {
                         i2 = 2;
                     } else {
-                        i2 = (this.Hl < 100.0f || this.Hm < om().mG()) ? 0 : 3;
+                        i2 = (this.Hu < 100.0f || this.Hv < op().mG()) ? 0 : 3;
                     }
                 }
                 a(i2, i3, i4, hVar, i5, i6);
@@ -103,37 +103,37 @@ public class e {
         int i = 0;
         int i2 = 0;
         int i3 = 5000;
-        if (om() != null) {
-            i3 = om().getTime();
+        if (op() != null) {
+            i3 = op().getTime();
         }
-        synchronized (Hs) {
+        synchronized (HB) {
             if (j >= i3) {
-                if (om() == null) {
-                    this.Hl += 10.0f;
+                if (op() == null) {
+                    this.Hu += 10.0f;
                 } else {
-                    this.Hl += om().mE();
+                    this.Hu += op().mE();
                 }
-                this.Hm++;
-                this.Hp = (int) (this.Hp + j);
-                this.Ho++;
-                int i4 = this.Ho;
-                int i5 = this.Hn;
-                int i6 = this.Hm;
-                if (this.Hm != 0) {
-                    i = this.Hp / this.Hm;
+                this.Hv++;
+                this.Hy = (int) (this.Hy + j);
+                this.Hx++;
+                int i4 = this.Hx;
+                int i5 = this.Hw;
+                int i6 = this.Hv;
+                if (this.Hv != 0) {
+                    i = this.Hy / this.Hv;
                 }
-                String hVar = this.Hr.toString();
-                if (om() != null && this.mLastUploadTime > 0 && System.currentTimeMillis() - this.mLastUploadTime > 86400000) {
-                    om().ae(true);
-                    this.Hh = 0;
+                String hVar = this.HA.toString();
+                if (op() != null && this.mLastUploadTime > 0 && System.currentTimeMillis() - this.mLastUploadTime > 86400000) {
+                    op().af(true);
+                    this.Hq = 0;
                 }
-                if (om() != null && om().mF()) {
-                    if (this.Ho >= 5) {
-                        if (this.Hl >= 100.0f && this.Hn >= om().mH() && this.Hm >= om().mG()) {
+                if (op() != null && op().mF()) {
+                    if (this.Hx >= 5) {
+                        if (this.Hu >= 100.0f && this.Hw >= op().mH() && this.Hv >= op().mG()) {
                             i2 = 1;
-                        } else if (this.Hl >= 100.0f && this.Hn >= om().mH()) {
+                        } else if (this.Hu >= 100.0f && this.Hw >= op().mH()) {
                             i2 = 2;
-                        } else if (this.Hl >= 100.0f && this.Hm >= om().mG()) {
+                        } else if (this.Hu >= 100.0f && this.Hv >= op().mG()) {
                             i2 = 3;
                         } else {
                             i2 = 0;
@@ -144,44 +144,44 @@ public class e {
                 }
                 return;
             }
-            if (om() == null) {
-                this.Hl -= 25.0f;
+            if (op() == null) {
+                this.Hu -= 25.0f;
             } else {
-                this.Hl -= om().mC();
+                this.Hu -= op().mC();
             }
-            if (this.Hl < 0.0f) {
-                this.Hl = 0.0f;
+            if (this.Hu < 0.0f) {
+                this.Hu = 0.0f;
             }
         }
     }
 
     private void a(int i, int i2, int i3, String str, int i4, int i5) {
-        if (om() != null && om().mF() && i != 0 && !this.mIsUploading) {
+        if (op() != null && op().mF() && i != 0 && !this.mIsUploading) {
             a(i, i2, i3, str, i4, new StringBuilder(String.valueOf(i5)).toString());
         }
     }
 
     private void a(int i, int i2, int i3, String str, int i4, String str2) {
-        if (this.Hq == null) {
-            this.Hq = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        if (this.Hz == null) {
+            this.Hz = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
         }
         g gVar = new g(this, i, i2, i3, str, i4, str2);
-        gVar.setParallel(this.Hq);
+        gVar.setParallel(this.Hz);
         gVar.execute(new Object[0]);
         this.mIsUploading = true;
-        com.baidu.adp.lib.stats.q ef = w.ef();
-        ef.r("act", "fallback");
-        ef.r("type", com.baidu.tbadk.core.frameworkData.a.START);
-        com.baidu.adp.lib.stats.f.es().a("img", ef);
+        com.baidu.adp.lib.stats.q ed = w.ed();
+        ed.r("act", "fallback");
+        ed.r("type", com.baidu.tbadk.core.frameworkData.a.START);
+        com.baidu.adp.lib.stats.f.eq().a("img", ed);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void reset() {
-        this.Ho = 0;
-        this.Hm = 0;
-        this.Hn = 0;
-        this.Hp = 0;
-        this.Hl = 0.0f;
-        this.Hr.clear();
+        this.Hx = 0;
+        this.Hv = 0;
+        this.Hw = 0;
+        this.Hy = 0;
+        this.Hu = 0.0f;
+        this.HA.clear();
     }
 }

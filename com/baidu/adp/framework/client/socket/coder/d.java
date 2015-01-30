@@ -6,35 +6,35 @@ import java.security.PublicKey;
 import javax.crypto.SecretKey;
 /* loaded from: classes.dex */
 public class d {
-    private static d ev = null;
-    private SecretKey ew = null;
-    private byte[] ex = null;
+    private static d ex = null;
+    private SecretKey ey = null;
+    private byte[] ez = null;
 
     public static d bl() {
-        if (ev == null) {
+        if (ex == null) {
             synchronized (d.class) {
-                if (ev == null) {
-                    ev = new d();
+                if (ex == null) {
+                    ex = new d();
                 }
             }
         }
-        return ev;
+        return ex;
     }
 
     public void h(byte[] bArr) {
         try {
             PublicKey o = ab.o(bArr);
-            String W = ab.W(32);
-            byte[] bArr2 = new byte[W.length()];
-            for (int i = 0; i < W.length(); i++) {
-                bArr2[i] = (byte) W.charAt(i);
+            String ab = ab.ab(32);
+            byte[] bArr2 = new byte[ab.length()];
+            for (int i = 0; i < ab.length(); i++) {
+                bArr2[i] = (byte) ab.charAt(i);
             }
-            this.ew = ab.aH(W);
-            this.ex = ab.a(o, bArr2);
+            this.ey = ab.aH(ab);
+            this.ez = ab.a(o, bArr2);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
-            this.ew = null;
-            this.ex = new byte[0];
+            this.ey = null;
+            this.ez = new byte[0];
         }
     }
 
@@ -42,10 +42,10 @@ public class d {
     }
 
     public byte[] bm() {
-        return this.ex;
+        return this.ez;
     }
 
     public SecretKey getSecretKey() {
-        return this.ew;
+        return this.ey;
     }
 }

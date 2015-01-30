@@ -9,7 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tieba.im.data.c;
+import com.baidu.tieba.im.data.d;
 import com.baidu.tieba.im.util.i;
 import com.baidu.tieba.t;
 import com.baidu.tieba.u;
@@ -18,27 +18,27 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends BaseAdapter {
-    private List<c> atf;
+    private List<d> bqu;
     private Context mContext;
 
-    public m(Context context, List<c> list) {
+    public m(Context context, List<d> list) {
         this.mContext = context;
-        this.atf = list;
+        this.bqu = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.atf == null) {
+        if (this.bqu == null) {
             return 0;
         }
-        return (this.atf.size() * 2) - 1;
+        return (this.bqu.size() * 2) - 1;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
         int itemId = (int) getItemId(i);
-        if (this.atf != null && itemId >= 0 && itemId < this.atf.size()) {
-            return this.atf.get(itemId);
+        if (this.bqu != null && itemId >= 0 && itemId < this.bqu.size()) {
+            return this.bqu.get(itemId);
         }
         return null;
     }
@@ -70,23 +70,23 @@ public class m extends BaseAdapter {
             n nVar = new n(this);
             if (itemViewType == 0) {
                 TextView textView = new TextView(this.mContext);
-                textView.setLayoutParams(new AbsListView.LayoutParams(-1, i.j(this.mContext, u.ds96)));
-                textView.setTextSize(0, i.j(this.mContext, u.ds32));
+                textView.setLayoutParams(new AbsListView.LayoutParams(-1, i.i(this.mContext, u.ds96)));
+                textView.setTextSize(0, i.i(this.mContext, u.ds32));
                 textView.setTextColor(this.mContext.getResources().getColor(t.cp_cont_b));
                 textView.setGravity(17);
                 textView.setBackgroundResource(v.official_bar_menu_text_bg);
                 textView.setSingleLine();
                 textView.setEllipsize(TextUtils.TruncateAt.END);
-                nVar.boX = textView;
+                nVar.bqv = textView;
                 linearLayout = textView;
             } else {
                 linearLayout = view;
                 if (itemViewType == 1) {
                     LinearLayout linearLayout2 = new LinearLayout(this.mContext);
-                    linearLayout2.setLayoutParams(new AbsListView.LayoutParams(-1, i.j(this.mContext, u.ds1)));
+                    linearLayout2.setLayoutParams(new AbsListView.LayoutParams(-1, i.i(this.mContext, u.ds1)));
                     ImageView imageView = new ImageView(this.mContext);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-                    layoutParams.setMargins(i.j(this.mContext, u.ds30), 0, i.j(this.mContext, u.ds30), 0);
+                    layoutParams.setMargins(i.i(this.mContext, u.ds30), 0, i.i(this.mContext, u.ds30), 0);
                     imageView.setLayoutParams(layoutParams);
                     imageView.setBackgroundColor(this.mContext.getResources().getColor(t.cp_bg_line_b));
                     linearLayout2.addView(imageView);
@@ -98,7 +98,7 @@ public class m extends BaseAdapter {
         }
         n nVar2 = (n) view2.getTag();
         if (itemViewType == 0) {
-            nVar2.boX.setText(((c) getItem(i)).getName());
+            nVar2.bqv.setText(((d) getItem(i)).getName());
         }
         return view2;
     }

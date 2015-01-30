@@ -14,7 +14,7 @@ public class i extends r implements com.baidu.tbadk.mvc.b.f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean bH(String str) {
+    public boolean bF(String str) {
         try {
             c(new JSONObject(str));
             return true;

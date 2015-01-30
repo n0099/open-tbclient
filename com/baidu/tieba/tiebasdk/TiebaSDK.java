@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.util.ad;
-import com.baidu.tieba.al;
+import com.baidu.tieba.ao;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -18,11 +18,11 @@ import java.util.HashMap;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class TiebaSDK implements Serializable {
-    private static HashMap<String, Field[]> ccA = new HashMap<>();
+    private static HashMap<String, Field[]> cdT = new HashMap<>();
     private static final long serialVersionUID = -3424378401905406520L;
 
     public static void init(Application application) {
-        al.Ar().init(application);
+        ao.AP().init(application);
     }
 
     public static void openBar(Context context, String str) {
@@ -41,7 +41,7 @@ public class TiebaSDK implements Serializable {
         ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
         arrayList.add(new BasicNameValuePair("kw", str));
         arrayList.add(new BasicNameValuePair("pn", String.valueOf(1)));
-        if (al.Ar().mg()) {
+        if (ao.AP().mg()) {
             basicNameValuePair = new BasicNameValuePair("rn", String.valueOf(35));
         } else {
             basicNameValuePair = new BasicNameValuePair("rn", String.valueOf(50));
@@ -50,11 +50,11 @@ public class TiebaSDK implements Serializable {
         arrayList.add(new BasicNameValuePair("st_type", FrsActivityConfig.FRS_FROM_LIKE));
         try {
             adVar = new ad(stringBuffer.toString());
-            adVar.q(arrayList);
+            adVar.r(arrayList);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        return !adVar.oW().pW().ma() ? "" : adVar.ov();
+        return !adVar.oZ().qh().ma() ? "" : adVar.oy();
     }
 
     public static void setFrom(String str) {
@@ -136,10 +136,10 @@ public class TiebaSDK implements Serializable {
     public static int[] getStyleableIDByName(Context context, String str) {
         try {
             String packageName = context.getPackageName();
-            Field[] fieldArr = ccA.get(packageName);
+            Field[] fieldArr = cdT.get(packageName);
             if (fieldArr == null) {
                 fieldArr = Class.forName(String.valueOf(packageName) + ".R$styleable").getFields();
-                ccA.put(packageName, fieldArr);
+                cdT.put(packageName, fieldArr);
             }
             Field[] fieldArr2 = fieldArr;
             for (Field field : fieldArr2) {
@@ -155,10 +155,10 @@ public class TiebaSDK implements Serializable {
     public static int getAttrIDByName(Context context, String str) {
         try {
             String packageName = context.getPackageName();
-            Field[] fieldArr = ccA.get(packageName);
+            Field[] fieldArr = cdT.get(packageName);
             if (fieldArr == null) {
                 fieldArr = Class.forName(String.valueOf(packageName) + ".R$styleable").getFields();
-                ccA.put(packageName, fieldArr);
+                cdT.put(packageName, fieldArr);
             }
             Field[] fieldArr2 = fieldArr;
             for (Field field : fieldArr2) {

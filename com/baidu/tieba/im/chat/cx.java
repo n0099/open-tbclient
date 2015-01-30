@@ -1,22 +1,27 @@
 package com.baidu.tieba.im.chat;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.model.LocalPicModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cx implements DialogInterface.OnClickListener {
-    private final /* synthetic */ int LK;
-    final /* synthetic */ TalkableActivity aRW;
+public class cx extends com.baidu.adp.base.i {
+    final /* synthetic */ TalkableActivity aTf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cx(TalkableActivity talkableActivity, int i) {
-        this.aRW = talkableActivity;
-        this.LK = i;
+    public cx(TalkableActivity talkableActivity) {
+        this.aTf = talkableActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.adp.lib.g.k.b((Dialog) dialogInterface, this.aRW.getPageContext());
-        this.aRW.reSendMsg(this.LK);
+    @Override // com.baidu.adp.base.i
+    public void c(Object obj) {
+        if (obj != null && (obj instanceof LocalPicModel.ResponseData)) {
+            LocalPicModel.ResponseData responseData = (LocalPicModel.ResponseData) obj;
+            if (this.aTf.mListModel != null) {
+                this.aTf.mListModel.sendPicMessage(responseData.getSPathGen(), responseData.getBitmap());
+                return;
+            }
+            return;
+        }
+        this.aTf.showToast(TbadkCoreApplication.m255getInst().getString(com.baidu.tieba.z.pic_parser_error));
     }
 }

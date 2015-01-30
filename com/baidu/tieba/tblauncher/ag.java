@@ -1,28 +1,37 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import java.util.ArrayList;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ag extends CustomMessageListener {
+public class ag extends BroadcastReceiver {
     final /* synthetic */ MainTabActivity this$0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ag(MainTabActivity mainTabActivity, int i) {
-        super(i);
+    private ag(MainTabActivity mainTabActivity) {
         this.this$0 = mainTabActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ArrayList<com.baidu.tbadk.mainTab.b> wj;
-        an anVar;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (wj = ((com.baidu.tbadk.mainTab.g) customResponsedMessage.getData()).wj()) != null && wj.size() != 0) {
-            anVar = this.this$0.caU;
-            anVar.R(wj);
-            this.this$0.V(this.this$0.getIntent());
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ag(MainTabActivity mainTabActivity, ag agVar) {
+        this(mainTabActivity);
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        if (intent.getAction().equals(TbConfig.getBroadcastActionNewVersion())) {
+            refreshNewVersion();
         }
+    }
+
+    private void refreshNewVersion() {
+        if (TbadkCoreApplication.checkNeedShowNewVersion()) {
+            this.this$0.mHasNewVersion = true;
+        } else {
+            this.this$0.mHasNewVersion = false;
+        }
+        this.this$0.eH(false);
     }
 }

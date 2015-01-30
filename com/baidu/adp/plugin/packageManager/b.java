@@ -10,10 +10,10 @@ import java.util.Iterator;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<String, Integer, Boolean> {
     private String apkPath;
-    final /* synthetic */ a sz;
+    final /* synthetic */ a sI;
 
     public b(a aVar, String str) {
-        this.sz = aVar;
+        this.sI = aVar;
         this.apkPath = str;
     }
 
@@ -37,10 +37,10 @@ public class b extends BdAsyncTask<String, Integer, Boolean> {
         ArrayList arrayList2;
         ArrayList arrayList3;
         super.onPostExecute(bool);
-        this.sz.sy = null;
-        arrayList = this.sz.sx;
+        this.sI.sH = null;
+        arrayList = this.sI.sG;
         if (arrayList.size() > 0) {
-            arrayList2 = this.sz.sx;
+            arrayList2 = this.sI.sG;
             Iterator it = arrayList2.iterator();
             while (true) {
                 if (!it.hasNext()) {
@@ -48,17 +48,18 @@ public class b extends BdAsyncTask<String, Integer, Boolean> {
                 }
                 String str = (String) it.next();
                 if (str != null && str.equals(this.apkPath)) {
-                    arrayList3 = this.sz.sx;
+                    arrayList3 = this.sI.sG;
                     arrayList3.remove(str);
                     break;
                 }
             }
         }
-        this.sz.ia();
+        this.sI.ia();
     }
 
     private void ba(String str) {
         if (!TextUtils.isEmpty(str)) {
+            com.baidu.adp.plugin.b.a.hU().g("plugin_del_unuse", "delete unuse", str);
             com.baidu.adp.lib.util.commonsio.a.g(new File(str));
             int length = str.length();
             if (length >= 4) {

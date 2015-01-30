@@ -7,6 +7,9 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
 /* loaded from: classes.dex */
 public class FatalErrorService extends BdBaseService {
+    private static final String ERROR_TYPE_KEY = "errortype";
+    private static final String ERROR_TYPE_NATIVE_C = "4";
+    private static final String ERROR_TYPE_UNKNOW = "0";
     private f mTask = null;
 
     static {

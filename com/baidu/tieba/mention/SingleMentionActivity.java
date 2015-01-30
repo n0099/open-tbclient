@@ -21,11 +21,11 @@ import com.baidu.tbadk.mvc.core.MvcActivity;
 import java.util.List;
 /* loaded from: classes.dex */
 public class SingleMentionActivity extends MvcActivity<n, com.baidu.tbadk.mvc.core.b, SingleMentionActivity> implements com.baidu.tbadk.core.voice.o {
-    private com.baidu.tbadk.mvc.core.b baQ;
-    private BdUniqueId[] baR;
-    private n bsF;
-    private af bsG;
-    private j bsH;
+    private com.baidu.tbadk.mvc.core.b bcl;
+    private BdUniqueId[] bcm;
+    private n buc;
+    private af bud;
+    private j bue;
     VoiceManager mVoiceManager;
 
     static {
@@ -33,45 +33,45 @@ public class SingleMentionActivity extends MvcActivity<n, com.baidu.tbadk.mvc.co
         SingleMentionActivityConfig.setMentionActivityClass(SingleMentionActivity.class);
     }
 
-    private BdUniqueId dn(boolean z) {
-        if (this.baR == null) {
-            this.baR = new BdUniqueId[2];
-            this.baR[0] = BdUniqueId.gen();
-            this.baR[1] = BdUniqueId.gen();
+    private BdUniqueId dt(boolean z) {
+        if (this.bcm == null) {
+            this.bcm = new BdUniqueId[2];
+            this.bcm[0] = BdUniqueId.gen();
+            this.bcm[1] = BdUniqueId.gen();
         }
-        return z ? this.baR[0] : this.baR[1];
+        return z ? this.bcm[0] : this.bcm[1];
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.core.e
-    /* renamed from: Oy */
+    /* renamed from: OV */
     public com.baidu.tbadk.mvc.core.b kw() {
-        if (this.baQ == null) {
-            this.baQ = new com.baidu.tbadk.mvc.core.b(this);
+        if (this.bcl == null) {
+            this.bcl = new com.baidu.tbadk.mvc.core.b(this);
             ab abVar = new ab(this);
-            abVar.setUniqueId(dn(true));
-            this.baQ.a(abVar);
+            abVar.setUniqueId(dt(true));
+            this.bcl.a(abVar);
             f fVar = new f(this);
-            fVar.setUniqueId(dn(false));
-            this.baQ.a(fVar);
+            fVar.setUniqueId(dt(false));
+            this.bcl.a(fVar);
         }
-        return this.baQ;
+        return this.bcl;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.core.e
-    /* renamed from: TV */
+    /* renamed from: Ut */
     public n ky() {
-        if (this.bsF == null) {
-            this.bsF = new n(this);
-            this.bsG = new af(this);
-            this.bsG.setUniqueId(dn(true));
-            this.bsF.a(this.bsG);
-            this.bsH = new j(this);
-            this.bsH.setUniqueId(dn(false));
-            this.bsF.a(this.bsH);
+        if (this.buc == null) {
+            this.buc = new n(this);
+            this.bud = new af(this);
+            this.bud.setUniqueId(dt(true));
+            this.buc.a(this.bud);
+            this.bue = new j(this);
+            this.bue.setUniqueId(dt(false));
+            this.buc.a(this.bue);
         }
-        return this.bsF;
+        return this.buc;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -79,7 +79,7 @@ public class SingleMentionActivity extends MvcActivity<n, com.baidu.tbadk.mvc.co
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         MentionActivityConfig.newJumpIn = true;
-        wx().addEventDelegate(this);
+        wN().addEventDelegate(this);
         this.mVoiceManager = getVoiceManager();
         if (this.mVoiceManager != null) {
             this.mVoiceManager.onCreate(getPageContext());
@@ -137,10 +137,10 @@ public class SingleMentionActivity extends MvcActivity<n, com.baidu.tbadk.mvc.co
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (this.bsG == null) {
+            if (this.bud == null) {
                 finish();
                 return true;
-            } else if (this.bsG.wJ()) {
+            } else if (this.bud.wZ()) {
                 return true;
             } else {
                 finish();
@@ -204,23 +204,23 @@ public class SingleMentionActivity extends MvcActivity<n, com.baidu.tbadk.mvc.co
         if (super.a(bVar)) {
             return true;
         }
-        if (bVar.xc() == 9485) {
-            com.baidu.tbadk.mvc.b.a xd = bVar.xd();
-            if (xd instanceof FeedData) {
-                return d((FeedData) xd);
+        if (bVar.xs() == 9485) {
+            com.baidu.tbadk.mvc.b.a xt = bVar.xt();
+            if (xt instanceof FeedData) {
+                return d((FeedData) xt);
             }
-        } else if (bVar.xc() == 9484) {
-            com.baidu.tbadk.mvc.b.a xd2 = bVar.xd();
-            if (xd2 instanceof FeedData) {
-                return e((FeedData) xd2);
+        } else if (bVar.xs() == 9484) {
+            com.baidu.tbadk.mvc.b.a xt2 = bVar.xt();
+            if (xt2 instanceof FeedData) {
+                return e((FeedData) xt2);
             }
-        } else if (bVar.xc() == 9483) {
-            com.baidu.tbadk.mvc.b.a xd3 = bVar.xd();
-            if (xd3 instanceof FeedData) {
-                return f((FeedData) xd3);
+        } else if (bVar.xs() == 9483) {
+            com.baidu.tbadk.mvc.b.a xt3 = bVar.xt();
+            if (xt3 instanceof FeedData) {
+                return f((FeedData) xt3);
             }
-        } else if (bVar.xc() == 9486) {
-            this.bsG.b(bVar);
+        } else if (bVar.xs() == 9486) {
+            this.bud.b(bVar);
             return true;
         }
         return false;
@@ -234,7 +234,7 @@ public class SingleMentionActivity extends MvcActivity<n, com.baidu.tbadk.mvc.co
                     return false;
                 }
                 k kVar = praiseList.get(0);
-                return MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(getActivity(), kVar.getId(), kVar.TP(), kVar.getPortrait(), feedData.getFname(), false, AddFriendActivityConfig.TYPE_REPLY_ME)));
+                return MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(getActivity(), kVar.getId(), kVar.Um(), kVar.getPortrait(), feedData.getFname(), false, AddFriendActivityConfig.TYPE_REPLY_ME)));
             } else if (ky().getCurrentTabType() == 1) {
                 TiebaStatic.eventStat(getActivity(), "chat_2_aio", "click", 1, new Object[0]);
                 return MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(getActivity(), com.baidu.adp.lib.g.c.a(feedData.getReplyer().getUserId(), 0L), feedData.getReplyer().getName_show(), feedData.getReplyer().getPortrait(), 0, feedData.getReplyer().getIsMyFriend(), feedData.toJson())));
@@ -251,21 +251,21 @@ public class SingleMentionActivity extends MvcActivity<n, com.baidu.tbadk.mvc.co
         if (feedData != null) {
             if (feedData.getIsFloor()) {
                 if (ky().getCurrentTabType() == 2) {
-                    com.baidu.tbadk.core.i.B(getActivity(), "new_at_me_visit_post");
+                    com.baidu.tbadk.core.i.A(getActivity(), "new_at_me_visit_post");
                 } else if (ky().getCurrentTabType() == 1) {
-                    com.baidu.tbadk.core.i.B(getActivity(), "new_my_reply_visit_post");
+                    com.baidu.tbadk.core.i.A(getActivity(), "new_my_reply_visit_post");
                     if (FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType())) {
-                        com.baidu.tbadk.core.i.B(getActivity(), "zan_mlist");
+                        com.baidu.tbadk.core.i.A(getActivity(), "zan_mlist");
                     }
                 }
                 return MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getActivity()).createSubPbCfg(feedData.getThread_id(), feedData.getPost_id(), "mention")));
             }
             if (ky().getCurrentTabType() == 2) {
-                com.baidu.tbadk.core.i.B(getActivity(), "new_at_me_visit_pb");
+                com.baidu.tbadk.core.i.A(getActivity(), "new_at_me_visit_pb");
             } else if (ky().getCurrentTabType() == 1) {
-                com.baidu.tbadk.core.i.B(getActivity(), "new_my_reply_visit_pb");
+                com.baidu.tbadk.core.i.A(getActivity(), "new_my_reply_visit_pb");
                 if (FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType())) {
-                    com.baidu.tbadk.core.i.B(getActivity(), "zan_mlist");
+                    com.baidu.tbadk.core.i.A(getActivity(), "zan_mlist");
                 }
             }
             return MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getActivity()).createNormalCfg(feedData.getThread_id(), feedData.getPost_id(), "mention")));

@@ -1,21 +1,20 @@
 package com.baidu.tieba.write;
 
-import android.content.DialogInterface;
 import android.os.Handler;
 import android.widget.EditText;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class as implements DialogInterface.OnClickListener {
-    final /* synthetic */ WriteActivity cft;
+public class as implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ WriteActivity cgS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(WriteActivity writeActivity) {
-        this.cft = writeActivity;
+        this.cgS = writeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         WriteData writeData;
         EditText editText;
         WriteData writeData2;
@@ -26,27 +25,28 @@ public class as implements DialogInterface.OnClickListener {
         Handler handler;
         WriteData writeData6;
         WriteData writeData7;
-        writeData = this.cft.bNF;
-        editText = this.cft.bNW;
+        aVar.dismiss();
+        writeData = this.cgS.bPp;
+        editText = this.cgS.bPG;
         writeData.setTitle(editText.getText().toString());
-        writeData2 = this.cft.bNF;
-        editText2 = this.cft.bOa;
+        writeData2 = this.cgS.bPp;
+        editText2 = this.cgS.bPK;
         writeData2.setContent(editText2.getText().toString());
-        writeData3 = this.cft.bNF;
+        writeData3 = this.cgS.bPp;
         int type = writeData3.getType();
         if (type == 0) {
-            writeData6 = this.cft.bNF;
+            writeData6 = this.cgS.bPp;
             String forumId = writeData6.getForumId();
-            writeData7 = this.cft.bNF;
+            writeData7 = this.cgS.bPp;
             com.baidu.tieba.tbadkCore.al.a(forumId, writeData7);
         } else if (type == 1) {
-            writeData4 = this.cft.bNF;
+            writeData4 = this.cgS.bPp;
             String threadId = writeData4.getThreadId();
-            writeData5 = this.cft.bNF;
+            writeData5 = this.cgS.bPp;
             com.baidu.tieba.tbadkCore.al.b(threadId, writeData5);
         }
-        this.cft.showToast(com.baidu.tieba.z.draft_save_success);
-        handler = this.cft.mHandler;
+        this.cgS.showToast(com.baidu.tieba.z.draft_save_success);
+        handler = this.cgS.mHandler;
         handler.postDelayed(new at(this), 1000L);
     }
 }

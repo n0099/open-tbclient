@@ -10,24 +10,24 @@ import com.baidu.tieba.im.message.RequestSendPVTJMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al implements AdapterView.OnItemClickListener {
-    final /* synthetic */ OfficialBarTipActivity aTB;
+    final /* synthetic */ OfficialBarTipActivity aUR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(OfficialBarTipActivity officialBarTipActivity) {
-        this.aTB = officialBarTipActivity;
+        this.aUR = officialBarTipActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         ao aoVar;
-        aoVar = this.aTB.aTA;
-        ImMessageCenterShowItemData fu = aoVar.KK().getItem(i);
-        if (fu != null) {
-            ImMessageCenterShowItemData imMessageCenterShowItemData = fu;
+        aoVar = this.aUR.aUQ;
+        ImMessageCenterShowItemData fz = aoVar.Lf().getItem(i);
+        if (fz != null) {
+            ImMessageCenterShowItemData imMessageCenterShowItemData = fz;
             try {
                 long parseLong = Long.parseLong(imMessageCenterShowItemData.getFriendId());
                 RequestSendPVTJMessage.sendOfficialBarPVTJ(RequestSendPVTJMessage.TYPE_V_MREAD, new StringBuilder(String.valueOf(parseLong)).toString());
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.aTB.getPageContext().getContext(), parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendPortrait(), 0, imMessageCenterShowItemData.getUserType())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.aUR.getPageContext().getContext(), parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendPortrait(), 0, imMessageCenterShowItemData.getUserType())));
             } catch (Exception e) {
                 e.printStackTrace();
             }

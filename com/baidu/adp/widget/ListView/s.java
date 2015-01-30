@@ -10,7 +10,7 @@ public class s implements m {
     }
 
     @Override // com.baidu.adp.widget.ListView.m
-    public void jH() {
+    public void jG() {
         Runnable runnable;
         Runnable runnable2;
         BdListView bdListView = this.xm;

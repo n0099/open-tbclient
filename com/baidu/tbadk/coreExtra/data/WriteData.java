@@ -1,6 +1,5 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
@@ -97,7 +96,7 @@ public class WriteData implements Serializable {
     }
 
     public boolean hasContentToSave() {
-        if (k.isEmpty(this.mContent) && k.isEmpty(this.mTitle)) {
+        if (com.baidu.adp.lib.util.k.isEmpty(this.mContent) && com.baidu.adp.lib.util.k.isEmpty(this.mTitle)) {
             if (this.writeImagesInfo == null || this.writeImagesInfo.size() <= 0) {
                 if (this.baobaoImagesInfo == null || this.baobaoImagesInfo.size() <= 0) {
                     return this.liveCardData != null && this.liveCardData.isModifyTime();
@@ -132,7 +131,7 @@ public class WriteData implements Serializable {
     }
 
     public static WriteData fromDraftString(String str) {
-        if (k.isEmpty(str)) {
+        if (com.baidu.adp.lib.util.k.isEmpty(str)) {
             return null;
         }
         try {
@@ -362,7 +361,7 @@ public class WriteData implements Serializable {
                 int i3 = 0;
                 while (i3 < chosedFiles.size()) {
                     ImageFileInfo imageFileInfo = chosedFiles.get(i3);
-                    if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !k.isEmpty(imageFileInfo.getFilePath())) {
+                    if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !com.baidu.adp.lib.util.k.isEmpty(imageFileInfo.getFilePath())) {
                         File file = new File(imageFileInfo.getFilePath());
                         if (file.exists()) {
                             file.delete();
@@ -382,7 +381,7 @@ public class WriteData implements Serializable {
                 int i4 = 0;
                 while (i4 < chosedFiles2.size()) {
                     ImageFileInfo imageFileInfo2 = chosedFiles2.get(i4);
-                    if (imageFileInfo2.isAlreadyUploadedToServer() && !k.isEmpty(imageFileInfo2.getFilePath())) {
+                    if (imageFileInfo2.isAlreadyUploadedToServer() && !com.baidu.adp.lib.util.k.isEmpty(imageFileInfo2.getFilePath())) {
                         File file2 = new File(imageFileInfo2.getFilePath());
                         if (file2.exists()) {
                             file2.delete();

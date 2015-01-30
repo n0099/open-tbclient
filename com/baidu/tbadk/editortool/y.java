@@ -12,22 +12,22 @@ public class y extends ae {
     }
 
     private void init() {
-        super.dh(7);
-        super.di(3);
+        super.dp(7);
+        super.dq(3);
         com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(BitmapFactory.decodeResource(TbadkCoreApplication.m255getInst().getApp().getResources(), com.baidu.tieba.v.icon_face_original_s), false);
         super.c(aVar);
         super.b(aVar);
     }
 
     @Override // com.baidu.tbadk.editortool.ae
-    public String de(int i) {
+    public String dl(int i) {
         int i2;
-        if (i < 0 || i >= v.Yj.size()) {
+        if (i < 0 || i >= v.YP.size()) {
             i2 = 0;
         } else {
-            i2 = v.Yj.get(i).intValue();
+            i2 = v.YP.get(i).intValue();
         }
-        for (Map.Entry<String, Integer> entry : v.Yk.entrySet()) {
+        for (Map.Entry<String, Integer> entry : v.YQ.entrySet()) {
             if (entry.getValue().intValue() == i2) {
                 return entry.getKey();
             }
@@ -37,14 +37,14 @@ public class y extends ae {
 
     @Override // com.baidu.tbadk.editortool.ae
     public boolean dU(String str) {
-        return v.Yk.get(str) != null;
+        return v.YQ.get(str) != null;
     }
 
     @Override // com.baidu.tbadk.editortool.ae
     public com.baidu.adp.widget.a.a dV(String str) {
         Bitmap b;
-        Integer num = v.Yk.get(str);
-        if (num != null && (b = com.baidu.adp.lib.util.c.eS().b(TbadkCoreApplication.m255getInst().getApp(), num.intValue())) != null) {
+        Integer num = v.YQ.get(str);
+        if (num != null && (b = com.baidu.adp.lib.util.c.eR().b(TbadkCoreApplication.m255getInst().getApp(), num.intValue())) != null) {
             return new com.baidu.adp.widget.a.a(b, false, str);
         }
         return null;
@@ -52,7 +52,7 @@ public class y extends ae {
 
     @Override // com.baidu.tbadk.editortool.ae
     public int getEmotionsCount() {
-        return v.Yj.size();
+        return v.YP.size();
     }
 
     @Override // com.baidu.tbadk.editortool.ae
@@ -61,7 +61,7 @@ public class y extends ae {
     }
 
     @Override // com.baidu.tbadk.editortool.ae
-    public EmotionGroupType uU() {
+    public EmotionGroupType vl() {
         return EmotionGroupType.LOCAL;
     }
 
@@ -86,7 +86,7 @@ public class y extends ae {
     }
 
     @Override // com.baidu.tbadk.editortool.ae
-    public boolean uV() {
+    public boolean vm() {
         return true;
     }
 }

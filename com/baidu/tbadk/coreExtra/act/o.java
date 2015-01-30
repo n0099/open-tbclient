@@ -6,12 +6,12 @@ import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends BdAsyncTask<String, Integer, String> {
-    private com.baidu.tbadk.core.util.ad CV;
+    private com.baidu.tbadk.core.util.ad CX;
     final /* synthetic */ EditHeadActivity this$0;
 
     private o(EditHeadActivity editHeadActivity) {
         this.this$0 = editHeadActivity;
-        this.CV = null;
+        this.CX = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,15 +32,15 @@ public class o extends BdAsyncTask<String, Integer, String> {
     public String doInBackground(String... strArr) {
         String str;
         Exception e;
-        this.CV = new com.baidu.tbadk.core.util.ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PROFILE_HEAD_MODIFY);
+        this.CX = new com.baidu.tbadk.core.util.ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PROFILE_HEAD_MODIFY);
         try {
-            str = this.CV.cz(TbConfig.PERSON_HEAD_FILE);
+            str = this.CX.cx(TbConfig.PERSON_HEAD_FILE);
         } catch (Exception e2) {
             str = null;
             e = e2;
         }
         try {
-            if (this.CV.oW().pW().ma()) {
+            if (this.CX.oZ().qh().ma()) {
                 return str;
             }
             return null;
@@ -54,9 +54,9 @@ public class o extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         this.this$0.closeLoadingDialog();
-        this.this$0.OY = null;
-        if (this.CV != null) {
-            this.CV.dL();
+        this.this$0.Py = null;
+        if (this.CX != null) {
+            this.CX.dJ();
         }
         super.cancel(true);
     }
@@ -66,14 +66,14 @@ public class o extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         this.this$0.closeLoadingDialog();
-        if (this.CV != null) {
-            if (this.CV.oW().pW().ma()) {
+        if (this.CX != null) {
+            if (this.CX.oZ().qh().ma()) {
                 this.this$0.setResult(-1);
                 this.this$0.finish();
                 this.this$0.showToast(this.this$0.getPageContext().getString(com.baidu.tieba.z.upload_head_ok));
                 return;
             }
-            this.this$0.showToast(this.CV.getErrorString());
+            this.this$0.showToast(this.CX.getErrorString());
         }
     }
 }

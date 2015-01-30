@@ -1,58 +1,32 @@
 package com.baidu.tieba.frs;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.img.WriteImagesInfo;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
 /* loaded from: classes.dex */
-public class as implements DialogInterface.OnClickListener {
-    final /* synthetic */ FrsActivity aCV;
-
+class as extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public as(FrsActivity frsActivity) {
-        this.aCV = frsActivity;
+    public as(int i) {
+        super(i);
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        WriteImagesInfo writeImagesInfo;
-        WriteImagesInfo writeImagesInfo2;
-        WriteImagesInfo writeImagesInfo3;
-        WriteImagesInfo writeImagesInfo4;
-        String str;
-        WriteImagesInfo writeImagesInfo5;
-        WriteImagesInfo writeImagesInfo6;
-        if (i == 0) {
-            writeImagesInfo4 = this.aCV.writeImagesInfo;
-            if (writeImagesInfo4.getChosedFiles() != null) {
-                writeImagesInfo5 = this.aCV.writeImagesInfo;
-                int size = writeImagesInfo5.getChosedFiles().size();
-                writeImagesInfo6 = this.aCV.writeImagesInfo;
-                if (size >= writeImagesInfo6.getMaxImagesAllowed()) {
-                    this.aCV.showToast(String.format(this.aCV.getPageContext().getString(com.baidu.tieba.z.editor_mutiiamge_max), 10));
-                    return;
-                }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        boolean FR;
+        if (customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
+            int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
+            if (intValue == 1 || intValue == 4 || intValue == 3) {
+                FrsActivity.aCO = true;
+            } else if (intValue == 2) {
+                FrsActivity.aCP = true;
             }
-            this.aCV.aAI = String.valueOf(System.currentTimeMillis());
-            TbPageContext pageContext = this.aCV.getPageContext();
-            str = this.aCV.aAI;
-            com.baidu.tbadk.core.util.aw.a(pageContext, str);
-        } else if (i == 1) {
-            writeImagesInfo = this.aCV.writeImagesInfo;
-            if (writeImagesInfo != null) {
-                writeImagesInfo2 = this.aCV.writeImagesInfo;
-                if (!TextUtils.isEmpty(writeImagesInfo2.toJsonString())) {
-                    Activity pageActivity = this.aCV.getPageContext().getPageActivity();
-                    writeImagesInfo3 = this.aCV.writeImagesInfo;
-                    AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(pageActivity, writeImagesInfo3.toJsonString());
-                    albumActivityConfig.setRequestCode(12002);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
-                }
+            boolean z = intValue == 3;
+            FR = FrsActivity.FR();
+            if (!z || !FR) {
+                FrsActivity.aCN = true;
+            } else {
+                FrsActivity.aCN = false;
             }
         }
     }

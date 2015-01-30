@@ -4,13 +4,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class q extends CustomMessageListener {
-    final /* synthetic */ FrsActivity aCV;
+    final /* synthetic */ FrsActivity aDW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(FrsActivity frsActivity, int i) {
         super(i);
-        this.aCV = frsActivity;
+        this.aDW = frsActivity;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
@@ -26,10 +26,10 @@ class q extends CustomMessageListener {
                 if (customResponsedMessage.getCmd() != 2001122) {
                     return;
                 }
-                this.aCV.e(customResponsedMessage);
+                this.aDW.e(customResponsedMessage);
                 return;
             }
-            this.aCV.d(customResponsedMessage);
+            this.aDW.d(customResponsedMessage);
         }
     }
 }

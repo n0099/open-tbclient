@@ -8,13 +8,13 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends Handler {
-    final /* synthetic */ GifView ZS;
+    final /* synthetic */ GifView aat;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(GifView gifView, Looper looper) {
         super(looper);
-        this.ZS = gifView;
+        this.aat = gifView;
     }
 
     @Override // android.os.Handler
@@ -30,42 +30,42 @@ public class b extends Handler {
         e eVar2;
         int i4;
         boolean z2;
-        weakReference = this.ZS.Zw;
+        weakReference = this.aat.ZX;
         if (weakReference != null) {
-            weakReference2 = this.ZS.Zw;
+            weakReference2 = this.aat.ZX;
             com.baidu.adp.gif.c cVar = (com.baidu.adp.gif.c) weakReference2.get();
             if (cVar != null && message.what == 1) {
-                GifView gifView = this.ZS;
-                i = gifView.Zx;
-                gifView.Zx = i + 1;
-                i2 = this.ZS.Zx;
-                if (i2 >= cVar.bK()) {
-                    z2 = this.ZS.ZN;
+                GifView gifView = this.aat;
+                i = gifView.ZY;
+                gifView.ZY = i + 1;
+                i2 = this.aat.ZY;
+                if (i2 >= cVar.bI()) {
+                    z2 = this.aat.aao;
                     if (z2) {
-                        this.ZS.setVisibility(4);
-                        this.ZS.ZN = false;
+                        this.aat.setVisibility(4);
+                        this.aat.aao = false;
                         z = true;
                     } else {
                         z = false;
                     }
-                    this.ZS.Zx = 0;
+                    this.aat.ZY = 0;
                 } else {
                     z = false;
                 }
-                i3 = this.ZS.Zx;
-                cVar.w(i3);
-                bitmap = this.ZS.mBitmap;
+                i3 = this.aat.ZY;
+                cVar.B(i3);
+                bitmap = this.aat.mBitmap;
                 cVar.a(bitmap, null);
-                this.ZS.invalidate();
+                this.aat.invalidate();
                 removeMessages(1);
                 if (!z) {
-                    i4 = this.ZS.Zx;
-                    sendEmptyMessageDelayed(1, cVar.x(i4));
+                    i4 = this.aat.ZY;
+                    sendEmptyMessageDelayed(1, cVar.C(i4));
                     return;
                 }
-                eVar = this.ZS.Zy;
+                eVar = this.aat.ZZ;
                 if (eVar != null) {
-                    eVar2 = this.ZS.Zy;
+                    eVar2 = this.aat.ZZ;
                     eVar2.onStop();
                 }
             }

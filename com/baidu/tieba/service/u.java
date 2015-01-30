@@ -1,41 +1,37 @@
 package com.baidu.tieba.service;
 
-import android.location.Address;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-class u implements com.baidu.adp.lib.d.d {
-    final /* synthetic */ UpdateInfoService bNt;
+class u implements com.baidu.tieba.model.t {
+    final /* synthetic */ UpdateInfoService bPd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(UpdateInfoService updateInfoService) {
-        this.bNt = updateInfoService;
+        this.bPd = updateInfoService;
     }
 
-    @Override // com.baidu.adp.lib.d.d
-    public void b(int i, String str, Address address) {
+    @Override // com.baidu.tieba.model.t
+    public void gR(int i) {
         com.baidu.tieba.model.r rVar;
-        com.baidu.tieba.model.r rVar2;
-        com.baidu.tieba.model.r rVar3;
-        switch (i) {
-            case 0:
-                if (address != null) {
-                    float longitude = (float) address.getLongitude();
-                    float latitude = (float) address.getLatitude();
-                    rVar = this.bNt.mModel;
-                    if (rVar.canSend()) {
-                        rVar2 = this.bNt.mModel;
-                        rVar2.a(1, longitude, latitude);
-                        rVar3 = this.bNt.mModel;
-                        rVar3.Ur();
-                        return;
-                    }
-                    return;
-                }
-                return;
-            case 1:
-            case 2:
-            case 3:
-            default:
-                return;
+        BdLog.i("location_success");
+        BdLog.e("location_success next time=" + i);
+        if (i <= 0) {
+            i = 3600;
+        } else if (i >= 32400) {
+            i = 32400;
         }
+        rVar = this.bPd.mModel;
+        rVar.ah(i * 1000);
+        TbadkCoreApplication.m255getInst().getAlarmManager().a(com.baidu.tbadk.a.a.AG, 1, System.currentTimeMillis() + (i * 1000), i * 1000);
+    }
+
+    @Override // com.baidu.tieba.model.t
+    public void onError(int i, String str) {
+        com.baidu.tieba.model.r rVar;
+        BdLog.i("location_errorCode&errorCode=" + i + "&errorMsg" + str);
+        rVar = this.bPd.mModel;
+        rVar.ah(600000L);
+        TbadkCoreApplication.m255getInst().getAlarmManager().a(com.baidu.tbadk.a.a.AG, 1, System.currentTimeMillis() + 600000, 600000L);
     }
 }

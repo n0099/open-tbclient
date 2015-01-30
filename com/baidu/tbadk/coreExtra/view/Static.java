@@ -9,6 +9,5 @@ public class Static {
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         MessageManager.getInstance().registerListener(2005016, new aw(0));
-        MessageManager.getInstance().registerListener(new ax(2001261));
     }
 }

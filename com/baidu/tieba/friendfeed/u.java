@@ -1,11 +1,8 @@
 package com.baidu.tieba.friendfeed;
 
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.view.View;
+import com.baidu.tieba.data.FriendFeedThreadData;
 /* loaded from: classes.dex */
-class u {
-    LinearLayout moreLayout;
-    ProgressBar moreProgress;
-    TextView moreTitleText;
+public interface u {
+    void a(int i, int i2, View view, View view2, FriendFeedThreadData friendFeedThreadData);
 }

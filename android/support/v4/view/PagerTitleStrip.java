@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.TextView;
-import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
@@ -283,7 +282,7 @@ public class PagerTitleStrip extends ViewGroup implements ViewPager.Decor {
         int i11 = max - baseline2;
         int i12 = max - baseline3;
         int max2 = Math.max(Math.max(this.mPrevText.getMeasuredHeight() + i10, this.mCurrText.getMeasuredHeight() + i11), this.mNextText.getMeasuredHeight() + i12);
-        switch (this.mGravity & Constants.MEDIA_POSITION_UPDATE) {
+        switch (this.mGravity & 112) {
             case 16:
                 int i13 = (((height - paddingTop) - paddingBottom) - max2) / 2;
                 i2 = i13 + i10;

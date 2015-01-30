@@ -10,14 +10,14 @@ import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class d {
-    private static String mF = "baidu";
-    public static final File mG = Environment.getExternalStorageDirectory();
+    private static String mI = "baidu";
+    public static final File mJ = Environment.getExternalStorageDirectory();
 
-    public static boolean bN() {
+    public static boolean bL() {
         return Environment.getExternalStorageState().equals("mounted");
     }
 
-    public static int eU() {
+    public static int eT() {
         String externalStorageState = Environment.getExternalStorageState();
         if (externalStorageState.equals("mounted")) {
             return 0;
@@ -33,21 +33,21 @@ public class d {
 
     public static String as(String str) {
         if (str != null) {
-            return mG + "/" + mF + "/" + str + "/";
+            return mJ + "/" + mI + "/" + str + "/";
         }
-        return mG + "/" + mF + "/";
+        return mJ + "/" + mI + "/";
     }
 
     public static String s(String str, String str2) {
         if (str != null) {
-            return mG + "/" + mF + "/" + str + "/" + str2;
+            return mJ + "/" + mI + "/" + str + "/" + str2;
         }
-        return mG + "/" + mF + "/" + str2;
+        return mJ + "/" + mI + "/" + str2;
     }
 
-    public static boolean eV() {
+    public static boolean eU() {
         try {
-            StatFs statFs = new StatFs(mG.getPath());
+            StatFs statFs = new StatFs(mJ.getPath());
             return ((((long) statFs.getAvailableBlocks()) * ((long) statFs.getBlockSize())) / 1024) / 1024 > 2;
         } catch (Exception e) {
             return false;
@@ -60,7 +60,7 @@ public class d {
 
     public static boolean au(String str) {
         String as = as(str);
-        if (bN()) {
+        if (bL()) {
             File file = new File(as);
             return file.exists() || file.mkdirs();
         }

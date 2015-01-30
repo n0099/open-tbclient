@@ -18,7 +18,7 @@ class g implements DialogInterface.OnClickListener {
         if (dialogInterface == listMenu) {
             switch (i) {
                 case 0:
-                    this.this$0.Pp();
+                    this.this$0.PM();
                     return;
                 case 1:
                     dialogInterface.dismiss();

@@ -5,22 +5,22 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class n extends com.baidu.adp.a.a.a {
-    private String afY = "dalvikvm";
-    private String[] afZ = {"GC_FOR_ALLOC", "GC_FOR_MALLOC", "GC_CONCURRENT", "GC_EXPLICIT", "GC_EXTERNAL_ALLOC", "GC_HPROF_DUMP_HEAP"};
-    private f aga = null;
-    private int afS = 0;
-    private final int agb = TbConfig.BIG_IMAGE_MIN_CAPACITY;
-    private q agc = null;
-    private final Handler agd = new o(this);
+    private String agw = "dalvikvm";
+    private String[] agx = {"GC_FOR_ALLOC", "GC_FOR_MALLOC", "GC_CONCURRENT", "GC_EXPLICIT", "GC_EXTERNAL_ALLOC", "GC_HPROF_DUMP_HEAP"};
+    private f agy = null;
+    private int agq = 0;
+    private final int agz = TbConfig.BIG_IMAGE_MIN_CAPACITY;
+    private q agA = null;
+    private final Handler agB = new o(this);
 
     @Override // com.baidu.adp.a.a.a
     public void start() {
         if (!an()) {
             super.start();
-            this.agd.sendEmptyMessageDelayed(0, 10000L);
-            yV();
+            this.agB.sendEmptyMessageDelayed(0, 10000L);
+            zm();
             try {
-                f.a(this.afY, new p(this));
+                f.a(this.agw, new p(this));
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -30,27 +30,27 @@ public class n extends com.baidu.adp.a.a.a {
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
-        yW();
+        zn();
     }
 
-    private void yV() {
-        if (this.aga == null) {
-            this.aga = new f();
+    private void zm() {
+        if (this.agy == null) {
+            this.agy = new f();
         }
-        if (!this.aga.an()) {
-            new Thread(this.aga).start();
+        if (!this.agy.an()) {
+            new Thread(this.agy).start();
         }
     }
 
-    private void yW() {
-        if (this.aga != null && this.aga.an()) {
-            this.aga.stop();
+    private void zn() {
+        if (this.agy != null && this.agy.an()) {
+            this.agy.stop();
         }
     }
 
     public void a(q qVar) {
-        if (this.agc == null) {
-            this.agc = qVar;
+        if (this.agA == null) {
+            this.agA = qVar;
         }
     }
 }

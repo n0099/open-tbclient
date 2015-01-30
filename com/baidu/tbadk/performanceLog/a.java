@@ -6,14 +6,14 @@ import android.os.Looper;
 import android.view.WindowManager;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.a.a.a {
-    private c afA = null;
-    private d afz;
+    private d afW;
+    private c afX = null;
     private WindowManager mWindowManager;
 
     public a(Context context) {
-        this.afz = null;
+        this.afW = null;
         this.mWindowManager = null;
-        this.afz = new d(this, context);
+        this.afW = new d(this, context);
         this.mWindowManager = (WindowManager) context.getSystemService("window");
     }
 
@@ -21,7 +21,7 @@ public class a extends com.baidu.adp.a.a.a {
     public void stop() {
         super.stop();
         try {
-            this.mWindowManager.removeView(this.afz);
+            this.mWindowManager.removeView(this.afW);
         } catch (Exception e) {
         }
     }
@@ -34,16 +34,16 @@ public class a extends com.baidu.adp.a.a.a {
         layoutParams.height = 1;
         layoutParams.width = 1;
         try {
-            this.mWindowManager.removeView(this.afz);
+            this.mWindowManager.removeView(this.afW);
         } catch (Exception e) {
         }
-        this.mWindowManager.addView(this.afz, layoutParams);
+        this.mWindowManager.addView(this.afW, layoutParams);
         new Handler(Looper.getMainLooper()).post(new b(this));
     }
 
     public void a(c cVar) {
-        if (this.afA == null) {
-            this.afA = cVar;
+        if (this.afX == null) {
+            this.afX = cVar;
         }
     }
 }

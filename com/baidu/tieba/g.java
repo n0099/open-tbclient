@@ -6,23 +6,23 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 class g extends Handler {
-    final /* synthetic */ LogoActivity akC;
+    final /* synthetic */ LogoActivity alk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(LogoActivity logoActivity) {
-        this.akC = logoActivity;
+        this.alk = logoActivity;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         boolean z;
-        this.akC.aku = true;
-        z = this.akC.akt;
+        this.alk.akY = true;
+        z = this.alk.akX;
         if (z) {
-            if (!this.akC.getPageContext().getPageActivity().getDatabasePath(TbConfig.PHONE_DATEBASE_NAME).exists()) {
-                TbadkCoreApplication.setCurrentAccount(com.baidu.tbadk.core.account.a.mk(), this.akC.getBaseContext());
+            if (!this.alk.getPageContext().getPageActivity().getDatabasePath(TbConfig.PHONE_DATEBASE_NAME).exists()) {
+                TbadkCoreApplication.setCurrentAccount(com.baidu.tbadk.core.account.a.mk(), this.alk.getBaseContext());
             }
-            this.akC.ai(this.akC.getBaseContext());
+            this.alk.ai(this.alk.getBaseContext());
         }
         super.handleMessage(message);
     }

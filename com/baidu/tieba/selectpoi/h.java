@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.aa;
 import com.baidu.tbadk.core.view.ab;
@@ -16,31 +16,31 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class h extends BaseAdapter {
-    private x aKz;
-    private boolean axy = false;
-    private com.baidu.tieba.tbadkCore.location.k bMY;
-    private SearchLocationActivity bMZ;
+    private x aLI;
+    private boolean ayy = false;
+    private com.baidu.tieba.tbadkCore.location.k bOI;
+    private SearchLocationActivity bOJ;
 
     public h(SearchLocationActivity searchLocationActivity) {
-        this.bMZ = searchLocationActivity;
+        this.bOJ = searchLocationActivity;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bMY == null || this.bMY.ahH() == null || this.bMY.ahH().isEmpty()) {
-            this.axy = false;
+        if (this.bOI == null || this.bOI.ail() == null || this.bOI.ail().isEmpty()) {
+            this.ayy = false;
             return 1;
         }
-        this.axy = true;
-        return this.bMY.ahH().size();
+        this.ayy = true;
+        return this.bOI.ail().size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.bMY == null || this.bMY.ahH() == null || this.bMY.ahH().isEmpty()) {
+        if (this.bOI == null || this.bOI.ail() == null || this.bOI.ail().isEmpty()) {
             return null;
         }
-        return this.bMY.ahH().get(i);
+        return this.bOI.ail().get(i);
     }
 
     @Override // android.widget.Adapter
@@ -50,7 +50,7 @@ public class h extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        if (!this.axy) {
+        if (!this.ayy) {
             return d(viewGroup);
         }
         i iVar = null;
@@ -58,38 +58,38 @@ public class h extends BaseAdapter {
             iVar = (i) view.getTag();
         }
         if (iVar == null) {
-            view = com.baidu.adp.lib.g.b.ek().a(this.bMZ.getPageContext().getPageActivity(), com.baidu.tieba.x.location_search_item_layout, viewGroup, false);
-            iVar = S(view);
+            view = com.baidu.adp.lib.g.b.ei().a(this.bOJ.getPageContext().getPageActivity(), com.baidu.tieba.x.location_search_item_layout, viewGroup, false);
+            iVar = U(view);
             view.setTag(iVar);
         }
         i iVar2 = iVar;
-        iVar2.bNa.setText(this.bMY.ahH().get(i).getName());
-        ax.j(iVar2.line, t.cp_bg_line_b);
-        ax.b(iVar2.bNa, t.cp_cont_b, 1);
-        ax.i(view, v.home_recommend_item_bg);
+        iVar2.bOK.setText(this.bOI.ail().get(i).getName());
+        bc.j(iVar2.line, t.cp_bg_line_b);
+        bc.b(iVar2.bOK, t.cp_cont_b, 1);
+        bc.i(view, v.home_recommend_item_bg);
         return view;
     }
 
     public void a(com.baidu.tieba.tbadkCore.location.k kVar) {
-        this.bMY = kVar;
+        this.bOI = kVar;
     }
 
-    public boolean acn() {
-        return this.axy;
+    public boolean acR() {
+        return this.ayy;
     }
 
-    public i S(View view) {
+    public i U(View view) {
         i iVar = new i(this, null);
-        iVar.bNa = (TextView) view.findViewById(w.location_search_address_name);
+        iVar.bOK = (TextView) view.findViewById(w.location_search_address_name);
         iVar.line = view.findViewById(w.location_search_line);
         return iVar;
     }
 
     public View d(ViewGroup viewGroup) {
         int skinType = TbadkCoreApplication.m255getInst().getSkinType();
-        this.aKz = NoDataViewFactory.a(this.bMZ.getPageContext().getPageActivity(), viewGroup, aa.a(NoDataViewFactory.ImgType.NODATA), ab.ci(z.text_try_to_chage_location), null);
-        this.aKz.onChangeSkinType(this.bMZ.getPageContext(), skinType);
-        this.aKz.setVisibility(0);
-        return this.aKz;
+        this.aLI = NoDataViewFactory.a(this.bOJ.getPageContext().getPageActivity(), viewGroup, aa.a(NoDataViewFactory.ImgType.NODATA), ab.cp(z.text_try_to_chage_location), null);
+        this.aLI.onChangeSkinType(this.bOJ.getPageContext(), skinType);
+        this.aLI.setVisibility(0);
+        return this.aLI;
     }
 }

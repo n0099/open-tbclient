@@ -5,24 +5,24 @@ import com.baidu.adp.lib.voice.q;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class l extends MediaPlayer implements i {
-    private static Object Ow = new Object();
-    private static l Ox = null;
-    private boolean Oy = false;
-    private boolean Oz = true;
-    private int OA = -1;
+    private static Object Pa = new Object();
+    private static l Pb = null;
+    private boolean Pc = false;
+    private boolean Pd = true;
+    private int Pe = -1;
 
     private l() {
     }
 
-    public static l qX() {
-        if (Ox == null) {
-            synchronized (Ow) {
-                if (Ox == null) {
-                    Ox = new l();
+    public static l ri() {
+        if (Pb == null) {
+            synchronized (Pa) {
+                if (Pb == null) {
+                    Pb = new l();
                 }
             }
         }
-        return Ox;
+        return Pb;
     }
 
     public void setStreamType(int i) {
@@ -30,83 +30,83 @@ public class l extends MediaPlayer implements i {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public boolean dc(String str) {
-        this.OA = -1;
-        if (!this.Oy) {
-            this.Oz = true;
+    public boolean db(String str) {
+        this.Pe = -1;
+        if (!this.Pc) {
+            this.Pd = true;
             reset();
             try {
                 setDataSource(str);
-                setStreamType(q.oC);
+                setStreamType(q.oH);
                 try {
                     prepare();
                 } catch (IOException e) {
                     e.printStackTrace();
-                    this.OA = 2;
+                    this.Pe = 2;
                     return false;
                 } catch (IllegalStateException e2) {
-                    this.OA = 1;
+                    this.Pe = 1;
                     return false;
                 }
             } catch (IOException e3) {
-                this.OA = 2;
+                this.Pe = 2;
                 return false;
             } catch (IllegalArgumentException e4) {
-                this.OA = 0;
+                this.Pe = 0;
                 return false;
             } catch (IllegalStateException e5) {
-                this.OA = 1;
+                this.Pe = 1;
                 return false;
             }
         }
-        this.Oy = true;
+        this.Pc = true;
         return true;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public void qT() {
+    public void re() {
         start();
-        this.Oz = false;
+        this.Pd = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public void qN() {
-        if (!this.Oz) {
+    public void qY() {
+        if (!this.Pd) {
             stop();
-            this.Oz = true;
-            this.Oy = false;
+            this.Pd = true;
+            this.Pc = false;
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public void qU() {
+    public void rf() {
         pause();
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public void qV() {
+    public void rg() {
         reset();
-        this.Oy = false;
-        this.Oz = true;
-        this.OA = -1;
+        this.Pc = false;
+        this.Pd = true;
+        this.Pe = -1;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public int fF() {
+    public int fE() {
         return getCurrentPosition();
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public boolean qW() {
-        return this.Oy;
+    public boolean rh() {
+        return this.Pc;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
     public void seek(int i) {
-        cq(i);
+        cx(i);
     }
 
-    public void cq(int i) {
+    public void cx(int i) {
         try {
             seekTo(i);
         } catch (Exception e) {
@@ -115,6 +115,6 @@ public class l extends MediaPlayer implements i {
 
     @Override // com.baidu.tbadk.core.voice.service.i
     public int getErrorNo() {
-        return this.OA;
+        return this.Pe;
     }
 }

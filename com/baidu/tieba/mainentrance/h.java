@@ -5,34 +5,34 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bf;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class h {
-    private String asx;
+    private String atD;
     private String tid = null;
-    private String QH = null;
+    private String Ri = null;
     private String title = null;
-    private boolean asz = false;
+    private boolean atF = false;
     private long time = 0;
-    private final UserData asy = new UserData();
+    private final UserData atE = new UserData();
     private String content = null;
-    private boolean asA = true;
+    private boolean atG = true;
 
-    public boolean TG() {
-        return this.asA;
+    public boolean Uc() {
+        return this.atG;
     }
 
     public String getPid() {
-        return this.QH;
+        return this.Ri;
     }
 
     public String getTid() {
         return this.tid;
     }
 
-    public String TH() {
-        return this.asx;
+    public String Ud() {
+        return this.atD;
     }
 
     public String getTitle() {
@@ -52,17 +52,17 @@ public class h {
             try {
                 this.tid = jSONObject.optString("tid");
                 this.title = jSONObject.optString("title");
-                this.QH = jSONObject.optString("pid");
-                this.asz = jSONObject.optInt("is_floor", 0) != 0;
+                this.Ri = jSONObject.optString("pid");
+                this.atF = jSONObject.optInt("is_floor", 0) != 0;
                 this.time = jSONObject.optLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, 0L) * 1000;
-                this.asy.parserJson(jSONObject.optJSONObject("author"));
+                this.atE.parserJson(jSONObject.optJSONObject("author"));
                 this.content = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT);
-                this.asx = jSONObject.optString(ImageViewerConfig.FORUM_NAME);
-                this.title = ba.a(this.title, (Color) null);
-                String a = ba.a(this.content, (Color) null);
+                this.atD = jSONObject.optString(ImageViewerConfig.FORUM_NAME);
+                this.title = bf.a(this.title, (Color) null);
+                String a = bf.a(this.content, (Color) null);
                 if (!a.equals(this.content)) {
                     this.content = a;
-                    this.asA = false;
+                    this.atG = false;
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);

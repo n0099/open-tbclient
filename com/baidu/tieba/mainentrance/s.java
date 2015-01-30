@@ -6,15 +6,15 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.bc;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements TextWatcher {
-    final /* synthetic */ SquareSearchActivity brF;
+    final /* synthetic */ SquareSearchActivity btb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(SquareSearchActivity squareSearchActivity) {
-        this.brF = squareSearchActivity;
+        this.btb = squareSearchActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -28,40 +28,40 @@ public class s implements TextWatcher {
         int i6;
         int i7;
         String str2;
-        this.brF.brr = charSequence.toString();
-        str = this.brF.brr;
+        this.btb.bsO = charSequence.toString();
+        str = this.btb.bsO;
         if (str.trim().length() > 0) {
-            i6 = this.brF.mMode;
+            i6 = this.btb.mMode;
             if (i6 != 0) {
-                i7 = this.brF.mMode;
+                i7 = this.btb.mMode;
                 if (i7 == 1) {
-                    SquareSearchActivity squareSearchActivity = this.brF;
-                    str2 = this.brF.brr;
+                    SquareSearchActivity squareSearchActivity = this.btb;
+                    str2 = this.btb.bsO;
                     squareSearchActivity.y(1, str2);
                     return;
                 }
                 return;
             }
-            this.brF.TO();
+            this.btb.Ul();
             return;
         }
-        this.brF.rp();
-        i4 = this.brF.mMode;
+        this.btb.rA();
+        i4 = this.btb.mMode;
         if (i4 != 0) {
-            i5 = this.brF.mMode;
+            i5 = this.btb.mMode;
             if (i5 != 3) {
-                this.brF.TM();
+                this.btb.Uj();
             } else {
-                this.brF.TN();
+                this.btb.Uk();
             }
         } else {
-            this.brF.TL();
+            this.btb.Ui();
         }
-        frameLayout = this.brF.bre;
+        frameLayout = this.btb.bsC;
         frameLayout.setVisibility(0);
-        listView = this.brF.brf;
+        listView = this.btb.bsD;
         listView.setVisibility(0);
-        xVar = this.brF.mNoDataView;
+        xVar = this.btb.mNoDataView;
         xVar.setVisibility(8);
     }
 
@@ -75,13 +75,13 @@ public class s implements TextWatcher {
         TextView textView;
         Button button2;
         if (editable.toString().trim().length() == 0) {
-            button2 = this.brF.bqZ;
+            button2 = this.btb.bsx;
             button2.setVisibility(8);
         } else {
-            button = this.brF.bqZ;
+            button = this.btb.bsx;
             button.setVisibility(0);
         }
-        textView = this.brF.bra;
-        ax.b(textView, com.baidu.tieba.t.cp_cont_i, 1);
+        textView = this.btb.bsy;
+        bc.b(textView, com.baidu.tieba.t.cp_cont_i, 1);
     }
 }

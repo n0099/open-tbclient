@@ -78,7 +78,7 @@ public class MvcJsonHttpResponsedMessage<D extends j> extends MvcHttpResponsedMe
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        t<String> O;
+        t<String> R;
         super.afterDispatchInBackGround(i, (int) bArr);
         if (getError() == 0 && (getOrginalMessage() instanceof MvcHttpMessage) && bArr != null) {
             MvcHttpMessage mvcHttpMessage = (MvcHttpMessage) getOrginalMessage();
@@ -88,14 +88,14 @@ public class MvcJsonHttpResponsedMessage<D extends j> extends MvcHttpResponsedMe
                 String lq = eVar.lq();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
                 if (cacheKey != null && !TextUtils.isEmpty(lq) && bArr != null) {
-                    if (eVar.xb()) {
-                        t<byte[]> N = a.nS().N(lq, currentAccount);
-                        if (N != null) {
-                            N.f(cacheKey, bArr);
+                    if (eVar.xr()) {
+                        t<byte[]> Q = a.nV().Q(lq, currentAccount);
+                        if (Q != null) {
+                            Q.f(cacheKey, bArr);
                         }
-                    } else if ((mvcHttpMessage.getRequestData() instanceof f) && (O = a.nS().O(lq, currentAccount)) != null) {
+                    } else if ((mvcHttpMessage.getRequestData() instanceof f) && (R = a.nV().R(lq, currentAccount)) != null) {
                         try {
-                            O.f(cacheKey, new String(bArr, "UTF-8"));
+                            R.f(cacheKey, new String(bArr, "UTF-8"));
                         } catch (UnsupportedEncodingException e) {
                             e.printStackTrace();
                         }

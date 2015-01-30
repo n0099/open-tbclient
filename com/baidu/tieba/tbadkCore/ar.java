@@ -12,10 +12,10 @@ public class ar {
         if (context != null && vVar != null) {
             if (!(!TextUtils.isEmpty(vVar.getPkgName()))) {
                 com.baidu.adp.lib.util.l.showToast(context, com.baidu.tieba.z.pb_app_error);
-            } else if (com.baidu.adp.lib.util.i.fg()) {
-                vVar.hA(1);
+            } else if (com.baidu.adp.lib.util.i.ff()) {
+                vVar.hJ(1);
                 TiebaStatic.eventStat(context, "pb_dl_app", null, 1, "app_name", vVar.getPkgName());
-                com.baidu.tbadk.download.b.uK().a(vVar.getPkgName(), vVar.getDownloadUrl(), vVar.getAppName(), i, 0);
+                com.baidu.tbadk.download.b.vb().a(vVar.getPkgName(), vVar.getDownloadUrl(), vVar.getAppName(), i, 0);
             } else {
                 com.baidu.adp.lib.util.l.showToast(context, com.baidu.tieba.z.neterror);
             }
@@ -29,12 +29,12 @@ public class ar {
                 com.baidu.adp.lib.util.l.showToast(context, com.baidu.tieba.z.pb_app_error);
                 return;
             }
-            File cj = com.baidu.tbadk.core.util.s.cj(String.valueOf(pkgName.replace(".", "_")) + ".apk");
-            if (cj != null) {
+            File ch = com.baidu.tbadk.core.util.s.ch(String.valueOf(pkgName.replace(".", "_")) + ".apk");
+            if (ch != null) {
                 Intent intent = new Intent();
                 intent.addFlags(268435456);
                 intent.setAction("android.intent.action.VIEW");
-                intent.setDataAndType(Uri.fromFile(cj), "application/vnd.android.package-archive");
+                intent.setDataAndType(Uri.fromFile(ch), "application/vnd.android.package-archive");
                 context.startActivity(intent);
             }
         }

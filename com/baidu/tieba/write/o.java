@@ -6,23 +6,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class o extends com.baidu.adp.base.f<WriteActivity> {
-    private p ceg;
-    private ArrayList<com.baidu.tbadk.core.data.w> ceh;
-    private WriteActivity cei;
+    private p cfF;
+    private ArrayList<com.baidu.tbadk.core.data.x> cfG;
+    private WriteActivity cfH;
     private int mErrCode;
 
     public o(WriteActivity writeActivity) {
         super(writeActivity.getPageContext());
-        this.ceg = null;
-        this.ceh = null;
+        this.cfF = null;
+        this.cfG = null;
         this.mErrCode = 0;
-        this.cei = writeActivity;
-        this.ceh = new ArrayList<>();
+        this.cfH = writeActivity;
+        this.cfG = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<com.baidu.tbadk.core.data.w> ajJ() {
-        return this.ceh;
+    public ArrayList<com.baidu.tbadk.core.data.x> akg() {
+        return this.cfG;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -31,11 +31,11 @@ public class o extends com.baidu.adp.base.f<WriteActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void iv(String str) {
-        if (this.ceg == null) {
-            this.ceg = new p(this, null);
-            this.ceg.setPriority(3);
-            this.ceg.execute(str);
+    public void iD(String str) {
+        if (this.cfF == null) {
+            this.cfF = new p(this, null);
+            this.cfF.setPriority(3);
+            this.cfF.execute(str);
         }
     }
 
@@ -57,9 +57,9 @@ public class o extends com.baidu.adp.base.f<WriteActivity> {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
-                            com.baidu.tbadk.core.data.w wVar = new com.baidu.tbadk.core.data.w();
-                            wVar.parserJson(jSONObject2);
-                            this.ceh.add(wVar);
+                            com.baidu.tbadk.core.data.x xVar = new com.baidu.tbadk.core.data.x();
+                            xVar.parserJson(jSONObject2);
+                            this.cfG.add(xVar);
                         }
                     }
                 }
@@ -76,8 +76,8 @@ public class o extends com.baidu.adp.base.f<WriteActivity> {
 
     @Override // com.baidu.adp.base.f
     public boolean cancelLoadData() {
-        if (this.ceg != null) {
-            this.ceg.cancel();
+        if (this.cfF != null) {
+            this.cfF.cancel();
             return true;
         }
         return true;

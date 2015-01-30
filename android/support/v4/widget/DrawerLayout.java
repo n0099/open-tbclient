@@ -24,7 +24,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
-import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 /* loaded from: classes.dex */
 public class DrawerLayout extends ViewGroup {
     private static final boolean ALLOW_EDGE_LOCK = false;
@@ -417,7 +416,7 @@ public class DrawerLayout extends ViewGroup {
                         f = (i6 - i5) / measuredWidth;
                     }
                     boolean z2 = f != layoutParams.onScreen;
-                    switch (layoutParams.gravity & Constants.MEDIA_POSITION_UPDATE) {
+                    switch (layoutParams.gravity & 112) {
                         case 16:
                             int i8 = i4 - i2;
                             int i9 = (i8 - measuredHeight) / 2;

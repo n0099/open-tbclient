@@ -6,10 +6,10 @@ import com.baidu.adp.widget.VerticalTranslateLayout;
 /* loaded from: classes.dex */
 public class x {
     private static /* synthetic */ int[] yZ;
-    VelocityTracker vf;
-    boolean vg;
-    final int vh;
-    final int vi;
+    VelocityTracker vl;
+    boolean vm;
+    final int vn;
+    final int vo;
     final /* synthetic */ VerticalTranslateLayout yX;
 
     static /* synthetic */ int[] kv() {
@@ -37,7 +37,7 @@ public class x {
         return iArr;
     }
 
-    public boolean au(int i) {
+    public boolean az(int i) {
         VerticalTranslateLayout.TrackDirection trackDirection;
         w wVar;
         w wVar2;
@@ -49,18 +49,18 @@ public class x {
         trackDirection = this.yX.yM;
         switch (kv[trackDirection.ordinal()]) {
             case 1:
-                i4 = this.yX.uH;
+                i4 = this.yX.uN;
                 if (i4 != 10004) {
-                    i5 = this.yX.uH;
+                    i5 = this.yX.uN;
                     if (i5 != 10000) {
                         return false;
                     }
                 }
                 break;
             case 2:
-                i2 = this.yX.uH;
+                i2 = this.yX.uN;
                 if (i2 != 10004) {
-                    i3 = this.yX.uH;
+                    i3 = this.yX.uN;
                     if (i3 != 10001) {
                         return false;
                     }
@@ -70,21 +70,21 @@ public class x {
                 wVar = this.yX.yW;
                 if (wVar != null) {
                     wVar2 = this.yX.yW;
-                    wVar2.aC(i);
+                    wVar2.aH(i);
                     break;
                 }
                 break;
         }
-        this.vf = VelocityTracker.obtain();
-        this.vg = true;
+        this.vl = VelocityTracker.obtain();
+        this.vm = true;
         return true;
     }
 
-    public void jd() {
-        this.vg = false;
+    public void je() {
+        this.vm = false;
     }
 
-    public void av(int i) {
+    public void aA(int i) {
         int i2;
         VerticalTranslateLayout.TrackDirection trackDirection;
         float f;
@@ -98,7 +98,7 @@ public class x {
         float f4;
         int i8;
         int i9;
-        if (this.vg) {
+        if (this.vm) {
             i2 = this.yX.yJ;
             int i10 = i2 - i;
             int[] kv = kv();
@@ -107,7 +107,7 @@ public class x {
                 case 1:
                     Log.d("VerticalTranslateLayout", "@move top");
                     f4 = this.yX.yF;
-                    i8 = this.yX.uy;
+                    i8 = this.yX.uE;
                     if (i10 > f4 - i8 && i10 < 0) {
                         VerticalTranslateLayout verticalTranslateLayout = this.yX;
                         i9 = verticalTranslateLayout.yJ;
@@ -118,7 +118,7 @@ public class x {
                     return;
                 case 2:
                     Log.d("VerticalTranslateLayout", "@move bottom");
-                    i6 = this.yX.uy;
+                    i6 = this.yX.uE;
                     f3 = this.yX.yH;
                     if (i10 < i6 - f3 && i10 > 0) {
                         VerticalTranslateLayout verticalTranslateLayout2 = this.yX;
@@ -131,9 +131,9 @@ public class x {
                 case 3:
                     Log.d("VerticalTranslateLayout", "@move vertical");
                     f = this.yX.yF;
-                    i3 = this.yX.uy;
+                    i3 = this.yX.uE;
                     if (i10 >= f - i3) {
-                        i4 = this.yX.uy;
+                        i4 = this.yX.uE;
                         f2 = this.yX.yH;
                         if (i10 <= i4 - f2) {
                             VerticalTranslateLayout verticalTranslateLayout3 = this.yX;
@@ -151,16 +151,16 @@ public class x {
         }
     }
 
-    public void je() {
+    public void jf() {
         float max;
         VerticalTranslateLayout.TrackDirection trackDirection;
-        this.vf.computeCurrentVelocity(this.vh);
-        float yVelocity = this.vf.getYVelocity();
+        this.vl.computeCurrentVelocity(this.vn);
+        float yVelocity = this.vl.getYVelocity();
         Log.d("VerticalTranslateLayout", "@fling y " + yVelocity);
         if (yVelocity < 0.0f) {
-            max = Math.min(yVelocity, -this.vi);
+            max = Math.min(yVelocity, -this.vo);
         } else {
-            max = Math.max(yVelocity, this.vi);
+            max = Math.max(yVelocity, this.vo);
         }
         int[] kv = kv();
         trackDirection = this.yX.yM;
@@ -175,8 +175,8 @@ public class x {
                 q(max);
                 break;
         }
-        this.vf.recycle();
-        this.vf = null;
+        this.vl.recycle();
+        this.vl = null;
     }
 
     private void q(float f) {
@@ -193,7 +193,7 @@ public class x {
         i = this.yX.yJ;
         if (i <= 0) {
             f3 = this.yX.yF;
-            i3 = this.yX.uy;
+            i3 = this.yX.uE;
             if (i >= f3 - i3) {
                 if (f < 0.0f) {
                     sVar4 = this.yX.yS;
@@ -206,7 +206,7 @@ public class x {
             }
         }
         if (i >= 0) {
-            i2 = this.yX.uy;
+            i2 = this.yX.uE;
             f2 = this.yX.yH;
             if (i <= i2 - f2) {
                 if (f < 0.0f) {

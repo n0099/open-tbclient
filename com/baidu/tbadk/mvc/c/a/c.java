@@ -4,20 +4,20 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.adp.widget.ListView.h {
-    final /* synthetic */ b adL;
+    final /* synthetic */ b aei;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.adL = bVar;
+        this.aei = bVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public void a(View view, boolean z) {
         com.baidu.tbadk.mvc.c.b s = com.baidu.tbadk.mvc.h.a.s(view);
         if (s != null) {
-            s.aM(z);
+            s.aO(z);
             s.setView(view);
-            this.adL.dispatchMvcEvent(s);
+            this.aei.dispatchMvcEvent(s);
         }
     }
 }

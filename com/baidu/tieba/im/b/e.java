@@ -5,23 +5,23 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements com.baidu.adp.framework.client.socket.link.g {
-    final /* synthetic */ b biq;
+    final /* synthetic */ b bjN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(b bVar) {
-        this.biq = bVar;
+        this.bjN = bVar;
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.g
     public boolean k(int i, String str) {
-        this.biq.stop();
+        this.bjN.stop();
         return false;
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.g
     public void c(Map<String, String> map) {
-        this.biq.start();
-        com.baidu.adp.lib.stats.f.es().a("lc_con", (String) null, (String) null, m.fV().ge(), 0, (String) null, "dns", Long.valueOf(m.fV().fT()), "ip", m.fV().fS(), "net", com.baidu.adp.lib.stats.f.es().ev(), "localdns", m.fV().fv(), "localdnsbak", m.fV().fw());
+        this.bjN.start();
+        com.baidu.adp.lib.stats.f.eq().a("lc_con", (String) null, (String) null, m.fU().gd(), 0, (String) null, "dns", Long.valueOf(m.fU().fS()), "ip", m.fU().fR(), "net", com.baidu.adp.lib.stats.f.eq().et(), "localdns", m.fU().fu(), "localdnsbak", m.fU().fv());
         com.baidu.adp.framework.client.socket.i.aT().b(map);
     }
 

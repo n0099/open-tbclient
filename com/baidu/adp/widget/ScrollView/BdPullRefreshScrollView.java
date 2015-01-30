@@ -226,7 +226,7 @@ public class BdPullRefreshScrollView extends ScrollView {
             if (this.yi.showHeaderLoadingLayout() && i == 1) {
                 this.yx = true;
                 fullScroll(33);
-                aA(this.yt);
+                aF(this.yt);
                 this.yh = Mode.PULL_FROM_START;
                 a(State.REFRESHING, this.yr);
                 jY();
@@ -401,20 +401,20 @@ public class BdPullRefreshScrollView extends ScrollView {
                         if (this.yi == Mode.BOTH) {
                             this.yh = Mode.PULL_FROM_START;
                         }
-                        aA(i / 2);
+                        aF(i / 2);
                         kc();
                         return super.onTouchEvent(motionEvent);
                     }
                     if (ka() && i > 0 && this.yi.showHeaderLoadingLayout() && !this.yz) {
                         kd();
-                        aA(i / 2);
+                        aF(i / 2);
                     }
                     if (kb() && i > 0 && this.yi.showFooterLoadingLayout() && !this.yy) {
                         kh();
                         if (this.yi == Mode.BOTH) {
                             this.yh = Mode.PULL_FROM_END;
                         }
-                        aB(i / 2);
+                        aG(i / 2);
                         ke();
                         return super.onTouchEvent(motionEvent);
                     } else if (kb() && i < 0 && this.yi.showFooterLoadingLayout() && !this.yy) {
@@ -426,7 +426,7 @@ public class BdPullRefreshScrollView extends ScrollView {
                     }
                 } else if (this.yh == Mode.PULL_FROM_START && i > 0) {
                     kd();
-                    aA(i / 2);
+                    aF(i / 2);
                     return super.onTouchEvent(motionEvent);
                 } else if (this.yh == Mode.PULL_FROM_END && i < 0) {
                     kf();
@@ -442,7 +442,7 @@ public class BdPullRefreshScrollView extends ScrollView {
         }
     }
 
-    private void aA(int i) {
+    private void aF(int i) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.yn.getLayoutParams();
         layoutParams.topMargin -= i;
         if (layoutParams.topMargin <= this.yt) {
@@ -451,7 +451,7 @@ public class BdPullRefreshScrollView extends ScrollView {
         this.yn.setLayoutParams(layoutParams);
     }
 
-    private void aB(int i) {
+    private void aG(int i) {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.yo.getLayoutParams();
         layoutParams.bottomMargin += i;
         if (layoutParams.bottomMargin <= 0) {
@@ -472,13 +472,13 @@ public class BdPullRefreshScrollView extends ScrollView {
                     aVar.jU();
                     return;
                 case 3:
-                    aVar.jA();
+                    aVar.jz();
                     return;
                 case 4:
-                    aVar.jB();
+                    aVar.jA();
                     return;
                 case 5:
-                    aVar.jB();
+                    aVar.jA();
                     return;
                 default:
                     return;
@@ -514,7 +514,7 @@ public class BdPullRefreshScrollView extends ScrollView {
                 scrollTo(0, 0);
                 k(getHeadViewTopMargin() - getScrollY(), 0);
             } else if (State.PULL_TO_REFRESH == this.yg) {
-                aA(getHeadViewTopMargin() - this.yt);
+                aF(getHeadViewTopMargin() - this.yt);
                 scrollTo(0, 0);
                 a(State.RESET, this.yr);
             }
@@ -536,7 +536,7 @@ public class BdPullRefreshScrollView extends ScrollView {
             eVar.a(hVar);
         } catch (OutOfMemoryError e) {
             BdBaseApplication.getInst().onAppMemoryLow();
-            hVar.jO();
+            hVar.jN();
         }
     }
 
@@ -544,7 +544,7 @@ public class BdPullRefreshScrollView extends ScrollView {
         if (State.RELEASE_TO_REFRESH == this.yg) {
             l(getFootViewBottomMargin(), 0);
         } else if (State.PULL_TO_REFRESH == this.yg) {
-            aB(0 - getFootViewBottomMargin());
+            aG(0 - getFootViewBottomMargin());
         }
     }
 

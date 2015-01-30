@@ -4,10 +4,10 @@ import android.text.Editable;
 import android.text.TextWatcher;
 /* loaded from: classes.dex */
 class o implements TextWatcher {
-    final /* synthetic */ QuickSearchActivity aoo;
+    final /* synthetic */ QuickSearchActivity apk;
 
     private o(QuickSearchActivity quickSearchActivity) {
-        this.aoo = quickSearchActivity;
+        this.apk = quickSearchActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,11 +18,11 @@ class o implements TextWatcher {
     @Override // android.text.TextWatcher
     public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         if (charSequence.toString().trim().length() != 0) {
-            QuickSearchActivity.a(this.aoo, charSequence.toString());
+            QuickSearchActivity.a(this.apk, charSequence.toString());
             return;
         }
-        QuickSearchActivity.a(this.aoo).setVisibility(8);
-        QuickSearchActivity.b(this.aoo).setVisibility(8);
+        QuickSearchActivity.a(this.apk).setVisibility(8);
+        QuickSearchActivity.b(this.apk).setVisibility(8);
     }
 
     @Override // android.text.TextWatcher
@@ -32,9 +32,9 @@ class o implements TextWatcher {
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
         if (editable.toString().trim().length() == 0) {
-            QuickSearchActivity.c(this.aoo).setVisibility(8);
+            QuickSearchActivity.c(this.apk).setVisibility(8);
         } else {
-            QuickSearchActivity.c(this.aoo).setVisibility(0);
+            QuickSearchActivity.c(this.apk).setVisibility(0);
         }
     }
 }

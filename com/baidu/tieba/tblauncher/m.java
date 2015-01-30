@@ -16,8 +16,7 @@ class m extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null) {
-            this.this$0.ic(1);
+        if (customResponsedMessage == null) {
         }
     }
 }

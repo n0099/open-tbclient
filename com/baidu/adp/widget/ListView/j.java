@@ -20,9 +20,11 @@ public abstract class j {
 
     public abstract void jA();
 
-    public abstract void jB();
+    public abstract int jB();
 
-    public abstract View jx();
+    public abstract View jy();
+
+    public abstract void jz();
 
     public j(Context context) {
         this.mContext = null;
@@ -38,7 +40,7 @@ public abstract class j {
 
     public final View getView() {
         if (this.mView == null) {
-            this.mView = jx();
+            this.mView = jy();
             if (this.mView == null) {
                 throw new IllegalStateException("BdIListPullView getView is null");
             }
@@ -55,7 +57,7 @@ public abstract class j {
         }
     }
 
-    public boolean jD() {
+    public boolean jC() {
         return this.wD;
     }
 
@@ -75,7 +77,7 @@ public abstract class j {
         view.measure(childMeasureSpec, makeMeasureSpec);
     }
 
-    public int jE() {
+    public int jD() {
         return this.wE;
     }
 }

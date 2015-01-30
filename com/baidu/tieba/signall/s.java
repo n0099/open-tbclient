@@ -7,35 +7,35 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class s {
-    private int bOu;
-    private String bOv;
-    private int bPN;
-    private String bPO;
-    private com.baidu.tieba.home.u bOQ = new com.baidu.tieba.home.u();
-    private ArrayList<t> bPP = new ArrayList<>();
+    private int bQe;
+    private String bQf;
+    private int bRx;
+    private String bRy;
+    private com.baidu.tieba.home.t bQA = new com.baidu.tieba.home.t();
+    private ArrayList<t> bRz = new ArrayList<>();
 
-    public int adu() {
-        return this.bOu;
+    public int adY() {
+        return this.bQe;
     }
 
-    public String acU() {
-        return this.bOv;
+    public String ady() {
+        return this.bQf;
     }
 
-    public com.baidu.tieba.home.u acW() {
-        return this.bOQ;
+    public com.baidu.tieba.home.t adA() {
+        return this.bQA;
     }
 
-    public ArrayList<t> adv() {
-        return this.bPP;
+    public ArrayList<t> adZ() {
+        return this.bRz;
     }
 
-    public int adw() {
-        return this.bPN;
+    public int aea() {
+        return this.bRx;
     }
 
-    public String adx() {
-        return this.bPO;
+    public String aeb() {
+        return this.bRy;
     }
 
     public void parserJson(String str) {
@@ -51,11 +51,11 @@ public class s {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.bOQ.parserJson(jSONObject.optJSONObject("error"));
-                this.bOu = jSONObject.optInt("show_dialog");
-                this.bOv = jSONObject.optString("sign_notice");
-                this.bPN = jSONObject.optInt("is_timeout");
-                this.bPO = jSONObject.optString("timeout_notice");
+                this.bQA.parserJson(jSONObject.optJSONObject("error"));
+                this.bQe = jSONObject.optInt("show_dialog");
+                this.bQf = jSONObject.optString("sign_notice");
+                this.bRx = jSONObject.optInt("is_timeout");
+                this.bRy = jSONObject.optString("timeout_notice");
                 JSONArray optJSONArray = jSONObject.optJSONArray(LoginActivityConfig.INFO);
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
@@ -63,7 +63,7 @@ public class s {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         t tVar = new t();
                         tVar.parserJson(jSONObject2);
-                        this.bPP.add(tVar);
+                        this.bRz.add(tVar);
                     }
                 }
             } catch (Exception e) {

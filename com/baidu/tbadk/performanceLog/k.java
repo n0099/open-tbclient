@@ -11,8 +11,8 @@ class k implements CustomMessageTask.CustomRunnable<m> {
             return null;
         }
         m data = customMessage.getData();
-        data.afW = ac.zh().zj();
-        data.afX = ac.zh().zk();
+        data.agu = ac.zy().zA();
+        data.agv = ac.zy().zB();
         return new CustomResponsedMessage<>(2016100, data);
     }
 }

@@ -21,7 +21,7 @@ public class b implements c {
         this.mTitle = str;
     }
 
-    public void d(View.OnClickListener onClickListener) {
+    public void e(View.OnClickListener onClickListener) {
         this.mClickListener = onClickListener;
     }
 }

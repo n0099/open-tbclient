@@ -26,7 +26,7 @@ public class l extends DataSetObserver {
         mVar = this.wM.wL;
         if (mVar != null) {
             mVar2 = this.wM.wL;
-            mVar2.jH();
+            mVar2.jG();
         }
     }
 

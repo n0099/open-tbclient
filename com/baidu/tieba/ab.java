@@ -27,15 +27,6 @@ public final class ab {
     public static final int BdRoundedImageView_is_oval = 5;
     public static final int BdRoundedImageView_round_background = 4;
     public static final int ChatVoiceView_is_left = 0;
-    public static final int CircleFlowIndicator_activeColor = 0;
-    public static final int CircleFlowIndicator_activeRadius = 8;
-    public static final int CircleFlowIndicator_activeType = 6;
-    public static final int CircleFlowIndicator_centeredhao123 = 3;
-    public static final int CircleFlowIndicator_circleSeparation = 7;
-    public static final int CircleFlowIndicator_fadeOut = 4;
-    public static final int CircleFlowIndicator_inactiveColor = 1;
-    public static final int CircleFlowIndicator_inactiveType = 5;
-    public static final int CircleFlowIndicator_radiushao123 = 2;
     public static final int CircleRippleView_circle_image = 1;
     public static final int CircleRippleView_circle_size = 0;
     public static final int ColumnLayout_Layout_layout_column = 0;
@@ -57,7 +48,6 @@ public final class ab {
     public static final int HorizontalTranslateLayout_rightWidth = 3;
     public static final int HorizontalTranslateLayout_tapBack = 5;
     public static final int HorizontalTranslateLayout_track = 4;
-    public static final int HotTextView_hotwords_size = 0;
     public static final int IndicatorView_autoHide = 3;
     public static final int IndicatorView_count = 4;
     public static final int IndicatorView_drawable = 1;
@@ -139,7 +129,6 @@ public final class ab {
     public static final int VerticalTranslateLayout_topHeight = 5;
     public static final int VerticalTranslateLayout_topOffset = 3;
     public static final int VerticalTranslateLayout_track = 0;
-    public static final int ViewFlow_sidebuffer = 0;
     public static final int Voice_play_type_play_type = 0;
     public static final int custom_state_custom_state_focused = 1;
     public static final int custom_state_custom_state_skin = 0;
@@ -151,7 +140,6 @@ public final class ab {
     public static final int[] BDImageView = {R.attr.radius, R.attr.isRound, R.attr.hasBorder, R.attr.borderWidth, R.attr.borderColor, R.attr.borderSurroundContent, R.attr.showGifIcon, R.attr.gifIcon, R.attr.drawerType, R.attr.maxWidth, R.attr.maxHeight, R.attr.adjustViewBounds, R.attr.foregroundColor};
     public static final int[] BdRoundedImageView = {16843037, R.attr.corner_radius, R.attr.border_width, R.attr.border_color, R.attr.round_background, R.attr.is_oval};
     public static final int[] ChatVoiceView = {R.attr.is_left};
-    public static final int[] CircleFlowIndicator = {R.attr.activeColor, R.attr.inactiveColor, R.attr.radiushao123, R.attr.centeredhao123, R.attr.fadeOut, R.attr.inactiveType, R.attr.activeType, R.attr.circleSeparation, R.attr.activeRadius};
     public static final int[] CircleRippleView = {R.attr.circle_size, R.attr.circle_image};
     public static final int[] ColumnLayout = {R.attr.columnOrientation, R.attr.spacingLeft, R.attr.spacingRight};
     public static final int[] ColumnLayout_Layout = {R.attr.layout_column};
@@ -161,7 +149,6 @@ public final class ab {
     public static final int[] HaloView = {R.attr.isblack};
     public static final int[] HeadImageView = {R.attr.percent, R.attr.isRadius, R.attr.showGifTag};
     public static final int[] HorizontalTranslateLayout = {R.attr.leftOffset, R.attr.rightOffset, R.attr.leftWidth, R.attr.rightWidth, R.attr.track, R.attr.tapBack, R.attr.background};
-    public static final int[] HotTextView = {R.attr.hotwords_size};
     public static final int[] IndicatorView = {R.attr.spacing, R.attr.drawable, R.attr.selector, R.attr.autoHide, R.attr.count};
     public static final int[] LiveBroadcastCard = {R.attr.status, R.attr.intro_singline};
     public static final int[] ModeAttr = {R.attr.tb_background, R.attr.tb_textColor, R.attr.tb_src, R.attr.tb_style, R.attr.tb_button, R.attr.tb_textColorHint, R.attr.tb_divider, R.attr.tb_drawableTop, R.attr.tb_drawableLeft, R.attr.tb_drawableRight, R.attr.tb_progressDrawable};
@@ -175,7 +162,6 @@ public final class ab {
     public static final int[] TextAppearance = {R.attr.textStyle, R.attr.typeface, R.attr.textColorHighlight, R.attr.textColorHint, R.attr.textColorLink, R.attr.textAllCaps};
     public static final int[] TopBar = {R.attr.left, R.attr.mid, R.attr.right, R.attr.color_dark, R.attr.leftText, R.attr.rightText, R.attr.titleText, R.attr.titleDrawable};
     public static final int[] VerticalTranslateLayout = {R.attr.track, R.attr.tapBack, R.attr.background, R.attr.topOffset, R.attr.bottomOffset, R.attr.topHeight, R.attr.bottomHeight};
-    public static final int[] ViewFlow = {R.attr.sidebuffer};
     public static final int[] Voice_play_type = {R.attr.play_type};
     public static final int[] custom_state = {R.attr.custom_state_skin, R.attr.custom_state_focused};
     public static final int[] fixtextview = {R.attr.measuretext};

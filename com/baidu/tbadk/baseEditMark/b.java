@@ -32,15 +32,15 @@ public class b extends BdAsyncTask<Boolean, Integer, Boolean> {
         this.AR = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.MARK_DELSTORE);
         this.AR.o("user_id", TbadkCoreApplication.getCurrentAccount());
         this.AR.o("tid", this.tid);
-        this.AS.parserJson(this.AR.ov());
-        return this.AR.oW().pW().ma() && this.AS.getErrorCode() == 0;
+        this.AS.parserJson(this.AR.oy());
+        return this.AR.oZ().qh().ma() && this.AS.getErrorCode() == 0;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
         if (this.AR != null) {
-            this.AR.dL();
+            this.AR.dJ();
         }
         this.AT.AL = null;
         if (this.AT.AQ != null) {
@@ -68,7 +68,7 @@ public class b extends BdAsyncTask<Boolean, Integer, Boolean> {
                 i = aVar.AO;
                 aVar.AO = i - 1;
             }
-        } else if (this.AR.oW().pW().ma()) {
+        } else if (this.AR.oZ().qh().ma()) {
             str = this.AS.getErrorString();
         } else {
             str = this.AR.getErrorString();

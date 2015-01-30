@@ -17,17 +17,17 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteShareActivityConfig;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.bh;
 /* loaded from: classes.dex */
 public class ShareToTBActivity extends BaseActivity<ShareToTBActivity> {
-    private String bNA;
-    private PackageManager bNB;
-    private PackageInfo bNC;
-    private final CustomMessageListener bND = new d(this, 2001256);
-    private String bNw;
-    private String bNx;
-    private String bNy;
-    private String bNz;
+    private String bPg;
+    private String bPh;
+    private String bPi;
+    private String bPj;
+    private String bPk;
+    private PackageManager bPl;
+    private PackageInfo bPm;
+    private final CustomMessageListener bPn = new d(this, 2001256);
     private String mAppName;
     private String mShareContent;
     private String mShareTitle;
@@ -37,50 +37,53 @@ public class ShareToTBActivity extends BaseActivity<ShareToTBActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bNB = getPageContext().getPageActivity().getPackageManager();
-        acs();
-        act();
-        com.baidu.tbadk.core.i.B(getPageContext().getPageActivity(), "share4sdk");
-        registerListener(this.bND);
+        this.bPl = getPageContext().getPageActivity().getPackageManager();
+        acW();
+        acX();
+        com.baidu.tbadk.core.i.A(getPageContext().getPageActivity(), "share4sdk");
+        registerListener(this.bPn);
     }
 
-    private void acs() {
-        Bundle extras = getIntent().getExtras();
+    private void acW() {
         this.packageName = getCallingPackage();
-        if (this.bNB != null && this.packageName != null) {
+        if (this.bPl != null && this.packageName != null) {
             try {
-                this.bNC = this.bNB.getPackageInfo(this.packageName, 64);
-                if (this.bNC != null) {
-                    if (this.bNC.applicationInfo != null && this.bNC.applicationInfo.loadLabel(this.bNB) != null) {
-                        this.mAppName = this.bNC.applicationInfo.loadLabel(this.bNB).toString();
+                this.bPm = this.bPl.getPackageInfo(this.packageName, 64);
+                if (this.bPm != null) {
+                    if (this.bPm.applicationInfo != null && this.bPm.applicationInfo.loadLabel(this.bPl) != null) {
+                        this.mAppName = this.bPm.applicationInfo.loadLabel(this.bPl).toString();
                     }
-                    if (this.bNC.signatures != null && this.bNC.signatures.length > 0 && this.bNC.signatures[0] != null) {
-                        this.bNA = bc.w(this.bNC.signatures[0].toByteArray());
+                    if (this.bPm.signatures != null && this.bPm.signatures.length > 0 && this.bPm.signatures[0] != null) {
+                        this.bPk = bh.w(this.bPm.signatures[0].toByteArray());
                     }
                 }
             } catch (PackageManager.NameNotFoundException e) {
                 BdLog.e(e.getMessage());
                 this.mAppName = null;
-                this.bNA = null;
+                this.bPk = null;
             }
         }
-        this.bNw = extras.getString("ShareUrl");
-        this.bNx = extras.getString("ShareImageUrl");
-        this.mShareTitle = extras.getString("ShareTitle");
-        this.mShareContent = extras.getString("ShareContent");
-        this.bNy = extras.getString("mShareTargetBaName");
-        if (TextUtils.isEmpty(this.mAppName)) {
-            this.mAppName = extras.getString("appName");
+        try {
+            Bundle extras = getIntent().getExtras();
+            this.bPg = extras.getString("ShareUrl");
+            this.bPh = extras.getString("ShareImageUrl");
+            this.mShareTitle = extras.getString("ShareTitle");
+            this.mShareContent = extras.getString("ShareContent");
+            this.bPi = extras.getString("mShareTargetBaName");
+            if (TextUtils.isEmpty(this.mAppName)) {
+                this.mAppName = extras.getString("appName");
+            }
+            if (TextUtils.isEmpty(this.bPk)) {
+                this.bPk = extras.getString("appSign");
+            }
+            this.bPj = extras.getString("appKey");
+        } catch (Exception e2) {
         }
-        if (TextUtils.isEmpty(this.bNA)) {
-            this.bNA = extras.getString("appSign");
-        }
-        this.bNz = extras.getString("appKey");
     }
 
-    private void act() {
+    private void acX() {
         if (TbadkApplication.isLogin()) {
-            acu();
+            acY();
             return;
         }
         TbadkApplication.isSDKLogin = true;
@@ -100,8 +103,8 @@ public class ShareToTBActivity extends BaseActivity<ShareToTBActivity> {
         if (i == 23008) {
             if (i2 == -1) {
                 if (intent != null) {
-                    this.bNy = intent.getStringExtra(PersonBarActivityConfig.BAR_NAME);
-                    acv();
+                    this.bPi = intent.getStringExtra(PersonBarActivityConfig.BAR_NAME);
+                    acZ();
                     return;
                 }
                 finish();
@@ -111,25 +114,25 @@ public class ShareToTBActivity extends BaseActivity<ShareToTBActivity> {
         } else if (i == 11003) {
             TbadkApplication.isSDKLogin = false;
             if (i2 == -1) {
-                acu();
+                acY();
             } else {
                 finish();
             }
         }
     }
 
-    private void acu() {
-        if (TextUtils.isEmpty(this.bNy)) {
+    private void acY() {
+        if (TextUtils.isEmpty(this.bPi)) {
             sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(getPageContext().getPageActivity(), TbadkCoreApplication.getCurrentAccount(), 0, true, 23008)));
         } else {
-            acv();
+            acZ();
         }
     }
 
-    private void acv() {
-        if (this.bNw == null) {
-            this.bNw = "";
+    private void acZ() {
+        if (this.bPg == null) {
+            this.bPg = "";
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteShareActivityConfig(getPageContext().getPageActivity(), this.bNy, this.mShareTitle, this.mShareContent, this.bNx, this.bNw, this.bNz, this.mAppName, this.bNA)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteShareActivityConfig(getPageContext().getPageActivity(), this.bPi, this.mShareTitle, this.mShareContent, this.bPh, this.bPg, this.bPj, this.mAppName, this.bPk)));
     }
 }

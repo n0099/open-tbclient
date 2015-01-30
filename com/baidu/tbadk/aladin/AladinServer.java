@@ -19,10 +19,10 @@ public class AladinServer extends BdBaseService {
         j.f(context, new Intent(context, AladinServer.class));
     }
 
-    @Override // android.app.Service
+    @Override // com.baidu.adp.base.BdBaseService, android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
         reStartListener();
-        return 0;
+        return super.onStartCommand(intent, i, i2);
     }
 
     public void reStartListener() {

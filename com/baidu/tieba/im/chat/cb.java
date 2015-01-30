@@ -1,35 +1,22 @@
 package com.baidu.tieba.im.chat;
 
-import android.os.Handler;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
+import java.util.LinkedList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cb implements Runnable {
-    final /* synthetic */ PersonalChatActivity aRE;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cb(PersonalChatActivity personalChatActivity) {
-        this.aRE = personalChatActivity;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
+public class cb implements CustomMessageTask.CustomRunnable<PersonalChatActivityConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<PersonalChatActivityConfig> run(CustomMessage<PersonalChatActivityConfig> customMessage) {
         UserData userData;
-        com.baidu.tbadk.coreExtra.relationship.f fVar;
-        long j;
-        Handler handler;
-        Runnable runnable;
-        long j2;
-        AbsMsglistView absMsglistView = this.aRE.mListView;
-        userData = this.aRE.mUser;
-        String userName = userData.getUserName();
-        fVar = this.aRE.aRw;
-        absMsglistView.refreshPersonalHeadFooter(userName, fVar);
-        j = this.aRE.aRv;
-        if (j != 0) {
-            handler = this.aRE.mHandler;
-            runnable = this.aRE.aRB;
-            j2 = this.aRE.aRv;
-            handler.postDelayed(runnable, j2);
+        if (customMessage != null && customMessage.getData() != null && (userData = customMessage.getData().getUserData()) != null) {
+            LinkedList linkedList = new LinkedList();
+            linkedList.add(String.valueOf(userData.getUserId()));
+            com.baidu.tieba.im.i.a(new cc(this, linkedList), new cd(this, customMessage));
         }
+        return null;
     }
 }

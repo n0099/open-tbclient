@@ -22,7 +22,7 @@ public class x implements View.OnClickListener {
         relativeLayout.setVisibility(8);
         imageView = this.By.Bw;
         imageView.setSelected(false);
-        com.baidu.tbadk.core.sharedPref.b.og().putBoolean(TbWebViewActivity.KEY_INSTALL_PLUGIN_DIALOG_CLOSED, true);
-        com.baidu.tbadk.core.sharedPref.b.og().putLong(TbWebViewActivity.KEY_INSTALL_PLUGIN_DIALOG_SHOWN_TIME, new Date().getTime());
+        com.baidu.tbadk.core.sharedPref.b.oj().putBoolean(TbWebViewActivity.KEY_INSTALL_PLUGIN_DIALOG_CLOSED, true);
+        com.baidu.tbadk.core.sharedPref.b.oj().putLong(TbWebViewActivity.KEY_INSTALL_PLUGIN_DIALOG_SHOWN_TIME, new Date().getTime());
     }
 }

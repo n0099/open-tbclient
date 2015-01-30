@@ -29,7 +29,7 @@ public class m extends com.baidu.tbadk.mvc.model.a<com.baidu.tieba.discover.data
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    protected boolean xl() {
+    protected boolean xB() {
         return false;
     }
 }

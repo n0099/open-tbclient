@@ -3,8 +3,6 @@ package com.baidu.tbadk;
 import android.content.Context;
 import android.content.res.Resources;
 import android.database.Cursor;
-import android.os.Build;
-import android.text.TextUtils;
 import com.baidu.adp.base.a;
 import com.baidu.adp.base.b;
 import com.baidu.adp.framework.MessageManager;
@@ -20,7 +18,9 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.InvokeOnCreateOnMainThreadMessageConfig;
+import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.coreExtra.data.VersionData;
+import com.baidu.tbadk.coreExtra.view.LivePlayingStatusMgr;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.imageManager.e;
 import com.baidu.tbadk.performanceLog.ad;
@@ -65,12 +65,16 @@ public class TbadkApplication extends TbadkCoreApplication implements b {
         }
         MessageManager.getInstance().registerListener(this.mMemListener);
         if (isMainProcess(true)) {
-            com.baidu.tbadk.distribute.a.uD().uG();
+            com.baidu.tbadk.distribute.a.uU().uX();
             UninstallInquirer.getInstance().startProcessBySwitch();
         }
-        ad.zl().x(System.currentTimeMillis());
+        ad.zC().x(System.currentTimeMillis());
         if (this.isRemoteProcess) {
-            ad.zl().D(System.currentTimeMillis() - this.processCreateTime);
+            ad.zC().D(System.currentTimeMillis() - this.processCreateTime);
+        }
+        LivePlayingStatusMgr.tP();
+        if (isMainProcess(false)) {
+            av.pv().pw();
         }
     }
 
@@ -93,27 +97,27 @@ public class TbadkApplication extends TbadkCoreApplication implements b {
 
     @Override // com.baidu.adp.base.BdBaseApplication
     public void onAppMemoryLow() {
-        int vM = e.vL().vM();
-        int max = (int) Math.max(vM * 0.8d, TbConfig.getBigImageMaxUsedMemory());
-        if (max < vM) {
+        int wf = e.we().wf();
+        int max = (int) Math.max(wf * 0.8d, TbConfig.getBigImageMaxUsedMemory());
+        if (max < wf) {
             BdLog.isDebugMode();
-            e.vL().dp(max);
+            e.we().dw(max);
         }
-        com.baidu.tbadk.core.util.d.eT();
-        c.eS().eT();
+        com.baidu.tbadk.core.util.d.eS();
+        c.eR().eS();
     }
 
     public void clearMemOnActivityEmpty() {
         if (TbConfig.getAppRunMode() == TbConfig.AppRunMode.RUN_IN_KUANG_SDK) {
             onLowMemory();
-            l.fs();
-            f.cv();
-            BdCacheService.cv();
-            com.baidu.tbadk.core.a.a.cv();
-            com.baidu.adp.lib.asyncTask.f.cv();
-            com.baidu.tbadk.core.sharedPref.b.cv();
+            l.fr();
+            f.ct();
+            BdCacheService.ct();
+            com.baidu.tbadk.core.a.a.ct();
+            com.baidu.adp.lib.asyncTask.f.ct();
+            com.baidu.tbadk.core.sharedPref.b.ct();
             GifView.releaseBitmap();
-            e.vL().vN();
+            e.we().wg();
             getApp().getResources().updateConfiguration(getApp().getResources().getConfiguration(), getApp().getResources().getDisplayMetrics());
         }
     }
@@ -134,7 +138,7 @@ public class TbadkApplication extends TbadkCoreApplication implements b {
     }
 
     public void loginShareRemove() {
-        com.baidu.tbadk.core.sharedPref.b.og().remove("account_share");
+        com.baidu.tbadk.core.sharedPref.b.oj().remove("account_share");
     }
 
     public String loginShareRead() {
@@ -179,21 +183,6 @@ public class TbadkApplication extends TbadkCoreApplication implements b {
     }
 
     @Override // com.baidu.tbadk.core.TbadkCoreApplication
-    public void incHao123HelperCrashCount() {
-        String str = "hao123_helper_crash_count" + TbConfig.getVersion();
-        TbadkSettings.getInst().saveInt(str, TbadkSettings.getInst().loadInt(str, 0) + 1);
-    }
-
-    @Override // com.baidu.tbadk.core.TbadkCoreApplication
-    public boolean isHao123HelperShouldOpen() {
-        String str = Build.MANUFACTURER;
-        if ((TextUtils.isEmpty(str) || !(str.equalsIgnoreCase("Xiaomi") || str.equalsIgnoreCase("alps"))) && Build.VERSION.SDK_INT >= 9) {
-            return TbadkSettings.getInst().loadInt(new StringBuilder("hao123_helper_crash_count").append(TbConfig.getVersion()).toString(), 0) <= getFeatureCrashAutoCloseLimit() && com.baidu.adp.lib.b.f.dc().Z("switch_hao123_helper") != 1;
-        }
-        return false;
-    }
-
-    @Override // com.baidu.tbadk.core.TbadkCoreApplication
     public void incBaobaoCrashCount() {
         String str = "baobao_crash_count" + TbConfig.getVersion();
         TbadkSettings.getInst().saveInt(str, TbadkSettings.getInst().loadInt(str, 0) + 1);
@@ -206,7 +195,7 @@ public class TbadkApplication extends TbadkCoreApplication implements b {
     }
 
     public boolean isLiveRecordOpen() {
-        return TbadkSettings.getInst().loadInt(new StringBuilder("live_sdk_crash_count_").append(TbConfig.getVersion()).toString(), 0) <= getFeatureCrashAutoCloseLimit() && com.baidu.adp.lib.b.f.dc().Z("switch_live_record") == 0;
+        return TbadkSettings.getInst().loadInt(new StringBuilder("live_sdk_crash_count_").append(TbConfig.getVersion()).toString(), 0) <= getFeatureCrashAutoCloseLimit() && com.baidu.adp.lib.b.f.da().Z("switch_live_record") == 0;
     }
 
     public String gettShopUrl() {
@@ -235,7 +224,7 @@ public class TbadkApplication extends TbadkCoreApplication implements b {
 
     @Override // com.baidu.tbadk.core.TbadkCoreApplication
     public void setBDLocON(boolean z) {
-        com.baidu.adp.lib.d.a.dD().y(z);
+        com.baidu.adp.lib.d.a.dB().y(z);
         TbadkSettings.getInst().saveBoolean("bd_loc_switcher", z);
     }
 

@@ -2,21 +2,29 @@ package com.baidu.tieba.person.post;
 
 import android.content.Context;
 import android.view.View;
-import android.widget.ProgressBar;
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa {
-    ProgressBar bHR;
-    BdListView mBdListView;
-    com.baidu.tbadk.core.view.x mNoDataView = null;
-
-    public BdListView getBdListView() {
-        return this.mBdListView;
-    }
+public class aa implements View.OnClickListener {
+    final /* synthetic */ ReplyLinearLayout bJH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(Context context, View view) {
-        this.mBdListView = (BdListView) view.findViewById(com.baidu.tieba.w.list);
-        this.bHR = (ProgressBar) view.findViewById(com.baidu.tieba.w.progress);
+    public aa(ReplyLinearLayout replyLinearLayout) {
+        this.bJH = replyLinearLayout;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String[] strArr = (String[]) view.getTag();
+        if (strArr != null) {
+            Context context = this.bJH.getContext();
+            if ("0".equals(strArr[3])) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(context).createNormalCfg(strArr[1], strArr[2], "person_post_reply")));
+            } else {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(context).createSubPbCfg(strArr[1], strArr[2], "person_post_reply")));
+            }
+        }
     }
 }

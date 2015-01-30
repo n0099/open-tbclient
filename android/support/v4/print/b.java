@@ -5,50 +5,50 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 /* loaded from: classes.dex */
 final class b implements d {
-    private final e aR;
+    private final e aS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(Context context) {
-        this.aR = new e(context);
+        this.aS = new e(context);
     }
 
     @Override // android.support.v4.print.d
     public void setScaleMode(int i) {
-        this.aR.setScaleMode(i);
+        this.aS.setScaleMode(i);
     }
 
     @Override // android.support.v4.print.d
     public int getScaleMode() {
-        return this.aR.getScaleMode();
+        return this.aS.getScaleMode();
     }
 
     @Override // android.support.v4.print.d
     public void setColorMode(int i) {
-        this.aR.setColorMode(i);
+        this.aS.setColorMode(i);
     }
 
     @Override // android.support.v4.print.d
     public int getColorMode() {
-        return this.aR.getColorMode();
+        return this.aS.getColorMode();
     }
 
     @Override // android.support.v4.print.d
     public void setOrientation(int i) {
-        this.aR.setOrientation(i);
+        this.aS.setOrientation(i);
     }
 
     @Override // android.support.v4.print.d
     public int getOrientation() {
-        return this.aR.getOrientation();
+        return this.aS.getOrientation();
     }
 
     @Override // android.support.v4.print.d
     public void printBitmap(String str, Bitmap bitmap) {
-        this.aR.printBitmap(str, bitmap);
+        this.aS.printBitmap(str, bitmap);
     }
 
     @Override // android.support.v4.print.d
     public void printBitmap(String str, Uri uri) {
-        this.aR.printBitmap(str, uri);
+        this.aS.printBitmap(str, uri);
     }
 }

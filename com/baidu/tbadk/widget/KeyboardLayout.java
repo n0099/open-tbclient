@@ -5,52 +5,52 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class KeyboardLayout extends RelativeLayout {
-    private boolean aiC;
-    private l aiD;
+    private boolean ajf;
+    private l ajg;
     private int mHeight;
     private boolean xh;
 
     public KeyboardLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aiC = false;
+        this.ajf = false;
     }
 
     public KeyboardLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aiC = false;
+        this.ajf = false;
     }
 
     public KeyboardLayout(Context context) {
         super(context);
-        this.aiC = false;
+        this.ajf = false;
     }
 
     public void setOnkbdStateListener(l lVar) {
-        this.aiD = lVar;
+        this.ajg = lVar;
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (!this.aiC) {
-            this.aiC = true;
+        if (!this.ajf) {
+            this.ajf = true;
             this.mHeight = i4;
-            if (this.aiD != null) {
-                this.aiD.onKeyBoardStateChange(-1);
+            if (this.ajg != null) {
+                this.ajg.onKeyBoardStateChange(-1);
             }
         } else {
             this.mHeight = this.mHeight < i4 ? i4 : this.mHeight;
         }
-        if (this.aiC && this.mHeight > i4) {
+        if (this.ajf && this.mHeight > i4) {
             this.xh = true;
-            if (this.aiD != null) {
-                this.aiD.onKeyBoardStateChange(-3);
+            if (this.ajg != null) {
+                this.ajg.onKeyBoardStateChange(-3);
             }
         }
-        if (this.aiC && this.xh && this.mHeight == i4) {
+        if (this.ajf && this.xh && this.mHeight == i4) {
             this.xh = false;
-            if (this.aiD != null) {
-                this.aiD.onKeyBoardStateChange(-2);
+            if (this.ajg != null) {
+                this.ajg.onKeyBoardStateChange(-2);
             }
         }
     }

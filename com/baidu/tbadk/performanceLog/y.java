@@ -2,23 +2,23 @@ package com.baidu.tbadk.performanceLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y {
-    public static int agD;
-    public static int agE;
-    public static int agF;
+    public static int ahb;
+    public static int ahc;
+    public static int ahd;
 
-    public static void yY() {
-        com.baidu.adp.lib.stats.q ef = x.ef();
-        ef.r("action", "imbusy");
-        ef.r("totalNum", String.valueOf(agD));
-        ef.r("tfailNum", String.valueOf(agE));
-        ef.r("qfailNum", String.valueOf(agF));
-        com.baidu.adp.lib.stats.f.es().b("im", ef);
+    public static void zp() {
+        com.baidu.adp.lib.stats.q ed = x.ed();
+        ed.r("action", "imbusy");
+        ed.r("totalNum", String.valueOf(ahb));
+        ed.r("tfailNum", String.valueOf(ahc));
+        ed.r("qfailNum", String.valueOf(ahd));
+        com.baidu.adp.lib.stats.f.eq().b("im", ed);
         resetData();
     }
 
     public static void resetData() {
-        agD = 0;
-        agE = 0;
-        agF = 0;
+        ahb = 0;
+        ahc = 0;
+        ahd = 0;
     }
 }

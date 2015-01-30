@@ -30,7 +30,7 @@ public class b {
                 String value = entry.getValue();
                 if (key != null && value != null) {
                     if ("intent".equals(key)) {
-                        bB(value);
+                        bz(value);
                     } else if (!"t".equals(key) && "callback".equals(key)) {
                         this.Ax = value;
                         kX();
@@ -41,7 +41,7 @@ public class b {
         return (this.intent == null || this.response == null) ? false : true;
     }
 
-    private void bB(String str) {
+    private void bz(String str) {
         String[] split;
         boolean z;
         boolean z2;

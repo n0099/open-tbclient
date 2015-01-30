@@ -7,15 +7,15 @@ import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, Object, Boolean> {
     private String packageName;
-    private com.baidu.adp.plugin.util.d rQ;
-    final /* synthetic */ b rR;
+    private com.baidu.adp.plugin.util.d rV;
+    final /* synthetic */ b rW;
 
     public c(b bVar, String str, com.baidu.adp.plugin.util.d dVar) {
-        this.rR = bVar;
+        this.rW = bVar;
         this.packageName = null;
-        this.rQ = null;
+        this.rV = null;
         this.packageName = str;
-        this.rQ = dVar;
+        this.rV = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +24,7 @@ public class c extends BdAsyncTask<String, Object, Boolean> {
     /* renamed from: f */
     public Boolean doInBackground(String... strArr) {
         Boolean aO;
-        aO = this.rR.aO(this.packageName);
+        aO = this.rW.aO(this.packageName);
         return aO;
     }
 
@@ -34,10 +34,10 @@ public class c extends BdAsyncTask<String, Object, Boolean> {
     /* renamed from: b */
     public void onPostExecute(Boolean bool) {
         super.onPostExecute(bool);
-        this.rR.gR();
-        this.rR.gW();
-        if (this.rQ != null) {
-            this.rQ.c(bool.booleanValue(), this.packageName);
+        this.rW.gQ();
+        this.rW.gV();
+        if (this.rV != null) {
+            this.rV.c(bool.booleanValue(), this.packageName);
             return;
         }
         BdLog.e("listener is null");

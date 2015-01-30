@@ -4,13 +4,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class c extends CustomMessageListener {
-    final /* synthetic */ StrangerListActivity bnU;
+    final /* synthetic */ StrangerListActivity bpr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(StrangerListActivity strangerListActivity, int i) {
         super(i);
-        this.bnU = strangerListActivity;
+        this.bpr = strangerListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,17 +26,17 @@ class c extends CustomMessageListener {
                 if (customResponsedMessage.getCmd() != 2016003) {
                     if (customResponsedMessage.getCmd() != 2016006) {
                         if (customResponsedMessage.getCmd() == 2016000) {
-                            strangerListModel = this.bnU.bnP;
-                            aVar = this.bnU.aSt;
+                            strangerListModel = this.bpr.bpm;
+                            aVar = this.bpr.aTD;
                             strangerListModel.setData(null, aVar);
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016011) {
-                            fVar = this.bnU.bnO;
+                            fVar = this.bpr.bpl;
                             if (fVar != null) {
-                                fVar2 = this.bnU.bnO;
-                                if (fVar2.Tb() != null) {
-                                    fVar3 = this.bnU.bnO;
-                                    fVar3.Tb().notifyDataSetChanged();
+                                fVar2 = this.bpr.bpl;
+                                if (fVar2.Tx() != null) {
+                                    fVar3 = this.bpr.bpl;
+                                    fVar3.Tx().notifyDataSetChanged();
                                     return;
                                 }
                                 return;
@@ -46,13 +46,13 @@ class c extends CustomMessageListener {
                             return;
                         }
                     }
-                    this.bnU.e(customResponsedMessage);
+                    this.bpr.e(customResponsedMessage);
                     return;
                 }
-                this.bnU.d(customResponsedMessage);
+                this.bpr.d(customResponsedMessage);
                 return;
             }
-            this.bnU.c(customResponsedMessage);
+            this.bpr.c(customResponsedMessage);
         }
     }
 }

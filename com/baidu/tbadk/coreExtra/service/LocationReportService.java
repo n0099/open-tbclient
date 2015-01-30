@@ -13,7 +13,7 @@ public class LocationReportService extends BdBaseService {
         return null;
     }
 
-    @Override // android.app.Service
+    @Override // com.baidu.adp.base.BdBaseService, android.app.Service
     public void onCreate() {
         super.onCreate();
     }

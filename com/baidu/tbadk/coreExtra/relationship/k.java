@@ -9,7 +9,7 @@ public class k {
     private static volatile SQLiteDatabase sDatabase;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static synchronized SQLiteDatabase tb() {
+    public static synchronized SQLiteDatabase ts() {
         SQLiteDatabase sQLiteDatabase;
         synchronized (k.class) {
             try {

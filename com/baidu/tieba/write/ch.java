@@ -11,8 +11,8 @@ import android.widget.ScrollView;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class ch extends PopupWindow {
-    private LinearLayout US;
-    private ci cfY;
+    private LinearLayout Vx;
+    private ci chy;
     private Context context;
     private int count;
     private int mCurrentIndex;
@@ -27,10 +27,10 @@ public class ch extends PopupWindow {
 
     private void init(Context context) {
         ScrollView scrollView = new ScrollView(context);
-        this.US = new LinearLayout(context);
-        this.US.setOrientation(1);
-        this.US.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        scrollView.addView(this.US);
+        this.Vx = new LinearLayout(context);
+        this.Vx.setOrientation(1);
+        this.Vx.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        scrollView.addView(this.Vx);
         scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         scrollView.setPadding(0, 0, com.baidu.adp.lib.util.l.dip2px(context, 1.0f), com.baidu.adp.lib.util.l.dip2px(context, 1.0f));
         scrollView.setFadingEdgeLength(0);
@@ -60,8 +60,8 @@ public class ch extends PopupWindow {
     }
 
     public void addView(View view) {
-        view.setOnClickListener(new cj(this.count, this.cfY));
-        this.US.addView(view);
+        view.setOnClickListener(new cj(this.count, this.chy));
+        this.Vx.addView(view);
         this.count++;
     }
 
@@ -71,13 +71,13 @@ public class ch extends PopupWindow {
 
     public void setCurrentIndex(int i) {
         if (this.mCurrentIndex != -1) {
-            this.US.getChildAt(this.mCurrentIndex).setSelected(false);
+            this.Vx.getChildAt(this.mCurrentIndex).setSelected(false);
         }
         this.mCurrentIndex = i;
-        this.US.getChildAt(this.mCurrentIndex).setSelected(true);
+        this.Vx.getChildAt(this.mCurrentIndex).setSelected(true);
     }
 
     public void a(ci ciVar) {
-        this.cfY = ciVar;
+        this.chy = ciVar;
     }
 }

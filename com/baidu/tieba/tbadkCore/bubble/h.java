@@ -13,41 +13,41 @@ import com.baidu.tieba.tbadkCore.bubble.BubbleListData;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h extends f {
-    private k bTk;
-    private l bTl;
-    private int bVT;
-    private int bVU;
-    private final HttpMessageListener bVV;
-    private final HttpMessageListener bVW;
+    private k bVd;
+    private l bVe;
+    private int bXL;
+    private int bXM;
+    private final HttpMessageListener bXN;
+    private final HttpMessageListener bXO;
 
     public h(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.bVV = new i(this, CmdConfigHttp.REQUEST_BUBBLELIST_CMD);
-        this.bVW = new j(this, CmdConfigHttp.SET_BUBBLE_CMD);
+        this.bXN = new i(this, CmdConfigHttp.REQUEST_BUBBLELIST_CMD);
+        this.bXO = new j(this, CmdConfigHttp.SET_BUBBLE_CMD);
     }
 
     public void a(k kVar) {
-        this.bTk = kVar;
+        this.bVd = kVar;
     }
 
     public void a(l lVar) {
-        this.bTl = lVar;
+        this.bVe = lVar;
     }
 
-    public int ago() {
-        return this.bVT;
+    public int agT() {
+        return this.bXL;
     }
 
-    public void hL(int i) {
-        this.bVT = i;
+    public void hU(int i) {
+        this.bXL = i;
     }
 
-    public int agp() {
-        return this.bVU;
+    public int agU() {
+        return this.bXM;
     }
 
-    public void hM(int i) {
-        this.bVU = i;
+    public void hV(int i) {
+        this.bXM = i;
     }
 
     @Override // com.baidu.adp.base.f
@@ -60,7 +60,7 @@ public class h extends f {
         return false;
     }
 
-    public static boolean aF(List<BubbleListData.BubbleData> list) {
+    public static boolean aI(List<BubbleListData.BubbleData> list) {
         if (list != null && list.size() > 0) {
             for (BubbleListData.BubbleData bubbleData : list) {
                 if (bubbleData.getBcode() != 0 && bubbleData.isDef()) {
@@ -75,12 +75,12 @@ public class h extends f {
         registerListener(customMessageListener);
     }
 
-    public void agq() {
+    public void agV() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.REQUEST_BUBBLELIST_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/bu/getbubblelist");
         tbHttpMessageTask.setResponsedClass(ResponseBubbleListMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
-        registerListener(this.bVV);
+        registerListener(this.bXN);
     }
 
     public void g(int i, int i2, int i3, int i4) {
@@ -100,18 +100,18 @@ public class h extends f {
         sendMessage(httpMessage);
     }
 
-    public void agr() {
+    public void agW() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SET_BUBBLE_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/bu/setbubble");
         tbHttpMessageTask.setResponsedClass(ResponseSetBubbleMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
-        registerListener(this.bVW);
+        registerListener(this.bXO);
     }
 
     public void unRegisterListener() {
         MessageManager messageManager = MessageManager.getInstance();
-        messageManager.unRegisterListener(this.bVW);
-        messageManager.unRegisterListener(this.bVV);
+        messageManager.unRegisterListener(this.bXO);
+        messageManager.unRegisterListener(this.bXN);
     }
 
     public void c(CustomMessageListener customMessageListener) {

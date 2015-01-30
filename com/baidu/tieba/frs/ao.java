@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ao implements DialogInterface.OnClickListener {
-    final /* synthetic */ FrsActivity aCV;
+    final /* synthetic */ FrsActivity aDW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(FrsActivity frsActivity) {
-        this.aCV = frsActivity;
+        this.aDW = frsActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -22,17 +22,17 @@ public class ao implements DialogInterface.OnClickListener {
         com.baidu.tieba.tbadkCore.e eVar;
         com.baidu.tieba.tbadkCore.e eVar2;
         if (dialogInterface instanceof Dialog) {
-            com.baidu.adp.lib.g.k.b((Dialog) dialogInterface, this.aCV.getPageContext());
+            com.baidu.adp.lib.g.k.b((Dialog) dialogInterface, this.aDW.getPageContext());
         }
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            auVar = this.aCV.aCi;
-            eVar = this.aCV.aCh;
-            String name = eVar.aej().getName();
-            eVar2 = this.aCV.aCh;
-            auVar.i(name, Long.valueOf(eVar2.aej().getId()).longValue());
+            auVar = this.aDW.aDj;
+            eVar = this.aDW.aDi;
+            String name = eVar.aeN().getName();
+            eVar2 = this.aDW.aDi;
+            auVar.i(name, Long.valueOf(eVar2.aeN().getId()).longValue());
             return;
         }
-        this.aCV.sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) this.aCV.getPageContext().getPageActivity(), this.aCV.getPageContext().getString(com.baidu.tieba.z.login_to_use), true, 11036)));
+        this.aDW.sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) this.aDW.getPageContext().getPageActivity(), this.aDW.getPageContext().getString(com.baidu.tieba.z.login_to_use), true, 11036)));
     }
 }

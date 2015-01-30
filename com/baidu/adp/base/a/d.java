@@ -6,24 +6,24 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public abstract class d extends SQLiteOpenHelper implements a {
-    private b co;
-    private final String cp;
+    private b cp;
+    private final String cq;
 
     public abstract void d(SQLiteDatabase sQLiteDatabase);
 
     @Override // com.baidu.adp.base.a.a
     public void a(b bVar) {
-        this.co = bVar;
+        this.cp = bVar;
     }
 
     public d(Context context, String str, int i) {
         super(context, str, (SQLiteDatabase.CursorFactory) null, i);
-        this.cp = str;
+        this.cq = str;
     }
 
     @Override // com.baidu.adp.base.a.a
     public boolean E(Context context) {
-        return context.deleteDatabase(this.cp);
+        return context.deleteDatabase(this.cq);
     }
 
     public boolean b(SQLiteDatabase sQLiteDatabase, String str) {
@@ -43,8 +43,8 @@ public abstract class d extends SQLiteOpenHelper implements a {
     }
 
     private void e(SQLiteDatabase sQLiteDatabase) {
-        if (this.co != null) {
-            this.co.c(sQLiteDatabase);
+        if (this.cp != null) {
+            this.cp.c(sQLiteDatabase);
         }
     }
 }

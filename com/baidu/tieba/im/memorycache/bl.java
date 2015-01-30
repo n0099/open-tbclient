@@ -1,6 +1,8 @@
 package com.baidu.tieba.im.memorycache;
 
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.message.NewMsgArriveRequestMessage;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
@@ -18,8 +20,7 @@ public class bl implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        c.Qs().l(imMessageCenterPojo);
-        c.Qs().a(-1, imMessageCenterPojo.getPulled_msgId(), String.valueOf(com.baidu.tieba.im.c.a.bnb));
+        c.QO().l(imMessageCenterPojo);
         if (z) {
             MessageManager.getInstance().sendMessage(new NewMsgArriveRequestMessage(4));
         }
@@ -30,6 +31,10 @@ public class bl implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
         for (CommonMsgPojo commonMsgPojo : list) {
             if (commonMsgPojo != null && !commonMsgPojo.isSelf()) {
                 RequestSendPVTJMessage.sendOfficialBarPVTJ(RequestSendPVTJMessage.TYPE_V_MPUSH, commonMsgPojo.getUid());
+                com.baidu.tieba.im.data.g a = com.baidu.tieba.im.util.i.a(commonMsgPojo);
+                if (a != null) {
+                    TiebaStatic.eventStat(TbadkCoreApplication.m255getInst(), "message_receive", "receive", 1, "task_type", a.aXX, "task_id", a.aXY);
+                }
             }
         }
     }

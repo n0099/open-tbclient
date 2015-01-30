@@ -5,16 +5,16 @@ import android.app.PendingIntent;
 import android.content.Intent;
 /* loaded from: classes.dex */
 class m implements v {
-    final /* synthetic */ SignAllForumActivity bPs;
+    final /* synthetic */ SignAllForumActivity bRc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(SignAllForumActivity signAllForumActivity) {
-        this.bPs = signAllForumActivity;
+        this.bRc = signAllForumActivity;
     }
 
     @Override // com.baidu.tieba.signall.v
-    public void gF(String str) {
-        this.bPs.hP(str);
+    public void gK(String str) {
+        this.bRc.hW(str);
     }
 
     @Override // com.baidu.tieba.signall.v
@@ -27,44 +27,44 @@ class m implements v {
         AlertDialog alertDialog2;
         AlertDialog alertDialog3;
         boolean z2;
-        com.baidu.tieba.home.u acW = sVar.acW();
-        if (acW != null && acW.getErrorNumber() == 0) {
-            adVar = this.bPs.bPl;
-            b adH = adVar.adH();
-            adH.a(sVar);
-            z = this.bPs.bPo;
+        com.baidu.tieba.home.t adA = sVar.adA();
+        if (adA != null && adA.getErrorNumber() == 0) {
+            adVar = this.bRc.bQV;
+            b ael = adVar.ael();
+            ael.a(sVar);
+            z = this.bRc.bQY;
             if (z) {
-                Intent intent = new Intent(this.bPs.getPageContext().getPageActivity(), SignAllForumActivity.class);
+                Intent intent = new Intent(this.bRc.getPageContext().getPageActivity(), SignAllForumActivity.class);
                 intent.addFlags(805306368);
                 intent.putExtra("signall_noyify_click", true);
-                this.bPs.a(this.bPs.getPageContext().getPageActivity().getString(com.baidu.tieba.z.signallforum_back_finish, new Object[]{Integer.valueOf(adH.add()), Integer.valueOf(adH.ade())}), PendingIntent.getActivity(this.bPs.getPageContext().getPageActivity(), 0, intent, 134217728), false);
-                z2 = this.bPs.aHD;
+                this.bRc.a(this.bRc.getPageContext().getPageActivity().getString(com.baidu.tieba.z.signallforum_back_finish, new Object[]{Integer.valueOf(ael.adH()), Integer.valueOf(ael.adI())}), PendingIntent.getActivity(this.bRc.getPageContext().getPageActivity(), 0, intent, 134217728), false);
+                z2 = this.bRc.aIN;
                 if (z2) {
                     return;
                 }
             }
-            adVar2 = this.bPs.bPl;
-            adVar2.adI().notifyDataSetChanged();
-            adVar3 = this.bPs.bPl;
-            x adF = adVar3.adF();
-            if (!adH.adc()) {
-                if (sVar.adu() != 0) {
-                    alertDialog = this.bPs.mDialog;
-                    alertDialog.setMessage(sVar.acU());
-                    alertDialog2 = this.bPs.mDialog;
+            adVar2 = this.bRc.bQV;
+            adVar2.aem().notifyDataSetChanged();
+            adVar3 = this.bRc.bQV;
+            x aej = adVar3.aej();
+            if (!ael.adG()) {
+                if (sVar.adY() != 0) {
+                    alertDialog = this.bRc.mDialog;
+                    alertDialog.setMessage(sVar.ady());
+                    alertDialog2 = this.bRc.mDialog;
                     if (!alertDialog2.isShowing()) {
-                        alertDialog3 = this.bPs.mDialog;
-                        com.baidu.adp.lib.g.k.a(alertDialog3, this.bPs.getPageContext());
+                        alertDialog3 = this.bRc.mDialog;
+                        com.baidu.adp.lib.g.k.a(alertDialog3, this.bRc.getPageContext());
                     }
-                } else if (sVar.adw() != 0) {
-                    this.bPs.showToast(sVar.adx());
+                } else if (sVar.aea() != 0) {
+                    this.bRc.showToast(sVar.aeb());
                 } else {
-                    this.bPs.showToast(com.baidu.tieba.z.signallforum_error);
+                    this.bRc.showToast(com.baidu.tieba.z.signallforum_error);
                 }
             }
-            adF.adB();
+            aej.aef();
             return;
         }
-        this.bPs.hP(acW.getUserMsg());
+        this.bRc.hW(adA.getUserMsg());
     }
 }

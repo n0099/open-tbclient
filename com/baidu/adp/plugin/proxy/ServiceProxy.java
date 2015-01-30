@@ -22,13 +22,13 @@ public class ServiceProxy extends Service implements b {
     public void loadTargetService(Intent intent) {
         if (this.mEntity != null) {
             String stringExtra = intent.getStringExtra("intent_extra_package_name");
-            if (!PluginCenter.gX().aR(stringExtra)) {
+            if (!PluginCenter.gW().aR(stringExtra)) {
                 super.stopSelf();
                 BdLog.e("plugin not loaded. pluginname is " + stringExtra);
                 return;
             }
             try {
-                this.mEntity = (g) PluginCenter.gX().aS(stringExtra).gM().loadClass(intent.getStringExtra("intent_extra_service")).asSubclass(g.class).newInstance();
+                this.mEntity = (g) PluginCenter.gW().aS(stringExtra).gL().loadClass(intent.getStringExtra("intent_extra_service")).asSubclass(g.class).newInstance();
                 this.mEntity.a(this);
                 this.mEntity.setPluginPackageName(stringExtra);
                 this.mEntity.onCreate();
@@ -135,7 +135,7 @@ public class ServiceProxy extends Service implements b {
 
     @Override // com.baidu.adp.plugin.a.b
     public boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i) {
-        com.baidu.adp.plugin.b aS = PluginCenter.gX().aS(this.mEntity.getPackageName());
+        com.baidu.adp.plugin.b aS = PluginCenter.gW().aS(this.mEntity.getPackageName());
         if (aS != null && aS.C(intent)) {
             return super.bindService(intent, serviceConnection, i);
         }
@@ -192,7 +192,7 @@ public class ServiceProxy extends Service implements b {
 
     @Override // com.baidu.adp.plugin.a.b
     public void proxyStartActivity(Intent intent) {
-        com.baidu.adp.plugin.b aS = PluginCenter.gX().aS(this.mEntity.getPackageName());
+        com.baidu.adp.plugin.b aS = PluginCenter.gW().aS(this.mEntity.getPackageName());
         if (aS != null && aS.D(intent)) {
             super.startActivity(intent);
         }
@@ -200,7 +200,7 @@ public class ServiceProxy extends Service implements b {
 
     @Override // com.baidu.adp.plugin.a.b
     public ComponentName proxyStartService(Intent intent) {
-        com.baidu.adp.plugin.b aS = PluginCenter.gX().aS(this.mEntity.getPackageName());
+        com.baidu.adp.plugin.b aS = PluginCenter.gW().aS(this.mEntity.getPackageName());
         if (aS != null && aS.D(intent)) {
             return super.startService(intent);
         }
@@ -209,7 +209,7 @@ public class ServiceProxy extends Service implements b {
 
     @Override // com.baidu.adp.plugin.a.b
     public boolean proxyStopService(Intent intent) {
-        com.baidu.adp.plugin.b aS = PluginCenter.gX().aS(this.mEntity.getPackageName());
+        com.baidu.adp.plugin.b aS = PluginCenter.gW().aS(this.mEntity.getPackageName());
         if (aS != null && aS.D(intent)) {
             return super.stopService(intent);
         }

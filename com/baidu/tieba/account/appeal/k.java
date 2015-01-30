@@ -3,19 +3,19 @@ package com.baidu.tieba.account.appeal;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.ad;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bf;
 import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends BdAsyncTask<String, Object, ForbidReasonData> {
-    private WeakReference<l> anA;
-    private String anw;
-    private String anx;
+    private String aor;
+    private String aos;
+    private WeakReference<l> aov;
 
     public k(String str, String str2, l lVar) {
-        this.anw = str;
-        this.anx = str2;
-        this.anA = new WeakReference<>(lVar);
+        this.aor = str;
+        this.aos = str2;
+        this.aov = new WeakReference<>(lVar);
         setPriority(3);
     }
 
@@ -25,14 +25,14 @@ public class k extends BdAsyncTask<String, Object, ForbidReasonData> {
     /* renamed from: s */
     public ForbidReasonData doInBackground(String... strArr) {
         String str;
-        str = j.anB;
+        str = j.aow;
         ad adVar = new ad(str);
-        adVar.o("forum_id", this.anw);
-        adVar.o("user_id", this.anx);
-        String ov = adVar.ov();
-        if (adVar.oW().pW().ma()) {
+        adVar.o("forum_id", this.aor);
+        adVar.o("user_id", this.aos);
+        String oy = adVar.oy();
+        if (adVar.oZ().qh().ma()) {
             try {
-                ForbidReasonData forbidReasonData = (ForbidReasonData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(ov, ForbidReasonData.class);
+                ForbidReasonData forbidReasonData = (ForbidReasonData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(oy, ForbidReasonData.class);
                 forbidReasonData.reason = forbidReasonData.reason.replaceAll("\\\\n", "\n");
                 return forbidReasonData;
             } catch (Exception e) {
@@ -43,7 +43,7 @@ public class k extends BdAsyncTask<String, Object, ForbidReasonData> {
             }
         }
         ForbidReasonData forbidReasonData3 = new ForbidReasonData();
-        forbidReasonData3.error.errno = adVar.pa();
+        forbidReasonData3.error.errno = adVar.pd();
         forbidReasonData3.error.errMsg = adVar.getErrorString();
         return forbidReasonData3;
     }
@@ -54,9 +54,9 @@ public class k extends BdAsyncTask<String, Object, ForbidReasonData> {
     /* renamed from: c */
     public void onPostExecute(ForbidReasonData forbidReasonData) {
         super.onPostExecute(forbidReasonData);
-        l lVar = this.anA.get();
+        l lVar = this.aov.get();
         if (lVar != null) {
-            if (forbidReasonData.error.errno == 0 && ba.isEmpty(forbidReasonData.error.errMsg)) {
+            if (forbidReasonData.error.errno == 0 && bf.isEmpty(forbidReasonData.error.errMsg)) {
                 lVar.a(forbidReasonData);
             } else {
                 lVar.b(forbidReasonData);

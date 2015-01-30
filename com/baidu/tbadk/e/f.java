@@ -11,12 +11,12 @@ import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 class f extends BdAsyncTask<Void, Void, PluginNetConfigInfos> {
     private ad AR;
-    final /* synthetic */ d ahn;
-    private com.baidu.adp.plugin.packageManager.pluginServerConfig.c aho;
+    final /* synthetic */ d ahL;
+    private com.baidu.adp.plugin.packageManager.pluginServerConfig.c ahM;
 
     public f(d dVar, com.baidu.adp.plugin.packageManager.pluginServerConfig.c cVar) {
-        this.ahn = dVar;
-        this.aho = cVar;
+        this.ahL = dVar;
+        this.ahM = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,18 +26,18 @@ class f extends BdAsyncTask<Void, Void, PluginNetConfigInfos> {
     public PluginNetConfigInfos doInBackground(Void... voidArr) {
         String str;
         SystemClock.sleep(1500L);
-        if (this.aho == null) {
+        if (this.ahM == null) {
             return null;
         }
         String str2 = "";
-        if (this.aho.ir() != null && this.aho.ir().size() > 0) {
+        if (this.ahM.ir() != null && this.ahM.ir().size() > 0) {
             StringBuilder sb = new StringBuilder(50);
-            int size = this.aho.ir().size();
+            int size = this.ahM.ir().size();
             for (int i = 0; i < size; i++) {
                 if (i != 0) {
                     sb.append(",");
                 }
-                BasicNameValuePair basicNameValuePair = this.aho.ir().get(i);
+                BasicNameValuePair basicNameValuePair = this.ahM.ir().get(i);
                 if (basicNameValuePair != null && !TextUtils.isEmpty(basicNameValuePair.getName()) && !TextUtils.isEmpty(basicNameValuePair.getValue())) {
                     sb.append(basicNameValuePair.getName());
                     sb.append(":");
@@ -46,10 +46,10 @@ class f extends BdAsyncTask<Void, Void, PluginNetConfigInfos> {
             }
             str2 = sb.toString();
         }
-        str = d.ahk;
+        str = d.ahI;
         this.AR = new ad(str);
         this.AR.o("plugin_upload_config", str2);
-        return PluginNetConfigInfos.parse(this.AR.ov());
+        return PluginNetConfigInfos.parse(this.AR.oy());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -58,9 +58,9 @@ class f extends BdAsyncTask<Void, Void, PluginNetConfigInfos> {
     /* renamed from: a */
     public void onPostExecute(PluginNetConfigInfos pluginNetConfigInfos) {
         com.baidu.adp.plugin.packageManager.pluginServerConfig.a aVar;
-        this.ahn.ahm = false;
+        this.ahL.ahK = false;
         boolean z = pluginNetConfigInfos != null;
-        aVar = this.ahn.ahl;
+        aVar = this.ahL.ahJ;
         aVar.a(z, pluginNetConfigInfos);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001230));
     }
@@ -68,8 +68,8 @@ class f extends BdAsyncTask<Void, Void, PluginNetConfigInfos> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel();
-        this.ahn.ahm = false;
-        this.AR.dL();
+        this.ahL.ahK = false;
+        this.AR.dJ();
         this.AR = null;
     }
 }

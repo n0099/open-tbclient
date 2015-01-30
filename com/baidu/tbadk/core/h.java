@@ -14,7 +14,7 @@ public class h {
 
     public void cancel() {
         if (this.AR != null) {
-            this.AR.dL();
+            this.AR.dJ();
         }
     }
 
@@ -27,15 +27,15 @@ public class h {
     }
 
     protected String lZ() {
-        String ov = this.AR.ov();
+        String oy = this.AR.oy();
         this.CB = new NewErrorData();
-        this.CB.parserJson(ov);
-        return ov;
+        this.CB.parserJson(oy);
+        return oy;
     }
 
     public boolean ma() {
         if (this.AR != null) {
-            return this.AR.oW().pW().ma();
+            return this.AR.oZ().qh().ma();
         }
         return false;
     }

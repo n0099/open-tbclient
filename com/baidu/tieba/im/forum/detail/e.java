@@ -1,29 +1,33 @@
 package com.baidu.tieba.im.forum.detail;
 
-import android.view.View;
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbadkApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class e implements View.OnClickListener {
-    final /* synthetic */ ForumDetailActivity aZe;
+public class e extends BdAsyncTask<Void, Void, Void> {
+    private final /* synthetic */ boolean aEa;
+    final /* synthetic */ ForumDetailActivity baB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(ForumDetailActivity forumDetailActivity) {
-        this.aZe = forumDetailActivity;
+    public e(ForumDetailActivity forumDetailActivity, boolean z) {
+        this.baB = forumDetailActivity;
+        this.aEa = z;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        k kVar;
-        k kVar2;
-        f fVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Void doInBackground(Void... voidArr) {
         String str;
-        if (com.baidu.adp.lib.util.l.isNetOk()) {
-            kVar = this.aZe.aZa;
-            kVar.HE();
-            kVar2 = this.aZe.aZa;
-            kVar2.showLoading();
-            fVar = this.aZe.aZb;
-            str = this.aZe.mForumId;
-            fVar.gG(str);
+        String str2;
+        str = this.baB.mForumId;
+        if (!TextUtils.isEmpty(str)) {
+            com.baidu.tieba.im.settingcache.h Tt = com.baidu.tieba.im.settingcache.h.Tt();
+            String currentAccount = TbadkApplication.getCurrentAccount();
+            str2 = this.baB.mForumId;
+            Tt.f(currentAccount, String.valueOf(str2), this.aEa);
         }
+        return null;
     }
 }

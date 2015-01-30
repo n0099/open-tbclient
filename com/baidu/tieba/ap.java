@@ -1,16 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.InvokeOnCreateOnMainThreadMessageConfig;
+import android.os.Handler;
+import android.os.Message;
 /* loaded from: classes.dex */
-class ap implements CustomMessageTask.CustomRunnable<InvokeOnCreateOnMainThreadMessageConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<InvokeOnCreateOnMainThreadMessageConfig> run(CustomMessage<InvokeOnCreateOnMainThreadMessageConfig> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            al.Ar().As();
+class ap implements Handler.Callback {
+    final /* synthetic */ ao amp;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ap(ao aoVar) {
+        this.amp = aoVar;
+    }
+
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        switch (message.what) {
+            case 2:
+            case 3:
+            default:
+                return false;
         }
-        return null;
     }
 }

@@ -38,7 +38,7 @@ public class a extends Thread {
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        this.mPort = com.baidu.tbadk.core.sharedPref.b.og().getInt("aladin_port", -1);
+        this.mPort = com.baidu.tbadk.core.sharedPref.b.oj().getInt("aladin_port", -1);
         if (this.mPort == -1) {
             this.mPort = 6257;
         }

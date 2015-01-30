@@ -10,52 +10,51 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.OutputStream;
 import java.util.concurrent.ConcurrentHashMap;
 import plugin.writeSettings.Plugin_setting;
 import plugin.writeSettings.WriteSettingsReqIdl;
 /* loaded from: classes.dex */
 public class e {
-    private static e tm;
-    private f tn;
-    private boolean tq;
-    private m tr;
-    private static final BdUniqueId tl = BdUniqueId.gen();
-    public static final BdAsyncTaskParallel sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, tl);
-    private PluginSettings tp = new PluginSettings();
+    private static e tw;
+    private m tA;
+    private f tx;
+    private boolean tz;
+    private static final BdUniqueId tv = BdUniqueId.gen();
+    public static final BdAsyncTaskParallel sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, tv);
+    private PluginSettings ty = new PluginSettings();
     private final int BUFFER_SIZE = 1024;
 
     public static e iu() {
-        if (tm == null) {
+        if (tw == null) {
             synchronized (e.class) {
-                if (tm == null) {
-                    tm = new e();
+                if (tw == null) {
+                    tw = new e();
                 }
             }
         }
-        return tm;
+        return tw;
     }
 
     private e() {
     }
 
     public PluginSettings iv() {
-        return this.tp;
+        return this.ty;
     }
 
     public void a(m mVar) {
-        if (!this.tq) {
-            this.tr = mVar;
-            this.tq = true;
+        if (!this.tz) {
+            this.tA = mVar;
+            this.tz = true;
             PluginSettings iw = iw();
-            this.tq = false;
+            this.tz = false;
             if (iw != null) {
-                this.tp = iw;
+                this.ty = iw;
             }
-            if (this.tr != null) {
-                this.tr.a(iw);
-                this.tr = null;
+            if (this.tA != null) {
+                this.tA.a(iw);
+                this.tA = null;
             }
         }
     }
@@ -113,13 +112,13 @@ public class e {
                 }
             }
             return pluginSettings;
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [192=4, 191=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [190=4, 191=4] */
     private byte[] bq(String str) {
         FileInputStream fileInputStream;
         OutputStream outputStream;
@@ -184,26 +183,26 @@ public class e {
 
     public void save(PluginSettings pluginSettings, l lVar) {
         if (pluginSettings != null) {
-            this.tp = pluginSettings;
-            if (this.tq && this.tr != null) {
-                this.tr.a(this.tp);
-                this.tr = null;
-                this.tq = false;
+            this.ty = pluginSettings;
+            if (this.tz && this.tA != null) {
+                this.tA.a(this.ty);
+                this.tA = null;
+                this.tz = false;
             }
-            if (this.tn != null) {
-                this.tn.cancel();
-                this.tn = null;
+            if (this.tx != null) {
+                this.tx.cancel();
+                this.tx = null;
             }
             if (TextUtils.isEmpty(pluginSettings.getContainerVersion())) {
                 pluginSettings.setContainerSetting("");
             }
-            this.tn = new f(this, pluginSettings, lVar);
-            this.tn.setParallel(sBdAsyncTaskParallel);
-            this.tn.execute(new String[0]);
+            this.tx = new f(this, pluginSettings, lVar);
+            this.tx.setParallel(sBdAsyncTaskParallel);
+            this.tx.execute(new String[0]);
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [337=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [336=4] */
     /* JADX INFO: Access modifiers changed from: private */
     public boolean e(String str, byte[] bArr) {
         if (TextUtils.isEmpty(str)) {

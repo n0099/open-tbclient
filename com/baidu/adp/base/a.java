@@ -5,48 +5,48 @@ import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public final class a {
-    private static ArrayList<SoftReference<Activity>> ce;
-    private static a cf;
-    private b cg;
-    private int ch = 0;
+    private static ArrayList<SoftReference<Activity>> cf;
+    private static a cg;
+    private b ch;
+    private int ci = 0;
 
     public void a(b bVar) {
-        this.cg = bVar;
+        this.ch = bVar;
     }
 
     private a() {
-        if (ce == null) {
-            ce = new ArrayList<>(20);
+        if (cf == null) {
+            cf = new ArrayList<>(20);
         }
     }
 
     public static a ah() {
-        if (cf == null) {
-            cf = new a();
+        if (cg == null) {
+            cg = new a();
         }
-        return cf;
+        return cg;
     }
 
     public int getSize() {
-        return ce.size();
+        return cf.size();
     }
 
     public void g(Activity activity) {
         if (activity != null) {
-            ce.add(new SoftReference<>(activity));
-            n(this.ch);
+            cf.add(new SoftReference<>(activity));
+            n(this.ci);
         }
     }
 
     public Activity m(int i) {
-        int size = ce.size();
+        int size = cf.size();
         if (size == 0) {
             return null;
         }
         if (i < 0 || i >= size) {
             return null;
         }
-        SoftReference<Activity> remove = ce.remove(i);
+        SoftReference<Activity> remove = cf.remove(i);
         if (remove == null) {
             return null;
         }
@@ -55,27 +55,27 @@ public final class a {
 
     public void h(Activity activity) {
         if (activity != null) {
-            int size = ce.size();
+            int size = cf.size();
             if (size == 0) {
-                if (this.cg != null) {
-                    this.cg.onActivityClosed();
+                if (this.ch != null) {
+                    this.ch.onActivityClosed();
                     return;
                 }
                 return;
             }
             for (int i = size - 1; i >= 0; i--) {
-                SoftReference<Activity> softReference = ce.get(i);
+                SoftReference<Activity> softReference = cf.get(i);
                 if (softReference == null) {
-                    ce.remove(i);
+                    cf.remove(i);
                 } else if (activity.equals(softReference.get())) {
-                    ce.remove(i);
-                    if (ce.size() == 0 && this.cg != null) {
-                        this.cg.onActivityClosed();
+                    cf.remove(i);
+                    if (cf.size() == 0 && this.ch != null) {
+                        this.ch.onActivityClosed();
                         return;
                     }
                     return;
-                } else if (size == 0 && this.cg != null) {
-                    this.cg.onActivityClosed();
+                } else if (size == 0 && this.ch != null) {
+                    this.ch.onActivityClosed();
                 }
             }
         }
@@ -83,7 +83,7 @@ public final class a {
 
     public void setActivityStackMaxSize(int i) {
         if (i >= 10 || i == 0) {
-            this.ch = i;
+            this.ci = i;
         }
     }
 
@@ -92,21 +92,21 @@ public final class a {
     }
 
     public void aj() {
-        if (ce != null) {
-            while (!ce.isEmpty()) {
-                SoftReference<Activity> remove = ce.remove(0);
+        if (cf != null) {
+            while (!cf.isEmpty()) {
+                SoftReference<Activity> remove = cf.remove(0);
                 if (remove != null && remove.get() != null) {
                     remove.get().finish();
                 }
             }
         }
-        if (this.cg != null) {
-            this.cg.onActivityClosed();
+        if (this.ch != null) {
+            this.ch.onActivityClosed();
         }
     }
 
     public int getActivityStackMaxSize() {
-        return this.ch;
+        return this.ci;
     }
 
     private void n(int i) {

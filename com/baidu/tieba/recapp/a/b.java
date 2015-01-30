@@ -6,27 +6,27 @@ import com.baidu.tieba.tbadkCore.ar;
 import com.baidu.tieba.tbadkCore.b.j;
 /* loaded from: classes.dex */
 class b implements com.baidu.tbadk.core.dialog.d {
-    private final /* synthetic */ View alQ;
-    final /* synthetic */ a bKT;
-    private final /* synthetic */ j bKU;
-    private final /* synthetic */ BaseAppViewHolder bKV;
-    private final /* synthetic */ int val$position;
+    private final /* synthetic */ int FV;
+    private final /* synthetic */ View amK;
+    final /* synthetic */ a bME;
+    private final /* synthetic */ j bMF;
+    private final /* synthetic */ BaseAppViewHolder bMG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, View view, j jVar, int i, BaseAppViewHolder baseAppViewHolder) {
-        this.bKT = aVar;
-        this.alQ = view;
-        this.bKU = jVar;
-        this.val$position = i;
-        this.bKV = baseAppViewHolder;
+        this.bME = aVar;
+        this.amK = view;
+        this.bMF = jVar;
+        this.FV = i;
+        this.bMG = baseAppViewHolder;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        com.baidu.tbadk.distribute.a.uD().a(this.alQ.getContext(), this.bKU.agP(), "area_download", "pb", this.bKU.Gb, this.bKU.threadId);
-        com.baidu.tbadk.distribute.a.uD().a(this.bKU.agP(), this.bKU.Gb, this.bKU.threadId, "PB", "download");
-        ar.a(this.alQ.getContext(), this.bKU, this.val$position);
-        this.bKV.refresh();
+        com.baidu.tbadk.distribute.a.uU().a(this.amK.getContext(), this.bMF.ahu(), "area_download", "pb", this.bMF.bYG, this.bMF.threadId);
+        com.baidu.tbadk.distribute.a.uU().a(this.bMF.ahu(), this.bMF.bYG, this.bMF.threadId, "PB", "download");
+        ar.a(this.amK.getContext(), this.bMF, this.FV);
+        this.bMG.refresh();
     }
 }

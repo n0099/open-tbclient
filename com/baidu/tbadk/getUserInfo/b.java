@@ -12,28 +12,28 @@ import com.baidu.tbadk.data.UserData;
 import com.baidu.tbadk.data.g;
 /* loaded from: classes.dex */
 public class b {
-    private static b Zk;
+    private static b ZL;
 
     private b() {
     }
 
-    public static b vA() {
-        if (Zk == null) {
+    public static b vS() {
+        if (ZL == null) {
             synchronized (b.class) {
-                if (Zk == null) {
-                    Zk = new b();
+                if (ZL == null) {
+                    ZL = new b();
                 }
             }
         }
-        return Zk;
+        return ZL;
     }
 
-    public void vB() {
+    public void vT() {
         com.baidu.tieba.tbadkCore.a.a.a(303024, GetUserInfoSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
     }
 
-    public void vC() {
+    public void vU() {
         GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
@@ -61,7 +61,7 @@ public class b {
             } else {
                 currentAccountObj.setMemberIconUrl(null);
             }
-            l.em().b(new c(this, currentAccountObj));
+            l.ek().b(new c(this, currentAccountObj));
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001253, payMemberInfoData));
         }
     }

@@ -10,7 +10,7 @@ import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInf
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.t;
@@ -19,14 +19,14 @@ import com.baidu.tieba.x;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
-    private HeadImageView aDy;
-    private TextView azp;
-    private TextView bKu;
-    private TextView bKv;
-    private TextView bKw;
-    private TextView bKx;
-    private String bKy;
-    private PluginNetConfigInfos.PluginConfig bKz;
+    private TextView aAq;
+    private HeadImageView aEz;
+    private TextView bMf;
+    private TextView bMg;
+    private TextView bMh;
+    private TextView bMi;
+    private String bMj;
+    private PluginNetConfigInfos.PluginConfig bMk;
     private boolean mFinished;
     private NavigationBar mNavigationBar;
     private int mStatus;
@@ -43,70 +43,70 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         this.mNavigationBar = (NavigationBar) findViewById(w.navigation_bar);
         this.mNavigationBar.setTitleText(z.plugin_center);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
-        this.aDy = (HeadImageView) findViewById(w.icon);
-        this.azp = (TextView) findViewById(w.name);
-        this.bKu = (TextView) findViewById(w.status);
-        this.bKv = (TextView) findViewById(w.changelog);
-        this.bKw = (TextView) findViewById(w.size);
-        this.bKx = (TextView) findViewById(w.enable);
-        this.bKx.setOnClickListener(this);
-        this.bKy = getIntent().getStringExtra("name");
+        this.aEz = (HeadImageView) findViewById(w.icon);
+        this.aAq = (TextView) findViewById(w.name);
+        this.bMf = (TextView) findViewById(w.status);
+        this.bMg = (TextView) findViewById(w.changelog);
+        this.bMh = (TextView) findViewById(w.size);
+        this.bMi = (TextView) findViewById(w.enable);
+        this.bMi.setOnClickListener(this);
+        this.bMj = getIntent().getStringExtra("name");
         if (com.baidu.adp.plugin.packageManager.pluginServerConfig.d.is().it() != null) {
-            this.bKz = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.is().it().getPluginConfig(this.bKy);
+            this.bMk = com.baidu.adp.plugin.packageManager.pluginServerConfig.d.is().it().getPluginConfig(this.bMj);
         }
     }
 
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        if (this.bKz != null) {
-            this.aDy.d(this.bKz.icon, 10, false);
-            if (this.bKz.display_name == null) {
-                this.bKz.display_name = "";
+        if (this.bMk != null) {
+            this.aEz.d(this.bMk.icon, 10, false);
+            if (this.bMk.display_name == null) {
+                this.bMk.display_name = "";
             }
-            this.azp.setText(this.bKz.display_name);
-            abG();
-            if (this.bKz.newest != null) {
-                if (TextUtils.isEmpty(this.bKz.newest.change_log)) {
-                    this.bKv.setText("");
+            this.aAq.setText(this.bMk.display_name);
+            ack();
+            if (this.bMk.newest != null) {
+                if (TextUtils.isEmpty(this.bMk.newest.change_log)) {
+                    this.bMg.setText("");
                 } else {
-                    this.bKv.setText(this.bKz.newest.change_log);
+                    this.bMg.setText(this.bMk.newest.change_log);
                 }
-                if (this.bKz.newest.size <= 0) {
-                    this.bKw.setText("");
+                if (this.bMk.newest.size <= 0) {
+                    this.bMh.setText("");
                 } else {
-                    this.bKw.setText(String.valueOf(getPageContext().getString(z.plugin_size)) + String.valueOf(this.bKz.newest.size / 1024) + "KB");
+                    this.bMh.setText(String.valueOf(getPageContext().getString(z.plugin_size)) + String.valueOf(this.bMk.newest.size / 1024) + "KB");
                 }
             }
-            this.bKx.setOnClickListener(this);
+            this.bMi.setOnClickListener(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abG() {
-        if (PluginPackageManager.ic().bk(this.bKy) && PluginPackageManager.ic().bi(this.bKy)) {
-            this.bKu.setText(z.plugin_enabled);
-            this.bKx.setText(z.plugin_update);
-            this.bKx.setEnabled(true);
-            ax.b(this.bKx, t.cp_cont_g, 1);
+    public void ack() {
+        if (PluginPackageManager.ic().bk(this.bMj) && PluginPackageManager.ic().bi(this.bMj)) {
+            this.bMf.setText(z.plugin_enabled);
+            this.bMi.setText(z.plugin_update);
+            this.bMi.setEnabled(true);
+            bc.b(this.bMi, t.cp_cont_g, 1);
             this.mStatus = 1;
-        } else if (PluginPackageManager.ic().bi(this.bKy)) {
-            this.bKx.setEnabled(true);
-            ax.b(this.bKx, t.cp_cont_g, 1);
-            if (PluginPackageManager.ic().bj(this.bKy)) {
-                this.bKu.setText(z.plugin_unenabled);
-                this.bKx.setText(z.plugin_enable);
+        } else if (PluginPackageManager.ic().bi(this.bMj)) {
+            this.bMi.setEnabled(true);
+            bc.b(this.bMi, t.cp_cont_g, 1);
+            if (PluginPackageManager.ic().bj(this.bMj)) {
+                this.bMf.setText(z.plugin_unenabled);
+                this.bMi.setText(z.plugin_enable);
                 this.mStatus = 2;
                 return;
             }
-            this.bKu.setText(z.plugin_enabled);
-            this.bKx.setText(z.plugin_unenable);
+            this.bMf.setText(z.plugin_enabled);
+            this.bMi.setText(z.plugin_unenable);
             this.mStatus = 3;
         } else {
-            this.bKu.setText(z.plugin_disabled);
-            this.bKx.setText(z.plugin_enable);
-            this.bKx.setEnabled(true);
-            ax.b(this.bKx, t.cp_cont_g, 1);
+            this.bMf.setText(z.plugin_disabled);
+            this.bMi.setText(z.plugin_enable);
+            this.bMi.setEnabled(true);
+            bc.b(this.bMi, t.cp_cont_g, 1);
             this.mStatus = 0;
         }
     }
@@ -122,27 +122,27 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bKx) {
+        if (view == this.bMi) {
             if (this.mStatus == 0 || this.mStatus == 1) {
-                abH();
+                acl();
             } else if (this.mStatus == 3) {
-                PluginPackageManager.ic().bg(this.bKy);
-                abG();
+                PluginPackageManager.ic().bg(this.bMj);
+                ack();
             } else if (this.mStatus == 2) {
-                PluginPackageManager.ic().bh(this.bKy);
-                abG();
+                PluginPackageManager.ic().bh(this.bMj);
+                ack();
             }
         }
     }
 
-    private void abH() {
-        if (!com.baidu.adp.lib.util.i.fg()) {
+    private void acl() {
+        if (!com.baidu.adp.lib.util.i.ff()) {
             showToast(z.neterror);
             return;
         }
-        ax.b(this.bKx, t.cp_cont_d, 1);
-        this.bKx.setEnabled(false);
-        PluginPackageManager.ic().a(this.bKz, new d(this));
+        bc.b(this.bMi, t.cp_cont_d, 1);
+        this.bMi.setEnabled(false);
+        PluginPackageManager.ic().a(this.bMk, new d(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

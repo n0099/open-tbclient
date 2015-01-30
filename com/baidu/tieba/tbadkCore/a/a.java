@@ -10,7 +10,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.task.b;
 /* loaded from: classes.dex */
 public class a {
-    private static int bVu = 1;
+    private static int bXm = 1;
 
     public static com.baidu.tbadk.task.a b(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
         try {
@@ -43,7 +43,7 @@ public class a {
         bVar.setResponsedClass(cls);
         bVar.j(z);
         bVar.a(dupLicateMode);
-        bVar.setRetry(bVu);
+        bVar.setRetry(bXm);
         MessageManager.getInstance().unRegisterTask(i);
         MessageManager.getInstance().registerTask(bVar);
         bVar.setNeedEncrypt(z2);

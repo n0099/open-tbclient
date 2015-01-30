@@ -34,7 +34,7 @@ import com.baidu.tbadk.core.c;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bk;
 import com.baidu.tbadk.core.util.k;
 import com.baidu.tbadk.core.view.o;
 import com.baidu.tbadk.d.f;
@@ -110,7 +110,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(getPageContext().getPageActivity());
-        this.customToast = k.oo();
+        this.customToast = k.or();
         super.onCreate(bundle);
         this.mLayoutMode = new c();
         this.mLayoutInflateFactory = new a();
@@ -120,7 +120,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             CompatibleUtile.getInstance().openGpu(getPageContext().getPageActivity());
         }
         TbadkCoreApplication.setIsAppRunning(true);
-        bf.cJ(getClass().getName());
+        bk.cI(getClass().getName());
         registerListener(this.nightResourcesChangeListener);
     }
 
@@ -221,7 +221,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onDestroy() {
         closeLoadingDialog();
         if (this.mGuidPage != null) {
-            this.mGuidPage.qt();
+            this.mGuidPage.qE();
         }
         if (this.mLayoutMode != null) {
             this.mLayoutMode.destroy();
@@ -330,19 +330,19 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     protected void showToastWithIcon(String str, int i) {
-        BdToast.a(getPageContext().getContext(), str, i).nY();
+        BdToast.a(getPageContext().getContext(), str, i).ob();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getPageContext().getContext(), str, i, i2).nY();
+        BdToast.a(getPageContext().getContext(), str, i, i2).ob();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getPageContext().getContext(), str, defaultIcon).nY();
+        BdToast.a(getPageContext().getContext(), str, defaultIcon).ob();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getPageContext().getContext(), str, defaultIcon, i).nY();
+        BdToast.a(getPageContext().getContext(), str, defaultIcon, i).ob();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity
@@ -466,7 +466,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         this.customToast.onResume();
         changeSkinType(TbadkCoreApplication.m255getInst().getSkinType());
         TbadkCoreApplication.m255getInst().AddResumeNum();
-        bf.cJ(getClass().getName());
+        bk.cI(getClass().getName());
     }
 
     public void changeSkinType(int i) {
@@ -485,6 +485,9 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onStop() {
         super.onStop();
         onResourceRecycle();
+        if (!l.l(getActivity())) {
+            TbadkCoreApplication.m255getInst().onLowMemory();
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -494,10 +497,10 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     /* JADX INFO: Access modifiers changed from: protected */
     public void onChangeSkinType(int i) {
         if (this.loadingView != null) {
-            this.loadingView.wc();
+            this.loadingView.wu();
         }
         if (this.refreshView != null) {
-            this.refreshView.wc();
+            this.refreshView.wu();
         }
     }
 
@@ -748,7 +751,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             } else {
                 this.loadingView = new f(getPageContext().getContext(), i);
             }
-            this.loadingView.wc();
+            this.loadingView.wu();
         }
         this.loadingView.b(view, z);
     }
@@ -761,7 +764,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.vW();
+        return this.loadingView.wo();
     }
 
     public void hideLoadingView(View view) {

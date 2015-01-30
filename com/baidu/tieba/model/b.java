@@ -8,15 +8,15 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ad;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.bh;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.c.g> {
     ad AR;
-    final /* synthetic */ a bsJ;
+    final /* synthetic */ a buh;
 
     private b(a aVar) {
-        this.bsJ = aVar;
+        this.buh = aVar;
         this.AR = null;
     }
 
@@ -55,19 +55,19 @@ public class b extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.c.
             String packageName = TbadkCoreApplication.m255getInst().getPackageName();
             this.AR.o("package", packageName);
             this.AR.o("versioncode", new StringBuilder(String.valueOf(TbadkCoreApplication.m255getInst().getVersionCode())).toString());
-            this.AR.o("signmd5", bc.b(TbadkCoreApplication.m255getInst().getPackageManager().getPackageInfo(packageName, 64)));
+            this.AR.o("signmd5", bh.b(TbadkCoreApplication.m255getInst().getPackageManager().getPackageInfo(packageName, 64)));
             this.AR.o("md5", UtilHelper.getTiebaApkMd5());
-            String ov = this.AR.ov();
-            if (!this.AR.oW().pW().ma()) {
+            String oy = this.AR.oy();
+            if (!this.AR.oZ().qh().ma()) {
                 return null;
             }
             gVar = new com.baidu.tbadk.coreExtra.c.g();
             try {
-                gVar.parserJson(ov);
-                if (TbadkCoreApplication.getClientId() == null && gVar.sq().getClientId() != null && gVar.sq().getClientId().length() > 0) {
-                    context = this.bsJ.mContext;
-                    TbadkCoreApplication.saveClientId(context, gVar.sq().getClientId());
-                    TbadkCoreApplication.setClientId(gVar.sq().getClientId());
+                gVar.parserJson(oy);
+                if (TbadkCoreApplication.getClientId() == null && gVar.sG().getClientId() != null && gVar.sG().getClientId().length() > 0) {
+                    context = this.buh.mContext;
+                    TbadkCoreApplication.saveClientId(context, gVar.sG().getClientId());
+                    TbadkCoreApplication.setClientId(gVar.sG().getClientId());
                     return gVar;
                 }
                 return gVar;
@@ -84,9 +84,9 @@ public class b extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.c.
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.bsJ.bsI = null;
+        this.buh.bug = null;
         if (this.AR != null) {
-            this.AR.dL();
+            this.AR.dJ();
         }
         super.cancel(true);
     }
@@ -97,7 +97,7 @@ public class b extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.c.
     /* renamed from: a */
     public void onPostExecute(com.baidu.tbadk.coreExtra.c.g gVar) {
         super.onPostExecute(gVar);
-        this.bsJ.bsI = null;
-        this.bsJ.mLoadDataCallBack.c(gVar);
+        this.buh.bug = null;
+        this.buh.mLoadDataCallBack.c(gVar);
     }
 }

@@ -8,14 +8,14 @@ import tbclient.GetAddressList.listData;
 import tbclient.GetAddressList.robotsList;
 /* loaded from: classes.dex */
 public class a {
-    private List<h> Si;
-    private List<h> Sj;
+    private List<h> SM;
+    private List<h> SO;
 
     public List<h> getAddressList() {
-        if (this.Si == null) {
-            this.Si = new ArrayList();
+        if (this.SM == null) {
+            this.SM = new ArrayList();
         }
-        return this.Si;
+        return this.SM;
     }
 
     public boolean a(DataRes dataRes) {
@@ -23,7 +23,7 @@ public class a {
         if (dataRes == null || dataRes.robots_list == null) {
             z = false;
         } else {
-            this.Sj = new ArrayList();
+            this.SO = new ArrayList();
             boolean z2 = false;
             for (robotsList robotslist : dataRes.robots_list) {
                 if (TextUtils.isEmpty(robotslist.key)) {
@@ -31,13 +31,13 @@ public class a {
                 } else {
                     h hVar = new h();
                     hVar.a(robotslist);
-                    this.Sj.add(hVar);
+                    this.SO.add(hVar);
                 }
             }
             z = z2;
         }
         if (dataRes != null && dataRes.address_list != null) {
-            this.Si = new ArrayList();
+            this.SM = new ArrayList();
             boolean z3 = z;
             for (listData listdata : dataRes.address_list) {
                 if (TextUtils.isEmpty(listdata.key)) {
@@ -47,14 +47,14 @@ public class a {
                     hVar2.a(listdata);
                     if (hVar2.getContacts() != null) {
                         for (b bVar : hVar2.getContacts()) {
-                            if (a(this.Sj, bVar)) {
+                            if (a(this.SO, bVar)) {
                                 bVar.setUserType(1);
                             } else {
                                 bVar.setUserType(0);
                             }
                         }
                     }
-                    this.Si.add(hVar2);
+                    this.SM.add(hVar2);
                 }
             }
             return z3;

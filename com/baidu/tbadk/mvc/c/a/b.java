@@ -11,9 +11,9 @@ public abstract class b extends e {
         if (eVar == null || cVar == null) {
             return null;
         }
-        com.baidu.tbadk.mvc.c.b dD = cVar.dD(16777217);
+        com.baidu.tbadk.mvc.c.b dJ = cVar.dJ(16777217);
         if (eVar.getView() != null) {
-            com.baidu.tbadk.mvc.h.a.a(dD, eVar.getView());
+            com.baidu.tbadk.mvc.h.a.a(dJ, eVar.getView());
         }
         createListPullRefreshListener();
         eVar.a(this.listPullRefreshListener);
@@ -30,7 +30,7 @@ public abstract class b extends e {
         if (cVar == null) {
             return null;
         }
-        com.baidu.tbadk.mvc.h.a.a(cVar.dD(16777218), bdListView);
+        com.baidu.tbadk.mvc.h.a.a(cVar.dJ(16777218), bdListView);
         if (this.scrollToBottomListener == null) {
             this.scrollToBottomListener = new d(this);
         }

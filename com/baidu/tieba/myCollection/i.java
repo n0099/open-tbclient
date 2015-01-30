@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tieba.t;
 import com.baidu.tieba.w;
 import com.baidu.tieba.x;
@@ -21,27 +21,27 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class i extends BaseAdapter {
-    private EditMarkActivity bwL;
-    private boolean bwQ;
-    private boolean bwR;
+    private boolean byA;
+    private EditMarkActivity byu;
+    private boolean byz;
     private int mSize;
-    private final ArrayList<MarkData> mData = new ArrayList<>();
-    private boolean alV = false;
-    private ArrayList<ProgressBar> bwS = null;
-    private View.OnClickListener bwT = null;
-    private boolean bwU = false;
+    private final ArrayList<MarkData> amP = new ArrayList<>();
+    private boolean amO = false;
+    private ArrayList<ProgressBar> byB = null;
+    private View.OnClickListener byC = null;
+    private boolean byD = false;
     private boolean hasMore = true;
-    private boolean bwV = true;
+    private boolean byE = true;
 
     public i(EditMarkActivity editMarkActivity) {
-        this.bwL = editMarkActivity;
-        dE(true);
-        Wc();
+        this.byu = editMarkActivity;
+        dK(true);
+        WH();
     }
 
-    public void TK() {
-        if (this.bwS != null) {
-            Iterator<ProgressBar> it = this.bwS.iterator();
+    public void Ug() {
+        if (this.byB != null) {
+            Iterator<ProgressBar> it = this.byB.iterator();
             while (it.hasNext()) {
                 it.next().setVisibility(8);
             }
@@ -52,16 +52,16 @@ public class i extends BaseAdapter {
         this.hasMore = z;
     }
 
-    public void Wc() {
-        this.bwQ = false;
-        if (this.mData == null) {
+    public void WH() {
+        this.byz = false;
+        if (this.amP == null) {
             this.mSize = 0;
         } else {
-            int size = this.mData.size();
+            int size = this.amP.size();
             if (size == 0) {
-                if (this.bwR) {
+                if (this.byA) {
                     this.mSize = 0;
-                    this.bwQ = true;
+                    this.byz = true;
                 } else {
                     this.mSize = 0;
                 }
@@ -72,32 +72,32 @@ public class i extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public void dC(boolean z) {
-        this.bwU = z;
+    public void dI(boolean z) {
+        this.byD = z;
     }
 
-    public void r(ArrayList<MarkData> arrayList) {
-        this.mData.clear();
+    public void s(ArrayList<MarkData> arrayList) {
+        this.amP.clear();
         if (arrayList != null) {
-            this.mData.addAll(arrayList);
+            this.amP.addAll(arrayList);
         }
-        Wc();
+        WH();
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.mData.size() == 0) {
+        if (this.amP.size() == 0) {
             return this.mSize;
         }
-        if (this.bwV) {
+        if (this.byE) {
             return this.mSize + 1;
         }
         return this.mSize;
     }
 
-    public void dD(boolean z) {
-        this.bwV = z;
+    public void dJ(boolean z) {
+        this.byE = z;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -107,21 +107,21 @@ public class i extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return (getItemId(i) >= 0 || this.bwQ) ? 0 : 1;
+        return (getItemId(i) >= 0 || this.byz) ? 0 : 1;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
         int size;
-        if (!this.bwQ && (size = this.mData.size()) > 0 && i < size) {
-            return this.mData.get(i);
+        if (!this.byz && (size = this.amP.size()) > 0 && i < size) {
+            return this.amP.get(i);
         }
         return null;
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.mData == null || i < this.mData.size()) {
+        if (this.amP == null || i < this.amP.size()) {
             return i;
         }
         return -1L;
@@ -144,16 +144,16 @@ public class i extends BaseAdapter {
         try {
             if (getItemViewType(i) == 0) {
                 if (view == null || !(view.getTag() instanceof k)) {
-                    view4 = com.baidu.adp.lib.g.b.ek().inflate(this.bwL.getPageContext().getPageActivity(), x.home_mark_item, null);
+                    view4 = com.baidu.adp.lib.g.b.ei().inflate(this.byu.getPageContext().getPageActivity(), x.home_mark_item, null);
                     kVar = new k(this, null);
-                    kVar.aBt = (TextView) view4.findViewById(w.home_lv_markitem_reply);
-                    kVar.aNb = (LinearLayout) view4.findViewById(w.home_lv_markitem_content);
+                    kVar.aCu = (TextView) view4.findViewById(w.home_lv_markitem_reply);
+                    kVar.aOk = (LinearLayout) view4.findViewById(w.home_lv_markitem_content);
                     kVar.mTitle = (TextView) view4.findViewById(w.home_lv_markitem_title);
-                    kVar.bxb = (Button) view4.findViewById(w.home_lv_markitem_delete);
-                    kVar.bwY = (ImageView) view4.findViewById(w.mark_comment_icon);
-                    kVar.bwZ = (ImageView) view4.findViewById(w.new_mark_mention_fack);
-                    kVar.bxa = (LinearLayout) view4.findViewById(w.new_mark);
-                    kVar.aPs = (TextView) view4.findViewById(w.home_lv_markitem_forum_name);
+                    kVar.byK = (Button) view4.findViewById(w.home_lv_markitem_delete);
+                    kVar.byH = (ImageView) view4.findViewById(w.mark_comment_icon);
+                    kVar.byI = (ImageView) view4.findViewById(w.new_mark_mention_fack);
+                    kVar.byJ = (LinearLayout) view4.findViewById(w.new_mark);
+                    kVar.aQx = (TextView) view4.findViewById(w.home_lv_markitem_forum_name);
                     view4.setTag(kVar);
                 } else {
                     kVar = (k) view.getTag();
@@ -164,13 +164,13 @@ public class i extends BaseAdapter {
                 view4 = view;
             } else if (view == null || !(view.getTag() instanceof j)) {
                 j jVar2 = new j(this, null);
-                view4 = com.baidu.adp.lib.g.b.ek().inflate(this.bwL.getPageContext().getPageActivity(), x.page_item, null);
-                jVar2.bwW = (TextView) view4.findViewById(w.page_text);
+                view4 = com.baidu.adp.lib.g.b.ei().inflate(this.byu.getPageContext().getPageActivity(), x.page_item, null);
+                jVar2.byF = (TextView) view4.findViewById(w.page_text);
                 jVar2.mProgress = (ProgressBar) view4.findViewById(w.progress);
-                if (this.bwS == null) {
-                    this.bwS = new ArrayList<>();
+                if (this.byB == null) {
+                    this.byB = new ArrayList<>();
                 }
-                this.bwS.add(jVar2.mProgress);
+                this.byB.add(jVar2.mProgress);
                 view4.setTag(jVar2);
                 kVar = null;
                 jVar = jVar2;
@@ -179,38 +179,38 @@ public class i extends BaseAdapter {
                 view4 = view;
                 jVar = (j) view.getTag();
             }
-            this.bwL.getLayoutMode().ab(TbadkApplication.getInst().getSkinType() == 1);
-            this.bwL.getLayoutMode().h(view4);
+            this.byu.getLayoutMode().ab(TbadkApplication.getInst().getSkinType() == 1);
+            this.byu.getLayoutMode().h(view4);
             if (getItemViewType(i) == 1) {
-                if (this.bwU) {
+                if (this.byD) {
                     jVar.mProgress.setVisibility(0);
-                    jVar.bwW.setText(this.bwL.getPageContext().getString(z.loading));
-                    ax.b(jVar.bwW, t.pb_more_txt, 1);
+                    jVar.byF.setText(this.byu.getPageContext().getString(z.loading));
+                    bc.b(jVar.byF, t.pb_more_txt, 1);
                     view2 = view4;
                 } else if (!this.hasMore) {
                     jVar.mProgress.setVisibility(8);
-                    jVar.bwW.setText(this.bwL.getPageContext().getString(z.no_more_mark));
-                    ax.b(jVar.bwW, t.pb_list_morebutton_nomore_text, 1);
+                    jVar.byF.setText(this.byu.getPageContext().getString(z.no_more_mark));
+                    bc.b(jVar.byF, t.pb_list_morebutton_nomore_text, 1);
                     view2 = view4;
                 } else {
                     jVar.mProgress.setVisibility(8);
-                    jVar.bwW.setText(this.bwL.getPageContext().getString(z.loading));
-                    ax.b(jVar.bwW, t.pb_more_txt, 1);
+                    jVar.byF.setText(this.byu.getPageContext().getString(z.loading));
+                    bc.b(jVar.byF, t.pb_more_txt, 1);
                     view2 = view4;
                 }
             } else {
-                if (this.bwQ) {
-                    kVar.aBt.setVisibility(8);
-                    kVar.aNb.setVisibility(8);
-                    kVar.bxb.setVisibility(8);
+                if (this.byz) {
+                    kVar.aCu.setVisibility(8);
+                    kVar.aOk.setVisibility(8);
+                    kVar.byK.setVisibility(8);
                     a(kVar, false);
                 } else {
-                    kVar.aBt.setVisibility(0);
-                    kVar.aNb.setVisibility(0);
-                    if (this.alV) {
-                        kVar.bxb.setVisibility(0);
+                    kVar.aCu.setVisibility(0);
+                    kVar.aOk.setVisibility(0);
+                    if (this.amO) {
+                        kVar.byK.setVisibility(0);
                     } else {
-                        kVar.bxb.setVisibility(8);
+                        kVar.byK.setVisibility(8);
                     }
                 }
                 Object item = getItem(i);
@@ -223,12 +223,12 @@ public class i extends BaseAdapter {
                     }
                     int replyNum = markData.getReplyNum();
                     if (replyNum < 0) {
-                        kVar.aBt.setVisibility(8);
-                        kVar.bwY.setVisibility(8);
+                        kVar.aCu.setVisibility(8);
+                        kVar.byH.setVisibility(8);
                     } else {
-                        kVar.bwY.setVisibility(0);
-                        kVar.aBt.setVisibility(0);
-                        kVar.aBt.setText(String.valueOf(replyNum));
+                        kVar.byH.setVisibility(0);
+                        kVar.aCu.setVisibility(0);
+                        kVar.aCu.setText(String.valueOf(replyNum));
                     }
                     String title = markData.getTitle();
                     if (!TextUtils.isEmpty(title)) {
@@ -237,13 +237,13 @@ public class i extends BaseAdapter {
                         kVar.mTitle.setText("");
                     }
                     if (!TextUtils.isEmpty(markData.getForumName())) {
-                        kVar.aPs.setText(String.valueOf(markData.getForumName()) + this.bwL.getPageContext().getString(z.bar));
+                        kVar.aQx.setText(String.valueOf(markData.getForumName()) + this.byu.getPageContext().getString(z.bar));
                     } else {
-                        kVar.aPs.setText("");
+                        kVar.aQx.setText("");
                     }
-                    kVar.bxb.setOnClickListener(this.bwT);
-                    kVar.bxb.setFocusable(false);
-                    kVar.bxb.setTag(Integer.valueOf(i));
+                    kVar.byK.setOnClickListener(this.byC);
+                    kVar.byK.setFocusable(false);
+                    kVar.byK.setTag(Integer.valueOf(i));
                     view2 = view4;
                 } else {
                     return view4;
@@ -260,37 +260,37 @@ public class i extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        if (this.bwQ || (!this.hasMore && getItemViewType(i) == 1)) {
+        if (this.byz || (!this.hasMore && getItemViewType(i) == 1)) {
             return false;
         }
         return super.isEnabled(i);
     }
 
-    public void dE(boolean z) {
-        this.bwR = z;
+    public void dK(boolean z) {
+        this.byA = z;
     }
 
     public void setEditState(boolean z) {
-        this.alV = z;
+        this.amO = z;
     }
 
-    public boolean Ay() {
-        return this.alV;
+    public boolean AZ() {
+        return this.amO;
     }
 
-    public void x(View.OnClickListener onClickListener) {
-        this.bwT = onClickListener;
+    public void y(View.OnClickListener onClickListener) {
+        this.byC = onClickListener;
     }
 
     private void a(k kVar, boolean z) {
-        if (kVar != null && kVar.bxa != null && kVar.bwZ != null) {
+        if (kVar != null && kVar.byJ != null && kVar.byI != null) {
             if (z) {
-                kVar.bxa.setVisibility(0);
-                kVar.bwZ.setVisibility(4);
+                kVar.byJ.setVisibility(0);
+                kVar.byI.setVisibility(4);
                 return;
             }
-            kVar.bxa.setVisibility(8);
-            kVar.bwZ.setVisibility(8);
+            kVar.byJ.setVisibility(8);
+            kVar.byI.setVisibility(8);
         }
     }
 }

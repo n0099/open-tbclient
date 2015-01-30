@@ -3,26 +3,27 @@ package com.baidu.tieba.im.floatwindow.view;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tieba.im.chat.AbsMsglistView;
+import com.baidu.tieba.im.chat.au;
 import com.baidu.tieba.im.model.MsglistModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements com.baidu.tieba.im.chat.ar {
-    final /* synthetic */ FloatingPersonalChatActivity aYF;
+public class t implements au {
+    final /* synthetic */ FloatingPersonalChatActivity bab;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(FloatingPersonalChatActivity floatingPersonalChatActivity) {
-        this.aYF = floatingPersonalChatActivity;
+        this.bab = floatingPersonalChatActivity;
     }
 
-    @Override // com.baidu.tieba.im.chat.ar
+    @Override // com.baidu.tieba.im.chat.au
     public void onFirstHistoryPageLoaded() {
         String str;
         AbsMsglistView absMsglistView;
         MsglistModel msglistModel;
-        str = this.aYF.ahu;
+        str = this.bab.ahS;
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new com.baidu.tbadk.live.message.a(str, 2)));
-        absMsglistView = this.aYF.mListView;
-        msglistModel = this.aYF.mListModel;
+        absMsglistView = this.bab.mListView;
+        msglistModel = this.bab.mListModel;
         absMsglistView.refreshGo2New(msglistModel.getData());
     }
 }

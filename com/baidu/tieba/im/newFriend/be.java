@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.newFriend;
 /* loaded from: classes.dex */
 public interface be {
-    void fv(String str);
+    void fA(String str);
 
-    void fw(String str);
+    void fB(String str);
 }

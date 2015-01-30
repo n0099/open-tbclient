@@ -3,27 +3,27 @@ package com.baidu.adp.lib.voice;
 import android.os.Handler;
 /* loaded from: classes.dex */
 public class f {
-    private static h og;
-    private static String oh;
-    private static p oi;
-    private static int of = 0;
-    private static long oj = 0;
+    private static h om;
+    private static String oo;
+    private static p oq;
+    private static int ol = 0;
+    private static long or = 0;
     private static Handler mHandler = new Handler(new g());
 
     public static boolean a(String str, int i, p pVar) {
-        if (System.currentTimeMillis() - oj < 1000) {
+        if (System.currentTimeMillis() - or < 1000) {
             return false;
         }
-        oj = System.currentTimeMillis();
-        if (of == 0) {
-            if (og == null) {
-                og = new h(mHandler);
+        or = System.currentTimeMillis();
+        if (ol == 0) {
+            if (om == null) {
+                om = new h(mHandler);
             }
-            oh = str;
-            oi = pVar;
-            if (og.i(str, i)) {
-                of = 3;
-                new Thread(og).start();
+            oo = str;
+            oq = pVar;
+            if (om.i(str, i)) {
+                ol = 3;
+                new Thread(om).start();
                 return true;
             }
             return false;
@@ -32,16 +32,16 @@ public class f {
     }
 
     public static void stop() {
-        if (og != null) {
-            og.stop();
+        if (om != null) {
+            om.stop();
         }
-        of = 0;
+        ol = 0;
     }
 
     public static void cancel() {
-        if (og != null) {
-            og.cancel();
+        if (om != null) {
+            om.cancel();
         }
-        of = 0;
+        ol = 0;
     }
 }

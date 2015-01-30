@@ -61,11 +61,11 @@ public class BdStatFirstSwitchData implements Serializable {
         boolean z;
         boolean z2;
         boolean z3 = true;
-        String er = f.es().er();
-        if (com.baidu.adp.lib.util.k.isEmpty(er)) {
+        String ep = f.eq().ep();
+        if (com.baidu.adp.lib.util.k.isEmpty(ep)) {
             return false;
         }
-        int[] aj = aj(er);
+        int[] aj = aj(ep);
         int[] aj2 = aj(str);
         int[] aj3 = aj(str2);
         if (aj != null) {

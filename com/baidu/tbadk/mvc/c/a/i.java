@@ -4,11 +4,11 @@ import android.view.View;
 import android.widget.AdapterView;
 /* loaded from: classes.dex */
 class i implements AdapterView.OnItemClickListener {
-    final /* synthetic */ e adM;
+    final /* synthetic */ e aej;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(e eVar) {
-        this.adM = eVar;
+        this.aej = eVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -17,8 +17,8 @@ class i implements AdapterView.OnItemClickListener {
         if (s != null) {
             s.setView(view);
             s.c(adapterView);
-            s.dC(i);
-            if (this.adM.dispatchMvcEvent(s)) {
+            s.dI(i);
+            if (this.aej.dispatchMvcEvent(s)) {
             }
         }
     }

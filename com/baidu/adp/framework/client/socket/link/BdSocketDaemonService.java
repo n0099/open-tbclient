@@ -9,15 +9,20 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.base.BdBaseService;
 /* loaded from: classes.dex */
 public class BdSocketDaemonService extends BdBaseService {
+    private static i sCallBack;
     private b myBinder = new b(this);
     private ServiceConnection conn = new a(this);
+
+    public static void setLinkServiceDisconnectCallBack(i iVar) {
+        sCallBack = iVar;
+    }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
         return this.myBinder;
     }
 
-    @Override // android.app.Service
+    @Override // com.baidu.adp.base.BdBaseService, android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
         return 1;
     }
@@ -26,7 +31,7 @@ public class BdSocketDaemonService extends BdBaseService {
         com.baidu.adp.lib.g.j.a(this, new Intent(this, BdSocketLinkService.class), this.conn, 1);
     }
 
-    @Override // android.app.Service
+    @Override // com.baidu.adp.base.BdBaseService, android.app.Service
     public void onCreate() {
         super.onCreate();
         if (Build.VERSION.SDK_INT < 18) {

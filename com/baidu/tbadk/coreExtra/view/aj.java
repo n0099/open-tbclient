@@ -7,13 +7,13 @@ import com.baidu.tbadk.coreExtra.view.LivePlayingStatusMgr;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aj extends CustomMessageListener {
-    final /* synthetic */ LivePlayingStatusMgr Uy;
+    final /* synthetic */ LivePlayingStatusMgr Vf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public aj(LivePlayingStatusMgr livePlayingStatusMgr, int i) {
         super(i);
-        this.Uy = livePlayingStatusMgr;
+        this.Vf = livePlayingStatusMgr;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,26 +27,26 @@ public class aj extends CustomMessageListener {
         LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus5;
         if (customResponsedMessage.getCmd() == 2001161 && (customResponsedMessage instanceof LiveStatusChangeMessage) && (data = ((LiveStatusChangeMessage) customResponsedMessage).getData()) != null) {
             if (LiveStatusChangeMessage.isPlayingLive(data) || LiveStatusChangeMessage.isPublishing(data)) {
-                livePlayingStatus = this.Uy.Uv;
+                livePlayingStatus = this.Vf.Vc;
                 if (livePlayingStatus != LivePlayingStatusMgr.LivePlayingStatus.IDEL) {
-                    livePlayingStatus2 = this.Uy.Uv;
+                    livePlayingStatus2 = this.Vf.Vc;
                     if (livePlayingStatus2 != LivePlayingStatusMgr.LivePlayingStatus.JOINED) {
-                        livePlayingStatus3 = this.Uy.Uv;
+                        livePlayingStatus3 = this.Vf.Vc;
                         if (livePlayingStatus3 != LivePlayingStatusMgr.LivePlayingStatus.NO_PUBLISHER) {
                             return;
                         }
                     }
                 }
-                this.Uy.a(com.baidu.adp.lib.g.c.toInt(data.groupId, 0), LivePlayingStatusMgr.LivePlayingStatus.PLAYING);
+                this.Vf.a(com.baidu.adp.lib.g.c.toInt(data.groupId, 0), LivePlayingStatusMgr.LivePlayingStatus.PLAYING);
             } else if (data.status == 0) {
-                livePlayingStatus4 = this.Uy.Uv;
+                livePlayingStatus4 = this.Vf.Vc;
                 if (livePlayingStatus4 != LivePlayingStatusMgr.LivePlayingStatus.PAUSE) {
-                    livePlayingStatus5 = this.Uy.Uv;
+                    livePlayingStatus5 = this.Vf.Vc;
                     if (livePlayingStatus5 != LivePlayingStatusMgr.LivePlayingStatus.PLAYING) {
                         return;
                     }
                 }
-                this.Uy.a(0, LivePlayingStatusMgr.LivePlayingStatus.IDEL);
+                this.Vf.a(0, LivePlayingStatusMgr.LivePlayingStatus.IDEL);
             }
         }
     }

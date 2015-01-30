@@ -114,7 +114,7 @@ public class b implements f {
         this.threadId = str;
     }
 
-    public void bF(String str) {
+    public void bD(String str) {
         this.Bc = str;
     }
 
@@ -126,7 +126,7 @@ public class b implements f {
         return this.Bd;
     }
 
-    public void bG(String str) {
+    public void bE(String str) {
         this.Bd = str;
     }
 
@@ -157,7 +157,7 @@ public class b implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean bH(String str) {
+    public boolean bF(String str) {
         if (str != null) {
             try {
                 return d(new JSONObject(str));

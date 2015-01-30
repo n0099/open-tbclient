@@ -1,10 +1,10 @@
 package com.baidu.tbadk.mvc.i.b;
 /* loaded from: classes.dex */
 public class c {
-    private int aeM;
-    private int aeN;
-    private com.baidu.tbadk.mainTab.c aeO;
-    private String aeP;
+    private int afj;
+    private int afk;
+    private com.baidu.tbadk.mainTab.c afl;
+    private String afm;
     private String title;
 
     public String getTitle() {
@@ -15,31 +15,31 @@ public class c {
         this.title = str;
     }
 
-    public int ys() {
-        return this.aeN;
+    public int yI() {
+        return this.afk;
     }
 
-    public com.baidu.tbadk.mainTab.c yt() {
-        return this.aeO;
+    public com.baidu.tbadk.mainTab.c yJ() {
+        return this.afl;
     }
 
     public void a(com.baidu.tbadk.mainTab.c cVar) {
-        this.aeO = cVar;
+        this.afl = cVar;
     }
 
-    public String yu() {
-        return this.aeP;
+    public String yK() {
+        return this.afm;
     }
 
     public void ey(String str) {
-        this.aeP = str;
+        this.afm = str;
     }
 
-    public int yv() {
-        return this.aeM;
+    public int yL() {
+        return this.afj;
     }
 
-    public void dI(int i) {
-        this.aeM = i;
+    public void dO(int i) {
+        this.afj = i;
     }
 }

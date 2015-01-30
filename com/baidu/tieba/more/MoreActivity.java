@@ -5,11 +5,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -19,17 +17,18 @@ import com.baidu.tbadk.core.atomData.BrowseSettingActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.MsgRemindActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonChangeActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.SecretSettingActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tieba.model.MoreModel;
 /* loaded from: classes.dex */
-public class MoreActivity extends BaseActivity<MoreActivity> implements com.baidu.adp.widget.BdSwitchView.c {
-    private af buv;
-    private ab bux;
-    private MoreModel buw = null;
-    private aa buy = null;
+public class MoreActivity extends BaseActivity<MoreActivity> {
+    private af bvR;
+    private ab bvT;
+    private MoreModel bvS = null;
+    private aa bvU = null;
 
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2015004, new w());
@@ -41,12 +40,12 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements com.baid
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.buv = new af(this, Va());
+        this.bvR = new af(this, Vy());
         k(bundle);
         regReceiver();
     }
 
-    private q Va() {
+    private q Vy() {
         return new x(this);
     }
 
@@ -61,8 +60,8 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements com.baid
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.buv != null) {
-            this.buv.refreshNewVersion();
+        if (this.bvR != null) {
+            this.bvR.refreshNewVersion();
         }
     }
 
@@ -70,47 +69,42 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements com.baid
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.buv.onChangeSkinType(i);
+        this.bvR.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onResourceRecycle() {
         setSkinType(-1);
-        this.buv.Rq();
+        this.bvR.RM();
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        bundle.putSerializable(PersonChangeData.TAG_PERSON_INFO, this.buw.getPersonChangeData());
+        bundle.putSerializable(PersonChangeData.TAG_PERSON_INFO, this.bvS.getPersonChangeData());
         super.onSaveInstanceState(bundle);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            Vb();
+            Vz();
         }
         return super.onKeyDown(i, keyEvent);
     }
 
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
-        String portrait;
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
             switch (i) {
-                case 101:
-                    PersonChangeData personChangeData = (PersonChangeData) intent.getSerializableExtra("data");
-                    this.buw.setPersonChangeData(personChangeData);
-                    this.buw.ds(true);
-                    if (personChangeData != null && personChangeData.getPhotoChanged() && this.buv != null && (portrait = personChangeData.getPortrait()) != null && portrait.length() > 0 && this.buv != null) {
-                        this.buv.u(portrait, true);
-                        return;
-                    }
+                case PersonInfoActivityConfig.REQUSET_CHANGE /* 101 */:
+                    this.bvS.setPersonChangeData((PersonChangeData) intent.getSerializableExtra("data"));
+                    this.bvS.dx(true);
+                    this.bvT.e(false, true);
                     return;
                 case 12008:
-                    Vc();
+                    VA();
                     return;
                 default:
                     return;
@@ -118,10 +112,10 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements com.baid
         }
     }
 
-    private void Vb() {
-        if (this.buw.Un()) {
+    private void Vz() {
+        if (this.bvS.UL()) {
             Intent intent = new Intent();
-            intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.buw.getPersonChangeData());
+            intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.bvS.getPersonChangeData());
             setResult(-1, intent);
         }
     }
@@ -134,11 +128,10 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements com.baid
             personChangeData = (PersonChangeData) getIntent().getSerializableExtra(PersonChangeData.TAG_PERSON_INFO);
         }
         if (personChangeData == null) {
-            this.bux = new ab(this);
-            this.bux.setUniqueId(getUniqueId());
-            this.bux.setId(TbadkCoreApplication.getCurrentAccount());
-            this.bux.setLoadDataCallBack(new y(this));
-            this.bux.d(true, true);
+            this.bvT = new ab(this);
+            this.bvT.setUniqueId(getUniqueId());
+            this.bvT.setLoadDataCallBack(new y(this));
+            this.bvT.e(true, true);
         }
         a(personChangeData);
     }
@@ -146,31 +139,27 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements com.baid
     /* JADX INFO: Access modifiers changed from: private */
     public void a(PersonChangeData personChangeData) {
         if (personChangeData != null && personChangeData.getPortrait() != null) {
-            this.buv.u(personChangeData.getPortrait(), false);
+            this.bvR.u(personChangeData.getPortrait(), false);
         }
-        this.buw = new MoreModel(personChangeData);
-        this.buw.setLoadDataCallBack(new z(this));
+        this.bvS = new MoreModel(personChangeData);
+        this.bvS.setLoadDataCallBack(new z(this));
     }
 
     private void regReceiver() {
-        this.buy = new aa(this, null);
+        this.bvU = new aa(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
-        registerReceiver(this.buy, intentFilter);
+        registerReceiver(this.bvU, intentFilter);
     }
 
     private void unregReceiver() {
-        if (this.buy != null) {
-            unregisterReceiver(this.buy);
+        if (this.bvU != null) {
+            unregisterReceiver(this.bvU);
         }
     }
 
-    @Override // com.baidu.adp.widget.BdSwitchView.c
-    public void a(View view, BdSwitchView.SwitchState switchState) {
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
-    public void Vc() {
+    public void VA() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
             sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) getPageContext().getPageActivity(), getPageContext().getString(com.baidu.tieba.z.login_feedback), true, 12008)));
@@ -187,7 +176,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements com.baid
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Vd() {
+    public void VB() {
         String str;
         String str2 = TbConfig.RECOMMEND_APP_ADDRESS;
         if (str2.indexOf("?") < 0) {
@@ -204,17 +193,17 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements com.baid
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ve() {
+    public void VC() {
         sendMessage(new CustomMessage(2002001, new AboutActivityConfig(getPageContext().getPageActivity())));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Vf() {
+    public void VD() {
         sendMessage(new CustomMessage(2002001, new BrowseSettingActivityConfig(getPageContext().getPageActivity())));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Vg() {
+    public void VE() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if ((currentAccount == null || currentAccount.length() <= 0) && com.baidu.tbadk.core.account.a.mj() <= 0) {
             sendMessage(new CustomMessage(2002001, new LoginActivityConfig(getPageContext().getPageActivity(), 1, getPageContext().getString(com.baidu.tieba.z.login_manage_account), 11003)));
@@ -224,26 +213,26 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements com.baid
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Vh() {
+    public void VF() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            sendMessage(new CustomMessage(2002001, new PersonChangeActivityConfig(getPageContext().getPageActivity(), 101, this.buw.getPersonChangeData(), false)));
+            sendMessage(new CustomMessage(2002001, new PersonChangeActivityConfig(getPageContext().getPageActivity(), PersonInfoActivityConfig.REQUSET_CHANGE, this.bvS.getPersonChangeData(), false)));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Vi() {
-        Vb();
+    public void VG() {
+        Vz();
         finish();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Vj() {
+    public void VH() {
         sendMessage(new CustomMessage(2002001, new MsgRemindActivityConfig(getPageContext().getPageActivity())));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Vk() {
+    public void VI() {
         sendMessage(new CustomMessage(2002001, new SecretSettingActivityConfig(getPageContext().getPageActivity())));
     }
 }

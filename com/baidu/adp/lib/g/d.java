@@ -10,14 +10,14 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class d extends Resources {
-    private static final ColorStateList lx = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
-    private boolean lA;
-    private Resources ly;
+    private static final ColorStateList lB = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
+    private Resources lC;
+    private boolean lD;
 
     public d(Resources resources) {
         super(resources.getAssets(), resources.getDisplayMetrics(), resources.getConfiguration());
-        this.ly = resources;
-        this.lA = false;
+        this.lC = resources;
+        this.lD = false;
     }
 
     @Override // android.content.res.Resources
@@ -27,14 +27,14 @@ public class d extends Resources {
             int i3 = i2;
             if (i3 < 3) {
                 try {
-                    return this.ly.getDrawable(i);
+                    return this.lC.getDrawable(i);
                 } catch (OutOfMemoryError e) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.lA)) {
+                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.lD)) {
                         throw e;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
                 } catch (RuntimeException e2) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.lA)) {
+                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.lD)) {
                         throw e2;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
@@ -55,14 +55,14 @@ public class d extends Resources {
             int i3 = i2;
             if (i3 < 3) {
                 try {
-                    return this.ly.getString(i);
+                    return this.lC.getString(i);
                 } catch (OutOfMemoryError e) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.lA)) {
+                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.lD)) {
                         throw e;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
                 } catch (RuntimeException e2) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.lA)) {
+                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.lD)) {
                         throw e2;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
@@ -89,15 +89,15 @@ public class d extends Resources {
         while (true) {
             if (i3 < 3) {
                 try {
-                    i2 = this.ly.getColor(i);
+                    i2 = this.lC.getColor(i);
                     break;
                 } catch (OutOfMemoryError e) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.lA)) {
+                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.lD)) {
                         throw e;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
                 } catch (RuntimeException e2) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.lA)) {
+                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.lD)) {
                         throw e2;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
@@ -118,21 +118,21 @@ public class d extends Resources {
             int i3 = i2;
             if (i3 < 3) {
                 try {
-                    return this.ly.getColorStateList(i);
+                    return this.lC.getColorStateList(i);
                 } catch (OutOfMemoryError e) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.lA)) {
+                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.lD)) {
                         throw e;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
                 } catch (RuntimeException e2) {
-                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.lA)) {
+                    if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.lD)) {
                         throw e2;
                     }
                     BdBaseApplication.getInst().onAppMemoryLow();
                 }
             } else {
                 g("colorstatelist", i);
-                return lx;
+                return lB;
             }
             i2 = i3 + 1;
         }
@@ -141,22 +141,22 @@ public class d extends Resources {
 
     @Override // android.content.res.Resources
     public InputStream openRawResource(int i) {
-        return this.ly.openRawResource(i);
+        return this.lC.openRawResource(i);
     }
 
     @Override // android.content.res.Resources
     public InputStream openRawResource(int i, TypedValue typedValue) {
-        return this.ly.openRawResource(i, typedValue);
+        return this.lC.openRawResource(i, typedValue);
     }
 
     private final void g(String str, int i) {
         String str2 = null;
         try {
-            str2 = this.ly.getResourceEntryName(i);
+            str2 = this.lC.getResourceEntryName(i);
         } catch (Exception e) {
         }
         try {
-            com.baidu.adp.lib.stats.f.es().a("resources", str, (String) null, (String) null, -9115, (String) null, "resid", Integer.valueOf(i), "resname", str2 == null ? "" : str2);
+            com.baidu.adp.lib.stats.f.eq().a("resources", str, (String) null, (String) null, -9115, (String) null, "resid", Integer.valueOf(i), "resname", str2 == null ? "" : str2);
         } catch (Exception e2) {
             BdLog.e(e2.toString());
         }

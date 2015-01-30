@@ -17,7 +17,7 @@ public class b implements CustomMessageTask.CustomRunnable<Object> {
         if (currentAccount == null) {
             currentAccount = "";
         }
-        String str = com.baidu.tbadk.core.a.a.nS().bV("tb.recommend_friend").get(currentAccount);
+        String str = com.baidu.tbadk.core.a.a.nV().bT("tb.recommend_friend").get(currentAccount);
         com.baidu.tieba.im.searchfriend.a.a aVar = new com.baidu.tieba.im.searchfriend.a.a();
         if (!TextUtils.isEmpty(str)) {
             try {

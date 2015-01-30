@@ -1,25 +1,28 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
+import android.location.Address;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tieba.im.chat.personaltalk.RequestPersonalLbsInfoMessage;
+import com.baidu.tieba.im.model.PersonalMsglistModel;
 /* loaded from: classes.dex */
-class ci implements View.OnClickListener {
-    final /* synthetic */ PersonalChatView aRR;
+class ci implements com.baidu.adp.lib.d.d {
+    final /* synthetic */ PersonalChatActivity aSN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ci(PersonalChatView personalChatView) {
-        this.aRR = personalChatView;
+    public ci(PersonalChatActivity personalChatActivity) {
+        this.aSN = personalChatActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PersonalChatActivity personalChatActivity;
-        PersonalChatActivity personalChatActivity2;
-        personalChatActivity = this.aRR.aRJ;
-        if (!personalChatActivity.Kn()) {
-            personalChatActivity2 = this.aRR.aRJ;
-            personalChatActivity2.showToast(com.baidu.tieba.z.add_friend_cannot_send);
-            return;
+    @Override // com.baidu.adp.lib.d.d
+    public void b(int i, String str, Address address) {
+        if (i == 0 && address != null) {
+            String valueOf = String.valueOf(address.getLatitude());
+            String valueOf2 = String.valueOf(address.getLongitude());
+            UserData user = ((PersonalMsglistModel) this.aSN.mListModel).getUser();
+            if (user != null) {
+                this.aSN.mUser = user;
+                this.aSN.sendMessage(new RequestPersonalLbsInfoMessage(205101, user.getUserIdLong(), valueOf, valueOf2));
+            }
         }
-        this.aRR.sendSoftkeyEvent();
     }
 }

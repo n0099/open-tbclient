@@ -12,10 +12,10 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public final class ShareFromPBView extends LinearLayout {
-    private TextView avu;
-    private HeadImageView bpr;
-    private ShareFromPBMsgData bps;
-    private TextView title;
+    private TextView Xo;
+    private TextView awu;
+    private HeadImageView bqP;
+    private ShareFromPBMsgData bqQ;
 
     public ShareFromPBView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -28,33 +28,33 @@ public final class ShareFromPBView extends LinearLayout {
     }
 
     private void initUI() {
-        com.baidu.adp.lib.g.b.ek().inflate(getContext(), x.share_from_pb_view, this);
+        com.baidu.adp.lib.g.b.ei().inflate(getContext(), x.share_from_pb_view, this);
         setOrientation(1);
-        this.title = (TextView) findViewById(w.chat_title);
-        this.bpr = (HeadImageView) findViewById(w.chat_group_img);
-        this.avu = (TextView) findViewById(w.chat_group_desc);
+        this.Xo = (TextView) findViewById(w.chat_title);
+        this.bqP = (HeadImageView) findViewById(w.chat_group_img);
+        this.awu = (TextView) findViewById(w.chat_group_desc);
     }
 
     public void setIsLeft(boolean z) {
         if (z) {
-            this.title.setTextColor(getContext().getResources().getColor(t.cp_cont_b));
-            this.avu.setTextColor(getContext().getResources().getColor(t.cp_cont_f));
+            this.Xo.setTextColor(getContext().getResources().getColor(t.cp_cont_b));
+            this.awu.setTextColor(getContext().getResources().getColor(t.cp_cont_f));
             return;
         }
-        this.title.setTextColor(getContext().getResources().getColor(t.cp_cont_g));
-        this.avu.setTextColor(getContext().getResources().getColor(t.cp_cont_g));
+        this.Xo.setTextColor(getContext().getResources().getColor(t.cp_cont_g));
+        this.awu.setTextColor(getContext().getResources().getColor(t.cp_cont_g));
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.bps = shareFromPBMsgData;
-        qw();
+        this.bqQ = shareFromPBMsgData;
+        qH();
     }
 
-    private void qw() {
-        this.title.setText(this.bps.getTitle());
-        this.bpr.setDefaultResource(v.icon_default_ba_120);
-        this.bpr.setAutoChangeStyle(false);
-        this.bpr.d(this.bps.getImageUrl(), 10, false);
-        this.avu.setText(this.bps.getContent());
+    private void qH() {
+        this.Xo.setText(this.bqQ.getTitle());
+        this.bqP.setDefaultResource(v.icon_default_ba_120);
+        this.bqP.setAutoChangeStyle(false);
+        this.bqP.d(this.bqQ.getImageUrl(), 10, false);
+        this.awu.setText(this.bqQ.getContent());
     }
 }

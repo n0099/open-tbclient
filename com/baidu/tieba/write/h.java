@@ -11,13 +11,13 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends BdAsyncTask<String, Integer, com.baidu.tieba.data.q> {
-    private com.baidu.tbadk.core.util.ad CV;
-    final /* synthetic */ AtListActivity cdZ;
+    private com.baidu.tbadk.core.util.ad CX;
+    final /* synthetic */ AtListActivity cfy;
     private String mString;
 
     private h(AtListActivity atListActivity) {
-        this.cdZ = atListActivity;
-        this.CV = null;
+        this.cfy = atListActivity;
+        this.CX = null;
         this.mString = null;
     }
 
@@ -30,7 +30,7 @@ public class h extends BdAsyncTask<String, Integer, com.baidu.tieba.data.q> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         ProgressBar progressBar;
-        progressBar = this.cdZ.mProgress;
+        progressBar = this.cfy.mProgress;
         progressBar.setVisibility(0);
         super.onPreExecute();
     }
@@ -38,9 +38,9 @@ public class h extends BdAsyncTask<String, Integer, com.baidu.tieba.data.q> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.cdZ.cdP = null;
+        this.cfy.cfo = null;
         this.mString = null;
-        progressBar = this.cdZ.mProgress;
+        progressBar = this.cfy.mProgress;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -52,21 +52,21 @@ public class h extends BdAsyncTask<String, Integer, com.baidu.tieba.data.q> {
     public com.baidu.tieba.data.q doInBackground(String... strArr) {
         com.baidu.tieba.model.c cVar;
         this.mString = strArr[0];
-        this.CV = new com.baidu.tbadk.core.util.ad();
+        this.CX = new com.baidu.tbadk.core.util.ad();
         if (this.mString != null && this.mString.length() > 0) {
-            this.CV.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/follow/sug");
-            this.CV.o(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
-            this.CV.o("q", this.mString);
-            String ov = this.CV.ov();
-            if (this.CV.oW().pW().ma()) {
+            this.CX.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/follow/sug");
+            this.CX.o(SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount());
+            this.CX.o("q", this.mString);
+            String oy = this.CX.oy();
+            if (this.CX.oZ().qh().ma()) {
                 com.baidu.tieba.data.q qVar = new com.baidu.tieba.data.q();
-                cVar = this.cdZ.cdR;
-                com.baidu.tieba.data.h TX = cVar.TX();
-                if (TX != null) {
-                    qVar.a(ov, TX.Cs());
+                cVar = this.cfy.cfq;
+                com.baidu.tieba.data.h Uv = cVar.Uv();
+                if (Uv != null) {
+                    qVar.a(oy, Uv.CR());
                     return qVar;
                 }
-                qVar.a(ov, (HashMap<String, String>) null);
+                qVar.a(oy, (HashMap<String, String>) null);
                 return qVar;
             }
         }
@@ -84,27 +84,27 @@ public class h extends BdAsyncTask<String, Integer, com.baidu.tieba.data.q> {
         j jVar;
         j jVar2;
         BdListView bdListView;
-        this.cdZ.cdP = null;
-        progressBar = this.cdZ.mProgress;
+        this.cfy.cfo = null;
+        progressBar = this.cfy.mProgress;
         progressBar.setVisibility(8);
-        if (this.CV.oW().pW().ma() && this.mString != null) {
-            editText = this.cdZ.mEditText;
+        if (this.CX.oZ().qh().ma() && this.mString != null) {
+            editText = this.cfy.mEditText;
             if (com.baidu.adp.lib.util.k.a(editText.getText(), "").equals(this.mString)) {
-                if (!qVar.Cz().isEmpty()) {
-                    this.cdZ.eJ(false);
+                if (!qVar.CY().isEmpty()) {
+                    this.cfy.eO(false);
                 }
-                cVar = this.cdZ.cdR;
+                cVar = this.cfy.cfq;
                 cVar.a(qVar);
-                jVar = this.cdZ.cdS;
-                jVar.r(qVar.Cz());
-                jVar2 = this.cdZ.cdS;
+                jVar = this.cfy.cfr;
+                jVar.s(qVar.CY());
+                jVar2 = this.cfy.cfr;
                 jVar2.notifyDataSetInvalidated();
-                bdListView = this.cdZ.mListView;
+                bdListView = this.cfy.mListView;
                 bdListView.setSelection(0);
                 super.onPostExecute(qVar);
             }
         }
-        this.cdZ.showToast(this.CV.getErrorString());
+        this.cfy.showToast(this.CX.getErrorString());
         super.onPostExecute(qVar);
     }
 }

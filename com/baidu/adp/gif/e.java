@@ -2,17 +2,17 @@ package com.baidu.adp.gif;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements Runnable {
-    final /* synthetic */ NSGif fA;
-    private final /* synthetic */ int fB;
+    final /* synthetic */ NSGif fC;
+    private final /* synthetic */ int fD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(NSGif nSGif, int i) {
-        this.fA = nSGif;
-        this.fB = i;
+        this.fC = nSGif;
+        this.fD = i;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        NSGif.nativeDestroy(this.fB);
+        NSGif.nativeDestroy(this.fD);
     }
 }

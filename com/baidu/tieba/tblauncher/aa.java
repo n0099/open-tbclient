@@ -1,18 +1,33 @@
 package com.baidu.tieba.tblauncher;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.data.NewsNotifyMessage;
 /* loaded from: classes.dex */
-public class aa implements DialogInterface.OnClickListener {
+class aa extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(MainTabActivity mainTabActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aa(MainTabActivity mainTabActivity, int i) {
+        super(i);
         this.this$0 = mainTabActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tbadk.core.b.b.a(this.this$0.getPageContext().getPageActivity(), 12, false);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ai aiVar;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124) {
+            if (!(customResponsedMessage instanceof NewsNotifyMessage)) {
+                BdLog.e("transform error");
+            } else if (MainTabActivity.ccE) {
+                NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
+                int msgReplyme = newsNotifyMessage.getMsgReplyme() + newsNotifyMessage.getMsgAtme();
+                aiVar = this.this$0.ccK;
+                aiVar.im(msgReplyme);
+            }
+        }
     }
 }

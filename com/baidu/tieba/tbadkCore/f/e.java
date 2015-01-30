@@ -3,23 +3,23 @@ package com.baidu.tieba.tbadkCore.f;
 import com.baidu.tbadk.core.data.AntiData;
 /* loaded from: classes.dex */
 public class e {
-    private String bZM;
-    private String bZN;
-    final AntiData bqf;
+    final AntiData brD;
+    private String cbF;
+    private String cbG;
     final int errorCode;
     private String errorString;
 
     public e(int i, String str, AntiData antiData) {
         this.errorCode = i;
         this.errorString = str;
-        this.bqf = antiData;
+        this.brD = antiData;
     }
 
     public boolean hasError() {
         return this.errorCode != 0;
     }
 
-    public boolean aid() {
+    public boolean aiH() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
@@ -31,23 +31,23 @@ public class e {
         this.errorString = str;
     }
 
-    public AntiData abp() {
-        return this.bqf;
+    public AntiData abT() {
+        return this.brD;
     }
 
-    public String aie() {
-        return this.bZM;
+    public String aiI() {
+        return this.cbF;
     }
 
-    public void iq(String str) {
-        this.bZM = str;
+    public void ix(String str) {
+        this.cbF = str;
     }
 
-    public String aif() {
-        return this.bZN;
+    public String aiJ() {
+        return this.cbG;
     }
 
-    public void ir(String str) {
-        this.bZN = str;
+    public void iy(String str) {
+        this.cbG = str;
     }
 }

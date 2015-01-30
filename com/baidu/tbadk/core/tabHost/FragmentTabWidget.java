@@ -8,22 +8,22 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.t;
 import com.baidu.tieba.v;
 /* loaded from: classes.dex */
 public class FragmentTabWidget extends LinearLayout {
-    private int GJ;
-    private int GK;
-    private c GL;
-    private final Rect GM;
-    private final Rect GN;
-    private int GP;
-    private int GQ;
-    private int GR;
-    private int GS;
-    private boolean GT;
+    private int GT;
+    private int GU;
+    private d GV;
+    private final Rect GW;
+    private final Rect GX;
+    private int GY;
+    private int GZ;
+    private int Ha;
+    private int Hb;
+    private boolean Hc;
     private int left;
     private int mChildCount;
     private int mHeight;
@@ -32,21 +32,21 @@ public class FragmentTabWidget extends LinearLayout {
 
     public FragmentTabWidget(Context context) {
         super(context);
-        this.GK = -1;
-        this.GM = new Rect();
-        this.GN = new Rect();
+        this.GU = -1;
+        this.GW = new Rect();
+        this.GX = new Rect();
         this.mPaint = new Paint();
-        this.GT = true;
+        this.Hc = true;
         init();
     }
 
     public FragmentTabWidget(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.GK = -1;
-        this.GM = new Rect();
-        this.GN = new Rect();
+        this.GU = -1;
+        this.GW = new Rect();
+        this.GX = new Rect();
         this.mPaint = new Paint();
-        this.GT = true;
+        this.Hc = true;
         init();
     }
 
@@ -54,21 +54,21 @@ public class FragmentTabWidget extends LinearLayout {
         this.mPaint = new Paint(6);
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.GP = l.dip2px(getContext(), 1.0f);
-        this.GQ = l.dip2px(getContext(), 3.0f);
+        this.GY = l.dip2px(getContext(), 1.0f);
+        this.GZ = l.dip2px(getContext(), 3.0f);
         setWillNotDraw(false);
-        this.GJ = v.bg_navigation_bar;
+        this.GT = v.bg_navigation_bar;
     }
 
     public void d(int i, boolean z) {
-        if (i >= 0 && i < getChildCount() && this.GK != i) {
-            if (this.GK != -1) {
-                getChildAt(this.GK).setSelected(false);
+        if (i >= 0 && i < getChildCount() && this.GU != i) {
+            if (this.GU != -1) {
+                getChildAt(this.GU).setSelected(false);
             }
-            this.GK = i;
-            getChildAt(this.GK).setSelected(true);
+            this.GU = i;
+            getChildAt(this.GU).setSelected(true);
             if (z) {
-                a(this.GK, 0.0f);
+                a(this.GU, 0.0f);
             }
         }
     }
@@ -77,14 +77,14 @@ public class FragmentTabWidget extends LinearLayout {
     public void addView(View view) {
         l(view);
         super.addView(view);
-        view.setOnClickListener(new d(this, getChildCount() - 1, null));
+        view.setOnClickListener(new e(this, getChildCount() - 1, null));
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i) {
         l(view);
         super.addView(view, i);
-        view.setOnClickListener(new d(this, getChildCount() - 1, null));
+        view.setOnClickListener(new e(this, getChildCount() - 1, null));
     }
 
     private void l(View view) {
@@ -97,7 +97,7 @@ public class FragmentTabWidget extends LinearLayout {
 
     public void reset() {
         removeAllViews();
-        this.GK = -1;
+        this.GU = -1;
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
@@ -107,34 +107,34 @@ public class FragmentTabWidget extends LinearLayout {
         if (this.mChildCount != 0) {
             this.mWidth = i3 - i;
             this.mHeight = i4 - i2;
-            this.GS = this.mWidth / this.mChildCount;
-            if (this.GK != -1) {
-                a(this.GK, 0.0f);
+            this.Hb = this.mWidth / this.mChildCount;
+            if (this.GU != -1) {
+                a(this.GU, 0.0f);
             }
-            int i5 = this.mHeight - this.GP;
-            this.GN.set(0, i5, this.mWidth, this.GP + i5);
+            int i5 = this.mHeight - this.GY;
+            this.GX.set(0, i5, this.mWidth, this.GY + i5);
         }
     }
 
     public void a(int i, float f) {
-        this.left = this.GS * i;
-        this.left += (int) (this.GS * f);
-        this.GM.set(this.left, this.mHeight - this.GQ, this.left + this.GS, this.mHeight);
+        this.left = this.Hb * i;
+        this.left += (int) (this.Hb * f);
+        this.GW.set(this.left, this.mHeight - this.GZ, this.left + this.Hb, this.mHeight);
         postInvalidateDelayed(16L);
     }
 
     public void setBackGroundDrawableResId(int i) {
-        this.GJ = i;
+        this.GT = i;
     }
 
     public void onChangeSkinType(int i) {
-        ax.i(this, this.GJ);
-        this.GR = ax.getColor(t.cp_link_tip_a);
+        bc.i(this, this.GT);
+        this.Ha = bc.getColor(t.cp_link_tip_a);
         int childCount = getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
             View childAt = getChildAt(i2);
             if (childAt instanceof FragmentTabIndicator) {
-                ((FragmentTabIndicator) childAt).cm(i);
+                ((FragmentTabIndicator) childAt).ct(i);
             }
         }
         invalidate();
@@ -143,17 +143,17 @@ public class FragmentTabWidget extends LinearLayout {
     @Override // android.view.View
     public void draw(Canvas canvas) {
         super.draw(canvas);
-        if (this.GT) {
-            this.mPaint.setColor(this.GR);
-            canvas.drawRect(this.GM, this.mPaint);
+        if (this.Hc) {
+            this.mPaint.setColor(this.Ha);
+            canvas.drawRect(this.GW, this.mPaint);
         }
     }
 
     public void setShouldDrawIndicatorLine(boolean z) {
-        this.GT = z;
+        this.Hc = z;
     }
 
-    public void setTabSelectionListener(c cVar) {
-        this.GL = cVar;
+    public void setTabSelectionListener(d dVar) {
+        this.GV = dVar;
     }
 }

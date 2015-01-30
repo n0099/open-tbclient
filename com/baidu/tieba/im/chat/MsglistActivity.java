@@ -4,14 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public abstract class MsglistActivity<T> extends TalkableActivity<T> implements ar {
-    protected abstract boolean first(ar arVar);
+public abstract class MsglistActivity<T> extends TalkableActivity<T> implements au {
+    protected abstract boolean first(au auVar);
 
     protected abstract boolean initData(Bundle bundle);
 
     protected abstract void initView();
 
-    @Override // com.baidu.tieba.im.chat.ar
+    @Override // com.baidu.tieba.im.chat.au
     public void onFirstHistoryPageLoaded() {
         onPageInited();
     }
@@ -35,7 +35,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         if (first(this)) {
             loadDraft();
             regReceiver();
-            cs.aRV = com.baidu.tbadk.util.e.zy();
+            cv.aTe = com.baidu.tbadk.util.h.zR();
         }
     }
 

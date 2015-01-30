@@ -27,8 +27,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.bf;
-import com.baidu.tieba.z;
+import com.baidu.tbadk.core.util.bk;
 import com.compatible.menukey.MenuKeyUtils;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -75,7 +74,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         MenuKeyUtils.hideSmartBarMenu(getPageContext().getPageActivity());
         super.onCreate(bundle);
         TbadkCoreApplication.setIsAppRunning(true);
-        bf.cJ(getClass().getName());
+        bk.cI(getClass().getName());
         this.mLayoutMode = new c();
         registerListener(this.nightResourcesChangeListener);
     }
@@ -87,7 +86,16 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         super.onResume();
         changeSkinType(TbadkCoreApplication.m255getInst().getSkinType());
         TbadkCoreApplication.m255getInst().AddResumeNum();
-        bf.cJ(getClass().getName());
+        bk.cI(getClass().getName());
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onStop() {
+        super.onStop();
+        if (!com.baidu.adp.lib.util.l.l(getActivity())) {
+            TbadkCoreApplication.m255getInst().onLowMemory();
+        }
     }
 
     protected void addGlobalLayoutListener() {
@@ -167,7 +175,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             if (str != null) {
                 this.mWaitingDialog = ProgressDialog.show(getPageContext().getContext(), "", str, true, false, this.mDialogListener);
             } else {
-                this.mWaitingDialog = ProgressDialog.show(getPageContext().getContext(), "", TbadkCoreApplication.m255getInst().getResources().getString(z.Waiting), true, false, this.mDialogListener);
+                this.mWaitingDialog = ProgressDialog.show(getPageContext().getContext(), "", TbadkCoreApplication.m255getInst().getResources().getString(com.baidu.tieba.z.Waiting), true, false, this.mDialogListener);
             }
         }
     }
@@ -180,7 +188,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         if (str != null) {
             this.mWaitingDialog = ProgressDialog.show(getPageContext().getContext(), "", str, true, true, onCancelListener);
         } else {
-            this.mWaitingDialog = ProgressDialog.show(getPageContext().getContext(), "", TbadkCoreApplication.m255getInst().getResources().getString(z.Waiting), true, true, onCancelListener);
+            this.mWaitingDialog = ProgressDialog.show(getPageContext().getContext(), "", TbadkCoreApplication.m255getInst().getResources().getString(com.baidu.tieba.z.Waiting), true, true, onCancelListener);
         }
     }
 
@@ -228,19 +236,19 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void showToastWithIcon(String str, int i) {
-        BdToast.a(getPageContext().getContext(), str, i).nY();
+        BdToast.a(getPageContext().getContext(), str, i).ob();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getPageContext().getContext(), str, i, i2).nY();
+        BdToast.a(getPageContext().getContext(), str, i, i2).ob();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getPageContext().getContext(), str, defaultIcon).nY();
+        BdToast.a(getPageContext().getContext(), str, defaultIcon).ob();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getPageContext().getContext(), str, defaultIcon, i).nY();
+        BdToast.a(getPageContext().getContext(), str, defaultIcon, i).ob();
     }
 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.view.LayoutInflater.Factory

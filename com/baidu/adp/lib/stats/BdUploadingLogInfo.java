@@ -36,9 +36,9 @@ public class BdUploadingLogInfo extends ArrayList<ArrayList<s>> {
         eVar.q(this.mUseSdCard);
         if (this.mCanTrySuccess) {
             eVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-            eVar.z(3);
+            eVar.E(3);
         }
-        com.baidu.adp.lib.Disk.d.bO().b(eVar);
+        com.baidu.adp.lib.Disk.d.bM().b(eVar);
         if (eVar.isSuccess()) {
             return eVar.getContent();
         }

@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class SignAllForumStatic {
-    private static com.baidu.tbadk.c.d byk;
+    private static com.baidu.tbadk.c.d bzT;
     private static View.OnClickListener mClickListener = new ab();
     private static Context mContext;
 

@@ -5,12 +5,12 @@ import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends BdAsyncTask<String, Void, Boolean> {
-    Process Vw;
-    final /* synthetic */ j Vx;
+    Process Wb;
+    final /* synthetic */ j Wc;
 
     private k(j jVar) {
-        this.Vx = jVar;
-        this.Vw = null;
+        this.Wc = jVar;
+        this.Wb = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,19 +28,19 @@ public class k extends BdAsyncTask<String, Void, Boolean> {
         if (strArr != null && strArr.length >= 1) {
             try {
                 try {
-                    this.Vw = Runtime.getRuntime().exec(strArr[0]);
-                    boolean z2 = this.Vw.waitFor() == 0;
-                    this.Vw.destroy();
+                    this.Wb = Runtime.getRuntime().exec(strArr[0]);
+                    boolean z2 = this.Wb.waitFor() == 0;
+                    this.Wb.destroy();
                     z = z2;
                 } catch (IOException e) {
                     e.printStackTrace();
-                    this.Vw.destroy();
+                    this.Wb.destroy();
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
-                    this.Vw.destroy();
+                    this.Wb.destroy();
                 }
             } catch (Throwable th) {
-                this.Vw.destroy();
+                this.Wb.destroy();
                 throw th;
             }
         }
@@ -55,21 +55,21 @@ public class k extends BdAsyncTask<String, Void, Boolean> {
         m mVar2;
         l lVar2;
         super.onCancelled();
-        if (this.Vw != null) {
+        if (this.Wb != null) {
             try {
-                this.Vw.destroy();
+                this.Wb.destroy();
             } catch (Throwable th) {
                 th.printStackTrace();
             }
         }
-        lVar = this.Vx.Vu;
+        lVar = this.Wc.VZ;
         if (lVar != null) {
-            lVar2 = this.Vx.Vu;
-            lVar2.aB(false);
+            lVar2 = this.Wc.VZ;
+            lVar2.aD(false);
         }
-        mVar = this.Vx.Vt;
+        mVar = this.Wc.VY;
         if (mVar != null) {
-            mVar2 = this.Vx.Vt;
+            mVar2 = this.Wc.VY;
             mVar2.removeMessages(0);
         }
     }
@@ -83,14 +83,14 @@ public class k extends BdAsyncTask<String, Void, Boolean> {
         m mVar;
         m mVar2;
         l lVar2;
-        lVar = this.Vx.Vu;
+        lVar = this.Wc.VZ;
         if (lVar != null) {
-            lVar2 = this.Vx.Vu;
-            lVar2.aB(bool == null ? false : bool.booleanValue());
+            lVar2 = this.Wc.VZ;
+            lVar2.aD(bool == null ? false : bool.booleanValue());
         }
-        mVar = this.Vx.Vt;
+        mVar = this.Wc.VY;
         if (mVar != null) {
-            mVar2 = this.Vx.Vt;
+            mVar2 = this.Wc.VY;
             mVar2.removeMessages(0);
         }
     }

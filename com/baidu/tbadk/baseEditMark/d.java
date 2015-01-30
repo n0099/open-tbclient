@@ -45,15 +45,15 @@ public class d extends BdAsyncTask<a, Integer, Boolean> {
             }
             while (lh >= 0) {
                 String m = aVar.m(lh, 20);
-                this.AR.q(new ArrayList<>());
+                this.AR.r(new ArrayList<>());
                 this.AR.o("data", m);
-                this.AS.parserJson(this.AR.ov());
-                if (!this.AR.oW().pW().ma() || this.AS.getErrorCode() != 0) {
+                this.AS.parserJson(this.AR.oy());
+                if (!this.AR.oZ().qh().ma() || this.AS.getErrorCode() != 0) {
                     break;
                 }
                 lh -= 20;
             }
-            this.AT.aJ(lh);
+            this.AT.aO(lh);
             if (lh >= 0) {
                 return false;
             }
@@ -68,7 +68,7 @@ public class d extends BdAsyncTask<a, Integer, Boolean> {
     public void cancel() {
         super.cancel(true);
         if (this.AR != null) {
-            this.AR.dL();
+            this.AR.dJ();
         }
         this.AT.AJ = null;
         if (this.AT.AQ != null) {
@@ -90,7 +90,7 @@ public class d extends BdAsyncTask<a, Integer, Boolean> {
             arrayList.clear();
             str = null;
             z = false;
-        } else if (this.AR.oW().pW().ma()) {
+        } else if (this.AR.oZ().qh().ma()) {
             str = this.AS.getErrorString();
             z = false;
         } else {

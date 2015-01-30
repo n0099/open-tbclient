@@ -6,13 +6,13 @@ import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements com.baidu.tbadk.editortool.w {
-    private final /* synthetic */ com.baidu.tbadk.editortool.w aBH;
-    final /* synthetic */ PbEditor bUy;
+    private final /* synthetic */ com.baidu.tbadk.editortool.w aCI;
+    final /* synthetic */ PbEditor bWq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(PbEditor pbEditor, com.baidu.tbadk.editortool.w wVar) {
-        this.bUy = pbEditor;
-        this.aBH = wVar;
+        this.bWq = pbEditor;
+        this.aCI = wVar;
     }
 
     @Override // com.baidu.tbadk.editortool.w
@@ -22,110 +22,108 @@ public class ae implements com.baidu.tbadk.editortool.w {
         TbPageContext tbPageContext2;
         if (i == 20) {
             if (obj != null && (obj instanceof com.baidu.tbadk.coreExtra.data.f)) {
-                if (this.bUy.Fl()) {
-                    com.baidu.adp.lib.util.l.showToast(this.bUy.getContext(), com.baidu.tieba.z.over_limit_tip);
+                if (this.bWq.FJ()) {
+                    com.baidu.adp.lib.util.l.showToast(this.bWq.getContext(), com.baidu.tieba.z.over_limit_tip);
                     return;
                 }
                 com.baidu.tbadk.coreExtra.data.f fVar = (com.baidu.tbadk.coreExtra.data.f) obj;
                 if (fVar.getName() != null) {
-                    if (PbEditor.ic(this.bUy.bUr.getEditText().getText().toString()) >= 10) {
-                        tbPageContext = this.bUy.mPageContext;
+                    if (PbEditor.ik(this.bWq.bWj.getEditText().getText().toString()) >= 10) {
+                        tbPageContext = this.bWq.mPageContext;
                         if (tbPageContext != null) {
-                            tbPageContext2 = this.bUy.mPageContext;
-                            tbPageContext2.showToast(this.bUy.mContext.getResources().getString(com.baidu.tieba.z.too_many_face));
+                            tbPageContext2 = this.bWq.mPageContext;
+                            tbPageContext2.showToast(this.bWq.mContext.getResources().getString(com.baidu.tieba.z.too_many_face));
                             return;
                         }
                     }
-                    this.bUy.bUr.getEditText().getText().insert(this.bUy.bUr.getEditText().getSelectionStart(), fVar.getName());
+                    this.bWq.bWj.getEditText().getText().insert(this.bWq.bWj.getEditText().getSelectionStart(), fVar.getName());
                 }
-                if (this.bUy.afD()) {
-                    this.bUy.bUr.afB();
+                if (this.bWq.agh()) {
+                    this.bWq.bWj.agf();
                 } else {
-                    this.bUy.bUr.afC();
+                    this.bWq.bWj.agg();
                 }
             }
         } else if (i == 21) {
-            if (this.bUy.bUr.getEditText().getSelectionStart() > 0) {
-                String substring = this.bUy.bUr.getEditText().getText().toString().substring(0, this.bUy.bUr.getEditText().getSelectionStart());
-                pattern = PbEditor.bUu;
+            if (this.bWq.bWj.getEditText().getSelectionStart() > 0) {
+                String substring = this.bWq.bWj.getEditText().getText().toString().substring(0, this.bWq.bWj.getEditText().getSelectionStart());
+                pattern = PbEditor.bWm;
                 Matcher matcher = pattern.matcher(substring);
                 if (matcher.find()) {
-                    this.bUy.bUr.getEditText().getText().delete(this.bUy.bUr.getEditText().getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.bUy.bUr.getEditText().getSelectionStart());
+                    this.bWq.bWj.getEditText().getText().delete(this.bWq.bWj.getEditText().getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.bWq.bWj.getEditText().getSelectionStart());
                     return;
                 }
-                this.bUy.bUr.getEditText().getText().delete(this.bUy.bUr.getEditText().getSelectionStart() - 1, this.bUy.bUr.getEditText().getSelectionStart());
+                this.bWq.bWj.getEditText().getText().delete(this.bWq.bWj.getEditText().getSelectionStart() - 1, this.bWq.bWj.getEditText().getSelectionStart());
             }
         } else if (i == 14) {
-            this.bUy.bUr.afN();
-            if (this.bUy.afD()) {
-                this.bUy.bUr.afB();
+            this.bWq.bWj.agr();
+            if (this.bWq.agh()) {
+                this.bWq.bWj.agf();
             } else {
-                this.bUy.bUr.afC();
+                this.bWq.bWj.agg();
             }
         } else if (i == 15) {
-            this.bUy.bUr.afO();
-            if (this.bUy.afD()) {
-                this.bUy.bUr.afB();
+            this.bWq.bWj.ags();
+            if (this.bWq.agh()) {
+                this.bWq.bWj.agf();
             } else {
-                this.bUy.bUr.afC();
+                this.bWq.bWj.agg();
             }
         } else if (i == 2) {
-            this.bUy.hH(i);
-            this.bUy.bUr.aeS();
+            this.bWq.hQ(i);
+            this.bWq.bWj.afw();
         } else if (i == 23) {
-            this.bUy.bUr.aeS();
-            if (this.bUy.bUs.afs()) {
-                this.bUy.hH(i);
+            this.bWq.bWj.afw();
+            if (this.bWq.bWk.afW()) {
+                this.bWq.hQ(i);
             } else {
-                this.aBH.handleAction(i, obj);
+                this.aCI.handleAction(i, obj);
             }
         } else if (i == 22) {
-            this.bUy.bUr.aeS();
-            this.aBH.handleAction(i, obj);
+            this.bWq.bWj.afw();
+            this.aCI.handleAction(i, obj);
         } else if (i == 13) {
-            this.bUy.refresh();
-            if (this.bUy.afD()) {
-                this.bUy.bUr.afB();
+            this.bWq.refresh();
+            if (this.bWq.agh()) {
+                this.bWq.bWj.agf();
             } else {
-                this.bUy.bUr.afC();
+                this.bWq.bWj.agg();
             }
-            this.aBH.handleAction(i, obj);
+            this.aCI.handleAction(i, obj);
         } else if (i == 0) {
-            if (this.bUy.Fl()) {
-                com.baidu.adp.lib.util.l.showToast(this.bUy.getContext(), com.baidu.tieba.z.over_limit_tip);
+            if (this.bWq.FJ()) {
+                com.baidu.adp.lib.util.l.showToast(this.bWq.getContext(), com.baidu.tieba.z.over_limit_tip);
             } else {
-                this.aBH.handleAction(i, obj);
+                this.aCI.handleAction(i, obj);
             }
         } else if (i == 44) {
-            this.bUy.hH(i);
-            this.bUy.bUr.aeS();
+            this.bWq.hQ(i);
+            this.bWq.bWj.afw();
         } else if (i == 46) {
-            this.bUy.bUr.afP();
+            this.bWq.bWj.agt();
         } else if (i == 47) {
-            if (!this.bUy.bUs.afs()) {
-                this.bUy.bUr.afQ();
-            }
+            this.bWq.refresh();
         } else if (i == 48) {
-            this.bUy.bUr.aeS();
-            if (this.bUy.bUs.aft()) {
-                this.bUy.hH(i);
+            this.bWq.bWj.afw();
+            if (this.bWq.bWk.afX()) {
+                this.bWq.hQ(i);
                 return;
             }
-            this.bUy.bUs.vn();
-            this.aBH.handleAction(i, obj);
+            this.bWq.bWk.vE();
+            this.aCI.handleAction(i, obj);
         } else if (i == 51) {
-            if (!this.bUy.bUs.aft()) {
-                this.bUy.bUs.afm();
+            if (!this.bWq.bWk.afX()) {
+                this.bWq.bWk.afQ();
             }
-            this.bUy.refresh();
-            if (this.bUy.afD()) {
-                this.bUy.bUr.afB();
+            this.bWq.refresh();
+            if (this.bWq.agh()) {
+                this.bWq.bWj.agf();
             } else {
-                this.bUy.bUr.afC();
+                this.bWq.bWj.agg();
             }
-            this.aBH.handleAction(i, obj);
+            this.aCI.handleAction(i, obj);
         } else {
-            this.aBH.handleAction(i, obj);
+            this.aCI.handleAction(i, obj);
         }
     }
 }

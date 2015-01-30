@@ -1,6 +1,4 @@
 package com.baidu.location;
-
-import com.baidu.channelrtc.medialivesender.LiveSenderControl;
 /* loaded from: classes.dex */
 public final class LocationClientOption {
     public static final int GpsFirst = 1;
@@ -52,7 +50,7 @@ public final class LocationClientOption {
         this.f43char = "detail";
         this.f42case = false;
         this.f49int = 0;
-        this.f50long = LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_12;
+        this.f50long = 12000;
         this.f51new = "SDK2.0";
         this.f47goto = 1;
         this.f53void = false;
@@ -69,7 +67,7 @@ public final class LocationClientOption {
         this.f43char = "detail";
         this.f42case = false;
         this.f49int = 0;
-        this.f50long = LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_12;
+        this.f50long = 12000;
         this.f51new = "SDK2.0";
         this.f47goto = 1;
         this.f53void = false;

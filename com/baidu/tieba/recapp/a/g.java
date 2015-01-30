@@ -3,24 +3,24 @@ package com.baidu.tieba.recapp.a;
 import android.view.View;
 import com.baidu.adp.base.m;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.bm;
 import com.baidu.tieba.recapp.view.BaseAppViewHolder;
 import com.baidu.tieba.tbadkCore.b.j;
 /* loaded from: classes.dex */
 public class g implements View.OnClickListener {
-    private static g bKY;
+    private static g bMJ;
 
-    public static final g abL() {
-        if (bKY != null) {
-            return bKY;
+    public static final g acp() {
+        if (bMJ != null) {
+            return bMJ;
         }
         synchronized (g.class) {
-            if (bKY == null) {
-                bKY = new g();
+            if (bMJ == null) {
+                bMJ = new g();
             }
         }
-        return bKY;
+        return bMJ;
     }
 
     @Override // android.view.View.OnClickListener
@@ -29,10 +29,10 @@ public class g implements View.OnClickListener {
             Object tag = view.getTag();
             if (tag instanceof BaseAppViewHolder) {
                 j appData = ((BaseAppViewHolder) tag).getAppData();
-                if (!ba.isEmpty(appData.agJ().url)) {
-                    com.baidu.tbadk.distribute.a.uD().a(view.getContext(), appData.agP(), "btn_click", "pb", appData.Gb, appData.threadId);
-                    com.baidu.tbadk.distribute.a.uD().a(appData.agP(), appData.Gb, appData.threadId, "PB", "click");
-                    bh.pK().b((TbPageContext) m.D(view.getContext()), new String[]{appData.agJ().url});
+                if (!bf.isEmpty(appData.aho().url)) {
+                    com.baidu.tbadk.distribute.a.uU().a(view.getContext(), appData.ahu(), "btn_click", "pb", appData.bYG, appData.threadId);
+                    com.baidu.tbadk.distribute.a.uU().a(appData.ahu(), appData.bYG, appData.threadId, "PB", "click");
+                    bm.pV().b((TbPageContext) m.D(view.getContext()), new String[]{appData.aho().url});
                 }
             }
         }

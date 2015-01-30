@@ -3,7 +3,7 @@ package com.baidu.adp.lib.util;
 import java.util.UUID;
 /* loaded from: classes.dex */
 public class w {
-    public static String fB() {
+    public static String fA() {
         return UUID.randomUUID().toString();
     }
 }

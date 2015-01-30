@@ -7,19 +7,19 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 public class c {
-    final /* synthetic */ b aSd;
-    public ViewGroup aRX = null;
+    final /* synthetic */ b aTm;
+    public ViewGroup aTg = null;
     public HeadImageView zJ = null;
     public TextView zK = null;
-    public TextView aRY = null;
-    public TextView aRZ = null;
-    public TextView aSa = null;
-    public View mLine = null;
-    public ImageView aSb = null;
-    public ImageView aSc = null;
+    public TextView aTh = null;
+    public TextView aTi = null;
+    public TextView aTj = null;
+    public View Td = null;
+    public ImageView aTk = null;
+    public ImageView aTl = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(b bVar) {
-        this.aSd = bVar;
+        this.aTm = bVar;
     }
 }

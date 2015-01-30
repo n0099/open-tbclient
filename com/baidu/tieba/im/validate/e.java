@@ -6,11 +6,11 @@ import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements com.baidu.tieba.im.g<LinkedList<GroupNewsPojo>> {
-    final /* synthetic */ ValidateActivity bot;
+    final /* synthetic */ ValidateActivity bpQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(ValidateActivity validateActivity) {
-        this.bot = validateActivity;
+        this.bpQ = validateActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,18 +20,18 @@ public class e implements com.baidu.tieba.im.g<LinkedList<GroupNewsPojo>> {
         boolean z;
         m mVar2;
         int i;
-        mVar = this.bot.bon;
+        mVar = this.bpQ.bpK;
         mVar.setData(ValidateModel.convertToValidateItemDataList(linkedList));
         if (linkedList != null) {
-            ValidateActivity validateActivity = this.bot;
+            ValidateActivity validateActivity = this.bpQ;
             i = validateActivity.offset;
             validateActivity.offset = i + linkedList.size();
         }
-        z = this.bot.boq;
+        z = this.bpQ.bpN;
         if (!z) {
-            mVar2 = this.bot.bon;
+            mVar2 = this.bpQ.bpK;
             mVar2.setLoadProgressBarVisable(false);
         }
-        this.bot.aef = false;
+        this.bpQ.aeC = false;
     }
 }

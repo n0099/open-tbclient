@@ -9,7 +9,7 @@ public class a {
     public int error_code = 0;
     public String error_msg = null;
 
-    public static String co(int i) {
+    public static String cv(int i) {
         switch (i) {
             case 0:
                 return "";

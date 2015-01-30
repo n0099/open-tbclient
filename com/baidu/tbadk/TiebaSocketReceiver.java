@@ -14,13 +14,13 @@ public class TiebaSocketReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
-            if (i.fg()) {
+            if (i.ff()) {
                 TiebaStatic.imLog("net change", TAG, "succ");
                 BdSocketLinkService.setAvailable(true);
                 BdSocketLinkService.startService(false, "net succ");
                 synchronized (ImgHttpClient.class) {
-                    ImgHttpClient.Kp.removeParameter("http.route.default-proxy");
-                    ImgHttpClient.Kn = null;
+                    ImgHttpClient.KI.removeParameter("http.route.default-proxy");
+                    ImgHttpClient.KG = null;
                 }
                 return;
             }

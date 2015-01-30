@@ -62,7 +62,7 @@ public class BdTypeListView extends BdListView {
         return this.xB.getData();
     }
 
-    public am ay(int i) {
+    public am aD(int i) {
         return this.xB.getItem(i);
     }
 }

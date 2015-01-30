@@ -30,7 +30,7 @@ public final class LiveGroupInfo extends Message {
     public final Integer flag;
     @ProtoField(tag = 3, type = Message.Datatype.INT32)
     public final Integer forumId;
-    @ProtoField(tag = DealIntentService.CLASS_TYPE_NATIVE_BUY_TBEAN, type = Message.Datatype.STRING)
+    @ProtoField(tag = 25, type = Message.Datatype.STRING)
     public final String forumName;
     @ProtoField(tag = 22, type = Message.Datatype.INT32)
     public final Integer gagers;
@@ -42,7 +42,7 @@ public final class LiveGroupInfo extends Message {
     public final String intro;
     @ProtoField(tag = 20, type = Message.Datatype.INT32)
     public final Integer isLiving;
-    @ProtoField(tag = DealIntentService.CLASS_TYPE_GIFT_INFO, type = Message.Datatype.INT64)
+    @ProtoField(tag = 24, type = Message.Datatype.INT64)
     public final Long lastMsgId;
     @ProtoField(tag = 19, type = Message.Datatype.INT32)
     public final Integer likers;

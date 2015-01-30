@@ -2,45 +2,45 @@ package com.baidu.tieba.album;
 
 import android.view.View;
 import android.view.animation.AnimationUtils;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements View.OnClickListener {
-    final /* synthetic */ ab apP;
-    private final /* synthetic */ af apQ;
-    private final /* synthetic */ ImageFileInfo apR;
-    private final /* synthetic */ p apS;
-    private final /* synthetic */ ag apT;
-    private final /* synthetic */ int val$position;
+    private final /* synthetic */ int FV;
+    final /* synthetic */ aa aqQ;
+    private final /* synthetic */ af aqR;
+    private final /* synthetic */ ImageFileInfo aqS;
+    private final /* synthetic */ n aqT;
+    private final /* synthetic */ ag aqU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(ab abVar, af afVar, p pVar, ImageFileInfo imageFileInfo, int i, ag agVar) {
-        this.apP = abVar;
-        this.apQ = afVar;
-        this.apS = pVar;
-        this.apR = imageFileInfo;
-        this.val$position = i;
-        this.apT = agVar;
+    public ae(aa aaVar, af afVar, n nVar, ImageFileInfo imageFileInfo, int i, ag agVar) {
+        this.aqQ = aaVar;
+        this.aqR = afVar;
+        this.aqT = nVar;
+        this.aqS = imageFileInfo;
+        this.FV = i;
+        this.aqU = agVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        aa aaVar;
-        aa aaVar2;
+        z zVar;
+        z zVar2;
         AlbumActivity albumActivity;
-        aaVar = this.apP.apO;
-        if (aaVar != null && this.apQ.apU) {
-            boolean isAdded = this.apS.isAdded(this.apR);
-            aaVar2 = this.apP.apO;
-            if (aaVar2.onClick(this.val$position, this.apR, !isAdded)) {
+        zVar = this.aqQ.aqP;
+        if (zVar != null && this.aqR.aqV) {
+            boolean isAdded = this.aqT.isAdded(this.aqS);
+            zVar2 = this.aqQ.aqP;
+            if (zVar2.onClick(this.FV, this.aqS, !isAdded)) {
                 if (!isAdded) {
-                    ax.i(this.apT.apW, com.baidu.tieba.v.btn_choose_photo_s);
-                    albumActivity = this.apP.aoO;
-                    this.apT.apW.startAnimation(AnimationUtils.loadAnimation(albumActivity.getPageContext().getPageActivity(), com.baidu.tieba.q.album_choose_icon));
+                    bc.i(this.aqU.aqX, com.baidu.tieba.v.chx_camera_pic_s);
+                    albumActivity = this.aqQ.apM;
+                    this.aqU.aqX.startAnimation(AnimationUtils.loadAnimation(albumActivity.getPageContext().getPageActivity(), com.baidu.tieba.q.album_choose_icon));
                     return;
                 }
-                ax.i(this.apT.apW, com.baidu.tieba.v.btn_choose_photo_n);
+                bc.i(this.aqU.aqX, com.baidu.tieba.v.chx_camera_pic_n);
             }
         }
     }

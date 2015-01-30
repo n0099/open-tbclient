@@ -7,12 +7,13 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.bc;
 /* loaded from: classes.dex */
 public class PbListView extends com.baidu.adp.widget.ListView.i {
-    private LinearLayout Mg;
-    private String Nm;
-    private ImageView Nn;
-    private int No;
+    private LinearLayout MC;
+    private String NI;
+    private ImageView NJ;
+    private int NK;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
     private ProgressBar mProgressBar;
@@ -25,7 +26,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.i {
         ICON_DOWN_WARD,
         ICON_UP_WARD;
 
-        /* JADX DEBUG: Replace access to removed values field (Np) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (NL) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static IconType[] valuesCustom() {
             IconType[] valuesCustom = values();
@@ -36,8 +37,8 @@ public class PbListView extends com.baidu.adp.widget.ListView.i {
         }
     }
 
-    public String qx() {
-        return this.Nm;
+    public String qI() {
+        return this.NI;
     }
 
     public PbListView(Context context) {
@@ -46,11 +47,11 @@ public class PbListView extends com.baidu.adp.widget.ListView.i {
         this.mProgressBar = null;
         this.mOnClickListener = null;
         this.mRoot = null;
-        this.Nm = null;
-        this.Mg = null;
+        this.NI = null;
+        this.MC = null;
         this.mTextColor = 0;
-        this.Nn = null;
-        this.No = 0;
+        this.NJ = null;
+        this.NK = 0;
         this.mContext = context;
     }
 
@@ -59,43 +60,43 @@ public class PbListView extends com.baidu.adp.widget.ListView.i {
     }
 
     @Override // com.baidu.adp.widget.ListView.i
-    public View jx() {
-        this.mRoot = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.x.new_pb_list_more, null);
-        this.Mg = (LinearLayout) this.mRoot.findViewById(com.baidu.tieba.w.pb_more_view);
+    public View jy() {
+        this.mRoot = com.baidu.adp.lib.g.b.ei().inflate(this.mContext, com.baidu.tieba.x.new_pb_list_more, null);
+        this.MC = (LinearLayout) this.mRoot.findViewById(com.baidu.tieba.w.pb_more_view);
         this.mTextView = (TextView) this.mRoot.findViewById(com.baidu.tieba.w.pb_more_text);
         this.mProgressBar = (ProgressBar) this.mRoot.findViewById(com.baidu.tieba.w.progress);
-        this.Nn = (ImageView) this.mRoot.findViewById(com.baidu.tieba.w.pb_more_view_top_line);
+        this.NJ = (ImageView) this.mRoot.findViewById(com.baidu.tieba.w.pb_more_view_top_line);
         return this.mRoot;
     }
 
-    public void qy() {
-        this.Nn.setVisibility(0);
+    public void qJ() {
+        this.NJ.setVisibility(0);
     }
 
     public void startLoadData() {
         this.mProgressBar.setVisibility(0);
         this.mTextView.setText(this.mContext.getText(com.baidu.tieba.z.loading));
-        cl(TbadkCoreApplication.m255getInst().getSkinType());
+        cs(TbadkCoreApplication.m255getInst().getSkinType());
     }
 
-    public void qz() {
+    public void qK() {
         this.mProgressBar.setVisibility(8);
-        if (this.Nm != null) {
-            this.mTextView.setText(this.Nm);
+        if (this.NI != null) {
+            this.mTextView.setText(this.NI);
         } else {
             this.mTextView.setText(this.mContext.getText(com.baidu.tieba.z.pb_load_more));
         }
-        cl(TbadkCoreApplication.m255getInst().getSkinType());
+        cs(TbadkCoreApplication.m255getInst().getSkinType());
     }
 
-    public void cj(int i) {
-        com.baidu.tbadk.core.util.ax.i(this.Mg, i);
+    public void cq(int i) {
+        bc.i(this.MC, i);
     }
 
     public void setText(String str) {
-        this.Nm = str;
+        this.NI = str;
         this.mTextView.setText(str);
-        cl(TbadkCoreApplication.m255getInst().getSkinType());
+        cs(TbadkCoreApplication.m255getInst().getSkinType());
     }
 
     public void setTextColor(int i) {
@@ -113,19 +114,19 @@ public class PbListView extends com.baidu.adp.widget.ListView.i {
         }
     }
 
-    public void ck(int i) {
-        this.No = i;
+    public void cr(int i) {
+        this.NK = i;
     }
 
-    public void cl(int i) {
+    public void cs(int i) {
         String charSequence = this.mTextView.getText().toString();
         int i2 = 0;
         if (charSequence.equals(this.mContext.getText(com.baidu.tieba.z.pb_load_more))) {
-            i2 = com.baidu.tbadk.core.util.ax.getColor(com.baidu.tieba.t.pb_more_txt);
+            i2 = bc.getColor(com.baidu.tieba.t.pb_more_txt);
         } else if (charSequence.equals(this.mContext.getText(com.baidu.tieba.z.loading))) {
-            i2 = com.baidu.tbadk.core.util.ax.getColor(com.baidu.tieba.t.pb_more_txt);
+            i2 = bc.getColor(com.baidu.tieba.t.pb_more_txt);
         } else if (charSequence.equals(this.mContext.getText(com.baidu.tieba.z.no_more_to_load))) {
-            i2 = com.baidu.tbadk.core.util.ax.getColor(com.baidu.tieba.t.pb_list_morebutton_nomore_text);
+            i2 = bc.getColor(com.baidu.tieba.t.pb_more_txt);
         }
         if (this.mTextColor != 0) {
             i2 = this.mTextColor;
@@ -133,11 +134,11 @@ public class PbListView extends com.baidu.adp.widget.ListView.i {
         if (i2 != 0) {
             this.mTextView.setTextColor(i2);
         }
-        com.baidu.tbadk.core.util.ax.c(this.Nn, com.baidu.tieba.t.cp_bg_line_b);
-        if (this.No == 0) {
-            com.baidu.tbadk.core.util.ax.i(this.Mg, com.baidu.tieba.t.cp_bg_line_d);
-        } else if (this.No > 0) {
-            com.baidu.tbadk.core.util.ax.i(this.Mg, this.No);
+        bc.c(this.NJ, com.baidu.tieba.t.cp_bg_line_b);
+        if (this.NK == 0) {
+            bc.i(this.MC, com.baidu.tieba.t.cp_bg_line_d);
+        } else if (this.NK > 0) {
+            bc.i(this.MC, this.NK);
         }
     }
 }

@@ -2,6 +2,6 @@ package com.baidu.tbadk.getUserInfo;
 /* loaded from: classes.dex */
 public class GetUserInfoStatic {
     static {
-        b.vA().vB();
+        b.vS().vT();
     }
 }

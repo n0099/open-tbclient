@@ -2,15 +2,15 @@ package com.baidu.tieba.im.view;
 
 import android.view.View;
 import android.widget.AdapterView;
-import com.baidu.tieba.im.data.c;
+import com.baidu.tieba.im.data.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements AdapterView.OnItemClickListener {
-    final /* synthetic */ k boW;
+    final /* synthetic */ k bqt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.boW = kVar;
+        this.bqt = kVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -19,15 +19,15 @@ public class l implements AdapterView.OnItemClickListener {
         o oVar;
         o oVar2;
         int i2;
-        mVar = this.boW.boS;
+        mVar = this.bqt.bqp;
         Object item = mVar.getItem(i);
-        if (item instanceof c) {
-            c cVar = (c) item;
-            oVar = this.boW.boV;
+        if (item instanceof d) {
+            d dVar = (d) item;
+            oVar = this.bqt.bqs;
             if (oVar != null) {
-                oVar2 = this.boW.boV;
-                i2 = this.boW.boT;
-                oVar2.a(i2, cVar);
+                oVar2 = this.bqt.bqs;
+                i2 = this.bqt.bqq;
+                oVar2.a(i2, dVar);
             }
         }
     }

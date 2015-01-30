@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.coreExtra.message.ShareSDKResultMessage;
 /* loaded from: classes.dex */
 class d extends CustomMessageListener {
-    final /* synthetic */ ShareToTBActivity bNE;
+    final /* synthetic */ ShareToTBActivity bPo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(ShareToTBActivity shareToTBActivity, int i) {
         super(i);
-        this.bNE = shareToTBActivity;
+        this.bPo = shareToTBActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,11 +19,11 @@ class d extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage instanceof ShareSDKResultMessage) {
             if (((ShareSDKResultMessage) customResponsedMessage).getData().booleanValue()) {
-                this.bNE.setResult(-1);
+                this.bPo.setResult(-1);
             } else {
-                this.bNE.setResult(0);
+                this.bPo.setResult(0);
             }
-            this.bNE.finish();
+            this.bPo.finish();
         }
     }
 }

@@ -1,37 +1,45 @@
 package com.baidu.tieba.person.post;
 
-import com.baidu.tieba.person.PersonPostModel;
-import com.baidu.tieba.person.br;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements br {
-    final /* synthetic */ g bHr;
+public class h implements b {
+    final /* synthetic */ f bJd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(g gVar) {
-        this.bHr = gVar;
+    public h(f fVar) {
+        this.bJd = fVar;
     }
 
-    @Override // com.baidu.tieba.person.br
-    public void a(PersonPostModel personPostModel, boolean z) {
-        PersonPostModel personPostModel2;
-        PersonPostModel personPostModel3;
-        br brVar;
-        br brVar2;
-        if (z) {
-            this.bHr.bHo = personPostModel;
-        } else {
-            personPostModel2 = this.bHr.bHo;
-            if (personPostModel2 != null) {
-                personPostModel3 = this.bHr.bHo;
-                personPostModel3.post_list.addAll(personPostModel.post_list);
+    @Override // com.baidu.tieba.person.post.b
+    public void Q(View view) {
+        String[] strArr;
+        TbPageContext tbPageContext;
+        TbPageContext tbPageContext2;
+        TbPageContext tbPageContext3;
+        TbPageContext tbPageContext4;
+        int id = view.getId();
+        if (id == com.baidu.tieba.w.portrait) {
+            tbPageContext4 = f.MA;
+            ((BaseFragmentActivity) tbPageContext4.getOrignalPage()).finish();
+        } else if (id == com.baidu.tieba.w.username) {
+            tbPageContext3 = f.MA;
+            ((BaseFragmentActivity) tbPageContext3.getOrignalPage()).finish();
+        } else if ((id == com.baidu.tieba.w.item_header || id == com.baidu.tieba.w.original_post_title || id == com.baidu.tieba.w.item_footer) && (strArr = (String[]) view.getTag()) != null) {
+            if ("0".equals(strArr[2]) || strArr[1] == null) {
+                MessageManager messageManager = MessageManager.getInstance();
+                tbPageContext = f.MA;
+                messageManager.sendMessage(new CustomMessage(2004001, new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_post_reply")));
+                return;
             }
+            MessageManager messageManager2 = MessageManager.getInstance();
+            tbPageContext2 = f.MA;
+            messageManager2.sendMessage(new CustomMessage(2004001, new PbActivityConfig(tbPageContext2.getPageActivity()).createSubPbCfg(strArr[0], strArr[1], "person_post_reply")));
         }
-        brVar = this.bHr.bHn;
-        if (brVar != null) {
-            brVar2 = this.bHr.bHn;
-            brVar2.a(personPostModel, z);
-        }
-        this.bHr.notifyDataSetChanged();
     }
 }

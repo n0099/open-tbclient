@@ -9,7 +9,7 @@ class ag implements com.baidu.adp.widget.ScrollView.g {
     }
 
     @Override // com.baidu.adp.widget.ScrollView.g
-    public void jO() {
+    public void jN() {
         this.xs.done();
     }
 }

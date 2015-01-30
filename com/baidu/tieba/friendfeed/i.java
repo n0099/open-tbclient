@@ -1,77 +1,65 @@
 package com.baidu.tieba.friendfeed;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
-import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tieba.data.FriendFeedThreadData;
-import com.baidu.tieba.tbadkCore.al;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.z;
 /* loaded from: classes.dex */
-class i implements com.baidu.tieba.tbadkCore.f.b {
-    final /* synthetic */ FriendFeedActivity aAU;
+class i implements com.baidu.tieba.tbadkCore.location.i {
+    final /* synthetic */ FriendFeedActivity aBV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(FriendFeedActivity friendFeedActivity) {
-        this.aAU = friendFeedActivity;
+        this.aBV = friendFeedActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.f.b
-    public void a(boolean z, String str, com.baidu.tbadk.coreExtra.data.j jVar, WriteData writeData, AntiData antiData) {
-        y yVar;
-        y yVar2;
-        WriteImagesInfo writeImagesInfo;
-        y yVar3;
-        com.baidu.tieba.tbadkCore.f.a aVar;
-        com.baidu.tieba.tbadkCore.f.a aVar2;
-        com.baidu.tieba.tbadkCore.f.a aVar3;
-        FriendFeedThreadData friendFeedThreadData;
-        FriendFeedThreadData friendFeedThreadData2;
-        FriendFeedThreadData friendFeedThreadData3;
-        y yVar4;
-        this.aAU.stopVoice();
-        yVar = this.aAU.aAB;
-        yVar.bD(z);
-        yVar2 = this.aAU.aAB;
-        writeImagesInfo = this.aAU.apq;
-        yVar2.a(writeImagesInfo, true);
-        if (z) {
-            yVar3 = this.aAU.aAB;
-            yVar3.Fj();
-            TbadkApplication.getInst().resetPbRecorder();
-            aVar = this.aAU.aAK;
-            aVar.EV();
-            aVar2 = this.aAU.aAK;
-            aVar2.c((WriteData) null);
-            aVar3 = this.aAU.aAK;
-            aVar3.ey(false);
-            this.aAU.a(antiData, str);
-            friendFeedThreadData = this.aAU.aAJ;
-            al.b(friendFeedThreadData.getTid(), (WriteData) null);
-            friendFeedThreadData2 = this.aAU.aAJ;
-            friendFeedThreadData3 = this.aAU.aAJ;
-            friendFeedThreadData2.setReply_num(friendFeedThreadData3.getReply_num() + 1);
-            yVar4 = this.aAU.aAB;
-            yVar4.Fm();
-        } else if (jVar != null && writeData != null && jVar.getVcode_pic_url() != null) {
-            if (!AntiHelper.e(antiData)) {
-                writeData.setVcodeMD5(jVar.getVcode_md5());
-                writeData.setVcodeUrl(jVar.getVcode_pic_url());
-                if (jVar.rD().equals("4")) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.aAU.getPageContext().getPageActivity(), 12006, writeData, false)));
-                    return;
-                } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.aAU.getPageContext().getPageActivity(), writeData, 12006)));
-                    return;
-                }
+    @Override // com.baidu.tieba.tbadkCore.location.i
+    public void Fx() {
+        x xVar;
+        x xVar2;
+        x xVar3;
+        xVar = this.aBV.aBD;
+        if (xVar.FF() != null) {
+            xVar2 = this.aBV.aBD;
+            if (xVar2.FF().getLocationViewVisibility() == 0) {
+                this.aBV.showToast(z.no_network_guide);
             }
-            this.aAU.a(antiData, str);
-        } else {
-            this.aAU.a(antiData, str);
+            xVar3 = this.aBV.aBD;
+            xVar3.FF().setLocationInfoViewState(0);
         }
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.location.i
+    public void fy(String str) {
+        x xVar;
+        x xVar2;
+        x xVar3;
+        xVar = this.aBV.aBD;
+        if (xVar.FF() != null) {
+            xVar2 = this.aBV.aBD;
+            if (xVar2.FF().getLocationViewVisibility() == 0) {
+                FriendFeedActivity friendFeedActivity = this.aBV;
+                if (StringUtils.isNull(str)) {
+                    str = this.aBV.getPageContext().getString(z.location_fail);
+                }
+                friendFeedActivity.showToast(str);
+            }
+            xVar3 = this.aBV.aBD;
+            xVar3.FF().setLocationInfoViewState(0);
+        }
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.location.i
+    public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
+        x xVar;
+        x xVar2;
+        if (aVar != null && !StringUtils.isNull(aVar.ahY())) {
+            xVar = this.aBV.aBD;
+            if (xVar.FF() != null) {
+                xVar2 = this.aBV.aBD;
+                xVar2.FF().B(2, aVar.ahY());
+                return;
+            }
+            return;
+        }
+        fy(null);
     }
 }

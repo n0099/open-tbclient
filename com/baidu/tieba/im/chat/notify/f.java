@@ -18,9 +18,9 @@ class f extends CustomMessageListener {
         TextView textView2;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124 && (customResponsedMessage instanceof NewsNotifyMessage)) {
             int msgChat = ((NewsNotifyMessage) customResponsedMessage).getMsgChat();
-            textView = ImMessageCenterDelegateStatic.UU;
+            textView = ImMessageCenterDelegateStatic.Vz;
             if (textView != null) {
-                textView2 = ImMessageCenterDelegateStatic.UU;
+                textView2 = ImMessageCenterDelegateStatic.Vz;
                 ImMessageCenterDelegateStatic.n(textView2, msgChat);
             }
         }

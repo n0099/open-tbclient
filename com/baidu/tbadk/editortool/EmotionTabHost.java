@@ -11,72 +11,72 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class EmotionTabHost extends LinearLayout implements t {
     private CustomMessageListener CL;
-    private int XE;
-    private EmotionTabContentView XW;
-    private EmotionTabWidgetView XX;
-    private ArrayList<ae> XY;
-    private String XZ;
-    private boolean Ya;
-    private boolean Yb;
-    private int Yc;
+    private EmotionTabContentView YC;
+    private EmotionTabWidgetView YD;
+    private ArrayList<ae> YE;
+    private String YF;
+    private boolean YG;
+    private boolean YH;
+    private int YI;
+    private int Yk;
     private int mCurrentIndex;
 
     public EmotionTabHost(Context context) {
         super(context);
-        this.XY = new ArrayList<>();
+        this.YE = new ArrayList<>();
         this.mCurrentIndex = -1;
-        this.XZ = null;
-        this.XE = -1;
-        this.Yb = true;
-        this.Yc = 0;
+        this.YF = null;
+        this.Yk = -1;
+        this.YH = true;
+        this.YI = 0;
         this.CL = new r(this, 2001120);
         init(context);
     }
 
     public EmotionTabHost(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.XY = new ArrayList<>();
+        this.YE = new ArrayList<>();
         this.mCurrentIndex = -1;
-        this.XZ = null;
-        this.XE = -1;
-        this.Yb = true;
-        this.Yc = 0;
+        this.YF = null;
+        this.Yk = -1;
+        this.YH = true;
+        this.YI = 0;
         this.CL = new r(this, 2001120);
         init(context);
     }
 
     private void init(Context context) {
         removeAllViews();
-        com.baidu.adp.lib.g.b.ek().a(context, com.baidu.tieba.x.emotion_tab_host, this, true);
-        this.XW = (EmotionTabContentView) findViewById(com.baidu.tieba.w.face_tab_content);
-        this.XX = (EmotionTabWidgetView) findViewById(com.baidu.tieba.w.face_tab_widget);
-        this.XX.setOnTabSelectedListener(this);
+        com.baidu.adp.lib.g.b.ei().a(context, com.baidu.tieba.x.emotion_tab_host, this, true);
+        this.YC = (EmotionTabContentView) findViewById(com.baidu.tieba.w.face_tab_content);
+        this.YD = (EmotionTabWidgetView) findViewById(com.baidu.tieba.w.face_tab_widget);
+        this.YD.setOnTabSelectedListener(this);
         setOrientation(1);
-        this.XE = TbadkCoreApplication.m255getInst().getSkinType();
-        onChangeSkinType(this.XE);
+        this.Yk = TbadkCoreApplication.m255getInst().getSkinType();
+        onChangeSkinType(this.Yk);
         setup();
     }
 
     public void setFrom(int i) {
-        if (this.XX != null) {
-            this.XX.setFrom(i);
+        if (this.YD != null) {
+            this.YD.setFrom(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setup() {
-        this.XY = ab.vc().ve();
-        if ((this.XY == null || this.XY.size() <= 0) && this.Yc < 3) {
-            this.Yc++;
-            ab.vc().vd();
+        this.YE = ab.vt().vv();
+        if ((this.YE == null || this.YE.size() <= 0) && this.YI < 3) {
+            this.YI++;
+            ab.vt().vu();
             return;
         }
-        this.XX.setDatas(this.XY);
-        int size = this.XY.size();
+        this.YD.setDatas(this.YE);
+        int size = this.YE.size();
         int i = 0;
         for (int i2 = 0; i2 < size; i2++) {
-            ae aeVar = this.XY.get(i2);
-            if (this.XZ != null && this.XZ.equals(aeVar.getGroupId())) {
+            ae aeVar = this.YE.get(i2);
+            if (this.YF != null && this.YF.equals(aeVar.getGroupId())) {
                 i = i2;
             }
             e(aeVar);
@@ -100,66 +100,66 @@ public class EmotionTabHost extends LinearLayout implements t {
     public void setVisibility(int i) {
         super.setVisibility(i);
         int skinType = TbadkCoreApplication.m255getInst().getSkinType();
-        if (skinType != this.XE) {
-            this.XE = skinType;
-            onChangeSkinType(this.XE);
+        if (skinType != this.Yk) {
+            this.Yk = skinType;
+            onChangeSkinType(this.Yk);
         }
     }
 
     private void e(ae aeVar) {
-        this.XX.d(aeVar);
+        this.YD.d(aeVar);
     }
 
     public void setCurrentEmotionGroup(int i) {
-        if (i >= 0 && i < this.XY.size() && i != this.mCurrentIndex) {
-            ae aeVar = this.XY.get(i);
-            this.XW.b(aeVar);
-            if (this.Ya) {
-                if (aeVar.uU() == EmotionGroupType.LOCAL) {
-                    this.XX.setShowDelete(true);
+        if (i >= 0 && i < this.YE.size() && i != this.mCurrentIndex) {
+            ae aeVar = this.YE.get(i);
+            this.YC.b(aeVar);
+            if (this.YG) {
+                if (aeVar.vl() == EmotionGroupType.LOCAL) {
+                    this.YD.setShowDelete(true);
                 } else {
-                    this.XX.setShowDelete(false);
+                    this.YD.setShowDelete(false);
                 }
             }
-            this.XX.setCurrentTab(i);
+            this.YD.setCurrentTab(i);
             this.mCurrentIndex = i;
-            this.XZ = aeVar.getGroupId();
+            this.YF = aeVar.getGroupId();
         }
     }
 
     public void reset() {
         this.mCurrentIndex = -1;
-        this.XY.clear();
-        this.XW.reset();
-        this.XX.reset();
+        this.YE.clear();
+        this.YC.reset();
+        this.YD.reset();
     }
 
     public void setIsInChat(boolean z) {
-        this.Ya = z;
+        this.YG = z;
     }
 
     public void setShowBigEmotion(boolean z) {
-        this.Yb = z;
-        if (!this.Yb) {
-            int size = this.XY.size();
+        this.YH = z;
+        if (!this.YH) {
+            int size = this.YE.size();
             for (int i = 0; i < size; i++) {
-                this.XX.f(i, z);
+                this.YD.f(i, z);
             }
         }
     }
 
     @Override // com.baidu.tbadk.editortool.t
-    public void df(int i) {
+    public void dm(int i) {
         setCurrentEmotionGroup(i);
     }
 
     public void onChangeSkinType(int i) {
-        this.XX.onChangeSkinType(i);
-        this.XW.onChangeSkinType(i);
+        this.YD.onChangeSkinType(i);
+        this.YC.onChangeSkinType(i);
     }
 
     public void setOnDataSelected(w wVar) {
-        this.XW.setOnDataSelected(wVar);
-        this.XX.setOnDataSelected(wVar);
+        this.YC.setOnDataSelected(wVar);
+        this.YD.setOnDataSelected(wVar);
     }
 }

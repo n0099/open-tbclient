@@ -14,58 +14,59 @@ import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.coreExtra.NoNetworkMoreActivity;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class NoNetworkView extends RelativeLayout implements View.OnClickListener {
-    private static ArrayList<NoNetworkView> Nf = new ArrayList<>();
-    private static boolean Nh;
-    private TextView Ng;
-    private boolean Ni;
-    private int Nj;
-    private final ArrayList<ad> Nk;
+    private static ArrayList<NoNetworkView> NB = new ArrayList<>();
+    private static boolean ND;
+    private TextView NC;
+    private boolean NE;
+    private int NF;
+    private final ArrayList<ad> NG;
     private Context mContext;
 
     public NoNetworkView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.Nj = 0;
-        this.Nk = new ArrayList<>();
+        this.NF = 0;
+        this.NG = new ArrayList<>();
         init(context, attributeSet);
     }
 
     public NoNetworkView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Nj = 0;
-        this.Nk = new ArrayList<>();
+        this.NF = 0;
+        this.NG = new ArrayList<>();
         init(context, attributeSet);
     }
 
     public NoNetworkView(Context context) {
         super(context);
-        this.Nj = 0;
-        this.Nk = new ArrayList<>();
+        this.NF = 0;
+        this.NG = new ArrayList<>();
         init(context, null);
     }
 
     public void init(Context context, AttributeSet attributeSet) {
         this.mContext = context;
-        com.baidu.adp.lib.g.b.ek().inflate(context, com.baidu.tieba.x.no_network_view, this);
-        this.Ng = (TextView) findViewById(com.baidu.tieba.w.no_network_guide);
+        com.baidu.adp.lib.g.b.ei().inflate(context, com.baidu.tieba.x.no_network_view, this);
+        this.NC = (TextView) findViewById(com.baidu.tieba.w.no_network_guide);
         setOnClickListener(this);
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.ab.noNetworkView);
-            this.Ni = obtainStyledAttributes.getBoolean(0, false);
+            this.NE = obtainStyledAttributes.getBoolean(0, false);
             obtainStyledAttributes.recycle();
         }
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
-                aq(false);
+                as(false);
                 setIsHasNetwork(true);
                 return;
             }
-            aq(true);
+            as(true);
             setIsHasNetwork(false);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -73,69 +74,69 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     }
 
     public void a(ad adVar) {
-        if (adVar != null && !this.Nk.contains(adVar)) {
-            this.Nk.add(adVar);
+        if (adVar != null && !this.NG.contains(adVar)) {
+            this.NG.add(adVar);
         }
     }
 
     public void b(ad adVar) {
-        if (adVar != null && this.Nk.contains(adVar)) {
-            this.Nk.remove(adVar);
+        if (adVar != null && this.NG.contains(adVar)) {
+            this.NG.remove(adVar);
         }
     }
 
     public static void setIsHasNetwork(boolean z) {
-        Nh = z;
-        if (Nh) {
-            Iterator<NoNetworkView> it = Nf.iterator();
+        ND = z;
+        if (ND) {
+            Iterator<NoNetworkView> it = NB.iterator();
             while (it.hasNext()) {
-                it.next().aq(false);
+                it.next().as(false);
             }
             return;
         }
-        Iterator<NoNetworkView> it2 = Nf.iterator();
+        Iterator<NoNetworkView> it2 = NB.iterator();
         while (it2.hasNext()) {
-            it2.next().aq(true);
+            it2.next().as(true);
         }
     }
 
-    public void aq(boolean z) {
+    public void as(boolean z) {
         if (z) {
-            if (1 != this.Nj) {
-                this.Nj = 1;
-                this.Ng.setText(com.baidu.tieba.z.no_network_guide);
+            if (1 != this.NF) {
+                this.NF = 1;
+                this.NC.setText(com.baidu.tieba.z.no_network_guide);
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
                 alphaAnimation.setDuration(500L);
                 setVisibility(0);
                 startAnimation(alphaAnimation);
-                for (int i = 0; i < this.Nk.size(); i++) {
-                    this.Nk.get(i).ar(false);
+                for (int i = 0; i < this.NG.size(); i++) {
+                    this.NG.get(i).at(false);
                 }
             }
-        } else if (this.Ni && !BdSocketLinkService.isAvailable()) {
-            if (2 != this.Nj) {
-                this.Nj = 2;
-                this.Ng.setText(com.baidu.tieba.z.offline_guide);
+        } else if (this.NE && !BdSocketLinkService.isAvailable()) {
+            if (2 != this.NF) {
+                this.NF = 2;
+                this.NC.setText(com.baidu.tieba.z.offline_guide);
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation2.setFillAfter(true);
                 alphaAnimation2.setDuration(500L);
                 setVisibility(0);
                 startAnimation(alphaAnimation2);
-                for (int i2 = 0; i2 < this.Nk.size(); i2++) {
-                    this.Nk.get(i2).ar(false);
+                for (int i2 = 0; i2 < this.NG.size(); i2++) {
+                    this.NG.get(i2).at(false);
                 }
             }
-        } else if (this.Nj != 0) {
-            this.Nj = 0;
+        } else if (this.NF != 0) {
+            this.NF = 0;
             if (getVisibility() != 8) {
                 AlphaAnimation alphaAnimation3 = new AlphaAnimation(1.0f, 0.0f);
                 alphaAnimation3.setFillAfter(true);
                 alphaAnimation3.setDuration(500L);
                 alphaAnimation3.setAnimationListener(new ac(this));
                 startAnimation(alphaAnimation3);
-                for (int i3 = 0; i3 < this.Nk.size(); i3++) {
-                    this.Nk.get(i3).ar(true);
+                for (int i3 = 0; i3 < this.NG.size(); i3++) {
+                    this.NG.get(i3).at(true);
                 }
             }
         }
@@ -153,14 +154,14 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        Nf.add(this);
+        NB.add(this);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        Nf.remove(this);
-        this.Nk.clear();
+        NB.remove(this);
+        this.NG.clear();
     }
 
     public void onChangeSkinType(com.baidu.adp.base.j<?> jVar, int i) {
@@ -168,10 +169,10 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
             ((TbPageContext) jVar).getLayoutMode().ab(i == 1);
             ((TbPageContext) jVar).getLayoutMode().h(this);
         }
-        com.baidu.tbadk.core.util.ax.c(this, com.baidu.tieba.v.nonetworkview_bg_selector, i);
+        bc.c(this, com.baidu.tieba.v.nonetworkview_bg_selector, i);
     }
 
-    public static void qw() {
+    public static void qH() {
         NetworkInfo activeNetworkInfo = ((ConnectivityManager) TbadkCoreApplication.m255getInst().getApp().getSystemService("connectivity")).getActiveNetworkInfo();
         if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
             setIsHasNetwork(true);

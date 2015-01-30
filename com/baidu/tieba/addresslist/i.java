@@ -6,12 +6,12 @@ import com.baidu.tbadk.newFriends.ResponseUnreadPointNum;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends CustomMessageListener {
-    final /* synthetic */ d aog;
+    final /* synthetic */ d apb;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(d dVar) {
         super(2001180);
-        this.aog = dVar;
+        this.apb = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,21 +25,21 @@ public class i extends CustomMessageListener {
         boolean z;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001180 && (customResponsedMessage instanceof ResponseUnreadPointNum)) {
             if (customResponsedMessage.getError() != 0) {
-                this.aog.showToast(customResponsedMessage.getErrorString());
+                this.apb.showToast(customResponsedMessage.getErrorString());
                 return;
             }
-            this.aog.aod = ((ResponseUnreadPointNum) customResponsedMessage).getNum();
-            aVar = this.aog.aoc;
-            i = this.aog.aod;
-            aVar.ed(i);
-            i2 = this.aog.aod;
+            this.apb.aoY = ((ResponseUnreadPointNum) customResponsedMessage).getNum();
+            aVar = this.apb.aoX;
+            i = this.apb.aoY;
+            aVar.ej(i);
+            i2 = this.apb.aoY;
             if (i2 > 0) {
-                this.aog.aoe = false;
-                aVar3 = this.aog.aoc;
-                z = this.aog.aoe;
-                aVar3.bi(z);
+                this.apb.aoZ = false;
+                aVar3 = this.apb.aoX;
+                z = this.apb.aoZ;
+                aVar3.bk(z);
             }
-            aVar2 = this.aog.aoc;
+            aVar2 = this.apb.aoX;
             aVar2.notifyDataSetChanged();
         }
     }

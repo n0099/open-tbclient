@@ -1,14 +1,14 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 /* loaded from: classes.dex */
 class j {
-    public long KZ;
-    final /* synthetic */ i La;
-    public int km;
+    public long Lt;
+    final /* synthetic */ i Lu;
+    public int kq;
 
     private j(i iVar) {
-        this.La = iVar;
-        this.km = 0;
-        this.KZ = 0L;
+        this.Lu = iVar;
+        this.kq = 0;
+        this.Lt = 0L;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

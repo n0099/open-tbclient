@@ -5,15 +5,15 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 class b {
-    View aaQ;
-    final /* synthetic */ a aoA;
-    HeadImageView aop;
-    TextView aoq;
-    TextView aoy;
-    TextView aoz;
+    View abr;
+    HeadImageView apl;
+    TextView apm;
+    TextView apv;
+    TextView apw;
+    final /* synthetic */ a apx;
 
     private b(a aVar) {
-        this.aoA = aVar;
+        this.apx = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

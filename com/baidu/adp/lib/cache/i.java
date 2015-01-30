@@ -5,7 +5,7 @@ public class i {
         return z ? new k(i) : new j(i);
     }
 
-    public static f cQ() {
+    public static f cO() {
         return new l();
     }
 }

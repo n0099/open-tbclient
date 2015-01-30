@@ -1,23 +1,23 @@
 package com.baidu.tieba.im.newFriend;
 /* loaded from: classes.dex */
 class m extends com.baidu.tieba.im.h<Void> {
-    private final /* synthetic */ long bhG;
-    private final /* synthetic */ com.baidu.tieba.im.data.b bjE;
-    final /* synthetic */ l bjG;
+    private final /* synthetic */ long bjb;
+    private final /* synthetic */ com.baidu.tieba.im.data.b blb;
+    final /* synthetic */ l bld;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar, long j, com.baidu.tieba.im.data.b bVar) {
-        this.bjG = lVar;
-        this.bhG = j;
-        this.bjE = bVar;
+        this.bld = lVar;
+        this.bjb = j;
+        this.blb = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.h
-    /* renamed from: Kp */
+    /* renamed from: KK */
     public Void doInBackground() {
-        if (!com.baidu.tieba.im.db.m.MI().W(this.bhG)) {
-            com.baidu.tieba.im.db.m.MI().b(this.bjE);
+        if (!com.baidu.tieba.im.db.m.Ne().W(this.bjb)) {
+            com.baidu.tieba.im.db.m.Ne().b(this.blb);
             return null;
         }
         return null;

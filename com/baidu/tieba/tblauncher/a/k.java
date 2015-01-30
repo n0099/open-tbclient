@@ -10,65 +10,65 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class k {
-    private static k ccv;
-    private List<a> aTe = yw();
-    private a ccw = new a(z.my_mark, v.icon_home_collect, 0);
-    private a ccx = new a(z.my_history, v.icon_home_history, 1);
-    private a ccy = new a(z.discover_item_mylive, v.icon_home_onlive, 2);
-    private a ccz = new a(z.member_center, v.icon_home_center, 3);
+    private static k cdO;
+    private List<a> aUu = yM();
+    private a cdP = new a(z.my_mark, v.icon_home_collect, 0);
+    private a cdQ = new a(z.my_history, v.icon_home_history, 1);
+    private a cdR = new a(z.discover_item_mylive, v.icon_home_onlive, 2);
+    private a cdS = new a(z.member_center, v.icon_home_center, 3);
 
-    public static k ajq() {
-        if (ccv == null) {
+    public static k ajM() {
+        if (cdO == null) {
             synchronized (k.class) {
-                if (ccv == null) {
-                    ccv = new k();
+                if (cdO == null) {
+                    cdO = new k();
                 }
             }
         }
-        return ccv;
+        return cdO;
     }
 
     private k() {
     }
 
     public List<a> getData() {
-        this.aTe = yw();
-        return this.aTe;
+        this.aUu = yM();
+        return this.aUu;
     }
 
-    private List<a> yw() {
+    private List<a> yM() {
         ArrayList arrayList = new ArrayList();
-        if (ajr() && this.ccw != null) {
-            arrayList.add(this.ccw);
+        if (ajN() && this.cdP != null) {
+            arrayList.add(this.cdP);
         }
-        if (ajs() && this.ccx != null) {
-            arrayList.add(this.ccx);
+        if (ajO() && this.cdQ != null) {
+            arrayList.add(this.cdQ);
         }
-        if (ajt() && this.ccy != null) {
-            arrayList.add(this.ccy);
+        if (ajP() && this.cdR != null) {
+            arrayList.add(this.cdR);
         }
-        if (aju() && this.ccz != null) {
-            this.ccz.ij(com.baidu.tbadk.core.sharedPref.b.og().getBoolean(new StringBuilder("show_member_new_icon_").append(TbadkCoreApplication.m255getInst().getVersionCode()).append(TbadkCoreApplication.getCurrentAccount()).toString(), true) ? 1 : 0);
-            arrayList.add(this.ccz);
+        if (ajQ() && this.cdS != null) {
+            this.cdS.io(com.baidu.tbadk.core.sharedPref.b.oj().getBoolean(new StringBuilder("show_member_new_icon_").append(TbadkCoreApplication.m255getInst().getVersionCode()).append(TbadkCoreApplication.getCurrentAccount()).toString(), true) ? 1 : 0);
+            arrayList.add(this.cdS);
         }
         arrayList.add(new a(z.switch_account, v.icon_home_change, 4));
         arrayList.add(new a(z.app_tieba_exit, v.icon_home_quit, 5));
         return arrayList;
     }
 
-    private boolean ajr() {
+    private boolean ajN() {
         return TbadkCoreApplication.m255getInst().appResponseToCmd(2015005);
     }
 
-    private boolean ajs() {
+    private boolean ajO() {
         return TbadkCoreApplication.m255getInst().appResponseToIntentClass(PbHistoryActivityConfig.class);
     }
 
-    private boolean ajt() {
+    private boolean ajP() {
         return TbadkCoreApplication.m255getInst().appResponseToIntentClass(MyLiveActivityConfig.class);
     }
 
-    private boolean aju() {
+    private boolean ajQ() {
         return TbadkCoreApplication.m255getInst().appResponseToIntentClass(MemberPrivilegeActivityConfig.class);
     }
 }

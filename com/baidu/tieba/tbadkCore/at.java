@@ -6,50 +6,50 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.bm;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class at implements View.OnClickListener {
-    final /* synthetic */ U9InfoView bVH;
+    final /* synthetic */ U9InfoView bXz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(U9InfoView u9InfoView) {
-        this.bVH = u9InfoView;
+        this.bXz = u9InfoView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         RelativeLayout relativeLayout;
         LinearLayout linearLayout;
-        com.baidu.tbadk.core.data.aa aaVar;
+        com.baidu.tbadk.core.data.ab abVar;
         Context context;
-        com.baidu.tbadk.core.data.aa aaVar2;
-        com.baidu.tbadk.core.data.x xVar;
+        com.baidu.tbadk.core.data.ab abVar2;
+        com.baidu.tbadk.core.data.y yVar;
         Context context2;
-        com.baidu.tbadk.core.data.x xVar2;
+        com.baidu.tbadk.core.data.y yVar2;
         if (com.baidu.adp.lib.util.l.isNetOk()) {
-            relativeLayout = this.bVH.bVw;
+            relativeLayout = this.bXz.bXo;
             if (view != relativeLayout) {
-                linearLayout = this.bVH.bVx;
+                linearLayout = this.bXz.bXp;
                 if (view == linearLayout) {
-                    aaVar = this.bVH.news_info;
-                    if (!TextUtils.isEmpty(aaVar.nR())) {
-                        bh pK = bh.pK();
-                        context = this.bVH.mContext;
-                        aaVar2 = this.bVH.news_info;
-                        pK.b((TbPageContext) com.baidu.adp.base.m.D(context), new String[]{aaVar2.nR()});
+                    abVar = this.bXz.news_info;
+                    if (!TextUtils.isEmpty(abVar.nU())) {
+                        bm pV = bm.pV();
+                        context = this.bXz.mContext;
+                        abVar2 = this.bXz.news_info;
+                        pV.b((TbPageContext) com.baidu.adp.base.m.D(context), new String[]{abVar2.nU()});
                         return;
                     }
                     return;
                 }
                 return;
             }
-            xVar = this.bVH.top_code;
-            if (!TextUtils.isEmpty(xVar.nL())) {
-                bh pK2 = bh.pK();
-                context2 = this.bVH.mContext;
-                xVar2 = this.bVH.top_code;
-                pK2.b((TbPageContext) com.baidu.adp.base.m.D(context2), new String[]{xVar2.nL()});
+            yVar = this.bXz.top_code;
+            if (!TextUtils.isEmpty(yVar.nO())) {
+                bm pV2 = bm.pV();
+                context2 = this.bXz.mContext;
+                yVar2 = this.bXz.top_code;
+                pV2.b((TbPageContext) com.baidu.adp.base.m.D(context2), new String[]{yVar2.nO()});
             }
         }
     }

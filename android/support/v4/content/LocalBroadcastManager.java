@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import com.baidu.sapi2.shell.SapiErrorCode;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
@@ -182,7 +183,7 @@ public class LocalBroadcastManager {
                         } else {
                             if (z) {
                                 switch (match) {
-                                    case -4:
+                                    case SapiErrorCode.IP_HAS_NO_AUTHORITY /* -4 */:
                                         str = "category";
                                         break;
                                     case -3:

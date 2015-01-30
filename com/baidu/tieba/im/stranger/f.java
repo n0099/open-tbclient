@@ -11,9 +11,9 @@ import com.baidu.tieba.x;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class f extends g<StrangerListActivity> {
-    private StrangerListActivity bnQ;
-    private StrangerListAdapter bnW;
-    private View bnX;
+    private StrangerListActivity bpn;
+    private StrangerListAdapter bpt;
+    private View bpu;
     private BdListView mBdListView;
     private NavigationBar mNavigationBar;
     private ViewGroup mRootView;
@@ -21,7 +21,7 @@ public class f extends g<StrangerListActivity> {
     public f(StrangerListActivity strangerListActivity) {
         super(strangerListActivity.getPageContext());
         strangerListActivity.setContentView(x.officialbar_msg_activity);
-        this.bnQ = strangerListActivity;
+        this.bpn = strangerListActivity;
         f(strangerListActivity);
         g(strangerListActivity);
     }
@@ -30,29 +30,29 @@ public class f extends g<StrangerListActivity> {
         this.mNavigationBar = (NavigationBar) strangerListActivity.findViewById(w.view_navigation_bar);
         this.mNavigationBar.setTitleText(strangerListActivity.getPageContext().getString(z.stranger_list_activity_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.bnX = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, x.stranger_delete, this.bnQ);
+        this.bpu = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, x.stranger_delete, this.bpn);
         this.mRootView = (ViewGroup) strangerListActivity.findViewById(w.root_view);
     }
 
     public void onChangeSkinType(int i) {
-        this.bnQ.getLayoutMode().ab(i == 1);
-        this.bnQ.getLayoutMode().h(this.mRootView);
-        this.mNavigationBar.onChangeSkinType(this.bnQ.getPageContext(), i);
+        this.bpn.getLayoutMode().ab(i == 1);
+        this.bpn.getLayoutMode().h(this.mRootView);
+        this.mNavigationBar.onChangeSkinType(this.bpn.getPageContext(), i);
     }
 
     private void g(StrangerListActivity strangerListActivity) {
         this.mBdListView = (BdListView) strangerListActivity.findViewById(w.msg_list);
         this.mBdListView.setOnItemClickListener(strangerListActivity);
         this.mBdListView.setOnItemLongClickListener(strangerListActivity);
-        this.bnW = new StrangerListAdapter(strangerListActivity);
-        this.mBdListView.setAdapter((ListAdapter) this.bnW);
+        this.bpt = new StrangerListAdapter(strangerListActivity);
+        this.mBdListView.setAdapter((ListAdapter) this.bpt);
     }
 
-    public StrangerListAdapter Tb() {
-        return this.bnW;
+    public StrangerListAdapter Tx() {
+        return this.bpt;
     }
 
-    public View Tc() {
-        return this.bnX;
+    public View Ty() {
+        return this.bpu;
     }
 }

@@ -4,30 +4,30 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class ak {
-    private static ak II;
-    private static long IK;
-    public static int IN;
-    private static volatile int IJ = 0;
-    private static int IL = 300000;
-    private static int IM = 10;
+    private static ak IS;
+    private static long IU;
+    public static int IX;
+    private static volatile int IT = 0;
+    private static int IV = 300000;
+    private static int IW = 10;
 
     private ak() {
-        IN = TbadkCoreApplication.m255getInst().getNetWorkCoreType();
+        IX = TbadkCoreApplication.m255getInst().getNetWorkCoreType();
     }
 
-    public static synchronized ak pi() {
+    public static synchronized ak pl() {
         ak akVar;
         synchronized (ak.class) {
-            if (II == null) {
-                II = new ak();
+            if (IS == null) {
+                IS = new ak();
             }
-            akVar = II;
+            akVar = IS;
         }
         return akVar;
     }
 
     public v a(com.baidu.tbadk.core.util.httpNet.c cVar) {
-        switch (IN) {
+        switch (IX) {
             case 0:
                 return new ae(cVar);
             case 1:
@@ -37,21 +37,21 @@ public class ak {
         }
     }
 
-    public static synchronized void pj() {
+    public static synchronized void pm() {
         synchronized (ak.class) {
-            if (IN == 1) {
+            if (IX == 1) {
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - IK < IL) {
-                    IJ++;
-                    if (IJ > IM) {
-                        IN = 0;
+                if (currentTimeMillis - IU < IV) {
+                    IT++;
+                    if (IT > IW) {
+                        IX = 0;
                         BdLog.e("切换会老的网络内核");
-                        TbadkCoreApplication.m255getInst().setNetWorkCoreType(IN);
-                        TiebaStatic.eventStat(TbadkCoreApplication.m255getInst().getApp().getApplicationContext(), "network_core", "current Net：" + com.baidu.adp.lib.util.i.fm() + ", TelType:" + com.baidu.adp.lib.util.i.fo() + ", wap:" + getNetType(), 1, new Object[0]);
+                        TbadkCoreApplication.m255getInst().setNetWorkCoreType(IX);
+                        TiebaStatic.eventStat(TbadkCoreApplication.m255getInst().getApp().getApplicationContext(), "network_core", "current Net：" + com.baidu.adp.lib.util.i.fl() + ", TelType:" + com.baidu.adp.lib.util.i.fn() + ", wap:" + getNetType(), 1, new Object[0]);
                     }
                 } else {
-                    IJ = 0;
-                    IK = currentTimeMillis;
+                    IT = 0;
+                    IU = currentTimeMillis;
                 }
             }
         }
@@ -59,13 +59,13 @@ public class ak {
 
     public static String getNetType() {
         try {
-            if (com.baidu.adp.lib.util.i.fg()) {
-                if (com.baidu.adp.lib.util.i.fh()) {
+            if (com.baidu.adp.lib.util.i.ff()) {
+                if (com.baidu.adp.lib.util.i.fg()) {
                     return "wifi";
                 }
-                String fp = com.baidu.adp.lib.util.i.fp();
-                if (fp != null) {
-                    if (fp.length() > 0) {
+                String fo = com.baidu.adp.lib.util.i.fo();
+                if (fo != null) {
+                    if (fo.length() > 0) {
                         return "wap";
                     }
                 }
@@ -77,7 +77,7 @@ public class ak {
         }
     }
 
-    public static void bP(int i) {
-        IN = i;
+    public static void bU(int i) {
+        IX = i;
     }
 }

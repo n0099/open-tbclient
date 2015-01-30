@@ -7,51 +7,51 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class ac {
-    private static String agP = "tb_perfor_samllflow_time";
-    private static volatile ac agS;
-    private long agR;
-    private boolean agN = false;
-    private long agQ = 86400;
-    private long agO = com.baidu.tbadk.core.sharedPref.b.og().getLong(agP, 0);
+    private static String ahn = "tb_perfor_samllflow_time";
+    private static volatile ac ahq;
+    private long ahp;
+    private boolean ahl = false;
+    private long aho = 86400;
+    private long ahm = com.baidu.tbadk.core.sharedPref.b.oj().getLong(ahn, 0);
 
-    public static ac zh() {
-        if (agS == null) {
+    public static ac zy() {
+        if (ahq == null) {
             synchronized (ac.class) {
-                if (agS == null) {
-                    agS = new ac();
+                if (ahq == null) {
+                    ahq = new ac();
                 }
             }
         }
-        return agS;
+        return ahq;
     }
 
     private ac() {
-        this.agR = 0L;
-        this.agR = this.agQ;
+        this.ahp = 0L;
+        this.ahp = this.aho;
     }
 
-    public boolean zi() {
-        if (!this.agN || (System.currentTimeMillis() - this.agO) / 1000 <= this.agR) {
-            return this.agN;
+    public boolean zz() {
+        if (!this.ahl || (System.currentTimeMillis() - this.ahm) / 1000 <= this.ahp) {
+            return this.ahl;
         }
         return false;
     }
 
-    public void aW(boolean z) {
+    public void aY(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.agO || currentTimeMillis - this.agO >= this.agR) {
-                this.agO = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.og().putLong(agP, this.agO);
+            if (0 == this.ahm || currentTimeMillis - this.ahm >= this.ahp) {
+                this.ahm = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.oj().putLong(ahn, this.ahm);
             }
         } else {
-            this.agO = 0L;
-            com.baidu.tbadk.core.sharedPref.b.og().putLong(agP, this.agO);
+            this.ahm = 0L;
+            com.baidu.tbadk.core.sharedPref.b.oj().putLong(ahn, this.ahm);
         }
-        this.agN = z;
+        this.ahl = z;
     }
 
-    public String zj() {
+    public String zA() {
         try {
             Runtime runtime = Runtime.getRuntime();
             StringBuffer stringBuffer = new StringBuffer();
@@ -66,22 +66,22 @@ public class ac {
     }
 
     public String getNetType() {
-        if (!com.baidu.adp.lib.util.i.fg()) {
+        if (!com.baidu.adp.lib.util.i.ff()) {
             return "N";
         }
-        if (com.baidu.adp.lib.util.i.fh()) {
+        if (com.baidu.adp.lib.util.i.fg()) {
             return NetworkChangeReceiver.WIFI_STRING;
         }
-        if (com.baidu.adp.lib.util.i.fk()) {
+        if (com.baidu.adp.lib.util.i.fj()) {
             return "3G";
         }
-        if (!com.baidu.adp.lib.util.i.ea()) {
+        if (!com.baidu.adp.lib.util.i.dY()) {
             return "N";
         }
         return "2G";
     }
 
-    public static String dS(int i) {
+    public static String dY(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -94,8 +94,8 @@ public class ac {
         return NetworkChangeReceiver.WIFI_STRING;
     }
 
-    public ab dT(int i) {
-        if (zi()) {
+    public ab dZ(int i) {
+        if (zz()) {
             switch (i) {
                 case 1000:
                     ae aeVar = new ae();
@@ -118,7 +118,7 @@ public class ac {
 
     public void v(long j) {
         if (j > 0) {
-            this.agR = j;
+            this.ahp = j;
         }
     }
 
@@ -137,7 +137,7 @@ public class ac {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int zk() {
+    public int zB() {
         BufferedReader bufferedReader;
         Process process;
         String str;

@@ -1,49 +1,54 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.b.a;
 /* loaded from: classes.dex */
-class ah extends CustomMessageListener {
-    final /* synthetic */ MainTabActivity this$0;
+public class ah implements a {
+    private h cdl;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ah(MainTabActivity mainTabActivity, int i) {
-        super(i);
-        this.this$0 = mainTabActivity;
+    @Override // com.baidu.tbadk.core.b.a
+    public void e(Context context, int i) {
+        MessageManager.getInstance().sendMessage(new CustomMessage(2015001, new MainTabActivityConfig(context).createNormalCfg(i)));
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Removed duplicated region for block: B:11:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:8:0x0019  */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        int i;
-        boolean z;
-        an anVar;
-        an anVar2;
-        int i2;
-        this.this$0.cba = false;
-        i = this.this$0.caW;
-        if (i <= 0) {
-            i2 = this.this$0.caY;
-            if (i2 <= 0) {
-                z = false;
-                if (z) {
-                    anVar = this.this$0.caU;
-                    anVar.eE(false);
-                    anVar2 = this.this$0.caU;
-                    anVar2.aja().eH(false);
-                    return;
-                }
-                return;
-            }
+    @Override // com.baidu.tbadk.core.b.a
+    public void R(Context context) {
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (currentAccount != null && currentAccount.length() > 0) {
+            e(context, 1);
+        } else {
+            e(context, 0);
         }
-        z = true;
-        if (z) {
+    }
+
+    @Override // com.baidu.tbadk.core.b.a
+    public void a(Context context, int i, boolean z) {
+        MessageManager.getInstance().sendMessage(new CustomMessage(2015001, new MainTabActivityConfig(context).createRefreshCfg(i, z)));
+    }
+
+    @Override // com.baidu.tbadk.core.b.a
+    public Class<?> oc() {
+        return MainTabActivity.class;
+    }
+
+    @Override // com.baidu.tbadk.core.b.a
+    public String od() {
+        return MainTabActivity.class.getName();
+    }
+
+    @Override // com.baidu.tbadk.core.b.a
+    public int getCurrentTabType() {
+        if (this.cdl != null) {
+            return this.cdl.getCurrentTabType();
         }
+        return -1;
+    }
+
+    public void a(h hVar) {
+        this.cdl = hVar;
     }
 }

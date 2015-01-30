@@ -5,23 +5,23 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class ar extends BdAsyncTask<String, String, String> {
-    private final String IY;
-    private final boolean IZ;
-    private final boolean Ja;
-    private final boolean Jb;
-    final /* synthetic */ aq Jc;
+    private final String Ji;
+    private final boolean Jj;
+    private final boolean Jk;
+    private final boolean Jl;
+    final /* synthetic */ aq Jm;
     private final String imageUrl;
 
     public ar(aq aqVar, String str, String str2, boolean z, boolean z2, boolean z3) {
         BdUniqueId bdUniqueId;
-        this.Jc = aqVar;
+        this.Jm = aqVar;
         this.imageUrl = str;
-        this.IY = str2;
-        this.IZ = z;
-        this.Ja = z2;
-        this.Jb = z3;
+        this.Ji = str2;
+        this.Jj = z;
+        this.Jk = z2;
+        this.Jl = z3;
         BdAsyncTaskParallel.BdAsyncTaskParallelType bdAsyncTaskParallelType = BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL;
-        bdUniqueId = aq.IX;
+        bdUniqueId = aq.Jh;
         setParallel(new BdAsyncTaskParallel(bdAsyncTaskParallelType, bdUniqueId));
     }
 
@@ -31,7 +31,7 @@ public class ar extends BdAsyncTask<String, String, String> {
     /* renamed from: l */
     public String doInBackground(String... strArr) {
         try {
-            this.Jc.a(this.imageUrl, this.IY, this.IZ, this.Ja, this.Jb);
+            this.Jm.a(this.imageUrl, this.Ji, this.Jj, this.Jk, this.Jl);
         } catch (Throwable th) {
             TiebaStatic.imgError("", TbErrInfo.ERR_IMG_CACHE, "pic cache img err: " + th.toString(), null);
         }

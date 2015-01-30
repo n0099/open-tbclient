@@ -1,20 +1,18 @@
 package com.baidu.tieba.im.forum.detail;
-
-import android.widget.LinearLayout;
-import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class v {
-    LinearLayout aZL;
-    TextView aZM;
-    TextView aZN;
-    TextView aZO;
-    TextView aZP;
-
-    private v() {
-    }
+public class v implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ ItemFootNavView baW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ v(v vVar) {
-        this();
+    public v(ItemFootNavView itemFootNavView) {
+        this.baW = itemFootNavView;
+    }
+
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.tbadk.core.dialog.a aVar2;
+        aVar2 = this.baW.baV;
+        aVar2.dismiss();
     }
 }

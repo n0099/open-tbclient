@@ -6,13 +6,13 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public abstract class c<T> {
-    protected final com.baidu.adp.base.a.c hk;
-    protected String hl;
-    protected h hm;
-    protected g hn;
-    protected int ho;
-    protected LinkedList<String> hp = new LinkedList<>();
-    private Object hq = new Object();
+    protected final com.baidu.adp.base.a.c hm;
+    protected String hn;
+    protected h ho;
+    protected g hp;
+    protected int hq;
+    protected LinkedList<String> hr = new LinkedList<>();
+    private Object hs = new Object();
 
     public abstract String G(String str);
 
@@ -24,29 +24,29 @@ public abstract class c<T> {
 
     protected abstract m<T> c(SQLiteDatabase sQLiteDatabase, String str);
 
-    public abstract int cF();
+    public abstract int cD();
 
     public abstract Cursor d(SQLiteDatabase sQLiteDatabase, String str);
 
     public c(com.baidu.adp.base.a.c cVar) {
-        this.hk = cVar;
+        this.hm = cVar;
     }
 
     public void a(f fVar, String str) {
-        this.hl = str;
+        this.hn = str;
         if (fVar instanceof h) {
-            this.hm = (h) fVar;
+            this.ho = (h) fVar;
         }
         if (fVar instanceof g) {
-            this.hn = (g) fVar;
+            this.hp = (g) fVar;
         }
     }
 
     public m<T> J(String str) {
         try {
-            return c(this.hk.ak(), str);
+            return c(this.hm.ak(), str);
         } catch (Throwable th) {
-            this.hk.a(th, "get");
+            this.hm.a(th, "get");
             return null;
         }
     }
@@ -54,144 +54,144 @@ public abstract class c<T> {
     public void b(m<T> mVar) {
         String e;
         try {
-            synchronized (this.hq) {
-                this.hp.remove(mVar.hw);
+            synchronized (this.hs) {
+                this.hr.remove(mVar.hy);
             }
             ContentValues a = a(mVar);
-            SQLiteDatabase ak = this.hk.ak();
-            if (ak.update(this.hl, a, "m_key = ?", new String[]{mVar.hw}) == 0) {
-                ak.insert(this.hl, null, a);
-                if (this.hn != null) {
-                    cG();
+            SQLiteDatabase ak = this.hm.ak();
+            if (ak.update(this.hn, a, "m_key = ?", new String[]{mVar.hy}) == 0) {
+                ak.insert(this.hn, null, a);
+                if (this.hp != null) {
+                    cE();
                 }
             }
-            if (this.hm != null && (e = this.hm.e(mVar)) != null) {
+            if (this.ho != null && (e = this.ho.e(mVar)) != null) {
                 K(e);
             }
         } catch (Throwable th) {
-            this.hk.a(th, "addOrUpdateTextCacheItem");
+            this.hm.a(th, "addOrUpdateTextCacheItem");
         }
     }
 
-    protected void cG() {
-        if (this.hn != null) {
-            this.ho++;
-            if (this.ho >= ((int) Math.min(this.hn.cK() * 0.2d, 5.0d))) {
-                this.ho = 0;
-                com.baidu.adp.lib.g.l.em().c(new d(this));
+    protected void cE() {
+        if (this.hp != null) {
+            this.hq++;
+            if (this.hq >= ((int) Math.min(this.hp.cI() * 0.2d, 5.0d))) {
+                this.hq = 0;
+                com.baidu.adp.lib.g.l.ek().c(new d(this));
             }
         }
     }
 
     public int K(String str) {
         try {
-            return this.hk.ak().delete(this.hl, "m_key = ?", new String[]{str});
+            return this.hm.ak().delete(this.hn, "m_key = ?", new String[]{str});
         } catch (Throwable th) {
-            this.hk.a(th, "deleteCacheItem");
+            this.hm.a(th, "deleteCacheItem");
             return 0;
         }
     }
 
     public void L(String str) {
-        this.ho = 0;
-        synchronized (this.hq) {
-            this.hp.clear();
+        this.hq = 0;
+        synchronized (this.hs) {
+            this.hr.clear();
         }
         if (I(str)) {
-            BdCacheService.cS().cT().X(str);
+            BdCacheService.cQ().cR().X(str);
         }
     }
 
     public synchronized void c(String str, boolean z) {
-        synchronized (this.hq) {
-            if (!this.hp.contains(str)) {
-                this.hp.addLast(str);
+        synchronized (this.hs) {
+            if (!this.hr.contains(str)) {
+                this.hr.addLast(str);
                 if (z) {
-                    cG();
+                    cE();
                 }
             }
         }
     }
 
     public void M(String str) {
-        if (this.hn != null) {
+        if (this.hp != null) {
             Cursor cursor = null;
             try {
-                this.hn.cM();
-                cursor = d(this.hk.ak(), str);
+                this.hp.cK();
+                cursor = d(this.hm.ak(), str);
                 while (cursor.moveToNext()) {
                     m<?> mVar = new m<>();
-                    mVar.hw = cursor.getString(cursor.getColumnIndex("m_key"));
-                    mVar.hy = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                    mVar.hz = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
-                    mVar.hA = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    String d = this.hn.d(mVar);
+                    mVar.hy = cursor.getString(cursor.getColumnIndex("m_key"));
+                    mVar.hA = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    mVar.hB = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
+                    mVar.hC = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                    String d = this.hp.d(mVar);
                     if (d != null) {
                         c(d, false);
                     }
                 }
-                cH();
+                cF();
             } catch (Throwable th) {
                 try {
-                    this.hk.a(th, "performEvict");
+                    this.hm.a(th, "performEvict");
                 } finally {
                     com.baidu.adp.lib.g.a.b(cursor);
-                    this.hn.cN();
+                    this.hp.cL();
                 }
             }
         }
     }
 
     public void N(String str) {
-        if (this.hm != null) {
+        if (this.ho != null) {
             Cursor cursor = null;
             try {
-                this.hm.cO();
-                cursor = d(this.hk.ak(), str);
+                this.ho.cM();
+                cursor = d(this.hm.ak(), str);
                 while (cursor.moveToNext()) {
                     m<?> mVar = new m<>();
-                    mVar.hw = cursor.getString(cursor.getColumnIndex("m_key"));
-                    mVar.hy = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                    mVar.hz = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
-                    mVar.hA = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    String f = this.hm.f(mVar);
+                    mVar.hy = cursor.getString(cursor.getColumnIndex("m_key"));
+                    mVar.hA = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    mVar.hB = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
+                    mVar.hC = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                    String f = this.ho.f(mVar);
                     if (f != null) {
                         c(f, false);
                     }
                 }
-                cH();
+                cF();
             } catch (Throwable th) {
                 try {
-                    this.hk.a(th, "performPump");
+                    this.hm.a(th, "performPump");
                 } finally {
                     com.baidu.adp.lib.g.a.b(cursor);
-                    this.hm.cP();
+                    this.ho.cN();
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cH() {
+    public void cF() {
         String removeFirst;
-        if (!this.hp.isEmpty()) {
-            SQLiteDatabase ak = this.hk.ak();
+        if (!this.hr.isEmpty()) {
+            SQLiteDatabase ak = this.hm.ak();
             ak.beginTransaction();
             while (true) {
                 try {
-                    synchronized (this.hq) {
-                        if (!this.hp.isEmpty()) {
-                            removeFirst = this.hp.removeFirst();
+                    synchronized (this.hs) {
+                        if (!this.hr.isEmpty()) {
+                            removeFirst = this.hr.removeFirst();
                         } else {
                             ak.setTransactionSuccessful();
-                            this.ho = 0;
+                            this.hq = 0;
                             return;
                         }
                     }
-                    ak.delete(this.hl, "m_key = ?", new String[]{String.valueOf(removeFirst)});
+                    ak.delete(this.hn, "m_key = ?", new String[]{String.valueOf(removeFirst)});
                 } catch (Throwable th) {
                     try {
-                        this.hk.a(th, "performCleanup");
+                        this.hm.a(th, "performCleanup");
                         return;
                     } finally {
                         ak.endTransaction();
@@ -201,7 +201,7 @@ public abstract class c<T> {
         }
     }
 
-    public com.baidu.adp.base.a.c cI() {
-        return this.hk;
+    public com.baidu.adp.base.a.c cG() {
+        return this.hm;
     }
 }

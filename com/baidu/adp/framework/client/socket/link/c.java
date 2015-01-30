@@ -13,13 +13,13 @@ class c extends Handler {
 
     @Override // android.os.Handler
     public void dispatchMessage(Message message) {
-        i iVar;
+        j jVar;
         switch (message.what) {
             case 1:
                 BdLog.w("tcp建立和握手超时");
                 BdSocketLinkService.close(9, "connect timeout");
-                iVar = BdSocketLinkService.reConnStra;
-                iVar.start("tcp or websocket handshake timeout");
+                jVar = BdSocketLinkService.reConnStra;
+                jVar.start("tcp or websocket handshake timeout");
                 return;
             default:
                 return;

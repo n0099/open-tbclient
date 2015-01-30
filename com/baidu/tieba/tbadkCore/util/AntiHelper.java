@@ -18,7 +18,7 @@ public class AntiHelper {
         LIKE,
         REPLY;
 
-        /* JADX DEBUG: Replace access to removed values field (bYM) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (caF) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static OperationType[] valuesCustom() {
             OperationType[] valuesCustom = values();
@@ -31,7 +31,7 @@ public class AntiHelper {
 
     public static boolean a(Context context, AntiData antiData, OperationType operationType, PageType pageType) {
         if (!f(antiData)) {
-            ahK();
+            aio();
         }
         if (c(antiData) || e(antiData)) {
             if (antiData.isHas_chance()) {
@@ -151,7 +151,7 @@ public class AntiHelper {
     }
 
     private static void a(Context context, AntiData antiData, PageType pageType) {
-        if (!com.baidu.tbadk.core.sharedPref.b.og().getBoolean("anti_vcode_no_longer_tip", false)) {
+        if (!com.baidu.tbadk.core.sharedPref.b.oj().getBoolean("anti_vcode_no_longer_tip", false)) {
             boolean isHas_chance = antiData.isHas_chance();
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setTitle(context.getString(z.anti_title));
@@ -168,7 +168,7 @@ public class AntiHelper {
         }
     }
 
-    private static void ahK() {
-        com.baidu.tbadk.core.sharedPref.b.og().remove("anti_vcode_no_longer_tip");
+    private static void aio() {
+        com.baidu.tbadk.core.sharedPref.b.oj().remove("anti_vcode_no_longer_tip");
     }
 }

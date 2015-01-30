@@ -6,75 +6,75 @@ import java.security.InvalidParameterException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public abstract class j implements Runnable {
-    private k<?> hd;
+    private k<?> hg;
 
     public j(k<?> kVar) {
-        this.hd = null;
-        if (kVar == null || kVar.cy() == null) {
+        this.hg = null;
+        if (kVar == null || kVar.cw() == null) {
             throw new InvalidParameterException("parameter is null");
         }
-        this.hd = kVar;
+        this.hg = kVar;
     }
 
-    public void cx() {
+    public void cv() {
         try {
-            this.hd.run();
+            this.hg.run();
         } catch (OutOfMemoryError e) {
             BdBaseApplication.getInst().onAppMemoryLow();
         }
     }
 
-    public void ct() {
-        this.hd.ct();
+    public void cr() {
+        this.hg.cr();
     }
 
     public boolean isCancelled() {
-        return this.hd.isCancelled();
+        return this.hg.isCancelled();
     }
 
-    public BdAsyncTask<?, ?, ?> cy() {
-        return this.hd.cy();
+    public BdAsyncTask<?, ?, ?> cw() {
+        return this.hg.cw();
     }
 
     public int getPriority() {
-        return this.hd.cy().getPriority();
+        return this.hg.cw().getPriority();
     }
 
     public void setTimeout(boolean z) {
-        this.hd.cy().setTimeout(z);
+        this.hg.cw().setTimeout(z);
     }
 
-    public boolean cz() {
-        return this.hd.cy().isTimeout();
+    public boolean cx() {
+        return this.hg.cw().isTimeout();
     }
 
     public int getTag() {
-        return this.hd.cy().getTag();
+        return this.hg.cw().getTag();
     }
 
-    public int cA() {
-        if (this.hd.cy().getParallel() != null) {
-            return this.hd.cy().getParallel().getTag();
+    public int cy() {
+        if (this.hg.cw().getParallel() != null) {
+            return this.hg.cw().getParallel().getTag();
         }
         return 0;
     }
 
     public String getKey() {
-        return this.hd.cy().getKey();
+        return this.hg.cw().getKey();
     }
 
-    public BdAsyncTaskParallel.BdAsyncTaskParallelType cB() {
-        return this.hd.cy().getParallel() != null ? this.hd.cy().getParallel().cE() : BdAsyncTaskParallel.BdAsyncTaskParallelType.MAX_PARALLEL;
+    public BdAsyncTaskParallel.BdAsyncTaskParallelType cz() {
+        return this.hg.cw().getParallel() != null ? this.hg.cw().getParallel().cC() : BdAsyncTaskParallel.BdAsyncTaskParallelType.MAX_PARALLEL;
     }
 
-    public int cC() {
-        if (this.hd.cy().getParallel() != null) {
-            return this.hd.cy().getParallel().cD();
+    public int cA() {
+        if (this.hg.cw().getParallel() != null) {
+            return this.hg.cw().getParallel().cB();
         }
         return 1;
     }
 
     public boolean isSelfExecute() {
-        return this.hd.cy().isSelfExecute();
+        return this.hg.cw().isSelfExecute();
     }
 }

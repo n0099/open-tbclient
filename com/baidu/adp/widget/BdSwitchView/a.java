@@ -4,16 +4,16 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements Animation.AnimationListener {
-    final /* synthetic */ BdSwitchView ui;
+    final /* synthetic */ BdSwitchView uq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(BdSwitchView bdSwitchView) {
-        this.ui = bdSwitchView;
+        this.uq = bdSwitchView;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationStart(Animation animation) {
-        this.ui.uc = true;
+        this.uq.uj = true;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -22,6 +22,6 @@ public class a implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        this.ui.uc = false;
+        this.uq.uj = false;
     }
 }

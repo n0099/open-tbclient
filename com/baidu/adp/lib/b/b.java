@@ -1,15 +1,15 @@
 package com.baidu.adp.lib.b;
 /* loaded from: classes.dex */
 class b implements d {
-    final /* synthetic */ a hW;
+    final /* synthetic */ a hY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.hW = aVar;
+        this.hY = aVar;
     }
 
     @Override // com.baidu.adp.lib.b.d
     public void a(String str, int i, boolean z) {
-        this.hW.changeSettingByType(i);
+        this.hY.changeSettingByType(i);
     }
 }

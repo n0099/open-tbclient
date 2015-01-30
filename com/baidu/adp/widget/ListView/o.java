@@ -31,7 +31,7 @@ public class o implements Runnable {
                 kVar2 = this.xm.wN;
                 if (kVar2.getWrappedAdapter() != null) {
                     kVar3 = this.xm.wN;
-                    if (kVar3.jF() > 0) {
+                    if (kVar3.jE() > 0) {
                         kVar4 = this.xm.wN;
                         i2 = firstVisiblePosition - kVar4.getHeadersCount();
                         if (i2 < 0) {
@@ -40,9 +40,9 @@ public class o implements Runnable {
                         kVar5 = this.xm.wN;
                         int headersCount = lastVisiblePosition - kVar5.getHeadersCount();
                         kVar6 = this.xm.wN;
-                        if (headersCount >= kVar6.jF()) {
+                        if (headersCount >= kVar6.jE()) {
                             kVar7 = this.xm.wN;
-                            headersCount = kVar7.jF() - 1;
+                            headersCount = kVar7.jE() - 1;
                         }
                         if (headersCount >= 0) {
                             i = headersCount;

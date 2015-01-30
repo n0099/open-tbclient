@@ -1,7 +1,7 @@
 package com.baidu.tieba.tbadkCore.bubble;
 /* loaded from: classes.dex */
 public interface x {
-    void aeM();
+    void afq();
 
-    void hE(int i);
+    void hN(int i);
 }

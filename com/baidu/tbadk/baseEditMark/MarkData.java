@@ -103,9 +103,6 @@ public class MarkData implements Serializable {
         return this.mPostId;
     }
 
-    public void logPrint() {
-    }
-
     public void setAccount(String str) {
         this.mAccount = str;
     }

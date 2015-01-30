@@ -1,7 +1,9 @@
 package com.baidu.adp.lib.util;
 
 import android.text.TextUtils;
+import com.baidu.tbadk.TbConfig;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
@@ -121,5 +123,10 @@ public class StringUtils {
             return false;
         }
         return str.matches(PASSWORD_PREFIX);
+    }
+
+    public static long getyyyyMMddHHTimeForNow() {
+        Calendar calendar = Calendar.getInstance();
+        return 0 + (calendar.get(1) * 1000000) + ((calendar.get(2) + 1) * TbConfig.BIG_IMAGE_MIN_CAPACITY) + (calendar.get(5) * 100) + calendar.get(11);
     }
 }

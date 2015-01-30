@@ -1,37 +1,44 @@
 package com.baidu.adp.plugin.packageManager;
 
-import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSettings;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.plugin.packageManager.pluginFileDownload.BdFileDownloadData;
 /* loaded from: classes.dex */
-public class k implements com.baidu.adp.plugin.packageManager.pluginSettings.m {
-    private final /* synthetic */ String sQ;
-    final /* synthetic */ PluginPackageManager this$0;
+class k implements com.baidu.adp.plugin.install.b {
+    final /* synthetic */ j tb;
+    private final /* synthetic */ BdFileDownloadData tc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(PluginPackageManager pluginPackageManager, String str) {
-        this.this$0 = pluginPackageManager;
-        this.sQ = str;
+    public k(j jVar, BdFileDownloadData bdFileDownloadData) {
+        this.tb = jVar;
+        this.tc = bdFileDownloadData;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:5:0x0010, code lost:
-        if (r0 != false) goto L8;
-     */
-    @Override // com.baidu.adp.plugin.packageManager.pluginSettings.m
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(PluginSettings pluginSettings) {
-        boolean F;
-        if (pluginSettings != null) {
-            if (pluginSettings != null) {
-                F = this.this$0.F(this.sQ, pluginSettings.getContainerVersion());
-            }
-            this.this$0.ih();
-            this.this$0.ij();
-            return;
+    @Override // com.baidu.adp.plugin.install.b
+    public void aV(String str) {
+        PluginPackageManager pluginPackageManager;
+        e eVar;
+        PluginPackageManager pluginPackageManager2;
+        e eVar2;
+        pluginPackageManager = this.tb.this$0;
+        eVar = pluginPackageManager.sV;
+        if (eVar != null) {
+            pluginPackageManager2 = this.tb.this$0;
+            eVar2 = pluginPackageManager2.sV;
+            eVar2.a(this.tc, 0, "");
         }
-        this.this$0.sJ = System.currentTimeMillis();
-        this.this$0.ii();
-        this.this$0.ie();
+    }
+
+    @Override // com.baidu.adp.plugin.install.b
+    public void B(String str, String str2) {
+        PluginPackageManager pluginPackageManager;
+        e eVar;
+        PluginPackageManager pluginPackageManager2;
+        e eVar2;
+        pluginPackageManager = this.tb.this$0;
+        eVar = pluginPackageManager.sV;
+        if (eVar != null) {
+            pluginPackageManager2 = this.tb.this$0;
+            eVar2 = pluginPackageManager2.sV;
+            eVar2.a(this.tc, -1, str2);
+        }
     }
 }

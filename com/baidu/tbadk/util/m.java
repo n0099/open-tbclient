@@ -1,35 +1,61 @@
 package com.baidu.tbadk.util;
+
+import android.text.TextUtils;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class m {
-    public String BDUSS;
-    public String ahF;
-
-    public m(String str, String str2) {
-        this.BDUSS = "";
-        this.ahF = "";
-        this.BDUSS = str;
-        this.ahF = str2;
+    public static boolean b(char c) {
+        return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
     }
 
-    public int hashCode() {
-        return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.ahF != null ? this.ahF.hashCode() : 0);
-    }
-
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
+    public static int eJ(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return 0;
         }
-        if (obj != null && getClass() == obj.getClass()) {
-            m mVar = (m) obj;
-            if (this.BDUSS == null) {
-                if (mVar.BDUSS != null) {
-                    return false;
-                }
-            } else if (!this.BDUSS.equals(mVar.BDUSS)) {
-                return false;
+        int i = 0;
+        for (int i2 = 0; i2 < str.length(); i2++) {
+            if (b(str.charAt(i2))) {
+                i++;
+            } else {
+                i += 2;
             }
-            return this.ahF == null ? mVar.ahF == null : this.ahF.equals(mVar.ahF);
         }
-        return false;
+        return i;
+    }
+
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v0 int)] */
+    public static String eb(int i) {
+        if (i >= 100000000) {
+            return String.valueOf(i / 100000000) + "亿+";
+        }
+        if (i >= 10000) {
+            return String.valueOf(i / TbConfig.BIG_IMAGE_MIN_CAPACITY) + "万+";
+        }
+        return new StringBuilder().append(i).toString();
+    }
+
+    public static String f(String str, int i, int i2) {
+        StringBuilder sb = new StringBuilder();
+        if (TextUtils.isEmpty(str) || i > i2) {
+            return sb.toString();
+        }
+        if (i >= 0 && i2 >= 0) {
+            int i3 = 0;
+            for (int i4 = 0; i4 < str.length(); i4++) {
+                char charAt = str.charAt(i4);
+                if (i3 >= i2) {
+                    return sb.toString();
+                }
+                if (i3 >= i) {
+                    sb.append(charAt);
+                }
+                if (b(charAt)) {
+                    i3++;
+                } else {
+                    i3 += 2;
+                }
+            }
+        }
+        return sb.toString();
     }
 }

@@ -9,22 +9,22 @@ import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r extends BaseAdapter {
-    final /* synthetic */ JigsawAlbumListActivity acW;
+    final /* synthetic */ JigsawAlbumListActivity adu;
     private Context mContext;
 
     public r(JigsawAlbumListActivity jigsawAlbumListActivity, Context context) {
-        this.acW = jigsawAlbumListActivity;
+        this.adu = jigsawAlbumListActivity;
         this.mContext = context;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.acW.acr.getCount();
+        return this.adu.acP.getCount();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.acW.acr.dy(i);
+        return this.adu.acP.dE(i);
     }
 
     @Override // android.widget.Adapter
@@ -39,26 +39,26 @@ public class r extends BaseAdapter {
         ViewphotoLinkedHashMap viewphotoLinkedHashMap2;
         boolean z;
         ViewphotoLinkedHashMap viewphotoLinkedHashMap3;
-        c dy = this.acW.acr.dy(i);
-        viewphotoLinkedHashMap = this.acW.acN;
+        c dE = this.adu.acP.dE(i);
+        viewphotoLinkedHashMap = this.adu.adl;
         if (viewphotoLinkedHashMap.containsKey(Integer.valueOf(i))) {
-            viewphotoLinkedHashMap3 = this.acW.acN;
+            viewphotoLinkedHashMap3 = this.adu.adl;
             aVar = (a) viewphotoLinkedHashMap3.get((Object) Integer.valueOf(i));
         } else {
             aVar = new a(this.mContext);
-            aVar.setLayoutParams(new AbsListView.LayoutParams(this.acW.acT, this.acW.acT));
+            aVar.setLayoutParams(new AbsListView.LayoutParams(this.adu.adr, this.adu.adr));
             aVar.setTag(Integer.valueOf(i));
             aVar.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            aVar.setPadding(this.acW.acU, this.acW.acU, this.acW.acU, this.acW.acU);
-            aVar.setOnClickListener(new s(this, dy));
-            viewphotoLinkedHashMap2 = this.acW.acN;
+            aVar.setPadding(this.adu.ads, this.adu.ads, this.adu.ads, this.adu.ads);
+            aVar.setOnClickListener(new s(this, dE));
+            viewphotoLinkedHashMap2 = this.adu.adl;
             viewphotoLinkedHashMap2.put(Integer.valueOf(i), (ImageView) aVar);
         }
-        z = this.acW.acV;
+        z = this.adu.adt;
         if (z) {
-            this.acW.acV = false;
+            this.adu.adt = false;
         }
-        if (dy != null && u.wq().g(dy.uri)) {
+        if (dE != null && u.wG().g(dE.uri)) {
             aVar.setIsSelected(true);
         } else {
             aVar.setIsSelected(false);

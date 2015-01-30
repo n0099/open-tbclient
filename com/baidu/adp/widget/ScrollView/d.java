@@ -5,14 +5,14 @@ import android.widget.LinearLayout;
 import java.util.Timer;
 /* loaded from: classes.dex */
 class d implements Runnable {
-    private final /* synthetic */ View ns;
+    private final /* synthetic */ View nv;
     private final /* synthetic */ Timer ya;
     final /* synthetic */ c yb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, View view, Timer timer) {
         this.yb = cVar;
-        this.ns = view;
+        this.nv = view;
         this.ya = timer;
     }
 
@@ -31,7 +31,7 @@ class d implements Runnable {
         b bVar6;
         int i3;
         b bVar7;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ns.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.nv.getLayoutParams();
         int i4 = layoutParams.bottomMargin;
         bVar = this.yb.xZ;
         i = bVar.xt;
@@ -47,7 +47,7 @@ class d implements Runnable {
             bVar7 = this.yb.xZ;
             bVar7.xY = true;
         }
-        this.ns.setLayoutParams(layoutParams);
+        this.nv.setLayoutParams(layoutParams);
         bVar3 = this.yb.xZ;
         z = bVar3.xY;
         if (z) {
@@ -56,7 +56,7 @@ class d implements Runnable {
             if (gVar != null) {
                 bVar5 = this.yb.xZ;
                 gVar2 = bVar5.xv;
-                gVar2.jO();
+                gVar2.jN();
             }
         }
     }

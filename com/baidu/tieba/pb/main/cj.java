@@ -5,24 +5,24 @@ import com.baidu.tbadk.core.view.PbListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cj implements View.OnClickListener {
-    final /* synthetic */ bz bCR;
+    final /* synthetic */ bz bEC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cj(bz bzVar) {
-        this.bCR = bzVar;
+        this.bEC = bzVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PbListView pbListView;
         boolean z;
-        pbListView = this.bCR.bCH;
+        pbListView = this.bEC.bEs;
         pbListView.startLoadData();
-        if (this.bCR.bza != null) {
-            bh bhVar = this.bCR.bza;
-            z = this.bCR.bzA;
-            bhVar.dF(z);
+        if (this.bEC.bAK != null) {
+            bh bhVar = this.bEC.bAK;
+            z = this.bEC.bBk;
+            bhVar.dL(z);
         }
-        this.bCR.Yv();
+        this.bEC.Za();
     }
 }

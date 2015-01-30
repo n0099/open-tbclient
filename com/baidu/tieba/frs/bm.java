@@ -1,41 +1,35 @@
 package com.baidu.tieba.frs;
 
-import android.support.v4.view.ViewPager;
-import com.baidu.adp.widget.IndicatorView;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.LiveRoomChatActivityConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bm implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ bl aDP;
-    private final /* synthetic */ bo aDQ;
-    private final /* synthetic */ ViewPager aDR;
-    private final /* synthetic */ IndicatorView aDS;
+public class bm implements com.baidu.tieba.tbadkCore.c {
+    final /* synthetic */ bk aER;
+    private final /* synthetic */ bn aES;
+    private final /* synthetic */ com.baidu.tbadk.core.data.m aEV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(bl blVar, bo boVar, ViewPager viewPager, IndicatorView indicatorView) {
-        this.aDP = blVar;
-        this.aDQ = boVar;
-        this.aDR = viewPager;
-        this.aDS = indicatorView;
+    public bm(bk bkVar, bn bnVar, com.baidu.tbadk.core.data.m mVar) {
+        this.aER = bkVar;
+        this.aES = bnVar;
+        this.aEV = mVar;
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
-        int eJ;
-        int eK;
-        eJ = this.aDQ.eJ(i);
-        if (eJ != i) {
-            this.aDR.setCurrentItem(eJ, false);
-        } else if (this.aDS != null) {
-            IndicatorView indicatorView = this.aDS;
-            eK = this.aDQ.eK(i);
-            indicatorView.setPosition(eK);
+    @Override // com.baidu.tieba.tbadkCore.c
+    public void eO(int i) {
+        int eQ;
+        Context context;
+        Context context2;
+        eQ = this.aES.eQ(i);
+        if (this.aEV != null && this.aEV.mQ() != null && eQ >= 0 && eQ < this.aEV.mQ().size()) {
+            context = this.aER.mContext;
+            com.baidu.tbadk.core.i.A(context, "forum_live_ck");
+            MessageManager messageManager = MessageManager.getInstance();
+            context2 = this.aER.mContext;
+            messageManager.sendMessage(new CustomMessage(2002001, new LiveRoomChatActivityConfig(context2, this.aEV.mQ().get(eQ).getGroupId())));
         }
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
     }
 }

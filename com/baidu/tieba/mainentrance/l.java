@@ -12,6 +12,6 @@ public class l implements CustomMessageTask.CustomRunnable {
         if (customMessage == null) {
             return null;
         }
-        return new CustomResponsedMessage<>(2009001, com.baidu.tieba.tbadkCore.util.j.ahM());
+        return new CustomResponsedMessage<>(2009001, com.baidu.tieba.tbadkCore.util.j.aiq());
     }
 }

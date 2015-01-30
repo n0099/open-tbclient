@@ -4,11 +4,11 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.ListView.ac;
 /* loaded from: classes.dex */
 class d implements ac {
-    final /* synthetic */ b adL;
+    final /* synthetic */ b aei;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.adL = bVar;
+        this.aei = bVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.ac
@@ -16,7 +16,7 @@ class d implements ac {
         com.baidu.tbadk.mvc.c.b s = com.baidu.tbadk.mvc.h.a.s(bdListView);
         if (s != null) {
             s.setView(bdListView);
-            this.adL.dispatchMvcEvent(s);
+            this.aei.dispatchMvcEvent(s);
         }
     }
 }

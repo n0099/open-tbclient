@@ -1,46 +1,45 @@
 package com.baidu.tieba.frs;
 
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
+import com.baidu.tieba.tbadkCore.FrsPraiseView;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-class cm implements View.OnTouchListener {
-    final /* synthetic */ cg aFl;
+public class cm {
+    private int Yk = -1;
+    public LinearLayout aCh;
+    public LinearLayout aCi;
+    public TextView aCj;
+    public PlayVoiceBnt aCk;
+    public FrsCommonImageLayout aCl;
+    public TextView aCm;
+    public TextView aCn;
+    public UserIconBox aCo;
+    public HeadImageView aCp;
+    public LinearLayout aCq;
+    public ImageView aCr;
+    public TextView aCs;
+    public LinearLayout aCt;
+    public TextView aCu;
+    public FrsPraiseView aCv;
+    public TextView aCw;
+    public View aCx;
+    public LinearLayout aCy;
+    public cl aGA;
+    public LinearLayout aGB;
+    public ImageView aGC;
+    public TextView aGD;
+    final /* synthetic */ cf aGt;
+    public LinearLayout aGy;
+    public TextView aGz;
+    public TextView mTitle;
 
-    private cm(cg cgVar) {
-        this.aFl = cgVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ cm(cg cgVar, cm cmVar) {
-        this(cgVar);
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        com.baidu.tbadk.core.data.w wVar = (com.baidu.tbadk.core.data.w) this.aFl.ay(((Integer) view.getTag()).intValue());
-        View childAt = ((ViewGroup) view).getChildAt(0);
-        if (childAt != null) {
-            boolean z = wVar.getPraise() == null || wVar.getPraise().getIsLike() == 0;
-            if (motionEvent.getAction() == 0) {
-                if (System.currentTimeMillis() - cg.a(this.aFl) > 1000) {
-                    cg.a(this.aFl, true);
-                    cg.a(this.aFl, childAt);
-                } else {
-                    cg.a(this.aFl, false);
-                }
-            } else if (motionEvent.getAction() == 1) {
-                if (z) {
-                    cg.a(this.aFl, childAt, cg.b(this.aFl));
-                } else {
-                    cg.b(this.aFl, childAt, cg.b(this.aFl));
-                }
-            } else if (motionEvent.getAction() == 2) {
-                cg.b(this.aFl, childAt, cg.b(this.aFl));
-            } else if (motionEvent.getAction() == 3) {
-                cg.b(this.aFl, childAt, cg.b(this.aFl));
-            }
-        }
-        return false;
+    public cm(cf cfVar) {
+        this.aGt = cfVar;
     }
 }

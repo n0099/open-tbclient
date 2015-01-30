@@ -20,7 +20,7 @@ public class aa extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         af afVar;
-        afVar = this.this$0.buv;
+        afVar = this.this$0.bvR;
         afVar.refreshNewVersion();
     }
 }

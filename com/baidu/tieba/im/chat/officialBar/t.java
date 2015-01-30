@@ -6,13 +6,13 @@ import com.baidu.tieba.im.message.ResponseOfficialBarMenuMessage;
 import com.baidu.tieba.im.model.OfficialBarMsglistModel;
 /* loaded from: classes.dex */
 class t extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ OfficialBarChatActivity aSZ;
+    final /* synthetic */ OfficialBarChatActivity aUp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t(OfficialBarChatActivity officialBarChatActivity, int i) {
         super(i);
-        this.aSZ = officialBarChatActivity;
+        this.aUp = officialBarChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,44 +25,44 @@ class t extends com.baidu.adp.framework.listener.e {
         OfficialBarMsglistView officialBarMsglistView4;
         OfficialBarMsglistModel officialBarMsglistModel2;
         OfficialBarMsglistView officialBarMsglistView5;
-        officialBarMsglistView = this.aSZ.aSS;
-        officialBarMsglistView.cw(false);
+        officialBarMsglistView = this.aUp.aUi;
+        officialBarMsglistView.cA(false);
         if (!(socketResponsedMessage instanceof ResponseOfficialBarMenuMessage)) {
-            this.aSZ.showToast(com.baidu.tieba.z.neterror);
+            this.aUp.showToast(com.baidu.tieba.z.neterror);
             return;
         }
         ResponseOfficialBarMenuMessage responseOfficialBarMenuMessage = (ResponseOfficialBarMenuMessage) socketResponsedMessage;
         if (responseOfficialBarMenuMessage.hasError()) {
             if (responseOfficialBarMenuMessage.getError() > 0 && !TextUtils.isEmpty(responseOfficialBarMenuMessage.getErrorString())) {
-                this.aSZ.showToast(responseOfficialBarMenuMessage.getErrorString());
+                this.aUp.showToast(responseOfficialBarMenuMessage.getErrorString());
             } else {
-                this.aSZ.showToast(com.baidu.tieba.z.neterror);
+                this.aUp.showToast(com.baidu.tieba.z.neterror);
             }
-            officialBarMsglistModel2 = this.aSZ.aST;
-            com.baidu.tieba.im.data.d officialBarMenuDatas = officialBarMsglistModel2.getOfficialBarMenuDatas();
-            if (officialBarMenuDatas == null || officialBarMenuDatas.Mp() == null || officialBarMenuDatas.Mp().size() == 0) {
-                officialBarMsglistView5 = this.aSZ.aSS;
-                officialBarMsglistView5.cv(true);
+            officialBarMsglistModel2 = this.aUp.aUj;
+            com.baidu.tieba.im.data.e officialBarMenuDatas = officialBarMsglistModel2.getOfficialBarMenuDatas();
+            if (officialBarMenuDatas == null || officialBarMenuDatas.ML() == null || officialBarMenuDatas.ML().size() == 0) {
+                officialBarMsglistView5 = this.aUp.aUi;
+                officialBarMsglistView5.cz(true);
                 return;
             }
             return;
         }
-        com.baidu.tieba.im.data.d officialBarMenuDatas2 = responseOfficialBarMenuMessage.getOfficialBarMenuDatas();
+        com.baidu.tieba.im.data.e officialBarMenuDatas2 = responseOfficialBarMenuMessage.getOfficialBarMenuDatas();
         if (officialBarMenuDatas2 != null) {
-            if (officialBarMenuDatas2.Mn()) {
-                officialBarMsglistView3 = this.aSZ.aSS;
-                officialBarMsglistView3.cv(false);
-                if (officialBarMenuDatas2.Mp() != null && officialBarMenuDatas2.Mp().size() > 0) {
-                    officialBarMsglistModel = this.aSZ.aST;
+            if (officialBarMenuDatas2.MJ()) {
+                officialBarMsglistView3 = this.aUp.aUi;
+                officialBarMsglistView3.cz(false);
+                if (officialBarMenuDatas2.ML() != null && officialBarMenuDatas2.ML().size() > 0) {
+                    officialBarMsglistModel = this.aUp.aUj;
                     officialBarMsglistModel.setOfficialBarMenuDatas(officialBarMenuDatas2);
-                    officialBarMsglistView4 = this.aSZ.aSS;
-                    officialBarMsglistView4.ak(officialBarMenuDatas2.Mp());
+                    officialBarMsglistView4 = this.aUp.aUi;
+                    officialBarMsglistView4.am(officialBarMenuDatas2.ML());
                     return;
                 }
                 return;
             }
-            officialBarMsglistView2 = this.aSZ.aSS;
-            officialBarMsglistView2.cv(true);
+            officialBarMsglistView2 = this.aUp.aUi;
+            officialBarMsglistView2.cz(true);
         }
     }
 }

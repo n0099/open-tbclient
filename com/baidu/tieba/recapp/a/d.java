@@ -11,18 +11,18 @@ import com.baidu.tieba.tbadkCore.b.j;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    private static d bKW;
+    private static d bMH;
 
-    public static final d abK() {
-        if (bKW != null) {
-            return bKW;
+    public static final d aco() {
+        if (bMH != null) {
+            return bMH;
         }
         synchronized (d.class) {
-            if (bKW == null) {
-                bKW = new d();
+            if (bMH == null) {
+                bMH = new d();
             }
         }
-        return bKW;
+        return bMH;
     }
 
     @Override // android.view.View.OnClickListener
@@ -33,13 +33,13 @@ public class d implements View.OnClickListener {
                 BaseAppViewHolder baseAppViewHolder = (BaseAppViewHolder) tag;
                 j appData = baseAppViewHolder.getAppData();
                 int position = baseAppViewHolder.getPosition();
-                i.B(view.getContext(), "pb_tb_btc");
-                int agL = appData.agL();
-                if (agL == 0) {
-                    if (!com.baidu.adp.lib.util.i.fh() && (view.getContext() instanceof Activity)) {
+                i.A(view.getContext(), "pb_tb_btc");
+                int ahq = appData.ahq();
+                if (ahq == 0) {
+                    if (!com.baidu.adp.lib.util.i.fg() && (view.getContext() instanceof Activity)) {
                         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a((Activity) view.getContext());
-                        aVar.bs(z.del_post_tip);
-                        aVar.bt(z.frs_network_tips);
+                        aVar.bx(z.del_post_tip);
+                        aVar.by(z.frs_network_tips);
                         aVar.a(z.alert_yes_button, new e(this, view, appData, position, baseAppViewHolder));
                         aVar.b(z.alert_no_button, new f(this));
                         TbPageContext tbPageContext = null;
@@ -47,14 +47,14 @@ public class d implements View.OnClickListener {
                             tbPageContext = ((TbPageContextSupport) view.getContext()).getPageContext();
                         }
                         aVar.b(tbPageContext);
-                        aVar.nU();
+                        aVar.nX();
                         return;
                     }
-                    com.baidu.tbadk.distribute.a.uD().a(view.getContext(), appData.agP(), "btn_download", "pb", appData.Gb, appData.threadId);
-                    com.baidu.tbadk.distribute.a.uD().a(appData.agP(), appData.Gb, appData.threadId, "PB", "download");
+                    com.baidu.tbadk.distribute.a.uU().a(view.getContext(), appData.ahu(), "btn_download", "pb", appData.bYG, appData.threadId);
+                    com.baidu.tbadk.distribute.a.uU().a(appData.ahu(), appData.bYG, appData.threadId, "PB", "download");
                     ar.a(view.getContext(), appData, position);
                     baseAppViewHolder.refresh();
-                } else if (agL == 2) {
+                } else if (ahq == 2) {
                     ar.a(view.getContext(), appData);
                     baseAppViewHolder.refresh();
                 }

@@ -6,6 +6,7 @@ import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class GroupMsgData extends CustomResponsedMessage<Object> {
     private GroupIdTypeData groupInfo;
+    private boolean hasMore;
     private LinkedList<ChatMessage> listMessage;
 
     public GroupMsgData(int i) {
@@ -28,5 +29,13 @@ public class GroupMsgData extends CustomResponsedMessage<Object> {
 
     public void setListMessageData(LinkedList<ChatMessage> linkedList) {
         this.listMessage = linkedList;
+    }
+
+    public boolean hasMore() {
+        return this.hasMore;
+    }
+
+    public void setHasMore(boolean z) {
+        this.hasMore = z;
     }
 }

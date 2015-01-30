@@ -9,108 +9,108 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class h extends u {
     private static CustomMessageTask customNormalTask = new CustomMessageTask(2016100, new k());
-    private ArrayList<String> afK;
-    private ArrayList<String> afL;
-    private ArrayList<String> afM;
-    private n afQ;
-    private a afR;
-    private int afS;
-    private int afN = 0;
-    private int afO = 3;
-    private int afP = 0;
-    private int afT = 0;
-    private q afU = new i(this);
-    private c afA = new j(this);
+    private ArrayList<String> agi;
+    private ArrayList<String> agj;
+    private ArrayList<String> agk;
+    private n ago;
+    private a agp;
+    private int agq;
+    private int agl = 0;
+    private int agm = 3;
+    private int agn = 0;
+    private int agr = 0;
+    private q ags = new i(this);
+    private c afX = new j(this);
     private CustomMessageListener customNormalListener = new l(this, 2016100);
 
     public h() {
-        yP();
+        zg();
     }
 
     public void onDestroy() {
-        if (this.afQ != null) {
-            this.afQ.a((q) null);
+        if (this.ago != null) {
+            this.ago.a((q) null);
         }
-        if (this.afR != null) {
-            this.afR.a((c) null);
+        if (this.agp != null) {
+            this.agp.a((c) null);
         }
         MessageManager.getInstance().unRegisterListener(this.mId);
     }
 
-    public void yO() {
-        if (this.afN < this.afO) {
-            this.afN++;
-            yQ();
-            if (this.afQ == null) {
-                this.afQ = new n();
-                this.afQ.a(this.afU);
-                this.afQ.start();
+    public void zf() {
+        if (this.agl < this.agm) {
+            this.agl++;
+            zh();
+            if (this.ago == null) {
+                this.ago = new n();
+                this.ago.a(this.ags);
+                this.ago.start();
             }
-            if (this.afR == null) {
-                this.afR = new a(TbadkCoreApplication.m255getInst().getContext());
-                this.afR.a(this.afA);
-                this.afR.start();
+            if (this.agp == null) {
+                this.agp = new a(TbadkCoreApplication.m255getInst().getContext());
+                this.agp.a(this.afX);
+                this.agp.start();
             }
         }
     }
 
-    private void yP() {
+    private void zg() {
         this.customNormalListener.setTag(this.mId);
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().registerListener(this.customNormalListener);
     }
 
-    private void yQ() {
+    private void zh() {
         CustomMessage customMessage = new CustomMessage(2016100, new m(this));
         customMessage.setTag(this.mId);
         MessageManager.getInstance().sendMessage(customMessage);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dP(int i) {
+    public void dV(int i) {
         String valueOf = String.valueOf(i);
-        if (this.afK == null) {
-            this.afK = new ArrayList<>();
+        if (this.agi == null) {
+            this.agi = new ArrayList<>();
         }
-        this.afK.add(valueOf);
+        this.agi.add(valueOf);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void eB(String str) {
-        if (this.afL == null) {
-            this.afL = new ArrayList<>();
+        if (this.agj == null) {
+            this.agj = new ArrayList<>();
         }
         if (str != null) {
-            this.afL.add(str);
+            this.agj.add(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dQ(int i) {
+    public void dW(int i) {
         String valueOf = String.valueOf(i);
-        if (this.afM == null) {
-            this.afM = new ArrayList<>();
+        if (this.agk == null) {
+            this.agk = new ArrayList<>();
         }
-        this.afM.add(valueOf);
+        this.agk.add(valueOf);
     }
 
-    public String yR() {
-        return v(this.afK);
+    public String zi() {
+        return w(this.agi);
     }
 
-    public String yS() {
-        return String.valueOf(this.afS);
+    public String zj() {
+        return String.valueOf(this.agq);
     }
 
-    public String yT() {
-        return v(this.afL);
+    public String zk() {
+        return w(this.agj);
     }
 
     public String getCpuString() {
-        return v(this.afM);
+        return w(this.agk);
     }
 
-    private String v(ArrayList<String> arrayList) {
+    private String w(ArrayList<String> arrayList) {
         if (arrayList == null || arrayList.size() == 0) {
             return "()";
         }
@@ -130,9 +130,9 @@ public class h extends u {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void yU() {
+    public void zl() {
         ae aeVar;
-        if (this.afP == this.afO && this.afO == this.afT && (aeVar = (ae) ac.zh().dT(this.mSubType)) != null) {
+        if (this.agn == this.agm && this.agm == this.agr && (aeVar = (ae) ac.zy().dZ(this.mSubType)) != null) {
             aeVar.g(this);
         }
     }

@@ -10,128 +10,128 @@ import com.baidu.tbadk.mvc.core.a;
 import com.baidu.tbadk.mvc.core.c;
 /* loaded from: classes.dex */
 public abstract class MvcActivity<V extends c, M extends a, T> extends BaseActivity<T> implements com.baidu.tbadk.mvc.c.a, e<V, M, T> {
-    private V adA;
-    private ViewEventCenter adz;
+    private ViewEventCenter adW;
+    private V adX;
     private M zc;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        wO();
+        xe();
         this.zc = kw();
         if (this.zc != null) {
             this.zc.setUniqueId(getUniqueId());
             this.zc.a(this);
         }
-        this.adA = ky();
-        if (this.adA != null) {
-            this.adA.setUniqueId(getUniqueId());
-            this.adA.a(this);
+        this.adX = ky();
+        if (this.adX != null) {
+            this.adX.setUniqueId(getUniqueId());
+            this.adX.a(this);
         }
-        this.adz = wx();
-        wP();
-        wQ();
+        this.adW = wN();
+        xf();
+        xg();
         if (getIntent() != null) {
             this.zc.f(getIntent().getExtras());
-            this.adA.i(getIntent().getExtras());
+            this.adX.i(getIntent().getExtras());
         } else if (bundle != null) {
             this.zc.f(bundle);
-            this.adA.i(bundle);
+            this.adX.i(bundle);
         } else {
             this.zc.f(null);
-            this.adA.i(null);
+            this.adX.i(null);
         }
-        wR();
-        wS();
-        setContentView(this.adA.wN());
-        this.adA.kJ();
-        this.adA.a(getPageContext(), TbadkCoreApplication.m255getInst().getSkinType());
-        this.adA.wK();
-        wT();
+        xh();
+        xi();
+        setContentView(this.adX.xd());
+        this.adX.kJ();
+        this.adX.a(getPageContext(), TbadkCoreApplication.m255getInst().getSkinType());
+        this.adX.xa();
+        xj();
     }
 
-    protected void wO() {
+    protected void xe() {
     }
 
-    protected void wP() {
+    protected void xf() {
     }
 
-    protected void wQ() {
+    protected void xg() {
     }
 
-    protected void wR() {
+    protected void xh() {
     }
 
-    protected void wS() {
+    protected void xi() {
     }
 
-    protected void wT() {
+    protected void xj() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onStart() {
         super.onStart();
-        wU();
-        ky().wA();
+        xk();
+        ky().wQ();
     }
 
-    protected void wU() {
+    protected void xk() {
     }
 
     @Override // android.app.Activity
     protected void onRestart() {
         super.onRestart();
-        wV();
-        ky().wB();
+        xl();
+        ky().wR();
     }
 
-    protected void wV() {
+    protected void xl() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        wW();
-        ky().wD();
+        xm();
+        ky().wT();
     }
 
-    protected void wW() {
+    protected void xm() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        wX();
-        ky().wF();
+        xn();
+        ky().wV();
     }
 
-    protected void wX() {
+    protected void xn() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        wY();
-        ky().wH();
+        xo();
+        ky().wX();
     }
 
-    protected void wY() {
+    protected void xo() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        wZ();
-        ky().wI();
+        xp();
+        ky().wY();
     }
 
-    protected void wZ() {
+    protected void xp() {
     }
 
     @Override // android.app.Activity
@@ -144,7 +144,7 @@ public abstract class MvcActivity<V extends c, M extends a, T> extends BaseActiv
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         this.zc.onSaveInstanceState(bundle);
-        this.adA.onSaveInstanceState(bundle);
+        this.adX.onSaveInstanceState(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -157,15 +157,15 @@ public abstract class MvcActivity<V extends c, M extends a, T> extends BaseActiv
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.adA.a(getPageContext(), i);
+        this.adX.a(getPageContext(), i);
     }
 
     @Override // com.baidu.tbadk.mvc.core.e
-    public ViewEventCenter wx() {
-        if (this.adz == null) {
-            this.adz = new ViewEventCenter();
+    public ViewEventCenter wN() {
+        if (this.adW == null) {
+            this.adW = new ViewEventCenter();
         }
-        return this.adz;
+        return this.adW;
     }
 
     protected void a(ErrorData errorData) {
@@ -175,7 +175,7 @@ public abstract class MvcActivity<V extends c, M extends a, T> extends BaseActiv
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean wy() {
+    public boolean wO() {
         return false;
     }
 

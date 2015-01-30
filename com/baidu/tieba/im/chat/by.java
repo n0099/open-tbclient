@@ -1,22 +1,23 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
-import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class by implements CustomMessageTask.CustomRunnable<PersonalChatActivityConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<PersonalChatActivityConfig> run(CustomMessage<PersonalChatActivityConfig> customMessage) {
+public class by extends com.baidu.tieba.im.h<com.baidu.tieba.im.data.b> {
+    final /* synthetic */ PersonalChatActivity aSN;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public by(PersonalChatActivity personalChatActivity) {
+        this.aSN = personalChatActivity;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.h
+    /* renamed from: KL */
+    public com.baidu.tieba.im.data.b doInBackground() {
         UserData userData;
-        if (customMessage != null && customMessage.getData() != null && (userData = customMessage.getData().getUserData()) != null) {
-            LinkedList linkedList = new LinkedList();
-            linkedList.add(String.valueOf(userData.getUserId()));
-            com.baidu.tieba.im.i.a(new bz(this, linkedList), new ca(this, customMessage));
-        }
-        return null;
+        com.baidu.tieba.im.db.m Ne = com.baidu.tieba.im.db.m.Ne();
+        userData = this.aSN.mUser;
+        return Ne.X(userData.getUserIdLong());
     }
 }

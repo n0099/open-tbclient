@@ -1,12 +1,11 @@
 package com.baidu.adp.lib.util;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
-import android.content.res.Resources;
-import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.Handler;
@@ -14,7 +13,6 @@ import android.os.Looper;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
-import android.util.TypedValue;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
@@ -30,72 +28,85 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class l {
-    private static float nm;
-    static int nn;
-    static int np;
-    private static String nr;
-    static boolean nl = false;
-    private static Toast nq = null;
+    private static float nq;
+    static int nr;
+    static int ns;
+    private static String nu;
+    static boolean np = false;
+    private static Toast nt = null;
     private static Handler mHandler = new Handler();
     private static Runnable mRunnable = new m();
+
+    public static boolean l(Activity activity) {
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) activity.getSystemService("activity")).getRunningAppProcesses();
+        if (runningAppProcesses == null) {
+            return false;
+        }
+        for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+            if (runningAppProcessInfo.processName != null && runningAppProcessInfo.processName.contains(activity.getPackageName()) && runningAppProcessInfo.importance == 100) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public static void L(Context context) {
         DisplayMetrics displayMetrics;
         if (context.getResources() != null && (displayMetrics = context.getResources().getDisplayMetrics()) != null) {
-            nm = displayMetrics.density;
-            nn = displayMetrics.widthPixels;
-            np = displayMetrics.heightPixels;
+            nq = displayMetrics.density;
+            nr = displayMetrics.widthPixels;
+            ns = displayMetrics.heightPixels;
         }
-        nl = true;
+        np = true;
     }
 
     public static int M(Context context) {
-        if (!nl) {
+        if (!np) {
             L(context);
         }
-        return nn;
+        return nr;
     }
 
     public static int N(Context context) {
-        if (!nl) {
+        if (!np) {
             L(context);
         }
-        return np;
+        return ns;
     }
 
     public static int dip2px(Context context, float f) {
-        if (!nl) {
+        if (!np) {
             L(context);
         }
-        return (int) ((nm * f) + 0.5f);
+        return (int) ((nq * f) + 0.5f);
     }
 
     public static float O(Context context) {
-        if (!nl) {
+        if (!np) {
             L(context);
         }
-        return nm;
+        return nq;
     }
 
-    public static void fs() {
+    public static void fr() {
         if (mHandler != null) {
             mHandler.removeCallbacks(mRunnable);
         }
-        nq = null;
+        nt = null;
     }
 
     public static void showToast(Context context, String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             mHandler.removeCallbacks(mRunnable);
-            if (nq == null) {
-                nq = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
-                nq.setGravity(17, 0, dip2px(context, 100.0f));
-            } else if (!str.equals(nr)) {
-                nq.setText(str);
+            if (nt == null) {
+                nt = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
+                nt.setGravity(17, 0, dip2px(context, 100.0f));
+            } else if (!str.equals(nu)) {
+                nt.setText(str);
             }
-            nr = str;
+            nu = str;
             mHandler.postDelayed(mRunnable, i);
-            nq.show();
+            nt.show();
         }
     }
 
@@ -154,7 +165,7 @@ public class l {
         }
     }
 
-    public static int l(Activity activity) {
+    public static int m(Activity activity) {
         Rect rect = new Rect();
         activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
         int i = rect.top;
@@ -241,26 +252,6 @@ public class l {
         return ellipsize.toString();
     }
 
-    public static TextPaint a(Context context, TextPaint textPaint, float f) {
-        Resources resources;
-        if (context == null) {
-            resources = Resources.getSystem();
-        } else {
-            resources = context.getResources();
-        }
-        if (resources != null) {
-            textPaint.setTextSize(TypedValue.applyDimension(2, f, resources.getDisplayMetrics()));
-        }
-        return textPaint;
-    }
-
-    public static int b(Context context, float f) {
-        TextPaint textPaint = new TextPaint();
-        a(context, textPaint, f);
-        Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
-        return (int) Math.ceil(fontMetrics.descent - fontMetrics.ascent);
-    }
-
     public static int[] b(int i, int i2, int i3, int i4) {
         int i5;
         int i6;
@@ -302,7 +293,7 @@ public class l {
         return false;
     }
 
-    public static void ft() {
+    public static void fs() {
         if (BdBaseApplication.getInst().isDebugMode()) {
             boolean z = false;
             if ((Looper.myLooper() == null || Looper.getMainLooper() != Looper.myLooper()) ? true : true) {
@@ -322,12 +313,12 @@ public class l {
         }
     }
 
-    public static boolean fu() {
+    public static boolean ft() {
         return Looper.getMainLooper() == Looper.myLooper();
     }
 
     public static boolean isNetOk() {
-        return i.fg();
+        return i.ff();
     }
 
     public static void a(Context context, View view, int i, int i2, int i3, int i4) {
@@ -339,7 +330,7 @@ public class l {
         view2.post(new n(view, dip2px3, dip2px, dip2px4, dip2px2, view2));
     }
 
-    public static String fv() {
+    public static String fu() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -372,7 +363,7 @@ public class l {
         return str;
     }
 
-    public static String fw() {
+    public static String fv() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -405,11 +396,11 @@ public class l {
         return str;
     }
 
-    public static boolean fx() {
+    public static boolean fw() {
         return Build.VERSION.SDK_INT > 9;
     }
 
-    public static boolean fy() {
+    public static boolean fx() {
         String aG;
         String str = Build.DISPLAY;
         if (str != null && str.contains("Flyme") && (aG = aG(str)) != null && aG.length() >= 3) {

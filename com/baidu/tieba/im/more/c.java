@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 class c extends HttpMessageListener {
-    final /* synthetic */ SecretSettingActivity biA;
+    final /* synthetic */ SecretSettingActivity bjX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(SecretSettingActivity secretSettingActivity, int i, boolean z) {
         super(i, z);
-        this.biA = secretSettingActivity;
+        this.bjX = secretSettingActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,33 +25,33 @@ class c extends HttpMessageListener {
         g gVar3;
         g gVar4;
         if (httpResponsedMessage != null) {
-            this.biA.hideProgressBar();
+            this.bjX.hideProgressBar();
             if (httpResponsedMessage.getOrginalMessage() instanceof PrivacySettingMessage) {
                 PrivacySettingMessage privacySettingMessage = (PrivacySettingMessage) httpResponsedMessage.getOrginalMessage();
                 String operation = privacySettingMessage.getOperation();
                 int type = privacySettingMessage.getType();
                 if (httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
-                    this.biA.showToast(httpResponsedMessage.getErrorString());
+                    this.bjX.showToast(httpResponsedMessage.getErrorString());
                     if (TextUtils.equals("location", operation)) {
-                        gVar = this.biA.biu;
-                        this.biA.mHandler.postDelayed(new d(this, gVar.Rr()), 500L);
+                        gVar = this.bjX.bjR;
+                        this.bjX.mHandler.postDelayed(new d(this, gVar.RN()), 500L);
                         return;
                     }
                     return;
                 }
-                this.biA.showToast(z.success);
+                this.bjX.showToast(z.success);
                 if (!TextUtils.equals("location", operation)) {
-                    aVar = this.biA.biv;
+                    aVar = this.bjX.bjS;
                     aVar.N(operation, type);
-                    gVar2 = this.biA.biu;
+                    gVar2 = this.bjX.bjR;
                     gVar2.Q(operation, type);
                     return;
                 }
                 TbadkCoreApplication m255getInst = TbadkCoreApplication.m255getInst();
-                gVar3 = this.biA.biu;
-                m255getInst.setLocationShared(gVar3.Rr());
-                gVar4 = this.biA.biu;
-                gVar4.dd(TbadkCoreApplication.m255getInst().getLocationShared());
+                gVar3 = this.bjX.bjR;
+                m255getInst.setLocationShared(gVar3.RN());
+                gVar4 = this.bjX.bjR;
+                gVar4.di(TbadkCoreApplication.m255getInst().getLocationShared());
             }
         }
     }

@@ -7,13 +7,13 @@ import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends CustomMessageListener {
-    final /* synthetic */ a adV;
+    final /* synthetic */ a aes;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(a aVar, int i) {
         super(i);
-        this.adV = aVar;
+        this.aes = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,16 +21,16 @@ public class c extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         d dVar;
         d dVar2;
-        this.adV.adU = false;
+        this.aes.aer = false;
         if (customResponsedMessage != null && (customResponsedMessage instanceof WriteCacheRespMsg)) {
             WriteCacheRespMsg writeCacheRespMsg = (WriteCacheRespMsg) customResponsedMessage;
             WriteCacheMessage writeCacheMessage = null;
             if (writeCacheRespMsg.getOrginalMessage() != null && (writeCacheRespMsg.getOrginalMessage() instanceof WriteCacheMessage)) {
                 writeCacheMessage = (WriteCacheMessage) writeCacheRespMsg.getOrginalMessage();
             }
-            dVar = this.adV.adP;
+            dVar = this.aes.aem;
             if (dVar != null) {
-                dVar2 = this.adV.adP;
+                dVar2 = this.aes.aem;
                 dVar2.a(writeCacheRespMsg, writeCacheMessage);
             }
         }

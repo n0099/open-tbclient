@@ -5,50 +5,50 @@ import org.json.JSONObject;
 import tbclient.PrivSets;
 /* loaded from: classes.dex */
 public class h extends i {
-    private int Wv = 1;
-    private int Ww = 1;
-    private int Wx = 1;
-    private int Wy = 1;
-    private int Wz = 1;
+    private int Xa = 1;
+    private int Xb = 1;
+    private int Xc = 1;
+    private int Xd = 1;
+    private int Xe = 1;
 
-    public int uv() {
-        return this.Wv;
+    public int uM() {
+        return this.Xa;
     }
 
-    public int uw() {
-        return this.Ww;
+    public int uN() {
+        return this.Xb;
     }
 
-    public int ux() {
-        return this.Wx;
+    public int uO() {
+        return this.Xc;
     }
 
-    public int uy() {
-        return this.Wy;
+    public int uP() {
+        return this.Xd;
     }
 
-    public int uz() {
-        return this.Wz;
+    public int uQ() {
+        return this.Xe;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.Wv = jSONObject.optInt("location", 1);
-            this.Ww = jSONObject.optInt("like", 1);
-            this.Wx = jSONObject.optInt("group", 1);
-            this.Wy = jSONObject.optInt("post", 1);
-            this.Wz = jSONObject.optInt("friend", 1);
+            this.Xa = jSONObject.optInt("location", 1);
+            this.Xb = jSONObject.optInt("like", 1);
+            this.Xc = jSONObject.optInt("group", 1);
+            this.Xd = jSONObject.optInt("post", 1);
+            this.Xe = jSONObject.optInt("friend", 1);
         }
     }
 
     public void a(PrivSets privSets) {
         if (privSets != null) {
             try {
-                this.Wv = privSets.location.intValue();
-                this.Ww = privSets.like.intValue();
-                this.Wx = privSets.group.intValue();
-                this.Wy = privSets.post.intValue();
-                this.Wz = privSets.friend.intValue();
+                this.Xa = privSets.location.intValue();
+                this.Xb = privSets.like.intValue();
+                this.Xc = privSets.group.intValue();
+                this.Xd = privSets.post.intValue();
+                this.Xe = privSets.friend.intValue();
             } catch (Exception e) {
                 e.printStackTrace();
             }

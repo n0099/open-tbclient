@@ -1,34 +1,36 @@
 package com.baidu.tieba.person.post;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.person.UserPostPageHttpResponseMessage;
-import com.baidu.tieba.person.UserPostPageRequestMessage;
-import com.baidu.tieba.person.br;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tieba.person.PersonPostModel;
 /* loaded from: classes.dex */
-class v extends HttpMessageListener {
-    final /* synthetic */ t bHQ;
+class v implements AdapterView.OnItemClickListener {
+    final /* synthetic */ s bJC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v(t tVar, int i) {
-        super(i);
-        this.bHQ = tVar;
+    public v(s sVar) {
+        this.bJC = sVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        br brVar;
-        if (httpResponsedMessage instanceof UserPostPageHttpResponseMessage) {
-            UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
-            if (userPostPageHttpResponseMessage.getOrginalMessage() == null) {
-                this.bHQ.b(null, false);
-                return;
-            }
-            UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageHttpResponseMessage.getOrginalMessage().getExtra();
-            if (userPostPageRequestMessage.isThread() && (brVar = userPostPageRequestMessage.getmCallbackWeakReference().get()) != null) {
-                brVar.a(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        p pVar;
+        p pVar2;
+        p pVar3;
+        if (i >= 0) {
+            pVar = this.bJC.bJz;
+            if (pVar != null) {
+                pVar2 = this.bJC.bJz;
+                if (i < pVar2.getCount()) {
+                    pVar3 = this.bJC.bJz;
+                    PersonPostModel.PostList postList = (PersonPostModel.PostList) pVar3.getItem(i);
+                    if (postList != null) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.bJC.getActivity()).createCfgForPersonCenter(String.valueOf(postList.thread_id), String.valueOf(postList.post_id), "person_post", 18005)));
+                    }
+                }
             }
         }
     }

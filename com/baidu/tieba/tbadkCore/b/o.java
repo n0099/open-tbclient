@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.data.w;
+import com.baidu.tbadk.core.data.x;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Error;
@@ -13,146 +13,146 @@ import tbclient.PbFloor.DataRes;
 import tbclient.SubPostList;
 /* loaded from: classes.dex */
 public class o {
-    private w aCl;
-    private int aan;
-    private AntiData bJJ;
-    private int bUM;
-    private ForumData bXc;
-    public Error bXj;
-    private int bXg = 10;
-    private int bXh = -1;
-    private boolean bXi = false;
-    private k bXd = null;
-    private ArrayList<k> bXe = new ArrayList<>();
-    private int bXf = 1;
+    private x aDm;
+    private int aaO;
+    private AntiData bLu;
+    private int bWF;
+    private ForumData bYV;
+    public Error bZc;
+    private int bYZ = 10;
+    private int bZa = -1;
+    private boolean bZb = false;
+    private k bYW = null;
+    private ArrayList<k> bYX = new ArrayList<>();
+    private int bYY = 1;
 
-    public Error ahb() {
-        return this.bXj;
+    public Error ahG() {
+        return this.bZc;
     }
 
-    public k ahc() {
-        return this.bXd;
+    public k ahH() {
+        return this.bYW;
     }
 
     public void d(k kVar) {
-        this.bXd = kVar;
+        this.bYW = kVar;
     }
 
-    public int ahd() {
-        if (this.bXh == -1) {
-            this.bXh = this.aan;
+    public int ahI() {
+        if (this.bZa == -1) {
+            this.bZa = this.aaO;
         }
-        return this.bXh;
+        return this.bZa;
     }
 
     public void a(o oVar, boolean z) {
         if (oVar != null) {
-            a(oVar.abp());
-            this.bXh = oVar.getCurrentPage();
-            b(oVar.ahg());
-            hR(oVar.ahf());
-            f(oVar.ahh());
+            b(oVar.abT());
+            this.bZa = oVar.getCurrentPage();
+            b(oVar.ahL());
+            ia(oVar.ahK());
+            f(oVar.ahM());
             setTotalCount(oVar.getTotalCount());
-            hQ(oVar.getTotalPage());
-            this.bXe.addAll(0, oVar.ahe());
+            hZ(oVar.getTotalPage());
+            this.bYX.addAll(0, oVar.ahJ());
         }
     }
 
     public void b(o oVar, boolean z) {
         if (oVar != null) {
-            a(oVar.abp());
-            aG(oVar.getCurrentPage());
-            b(oVar.ahg());
-            hR(oVar.ahf());
-            f(oVar.ahh());
+            b(oVar.abT());
+            aL(oVar.getCurrentPage());
+            b(oVar.ahL());
+            ia(oVar.ahK());
+            f(oVar.ahM());
             setTotalCount(oVar.getTotalCount());
-            hQ(oVar.getTotalPage());
-            int size = this.bXe.size();
-            if (z && size % this.bXg != 0) {
-                for (int i = 0; i < size % this.bXg; i++) {
-                    this.bXe.remove(this.bXe.size() - 1);
+            hZ(oVar.getTotalPage());
+            int size = this.bYX.size();
+            if (z && size % this.bYZ != 0) {
+                for (int i = 0; i < size % this.bYZ; i++) {
+                    this.bYX.remove(this.bYX.size() - 1);
                 }
             }
-            this.bXe.addAll(oVar.ahe());
+            this.bYX.addAll(oVar.ahJ());
         }
     }
 
-    public ArrayList<k> ahe() {
-        return this.bXe;
+    public ArrayList<k> ahJ() {
+        return this.bYX;
     }
 
-    public void P(ArrayList<k> arrayList) {
-        this.bXe = arrayList;
+    public void Q(ArrayList<k> arrayList) {
+        this.bYX = arrayList;
     }
 
     public int getTotalPage() {
-        return this.bXf;
+        return this.bYY;
     }
 
-    public void hQ(int i) {
-        this.bXf = i;
+    public void hZ(int i) {
+        this.bYY = i;
     }
 
     public int getTotalCount() {
-        return this.bUM;
+        return this.bWF;
     }
 
     public void setTotalCount(int i) {
-        this.bUM = i;
+        this.bWF = i;
     }
 
-    public int ahf() {
-        return this.bXg;
+    public int ahK() {
+        return this.bYZ;
     }
 
-    public void hR(int i) {
+    public void ia(int i) {
         if (i != 0) {
-            this.bXg = i;
+            this.bYZ = i;
         }
     }
 
     public int getCurrentPage() {
-        return this.aan;
+        return this.aaO;
     }
 
-    public void aG(int i) {
-        this.aan = i;
+    public void aL(int i) {
+        this.aaO = i;
     }
 
     public void b(ForumData forumData) {
-        this.bXc = forumData;
+        this.bYV = forumData;
     }
 
-    public ForumData ahg() {
-        return this.bXc;
+    public ForumData ahL() {
+        return this.bYV;
     }
 
-    public void a(AntiData antiData) {
-        this.bJJ = antiData;
+    public void b(AntiData antiData) {
+        this.bLu = antiData;
     }
 
-    public AntiData abp() {
-        return this.bJJ;
+    public AntiData abT() {
+        return this.bLu;
     }
 
-    public void f(w wVar) {
-        this.aCl = wVar;
+    public void f(x xVar) {
+        this.aDm = xVar;
     }
 
-    public boolean Rv() {
-        return (this.aCl == null || this.bXd == null || this.aCl.getAuthor() == null || this.aCl.getAuthor().getUserId() == null || this.bXd.getAuthor() == null || this.bXd.getAuthor().getUserId() == null || !this.aCl.getAuthor().getUserId().equals(this.bXd.getAuthor().getUserId())) ? false : true;
+    public boolean RR() {
+        return (this.aDm == null || this.bYW == null || this.aDm.getAuthor() == null || this.aDm.getAuthor().getUserId() == null || this.bYW.getAuthor() == null || this.bYW.getAuthor().getUserId() == null || !this.aDm.getAuthor().getUserId().equals(this.bYW.getAuthor().getUserId())) ? false : true;
     }
 
     public boolean li() {
-        return this.bXi;
+        return this.bZb;
     }
 
     public boolean hasMore() {
-        return this.aan < this.bXf && this.aan * this.bXg < 200;
+        return this.aaO < this.bYY && this.aaO * this.bYZ < 200;
     }
 
-    public w ahh() {
-        return this.aCl;
+    public x ahM() {
+        return this.aDm;
     }
 
     public static o a(DataRes dataRes, Context context) {
@@ -163,10 +163,10 @@ public class o {
             o oVar = new o();
             AntiData antiData = new AntiData();
             antiData.parserProtobuf(dataRes.anti);
-            oVar.a(antiData);
-            w wVar = new w();
-            wVar.a(dataRes.thread);
-            oVar.f(wVar);
+            oVar.b(antiData);
+            x xVar = new x();
+            xVar.a(dataRes.thread);
+            oVar.f(xVar);
             ForumData forumData = new ForumData();
             forumData.parserProtobuf(dataRes.forum);
             oVar.b(forumData);
@@ -181,16 +181,16 @@ public class o {
                 kVar2.a(list.get(i), context);
                 arrayList.add(kVar2);
             }
-            oVar.P(arrayList);
+            oVar.Q(arrayList);
             Page page = dataRes.page;
             int intValue = page.total_page.intValue();
             int intValue2 = page.page_size.intValue() == 0 ? page.page_size.intValue() : 10;
             int intValue3 = page.current_page.intValue();
             int intValue4 = page.total_count.intValue();
-            oVar.aG(intValue3);
-            oVar.hR(intValue2);
+            oVar.aL(intValue3);
+            oVar.ia(intValue2);
             oVar.setTotalCount(intValue4);
-            oVar.hQ(intValue);
+            oVar.hZ(intValue);
             return oVar;
         } catch (Exception e) {
             BdLog.detailException(e);
@@ -199,6 +199,6 @@ public class o {
     }
 
     public void Y(boolean z) {
-        this.bXi = z;
+        this.bZb = z;
     }
 }

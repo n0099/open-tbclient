@@ -5,7 +5,7 @@ import com.baidu.adp.lib.b.f;
 /* loaded from: classes.dex */
 public class WebpSwitchStatic extends a {
     static {
-        f.dc().l(WebpSwitchStatic.class);
+        f.da().l(WebpSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

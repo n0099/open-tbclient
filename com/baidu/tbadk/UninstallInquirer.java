@@ -39,7 +39,7 @@ public class UninstallInquirer {
     private void startProcessInternal() {
         if (!this.isStarted && TbadkCoreApplication.m255getInst().isMainProcess(true)) {
             this.isStarted = true;
-            l.em().c(new Runnable() { // from class: com.baidu.tbadk.UninstallInquirer.1
+            l.ek().c(new Runnable() { // from class: com.baidu.tbadk.UninstallInquirer.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
@@ -54,6 +54,6 @@ public class UninstallInquirer {
     }
 
     private boolean isUnistallFeedBackOpen() {
-        return f.dc().Z("uninstall_feed_back_switch") == 0;
+        return f.da().Z("uninstall_feed_back_switch") == 0;
     }
 }

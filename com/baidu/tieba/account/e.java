@@ -1,49 +1,49 @@
 package com.baidu.tieba.account;
 
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.bc;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements AdapterView.OnItemClickListener {
-    final /* synthetic */ AccountActivity alO;
+public class e implements View.OnClickListener {
+    final /* synthetic */ AccountActivity amI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AccountActivity accountActivity) {
-        this.alO = accountActivity;
+        this.amI = accountActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        l lVar;
-        l lVar2;
-        l lVar3;
-        i iVar;
-        i iVar2;
-        lVar = this.alO.alJ;
-        if (lVar.getItemId(i) >= 0) {
-            lVar2 = this.alO.alJ;
-            if (!lVar2.Ay()) {
-                lVar3 = this.alO.alJ;
-                AccountData accountData = (AccountData) lVar3.getItem(i);
-                if (accountData != null && accountData.getIsActive() != 1) {
-                    MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001193, TbadkCoreApplication.getCurrentAccount()));
-                    this.alO.alM = new i(this.alO, accountData);
-                    iVar = this.alO.alM;
-                    iVar.setPriority(3);
-                    iVar2 = this.alO.alM;
-                    iVar2.execute(new Object[0]);
-                    return;
-                }
-                return;
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        m mVar;
+        m mVar2;
+        TextView textView;
+        TextView textView2;
+        m mVar3;
+        m mVar4;
+        TextView textView3;
+        TextView textView4;
+        m mVar5;
+        mVar = this.amI.amD;
+        if (!mVar.AZ()) {
+            mVar4 = this.amI.amD;
+            mVar4.setEditState(true);
+            textView3 = this.amI.amE;
+            textView3.setText(com.baidu.tieba.z.done);
+            textView4 = this.amI.amE;
+            bc.g(textView4, TbadkCoreApplication.m255getInst().getSkinType());
+            mVar5 = this.amI.amD;
+            mVar5.notifyDataSetChanged();
             return;
         }
-        this.alO.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.alO.getPageContext().getPageActivity())));
+        mVar2 = this.amI.amD;
+        mVar2.setEditState(false);
+        textView = this.amI.amE;
+        textView.setText(com.baidu.tieba.z.edit);
+        textView2 = this.amI.amE;
+        bc.i(textView2, TbadkCoreApplication.m255getInst().getSkinType());
+        mVar3 = this.amI.amD;
+        mVar3.notifyDataSetChanged();
     }
 }

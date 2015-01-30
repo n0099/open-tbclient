@@ -1,26 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
-import com.baidu.tbadk.coreExtra.data.VersionData;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.core.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aw implements Runnable {
-    final /* synthetic */ av alH;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(av avVar) {
-        this.alH = avVar;
+public class aw extends BdAsyncTask<String, Integer, String> {
+    private aw() {
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        UpdateDialog updateDialog;
-        VersionData versionData;
-        UpdateDialog updateDialog2;
-        updateDialog = this.alH.this$0;
-        versionData = updateDialog.alD;
-        if (versionData.forceUpdate()) {
-            updateDialog2 = this.alH.this$0;
-            com.baidu.tbadk.core.b.b.e(updateDialog2.getPageContext().getPageActivity(), Constants.MEDIA_INFO);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ aw(aw awVar) {
+        this();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: l */
+    public String doInBackground(String... strArr) {
+        byte[] bArr;
+        byte[] bArr2;
+        bArr = ao.amm;
+        synchronized (bArr) {
+            ao.amn = Boolean.valueOf(UtilHelper.isARM());
+            bArr2 = ao.amm;
+            bArr2.notifyAll();
         }
+        return null;
     }
 }

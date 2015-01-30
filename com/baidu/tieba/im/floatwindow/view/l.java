@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.view.HeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnTouchListener {
-    final /* synthetic */ i aYA;
+    final /* synthetic */ i aZW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(i iVar) {
-        this.aYA = iVar;
+        this.aZW = iVar;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -25,28 +25,28 @@ public class l implements View.OnTouchListener {
         Point point4;
         switch (motionEvent.getAction()) {
             case 0:
-                point3 = this.aYA.aXv;
+                point3 = this.aZW.aYR;
                 point3.x = (int) motionEvent.getX();
-                point4 = this.aYA.aXv;
+                point4 = this.aZW.aYR;
                 point4.y = (int) motionEvent.getY();
                 break;
             case 1:
-                this.aYA.aYx = false;
-                headImageView = this.aYA.aFT;
+                this.aZW.aZT = false;
+                headImageView = this.aZW.aHd;
                 headImageView.setVisibility(0);
-                i iVar = this.aYA;
-                i = this.aYA.aYw;
-                iVar.fI(i);
-                com.baidu.tieba.im.floatwindow.b MX = com.baidu.tieba.im.floatwindow.b.MX();
-                mVar = this.aYA.aYy;
-                MX.a(mVar);
+                i iVar = this.aZW;
+                i = this.aZW.aZS;
+                iVar.fN(i);
+                com.baidu.tieba.im.floatwindow.b Nt = com.baidu.tieba.im.floatwindow.b.Nt();
+                mVar = this.aZW.aZU;
+                Nt.a(mVar);
                 break;
             case 2:
-                com.baidu.tieba.im.floatwindow.b MX2 = com.baidu.tieba.im.floatwindow.b.MX();
-                point = this.aYA.aXv;
+                com.baidu.tieba.im.floatwindow.b Nt2 = com.baidu.tieba.im.floatwindow.b.Nt();
+                point = this.aZW.aYR;
                 int rawX = ((int) motionEvent.getRawX()) + point.x;
-                point2 = this.aYA.aXv;
-                MX2.P(rawX, (((int) motionEvent.getRawY()) - point2.y) - 25);
+                point2 = this.aZW.aYR;
+                Nt2.Q(rawX, (((int) motionEvent.getRawY()) - point2.y) - 25);
                 break;
         }
         return false;

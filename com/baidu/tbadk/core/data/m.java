@@ -1,63 +1,22 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class m {
-    private ArrayList<String> DY;
-    private int smsCodeTime = 0;
-    private UserData DW = new UserData();
-    private AntiData DX = new AntiData();
+public class m extends x {
+    public static final BdUniqueId DY = BdUniqueId.gen();
+    private ArrayList<LiveCardData> DZ;
 
-    public m() {
-        this.DY = null;
-        this.DY = new ArrayList<>();
-        setSmsCodeTime(0);
+    public ArrayList<LiveCardData> mQ() {
+        return this.DZ;
     }
 
-    public UserData getUser() {
-        return this.DW;
+    public void o(ArrayList<LiveCardData> arrayList) {
+        this.DZ = arrayList;
     }
 
-    public AntiData mP() {
-        return this.DX;
-    }
-
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        try {
-            this.DW.parserJson(jSONObject.optJSONObject("user"));
-            this.DX.parserJson(jSONObject.optJSONObject("anti"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.DY.add(optJSONArray.optString(i, null));
-                }
-            }
-            setSmsCodeTime(jSONObject.optInt("retrytime"));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public ArrayList<String> mQ() {
-        return this.DY;
-    }
-
-    public void setSmsCodeTime(int i) {
-        this.smsCodeTime = i;
-    }
-
-    public int getSmsCodeTime() {
-        return this.smsCodeTime;
+    @Override // com.baidu.tbadk.core.data.x, com.baidu.adp.widget.ListView.am
+    public BdUniqueId js() {
+        return DY;
     }
 }

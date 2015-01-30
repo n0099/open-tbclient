@@ -12,7 +12,7 @@ class k extends com.baidu.adp.lib.util.h {
             Amrnb.bLoadLibrary = true;
         } catch (Throwable th) {
             Amrnb.bLoadLibrary = false;
-            com.baidu.adp.lib.stats.f.es().a("so", "initAmrnb", "", "", -9104, String.valueOf(th.getClass().getName()) + " " + th.getMessage(), new Object[0]);
+            com.baidu.adp.lib.stats.f.eq().a("so", "initAmrnb", "", "", -9104, String.valueOf(th.getClass().getName()) + " " + th.getMessage(), new Object[0]);
         }
     }
 }

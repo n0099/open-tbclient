@@ -8,19 +8,19 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tbadkCore.bubble.BubbleListData;
 /* loaded from: classes.dex */
 class i implements ap {
-    final /* synthetic */ b bTq;
+    final /* synthetic */ b bVj;
     private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(b bVar, Context context) {
-        this.bTq = bVar;
+        this.bVj = bVar;
         this.val$context = context;
     }
 
     @Override // com.baidu.tieba.tbadkCore.PbEditor.ap
     public View getView(int i, View view, ViewGroup viewGroup) {
         com.baidu.tieba.tbadkCore.bubble.z zVar;
-        BubbleListData.BubbleData hD;
+        BubbleListData.BubbleData hM;
         Context context;
         BubbleListData bubbleListData;
         View.OnClickListener onClickListener;
@@ -30,17 +30,17 @@ class i implements ap {
         } else {
             zVar = (com.baidu.tieba.tbadkCore.bubble.z) view;
         }
-        hD = this.bTq.hD(i);
-        if (hD != null) {
-            bubbleListData = this.bTq.bTg;
-            zVar.a(hD, com.baidu.tieba.tbadkCore.bubble.h.aF(bubbleListData.getB_info()));
+        hM = this.bVj.hM(i);
+        if (hM != null) {
+            bubbleListData = this.bVj.bUZ;
+            zVar.a(hM, com.baidu.tieba.tbadkCore.bubble.h.aI(bubbleListData.getB_info()));
             zVar.setGravity(17);
             zVar.setTag(Integer.valueOf(i));
-            onClickListener = this.bTq.bTn;
+            onClickListener = this.bVj.bVg;
             zVar.setOnClickListener(onClickListener);
         }
         int skinType = TbadkCoreApplication.m255getInst().getSkinType();
-        context = this.bTq.mContext;
+        context = this.bVj.mContext;
         TbPageContext tbPageContext = (TbPageContext) com.baidu.adp.base.m.D(context);
         tbPageContext.getLayoutMode().ab(skinType == 1);
         tbPageContext.getLayoutMode().h(view);

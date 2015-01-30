@@ -11,14 +11,14 @@ import com.baidu.tbadk.core.util.ad;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<String, Integer, Bitmap> {
-    private ad CV;
-    final /* synthetic */ CreateBarActivity aOo;
-    private volatile boolean kK;
+    private ad CX;
+    final /* synthetic */ CreateBarActivity aPx;
+    private volatile boolean kN;
 
     private d(CreateBarActivity createBarActivity) {
-        this.aOo = createBarActivity;
-        this.CV = null;
-        this.kK = false;
+        this.aPx = createBarActivity;
+        this.CX = null;
+        this.kN = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -30,13 +30,13 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
     public void cancel() {
         ProgressBar progressBar;
         super.cancel(true);
-        this.kK = true;
-        if (this.CV != null) {
-            this.CV.dL();
+        this.kN = true;
+        if (this.CX != null) {
+            this.CX.dJ();
         }
-        progressBar = this.aOo.aOf;
+        progressBar = this.aPx.aPo;
         progressBar.setVisibility(8);
-        this.aOo.aOh = null;
+        this.aPx.aPq = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,24 +45,24 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
     /* renamed from: n */
     public Bitmap doInBackground(String... strArr) {
         try {
-            this.CV = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
-            this.CV.o(ImageViewerConfig.FORUM_ID, "0");
-            this.CV.o("pub_type", "0");
-            this.CV.o(ImageViewerConfig.FORUM_NAME, "");
-            this.CV.o("tid", "0");
-            String ov = this.CV.ov();
-            if (this.CV.oW().pW().ma()) {
+            this.CX = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
+            this.CX.o(ImageViewerConfig.FORUM_ID, "0");
+            this.CX.o("pub_type", "0");
+            this.CX.o(ImageViewerConfig.FORUM_NAME, "");
+            this.CX.o("tid", "0");
+            String oy = this.CX.oy();
+            if (this.CX.oZ().qh().ma()) {
                 com.baidu.tbadk.coreExtra.data.j jVar = new com.baidu.tbadk.coreExtra.data.j();
-                jVar.parserJson(ov);
+                jVar.parserJson(oy);
                 if (jVar.getVcode_pic_url() == null || jVar.getVcode_pic_url().length() <= 0) {
                     return null;
                 }
-                this.aOo.aOi = jVar.getVcode_md5();
-                if (this.kK) {
+                this.aPx.aPr = jVar.getVcode_md5();
+                if (this.kN) {
                     return null;
                 }
-                this.CV = new ad(jVar.getVcode_pic_url());
-                return com.baidu.tbadk.core.util.d.v(this.CV.ow());
+                this.CX = new ad(jVar.getVcode_pic_url());
+                return com.baidu.tbadk.core.util.d.v(this.CX.oz());
             }
             return null;
         } catch (Exception e) {
@@ -78,11 +78,11 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
         ProgressBar progressBar;
         ImageView imageView;
         super.onPostExecute((d) bitmap);
-        progressBar = this.aOo.aOf;
+        progressBar = this.aPx.aPo;
         progressBar.setVisibility(8);
-        this.aOo.aOh = null;
+        this.aPx.aPq = null;
         if (bitmap != null) {
-            imageView = this.aOo.akv;
+            imageView = this.aPx.anr;
             imageView.setImageBitmap(bitmap);
         }
     }
@@ -93,10 +93,10 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
         ProgressBar progressBar;
         ImageView imageView;
         super.onPreExecute();
-        this.aOo.aOi = null;
-        progressBar = this.aOo.aOf;
+        this.aPx.aPr = null;
+        progressBar = this.aPx.aPo;
         progressBar.setVisibility(0);
-        imageView = this.aOo.akv;
+        imageView = this.aPx.anr;
         imageView.setImageDrawable(null);
     }
 }

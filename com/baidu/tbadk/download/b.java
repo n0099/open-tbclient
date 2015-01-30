@@ -13,36 +13,36 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static b WW = null;
-    private static e Xa = null;
-    private static List<e> Xb = new LinkedList();
+    private static b XC = null;
+    private static e XG = null;
+    private static List<e> XH = new LinkedList();
     private final int max = 5;
-    private int WX = 0;
-    private c WY = null;
-    private d WZ = null;
+    private int XD = 0;
+    private c XE = null;
+    private d XF = null;
     private int progress = 0;
     private String schedule = null;
 
     private b() {
     }
 
-    public static b uK() {
+    public static b vb() {
         synchronized (b.class) {
-            if (WW == null) {
-                WW = new b();
+            if (XC == null) {
+                XC = new b();
             }
         }
-        return WW;
+        return XC;
     }
 
     public void a(String str, String str2, String str3, int i, int i2) {
-        if (this.WX >= 5) {
+        if (this.XD >= 5) {
             Toast.makeText(TbadkCoreApplication.m255getInst(), z.download_fail_over_max, 0).show();
             return;
         }
         DownloadData downloadData = new DownloadData(str);
         downloadData.setType(12);
-        this.WX++;
+        this.XD++;
         downloadData.setStatus(1);
         downloadData.setStatusMsg(null);
         downloadData.setNotifyId(i2);
@@ -52,19 +52,19 @@ public class b {
         eVar.setUrl(str2);
         eVar.setName(str3);
         eVar.setPosition(i);
-        eVar.dc(i2);
-        Xb.add(eVar);
-        uL();
+        eVar.dj(i2);
+        XH.add(eVar);
+        vc();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uL() {
-        if (Xa == null && !Xb.isEmpty()) {
-            Xa = Xb.get(0);
-            if (Xa != null) {
-                this.WY = new c(this, null);
-                this.WY.setPriority(3);
-                this.WY.execute(Xa);
+    public void vc() {
+        if (XG == null && !XH.isEmpty()) {
+            XG = XH.get(0);
+            if (XG != null) {
+                this.XE = new c(this, null);
+                this.XE.setPriority(3);
+                this.XE.execute(XG);
             }
         }
     }
@@ -82,7 +82,7 @@ public class b {
 
     public void e(DownloadData downloadData) {
         if (downloadData.getStatus() != 1 && downloadData.getStatus() != 5) {
-            this.WX--;
+            this.XD--;
         }
         LinkedList linkedList = new LinkedList();
         linkedList.add(downloadData);
@@ -93,15 +93,15 @@ public class b {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new DownloadMessage(list));
     }
 
-    public void u(ArrayList<com.baidu.tbadk.core.data.c> arrayList) {
-        this.WZ = new d(this, null);
-        this.WZ.execute(arrayList);
+    public void v(ArrayList<com.baidu.tbadk.core.data.c> arrayList) {
+        this.XF = new d(this, null);
+        this.XF.execute(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String at(String str) {
         StringBuilder sb = new StringBuilder();
-        sb.append(s.or());
+        sb.append(s.ou());
         File file = new File(sb.toString());
         if (!file.exists()) {
             file.mkdirs();
@@ -144,8 +144,8 @@ public class b {
         }
     }
 
-    public boolean dS(String str) {
-        for (DownloadData downloadData : g.uO().uQ()) {
+    public boolean dR(String str) {
+        for (DownloadData downloadData : g.vf().vh()) {
             if (downloadData.getId() != null && downloadData.getId().equals(str)) {
                 return true;
             }
@@ -153,7 +153,7 @@ public class b {
         return false;
     }
 
-    public boolean dT(String str) {
-        return (TextUtils.isEmpty(str) || s.cj(new StringBuilder(String.valueOf(str.replace(".", "_"))).append(".apk").toString()) == null) ? false : true;
+    public boolean dS(String str) {
+        return (TextUtils.isEmpty(str) || s.ch(new StringBuilder(String.valueOf(str.replace(".", "_"))).append(".apk").toString()) == null) ? false : true;
     }
 }

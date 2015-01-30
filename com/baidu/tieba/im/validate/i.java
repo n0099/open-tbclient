@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.im.data.ValidateItemData;
 import com.baidu.tieba.t;
@@ -13,61 +13,61 @@ import com.baidu.tieba.x;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class i extends com.baidu.adp.base.e<ValidateActivity> {
-    private View avy;
-    private HeadImageView bfT;
-    private TextView bfU;
-    private ValidateActivity bou;
-    private TextView bov;
-    private TextView bow;
-    private TextView box;
-    private ValidateItemData boy;
+    private View awy;
+    private HeadImageView bhl;
+    private TextView bhm;
+    private ValidateActivity bpR;
+    private TextView bpS;
+    private TextView bpT;
+    private TextView bpU;
+    private ValidateItemData bpV;
 
     public i(ValidateActivity validateActivity) {
         super(validateActivity.getPageContext(), x.validate_item);
-        this.bou = validateActivity;
+        this.bpR = validateActivity;
         initView();
     }
 
     void initView() {
-        this.avy = this.mConvertView.findViewById(w.root_view);
-        this.bfT = (HeadImageView) this.avy.findViewById(w.iv_head);
-        this.bfT.setIsRound(false);
-        this.bov = (TextView) this.avy.findViewById(w.tv_user_name);
-        this.bfU = (TextView) this.avy.findViewById(w.tv_group_name);
-        this.bow = (TextView) this.avy.findViewById(w.tv_apply_reason);
-        this.box = (TextView) this.avy.findViewById(w.btn_pass);
-        this.box.setOnClickListener(new j(this));
-        this.bfT.setOnClickListener(new k(this));
-        this.avy.setOnLongClickListener(new l(this));
+        this.awy = this.mConvertView.findViewById(w.root_view);
+        this.bhl = (HeadImageView) this.awy.findViewById(w.iv_head);
+        this.bhl.setIsRound(false);
+        this.bpS = (TextView) this.awy.findViewById(w.tv_user_name);
+        this.bhm = (TextView) this.awy.findViewById(w.tv_group_name);
+        this.bpT = (TextView) this.awy.findViewById(w.tv_apply_reason);
+        this.bpU = (TextView) this.awy.findViewById(w.btn_pass);
+        this.bpU.setOnClickListener(new j(this));
+        this.bhl.setOnClickListener(new k(this));
+        this.awy.setOnLongClickListener(new l(this));
     }
 
     public void refresh() {
-        if (this.boy != null) {
-            this.bou.getLayoutMode().ab(TbadkApplication.getInst().getSkinType() == 1);
-            this.bou.getLayoutMode().h(this.avy);
-            String portrait = this.boy.getPortrait();
-            this.bfT.setTag(portrait);
-            this.bfT.d(portrait, 12, false);
-            if (!TextUtils.isEmpty(this.boy.getUserName())) {
-                this.bov.setText(this.boy.getUserName());
+        if (this.bpV != null) {
+            this.bpR.getLayoutMode().ab(TbadkApplication.getInst().getSkinType() == 1);
+            this.bpR.getLayoutMode().h(this.awy);
+            String portrait = this.bpV.getPortrait();
+            this.bhl.setTag(portrait);
+            this.bhl.d(portrait, 12, false);
+            if (!TextUtils.isEmpty(this.bpV.getUserName())) {
+                this.bpS.setText(this.bpV.getUserName());
             }
-            if (!TextUtils.isEmpty(this.boy.getGroupName())) {
-                this.bfU.setText(String.valueOf(this.bou.getPageContext().getString(z.validate_im_apply_prefix)) + this.boy.getGroupName());
+            if (!TextUtils.isEmpty(this.bpV.getGroupName())) {
+                this.bhm.setText(String.valueOf(this.bpR.getPageContext().getString(z.validate_im_apply_prefix)) + this.bpV.getGroupName());
             }
-            if (!TextUtils.isEmpty(this.boy.getApplyReason())) {
-                this.bow.setText(String.valueOf(this.bou.getPageContext().getString(z.validate_im_reason_prefix)) + this.boy.getApplyReason());
+            if (!TextUtils.isEmpty(this.bpV.getApplyReason())) {
+                this.bpT.setText(String.valueOf(this.bpR.getPageContext().getString(z.validate_im_reason_prefix)) + this.bpV.getApplyReason());
             }
-            if (this.boy.isPass()) {
-                this.box.setEnabled(false);
-                this.box.setText(this.bou.getPageContext().getString(z.validate_im_btn_passed));
-                this.box.setTextColor(getPageContext().getPageActivity().getResources().getColor(t.cp_cont_d));
-                this.box.setBackgroundDrawable(null);
+            if (this.bpV.isPass()) {
+                this.bpU.setEnabled(false);
+                this.bpU.setText(this.bpR.getPageContext().getString(z.validate_im_btn_passed));
+                this.bpU.setTextColor(getPageContext().getPageActivity().getResources().getColor(t.cp_cont_d));
+                this.bpU.setBackgroundDrawable(null);
             } else {
-                this.box.setEnabled(true);
-                this.box.setText(this.bou.getPageContext().getString(z.validate_im_btn_pass));
+                this.bpU.setEnabled(true);
+                this.bpU.setText(this.bpR.getPageContext().getString(z.validate_im_btn_pass));
             }
-            if (!this.boy.isShown()) {
-                ax.i(this.avy, t.validate_item_background_sean);
+            if (!this.bpV.isShown()) {
+                bc.i(this.awy, t.validate_item_background_sean);
             }
         }
     }
@@ -78,6 +78,6 @@ public class i extends com.baidu.adp.base.e<ValidateActivity> {
     }
 
     public void g(ValidateItemData validateItemData) {
-        this.boy = validateItemData;
+        this.bpV = validateItemData;
     }
 }

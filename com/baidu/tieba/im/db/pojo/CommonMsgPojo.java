@@ -77,7 +77,7 @@ public class CommonMsgPojo extends i implements Serializable {
             if (chatMessage instanceof CommonGroupChatMessage) {
                 this.gid = ((CommonGroupChatMessage) chatMessage).getGroupId();
             } else {
-                this.gid = String.valueOf(a.bnb);
+                this.gid = String.valueOf(a.boy);
             }
             this.mid = chatMessage.getMsgId();
             this.uid = String.valueOf(chatMessage.getUserId());

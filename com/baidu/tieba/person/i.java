@@ -10,13 +10,13 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends HttpMessageListener {
-    final /* synthetic */ g bFr;
+    final /* synthetic */ g bHc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(g gVar, int i) {
         super(i);
-        this.bFr = gVar;
+        this.bHc = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,46 +36,46 @@ public class i extends HttpMessageListener {
         q qVar2;
         q qVar3;
         s sVar3;
-        this.bFr.bFm = false;
+        this.bHc.bGX = false;
         if (httpResponsedMessage.isSuccess()) {
             if (httpResponsedMessage.getError() == 0) {
-                sVar = this.bFr.bEV;
-                ArrayList<ForumData> aae = sVar.aaj().aae();
-                sVar2 = this.bFr.bEV;
-                int ZY = sVar2.aaj().ZY();
-                i = this.bFr.bwG;
-                if (i < ZY) {
-                    sVar3 = this.bFr.bEV;
-                    sVar3.aaj().ha(ZY - 1);
+                sVar = this.bHc.bGG;
+                ArrayList<ForumData> aaJ = sVar.aaO().aaJ();
+                sVar2 = this.bHc.bGG;
+                int aaD = sVar2.aaO().aaD();
+                i = this.bHc.byp;
+                if (i < aaD) {
+                    sVar3 = this.bHc.bGG;
+                    sVar3.aaO().hj(aaD - 1);
                 }
-                if (aae != null) {
-                    i2 = this.bFr.bwG;
+                if (aaJ != null) {
+                    i2 = this.bHc.byp;
                     if (i2 >= 0) {
-                        i3 = this.bFr.bwG;
-                        if (i3 < aae.size()) {
-                            i4 = this.bFr.bwG;
-                            aae.remove(i4);
+                        i3 = this.bHc.byp;
+                        if (i3 < aaJ.size()) {
+                            i4 = this.bHc.byp;
+                            aaJ.remove(i4);
                             TbadkCoreApplication m255getInst = TbadkCoreApplication.m255getInst();
-                            str = this.bFr.bFh;
+                            str = this.bHc.bGS;
                             m255getInst.delLikeForum(str);
-                            qVar = this.bFr.bFg;
+                            qVar = this.bHc.bGR;
                             if (qVar != null) {
-                                this.bFr.eb(true);
-                                qVar2 = this.bFr.bFg;
-                                qVar2.J(aae);
-                                qVar3 = this.bFr.bFg;
+                                this.bHc.eh(true);
+                                qVar2 = this.bHc.bGR;
+                                qVar2.K(aaJ);
+                                qVar3 = this.bHc.bGR;
                                 qVar3.notifyDataSetChanged();
                             }
                         }
                     }
                 }
-                this.bFr.showToast(com.baidu.tieba.z.success);
-                forumData = this.bFr.bFl;
+                this.bHc.showToast(com.baidu.tieba.z.success);
+                forumData = this.bHc.bGW;
                 if (forumData != null) {
-                    forumData2 = this.bFr.bFl;
+                    forumData2 = this.bHc.bGW;
                     if (!TextUtils.isEmpty(forumData2.getId())) {
-                        g gVar = this.bFr;
-                        forumData3 = this.bFr.bFl;
+                        g gVar = this.bHc;
+                        forumData3 = this.bHc.bGW;
                         gVar.sendMessage(new CustomMessage(2003004, forumData3.getId()));
                         return;
                     }
@@ -83,7 +83,7 @@ public class i extends HttpMessageListener {
                 }
                 return;
             }
-            this.bFr.showToast(httpResponsedMessage.getErrorString());
+            this.bHc.showToast(httpResponsedMessage.getErrorString());
         }
     }
 }

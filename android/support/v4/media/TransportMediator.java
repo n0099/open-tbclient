@@ -22,21 +22,21 @@ public class TransportMediator extends TransportController {
     public static final int KEYCODE_MEDIA_PAUSE = 127;
     public static final int KEYCODE_MEDIA_PLAY = 126;
     public static final int KEYCODE_MEDIA_RECORD = 130;
-    final c aA;
-    final KeyEvent.Callback aB;
+    final ArrayList<TransportStateListener> aA;
+    final c aB;
+    final KeyEvent.Callback aC;
     final TransportPerformer ax;
     final Object ay;
     final d az;
     final AudioManager mAudioManager;
     final Context mContext;
-    final ArrayList<TransportStateListener> mListeners;
     final View mView;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean f(int i) {
         switch (i) {
             case 79:
-            case TbConfig.BUILD_NUMBER /* 85 */:
+            case 85:
             case 86:
             case 87:
             case 88:
@@ -61,16 +61,16 @@ public class TransportMediator extends TransportController {
     }
 
     private TransportMediator(Activity activity, View view, TransportPerformer transportPerformer) {
-        this.mListeners = new ArrayList<>();
-        this.aA = new a(this);
-        this.aB = new b(this);
+        this.aA = new ArrayList<>();
+        this.aB = new a(this);
+        this.aC = new b(this);
         this.mContext = activity != null ? activity : view.getContext();
         this.ax = transportPerformer;
         this.mAudioManager = (AudioManager) this.mContext.getSystemService("audio");
         this.mView = activity != null ? activity.getWindow().getDecorView() : view;
         this.ay = KeyEventCompat.getKeyDispatcherState(this.mView);
         if (Build.VERSION.SDK_INT >= 18) {
-            this.az = new d(this.mContext, this.mAudioManager, this.mView, this.aA);
+            this.az = new d(this.mContext, this.mAudioManager, this.mView, this.aB);
         } else {
             this.az = null;
         }
@@ -84,25 +84,25 @@ public class TransportMediator extends TransportController {
     }
 
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        return KeyEventCompat.dispatch(keyEvent, this.aB, this.ay, this);
+        return KeyEventCompat.dispatch(keyEvent, this.aC, this.ay, this);
     }
 
     @Override // android.support.v4.media.TransportController
     public void registerStateListener(TransportStateListener transportStateListener) {
-        this.mListeners.add(transportStateListener);
+        this.aA.add(transportStateListener);
     }
 
     @Override // android.support.v4.media.TransportController
     public void unregisterStateListener(TransportStateListener transportStateListener) {
-        this.mListeners.remove(transportStateListener);
+        this.aA.remove(transportStateListener);
     }
 
     private TransportStateListener[] M() {
-        if (this.mListeners.size() <= 0) {
+        if (this.aA.size() <= 0) {
             return null;
         }
-        TransportStateListener[] transportStateListenerArr = new TransportStateListener[this.mListeners.size()];
-        this.mListeners.toArray(transportStateListenerArr);
+        TransportStateListener[] transportStateListenerArr = new TransportStateListener[this.aA.size()];
+        this.aA.toArray(transportStateListenerArr);
         return transportStateListenerArr;
     }
 

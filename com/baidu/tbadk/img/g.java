@@ -6,12 +6,12 @@ import java.util.Queue;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends BdAsyncTask<Void, f, f> {
-    final /* synthetic */ e abm;
-    final Queue<f> abn;
+    final /* synthetic */ e abP;
+    final Queue<f> abQ;
 
     public g(e eVar, Queue<f> queue) {
-        this.abm = eVar;
-        this.abn = queue;
+        this.abP = eVar;
+        this.abQ = queue;
         super.setPriority(2);
     }
 
@@ -20,28 +20,26 @@ public class g extends BdAsyncTask<Void, f, f> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: b */
     public f doInBackground(Void... voidArr) {
-        while (true) {
-            f poll = this.abn.poll();
-            if (poll == null) {
-                break;
-            } else if (isCancelled()) {
-                this.abn.add(poll);
-                break;
-            } else {
-                com.baidu.adp.widget.a.a en = com.baidu.tbadk.imageManager.e.vL().en(poll.abh.toCachedKey(poll.abj));
-                if (en != null) {
-                    poll.abk = en;
-                    poll.abl = true;
-                } else {
-                    Bitmap b = this.abm.b(poll.abh, poll.abj);
-                    if (b != null) {
-                        poll.abk = new com.baidu.adp.widget.a.a(b, false, poll.abh.getFilePath());
-                    }
-                }
-                publishProgress(poll);
+        f poll = this.abQ.poll();
+        if (poll == null) {
+            return null;
+        }
+        if (isCancelled()) {
+            this.abQ.add(poll);
+            return null;
+        }
+        com.baidu.adp.widget.a.a en = com.baidu.tbadk.imageManager.e.we().en(poll.abK.toCachedKey(poll.abM));
+        if (en != null) {
+            poll.abN = en;
+            poll.abO = true;
+        } else {
+            Bitmap b = this.abP.b(poll.abK, poll.abM);
+            if (b != null) {
+                poll.abN = new com.baidu.adp.widget.a.a(b, false, poll.abK.getFilePath());
             }
         }
-        return null;
+        publishProgress(poll);
+        return poll;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,8 +48,8 @@ public class g extends BdAsyncTask<Void, f, f> {
     /* renamed from: a */
     public void onPostExecute(f fVar) {
         super.onPostExecute(fVar);
-        this.abm.abg = null;
-        this.abm.vS();
+        this.abP.abJ = null;
+        this.abP.wl();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,12 +59,12 @@ public class g extends BdAsyncTask<Void, f, f> {
     public void onProgressUpdate(f... fVarArr) {
         if (fVarArr != null) {
             for (f fVar : fVarArr) {
-                com.baidu.adp.widget.a.a aVar = fVar.abk;
-                if (aVar != null && !fVar.abl) {
-                    com.baidu.tbadk.imageManager.e.vL().c(fVar.abh.toCachedKey(fVar.abj), aVar);
+                com.baidu.adp.widget.a.a aVar = fVar.abN;
+                if (aVar != null && !fVar.abO) {
+                    com.baidu.tbadk.imageManager.e.we().c(fVar.abK.toCachedKey(fVar.abM), aVar);
                 }
-                if (fVar.abi != null) {
-                    fVar.abi.a(aVar, fVar.abh.toCachedKey(fVar.abj), fVar.abl);
+                if (fVar.abL != null) {
+                    fVar.abL.a(aVar, fVar.abK.toCachedKey(fVar.abM), fVar.abO);
                 }
             }
         }
@@ -76,12 +74,12 @@ public class g extends BdAsyncTask<Void, f, f> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onCancelled() {
         super.onCancelled();
-        this.abm.abg = null;
+        this.abP.abJ = null;
         while (true) {
-            f poll = this.abn.poll();
+            f poll = this.abQ.poll();
             if (poll != null) {
-                if (poll.abi != null) {
-                    poll.abi.a(null, poll.abh.toCachedKey(poll.abj), false);
+                if (poll.abL != null) {
+                    poll.abL.a(null, poll.abK.toCachedKey(poll.abM), false);
                 }
             } else {
                 return;

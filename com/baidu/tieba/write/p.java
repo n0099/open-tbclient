@@ -6,10 +6,10 @@ import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class p extends BdAsyncTask<Object, o, o> {
     private com.baidu.tbadk.core.util.ad AR;
-    final /* synthetic */ o cej;
+    final /* synthetic */ o cfI;
 
     private p(o oVar) {
-        this.cej = oVar;
+        this.cfI = oVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -20,17 +20,17 @@ public class p extends BdAsyncTask<Object, o, o> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: D */
+    /* renamed from: E */
     public o doInBackground(Object... objArr) {
         WriteActivity writeActivity;
         String obj = objArr[0].toString();
         this.AR = new com.baidu.tbadk.core.util.ad(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/toplist");
         this.AR.o("kw", obj);
-        String ov = this.AR.ov();
-        if (this.AR.oW().pW().ma()) {
-            writeActivity = this.cej.cei;
+        String oy = this.AR.oy();
+        if (this.AR.oZ().qh().ma()) {
+            writeActivity = this.cfI.cfH;
             o oVar = new o(writeActivity);
-            oVar.parserJson(ov);
+            oVar.parserJson(oy);
             return oVar;
         }
         return null;
@@ -43,17 +43,17 @@ public class p extends BdAsyncTask<Object, o, o> {
     public void onPostExecute(o oVar) {
         com.baidu.adp.base.i iVar;
         super.onPostExecute(oVar);
-        this.cej.ceg = null;
-        iVar = this.cej.mLoadDataCallBack;
+        this.cfI.cfF = null;
+        iVar = this.cfI.mLoadDataCallBack;
         iVar.c(oVar);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        this.cej.ceg = null;
+        this.cfI.cfF = null;
         if (this.AR != null) {
-            this.AR.dL();
+            this.AR.dJ();
         }
     }
 }

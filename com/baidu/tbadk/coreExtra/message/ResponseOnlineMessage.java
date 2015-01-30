@@ -6,12 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 import protobuf.ConfigVersion;
 import protobuf.GroupInfo;
+import protobuf.MaskInfo;
 import protobuf.UpdateClientInfo.UpdateClientInfoResIdl;
 import protobuf.UserInfo;
 /* loaded from: classes.dex */
 public class ResponseOnlineMessage extends SocketResponsedMessage {
     private ConfigVersion configVersion;
     private List<GroupUpdateMessage> groupInfos;
+    private boolean isUserAvailable;
+    private MaskInfo maskInfo;
 
     public ResponseOnlineMessage() {
         super(1001);
@@ -21,8 +24,20 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
         return this.groupInfos;
     }
 
+    public boolean isUserAvailable() {
+        return this.isUserAvailable;
+    }
+
+    public void setUserAvailable(boolean z) {
+        this.isUserAvailable = z;
+    }
+
     public ConfigVersion getConfigVersion() {
         return this.configVersion;
+    }
+
+    public MaskInfo getMaskInfo() {
+        return this.maskInfo;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -55,7 +70,9 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
                     settingsSyncMessage.setData(userInfo.portrait);
                 }
             }
+            this.maskInfo = updateClientInfoResIdl.data.maskInfo;
             this.configVersion = updateClientInfoResIdl.data.configVersion;
+            this.isUserAvailable = updateClientInfoResIdl.data.isUserAvailable.intValue() != 0;
         }
     }
 }

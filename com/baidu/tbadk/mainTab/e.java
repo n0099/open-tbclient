@@ -3,10 +3,10 @@ package com.baidu.tbadk.mainTab;
 import android.content.Context;
 /* loaded from: classes.dex */
 public abstract class e {
-    private int WE;
-    private int acd;
-    private int ace;
-    private boolean acf = false;
+    private int Xj;
+    private int acB;
+    private int acC;
+    private boolean acD = false;
     private int iconId;
     private Context mContext;
 
@@ -14,37 +14,21 @@ public abstract class e {
 
     public e(Context context, int i, int i2, int i3, int i4) {
         this.mContext = context;
-        this.WE = i;
+        this.Xj = i;
         this.iconId = i2;
-        this.acd = i3;
-        this.ace = i4;
+        this.acB = i3;
+        this.acC = i4;
     }
 
-    public boolean wf() {
-        return this.acf;
+    public void aN(boolean z) {
+        this.acD = z;
     }
 
-    public void aL(boolean z) {
-        this.acf = z;
+    public void dA(int i) {
+        this.acC = i;
     }
 
-    public int uB() {
-        return this.iconId;
-    }
-
-    public int uC() {
-        return this.WE;
-    }
-
-    public void du(int i) {
-        this.ace = i;
-    }
-
-    public int wg() {
-        return this.ace;
-    }
-
-    public int wh() {
-        return this.acd;
+    public int wx() {
+        return this.acC;
     }
 }

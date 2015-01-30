@@ -5,17 +5,17 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bd extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ WriteActivity cft;
-    private final /* synthetic */ SpannableStringBuilder cfx;
-    private final /* synthetic */ EmotionGroupType cfy;
-    private final /* synthetic */ int val$pos;
+    final /* synthetic */ WriteActivity cgS;
+    private final /* synthetic */ SpannableStringBuilder cgW;
+    private final /* synthetic */ int cgX;
+    private final /* synthetic */ EmotionGroupType cgY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bd(WriteActivity writeActivity, SpannableStringBuilder spannableStringBuilder, int i, EmotionGroupType emotionGroupType) {
-        this.cft = writeActivity;
-        this.cfx = spannableStringBuilder;
-        this.val$pos = i;
-        this.cfy = emotionGroupType;
+        this.cgS = writeActivity;
+        this.cgW = spannableStringBuilder;
+        this.cgX = i;
+        this.cgY = emotionGroupType;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,6 +26,6 @@ public class bd extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
         if (aVar == null) {
             return;
         }
-        this.cft.a(this.cfx, this.val$pos, aVar, this.cfy);
+        this.cgS.a(this.cgW, this.cgX, aVar, this.cgY);
     }
 }

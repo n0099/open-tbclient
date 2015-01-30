@@ -1,77 +1,81 @@
 package com.baidu.tieba.im.data;
 
-import java.util.ArrayList;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.im.chat.officialBar.p;
+import com.baidu.tieba.w;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private int aWA;
-    private long aWB;
-    private int aWz;
-    private String content;
-    private long create_time;
-    private String forum_id;
-    private String id;
-    private int level;
-    private String name;
-    private List<c> sub_menu = new ArrayList();
+    private long aUh;
+    private String aXS;
+    List<p> list;
 
-    public String getId() {
-        return this.id;
+    public c(List<p> list) {
+        this.list = list;
+        MG();
     }
 
-    public void setId(String str) {
-        this.id = str;
+    private void MG() {
+        List<p> list = this.list;
+        if (list != null && !list.isEmpty()) {
+            long j = 0;
+            long j2 = 0;
+            String str = null;
+            String str2 = null;
+            for (p pVar : list) {
+                if (pVar != null) {
+                    if (str2 == null) {
+                        str2 = pVar.aUe;
+                    }
+                    if (str == null) {
+                        str = pVar.aUg;
+                    }
+                    j2 += pVar.aUf;
+                    j += pVar.aUh;
+                }
+            }
+            this.aUh = j;
+            if (j2 <= 0) {
+                this.aXS = null;
+                return;
+            }
+            StringBuilder sb = new StringBuilder();
+            if (!StringUtils.isNull(str2)) {
+                sb.append(str2);
+            }
+            sb.append(j2);
+            if (!StringUtils.isNull(str)) {
+                sb.append(str);
+            }
+            this.aXS = sb.toString();
+        }
     }
 
-    public void setForum_id(String str) {
-        this.forum_id = str;
+    public boolean isShow() {
+        return (!StringUtils.isNull(this.aXS)) || ((this.aUh > 0L ? 1 : (this.aUh == 0L ? 0 : -1)) > 0);
     }
 
-    public void setLevel(int i) {
-        this.level = i;
-    }
-
-    public void fA(int i) {
-        this.aWz = i;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String str) {
-        this.name = str;
-    }
-
-    public int Ml() {
-        return this.aWA;
-    }
-
-    public void fB(int i) {
-        this.aWA = i;
-    }
-
-    public void setCreate_time(long j) {
-        this.create_time = j;
-    }
-
-    public void T(long j) {
-        this.aWB = j;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String str) {
-        this.content = str;
-    }
-
-    public List<c> Mm() {
-        return this.sub_menu;
-    }
-
-    public void al(List<c> list) {
-        this.sub_menu = list;
+    public void G(View view) {
+        TextView textView = (TextView) view.findViewById(w.office_msg_praise_text);
+        TextView textView2 = (TextView) view.findViewById(w.office_msg_praise_number);
+        if (!isShow()) {
+            view.setVisibility(8);
+            return;
+        }
+        view.setVisibility(0);
+        if (StringUtils.isNull(this.aXS)) {
+            textView.setVisibility(4);
+        } else {
+            textView.setVisibility(0);
+            textView.setText(this.aXS);
+        }
+        if (this.aUh <= 0) {
+            textView2.setVisibility(4);
+            return;
+        }
+        textView2.setVisibility(0);
+        textView2.setText(new StringBuilder(String.valueOf(this.aUh)).toString());
     }
 }

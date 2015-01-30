@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.service.NetworkChangeReceiver;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class p {
-    private static Random mw = new Random();
+    private static Random mz = new Random();
 
-    public static String eL() {
+    public static String eJ() {
         try {
-            return Long.toHexString(Math.abs(mw.nextLong()));
+            return Long.toHexString(Math.abs(mz.nextLong()));
         } catch (Exception e) {
             return Long.toHexString(System.currentTimeMillis());
         }
@@ -33,9 +33,9 @@ public class p {
                     return NetworkChangeReceiver.WIFI_STRING;
                 }
                 if (type == 0) {
-                    int fo = com.baidu.adp.lib.util.i.fo();
+                    int fn = com.baidu.adp.lib.util.i.fn();
                     StringBuilder sb = new StringBuilder();
-                    switch (fo) {
+                    switch (fn) {
                         case 1:
                             sb.append('M');
                             break;
@@ -97,9 +97,9 @@ public class p {
                 if (activeNetworkInfo.getTypeName().equalsIgnoreCase(NetworkChangeReceiver.WIFI_STRING)) {
                     return TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE;
                 }
-                String fp = com.baidu.adp.lib.util.i.fp();
-                if (fp != null) {
-                    if (fp.length() > 0) {
+                String fo = com.baidu.adp.lib.util.i.fo();
+                if (fo != null) {
+                    if (fo.length() > 0) {
                         return "2";
                     }
                 }

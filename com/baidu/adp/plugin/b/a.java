@@ -1,5 +1,6 @@
 package com.baidu.adp.plugin.b;
 
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.stats.f;
 import com.baidu.adp.lib.stats.q;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
@@ -7,37 +8,37 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a sr = null;
-    private HashMap<String, Integer> sq = new HashMap<>();
+    private static volatile a sA = null;
+    private HashMap<String, Integer> sz = new HashMap<>();
 
     public static synchronized a hU() {
         a aVar;
         synchronized (a.class) {
-            if (sr == null) {
+            if (sA == null) {
                 synchronized (a.class) {
-                    if (sr == null) {
-                        sr = new a();
+                    if (sA == null) {
+                        sA = new a();
                     }
                 }
             }
-            aVar = sr;
+            aVar = sA;
         }
         return aVar;
     }
 
-    public void aZ(String str) {
+    public void aY(String str) {
         if (str != null) {
-            Integer num = this.sq.get(str);
+            Integer num = this.sz.get(str);
             if (num == null) {
                 num = 0;
             }
-            this.sq.put(str, Integer.valueOf(num.intValue() + 1));
+            this.sz.put(str, Integer.valueOf(num.intValue() + 1));
         }
     }
 
-    public void D(String str, String str2) {
+    public void H(String str, String str2) {
         if (str != null && str2 != null) {
-            aZ(str);
+            aY(str);
         }
     }
 
@@ -54,58 +55,63 @@ public class a {
     }
 
     public void a(String str, long j, int i, String str2) {
-        q ef = ef();
-        ef.r("workflow", String.valueOf(str) + "_cost");
-        ef.f("cost", Long.valueOf(j));
+        q ed = ed();
+        ed.r("workflow", String.valueOf(str) + "_cost");
+        ed.f("cost", Long.valueOf(j));
         if (i != 0) {
-            ef.f(ImageViewerConfig.COUNT, Integer.valueOf(i));
+            ed.f(ImageViewerConfig.COUNT, Integer.valueOf(i));
         }
         if (str2 != null) {
-            ef.r("pname", str2);
+            ed.r("pname", str2);
         }
-        f.es().a("pluginproxy", ef);
+        f.eq().a("pluginproxy", ed);
     }
 
     public void g(String str, String str2, String str3) {
-        c(str, str2, str3, null);
+        d(str, str2, str3, null);
     }
 
-    public void c(String str, String str2, String str3, String str4) {
-        q ef = ef();
+    public void d(String str, String str2, String str3, String str4) {
+        q ed = ed();
         if (str != null) {
-            ef.r("workflow", String.valueOf(str) + "_failure");
+            ed.r("workflow", String.valueOf(str) + "_failure");
         }
         if (str2 != null) {
-            ef.r("reason", str2);
+            ed.r("reason", str2);
         }
         if (str3 != null) {
-            ef.r("pname", str3);
+            ed.r("pname", str3);
         }
-        a(ef);
+        a(ed);
         if (str4 != null) {
-            ef.r("comment", str4);
+            ed.r("comment", str4);
         }
-        f.es().a("pluginproxy", ef);
+        f.eq().a("pluginproxy", ed);
+        f.eq().save();
     }
 
     public void hV() {
-        if (this.sq.size() != 0) {
-            q ef = ef();
-            a(ef);
-            f.es().a("pluginproxy", ef);
+        if (this.sz.size() != 0) {
+            q ed = ed();
+            a(ed);
+            f.eq().a("pluginproxy", ed);
         }
+    }
+
+    public void aZ(String str) {
+        f.eq().eventStat(BdBaseApplication.getInst(), str, null, 1, new Object[0]);
     }
 
     private void a(q qVar) {
         if (qVar != null) {
-            for (Map.Entry<String, Integer> entry : this.sq.entrySet()) {
+            for (Map.Entry<String, Integer> entry : this.sz.entrySet()) {
                 qVar.r(String.valueOf(entry.getKey()) + "_count", String.valueOf(entry.getValue()));
             }
-            this.sq.clear();
+            this.sz.clear();
         }
     }
 
-    private q ef() {
-        return f.es().ak("dbg");
+    private q ed() {
+        return f.eq().ak("dbg");
     }
 }

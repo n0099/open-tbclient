@@ -33,110 +33,110 @@ class g implements Handler.Callback {
         p pVar23;
         switch (message.what) {
             case 0:
-                pVar20 = f.oi;
+                pVar20 = f.oq;
                 if (pVar20 != null) {
-                    pVar21 = f.oi;
-                    str = f.oh;
+                    pVar21 = f.oq;
+                    str = f.oo;
                     pVar21.j(str, message.arg1);
-                    f.oi = null;
+                    f.oq = null;
                     break;
                 }
                 break;
             case 1:
             case 3:
-                pVar9 = f.oi;
+                pVar9 = f.oq;
                 if (pVar9 != null) {
-                    if (com.baidu.adp.lib.util.d.eV()) {
-                        pVar11 = f.oi;
+                    if (com.baidu.adp.lib.util.d.eU()) {
+                        pVar11 = f.oq;
                         pVar11.error(message.what, q.getString(R.string.voice_err_create_file_fail));
                     } else {
-                        pVar10 = f.oi;
+                        pVar10 = f.oq;
                         pVar10.error(message.what, q.getString(R.string.voice_err_sdcard_nospace));
                     }
-                    f.oi = null;
+                    f.oq = null;
                     break;
                 }
                 break;
             case 2:
-                pVar3 = f.oi;
+                pVar3 = f.oq;
                 if (pVar3 != null) {
-                    pVar4 = f.oi;
+                    pVar4 = f.oq;
                     pVar4.error(message.what, q.getString(R.string.voice_err_file_fail));
-                    f.oi = null;
+                    f.oq = null;
                     break;
                 }
                 break;
             case 4:
-                pVar18 = f.oi;
+                pVar18 = f.oq;
                 if (pVar18 != null) {
-                    pVar19 = f.oi;
-                    pVar19.ac(message.arg1);
+                    pVar19 = f.oq;
+                    pVar19.ah(message.arg1);
                     break;
                 }
                 break;
             case 5:
-                pVar5 = f.oi;
+                pVar5 = f.oq;
                 if (pVar5 != null) {
-                    pVar6 = f.oi;
+                    pVar6 = f.oq;
                     pVar6.error(message.what, q.getString(R.string.voice_err_load_lib_fail));
-                    f.oi = null;
+                    f.oq = null;
                     break;
                 }
                 break;
             case 6:
-                pVar = f.oi;
+                pVar = f.oq;
                 if (pVar != null) {
-                    pVar2 = f.oi;
+                    pVar2 = f.oq;
                     pVar2.error(message.what, q.getString(R.string.voice_err_init_fail));
-                    f.oi = null;
+                    f.oq = null;
                     break;
                 }
                 break;
             case 7:
-                pVar14 = f.oi;
+                pVar14 = f.oq;
                 if (pVar14 != null) {
-                    pVar15 = f.oi;
+                    pVar15 = f.oq;
                     pVar15.error(message.what, q.getString(R.string.voice_record_timeout_tip));
-                    f.oi = null;
+                    f.oq = null;
                     break;
                 }
                 break;
             case 8:
-                pVar12 = f.oi;
+                pVar12 = f.oq;
                 if (pVar12 != null) {
-                    pVar13 = f.oi;
+                    pVar13 = f.oq;
                     pVar13.error(message.what, q.getString(R.string.voice_record_short_tip));
-                    f.oi = null;
+                    f.oq = null;
                     break;
                 }
                 break;
             case 9:
-                pVar16 = f.oi;
+                pVar16 = f.oq;
                 if (pVar16 != null) {
-                    pVar17 = f.oi;
-                    pVar17.ae(message.arg1);
+                    pVar17 = f.oq;
+                    pVar17.aj(message.arg1);
                     break;
                 }
                 break;
             case 100:
-                pVar7 = f.oi;
+                pVar7 = f.oq;
                 if (pVar7 != null) {
-                    pVar8 = f.oi;
-                    pVar8.fL();
+                    pVar8 = f.oq;
+                    pVar8.fK();
                     break;
                 }
                 break;
             default:
-                pVar22 = f.oi;
+                pVar22 = f.oq;
                 if (pVar22 != null) {
-                    pVar23 = f.oi;
+                    pVar23 = f.oq;
                     pVar23.error(message.what, q.getString(R.string.voice_err_other));
-                    f.oi = null;
+                    f.oq = null;
                     break;
                 }
                 break;
         }
-        f.of = 0;
+        f.ol = 0;
         return false;
     }
 }

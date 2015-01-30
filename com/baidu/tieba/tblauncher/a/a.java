@@ -1,9 +1,9 @@
 package com.baidu.tieba.tblauncher.a;
 /* loaded from: classes.dex */
 public class a {
-    private int ccf;
-    private int ccg;
-    private int cch;
+    private int cdA;
+    private int cdy;
+    private int cdz;
     private int mType;
 
     public a(int i, int i2, int i3) {
@@ -11,30 +11,30 @@ public class a {
     }
 
     public a(int i, int i2, int i3, int i4) {
-        this.cch = 0;
-        this.ccg = i;
-        this.ccf = i2;
+        this.cdA = 0;
+        this.cdz = i;
+        this.cdy = i2;
         this.mType = i3;
-        this.cch = i4;
+        this.cdA = i4;
     }
 
-    public int ajh() {
-        return this.ccf;
+    public int ajD() {
+        return this.cdy;
     }
 
-    public int aji() {
-        return this.ccg;
+    public int ajE() {
+        return this.cdz;
     }
 
     public int getType() {
         return this.mType;
     }
 
-    public int ajj() {
-        return this.cch;
+    public int ajF() {
+        return this.cdA;
     }
 
-    public void ij(int i) {
-        this.cch = i;
+    public void io(int i) {
+        this.cdA = i;
     }
 }

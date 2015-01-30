@@ -7,13 +7,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends CustomMessageListener {
-    final /* synthetic */ b bks;
+    final /* synthetic */ b blP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, int i) {
         super(i);
-        this.bks = bVar;
+        this.blP = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,34 +27,34 @@ public class c extends CustomMessageListener {
                 if (customResponsedMessage.getCmd() != 2016003) {
                     if (customResponsedMessage.getCmd() != 2016006) {
                         if (customResponsedMessage.getCmd() == 2016000) {
-                            list2 = this.bks.mList;
+                            list2 = this.blP.mList;
                             if (list2 != null) {
-                                list3 = this.bks.mList;
+                                list3 = this.blP.mList;
                                 list3.clear();
                             }
-                            com.baidu.tbadk.coreExtra.messageCenter.a.rI().c(new h());
-                            com.baidu.tbadk.coreExtra.messageCenter.a.rI().setMsgChat(0);
-                            com.baidu.tbadk.coreExtra.messageCenter.a.rI().rZ();
-                            com.baidu.tbadk.coreExtra.messageCenter.a.rI().rW();
+                            com.baidu.tbadk.coreExtra.messageCenter.a.rY().c(new h());
+                            com.baidu.tbadk.coreExtra.messageCenter.a.rY().setMsgChat(0);
+                            com.baidu.tbadk.coreExtra.messageCenter.a.rY().sp();
+                            com.baidu.tbadk.coreExtra.messageCenter.a.rY().sm();
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016010) {
-                            list = this.bks.mList;
+                            list = this.blP.mList;
                             if (list == null) {
                                 return;
                             }
-                            this.bks.bw(false);
+                            this.blP.bz(false);
                             return;
                         } else {
                             return;
                         }
                     }
-                    this.bks.e(customResponsedMessage);
+                    this.blP.e(customResponsedMessage);
                     return;
                 }
-                this.bks.d(customResponsedMessage);
+                this.blP.d(customResponsedMessage);
                 return;
             }
-            this.bks.c(customResponsedMessage);
+            this.blP.c(customResponsedMessage);
         }
     }
 }

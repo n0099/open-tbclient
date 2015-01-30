@@ -7,10 +7,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 public class ComputerLLinearLayout extends LinearLayout {
-    public int cdm;
+    public int ceL;
 
     public int getChildLeft() {
-        return this.cdm;
+        return this.ceL;
     }
 
     public ComputerLLinearLayout(Context context, AttributeSet attributeSet) {
@@ -25,7 +25,7 @@ public class ComputerLLinearLayout extends LinearLayout {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (getChildAt(1) instanceof ImageView) {
-            this.cdm = ((ImageView) getChildAt(1)).getLeft();
+            this.ceL = ((ImageView) getChildAt(1)).getLeft();
         }
     }
 }

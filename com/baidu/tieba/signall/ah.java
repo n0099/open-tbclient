@@ -8,12 +8,12 @@ import com.baidu.tbadk.core.data.SignData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ah extends BdAsyncTask<Object, Integer, SignData> {
-    private volatile com.baidu.tbadk.core.util.ad CV;
-    final /* synthetic */ af bQw;
+    private volatile com.baidu.tbadk.core.util.ad CX;
+    final /* synthetic */ af bSh;
 
     private ah(af afVar) {
-        this.bQw = afVar;
-        this.CV = null;
+        this.bSh = afVar;
+        this.CX = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -38,24 +38,24 @@ public class ah extends BdAsyncTask<Object, Integer, SignData> {
         String str3;
         String str4;
         try {
-            this.CV = new com.baidu.tbadk.core.util.ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.SIGN_ADDRESS);
-            com.baidu.tbadk.core.util.ad adVar = this.CV;
-            str = this.bQw.mForumName;
+            this.CX = new com.baidu.tbadk.core.util.ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.SIGN_ADDRESS);
+            com.baidu.tbadk.core.util.ad adVar = this.CX;
+            str = this.bSh.mForumName;
             adVar.o("kw", str);
-            com.baidu.tbadk.core.util.ad adVar2 = this.CV;
-            str2 = this.bQw.mForumId;
+            com.baidu.tbadk.core.util.ad adVar2 = this.CX;
+            str2 = this.bSh.mForumId;
             adVar2.o(ImageViewerConfig.FORUM_ID, str2);
-            this.CV.oW().pV().mIsNeedTbs = true;
-            String ov = this.CV.ov();
-            if (!this.CV.oZ() || !this.CV.oW().pW().ma()) {
+            this.CX.oZ().qg().mIsNeedTbs = true;
+            String oy = this.CX.oy();
+            if (!this.CX.pc() || !this.CX.oZ().qh().ma()) {
                 return null;
             }
             signData = new SignData();
             try {
-                signData.parserJson(ov);
-                str3 = this.bQw.mForumId;
+                signData.parserJson(oy);
+                str3 = this.bSh.mForumId;
                 signData.setForumId(str3);
-                str4 = this.bQw.mForumName;
+                str4 = this.bSh.mForumName;
                 signData.setForumName(str4);
                 return signData;
             } catch (Exception e2) {
@@ -73,14 +73,14 @@ public class ah extends BdAsyncTask<Object, Integer, SignData> {
     public void cancel() {
         ag agVar;
         String str;
-        if (this.CV != null) {
-            this.CV.dL();
+        if (this.CX != null) {
+            this.CX.dJ();
         }
-        this.bQw.bQu = null;
+        this.bSh.bSf = null;
         super.cancel(true);
-        agVar = this.bQw.bQv;
-        str = this.bQw.mForumId;
-        agVar.aM(str, null);
+        agVar = this.bSh.bSg;
+        str = this.bSh.mForumId;
+        agVar.aP(str, null);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -92,17 +92,17 @@ public class ah extends BdAsyncTask<Object, Integer, SignData> {
         ag agVar2;
         String str;
         String str2;
-        this.bQw.bQu = null;
-        if (signData != null || this.CV == null) {
-            agVar = this.bQw.bQv;
+        this.bSh.bSf = null;
+        if (signData != null || this.CX == null) {
+            agVar = this.bSh.bSg;
             agVar.c(signData);
             return;
         }
-        this.bQw.mErrorCode = this.CV.pa();
-        this.bQw.mErrorString = this.CV.getErrorString();
-        agVar2 = this.bQw.bQv;
-        str = this.bQw.mForumId;
-        str2 = this.bQw.mErrorString;
-        agVar2.aM(str, str2);
+        this.bSh.mErrorCode = this.CX.pd();
+        this.bSh.mErrorString = this.CX.getErrorString();
+        agVar2 = this.bSh.bSg;
+        str = this.bSh.mForumId;
+        str2 = this.bSh.mErrorString;
+        agVar2.aP(str, str2);
     }
 }

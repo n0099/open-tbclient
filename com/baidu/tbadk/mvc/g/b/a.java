@@ -10,23 +10,23 @@ import com.baidu.tieba.z;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a extends com.baidu.tbadk.mvc.i.b {
-    protected com.baidu.tbadk.mvc.k.a aeA;
-    protected com.baidu.tbadk.mvc.k.b aeB;
-    protected BdListView aez;
+    protected BdListView aeW;
+    protected com.baidu.tbadk.mvc.k.a aeX;
+    protected com.baidu.tbadk.mvc.k.b aeY;
 
     protected abstract List<View> t(BdListView bdListView);
 
     protected abstract List<View> u(BdListView bdListView);
 
-    protected abstract com.baidu.tbadk.mvc.j.b<?, ?, ?> xQ();
+    protected abstract com.baidu.tbadk.mvc.j.b<?, ?, ?> yg();
 
-    protected abstract boolean xR();
+    protected abstract boolean yh();
 
-    protected abstract boolean xS();
+    protected abstract boolean yi();
 
-    protected abstract boolean xT();
+    protected abstract boolean yj();
 
-    protected abstract boolean xU();
+    protected abstract boolean yk();
 
     public a(com.baidu.tbadk.mvc.core.e<?, ?, ?> eVar) {
         super(eVar);
@@ -36,8 +36,8 @@ public abstract class a extends com.baidu.tbadk.mvc.i.b {
     @Override // com.baidu.tbadk.mvc.core.c
     public void kF() {
         super.kF();
-        if (xQ() != null) {
-            xQ().kF();
+        if (yg() != null) {
+            yg().kF();
         }
     }
 
@@ -45,8 +45,8 @@ public abstract class a extends com.baidu.tbadk.mvc.i.b {
     @Override // com.baidu.tbadk.mvc.core.c
     public void onActivityStop() {
         super.onActivityStop();
-        if (xQ() != null) {
-            xQ().onActivityStop();
+        if (yg() != null) {
+            yg().onActivityStop();
         }
     }
 
@@ -60,51 +60,51 @@ public abstract class a extends com.baidu.tbadk.mvc.i.b {
         super.b(cVar);
         if (cVar instanceof com.baidu.tbadk.mvc.e.b) {
             com.baidu.tbadk.mvc.e.b bVar = (com.baidu.tbadk.mvc.e.b) cVar;
-            if (xR() && bVar.xI()) {
-                if (bVar.xH()) {
-                    yk();
+            if (yh() && bVar.xY()) {
+                if (bVar.xX()) {
+                    yA();
                 } else {
-                    yl();
+                    yB();
                 }
             }
-            if (xS() && this.aeA != null) {
-                boolean z2 = xQ() == null || xQ().yx() != 0;
-                if (bVar.xL() && z2) {
-                    this.aeA.yB();
-                    if (bVar.xJ()) {
-                        this.aeA.dJ(xV());
-                    } else if (bVar.xK()) {
-                        this.aeA.dL(xW());
-                    } else if (xY()) {
-                        this.aeA.hide();
+            if (yi() && this.aeX != null) {
+                boolean z2 = yg() == null || yg().yN() != 0;
+                if (bVar.yb() && z2) {
+                    this.aeX.yR();
+                    if (bVar.xZ()) {
+                        this.aeX.dP(yl());
+                    } else if (bVar.ya()) {
+                        this.aeX.dR(ym());
+                    } else if (yo()) {
+                        this.aeX.hide();
                     } else {
-                        this.aeA.dK(xX());
+                        this.aeX.dQ(yn());
                     }
                 } else {
-                    this.aeA.hide();
+                    this.aeX.hide();
                 }
             }
-            if (xT() && this.aeB != null) {
-                if (xQ() != null && xQ().yx() == 0) {
+            if (yj() && this.aeY != null) {
+                if (yg() != null && yg().yN() == 0) {
                     z = false;
                 }
-                if (bVar.xG() && z) {
-                    this.aeB.yB();
-                    if (bVar.xE()) {
-                        this.aeB.dM(xZ());
+                if (bVar.xW() && z) {
+                    this.aeY.yR();
+                    if (bVar.xU()) {
+                        this.aeY.dS(yp());
                         return;
-                    } else if (bVar.xF()) {
-                        this.aeB.dL(ya());
+                    } else if (bVar.xV()) {
+                        this.aeY.dR(yq());
                         return;
-                    } else if (yc()) {
-                        this.aeB.hide();
+                    } else if (ys()) {
+                        this.aeY.hide();
                         return;
                     } else {
-                        this.aeB.dN(yb());
+                        this.aeY.dT(yr());
                         return;
                     }
                 }
-                this.aeB.hide();
+                this.aeY.hide();
             }
         }
     }
@@ -113,21 +113,21 @@ public abstract class a extends com.baidu.tbadk.mvc.i.b {
     @Override // com.baidu.tbadk.mvc.core.c
     public void a(ErrorData errorData) {
         super.a(errorData);
-        if (xR()) {
-            yl();
+        if (yh()) {
+            yB();
         }
-        if (xS() && this.aeA != null) {
-            if (xY()) {
-                this.aeA.hide();
+        if (yi() && this.aeX != null) {
+            if (yo()) {
+                this.aeX.hide();
             } else {
-                this.aeA.dK(xX());
+                this.aeX.dQ(yn());
             }
         }
-        if (xT() && this.aeB != null) {
-            if (yc()) {
-                this.aeB.hide();
+        if (yj() && this.aeY != null) {
+            if (ys()) {
+                this.aeY.hide();
             } else {
-                this.aeB.dN(yb());
+                this.aeY.dT(yr());
             }
         }
     }
@@ -143,40 +143,40 @@ public abstract class a extends com.baidu.tbadk.mvc.i.b {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
     public void kJ() {
-        this.aez = (BdListView) getView().findViewById(w.view_list);
-        t(this.aez);
-        u(this.aez);
-        if (xR()) {
-            yj();
+        this.aeW = (BdListView) getView().findViewById(w.view_list);
+        t(this.aeW);
+        u(this.aeW);
+        if (yh()) {
+            yz();
         }
-        if (xS()) {
-            this.aeA = new com.baidu.tbadk.mvc.k.a(ww());
-            this.aez.setNextPage(this.aeA);
-            this.aeA.hide();
+        if (yi()) {
+            this.aeX = new com.baidu.tbadk.mvc.k.a(wM());
+            this.aeW.setNextPage(this.aeX);
+            this.aeX.hide();
         }
-        if (xT()) {
-            this.aeB = new com.baidu.tbadk.mvc.k.b(ww());
-            this.aez.setPrePage(this.aeB);
-            this.aeB.hide();
+        if (yj()) {
+            this.aeY = new com.baidu.tbadk.mvc.k.b(wM());
+            this.aeW.setPrePage(this.aeY);
+            this.aeY.hide();
         }
-        if (xU()) {
-            this.aez.setExOnSrollToBottomListener(new b(this));
+        if (yk()) {
+            this.aeW.setExOnSrollToBottomListener(new b(this));
         }
     }
 
     @Override // com.baidu.tbadk.mvc.i.e, com.baidu.tbadk.mvc.core.d, com.baidu.tbadk.mvc.core.c, com.baidu.tieba.tbadkCore.y
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        if (xQ() != null) {
-            xQ().a(tbPageContext, i);
+        if (yg() != null) {
+            yg().a(tbPageContext, i);
         }
-        if (xR()) {
-            yo().cl(i);
+        if (yh()) {
+            yE().cs(i);
         }
-        if (xS() && this.aeA != null) {
-            this.aeA.a(tbPageContext, i);
+        if (yi() && this.aeX != null) {
+            this.aeX.a(tbPageContext, i);
         }
-        if (xT() && this.aeB != null) {
-            this.aeB.a(tbPageContext, i);
+        if (yj() && this.aeY != null) {
+            this.aeY.a(tbPageContext, i);
         }
         super.a(tbPageContext, i);
         return true;
@@ -188,47 +188,47 @@ public abstract class a extends com.baidu.tbadk.mvc.i.b {
     }
 
     @Override // com.baidu.tbadk.mvc.i.b
-    protected void xO() {
+    protected void ye() {
     }
 
     @Override // com.baidu.tbadk.mvc.i.b
-    protected void xP() {
+    protected void yf() {
     }
 
     @Override // com.baidu.tbadk.mvc.i.e
     public BdListView getListView() {
-        return this.aez;
+        return this.aeW;
     }
 
-    protected int xV() {
+    protected int yl() {
         return z.loading;
     }
 
-    protected int xW() {
+    protected int ym() {
         return z.click_load_more;
     }
 
-    protected int xX() {
+    protected int yn() {
         return 0;
     }
 
-    protected boolean xY() {
+    protected boolean yo() {
         return false;
     }
 
-    protected int xZ() {
+    protected int yp() {
         return z.loading;
     }
 
-    protected int ya() {
+    protected int yq() {
         return z.click_load_more;
     }
 
-    protected int yb() {
+    protected int yr() {
         return 0;
     }
 
-    protected boolean yc() {
+    protected boolean ys() {
         return false;
     }
 }

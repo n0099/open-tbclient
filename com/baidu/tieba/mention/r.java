@@ -11,13 +11,13 @@ import tbclient.ReplyMe.ReplyList;
 import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes.dex */
 public class r implements com.baidu.tbadk.mvc.b.j {
-    protected boolean QO;
-    protected ArrayList<FeedData> bsf = new ArrayList<>();
-    protected com.baidu.tbadk.core.data.p bsg = new com.baidu.tbadk.core.data.p();
-    protected com.baidu.tbadk.data.e bsh = new com.baidu.tbadk.data.e();
+    protected boolean Rs;
+    protected ArrayList<FeedData> btC = new ArrayList<>();
+    protected com.baidu.tbadk.core.data.q btD = new com.baidu.tbadk.core.data.q();
+    protected com.baidu.tbadk.data.e btE = new com.baidu.tbadk.data.e();
 
-    public ArrayList<FeedData> TR() {
-        return this.bsf;
+    public ArrayList<FeedData> Uo() {
+        return this.btC;
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
@@ -29,14 +29,14 @@ public class r implements com.baidu.tbadk.mvc.b.j {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    this.bsf.add(feedData);
+                    this.btC.add(feedData);
                 }
             }
-            this.bsh.parserJson(jSONObject.optJSONObject("message"));
-            this.bsg.parserJson(jSONObject.optJSONObject("page"));
-            this.QO = true;
+            this.btE.parserJson(jSONObject.optJSONObject("message"));
+            this.btD.parserJson(jSONObject.optJSONObject("page"));
+            this.Rs = true;
         } catch (Exception e) {
-            this.QO = false;
+            this.Rs = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -51,13 +51,13 @@ public class r implements com.baidu.tbadk.mvc.b.j {
                     for (int i = 0; i < list.size(); i++) {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i));
-                        this.bsf.add(feedData);
+                        this.btC.add(feedData);
                     }
                 }
-                this.bsg.a(dataRes.page);
-                this.QO = true;
+                this.btD.a(dataRes.page);
+                this.Rs = true;
             } catch (Exception e) {
-                this.QO = false;
+                this.Rs = false;
                 BdLog.e(e.getMessage());
             }
         }

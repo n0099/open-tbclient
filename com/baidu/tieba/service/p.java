@@ -1,210 +1,122 @@
 package com.baidu.tieba.service;
 
-import android.app.Application;
-import android.os.Build;
 import android.os.Handler;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.plugin.PluginCenter;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 import com.baidu.tbadk.core.util.ad;
-import com.baidu.tbadk.core.util.bc;
-import com.baidu.tbadk.coreExtra.data.VersionData;
-import com.baidu.tbadk.plugins.Hao123Plugin;
-import com.baidu.tieba.bb;
-import java.util.Date;
-import java.util.Random;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.c.g> {
-    ad AR;
-    final /* synthetic */ TiebaSyncService bNr;
+public class p extends BdAsyncTask<String, Integer, Boolean> {
+    private ad AR;
+    final /* synthetic */ TiebaUpdateService bPc;
+    private volatile boolean kN;
 
-    private p(TiebaSyncService tiebaSyncService) {
-        this.bNr = tiebaSyncService;
-        this.AR = null;
+    private p(TiebaUpdateService tiebaUpdateService) {
+        this.bPc = tiebaUpdateService;
+        this.kN = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ p(TiebaSyncService tiebaSyncService, p pVar) {
-        this(tiebaSyncService);
+    public /* synthetic */ p(TiebaUpdateService tiebaUpdateService, p pVar) {
+        this(tiebaUpdateService);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: x */
-    public com.baidu.tbadk.coreExtra.c.g doInBackground(String... strArr) {
-        com.baidu.tbadk.coreExtra.c.g gVar;
+    /* renamed from: f */
+    public Boolean doInBackground(String... strArr) {
+        Boolean bool;
         Exception e;
         String str;
         String str2;
-        try {
-            this.AR = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_SYNC_ADDRESS);
-            this.AR.o("_os_version", Build.VERSION.RELEASE);
-            StringBuffer stringBuffer = new StringBuffer(15);
-            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.l.M(TbadkCoreApplication.m255getInst().getApp())));
-            stringBuffer.append(",");
-            stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.l.N(TbadkCoreApplication.m255getInst().getApp())));
-            this.AR.o("_phone_screen", stringBuffer.toString());
-            this.AR.o("scr_w", String.valueOf(com.baidu.adp.lib.util.l.M(TbadkCoreApplication.m255getInst().getApp())));
-            this.AR.o("scr_h", String.valueOf(com.baidu.adp.lib.util.l.N(TbadkCoreApplication.m255getInst().getApp())));
-            this.AR.o("scr_dip", String.valueOf(com.baidu.adp.lib.util.l.O(TbadkCoreApplication.m255getInst().getApp())));
-            if (TbadkCoreApplication.m255getInst().getMsgFrequency() > 0) {
-                this.AR.o("_msg_status", "0");
-            } else {
-                this.AR.o("_msg_status", "1");
-            }
-            String activeVersion = TbadkCoreApplication.m255getInst().getActiveVersion();
-            if (activeVersion != null) {
-                if (activeVersion.length() < 1) {
-                    activeVersion = "0";
-                }
-                this.AR.o("_active", activeVersion);
-            }
-            this.AR.o("_pic_quality", String.valueOf(TbadkCoreApplication.m255getInst().getViewImageQuality()));
-            str = TiebaSyncService.mStatistics;
-            if (str != null) {
+        String str3;
+        Handler handler;
+        boolean z;
+        long j;
+        Boolean bool2 = false;
+        while (!this.kN) {
+            try {
+                str2 = this.bPc.mMainApkUrl;
+                this.AR = new ad(str2);
                 ad adVar = this.AR;
-                str2 = TiebaSyncService.mStatistics;
-                adVar.o("_msg_type", str2);
-            }
-            String packageName = TbadkCoreApplication.m255getInst().getPackageName();
-            this.AR.o("package", packageName);
-            this.AR.o("versioncode", new StringBuilder(String.valueOf(TbadkCoreApplication.m255getInst().getVersionCode())).toString());
-            this.AR.o("signmd5", bc.b(TbadkCoreApplication.m255getInst().getPackageManager().getPackageInfo(packageName, 64)));
-            this.AR.o("md5", bb.getTiebaApkMd5());
-            String ov = this.AR.ov();
-            if (this.AR.oZ()) {
-                TbadkCoreApplication.m255getInst().clearActiveVersion();
-            }
-            if (this.AR.oW().pW().ma()) {
-                gVar = new com.baidu.tbadk.coreExtra.c.g();
-                try {
-                    gVar.parserJson(ov);
-                    if (TbadkCoreApplication.getClientId() == null && gVar.sq().getClientId() != null && gVar.sq().getClientId().length() > 0) {
-                        TbadkCoreApplication.saveClientId(this.bNr, gVar.sq().getClientId());
-                        TbadkCoreApplication.setClientId(gVar.sq().getClientId());
+                str3 = this.bPc.mMainApkFileName;
+                String str4 = String.valueOf(str3) + ".tmp";
+                handler = this.bPc.mMainApkHandler;
+                bool2 = Boolean.valueOf(adVar.a(str4, handler, 0));
+                if (bool2.booleanValue()) {
+                    break;
+                } else if (this.AR.pd() == -2) {
+                    bool = bool2;
+                    break;
+                } else {
+                    if (!this.AR.oZ().qh().pj()) {
+                        try {
+                            Thread.sleep(10000L);
+                        } catch (Exception e2) {
+                        }
                     }
-                    if (gVar.sm() != null) {
-                        com.baidu.tbadk.core.sharedPref.b.og().putInt("aladin_port", gVar.sm().ry());
-                        com.baidu.tbadk.core.sharedPref.b.og().putInt("crash_limit_count", gVar.sm().getCrashLimitCount());
+                    z = TiebaUpdateService.sHasStart;
+                    if (z) {
+                        long currentTimeMillis = System.currentTimeMillis();
+                        j = this.bPc.mMainTaskWaitingTimestamp;
+                        if (currentTimeMillis - j > 20000) {
+                            this.bPc.sendBroadcast("action_update_progress_interrupted", true);
+                            bool = bool2;
+                            break;
+                        }
                     }
-                    TiebaSyncService.mStatistics = null;
-                    return gVar;
-                } catch (Exception e2) {
-                    e = e2;
-                    BdLog.detailException(e);
-                    return gVar;
                 }
+            } catch (Exception e3) {
+                bool = bool2;
+                e = e3;
             }
-            return null;
-        } catch (Exception e3) {
-            gVar = null;
-            e = e3;
         }
+        bool = bool2;
+        try {
+            if (bool.booleanValue()) {
+                TiebaUpdateService tiebaUpdateService = this.bPc;
+                str = this.bPc.mMainApkFileName;
+                tiebaUpdateService.renameFile(str);
+            }
+        } catch (Exception e4) {
+            e = e4;
+            BdLog.e(e.getMessage());
+            return bool;
+        }
+        return bool;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.bNr.mSyncTask = null;
-        if (this.AR != null) {
-            this.AR.dL();
-        }
         super.cancel(true);
+        this.bPc.mDowndMainApkTask = null;
+        this.kN = true;
+        if (this.AR != null) {
+            this.AR.dJ();
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(com.baidu.tbadk.coreExtra.c.g gVar) {
-        int i;
-        int i2;
+    /* renamed from: b */
+    public void onPostExecute(Boolean bool) {
         Handler handler;
-        Runnable runnable;
         Handler handler2;
-        Runnable runnable2;
-        com.baidu.tbadk.coreExtra.c.g gVar2;
-        int performSampleCount;
-        com.baidu.tbadk.coreExtra.c.g gVar3;
-        com.baidu.tbadk.coreExtra.c.g gVar4;
-        com.baidu.tbadk.coreExtra.c.g gVar5;
-        com.baidu.tbadk.coreExtra.c.g gVar6;
-        com.baidu.tbadk.coreExtra.c.g gVar7;
-        com.baidu.tbadk.coreExtra.c.g gVar8;
-        com.baidu.tbadk.coreExtra.c.g gVar9;
-        com.baidu.tbadk.coreExtra.c.g gVar10;
-        com.baidu.tbadk.coreExtra.c.g gVar11;
-        super.onPostExecute(gVar);
-        this.bNr.mSyncTask = null;
-        if (gVar != null) {
-            com.baidu.tbadk.util.a.zq().zr();
-            this.bNr.mModel = gVar;
-            gVar2 = this.bNr.mModel;
-            if (gVar2.sp().hasNewVer()) {
-                TbadkCoreApplication m255getInst = TbadkCoreApplication.m255getInst();
-                gVar3 = this.bNr.mModel;
-                m255getInst.setVersionData(gVar3.sp());
-                this.bNr.broadcastNewVersion();
-                gVar4 = this.bNr.mModel;
-                if (gVar4.sp().forceUpdate()) {
-                    gVar9 = this.bNr.mModel;
-                    if (gVar9.sm() != null && TbadkCoreApplication.m255getInst().getResumeNum() > 0) {
-                        MessageManager messageManager = MessageManager.getInstance();
-                        Application app = TbadkCoreApplication.m255getInst().getApp();
-                        gVar10 = this.bNr.mModel;
-                        VersionData sp = gVar10.sp();
-                        gVar11 = this.bNr.mModel;
-                        messageManager.sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(app, sp, gVar11.so())));
-                    }
-                } else if (Long.valueOf(new Date().getTime()).longValue() - Long.valueOf(TbadkCoreApplication.m255getInst().getUpdateNotifyTime()).longValue() > 86400000) {
-                    gVar5 = this.bNr.mModel;
-                    if (gVar5.sp().getStrategy() == 0) {
-                        gVar6 = this.bNr.mModel;
-                        if (gVar6.sm() != null && TbadkCoreApplication.m255getInst().getResumeNum() > 0) {
-                            MessageManager messageManager2 = MessageManager.getInstance();
-                            Application app2 = TbadkCoreApplication.m255getInst().getApp();
-                            gVar7 = this.bNr.mModel;
-                            VersionData sp2 = gVar7.sp();
-                            gVar8 = this.bNr.mModel;
-                            messageManager2.sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(app2, sp2, gVar8.so())));
-                        }
-                    }
-                }
+        String str;
+        super.onPostExecute(bool);
+        this.bPc.mDowndMainApkTask = null;
+        try {
+            if (bool.booleanValue()) {
+                this.bPc.mIsMainApkDone = true;
+                handler = this.bPc.mMainApkHandler;
+                handler2 = this.bPc.mMainApkHandler;
+                str = this.bPc.mMainApkFileName;
+                handler.sendMessageDelayed(handler2.obtainMessage(1, str), 100L);
             }
-            TbadkCoreApplication.m255getInst().loadLcsSwitchStratgy();
-            int nextInt = new Random().nextInt(TbConfig.BIG_IMAGE_MIN_CAPACITY) + 1;
-            int rx = gVar.sm().rx();
-            if (rx > 0 && nextInt % rx == 0 && (performSampleCount = TbadkCoreApplication.m255getInst().getPerformSampleCount()) < 10) {
-                TbadkCoreApplication.m255getInst().setPerformSampleCount(performSampleCount + 1);
-            }
-            if (!TbadkCoreApplication.m255getInst().isHao123HelperShouldOpen() && TbadkCoreApplication.m255getInst().isTiebaHelperOpen()) {
-                TbadkCoreApplication.m255getInst().setTiebaHelperOpen(false);
-                Hao123Plugin hao123Plugin = (Hao123Plugin) PluginCenter.gX().hc();
-                if (hao123Plugin != null) {
-                    hao123Plugin.closeFloating(this.bNr);
-                    return;
-                }
-                return;
-            }
-            return;
-        }
-        TiebaSyncService tiebaSyncService = this.bNr;
-        i = tiebaSyncService.mHaveRetry;
-        tiebaSyncService.mHaveRetry = i + 1;
-        i2 = this.bNr.mHaveRetry;
-        if (i2 < 10) {
-            handler = this.bNr.mHandler;
-            runnable = this.bNr.mRunnable;
-            handler.removeCallbacks(runnable);
-            handler2 = this.bNr.mHandler;
-            runnable2 = this.bNr.mRunnable;
-            handler2.postDelayed(runnable2, TbConfig.USE_TIME_INTERVAL);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 }

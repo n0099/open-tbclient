@@ -18,32 +18,16 @@ public class CheckPostResponseMessage extends SocketResponsedMessage {
         return this.postState;
     }
 
-    public void setPostState(long j) {
-        this.postState = j;
-    }
-
     public long getForumId() {
         return this.forumId;
-    }
-
-    public void setForumId(long j) {
-        this.forumId = j;
     }
 
     public long getQuoteId() {
         return this.quoteId;
     }
 
-    public void setQuoteId(long j) {
-        this.quoteId = j;
-    }
-
     public long getRepostId() {
         return this.repostId;
-    }
-
-    public void setRepostId(long j) {
-        this.repostId = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

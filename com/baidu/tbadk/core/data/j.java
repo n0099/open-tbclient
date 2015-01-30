@@ -1,44 +1,65 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import org.json.JSONObject;
-import tbclient.FrsPage.Classify;
+import tbclient.FrsPage.Banner;
 /* loaded from: classes.dex */
 public class j {
-    private String class_name = null;
-    private int DS = 0;
+    private int DU;
+    private String DV;
+    private String DW;
+    private int mType;
+    private String mValue;
 
-    public void bP(String str) {
-        this.class_name = str;
+    public int mK() {
+        return this.DU;
     }
 
     public String mL() {
-        return this.class_name;
+        return this.DV;
     }
 
-    public void bi(int i) {
-        this.DS = i;
+    public String getValue() {
+        return this.mValue;
     }
 
-    public int mM() {
-        return this.DS;
+    public int getType() {
+        return this.mType;
+    }
+
+    public String mM() {
+        return this.DW;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.DS = jSONObject.optInt("class_id", 0);
-                this.class_name = jSONObject.optString("class_name");
+                this.DU = jSONObject.optInt("bannerType");
+                this.DV = jSONObject.optString("bannerUrl");
+                this.mValue = jSONObject.optString("value");
+                this.mType = jSONObject.optInt("type");
+                this.DW = jSONObject.optString("desc");
             } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                BdLog.e(e.toString());
             }
         }
     }
 
-    public void a(Classify classify) {
-        if (classify != null) {
-            this.DS = classify.class_id.intValue();
-            this.class_name = classify.class_name;
+    public void a(Banner banner) {
+        if (banner != null) {
+            this.DU = banner.banner_type.intValue();
+            this.DV = banner.banner_url;
+            this.mValue = banner.value;
+            this.mType = banner.type.intValue();
+            this.DW = banner.desc;
         }
+    }
+
+    public boolean isValid() {
+        if (StringUtils.isNull(this.mValue)) {
+            return false;
+        }
+        return this.mType == 1 ? this.DU == 1 || this.DU == 4 || this.DU == 2 || this.DU == 3 : this.mType == 2 && !StringUtils.isNull(this.DW);
     }
 }

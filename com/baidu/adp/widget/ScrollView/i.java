@@ -12,7 +12,7 @@ public class i implements g {
     }
 
     @Override // com.baidu.adp.widget.ScrollView.g
-    public void jO() {
+    public void jN() {
         BdPullRefreshScrollView.State state;
         BdPullRefreshScrollView.State state2;
         a aVar;

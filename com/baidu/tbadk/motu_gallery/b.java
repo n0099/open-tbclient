@@ -77,7 +77,7 @@ public class b {
             } else {
                 resizeBitmap = resizeBitmap(bitmapSample, i2, i);
             }
-            int b = w.b(context, uri, z);
+            int b = v.b(context, uri, z);
             if (b != 0) {
                 Matrix matrix = new Matrix();
                 matrix.setRotate(b);

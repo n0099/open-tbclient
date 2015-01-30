@@ -6,29 +6,29 @@ import com.baidu.adp.plugin.install.PluginInstallerService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends BdAsyncTask<Object, Object, Object> {
-    String mI;
-    String mJ;
-    StringBuilder mK;
-    h mL;
-    boolean mM = false;
-    final /* synthetic */ f mN;
+    String mL;
+    String mM;
+    StringBuilder mN;
+    h mO;
+    boolean mP = false;
+    final /* synthetic */ f mQ;
 
     public g(f fVar, String str, String str2, StringBuilder sb, h hVar) {
-        this.mN = fVar;
-        this.mI = str;
-        this.mJ = str2;
-        this.mK = sb;
-        this.mL = hVar;
+        this.mQ = fVar;
+        this.mL = str;
+        this.mM = str2;
+        this.mN = sb;
+        this.mO = hVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Object doInBackground(Object... objArr) {
         boolean a;
-        a = this.mN.a(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.mI, this.mK);
-        this.mM = a;
-        if (!this.mM) {
-            this.mN.a(this.mJ, "".getBytes(), this.mK);
+        a = this.mQ.a(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.mL, this.mN);
+        this.mP = a;
+        if (!this.mP) {
+            this.mQ.a(this.mM, "".getBytes(), this.mN);
             return null;
         }
         return null;
@@ -38,11 +38,11 @@ public class g extends BdAsyncTask<Object, Object, Object> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Object obj) {
         super.onPostExecute(obj);
-        if (this.mK.length() > 0) {
-            com.baidu.adp.lib.stats.f.es().a("so", "load_" + this.mI + PluginInstallerService.APK_LIB_SUFFIX, "", "", -9101, this.mK.toString(), new Object[0]);
+        if (this.mN.length() > 0) {
+            com.baidu.adp.lib.stats.f.eq().a("so", "load_" + this.mL + PluginInstallerService.APK_LIB_SUFFIX, "", "", -9101, this.mN.toString(), new Object[0]);
         }
-        if (this.mL != null) {
-            this.mL.l(this.mM);
+        if (this.mO != null) {
+            this.mO.l(this.mP);
         }
     }
 }

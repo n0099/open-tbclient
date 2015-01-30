@@ -10,17 +10,17 @@ import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al extends BdAsyncTask<Object, Integer, SearchPostModel> {
-    private com.baidu.tbadk.core.util.ad CV = null;
-    final /* synthetic */ SquareSearchActivity brF;
-    ArrayList<BasicNameValuePair> brJ;
+    private com.baidu.tbadk.core.util.ad CX = null;
+    final /* synthetic */ SquareSearchActivity btb;
+    ArrayList<BasicNameValuePair> btf;
     private String mUrl;
 
     public al(SquareSearchActivity squareSearchActivity, String str, ArrayList<BasicNameValuePair> arrayList) {
-        this.brF = squareSearchActivity;
+        this.btb = squareSearchActivity;
         this.mUrl = null;
-        this.brJ = null;
+        this.btf = null;
         this.mUrl = str;
-        this.brJ = arrayList;
+        this.btf = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -29,11 +29,11 @@ public class al extends BdAsyncTask<Object, Integer, SearchPostModel> {
         com.baidu.tbadk.core.view.x xVar;
         ListView listView;
         ProgressBar progressBar;
-        xVar = this.brF.mNoDataView;
+        xVar = this.btb.mNoDataView;
         xVar.setVisibility(8);
-        listView = this.brF.brh;
+        listView = this.btb.bsF;
         if (listView.getVisibility() != 0) {
-            progressBar = this.brF.mProgress;
+            progressBar = this.btb.mProgress;
             progressBar.setVisibility(0);
         }
     }
@@ -41,39 +41,39 @@ public class al extends BdAsyncTask<Object, Integer, SearchPostModel> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: y */
+    /* renamed from: z */
     public SearchPostModel doInBackground(Object... objArr) {
         Exception exc;
         SearchPostModel searchPostModel;
         String str;
         try {
-            this.CV = new com.baidu.tbadk.core.util.ad(this.mUrl);
-            Iterator<BasicNameValuePair> it = this.brJ.iterator();
+            this.CX = new com.baidu.tbadk.core.util.ad(this.mUrl);
+            Iterator<BasicNameValuePair> it = this.btf.iterator();
             while (it.hasNext()) {
-                this.CV.a(it.next());
+                this.CX.a(it.next());
             }
-            String ov = this.CV.ov();
-            if (!this.CV.oW().pW().oZ() || ov == null) {
+            String oy = this.CX.oy();
+            if (!this.CX.oZ().qh().pc() || oy == null) {
                 return null;
             }
             SearchPostModel searchPostModel2 = new SearchPostModel();
             try {
-                searchPostModel2.parserJson(ov);
-                if (ov != null && this.CV != null && this.CV.oW().pW().ma()) {
-                    Iterator<BasicNameValuePair> it2 = this.brJ.iterator();
+                searchPostModel2.parserJson(oy);
+                if (oy != null && this.CX != null && this.CX.oZ().qh().ma()) {
+                    Iterator<BasicNameValuePair> it2 = this.btf.iterator();
                     while (it2.hasNext()) {
                         BasicNameValuePair next = it2.next();
                         if ("word".equals(next.getName())) {
-                            this.brF.brt = next.getValue();
+                            this.btb.bsQ = next.getValue();
                         }
                         if ("pn".equals(next.getName())) {
-                            this.brF.bru = Integer.valueOf(next.getValue()).intValue();
+                            this.btb.bsR = Integer.valueOf(next.getValue()).intValue();
                         }
                     }
                 }
-                if (this.CV.oW().pW().ma()) {
-                    str = this.brF.brr;
-                    com.baidu.tieba.tbadkCore.util.j.im(str);
+                if (this.CX.oZ().qh().ma()) {
+                    str = this.btb.bsO;
+                    com.baidu.tieba.tbadkCore.util.j.it(str);
                     return searchPostModel2;
                 }
                 return searchPostModel2;
@@ -98,23 +98,23 @@ public class al extends BdAsyncTask<Object, Integer, SearchPostModel> {
         e eVar;
         e eVar2;
         e eVar3;
-        progressBar = this.brF.mProgress;
+        progressBar = this.btb.mProgress;
         progressBar.setVisibility(8);
-        eVar = this.brF.brk;
+        eVar = this.btb.bsH;
         eVar.setRefreshing(0);
-        eVar2 = this.brF.brk;
+        eVar2 = this.btb.bsH;
         eVar2.notifyDataSetChanged();
-        if (searchPostModel == null || this.CV == null || !this.CV.oW().pW().oZ()) {
-            this.brF.showToast(this.brF.getPageContext().getString(com.baidu.tieba.z.neterror));
-        } else if (this.CV.oW().pW().ma()) {
-            this.brF.bro = searchPostModel;
-            eVar3 = this.brF.brk;
+        if (searchPostModel == null || this.CX == null || !this.CX.oZ().qh().pc()) {
+            this.btb.showToast(this.btb.getPageContext().getString(com.baidu.tieba.z.neterror));
+        } else if (this.CX.oZ().qh().ma()) {
+            this.btb.bsL = searchPostModel;
+            eVar3 = this.btb.bsH;
             eVar3.notifyDataSetChanged();
-            this.brF.refresh();
+            this.btb.refresh();
         } else {
-            this.brF.showToast(this.CV.getErrorString());
+            this.btb.showToast(this.CX.getErrorString());
         }
-        this.brF.brq = null;
+        this.btb.bsN = null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -123,17 +123,17 @@ public class al extends BdAsyncTask<Object, Integer, SearchPostModel> {
         e eVar;
         e eVar2;
         ProgressBar progressBar;
-        eVar = this.brF.brk;
+        eVar = this.btb.bsH;
         eVar.setRefreshing(0);
-        eVar2 = this.brF.brk;
+        eVar2 = this.btb.bsH;
         eVar2.notifyDataSetChanged();
-        if (this.CV != null) {
-            this.CV.dL();
-            this.CV = null;
+        if (this.CX != null) {
+            this.CX.dJ();
+            this.CX = null;
         }
-        progressBar = this.brF.mProgress;
+        progressBar = this.btb.mProgress;
         progressBar.setVisibility(8);
-        this.brF.brq = null;
+        this.btb.bsN = null;
         super.onCancelled();
     }
 }

@@ -36,7 +36,7 @@ public class DealIntentService extends BdBaseService {
     public static final int CLASS_TYPE_XIUBA = 26;
     private a mDealAsyncTask = null;
 
-    @Override // android.app.Service
+    @Override // com.baidu.adp.base.BdBaseService, android.app.Service
     public void onCreate() {
         super.onCreate();
     }

@@ -2,11 +2,11 @@ package com.baidu.tieba.discover;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements com.baidu.adp.widget.ListView.g {
-    final /* synthetic */ a asV;
+    final /* synthetic */ a auc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.asV = aVar;
+        this.auc = aVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.g
@@ -14,13 +14,13 @@ public class h implements com.baidu.adp.widget.ListView.g {
         boolean z2;
         p pVar;
         p pVar2;
-        z2 = this.asV.asP;
+        z2 = this.auc.atW;
         if (z2) {
-            pVar2 = this.asV.asH;
-            pVar2.AY();
+            pVar2 = this.auc.atN;
+            pVar2.By();
             return;
         }
-        pVar = this.asV.asH;
-        pVar.CK();
+        pVar = this.auc.atN;
+        pVar.Dj();
     }
 }

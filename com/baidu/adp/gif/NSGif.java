@@ -5,9 +5,9 @@ import android.graphics.Canvas;
 import com.baidu.adp.lib.g.l;
 /* loaded from: classes.dex */
 public class NSGif implements c {
-    public static boolean fx = com.baidu.adp.lib.util.f.eW().a("nsgif_jni", 2, new d());
-    private int fy;
-    private final int fz;
+    public static boolean fz = com.baidu.adp.lib.util.f.eV().a("nsgif_jni", 2, new d());
+    private int fA;
+    private final int fB;
     private final int mHeight;
     private final int mWidth;
 
@@ -31,10 +31,10 @@ public class NSGif implements c {
     private static native boolean nativeWriteTo(int i, Bitmap bitmap);
 
     private NSGif(int i) {
-        this.fy = i;
+        this.fA = i;
         this.mWidth = nativeGetWidth(i);
         this.mHeight = nativeGetHeight(i);
-        this.fz = nativeGetFrameCount(i);
+        this.fB = nativeGetFrameCount(i);
     }
 
     public static NSGif C(String str) {
@@ -55,10 +55,10 @@ public class NSGif implements c {
 
     @Override // com.baidu.adp.gif.c
     public void close() {
-        if (this.fy != 0) {
-            int i = this.fy;
-            this.fy = 0;
-            l.em().b(new e(this, i));
+        if (this.fA != 0) {
+            int i = this.fA;
+            this.fA = 0;
+            l.ek().b(new e(this, i));
         }
     }
 
@@ -81,13 +81,13 @@ public class NSGif implements c {
     }
 
     @Override // com.baidu.adp.gif.c
-    public int bK() {
-        return this.fz;
+    public int bI() {
+        return this.fB;
     }
 
     @Override // com.baidu.adp.gif.c
-    public int x(int i) {
-        int nativeGetFrameDelay = nativeGetFrameDelay(this.fy, i);
+    public int C(int i) {
+        int nativeGetFrameDelay = nativeGetFrameDelay(this.fA, i);
         if (nativeGetFrameDelay <= 0) {
             return 100;
         }
@@ -95,8 +95,8 @@ public class NSGif implements c {
     }
 
     @Override // com.baidu.adp.gif.c
-    public boolean w(int i) {
-        return nativeDecodeFrame(this.fy, i);
+    public boolean B(int i) {
+        return nativeDecodeFrame(this.fA, i);
     }
 
     @Override // com.baidu.adp.gif.c
@@ -104,6 +104,6 @@ public class NSGif implements c {
         if (bitmap == null) {
             return false;
         }
-        return nativeWriteTo(this.fy, bitmap);
+        return nativeWriteTo(this.fA, bitmap);
     }
 }

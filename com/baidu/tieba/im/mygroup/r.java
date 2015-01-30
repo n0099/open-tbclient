@@ -7,13 +7,13 @@ import com.baidu.tieba.im.message.PushMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r extends CustomMessageListener {
-    final /* synthetic */ m bjB;
+    final /* synthetic */ m bkY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public r(m mVar, int i) {
         super(i);
-        this.bjB = mVar;
+        this.bkY = mVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,7 +21,7 @@ public class r extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         GroupNewsPojo p;
         if (customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null && "dismiss_group".equals(p.getCmd())) {
-            this.bjB.processDismissGroup(p);
+            this.bkY.processDismissGroup(p);
         }
     }
 }

@@ -93,7 +93,7 @@ public class f extends BroadcastReceiver {
                 int intExtra = intent.getIntExtra("com.baidu.msg.playElapsedTime", 0);
                 playView4 = this.this$0.getPlayView();
                 if (playView4 != null) {
-                    playView4.cn(intExtra);
+                    playView4.cu(intExtra);
                 }
                 voiceModel10 = this.this$0.mCurPlayModel;
                 if (voiceModel10 != null) {
@@ -147,7 +147,7 @@ public class f extends BroadcastReceiver {
                     }
                     playView2 = this.this$0.getPlayView();
                     if (playView2 != null) {
-                        playView2.qI();
+                        playView2.qT();
                     }
                     MediaService.startPlay(context);
                     return;

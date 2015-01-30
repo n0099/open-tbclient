@@ -3,22 +3,22 @@ package com.baidu.tieba;
 import android.view.animation.Animation;
 /* loaded from: classes.dex */
 class k implements Animation.AnimationListener {
-    final /* synthetic */ LogoActivity akC;
+    final /* synthetic */ LogoActivity alk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(LogoActivity logoActivity) {
-        this.akC = logoActivity;
+        this.alk = logoActivity;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         boolean z;
-        this.akC.akt = true;
-        z = this.akC.aku;
+        this.alk.akX = true;
+        z = this.alk.akY;
         if (!z) {
             return;
         }
-        this.akC.ai(this.akC.getBaseContext());
+        this.alk.ai(this.alk.getBaseContext());
     }
 
     @Override // android.view.animation.Animation.AnimationListener

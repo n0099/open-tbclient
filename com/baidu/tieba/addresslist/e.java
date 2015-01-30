@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.message.NetWorkChangeMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends CustomMessageListener {
-    final /* synthetic */ d aog;
+    final /* synthetic */ d apb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(d dVar, int i) {
         super(i);
-        this.aog = dVar;
+        this.apb = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,8 +23,8 @@ public class e extends CustomMessageListener {
         BdListView bdListView;
         if (customResponsedMessage.getCmd() == 2001121 && (customResponsedMessage instanceof NetWorkChangeMessage)) {
             if (((NetWorkChangeMessage) customResponsedMessage).mState == 0 || !BdSocketLinkService.isAvailable()) {
-                bdListView = this.aog.aob;
-                bdListView.jJ();
+                bdListView = this.apb.aoW;
+                bdListView.jI();
             }
         }
     }

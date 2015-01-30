@@ -20,7 +20,7 @@ class p implements Runnable {
         if (TbadkCoreApplication.m255getInst().isAppUploadOpen()) {
             MessageManager.getInstance().dispatchResponsedMessage(new AppUploadMessage());
             handler = this.this$0.mHandler;
-            runnable = this.this$0.cbq;
+            runnable = this.this$0.cdh;
             handler.postDelayed(runnable, 18000000L);
         }
     }

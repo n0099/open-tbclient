@@ -1,22 +1,20 @@
 package com.baidu.tieba.tbadkCore;
 
 import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.message.Hao123AddLikeMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad extends BdAsyncTask<Object, Integer, ae> {
-    private volatile com.baidu.tbadk.core.util.ad CV;
-    final /* synthetic */ ac bSZ;
+    private volatile com.baidu.tbadk.core.util.ad CX;
+    final /* synthetic */ ac bUS;
 
     private ad(ac acVar) {
-        this.bSZ = acVar;
-        this.CV = null;
+        this.bUS = acVar;
+        this.CX = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,7 +25,7 @@ public class ad extends BdAsyncTask<Object, Integer, ae> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: B */
+    /* renamed from: C */
     public ae doInBackground(Object... objArr) {
         String str;
         String str2;
@@ -37,45 +35,36 @@ public class ad extends BdAsyncTask<Object, Integer, ae> {
         String str6;
         String str7;
         String str8;
-        String str9;
-        String str10;
         try {
-            this.CV = new com.baidu.tbadk.core.util.ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LIKE_ADDRESS);
-            com.baidu.tbadk.core.util.ad adVar = this.CV;
-            str = this.bSZ.mForumName;
+            this.CX = new com.baidu.tbadk.core.util.ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LIKE_ADDRESS);
+            com.baidu.tbadk.core.util.ad adVar = this.CX;
+            str = this.bUS.mForumName;
             adVar.o("kw", str);
-            com.baidu.tbadk.core.util.ad adVar2 = this.CV;
-            str2 = this.bSZ.mForumId;
+            com.baidu.tbadk.core.util.ad adVar2 = this.CX;
+            str2 = this.bUS.mForumId;
             adVar2.o(ImageViewerConfig.FORUM_ID, str2);
-            com.baidu.tbadk.core.util.ad adVar3 = this.CV;
-            str3 = this.bSZ.from;
+            com.baidu.tbadk.core.util.ad adVar3 = this.CX;
+            str3 = this.bUS.from;
             adVar3.o("st_type", str3);
-            str4 = this.bSZ.bSY;
+            str4 = this.bUS.bUR;
             if (!StringUtils.isNull(str4)) {
-                com.baidu.tbadk.core.util.ad adVar4 = this.CV;
-                str10 = this.bSZ.bSY;
-                adVar4.o("dev_id", str10);
+                com.baidu.tbadk.core.util.ad adVar4 = this.CX;
+                str8 = this.bUS.bUR;
+                adVar4.o("dev_id", str8);
             }
-            str5 = this.bSZ.bSW;
+            str5 = this.bUS.bUP;
             if (!TextUtils.isEmpty(str5)) {
-                com.baidu.tbadk.core.util.ad adVar5 = this.CV;
-                str9 = this.bSZ.bSW;
-                adVar5.o("pagefrom", str9);
+                com.baidu.tbadk.core.util.ad adVar5 = this.CX;
+                str7 = this.bUS.bUP;
+                adVar5.o("pagefrom", str7);
             }
-            this.CV.oW().pV().mIsNeedTbs = true;
-            String ov = this.CV.ov();
-            if (this.CV.oW().pW().ma() && ov != null) {
+            this.CX.oZ().qg().mIsNeedTbs = true;
+            String oy = this.CX.oy();
+            if (this.CX.oZ().qh().ma() && oy != null) {
                 ae aeVar = new ae();
-                aeVar.parserJson(ov);
-                str6 = this.bSZ.mForumId;
-                aeVar.hY(str6);
-                com.baidu.tbadk.core.message.a aVar = new com.baidu.tbadk.core.message.a();
-                str7 = this.bSZ.mForumName;
-                aVar.forumName = str7;
-                str8 = this.bSZ.mForumId;
-                aVar.Gb = str8;
-                aVar.level = aeVar.adi();
-                MessageManager.getInstance().dispatchResponsedMessageToUI(new Hao123AddLikeMessage(aVar));
+                aeVar.parserJson(oy);
+                str6 = this.bUS.mForumId;
+                aeVar.ig(str6);
                 return aeVar;
             }
         } catch (Exception e) {
@@ -91,14 +80,14 @@ public class ad extends BdAsyncTask<Object, Integer, ae> {
     public void onPostExecute(ae aeVar) {
         com.baidu.adp.base.i iVar;
         com.baidu.adp.base.i iVar2;
-        this.bSZ.bSX = null;
-        if (aeVar == null && this.CV != null) {
-            this.bSZ.mErrorCode = this.CV.pa();
-            this.bSZ.mErrorString = this.CV.getErrorString();
+        this.bUS.bUQ = null;
+        if (aeVar == null && this.CX != null) {
+            this.bUS.mErrorCode = this.CX.pd();
+            this.bUS.mErrorString = this.CX.getErrorString();
         }
-        iVar = this.bSZ.mLoadDataCallBack;
+        iVar = this.bUS.mLoadDataCallBack;
         if (iVar != null) {
-            iVar2 = this.bSZ.mLoadDataCallBack;
+            iVar2 = this.bUS.mLoadDataCallBack;
             iVar2.c(aeVar);
         }
     }
@@ -106,13 +95,13 @@ public class ad extends BdAsyncTask<Object, Integer, ae> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         com.baidu.adp.base.i iVar;
-        if (this.CV != null) {
-            this.CV.dL();
-            this.CV = null;
+        if (this.CX != null) {
+            this.CX.dJ();
+            this.CX = null;
         }
-        this.bSZ.bSX = null;
+        this.bUS.bUQ = null;
         super.cancel(true);
-        iVar = this.bSZ.mLoadDataCallBack;
+        iVar = this.bUS.mLoadDataCallBack;
         iVar.c(null);
     }
 }

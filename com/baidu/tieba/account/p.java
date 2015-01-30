@@ -1,83 +1,51 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
+import android.os.Handler;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-class p implements View.OnClickListener {
-    final /* synthetic */ ActivationActivity amw;
+class p implements Runnable {
+    final /* synthetic */ ActivationActivity anq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(ActivationActivity activationActivity) {
-        this.amw = activationActivity;
+        this.anq = activationActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        View view2;
-        RelativeLayout relativeLayout;
-        RelativeLayout relativeLayout2;
-        ImageView imageView;
-        EditText editText;
-        boolean z;
+    @Override // java.lang.Runnable
+    public void run() {
+        int i;
+        int i2;
+        int i3;
+        TextView textView;
+        Handler handler;
+        Runnable runnable;
+        TextView textView2;
         t tVar;
-        s sVar;
-        t tVar2;
-        t tVar3;
-        s sVar2;
-        t tVar4;
-        s sVar3;
-        s sVar4;
-        view2 = this.amw.mBack;
-        if (view != view2) {
-            relativeLayout = this.amw.ami;
-            if (view != relativeLayout) {
-                relativeLayout2 = this.amw.amj;
-                if (view != relativeLayout2) {
-                    imageView = this.amw.amd;
-                    if (view == imageView) {
-                        editText = this.amw.amh;
-                        editText.setText((CharSequence) null);
-                        return;
-                    }
-                    return;
-                }
-                z = this.amw.amm;
-                if (z) {
-                    tVar = this.amw.amk;
-                    if (tVar == null) {
-                        sVar = this.amw.aml;
-                        if (sVar == null) {
-                            this.amw.amk = new t(this.amw, null);
-                            tVar2 = this.amw.amk;
-                            tVar2.setPriority(3);
-                            tVar3 = this.amw.amk;
-                            tVar3.execute(new String[0]);
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                return;
-            }
-            sVar2 = this.amw.aml;
-            if (sVar2 == null) {
-                tVar4 = this.amw.amk;
-                if (tVar4 == null) {
-                    this.amw.aml = new s(this.amw, null);
-                    sVar3 = this.amw.aml;
-                    sVar3.setPriority(3);
-                    sVar4 = this.amw.aml;
-                    sVar4.execute(new String[0]);
-                    return;
-                }
+        RelativeLayout relativeLayout;
+        ActivationActivity activationActivity = this.anq;
+        i = activationActivity.ud;
+        activationActivity.ud = i - 1;
+        i2 = this.anq.ud;
+        if (i2 <= 0) {
+            this.anq.ang = true;
+            textView2 = this.anq.ana;
+            textView2.setText(this.anq.getPageContext().getString(com.baidu.tieba.z.resend_code));
+            tVar = this.anq.anf;
+            if (tVar == null) {
+                relativeLayout = this.anq.and;
+                relativeLayout.setEnabled(true);
                 return;
             }
             return;
         }
-        this.amw.setResult(0);
-        this.amw.finish();
+        String string = this.anq.getPageContext().getString(com.baidu.tieba.z.resend_code_second);
+        i3 = this.anq.ud;
+        String format = String.format(string, Integer.valueOf(i3));
+        textView = this.anq.ana;
+        textView.setText(format);
+        handler = this.anq.mHandler;
+        runnable = this.anq.mRunnable;
+        handler.postDelayed(runnable, 1000L);
     }
 }

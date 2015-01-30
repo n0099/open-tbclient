@@ -3,19 +3,19 @@ package android.support.v4.text;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public final class BidiFormatter {
-    private static TextDirectionHeuristicCompat aZ = TextDirectionHeuristicsCompat.FIRSTSTRONG_LTR;
-    private static final String ba = Character.toString(8206);
-    private static final String bb = Character.toString(8207);
-    private static final BidiFormatter bc = new BidiFormatter(false, 2, aZ);
-    private static final BidiFormatter bd = new BidiFormatter(true, 2, aZ);
-    private final boolean be;
-    private final TextDirectionHeuristicCompat bf;
+    private static TextDirectionHeuristicCompat ba = TextDirectionHeuristicsCompat.FIRSTSTRONG_LTR;
+    private static final String bb = Character.toString(8206);
+    private static final String bc = Character.toString(8207);
+    private static final BidiFormatter bd = new BidiFormatter(false, 2, ba);
+    private static final BidiFormatter be = new BidiFormatter(true, 2, ba);
+    private final boolean bf;
+    private final TextDirectionHeuristicCompat bh;
     private final int mFlags;
 
     /* loaded from: classes.dex */
     public final class Builder {
-        private boolean be;
-        private TextDirectionHeuristicCompat bh;
+        private boolean bf;
+        private TextDirectionHeuristicCompat bi;
         private int mFlags;
 
         public Builder() {
@@ -31,8 +31,8 @@ public final class BidiFormatter {
         }
 
         private void e(boolean z) {
-            this.be = z;
-            this.bh = BidiFormatter.aZ;
+            this.bf = z;
+            this.bi = BidiFormatter.ba;
             this.mFlags = 2;
         }
 
@@ -46,16 +46,16 @@ public final class BidiFormatter {
         }
 
         public Builder setTextDirectionHeuristic(TextDirectionHeuristicCompat textDirectionHeuristicCompat) {
-            this.bh = textDirectionHeuristicCompat;
+            this.bi = textDirectionHeuristicCompat;
             return this;
         }
 
         private static BidiFormatter f(boolean z) {
-            return z ? BidiFormatter.bd : BidiFormatter.bc;
+            return z ? BidiFormatter.be : BidiFormatter.bd;
         }
 
         public BidiFormatter build() {
-            return (this.mFlags == 2 && this.bh == BidiFormatter.aZ) ? f(this.be) : new BidiFormatter(this.be, this.mFlags, this.bh);
+            return (this.mFlags == 2 && this.bi == BidiFormatter.ba) ? f(this.bf) : new BidiFormatter(this.bf, this.mFlags, this.bi);
         }
     }
 
@@ -72,13 +72,13 @@ public final class BidiFormatter {
     }
 
     private BidiFormatter(boolean z, int i, TextDirectionHeuristicCompat textDirectionHeuristicCompat) {
-        this.be = z;
+        this.bf = z;
         this.mFlags = i;
-        this.bf = textDirectionHeuristicCompat;
+        this.bh = textDirectionHeuristicCompat;
     }
 
     public boolean isRtlContext() {
-        return this.be;
+        return this.bf;
     }
 
     public boolean getStereoReset() {
@@ -87,28 +87,28 @@ public final class BidiFormatter {
 
     private String a(String str, TextDirectionHeuristicCompat textDirectionHeuristicCompat) {
         boolean isRtl = textDirectionHeuristicCompat.isRtl(str, 0, str.length());
-        if (!this.be && (isRtl || n(str) == 1)) {
-            return ba;
-        }
-        if (this.be && (!isRtl || n(str) == -1)) {
+        if (!this.bf && (isRtl || n(str) == 1)) {
             return bb;
+        }
+        if (this.bf && (!isRtl || n(str) == -1)) {
+            return bc;
         }
         return "";
     }
 
     private String b(String str, TextDirectionHeuristicCompat textDirectionHeuristicCompat) {
         boolean isRtl = textDirectionHeuristicCompat.isRtl(str, 0, str.length());
-        if (!this.be && (isRtl || o(str) == 1)) {
-            return ba;
-        }
-        if (this.be && (!isRtl || o(str) == -1)) {
+        if (!this.bf && (isRtl || o(str) == 1)) {
             return bb;
+        }
+        if (this.bf && (!isRtl || o(str) == -1)) {
+            return bc;
         }
         return "";
     }
 
     public boolean isRtl(String str) {
-        return this.bf.isRtl(str, 0, str.length());
+        return this.bh.isRtl(str, 0, str.length());
     }
 
     public String unicodeWrap(String str, TextDirectionHeuristicCompat textDirectionHeuristicCompat, boolean z) {
@@ -117,7 +117,7 @@ public final class BidiFormatter {
         if (getStereoReset() && z) {
             sb.append(b(str, isRtl ? TextDirectionHeuristicsCompat.RTL : TextDirectionHeuristicsCompat.LTR));
         }
-        if (isRtl != this.be) {
+        if (isRtl != this.bf) {
             sb.append(isRtl ? (char) 8235 : (char) 8234);
             sb.append(str);
             sb.append((char) 8236);
@@ -135,11 +135,11 @@ public final class BidiFormatter {
     }
 
     public String unicodeWrap(String str, boolean z) {
-        return unicodeWrap(str, this.bf, z);
+        return unicodeWrap(str, this.bh, z);
     }
 
     public String unicodeWrap(String str) {
-        return unicodeWrap(str, this.bf, true);
+        return unicodeWrap(str, this.bh, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

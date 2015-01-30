@@ -59,7 +59,7 @@ public class q implements com.baidu.adp.lib.voice.p {
             this.this$0.recordView.onShowErr(i, str);
             TiebaStatic.voiceError("", i, "RecoreCallback.err: " + str, "");
         } else if (this.this$0.mCurRecordVid != null) {
-            this.this$0.doVoiceFileMd5(this.this$0.mCurRecordVid, com.baidu.adp.lib.voice.m.oz / 1000);
+            this.this$0.doVoiceFileMd5(this.this$0.mCurRecordVid, com.baidu.adp.lib.voice.m.oE / 1000);
             this.this$0.mCurRecordVid = null;
             this.this$0.recordView.onShowErr(3, this.this$0.context.getString(z.voice_record_timeout_tip));
         } else {
@@ -68,21 +68,21 @@ public class q implements com.baidu.adp.lib.voice.p {
     }
 
     @Override // com.baidu.adp.lib.voice.n
-    public void ac(int i) {
+    public void ah(int i) {
         if (this.this$0.recordView != null) {
             this.this$0.recordView.onShowRecording(i);
         }
     }
 
     @Override // com.baidu.adp.lib.voice.p
-    public void ae(int i) {
+    public void aj(int i) {
         if (this.this$0.recordView != null) {
             this.this$0.recordView.onShowRecordTime(i / 1000);
         }
     }
 
     @Override // com.baidu.adp.lib.voice.p
-    public void fL() {
+    public void fK() {
         this.this$0.currRecordState = 1;
     }
 }

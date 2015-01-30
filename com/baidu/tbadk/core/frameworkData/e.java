@@ -10,7 +10,7 @@ public class e {
     public static void initial() {
         String packageName = BdBaseApplication.getInst().getApp().getPackageName();
         try {
-            aa.fC();
+            aa.fB();
             PackageInfo packageInfo = BdBaseApplication.getInst().getApp().getPackageManager().getPackageInfo(packageName, 7);
             a(packageInfo.activities);
             a(packageInfo.services);

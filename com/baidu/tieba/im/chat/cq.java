@@ -1,43 +1,34 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tbadk.BaseActivity;
+import android.view.animation.Animation;
+import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cq {
-    BaseActivity mActivity;
-    String mUrl;
+public class cq implements Animation.AnimationListener {
+    final /* synthetic */ PersonalChatView aTa;
+    private final /* synthetic */ Animation aTb;
 
-    public cq(String str, BaseActivity baseActivity) {
-        this.mUrl = null;
-        this.mUrl = str;
-        this.mActivity = baseActivity;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cq(PersonalChatView personalChatView, Animation animation) {
+        this.aTa = personalChatView;
+        this.aTb = animation;
     }
 
-    public void execute() {
-        try {
-            if (this.mUrl == null || this.mUrl.length() <= 0) {
-                showToast(this.mActivity.getPageContext().getString(com.baidu.tieba.z.save_error));
-            }
-            com.baidu.adp.lib.f.d.ee().a(this.mUrl, 10, new cr(this), this.mActivity.getUniqueId());
-        } catch (Exception e) {
-            showToast(this.mActivity.getPageContext().getString(com.baidu.tieba.z.save_error));
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public String j(String str, byte[] bArr) {
-        switch (com.baidu.tbadk.core.util.s.a(str, bArr, this.mActivity.getPageContext().getPageActivity())) {
-            case -2:
-                return com.baidu.tbadk.core.util.s.op();
-            case -1:
-            default:
-                return this.mActivity.getPageContext().getString(com.baidu.tieba.z.save_error);
-            case 0:
-                return this.mActivity.getPageContext().getString(com.baidu.tieba.z.save_image_to_album);
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public final void showToast(String str) {
-        this.mActivity.showToast(str);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        TextView textView;
+        TextView textView2;
+        textView = this.aTa.aSX;
+        textView.setVisibility(0);
+        textView2 = this.aTa.aSX;
+        textView2.setAnimation(this.aTb);
     }
 }

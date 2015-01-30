@@ -1,138 +1,67 @@
 package com.baidu.tieba.account;
 
-import android.app.Activity;
-import android.widget.LinearLayout;
+import android.graphics.Bitmap;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.data.RegistData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.m> {
-    private com.baidu.tbadk.core.util.ad AR;
-    final /* synthetic */ Register2Activity ani;
+public class aa extends BdAsyncTask<String, Integer, Bitmap> {
+    private com.baidu.tbadk.core.util.ad AR = null;
+    final /* synthetic */ Register2Activity aod;
+    private String mUrl;
 
-    private aa(Register2Activity register2Activity) {
-        this.ani = register2Activity;
-        this.AR = null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ aa(Register2Activity register2Activity, aa aaVar) {
-        this(register2Activity);
+    public aa(Register2Activity register2Activity, String str) {
+        this.aod = register2Activity;
+        this.mUrl = null;
+        this.mUrl = str;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
+        this.aod.anY = null;
+        progressBar = this.aod.anT;
+        progressBar.setVisibility(8);
         if (this.AR != null) {
-            this.AR.dL();
+            this.AR.dJ();
         }
-        this.ani.ane = null;
-        progressBar = this.ani.mProgressBar;
-        progressBar.setVisibility(8);
-        this.ani.AF();
         super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: q */
-    public com.baidu.tbadk.core.data.m doInBackground(String... strArr) {
-        RegistData AG;
-        com.baidu.tbadk.core.data.m mVar = new com.baidu.tbadk.core.data.m();
-        try {
-            AG = this.ani.AG();
-            this.AR = new com.baidu.tbadk.core.util.ad(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/regreal");
-            this.AR.o("un", AG.getName());
-            this.AR.o("phonenum", AG.getPhone());
-            this.AR.o("passwd", AG.getPsw());
-            if (AG.getVcode() != null) {
-                this.AR.o("vcode", AG.getVcode());
-            }
-            if (AG.getVcodeMd5() != null) {
-                this.AR.o("vcode_md5", AG.getVcodeMd5());
-            }
-            String ov = this.AR.ov();
-            if ((this.AR.oZ() && (this.AR.pa() == 0 || this.AR.pa() == 36)) || this.AR.pa() == 5) {
-                com.baidu.tbadk.core.data.m mVar2 = new com.baidu.tbadk.core.data.m();
-                mVar2.parserJson(ov);
-                return mVar2;
-            }
-            return mVar;
-        } catch (Exception e) {
-            BdLog.detailException(e);
-            return null;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void onPostExecute(com.baidu.tbadk.core.data.m mVar) {
-        ProgressBar progressBar;
-        RegistData AG;
-        int i;
-        int i2;
-        int i3;
-        super.onPostExecute(mVar);
-        this.ani.ane = null;
-        progressBar = this.ani.mProgressBar;
-        progressBar.setVisibility(8);
-        this.ani.AF();
-        this.ani.anf = mVar;
-        if (!this.AR.oZ()) {
-            this.ani.anb = -1;
-            this.ani.mErrorString = this.AR.getErrorString();
-            this.ani.AE();
-        } else if (this.AR.pa() == 36) {
-            this.ani.t(mVar.mQ());
-            Register2Activity register2Activity = this.ani;
-            i3 = Register2Activity.amB;
-            register2Activity.anb = i3;
-            this.ani.mErrorString = this.AR.getErrorString();
-            this.ani.AE();
-        } else if (this.AR.pa() == 5) {
-            Register2Activity register2Activity2 = this.ani;
-            i2 = Register2Activity.amE;
-            register2Activity2.anb = i2;
-            this.ani.bf(true);
-        } else if (this.AR.pa() == 0) {
-            AG = this.ani.AG();
-            Activity pageActivity = this.ani.getPageContext().getPageActivity();
-            i = Register2Activity.amA;
-            ActivationActivity.a(pageActivity, AG, i);
-            this.ani.bf(false);
-        } else {
-            this.ani.anb = this.AR.pa();
-            this.ani.mErrorString = this.AR.getErrorString();
-            this.ani.AE();
-        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
+        ImageView imageView;
         ProgressBar progressBar;
-        LinearLayout linearLayout;
-        TextView textView;
-        TextView textView2;
-        progressBar = this.ani.mProgressBar;
+        imageView = this.aod.Qi;
+        imageView.setImageDrawable(null);
+        progressBar = this.aod.anT;
         progressBar.setVisibility(0);
-        this.ani.AC();
-        this.ani.anb = -1;
-        this.ani.mErrorString = null;
-        this.ani.AE();
-        linearLayout = this.ani.amU;
-        linearLayout.setVisibility(8);
-        textView = this.ani.PV;
-        textView.setVisibility(4);
-        textView2 = this.ani.PV;
-        textView2.setText((CharSequence) null);
-        super.onPreExecute();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: n */
+    public Bitmap doInBackground(String... strArr) {
+        this.AR = new com.baidu.tbadk.core.util.ad(this.mUrl);
+        return com.baidu.tbadk.core.util.d.v(this.AR.oz());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPostExecute(Bitmap bitmap) {
+        ProgressBar progressBar;
+        ImageView imageView;
+        super.onPostExecute((aa) bitmap);
+        this.aod.anY = null;
+        progressBar = this.aod.anT;
+        progressBar.setVisibility(8);
+        if (bitmap != null) {
+            imageView = this.aod.Qi;
+            imageView.setImageBitmap(bitmap);
+        }
     }
 }

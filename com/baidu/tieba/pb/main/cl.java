@@ -1,29 +1,24 @@
 package com.baidu.tieba.pb.main;
 
-import android.os.Handler;
-import android.view.animation.Animation;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
-class cl implements Animation.AnimationListener {
-    final /* synthetic */ bz bCR;
-    private final /* synthetic */ ImageView bCT;
+class cl implements Runnable {
+    private final /* synthetic */ ImageView bED;
+    final /* synthetic */ ck bEE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cl(bz bzVar, ImageView imageView) {
-        this.bCR = bzVar;
-        this.bCT = imageView;
+    public cl(ck ckVar, ImageView imageView) {
+        this.bEE = ckVar;
+        this.bED = imageView;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        new Handler().post(new cm(this, this.bCT));
+    @Override // java.lang.Runnable
+    public void run() {
+        bz bzVar;
+        RelativeLayout relativeLayout;
+        bzVar = this.bEE.bEC;
+        relativeLayout = bzVar.arb;
+        relativeLayout.removeView(this.bED);
     }
 }

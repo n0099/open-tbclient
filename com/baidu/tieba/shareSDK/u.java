@@ -7,31 +7,31 @@ import com.baidu.tieba.write.ci;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements ci {
-    final /* synthetic */ q bOn;
+    final /* synthetic */ q bPX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(q qVar) {
-        this.bOn = qVar;
+        this.bPX = qVar;
     }
 
     @Override // com.baidu.tieba.write.ci
-    public void hs(int i) {
+    public void hB(int i) {
         WriteShareActivity writeShareActivity;
         TextView textView;
         PostPrefixData postPrefixData;
         ch chVar;
         ch chVar2;
         WriteShareActivity writeShareActivity2;
-        writeShareActivity = this.bOn.bOl;
-        writeShareActivity.hr(i);
-        textView = this.bOn.bOc;
-        postPrefixData = this.bOn.mPrefixData;
+        writeShareActivity = this.bPX.bPV;
+        writeShareActivity.hA(i);
+        textView = this.bPX.bPM;
+        postPrefixData = this.bPX.mPrefixData;
         textView.setText(postPrefixData.getPrefixs().get(i));
-        chVar = this.bOn.bOd;
+        chVar = this.bPX.bPN;
         chVar.setCurrentIndex(i);
-        this.bOn.acG();
-        chVar2 = this.bOn.bOd;
-        writeShareActivity2 = this.bOn.bOl;
+        this.bPX.adk();
+        chVar2 = this.bPX.bPN;
+        writeShareActivity2 = this.bPX.bPV;
         com.baidu.adp.lib.g.k.a(chVar2, writeShareActivity2.getPageContext().getPageActivity());
     }
 }

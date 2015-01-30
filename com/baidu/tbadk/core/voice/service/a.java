@@ -2,58 +2,57 @@ package com.baidu.tbadk.core.voice.service;
 
 import android.media.AudioRecord;
 import android.util.Log;
-import com.baidu.channelrtc.medialivesender.LiveSenderControl;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 public class a implements j {
-    public static int NM = LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_8;
-    public static int NN = 2;
-    public static int NO = 2;
-    public static int NP = 1;
-    private RandomAccessFile NS;
-    private int NT;
-    private int NU;
-    private short NV;
-    private short NW;
+    public static int On = 8000;
+    public static int Oo = 2;
+    public static int Op = 2;
+    public static int Oq = 1;
+    private RandomAccessFile Ot;
+    private int Ou;
+    private int Ov;
+    private short Ow;
+    private short Ox;
     private int dataSize;
     private String filePath;
     private int frequency;
-    private int NQ = 0;
+    private int Or = 0;
     private boolean mIsRecording = false;
-    private AudioRecord NR = null;
+    private AudioRecord Os = null;
     private File file = null;
 
     public boolean a(int i, int i2, int i3, int i4, String str) {
-        this.NQ = AudioRecord.getMinBufferSize(i2, i3, i4) + 2048;
+        this.Or = AudioRecord.getMinBufferSize(i2, i3, i4) + 2048;
         this.frequency = i2;
-        this.NT = i3;
-        this.NU = i4;
-        if (this.NR != null) {
-            this.NR.release();
+        this.Ou = i3;
+        this.Ov = i4;
+        if (this.Os != null) {
+            this.Os.release();
         }
-        this.NR = new AudioRecord(i, this.frequency, this.NT, this.NU, this.NQ);
-        this.NV = (short) (this.NT == 12 ? 2 : 1);
-        this.NW = (short) (this.NU == 2 ? 16 : 8);
+        this.Os = new AudioRecord(i, this.frequency, this.Ou, this.Ov, this.Or);
+        this.Ow = (short) (this.Ou == 12 ? 2 : 1);
+        this.Ox = (short) (this.Ov == 2 ? 16 : 8);
         this.file = new File(str);
         if (this.file.exists()) {
             this.file.delete();
         }
         try {
             this.file.createNewFile();
-            if (this.NS != null) {
+            if (this.Ot != null) {
                 try {
-                    this.NS.close();
+                    this.Ot.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                     return false;
                 }
             }
             try {
-                this.NS = new RandomAccessFile(this.file, "rw");
-                qP();
+                this.Ot = new RandomAccessFile(this.file, "rw");
+                ra();
                 setFilePath(this.file.getParent());
                 return true;
             } catch (FileNotFoundException e2) {
@@ -68,29 +67,29 @@ public class a implements j {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.j
-    public boolean cZ(String str) {
-        return a(NP, NM, NN, NO, str);
+    public boolean cY(String str) {
+        return a(Oq, On, Oo, Op, str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qL() {
-        if (this.NR != null && this.file != null) {
+    public void qW() {
+        if (this.Os != null && this.file != null) {
             try {
                 this.mIsRecording = true;
-                byte[] bArr = new byte[this.NQ];
-                this.NR.startRecording();
+                byte[] bArr = new byte[this.Or];
+                this.Os.startRecording();
                 while (this.mIsRecording) {
-                    this.NR.read(bArr, 0, bArr.length);
-                    this.NS.write(bArr);
+                    this.Os.read(bArr, 0, bArr.length);
+                    this.Ot.write(bArr);
                     this.dataSize += bArr.length;
                 }
-                this.NS.seek(4L);
-                this.NS.writeInt(Integer.reverseBytes(this.dataSize + 36));
-                this.NS.seek(40L);
-                this.NS.writeInt(Integer.reverseBytes(this.dataSize));
-                this.NS.close();
-                this.NR.stop();
-                this.NR.release();
+                this.Ot.seek(4L);
+                this.Ot.writeInt(Integer.reverseBytes(this.dataSize + 36));
+                this.Ot.seek(40L);
+                this.Ot.writeInt(Integer.reverseBytes(this.dataSize));
+                this.Ot.close();
+                this.Os.stop();
+                this.Os.release();
                 this.mIsRecording = false;
             } catch (Throwable th) {
                 Log.e("AudioRecord", "Recording Failed");
@@ -102,7 +101,7 @@ public class a implements j {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.j
-    public boolean qM() {
+    public boolean qX() {
         Thread thread = new Thread(new b(this));
         thread.setPriority(10);
         thread.setDaemon(true);
@@ -111,31 +110,31 @@ public class a implements j {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.j
-    public void qN() {
+    public void qY() {
         this.mIsRecording = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.j
-    public boolean qO() {
+    public boolean qZ() {
         return this.mIsRecording;
     }
 
-    private void qP() {
+    private void ra() {
         try {
-            this.NS.setLength(0L);
-            this.NS.writeBytes("RIFF");
-            this.NS.writeInt(0);
-            this.NS.writeBytes("WAVE");
-            this.NS.writeBytes("fmt ");
-            this.NS.writeInt(Integer.reverseBytes(16));
-            this.NS.writeShort(Short.reverseBytes((short) 1));
-            this.NS.writeShort(Short.reverseBytes(this.NV));
-            this.NS.writeInt(Integer.reverseBytes(this.frequency));
-            this.NS.writeInt(Integer.reverseBytes(((this.frequency * this.NV) * this.NW) / 8));
-            this.NS.writeShort(Short.reverseBytes((short) ((this.NV * this.NW) / 8)));
-            this.NS.writeShort(Short.reverseBytes(this.NW));
-            this.NS.writeBytes("data");
-            this.NS.writeInt(0);
+            this.Ot.setLength(0L);
+            this.Ot.writeBytes("RIFF");
+            this.Ot.writeInt(0);
+            this.Ot.writeBytes("WAVE");
+            this.Ot.writeBytes("fmt ");
+            this.Ot.writeInt(Integer.reverseBytes(16));
+            this.Ot.writeShort(Short.reverseBytes((short) 1));
+            this.Ot.writeShort(Short.reverseBytes(this.Ow));
+            this.Ot.writeInt(Integer.reverseBytes(this.frequency));
+            this.Ot.writeInt(Integer.reverseBytes(((this.frequency * this.Ow) * this.Ox) / 8));
+            this.Ot.writeShort(Short.reverseBytes((short) ((this.Ow * this.Ox) / 8)));
+            this.Ot.writeShort(Short.reverseBytes(this.Ox));
+            this.Ot.writeBytes("data");
+            this.Ot.writeInt(0);
         } catch (IOException e) {
             if (this.file.exists()) {
                 this.file.delete();

@@ -1,16 +1,16 @@
 package com.baidu.tbadk.browser;
 
 import android.content.DialogInterface;
-import com.baidu.tbadk.core.util.bl;
+import com.baidu.tbadk.core.util.bq;
 /* loaded from: classes.dex */
 class e implements DialogInterface.OnClickListener {
     final /* synthetic */ c Bg;
-    private final /* synthetic */ bl Bi;
+    private final /* synthetic */ bq Bi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(c cVar, bl blVar) {
+    public e(c cVar, bq bqVar) {
         this.Bg = cVar;
-        this.Bi = blVar;
+        this.Bi = bqVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener

@@ -1,45 +1,27 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 /* loaded from: classes.dex */
-public class ao extends HttpMessageListener {
-    final /* synthetic */ am bGm;
+class ao implements View.OnClickListener {
+    final /* synthetic */ al bHX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ao(am amVar, int i) {
-        super(i);
-        this.bGm = amVar;
+    public ao(al alVar) {
+        this.bHX = alVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        PersonFriendActivity aas;
-        PersonFriendActivity aas2;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002000) {
-            this.bGm.bGj = false;
-            aas = this.bGm.aas();
-            if (aas != null) {
-                BdUniqueId tag = httpResponsedMessage.getOrginalMessage().getTag();
-                aas2 = this.bGm.aas();
-                if (tag == aas2.getUniqueId()) {
-                    this.bGm.mListView.jJ();
-                    if (httpResponsedMessage.getStatusCode() == 200 && (httpResponsedMessage instanceof PersonFriendResponseMessage)) {
-                        PersonFriendResponseMessage personFriendResponseMessage = (PersonFriendResponseMessage) httpResponsedMessage;
-                        if (personFriendResponseMessage.getError() == 0) {
-                            this.bGm.a(personFriendResponseMessage.getPersonListData(), false);
-                            return;
-                        }
-                        this.bGm.showToast(httpResponsedMessage.getErrorString());
-                        return;
-                    }
-                    this.bGm.showToast(httpResponsedMessage.getErrorString());
-                }
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.bHX.bHR = ((Integer) view.getTag()).intValue();
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (currentAccount == null || currentAccount.length() <= 0) {
+            this.bHX.sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) this.bHX.getBaseFragmentActivity().getPageContext().getPageActivity(), this.bHX.getString(com.baidu.tieba.z.login_to_chat), true, 11028)));
+        } else {
+            this.bHX.aaZ();
         }
     }
 }

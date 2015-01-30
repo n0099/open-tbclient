@@ -5,43 +5,43 @@ import android.widget.ImageView;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 class d implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ b aoT;
+    final /* synthetic */ b apR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.aoT = bVar;
+        this.apR = bVar;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         int i2;
         h hVar;
-        p pVar;
+        n nVar;
         h hVar2;
         int i3;
-        p pVar2;
+        n nVar2;
         ImageView imageView;
         ImageView imageView2;
-        this.aoT.mCurrentIndex = i;
-        b bVar = this.aoT;
-        i2 = this.aoT.mCurrentIndex;
-        bVar.ef(i2 + 1);
-        hVar = this.aoT.aoQ;
+        this.apR.mCurrentIndex = i;
+        b bVar = this.apR;
+        i2 = this.apR.mCurrentIndex;
+        bVar.el(i2 + 1);
+        hVar = this.apR.apO;
         if (hVar != null) {
-            pVar = this.aoT.aoJ;
-            if (pVar != null) {
-                hVar2 = this.aoT.aoQ;
-                i3 = this.aoT.mCurrentIndex;
-                ImageFileInfo eg = hVar2.eg(i3);
-                pVar2 = this.aoT.aoJ;
-                if (pVar2.isAdded(eg)) {
-                    b bVar2 = this.aoT;
-                    imageView2 = this.aoT.aoR;
+            nVar = this.apR.apH;
+            if (nVar != null) {
+                hVar2 = this.apR.apO;
+                i3 = this.apR.mCurrentIndex;
+                ImageFileInfo em = hVar2.em(i3);
+                nVar2 = this.apR.apH;
+                if (nVar2.isAdded(em)) {
+                    b bVar2 = this.apR;
+                    imageView2 = this.apR.apP;
                     bVar2.a(imageView2, true);
                     return;
                 }
-                b bVar3 = this.aoT;
-                imageView = this.aoT.aoR;
+                b bVar3 = this.apR;
+                imageView = this.apR.apP;
                 bVar3.a(imageView, false);
             }
         }

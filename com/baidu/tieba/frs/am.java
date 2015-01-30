@@ -2,23 +2,23 @@ package com.baidu.tieba.frs;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ FrsActivity aCV;
-    private final /* synthetic */ com.baidu.tbadk.core.data.c aDb;
-    private final /* synthetic */ int val$position;
+    private final /* synthetic */ int FV;
+    final /* synthetic */ FrsActivity aDW;
+    private final /* synthetic */ com.baidu.tbadk.core.data.c aEc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(FrsActivity frsActivity, com.baidu.tbadk.core.data.c cVar, int i) {
-        this.aCV = frsActivity;
-        this.aDb = cVar;
-        this.val$position = i;
+        this.aDW = frsActivity;
+        this.aEc = cVar;
+        this.FV = i;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        if (this.aDb.mv()) {
-            this.aCV.a(this.aDb, "area_download");
-            this.aCV.b(this.aDb, "download");
-            this.aCV.b(this.aDb, this.val$position);
+        if (this.aEc.mv()) {
+            this.aDW.a(this.aEc, "area_download");
+            this.aDW.b(this.aEc, "download");
+            this.aDW.b(this.aEc, this.FV);
             aVar.dismiss();
         }
     }

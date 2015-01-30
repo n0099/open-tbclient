@@ -3,11 +3,11 @@ package com.baidu.tieba.frs;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
 class g implements AbsListView.OnScrollListener {
-    final /* synthetic */ FrsActivity aCV;
+    final /* synthetic */ FrsActivity aDW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(FrsActivity frsActivity) {
-        this.aCV = frsActivity;
+        this.aDW = frsActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -17,53 +17,53 @@ class g implements AbsListView.OnScrollListener {
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         boolean z;
-        bq bqVar;
+        bp bpVar;
         com.baidu.tbadk.performanceLog.h hVar;
-        bq bqVar2;
-        bq bqVar3;
-        bq bqVar4;
+        bp bpVar2;
+        bp bpVar3;
+        bp bpVar4;
         com.baidu.tbadk.performanceLog.h hVar2;
-        bq bqVar5;
+        bp bpVar5;
         com.baidu.adp.widget.ListView.ao aoVar;
-        bq bqVar6;
-        bq bqVar7;
+        bp bpVar6;
+        bp bpVar7;
         com.baidu.tbadk.performanceLog.h hVar3;
         com.baidu.tbadk.performanceLog.h hVar4;
         if (i == 2 || i == 1) {
-            z = this.aCV.aCw;
+            z = this.aDW.aDx;
             if (!z) {
-                this.aCV.aCw = true;
-                bqVar = this.aCV.aBX;
-                bqVar.GP();
+                this.aDW.aDx = true;
+                bpVar = this.aDW.aCY;
+                bpVar.Hm();
             }
         }
-        hVar = this.aCV.aCx;
+        hVar = this.aDW.aDy;
         if (hVar == null) {
-            this.aCV.aCx = new com.baidu.tbadk.performanceLog.h();
-            hVar3 = this.aCV.aCx;
-            hVar3.dR(1000);
-            hVar4 = this.aCV.aCx;
-            hVar4.agm = this.aCV.aCy;
+            this.aDW.aDy = new com.baidu.tbadk.performanceLog.h();
+            hVar3 = this.aDW.aDy;
+            hVar3.dX(1000);
+            hVar4 = this.aDW.aDy;
+            hVar4.agK = this.aDW.aDz;
         }
         if (i == 0) {
-            bqVar5 = this.aCV.aBX;
-            aoVar = this.aCV.aCU;
-            bqVar5.a(aoVar);
-            bqVar6 = this.aCV.aBX;
-            bqVar6.bQ(false);
-            bqVar7 = this.aCV.aBX;
-            bqVar7.Gw();
-            this.aCV.aCn = false;
+            bpVar5 = this.aDW.aCY;
+            aoVar = this.aDW.aDV;
+            bpVar5.a(aoVar);
+            bpVar6 = this.aDW.aCY;
+            bpVar6.bT(false);
+            bpVar7 = this.aDW.aCY;
+            bpVar7.GT();
+            this.aDW.aDo = false;
         } else {
-            bqVar2 = this.aCV.aBX;
-            bqVar2.a((com.baidu.adp.widget.ListView.ao) null);
-            bqVar3 = this.aCV.aBX;
-            bqVar3.bQ(true);
-            this.aCV.aCn = true;
-            bqVar4 = this.aCV.aBX;
-            bqVar4.Fj();
+            bpVar2 = this.aDW.aCY;
+            bpVar2.a((com.baidu.adp.widget.ListView.ao) null);
+            bpVar3 = this.aDW.aCY;
+            bpVar3.bT(true);
+            this.aDW.aDo = true;
+            bpVar4 = this.aDW.aCY;
+            bpVar4.FH();
         }
-        hVar2 = this.aCV.aCx;
-        hVar2.yO();
+        hVar2 = this.aDW.aDy;
+        hVar2.zf();
     }
 }

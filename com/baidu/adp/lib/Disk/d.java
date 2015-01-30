@@ -6,48 +6,48 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class d {
-    public static BdUniqueId cW = BdUniqueId.gen();
-    private static d fJ = null;
-    private b fG;
-    private final int fI = 10;
-    private BdAsyncTaskParallel fn;
+    public static BdUniqueId cX = BdUniqueId.gen();
+    private static d fL = null;
+    private b fI;
+    private final int fK = 10;
+    private BdAsyncTaskParallel fp;
 
-    public static d bO() {
-        if (fJ == null) {
+    public static d bM() {
+        if (fL == null) {
             synchronized (d.class) {
-                if (fJ == null) {
-                    fJ = new d();
+                if (fL == null) {
+                    fL = new d();
                 }
             }
         }
-        return fJ;
+        return fL;
     }
 
     private d() {
-        this.fG = null;
-        this.fn = null;
-        this.fn = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-        this.fG = new b();
+        this.fI = null;
+        this.fp = null;
+        this.fp = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+        this.fI = new b();
     }
 
     public void F(String str) {
-        this.fG.E(str);
+        this.fI.E(str);
     }
 
     public boolean b(DiskFileOperate diskFileOperate) {
         if (diskFileOperate == null) {
             return false;
         }
-        boolean bQ = new e(this.fG, diskFileOperate).bQ();
-        diskFileOperate.l(bQ);
-        return bQ;
+        boolean bO = new e(this.fI, diskFileOperate).bO();
+        diskFileOperate.l(bO);
+        return bO;
     }
 
     public boolean c(DiskFileOperate diskFileOperate) {
         if (diskFileOperate == null) {
             return false;
         }
-        if (diskFileOperate.cc() != DiskFileOperate.OperateType.TRY_SUCCESS || BdAsyncTask.getTaskNum(cW) < diskFileOperate.ch() + 10) {
+        if (diskFileOperate.ca() != DiskFileOperate.OperateType.TRY_SUCCESS || BdAsyncTask.getTaskNum(cX) < diskFileOperate.cf() + 10) {
             f(diskFileOperate);
             return true;
         }
@@ -57,7 +57,7 @@ public class d {
     public void d(DiskFileOperate diskFileOperate) {
         String e = e(diskFileOperate);
         if (e != null) {
-            BdAsyncTask.removeAllTask(cW, e);
+            BdAsyncTask.removeAllTask(cX, e);
         }
     }
 
@@ -72,9 +72,9 @@ public class d {
     }
 
     private boolean f(DiskFileOperate diskFileOperate) {
-        c cVar = new c(this.fG, diskFileOperate);
-        cVar.setTag(cW);
-        cVar.setParallel(this.fn);
+        c cVar = new c(this.fI, diskFileOperate);
+        cVar.setTag(cX);
+        cVar.setParallel(this.fp);
         cVar.setPriority(4);
         cVar.setKey(e(diskFileOperate));
         cVar.execute(new DiskFileOperate[0]);

@@ -15,7 +15,7 @@ class c extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         ImageView imageView;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001189 && customResponsedMessage.getError() == 0) {
-            imageView = AddressListDelegateStatic.anS;
+            imageView = AddressListDelegateStatic.aoN;
             imageView.setVisibility(8);
         }
     }

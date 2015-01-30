@@ -1,50 +1,37 @@
 package com.baidu.tbadk.util;
 
-import android.os.Build;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.lang.reflect.Field;
-import tbclient.CommonReq;
+import com.baidu.tbadk.core.util.s;
 /* loaded from: classes.dex */
 public class h {
-    public static void a(Object obj, boolean z) {
-        a(obj, z, false);
+    public static boolean zR() {
+        return zS();
     }
 
-    public static void a(Object obj, boolean z, boolean z2) {
-        if (obj != null) {
-            try {
-                Field field = obj.getClass().getField("common");
-                if (!field.isAccessible()) {
-                    field.setAccessible(true);
-                }
-                CommonReq.Builder builder = new CommonReq.Builder();
-                builder._client_type = 2;
-                builder._client_version = TbConfig.getVersion();
-                builder._client_id = TbadkCoreApplication.getClientId();
-                if (!TbadkCoreApplication.m255getInst().isOfficial()) {
-                    builder.apid = TbConfig.SW_APID;
-                }
-                builder._phone_imei = TbadkCoreApplication.m255getInst().getImei();
-                builder.from = TbadkCoreApplication.getFrom();
-                builder.cuid = TbadkCoreApplication.m255getInst().getCuid();
-                builder._timestamp = Long.valueOf(System.currentTimeMillis());
-                builder.model = Build.MODEL;
-                if (z) {
-                    builder.BDUSS = TbadkCoreApplication.getCurrentBduss();
-                }
-                if (z2) {
-                    builder.tbs = TbadkCoreApplication.m255getInst().getTbs();
-                }
-                builder.pversion = TiebaIMConfig.PROTOBUF_VERSION;
-                field.set(obj, builder.build(false));
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    th.printStackTrace();
-                }
-            }
+    public static boolean zS() {
+        return s.bL() && com.baidu.adp.gif.f.bK();
+    }
+
+    public static boolean eE(String str) {
+        if (str == null) {
+            return false;
         }
+        if (eF(str)) {
+            return true;
+        }
+        int indexOf = str.indexOf("imgsrc");
+        if (indexOf <= 0 || indexOf >= 20) {
+            return (com.baidu.adp.lib.b.f.da().Z("portrait_cdn_open") != 0) && eG(str);
+        }
+        return true;
+    }
+
+    public static boolean eF(String str) {
+        int indexOf;
+        return str != null && (indexOf = str.indexOf("hiphotos")) > 0 && indexOf < 20;
+    }
+
+    public static boolean eG(String str) {
+        int indexOf;
+        return str != null && (indexOf = str.indexOf("tb.himg")) > 0 && indexOf < 20;
     }
 }

@@ -1,53 +1,41 @@
 package com.baidu.tieba.tblauncher;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 /* loaded from: classes.dex */
-public class ak implements com.baidu.tbadk.core.b.a {
-    private i cbv;
+class ak implements Runnable {
+    final /* synthetic */ aj cdx;
 
-    @Override // com.baidu.tbadk.core.b.a
-    public void e(Context context, int i) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2015001, new MainTabActivityConfig(context).createNormalCfg(i)));
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ak(aj ajVar) {
+        this.cdx = ajVar;
     }
 
-    @Override // com.baidu.tbadk.core.b.a
-    public void R(Context context) {
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (currentAccount != null && currentAccount.length() > 0) {
-            e(context, 1);
-        } else {
-            e(context, 0);
+    /* JADX WARN: Code restructure failed: missing block: B:5:0x001b, code lost:
+        if (r0 == 6) goto L8;
+     */
+    @Override // java.lang.Runnable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void run() {
+        ai aiVar;
+        FragmentTabHost fragmentTabHost;
+        ai aiVar2;
+        ai aiVar3;
+        FragmentTabHost fragmentTabHost2;
+        ai aiVar4;
+        int i;
+        aiVar = this.cdx.cdw;
+        fragmentTabHost = aiVar.aJp;
+        if (fragmentTabHost.getCurrentTabType() != 6) {
+            aiVar4 = this.cdx.cdw;
+            i = aiVar4.cdm;
         }
-    }
-
-    @Override // com.baidu.tbadk.core.b.a
-    public void a(Context context, int i, boolean z) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2015001, new MainTabActivityConfig(context).createRefreshCfg(i, z)));
-    }
-
-    @Override // com.baidu.tbadk.core.b.a
-    public Class<?> nZ() {
-        return MainTabActivity.class;
-    }
-
-    @Override // com.baidu.tbadk.core.b.a
-    public String oa() {
-        return MainTabActivity.class.getName();
-    }
-
-    @Override // com.baidu.tbadk.core.b.a
-    public int getCurrentTabType() {
-        if (this.cbv != null) {
-            return this.cbv.getCurrentTabType();
-        }
-        return -1;
-    }
-
-    public void a(i iVar) {
-        this.cbv = iVar;
+        TbadkCoreApplication.m255getInst().setFriendFeedNew(false);
+        aiVar2 = this.cdx.cdw;
+        aiVar3 = this.cdx.cdw;
+        fragmentTabHost2 = aiVar3.aJp;
+        aiVar2.cdm = fragmentTabHost2.getCurrentTabType();
     }
 }

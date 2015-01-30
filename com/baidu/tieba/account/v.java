@@ -1,149 +1,109 @@
 package com.baidu.tieba.account;
 
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-class v implements TextWatcher {
-    final /* synthetic */ Register2Activity ani;
+class v implements View.OnClickListener {
+    final /* synthetic */ Register2Activity aod;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(Register2Activity register2Activity) {
-        this.ani = register2Activity;
+        this.aod = register2Activity;
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x006a, code lost:
-        if (r4 != r0.getEditableText()) goto L22;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0082, code lost:
-        if (r4 != r0.getEditableText()) goto L26;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x009a, code lost:
-        if (r4 != r0.getEditableText()) goto L30;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0060  */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0078  */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0090  */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x00a8  */
-    /* JADX WARN: Removed duplicated region for block: B:36:? A[RETURN, SYNTHETIC] */
-    @Override // android.text.TextWatcher
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void afterTextChanged(Editable editable) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        View view2;
+        TextView textView;
+        TextView textView2;
+        Button button;
+        ImageView imageView;
+        ImageView imageView2;
+        RelativeLayout relativeLayout;
+        ImageView imageView3;
+        aa aaVar;
+        com.baidu.tbadk.core.data.n nVar;
+        com.baidu.tbadk.core.data.n nVar2;
+        aa aaVar2;
+        Button button2;
+        ab abVar;
+        aa aaVar3;
+        ab abVar2;
+        ab abVar3;
+        aa aaVar4;
         EditText editText;
         EditText editText2;
-        RelativeLayout relativeLayout;
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        int i5;
-        int i6;
-        int i7;
-        int i8;
-        EditText editText3;
-        EditText editText4;
-        EditText editText5;
-        EditText editText6;
-        EditText editText7;
-        EditText editText8;
-        boolean z;
-        RelativeLayout relativeLayout2;
-        EditText editText9;
-        RelativeLayout relativeLayout3;
-        editText = this.ani.amR;
-        if (editable == editText.getEditableText()) {
-            this.ani.bf(false);
-        }
-        editText2 = this.ani.amP;
-        if (editText2.length() > 0) {
-            editText7 = this.ani.amQ;
-            if (editText7.length() >= 6) {
-                editText8 = this.ani.amR;
-                if (editText8.length() > 0) {
-                    z = this.ani.amZ;
-                    if (z) {
-                        editText9 = this.ani.PE;
-                        if (editText9.length() <= 0) {
-                            relativeLayout3 = this.ani.amS;
-                            relativeLayout3.setEnabled(false);
-                            i = this.ani.anb;
-                            i2 = Register2Activity.amB;
-                            if (i == i2) {
-                                editText6 = this.ani.amP;
-                            }
-                            i3 = this.ani.anb;
-                            i4 = Register2Activity.amC;
-                            if (i3 == i4) {
-                                editText5 = this.ani.amQ;
-                            }
-                            i5 = this.ani.anb;
-                            i6 = Register2Activity.amD;
-                            if (i5 == i6) {
-                                editText4 = this.ani.amR;
-                            }
-                            i7 = this.ani.anb;
-                            i8 = Register2Activity.amE;
-                            if (i7 == i8) {
-                                editText3 = this.ani.PE;
-                                if (editable != editText3.getEditableText()) {
+        view2 = this.aod.Qn;
+        if (view != view2) {
+            textView2 = this.aod.anA;
+            if (view != textView2) {
+                button = this.aod.anB;
+                if (view != button) {
+                    imageView = this.aod.anC;
+                    if (view != imageView) {
+                        imageView2 = this.aod.anD;
+                        if (view == imageView2) {
+                            editText = this.aod.anM;
+                            editText.setText((CharSequence) null);
+                            return;
+                        }
+                        relativeLayout = this.aod.anN;
+                        if (view != relativeLayout) {
+                            imageView3 = this.aod.Qi;
+                            if (view != imageView3) {
+                                button2 = this.aod.anE;
+                                if (view != button2) {
                                     return;
                                 }
-                                this.ani.anb = -1;
-                                this.ani.AE();
+                            }
+                            aaVar = this.aod.anY;
+                            if (aaVar == null) {
+                                nVar = this.aod.aoa;
+                                if (nVar != null) {
+                                    Register2Activity register2Activity = this.aod;
+                                    Register2Activity register2Activity2 = this.aod;
+                                    nVar2 = this.aod.aoa;
+                                    register2Activity.anY = new aa(register2Activity2, nVar2.mR().getVcode_pic_url());
+                                    aaVar2 = this.aod.anY;
+                                    aaVar2.execute(new String[0]);
+                                    return;
+                                }
                                 return;
                             }
                             return;
                         }
+                        abVar = this.aod.anZ;
+                        if (abVar == null) {
+                            aaVar3 = this.aod.anY;
+                            if (aaVar3 != null) {
+                                aaVar4 = this.aod.anY;
+                                aaVar4.cancel();
+                            }
+                            this.aod.anZ = new ab(this.aod, null);
+                            abVar2 = this.aod.anZ;
+                            abVar2.setPriority(3);
+                            abVar3 = this.aod.anZ;
+                            abVar3.execute(new String[0]);
+                            return;
+                        }
+                        return;
                     }
-                    relativeLayout2 = this.ani.amS;
-                    relativeLayout2.setEnabled(true);
-                    i = this.ani.anb;
-                    i2 = Register2Activity.amB;
-                    if (i == i2) {
-                    }
-                    i3 = this.ani.anb;
-                    i4 = Register2Activity.amC;
-                    if (i3 == i4) {
-                    }
-                    i5 = this.ani.anb;
-                    i6 = Register2Activity.amD;
-                    if (i5 == i6) {
-                    }
-                    i7 = this.ani.anb;
-                    i8 = Register2Activity.amE;
-                    if (i7 == i8) {
-                    }
+                    editText2 = this.aod.anK;
+                    editText2.setText((CharSequence) null);
+                    return;
                 }
+                this.aod.Bb();
+                return;
             }
         }
-        relativeLayout = this.ani.amS;
-        relativeLayout.setEnabled(false);
-        i = this.ani.anb;
-        i2 = Register2Activity.amB;
-        if (i == i2) {
+        textView = this.aod.anA;
+        if (view == textView) {
+            this.aod.setResult(0);
         }
-        i3 = this.ani.anb;
-        i4 = Register2Activity.amC;
-        if (i3 == i4) {
-        }
-        i5 = this.ani.anb;
-        i6 = Register2Activity.amD;
-        if (i5 == i6) {
-        }
-        i7 = this.ani.anb;
-        i8 = Register2Activity.amE;
-        if (i7 == i8) {
-        }
+        this.aod.finish();
     }
 }

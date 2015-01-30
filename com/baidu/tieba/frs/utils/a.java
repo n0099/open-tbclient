@@ -24,17 +24,17 @@ import java.io.File;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    public static void G(Context context, String str) {
+    public static void F(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             l.showToast(context, z.pb_app_error);
             return;
         }
-        File cj = s.cj(String.valueOf(str.replace(".", "_")) + ".apk");
-        if (cj != null) {
+        File ch = s.ch(String.valueOf(str.replace(".", "_")) + ".apk");
+        if (ch != null) {
             Intent intent = new Intent();
             intent.addFlags(268435456);
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(Uri.fromFile(cj), "application/vnd.android.package-archive");
+            intent.setDataAndType(Uri.fromFile(ch), "application/vnd.android.package-archive");
             context.startActivity(intent);
         }
     }
@@ -45,7 +45,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean H(Context context, String str) {
+    public static boolean G(Context context, String str) {
         Iterator<ActivityManager.RunningTaskInfo> it = ((ActivityManager) context.getSystemService("activity")).getRunningTasks(10).iterator();
         while (true) {
             if (!it.hasNext()) {
@@ -60,7 +60,7 @@ public class a {
         }
     }
 
-    public static boolean I(Context context, String str) {
+    public static boolean H(Context context, String str) {
         String str2;
         String str3 = Build.MODEL;
         if (!TextUtils.isEmpty(str3) && str3.startsWith("MI")) {
@@ -78,7 +78,7 @@ public class a {
         return z;
     }
 
-    public static Intent J(Context context, String str) {
+    public static Intent I(Context context, String str) {
         Class<?> intentClass;
         if (str == null || str.length() <= 0 || (intentClass = TbadkCoreApplication.m255getInst().getIntentClass(LogoActivityConfig.class)) == null) {
             return null;
@@ -94,13 +94,13 @@ public class a {
         return intent;
     }
 
-    public static ImageFileInfo K(Context context, String str) {
+    public static ImageFileInfo J(Context context, String str) {
         String str2 = Environment.getExternalStorageDirectory() + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR + "/" + str;
         try {
-            int cd = d.cd(str2);
-            if (cd != 0) {
+            int cb = d.cb(str2);
+            if (cb != 0) {
                 Bitmap b = d.b(str2, l.dip2px(context, l.M(context)), l.dip2px(context, l.N(context)));
-                Bitmap h = d.h(b, cd);
+                Bitmap h = d.h(b, cb);
                 if (b != h) {
                     b.recycle();
                 }

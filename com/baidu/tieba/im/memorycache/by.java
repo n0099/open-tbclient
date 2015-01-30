@@ -22,7 +22,7 @@ public class by extends com.baidu.adp.framework.a.a {
                 return new MemoryChangedMessage(bz.s(data), ((MemoryChangedMessage) customResponsedMessage).isFromServer(), ((MemoryChangedMessage) customResponsedMessage).getType());
             }
             if (data != null && data.getCustomGroupType() == -7) {
-                return new MemoryChangedMessage(cb.t(data), ((MemoryChangedMessage) customResponsedMessage).isFromServer(), ((MemoryChangedMessage) customResponsedMessage).getType());
+                return new MemoryChangedMessage(cc.t(data), ((MemoryChangedMessage) customResponsedMessage).isFromServer(), ((MemoryChangedMessage) customResponsedMessage).getType());
             }
             return customResponsedMessage;
         }

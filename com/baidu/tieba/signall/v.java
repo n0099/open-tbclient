@@ -3,5 +3,5 @@ package com.baidu.tieba.signall;
 public interface v {
     void b(s sVar);
 
-    void gF(String str);
+    void gK(String str);
 }

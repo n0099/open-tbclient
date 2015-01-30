@@ -1,87 +1,126 @@
 package com.baidu.tieba.album;
 
-import com.baidu.adp.widget.ListView.BdListView;
-import java.util.Iterator;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.WriteImagesInfo;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements o {
-    final /* synthetic */ m apo;
+public class n {
+    private List<a> aqa;
+    private String aqe;
+    private WriteImagesInfo aql;
+    private List<ImageFileInfo> aqm;
+    private List<ImageFileInfo> aqn;
+    private String aqo;
+    private int mCurrentIndex;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public n(m mVar) {
-        this.apo = mVar;
+    public void addChooseFile(ImageFileInfo imageFileInfo) {
+        if (this.aql == null) {
+            this.aql = new WriteImagesInfo();
+        }
+        this.aql.addChooseFile(imageFileInfo);
     }
 
-    @Override // com.baidu.tieba.album.o
-    public void jH() {
+    public void delChooseFile(ImageFileInfo imageFileInfo) {
+        if (this.aql != null) {
+            this.aql.delChooseFile(imageFileInfo);
+        }
     }
 
-    @Override // com.baidu.tieba.album.o
-    public void C(List<a> list) {
-        j jVar;
-        p pVar;
-        p pVar2;
-        p pVar3;
-        BdListView bdListView;
-        com.baidu.tbadk.core.view.x xVar;
-        BdListView bdListView2;
-        com.baidu.tbadk.core.view.x xVar2;
-        a aVar;
-        a aVar2;
-        AlbumActivity albumActivity;
-        AlbumActivity albumActivity2;
-        jVar = this.apo.apm;
-        List<a> data = jVar.getData();
-        pVar = this.apo.aoJ;
-        if (pVar == null) {
-            albumActivity = this.apo.aoO;
-            if (albumActivity != null) {
-                m mVar = this.apo;
-                albumActivity2 = this.apo.aoO;
-                mVar.aoJ = albumActivity2.Bc();
-            }
+    public boolean isAdded(ImageFileInfo imageFileInfo) {
+        if (this.aql == null) {
+            return false;
         }
-        pVar2 = this.apo.aoJ;
-        if (pVar2 != null) {
-            pVar3 = this.apo.aoJ;
-            String Bp = pVar3.Bp();
-            if (Bp != null) {
-                if (data != null) {
-                    for (a aVar3 : data) {
-                        if (aVar3.getAlbumId().equals(Bp)) {
-                            aVar = aVar3;
-                            break;
-                        }
-                    }
-                }
-                aVar = null;
-                if (list != null) {
-                    Iterator<a> it = list.iterator();
-                    while (it.hasNext()) {
-                        aVar2 = it.next();
-                        if (aVar2.getAlbumId().equals(Bp)) {
-                            break;
-                        }
-                    }
-                }
-                aVar2 = null;
-                if (aVar2 == null || aVar == null || !aVar2.Bg().equals(aVar.Bg())) {
-                    q.Br().bj(false);
-                }
-            }
-            if (list == null || list.size() == 0) {
-                bdListView = this.apo.mListView;
-                bdListView.setVisibility(8);
-                xVar = this.apo.mNoDataView;
-                xVar.setVisibility(0);
-                return;
-            }
-            bdListView2 = this.apo.mListView;
-            bdListView2.setVisibility(0);
-            xVar2 = this.apo.mNoDataView;
-            xVar2.setVisibility(8);
-            this.apo.setData(list);
+        return this.aql.isAdded(imageFileInfo);
+    }
+
+    public List<ImageFileInfo> BN() {
+        if (this.aql != null) {
+            return this.aql.getChosedFiles();
         }
+        return null;
+    }
+
+    public WriteImagesInfo getWriteImagesInfo() {
+        return this.aql;
+    }
+
+    public void setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
+        this.aql = writeImagesInfo;
+    }
+
+    public String getLastAlbumId() {
+        if (this.aql != null) {
+            return this.aql.getLastAlbumId();
+        }
+        return null;
+    }
+
+    public void setLastAlbumId(String str) {
+        if (this.aql == null) {
+            this.aql = new WriteImagesInfo();
+        }
+        this.aql.setLastAlbumId(str);
+    }
+
+    public int getMaxImagesAllowed() {
+        if (this.aql != null) {
+            return this.aql.getMaxImagesAllowed();
+        }
+        return 0;
+    }
+
+    public String BO() {
+        return this.aqe;
+    }
+
+    public void eX(String str) {
+        this.aqe = str;
+    }
+
+    public List<ImageFileInfo> BP() {
+        return this.aqm;
+    }
+
+    public void D(List<ImageFileInfo> list) {
+        this.aqm = list;
+    }
+
+    public int getCurrentIndex() {
+        return this.mCurrentIndex;
+    }
+
+    public void setCurrentIndex(int i) {
+        this.mCurrentIndex = i;
+    }
+
+    public List<a> BQ() {
+        return this.aqa;
+    }
+
+    public void E(List<a> list) {
+        this.aqa = list;
+    }
+
+    public List<ImageFileInfo> BR() {
+        return this.aqn;
+    }
+
+    public void F(List<ImageFileInfo> list) {
+        this.aqn = list;
+    }
+
+    public int size() {
+        if (this.aql == null) {
+            return 0;
+        }
+        return this.aql.size();
+    }
+
+    public String BS() {
+        return this.aqo;
+    }
+
+    public void eY(String str) {
+        this.aqo = str;
     }
 }

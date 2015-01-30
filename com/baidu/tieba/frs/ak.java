@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ak implements DialogInterface.OnClickListener {
-    final /* synthetic */ FrsActivity aCV;
-    private final /* synthetic */ com.baidu.tbadk.core.data.w aDa;
+    final /* synthetic */ FrsActivity aDW;
+    private final /* synthetic */ com.baidu.tbadk.core.data.x aEb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(FrsActivity frsActivity, com.baidu.tbadk.core.data.w wVar) {
-        this.aCV = frsActivity;
-        this.aDa = wVar;
+    public ak(FrsActivity frsActivity, com.baidu.tbadk.core.data.x xVar) {
+        this.aDW = frsActivity;
+        this.aEb = xVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -21,32 +21,32 @@ public class ak implements DialogInterface.OnClickListener {
         String str;
         String str2;
         boolean z;
-        bq bqVar;
+        bp bpVar;
         switch (i) {
             case 0:
-                str = this.aCV.mThreadId;
+                str = this.aDW.mThreadId;
                 if (str != null) {
-                    FrsActivity frsActivity = this.aCV;
-                    PbActivityConfig pbActivityConfig = new PbActivityConfig(this.aCV.getPageContext().getPageActivity());
-                    com.baidu.tbadk.core.data.w wVar = this.aDa;
-                    str2 = this.aCV.aBP;
-                    z = this.aCV.aBW;
-                    frsActivity.sendMessage(new CustomMessage(2004001, pbActivityConfig.createFromThreadCfg(wVar, str2, null, 18003, true, false, z)));
+                    FrsActivity frsActivity = this.aDW;
+                    PbActivityConfig pbActivityConfig = new PbActivityConfig(this.aDW.getPageContext().getPageActivity());
+                    com.baidu.tbadk.core.data.x xVar = this.aEb;
+                    str2 = this.aDW.aCQ;
+                    z = this.aDW.aCX;
+                    frsActivity.sendMessage(new CustomMessage(2004001, pbActivityConfig.createFromThreadCfg(xVar, str2, null, 18003, true, false, z)));
                     break;
                 }
                 break;
             case 1:
-                this.aCV.b(this.aDa);
+                this.aDW.b(this.aEb);
                 break;
             case 2:
-                this.aCV.c(this.aDa);
+                this.aDW.c(this.aEb);
                 break;
         }
         com.baidu.tieba.tbadkCore.util.l readThreadHistory = TbadkCoreApplication.m255getInst().getReadThreadHistory();
-        if (readThreadHistory != null && this.aDa != null && !readThreadHistory.ip(this.aDa.getId())) {
-            readThreadHistory.io(this.aDa.getId());
+        if (readThreadHistory != null && this.aEb != null && !readThreadHistory.iw(this.aEb.getId())) {
+            readThreadHistory.iv(this.aEb.getId());
         }
-        bqVar = this.aCV.aBX;
-        bqVar.Gw();
+        bpVar = this.aDW.aCY;
+        bpVar.GT();
     }
 }

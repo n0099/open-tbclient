@@ -11,10 +11,10 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class ChatImageWithTailView extends LinearLayout {
-    private LinearLayout aUA;
-    private TextView aUB;
-    private ChatClipImageItemView aUz;
-    private TbImageView avI;
+    private ChatClipImageItemView aVS;
+    private LinearLayout aVT;
+    private TextView aVU;
+    private TbImageView awI;
 
     public ChatImageWithTailView(Context context) {
         super(context);
@@ -27,45 +27,45 @@ public class ChatImageWithTailView extends LinearLayout {
     }
 
     public void aq(Context context) {
-        b.ek().inflate(context, x.chat_image_with_tail_item, this);
-        this.aUz = (ChatClipImageItemView) findViewById(w.img_msgitem_image_new);
-        this.aUz.setDefaultResource(v.image_h_not);
-        this.aUA = (LinearLayout) findViewById(w.small_tail);
-        this.avI = (TbImageView) findViewById(w.tail_icon);
-        this.avI.setDefaultResource(v.icon);
-        this.avI.setAutoChangeStyle(false);
-        this.aUB = (TextView) findViewById(w.tail_game_from);
+        b.ei().inflate(context, x.chat_image_with_tail_item, this);
+        this.aVS = (ChatClipImageItemView) findViewById(w.img_msgitem_image_new);
+        this.aVS.setDefaultResource(v.image_h_not);
+        this.aVT = (LinearLayout) findViewById(w.small_tail);
+        this.awI = (TbImageView) findViewById(w.tail_icon);
+        this.awI.setDefaultResource(v.icon);
+        this.awI.setAutoChangeStyle(false);
+        this.aVU = (TextView) findViewById(w.tail_game_from);
     }
 
     public ChatClipImageItemView getImage() {
-        return this.aUz;
+        return this.aVS;
     }
 
     public void setImage(ChatClipImageItemView chatClipImageItemView) {
-        this.aUz = chatClipImageItemView;
+        this.aVS = chatClipImageItemView;
     }
 
     public LinearLayout getTail() {
-        return this.aUA;
+        return this.aVT;
     }
 
     public void setTail(LinearLayout linearLayout) {
-        this.aUA = linearLayout;
+        this.aVT = linearLayout;
     }
 
     public TbImageView getIcon() {
-        return this.avI;
+        return this.awI;
     }
 
     public void setIcon(TbImageView tbImageView) {
-        this.avI = tbImageView;
+        this.awI = tbImageView;
     }
 
     public TextView getFromSource() {
-        return this.aUB;
+        return this.aVU;
     }
 
     public void setFromSource(TextView textView) {
-        this.aUB = textView;
+        this.aVU = textView;
     }
 }

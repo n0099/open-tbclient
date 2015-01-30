@@ -7,7 +7,7 @@ import java.util.Enumeration;
 public class aa {
     public static String SUFFIX = "Static";
 
-    public static void fC() {
+    public static void fB() {
         try {
             Enumeration<String> entries = new DexFile(BdBaseApplication.getInst().getApp().getPackageCodePath()).entries();
             while (entries.hasMoreElements()) {

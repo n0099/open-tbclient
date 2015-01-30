@@ -26,10 +26,10 @@ public class RequestHistoryMessage extends TbSocketMessage {
         this.forum_id = i;
         this.user_id = i2;
         this.id = i3;
-        LocalViewSize.ImageSize oS = LocalViewSize.oQ().oS();
-        this.width = oS.width;
-        this.height = oS.height;
-        LocalViewSize.ImageSize msgSPicMaxSize = LocalViewSize.oQ().getMsgSPicMaxSize();
+        LocalViewSize.ImageSize oV = LocalViewSize.oT().oV();
+        this.width = oV.width;
+        this.height = oV.height;
+        LocalViewSize.ImageSize msgSPicMaxSize = LocalViewSize.oT().getMsgSPicMaxSize();
         this.sWidth = msgSPicMaxSize.width;
         this.sHeight = msgSPicMaxSize.height;
     }

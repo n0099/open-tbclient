@@ -13,24 +13,24 @@ import com.baidu.tieba.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends Dialog {
-    private LinearLayout akY;
-    private TextView aok;
-    private TextView avk;
-    final /* synthetic */ PluginDownloadActivity bKD;
-    private LinearLayout bKE;
-    private TextView bKF;
-    private TextView bKG;
-    private TextView bKH;
-    private TextView bKI;
-    private TextView bKJ;
-    private TextView bKK;
-    private TextView bKL;
-    private TextView bKM;
+    private LinearLayout alS;
+    private TextView apf;
+    private TextView awk;
+    final /* synthetic */ PluginDownloadActivity bMo;
+    private LinearLayout bMp;
+    private TextView bMq;
+    private TextView bMr;
+    private TextView bMs;
+    private TextView bMt;
+    private TextView bMu;
+    private TextView bMv;
+    private TextView bMw;
+    private TextView bMx;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(PluginDownloadActivity pluginDownloadActivity, Context context, int i) {
         super(context, i);
-        this.bKD = pluginDownloadActivity;
+        this.bMo = pluginDownloadActivity;
     }
 
     @Override // android.app.Dialog
@@ -48,63 +48,63 @@ public class g extends Dialog {
         findViewById(w.warning).setVisibility(8);
         findViewById(w.incremental_button).setVisibility(8);
         findViewById(w.incremental_size).setVisibility(8);
-        this.bKE = (LinearLayout) findViewById(w.down_dialog);
-        this.bKL = (TextView) findViewById(w.update_tip);
-        this.bKF = (TextView) findViewById(w.newversion);
-        this.avk = (TextView) findViewById(w.desc);
-        this.bKG = (TextView) findViewById(w.update_button);
-        this.bKG.setText(this.bKD.getPageContext().getString(z.plugin_download_immediately));
-        this.aok = (TextView) findViewById(w.update_cancel);
-        this.bKH = (TextView) findViewById(w.downloading);
-        this.bKM = (TextView) findViewById(w.otherApp);
-        this.bKM.setVisibility(8);
-        this.bKI = (TextView) findViewById(w.app_size);
-        this.akY = (LinearLayout) findViewById(w.cancel_dialog);
-        this.bKJ = (TextView) findViewById(w.sure_cancel);
-        this.bKK = (TextView) findViewById(w.cancel_button);
-        this.bKJ.setOnClickListener(new h(this));
-        this.bKK.setOnClickListener(new i(this));
-        pluginConfig = this.bKD.bKz;
+        this.bMp = (LinearLayout) findViewById(w.down_dialog);
+        this.bMw = (TextView) findViewById(w.update_tip);
+        this.bMq = (TextView) findViewById(w.newversion);
+        this.awk = (TextView) findViewById(w.desc);
+        this.bMr = (TextView) findViewById(w.update_button);
+        this.bMr.setText(this.bMo.getPageContext().getString(z.plugin_download_immediately));
+        this.apf = (TextView) findViewById(w.update_cancel);
+        this.bMs = (TextView) findViewById(w.downloading);
+        this.bMx = (TextView) findViewById(w.otherApp);
+        this.bMx.setVisibility(8);
+        this.bMt = (TextView) findViewById(w.app_size);
+        this.alS = (LinearLayout) findViewById(w.cancel_dialog);
+        this.bMu = (TextView) findViewById(w.sure_cancel);
+        this.bMv = (TextView) findViewById(w.cancel_button);
+        this.bMu.setOnClickListener(new h(this));
+        this.bMv.setOnClickListener(new i(this));
+        pluginConfig = this.bMo.bMk;
         if (TextUtils.isEmpty(pluginConfig.display_name)) {
-            this.bKL.setText("");
+            this.bMw.setText("");
         } else {
-            TextView textView = this.bKL;
-            pluginConfig2 = this.bKD.bKz;
+            TextView textView = this.bMw;
+            pluginConfig2 = this.bMo.bMk;
             textView.setText(pluginConfig2.display_name);
         }
-        pluginConfig3 = this.bKD.bKz;
+        pluginConfig3 = this.bMo.bMk;
         if (pluginConfig3.newest != null) {
-            pluginConfig4 = this.bKD.bKz;
+            pluginConfig4 = this.bMo.bMk;
             if (TextUtils.isEmpty(pluginConfig4.newest.version)) {
-                this.bKF.setText("");
+                this.bMq.setText("");
             } else {
-                TextView textView2 = this.bKF;
+                TextView textView2 = this.bMq;
                 StringBuilder sb = new StringBuilder("版本：");
-                pluginConfig5 = this.bKD.bKz;
+                pluginConfig5 = this.bMo.bMk;
                 textView2.setText(sb.append(pluginConfig5.newest.version).toString());
             }
-            pluginConfig6 = this.bKD.bKz;
+            pluginConfig6 = this.bMo.bMk;
             if (TextUtils.isEmpty(pluginConfig6.newest.change_log)) {
-                this.avk.setText("");
+                this.awk.setText("");
             } else {
-                TextView textView3 = this.avk;
-                pluginConfig7 = this.bKD.bKz;
+                TextView textView3 = this.awk;
+                pluginConfig7 = this.bMo.bMk;
                 textView3.setText(pluginConfig7.newest.change_log);
             }
-            pluginConfig8 = this.bKD.bKz;
+            pluginConfig8 = this.bMo.bMk;
             String valueOf = String.valueOf(pluginConfig8.newest.size / 1024);
             if (valueOf != null && !"".equals(valueOf)) {
-                this.bKI.setVisibility(0);
-                this.bKI.setText(((Object) this.bKI.getText()) + valueOf + "KB");
+                this.bMt.setVisibility(0);
+                this.bMt.setText(((Object) this.bMt.getText()) + valueOf + "KB");
             } else {
-                this.bKI.setVisibility(8);
+                this.bMt.setVisibility(8);
             }
         } else {
-            this.bKF.setText("");
-            this.avk.setText("");
-            this.bKI.setText("");
+            this.bMq.setText("");
+            this.awk.setText("");
+            this.bMt.setText("");
         }
-        this.bKG.setOnClickListener(new j(this));
-        this.aok.setOnClickListener(new l(this));
+        this.bMr.setOnClickListener(new j(this));
+        this.apf.setOnClickListener(new l(this));
     }
 }

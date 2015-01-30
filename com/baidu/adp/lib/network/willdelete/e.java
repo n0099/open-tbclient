@@ -1,30 +1,29 @@
 package com.baidu.adp.lib.network.willdelete;
 
 import android.content.Context;
-import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class e {
-    private static e kU;
+    private static e kX;
     private Context mContext;
 
-    public static synchronized e dX() {
+    public static synchronized e dV() {
         e eVar;
         synchronized (e.class) {
-            if (kU == null) {
-                kU = new e();
+            if (kX == null) {
+                kX = new e();
             }
-            eVar = kU;
+            eVar = kX;
         }
         return eVar;
     }
 
     public void init(Context context, boolean z) {
         this.mContext = context;
-        b.kL = z;
+        b.kO = z;
         System.setProperty("http.keepAlive", "false");
     }
 
@@ -33,7 +32,7 @@ public class e {
     }
 
     public void setUserAgent(String str) {
-        b.kM = str;
+        b.kP = str;
     }
 
     public void setUid(String str) {
@@ -42,16 +41,16 @@ public class e {
 
     public f a(String str, boolean z, int i, int i2, int i3, d dVar, a aVar, LinkedList<BasicNameValuePair> linkedList) {
         f a = b.a(str, z, i, i3, dVar, aVar, linkedList);
-        if (a != null && a.kV == 206) {
+        if (a != null && a.kY == 206) {
             int length = a.data.length;
             int length2 = a.data.length;
             ArrayList arrayList = new ArrayList();
             arrayList.add(a.data);
             a.data = b.a(str, length, length2, arrayList, i, i2, i3, dVar, aVar, linkedList);
-            a.kV = Constants.MEDIA_INFO;
-        } else if (a != null && a.kV == 413) {
-            a.data = b.a(str, 0L, h.eb(), new ArrayList(), i, i2, i3, dVar, aVar, linkedList);
-            a.kV = a.data != null ? Constants.MEDIA_INFO : a.kV;
+            a.kY = 200;
+        } else if (a != null && a.kY == 413) {
+            a.data = b.a(str, 0L, h.dZ(), new ArrayList(), i, i2, i3, dVar, aVar, linkedList);
+            a.kY = a.data != null ? 200 : a.kY;
         }
         if (dVar != null) {
             dVar.a(a);

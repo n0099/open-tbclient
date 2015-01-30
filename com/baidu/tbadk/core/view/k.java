@@ -14,7 +14,7 @@ class k extends LinearLayout {
         setTag(str);
     }
 
-    public static LinearLayout.LayoutParams qs() {
+    public static LinearLayout.LayoutParams qD() {
         return new LinearLayout.LayoutParams(-2, -1);
     }
 }

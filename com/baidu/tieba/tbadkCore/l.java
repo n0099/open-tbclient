@@ -12,11 +12,11 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnClickListener {
-    final /* synthetic */ FrsCommonImageLayout bSv;
+    final /* synthetic */ FrsCommonImageLayout bUo;
     private final int mIndex;
 
     private l(FrsCommonImageLayout frsCommonImageLayout, int i) {
-        this.bSv = frsCommonImageLayout;
+        this.bUo = frsCommonImageLayout;
         this.mIndex = i;
     }
 
@@ -40,25 +40,25 @@ public class l implements View.OnClickListener {
         MediaData[] mediaDataArr4;
         MediaData[] mediaDataArr5;
         m mVar2;
-        mVar = this.bSv.bSo;
+        mVar = this.bUo.bUc;
         if (mVar != null) {
-            mVar2 = this.bSv.bSo;
+            mVar2 = this.bUo.bUc;
             mVar2.onChildClickCallback(this.mIndex);
             return;
         }
-        mediaDataArr = this.bSv.LT;
+        mediaDataArr = this.bUo.Mn;
         if (mediaDataArr[this.mIndex].getType() != 5) {
-            mediaDataArr2 = this.bSv.LT;
+            mediaDataArr2 = this.bUo.Mn;
             if (mediaDataArr2 != null) {
                 ArrayList<String> arrayList = new ArrayList<>();
-                mediaDataArr3 = this.bSv.LT;
+                mediaDataArr3 = this.bUo.Mn;
                 for (MediaData mediaData : mediaDataArr3) {
                     if (!TextUtils.isEmpty(mediaData.getSrc_pic())) {
                         arrayList.add(mediaData.getSrc_pic());
                     }
                 }
                 if (arrayList.size() <= 0) {
-                    mediaDataArr4 = this.bSv.LT;
+                    mediaDataArr4 = this.bUo.Mn;
                     for (MediaData mediaData2 : mediaDataArr4) {
                         if (!TextUtils.isEmpty(mediaData2.getPicUrl())) {
                             arrayList.add(mediaData2.getPicUrl());
@@ -66,26 +66,26 @@ public class l implements View.OnClickListener {
                     }
                 }
                 MessageManager messageManager = MessageManager.getInstance();
-                if (this.bSv.bSt == null) {
-                    pageActivity = this.bSv.mContext;
+                if (this.bUo.bUh == null) {
+                    pageActivity = this.bUo.mContext;
                 } else {
-                    pageActivity = this.bSv.bSt.getPageActivity();
+                    pageActivity = this.bUo.bUh.getPageActivity();
                 }
                 ImageViewerConfig imageViewerConfig = new ImageViewerConfig(pageActivity);
                 int i = this.mIndex;
-                str = this.bSv.mForumName;
-                str2 = this.bSv.mForumId;
-                str3 = this.bSv.mThreadId;
-                z = this.bSv.mIsFromCDN;
+                str = this.bUo.mForumName;
+                str2 = this.bUo.mForumId;
+                str3 = this.bUo.mThreadId;
+                z = this.bUo.mIsFromCDN;
                 messageManager.sendMessage(new CustomMessage(2010000, imageViewerConfig.createConfig(arrayList, i, str, str2, str3, z, arrayList.size() > 0 ? arrayList.get(arrayList.size() - 1) : "", true)));
-                context = this.bSv.mContext;
+                context = this.bUo.mContext;
                 TiebaStatic.eventStat(context, "pic_frs", "");
                 return;
             }
             return;
         }
-        Context pageActivity2 = this.bSv.bSt == null ? this.bSv.mContext : this.bSv.bSt.getPageActivity();
-        mediaDataArr5 = this.bSv.LT;
-        com.baidu.tbadk.browser.a.y(pageActivity2, mediaDataArr5[this.mIndex].getVideoUrl());
+        Context pageActivity2 = this.bUo.bUh == null ? this.bUo.mContext : this.bUo.bUh.getPageActivity();
+        mediaDataArr5 = this.bUo.Mn;
+        com.baidu.tbadk.browser.a.x(pageActivity2, mediaDataArr5[this.mIndex].getVideoUrl());
     }
 }

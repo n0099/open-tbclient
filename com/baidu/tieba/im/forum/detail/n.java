@@ -1,33 +1,21 @@
 package com.baidu.tieba.im.forum.detail;
-
-import android.view.MotionEvent;
-import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class n implements View.OnTouchListener {
-    final /* synthetic */ k aZq;
-
-    private n(k kVar) {
-        this.aZq = kVar;
-    }
+public class n implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ m baN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ n(k kVar, n nVar) {
-        this(kVar);
+    public n(m mVar) {
+        this.baN = mVar;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        switch (motionEvent.getAction()) {
-            case 0:
-                k.a(this.aZq).cN(false);
-                break;
-            case 1:
-                k.a(this.aZq).cN(true);
-                break;
-            case 2:
-                k.a(this.aZq).cN(false);
-                break;
-        }
-        return false;
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.tbadk.core.dialog.a aVar2;
+        ForumDetailActivity forumDetailActivity;
+        aVar2 = this.baN.baM;
+        aVar2.dismiss();
+        forumDetailActivity = this.baN.baC;
+        forumDetailActivity.clearHistory();
     }
 }

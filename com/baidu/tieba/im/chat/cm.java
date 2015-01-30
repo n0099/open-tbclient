@@ -1,31 +1,25 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.animation.Animation;
-import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
 /* loaded from: classes.dex */
-public class cm implements Animation.AnimationListener {
-    final /* synthetic */ PersonalChatView aRR;
-    private final /* synthetic */ Animation aRS;
+class cm implements View.OnClickListener {
+    final /* synthetic */ PersonalChatView aTa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cm(PersonalChatView personalChatView, Animation animation) {
-        this.aRR = personalChatView;
-        this.aRS = animation;
+    public cm(PersonalChatView personalChatView) {
+        this.aTa = personalChatView;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        TextView textView;
-        textView = this.aRR.aRO;
-        textView.startAnimation(this.aRS);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PersonalChatActivity personalChatActivity;
+        PersonalChatActivity personalChatActivity2;
+        personalChatActivity = this.aTa.aSS;
+        if (!personalChatActivity.KI()) {
+            personalChatActivity2 = this.aTa.aSS;
+            personalChatActivity2.showToast(com.baidu.tieba.z.add_friend_cannot_send);
+            return;
+        }
+        this.aTa.SendMore1Event();
     }
 }

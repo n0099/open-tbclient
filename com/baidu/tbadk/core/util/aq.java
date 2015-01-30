@@ -5,33 +5,33 @@ import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class aq {
-    private static aq IW;
-    private static final BdUniqueId IX = BdUniqueId.gen();
+    private static aq Jg;
+    private static final BdUniqueId Jh = BdUniqueId.gen();
 
-    public static synchronized aq pq() {
+    public static synchronized aq pt() {
         aq aqVar;
         synchronized (aq.class) {
-            if (IW == null) {
-                IW = new aq();
+            if (Jg == null) {
+                Jg = new aq();
             }
-            aqVar = IW;
+            aqVar = Jg;
         }
         return aqVar;
     }
 
     public void a(String str, String str2, boolean z, boolean z2, boolean z3) {
         if (str2 != null && str != null) {
-            String cI = bc.cI(str);
-            az.ps().copyFile(str2, cI);
+            String cH = bh.cH(str);
+            be.pD().copyFile(str2, cH);
             if (z || z2 || z3) {
-                synchronized (d.vs) {
-                    int cH = az.ps().cH(cI);
-                    if (cH > 0) {
+                synchronized (d.vy) {
+                    int cG = be.pD().cG(cH);
+                    if (cG > 0) {
                         if (z) {
-                            Bitmap image = az.ps().getImage(cI);
-                            com.baidu.tbadk.imageManager.e.vL().dq(cH);
+                            Bitmap image = be.pD().getImage(cH);
+                            com.baidu.tbadk.imageManager.e.we().dx(cG);
                             if (image != null) {
-                                a(str, image, z2, az.ps().cG(cI), z3, cI);
+                                a(str, image, z2, be.pD().cF(cH), z3, cH);
                             }
                         }
                     }
@@ -72,7 +72,7 @@ public class aq {
     }
 
     private static void a(String str, com.baidu.adp.widget.a.a aVar) {
-        com.baidu.tbadk.imageManager.e.vL().c(str, aVar);
+        com.baidu.tbadk.imageManager.e.we().c(str, aVar);
     }
 
     public Bitmap a(Bitmap bitmap, boolean z, boolean z2, String str) {
@@ -85,7 +85,7 @@ public class aq {
             bitmap2 = d.a(f, (f.getHeight() < 100 || f.getWidth() < 100) ? 5.0f : 5.0f, true);
         }
         if (!TextUtils.isEmpty(str)) {
-            az.ps().h(str, d.e(bitmap2, 100));
+            be.pD().h(str, d.e(bitmap2, 100));
         }
         return bitmap2;
     }
@@ -107,7 +107,7 @@ public class aq {
         int i4;
         int i5;
         int i6 = 70;
-        int oT = LocalViewSize.oQ().oT();
+        int oW = LocalViewSize.oT().oW();
         if (z) {
             if (i / i2 >= 3) {
                 z2 = true;
@@ -118,21 +118,21 @@ public class aq {
                 z2 = true;
                 i3 = i2;
             }
-            if (i4 <= i3 && i4 > oT) {
-                i3 = (int) (i3 / (i4 / oT));
-            } else if (i3 > i4 || i3 <= oT) {
-                oT = i4;
+            if (i4 <= i3 && i4 > oW) {
+                i3 = (int) (i3 / (i4 / oW));
+            } else if (i3 > i4 || i3 <= oW) {
+                oW = i4;
             } else {
-                oT = (int) (i4 / (i3 / oT));
-                i3 = oT;
+                oW = (int) (i4 / (i3 / oW));
+                i3 = oW;
             }
-            if (z2 && i <= oT && i2 <= i3) {
-                oT = (int) (oT * 0.9d);
+            if (z2 && i <= oW && i2 <= i3) {
+                oW = (int) (oW * 0.9d);
                 i3 = (int) (i3 * 0.9d);
             }
-            if (oT < 70 || i3 >= 70) {
+            if (oW < 70 || i3 >= 70) {
                 i6 = i3;
-                i5 = oT;
+                i5 = oW;
             } else {
                 i5 = 70;
             }
@@ -145,15 +145,15 @@ public class aq {
         }
         if (i3 > i4) {
         }
-        oT = i4;
+        oW = i4;
         if (z2) {
-            oT = (int) (oT * 0.9d);
+            oW = (int) (oW * 0.9d);
             i3 = (int) (i3 * 0.9d);
         }
-        if (oT < 70) {
+        if (oW < 70) {
         }
         i6 = i3;
-        i5 = oT;
+        i5 = oW;
         return new com.baidu.tbadk.core.util.a.a(i5, i6, z2);
     }
 }

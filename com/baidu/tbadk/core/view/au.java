@@ -1,25 +1,47 @@
 package com.baidu.tbadk.core.view;
 
-import android.view.View;
+import android.content.Context;
 /* loaded from: classes.dex */
-class au implements View.OnClickListener {
-    final /* synthetic */ UserPhotoLayout NF;
-    private final int mIndex;
-
-    private au(UserPhotoLayout userPhotoLayout, int i) {
-        this.NF = userPhotoLayout;
-        this.mIndex = i;
-    }
+class au implements com.baidu.adp.lib.e.c<HeadImageView> {
+    private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ au(UserPhotoLayout userPhotoLayout, int i, au auVar) {
-        this(userPhotoLayout, i);
+    public au(Context context) {
+        this.val$context = context;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (UserPhotoLayout.access$0(this.NF) != null) {
-            UserPhotoLayout.access$0(this.NF).onChildClickCallback(this.mIndex);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: qQ */
+    public HeadImageView eb() {
+        return new HeadImageView(this.val$context);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: a */
+    public void k(HeadImageView headImageView) {
+        headImageView.setBackgroundResource(0);
+        headImageView.setImageDrawable(null);
+        headImageView.setTag(null);
+        headImageView.setOnClickListener(null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: b */
+    public HeadImageView l(HeadImageView headImageView) {
+        return headImageView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: c */
+    public HeadImageView m(HeadImageView headImageView) {
+        headImageView.setBackgroundResource(0);
+        headImageView.setImageDrawable(null);
+        headImageView.setTag(null);
+        headImageView.setOnClickListener(null);
+        return headImageView;
     }
 }

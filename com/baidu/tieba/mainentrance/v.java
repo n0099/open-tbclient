@@ -5,11 +5,11 @@ import android.widget.FrameLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements DialogInterface.OnClickListener {
-    final /* synthetic */ u brG;
+    final /* synthetic */ u btc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(u uVar) {
-        this.brG = uVar;
+        this.btc = uVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -28,37 +28,37 @@ public class v implements DialogInterface.OnClickListener {
         boolean z;
         SquareSearchActivity squareSearchActivity7;
         SquareSearchActivity squareSearchActivity8;
-        squareSearchActivity = this.brG.brF;
-        frameLayout = squareSearchActivity.bre;
+        squareSearchActivity = this.btc.btb;
+        frameLayout = squareSearchActivity.bsC;
         frameLayout.setVisibility(8);
-        squareSearchActivity2 = this.brG.brF;
+        squareSearchActivity2 = this.btc.btb;
         xVar = squareSearchActivity2.mNoDataView;
         xVar.setVisibility(0);
-        squareSearchActivity3 = this.brG.brF;
+        squareSearchActivity3 = this.btc.btb;
         xVar2 = squareSearchActivity3.mNoDataView;
-        xVar2.setTextOption(com.baidu.tbadk.core.view.ab.ci(com.baidu.tieba.z.text_no_search_record));
-        squareSearchActivity4 = this.brG.brF;
+        xVar2.setTextOption(com.baidu.tbadk.core.view.ab.cp(com.baidu.tieba.z.text_no_search_record));
+        squareSearchActivity4 = this.btc.btb;
         i2 = squareSearchActivity4.mMode;
         if (i2 != 0) {
-            squareSearchActivity5 = this.brG.brF;
+            squareSearchActivity5 = this.btc.btb;
             i3 = squareSearchActivity5.mMode;
             if (i3 == 3) {
-                squareSearchActivity6 = this.brG.brF;
-                z = squareSearchActivity6.adU;
+                squareSearchActivity6 = this.btc.btb;
+                z = squareSearchActivity6.aer;
                 if (!z) {
                     RequestSearchPersonHistoryWriteMessage requestSearchPersonHistoryWriteMessage = new RequestSearchPersonHistoryWriteMessage();
                     requestSearchPersonHistoryWriteMessage.setClear(true);
-                    squareSearchActivity7 = this.brG.brF;
+                    squareSearchActivity7 = this.btc.btb;
                     squareSearchActivity7.sendMessage(requestSearchPersonHistoryWriteMessage);
-                    squareSearchActivity8 = this.brG.brF;
-                    squareSearchActivity8.adU = true;
+                    squareSearchActivity8 = this.btc.btb;
+                    squareSearchActivity8.aer = true;
                     return;
                 }
                 return;
             }
-            com.baidu.tieba.tbadkCore.util.j.ahO();
+            com.baidu.tieba.tbadkCore.util.j.ais();
             return;
         }
-        com.baidu.adp.lib.g.l.em().c(new w(this));
+        com.baidu.adp.lib.g.l.ek().c(new w(this));
     }
 }

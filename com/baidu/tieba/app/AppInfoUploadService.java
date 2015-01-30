@@ -41,8 +41,8 @@ public class AppInfoUploadService extends BdBaseService {
                 arrayList.add(new BasicNameValuePair("cuid", this.mCuid));
                 arrayList.add(new BasicNameValuePair("uid", this.mUid));
                 arrayList.add(new BasicNameValuePair("x", str));
-                f b = com.baidu.adp.lib.network.willdelete.e.dX().b(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.APP_UPLOAD, false, arrayList, null, 3, -1, null, null, null, null);
-                if (b != null && b.kV == 200) {
+                f b = com.baidu.adp.lib.network.willdelete.e.dV().b(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.APP_UPLOAD, false, arrayList, null, 3, -1, null, null, null, null);
+                if (b != null && b.kY == 200) {
                     try {
                         if (new JSONObject(new String(b.data, "utf-8")).optInt("error_code", -1) == 0) {
                             return true;
@@ -60,9 +60,9 @@ public class AppInfoUploadService extends BdBaseService {
     }
 
     public String genPostData() {
-        a Bz = e.By().Bz();
-        ArrayList<b> arrayList = Bz.aqg;
-        ArrayList<b> arrayList2 = Bz.aqh;
+        a Cc = e.Cb().Cc();
+        ArrayList<b> arrayList = Cc.ark;
+        ArrayList<b> arrayList2 = Cc.arl;
         StringBuilder sb = new StringBuilder();
         int addList = addList(arrayList2, sb, 100, 0);
         if (addList < 100) {
@@ -75,7 +75,7 @@ public class AppInfoUploadService extends BdBaseService {
         int i3 = 0;
         while (i3 < arrayList.size() && i3 < i) {
             b bVar = arrayList.get(i3);
-            sb.append(String.format("%s,%s,%s,%d;", bVar.aqi, bVar.mPackageName, Integer.valueOf(bVar.aqk), Integer.valueOf(i2)));
+            sb.append(String.format("%s,%s,%s,%d;", bVar.arm, bVar.mPackageName, Integer.valueOf(bVar.aro), Integer.valueOf(i2)));
             i3++;
         }
         return i3;

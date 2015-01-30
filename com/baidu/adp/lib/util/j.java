@@ -15,6 +15,6 @@ class j extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        i.a(i.fr());
+        i.a(i.fq());
     }
 }

@@ -18,10 +18,10 @@ public class i extends ContextWrapper {
 
     public void setPluginPackageName(String str) {
         this.mPackageName = str;
-        if (!PluginCenter.gX().aR(this.mPackageName)) {
+        if (!PluginCenter.gW().aR(this.mPackageName)) {
             throw new RuntimeException("plugin is not loaded");
         }
-        attachBaseContext(PluginCenter.gX().aS(this.mPackageName).gP().getBaseContext());
+        attachBaseContext(PluginCenter.gW().aS(this.mPackageName).gO().getBaseContext());
     }
 
     public String getPluginPackageName() {
@@ -30,26 +30,26 @@ public class i extends ContextWrapper {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public ClassLoader getClassLoader() {
-        if (!PluginCenter.gX().aR(this.mPackageName)) {
+        if (!PluginCenter.gW().aR(this.mPackageName)) {
             throw new RuntimeException("plugin is not loaded");
         }
-        return PluginCenter.gX().aS(this.mPackageName).gM();
+        return PluginCenter.gW().aS(this.mPackageName).gL();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Context getApplicationContext() {
-        if (!PluginCenter.gX().aR(this.mPackageName)) {
+        if (!PluginCenter.gW().aR(this.mPackageName)) {
             throw new RuntimeException("plugin is not loaded");
         }
-        return PluginCenter.gX().aS(this.mPackageName).gP();
+        return PluginCenter.gW().aS(this.mPackageName).gO();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        if (!PluginCenter.gX().aR(this.mPackageName)) {
+        if (!PluginCenter.gW().aR(this.mPackageName)) {
             throw new RuntimeException("plugin is not loaded");
         }
-        return PluginCenter.gX().aS(this.mPackageName).gN();
+        return PluginCenter.gW().aS(this.mPackageName).gM();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context

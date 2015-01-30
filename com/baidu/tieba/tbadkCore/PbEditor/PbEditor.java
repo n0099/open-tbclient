@@ -18,180 +18,180 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class PbEditor extends LinearLayout {
-    private static final Pattern bUu = Pattern.compile("#\\([^#\\)\\(]+\\)$");
-    private static final Pattern bUx = Pattern.compile("#\\([a-zA-Z0-9_\\u4E00-\\u9FA5]+\\)");
-    private boolean YZ;
-    private boolean bUc;
-    private int bUp;
-    private ak bUq;
-    protected PbEditorToolView bUr;
-    public EditorToolComponetContainer bUs;
-    protected com.baidu.tbadk.editortool.w bUt;
-    private boolean bUv;
-    protected boolean bUw;
+    private static final Pattern bWm = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+    private static final Pattern bWp = Pattern.compile("#\\([a-zA-Z0-9_\\u4E00-\\u9FA5]+\\)");
+    private boolean Zs;
+    private boolean bVU;
+    private int bWh;
+    private ak bWi;
+    protected PbEditorToolView bWj;
+    public EditorToolComponetContainer bWk;
+    protected com.baidu.tbadk.editortool.w bWl;
+    private boolean bWn;
+    protected boolean bWo;
     protected Context mContext;
     private TbPageContext<?> mPageContext;
 
     public void setHideBaobao(boolean z) {
-        this.YZ = z;
-        if (this.bUs != null) {
-            this.bUs.setHideBaobao(z);
+        this.Zs = z;
+        if (this.bWk != null) {
+            this.bWk.setHideBaobao(z);
         }
     }
 
     public EditorToolComponetContainer getEditorToolComponetContainer() {
-        return this.bUs;
+        return this.bWk;
     }
 
     public PbEditorToolView getEditorToolButtonContainer() {
-        return this.bUr;
+        return this.bWj;
     }
 
     public PbEditor(Context context) {
         super(context);
-        this.bUp = 1000;
-        this.bUc = false;
-        this.YZ = false;
-        this.bUw = true;
+        this.bWh = 1000;
+        this.bVU = false;
+        this.Zs = false;
+        this.bWo = true;
         this.mContext = context;
         initialize();
     }
 
     public PbEditor(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bUp = 1000;
-        this.bUc = false;
-        this.YZ = false;
-        this.bUw = true;
+        this.bWh = 1000;
+        this.bVU = false;
+        this.Zs = false;
+        this.bWo = true;
         this.mContext = context;
         initialize();
     }
 
     public void setFrom(int i) {
-        if (this.bUs != null) {
-            this.bUs.setFrom(i);
+        if (this.bWk != null) {
+            this.bWk.setFrom(i);
         }
     }
 
-    public void afB() {
-        this.bUr.afB();
+    public void agf() {
+        this.bWj.agf();
     }
 
-    public void afC() {
-        this.bUr.afC();
+    public void agg() {
+        this.bWj.agg();
     }
 
-    public boolean afD() {
-        Editable text = this.bUr.getEditText().getText();
-        if ((text != null && text.toString().trim().length() > 0) || this.bUs.afs() || this.bUs.aft()) {
+    public boolean agh() {
+        Editable text = this.bWj.getEditText().getText();
+        if ((text != null && text.toString().trim().length() > 0) || this.bWk.afW() || this.bWk.afX()) {
             return true;
         }
-        return this.bUs.afu();
+        return this.bWk.afY();
     }
 
     public EditText getEditText() {
-        return this.bUr.getEditText();
+        return this.bWj.getEditText();
     }
 
-    public void z(ArrayList<String> arrayList) {
-        this.bUr.O(arrayList);
+    public void A(ArrayList<String> arrayList) {
+        this.bWj.P(arrayList);
     }
 
     public String getContent() {
-        return this.bUr.getEditText().getText().toString();
+        return this.bWj.getEditText().getText().toString();
     }
 
     public void setContent(String str) {
-        this.bUr.getEditText().setText(str);
+        this.bWj.getEditText().setText(str);
         if (!TextUtils.isEmpty(str)) {
-            this.bUr.getEditText().setSelection(str.length());
+            this.bWj.getEditText().setSelection(str.length());
         }
     }
 
-    public void afE() {
-        this.bUr.getEditText().requestFocus();
-        this.bUs.V(this.bUr.getEditText());
+    public void agi() {
+        this.bWj.getEditText().requestFocus();
+        this.bWk.X(this.bWj.getEditText());
     }
 
-    public void afF() {
-        this.bUs.hideAll();
-        this.bUr.aeS();
+    public void agj() {
+        this.bWk.hideAll();
+        this.bWj.afw();
     }
 
-    public void afG() {
-        this.bUs.hideAll();
-        this.bUr.aeS();
+    public void agk() {
+        this.bWk.hideAll();
+        this.bWj.afw();
     }
 
-    public void afH() {
-        if (this.bUs.afj() && !this.bUv) {
-            this.bUv = true;
+    public void agl() {
+        if (this.bWk.afN() && !this.bWn) {
+            this.bWn = true;
             ay.a(this, this.mContext, new aa(this));
             return;
         }
-        afF();
+        agj();
     }
 
-    public boolean afj() {
-        return this.bUs.afj();
+    public boolean afN() {
+        return this.bWk.afN();
     }
 
     protected void initialize() {
-        com.baidu.adp.lib.g.b.ek().a(this.mContext, com.baidu.tieba.x.pb_editor_view, this, true);
-        this.bUr = (PbEditorToolView) findViewById(com.baidu.tieba.w.pb_editor_tool_button);
-        this.bUs = (EditorToolComponetContainer) findViewById(com.baidu.tieba.w.pb_editor_tool_group);
+        com.baidu.adp.lib.g.b.ei().a(this.mContext, com.baidu.tieba.x.pb_editor_view, this, true);
+        this.bWj = (PbEditorToolView) findViewById(com.baidu.tieba.w.pb_editor_tool_button);
+        this.bWk = (EditorToolComponetContainer) findViewById(com.baidu.tieba.w.pb_editor_tool_group);
         if (!TbadkCoreApplication.m255getInst().appResponseToCmd(2802001)) {
             setHideBaobao(true);
         }
     }
 
-    private void afI() {
-        this.bUq = new ak(this.mContext);
-        this.bUq.qA();
-        addView(this.bUq, 0);
-        this.bUq.setOnActionListener(this.bUt);
+    private void agm() {
+        this.bWi = new ak(this.mContext);
+        this.bWi.qL();
+        addView(this.bWi, 0);
+        this.bWi.setOnActionListener(this.bWl);
     }
 
-    public boolean afx() {
-        return this.bUs.afx();
+    public boolean agb() {
+        return this.bWk.agb();
     }
 
-    public void T(View view) {
-        this.bUs.T(view);
+    public void V(View view) {
+        this.bWk.V(view);
     }
 
-    public void U(View view) {
-        this.bUs.U(view);
+    public void W(View view) {
+        this.bWk.W(view);
     }
 
-    public void Zz() {
-        this.bUr.getEditText().requestFocus();
-        this.bUs.V(this.bUr.getEditText());
-        this.bUr.getEditText().setSelection(this.bUr.getEditText().getText().length());
+    public void aae() {
+        this.bWj.getEditText().requestFocus();
+        this.bWk.X(this.bWj.getEditText());
+        this.bWj.getEditText().setSelection(this.bWj.getEditText().getText().length());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(int i, ba baVar) {
-        this.bUr.getEditText().requestFocus();
-        this.bUs.U(this.bUr.getEditText());
-        hG(i);
+        this.bWj.getEditText().requestFocus();
+        this.bWk.W(this.bWj.getEditText());
+        hP(i);
     }
 
     public void B(int i, String str) {
-        if (this.bUq != null) {
-            this.bUq.B(i, str);
-            if (i == 2 && this.bUq.getVisibility() == 0) {
-                this.bUs.vl();
-                this.bUr.afP();
+        if (this.bWi != null) {
+            this.bWi.B(i, str);
+            if (i == 2 && this.bWi.getVisibility() == 0) {
+                this.bWk.vC();
+                this.bWj.agt();
                 return;
             }
-            afJ();
+            agn();
         }
     }
 
-    private void afJ() {
-        if (this.bUs != null) {
-            this.bUs.vm();
+    private void agn() {
+        if (this.bWk != null) {
+            this.bWk.vD();
             refresh();
         }
     }
@@ -201,106 +201,106 @@ public class PbEditor extends LinearLayout {
     }
 
     public int getLocationViewVisibility() {
-        if (this.bUq == null) {
+        if (this.bWi == null) {
             return 8;
         }
-        return this.bUq.getVisibility();
+        return this.bWi.getVisibility();
     }
 
     public int getLocationInfoViewState() {
-        if (this.bUq == null) {
+        if (this.bWi == null) {
             return 0;
         }
-        return this.bUq.getLocationInfoViewState();
+        return this.bWi.getLocationInfoViewState();
     }
 
-    protected void hG(int i) {
+    protected void hP(int i) {
         if (i == 5) {
-            this.bUs.afo();
+            this.bWk.afS();
         } else if (i == 23 || i == 22) {
-            this.bUs.afp();
+            this.bWk.afT();
         } else if (i == 2) {
-            this.bUs.afn();
+            this.bWk.afR();
         } else if (i == 38) {
-            this.bUs.afm();
+            this.bWk.afQ();
         } else if (i == 44) {
-            this.bUs.afq();
+            this.bWk.afU();
         } else if (i == 50 || i == 48) {
-            this.bUs.afr();
+            this.bWk.afV();
         }
     }
 
-    public void hH(int i) {
-        if (this.bUs.afj()) {
-            hG(i);
-            this.bUs.U(this.bUr.getEditText());
+    public void hQ(int i) {
+        if (this.bWk.afN()) {
+            hP(i);
+            this.bWk.W(this.bWj.getEditText());
             return;
         }
-        this.bUw = false;
-        if (this.bUs.afx()) {
-            this.bUs.U(this.bUr.getEditText());
+        this.bWo = false;
+        if (this.bWk.agb()) {
+            this.bWk.W(this.bWj.getEditText());
         }
         new Handler().postDelayed(new ab(this, i), 200L);
     }
 
-    public boolean Fl() {
-        Editable text = this.bUr.getEditText().getText();
-        return (text == null ? 0 : text.length()) >= this.bUp;
+    public boolean FJ() {
+        Editable text = this.bWj.getEditText().getText();
+        return (text == null ? 0 : text.length()) >= this.bWh;
     }
 
     public void a(TbPageContext<?> tbPageContext, com.baidu.tbadk.editortool.w wVar) {
         this.mPageContext = tbPageContext;
         if (wVar != null) {
-            this.bUt = wVar;
-            if (this.bUq != null) {
-                this.bUq.setOnActionListener(wVar);
+            this.bWl = wVar;
+            if (this.bWi != null) {
+                this.bWi.setOnActionListener(wVar);
             }
-            this.bUr.setOnActionListener(new ad(this, wVar));
-            this.bUs.setOnActionListener(new ae(this, wVar));
+            this.bWj.setOnActionListener(new ad(this, wVar));
+            this.bWk.setOnActionListener(new ae(this, wVar));
         }
     }
 
-    public void afv() {
-        this.bUs.afv();
+    public void afZ() {
+        this.bWk.afZ();
     }
 
     public void b(TbPageContext<?> tbPageContext, int i) {
         this.mPageContext = tbPageContext;
         if (tbPageContext != null) {
             tbPageContext.getLayoutMode().ab(i == 1);
-            tbPageContext.getLayoutMode().h(this.bUr);
-            tbPageContext.getLayoutMode().h(this.bUs);
+            tbPageContext.getLayoutMode().h(this.bWj);
+            tbPageContext.getLayoutMode().h(this.bWk);
         }
-        if (this.bUq != null) {
-            this.bUq.qA();
+        if (this.bWi != null) {
+            this.bWi.qL();
         }
-        this.bUr.changeSkinType(i);
-        this.bUs.onChangeSkinType(i);
+        this.bWj.changeSkinType(i);
+        this.bWk.onChangeSkinType(i);
     }
 
     public void clearData() {
-        this.bUr.clearData();
-        this.bUs.clearData();
+        this.bWj.clearData();
+        this.bWk.clearData();
     }
 
-    public void afl() {
-        this.bUs.afl();
+    public void afP() {
+        this.bWk.afP();
     }
 
-    public void yB() {
-        if (this.bUt != null) {
-            this.bUt.handleAction(33, null);
+    public void yR() {
+        if (this.bWl != null) {
+            this.bWl.handleAction(33, null);
         }
         setVisibility(0);
     }
 
     public void hide() {
-        if (this.bUt != null) {
-            this.bUt.handleAction(34, null);
+        if (this.bWl != null) {
+            this.bWl.handleAction(34, null);
         }
-        this.bUr.aeS();
-        this.bUs.hideAll();
-        U(getEditText());
+        this.bWj.afw();
+        this.bWk.hideAll();
+        W(getEditText());
         setVisibility(8);
     }
 
@@ -309,44 +309,44 @@ public class PbEditor extends LinearLayout {
     }
 
     public void setMoreFocusable(boolean z) {
-        this.bUr.setMoreFocusable(z);
+        this.bWj.setMoreFocusable(z);
     }
 
     public void setAudioFocusable(boolean z) {
-        this.bUr.setAudioFocusable(z);
+        this.bWj.setAudioFocusable(z);
     }
 
-    public void Yo() {
-        this.bUr.Yo();
+    public void YT() {
+        this.bWj.YT();
     }
 
-    public void Yp() {
-        this.bUr.Yp();
+    public void YU() {
+        this.bWj.YU();
     }
 
-    public void Fq() {
-        this.bUs.Fq();
+    public void FO() {
+        this.bWk.FO();
     }
 
     public VoiceData.VoiceModel getAudioData() {
-        return this.bUs.getAudioData();
+        return this.bWk.getAudioData();
     }
 
     public void setAudioData(VoiceData.VoiceModel voiceModel) {
-        this.bUs.setAudioData(voiceModel);
+        this.bWk.setAudioData(voiceModel);
     }
 
-    public void Fp() {
-        this.bUs.Fp();
+    public void FN() {
+        this.bWk.FN();
     }
 
     public void j(Bitmap bitmap) {
-        this.bUs.setImage(bitmap);
+        this.bWk.setImage(bitmap);
     }
 
-    public void aI(boolean z) {
-        this.bUc = z;
-        this.bUs.aI(z);
+    public void aK(boolean z) {
+        this.bVU = z;
+        this.bWk.aK(z);
         if (z) {
             setLocationViewVisibility(8);
         }
@@ -357,12 +357,12 @@ public class PbEditor extends LinearLayout {
         return true;
     }
 
-    public static int ic(String str) {
+    public static int ik(String str) {
         int i = 0;
         if (str != null && str.length() != 0) {
-            Matcher matcher = bUx.matcher(str);
+            Matcher matcher = bWp.matcher(str);
             while (matcher.find()) {
-                if (com.baidu.tbadk.editortool.ab.vc().dU(matcher.group())) {
+                if (com.baidu.tbadk.editortool.ab.vt().dU(matcher.group())) {
                     i++;
                 }
             }
@@ -371,38 +371,38 @@ public class PbEditor extends LinearLayout {
     }
 
     public void refresh() {
-        if (this.bUc) {
-            this.bUr.afQ();
+        if (this.bVU) {
+            this.bWj.agu();
             return;
         }
-        if (TextUtils.isEmpty(TbadkCoreApplication.m255getInst().getDefaultBubble()) && !this.bUc) {
-            if (!this.bUs.afs() && !this.bUs.aft() && !this.bUs.vk()) {
-                this.bUr.afQ();
+        if (TextUtils.isEmpty(TbadkCoreApplication.m255getInst().getDefaultBubble()) && !this.bVU) {
+            if (!this.bWk.afW() && !this.bWk.afX() && !this.bWk.vB()) {
+                this.bWj.agu();
             } else {
-                this.bUr.afP();
+                this.bWj.agt();
             }
         } else {
-            this.bUr.afP();
+            this.bWj.agt();
         }
-        this.bUs.refresh();
+        this.bWk.refresh();
     }
 
     public void setMaxTextCount(int i) {
-        this.bUp = i;
+        this.bWh = i;
     }
 
     public void setLocationViewVisibility(int i) {
         if (i == 0) {
-            if (this.bUq == null) {
-                afI();
+            if (this.bWi == null) {
+                agm();
             }
-            this.bUq.setVisibility(0);
+            this.bWi.setVisibility(0);
             return;
         }
-        if (this.bUq != null) {
-            removeView(this.bUq);
-            this.bUq = null;
+        if (this.bWi != null) {
+            removeView(this.bWi);
+            this.bWi = null;
         }
-        afJ();
+        agn();
     }
 }

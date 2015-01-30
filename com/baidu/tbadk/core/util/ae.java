@@ -34,25 +34,25 @@ import org.apache.http.message.BasicNameValuePair;
 @Deprecated
 /* loaded from: classes.dex */
 public class ae implements v {
-    private volatile boolean IA;
-    private final com.baidu.tbadk.core.util.httpNet.c Iq;
-    private int Iy;
-    private boolean Iz;
-    private HttpURLConnection kc;
+    private int II;
+    private boolean IJ;
+    private volatile boolean IK;
+    private final com.baidu.tbadk.core.util.httpNet.c Iz;
+    private HttpURLConnection kf;
     private Context mContext;
     private int mDataSize = 0;
-    private static String kN = "\r\n";
-    private static String kO = "--";
+    private static String kQ = "\r\n";
+    private static String kR = "--";
     private static String boundary = "--------7da3d81520810*";
-    private static int Iv = AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END;
+    private static int IF = AccessibilityEventCompat.TYPE_TOUCH_INTERACTION_END;
     private static Handler mHandler = null;
-    private static volatile String Iw = null;
-    private static volatile boolean Ix = false;
-    private static Pattern kg = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.172$", 8);
+    private static volatile String IG = null;
+    private static volatile boolean IH = false;
+    private static Pattern kj = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.172$", 8);
 
     public ae(com.baidu.tbadk.core.util.httpNet.c cVar) {
-        oV();
-        this.Iq = cVar;
+        oY();
+        this.Iz = cVar;
         this.mContext = TbadkCoreApplication.m255getInst().getApp();
     }
 
@@ -68,25 +68,25 @@ public class ae implements v {
         }
     }
 
-    private void oV() {
-        this.kc = null;
+    private void oY() {
+        this.kf = null;
         this.mContext = null;
-        this.Iy = 0;
-        this.IA = false;
-        this.Iz = false;
-        pd();
+        this.II = 0;
+        this.IK = false;
+        this.IJ = false;
+        pg();
     }
 
-    public static void pd() {
+    public static void pg() {
         synchronized (ae.class) {
-            if (!Ix) {
-                Ix = true;
-                pe();
+            if (!IH) {
+                IH = true;
+                ph();
             }
         }
     }
 
-    public static synchronized void pe() {
+    public static synchronized void ph() {
         synchronized (ae.class) {
             try {
                 Cursor query = TbadkCoreApplication.m255getInst().getApp().getContentResolver().query(Uri.parse("content://telephony/carriers/preferapn"), null, null, null, null);
@@ -94,37 +94,37 @@ public class ae implements v {
                     String string = query.getString(query.getColumnIndex("user"));
                     String string2 = query.getString(query.getColumnIndex("password"));
                     query.close();
-                    Iw = "Basic " + ba.base64Encode((String.valueOf(string) + ":" + string2).getBytes());
+                    IG = "Basic " + bf.base64Encode((String.valueOf(string) + ":" + string2).getBytes());
                 }
             } catch (Exception e) {
             }
         }
     }
 
-    public static void pf() {
+    public static void pi() {
         System.setProperty("http.keepAlive", "false");
         mHandler = new af();
     }
 
     public String getUrl() {
-        return this.Iq.pV().pY().mUrl;
+        return this.Iz.qg().qj().mUrl;
     }
 
     @Override // com.baidu.tbadk.core.util.v
-    public boolean ou() {
-        return this.IA;
+    public boolean ox() {
+        return this.IK;
     }
 
     @Override // com.baidu.tbadk.core.util.v
-    public void dL() {
-        this.IA = true;
+    public void dJ() {
+        this.IK = true;
         try {
-            if (this.kc != null) {
-                this.kc.disconnect();
+            if (this.kf != null) {
+                this.kf.disconnect();
                 try {
-                    int cC = al.cC(getUrl());
-                    if (cC > 0) {
-                        al.pl().o(cC, 1);
+                    int cA = al.cA(getUrl());
+                    if (cA > 0) {
+                        al.po().o(cA, 1);
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
@@ -135,16 +135,16 @@ public class ae implements v {
     }
 
     private HttpURLConnection a(URL url) {
-        String fp;
+        String fo;
         HttpURLConnection httpURLConnection = null;
-        this.Iz = false;
-        if (com.baidu.adp.lib.util.i.fg()) {
-            if (com.baidu.adp.lib.util.i.fh() && (fp = com.baidu.adp.lib.util.i.fp()) != null && fp.length() > 0) {
-                if (cA(fp)) {
-                    this.Iz = true;
+        this.IJ = false;
+        if (com.baidu.adp.lib.util.i.ff()) {
+            if (com.baidu.adp.lib.util.i.fg() && (fo = com.baidu.adp.lib.util.i.fo()) != null && fo.length() > 0) {
+                if (cy(fo)) {
+                    this.IJ = true;
                     StringBuilder sb = new StringBuilder(80);
                     sb.append("http://");
-                    sb.append(fp);
+                    sb.append(fo);
                     String file = url.getFile();
                     if (file != null && file.startsWith("?")) {
                         sb.append("/");
@@ -157,9 +157,9 @@ public class ae implements v {
                         httpURLConnection.setRequestProperty("client_user_token", TbadkCoreApplication.getCurrentAccount());
                     }
                 } else {
-                    httpURLConnection = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(fp, com.baidu.adp.lib.util.i.fq())));
-                    if (Iw != null) {
-                        httpURLConnection.setRequestProperty("Proxy-Authorization", Iw);
+                    httpURLConnection = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(fo, com.baidu.adp.lib.util.i.fp())));
+                    if (IG != null) {
+                        httpURLConnection.setRequestProperty("Proxy-Authorization", IG);
                     }
                     httpURLConnection.setRequestProperty("User-Agent", "bdtb for Android " + TbConfig.getVersion());
                     if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
@@ -170,21 +170,21 @@ public class ae implements v {
             if (httpURLConnection == null) {
                 httpURLConnection = (HttpURLConnection) url.openConnection();
             }
-            if (this.Iq != null) {
-                if (!TextUtils.isEmpty(this.Iq.pV().pY().Kf)) {
-                    httpURLConnection.setRequestProperty("sid", this.Iq.pV().pY().Kf);
+            if (this.Iz != null) {
+                if (!TextUtils.isEmpty(this.Iz.qg().qj().Ky)) {
+                    httpURLConnection.setRequestProperty("sid", this.Iz.qg().qj().Ky);
                 }
-                if (!TextUtils.isEmpty(this.Iq.pV().pY().mNetType)) {
-                    httpURLConnection.setRequestProperty("net", this.Iq.pV().pY().mNetType);
+                if (!TextUtils.isEmpty(this.Iz.qg().qj().mNetType)) {
+                    httpURLConnection.setRequestProperty("net", this.Iz.qg().qj().mNetType);
                 }
             }
-            com.baidu.tbadk.coreExtra.a.a.rr().g(httpURLConnection);
+            com.baidu.tbadk.coreExtra.a.a.rD().g(httpURLConnection);
         }
         return httpURLConnection;
     }
 
-    private boolean cA(String str) {
-        if (kg.matcher(str).find()) {
+    private boolean cy(String str) {
+        if (kj.matcher(str).find()) {
             return true;
         }
         return false;
@@ -206,7 +206,7 @@ public class ae implements v {
     /* JADX DEBUG: Multi-variable search result rejected for r9v3, resolved type: long */
     /* JADX DEBUG: Multi-variable search result rejected for r9v4, resolved type: long */
     /* JADX WARN: Code restructure failed: missing block: B:63:0x02a2, code lost:
-        if (r17.Iq.pV().mIsFromCDN != false) goto L46;
+        if (r17.Iz.qg().mIsFromCDN != false) goto L46;
      */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:180:0x062d A[Catch: all -> 0x07f9, TRY_LEAVE, TryCatch #13 {all -> 0x07f9, blocks: (B:43:0x01a9, B:45:0x01b9, B:46:0x01c0, B:58:0x0266, B:60:0x0288, B:64:0x02a4, B:65:0x02af, B:76:0x02dd, B:78:0x0346, B:80:0x0394, B:90:0x03c3, B:92:0x03d3, B:94:0x03da, B:114:0x0448, B:116:0x0463, B:142:0x04f9, B:144:0x0510, B:147:0x0517, B:153:0x0548, B:155:0x054e, B:157:0x0560, B:175:0x05aa, B:158:0x056b, B:160:0x0571, B:162:0x0575, B:191:0x065d, B:164:0x057c, B:192:0x0663, B:194:0x069d, B:195:0x06a1, B:197:0x06a6, B:199:0x06ae, B:200:0x06c1, B:213:0x0754, B:178:0x05b7, B:180:0x062d, B:48:0x01c2, B:50:0x0238, B:210:0x072d, B:150:0x0529, B:152:0x0543, B:62:0x0298), top: B:296:0x01a9 }] */
@@ -286,7 +286,7 @@ public class ae implements v {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public byte[] ow() {
+    public byte[] oz() {
         String str;
         int i;
         ?? r6;
@@ -301,47 +301,47 @@ public class ae implements v {
         StringBuilder sb;
         byte[] bArr = null;
         try {
-            int cC = al.cC(this.Iq.pV().pY().mUrl);
-            if (cC > 0) {
-                al.pl().bQ(cC);
+            int cA = al.cA(this.Iz.qg().qj().mUrl);
+            if (cA > 0) {
+                al.po().bV(cA);
             }
         } catch (Exception e4) {
             BdLog.e(e4.getMessage());
         }
         try {
-            if (this.Iq.pV().pY().Kv == null || this.Iq.pV().pY().Kv.size() <= 0 || this.Iq.pV().mIsFromCDN) {
-                str = this.Iq.pV().pY().mUrl;
+            if (this.Iz.qg().qj().KO == null || this.Iz.qg().qj().KO.size() <= 0 || this.Iz.qg().mIsFromCDN) {
+                str = this.Iz.qg().qj().mUrl;
             } else {
                 sb = new StringBuilder(30);
-                sb.append(this.Iq.pV().pY().mUrl);
-                if (this.Iq.pV().pY().mUrl.indexOf("?") < 0) {
+                sb.append(this.Iz.qg().qj().mUrl);
+                if (this.Iz.qg().qj().mUrl.indexOf("?") < 0) {
                     sb.append("?");
-                } else if (!this.Iq.pV().pY().mUrl.endsWith("?") && !this.Iq.pV().pY().mUrl.endsWith("&")) {
+                } else if (!this.Iz.qg().qj().mUrl.endsWith("?") && !this.Iz.qg().qj().mUrl.endsWith("&")) {
                     sb.append("&");
                 }
-                for (int i2 = 0; i2 < this.Iq.pV().pY().Kv.size(); i2++) {
+                for (int i2 = 0; i2 < this.Iz.qg().qj().KO.size(); i2++) {
                     if (i2 != 0) {
                         sb.append("&");
                     }
-                    sb.append(this.Iq.pV().pY().Kv.get(i2).getName());
+                    sb.append(this.Iz.qg().qj().KO.get(i2).getName());
                     sb.append("=");
-                    sb.append(ba.aE(this.Iq.pV().pY().Kv.get(i2).getValue()));
+                    sb.append(bf.aE(this.Iz.qg().qj().KO.get(i2).getValue()));
                 }
                 str = sb.toString();
             }
             URL url = new URL(str);
-            this.Iq.pX().kX.kl = str.length();
+            this.Iz.qi().la.kp = str.length();
             TbConfig.getDebugSwitch();
             i = 0;
             inputStream = sb;
             r6 = url;
         } catch (Exception e5) {
             BdLog.e(e5.getMessage());
-            this.Iq.pW().Kk = String.valueOf(String.valueOf(this.Iq.pW().Ki)) + e5.getClass() + e5.getMessage();
-            al.cD(this.Iq.pV().pY().mUrl);
+            this.Iz.qh().KD = String.valueOf(String.valueOf(this.Iz.qh().KB)) + e5.getClass() + e5.getMessage();
+            al.cB(this.Iz.qg().qj().mUrl);
         }
         while (true) {
-            if (!this.IA && i < 5) {
+            if (!this.IK && i < 5) {
                 inputStream = null;
                 inputStream = null;
                 inputStream = null;
@@ -359,18 +359,18 @@ public class ae implements v {
                 inputStream = null;
                 try {
                     try {
-                        this.kc = a((URL) r6);
+                        this.kf = a((URL) r6);
                     } catch (Throwable th) {
                         try {
-                            al.cD(this.Iq.pV().pY().mUrl);
+                            al.cB(this.Iz.qg().qj().mUrl);
                             if (0 != 0) {
                                 inputStream.close();
                             }
                         } catch (Exception e6) {
                         }
                         try {
-                            if (this.kc != null) {
-                                this.kc.disconnect();
+                            if (this.kf != null) {
+                                this.kf.disconnect();
                             }
                         } catch (Exception e7) {
                         }
@@ -378,23 +378,23 @@ public class ae implements v {
                     }
                 } catch (SocketException e8) {
                     e3 = e8;
-                    this.Iq.pW().Kk = String.valueOf(String.valueOf(this.Iq.pW().Ki)) + "|retryCount:" + i + "|" + e3.getClass() + "|" + e3.getMessage();
-                    this.Iq.pW().Ki = -12;
-                    ao.IT.incrementAndGet();
-                    com.baidu.tbadk.core.util.httpNet.e pW = this.Iq.pW();
+                    this.Iz.qh().KD = String.valueOf(String.valueOf(this.Iz.qh().KB)) + "|retryCount:" + i + "|" + e3.getClass() + "|" + e3.getMessage();
+                    this.Iz.qh().KB = -12;
+                    ao.Jd.incrementAndGet();
+                    com.baidu.tbadk.core.util.httpNet.e qh = this.Iz.qh();
                     Resources resources = this.mContext.getResources();
                     r7 = com.baidu.tieba.z.neterror;
-                    pW.mErrorString = resources.getString(r7);
+                    qh.mErrorString = resources.getString(r7);
                     if (i == 0) {
                     }
                     try {
-                        al.cD(this.Iq.pV().pY().mUrl);
+                        al.cB(this.Iz.qg().qj().mUrl);
                         if (inputStream != null) {
                         }
                     } catch (Exception e9) {
                     }
                     try {
-                        if (this.kc == null) {
+                        if (this.kf == null) {
                         }
                     } catch (Exception e10) {
                     }
@@ -403,23 +403,23 @@ public class ae implements v {
                     r6 = r6;
                 } catch (SocketTimeoutException e11) {
                     e2 = e11;
-                    ao.IT.incrementAndGet();
-                    this.Iq.pW().Kk = String.valueOf(String.valueOf(this.Iq.pW().Ki)) + "|retryCount:" + i + "|" + e2.getClass() + "|" + e2.getMessage();
-                    this.Iq.pW().Ki = -13;
-                    com.baidu.tbadk.core.util.httpNet.e pW2 = this.Iq.pW();
+                    ao.Jd.incrementAndGet();
+                    this.Iz.qh().KD = String.valueOf(String.valueOf(this.Iz.qh().KB)) + "|retryCount:" + i + "|" + e2.getClass() + "|" + e2.getMessage();
+                    this.Iz.qh().KB = -13;
+                    com.baidu.tbadk.core.util.httpNet.e qh2 = this.Iz.qh();
                     Resources resources2 = this.mContext.getResources();
                     r7 = com.baidu.tieba.z.neterror;
-                    pW2.mErrorString = resources2.getString(r7);
+                    qh2.mErrorString = resources2.getString(r7);
                     if (i == 0) {
                     }
                     try {
-                        al.cD(this.Iq.pV().pY().mUrl);
+                        al.cB(this.Iz.qg().qj().mUrl);
                         if (inputStream != null) {
                         }
                     } catch (Exception e12) {
                     }
                     try {
-                        if (this.kc == null) {
+                        if (this.kf == null) {
                         }
                     } catch (Exception e13) {
                     }
@@ -429,108 +429,108 @@ public class ae implements v {
                 } catch (Exception e14) {
                     e = e14;
                     r7 = "|retryCount:";
-                    this.Iq.pW().Kk = String.valueOf(String.valueOf(this.Iq.pW().Ki)) + "|retryCount:" + i + "|" + e.getClass() + "|" + e.getMessage();
-                    this.Iq.pW().Ki = -10;
-                    com.baidu.tbadk.core.util.httpNet.e pW3 = this.Iq.pW();
+                    this.Iz.qh().KD = String.valueOf(String.valueOf(this.Iz.qh().KB)) + "|retryCount:" + i + "|" + e.getClass() + "|" + e.getMessage();
+                    this.Iz.qh().KB = -10;
+                    com.baidu.tbadk.core.util.httpNet.e qh3 = this.Iz.qh();
                     Resources resources3 = this.mContext.getResources();
                     r6 = com.baidu.tieba.z.neterror;
-                    pW3.mErrorString = resources3.getString(r6);
+                    qh3.mErrorString = resources3.getString(r6);
                     BdLog.e(e.getMessage());
-                    TiebaStatic.net(this.Iq);
+                    TiebaStatic.net(this.Iz);
                     try {
-                        al.cD(this.Iq.pV().pY().mUrl);
+                        al.cB(this.Iz.qg().qj().mUrl);
                         if (inputStream != null) {
                         }
                     } catch (Exception e15) {
                     }
                     try {
-                        if (this.kc != null) {
+                        if (this.kf != null) {
                         }
                     } catch (Exception e16) {
                     }
                     i = 0;
-                    this.Iy = 0;
+                    this.II = 0;
                     inputStream = inputStream;
                     r6 = r6;
                     r7 = r7;
                     j = j;
                     return bArr;
                 }
-                if (this.kc == null) {
+                if (this.kf == null) {
                     throw new SocketException("network not available.");
                     break;
                 }
-                this.kc.setConnectTimeout(5000);
-                this.kc.setReadTimeout(30000);
-                if (!this.Iq.pV().pY().Kx || this.Iq.pV().pY().mIsBDImage) {
+                this.kf.setConnectTimeout(5000);
+                this.kf.setReadTimeout(30000);
+                if (!this.Iz.qg().qj().KQ || this.Iz.qg().qj().mIsBDImage) {
                     r7 = r7;
                 }
-                this.kc.setRequestProperty("Accept-Encoding", "gzip");
+                this.kf.setRequestProperty("Accept-Encoding", "gzip");
                 r7 = "gzip";
-                if (this.IA) {
+                if (this.IK) {
                     try {
-                        al.cD(this.Iq.pV().pY().mUrl);
+                        al.cB(this.Iz.qg().qj().mUrl);
                         if (0 != 0) {
                             inputStream.close();
                         }
                     } catch (Exception e17) {
                     }
                     try {
-                        if (this.kc != null) {
-                            this.kc.disconnect();
+                        if (this.kf != null) {
+                            this.kf.disconnect();
                         }
                     } catch (Exception e18) {
                     }
                 } else {
                     r7 = new Date().getTime();
-                    this.Iq.pX().kX.kr = new Date().getTime() - r7;
-                    this.kc.connect();
-                    com.baidu.adp.lib.network.http.d dVar = this.Iq.pX().kX;
-                    j = (new Date().getTime() - r7) - this.Iq.pX().kX.kr;
-                    dVar.ko = j;
-                    this.Iq.pW().Ki = this.kc.getResponseCode();
-                    if (this.Iq.pW().Ki != 200) {
-                        this.Iq.pW().Kk = String.valueOf(String.valueOf(this.Iq.pW().Ki)) + "|retryCount:" + i;
-                        ao.IT.incrementAndGet();
-                        com.baidu.tbadk.core.util.httpNet.e pW4 = this.Iq.pW();
+                    this.Iz.qi().la.ku = new Date().getTime() - r7;
+                    this.kf.connect();
+                    com.baidu.adp.lib.network.http.d dVar = this.Iz.qi().la;
+                    j = (new Date().getTime() - r7) - this.Iz.qi().la.ku;
+                    dVar.kr = j;
+                    this.Iz.qh().KB = this.kf.getResponseCode();
+                    if (this.Iz.qh().KB != 200) {
+                        this.Iz.qh().KD = String.valueOf(String.valueOf(this.Iz.qh().KB)) + "|retryCount:" + i;
+                        ao.Jd.incrementAndGet();
+                        com.baidu.tbadk.core.util.httpNet.e qh4 = this.Iz.qh();
                         Resources resources4 = this.mContext.getResources();
                         r7 = com.baidu.tieba.z.neterror;
-                        pW4.mErrorString = resources4.getString(r7);
+                        qh4.mErrorString = resources4.getString(r7);
                         if (i == 0) {
-                            TiebaStatic.net(this.Iq);
+                            TiebaStatic.net(this.Iz);
                         }
                         try {
-                            al.cD(this.Iq.pV().pY().mUrl);
+                            al.cB(this.Iz.qg().qj().mUrl);
                             if (0 != 0) {
                                 inputStream.close();
                             }
                         } catch (Exception e19) {
                         }
                         try {
-                            if (this.kc != null) {
-                                this.kc.disconnect();
+                            if (this.kf != null) {
+                                this.kf.disconnect();
                             }
                         } catch (Exception e20) {
                         }
-                    } else if (!this.kc.getContentType().contains("text/vnd.wap.wml")) {
-                        j = this.kc.getContentEncoding();
-                        inputStream = this.kc.getInputStream();
-                        if (TbadkCoreApplication.m255getInst().isMainProcess(true) && (headerField = this.kc.getHeaderField("Content-Length")) != null) {
+                    } else if (!this.kf.getContentType().contains("text/vnd.wap.wml")) {
+                        j = this.kf.getContentEncoding();
+                        inputStream = this.kf.getInputStream();
+                        if (TbadkCoreApplication.m255getInst().isMainProcess(true) && (headerField = this.kf.getHeaderField("Content-Length")) != null) {
                             try {
                                 int parseInt = Integer.parseInt(headerField);
-                                if (parseInt > Iv) {
-                                    al.cD(this.Iq.pV().pY().mUrl);
+                                if (parseInt > IF) {
+                                    al.cB(this.Iz.qg().qj().mUrl);
                                     try {
-                                        al.cD(this.Iq.pV().pY().mUrl);
+                                        al.cB(this.Iz.qg().qj().mUrl);
                                         if (inputStream != null) {
                                             inputStream.close();
                                         }
                                     } catch (Exception e21) {
                                     }
                                     try {
-                                        e = this.kc;
+                                        e = this.kf;
                                         if (e != 0) {
-                                            e = this.kc;
+                                            e = this.kf;
                                             e.disconnect();
                                         }
                                     } catch (Exception e22) {
@@ -546,19 +546,19 @@ public class ae implements v {
                                     int i3 = parseInt * 10;
                                     if (i3 > 0) {
                                         BdLog.isDebugMode();
-                                        if (!com.baidu.tbadk.imageManager.e.vL().dq(i3)) {
-                                            al.cD(this.Iq.pV().pY().mUrl);
+                                        if (!com.baidu.tbadk.imageManager.e.we().dx(i3)) {
+                                            al.cB(this.Iz.qg().qj().mUrl);
                                             try {
-                                                al.cD(this.Iq.pV().pY().mUrl);
+                                                al.cB(this.Iz.qg().qj().mUrl);
                                                 if (inputStream != null) {
                                                     inputStream.close();
                                                 }
                                             } catch (Exception e23) {
                                             }
                                             try {
-                                                e = this.kc;
+                                                e = this.kf;
                                                 if (e != 0) {
-                                                    e = this.kc;
+                                                    e = this.kf;
                                                     e.disconnect();
                                                 }
                                             } catch (Exception e24) {
@@ -580,12 +580,12 @@ public class ae implements v {
                         byte[] bArr2 = new byte[1024];
                         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
                         int i4 = 0;
-                        String headerField2 = this.kc.getHeaderField("imgsrc");
+                        String headerField2 = this.kf.getHeaderField("imgsrc");
                         boolean z = false;
                         if (headerField2 != null && headerField2.length() > 0) {
                             z = true;
                         }
-                        if (this.Iq.pV().pY().mIsBDImage || z) {
+                        if (this.Iz.qg().qj().mIsBDImage || z) {
                             byte[] bArr3 = new byte[23];
                             int read2 = inputStream.read(bArr3, 0, 23);
                             if (!new String(bArr3, 0, bArr3.length).equalsIgnoreCase("app:tiebaclient;type:0;")) {
@@ -593,36 +593,36 @@ public class ae implements v {
                                 i4 = 0 + read2;
                             }
                         }
-                        if (this.kc != null) {
-                            if ("image/gif".equalsIgnoreCase(this.kc.getHeaderField("Src-Content-Type"))) {
-                                this.Iq.pW().gg = true;
+                        if (this.kf != null) {
+                            if ("image/gif".equalsIgnoreCase(this.kf.getHeaderField("Src-Content-Type"))) {
+                                this.Iz.qh().gi = true;
                             } else {
-                                this.Iq.pW().gg = false;
+                                this.Iz.qh().gi = false;
                             }
                         }
-                        while (!this.IA && i4 < Iv && (read = inputStream.read(bArr2)) != -1) {
+                        while (!this.IK && i4 < IF && (read = inputStream.read(bArr2)) != -1) {
                             byteArrayOutputStream.write(bArr2, 0, read);
                             i4 += read;
                         }
-                        if (this.IA) {
+                        if (this.IK) {
                             try {
-                                al.cD(this.Iq.pV().pY().mUrl);
+                                al.cB(this.Iz.qg().qj().mUrl);
                                 if (inputStream != null) {
                                     inputStream.close();
                                 }
                             } catch (Exception e25) {
                             }
                             try {
-                                if (this.kc != null) {
-                                    this.kc.disconnect();
+                                if (this.kf != null) {
+                                    this.kf.disconnect();
                                 }
                             } catch (Exception e26) {
                             }
                         } else {
                             this.mDataSize = i4;
                             r7 = new Date().getTime() - r7;
-                            this.Iq.pX().kX.kp = (r7 - this.Iq.pX().kX.ko) - this.Iq.pX().kX.kr;
-                            if (i4 < Iv) {
+                            this.Iz.qi().la.ks = (r7 - this.Iz.qi().la.kr) - this.Iz.qi().la.ku;
+                            if (i4 < IF) {
                                 byte[] byteArray = byteArrayOutputStream.toByteArray();
                                 try {
                                     byteArrayOutputStream.close();
@@ -633,28 +633,28 @@ public class ae implements v {
                                         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
                                         j = 1024;
                                         ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
-                                        com.baidu.tbadk.util.d.b(byteArrayInputStream, byteArrayOutputStream2);
+                                        com.baidu.tbadk.util.g.b(byteArrayInputStream, byteArrayOutputStream2);
                                         bArr = byteArrayOutputStream2.toByteArray();
                                     }
                                 } catch (SocketException e27) {
                                     bArr = byteArray;
                                     e3 = e27;
-                                    this.Iq.pW().Kk = String.valueOf(String.valueOf(this.Iq.pW().Ki)) + "|retryCount:" + i + "|" + e3.getClass() + "|" + e3.getMessage();
-                                    this.Iq.pW().Ki = -12;
-                                    ao.IT.incrementAndGet();
-                                    com.baidu.tbadk.core.util.httpNet.e pW5 = this.Iq.pW();
+                                    this.Iz.qh().KD = String.valueOf(String.valueOf(this.Iz.qh().KB)) + "|retryCount:" + i + "|" + e3.getClass() + "|" + e3.getMessage();
+                                    this.Iz.qh().KB = -12;
+                                    ao.Jd.incrementAndGet();
+                                    com.baidu.tbadk.core.util.httpNet.e qh5 = this.Iz.qh();
                                     Resources resources5 = this.mContext.getResources();
                                     r7 = com.baidu.tieba.z.neterror;
-                                    pW5.mErrorString = resources5.getString(r7);
+                                    qh5.mErrorString = resources5.getString(r7);
                                     if (i == 0) {
-                                        TiebaStatic.net(this.Iq);
+                                        TiebaStatic.net(this.Iz);
                                     }
-                                    al.cD(this.Iq.pV().pY().mUrl);
+                                    al.cB(this.Iz.qg().qj().mUrl);
                                     if (inputStream != null) {
                                         inputStream.close();
                                     }
-                                    if (this.kc == null) {
-                                        this.kc.disconnect();
+                                    if (this.kf == null) {
+                                        this.kf.disconnect();
                                     }
                                     i++;
                                     inputStream = inputStream;
@@ -662,22 +662,22 @@ public class ae implements v {
                                 } catch (SocketTimeoutException e28) {
                                     bArr = byteArray;
                                     e2 = e28;
-                                    ao.IT.incrementAndGet();
-                                    this.Iq.pW().Kk = String.valueOf(String.valueOf(this.Iq.pW().Ki)) + "|retryCount:" + i + "|" + e2.getClass() + "|" + e2.getMessage();
-                                    this.Iq.pW().Ki = -13;
-                                    com.baidu.tbadk.core.util.httpNet.e pW22 = this.Iq.pW();
+                                    ao.Jd.incrementAndGet();
+                                    this.Iz.qh().KD = String.valueOf(String.valueOf(this.Iz.qh().KB)) + "|retryCount:" + i + "|" + e2.getClass() + "|" + e2.getMessage();
+                                    this.Iz.qh().KB = -13;
+                                    com.baidu.tbadk.core.util.httpNet.e qh22 = this.Iz.qh();
                                     Resources resources22 = this.mContext.getResources();
                                     r7 = com.baidu.tieba.z.neterror;
-                                    pW22.mErrorString = resources22.getString(r7);
+                                    qh22.mErrorString = resources22.getString(r7);
                                     if (i == 0) {
-                                        TiebaStatic.net(this.Iq);
+                                        TiebaStatic.net(this.Iz);
                                     }
-                                    al.cD(this.Iq.pV().pY().mUrl);
+                                    al.cB(this.Iz.qg().qj().mUrl);
                                     if (inputStream != null) {
                                         inputStream.close();
                                     }
-                                    if (this.kc == null) {
-                                        this.kc.disconnect();
+                                    if (this.kf == null) {
+                                        this.kf.disconnect();
                                     }
                                     i++;
                                     inputStream = inputStream;
@@ -686,23 +686,23 @@ public class ae implements v {
                                     bArr = byteArray;
                                     e = e29;
                                     r7 = "|retryCount:";
-                                    this.Iq.pW().Kk = String.valueOf(String.valueOf(this.Iq.pW().Ki)) + "|retryCount:" + i + "|" + e.getClass() + "|" + e.getMessage();
-                                    this.Iq.pW().Ki = -10;
-                                    com.baidu.tbadk.core.util.httpNet.e pW32 = this.Iq.pW();
+                                    this.Iz.qh().KD = String.valueOf(String.valueOf(this.Iz.qh().KB)) + "|retryCount:" + i + "|" + e.getClass() + "|" + e.getMessage();
+                                    this.Iz.qh().KB = -10;
+                                    com.baidu.tbadk.core.util.httpNet.e qh32 = this.Iz.qh();
                                     Resources resources32 = this.mContext.getResources();
                                     r6 = com.baidu.tieba.z.neterror;
-                                    pW32.mErrorString = resources32.getString(r6);
+                                    qh32.mErrorString = resources32.getString(r6);
                                     BdLog.e(e.getMessage());
-                                    TiebaStatic.net(this.Iq);
-                                    al.cD(this.Iq.pV().pY().mUrl);
+                                    TiebaStatic.net(this.Iz);
+                                    al.cB(this.Iz.qg().qj().mUrl);
                                     if (inputStream != null) {
                                         inputStream.close();
                                     }
-                                    if (this.kc != null) {
-                                        this.kc.disconnect();
+                                    if (this.kf != null) {
+                                        this.kf.disconnect();
                                     }
                                     i = 0;
-                                    this.Iy = 0;
+                                    this.II = 0;
                                     inputStream = inputStream;
                                     r6 = r6;
                                     r7 = r7;
@@ -710,66 +710,66 @@ public class ae implements v {
                                     return bArr;
                                 }
                             } else {
-                                this.Iq.pW().Ki = -11;
-                                com.baidu.tbadk.core.util.httpNet.e pW6 = this.Iq.pW();
+                                this.Iz.qh().KB = -11;
+                                com.baidu.tbadk.core.util.httpNet.e qh6 = this.Iz.qh();
                                 Resources resources6 = this.mContext.getResources();
                                 int i5 = com.baidu.tieba.z.data_too_big;
-                                pW6.mErrorString = resources6.getString(i5);
+                                qh6.mErrorString = resources6.getString(i5);
                                 j = i5;
                             }
-                            this.Iq.pX().kX.retry = i + 1;
-                            this.Iq.pX().kX.kq = r7;
+                            this.Iz.qi().la.retry = i + 1;
+                            this.Iz.qi().la.kt = r7;
                             ap apVar = new ap();
-                            apVar.mMode = getMode(com.baidu.adp.lib.util.i.fl());
+                            apVar.mMode = getMode(com.baidu.adp.lib.util.i.fk());
                             apVar.mSize = this.mDataSize;
                             apVar.mTime = r7;
-                            apVar.IV = i + 1;
-                            apVar.IU = 2;
+                            apVar.Jf = i + 1;
+                            apVar.Je = 2;
                             ao.a(apVar);
-                            TiebaStatic.net(this.Iq);
+                            TiebaStatic.net(this.Iz);
                             try {
-                                al.cD(this.Iq.pV().pY().mUrl);
+                                al.cB(this.Iz.qg().qj().mUrl);
                                 if (inputStream != null) {
                                     inputStream.close();
                                 }
                             } catch (Exception e30) {
                             }
                             try {
-                                if (this.kc != null) {
-                                    this.kc.disconnect();
+                                if (this.kf != null) {
+                                    this.kf.disconnect();
                                 }
                             } catch (Exception e31) {
                             }
                         }
-                    } else if (this.Iy < 1) {
-                        this.kc.disconnect();
-                        this.Iy++;
-                        this.Iq.pW().Ki = 0;
+                    } else if (this.II < 1) {
+                        this.kf.disconnect();
+                        this.II++;
+                        this.Iz.qh().KB = 0;
                         i--;
                         try {
-                            al.cD(this.Iq.pV().pY().mUrl);
+                            al.cB(this.Iz.qg().qj().mUrl);
                             if (0 != 0) {
                                 inputStream.close();
                             }
                         } catch (Exception e32) {
                         }
                         try {
-                            if (this.kc != null) {
-                                this.kc.disconnect();
+                            if (this.kf != null) {
+                                this.kf.disconnect();
                             }
                         } catch (Exception e33) {
                         }
                     } else {
                         try {
-                            al.cD(this.Iq.pV().pY().mUrl);
+                            al.cB(this.Iz.qg().qj().mUrl);
                             if (0 != 0) {
                                 inputStream.close();
                             }
                         } catch (Exception e34) {
                         }
                         try {
-                            if (this.kc != null) {
-                                this.kc.disconnect();
+                            if (this.kf != null) {
+                                this.kf.disconnect();
                             }
                         } catch (Exception e35) {
                         }
@@ -780,7 +780,7 @@ public class ae implements v {
                 }
             }
             i = 0;
-            this.Iy = 0;
+            this.II = 0;
             inputStream = inputStream;
             r6 = r6;
             r7 = r7;
@@ -792,8 +792,8 @@ public class ae implements v {
     private String getCharset() {
         int indexOf;
         String str = null;
-        if (this.kc != null) {
-            str = this.kc.getContentType();
+        if (this.kf != null) {
+            str = this.kf.getContentType();
         }
         if (str == null || (indexOf = str.indexOf("charset")) == -1) {
             return "utf-8";
@@ -805,41 +805,41 @@ public class ae implements v {
         return str.substring(indexOf + 8, indexOf2);
     }
 
-    public void cB(String str) {
-        this.Iq.pW().Kj = -1;
+    public void cz(String str) {
+        this.Iz.qh().KC = -1;
         if (str != null) {
             try {
                 ErrorData errorData = new ErrorData();
                 errorData.parserJson(str);
-                this.Iq.pW().Kj = errorData.getError_code();
-                if (this.Iq.pW().Kj == -1) {
-                    this.Iq.pW().mErrorString = this.mContext.getString(com.baidu.tieba.z.error_unkown_try_again);
-                } else if (this.Iq.pW().Kj != 0) {
-                    this.Iq.pW().mErrorString = errorData.getError_msg();
+                this.Iz.qh().KC = errorData.getError_code();
+                if (this.Iz.qh().KC == -1) {
+                    this.Iz.qh().mErrorString = this.mContext.getString(com.baidu.tieba.z.error_unkown_try_again);
+                } else if (this.Iz.qh().KC != 0) {
+                    this.Iz.qh().mErrorString = errorData.getError_msg();
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                this.Iq.pW().mErrorString = this.mContext.getString(com.baidu.tieba.z.error_unkown_try_again);
+                this.Iz.qh().mErrorString = this.mContext.getString(com.baidu.tieba.z.error_unkown_try_again);
             }
         }
     }
 
     @Override // com.baidu.tbadk.core.util.v
-    public String ox() {
+    public String oA() {
         String str;
         Exception e;
-        byte[] ow = ow();
-        if (this.Iq.pW().Ki != 200) {
+        byte[] oz = oz();
+        if (this.Iz.qh().KB != 200) {
             return null;
         }
         try {
-            str = new String(ow, 0, ow.length, getCharset());
+            str = new String(oz, 0, oz.length, getCharset());
         } catch (Exception e2) {
             str = null;
             e = e2;
         }
         try {
-            cB(str);
+            cz(str);
             return str;
         } catch (Exception e3) {
             e = e3;
@@ -850,7 +850,7 @@ public class ae implements v {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [986=12, 987=12, 988=12, 993=12, 994=12, 996=4] */
     /* JADX WARN: Code restructure failed: missing block: B:116:0x039a, code lost:
-        com.baidu.tbadk.core.util.al.cD(r14.Iq.pV().pY().mUrl);
+        com.baidu.tbadk.core.util.al.cB(r14.Iz.qg().qj().mUrl);
      */
     /* JADX WARN: Code restructure failed: missing block: B:117:0x03a9, code lost:
         if (0 == 0) goto L79;
@@ -864,7 +864,7 @@ public class ae implements v {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String ov() {
+    public String oy() {
         InputStream inputStream;
         Throwable th;
         InputStream inputStream2;
@@ -877,9 +877,9 @@ public class ae implements v {
         StringBuilder sb = new StringBuilder(1024);
         StringBuilder sb2 = new StringBuilder(1024);
         try {
-            int cC = al.cC(this.Iq.pV().pY().mUrl);
-            if (cC > 0) {
-                al.pl().bQ(cC);
+            int cA = al.cA(this.Iz.qg().qj().mUrl);
+            if (cA > 0) {
+                al.po().bV(cA);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -887,10 +887,10 @@ public class ae implements v {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (this.Iq.pV().pY().Kv == null || i2 >= this.Iq.pV().pY().Kv.size()) {
+            if (this.Iz.qg().qj().KO == null || i2 >= this.Iz.qg().qj().KO.size()) {
                 break;
             }
-            BasicNameValuePair basicNameValuePair = this.Iq.pV().pY().Kv.get(i2);
+            BasicNameValuePair basicNameValuePair = this.Iz.qg().qj().KO.get(i2);
             if (basicNameValuePair != null) {
                 String name = basicNameValuePair.getName();
                 String value = basicNameValuePair.getValue();
@@ -898,14 +898,14 @@ public class ae implements v {
                     sb.append("&");
                 }
                 sb.append(String.valueOf(name) + "=");
-                sb.append(ba.aE(value));
+                sb.append(bf.aE(value));
                 sb2.append(name);
                 sb2.append("=");
                 sb2.append(value);
             }
             i = i2 + 1;
         }
-        if (this.Iq.pV().pY().mIsBaiduServer) {
+        if (this.Iz.qg().qj().mIsBaiduServer) {
             sb2.append("tiebaclient!!!");
             String md5 = com.baidu.adp.lib.util.z.toMd5(sb2.toString());
             if (sb.length() > 0) {
@@ -915,30 +915,30 @@ public class ae implements v {
             sb.append(md5);
         }
         String sb3 = sb.toString();
-        this.Iq.pX().kX.kl = sb3.length();
+        this.Iz.qi().la.kp = sb3.length();
         TbConfig.getDebugSwitch();
         int i3 = 0;
         boolean z = true;
         String str = null;
         while (true) {
-            if (this.IA || !z || i3 >= 5) {
+            if (this.IK || !z || i3 >= 5) {
                 break;
             }
             InputStream inputStream4 = null;
             try {
                 try {
-                    url = new URL(this.Iq.pV().pY().mUrl);
-                    this.kc = a(url);
+                    url = new URL(this.Iz.qg().qj().mUrl);
+                    this.kf = a(url);
                 } catch (Throwable th2) {
                     th = th2;
                     try {
-                        al.cD(this.Iq.pV().pY().mUrl);
+                        al.cB(this.Iz.qg().qj().mUrl);
                         if (inputStream4 != null) {
                         }
                     } catch (Exception e2) {
                     }
                     try {
-                        if (this.kc != null) {
+                        if (this.kf != null) {
                         }
                     } catch (Exception e3) {
                     }
@@ -954,160 +954,160 @@ public class ae implements v {
                 inputStream = null;
                 th = th3;
             }
-            if (this.kc == null) {
-                this.Iq.pW().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
+            if (this.kf == null) {
+                this.Iz.qh().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
                 try {
-                    al.cD(this.Iq.pV().pY().mUrl);
+                    al.cB(this.Iz.qg().qj().mUrl);
                     if (0 != 0) {
                         inputStream4.close();
                     }
                 } catch (Exception e6) {
                 }
                 try {
-                    if (this.kc != null) {
-                        this.kc.disconnect();
+                    if (this.kf != null) {
+                        this.kf.disconnect();
                     }
                 } catch (Exception e7) {
                 }
             } else {
-                this.kc.setConnectTimeout(5000);
-                this.kc.setReadTimeout(15000);
-                this.kc.setDoOutput(true);
-                this.kc.setDoInput(true);
-                this.kc.setRequestMethod("POST");
-                this.kc.setRequestProperty("Charset", "UTF-8");
-                this.kc.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-                if (this.Iq.pV().pY().Kx) {
-                    this.kc.setRequestProperty("Accept-Encoding", "gzip");
+                this.kf.setConnectTimeout(5000);
+                this.kf.setReadTimeout(15000);
+                this.kf.setDoOutput(true);
+                this.kf.setDoInput(true);
+                this.kf.setRequestMethod("POST");
+                this.kf.setRequestProperty("Charset", "UTF-8");
+                this.kf.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                if (this.Iz.qg().qj().KQ) {
+                    this.kf.setRequestProperty("Accept-Encoding", "gzip");
                 }
-                if (this.IA) {
+                if (this.IK) {
                     try {
-                        al.cD(this.Iq.pV().pY().mUrl);
+                        al.cB(this.Iz.qg().qj().mUrl);
                         if (0 != 0) {
                             inputStream4.close();
                         }
                     } catch (Exception e8) {
                     }
                     try {
-                        if (this.kc != null) {
-                            this.kc.disconnect();
+                        if (this.kf != null) {
+                            this.kf.disconnect();
                         }
                     } catch (Exception e9) {
                     }
                 } else {
                     long time = new Date().getTime();
                     b(url);
-                    this.Iq.pX().kX.kr = new Date().getTime() - time;
-                    this.kc.connect();
-                    this.Iq.pX().kX.ko = (new Date().getTime() - time) - this.Iq.pX().kX.kr;
-                    DataOutputStream dataOutputStream = new DataOutputStream(this.kc.getOutputStream());
-                    if (!this.IA) {
+                    this.Iz.qi().la.ku = new Date().getTime() - time;
+                    this.kf.connect();
+                    this.Iz.qi().la.kr = (new Date().getTime() - time) - this.Iz.qi().la.ku;
+                    DataOutputStream dataOutputStream = new DataOutputStream(this.kf.getOutputStream());
+                    if (!this.IK) {
                         dataOutputStream.writeBytes(sb3);
                     }
                     dataOutputStream.flush();
                     dataOutputStream.close();
-                    if (this.kc != null) {
-                        if ("image/gif".equalsIgnoreCase(this.kc.getHeaderField("Src-Content-Type"))) {
-                            this.Iq.pW().gg = true;
+                    if (this.kf != null) {
+                        if ("image/gif".equalsIgnoreCase(this.kf.getHeaderField("Src-Content-Type"))) {
+                            this.Iz.qh().gi = true;
                         } else {
-                            this.Iq.pW().gg = false;
+                            this.Iz.qh().gi = false;
                         }
                     }
-                    this.Iq.pW().Ki = this.kc.getResponseCode();
-                    if (this.Iq.pW().Ki != 200) {
-                        if (this.Iq.pW().Ki != 202 && this.Iq.pW().Ki != 201 && this.Iq.pW().Ki != 205 && this.Iq.pW().Ki != 304 && this.Iq.pW().Ki != 305 && this.Iq.pW().Ki != 408) {
-                            if (this.Iq.pW().Ki == 502 || this.Iq.pW().Ki == 503 || this.Iq.pW().Ki == 504) {
+                    this.Iz.qh().KB = this.kf.getResponseCode();
+                    if (this.Iz.qh().KB != 200) {
+                        if (this.Iz.qh().KB != 202 && this.Iz.qh().KB != 201 && this.Iz.qh().KB != 205 && this.Iz.qh().KB != 304 && this.Iz.qh().KB != 305 && this.Iz.qh().KB != 408) {
+                            if (this.Iz.qh().KB == 502 || this.Iz.qh().KB == 503 || this.Iz.qh().KB == 504) {
                                 break;
                             }
                         } else {
-                            this.Iq.pW().Kk = String.valueOf(String.valueOf(this.Iq.pW().Ki)) + "|retryCount:" + i3;
-                            ao.IT.incrementAndGet();
+                            this.Iz.qh().KD = String.valueOf(String.valueOf(this.Iz.qh().KB)) + "|retryCount:" + i3;
+                            ao.Jd.incrementAndGet();
                             z = true;
-                            this.Iq.pW().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
+                            this.Iz.qh().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
                             if (i3 == 0) {
-                                TiebaStatic.net(this.Iq);
+                                TiebaStatic.net(this.Iz);
                             }
                             try {
-                                al.cD(this.Iq.pV().pY().mUrl);
+                                al.cB(this.Iz.qg().qj().mUrl);
                                 if (0 != 0) {
                                     inputStream4.close();
                                 }
                             } catch (Exception e10) {
                             }
                             try {
-                                if (this.kc != null) {
-                                    this.kc.disconnect();
+                                if (this.kf != null) {
+                                    this.kf.disconnect();
                                 }
                             } catch (Exception e11) {
                             }
                             i3++;
                         }
                     }
-                    if (!this.Iq.pV().pY().mIsBaiduServer || !this.kc.getContentType().contains("text/vnd.wap.wml")) {
-                        String contentEncoding = this.kc.getContentEncoding();
-                        InputStream inputStream5 = this.kc.getInputStream();
+                    if (!this.Iz.qg().qj().mIsBaiduServer || !this.kf.getContentType().contains("text/vnd.wap.wml")) {
+                        String contentEncoding = this.kf.getContentEncoding();
+                        InputStream inputStream5 = this.kf.getInputStream();
                         try {
                             byte[] bArr2 = new byte[1024];
                             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
                             int i4 = 0;
-                            while (!this.IA && (read = inputStream5.read(bArr2)) != -1) {
+                            while (!this.IK && (read = inputStream5.read(bArr2)) != -1) {
                                 byteArrayOutputStream.write(bArr2, 0, read);
                                 i4 += read;
                             }
                             inputStream5.close();
-                            this.kc.disconnect();
-                            if (this.IA) {
+                            this.kf.disconnect();
+                            if (this.IK) {
                                 try {
-                                    al.cD(this.Iq.pV().pY().mUrl);
+                                    al.cB(this.Iz.qg().qj().mUrl);
                                     if (inputStream5 != null) {
                                         inputStream5.close();
                                     }
                                 } catch (Exception e12) {
                                 }
                                 try {
-                                    if (this.kc != null) {
-                                        this.kc.disconnect();
+                                    if (this.kf != null) {
+                                        this.kf.disconnect();
                                     }
                                 } catch (Exception e13) {
                                 }
                             } else {
                                 this.mDataSize = i4;
                                 long time2 = new Date().getTime() - time;
-                                this.Iq.pX().kX.kp = (time2 - this.Iq.pX().kX.ko) - this.Iq.pX().kX.kr;
+                                this.Iz.qi().la.ks = (time2 - this.Iz.qi().la.kr) - this.Iz.qi().la.ku;
                                 byte[] byteArray = byteArrayOutputStream.toByteArray();
                                 if (contentEncoding == null || !contentEncoding.contains("gzip")) {
                                     bArr = byteArray;
                                 } else {
                                     ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
                                     ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
-                                    com.baidu.tbadk.util.d.b(byteArrayInputStream, byteArrayOutputStream2);
+                                    com.baidu.tbadk.util.g.b(byteArrayInputStream, byteArrayOutputStream2);
                                     bArr = byteArrayOutputStream2.toByteArray();
                                 }
                                 String str2 = new String(bArr, 0, bArr.length, getCharset());
                                 try {
-                                    if (this.Iq.pV().pY().mIsBaiduServer && this.Iq.pV().pY().Ky) {
-                                        cB(str2);
+                                    if (this.Iz.qg().qj().mIsBaiduServer && this.Iz.qg().qj().KR) {
+                                        cz(str2);
                                     }
-                                    this.Iq.pX().kX.retry = i3 + 1;
-                                    this.Iq.pX().kX.kq = time2;
+                                    this.Iz.qi().la.retry = i3 + 1;
+                                    this.Iz.qi().la.kt = time2;
                                     ap apVar = new ap();
-                                    apVar.mMode = getMode(com.baidu.adp.lib.util.i.fl());
+                                    apVar.mMode = getMode(com.baidu.adp.lib.util.i.fk());
                                     apVar.mSize = this.mDataSize;
                                     apVar.mTime = time2;
-                                    apVar.IV = i3 + 1;
-                                    apVar.IU = 1;
+                                    apVar.Jf = i3 + 1;
+                                    apVar.Je = 1;
                                     ao.a(apVar);
-                                    TiebaStatic.net(this.Iq);
+                                    TiebaStatic.net(this.Iz);
                                     try {
-                                        al.cD(this.Iq.pV().pY().mUrl);
+                                        al.cB(this.Iz.qg().qj().mUrl);
                                         if (inputStream5 != null) {
                                             inputStream5.close();
                                         }
                                     } catch (Exception e14) {
                                     }
                                     try {
-                                        if (this.kc != null) {
-                                            this.kc.disconnect();
+                                        if (this.kf != null) {
+                                            this.kf.disconnect();
                                             str = str2;
                                         } else {
                                             str = str2;
@@ -1119,24 +1119,24 @@ public class ae implements v {
                                     inputStream3 = inputStream5;
                                     socketException = e16;
                                     str = str2;
-                                    ao.IT.incrementAndGet();
-                                    this.Iq.pW().Ki = -12;
+                                    ao.Jd.incrementAndGet();
+                                    this.Iz.qh().KB = -12;
                                     z = true;
-                                    this.Iq.pW().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
+                                    this.Iz.qh().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
                                     BdLog.e(socketException.getMessage());
                                     if (i3 == 0) {
-                                        TiebaStatic.net(this.Iq);
+                                        TiebaStatic.net(this.Iz);
                                     }
                                     try {
-                                        al.cD(this.Iq.pV().pY().mUrl);
+                                        al.cB(this.Iz.qg().qj().mUrl);
                                         if (inputStream3 != null) {
                                             inputStream3.close();
                                         }
                                     } catch (Exception e17) {
                                     }
                                     try {
-                                        if (this.kc != null) {
-                                            this.kc.disconnect();
+                                        if (this.kf != null) {
+                                            this.kf.disconnect();
                                         }
                                     } catch (Exception e18) {
                                     }
@@ -1146,24 +1146,24 @@ public class ae implements v {
                                     socketTimeoutException = e19;
                                     str = str2;
                                     try {
-                                        ao.IT.incrementAndGet();
-                                        this.Iq.pW().Ki = -13;
+                                        ao.Jd.incrementAndGet();
+                                        this.Iz.qh().KB = -13;
                                         z = true;
-                                        this.Iq.pW().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
+                                        this.Iz.qh().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
                                         BdLog.e(socketTimeoutException.getMessage());
                                         if (i3 == 0) {
-                                            TiebaStatic.net(this.Iq);
+                                            TiebaStatic.net(this.Iz);
                                         }
                                         try {
-                                            al.cD(this.Iq.pV().pY().mUrl);
+                                            al.cB(this.Iz.qg().qj().mUrl);
                                             if (inputStream2 != null) {
                                                 inputStream2.close();
                                             }
                                         } catch (Exception e20) {
                                         }
                                         try {
-                                            if (this.kc != null) {
-                                                this.kc.disconnect();
+                                            if (this.kf != null) {
+                                                this.kf.disconnect();
                                             }
                                         } catch (Exception e21) {
                                         }
@@ -1171,12 +1171,12 @@ public class ae implements v {
                                     } catch (Throwable th4) {
                                         th = th4;
                                         inputStream4 = inputStream2;
-                                        al.cD(this.Iq.pV().pY().mUrl);
+                                        al.cB(this.Iz.qg().qj().mUrl);
                                         if (inputStream4 != null) {
                                             inputStream4.close();
                                         }
-                                        if (this.kc != null) {
-                                            this.kc.disconnect();
+                                        if (this.kf != null) {
+                                            this.kf.disconnect();
                                         }
                                         throw th;
                                     }
@@ -1184,21 +1184,21 @@ public class ae implements v {
                                     inputStream = inputStream5;
                                     th = th5;
                                     str = str2;
-                                    this.Iq.pW().Ki = -10;
+                                    this.Iz.qh().KB = -10;
                                     z = false;
-                                    this.Iq.pW().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
+                                    this.Iz.qh().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
                                     BdLog.e(th.getMessage());
-                                    TiebaStatic.net(this.Iq);
+                                    TiebaStatic.net(this.Iz);
                                     try {
-                                        al.cD(this.Iq.pV().pY().mUrl);
+                                        al.cB(this.Iz.qg().qj().mUrl);
                                         if (inputStream != null) {
                                             inputStream.close();
                                         }
                                     } catch (Exception e22) {
                                     }
                                     try {
-                                        if (this.kc != null) {
-                                            this.kc.disconnect();
+                                        if (this.kf != null) {
+                                            this.kf.disconnect();
                                         }
                                     } catch (Exception e23) {
                                     }
@@ -1215,36 +1215,36 @@ public class ae implements v {
                             inputStream = inputStream5;
                             th = th6;
                         }
-                    } else if (this.Iy < 1) {
-                        this.kc.disconnect();
-                        this.Iy++;
-                        this.Iq.pW().Ki = 0;
+                    } else if (this.II < 1) {
+                        this.kf.disconnect();
+                        this.II++;
+                        this.Iz.qh().KB = 0;
                         i3--;
                         try {
-                            al.cD(this.Iq.pV().pY().mUrl);
+                            al.cB(this.Iz.qg().qj().mUrl);
                             if (0 != 0) {
                                 inputStream4.close();
                             }
                         } catch (Exception e26) {
                         }
                         try {
-                            if (this.kc != null) {
-                                this.kc.disconnect();
+                            if (this.kf != null) {
+                                this.kf.disconnect();
                             }
                         } catch (Exception e27) {
                         }
                         i3++;
                     } else {
                         try {
-                            al.cD(this.Iq.pV().pY().mUrl);
+                            al.cB(this.Iz.qg().qj().mUrl);
                             if (0 != 0) {
                                 inputStream4.close();
                             }
                         } catch (Exception e28) {
                         }
                         try {
-                            if (this.kc != null) {
-                                this.kc.disconnect();
+                            if (this.kf != null) {
+                                this.kf.disconnect();
                             }
                         } catch (Exception e29) {
                         }
@@ -1252,11 +1252,11 @@ public class ae implements v {
                 }
             }
         }
-        this.Iy = 0;
+        this.II = 0;
         return str;
         try {
-            if (this.kc != null) {
-                this.kc.disconnect();
+            if (this.kf != null) {
+                this.kf.disconnect();
             }
         } catch (Exception e30) {
         }
@@ -1290,7 +1290,7 @@ public class ae implements v {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String oy() {
+    public String oB() {
         DataOutputStream dataOutputStream;
         Throwable th;
         Exception e;
@@ -1305,13 +1305,13 @@ public class ae implements v {
         boolean z2 = true;
         int i2 = 0;
         while (true) {
-            if (this.IA || !z2 || i2 >= 5) {
+            if (this.IK || !z2 || i2 >= 5) {
                 break;
             }
             InputStream inputStream2 = null;
             DataOutputStream dataOutputStream3 = null;
             try {
-                this.kc = a(new URL(this.Iq.pV().pY().mUrl));
+                this.kf = a(new URL(this.Iz.qg().qj().mUrl));
             } catch (SocketException e2) {
                 dataOutputStream2 = null;
                 i = i2;
@@ -1330,8 +1330,8 @@ public class ae implements v {
                 dataOutputStream = null;
                 th = th2;
             }
-            if (this.kc == null) {
-                this.Iq.pW().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
+            if (this.kf == null) {
+                this.Iz.qh().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
                 if (0 != 0) {
                     try {
                         inputStream2.close();
@@ -1339,8 +1339,8 @@ public class ae implements v {
                     }
                 }
                 try {
-                    if (this.kc != null) {
-                        this.kc.disconnect();
+                    if (this.kf != null) {
+                        this.kf.disconnect();
                     }
                 } catch (Exception e6) {
                 }
@@ -1354,17 +1354,17 @@ public class ae implements v {
                     mHandler.removeMessages(0, this);
                 }
             } else {
-                this.kc.setConnectTimeout(5000);
-                this.kc.setReadTimeout(15000);
-                this.kc.setDoOutput(true);
-                this.kc.setDoInput(true);
-                this.kc.setRequestMethod("POST");
-                this.kc.setRequestProperty("Charset", "UTF-8");
-                this.kc.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
-                if (this.Iq.pV().pY().Kx) {
-                    this.kc.setRequestProperty("Accept-Encoding", "gzip");
+                this.kf.setConnectTimeout(5000);
+                this.kf.setReadTimeout(15000);
+                this.kf.setDoOutput(true);
+                this.kf.setDoInput(true);
+                this.kf.setRequestMethod("POST");
+                this.kf.setRequestProperty("Charset", "UTF-8");
+                this.kf.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
+                if (this.Iz.qg().qj().KQ) {
+                    this.kf.setRequestProperty("Accept-Encoding", "gzip");
                 }
-                if (this.IA) {
+                if (this.IK) {
                     if (0 != 0) {
                         try {
                             inputStream2.close();
@@ -1372,8 +1372,8 @@ public class ae implements v {
                         }
                     }
                     try {
-                        if (this.kc != null) {
-                            this.kc.disconnect();
+                        if (this.kf != null) {
+                            this.kf.disconnect();
                         }
                     } catch (Exception e9) {
                     }
@@ -1388,21 +1388,21 @@ public class ae implements v {
                     }
                 } else {
                     long time = new Date().getTime();
-                    this.kc.connect();
-                    dataOutputStream = new DataOutputStream(this.kc.getOutputStream());
-                    for (int i3 = 0; this.Iq.pV().pY().Kv != null && i3 < this.Iq.pV().pY().Kv.size() && !this.IA; i3++) {
+                    this.kf.connect();
+                    dataOutputStream = new DataOutputStream(this.kf.getOutputStream());
+                    for (int i3 = 0; this.Iz.qg().qj().KO != null && i3 < this.Iz.qg().qj().KO.size() && !this.IK; i3++) {
                         try {
                             try {
-                                BasicNameValuePair basicNameValuePair = this.Iq.pV().pY().Kv.get(i3);
+                                BasicNameValuePair basicNameValuePair = this.Iz.qg().qj().KO.get(i3);
                                 if (basicNameValuePair != null) {
                                     String name = basicNameValuePair.getName();
                                     String value = basicNameValuePair.getValue();
-                                    dataOutputStream.writeBytes(String.valueOf(kO) + boundary + kN);
+                                    dataOutputStream.writeBytes(String.valueOf(kR) + boundary + kQ);
                                     byte[] bytes = value.getBytes("UTF-8");
-                                    dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"" + kN);
-                                    dataOutputStream.writeBytes(kN);
+                                    dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"" + kQ);
+                                    dataOutputStream.writeBytes(kQ);
                                     dataOutputStream.write(bytes);
-                                    dataOutputStream.writeBytes(kN);
+                                    dataOutputStream.writeBytes(kQ);
                                 }
                             } catch (Throwable th3) {
                                 th = th3;
@@ -1421,37 +1421,37 @@ public class ae implements v {
                             str = str2;
                         }
                     }
-                    if (!this.IA && this.Iq.pV().pY().Kw != null) {
-                        for (Map.Entry<String, byte[]> entry : this.Iq.pV().pY().Kw.entrySet()) {
+                    if (!this.IK && this.Iz.qg().qj().KP != null) {
+                        for (Map.Entry<String, byte[]> entry : this.Iz.qg().qj().KP.entrySet()) {
                             String key = entry.getKey();
                             byte[] value2 = entry.getValue();
-                            if (this.IA) {
+                            if (this.IK) {
                                 break;
                             } else if (value2 != null) {
-                                dataOutputStream.writeBytes(String.valueOf(kO) + boundary + kN);
-                                dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + key + "\"; filename=\"file\"" + kN);
-                                dataOutputStream.writeBytes(kN);
+                                dataOutputStream.writeBytes(String.valueOf(kR) + boundary + kQ);
+                                dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + key + "\"; filename=\"file\"" + kQ);
+                                dataOutputStream.writeBytes(kQ);
                                 dataOutputStream.write(value2);
-                                dataOutputStream.writeBytes(kN);
+                                dataOutputStream.writeBytes(kQ);
                             }
                         }
                     }
-                    dataOutputStream.writeBytes(String.valueOf(kO) + boundary + kO + kN);
+                    dataOutputStream.writeBytes(String.valueOf(kR) + boundary + kR + kQ);
                     dataOutputStream.flush();
                     dataOutputStream.close();
                     if (mHandler != null) {
                         mHandler.sendMessageDelayed(mHandler.obtainMessage(0, this), 45000L);
                     }
-                    this.Iq.pW().Ki = this.kc.getResponseCode();
+                    this.Iz.qh().KB = this.kf.getResponseCode();
                     if (mHandler != null) {
                         mHandler.removeMessages(0, this);
                     }
-                    if (this.Iq.pW().Ki != 200) {
-                        this.Iq.pW().Kk = String.valueOf(String.valueOf(this.Iq.pW().Ki)) + "|retryCount:" + i2;
-                        ao.IT.incrementAndGet();
-                        this.Iq.pW().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
+                    if (this.Iz.qh().KB != 200) {
+                        this.Iz.qh().KD = String.valueOf(String.valueOf(this.Iz.qh().KB)) + "|retryCount:" + i2;
+                        ao.Jd.incrementAndGet();
+                        this.Iz.qh().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
                         if (i2 == 0) {
-                            TiebaStatic.net(this.Iq);
+                            TiebaStatic.net(this.Iz);
                         }
                         if (0 != 0) {
                             try {
@@ -1460,8 +1460,8 @@ public class ae implements v {
                             }
                         }
                         try {
-                            if (this.kc != null) {
-                                this.kc.disconnect();
+                            if (this.kf != null) {
+                                this.kf.disconnect();
                             }
                         } catch (Exception e15) {
                         }
@@ -1481,17 +1481,17 @@ public class ae implements v {
                             i = i2;
                             str = str2;
                         }
-                    } else if (!this.kc.getContentType().contains("text/vnd.wap.wml")) {
-                        String contentEncoding = this.kc.getContentEncoding();
-                        InputStream inputStream3 = this.kc.getInputStream();
+                    } else if (!this.kf.getContentType().contains("text/vnd.wap.wml")) {
+                        String contentEncoding = this.kf.getContentEncoding();
+                        InputStream inputStream3 = this.kf.getInputStream();
                         try {
                             try {
                                 byte[] bArr2 = new byte[1024];
                                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
-                                while (!this.IA && (read = inputStream3.read(bArr2)) != -1) {
+                                while (!this.IK && (read = inputStream3.read(bArr2)) != -1) {
                                     byteArrayOutputStream.write(bArr2, 0, read);
                                 }
-                                if (this.IA) {
+                                if (this.IK) {
                                     if (inputStream3 != null) {
                                         try {
                                             inputStream3.close();
@@ -1499,8 +1499,8 @@ public class ae implements v {
                                         }
                                     }
                                     try {
-                                        if (this.kc != null) {
-                                            this.kc.disconnect();
+                                        if (this.kf != null) {
+                                            this.kf.disconnect();
                                         }
                                     } catch (Exception e18) {
                                     }
@@ -1515,7 +1515,7 @@ public class ae implements v {
                                     }
                                 } else {
                                     inputStream3.close();
-                                    this.kc.disconnect();
+                                    this.kf.disconnect();
                                     long time2 = new Date().getTime() - time;
                                     byte[] byteArray = byteArrayOutputStream.toByteArray();
                                     if (contentEncoding == null || !contentEncoding.contains("gzip")) {
@@ -1523,13 +1523,13 @@ public class ae implements v {
                                     } else {
                                         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray);
                                         ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream(1024);
-                                        com.baidu.tbadk.util.d.b(byteArrayInputStream, byteArrayOutputStream2);
+                                        com.baidu.tbadk.util.g.b(byteArrayInputStream, byteArrayOutputStream2);
                                         bArr = byteArrayOutputStream2.toByteArray();
                                     }
                                     String str3 = new String(bArr, 0, bArr.length, getCharset());
                                     try {
-                                        cB(str3);
-                                        TiebaStatic.net(this.Iq);
+                                        cz(str3);
+                                        TiebaStatic.net(this.Iz);
                                         if (inputStream3 != null) {
                                             try {
                                                 inputStream3.close();
@@ -1537,8 +1537,8 @@ public class ae implements v {
                                             }
                                         }
                                         try {
-                                            if (this.kc != null) {
-                                                this.kc.disconnect();
+                                            if (this.kf != null) {
+                                                this.kf.disconnect();
                                             }
                                         } catch (Exception e21) {
                                         }
@@ -1561,13 +1561,13 @@ public class ae implements v {
                                         str = str3;
                                         i = i4;
                                         z = true;
-                                        this.Iq.pW().Ki = -12;
-                                        this.Iq.pW().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
+                                        this.Iz.qh().KB = -12;
+                                        this.Iz.qh().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
                                         if (i == 0) {
                                         }
                                         if (inputStream != null) {
                                         }
-                                        if (this.kc != null) {
+                                        if (this.kf != null) {
                                         }
                                         if (dataOutputStream2 != null) {
                                         }
@@ -1581,14 +1581,14 @@ public class ae implements v {
                                         int i5 = i2;
                                         str = str3;
                                         i = i5;
-                                        this.Iq.pW().Ki = -13;
+                                        this.Iz.qh().KB = -13;
                                         z = true;
-                                        this.Iq.pW().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
+                                        this.Iz.qh().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
                                         if (i == 0) {
                                         }
                                         if (inputStream2 != null) {
                                         }
-                                        if (this.kc != null) {
+                                        if (this.kf != null) {
                                         }
                                         if (dataOutputStream != null) {
                                         }
@@ -1603,14 +1603,14 @@ public class ae implements v {
                                         int i6 = i2;
                                         str = str3;
                                         i = i6;
-                                        this.Iq.pW().Ki = -10;
+                                        this.Iz.qh().KB = -10;
                                         z = false;
-                                        this.Iq.pW().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
+                                        this.Iz.qh().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
                                         BdLog.e(e.getMessage());
-                                        TiebaStatic.net(this.Iq);
+                                        TiebaStatic.net(this.Iz);
                                         if (inputStream2 != null) {
                                         }
-                                        if (this.kc != null) {
+                                        if (this.kf != null) {
                                         }
                                         if (dataOutputStream != null) {
                                         }
@@ -1626,7 +1626,7 @@ public class ae implements v {
                                 inputStream2 = inputStream3;
                                 if (inputStream2 != null) {
                                 }
-                                if (this.kc != null) {
+                                if (this.kf != null) {
                                 }
                                 if (dataOutputStream != null) {
                                 }
@@ -1649,12 +1649,12 @@ public class ae implements v {
                             i = i2;
                             str = str2;
                         }
-                    } else if (this.Iy < 1) {
-                        this.kc.disconnect();
-                        this.Iy++;
+                    } else if (this.II < 1) {
+                        this.kf.disconnect();
+                        this.II++;
                         i = i2 - 1;
                         try {
-                            this.Iq.pW().Ki = 0;
+                            this.Iz.qh().KB = 0;
                             if (0 != 0) {
                                 try {
                                     inputStream2.close();
@@ -1662,8 +1662,8 @@ public class ae implements v {
                                 }
                             }
                             try {
-                                if (this.kc != null) {
-                                    this.kc.disconnect();
+                                if (this.kf != null) {
+                                    this.kf.disconnect();
                                 }
                             } catch (Exception e30) {
                             }
@@ -1687,10 +1687,10 @@ public class ae implements v {
                             inputStream = null;
                             z = true;
                             try {
-                                this.Iq.pW().Ki = -12;
-                                this.Iq.pW().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
+                                this.Iz.qh().KB = -12;
+                                this.Iz.qh().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
                                 if (i == 0) {
-                                    TiebaStatic.net(this.Iq);
+                                    TiebaStatic.net(this.Iz);
                                 }
                                 if (inputStream != null) {
                                     try {
@@ -1699,8 +1699,8 @@ public class ae implements v {
                                     }
                                 }
                                 try {
-                                    if (this.kc != null) {
-                                        this.kc.disconnect();
+                                    if (this.kf != null) {
+                                        this.kf.disconnect();
                                     }
                                 } catch (Exception e34) {
                                 }
@@ -1727,8 +1727,8 @@ public class ae implements v {
                                     }
                                 }
                                 try {
-                                    if (this.kc != null) {
-                                        this.kc.disconnect();
+                                    if (this.kf != null) {
+                                        this.kf.disconnect();
                                     }
                                 } catch (Exception e37) {
                                 }
@@ -1745,11 +1745,11 @@ public class ae implements v {
                             }
                         } catch (SocketTimeoutException e39) {
                             str = str2;
-                            this.Iq.pW().Ki = -13;
+                            this.Iz.qh().KB = -13;
                             z = true;
-                            this.Iq.pW().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
+                            this.Iz.qh().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
                             if (i == 0) {
-                                TiebaStatic.net(this.Iq);
+                                TiebaStatic.net(this.Iz);
                             }
                             if (inputStream2 != null) {
                                 try {
@@ -1758,8 +1758,8 @@ public class ae implements v {
                                 }
                             }
                             try {
-                                if (this.kc != null) {
-                                    this.kc.disconnect();
+                                if (this.kf != null) {
+                                    this.kf.disconnect();
                                 }
                             } catch (Exception e41) {
                             }
@@ -1778,11 +1778,11 @@ public class ae implements v {
                         } catch (Exception e43) {
                             e = e43;
                             str = str2;
-                            this.Iq.pW().Ki = -10;
+                            this.Iz.qh().KB = -10;
                             z = false;
-                            this.Iq.pW().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
+                            this.Iz.qh().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
                             BdLog.e(e.getMessage());
-                            TiebaStatic.net(this.Iq);
+                            TiebaStatic.net(this.Iz);
                             if (inputStream2 != null) {
                                 try {
                                     inputStream2.close();
@@ -1790,8 +1790,8 @@ public class ae implements v {
                                 }
                             }
                             try {
-                                if (this.kc != null) {
-                                    this.kc.disconnect();
+                                if (this.kf != null) {
+                                    this.kf.disconnect();
                                 }
                             } catch (Exception e45) {
                             }
@@ -1816,8 +1816,8 @@ public class ae implements v {
                             }
                         }
                         try {
-                            if (this.kc != null) {
-                                this.kc.disconnect();
+                            if (this.kf != null) {
+                                this.kf.disconnect();
                             }
                         } catch (Exception e48) {
                         }
@@ -1837,12 +1837,12 @@ public class ae implements v {
                 }
             }
         }
-        this.Iy = 0;
+        this.II = 0;
         return str2;
     }
 
-    public boolean pg() {
-        return this.Iq.pW().Ki == 200 || this.Iq.pW().Ki == 206;
+    public boolean pj() {
+        return this.Iz.qh().KB == 200 || this.Iz.qh().KB == 206;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1360=8, 1362=8, 1363=8, 1368=8, 1369=8, 1374=8, 1375=8] */
@@ -1863,15 +1863,15 @@ public class ae implements v {
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
-                this.kc = a(new URL(this.Iq.pV().pY().mUrl));
-                if (this.kc == null) {
+                this.kf = a(new URL(this.Iz.qg().qj().mUrl));
+                if (this.kf == null) {
                     throw new SocketException();
                 }
-                this.kc.setConnectTimeout(5000);
-                this.kc.setReadTimeout(30000);
-                this.kc.setInstanceFollowRedirects(false);
-                if (this.IA) {
-                    this.Iy = 0;
+                this.kf.setConnectTimeout(5000);
+                this.kf.setReadTimeout(30000);
+                this.kf.setInstanceFollowRedirects(false);
+                if (this.IK) {
+                    this.II = 0;
                     if (0 != 0) {
                         try {
                             inputStream2.close();
@@ -1879,8 +1879,8 @@ public class ae implements v {
                         }
                     }
                     try {
-                        if (this.kc != null) {
-                            this.kc.disconnect();
+                        if (this.kf != null) {
+                            this.kf.disconnect();
                         }
                     } catch (Exception e3) {
                     }
@@ -1892,24 +1892,24 @@ public class ae implements v {
                     }
                     return false;
                 }
-                File file = z ? new File(str) : s.cm(str);
+                File file = z ? new File(str) : s.ck(str);
                 if (file == null) {
                     throw new FileNotFoundException();
                 }
                 long length = file.length();
                 fileOutputStream = new FileOutputStream(file, true);
                 try {
-                    if (this.Iz) {
-                        this.kc.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-" + String.valueOf(200000 + length));
+                    if (this.IJ) {
+                        this.kf.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-" + String.valueOf(200000 + length));
                     } else {
-                        this.kc.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
+                        this.kf.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
                     }
-                    this.kc.connect();
-                    this.Iq.pW().Ki = this.kc.getResponseCode();
-                    if (!pg()) {
-                        this.Iq.pW().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
-                        TiebaStatic.net(this.Iq);
-                        this.Iy = 0;
+                    this.kf.connect();
+                    this.Iz.qh().KB = this.kf.getResponseCode();
+                    if (!pj()) {
+                        this.Iz.qh().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
+                        TiebaStatic.net(this.Iz);
+                        this.II = 0;
                         if (0 != 0) {
                             try {
                                 inputStream2.close();
@@ -1917,8 +1917,8 @@ public class ae implements v {
                             }
                         }
                         try {
-                            if (this.kc != null) {
-                                this.kc.disconnect();
+                            if (this.kf != null) {
+                                this.kf.disconnect();
                             }
                         } catch (Exception e6) {
                         }
@@ -1929,12 +1929,12 @@ public class ae implements v {
                             }
                         }
                         return false;
-                    } else if (this.kc.getContentType().contains("text/vnd.wap.wml") && this.Iy < 1) {
-                        this.kc.disconnect();
-                        this.Iy++;
-                        this.Iq.pW().Ki = 0;
+                    } else if (this.kf.getContentType().contains("text/vnd.wap.wml") && this.II < 1) {
+                        this.kf.disconnect();
+                        this.II++;
+                        this.Iz.qh().KB = 0;
                         boolean a = a(str, handler, i, i2, i3, z);
-                        this.Iy = 0;
+                        this.II = 0;
                         if (0 != 0) {
                             try {
                                 inputStream2.close();
@@ -1942,8 +1942,8 @@ public class ae implements v {
                             }
                         }
                         try {
-                            if (this.kc != null) {
-                                this.kc.disconnect();
+                            if (this.kf != null) {
+                                this.kf.disconnect();
                             }
                         } catch (Exception e9) {
                         }
@@ -1957,15 +1957,15 @@ public class ae implements v {
                         }
                         return a;
                     } else {
-                        this.Iy = 0;
+                        this.II = 0;
                         int i4 = 0;
-                        String headerField2 = this.kc.getHeaderField("Content-Range");
+                        String headerField2 = this.kf.getHeaderField("Content-Range");
                         if (headerField2 != null && (indexOf = headerField2.indexOf("/")) != -1) {
                             i4 = com.baidu.adp.lib.g.c.toInt(headerField2.substring(indexOf + 1), 0);
                         }
-                        int i5 = (i4 == 0 && this.Iq.pW().Ki == 200 && (headerField = this.kc.getHeaderField("Content-Length")) != null) ? com.baidu.adp.lib.g.c.toInt(headerField, 0) : i4;
+                        int i5 = (i4 == 0 && this.Iz.qh().KB == 200 && (headerField = this.kf.getHeaderField("Content-Length")) != null) ? com.baidu.adp.lib.g.c.toInt(headerField, 0) : i4;
                         if (length >= i5) {
-                            this.Iy = 0;
+                            this.II = 0;
                             if (0 != 0) {
                                 try {
                                     inputStream2.close();
@@ -1973,8 +1973,8 @@ public class ae implements v {
                                 }
                             }
                             try {
-                                if (this.kc != null) {
-                                    this.kc.disconnect();
+                                if (this.kf != null) {
+                                    this.kf.disconnect();
                                 }
                             } catch (Exception e12) {
                             }
@@ -1986,7 +1986,7 @@ public class ae implements v {
                             }
                             return true;
                         }
-                        InputStream inputStream3 = this.kc.getInputStream();
+                        InputStream inputStream3 = this.kf.getInputStream();
                         try {
                             try {
                                 byte[] bArr = new byte[1024];
@@ -1996,7 +1996,7 @@ public class ae implements v {
                                 if (handler != null && length > 0) {
                                     handler.sendMessage(handler.obtainMessage(i, (int) length, i5));
                                 }
-                                while (!this.IA) {
+                                while (!this.IK) {
                                     int read = inputStream3.read(bArr);
                                     if (read != -1) {
                                         try {
@@ -2015,7 +2015,7 @@ public class ae implements v {
                                 try {
                                     fileOutputStream.flush();
                                     boolean z2 = ((long) i6) + length >= ((long) i5);
-                                    this.Iy = 0;
+                                    this.II = 0;
                                     if (inputStream3 != null) {
                                         try {
                                             inputStream3.close();
@@ -2023,8 +2023,8 @@ public class ae implements v {
                                         }
                                     }
                                     try {
-                                        if (this.kc != null) {
-                                            this.kc.disconnect();
+                                        if (this.kf != null) {
+                                            this.kf.disconnect();
                                         }
                                     } catch (Exception e16) {
                                     }
@@ -2043,7 +2043,7 @@ public class ae implements v {
                             } catch (Throwable th) {
                                 th = th;
                                 inputStream2 = inputStream3;
-                                this.Iy = 0;
+                                this.II = 0;
                                 if (inputStream2 != null) {
                                     try {
                                         inputStream2.close();
@@ -2051,8 +2051,8 @@ public class ae implements v {
                                     }
                                 }
                                 try {
-                                    if (this.kc != null) {
-                                        this.kc.disconnect();
+                                    if (this.kf != null) {
+                                        this.kf.disconnect();
                                     }
                                 } catch (Exception e20) {
                                 }
@@ -2068,10 +2068,10 @@ public class ae implements v {
                             inputStream = inputStream3;
                             fileOutputStream2 = fileOutputStream;
                             try {
-                                TiebaStatic.net(this.Iq);
-                                this.Iq.pW().Ki = -100;
-                                this.Iq.pW().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.FileWriteError);
-                                this.Iy = 0;
+                                TiebaStatic.net(this.Iz);
+                                this.Iz.qh().KB = -100;
+                                this.Iz.qh().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.FileWriteError);
+                                this.II = 0;
                                 if (inputStream != null) {
                                     try {
                                         inputStream.close();
@@ -2079,8 +2079,8 @@ public class ae implements v {
                                     }
                                 }
                                 try {
-                                    if (this.kc != null) {
-                                        this.kc.disconnect();
+                                    if (this.kf != null) {
+                                        this.kf.disconnect();
                                     }
                                 } catch (Exception e24) {
                                 }
@@ -2097,10 +2097,10 @@ public class ae implements v {
                                 th = th2;
                                 inputStream2 = inputStream;
                                 fileOutputStream = fileOutputStream2;
-                                this.Iy = 0;
+                                this.II = 0;
                                 if (inputStream2 != null) {
                                 }
-                                if (this.kc != null) {
+                                if (this.kf != null) {
                                 }
                                 if (fileOutputStream != null) {
                                 }
@@ -2109,11 +2109,11 @@ public class ae implements v {
                         } catch (Exception e26) {
                             inputStream2 = inputStream3;
                             e = e26;
-                            TiebaStatic.net(this.Iq);
-                            this.Iq.pW().Ki = -10;
-                            this.Iq.pW().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
+                            TiebaStatic.net(this.Iz);
+                            this.Iz.qh().KB = -10;
+                            this.Iz.qh().mErrorString = this.mContext.getResources().getString(com.baidu.tieba.z.neterror);
                             BdLog.e(e.getMessage());
-                            this.Iy = 0;
+                            this.II = 0;
                             if (inputStream2 != null) {
                                 try {
                                     inputStream2.close();
@@ -2121,8 +2121,8 @@ public class ae implements v {
                                 }
                             }
                             try {
-                                if (this.kc != null) {
-                                    this.kc.disconnect();
+                                if (this.kf != null) {
+                                    this.kf.disconnect();
                                 }
                             } catch (Exception e28) {
                             }
@@ -2158,14 +2158,14 @@ public class ae implements v {
     }
 
     @Override // com.baidu.tbadk.core.util.v
-    public ArrayList<BasicNameValuePair> ot() {
-        return this.Iq.pV().pY().Kv;
+    public ArrayList<BasicNameValuePair> ow() {
+        return this.Iz.qg().qj().KO;
     }
 
     @Override // com.baidu.tbadk.core.util.v
-    public void q(ArrayList<BasicNameValuePair> arrayList) {
-        if (this.Iq.pV().pY().Kv != null) {
-            this.Iq.pV().pY().Kv.clear();
+    public void r(ArrayList<BasicNameValuePair> arrayList) {
+        if (this.Iz.qg().qj().KO != null) {
+            this.Iz.qg().qj().KO.clear();
         }
         int i = 0;
         while (true) {
@@ -2186,28 +2186,28 @@ public class ae implements v {
 
     @Override // com.baidu.tbadk.core.util.v
     public void g(String str, byte[] bArr) {
-        if (this.Iq.pV().pY().Kw == null) {
-            this.Iq.pV().pY().Kw = new HashMap<>();
+        if (this.Iz.qg().qj().KP == null) {
+            this.Iz.qg().qj().KP = new HashMap<>();
         }
-        this.Iq.pV().pY().Kw.put(str, bArr);
+        this.Iz.qg().qj().KP.put(str, bArr);
     }
 
     @Override // com.baidu.tbadk.core.util.v
     public void a(BasicNameValuePair basicNameValuePair) {
         if (basicNameValuePair != null && basicNameValuePair.getName() != null) {
-            if (this.Iq.pV().pY().Kv == null) {
-                this.Iq.pV().pY().Kv = new ArrayList<>();
+            if (this.Iz.qg().qj().KO == null) {
+                this.Iz.qg().qj().KO = new ArrayList<>();
             }
-            int b = b(this.Iq.pV().pY().Kv, basicNameValuePair.getName());
-            int size = this.Iq.pV().pY().Kv.size();
+            int b = b(this.Iz.qg().qj().KO, basicNameValuePair.getName());
+            int size = this.Iz.qg().qj().KO.size();
             if (b >= 0 && b < size) {
-                if (basicNameValuePair.getName().equals(this.Iq.pV().pY().Kv.get(b).getName())) {
-                    this.Iq.pV().pY().Kv.set(b, basicNameValuePair);
+                if (basicNameValuePair.getName().equals(this.Iz.qg().qj().KO.get(b).getName())) {
+                    this.Iz.qg().qj().KO.set(b, basicNameValuePair);
                 } else {
-                    this.Iq.pV().pY().Kv.add(b, basicNameValuePair);
+                    this.Iz.qg().qj().KO.add(b, basicNameValuePair);
                 }
             } else if (b == size) {
-                this.Iq.pV().pY().Kv.add(b, basicNameValuePair);
+                this.Iz.qg().qj().KO.add(b, basicNameValuePair);
             }
         }
     }

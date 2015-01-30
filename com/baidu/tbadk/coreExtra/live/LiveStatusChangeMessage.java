@@ -28,13 +28,13 @@ public class LiveStatusChangeMessage extends CustomResponsedMessage<LiveStatusDa
         if (liveStatusData == null || StringUtils.isNull(liveStatusData.groupId) || LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY.equals(liveStatusData.groupId)) {
             return false;
         }
-        return liveStatusData.status == 18 || liveStatusData.status == 19 || liveStatusData.status == 20 || liveStatusData.status == 17;
+        return liveStatusData.status == 18 || liveStatusData.status == 19 || liveStatusData.status == 20;
     }
 
     public static boolean isPlayingRecord(LiveStatusData liveStatusData) {
         if (liveStatusData == null || StringUtils.isNull(liveStatusData.groupId) || !LiveStatusChangeDefinition.GROUP_FOR_RECORD_PLAY.equals(liveStatusData.groupId)) {
             return false;
         }
-        return liveStatusData.status == 18 || liveStatusData.status == 19 || liveStatusData.status == 20 || liveStatusData.status == 17;
+        return liveStatusData.status == 18 || liveStatusData.status == 19 || liveStatusData.status == 20;
     }
 }

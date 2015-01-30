@@ -6,68 +6,68 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class u extends com.baidu.adp.base.f<SignAllForumActivity> {
-    private static u bPY;
+    private static u bRI;
     private static String userId;
-    private w bPU;
-    private s bPV;
-    private v bPW;
-    private b bPX;
-    public boolean ez;
+    private w bRE;
+    private s bRF;
+    private v bRG;
+    private b bRH;
+    public boolean eB;
 
     public static u e(SignAllForumActivity signAllForumActivity) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (bPY == null) {
-            bPY = new u(signAllForumActivity);
+        if (bRI == null) {
+            bRI = new u(signAllForumActivity);
         } else if (!TextUtils.isEmpty(userId) && !TextUtils.equals(userId, currentAccount)) {
-            bPY = new u(signAllForumActivity);
+            bRI = new u(signAllForumActivity);
         }
-        return bPY;
+        return bRI;
     }
 
     private u(SignAllForumActivity signAllForumActivity) {
         super(signAllForumActivity.getPageContext());
-        this.bPU = null;
-        this.bPV = null;
-        this.bPW = null;
+        this.bRE = null;
+        this.bRF = null;
+        this.bRG = null;
         userId = TbadkCoreApplication.getCurrentAccount();
-        this.bPV = new s();
+        this.bRF = new s();
     }
 
     public void a(v vVar) {
-        this.bPW = vVar;
+        this.bRG = vVar;
     }
 
     public void c(b bVar) {
-        this.bPX = bVar;
+        this.bRH = bVar;
     }
 
-    public b adz() {
-        return this.bPX;
+    public b aed() {
+        return this.bRH;
     }
 
-    private String adA() {
-        ArrayList<d> acY = this.bPX.acY();
-        if (acY == null) {
+    private String aee() {
+        ArrayList<d> adC = this.bRH.adC();
+        if (adC == null) {
             return "";
         }
-        if (!this.bPX.acZ()) {
+        if (!this.bRH.adD()) {
             ArrayList arrayList = new ArrayList();
-            Iterator<d> it = acY.iterator();
+            Iterator<d> it = adC.iterator();
             while (it.hasNext()) {
                 d next = it.next();
-                if (next.adi() < this.bPX.getLevel()) {
+                if (next.adM() < this.bRH.getLevel()) {
                     arrayList.add(next);
                 }
             }
-            acY.removeAll(arrayList);
+            adC.removeAll(arrayList);
         }
-        int size = acY.size();
+        int size = adC.size();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < size; i++) {
-            d dVar = acY.get(i);
-            if (dVar.adm()) {
-                if (!dVar.adn()) {
-                    dVar.em(true);
+            d dVar = adC.get(i);
+            if (dVar.adQ()) {
+                if (!dVar.adR()) {
+                    dVar.et(true);
                 }
             }
             if (i > 0) {
@@ -81,19 +81,19 @@ public class u extends com.baidu.adp.base.f<SignAllForumActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.f
     public boolean LoadData() {
-        if (this.bPU != null) {
+        if (this.bRE != null) {
             return false;
         }
-        String adA = adA();
-        this.bPU = new w(this);
-        this.bPU.execute(adA);
+        String aee = aee();
+        this.bRE = new w(this);
+        this.bRE.execute(aee);
         return true;
     }
 
     @Override // com.baidu.adp.base.f
     public boolean cancelLoadData() {
-        if (this.bPU != null) {
-            this.bPU.cancel();
+        if (this.bRE != null) {
+            this.bRE.cancel();
             return true;
         }
         return false;

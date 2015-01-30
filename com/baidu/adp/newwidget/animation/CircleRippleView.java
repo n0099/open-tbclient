@@ -13,7 +13,6 @@ import android.view.animation.ScaleAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.baidu.adp.R;
-import com.baidu.lightapp.plugin.videoplayer.coreplayer.Constants;
 import java.lang.ref.SoftReference;
 /* loaded from: classes.dex */
 public class CircleRippleView extends FrameLayout {
@@ -29,7 +28,7 @@ public class CircleRippleView extends FrameLayout {
         this.mRippleBitmapSoftRef = null;
         this.mImageViewList = null;
         this.mAnimationSetList = null;
-        this.mCircleSize = Constants.MEDIA_INFO;
+        this.mCircleSize = 200;
         this.mCircleImage = null;
         init(context, null);
     }
@@ -39,7 +38,7 @@ public class CircleRippleView extends FrameLayout {
         this.mRippleBitmapSoftRef = null;
         this.mImageViewList = null;
         this.mAnimationSetList = null;
-        this.mCircleSize = Constants.MEDIA_INFO;
+        this.mCircleSize = 200;
         this.mCircleImage = null;
         init(context, attributeSet);
     }
@@ -49,7 +48,7 @@ public class CircleRippleView extends FrameLayout {
         this.mRippleBitmapSoftRef = null;
         this.mImageViewList = null;
         this.mAnimationSetList = null;
-        this.mCircleSize = Constants.MEDIA_INFO;
+        this.mCircleSize = 200;
         this.mCircleImage = null;
         init(context, attributeSet);
     }
@@ -57,7 +56,7 @@ public class CircleRippleView extends FrameLayout {
     private void init(Context context, AttributeSet attributeSet) {
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.CircleRippleView);
-            this.mCircleSize = obtainStyledAttributes.getDimensionPixelSize(0, Constants.MEDIA_INFO);
+            this.mCircleSize = obtainStyledAttributes.getDimensionPixelSize(0, 200);
             this.mCircleImage = obtainStyledAttributes.getDrawable(1);
             obtainStyledAttributes.recycle();
         }

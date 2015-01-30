@@ -7,11 +7,14 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class c extends LinearLayout {
-    private TbImageView aSH;
+    private TbImageView aTR;
+    private int aTS;
+    private String aTT;
     private Context mContext;
     private com.baidu.adp.lib.c.b mItemViewLongClickListener;
     private int mPosition;
@@ -31,9 +34,9 @@ public class c extends LinearLayout {
 
     private void initView() {
         setOrientation(0);
-        com.baidu.adp.lib.g.b.ek().a(this.mContext, com.baidu.tieba.x.msg_multi_pic_text_bottom_view, this, true);
-        this.aSH = (TbImageView) findViewById(com.baidu.tieba.w.bottom_content_pic);
-        this.aSH.setAutoChangeStyle(false);
+        com.baidu.adp.lib.g.b.ei().a(this.mContext, com.baidu.tieba.x.msg_multi_pic_text_bottom_view, this, true);
+        this.aTR = (TbImageView) findViewById(com.baidu.tieba.w.bottom_content_pic);
+        this.aTR.setAutoChangeStyle(false);
         this.mTitle = (TextView) findViewById(com.baidu.tieba.w.bottom_title);
     }
 
@@ -48,16 +51,16 @@ public class c extends LinearLayout {
                 setOnClickListener(new e(this, tbPageContext, pVar, i));
             }
             if (!TextUtils.isEmpty(pVar.src)) {
-                this.aSH.setTag(pVar.src);
-                this.aSH.d(pVar.src, 10, false);
+                this.aTR.setTag(pVar.src);
+                this.aTR.d(pVar.src, 10, false);
             }
         }
     }
 
     public void reset() {
         this.mTitle.setText("");
-        this.aSH.setBackgroundDrawable(null);
-        this.aSH.setImageDrawable(null);
+        this.aTR.setBackgroundDrawable(null);
+        this.aTR.setImageDrawable(null);
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
@@ -68,7 +71,20 @@ public class c extends LinearLayout {
         this.mPosition = i;
     }
 
-    public void cu(boolean z) {
-        ax.a(this.mTitle, com.baidu.tieba.t.official_msg_bottom_text, 1, z ? 1 : 0);
+    public void setStPosition(int i) {
+        this.aTS = i;
+    }
+
+    public void setTaskInfo(String str) {
+        this.aTT = str;
+    }
+
+    public void cy(boolean z) {
+        int skinType = TbadkCoreApplication.m255getInst().getSkinType();
+        if (skinType == 1 && !z) {
+            skinType = 0;
+        }
+        this.aTR.setAutoChangeStyle(z);
+        bc.a(this.mTitle, com.baidu.tieba.t.official_msg_bottom_text, 1, skinType);
     }
 }

@@ -2,48 +2,48 @@ package com.baidu.tieba.tbadkCore.PbEditor;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements com.baidu.tbadk.editortool.w {
-    private final /* synthetic */ com.baidu.tbadk.editortool.w aBH;
-    final /* synthetic */ PbEditor bUy;
+    private final /* synthetic */ com.baidu.tbadk.editortool.w aCI;
+    final /* synthetic */ PbEditor bWq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(PbEditor pbEditor, com.baidu.tbadk.editortool.w wVar) {
-        this.bUy = pbEditor;
-        this.aBH = wVar;
+        this.bWq = pbEditor;
+        this.aCI = wVar;
     }
 
     @Override // com.baidu.tbadk.editortool.w
     public void handleAction(int i, Object obj) {
         if (i == 2) {
-            this.bUy.hH(i);
+            this.bWq.hQ(i);
         } else if (i == 3) {
-            this.bUy.Zz();
+            this.bWq.aae();
         } else if (i == 5) {
-            this.bUy.hH(i);
+            this.bWq.hQ(i);
         } else if (i == 6) {
-            this.bUy.Zz();
+            this.bWq.aae();
         } else if (i == 8) {
-            this.bUy.hH(i);
+            this.bWq.hQ(i);
         } else if (i == 9) {
-            this.bUy.Zz();
+            this.bWq.aae();
         } else if (i != 0) {
             if (i == 18) {
-                if (this.bUy.afD()) {
-                    this.bUy.bUr.afB();
+                if (this.bWq.agh()) {
+                    this.bWq.bWj.agf();
                 } else {
-                    this.bUy.bUr.afC();
+                    this.bWq.bWj.agg();
                 }
             } else if (i == 12) {
-                this.aBH.handleAction(35, obj);
-                this.bUy.bUr.aeS();
-                this.bUy.bUs.V(this.bUy.bUr.getEditText());
+                this.aCI.handleAction(35, obj);
+                this.bWq.bWj.afw();
+                this.bWq.bWk.X(this.bWq.bWj.getEditText());
             } else if (i == 38) {
-                this.bUy.hH(i);
+                this.bWq.hQ(i);
             } else if (i == 44) {
-                this.bUy.hH(i);
+                this.bWq.hQ(i);
             } else if (i == 50) {
-                this.bUy.hH(i);
+                this.bWq.hQ(i);
             }
         }
-        this.aBH.handleAction(i, obj);
+        this.aCI.handleAction(i, obj);
     }
 }

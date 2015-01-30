@@ -35,7 +35,7 @@ public class a {
         return this.AO;
     }
 
-    public void aH(int i) {
+    public void aM(int i) {
         this.AO = i;
     }
 
@@ -84,9 +84,9 @@ public class a {
     }
 
     public void lg() {
-        ArrayList<MarkData> ahP = j.ahP();
-        if (ahP != null) {
-            k(ahP);
+        ArrayList<MarkData> ait = j.ait();
+        if (ait != null) {
+            k(ait);
         }
     }
 
@@ -133,7 +133,7 @@ public class a {
         return jSONArray.toString();
     }
 
-    public void bC(String str) {
+    public void bA(String str) {
         try {
             paserJson(new JSONObject(str));
         } catch (Exception e) {
@@ -142,7 +142,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<MarkData> bD(String str) {
+    public ArrayList<MarkData> bB(String str) {
         JSONObject jSONObject;
         ArrayList<MarkData> arrayList = new ArrayList<>();
         try {
@@ -196,7 +196,7 @@ public class a {
         this.AJ.execute(new a[0]);
     }
 
-    public boolean aI(int i) {
+    public boolean aN(int i) {
         if (this.AL != null) {
             this.AL.cancel();
         }
@@ -210,11 +210,11 @@ public class a {
     }
 
     public int lh() {
-        return com.baidu.tbadk.core.sharedPref.b.og().getInt("uploac_mark_offset", 399);
+        return com.baidu.tbadk.core.sharedPref.b.oj().getInt("uploac_mark_offset", 399);
     }
 
-    public void aJ(int i) {
-        com.baidu.tbadk.core.sharedPref.b.og().putInt("uploac_mark_offset", i);
+    public void aO(int i) {
+        com.baidu.tbadk.core.sharedPref.b.oj().putInt("uploac_mark_offset", i);
     }
 
     public void onDestroy() {

@@ -4,7 +4,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class PbHistoryStatic {
-    private static com.baidu.tbadk.mainTab.f aNZ;
+    private static com.baidu.tbadk.mainTab.f aPi;
 
     static {
         g gVar = new g(2007007);

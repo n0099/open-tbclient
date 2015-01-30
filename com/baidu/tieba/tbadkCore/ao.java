@@ -9,25 +9,25 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class ao extends com.baidu.adp.base.f {
-    private static final String bkk = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.COMMON_PRAISE_URL;
-    private static TbHttpMessageTask bkl = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, bkk);
-    private aq bVs;
-    private final HttpMessageListener bkm;
+    private static final String blH = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.COMMON_PRAISE_URL;
+    private static TbHttpMessageTask blI = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, blH);
+    private aq bXk;
+    private final HttpMessageListener blJ;
 
     static {
-        bkl.setResponsedClass(PraiseResponseMessage.class);
-        MessageManager.getInstance().registerTask(bkl);
+        blI.setResponsedClass(PraiseResponseMessage.class);
+        MessageManager.getInstance().registerTask(blI);
     }
 
     public ao(TbPageContext tbPageContext, aq aqVar) {
         super(tbPageContext);
-        this.bVs = null;
-        this.bkm = new ap(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
-        this.bVs = aqVar;
+        this.bXk = null;
+        this.blJ = new ap(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
+        this.bXk = aqVar;
     }
 
     public void registerListener() {
-        registerListener(this.bkm);
+        registerListener(this.blJ);
     }
 
     public void a(String str, String str2, int i, String str3) {

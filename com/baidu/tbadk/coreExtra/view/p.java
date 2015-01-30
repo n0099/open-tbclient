@@ -7,20 +7,20 @@ import com.baidu.tbadk.core.view.BaseViewPager;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class p extends BaseViewPager {
-    private PointF TH;
-    private com.baidu.tbadk.widget.a TI;
-    private com.baidu.tbadk.widget.a TJ;
+    private PointF Um;
+    private com.baidu.tbadk.widget.a Un;
+    private com.baidu.tbadk.widget.a Uo;
 
     public p(Context context) {
         super(context);
     }
 
     public void setCurrentView(com.baidu.tbadk.widget.a aVar) {
-        this.TI = aVar;
+        this.Un = aVar;
     }
 
     public com.baidu.tbadk.widget.a getCurrentView() {
-        return this.TI;
+        return this.Un;
     }
 
     private float[] g(MotionEvent motionEvent) {
@@ -28,9 +28,9 @@ public class p extends BaseViewPager {
             case 1:
             case 2:
                 PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
-                return new float[]{pointF.x - this.TH.x, pointF.y - this.TH.y};
+                return new float[]{pointF.x - this.Um.x, pointF.y - this.Um.y};
             case 0:
-                this.TH = new PointF(motionEvent.getX(), motionEvent.getY());
+                this.Um = new PointF(motionEvent.getX(), motionEvent.getY());
                 break;
         }
         return null;
@@ -40,25 +40,25 @@ public class p extends BaseViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onTouchEvent(motionEvent);
-            if (this.TI != null) {
-                this.TI.actionUp();
+            if (this.Un != null) {
+                this.Un.actionUp();
             }
         }
-        if (this.TI == null) {
+        if (this.Un == null) {
             return super.onTouchEvent(motionEvent);
         }
         float[] g = g(motionEvent);
-        if (this.TI.pagerCantScroll()) {
+        if (this.Un.pagerCantScroll()) {
             return super.onTouchEvent(motionEvent);
         }
-        if (g != null && this.TI.onRightSide() && g[0] < 0.0f) {
+        if (g != null && this.Un.onRightSide() && g[0] < 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
-        if (g != null && this.TI.onLeftSide() && g[0] > 0.0f) {
+        if (g != null && this.Un.onLeftSide() && g[0] > 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
         if (g == null) {
-            if (this.TI.onLeftSide() || this.TI.onRightSide()) {
+            if (this.Un.onLeftSide() || this.Un.onRightSide()) {
                 return super.onTouchEvent(motionEvent);
             }
             return false;
@@ -72,20 +72,20 @@ public class p extends BaseViewPager {
             super.onInterceptTouchEvent(motionEvent);
         }
         float[] g = g(motionEvent);
-        if (this.TI == null) {
+        if (this.Un == null) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (this.TI.pagerCantScroll()) {
+        if (this.Un.pagerCantScroll()) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (g != null && this.TI.onRightSide() && g[0] < 0.0f) {
+        if (g != null && this.Un.onRightSide() && g[0] < 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (g != null && this.TI.onLeftSide() && g[0] > 0.0f) {
+        if (g != null && this.Un.onLeftSide() && g[0] > 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
         if (g == null) {
-            if (this.TI.onLeftSide() || this.TI.onRightSide()) {
+            if (this.Un.onLeftSide() || this.Un.onRightSide()) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return false;
@@ -94,10 +94,10 @@ public class p extends BaseViewPager {
     }
 
     public void setSelectedView(com.baidu.tbadk.widget.a aVar) {
-        this.TJ = aVar;
+        this.Uo = aVar;
     }
 
     public com.baidu.tbadk.widget.a getSelectedView() {
-        return this.TJ;
+        return this.Uo;
     }
 }

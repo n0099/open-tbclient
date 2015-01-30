@@ -12,12 +12,12 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class f {
-    private static String cp = null;
-    private static volatile SQLiteDatabase cl = null;
-    public static HashMap<String, SQLiteDatabase> aWJ = new HashMap<>();
+    private static String cq = null;
+    private static volatile SQLiteDatabase cm = null;
+    public static HashMap<String, SQLiteDatabase> aYf = new HashMap<>();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static synchronized SQLiteDatabase Mw() {
+    public static synchronized SQLiteDatabase MS() {
         SQLiteDatabase sQLiteDatabase;
         synchronized (f.class) {
             try {
@@ -28,34 +28,34 @@ public class f {
                 sQLiteDatabase = null;
             } else {
                 String str = String.valueOf(TbadkCoreApplication.getCurrentAccount()) + ".db";
-                if (aWJ.containsKey(str)) {
-                    sQLiteDatabase = aWJ.get(str);
-                } else if (cl != null && str.equals(cp) && cl.isOpen()) {
-                    sQLiteDatabase = cl;
+                if (aYf.containsKey(str)) {
+                    sQLiteDatabase = aYf.get(str);
+                } else if (cm != null && str.equals(cq) && cm.isOpen()) {
+                    sQLiteDatabase = cm;
                 } else {
-                    if (cl != null) {
-                        t.i(cl);
+                    if (cm != null) {
+                        t.i(cm);
                     }
                     e eVar = new e(TbadkCoreApplication.m255getInst().getApp(), str);
-                    cp = str;
-                    cl = eVar.getWritableDatabase();
-                    sQLiteDatabase = cl;
+                    cq = str;
+                    cm = eVar.getWritableDatabase();
+                    sQLiteDatabase = cm;
                 }
             }
         }
         return sQLiteDatabase;
     }
 
-    public static LinkedList<String> Mx() {
+    public static LinkedList<String> MT() {
         Cursor cursor;
         Throwable th;
         Exception exc;
         Cursor cursor2 = null;
-        SQLiteDatabase Mw = Mw();
+        SQLiteDatabase MS = MS();
         LinkedList<String> linkedList = new LinkedList<>();
-        if (Mw != null) {
+        if (MS != null) {
             try {
-                cursor2 = Mw.rawQuery("select * from sqlite_master where type='table'", null);
+                cursor2 = MS.rawQuery("select * from sqlite_master where type='table'", null);
                 if (cursor2 != null) {
                     try {
                         cursor2.moveToFirst();
@@ -94,20 +94,20 @@ public class f {
         return linkedList;
     }
 
-    public static void gr(String str) {
+    public static void gw(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                g.My().Mz();
-                Iterator<String> it = Mx().iterator();
+                g.MU().MV();
+                Iterator<String> it = MT().iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     if (next != null) {
                         if (next.equals("tb_message_center")) {
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("is_hidden", (Integer) 1);
-                            g.My().update("tb_message_center", contentValues, null, null);
+                            g.MU().update("tb_message_center", contentValues, null, null);
                         } else if (!next.equals("tb_new_friends")) {
-                            g.My().a(next, null, null);
+                            g.MU().a(next, null, null);
                         }
                     }
                 }
@@ -116,7 +116,7 @@ public class f {
             TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
             e.printStackTrace();
         } finally {
-            g.My().endTransaction();
+            g.MU().endTransaction();
         }
     }
 }

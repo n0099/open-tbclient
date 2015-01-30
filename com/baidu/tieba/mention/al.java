@@ -7,16 +7,16 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.img.WriteImagesInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al implements DialogInterface.OnClickListener {
-    final /* synthetic */ af bsE;
+    final /* synthetic */ af bub;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(af afVar) {
-        this.bsE = afVar;
+        this.bub = afVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -29,27 +29,27 @@ public class al implements DialogInterface.OnClickListener {
         WriteImagesInfo writeImagesInfo5;
         WriteImagesInfo writeImagesInfo6;
         if (i == 0) {
-            writeImagesInfo4 = this.bsE.apq;
+            writeImagesInfo4 = this.bub.aql;
             if (writeImagesInfo4.getChosedFiles() != null) {
-                writeImagesInfo5 = this.bsE.apq;
+                writeImagesInfo5 = this.bub.aql;
                 int size = writeImagesInfo5.getChosedFiles().size();
-                writeImagesInfo6 = this.bsE.apq;
+                writeImagesInfo6 = this.bub.aql;
                 if (size >= writeImagesInfo6.getMaxImagesAllowed()) {
-                    this.bsE.getPageContext().showToast(String.format(this.bsE.getString(com.baidu.tieba.z.editor_mutiiamge_max), 10));
+                    this.bub.getPageContext().showToast(String.format(this.bub.getString(com.baidu.tieba.z.editor_mutiiamge_max), 10));
                     return;
                 }
             }
-            this.bsE.aAI = String.valueOf(System.currentTimeMillis());
-            TbPageContext pageContext = this.bsE.getPageContext();
-            str = this.bsE.aAI;
-            aw.a(pageContext, str);
+            this.bub.aBK = String.valueOf(System.currentTimeMillis());
+            TbPageContext pageContext = this.bub.getPageContext();
+            str = this.bub.aBK;
+            bb.a(pageContext, str);
         } else if (i == 1) {
-            writeImagesInfo = this.bsE.apq;
+            writeImagesInfo = this.bub.aql;
             if (writeImagesInfo != null) {
-                writeImagesInfo2 = this.bsE.apq;
+                writeImagesInfo2 = this.bub.aql;
                 if (!TextUtils.isEmpty(writeImagesInfo2.toJsonString())) {
-                    Activity activity = this.bsE.getActivity();
-                    writeImagesInfo3 = this.bsE.apq;
+                    Activity activity = this.bub.getActivity();
+                    writeImagesInfo3 = this.bub.aql;
                     AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(activity, writeImagesInfo3.toJsonString());
                     albumActivityConfig.setRequestCode(12002);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));

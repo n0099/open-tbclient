@@ -1,31 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
-public class at extends BdAsyncTask<String, Integer, String> {
-    private at() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ at(at atVar) {
-        this();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: l */
-    public String doInBackground(String... strArr) {
-        byte[] bArr;
-        byte[] bArr2;
-        bArr = al.als;
-        synchronized (bArr) {
-            al.alt = Boolean.valueOf(UtilHelper.isARM());
-            bArr2 = al.als;
-            bArr2.notifyAll();
+class at implements CustomMessageTask.CustomRunnable<AccountData> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<AccountData> customMessage) {
+        if (com.baidu.adp.lib.util.l.ft()) {
+            ao.a(customMessage.getData(), TbadkApplication.getInst().getApp());
+            return null;
+        } else if (ao.AP() != null) {
+            ao.AP().handler.post(new au(this, customMessage));
+            return null;
+        } else {
+            return null;
         }
-        return null;
     }
 }

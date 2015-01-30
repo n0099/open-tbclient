@@ -5,25 +5,25 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class e {
-    private static final HashMap<Class<?>, Class<?>> tO = new HashMap<>();
+    private static final HashMap<Class<?>, Class<?>> tX = new HashMap<>();
 
     static {
-        tO.put(Boolean.class, Boolean.TYPE);
-        tO.put(Byte.class, Byte.TYPE);
-        tO.put(Character.class, Character.TYPE);
-        tO.put(Short.class, Short.TYPE);
-        tO.put(Integer.class, Integer.TYPE);
-        tO.put(Float.class, Float.TYPE);
-        tO.put(Long.class, Long.TYPE);
-        tO.put(Double.class, Double.TYPE);
-        tO.put(Boolean.TYPE, Boolean.TYPE);
-        tO.put(Byte.TYPE, Byte.TYPE);
-        tO.put(Character.TYPE, Character.TYPE);
-        tO.put(Short.TYPE, Short.TYPE);
-        tO.put(Integer.TYPE, Integer.TYPE);
-        tO.put(Float.TYPE, Float.TYPE);
-        tO.put(Long.TYPE, Long.TYPE);
-        tO.put(Double.TYPE, Double.TYPE);
+        tX.put(Boolean.class, Boolean.TYPE);
+        tX.put(Byte.class, Byte.TYPE);
+        tX.put(Character.class, Character.TYPE);
+        tX.put(Short.class, Short.TYPE);
+        tX.put(Integer.class, Integer.TYPE);
+        tX.put(Float.class, Float.TYPE);
+        tX.put(Long.class, Long.TYPE);
+        tX.put(Double.class, Double.TYPE);
+        tX.put(Boolean.TYPE, Boolean.TYPE);
+        tX.put(Byte.TYPE, Byte.TYPE);
+        tX.put(Character.TYPE, Character.TYPE);
+        tX.put(Short.TYPE, Short.TYPE);
+        tX.put(Integer.TYPE, Integer.TYPE);
+        tX.put(Float.TYPE, Float.TYPE);
+        tX.put(Long.TYPE, Long.TYPE);
+        tX.put(Double.TYPE, Double.TYPE);
     }
 
     public static Method a(Object obj, String str, Class<?>[] clsArr) {

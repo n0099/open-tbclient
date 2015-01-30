@@ -6,72 +6,72 @@ import tbclient.App;
 import tbclient.GoodsInfo;
 import tbclient.LogTogether.AdReq;
 /* loaded from: classes.dex */
-public class c extends w {
-    public static final BdUniqueId Di = BdUniqueId.gen();
-    public static final BdUniqueId Dj = BdUniqueId.gen();
-    public int Dk;
-    public String Dl;
-    public String Dm;
-    public int Dn;
+public class c extends x {
+    public static final BdUniqueId Dk = BdUniqueId.gen();
+    public static final BdUniqueId Dl = BdUniqueId.gen();
+    public long DA;
+    public d DB = new d();
+    public boolean DD = false;
+    public int Dm;
+    public String Dn;
     public String Do;
-    public String Dp;
+    public int Dp;
     public String Dq;
-    public int Dr;
+    public String Dr;
     public String Ds;
-    public String Dt;
-    public int Du;
-    public int Dv;
-    public String Dw;
-    public String Dx;
-    public long Dy;
+    public int Dt;
+    public String Du;
+    public String Dv;
+    public int Dw;
+    public int Dx;
+    public String Dy;
+    public String Dz;
     public String abtest;
     public String price;
     public String userId;
-    public d Dz = new d();
-    public boolean DA = false;
 
     public boolean mu() {
-        if (this.Dr <= 0 || TextUtils.isEmpty(this.Dl) || TextUtils.isEmpty(this.Dl.trim()) || this.Dn == 2) {
+        if (this.Dt <= 0 || TextUtils.isEmpty(this.Dn) || TextUtils.isEmpty(this.Dn.trim()) || this.Dp == 2) {
             return false;
         }
         return mv() || mw();
     }
 
     public boolean mv() {
-        return (this.Dn != 3 || TextUtils.isEmpty(this.Dq) || TextUtils.isEmpty(this.Dp) || TextUtils.isEmpty(this.Dq.trim()) || TextUtils.isEmpty(this.Dp.trim())) ? false : true;
+        return (this.Dp != 3 || TextUtils.isEmpty(this.Ds) || TextUtils.isEmpty(this.Dr) || TextUtils.isEmpty(this.Ds.trim()) || TextUtils.isEmpty(this.Dr.trim())) ? false : true;
     }
 
     public boolean mw() {
-        return (this.Dn != 1 || TextUtils.isEmpty(this.Do) || TextUtils.isEmpty(this.Do.trim())) ? false : true;
+        return (this.Dp != 1 || TextUtils.isEmpty(this.Dq) || TextUtils.isEmpty(this.Dq.trim())) ? false : true;
     }
 
     public void a(App app) {
         if (app != null) {
-            this.Dl = app.id;
-            this.Dm = app.name;
-            this.Dn = app.url_type.intValue();
-            this.Do = app.url;
-            this.Dp = app.apk_url;
-            this.Dq = app.apk_name;
+            this.Dn = app.id;
+            this.Do = app.name;
+            this.Dp = app.url_type.intValue();
+            this.Dq = app.url;
+            this.Dr = app.apk_url;
+            this.Ds = app.apk_name;
             if (TextUtils.isEmpty(app.pos_name) || TextUtils.isEmpty(app.pos_name.trim())) {
-                this.Dr = 3;
+                this.Dt = 3;
             } else {
-                this.Dr = com.baidu.adp.lib.g.c.toInt(app.pos_name.trim(), 3);
+                this.Dt = com.baidu.adp.lib.g.c.toInt(app.pos_name.trim(), 3);
             }
-            this.Ds = app.first_name;
-            this.Dt = app.second_name;
-            this.Du = app.cpid.intValue();
+            this.Du = app.first_name;
+            this.Dv = app.second_name;
+            this.Dw = app.cpid.intValue();
             this.abtest = app.abtest;
-            this.Dv = app.plan_id.intValue();
+            this.Dx = app.plan_id.intValue();
             this.userId = app.user_id;
-            this.Dw = app.verify;
+            this.Dy = app.verify;
             this.price = app.price;
-            this.Dx = app.ext_info;
-            this.Dy = app.app_time.intValue() * 1000;
+            this.Dz = app.ext_info;
+            this.DA = app.app_time.intValue() * 1000;
             if (app.goods_info != null) {
                 for (GoodsInfo goodsInfo : app.goods_info) {
                     if (goodsInfo != null) {
-                        this.Dz.a(goodsInfo);
+                        this.DB.a(goodsInfo);
                         return;
                     }
                 }
@@ -81,25 +81,25 @@ public class c extends w {
 
     public AdReq a(String str, long j, String str2, String str3) {
         AdReq.Builder builder = new AdReq.Builder();
-        builder.da_cpid = String.valueOf(this.Du);
-        builder.da_ext_info = this.Dx;
+        builder.da_cpid = String.valueOf(this.Dw);
+        builder.da_ext_info = this.Dz;
         builder.da_fid = Integer.valueOf(com.baidu.adp.lib.g.c.toInt(str, 0));
-        builder.da_good_id = String.valueOf(this.Dz.DB);
-        builder.da_locate = String.valueOf(this.Dr);
-        builder.da_obj_id = this.Dl;
+        builder.da_good_id = String.valueOf(this.DB.DE);
+        builder.da_locate = String.valueOf(this.Dt);
+        builder.da_obj_id = this.Dn;
         builder.da_page = str2;
         builder.da_threadid = Long.valueOf(j);
-        builder.da_plan_id = String.valueOf(this.Dv);
+        builder.da_plan_id = String.valueOf(this.Dx);
         builder.da_price = this.price;
         builder.da_task = "tbda";
         builder.da_type = str3;
         builder.da_user_id = this.userId;
-        builder.da_verify = this.Dw;
+        builder.da_verify = this.Dy;
         return builder.build(false);
     }
 
-    @Override // com.baidu.tbadk.core.data.w, com.baidu.adp.widget.ListView.am
-    public BdUniqueId jr() {
-        return this.Dz.DG == 2 ? Dj : Di;
+    @Override // com.baidu.tbadk.core.data.x, com.baidu.adp.widget.ListView.am
+    public BdUniqueId js() {
+        return this.DB.DI == 2 ? Dl : Dk;
     }
 }

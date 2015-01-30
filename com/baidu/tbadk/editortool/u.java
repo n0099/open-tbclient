@@ -10,10 +10,10 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class u {
-    private static u Yh = new u();
+    private static u YN = new u();
 
-    public static u uZ() {
-        return Yh;
+    public static u vq() {
+        return YN;
     }
 
     private u() {
@@ -72,7 +72,7 @@ public class u {
         return emotionGroupData;
     }
 
-    public List<EmotionGroupData> dg(int i) {
+    public List<EmotionGroupData> dn(int i) {
         com.baidu.adp.base.a.c mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         SQLiteDatabase ak = mainDBDatabaseManager.ak();
         Cursor cursor = null;
@@ -108,7 +108,7 @@ public class u {
         return emotionGroupData;
     }
 
-    public boolean d(String str, String str2, int i) {
+    public boolean f(String str, String str2, int i) {
         EmotionData emotionData = new EmotionData();
         emotionData.sharpText = str;
         emotionData.groupId = str2;

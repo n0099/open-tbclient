@@ -1,16 +1,24 @@
 package com.baidu.tieba.account;
 
-import com.baidu.tbadk.TiebaDatabase;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class n {
-    public static void deleteAccountAllInfo(String str) {
-        if (str != null) {
-            com.baidu.adp.base.a.c mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            mainDBDatabaseManager.a("delete from cash_data where account=?", new String[]{str});
-            mainDBDatabaseManager.a("delete from mark_data where account=?", new String[]{str});
-            mainDBDatabaseManager.a("delete from draft_box where account=?", new Object[]{str});
-            mainDBDatabaseManager.a("delete from account_data where id=?", new Object[]{str});
-            mainDBDatabaseManager.a("delete from setting where account=?", new Object[]{str});
-        }
+class n {
+    View Td;
+    TextView amQ;
+    TextView amR;
+    ImageView amS;
+    Button amT;
+    final /* synthetic */ m amU;
+
+    private n(m mVar) {
+        this.amU = mVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ n(m mVar, n nVar) {
+        this(mVar);
     }
 }

@@ -22,11 +22,11 @@ public abstract class a<T extends h, R extends j> extends com.baidu.tbadk.mvc.co
     @Override // com.baidu.tbadk.mvc.core.b, com.baidu.tbadk.mvc.core.a
     public void f(Bundle bundle) {
         super.f(bundle);
-        wx().addEventDelegate(this);
+        wN().addEventDelegate(this);
     }
 
     @Override // com.baidu.tbadk.mvc.core.a, com.baidu.tbadk.mvc.c.a
-    public boolean wy() {
+    public boolean wO() {
         return true;
     }
 
@@ -35,12 +35,12 @@ public abstract class a<T extends h, R extends j> extends com.baidu.tbadk.mvc.co
         if (super.a(bVar)) {
             return true;
         }
-        if (bVar.xc() == 16777216) {
+        if (bVar.xs() == 16777216) {
             if (kK()) {
-                dz(33554435);
+                dF(33554435);
                 return true;
             }
-            dz(33554436);
+            dF(33554436);
             return true;
         }
         return false;

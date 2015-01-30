@@ -9,17 +9,17 @@ import android.widget.ImageView;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class GifView extends ImageView implements a {
-    private static /* synthetic */ int[] ji;
-    private b jb;
-    private Bitmap jc;
-    private boolean jd;
-    private d je;
-    private View jf;
-    private GifImageType jg;
-    private final Handler jh;
+    private static /* synthetic */ int[] jk;
+    private b jd;
+    private Bitmap je;
+    private boolean jf;
+    private d jg;
+    private View jh;
+    private GifImageType ji;
+    private final Handler jj;
 
-    static /* synthetic */ int[] dw() {
-        int[] iArr = ji;
+    static /* synthetic */ int[] du() {
+        int[] iArr = jk;
         if (iArr == null) {
             iArr = new int[GifImageType.valuesCustom().length];
             try {
@@ -34,7 +34,7 @@ public class GifView extends ImageView implements a {
                 iArr[GifImageType.WAIT_FINISH.ordinal()] = 1;
             } catch (NoSuchFieldError e3) {
             }
-            ji = iArr;
+            jk = iArr;
         }
         return iArr;
     }
@@ -47,7 +47,7 @@ public class GifView extends ImageView implements a {
         
         final int nativeInt;
 
-        /* JADX DEBUG: Replace access to removed values field (jk) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (jm) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static GifImageType[] valuesCustom() {
             GifImageType[] valuesCustom = values();
@@ -63,30 +63,30 @@ public class GifView extends ImageView implements a {
     }
 
     private void setGifDecoderImage(byte[] bArr) {
-        if (this.jb == null) {
-            this.jb = new b(this);
+        if (this.jd == null) {
+            this.jd = new b(this);
         }
-        this.jb.setGifImage(bArr);
-        this.jb.start();
+        this.jd.setGifImage(bArr);
+        this.jd.start();
     }
 
     private void setGifDecoderImage(InputStream inputStream) {
-        if (this.jb == null) {
-            this.jb = new b(this);
+        if (this.jd == null) {
+            this.jd = new b(this);
         }
-        this.jb.setGifImage(inputStream);
-        this.jb.start();
+        this.jd.setGifImage(inputStream);
+        this.jd.start();
     }
 
     public void setAsBackground(View view) {
-        this.jf = view;
+        this.jh = view;
     }
 
     @Override // android.view.View
     protected Parcelable onSaveInstanceState() {
         super.onSaveInstanceState();
-        if (this.jb != null) {
-            this.jb.free();
+        if (this.jd != null) {
+            this.jd.free();
             return null;
         }
         return null;
@@ -105,57 +105,57 @@ public class GifView extends ImageView implements a {
     }
 
     public void setGifImageType(GifImageType gifImageType) {
-        if (this.jb == null) {
-            this.jg = gifImageType;
+        if (this.jd == null) {
+            this.ji = gifImageType;
         }
     }
 
     @Override // com.baidu.adp.lib.gif.a
     public void a(boolean z, int i) {
         if (z) {
-            if (this.jb != null) {
-                switch (dw()[this.jg.ordinal()]) {
+            if (this.jd != null) {
+                switch (du()[this.ji.ordinal()]) {
                     case 1:
                         if (i == -1) {
-                            if (this.jb.bK() > 1) {
+                            if (this.jd.bI() > 1) {
                                 new d(this, null).start();
                                 return;
                             } else {
-                                dv();
+                                dt();
                                 return;
                             }
                         }
                         return;
                     case 2:
                         if (i == 1) {
-                            this.jc = this.jb.getImage();
-                            dv();
+                            this.je = this.jd.getImage();
+                            dt();
                             return;
                         } else if (i == -1) {
-                            dv();
+                            dt();
                             return;
-                        } else if (this.je == null) {
-                            this.je = new d(this, null);
-                            this.je.start();
+                        } else if (this.jg == null) {
+                            this.jg = new d(this, null);
+                            this.jg.start();
                             return;
                         } else {
                             return;
                         }
                     case 3:
                         if (i == 1) {
-                            this.jc = this.jb.getImage();
-                            dv();
+                            this.je = this.jd.getImage();
+                            dt();
                             return;
                         } else if (i == -1) {
-                            if (this.jb.bK() > 1) {
-                                if (this.je == null) {
-                                    this.je = new d(this, null);
-                                    this.je.start();
+                            if (this.jd.bI() > 1) {
+                                if (this.jg == null) {
+                                    this.jg = new d(this, null);
+                                    this.jg.start();
                                     return;
                                 }
                                 return;
                             }
-                            dv();
+                            dt();
                             return;
                         } else {
                             return;
@@ -169,9 +169,9 @@ public class GifView extends ImageView implements a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dv() {
-        if (this.jh != null) {
-            this.jh.sendMessage(this.jh.obtainMessage());
+    public void dt() {
+        if (this.jj != null) {
+            this.jj.sendMessage(this.jj.obtainMessage());
         }
     }
 }

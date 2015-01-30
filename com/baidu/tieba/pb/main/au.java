@@ -5,17 +5,17 @@ import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class au implements DialogInterface.OnClickListener {
-    final /* synthetic */ PbActivity bzj;
+    final /* synthetic */ PbActivity bAT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(PbActivity pbActivity) {
-        this.bzj = pbActivity;
+        this.bAT = pbActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         if (dialogInterface instanceof Dialog) {
-            com.baidu.adp.lib.g.k.b((Dialog) dialogInterface, this.bzj.getPageContext().getPageActivity());
+            com.baidu.adp.lib.g.k.b((Dialog) dialogInterface, this.bAT.getPageContext().getPageActivity());
         }
     }
 }

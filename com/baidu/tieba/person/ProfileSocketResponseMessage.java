@@ -83,9 +83,9 @@ public class ProfileSocketResponseMessage extends SocketResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        com.baidu.adp.lib.cache.t<byte[]> N = com.baidu.tbadk.core.a.a.nS().N("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+        com.baidu.adp.lib.cache.t<byte[]> Q = com.baidu.tbadk.core.a.a.nV().Q("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
-            N.f(PROFILE_CACHE_KEY, bArr);
+            Q.f(PROFILE_CACHE_KEY, bArr);
         }
     }
 }

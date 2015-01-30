@@ -1,20 +1,18 @@
 package com.baidu.tieba.im.forum.detail;
-
-import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements View.OnClickListener {
-    private final /* synthetic */ ForumDetailActivity aZA;
-    final /* synthetic */ ItemFootNavView aZz;
+public class o implements com.baidu.tbadk.core.dialog.d {
+    final /* synthetic */ m baN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(ItemFootNavView itemFootNavView, ForumDetailActivity forumDetailActivity) {
-        this.aZz = itemFootNavView;
-        this.aZA = forumDetailActivity;
+    public o(m mVar) {
+        this.baN = mVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.aZz.d(this.aZA);
+    @Override // com.baidu.tbadk.core.dialog.d
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.tbadk.core.dialog.a aVar2;
+        aVar2 = this.baN.baM;
+        aVar2.dismiss();
     }
 }

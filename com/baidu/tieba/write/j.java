@@ -12,50 +12,50 @@ import com.baidu.tbadk.core.view.TbCheckBox;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class j extends BaseAdapter {
-    private com.baidu.tbadk.core.view.ai bav;
-    private AtListActivity cea;
-    private boolean cec;
+    private ArrayList<MetaData> amP;
+    private com.baidu.tbadk.core.view.ai bbR;
+    private boolean cfB;
+    private AtListActivity cfz;
     private final Context mContext;
-    private ArrayList<MetaData> mData;
-    private l ceb = null;
-    private ViewGroup bax = null;
+    private l cfA = null;
+    private ViewGroup aqv = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(l lVar) {
-        this.ceb = lVar;
+        this.cfA = lVar;
     }
 
     public j(AtListActivity atListActivity, boolean z) {
-        this.cec = true;
-        this.cea = atListActivity;
-        this.mContext = this.cea.getPageContext().getContext();
-        this.cec = z;
+        this.cfB = true;
+        this.cfz = atListActivity;
+        this.mContext = this.cfz.getPageContext().getContext();
+        this.cfB = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void r(ArrayList<MetaData> arrayList) {
-        this.mData = arrayList;
+    public void s(ArrayList<MetaData> arrayList) {
+        this.amP = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(com.baidu.tbadk.core.view.ai aiVar) {
-        this.bav = aiVar;
+        this.bbR = aiVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.mData == null) {
+        if (this.amP == null) {
             return 0;
         }
-        return this.mData.size();
+        return this.amP.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: im */
+    /* renamed from: ir */
     public MetaData getItem(int i) {
-        if (this.mData != null && i < this.mData.size()) {
-            return this.mData.get(i);
+        if (this.amP != null && i < this.amP.size()) {
+            return this.amP.get(i);
         }
         return null;
     }
@@ -68,8 +68,8 @@ public class j extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         k kVar;
-        if (this.bax == null) {
-            this.bax = viewGroup;
+        if (this.aqv == null) {
+            this.aqv = viewGroup;
         }
         MetaData item = getItem(i);
         if (item != null) {
@@ -87,37 +87,37 @@ public class j extends BaseAdapter {
         k kVar;
         int skinType = TbadkCoreApplication.m255getInst().getSkinType();
         if (obj == null) {
-            kVar = ajI();
+            kVar = akf();
         } else {
             kVar = (k) obj;
         }
-        if (this.ceb != null) {
-            this.ceb.a(kVar.rootView, metaData);
+        if (this.cfA != null) {
+            this.cfA.a(kVar.rootView, metaData);
         }
         String portrait = metaData.getPortrait();
-        kVar.aFV.setText(metaData.getName_show());
-        kVar.baz.setTagData(metaData);
-        kVar.bab.setTag(portrait);
-        if (this.cec) {
-            kVar.baz.setVisibility(0);
+        kVar.aHf.setText(metaData.getName_show());
+        kVar.bbU.setTagData(metaData);
+        kVar.bby.setTag(portrait);
+        if (this.cfB) {
+            kVar.bbU.setVisibility(0);
         } else {
-            kVar.baz.setVisibility(8);
+            kVar.bbU.setVisibility(8);
         }
-        kVar.bab.d(portrait, 12, false);
-        this.cea.getPageContext().getLayoutMode().ab(skinType == 1);
-        this.cea.getPageContext().getLayoutMode().h(kVar.rootView);
+        kVar.bby.d(portrait, 12, false);
+        this.cfz.getPageContext().getLayoutMode().ab(skinType == 1);
+        this.cfz.getPageContext().getLayoutMode().h(kVar.rootView);
         return kVar;
     }
 
-    private k ajI() {
+    private k akf() {
         k kVar = new k(this, null);
-        kVar.rootView = com.baidu.adp.lib.g.b.ek().inflate(this.mContext, com.baidu.tieba.x.invite_friend_list_item, null);
-        kVar.bab = (HeadImageView) kVar.rootView.findViewById(com.baidu.tieba.w.photo);
-        kVar.bab.setIsRound(false);
-        kVar.aFV = (TextView) kVar.rootView.findViewById(com.baidu.tieba.w.txt_user_name);
-        kVar.baz = (TbCheckBox) kVar.rootView.findViewById(com.baidu.tieba.w.ckb_select);
-        if (this.bav != null) {
-            kVar.baz.setStatedChangedListener(this.bav);
+        kVar.rootView = com.baidu.adp.lib.g.b.ei().inflate(this.mContext, com.baidu.tieba.x.invite_friend_list_item, null);
+        kVar.bby = (HeadImageView) kVar.rootView.findViewById(com.baidu.tieba.w.photo);
+        kVar.bby.setIsRound(false);
+        kVar.aHf = (TextView) kVar.rootView.findViewById(com.baidu.tieba.w.txt_user_name);
+        kVar.bbU = (TbCheckBox) kVar.rootView.findViewById(com.baidu.tieba.w.ckb_select);
+        if (this.bbR != null) {
+            kVar.bbU.setStatedChangedListener(this.bbR);
         }
         kVar.rootView.setTag(kVar);
         return kVar;

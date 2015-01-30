@@ -22,12 +22,10 @@ import android.os.Process;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewCompat;
 import android.util.Log;
-import com.baidu.channelrtc.medialivesender.LiveSenderControl;
 import com.baidu.location.c;
 import com.baidu.location.e;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.RandomAccessFile;
@@ -243,10 +241,10 @@ public final class f extends Service {
                     arrayList.add(new BasicNameValuePair("e1", str2));
                     httpPost.setEntity(new UrlEncodedFormEntity(arrayList, "utf-8"));
                     DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
-                    defaultHttpClient.getParams().setParameter("http.connection.timeout", Integer.valueOf((int) LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_12));
-                    defaultHttpClient.getParams().setParameter("http.socket.timeout", Integer.valueOf((int) LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_12));
+                    defaultHttpClient.getParams().setParameter("http.connection.timeout", 12000);
+                    defaultHttpClient.getParams().setParameter("http.socket.timeout", 12000);
                     j.a(f.v, "send begin ...");
-                    if (defaultHttpClient.execute(httpPost).getStatusLine().getStatusCode() == 200) {
+                    if (defaultHttpClient.execute(httpPost).getStatusLine().getStatusCode() == f.ad) {
                         j.a(f.v, "send ok....");
                         return true;
                     }
@@ -352,7 +350,7 @@ public final class f extends Service {
         private final long f153new = 86100000;
 
         /* renamed from: char  reason: not valid java name */
-        private final int f146char = 200;
+        private final int f146char = f.ad;
         private long[] a = new long[20];
 
         /* renamed from: int  reason: not valid java name */
@@ -451,7 +449,7 @@ public final class f extends Service {
                 int readInt = randomAccessFile.readInt();
                 randomAccessFile.seek(0L);
                 randomAccessFile.writeInt(readInt + 1);
-                randomAccessFile.seek((readInt * 200) + 4);
+                randomAccessFile.seek((readInt * f.ad) + 4);
                 randomAccessFile.writeLong(System.currentTimeMillis());
                 randomAccessFile.writeInt(this.f144byte);
                 randomAccessFile.writeInt(0);
@@ -531,15 +529,15 @@ public final class f extends Service {
                 int readInt3 = randomAccessFile.readInt();
                 if (this.f147do && this.f150if) {
                     j.a(f.v, "trace new info:" + readInt + ":" + readInt2 + ":" + readInt3);
-                    int i2 = (readInt2 + 1) % 200;
+                    int i2 = (readInt2 + 1) % f.ad;
                     randomAccessFile.seek(4L);
                     randomAccessFile.writeInt(i2);
                     readInt++;
-                    if (readInt >= 200) {
+                    if (readInt >= f.ad) {
                         readInt = 199;
                     }
                     if (i2 == readInt3 && readInt > 0) {
-                        readInt3 = (readInt3 + 1) % 200;
+                        readInt3 = (readInt3 + 1) % f.ad;
                         randomAccessFile.writeInt(readInt3);
                     }
                     j.a(f.v, "trace new info:" + readInt + ":" + readInt2 + ":" + readInt3);
@@ -641,12 +639,12 @@ public final class f extends Service {
                     }
                     int readInt = randomAccessFile.readInt();
                     for (int i = 0; i < readInt; i++) {
-                        randomAccessFile.seek((i * 200) + 4);
+                        randomAccessFile.seek((i * f.ad) + 4);
                         randomAccessFile.readLong();
                         int readInt2 = randomAccessFile.readInt();
                         int readInt3 = randomAccessFile.readInt();
                         int readInt4 = randomAccessFile.readInt();
-                        byte[] bArr = new byte[200];
+                        byte[] bArr = new byte[f.ad];
                         randomAccessFile.read(bArr, 0, (readInt4 * 8) + 16);
                         int i2 = (bArr[3] & 255) | ((bArr[2] << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | ((bArr[1] << 16) & 16711680) | ((bArr[0] << 24) & ViewCompat.MEASURED_STATE_MASK);
                         int i3 = (bArr[7] & 255) | ((bArr[6] << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | ((bArr[5] << 16) & 16711680) | ((bArr[4] << 24) & ViewCompat.MEASURED_STATE_MASK);
@@ -671,7 +669,7 @@ public final class f extends Service {
                             }
                             if (i7 > 5 || i7 * 8 > this.f151int + readInt4 || ((readInt4 == 0 && this.f151int == 0) || ((readInt4 == 1 && this.f151int == 1 && this.a[0] == jArr[0]) || (readInt4 > 1 && this.f151int > 1 && this.a[0] == jArr[0] && this.a[1] == jArr[1])))) {
                                 z = true;
-                                randomAccessFile.seek((i * 200) + 16);
+                                randomAccessFile.seek((i * f.ad) + 16);
                                 randomAccessFile.writeInt(readInt3 + 1);
                                 if (this.f152long != null) {
                                     this.f152long += "|" + readInt2 + str;
@@ -886,7 +884,7 @@ public final class f extends Service {
                     case 22:
                         f.this.m181new(message);
                         break;
-                    case DealIntentService.CLASS_TYPE_GIFT_INFO /* 24 */:
+                    case 24:
                         f.this.a(message);
                         break;
                     case 25:
@@ -898,10 +896,10 @@ public final class f extends Service {
                     case f.f131do /* 28 */:
                         f.this.m174int(message);
                         break;
-                    case 31:
+                    case f.f134int /* 31 */:
                         f.this.m159else();
                         break;
-                    case f.p /* 41 */:
+                    case 41:
                         f.this.m154do();
                         break;
                     case f.z /* 51 */:
@@ -1452,16 +1450,17 @@ public final class f extends Service {
                     byte[] bArr = new byte[ar];
                     randomAccessFile.read(bArr, 0, readInt3);
                     int readInt4 = randomAccessFile.readInt();
+                    int i2 = (readInt2 + 1) % ad;
                     randomAccessFile.seek(0L);
                     randomAccessFile.writeInt(readInt - 1);
                     randomAccessFile.seek(8L);
-                    randomAccessFile.writeInt((readInt2 + 1) % 200);
+                    randomAccessFile.writeInt(i2);
                     if (readInt4 != readInt3) {
                         randomAccessFile.close();
                         return null;
                     }
-                    for (int i2 = 0; i2 < bArr.length; i2++) {
-                        bArr[i2] = (byte) (bArr[i2] ^ 90);
+                    for (int i3 = 0; i3 < bArr.length; i3++) {
+                        bArr[i3] = (byte) (bArr[i3] ^ 90);
                     }
                     String m6if = Jni.m6if(new String(bArr, 0, readInt3));
                     randomAccessFile.close();

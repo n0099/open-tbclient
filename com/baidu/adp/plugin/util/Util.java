@@ -1,7 +1,8 @@
 package com.baidu.adp.plugin.util;
 
 import android.content.pm.ApplicationInfo;
-import android.content.pm.Signature;
+import android.os.Environment;
+import android.os.StatFs;
 import android.support.v4.media.TransportMediator;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
@@ -12,7 +13,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashSet;
 /* loaded from: classes.dex */
 public final class Util {
 
@@ -22,7 +22,7 @@ public final class Util {
         LESS,
         GREATER;
 
-        /* JADX DEBUG: Replace access to removed values field (tX) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (ue) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static VersionCompare[] valuesCustom() {
             VersionCompare[] valuesCustom = values();
@@ -33,7 +33,7 @@ public final class Util {
         }
     }
 
-    public static g g(InputStream inputStream) {
+    public static f g(InputStream inputStream) {
         if (inputStream == null) {
             return null;
         }
@@ -42,10 +42,10 @@ public final class Util {
         inputStream.read(bArr, 0, bArr.length);
         int d = d(bArr, 6);
         int d2 = d(bArr, 8);
-        g gVar = new g();
-        gVar.set(((d2 >> 9) & TransportMediator.KEYCODE_MEDIA_PAUSE) + 1980, (d2 >> 5) & 15, d2 & 31, (d >> 11) & 31, (d >> 5) & 63, (d & 31) << 1);
+        f fVar = new f();
+        fVar.set(((d2 >> 9) & TransportMediator.KEYCODE_MEDIA_PAUSE) + 1980, (d2 >> 5) & 15, d2 & 31, (d >> 11) & 31, (d >> 5) & 63, (d & 31) << 1);
         inputStream.skip(0L);
-        return gVar;
+        return fVar;
     }
 
     private static int d(byte[] bArr, int i) {
@@ -56,7 +56,7 @@ public final class Util {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, CONST_STR, RETURN] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [82=4, 84=4, 85=4, 86=4, 87=4, 89=4, 92=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [87=4, 89=4, 90=4, 91=4, 92=4, 94=4, 97=4] */
     public static String b(InputStream inputStream, File file) {
         if (inputStream == null || file == null) {
             return "illegal_param";
@@ -168,25 +168,7 @@ public final class Util {
         }
     }
 
-    public static int a(Signature[] signatureArr, Signature[] signatureArr2) {
-        if (signatureArr == null) {
-            return signatureArr2 == null ? 1 : -1;
-        } else if (signatureArr2 == null) {
-            return -2;
-        } else {
-            HashSet hashSet = new HashSet();
-            for (Signature signature : signatureArr) {
-                hashSet.add(signature);
-            }
-            HashSet hashSet2 = new HashSet();
-            for (Signature signature2 : signatureArr2) {
-                hashSet2.add(signature2);
-            }
-            return !hashSet.equals(hashSet2) ? -3 : 0;
-        }
-    }
-
-    public static File bx(String str) {
+    public static File bw(String str) {
         PluginSetting bd = PluginPackageManager.ic().bd(str);
         if (bd == null || bd.apkPath == null || bd.apkPath.length() <= ".apk".length()) {
             return null;
@@ -248,7 +230,7 @@ public final class Util {
         return applicationInfo.metaData.getBoolean("is_inject_classloader");
     }
 
-    public static VersionCompare G(String str, String str2) {
+    public static VersionCompare K(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return VersionCompare.LESS;
         }
@@ -289,7 +271,7 @@ public final class Util {
         return String.valueOf(pluginSetting.packageName) + ".apk_" + pluginSetting.tempVersionCode;
     }
 
-    public static String by(String str) {
+    public static String bx(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -301,5 +283,15 @@ public final class Util {
             return null;
         }
         return iE() + File.separator + e(pluginSetting);
+    }
+
+    public static long iF() {
+        try {
+            StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
+            return statFs.getAvailableBlocks() * statFs.getBlockSize();
+        } catch (Exception e) {
+            BdLog.e(e);
+            return 0L;
+        }
     }
 }

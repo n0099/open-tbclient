@@ -6,10 +6,10 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.File;
 /* loaded from: classes.dex */
 public abstract class e implements a {
-    private SQLiteDatabase cl = null;
-    private b co;
-    private int cq;
-    private final String cr;
+    private SQLiteDatabase cm = null;
+    private b cp;
+    private int cr;
+    private final String cs;
 
     public abstract void d(SQLiteDatabase sQLiteDatabase);
 
@@ -17,35 +17,35 @@ public abstract class e implements a {
 
     @Override // com.baidu.adp.base.a.a
     public void a(b bVar) {
-        this.co = bVar;
+        this.cp = bVar;
     }
 
     public e(String str, int i) {
-        this.cq = 1;
-        this.cq = i;
-        this.cr = str;
+        this.cr = 1;
+        this.cr = i;
+        this.cs = str;
     }
 
     @Override // com.baidu.adp.base.a.a
     public SQLiteDatabase getWritableDatabase() {
-        File file = new File(this.cr);
+        File file = new File(this.cs);
         if (file.getParentFile() != null && (file.getParentFile().exists() || file.getParentFile().mkdirs())) {
             boolean exists = file.exists();
-            this.cl = SQLiteDatabase.openOrCreateDatabase(this.cr, (SQLiteDatabase.CursorFactory) null);
-            if (this.cl != null) {
+            this.cm = SQLiteDatabase.openOrCreateDatabase(this.cs, (SQLiteDatabase.CursorFactory) null);
+            if (this.cm != null) {
                 if (!exists) {
-                    g(this.cl);
-                    this.cl.setVersion(this.cq);
+                    g(this.cm);
+                    this.cm.setVersion(this.cr);
                 } else {
-                    int version = this.cl.getVersion();
-                    if (version != this.cq) {
-                        b(this.cl, version, this.cq);
-                        this.cl.setVersion(this.cq);
+                    int version = this.cm.getVersion();
+                    if (version != this.cr) {
+                        b(this.cm, version, this.cr);
+                        this.cm.setVersion(this.cr);
                     }
                 }
             }
         }
-        return this.cl;
+        return this.cm;
     }
 
     private void g(SQLiteDatabase sQLiteDatabase) {
@@ -63,14 +63,14 @@ public abstract class e implements a {
     }
 
     private void e(SQLiteDatabase sQLiteDatabase) {
-        if (this.co != null) {
-            this.co.c(sQLiteDatabase);
+        if (this.cp != null) {
+            this.cp.c(sQLiteDatabase);
         }
     }
 
     @Override // com.baidu.adp.base.a.a
     public boolean E(Context context) {
-        File file = new File(this.cr);
+        File file = new File(this.cs);
         if (file.exists()) {
             return file.delete();
         }

@@ -5,13 +5,13 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.widget.ImageView;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.bc;
 /* loaded from: classes.dex */
 public class a extends ImageView {
-    private static int acg = -1;
-    private int ach;
-    private int aci;
-    private boolean acj;
+    private static int acE = -1;
+    private int acF;
+    private int acG;
+    private boolean acH;
     private boolean isSelected;
 
     public void setIsSelected(boolean z) {
@@ -22,16 +22,16 @@ public class a extends ImageView {
     public a(Context context) {
         super(context);
         this.isSelected = false;
-        this.ach = 0;
-        this.aci = 0;
-        this.acj = false;
+        this.acF = 0;
+        this.acG = 0;
+        this.acH = false;
     }
 
     @Override // android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        this.ach = (i3 - i) - com.baidu.adp.lib.util.l.dip2px(getContext(), 5.0f);
-        this.aci = (i4 - i2) - com.baidu.adp.lib.util.l.dip2px(getContext(), 5.0f);
+        this.acF = (i3 - i) - com.baidu.adp.lib.util.l.dip2px(getContext(), 5.0f);
+        this.acG = (i4 - i2) - com.baidu.adp.lib.util.l.dip2px(getContext(), 5.0f);
     }
 
     private Bitmap getSelectIcon() {
@@ -41,16 +41,16 @@ public class a extends ImageView {
         } else {
             i = com.baidu.tieba.v.but_posts_fit_select_n;
         }
-        return ax.bX(i);
+        return bc.ce(i);
     }
 
     @Override // android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
         super.setImageBitmap(bitmap);
         if (bitmap != null) {
-            this.acj = true;
+            this.acH = true;
         } else {
-            this.acj = false;
+            this.acH = false;
         }
     }
 
@@ -58,8 +58,8 @@ public class a extends ImageView {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         Bitmap selectIcon = getSelectIcon();
-        if (selectIcon != null && this.acj) {
-            canvas.drawBitmap(selectIcon, this.ach - selectIcon.getWidth(), this.aci - selectIcon.getHeight(), (Paint) null);
+        if (selectIcon != null && this.acH) {
+            canvas.drawBitmap(selectIcon, this.acF - selectIcon.getWidth(), this.acG - selectIcon.getHeight(), (Paint) null);
         }
     }
 }

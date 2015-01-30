@@ -8,13 +8,13 @@ import com.baidu.tieba.im.message.ResponseGetMaskInfoMessage;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 class b extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ IMBlackListActivity aZY;
+    final /* synthetic */ IMBlackListActivity bbv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(IMBlackListActivity iMBlackListActivity, int i) {
         super(i);
-        this.aZY = iMBlackListActivity;
+        this.bbv = iMBlackListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,34 +28,34 @@ class b extends com.baidu.adp.framework.listener.e {
         com.baidu.tieba.im.data.a aVar2;
         h hVar3;
         h hVar4;
-        hVar = this.aZY.aZW;
-        hVar.Ok();
-        this.aZY.closeLoadingDialog();
+        hVar = this.bbv.bbt;
+        hVar.OG();
+        this.bbv.closeLoadingDialog();
         if (socketResponsedMessage != null) {
             if (socketResponsedMessage.getCmd() == 104103 && (socketResponsedMessage instanceof ResponseGetMaskInfoMessage)) {
                 ResponseGetMaskInfoMessage responseGetMaskInfoMessage = (ResponseGetMaskInfoMessage) socketResponsedMessage;
                 if (responseGetMaskInfoMessage.getError() == 0) {
-                    hVar3 = this.aZY.aZW;
-                    hVar3.E(responseGetMaskInfoMessage.getBlackList());
+                    hVar3 = this.bbv.bbt;
+                    hVar3.F(responseGetMaskInfoMessage.getBlackList());
                     return;
                 }
-                this.aZY.showToast(responseGetMaskInfoMessage.getErrorString());
-                if (com.baidu.adp.lib.util.i.fg()) {
-                    hVar4 = this.aZY.aZW;
-                    hVar4.IX();
+                this.bbv.showToast(responseGetMaskInfoMessage.getErrorString());
+                if (com.baidu.adp.lib.util.i.ff()) {
+                    hVar4 = this.bbv.bbt;
+                    hVar4.Jv();
                 }
             } else if (socketResponsedMessage.getCmd() == 104102 && (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (orginalMessage = (responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage).getOrginalMessage()) != null && (orginalMessage instanceof RequestUpdateMaskInfoMessage) && ((RequestUpdateMaskInfoMessage) orginalMessage).getMaskType() == 10) {
                 if (responseUpdateMaskInfoMessage.getError() != 0) {
-                    this.aZY.showToast(responseUpdateMaskInfoMessage.getErrorString());
+                    this.bbv.showToast(responseUpdateMaskInfoMessage.getErrorString());
                     return;
                 }
-                this.aZY.showToast(this.aZY.getPageContext().getString(z.black_list_remove_success));
-                aVar = this.aZY.aZX;
+                this.bbv.showToast(this.bbv.getPageContext().getString(z.black_list_remove_success));
+                aVar = this.bbv.bbu;
                 if (aVar != null) {
-                    hVar2 = this.aZY.aZW;
-                    aVar2 = this.aZY.aZX;
+                    hVar2 = this.bbv.bbt;
+                    aVar2 = this.bbv.bbu;
                     hVar2.b(aVar2);
-                    this.aZY.aZX = null;
+                    this.bbv.bbu = null;
                 }
             }
         }

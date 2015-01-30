@@ -6,7 +6,6 @@ import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.webkit.URLUtil;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.l;
-import com.baidu.channelrtc.medialivesender.LiveSenderControl;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -34,7 +33,7 @@ public class TbConfig {
     private static final String BROADCAST_PAGE_ADDED = "com.baidu.tieba.broadcast.imagepb.pageadded";
     private static final String BROADCAST_PAGE_CHANGED = "com.baidu.tieba.broadcast.imagepb.pagechanged";
     private static final String BROADCAST_SIGN_ALERT = "com.baidu.tieba.broadcast.signalert";
-    public static final int BUILD_NUMBER = 85;
+    public static final int BUILD_NUMBER = 25;
     public static final String BUY_FACE_PACKAGE_URL = "c/e/faces/buyfacepack";
     public static final Bitmap.Config BitmapConfig;
     public static final String CDN_LOG_ADDRESS = "c/p/updata";
@@ -60,6 +59,7 @@ public class TbConfig {
     public static final String FATAL_ERROR_DEBUG_FILE = "fatal_error_debug.log";
     public static final String FATAL_ERROR_FILE = "fatal_error.log";
     public static final long FATAL_ERROR_FILE_MAX_SIZE = 204800;
+    public static final String FATAL_ERROR_NATIVE_DIR = "crash_ndk";
     public static final String FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS = "c/c/voice/voice_fin_chunk_upload";
     public static final String FOLLOW_ADDRESS = "c/c/user/follow";
     public static final int FONT_SIZE_BIG = 1;
@@ -159,6 +159,7 @@ public class TbConfig {
     public static final int MUTI_IMAGE_MAX_COUNT = 10;
     public static final int NET_MSG_GETLENTH = 900002;
     public static final int NET_MSG_TOTALLENTH = 900001;
+    public static final int NOTIFY_AT_ME_ID = 25;
     public static final int NOTIFY_CHAT_ID = 16;
     public static final int NOTIFY_GIFT_ID = 23;
     public static final int NOTIFY_GROUP_EVENT = 18;
@@ -170,6 +171,7 @@ public class TbConfig {
     public static final int NOTIFY_OFFICIAL_MESSAGE = 19;
     public static final int NOTIFY_PUSH_ID = 15;
     public static final int NOTIFY_RECOMMEND_MESSAGE_ID = 13;
+    public static final int NOTIFY_REPLY_ME_ID = 24;
     public static final int NOTIFY_SIGN_ID = 12;
     public static final long NOTIFY_SOUND_INTERVAL = 5000;
     public static final long ONE_DAY_TIME = 86400000;
@@ -244,6 +246,7 @@ public class TbConfig {
     public static final int TYPE_RELEASE_BUILD = 3;
     public static final String UNFAVOLIKE_ADDRESS = "c/c/forum/unfavolike";
     public static final String UNFOLLOW_ADDRESS = "c/c/user/unfollow";
+    public static final String UPDATE_DEVICE_INFO_ADDRESS = "c/i/register/updatedeviceinfo";
     public static final long UPDATE_NOTIFY_INTERVAL = 86400000;
     public static final String UPDATE_PLAYER_NUM = "c/c/game/updatetimes";
     public static final String UPLOAD_CHUNK_AUDIO_ADDRESS = "c/c/voice/chunkupload";
@@ -479,7 +482,7 @@ public class TbConfig {
                 return;
             }
             FRIEND_PHOTO_ADDRESS = PHOTO_BIG_ADDRESS;
-            FRIEND_PHOTO_MAX_SIZE = 110;
+            FRIEND_PHOTO_MAX_SIZE = BIG_PHOTO_MAX_SIZE;
         }
     }
 
@@ -571,7 +574,7 @@ public class TbConfig {
     }
 
     public static int getBubbleImageSize() {
-        return LiveSenderControl.LiveSenderSampleRate.SAMPLINGRATE_22_05;
+        return 22050;
     }
 
     public static String getPositionPagerName() {

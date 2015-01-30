@@ -11,6 +11,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_SUGGESTLOCSTION_BY_NAME = 1003002;
     public static final int CMD_GET_USER_INFO = 1003001;
     public static final int CMD_HTTP_GET_YINJI = 1001533;
+    public static final int CMD_UPDATE_DEVICE_INFO = 1003004;
     public static final int COMMON_PRAISE_Y_OR_N = 1001600;
     public static final int DISCOVER_TAB_HTTP_CMD = 1001300;
     public static final int DISTRIBUTE_ACTRUAL_CMD = 1003000;

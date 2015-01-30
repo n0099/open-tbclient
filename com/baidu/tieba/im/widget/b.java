@@ -6,7 +6,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tieba.t;
@@ -16,15 +16,15 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class b extends LinearLayout {
-    private TextView avu;
-    private EditText bpg;
-    private BarImageView bph;
-    private BarImageView bpi;
-    protected TextView bpj;
-    private ShareFromGameCenterMsgData bpk;
+    private TextView awu;
+    private EditText bqE;
+    private BarImageView bqF;
+    private BarImageView bqG;
+    protected TextView bqH;
+    private ShareFromGameCenterMsgData bqI;
 
     public EditText getChatMsgView() {
-        return this.bpg;
+        return this.bqE;
     }
 
     public b(Context context) {
@@ -33,24 +33,24 @@ public class b extends LinearLayout {
     }
 
     private void aq(Context context) {
-        com.baidu.adp.lib.g.b.ek().inflate(context, x.game_to_group_share_dialog, this);
+        com.baidu.adp.lib.g.b.ei().inflate(context, x.game_to_group_share_dialog, this);
         setOrientation(1);
-        this.bpg = (EditText) findViewById(w.game_to_group_share_chat_msg);
-        this.bph = (BarImageView) findViewById(w.game_to_group_share_img);
-        this.bpi = (BarImageView) findViewById(w.game_to_group_share_icon);
-        this.avu = (TextView) findViewById(w.game_to_group_share_desc);
-        ax.i((View) this.bpg, v.inputbox_share);
-        ax.b(this.bpg, t.cp_cont_b, 2);
-        this.bpg.setHintTextColor(ax.getColor(t.cp_bg_line_b));
-        ax.b(this.avu, t.cp_cont_f, 1);
-        this.bpg.setPadding(context.getResources().getDimensionPixelSize(u.ds20), 0, 0, 0);
-        this.bpj = (TextView) findViewById(w.game_to_group_share);
-        ax.b(this.bpj, t.cp_cont_c, 1);
+        this.bqE = (EditText) findViewById(w.game_to_group_share_chat_msg);
+        this.bqF = (BarImageView) findViewById(w.game_to_group_share_img);
+        this.bqG = (BarImageView) findViewById(w.game_to_group_share_icon);
+        this.awu = (TextView) findViewById(w.game_to_group_share_desc);
+        bc.i((View) this.bqE, v.inputbox_share);
+        bc.b(this.bqE, t.cp_cont_b, 2);
+        this.bqE.setHintTextColor(bc.getColor(t.cp_bg_line_b));
+        bc.b(this.awu, t.cp_cont_f, 1);
+        this.bqE.setPadding(context.getResources().getDimensionPixelSize(u.ds20), 0, 0, 0);
+        this.bqH = (TextView) findViewById(w.game_to_group_share);
+        bc.b(this.bqH, t.cp_cont_c, 1);
     }
 
     public String getLeaveMsg() {
-        if (this.bpg != null) {
-            return k.a(this.bpg.getText(), null);
+        if (this.bqE != null) {
+            return k.a(this.bqE.getText(), null);
         }
         return null;
     }
@@ -61,16 +61,16 @@ public class b extends LinearLayout {
     }
 
     public void setData(ShareFromGameCenterMsgData shareFromGameCenterMsgData) {
-        this.bpk = shareFromGameCenterMsgData;
-        qw();
+        this.bqI = shareFromGameCenterMsgData;
+        qH();
     }
 
-    private void qw() {
-        this.bph.setTag(this.bpk.getImageUrl());
-        this.bph.d(this.bpk.getImageUrl(), 17, false);
-        this.bpi.setTag(this.bpk.getShareSourceIcon());
-        this.bpi.d(this.bpk.getShareSourceIcon(), 17, false);
-        this.avu.setText(this.bpk.getContent());
-        this.bpj.setText("来自" + this.bpk.getShareSource());
+    private void qH() {
+        this.bqF.setTag(this.bqI.getImageUrl());
+        this.bqF.d(this.bqI.getImageUrl(), 17, false);
+        this.bqG.setTag(this.bqI.getShareSourceIcon());
+        this.bqG.d(this.bqI.getShareSourceIcon(), 17, false);
+        this.awu.setText(this.bqI.getContent());
+        this.bqH.setText("来自" + this.bqI.getShareSource());
     }
 }

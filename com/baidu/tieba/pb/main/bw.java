@@ -7,7 +7,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 class bw implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        bv.Xz().reset();
+        bv.Ye().reset();
         return null;
     }
 }

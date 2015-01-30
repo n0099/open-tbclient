@@ -7,13 +7,13 @@ import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z implements com.baidu.tieba.im.g<LinkedHashMap<String, String>> {
-    final /* synthetic */ a bni;
-    private final /* synthetic */ ad bnr;
+    final /* synthetic */ a boF;
+    private final /* synthetic */ ad boO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(a aVar, ad adVar) {
-        this.bni = aVar;
-        this.bnr = adVar;
+        this.boF = aVar;
+        this.boO = adVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,6 +36,6 @@ public class z implements com.baidu.tieba.im.g<LinkedHashMap<String, String>> {
                 }
             }
         }
-        this.bnr.a(linkedHashMap2);
+        this.boO.a(linkedHashMap2);
     }
 }

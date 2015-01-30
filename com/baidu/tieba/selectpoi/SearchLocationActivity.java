@@ -14,7 +14,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.t;
@@ -28,21 +28,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class SearchLocationActivity extends NavigationBarActivity {
-    private ImageView UO;
-    private com.baidu.tieba.tbadkCore.location.k bMR;
-    private h bMS;
-    private LinearLayout bMT;
-    private TextView bMU;
-    private com.baidu.adp.framework.listener.a bMV = new c(this, CmdConfigHttp.CMD_GET_SUGGESTLOCSTION_BY_NAME, 303018);
-    private AdapterView.OnItemClickListener bMW = new d(this);
-    private EditText bqY;
+    private ImageView Vu;
+    private com.baidu.tieba.tbadkCore.location.k bOB;
+    private h bOC;
+    private LinearLayout bOD;
+    private TextView bOE;
+    private com.baidu.adp.framework.listener.a bOF = new c(this, CmdConfigHttp.CMD_GET_SUGGESTLOCSTION_BY_NAME, 303018);
+    private AdapterView.OnItemClickListener bOG = new d(this);
+    private EditText bsw;
     private BdListView mListView;
 
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2002012, new b());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        acm();
+        acQ();
         com.baidu.tieba.tbadkCore.a.a.c(303018, LocationSearchResponseMessage.class, false);
     }
 
@@ -50,36 +50,36 @@ public class SearchLocationActivity extends NavigationBarActivity {
     @Override // com.baidu.tieba.selectpoi.NavigationBarActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        registerListener(this.bMV);
-        acm();
+        registerListener(this.bOF);
+        acQ();
         setContentView(x.search_location_layout);
         initUI();
         initData();
     }
 
     public void initUI() {
-        this.aey.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e(this));
-        this.bMT = (LinearLayout) this.aey.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, x.search_location_edit_layout, (View.OnClickListener) null);
-        this.UO = (ImageView) this.bMT.findViewById(w.search_bar_icon);
-        this.bqY = (EditText) this.bMT.findViewById(w.search_location_editview);
-        this.bqY.addTextChangedListener(new f(this));
-        this.bMU = (TextView) this.bMT.findViewById(w.search_location_bt_search_s);
-        this.bMU.setEnabled(false);
-        this.bMU.setOnClickListener(new g(this));
+        this.aeV.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e(this));
+        this.bOD = (LinearLayout) this.aeV.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, x.search_location_edit_layout, (View.OnClickListener) null);
+        this.Vu = (ImageView) this.bOD.findViewById(w.search_bar_icon);
+        this.bsw = (EditText) this.bOD.findViewById(w.search_location_editview);
+        this.bsw.addTextChangedListener(new f(this));
+        this.bOE = (TextView) this.bOD.findViewById(w.search_location_bt_search_s);
+        this.bOE.setEnabled(false);
+        this.bOE.setOnClickListener(new g(this));
         this.mListView = (BdListView) findViewById(w.search_position_list);
-        this.bMS = new h(this);
-        this.mListView.setAdapter((ListAdapter) this.bMS);
-        this.mListView.setOnItemClickListener(this.bMW);
+        this.bOC = new h(this);
+        this.mListView.setAdapter((ListAdapter) this.bOC);
+        this.mListView.setOnItemClickListener(this.bOG);
     }
 
     public void initData() {
-        this.bMR = new com.baidu.tieba.tbadkCore.location.k();
-        com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.ahy().getLocationData();
+        this.bOB = new com.baidu.tieba.tbadkCore.location.k();
+        com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.aic().getLocationData();
         if (locationData != null) {
-            this.bMR.Q(a(locationData.ahv(), locationData.ahu(), locationData.ahw()));
+            this.bOB.R(a(locationData.ahZ(), locationData.ahY(), locationData.aia()));
         }
-        this.bMS.a(this.bMR);
-        this.bMS.notifyDataSetChanged();
+        this.bOC.a(this.bOB);
+        this.bOC.notifyDataSetChanged();
     }
 
     private ArrayList<com.baidu.tieba.tbadkCore.location.l> a(List<com.baidu.tieba.tbadkCore.location.b> list, String str, String str2) {
@@ -95,7 +95,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
                 } else {
                     com.baidu.tieba.tbadkCore.location.l lVar = new com.baidu.tieba.tbadkCore.location.l();
                     lVar.setName(bVar2.getName());
-                    lVar.ij(bVar2.ahw());
+                    lVar.iq(bVar2.aia());
                     arrayList.add(lVar);
                 }
             }
@@ -103,24 +103,24 @@ public class SearchLocationActivity extends NavigationBarActivity {
         if (bVar != null) {
             com.baidu.tieba.tbadkCore.location.l lVar2 = new com.baidu.tieba.tbadkCore.location.l();
             lVar2.setName(bVar.getName());
-            lVar2.ij(bVar.ahw());
+            lVar2.iq(bVar.aia());
             arrayList.add(0, lVar2);
         } else {
             com.baidu.tieba.tbadkCore.location.l lVar3 = new com.baidu.tieba.tbadkCore.location.l();
             lVar3.setName(str);
-            lVar3.ij(str2);
+            lVar3.iq(str2);
             arrayList.add(0, lVar3);
         }
         return arrayList;
     }
 
-    public void acl() {
+    public void acP() {
         LocationSearchNetRequestMessage locationSearchNetRequestMessage = new LocationSearchNetRequestMessage();
-        locationSearchNetRequestMessage.setAddrName(abZ());
+        locationSearchNetRequestMessage.setAddrName(acD());
         sendMessage(locationSearchNetRequestMessage);
     }
 
-    private static void acm() {
+    private static void acQ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_SUGGESTLOCSTION_BY_NAME, com.baidu.tieba.tbadkCore.a.a.O(TbConfig.GET_SUGGEST_LOCATION_BY_NAME, 303018));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
@@ -130,9 +130,9 @@ public class SearchLocationActivity extends NavigationBarActivity {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public String abZ() {
-        if (this.bqY != null) {
-            return com.baidu.adp.lib.util.k.a(this.bqY.getText(), null);
+    public String acD() {
+        if (this.bsw != null) {
+            return com.baidu.adp.lib.util.k.a(this.bsw.getText(), null);
         }
         return null;
     }
@@ -141,16 +141,16 @@ public class SearchLocationActivity extends NavigationBarActivity {
     @Override // com.baidu.tieba.selectpoi.NavigationBarActivity, com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        ax.i((View) this.bMU, v.btn_titlebar_finish);
-        ax.c(this.UO, v.icon_search_ba);
-        ax.b(this.bMU, t.search_location_button_color, 3);
+        bc.i((View) this.bOE, v.btn_titlebar_finish);
+        bc.c(this.Vu, v.icon_search_ba);
+        bc.b(this.bOE, t.search_location_button_color, 3);
         if (i == 1) {
-            this.bqY.setTextColor(-6574132);
-            this.bqY.setHintTextColor(-11643034);
+            this.bsw.setTextColor(-6574132);
+            this.bsw.setHintTextColor(-11643034);
         } else {
-            this.bqY.setTextColor(-2300171);
-            this.bqY.setHintTextColor(-10195067);
+            this.bsw.setTextColor(-2300171);
+            this.bsw.setHintTextColor(-10195067);
         }
-        this.bMS.notifyDataSetChanged();
+        this.bOC.notifyDataSetChanged();
     }
 }

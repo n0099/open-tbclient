@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.PraiseData;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.a;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tieba.v;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ import tbclient.Voice;
 /* loaded from: classes.dex */
 public class FriendFeedThreadData extends a implements Serializable {
     private static final long serialVersionUID = -8881889728582490817L;
-    private transient SpannableString EI;
+    private transient SpannableString EM;
     private String abstract_text;
     private String authorId;
     private String fid;
@@ -55,7 +55,7 @@ public class FriendFeedThreadData extends a implements Serializable {
     }
 
     public SpannableString getSpan_str() {
-        return this.EI;
+        return this.EM;
     }
 
     public String getFname() {
@@ -260,9 +260,9 @@ public class FriendFeedThreadData extends a implements Serializable {
                 SpannableString spannableString2 = new SpannableString(String.valueOf(sb.toString()) + this.title);
                 int i2 = 0;
                 for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                    Bitmap bX = ax.bX(((Integer) arrayList.get(i3)).intValue());
-                    BitmapDrawable bitmapDrawable = new BitmapDrawable(bX);
-                    bitmapDrawable.setBounds(0, 0, bX.getWidth(), bX.getHeight());
+                    Bitmap ce = bc.ce(((Integer) arrayList.get(i3)).intValue());
+                    BitmapDrawable bitmapDrawable = new BitmapDrawable(ce);
+                    bitmapDrawable.setBounds(0, 0, ce.getWidth(), ce.getHeight());
                     spannableString2.setSpan(new ImageSpan(bitmapDrawable, 1), i2, i2 + 1, 33);
                     i2 += 2;
                 }
@@ -270,7 +270,7 @@ public class FriendFeedThreadData extends a implements Serializable {
             } else {
                 spannableString = new SpannableString(this.title);
             }
-            this.EI = spannableString;
+            this.EM = spannableString;
         }
     }
 

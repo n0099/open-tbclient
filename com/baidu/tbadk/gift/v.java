@@ -5,14 +5,14 @@ import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 class v {
-    public TbImageView aaJ;
-    public View aaK;
-    public TextView aaL;
-    public TextView aaM;
-    final /* synthetic */ u aaN;
+    public TbImageView abk;
+    public View abl;
+    public TextView abm;
+    public TextView abn;
+    final /* synthetic */ u abo;
 
     private v(u uVar) {
-        this.aaN = uVar;
+        this.abo = uVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -9,10 +9,10 @@ import java.util.Iterator;
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<String, Integer, Boolean> {
     private String packageName;
-    final /* synthetic */ c sC;
+    final /* synthetic */ c sL;
 
     public d(c cVar, String str) {
-        this.sC = cVar;
+        this.sL = cVar;
         this.packageName = str;
     }
 
@@ -36,10 +36,10 @@ public class d extends BdAsyncTask<String, Integer, Boolean> {
         ArrayList arrayList2;
         ArrayList arrayList3;
         super.onPostExecute(bool);
-        this.sC.sB = null;
-        arrayList = this.sC.sx;
+        this.sL.sK = null;
+        arrayList = this.sL.sG;
         if (arrayList.size() > 0) {
-            arrayList2 = this.sC.sx;
+            arrayList2 = this.sL.sG;
             Iterator it = arrayList2.iterator();
             while (true) {
                 if (!it.hasNext()) {
@@ -47,23 +47,24 @@ public class d extends BdAsyncTask<String, Integer, Boolean> {
                 }
                 String str = (String) it.next();
                 if (str != null && str.equals(this.packageName)) {
-                    arrayList3 = this.sC.sx;
+                    arrayList3 = this.sL.sG;
                     arrayList3.remove(str);
                     break;
                 }
             }
         }
-        this.sC.ia();
+        this.sL.ia();
     }
 
     private void bb(String str) {
         File[] listFiles;
         File iE = Util.iE();
-        String by = Util.by(str);
-        if (iE.exists() && (listFiles = iE.listFiles()) != null) {
+        String bx = Util.bx(str);
+        if (iE != null && iE.exists() && (listFiles = iE.listFiles()) != null) {
             int length = listFiles.length;
             for (int i = 0; i < length; i++) {
-                if (listFiles[i] != null && listFiles[i].isFile() && listFiles[i].getName().startsWith(by)) {
+                if (listFiles[i] != null && listFiles[i].isFile() && listFiles[i].getName().startsWith(bx)) {
+                    com.baidu.adp.plugin.b.a.hU().g("plugin_del_temp", "todel" + listFiles[i].getName(), str);
                     com.baidu.adp.lib.util.commonsio.a.g(listFiles[i]);
                 }
             }

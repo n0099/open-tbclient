@@ -1,37 +1,26 @@
 package com.baidu.tieba.tblauncher;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.support.v4.view.ViewPager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj extends BroadcastReceiver {
-    final /* synthetic */ MainTabActivity this$0;
-
-    private aj(MainTabActivity mainTabActivity) {
-        this.this$0 = mainTabActivity;
-    }
+public class aj implements ViewPager.OnPageChangeListener {
+    final /* synthetic */ ai cdw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ aj(MainTabActivity mainTabActivity, aj ajVar) {
-        this(mainTabActivity);
+    public aj(ai aiVar) {
+        this.cdw = aiVar;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        if (intent.getAction().equals(TbConfig.getBroadcastActionNewVersion())) {
-            refreshNewVersion();
-        }
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
+        com.baidu.adp.lib.g.i.ej().postDelayed(new ak(this), 200L);
     }
 
-    private void refreshNewVersion() {
-        if (TbadkCoreApplication.checkNeedShowNewVersion()) {
-            this.this$0.mHasNewVersion = true;
-        } else {
-            this.this$0.mHasNewVersion = false;
-        }
-        this.this$0.eA(false);
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrolled(int i, float f, int i2) {
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrollStateChanged(int i) {
     }
 }

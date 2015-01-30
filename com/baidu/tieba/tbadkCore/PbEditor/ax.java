@@ -3,19 +3,19 @@ package com.baidu.tieba.tbadkCore.PbEditor;
 import android.view.View;
 /* loaded from: classes.dex */
 class ax implements View.OnClickListener {
-    private final /* synthetic */ com.baidu.tbadk.editortool.w aBH;
-    final /* synthetic */ TbEditorToolButtonContainer bVj;
+    private final /* synthetic */ com.baidu.tbadk.editortool.w aCI;
+    final /* synthetic */ TbEditorToolButtonContainer bXb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(TbEditorToolButtonContainer tbEditorToolButtonContainer, com.baidu.tbadk.editortool.w wVar) {
-        this.bVj = tbEditorToolButtonContainer;
-        this.aBH = wVar;
+        this.bXb = tbEditorToolButtonContainer;
+        this.aCI = wVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view instanceof EditorToolButton) {
-            this.bVj.a((EditorToolButton) view, this.aBH);
+            this.bXb.a((EditorToolButton) view, this.aCI);
         }
     }
 }

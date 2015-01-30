@@ -1,73 +1,94 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONObject;
+import tbclient.Page;
 /* loaded from: classes.dex */
 public class q {
-    private ArrayList<UserData> Ef = new ArrayList<>();
-    private ArrayList<UserData> Eg = new ArrayList<>();
-    private p Eh = new p();
-    private int friendNum = 0;
+    private int Ef = 0;
+    private int total_num = 0;
+    private int current_page = 0;
+    private int Eh = 0;
+    private int has_more = 0;
     private int Ei = 0;
+    private int Eg = 0;
 
-    public void a(p pVar) {
-        this.Eh = pVar;
-    }
-
-    public p mY() {
-        return this.Eh;
-    }
-
-    public ArrayList<UserData> mZ() {
+    public int mU() {
         return this.Ef;
     }
 
-    public ArrayList<UserData> na() {
+    public void bo(int i) {
+        this.Ef = i;
+    }
+
+    public int mt() {
+        return this.total_num;
+    }
+
+    public void bp(int i) {
+        this.total_num = i;
+    }
+
+    public int mV() {
         return this.Eg;
     }
 
-    public int getFriendNum() {
-        return this.friendNum;
+    public int mW() {
+        return this.current_page;
     }
 
-    public int nb() {
+    public void bq(int i) {
+        this.current_page = i;
+    }
+
+    public int mX() {
+        return this.Eh;
+    }
+
+    public void br(int i) {
+        this.Eh = i;
+    }
+
+    public void bs(int i) {
+        this.has_more = i;
+    }
+
+    public int mY() {
+        return this.has_more;
+    }
+
+    public void bt(int i) {
+        this.Ei = i;
+    }
+
+    public int mZ() {
         return this.Ei;
     }
 
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.detailException(e);
+    public void a(Page page) {
+        if (page != null) {
+            this.Ef = page.total_page.intValue();
+            this.total_num = page.total_num.intValue();
+            this.Eg = page.total_count.intValue();
+            this.current_page = page.current_page.intValue();
+            this.Eh = page.page_size.intValue();
+            this.has_more = page.has_more.intValue();
+            this.Ei = page.has_prev.intValue();
         }
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        UserData userData = new UserData();
-                        userData.parserJson(optJSONArray.getJSONObject(i));
-                        this.Ef.add(userData);
-                    }
-                }
-                if (optJSONArray2 != null) {
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        UserData userData2 = new UserData();
-                        userData2.parserJson(optJSONArray2.getJSONObject(i2));
-                        this.Eg.add(userData2);
-                    }
-                }
-                this.Eh.parserJson(jSONObject.optJSONObject("page"));
-                this.friendNum = jSONObject.optInt("tafriendnum", 0);
-                this.Ei = jSONObject.optInt("commonfriendnum", 0);
+                this.Ef = jSONObject.optInt("total_page", 0);
+                this.total_num = jSONObject.optInt("total_num", 0);
+                this.Eg = jSONObject.optInt("total_count", 0);
+                this.current_page = jSONObject.optInt("current_page", 0);
+                this.Eh = jSONObject.optInt("page_size", 0);
+                this.has_more = jSONObject.optInt("has_more", 0);
+                this.Ei = jSONObject.optInt("has_prev", 0);
             } catch (Exception e) {
-                BdLog.detailException(e);
+                BdLog.e(e.getMessage());
             }
         }
     }

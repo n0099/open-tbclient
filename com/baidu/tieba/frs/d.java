@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
 class d extends CustomMessageListener {
-    final /* synthetic */ FrsActivity aCV;
+    final /* synthetic */ FrsActivity aDW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(FrsActivity frsActivity, int i) {
         super(i);
-        this.aCV = frsActivity;
+        this.aDW = frsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,31 +20,31 @@ class d extends CustomMessageListener {
         Integer num;
         com.baidu.tieba.tbadkCore.e eVar;
         com.baidu.tieba.tbadkCore.e eVar2;
-        bq bqVar;
+        bp bpVar;
         String str;
         String str2;
-        bq bqVar2;
-        bq bqVar3;
+        bp bpVar2;
+        bp bpVar3;
         if (customResponsedMessage != null && (num = (Integer) customResponsedMessage.getData()) != null) {
-            eVar = this.aCV.aCh;
+            eVar = this.aDW.aDi;
             if (eVar != null) {
-                eVar2 = this.aCV.aCh;
+                eVar2 = this.aDW.aDi;
                 UserData userData = eVar2.getUserData();
                 if (userData != null) {
                     userData.setIsMem(num.intValue());
                     if (num.intValue() != 0) {
-                        bqVar = this.aCV.aBX;
-                        bqVar.setIsMem(num.intValue());
-                        str = this.aCV.mPageType;
+                        bpVar = this.aDW.aCY;
+                        bpVar.setIsMem(num.intValue());
+                        str = this.aDW.mPageType;
                         if ("frs_page".equals(str)) {
-                            bqVar3 = this.aCV.aBX;
-                            bqVar3.GL();
+                            bpVar3 = this.aDW.aCY;
+                            bpVar3.Hi();
                             return;
                         }
-                        str2 = this.aCV.mPageType;
+                        str2 = this.aDW.mPageType;
                         if ("normal_page".equals(str2)) {
-                            bqVar2 = this.aCV.aBX;
-                            bqVar2.GK();
+                            bpVar2 = this.aDW.aCY;
+                            bpVar2.Hh();
                         }
                     }
                 }

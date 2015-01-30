@@ -13,8 +13,8 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 /* loaded from: classes.dex */
 public class ab {
-    public static final Charset nE = Charset.forName("UTF-8");
-    private static final byte[] nF = {-92, 11, -56, 52, -42, -107, -13, 19};
+    public static final Charset nI = Charset.forName("UTF-8");
+    private static final byte[] nJ = {-92, 11, -56, 52, -42, -107, -13, 19};
 
     public static PublicKey o(byte[] bArr) {
         return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(bArr));
@@ -32,7 +32,7 @@ public class ab {
         for (int i = 0; i < cArr.length; i++) {
             cArr[i] = (char) (((byte) str.charAt(i)) & 255);
         }
-        return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, nF, 5, 256));
+        return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, nJ, 5, 256));
     }
 
     public static byte[] a(SecretKey secretKey, byte[] bArr) {
@@ -47,7 +47,7 @@ public class ab {
         return cipher.doFinal(bArr, i, i2);
     }
 
-    public static String W(int i) {
+    public static String ab(int i) {
         String bigInteger = new BigInteger(i * 5, new SecureRandom()).toString(36);
         if (bigInteger.length() > i) {
             return bigInteger.substring(0, bigInteger.length());

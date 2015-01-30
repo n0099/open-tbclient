@@ -7,9 +7,9 @@ import com.baidu.tbadk.core.util.ad;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<String, Integer, String> {
-    private ad CV;
-    private String anQ;
-    final /* synthetic */ a bYG;
+    private ad CX;
+    private String aoL;
+    final /* synthetic */ a caz;
     private String mForumId;
     private String mForumName;
     private String mThreadId;
@@ -20,30 +20,30 @@ public class d extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: l */
     public String doInBackground(String... strArr) {
-        this.CV = new ad(strArr[0]);
-        this.CV.o("day", this.anQ);
-        this.CV.o("un", this.mUserName);
-        this.CV.o(ImageViewerConfig.FORUM_ID, this.mForumId);
-        this.CV.o("word", this.mForumName);
-        this.CV.o("z", this.mThreadId);
-        this.CV.o("ntn", "banid");
-        this.CV.oW().pV().mIsNeedTbs = true;
-        this.CV.ov();
-        if (this.CV.oW().pW().ma()) {
+        this.CX = new ad(strArr[0]);
+        this.CX.o("day", this.aoL);
+        this.CX.o("un", this.mUserName);
+        this.CX.o(ImageViewerConfig.FORUM_ID, this.mForumId);
+        this.CX.o("word", this.mForumName);
+        this.CX.o("z", this.mThreadId);
+        this.CX.o("ntn", "banid");
+        this.CX.oZ().qg().mIsNeedTbs = true;
+        this.CX.oy();
+        if (this.CX.oZ().qh().ma()) {
             return null;
         }
-        return this.CV.getErrorString();
+        return this.CX.getErrorString();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         i iVar;
-        if (this.CV != null) {
-            this.CV.dL();
+        if (this.CX != null) {
+            this.CX.dJ();
         }
-        this.bYG.bYD = null;
+        this.caz.caw = null;
         super.cancel(true);
-        iVar = this.bYG.mLoadDataCallBack;
+        iVar = this.caz.mLoadDataCallBack;
         iVar.c(null);
     }
 
@@ -54,20 +54,20 @@ public class d extends BdAsyncTask<String, Integer, String> {
         i iVar;
         i iVar2;
         super.onPostExecute((d) str);
-        this.bYG.bYD = null;
-        if (this.CV == null) {
-            iVar2 = this.bYG.mLoadDataCallBack;
+        this.caz.caw = null;
+        if (this.CX == null) {
+            iVar2 = this.caz.mLoadDataCallBack;
             iVar2.c(null);
             return;
         }
-        e eVar = new e(this.bYG);
+        e eVar = new e(this.caz);
         if (str == null) {
-            eVar.pW = true;
+            eVar.qb = true;
         } else {
-            eVar.pW = false;
-            eVar.bYH = str;
+            eVar.qb = false;
+            eVar.caA = str;
         }
-        iVar = this.bYG.mLoadDataCallBack;
+        iVar = this.caz.mLoadDataCallBack;
         iVar.c(eVar);
     }
 }

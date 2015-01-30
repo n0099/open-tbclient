@@ -6,11 +6,11 @@ import java.net.HttpURLConnection;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ah implements com.baidu.adp.lib.network.willdelete.d {
-    final /* synthetic */ ag IC;
+    final /* synthetic */ ag IM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(ag agVar) {
-        this.IC = agVar;
+        this.IM = agVar;
     }
 
     @Override // com.baidu.adp.lib.network.willdelete.d
@@ -26,8 +26,8 @@ public class ah implements com.baidu.adp.lib.network.willdelete.d {
                     if (headerField == null || headerField.length() <= 0) {
                         z = false;
                     }
-                    cVar = this.IC.Iq;
-                    if (cVar.pV().pY().mIsBDImage || z) {
+                    cVar = this.IM.Iz;
+                    if (cVar.qg().qj().mIsBDImage || z) {
                         byte[] bArr = new byte[23];
                         int read = httpURLConnection.getInputStream().read(bArr, 0, 23);
                         if (!new String(bArr, 0, bArr.length).equalsIgnoreCase("app:tiebaclient;type:0;")) {
@@ -35,12 +35,12 @@ public class ah implements com.baidu.adp.lib.network.willdelete.d {
                         }
                     }
                     if ("image/gif".equalsIgnoreCase(httpURLConnection.getHeaderField("Src-Content-Type"))) {
-                        cVar3 = this.IC.Iq;
-                        cVar3.pW().gg = true;
+                        cVar3 = this.IM.Iz;
+                        cVar3.qh().gi = true;
                         return;
                     }
-                    cVar2 = this.IC.Iq;
-                    cVar2.pW().gg = false;
+                    cVar2 = this.IM.Iz;
+                    cVar2.qh().gi = false;
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -57,6 +57,6 @@ public class ah implements com.baidu.adp.lib.network.willdelete.d {
     }
 
     @Override // com.baidu.adp.lib.network.willdelete.d
-    public void dW() {
+    public void dU() {
     }
 }

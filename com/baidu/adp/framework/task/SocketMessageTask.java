@@ -4,10 +4,10 @@ import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
 public class SocketMessageTask extends MessageTask {
-    private boolean fp;
-    private boolean fq;
     private boolean fr;
-    private DupLicateMode fs;
+    private boolean fs;
+    private boolean ft;
+    private DupLicateMode fu;
     private Class<? extends SocketResponsedMessage> mResponsedClass;
 
     /* loaded from: classes.dex */
@@ -17,7 +17,7 @@ public class SocketMessageTask extends MessageTask {
         REMOVE_WAITING,
         REMOVE_ALL;
 
-        /* JADX DEBUG: Replace access to removed values field (ft) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (fv) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static DupLicateMode[] valuesCustom() {
             DupLicateMode[] valuesCustom = values();
@@ -30,10 +30,10 @@ public class SocketMessageTask extends MessageTask {
 
     public SocketMessageTask(int i) {
         super(i);
-        this.fp = false;
-        this.fq = false;
-        this.fr = true;
-        this.fs = DupLicateMode.NONE;
+        this.fr = false;
+        this.fs = false;
+        this.ft = true;
+        this.fu = DupLicateMode.NONE;
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
@@ -42,19 +42,19 @@ public class SocketMessageTask extends MessageTask {
     }
 
     public void i(boolean z) {
-        this.fp = z;
+        this.fr = z;
     }
 
-    public boolean bF() {
-        return this.fp;
+    public boolean bD() {
+        return this.fr;
     }
 
-    public boolean bG() {
-        return this.fq;
+    public boolean bE() {
+        return this.fs;
     }
 
     public void j(boolean z) {
-        this.fq = z;
+        this.fs = z;
     }
 
     public Class<? extends SocketResponsedMessage> getResponsedClass() {
@@ -65,19 +65,19 @@ public class SocketMessageTask extends MessageTask {
         this.mResponsedClass = cls;
     }
 
-    public boolean bH() {
-        return this.fr;
+    public boolean bF() {
+        return this.ft;
     }
 
     public void k(boolean z) {
-        this.fr = z;
+        this.ft = z;
     }
 
-    public DupLicateMode bI() {
-        return this.fs;
+    public DupLicateMode bG() {
+        return this.fu;
     }
 
     public void a(DupLicateMode dupLicateMode) {
-        this.fs = dupLicateMode;
+        this.fu = dupLicateMode;
     }
 }

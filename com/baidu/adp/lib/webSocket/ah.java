@@ -1,10 +1,10 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class ah extends aa {
-    d pV;
+    d qa;
 
     public ah(d dVar) {
-        this.pV = null;
-        this.pV = dVar;
+        this.qa = null;
+        this.qa = dVar;
     }
 }

@@ -5,13 +5,13 @@ import com.baidu.tieba.tbadkCore.location.LocationSearchHttpResponsedMessage;
 import com.baidu.tieba.tbadkCore.location.LocationSearchResponseMessage;
 /* loaded from: classes.dex */
 class c extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ SearchLocationActivity bMX;
+    final /* synthetic */ SearchLocationActivity bOH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(SearchLocationActivity searchLocationActivity, int i, int i2) {
         super(i, i2);
-        this.bMX = searchLocationActivity;
+        this.bOH = searchLocationActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -22,19 +22,19 @@ class c extends com.baidu.adp.framework.listener.a {
         if (responsedMessage != null) {
             if ((responsedMessage instanceof LocationSearchHttpResponsedMessage) || (responsedMessage instanceof LocationSearchResponseMessage)) {
                 if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                    this.bMX.showToast(responsedMessage.getErrorString());
+                    this.bOH.showToast(responsedMessage.getErrorString());
                     return;
                 }
                 if (responsedMessage instanceof LocationSearchHttpResponsedMessage) {
-                    this.bMX.bMR = ((LocationSearchHttpResponsedMessage) responsedMessage).getLocationData();
+                    this.bOH.bOB = ((LocationSearchHttpResponsedMessage) responsedMessage).getLocationData();
                 }
                 if (responsedMessage instanceof LocationSearchResponseMessage) {
-                    this.bMX.bMR = ((LocationSearchResponseMessage) responsedMessage).getLocationData();
+                    this.bOH.bOB = ((LocationSearchResponseMessage) responsedMessage).getLocationData();
                 }
-                hVar = this.bMX.bMS;
-                kVar = this.bMX.bMR;
+                hVar = this.bOH.bOC;
+                kVar = this.bOH.bOB;
                 hVar.a(kVar);
-                hVar2 = this.bMX.bMS;
+                hVar2 = this.bOH.bOC;
                 hVar2.notifyDataSetChanged();
             }
         }

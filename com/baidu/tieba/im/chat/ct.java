@@ -1,88 +1,43 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
-public class ct extends com.baidu.adp.base.i {
-    final /* synthetic */ TalkableActivity aRW;
+public class ct {
+    BaseActivity mActivity;
+    String mUrl;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ct(TalkableActivity talkableActivity) {
-        this.aRW = talkableActivity;
+    public ct(String str, BaseActivity baseActivity) {
+        this.mUrl = null;
+        this.mUrl = str;
+        this.mActivity = baseActivity;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.baidu.adp.base.i
-    public void c(Object obj) {
-        long j;
-        if (!com.baidu.adp.lib.util.i.fg()) {
-            if (this.aRW.mListView != null) {
-                this.aRW.mListView.displayNoNetwork();
+    public void execute() {
+        try {
+            if (this.mUrl == null || this.mUrl.length() <= 0) {
+                showToast(this.mActivity.getPageContext().getString(com.baidu.tieba.z.save_error));
             }
-        } else if (this.aRW.mListView != null) {
-            this.aRW.mListView.hideNoNetwork();
+            com.baidu.adp.lib.f.d.ec().a(this.mUrl, 10, new cu(this), this.mActivity.getUniqueId());
+        } catch (Exception e) {
+            showToast(this.mActivity.getPageContext().getString(com.baidu.tieba.z.save_error));
         }
-        switch (this.aRW.mListModel.getLoadDataMode()) {
-            case 1:
-                j = this.aRW.preTime;
-                if (j > -1) {
-                    this.aRW.preTime = -1L;
-                }
-                this.aRW.mListView.closeProgress();
-                this.aRW.mListView.refreshGo2New(this.aRW.mListModel.getData());
-                return;
-            case 2:
-                this.aRW.mListView.refreshPrepage(this.aRW.mListModel.getData());
-                return;
-            case 3:
-                this.aRW.mListView.refreshCheckNew(this.aRW.mListModel.getData());
-                return;
-            case 4:
-                this.aRW.mListView.refreshGo2New(this.aRW.mListModel.getData());
-                return;
-            case 5:
-                this.aRW.mListView.refreshNormal(this.aRW.mListModel.getData());
-                return;
-            case 6:
-                this.aRW.mListView.refreshNormal(this.aRW.mListModel.getData());
-                return;
-            case 7:
-                this.aRW.mListView.refreshNormal(this.aRW.mListModel.getData());
-                return;
-            case 8:
-                if (obj != null && (obj instanceof String)) {
-                    String str = (String) obj;
-                    this.aRW.mListView.setDraft(str);
-                    this.aRW.mListModel.setDraft(str);
-                    return;
-                }
-                return;
-            case 9:
-                this.aRW.finish();
-                return;
-            case 10:
-                if (obj != null && (obj instanceof String)) {
-                    this.aRW.mListView.refreshHeaderFooter((String) obj, true);
-                    return;
-                }
-                return;
-            case 11:
-                this.aRW.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.aRW.getPageContext().getContext(), TbadkCoreApplication.getCurrentAccountName())));
-                this.aRW.finish();
-                return;
-            case 12:
-                this.aRW.mListView.refreshGo2New(this.aRW.mListModel.getData());
-                return;
-            case 13:
-                this.aRW.mListView.refreshNormal(this.aRW.mListModel.getData());
-                break;
-            case 14:
-                break;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public String j(String str, byte[] bArr) {
+        switch (com.baidu.tbadk.core.util.s.a(str, bArr, this.mActivity.getPageContext().getPageActivity())) {
+            case -2:
+                return com.baidu.tbadk.core.util.s.os();
+            case -1:
             default:
-                return;
+                return this.mActivity.getPageContext().getString(com.baidu.tieba.z.save_error);
+            case 0:
+                return this.mActivity.getPageContext().getString(com.baidu.tieba.z.save_image_to_album);
         }
-        this.aRW.mListView.refreshNormal(this.aRW.mListModel.getData());
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final void showToast(String str) {
+        this.mActivity.showToast(str);
     }
 }

@@ -6,23 +6,23 @@ import java.util.HashMap;
 public class f implements com.baidu.tbadk.mvc.b.h {
     private String mThreadId = "";
     private String mPostId = "";
-    private String bDz = "";
-    private boolean bDA = true;
-    private int bDB = 1;
+    private String bFk = "";
+    private boolean bFl = true;
+    private int bFm = 1;
 
     public void l(Bundle bundle) {
         this.mThreadId = bundle.getString("thread_id");
         this.mPostId = bundle.getString("post_id");
-        this.bDz = bundle.getString(com.baidu.tbadk.core.frameworkData.a.POST_DESC);
-        this.bDA = bundle.getBoolean(com.baidu.tbadk.core.frameworkData.a.IS_FROM_PB, true);
+        this.bFk = bundle.getString(com.baidu.tbadk.core.frameworkData.a.POST_DESC);
+        this.bFl = bundle.getBoolean(com.baidu.tbadk.core.frameworkData.a.IS_FROM_PB, true);
     }
 
     public Bundle toBundle() {
         Bundle bundle = new Bundle();
-        bundle.putBoolean(com.baidu.tbadk.core.frameworkData.a.IS_FROM_PB, this.bDA);
+        bundle.putBoolean(com.baidu.tbadk.core.frameworkData.a.IS_FROM_PB, this.bFl);
         bundle.putString("thread_id", this.mThreadId);
         bundle.putString("post_id", this.mPostId);
-        bundle.putString(com.baidu.tbadk.core.frameworkData.a.POST_DESC, this.bDz);
+        bundle.putString(com.baidu.tbadk.core.frameworkData.a.POST_DESC, this.bFk);
         return bundle;
     }
 
@@ -30,7 +30,7 @@ public class f implements com.baidu.tbadk.mvc.b.h {
     public HashMap<String, Object> kQ() {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("post_id", new StringBuilder(String.valueOf(this.mPostId)).toString());
-        hashMap.put("page_num", new StringBuilder(String.valueOf(this.bDB)).toString());
+        hashMap.put("page_num", new StringBuilder(String.valueOf(this.bFm)).toString());
         hashMap.put("res_num", "20");
         return hashMap;
     }
@@ -44,15 +44,15 @@ public class f implements com.baidu.tbadk.mvc.b.h {
         return this.mThreadId;
     }
 
-    public boolean Za() {
-        return this.bDA;
+    public boolean ZF() {
+        return this.bFl;
     }
 
-    public void Zb() {
-        this.bDB++;
+    public void ZG() {
+        this.bFm++;
     }
 
     public int getPageNum() {
-        return this.bDB;
+        return this.bFm;
     }
 }

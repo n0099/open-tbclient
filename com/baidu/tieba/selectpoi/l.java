@@ -7,7 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.bc;
 import com.baidu.tieba.t;
 import com.baidu.tieba.v;
 import com.baidu.tieba.w;
@@ -17,17 +17,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class l extends BaseAdapter {
-    private ArrayList<Object> bNg;
-    private SelectLocationActivity bNh;
+    private ArrayList<Object> bOQ;
+    private SelectLocationActivity bOR;
     private boolean isShowLocation;
 
     public l(SelectLocationActivity selectLocationActivity) {
         this.isShowLocation = true;
-        this.bNh = selectLocationActivity;
-        com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.ahy().getLocationData();
-        this.isShowLocation = com.baidu.tieba.tbadkCore.location.c.ahy().ahz() ? false : true;
+        this.bOR = selectLocationActivity;
+        com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.aic().getLocationData();
+        this.isShowLocation = com.baidu.tieba.tbadkCore.location.c.aic().aid() ? false : true;
         if (locationData != null) {
-            this.bNg = d(locationData.ahv(), locationData.ahu());
+            this.bOQ = d(locationData.ahZ(), locationData.ahY());
         }
     }
 
@@ -53,8 +53,8 @@ public class l extends BaseAdapter {
             bVar3.setName(str);
             arrayList.add(0, bVar3);
         }
-        if (this.bNh != null) {
-            arrayList.add(0, this.bNh.getPageContext().getString(z.select_position_no_location));
+        if (this.bOR != null) {
+            arrayList.add(0, this.bOR.getPageContext().getString(z.select_position_no_location));
         }
         return arrayList;
     }
@@ -78,18 +78,18 @@ public class l extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bNg == null) {
+        if (this.bOQ == null) {
             return 0;
         }
-        return this.bNg.size();
+        return this.bOQ.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.bNg == null || i < 0 || i >= this.bNg.size()) {
+        if (this.bOQ == null || i < 0 || i >= this.bOQ.size()) {
             return null;
         }
-        return this.bNg.get(i);
+        return this.bOQ.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -118,10 +118,10 @@ public class l extends BaseAdapter {
         if (item instanceof String) {
             String str = (String) item;
             if (view == null || !(view.getTag() instanceof n)) {
-                View inflate = com.baidu.adp.lib.g.b.ek().inflate(this.bNh.getPageContext().getPageActivity(), x.select_location_nolocation_item, null);
+                View inflate = com.baidu.adp.lib.g.b.ei().inflate(this.bOR.getPageContext().getPageActivity(), x.select_location_nolocation_item, null);
                 nVar = new n(null);
-                nVar.title = (TextView) inflate.findViewById(w.select_location_title);
-                nVar.bNi = (ImageView) inflate.findViewById(w.select_location_tick);
+                nVar.Xo = (TextView) inflate.findViewById(w.select_location_title);
+                nVar.bOS = (ImageView) inflate.findViewById(w.select_location_tick);
                 nVar.line = inflate.findViewById(w.select_location_line);
                 inflate.setTag(nVar);
                 view2 = inflate;
@@ -130,15 +130,15 @@ public class l extends BaseAdapter {
                 view2 = view;
             }
             if (i == 0 && !this.isShowLocation) {
-                nVar.bNi.setVisibility(0);
-                ax.c(nVar.bNi, v.icon_site_ok);
+                nVar.bOS.setVisibility(0);
+                bc.c(nVar.bOS, v.icon_site_ok);
             } else {
-                nVar.bNi.setVisibility(4);
+                nVar.bOS.setVisibility(4);
             }
-            nVar.title.setText(str);
-            ax.j(nVar.line, t.cp_bg_line_b);
-            ax.b(nVar.title, t.cp_link_tip_a, 1);
-            ax.i(view2, v.home_recommend_item_bg);
+            nVar.Xo.setText(str);
+            bc.j(nVar.line, t.cp_bg_line_b);
+            bc.b(nVar.Xo, t.cp_link_tip_a, 1);
+            bc.i(view2, v.home_recommend_item_bg);
             return view2;
         }
         return null;
@@ -150,29 +150,29 @@ public class l extends BaseAdapter {
         if (item instanceof com.baidu.tieba.tbadkCore.location.b) {
             com.baidu.tieba.tbadkCore.location.b bVar = (com.baidu.tieba.tbadkCore.location.b) item;
             if (view == null || !(view.getTag() instanceof n)) {
-                view = com.baidu.adp.lib.g.b.ek().inflate(this.bNh.getPageContext().getPageActivity(), x.select_location_address_item, null);
+                view = com.baidu.adp.lib.g.b.ei().inflate(this.bOR.getPageContext().getPageActivity(), x.select_location_address_item, null);
                 m mVar2 = new m(null);
-                mVar2.aaL = (TextView) view.findViewById(w.select_location_name);
-                mVar2.bNa = (TextView) view.findViewById(w.select_location_address);
-                mVar2.bNi = (ImageView) view.findViewById(w.select_location_tick);
+                mVar2.abm = (TextView) view.findViewById(w.select_location_name);
+                mVar2.bOK = (TextView) view.findViewById(w.select_location_address);
+                mVar2.bOS = (ImageView) view.findViewById(w.select_location_tick);
                 view.setTag(mVar2);
                 mVar = mVar2;
             } else {
                 mVar = (m) view.getTag();
             }
-            mVar.bNa.setText(bVar.ahx());
+            mVar.bOK.setText(bVar.aib());
             if (this.isShowLocation && i == 1) {
-                mVar.bNi.setVisibility(0);
-                if (TextUtils.isEmpty(bVar.ahx())) {
-                    mVar.bNa.setText(z.select_location_current);
+                mVar.bOS.setVisibility(0);
+                if (TextUtils.isEmpty(bVar.aib())) {
+                    mVar.bOK.setText(z.select_location_current);
                 }
             } else {
-                mVar.bNi.setVisibility(4);
+                mVar.bOS.setVisibility(4);
             }
-            mVar.aaL.setText(bVar.getName());
-            this.bNh.getLayoutMode().ab(z);
-            this.bNh.getLayoutMode().h(view);
-            ax.i(view, v.home_recommend_item_bg);
+            mVar.abm.setText(bVar.getName());
+            this.bOR.getLayoutMode().ab(z);
+            this.bOR.getLayoutMode().h(view);
+            bc.i(view, v.home_recommend_item_bg);
             return view;
         }
         return null;

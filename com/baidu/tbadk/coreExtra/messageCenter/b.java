@@ -7,7 +7,7 @@ class b extends Handler {
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         if (message.what == 0) {
-            a.rI().b(a.rI().sd());
+            a.rY().b(a.rY().st());
         }
     }
 }

@@ -36,7 +36,7 @@ public class ResponseFriendFeedMessage extends TbSocketReponsedMessage {
         if (getError() == 0 && friendFeedPageResIdl.data != null) {
             this.friendFeedData = new i();
             if (friendFeedPageResIdl.data.thread_list != null) {
-                getFriendFeedData().E(new ArrayList());
+                getFriendFeedData().G(new ArrayList());
                 List<User> list = friendFeedPageResIdl.data.user_list;
                 if (list != null) {
                     for (int i2 = 0; i2 < list.size(); i2++) {
@@ -55,7 +55,7 @@ public class ResponseFriendFeedMessage extends TbSocketReponsedMessage {
                         friendFeedThreadData.setUserMap(getFriendFeedData().getUserMap());
                         friendFeedThreadData.parserProtobuf(list2.get(i3));
                         friendFeedThreadData.parser_title();
-                        getFriendFeedData().Ct().add(friendFeedThreadData);
+                        getFriendFeedData().CS().add(friendFeedThreadData);
                     }
                 }
                 getFriendFeedData().setHasMore(friendFeedPageResIdl.data.has_more.intValue());
@@ -68,7 +68,7 @@ public class ResponseFriendFeedMessage extends TbSocketReponsedMessage {
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
         Message<?> orginalMessage = getOrginalMessage();
         if (orginalMessage != null && (orginalMessage instanceof RequestFriendFeedMessage) && getError() == 0 && TextUtils.isEmpty(((RequestFriendFeedMessage) orginalMessage).getTimeline())) {
-            saveProtocolBufferDataToCache(a.nS().bU("tb.friend_feed"), FRIEND_FEED_KEY_PRE + TbadkCoreApplication.getCurrentAccount(), bArr);
+            saveProtocolBufferDataToCache(a.nV().bS("tb.friend_feed"), FRIEND_FEED_KEY_PRE + TbadkCoreApplication.getCurrentAccount(), bArr);
         }
     }
 }

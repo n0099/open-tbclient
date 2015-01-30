@@ -5,13 +5,13 @@ import android.content.Intent;
 import com.baidu.adp.plugin.util.d;
 /* loaded from: classes.dex */
 class b implements d {
-    final /* synthetic */ a tL;
-    private final /* synthetic */ com.baidu.adp.plugin.b tM;
+    final /* synthetic */ a tU;
+    private final /* synthetic */ com.baidu.adp.plugin.b tV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, com.baidu.adp.plugin.b bVar) {
-        this.tL = aVar;
-        this.tM = bVar;
+        this.tU = aVar;
+        this.tV = bVar;
     }
 
     @Override // com.baidu.adp.plugin.util.d
@@ -20,14 +20,14 @@ class b implements d {
         LoadingActivity loadingActivity2;
         LoadingActivity loadingActivity3;
         LoadingActivity loadingActivity4;
-        loadingActivity = this.tL.tK;
+        loadingActivity = this.tU.tT;
         Intent intent = new Intent(loadingActivity.getIntent());
-        loadingActivity2 = this.tL.tK;
+        loadingActivity2 = this.tU.tT;
         intent.setComponent(new ComponentName(str, loadingActivity2.getIntent().getStringExtra("intent_extra_redirect_activity")));
-        com.baidu.adp.plugin.b bVar = this.tM;
-        loadingActivity3 = this.tL.tK;
+        com.baidu.adp.plugin.b bVar = this.tV;
+        loadingActivity3 = this.tU.tT;
         bVar.i(loadingActivity3.getPageContext().getContext(), intent);
-        loadingActivity4 = this.tL.tK;
+        loadingActivity4 = this.tU.tT;
         loadingActivity4.finish();
     }
 }

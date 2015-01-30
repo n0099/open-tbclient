@@ -16,10 +16,10 @@ class g extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         com.baidu.tbadk.mainTab.f fVar;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007007 && customResponsedMessage.getData() != null) {
-            PbHistoryStatic.aNZ = (com.baidu.tbadk.mainTab.f) customResponsedMessage.getData();
-            fVar = PbHistoryStatic.aNZ;
+            PbHistoryStatic.aPi = (com.baidu.tbadk.mainTab.f) customResponsedMessage.getData();
+            fVar = PbHistoryStatic.aPi;
             h hVar = new h(this, fVar.getContext(), z.my_history, v.icon_news_down_bar_one, v.icon_menu_history_n, 0);
-            hVar.aL(false);
+            hVar.aN(false);
             ((com.baidu.tbadk.mainTab.f) customResponsedMessage.getData()).a(hVar);
         }
     }

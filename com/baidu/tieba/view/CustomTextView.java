@@ -48,15 +48,15 @@ public class CustomTextView extends TextView {
     }
 
     private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
-        f c = c(spannableStringBuilder, i, i2);
-        if (c.aiX) {
+        k c = c(spannableStringBuilder, i, i2);
+        if (c.ajA) {
             a(i, i2, spannableStringBuilder, c);
         } else {
             D(i, i2);
         }
     }
 
-    private f c(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
+    private k c(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         Object[] spans = spannableStringBuilder.getSpans(0, spannableStringBuilder.length(), Object.class);
         ArrayList arrayList = new ArrayList(spans.length);
         ArrayList arrayList2 = new ArrayList(spans.length);
@@ -73,12 +73,12 @@ public class CustomTextView extends TextView {
             }
             try {
                 c((CharSequence) spannableStringBuilder, i, i2);
-                return f.d(arrayList, arrayList2);
+                return k.d(arrayList, arrayList2);
             } catch (IndexOutOfBoundsException e) {
                 BdLog.e(e.getMessage());
             }
         }
-        return f.ajH();
+        return k.ake();
     }
 
     private boolean b(CharSequence charSequence, int i) {
@@ -90,8 +90,8 @@ public class CustomTextView extends TextView {
         measure(i, i2);
     }
 
-    private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, f fVar) {
-        for (Object obj : fVar.aiZ) {
+    private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, k kVar) {
+        for (Object obj : kVar.ajC) {
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             spannableStringBuilder.delete(spanEnd, spanEnd + 1);
             try {
@@ -101,7 +101,7 @@ public class CustomTextView extends TextView {
             }
         }
         boolean z = true;
-        for (Object obj2 : fVar.aiY) {
+        for (Object obj2 : kVar.ajB) {
             int spanStart = spannableStringBuilder.getSpanStart(obj2);
             spannableStringBuilder.delete(spanStart - 1, spanStart);
             try {

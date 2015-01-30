@@ -5,11 +5,11 @@ import com.baidu.tbadk.performanceLog.v;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ TbImageView aiW;
+    final /* synthetic */ TbImageView ajz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(TbImageView tbImageView) {
-        this.aiW = tbImageView;
+        this.ajz = tbImageView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,32 +19,32 @@ public class o extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
         p pVar;
         long j;
         p pVar2;
-        this.aiW.stopLoading();
+        this.ajz.stopLoading();
         BdLog.i("imagecallback. resourceFrom-" + i);
-        pVar = this.aiW.aiI;
+        pVar = this.ajz.ajl;
         if (pVar != null) {
             if (aVar != null) {
-                this.aiW.aiT = aVar.getWidth();
-                this.aiW.aiU = aVar.getHeight();
+                this.ajz.ajw = aVar.getWidth();
+                this.ajz.ajx = aVar.getHeight();
             }
-            pVar2 = this.aiW.aiI;
+            pVar2 = this.ajz.ajl;
             pVar2.onComplete(str, aVar != null);
         }
         if (aVar != null) {
-            if (aVar.vu != null) {
-                this.aiW.aiR.vw = aVar.vu.vw;
-                this.aiW.aiR.isSuccess = aVar.vu.vy;
-                this.aiW.aiR.vx = aVar.vu.vx;
+            if (aVar.vA != null) {
+                this.ajz.aju.vC = aVar.vA.vC;
+                this.ajz.aju.isSuccess = aVar.vA.vE;
+                this.ajz.aju.vD = aVar.vA.vD;
             }
         } else {
-            this.aiW.aiR.vw = "net";
-            this.aiW.aiR.isSuccess = false;
-            v vVar = this.aiW.aiR;
+            this.ajz.aju.vC = "net";
+            this.ajz.aju.isSuccess = false;
+            v vVar = this.ajz.aju;
             long currentTimeMillis = System.currentTimeMillis();
-            j = this.aiW.aiS;
-            vVar.vx = currentTimeMillis - j;
+            j = this.ajz.ajv;
+            vVar.vD = currentTimeMillis - j;
         }
-        this.aiW.qu();
+        this.ajz.qF();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -59,10 +59,10 @@ public class o extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
         p pVar;
         p pVar2;
         super.onCancelled(str);
-        this.aiW.stopLoading();
-        pVar = this.aiW.aiI;
+        this.ajz.stopLoading();
+        pVar = this.ajz.ajl;
         if (pVar != null) {
-            pVar2 = this.aiW.aiI;
+            pVar2 = this.ajz.ajl;
             pVar2.onCancel();
         }
     }

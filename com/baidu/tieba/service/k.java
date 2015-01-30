@@ -6,16 +6,16 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ad;
-import com.baidu.tbadk.core.util.bc;
-import com.baidu.tieba.bb;
+import com.baidu.tbadk.core.util.bh;
+import com.baidu.tieba.be;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends BdAsyncTask<String, Integer, com.baidu.tieba.model.u> {
     ad AR;
-    final /* synthetic */ SyncLoginService bNo;
+    final /* synthetic */ SyncLoginService bOY;
 
     private k(SyncLoginService syncLoginService) {
-        this.bNo = syncLoginService;
+        this.bOY = syncLoginService;
         this.AR = null;
     }
 
@@ -66,13 +66,13 @@ public class k extends BdAsyncTask<String, Integer, com.baidu.tieba.model.u> {
             String packageName = TbadkCoreApplication.m255getInst().getPackageName();
             this.AR.o("package", packageName);
             this.AR.o("versioncode", new StringBuilder(String.valueOf(TbadkCoreApplication.m255getInst().getVersionCode())).toString());
-            this.AR.o("signmd5", bc.d(TbadkCoreApplication.m255getInst().getPackageManager().getPackageInfo(packageName, 64)));
-            this.AR.o("md5", bb.getTiebaApkMd5());
-            String ov = this.AR.ov();
-            if (this.AR.oW().pW().ma()) {
+            this.AR.o("signmd5", bh.d(TbadkCoreApplication.m255getInst().getPackageManager().getPackageInfo(packageName, 64)));
+            this.AR.o("md5", be.getTiebaApkMd5());
+            String oy = this.AR.oy();
+            if (this.AR.oZ().qh().ma()) {
                 uVar = new com.baidu.tieba.model.u();
                 try {
-                    uVar.parserJson(ov);
+                    uVar.parserJson(oy);
                     SyncLoginService.mStatistics = null;
                     return uVar;
                 } catch (Exception e2) {
@@ -90,9 +90,9 @@ public class k extends BdAsyncTask<String, Integer, com.baidu.tieba.model.u> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.bNo.mSyncTask = null;
+        this.bOY.mSyncTask = null;
         if (this.AR != null) {
-            this.AR.dL();
+            this.AR.dJ();
         }
         super.cancel(true);
     }
@@ -103,6 +103,6 @@ public class k extends BdAsyncTask<String, Integer, com.baidu.tieba.model.u> {
     /* renamed from: a */
     public void onPostExecute(com.baidu.tieba.model.u uVar) {
         super.onPostExecute(uVar);
-        this.bNo.mSyncTask = null;
+        this.bOY.mSyncTask = null;
     }
 }

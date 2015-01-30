@@ -1,18 +1,58 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.im.message.TopicSystemGroupChatMessage;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
-public class bb implements View.OnClickListener {
-    final /* synthetic */ az aRi;
+public class bb extends com.baidu.adp.base.e<MsglistActivity<?>> {
+    private TextView aRX;
+    private TbPageContext<MsglistActivity<?>> mContext;
+    private LinearLayout mLayout;
+    private TextView mTextTitle;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(az azVar) {
-        this.aRi = azVar;
+    public bb(TbPageContext<MsglistActivity<?>> tbPageContext) {
+        super(tbPageContext, com.baidu.tieba.x.msg_msgtopic_view);
+        this.mTextTitle = null;
+        this.aRX = null;
+        this.mLayout = null;
+        this.mContext = null;
+        this.mContext = tbPageContext;
+        initView();
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.aRi.mItemViewClickListener.onItemViewClick(view, 11, this.aRi.mPosition, 0L);
+    private void initView() {
+        this.aRX = (TextView) findViewById(com.baidu.tieba.w.tex_content);
+        this.mTextTitle = (TextView) findViewById(com.baidu.tieba.w.tex_title);
+        this.aRX.setMovementMethod(LinkMovementMethod.getInstance());
+        this.mTextTitle.setMovementMethod(LinkMovementMethod.getInstance());
+        this.mLayout = (LinearLayout) findViewById(com.baidu.tieba.w.topic_title_layout);
+    }
+
+    public void setData(ChatMessage chatMessage) {
+        if (chatMessage != null && (chatMessage instanceof TopicSystemGroupChatMessage)) {
+            TopicSystemGroupChatMessage topicSystemGroupChatMessage = (TopicSystemGroupChatMessage) chatMessage;
+            if (!TextUtils.isEmpty(topicSystemGroupChatMessage.mSystemMsg)) {
+                this.mTextTitle.setText(topicSystemGroupChatMessage.mSystemMsg);
+            } else {
+                this.mTextTitle.setText("");
+            }
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mLayout.getLayoutParams();
+            if (!TextUtils.isEmpty(topicSystemGroupChatMessage.mSystemContent)) {
+                this.aRX.setVisibility(0);
+                this.aRX.setText(topicSystemGroupChatMessage.mSystemContent);
+                layoutParams.topMargin = this.mContext.getResources().getDimensionPixelSize(com.baidu.tieba.u.ds24);
+                this.mLayout.setLayoutParams(layoutParams);
+                return;
+            }
+            this.aRX.setText("");
+            this.aRX.setVisibility(8);
+            layoutParams.topMargin = 0;
+            this.mLayout.setLayoutParams(layoutParams);
+        }
     }
 }

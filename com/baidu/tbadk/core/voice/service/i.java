@@ -1,23 +1,23 @@
 package com.baidu.tbadk.core.voice.service;
 /* loaded from: classes.dex */
 public interface i {
-    boolean dc(String str);
+    boolean db(String str);
 
-    int fF();
+    int fE();
 
     int getErrorNo();
 
     boolean isPlaying();
 
-    void qN();
+    void qY();
 
-    void qT();
+    void re();
 
-    void qU();
+    void rf();
 
-    void qV();
+    void rg();
 
-    boolean qW();
+    boolean rh();
 
     void seek(int i);
 }

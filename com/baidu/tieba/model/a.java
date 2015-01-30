@@ -5,7 +5,7 @@ import com.baidu.adp.base.i;
 import com.baidu.tieba.more.AboutActivity;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.base.f<AboutActivity> {
-    private b bsI;
+    private b bug;
     private Context mContext;
     protected i mLoadDataCallBack;
 
@@ -23,18 +23,18 @@ public class a extends com.baidu.adp.base.f<AboutActivity> {
 
     @Override // com.baidu.adp.base.f
     public boolean cancelLoadData() {
-        if (this.bsI != null) {
-            this.bsI.cancel();
+        if (this.bug != null) {
+            this.bug.cancel();
             return false;
         }
         return false;
     }
 
-    public void TW() {
-        if (this.bsI == null) {
-            this.bsI = new b(this, null);
+    public void Uu() {
+        if (this.bug == null) {
+            this.bug = new b(this, null);
         }
-        this.bsI.setPriority(3);
-        this.bsI.execute(new String[0]);
+        this.bug.setPriority(3);
+        this.bug.execute(new String[0]);
     }
 }

@@ -4,10 +4,10 @@ import android.graphics.BitmapFactory;
 import android.os.SystemClock;
 /* loaded from: classes.dex */
 class d extends Thread {
-    final /* synthetic */ GifView jj;
+    final /* synthetic */ GifView jl;
 
     private d(GifView gifView) {
-        this.jj = gifView;
+        this.jl = gifView;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,21 +17,21 @@ class d extends Thread {
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        if (this.jj.jb != null) {
-            while (this.jj.jb.bK() != 1) {
-                if (!this.jj.jd) {
-                    c df = this.jj.jb.df();
-                    if (df == null) {
+        if (this.jl.jd != null) {
+            while (this.jl.jd.bI() != 1) {
+                if (!this.jl.jf) {
+                    c dd = this.jl.jd.dd();
+                    if (dd == null) {
                         SystemClock.sleep(50L);
                     } else {
-                        if (df.iG != null) {
-                            this.jj.jc = df.iG;
-                        } else if (df.iZ != null) {
-                            this.jj.jc = BitmapFactory.decodeFile(df.iZ);
+                        if (dd.iI != null) {
+                            this.jl.je = dd.iI;
+                        } else if (dd.jb != null) {
+                            this.jl.je = BitmapFactory.decodeFile(dd.jb);
                         }
-                        long j = df.delay;
-                        if (this.jj.jh != null) {
-                            this.jj.dv();
+                        long j = dd.delay;
+                        if (this.jl.jj != null) {
+                            this.jl.dt();
                             SystemClock.sleep(j);
                         } else {
                             return;
@@ -41,9 +41,9 @@ class d extends Thread {
                     SystemClock.sleep(50L);
                 }
             }
-            this.jj.jc = this.jj.jb.df().iG;
-            this.jj.jb.free();
-            this.jj.dv();
+            this.jl.je = this.jl.jd.dd().iI;
+            this.jl.jd.free();
+            this.jl.dt();
         }
     }
 }

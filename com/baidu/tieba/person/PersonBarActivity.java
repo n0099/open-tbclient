@@ -6,8 +6,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
 /* loaded from: classes.dex */
 public class PersonBarActivity extends BasePersonInfoActivity {
-    private e bEU = null;
-    private s bEV = null;
+    private e bGF = null;
+    private s bGG = null;
 
     static {
         TbadkCoreApplication.m255getInst().RegisterIntent(PersonBarActivityConfig.class, PersonBarActivity.class);
@@ -17,67 +17,67 @@ public class PersonBarActivity extends BasePersonInfoActivity {
     @Override // com.baidu.tieba.person.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bEV = new s(getPageContext(), Rv());
-        this.bEV.setSex(getSex());
-        this.bEV.setId(getUid());
-        this.bEV.setUniqueId(getUniqueId());
+        this.bGG = new s(getPageContext(), RR());
+        this.bGG.setSex(getSex());
+        this.bGG.setId(getUid());
+        this.bGG.setUniqueId(getUniqueId());
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
     public d a(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
-        if (this.bEU == null) {
-            this.bEU = new e(this, Rv());
+        if (this.bGF == null) {
+            this.bGF = new e(this, RR());
         }
-        return this.bEU;
+        return this.bGF;
     }
 
-    public s ZX() {
-        return this.bEV;
+    public s aaC() {
+        return this.bGG;
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String ZM() {
+    public String aar() {
         return getPageContext().getString(com.baidu.tieba.z.person_bar_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String ZN() {
+    public String aas() {
         return getPageContext().getString(com.baidu.tieba.z.person_bar_no_personal_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String ZO() {
+    public String aat() {
         return getPageContext().getString(com.baidu.tieba.z.person_bar_no_common_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String ZP() {
+    public String aau() {
         return getPageContext().getString(com.baidu.tieba.z.person_bar_personal);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String ZQ() {
+    public String aav() {
         return getPageContext().getString(com.baidu.tieba.z.person_bar_common);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String ZT() {
+    public String aay() {
         return "common_forum";
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public int ZU() {
+    public int aaz() {
         return 2;
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity, android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         BaseFragment baseFragment;
-        q aah;
+        q aaM;
         super.onPageSelected(i);
-        if (this.bEU != null && this.bEU.getItem(i) != null && (baseFragment = (BaseFragment) this.bEU.getItem(i)) != null && (baseFragment instanceof g) && (aah = ((g) baseFragment).aah()) != null) {
-            aah.setEditState(false);
-            aah.notifyDataSetChanged();
+        if (this.bGF != null && this.bGF.getItem(i) != null && (baseFragment = (BaseFragment) this.bGF.getItem(i)) != null && (baseFragment instanceof g) && (aaM = ((g) baseFragment).aaM()) != null) {
+            aaM.setEditState(false);
+            aaM.notifyDataSetChanged();
         }
     }
 }

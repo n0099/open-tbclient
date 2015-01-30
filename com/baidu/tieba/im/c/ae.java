@@ -1,5 +1,5 @@
 package com.baidu.tieba.im.c;
 /* loaded from: classes.dex */
 public interface ae {
-    void gs(int i);
+    void gB(int i);
 }

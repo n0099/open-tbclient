@@ -48,15 +48,15 @@ public class f extends BitmapDrawable {
     public void draw(Canvas canvas) {
         com.baidu.adp.widget.a.a aVar;
         if (this.mId > 0 && this.mContext != null) {
-            com.baidu.tbadk.imageManager.e vL = com.baidu.tbadk.imageManager.e.vL();
-            com.baidu.adp.widget.a.a en = (vL == null || this.mKey == null) ? null : vL.en(this.mKey);
+            com.baidu.tbadk.imageManager.e we = com.baidu.tbadk.imageManager.e.we();
+            com.baidu.adp.widget.a.a en = (we == null || this.mKey == null) ? null : we.en(this.mKey);
             if (en == null) {
                 Bitmap b = com.baidu.tbadk.core.util.d.b(this.mContext, this.mId);
                 if (b != null) {
                     en = new com.baidu.adp.widget.a.a(b, false, null);
                 }
-                if (vL != null && en != null && this.mKey != null) {
-                    vL.c(this.mKey, en);
+                if (we != null && en != null && this.mKey != null) {
+                    we.c(this.mKey, en);
                 }
                 aVar = en;
             } else {

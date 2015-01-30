@@ -1,65 +1,35 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import org.json.JSONObject;
-import tbclient.FrsPage.Banner;
+import java.util.ArrayList;
+import tbclient.FrsPage.ColorEgg;
 /* loaded from: classes.dex */
 public class i {
-    private int DP;
-    private String DQ;
-    private String DR;
-    private int mType;
-    private String mValue;
+    private ArrayList<String> DR = new ArrayList<>();
+    private int DS;
 
-    public int mI() {
-        return this.DP;
-    }
-
-    public String mJ() {
-        return this.DQ;
-    }
-
-    public String getValue() {
-        return this.mValue;
-    }
-
-    public int getType() {
-        return this.mType;
-    }
-
-    public String mK() {
+    public ArrayList<String> mI() {
         return this.DR;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.DP = jSONObject.optInt("bannerType");
-                this.DQ = jSONObject.optString("bannerUrl");
-                this.mValue = jSONObject.optString("value");
-                this.mType = jSONObject.optInt("type");
-                this.DR = jSONObject.optString("desc");
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            }
-        }
+    public int mJ() {
+        return this.DS;
     }
 
-    public void a(Banner banner) {
-        if (banner != null) {
-            this.DP = banner.banner_type.intValue();
-            this.DQ = banner.banner_url;
-            this.mValue = banner.value;
-            this.mType = banner.type.intValue();
-            this.DR = banner.desc;
-        }
-    }
-
-    public boolean isValid() {
-        if (StringUtils.isNull(this.mValue)) {
+    public boolean a(ColorEgg colorEgg) {
+        this.DS = 0;
+        if (colorEgg == null || colorEgg.holiday_words == null || colorEgg.holiday_words.size() <= 0) {
             return false;
         }
-        return this.mType == 1 ? this.DP == 1 || this.DP == 4 || this.DP == 2 || this.DP == 3 : this.mType == 2 && !StringUtils.isNull(this.DR);
+        for (String str : colorEgg.holiday_words) {
+            if (!StringUtils.isNull(str)) {
+                this.DR.add(str);
+            }
+        }
+        if (this.DR.size() <= 0) {
+            return false;
+        }
+        this.DS = colorEgg.style_flag.intValue();
+        return true;
     }
 }

@@ -4,58 +4,58 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.base.f {
-    public static int bZE = 10;
-    private WriteData bNF;
-    private d bZF;
-    private b bZG;
-    private c bZH;
-    private boolean bZI;
+    public static int cbx = 10;
+    private WriteData bPp;
+    private c cbA;
+    private boolean cbB;
+    private d cby;
+    private b cbz;
 
     public a(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.bZF = null;
-        this.bNF = null;
-        this.bZG = null;
-        this.bZH = null;
-        this.bZI = false;
+        this.cby = null;
+        this.bPp = null;
+        this.cbz = null;
+        this.cbA = null;
+        this.cbB = false;
     }
 
     public a(com.baidu.tbadk.mvc.core.e<?, ?, ?> eVar) {
         super(eVar.getPageContext());
-        this.bZF = null;
-        this.bNF = null;
-        this.bZG = null;
-        this.bZH = null;
-        this.bZI = false;
+        this.cby = null;
+        this.bPp = null;
+        this.cbz = null;
+        this.cbA = null;
+        this.cbB = false;
     }
 
-    public void ey(boolean z) {
-        this.bZI = z;
+    public void eF(boolean z) {
+        this.cbB = z;
     }
 
     public void a(c cVar) {
-        this.bZH = cVar;
+        this.cbA = cVar;
     }
 
     public void a(b bVar) {
-        this.bZG = bVar;
+        this.cbz = bVar;
     }
 
     public void c(WriteData writeData) {
-        this.bNF = writeData;
+        this.bPp = writeData;
     }
 
-    public WriteData EV() {
-        return this.bNF;
+    public WriteData Ft() {
+        return this.bPp;
     }
 
-    public boolean aib() {
-        if (this.bNF == null) {
+    public boolean aiF() {
+        if (this.bPp == null) {
             return false;
         }
-        if (this.bZF == null) {
-            this.bZF = new d(this);
-            this.bZF.execute(new Integer[0]);
+        if (this.cby == null) {
+            this.cby = new d(this);
+            this.cby.execute(new Integer[0]);
         }
         return true;
     }
@@ -67,21 +67,21 @@ public class a extends com.baidu.adp.base.f {
 
     @Override // com.baidu.adp.base.f
     public boolean cancelLoadData() {
-        if (this.bZF != null && !this.bZF.isCancelled()) {
-            this.bZF.cancel();
+        if (this.cby != null && !this.cby.isCancelled()) {
+            this.cby.cancel();
             return false;
         }
         return false;
     }
 
-    public boolean aic() {
-        if (this.bNF == null) {
+    public boolean aiG() {
+        if (this.bPp == null) {
             return true;
         }
-        int size = (!this.bNF.getIsBaobao() || this.bNF.getBaobaoImagesInfo() == null) ? 0 : this.bNF.getBaobaoImagesInfo().size() + 0;
-        if (this.bNF.getWriteImagesInfo() != null) {
-            size += this.bNF.getWriteImagesInfo().size();
+        int size = (!this.bPp.getIsBaobao() || this.bPp.getBaobaoImagesInfo() == null) ? 0 : this.bPp.getBaobaoImagesInfo().size() + 0;
+        if (this.bPp.getWriteImagesInfo() != null) {
+            size += this.bPp.getWriteImagesInfo().size();
         }
-        return size <= bZE;
+        return size <= cbx;
     }
 }

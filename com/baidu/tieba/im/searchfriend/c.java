@@ -6,13 +6,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.im.searchfriend.cache.RequestRecommendWriteMessage;
 /* loaded from: classes.dex */
 class c extends CustomMessageListener {
-    final /* synthetic */ SearchFriendActivity bmC;
+    final /* synthetic */ SearchFriendActivity bnZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(SearchFriendActivity searchFriendActivity, int i) {
         super(i);
-        this.bmC = searchFriendActivity;
+        this.bnZ = searchFriendActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,11 +23,11 @@ class c extends CustomMessageListener {
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.coreExtra.data.h)) {
             com.baidu.tbadk.coreExtra.data.h hVar = (com.baidu.tbadk.coreExtra.data.h) customResponsedMessage.getData();
             if (!TextUtils.isEmpty(hVar.userId) && !TextUtils.isEmpty(hVar.userName)) {
-                nVar = this.bmC.bmv;
-                nVar.am(hVar.userId, hVar.userName);
-                SearchFriendActivity searchFriendActivity = this.bmC;
-                nVar2 = this.bmC.bmv;
-                searchFriendActivity.sendMessage(new RequestRecommendWriteMessage(nVar2.SL()));
+                nVar = this.bnZ.bnS;
+                nVar.ap(hVar.userId, hVar.userName);
+                SearchFriendActivity searchFriendActivity = this.bnZ;
+                nVar2 = this.bnZ.bnS;
+                searchFriendActivity.sendMessage(new RequestRecommendWriteMessage(nVar2.Th()));
             }
         }
     }

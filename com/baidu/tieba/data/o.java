@@ -7,7 +7,7 @@ import java.util.List;
 import tbclient.ForumRecommend.NewRecommend;
 /* loaded from: classes.dex */
 public class o {
-    private ArrayList<k> asw = new ArrayList<>();
+    private ArrayList<k> atC = new ArrayList<>();
 
     public void i(List<?> list) {
         if (list != null && list.size() > 0) {
@@ -23,7 +23,7 @@ public class o {
                     if (list.get(i) instanceof NewRecommend) {
                         k kVar = new k();
                         kVar.a((NewRecommend) list.get(i));
-                        this.asw.add(kVar);
+                        this.atC.add(kVar);
                     } else {
                         return;
                     }

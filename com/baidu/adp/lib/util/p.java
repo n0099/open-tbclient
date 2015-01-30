@@ -5,14 +5,14 @@ import java.util.NoSuchElementException;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes.dex */
 abstract class p implements Iterator<E> {
-    final /* synthetic */ BlockingLinkedDeque nA;
+    s<E> nB;
+    private s<E> nC;
+    final /* synthetic */ BlockingLinkedDeque nD;
     E nextItem;
-    s<E> ny;
-    private s<E> nz;
 
     abstract s<E> c(s<E> sVar);
 
-    abstract s<E> fA();
+    abstract s<E> fz();
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: E */
     /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: E */
@@ -20,12 +20,12 @@ abstract class p implements Iterator<E> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Multi-variable type inference failed */
     public p(BlockingLinkedDeque blockingLinkedDeque) {
-        this.nA = blockingLinkedDeque;
+        this.nD = blockingLinkedDeque;
         ReentrantLock reentrantLock = blockingLinkedDeque.lock;
         reentrantLock.lock();
         try {
-            this.ny = fA();
-            this.nextItem = this.ny == null ? 0 : this.ny.item;
+            this.nB = fz();
+            this.nextItem = this.nB == null ? 0 : this.nB.item;
         } finally {
             reentrantLock.unlock();
         }
@@ -46,7 +46,7 @@ abstract class p implements Iterator<E> {
             }
             if (c.item == 0) {
                 if (c == obj) {
-                    return fA();
+                    return fz();
                 }
                 obj = c;
             } else {
@@ -60,11 +60,11 @@ abstract class p implements Iterator<E> {
     /* JADX DEBUG: Multi-variable search result rejected for r0v9, resolved type: E */
     /* JADX WARN: Multi-variable type inference failed */
     void advance() {
-        ReentrantLock reentrantLock = this.nA.lock;
+        ReentrantLock reentrantLock = this.nD.lock;
         reentrantLock.lock();
         try {
-            this.ny = d(this.ny);
-            this.nextItem = this.ny == null ? 0 : this.ny.item;
+            this.nB = d(this.nB);
+            this.nextItem = this.nB == null ? 0 : this.nB.item;
         } finally {
             reentrantLock.unlock();
         }
@@ -72,15 +72,15 @@ abstract class p implements Iterator<E> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.ny != null;
+        return this.nB != null;
     }
 
     @Override // java.util.Iterator
     public E next() {
-        if (this.ny == null) {
+        if (this.nB == null) {
             throw new NoSuchElementException();
         }
-        this.nz = this.ny;
+        this.nC = this.nB;
         E e = this.nextItem;
         advance();
         return e;
@@ -88,16 +88,16 @@ abstract class p implements Iterator<E> {
 
     @Override // java.util.Iterator
     public void remove() {
-        s<E> sVar = this.nz;
+        s<E> sVar = this.nC;
         if (sVar == 0) {
             throw new IllegalStateException();
         }
-        this.nz = null;
-        ReentrantLock reentrantLock = this.nA.lock;
+        this.nC = null;
+        ReentrantLock reentrantLock = this.nD.lock;
         reentrantLock.lock();
         try {
             if (sVar.item != 0) {
-                this.nA.unlink(sVar);
+                this.nD.unlink(sVar);
             }
         } finally {
             reentrantLock.unlock();

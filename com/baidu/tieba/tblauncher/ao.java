@@ -1,26 +1,24 @@
 package com.baidu.tieba.tblauncher;
 
-import android.support.v4.view.ViewPager;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.frameworkData.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ao implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ an ccc;
+public class ao implements View.OnClickListener {
+    final /* synthetic */ ai cdw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(an anVar) {
-        this.ccc = anVar;
+    public ao(ai aiVar) {
+        this.cdw = aiVar;
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
-        com.baidu.adp.lib.g.i.el().postDelayed(new ap(this), 200L);
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        MainTabActivity mainTabActivity;
+        MainTabActivity mainTabActivity2;
+        mainTabActivity = this.cdw.cdr;
+        mainTabActivity2 = this.cdw.cdr;
+        mainTabActivity.sendMessage(new CustomMessage(2015002, new a(mainTabActivity2.getPageContext().getPageActivity())));
     }
 }

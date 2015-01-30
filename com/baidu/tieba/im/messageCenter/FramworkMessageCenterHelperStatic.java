@@ -19,7 +19,7 @@ import com.baidu.tieba.im.d.a.r;
 import com.baidu.tieba.im.d.a.s;
 import com.baidu.tieba.im.e;
 import com.baidu.tieba.im.memorycache.by;
-import com.baidu.tieba.im.memorycache.ca;
+import com.baidu.tieba.im.memorycache.cb;
 import com.baidu.tieba.im.message.ResponseAddGroupMessage;
 import com.baidu.tieba.im.message.ResponseGroupInfoMessage;
 import com.baidu.tieba.im.message.ResponseGroupsByUidMessage;
@@ -31,12 +31,12 @@ import com.baidu.tieba.im.message.ResponseSendPVTJMessage;
 /* loaded from: classes.dex */
 public class FramworkMessageCenterHelperStatic {
     static {
-        QO();
-        QP();
-        QQ();
+        Rk();
+        Rl();
+        Rm();
     }
 
-    public static boolean QO() {
+    public static boolean Rk() {
         b(103004, ResponseGroupInfoMessage.class, false);
         b(103003, ResponseGroupsByUidMessage.class, false);
         b(202101, ResponsePushCountMessage.class, false);
@@ -55,7 +55,7 @@ public class FramworkMessageCenterHelperStatic {
         return e.b(i, cls, z);
     }
 
-    private static boolean QP() {
+    private static boolean Rl() {
         b(2001106, p.class);
         b(2001211, r.class);
         b(2001212, q.class);
@@ -73,9 +73,9 @@ public class FramworkMessageCenterHelperStatic {
         return e.b(i, cls);
     }
 
-    private static boolean QQ() {
+    private static boolean Rm() {
         MessageManager.getInstance().addResponsedMessageRule(new by());
-        MessageManager.getInstance().addResponsedMessageRule(new ca());
+        MessageManager.getInstance().addResponsedMessageRule(new cb());
         return true;
     }
 }

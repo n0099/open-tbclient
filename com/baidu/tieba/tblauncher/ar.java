@@ -1,21 +1,19 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.View;
+import android.graphics.Canvas;
 import com.slidingmenu.lib.SlidingMenu;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar implements View.OnClickListener {
-    final /* synthetic */ an ccc;
+class ar implements SlidingMenu.CanvasTransformer {
+    final /* synthetic */ ai cdw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(an anVar) {
-        this.ccc = anVar;
+    public ar(ai aiVar) {
+        this.cdw = aiVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        SlidingMenu slidingMenu;
-        slidingMenu = this.ccc.aED;
-        slidingMenu.toggle(true);
+    @Override // com.slidingmenu.lib.SlidingMenu.CanvasTransformer
+    public void transformCanvas(Canvas canvas, float f) {
+        float f2 = (0.2f * f) + 0.8f;
+        canvas.scale(f2, f2, 0.0f, canvas.getHeight() / 2);
     }
 }

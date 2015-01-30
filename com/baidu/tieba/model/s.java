@@ -6,13 +6,13 @@ import com.baidu.tieba.message.ResponseReportUserInfoMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends HttpMessageListener {
-    final /* synthetic */ r btr;
+    final /* synthetic */ r buO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s(r rVar, int i) {
         super(i);
-        this.btr = rVar;
+        this.buO = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,15 +22,15 @@ public class s extends HttpMessageListener {
         t tVar2;
         t tVar3;
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001522) {
-            tVar = this.btr.btp;
+            tVar = this.buO.buM;
             if (tVar != null && (httpResponsedMessage instanceof ResponseReportUserInfoMessage)) {
                 ResponseReportUserInfoMessage responseReportUserInfoMessage = (ResponseReportUserInfoMessage) httpResponsedMessage;
                 if (responseReportUserInfoMessage.getErrorCode() == 0) {
-                    tVar3 = this.btr.btp;
-                    tVar3.gI(responseReportUserInfoMessage.getTimeInterval());
+                    tVar3 = this.buO.buM;
+                    tVar3.gR(responseReportUserInfoMessage.getTimeInterval());
                     return;
                 }
-                tVar2 = this.btr.btp;
+                tVar2 = this.buO.buM;
                 tVar2.onError(responseReportUserInfoMessage.getErrorCode(), responseReportUserInfoMessage.getErrorMsg());
             }
         }

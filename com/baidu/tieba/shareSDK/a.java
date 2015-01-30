@@ -9,16 +9,16 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class a {
-    private final c bNu;
+    private final c bPe;
     private BaseActivity mActivity;
 
     public a(BaseActivity baseActivity, c cVar) {
         this.mActivity = baseActivity;
-        this.bNu = cVar;
-        acq();
+        this.bPe = cVar;
+        acU();
     }
 
-    public void hN(String str) {
+    public void hU(String str) {
         if (this.mActivity != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD);
             httpMessage.addParam(ImageViewerConfig.FORUM_NAME, str);
@@ -26,7 +26,7 @@ public class a {
         }
     }
 
-    public void acq() {
+    public void acU() {
         if (this.mActivity != null) {
             MessageManager messageManager = MessageManager.getInstance();
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/getprefix");
