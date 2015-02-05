@@ -11,15 +11,15 @@ import com.baidu.tbadk.core.util.s;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<String, Integer, Boolean> {
-    private ad AR = null;
-    private final String GE;
-    private final String RM;
-    private final String RN;
+    private ad AO = null;
+    private final String GB;
+    private final String RJ;
+    private final String RK;
 
     public d(String str, String str2, String str3) {
-        this.RM = str;
-        this.GE = str2;
-        this.RN = str3;
+        this.RJ = str;
+        this.GB = str2;
+        this.RK = str3;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,14 +29,14 @@ public class d extends BdAsyncTask<String, Integer, Boolean> {
     public Boolean doInBackground(String... strArr) {
         Boolean bool = false;
         try {
-            this.AR = new ad(this.RM);
-            bool = Boolean.valueOf(this.AR.a(String.valueOf(this.GE) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
+            this.AO = new ad(this.RJ);
+            bool = Boolean.valueOf(this.AO.a(String.valueOf(this.GB) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
             if (bool != null && bool.booleanValue()) {
-                if (!StringUtils.isNull(s.e(null, String.valueOf(this.GE) + ".tmp", null, this.GE))) {
-                    s.cn(bh.cH(this.RN));
+                if (!StringUtils.isNull(s.e(null, String.valueOf(this.GB) + ".tmp", null, this.GB))) {
+                    s.ck(bh.cE(this.RK));
                 }
             } else {
-                s.cn(String.valueOf(this.GE) + ".tmp");
+                s.ck(String.valueOf(this.GB) + ".tmp");
             }
         } catch (Exception e) {
         }
@@ -50,7 +50,7 @@ public class d extends BdAsyncTask<String, Integer, Boolean> {
     public void onPostExecute(Boolean bool) {
         super.onPostExecute(bool);
         if (bool != null && bool.booleanValue()) {
-            new c().su();
+            new c().so();
         }
     }
 }

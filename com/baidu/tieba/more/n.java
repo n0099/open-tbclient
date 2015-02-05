@@ -4,11 +4,11 @@ import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements DialogInterface.OnClickListener {
-    final /* synthetic */ k bvC;
+    final /* synthetic */ k bvB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(k kVar) {
-        this.bvC = kVar;
+        this.bvB = kVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -28,9 +28,9 @@ public class n implements DialogInterface.OnClickListener {
                 i2 = 0;
                 break;
         }
-        com.baidu.tbadk.core.l.mc().bk(i2);
-        this.bvC.gU(i2);
-        this.bvC.Vk();
-        com.baidu.tbadk.core.util.bg.pI().pR();
+        com.baidu.tbadk.core.l.lV().bk(i2);
+        this.bvB.gU(i2);
+        this.bvB.Vf();
+        com.baidu.tbadk.core.util.bg.pB().pK();
     }
 }

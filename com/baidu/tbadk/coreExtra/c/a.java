@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.c;
 /* loaded from: classes.dex */
 public class a {
-    private b RK;
+    private b RH;
     private com.baidu.adp.base.i mLoadDataCallBack;
 
     public a(com.baidu.adp.base.i iVar) {
@@ -9,19 +9,19 @@ public class a {
     }
 
     public void a(boolean z, String str, String str2) {
-        if (this.RK == null) {
-            this.RK = new b(this, null);
-            this.RK.setPriority(2);
-            this.RK.aw(z);
-            this.RK.setPortrait(str);
-            this.RK.setToUid(str2);
-            this.RK.execute(new Integer[0]);
+        if (this.RH == null) {
+            this.RH = new b(this, null);
+            this.RH.setPriority(2);
+            this.RH.aw(z);
+            this.RH.setPortrait(str);
+            this.RH.setToUid(str2);
+            this.RH.execute(new Integer[0]);
         }
     }
 
     public void cancel() {
-        if (this.RK != null) {
-            this.RK.cancel();
+        if (this.RH != null) {
+            this.RH.cancel();
         }
     }
 }

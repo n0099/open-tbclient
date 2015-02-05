@@ -6,11 +6,11 @@ import android.view.View;
 import android.widget.EditText;
 /* loaded from: classes.dex */
 class t implements View.OnClickListener {
-    final /* synthetic */ SquareSearchActivity btb;
+    final /* synthetic */ SquareSearchActivity bta;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(SquareSearchActivity squareSearchActivity) {
-        this.btb = squareSearchActivity;
+        this.bta = squareSearchActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,42 +25,42 @@ class t implements View.OnClickListener {
         String str5;
         String str6;
         String str7;
-        str = this.btb.bsO;
+        str = this.bta.bsN;
         if (str != null) {
-            str2 = this.btb.bsO;
+            str2 = this.bta.bsN;
             if (str2.trim().length() >= 1) {
-                i = this.btb.mMode;
+                i = this.bta.mMode;
                 if (i != 0) {
-                    i2 = this.btb.mMode;
+                    i2 = this.bta.mMode;
                     if (i2 == 3) {
-                        Activity pageActivity = this.btb.getPageContext().getPageActivity();
-                        editText = this.btb.bsw;
+                        Activity pageActivity = this.bta.getPageContext().getPageActivity();
+                        editText = this.bta.bsv;
                         com.baidu.adp.lib.util.l.c(pageActivity, editText);
-                        str4 = this.btb.bsO;
+                        str4 = this.bta.bsN;
                         if (!TextUtils.isEmpty(str4)) {
-                            str5 = this.btb.bsO;
+                            str5 = this.bta.bsN;
                             if (str5.trim().length() != 0) {
-                                SquareSearchActivity squareSearchActivity = this.btb;
-                                str6 = this.btb.bsO;
-                                squareSearchActivity.bsO = str6.trim();
-                                SquareSearchActivity squareSearchActivity2 = this.btb;
-                                str7 = this.btb.bsO;
-                                squareSearchActivity2.fW(str7);
+                                SquareSearchActivity squareSearchActivity = this.bta;
+                                str6 = this.bta.bsN;
+                                squareSearchActivity.bsN = str6.trim();
+                                SquareSearchActivity squareSearchActivity2 = this.bta;
+                                str7 = this.bta.bsN;
+                                squareSearchActivity2.fT(str7);
                                 return;
                             }
                             return;
                         }
                         return;
                     }
-                    SquareSearchActivity squareSearchActivity3 = this.btb;
-                    str3 = this.btb.bsO;
+                    SquareSearchActivity squareSearchActivity3 = this.bta;
+                    str3 = this.bta.bsN;
                     squareSearchActivity3.y(1, str3);
                     return;
                 }
-                this.btb.Uh();
+                this.bta.Uc();
                 return;
             }
         }
-        this.btb.showToast(this.btb.getResources().getString(com.baidu.tieba.z.write_keyword));
+        this.bta.showToast(this.bta.getResources().getString(com.baidu.tieba.z.write_keyword));
     }
 }

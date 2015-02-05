@@ -3,11 +3,11 @@ package com.baidu.tieba.frs;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
 class g implements AbsListView.OnScrollListener {
-    final /* synthetic */ FrsActivity aDW;
+    final /* synthetic */ FrsActivity aDT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(FrsActivity frsActivity) {
-        this.aDW = frsActivity;
+        this.aDT = frsActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -30,40 +30,40 @@ class g implements AbsListView.OnScrollListener {
         com.baidu.tbadk.performanceLog.h hVar3;
         com.baidu.tbadk.performanceLog.h hVar4;
         if (i == 2 || i == 1) {
-            z = this.aDW.aDx;
+            z = this.aDT.aDu;
             if (!z) {
-                this.aDW.aDx = true;
-                bpVar = this.aDW.aCY;
-                bpVar.Hm();
+                this.aDT.aDu = true;
+                bpVar = this.aDT.aCV;
+                bpVar.Hg();
             }
         }
-        hVar = this.aDW.aDy;
+        hVar = this.aDT.aDv;
         if (hVar == null) {
-            this.aDW.aDy = new com.baidu.tbadk.performanceLog.h();
-            hVar3 = this.aDW.aDy;
+            this.aDT.aDv = new com.baidu.tbadk.performanceLog.h();
+            hVar3 = this.aDT.aDv;
             hVar3.dX(1000);
-            hVar4 = this.aDW.aDy;
-            hVar4.agK = this.aDW.aDz;
+            hVar4 = this.aDT.aDv;
+            hVar4.agH = this.aDT.aDw;
         }
         if (i == 0) {
-            bpVar5 = this.aDW.aCY;
-            aoVar = this.aDW.aDV;
+            bpVar5 = this.aDT.aCV;
+            aoVar = this.aDT.aDS;
             bpVar5.a(aoVar);
-            bpVar6 = this.aDW.aCY;
+            bpVar6 = this.aDT.aCV;
             bpVar6.bT(false);
-            bpVar7 = this.aDW.aCY;
-            bpVar7.GT();
-            this.aDW.aDo = false;
+            bpVar7 = this.aDT.aCV;
+            bpVar7.GN();
+            this.aDT.aDl = false;
         } else {
-            bpVar2 = this.aDW.aCY;
+            bpVar2 = this.aDT.aCV;
             bpVar2.a((com.baidu.adp.widget.ListView.ao) null);
-            bpVar3 = this.aDW.aCY;
+            bpVar3 = this.aDT.aCV;
             bpVar3.bT(true);
-            this.aDW.aDo = true;
-            bpVar4 = this.aDW.aCY;
-            bpVar4.FH();
+            this.aDT.aDl = true;
+            bpVar4 = this.aDT.aCV;
+            bpVar4.FB();
         }
-        hVar2 = this.aDW.aDy;
-        hVar2.zf();
+        hVar2 = this.aDT.aDv;
+        hVar2.yZ();
     }
 }

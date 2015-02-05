@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.view.TbCheckBox;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements com.baidu.tbadk.core.view.ai {
-    final /* synthetic */ AtListActivity cfy;
+    final /* synthetic */ AtListActivity cfx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AtListActivity atListActivity) {
-        this.cfy = atListActivity;
+        this.cfx = atListActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.ai
@@ -17,17 +17,17 @@ public class e implements com.baidu.tbadk.core.view.ai {
         AtSelectFriendList atSelectFriendList;
         if (obj != null && (obj instanceof MetaData)) {
             if (z) {
-                atSelectFriendList = this.cfy.cfn;
+                atSelectFriendList = this.cfx.cfm;
                 if (5 <= atSelectFriendList.getItemLength()) {
-                    this.cfy.showToast(String.format(this.cfy.getPageContext().getString(com.baidu.tieba.z.invite_friend_exceed_max_count), 5));
+                    this.cfx.showToast(String.format(this.cfx.getPageContext().getString(com.baidu.tieba.z.invite_friend_exceed_max_count), 5));
                     tbCheckBox.setChecked(false);
                     ((MetaData) obj).setChecked(false);
                     return;
                 }
-                this.cfy.b((MetaData) obj);
+                this.cfx.b((MetaData) obj);
                 return;
             }
-            this.cfy.c((MetaData) obj);
+            this.cfx.c((MetaData) obj);
         }
     }
 }

@@ -36,7 +36,7 @@ public class DealShortCutActivity extends BaseActivity<DealShortCutActivity> {
     }
 
     private void startXiuba(Context context) {
-        XiubaPlugin xiubaPlugin = (XiubaPlugin) PluginCenter.gW().hd();
+        XiubaPlugin xiubaPlugin = (XiubaPlugin) PluginCenter.getInstance().getXiubaClassInstance();
         if (xiubaPlugin != null) {
             xiubaPlugin.startXiuba(context);
         }

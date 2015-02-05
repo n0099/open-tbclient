@@ -14,18 +14,18 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class f extends a {
-    private String[] LE;
-    private TextView Vy;
-    private ImageView acc;
-    private TextView acd;
-    private final int ace;
+    private String[] LA;
+    private TextView Vv;
+    private ImageView abZ;
+    private TextView aca;
+    private final int acb;
     private int currentIndex;
-    private Runnable yd;
+    private Runnable ya;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int wr() {
+    public int wl() {
         this.currentIndex++;
-        if (this.currentIndex >= this.ace) {
+        if (this.currentIndex >= this.acb) {
             this.currentIndex = 0;
         }
         return this.currentIndex;
@@ -38,54 +38,54 @@ public class f extends a {
     public f(Context context, int i) {
         super(com.baidu.adp.lib.g.b.ei().inflate(context, x.loading_view_layout, null));
         this.currentIndex = 0;
-        this.yd = new g(this);
-        this.acc = (ImageView) this.aca.findViewById(w.loading_animate_view);
+        this.ya = new g(this);
+        this.abZ = (ImageView) this.abX.findViewById(w.loading_animate_view);
         if (i > 0) {
-            ViewGroup.LayoutParams layoutParams = this.acc.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.abZ.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.acc.setLayoutParams(marginLayoutParams);
+                this.abZ.setLayoutParams(marginLayoutParams);
             }
         }
-        this.Vy = (TextView) this.aca.findViewById(w.loading_anim_ellipsis);
-        this.acd = (TextView) this.aca.findViewById(w.loading_text);
-        this.acc.setBackgroundResource(v.loading_animation);
-        this.LE = context.getResources().getStringArray(r.loading_anim_text_array);
-        this.ace = this.LE.length;
+        this.Vv = (TextView) this.abX.findViewById(w.loading_anim_ellipsis);
+        this.aca = (TextView) this.abX.findViewById(w.loading_text);
+        this.abZ.setBackgroundResource(v.loading_animation);
+        this.LA = context.getResources().getStringArray(r.loading_anim_text_array);
+        this.acb = this.LA.length;
     }
 
-    private void ws() {
-        if (this.acc != null && (this.acc.getBackground() instanceof AnimationDrawable)) {
-            ((AnimationDrawable) this.acc.getBackground()).start();
+    private void wm() {
+        if (this.abZ != null && (this.abZ.getBackground() instanceof AnimationDrawable)) {
+            ((AnimationDrawable) this.abZ.getBackground()).start();
         }
     }
 
-    private void wt() {
-        if (this.acc != null && (this.acc.getBackground() instanceof AnimationDrawable)) {
-            ((AnimationDrawable) this.acc.getBackground()).stop();
+    private void wn() {
+        if (this.abZ != null && (this.abZ.getBackground() instanceof AnimationDrawable)) {
+            ((AnimationDrawable) this.abZ.getBackground()).stop();
         }
     }
 
     @Override // com.baidu.tbadk.d.a
-    protected void wp() {
-        ws();
-        this.Vy.setText(this.LE[0]);
-        this.Vy.postDelayed(this.yd, 200L);
+    protected void wj() {
+        wm();
+        this.Vv.setText(this.LA[0]);
+        this.Vv.postDelayed(this.ya, 200L);
     }
 
     @Override // com.baidu.tbadk.d.a
-    protected void wq() {
-        wt();
-        this.Vy.removeCallbacks(this.yd);
+    protected void wk() {
+        wn();
+        this.Vv.removeCallbacks(this.ya);
     }
 
-    public void wu() {
-        bc.b(this.Vy, t.cp_cont_c, 1);
-        bc.b(this.acd, t.cp_cont_c, 1);
-        bc.j(this.aca, t.cp_bg_line_d);
-        wt();
-        bc.i(this.acc, v.loading_animation);
-        ws();
+    public void wo() {
+        bc.b(this.Vv, t.cp_cont_c, 1);
+        bc.b(this.aca, t.cp_cont_c, 1);
+        bc.j(this.abX, t.cp_bg_line_d);
+        wn();
+        bc.i(this.abZ, v.loading_animation);
+        wm();
     }
 }

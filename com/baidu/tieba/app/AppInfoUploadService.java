@@ -60,9 +60,9 @@ public class AppInfoUploadService extends BdBaseService {
     }
 
     public String genPostData() {
-        a Cc = e.Cb().Cc();
-        ArrayList<b> arrayList = Cc.ark;
-        ArrayList<b> arrayList2 = Cc.arl;
+        a BW = e.BV().BW();
+        ArrayList<b> arrayList = BW.arh;
+        ArrayList<b> arrayList2 = BW.ari;
         StringBuilder sb = new StringBuilder();
         int addList = addList(arrayList2, sb, 100, 0);
         if (addList < 100) {
@@ -75,7 +75,7 @@ public class AppInfoUploadService extends BdBaseService {
         int i3 = 0;
         while (i3 < arrayList.size() && i3 < i) {
             b bVar = arrayList.get(i3);
-            sb.append(String.format("%s,%s,%s,%d;", bVar.arm, bVar.mPackageName, Integer.valueOf(bVar.aro), Integer.valueOf(i2)));
+            sb.append(String.format("%s,%s,%s,%d;", bVar.arj, bVar.mPackageName, Integer.valueOf(bVar.arl), Integer.valueOf(i2)));
             i3++;
         }
         return i3;

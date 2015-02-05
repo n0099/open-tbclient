@@ -14,78 +14,78 @@ import com.baidu.adp.R;
 public class BdExpandListView extends BdListView {
     private final Context mContext;
     private final Scroller mScroller;
-    private View wi;
-    private int wj;
-    private float wk;
+    private View wf;
+    private int wg;
+    private float wh;
+    private float wi;
+    private d wj;
+    private boolean wk;
     private float wl;
-    private d wm;
-    private boolean wn;
-    private float wo;
-    private float wp;
-    private final int wq;
-    private final int wr;
-    public c ws;
+    private float wm;
+    private final int wn;
+    private final int wo;
+    public c wp;
 
     public BdExpandListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.wn = false;
+        this.wk = false;
         this.mContext = context;
         this.mScroller = new Scroller(this.mContext);
-        this.wq = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.wn = ViewConfiguration.get(context).getScaledTouchSlop();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ExpandListView);
-        this.wr = obtainStyledAttributes.getDimensionPixelSize(1, 0);
+        this.wo = obtainStyledAttributes.getDimensionPixelSize(1, 0);
         obtainStyledAttributes.recycle();
     }
 
     public void c(View view, int i) {
-        this.wi = view;
-        this.wj = i;
+        this.wf = view;
+        this.wg = i;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         int action = motionEvent.getAction();
         if (this.mScroller.isFinished()) {
-            this.wl = motionEvent.getY();
+            this.wi = motionEvent.getY();
             switch (action) {
                 case 0:
-                    int height = this.wi.getHeight();
-                    this.wk = this.wl;
-                    this.wo = this.wp;
-                    this.wm = new d(0, height, 0, this.wr + height);
+                    int height = this.wf.getHeight();
+                    this.wh = this.wi;
+                    this.wl = this.wm;
+                    this.wj = new d(0, height, 0, this.wo + height);
                     break;
                 case 1:
                 case 3:
-                    if (this.wn) {
-                        ju();
+                    if (this.wk) {
+                        jn();
                     } else {
-                        this.ws.jw();
+                        this.wp.jp();
                     }
                     new Handler().postDelayed(new b(this), 200L);
                     break;
                 case 2:
-                    float f = this.wp - this.wo;
-                    float f2 = this.wl - this.wk;
-                    this.wo = this.wp;
-                    if (this.wi.getParent() == this && this.wm != null && this.wi.isShown() && this.wi.getTop() >= 0 && Math.abs(f2) >= this.wq && Math.abs(f) < this.wq) {
-                        int l = this.wm.l(this.wl - this.wk);
-                        if (l > this.wm.startY && l <= this.wm.wv) {
-                            this.wn = true;
-                            this.wi.setLayoutParams(new AbsListView.LayoutParams(this.wi.getWidth(), l));
-                            j(l - this.wm.startY);
+                    float f = this.wm - this.wl;
+                    float f2 = this.wi - this.wh;
+                    this.wl = this.wm;
+                    if (this.wf.getParent() == this && this.wj != null && this.wf.isShown() && this.wf.getTop() >= 0 && Math.abs(f2) >= this.wn && Math.abs(f) < this.wn) {
+                        int l = this.wj.l(this.wi - this.wh);
+                        if (l > this.wj.startY && l <= this.wj.ws) {
+                            this.wk = true;
+                            this.wf.setLayoutParams(new AbsListView.LayoutParams(this.wf.getWidth(), l));
+                            j(l - this.wj.startY);
                             break;
-                        } else if (l <= this.wm.startY) {
-                            this.wn = false;
+                        } else if (l <= this.wj.startY) {
+                            this.wk = false;
                             break;
-                        } else if (l > this.wm.wv) {
-                            this.wn = true;
+                        } else if (l > this.wj.ws) {
+                            this.wk = true;
                             break;
                         } else {
-                            this.wn = false;
+                            this.wk = false;
                             break;
                         }
                     } else {
-                        this.wn = false;
+                        this.wk = false;
                         break;
                     }
                     break;
@@ -97,7 +97,7 @@ public class BdExpandListView extends BdListView {
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.wn) {
+        if (this.wk) {
             return true;
         }
         return super.onInterceptTouchEvent(motionEvent);
@@ -105,45 +105,45 @@ public class BdExpandListView extends BdListView {
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.wn) {
+        if (this.wk) {
             return true;
         }
         return super.onTouchEvent(motionEvent);
     }
 
-    public void ju() {
-        if (this.wm != null) {
-            if (this.wi.getHeight() >= this.wm.wv - (this.wr / 2)) {
-                jv();
+    public void jn() {
+        if (this.wj != null) {
+            if (this.wf.getHeight() >= this.wj.ws - (this.wo / 2)) {
+                jo();
             } else {
-                this.ws.jw();
+                this.wp.jp();
             }
-            this.mScroller.startScroll(0, this.wi.getHeight(), 0, this.wm.startY - this.wi.getHeight(), 200);
+            this.mScroller.startScroll(0, this.wf.getHeight(), 0, this.wj.startY - this.wf.getHeight(), 200);
             invalidate();
-            this.wn = false;
+            this.wk = false;
         }
     }
 
-    public void jv() {
-        if (this.ws != null) {
-            this.ws.jx();
+    public void jo() {
+        if (this.wp != null) {
+            this.wp.jq();
         }
     }
 
     public void setExpandListRefreshListener(c cVar) {
-        this.ws = cVar;
+        this.wp = cVar;
     }
 
     @Override // android.view.View
     public void computeScroll() {
         if (this.mScroller.computeScrollOffset()) {
-            this.wi.setLayoutParams(new AbsListView.LayoutParams(this.wi.getWidth(), this.mScroller.getCurrY()));
+            this.wf.setLayoutParams(new AbsListView.LayoutParams(this.wf.getWidth(), this.mScroller.getCurrY()));
             return;
         }
         super.computeScroll();
     }
 
     private void j(float f) {
-        this.ws.k(360.0f - ((f * 360.0f) / this.wr));
+        this.wp.k(360.0f - ((f * 360.0f) / this.wo));
     }
 }

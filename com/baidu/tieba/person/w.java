@@ -9,11 +9,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements TextWatcher {
-    final /* synthetic */ PersonChangeActivity bHL;
+    final /* synthetic */ PersonChangeActivity bHK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(PersonChangeActivity personChangeActivity) {
-        this.bHL = personChangeActivity;
+        this.bHK = personChangeActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -27,23 +27,23 @@ public class w implements TextWatcher {
         LinearLayout linearLayout;
         EditText editText2;
         EditText editText3;
-        editText = this.bHL.mEdit;
+        editText = this.bHK.mEdit;
         Editable text = editText.getText();
         String replaceAll = text.toString().replaceAll("\\s*", "");
         int length = replaceAll.length();
-        textView = this.bHL.bHy;
+        textView = this.bHK.bHx;
         textView.setText(String.valueOf(length));
-        linearLayout = this.bHL.bHx;
+        linearLayout = this.bHK.bHw;
         linearLayout.setVisibility(0);
-        this.bHL.hp(0);
-        this.bHL.aaS();
+        this.bHK.hp(0);
+        this.bHK.aaN();
         if (length > 50) {
-            this.bHL.showToast(com.baidu.tieba.z.over_limit_tip);
+            this.bHK.showToast(com.baidu.tieba.z.over_limit_tip);
             int selectionEnd = Selection.getSelectionEnd(text);
             String substring = replaceAll.substring(0, 50);
-            editText2 = this.bHL.mEdit;
+            editText2 = this.bHK.mEdit;
             editText2.setText(substring);
-            editText3 = this.bHL.mEdit;
+            editText3 = this.bHK.mEdit;
             Editable text2 = editText3.getText();
             int length2 = text2.length();
             if (selectionEnd <= length2) {
@@ -58,9 +58,9 @@ public class w implements TextWatcher {
         com.baidu.tbadk.coreExtra.c.f fVar;
         TextView textView;
         String replaceAll = editable.toString().replaceAll("\\s*", "");
-        fVar = this.bHL.bHC;
-        if (!replaceAll.equals(fVar.sB().getIntro())) {
-            textView = this.bHL.bfI;
+        fVar = this.bHK.bHB;
+        if (!replaceAll.equals(fVar.sv().getIntro())) {
+            textView = this.bHK.bfH;
             textView.setEnabled(true);
         }
     }

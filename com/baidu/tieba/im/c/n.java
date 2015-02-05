@@ -7,22 +7,22 @@ import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements com.baidu.tieba.im.g<Boolean> {
-    final /* synthetic */ a boF;
-    private final /* synthetic */ OfficialChatMessage boL;
+    final /* synthetic */ a boE;
+    private final /* synthetic */ OfficialChatMessage boK;
     private final /* synthetic */ ChatMessage val$chatMessage;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(a aVar, OfficialChatMessage officialChatMessage, ChatMessage chatMessage) {
-        this.boF = aVar;
-        this.boL = officialChatMessage;
+        this.boE = aVar;
+        this.boK = officialChatMessage;
         this.val$chatMessage = chatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.g
     public void onReturnDataInUI(Boolean bool) {
-        this.boL.setLogTime(System.currentTimeMillis());
-        MessageManager.getInstance().sendMessage(this.boL);
-        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new com.baidu.tieba.im.message.f(String.valueOf(this.boL.getToUserId()), 4, this.val$chatMessage, 3)));
+        this.boK.setLogTime(System.currentTimeMillis());
+        MessageManager.getInstance().sendMessage(this.boK);
+        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new com.baidu.tieba.im.message.f(String.valueOf(this.boK.getToUserId()), 4, this.val$chatMessage, 3)));
     }
 }

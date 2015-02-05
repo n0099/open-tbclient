@@ -15,42 +15,42 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class f extends BaseAdapter {
-    private static TbPageContext<BaseFragmentActivity> MA;
-    private String bIT;
-    private bq bIZ;
-    private PersonPostModel bJa;
-    private final bq bJb = new g(this);
-    private final b bJc = new h(this);
+    private static TbPageContext<BaseFragmentActivity> Mx;
+    private String bIS;
+    private bq bIY;
+    private PersonPostModel bIZ;
+    private final bq bJa = new g(this);
+    private final b bJb = new h(this);
     private final String mUid;
 
     public f(TbPageContext<BaseFragmentActivity> tbPageContext, String str, String str2) {
-        MA = tbPageContext;
+        Mx = tbPageContext;
         this.mUid = str;
     }
 
     public void a(bq bqVar) {
-        this.bIZ = bqVar;
+        this.bIY = bqVar;
     }
 
     public void ej(boolean z) {
-        if (this.bJa == null) {
-            this.bJa = new PersonPostModel(MA);
+        if (this.bIZ == null) {
+            this.bIZ = new PersonPostModel(Mx);
         }
-        this.bJa.fetchPost(MA, this.bJb, z, this.mUid, false);
+        this.bIZ.fetchPost(Mx, this.bJa, z, this.mUid, false);
     }
 
-    public void abk() {
-        if (this.bJa != null) {
-            this.bJa.cancelLoadData();
+    public void abf() {
+        if (this.bIZ != null) {
+            this.bIZ.cancelLoadData();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bJa == null || this.bJa.post_list == null) {
+        if (this.bIZ == null || this.bIZ.post_list == null) {
             return 0;
         }
-        return this.bJa.post_list.size();
+        return this.bIZ.post_list.size();
     }
 
     @Override // android.widget.Adapter
@@ -74,24 +74,24 @@ public class f extends BaseAdapter {
             iVar = (i) view.getTag();
         }
         if (i == 0) {
-            iVar.bIP.setVisibility(0);
+            iVar.bIO.setVisibility(0);
         } else {
-            iVar.bIP.setVisibility(8);
+            iVar.bIO.setVisibility(8);
         }
         a(i, iVar, viewGroup);
         return view;
     }
 
     public PersonPostModel.PostList hs(int i) {
-        return this.bJa.post_list.get(i);
+        return this.bIZ.post_list.get(i);
     }
 
     private void a(int i, i iVar, ViewGroup viewGroup) {
         PersonPostModel.PostList hs = hs(i);
-        if (this.bIT == null) {
-            this.bIT = hs.user_portrait;
+        if (this.bIS == null) {
+            this.bIS = hs.user_portrait;
         }
-        iVar.a(hs, false, this.bIT);
+        iVar.a(hs, false, this.bIS);
         ArrayList<String[]> arrayList = new ArrayList<>();
         int length = hs.content.length;
         for (int i2 = 0; i2 < length; i2++) {
@@ -107,21 +107,21 @@ public class f extends BaseAdapter {
                 arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(hs.thread_id), String.valueOf(hs.content[i2].post_id), String.valueOf(hs.content[i2].post_type), bf.n(hs.content[i2].create_time * 1000)});
             }
         }
-        iVar.bJe.setContent(arrayList);
+        iVar.bJd.setContent(arrayList);
         if (Pattern.compile("^回复：").matcher(hs.title).find()) {
-            iVar.bJf.setText(hs.title.replaceFirst("回复：", "原贴："));
+            iVar.bJe.setText(hs.title.replaceFirst("回复：", "原贴："));
         } else {
-            iVar.bJf.setText(hs.title);
+            iVar.bJe.setText(hs.title);
         }
-        TextView textView = iVar.bJf;
+        TextView textView = iVar.bJe;
         String[] strArr = new String[3];
         strArr[0] = String.valueOf(hs.thread_id);
         textView.setTag(strArr);
-        bc.i((View) iVar.bJf, com.baidu.tieba.v.person_post_line);
-        bc.b(iVar.bJf, com.baidu.tieba.t.person_post_content_ori, 1);
+        bc.i((View) iVar.bJe, com.baidu.tieba.v.person_post_line);
+        bc.b(iVar.bJe, com.baidu.tieba.t.person_post_content_ori, 1);
         int dimensionPixelSize = viewGroup.getResources().getDimensionPixelSize(com.baidu.tieba.u.person_post_reply_ori_padding);
-        iVar.bJf.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
-        iVar.a(this.bJc);
+        iVar.bJe.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
+        iVar.a(this.bJb);
         iVar.cs(TbadkCoreApplication.m255getInst().getSkinType());
     }
 }

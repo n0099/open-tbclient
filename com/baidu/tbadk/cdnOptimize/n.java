@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.util.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n extends HttpMessageListener {
-    final /* synthetic */ m BW;
+    final /* synthetic */ m BT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n(m mVar, int i) {
         super(i);
-        this.BW = mVar;
+        this.BT = mVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,18 +28,18 @@ public class n extends HttpMessageListener {
         o oVar2;
         o oVar3;
         if (httpResponsedMessage != null) {
-            bdUniqueId = this.BW.unique_id;
+            bdUniqueId = this.BT.unique_id;
             if (bdUniqueId == httpResponsedMessage.getOrginalMessage().getTag() && (httpResponsedMessage instanceof TbCdnGetIPListHttpResponseMsg)) {
                 g gVar = ((TbCdnGetIPListHttpResponseMsg) httpResponsedMessage).ipListData;
-                if (httpResponsedMessage.getError() != 0 || gVar == null || gVar.BI != 0) {
-                    oVar = this.BW.BT;
+                if (httpResponsedMessage.getError() != 0 || gVar == null || gVar.BF != 0) {
+                    oVar = this.BT.BQ;
                     if (oVar != null) {
                         int error = httpResponsedMessage.getError();
                         String errorString = httpResponsedMessage.getErrorString();
                         if (httpResponsedMessage.getError() == 0) {
                             z2 = false;
                             z = false;
-                            i = gVar.BI;
+                            i = gVar.BF;
                             str = gVar.errorString;
                         } else {
                             str = errorString;
@@ -53,12 +53,12 @@ public class n extends HttpMessageListener {
                     str = "";
                     z = true;
                 } else {
-                    oVar2 = this.BW.BT;
+                    oVar2 = this.BT.BQ;
                     if (oVar2 != null) {
-                        oVar3 = this.BW.BT;
+                        oVar3 = this.BT.BQ;
                         oVar3.a(gVar);
                     }
-                    if (gVar.BK.size() == 0) {
+                    if (gVar.BH.size() == 0) {
                         i = -1;
                         z2 = true;
                         str = "noList";

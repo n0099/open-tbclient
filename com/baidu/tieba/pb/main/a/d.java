@@ -7,19 +7,19 @@ import com.baidu.tieba.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ a bET;
+    final /* synthetic */ a bES;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.bET = aVar;
+        this.bES = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PbActivity pbActivity;
         PbActivity pbActivity2;
-        pbActivity = this.bET.bCG;
-        pbActivity2 = this.bET.bCG;
+        pbActivity = this.bES.bCF;
+        pbActivity2 = this.bES.bCF;
         pbActivity.sendMessage(new CustomMessage(2002001, new MemberPrivilegeActivityConfig(pbActivity2.getPageContext().getPageActivity())));
     }
 }

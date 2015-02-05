@@ -5,13 +5,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class x extends CustomMessageListener {
-    final /* synthetic */ FrsActivity aDW;
+    final /* synthetic */ FrsActivity aDT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x(FrsActivity frsActivity, int i) {
         super(i);
-        this.aDW = frsActivity;
+        this.aDT = frsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,12 +23,12 @@ class x extends CustomMessageListener {
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.coreExtra.data.h)) {
             com.baidu.tbadk.coreExtra.data.h hVar = (com.baidu.tbadk.coreExtra.data.h) customResponsedMessage.getData();
             if (!TextUtils.isEmpty(hVar.userId) && !TextUtils.isEmpty(hVar.userName)) {
-                bpVar = this.aDW.aCY;
+                bpVar = this.aDT.aCV;
                 if (bpVar != null) {
-                    bpVar2 = this.aDW.aCY;
-                    if (bpVar2.Hl() != null) {
-                        bpVar3 = this.aDW.aCY;
-                        bpVar3.Hl().ap(hVar.userId, hVar.userName);
+                    bpVar2 = this.aDT.aCV;
+                    if (bpVar2.Hf() != null) {
+                        bpVar3 = this.aDT.aCV;
+                        bpVar3.Hf().ap(hVar.userId, hVar.userName);
                     }
                 }
             }

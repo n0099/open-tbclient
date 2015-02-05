@@ -110,7 +110,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(getPageContext().getPageActivity());
-        this.customToast = k.or();
+        this.customToast = k.ok();
         super.onCreate(bundle);
         this.mLayoutMode = new c();
         this.mLayoutInflateFactory = new a();
@@ -120,7 +120,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             CompatibleUtile.getInstance().openGpu(getPageContext().getPageActivity());
         }
         TbadkCoreApplication.setIsAppRunning(true);
-        bk.cI(getClass().getName());
+        bk.cF(getClass().getName());
         registerListener(this.nightResourcesChangeListener);
     }
 
@@ -221,7 +221,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onDestroy() {
         closeLoadingDialog();
         if (this.mGuidPage != null) {
-            this.mGuidPage.qE();
+            this.mGuidPage.qy();
         }
         if (this.mLayoutMode != null) {
             this.mLayoutMode.destroy();
@@ -330,19 +330,19 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     protected void showToastWithIcon(String str, int i) {
-        BdToast.a(getPageContext().getContext(), str, i).ob();
+        BdToast.a(getPageContext().getContext(), str, i).nU();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getPageContext().getContext(), str, i, i2).ob();
+        BdToast.a(getPageContext().getContext(), str, i, i2).nU();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getPageContext().getContext(), str, defaultIcon).ob();
+        BdToast.a(getPageContext().getContext(), str, defaultIcon).nU();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getPageContext().getContext(), str, defaultIcon, i).ob();
+        BdToast.a(getPageContext().getContext(), str, defaultIcon, i).nU();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity
@@ -466,7 +466,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         this.customToast.onResume();
         changeSkinType(TbadkCoreApplication.m255getInst().getSkinType());
         TbadkCoreApplication.m255getInst().AddResumeNum();
-        bk.cI(getClass().getName());
+        bk.cF(getClass().getName());
     }
 
     public void changeSkinType(int i) {
@@ -497,10 +497,10 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     /* JADX INFO: Access modifiers changed from: protected */
     public void onChangeSkinType(int i) {
         if (this.loadingView != null) {
-            this.loadingView.wu();
+            this.loadingView.wo();
         }
         if (this.refreshView != null) {
-            this.refreshView.wu();
+            this.refreshView.wo();
         }
     }
 
@@ -751,7 +751,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             } else {
                 this.loadingView = new f(getPageContext().getContext(), i);
             }
-            this.loadingView.wu();
+            this.loadingView.wo();
         }
         this.loadingView.b(view, z);
     }
@@ -764,7 +764,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.wo();
+        return this.loadingView.wi();
     }
 
     public void hideLoadingView(View view) {
@@ -777,7 +777,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (this.refreshView == null) {
             this.refreshView = new h(getPageContext().getContext(), getNetRefreshListener());
         }
-        this.refreshView.es(str);
+        this.refreshView.ep(str);
         this.refreshView.b(view, z);
     }
 

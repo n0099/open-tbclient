@@ -14,22 +14,22 @@ public class h implements com.baidu.adp.plugin.install.a {
         String str;
         long j;
         if (z) {
-            com.baidu.adp.plugin.packageManager.pluginSettings.h iy = com.baidu.adp.plugin.packageManager.pluginSettings.h.iy();
-            str = this.this$0.sQ;
-            iy.br(str);
-            if (PluginPackageManager.ic().il()) {
-                com.baidu.adp.plugin.b.a hU = com.baidu.adp.plugin.b.a.hU();
+            com.baidu.adp.plugin.packageManager.pluginSettings.h ir = com.baidu.adp.plugin.packageManager.pluginSettings.h.ir();
+            str = this.this$0.sN;
+            ir.bo(str);
+            if (PluginPackageManager.hV().id()) {
+                com.baidu.adp.plugin.b.a hN = com.baidu.adp.plugin.b.a.hN();
                 long currentTimeMillis = System.currentTimeMillis();
-                j = this.this$0.sS;
-                hU.b("plugin_install", currentTimeMillis - j);
+                j = this.this$0.sP;
+                hN.b("plugin_install", currentTimeMillis - j);
             }
         }
-        this.this$0.ih();
-        this.this$0.ij();
+        this.this$0.hZ();
+        this.this$0.ib();
     }
 
     @Override // com.baidu.adp.plugin.install.a
-    public void aU(String str) {
-        com.baidu.adp.plugin.packageManager.pluginSettings.h.iy().f(str, true);
+    public void aR(String str) {
+        com.baidu.adp.plugin.packageManager.pluginSettings.h.ir().f(str, true);
     }
 }

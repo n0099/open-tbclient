@@ -4,13 +4,13 @@ import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSettings;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements com.baidu.adp.plugin.packageManager.pluginSettings.m {
-    private final /* synthetic */ String td;
+    private final /* synthetic */ String sZ;
     final /* synthetic */ PluginPackageManager this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(PluginPackageManager pluginPackageManager, String str) {
         this.this$0 = pluginPackageManager;
-        this.td = str;
+        this.sZ = str;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:5:0x0010, code lost:
@@ -24,14 +24,14 @@ public class l implements com.baidu.adp.plugin.packageManager.pluginSettings.m {
         boolean J;
         if (pluginSettings != null) {
             if (pluginSettings != null) {
-                J = this.this$0.J(this.td, pluginSettings.getContainerVersion());
+                J = this.this$0.J(this.sZ, pluginSettings.getContainerVersion());
             }
-            this.this$0.ih();
-            this.this$0.ij();
+            this.this$0.hZ();
+            this.this$0.ib();
             return;
         }
-        this.this$0.sS = System.currentTimeMillis();
-        this.this$0.ii();
-        this.this$0.ie();
+        this.this$0.sP = System.currentTimeMillis();
+        this.this$0.ia();
+        this.this$0.hX();
     }
 }

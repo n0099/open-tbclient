@@ -12,12 +12,12 @@ import com.baidu.tieba.data.RegistData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.n> {
-    private com.baidu.tbadk.core.util.ad AR;
-    final /* synthetic */ ActivationActivity anq;
+    private com.baidu.tbadk.core.util.ad AO;
+    final /* synthetic */ ActivationActivity ann;
 
     private t(ActivationActivity activationActivity) {
-        this.anq = activationActivity;
-        this.AR = null;
+        this.ann = activationActivity;
+        this.AO = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -39,35 +39,35 @@ public class t extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.n>
         RegistData registData6;
         RegistData registData7;
         try {
-            this.AR = new com.baidu.tbadk.core.util.ad(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/regreal");
-            com.baidu.tbadk.core.util.ad adVar = this.AR;
-            registData = this.anq.anh;
+            this.AO = new com.baidu.tbadk.core.util.ad(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/regreal");
+            com.baidu.tbadk.core.util.ad adVar = this.AO;
+            registData = this.ann.ane;
             adVar.o("un", registData.getName());
-            com.baidu.tbadk.core.util.ad adVar2 = this.AR;
-            registData2 = this.anq.anh;
+            com.baidu.tbadk.core.util.ad adVar2 = this.AO;
+            registData2 = this.ann.ane;
             adVar2.o("phonenum", registData2.getPhone());
-            com.baidu.tbadk.core.util.ad adVar3 = this.AR;
-            registData3 = this.anq.anh;
+            com.baidu.tbadk.core.util.ad adVar3 = this.AO;
+            registData3 = this.ann.ane;
             adVar3.o("passwd", registData3.getPsw());
-            registData4 = this.anq.anh;
+            registData4 = this.ann.ane;
             if (registData4.getVcode() != null) {
-                com.baidu.tbadk.core.util.ad adVar4 = this.AR;
-                registData7 = this.anq.anh;
+                com.baidu.tbadk.core.util.ad adVar4 = this.AO;
+                registData7 = this.ann.ane;
                 adVar4.o("vcode", registData7.getVcode());
             }
-            registData5 = this.anq.anh;
+            registData5 = this.ann.ane;
             if (registData5.getVcodeMd5() != null) {
-                com.baidu.tbadk.core.util.ad adVar5 = this.AR;
-                registData6 = this.anq.anh;
+                com.baidu.tbadk.core.util.ad adVar5 = this.AO;
+                registData6 = this.ann.ane;
                 adVar5.o("vcode_md5", registData6.getVcodeMd5());
             }
-            com.baidu.tbadk.core.util.ad adVar6 = this.AR;
-            editText = this.anq.anb;
+            com.baidu.tbadk.core.util.ad adVar6 = this.AO;
+            editText = this.ann.amY;
             adVar6.o("smscode", editText.getText().toString());
-            String oy = this.AR.oy();
-            if (this.AR.oZ().qh().ma()) {
+            String or = this.AO.or();
+            if (this.AO.oS().qa().lT()) {
                 com.baidu.tbadk.core.data.n nVar = new com.baidu.tbadk.core.data.n();
-                nVar.parserJson(oy);
+                nVar.parserJson(or);
                 return nVar;
             }
             return null;
@@ -92,33 +92,33 @@ public class t extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.n>
         TextView textView2;
         RelativeLayout relativeLayout;
         super.onPostExecute(nVar);
-        progressBar = this.anq.amZ;
+        progressBar = this.ann.amW;
         progressBar.setVisibility(8);
-        this.anq.anf = null;
-        this.anq.bg(true);
-        z = this.anq.ang;
+        this.ann.anc = null;
+        this.ann.bg(true);
+        z = this.ann.and;
         if (z) {
-            relativeLayout = this.anq.and;
+            relativeLayout = this.ann.ana;
             relativeLayout.setEnabled(true);
         }
         if (nVar != null) {
-            this.anq.b(nVar);
+            this.ann.b(nVar);
             return;
         }
-        String errorString = this.AR.getErrorString();
+        String errorString = this.AO.getErrorString();
         if (errorString != null && errorString.length() > 0) {
-            textView = this.anq.UN;
+            textView = this.ann.UK;
             textView.setVisibility(0);
-            textView2 = this.anq.UN;
+            textView2 = this.ann.UK;
             textView2.setText(errorString);
         }
-        if (this.AR.pd() == 26) {
-            this.anq.ann = 26;
-            linearLayout = this.anq.amW;
+        if (this.AO.oW() == 26) {
+            this.ann.ank = 26;
+            linearLayout = this.ann.amT;
             linearLayout.setBackgroundResource(com.baidu.tieba.v.pass_input_wrong);
-            linearLayout2 = this.anq.amW;
-            i = this.anq.anl;
-            i2 = this.anq.anm;
+            linearLayout2 = this.ann.amT;
+            i = this.ann.ani;
+            i2 = this.ann.anj;
             linearLayout2.setPadding(i, 0, i2, 0);
         }
     }
@@ -134,20 +134,20 @@ public class t extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.n>
         LinearLayout linearLayout2;
         int i;
         int i2;
-        progressBar = this.anq.amZ;
+        progressBar = this.ann.amW;
         progressBar.setVisibility(0);
-        relativeLayout = this.anq.and;
+        relativeLayout = this.ann.ana;
         relativeLayout.setEnabled(false);
-        this.anq.bg(false);
-        textView = this.anq.UN;
+        this.ann.bg(false);
+        textView = this.ann.UK;
         textView.setVisibility(4);
-        textView2 = this.anq.UN;
+        textView2 = this.ann.UK;
         textView2.setText((CharSequence) null);
-        linearLayout = this.anq.amW;
+        linearLayout = this.ann.amT;
         linearLayout.setBackgroundResource(com.baidu.tieba.v.pass_input);
-        linearLayout2 = this.anq.amW;
-        i = this.anq.anl;
-        i2 = this.anq.anm;
+        linearLayout2 = this.ann.amT;
+        i = this.ann.ani;
+        i2 = this.ann.anj;
         linearLayout2.setPadding(i, 0, i2, 0);
         super.onPreExecute();
     }
@@ -157,18 +157,18 @@ public class t extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.n>
         ProgressBar progressBar;
         boolean z;
         RelativeLayout relativeLayout;
-        this.anq.anf = null;
-        progressBar = this.anq.amZ;
+        this.ann.anc = null;
+        progressBar = this.ann.amW;
         progressBar.setVisibility(8);
-        z = this.anq.ang;
+        z = this.ann.and;
         if (z) {
-            relativeLayout = this.anq.and;
+            relativeLayout = this.ann.ana;
             relativeLayout.setEnabled(true);
         }
-        if (this.AR != null) {
-            this.AR.dJ();
+        if (this.AO != null) {
+            this.AO.dJ();
         }
-        this.anq.bg(true);
+        this.ann.bg(true);
         super.cancel(true);
     }
 }

@@ -11,21 +11,21 @@ import tbclient.App;
 import tbclient.BannerList;
 /* loaded from: classes.dex */
 public class f {
-    private ArrayList<c> DK = new ArrayList<>();
+    private ArrayList<c> DH = new ArrayList<>();
 
-    public ArrayList<c> mA() {
-        return this.DK;
+    public ArrayList<c> mt() {
+        return this.DH;
     }
 
-    public String mB() {
-        if (this.DK == null || this.DK.size() <= 0) {
+    public String mu() {
+        if (this.DH == null || this.DH.size() <= 0) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
-        int size = this.DK.size();
+        int size = this.DH.size();
         for (int i = 0; i < size; i++) {
-            if (!TextUtils.isEmpty(this.DK.get(i).Dn)) {
-                sb.append(this.DK.get(i).Dn);
+            if (!TextUtils.isEmpty(this.DH.get(i).Dk)) {
+                sb.append(this.DH.get(i).Dk);
                 if (i != size - 1) {
                     sb.append(",");
                 }
@@ -58,7 +58,7 @@ public class f {
                     if (list.get(i2) != null) {
                         c cVar = new c();
                         cVar.a(list.get(i2));
-                        this.DK.add(cVar);
+                        this.DH.add(cVar);
                     }
                     i = i2 + 1;
                 } else {

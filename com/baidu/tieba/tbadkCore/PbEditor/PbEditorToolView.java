@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.util.bc;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class PbEditorToolView extends LinearLayout {
-    protected PbEditorToolButtonContainer bWy;
-    protected TextView bWz;
+    protected PbEditorToolButtonContainer bWx;
+    protected TextView bWy;
     protected Context mContext;
     protected EditText mEditText;
 
@@ -28,7 +28,7 @@ public class PbEditorToolView extends LinearLayout {
     }
 
     public TextView getPostButton() {
-        return this.bWz;
+        return this.bWy;
     }
 
     public EditText getEditText() {
@@ -37,9 +37,9 @@ public class PbEditorToolView extends LinearLayout {
 
     protected void initialize() {
         com.baidu.adp.lib.g.b.ei().a(this.mContext, com.baidu.tieba.x.pb_editor_tool_view, this, true);
-        this.bWy = (PbEditorToolButtonContainer) findViewById(com.baidu.tieba.w.tool_button_container);
+        this.bWx = (PbEditorToolButtonContainer) findViewById(com.baidu.tieba.w.tool_button_container);
         this.mEditText = (EditText) findViewById(com.baidu.tieba.w.reply_content);
-        this.bWz = (TextView) findViewById(com.baidu.tieba.w.pb_reply_post);
+        this.bWy = (TextView) findViewById(com.baidu.tieba.w.pb_reply_post);
         this.mEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(1000)});
     }
 
@@ -64,75 +64,75 @@ public class PbEditorToolView extends LinearLayout {
     }
 
     public void setOnActionListener(com.baidu.tbadk.editortool.w wVar) {
-        this.bWy.setOnActionListener(new ag(this, wVar));
+        this.bWx.setOnActionListener(new ag(this, wVar));
         this.mEditText.setOnTouchListener(new ah(this, wVar));
         this.mEditText.addTextChangedListener(new ai(this, wVar));
-        this.bWz.setOnClickListener(new aj(this, wVar));
+        this.bWy.setOnClickListener(new aj(this, wVar));
     }
 
     public void clearData() {
-        this.bWy.ags();
+        this.bWx.agn();
         this.mEditText.setText("");
-        agg();
+        agb();
     }
 
-    public void YU() {
-        this.bWy.ey(true);
+    public void YP() {
+        this.bWx.ey(true);
     }
 
-    public void YT() {
-        this.bWy.ey(false);
+    public void YO() {
+        this.bWx.ey(false);
     }
 
-    public void agf() {
-        this.bWz.setEnabled(true);
+    public void aga() {
+        this.bWy.setEnabled(true);
     }
 
-    public void agg() {
-        this.bWz.setEnabled(false);
+    public void agb() {
+        this.bWy.setEnabled(false);
     }
 
-    public void agr() {
-        this.bWy.agr();
+    public void agm() {
+        this.bWx.agm();
     }
 
-    public void ags() {
-        this.bWy.ags();
+    public void agn() {
+        this.bWx.agn();
     }
 
-    public void agt() {
-        this.bWy.agt();
+    public void ago() {
+        this.bWx.ago();
     }
 
-    public void agu() {
-        this.bWy.agu();
+    public void agp() {
+        this.bWx.agp();
     }
 
-    public void afw() {
-        this.bWy.afw();
+    public void afr() {
+        this.bWx.afr();
     }
 
     public void setAudioFocusable(boolean z) {
-        this.bWy.setAudioFocusable(z);
+        this.bWx.setAudioFocusable(z);
     }
 
     public void setMoreFocusable(boolean z) {
-        this.bWy.setMoreFocusable(z);
+        this.bWx.setMoreFocusable(z);
     }
 
     public void changeSkinType(int i) {
         if (i == 1) {
             this.mEditText.setHintTextColor(bc.getColor(com.baidu.tieba.t.cp_cont_e));
-            this.bWz.setBackgroundDrawable(bc.getDrawable(com.baidu.tieba.v.btn_pb_editor_post_btn));
+            this.bWy.setBackgroundDrawable(bc.getDrawable(com.baidu.tieba.v.btn_pb_editor_post_btn));
         } else {
-            this.bWz.setBackgroundDrawable(this.mContext.getResources().getDrawable(com.baidu.tieba.v.btn_pb_editor_post_btn));
+            this.bWy.setBackgroundDrawable(this.mContext.getResources().getDrawable(com.baidu.tieba.v.btn_pb_editor_post_btn));
             this.mEditText.setHintTextColor(this.mContext.getResources().getColor(com.baidu.tieba.t.cp_cont_e));
         }
-        if (this.bWz.isEnabled()) {
-            agf();
+        if (this.bWy.isEnabled()) {
+            aga();
         } else {
-            agg();
+            agb();
         }
-        this.bWy.changeSkinType(i);
+        this.bWx.changeSkinType(i);
     }
 }

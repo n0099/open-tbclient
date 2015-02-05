@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.util.bh;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.c.g> {
-    ad AR;
-    final /* synthetic */ a buh;
+    ad AO;
+    final /* synthetic */ a bug;
 
     private b(a aVar) {
-        this.buh = aVar;
-        this.AR = null;
+        this.bug = aVar;
+        this.AO = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -40,34 +40,34 @@ public class b extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.c.
         Exception e;
         Context context;
         try {
-            this.AR = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_SYNC_ADDRESS);
-            this.AR.o("_os_version", Build.VERSION.RELEASE);
+            this.AO = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_SYNC_ADDRESS);
+            this.AO.o("_os_version", Build.VERSION.RELEASE);
             StringBuffer stringBuffer = new StringBuffer(15);
             stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.l.M(TbadkCoreApplication.m255getInst().getApp())));
             stringBuffer.append(",");
             stringBuffer.append(String.valueOf(com.baidu.adp.lib.util.l.N(TbadkCoreApplication.m255getInst().getApp())));
-            this.AR.o("_phone_screen", stringBuffer.toString());
+            this.AO.o("_phone_screen", stringBuffer.toString());
             if (TbadkCoreApplication.m255getInst().getMsgFrequency() > 0) {
-                this.AR.o("_msg_status", "0");
+                this.AO.o("_msg_status", "0");
             } else {
-                this.AR.o("_msg_status", "1");
+                this.AO.o("_msg_status", "1");
             }
             String packageName = TbadkCoreApplication.m255getInst().getPackageName();
-            this.AR.o("package", packageName);
-            this.AR.o("versioncode", new StringBuilder(String.valueOf(TbadkCoreApplication.m255getInst().getVersionCode())).toString());
-            this.AR.o("signmd5", bh.b(TbadkCoreApplication.m255getInst().getPackageManager().getPackageInfo(packageName, 64)));
-            this.AR.o("md5", UtilHelper.getTiebaApkMd5());
-            String oy = this.AR.oy();
-            if (!this.AR.oZ().qh().ma()) {
+            this.AO.o("package", packageName);
+            this.AO.o("versioncode", new StringBuilder(String.valueOf(TbadkCoreApplication.m255getInst().getVersionCode())).toString());
+            this.AO.o("signmd5", bh.b(TbadkCoreApplication.m255getInst().getPackageManager().getPackageInfo(packageName, 64)));
+            this.AO.o("md5", UtilHelper.getTiebaApkMd5());
+            String or = this.AO.or();
+            if (!this.AO.oS().qa().lT()) {
                 return null;
             }
             gVar = new com.baidu.tbadk.coreExtra.c.g();
             try {
-                gVar.parserJson(oy);
-                if (TbadkCoreApplication.getClientId() == null && gVar.sG().getClientId() != null && gVar.sG().getClientId().length() > 0) {
-                    context = this.buh.mContext;
-                    TbadkCoreApplication.saveClientId(context, gVar.sG().getClientId());
-                    TbadkCoreApplication.setClientId(gVar.sG().getClientId());
+                gVar.parserJson(or);
+                if (TbadkCoreApplication.getClientId() == null && gVar.sA().getClientId() != null && gVar.sA().getClientId().length() > 0) {
+                    context = this.bug.mContext;
+                    TbadkCoreApplication.saveClientId(context, gVar.sA().getClientId());
+                    TbadkCoreApplication.setClientId(gVar.sA().getClientId());
                     return gVar;
                 }
                 return gVar;
@@ -84,9 +84,9 @@ public class b extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.c.
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.buh.bug = null;
-        if (this.AR != null) {
-            this.AR.dJ();
+        this.bug.bue = null;
+        if (this.AO != null) {
+            this.AO.dJ();
         }
         super.cancel(true);
     }
@@ -97,7 +97,7 @@ public class b extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.c.
     /* renamed from: a */
     public void onPostExecute(com.baidu.tbadk.coreExtra.c.g gVar) {
         super.onPostExecute(gVar);
-        this.buh.bug = null;
-        this.buh.mLoadDataCallBack.c(gVar);
+        this.bug.bue = null;
+        this.bug.mLoadDataCallBack.c(gVar);
     }
 }

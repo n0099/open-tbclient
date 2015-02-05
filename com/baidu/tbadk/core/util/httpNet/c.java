@@ -1,19 +1,19 @@
 package com.baidu.tbadk.core.util.httpNet;
 /* loaded from: classes.dex */
 public class c {
-    private d Kt = new d();
-    private e Ku = new e();
-    private f Kv = new f();
+    private d Kq = new d();
+    private e Kr = new e();
+    private f Ks = new f();
 
-    public d qg() {
-        return this.Kt;
+    public d pZ() {
+        return this.Kq;
     }
 
-    public e qh() {
-        return this.Ku;
+    public e qa() {
+        return this.Kr;
     }
 
-    public f qi() {
-        return this.Kv;
+    public f qb() {
+        return this.Ks;
     }
 }

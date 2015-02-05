@@ -59,7 +59,7 @@ public class a {
         } else {
             appendVersionCode = str;
         }
-        if (((LightAppPlugin) PluginCenter.gW().hc()) != null) {
+        if (((LightAppPlugin) PluginCenter.getInstance().getLightAppClassInstance()) != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new T5WebViewActivityConfig(context, null, appendVersionCode, true, true, true, true, true)));
         } else {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(context, null, appendVersionCode, true, true, true, true, true)));
@@ -69,7 +69,7 @@ public class a {
     public static void f(Context context, String str, String str2) {
         try {
             String appendVersionCode = appendVersionCode(appendCuidParam(str2));
-            if (((LightAppPlugin) PluginCenter.gW().hc()) != null) {
+            if (((LightAppPlugin) PluginCenter.getInstance().getLightAppClassInstance()) != null) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new T5WebViewActivityConfig(context, str, appendVersionCode, true, true, true, true, true)));
             } else {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(context, str, appendVersionCode, true, true, true, true, true)));

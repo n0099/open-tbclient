@@ -12,11 +12,11 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al implements DialogInterface.OnClickListener {
-    final /* synthetic */ af bub;
+    final /* synthetic */ af bua;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(af afVar) {
-        this.bub = afVar;
+        this.bua = afVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -29,27 +29,27 @@ public class al implements DialogInterface.OnClickListener {
         WriteImagesInfo writeImagesInfo5;
         WriteImagesInfo writeImagesInfo6;
         if (i == 0) {
-            writeImagesInfo4 = this.bub.aql;
+            writeImagesInfo4 = this.bua.aqi;
             if (writeImagesInfo4.getChosedFiles() != null) {
-                writeImagesInfo5 = this.bub.aql;
+                writeImagesInfo5 = this.bua.aqi;
                 int size = writeImagesInfo5.getChosedFiles().size();
-                writeImagesInfo6 = this.bub.aql;
+                writeImagesInfo6 = this.bua.aqi;
                 if (size >= writeImagesInfo6.getMaxImagesAllowed()) {
-                    this.bub.getPageContext().showToast(String.format(this.bub.getString(com.baidu.tieba.z.editor_mutiiamge_max), 10));
+                    this.bua.getPageContext().showToast(String.format(this.bua.getString(com.baidu.tieba.z.editor_mutiiamge_max), 10));
                     return;
                 }
             }
-            this.bub.aBK = String.valueOf(System.currentTimeMillis());
-            TbPageContext pageContext = this.bub.getPageContext();
-            str = this.bub.aBK;
+            this.bua.aBH = String.valueOf(System.currentTimeMillis());
+            TbPageContext pageContext = this.bua.getPageContext();
+            str = this.bua.aBH;
             bb.a(pageContext, str);
         } else if (i == 1) {
-            writeImagesInfo = this.bub.aql;
+            writeImagesInfo = this.bua.aqi;
             if (writeImagesInfo != null) {
-                writeImagesInfo2 = this.bub.aql;
+                writeImagesInfo2 = this.bua.aqi;
                 if (!TextUtils.isEmpty(writeImagesInfo2.toJsonString())) {
-                    Activity activity = this.bub.getActivity();
-                    writeImagesInfo3 = this.bub.aql;
+                    Activity activity = this.bua.getActivity();
+                    writeImagesInfo3 = this.bua.aqi;
                     AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(activity, writeImagesInfo3.toJsonString());
                     albumActivityConfig.setRequestCode(12002);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));

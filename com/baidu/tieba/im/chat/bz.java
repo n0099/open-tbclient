@@ -4,11 +4,11 @@ import com.baidu.tieba.im.model.PersonalMsglistModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bz implements com.baidu.tieba.im.g<com.baidu.tieba.im.data.b> {
-    final /* synthetic */ PersonalChatActivity aSN;
+    final /* synthetic */ PersonalChatActivity aSM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bz(PersonalChatActivity personalChatActivity) {
-        this.aSN = personalChatActivity;
+        this.aSM = personalChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,17 +19,17 @@ public class bz implements com.baidu.tieba.im.g<com.baidu.tieba.im.data.b> {
         PersonalMsglistModel personalMsglistModel2;
         PersonalChatView personalChatView;
         PersonalChatView personalChatView2;
-        personalMsglistModel = this.aSN.aSI;
+        personalMsglistModel = this.aSM.aSH;
         PersonalMsglistModel.CardStatus currentStatus = personalMsglistModel.getCurrentStatus(bVar);
-        personalMsglistModel2 = this.aSN.aSI;
+        personalMsglistModel2 = this.aSM.aSH;
         personalMsglistModel2.setCardStatus(currentStatus);
         if (currentStatus != PersonalMsglistModel.CardStatus.AGREE) {
-            personalChatView = this.aSN.aSJ;
+            personalChatView = this.aSM.aSI;
             personalChatView.a(currentStatus, false, new String[0]);
             return;
         }
         String content = bVar.getContent();
-        personalChatView2 = this.aSN.aSJ;
+        personalChatView2 = this.aSM.aSI;
         personalChatView2.a(currentStatus, false, content);
     }
 }

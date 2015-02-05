@@ -10,23 +10,23 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends BdAsyncTask<Object, Integer, JSONObject> {
-    private final ad AR = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.CDN_LOG_ADDRESS);
-    private final String Gp;
-    final /* synthetic */ e HD;
-    private final String HE;
-    private final int Hv;
-    private final int Hw;
-    private final int Hx;
+    private final ad AO = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.CDN_LOG_ADDRESS);
+    private final String Gm;
+    final /* synthetic */ e HA;
+    private final String HB;
+    private final int Hs;
+    private final int Ht;
+    private final int Hu;
     private final int mType;
 
     public g(e eVar, int i, int i2, int i3, String str, int i4, String str2) {
-        this.HD = eVar;
-        this.Hw = i3;
-        this.Hv = i4;
-        this.Gp = str;
-        this.HE = str2;
+        this.HA = eVar;
+        this.Ht = i3;
+        this.Hs = i4;
+        this.Gm = str;
+        this.HB = str2;
         this.mType = i;
-        this.Hx = i2;
+        this.Hu = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,28 +34,28 @@ public class g extends BdAsyncTask<Object, Integer, JSONObject> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: j */
     public JSONObject doInBackground(Object... objArr) {
-        if (this.HD.op() == null || !this.HD.op().mF() || this.mType == 0) {
+        if (this.HA.oi() == null || !this.HA.oi().my() || this.mType == 0) {
             return null;
         }
-        this.AR.o("number", String.valueOf(this.Hx));
+        this.AO.o("number", String.valueOf(this.Hu));
         if (this.mType == 1) {
-            this.AR.o("ab_num_error", String.valueOf(this.Hw));
-            this.AR.o("error", this.Gp);
-            this.AR.o("ab_num_slow", String.valueOf(this.Hv));
-            this.AR.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, this.HE);
+            this.AO.o("ab_num_error", String.valueOf(this.Ht));
+            this.AO.o("error", this.Gm);
+            this.AO.o("ab_num_slow", String.valueOf(this.Hs));
+            this.AO.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, this.HB);
         } else if (this.mType == 3) {
-            this.AR.o("ab_num_slow", new StringBuilder(String.valueOf(this.Hv)).toString());
-            this.AR.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, this.HE);
+            this.AO.o("ab_num_slow", new StringBuilder(String.valueOf(this.Hs)).toString());
+            this.AO.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, this.HB);
         } else if (this.mType == 2) {
-            this.AR.o("ab_num_error", new StringBuilder(String.valueOf(this.Hw)).toString());
-            this.AR.o("error", this.Gp);
+            this.AO.o("ab_num_error", new StringBuilder(String.valueOf(this.Ht)).toString());
+            this.AO.o("error", this.Gm);
         }
-        String oy = this.AR.oy();
-        if (!this.AR.pc() || TextUtils.isEmpty(oy)) {
+        String or = this.AO.or();
+        if (!this.AO.oV() || TextUtils.isEmpty(or)) {
             return null;
         }
         try {
-            return new JSONObject(oy);
+            return new JSONObject(or);
         } catch (JSONException e) {
             BdLog.e(e.getMessage());
             return null;
@@ -81,14 +81,14 @@ public class g extends BdAsyncTask<Object, Integer, JSONObject> {
                 com.baidu.adp.lib.stats.f.eq().a("img", ed);
                 return;
             }
-            e eVar = this.HD;
-            i = eVar.Hq;
+            e eVar = this.HA;
+            i = eVar.Hn;
             int i2 = i + 1;
-            eVar.Hq = i2;
+            eVar.Hn = i2;
             if (i2 >= 5) {
-                hVar2 = this.HD.Hp;
+                hVar2 = this.HA.Hm;
                 hVar2.af(false);
-                this.HD.mLastUploadTime = System.currentTimeMillis();
+                this.HA.mLastUploadTime = System.currentTimeMillis();
                 return;
             }
             if (jSONObject.optJSONObject("ret").optInt("err_no", -1) != 0) {
@@ -103,22 +103,22 @@ public class g extends BdAsyncTask<Object, Integer, JSONObject> {
                 ed3.r("result", "0");
                 ed3.r("type", "end");
                 com.baidu.adp.lib.stats.f.eq().a("img", ed3);
-                this.HD.reset();
-                hVar = this.HD.Hp;
+                this.HA.reset();
+                hVar = this.HA.Hm;
                 hVar.af(false);
-                this.HD.mLastUploadTime = System.currentTimeMillis();
+                this.HA.mLastUploadTime = System.currentTimeMillis();
             }
             String optString = jSONObject.optString("photo_strategy");
             com.baidu.tbadk.core.data.h hVar3 = new com.baidu.tbadk.core.data.h();
             hVar3.parseJson(optString);
-            if (hVar3.mF() == this.HD.op().mF() && hVar3.mH() == this.HD.op().mH() && hVar3.mG() == this.HD.op().mG() && hVar3.getTime() == this.HD.op().getTime()) {
+            if (hVar3.my() == this.HA.oi().my() && hVar3.mA() == this.HA.oi().mA() && hVar3.mz() == this.HA.oi().mz() && hVar3.getTime() == this.HA.oi().getTime()) {
                 return;
             }
-            this.HD.a(hVar3);
+            this.HA.a(hVar3);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         } finally {
-            this.HD.mIsUploading = false;
+            this.HA.mIsUploading = false;
         }
     }
 }

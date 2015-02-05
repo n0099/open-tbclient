@@ -1,18 +1,18 @@
 package com.baidu.tieba.im.newFriend;
 /* loaded from: classes.dex */
 class ac extends com.baidu.tieba.im.h<Void> {
-    final /* synthetic */ ab blj;
+    final /* synthetic */ ab bli;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(ab abVar) {
-        this.blj = abVar;
+        this.bli = abVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.h
-    /* renamed from: KK */
+    /* renamed from: KF */
     public Void doInBackground() {
-        this.blj.num = com.baidu.tieba.im.db.m.Ne().Nf();
+        this.bli.num = com.baidu.tieba.im.db.m.MZ().Na();
         return null;
     }
 }

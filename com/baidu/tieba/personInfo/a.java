@@ -7,13 +7,13 @@ import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
 /* loaded from: classes.dex */
 class a extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ PersonInfoActivity bJY;
+    final /* synthetic */ PersonInfoActivity bJX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(PersonInfoActivity personInfoActivity, int i, int i2) {
         super(i, i2);
-        this.bJY = personInfoActivity;
+        this.bJX = personInfoActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -38,9 +38,9 @@ class a extends com.baidu.adp.framework.listener.a {
         v vVar10;
         if ((responsedMessage instanceof ProfileSocketResponseMessage) || (responsedMessage instanceof ProfileHttpResponseMessage)) {
             if (responsedMessage.getOrginalMessage() != null) {
-                vVar9 = this.bJY.bJN;
+                vVar9 = this.bJX.bJM;
                 if (vVar9.getUniqueId() != null) {
-                    vVar10 = this.bJY.bJN;
+                    vVar10 = this.bJX.bJM;
                     if (vVar10.getUniqueId() != responsedMessage.getOrginalMessage().getTag()) {
                         return;
                     }
@@ -48,62 +48,62 @@ class a extends com.baidu.adp.framework.listener.a {
             }
             if (responsedMessage instanceof ProfileSocketResponseMessage) {
                 ProfileSocketResponseMessage profileSocketResponseMessage = (ProfileSocketResponseMessage) responsedMessage;
-                aVar3 = this.bJY.aDh;
+                aVar3 = this.bJX.aDe;
                 if (aVar3 != null) {
                     long downSize = profileSocketResponseMessage.getDownSize();
                     long costTime = profileSocketResponseMessage.getCostTime();
-                    aVar4 = this.bJY.aDh;
+                    aVar4 = this.bJX.aDe;
                     aVar4.a(false, !responsedMessage.hasError(), profileSocketResponseMessage.getError(), profileSocketResponseMessage.getErrorString(), downSize, 0L, costTime);
-                    this.bJY.aDh = null;
+                    this.bJX.aDe = null;
                 }
                 if (profileSocketResponseMessage.getError() == 0) {
-                    vVar8 = this.bJY.bJN;
+                    vVar8 = this.bJX.bJM;
                     vVar8.a(profileSocketResponseMessage);
                 } else {
-                    aeVar2 = this.bJY.bJO;
+                    aeVar2 = this.bJX.bJN;
                     aeVar2.hideProgress();
-                    this.bJY.showToast(profileSocketResponseMessage.getErrorString());
+                    this.bJX.showToast(profileSocketResponseMessage.getErrorString());
                 }
             }
             if (responsedMessage instanceof ProfileHttpResponseMessage) {
                 ProfileHttpResponseMessage profileHttpResponseMessage = (ProfileHttpResponseMessage) responsedMessage;
-                aVar = this.bJY.aDh;
+                aVar = this.bJX.aDe;
                 if (aVar != null) {
                     long downSize2 = profileHttpResponseMessage.getDownSize();
                     long costTime2 = profileHttpResponseMessage.getCostTime();
-                    aVar2 = this.bJY.aDh;
+                    aVar2 = this.bJX.aDe;
                     aVar2.a(true, !responsedMessage.hasError(), profileHttpResponseMessage.getError(), profileHttpResponseMessage.getErrorString(), downSize2, costTime2, 0L);
-                    this.bJY.aDh = null;
+                    this.bJX.aDe = null;
                 }
                 if (profileHttpResponseMessage.getError() == 0) {
-                    vVar7 = this.bJY.bJN;
+                    vVar7 = this.bJX.bJM;
                     vVar7.a(profileHttpResponseMessage);
                 } else {
-                    aeVar = this.bJY.bJO;
+                    aeVar = this.bJX.bJN;
                     aeVar.hideProgress();
-                    this.bJY.showToast(profileHttpResponseMessage.getErrorString());
+                    this.bJX.showToast(profileHttpResponseMessage.getErrorString());
                 }
             }
-            vVar = this.bJY.bJN;
+            vVar = this.bJX.bJM;
             if (vVar != null) {
-                vVar5 = this.bJY.bJN;
+                vVar5 = this.bJX.bJM;
                 if (vVar5.getUserData() != null) {
-                    blackListModel = this.bJY.bJM;
-                    vVar6 = this.bJY.bJN;
+                    blackListModel = this.bJX.bJL;
+                    vVar6 = this.bJX.bJM;
                     blackListModel.setMaskType(vVar6.getUserData().isMask() ? 1 : 0);
                 }
             }
-            vVar2 = this.bJY.bJN;
+            vVar2 = this.bJX.bJM;
             if (vVar2 != null) {
-                vVar3 = this.bJY.bJN;
+                vVar3 = this.bJX.bJM;
                 if (vVar3.getIsSelf()) {
-                    vVar4 = this.bJY.bJN;
+                    vVar4 = this.bJX.bJM;
                     UserData userData = vVar4.getUserData();
                     if (userData != null && (personPrivate = userData.getPersonPrivate()) != null) {
-                        com.baidu.tbadk.core.account.o.n(5, personPrivate.uQ());
-                        com.baidu.tbadk.core.account.o.n(3, personPrivate.uO());
-                        com.baidu.tbadk.core.account.o.n(4, personPrivate.uP());
-                        com.baidu.tbadk.core.account.o.n(2, personPrivate.uN());
+                        com.baidu.tbadk.core.account.o.n(5, personPrivate.uK());
+                        com.baidu.tbadk.core.account.o.n(3, personPrivate.uI());
+                        com.baidu.tbadk.core.account.o.n(4, personPrivate.uJ());
+                        com.baidu.tbadk.core.account.o.n(2, personPrivate.uH());
                     }
                 }
             }

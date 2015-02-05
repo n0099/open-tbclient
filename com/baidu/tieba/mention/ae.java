@@ -17,7 +17,7 @@ public class ae extends r implements com.baidu.tbadk.mvc.b.c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] xq() {
+    public byte[] xk() {
         return null;
     }
 

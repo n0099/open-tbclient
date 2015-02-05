@@ -5,11 +5,11 @@ import com.baidu.tieba.im.model.ImMessageCenterModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements a {
-    final /* synthetic */ g aTE;
+    final /* synthetic */ g aTD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(g gVar) {
-        this.aTE = gVar;
+        this.aTD = gVar;
     }
 
     @Override // com.baidu.tieba.im.chat.notify.a
@@ -19,14 +19,14 @@ public class m implements a {
         BdListView bdListView2;
         ImMessageCenterListAdapter imMessageCenterListAdapter;
         ImMessageCenterModel imMessageCenterModel2;
-        bdListView = this.aTE.aTq;
+        bdListView = this.aTD.aTp;
         if (bdListView != null) {
-            imMessageCenterModel = this.aTE.aTn;
+            imMessageCenterModel = this.aTD.aTm;
             if (imMessageCenterModel != null) {
-                bdListView2 = this.aTE.aTq;
-                bdListView2.jI();
-                imMessageCenterListAdapter = this.aTE.aTr;
-                imMessageCenterModel2 = this.aTE.aTn;
+                bdListView2 = this.aTD.aTp;
+                bdListView2.jB();
+                imMessageCenterListAdapter = this.aTD.aTq;
+                imMessageCenterModel2 = this.aTD.aTm;
                 imMessageCenterListAdapter.setData(imMessageCenterModel2.getData());
             }
         }

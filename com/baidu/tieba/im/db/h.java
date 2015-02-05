@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends CustomMessageListener {
-    final /* synthetic */ ImDbShrinkStatic aYm;
+    final /* synthetic */ ImDbShrinkStatic aYl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(ImDbShrinkStatic imDbShrinkStatic, int i) {
         super(i);
-        this.aYm = imDbShrinkStatic;
+        this.aYl = imDbShrinkStatic;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,14 +23,14 @@ public class h extends CustomMessageListener {
         i iVar3;
         if (customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage)) {
             if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                iVar2 = this.aYm.aYi;
-                iVar3 = this.aYm.aYi;
+                iVar2 = this.aYl.aYh;
+                iVar3 = this.aYl.aYh;
                 iVar2.sendMessageDelayed(iVar3.obtainMessage(1), 30000L);
                 return;
             }
-            iVar = this.aYm.aYi;
+            iVar = this.aYl.aYh;
             iVar.removeMessages(1);
-            this.aYm.stop();
+            this.aYl.stop();
         }
     }
 }

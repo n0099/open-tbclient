@@ -5,13 +5,13 @@ import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bs extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ bq bCK;
+    final /* synthetic */ bq bCJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bs(bq bqVar, int i, int i2) {
         super(i, i2);
-        this.bCK = bqVar;
+        this.bCJ = bqVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -25,14 +25,14 @@ public class bs extends com.baidu.adp.framework.listener.a {
         PbActivity pbActivity;
         PbActivity pbActivity2;
         int i2 = 0;
-        if (((responsedMessage instanceof pbPageSocketResponseMessage) || (responsedMessage instanceof pbPageHttpResponseMessage)) && responsedMessage.getOrginalMessage().getTag() == this.bCK.getUniqueId()) {
+        if (((responsedMessage instanceof pbPageSocketResponseMessage) || (responsedMessage instanceof pbPageHttpResponseMessage)) && responsedMessage.getOrginalMessage().getTag() == this.bCJ.getUniqueId()) {
             if (responsedMessage.hasError()) {
                 if (UtilHelper.isNetOk()) {
-                    pbActivity2 = this.bCK.bCG;
+                    pbActivity2 = this.bCJ.bCF;
                     pbActivity2.showToast(responsedMessage.getErrorString());
                 }
                 if (responsedMessage.getError() == 4) {
-                    pbActivity = this.bCK.bCG;
+                    pbActivity = this.bCJ.bCF;
                     pbActivity.finish();
                 }
                 z = false;
@@ -41,36 +41,36 @@ public class bs extends com.baidu.adp.framework.listener.a {
             }
             if (responsedMessage instanceof pbPageSocketResponseMessage) {
                 pbPageSocketResponseMessage pbpagesocketresponsemessage = (pbPageSocketResponseMessage) responsedMessage;
-                this.bCK.a(pbpagesocketresponsemessage);
+                this.bCJ.a(pbpagesocketresponsemessage);
                 i = pbpagesocketresponsemessage.getDownSize();
             } else {
                 i = 0;
             }
             if (responsedMessage instanceof pbPageHttpResponseMessage) {
                 pbPageHttpResponseMessage pbpagehttpresponsemessage = (pbPageHttpResponseMessage) responsedMessage;
-                this.bCK.a(pbpagehttpresponsemessage);
+                this.bCJ.a(pbpagehttpresponsemessage);
                 i2 = pbpagehttpresponsemessage.getDownSize();
                 z2 = true;
             } else {
                 z2 = false;
             }
-            z3 = this.bCK.bCH;
+            z3 = this.bCJ.bCG;
             if (!z3) {
-                this.bCK.bCH = true;
+                this.bCJ.bCG = true;
                 com.baidu.tbadk.performanceLog.w wVar = new com.baidu.tbadk.performanceLog.w();
                 wVar.dX(1001);
-                wVar.agY = z2;
+                wVar.agV = z2;
                 wVar.isSuccess = z;
-                wVar.agN = responsedMessage.performanceData.fb;
-                wVar.agO = responsedMessage.performanceData.fc;
-                wVar.agP = responsedMessage.performanceData.fd;
-                wVar.agQ = responsedMessage.performanceData.fe;
-                wVar.agR = responsedMessage.performanceData.ff;
-                wVar.agW = i;
-                wVar.agX = i2;
-                btVar = this.bCK.bCC;
+                wVar.agK = responsedMessage.performanceData.fb;
+                wVar.agL = responsedMessage.performanceData.fc;
+                wVar.agM = responsedMessage.performanceData.fd;
+                wVar.agN = responsedMessage.performanceData.fe;
+                wVar.agO = responsedMessage.performanceData.ff;
+                wVar.agT = i;
+                wVar.agU = i2;
+                btVar = this.bCJ.bCB;
                 if (btVar != null) {
-                    btVar2 = this.bCK.bCC;
+                    btVar2 = this.bCJ.bCB;
                     btVar2.e(wVar);
                 }
             }

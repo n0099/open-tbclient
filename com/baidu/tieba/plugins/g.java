@@ -13,11 +13,12 @@ import com.baidu.tieba.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends Dialog {
-    private LinearLayout alS;
-    private TextView apf;
-    private TextView awk;
-    final /* synthetic */ PluginDownloadActivity bMo;
-    private LinearLayout bMp;
+    private LinearLayout alP;
+    private TextView apc;
+    private TextView awh;
+    final /* synthetic */ PluginDownloadActivity bMn;
+    private LinearLayout bMo;
+    private TextView bMp;
     private TextView bMq;
     private TextView bMr;
     private TextView bMs;
@@ -25,12 +26,11 @@ public class g extends Dialog {
     private TextView bMu;
     private TextView bMv;
     private TextView bMw;
-    private TextView bMx;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(PluginDownloadActivity pluginDownloadActivity, Context context, int i) {
         super(context, i);
-        this.bMo = pluginDownloadActivity;
+        this.bMn = pluginDownloadActivity;
     }
 
     @Override // android.app.Dialog
@@ -48,63 +48,63 @@ public class g extends Dialog {
         findViewById(w.warning).setVisibility(8);
         findViewById(w.incremental_button).setVisibility(8);
         findViewById(w.incremental_size).setVisibility(8);
-        this.bMp = (LinearLayout) findViewById(w.down_dialog);
-        this.bMw = (TextView) findViewById(w.update_tip);
-        this.bMq = (TextView) findViewById(w.newversion);
-        this.awk = (TextView) findViewById(w.desc);
-        this.bMr = (TextView) findViewById(w.update_button);
-        this.bMr.setText(this.bMo.getPageContext().getString(z.plugin_download_immediately));
-        this.apf = (TextView) findViewById(w.update_cancel);
-        this.bMs = (TextView) findViewById(w.downloading);
-        this.bMx = (TextView) findViewById(w.otherApp);
-        this.bMx.setVisibility(8);
-        this.bMt = (TextView) findViewById(w.app_size);
-        this.alS = (LinearLayout) findViewById(w.cancel_dialog);
-        this.bMu = (TextView) findViewById(w.sure_cancel);
-        this.bMv = (TextView) findViewById(w.cancel_button);
-        this.bMu.setOnClickListener(new h(this));
-        this.bMv.setOnClickListener(new i(this));
-        pluginConfig = this.bMo.bMk;
+        this.bMo = (LinearLayout) findViewById(w.down_dialog);
+        this.bMv = (TextView) findViewById(w.update_tip);
+        this.bMp = (TextView) findViewById(w.newversion);
+        this.awh = (TextView) findViewById(w.desc);
+        this.bMq = (TextView) findViewById(w.update_button);
+        this.bMq.setText(this.bMn.getPageContext().getString(z.plugin_download_immediately));
+        this.apc = (TextView) findViewById(w.update_cancel);
+        this.bMr = (TextView) findViewById(w.downloading);
+        this.bMw = (TextView) findViewById(w.otherApp);
+        this.bMw.setVisibility(8);
+        this.bMs = (TextView) findViewById(w.app_size);
+        this.alP = (LinearLayout) findViewById(w.cancel_dialog);
+        this.bMt = (TextView) findViewById(w.sure_cancel);
+        this.bMu = (TextView) findViewById(w.cancel_button);
+        this.bMt.setOnClickListener(new h(this));
+        this.bMu.setOnClickListener(new i(this));
+        pluginConfig = this.bMn.bMj;
         if (TextUtils.isEmpty(pluginConfig.display_name)) {
-            this.bMw.setText("");
+            this.bMv.setText("");
         } else {
-            TextView textView = this.bMw;
-            pluginConfig2 = this.bMo.bMk;
+            TextView textView = this.bMv;
+            pluginConfig2 = this.bMn.bMj;
             textView.setText(pluginConfig2.display_name);
         }
-        pluginConfig3 = this.bMo.bMk;
+        pluginConfig3 = this.bMn.bMj;
         if (pluginConfig3.newest != null) {
-            pluginConfig4 = this.bMo.bMk;
+            pluginConfig4 = this.bMn.bMj;
             if (TextUtils.isEmpty(pluginConfig4.newest.version)) {
-                this.bMq.setText("");
+                this.bMp.setText("");
             } else {
-                TextView textView2 = this.bMq;
+                TextView textView2 = this.bMp;
                 StringBuilder sb = new StringBuilder("版本：");
-                pluginConfig5 = this.bMo.bMk;
+                pluginConfig5 = this.bMn.bMj;
                 textView2.setText(sb.append(pluginConfig5.newest.version).toString());
             }
-            pluginConfig6 = this.bMo.bMk;
+            pluginConfig6 = this.bMn.bMj;
             if (TextUtils.isEmpty(pluginConfig6.newest.change_log)) {
-                this.awk.setText("");
+                this.awh.setText("");
             } else {
-                TextView textView3 = this.awk;
-                pluginConfig7 = this.bMo.bMk;
+                TextView textView3 = this.awh;
+                pluginConfig7 = this.bMn.bMj;
                 textView3.setText(pluginConfig7.newest.change_log);
             }
-            pluginConfig8 = this.bMo.bMk;
+            pluginConfig8 = this.bMn.bMj;
             String valueOf = String.valueOf(pluginConfig8.newest.size / 1024);
             if (valueOf != null && !"".equals(valueOf)) {
-                this.bMt.setVisibility(0);
-                this.bMt.setText(((Object) this.bMt.getText()) + valueOf + "KB");
+                this.bMs.setVisibility(0);
+                this.bMs.setText(((Object) this.bMs.getText()) + valueOf + "KB");
             } else {
-                this.bMt.setVisibility(8);
+                this.bMs.setVisibility(8);
             }
         } else {
-            this.bMq.setText("");
-            this.awk.setText("");
-            this.bMt.setText("");
+            this.bMp.setText("");
+            this.awh.setText("");
+            this.bMs.setText("");
         }
-        this.bMr.setOnClickListener(new j(this));
-        this.apf.setOnClickListener(new l(this));
+        this.bMq.setOnClickListener(new j(this));
+        this.apc.setOnClickListener(new l(this));
     }
 }

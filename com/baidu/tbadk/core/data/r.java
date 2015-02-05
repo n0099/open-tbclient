@@ -6,34 +6,34 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class r {
-    private ArrayList<UserData> Ej = new ArrayList<>();
-    private ArrayList<UserData> Ek = new ArrayList<>();
-    private q El = new q();
+    private ArrayList<UserData> Eg = new ArrayList<>();
+    private ArrayList<UserData> Eh = new ArrayList<>();
+    private q Ei = new q();
     private int friendNum = 0;
-    private int Em = 0;
+    private int Ej = 0;
 
     public void a(q qVar) {
-        this.El = qVar;
+        this.Ei = qVar;
     }
 
-    public q na() {
-        return this.El;
+    public q mT() {
+        return this.Ei;
     }
 
-    public ArrayList<UserData> nb() {
-        return this.Ej;
+    public ArrayList<UserData> mU() {
+        return this.Eg;
     }
 
-    public ArrayList<UserData> nc() {
-        return this.Ek;
+    public ArrayList<UserData> mV() {
+        return this.Eh;
     }
 
     public int getFriendNum() {
         return this.friendNum;
     }
 
-    public int nd() {
-        return this.Em;
+    public int mW() {
+        return this.Ej;
     }
 
     public void parserJson(String str) {
@@ -53,19 +53,19 @@ public class r {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         UserData userData = new UserData();
                         userData.parserJson(optJSONArray.getJSONObject(i));
-                        this.Ej.add(userData);
+                        this.Eg.add(userData);
                     }
                 }
                 if (optJSONArray2 != null) {
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                         UserData userData2 = new UserData();
                         userData2.parserJson(optJSONArray2.getJSONObject(i2));
-                        this.Ek.add(userData2);
+                        this.Eh.add(userData2);
                     }
                 }
-                this.El.parserJson(jSONObject.optJSONObject("page"));
+                this.Ei.parserJson(jSONObject.optJSONObject("page"));
                 this.friendNum = jSONObject.optInt("tafriendnum", 0);
-                this.Em = jSONObject.optInt("commonfriendnum", 0);
+                this.Ej = jSONObject.optInt("commonfriendnum", 0);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

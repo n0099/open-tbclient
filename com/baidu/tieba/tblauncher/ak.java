@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 /* loaded from: classes.dex */
 class ak implements Runnable {
-    final /* synthetic */ aj cdx;
+    final /* synthetic */ aj cdw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(aj ajVar) {
-        this.cdx = ajVar;
+        this.cdw = ajVar;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:5:0x001b, code lost:
@@ -26,16 +26,16 @@ class ak implements Runnable {
         FragmentTabHost fragmentTabHost2;
         ai aiVar4;
         int i;
-        aiVar = this.cdx.cdw;
-        fragmentTabHost = aiVar.aJp;
+        aiVar = this.cdw.cdv;
+        fragmentTabHost = aiVar.aJm;
         if (fragmentTabHost.getCurrentTabType() != 6) {
-            aiVar4 = this.cdx.cdw;
-            i = aiVar4.cdm;
+            aiVar4 = this.cdw.cdv;
+            i = aiVar4.cdl;
         }
         TbadkCoreApplication.m255getInst().setFriendFeedNew(false);
-        aiVar2 = this.cdx.cdw;
-        aiVar3 = this.cdx.cdw;
-        fragmentTabHost2 = aiVar3.aJp;
-        aiVar2.cdm = fragmentTabHost2.getCurrentTabType();
+        aiVar2 = this.cdw.cdv;
+        aiVar3 = this.cdw.cdv;
+        fragmentTabHost2 = aiVar3.aJm;
+        aiVar2.cdl = fragmentTabHost2.getCurrentTabType();
     }
 }

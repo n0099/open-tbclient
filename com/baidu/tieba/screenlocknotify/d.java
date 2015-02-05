@@ -17,19 +17,19 @@ class d implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         t tVar;
-        if (!StringUtils.isNull(this.this$0.acD()) && f.acG().acH() != null && f.acG().acH().size() > 0 && (tVar = f.acG().acH().get(0)) != null) {
+        if (!StringUtils.isNull(this.this$0.acy()) && f.acB().acC() != null && f.acB().acC().size() > 0 && (tVar = f.acB().acC().get(0)) != null) {
             if (tVar.customGroupType == 1) {
-                MessageUtils.createGroupChatMessage(1, this.this$0.acD(), com.baidu.adp.lib.g.c.a(tVar.groupId, 0L));
-                com.baidu.tbadk.coreExtra.messageCenter.a.rY().dm(tVar.groupId);
+                MessageUtils.createGroupChatMessage(1, this.this$0.acy(), com.baidu.adp.lib.g.c.a(tVar.groupId, 0L));
+                com.baidu.tbadk.coreExtra.messageCenter.a.rS().dj(tVar.groupId);
                 MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new com.baidu.tbadk.live.message.a(tVar.groupId, 1)));
             } else if (tVar.customGroupType == 2) {
-                MessageUtils.createPersonalChatMessage(1, this.this$0.acD(), com.baidu.adp.lib.g.c.a(tVar.groupId, 0L), tVar.userName, tVar.bOv);
-                com.baidu.tbadk.coreExtra.messageCenter.a.rY().dm(tVar.groupId);
+                MessageUtils.createPersonalChatMessage(1, this.this$0.acy(), com.baidu.adp.lib.g.c.a(tVar.groupId, 0L), tVar.userName, tVar.bOu);
+                com.baidu.tbadk.coreExtra.messageCenter.a.rS().dj(tVar.groupId);
                 MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new com.baidu.tbadk.live.message.a(tVar.groupId, 2)));
                 MessageUtils.sendHasReadMessage(tVar.groupId, 2);
             }
-            f.acG().c(tVar);
-            f.acG().bOc.acM();
+            f.acB().c(tVar);
+            f.acB().bOb.acH();
             this.this$0.finish();
         }
     }

@@ -12,9 +12,9 @@ import android.view.View;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class SnowView extends View {
-    private boolean alu;
-    private Bitmap[] alv;
-    private ae[] alw;
+    private boolean alr;
+    private Bitmap[] als;
+    private ae[] alt;
     private Handler mHandler;
     private Paint mPaint;
     private int mScreenHeight;
@@ -37,16 +37,16 @@ public class SnowView extends View {
     public void H(int i, int i2) {
         this.mScreenWidth = i;
         this.mScreenHeight = i2;
-        AI();
+        AC();
     }
 
-    public void AG() {
-        this.alu = true;
+    public void AA() {
+        this.alr = true;
         invalidate();
     }
 
-    public void AH() {
-        this.alu = false;
+    public void AB() {
+        this.alr = false;
     }
 
     private void init() {
@@ -54,37 +54,37 @@ public class SnowView extends View {
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
         this.mz = new Random();
-        this.alw = new ae[18];
-        for (int i = 0; i < this.alw.length; i++) {
-            this.alw[i] = new ae(this, null);
+        this.alt = new ae[18];
+        for (int i = 0; i < this.alt.length; i++) {
+            this.alt[i] = new ae(this, null);
         }
-        this.alv = new Bitmap[3];
+        this.als = new Bitmap[3];
         Resources resources = getContext().getResources();
-        this.alv[0] = ((BitmapDrawable) resources.getDrawable(v.pic_startpage_snow_middle)).getBitmap();
-        this.alv[1] = ((BitmapDrawable) resources.getDrawable(v.pic_startpage_snow_big)).getBitmap();
-        this.alv[2] = ((BitmapDrawable) resources.getDrawable(v.pic_startpage_snow_small)).getBitmap();
+        this.als[0] = ((BitmapDrawable) resources.getDrawable(v.pic_startpage_snow_middle)).getBitmap();
+        this.als[1] = ((BitmapDrawable) resources.getDrawable(v.pic_startpage_snow_big)).getBitmap();
+        this.als[2] = ((BitmapDrawable) resources.getDrawable(v.pic_startpage_snow_small)).getBitmap();
     }
 
-    private void AI() {
-        if (this.alw != null && this.mz != null) {
-            for (int i = 0; i < this.alw.length; i++) {
-                this.alw[i].x = this.mz.nextInt(this.mScreenWidth);
+    private void AC() {
+        if (this.alt != null && this.mz != null) {
+            for (int i = 0; i < this.alt.length; i++) {
+                this.alt[i].x = this.mz.nextInt(this.mScreenWidth);
                 switch (i % 3) {
                     case 0:
-                        this.alw[i].speed = 4;
-                        this.alw[i].y = this.mz.nextInt((this.mScreenHeight * 3) / 5);
+                        this.alt[i].speed = 4;
+                        this.alt[i].y = this.mz.nextInt((this.mScreenHeight * 3) / 5);
                         break;
                     case 1:
-                        this.alw[i].speed = 3;
-                        this.alw[i].y = this.mz.nextInt((this.mScreenHeight * 4) / 5);
+                        this.alt[i].speed = 3;
+                        this.alt[i].y = this.mz.nextInt((this.mScreenHeight * 4) / 5);
                         break;
                     case 2:
-                        this.alw[i].speed = 5;
-                        this.alw[i].y = this.mz.nextInt((this.mScreenHeight * 2) / 5);
+                        this.alt[i].speed = 5;
+                        this.alt[i].y = this.mz.nextInt((this.mScreenHeight * 2) / 5);
                         break;
                     default:
-                        this.alw[i].speed = 4;
-                        this.alw[i].y = this.mz.nextInt((this.mScreenHeight * 3) / 5);
+                        this.alt[i].speed = 4;
+                        this.alt[i].y = this.mz.nextInt((this.mScreenHeight * 3) / 5);
                         break;
                 }
             }
@@ -94,15 +94,15 @@ public class SnowView extends View {
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.alw != null && this.alv != null && this.mScreenHeight != 0 && this.mScreenWidth != 0) {
-            for (int i = 0; i < this.alw.length; i++) {
-                if (this.alw[i].y >= this.mScreenHeight) {
-                    this.alw[i].y = this.mz.nextInt((this.mScreenHeight * 2) / 3);
+        if (this.alt != null && this.als != null && this.mScreenHeight != 0 && this.mScreenWidth != 0) {
+            for (int i = 0; i < this.alt.length; i++) {
+                if (this.alt[i].y >= this.mScreenHeight) {
+                    this.alt[i].y = this.mz.nextInt((this.mScreenHeight * 2) / 3);
                 }
-                this.alw[i].y += this.alw[i].speed;
-                canvas.drawBitmap(this.alv[i % 3], this.alw[i].x, this.alw[i].y, this.mPaint);
+                this.alt[i].y += this.alt[i].speed;
+                canvas.drawBitmap(this.als[i % 3], this.alt[i].x, this.alt[i].y, this.mPaint);
             }
-            if (this.alu) {
+            if (this.alr) {
                 this.mHandler.postDelayed(new ad(this), 20L);
             }
         }

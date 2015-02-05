@@ -7,11 +7,11 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al implements View.OnTouchListener {
-    final /* synthetic */ WriteActivity cgS;
+    final /* synthetic */ WriteActivity cgR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(WriteActivity writeActivity) {
-        this.cgS = writeActivity;
+        this.cgR = writeActivity;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -20,13 +20,13 @@ public class al implements View.OnTouchListener {
         EditText editText;
         InputMethodManager inputMethodManager2;
         EditText editText2;
-        WriteActivity writeActivity = this.cgS;
-        inputMethodManager = this.cgS.mInputManager;
-        editText = this.cgS.bPG;
+        WriteActivity writeActivity = this.cgR;
+        inputMethodManager = this.cgR.mInputManager;
+        editText = this.cgR.bPF;
         writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        WriteActivity writeActivity2 = this.cgS;
-        inputMethodManager2 = this.cgS.mInputManager;
-        editText2 = this.cgS.bPK;
+        WriteActivity writeActivity2 = this.cgR;
+        inputMethodManager2 = this.cgR.mInputManager;
+        editText2 = this.cgR.bPJ;
         writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
         return false;
     }

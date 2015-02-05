@@ -23,9 +23,9 @@ public class c extends BdAsyncTask<String, Object, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: f */
     public Boolean doInBackground(String... strArr) {
-        Boolean aO;
-        aO = this.rW.aO(this.packageName);
-        return aO;
+        Boolean aP;
+        aP = this.rW.aP(this.packageName);
+        return aP;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,15 +34,15 @@ public class c extends BdAsyncTask<String, Object, Boolean> {
     /* renamed from: b */
     public void onPostExecute(Boolean bool) {
         super.onPostExecute(bool);
-        this.rW.gQ();
-        this.rW.gV();
+        this.rW.gR();
+        this.rW.gW();
         if (this.rV != null) {
             this.rV.c(bool.booleanValue(), this.packageName);
             return;
         }
         BdLog.e("listener is null");
-        if (PluginPackageManager.ic().il()) {
-            com.baidu.adp.plugin.b.a.hU().g("plugin_load", "listener_null", this.packageName);
+        if (PluginPackageManager.hV().id()) {
+            com.baidu.adp.plugin.b.a.hN().g("plugin_load", "listener_null", this.packageName);
         }
     }
 }

@@ -2,11 +2,11 @@ package com.baidu.tieba.im.chat;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cu extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ ct aTd;
+    final /* synthetic */ ct aTc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cu(ct ctVar) {
-        this.aTd = ctVar;
+        this.aTc = ctVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -16,11 +16,11 @@ public class cu extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
         String j;
         super.onLoaded((cu) aVar, str, i);
         if (aVar != null) {
-            ct ctVar = this.aTd;
-            j = this.aTd.j(this.aTd.mUrl, aVar.jm());
+            ct ctVar = this.aTc;
+            j = this.aTc.j(this.aTc.mUrl, aVar.jf());
             ctVar.showToast(j);
             return;
         }
-        this.aTd.showToast(this.aTd.mActivity.getPageContext().getString(com.baidu.tieba.z.save_error));
+        this.aTc.showToast(this.aTc.mActivity.getPageContext().getString(com.baidu.tieba.z.save_error));
     }
 }

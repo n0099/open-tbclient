@@ -4,27 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    private long aXV;
-    private int aXW;
+    private long aXU;
+    private int aXV;
     private List<d> parent_menu = new ArrayList();
 
-    public boolean MJ() {
-        return this.aXW == 1;
+    public boolean ME() {
+        return this.aXV == 1;
     }
 
     public void fH(int i) {
-        this.aXW = i;
+        this.aXV = i;
     }
 
-    public long MK() {
-        return this.aXV;
+    public long MF() {
+        return this.aXU;
     }
 
     public void T(long j) {
-        this.aXV = j;
+        this.aXU = j;
     }
 
-    public List<d> ML() {
+    public List<d> MG() {
         return this.parent_menu;
     }
 

@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.util.bc;
 /* loaded from: classes.dex */
 public class PbLocationInfoView extends TextView {
-    private Rect bWE;
+    private Rect bWD;
     private int mState;
 
     public PbLocationInfoView(Context context) {
@@ -23,14 +23,14 @@ public class PbLocationInfoView extends TextView {
     }
 
     private void init() {
-        this.bWE = new Rect(0, 0, getResources().getDimensionPixelSize(com.baidu.tieba.u.ds32), getResources().getDimensionPixelSize(com.baidu.tieba.u.ds32));
+        this.bWD = new Rect(0, 0, getResources().getDimensionPixelSize(com.baidu.tieba.u.ds32), getResources().getDimensionPixelSize(com.baidu.tieba.u.ds32));
         C(0, null);
-        wu();
+        wo();
     }
 
-    public void wu() {
+    public void wo() {
         setTextColor(bc.getColor(com.baidu.tieba.t.cp_cont_c));
-        age();
+        afZ();
     }
 
     public void C(int i, String str) {
@@ -51,18 +51,18 @@ public class PbLocationInfoView extends TextView {
             }
             setText(str);
         }
-        age();
+        afZ();
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void age() {
+    public void afZ() {
         if (this.mState == 1) {
             Drawable drawable = bc.getDrawable(com.baidu.tieba.v.icon_posts_pin_loading_anim);
             if (drawable != null) {
-                drawable.setBounds(this.bWE);
+                drawable.setBounds(this.bWD);
             }
             setCompoundDrawables(drawable, null, null, null);
             com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) com.baidu.adp.base.m.C(getContext()), (Animatable) drawable);
@@ -70,7 +70,7 @@ public class PbLocationInfoView extends TextView {
         }
         Drawable drawable2 = bc.getDrawable(com.baidu.tieba.v.icon_tips_site);
         if (drawable2 != null) {
-            drawable2.setBounds(this.bWE);
+            drawable2.setBounds(this.bWD);
         }
         setCompoundDrawables(drawable2, null, null, null);
     }

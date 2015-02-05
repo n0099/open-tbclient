@@ -1,15 +1,15 @@
 package com.baidu.tieba.service;
 /* loaded from: classes.dex */
 class n implements Runnable {
-    final /* synthetic */ TiebaSyncService bPb;
+    final /* synthetic */ TiebaSyncService bPa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(TiebaSyncService tiebaSyncService) {
-        this.bPb = tiebaSyncService;
+        this.bPa = tiebaSyncService;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.bPb.checkUpdata();
+        this.bPa.checkUpdata();
     }
 }

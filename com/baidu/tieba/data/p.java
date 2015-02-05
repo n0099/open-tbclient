@@ -9,32 +9,32 @@ import com.baidu.tbadk.core.util.bf;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class p {
-    private String atD;
+    private String atA;
     private String tid = null;
-    private String Ri = null;
+    private String Rf = null;
     private String title = null;
-    private boolean atF = false;
+    private boolean atC = false;
     private long time = 0;
-    private final UserData atE = new UserData();
+    private final UserData atB = new UserData();
     private String content = null;
-    private boolean atG = true;
+    private boolean atD = true;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 this.tid = jSONObject.optString("tid");
                 this.title = jSONObject.optString("title");
-                this.Ri = jSONObject.optString("pid");
-                this.atF = jSONObject.optInt("is_floor", 0) != 0;
+                this.Rf = jSONObject.optString("pid");
+                this.atC = jSONObject.optInt("is_floor", 0) != 0;
                 this.time = jSONObject.optLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, 0L) * 1000;
-                this.atE.parserJson(jSONObject.optJSONObject("author"));
+                this.atB.parserJson(jSONObject.optJSONObject("author"));
                 this.content = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT);
-                this.atD = jSONObject.optString(ImageViewerConfig.FORUM_NAME);
+                this.atA = jSONObject.optString(ImageViewerConfig.FORUM_NAME);
                 this.title = bf.a(this.title, (Color) null);
                 String a = bf.a(this.content, (Color) null);
                 if (!a.equals(this.content)) {
                     this.content = a;
-                    this.atG = false;
+                    this.atD = false;
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);

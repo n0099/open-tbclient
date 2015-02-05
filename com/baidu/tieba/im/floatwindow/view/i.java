@@ -12,122 +12,122 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 public class i {
-    private HeadImageView aHd;
-    private TextView aYQ;
-    private RelativeLayout aZO;
-    private ImageView aZP;
+    private HeadImageView aHa;
+    private TextView aYP;
+    private RelativeLayout aZN;
+    private ImageView aZO;
+    private TranslateAnimation aZP;
     private TranslateAnimation aZQ;
-    private TranslateAnimation aZR;
-    private int aZS;
-    private ao aZV;
+    private int aZR;
+    private ao aZU;
     private final int index;
-    private boolean aZT = false;
-    private m aZU = new j(this);
-    private Point aYR = new Point();
+    private boolean aZS = false;
+    private m aZT = new j(this);
+    private Point aYQ = new Point();
 
     public i(RelativeLayout relativeLayout, int i) {
         this.index = i;
-        this.aZO = relativeLayout;
-        this.aHd = (HeadImageView) relativeLayout.findViewById(com.baidu.tieba.w.im_floating_head_view);
-        this.aYQ = (TextView) relativeLayout.findViewById(com.baidu.tieba.w.im_floating_unread_view);
-        this.aZP = (ImageView) relativeLayout.findViewById(com.baidu.tieba.w.im_floating_arrow);
-        this.aHd.setAutoChangeStyle(false);
-        this.aHd.setIsRound(true);
-        this.aHd.setTag(Integer.valueOf(i));
-        this.aHd.setOnLongClickListener(new k(this));
-        this.aHd.setOnTouchListener(new l(this));
+        this.aZN = relativeLayout;
+        this.aHa = (HeadImageView) relativeLayout.findViewById(com.baidu.tieba.w.im_floating_head_view);
+        this.aYP = (TextView) relativeLayout.findViewById(com.baidu.tieba.w.im_floating_unread_view);
+        this.aZO = (ImageView) relativeLayout.findViewById(com.baidu.tieba.w.im_floating_arrow);
+        this.aHa.setAutoChangeStyle(false);
+        this.aHa.setIsRound(true);
+        this.aHa.setTag(Integer.valueOf(i));
+        this.aHa.setOnLongClickListener(new k(this));
+        this.aHa.setOnTouchListener(new l(this));
     }
 
     public void a(ao aoVar) {
-        this.aZV = aoVar;
+        this.aZU = aoVar;
     }
 
     public boolean d(Animation animation) {
-        return this.aZR == animation;
+        return this.aZQ == animation;
     }
 
     public void a(com.baidu.adp.lib.g.e eVar) {
-        if (this.aZO.getVisibility() == 0) {
-            this.aZQ = new TranslateAnimation(Od(), 0.0f, 0.0f, 0.0f);
+        if (this.aZN.getVisibility() == 0) {
+            this.aZP = new TranslateAnimation(NY(), 0.0f, 0.0f, 0.0f);
+            this.aZP.setDuration(300L);
+            if (eVar != null) {
+                this.aZP.setAnimationListener(eVar);
+            }
+            this.aZN.startAnimation(this.aZP);
+        }
+    }
+
+    private int NY() {
+        int[] iArr = new int[2];
+        this.aZN.getLocationInWindow(iArr);
+        int M = com.baidu.adp.lib.util.l.M(TbadkCoreApplication.m255getInst());
+        return ((M - iArr[0]) - this.aZN.getMeasuredWidth()) - com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.m255getInst(), 10.0f);
+    }
+
+    public void b(com.baidu.adp.lib.g.e eVar) {
+        if (this.aZN.getVisibility() == 0) {
+            this.aZQ = new TranslateAnimation(0.0f, NY(), 0.0f, 0.0f);
             this.aZQ.setDuration(300L);
             if (eVar != null) {
                 this.aZQ.setAnimationListener(eVar);
             }
-            this.aZO.startAnimation(this.aZQ);
+            this.aZN.startAnimation(this.aZQ);
         }
     }
 
-    private int Od() {
-        int[] iArr = new int[2];
-        this.aZO.getLocationInWindow(iArr);
-        int M = com.baidu.adp.lib.util.l.M(TbadkCoreApplication.m255getInst());
-        return ((M - iArr[0]) - this.aZO.getMeasuredWidth()) - com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.m255getInst(), 10.0f);
-    }
-
-    public void b(com.baidu.adp.lib.g.e eVar) {
-        if (this.aZO.getVisibility() == 0) {
-            this.aZR = new TranslateAnimation(0.0f, Od(), 0.0f, 0.0f);
-            this.aZR.setDuration(300L);
-            if (eVar != null) {
-                this.aZR.setAnimationListener(eVar);
-            }
-            this.aZO.startAnimation(this.aZR);
-        }
-    }
-
-    public void Oe() {
-        TranslateAnimation translateAnimation = new TranslateAnimation(this.aZO.getMeasuredWidth(), 0.0f, 0.0f, 0.0f);
+    public void NZ() {
+        TranslateAnimation translateAnimation = new TranslateAnimation(this.aZN.getMeasuredWidth(), 0.0f, 0.0f, 0.0f);
         translateAnimation.setDuration(300L);
-        this.aZO.startAnimation(translateAnimation);
+        this.aZN.startAnimation(translateAnimation);
     }
 
-    public void Of() {
-        TranslateAnimation translateAnimation = new TranslateAnimation(-this.aZO.getMeasuredWidth(), 0.0f, 0.0f, 0.0f);
+    public void Oa() {
+        TranslateAnimation translateAnimation = new TranslateAnimation(-this.aZN.getMeasuredWidth(), 0.0f, 0.0f, 0.0f);
         translateAnimation.setDuration(300L);
-        this.aZO.startAnimation(translateAnimation);
+        this.aZN.startAnimation(translateAnimation);
     }
 
     public void a(boolean z, UserData userData, int i) {
         if (z && userData != null) {
-            this.aZS = userData.getConcern_num();
+            this.aZR = userData.getConcern_num();
             fN(userData.getConcern_num());
-            this.aHd.d(userData.getPortrait(), 12, false);
-            this.aHd.setUrl(userData.getPortrait());
+            this.aHa.d(userData.getPortrait(), 12, false);
+            this.aHa.setUrl(userData.getPortrait());
             if (i == this.index) {
-                this.aZP.setVisibility(0);
+                this.aZO.setVisibility(0);
             } else {
-                this.aZP.setVisibility(8);
+                this.aZO.setVisibility(8);
             }
-            this.aZO.setVisibility(0);
+            this.aZN.setVisibility(0);
             return;
         }
-        this.aZO.setVisibility(8);
+        this.aZN.setVisibility(8);
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.aHd.setOnClickListener(onClickListener);
+        this.aHa.setOnClickListener(onClickListener);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void fN(int i) {
         int i2;
-        if (!this.aZT) {
+        if (!this.aZS) {
             if (i <= 0) {
-                this.aYQ.setVisibility(8);
+                this.aYP.setVisibility(8);
                 return;
             }
-            this.aYQ.setVisibility(0);
+            this.aYP.setVisibility(0);
             if (i < 10) {
-                this.aYQ.setText(String.valueOf(i));
+                this.aYP.setText(String.valueOf(i));
                 i2 = com.baidu.tieba.v.icon_news_head_prompt_one;
             } else if (i < 100) {
-                this.aYQ.setText(String.valueOf(i));
+                this.aYP.setText(String.valueOf(i));
                 i2 = com.baidu.tieba.v.icon_news_head_prompt_two;
             } else {
-                this.aYQ.setText("   ");
+                this.aYP.setText("   ");
                 i2 = com.baidu.tieba.v.icon_news_head_prompt_more;
             }
-            this.aYQ.setBackgroundResource(i2);
+            this.aYP.setBackgroundResource(i2);
         }
     }
 }

@@ -8,114 +8,114 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static a apB;
-    private List<b> apC = new ArrayList();
-    private List<com.baidu.tbadk.coreExtra.relationship.b> apD;
+    private static a apy;
+    private List<com.baidu.tbadk.coreExtra.relationship.b> apA;
+    private List<b> apz = new ArrayList();
 
     private a() {
     }
 
-    public static synchronized a Bu() {
+    public static synchronized a Bo() {
         a aVar;
         synchronized (a.class) {
-            if (apB == null) {
-                apB = new a();
+            if (apy == null) {
+                apy = new a();
             }
-            aVar = apB;
+            aVar = apy;
         }
         return aVar;
     }
 
     public void a(b bVar) {
-        if (bVar != null && !this.apC.contains(bVar)) {
-            this.apC.add(bVar);
+        if (bVar != null && !this.apz.contains(bVar)) {
+            this.apz.add(bVar);
         }
     }
 
     public void b(b bVar) {
         if (bVar != null) {
-            this.apC.remove(bVar);
+            this.apz.remove(bVar);
         }
     }
 
     public void A(List<com.baidu.tbadk.coreExtra.relationship.b> list) {
-        this.apD = list;
-        if (this.apD != null) {
-            Collections.sort(this.apD, new c());
+        this.apA = list;
+        if (this.apA != null) {
+            Collections.sort(this.apA, new c());
         }
         notifyObservers();
     }
 
     public void c(com.baidu.tbadk.coreExtra.relationship.b bVar) {
         boolean z = false;
-        if (this.apD != null && bVar != null) {
-            String tn = bVar.tn();
-            if (TextUtils.isEmpty(tn)) {
-                tn = "#";
-                bVar.dB("#");
+        if (this.apA != null && bVar != null) {
+            String th = bVar.th();
+            if (TextUtils.isEmpty(th)) {
+                th = "#";
+                bVar.dy("#");
             }
-            String str = tn;
+            String str = th;
             String userName = bVar.getUserName();
             String str2 = userName == null ? "" : userName;
             boolean z2 = false;
-            for (com.baidu.tbadk.coreExtra.relationship.b bVar2 : this.apD) {
+            for (com.baidu.tbadk.coreExtra.relationship.b bVar2 : this.apA) {
                 if (str2.equals(bVar2.getUserName())) {
                     z = true;
                 }
-                if (str.equals(bVar2.tn())) {
+                if (str.equals(bVar2.th())) {
                     z2 = true;
                 }
             }
             if (!z) {
                 if (!z2) {
                     com.baidu.tbadk.coreExtra.relationship.b bVar3 = new com.baidu.tbadk.coreExtra.relationship.b();
-                    bVar3.dB(str);
-                    this.apD.add(bVar3);
+                    bVar3.dy(str);
+                    this.apA.add(bVar3);
                 }
-                this.apD.add(bVar);
-                Collections.sort(this.apD, new c());
+                this.apA.add(bVar);
+                Collections.sort(this.apA, new c());
                 notifyObservers();
             }
         }
     }
 
     public void G(long j) {
-        if (this.apD != null) {
+        if (this.apA != null) {
             String str = null;
-            Iterator<com.baidu.tbadk.coreExtra.relationship.b> it = this.apD.iterator();
+            Iterator<com.baidu.tbadk.coreExtra.relationship.b> it = this.apA.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 com.baidu.tbadk.coreExtra.relationship.b next = it.next();
                 if (next.getUserId() == j) {
-                    str = next.tn();
-                    this.apD.remove(next);
+                    str = next.th();
+                    this.apA.remove(next);
                     break;
                 }
             }
             if (str != null) {
                 ArrayList arrayList = new ArrayList();
-                for (com.baidu.tbadk.coreExtra.relationship.b bVar : this.apD) {
-                    if (str.equals(bVar.tn())) {
+                for (com.baidu.tbadk.coreExtra.relationship.b bVar : this.apA) {
+                    if (str.equals(bVar.th())) {
                         arrayList.add(bVar);
                     }
                 }
                 if (arrayList.size() <= 1) {
-                    this.apD.removeAll(arrayList);
+                    this.apA.removeAll(arrayList);
                 }
             }
             notifyObservers();
         }
     }
 
-    public List<com.baidu.tbadk.coreExtra.relationship.b> Bv() {
-        return this.apD;
+    public List<com.baidu.tbadk.coreExtra.relationship.b> Bp() {
+        return this.apA;
     }
 
     private void notifyObservers() {
-        for (b bVar : this.apC) {
-            bVar.z(this.apD);
+        for (b bVar : this.apz) {
+            bVar.z(this.apA);
         }
     }
 }

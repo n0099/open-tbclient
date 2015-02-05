@@ -16,9 +16,9 @@ import com.baidu.tieba.person.bq;
 /* loaded from: classes.dex */
 public class p extends BaseAdapter implements bq, b {
     private static BaseFragmentActivity mActivity;
-    private String bIT;
-    public PersonPostModel bJa;
-    private q bJt;
+    private String bIS;
+    public PersonPostModel bIZ;
+    private q bJs;
     private final String mUid;
 
     public p(BaseFragmentActivity baseFragmentActivity, String str, String str2) {
@@ -27,46 +27,46 @@ public class p extends BaseAdapter implements bq, b {
     }
 
     public void ej(boolean z) {
-        if (this.bJa == null) {
-            this.bJa = new PersonPostModel(mActivity.getPageContext());
+        if (this.bIZ == null) {
+            this.bIZ = new PersonPostModel(mActivity.getPageContext());
         }
-        this.bJa.fetchPost(mActivity.getPageContext(), this, z, this.mUid, true);
+        this.bIZ.fetchPost(mActivity.getPageContext(), this, z, this.mUid, true);
     }
 
-    public void abk() {
-        if (this.bJa != null) {
-            this.bJa.cancelLoadData();
+    public void abf() {
+        if (this.bIZ != null) {
+            this.bIZ.cancelLoadData();
         }
     }
 
     @Override // com.baidu.tieba.person.bq
     public void a(PersonPostModel personPostModel, boolean z) {
         if (z) {
-            this.bJa = personPostModel;
-        } else if (this.bJa != null) {
-            this.bJa.post_list.addAll(personPostModel.post_list);
+            this.bIZ = personPostModel;
+        } else if (this.bIZ != null) {
+            this.bIZ.post_list.addAll(personPostModel.post_list);
         }
-        if (this.bJt != null) {
-            this.bJt.b(personPostModel, z);
+        if (this.bJs != null) {
+            this.bJs.b(personPostModel, z);
         }
         notifyDataSetChanged();
     }
 
     public void a(q qVar) {
-        this.bJt = qVar;
+        this.bJs = qVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bJa == null || this.bJa.post_list == null) {
+        if (this.bIZ == null || this.bIZ.post_list == null) {
             return 0;
         }
-        return this.bJa.post_list.size();
+        return this.bIZ.post_list.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.bJa.post_list.get(i);
+        return this.bIZ.post_list.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -86,15 +86,15 @@ public class p extends BaseAdapter implements bq, b {
             rVar = (r) view.getTag();
         }
         if (i == 0) {
-            rVar.bIP.setVisibility(0);
+            rVar.bIO.setVisibility(0);
         } else {
-            rVar.bIP.setVisibility(8);
+            rVar.bIO.setVisibility(8);
         }
-        PersonPostModel.PostList postList = this.bJa.post_list.get(i);
-        if (this.bIT == null) {
-            this.bIT = postList.user_portrait;
+        PersonPostModel.PostList postList = this.bIZ.post_list.get(i);
+        if (this.bIS == null) {
+            this.bIS = postList.user_portrait;
         }
-        rVar.a(postList, true, this.bIT);
+        rVar.a(postList, true, this.bIS);
         String str = postList.title;
         if (str.trim().length() > 0) {
             rVar.mTitle.setText(str);
@@ -104,22 +104,22 @@ public class p extends BaseAdapter implements bq, b {
         }
         LiveCardData a = a(postList.anchor_info);
         if (a.getAuthorId() != 0) {
-            rVar.bJu.setVisibility(8);
-            rVar.bJw.setVisibility(0);
-            rVar.bJx.setData(a);
+            rVar.bJt.setVisibility(8);
+            rVar.bJv.setVisibility(0);
+            rVar.bJw.setData(a);
         } else {
-            rVar.bJw.setVisibility(8);
-            if (com.baidu.tbadk.core.l.mc().mg() && postList.media != null && postList.media.length > 0) {
+            rVar.bJv.setVisibility(8);
+            if (com.baidu.tbadk.core.l.lV().lZ() && postList.media != null && postList.media.length > 0) {
                 int min = Math.min(postList.media.length, 3);
                 PersonPostModel.Media[] mediaArr = new PersonPostModel.Media[min];
                 for (int i2 = 0; i2 < min; i2++) {
                     mediaArr[i2] = postList.media[i2];
                 }
-                rVar.bJu.setVisibility(0);
-                rVar.bJu.setTags(mediaArr);
+                rVar.bJt.setVisibility(0);
+                rVar.bJt.setTags(mediaArr);
             } else {
-                rVar.bJu.setVisibility(8);
-                rVar.bJu.setTags(null);
+                rVar.bJt.setVisibility(8);
+                rVar.bJt.setTags(null);
             }
         }
         if (postList.abs_thread != null && postList.abs_thread.length > 0) {
@@ -129,23 +129,23 @@ public class p extends BaseAdapter implements bq, b {
             }
             String sb2 = sb.toString();
             if (sb2.trim().length() > 0) {
-                rVar.bsu.setText(sb2);
-                rVar.bsu.setVisibility(0);
+                rVar.bst.setText(sb2);
+                rVar.bst.setVisibility(0);
             } else {
-                rVar.bsu.setVisibility(8);
+                rVar.bst.setVisibility(8);
             }
         } else {
-            rVar.bsu.setVisibility(8);
+            rVar.bst.setVisibility(8);
         }
-        if (!rVar.bsu.isShown() && a.getAuthorId() != 0) {
-            rVar.bJv.setVisibility(8);
+        if (!rVar.bst.isShown() && a.getAuthorId() != 0) {
+            rVar.bJu.setVisibility(8);
         } else {
-            rVar.bJv.setVisibility(0);
+            rVar.bJu.setVisibility(0);
         }
         rVar.a(this);
         rVar.cs(TbadkCoreApplication.m255getInst().getSkinType());
-        bc.i(rVar.abr, com.baidu.tieba.t.cp_bg_line_b);
-        rVar.bJx.onChangeSkinType(mActivity.getPageContext(), TbadkCoreApplication.m255getInst().getSkinType());
+        bc.i(rVar.abo, com.baidu.tieba.t.cp_bg_line_b);
+        rVar.bJw.onChangeSkinType(mActivity.getPageContext(), TbadkCoreApplication.m255getInst().getSkinType());
         mActivity.getLayoutMode().ab(TbadkCoreApplication.m255getInst().getSkinType() == 1);
         mActivity.getLayoutMode().h(rVar.mContentView);
         return view;

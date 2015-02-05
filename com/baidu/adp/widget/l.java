@@ -5,15 +5,15 @@ import android.view.VelocityTracker;
 import com.baidu.adp.widget.HorizontalTranslateLayout;
 /* loaded from: classes.dex */
 public class l {
-    private static /* synthetic */ int[] vp;
-    final /* synthetic */ HorizontalTranslateLayout vc;
-    VelocityTracker vl;
-    boolean vm;
-    final int vn;
-    final int vo;
+    private static /* synthetic */ int[] vm;
+    final /* synthetic */ HorizontalTranslateLayout uZ;
+    VelocityTracker vi;
+    boolean vj;
+    final int vk;
+    final int vl;
 
-    static /* synthetic */ int[] jg() {
-        int[] iArr = vp;
+    static /* synthetic */ int[] iZ() {
+        int[] iArr = vm;
         if (iArr == null) {
             iArr = new int[HorizontalTranslateLayout.TrackDirection.valuesCustom().length];
             try {
@@ -32,7 +32,7 @@ public class l {
                 iArr[HorizontalTranslateLayout.TrackDirection.right.ordinal()] = 2;
             } catch (NoSuchFieldError e4) {
             }
-            vp = iArr;
+            vm = iArr;
         }
         return iArr;
     }
@@ -45,43 +45,43 @@ public class l {
         int i3;
         int i4;
         int i5;
-        int[] jg = jg();
-        trackDirection = this.vc.uM;
-        switch (jg[trackDirection.ordinal()]) {
+        int[] iZ = iZ();
+        trackDirection = this.uZ.uJ;
+        switch (iZ[trackDirection.ordinal()]) {
             case 1:
-                i4 = this.vc.uN;
+                i4 = this.uZ.uK;
                 if (i4 != 10004) {
-                    i5 = this.vc.uN;
+                    i5 = this.uZ.uK;
                     if (i5 != 10000) {
                         return false;
                     }
                 }
                 break;
             case 2:
-                i2 = this.vc.uN;
+                i2 = this.uZ.uK;
                 if (i2 != 10004) {
-                    i3 = this.vc.uN;
+                    i3 = this.uZ.uK;
                     if (i3 != 10001) {
                         return false;
                     }
                 }
                 break;
             case 3:
-                hVar = this.vc.vb;
+                hVar = this.uZ.uY;
                 if (hVar != null) {
-                    hVar2 = this.vc.vb;
+                    hVar2 = this.uZ.uY;
                     hVar2.ay(i);
                     break;
                 }
                 break;
         }
-        this.vl = VelocityTracker.obtain();
-        this.vm = true;
+        this.vi = VelocityTracker.obtain();
+        this.vj = true;
         return true;
     }
 
-    public void je() {
-        this.vm = false;
+    public void iX() {
+        this.vj = false;
     }
 
     public void aA(int i) {
@@ -94,44 +94,44 @@ public class l {
         int i4;
         float f4;
         int i5;
-        if (this.vm) {
-            i2 = this.vc.uI;
+        if (this.vj) {
+            i2 = this.uZ.uF;
             int i6 = i2 - i;
-            int[] jg = jg();
-            trackDirection = this.vc.uM;
-            switch (jg[trackDirection.ordinal()]) {
+            int[] iZ = iZ();
+            trackDirection = this.uZ.uJ;
+            switch (iZ[trackDirection.ordinal()]) {
                 case 1:
                     Log.d("HorizontalTranslateLayout", "@move left");
-                    f4 = this.vc.uG;
-                    if (i6 > f4 - this.vc.getMeasuredWidth() && i6 < 0) {
-                        HorizontalTranslateLayout horizontalTranslateLayout = this.vc;
-                        i5 = horizontalTranslateLayout.uI;
-                        horizontalTranslateLayout.uI = i5 - i;
-                        this.vc.invalidate();
+                    f4 = this.uZ.uD;
+                    if (i6 > f4 - this.uZ.getMeasuredWidth() && i6 < 0) {
+                        HorizontalTranslateLayout horizontalTranslateLayout = this.uZ;
+                        i5 = horizontalTranslateLayout.uF;
+                        horizontalTranslateLayout.uF = i5 - i;
+                        this.uZ.invalidate();
                         return;
                     }
                     return;
                 case 2:
                     Log.d("HorizontalTranslateLayout", "@move right");
-                    f3 = this.vc.uH;
-                    if (i6 < this.vc.getMeasuredWidth() - f3 && i6 > 0) {
-                        HorizontalTranslateLayout horizontalTranslateLayout2 = this.vc;
-                        i4 = horizontalTranslateLayout2.uI;
-                        horizontalTranslateLayout2.uI = i4 - i;
-                        this.vc.invalidate();
+                    f3 = this.uZ.uE;
+                    if (i6 < this.uZ.getMeasuredWidth() - f3 && i6 > 0) {
+                        HorizontalTranslateLayout horizontalTranslateLayout2 = this.uZ;
+                        i4 = horizontalTranslateLayout2.uF;
+                        horizontalTranslateLayout2.uF = i4 - i;
+                        this.uZ.invalidate();
                         return;
                     }
                     return;
                 case 3:
                     Log.d("HorizontalTranslateLayout", "@move horizontal");
-                    f = this.vc.uG;
-                    if (i6 >= f - this.vc.getMeasuredWidth()) {
-                        f2 = this.vc.uH;
-                        if (i6 <= this.vc.getMeasuredWidth() - f2) {
-                            HorizontalTranslateLayout horizontalTranslateLayout3 = this.vc;
-                            i3 = horizontalTranslateLayout3.uI;
-                            horizontalTranslateLayout3.uI = i3 - i;
-                            this.vc.invalidate();
+                    f = this.uZ.uD;
+                    if (i6 >= f - this.uZ.getMeasuredWidth()) {
+                        f2 = this.uZ.uE;
+                        if (i6 <= this.uZ.getMeasuredWidth() - f2) {
+                            HorizontalTranslateLayout horizontalTranslateLayout3 = this.uZ;
+                            i3 = horizontalTranslateLayout3.uF;
+                            horizontalTranslateLayout3.uF = i3 - i;
+                            this.uZ.invalidate();
                             return;
                         }
                         return;
@@ -143,20 +143,20 @@ public class l {
         }
     }
 
-    public void jf() {
+    public void iY() {
         float max;
         HorizontalTranslateLayout.TrackDirection trackDirection;
-        this.vl.computeCurrentVelocity(this.vn);
-        float xVelocity = this.vl.getXVelocity();
+        this.vi.computeCurrentVelocity(this.vk);
+        float xVelocity = this.vi.getXVelocity();
         Log.d("HorizontalTranslateLayout", "@fling x " + xVelocity);
         if (xVelocity < 0.0f) {
-            max = Math.min(xVelocity, -this.vo);
+            max = Math.min(xVelocity, -this.vl);
         } else {
-            max = Math.max(xVelocity, this.vo);
+            max = Math.max(xVelocity, this.vl);
         }
-        int[] jg = jg();
-        trackDirection = this.vc.uM;
-        switch (jg[trackDirection.ordinal()]) {
+        int[] iZ = iZ();
+        trackDirection = this.uZ.uJ;
+        switch (iZ[trackDirection.ordinal()]) {
             case 1:
                 h(max);
                 break;
@@ -167,8 +167,8 @@ public class l {
                 g(max);
                 break;
         }
-        this.vl.recycle();
-        this.vl = null;
+        this.vi.recycle();
+        this.vi = null;
     }
 
     private void g(float f) {
@@ -180,29 +180,29 @@ public class l {
         g gVar3;
         g gVar4;
         Log.d("HorizontalTranslateLayout", "@horizontalFling");
-        i = this.vc.uI;
+        i = this.uZ.uF;
         if (i <= 0) {
-            f3 = this.vc.uG;
-            if (i >= f3 - this.vc.getMeasuredWidth()) {
+            f3 = this.uZ.uD;
+            if (i >= f3 - this.uZ.getMeasuredWidth()) {
                 if (f < 0.0f) {
-                    gVar4 = this.vc.uW;
+                    gVar4 = this.uZ.uT;
                     gVar4.e(f);
                     return;
                 }
-                gVar3 = this.vc.uW;
+                gVar3 = this.uZ.uT;
                 gVar3.c(f);
                 return;
             }
         }
         if (i >= 0) {
-            f2 = this.vc.uH;
-            if (i <= this.vc.getMeasuredWidth() - f2) {
+            f2 = this.uZ.uE;
+            if (i <= this.uZ.getMeasuredWidth() - f2) {
                 if (f < 0.0f) {
-                    gVar2 = this.vc.uW;
+                    gVar2 = this.uZ.uT;
                     gVar2.d(f);
                     return;
                 }
-                gVar = this.vc.uW;
+                gVar = this.uZ.uT;
                 gVar.f(f);
             }
         }
@@ -213,11 +213,11 @@ public class l {
         g gVar2;
         Log.d("HorizontalTranslateLayout", "@leftFling");
         if (f < 0.0f) {
-            gVar2 = this.vc.uW;
+            gVar2 = this.uZ.uT;
             gVar2.e(f);
             return;
         }
-        gVar = this.vc.uW;
+        gVar = this.uZ.uT;
         gVar.c(f);
     }
 
@@ -226,11 +226,11 @@ public class l {
         g gVar2;
         Log.d("HorizontalTranslateLayout", "@rightFling");
         if (f < 0.0f) {
-            gVar2 = this.vc.uW;
+            gVar2 = this.uZ.uT;
             gVar2.d(f);
             return;
         }
-        gVar = this.vc.uW;
+        gVar = this.uZ.uT;
         gVar.f(f);
     }
 }

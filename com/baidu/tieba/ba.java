@@ -15,11 +15,11 @@ public class ba implements View.OnClickListener {
     public void onClick(View view) {
         boolean z;
         ai aiVar;
-        z = this.this$0.alG;
+        z = this.this$0.alD;
         if (z) {
-            this.this$0.AU();
+            this.this$0.AO();
         }
-        aiVar = this.this$0.amz;
+        aiVar = this.this$0.amw;
         aiVar.dismiss();
         this.this$0.finish();
     }

@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 /* loaded from: classes.dex */
 class ae {
-    final /* synthetic */ SnowView alx;
+    final /* synthetic */ SnowView alu;
     public int speed;
     public int x;
     public int y;
 
     private ae(SnowView snowView) {
-        this.alx = snowView;
+        this.alu = snowView;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -5,11 +5,11 @@ import com.baidu.tieba.im.data.ValidateItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements DialogInterface.OnClickListener {
-    final /* synthetic */ ValidateActivity bpQ;
+    final /* synthetic */ ValidateActivity bpP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(ValidateActivity validateActivity) {
-        this.bpQ = validateActivity;
+        this.bpP = validateActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -18,10 +18,10 @@ public class g implements DialogInterface.OnClickListener {
         ValidateItemData validateItemData;
         switch (i) {
             case 0:
-                mVar = this.bpQ.bpK;
+                mVar = this.bpP.bpJ;
                 mVar.setLoadProgressBarVisable(true);
-                ValidateActivity validateActivity = this.bpQ;
-                validateItemData = this.bpQ.bpM;
+                ValidateActivity validateActivity = this.bpP;
+                validateItemData = this.bpP.bpL;
                 validateActivity.e(validateItemData);
                 return;
             default:

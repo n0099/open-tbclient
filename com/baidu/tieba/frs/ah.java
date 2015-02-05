@@ -11,11 +11,11 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ah extends com.baidu.adp.base.i {
-    final /* synthetic */ FrsActivity aDW;
+    final /* synthetic */ FrsActivity aDT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(FrsActivity frsActivity) {
-        this.aDW = frsActivity;
+        this.aDT = frsActivity;
     }
 
     @Override // com.baidu.adp.base.i
@@ -61,84 +61,84 @@ public class ah extends com.baidu.adp.base.i {
             z = false;
         } else {
             signData = (SignData) obj;
-            com.baidu.tieba.tbadkCore.d aeH = com.baidu.tieba.tbadkCore.d.aeH();
-            str8 = this.aDW.aCQ;
-            aeH.B(str8, false);
-            eVar15 = this.aDW.aDi;
+            com.baidu.tieba.tbadkCore.d aeC = com.baidu.tieba.tbadkCore.d.aeC();
+            str8 = this.aDT.aCN;
+            aeC.B(str8, false);
+            eVar15 = this.aDT.aDf;
             eVar15.d(signData);
-            eVar16 = this.aDW.aDi;
-            signData.setForumId(eVar16.aeN().getId());
+            eVar16 = this.aDT.aDf;
+            signData.setForumId(eVar16.aeI().getId());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001228, signData));
             z = true;
         }
-        str = this.aDW.mPageType;
+        str = this.aDT.mPageType;
         if (str.equals("normal_page")) {
-            bpVar8 = this.aDW.aCY;
-            bpVar8.GY();
+            bpVar8 = this.aDT.aCV;
+            bpVar8.GS();
         } else {
-            str2 = this.aDW.mPageType;
+            str2 = this.aDT.mPageType;
             if (str2.equals("frs_page")) {
-                bpVar = this.aDW.aCY;
-                bpVar.Ha();
+                bpVar = this.aDT.aCV;
+                bpVar.GU();
             }
         }
         if (z) {
-            eVar = this.aDW.aDi;
+            eVar = this.aDT.aDf;
             if (eVar != null) {
-                eVar2 = this.aDW.aDi;
-                if (eVar2.aeN() != null) {
-                    eVar3 = this.aDW.aDi;
-                    AntiData mR = eVar3.mR();
-                    str5 = this.aDW.mPageType;
+                eVar2 = this.aDT.aDf;
+                if (eVar2.aeI() != null) {
+                    eVar3 = this.aDT.aDf;
+                    AntiData mK = eVar3.mK();
+                    str5 = this.aDT.mPageType;
                     if (str5.equals("normal_page")) {
-                        bpVar7 = this.aDW.aCY;
-                        eVar12 = this.aDW.aDi;
-                        SignData signData2 = eVar12.aeN().getSignData();
-                        eVar13 = this.aDW.aDi;
-                        ForumData aeN = eVar13.aeN();
-                        eVar14 = this.aDW.aDi;
-                        bpVar7.b(signData2, aeN, eVar14);
+                        bpVar7 = this.aDT.aCV;
+                        eVar12 = this.aDT.aDf;
+                        SignData signData2 = eVar12.aeI().getSignData();
+                        eVar13 = this.aDT.aDf;
+                        ForumData aeI = eVar13.aeI();
+                        eVar14 = this.aDT.aDf;
+                        bpVar7.b(signData2, aeI, eVar14);
                     } else {
-                        str6 = this.aDW.mPageType;
+                        str6 = this.aDT.mPageType;
                         if (str6.equals("frs_page")) {
-                            bpVar4 = this.aDW.aCY;
-                            eVar4 = this.aDW.aDi;
-                            SignData signData3 = eVar4.aeN().getSignData();
-                            eVar5 = this.aDW.aDi;
-                            ForumData aeN2 = eVar5.aeN();
-                            eVar6 = this.aDW.aDi;
-                            bpVar4.a(signData3, aeN2, eVar6);
+                            bpVar4 = this.aDT.aCV;
+                            eVar4 = this.aDT.aDf;
+                            SignData signData3 = eVar4.aeI().getSignData();
+                            eVar5 = this.aDT.aDf;
+                            ForumData aeI2 = eVar5.aeI();
+                            eVar6 = this.aDT.aDf;
+                            bpVar4.a(signData3, aeI2, eVar6);
                         }
                     }
                     if (signData != null) {
                         int i = -1;
-                        bpVar6 = this.aDW.aCY;
-                        if (bpVar6.GK()) {
-                            eVar11 = this.aDW.aDi;
-                            i = eVar11.aeN().getUser_level() + 1;
+                        bpVar6 = this.aDT.aCV;
+                        if (bpVar6.GE()) {
+                            eVar11 = this.aDT.aDf;
+                            i = eVar11.aeI().getUser_level() + 1;
                         }
                         TbadkCoreApplication m255getInst = TbadkCoreApplication.m255getInst();
-                        eVar10 = this.aDW.aDi;
-                        m255getInst.addSignedForum(eVar10.aeN().getName(), signData.getBonusPoint(), i);
+                        eVar10 = this.aDT.aDf;
+                        m255getInst.addSignedForum(eVar10.aeI().getName(), signData.getBonusPoint(), i);
                     }
-                    if (AntiHelper.d(mR) || AntiHelper.c(mR) || AntiHelper.e(mR)) {
-                        str7 = this.aDW.aCQ;
-                        mR.setBlock_forum_name(str7);
-                        eVar7 = this.aDW.aDi;
-                        mR.setBlock_forum_id(eVar7.aeN().getId());
-                        eVar8 = this.aDW.aDi;
-                        mR.setUser_name(eVar8.getUserData().getUserName());
-                        eVar9 = this.aDW.aDi;
-                        mR.setUser_id(eVar9.getUserData().getUserId());
-                        AntiHelper.a(this.aDW.getPageContext().getPageActivity(), mR, AntiHelper.OperationType.SIGN, PageType.FRS);
+                    if (AntiHelper.d(mK) || AntiHelper.c(mK) || AntiHelper.e(mK)) {
+                        str7 = this.aDT.aCN;
+                        mK.setBlock_forum_name(str7);
+                        eVar7 = this.aDT.aDf;
+                        mK.setBlock_forum_id(eVar7.aeI().getId());
+                        eVar8 = this.aDT.aDf;
+                        mK.setUser_name(eVar8.getUserData().getUserName());
+                        eVar9 = this.aDT.aDf;
+                        mK.setUser_id(eVar9.getUserData().getUserId());
+                        AntiHelper.a(this.aDT.getPageContext().getPageActivity(), mK, AntiHelper.OperationType.SIGN, PageType.FRS);
                         return;
                     } else if (signData != null) {
-                        bpVar5 = this.aDW.aCY;
-                        if (!bpVar5.Hc()) {
-                            this.aDW.showToast(this.aDW.getPageContext().getResources().getString(com.baidu.tieba.z.frs_sign_success, Integer.valueOf(signData.getUserSignRank())));
+                        bpVar5 = this.aDT.aCV;
+                        if (!bpVar5.GW()) {
+                            this.aDT.showToast(this.aDT.getPageContext().getResources().getString(com.baidu.tieba.z.frs_sign_success, Integer.valueOf(signData.getUserSignRank())));
                             return;
                         } else {
-                            this.aDW.showToast(this.aDW.getPageContext().getResources().getString(com.baidu.tieba.z.frs_sign_pointer, Integer.valueOf(signData.getBonusPoint()), Integer.valueOf(signData.getUserSignRank())));
+                            this.aDT.showToast(this.aDT.getPageContext().getResources().getString(com.baidu.tieba.z.frs_sign_pointer, Integer.valueOf(signData.getBonusPoint()), Integer.valueOf(signData.getUserSignRank())));
                             return;
                         }
                     } else {
@@ -149,22 +149,22 @@ public class ah extends com.baidu.adp.base.i {
             }
             return;
         }
-        dfVar = this.aDW.aDk;
+        dfVar = this.aDT.aDh;
         if (dfVar.getErrorCode() == 160002) {
-            str3 = this.aDW.mPageType;
+            str3 = this.aDT.mPageType;
             if (str3.equals("normal_page")) {
-                bpVar3 = this.aDW.aCY;
+                bpVar3 = this.aDT.aCV;
                 bpVar3.eW(1);
             } else {
-                str4 = this.aDW.mPageType;
+                str4 = this.aDT.mPageType;
                 if (str4.equals("frs_page")) {
-                    bpVar2 = this.aDW.aCY;
+                    bpVar2 = this.aDT.aCV;
                     bpVar2.eV(1);
                 }
             }
         }
-        FrsActivity frsActivity = this.aDW;
-        dfVar2 = this.aDW.aDk;
+        FrsActivity frsActivity = this.aDT;
+        dfVar2 = this.aDT.aDh;
         frsActivity.showToast(dfVar2.getErrorString());
     }
 }

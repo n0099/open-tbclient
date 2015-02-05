@@ -3,11 +3,11 @@ package com.baidu.tieba.service;
 import android.location.Address;
 /* loaded from: classes.dex */
 class t implements com.baidu.adp.lib.d.d {
-    final /* synthetic */ UpdateInfoService bPd;
+    final /* synthetic */ UpdateInfoService bPc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(UpdateInfoService updateInfoService) {
-        this.bPd = updateInfoService;
+        this.bPc = updateInfoService;
     }
 
     @Override // com.baidu.adp.lib.d.d
@@ -20,12 +20,12 @@ class t implements com.baidu.adp.lib.d.d {
                 if (address != null) {
                     float longitude = (float) address.getLongitude();
                     float latitude = (float) address.getLatitude();
-                    rVar = this.bPd.mModel;
+                    rVar = this.bPc.mModel;
                     if (rVar.canSend()) {
-                        rVar2 = this.bPd.mModel;
+                        rVar2 = this.bPc.mModel;
                         rVar2.a(1, longitude, latitude);
-                        rVar3 = this.bPd.mModel;
-                        rVar3.UP();
+                        rVar3 = this.bPc.mModel;
+                        rVar3.UK();
                         return;
                     }
                     return;

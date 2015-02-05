@@ -22,14 +22,14 @@ public class bt implements View.OnClickListener {
         if (progressBar.getVisibility() != 0) {
             bitmap = this.this$0.mBitmap;
             if (bitmap == null) {
-                bitmap2 = this.this$0.Pz;
+                bitmap2 = this.this$0.Pw;
                 if (bitmap2 == null) {
                     return;
                 }
             }
             if (view.getTag() != null) {
-                this.this$0.PH = false;
-                this.this$0.dc(view.getTag().toString());
+                this.this$0.PE = false;
+                this.this$0.cZ(view.getTag().toString());
             }
         }
     }

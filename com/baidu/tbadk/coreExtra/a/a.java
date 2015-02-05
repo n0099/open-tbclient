@@ -7,43 +7,43 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 /* loaded from: classes.dex */
 public class a {
-    private static a QP;
-    private boolean QO;
+    private static a QM;
+    private boolean QL;
 
     private a() {
-        this.QO = false;
+        this.QL = false;
         try {
             if (!bf.isEmpty(new BufferedReader(new InputStreamReader(TbadkCoreApplication.m255getInst().getApp().getAssets().open("apk_ab_test.txt"))).readLine())) {
-                this.QO = true;
+                this.QL = true;
             }
         } catch (Throwable th) {
-            this.QO = false;
+            this.QL = false;
         }
     }
 
-    public static synchronized a rD() {
+    public static synchronized a rx() {
         a aVar;
         synchronized (a.class) {
-            if (QP == null) {
-                QP = new a();
+            if (QM == null) {
+                QM = new a();
             }
-            aVar = QP;
+            aVar = QM;
         }
         return aVar;
     }
 
-    public boolean rE() {
-        return this.QO;
+    public boolean ry() {
+        return this.QL;
     }
 
     public HttpURLConnection g(HttpURLConnection httpURLConnection) {
-        if (this.QO && httpURLConnection != null) {
+        if (this.QL && httpURLConnection != null) {
             httpURLConnection.setRequestProperty("Cookie", "pub_env=3;");
         }
         return httpURLConnection;
     }
 
-    public String rF() {
-        return this.QO ? "pub_env=3;" : "";
+    public String rz() {
+        return this.QL ? "pub_env=3;" : "";
     }
 }

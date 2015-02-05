@@ -6,14 +6,14 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class b {
-    static String[] Hf = {"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"};
+    static String[] Hc = {"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"};
 
     public static String encode(byte[] bArr) {
         return a(bArr, 0, bArr.length, null).toString();
     }
 
     public static StringBuffer a(byte[] bArr, int i, int i2, StringBuffer stringBuffer) {
-        char[] charArray = Hf[0].toCharArray();
+        char[] charArray = Hc[0].toCharArray();
         if (stringBuffer == null) {
             stringBuffer = new StringBuffer((bArr.length * 3) / 2);
         }
@@ -42,7 +42,7 @@ public class b {
 
     public static int a(char c, int i) {
         int i2 = 0;
-        char[] charArray = Hf[i].toCharArray();
+        char[] charArray = Hc[i].toCharArray();
         if (c != '=') {
             while (i2 < 64) {
                 if (charArray[i2] != c) {

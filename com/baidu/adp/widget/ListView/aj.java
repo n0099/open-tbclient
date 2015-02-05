@@ -5,20 +5,20 @@ import android.widget.Scroller;
 /* loaded from: classes.dex */
 public class aj implements Runnable {
     private Scroller mScroller;
-    private int xA;
-    final /* synthetic */ ah xz;
+    final /* synthetic */ ah xw;
+    private int xx;
 
     public aj(ah ahVar, Context context) {
-        this.xz = ahVar;
+        this.xw = ahVar;
         this.mScroller = new Scroller(context);
     }
 
-    private void jO() {
-        if (this.xz.mHandler != null) {
-            this.xz.mHandler.removeCallbacks(this.xz.xy);
+    private void jH() {
+        if (this.xw.mHandler != null) {
+            this.xw.mHandler.removeCallbacks(this.xw.xv);
         }
-        if (this.xz.mView != null) {
-            this.xz.mView.removeCallbacks(this);
+        if (this.xw.mView != null) {
+            this.xw.mView.removeCallbacks(this);
         }
     }
 
@@ -26,61 +26,61 @@ public class aj implements Runnable {
     public void run() {
         boolean move;
         boolean z = true;
-        if (this.xz.mView != null && this.mScroller != null) {
+        if (this.xw.mView != null && this.mScroller != null) {
             boolean computeScrollOffset = this.mScroller.computeScrollOffset();
-            if (this.mScroller.timePassed() >= this.xz.mDuration) {
+            if (this.mScroller.timePassed() >= this.xw.mDuration) {
                 computeScrollOffset = false;
             }
             int currY = this.mScroller.getCurrY();
-            int i = currY - this.xA;
+            int i = currY - this.xx;
             if (computeScrollOffset) {
                 if (i != 0) {
-                    move = this.xz.move(i);
+                    move = this.xw.move(i);
                     r1 = move ? false : true;
-                    this.xA = currY;
+                    this.xx = currY;
                 }
                 z = r1;
                 if (!z) {
-                    this.xz.mView.post(this);
+                    this.xw.mView.post(this);
                 }
             }
             if (z) {
-                this.xz.mHandler.removeCallbacks(this.xz.xy);
-                this.xz.mHandler.post(this.xz.xy);
+                this.xw.mHandler.removeCallbacks(this.xw.xv);
+                this.xw.mHandler.post(this.xw.xv);
             }
         }
     }
 
     public void i(int i, int i2) {
-        if (this.xz.mView != null && this.mScroller != null) {
+        if (this.xw.mView != null && this.mScroller != null) {
             int i3 = i == 0 ? i - 1 : i;
-            jO();
-            this.xA = 0;
+            jH();
+            this.xx = 0;
             this.mScroller.startScroll(0, 0, 0, i3, i2);
-            this.xz.mView.post(this);
+            this.xw.mView.post(this);
         }
     }
 
     /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.widget.ListView.ai.run():void] */
     public static /* synthetic */ void a(aj ajVar) {
-        ajVar.jP();
+        ajVar.jI();
     }
 
-    public void jP() {
+    public void jI() {
         com.baidu.adp.widget.ScrollView.g gVar;
         com.baidu.adp.widget.ScrollView.g gVar2;
-        this.xz.mHandler.removeCallbacks(this.xz.xy);
+        this.xw.mHandler.removeCallbacks(this.xw.xv);
         if (this.mScroller != null) {
             this.mScroller.abortAnimation();
             this.mScroller.forceFinished(true);
         }
-        if (this.xz.mView != null) {
-            this.xz.mView.removeCallbacks(this);
+        if (this.xw.mView != null) {
+            this.xw.mView.removeCallbacks(this);
         }
-        gVar = this.xz.xv;
+        gVar = this.xw.xs;
         if (gVar != null) {
-            gVar2 = this.xz.xv;
-            gVar2.jN();
+            gVar2 = this.xw.xs;
+            gVar2.jG();
         }
     }
 }

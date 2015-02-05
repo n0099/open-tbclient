@@ -7,53 +7,53 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class p {
-    private static HashMap<String, Integer> auf;
-    private m aug;
-    private t auh;
-    private com.baidu.tieba.discover.data.b aui = new com.baidu.tieba.discover.data.b();
-    private s auj;
+    private static HashMap<String, Integer> auc;
+    private m aud;
+    private t aue;
+    private com.baidu.tieba.discover.data.b auf = new com.baidu.tieba.discover.data.b();
+    private s aug;
 
     public p(TbPageContext<BaseFragmentActivity> tbPageContext) {
-        this.aug = new m(tbPageContext);
-        this.auh = new t(tbPageContext, this.aui);
-        this.aug.a(new q(this));
-        this.auh.a((com.baidu.tbadk.mvc.model.q) new r(this));
+        this.aud = new m(tbPageContext);
+        this.aue = new t(tbPageContext, this.auf);
+        this.aud.a(new q(this));
+        this.aue.a((com.baidu.tbadk.mvc.model.q) new r(this));
     }
 
-    public void Dj() {
-        this.aug.xD();
+    public void Dd() {
+        this.aud.xx();
     }
 
-    public void By() {
-        this.auh.xL();
+    public void Bs() {
+        this.aue.xF();
     }
 
     public void a(s sVar) {
-        this.auj = sVar;
+        this.aug = sVar;
     }
 
-    private static void Dk() {
-        auf = new HashMap<>();
-        auf.put("discover_friend", Integer.valueOf(v.icon_find_trends));
-        auf.put("discover_nearby", Integer.valueOf(v.icon_find_nearby));
-        auf.put("discover_square", Integer.valueOf(v.icon_find_square));
-        auf.put("discover_hot_video", Integer.valueOf(v.icon_live_telecast));
-        auf.put("discover_one_sign", Integer.valueOf(v.icon_all_sign_dis));
-        auf.put("discover_look_shop", Integer.valueOf(v.icon_more_store));
-        auf.put("discover_rand_friend", Integer.valueOf(v.icon_find_chat));
-        auf.put("discover_beauty_show", Integer.valueOf(v.icon_find_shawty));
-        auf.put("discover_game_center", Integer.valueOf(v.icon_frs_game));
+    private static void De() {
+        auc = new HashMap<>();
+        auc.put("discover_friend", Integer.valueOf(v.icon_find_trends));
+        auc.put("discover_nearby", Integer.valueOf(v.icon_find_nearby));
+        auc.put("discover_square", Integer.valueOf(v.icon_find_square));
+        auc.put("discover_hot_video", Integer.valueOf(v.icon_live_telecast));
+        auc.put("discover_one_sign", Integer.valueOf(v.icon_all_sign_dis));
+        auc.put("discover_look_shop", Integer.valueOf(v.icon_more_store));
+        auc.put("discover_rand_friend", Integer.valueOf(v.icon_find_chat));
+        auc.put("discover_beauty_show", Integer.valueOf(v.icon_find_shawty));
+        auc.put("discover_game_center", Integer.valueOf(v.icon_frs_game));
     }
 
-    public static int fg(String str) {
-        if (auf == null) {
-            Dk();
+    public static int fd(String str) {
+        if (auc == null) {
+            De();
         }
-        Integer num = auf.get(str);
+        Integer num = auc.get(str);
         return num == null ? v.img_default_100 : num.intValue();
     }
 
-    public com.baidu.tieba.discover.data.a Dl() {
+    public com.baidu.tieba.discover.data.a Df() {
         com.baidu.tieba.discover.data.a aVar = new com.baidu.tieba.discover.data.a();
         ArrayList arrayList = new ArrayList();
         com.baidu.tieba.discover.data.d dVar = new com.baidu.tieba.discover.data.d();

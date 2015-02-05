@@ -5,11 +5,11 @@ import android.util.SparseArray;
 import android.view.View;
 /* loaded from: classes.dex */
 class s implements View.OnLongClickListener {
-    final /* synthetic */ PbActivity bAT;
+    final /* synthetic */ PbActivity bAS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(PbActivity pbActivity) {
-        this.bAT = pbActivity;
+        this.bAS = pbActivity;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -27,24 +27,24 @@ class s implements View.OnLongClickListener {
             sparseArray = null;
         }
         if (sparseArray != null) {
-            this.bAT.bAR = (com.baidu.tieba.tbadkCore.b.k) sparseArray.get(com.baidu.tieba.w.tag_clip_board);
-            if (this.bAT.bAR != null) {
-                eVar = this.bAT.bAt;
-                if (eVar.li() && this.bAT.bAR.getId() != null) {
-                    String id = this.bAT.bAR.getId();
-                    bqVar = this.bAT.bAs;
-                    if (id.equals(bqVar.nz())) {
+            this.bAS.bAQ = (com.baidu.tieba.tbadkCore.b.k) sparseArray.get(com.baidu.tieba.w.tag_clip_board);
+            if (this.bAS.bAQ != null) {
+                eVar = this.bAS.bAs;
+                if (eVar.lb() && this.bAS.bAQ.getId() != null) {
+                    String id = this.bAS.bAQ.getId();
+                    bqVar = this.bAS.bAr;
+                    if (id.equals(bqVar.ns())) {
                         z = true;
                         boolean booleanValue = ((Boolean) sparseArray.get(com.baidu.tieba.w.tag_is_subpb)).booleanValue();
-                        bzVar = this.bAT.bAx;
-                        onClickListener = this.bAT.bAS;
+                        bzVar = this.bAS.bAw;
+                        onClickListener = this.bAS.bAR;
                         bzVar.a(onClickListener, z, booleanValue);
                     }
                 }
                 z = false;
                 boolean booleanValue2 = ((Boolean) sparseArray.get(com.baidu.tieba.w.tag_is_subpb)).booleanValue();
-                bzVar = this.bAT.bAx;
-                onClickListener = this.bAT.bAS;
+                bzVar = this.bAS.bAw;
+                onClickListener = this.bAS.bAR;
                 bzVar.a(onClickListener, z, booleanValue2);
             }
         }

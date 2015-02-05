@@ -5,12 +5,12 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an extends BdAsyncTask<String, String, WriteData> {
-    private final am bXj;
+    private final am bXi;
     private final String cacheKey;
 
     public an(String str, am amVar) {
         setPriority(3);
-        this.bXj = amVar;
+        this.bXi = amVar;
         this.cacheKey = str;
     }
 
@@ -21,7 +21,7 @@ public class an extends BdAsyncTask<String, String, WriteData> {
     public WriteData doInBackground(String... strArr) {
         String str;
         try {
-            str = com.baidu.tbadk.core.a.a.nV().bT("tb.pb_editor").get(this.cacheKey);
+            str = com.baidu.tbadk.core.a.a.nO().bQ("tb.pb_editor").get(this.cacheKey);
         } catch (Exception e) {
             str = null;
         }
@@ -34,8 +34,8 @@ public class an extends BdAsyncTask<String, String, WriteData> {
     /* renamed from: b */
     public void onPostExecute(WriteData writeData) {
         super.onPostExecute(writeData);
-        if (this.bXj != null) {
-            this.bXj.a(writeData);
+        if (this.bXi != null) {
+            this.bXi.a(writeData);
         }
     }
 }

@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private String Ax;
+    private String Au;
     private int errorCode = 0;
     private Intent intent;
     private String response;
@@ -19,7 +19,7 @@ public class b {
         }
     }
 
-    public boolean kW() {
+    public boolean kP() {
         HashMap<String, String> i;
         if (this.url == null || (i = i(this.url.split("&"))) == null) {
             return false;
@@ -30,10 +30,10 @@ public class b {
                 String value = entry.getValue();
                 if (key != null && value != null) {
                     if ("intent".equals(key)) {
-                        bz(value);
+                        bw(value);
                     } else if (!"t".equals(key) && "callback".equals(key)) {
-                        this.Ax = value;
-                        kX();
+                        this.Au = value;
+                        kQ();
                     }
                 }
             }
@@ -41,7 +41,7 @@ public class b {
         return (this.intent == null || this.response == null) ? false : true;
     }
 
-    private void bz(String str) {
+    private void bw(String str) {
         String[] split;
         boolean z;
         boolean z2;
@@ -110,9 +110,9 @@ public class b {
         }
     }
 
-    private void kX() {
-        if (this.Ax != null) {
-            this.response = String.valueOf(this.Ax) + "({\"error\":" + this.errorCode + "})";
+    private void kQ() {
+        if (this.Au != null) {
+            this.response = String.valueOf(this.Au) + "({\"error\":" + this.errorCode + "})";
         }
     }
 
@@ -143,13 +143,13 @@ public class b {
 
     public String getResponse() {
         if (this.response == null) {
-            kX();
+            kQ();
         }
         return this.response;
     }
 
     public void setErrorCode(int i) {
         this.errorCode = i;
-        kX();
+        kQ();
     }
 }

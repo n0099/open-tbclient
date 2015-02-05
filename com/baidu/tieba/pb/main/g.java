@@ -10,11 +10,11 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 class g implements com.baidu.tieba.tbadkCore.f.c {
-    final /* synthetic */ PbActivity bAT;
+    final /* synthetic */ PbActivity bAS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(PbActivity pbActivity) {
-        this.bAT = pbActivity;
+        this.bAS = pbActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.f.c
@@ -37,71 +37,71 @@ class g implements com.baidu.tieba.tbadkCore.f.c {
         bq bqVar5;
         WriteImagesInfo writeImagesInfo2;
         WriteData writeData2;
-        this.bAT.stopVoice();
-        bzVar = this.bAT.bAx;
+        this.bAS.stopVoice();
+        bzVar = this.bAS.bAw;
         bzVar.bG(z);
-        bzVar2 = this.bAT.bAx;
-        writeImagesInfo = this.bAT.writeImagesInfo;
+        bzVar2 = this.bAS.bAw;
+        writeImagesInfo = this.bAS.writeImagesInfo;
         bzVar2.a(writeImagesInfo, true);
         String str = "";
         if (fVar != null) {
             str = fVar.getErrorString();
         }
         if (z) {
-            bzVar3 = this.bAT.bAx;
-            bzVar3.Zj();
-            bzVar4 = this.bAT.bAx;
-            bzVar4.Ym();
-            aVar = this.bAT.aBM;
-            WriteData Ft = aVar.Ft();
-            aVar2 = this.bAT.aBM;
+            bzVar3 = this.bAS.bAw;
+            bzVar3.Ze();
+            bzVar4 = this.bAS.bAw;
+            bzVar4.Yh();
+            aVar = this.bAS.aBJ;
+            WriteData Fn = aVar.Fn();
+            aVar2 = this.bAS.aBJ;
             aVar2.c((WriteData) null);
-            aVar3 = this.bAT.aBM;
+            aVar3 = this.bAS.aBJ;
             aVar3.eF(false);
-            bqVar = this.bAT.bAs;
-            bqVar.XX();
-            this.bAT.a(antiData, fVar);
-            bqVar2 = this.bAT.bAs;
-            if (!bqVar2.XO()) {
-                bqVar5 = this.bAT.bAs;
-                com.baidu.tieba.tbadkCore.al.b(bqVar5.XK(), (WriteData) null);
-                writeImagesInfo2 = this.bAT.baobaoImagesInfo;
+            bqVar = this.bAS.bAr;
+            bqVar.XS();
+            this.bAS.a(antiData, fVar);
+            bqVar2 = this.bAS.bAr;
+            if (!bqVar2.XJ()) {
+                bqVar5 = this.bAS.bAr;
+                com.baidu.tieba.tbadkCore.al.b(bqVar5.XF(), (WriteData) null);
+                writeImagesInfo2 = this.bAS.baobaoImagesInfo;
                 writeImagesInfo2.clear();
-                writeData2 = this.bAT.aDs;
+                writeData2 = this.bAS.aDp;
                 writeData2.setIsBaobao(false);
             }
-            if (Ft != null) {
-                String floor = Ft.getFloor();
-                if (Ft == null || Ft.getType() != 2) {
-                    bqVar3 = this.bAT.bAs;
-                    if (bqVar3.XR()) {
-                        bzVar5 = this.bAT.bAx;
-                        bzVar5.YF();
+            if (Fn != null) {
+                String floor = Fn.getFloor();
+                if (Fn == null || Fn.getType() != 2) {
+                    bqVar3 = this.bAS.bAr;
+                    if (bqVar3.XM()) {
+                        bzVar5 = this.bAS.bAw;
+                        bzVar5.YA();
                         return;
                     }
                     return;
                 }
-                eVar = this.bAT.bAv;
-                eVar.ZP();
+                eVar = this.bAS.bAu;
+                eVar.ZK();
                 if (floor != null) {
-                    bqVar4 = this.bAT.bAs;
+                    bqVar4 = this.bAS.bAr;
                     com.baidu.tieba.tbadkCore.b.i pbData = bqVar4.getPbData();
-                    bzVar6 = this.bAT.bAx;
+                    bzVar6 = this.bAS.bAw;
                     bzVar6.e(pbData);
                 }
-                com.baidu.tieba.tbadkCore.al.a(Ft.getThreadId(), (com.baidu.tieba.tbadkCore.am) this.bAT.getPageContext().getOrignalPage());
+                com.baidu.tieba.tbadkCore.al.a(Fn.getThreadId(), (com.baidu.tieba.tbadkCore.am) this.bAS.getPageContext().getOrignalPage());
             }
         } else if (jVar == null || writeData == null || jVar.getVcode_pic_url() == null) {
-            this.bAT.a(antiData, str);
+            this.bAS.a(antiData, str);
         } else if (AntiHelper.e(antiData)) {
-            this.bAT.a(antiData, str);
+            this.bAS.a(antiData, str);
         } else {
             writeData.setVcodeMD5(jVar.getVcode_md5());
             writeData.setVcodeUrl(jVar.getVcode_pic_url());
-            if (jVar.rQ().equals("4")) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.bAT.getPageContext().getPageActivity(), 12006, writeData, false)));
+            if (jVar.rK().equals("4")) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.bAS.getPageContext().getPageActivity(), 12006, writeData, false)));
             } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.bAT.getPageContext().getPageActivity(), writeData, 12006)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.bAS.getPageContext().getPageActivity(), writeData, 12006)));
             }
         }
     }

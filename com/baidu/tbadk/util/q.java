@@ -9,7 +9,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.s;
 /* loaded from: classes.dex */
 public class q {
-    public static int cb(String str) {
+    public static int bY(String str) {
         try {
             switch (new ExifInterface(str).getAttributeInt("Orientation", 1)) {
                 case 3:
@@ -33,11 +33,11 @@ public class q {
     private static Bitmap ec(int i) {
         Exception e;
         try {
-            int cb = cb(s.cg("camera.jpg"));
+            int bY = bY(s.cd("camera.jpg"));
             Bitmap m = com.baidu.tbadk.core.util.d.m("camera.jpg", i);
-            if (cb != 0 && m != null) {
+            if (bY != 0 && m != null) {
                 try {
-                    return com.baidu.tbadk.core.util.d.h(m, cb);
+                    return com.baidu.tbadk.core.util.d.h(m, bY);
                 } catch (Exception e2) {
                     e = e2;
                     BdLog.e(e.getMessage());

@@ -7,22 +7,22 @@ import java.util.Date;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements View.OnClickListener {
-    final /* synthetic */ WebTbActivity By;
+    final /* synthetic */ WebTbActivity Bv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(WebTbActivity webTbActivity) {
-        this.By = webTbActivity;
+        this.Bv = webTbActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         RelativeLayout relativeLayout;
         ImageView imageView;
-        relativeLayout = this.By.Bn;
+        relativeLayout = this.Bv.Bk;
         relativeLayout.setVisibility(8);
-        imageView = this.By.Bw;
+        imageView = this.Bv.Bt;
         imageView.setSelected(false);
-        com.baidu.tbadk.core.sharedPref.b.oj().putBoolean(TbWebViewActivity.KEY_INSTALL_PLUGIN_DIALOG_CLOSED, true);
-        com.baidu.tbadk.core.sharedPref.b.oj().putLong(TbWebViewActivity.KEY_INSTALL_PLUGIN_DIALOG_SHOWN_TIME, new Date().getTime());
+        com.baidu.tbadk.core.sharedPref.b.oc().putBoolean(TbWebViewActivity.KEY_INSTALL_PLUGIN_DIALOG_CLOSED, true);
+        com.baidu.tbadk.core.sharedPref.b.oc().putLong(TbWebViewActivity.KEY_INSTALL_PLUGIN_DIALOG_SHOWN_TIME, new Date().getTime());
     }
 }

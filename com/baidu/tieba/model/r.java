@@ -11,18 +11,18 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.message.ResponseReportUserInfoMessage;
 /* loaded from: classes.dex */
 public class r extends com.baidu.adp.base.f {
-    public long AE;
-    private t buM;
-    private final HttpMessageListener buN;
+    public long AB;
+    private t buL;
+    private final HttpMessageListener buM;
 
     public void a(t tVar) {
-        this.buM = tVar;
+        this.buL = tVar;
     }
 
     public r(Context context) {
         super(null);
-        this.AE = 300000L;
-        this.buN = new s(this, CmdConfigHttp.REPORT_USER_INFO);
+        this.AB = 300000L;
+        this.buM = new s(this, CmdConfigHttp.REPORT_USER_INFO);
     }
 
     @Override // com.baidu.adp.base.f
@@ -36,23 +36,23 @@ public class r extends com.baidu.adp.base.f {
     }
 
     public boolean canSend() {
-        return Math.abs(System.currentTimeMillis() - TbadkCoreApplication.m255getInst().getReporyUserInfoLastTime()) >= this.AE;
+        return Math.abs(System.currentTimeMillis() - TbadkCoreApplication.m255getInst().getReporyUserInfoLastTime()) >= this.AB;
     }
 
-    public void UP() {
+    public void UK() {
         TbadkCoreApplication.m255getInst().setReporyUserInfoCurrentTime();
     }
 
     public void ah(long j) {
-        this.AE = j;
+        this.AB = j;
     }
 
-    public void UQ() {
+    public void UL() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.REPORT_USER_INFO, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/user/report");
         tbHttpMessageTask.setResponsedClass(ResponseReportUserInfoMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
-        messageManager.registerListener(this.buN);
+        messageManager.registerListener(this.buM);
     }
 
     public void a(int i, float f, float f2) {
@@ -64,6 +64,6 @@ public class r extends com.baidu.adp.base.f {
     }
 
     public void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.buN);
+        MessageManager.getInstance().unRegisterListener(this.buM);
     }
 }

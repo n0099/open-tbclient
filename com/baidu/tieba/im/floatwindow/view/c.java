@@ -4,31 +4,31 @@ import android.graphics.Point;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements com.baidu.tieba.im.floatwindow.a.e {
-    final /* synthetic */ a aZC;
+    final /* synthetic */ a aZB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.aZC = aVar;
+        this.aZB = aVar;
     }
 
     @Override // com.baidu.tieba.im.floatwindow.a.e
-    public void NF() {
+    public void NA() {
         e eVar;
         e eVar2;
-        this.aZC.aZz = false;
-        this.aZC.setTouchable(true);
-        eVar = this.aZC.aYK;
+        this.aZB.aZy = false;
+        this.aZB.setTouchable(true);
+        eVar = this.aZB.aYJ;
         if (eVar != null) {
-            eVar2 = this.aZC.aYK;
-            eVar2.NF();
+            eVar2 = this.aZB.aYJ;
+            eVar2.NA();
         }
     }
 
     @Override // com.baidu.tieba.im.floatwindow.a.e
     public void a(Point point) {
         int i;
-        a aVar = this.aZC;
-        i = this.aZC.aYS;
-        aVar.V(i - point.x, point.y);
+        a aVar = this.aZB;
+        i = this.aZB.aYR;
+        aVar.W(i - point.x, point.y);
     }
 }

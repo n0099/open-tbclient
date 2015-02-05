@@ -5,13 +5,13 @@ import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ d bvb;
-    private final /* synthetic */ q bvc;
+    final /* synthetic */ d bva;
+    private final /* synthetic */ q bvb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar, q qVar) {
-        this.bvb = dVar;
-        this.bvc = qVar;
+        this.bva = dVar;
+        this.bvb = qVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,19 +19,19 @@ public class e implements View.OnClickListener {
         SettingTextTestNewView settingTextTestNewView;
         TbSettingTextTipView tbSettingTextTipView;
         SettingTextFunctionIntroView settingTextFunctionIntroView;
-        settingTextTestNewView = this.bvb.buX;
+        settingTextTestNewView = this.bva.buW;
         if (view == settingTextTestNewView) {
-            this.bvc.gS(1);
+            this.bvb.gS(1);
             return;
         }
-        tbSettingTextTipView = this.bvb.buY;
+        tbSettingTextTipView = this.bva.buX;
         if (view == tbSettingTextTipView) {
-            this.bvc.gS(2);
+            this.bvb.gS(2);
             return;
         }
-        settingTextFunctionIntroView = this.bvb.buZ;
+        settingTextFunctionIntroView = this.bva.buY;
         if (view == settingTextFunctionIntroView) {
-            this.bvc.gS(3);
+            this.bvb.gS(3);
         }
     }
 }

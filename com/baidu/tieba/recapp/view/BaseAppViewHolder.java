@@ -15,74 +15,74 @@ import com.baidu.tieba.tbadkCore.b.j;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public abstract class BaseAppViewHolder extends PbRecBaseViewHolder {
-    protected int Yk;
+    protected int Yh;
+    protected TextView bMK;
     protected TextView bML;
     protected TextView bMM;
-    protected TextView bMN;
-    protected HeadImageView bMO;
-    protected View bMP;
+    protected HeadImageView bMN;
+    protected View bMO;
 
-    protected abstract void acs();
+    protected abstract void acn();
 
-    protected abstract void act();
+    protected abstract void aco();
 
-    protected abstract int acu();
+    protected abstract int acp();
 
     public BaseAppViewHolder(View view) {
         this.rootView = view;
-        this.Yk = TbadkCoreApplication.m255getInst().getSkinType();
+        this.Yh = TbadkCoreApplication.m255getInst().getSkinType();
         view.setTag(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void acr() {
-        if (this.bMC != null && this.bMC.mu()) {
-            boolean dR = b.vb().dR(this.bMC.getPkgName());
-            boolean dS = b.vb().dS(this.bMC.getPkgName());
-            if (dR) {
-                this.bMC.hJ(1);
-            } else if (dS) {
-                this.bMC.hJ(2);
+    public void acm() {
+        if (this.bMB != null && this.bMB.mn()) {
+            boolean dO = b.uV().dO(this.bMB.getPkgName());
+            boolean dP = b.uV().dP(this.bMB.getPkgName());
+            if (dO) {
+                this.bMB.hJ(1);
+            } else if (dP) {
+                this.bMB.hJ(2);
             } else {
-                this.bMC.hJ(0);
+                this.bMB.hJ(0);
             }
-            if (this.bMC.ahr()) {
-                switch (this.bMC.ahq()) {
+            if (this.bMB.ahm()) {
+                switch (this.bMB.ahl()) {
                     case 0:
-                        acs();
-                        this.bML.setText(acu());
-                        this.bML.setOnClickListener(d.aco());
-                        this.rootView.setOnClickListener(a.acn());
-                        this.bML.setEnabled(true);
+                        acn();
+                        this.bMK.setText(acp());
+                        this.bMK.setOnClickListener(d.acj());
+                        this.rootView.setOnClickListener(a.aci());
+                        this.bMK.setEnabled(true);
                         return;
                     case 1:
-                        act();
-                        this.bML.setText(z.downloading2);
-                        this.bML.setOnClickListener(null);
+                        aco();
+                        this.bMK.setText(z.downloading2);
+                        this.bMK.setOnClickListener(null);
                         this.rootView.setOnClickListener(null);
-                        this.bML.setEnabled(false);
+                        this.bMK.setEnabled(false);
                         return;
                     case 2:
-                        acs();
-                        this.bML.setText(z.downloaded_install);
-                        this.bML.setOnClickListener(d.aco());
-                        this.rootView.setOnClickListener(a.acn());
-                        this.bML.setEnabled(true);
+                        acn();
+                        this.bMK.setText(z.downloaded_install);
+                        this.bMK.setOnClickListener(d.acj());
+                        this.rootView.setOnClickListener(a.aci());
+                        this.bMK.setEnabled(true);
                         return;
                     default:
                         return;
                 }
-            } else if (this.bMC.ahs()) {
-                acs();
-                this.bML.setText(z.view);
-                this.bML.setOnClickListener(g.acp());
-                this.rootView.setOnClickListener(h.acq());
+            } else if (this.bMB.ahn()) {
+                acn();
+                this.bMK.setText(z.view);
+                this.bMK.setOnClickListener(g.ack());
+                this.rootView.setOnClickListener(h.acl());
             }
         }
     }
 
     public j getAppData() {
-        return this.bMC;
+        return this.bMB;
     }
 
     public String getFixedChineseString(String str) {
@@ -97,6 +97,6 @@ public abstract class BaseAppViewHolder extends PbRecBaseViewHolder {
     }
 
     public static void registerHolder(int i, Class<? extends BaseAppViewHolder> cls) {
-        com.baidu.tieba.recapp.a.acm().registerHolder(i, cls);
+        com.baidu.tieba.recapp.a.ach().registerHolder(i, cls);
     }
 }

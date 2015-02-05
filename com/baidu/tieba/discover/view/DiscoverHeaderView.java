@@ -14,7 +14,7 @@ import com.baidu.tieba.u;
 import java.util.List;
 /* loaded from: classes.dex */
 public class DiscoverHeaderView extends LinearLayout {
-    private z awr;
+    private z awo;
     private List<com.baidu.tieba.discover.data.c> mData;
 
     public DiscoverHeaderView(Context context) {
@@ -27,7 +27,7 @@ public class DiscoverHeaderView extends LinearLayout {
     }
 
     public void setOnHeaderItemClickListener(z zVar) {
-        this.awr = zVar;
+        this.awo = zVar;
     }
 
     public void r(String str, boolean z) {
@@ -35,7 +35,7 @@ public class DiscoverHeaderView extends LinearLayout {
             int size = this.mData.size();
             for (int i = 0; i < size; i++) {
                 com.baidu.tieba.discover.data.c cVar = this.mData.get(i);
-                if (cVar != null && str.equals(cVar.Dr())) {
+                if (cVar != null && str.equals(cVar.Dl())) {
                     cVar.bv(z);
                     if (i < getChildCount() && (getChildAt(i) instanceof a)) {
                         ((a) getChildAt(i)).bw(z);
@@ -61,12 +61,12 @@ public class DiscoverHeaderView extends LinearLayout {
         if (cVar != null) {
             a aVar = new a(getContext());
             if (!StringUtils.isNull(cVar.getIcon_url())) {
-                aVar.fj(cVar.getIcon_url());
+                aVar.fg(cVar.getIcon_url());
             } else {
-                aVar.ex(p.fg(cVar.Dr()));
+                aVar.ex(p.fd(cVar.Dl()));
             }
             aVar.setTitle(cVar.getTitle());
-            aVar.bw(cVar.Dt());
+            aVar.bw(cVar.Dn());
             aVar.setLayoutParams(new LinearLayout.LayoutParams(0, -2, 1.0f));
             if (i2 > 1) {
                 if (i == 0) {

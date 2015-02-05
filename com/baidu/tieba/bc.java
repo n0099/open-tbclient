@@ -21,7 +21,7 @@ public class bc implements an {
     public void bd(boolean z) {
         boolean z2;
         CombineDownload combineDownload;
-        this.this$0.alG = true;
+        this.this$0.alD = true;
         UpdateDialog updateDialog = this.this$0;
         if (z) {
             Activity pageActivity = this.this$0.getPageContext().getPageActivity();
@@ -51,9 +51,9 @@ public class bc implements an {
         boolean z3 = true;
         if (be.a(this.this$0.getPageContext().getPageActivity().getPackageManager())) {
             Activity pageActivity = this.this$0.getPageContext().getPageActivity();
-            versionData = this.this$0.amx;
+            versionData = this.this$0.amu;
             be.a(pageActivity, versionData);
-            aiVar = this.this$0.amz;
+            aiVar = this.this$0.amw;
             aiVar.dismiss();
             this.this$0.finish();
             UpdateDialog updateDialog = this.this$0;
@@ -79,20 +79,20 @@ public class bc implements an {
     }
 
     @Override // com.baidu.tieba.an
-    public void AN() {
+    public void AH() {
         ai aiVar;
-        aiVar = this.this$0.amz;
+        aiVar = this.this$0.amw;
         aiVar.dismiss();
         this.this$0.finish();
     }
 
     @Override // com.baidu.tieba.an
     public void stopService() {
-        this.this$0.AU();
+        this.this$0.AO();
     }
 
     @Override // com.baidu.tieba.an
-    public void AM() {
+    public void AG() {
         this.this$0.finish();
     }
 }

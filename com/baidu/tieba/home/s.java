@@ -5,20 +5,20 @@ import android.widget.FrameLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements View.OnClickListener {
-    final /* synthetic */ r aQs;
-    private final /* synthetic */ FrameLayout aQt;
+    final /* synthetic */ r aQr;
+    private final /* synthetic */ FrameLayout aQs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(r rVar, FrameLayout frameLayout) {
-        this.aQs = rVar;
-        this.aQt = frameLayout;
+        this.aQr = rVar;
+        this.aQs = frameLayout;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         View view2;
-        FrameLayout frameLayout = this.aQt;
-        view2 = this.aQs.aQr;
+        FrameLayout frameLayout = this.aQs;
+        view2 = this.aQr.aQq;
         frameLayout.removeView(view2);
     }
 }

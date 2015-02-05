@@ -13,7 +13,7 @@ public class x implements CustomMessageTask.CustomRunnable<Game> {
             return null;
         }
         if (customMessage.getData() != null) {
-            MainTabActivity.ccT = customMessage.getData();
+            MainTabActivity.ccS = customMessage.getData();
         }
         return new CustomResponsedMessage<>(2001258);
     }

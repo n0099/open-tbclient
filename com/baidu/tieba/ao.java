@@ -21,34 +21,34 @@ import com.baidu.tieba.service.SignAlertReceiver;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class ao {
-    private static ao amb = new ao();
-    private static final byte[] amm = new byte[0];
-    private static volatile Boolean amn = null;
-    private int amh;
-    private int ama = 0;
-    private int CO = 1;
-    private com.baidu.tieba.tbadkCore.util.l amc = null;
-    private long amd = 0;
+    private static ao alY = new ao();
+    private static final byte[] amj = new byte[0];
+    private static volatile Boolean amk = null;
+    private int ame;
+    private int alX = 0;
+    private int CK = 1;
+    private com.baidu.tieba.tbadkCore.util.l alZ = null;
+    private long ama = 0;
     private boolean mHasNewVersion = false;
     private VersionData mVersionData = null;
     private CombineDownload mCombineDownload = null;
-    private BannerData ame = null;
+    private BannerData amb = null;
     public long kb = 0;
-    private int CP = 0;
-    private boolean CQ = true;
-    private com.baidu.adp.lib.cache.t<String> alz = null;
-    private boolean amf = false;
-    private boolean amg = true;
-    private Boolean ami = false;
-    private int amj = 0;
-    private boolean amk = false;
+    private int CL = 0;
+    private boolean CM = true;
+    private com.baidu.adp.lib.cache.t<String> alw = null;
+    private boolean amc = false;
+    private boolean amd = true;
+    private Boolean amf = false;
+    private int amg = 0;
+    private boolean amh = false;
     public Handler handler = new Handler(new ap(this));
-    public Handler aml = new aq(this);
+    public Handler ami = new aq(this);
     com.baidu.adp.lib.d.d locationCallBack = new ar(this);
-    boolean amo = false;
+    boolean aml = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void AO() {
+    public static void AI() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2005005, new as());
         customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
@@ -60,57 +60,57 @@ public class ao {
         MessageManager.getInstance().registerTask(customMessageTask3);
     }
 
-    public static ao AP() {
-        return amb;
+    public static ao AJ() {
+        return alY;
     }
 
     public void init(Application application) {
         if (application != null) {
             new aw(null).execute(new String[0]);
-            com.baidu.tbadk.core.util.ae.pi();
+            com.baidu.tbadk.core.util.ae.pb();
             initSettings();
             if (TbadkApplication.getInst().isMainProcess(true)) {
-                this.amc = new com.baidu.tieba.tbadkCore.util.l(100);
+                this.alZ = new com.baidu.tieba.tbadkCore.util.l(100);
                 updateSignAlarm();
             }
         }
     }
 
-    public void AQ() {
+    public void AK() {
         init(TbadkApplication.getInst().getApp());
     }
 
     private void initSettings() {
-        this.CP = TbadkSettings.getInst().loadInt("image_quality", 0);
+        this.CL = TbadkSettings.getInst().loadInt("image_quality", 0);
         TbadkApplication.getInst().mViewImageQuality = TbadkSettings.getInst().loadInt("view_image_quality", 0);
-        this.CQ = TbadkSettings.getInst().loadBoolean("show_images", true);
-        this.CO = TbadkSettings.getInst().loadInt("new_display_photo", 1);
+        this.CM = TbadkSettings.getInst().loadBoolean("show_images", true);
+        this.CK = TbadkSettings.getInst().loadInt("new_display_photo", 1);
         TbadkApplication.getInst().setSkinTypeValue(TbadkSettings.getInst().loadInt("skin", 0));
-        this.amd = TbadkSettings.getInst().loadLong("message_id", 0L);
-        this.amf = TbadkSettings.getInst().loadBoolean("manage_mode", false);
-        this.amg = TbadkSettings.getInst().loadBoolean("search_mode", true);
-        this.amh = TbadkSettings.getInst().loadInt("search_mode_int", 0);
+        this.ama = TbadkSettings.getInst().loadLong("message_id", 0L);
+        this.amc = TbadkSettings.getInst().loadBoolean("manage_mode", false);
+        this.amd = TbadkSettings.getInst().loadBoolean("search_mode", true);
+        this.ame = TbadkSettings.getInst().loadInt("search_mode_int", 0);
         boolean loadBoolean = TbadkSettings.getInst().loadBoolean("bd_loc_switcher", true);
         if (Build.VERSION.SDK_INT <= 4) {
             loadBoolean = false;
         }
         com.baidu.adp.lib.d.a.dB().y(loadBoolean);
-        com.baidu.tbadk.core.l.mc().initSetting();
-        this.amk = TbadkSettings.getInst().loadBoolean("has_show_mutiimage_tip", false);
+        com.baidu.tbadk.core.l.lV().initSetting();
+        this.amh = TbadkSettings.getInst().loadBoolean("has_show_mutiimage_tip", false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static void a(AccountData accountData, Application application) {
-        com.baidu.tbadk.coreExtra.messageCenter.a.rY().sc();
+        com.baidu.tbadk.coreExtra.messageCenter.a.rS().rW();
         if (accountData != null) {
             TiebaStatic.setUserInfo(accountData.getAccount(), accountData.getID(), TbadkApplication.getCurrentBduss());
         }
         if (TbadkApplication.isLogin()) {
-            com.baidu.tieba.runing.a.acB().acC();
-            com.baidu.tieba.service.g.acS().acC();
+            com.baidu.tieba.runing.a.acw().acx();
+            com.baidu.tieba.service.g.acN().acx();
         } else {
-            com.baidu.tieba.runing.a.acB().destroy();
-            com.baidu.tieba.service.g.acS().destroy();
+            com.baidu.tieba.runing.a.acw().destroy();
+            com.baidu.tieba.service.g.acN().destroy();
         }
         TbadkApplication.getInst().resetPbRecorder();
     }
@@ -182,11 +182,11 @@ public class ao {
         return intent;
     }
 
-    public boolean mg() {
-        return this.CQ;
+    public boolean lZ() {
+        return this.CM;
     }
 
     public void bf(boolean z) {
-        this.amo = z;
+        this.aml = z;
     }
 }

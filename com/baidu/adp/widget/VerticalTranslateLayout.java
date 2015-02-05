@@ -13,32 +13,32 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class VerticalTranslateLayout extends FrameLayout {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private int uD;
-    private int uE;
-    private final int uJ;
-    private int uN;
-    private final Paint uQ;
-    private int uR;
-    private int uS;
-    private final List<u> va;
+    private int uA;
+    private int uB;
+    private final int uG;
+    private int uK;
+    private final Paint uN;
+    private int uO;
+    private int uP;
+    private final List<u> uX;
+    private float yC;
+    private float yD;
+    private float yE;
     private float yF;
-    private float yG;
-    private float yH;
-    private float yI;
-    private int yJ;
-    private boolean yK;
-    private boolean yL;
-    private TrackDirection yM;
-    private final Rect yN;
-    private final Rect yO;
-    private int yP;
-    private boolean yQ;
-    private final r yR;
-    private final s yS;
-    private final x yT;
-    private v yU;
-    private t yV;
-    private w yW;
+    private int yG;
+    private boolean yH;
+    private boolean yI;
+    private TrackDirection yJ;
+    private final Rect yK;
+    private final Rect yL;
+    private int yM;
+    private boolean yN;
+    private final r yO;
+    private final s yP;
+    private final x yQ;
+    private v yR;
+    private t yS;
+    private w yT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -48,7 +48,7 @@ public class VerticalTranslateLayout extends FrameLayout {
         vertical,
         none;
 
-        /* JADX DEBUG: Replace access to removed values field (yY) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (yV) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static TrackDirection[] valuesCustom() {
             TrackDirection[] valuesCustom = values();
@@ -65,100 +65,100 @@ public class VerticalTranslateLayout extends FrameLayout {
 
     @Override // android.view.View
     public void setBackgroundColor(int i) {
-        this.uQ.setColor(i);
+        this.uN.setColor(i);
         invalidate();
     }
 
     public void setProportion(float f) {
         if (f >= -1.0f && f <= 1.0f) {
             if (f < 0.0f) {
-                this.yJ = (int) ((this.yF - this.uE) * (-f));
+                this.yG = (int) ((this.yC - this.uB) * (-f));
             } else if (f > 0.0f) {
-                this.yJ = (int) ((this.uE - this.yH) * f);
+                this.yG = (int) ((this.uB - this.yE) * f);
             } else if (f == 0.0f) {
-                this.yJ = 0;
-                this.uN = 10004;
+                this.yG = 0;
+                this.uK = 10004;
             } else if (f == -1.0f) {
-                this.yF -= this.uE;
-                this.uN = TbConfig.BIG_IMAGE_MIN_CAPACITY;
+                this.yC -= this.uB;
+                this.uK = TbConfig.BIG_IMAGE_MIN_CAPACITY;
             } else if (f == 1.0f) {
-                this.yF = this.uE - this.yH;
-                this.uN = 10001;
+                this.yC = this.uB - this.yE;
+                this.uK = 10001;
             }
             invalidate();
         }
     }
 
     public int getTopOffset() {
-        return (int) this.yF;
+        return (int) this.yC;
     }
 
     public int getBottomOffset() {
-        return (int) this.yH;
+        return (int) this.yE;
     }
 
     public void setTopTapBack(boolean z) {
-        this.yK = z;
+        this.yH = z;
     }
 
     public void setBottomTapBack(boolean z) {
-        this.yL = z;
+        this.yI = z;
     }
 
     public int getState() {
-        return this.uN;
+        return this.uK;
     }
 
     public void setTopAnimationListener(v vVar) {
-        this.yU = vVar;
+        this.yR = vVar;
     }
 
     public void setBottomAnimationListener(t tVar) {
-        this.yV = tVar;
+        this.yS = tVar;
     }
 
     public void setVerticalTrackListener(w wVar) {
-        this.yW = wVar;
+        this.yT = wVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         canvas.save();
-        canvas.translate(0.0f, this.yJ);
-        Log.d("VerticalTranslateLayout", "@dispatchDraw " + this.yJ);
-        canvas.drawRect(0.0f, 0.0f, this.uD, this.uE, this.uQ);
+        canvas.translate(0.0f, this.yG);
+        Log.d("VerticalTranslateLayout", "@dispatchDraw " + this.yG);
+        canvas.drawRect(0.0f, 0.0f, this.uA, this.uB, this.uN);
         super.dispatchDraw(canvas);
         canvas.restore();
     }
 
     public int getTopTranslate() {
-        return this.yJ;
+        return this.yG;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.yM == TrackDirection.none) {
+        if (this.yJ == TrackDirection.none) {
             return false;
         }
         int action = motionEvent.getAction() & MotionEventCompat.ACTION_MASK;
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
-        if (this.uN == 10004) {
+        if (this.uK == 10004) {
             switch (action) {
                 case 0:
-                    this.uR = x;
-                    this.uS = y;
-                    this.yR.removeMessages(-100);
-                    this.yR.removeMessages(SapiErrorCode.GETTING_CERT);
-                    this.yR.removeMessages(SapiErrorCode.SENT_SUCCEED);
-                    this.yR.removeMessages(SapiErrorCode.GET_CERT_FAIL);
+                    this.uO = x;
+                    this.uP = y;
+                    this.yO.removeMessages(-100);
+                    this.yO.removeMessages(SapiErrorCode.GETTING_CERT);
+                    this.yO.removeMessages(SapiErrorCode.SENT_SUCCEED);
+                    this.yO.removeMessages(SapiErrorCode.GET_CERT_FAIL);
                     return false;
                 case 1:
                 default:
                     return false;
                 case 2:
                     Log.d("VerticalTranslateLayout", "@interceptInterceptTouchEvent");
-                    motionEvent.offsetLocation(0.0f, -this.yJ);
+                    motionEvent.offsetLocation(0.0f, -this.yG);
                     return g(x, y);
             }
         }
@@ -167,7 +167,7 @@ public class VerticalTranslateLayout extends FrameLayout {
     }
 
     private boolean g(int i, int i2) {
-        return i >= this.uR - this.uJ && i <= this.uR + this.uJ && (i2 < this.uS - this.uJ || i2 > this.uS + this.uJ) && this.yT.az(i2 - this.uS);
+        return i >= this.uO - this.uG && i <= this.uO + this.uG && (i2 < this.uP - this.uG || i2 > this.uP + this.uG) && this.yQ.az(i2 - this.uP);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -176,33 +176,33 @@ public class VerticalTranslateLayout extends FrameLayout {
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
         int action = motionEvent.getAction() & MotionEventCompat.ACTION_MASK;
-        if (this.uN == 10004) {
+        if (this.uK == 10004) {
             switch (action) {
                 case 1:
                 case 3:
                     Log.d("VerticalTranslateLayout", "@onTouchEvent up");
-                    this.yQ = false;
-                    if (this.yT.vm) {
+                    this.yN = false;
+                    if (this.yQ.vj) {
                         Log.d("VerticalTranslateLayout", "@onTouchEvent tracking");
-                        this.yT.je();
-                        x.a(this.yT);
+                        this.yQ.iX();
+                        x.a(this.yQ);
                         return true;
                     }
                     return true;
                 case 2:
-                    if (this.yT.vm) {
-                        if (!this.yQ) {
-                            if (y > this.uS) {
-                                this.yP = this.uS + this.uJ;
-                                this.yQ = true;
+                    if (this.yQ.vj) {
+                        if (!this.yN) {
+                            if (y > this.uP) {
+                                this.yM = this.uP + this.uG;
+                                this.yN = true;
                             } else {
-                                this.yP = this.uS - this.uJ;
-                                this.yQ = true;
+                                this.yM = this.uP - this.uG;
+                                this.yN = true;
                             }
                         }
-                        this.yT.aA(this.yP - y);
-                        this.yP = y;
-                        this.yT.vl.addMovement(motionEvent);
+                        this.yQ.aA(this.yM - y);
+                        this.yM = y;
+                        this.yQ.vi.addMovement(motionEvent);
                         return true;
                     }
                     return true;
@@ -212,20 +212,20 @@ public class VerticalTranslateLayout extends FrameLayout {
         }
         switch (action) {
             case 0:
-                if ((this.uN != 10000 || !this.yN.contains(x, y)) && (this.uN != 10001 || !this.yO.contains(x, y))) {
+                if ((this.uK != 10000 || !this.yK.contains(x, y)) && (this.uK != 10001 || !this.yL.contains(x, y))) {
                     return false;
                 }
-                if (!this.yT.vm) {
-                    this.yP = y;
-                    this.yT.az(y);
+                if (!this.yQ.vj) {
+                    this.yM = y;
+                    this.yQ.az(y);
                     break;
                 }
                 break;
             case 1:
             case 3:
-                if (this.yT.vm) {
-                    this.yT.je();
-                    x.a(this.yT);
+                if (this.yQ.vj) {
+                    this.yQ.iX();
+                    x.a(this.yQ);
                     return true;
                 }
                 return true;
@@ -234,10 +234,10 @@ public class VerticalTranslateLayout extends FrameLayout {
             default:
                 return true;
         }
-        if (this.yT.vm) {
-            this.yT.aA(this.yP - y);
-            this.yP = y;
-            this.yT.vl.addMovement(motionEvent);
+        if (this.yQ.vj) {
+            this.yQ.aA(this.yM - y);
+            this.yM = y;
+            this.yQ.vi.addMovement(motionEvent);
             return true;
         }
         return true;
@@ -247,15 +247,15 @@ public class VerticalTranslateLayout extends FrameLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            if (this.yF != -1.0f) {
-                this.yN.set(i, i2, i3, (int) (i2 + this.yF));
+            if (this.yC != -1.0f) {
+                this.yK.set(i, i2, i3, (int) (i2 + this.yC));
             }
-            if (this.yH != -1.0f) {
-                this.yO.set(i, (int) (i4 - this.yH), i3, i4);
+            if (this.yE != -1.0f) {
+                this.yL.set(i, (int) (i4 - this.yE), i3, i4);
             }
         }
-        if (!this.yS.vj && !this.yT.vm) {
-            iS();
+        if (!this.yP.vg && !this.yQ.vj) {
+            iL();
         }
     }
 
@@ -263,31 +263,31 @@ public class VerticalTranslateLayout extends FrameLayout {
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
         int i3 = 1073741823 & i2;
-        if (this.yG != -1.0f) {
-            this.yF = i3 - this.yI;
+        if (this.yD != -1.0f) {
+            this.yC = i3 - this.yF;
         }
-        if (this.yI != -1.0f) {
-            this.yH = i3 - this.yG;
+        if (this.yF != -1.0f) {
+            this.yE = i3 - this.yD;
         }
-        if (!$assertionsDisabled && i3 < this.yF) {
+        if (!$assertionsDisabled && i3 < this.yC) {
             throw new AssertionError("top offset should not be larger than the view's width");
         }
-        if (!$assertionsDisabled && i3 < this.yH) {
+        if (!$assertionsDisabled && i3 < this.yE) {
             throw new AssertionError("bottom offset should not be larger than the view's width");
         }
-        this.uD = getMeasuredWidth();
-        this.uE = getMeasuredHeight();
+        this.uA = getMeasuredWidth();
+        this.uB = getMeasuredHeight();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void iS() {
-        switch (this.uN) {
+    public void iL() {
+        switch (this.uK) {
             case TbConfig.BIG_IMAGE_MIN_CAPACITY /* 10000 */:
-                this.yJ = (int) (this.yF - this.uE);
+                this.yG = (int) (this.yC - this.uB);
                 invalidate();
                 return;
             case 10001:
-                this.yJ = (int) (this.uE - this.yH);
+                this.yG = (int) (this.uB - this.yE);
                 invalidate();
                 return;
             case 10002:
@@ -295,7 +295,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             default:
                 return;
             case 10004:
-                this.yJ = 0;
+                this.yG = 0;
                 invalidate();
                 return;
         }

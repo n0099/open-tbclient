@@ -18,9 +18,9 @@ class n extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         ai aiVar;
         if (customResponsedMessage != null) {
-            aiVar = this.this$0.ccK;
+            aiVar = this.this$0.ccJ;
             aiVar.im(0);
-            MainTabActivity.ccE = false;
+            MainTabActivity.ccD = false;
         }
     }
 }

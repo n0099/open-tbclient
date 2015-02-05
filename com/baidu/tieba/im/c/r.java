@@ -3,19 +3,19 @@ package com.baidu.tieba.im.c;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* loaded from: classes.dex */
 class r extends com.baidu.tieba.im.h<Boolean> {
-    private final /* synthetic */ PersonalChatMessage boI;
-    final /* synthetic */ o boM;
+    private final /* synthetic */ PersonalChatMessage boH;
+    final /* synthetic */ o boL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(o oVar, PersonalChatMessage personalChatMessage) {
-        this.boM = oVar;
-        this.boI = personalChatMessage;
+        this.boL = oVar;
+        this.boH = personalChatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tieba.im.h
     public Boolean doInBackground() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.o.Nk().a(this.boI.getUserId(), this.boI.getToUserId(), String.valueOf(this.boI.getRecordId()), String.valueOf(this.boI.getMsgId()), 2));
+        return Boolean.valueOf(com.baidu.tieba.im.db.o.Nf().a(this.boH.getUserId(), this.boH.getToUserId(), String.valueOf(this.boH.getRecordId()), String.valueOf(this.boH.getMsgId()), 2));
     }
 }

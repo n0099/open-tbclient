@@ -1,11 +1,11 @@
 package com.baidu.tieba.pb.main;
 /* loaded from: classes.dex */
 class h extends com.baidu.adp.base.i {
-    final /* synthetic */ PbActivity bAT;
+    final /* synthetic */ PbActivity bAS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(PbActivity pbActivity) {
-        this.bAT = pbActivity;
+        this.bAS = pbActivity;
     }
 
     @Override // com.baidu.adp.base.i
@@ -16,33 +16,33 @@ class h extends com.baidu.adp.base.i {
         com.baidu.tieba.tbadkCore.e.a aVar3;
         bq bqVar;
         if (obj != null) {
-            aVar2 = this.bAT.bAw;
+            aVar2 = this.bAS.bAv;
             switch (aVar2.getLoadDataMode()) {
                 case 0:
-                    bqVar = this.bAT.bAs;
-                    bqVar.XX();
-                    this.bAT.a((com.baidu.tieba.tbadkCore.e.c) obj);
+                    bqVar = this.bAS.bAr;
+                    bqVar.XS();
+                    this.bAS.a((com.baidu.tieba.tbadkCore.e.c) obj);
                     return;
                 case 1:
-                    this.bAT.a((com.baidu.tieba.tbadkCore.e.e) obj);
+                    this.bAS.a((com.baidu.tieba.tbadkCore.e.e) obj);
                     return;
                 case 2:
                 case 3:
                 case 4:
                 case 5:
-                    PbActivity pbActivity = this.bAT;
-                    aVar3 = this.bAT.bAw;
+                    PbActivity pbActivity = this.bAS;
+                    aVar3 = this.bAS.bAv;
                     pbActivity.a(aVar3.getLoadDataMode(), (com.baidu.tieba.tbadkCore.e.g) obj);
                     return;
                 case 6:
-                    this.bAT.a((com.baidu.tieba.tbadkCore.e.g) obj);
+                    this.bAS.a((com.baidu.tieba.tbadkCore.e.g) obj);
                     return;
                 default:
                     return;
             }
         }
-        bzVar = this.bAT.bAx;
-        aVar = this.bAT.bAw;
+        bzVar = this.bAS.bAw;
+        aVar = this.bAS.bAv;
         bzVar.a(aVar.getLoadDataMode(), false, (String) null, false);
     }
 }

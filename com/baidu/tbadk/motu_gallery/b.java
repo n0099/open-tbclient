@@ -125,7 +125,7 @@ public class b {
         return createBitmap;
     }
 
-    public static boolean eu(String str) {
+    public static boolean er(String str) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(str, options);

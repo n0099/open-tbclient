@@ -4,10 +4,10 @@ import com.baidu.adp.lib.util.BdLog;
 import java.util.TimerTask;
 /* loaded from: classes.dex */
 class aj extends TimerTask {
-    final /* synthetic */ ag IM;
+    final /* synthetic */ ag IJ;
 
     private aj(ag agVar) {
-        this.IM = agVar;
+        this.IJ = agVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,7 +18,7 @@ class aj extends TimerTask {
     @Override // java.util.TimerTask, java.lang.Runnable
     public void run() {
         try {
-            this.IM.dJ();
+            this.IJ.dJ();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }

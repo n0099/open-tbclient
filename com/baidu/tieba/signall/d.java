@@ -7,16 +7,16 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d implements au {
     private String avatar;
+    private int bQC;
     private int bQD;
     private int bQE;
     private int bQF;
     private int bQG;
-    private int bQH;
+    private boolean bQH;
     private boolean bQI;
     private boolean bQJ;
     private boolean bQK;
-    private boolean bQL;
-    private int bQM;
+    private int bQL;
     private String errorMsg;
     private int forumId;
     private String forumName;
@@ -33,70 +33,70 @@ public class d implements au {
         return this.avatar;
     }
 
-    public int adK() {
+    public int adF() {
+        return this.bQC;
+    }
+
+    public int adG() {
         return this.bQD;
     }
 
-    public int adL() {
+    public int adH() {
         return this.bQE;
     }
 
-    public int adM() {
+    public int adI() {
         return this.bQF;
     }
 
-    public int adN() {
+    public int adJ() {
         return this.bQG;
     }
 
-    public int adO() {
-        return this.bQH;
-    }
-
     public void hC(int i) {
-        this.bQD = i;
+        this.bQC = i;
     }
 
     public void hD(int i) {
-        this.bQE = i;
+        this.bQD = i;
     }
 
     public void hE(int i) {
-        this.bQF = i;
+        this.bQE = i;
     }
 
-    public boolean adP() {
-        return this.bQI;
+    public boolean adK() {
+        return this.bQH;
     }
 
     public void er(boolean z) {
-        this.bQI = z;
-        this.bQD = 1;
+        this.bQH = z;
+        this.bQC = 1;
     }
 
-    public boolean adQ() {
-        return this.bQK;
+    public boolean adL() {
+        return this.bQJ;
     }
 
     public void es(boolean z) {
-        this.bQK = z;
-        this.bQD = 0;
+        this.bQJ = z;
+        this.bQC = 0;
     }
 
-    public boolean adR() {
-        return this.bQL;
+    public boolean adM() {
+        return this.bQK;
     }
 
     public void et(boolean z) {
-        this.bQL = z;
+        this.bQK = z;
     }
 
-    public int adS() {
-        return this.bQM;
+    public int adN() {
+        return this.bQL;
     }
 
     public void hF(int i) {
-        this.bQM = i;
+        this.bQL = i;
     }
 
     public String getErrorMsg() {
@@ -107,12 +107,12 @@ public class d implements au {
         this.errorMsg = str;
     }
 
-    public boolean adT() {
-        return this.bQJ;
+    public boolean adO() {
+        return this.bQI;
     }
 
     public void eu(boolean z) {
-        this.bQJ = z;
+        this.bQI = z;
     }
 
     public void parserJson(JSONObject jSONObject) {
@@ -120,14 +120,14 @@ public class d implements au {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString("avatar");
-            this.bQD = jSONObject.optInt("is_sign_in");
-            this.bQE = jSONObject.optInt("cont_sign_num");
-            this.bQF = jSONObject.optInt("user_level");
-            this.bQG = jSONObject.optInt("user_exp");
-            this.bQH = jSONObject.optInt("need_exp");
-            if (this.bQD != 0) {
-                this.bQI = true;
-                this.bQK = false;
+            this.bQC = jSONObject.optInt("is_sign_in");
+            this.bQD = jSONObject.optInt("cont_sign_num");
+            this.bQE = jSONObject.optInt("user_level");
+            this.bQF = jSONObject.optInt("user_exp");
+            this.bQG = jSONObject.optInt("need_exp");
+            if (this.bQC != 0) {
+                this.bQH = true;
+                this.bQJ = false;
             }
         }
     }
@@ -136,8 +136,8 @@ public class d implements au {
     public ArrayList<at> getImages() {
         ArrayList<at> arrayList = new ArrayList<>();
         at atVar = new at();
-        atVar.Fa = this.avatar;
-        atVar.Jn = 10;
+        atVar.EX = this.avatar;
+        atVar.Jk = 10;
         arrayList.add(atVar);
         return arrayList;
     }

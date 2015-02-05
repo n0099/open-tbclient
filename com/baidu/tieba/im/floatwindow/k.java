@@ -12,29 +12,29 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class k extends l {
-    private HeadImageView aHd;
-    private j aYP;
-    private TextView aYQ;
+    private HeadImageView aHa;
+    private j aYO;
+    private TextView aYP;
 
     public k() {
         super(com.baidu.adp.lib.g.b.ei().inflate(TbadkCoreApplication.m255getInst(), x.im_float_head_view, null));
-        this.aYP = new j();
-        this.aHd = (HeadImageView) this.aYW.findViewById(w.im_float_head_view_head);
-        this.aYQ = (TextView) this.aYW.findViewById(w.im_float_head_view_text);
-        this.aHd.setIsRound(true);
+        this.aYO = new j();
+        this.aHa = (HeadImageView) this.aYV.findViewById(w.im_float_head_view_head);
+        this.aYP = (TextView) this.aYV.findViewById(w.im_float_head_view_text);
+        this.aHa.setIsRound(true);
     }
 
     public void b(int i, int i2, String str, int i3) {
-        V(i, i2);
-        NJ();
-        this.aHd.d(str, 12, false);
-        this.aHd.setUrl(str);
+        W(i, i2);
+        NE();
+        this.aHa.d(str, 12, false);
+        this.aHa.setUrl(str);
         fK(i3);
-        this.aHd.requestFocusFromTouch();
+        this.aHa.requestFocusFromTouch();
     }
 
     public void E(String str, int i) {
-        if (TextUtils.equals(str, this.aHd.getUrl())) {
+        if (TextUtils.equals(str, this.aHa.getUrl())) {
             fK(i);
         }
     }
@@ -42,30 +42,30 @@ public class k extends l {
     private void fK(int i) {
         int i2;
         if (i <= 0) {
-            this.aYQ.setVisibility(8);
+            this.aYP.setVisibility(8);
             return;
         }
-        this.aYQ.setVisibility(0);
-        bc.b(this.aYQ, t.cp_cont_i, 1);
+        this.aYP.setVisibility(0);
+        bc.b(this.aYP, t.cp_cont_i, 1);
         if (i < 10) {
-            this.aYQ.setText(String.valueOf(i));
+            this.aYP.setText(String.valueOf(i));
             i2 = v.icon_news_head_prompt_one;
         } else if (i < 100) {
-            this.aYQ.setText(String.valueOf(i));
+            this.aYP.setText(String.valueOf(i));
             i2 = v.icon_news_head_prompt_two;
         } else {
-            this.aYQ.setText("   ");
+            this.aYP.setText("   ");
             i2 = v.icon_news_head_prompt_more;
         }
-        bc.i((View) this.aYQ, i2);
+        bc.i((View) this.aYP, i2);
     }
 
-    public j NG() {
-        this.aYP.H(this.aYW);
-        return this.aYP;
+    public j NB() {
+        this.aYO.H(this.aYV);
+        return this.aYO;
     }
 
-    public void T(int i, int i2) {
-        V(i, i2);
+    public void U(int i, int i2) {
+        W(i, i2);
     }
 }

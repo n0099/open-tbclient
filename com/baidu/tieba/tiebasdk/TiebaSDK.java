@@ -18,11 +18,11 @@ import java.util.HashMap;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class TiebaSDK implements Serializable {
-    private static HashMap<String, Field[]> cdT = new HashMap<>();
+    private static HashMap<String, Field[]> cdS = new HashMap<>();
     private static final long serialVersionUID = -3424378401905406520L;
 
     public static void init(Application application) {
-        ao.AP().init(application);
+        ao.AJ().init(application);
     }
 
     public static void openBar(Context context, String str) {
@@ -41,7 +41,7 @@ public class TiebaSDK implements Serializable {
         ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
         arrayList.add(new BasicNameValuePair("kw", str));
         arrayList.add(new BasicNameValuePair("pn", String.valueOf(1)));
-        if (ao.AP().mg()) {
+        if (ao.AJ().lZ()) {
             basicNameValuePair = new BasicNameValuePair("rn", String.valueOf(35));
         } else {
             basicNameValuePair = new BasicNameValuePair("rn", String.valueOf(50));
@@ -54,7 +54,7 @@ public class TiebaSDK implements Serializable {
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        return !adVar.oZ().qh().ma() ? "" : adVar.oy();
+        return !adVar.oS().qa().lT() ? "" : adVar.or();
     }
 
     public static void setFrom(String str) {
@@ -136,10 +136,10 @@ public class TiebaSDK implements Serializable {
     public static int[] getStyleableIDByName(Context context, String str) {
         try {
             String packageName = context.getPackageName();
-            Field[] fieldArr = cdT.get(packageName);
+            Field[] fieldArr = cdS.get(packageName);
             if (fieldArr == null) {
                 fieldArr = Class.forName(String.valueOf(packageName) + ".R$styleable").getFields();
-                cdT.put(packageName, fieldArr);
+                cdS.put(packageName, fieldArr);
             }
             Field[] fieldArr2 = fieldArr;
             for (Field field : fieldArr2) {
@@ -155,10 +155,10 @@ public class TiebaSDK implements Serializable {
     public static int getAttrIDByName(Context context, String str) {
         try {
             String packageName = context.getPackageName();
-            Field[] fieldArr = cdT.get(packageName);
+            Field[] fieldArr = cdS.get(packageName);
             if (fieldArr == null) {
                 fieldArr = Class.forName(String.valueOf(packageName) + ".R$styleable").getFields();
-                cdT.put(packageName, fieldArr);
+                cdS.put(packageName, fieldArr);
             }
             Field[] fieldArr2 = fieldArr;
             for (Field field : fieldArr2) {

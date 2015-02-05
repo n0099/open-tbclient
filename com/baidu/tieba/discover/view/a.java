@@ -14,9 +14,9 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class a extends RelativeLayout {
-    private TextView Xo;
-    private ImageView awq;
-    private TbImageView zS;
+    private TextView Xl;
+    private ImageView awn;
+    private TbImageView zP;
 
     public a(Context context) {
         this(context, null);
@@ -29,36 +29,36 @@ public class a extends RelativeLayout {
     }
 
     private void init() {
-        this.zS = (TbImageView) findViewById(w.icon);
-        this.Xo = (TextView) findViewById(w.title);
-        this.awq = (ImageView) findViewById(w.red_tip);
-        this.zS.setSupportNoImage(false);
+        this.zP = (TbImageView) findViewById(w.icon);
+        this.Xl = (TextView) findViewById(w.title);
+        this.awn = (ImageView) findViewById(w.red_tip);
+        this.zP.setSupportNoImage(false);
     }
 
-    public void fj(String str) {
-        if (this.zS != null) {
-            this.zS.d(str, 10, false);
+    public void fg(String str) {
+        if (this.zP != null) {
+            this.zP.d(str, 10, false);
         }
     }
 
     public void ex(int i) {
-        if (this.zS != null) {
-            this.zS.setImageResource(i);
+        if (this.zP != null) {
+            this.zP.setImageResource(i);
         }
     }
 
     public void setTitle(String str) {
-        if (this.Xo != null) {
-            this.Xo.setText(str);
+        if (this.Xl != null) {
+            this.Xl.setText(str);
         }
     }
 
     public void bw(boolean z) {
-        if (this.awq != null) {
+        if (this.awn != null) {
             if (z) {
-                this.awq.setVisibility(0);
+                this.awn.setVisibility(0);
             } else {
-                this.awq.setVisibility(8);
+                this.awn.setVisibility(8);
             }
         }
     }
@@ -66,6 +66,6 @@ public class a extends RelativeLayout {
     public void c(TbPageContext<?> tbPageContext) {
         com.baidu.tbadk.g.a.a(tbPageContext, this);
         bc.i(this, v.addresslist_item_bg);
-        this.zS.setIsNight(TbadkApplication.getInst().getSkinType() == 1);
+        this.zP.setIsNight(TbadkApplication.getInst().getSkinType() == 1);
     }
 }

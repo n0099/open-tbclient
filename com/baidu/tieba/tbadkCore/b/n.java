@@ -13,13 +13,13 @@ import com.baidu.tieba.t;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n extends ClickableSpan {
-    final /* synthetic */ k bYR;
+    final /* synthetic */ k bYQ;
     private Context mContext;
     private String mId;
     private String mName;
 
     public n(k kVar, Context context, String str, String str2) {
-        this.bYR = kVar;
+        this.bYQ = kVar;
         this.mName = null;
         this.mId = null;
         this.mContext = null;

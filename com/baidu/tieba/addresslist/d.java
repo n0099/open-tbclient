@@ -29,69 +29,69 @@ import com.baidu.tieba.z;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends BaseFragment implements com.baidu.adp.widget.ListView.g, com.baidu.tieba.addresslist.b.b, com.baidu.tieba.addresslist.view.a {
-    private com.baidu.tieba.addresslist.c.a aoO;
-    private f aoP;
-    private g aoQ;
-    private h aoR;
-    private i aoS;
-    private long aoT;
-    private AssortView aoU;
-    private View aoV;
-    private BdListView aoW;
-    private com.baidu.tieba.addresslist.a.a aoX;
-    private int aoY;
-    private boolean aoZ;
+    private com.baidu.tieba.addresslist.c.a aoL;
+    private f aoM;
+    private g aoN;
+    private h aoO;
+    private i aoP;
+    private long aoQ;
+    private AssortView aoR;
+    private View aoS;
+    private BdListView aoT;
+    private com.baidu.tieba.addresslist.a.a aoU;
+    private int aoV;
+    private boolean aoW;
     private com.baidu.tbadk.core.c mLayoutMode;
     private View mParent;
     private ak mPullView;
-    private boolean apa = false;
+    private boolean aoX = false;
     private final CustomMessageListener mNetworkChangedMessageListener = new e(this, 2001121);
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         registerListener();
-        this.aoT = 0L;
-        this.aoO = new com.baidu.tieba.addresslist.c.a(getBaseFragmentActivity());
-        this.aoO.setUniqueId(getUniqueId());
-        this.aoZ = com.baidu.tbadk.core.sharedPref.b.oj().getBoolean("show_new_icon_for_new_friend_" + TbadkCoreApplication.getCurrentAccount(), true);
+        this.aoQ = 0L;
+        this.aoL = new com.baidu.tieba.addresslist.c.a(getBaseFragmentActivity());
+        this.aoL.setUniqueId(getUniqueId());
+        this.aoW = com.baidu.tbadk.core.sharedPref.b.oc().getBoolean("show_new_icon_for_new_friend_" + TbadkCoreApplication.getCurrentAccount(), true);
     }
 
     private void registerListener() {
-        this.aoP = new f(this);
+        this.aoM = new f(this);
+        registerListener(this.aoM);
+        this.aoN = new g(this);
+        registerListener(this.aoN);
+        this.aoO = new h(this);
+        registerListener(this.aoO);
+        this.aoP = new i(this);
         registerListener(this.aoP);
-        this.aoQ = new g(this);
-        registerListener(this.aoQ);
-        this.aoR = new h(this);
-        registerListener(this.aoR);
-        this.aoS = new i(this);
-        registerListener(this.aoS);
         registerListener(this.mNetworkChangedMessageListener);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        Br();
+        Bl();
         com.baidu.tbadk.core.i.B(TbadkCoreApplication.m255getInst().getApplicationContext(), "contacts_list");
-        if (this.apa && com.baidu.adp.lib.util.l.isNetOk()) {
-            this.aoW.jJ();
+        if (this.aoX && com.baidu.adp.lib.util.l.isNetOk()) {
+            this.aoT.jC();
         }
-        if (com.baidu.tbadk.core.sharedPref.b.oj().getBoolean("show_new_icon_for_new_friend_" + TbadkCoreApplication.getCurrentAccount(), true)) {
-            com.baidu.tbadk.core.sharedPref.b.oj().putBoolean("show_new_icon_for_new_friend_" + TbadkCoreApplication.getCurrentAccount(), false);
+        if (com.baidu.tbadk.core.sharedPref.b.oc().getBoolean("show_new_icon_for_new_friend_" + TbadkCoreApplication.getCurrentAccount(), true)) {
+            com.baidu.tbadk.core.sharedPref.b.oc().putBoolean("show_new_icon_for_new_friend_" + TbadkCoreApplication.getCurrentAccount(), false);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        Bq();
+        Bk();
     }
 
     @Override // android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.aoO.b(this);
+        this.aoL.b(this);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -106,53 +106,53 @@ public class d extends BaseFragment implements com.baidu.adp.widget.ListView.g, 
     private View b(LayoutInflater layoutInflater) {
         this.mParent = layoutInflater.inflate(x.addresslist_fragment, (ViewGroup) null);
         this.mPullView = new ak(getBaseFragmentActivity().getPageContext());
-        this.aoX = new com.baidu.tieba.addresslist.a.a(TbadkCoreApplication.m255getInst().getApplicationContext(), this.mLayoutMode);
-        this.aoX.bk(this.aoZ);
-        this.aoV = layoutInflater.inflate(x.addresslist_search_layout, (ViewGroup) null, false);
-        this.aoV.setOnClickListener(this);
-        this.aoW = (BdListView) this.mParent.findViewById(w.addresslist_contacts_list);
-        this.aoW.setPullRefresh(this.mPullView);
-        this.aoW.addHeaderView(this.aoV);
-        this.aoW.setAdapter((ListAdapter) this.aoX);
-        this.aoW.setOnItemClickListener(this);
+        this.aoU = new com.baidu.tieba.addresslist.a.a(TbadkCoreApplication.m255getInst().getApplicationContext(), this.mLayoutMode);
+        this.aoU.bk(this.aoW);
+        this.aoS = layoutInflater.inflate(x.addresslist_search_layout, (ViewGroup) null, false);
+        this.aoS.setOnClickListener(this);
+        this.aoT = (BdListView) this.mParent.findViewById(w.addresslist_contacts_list);
+        this.aoT.setPullRefresh(this.mPullView);
+        this.aoT.addHeaderView(this.aoS);
+        this.aoT.setAdapter((ListAdapter) this.aoU);
+        this.aoT.setOnItemClickListener(this);
         this.mPullView.a(this);
-        this.aoU = (AssortView) this.mParent.findViewById(w.addresslist_assortview);
-        this.aoU.setClickable(true);
-        this.aoU.setOnTouchListener(this);
+        this.aoR = (AssortView) this.mParent.findViewById(w.addresslist_assortview);
+        this.aoR.setClickable(true);
+        this.aoR.setOnTouchListener(this);
         return this.mParent;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.aoO.a(this);
-        Bp();
+        this.aoL.a(this);
+        Bj();
     }
 
-    private void Bp() {
-        if (com.baidu.tbadk.core.sharedPref.b.oj().getBoolean("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true)) {
-            this.apa = true;
+    private void Bj() {
+        if (com.baidu.tbadk.core.sharedPref.b.oc().getBoolean("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true)) {
+            this.aoX = true;
         }
-        this.aoO.Bx();
+        this.aoL.Br();
     }
 
-    private void Bq() {
+    private void Bk() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new RequestUnreadPointNum());
     }
 
-    private void Br() {
+    private void Bl() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001189));
     }
 
     private void y(List<com.baidu.tbadk.coreExtra.relationship.b> list) {
-        this.aoX.bk(this.aoZ);
-        this.aoX.setContacts(list);
-        this.aoX.ej(this.aoY);
-        this.aoX.notifyDataSetChanged();
+        this.aoU.bk(this.aoW);
+        this.aoU.setContacts(list);
+        this.aoU.ej(this.aoV);
+        this.aoU.notifyDataSetChanged();
         if (list == null || list.size() == 0) {
-            this.aoU.setVisibility(8);
+            this.aoR.setVisibility(8);
         } else {
-            this.aoU.setVisibility(0);
+            this.aoR.setVisibility(0);
         }
     }
 
@@ -166,22 +166,22 @@ public class d extends BaseFragment implements com.baidu.adp.widget.ListView.g, 
         super.onChangeSkinType(i);
         if (this.mLayoutMode != null) {
             this.mLayoutMode.h(this.mParent);
-            this.mLayoutMode.h(this.aoV);
+            this.mLayoutMode.h(this.aoS);
         }
         this.mPullView.cs(i);
-        this.aoX.notifyDataSetChanged();
-        this.aoU.invalidate();
+        this.aoU.notifyDataSetChanged();
+        this.aoR.invalidate();
     }
 
     @Override // com.baidu.adp.widget.ListView.g
     public void onListPullRefresh(boolean z) {
-        if (Math.abs(System.currentTimeMillis() - this.aoT) <= 30000) {
-            this.aoW.jI();
+        if (Math.abs(System.currentTimeMillis() - this.aoQ) <= 30000) {
+            this.aoT.jB();
         } else if (com.baidu.adp.lib.util.l.isNetOk()) {
-            this.aoT = System.currentTimeMillis();
-            this.aoO.By();
+            this.aoQ = System.currentTimeMillis();
+            this.aoL.Bs();
         } else {
-            this.aoW.jI();
+            this.aoT.jB();
             showToast(z.no_network_guide);
         }
     }
@@ -199,13 +199,13 @@ public class d extends BaseFragment implements com.baidu.adp.widget.ListView.g, 
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         if (i == 0) {
             sendMessage(new CustomMessage(2002001, new NewFriendsActivityConfig(getActivity())));
-            this.aoY = 0;
-            if (this.aoZ) {
-                this.aoZ = false;
+            this.aoV = 0;
+            if (this.aoW) {
+                this.aoW = false;
             }
-            this.aoX.bk(this.aoZ);
-            this.aoX.ej(this.aoY);
-            this.aoX.notifyDataSetChanged();
+            this.aoU.bk(this.aoW);
+            this.aoU.ej(this.aoV);
+            this.aoU.notifyDataSetChanged();
             com.baidu.tbadk.core.i.A(TbadkCoreApplication.m255getInst().getApplicationContext(), "contacts_new");
         } else if (i == 1) {
             sendMessage(new CustomMessage(2002001, new SearchFriendActivityConfig(getActivity())));
@@ -213,7 +213,7 @@ public class d extends BaseFragment implements com.baidu.adp.widget.ListView.g, 
             sendMessage(new CustomMessage(2002001, new PersonGroupActivityConfig(getActivity(), 0, 1)));
             com.baidu.tbadk.core.i.A(TbadkCoreApplication.m255getInst().getApplicationContext(), "contacts_mygp");
         } else {
-            com.baidu.tbadk.coreExtra.relationship.b item = this.aoX.getItem(i);
+            com.baidu.tbadk.coreExtra.relationship.b item = this.aoU.getItem(i);
             if (item != null && item.getUserId() > 0) {
                 if (item.getUserType() == 1) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(getPageContext().getPageActivity(), item.getUserId(), item.getUserName(), item.getUserPortrait(), 0, 4)));
@@ -225,15 +225,15 @@ public class d extends BaseFragment implements com.baidu.adp.widget.ListView.g, 
     }
 
     @Override // com.baidu.tieba.addresslist.view.a
-    public void eP(String str) {
-        int eR;
-        List<com.baidu.tbadk.coreExtra.relationship.b> Bw = this.aoO.Bw();
-        if (Bw != null && Bw.size() != 0 && (eR = this.aoO.eR(str)) >= 0) {
-            this.aoW.setSelection(eR + 5);
+    public void eM(String str) {
+        int eO;
+        List<com.baidu.tbadk.coreExtra.relationship.b> Bq = this.aoL.Bq();
+        if (Bq != null && Bq.size() != 0 && (eO = this.aoL.eO(str)) >= 0) {
+            this.aoT.setSelection(eO + 5);
         }
     }
 
     @Override // com.baidu.tieba.addresslist.view.a
-    public void Bs() {
+    public void Bm() {
     }
 }

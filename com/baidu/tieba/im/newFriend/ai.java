@@ -1,20 +1,20 @@
 package com.baidu.tieba.im.newFriend;
 /* loaded from: classes.dex */
 class ai {
-    private boolean blp;
+    private boolean blo;
 
     public ai(boolean z) {
-        this.blp = z;
+        this.blo = z;
     }
 
     public int hashCode() {
-        return (this.blp ? 1231 : 1237) + 31;
+        return (this.blo ? 1231 : 1237) + 31;
     }
 
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
-        return obj != null && getClass() == obj.getClass() && this.blp == ((ai) obj).blp;
+        return obj != null && getClass() == obj.getClass() && this.blo == ((ai) obj).blo;
     }
 }

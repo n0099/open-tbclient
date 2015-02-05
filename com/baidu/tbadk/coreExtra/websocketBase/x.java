@@ -6,13 +6,13 @@ import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x extends com.baidu.adp.framework.a.j {
-    final /* synthetic */ v WA;
+    final /* synthetic */ v Wx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x(v vVar, int i) {
         super(i);
-        this.WA = vVar;
+        this.Wx = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,21 +25,21 @@ public class x extends com.baidu.adp.framework.a.j {
             ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
             int squencedId = (responseOnlineMessage.getOrginalMessage() == null || !(responseOnlineMessage.getOrginalMessage() instanceof SocketMessage)) ? 0 : ((SocketMessage) responseOnlineMessage.getOrginalMessage()).getSquencedId();
             if (responseOnlineMessage.getError() == 0) {
-                this.WA.uA();
+                this.Wx.uu();
                 int cmd = socketResponsedMessage.getCmd();
                 StringBuilder sb = new StringBuilder("online succ. retry count-");
-                i = this.WA.Ww;
+                i = this.Wx.Wt;
                 com.baidu.adp.framework.client.socket.m.a("TbOnline", cmd, squencedId, "online_succ", 0, sb.append(i).toString());
                 return socketResponsedMessage;
             }
-            this.WA.a(socketResponsedMessage.getCmd(), responseOnlineMessage.getError(), responseOnlineMessage.getErrorString());
+            this.Wx.a(socketResponsedMessage.getCmd(), responseOnlineMessage.getError(), responseOnlineMessage.getErrorString());
             int cmd2 = socketResponsedMessage.getCmd();
             StringBuilder sb2 = new StringBuilder("online failed. count-");
-            i2 = this.WA.Ww;
+            i2 = this.Wx.Wt;
             com.baidu.adp.framework.client.socket.m.a("TbOnline", cmd2, 0, "online_failed", 0, sb2.append(i2).toString());
             return null;
         }
-        this.WA.a(socketResponsedMessage.getCmd(), -1, null);
+        this.Wx.a(socketResponsedMessage.getCmd(), -1, null);
         return null;
     }
 }

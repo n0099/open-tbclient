@@ -9,15 +9,15 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Integer, Integer, String> {
-    private ad CX;
-    final /* synthetic */ a RL;
-    private boolean Rt;
+    private ad CU;
+    final /* synthetic */ a RI;
+    private boolean Rq;
     private String portrait;
     private String toUid;
 
     private b(a aVar) {
-        this.RL = aVar;
-        this.CX = null;
+        this.RI = aVar;
+        this.CU = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -34,7 +34,7 @@ public class b extends BdAsyncTask<Integer, Integer, String> {
     }
 
     public void aw(boolean z) {
-        this.Rt = z;
+        this.Rq = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,15 +44,15 @@ public class b extends BdAsyncTask<Integer, Integer, String> {
     public String doInBackground(Integer... numArr) {
         try {
             if (this.portrait != null) {
-                this.CX = new ad();
-                if (this.Rt) {
-                    this.CX.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FOLLOW_ADDRESS);
+                this.CU = new ad();
+                if (this.Rq) {
+                    this.CU.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FOLLOW_ADDRESS);
                 } else {
-                    this.CX.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFOLLOW_ADDRESS);
+                    this.CU.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFOLLOW_ADDRESS);
                 }
-                this.CX.o(com.baidu.tbadk.core.frameworkData.a.PORTRAIT, this.portrait);
-                this.CX.oZ().qg().mIsNeedTbs = true;
-                this.CX.oy();
+                this.CU.o(com.baidu.tbadk.core.frameworkData.a.PORTRAIT, this.portrait);
+                this.CU.oS().pZ().mIsNeedTbs = true;
+                this.CU.or();
                 return null;
             }
             return null;
@@ -67,12 +67,12 @@ public class b extends BdAsyncTask<Integer, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         super.onPostExecute((b) str);
-        this.RL.RK = null;
-        if (this.CX != null) {
+        this.RI.RH = null;
+        if (this.CU != null) {
             com.baidu.tbadk.coreExtra.message.a aVar = new com.baidu.tbadk.coreExtra.message.a();
-            aVar.Rs = this.CX.oZ().qh().ma();
-            aVar.errorString = this.CX.getErrorString();
-            aVar.Rt = this.Rt;
+            aVar.Rp = this.CU.oS().qa().lT();
+            aVar.errorString = this.CU.getErrorString();
+            aVar.Rq = this.Rq;
             aVar.toUid = this.toUid;
             MessageManager.getInstance().dispatchResponsedMessageToUI(new UpdateAttentionMessage(aVar));
         }
@@ -83,14 +83,14 @@ public class b extends BdAsyncTask<Integer, Integer, String> {
         com.baidu.adp.base.i iVar;
         com.baidu.adp.base.i iVar2;
         super.cancel(true);
-        if (this.CX != null) {
-            this.CX.dJ();
-            this.CX = null;
+        if (this.CU != null) {
+            this.CU.dJ();
+            this.CU = null;
         }
-        this.RL.RK = null;
-        iVar = this.RL.mLoadDataCallBack;
+        this.RI.RH = null;
+        iVar = this.RI.mLoadDataCallBack;
         if (iVar != null) {
-            iVar2 = this.RL.mLoadDataCallBack;
+            iVar2 = this.RI.mLoadDataCallBack;
             iVar2.c(false);
         }
     }

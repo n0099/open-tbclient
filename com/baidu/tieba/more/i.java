@@ -8,12 +8,12 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask<Object, Integer, String> {
-    private com.baidu.tbadk.core.util.ad AR = null;
-    final /* synthetic */ AppsActivity bvh;
+    private com.baidu.tbadk.core.util.ad AO = null;
+    final /* synthetic */ AppsActivity bvg;
     private String url;
 
     public i(AppsActivity appsActivity, String str) {
-        this.bvh = appsActivity;
+        this.bvg = appsActivity;
         this.url = null;
         this.url = str;
     }
@@ -24,11 +24,11 @@ public class i extends BdAsyncTask<Object, Integer, String> {
         ProgressBar progressBar;
         LinearLayout linearLayout;
         BaseWebView baseWebView;
-        progressBar = this.bvh.bvf;
+        progressBar = this.bvg.bve;
         progressBar.setVisibility(0);
-        linearLayout = this.bvh.bve;
+        linearLayout = this.bvg.bvd;
         linearLayout.setVisibility(8);
-        baseWebView = this.bvh.mWebView;
+        baseWebView = this.bvg.mWebView;
         baseWebView.setVisibility(0);
     }
 
@@ -40,21 +40,21 @@ public class i extends BdAsyncTask<Object, Integer, String> {
         if (this.url == null) {
             return null;
         }
-        this.AR = new com.baidu.tbadk.core.util.ad(this.url);
-        this.AR.oZ().qg().qj().KR = false;
-        this.AR.o("client", "android");
-        return this.AR.oy();
+        this.AO = new com.baidu.tbadk.core.util.ad(this.url);
+        this.AO.oS().pZ().qc().KO = false;
+        this.AO.o("client", "android");
+        return this.AO.or();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        if (this.AR != null) {
-            this.AR.dJ();
+        if (this.AO != null) {
+            this.AO.dJ();
         }
-        progressBar = this.bvh.bvf;
+        progressBar = this.bvg.bve;
         progressBar.setVisibility(8);
-        this.bvh.bvd = null;
+        this.bvg.bvc = null;
         super.cancel(true);
     }
 
@@ -63,31 +63,31 @@ public class i extends BdAsyncTask<Object, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         ProgressBar progressBar;
-        boolean UT;
+        boolean UO;
         BaseWebView baseWebView;
         BaseWebView baseWebView2;
         LinearLayout linearLayout;
         BaseWebView baseWebView3;
-        progressBar = this.bvh.bvf;
+        progressBar = this.bvg.bve;
         progressBar.setVisibility(8);
-        if (this.AR != null && this.AR.pc() && str != null && str.length() > 0) {
+        if (this.AO != null && this.AO.oV() && str != null && str.length() > 0) {
             com.baidu.adp.lib.g.l.ek().c(new j(this, str));
-            com.baidu.tbadk.core.sharedPref.b.oj().putLong("app_inverval", System.currentTimeMillis());
-            baseWebView3 = this.bvh.mWebView;
+            com.baidu.tbadk.core.sharedPref.b.oc().putLong("app_inverval", System.currentTimeMillis());
+            baseWebView3 = this.bvg.mWebView;
             baseWebView3.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, "text/html", "utf-8", "");
             return;
         }
-        UT = this.bvh.UT();
-        if (!UT && str == null) {
-            baseWebView2 = this.bvh.mWebView;
+        UO = this.bvg.UO();
+        if (!UO && str == null) {
+            baseWebView2 = this.bvg.mWebView;
             baseWebView2.setVisibility(8);
-            linearLayout = this.bvh.bve;
+            linearLayout = this.bvg.bvd;
             linearLayout.setVisibility(0);
-            this.bvh.showToast(this.bvh.getPageContext().getString(com.baidu.tieba.z.neterror));
+            this.bvg.showToast(this.bvg.getPageContext().getString(com.baidu.tieba.z.neterror));
             return;
         }
-        String string = this.bvh.getPageContext().getString(com.baidu.tieba.z.server_404);
-        baseWebView = this.bvh.mWebView;
+        String string = this.bvg.getPageContext().getString(com.baidu.tieba.z.server_404);
+        baseWebView = this.bvg.mWebView;
         baseWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, string, "text/html", "utf-8", "");
     }
 }

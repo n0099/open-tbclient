@@ -8,37 +8,37 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a sA = null;
-    private HashMap<String, Integer> sz = new HashMap<>();
+    private static volatile a sx = null;
+    private HashMap<String, Integer> sw = new HashMap<>();
 
-    public static synchronized a hU() {
+    public static synchronized a hN() {
         a aVar;
         synchronized (a.class) {
-            if (sA == null) {
+            if (sx == null) {
                 synchronized (a.class) {
-                    if (sA == null) {
-                        sA = new a();
+                    if (sx == null) {
+                        sx = new a();
                     }
                 }
             }
-            aVar = sA;
+            aVar = sx;
         }
         return aVar;
     }
 
-    public void aY(String str) {
+    public void aV(String str) {
         if (str != null) {
-            Integer num = this.sz.get(str);
+            Integer num = this.sw.get(str);
             if (num == null) {
                 num = 0;
             }
-            this.sz.put(str, Integer.valueOf(num.intValue() + 1));
+            this.sw.put(str, Integer.valueOf(num.intValue() + 1));
         }
     }
 
     public void H(String str, String str2) {
         if (str != null && str2 != null) {
-            aY(str);
+            aV(str);
         }
     }
 
@@ -90,24 +90,24 @@ public class a {
         f.eq().save();
     }
 
-    public void hV() {
-        if (this.sz.size() != 0) {
+    public void hO() {
+        if (this.sw.size() != 0) {
             q ed = ed();
             a(ed);
             f.eq().a("pluginproxy", ed);
         }
     }
 
-    public void aZ(String str) {
+    public void aW(String str) {
         f.eq().eventStat(BdBaseApplication.getInst(), str, null, 1, new Object[0]);
     }
 
     private void a(q qVar) {
         if (qVar != null) {
-            for (Map.Entry<String, Integer> entry : this.sz.entrySet()) {
+            for (Map.Entry<String, Integer> entry : this.sw.entrySet()) {
                 qVar.r(String.valueOf(entry.getKey()) + "_count", String.valueOf(entry.getValue()));
             }
-            this.sz.clear();
+            this.sw.clear();
         }
     }
 

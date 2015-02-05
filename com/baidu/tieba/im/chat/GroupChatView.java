@@ -40,13 +40,13 @@ public class GroupChatView extends CommonGroupMsglistView {
     }
 
     public void showInfoDot() {
-        if (!com.baidu.tbadk.core.sharedPref.b.oj().getBoolean("has_shown_group_btn_dot", false)) {
+        if (!com.baidu.tbadk.core.sharedPref.b.oc().getBoolean("has_shown_group_btn_dot", false)) {
             this.mGroupInfoDot.setVisibility(0);
         }
     }
 
     public void hideInfoDot() {
         this.mGroupInfoDot.setVisibility(8);
-        com.baidu.tbadk.core.sharedPref.b.oj().putBoolean("has_shown_group_btn_dot", true);
+        com.baidu.tbadk.core.sharedPref.b.oc().putBoolean("has_shown_group_btn_dot", true);
     }
 }

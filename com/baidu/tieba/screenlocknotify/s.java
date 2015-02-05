@@ -6,48 +6,48 @@ import android.os.PowerManager;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class s {
-    private KeyguardManager bNY;
-    private PowerManager bOr;
-    private PowerManager.WakeLock bOs;
-    private KeyguardManager.KeyguardLock bOt;
+    private KeyguardManager bNX;
+    private PowerManager bOq;
+    private PowerManager.WakeLock bOr;
+    private KeyguardManager.KeyguardLock bOs;
     private Context mContext;
 
     public s() {
         try {
             this.mContext = TbadkApplication.getInst().getApp();
-            this.bOr = (PowerManager) this.mContext.getSystemService("power");
-            this.bOs = this.bOr.newWakeLock(268435462, "ScreenLockNotify");
-            this.bOs.setReferenceCounted(false);
-            this.bNY = (KeyguardManager) this.mContext.getSystemService("keyguard");
-            this.bOt = this.bNY.newKeyguardLock("ScreenLockUtils");
+            this.bOq = (PowerManager) this.mContext.getSystemService("power");
+            this.bOr = this.bOq.newWakeLock(268435462, "ScreenLockNotify");
+            this.bOr.setReferenceCounted(false);
+            this.bNX = (KeyguardManager) this.mContext.getSystemService("keyguard");
+            this.bOs = this.bNX.newKeyguardLock("ScreenLockUtils");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void acM() {
+    public void acH() {
         try {
-            this.bOt.reenableKeyguard();
-            f.acG().bOg++;
+            this.bOs.reenableKeyguard();
+            f.acB().bOf++;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (this.bOs != null) {
-            this.bOs.release();
-            this.bOs = null;
+        if (this.bOr != null) {
+            this.bOr.release();
+            this.bOr = null;
         }
     }
 
-    public void acN() {
-        if (this.bOs == null) {
-            this.bOs = this.bOr.newWakeLock(268435462, "ScreenLockNotify");
-            this.bOs.setReferenceCounted(false);
+    public void acI() {
+        if (this.bOr == null) {
+            this.bOr = this.bOq.newWakeLock(268435462, "ScreenLockNotify");
+            this.bOr.setReferenceCounted(false);
         }
-        if (this.bOs != null) {
-            this.bOs.acquire(10000L);
-            this.bOt.disableKeyguard();
-            f.acG().bOd = 0;
-            f.acG().bOh++;
+        if (this.bOr != null) {
+            this.bOr.acquire(10000L);
+            this.bOs.disableKeyguard();
+            f.acB().bOc = 0;
+            f.acB().bOg++;
         }
     }
 }

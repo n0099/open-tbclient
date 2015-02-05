@@ -37,9 +37,9 @@ public class TbJsBridge {
         com.baidu.tbadk.coreExtra.share.f fVar = new com.baidu.tbadk.coreExtra.share.f();
         fVar.title = str;
         fVar.content = str2;
-        fVar.Tq = str4;
+        fVar.Tn = str4;
         if (!bf.isEmpty(str3)) {
-            fVar.Tr = Uri.parse(str3);
+            fVar.To = Uri.parse(str3);
         }
         com.baidu.tbadk.coreExtra.share.d dVar = new com.baidu.tbadk.coreExtra.share.d(this.mActivity);
         dVar.a(fVar, true);

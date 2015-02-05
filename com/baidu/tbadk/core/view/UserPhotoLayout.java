@@ -59,9 +59,9 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         this.mItemSize = (int) this.mContext.getResources().getDimension(com.baidu.tieba.u.ds60);
         if (this.mContext instanceof ay) {
             ay ayVar = (ay) this.mContext;
-            this.mUserPhotoPool = ayVar.qS();
+            this.mUserPhotoPool = ayVar.qM();
             if (ayVar.getListView() != null && this.mTbRecyclerListener == null) {
-                this.mTbRecyclerListener = new ax(ayVar.qR());
+                this.mTbRecyclerListener = new ax(ayVar.qL());
                 ayVar.getListView().setRecyclerListener(this.mTbRecyclerListener);
             }
         }

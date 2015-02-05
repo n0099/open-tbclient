@@ -3,7 +3,7 @@ package com.baidu.tieba.tbadkCore.b;
 import tbclient.GoodsInfo;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.lib.a.b.a.a.i {
-    public final int bYr;
+    public final int bYq;
     public final int id;
     public final String pop_window_text;
     public final String thread_pic;
@@ -18,7 +18,7 @@ public class b extends com.baidu.adp.lib.a.b.a.a.i {
         this.thread_title = null;
         this.thread_pic = null;
         this.pop_window_text = null;
-        this.bYr = 0;
+        this.bYq = 0;
     }
 
     public b(GoodsInfo goodsInfo) {
@@ -29,7 +29,7 @@ public class b extends com.baidu.adp.lib.a.b.a.a.i {
             this.thread_title = null;
             this.thread_pic = null;
             this.pop_window_text = null;
-            this.bYr = 0;
+            this.bYq = 0;
             return;
         }
         this.id = goodsInfo.id.intValue();
@@ -38,6 +38,6 @@ public class b extends com.baidu.adp.lib.a.b.a.a.i {
         this.thread_title = goodsInfo.thread_title;
         this.thread_pic = goodsInfo.thread_pic;
         this.pop_window_text = goodsInfo.pop_window_text;
-        this.bYr = goodsInfo.goods_style.intValue();
+        this.bYq = goodsInfo.goods_style.intValue();
     }
 }

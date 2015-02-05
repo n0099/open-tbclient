@@ -4,13 +4,13 @@ import com.baidu.tbadk.core.data.UserData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq extends com.baidu.tieba.im.h<Integer> {
-    final /* synthetic */ ap bav;
-    private final /* synthetic */ UserData baw;
+    final /* synthetic */ ap bau;
+    private final /* synthetic */ UserData bav;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(ap apVar, UserData userData) {
-        this.bav = apVar;
-        this.baw = userData;
+        this.bau = apVar;
+        this.bav = userData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,7 +18,7 @@ public class aq extends com.baidu.tieba.im.h<Integer> {
     @Override // com.baidu.tieba.im.h
     public Integer doInBackground() {
         int c;
-        c = this.bav.c(this.baw);
+        c = this.bau.c(this.bav);
         return Integer.valueOf(c);
     }
 }

@@ -24,7 +24,7 @@ import tbclient.Voice;
 /* loaded from: classes.dex */
 public class FriendFeedThreadData extends a implements Serializable {
     private static final long serialVersionUID = -8881889728582490817L;
-    private transient SpannableString EM;
+    private transient SpannableString EJ;
     private String abstract_text;
     private String authorId;
     private String fid;
@@ -55,7 +55,7 @@ public class FriendFeedThreadData extends a implements Serializable {
     }
 
     public SpannableString getSpan_str() {
-        return this.EM;
+        return this.EJ;
     }
 
     public String getFname() {
@@ -270,7 +270,7 @@ public class FriendFeedThreadData extends a implements Serializable {
             } else {
                 spannableString = new SpannableString(this.title);
             }
-            this.EM = spannableString;
+            this.EJ = spannableString;
         }
     }
 

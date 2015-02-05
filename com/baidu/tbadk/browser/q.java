@@ -8,11 +8,11 @@ import android.widget.ProgressBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends WebViewClient {
-    final /* synthetic */ WebTbActivity By;
+    final /* synthetic */ WebTbActivity Bv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(WebTbActivity webTbActivity) {
-        this.By = webTbActivity;
+        this.Bv = webTbActivity;
     }
 
     @Override // android.webkit.WebViewClient
@@ -24,23 +24,23 @@ public class q extends WebViewClient {
         ImageView imageView4;
         ImageView imageView5;
         super.onPageFinished(webView, str);
-        if (this.By.mWebView.canGoBack()) {
-            imageView5 = this.By.Bo;
+        if (this.Bv.mWebView.canGoBack()) {
+            imageView5 = this.Bv.Bl;
             imageView5.setEnabled(true);
         } else {
-            imageView = this.By.Bo;
+            imageView = this.Bv.Bl;
             imageView.setEnabled(false);
         }
-        if (this.By.mWebView.canGoForward()) {
-            imageView4 = this.By.Bp;
+        if (this.Bv.mWebView.canGoForward()) {
+            imageView4 = this.Bv.Bm;
             imageView4.setEnabled(true);
         } else {
-            imageView2 = this.By.Bp;
+            imageView2 = this.Bv.Bm;
             imageView2.setEnabled(false);
         }
-        progressBar = this.By.Bs;
+        progressBar = this.Bv.Bp;
         progressBar.setVisibility(8);
-        imageView3 = this.By.Bq;
+        imageView3 = this.Bv.Bn;
         imageView3.setVisibility(0);
     }
 
@@ -53,29 +53,29 @@ public class q extends WebViewClient {
         ImageView imageView4;
         ImageView imageView5;
         super.onPageStarted(webView, str, bitmap);
-        if (this.By.mWebView.canGoBack()) {
-            imageView5 = this.By.Bo;
+        if (this.Bv.mWebView.canGoBack()) {
+            imageView5 = this.Bv.Bl;
             imageView5.setEnabled(true);
         } else {
-            imageView = this.By.Bo;
+            imageView = this.Bv.Bl;
             imageView.setEnabled(false);
         }
-        if (this.By.mWebView.canGoForward()) {
-            imageView4 = this.By.Bp;
+        if (this.Bv.mWebView.canGoForward()) {
+            imageView4 = this.Bv.Bm;
             imageView4.setEnabled(true);
         } else {
-            imageView2 = this.By.Bp;
+            imageView2 = this.Bv.Bm;
             imageView2.setEnabled(false);
         }
-        progressBar = this.By.Bs;
+        progressBar = this.Bv.Bp;
         progressBar.setVisibility(0);
-        imageView3 = this.By.Bq;
+        imageView3 = this.Bv.Bn;
         imageView3.setVisibility(4);
     }
 
     @Override // android.webkit.WebViewClient
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        if ((this.By.Bx == null || !this.By.Bx.bH(str)) && !com.baidu.tbadk.util.o.a(this.By, str)) {
+        if ((this.Bv.Bu == null || !this.Bv.Bu.bE(str)) && !com.baidu.tbadk.util.o.a(this.Bv, str)) {
             return super.shouldOverrideUrlLoading(webView, str);
         }
         return true;

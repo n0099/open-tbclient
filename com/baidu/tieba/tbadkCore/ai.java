@@ -5,11 +5,11 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai extends Handler {
-    final /* synthetic */ ah bUX;
+    final /* synthetic */ ah bUW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(ah ahVar) {
-        this.bUX = ahVar;
+        this.bUW = ahVar;
     }
 
     @Override // android.os.Handler
@@ -18,20 +18,20 @@ public class ai extends Handler {
         aj ajVar;
         aj ajVar2;
         if (message.what == 2) {
-            this.bUX.count = 0;
-            this.bUX.aNT = 0L;
-            this.bUX.aNU = 0L;
+            this.bUW.count = 0;
+            this.bUW.aNS = 0L;
+            this.bUW.aNT = 0L;
         } else if (message.what == 1) {
-            i = this.bUX.count;
+            i = this.bUW.count;
             if (i == 1) {
-                ajVar = this.bUX.bUW;
+                ajVar = this.bUW.bUV;
                 if (ajVar != null) {
-                    ajVar2 = this.bUX.bUW;
-                    ajVar2.Ho();
+                    ajVar2 = this.bUW.bUV;
+                    ajVar2.Hi();
                 }
-                this.bUX.count = 0;
-                this.bUX.aNT = 0L;
-                this.bUX.aNU = 0L;
+                this.bUW.count = 0;
+                this.bUW.aNS = 0L;
+                this.bUW.aNT = 0L;
             }
         }
     }

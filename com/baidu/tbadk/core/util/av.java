@@ -23,20 +23,20 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 /* loaded from: classes.dex */
 public class av {
-    private static av Jr;
-    private Drawable[] Jp;
-    private PorterDuffColorFilter Jq = new PorterDuffColorFilter(-5000269, PorterDuff.Mode.MULTIPLY);
+    private static av Jo;
+    private Drawable[] Jm;
+    private PorterDuffColorFilter Jn = new PorterDuffColorFilter(-5000269, PorterDuff.Mode.MULTIPLY);
 
     private av() {
     }
 
-    public static av pv() {
+    public static av po() {
         synchronized (av.class) {
-            if (Jr == null) {
-                Jr = new av();
+            if (Jo == null) {
+                Jo = new av();
             }
         }
-        return Jr;
+        return Jo;
     }
 
     public void j(String str, String str2, String str3) {
@@ -44,13 +44,13 @@ public class av {
             com.baidu.adp.lib.g.l.ek().b(new aw(this));
             return;
         }
-        String string = com.baidu.tbadk.core.sharedPref.b.oj().getString("pull_image_url", "");
+        String string = com.baidu.tbadk.core.sharedPref.b.oc().getString("pull_image_url", "");
         int i = com.baidu.adp.lib.g.c.toInt(str3, 0);
         if (str.equals(string)) {
             if (ca(i)) {
-                pw();
+                pp();
                 return;
-            } else if (pA()) {
+            } else if (pt()) {
                 com.baidu.adp.lib.g.l.ek().b(new ax(this, str2, i, str));
                 return;
             } else {
@@ -61,17 +61,17 @@ public class av {
         c(str, str2, com.baidu.adp.lib.g.c.toInt(str3, 0));
     }
 
-    public void pw() {
+    public void pp() {
         com.baidu.adp.lib.g.l.ek().b(new ay(this));
     }
 
     public AnimationDrawable bZ(int i) {
         Drawable[] drawableArr;
-        if (this.Jp != null) {
+        if (this.Jm != null) {
             boolean z = i == 1;
             AnimationDrawable animationDrawable = new AnimationDrawable();
-            animationDrawable.setColorFilter(z ? this.Jq : null);
-            for (Drawable drawable : this.Jp) {
+            animationDrawable.setColorFilter(z ? this.Jn : null);
+            for (Drawable drawable : this.Jm) {
                 if (drawable != null) {
                     animationDrawable.addFrame(drawable, 100);
                 }
@@ -82,23 +82,23 @@ public class av {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void px() {
+    public void pq() {
         boolean z = false;
-        String string = com.baidu.tbadk.core.sharedPref.b.oj().getString("pull_image_url", "");
-        int i = com.baidu.tbadk.core.sharedPref.b.oj().getInt("pull_image_num", 0);
+        String string = com.baidu.tbadk.core.sharedPref.b.oc().getString("pull_image_url", "");
+        int i = com.baidu.tbadk.core.sharedPref.b.oc().getInt("pull_image_num", 0);
         if (!TextUtils.isEmpty(string)) {
             if (i > 0 && ca(i)) {
-                this.Jp = new Drawable[i];
-                File py = py();
-                if (py != null) {
-                    File[] listFiles = py.listFiles();
+                this.Jm = new Drawable[i];
+                File pr = pr();
+                if (pr != null) {
+                    File[] listFiles = pr.listFiles();
                     for (int i2 = 1; i2 <= i; i2++) {
-                        this.Jp[i2 - 1] = a(listFiles, String.valueOf(i2) + ".");
+                        this.Jm[i2 - 1] = a(listFiles, String.valueOf(i2) + ".");
                     }
                 }
             }
-            if (this.Jp != null) {
-                Drawable[] drawableArr = this.Jp;
+            if (this.Jm != null) {
+                Drawable[] drawableArr = this.Jm;
                 int length = drawableArr.length;
                 int i3 = 0;
                 while (true) {
@@ -113,10 +113,10 @@ public class av {
                 }
             }
             if (!z) {
-                this.Jp = null;
+                this.Jm = null;
             }
         } else {
-            this.Jp = null;
+            this.Jm = null;
         }
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016203, true));
     }
@@ -153,17 +153,17 @@ public class av {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean ca(int i) {
-        File py = py();
-        if (py == null) {
+        File pr = pr();
+        if (pr == null) {
             return false;
         }
-        File[] listFiles = py.listFiles();
+        File[] listFiles = pr.listFiles();
         if (listFiles == null || listFiles.length < i) {
             return false;
         }
         int i2 = 0;
         for (int i3 = 1; i3 <= i; i3++) {
-            if (b(py, String.valueOf(i3) + ".")) {
+            if (b(pr, String.valueOf(i3) + ".")) {
                 i2++;
             }
         }
@@ -180,12 +180,12 @@ public class av {
         return false;
     }
 
-    private File py() {
+    private File pr() {
         return p(new File(TbadkCoreApplication.m255getInst().getFilesDir(), "pullImages" + File.separator + TbConfig.IMAGE_CACHE_DIR_NAME));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public File pz() {
+    public File ps() {
         File file = new File(TbadkCoreApplication.m255getInst().getFilesDir(), "pullImages" + File.separator + "download");
         p(file);
         if (file.exists() && file.isDirectory()) {
@@ -194,9 +194,9 @@ public class av {
         return null;
     }
 
-    private boolean pA() {
-        File pz = pz();
-        return pz != null && pz.exists() && pz.isFile() && pz.length() > 0;
+    private boolean pt() {
+        File ps = ps();
+        return ps != null && ps.exists() && ps.isFile() && ps.length() > 0;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [348=4] */
@@ -248,22 +248,22 @@ public class av {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(String str, String str2, int i) {
-        pC();
-        com.baidu.tbadk.core.sharedPref.b.oj().remove("pull_image_url");
-        com.baidu.tbadk.core.sharedPref.b.oj().remove("pull_image_num");
-        cD(str);
-        File pz = pz();
-        if (c(pz, str2)) {
-            com.baidu.tbadk.core.sharedPref.b.oj().putString("pull_image_url", str);
-            com.baidu.tbadk.core.sharedPref.b.oj().putInt("pull_image_num", i);
-            o(pz);
-            px();
+        pv();
+        com.baidu.tbadk.core.sharedPref.b.oc().remove("pull_image_url");
+        com.baidu.tbadk.core.sharedPref.b.oc().remove("pull_image_num");
+        cA(str);
+        File ps = ps();
+        if (c(ps, str2)) {
+            com.baidu.tbadk.core.sharedPref.b.oc().putString("pull_image_url", str);
+            com.baidu.tbadk.core.sharedPref.b.oc().putInt("pull_image_num", i);
+            o(ps);
+            pq();
             return;
         }
-        deleteDir(pz);
+        deleteDir(ps);
     }
 
-    private void cD(String str) {
+    private void cA(String str) {
         DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
         try {
             HttpResponse execute = defaultHttpClient.execute(new HttpGet(str));
@@ -323,26 +323,26 @@ public class av {
     }
 
     private void a(String str, InputStream inputStream) {
-        File py = py();
-        if (py != null && inputStream != null) {
-            c(inputStream, new File(py, str));
+        File pr = pr();
+        if (pr != null && inputStream != null) {
+            c(inputStream, new File(pr, str));
         }
     }
 
     private void h(InputStream inputStream) {
-        c(inputStream, pz());
+        c(inputStream, ps());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pB() {
-        File pz = pz();
-        if (pz != null && pz.isFile() && pz.exists()) {
-            pz.delete();
+    public void pu() {
+        File ps = ps();
+        if (ps != null && ps.isFile() && ps.exists()) {
+            ps.delete();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pC() {
+    public void pv() {
         deleteDir(new File(TbadkCoreApplication.m255getInst().getFilesDir(), "pullImages"));
     }
 

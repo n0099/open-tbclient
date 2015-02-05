@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 class ak implements x {
-    final /* synthetic */ ah ari;
+    final /* synthetic */ ah arf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(ah ahVar) {
-        this.ari = ahVar;
+        this.arf = ahVar;
     }
 
     @Override // com.baidu.tieba.album.x
@@ -19,21 +19,21 @@ class ak implements x {
         n nVar3;
         AlbumActivity albumActivity;
         AlbumActivity albumActivity2;
-        nVar = this.ari.apH;
+        nVar = this.arf.apE;
         int maxImagesAllowed = nVar.getMaxImagesAllowed();
-        nVar2 = this.ari.apH;
+        nVar2 = this.arf.apE;
         if (nVar2.size() < maxImagesAllowed) {
-            nVar3 = this.ari.apH;
-            String BS = nVar3.BS();
-            if (!TextUtils.isEmpty(BS)) {
-                albumActivity2 = this.ari.apM;
-                bb.a(albumActivity2.getPageContext(), BS);
+            nVar3 = this.arf.apE;
+            String BM = nVar3.BM();
+            if (!TextUtils.isEmpty(BM)) {
+                albumActivity2 = this.arf.apJ;
+                bb.a(albumActivity2.getPageContext(), BM);
                 return;
             }
-            albumActivity = this.ari.apM;
+            albumActivity = this.arf.apJ;
             bb.a(albumActivity.getPageContext());
             return;
         }
-        this.ari.showToast(String.format(this.ari.getPageContext().getString(com.baidu.tieba.z.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
+        this.arf.showToast(String.format(this.arf.getPageContext().getString(com.baidu.tieba.z.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
     }
 }

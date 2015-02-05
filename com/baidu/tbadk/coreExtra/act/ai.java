@@ -7,13 +7,13 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai extends BdAsyncTask<String, Integer, Bitmap> {
-    com.baidu.tbadk.core.util.ad AR;
-    final /* synthetic */ Login2Activity QG;
+    com.baidu.tbadk.core.util.ad AO;
+    final /* synthetic */ Login2Activity QD;
     private volatile boolean kN;
 
     private ai(Login2Activity login2Activity) {
-        this.QG = login2Activity;
-        this.AR = null;
+        this.QD = login2Activity;
+        this.AO = null;
         this.kN = false;
     }
 
@@ -24,10 +24,10 @@ public class ai extends BdAsyncTask<String, Integer, Bitmap> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.QG.QE = null;
-        if (this.AR != null) {
-            this.AR.dJ();
-            this.AR = null;
+        this.QD.QB = null;
+        if (this.AO != null) {
+            this.AO.dJ();
+            this.AO = null;
         }
         this.kN = true;
         super.cancel(true);
@@ -37,7 +37,7 @@ public class ai extends BdAsyncTask<String, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         ImageView imageView;
-        imageView = this.QG.Qi;
+        imageView = this.QD.Qf;
         imageView.setImageDrawable(null);
     }
 
@@ -50,8 +50,8 @@ public class ai extends BdAsyncTask<String, Integer, Bitmap> {
         if (str == null || str.length() <= 0 || this.kN) {
             return null;
         }
-        this.AR = new com.baidu.tbadk.core.util.ad(str);
-        return com.baidu.tbadk.core.util.d.v(this.AR.oz());
+        this.AO = new com.baidu.tbadk.core.util.ad(str);
+        return com.baidu.tbadk.core.util.d.v(this.AO.os());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,15 +61,15 @@ public class ai extends BdAsyncTask<String, Integer, Bitmap> {
         ImageView imageView;
         ProgressBar progressBar;
         ImageView imageView2;
-        this.QG.QE = null;
+        this.QD.QB = null;
         if (bitmap != null) {
-            imageView2 = this.QG.Qi;
+            imageView2 = this.QD.Qf;
             imageView2.setImageBitmap(bitmap);
         } else {
-            imageView = this.QG.Qi;
+            imageView = this.QD.Qf;
             imageView.setImageResource(com.baidu.tieba.v.background);
         }
-        progressBar = this.QG.mProgressBar;
+        progressBar = this.QD.mProgressBar;
         progressBar.setVisibility(8);
         super.onPostExecute((ai) bitmap);
     }

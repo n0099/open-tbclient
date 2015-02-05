@@ -4,7 +4,7 @@ import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 public class a {
     private String albumId;
-    private ImageFileInfo apL;
+    private ImageFileInfo apI;
     private String count;
     private String name;
 
@@ -12,7 +12,7 @@ public class a {
         return this.albumId;
     }
 
-    public void eT(String str) {
+    public void eQ(String str) {
         this.albumId = str;
     }
 
@@ -24,19 +24,19 @@ public class a {
         this.name = str;
     }
 
-    public String BF() {
+    public String Bz() {
         return this.count;
     }
 
-    public void eU(String str) {
+    public void eR(String str) {
         this.count = str;
     }
 
-    public ImageFileInfo BG() {
-        return this.apL;
+    public ImageFileInfo BA() {
+        return this.apI;
     }
 
     public void d(ImageFileInfo imageFileInfo) {
-        this.apL = imageFileInfo;
+        this.apI = imageFileInfo;
     }
 }

@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.bc;
 /* loaded from: classes.dex */
 public class PbListView extends com.baidu.adp.widget.ListView.i {
-    private LinearLayout MC;
-    private String NI;
-    private ImageView NJ;
-    private int NK;
+    private LinearLayout Mz;
+    private String NF;
+    private ImageView NG;
+    private int NH;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
     private ProgressBar mProgressBar;
@@ -26,7 +26,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.i {
         ICON_DOWN_WARD,
         ICON_UP_WARD;
 
-        /* JADX DEBUG: Replace access to removed values field (NL) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (NI) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static IconType[] valuesCustom() {
             IconType[] valuesCustom = values();
@@ -37,8 +37,8 @@ public class PbListView extends com.baidu.adp.widget.ListView.i {
         }
     }
 
-    public String qI() {
-        return this.NI;
+    public String qC() {
+        return this.NF;
     }
 
     public PbListView(Context context) {
@@ -47,11 +47,11 @@ public class PbListView extends com.baidu.adp.widget.ListView.i {
         this.mProgressBar = null;
         this.mOnClickListener = null;
         this.mRoot = null;
-        this.NI = null;
-        this.MC = null;
+        this.NF = null;
+        this.Mz = null;
         this.mTextColor = 0;
-        this.NJ = null;
-        this.NK = 0;
+        this.NG = null;
+        this.NH = 0;
         this.mContext = context;
     }
 
@@ -60,17 +60,17 @@ public class PbListView extends com.baidu.adp.widget.ListView.i {
     }
 
     @Override // com.baidu.adp.widget.ListView.i
-    public View jy() {
+    public View jr() {
         this.mRoot = com.baidu.adp.lib.g.b.ei().inflate(this.mContext, com.baidu.tieba.x.new_pb_list_more, null);
-        this.MC = (LinearLayout) this.mRoot.findViewById(com.baidu.tieba.w.pb_more_view);
+        this.Mz = (LinearLayout) this.mRoot.findViewById(com.baidu.tieba.w.pb_more_view);
         this.mTextView = (TextView) this.mRoot.findViewById(com.baidu.tieba.w.pb_more_text);
         this.mProgressBar = (ProgressBar) this.mRoot.findViewById(com.baidu.tieba.w.progress);
-        this.NJ = (ImageView) this.mRoot.findViewById(com.baidu.tieba.w.pb_more_view_top_line);
+        this.NG = (ImageView) this.mRoot.findViewById(com.baidu.tieba.w.pb_more_view_top_line);
         return this.mRoot;
     }
 
-    public void qJ() {
-        this.NJ.setVisibility(0);
+    public void qD() {
+        this.NG.setVisibility(0);
     }
 
     public void startLoadData() {
@@ -79,10 +79,10 @@ public class PbListView extends com.baidu.adp.widget.ListView.i {
         cs(TbadkCoreApplication.m255getInst().getSkinType());
     }
 
-    public void qK() {
+    public void qE() {
         this.mProgressBar.setVisibility(8);
-        if (this.NI != null) {
-            this.mTextView.setText(this.NI);
+        if (this.NF != null) {
+            this.mTextView.setText(this.NF);
         } else {
             this.mTextView.setText(this.mContext.getText(com.baidu.tieba.z.pb_load_more));
         }
@@ -90,11 +90,11 @@ public class PbListView extends com.baidu.adp.widget.ListView.i {
     }
 
     public void cq(int i) {
-        bc.i(this.MC, i);
+        bc.i(this.Mz, i);
     }
 
     public void setText(String str) {
-        this.NI = str;
+        this.NF = str;
         this.mTextView.setText(str);
         cs(TbadkCoreApplication.m255getInst().getSkinType());
     }
@@ -115,7 +115,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.i {
     }
 
     public void cr(int i) {
-        this.NK = i;
+        this.NH = i;
     }
 
     public void cs(int i) {
@@ -134,11 +134,11 @@ public class PbListView extends com.baidu.adp.widget.ListView.i {
         if (i2 != 0) {
             this.mTextView.setTextColor(i2);
         }
-        bc.c(this.NJ, com.baidu.tieba.t.cp_bg_line_b);
-        if (this.NK == 0) {
-            bc.i(this.MC, com.baidu.tieba.t.cp_bg_line_d);
-        } else if (this.NK > 0) {
-            bc.i(this.MC, this.NK);
+        bc.c(this.NG, com.baidu.tieba.t.cp_bg_line_b);
+        if (this.NH == 0) {
+            bc.i(this.Mz, com.baidu.tieba.t.cp_bg_line_d);
+        } else if (this.NH > 0) {
+            bc.i(this.Mz, this.NH);
         }
     }
 }

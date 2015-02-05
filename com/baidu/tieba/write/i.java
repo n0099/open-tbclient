@@ -8,12 +8,12 @@ import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.h> {
-    private com.baidu.tbadk.core.util.ad CX;
-    final /* synthetic */ AtListActivity cfy;
+    private com.baidu.tbadk.core.util.ad CU;
+    final /* synthetic */ AtListActivity cfx;
 
     private i(AtListActivity atListActivity) {
-        this.cfy = atListActivity;
-        this.CX = null;
+        this.cfx = atListActivity;
+        this.CU = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,7 +25,7 @@ public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.h> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         ProgressBar progressBar;
-        progressBar = this.cfy.mProgress;
+        progressBar = this.cfx.mProgress;
         progressBar.setVisibility(0);
         super.onPreExecute();
     }
@@ -33,11 +33,11 @@ public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.h> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        if (this.CX != null) {
-            this.CX.dJ();
+        if (this.CU != null) {
+            this.CU.dJ();
         }
-        this.cfy.cfp = null;
-        progressBar = this.cfy.mProgress;
+        this.cfx.cfo = null;
+        progressBar = this.cfx.mProgress;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -47,14 +47,14 @@ public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.h> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: D */
     public com.baidu.tieba.data.h doInBackground(String... strArr) {
-        this.CX = new com.baidu.tbadk.core.util.ad();
-        this.CX.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/follow/list");
-        String oy = this.CX.oy();
-        if (!this.CX.oZ().qh().ma()) {
+        this.CU = new com.baidu.tbadk.core.util.ad();
+        this.CU.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/follow/list");
+        String or = this.CU.or();
+        if (!this.CU.oS().qa().lT()) {
             return null;
         }
         com.baidu.tieba.data.h hVar = new com.baidu.tieba.data.h();
-        hVar.fd(oy);
+        hVar.fa(or);
         return hVar;
     }
 
@@ -73,45 +73,45 @@ public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.h> {
         j jVar3;
         j jVar4;
         BdListView bdListView;
-        this.cfy.cfp = null;
-        progressBar = this.cfy.mProgress;
+        this.cfx.cfo = null;
+        progressBar = this.cfx.mProgress;
         progressBar.setVisibility(8);
-        if (this.CX.oZ().qh().ma()) {
-            cVar = this.cfy.cfq;
+        if (this.CU.oS().qa().lT()) {
+            cVar = this.cfx.cfp;
             cVar.a(hVar);
-            jVar = this.cfy.cfr;
+            jVar = this.cfx.cfq;
             if (jVar != null) {
-                editText = this.cfy.mEditText;
+                editText = this.cfx.mEditText;
                 if (com.baidu.adp.lib.util.k.a(editText.getText(), "").length() != 0) {
-                    cVar2 = this.cfy.cfq;
-                    if (cVar2.Uw() != null) {
-                        if (!hVar.CR().isEmpty()) {
-                            this.cfy.eO(false);
+                    cVar2 = this.cfx.cfp;
+                    if (cVar2.Ur() != null) {
+                        if (!hVar.CL().isEmpty()) {
+                            this.cfx.eO(false);
                         }
-                        cVar3 = this.cfy.cfq;
-                        cVar3.Uw().d(hVar.CR());
-                        jVar2 = this.cfy.cfr;
+                        cVar3 = this.cfx.cfp;
+                        cVar3.Ur().d(hVar.CL());
+                        jVar2 = this.cfx.cfq;
                         jVar2.notifyDataSetInvalidated();
                     }
                 } else {
-                    if (hVar.CQ().isEmpty()) {
-                        this.cfy.eO(true);
+                    if (hVar.CK().isEmpty()) {
+                        this.cfx.eO(true);
                     } else {
-                        this.cfy.eO(false);
+                        this.cfx.eO(false);
                     }
-                    this.cfy.cfl = hVar.CQ();
-                    jVar3 = this.cfy.cfr;
-                    jVar3.s(this.cfy.cfl);
-                    jVar4 = this.cfy.cfr;
+                    this.cfx.cfk = hVar.CK();
+                    jVar3 = this.cfx.cfq;
+                    jVar3.s(this.cfx.cfk);
+                    jVar4 = this.cfx.cfq;
                     jVar4.notifyDataSetInvalidated();
-                    bdListView = this.cfy.mListView;
+                    bdListView = this.cfx.mListView;
                     bdListView.setSelection(0);
                 }
             } else {
                 return;
             }
         } else {
-            this.cfy.showToast(this.CX.getErrorString());
+            this.cfx.showToast(this.CU.getErrorString());
         }
         super.onPostExecute(hVar);
     }

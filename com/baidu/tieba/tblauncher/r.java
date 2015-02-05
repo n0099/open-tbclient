@@ -34,41 +34,41 @@ class r extends CustomMessageListener {
             }
             NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
             int msgBookmark = newsNotifyMessage.getMsgBookmark();
-            i = this.this$0.ccO;
+            i = this.this$0.ccN;
             boolean z = msgBookmark == i;
             int msgFans = newsNotifyMessage.getMsgFans();
-            i2 = this.this$0.ccM;
+            i2 = this.this$0.ccL;
             boolean z2 = msgFans == i2;
             int msgGiftNum = newsNotifyMessage.getMsgGiftNum();
-            i3 = this.this$0.ccN;
+            i3 = this.this$0.ccM;
             boolean z3 = msgGiftNum == i3;
             if (!z || !z2 || !z3) {
                 MainTabActivity mainTabActivity = this.this$0;
                 int msgBookmark2 = newsNotifyMessage.getMsgBookmark();
-                i4 = this.this$0.ccO;
-                mainTabActivity.ccR = msgBookmark2 > i4 ? true : this.this$0.ccR;
+                i4 = this.this$0.ccN;
+                mainTabActivity.ccQ = msgBookmark2 > i4 ? true : this.this$0.ccQ;
                 MainTabActivity mainTabActivity2 = this.this$0;
                 int msgFans2 = newsNotifyMessage.getMsgFans();
-                i5 = this.this$0.ccM;
-                mainTabActivity2.ccP = msgFans2 > i5 ? true : this.this$0.ccP;
+                i5 = this.this$0.ccL;
+                mainTabActivity2.ccO = msgFans2 > i5 ? true : this.this$0.ccO;
                 MainTabActivity mainTabActivity3 = this.this$0;
                 int msgGiftNum2 = newsNotifyMessage.getMsgGiftNum();
-                i6 = this.this$0.ccN;
-                mainTabActivity3.ccQ = msgGiftNum2 <= i6 ? this.this$0.ccQ : true;
-                this.this$0.ccO = newsNotifyMessage.getMsgBookmark();
-                this.this$0.ccM = newsNotifyMessage.getMsgFans();
-                this.this$0.ccN = newsNotifyMessage.getMsgGiftNum();
-                i7 = this.this$0.ccM;
+                i6 = this.this$0.ccM;
+                mainTabActivity3.ccP = msgGiftNum2 <= i6 ? this.this$0.ccP : true;
+                this.this$0.ccN = newsNotifyMessage.getMsgBookmark();
+                this.this$0.ccL = newsNotifyMessage.getMsgFans();
+                this.this$0.ccM = newsNotifyMessage.getMsgGiftNum();
+                i7 = this.this$0.ccL;
                 if (i7 <= 0) {
+                    this.this$0.ccO = false;
+                }
+                i8 = this.this$0.ccM;
+                if (i8 <= 0) {
                     this.this$0.ccP = false;
                 }
-                i8 = this.this$0.ccN;
-                if (i8 <= 0) {
-                    this.this$0.ccQ = false;
-                }
-                i9 = this.this$0.ccO;
+                i9 = this.this$0.ccN;
                 if (i9 <= 0) {
-                    this.this$0.ccR = false;
+                    this.this$0.ccQ = false;
                 }
                 this.this$0.eH(false);
             }

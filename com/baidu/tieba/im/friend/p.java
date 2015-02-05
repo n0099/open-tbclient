@@ -12,20 +12,20 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends BaseAdapter {
-    private final TbPageContextSupport bbQ;
-    private ai bbR;
-    private boolean bbT;
+    private final TbPageContextSupport bbP;
+    private ai bbQ;
+    private boolean bbS;
     private List<com.baidu.tbadk.coreExtra.relationship.b> mData;
-    private r bbS = null;
-    private ViewGroup aqv = null;
+    private r bbR = null;
+    private ViewGroup aqs = null;
 
     public p(TbPageContextSupport tbPageContextSupport, boolean z) {
-        this.bbQ = tbPageContextSupport;
-        this.bbT = z;
+        this.bbP = tbPageContextSupport;
+        this.bbS = z;
     }
 
     public void a(r rVar) {
-        this.bbS = rVar;
+        this.bbR = rVar;
     }
 
     public void setData(List<com.baidu.tbadk.coreExtra.relationship.b> list) {
@@ -33,7 +33,7 @@ public class p extends BaseAdapter {
     }
 
     public void a(ai aiVar) {
-        this.bbR = aiVar;
+        this.bbQ = aiVar;
     }
 
     @Override // android.widget.Adapter
@@ -60,8 +60,8 @@ public class p extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         q qVar;
-        if (this.aqv == null) {
-            this.aqv = viewGroup;
+        if (this.aqs == null) {
+            this.aqs = viewGroup;
         }
         com.baidu.tbadk.coreExtra.relationship.b bVar = (com.baidu.tbadk.coreExtra.relationship.b) getItem(i);
         if (bVar != null) {
@@ -78,42 +78,42 @@ public class p extends BaseAdapter {
     private q a(Object obj, com.baidu.tbadk.coreExtra.relationship.b bVar) {
         q qVar;
         if (obj == null) {
-            qVar = ON();
+            qVar = OI();
         } else {
             qVar = (q) obj;
         }
-        if (this.bbS != null) {
-            this.bbS.a(qVar.rootView, bVar);
+        if (this.bbR != null) {
+            this.bbR.a(qVar.rootView, bVar);
         }
         a(bVar, qVar, bVar.getUserPortrait());
-        qVar.aHf.setText(bVar.getUserName());
-        if (this.bbT) {
-            qVar.bbU.setVisibility(8);
+        qVar.aHc.setText(bVar.getUserName());
+        if (this.bbS) {
+            qVar.bbT.setVisibility(8);
         } else {
-            qVar.bbU.setTagData(bVar);
+            qVar.bbT.setTagData(bVar);
         }
-        if (this.bbQ instanceof InviteFriendListActivity) {
-            ((InviteFriendListActivity) this.bbQ).getLayoutMode().h(qVar.rootView);
+        if (this.bbP instanceof InviteFriendListActivity) {
+            ((InviteFriendListActivity) this.bbP).getLayoutMode().h(qVar.rootView);
         }
         return qVar;
     }
 
     private void a(com.baidu.tbadk.coreExtra.relationship.b bVar, q qVar, String str) {
         if (bVar != null) {
-            qVar.bby.setTag(str);
-            qVar.bby.d(str, 12, false);
+            qVar.bbx.setTag(str);
+            qVar.bbx.d(str, 12, false);
         }
     }
 
-    private q ON() {
+    private q OI() {
         q qVar = new q(this);
-        qVar.rootView = com.baidu.adp.lib.g.b.ei().inflate(this.bbQ.getPageContext().getContext(), com.baidu.tieba.x.invite_friend_list_item, null);
-        qVar.bby = (HeadImageView) qVar.rootView.findViewById(com.baidu.tieba.w.photo);
-        qVar.bby.setIsRound(false);
-        qVar.aHf = (TextView) qVar.rootView.findViewById(com.baidu.tieba.w.txt_user_name);
-        qVar.bbU = (TbCheckBox) qVar.rootView.findViewById(com.baidu.tieba.w.ckb_select);
-        if (this.bbR != null) {
-            qVar.bbU.setStatedChangedListener(this.bbR);
+        qVar.rootView = com.baidu.adp.lib.g.b.ei().inflate(this.bbP.getPageContext().getContext(), com.baidu.tieba.x.invite_friend_list_item, null);
+        qVar.bbx = (HeadImageView) qVar.rootView.findViewById(com.baidu.tieba.w.photo);
+        qVar.bbx.setIsRound(false);
+        qVar.aHc = (TextView) qVar.rootView.findViewById(com.baidu.tieba.w.txt_user_name);
+        qVar.bbT = (TbCheckBox) qVar.rootView.findViewById(com.baidu.tieba.w.ckb_select);
+        if (this.bbQ != null) {
+            qVar.bbT.setStatedChangedListener(this.bbQ);
         }
         qVar.rootView.setTag(qVar);
         return qVar;

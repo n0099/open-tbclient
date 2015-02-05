@@ -4,11 +4,11 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class at implements au {
-    final /* synthetic */ as bWS;
+    final /* synthetic */ as bWR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(as asVar) {
-        this.bWS = asVar;
+        this.bWR = asVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.PbEditor.au
@@ -20,35 +20,35 @@ public class at implements au {
         int i;
         int i2;
         ArrayList arrayList3;
-        this.bWS.hideProgressBar();
-        privilegeTabWidgetView = this.bWS.bWR;
+        this.bWR.hideProgressBar();
+        privilegeTabWidgetView = this.bWR.bWQ;
         privilegeTabWidgetView.reset();
-        privilegeTabWidgetView2 = this.bWS.bWR;
-        arrayList = this.bWS.amP;
+        privilegeTabWidgetView2 = this.bWR.bWQ;
+        arrayList = this.bWR.amM;
         privilegeTabWidgetView2.setDatas(arrayList);
-        arrayList2 = this.bWS.amP;
+        arrayList2 = this.bWR.amM;
         int size = arrayList2.size();
         for (int i3 = 0; i3 < size; i3++) {
-            arrayList3 = this.bWS.amP;
-            this.bWS.c(((ao) arrayList3.get(i3)).agv());
+            arrayList3 = this.bWR.amM;
+            this.bWR.c(((ao) arrayList3.get(i3)).agq());
         }
-        i = this.bWS.mCurrentIndex;
+        i = this.bWR.mCurrentIndex;
         if (i < 0) {
-            this.bWS.setCurrentTab(0);
+            this.bWR.setCurrentTab(0);
             return;
         }
-        as asVar = this.bWS;
-        i2 = this.bWS.mCurrentIndex;
+        as asVar = this.bWR;
+        i2 = this.bWR.mCurrentIndex;
         asVar.setCurrentTab(i2);
     }
 
     @Override // com.baidu.tieba.tbadkCore.PbEditor.au
-    public void OF() {
-        this.bWS.showProgressBar();
+    public void OA() {
+        this.bWR.showProgressBar();
     }
 
     @Override // com.baidu.tieba.tbadkCore.PbEditor.au
-    public void agD() {
-        this.bWS.hideProgressBar();
+    public void agy() {
+        this.bWR.hideProgressBar();
     }
 }

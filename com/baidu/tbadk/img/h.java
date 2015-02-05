@@ -15,18 +15,18 @@ import java.io.RandomAccessFile;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class h {
-    private e abS;
-    private i abT;
-    private Object abU;
+    private e abP;
+    private i abQ;
+    private Object abR;
     private int bigHeight;
     private int bigWidth;
     private String from;
     private boolean isCancelled;
     private int smallHeight;
     private int smallWidth;
-    private int abR = 102400;
+    private int abO = 102400;
     private String groupId = "1";
-    private ad CX = null;
+    private ad CU = null;
 
     public h(String str) {
         this.from = str;
@@ -40,17 +40,17 @@ public class h {
     }
 
     public void a(i iVar, Object obj) {
-        this.abT = iVar;
-        this.abU = obj;
+        this.abQ = iVar;
+        this.abR = obj;
         if (iVar != null) {
-            this.abR = 10240;
+            this.abO = 10240;
         }
     }
 
     public void cancel() {
         this.isCancelled = true;
-        if (this.CX != null) {
-            this.CX.dJ();
+        if (this.CU != null) {
+            this.CU.dJ();
         }
     }
 
@@ -84,20 +84,20 @@ public class h {
     public ImageUploadResult a(ImageFileInfo imageFileInfo) {
         Bitmap b;
         String a;
-        if (this.abS == null) {
-            this.abS = new e(TbadkCoreApplication.m255getInst().getApp());
+        if (this.abP == null) {
+            this.abP = new e(TbadkCoreApplication.m255getInst().getApp());
         }
         LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
         imageFileInfo.setPageActionsList(null);
-        com.baidu.adp.widget.a.a a2 = this.abS.a(imageFileInfo, true);
+        com.baidu.adp.widget.a.a a2 = this.abP.a(imageFileInfo, true);
         if (a2 != null) {
-            b = a2.jj();
+            b = a2.jc();
         } else {
-            b = this.abS.b(imageFileInfo, true);
+            b = this.abP.b(imageFileInfo, true);
         }
         imageFileInfo.setPageActionsList(pageActionsList);
         if (b != null && (a = s.a(TbConfig.IMAGE_RESIZED_FILE, b, 80)) != null) {
-            return eo(a);
+            return el(a);
         }
         return null;
     }
@@ -145,7 +145,7 @@ public class h {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public ImageUploadResult eo(String str) {
+    public ImageUploadResult el(String str) {
         RandomAccessFile randomAccessFile;
         Exception e;
         ImageUploadResult imageUploadResult;
@@ -183,12 +183,12 @@ public class h {
                         }
                         TiebaStatic.imgError("", TbErrInfo.ERR_IMG_SEND, String.valueOf(this.from) + "ex: " + e.getMessage(), sb.toString());
                         com.baidu.adp.lib.g.a.c(randomAccessFile);
-                        this.CX = null;
+                        this.CU = null;
                         return imageUploadResult;
                     }
                 } else {
-                    String str2 = String.valueOf(e2) + this.abR;
-                    long j2 = length % ((long) this.abR) == 0 ? length / this.abR : (length / this.abR) + 1;
+                    String str2 = String.valueOf(e2) + this.abO;
+                    long j2 = length % ((long) this.abO) == 0 ? length / this.abO : (length / this.abO) + 1;
                     sb.append("|chunkNo=");
                     sb.append(j2);
                     randomAccessFile = new RandomAccessFile(str, "r");
@@ -224,41 +224,41 @@ public class h {
                                             bArr = null;
                                         } else {
                                             if (i < j2) {
-                                                i4 = this.abR;
+                                                i4 = this.abO;
                                             } else if (i == j2) {
-                                                i4 = (int) (length - (this.abR * (j2 - 1)));
+                                                i4 = (int) (length - (this.abO * (j2 - 1)));
                                             }
                                             if (bArr2 == null || bArr2.length != i4) {
                                                 bArr2 = new byte[i4];
                                             }
-                                            randomAccessFile.seek(this.abR * (i - 1));
+                                            randomAccessFile.seek(this.abO * (i - 1));
                                             randomAccessFile.read(bArr2, 0, i4);
                                             bArr = bArr2;
                                         }
-                                        this.CX = new ad(TbConfig.UPLOAD_IMG_URL);
-                                        this.CX.o("resourceId", str2);
-                                        this.CX.o("chunkNo", String.valueOf(i));
+                                        this.CU = new ad(TbConfig.UPLOAD_IMG_URL);
+                                        this.CU.o("resourceId", str2);
+                                        this.CU.o("chunkNo", String.valueOf(i));
                                         if (i >= j2) {
-                                            this.CX.o("isFinish", String.valueOf(1));
+                                            this.CU.o("isFinish", String.valueOf(1));
                                         } else {
-                                            this.CX.o("isFinish", String.valueOf(0));
+                                            this.CU.o("isFinish", String.valueOf(0));
                                         }
                                         if (this.bigWidth > 0 && this.bigHeight > 0) {
-                                            this.CX.o("width", String.valueOf(this.bigWidth));
-                                            this.CX.o("height", String.valueOf(this.bigHeight));
+                                            this.CU.o("width", String.valueOf(this.bigWidth));
+                                            this.CU.o("height", String.valueOf(this.bigHeight));
                                         }
                                         if (this.smallWidth > 0 && this.smallHeight > 0) {
-                                            this.CX.o("smallWidth", String.valueOf(this.smallWidth));
-                                            this.CX.o("smallHeight", String.valueOf(this.smallHeight));
+                                            this.CU.o("smallWidth", String.valueOf(this.smallWidth));
+                                            this.CU.o("smallHeight", String.valueOf(this.smallHeight));
                                         }
-                                        this.CX.o("groupId", String.valueOf(this.groupId));
-                                        this.CX.o("alt", "json");
+                                        this.CU.o("groupId", String.valueOf(this.groupId));
+                                        this.CU.o("alt", "json");
                                         if (bArr != null) {
-                                            this.CX.g("chunk", bArr);
+                                            this.CU.g("chunk", bArr);
                                         }
-                                        String oB = this.CX.oB();
-                                        imageUploadResult2 = ImageUploadResult.parser(oB);
-                                        if (oB == null || imageUploadResult2 == null) {
+                                        String ou = this.CU.ou();
+                                        imageUploadResult2 = ImageUploadResult.parser(ou);
+                                        if (ou == null || imageUploadResult2 == null) {
                                             break;
                                         }
                                         try {
@@ -274,9 +274,9 @@ public class h {
                                             } else {
                                                 int i5 = i + 1;
                                                 long j4 = j3 + i4;
-                                                long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.abR) : j4;
-                                                if (this.abT != null) {
-                                                    this.abT.a(str, this.abU, j5, length);
+                                                long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.abO) : j4;
+                                                if (this.abQ != null) {
+                                                    this.abQ.a(str, this.abR, j5, length);
                                                 }
                                                 i2 = i5;
                                                 j = j4;
@@ -319,18 +319,18 @@ public class h {
                             }
                             TiebaStatic.imgError("", TbErrInfo.ERR_IMG_SEND, String.valueOf(this.from) + "ex: " + e.getMessage(), sb.toString());
                             com.baidu.adp.lib.g.a.c(randomAccessFile);
-                            this.CX = null;
+                            this.CU = null;
                             return imageUploadResult;
                         }
                     } catch (Throwable th2) {
                         th = th2;
                         com.baidu.adp.lib.g.a.c(randomAccessFile);
-                        this.CX = null;
+                        this.CU = null;
                         throw th;
                     }
                 }
                 com.baidu.adp.lib.g.a.c(randomAccessFile2);
-                this.CX = null;
+                this.CU = null;
             } catch (Throwable th3) {
                 randomAccessFile = null;
                 th = th3;

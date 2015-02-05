@@ -6,11 +6,11 @@ import android.widget.ImageView;
 import com.baidu.tbadk.core.util.bc;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private ai NS;
+    private ai NP;
 
     public void setTagData(aj ajVar) {
         setTag(ajVar);
-        qL();
+        qF();
     }
 
     public TbCheckBox(Context context) {
@@ -25,15 +25,15 @@ public class TbCheckBox extends ImageView {
 
     private void initialize() {
         setOnClickListener(new ah(this));
-        qL();
+        qF();
     }
 
     public void setStatedChangedListener(ai aiVar) {
-        this.NS = aiVar;
+        this.NP = aiVar;
     }
 
-    public void qL() {
-        if (qM()) {
+    public void qF() {
+        if (qG()) {
             bc.c(this, com.baidu.tieba.v.btn_friend_choose_s);
         } else {
             bc.c(this, com.baidu.tieba.v.btn_friend_choose_n);
@@ -41,11 +41,11 @@ public class TbCheckBox extends ImageView {
     }
 
     public boolean isChecked() {
-        return qM();
+        return qG();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean qM() {
+    public boolean qG() {
         Object tag = getTag();
         if (tag == null || !(tag instanceof aj)) {
             return false;
@@ -58,9 +58,9 @@ public class TbCheckBox extends ImageView {
         if (tag != null && (tag instanceof aj)) {
             ((aj) tag).setChecked(z);
         }
-        qL();
-        if (this.NS != null) {
-            this.NS.a(this, z, getTag());
+        qF();
+        if (this.NP != null) {
+            this.NP.a(this, z, getTag());
         }
     }
 }

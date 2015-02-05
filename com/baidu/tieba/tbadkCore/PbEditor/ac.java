@@ -1,24 +1,24 @@
 package com.baidu.tieba.tbadkCore.PbEditor;
 /* loaded from: classes.dex */
 class ac implements ba {
-    final /* synthetic */ ab bWs;
+    final /* synthetic */ ab bWr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(ab abVar) {
-        this.bWs = abVar;
+        this.bWr = abVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.PbEditor.ba
-    public void agp() {
+    public void agk() {
         PbEditor pbEditor;
         PbEditor pbEditor2;
-        pbEditor = this.bWs.bWq;
-        pbEditor.bWo = true;
-        pbEditor2 = this.bWs.bWq;
-        pbEditor2.bWj.getEditText().requestFocus();
+        pbEditor = this.bWr.bWp;
+        pbEditor.bWn = true;
+        pbEditor2 = this.bWr.bWp;
+        pbEditor2.bWi.getEditText().requestFocus();
     }
 
     @Override // com.baidu.tieba.tbadkCore.PbEditor.ba
-    public void agq() {
+    public void agl() {
     }
 }

@@ -5,15 +5,15 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ah implements as {
-    final /* synthetic */ FloatingPersonalChatView bas;
+    final /* synthetic */ FloatingPersonalChatView baq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(FloatingPersonalChatView floatingPersonalChatView) {
-        this.bas = floatingPersonalChatView;
+        this.baq = floatingPersonalChatView;
     }
 
     @Override // com.baidu.tieba.im.floatwindow.view.as
-    public void Or() {
+    public void Om() {
         List list;
         int i;
         List list2;
@@ -24,22 +24,22 @@ public class ah implements as {
         ap apVar;
         List list4;
         int i4;
-        list = this.bas.mUserDataList;
+        list = this.baq.mUserDataList;
         if (list != null) {
-            i = this.bas.currentIndex;
-            list2 = this.bas.mUserDataList;
+            i = this.baq.currentIndex;
+            list2 = this.baq.mUserDataList;
             if (i < list2.size()) {
-                i2 = this.bas.currentIndex;
+                i2 = this.baq.currentIndex;
                 if (i2 >= 0) {
-                    list3 = this.bas.mUserDataList;
-                    i3 = this.bas.currentIndex;
+                    list3 = this.baq.mUserDataList;
+                    i3 = this.baq.currentIndex;
                     if (list3.get(i3) == null) {
                         return;
                     }
-                    nVar = this.bas.bao;
-                    apVar = this.bas.bap;
-                    list4 = this.bas.mUserDataList;
-                    i4 = this.bas.currentIndex;
+                    nVar = this.baq.ban;
+                    apVar = this.baq.bao;
+                    list4 = this.baq.mUserDataList;
+                    i4 = this.baq.currentIndex;
                     nVar.fP(apVar.b((UserData) list4.get(i4)));
                 }
             }

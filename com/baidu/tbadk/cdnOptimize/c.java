@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 class c extends CustomMessageListener {
-    final /* synthetic */ TbCDNTachometerService BG;
+    final /* synthetic */ TbCDNTachometerService BD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(TbCDNTachometerService tbCDNTachometerService, int i) {
         super(i);
-        this.BG = tbCDNTachometerService;
+        this.BD = tbCDNTachometerService;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,41 +45,41 @@ class c extends CustomMessageListener {
                 if (fVar != null) {
                     String str3 = fVar.cdnIp;
                     boolean z = fVar.isSuccess;
-                    long j = fVar.vD;
+                    long j = fVar.vA;
                     String valueOf = String.valueOf(j);
-                    str = fVar.BH;
+                    str = fVar.BE;
                     if (str != null) {
-                        str2 = fVar.BH;
+                        str2 = fVar.BE;
                         if (str2.length() > 0) {
-                            this.BG.canBroadCast = true;
+                            this.BD.canBroadCast = true;
                             if (z) {
-                                i2 = this.BG.hiPhotosMaxTime;
+                                i2 = this.BD.hiPhotosMaxTime;
                             }
-                            this.BG.isNormal = false;
+                            this.BD.isNormal = false;
                         }
                     }
                     if (z) {
                         if (j <= 200 && str3 != null && str3.length() != 0) {
-                            hashMap2 = this.BG.cdnIpMap;
+                            hashMap2 = this.BD.cdnIpMap;
                             ArrayList arrayList8 = (ArrayList) hashMap2.get(str3);
                             for (int i4 = 0; i4 < arrayList8.size(); i4++) {
-                                arrayList7 = this.BG.optimalIpList;
+                                arrayList7 = this.BD.optimalIpList;
                                 arrayList7.add((String) arrayList8.get(i4));
                             }
                         }
                         if (j <= 1500 && str3 != null && str3.length() != 0) {
-                            hashMap = this.BG.cdnIpMap;
+                            hashMap = this.BD.cdnIpMap;
                             ArrayList arrayList9 = (ArrayList) hashMap.get(str3);
-                            arrayList = this.BG.belowOnePointFiveIpList;
+                            arrayList = this.BD.belowOnePointFiveIpList;
                             if (arrayList.size() > 0) {
                                 int i5 = 0;
                                 int i6 = 0;
                                 while (true) {
-                                    arrayList3 = this.BG.belowOnePointFiveIpList;
+                                    arrayList3 = this.BD.belowOnePointFiveIpList;
                                     if (i5 >= arrayList3.size()) {
                                         break;
                                     }
-                                    arrayList6 = this.BG.belowOnePointFiveIpList;
+                                    arrayList6 = this.BD.belowOnePointFiveIpList;
                                     String[] split = ((String) arrayList6.get(i5)).split("_");
                                     if (split.length < 2) {
                                         i = i6;
@@ -92,16 +92,16 @@ class c extends CustomMessageListener {
                                     i5++;
                                     i6 = i;
                                 }
-                                arrayList4 = this.BG.belowOnePointFiveIpList;
+                                arrayList4 = this.BD.belowOnePointFiveIpList;
                                 if (i6 <= arrayList4.size()) {
                                     for (int i7 = 0; i7 < arrayList9.size(); i7++) {
-                                        arrayList5 = this.BG.belowOnePointFiveIpList;
+                                        arrayList5 = this.BD.belowOnePointFiveIpList;
                                         arrayList5.add(i6, String.valueOf((String) arrayList9.get(i7)) + "_" + valueOf);
                                     }
                                 }
                             } else {
                                 for (int i8 = 0; i8 < arrayList9.size(); i8++) {
-                                    arrayList2 = this.BG.belowOnePointFiveIpList;
+                                    arrayList2 = this.BD.belowOnePointFiveIpList;
                                     arrayList2.add(String.valueOf((String) arrayList9.get(i8)) + "_" + valueOf);
                                 }
                             }
@@ -114,9 +114,9 @@ class c extends CustomMessageListener {
                 BdLog.e(e);
             }
         }
-        TbCDNTachometerService tbCDNTachometerService = this.BG;
+        TbCDNTachometerService tbCDNTachometerService = this.BD;
         i3 = tbCDNTachometerService.returnRequestNum;
         tbCDNTachometerService.returnRequestNum = i3 + 1;
-        this.BG.judgeIsBroadcastCdnIp();
+        this.BD.judgeIsBroadcastCdnIp();
     }
 }

@@ -6,20 +6,20 @@ import com.baidu.tbadk.TbConfig;
 import java.io.File;
 /* loaded from: classes.dex */
 public class be {
-    private static be JC;
+    private static be Jz;
 
-    public static synchronized be pD() {
+    public static synchronized be pw() {
         be beVar;
         synchronized (be.class) {
-            if (JC == null) {
-                JC = new be();
+            if (Jz == null) {
+                Jz = new be();
             }
-            beVar = JC;
+            beVar = Jz;
         }
         return beVar;
     }
 
-    public String cE(String str) {
+    public String cB(String str) {
         long j = 0;
         for (byte b : str.getBytes()) {
             j += b;
@@ -31,30 +31,30 @@ public class be {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return s.X(cE(str), str);
+        return s.X(cB(str), str);
     }
 
-    public boolean cF(String str) {
+    public boolean cC(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return s.W(cE(str), str);
+        return s.W(cB(str), str);
     }
 
-    public int cG(String str) {
+    public int cD(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
-        return (int) s.V(cE(str), str);
+        return (int) s.V(cB(str), str);
     }
 
     public boolean copyFile(String str, String str2) {
         String str3 = s.mJ + "/" + TbConfig.getTempDirName() + "/";
-        if (!s.ce(str3)) {
+        if (!s.cb(str3)) {
             s.ay(str3);
         }
-        String str4 = String.valueOf(str3) + cE(str2);
-        if (!s.ce(str4)) {
+        String str4 = String.valueOf(str3) + cB(str2);
+        if (!s.cb(str4)) {
             s.ay(str4);
         }
         String str5 = String.valueOf(str4) + "/" + str2;
@@ -66,7 +66,7 @@ public class be {
 
     public void h(String str, byte[] bArr) {
         if (!TextUtils.isEmpty(str)) {
-            s.e(cE(str), str, bArr);
+            s.e(cB(str), str, bArr);
         }
     }
 
@@ -84,12 +84,12 @@ public class be {
         }
     }
 
-    public void pE() {
+    public void px() {
         q(new File(s.mJ + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME));
         q(new File(s.mJ + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
     }
 
-    public void pF() {
+    public void py() {
         r(new File(s.mJ + "/" + TbConfig.getTempDirName() + "/" + s.bR(3)));
     }
 

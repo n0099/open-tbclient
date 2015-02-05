@@ -8,11 +8,11 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    final /* synthetic */ AtListActivity cfy;
+    final /* synthetic */ AtListActivity cfx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(AtListActivity atListActivity) {
-        this.cfy = atListActivity;
+        this.cfx = atListActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,13 +21,13 @@ public class f implements View.OnClickListener {
         EditText editText;
         Intent intent = new Intent();
         Bundle bundle = new Bundle();
-        atSelectFriendList = this.cfy.cfn;
+        atSelectFriendList = this.cfx.cfm;
         bundle.putStringArrayList(com.baidu.tbadk.core.frameworkData.a.NAME_SHOW, atSelectFriendList.getDataList());
         intent.putExtras(bundle);
-        Activity pageActivity = this.cfy.getPageContext().getPageActivity();
-        editText = this.cfy.mEditText;
+        Activity pageActivity = this.cfx.getPageContext().getPageActivity();
+        editText = this.cfx.mEditText;
         com.baidu.adp.lib.util.l.c(pageActivity, editText);
-        this.cfy.setResult(-1, intent);
-        this.cfy.finish();
+        this.cfx.setResult(-1, intent);
+        this.cfx.finish();
     }
 }

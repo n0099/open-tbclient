@@ -5,13 +5,13 @@ import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements AdapterView.OnItemClickListener {
-    final /* synthetic */ EmotionTabContentView Yl;
-    private final /* synthetic */ int Ym;
+    final /* synthetic */ EmotionTabContentView Yi;
+    private final /* synthetic */ int Yj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(EmotionTabContentView emotionTabContentView, int i) {
-        this.Yl = emotionTabContentView;
-        this.Ym = i;
+        this.Yi = emotionTabContentView;
+        this.Yj = i;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -25,23 +25,23 @@ public class i implements AdapterView.OnItemClickListener {
         ae aeVar6;
         w wVar2;
         adapterView.setSelection(-1);
-        int i2 = this.Ym + i;
-        wVar = this.Yl.Yj;
+        int i2 = this.Yj + i;
+        wVar = this.Yi.Yg;
         if (wVar != null) {
             com.baidu.tbadk.coreExtra.data.f fVar = new com.baidu.tbadk.coreExtra.data.f();
-            aeVar = this.Yl.XW;
+            aeVar = this.Yi.XT;
             fVar.setName(aeVar.dl(i2));
-            aeVar2 = this.Yl.XW;
-            fVar.a(aeVar2.vl());
-            aeVar3 = this.Yl.XW;
-            fVar.dg(aeVar3.getGroupName());
-            aeVar4 = this.Yl.XW;
+            aeVar2 = this.Yi.XT;
+            fVar.a(aeVar2.vf());
+            aeVar3 = this.Yi.XT;
+            fVar.dd(aeVar3.getGroupName());
+            aeVar4 = this.Yi.XT;
             fVar.setPid(aeVar4.getGroupId());
-            aeVar5 = this.Yl.XW;
+            aeVar5 = this.Yi.XT;
             fVar.setWidth(aeVar5.getWidth());
-            aeVar6 = this.Yl.XW;
+            aeVar6 = this.Yi.XT;
             fVar.setHeight(aeVar6.getHeight());
-            wVar2 = this.Yl.Yj;
+            wVar2 = this.Yi.Yg;
             wVar2.handleAction(20, fVar);
         }
     }

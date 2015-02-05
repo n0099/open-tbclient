@@ -33,7 +33,7 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initPlugin() {
-        com.baidu.adp.plugin.c.a.hW().init();
+        com.baidu.adp.plugin.c.a.hP().init();
     }
 
     private void initHttpManager() {

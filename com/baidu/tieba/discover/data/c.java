@@ -4,9 +4,9 @@ import com.baidu.tbadk.TbadkApplication;
 import tbclient.FoundNew.Menu;
 /* loaded from: classes.dex */
 public class c {
-    private int auA;
-    private boolean auy;
-    private boolean auz;
+    private boolean auv;
+    private boolean auw;
+    private int aux;
     private String describe;
     private String icon_url;
     private String link_url;
@@ -31,11 +31,11 @@ public class c {
         this.link_url = menu.link_url;
         this.describe = menu.describe;
         this.statistics = menu.statistics;
-        this.auy = menu.is_new != null && menu.is_new.intValue() == 1;
+        this.auv = menu.is_new != null && menu.is_new.intValue() == 1;
         if (menu.is_red_point == null || menu.is_red_point.intValue() != 1) {
             z = false;
         }
-        this.auz = z;
+        this.auw = z;
         return this;
     }
 
@@ -47,39 +47,39 @@ public class c {
         return this.title;
     }
 
-    public String Dp() {
+    public String Dj() {
         return this.link_url;
     }
 
-    public String Dq() {
+    public String Dk() {
         return this.describe;
     }
 
-    public String Dr() {
+    public String Dl() {
         return this.statistics;
     }
 
-    public boolean Ds() {
-        return this.auy;
+    public boolean Dm() {
+        return this.auv;
     }
 
     public void bu(boolean z) {
-        this.auy = z;
+        this.auv = z;
     }
 
-    public boolean Dt() {
-        return this.auz;
+    public boolean Dn() {
+        return this.auw;
     }
 
     public void bv(boolean z) {
-        this.auz = z;
+        this.auw = z;
     }
 
-    public int Du() {
-        return this.auA;
+    public int Do() {
+        return this.aux;
     }
 
     public void ew(int i) {
-        this.auA = i;
+        this.aux = i;
     }
 }

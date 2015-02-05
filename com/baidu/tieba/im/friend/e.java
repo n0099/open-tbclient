@@ -10,37 +10,37 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends BaseAdapter {
-    private ArrayList<com.baidu.tieba.im.data.a> amP;
-    private View.OnClickListener aoG = new f(this);
-    private IMBlackListActivity bbw;
+    private ArrayList<com.baidu.tieba.im.data.a> amM;
+    private View.OnClickListener aoD = new f(this);
+    private IMBlackListActivity bbv;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e(IMBlackListActivity iMBlackListActivity) {
-        this.bbw = iMBlackListActivity;
+        this.bbv = iMBlackListActivity;
     }
 
     public void s(ArrayList<com.baidu.tieba.im.data.a> arrayList) {
-        this.amP = arrayList;
+        this.amM = arrayList;
     }
 
     public void b(com.baidu.tieba.im.data.a aVar) {
-        if (this.amP != null) {
-            this.amP.remove(aVar);
+        if (this.amM != null) {
+            this.amM.remove(aVar);
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.amP != null) {
-            return this.amP.size();
+        if (this.amM != null) {
+            return this.amM.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.amP != null) {
-            return this.amP.get(i);
+        if (this.amM != null) {
+            return this.amM.get(i);
         }
         return null;
     }
@@ -65,36 +65,36 @@ public class e extends BaseAdapter {
         return null;
     }
 
-    private g OE() {
+    private g Oz() {
         g gVar = new g(this, null);
-        gVar.rootView = com.baidu.adp.lib.g.b.ei().inflate(this.bbw.getPageContext().getContext(), com.baidu.tieba.x.im_black_list_item, null);
-        gVar.bby = (HeadImageView) gVar.rootView.findViewById(com.baidu.tieba.w.header_view);
-        gVar.bby.setIsRound(true);
-        gVar.aHf = (TextView) gVar.rootView.findViewById(com.baidu.tieba.w.user_name);
-        gVar.bbz = (Button) gVar.rootView.findViewById(com.baidu.tieba.w.remove_button);
+        gVar.rootView = com.baidu.adp.lib.g.b.ei().inflate(this.bbv.getPageContext().getContext(), com.baidu.tieba.x.im_black_list_item, null);
+        gVar.bbx = (HeadImageView) gVar.rootView.findViewById(com.baidu.tieba.w.header_view);
+        gVar.bbx.setIsRound(true);
+        gVar.aHc = (TextView) gVar.rootView.findViewById(com.baidu.tieba.w.user_name);
+        gVar.bby = (Button) gVar.rootView.findViewById(com.baidu.tieba.w.remove_button);
         gVar.rootView.setTag(gVar);
-        gVar.bbz.setOnClickListener(this.aoG);
+        gVar.bby.setOnClickListener(this.aoD);
         return gVar;
     }
 
     private g a(Object obj, com.baidu.tieba.im.data.a aVar) {
         g gVar;
         if (obj == null) {
-            gVar = OE();
+            gVar = Oz();
         } else {
             gVar = (g) obj;
         }
-        a(gVar, aVar.ME());
-        gVar.aHf.setText(aVar.getUserName());
-        gVar.bbz.setTag(aVar);
-        this.bbw.getLayoutMode().h(gVar.rootView);
+        a(gVar, aVar.Mz());
+        gVar.aHc.setText(aVar.getUserName());
+        gVar.bby.setTag(aVar);
+        this.bbv.getLayoutMode().h(gVar.rootView);
         return gVar;
     }
 
     private void a(g gVar, String str) {
         if (str != null) {
-            gVar.bby.setTag(str);
-            gVar.bby.d(str, 12, false);
+            gVar.bbx.setTag(str);
+            gVar.bbx.d(str, 12, false);
         }
     }
 }

@@ -4,41 +4,41 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 class b implements j {
-    final /* synthetic */ SecretSettingActivity bjX;
+    final /* synthetic */ SecretSettingActivity bjW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(SecretSettingActivity secretSettingActivity) {
-        this.bjX = secretSettingActivity;
+        this.bjW = secretSettingActivity;
     }
 
     @Override // com.baidu.tieba.im.more.j
-    public void RI() {
-        this.bjX.RH();
+    public void RD() {
+        this.bjW.RC();
     }
 
     @Override // com.baidu.tieba.im.more.j
     public void onBackPressed() {
-        this.bjX.finish();
+        this.bjW.finish();
     }
 
     @Override // com.baidu.tieba.im.more.j
-    public void RJ() {
-        this.bjX.aD("group", this.bjX.getPageContext().getString(z.privacy_setting_attention_group));
+    public void RE() {
+        this.bjW.aD("group", this.bjW.getPageContext().getString(z.privacy_setting_attention_group));
     }
 
     @Override // com.baidu.tieba.im.more.j
-    public void RK() {
-        this.bjX.aD("post", this.bjX.getPageContext().getString(z.privacy_setting_attention_forum));
+    public void RF() {
+        this.bjW.aD("post", this.bjW.getPageContext().getString(z.privacy_setting_attention_forum));
     }
 
     @Override // com.baidu.tieba.im.more.j
-    public void RL() {
-        this.bjX.aD("like", this.bjX.getPageContext().getString(z.privacy_setting_attention_bar));
+    public void RG() {
+        this.bjW.aD("like", this.bjW.getPageContext().getString(z.privacy_setting_attention_bar));
     }
 
     @Override // com.baidu.tieba.im.more.j
     public void a(BdSwitchView.SwitchState switchState) {
-        this.bjX.P("location", BdSwitchView.SwitchState.ON == switchState ? 1 : 3);
-        this.bjX.showProgressBar();
+        this.bjW.P("location", BdSwitchView.SwitchState.ON == switchState ? 1 : 3);
+        this.bjW.showProgressBar();
     }
 }

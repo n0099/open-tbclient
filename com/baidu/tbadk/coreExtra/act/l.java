@@ -3,17 +3,17 @@ package com.baidu.tbadk.coreExtra.act;
 import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 /* loaded from: classes.dex */
 class l implements Runnable {
-    final /* synthetic */ j PQ;
+    final /* synthetic */ j PN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(j jVar) {
-        this.PQ = jVar;
+        this.PN = jVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         EditHeadActivity editHeadActivity;
-        editHeadActivity = this.PQ.this$0;
-        editHeadActivity.dd(WriteImageActivityConfig.FILTER_NAME_NORMAL);
+        editHeadActivity = this.PN.this$0;
+        editHeadActivity.da(WriteImageActivityConfig.FILTER_NAME_NORMAL);
     }
 }

@@ -10,17 +10,17 @@ import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    final /* synthetic */ CarouselRecommendView.e Mb;
-    private final /* synthetic */ com.baidu.tbadk.core.data.l Mc;
-    private final /* synthetic */ TbImageView Md;
-    private final /* synthetic */ int Me;
+    final /* synthetic */ CarouselRecommendView.e LY;
+    private final /* synthetic */ com.baidu.tbadk.core.data.l LZ;
+    private final /* synthetic */ TbImageView Ma;
+    private final /* synthetic */ int Mb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(CarouselRecommendView.e eVar, com.baidu.tbadk.core.data.l lVar, TbImageView tbImageView, int i) {
-        this.Mb = eVar;
-        this.Mc = lVar;
-        this.Md = tbImageView;
-        this.Me = i;
+        this.LY = eVar;
+        this.LZ = lVar;
+        this.Ma = tbImageView;
+        this.Mb = i;
     }
 
     @Override // android.view.View.OnClickListener
@@ -41,53 +41,53 @@ public class f implements View.OnClickListener {
         CarouselRecommendView carouselRecommendView8;
         TbPageContext tbPageContext5;
         CarouselRecommendView carouselRecommendView9;
-        String link = this.Mc.getLink();
+        String link = this.LZ.getLink();
         carouselRecommendView = CarouselRecommendView.this;
-        if (carouselRecommendView.LR) {
-            bm pV = bm.pV();
-            tbPageContext2 = this.Mb.mContext;
+        if (carouselRecommendView.LO) {
+            bm pO = bm.pO();
+            tbPageContext2 = this.LY.mContext;
             carouselRecommendView2 = CarouselRecommendView.this;
-            pV.b(tbPageContext2, new String[]{link, carouselRecommendView2.LT});
-            Object tag = this.Md.getTag();
+            pO.b(tbPageContext2, new String[]{link, carouselRecommendView2.LQ});
+            Object tag = this.Ma.getTag();
             if ((tag instanceof Integer) && (intValue = ((Integer) tag).intValue()) >= 1 && intValue <= 5) {
                 carouselRecommendView3 = CarouselRecommendView.this;
-                com.baidu.tbadk.core.data.l lVar = (com.baidu.tbadk.core.data.l) carouselRecommendView3.LU.get(intValue - 1);
+                com.baidu.tbadk.core.data.l lVar = (com.baidu.tbadk.core.data.l) carouselRecommendView3.LR.get(intValue - 1);
                 if (!(lVar instanceof com.baidu.tbadk.core.data.l)) {
                     str = "";
                 } else {
-                    str = com.baidu.tieba.tbadkCore.util.k.iu(lVar.getLink());
+                    str = com.baidu.tieba.tbadkCore.util.k.is(lVar.getLink());
                 }
                 carouselRecommendView4 = CarouselRecommendView.this;
-                if (!"4001001".equals(carouselRecommendView4.LT)) {
+                if (!"4001001".equals(carouselRecommendView4.LQ)) {
                     carouselRecommendView5 = CarouselRecommendView.this;
-                    if (!"4000201".equals(carouselRecommendView5.LT)) {
+                    if (!"4000201".equals(carouselRecommendView5.LQ)) {
                         carouselRecommendView6 = CarouselRecommendView.this;
-                        if ("4000101".equals(carouselRecommendView6.LT)) {
-                            tbPageContext3 = this.Mb.mContext;
+                        if ("4000101".equals(carouselRecommendView6.LQ)) {
+                            tbPageContext3 = this.LY.mContext;
                             carouselRecommendView7 = CarouselRecommendView.this;
-                            TiebaStatic.eventStat(tbPageContext3.getPageActivity(), "gamecenter_ad_index_" + intValue + "_click", "click", 1, "dev_id", str, "ref_id", carouselRecommendView7.LT);
+                            TiebaStatic.eventStat(tbPageContext3.getPageActivity(), "gamecenter_ad_index_" + intValue + "_click", "click", 1, "dev_id", str, "ref_id", carouselRecommendView7.LQ);
                             return;
                         }
                         return;
                     }
-                    tbPageContext4 = this.Mb.mContext;
+                    tbPageContext4 = this.LY.mContext;
                     carouselRecommendView8 = CarouselRecommendView.this;
-                    TiebaStatic.eventStat(tbPageContext4.getPageActivity(), "gamecenter_ad_h5_" + intValue + "_click", "click", 1, "dev_id", str, "ref_id", carouselRecommendView8.LT);
+                    TiebaStatic.eventStat(tbPageContext4.getPageActivity(), "gamecenter_ad_h5_" + intValue + "_click", "click", 1, "dev_id", str, "ref_id", carouselRecommendView8.LQ);
                     return;
                 }
-                tbPageContext5 = this.Mb.mContext;
+                tbPageContext5 = this.LY.mContext;
                 carouselRecommendView9 = CarouselRecommendView.this;
-                TiebaStatic.eventStat(tbPageContext5.getPageActivity(), "gamecenter_ad_single_" + intValue + "_click", "click", 1, "dev_id", str, "ref_id", carouselRecommendView9.LT);
+                TiebaStatic.eventStat(tbPageContext5.getPageActivity(), "gamecenter_ad_single_" + intValue + "_click", "click", 1, "dev_id", str, "ref_id", carouselRecommendView9.LQ);
                 return;
             }
             return;
         }
-        String makeStatisticsParam = SingleSquareActivityConfig.makeStatisticsParam("carousel_recommend", String.valueOf(this.Me));
-        bm pV2 = bm.pV();
-        tbPageContext = this.Mb.mContext;
+        String makeStatisticsParam = SingleSquareActivityConfig.makeStatisticsParam("carousel_recommend", String.valueOf(this.Mb));
+        bm pO2 = bm.pO();
+        tbPageContext = this.LY.mContext;
         String[] strArr = new String[3];
         strArr[0] = link;
         strArr[2] = makeStatisticsParam;
-        pV2.b(tbPageContext, strArr);
+        pO2.b(tbPageContext, strArr);
     }
 }

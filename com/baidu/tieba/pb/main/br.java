@@ -6,13 +6,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class br extends CustomMessageListener {
-    final /* synthetic */ bq bCK;
+    final /* synthetic */ bq bCJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public br(bq bqVar, int i) {
         super(i);
-        this.bCK = bqVar;
+        this.bCJ = bqVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,19 +25,19 @@ public class br extends CustomMessageListener {
         bt btVar;
         bt btVar2;
         bt btVar3;
-        bdUniqueId = this.bCK.unique_id;
+        bdUniqueId = this.bCJ.unique_id;
         if (bdUniqueId == customResponsedMessage.getOrginalMessage().getTag() && customResponsedMessage != null && (customResponsedMessage instanceof PbPageReadLocalResponseMessage)) {
             BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
-            bdUniqueId2 = this.bCK.unique_id;
+            bdUniqueId2 = this.bCJ.unique_id;
             if (tag != bdUniqueId2 || (pbData = (pbPageReadLocalResponseMessage = (PbPageReadLocalResponseMessage) customResponsedMessage).getPbData()) == null) {
                 return;
             }
-            this.bCK.c(pbData);
-            btVar = this.bCK.bCC;
+            this.bCJ.c(pbData);
+            btVar = this.bCJ.bCB;
             if (btVar != null && pbData != null) {
-                btVar2 = this.bCK.bCC;
+                btVar2 = this.bCJ.bCB;
                 btVar2.a(true, 0, pbPageReadLocalResponseMessage.getUpdateType(), 0, pbData, pbPageReadLocalResponseMessage.getErrorString(), 0);
-                btVar3 = this.bCK.bCC;
+                btVar3 = this.bCJ.bCB;
                 btVar3.dM(false);
             }
         }

@@ -5,46 +5,46 @@ import org.json.JSONObject;
 import tbclient.FrsPage.TopCode;
 /* loaded from: classes.dex */
 public class y {
-    private String Fa;
+    private String EX;
+    private String EY;
+    private String EZ;
+    private int Fa;
     private String Fb;
-    private String Fc;
-    private int Fd;
-    private String Fe;
-    private long Ff;
+    private long Fc;
     private String summary;
 
-    public String mP() {
-        return this.Fa;
+    public String mI() {
+        return this.EX;
     }
 
     public String getSummary() {
         return this.summary;
     }
 
-    public String nO() {
-        return this.Fc;
+    public String nH() {
+        return this.EZ;
     }
 
-    public int nP() {
-        return this.Fd;
+    public int nI() {
+        return this.Fa;
     }
 
-    public String nQ() {
-        return this.Fe;
+    public String nJ() {
+        return this.Fb;
     }
 
     public void a(TopCode topCode) {
         if (topCode != null) {
-            this.Fa = topCode.img_url;
-            this.Fb = topCode.game_link;
+            this.EX = topCode.img_url;
+            this.EY = topCode.game_link;
             this.summary = topCode.summary;
-            this.Fc = topCode.code_link;
-            this.Fd = topCode.get_type.intValue();
-            this.Fe = topCode.surplusgift;
+            this.EZ = topCode.code_link;
+            this.Fa = topCode.get_type.intValue();
+            this.Fb = topCode.surplusgift;
             if (topCode.giftworth.longValue() < 0) {
-                this.Ff = 0L;
+                this.Fc = 0L;
             } else {
-                this.Ff = topCode.giftworth.longValue();
+                this.Fc = topCode.giftworth.longValue();
             }
         }
     }
@@ -52,13 +52,13 @@ public class y {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.Fa = jSONObject.optString("img_url");
-                this.Fb = jSONObject.optString("game_link");
+                this.EX = jSONObject.optString("img_url");
+                this.EY = jSONObject.optString("game_link");
                 this.summary = jSONObject.optString("summary");
-                this.Fc = jSONObject.optString("code_link");
-                this.Fd = jSONObject.optInt("get_type", 1);
-                this.Fe = jSONObject.optString("surplusgift");
-                this.Ff = jSONObject.optLong("giftworth", 0L);
+                this.EZ = jSONObject.optString("code_link");
+                this.Fa = jSONObject.optInt("get_type", 1);
+                this.Fb = jSONObject.optString("surplusgift");
+                this.Fc = jSONObject.optLong("giftworth", 0L);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

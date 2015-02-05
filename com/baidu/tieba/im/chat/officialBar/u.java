@@ -5,31 +5,31 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.im.message.ResponseSendOfficialBarMenuMessage;
 /* loaded from: classes.dex */
 class u extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ OfficialBarChatActivity aUp;
+    final /* synthetic */ OfficialBarChatActivity aUo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u(OfficialBarChatActivity officialBarChatActivity, int i) {
         super(i);
-        this.aUp = officialBarChatActivity;
+        this.aUo = officialBarChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         OfficialBarMsglistView officialBarMsglistView;
-        officialBarMsglistView = this.aUp.aUi;
+        officialBarMsglistView = this.aUo.aUh;
         officialBarMsglistView.cA(false);
         if (!(socketResponsedMessage instanceof ResponseSendOfficialBarMenuMessage)) {
-            this.aUp.showToast(com.baidu.tieba.z.neterror);
+            this.aUo.showToast(com.baidu.tieba.z.neterror);
             return;
         }
         ResponseSendOfficialBarMenuMessage responseSendOfficialBarMenuMessage = (ResponseSendOfficialBarMenuMessage) socketResponsedMessage;
         if (responseSendOfficialBarMenuMessage.hasError()) {
             if (responseSendOfficialBarMenuMessage.getError() > 0 && !TextUtils.isEmpty(responseSendOfficialBarMenuMessage.getErrorString())) {
-                this.aUp.showToast(responseSendOfficialBarMenuMessage.getErrorString());
+                this.aUo.showToast(responseSendOfficialBarMenuMessage.getErrorString());
             } else {
-                this.aUp.showToast(com.baidu.tieba.z.neterror);
+                this.aUo.showToast(com.baidu.tieba.z.neterror);
             }
         }
     }

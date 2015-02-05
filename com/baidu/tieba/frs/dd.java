@@ -5,21 +5,21 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class dd implements com.baidu.adp.widget.BdSwitchView.c {
-    final /* synthetic */ dc aHF;
+    final /* synthetic */ dc aHC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dd(dc dcVar) {
-        this.aHF = dcVar;
+        this.aHC = dcVar;
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, BdSwitchView.SwitchState switchState) {
         if (switchState == BdSwitchView.SwitchState.ON) {
-            com.baidu.tbadk.core.l.mc().bl(0);
-            com.baidu.tbadk.core.l.mc().ac(true);
+            com.baidu.tbadk.core.l.lV().bl(0);
+            com.baidu.tbadk.core.l.lV().ac(true);
         } else {
-            com.baidu.tbadk.core.l.mc().ac(false);
+            com.baidu.tbadk.core.l.lV().ac(false);
         }
-        this.aHF.aHD = true;
+        this.aHC.aHA = true;
     }
 }

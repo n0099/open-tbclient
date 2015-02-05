@@ -1,20 +1,20 @@
 package com.baidu.tieba.im.settingcache;
 /* loaded from: classes.dex */
 class f extends com.baidu.tieba.im.h<Void> {
-    final /* synthetic */ c bpa;
+    final /* synthetic */ c boZ;
     private final /* synthetic */ String val$key;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar, String str) {
-        this.bpa = cVar;
+        this.boZ = cVar;
         this.val$key = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.h
-    /* renamed from: KK */
+    /* renamed from: KF */
     public Void doInBackground() {
-        this.bpa.Tq().remove(this.val$key);
+        this.boZ.Tl().remove(this.val$key);
         return null;
     }
 }

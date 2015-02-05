@@ -9,12 +9,12 @@ public class i extends r implements com.baidu.tbadk.mvc.b.f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String lw() {
+    public String lp() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean bF(String str) {
+    public boolean bC(String str) {
         try {
             c(new JSONObject(str));
             return true;

@@ -5,11 +5,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class p implements Runnable {
-    final /* synthetic */ ActivationActivity anq;
+    final /* synthetic */ ActivationActivity ann;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(ActivationActivity activationActivity) {
-        this.anq = activationActivity;
+        this.ann = activationActivity;
     }
 
     @Override // java.lang.Runnable
@@ -23,29 +23,29 @@ class p implements Runnable {
         TextView textView2;
         t tVar;
         RelativeLayout relativeLayout;
-        ActivationActivity activationActivity = this.anq;
-        i = activationActivity.ud;
-        activationActivity.ud = i - 1;
-        i2 = this.anq.ud;
+        ActivationActivity activationActivity = this.ann;
+        i = activationActivity.ua;
+        activationActivity.ua = i - 1;
+        i2 = this.ann.ua;
         if (i2 <= 0) {
-            this.anq.ang = true;
-            textView2 = this.anq.ana;
-            textView2.setText(this.anq.getPageContext().getString(com.baidu.tieba.z.resend_code));
-            tVar = this.anq.anf;
+            this.ann.and = true;
+            textView2 = this.ann.amX;
+            textView2.setText(this.ann.getPageContext().getString(com.baidu.tieba.z.resend_code));
+            tVar = this.ann.anc;
             if (tVar == null) {
-                relativeLayout = this.anq.and;
+                relativeLayout = this.ann.ana;
                 relativeLayout.setEnabled(true);
                 return;
             }
             return;
         }
-        String string = this.anq.getPageContext().getString(com.baidu.tieba.z.resend_code_second);
-        i3 = this.anq.ud;
+        String string = this.ann.getPageContext().getString(com.baidu.tieba.z.resend_code_second);
+        i3 = this.ann.ua;
         String format = String.format(string, Integer.valueOf(i3));
-        textView = this.anq.ana;
+        textView = this.ann.amX;
         textView.setText(format);
-        handler = this.anq.mHandler;
-        runnable = this.anq.mRunnable;
+        handler = this.ann.mHandler;
+        runnable = this.ann.mRunnable;
         handler.postDelayed(runnable, 1000L);
     }
 }

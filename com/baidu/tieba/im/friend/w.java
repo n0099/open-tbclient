@@ -6,11 +6,11 @@ import com.baidu.tieba.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements ai {
-    final /* synthetic */ s bcg;
+    final /* synthetic */ s bcf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(s sVar) {
-        this.bcg = sVar;
+        this.bcf = sVar;
     }
 
     @Override // com.baidu.tbadk.core.view.ai
@@ -19,25 +19,25 @@ public class w implements ai {
         InviteFriendListActivity inviteFriendListActivity;
         InviteFriendListActivity inviteFriendListActivity2;
         int i;
-        this.bcg.OT();
+        this.bcf.OO();
         if (obj != null && (obj instanceof com.baidu.tbadk.coreExtra.relationship.b)) {
             if (z) {
-                int OU = this.bcg.OU();
-                inviteFriendCandidateList = this.bcg.bca;
-                if (OU <= inviteFriendCandidateList.getItemLength()) {
-                    inviteFriendListActivity = this.bcg.bbW;
-                    inviteFriendListActivity2 = this.bcg.bbW;
+                int OP = this.bcf.OP();
+                inviteFriendCandidateList = this.bcf.bbZ;
+                if (OP <= inviteFriendCandidateList.getItemLength()) {
+                    inviteFriendListActivity = this.bcf.bbV;
+                    inviteFriendListActivity2 = this.bcf.bbV;
                     String string = inviteFriendListActivity2.getPageContext().getString(z.invite_friend_exceed_max_count);
-                    i = this.bcg.bce;
+                    i = this.bcf.bcd;
                     inviteFriendListActivity.showToast(String.format(string, Integer.valueOf(i)));
                     tbCheckBox.setChecked(false);
                     ((com.baidu.tbadk.coreExtra.relationship.b) obj).setChecked(false);
                     return;
                 }
-                this.bcg.g((com.baidu.tbadk.coreExtra.relationship.b) obj);
+                this.bcf.g((com.baidu.tbadk.coreExtra.relationship.b) obj);
                 return;
             }
-            this.bcg.h((com.baidu.tbadk.coreExtra.relationship.b) obj);
+            this.bcf.h((com.baidu.tbadk.coreExtra.relationship.b) obj);
         }
     }
 }

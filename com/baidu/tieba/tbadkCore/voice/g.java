@@ -5,10 +5,10 @@ import android.os.Message;
 import android.os.SystemClock;
 /* loaded from: classes.dex */
 class g extends Handler {
-    final /* synthetic */ a cbt;
+    final /* synthetic */ a cbs;
 
     private g(a aVar) {
-        this.cbt = aVar;
+        this.cbs = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,18 +19,18 @@ class g extends Handler {
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         if (message.what == 1) {
-            if (a.a(this.cbt) < 360.0f) {
+            if (a.a(this.cbs) < 360.0f) {
                 long uptimeMillis = SystemClock.uptimeMillis();
-                a.a(this.cbt, uptimeMillis);
-                a.b(this.cbt, uptimeMillis + 25);
-                a aVar = this.cbt;
-                a.a(aVar, a.a(aVar) + ((((float) (uptimeMillis - a.b(this.cbt))) / 1000.0f) * a.c(this.cbt)));
-                sendEmptyMessageAtTime(1, a.d(this.cbt));
+                a.a(this.cbs, uptimeMillis);
+                a.b(this.cbs, uptimeMillis + 25);
+                a aVar = this.cbs;
+                a.a(aVar, a.a(aVar) + ((((float) (uptimeMillis - a.b(this.cbs))) / 1000.0f) * a.c(this.cbs)));
+                sendEmptyMessageAtTime(1, a.d(this.cbs));
             } else {
-                a.a(this.cbt, 360.0f);
-                a.a(this.cbt, false);
+                a.a(this.cbs, 360.0f);
+                a.a(this.cbs, false);
             }
-            this.cbt.invalidate();
+            this.cbs.invalidate();
         }
     }
 }

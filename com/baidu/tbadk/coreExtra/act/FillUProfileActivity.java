@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 /* loaded from: classes.dex */
 public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
-    private SapiWebView PR;
+    private SapiWebView PO;
     private String bduss;
     private NavigationBar mNavigationBar;
-    private com.baidu.tbadk.coreExtra.view.t PT = null;
-    private final com.baidu.tbadk.core.account.g Gl = new p(this);
+    private com.baidu.tbadk.coreExtra.view.t PP = null;
+    private final com.baidu.tbadk.core.account.g Gi = new p(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -27,10 +27,10 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
         super.onCreate(bundle);
         setContentView(com.baidu.tieba.x.layout_sapi_webview_fill_uprofile);
         this.bduss = getIntent().getStringExtra("EXTRA_BDUSS");
-        rm();
+        rg();
     }
 
-    protected void rm() {
+    protected void rg() {
         this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.w.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new q(this));
         this.mNavigationBar.setTitleText(getPageContext().getString(com.baidu.tieba.z.sapi_filluprofile));
@@ -38,12 +38,12 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
             Toast.makeText(getPageContext().getPageActivity(), "参数错误，无法正常化", 0).show();
             finish();
         }
-        this.PR = (SapiWebView) findViewById(com.baidu.tieba.w.sapi_webview);
-        com.baidu.tbadk.core.account.j.a(getPageContext().getPageActivity(), this.PR);
-        this.PR.setOnBackCallback(new r(this));
-        this.PR.setOnFinishCallback(new s(this));
-        this.PR.setAuthorizationListener(new t(this));
-        this.PR.loadFillUProfile(this.bduss);
+        this.PO = (SapiWebView) findViewById(com.baidu.tieba.w.sapi_webview);
+        com.baidu.tbadk.core.account.j.a(getPageContext().getPageActivity(), this.PO);
+        this.PO.setOnBackCallback(new r(this));
+        this.PO.setOnFinishCallback(new s(this));
+        this.PO.setAuthorizationListener(new t(this));
+        this.PO.loadFillUProfile(this.bduss);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -54,7 +54,7 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rn() {
+    public void rh() {
         TbadkCoreApplication.m255getInst().onUserChanged();
         Intent intent = new Intent();
         intent.putExtra("BDUSS", TbadkCoreApplication.getCurrentBduss());
@@ -63,22 +63,22 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ro() {
+    public void ri() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
-            com.baidu.tbadk.core.account.f.a(session.username, session.bduss, session.ptoken, this.Gl);
+            com.baidu.tbadk.core.account.f.a(session.username, session.bduss, session.ptoken, this.Gi);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(AccountData accountData) {
-        if (this.PT == null) {
-            this.PT = new com.baidu.tbadk.coreExtra.view.t(this);
-            this.PT.a(new u(this));
+        if (this.PP == null) {
+            this.PP = new com.baidu.tbadk.coreExtra.view.t(this);
+            this.PP.a(new u(this));
         }
-        this.PT.tM();
-        this.PT.g(accountData);
-        this.PT.tJ();
+        this.PP.tG();
+        this.PP.g(accountData);
+        this.PP.tD();
     }
 }

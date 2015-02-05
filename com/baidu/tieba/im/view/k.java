@@ -16,18 +16,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class k extends RelativeLayout {
+    private int bqm;
     private int bqn;
-    private int bqo;
-    private m bqp;
+    private m bqo;
+    private int bqp;
     private int bqq;
-    private int bqr;
-    private o bqs;
+    private o bqr;
     private Context mContext;
     private int mWidth;
     private int rc;
 
     public void setOnItemClickListener(o oVar) {
-        this.bqs = oVar;
+        this.bqr = oVar;
     }
 
     public k(Context context) {
@@ -39,8 +39,8 @@ public class k extends RelativeLayout {
         layoutParams.bottomMargin = i.i(this.mContext, u.ds14);
         setLayoutParams(layoutParams);
         setBackgroundResource(v.bg_bottombar_meun_float);
-        this.bqn = i.i(this.mContext, u.ds36);
-        this.bqo = i.i(this.mContext, u.ds200);
+        this.bqm = i.i(this.mContext, u.ds36);
+        this.bqn = i.i(this.mContext, u.ds200);
         this.rc = i.i(this.mContext, u.ds504);
     }
 
@@ -50,16 +50,16 @@ public class k extends RelativeLayout {
         listView.setCacheColorHint(this.mContext.getResources().getColor(17170445));
         listView.setDivider(null);
         listView.setDividerHeight(0);
-        this.bqp = new m(this.mContext, list);
-        listView.setAdapter((ListAdapter) this.bqp);
+        this.bqo = new m(this.mContext, list);
+        listView.setAdapter((ListAdapter) this.bqo);
         listView.setOnItemClickListener(new l(this));
         return listView;
     }
 
     public void a(int i, int i2, List<d> list) {
         if (list != null) {
-            this.bqr = i;
-            this.bqq = i2;
+            this.bqq = i;
+            this.bqp = i2;
             this.mWidth = aE(list);
             removeAllViews();
             addView(d(list, this.mWidth));
@@ -81,7 +81,7 @@ public class k extends RelativeLayout {
                 }
                 i = i2 + 1;
             } else {
-                return (int) Math.min(Math.max((this.bqn * 2) + f, this.bqo), this.rc);
+                return (int) Math.min(Math.max((this.bqm * 2) + f, this.bqn), this.rc);
             }
         }
     }
@@ -92,7 +92,7 @@ public class k extends RelativeLayout {
             int[] iArr = new int[2];
             view.getLocationOnScreen(iArr);
             int width = (iArr == null || iArr.length != 2) ? 0 : (iArr[0] + (view.getWidth() / 2)) - (this.mWidth / 2);
-            if (this.bqq == this.bqr - 1) {
+            if (this.bqp == this.bqq - 1) {
                 width = ((iArr[0] + view.getWidth()) - i.i(this.mContext, u.ds20)) - this.mWidth;
             }
             if (width <= 0) {
@@ -105,12 +105,12 @@ public class k extends RelativeLayout {
         }
     }
 
-    public void TK() {
+    public void TF() {
         setVisibility(8);
         dl(false);
     }
 
-    public void TL() {
+    public void TG() {
         setVisibility(8);
     }
 

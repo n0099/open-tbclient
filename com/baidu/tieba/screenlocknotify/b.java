@@ -13,7 +13,7 @@ class b implements AdapterView.OnItemClickListener {
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        this.this$0.bNV = (t) this.this$0.bNU.getItem(i);
-        this.this$0.a(this.this$0.bNV);
+        this.this$0.bNU = (t) this.this$0.bNT.getItem(i);
+        this.this$0.a(this.this$0.bNU);
     }
 }

@@ -8,13 +8,13 @@ import com.baidu.tieba.im.message.PushMessage;
 import com.baidu.tieba.im.model.ValidateModel;
 /* loaded from: classes.dex */
 class b extends CustomMessageListener {
-    final /* synthetic */ ValidateActivity bpQ;
+    final /* synthetic */ ValidateActivity bpP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(ValidateActivity validateActivity, int i) {
         super(i);
-        this.bpQ = validateActivity;
+        this.bpP = validateActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,17 +26,17 @@ class b extends CustomMessageListener {
         m mVar2;
         if (customResponsedMessage instanceof PushMessage) {
             GroupNewsPojo p = ((PushMessage) customResponsedMessage).getP();
-            ValidateActivity validateActivity = this.bpQ;
+            ValidateActivity validateActivity = this.bpP;
             i = validateActivity.offset;
             validateActivity.offset = i + 1;
-            ValidateActivity validateActivity2 = this.bpQ;
+            ValidateActivity validateActivity2 = this.bpP;
             i2 = validateActivity2.totalCount;
             validateActivity2.totalCount = i2 + 1;
             ValidateItemData convertToValidateItemData = ValidateModel.convertToValidateItemData(p);
-            mVar = this.bpQ.bpK;
-            mVar.TJ().getDatas().add(0, convertToValidateItemData);
-            mVar2 = this.bpQ.bpK;
-            mVar2.TJ().notifyDataSetChanged();
+            mVar = this.bpP.bpJ;
+            mVar.TE().getDatas().add(0, convertToValidateItemData);
+            mVar2 = this.bpP.bpJ;
+            mVar2.TE().notifyDataSetChanged();
         }
     }
 }

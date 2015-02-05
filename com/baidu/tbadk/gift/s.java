@@ -4,10 +4,10 @@ import android.text.Editable;
 import android.text.TextWatcher;
 /* loaded from: classes.dex */
 class s implements TextWatcher {
-    final /* synthetic */ BuyGiftActivity abe;
+    final /* synthetic */ BuyGiftActivity abb;
 
     private s(BuyGiftActivity buyGiftActivity) {
-        this.abe = buyGiftActivity;
+        this.abb = buyGiftActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,11 +28,11 @@ class s implements TextWatcher {
     public void afterTextChanged(Editable editable) {
         int i = com.baidu.adp.lib.g.c.toInt(editable.toString(), 0);
         if (editable.toString().length() == String.valueOf(i).length()) {
-            BuyGiftActivity.b(this.abe, true);
+            BuyGiftActivity.b(this.abb, true);
             return;
         }
         int i2 = i >= 0 ? i : 0;
-        BuyGiftActivity.c(this.abe).setText(new StringBuilder().append(i2).toString());
-        BuyGiftActivity.c(this.abe).setSelection(String.valueOf(i2).length());
+        BuyGiftActivity.c(this.abb).setText(new StringBuilder().append(i2).toString());
+        BuyGiftActivity.c(this.abb).setSelection(String.valueOf(i2).length());
     }
 }

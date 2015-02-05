@@ -4,21 +4,21 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 /* loaded from: classes.dex */
 class az implements Animation.AnimationListener {
-    private final /* synthetic */ ba bXc;
-    private final /* synthetic */ ViewGroup bXd;
+    private final /* synthetic */ ba bXb;
+    private final /* synthetic */ ViewGroup bXc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public az(ba baVar, ViewGroup viewGroup) {
-        this.bXc = baVar;
-        this.bXd = viewGroup;
+        this.bXb = baVar;
+        this.bXc = viewGroup;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        if (this.bXc != null) {
-            this.bXc.agp();
+        if (this.bXb != null) {
+            this.bXb.agk();
         }
-        this.bXd.setVisibility(0);
+        this.bXc.setVisibility(0);
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -27,9 +27,9 @@ class az implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationStart(Animation animation) {
-        this.bXd.setVisibility(8);
-        if (this.bXc != null) {
-            this.bXc.agq();
+        this.bXc.setVisibility(8);
+        if (this.bXb != null) {
+            this.bXb.agl();
         }
     }
 }

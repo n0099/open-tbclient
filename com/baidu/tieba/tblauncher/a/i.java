@@ -3,11 +3,11 @@ package com.baidu.tieba.tblauncher.a;
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
 class i implements DialogInterface.OnClickListener {
-    final /* synthetic */ d cdN;
+    final /* synthetic */ d cdM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(d dVar) {
-        this.cdN = dVar;
+        this.cdM = dVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener

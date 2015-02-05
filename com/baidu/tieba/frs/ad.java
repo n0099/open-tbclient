@@ -2,21 +2,21 @@ package com.baidu.tieba.frs;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ FrsActivity aDW;
+    final /* synthetic */ FrsActivity aDT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(FrsActivity frsActivity) {
-        this.aDW = frsActivity;
+        this.aDT = frsActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         bp bpVar;
         bp bpVar2;
-        bpVar = this.aDW.aCY;
-        if (bpVar.FF() != null) {
-            bpVar2 = this.aDW.aCY;
-            bpVar2.FF().setLocationInfoViewState(0);
+        bpVar = this.aDT.aCV;
+        if (bpVar.Fz() != null) {
+            bpVar2 = this.aDT.aCV;
+            bpVar2.Fz().setLocationInfoViewState(0);
         }
         aVar.dismiss();
     }

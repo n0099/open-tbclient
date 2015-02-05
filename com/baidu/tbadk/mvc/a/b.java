@@ -1,11 +1,11 @@
 package com.baidu.tbadk.mvc.a;
 /* loaded from: classes.dex */
 public interface b<T> extends a {
-    Class<T> ln();
+    Class<T> lg();
 
-    int lo();
+    int lh();
 
-    int lp();
+    int li();
 
-    String lq();
+    String lj();
 }

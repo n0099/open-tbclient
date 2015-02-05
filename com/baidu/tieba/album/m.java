@@ -5,5 +5,5 @@ import java.util.List;
 public interface m {
     void C(List<a> list);
 
-    void jG();
+    void jz();
 }

@@ -6,11 +6,11 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class as implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ WriteActivity cgS;
+    final /* synthetic */ WriteActivity cgR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(WriteActivity writeActivity) {
-        this.cgS = writeActivity;
+        this.cgR = writeActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
@@ -26,27 +26,27 @@ public class as implements com.baidu.tbadk.core.dialog.d {
         WriteData writeData6;
         WriteData writeData7;
         aVar.dismiss();
-        writeData = this.cgS.bPp;
-        editText = this.cgS.bPG;
+        writeData = this.cgR.bPo;
+        editText = this.cgR.bPF;
         writeData.setTitle(editText.getText().toString());
-        writeData2 = this.cgS.bPp;
-        editText2 = this.cgS.bPK;
+        writeData2 = this.cgR.bPo;
+        editText2 = this.cgR.bPJ;
         writeData2.setContent(editText2.getText().toString());
-        writeData3 = this.cgS.bPp;
+        writeData3 = this.cgR.bPo;
         int type = writeData3.getType();
         if (type == 0) {
-            writeData6 = this.cgS.bPp;
+            writeData6 = this.cgR.bPo;
             String forumId = writeData6.getForumId();
-            writeData7 = this.cgS.bPp;
+            writeData7 = this.cgR.bPo;
             com.baidu.tieba.tbadkCore.al.a(forumId, writeData7);
         } else if (type == 1) {
-            writeData4 = this.cgS.bPp;
+            writeData4 = this.cgR.bPo;
             String threadId = writeData4.getThreadId();
-            writeData5 = this.cgS.bPp;
+            writeData5 = this.cgR.bPo;
             com.baidu.tieba.tbadkCore.al.b(threadId, writeData5);
         }
-        this.cgS.showToast(com.baidu.tieba.z.draft_save_success);
-        handler = this.cgS.mHandler;
+        this.cgR.showToast(com.baidu.tieba.z.draft_save_success);
+        handler = this.cgR.mHandler;
         handler.postDelayed(new at(this), 1000L);
     }
 }

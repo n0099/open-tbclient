@@ -15,8 +15,8 @@ import java.util.Locale;
 /* loaded from: classes.dex */
 public class o extends BaseAdapter {
     private Context mContext;
-    private boolean bOm = false;
-    private List<t> bOl = new ArrayList();
+    private boolean bOl = false;
+    private List<t> bOk = new ArrayList();
 
     public o(Context context) {
         this.mContext = context;
@@ -24,15 +24,15 @@ public class o extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bOl != null) {
-            return this.bOl.size();
+        if (this.bOk != null) {
+            return this.bOk.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.bOl.get(i);
+        return this.bOk.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -42,8 +42,8 @@ public class o extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        t tVar = this.bOl.get(i);
-        if (this.bOm) {
+        t tVar = this.bOk.get(i);
+        if (this.bOl) {
             return a(tVar, view, viewGroup, true);
         }
         if (i == 0) {
@@ -62,14 +62,14 @@ public class o extends BaseAdapter {
             pVar = R(view);
             view.setTag(pVar);
         }
-        pVar.bOn.setText(tVar.content);
-        pVar.bNL.setText(tVar.groupName);
-        pVar.bOo.setText(hz(tVar.bOu));
-        pVar.bNM.setText(aj(tVar.IU));
+        pVar.bOm.setText(tVar.content);
+        pVar.bNK.setText(tVar.groupName);
+        pVar.bOn.setText(hz(tVar.bOt));
+        pVar.bNL.setText(aj(tVar.IR));
         if (z) {
-            pVar.Td.setVisibility(0);
+            pVar.Ta.setVisibility(0);
         } else {
-            pVar.Td.setVisibility(8);
+            pVar.Ta.setVisibility(8);
         }
         return view;
     }
@@ -84,7 +84,7 @@ public class o extends BaseAdapter {
             qVar = S(view);
             view.setTag(qVar);
         }
-        qVar.bOn.setText(tVar.content);
+        qVar.bOm.setText(tVar.content);
         return view;
     }
 
@@ -98,7 +98,7 @@ public class o extends BaseAdapter {
             rVar = T(view);
             view.setTag(rVar);
         }
-        rVar.bOq.setText(tVar.content);
+        rVar.bOp.setText(tVar.content);
         return view;
     }
 
@@ -112,32 +112,32 @@ public class o extends BaseAdapter {
     }
 
     public void setData(List<t> list) {
-        this.bOl = list;
+        this.bOk = list;
     }
 
     private p R(View view) {
         p pVar = new p(this, null);
-        pVar.bNL = (TextView) view.findViewById(w.friend_name_show1);
-        pVar.bNM = (TextView) view.findViewById(w.last_msg_time_show1);
-        pVar.bOn = (TextView) view.findViewById(w.one_msg_content_show1);
-        pVar.bOo = (TextView) view.findViewById(w.unread_msg_count_show1);
-        pVar.Td = view.findViewById(w.line);
+        pVar.bNK = (TextView) view.findViewById(w.friend_name_show1);
+        pVar.bNL = (TextView) view.findViewById(w.last_msg_time_show1);
+        pVar.bOm = (TextView) view.findViewById(w.one_msg_content_show1);
+        pVar.bOn = (TextView) view.findViewById(w.unread_msg_count_show1);
+        pVar.Ta = view.findViewById(w.line);
         return pVar;
     }
 
     private q S(View view) {
         q qVar = new q(this, null);
-        qVar.bOn = (TextView) view.findViewById(w.msg_content_2);
+        qVar.bOm = (TextView) view.findViewById(w.msg_content_2);
         return qVar;
     }
 
     private r T(View view) {
         r rVar = new r(this, null);
-        rVar.bOq = (TextView) view.findViewById(w.one_msg_content);
+        rVar.bOp = (TextView) view.findViewById(w.one_msg_content);
         return rVar;
     }
 
     public void ep(boolean z) {
-        this.bOm = z;
+        this.bOl = z;
     }
 }

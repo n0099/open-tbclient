@@ -82,7 +82,7 @@ public class ProxyAdkBaseActivity<T> extends a {
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(getActivity());
-        this.customToast = k.or();
+        this.customToast = k.ok();
         super.onCreate(bundle);
         this.mLayoutMode = new c();
         this.mLayoutInflateFactory = new com.baidu.tbadk.core.a();
@@ -92,7 +92,7 @@ public class ProxyAdkBaseActivity<T> extends a {
             CompatibleUtile.getInstance().openGpu(getActivity());
         }
         TbadkCoreApplication.setIsAppRunning(true);
-        bk.cI(getClass().getName());
+        bk.cF(getClass().getName());
     }
 
     public TbPageContext<T> getPageContext() {
@@ -188,7 +188,7 @@ public class ProxyAdkBaseActivity<T> extends a {
     public void onDestroy() {
         closeLoadingDialog();
         if (this.mGuidPage != null) {
-            this.mGuidPage.qE();
+            this.mGuidPage.qy();
         }
         if (this.mLayoutMode != null) {
             this.mLayoutMode.destroy();
@@ -297,19 +297,19 @@ public class ProxyAdkBaseActivity<T> extends a {
     }
 
     protected void showToastWithIcon(String str, int i) {
-        BdToast.a(this, str, i).ob();
+        BdToast.a(this, str, i).nU();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(this, str, i, i2).ob();
+        BdToast.a(this, str, i, i2).nU();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(this, str, defaultIcon).ob();
+        BdToast.a(this, str, defaultIcon).nU();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(this, str, defaultIcon, i).ob();
+        BdToast.a(this, str, defaultIcon, i).nU();
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.a
@@ -427,7 +427,7 @@ public class ProxyAdkBaseActivity<T> extends a {
         this.customToast.onResume();
         changeSkinType(TbadkCoreApplication.m255getInst().getSkinType());
         TbadkCoreApplication.m255getInst().AddResumeNum();
-        bk.cI(getClass().getName());
+        bk.cF(getClass().getName());
     }
 
     public void changeSkinType(int i) {
@@ -712,7 +712,7 @@ public class ProxyAdkBaseActivity<T> extends a {
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.wo();
+        return this.loadingView.wi();
     }
 
     public void hideLoadingView(View view) {
@@ -725,7 +725,7 @@ public class ProxyAdkBaseActivity<T> extends a {
         if (this.refreshView == null) {
             this.refreshView = new h(getPageContext().getContext(), getNetRefreshListener());
         }
-        this.refreshView.es(str);
+        this.refreshView.ep(str);
         this.refreshView.b(view, z);
     }
 

@@ -3,14 +3,14 @@ package com.baidu.adp.widget.ListView;
 public class d {
     public int startX;
     public int startY;
-    public int wu;
-    public int wv;
+    public int wr;
+    public int ws;
 
     public d(int i, int i2, int i3, int i4) {
         this.startX = i;
         this.startY = i2;
-        this.wu = i3;
-        this.wv = i4;
+        this.wr = i3;
+        this.ws = i4;
     }
 
     public int l(float f) {

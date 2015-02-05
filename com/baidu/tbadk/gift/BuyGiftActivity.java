@@ -39,40 +39,40 @@ import java.util.List;
 import tbclient.SendGift.SendGiftResIdl;
 /* loaded from: classes.dex */
 public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements ViewPager.OnPageChangeListener {
-    private EditText aaA;
-    private TextView aaB;
-    private TextView aaC;
-    private BaseViewPager aaD;
-    private IndicatorView aaE;
-    private LinearLayout aaF;
-    private View aaG;
-    private View aaH;
-    private View aaI;
-    private ListView aaJ;
-    private w aaL;
-    private y aaM;
-    private GiftCommonList aaN;
-    private int aaO;
-    private int aaP;
-    private int aaQ;
-    private GiftCommonList.GiftItem aaR;
+    private BaseViewPager aaA;
+    private IndicatorView aaB;
+    private LinearLayout aaC;
+    private View aaD;
+    private View aaE;
+    private View aaF;
+    private ListView aaG;
+    private w aaI;
+    private y aaJ;
+    private GiftCommonList aaK;
+    private int aaL;
+    private int aaM;
+    private int aaN;
+    private GiftCommonList.GiftItem aaO;
+    private View aaR;
+    private View aaS;
+    private EditText aaT;
     private View aaU;
     private View aaV;
-    private EditText aaW;
-    private View aaX;
-    private View aaY;
-    private View aaZ;
-    private View aay;
-    private View aaz;
+    private View aaW;
+    private View aav;
+    private View aaw;
+    private EditText aax;
+    private TextView aay;
+    private TextView aaz;
     private String mPassword;
     private long mReceiverId;
-    private List<View> aaK = new ArrayList();
-    private SparseIntArray aaS = new SparseIntArray();
-    private boolean aaT = false;
-    private final HttpMessageListener aba = new a(this, CmdConfigHttp.GET_GIFT_LIST);
-    private final com.baidu.adp.framework.listener.e abb = new h(this, 308001);
-    private final com.baidu.adp.framework.listener.e abc = new i(this, 308003);
-    private final CustomMessageListener abd = new j(this, 2001233);
+    private List<View> aaH = new ArrayList();
+    private SparseIntArray aaP = new SparseIntArray();
+    private boolean aaQ = false;
+    private final HttpMessageListener aaX = new a(this, CmdConfigHttp.GET_GIFT_LIST);
+    private final com.baidu.adp.framework.listener.e aaY = new h(this, 308001);
+    private final com.baidu.adp.framework.listener.e aaZ = new i(this, 308003);
+    private final CustomMessageListener aba = new j(this, 2001233);
 
     static {
         TbadkApplication.getInst().RegisterIntent(BuyGiftActivityConfig.class, BuyGiftActivity.class);
@@ -88,58 +88,58 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             window.setBackgroundDrawable(getResources().getDrawable(com.baidu.tieba.v.bg_gift_shade));
         }
         setContentView(com.baidu.tieba.x.activity_buy_gift);
-        vX();
+        vR();
         initData();
     }
 
-    private void vX() {
-        this.aay = findViewById(com.baidu.tieba.w.empty_layout);
-        this.aay.setOnClickListener(new k(this));
-        this.aaz = findViewById(com.baidu.tieba.w.gift_list_layout);
+    private void vR() {
+        this.aav = findViewById(com.baidu.tieba.w.empty_layout);
+        this.aav.setOnClickListener(new k(this));
+        this.aaw = findViewById(com.baidu.tieba.w.gift_list_layout);
         InputMethodManager inputMethodManager = (InputMethodManager) getSystemService("input_method");
-        this.aaA = (EditText) findViewById(com.baidu.tieba.w.gift_count_input);
-        this.aaA.setSelection(1);
+        this.aax = (EditText) findViewById(com.baidu.tieba.w.gift_count_input);
+        this.aax.setSelection(1);
         aM(false);
-        this.aaA.addTextChangedListener(new s(this, null));
-        this.aaA.setOnClickListener(new l(this, inputMethodManager));
-        this.aaA.setOnFocusChangeListener(new n(this, inputMethodManager));
-        this.aaB = (TextView) findViewById(com.baidu.tieba.w.gift_count_result);
-        this.aaC = (TextView) findViewById(com.baidu.tieba.w.gift_button);
-        this.aaC.setEnabled(false);
-        this.aaC.setOnClickListener(new o(this));
-        this.aaG = findViewById(com.baidu.tieba.w.gift_lower_layout);
-        this.aaD = (BaseViewPager) findViewById(com.baidu.tieba.w.gift_viewpager);
-        this.aaD.setOnPageChangeListener(this);
-        this.aaE = (IndicatorView) findViewById(com.baidu.tieba.w.gift_tab_indicator);
-        this.aaF = (LinearLayout) findViewById(com.baidu.tieba.w.gift_tab_layout);
-        this.aaH = findViewById(com.baidu.tieba.w.gift_progress_layout);
-        this.aaI = findViewById(com.baidu.tieba.w.gift_num_layout);
-        this.aaI.setOnClickListener(new p(this));
-        this.aaJ = (ListView) findViewById(com.baidu.tieba.w.gift_num_list);
-        this.aaJ.setOnItemClickListener(new r(this, null));
-        this.aaU = findViewById(com.baidu.tieba.w.password_dialog);
-        this.aaU.setBackgroundResource(com.baidu.tieba.t.result_view);
-        this.aaU.setOnClickListener(new b(this, inputMethodManager));
-        this.aaV = this.aaU.findViewById(com.baidu.tieba.w.password_dialog_ll);
-        this.aaV.setOnClickListener(new d(this));
-        this.aaW = (EditText) this.aaU.findViewById(com.baidu.tieba.w.password_dialog_input);
-        this.aaX = this.aaU.findViewById(com.baidu.tieba.w.password_dialog_ok);
-        this.aaX.setOnClickListener(new e(this));
-        this.aaY = this.aaU.findViewById(com.baidu.tieba.w.password_dialog_cancel);
-        this.aaY.setOnClickListener(new f(this));
-        this.aaZ = this.aaU.findViewById(com.baidu.tieba.w.password_dialog_warning);
+        this.aax.addTextChangedListener(new s(this, null));
+        this.aax.setOnClickListener(new l(this, inputMethodManager));
+        this.aax.setOnFocusChangeListener(new n(this, inputMethodManager));
+        this.aay = (TextView) findViewById(com.baidu.tieba.w.gift_count_result);
+        this.aaz = (TextView) findViewById(com.baidu.tieba.w.gift_button);
+        this.aaz.setEnabled(false);
+        this.aaz.setOnClickListener(new o(this));
+        this.aaD = findViewById(com.baidu.tieba.w.gift_lower_layout);
+        this.aaA = (BaseViewPager) findViewById(com.baidu.tieba.w.gift_viewpager);
+        this.aaA.setOnPageChangeListener(this);
+        this.aaB = (IndicatorView) findViewById(com.baidu.tieba.w.gift_tab_indicator);
+        this.aaC = (LinearLayout) findViewById(com.baidu.tieba.w.gift_tab_layout);
+        this.aaE = findViewById(com.baidu.tieba.w.gift_progress_layout);
+        this.aaF = findViewById(com.baidu.tieba.w.gift_num_layout);
+        this.aaF.setOnClickListener(new p(this));
+        this.aaG = (ListView) findViewById(com.baidu.tieba.w.gift_num_list);
+        this.aaG.setOnItemClickListener(new r(this, null));
+        this.aaR = findViewById(com.baidu.tieba.w.password_dialog);
+        this.aaR.setBackgroundResource(com.baidu.tieba.t.result_view);
+        this.aaR.setOnClickListener(new b(this, inputMethodManager));
+        this.aaS = this.aaR.findViewById(com.baidu.tieba.w.password_dialog_ll);
+        this.aaS.setOnClickListener(new d(this));
+        this.aaT = (EditText) this.aaR.findViewById(com.baidu.tieba.w.password_dialog_input);
+        this.aaU = this.aaR.findViewById(com.baidu.tieba.w.password_dialog_ok);
+        this.aaU.setOnClickListener(new e(this));
+        this.aaV = this.aaR.findViewById(com.baidu.tieba.w.password_dialog_cancel);
+        this.aaV.setOnClickListener(new f(this));
+        this.aaW = this.aaR.findViewById(com.baidu.tieba.w.password_dialog_warning);
     }
 
     private void initData() {
         if (getIntent() != null) {
             this.mReceiverId = getIntent().getLongExtra(BuyGiftActivityConfig.GIFT_RECEIVER_ID, 0L);
         }
-        vT();
+        vN();
         registerListener();
-        vY();
+        vS();
     }
 
-    private void vT() {
+    private void vN() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.GET_GIFT_LIST, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GIFT_COMMONLIST + "?cmd=308001");
         tbHttpMessageTask.setResponsedClass(GetGiftCommonListHttpResponseMessage.class);
@@ -159,23 +159,23 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     }
 
     private void registerListener() {
+        registerListener(this.aaX);
+        registerListener(this.aaY);
+        registerListener(this.aaZ);
         registerListener(this.aba);
-        registerListener(this.abb);
-        registerListener(this.abc);
-        registerListener(this.abd);
     }
 
-    private void vY() {
-        this.aaH.setVisibility(0);
-        this.aaG.setVisibility(8);
-        this.aaI.setVisibility(8);
+    private void vS() {
+        this.aaE.setVisibility(0);
+        this.aaD.setVisibility(8);
+        this.aaF.setVisibility(8);
         aM(false);
-        HidenSoftKeyPad((InputMethodManager) getSystemService("input_method"), this.aaA);
+        HidenSoftKeyPad((InputMethodManager) getSystemService("input_method"), this.aax);
         sendMessage(new GetGiftCommonListRequestMessage());
     }
 
     public void p(int i, String str) {
-        if (i != 0 || this.aaN == null || this.aaN.getGiftInfo() == null || this.aaN.getGiftInfo().getTypeInfo().size() <= 0) {
+        if (i != 0 || this.aaK == null || this.aaK.getGiftInfo() == null || this.aaK.getGiftInfo().getTypeInfo().size() <= 0) {
             if (TextUtils.isEmpty(str)) {
                 showToast(z.neterror);
             } else {
@@ -184,34 +184,34 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             closeActivity();
             return;
         }
-        this.aaC.setEnabled(true);
-        this.aaH.setVisibility(8);
-        this.aaG.setVisibility(0);
-        wa();
+        this.aaz.setEnabled(true);
+        this.aaE.setVisibility(8);
+        this.aaD.setVisibility(0);
+        vU();
     }
 
-    public void vZ() {
-        if (this.aaR != null && this.mReceiverId > 0) {
-            if (this.aaU.getVisibility() == 0) {
-                this.aaX.setClickable(false);
-                this.aaY.setClickable(false);
+    public void vT() {
+        if (this.aaO != null && this.mReceiverId > 0) {
+            if (this.aaR.getVisibility() == 0) {
+                this.aaU.setClickable(false);
+                this.aaV.setClickable(false);
             }
-            this.aaC.setEnabled(false);
-            this.aaH.setVisibility(0);
+            this.aaz.setEnabled(false);
+            this.aaE.setVisibility(0);
             RequestSendGiftSocketMessage requestSendGiftSocketMessage = new RequestSendGiftSocketMessage();
-            requestSendGiftSocketMessage.setParams(this.mReceiverId, this.aaR.getGiftId(), this.aaR.getPrice(), com.baidu.adp.lib.g.c.toInt(this.aaA.getText().toString(), 1), 1, this.mPassword);
+            requestSendGiftSocketMessage.setParams(this.mReceiverId, this.aaO.getGiftId(), this.aaO.getPrice(), com.baidu.adp.lib.g.c.toInt(this.aax.getText().toString(), 1), 1, this.mPassword);
             sendMessage(requestSendGiftSocketMessage);
         }
     }
 
     public void a(int i, String str, SendGiftResIdl sendGiftResIdl) {
-        if (this.aaU.getVisibility() == 0) {
-            this.aaX.setClickable(true);
-            this.aaY.setClickable(true);
+        if (this.aaR.getVisibility() == 0) {
+            this.aaU.setClickable(true);
+            this.aaV.setClickable(true);
         }
-        this.aaH.setVisibility(8);
+        this.aaE.setVisibility(8);
         this.mPassword = "";
-        if (i == 1990018 && !this.aaT) {
+        if (i == 1990018 && !this.aaQ) {
             int aL = aL(false);
             int intValue = (sendGiftResIdl == null || sendGiftResIdl.data == null || sendGiftResIdl.data.money == null) ? 0 : aL - sendGiftResIdl.data.money.intValue();
             if (intValue > 0) {
@@ -219,17 +219,17 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             }
             sendMessage(new CustomMessage(2002001, new BuyTBeanActivityConfig(getPageContext().getPageActivity(), aL)));
         } else if (i == 1990028) {
-            if (this.aaU.getVisibility() == 0) {
-                this.aaZ.setVisibility(0);
+            if (this.aaR.getVisibility() == 0) {
+                this.aaW.setVisibility(0);
             }
         } else if (i == 1990019) {
             t(str, 0);
-            vY();
+            vS();
         } else if (i == 1990027) {
-            this.aaU.setVisibility(0);
-            this.aaW.setText("");
-            this.aaZ.setVisibility(8);
-            this.aaW.requestFocus();
+            this.aaR.setVisibility(0);
+            this.aaT.setText("");
+            this.aaW.setVisibility(8);
+            this.aaT.requestFocus();
             this.mHandler.post(new g(this));
         } else if (i != 0) {
             t(str, z.neterror);
@@ -251,18 +251,18 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         showToast(str);
     }
 
-    private void wa() {
-        if (this.aaN != null && this.aaN.getGiftInfo() != null) {
-            List<GiftCommonList.TypeInfo> typeInfo = this.aaN.getGiftInfo().getTypeInfo();
+    private void vU() {
+        if (this.aaK != null && this.aaK.getGiftInfo() != null) {
+            List<GiftCommonList.TypeInfo> typeInfo = this.aaK.getGiftInfo().getTypeInfo();
             n(typeInfo);
             p(typeInfo);
-            r(this.aaN.getGiftInfo().getNumInfo());
+            r(this.aaK.getGiftInfo().getNumInfo());
         }
     }
 
     private void n(List<GiftCommonList.TypeInfo> list) {
         if (list != null && list.size() > 0) {
-            this.aaF.removeAllViews();
+            this.aaC.removeAllViews();
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -1);
             layoutParams.weight = 1.0f;
             o(list);
@@ -277,7 +277,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
                     textView.setSingleLine();
                     textView.setEllipsize(TextUtils.TruncateAt.END);
                     textView.setPadding(8, 0, 8, 0);
-                    this.aaF.addView(textView, layoutParams);
+                    this.aaC.addView(textView, layoutParams);
                 }
             }
             dr(0);
@@ -297,10 +297,10 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     }
 
     private void dr(int i) {
-        int childCount = this.aaF.getChildCount();
+        int childCount = this.aaC.getChildCount();
         if (i >= 0 && i < childCount) {
             for (int i2 = 0; i2 < childCount; i2++) {
-                TextView textView = (TextView) this.aaF.getChildAt(i2);
+                TextView textView = (TextView) this.aaC.getChildAt(i2);
                 if (i2 != i) {
                     bc.b(textView, com.baidu.tieba.t.gift_tab_textcolor_normal, 1);
                 } else {
@@ -313,19 +313,19 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     private void p(List<GiftCommonList.TypeInfo> list) {
         List<GiftCommonList.GiftItem> subList;
         if (list != null) {
-            this.aaS.clear();
-            this.aaK.clear();
-            this.aaD.setAdapter(null);
+            this.aaP.clear();
+            this.aaH.clear();
+            this.aaA.setAdapter(null);
             for (int i = 0; i < list.size(); i++) {
                 List<GiftCommonList.GiftItem> q = q(list.get(i).getGiftItems());
                 int size = q.size();
                 if (size > 0) {
-                    if (this.aaR == null) {
-                        this.aaR = q.get(0);
+                    if (this.aaO == null) {
+                        this.aaO = q.get(0);
                         aL(true);
                     }
                     int ceil = (int) Math.ceil(size / 8.0d);
-                    this.aaS.append(i, ceil);
+                    this.aaP.append(i, ceil);
                     for (int i2 = 0; i2 < ceil; i2++) {
                         if (i2 == ceil - 1) {
                             if (i2 * 8 == size - 1) {
@@ -339,16 +339,16 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
                             subList = q.subList(i2 * 8, (i2 + 1) * 8);
                         }
                         if (i == 0 && i2 == 0) {
-                            this.aaK.add(b(subList, this.aaP));
+                            this.aaH.add(b(subList, this.aaM));
                         } else {
-                            this.aaK.add(b(subList, -1));
+                            this.aaH.add(b(subList, -1));
                         }
                     }
                 }
             }
-            this.aaM = new y(this.aaK);
-            this.aaD.setAdapter(this.aaM);
-            wb();
+            this.aaJ = new y(this.aaH);
+            this.aaA.setAdapter(this.aaJ);
+            vV();
         }
     }
 
@@ -381,23 +381,23 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         return gridView;
     }
 
-    public void wb() {
+    public void vV() {
         int i = 0;
-        for (int i2 = 0; i2 < this.aaS.size(); i2++) {
-            for (int i3 = 0; i3 < this.aaS.get(i2); i3++) {
-                if (i + i3 == this.aaO) {
-                    if (this.aaS.get(i2) <= 1) {
-                        this.aaE.setVisibility(4);
+        for (int i2 = 0; i2 < this.aaP.size(); i2++) {
+            for (int i3 = 0; i3 < this.aaP.get(i2); i3++) {
+                if (i + i3 == this.aaL) {
+                    if (this.aaP.get(i2) <= 1) {
+                        this.aaB.setVisibility(4);
                     } else {
-                        this.aaE.setVisibility(0);
+                        this.aaB.setVisibility(0);
                     }
-                    this.aaE.setCount(this.aaS.get(i2));
-                    this.aaE.setPosition(i3);
+                    this.aaB.setCount(this.aaP.get(i2));
+                    this.aaB.setPosition(i3);
                     dr(i2);
                     return;
                 }
             }
-            i += this.aaS.get(i2);
+            i += this.aaP.get(i2);
         }
     }
 
@@ -411,9 +411,9 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             }
             list.removeAll(arrayList);
         }
-        this.aaL = new w(getPageContext().getPageActivity());
-        this.aaJ.setAdapter((ListAdapter) this.aaL);
-        this.aaL.s(list);
+        this.aaI = new w(getPageContext().getPageActivity());
+        this.aaG.setAdapter((ListAdapter) this.aaI);
+        this.aaI.s(list);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -422,29 +422,29 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         super.onChangeSkinType(i);
         boolean z = TbadkCoreApplication.m255getInst().getSkinType() == 1;
         getLayoutMode().ab(z);
-        getLayoutMode().h(this.aaz);
-        getLayoutMode().h(this.aaU);
-        if (this.aaL != null) {
-            this.aaL.notifyDataSetChanged();
+        getLayoutMode().h(this.aaw);
+        getLayoutMode().h(this.aaR);
+        if (this.aaI != null) {
+            this.aaI.notifyDataSetChanged();
         }
         if (z) {
-            this.aaE.setSelector(getResources().getDrawable(com.baidu.tieba.v.icon_pagecontrol_on_1));
-            this.aaE.setDrawable(getResources().getDrawable(com.baidu.tieba.v.icon_pagecontrol_off_1));
+            this.aaB.setSelector(getResources().getDrawable(com.baidu.tieba.v.icon_pagecontrol_on_1));
+            this.aaB.setDrawable(getResources().getDrawable(com.baidu.tieba.v.icon_pagecontrol_off_1));
             return;
         }
-        this.aaE.setSelector(getResources().getDrawable(com.baidu.tieba.v.icon_pagecontrol_on));
-        this.aaE.setDrawable(getResources().getDrawable(com.baidu.tieba.v.icon_pagecontrol_off));
+        this.aaB.setSelector(getResources().getDrawable(com.baidu.tieba.v.icon_pagecontrol_on));
+        this.aaB.setDrawable(getResources().getDrawable(com.baidu.tieba.v.icon_pagecontrol_off));
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (this.aaU.getVisibility() == 0) {
-                this.aaW.clearFocus();
-                this.aaU.setVisibility(8);
+            if (this.aaR.getVisibility() == 0) {
+                this.aaT.clearFocus();
+                this.aaR.setVisibility(8);
                 return true;
-            } else if (this.aaI.getVisibility() == 0) {
-                this.aaI.setVisibility(8);
+            } else if (this.aaF.getVisibility() == 0) {
+                this.aaF.setVisibility(8);
                 return true;
             }
         }
@@ -453,34 +453,34 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
 
     public int aL(boolean z) {
         int i;
-        int i2 = com.baidu.adp.lib.g.c.toInt(this.aaA.getText().toString(), 1);
-        if (this.aaR != null) {
-            i = this.aaR.getPrice() > 0 ? this.aaR.getPrice() : 1;
+        int i2 = com.baidu.adp.lib.g.c.toInt(this.aax.getText().toString(), 1);
+        if (this.aaO != null) {
+            i = this.aaO.getPrice() > 0 ? this.aaO.getPrice() : 1;
         } else {
             i = 1;
         }
         int i3 = i * i2;
         if (z) {
-            this.aaB.setText(String.format(getPageContext().getString(z.tdou_count_format), bf.cf(i3)));
+            this.aay.setText(String.format(getPageContext().getString(z.tdou_count_format), bf.cf(i3)));
             if (i3 <= 0) {
-                bc.i((View) this.aaC, com.baidu.tieba.v.btn_gift_give_d);
-                this.aaC.setEnabled(false);
+                bc.i((View) this.aaz, com.baidu.tieba.v.btn_gift_give_d);
+                this.aaz.setEnabled(false);
             } else {
-                bc.i((View) this.aaC, com.baidu.tieba.v.btn_gift_give_normal);
-                this.aaC.setEnabled(true);
+                bc.i((View) this.aaz, com.baidu.tieba.v.btn_gift_give_normal);
+                this.aaz.setEnabled(true);
             }
         }
         return i3;
     }
 
     public void aM(boolean z) {
-        this.aaA.setCursorVisible(z);
-        this.aaA.setFocusable(z);
-        this.aaA.setFocusableInTouchMode(z);
+        this.aax.setCursorVisible(z);
+        this.aax.setFocusable(z);
+        this.aax.setFocusableInTouchMode(z);
         if (z) {
-            this.aaA.requestFocus();
+            this.aax.requestFocus();
         } else {
-            this.aaA.clearFocus();
+            this.aax.clearFocus();
         }
     }
 
@@ -494,18 +494,18 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        this.aaO = i;
-        wb();
-        if (i >= 0 && i < this.aaK.size()) {
-            GridView gridView = (GridView) this.aaK.get(i);
+        this.aaL = i;
+        vV();
+        if (i >= 0 && i < this.aaH.size()) {
+            GridView gridView = (GridView) this.aaH.get(i);
             if (gridView.getAdapter() != null) {
                 u uVar = (u) gridView.getAdapter();
-                if (uVar.wc() >= 0 && i != this.aaP) {
+                if (uVar.vW() >= 0 && i != this.aaM) {
                     uVar.ds(-1);
                     uVar.notifyDataSetChanged();
                 }
-                if (uVar.wc() < 0 && i == this.aaP) {
-                    uVar.ds(this.aaQ);
+                if (uVar.vW() < 0 && i == this.aaM) {
+                    uVar.ds(this.aaN);
                     uVar.notifyDataSetChanged();
                 }
             }

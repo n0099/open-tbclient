@@ -4,7 +4,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class da {
-    LinearLayout aEx;
+    LinearLayout aEu;
     TextView mTitle;
 
     private da() {

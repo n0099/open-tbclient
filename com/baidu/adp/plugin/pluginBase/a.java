@@ -163,7 +163,7 @@ public class a extends c implements DialogInterface.OnClickListener, Handler.Cal
         super.onStop();
         BdListView onGetPreLoadListView = onGetPreLoadListView();
         if (onGetPreLoadListView != null) {
-            onGetPreLoadListView.jH();
+            onGetPreLoadListView.jA();
         }
     }
 

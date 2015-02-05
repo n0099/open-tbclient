@@ -9,10 +9,10 @@ import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends BdAsyncTask<String, Object, Boolean> {
-    final /* synthetic */ ImDbShrinkStatic aYm;
+    final /* synthetic */ ImDbShrinkStatic aYl;
 
     private j(ImDbShrinkStatic imDbShrinkStatic) {
-        this.aYm = imDbShrinkStatic;
+        this.aYl = imDbShrinkStatic;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -34,66 +34,66 @@ public class j extends BdAsyncTask<String, Object, Boolean> {
         int i3;
         int i4;
         int i5;
-        LinkedList<ImMessageCenterPojo> Nc = k.MZ().Nc();
-        if (Nc == null || Nc.size() == 0) {
+        LinkedList<ImMessageCenterPojo> MX = k.MU().MX();
+        if (MX == null || MX.size() == 0) {
             return false;
         }
-        j = ImDbShrinkStatic.aYk;
+        j = ImDbShrinkStatic.aYj;
         if (j < 0) {
             try {
                 StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                ImDbShrinkStatic.aYk = statFs.getAvailableBlocks() * statFs.getBlockSize();
-                j2 = ImDbShrinkStatic.aYk;
+                ImDbShrinkStatic.aYj = statFs.getAvailableBlocks() * statFs.getBlockSize();
+                j2 = ImDbShrinkStatic.aYj;
                 if (j2 > 2147483648L) {
-                    ImDbShrinkStatic.aYl = 5000;
+                    ImDbShrinkStatic.aYk = 5000;
                 } else {
-                    j3 = ImDbShrinkStatic.aYk;
+                    j3 = ImDbShrinkStatic.aYj;
                     if (j3 > 1073741824) {
-                        ImDbShrinkStatic.aYl = 3000;
+                        ImDbShrinkStatic.aYk = 3000;
                     } else {
-                        ImDbShrinkStatic.aYl = 1000;
+                        ImDbShrinkStatic.aYk = 1000;
                     }
                 }
             } catch (Exception e) {
                 BdLog.e(e);
             }
         }
-        i = ImDbShrinkStatic.aYl;
+        i = ImDbShrinkStatic.aYk;
         if (i < 1000) {
-            ImDbShrinkStatic.aYl = 1000;
+            ImDbShrinkStatic.aYk = 1000;
         }
         try {
-            g.MU().MV();
-            for (ImMessageCenterPojo imMessageCenterPojo : Nc) {
+            g.MP().MQ();
+            for (ImMessageCenterPojo imMessageCenterPojo : MX) {
                 if (isCancelled()) {
-                    g.MU().endTransaction();
+                    g.MP().endTransaction();
                     return false;
                 } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                    c MQ = c.MQ();
+                    c ML = c.ML();
                     String gid = imMessageCenterPojo.getGid();
-                    i2 = ImDbShrinkStatic.aYl;
-                    MQ.w(gid, i2);
+                    i2 = ImDbShrinkStatic.aYk;
+                    ML.w(gid, i2);
                 } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                    o Nk = o.Nk();
+                    o Nf = o.Nf();
                     String gid2 = imMessageCenterPojo.getGid();
-                    i3 = ImDbShrinkStatic.aYl;
-                    Nk.w(gid2, i3);
+                    i3 = ImDbShrinkStatic.aYk;
+                    Nf.w(gid2, i3);
                 } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                    n Nj = n.Nj();
+                    n Ne = n.Ne();
                     String gid3 = imMessageCenterPojo.getGid();
-                    i4 = ImDbShrinkStatic.aYl;
-                    Nj.w(gid3, i4);
+                    i4 = ImDbShrinkStatic.aYk;
+                    Ne.w(gid3, i4);
                 } else if (imMessageCenterPojo.getCustomGroupType() == -2) {
-                    d MR = d.MR();
+                    d MM = d.MM();
                     String gid4 = imMessageCenterPojo.getGid();
-                    i5 = ImDbShrinkStatic.aYl;
-                    MR.w(gid4, i5);
+                    i5 = ImDbShrinkStatic.aYk;
+                    MM.w(gid4, i5);
                 }
             }
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         } finally {
-            g.MU().endTransaction();
+            g.MP().endTransaction();
         }
         return true;
     }

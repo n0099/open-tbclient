@@ -6,12 +6,12 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac extends CustomMessageListener {
-    final /* synthetic */ OfficialBarHistoryActivity aUw;
+    final /* synthetic */ OfficialBarHistoryActivity aUv;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ac(OfficialBarHistoryActivity officialBarHistoryActivity) {
         super(2001156);
-        this.aUw = officialBarHistoryActivity;
+        this.aUv = officialBarHistoryActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,20 +21,20 @@ public class ac extends CustomMessageListener {
         af afVar;
         List<aq> list2;
         List list3;
-        this.aUw.hideProgressBar();
+        this.aUv.hideProgressBar();
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001156 && (customResponsedMessage instanceof ResponseLocalHistoryMessage)) {
             ResponseLocalHistoryMessage responseLocalHistoryMessage = (ResponseLocalHistoryMessage) customResponsedMessage;
             if (!responseLocalHistoryMessage.getData().isEmpty()) {
-                list = this.aUw.aUu;
+                list = this.aUv.aUt;
                 if (list != null) {
-                    list3 = this.aUw.aUu;
+                    list3 = this.aUv.aUt;
                     if (!list3.isEmpty()) {
                         return;
                     }
                 }
-                this.aUw.aUu = responseLocalHistoryMessage.getData();
-                afVar = this.aUw.aUr;
-                list2 = this.aUw.aUu;
+                this.aUv.aUt = responseLocalHistoryMessage.getData();
+                afVar = this.aUv.aUq;
+                list2 = this.aUv.aUt;
                 afVar.setData(list2);
             }
         }

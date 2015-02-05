@@ -14,11 +14,11 @@ import com.baidu.tieba.x;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class MsgReplyCardView extends bc {
-    private LinearLayout aVB;
+    private LinearLayout aVA;
+    private TextView aVB;
     private TextView aVC;
     private TextView aVD;
     private TextView aVE;
-    private TextView aVF;
 
     public MsgReplyCardView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, x.msg_reply_card_view);
@@ -26,22 +26,22 @@ public class MsgReplyCardView extends bc {
     }
 
     private void init() {
-        this.aVB = (LinearLayout) findViewById(w.reply_card);
-        this.aVC = (TextView) findViewById(w.reply_title);
-        this.aVD = (TextView) findViewById(w.reply_content);
-        this.aVE = (TextView) findViewById(w.reply_quote_content);
-        this.aVF = (TextView) findViewById(w.reply_frs_name);
-        this.aVB.setOnClickListener(new a(this));
+        this.aVA = (LinearLayout) findViewById(w.reply_card);
+        this.aVB = (TextView) findViewById(w.reply_title);
+        this.aVC = (TextView) findViewById(w.reply_content);
+        this.aVD = (TextView) findViewById(w.reply_quote_content);
+        this.aVE = (TextView) findViewById(w.reply_frs_name);
+        this.aVA.setOnClickListener(new a(this));
     }
 
     public void a(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
         if (chatMessage != null) {
-            c gf = b.gf(chatMessage.getContent());
+            c gc = b.gc(chatMessage.getContent());
             String valueOf = String.valueOf(chatMessage.getUserId());
-            this.aVC.setText(a(gf, valueOf));
-            this.aVD.setText(gf.replyContent);
-            this.aVE.setText(b(gf, valueOf));
-            this.aVF.setText(String.valueOf(gf.aVO) + this.mContext.getString(z.bar));
+            this.aVB.setText(a(gc, valueOf));
+            this.aVC.setText(gc.replyContent);
+            this.aVD.setText(b(gc, valueOf));
+            this.aVE.setText(String.valueOf(gc.aVN) + this.mContext.getString(z.bar));
         }
     }
 
@@ -49,11 +49,11 @@ public class MsgReplyCardView extends bc {
         String string;
         String fB;
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            string = fB(cVar.aVI);
+            string = fB(cVar.aVH);
             fB = this.mContext.getString(z.you);
         } else {
             string = this.mContext.getString(z.you);
-            fB = fB(cVar.aVI);
+            fB = fB(cVar.aVH);
         }
         return String.format(this.mContext.getString(z.add_friend_card_title), string, getType(cVar.type), fB);
     }
@@ -64,11 +64,11 @@ public class MsgReplyCardView extends bc {
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
             fB = this.mContext.getString(z.me);
         } else {
-            fB = fB(cVar.aVI);
+            fB = fB(cVar.aVH);
         }
         if (cVar.type == 1) {
             sb.append(String.format(this.mContext.getString(z.add_friend_card_quote_comment), fB));
-            sb.append(cVar.aVM);
+            sb.append(cVar.aVL);
         } else {
             sb.append(String.format(this.mContext.getString(z.add_friend_card_quote_thread), fB));
             sb.append(cVar.title);

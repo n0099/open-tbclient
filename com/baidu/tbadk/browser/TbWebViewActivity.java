@@ -146,7 +146,7 @@ public class TbWebViewActivity extends BaseActivity<TbWebViewActivity> {
         if (view == this.mShareFriends) {
             com.baidu.tbadk.coreExtra.share.f fVar = new com.baidu.tbadk.coreExtra.share.f();
             fVar.content = this.mCommonTitle;
-            fVar.Tq = this.mUrl;
+            fVar.Tn = this.mUrl;
             if (fVar != null) {
                 showShareDialog(fVar);
             }

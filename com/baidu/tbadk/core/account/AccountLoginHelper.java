@@ -32,14 +32,14 @@ public class AccountLoginHelper {
         @Override // com.baidu.tbadk.core.account.g
         public void onFailure(final String str, int i, String str2) {
             if (i == 1) {
-                ReloginManager.oe().d(null);
+                ReloginManager.nX().d(null);
             }
             BdAsyncTask<Void, Void, AccountData> bdAsyncTask = new BdAsyncTask<Void, Void, AccountData>() { // from class: com.baidu.tbadk.core.account.AccountLoginHelper.1.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public AccountData doInBackground(Void... voidArr) {
-                    return a.bM(str);
+                    return a.bJ(str);
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -81,7 +81,7 @@ public class AccountLoginHelper {
         @Override // com.baidu.tbadk.core.account.d
         public void onFailure(String str) {
             if (!TextUtils.isEmpty(str)) {
-                a.bL(str);
+                a.bI(str);
             }
         }
     };

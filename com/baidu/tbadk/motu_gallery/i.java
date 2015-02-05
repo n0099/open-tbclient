@@ -6,13 +6,13 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements View.OnClickListener {
-    final /* synthetic */ JigsawAlbumActivity adc;
-    private final /* synthetic */ w ade;
+    final /* synthetic */ JigsawAlbumActivity acZ;
+    private final /* synthetic */ w ada;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(JigsawAlbumActivity jigsawAlbumActivity, w wVar) {
-        this.adc = jigsawAlbumActivity;
-        this.ade = wVar;
+        this.acZ = jigsawAlbumActivity;
+        this.ada = wVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,12 +20,12 @@ public class i implements View.OnClickListener {
         u uVar;
         LinearLayout linearLayout;
         u uVar2;
-        uVar = this.adc.acP;
-        uVar.d(this.adc.getPageContext().getPageActivity(), this.ade.getUri());
-        linearLayout = this.adc.acZ;
+        uVar = this.acZ.acM;
+        uVar.d(this.acZ.getPageContext().getPageActivity(), this.ada.getUri());
+        linearLayout = this.acZ.acW;
         linearLayout.removeView(view);
-        TextView textView = this.adc.acY;
-        uVar2 = this.adc.acP;
-        textView.setText(uVar2.ab(this.adc.getPageContext().getPageActivity()));
+        TextView textView = this.acZ.acV;
+        uVar2 = this.acZ.acM;
+        textView.setText(uVar2.ab(this.acZ.getPageContext().getPageActivity()));
     }
 }

@@ -7,7 +7,7 @@ import android.widget.BaseAdapter;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
-    private ArrayList<a> Xm;
+    private ArrayList<a> Xj;
     private Context mContext;
 
     public Context getContext() {
@@ -15,25 +15,25 @@ public class b extends BaseAdapter {
     }
 
     public void a(a aVar) {
-        if (this.Xm != null && aVar != null) {
-            this.Xm.add(aVar);
+        if (this.Xj != null && aVar != null) {
+            this.Xj.add(aVar);
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.Xm == null) {
+        if (this.Xj == null) {
             return 0;
         }
-        return this.Xm.size();
+        return this.Xj.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: dg */
     public a getItem(int i) {
-        if (this.Xm != null && i < this.Xm.size()) {
-            return this.Xm.get(i);
+        if (this.Xj != null && i < this.Xj.size()) {
+            return this.Xj.get(i);
         }
         return null;
     }
@@ -47,9 +47,9 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view != null) {
             c cVar = (c) view.getTag();
-            cVar.Xn.setImageResource(this.Xm.get(i).uS());
-            cVar.Xo.setText(this.Xm.get(i).uT());
-            cVar.Xp.setText(i);
+            cVar.Xk.setImageResource(this.Xj.get(i).uM());
+            cVar.Xl.setText(this.Xj.get(i).uN());
+            cVar.Xm.setText(i);
             return view;
         }
         return null;

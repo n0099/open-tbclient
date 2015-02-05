@@ -9,18 +9,18 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends BdAsyncTask<String, Object, AppealData> {
+    private String aoo;
+    private String aop;
+    private String aoq;
     private String aor;
-    private String aos;
-    private String aot;
-    private String aou;
-    private WeakReference<h> aov;
+    private WeakReference<h> aos;
 
     public g(String str, String str2, String str3, String str4, h hVar) {
-        this.aor = str;
-        this.aos = str2;
-        this.aot = str3;
-        this.aou = str4;
-        this.aov = new WeakReference<>(hVar);
+        this.aoo = str;
+        this.aop = str2;
+        this.aoq = str3;
+        this.aor = str4;
+        this.aos = new WeakReference<>(hVar);
         setPriority(3);
     }
 
@@ -30,16 +30,16 @@ public class g extends BdAsyncTask<String, Object, AppealData> {
     /* renamed from: r */
     public AppealData doInBackground(String... strArr) {
         String str;
-        str = f.aoq;
+        str = f.aon;
         ad adVar = new ad(str);
-        adVar.o("forum_id", this.aor);
-        adVar.o("user_id", this.aos);
-        adVar.o("user_name", this.aot);
-        adVar.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, this.aou);
-        String oy = adVar.oy();
-        if (adVar.oZ().qh().ma()) {
+        adVar.o("forum_id", this.aoo);
+        adVar.o("user_id", this.aop);
+        adVar.o("user_name", this.aoq);
+        adVar.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, this.aor);
+        String or = adVar.or();
+        if (adVar.oS().qa().lT()) {
             try {
-                return (AppealData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(oy, AppealData.class);
+                return (AppealData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(or, AppealData.class);
             } catch (Exception e) {
                 BdLog.detailException(e);
                 AppealData appealData = new AppealData();
@@ -48,7 +48,7 @@ public class g extends BdAsyncTask<String, Object, AppealData> {
             }
         }
         AppealData appealData2 = new AppealData();
-        appealData2.errNo = adVar.pd();
+        appealData2.errNo = adVar.oW();
         appealData2.errMsg = adVar.getErrorString();
         return appealData2;
     }
@@ -59,7 +59,7 @@ public class g extends BdAsyncTask<String, Object, AppealData> {
     /* renamed from: c */
     public void onPostExecute(AppealData appealData) {
         super.onPostExecute(appealData);
-        h hVar = this.aov.get();
+        h hVar = this.aos.get();
         if (hVar != null) {
             if (appealData.errNo == 0 && bf.isEmpty(appealData.errMsg)) {
                 hVar.a(appealData);

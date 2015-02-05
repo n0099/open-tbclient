@@ -23,17 +23,17 @@ import com.baidu.adp.plugin.b;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends PackageManager {
-    private PackageManager tQ;
+    private PackageManager tN;
     private String mPackageName = null;
-    private String tR = null;
+    private String tO = null;
 
     public a(PackageManager packageManager) {
-        this.tQ = null;
-        this.tQ = packageManager;
+        this.tN = null;
+        this.tN = packageManager;
     }
 
     public void setPluginPackageName(String str) {
-        this.tR = str;
+        this.tO = str;
     }
 
     public void setPackageName(String str) {
@@ -42,163 +42,163 @@ public class a extends PackageManager {
 
     @Override // android.content.pm.PackageManager
     public PackageInfo getPackageInfo(String str, int i) {
-        b aS;
-        return (!TextUtils.equals(this.mPackageName, str) || (aS = PluginCenter.gW().aS(this.tR)) == null) ? this.tQ.getPackageInfo(str, i) : aS.gN();
+        b plugin2;
+        return (!TextUtils.equals(this.mPackageName, str) || (plugin2 = PluginCenter.getInstance().getPlugin(this.tO)) == null) ? this.tN.getPackageInfo(str, i) : plugin2.gO();
     }
 
     @Override // android.content.pm.PackageManager
     public Intent getLaunchIntentForPackage(String str) {
-        return this.tQ.getLaunchIntentForPackage(str);
+        return this.tN.getLaunchIntentForPackage(str);
     }
 
     @Override // android.content.pm.PackageManager
     public int[] getPackageGids(String str) {
-        return this.tQ.getPackageGids(str);
+        return this.tN.getPackageGids(str);
     }
 
     @Override // android.content.pm.PackageManager
     public PermissionInfo getPermissionInfo(String str, int i) {
-        return this.tQ.getPermissionInfo(str, i);
+        return this.tN.getPermissionInfo(str, i);
     }
 
     @Override // android.content.pm.PackageManager
     public List<PermissionInfo> queryPermissionsByGroup(String str, int i) {
-        return this.tQ.queryPermissionsByGroup(str, i);
+        return this.tN.queryPermissionsByGroup(str, i);
     }
 
     @Override // android.content.pm.PackageManager
     public PermissionGroupInfo getPermissionGroupInfo(String str, int i) {
-        return this.tQ.getPermissionGroupInfo(str, i);
+        return this.tN.getPermissionGroupInfo(str, i);
     }
 
     @Override // android.content.pm.PackageManager
     public List<PermissionGroupInfo> getAllPermissionGroups(int i) {
-        return this.tQ.getAllPermissionGroups(i);
+        return this.tN.getAllPermissionGroups(i);
     }
 
     @Override // android.content.pm.PackageManager
     public ApplicationInfo getApplicationInfo(String str, int i) {
-        return this.tQ.getApplicationInfo(str, i);
+        return this.tN.getApplicationInfo(str, i);
     }
 
     @Override // android.content.pm.PackageManager
     public ActivityInfo getActivityInfo(ComponentName componentName, int i) {
-        return this.tQ.getActivityInfo(componentName, i);
+        return this.tN.getActivityInfo(componentName, i);
     }
 
     @Override // android.content.pm.PackageManager
     public ActivityInfo getReceiverInfo(ComponentName componentName, int i) {
-        return this.tQ.getReceiverInfo(componentName, i);
+        return this.tN.getReceiverInfo(componentName, i);
     }
 
     @Override // android.content.pm.PackageManager
     public ServiceInfo getServiceInfo(ComponentName componentName, int i) {
-        return this.tQ.getServiceInfo(componentName, i);
+        return this.tN.getServiceInfo(componentName, i);
     }
 
     @Override // android.content.pm.PackageManager
     public List<PackageInfo> getInstalledPackages(int i) {
-        return this.tQ.getInstalledPackages(i);
+        return this.tN.getInstalledPackages(i);
     }
 
     @Override // android.content.pm.PackageManager
     public int checkPermission(String str, String str2) {
-        return this.tQ.checkPermission(str, str2);
+        return this.tN.checkPermission(str, str2);
     }
 
     @Override // android.content.pm.PackageManager
     public boolean addPermission(PermissionInfo permissionInfo) {
-        return this.tQ.addPermission(permissionInfo);
+        return this.tN.addPermission(permissionInfo);
     }
 
     @Override // android.content.pm.PackageManager
     public void removePermission(String str) {
-        this.tQ.removePermission(str);
+        this.tN.removePermission(str);
     }
 
     @Override // android.content.pm.PackageManager
     public int checkSignatures(String str, String str2) {
-        return this.tQ.checkSignatures(str, str2);
+        return this.tN.checkSignatures(str, str2);
     }
 
     @Override // android.content.pm.PackageManager
     public int checkSignatures(int i, int i2) {
-        return this.tQ.checkSignatures(i, i2);
+        return this.tN.checkSignatures(i, i2);
     }
 
     @Override // android.content.pm.PackageManager
     public String[] getPackagesForUid(int i) {
-        return this.tQ.getPackagesForUid(i);
+        return this.tN.getPackagesForUid(i);
     }
 
     @Override // android.content.pm.PackageManager
     public String getNameForUid(int i) {
-        return this.tQ.getNameForUid(i);
+        return this.tN.getNameForUid(i);
     }
 
     @Override // android.content.pm.PackageManager
     public List<ApplicationInfo> getInstalledApplications(int i) {
-        return this.tQ.getInstalledApplications(i);
+        return this.tN.getInstalledApplications(i);
     }
 
     @Override // android.content.pm.PackageManager
     public String[] getSystemSharedLibraryNames() {
-        return this.tQ.getSystemSharedLibraryNames();
+        return this.tN.getSystemSharedLibraryNames();
     }
 
     @Override // android.content.pm.PackageManager
     public FeatureInfo[] getSystemAvailableFeatures() {
-        return this.tQ.getSystemAvailableFeatures();
+        return this.tN.getSystemAvailableFeatures();
     }
 
     @Override // android.content.pm.PackageManager
     public boolean hasSystemFeature(String str) {
-        return this.tQ.hasSystemFeature(str);
+        return this.tN.hasSystemFeature(str);
     }
 
     @Override // android.content.pm.PackageManager
     public ResolveInfo resolveActivity(Intent intent, int i) {
-        return this.tQ.resolveActivity(intent, i);
+        return this.tN.resolveActivity(intent, i);
     }
 
     @Override // android.content.pm.PackageManager
     public List<ResolveInfo> queryIntentActivities(Intent intent, int i) {
-        return this.tQ.queryIntentActivities(intent, i);
+        return this.tN.queryIntentActivities(intent, i);
     }
 
     @Override // android.content.pm.PackageManager
     public List<ResolveInfo> queryIntentActivityOptions(ComponentName componentName, Intent[] intentArr, Intent intent, int i) {
-        return this.tQ.queryIntentActivityOptions(componentName, intentArr, intent, i);
+        return this.tN.queryIntentActivityOptions(componentName, intentArr, intent, i);
     }
 
     @Override // android.content.pm.PackageManager
     public List<ResolveInfo> queryBroadcastReceivers(Intent intent, int i) {
-        return this.tQ.queryBroadcastReceivers(intent, i);
+        return this.tN.queryBroadcastReceivers(intent, i);
     }
 
     @Override // android.content.pm.PackageManager
     public ResolveInfo resolveService(Intent intent, int i) {
-        return this.tQ.resolveService(intent, i);
+        return this.tN.resolveService(intent, i);
     }
 
     @Override // android.content.pm.PackageManager
     public List<ResolveInfo> queryIntentServices(Intent intent, int i) {
-        return this.tQ.queryIntentServices(intent, i);
+        return this.tN.queryIntentServices(intent, i);
     }
 
     @Override // android.content.pm.PackageManager
     public ProviderInfo resolveContentProvider(String str, int i) {
-        return this.tQ.resolveContentProvider(str, i);
+        return this.tN.resolveContentProvider(str, i);
     }
 
     @Override // android.content.pm.PackageManager
     public List<ProviderInfo> queryContentProviders(String str, int i, int i2) {
-        return this.tQ.queryContentProviders(str, i, i2);
+        return this.tN.queryContentProviders(str, i, i2);
     }
 
     @Override // android.content.pm.PackageManager
     public InstrumentationInfo getInstrumentationInfo(ComponentName componentName, int i) {
-        return this.tQ.getInstrumentationInfo(componentName, i);
+        return this.tN.getInstrumentationInfo(componentName, i);
     }
 
     @Override // android.content.pm.PackageManager
@@ -208,129 +208,129 @@ public class a extends PackageManager {
 
     @Override // android.content.pm.PackageManager
     public Drawable getDrawable(String str, int i, ApplicationInfo applicationInfo) {
-        return this.tQ.getDrawable(str, i, applicationInfo);
+        return this.tN.getDrawable(str, i, applicationInfo);
     }
 
     @Override // android.content.pm.PackageManager
     public Drawable getActivityIcon(Intent intent) {
-        return this.tQ.getActivityIcon(intent);
+        return this.tN.getActivityIcon(intent);
     }
 
     @Override // android.content.pm.PackageManager
     public Drawable getDefaultActivityIcon() {
-        return this.tQ.getDefaultActivityIcon();
+        return this.tN.getDefaultActivityIcon();
     }
 
     @Override // android.content.pm.PackageManager
     public Drawable getApplicationIcon(ApplicationInfo applicationInfo) {
-        return this.tQ.getApplicationIcon(applicationInfo);
+        return this.tN.getApplicationIcon(applicationInfo);
     }
 
     @Override // android.content.pm.PackageManager
     public Drawable getApplicationIcon(String str) {
-        return this.tQ.getApplicationIcon(str);
+        return this.tN.getApplicationIcon(str);
     }
 
     @Override // android.content.pm.PackageManager
     public CharSequence getText(String str, int i, ApplicationInfo applicationInfo) {
-        return this.tQ.getText(str, i, applicationInfo);
+        return this.tN.getText(str, i, applicationInfo);
     }
 
     @Override // android.content.pm.PackageManager
     public XmlResourceParser getXml(String str, int i, ApplicationInfo applicationInfo) {
-        return this.tQ.getXml(str, i, applicationInfo);
+        return this.tN.getXml(str, i, applicationInfo);
     }
 
     @Override // android.content.pm.PackageManager
     public CharSequence getApplicationLabel(ApplicationInfo applicationInfo) {
-        return this.tQ.getApplicationLabel(applicationInfo);
+        return this.tN.getApplicationLabel(applicationInfo);
     }
 
     @Override // android.content.pm.PackageManager
     public Resources getResourcesForActivity(ComponentName componentName) {
-        return this.tQ.getResourcesForActivity(componentName);
+        return this.tN.getResourcesForActivity(componentName);
     }
 
     @Override // android.content.pm.PackageManager
     public Resources getResourcesForApplication(ApplicationInfo applicationInfo) {
-        return this.tQ.getResourcesForApplication(applicationInfo);
+        return this.tN.getResourcesForApplication(applicationInfo);
     }
 
     @Override // android.content.pm.PackageManager
     public Resources getResourcesForApplication(String str) {
-        return this.tQ.getResourcesForApplication(str);
+        return this.tN.getResourcesForApplication(str);
     }
 
     @Override // android.content.pm.PackageManager
     public String getInstallerPackageName(String str) {
-        return this.tQ.getInstallerPackageName(str);
+        return this.tN.getInstallerPackageName(str);
     }
 
     @Override // android.content.pm.PackageManager
     @Deprecated
     public void addPackageToPreferred(String str) {
-        this.tQ.addPackageToPreferred(str);
+        this.tN.addPackageToPreferred(str);
     }
 
     @Override // android.content.pm.PackageManager
     @Deprecated
     public void removePackageFromPreferred(String str) {
-        this.tQ.removePackageFromPreferred(str);
+        this.tN.removePackageFromPreferred(str);
     }
 
     @Override // android.content.pm.PackageManager
     public List<PackageInfo> getPreferredPackages(int i) {
-        return this.tQ.getPreferredPackages(i);
+        return this.tN.getPreferredPackages(i);
     }
 
     @Override // android.content.pm.PackageManager
     @Deprecated
     public void addPreferredActivity(IntentFilter intentFilter, int i, ComponentName[] componentNameArr, ComponentName componentName) {
-        this.tQ.addPreferredActivity(intentFilter, i, componentNameArr, componentName);
+        this.tN.addPreferredActivity(intentFilter, i, componentNameArr, componentName);
     }
 
     @Override // android.content.pm.PackageManager
     public void clearPackagePreferredActivities(String str) {
-        this.tQ.clearPackagePreferredActivities(str);
+        this.tN.clearPackagePreferredActivities(str);
     }
 
     @Override // android.content.pm.PackageManager
     public Drawable getActivityIcon(ComponentName componentName) {
-        return this.tQ.getActivityIcon(componentName);
+        return this.tN.getActivityIcon(componentName);
     }
 
     @Override // android.content.pm.PackageManager
     public int getPreferredActivities(List<IntentFilter> list, List<ComponentName> list2, String str) {
-        return this.tQ.getPreferredActivities(list, list2, str);
+        return this.tN.getPreferredActivities(list, list2, str);
     }
 
     @Override // android.content.pm.PackageManager
     public void setComponentEnabledSetting(ComponentName componentName, int i, int i2) {
-        this.tQ.setComponentEnabledSetting(componentName, i, i2);
+        this.tN.setComponentEnabledSetting(componentName, i, i2);
     }
 
     @Override // android.content.pm.PackageManager
     public int getComponentEnabledSetting(ComponentName componentName) {
-        return this.tQ.getComponentEnabledSetting(componentName);
+        return this.tN.getComponentEnabledSetting(componentName);
     }
 
     @Override // android.content.pm.PackageManager
     public void setApplicationEnabledSetting(String str, int i, int i2) {
-        this.tQ.setApplicationEnabledSetting(str, i, i2);
+        this.tN.setApplicationEnabledSetting(str, i, i2);
     }
 
     @Override // android.content.pm.PackageManager
     public int getApplicationEnabledSetting(String str) {
-        return this.tQ.getApplicationEnabledSetting(str);
+        return this.tN.getApplicationEnabledSetting(str);
     }
 
     @Override // android.content.pm.PackageManager
     public boolean isSafeMode() {
-        return this.tQ.isSafeMode();
+        return this.tN.isSafeMode();
     }
 
     @Override // android.content.pm.PackageManager
     public PackageInfo getPackageArchiveInfo(String str, int i) {
-        return this.tQ.getPackageArchiveInfo(str, i);
+        return this.tN.getPackageArchiveInfo(str, i);
     }
 }

@@ -62,7 +62,7 @@ public class TiebaSyncService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     public void broadcastNewVersion() {
         if (this.mModel != null) {
-            sendBroadcast(new Intent(com.baidu.tbadk.data.b.uE()));
+            sendBroadcast(new Intent(com.baidu.tbadk.data.b.uy()));
         }
     }
 }

@@ -11,8 +11,8 @@ import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class ProtocolActivity extends BaseActivity<ProtocolActivity> {
     private NavigationBar mNavigationBar;
-    private TextView amR = null;
-    private RelativeLayout QB = null;
+    private TextView amO = null;
+    private RelativeLayout Qx = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -33,13 +33,13 @@ public class ProtocolActivity extends BaseActivity<ProtocolActivity> {
     */
     private void initUI() {
         BufferedReader bufferedReader;
-        this.QB = (RelativeLayout) findViewById(com.baidu.tieba.w.container);
+        this.Qx = (RelativeLayout) findViewById(com.baidu.tieba.w.container);
         this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.w.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         NavigationBar navigationBar = this.mNavigationBar;
         String string = getPageContext().getString(com.baidu.tieba.z.account_protocol);
         navigationBar.setTitleText(string);
-        this.amR = (TextView) findViewById(com.baidu.tieba.w.text);
+        this.amO = (TextView) findViewById(com.baidu.tieba.w.text);
         StringBuilder sb = new StringBuilder(1024);
         ?? r2 = 0;
         try {
@@ -63,7 +63,7 @@ public class ProtocolActivity extends BaseActivity<ProtocolActivity> {
                                 e2.printStackTrace();
                             }
                         }
-                        this.amR.setText(sb.toString());
+                        this.amO.setText(sb.toString());
                     }
                 }
                 if (bufferedReader != null) {
@@ -94,7 +94,7 @@ public class ProtocolActivity extends BaseActivity<ProtocolActivity> {
             }
             throw th;
         }
-        this.amR.setText(sb.toString());
+        this.amO.setText(sb.toString());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -102,7 +102,7 @@ public class ProtocolActivity extends BaseActivity<ProtocolActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        bc.g(this.QB, i);
-        bc.c(this.amR, i);
+        bc.g(this.Qx, i);
+        bc.c(this.amO, i);
     }
 }

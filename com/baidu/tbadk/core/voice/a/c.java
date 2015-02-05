@@ -57,12 +57,12 @@ public class c implements g<a> {
         if (aVar != null) {
             aVar.lf = iVar;
         }
-        byte[] cP = iVar.cP(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
-        if (!iVar.qn()) {
+        byte[] cM = iVar.cM(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
+        if (!iVar.qg()) {
             aVar2.error_code = 3;
             aVar2.error_msg = q.getString(z.neterror);
             return aVar2;
-        } else if (cP == null || cP.length == 0) {
+        } else if (cM == null || cM.length == 0) {
             aVar2.error_code = 4;
             aVar2.error_msg = q.getString(z.voice_cache_error_no_file);
             return aVar2;
@@ -70,13 +70,13 @@ public class c implements g<a> {
             String str5 = null;
             if (str == null) {
                 i3 = 5;
-            } else if (cP == null || cP.length == 0) {
+            } else if (cM == null || cM.length == 0) {
                 i3 = 6;
             } else {
                 DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.WRITE);
                 diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
                 diskFileOperate.o(false);
-                diskFileOperate.setData(cP);
+                diskFileOperate.setData(cM);
                 if (aVar != null) {
                     d dVar = new d();
                     dVar.g(diskFileOperate);
@@ -86,7 +86,7 @@ public class c implements g<a> {
                 if (diskFileOperate.isSuccess() && diskFileOperate.cc() != null) {
                     str5 = diskFileOperate.cc().getAbsolutePath();
                     i3 = 0;
-                } else if (s.ov() < cP.length) {
+                } else if (s.oo() < cM.length) {
                     i3 = 2;
                 } else {
                     i3 = 1;

@@ -107,15 +107,15 @@ public abstract class ChatMessage extends TbSocketMessage implements a {
                 int optInt = jSONObject.optInt("size_width");
                 int optInt2 = jSONObject.optInt("size_height");
                 com.baidu.tbadk.gif.a aVar = new com.baidu.tbadk.gif.a();
-                aVar.ZO = false;
-                aVar.ZP = optString;
-                aVar.ZQ = optString2;
-                aVar.ZR = optString3;
-                aVar.ZS = optString4;
-                aVar.ZT = optInt;
-                aVar.ZU = optInt2;
+                aVar.ZL = false;
+                aVar.ZM = optString;
+                aVar.ZN = optString2;
+                aVar.ZO = optString3;
+                aVar.ZP = optString4;
+                aVar.ZQ = optInt;
+                aVar.ZR = optInt2;
                 aVar.mPackageName = optString5;
-                aVar.ZV = optString6;
+                aVar.ZS = optString6;
                 this.gifInfo = aVar;
                 return aVar;
             }

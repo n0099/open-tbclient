@@ -5,19 +5,19 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnLongClickListener {
-    final /* synthetic */ AbsMsgImageActivity aRj;
-    private final /* synthetic */ DialogInterface.OnClickListener aRl;
+    final /* synthetic */ AbsMsgImageActivity aRi;
+    private final /* synthetic */ DialogInterface.OnClickListener aRk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(AbsMsgImageActivity absMsgImageActivity, DialogInterface.OnClickListener onClickListener) {
-        this.aRj = absMsgImageActivity;
-        this.aRl = onClickListener;
+        this.aRi = absMsgImageActivity;
+        this.aRk = onClickListener;
     }
 
     @Override // android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
-        this.aRj.createListMenu(new String[]{this.aRj.getPageContext().getString(com.baidu.tieba.z.save)}, this.aRl);
-        this.aRj.showListMenu();
+        this.aRi.createListMenu(new String[]{this.aRi.getPageContext().getString(com.baidu.tieba.z.save)}, this.aRk);
+        this.aRi.showListMenu();
         return false;
     }
 }

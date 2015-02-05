@@ -8,14 +8,14 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends BdAsyncTask<String, Object, ForbidTplData> {
-    private String aor;
-    private String aos;
-    private WeakReference<n> aov;
+    private String aoo;
+    private String aop;
+    private WeakReference<n> aos;
 
     public m(String str, String str2, n nVar) {
-        this.aor = str;
-        this.aos = str2;
-        this.aov = new WeakReference<>(nVar);
+        this.aoo = str;
+        this.aop = str2;
+        this.aos = new WeakReference<>(nVar);
         setPriority(3);
     }
 
@@ -25,14 +25,14 @@ public class m extends BdAsyncTask<String, Object, ForbidTplData> {
     /* renamed from: u */
     public ForbidTplData doInBackground(String... strArr) {
         String str;
-        str = l.aoM;
+        str = l.aoJ;
         ad adVar = new ad(str);
-        adVar.o("forum_id", this.aor);
-        adVar.o("user_id", this.aos);
-        String oy = adVar.oy();
-        if (adVar.oZ().qh().ma()) {
+        adVar.o("forum_id", this.aoo);
+        adVar.o("user_id", this.aop);
+        String or = adVar.or();
+        if (adVar.oS().qa().lT()) {
             try {
-                return (ForbidTplData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(oy, ForbidTplData.class);
+                return (ForbidTplData) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(or, ForbidTplData.class);
             } catch (Exception e) {
                 BdLog.detailException(e);
                 ForbidTplData forbidTplData = new ForbidTplData();
@@ -41,7 +41,7 @@ public class m extends BdAsyncTask<String, Object, ForbidTplData> {
             }
         }
         ForbidTplData forbidTplData2 = new ForbidTplData();
-        forbidTplData2.error.errno = adVar.pd();
+        forbidTplData2.error.errno = adVar.oW();
         forbidTplData2.error.errMsg = adVar.getErrorString();
         return forbidTplData2;
     }
@@ -52,7 +52,7 @@ public class m extends BdAsyncTask<String, Object, ForbidTplData> {
     /* renamed from: c */
     public void onPostExecute(ForbidTplData forbidTplData) {
         super.onPostExecute(forbidTplData);
-        n nVar = this.aov.get();
+        n nVar = this.aos.get();
         if (nVar != null) {
             if (forbidTplData.error.errno == 0 && bf.isEmpty(forbidTplData.error.errMsg)) {
                 nVar.a(forbidTplData);

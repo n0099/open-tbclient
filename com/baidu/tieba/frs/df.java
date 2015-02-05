@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class df extends com.baidu.adp.base.f {
-    private dg aHH;
+    private dg aHE;
     private String mForumId;
     private String mForumName;
 
@@ -13,7 +13,7 @@ public class df extends com.baidu.adp.base.f {
         super(baseActivity.getPageContext());
         this.mForumName = null;
         this.mForumId = null;
-        this.aHH = null;
+        this.aHE = null;
     }
 
     @Override // com.baidu.adp.base.f
@@ -26,20 +26,20 @@ public class df extends com.baidu.adp.base.f {
         return false;
     }
 
-    public void Hx() {
-        if (this.aHH != null) {
-            this.aHH.cancel();
-            this.aHH = null;
+    public void Hr() {
+        if (this.aHE != null) {
+            this.aHE.cancel();
+            this.aHE = null;
         }
     }
 
     public void aq(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.aHH == null) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.aHE == null) {
             this.mForumName = str;
             this.mForumId = str2;
-            this.aHH = new dg(this, null);
-            this.aHH.setPriority(2);
-            this.aHH.execute(new Object[0]);
+            this.aHE = new dg(this, null);
+            this.aHE.setPriority(2);
+            this.aHE.execute(new Object[0]);
             TiebaStatic.eventStat(TbadkCoreApplication.m255getInst().getContext(), "sign_start_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
         }
     }

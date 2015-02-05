@@ -2,39 +2,39 @@ package com.baidu.tieba.tbadkCore.imgView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements Runnable {
-    final /* synthetic */ DragHorizonScrollView caf;
+    final /* synthetic */ DragHorizonScrollView cae;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(DragHorizonScrollView dragHorizonScrollView) {
-        this.caf = dragHorizonScrollView;
+        this.cae = dragHorizonScrollView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         boolean canScroll;
-        int ahR;
-        int ahR2;
+        int ahM;
+        int ahM2;
         boolean z;
-        this.caf.caa = false;
-        int childCount = this.caf.getChildCount();
+        this.cae.bZZ = false;
+        int childCount = this.cae.getChildCount();
         for (int i = 0; i < childCount; i++) {
-            this.caf.getChildAt(i).clearAnimation();
+            this.cae.getChildAt(i).clearAnimation();
         }
-        canScroll = this.caf.canScroll();
+        canScroll = this.cae.canScroll();
         if (!canScroll) {
-            this.caf.scrollTo(0, 0);
+            this.cae.scrollTo(0, 0);
         } else {
-            int scrollX = this.caf.getScrollX();
-            ahR = this.caf.ahR();
-            if (scrollX > ahR) {
-                DragHorizonScrollView dragHorizonScrollView = this.caf;
-                ahR2 = this.caf.ahR();
-                dragHorizonScrollView.scrollTo(ahR2, 0);
+            int scrollX = this.cae.getScrollX();
+            ahM = this.cae.ahM();
+            if (scrollX > ahM) {
+                DragHorizonScrollView dragHorizonScrollView = this.cae;
+                ahM2 = this.cae.ahM();
+                dragHorizonScrollView.scrollTo(ahM2, 0);
             }
         }
-        z = this.caf.cab;
+        z = this.cae.caa;
         if (z) {
-            this.caf.requestLayout();
+            this.cae.requestLayout();
         }
     }
 }

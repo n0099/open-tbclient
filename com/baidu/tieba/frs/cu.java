@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
 class cu implements View.OnClickListener {
-    final /* synthetic */ cs aGO;
+    final /* synthetic */ cs aGL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cu(cs csVar) {
-        this.aGO = csVar;
+        this.aGL = csVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,11 +23,11 @@ class cu implements View.OnClickListener {
             com.baidu.tbadk.core.data.u uVar = (com.baidu.tbadk.core.data.u) view.getTag(com.baidu.tieba.w.tag_second);
             if (UtilHelper.isNetOk()) {
                 MessageManager messageManager = MessageManager.getInstance();
-                context = this.aGO.mContext;
+                context = this.aGL.mContext;
                 messageManager.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(context, String.valueOf(uVar.getUserId()), uVar.getName(), null, AddFriendActivityConfig.TYPE_ADD_FRD)));
                 return;
             }
-            this.aGO.aEd.showToast(com.baidu.tieba.z.im_error_default);
+            this.aGL.aEa.showToast(com.baidu.tieba.z.im_error_default);
         }
     }
 }

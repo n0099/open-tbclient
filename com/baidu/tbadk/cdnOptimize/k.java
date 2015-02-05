@@ -10,14 +10,14 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends BdAsyncTask<Object, Integer, ArrayList<String>> {
-    final /* synthetic */ h BQ;
-    p BR;
+    final /* synthetic */ h BN;
+    p BO;
     ArrayList<l> ipList;
 
     public k(h hVar, p pVar) {
-        this.BQ = hVar;
-        this.BR = null;
-        this.BR = pVar;
+        this.BN = hVar;
+        this.BO = null;
+        this.BO = pVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,7 +27,7 @@ public class k extends BdAsyncTask<Object, Integer, ArrayList<String>> {
     public ArrayList<String> doInBackground(Object... objArr) {
         String str;
         String str2;
-        if (this.BR == null || (str = this.BR.BX) == null || str.length() <= 0 || (str2 = this.BR.BY) == null || str2.length() <= 0) {
+        if (this.BO == null || (str = this.BO.BU) == null || str.length() <= 0 || (str2 = this.BO.BV) == null || str2.length() <= 0) {
             return null;
         }
         try {
@@ -36,7 +36,7 @@ public class k extends BdAsyncTask<Object, Integer, ArrayList<String>> {
                 if (host.length() > 0) {
                     try {
                         long currentTimeMillis = System.currentTimeMillis();
-                        Iterator<String> it = this.BR.mobileIpList.iterator();
+                        Iterator<String> it = this.BO.mobileIpList.iterator();
                         while (it.hasNext()) {
                             String next = it.next();
                             long currentTimeMillis2 = System.currentTimeMillis();
@@ -85,7 +85,7 @@ public class k extends BdAsyncTask<Object, Integer, ArrayList<String>> {
         if (arrayList == null) {
             return;
         }
-        this.BQ.m(arrayList);
+        this.BN.m(arrayList);
     }
 
     private void c(String str, long j) {
@@ -95,7 +95,7 @@ public class k extends BdAsyncTask<Object, Integer, ArrayList<String>> {
         }
         l lVar = new l(this, null);
         lVar.ip = str;
-        lVar.vD = j;
+        lVar.vA = j;
         if (this.ipList.size() == 0) {
             this.ipList.add(lVar);
         } else if (this.ipList.size() <= 5) {
@@ -104,7 +104,7 @@ public class k extends BdAsyncTask<Object, Integer, ArrayList<String>> {
             while (true) {
                 i = i2;
                 if (i < this.ipList.size()) {
-                    if (this.ipList.get(i).vD > j) {
+                    if (this.ipList.get(i).vA > j) {
                         break;
                     }
                     i2 = i + 1;

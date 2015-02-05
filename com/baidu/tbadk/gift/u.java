@@ -13,35 +13,35 @@ import com.baidu.tieba.z;
 import java.util.List;
 /* loaded from: classes.dex */
 public class u extends BaseAdapter {
-    private int aaQ = -1;
-    private List<GiftCommonList.GiftItem> abi;
-    private RelativeLayout.LayoutParams abj;
+    private int aaN = -1;
+    private List<GiftCommonList.GiftItem> abf;
+    private RelativeLayout.LayoutParams abg;
     private Context mContext;
 
     public u(Context context) {
         this.mContext = context;
-        this.abj = new RelativeLayout.LayoutParams(-1, (context.getResources().getDimensionPixelSize(com.baidu.tieba.u.ds450) - 8) / 2);
+        this.abg = new RelativeLayout.LayoutParams(-1, (context.getResources().getDimensionPixelSize(com.baidu.tieba.u.ds450) - 8) / 2);
     }
 
     public void setGiftItems(List<GiftCommonList.GiftItem> list) {
-        this.abi = list;
+        this.abf = list;
         notifyDataSetChanged();
     }
 
     public void ds(int i) {
-        this.aaQ = i;
+        this.aaN = i;
     }
 
-    public int wc() {
-        return this.aaQ;
+    public int vW() {
+        return this.aaN;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.abi == null) {
+        if (this.abf == null) {
             return 0;
         }
-        return this.abi.size();
+        return this.abf.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -51,7 +51,7 @@ public class u extends BaseAdapter {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        return this.abi.get(i);
+        return this.abf.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -65,29 +65,29 @@ public class u extends BaseAdapter {
         if (view == null || view.getTag() == null) {
             view = com.baidu.adp.lib.g.b.ei().inflate(this.mContext, com.baidu.tieba.x.gift_list_item, null);
             v vVar2 = new v(this, null);
-            vVar2.abk = (TbImageView) view.findViewById(com.baidu.tieba.w.image);
-            vVar2.abl = view.findViewById(com.baidu.tieba.w.mask);
-            vVar2.abm = (TextView) view.findViewById(com.baidu.tieba.w.name);
-            vVar2.abn = (TextView) view.findViewById(com.baidu.tieba.w.price);
+            vVar2.abh = (TbImageView) view.findViewById(com.baidu.tieba.w.image);
+            vVar2.abi = view.findViewById(com.baidu.tieba.w.mask);
+            vVar2.abj = (TextView) view.findViewById(com.baidu.tieba.w.name);
+            vVar2.abk = (TextView) view.findViewById(com.baidu.tieba.w.price);
             view.setTag(vVar2);
             vVar = vVar2;
         } else {
             vVar = (v) view.getTag();
         }
-        vVar.abl.setLayoutParams(this.abj);
+        vVar.abi.setLayoutParams(this.abg);
         bc.i(view, com.baidu.tieba.t.cp_bg_line_d);
-        bc.b(vVar.abm, com.baidu.tieba.t.cp_cont_b, 1);
-        bc.b(vVar.abn, com.baidu.tieba.t.cp_cont_h, 1);
-        if (i == this.aaQ) {
-            bc.i(vVar.abl, com.baidu.tieba.v.chx_box_gift_s);
+        bc.b(vVar.abj, com.baidu.tieba.t.cp_cont_b, 1);
+        bc.b(vVar.abk, com.baidu.tieba.t.cp_cont_h, 1);
+        if (i == this.aaN) {
+            bc.i(vVar.abi, com.baidu.tieba.v.chx_box_gift_s);
         } else {
-            vVar.abl.setBackgroundResource(com.baidu.tieba.t.transparent);
+            vVar.abi.setBackgroundResource(com.baidu.tieba.t.transparent);
         }
         GiftCommonList.GiftItem item = getItem(i);
         if (item != null) {
-            vVar.abm.setText(item.getName());
-            vVar.abn.setText(String.format(this.mContext.getString(z.tdou_price_format), Integer.valueOf(item.getPrice())));
-            vVar.abk.d(item.getThumbnailUrl(), 10, false);
+            vVar.abj.setText(item.getName());
+            vVar.abk.setText(String.format(this.mContext.getString(z.tdou_price_format), Integer.valueOf(item.getPrice())));
+            vVar.abh.d(item.getThumbnailUrl(), 10, false);
         }
         return view;
     }

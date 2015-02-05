@@ -17,12 +17,12 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class bc {
-    private static String JA;
-    private static Resources JB;
+    private static String Jx;
+    private static Resources Jy;
 
     static {
         MessageManager.getInstance().registerListener(new bd(2005017));
-        JA = "skinType not support";
+        Jx = "skinType not support";
     }
 
     @Deprecated
@@ -153,7 +153,7 @@ public class bc {
         if (i == 1) {
             return BdBaseApplication.getInst().getApp().getResources().getColor(com.baidu.tieba.t.skin_1_common_color);
         }
-        throw new IllegalArgumentException(JA);
+        throw new IllegalArgumentException(Jx);
     }
 
     public static int cc(int i) {
@@ -168,14 +168,14 @@ public class bc {
     }
 
     private static int b(Resources resources, int i) {
-        if (JB == null) {
-            JB = resources;
+        if (Jy == null) {
+            Jy = resources;
         }
         String resourceName = resources.getResourceName(i);
-        if (TextUtils.isEmpty(resourceName) || resourceName.indexOf(":") <= 0 || JB == null) {
+        if (TextUtils.isEmpty(resourceName) || resourceName.indexOf(":") <= 0 || Jy == null) {
             return 0;
         }
-        return JB.getIdentifier(String.valueOf(resourceName) + "_1", null, null);
+        return Jy.getIdentifier(String.valueOf(resourceName) + "_1", null, null);
     }
 
     public static int c(Resources resources, int i) {
@@ -192,8 +192,8 @@ public class bc {
             if (i2 == 0) {
                 resources2 = resources;
                 i2 = i;
-            } else if (JB != null) {
-                resources2 = JB;
+            } else if (Jy != null) {
+                resources2 = Jy;
             } else {
                 resources2 = resources;
                 i2 = i;
@@ -227,8 +227,8 @@ public class bc {
             if (i2 == 0) {
                 resources2 = resources;
                 i2 = i;
-            } else if (JB != null) {
-                resources2 = JB;
+            } else if (Jy != null) {
+                resources2 = Jy;
             } else {
                 resources2 = resources;
                 i2 = i;
@@ -262,8 +262,8 @@ public class bc {
             if (i2 == 0) {
                 resources2 = resources;
                 i2 = i;
-            } else if (JB != null) {
-                resources2 = JB;
+            } else if (Jy != null) {
+                resources2 = Jy;
             } else {
                 resources2 = resources;
                 i2 = i;
@@ -298,13 +298,13 @@ public class bc {
             int b = b(resources, i);
             if (b == 0) {
                 b = i;
-            } else if (JB != null) {
-                Resources resources2 = JB;
+            } else if (Jy != null) {
+                Resources resources2 = Jy;
             } else {
                 b = i;
             }
             try {
-                Bitmap a = d.a(JB, b, i);
+                Bitmap a = d.a(Jy, b, i);
                 if (a == null) {
                     return d.bN(i);
                 }

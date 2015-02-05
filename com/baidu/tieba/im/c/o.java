@@ -12,11 +12,11 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements com.baidu.tbadk.img.d {
-    final /* synthetic */ a boF;
+    final /* synthetic */ a boE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(a aVar) {
-        this.boF = aVar;
+        this.boE = aVar;
     }
 
     @Override // com.baidu.tbadk.img.d
@@ -32,10 +32,10 @@ public class o implements com.baidu.tbadk.img.d {
         int i2 = 0;
         synchronized (this) {
             synchronized (a.class) {
-                hashMap = this.boF.boA;
+                hashMap = this.boE.boz;
                 aVar = (com.baidu.tbadk.img.a) hashMap.remove(str);
             }
-            if (aVar != null && (chatMessage = (ChatMessage) aVar.wi()) != null) {
+            if (aVar != null && (chatMessage = (ChatMessage) aVar.wc()) != null) {
                 if (imageUploadResult == null || imageUploadResult.error_code != 0 || imageUploadResult.picInfo == null) {
                     long currentTimeMillis = System.currentTimeMillis() - chatMessage.getLogTime();
                     if (imageUploadResult != null) {
@@ -67,16 +67,16 @@ public class o implements com.baidu.tbadk.img.d {
                         str3 = imageUploadResult.picInfo.smallPic.picUrl;
                         i2 = imageUploadResult.picInfo.smallPic.width;
                         i = imageUploadResult.picInfo.smallPic.height;
-                        this.boF.aF(str, str3);
+                        this.boE.aF(str, str3);
                     } else {
                         i = 0;
                         str3 = null;
                     }
                     chatMessage.setContent(a.b(str4, str3, i2, i));
-                    a.To().m(chatMessage);
-                    aeVar = this.boF.mSendCallback;
+                    a.Tj().m(chatMessage);
+                    aeVar = this.boE.mSendCallback;
                     if (aeVar != null) {
-                        aeVar2 = this.boF.mSendCallback;
+                        aeVar2 = this.boE.mSendCallback;
                         aeVar2.gB(1);
                     }
                 }

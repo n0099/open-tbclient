@@ -11,12 +11,12 @@ import com.baidu.tieba.data.RegistData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u extends BdAsyncTask<String, Integer, Boolean> {
-    private com.baidu.tbadk.core.util.ad AR;
-    final /* synthetic */ ActivationActivity anq;
+    private com.baidu.tbadk.core.util.ad AO;
+    final /* synthetic */ ActivationActivity ann;
 
     private u(ActivationActivity activationActivity) {
-        this.anq = activationActivity;
-        this.AR = null;
+        this.ann = activationActivity;
+        this.AO = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,16 +29,16 @@ public class u extends BdAsyncTask<String, Integer, Boolean> {
         ProgressBar progressBar;
         EditText editText;
         RelativeLayout relativeLayout;
-        this.anq.ane = null;
-        progressBar = this.anq.amY;
+        this.ann.anb = null;
+        progressBar = this.ann.amV;
         progressBar.setVisibility(8);
-        editText = this.anq.anb;
+        editText = this.ann.amY;
         if (editText.length() == 6) {
-            relativeLayout = this.anq.anc;
+            relativeLayout = this.ann.amZ;
             relativeLayout.setEnabled(true);
         }
-        if (this.AR != null) {
-            this.AR.dJ();
+        if (this.AO != null) {
+            this.AO.dJ();
         }
         super.cancel(true);
     }
@@ -51,12 +51,12 @@ public class u extends BdAsyncTask<String, Integer, Boolean> {
         RegistData registData;
         boolean z = false;
         try {
-            this.AR = new com.baidu.tbadk.core.util.ad(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/getsmscode");
-            com.baidu.tbadk.core.util.ad adVar = this.AR;
-            registData = this.anq.anh;
+            this.AO = new com.baidu.tbadk.core.util.ad(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/getsmscode");
+            com.baidu.tbadk.core.util.ad adVar = this.AO;
+            registData = this.ann.ane;
             adVar.o("phonenum", registData.getPhone());
-            this.AR.oy();
-            if (this.AR.oZ().qh().ma()) {
+            this.AO.or();
+            if (this.AO.oS().qa().lT()) {
                 z = true;
             }
         } catch (Exception e) {
@@ -76,23 +76,23 @@ public class u extends BdAsyncTask<String, Integer, Boolean> {
         TextView textView2;
         RelativeLayout relativeLayout;
         super.onPostExecute(bool);
-        this.anq.ane = null;
-        progressBar = this.anq.amY;
+        this.ann.anb = null;
+        progressBar = this.ann.amV;
         progressBar.setVisibility(8);
-        editText = this.anq.anb;
+        editText = this.ann.amY;
         if (editText.length() == 6) {
-            relativeLayout = this.anq.anc;
+            relativeLayout = this.ann.amZ;
             relativeLayout.setEnabled(true);
         }
         if (bool.booleanValue()) {
-            this.anq.Ba();
+            this.ann.AU();
             return;
         }
-        String errorString = this.AR.getErrorString();
+        String errorString = this.AO.getErrorString();
         if (errorString != null && errorString.length() > 0) {
-            textView = this.anq.UN;
+            textView = this.ann.UK;
             textView.setVisibility(0);
-            textView2 = this.anq.UN;
+            textView2 = this.ann.UK;
             textView2.setText(errorString);
         }
     }
@@ -104,13 +104,13 @@ public class u extends BdAsyncTask<String, Integer, Boolean> {
         TextView textView;
         TextView textView2;
         RelativeLayout relativeLayout;
-        progressBar = this.anq.amY;
+        progressBar = this.ann.amV;
         progressBar.setVisibility(0);
-        textView = this.anq.UN;
+        textView = this.ann.UK;
         textView.setVisibility(4);
-        textView2 = this.anq.UN;
+        textView2 = this.ann.UK;
         textView2.setText((CharSequence) null);
-        relativeLayout = this.anq.anc;
+        relativeLayout = this.ann.amZ;
         relativeLayout.setEnabled(false);
         super.onPreExecute();
     }

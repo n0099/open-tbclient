@@ -4,22 +4,22 @@ import com.baidu.tbadk.core.view.aj;
 import tbclient.GetAddressList.friendList;
 /* loaded from: classes.dex */
 public class b implements aj {
-    private f Ev;
-    private long SP;
-    private String SQ;
-    private String SR;
-    private String SS;
+    private f Es;
+    private long SL;
+    private String SM;
+    private String SO;
+    private String SP;
     private boolean mIsChecked = false;
     private String mUserName;
     private int mUserType;
 
-    public String tm() {
+    public String tg() {
         StringBuilder sb = new StringBuilder(64);
         if (this.mUserName != null) {
             sb.append(this.mUserName);
         }
-        if (this.SR != null) {
-            sb.append(this.SR);
+        if (this.SO != null) {
+            sb.append(this.SO);
         }
         return sb.toString();
     }
@@ -33,35 +33,35 @@ public class b implements aj {
     }
 
     public void setUserId(long j) {
-        this.SP = j;
+        this.SL = j;
     }
 
     public long getUserId() {
-        return this.SP;
+        return this.SL;
     }
 
-    public void dA(String str) {
-        this.SQ = str;
+    public void dx(String str) {
+        this.SM = str;
     }
 
     public String getUserPortrait() {
-        return this.SQ;
+        return this.SM;
     }
 
     public void setQuanpin(String str) {
-        this.SR = str;
+        this.SO = str;
     }
 
     public String getQuanpin() {
-        return this.SR;
+        return this.SO;
     }
 
-    public void dB(String str) {
-        this.SS = str;
+    public void dy(String str) {
+        this.SP = str;
     }
 
-    public String tn() {
-        return this.SS;
+    public String th() {
+        return this.SP;
     }
 
     public void a(friendList friendlist) {
@@ -69,11 +69,11 @@ public class b implements aj {
         long j = 0;
         if (friendlist != null) {
             this.mUserName = friendlist.user_name;
-            this.SP = friendlist.user_id.longValue();
-            this.SQ = friendlist.portrait;
-            this.SR = friendlist.quanpin;
+            this.SL = friendlist.user_id.longValue();
+            this.SM = friendlist.portrait;
+            this.SO = friendlist.quanpin;
             if (friendlist.location == null) {
-                this.Ev = new f("", 0L, -1);
+                this.Es = new f("", 0L, -1);
                 return;
             }
             if (friendlist.location.time != null && friendlist.location.time.longValue() > 0) {
@@ -82,7 +82,7 @@ public class b implements aj {
             if (friendlist.location.is_hide != null && friendlist.location.is_hide.intValue() >= 0) {
                 i = friendlist.location.is_hide.intValue();
             }
-            this.Ev = new f(friendlist.location.distance, j, i);
+            this.Es = new f(friendlist.location.distance, j, i);
         }
     }
 
@@ -97,11 +97,11 @@ public class b implements aj {
     }
 
     public f getLbsInfo() {
-        return this.Ev;
+        return this.Es;
     }
 
     public void setLbsInfo(f fVar) {
-        this.Ev = fVar;
+        this.Es = fVar;
     }
 
     public int getUserType() {

@@ -4,22 +4,22 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static a sF;
-    private ArrayList<String> sG = new ArrayList<>();
-    private b sH;
+    private static a sC;
+    private ArrayList<String> sD = new ArrayList<>();
+    private b sE;
 
     private a() {
     }
 
-    public static a hZ() {
-        if (sF == null) {
+    public static a hS() {
+        if (sC == null) {
             synchronized (a.class) {
-                if (sF == null) {
-                    sF = new a();
+                if (sC == null) {
+                    sC = new a();
                 }
             }
         }
-        return sF;
+        return sC;
     }
 
     public void i(ArrayList<String> arrayList) {
@@ -27,19 +27,19 @@ public class a {
             Iterator<String> it = arrayList.iterator();
             while (it.hasNext()) {
                 String next = it.next();
-                if (!this.sG.contains(next)) {
-                    this.sG.add(next);
+                if (!this.sD.contains(next)) {
+                    this.sD.add(next);
                 }
             }
-            ia();
+            hT();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ia() {
-        if (this.sG.size() != 0 && this.sH == null) {
-            this.sH = new b(this, this.sG.get(0));
-            this.sH.execute(new String[0]);
+    public void hT() {
+        if (this.sD.size() != 0 && this.sE == null) {
+            this.sE = new b(this, this.sD.get(0));
+            this.sE.execute(new String[0]);
         }
     }
 }

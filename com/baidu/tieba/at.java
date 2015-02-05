@@ -12,8 +12,8 @@ class at implements CustomMessageTask.CustomRunnable<AccountData> {
         if (com.baidu.adp.lib.util.l.ft()) {
             ao.a(customMessage.getData(), TbadkApplication.getInst().getApp());
             return null;
-        } else if (ao.AP() != null) {
-            ao.AP().handler.post(new au(this, customMessage));
+        } else if (ao.AJ() != null) {
+            ao.AJ().handler.post(new au(this, customMessage));
             return null;
         } else {
             return null;

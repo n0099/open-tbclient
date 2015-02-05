@@ -14,14 +14,14 @@ import com.baidu.tieba.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n extends BdAsyncTask<ab, Integer, String> {
-    private ad CX = null;
-    final /* synthetic */ f aPP;
-    private ab aPQ;
+    private ad CU = null;
+    final /* synthetic */ f aPO;
+    private ab aPP;
 
     public n(f fVar, ab abVar) {
-        this.aPP = fVar;
-        this.aPQ = null;
-        this.aPQ = abVar;
+        this.aPO = fVar;
+        this.aPP = null;
+        this.aPP = abVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,15 +29,15 @@ public class n extends BdAsyncTask<ab, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public String doInBackground(ab... abVarArr) {
-        ab abVar = this.aPQ;
+        ab abVar = this.aPP;
         if (abVar != null) {
             try {
                 if (abVar.getId() != null && abVar.getName() != null) {
-                    this.CX = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/unfavo");
-                    this.CX.o(ImageViewerConfig.FORUM_ID, abVar.getId());
-                    this.CX.o("kw", abVar.getName());
-                    this.CX.oZ().qg().mIsNeedTbs = true;
-                    this.CX.oy();
+                    this.CU = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/forum/unfavo");
+                    this.CU.o(ImageViewerConfig.FORUM_ID, abVar.getId());
+                    this.CU.o("kw", abVar.getName());
+                    this.CU.oS().pZ().mIsNeedTbs = true;
+                    this.CU.or();
                     return null;
                 }
                 return null;
@@ -57,20 +57,20 @@ public class n extends BdAsyncTask<ab, Integer, String> {
         BaseFragmentActivity baseFragmentActivity2;
         r rVar;
         super.onPostExecute((n) str);
-        this.aPP.aPC = null;
-        if (this.CX != null) {
-            if (this.CX.oZ().qh().ma()) {
-                baseFragmentActivity2 = this.aPP.aPI;
-                baseFragmentActivity2.showToast(this.aPP.getString(z.success));
+        this.aPO.aPB = null;
+        if (this.CU != null) {
+            if (this.CU.oS().qa().lT()) {
+                baseFragmentActivity2 = this.aPO.aPH;
+                baseFragmentActivity2.showToast(this.aPO.getString(z.success));
                 TbadkCoreApplication.m255getInst().setLikeBarChanged(true);
-                rVar = this.aPP.aPB;
-                rVar.jJ();
-                this.aPP.g(false, this.aPQ.getId());
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003004, this.aPQ.getId()));
+                rVar = this.aPO.aPA;
+                rVar.jC();
+                this.aPO.g(false, this.aPP.getId());
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003004, this.aPP.getId()));
                 return;
             }
-            baseFragmentActivity = this.aPP.aPI;
-            baseFragmentActivity.showToast(this.CX.getErrorString());
+            baseFragmentActivity = this.aPO.aPH;
+            baseFragmentActivity.showToast(this.CU.getErrorString());
         }
     }
 
@@ -81,11 +81,11 @@ public class n extends BdAsyncTask<ab, Integer, String> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        if (this.CX != null) {
-            this.CX.dJ();
-            this.CX = null;
+        if (this.CU != null) {
+            this.CU.dJ();
+            this.CU = null;
         }
-        this.aPP.aPC = null;
+        this.aPO.aPB = null;
         super.cancel(true);
     }
 }

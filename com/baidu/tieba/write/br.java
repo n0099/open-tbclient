@@ -22,12 +22,12 @@ public class br implements View.OnClickListener {
         boolean z2;
         Bitmap bitmap;
         Bitmap bitmap2;
-        boolean iE;
+        boolean iC;
         boolean z3;
         Bitmap bitmap3;
         Bitmap bitmap4;
-        boolean iE2;
-        z = this.this$0.bCy;
+        boolean iC2;
+        z = this.this$0.bCx;
         if (!z) {
             i = this.this$0.requestCode;
             if (i == 12003) {
@@ -36,15 +36,15 @@ public class br implements View.OnClickListener {
                 this.this$0.setResult(-1, intent);
             } else {
                 Intent intent2 = new Intent();
-                z2 = this.this$0.PH;
+                z2 = this.this$0.PE;
                 if (z2) {
-                    bitmap = this.this$0.Pz;
+                    bitmap = this.this$0.Pw;
                     if (bitmap != null) {
-                        bitmap2 = this.this$0.Pz;
+                        bitmap2 = this.this$0.Pw;
                         if (!bitmap2.isRecycled()) {
                             String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                            iE = this.this$0.iE(str);
-                            if (iE) {
+                            iC = this.this$0.iC(str);
+                            if (iC) {
                                 intent2.putExtra("change", true);
                                 intent2.putExtra("file_name", str);
                             } else {
@@ -63,15 +63,15 @@ public class br implements View.OnClickListener {
             return;
         }
         Intent intent3 = new Intent();
-        z3 = this.this$0.PH;
+        z3 = this.this$0.PE;
         if (z3) {
-            bitmap3 = this.this$0.Pz;
+            bitmap3 = this.this$0.Pw;
             if (bitmap3 != null) {
-                bitmap4 = this.this$0.Pz;
+                bitmap4 = this.this$0.Pw;
                 if (!bitmap4.isRecycled()) {
                     String str2 = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                    iE2 = this.this$0.iE(str2);
-                    if (iE2) {
+                    iC2 = this.this$0.iC(str2);
+                    if (iC2) {
                         intent3.putExtra("filename", str2);
                     }
                 }

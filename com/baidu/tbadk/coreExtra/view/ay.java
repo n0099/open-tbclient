@@ -4,18 +4,18 @@ import android.graphics.Bitmap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ay extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ ax VF;
+    final /* synthetic */ ax VC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ay(ax axVar) {
-        this.VF = axVar;
+        this.VC = axVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.f.c
     public void onCancelled(String str) {
-        this.VF.VD.setVisibility(0);
-        this.VF.mProgressBar.setVisibility(8);
+        this.VC.VA.setVisibility(0);
+        this.VC.mProgressBar.setVisibility(8);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,21 +24,21 @@ public class ay extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
     public void onLoaded(com.baidu.adp.widget.a.a aVar, String str, int i) {
         az azVar;
         az azVar2;
-        this.VF.mProgressBar.setVisibility(8);
+        this.VC.mProgressBar.setVisibility(8);
         if (aVar != null) {
-            azVar = this.VF.VE;
+            azVar = this.VC.VB;
             if (azVar != null) {
-                azVar2 = this.VF.VE;
-                azVar2.i(aVar.getUrl(), aVar.jo());
+                azVar2 = this.VC.VB;
+                azVar2.i(aVar.getUrl(), aVar.jh());
             }
-            Bitmap jj = aVar.jj();
-            if (jj == null) {
-                this.VF.VD.setDefaultBitmap();
+            Bitmap jc = aVar.jc();
+            if (jc == null) {
+                this.VC.VA.setDefaultBitmap();
             } else if (aVar.ck()) {
-                this.VF.VD.a(aVar.jo(), jj);
+                this.VC.VA.a(aVar.jh(), jc);
             } else {
-                this.VF.VD.setImageBitmap(jj);
-                this.VF.VD.setImageData(aVar.jo());
+                this.VC.VA.setImageBitmap(jc);
+                this.VC.VA.setImageData(aVar.jh());
             }
         }
     }

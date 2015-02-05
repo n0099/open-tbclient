@@ -6,21 +6,21 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ j ccq;
+    final /* synthetic */ j ccp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(j jVar) {
-        this.ccq = jVar;
+        this.ccp = jVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EditText editText;
         EditText editText2;
-        this.ccq.ccl = true;
-        editText = this.ccq.ccg;
+        this.ccp.cck = true;
+        editText = this.ccp.ccf;
         editText.setSelectAllOnFocus(true);
-        editText2 = this.ccq.ccg;
+        editText2 = this.ccp.ccf;
         Selection.selectAll(editText2.getEditableText());
     }
 }

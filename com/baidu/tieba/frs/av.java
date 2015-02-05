@@ -9,12 +9,12 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class av implements com.baidu.tieba.tbadkCore.x {
-    final /* synthetic */ FrsActivity aDW;
+    final /* synthetic */ FrsActivity aDT;
     private long startTime = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(FrsActivity frsActivity) {
-        this.aDW = frsActivity;
+        this.aDT = frsActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.x
@@ -27,19 +27,19 @@ class av implements com.baidu.tieba.tbadkCore.x {
         this.startTime = System.nanoTime();
         switch (i) {
             case 1:
-                bpVar3 = this.aDW.aCY;
+                bpVar3 = this.aDT.aCV;
                 bpVar3.bQ(true);
-                bpVar4 = this.aDW.aCY;
-                bpVar4.GT();
+                bpVar4 = this.aDT.aCV;
+                bpVar4.GN();
                 return;
             case 2:
-                bpVar = this.aDW.aCY;
+                bpVar = this.aDT.aCV;
                 bpVar.bR(true);
-                bpVar2 = this.aDW.aCY;
-                bpVar2.GT();
+                bpVar2 = this.aDT.aCV;
+                bpVar2.GN();
                 return;
             case 3:
-                bpVar5 = this.aDW.aCY;
+                bpVar5 = this.aDT.aCV;
                 bpVar5.bP(true);
                 return;
             default:
@@ -47,9 +47,9 @@ class av implements com.baidu.tieba.tbadkCore.x {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:105:0x0582  */
-    /* JADX WARN: Removed duplicated region for block: B:114:0x05d9  */
-    /* JADX WARN: Removed duplicated region for block: B:97:0x0540  */
+    /* JADX WARN: Removed duplicated region for block: B:105:0x059d  */
+    /* JADX WARN: Removed duplicated region for block: B:114:0x05f4  */
+    /* JADX WARN: Removed duplicated region for block: B:97:0x055b  */
     @Override // com.baidu.tieba.tbadkCore.x
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -61,11 +61,12 @@ class av implements com.baidu.tieba.tbadkCore.x {
         bp bpVar4;
         bp bpVar5;
         bp bpVar6;
-        boolean z2;
         bp bpVar7;
+        boolean z2;
         bp bpVar8;
         bp bpVar9;
         bp bpVar10;
+        bp bpVar11;
         long j;
         com.baidu.tieba.tbadkCore.e eVar;
         com.baidu.tieba.tbadkCore.e eVar2;
@@ -78,25 +79,24 @@ class av implements com.baidu.tieba.tbadkCore.x {
         com.baidu.tieba.tbadkCore.e eVar7;
         com.baidu.tieba.tbadkCore.e eVar8;
         com.baidu.tieba.tbadkCore.e eVar9;
-        bp bpVar11;
+        bp bpVar12;
         com.baidu.tieba.tbadkCore.e eVar10;
         boolean z3;
         com.baidu.tieba.tbadkCore.e eVar11;
         String str;
         String str2;
         String str3;
-        bp bpVar12;
+        bp bpVar13;
         com.baidu.tieba.tbadkCore.e eVar12;
         AdapterView.OnItemClickListener onItemClickListener;
-        bp bpVar13;
+        bp bpVar14;
         com.baidu.tieba.tbadkCore.e eVar13;
         com.baidu.tieba.tbadkCore.e eVar14;
         com.baidu.tieba.tbadkCore.e eVar15;
         com.baidu.tieba.tbadkCore.e eVar16;
-        bp bpVar14;
+        bp bpVar15;
         com.baidu.tieba.tbadkCore.e eVar17;
         com.baidu.tieba.tbadkCore.e eVar18;
-        bp bpVar15;
         bp bpVar16;
         bp bpVar17;
         bp bpVar18;
@@ -105,12 +105,13 @@ class av implements com.baidu.tieba.tbadkCore.x {
         bp bpVar21;
         bp bpVar22;
         bp bpVar23;
-        com.baidu.tieba.tbadkCore.e eVar19;
         bp bpVar24;
+        com.baidu.tieba.tbadkCore.e eVar19;
+        bp bpVar25;
         com.baidu.tieba.tbadkCore.e eVar20;
         com.baidu.tieba.tbadkCore.e eVar21;
         com.baidu.tieba.tbadkCore.e eVar22;
-        bp bpVar25;
+        bp bpVar26;
         com.baidu.tieba.tbadkCore.e eVar23;
         com.baidu.tieba.tbadkCore.e eVar24;
         int i2;
@@ -123,7 +124,7 @@ class av implements com.baidu.tieba.tbadkCore.x {
         com.baidu.tieba.tbadkCore.e eVar27;
         com.baidu.tieba.tbadkCore.e eVar28;
         int i4;
-        bp bpVar26;
+        bp bpVar27;
         com.baidu.tieba.tbadkCore.e eVar29;
         com.baidu.tieba.tbadkCore.e eVar30;
         com.baidu.tieba.tbadkCore.e eVar31;
@@ -136,273 +137,277 @@ class av implements com.baidu.tieba.tbadkCore.x {
         boolean z4;
         com.baidu.tieba.tbadkCore.e eVar38;
         com.baidu.tieba.tbadkCore.e eVar39;
-        bp bpVar27;
+        bp bpVar28;
         com.baidu.tieba.tbadkCore.e eVar40;
         com.baidu.tieba.tbadkCore.e eVar41;
-        bp bpVar28;
+        bp bpVar29;
         if (hVar != null && hVar.isSuccess) {
-            bpVar28 = this.aDW.aCY;
-            bpVar28.Hl().bD(com.baidu.tbadk.core.util.bg.pI().pK());
-            FrsActivity.aDc = 0L;
-            FrsActivity.aDd = 0L;
-            FrsActivity.aDe = 0;
+            bpVar29 = this.aDT.aCV;
+            bpVar29.Hf().bD(com.baidu.tbadk.core.util.bg.pB().pD());
+            FrsActivity.aCZ = 0L;
+            FrsActivity.aDa = 0L;
+            FrsActivity.aDb = 0;
         } else {
-            FrsActivity.aDe = 1;
+            FrsActivity.aDb = 1;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        bpVar = this.aDW.aCY;
+        bpVar = this.aDT.aCV;
         bpVar.bP(false);
         switch (i) {
             case 1:
-                bpVar4 = this.aDW.aCY;
+                bpVar4 = this.aDT.aCV;
                 bpVar4.bQ(false);
-                bpVar5 = this.aDW.aCY;
-                bpVar5.GT();
+                bpVar5 = this.aDT.aCV;
+                bpVar5.GN();
                 break;
             case 2:
-                bpVar2 = this.aDW.aCY;
+                bpVar2 = this.aDT.aCV;
                 bpVar2.bR(false);
-                bpVar3 = this.aDW.aCY;
-                bpVar3.GT();
+                bpVar3 = this.aDT.aCV;
+                bpVar3.GN();
                 break;
         }
-        FrsActivity frsActivity = this.aDW;
-        bpVar6 = this.aDW.aCY;
+        FrsActivity frsActivity = this.aDT;
+        bpVar6 = this.aDT.aCV;
         frsActivity.hideLoadingView(bpVar6.getRootView());
+        FrsActivity frsActivity2 = this.aDT;
+        bpVar7 = this.aDT.aCV;
+        frsActivity2.hideNetRefreshView(bpVar7.getRootView());
         if (z || (hVar != null && hVar.errorCode != 0)) {
-            z2 = this.aDW.aCM;
+            z2 = this.aDT.aCJ;
             if (!z2) {
                 if (hVar != null) {
-                    if (hVar.bTY) {
-                        FrsActivity frsActivity2 = this.aDW;
-                        bpVar10 = this.aDW.aCY;
-                        frsActivity2.showNetRefreshView(bpVar10.getRootView(), this.aDW.getPageContext().getResources().getString(com.baidu.tieba.z.net_error_text, hVar.errorMsg, Integer.valueOf(hVar.errorCode)), true);
+                    if (hVar.bTX) {
+                        FrsActivity frsActivity3 = this.aDT;
+                        bpVar11 = this.aDT.aCV;
+                        frsActivity3.showNetRefreshView(bpVar11.getRootView(), this.aDT.getPageContext().getResources().getString(com.baidu.tieba.z.net_error_text, hVar.errorMsg, Integer.valueOf(hVar.errorCode)), true);
                     } else {
-                        FrsActivity frsActivity3 = this.aDW;
-                        bpVar8 = this.aDW.aCY;
-                        frsActivity3.showNetRefreshView(bpVar8.getRootView(), hVar.errorMsg, true);
+                        FrsActivity frsActivity4 = this.aDT;
+                        bpVar9 = this.aDT.aCV;
+                        frsActivity4.showNetRefreshView(bpVar9.getRootView(), hVar.errorMsg, true);
                     }
-                    bpVar9 = this.aDW.aCY;
-                    bpVar9.fa(8);
+                    bpVar10 = this.aDT.aCV;
+                    bpVar10.fa(8);
                 }
-            } else if (hVar != null && hVar.bTY) {
-                bpVar7 = this.aDW.aCY;
-                bpVar7.fa(0);
-                this.aDW.showToast(this.aDW.getPageContext().getResources().getString(com.baidu.tieba.z.net_error_text, hVar.errorMsg, Integer.valueOf(hVar.errorCode)));
+            } else if (hVar != null && hVar.bTX) {
+                bpVar8 = this.aDT.aCV;
+                bpVar8.fa(0);
+                this.aDT.showToast(this.aDT.getPageContext().getResources().getString(com.baidu.tieba.z.net_error_text, hVar.errorMsg, Integer.valueOf(hVar.errorCode)));
             }
         } else {
-            bpVar11 = this.aDW.aCY;
-            bpVar11.fa(0);
-            eVar10 = this.aDW.aDi;
+            this.aDT.aCJ = true;
+            bpVar12 = this.aDT.aCV;
+            bpVar12.fa(0);
+            eVar10 = this.aDT.aDf;
             if (eVar10 != null) {
-                eVar37 = this.aDW.aDi;
-                if (eVar37.aeP().aeU() == 1) {
-                    this.aDW.mPageType = "frs_page";
+                eVar37 = this.aDT.aDf;
+                if (eVar37.aeK().aeP() == 1) {
+                    this.aDT.mPageType = "frs_page";
                 } else {
-                    this.aDW.mPageType = "normal_page";
+                    this.aDT.mPageType = "normal_page";
                 }
-                z4 = this.aDW.aDg;
+                z4 = this.aDT.aDd;
                 if (z4) {
-                    this.aDW.mPageType = "good_page";
+                    this.aDT.mPageType = "good_page";
                 }
-                FrsActivity frsActivity4 = this.aDW;
-                eVar38 = this.aDW.aDi;
-                frsActivity4.aCQ = eVar38.aeN().getName();
-                FrsActivity frsActivity5 = this.aDW;
-                eVar39 = this.aDW.aDi;
-                frsActivity5.forumId = eVar39.aeN().getId();
-                bpVar27 = this.aDW.aCY;
-                eVar40 = this.aDW.aDi;
-                ForumData aeN = eVar40.aeN();
-                eVar41 = this.aDW.aDi;
-                bpVar27.a(aeN, eVar41.getUserData());
+                FrsActivity frsActivity5 = this.aDT;
+                eVar38 = this.aDT.aDf;
+                frsActivity5.aCN = eVar38.aeI().getName();
+                FrsActivity frsActivity6 = this.aDT;
+                eVar39 = this.aDT.aDf;
+                frsActivity6.forumId = eVar39.aeI().getId();
+                bpVar28 = this.aDT.aCV;
+                eVar40 = this.aDT.aDf;
+                ForumData aeI = eVar40.aeI();
+                eVar41 = this.aDT.aDf;
+                bpVar28.a(aeI, eVar41.getUserData());
             }
-            z3 = this.aDW.aDu;
+            z3 = this.aDT.aDr;
             if (z3) {
-                eVar32 = this.aDW.aDi;
+                eVar32 = this.aDT.aDf;
                 if (eVar32 != null) {
-                    eVar33 = this.aDW.aDi;
-                    eVar33.aeS();
+                    eVar33 = this.aDT.aDf;
+                    eVar33.aeN();
                     if (TbadkCoreApplication.m255getInst().isRecAppExist()) {
-                        eVar36 = this.aDW.aDi;
-                        eVar36.av(this.aDW.getPageContext().getPageActivity());
+                        eVar36 = this.aDT.aDf;
+                        eVar36.av(this.aDT.getPageContext().getPageActivity());
                     }
-                    eVar34 = this.aDW.aDi;
-                    eVar34.aeT();
-                    FrsActivity frsActivity6 = this.aDW;
-                    eVar35 = this.aDW.aDi;
-                    frsActivity6.b(eVar35);
+                    eVar34 = this.aDT.aDf;
+                    eVar34.aeO();
+                    FrsActivity frsActivity7 = this.aDT;
+                    eVar35 = this.aDT.aDf;
+                    frsActivity7.b(eVar35);
                 }
             }
-            eVar11 = this.aDW.aDi;
-            com.baidu.tbadk.core.data.z top_notice_data = eVar11.aeN().getTop_notice_data();
+            eVar11 = this.aDT.aDf;
+            com.baidu.tbadk.core.data.z top_notice_data = eVar11.aeI().getTop_notice_data();
             if (top_notice_data != null && top_notice_data.getTitle() != null) {
                 com.baidu.tbadk.core.data.x xVar = new com.baidu.tbadk.core.data.x();
                 xVar.setTitle(top_notice_data.getTitle());
                 xVar.bu(2);
-                xVar.bQ(top_notice_data.nR());
+                xVar.bN(top_notice_data.nK());
                 xVar.parser_title();
-                eVar31 = this.aDW.aDi;
+                eVar31 = this.aDT.aDf;
                 eVar31.d(xVar);
             }
-            str = this.aDW.mPageType;
+            str = this.aDT.mPageType;
             if (str.equals("frs_page")) {
-                bpVar26 = this.aDW.aCY;
-                eVar29 = this.aDW.aDi;
+                bpVar27 = this.aDT.aCV;
+                eVar29 = this.aDT.aDf;
                 int isMem = eVar29.getUserData().getIsMem();
-                eVar30 = this.aDW.aDi;
-                bpVar26.N(isMem, eVar30.aeN().isLike());
+                eVar30 = this.aDT.aDf;
+                bpVar27.O(isMem, eVar30.aeI().isLike());
             } else {
-                str2 = this.aDW.mPageType;
+                str2 = this.aDT.mPageType;
                 if (str2.equals("normal_page")) {
-                    bpVar13 = this.aDW.aCY;
-                    eVar13 = this.aDW.aDi;
+                    bpVar14 = this.aDT.aCV;
+                    eVar13 = this.aDT.aDf;
                     int isMem2 = eVar13.getUserData().getIsMem();
-                    eVar14 = this.aDW.aDi;
-                    bpVar13.M(isMem2, eVar14.aeN().isLike());
+                    eVar14 = this.aDT.aDf;
+                    bpVar14.N(isMem2, eVar14.aeI().isLike());
                 } else {
-                    str3 = this.aDW.mPageType;
+                    str3 = this.aDT.mPageType;
                     if (str3.equals("good_page")) {
-                        bpVar12 = this.aDW.aCY;
-                        eVar12 = this.aDW.aDi;
-                        ArrayList<com.baidu.tbadk.core.data.k> good_classify = eVar12.aeN().getGood_classify();
-                        onItemClickListener = this.aDW.aDN;
-                        bpVar12.a(good_classify, onItemClickListener);
+                        bpVar13 = this.aDT.aCV;
+                        eVar12 = this.aDT.aDf;
+                        ArrayList<com.baidu.tbadk.core.data.k> good_classify = eVar12.aeI().getGood_classify();
+                        onItemClickListener = this.aDT.aDK;
+                        bpVar13.a(good_classify, onItemClickListener);
                     }
                 }
             }
-            FrsActivity.aDc = (System.nanoTime() - this.startTime) / 1000000;
+            FrsActivity.aCZ = (System.nanoTime() - this.startTime) / 1000000;
             if (hVar != null) {
-                FrsActivity.aDd = hVar.bTZ;
+                FrsActivity.aDa = hVar.bTY;
             }
-            eVar15 = this.aDW.aDi;
+            eVar15 = this.aDT.aDf;
             if (eVar15 != null) {
-                eVar23 = this.aDW.aDi;
-                if (eVar23.aeO() != null) {
-                    eVar24 = this.aDW.aDi;
-                    if (eVar24.aeO().size() == 0) {
-                        i2 = this.aDW.mType;
+                eVar23 = this.aDT.aDf;
+                if (eVar23.aeJ() != null) {
+                    eVar24 = this.aDT.aDf;
+                    if (eVar24.aeJ().size() == 0) {
+                        i2 = this.aDT.mType;
                         if (i2 == 1) {
-                            this.aDW.showToast(this.aDW.getPageContext().getString(com.baidu.tieba.z.no_more_to_load));
-                            i3 = this.aDW.aCS;
+                            this.aDT.showToast(this.aDT.getPageContext().getString(com.baidu.tieba.z.no_more_to_load));
+                            i3 = this.aDT.aCP;
                             if (i3 > 1) {
-                                FrsActivity frsActivity7 = this.aDW;
-                                i4 = frsActivity7.aCS;
-                                frsActivity7.aCS = i4 - 1;
+                                FrsActivity frsActivity8 = this.aDT;
+                                i4 = frsActivity8.aCP;
+                                frsActivity8.aCP = i4 - 1;
                             }
-                            j4 = this.aDW.aDp;
+                            j4 = this.aDT.aDm;
                             if (j4 > -1) {
                                 long currentTimeMillis2 = System.currentTimeMillis();
-                                j5 = this.aDW.aDp;
-                                eVar25 = this.aDW.aDi;
-                                long UA = eVar25.UA();
-                                j6 = this.aDW.aDp;
-                                long j7 = UA - j6;
-                                eVar26 = this.aDW.aDi;
-                                long Uy = eVar26.Uy();
-                                eVar27 = this.aDW.aDi;
-                                long Uz = eVar27.Uz();
-                                eVar28 = this.aDW.aDi;
-                                TiebaStatic.page("op_frs_enter", currentTimeMillis2 - j5, j7, Uy, Uz, currentTimeMillis2 - eVar28.Ux());
-                                this.aDW.aDp = -1L;
+                                j5 = this.aDT.aDm;
+                                eVar25 = this.aDT.aDf;
+                                long Uv = eVar25.Uv();
+                                j6 = this.aDT.aDm;
+                                long j7 = Uv - j6;
+                                eVar26 = this.aDT.aDf;
+                                long Ut = eVar26.Ut();
+                                eVar27 = this.aDT.aDf;
+                                long Uu = eVar27.Uu();
+                                eVar28 = this.aDT.aDf;
+                                TiebaStatic.page("op_frs_enter", currentTimeMillis2 - j5, j7, Ut, Uu, currentTimeMillis2 - eVar28.Us());
+                                this.aDT.aDm = -1L;
                             }
-                            this.aDW.agS = System.currentTimeMillis() - currentTimeMillis;
+                            this.aDT.agP = System.currentTimeMillis() - currentTimeMillis;
                             return;
                         }
                     }
                 }
             }
-            eVar16 = this.aDW.aDi;
+            eVar16 = this.aDT.aDf;
             if (eVar16 != null) {
-                eVar21 = this.aDW.aDi;
+                eVar21 = this.aDT.aDf;
                 if (eVar21.getUserData() != null) {
-                    eVar22 = this.aDW.aDi;
+                    eVar22 = this.aDT.aDf;
                     if (eVar22.getUserData().isBawu()) {
-                        bpVar25 = this.aDW.aCY;
-                        bpVar25.setIsManager(true);
-                        eVar17 = this.aDW.aDi;
+                        bpVar26 = this.aDT.aCV;
+                        bpVar26.setIsManager(true);
+                        eVar17 = this.aDT.aDf;
                         if (eVar17 != null) {
-                            eVar19 = this.aDW.aDi;
-                            if (eVar19.aeN() != null) {
-                                bpVar24 = this.aDW.aCY;
-                                eVar20 = this.aDW.aDi;
-                                bpVar24.bU(eVar20.aeN().isLike() == 1);
+                            eVar19 = this.aDT.aDf;
+                            if (eVar19.aeI() != null) {
+                                bpVar25 = this.aDT.aCV;
+                                eVar20 = this.aDT.aDf;
+                                bpVar25.bU(eVar20.aeI().isLike() == 1);
                             }
                         }
-                        this.aDW.Gb();
-                        eVar18 = this.aDW.aDi;
-                        if (!eVar18.aeM()) {
-                            bpVar20 = this.aDW.aCY;
-                            if (bpVar20.GQ() != null) {
-                                bpVar23 = this.aDW.aCY;
-                                bpVar23.GQ().HH();
+                        this.aDT.FV();
+                        eVar18 = this.aDT.aDf;
+                        if (!eVar18.aeH()) {
+                            bpVar21 = this.aDT.aCV;
+                            if (bpVar21.GK() != null) {
+                                bpVar24 = this.aDT.aCV;
+                                bpVar24.GK().HB();
                             }
-                            bpVar21 = this.aDW.aCY;
-                            if (bpVar21.GR() != null) {
-                                bpVar22 = this.aDW.aCY;
-                                bpVar22.GR().HH();
+                            bpVar22 = this.aDT.aCV;
+                            if (bpVar22.GL() != null) {
+                                bpVar23 = this.aDT.aCV;
+                                bpVar23.GL().HB();
                             }
                         } else {
-                            bpVar15 = this.aDW.aCY;
-                            if (bpVar15.GQ() != null) {
-                                bpVar18 = this.aDW.aCY;
-                                bpVar18.GQ().HG();
+                            bpVar16 = this.aDT.aCV;
+                            if (bpVar16.GK() != null) {
+                                bpVar19 = this.aDT.aCV;
+                                bpVar19.GK().HA();
                             }
-                            bpVar16 = this.aDW.aCY;
-                            if (bpVar16.GR() != null) {
-                                bpVar17 = this.aDW.aCY;
-                                bpVar17.GR().HG();
+                            bpVar17 = this.aDT.aCV;
+                            if (bpVar17.GL() != null) {
+                                bpVar18 = this.aDT.aCV;
+                                bpVar18.GL().HA();
                             }
                         }
-                        bpVar19 = this.aDW.aCY;
-                        bpVar19.GC();
+                        bpVar20 = this.aDT.aCV;
+                        bpVar20.Gw();
                     }
                 }
             }
-            bpVar14 = this.aDW.aCY;
-            bpVar14.setIsManager(false);
-            eVar17 = this.aDW.aDi;
+            bpVar15 = this.aDT.aCV;
+            bpVar15.setIsManager(false);
+            eVar17 = this.aDT.aDf;
             if (eVar17 != null) {
             }
-            this.aDW.Gb();
-            eVar18 = this.aDW.aDi;
-            if (!eVar18.aeM()) {
+            this.aDT.FV();
+            eVar18 = this.aDT.aDf;
+            if (!eVar18.aeH()) {
             }
-            bpVar19 = this.aDW.aCY;
-            bpVar19.GC();
+            bpVar20 = this.aDT.aCV;
+            bpVar20.Gw();
         }
-        this.aDW.aCZ = null;
-        j = this.aDW.aDp;
+        this.aDT.aCW = null;
+        j = this.aDT.aDm;
         if (j > -1) {
             long currentTimeMillis3 = System.currentTimeMillis();
-            j2 = this.aDW.aDp;
-            eVar6 = this.aDW.aDi;
-            long UA2 = eVar6.UA();
-            j3 = this.aDW.aDp;
-            long j8 = UA2 - j3;
-            eVar7 = this.aDW.aDi;
-            long Uy2 = eVar7.Uy();
-            eVar8 = this.aDW.aDi;
-            long Uz2 = eVar8.Uz();
-            eVar9 = this.aDW.aDi;
-            TiebaStatic.page("op_frs_enter", currentTimeMillis3 - j2, j8, Uy2, Uz2, currentTimeMillis3 - eVar9.Ux());
-            this.aDW.aDp = -1L;
+            j2 = this.aDT.aDm;
+            eVar6 = this.aDT.aDf;
+            long Uv2 = eVar6.Uv();
+            j3 = this.aDT.aDm;
+            long j8 = Uv2 - j3;
+            eVar7 = this.aDT.aDf;
+            long Ut2 = eVar7.Ut();
+            eVar8 = this.aDT.aDf;
+            long Uu2 = eVar8.Uu();
+            eVar9 = this.aDT.aDf;
+            TiebaStatic.page("op_frs_enter", currentTimeMillis3 - j2, j8, Ut2, Uu2, currentTimeMillis3 - eVar9.Us());
+            this.aDT.aDm = -1L;
         }
-        FrsActivity frsActivity8 = this.aDW;
-        eVar = this.aDW.aDi;
-        frsActivity8.a(eVar);
-        eVar2 = this.aDW.aDi;
-        this.aDW.g(Boolean.valueOf(eVar2.mR().isIfvoice()));
-        eVar3 = this.aDW.aDi;
+        FrsActivity frsActivity9 = this.aDT;
+        eVar = this.aDT.aDf;
+        frsActivity9.a(eVar);
+        eVar2 = this.aDT.aDf;
+        this.aDT.g(Boolean.valueOf(eVar2.mK().isIfvoice()));
+        eVar3 = this.aDT.aDf;
         if (eVar3 != null) {
-            eVar4 = this.aDW.aDi;
+            eVar4 = this.aDT.aDf;
             if (eVar4.getUserData() != null) {
                 MessageManager messageManager = MessageManager.getInstance();
-                eVar5 = this.aDW.aDi;
+                eVar5 = this.aDT.aDf;
                 messageManager.dispatchResponsedMessageToUI(new CustomResponsedMessage(2001200, Integer.valueOf(eVar5.getUserData().getIsMem())));
             }
         }
-        this.aDW.agS = System.currentTimeMillis() - currentTimeMillis;
+        this.aDT.agP = System.currentTimeMillis() - currentTimeMillis;
         System.gc();
     }
 
@@ -411,14 +416,14 @@ class av implements com.baidu.tieba.tbadkCore.x {
         String str;
         String str2;
         if (eVar != null) {
-            str = this.aDW.mPageType;
+            str = this.aDT.mPageType;
             if (!str.equals("normal_page")) {
-                str2 = this.aDW.mPageType;
+                str2 = this.aDT.mPageType;
                 if (!str2.equals("frs_page")) {
                     return;
                 }
             }
-            this.aDW.c(eVar);
+            this.aDT.c(eVar);
         }
     }
 }

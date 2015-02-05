@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements View.OnClickListener {
-    final /* synthetic */ FrsHeaderView aIT;
+    final /* synthetic */ FrsHeaderView aIQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(FrsHeaderView frsHeaderView) {
-        this.aIT = frsHeaderView;
+        this.aIQ = frsHeaderView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,9 +21,9 @@ public class i implements View.OnClickListener {
         TbPageContext tbPageContext;
         String str;
         MessageManager messageManager = MessageManager.getInstance();
-        tbPageContext = this.aIT.mContext;
+        tbPageContext = this.aIQ.mContext;
         Context context = tbPageContext.getContext();
-        str = this.aIT.mForumId;
+        str = this.aIQ.mForumId;
         messageManager.sendMessage(new CustomMessage(2902027, new ForumDetailActivityConfig(context, str, ForumDetailActivityConfig.FromType.FRS)));
     }
 }

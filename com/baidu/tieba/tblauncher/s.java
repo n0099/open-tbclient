@@ -12,10 +12,10 @@ class s implements Runnable {
     public void run() {
         ai aiVar;
         ai aiVar2;
-        aiVar = this.this$0.ccK;
+        aiVar = this.this$0.ccJ;
         if (aiVar.isMenuShowing()) {
-            aiVar2 = this.this$0.ccK;
-            aiVar2.ajv();
+            aiVar2 = this.this$0.ccJ;
+            aiVar2.ajq();
         }
     }
 }

@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.view.MorePopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements View.OnTouchListener {
-    final /* synthetic */ PbActivity bAT;
+    final /* synthetic */ PbActivity bAS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(PbActivity pbActivity) {
-        this.bAT = pbActivity;
+        this.bAS = pbActivity;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -25,27 +25,27 @@ public class y implements View.OnTouchListener {
         MorePopupWindow morePopupWindow8;
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
-        morePopupWindow = this.bAT.bAB;
+        morePopupWindow = this.bAS.bAA;
         if (morePopupWindow.getContentView() == null) {
             return false;
         }
-        morePopupWindow2 = this.bAT.bAB;
+        morePopupWindow2 = this.bAS.bAA;
         int top = morePopupWindow2.getContentView().getTop();
-        morePopupWindow3 = this.bAT.bAB;
+        morePopupWindow3 = this.bAS.bAA;
         int right = morePopupWindow3.getContentView().getRight();
-        morePopupWindow4 = this.bAT.bAB;
+        morePopupWindow4 = this.bAS.bAA;
         int bottom = morePopupWindow4.getContentView().getBottom();
         if (motionEvent.getAction() == 4 && x > right && y > top && y < bottom) {
-            morePopupWindow6 = this.bAT.bAB;
+            morePopupWindow6 = this.bAS.bAA;
             if (morePopupWindow6.isShowing()) {
-                morePopupWindow7 = this.bAT.bAB;
+                morePopupWindow7 = this.bAS.bAA;
                 morePopupWindow7.dismiss();
-                morePopupWindow8 = this.bAT.bAB;
+                morePopupWindow8 = this.bAS.bAA;
                 morePopupWindow8.setIsIntercepted(true);
                 return true;
             }
         }
-        morePopupWindow5 = this.bAT.bAB;
+        morePopupWindow5 = this.bAS.bAA;
         morePopupWindow5.setIsIntercepted(false);
         return false;
     }

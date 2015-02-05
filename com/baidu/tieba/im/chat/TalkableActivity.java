@@ -317,7 +317,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
 
     @Override // com.baidu.tbadk.widget.richText.j
     public void onLinkClicked(Context context, String str) {
-        com.baidu.tbadk.core.util.bm.pV().b(getPageContext(), new String[]{str});
+        com.baidu.tbadk.core.util.bm.pO().b(getPageContext(), new String[]{str});
     }
 
     @Override // com.baidu.tbadk.widget.richText.j
@@ -628,9 +628,9 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
                 if (msg4 != null && msg4.getContent() != null) {
                     com.baidu.tieba.im.widget.a aVar = new com.baidu.tieba.im.widget.a();
                     aVar.aL(msg4.getContent(), getClass().getName());
-                    if (aVar.TM() == 1 && aVar.TN() != null) {
-                        if (!TextUtils.isEmpty(((ShareFromPBMsgData) aVar.TN()).getThreadId()) || !TextUtils.isEmpty(((ShareFromPBMsgData) aVar.TN()).getPostId())) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getPageContext().getContext()).createNormalCfg(((ShareFromPBMsgData) aVar.TN()).getThreadId(), ((ShareFromPBMsgData) aVar.TN()).getPostId(), null)));
+                    if (aVar.TH() == 1 && aVar.TI() != null) {
+                        if (!TextUtils.isEmpty(((ShareFromPBMsgData) aVar.TI()).getThreadId()) || !TextUtils.isEmpty(((ShareFromPBMsgData) aVar.TI()).getPostId())) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getPageContext().getContext()).createNormalCfg(((ShareFromPBMsgData) aVar.TI()).getThreadId(), ((ShareFromPBMsgData) aVar.TI()).getPostId(), null)));
                             return;
                         }
                         return;
@@ -647,7 +647,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
                 if (msg5 != null && msg5.getContent() != null) {
                     com.baidu.tieba.im.widget.a aVar2 = new com.baidu.tieba.im.widget.a();
                     aVar2.aL(msg5.getContent(), getClass().getName());
-                    if (aVar2.TM() == 1 && aVar2.TN() != null) {
+                    if (aVar2.TH() == 1 && aVar2.TI() != null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001262, aVar2));
                         return;
                     }
@@ -663,16 +663,16 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
                 if (msg6 != null && msg6.getContent() != null) {
                     com.baidu.tieba.im.widget.a aVar3 = new com.baidu.tieba.im.widget.a();
                     aVar3.aL(msg6.getContent(), getClass().getName());
-                    if (aVar3.TM() == 1 && aVar3.TN() != null) {
-                        String shareSourceUrl = ((ShareFromGameCenterMsgData) aVar3.TN()).getShareSourceUrl();
+                    if (aVar3.TH() == 1 && aVar3.TI() != null) {
+                        String shareSourceUrl = ((ShareFromGameCenterMsgData) aVar3.TI()).getShareSourceUrl();
                         if (!TextUtils.isEmpty(shareSourceUrl) && shareSourceUrl.equalsIgnoreCase("default")) {
                             sendMessage(new CustomMessage(2002001, new GameCenterActivityConfig(getPageContext().getContext())));
                             TiebaStatic.eventStat(getPageContext().getContext(), "game_ck_tail", "click", 1, shareSourceUrl);
                             return;
                         }
-                        String iu = com.baidu.tieba.tbadkCore.util.k.iu(shareSourceUrl);
-                        sendMessage(new CustomMessage(2002001, new GameDetailActivityConfig(getPageContext().getPageActivity(), iu, REF_TYPE_IM)));
-                        TiebaStatic.eventStat(getPageContext().getContext(), "game_ck_tail", "click", 1, iu);
+                        String is = com.baidu.tieba.tbadkCore.util.k.is(shareSourceUrl);
+                        sendMessage(new CustomMessage(2002001, new GameDetailActivityConfig(getPageContext().getPageActivity(), is, REF_TYPE_IM)));
+                        TiebaStatic.eventStat(getPageContext().getContext(), "game_ck_tail", "click", 1, is);
                         return;
                     }
                     return;
@@ -691,9 +691,9 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
                             sendMessage(new CustomMessage(2002001, new GameCenterActivityConfig(getPageContext().getContext())));
                             TiebaStatic.eventStat(getPageContext().getContext(), "game_ck_tail", "click", 1, optString);
                         } else {
-                            String iu2 = com.baidu.tieba.tbadkCore.util.k.iu(optString);
-                            sendMessage(new CustomMessage(2002001, new GameDetailActivityConfig(getPageContext().getPageActivity(), iu2, REF_TYPE_IM)));
-                            TiebaStatic.eventStat(getPageContext().getContext(), "game_ck_tail", "click", 1, iu2);
+                            String is2 = com.baidu.tieba.tbadkCore.util.k.is(optString);
+                            sendMessage(new CustomMessage(2002001, new GameDetailActivityConfig(getPageContext().getPageActivity(), is2, REF_TYPE_IM)));
+                            TiebaStatic.eventStat(getPageContext().getContext(), "game_ck_tail", "click", 1, is2);
                         }
                         return;
                     } catch (Exception e2) {
@@ -705,8 +705,8 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
             case 14:
                 ChatMessage msg8 = this.mListModel.getMsg(i2);
                 if (msg8 != null && msg8.getContent() != null) {
-                    com.baidu.tieba.im.chat.stranger.c gf = com.baidu.tieba.im.chat.stranger.b.gf(msg8.getContent());
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(gf.threadId, gf.postId, null)));
+                    com.baidu.tieba.im.chat.stranger.c gc = com.baidu.tieba.im.chat.stranger.b.gc(msg8.getContent());
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(gc.threadId, gc.postId, null)));
                     return;
                 }
                 return;

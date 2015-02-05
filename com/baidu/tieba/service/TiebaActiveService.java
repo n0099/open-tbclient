@@ -21,21 +21,21 @@ public class TiebaActiveService extends BdBaseService {
     private Runnable mRunnable = new l(this);
 
     private String getChannelByShare() {
-        return com.baidu.tbadk.core.sharedPref.b.oj().getString("channel_id", null);
+        return com.baidu.tbadk.core.sharedPref.b.oc().getString("channel_id", null);
     }
 
     private void saveChannelToShare(String str) {
         if (str != null && str.length() > 0) {
-            com.baidu.tbadk.core.sharedPref.b.oj().putString("channel_id", str);
+            com.baidu.tbadk.core.sharedPref.b.oc().putString("channel_id", str);
         }
     }
 
     private String getChannelyFile() {
         String str = null;
         try {
-            File ch = com.baidu.tbadk.core.util.s.ch(TbConfig.CHANNEL_FILE);
-            if (ch != null) {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(ch));
+            File ce = com.baidu.tbadk.core.util.s.ce(TbConfig.CHANNEL_FILE);
+            if (ce != null) {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(ce));
                 str = bufferedReader.readLine();
                 if (bufferedReader != null) {
                     bufferedReader.close();
@@ -51,9 +51,9 @@ public class TiebaActiveService extends BdBaseService {
     private void saveChannelToFile(String str) {
         if (str != null && str.length() > 0) {
             try {
-                File cj = com.baidu.tbadk.core.util.s.cj(TbConfig.CHANNEL_FILE);
-                if (cj != null) {
-                    FileWriter fileWriter = new FileWriter(cj);
+                File cg = com.baidu.tbadk.core.util.s.cg(TbConfig.CHANNEL_FILE);
+                if (cg != null) {
+                    FileWriter fileWriter = new FileWriter(cg);
                     fileWriter.append((CharSequence) str);
                     fileWriter.flush();
                     fileWriter.close();
@@ -96,7 +96,7 @@ public class TiebaActiveService extends BdBaseService {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (isActived() && com.baidu.tbadk.core.sharedPref.b.oj().getInt("active", 2) != 1) {
+        if (isActived() && com.baidu.tbadk.core.sharedPref.b.oc().getInt("active", 2) != 1) {
             stopSelf();
         } else {
             sendActive();

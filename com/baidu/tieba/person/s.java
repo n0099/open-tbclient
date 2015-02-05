@@ -10,17 +10,17 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class s extends com.baidu.adp.base.f {
-    private static final String blH = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/like";
-    private static TbHttpMessageTask blI = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, blH);
-    private int bGU;
+    private static final String blG = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/like";
+    private static TbHttpMessageTask blH = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, blG);
+    private int bGT;
     private f mData;
     private String mId;
     private boolean mIsHost;
     private int mSex;
 
     static {
-        blI.setResponsedClass(PersonBarResponseMessage.class);
-        MessageManager.getInstance().registerTask(blI);
+        blH.setResponsedClass(PersonBarResponseMessage.class);
+        MessageManager.getInstance().registerTask(blH);
     }
 
     public s(TbPageContext tbPageContext, boolean z) {
@@ -42,14 +42,14 @@ public class s extends com.baidu.adp.base.f {
     }
 
     public void ho(int i) {
-        this.bGU = i;
+        this.bGT = i;
     }
 
-    public f aaO() {
+    public f aaJ() {
         return this.mData;
     }
 
-    public void Dj() {
+    public void Dd() {
         super.sendMessage(new PersonBarByUidLocalMessage());
     }
 
@@ -74,17 +74,17 @@ public class s extends com.baidu.adp.base.f {
         return false;
     }
 
-    public void hM(String str) {
-        if (this.bGU == 1 && this.mIsHost) {
+    public void hJ(String str) {
+        if (this.bGT == 1 && this.mIsHost) {
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str2 = TbadkCoreApplication.getCurrentAccountObj().getID();
             }
             if (str != null) {
                 try {
-                    com.baidu.adp.lib.cache.t<String> bT = com.baidu.tbadk.core.a.a.nV().bT("tb.my_pages");
-                    if (bT != null) {
-                        bT.a(str2, str, TbConfig.APP_OVERDUR_DRAFT_BOX);
+                    com.baidu.adp.lib.cache.t<String> bQ = com.baidu.tbadk.core.a.a.nO().bQ("tb.my_pages");
+                    if (bQ != null) {
+                        bQ.a(str2, str, TbConfig.APP_OVERDUR_DRAFT_BOX);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

@@ -3,16 +3,16 @@ package com.baidu.tbadk.editortool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class ae {
-    private com.baidu.adp.widget.a.a ZB;
-    private com.baidu.adp.widget.a.a ZC;
-    private int ZD;
-    private int ZE;
+    private int ZA;
+    private int ZB;
+    private com.baidu.adp.widget.a.a Zy;
+    private com.baidu.adp.widget.a.a Zz;
 
-    public abstract boolean dU(String str);
+    public abstract boolean dR(String str);
 
-    public abstract com.baidu.adp.widget.a.a dV(String str);
+    public abstract com.baidu.adp.widget.a.a dS(String str);
 
-    public abstract com.baidu.adp.widget.a.a dW(String str);
+    public abstract com.baidu.adp.widget.a.a dT(String str);
 
     public abstract String dl(int i);
 
@@ -26,47 +26,47 @@ public abstract class ae {
 
     public abstract int getWidth();
 
-    public abstract EmotionGroupType vl();
+    public abstract EmotionGroupType vf();
 
-    public abstract boolean vm();
+    public abstract boolean vg();
 
-    public com.baidu.adp.widget.a.a vK() {
-        return this.ZB;
+    public com.baidu.adp.widget.a.a vE() {
+        return this.Zy;
     }
 
     public void b(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            aVar.jj();
+            aVar.jc();
         }
-        this.ZB = aVar;
+        this.Zy = aVar;
     }
 
-    public com.baidu.adp.widget.a.a vk() {
-        return this.ZC;
+    public com.baidu.adp.widget.a.a ve() {
+        return this.Zz;
     }
 
     public void c(com.baidu.adp.widget.a.a aVar) {
         if (aVar != null) {
-            aVar.jj();
+            aVar.jc();
         }
-        this.ZC = aVar;
+        this.Zz = aVar;
     }
 
-    public int vL() {
-        return this.ZE;
+    public int vF() {
+        return this.ZB;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void dp(int i) {
-        this.ZE = i;
+        this.ZB = i;
     }
 
-    public int vM() {
-        return this.ZD;
+    public int vG() {
+        return this.ZA;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void dq(int i) {
-        this.ZD = i;
+        this.ZA = i;
     }
 }

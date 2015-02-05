@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements AdapterView.OnItemClickListener {
-    final /* synthetic */ AccountActivity amI;
+    final /* synthetic */ AccountActivity amF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(AccountActivity accountActivity) {
-        this.amI = accountActivity;
+        this.amF = accountActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -23,21 +23,21 @@ public class f implements AdapterView.OnItemClickListener {
         m mVar;
         m mVar2;
         m mVar3;
-        mVar = this.amI.amD;
+        mVar = this.amF.amA;
         if (mVar.getItemId(i) >= 0) {
-            mVar2 = this.amI.amD;
-            if (!mVar2.AZ()) {
-                mVar3 = this.amI.amD;
+            mVar2 = this.amF.amA;
+            if (!mVar2.AT()) {
+                mVar3 = this.amF.amA;
                 AccountData accountData = (AccountData) mVar3.getItem(i);
                 if (accountData != null && accountData.getIsActive() != 1) {
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001193, TbadkCoreApplication.getCurrentAccount()));
-                    this.amI.h(accountData);
+                    this.amF.h(accountData);
                     return;
                 }
                 return;
             }
             return;
         }
-        this.amI.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.amI.getPageContext().getPageActivity())));
+        this.amF.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.amF.getPageContext().getPageActivity())));
     }
 }

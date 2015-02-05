@@ -13,14 +13,14 @@ import com.baidu.tieba.x;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class LightappGameShare extends BaseActivity<LightappGameShare> {
-    private com.baidu.tbadk.coreExtra.share.d aKh;
-    GameInfoData aKj = com.baidu.tbadk.game.b.vN().getGameInfoData();
+    private com.baidu.tbadk.coreExtra.share.d aKe;
+    GameInfoData aKg = com.baidu.tbadk.game.b.vH().getGameInfoData();
+    private int bsg;
     private int bsh;
-    private int bsi;
     private static String REQUEST_CODE = "tb_request_code";
     private static String KEY_FROME_WHERE = "key_from_where";
-    private static int bsj = 23003;
-    private static int bsk = 2;
+    private static int bsi = 23003;
+    private static int bsj = 2;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -28,11 +28,11 @@ public class LightappGameShare extends BaseActivity<LightappGameShare> {
         super.onCreate(bundle);
         setContentView(x.lightapp_game_share);
         if (bundle != null) {
-            this.bsh = bundle.getInt(REQUEST_CODE, 0);
-            this.bsi = bundle.getInt(KEY_FROME_WHERE, 0);
+            this.bsg = bundle.getInt(REQUEST_CODE, 0);
+            this.bsh = bundle.getInt(KEY_FROME_WHERE, 0);
         } else if (getIntent() != null) {
-            this.bsh = getIntent().getIntExtra(REQUEST_CODE, 0);
-            this.bsi = getIntent().getIntExtra(KEY_FROME_WHERE, 0);
+            this.bsg = getIntent().getIntExtra(REQUEST_CODE, 0);
+            this.bsh = getIntent().getIntExtra(KEY_FROME_WHERE, 0);
         } else {
             finish();
         }
@@ -40,33 +40,33 @@ public class LightappGameShare extends BaseActivity<LightappGameShare> {
         if (window != null) {
             window.setBackgroundDrawable(getResources().getDrawable(v.bg_gift_shade));
         }
-        if (this.bsh == bsj && this.bsi == bsk) {
+        if (this.bsg == bsi && this.bsh == bsj) {
             showShareDialog();
         }
     }
 
     public void showShareDialog() {
-        ShareFromGameCenterMsgData vP = com.baidu.tbadk.game.b.vN().vP();
+        ShareFromGameCenterMsgData vJ = com.baidu.tbadk.game.b.vH().vJ();
         com.baidu.tbadk.coreExtra.share.f fVar = new com.baidu.tbadk.coreExtra.share.f();
-        fVar.title = vP.getTitle();
-        fVar.content = vP.getContent();
-        fVar.Tq = vP.getShareUrl();
-        if (StringUtils.isNull(vP.getImageUrl())) {
-            fVar.Tr = null;
+        fVar.title = vJ.getTitle();
+        fVar.content = vJ.getContent();
+        fVar.Tn = vJ.getShareUrl();
+        if (StringUtils.isNull(vJ.getImageUrl())) {
+            fVar.To = null;
         } else {
-            fVar.Tr = Uri.parse(vP.getImageUrl());
+            fVar.To = Uri.parse(vJ.getImageUrl());
         }
-        this.aKh = new com.baidu.tbadk.coreExtra.share.d(getPageContext().getPageActivity());
-        this.aKh.a(fVar, true);
-        this.aKh.ay(false);
-        TextView w = this.aKh.w(z.share_tieba_qunzu, v.icon_unite_share_qunzu);
-        this.aKh.a(w);
+        this.aKe = new com.baidu.tbadk.coreExtra.share.d(getPageContext().getPageActivity());
+        this.aKe.a(fVar, true);
+        this.aKe.ay(false);
+        TextView w = this.aKe.w(z.share_tieba_qunzu, v.icon_unite_share_qunzu);
+        this.aKe.a(w);
         w.setOnClickListener(new c(this));
-        TextView w2 = this.aKh.w(z.forum_friend, v.icon_unite_share_baf);
-        this.aKh.a(w2);
+        TextView w2 = this.aKe.w(z.forum_friend, v.icon_unite_share_baf);
+        this.aKe.a(w2);
         w2.setOnClickListener(new d(this));
-        this.aKh.c(new e(this));
-        this.aKh.show();
-        this.aKh.setOnDismissListener(new f(this));
+        this.aKe.c(new e(this));
+        this.aKe.show();
+        this.aKe.setOnDismissListener(new f(this));
     }
 }

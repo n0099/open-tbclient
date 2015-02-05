@@ -12,22 +12,22 @@ import com.baidu.adp.R;
 /* loaded from: classes.dex */
 public class BdSwitchView extends FrameLayout {
     FrameLayout mLayout;
-    private c ug;
-    private SwitchState uh;
-    private boolean ui;
-    private boolean uj;
-    private boolean uk;
-    private TranslateAnimation ul;
-    private TranslateAnimation um;
-    private Animation.AnimationListener uo;
-    ImageView up;
+    private c ud;
+    private SwitchState ue;
+    private boolean uf;
+    private boolean ug;
+    private boolean uh;
+    private TranslateAnimation ui;
+    private TranslateAnimation uj;
+    private Animation.AnimationListener uk;
+    ImageView ul;
 
     /* loaded from: classes.dex */
     public enum SwitchState {
         ON,
         OFF;
 
-        /* JADX DEBUG: Replace access to removed values field (ur) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (uo) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static SwitchState[] valuesCustom() {
             SwitchState[] valuesCustom = values();
@@ -44,7 +44,7 @@ public class BdSwitchView extends FrameLayout {
         NIGHT,
         SIDE_BAR;
 
-        /* JADX DEBUG: Replace access to removed values field (us) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (up) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static SwitchStyle[] valuesCustom() {
             SwitchStyle[] valuesCustom = values();
@@ -57,42 +57,42 @@ public class BdSwitchView extends FrameLayout {
 
     public BdSwitchView(Context context) {
         super(context);
-        this.ug = null;
-        this.uh = SwitchState.ON;
-        this.ui = false;
-        this.uj = false;
-        this.uk = false;
-        this.uo = null;
+        this.ud = null;
+        this.ue = SwitchState.ON;
+        this.uf = false;
+        this.ug = false;
+        this.uh = false;
+        this.uk = null;
         this.mLayout = null;
-        this.up = null;
+        this.ul = null;
         init(context);
     }
 
     public BdSwitchView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ug = null;
-        this.uh = SwitchState.ON;
-        this.ui = false;
-        this.uj = false;
-        this.uk = false;
-        this.uo = null;
+        this.ud = null;
+        this.ue = SwitchState.ON;
+        this.uf = false;
+        this.ug = false;
+        this.uh = false;
+        this.uk = null;
         this.mLayout = null;
-        this.up = null;
+        this.ul = null;
         init(context);
     }
 
     private void init(Context context) {
         com.baidu.adp.lib.g.b.ei().a(context, R.layout.bd_switch_view, this, true);
         this.mLayout = (FrameLayout) findViewById(R.id.layout);
-        this.up = (ImageView) findViewById(R.id.switch_image);
-        iG();
-        iH();
-        this.uo = new a(this);
+        this.ul = (ImageView) findViewById(R.id.switch_image);
+        iz();
+        iA();
+        this.uk = new a(this);
         setOnClickListener(new b(this));
-        iI();
+        iB();
     }
 
-    private void iG() {
+    private void iz() {
         if (this.mLayout != null && this.mLayout.getForeground() != null) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mLayout.getLayoutParams();
             layoutParams.width = this.mLayout.getForeground().getIntrinsicWidth();
@@ -100,37 +100,37 @@ public class BdSwitchView extends FrameLayout {
         }
     }
 
-    private void iH() {
-        if (this.up != null && this.up.getBackground() != null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.up.getLayoutParams();
-            layoutParams.width = this.up.getBackground().getIntrinsicWidth();
-            this.up.setLayoutParams(layoutParams);
+    private void iA() {
+        if (this.ul != null && this.ul.getBackground() != null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ul.getLayoutParams();
+            layoutParams.width = this.ul.getBackground().getIntrinsicWidth();
+            this.ul.setLayoutParams(layoutParams);
         }
     }
 
     @Override // android.view.View
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        if (!this.ui) {
+        if (!this.uf) {
             super.setOnClickListener(onClickListener);
-            this.ui = true;
+            this.uf = true;
         }
     }
 
-    private void iI() {
+    private void iB() {
         float translateDis = getTranslateDis();
-        if (!this.uk) {
-            this.ul = new TranslateAnimation(-translateDis, 0.0f, 0.0f, 0.0f);
-            this.um = new TranslateAnimation(0.0f, -translateDis, 0.0f, 0.0f);
+        if (!this.uh) {
+            this.ui = new TranslateAnimation(-translateDis, 0.0f, 0.0f, 0.0f);
+            this.uj = new TranslateAnimation(0.0f, -translateDis, 0.0f, 0.0f);
         } else {
-            this.ul = new TranslateAnimation(0.0f, translateDis, 0.0f, 0.0f);
-            this.um = new TranslateAnimation(translateDis, 0.0f, 0.0f, 0.0f);
+            this.ui = new TranslateAnimation(0.0f, translateDis, 0.0f, 0.0f);
+            this.uj = new TranslateAnimation(translateDis, 0.0f, 0.0f, 0.0f);
         }
-        this.ul.setDuration(200L);
-        this.ul.setFillAfter(true);
-        this.ul.setAnimationListener(this.uo);
-        this.um.setDuration(200L);
-        this.um.setFillAfter(true);
-        this.um.setAnimationListener(this.uo);
+        this.ui.setDuration(200L);
+        this.ui.setFillAfter(true);
+        this.ui.setAnimationListener(this.uk);
+        this.uj.setDuration(200L);
+        this.uj.setFillAfter(true);
+        this.uj.setAnimationListener(this.uk);
     }
 
     private float getTranslateDis() {
@@ -138,32 +138,32 @@ public class BdSwitchView extends FrameLayout {
     }
 
     private void b(boolean z, boolean z2) {
-        if (!this.uj) {
-            if (this.uh == SwitchState.ON) {
-                this.uh = SwitchState.OFF;
-                if (this.um != null) {
+        if (!this.ug) {
+            if (this.ue == SwitchState.ON) {
+                this.ue = SwitchState.OFF;
+                if (this.uj != null) {
                     if (z) {
-                        this.um.setDuration(200L);
-                        this.up.startAnimation(this.um);
+                        this.uj.setDuration(200L);
+                        this.ul.startAnimation(this.uj);
                     } else if (!O(false)) {
-                        this.um.setDuration(200L);
-                        this.up.startAnimation(this.um);
+                        this.uj.setDuration(200L);
+                        this.ul.startAnimation(this.uj);
                     }
                 }
             } else {
-                this.uh = SwitchState.ON;
-                if (this.ul != null) {
+                this.ue = SwitchState.ON;
+                if (this.ui != null) {
                     if (z) {
-                        this.ul.setDuration(200L);
-                        this.up.startAnimation(this.ul);
+                        this.ui.setDuration(200L);
+                        this.ul.startAnimation(this.ui);
                     } else if (!O(true)) {
-                        this.ul.setDuration(200L);
-                        this.up.startAnimation(this.ul);
+                        this.ui.setDuration(200L);
+                        this.ul.startAnimation(this.ui);
                     }
                 }
             }
-            if (this.ug != null && z2) {
-                this.ug.a(this, this.uh);
+            if (this.ud != null && z2) {
+                this.ud.a(this, this.ue);
             }
         }
     }
@@ -175,12 +175,12 @@ public class BdSwitchView extends FrameLayout {
 
     public void setSwitchFrame(int i) {
         this.mLayout.setForeground(getResources().getDrawable(i));
-        iG();
+        iz();
     }
 
     public void setSwitchImage(int i) {
-        this.up.setBackgroundResource(i);
-        iH();
+        this.ul.setBackgroundResource(i);
+        iA();
     }
 
     public void setSwitchStyle(SwitchStyle switchStyle) {
@@ -196,84 +196,84 @@ public class BdSwitchView extends FrameLayout {
         }
     }
 
-    public void iJ() {
-        if (this.uh != SwitchState.ON) {
+    public void iC() {
+        if (this.ue != SwitchState.ON) {
             b(false, false);
         }
     }
 
-    public void iK() {
-        if (this.uh != SwitchState.OFF) {
+    public void iD() {
+        if (this.ue != SwitchState.OFF) {
             b(false, false);
         }
     }
 
-    public void iL() {
+    public void iE() {
         M(false);
     }
 
     public void M(boolean z) {
-        if (this.uh != SwitchState.ON) {
+        if (this.ue != SwitchState.ON) {
             L(z);
         }
     }
 
-    public void iM() {
+    public void iF() {
         N(false);
     }
 
     public void N(boolean z) {
-        if (this.uh != SwitchState.OFF) {
+        if (this.ue != SwitchState.OFF) {
             L(z);
         }
     }
 
-    public boolean iN() {
-        return this.uh == SwitchState.ON;
+    public boolean iG() {
+        return this.ue == SwitchState.ON;
     }
 
     private boolean O(boolean z) {
         boolean z2;
-        if (this.uj) {
+        if (this.ug) {
             return false;
         }
-        this.uj = true;
+        this.ug = true;
         float translateDis = getTranslateDis();
         if (!z) {
-            this.uh = SwitchState.OFF;
-            z2 = !this.uk;
-            this.uk = true;
+            this.ue = SwitchState.OFF;
+            z2 = !this.uh;
+            this.uh = true;
             if (ax((int) (-translateDis))) {
-                iI();
+                iB();
             } else {
                 z2 = false;
             }
         } else {
-            this.uh = SwitchState.ON;
-            boolean z3 = this.uk;
-            this.uk = false;
+            this.ue = SwitchState.ON;
+            boolean z3 = this.uh;
+            this.uh = false;
             if (ax(0)) {
-                iI();
+                iB();
                 z2 = z3;
             } else {
                 z2 = false;
             }
         }
         if (z2) {
-            this.uj = false;
+            this.ug = false;
         }
         return z2;
     }
 
     private boolean ax(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.up.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ul.getLayoutParams();
         layoutParams.setMargins(i, 0, 0, 0);
-        this.up.setLayoutParams(layoutParams);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.up.getLayoutParams();
+        this.ul.setLayoutParams(layoutParams);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.ul.getLayoutParams();
         return layoutParams2 == null || layoutParams2.leftMargin == i;
     }
 
     public void setOnSwitchStateChangeListener(c cVar) {
-        this.ug = cVar;
+        this.ud = cVar;
     }
 }

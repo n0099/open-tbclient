@@ -6,11 +6,11 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 class w implements TextWatcher {
-    final /* synthetic */ Register2Activity aod;
+    final /* synthetic */ Register2Activity aoa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(Register2Activity register2Activity) {
-        this.aod = register2Activity;
+        this.aoa = register2Activity;
     }
 
     @Override // android.text.TextWatcher
@@ -61,88 +61,88 @@ class w implements TextWatcher {
         RelativeLayout relativeLayout2;
         EditText editText9;
         RelativeLayout relativeLayout3;
-        editText = this.aod.anM;
+        editText = this.aoa.anJ;
         if (editable == editText.getEditableText()) {
-            this.aod.bh(false);
+            this.aoa.bh(false);
         }
-        editText2 = this.aod.anK;
+        editText2 = this.aoa.anH;
         if (editText2.length() > 0) {
-            editText7 = this.aod.anL;
+            editText7 = this.aoa.anI;
             if (editText7.length() >= 6) {
-                editText8 = this.aod.anM;
+                editText8 = this.aoa.anJ;
                 if (editText8.length() > 0) {
-                    z = this.aod.anU;
+                    z = this.aoa.anR;
                     if (z) {
-                        editText9 = this.aod.Qg;
+                        editText9 = this.aoa.Qd;
                         if (editText9.length() <= 0) {
-                            relativeLayout3 = this.aod.anN;
+                            relativeLayout3 = this.aoa.anK;
                             relativeLayout3.setEnabled(false);
-                            i = this.aod.anW;
-                            i2 = Register2Activity.anw;
+                            i = this.aoa.anT;
+                            i2 = Register2Activity.ant;
                             if (i == i2) {
-                                editText6 = this.aod.anK;
+                                editText6 = this.aoa.anH;
                             }
-                            i3 = this.aod.anW;
-                            i4 = Register2Activity.anx;
+                            i3 = this.aoa.anT;
+                            i4 = Register2Activity.anu;
                             if (i3 == i4) {
-                                editText5 = this.aod.anL;
+                                editText5 = this.aoa.anI;
                             }
-                            i5 = this.aod.anW;
-                            i6 = Register2Activity.any;
+                            i5 = this.aoa.anT;
+                            i6 = Register2Activity.anv;
                             if (i5 == i6) {
-                                editText4 = this.aod.anM;
+                                editText4 = this.aoa.anJ;
                             }
-                            i7 = this.aod.anW;
-                            i8 = Register2Activity.anz;
+                            i7 = this.aoa.anT;
+                            i8 = Register2Activity.anw;
                             if (i7 == i8) {
-                                editText3 = this.aod.Qg;
+                                editText3 = this.aoa.Qd;
                                 if (editable != editText3.getEditableText()) {
                                     return;
                                 }
-                                this.aod.anW = -1;
-                                this.aod.Be();
+                                this.aoa.anT = -1;
+                                this.aoa.AY();
                                 return;
                             }
                             return;
                         }
                     }
-                    relativeLayout2 = this.aod.anN;
+                    relativeLayout2 = this.aoa.anK;
                     relativeLayout2.setEnabled(true);
-                    i = this.aod.anW;
-                    i2 = Register2Activity.anw;
+                    i = this.aoa.anT;
+                    i2 = Register2Activity.ant;
                     if (i == i2) {
                     }
-                    i3 = this.aod.anW;
-                    i4 = Register2Activity.anx;
+                    i3 = this.aoa.anT;
+                    i4 = Register2Activity.anu;
                     if (i3 == i4) {
                     }
-                    i5 = this.aod.anW;
-                    i6 = Register2Activity.any;
+                    i5 = this.aoa.anT;
+                    i6 = Register2Activity.anv;
                     if (i5 == i6) {
                     }
-                    i7 = this.aod.anW;
-                    i8 = Register2Activity.anz;
+                    i7 = this.aoa.anT;
+                    i8 = Register2Activity.anw;
                     if (i7 == i8) {
                     }
                 }
             }
         }
-        relativeLayout = this.aod.anN;
+        relativeLayout = this.aoa.anK;
         relativeLayout.setEnabled(false);
-        i = this.aod.anW;
-        i2 = Register2Activity.anw;
+        i = this.aoa.anT;
+        i2 = Register2Activity.ant;
         if (i == i2) {
         }
-        i3 = this.aod.anW;
-        i4 = Register2Activity.anx;
+        i3 = this.aoa.anT;
+        i4 = Register2Activity.anu;
         if (i3 == i4) {
         }
-        i5 = this.aod.anW;
-        i6 = Register2Activity.any;
+        i5 = this.aoa.anT;
+        i6 = Register2Activity.anv;
         if (i5 == i6) {
         }
-        i7 = this.aod.anW;
-        i8 = Register2Activity.anz;
+        i7 = this.aoa.anT;
+        i8 = Register2Activity.anw;
         if (i7 == i8) {
         }
     }

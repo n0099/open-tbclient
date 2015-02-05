@@ -75,7 +75,7 @@ public class c extends i implements ComponentCallbacks, KeyEvent.Callback, Layou
         if (parent == null || !(parent instanceof com.baidu.adp.plugin.a.a)) {
             return null;
         }
-        return ((com.baidu.adp.plugin.a.a) parent).hg();
+        return ((com.baidu.adp.plugin.a.a) parent).gZ();
     }
 
     public void addContentView(View view, ViewGroup.LayoutParams layoutParams) {
@@ -88,11 +88,11 @@ public class c extends i implements ComponentCallbacks, KeyEvent.Callback, Layou
     }
 
     public void closeContextMenu() {
-        this.mProxyActivity.hh();
+        this.mProxyActivity.ha();
     }
 
     public void closeOptionsMenu() {
-        this.mProxyActivity.hi();
+        this.mProxyActivity.hb();
     }
 
     public PendingIntent createPendingResult(int i, Intent intent, int i2) {
@@ -124,7 +124,7 @@ public class c extends i implements ComponentCallbacks, KeyEvent.Callback, Layou
     }
 
     public void finish() {
-        this.mProxyActivity.hj();
+        this.mProxyActivity.hc();
     }
 
     public void finishActivity(int i) {
@@ -140,19 +140,19 @@ public class c extends i implements ComponentCallbacks, KeyEvent.Callback, Layou
     }
 
     public final Application getApplication() {
-        return PluginCenter.gW().aS(getPluginPackageName()).gO();
+        return PluginCenter.getInstance().getPlugin(getPluginPackageName()).gP();
     }
 
     public ComponentName getCallingActivity() {
-        return this.mProxyActivity.hl();
+        return this.mProxyActivity.he();
     }
 
     public String getCallingPackage() {
-        return this.mProxyActivity.hm();
+        return this.mProxyActivity.hf();
     }
 
     public int getChangingConfigurations() {
-        return this.mProxyActivity.hn();
+        return this.mProxyActivity.hg();
     }
 
     public ComponentName getComponentName() {
@@ -160,28 +160,28 @@ public class c extends i implements ComponentCallbacks, KeyEvent.Callback, Layou
     }
 
     public View getCurrentFocus() {
-        return this.mProxyActivity.ho();
+        return this.mProxyActivity.hh();
     }
 
     public Intent getIntent() {
-        return this.mProxyActivity.hp();
+        return this.mProxyActivity.hi();
     }
 
     public LayoutInflater getLayoutInflater() {
-        return this.mProxyActivity.hq();
+        return this.mProxyActivity.hj();
     }
 
     public String getLocalClassName() {
-        return this.mProxyActivity.hr();
+        return this.mProxyActivity.hk();
     }
 
     public MenuInflater getMenuInflater() {
-        return this.mProxyActivity.hs();
+        return this.mProxyActivity.hl();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public String getPackageCodePath() {
-        return PluginCenter.gW().aS(getPluginPackageName()).gJ();
+        return PluginCenter.getInstance().getPlugin(getPluginPackageName()).gK();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -203,16 +203,16 @@ public class c extends i implements ComponentCallbacks, KeyEvent.Callback, Layou
     }
 
     public int getRequestedOrientation() {
-        return this.mProxyActivity.ht();
+        return this.mProxyActivity.hm();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Object getSystemService(String str) {
-        return this.mProxyActivity.aT(str);
+        return this.mProxyActivity.aQ(str);
     }
 
     public int getTaskId() {
-        return this.mProxyActivity.hu();
+        return this.mProxyActivity.hn();
     }
 
     public final CharSequence getTitle() {
@@ -229,24 +229,24 @@ public class c extends i implements ComponentCallbacks, KeyEvent.Callback, Layou
 
     @Override // android.content.ContextWrapper, android.content.Context
     public int getWallpaperDesiredMinimumHeight() {
-        return this.mProxyActivity.hv();
+        return this.mProxyActivity.ho();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public int getWallpaperDesiredMinimumWidth() {
-        return this.mProxyActivity.hw();
+        return this.mProxyActivity.hp();
     }
 
     public Window getWindow() {
-        return this.mProxyActivity.hx();
+        return this.mProxyActivity.hq();
     }
 
     public WindowManager getWindowManager() {
-        return this.mProxyActivity.hy();
+        return this.mProxyActivity.hr();
     }
 
     public boolean hasWindowFocus() {
-        return this.mProxyActivity.hz();
+        return this.mProxyActivity.hs();
     }
 
     public final boolean isChild() {
@@ -254,11 +254,11 @@ public class c extends i implements ComponentCallbacks, KeyEvent.Callback, Layou
     }
 
     public boolean isFinishing() {
-        return this.mProxyActivity.hA();
+        return this.mProxyActivity.ht();
     }
 
     public boolean isTaskRoot() {
-        return this.mProxyActivity.hB();
+        return this.mProxyActivity.hu();
     }
 
     @Deprecated
@@ -280,11 +280,11 @@ public class c extends i implements ComponentCallbacks, KeyEvent.Callback, Layou
     }
 
     public void onAttachedToWindow() {
-        this.mProxyActivity.hC();
+        this.mProxyActivity.hv();
     }
 
     public void onBackPressed() {
-        this.mProxyActivity.hD();
+        this.mProxyActivity.hw();
     }
 
     protected void onChildTitleChanged(Activity activity, CharSequence charSequence) {
@@ -297,7 +297,7 @@ public class c extends i implements ComponentCallbacks, KeyEvent.Callback, Layou
     }
 
     public void onContentChanged() {
-        this.mProxyActivity.hE();
+        this.mProxyActivity.hx();
     }
 
     public boolean onContextItemSelected(MenuItem menuItem) {
@@ -350,7 +350,7 @@ public class c extends i implements ComponentCallbacks, KeyEvent.Callback, Layou
     }
 
     public void onDetachedFromWindow() {
-        this.mProxyActivity.hF();
+        this.mProxyActivity.hy();
     }
 
     @Override // android.view.KeyEvent.Callback
@@ -404,7 +404,7 @@ public class c extends i implements ComponentCallbacks, KeyEvent.Callback, Layou
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onPause() {
-        this.mProxyActivity.hG();
+        this.mProxyActivity.hz();
     }
 
     protected void onPostCreate(Bundle bundle) {
@@ -412,7 +412,7 @@ public class c extends i implements ComponentCallbacks, KeyEvent.Callback, Layou
     }
 
     protected void onPostResume() {
-        this.mProxyActivity.hH();
+        this.mProxyActivity.hA();
     }
 
     public void onPrepareDialog(int i, Dialog dialog) {
@@ -428,7 +428,7 @@ public class c extends i implements ComponentCallbacks, KeyEvent.Callback, Layou
     }
 
     public void onRestart() {
-        this.mProxyActivity.hI();
+        this.mProxyActivity.hB();
     }
 
     protected void onRestoreInstanceState(Bundle bundle) {
@@ -437,11 +437,11 @@ public class c extends i implements ComponentCallbacks, KeyEvent.Callback, Layou
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onResume() {
-        this.mProxyActivity.hJ();
+        this.mProxyActivity.hC();
     }
 
     public Object onRetainNonConfigurationInstance() {
-        return this.mProxyActivity.hK();
+        return this.mProxyActivity.hD();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -450,17 +450,17 @@ public class c extends i implements ComponentCallbacks, KeyEvent.Callback, Layou
     }
 
     public boolean onSearchRequested() {
-        return this.mProxyActivity.hL();
+        return this.mProxyActivity.hE();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onStart() {
-        this.mProxyActivity.hM();
+        this.mProxyActivity.hF();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onStop() {
-        this.mProxyActivity.hN();
+        this.mProxyActivity.hG();
     }
 
     protected void onTitleChanged(CharSequence charSequence, int i) {
@@ -476,7 +476,7 @@ public class c extends i implements ComponentCallbacks, KeyEvent.Callback, Layou
     }
 
     public void onUserInteraction() {
-        this.mProxyActivity.hO();
+        this.mProxyActivity.hH();
     }
 
     protected void onUserLeaveHint() {
@@ -495,7 +495,7 @@ public class c extends i implements ComponentCallbacks, KeyEvent.Callback, Layou
     }
 
     public void openOptionsMenu() {
-        this.mProxyActivity.hP();
+        this.mProxyActivity.hI();
     }
 
     public void overridePendingTransition(int i, int i2) {
@@ -650,8 +650,8 @@ public class c extends i implements ComponentCallbacks, KeyEvent.Callback, Layou
 
     @Override // android.content.ContextWrapper, android.content.Context
     public ComponentName startService(Intent intent) {
-        com.baidu.adp.plugin.b aS = PluginCenter.gW().aS(getPluginPackageName());
-        if (aS != null && aS.C(intent)) {
+        com.baidu.adp.plugin.b plugin2 = PluginCenter.getInstance().getPlugin(getPluginPackageName());
+        if (plugin2 != null && plugin2.C(intent)) {
             return this.mProxyActivity.proxyStartService(intent);
         }
         return null;
@@ -719,7 +719,7 @@ public class c extends i implements ComponentCallbacks, KeyEvent.Callback, Layou
 
     @Override // com.baidu.adp.plugin.pluginBase.i, android.content.ContextWrapper, android.content.Context
     public Context getApplicationContext() {
-        return (this.bOnCreateCalled || c.class.getName().equals(getClass().getName())) ? super.getApplicationContext() : this.mProxyActivity.hk();
+        return (this.bOnCreateCalled || c.class.getName().equals(getClass().getName())) ? super.getApplicationContext() : this.mProxyActivity.hd();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context

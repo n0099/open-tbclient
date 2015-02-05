@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
 /* loaded from: classes.dex */
 class ac implements com.baidu.tbadk.core.account.g {
-    final /* synthetic */ SapiFastRegActivity aof;
+    final /* synthetic */ SapiFastRegActivity aoc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(SapiFastRegActivity sapiFastRegActivity) {
-        this.aof = sapiFastRegActivity;
+        this.aoc = sapiFastRegActivity;
     }
 
     @Override // com.baidu.tbadk.core.account.g
@@ -21,17 +21,17 @@ class ac implements com.baidu.tbadk.core.account.g {
     @Override // com.baidu.tbadk.core.account.g
     public void onSuccess(AccountData accountData) {
         if (!TextUtils.isEmpty(accountData.getAccount())) {
-            this.aof.aoe = "login_user";
-            this.aof.i(accountData);
+            this.aoc.aob = "login_user";
+            this.aoc.i(accountData);
             return;
         }
-        this.aof.e(accountData);
+        this.aoc.e(accountData);
     }
 
     @Override // com.baidu.tbadk.core.account.g
     public void onFailure(String str, int i, String str2) {
-        this.aof.showToast(com.baidu.tieba.z.register_retry);
-        this.aof.sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) this.aof.getPageContext().getPageActivity(), (String) null, true, 11003)));
-        this.aof.finish();
+        this.aoc.showToast(com.baidu.tieba.z.register_retry);
+        this.aoc.sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) this.aoc.getPageContext().getPageActivity(), (String) null, true, 11003)));
+        this.aoc.finish();
     }
 }

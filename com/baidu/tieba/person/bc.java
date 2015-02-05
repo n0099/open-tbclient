@@ -5,8 +5,8 @@ import android.widget.TextView;
 import com.baidu.tieba.personInfo.PersonInfoActivity;
 /* loaded from: classes.dex */
 public class bc extends com.baidu.adp.base.g {
+    TextView bIh;
     TextView bIi;
-    TextView bIj;
     View mView;
 
     public bc(PersonInfoActivity personInfoActivity) {
@@ -16,22 +16,22 @@ public class bc extends com.baidu.adp.base.g {
 
     private void a(PersonInfoActivity personInfoActivity) {
         this.mView = com.baidu.adp.lib.g.b.ei().inflate(personInfoActivity.getPageContext().getPageActivity(), com.baidu.tieba.x.person_info_more_view, null);
-        this.bIi = (TextView) this.mView.findViewById(com.baidu.tieba.w.person_info_more_view_item_friend);
+        this.bIh = (TextView) this.mView.findViewById(com.baidu.tieba.w.person_info_more_view_item_friend);
+        this.bIh.setOnClickListener(personInfoActivity);
+        this.bIi = (TextView) this.mView.findViewById(com.baidu.tieba.w.person_info_more_view_item_black);
         this.bIi.setOnClickListener(personInfoActivity);
-        this.bIj = (TextView) this.mView.findViewById(com.baidu.tieba.w.person_info_more_view_item_black);
-        this.bIj.setOnClickListener(personInfoActivity);
     }
 
     public void i(boolean z, boolean z2) {
         if (z) {
-            this.bIi.setVisibility(0);
+            this.bIh.setVisibility(0);
         } else {
-            this.bIi.setVisibility(8);
+            this.bIh.setVisibility(8);
         }
         if (z2) {
-            this.bIj.setText(com.baidu.tieba.z.remove_block_chat);
+            this.bIi.setText(com.baidu.tieba.z.remove_block_chat);
         } else {
-            this.bIj.setText(com.baidu.tieba.z.block_chat_message);
+            this.bIi.setText(com.baidu.tieba.z.block_chat_message);
         }
     }
 
@@ -39,11 +39,11 @@ public class bc extends com.baidu.adp.base.g {
         return this.mView;
     }
 
-    public View aba() {
-        return this.bIi;
+    public View aaV() {
+        return this.bIh;
     }
 
-    public View abb() {
-        return this.bIj;
+    public View aaW() {
+        return this.bIi;
     }
 }

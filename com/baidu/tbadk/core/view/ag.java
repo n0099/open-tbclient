@@ -7,11 +7,11 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class ag implements View.OnClickListener {
-    final /* synthetic */ ae NR;
+    final /* synthetic */ ae NO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(ae aeVar) {
-        this.NR = aeVar;
+        this.NO = aeVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,11 +20,11 @@ class ag implements View.OnClickListener {
         String str;
         Activity activity2;
         if (view.getId() == com.baidu.tieba.w.search_bg_layout) {
-            activity = this.NR.mCurrentActivity;
-            str = this.NR.NM;
+            activity = this.NO.mCurrentActivity;
+            str = this.NO.NJ;
             TiebaStatic.eventStat(activity, str, "click", 1, new Object[0]);
             MessageManager messageManager = MessageManager.getInstance();
-            activity2 = this.NR.mCurrentActivity;
+            activity2 = this.NO.mCurrentActivity;
             messageManager.sendMessage(new CustomMessage(2015002, new com.baidu.tbadk.core.frameworkData.a(activity2)));
         }
     }

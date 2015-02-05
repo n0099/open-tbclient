@@ -17,12 +17,12 @@ public class bb implements View.OnClickListener {
         boolean z;
         boolean z2;
         boolean z3;
-        aiVar = this.this$0.amz;
-        aiVar.AL();
+        aiVar = this.this$0.amw;
+        aiVar.AF();
         UpdateDialog updateDialog = this.this$0;
-        z = this.this$0.amu;
-        z2 = this.this$0.amv;
-        z3 = this.this$0.amw;
+        z = this.this$0.amr;
+        z2 = this.this$0.ams;
+        z3 = this.this$0.amt;
         updateDialog.b(z, z2, z3);
     }
 }

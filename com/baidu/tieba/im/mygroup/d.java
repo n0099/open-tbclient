@@ -8,13 +8,13 @@ import com.baidu.tieba.im.data.GroupPermData;
 import com.baidu.tieba.im.message.ResponseUserPermissionMessage;
 /* loaded from: classes.dex */
 class d extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ PersonGroupActivity bkz;
+    final /* synthetic */ PersonGroupActivity bky;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(PersonGroupActivity personGroupActivity, int i) {
         super(i);
-        this.bkz = personGroupActivity;
+        this.bky = personGroupActivity;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [392=4] */
@@ -25,20 +25,20 @@ class d extends com.baidu.adp.framework.listener.e {
             try {
                 ResponseUserPermissionMessage responseUserPermissionMessage = (ResponseUserPermissionMessage) socketResponsedMessage;
                 if (responseUserPermissionMessage.getError() > 0) {
-                    this.bkz.showToast(responseUserPermissionMessage.getErrorString());
+                    this.bky.showToast(responseUserPermissionMessage.getErrorString());
                     return;
                 }
                 GroupPermData groupPermData = responseUserPermissionMessage.getGroupPermData();
                 if (groupPermData != null) {
                     if (groupPermData.isCreatePersonal()) {
-                        this.bkz.sendMessage(new CustomMessage(2002001, new CreateGroupStepActivityConfig(this.bkz.getPageContext().getContext(), 2, 0, CreateGroupStepActivityConfig.SOURCE_FROM_MY, groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum())));
+                        this.bky.sendMessage(new CustomMessage(2002001, new CreateGroupStepActivityConfig(this.bky.getPageContext().getContext(), 2, 0, CreateGroupStepActivityConfig.SOURCE_FROM_MY, groupPermData.getCanCreateNormalNum(), groupPermData.getCanCreateOfficialNum(), groupPermData.getCanCreatePersonalNum())));
                     } else if (!TextUtils.isEmpty(groupPermData.getCreatePersonalTip())) {
-                        this.bkz.showToast(groupPermData.getCreatePersonalTip());
+                        this.bky.showToast(groupPermData.getCreatePersonalTip());
                     }
                 }
             } catch (Exception e) {
             } finally {
-                this.bkz.hideProgressBar();
+                this.bky.hideProgressBar();
             }
         }
     }

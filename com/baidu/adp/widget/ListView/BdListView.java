@@ -20,134 +20,134 @@ public class BdListView extends ListView {
     private int mMaxHeight;
     private int mPreHeight;
     private Runnable preLoadRunnable;
-    private k wN;
-    private AdapterView.OnItemClickListener wO;
-    private AdapterView.OnItemLongClickListener wP;
-    private AdapterView.OnItemSelectedListener wQ;
-    private y wR;
-    private x wS;
-    private AbsListView.OnScrollListener wT;
-    private aa wU;
-    private ad wV;
-    private long wW;
-    private ae wX;
-    private int wY;
-    private ab wZ;
-    private ac xa;
-    private i xb;
-    private i xc;
-    private View xd;
-    private int xe;
-    private Runnable xf;
-    private Runnable xg;
-    private boolean xh;
-    private boolean xi;
-    private z xj;
-    private Runnable xk;
-    private af xl;
+    private k wK;
+    private AdapterView.OnItemClickListener wL;
+    private AdapterView.OnItemLongClickListener wM;
+    private AdapterView.OnItemSelectedListener wN;
+    private y wO;
+    private x wP;
+    private AbsListView.OnScrollListener wQ;
+    private aa wR;
+    private ad wS;
+    private long wT;
+    private ae wU;
+    private int wV;
+    private ab wW;
+    private ac wX;
+    private i wY;
+    private i wZ;
+    private View xa;
+    private int xb;
+    private Runnable xc;
+    private Runnable xd;
+    private boolean xe;
+    private boolean xf;
+    private z xg;
+    private Runnable xh;
+    private af xi;
 
     public BdListView(Context context) {
         super(context);
         this.REFRESH_DELAY = 100;
+        this.wK = null;
+        this.wL = null;
+        this.wM = null;
         this.wN = null;
         this.wO = null;
         this.wP = null;
         this.wQ = null;
         this.wR = null;
         this.wS = null;
-        this.wT = null;
+        this.wT = 100L;
         this.wU = null;
-        this.wV = null;
-        this.wW = 100L;
+        this.wV = 0;
+        this.wW = null;
         this.wX = null;
-        this.wY = 0;
+        this.wY = null;
         this.wZ = null;
         this.xa = null;
-        this.xb = null;
-        this.xc = null;
-        this.xd = null;
-        this.xe = 0;
-        this.xf = new o(this);
-        this.xg = new p(this);
+        this.xb = 0;
+        this.xc = new o(this);
+        this.xd = new p(this);
         this.preLoadRunnable = new q(this);
         this.mLayoutHasInit = false;
-        this.xh = false;
-        this.xi = false;
+        this.xe = false;
+        this.xf = false;
         this.mMaxHeight = 0;
         this.mPreHeight = 0;
-        this.xj = null;
-        this.xk = new r(this);
-        this.xl = null;
+        this.xg = null;
+        this.xh = new r(this);
+        this.xi = null;
         initial();
     }
 
     public BdListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.REFRESH_DELAY = 100;
+        this.wK = null;
+        this.wL = null;
+        this.wM = null;
         this.wN = null;
         this.wO = null;
         this.wP = null;
         this.wQ = null;
         this.wR = null;
         this.wS = null;
-        this.wT = null;
+        this.wT = 100L;
         this.wU = null;
-        this.wV = null;
-        this.wW = 100L;
+        this.wV = 0;
+        this.wW = null;
         this.wX = null;
-        this.wY = 0;
+        this.wY = null;
         this.wZ = null;
         this.xa = null;
-        this.xb = null;
-        this.xc = null;
-        this.xd = null;
-        this.xe = 0;
-        this.xf = new o(this);
-        this.xg = new p(this);
+        this.xb = 0;
+        this.xc = new o(this);
+        this.xd = new p(this);
         this.preLoadRunnable = new q(this);
         this.mLayoutHasInit = false;
-        this.xh = false;
-        this.xi = false;
+        this.xe = false;
+        this.xf = false;
         this.mMaxHeight = 0;
         this.mPreHeight = 0;
-        this.xj = null;
-        this.xk = new r(this);
-        this.xl = null;
+        this.xg = null;
+        this.xh = new r(this);
+        this.xi = null;
         initial();
     }
 
     public BdListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.REFRESH_DELAY = 100;
+        this.wK = null;
+        this.wL = null;
+        this.wM = null;
         this.wN = null;
         this.wO = null;
         this.wP = null;
         this.wQ = null;
         this.wR = null;
         this.wS = null;
-        this.wT = null;
+        this.wT = 100L;
         this.wU = null;
-        this.wV = null;
-        this.wW = 100L;
+        this.wV = 0;
+        this.wW = null;
         this.wX = null;
-        this.wY = 0;
+        this.wY = null;
         this.wZ = null;
         this.xa = null;
-        this.xb = null;
-        this.xc = null;
-        this.xd = null;
-        this.xe = 0;
-        this.xf = new o(this);
-        this.xg = new p(this);
+        this.xb = 0;
+        this.xc = new o(this);
+        this.xd = new p(this);
         this.preLoadRunnable = new q(this);
         this.mLayoutHasInit = false;
-        this.xh = false;
-        this.xi = false;
+        this.xe = false;
+        this.xf = false;
         this.mMaxHeight = 0;
         this.mPreHeight = 0;
-        this.xj = null;
-        this.xk = new r(this);
-        this.xl = null;
+        this.xg = null;
+        this.xh = new r(this);
+        this.xi = null;
         initial();
     }
 
@@ -169,32 +169,32 @@ public class BdListView extends ListView {
         }
     }
 
-    public void jH() {
-        removeCallbacks(this.xg);
+    public void jA() {
+        removeCallbacks(this.xd);
     }
 
     private void initial() {
         setFadingEdgeLength(0);
-        this.wN = new k(getContext());
-        this.wN.a(new s(this));
+        this.wK = new k(getContext());
+        this.wK.a(new s(this));
         super.setOnItemClickListener(new t(this));
         super.setOnScrollListener(new u(this));
     }
 
     public void setOnScrollToPullListener(ad adVar) {
-        this.wV = adVar;
+        this.wS = adVar;
     }
 
     public void setOnSrollToTopListener(ae aeVar) {
-        this.wX = aeVar;
+        this.wU = aeVar;
     }
 
     public void setOnSrollToBottomListener(ab abVar) {
-        this.wZ = abVar;
+        this.wW = abVar;
     }
 
     public void setExOnSrollToBottomListener(ac acVar) {
-        this.xa = acVar;
+        this.wX = acVar;
     }
 
     @Override // android.widget.AdapterView
@@ -203,7 +203,7 @@ public class BdListView extends ListView {
             super.setOnItemLongClickListener(null);
             return;
         }
-        this.wP = onItemLongClickListener;
+        this.wM = onItemLongClickListener;
         super.setOnItemLongClickListener(new v(this));
     }
 
@@ -213,28 +213,28 @@ public class BdListView extends ListView {
             super.setOnItemSelectedListener(null);
             return;
         }
-        this.wQ = onItemSelectedListener;
+        this.wN = onItemSelectedListener;
         super.setOnItemSelectedListener(new w(this));
     }
 
     @Override // android.widget.AbsListView
     public void setOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
-        this.wT = onScrollListener;
+        this.wQ = onScrollListener;
     }
 
     @Override // android.widget.AdapterView
     public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
-        this.wO = onItemClickListener;
+        this.wL = onItemClickListener;
     }
 
     @Override // android.widget.ListView, android.widget.AdapterView
     public ListAdapter getAdapter() {
-        return this.wN;
+        return this.wK;
     }
 
     public ListAdapter getWrappedAdapter() {
-        if (this.wN instanceof k) {
-            return this.wN.getWrappedAdapter();
+        if (this.wK instanceof k) {
+            return this.wK.getWrappedAdapter();
         }
         return null;
     }
@@ -242,70 +242,70 @@ public class BdListView extends ListView {
     @Override // android.widget.ListView, android.widget.AbsListView
     public void setAdapter(ListAdapter listAdapter) {
         super.setAdapter((ListAdapter) null);
-        this.wN.a(listAdapter);
-        super.setAdapter((ListAdapter) this.wN);
+        this.wK.a(listAdapter);
+        super.setAdapter((ListAdapter) this.wK);
     }
 
     public void setOnHeaderClickListener(y yVar) {
-        this.wR = yVar;
+        this.wO = yVar;
     }
 
     public void setOnFooterClickListener(x xVar) {
-        this.wS = xVar;
+        this.wP = xVar;
     }
 
     @Override // android.widget.ListView
     public void addHeaderView(View view, Object obj, boolean z) {
-        this.wN.a(view, obj, z, getHeaderIndex());
+        this.wK.a(view, obj, z, getHeaderIndex());
     }
 
     @Override // android.widget.ListView
     public void addHeaderView(View view) {
-        this.wN.d(view, getHeaderIndex());
+        this.wK.d(view, getHeaderIndex());
     }
 
     public void d(View view, int i) {
-        this.wN.d(view, i);
+        this.wK.d(view, i);
     }
 
     @Override // android.widget.ListView
     public int getHeaderViewsCount() {
-        return this.wN.getHeaderViewsCount();
+        return this.wK.getHeaderViewsCount();
     }
 
     @Override // android.widget.ListView
     public int getFooterViewsCount() {
-        return this.wN.getFooterViewsCount();
+        return this.wK.getFooterViewsCount();
     }
 
     public void f(View view) {
-        this.wN.a(view, null, false, 0);
+        this.wK.a(view, null, false, 0);
     }
 
     @Override // android.widget.ListView
     public void addFooterView(View view, Object obj, boolean z) {
-        this.wN.b(view, obj, z, -1);
+        this.wK.b(view, obj, z, -1);
     }
 
     @Override // android.widget.ListView
     public void addFooterView(View view) {
-        this.wN.addFooterView(view);
+        this.wK.addFooterView(view);
     }
 
     @Override // android.widget.ListView
     public boolean removeHeaderView(View view) {
-        return this.wN.removeHeader(view);
+        return this.wK.removeHeader(view);
     }
 
     @Override // android.widget.ListView
     public boolean removeFooterView(View view) {
-        return this.wN.removeFooter(view);
+        return this.wK.removeFooter(view);
     }
 
     public void setNoData(String str) {
-        if (this.xd != null) {
-            removeHeaderView(this.xd);
-            this.xd = null;
+        if (this.xa != null) {
+            removeHeaderView(this.xa);
+            this.xa = null;
         }
         if (str != null) {
             TextView textView = new TextView(getContext());
@@ -321,13 +321,13 @@ public class BdListView extends ListView {
     }
 
     public void setPrePage(i iVar) {
-        if (this.xb != null) {
-            removeHeaderView(this.xb.getView());
-            this.xb = null;
+        if (this.wY != null) {
+            removeHeaderView(this.wY.getView());
+            this.wY = null;
         }
         if (iVar != null) {
             addHeaderView(iVar.getView());
-            this.xb = iVar;
+            this.wY = iVar;
         }
     }
 
@@ -337,19 +337,19 @@ public class BdListView extends ListView {
     }
 
     public void setNextPage(i iVar) {
-        if (this.xc != null) {
-            removeFooterView(this.xc.getView());
-            this.xc = null;
+        if (this.wZ != null) {
+            removeFooterView(this.wZ.getView());
+            this.wZ = null;
         }
         if (iVar != null) {
-            this.wN.b(iVar.getView(), null, true, 0);
-            this.xc = iVar;
+            this.wK.b(iVar.getView(), null, true, 0);
+            this.wZ = iVar;
         }
     }
 
     private int getHeaderIndex() {
-        if (this.xb != null) {
-            return this.wN.getHeadersCount() - 1;
+        if (this.wY != null) {
+            return this.wK.getHeadersCount() - 1;
         }
         return -1;
     }
@@ -358,19 +358,19 @@ public class BdListView extends ListView {
     protected void onDetachedFromWindow() {
         try {
             super.onDetachedFromWindow();
-            getHandler().removeCallbacks(this.xf);
-            getHandler().removeCallbacks(this.xk);
+            getHandler().removeCallbacks(this.xc);
+            getHandler().removeCallbacks(this.xh);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
     public void setKybdsScrollBottom(boolean z) {
-        this.xi = z;
+        this.xf = z;
     }
 
     public void setOnkbdStateListener(z zVar) {
-        this.xj = zVar;
+        this.xg = zVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -382,25 +382,25 @@ public class BdListView extends ListView {
             if (!this.mLayoutHasInit) {
                 this.mLayoutHasInit = true;
                 this.mMaxHeight = i4;
-                if (this.xj != null) {
-                    this.xj.onKeyBoardStateChange(-1);
+                if (this.xg != null) {
+                    this.xg.onKeyBoardStateChange(-1);
                 }
             } else {
                 this.mMaxHeight = this.mMaxHeight < i4 ? i4 : this.mMaxHeight;
             }
             if (this.mLayoutHasInit && this.mMaxHeight > i4 && i4 != this.mPreHeight) {
-                this.xh = true;
-                if (this.xj != null) {
-                    this.xj.onKeyBoardStateChange(-3);
+                this.xe = true;
+                if (this.xg != null) {
+                    this.xg.onKeyBoardStateChange(-3);
                 }
-                if (this.xi && lastVisiblePosition >= getCount() - 1) {
-                    getHandler().postDelayed(this.xk, 1L);
+                if (this.xf && lastVisiblePosition >= getCount() - 1) {
+                    getHandler().postDelayed(this.xh, 1L);
                 }
             }
-            if (this.mLayoutHasInit && this.xh && this.mMaxHeight == i4) {
-                this.xh = false;
-                if (this.xj != null) {
-                    this.xj.onKeyBoardStateChange(-2);
+            if (this.mLayoutHasInit && this.xe && this.mMaxHeight == i4) {
+                this.xe = false;
+                if (this.xg != null) {
+                    this.xg.onKeyBoardStateChange(-2);
                 }
             }
             this.mPreHeight = i4;
@@ -413,41 +413,41 @@ public class BdListView extends ListView {
     }
 
     public void setPullRefresh(j jVar) {
-        if (this.xl != null) {
-            removeHeaderView(this.xl.jL().getView());
+        if (this.xi != null) {
+            removeHeaderView(this.xi.jE().getView());
         }
-        this.xl = null;
+        this.xi = null;
         if (jVar != null) {
-            this.xl = new af(this, jVar);
-            this.xl.setOnScrollToPullListener(this.wV);
+            this.xi = new af(this, jVar);
+            this.xi.setOnScrollToPullListener(this.wS);
         }
     }
 
-    public void jI() {
-        if (this.xl != null) {
-            af.a(this.xl);
+    public void jB() {
+        if (this.xi != null) {
+            af.a(this.xi);
         }
     }
 
-    public void jJ() {
-        if (this.xl != null) {
+    public void jC() {
+        if (this.xi != null) {
             setSelection(0);
-            this.xl.U(true);
+            this.xi.U(true);
         }
     }
 
     @Override // android.widget.AbsListView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.xl != null) {
-            this.xl.a(motionEvent, this.xe);
+        if (this.xi != null) {
+            this.xi.a(motionEvent, this.xb);
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
 
     @Override // android.widget.AbsListView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.xl != null) {
-            this.xl.b(motionEvent, this.xe);
+        if (this.xi != null) {
+            this.xi.b(motionEvent, this.xb);
         }
         try {
             return super.onTouchEvent(motionEvent);
@@ -457,7 +457,7 @@ public class BdListView extends ListView {
         }
     }
 
-    public boolean jK() {
-        return this.xl == null || this.xl.mState == 3;
+    public boolean jD() {
+        return this.xi == null || this.xi.mState == 3;
     }
 }

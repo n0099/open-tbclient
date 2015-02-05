@@ -21,20 +21,20 @@ class d extends CustomMessageListener {
         com.baidu.tbadk.mainTab.e eVar;
         com.baidu.tbadk.mainTab.e eVar2;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007007 && customResponsedMessage.getData() != null) {
-            EditMarkStatic.aPi = (com.baidu.tbadk.mainTab.f) customResponsedMessage.getData();
-            fVar = EditMarkStatic.aPi;
+            EditMarkStatic.aPh = (com.baidu.tbadk.mainTab.f) customResponsedMessage.getData();
+            fVar = EditMarkStatic.aPh;
             Context context = fVar.getContext();
             int i3 = z.my_mark;
             int i4 = v.icon_news_down_bar_one;
             int i5 = v.icon_menu_collect_n;
             i = EditMarkStatic.msgCount;
-            EditMarkStatic.bys = new e(this, context, i3, i4, i5, i);
+            EditMarkStatic.byr = new e(this, context, i3, i4, i5, i);
             i2 = EditMarkStatic.msgCount;
             if (i2 > 0) {
-                eVar2 = EditMarkStatic.bys;
+                eVar2 = EditMarkStatic.byr;
                 eVar2.aN(true);
             }
-            eVar = EditMarkStatic.bys;
+            eVar = EditMarkStatic.byr;
             ((com.baidu.tbadk.mainTab.f) customResponsedMessage.getData()).a(eVar);
         }
     }

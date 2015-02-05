@@ -9,32 +9,32 @@ import org.json.JSONArray;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.lib.a.b.a.a.i {
-    private ArrayList<i> ajD;
-    private int ajE;
-    private ArrayList<c> ajF;
-    public boolean ajG;
-    public int ajH;
+    private ArrayList<i> ajA;
+    private int ajB;
+    private ArrayList<c> ajC;
+    public boolean ajD;
+    public int ajE;
     private Context mContext;
 
     public a() {
-        this.ajD = null;
-        this.ajE = 0;
-        this.ajF = null;
+        this.ajA = null;
+        this.ajB = 0;
+        this.ajC = null;
         this.mContext = null;
     }
 
     public a(Context context, List<PbContent> list, boolean z) {
-        this.ajD = null;
-        this.ajE = 0;
-        this.ajF = null;
+        this.ajA = null;
+        this.ajB = 0;
+        this.ajC = null;
         this.mContext = null;
         a(context, list, -1, z);
     }
 
     public a(Context context, JSONArray jSONArray, int i) {
-        this.ajD = null;
-        this.ajE = 0;
-        this.ajF = null;
+        this.ajA = null;
+        this.ajB = 0;
+        this.ajC = null;
         this.mContext = null;
         a(context, jSONArray, i, false);
     }
@@ -50,86 +50,86 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
     }
 
     public a(Context context, ArrayList<c> arrayList) {
-        this.ajD = null;
-        this.ajE = 0;
-        this.ajF = null;
+        this.ajA = null;
+        this.ajB = 0;
+        this.ajC = null;
         this.mContext = null;
         this.mContext = context;
-        this.ajF = arrayList;
+        this.ajC = arrayList;
     }
 
     private void j(int i, boolean z) {
-        if (this.ajD != null) {
-            this.ajF = new ArrayList<>();
-            this.ajE = 0;
-            Iterator<i> it = this.ajD.iterator();
+        if (this.ajA != null) {
+            this.ajC = new ArrayList<>();
+            this.ajB = 0;
+            Iterator<i> it = this.ajA.iterator();
             c cVar = null;
             while (it.hasNext()) {
                 i next = it.next();
                 if (next.getType() == 8) {
                     if (cVar != null) {
-                        this.ajF.add(cVar);
+                        this.ajC.add(cVar);
                         cVar = null;
                     }
                     c cVar2 = new c(8);
-                    this.ajE++;
-                    cVar2.a(next.Ak());
-                    this.ajF.add(cVar2);
+                    this.ajB++;
+                    cVar2.a(next.Ae());
+                    this.ajC.add(cVar2);
                 } else if (z && next.getType() == 32) {
                     if (cVar != null) {
-                        this.ajF.add(cVar);
+                        this.ajC.add(cVar);
                     }
                     c cVar3 = new c(32);
-                    cVar3.eK(next.getVideoUrl());
-                    this.ajF.add(cVar3);
+                    cVar3.eH(next.getVideoUrl());
+                    this.ajC.add(cVar3);
                     cVar = new c(1);
-                    CharSequence f = next.f(this.mContext, cVar.Aj());
+                    CharSequence f = next.f(this.mContext, cVar.Ad());
                     if (f != null) {
                         cVar.append(f);
                     }
                 } else if (next.getType() == 512) {
                     if (cVar != null) {
-                        this.ajF.add(cVar);
+                        this.ajC.add(cVar);
                         cVar = null;
                     }
                     c cVar4 = new c(512);
-                    cVar4.a(next.Am());
-                    this.ajF.add(cVar4);
+                    cVar4.a(next.Ag());
+                    this.ajC.add(cVar4);
                 } else if (next.getType() == 17) {
                     if (cVar != null) {
-                        this.ajF.add(cVar);
+                        this.ajC.add(cVar);
                         cVar = null;
                     }
                     c cVar5 = new c(17);
-                    cVar5.a(next.Ao());
-                    this.ajF.add(cVar5);
+                    cVar5.a(next.Ai());
+                    this.ajC.add(cVar5);
                 } else {
                     if (cVar == null) {
                         cVar = new c(1);
                     }
-                    CharSequence f2 = next.f(this.mContext, cVar.Aj());
+                    CharSequence f2 = next.f(this.mContext, cVar.Ad());
                     if (f2 != null) {
                         cVar.append(f2);
                     }
                 }
             }
             if (cVar != null) {
-                this.ajF.add(cVar);
+                this.ajC.add(cVar);
             }
-            this.ajD.clear();
-            this.ajD = null;
+            this.ajA.clear();
+            this.ajA = null;
         }
     }
 
     private void a(JSONArray jSONArray, int i, boolean z) {
         if (jSONArray != null) {
-            this.ajD = new ArrayList<>();
+            this.ajA = new ArrayList<>();
             int length = jSONArray.length();
             for (int i2 = 0; i2 < length; i2++) {
                 i iVar = new i();
                 iVar.parserJson(jSONArray.optJSONObject(i2));
                 if ((iVar.getType() & i) != 0) {
-                    this.ajD.add(iVar);
+                    this.ajA.add(iVar);
                 }
             }
             j(i, z);
@@ -138,7 +138,7 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
 
     private void a(List<PbContent> list, int i, boolean z) {
         if (list != null) {
-            this.ajD = new ArrayList<>();
+            this.ajA = new ArrayList<>();
             int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
                 PbContent pbContent = list.get(i2);
@@ -146,7 +146,7 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
                     i iVar = new i();
                     iVar.a(pbContent);
                     if ((iVar.getType() & i) != 0) {
-                        this.ajD.add(iVar);
+                        this.ajA.add(iVar);
                     }
                 }
             }
@@ -154,24 +154,24 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
         }
     }
 
-    public ArrayList<c> Af() {
-        return this.ajF;
+    public ArrayList<c> zZ() {
+        return this.ajC;
     }
 
     public String toString() {
-        if (this.ajF == null) {
+        if (this.ajC == null) {
             return "";
         }
         StringBuilder sb = new StringBuilder(100);
-        int size = this.ajF.size();
+        int size = this.ajC.size();
         for (int i = 0; i < size; i++) {
-            c cVar = this.ajF.get(i);
+            c cVar = this.ajC.get(i);
             String cVar2 = cVar.toString();
-            if (cVar.getType() == 1 && cVar.Ap() > 0) {
-                cVar2 = cVar2.substring(cVar.Ap());
+            if (cVar.getType() == 1 && cVar.Aj() > 0) {
+                cVar2 = cVar2.substring(cVar.Aj());
             }
-            if (i == size - 1 && cVar.getType() == 1 && this.ajG) {
-                sb.append(cVar2.substring(0, cVar2.length() - this.ajH));
+            if (i == size - 1 && cVar.getType() == 1 && this.ajD) {
+                sb.append(cVar2.substring(0, cVar2.length() - this.ajE));
             } else if (cVar.getType() == 8) {
                 sb.append(this.mContext.getString(z.pic_str));
             } else if (cVar.getType() == 512) {

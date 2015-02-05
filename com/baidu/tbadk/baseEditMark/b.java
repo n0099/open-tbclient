@@ -8,20 +8,20 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Boolean, Integer, Boolean> {
-    private ad AR = null;
-    private h AS;
-    final /* synthetic */ a AT;
+    private ad AO = null;
+    private h AP;
+    final /* synthetic */ a AQ;
     private int pos;
     private String tid;
 
     public b(a aVar, String str, int i) {
-        this.AT = aVar;
+        this.AQ = aVar;
         this.tid = null;
         this.pos = 0;
-        this.AS = null;
+        this.AP = null;
         this.tid = str;
         this.pos = i;
-        this.AS = new h();
+        this.AP = new h();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,22 +29,22 @@ public class b extends BdAsyncTask<Boolean, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public Boolean doInBackground(Boolean... boolArr) {
-        this.AR = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.MARK_DELSTORE);
-        this.AR.o("user_id", TbadkCoreApplication.getCurrentAccount());
-        this.AR.o("tid", this.tid);
-        this.AS.parserJson(this.AR.oy());
-        return this.AR.oZ().qh().ma() && this.AS.getErrorCode() == 0;
+        this.AO = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.MARK_DELSTORE);
+        this.AO.o("user_id", TbadkCoreApplication.getCurrentAccount());
+        this.AO.o("tid", this.tid);
+        this.AP.parserJson(this.AO.or());
+        return this.AO.oS().qa().lT() && this.AP.getErrorCode() == 0;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        if (this.AR != null) {
-            this.AR.dJ();
+        if (this.AO != null) {
+            this.AO.dJ();
         }
-        this.AT.AL = null;
-        if (this.AT.AQ != null) {
-            this.AT.AQ.callback(2, false, null);
+        this.AQ.AH = null;
+        if (this.AQ.AN != null) {
+            this.AQ.AN.callback(2, false, null);
         }
     }
 
@@ -57,24 +57,24 @@ public class b extends BdAsyncTask<Boolean, Integer, Boolean> {
         ArrayList arrayList2;
         int i;
         String str = null;
-        this.AT.AL = null;
+        this.AQ.AH = null;
         if (bool.booleanValue()) {
             int i2 = this.pos;
-            arrayList = this.AT.AM;
+            arrayList = this.AQ.AI;
             if (i2 < arrayList.size()) {
-                arrayList2 = this.AT.AM;
+                arrayList2 = this.AQ.AI;
                 arrayList2.remove(this.pos);
-                a aVar = this.AT;
-                i = aVar.AO;
-                aVar.AO = i - 1;
+                a aVar = this.AQ;
+                i = aVar.AL;
+                aVar.AL = i - 1;
             }
-        } else if (this.AR.oZ().qh().ma()) {
-            str = this.AS.getErrorString();
+        } else if (this.AO.oS().qa().lT()) {
+            str = this.AP.getErrorString();
         } else {
-            str = this.AR.getErrorString();
+            str = this.AO.getErrorString();
         }
-        if (this.AT.AQ != null) {
-            this.AT.AQ.callback(2, bool, str);
+        if (this.AQ.AN != null) {
+            this.AQ.AN.callback(2, bool, str);
         }
     }
 }

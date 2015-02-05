@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.util.bm;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class at implements View.OnClickListener {
-    final /* synthetic */ U9InfoView bXz;
+    final /* synthetic */ U9InfoView bXy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(U9InfoView u9InfoView) {
-        this.bXz = u9InfoView;
+        this.bXy = u9InfoView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -28,28 +28,28 @@ public class at implements View.OnClickListener {
         Context context2;
         com.baidu.tbadk.core.data.y yVar2;
         if (com.baidu.adp.lib.util.l.isNetOk()) {
-            relativeLayout = this.bXz.bXo;
+            relativeLayout = this.bXy.bXn;
             if (view != relativeLayout) {
-                linearLayout = this.bXz.bXp;
+                linearLayout = this.bXy.bXo;
                 if (view == linearLayout) {
-                    abVar = this.bXz.news_info;
-                    if (!TextUtils.isEmpty(abVar.nU())) {
-                        bm pV = bm.pV();
-                        context = this.bXz.mContext;
-                        abVar2 = this.bXz.news_info;
-                        pV.b((TbPageContext) com.baidu.adp.base.m.D(context), new String[]{abVar2.nU()});
+                    abVar = this.bXy.news_info;
+                    if (!TextUtils.isEmpty(abVar.nN())) {
+                        bm pO = bm.pO();
+                        context = this.bXy.mContext;
+                        abVar2 = this.bXy.news_info;
+                        pO.b((TbPageContext) com.baidu.adp.base.m.D(context), new String[]{abVar2.nN()});
                         return;
                     }
                     return;
                 }
                 return;
             }
-            yVar = this.bXz.top_code;
-            if (!TextUtils.isEmpty(yVar.nO())) {
-                bm pV2 = bm.pV();
-                context2 = this.bXz.mContext;
-                yVar2 = this.bXz.top_code;
-                pV2.b((TbPageContext) com.baidu.adp.base.m.D(context2), new String[]{yVar2.nO()});
+            yVar = this.bXy.top_code;
+            if (!TextUtils.isEmpty(yVar.nH())) {
+                bm pO2 = bm.pO();
+                context2 = this.bXy.mContext;
+                yVar2 = this.bXy.top_code;
+                pO2.b((TbPageContext) com.baidu.adp.base.m.D(context2), new String[]{yVar2.nH()});
             }
         }
     }

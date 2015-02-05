@@ -6,7 +6,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class cc {
     public static ImMessageCenterPojo t(ImMessageCenterPojo imMessageCenterPojo) {
-        return (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != -7 || imMessageCenterPojo.getUnread_count() <= 0) ? imMessageCenterPojo : b(imMessageCenterPojo, c.QO().QW());
+        return (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != -7 || imMessageCenterPojo.getUnread_count() <= 0) ? imMessageCenterPojo : b(imMessageCenterPojo, c.QJ().QR());
     }
 
     private static ImMessageCenterPojo b(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
@@ -29,17 +29,17 @@ public class cc {
         boolean z = true;
         for (ImMessageCenterPojo imMessageCenterPojo3 : list) {
             if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == 2 && imMessageCenterPojo3.getIsFriend() == 0) {
-                if (!com.baidu.tieba.im.settingcache.j.Tu().aH(currentAccount, imMessageCenterPojo3.getGid())) {
+                if (!com.baidu.tieba.im.settingcache.j.Tp().aH(currentAccount, imMessageCenterPojo3.getGid())) {
                     imMessageCenterPojo2.setUnread_count(imMessageCenterPojo2.getUnread_count() - imMessageCenterPojo3.getUnread_count());
                 } else {
-                    com.baidu.tieba.im.settingcache.l.Tv().setAcceptNotify(true);
+                    com.baidu.tieba.im.settingcache.l.Tq().setAcceptNotify(true);
                     z = false;
                 }
             }
         }
         if (z) {
             imMessageCenterPojo2.setUnread_count(1);
-            com.baidu.tieba.im.settingcache.l.Tv().setAcceptNotify(false);
+            com.baidu.tieba.im.settingcache.l.Tq().setAcceptNotify(false);
         }
         return imMessageCenterPojo2;
     }

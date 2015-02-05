@@ -4,11 +4,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bz implements com.baidu.tbadk.coreExtra.view.r {
-    final /* synthetic */ by aGk;
+    final /* synthetic */ by aGh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bz(by byVar) {
-        this.aGk = byVar;
+        this.aGh = byVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.r
@@ -19,14 +19,14 @@ public class bz implements com.baidu.tbadk.coreExtra.view.r {
         bp bpVar3;
         TextView textView;
         if (i == 0) {
-            bpVar3 = this.aGk.aGj;
-            textView = bpVar3.aFO;
+            bpVar3 = this.aGh.aGg;
+            textView = bpVar3.aFL;
             textView.setVisibility(8);
             return;
         }
-        bpVar = this.aGk.aGj;
-        bpVar2 = this.aGk.aGj;
-        eVar = bpVar2.aGb;
+        bpVar = this.aGh.aGg;
+        bpVar2 = this.aGh.aGg;
+        eVar = bpVar2.aFY;
         bpVar.f(eVar);
     }
 }

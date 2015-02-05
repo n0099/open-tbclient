@@ -14,34 +14,34 @@ import com.baidu.tieba.im.util.h;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d {
-    private static d blQ = null;
-    private String blS;
-    private ArrayList<CustomMessageListener> blR = new ArrayList<>();
+    private static d blP = null;
+    private String blR;
+    private ArrayList<CustomMessageListener> blQ = new ArrayList<>();
     private com.baidu.adp.framework.listener.e mListener = new e(this, 202006);
-    private CustomMessageListener blT = new f(this, 0);
+    private CustomMessageListener blS = new f(this, 0);
 
-    public static synchronized d Sg() {
+    public static synchronized d Sb() {
         d dVar;
         synchronized (d.class) {
-            if (blQ == null) {
-                blQ = new d();
+            if (blP == null) {
+                blP = new d();
             }
-            dVar = blQ;
+            dVar = blP;
         }
         return dVar;
     }
 
     public void open() {
-        Sh();
+        Sc();
     }
 
     private d() {
     }
 
-    private void Sh() {
+    private void Sc() {
         MessageManager.getInstance().registerListener(this.mListener);
-        MessageManager.getInstance().registerListener(2016014, this.blT);
-        MessageManager.getInstance().registerListener(103004, this.blT);
+        MessageManager.getInstance().registerListener(2016014, this.blS);
+        MessageManager.getInstance().registerListener(103004, this.blS);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -51,17 +51,17 @@ public class d {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SyncServiceConfig(TbadkCoreApplication.m255getInst())));
             } else if (pushNotifyMessage.getType() == 4) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010001, pushNotifyMessage.getContent()));
-            } else if (com.baidu.tieba.im.memorycache.c.QO().isInit()) {
+            } else if (com.baidu.tieba.im.memorycache.c.QJ().isInit()) {
                 String valueOf = String.valueOf(pushNotifyMessage.getGroupId());
                 TiebaStatic.imLog(202006, 0, "server push new", "PushNotifyManager-push_notify", "succ", 0, "", 0L, 0, "gid:" + valueOf);
                 if (!TextUtils.isEmpty(valueOf)) {
                     if (pushNotifyMessage.getGroupType() == 0) {
-                        com.baidu.tieba.im.b.b.Rt().a(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime(), 0);
+                        com.baidu.tieba.im.b.b.Ro().a(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime(), 0);
                         return;
                     }
                     int gn = com.baidu.tieba.im.b.a.gn(pushNotifyMessage.getGroupType());
-                    if (com.baidu.tieba.im.memorycache.c.QO().H(String.valueOf(pushNotifyMessage.getGroupId()), gn) != null) {
-                        com.baidu.tieba.im.b.b.Rt().a(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime(), gn);
+                    if (com.baidu.tieba.im.memorycache.c.QJ().H(String.valueOf(pushNotifyMessage.getGroupId()), gn) != null) {
+                        com.baidu.tieba.im.b.b.Ro().a(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime(), gn);
                     } else {
                         a(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), gn);
                     }
@@ -80,11 +80,11 @@ public class d {
         }
     }
 
-    public String Si() {
-        return this.blS;
+    public String Sd() {
+        return this.blR;
     }
 
-    public void hf(String str) {
-        this.blS = str;
+    public void hc(String str) {
+        this.blR = str;
     }
 }

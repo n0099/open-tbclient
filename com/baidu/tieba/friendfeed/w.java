@@ -13,31 +13,31 @@ import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w {
-    LiveBroadcastCard aCA;
-    final /* synthetic */ p aCf;
-    LinearLayout aCh;
-    LinearLayout aCi;
+    final /* synthetic */ p aCc;
+    LinearLayout aCe;
+    LinearLayout aCf;
+    TextView aCg;
+    PlayVoiceBnt aCh;
+    FrsCommonImageLayout aCi;
     TextView aCj;
-    PlayVoiceBnt aCk;
-    FrsCommonImageLayout aCl;
-    TextView aCm;
-    TextView aCn;
-    UserIconBox aCo;
-    HeadImageView aCp;
+    TextView aCk;
+    UserIconBox aCl;
+    HeadImageView aCm;
+    LinearLayout aCn;
+    ImageView aCo;
+    TextView aCp;
     LinearLayout aCq;
-    ImageView aCr;
-    TextView aCs;
-    LinearLayout aCt;
-    TextView aCu;
-    FrsPraiseView aCv;
-    TextView aCw;
-    View aCx;
-    LinearLayout aCy;
-    LinearLayout aCz;
+    TextView aCr;
+    FrsPraiseView aCs;
+    TextView aCt;
+    View aCu;
+    LinearLayout aCv;
+    LinearLayout aCw;
+    LiveBroadcastCard aCx;
     TextView mTitle;
 
     private w(p pVar) {
-        this.aCf = pVar;
+        this.aCc = pVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

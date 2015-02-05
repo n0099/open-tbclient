@@ -6,7 +6,7 @@ import com.baidu.tbadk.widget.TbImageView;
 public interface as {
     ListView getListView();
 
-    int qO();
+    int qI();
 
-    com.baidu.adp.lib.e.b<TbImageView> qP();
+    com.baidu.adp.lib.e.b<TbImageView> qJ();
 }

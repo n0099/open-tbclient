@@ -10,7 +10,7 @@ public class b {
     private static volatile SQLiteDatabase sDatabase;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static synchronized SQLiteDatabase rV() {
+    public static synchronized SQLiteDatabase rP() {
         SQLiteDatabase sQLiteDatabase;
         synchronized (b.class) {
             try {

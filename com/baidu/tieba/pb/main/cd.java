@@ -6,11 +6,11 @@ import com.baidu.tieba.tbadkCore.PbEditor.PbEditor;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cd implements Animation.AnimationListener {
-    final /* synthetic */ bz bEC;
+    final /* synthetic */ bz bEB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cd(bz bzVar) {
-        this.bEC = bzVar;
+        this.bEB = bzVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -24,19 +24,19 @@ public class cd implements Animation.AnimationListener {
         PbEditor pbEditor2;
         View view;
         View view2;
-        z = this.bEC.bEo;
+        z = this.bEB.bEn;
         if (!z) {
-            pbEditor = this.bEC.bEf;
+            pbEditor = this.bEB.bEe;
             if (pbEditor != null) {
-                pbEditor2 = this.bEC.bEf;
+                pbEditor2 = this.bEB.bEe;
                 pbEditor2.setVisibility(0);
                 return;
             }
             return;
         }
-        view = this.bEC.bEi;
+        view = this.bEB.bEh;
         view.setVisibility(0);
-        view2 = this.bEC.bEh;
+        view2 = this.bEB.bEg;
         view2.setVisibility(0);
     }
 

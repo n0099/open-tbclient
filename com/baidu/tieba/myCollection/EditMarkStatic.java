@@ -4,8 +4,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class EditMarkStatic {
-    private static com.baidu.tbadk.mainTab.f aPi;
-    private static com.baidu.tbadk.mainTab.e bys;
+    private static com.baidu.tbadk.mainTab.f aPh;
+    private static com.baidu.tbadk.mainTab.e byr;
     private static int msgCount = 0;
 
     static {

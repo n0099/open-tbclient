@@ -16,31 +16,31 @@ import com.baidu.tieba.w;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class h extends BaseAdapter {
-    private x aLI;
-    private boolean ayy = false;
-    private com.baidu.tieba.tbadkCore.location.k bOI;
-    private SearchLocationActivity bOJ;
+    private x aLF;
+    private boolean ayv = false;
+    private com.baidu.tieba.tbadkCore.location.k bOH;
+    private SearchLocationActivity bOI;
 
     public h(SearchLocationActivity searchLocationActivity) {
-        this.bOJ = searchLocationActivity;
+        this.bOI = searchLocationActivity;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bOI == null || this.bOI.ail() == null || this.bOI.ail().isEmpty()) {
-            this.ayy = false;
+        if (this.bOH == null || this.bOH.aig() == null || this.bOH.aig().isEmpty()) {
+            this.ayv = false;
             return 1;
         }
-        this.ayy = true;
-        return this.bOI.ail().size();
+        this.ayv = true;
+        return this.bOH.aig().size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.bOI == null || this.bOI.ail() == null || this.bOI.ail().isEmpty()) {
+        if (this.bOH == null || this.bOH.aig() == null || this.bOH.aig().isEmpty()) {
             return null;
         }
-        return this.bOI.ail().get(i);
+        return this.bOH.aig().get(i);
     }
 
     @Override // android.widget.Adapter
@@ -50,46 +50,46 @@ public class h extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        if (!this.ayy) {
-            return d(viewGroup);
+        if (!this.ayv) {
+            return e(viewGroup);
         }
         i iVar = null;
         if (view != null && (view.getTag() instanceof i)) {
             iVar = (i) view.getTag();
         }
         if (iVar == null) {
-            view = com.baidu.adp.lib.g.b.ei().a(this.bOJ.getPageContext().getPageActivity(), com.baidu.tieba.x.location_search_item_layout, viewGroup, false);
+            view = com.baidu.adp.lib.g.b.ei().a(this.bOI.getPageContext().getPageActivity(), com.baidu.tieba.x.location_search_item_layout, viewGroup, false);
             iVar = U(view);
             view.setTag(iVar);
         }
         i iVar2 = iVar;
-        iVar2.bOK.setText(this.bOI.ail().get(i).getName());
+        iVar2.bOJ.setText(this.bOH.aig().get(i).getName());
         bc.j(iVar2.line, t.cp_bg_line_b);
-        bc.b(iVar2.bOK, t.cp_cont_b, 1);
+        bc.b(iVar2.bOJ, t.cp_cont_b, 1);
         bc.i(view, v.home_recommend_item_bg);
         return view;
     }
 
     public void a(com.baidu.tieba.tbadkCore.location.k kVar) {
-        this.bOI = kVar;
+        this.bOH = kVar;
     }
 
-    public boolean acR() {
-        return this.ayy;
+    public boolean acM() {
+        return this.ayv;
     }
 
     public i U(View view) {
         i iVar = new i(this, null);
-        iVar.bOK = (TextView) view.findViewById(w.location_search_address_name);
+        iVar.bOJ = (TextView) view.findViewById(w.location_search_address_name);
         iVar.line = view.findViewById(w.location_search_line);
         return iVar;
     }
 
-    public View d(ViewGroup viewGroup) {
+    public View e(ViewGroup viewGroup) {
         int skinType = TbadkCoreApplication.m255getInst().getSkinType();
-        this.aLI = NoDataViewFactory.a(this.bOJ.getPageContext().getPageActivity(), viewGroup, aa.a(NoDataViewFactory.ImgType.NODATA), ab.cp(z.text_try_to_chage_location), null);
-        this.aLI.onChangeSkinType(this.bOJ.getPageContext(), skinType);
-        this.aLI.setVisibility(0);
-        return this.aLI;
+        this.aLF = NoDataViewFactory.a(this.bOI.getPageContext().getPageActivity(), viewGroup, aa.a(NoDataViewFactory.ImgType.NODATA), ab.cp(z.text_try_to_chage_location), null);
+        this.aLF.onChangeSkinType(this.bOI.getPageContext(), skinType);
+        this.aLF.setVisibility(0);
+        return this.aLF;
     }
 }

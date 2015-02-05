@@ -23,10 +23,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h extends com.baidu.tbadk.mvc.i.c {
-    private com.baidu.tbadk.mvc.j.c<a, com.baidu.tbadk.mvc.e.c, b> bFp;
-    private PraiseListActivity bFq;
-    private View bFr;
-    private ProgressBar bFs;
+    private com.baidu.tbadk.mvc.j.c<a, com.baidu.tbadk.mvc.e.c, b> bFo;
+    private PraiseListActivity bFp;
+    private View bFq;
+    private ProgressBar bFr;
     private String head;
     private TextView mPageFootTextContinue;
     private TextView mPageFootTextMore;
@@ -39,9 +39,9 @@ public class h extends com.baidu.tbadk.mvc.i.c {
 
     public h(PraiseListActivity praiseListActivity) {
         super(praiseListActivity);
+        this.bFo = null;
         this.bFp = null;
         this.bFq = null;
-        this.bFr = null;
         this.mPageNavigationBar = null;
         this.mPageHeadView = null;
         this.mPageHeadText = null;
@@ -50,42 +50,42 @@ public class h extends com.baidu.tbadk.mvc.i.c {
         this.mPageFootTextContinue = null;
         this.mPageFootTextMore = null;
         this.mPageProgressBar = null;
-        this.bFs = null;
-        this.bFq = praiseListActivity;
-        wN().addEventDelegate(this);
+        this.bFr = null;
+        this.bFp = praiseListActivity;
+        wH().addEventDelegate(this);
     }
 
     @Override // com.baidu.tbadk.mvc.core.c
-    protected int kI() {
+    protected int kB() {
         return x.zan_list_activity;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void kJ() {
-        this.bFr = getView().findViewById(w.zan_list_page_parent);
+    public void kC() {
+        this.bFq = getView().findViewById(w.zan_list_page_parent);
         this.mPageNavigationBar = (NavigationBar) getView().findViewById(w.zan_list_page_navigationbar);
         this.mPageListView = (BdListView) getView().findViewById(w.zan_list_page_list);
         this.mPageProgressBar = (ProgressBar) getView().findViewById(w.zan_list_page_progress);
-        this.bFp = new com.baidu.tbadk.mvc.j.c<>(this.adK.getPageContext(), b.class, x.zan_list_item, null);
-        this.bFp.a(aa.a(NoDataViewFactory.ImgType.NODATA), ab.cp(z.praise_list_no_data), (com.baidu.tbadk.core.view.z) null, (FrameLayout.LayoutParams) null);
-        this.mPageListView.setAdapter((ListAdapter) this.bFp);
+        this.bFo = new com.baidu.tbadk.mvc.j.c<>(this.adH.getPageContext(), b.class, x.zan_list_item, null);
+        this.bFo.a(aa.a(NoDataViewFactory.ImgType.NODATA), ab.cp(z.praise_list_no_data), (com.baidu.tbadk.core.view.z) null, (FrameLayout.LayoutParams) null);
+        this.mPageListView.setAdapter((ListAdapter) this.bFo);
         this.mPageNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mPageNavigationBar.setTitleText("");
         this.mPageHeadView = getLayoutInflater().inflate(x.zan_list_head, (ViewGroup) null);
-        this.mPageHeadView.setOnClickListener(this.bFq);
+        this.mPageHeadView.setOnClickListener(this.bFp);
         this.mPageHeadText = (TextView) this.mPageHeadView.findViewById(w.zan_list_head_text);
         this.mPageListView.addHeaderView(this.mPageHeadView);
         this.mPageFootView = getLayoutInflater().inflate(x.zan_list_foot, (ViewGroup) null);
         this.mPageFootTextContinue = (TextView) this.mPageFootView.findViewById(w.zan_list_foot_text_continue);
         this.mPageFootTextMore = (TextView) this.mPageFootView.findViewById(w.zan_list_foot_text_more);
-        this.bFs = (ProgressBar) this.mPageFootView.findViewById(w.zan_list_foot_progress);
-        wN().setViewClickListener(this.mPageFootTextContinue, yw());
+        this.bFr = (ProgressBar) this.mPageFootView.findViewById(w.zan_list_foot_progress);
+        wH().setViewClickListener(this.mPageFootTextContinue, yq());
         this.mPageFootView.setVisibility(8);
         this.mPageListView.addFooterView(this.mPageFootView);
-        this.mPageListView.setOnItemClickListener(this.bFq);
+        this.mPageListView.setOnItemClickListener(this.bFp);
         this.mPageHeadText.setText(this.head);
-        yv();
+        yp();
         ed(false);
     }
 
@@ -98,7 +98,7 @@ public class h extends com.baidu.tbadk.mvc.i.c {
 
     public void ed(boolean z) {
         if (z) {
-            this.bFs.setVisibility(0);
+            this.bFr.setVisibility(0);
         } else {
             this.mPageProgressBar.setVisibility(0);
         }
@@ -106,28 +106,28 @@ public class h extends com.baidu.tbadk.mvc.i.c {
 
     public void stopLoadData() {
         this.mPageProgressBar.setVisibility(8);
-        this.bFs.setVisibility(8);
+        this.bFr.setVisibility(8);
     }
 
     @Override // com.baidu.tbadk.mvc.i.a
     protected void a(com.baidu.tbadk.mvc.b.a aVar) {
         if (aVar instanceof c) {
             c cVar = (c) aVar;
-            int ZC = cVar.ZC();
-            List<a> ZE = cVar.ZE();
-            int ZC2 = cVar.ZC() - cVar.ZD();
+            int Zx = cVar.Zx();
+            List<a> Zz = cVar.Zz();
+            int Zx2 = cVar.Zx() - cVar.Zy();
             stopLoadData();
-            if (ZC > 0) {
-                this.mPageNavigationBar.setTitleText(String.format(this.bFq.getPageContext().getString(z.praise_list_title_count), Integer.valueOf(ZC)));
+            if (Zx > 0) {
+                this.mPageNavigationBar.setTitleText(String.format(this.bFp.getPageContext().getString(z.praise_list_title_count), Integer.valueOf(Zx)));
             } else {
                 this.mPageNavigationBar.setTitleText("");
             }
-            if (ZE == null || ZE.size() < 1) {
-                this.bFp.w(new ArrayList());
+            if (Zz == null || Zz.size() < 1) {
+                this.bFo.w(new ArrayList());
                 showNoData();
                 return;
             }
-            this.bFp.w(ZE);
+            this.bFo.w(Zz);
             switch (cVar.getStatus()) {
                 case 1001:
                     this.mPageFootView.setVisibility(0);
@@ -142,7 +142,7 @@ public class h extends com.baidu.tbadk.mvc.i.c {
                     bc.i(this.mPageFootView, v.bg_pack);
                     this.mPageFootTextContinue.setVisibility(8);
                     this.mPageFootTextMore.setVisibility(0);
-                    this.mPageFootTextMore.setText(String.format(this.bFq.getPageContext().getString(z.praise_item_more), Integer.valueOf(ZC2)));
+                    this.mPageFootTextMore.setText(String.format(this.bFp.getPageContext().getString(z.praise_item_more), Integer.valueOf(Zx2)));
                     return;
                 default:
                     this.mPageFootView.setVisibility(8);
@@ -153,18 +153,18 @@ public class h extends com.baidu.tbadk.mvc.i.c {
 
     public void showNoData() {
         this.mPageProgressBar.setVisibility(8);
-        this.bFs.setVisibility(8);
+        this.bFr.setVisibility(8);
         this.mPageFootView.setVisibility(8);
     }
 
     @Override // com.baidu.tbadk.mvc.core.d, com.baidu.tbadk.mvc.core.c, com.baidu.tieba.tbadkCore.y
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         super.a(tbPageContext, i);
-        com.baidu.tbadk.g.a.a(tbPageContext, this.bFr);
+        com.baidu.tbadk.g.a.a(tbPageContext, this.bFq);
         com.baidu.tbadk.g.a.a(tbPageContext, this.mPageHeadView);
         com.baidu.tbadk.g.a.a(tbPageContext, this.mPageFootView);
         this.mPageNavigationBar.onChangeSkinType(tbPageContext, i);
-        this.bFp.a(tbPageContext, i);
+        this.bFo.a(tbPageContext, i);
         bc.i(this.mPageFootView, v.bg_pack);
         return true;
     }
@@ -180,12 +180,12 @@ public class h extends com.baidu.tbadk.mvc.i.c {
     }
 
     @Override // com.baidu.tbadk.mvc.i.a
-    protected void kG() {
+    protected void kz() {
         stopLoadData();
     }
 
     @Override // com.baidu.tbadk.mvc.i.a
-    protected void kH() {
+    protected void kA() {
         ed(true);
     }
 }

@@ -7,31 +7,31 @@ import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cg implements com.baidu.adp.lib.e.c<cl> {
-    final /* synthetic */ cf aGt;
+    final /* synthetic */ cf aGq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cg(cf cfVar) {
-        this.aGt = cfVar;
+        this.aGq = cfVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: Hq */
+    /* renamed from: Hk */
     public cl eb() {
         Context context;
         FrsActivity frsActivity;
         FrsActivity frsActivity2;
         com.baidu.adp.lib.g.b ei = com.baidu.adp.lib.g.b.ei();
-        context = this.aGt.mContext;
+        context = this.aGq.mContext;
         View inflate = ei.inflate(context, com.baidu.tieba.x.frs_item_livecard, null);
-        cl clVar = new cl(this.aGt);
-        clVar.aCz = (LinearLayout) inflate.findViewById(com.baidu.tieba.w.live_card_layout);
-        clVar.aCA = (LiveBroadcastCard) inflate.findViewById(com.baidu.tieba.w.item_card);
-        frsActivity = this.aGt.aEd;
-        frsActivity.getLayoutMode().ab(this.aGt.mSkinType == 1);
-        frsActivity2 = this.aGt.aEd;
+        cl clVar = new cl(this.aGq);
+        clVar.aCw = (LinearLayout) inflate.findViewById(com.baidu.tieba.w.live_card_layout);
+        clVar.aCx = (LiveBroadcastCard) inflate.findViewById(com.baidu.tieba.w.item_card);
+        frsActivity = this.aGq.aEa;
+        frsActivity.getLayoutMode().ab(this.aGq.mSkinType == 1);
+        frsActivity2 = this.aGq.aEa;
         frsActivity2.getLayoutMode().h(inflate);
-        clVar.Yk = this.aGt.mSkinType;
+        clVar.Yh = this.aGq.mSkinType;
         return clVar;
     }
 

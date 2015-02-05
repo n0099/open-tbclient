@@ -8,7 +8,7 @@ import com.baidu.tieba.message.RequestFriendFeedLocalMessage;
 import com.baidu.tieba.message.RequestFriendFeedMessage;
 /* loaded from: classes.dex */
 public class l extends com.baidu.adp.base.f {
-    private boolean buD;
+    private boolean buC;
     private Context mContext;
     private String timeline;
 
@@ -25,12 +25,12 @@ public class l extends com.baidu.adp.base.f {
         this.timeline = str;
     }
 
-    public boolean UK() {
-        return this.buD;
+    public boolean UF() {
+        return this.buC;
     }
 
     public void setUseCache(boolean z) {
-        this.buD = z;
+        this.buC = z;
     }
 
     @Override // com.baidu.adp.base.f
@@ -51,7 +51,7 @@ public class l extends com.baidu.adp.base.f {
         int N = com.baidu.adp.lib.util.l.N(this.mContext);
         float f = M / 320.0f;
         int i2 = 1;
-        if (bg.pI().pK()) {
+        if (bg.pB().pD()) {
             i2 = 2;
         }
         RequestFriendFeedMessage requestFriendFeedMessage = new RequestFriendFeedMessage();
@@ -69,7 +69,7 @@ public class l extends com.baidu.adp.base.f {
         int N = com.baidu.adp.lib.util.l.N(this.mContext);
         float f = M / 320.0f;
         int i2 = 1;
-        if (bg.pI().pK()) {
+        if (bg.pB().pD()) {
             i2 = 2;
         }
         RequestFriendFeedLocalMessage requestFriendFeedLocalMessage = new RequestFriendFeedLocalMessage();

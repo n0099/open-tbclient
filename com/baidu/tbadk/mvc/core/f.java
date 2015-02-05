@@ -10,128 +10,128 @@ import com.baidu.tbadk.mvc.core.a;
 import com.baidu.tbadk.mvc.core.c;
 /* loaded from: classes.dex */
 public abstract class f<V extends c, M extends a, T> extends ProxyAdkBaseActivity<T> implements com.baidu.tbadk.mvc.c.a, e<V, M, T> {
-    private ViewEventCenter adW;
-    private V adX;
-    private M zc;
+    private ViewEventCenter adT;
+    private V adU;
+    private M yZ;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.a, com.baidu.adp.plugin.pluginBase.c
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        xe();
-        this.zc = kw();
-        if (this.zc != null) {
-            this.zc.setUniqueId(getUniqueId());
-            this.zc.a(this);
+        wY();
+        this.yZ = kp();
+        if (this.yZ != null) {
+            this.yZ.setUniqueId(getUniqueId());
+            this.yZ.a(this);
         }
-        this.adX = ky();
-        if (this.adX != null) {
-            this.adX.setUniqueId(getUniqueId());
-            this.adX.a(this);
+        this.adU = kr();
+        if (this.adU != null) {
+            this.adU.setUniqueId(getUniqueId());
+            this.adU.a(this);
         }
-        this.adW = wN();
-        xf();
-        xg();
+        this.adT = wH();
+        wZ();
+        xa();
         if (getIntent() != null) {
-            this.zc.f(getIntent().getExtras());
-            this.adX.i(getIntent().getExtras());
+            this.yZ.f(getIntent().getExtras());
+            this.adU.i(getIntent().getExtras());
         } else if (bundle != null) {
-            this.zc.f(bundle);
-            this.adX.i(bundle);
+            this.yZ.f(bundle);
+            this.adU.i(bundle);
         } else {
-            this.zc.f(null);
-            this.adX.i(null);
+            this.yZ.f(null);
+            this.adU.i(null);
         }
-        xh();
-        xi();
-        setContentView(this.adX.xd());
-        this.adX.kJ();
-        this.adX.a(getPageContext(), TbadkCoreApplication.m255getInst().getSkinType());
-        this.adX.xa();
-        xj();
+        xb();
+        xc();
+        setContentView(this.adU.wX());
+        this.adU.kC();
+        this.adU.a(getPageContext(), TbadkCoreApplication.m255getInst().getSkinType());
+        this.adU.wU();
+        xd();
     }
 
-    protected void xe() {
+    protected void wY() {
     }
 
-    protected void xf() {
+    protected void wZ() {
     }
 
-    protected void xg() {
+    protected void xa() {
     }
 
-    protected void xh() {
+    protected void xb() {
     }
 
-    protected void xi() {
+    protected void xc() {
     }
 
-    protected void xj() {
+    protected void xd() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.plugin.pluginBase.c
     public void onStart() {
         super.onStart();
-        xk();
-        ky().wQ();
+        xe();
+        kr().wK();
     }
 
-    protected void xk() {
+    protected void xe() {
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.c
     public void onRestart() {
         super.onRestart();
-        xl();
-        ky().wR();
+        xf();
+        kr().wL();
     }
 
-    protected void xl() {
+    protected void xf() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.a, com.baidu.adp.plugin.pluginBase.c
     public void onResume() {
         super.onResume();
-        xm();
-        ky().wT();
+        xg();
+        kr().wN();
     }
 
-    protected void xm() {
+    protected void xg() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.a, com.baidu.adp.plugin.pluginBase.c
     public void onPause() {
         super.onPause();
-        xn();
-        ky().wV();
+        xh();
+        kr().wP();
     }
 
-    protected void xn() {
+    protected void xh() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.a, com.baidu.adp.plugin.pluginBase.c
     public void onStop() {
         super.onStop();
-        xo();
-        ky().wX();
+        xi();
+        kr().wR();
     }
 
-    protected void xo() {
+    protected void xi() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.a, com.baidu.adp.plugin.pluginBase.c
     public void onDestroy() {
         super.onDestroy();
-        xp();
-        ky().wY();
+        xj();
+        kr().wS();
     }
 
-    protected void xp() {
+    protected void xj() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -144,28 +144,28 @@ public abstract class f<V extends c, M extends a, T> extends ProxyAdkBaseActivit
     @Override // com.baidu.adp.plugin.pluginBase.c
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.zc.onSaveInstanceState(bundle);
-        this.adX.onSaveInstanceState(bundle);
+        this.yZ.onSaveInstanceState(bundle);
+        this.adU.onSaveInstanceState(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.plugin.pluginBase.c
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        ky().onActivityResult(i, i2, intent);
+        kr().onActivityResult(i, i2, intent);
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
     protected void onChangeSkinType(int i) {
-        this.adX.a(getPageContext(), i);
+        this.adU.a(getPageContext(), i);
     }
 
     @Override // com.baidu.tbadk.mvc.core.e
-    public ViewEventCenter wN() {
-        if (this.adW == null) {
-            this.adW = new ViewEventCenter();
+    public ViewEventCenter wH() {
+        if (this.adT == null) {
+            this.adT = new ViewEventCenter();
         }
-        return this.adW;
+        return this.adT;
     }
 
     protected void a(ErrorData errorData) {
@@ -175,7 +175,7 @@ public abstract class f<V extends c, M extends a, T> extends ProxyAdkBaseActivit
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean wO() {
+    public boolean wI() {
         return false;
     }
 

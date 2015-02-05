@@ -13,146 +13,146 @@ import tbclient.PbFloor.DataRes;
 import tbclient.SubPostList;
 /* loaded from: classes.dex */
 public class o {
-    private x aDm;
-    private int aaO;
-    private AntiData bLu;
-    private int bWF;
-    private ForumData bYV;
-    public Error bZc;
-    private int bYZ = 10;
-    private int bZa = -1;
-    private boolean bZb = false;
-    private k bYW = null;
-    private ArrayList<k> bYX = new ArrayList<>();
-    private int bYY = 1;
+    private x aDj;
+    private int aaL;
+    private AntiData bLt;
+    private int bWE;
+    private ForumData bYU;
+    public Error bZb;
+    private int bYY = 10;
+    private int bYZ = -1;
+    private boolean bZa = false;
+    private k bYV = null;
+    private ArrayList<k> bYW = new ArrayList<>();
+    private int bYX = 1;
 
-    public Error ahG() {
-        return this.bZc;
+    public Error ahB() {
+        return this.bZb;
     }
 
-    public k ahH() {
-        return this.bYW;
+    public k ahC() {
+        return this.bYV;
     }
 
     public void d(k kVar) {
-        this.bYW = kVar;
+        this.bYV = kVar;
     }
 
-    public int ahI() {
-        if (this.bZa == -1) {
-            this.bZa = this.aaO;
+    public int ahD() {
+        if (this.bYZ == -1) {
+            this.bYZ = this.aaL;
         }
-        return this.bZa;
+        return this.bYZ;
     }
 
     public void a(o oVar, boolean z) {
         if (oVar != null) {
-            b(oVar.abT());
-            this.bZa = oVar.getCurrentPage();
-            b(oVar.ahL());
-            ia(oVar.ahK());
-            f(oVar.ahM());
+            b(oVar.abO());
+            this.bYZ = oVar.getCurrentPage();
+            b(oVar.ahG());
+            ia(oVar.ahF());
+            f(oVar.ahH());
             setTotalCount(oVar.getTotalCount());
             hZ(oVar.getTotalPage());
-            this.bYX.addAll(0, oVar.ahJ());
+            this.bYW.addAll(0, oVar.ahE());
         }
     }
 
     public void b(o oVar, boolean z) {
         if (oVar != null) {
-            b(oVar.abT());
+            b(oVar.abO());
             aL(oVar.getCurrentPage());
-            b(oVar.ahL());
-            ia(oVar.ahK());
-            f(oVar.ahM());
+            b(oVar.ahG());
+            ia(oVar.ahF());
+            f(oVar.ahH());
             setTotalCount(oVar.getTotalCount());
             hZ(oVar.getTotalPage());
-            int size = this.bYX.size();
-            if (z && size % this.bYZ != 0) {
-                for (int i = 0; i < size % this.bYZ; i++) {
-                    this.bYX.remove(this.bYX.size() - 1);
+            int size = this.bYW.size();
+            if (z && size % this.bYY != 0) {
+                for (int i = 0; i < size % this.bYY; i++) {
+                    this.bYW.remove(this.bYW.size() - 1);
                 }
             }
-            this.bYX.addAll(oVar.ahJ());
+            this.bYW.addAll(oVar.ahE());
         }
     }
 
-    public ArrayList<k> ahJ() {
-        return this.bYX;
+    public ArrayList<k> ahE() {
+        return this.bYW;
     }
 
     public void Q(ArrayList<k> arrayList) {
-        this.bYX = arrayList;
+        this.bYW = arrayList;
     }
 
     public int getTotalPage() {
-        return this.bYY;
+        return this.bYX;
     }
 
     public void hZ(int i) {
-        this.bYY = i;
+        this.bYX = i;
     }
 
     public int getTotalCount() {
-        return this.bWF;
+        return this.bWE;
     }
 
     public void setTotalCount(int i) {
-        this.bWF = i;
+        this.bWE = i;
     }
 
-    public int ahK() {
-        return this.bYZ;
+    public int ahF() {
+        return this.bYY;
     }
 
     public void ia(int i) {
         if (i != 0) {
-            this.bYZ = i;
+            this.bYY = i;
         }
     }
 
     public int getCurrentPage() {
-        return this.aaO;
+        return this.aaL;
     }
 
     public void aL(int i) {
-        this.aaO = i;
+        this.aaL = i;
     }
 
     public void b(ForumData forumData) {
-        this.bYV = forumData;
+        this.bYU = forumData;
     }
 
-    public ForumData ahL() {
-        return this.bYV;
+    public ForumData ahG() {
+        return this.bYU;
     }
 
     public void b(AntiData antiData) {
-        this.bLu = antiData;
+        this.bLt = antiData;
     }
 
-    public AntiData abT() {
-        return this.bLu;
+    public AntiData abO() {
+        return this.bLt;
     }
 
     public void f(x xVar) {
-        this.aDm = xVar;
+        this.aDj = xVar;
     }
 
-    public boolean RR() {
-        return (this.aDm == null || this.bYW == null || this.aDm.getAuthor() == null || this.aDm.getAuthor().getUserId() == null || this.bYW.getAuthor() == null || this.bYW.getAuthor().getUserId() == null || !this.aDm.getAuthor().getUserId().equals(this.bYW.getAuthor().getUserId())) ? false : true;
+    public boolean RM() {
+        return (this.aDj == null || this.bYV == null || this.aDj.getAuthor() == null || this.aDj.getAuthor().getUserId() == null || this.bYV.getAuthor() == null || this.bYV.getAuthor().getUserId() == null || !this.aDj.getAuthor().getUserId().equals(this.bYV.getAuthor().getUserId())) ? false : true;
     }
 
-    public boolean li() {
-        return this.bZb;
+    public boolean lb() {
+        return this.bZa;
     }
 
     public boolean hasMore() {
-        return this.aaO < this.bYY && this.aaO * this.bYZ < 200;
+        return this.aaL < this.bYX && this.aaL * this.bYY < 200;
     }
 
-    public x ahM() {
-        return this.aDm;
+    public x ahH() {
+        return this.aDj;
     }
 
     public static o a(DataRes dataRes, Context context) {
@@ -199,6 +199,6 @@ public class o {
     }
 
     public void Y(boolean z) {
-        this.bZb = z;
+        this.bZa = z;
     }
 }

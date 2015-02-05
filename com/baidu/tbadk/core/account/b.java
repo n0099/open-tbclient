@@ -14,7 +14,7 @@ public class b {
 
     public b() {
         this.mKey = "kf1t9tsczk16vc8z";
-        this.mKey = mm();
+        this.mKey = mf();
     }
 
     private byte[] b(Key key, byte[] bArr) {
@@ -53,7 +53,7 @@ public class b {
         return com.baidu.tbadk.core.util.b.encode(jSONArray.toString().getBytes("UTF-8"));
     }
 
-    private String mm() {
+    private String mf() {
         Random random = new Random();
         StringBuffer stringBuffer = new StringBuffer();
         for (int i = 0; i < 16; i++) {

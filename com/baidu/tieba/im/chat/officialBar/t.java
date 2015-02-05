@@ -6,13 +6,13 @@ import com.baidu.tieba.im.message.ResponseOfficialBarMenuMessage;
 import com.baidu.tieba.im.model.OfficialBarMsglistModel;
 /* loaded from: classes.dex */
 class t extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ OfficialBarChatActivity aUp;
+    final /* synthetic */ OfficialBarChatActivity aUo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t(OfficialBarChatActivity officialBarChatActivity, int i) {
         super(i);
-        this.aUp = officialBarChatActivity;
+        this.aUo = officialBarChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,23 +25,23 @@ class t extends com.baidu.adp.framework.listener.e {
         OfficialBarMsglistView officialBarMsglistView4;
         OfficialBarMsglistModel officialBarMsglistModel2;
         OfficialBarMsglistView officialBarMsglistView5;
-        officialBarMsglistView = this.aUp.aUi;
+        officialBarMsglistView = this.aUo.aUh;
         officialBarMsglistView.cA(false);
         if (!(socketResponsedMessage instanceof ResponseOfficialBarMenuMessage)) {
-            this.aUp.showToast(com.baidu.tieba.z.neterror);
+            this.aUo.showToast(com.baidu.tieba.z.neterror);
             return;
         }
         ResponseOfficialBarMenuMessage responseOfficialBarMenuMessage = (ResponseOfficialBarMenuMessage) socketResponsedMessage;
         if (responseOfficialBarMenuMessage.hasError()) {
             if (responseOfficialBarMenuMessage.getError() > 0 && !TextUtils.isEmpty(responseOfficialBarMenuMessage.getErrorString())) {
-                this.aUp.showToast(responseOfficialBarMenuMessage.getErrorString());
+                this.aUo.showToast(responseOfficialBarMenuMessage.getErrorString());
             } else {
-                this.aUp.showToast(com.baidu.tieba.z.neterror);
+                this.aUo.showToast(com.baidu.tieba.z.neterror);
             }
-            officialBarMsglistModel2 = this.aUp.aUj;
+            officialBarMsglistModel2 = this.aUo.aUi;
             com.baidu.tieba.im.data.e officialBarMenuDatas = officialBarMsglistModel2.getOfficialBarMenuDatas();
-            if (officialBarMenuDatas == null || officialBarMenuDatas.ML() == null || officialBarMenuDatas.ML().size() == 0) {
-                officialBarMsglistView5 = this.aUp.aUi;
+            if (officialBarMenuDatas == null || officialBarMenuDatas.MG() == null || officialBarMenuDatas.MG().size() == 0) {
+                officialBarMsglistView5 = this.aUo.aUh;
                 officialBarMsglistView5.cz(true);
                 return;
             }
@@ -49,19 +49,19 @@ class t extends com.baidu.adp.framework.listener.e {
         }
         com.baidu.tieba.im.data.e officialBarMenuDatas2 = responseOfficialBarMenuMessage.getOfficialBarMenuDatas();
         if (officialBarMenuDatas2 != null) {
-            if (officialBarMenuDatas2.MJ()) {
-                officialBarMsglistView3 = this.aUp.aUi;
+            if (officialBarMenuDatas2.ME()) {
+                officialBarMsglistView3 = this.aUo.aUh;
                 officialBarMsglistView3.cz(false);
-                if (officialBarMenuDatas2.ML() != null && officialBarMenuDatas2.ML().size() > 0) {
-                    officialBarMsglistModel = this.aUp.aUj;
+                if (officialBarMenuDatas2.MG() != null && officialBarMenuDatas2.MG().size() > 0) {
+                    officialBarMsglistModel = this.aUo.aUi;
                     officialBarMsglistModel.setOfficialBarMenuDatas(officialBarMenuDatas2);
-                    officialBarMsglistView4 = this.aUp.aUi;
-                    officialBarMsglistView4.am(officialBarMenuDatas2.ML());
+                    officialBarMsglistView4 = this.aUo.aUh;
+                    officialBarMsglistView4.am(officialBarMenuDatas2.MG());
                     return;
                 }
                 return;
             }
-            officialBarMsglistView2 = this.aUp.aUi;
+            officialBarMsglistView2 = this.aUo.aUh;
             officialBarMsglistView2.cz(true);
         }
     }

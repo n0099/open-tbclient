@@ -146,7 +146,7 @@ public class a {
 
     private static b a(boolean z, Throwable th) {
         b bVar = new b();
-        bVar.tW = z;
+        bVar.tT = z;
         bVar.mErrMsg = th != null ? th.getLocalizedMessage() : null;
         return bVar;
     }

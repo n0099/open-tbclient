@@ -4,30 +4,30 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class ak {
-    private static ak IS;
-    private static long IU;
-    public static int IX;
-    private static volatile int IT = 0;
-    private static int IV = 300000;
-    private static int IW = 10;
+    private static ak IP;
+    private static long IR;
+    public static int IU;
+    private static volatile int IQ = 0;
+    private static int IS = 300000;
+    private static int IT = 10;
 
     private ak() {
-        IX = TbadkCoreApplication.m255getInst().getNetWorkCoreType();
+        IU = TbadkCoreApplication.m255getInst().getNetWorkCoreType();
     }
 
-    public static synchronized ak pl() {
+    public static synchronized ak pe() {
         ak akVar;
         synchronized (ak.class) {
-            if (IS == null) {
-                IS = new ak();
+            if (IP == null) {
+                IP = new ak();
             }
-            akVar = IS;
+            akVar = IP;
         }
         return akVar;
     }
 
     public v a(com.baidu.tbadk.core.util.httpNet.c cVar) {
-        switch (IX) {
+        switch (IU) {
             case 0:
                 return new ae(cVar);
             case 1:
@@ -37,21 +37,21 @@ public class ak {
         }
     }
 
-    public static synchronized void pm() {
+    public static synchronized void pf() {
         synchronized (ak.class) {
-            if (IX == 1) {
+            if (IU == 1) {
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - IU < IV) {
-                    IT++;
-                    if (IT > IW) {
-                        IX = 0;
+                if (currentTimeMillis - IR < IS) {
+                    IQ++;
+                    if (IQ > IT) {
+                        IU = 0;
                         BdLog.e("切换会老的网络内核");
-                        TbadkCoreApplication.m255getInst().setNetWorkCoreType(IX);
+                        TbadkCoreApplication.m255getInst().setNetWorkCoreType(IU);
                         TiebaStatic.eventStat(TbadkCoreApplication.m255getInst().getApp().getApplicationContext(), "network_core", "current Net：" + com.baidu.adp.lib.util.i.fl() + ", TelType:" + com.baidu.adp.lib.util.i.fn() + ", wap:" + getNetType(), 1, new Object[0]);
                     }
                 } else {
-                    IT = 0;
-                    IU = currentTimeMillis;
+                    IQ = 0;
+                    IR = currentTimeMillis;
                 }
             }
         }
@@ -78,6 +78,6 @@ public class ak {
     }
 
     public static void bU(int i) {
-        IX = i;
+        IU = i;
     }
 }

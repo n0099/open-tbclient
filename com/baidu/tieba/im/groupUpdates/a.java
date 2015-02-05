@@ -7,13 +7,13 @@ import com.baidu.tieba.im.message.ResponseDelSystemMessage;
 import com.baidu.tieba.im.model.UpdatesModel;
 /* loaded from: classes.dex */
 class a extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ UpdatesActivity bhj;
+    final /* synthetic */ UpdatesActivity bhi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(UpdatesActivity updatesActivity, int i) {
         super(i);
-        this.bhj = updatesActivity;
+        this.bhi = updatesActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,22 +27,22 @@ class a extends com.baidu.adp.framework.listener.e {
         com.baidu.tieba.im.g<Boolean> gVar;
         UpdatesItemData updatesItemData2;
         com.baidu.tieba.im.g gVar2;
-        pVar = this.bhj.bhg;
+        pVar = this.bhi.bhf;
         pVar.setLoadProgressBarVisable(false);
         if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponsedMessage) && 202004 == socketResponsedMessage.getCmd() && ((ResponseDelSystemMessage) socketResponsedMessage).getError() == 0) {
-            updatesItemData = this.bhj.pendingToDel;
+            updatesItemData = this.bhi.pendingToDel;
             if (updatesItemData != null) {
-                updatesItemData2 = this.bhj.pendingToDel;
-                gVar2 = this.bhj.delDataCallBack;
+                updatesItemData2 = this.bhi.pendingToDel;
+                gVar2 = this.bhi.delDataCallBack;
                 UpdatesModel.deleteUpdatesData(updatesItemData2, gVar2);
-                this.bhj.pendingToDel = null;
+                this.bhi.pendingToDel = null;
             }
-            updatesModel = this.bhj.bhi;
+            updatesModel = this.bhi.bhh;
             if (updatesModel != null) {
-                updatesModel2 = this.bhj.bhi;
+                updatesModel2 = this.bhi.bhh;
                 if (updatesModel2.getDeleteSize() > 0) {
-                    updatesModel3 = this.bhj.bhi;
-                    gVar = this.bhj.delDataCallBack;
+                    updatesModel3 = this.bhi.bhh;
+                    gVar = this.bhi.delDataCallBack;
                     updatesModel3.deleteDatas(gVar);
                 }
             }

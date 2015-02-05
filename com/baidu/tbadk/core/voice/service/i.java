@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.voice.service;
 /* loaded from: classes.dex */
 public interface i {
-    boolean db(String str);
+    boolean cY(String str);
 
     int fE();
 
@@ -9,15 +9,15 @@ public interface i {
 
     boolean isPlaying();
 
+    void qS();
+
     void qY();
 
-    void re();
+    void qZ();
 
-    void rf();
+    void ra();
 
-    void rg();
-
-    boolean rh();
+    boolean rb();
 
     void seek(int i);
 }

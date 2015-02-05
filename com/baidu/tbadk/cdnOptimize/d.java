@@ -5,13 +5,13 @@ import android.os.Looper;
 import android.os.Message;
 /* loaded from: classes.dex */
 class d extends Handler {
-    final /* synthetic */ TbCDNTachometerService BG;
+    final /* synthetic */ TbCDNTachometerService BD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(TbCDNTachometerService tbCDNTachometerService, Looper looper) {
         super(looper);
-        this.BG = tbCDNTachometerService;
+        this.BD = tbCDNTachometerService;
     }
 
     @Override // android.os.Handler
@@ -20,6 +20,6 @@ class d extends Handler {
         if (1002 != message.what) {
             return;
         }
-        this.BG.BroadcastCdnIp();
+        this.BD.BroadcastCdnIp();
     }
 }

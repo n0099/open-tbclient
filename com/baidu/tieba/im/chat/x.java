@@ -7,13 +7,13 @@ import com.baidu.tieba.im.model.CommonGroupMsglistModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ CommonGroupChatActiviy aRn;
+    final /* synthetic */ CommonGroupChatActiviy aRm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x(CommonGroupChatActiviy commonGroupChatActiviy, int i) {
         super(i);
-        this.aRn = commonGroupChatActiviy;
+        this.aRm = commonGroupChatActiviy;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,13 +25,13 @@ public class x extends com.baidu.adp.framework.listener.e {
                 case 103101:
                 case 103110:
                 case 103112:
-                    this.aRn.mListView.refresh();
+                    this.aRm.mListView.refresh();
                     return;
                 case 103104:
                     if (socketResponsedMessage instanceof ResponseDismissGroupMessage) {
                         ResponseDismissGroupMessage responseDismissGroupMessage = (ResponseDismissGroupMessage) socketResponsedMessage;
-                        if (responseDismissGroupMessage.getError() == 0 && (this.aRn.mListModel instanceof CommonGroupMsglistModel) && (group = ((CommonGroupMsglistModel) this.aRn.mListModel).getGroup()) != null && group.getGroupId() == responseDismissGroupMessage.getGroupId()) {
-                            this.aRn.finish();
+                        if (responseDismissGroupMessage.getError() == 0 && (this.aRm.mListModel instanceof CommonGroupMsglistModel) && (group = ((CommonGroupMsglistModel) this.aRm.mListModel).getGroup()) != null && group.getGroupId() == responseDismissGroupMessage.getGroupId()) {
+                            this.aRm.finish();
                             return;
                         }
                         return;

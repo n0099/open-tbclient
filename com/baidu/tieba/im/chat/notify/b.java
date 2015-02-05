@@ -81,9 +81,9 @@ public abstract class b extends BaseAdapter {
             view.setTag(cVar);
         }
         bc.i(view, v.list_selector);
-        bc.i(cVar.Td, t.cp_bg_line_b);
-        cVar.aTg.setVisibility(0);
-        cVar.Td.setVisibility(0);
+        bc.i(cVar.Ta, t.cp_bg_line_b);
+        cVar.aTf.setVisibility(0);
+        cVar.Ta.setVisibility(0);
         ImMessageCenterShowItemData item = getItem(i);
         if (item != null) {
             a(cVar, item);
@@ -98,34 +98,34 @@ public abstract class b extends BaseAdapter {
     }
 
     protected void a(c cVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        cVar.zK.setText(imMessageCenterShowItemData.getFriendName());
+        cVar.zH.setText(imMessageCenterShowItemData.getFriendName());
     }
 
     private void b(c cVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         if (cVar != null) {
             if (imMessageCenterShowItemData == null) {
-                cVar.aTk.setVisibility(8);
+                cVar.aTj.setVisibility(8);
             } else if (b(imMessageCenterShowItemData)) {
                 com.baidu.tieba.im.pushNotify.a groupSetting = imMessageCenterShowItemData.getGroupSetting();
                 if (groupSetting == null) {
-                    cVar.aTk.setVisibility(8);
+                    cVar.aTj.setVisibility(8);
                 } else if (!groupSetting.isAcceptNotify()) {
-                    cVar.aTk.setVisibility(0);
-                    bc.c(cVar.aTk, v.icon_news_stop);
+                    cVar.aTj.setVisibility(0);
+                    bc.c(cVar.aTj, v.icon_news_stop);
                 } else {
-                    cVar.aTk.setVisibility(8);
+                    cVar.aTj.setVisibility(8);
                 }
             } else {
-                cVar.aTk.setVisibility(8);
+                cVar.aTj.setVisibility(8);
             }
         }
     }
 
     private void c(c cVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         if (TextUtils.isEmpty(imMessageCenterShowItemData.getMsgContent())) {
-            cVar.aTh.setText("");
+            cVar.aTg.setText("");
         } else {
-            cVar.aTh.setText(imMessageCenterShowItemData.getMsgContent());
+            cVar.aTg.setText(imMessageCenterShowItemData.getMsgContent());
         }
     }
 
@@ -138,13 +138,13 @@ public abstract class b extends BaseAdapter {
         if (imMessageCenterShowItemData.getServerTime() != 0) {
             str = bf.g(date);
         }
-        cVar.aTi.setText(str);
+        cVar.aTh.setText(str);
     }
 
     private void e(c cVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         int unReadCount = imMessageCenterShowItemData.getUnReadCount();
         if (unReadCount > 0) {
-            cVar.aTj.setVisibility(0);
+            cVar.aTi.setVisibility(0);
             String valueOf = unReadCount > 99 ? "..." : String.valueOf(unReadCount);
             if (TbadkCoreApplication.m255getInst().getMsgFrequency() == 0) {
                 valueOf = "";
@@ -159,60 +159,60 @@ public abstract class b extends BaseAdapter {
                     }
                 }
             }
-            cVar.aTj.setText(valueOf);
+            cVar.aTi.setText(valueOf);
         } else {
-            cVar.aTj.setVisibility(8);
+            cVar.aTi.setVisibility(8);
         }
-        bc.b(cVar.zK, t.cp_cont_b, 1);
-        bc.b(cVar.aTh, t.cp_cont_d, 1);
-        bc.b(cVar.aTi, t.cp_cont_e, 1);
+        bc.b(cVar.zH, t.cp_cont_b, 1);
+        bc.b(cVar.aTg, t.cp_cont_d, 1);
+        bc.b(cVar.aTh, t.cp_cont_e, 1);
         if (unReadCount < 10) {
             if (unReadCount == 0) {
-                bc.i((View) cVar.aTj, v.icon_news_down_bar_one);
-                cVar.aTj.setWidth(0);
-                cVar.aTj.setHeight(0);
+                bc.i((View) cVar.aTi, v.icon_news_down_bar_one);
+                cVar.aTi.setWidth(0);
+                cVar.aTi.setHeight(0);
             } else {
-                bc.i((View) cVar.aTj, v.icon_news_head_prompt_one);
+                bc.i((View) cVar.aTi, v.icon_news_head_prompt_one);
             }
         } else if (unReadCount < 100) {
-            bc.i((View) cVar.aTj, v.icon_news_head_prompt_two);
+            bc.i((View) cVar.aTi, v.icon_news_head_prompt_two);
         } else {
-            bc.i((View) cVar.aTj, v.icon_news_head_prompt_more);
-            cVar.aTj.setText("");
+            bc.i((View) cVar.aTi, v.icon_news_head_prompt_more);
+            cVar.aTi.setText("");
         }
-        bc.b(cVar.aTj, t.frs_slidebar_message_text, 1);
+        bc.b(cVar.aTi, t.frs_slidebar_message_text, 1);
     }
 
     private c B(View view) {
         c cVar = new c(this);
-        cVar.aTg = (ViewGroup) view.findViewById(w.list_content);
-        cVar.zJ = (HeadImageView) view.findViewById(w.chat_head);
-        cVar.zK = (TextView) view.findViewById(w.chat_name);
-        cVar.aTh = (TextView) view.findViewById(w.last_chat_content);
-        cVar.aTi = (TextView) view.findViewById(w.chat_time);
-        cVar.Td = view.findViewById(w.line);
-        cVar.aTj = (TextView) view.findViewById(w.new_message);
-        cVar.aTk = (ImageView) view.findViewById(w.iv_bell);
-        cVar.aTl = (ImageView) view.findViewById(w.send_status);
+        cVar.aTf = (ViewGroup) view.findViewById(w.list_content);
+        cVar.zG = (HeadImageView) view.findViewById(w.chat_head);
+        cVar.zH = (TextView) view.findViewById(w.chat_name);
+        cVar.aTg = (TextView) view.findViewById(w.last_chat_content);
+        cVar.aTh = (TextView) view.findViewById(w.chat_time);
+        cVar.Ta = view.findViewById(w.line);
+        cVar.aTi = (TextView) view.findViewById(w.new_message);
+        cVar.aTj = (ImageView) view.findViewById(w.iv_bell);
+        cVar.aTk = (ImageView) view.findViewById(w.send_status);
         return cVar;
     }
 
     private void g(c cVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         if (cVar != null && imMessageCenterShowItemData != null && imMessageCenterShowItemData.getOwnerName() != null) {
             if (a(imMessageCenterShowItemData)) {
-                cVar.aTl.setVisibility(0);
+                cVar.aTk.setVisibility(0);
                 if (imMessageCenterShowItemData.getSendStatus() == 2) {
-                    bc.i(cVar.aTl, v.icon_send_failed_information);
+                    bc.i(cVar.aTk, v.icon_send_failed_information);
                     return;
                 } else if (imMessageCenterShowItemData.getSendStatus() == 1) {
-                    bc.i(cVar.aTl, v.icon_send_in_information);
+                    bc.i(cVar.aTk, v.icon_send_in_information);
                     return;
                 } else {
-                    cVar.aTl.setVisibility(8);
+                    cVar.aTk.setVisibility(8);
                     return;
                 }
             }
-            cVar.aTl.setVisibility(8);
+            cVar.aTk.setVisibility(8);
         }
     }
 }

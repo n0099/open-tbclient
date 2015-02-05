@@ -1,18 +1,18 @@
 package com.baidu.tbadk.core.util;
 /* loaded from: classes.dex */
 class y {
-    int Ik;
-    long Il;
-    int Im;
+    int Ih;
+    long Ii;
+    int Ij;
     int num;
     long time;
 
     private y() {
         this.num = 0;
-        this.Ik = 0;
+        this.Ih = 0;
         this.time = 0L;
-        this.Il = 0L;
-        this.Im = 0;
+        this.Ii = 0L;
+        this.Ij = 0;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -22,9 +22,9 @@ class y {
 
     public void reset() {
         this.num = 0;
-        this.Ik = 0;
+        this.Ih = 0;
         this.time = 0L;
-        this.Il = 0L;
-        this.Im = 0;
+        this.Ii = 0L;
+        this.Ij = 0;
     }
 }

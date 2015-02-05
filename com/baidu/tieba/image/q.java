@@ -26,7 +26,7 @@ public class q extends BdAsyncTask<String, Integer, String> {
     public String doInBackground(String... strArr) {
         switch (s.a(this.mUrl, this.mData, this.this$0.getPageContext().getPageActivity())) {
             case -2:
-                return s.os();
+                return s.ol();
             case -1:
             default:
                 return this.this$0.getPageContext().getString(z.save_error);
@@ -42,16 +42,16 @@ public class q extends BdAsyncTask<String, Integer, String> {
         View view;
         super.onPostExecute((q) str);
         this.this$0.showToast(str);
-        this.this$0.brL = null;
-        view = this.this$0.brM;
+        this.this$0.brK = null;
+        view = this.this$0.brL;
         view.setClickable(true);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         View view;
-        this.this$0.brL = null;
-        view = this.this$0.brM;
+        this.this$0.brK = null;
+        view = this.this$0.brL;
         view.setClickable(true);
         super.cancel(true);
     }

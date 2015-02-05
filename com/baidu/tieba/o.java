@@ -9,16 +9,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.bh;
 /* loaded from: classes.dex */
 public class o {
-    private com.baidu.tbadk.coreExtra.c.c alm = new com.baidu.tbadk.coreExtra.c.c();
+    private com.baidu.tbadk.coreExtra.c.c ali = new com.baidu.tbadk.coreExtra.c.c();
 
     public Bitmap aj(Context context) {
-        String sv = this.alm.sv();
+        String sp = this.ali.sp();
         Bitmap bitmap = null;
-        if (!StringUtils.isNull(sv)) {
+        if (!StringUtils.isNull(sp)) {
             try {
-                bitmap = BitmapFactory.decodeFile(com.baidu.tbadk.core.util.s.ch(bh.cH(sv)).getAbsolutePath());
+                bitmap = BitmapFactory.decodeFile(com.baidu.tbadk.core.util.s.ce(bh.cE(sp)).getAbsolutePath());
                 if (bitmap == null) {
-                    this.alm.sw();
+                    this.ali.sq();
                 }
             } catch (Throwable th) {
             }

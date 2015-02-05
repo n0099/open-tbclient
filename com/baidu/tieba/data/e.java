@@ -7,30 +7,30 @@ import com.baidu.tbadk.data.b;
 import tbclient.ForumRecommend.DataRes;
 /* loaded from: classes.dex */
 public class e {
-    private boolean Rs;
-    private boolean abO;
-    private int asX;
+    private boolean Rp;
+    private boolean abL;
+    private int asU;
+    private int asV;
+    private int asW;
+    private String asX;
     private int asY;
-    private int asZ;
-    private String ata;
-    private int atb;
     private int time = 0;
-    private j asT = new j();
-    private o asU = new o();
-    private w asV = new w();
-    private n asW = new n();
+    private j asQ = new j();
+    private o asR = new o();
+    private w asS = new w();
+    private n asT = new n();
 
-    public boolean CB() {
-        return this.abO;
+    public boolean Cv() {
+        return this.abL;
     }
 
     public void bq(boolean z) {
-        this.abO = z;
+        this.abL = z;
     }
 
     public e() {
-        this.Rs = true;
-        this.Rs = false;
+        this.Rp = true;
+        this.Rp = false;
     }
 
     public void setTime(int i) {
@@ -38,31 +38,31 @@ public class e {
     }
 
     public void et(int i) {
-        this.asZ = i;
+        this.asW = i;
     }
 
     public void setIsMem(int i) {
-        this.atb = i;
-    }
-
-    public void eu(int i) {
-        this.asX = i;
-    }
-
-    public void ev(int i) {
         this.asY = i;
     }
 
-    public void fb(String str) {
-        this.ata = str;
+    public void eu(int i) {
+        this.asU = i;
+    }
+
+    public void ev(int i) {
+        this.asV = i;
+    }
+
+    public void eY(String str) {
+        this.asX = str;
     }
 
     public void a(n nVar) {
-        this.asW = nVar;
+        this.asT = nVar;
     }
 
-    public n CC() {
-        return this.asW;
+    public n Cw() {
+        return this.asT;
     }
 
     public void a(DataRes dataRes) {
@@ -77,21 +77,21 @@ public class e {
                 eu(dataRes.msign_valid.intValue());
                 ev(dataRes.msign_level.intValue());
                 et(dataRes.is_login.intValue());
-                fb(dataRes.msign_text);
+                eY(dataRes.msign_text);
                 setIsMem(dataRes.is_mem.intValue());
                 setTime(dataRes.time.intValue());
-                this.asT.setLevel(this.asY);
+                this.asQ.setLevel(this.asV);
                 if (dataRes.like_forum != null) {
-                    this.asT.i(dataRes.like_forum);
+                    this.asQ.i(dataRes.like_forum);
                 }
                 if (dataRes.new_recommend != null) {
-                    this.asU.i(dataRes.new_recommend);
+                    this.asR.i(dataRes.new_recommend);
                 }
                 if (dataRes.banner != null) {
-                    this.asV.i(dataRes.banner);
+                    this.asS.i(dataRes.banner);
                 }
                 if (dataRes.recommend_forum_info != null) {
-                    this.asW.H(dataRes.recommend_forum_info);
+                    this.asT.H(dataRes.recommend_forum_info);
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -99,46 +99,46 @@ public class e {
         }
     }
 
-    public w CD() {
-        return this.asV;
+    public w Cx() {
+        return this.asS;
     }
 
     public void a(w wVar) {
-        this.asV = wVar;
+        this.asS = wVar;
     }
 
-    public j CE() {
-        return this.asT;
+    public j Cy() {
+        return this.asQ;
     }
 
     public void a(j jVar) {
-        this.asT = jVar;
+        this.asQ = jVar;
     }
 
-    public o CF() {
-        return this.asU;
+    public o Cz() {
+        return this.asR;
     }
 
     public void a(o oVar) {
-        this.asU = oVar;
+        this.asR = oVar;
     }
 
     public void au(boolean z) {
-        this.Rs = z;
+        this.Rp = z;
     }
 
     public boolean isSuccess() {
-        return this.Rs;
+        return this.Rp;
     }
 
-    public boolean CG() {
-        return System.currentTimeMillis() / b.WF.longValue() == (((long) this.time) * 1000) / b.WF.longValue();
+    public boolean CA() {
+        return System.currentTimeMillis() / b.WC.longValue() == (((long) this.time) * 1000) / b.WC.longValue();
     }
 
     public boolean isEmpty() {
         boolean z = false;
-        if (this.Rs) {
-            if (this.asT == null || this.asT.CT() == null || this.asT.CT().size() < 1) {
+        if (this.Rp) {
+            if (this.asQ == null || this.asQ.CN() == null || this.asQ.CN().size() < 1) {
                 z = true;
             }
             return z;

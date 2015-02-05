@@ -30,14 +30,14 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
                 if (activeNetworkInfo.getTypeName().equalsIgnoreCase(WIFI_STRING)) {
                     if (this.NETWORK_STATUS != 1) {
                         if (this.NETWORK_STATUS != -1) {
-                            bg.pI().ao(true);
+                            bg.pB().ao(true);
                             MessageManager.getInstance().dispatchResponsedMessage(new NetWorkChangeMessage(1));
                         }
                         this.NETWORK_STATUS = 1;
                     }
                 } else if (this.NETWORK_STATUS != 2) {
                     if (this.NETWORK_STATUS != -1) {
-                        bg.pI().ao(false);
+                        bg.pB().ao(false);
                         MessageManager.getInstance().dispatchResponsedMessage(new NetWorkChangeMessage(2));
                     }
                     this.NETWORK_STATUS = 2;

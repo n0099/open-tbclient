@@ -2,34 +2,34 @@ package com.baidu.tbadk.performanceLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z {
-    public static int ahe;
-    public static long ahf;
-    public static long ahg;
+    public static int ahb;
+    public static long ahc;
+    public static long ahd;
+    public static long ahe;
+    public static int ahf;
+    public static int ahg;
     public static long ahh;
-    public static int ahi;
-    public static int ahj;
-    public static long ahk;
 
-    public static void zp() {
+    public static void zj() {
         com.baidu.adp.lib.stats.q ed = x.ed();
         ed.r("action", "imcost");
-        ed.r("dect", String.valueOf(ahf));
-        ed.r("dlsize", String.valueOf(ahg));
-        ed.r("dbt", String.valueOf(ahh));
-        ed.r("pnum", String.valueOf(ahi));
-        ed.r("reqcost", String.valueOf(ahk));
-        ed.r("cpu", String.valueOf(ahj));
-        ed.r("totalNum", String.valueOf(ahe));
+        ed.r("dect", String.valueOf(ahc));
+        ed.r("dlsize", String.valueOf(ahd));
+        ed.r("dbt", String.valueOf(ahe));
+        ed.r("pnum", String.valueOf(ahf));
+        ed.r("reqcost", String.valueOf(ahh));
+        ed.r("cpu", String.valueOf(ahg));
+        ed.r("totalNum", String.valueOf(ahb));
         com.baidu.adp.lib.stats.f.eq().b("im", ed);
-        zx();
+        zr();
     }
 
-    public static void zx() {
-        ahe = 0;
-        ahf = 0L;
-        ahg = 0L;
-        ahh = 0L;
-        ahi = 0;
-        ahj = 0;
+    public static void zr() {
+        ahb = 0;
+        ahc = 0L;
+        ahd = 0L;
+        ahe = 0L;
+        ahf = 0;
+        ahg = 0;
     }
 }

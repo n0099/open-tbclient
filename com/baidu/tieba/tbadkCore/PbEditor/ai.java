@@ -4,13 +4,13 @@ import android.text.Editable;
 import android.text.TextWatcher;
 /* loaded from: classes.dex */
 class ai implements TextWatcher {
-    private final /* synthetic */ com.baidu.tbadk.editortool.w aCI;
-    final /* synthetic */ PbEditorToolView bWA;
+    private final /* synthetic */ com.baidu.tbadk.editortool.w aCF;
+    final /* synthetic */ PbEditorToolView bWz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(PbEditorToolView pbEditorToolView, com.baidu.tbadk.editortool.w wVar) {
-        this.bWA = pbEditorToolView;
-        this.aCI = wVar;
+        this.bWz = pbEditorToolView;
+        this.aCF = wVar;
     }
 
     @Override // android.text.TextWatcher
@@ -23,6 +23,6 @@ class ai implements TextWatcher {
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
-        this.aCI.handleAction(18, null);
+        this.aCF.handleAction(18, null);
     }
 }

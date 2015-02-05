@@ -54,7 +54,7 @@ public class FileDownloader extends Service {
             } else {
                 fileOfUrl = getFileOfUrl(stringExtra);
             }
-            if (com.baidu.tbadk.core.util.s.ch(fileOfUrl) != null) {
+            if (com.baidu.tbadk.core.util.s.ce(fileOfUrl) != null) {
                 this.handler.sendMessageDelayed(this.handler.obtainMessage(1, fileOfUrl), 100L);
             } else if (this.mDowndingTask == null) {
                 this.mDowndingTask = new f(this, stringExtra, fileOfUrl);

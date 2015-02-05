@@ -10,11 +10,11 @@ import com.baidu.tbadk.coreExtra.view.MultiImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
-    final /* synthetic */ AbsMsgImageActivity aRj;
+    final /* synthetic */ AbsMsgImageActivity aRi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(AbsMsgImageActivity absMsgImageActivity) {
-        this.aRj = absMsgImageActivity;
+        this.aRi = absMsgImageActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -38,25 +38,25 @@ public class a implements View.OnClickListener {
         FrameLayout frameLayout2;
         NavigationBar navigationBar5;
         int i;
-        view2 = this.aRj.mBack;
+        view2 = this.aRi.mBack;
         if (view != view2) {
-            frameLayout = this.aRj.aQX;
+            frameLayout = this.aRi.aQW;
             if (view == frameLayout) {
-                navigationBar4 = this.aRj.aQY;
+                navigationBar4 = this.aRi.aQX;
                 if (navigationBar4.getVisibility() != 8) {
                     try {
-                        multiImageView3 = this.aRj.aQZ;
+                        multiImageView3 = this.aRi.aQY;
                         byte[] currentImageData = multiImageView3.getCurrentImageData();
                         if (currentImageData != null) {
-                            multiImageView4 = this.aRj.aQZ;
+                            multiImageView4 = this.aRi.aQY;
                             String currentImageUrl = multiImageView4.getCurrentImageUrl();
-                            this.aRj.aQW = new h(this.aRj, currentImageUrl, currentImageData);
-                            hVar = this.aRj.aQW;
+                            this.aRi.aQV = new h(this.aRi, currentImageUrl, currentImageData);
+                            hVar = this.aRi.aQV;
                             hVar.execute(new String[0]);
-                            frameLayout2 = this.aRj.aQX;
+                            frameLayout2 = this.aRi.aQW;
                             frameLayout2.setClickable(false);
                         } else {
-                            this.aRj.showToast(this.aRj.getPageContext().getString(com.baidu.tieba.z.no_data));
+                            this.aRi.showToast(this.aRi.getPageContext().getString(com.baidu.tieba.z.no_data));
                         }
                         return;
                     } catch (Exception e) {
@@ -65,42 +65,42 @@ public class a implements View.OnClickListener {
                 }
                 return;
             }
-            z = this.aRj.aRb;
+            z = this.aRi.aRa;
             if (z) {
-                navigationBar = this.aRj.aQY;
+                navigationBar = this.aRi.aQX;
                 if (navigationBar.getVisibility() != 0) {
-                    navigationBar3 = this.aRj.aQY;
+                    navigationBar3 = this.aRi.aQX;
                     navigationBar3.setVisibility(0);
-                    multiImageView2 = this.aRj.aQZ;
-                    multiImageView2.tS();
-                    this.aRj.akZ = new AlphaAnimation(0.0f, 1.0f);
+                    multiImageView2 = this.aRi.aQY;
+                    multiImageView2.tM();
+                    this.aRi.akW = new AlphaAnimation(0.0f, 1.0f);
                 } else {
-                    this.aRj.akZ = new AlphaAnimation(1.0f, 0.0f);
-                    this.aRj.aRc = true;
-                    multiImageView = this.aRj.aQZ;
-                    multiImageView.tT();
+                    this.aRi.akW = new AlphaAnimation(1.0f, 0.0f);
+                    this.aRi.aRb = true;
+                    multiImageView = this.aRi.aQY;
+                    multiImageView.tN();
                 }
-                alphaAnimation = this.aRj.akZ;
+                alphaAnimation = this.aRi.akW;
                 alphaAnimation.setDuration(300L);
-                alphaAnimation2 = this.aRj.akZ;
+                alphaAnimation2 = this.aRi.akW;
                 alphaAnimation2.setFillAfter(true);
-                alphaAnimation3 = this.aRj.akZ;
+                alphaAnimation3 = this.aRi.akW;
                 alphaAnimation3.setAnimationListener(new b(this));
-                this.aRj.aRb = false;
-                navigationBar2 = this.aRj.aQY;
-                alphaAnimation4 = this.aRj.akZ;
+                this.aRi.aRa = false;
+                navigationBar2 = this.aRi.aQX;
+                alphaAnimation4 = this.aRi.akW;
                 navigationBar2.startAnimation(alphaAnimation4);
                 return;
             }
             return;
         }
-        navigationBar5 = this.aRj.aQY;
+        navigationBar5 = this.aRi.aQX;
         if (navigationBar5.getVisibility() != 8) {
             Intent intent = new Intent();
-            i = this.aRj.mIndex;
+            i = this.aRi.mIndex;
             intent.putExtra(ImageViewerConfig.INDEX, i);
-            this.aRj.setResult(-1, intent);
-            this.aRj.finish();
+            this.aRi.setResult(-1, intent);
+            this.aRi.finish();
         }
     }
 }

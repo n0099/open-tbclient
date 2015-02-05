@@ -3,10 +3,10 @@ package com.baidu.tieba.tbadkCore.PbEditor;
 import android.content.Context;
 /* loaded from: classes.dex */
 public abstract class ao {
-    private com.baidu.tbadk.editortool.w Yj;
-    private aq bWI;
-    private ap bWJ;
-    private au bWK;
+    private com.baidu.tbadk.editortool.w Yg;
+    private aq bWH;
+    private ap bWI;
+    private au bWJ;
     private int column = 0;
     private int row = 0;
     private int verticalSpacing = 0;
@@ -19,26 +19,26 @@ public abstract class ao {
     public abstract void init(Context context);
 
     public ao(au auVar) {
-        this.bWK = auVar;
+        this.bWJ = auVar;
     }
 
-    public aq agv() {
-        return this.bWI;
+    public aq agq() {
+        return this.bWH;
     }
 
     public void a(aq aqVar) {
-        this.bWI = aqVar;
+        this.bWH = aqVar;
     }
 
-    public ap agw() {
-        return this.bWJ;
+    public ap agr() {
+        return this.bWI;
     }
 
     public void a(ap apVar) {
-        this.bWJ = apVar;
+        this.bWI = apVar;
     }
 
-    public int agx() {
+    public int ags() {
         return this.column;
     }
 
@@ -54,7 +54,7 @@ public abstract class ao {
         this.row = i;
     }
 
-    public int agy() {
+    public int agt() {
         return this.verticalSpacing;
     }
 
@@ -62,7 +62,7 @@ public abstract class ao {
         this.verticalSpacing = i;
     }
 
-    public int agz() {
+    public int agu() {
         return this.horizontalSpacing;
     }
 
@@ -70,15 +70,15 @@ public abstract class ao {
         this.horizontalSpacing = i;
     }
 
-    public au agA() {
-        return this.bWK;
+    public au agv() {
+        return this.bWJ;
     }
 
-    public com.baidu.tbadk.editortool.w agB() {
-        return this.Yj;
+    public com.baidu.tbadk.editortool.w agw() {
+        return this.Yg;
     }
 
     public void b(com.baidu.tbadk.editortool.w wVar) {
-        this.Yj = wVar;
+        this.Yg = wVar;
     }
 }

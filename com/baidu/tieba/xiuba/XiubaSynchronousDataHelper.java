@@ -107,8 +107,12 @@ public class XiubaSynchronousDataHelper {
         this.xiubaMsg = null;
         close();
         if (this.mSendMsgCallback != null) {
-            this.mSendMsgCallback.callBack(responseSendMsgData);
-            this.mSendMsgCallback = null;
+            try {
+                this.mSendMsgCallback.callBack(responseSendMsgData);
+                this.mSendMsgCallback = null;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

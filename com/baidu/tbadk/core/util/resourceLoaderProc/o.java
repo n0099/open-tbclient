@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.util.bh;
 import com.baidu.tbadk.core.util.w;
 /* loaded from: classes.dex */
 public class o extends a {
-    private boolean Lg;
+    private boolean Ld;
 
     public o(boolean z) {
-        this.Lg = true;
-        this.Lg = z;
+        this.Ld = true;
+        this.Ld = z;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -28,16 +28,16 @@ public class o extends a {
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public boolean isFromCDN() {
-        return this.Lg;
+        return this.Ld;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean qq() {
+    public boolean qj() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean qr() {
+    public boolean qk() {
         return false;
     }
 
@@ -46,22 +46,22 @@ public class o extends a {
         com.baidu.adp.lib.stats.q ed = w.ed();
         ed.eK();
         byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c cQ = cQ(bh.cH(str2));
-        if (cQ == null) {
+        com.baidu.adp.lib.Disk.ops.c cN = cN(bh.cE(str2));
+        if (cN == null) {
             return null;
         }
-        cQ.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-        cQ.o(true);
-        cQ.p(false);
-        cQ.g(bArr);
-        cQ.q(false);
+        cN.a(DiskFileOperate.OperateType.TRY_SUCCESS);
+        cN.o(true);
+        cN.p(false);
+        cN.g(bArr);
+        cN.q(false);
         if (aVar != null) {
             d dVar = new d();
-            dVar.g(cQ);
+            dVar.g(cN);
             aVar.lf = dVar;
         }
         boolean fg = com.baidu.adp.lib.util.i.fg();
-        if (!com.baidu.adp.lib.Disk.d.bM().c(cQ)) {
+        if (!com.baidu.adp.lib.Disk.d.bM().c(cN)) {
             w.a(ed, str2, false, ed.eL(), fg);
             return null;
         }
@@ -75,7 +75,7 @@ public class o extends a {
             } catch (InterruptedException e) {
             }
         }
-        com.baidu.adp.widget.a.a a = cQ.isSuccess() ? a(cQ, str2) : null;
+        com.baidu.adp.widget.a.a a = cN.isSuccess() ? a(cN, str2) : null;
         if (a != null) {
             w.a(ed, str2, true, ed.eL(), fg);
         } else {
@@ -88,7 +88,7 @@ public class o extends a {
     protected com.baidu.adp.widget.a.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, com.baidu.adp.widget.a.a aVar2, Bitmap bitmap, boolean z, com.baidu.tbadk.core.util.httpNet.i iVar, byte[] bArr, Rect rect) {
         if (g(bitmap)) {
             aVar2 = new com.baidu.adp.widget.a.a(bitmap, z, str, rect);
-            com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, bh.cH(str2), DiskFileOperate.Action.WRITE);
+            com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, bh.cE(str2), DiskFileOperate.Action.WRITE);
             cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
             cVar.o(true);
             cVar.setData(bArr);

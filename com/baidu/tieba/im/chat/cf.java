@@ -1,20 +1,20 @@
 package com.baidu.tieba.im.chat;
 /* loaded from: classes.dex */
 class cf implements Runnable {
-    final /* synthetic */ PersonalChatActivity aSN;
+    final /* synthetic */ PersonalChatActivity aSM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cf(PersonalChatActivity personalChatActivity) {
-        this.aSN = personalChatActivity;
+        this.aSM = personalChatActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         com.baidu.adp.lib.guide.d dVar;
         com.baidu.adp.lib.guide.d dVar2;
-        dVar = this.aSN.Ac;
+        dVar = this.aSM.zZ;
         if (dVar != null) {
-            dVar2 = this.aSN.Ac;
+            dVar2 = this.aSM.zZ;
             dVar2.dismiss();
         }
     }

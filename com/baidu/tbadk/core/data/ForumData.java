@@ -593,8 +593,8 @@ public class ForumData implements au, Serializable {
     public ArrayList<at> getImages() {
         ArrayList<at> arrayList = new ArrayList<>();
         at atVar = new at();
-        atVar.Fa = this.image_url;
-        atVar.Jn = 10;
+        atVar.EX = this.image_url;
+        atVar.Jk = 10;
         arrayList.add(atVar);
         return arrayList;
     }

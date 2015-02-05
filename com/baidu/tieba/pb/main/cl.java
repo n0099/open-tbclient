@@ -4,21 +4,21 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 class cl implements Runnable {
-    private final /* synthetic */ ImageView bED;
-    final /* synthetic */ ck bEE;
+    private final /* synthetic */ ImageView bEC;
+    final /* synthetic */ ck bED;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cl(ck ckVar, ImageView imageView) {
-        this.bEE = ckVar;
-        this.bED = imageView;
+        this.bED = ckVar;
+        this.bEC = imageView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         bz bzVar;
         RelativeLayout relativeLayout;
-        bzVar = this.bEE.bEC;
-        relativeLayout = bzVar.arb;
-        relativeLayout.removeView(this.bED);
+        bzVar = this.bED.bEB;
+        relativeLayout = bzVar.aqY;
+        relativeLayout.removeView(this.bEC);
     }
 }

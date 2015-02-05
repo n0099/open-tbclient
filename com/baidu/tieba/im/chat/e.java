@@ -7,11 +7,11 @@ import com.baidu.tbadk.coreExtra.view.MultiImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements DialogInterface.OnClickListener {
-    final /* synthetic */ AbsMsgImageActivity aRj;
+    final /* synthetic */ AbsMsgImageActivity aRi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AbsMsgImageActivity absMsgImageActivity) {
-        this.aRj = absMsgImageActivity;
+        this.aRi = absMsgImageActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -21,23 +21,23 @@ public class e implements DialogInterface.OnClickListener {
         MultiImageView multiImageView2;
         h hVar;
         FrameLayout frameLayout;
-        listMenu = this.aRj.getListMenu();
+        listMenu = this.aRi.getListMenu();
         if (dialogInterface == listMenu) {
             switch (i) {
                 case 0:
                     try {
-                        multiImageView = this.aRj.aQZ;
+                        multiImageView = this.aRi.aQY;
                         byte[] currentImageData = multiImageView.getCurrentImageData();
                         if (currentImageData != null) {
-                            multiImageView2 = this.aRj.aQZ;
+                            multiImageView2 = this.aRi.aQY;
                             String currentImageUrl = multiImageView2.getCurrentImageUrl();
-                            this.aRj.aQW = new h(this.aRj, currentImageUrl, currentImageData);
-                            hVar = this.aRj.aQW;
+                            this.aRi.aQV = new h(this.aRi, currentImageUrl, currentImageData);
+                            hVar = this.aRi.aQV;
                             hVar.execute(new String[0]);
-                            frameLayout = this.aRj.aQX;
+                            frameLayout = this.aRi.aQW;
                             frameLayout.setClickable(false);
                         } else {
-                            this.aRj.showToast(this.aRj.getPageContext().getString(com.baidu.tieba.z.no_data));
+                            this.aRi.showToast(this.aRi.getPageContext().getString(com.baidu.tieba.z.no_data));
                         }
                         return;
                     } catch (Exception e) {

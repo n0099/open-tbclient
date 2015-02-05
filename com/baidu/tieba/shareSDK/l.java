@@ -5,20 +5,20 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.coreExtra.message.ShareSDKResultMessage;
 /* loaded from: classes.dex */
 class l implements View.OnClickListener {
-    final /* synthetic */ WriteShareActivity bPF;
+    final /* synthetic */ WriteShareActivity bPE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(WriteShareActivity writeShareActivity) {
-        this.bPF = writeShareActivity;
+        this.bPE = writeShareActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z;
-        this.bPF.adc();
-        z = this.bPF.bPu;
+        this.bPE.acX();
+        z = this.bPE.bPt;
         MessageManager.getInstance().dispatchResponsedMessage(new ShareSDKResultMessage(Boolean.valueOf(z)));
-        com.baidu.tbadk.core.b.b.a(this.bPF.getPageContext().getPageActivity(), 200, false);
-        this.bPF.finish();
+        com.baidu.tbadk.core.b.b.a(this.bPE.getPageContext().getPageActivity(), 200, false);
+        this.bPE.finish();
     }
 }

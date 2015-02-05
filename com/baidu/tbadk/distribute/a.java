@@ -22,95 +22,95 @@ import java.util.List;
 import tbclient.LogTogether.AdReq;
 /* loaded from: classes.dex */
 public class a {
-    public static String Xq = null;
-    private static a Xr = new a();
+    public static String Xn = null;
+    private static a Xo = new a();
     private Handler handler = new b(this, Looper.getMainLooper());
-    private com.baidu.adp.framework.listener.a Xx = new c(this, CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, 303101);
-    private CustomMessageListener Xy = new d(this, 2001121);
-    private ArrayList<AdReq> Xt = new ArrayList<>();
-    private ArrayList<com.baidu.tbadk.core.data.c> Xz = new ArrayList<>();
-    private ArrayList<com.baidu.tbadk.core.data.c> XA = new ArrayList<>();
-    private boolean Xu = true;
-    private long Xv = TbConfig.USE_TIME_INTERVAL;
-    private int Xw = 10;
-    private boolean Xs = i.ff();
+    private com.baidu.adp.framework.listener.a Xu = new c(this, CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, 303101);
+    private CustomMessageListener Xv = new d(this, 2001121);
+    private ArrayList<AdReq> Xq = new ArrayList<>();
+    private ArrayList<com.baidu.tbadk.core.data.c> Xw = new ArrayList<>();
+    private ArrayList<com.baidu.tbadk.core.data.c> Xx = new ArrayList<>();
+    private boolean Xr = true;
+    private long Xs = TbConfig.USE_TIME_INTERVAL;
+    private int Xt = 10;
+    private boolean Xp = i.ff();
 
-    public static a uU() {
-        return Xr;
+    public static a uO() {
+        return Xo;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aF(boolean z) {
-        if (this.Xs != z) {
-            this.Xs = z;
+        if (this.Xp != z) {
+            this.Xp = z;
             if (z) {
                 aH(true);
             } else {
-                uV();
+                uP();
             }
         }
     }
 
-    private void uV() {
+    private void uP() {
         this.handler.removeMessages(1);
     }
 
-    private void uW() {
+    private void uQ() {
         this.handler.removeMessages(1);
-        this.handler.sendEmptyMessageDelayed(1, this.Xv);
+        this.handler.sendEmptyMessageDelayed(1, this.Xs);
     }
 
     private synchronized void a(AdReq adReq) {
-        if (this.Xt != null && this.Xt.size() < 20) {
-            this.Xt.add(adReq);
+        if (this.Xq != null && this.Xq.size() < 20) {
+            this.Xq.add(adReq);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void k(List<AdReq> list) {
-        if (this.Xt != null) {
-            this.Xt.addAll(list);
+        if (this.Xq != null) {
+            this.Xq.addAll(list);
         }
     }
 
     private a() {
     }
 
-    public void uX() {
+    public void uR() {
         MessageManager messageManager = MessageManager.getInstance();
-        messageManager.registerTask(va());
-        messageManager.registerTask(uY());
-        messageManager.registerListener(this.Xx);
-        messageManager.registerListener(this.Xy);
+        messageManager.registerTask(uU());
+        messageManager.registerTask(uS());
+        messageManager.registerListener(this.Xu);
+        messageManager.registerListener(this.Xv);
     }
 
-    private HttpMessageTask uY() {
+    private HttpMessageTask uS() {
         HttpMessageTask httpMessageTask = new HttpMessageTask(CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LOG_TOGETHER + "?cmd=303101");
         httpMessageTask.setResponsedClass(DistributeHttpResponse.class);
         return httpMessageTask;
     }
 
     public void aG(boolean z) {
-        this.Xu = z;
+        this.Xr = z;
     }
 
     public void dh(int i) {
         if (i > 3600) {
-            this.Xv = 300000L;
+            this.Xs = 300000L;
         } else if (i <= 0) {
-            this.Xv = TbConfig.USE_TIME_INTERVAL;
+            this.Xs = TbConfig.USE_TIME_INTERVAL;
         } else {
-            this.Xv = i * 1000;
+            this.Xs = i * 1000;
         }
     }
 
     public void di(int i) {
         if (i > 20) {
-            this.Xw = 10;
+            this.Xt = 10;
         } else if (i <= 0) {
-            this.Xw = 5;
+            this.Xt = 5;
         } else {
-            this.Xw = i;
+            this.Xt = i;
         }
     }
 
@@ -120,7 +120,7 @@ public class a {
             a(a);
         }
         if (TextUtils.equals(str3, "click") || TextUtils.equals(str3, "download")) {
-            if (this.Xs) {
+            if (this.Xp) {
                 MessageManager.getInstance().sendMessage(new DistributeRequest(a));
             } else {
                 a(a);
@@ -129,20 +129,20 @@ public class a {
         aH(false);
     }
 
-    private boolean uZ() {
+    private boolean uT() {
         return this.handler.hasMessages(1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aH(boolean z) {
-        if (this.Xs && this.Xu) {
+        if (this.Xp && this.Xr) {
             List<AdReq> aI = aI(z);
-            if (z || !uZ()) {
-                uW();
+            if (z || !uT()) {
+                uQ();
             }
             if (aI != null && aI.size() != 0) {
                 if (!z) {
-                    uW();
+                    uQ();
                 }
                 MessageManager.getInstance().sendMessage(new DistributeRequest(aI));
             }
@@ -150,7 +150,7 @@ public class a {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:6:0x000c, code lost:
-        if (r3.Xt.size() < r3.Xw) goto L6;
+        if (r3.Xq.size() < r3.Xt) goto L6;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -160,16 +160,16 @@ public class a {
         synchronized (this) {
             if (!z) {
             }
-            if (this.Xt.size() > 0) {
+            if (this.Xq.size() > 0) {
                 arrayList = new ArrayList();
-                arrayList.addAll(this.Xt);
-                this.Xt.clear();
+                arrayList.addAll(this.Xq);
+                this.Xq.clear();
             }
         }
         return arrayList;
     }
 
-    private SocketMessageTask va() {
+    private SocketMessageTask uU() {
         SocketMessageTask socketMessageTask = new SocketMessageTask(303101);
         socketMessageTask.i(true);
         socketMessageTask.setResponsedClass(DistributeSocketResponse.class);
@@ -179,24 +179,24 @@ public class a {
     public void a(Context context, com.baidu.tbadk.core.data.c cVar, String str, String str2, String str3, long j) {
         if (TextUtils.equals(str, "show")) {
             if (TextUtils.equals(str2, "frs")) {
-                this.Xz.add(cVar);
+                this.Xw.add(cVar);
             } else if (TextUtils.equals(str2, "pb")) {
-                this.XA.add(cVar);
+                this.Xx.add(cVar);
             }
         } else if (TextUtils.equals(str, "btn_click") || TextUtils.equals(str, "btn_download") || TextUtils.equals(str, "area_click") || TextUtils.equals(str, "area_download")) {
             StringBuilder sb = new StringBuilder(15);
             sb.append(String.valueOf(l.M(context)));
             sb.append(",");
             sb.append(String.valueOf(l.N(context)));
-            TiebaStatic.eventStat(context, "ad_distribute", null, 1, "da_task", "tbda", "da_page", str2, "da_locate", Integer.valueOf(cVar.Dt), "da_type", str, "da_obj_id", cVar.Dn, ImageViewerConfig.FORUM_ID, str3, "tid", Long.valueOf(j), "da_good_id", Integer.valueOf(cVar.DB.DE), "da_ext_info", cVar.Dz, "da_price", cVar.price, "da_verify", cVar.Dy, "cuid", TbadkCoreApplication.m255getInst().getCuid(), SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount(), "baiduid", TbadkCoreApplication.getCurrentBduss(), "da_obj_name", cVar.Do, "da_first_name", cVar.Du, "da_second_name", cVar.Dv, "da_cpid", Integer.valueOf(cVar.Dw), "da_abtest", cVar.abtest, "da_stime", Long.valueOf(System.currentTimeMillis()), "phone_screen", sb.toString(), "model", Build.MODEL);
+            TiebaStatic.eventStat(context, "ad_distribute", null, 1, "da_task", "tbda", "da_page", str2, "da_locate", Integer.valueOf(cVar.Dq), "da_type", str, "da_obj_id", cVar.Dk, ImageViewerConfig.FORUM_ID, str3, "tid", Long.valueOf(j), "da_good_id", Integer.valueOf(cVar.Dy.DA), "da_ext_info", cVar.Dw, "da_price", cVar.price, "da_verify", cVar.Dv, "cuid", TbadkCoreApplication.m255getInst().getCuid(), SapiAccountManager.SESSION_UID, TbadkCoreApplication.getCurrentAccount(), "baiduid", TbadkCoreApplication.getCurrentBduss(), "da_obj_name", cVar.Dl, "da_first_name", cVar.Dr, "da_second_name", cVar.Ds, "da_cpid", Integer.valueOf(cVar.Dt), "da_abtest", cVar.abtest, "da_stime", Long.valueOf(System.currentTimeMillis()), "phone_screen", sb.toString(), "model", Build.MODEL);
         }
     }
 
     public void a(Context context, String str, String str2, long j) {
         if (TextUtils.equals(str, "frs")) {
-            a(context, this.Xz, str, str2, j);
+            a(context, this.Xw, str, str2, j);
         } else if (TextUtils.equals(str, "pb")) {
-            a(context, this.XA, str, str2, j);
+            a(context, this.Xx, str, str2, j);
         }
     }
 
@@ -221,28 +221,28 @@ public class a {
                     com.baidu.tbadk.core.data.c cVar = arrayList.get(i2);
                     if (cVar != null) {
                         if (i2 != size - 1) {
-                            sb.append(cVar.Dy).append("|");
-                            sb2.append(cVar.Dt).append("|");
-                            sb3.append(cVar.Dn).append("|");
-                            sb4.append(cVar.DB.DE).append("|");
-                            sb5.append(cVar.Dz).append("|");
+                            sb.append(cVar.Dv).append("|");
+                            sb2.append(cVar.Dq).append("|");
+                            sb3.append(cVar.Dk).append("|");
+                            sb4.append(cVar.Dy.DA).append("|");
+                            sb5.append(cVar.Dw).append("|");
                             sb6.append(cVar.price).append("|");
-                            sb7.append(cVar.Do).append("|");
-                            sb8.append(cVar.Du).append("|");
-                            sb9.append(cVar.Dv).append("|");
-                            sb10.append(cVar.Dw).append("|");
+                            sb7.append(cVar.Dl).append("|");
+                            sb8.append(cVar.Dr).append("|");
+                            sb9.append(cVar.Ds).append("|");
+                            sb10.append(cVar.Dt).append("|");
                             sb11.append(cVar.abtest).append("|");
                         } else {
-                            sb.append(cVar.Dy);
-                            sb2.append(cVar.Dt);
-                            sb3.append(cVar.Dn);
-                            sb4.append(cVar.DB.DE);
-                            sb5.append(cVar.Dz);
+                            sb.append(cVar.Dv);
+                            sb2.append(cVar.Dq);
+                            sb3.append(cVar.Dk);
+                            sb4.append(cVar.Dy.DA);
+                            sb5.append(cVar.Dw);
                             sb6.append(cVar.price);
-                            sb7.append(cVar.Do);
-                            sb8.append(cVar.Du);
-                            sb9.append(cVar.Dv);
-                            sb10.append(cVar.Dw);
+                            sb7.append(cVar.Dl);
+                            sb8.append(cVar.Dr);
+                            sb9.append(cVar.Ds);
+                            sb10.append(cVar.Dt);
                             sb11.append(cVar.abtest);
                         }
                     }

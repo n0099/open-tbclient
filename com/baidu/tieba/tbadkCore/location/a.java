@@ -10,23 +10,23 @@ public class a {
     private List<b> poi_info;
     private String sn;
 
-    public String ahY() {
+    public String ahT() {
         return this.formatted_address;
     }
 
-    public List<b> ahZ() {
+    public List<b> ahU() {
         return this.poi_info;
     }
 
-    public void io(String str) {
+    public void im(String str) {
         this.formatted_address = str;
     }
 
-    public String aia() {
+    public String ahV() {
         return this.sn;
     }
 
-    public void ip(String str) {
+    public void in(String str) {
         this.sn = str;
     }
 

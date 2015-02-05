@@ -3,11 +3,11 @@ package com.baidu.tieba.pb.main;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
 class d implements AbsListView.OnScrollListener {
-    final /* synthetic */ PbActivity bAT;
+    final /* synthetic */ PbActivity bAS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(PbActivity pbActivity) {
-        this.bAT = pbActivity;
+        this.bAS = pbActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -25,40 +25,40 @@ class d implements AbsListView.OnScrollListener {
         com.baidu.tbadk.performanceLog.h hVar5;
         com.baidu.tbadk.performanceLog.h hVar6;
         if (i == 2 || i == 1) {
-            bzVar = this.bAT.bAx;
-            bzVar.Zj();
-            bzVar2 = this.bAT.bAx;
-            bzVar2.Ym();
-            this.bAT.Xi();
-            z = this.bAT.bAp;
+            bzVar = this.bAS.bAw;
+            bzVar.Ze();
+            bzVar2 = this.bAS.bAw;
+            bzVar2.Yh();
+            this.bAS.Xd();
+            z = this.bAS.bAo;
             if (!z) {
-                this.bAT.bAp = true;
-                bzVar3 = this.bAT.bAx;
-                bzVar3.Zq();
+                this.bAS.bAo = true;
+                bzVar3 = this.bAS.bAw;
+                bzVar3.Zl();
             }
         }
-        hVar = this.bAT.bAq;
+        hVar = this.bAS.bAp;
         if (hVar == null) {
-            this.bAT.bAq = new com.baidu.tbadk.performanceLog.h();
-            hVar5 = this.bAT.bAq;
+            this.bAS.bAp = new com.baidu.tbadk.performanceLog.h();
+            hVar5 = this.bAS.bAp;
             hVar5.dX(1001);
-            hVar6 = this.bAT.bAq;
-            hVar6.agK = this.bAT.aDz;
+            hVar6 = this.bAS.bAp;
+            hVar6.agH = this.bAS.aDw;
         }
         if (i == 0) {
-            bzVar4 = this.bAT.bAx;
-            if (bzVar4.Yy() != null) {
-                bzVar5 = this.bAT.bAx;
-                bzVar5.Yy().notifyDataSetChanged();
+            bzVar4 = this.bAS.bAw;
+            if (bzVar4.Yt() != null) {
+                bzVar5 = this.bAS.bAw;
+                bzVar5.Yt().notifyDataSetChanged();
             }
-            hVar4 = this.bAT.bAq;
-            hVar4.zf();
+            hVar4 = this.bAS.bAp;
+            hVar4.yZ();
         } else if (i == 1) {
-            hVar3 = this.bAT.bAq;
-            hVar3.zf();
+            hVar3 = this.bAS.bAp;
+            hVar3.yZ();
         } else {
-            hVar2 = this.bAT.bAq;
-            hVar2.zf();
+            hVar2 = this.bAS.bAp;
+            hVar2.yZ();
         }
     }
 

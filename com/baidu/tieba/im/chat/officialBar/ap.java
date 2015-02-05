@@ -4,17 +4,17 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ap implements View.OnClickListener {
-    final /* synthetic */ ao aUW;
-    private final /* synthetic */ OfficialBarTipActivity aUX;
+    final /* synthetic */ ao aUV;
+    private final /* synthetic */ OfficialBarTipActivity aUW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(ao aoVar, OfficialBarTipActivity officialBarTipActivity) {
-        this.aUW = aoVar;
-        this.aUX = officialBarTipActivity;
+        this.aUV = aoVar;
+        this.aUW = officialBarTipActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.aUX.finish();
+        this.aUW.finish();
     }
 }

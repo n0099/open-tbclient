@@ -5,13 +5,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class g {
-    public ArrayList<ArrayList<String>> BK;
-    public int BI = 0;
+    public ArrayList<ArrayList<String>> BH;
+    public int BF = 0;
     public String errorString = null;
     public String imageUrl = null;
+    public String BG = null;
+    boolean BI = false;
     public String BJ = null;
-    boolean BL = false;
-    public String BM = null;
 
     public void parseJson(JSONObject jSONObject) {
         JSONArray optJSONArray;
@@ -19,19 +19,19 @@ public class g {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject("error");
                 if (optJSONObject != null) {
-                    this.BI = optJSONObject.optInt("errorno");
+                    this.BF = optJSONObject.optInt("errorno");
                     this.errorString = optJSONObject.optString("errmsg");
                 }
                 if (1 == jSONObject.optInt("cdn_switch")) {
-                    this.BL = true;
+                    this.BI = true;
                 } else {
-                    this.BL = false;
+                    this.BI = false;
                 }
-                this.BM = jSONObject.optString("cdn_domain");
+                this.BJ = jSONObject.optString("cdn_domain");
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("cdn_img_info");
                 if (optJSONObject2 != null) {
                     this.imageUrl = optJSONObject2.optString("img_url");
-                    this.BJ = optJSONObject2.optString("img_md5");
+                    this.BG = optJSONObject2.optString("img_md5");
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("ip_list");
                 if (optJSONArray2 != null) {
@@ -54,7 +54,7 @@ public class g {
                         }
                     }
                     if (arrayList.size() > 0) {
-                        this.BK = arrayList;
+                        this.BH = arrayList;
                     }
                 }
             } catch (Exception e) {

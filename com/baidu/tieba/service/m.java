@@ -10,12 +10,12 @@ import com.baidu.tbadk.core.util.ad;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends BdAsyncTask<String, Integer, String> {
-    final /* synthetic */ TiebaActiveService bOZ;
-    ad bPa;
+    final /* synthetic */ TiebaActiveService bOY;
+    ad bOZ;
 
     private m(TiebaActiveService tiebaActiveService) {
-        this.bOZ = tiebaActiveService;
-        this.bPa = null;
+        this.bOY = tiebaActiveService;
+        this.bOZ = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,31 +28,31 @@ public class m extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: l */
     public String doInBackground(String... strArr) {
-        String oy;
+        String or;
         try {
-            this.bPa = new ad("http://114.113.149.3:8086/partnersService");
-            this.bPa.o("apk", TbadkCoreApplication.m255getInst().getApp().getPackageName());
-            this.bPa.o("imei", TbadkCoreApplication.m255getInst().getImei());
-            this.bPa.o("model", Build.MODEL);
-            this.bPa.o("edition", TbConfig.getVersion());
-            this.bPa.o("system", Build.VERSION.SDK);
-            this.bPa.oZ().qg().qj().mIsBaiduServer = false;
-            oy = this.bPa.oy();
+            this.bOZ = new ad("http://114.113.149.3:8086/partnersService");
+            this.bOZ.o("apk", TbadkCoreApplication.m255getInst().getApp().getPackageName());
+            this.bOZ.o("imei", TbadkCoreApplication.m255getInst().getImei());
+            this.bOZ.o("model", Build.MODEL);
+            this.bOZ.o("edition", TbConfig.getVersion());
+            this.bOZ.o("system", Build.VERSION.SDK);
+            this.bOZ.oS().pZ().qc().mIsBaiduServer = false;
+            or = this.bOZ.or();
         } catch (Exception e) {
-            com.baidu.tbadk.core.sharedPref.b.oj().putInt("active", 1);
+            com.baidu.tbadk.core.sharedPref.b.oc().putInt("active", 1);
             BdLog.e(e.getMessage());
         }
-        if (this.bPa.pc()) {
-            return oy;
+        if (this.bOZ.oV()) {
+            return or;
         }
         return null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.bOZ.mActiveTask = null;
-        if (this.bPa != null) {
-            this.bPa.dJ();
+        this.bOY.mActiveTask = null;
+        if (this.bOZ != null) {
+            this.bOZ.dJ();
         }
         super.cancel(true);
     }
@@ -68,25 +68,25 @@ public class m extends BdAsyncTask<String, Integer, String> {
         Handler handler2;
         Runnable runnable2;
         super.onPostExecute((m) str);
-        this.bOZ.mActiveTask = null;
+        this.bOY.mActiveTask = null;
         if (str == null) {
-            TiebaActiveService tiebaActiveService = this.bOZ;
+            TiebaActiveService tiebaActiveService = this.bOY;
             i = tiebaActiveService.mHaveRetry;
             tiebaActiveService.mHaveRetry = i + 1;
-            i2 = this.bOZ.mHaveRetry;
+            i2 = this.bOY.mHaveRetry;
             if (i2 < 10) {
-                handler = this.bOZ.mHandler;
-                runnable = this.bOZ.mRunnable;
+                handler = this.bOY.mHandler;
+                runnable = this.bOY.mRunnable;
                 handler.removeCallbacks(runnable);
-                handler2 = this.bOZ.mHandler;
-                runnable2 = this.bOZ.mRunnable;
+                handler2 = this.bOY.mHandler;
+                runnable2 = this.bOY.mRunnable;
                 handler2.postDelayed(runnable2, TbConfig.USE_TIME_INTERVAL);
             } else {
-                com.baidu.tbadk.core.sharedPref.b.oj().putInt("active", 1);
-                this.bOZ.stopSelf();
+                com.baidu.tbadk.core.sharedPref.b.oc().putInt("active", 1);
+                this.bOY.stopSelf();
             }
         }
-        com.baidu.tbadk.core.sharedPref.b.oj().putInt("active", 2);
-        this.bOZ.stopSelf();
+        com.baidu.tbadk.core.sharedPref.b.oc().putInt("active", 2);
+        this.bOY.stopSelf();
     }
 }

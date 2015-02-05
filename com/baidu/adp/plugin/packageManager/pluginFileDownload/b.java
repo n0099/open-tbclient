@@ -3,7 +3,7 @@ package com.baidu.adp.plugin.packageManager.pluginFileDownload;
 public abstract class b {
     public abstract void a(BdFileDownloadData bdFileDownloadData, int i);
 
-    public abstract void bn(String str);
+    public abstract void bk(String str);
 
     public void h(BdFileDownloadData bdFileDownloadData) {
         a(bdFileDownloadData, 1);

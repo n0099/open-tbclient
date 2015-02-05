@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class f extends RelativeLayout {
-    private TbImageView aTR;
-    private TextView ayA;
+    private TbImageView aTQ;
+    private TextView ayx;
     private Context mContext;
     private com.baidu.adp.lib.c.b mItemViewLongClickListener;
     private int mPosition;
@@ -36,10 +36,10 @@ public class f extends RelativeLayout {
 
     private void initView() {
         com.baidu.adp.lib.g.b.ei().a(this.mContext, com.baidu.tieba.x.msg_multi_pic_text_top_view, this, true);
-        this.aTR = (TbImageView) findViewById(com.baidu.tieba.w.top_content_pic);
-        this.aTR.setAutoChangeStyle(false);
+        this.aTQ = (TbImageView) findViewById(com.baidu.tieba.w.top_content_pic);
+        this.aTQ.setAutoChangeStyle(false);
         this.mTitle = (TextView) findViewById(com.baidu.tieba.w.top_title);
-        this.ayA = (TextView) findViewById(com.baidu.tieba.w.show_time);
+        this.ayx = (TextView) findViewById(com.baidu.tieba.w.show_time);
         setOnLongClickListener(new g(this));
     }
 
@@ -55,28 +55,28 @@ public class f extends RelativeLayout {
                 setOnClickListener(new h(this, tbPageContext, pVar, i));
             }
             if (!TextUtils.isEmpty(pVar.src)) {
-                this.aTR.setTag(pVar.src);
-                this.aTR.d(pVar.src, 10, false);
+                this.aTQ.setTag(pVar.src);
+                this.aTQ.d(pVar.src, 10, false);
             }
         }
     }
 
     public void setTime(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.ayA.setVisibility(8);
-            this.ayA.setText("");
+            this.ayx.setVisibility(8);
+            this.ayx.setText("");
             return;
         }
-        this.ayA.setVisibility(0);
-        this.ayA.setText(str);
+        this.ayx.setVisibility(0);
+        this.ayx.setText(str);
     }
 
     public void reset() {
         this.mTitle.setText("");
-        this.aTR.setBackgroundDrawable(null);
-        this.aTR.setImageDrawable(null);
-        this.ayA.setVisibility(8);
-        this.ayA.setText("");
+        this.aTQ.setBackgroundDrawable(null);
+        this.aTQ.setImageDrawable(null);
+        this.ayx.setVisibility(8);
+        this.ayx.setText("");
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
@@ -92,8 +92,8 @@ public class f extends RelativeLayout {
         if (skinType == 1 && !z) {
             skinType = 0;
         }
-        this.aTR.setAutoChangeStyle(z);
+        this.aTQ.setAutoChangeStyle(z);
         bc.a(this.mTitle, com.baidu.tieba.t.cp_cont_g, 1, skinType);
-        bc.a(this.ayA, com.baidu.tieba.t.official_time_text, 1, skinType);
+        bc.a(this.ayx, com.baidu.tieba.t.official_time_text, 1, skinType);
     }
 }

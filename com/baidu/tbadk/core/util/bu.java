@@ -9,21 +9,21 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class bu {
-    private static int Ka = -1;
-    private static int Kb = -1;
-    private static boolean Kc = false;
-    private static com.baidu.adp.lib.e.a<Integer, Integer> Kd = new com.baidu.adp.lib.e.a<>(500);
+    private static int JX = -1;
+    private static int JY = -1;
+    private static boolean JZ = false;
+    private static com.baidu.adp.lib.e.a<Integer, Integer> Ka = new com.baidu.adp.lib.e.a<>(500);
     private static Context mAppContext = null;
 
     public static void S(Context context) {
         mAppContext = context;
-        Kc = true;
+        JZ = true;
     }
 
-    private static void pW() {
+    private static void pP() {
         if (mAppContext != null && mAppContext.getResources() != null) {
-            Kb = mAppContext.getResources().getColor(com.baidu.tieba.t.more_color);
-            Ka = mAppContext.getResources().getColor(com.baidu.tieba.t.skin_1_common_color);
+            JY = mAppContext.getResources().getColor(com.baidu.tieba.t.more_color);
+            JX = mAppContext.getResources().getColor(com.baidu.tieba.t.skin_1_common_color);
         }
     }
 
@@ -33,11 +33,11 @@ public class bu {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static int ap(boolean z) {
-        if (Kc) {
-            Kc = false;
-            pW();
+        if (JZ) {
+            JZ = false;
+            pP();
         }
-        return z ? Ka : Kb;
+        return z ? JX : JY;
     }
 
     public static void m(View view) {
@@ -48,16 +48,16 @@ public class bu {
 
     public static void n(View view) {
         if (view != null) {
-            Kd.remove(Integer.valueOf(System.identityHashCode(view)));
+            Ka.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
     public static void b(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = Kd.get(Integer.valueOf(identityHashCode));
+        Integer num = Ka.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
             c(viewGroup, i);
-            Kd.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            Ka.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 

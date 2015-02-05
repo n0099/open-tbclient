@@ -7,11 +7,11 @@ import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements View.OnClickListener {
-    final /* synthetic */ t UV;
+    final /* synthetic */ t US;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(t tVar) {
-        this.UV = tVar;
+        this.US = tVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,27 +23,27 @@ public class w implements View.OnClickListener {
         aa aaVar2;
         aa aaVar3;
         z zVar2;
-        editText = this.UV.UD;
+        editText = this.US.Uz;
         String editable = editText.getText().toString();
         if (editable != null && editable.length() > 0) {
-            zVar = this.UV.UM;
+            zVar = this.US.UJ;
             if (zVar != null) {
-                zVar2 = this.UV.UM;
+                zVar2 = this.US.UJ;
                 zVar2.cancel();
             }
-            aaVar = this.UV.UL;
+            aaVar = this.US.UI;
             if (aaVar == null) {
-                this.UV.UL = new aa(this.UV, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.INPUT_USERNAME_ADDRESS, editable);
-                aaVar2 = this.UV.UL;
+                this.US.UI = new aa(this.US, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.INPUT_USERNAME_ADDRESS, editable);
+                aaVar2 = this.US.UI;
                 aaVar2.setPriority(3);
-                aaVar3 = this.UV.UL;
+                aaVar3 = this.US.UI;
                 aaVar3.execute(new String[0]);
                 return;
             }
             return;
         }
-        t tVar = this.UV;
-        baseActivity = this.UV.UJ;
-        tVar.dH(baseActivity.getPageContext().getString(com.baidu.tieba.z.input_name));
+        t tVar = this.US;
+        baseActivity = this.US.UG;
+        tVar.dE(baseActivity.getPageContext().getString(com.baidu.tieba.z.input_name));
     }
 }

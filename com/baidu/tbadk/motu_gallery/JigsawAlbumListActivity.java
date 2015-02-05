@@ -19,35 +19,35 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 public class JigsawAlbumListActivity extends BaseActivity implements AbsListView.OnScrollListener {
-    u acP;
-    private TextView acY;
-    private LinearLayout acZ;
-    private GridView adm;
-    r adn;
-    private HorizontalScrollView adp;
-    q adq;
+    u acM;
+    private TextView acV;
+    private LinearLayout acW;
+    private GridView adj;
+    r adk;
+    private HorizontalScrollView adm;
+    q adn;
     private static volatile int currentPosition = 0;
-    private static volatile int ado = 0;
-    private static boolean acR = false;
-    private static boolean acS = true;
-    private final int adj = 50;
-    private final int adk = 20;
-    private ViewphotoLinkedHashMap adl = new ViewphotoLinkedHashMap(50);
+    private static volatile int adl = 0;
+    private static boolean acO = false;
+    private static boolean acP = true;
+    private final int adg = 50;
+    private final int adh = 20;
+    private ViewphotoLinkedHashMap adi = new ViewphotoLinkedHashMap(50);
     private NavigationBar mNavigationBar = null;
-    int adr = 0;
-    int ads = 0;
-    private boolean adt = false;
+    int ado = 0;
+    int adp = 0;
+    private boolean adq = false;
     private Handler mHandler = new m(this);
 
-    public boolean wA() {
-        return acR;
+    public boolean wu() {
+        return acO;
     }
 
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        if (wA() || this.acP.getCount() == 0) {
-            acR = false;
+        if (wu() || this.acM.getCount() == 0) {
+            acO = false;
             finish();
         }
     }
@@ -60,33 +60,33 @@ public class JigsawAlbumListActivity extends BaseActivity implements AbsListView
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int i = displayMetrics.widthPixels;
-        this.acY = (TextView) findViewById(com.baidu.tieba.w.jigsaw_selected_text);
-        this.ads = (int) getResources().getDimension(com.baidu.tieba.u.onedip);
-        this.adr = (i - (this.ads * 16)) / 3;
-        this.acP = u.wG();
-        this.adn = new r(this, getPageContext().getContext());
-        this.adm = (GridView) findViewById(com.baidu.tieba.w.jigsaw_grid);
-        this.adm.setAdapter((ListAdapter) this.adn);
-        this.adm.setOnScrollListener(this);
+        this.acV = (TextView) findViewById(com.baidu.tieba.w.jigsaw_selected_text);
+        this.adp = (int) getResources().getDimension(com.baidu.tieba.u.onedip);
+        this.ado = (i - (this.adp * 16)) / 3;
+        this.acM = u.wA();
+        this.adk = new r(this, getPageContext().getContext());
+        this.adj = (GridView) findViewById(com.baidu.tieba.w.jigsaw_grid);
+        this.adj.setAdapter((ListAdapter) this.adk);
+        this.adj.setOnScrollListener(this);
         this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.w.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new n(this));
         ((Button) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.tieba.x.widget_nb_item_textbtn, new o(this))).setText(z.jigsaw_start);
-        this.acZ = (LinearLayout) findViewById(com.baidu.tieba.w.selected_ll);
-        this.adp = (HorizontalScrollView) findViewById(com.baidu.tieba.w.hsv);
-        this.mNavigationBar.setTitleText(this.acP.wH());
+        this.acW = (LinearLayout) findViewById(com.baidu.tieba.w.selected_ll);
+        this.adm = (HorizontalScrollView) findViewById(com.baidu.tieba.w.hsv);
+        this.mNavigationBar.setTitleText(this.acM.wB());
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.adt = true;
-        acS = true;
-        this.adq = new q(this);
-        Thread thread = new Thread(this.adq);
+        this.adq = true;
+        acP = true;
+        this.adn = new q(this);
+        Thread thread = new Thread(this.adn);
         thread.setDaemon(true);
         thread.start();
-        this.acY.setText(this.acP.ab(getPageContext().getContext()));
-        wB();
+        this.acV.setText(this.acM.ab(getPageContext().getContext()));
+        wv();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -96,19 +96,19 @@ public class JigsawAlbumListActivity extends BaseActivity implements AbsListView
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        this.adl.clear();
+        this.adi.clear();
         super.onDestroy();
     }
 
-    private void wB() {
-        this.acZ.removeAllViews();
-        for (Uri uri : this.acP.Z(getPageContext().getContext())) {
+    private void wv() {
+        this.acW.removeAllViews();
+        for (Uri uri : this.acM.Z(getPageContext().getContext())) {
             w wVar = new w(getPageContext().getContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams((int) getResources().getDimension(com.baidu.tieba.u.jigsawSelectedWidth), (int) getResources().getDimension(com.baidu.tieba.u.jigsawSelectedHeight));
             layoutParams.setMargins(0, 0, 0, 0);
             wVar.setLayoutParams(layoutParams);
             if (wVar.h(uri)) {
-                this.acZ.addView(wVar);
+                this.acW.addView(wVar);
                 wVar.setOnClickListener(new p(this, wVar));
             }
         }
@@ -118,63 +118,63 @@ public class JigsawAlbumListActivity extends BaseActivity implements AbsListView
     public void e(Uri uri) {
         a aVar;
         if (uri != null) {
-            for (int i = 0; i < this.acZ.getChildCount(); i++) {
-                View childAt = this.acZ.getChildAt(i);
+            for (int i = 0; i < this.acW.getChildCount(); i++) {
+                View childAt = this.acW.getChildAt(i);
                 if ((childAt instanceof w) && uri.equals(((w) childAt).getUri())) {
-                    this.acZ.removeView(childAt);
+                    this.acW.removeView(childAt);
                 }
             }
-            int f = this.acP.f(uri);
-            if (f >= 0 && (aVar = (a) this.adl.get((Object) Integer.valueOf(f))) != null) {
+            int f = this.acM.f(uri);
+            if (f >= 0 && (aVar = (a) this.adi.get((Object) Integer.valueOf(f))) != null) {
                 aVar.setIsSelected(false);
             }
-            this.acP.d(getPageContext().getContext(), uri);
-            this.acY.setText(this.acP.ab(getPageContext().getContext()));
+            this.acM.d(getPageContext().getContext(), uri);
+            this.acV.setText(this.acM.ab(getPageContext().getContext()));
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.adq.wF();
-        wD();
+        this.adn.wz();
+        wx();
         System.gc();
-        if (this.adq != null) {
-            this.adq.wF();
+        if (this.adn != null) {
+            this.adn.wz();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, Bitmap bitmap) {
         ImageView imageView;
-        if (this.adl.containsKey(Integer.valueOf(i))) {
-            imageView = this.adl.get((Object) Integer.valueOf(i));
-            this.adl.get((Object) Integer.valueOf(i)).setImageBitmap(bitmap);
+        if (this.adi.containsKey(Integer.valueOf(i))) {
+            imageView = this.adi.get((Object) Integer.valueOf(i));
+            this.adi.get((Object) Integer.valueOf(i)).setImageBitmap(bitmap);
         } else {
             imageView = new ImageView(getPageContext().getContext());
             imageView.setImageBitmap(bitmap);
-            this.adl.put(Integer.valueOf(i), imageView);
+            this.adi.put(Integer.valueOf(i), imageView);
         }
         imageView.setTag("bitmap");
     }
 
-    private void wD() {
-        int count = currentPosition + 20 > this.acP.getCount() ? this.acP.getCount() - currentPosition : 20;
-        if (this.adl.size() != 0) {
+    private void wx() {
+        int count = currentPosition + 20 > this.acM.getCount() ? this.acM.getCount() - currentPosition : 20;
+        if (this.adi.size() != 0) {
             for (int i = currentPosition; i < currentPosition + count; i++) {
-                if (this.adl.containsKey(Integer.valueOf(i))) {
-                    this.adl.get((Object) Integer.valueOf(i)).setImageDrawable(null);
-                    this.adl.get((Object) Integer.valueOf(i)).setTag("");
+                if (this.adi.containsKey(Integer.valueOf(i))) {
+                    this.adi.get((Object) Integer.valueOf(i)).setImageDrawable(null);
+                    this.adi.get((Object) Integer.valueOf(i)).setTag("");
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wC() {
-        if (u.wG().Z(getPageContext().getContext()).size() >= 2) {
-            if (acS) {
-                acS = false;
+    public void ww() {
+        if (u.wA().Z(getPageContext().getContext()).size() >= 2) {
+            if (acP) {
+                acP = false;
                 setResult(2);
                 finish();
                 return;

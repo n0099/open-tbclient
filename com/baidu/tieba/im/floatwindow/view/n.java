@@ -7,47 +7,47 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.bf;
 /* loaded from: classes.dex */
 public class n {
-    private TextView aHh;
-    private TextView aTJ;
-    private TextView aZX;
-    private TextView abm;
+    private TextView aHe;
+    private TextView aTI;
+    private TextView aZW;
+    private TextView abj;
     private int status;
 
     public n(View view) {
-        this.abm = (TextView) view.findViewById(com.baidu.tieba.w.floating_chat_name);
-        this.aZX = (TextView) view.findViewById(com.baidu.tieba.w.floating_chat_distance);
-        this.aTJ = (TextView) view.findViewById(com.baidu.tieba.w.floating_chat_time);
-        this.aHh = (TextView) view.findViewById(com.baidu.tieba.w.floating_chat_add_friend);
+        this.abj = (TextView) view.findViewById(com.baidu.tieba.w.floating_chat_name);
+        this.aZW = (TextView) view.findViewById(com.baidu.tieba.w.floating_chat_distance);
+        this.aTI = (TextView) view.findViewById(com.baidu.tieba.w.floating_chat_time);
+        this.aHe = (TextView) view.findViewById(com.baidu.tieba.w.floating_chat_add_friend);
     }
 
-    public void gG(String str) {
-        this.abm.setText(str);
+    public void gD(String str) {
+        this.abj.setText(str);
     }
 
     public void fP(int i) {
         this.status = i;
         switch (i) {
             case 0:
-                this.aHh.setClickable(true);
-                this.aHh.setVisibility(0);
-                this.aHh.setText(com.baidu.tieba.z.frs_recommend_friend_item_add);
+                this.aHe.setClickable(true);
+                this.aHe.setVisibility(0);
+                this.aHe.setText(com.baidu.tieba.z.frs_recommend_friend_item_add);
                 return;
             case 1:
             case 3:
-                this.aHh.setVisibility(8);
+                this.aHe.setVisibility(8);
                 return;
             case 2:
-                this.aHh.setVisibility(0);
-                this.aHh.setText(com.baidu.tieba.z.waiting);
-                this.aHh.setClickable(false);
-                this.aHh.setBackgroundResource(com.baidu.tieba.t.transparent);
-                this.aHh.setText(com.baidu.tieba.z.waiting);
-                this.aHh.setTextColor(TbadkCoreApplication.m255getInst().getResources().getColor(com.baidu.tieba.t.cp_cont_d));
+                this.aHe.setVisibility(0);
+                this.aHe.setText(com.baidu.tieba.z.waiting);
+                this.aHe.setClickable(false);
+                this.aHe.setBackgroundResource(com.baidu.tieba.t.transparent);
+                this.aHe.setText(com.baidu.tieba.z.waiting);
+                this.aHe.setTextColor(TbadkCoreApplication.m255getInst().getResources().getColor(com.baidu.tieba.t.cp_cont_d));
                 return;
             case 4:
-                this.aHh.setClickable(true);
-                this.aHh.setVisibility(0);
-                this.aHh.setText(com.baidu.tieba.z.add_friend_agree_button);
+                this.aHe.setClickable(true);
+                this.aHe.setVisibility(0);
+                this.aHe.setText(com.baidu.tieba.z.add_friend_agree_button);
                 return;
             default:
                 return;
@@ -55,27 +55,27 @@ public class n {
     }
 
     public void w(View.OnClickListener onClickListener) {
-        this.aHh.setOnClickListener(onClickListener);
+        this.aHe.setOnClickListener(onClickListener);
     }
 
     public void refreshPersonalHeadFooter(String str, com.baidu.tbadk.coreExtra.relationship.f fVar) {
-        this.abm.setText(str);
+        this.abj.setText(str);
         if (fVar != null) {
-            if (fVar.to() < 0 || fVar.to() > 1) {
-                this.aZX.setVisibility(8);
-                this.aTJ.setVisibility(8);
+            if (fVar.ti() < 0 || fVar.ti() > 1) {
+                this.aZW.setVisibility(8);
+                this.aTI.setVisibility(8);
                 return;
             }
-            this.aZX.setVisibility(0);
-            this.aTJ.setVisibility(0);
-            this.aZX.setText(TbadkCoreApplication.m255getInst().getResources().getString(com.baidu.tieba.z.contact_yinshen));
+            this.aZW.setVisibility(0);
+            this.aTI.setVisibility(0);
+            this.aZW.setText(TbadkCoreApplication.m255getInst().getResources().getString(com.baidu.tieba.z.contact_yinshen));
             if (!StringUtils.isNull(fVar.getDistance()) && fVar.getTime() > 0) {
-                this.aZX.setVisibility(0);
-                this.aZX.setText(fVar.getDistance());
-                this.aTJ.setText(bf.m(fVar.getTime()));
+                this.aZW.setVisibility(0);
+                this.aZW.setText(fVar.getDistance());
+                this.aTI.setText(bf.m(fVar.getTime()));
                 return;
             }
-            this.aZX.setVisibility(8);
+            this.aZW.setVisibility(8);
         }
     }
 }

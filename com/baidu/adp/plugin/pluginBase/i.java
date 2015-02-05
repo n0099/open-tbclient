@@ -18,10 +18,10 @@ public class i extends ContextWrapper {
 
     public void setPluginPackageName(String str) {
         this.mPackageName = str;
-        if (!PluginCenter.gW().aR(this.mPackageName)) {
+        if (!PluginCenter.getInstance().isLoaded(this.mPackageName)) {
             throw new RuntimeException("plugin is not loaded");
         }
-        attachBaseContext(PluginCenter.gW().aS(this.mPackageName).gO().getBaseContext());
+        attachBaseContext(PluginCenter.getInstance().getPlugin(this.mPackageName).gP().getBaseContext());
     }
 
     public String getPluginPackageName() {
@@ -30,26 +30,26 @@ public class i extends ContextWrapper {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public ClassLoader getClassLoader() {
-        if (!PluginCenter.gW().aR(this.mPackageName)) {
+        if (!PluginCenter.getInstance().isLoaded(this.mPackageName)) {
             throw new RuntimeException("plugin is not loaded");
         }
-        return PluginCenter.gW().aS(this.mPackageName).gL();
+        return PluginCenter.getInstance().getPlugin(this.mPackageName).gM();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Context getApplicationContext() {
-        if (!PluginCenter.gW().aR(this.mPackageName)) {
+        if (!PluginCenter.getInstance().isLoaded(this.mPackageName)) {
             throw new RuntimeException("plugin is not loaded");
         }
-        return PluginCenter.gW().aS(this.mPackageName).gO();
+        return PluginCenter.getInstance().getPlugin(this.mPackageName).gP();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        if (!PluginCenter.gW().aR(this.mPackageName)) {
+        if (!PluginCenter.getInstance().isLoaded(this.mPackageName)) {
             throw new RuntimeException("plugin is not loaded");
         }
-        return PluginCenter.gW().aS(this.mPackageName).gM();
+        return PluginCenter.getInstance().getPlugin(this.mPackageName).gN();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context

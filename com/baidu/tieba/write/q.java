@@ -9,20 +9,20 @@ import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements View.OnClickListener {
-    final /* synthetic */ FeedBackTopListView cfJ;
-    private final /* synthetic */ String cfK;
+    final /* synthetic */ FeedBackTopListView cfI;
+    private final /* synthetic */ String cfJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(FeedBackTopListView feedBackTopListView, String str) {
-        this.cfJ = feedBackTopListView;
-        this.cfK = str;
+        this.cfI = feedBackTopListView;
+        this.cfJ = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
         MessageManager messageManager = MessageManager.getInstance();
-        context = this.cfJ.mContext;
-        messageManager.sendMessage(new CustomMessage(2004001, new PbActivityConfig(context).createNormalCfg(this.cfK, null, WriteActivityConfig.FEED_BACK)));
+        context = this.cfI.mContext;
+        messageManager.sendMessage(new CustomMessage(2004001, new PbActivityConfig(context).createNormalCfg(this.cfJ, null, WriteActivityConfig.FEED_BACK)));
     }
 }

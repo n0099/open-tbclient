@@ -5,17 +5,17 @@ import android.widget.PopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements PopupWindow.OnDismissListener {
-    final /* synthetic */ q bPX;
+    final /* synthetic */ q bPW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(q qVar) {
-        this.bPX = qVar;
+        this.bPW = qVar;
     }
 
     @Override // android.widget.PopupWindow.OnDismissListener
     public void onDismiss() {
         View view;
-        view = this.bPX.bPP;
+        view = this.bPW.bPO;
         view.setSelected(false);
     }
 }

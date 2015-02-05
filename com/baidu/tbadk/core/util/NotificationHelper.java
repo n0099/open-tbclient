@@ -74,7 +74,7 @@ public class NotificationHelper {
         boolean z4 = false;
         boolean z5 = false;
         boolean z6 = false;
-        if (!com.baidu.tbadk.coreExtra.messageCenter.a.sa() && com.baidu.tbadk.coreExtra.messageCenter.a.rZ()) {
+        if (!com.baidu.tbadk.coreExtra.messageCenter.a.rU() && com.baidu.tbadk.coreExtra.messageCenter.a.rT()) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - TbadkCoreApplication.m255getInst().getLastNotifyTime() >= TbConfig.NOTIFY_SOUND_INTERVAL) {
                 AudioManager audioManager = (AudioManager) context.getSystemService("audio");

@@ -64,12 +64,12 @@ public class TbCDNTachometerService extends BdBaseService {
             if (!z2) {
                 synchronized (lock) {
                     if (0 == lastTachometerTime) {
-                        lastTachometerTime = com.baidu.tbadk.core.sharedPref.b.oj().getLong(LAST_GETCDNLIST_TIME, 0L);
+                        lastTachometerTime = com.baidu.tbadk.core.sharedPref.b.oc().getLong(LAST_GETCDNLIST_TIME, 0L);
                     }
                     long currentTimeMillis = System.currentTimeMillis();
                     if (0 == lastTachometerTime || currentTimeMillis - lastTachometerTime >= TACHOMETER_INTERVAL) {
                         lastTachometerTime = currentTimeMillis;
-                        com.baidu.tbadk.core.sharedPref.b.oj().putLong(LAST_GETCDNLIST_TIME, currentTimeMillis);
+                        com.baidu.tbadk.core.sharedPref.b.oc().putLong(LAST_GETCDNLIST_TIME, currentTimeMillis);
                     } else {
                         return;
                     }
@@ -127,25 +127,25 @@ public class TbCDNTachometerService extends BdBaseService {
     public void getIPList() {
         this.cdnTachometerModel.a((o) null);
         this.cdnTachometerModel.a(this.tachometerModelCallBack);
-        this.cdnTachometerModel.lE();
+        this.cdnTachometerModel.lx();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startTachometer(g gVar) {
         this.numOfThrowIp = 0;
-        if (gVar == null || gVar.BI != 0) {
+        if (gVar == null || gVar.BF != 0) {
             broadCastAndStopSelf(null);
-        } else if (!gVar.BL) {
+        } else if (!gVar.BI) {
             broadCastAndStopSelf(null);
-        } else if (gVar.BK.size() == 0) {
+        } else if (gVar.BH.size() == 0) {
             broadCastAndStopSelf(null);
         } else {
-            breakUpIpList(gVar.BK);
+            breakUpIpList(gVar.BH);
             String str = gVar.imageUrl;
-            String str2 = gVar.BM;
-            String str3 = gVar.BJ;
+            String str2 = gVar.BJ;
+            String str3 = gVar.BG;
             if (str != null && str2 != null && str3 != null) {
-                int size = gVar.BK.size();
+                int size = gVar.BH.size();
                 if (size > 0) {
                     f fVar = new f(this, gVar, 0);
                     fVar.cdnTachometerModel = this.cdnTachometerModel;
@@ -156,7 +156,7 @@ public class TbCDNTachometerService extends BdBaseService {
                     MessageManager.getInstance().sendMessage(customMessage);
                 }
                 for (int i = 0; i < size; i++) {
-                    ArrayList<String> arrayList = gVar.BK.get(i);
+                    ArrayList<String> arrayList = gVar.BH.get(i);
                     String str4 = "";
                     if (arrayList.size() > 0) {
                         str4 = arrayList.get(0);

@@ -22,23 +22,23 @@ class bo implements View.OnClickListener {
         boolean z2;
         Bitmap bitmap;
         Bitmap bitmap2;
-        boolean iE;
-        z = this.this$0.bCy;
+        boolean iC;
+        z = this.this$0.bCx;
         if (!z) {
             i = this.this$0.requestCode;
             if (i == 12003) {
                 Intent intent = new Intent();
                 progressBar = this.this$0.mProgress;
                 if (progressBar.getVisibility() != 0) {
-                    z2 = this.this$0.PH;
+                    z2 = this.this$0.PE;
                     if (z2) {
-                        bitmap = this.this$0.Pz;
+                        bitmap = this.this$0.Pw;
                         if (bitmap != null) {
-                            bitmap2 = this.this$0.Pz;
+                            bitmap2 = this.this$0.Pw;
                             if (!bitmap2.isRecycled()) {
                                 String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                                iE = this.this$0.iE(str);
-                                if (iE) {
+                                iC = this.this$0.iC(str);
+                                if (iC) {
                                     intent.putExtra("change", true);
                                     intent.putExtra("file_name", str);
                                 } else {

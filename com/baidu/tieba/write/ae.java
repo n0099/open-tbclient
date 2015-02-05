@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ WriteActivity cgS;
+    final /* synthetic */ WriteActivity cgR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(WriteActivity writeActivity) {
-        this.cgS = writeActivity;
+        this.cgR = writeActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
@@ -17,13 +17,13 @@ public class ae implements com.baidu.tbadk.core.dialog.d {
         com.baidu.tieba.tbadkCore.PbEditor.k kVar;
         com.baidu.tieba.tbadkCore.location.d dVar;
         if (UtilHelper.isNetOk()) {
-            kVar = this.cgS.cgz;
+            kVar = this.cgR.cgy;
             kVar.setLocationInfoViewState(1);
-            dVar = this.cgS.aBF;
-            dVar.aik();
+            dVar = this.cgR.aBC;
+            dVar.aif();
         } else {
-            iVar = this.cgS.aBQ;
-            iVar.Fx();
+            iVar = this.cgR.aBN;
+            iVar.Fr();
         }
         aVar.dismiss();
     }

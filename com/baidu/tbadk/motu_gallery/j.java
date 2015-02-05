@@ -12,12 +12,12 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class j extends BaseAdapter {
-    final /* synthetic */ JigsawAlbumActivity adc;
+    final /* synthetic */ JigsawAlbumActivity acZ;
     private Context mContext;
     public List<c> mList;
 
     public j(JigsawAlbumActivity jigsawAlbumActivity, Context context) {
-        this.adc = jigsawAlbumActivity;
+        this.acZ = jigsawAlbumActivity;
         this.mContext = context;
     }
 
@@ -70,40 +70,40 @@ public class j extends BaseAdapter {
             kVar = (k) view.getTag();
         }
         String str = this.mList.get(i).path;
-        arrayList = this.adc.acL;
+        arrayList = this.acZ.acI;
         StringBuilder append = new StringBuilder(String.valueOf(str.substring(((c) arrayList.get(i)).path.lastIndexOf("/") + 1))).append("(");
-        map = this.adc.map;
-        arrayList2 = this.adc.acL;
+        map = this.acZ.map;
+        arrayList2 = this.acZ.acI;
         String sb = append.append(String.valueOf(map.get(String.valueOf(((c) arrayList2.get(i)).type)))).append(")").toString();
-        JigsawAlbumActivity jigsawAlbumActivity = this.adc;
-        arrayList3 = this.adc.acL;
+        JigsawAlbumActivity jigsawAlbumActivity = this.acZ;
+        arrayList3 = this.acZ.acI;
         dB = jigsawAlbumActivity.dB(((c) arrayList3.get(i)).type);
-        kVar.adh.setText(sb);
-        kVar.adf = String.valueOf(i);
-        map2 = this.adc.acM;
+        kVar.ade.setText(sb);
+        kVar.adb = String.valueOf(i);
+        map2 = this.acZ.acJ;
         if (map2.containsKey(dB)) {
-            map4 = this.adc.acM;
+            map4 = this.acZ.acJ;
             a = (Bitmap) map4.get(dB);
         } else {
-            JigsawAlbumActivity jigsawAlbumActivity2 = this.adc;
-            arrayList4 = this.adc.acL;
+            JigsawAlbumActivity jigsawAlbumActivity2 = this.acZ;
+            arrayList4 = this.acZ.acI;
             dC = jigsawAlbumActivity2.dC(((c) arrayList4.get(i)).type);
-            uVar = this.adc.acP;
-            a = uVar.a(this.adc.getPageContext().getPageActivity(), dC, this.adc.t(70.0f));
+            uVar = this.acZ.acM;
+            a = uVar.a(this.acZ.getPageContext().getPageActivity(), dC, this.acZ.t(70.0f));
             if (a != null) {
-                map3 = this.adc.acM;
+                map3 = this.acZ.acJ;
                 map3.put(dB, a);
             }
         }
-        kVar.adg.setImageBitmap(a);
-        kVar.adg.setTag(this.mList.get(i));
+        kVar.adc.setImageBitmap(a);
+        kVar.adc.setTag(this.mList.get(i));
         return view;
     }
 
     private k r(View view) {
         k kVar = new k(this);
-        kVar.adg = (ImageView) view.findViewById(com.baidu.tieba.w.albums_item_photo_iv);
-        kVar.adh = (TextView) view.findViewById(com.baidu.tieba.w.albums_name_tv);
+        kVar.adc = (ImageView) view.findViewById(com.baidu.tieba.w.albums_item_photo_iv);
+        kVar.ade = (TextView) view.findViewById(com.baidu.tieba.w.albums_name_tv);
         return kVar;
     }
 }

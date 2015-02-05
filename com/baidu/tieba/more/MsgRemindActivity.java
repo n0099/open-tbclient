@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MsgRemindActivityConfig;
 /* loaded from: classes.dex */
 public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, com.baidu.adp.widget.BdSwitchView.c {
-    private aw bwp;
-    private ao bwq;
-    private ar bwr = new aj(this);
+    private aw bwo;
+    private ao bwp;
+    private ar bwq = new aj(this);
 
     static {
         TbadkCoreApplication.m255getInst().RegisterIntent(MsgRemindActivityConfig.class, MsgRemindActivity.class);
@@ -24,70 +24,70 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bwp = new aw(this);
-        this.bwp.b(this);
-        this.bwq = new ao(this);
+        this.bwo = new aw(this);
+        this.bwo.b(this);
+        this.bwp = new ao(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.bwp.onChangeSkinType(i);
+        this.bwo.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view == this.bwp.VY()) {
-            this.bwq.a(6, switchState == BdSwitchView.SwitchState.ON, this.bwr);
-        } else if (view == this.bwp.VZ()) {
+        if (view == this.bwo.VT()) {
+            this.bwp.a(6, switchState == BdSwitchView.SwitchState.ON, this.bwq);
+        } else if (view == this.bwo.VU()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 TbadkCoreApplication.m255getInst().setSignAlertOn(true);
-                this.bwp.VW();
-                this.bwp.dF(true);
-                this.bwp.dD(true);
+                this.bwo.VR();
+                this.bwo.dF(true);
+                this.bwo.dD(true);
                 return;
             }
             TbadkCoreApplication.m255getInst().setSignAlertOn(false);
-            this.bwp.dF(false);
-            this.bwp.dD(false);
-        } else if (view == this.bwp.Wa()) {
-            this.bwq.a(14, switchState == BdSwitchView.SwitchState.ON, this.bwr);
-        } else if (view == this.bwp.Wc()) {
+            this.bwo.dF(false);
+            this.bwo.dD(false);
+        } else if (view == this.bwo.VV()) {
+            this.bwp.a(14, switchState == BdSwitchView.SwitchState.ON, this.bwq);
+        } else if (view == this.bwo.VX()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 TbadkCoreApplication.m255getInst().setNoDisturbOn(true);
-                this.bwp.dE(true);
-                this.bwp.dB(true);
+                this.bwo.dE(true);
+                this.bwo.dB(true);
                 return;
             }
             TbadkCoreApplication.m255getInst().setNoDisturbOn(false);
-            this.bwp.dE(false);
-            this.bwp.dB(false);
-        } else if (view == this.bwp.Wg()) {
+            this.bwo.dE(false);
+            this.bwo.dB(false);
+        } else if (view == this.bwo.Wb()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 TbadkCoreApplication.m255getInst().setMsgTone(true);
             } else {
                 TbadkCoreApplication.m255getInst().setMsgTone(false);
             }
-        } else if (view == this.bwp.Wh()) {
+        } else if (view == this.bwo.Wc()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 TbadkCoreApplication.m255getInst().setMsgVibrate(true);
             } else {
                 TbadkCoreApplication.m255getInst().setMsgVibrate(false);
             }
-        } else if (view == this.bwp.Wi()) {
+        } else if (view == this.bwo.Wd()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 TbadkCoreApplication.m255getInst().setMsgLight(true);
             } else {
                 TbadkCoreApplication.m255getInst().setMsgLight(false);
             }
-        } else if (view == this.bwp.Wj()) {
+        } else if (view == this.bwo.We()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 TbadkCoreApplication.m255getInst().setScreenLock(true);
             } else {
                 TbadkCoreApplication.m255getInst().setScreenLock(false);
             }
-        } else if (view == this.bwp.Wk()) {
+        } else if (view == this.bwo.Wf()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 TbadkCoreApplication.m255getInst().setChatFloatWindowLock(true);
                 MsgRemindStatic.t(3, true);
@@ -100,25 +100,25 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        this.bwp.BI().performClick();
+        this.bwo.BC().performClick();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.bwp.BI()) {
-            if (this.bwp.bxD) {
+        if (view == this.bwo.BC()) {
+            if (this.bwo.bxC) {
                 finish();
             } else {
-                this.bwp.dH(true);
+                this.bwo.dH(true);
             }
-        } else if (view == this.bwp.Wb()) {
+        } else if (view == this.bwo.VW()) {
             showDialog(com.baidu.tieba.w.sign_remind);
-        } else if (view == this.bwp.Wd()) {
-            this.bwp.dH(false);
-        } else if (view == this.bwp.We()) {
+        } else if (view == this.bwo.VY()) {
+            this.bwo.dH(false);
+        } else if (view == this.bwo.VZ()) {
             showDialog(com.baidu.tieba.w.no_disturb_start_time);
-        } else if (view == this.bwp.Wf()) {
+        } else if (view == this.bwo.Wa()) {
             showDialog(com.baidu.tieba.w.no_disturb_end_time);
         }
     }
@@ -127,11 +127,11 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         switch (i) {
             case 4:
-                if (this.bwp.bxD) {
+                if (this.bwo.bxC) {
                     finish();
                     return true;
                 }
-                this.bwp.dH(true);
+                this.bwo.dH(true);
                 return true;
             default:
                 return super.onKeyDown(i, keyEvent);
@@ -182,22 +182,22 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
         int id = compoundButton.getId();
         if (id == com.baidu.tieba.w.check_replyme) {
-            this.bwq.a(1, z, this.bwr);
+            this.bwp.a(1, z, this.bwq);
         } else if (id == com.baidu.tieba.w.check_zan) {
             TbadkCoreApplication.m255getInst().setMsgZanOn(z);
             if (!TbadkCoreApplication.m255getInst().isMsgAtmeOn() && !TbadkCoreApplication.m255getInst().isMsgChatOn() && !TbadkCoreApplication.m255getInst().isMsgNewFansOn() && !TbadkCoreApplication.m255getInst().isMsgReplymeOn() && !TbadkCoreApplication.m255getInst().isMsgZanOn() && !TbadkCoreApplication.m255getInst().isGroupMsgOn() && !TbadkCoreApplication.m255getInst().isStrangerChatOn()) {
-                this.bwr.a(14, true, false);
+                this.bwq.a(14, true, false);
             }
         } else if (id == com.baidu.tieba.w.check_atme) {
-            this.bwq.a(2, z, this.bwr);
+            this.bwp.a(2, z, this.bwq);
         } else if (id == com.baidu.tieba.w.check_chatmessage) {
-            this.bwq.a(5, z, this.bwr);
+            this.bwp.a(5, z, this.bwq);
         } else if (id == com.baidu.tieba.w.check_groupmessage) {
-            this.bwq.a(4, z, this.bwr);
+            this.bwp.a(4, z, this.bwq);
         } else if (id == com.baidu.tieba.w.check_new_fans) {
-            this.bwq.a(3, z, this.bwr);
+            this.bwp.a(3, z, this.bwq);
         } else if (id == com.baidu.tieba.w.check_strangermessage) {
-            this.bwq.a(23, z, this.bwr);
+            this.bwp.a(23, z, this.bwq);
         }
     }
 }

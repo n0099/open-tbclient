@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cv implements View.OnClickListener {
-    final /* synthetic */ cs aGO;
-    private final /* synthetic */ com.baidu.tbadk.core.data.t aGP;
+    final /* synthetic */ cs aGL;
+    private final /* synthetic */ com.baidu.tbadk.core.data.t aGM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cv(cs csVar, com.baidu.tbadk.core.data.t tVar) {
-        this.aGO = csVar;
-        this.aGP = tVar;
+        this.aGL = csVar;
+        this.aGM = tVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,8 +21,8 @@ public class cv implements View.OnClickListener {
         Context context;
         com.baidu.tbadk.core.data.t tVar = (com.baidu.tbadk.core.data.t) view.getTag(com.baidu.tieba.w.tag_first);
         int intValue = ((Integer) view.getTag(com.baidu.tieba.w.tag_second)).intValue();
-        FrsActivity frsActivity = this.aGO.aEd;
-        context = this.aGO.mContext;
-        frsActivity.sendMessage(new CustomMessage(2010000, new ImageViewerConfig(context).createConfig(this.aGP.nj(), intValue, this.aGP.nf(), "", "", true, tVar.nj().get(this.aGP.nj().size() - 1), true)));
+        FrsActivity frsActivity = this.aGL.aEa;
+        context = this.aGL.mContext;
+        frsActivity.sendMessage(new CustomMessage(2010000, new ImageViewerConfig(context).createConfig(this.aGM.nc(), intValue, this.aGM.mY(), "", "", true, tVar.nc().get(this.aGM.nc().size() - 1), true)));
     }
 }

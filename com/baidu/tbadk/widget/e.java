@@ -3,10 +3,10 @@ package com.baidu.tbadk.widget;
 import android.graphics.Bitmap;
 /* loaded from: classes.dex */
 class e extends Thread {
-    final /* synthetic */ a aiN;
+    final /* synthetic */ a aiK;
 
     private e(a aVar) {
-        this.aiN = aVar;
+        this.aiK = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,26 +16,26 @@ class e extends Thread {
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        while (a.l(this.aiN) == 1 && a.m(this.aiN) != null && a.n(this.aiN) > 0 && a.o(this.aiN) > 0 && a.p(this.aiN) > 0) {
+        while (a.l(this.aiK) == 1 && a.m(this.aiK) != null && a.n(this.aiK) > 0 && a.o(this.aiK) > 0 && a.p(this.aiK) > 0) {
             try {
-                a.m(this.aiN).B(a.q(this.aiN));
-                f Aa = this.aiN.Aa();
-                if (Aa.aiU == null || (Aa.aiU.getWidth() != a.o(this.aiN) && Aa.aiU.getHeight() != a.p(this.aiN))) {
-                    Aa.aiU = Bitmap.createBitmap(a.o(this.aiN), a.p(this.aiN), Bitmap.Config.ARGB_8888);
+                a.m(this.aiK).B(a.q(this.aiK));
+                f zU = this.aiK.zU();
+                if (zU.aiR == null || (zU.aiR.getWidth() != a.o(this.aiK) && zU.aiR.getHeight() != a.p(this.aiK))) {
+                    zU.aiR = Bitmap.createBitmap(a.o(this.aiK), a.p(this.aiK), Bitmap.Config.ARGB_8888);
                 }
-                a.m(this.aiN).a(Aa.aiU, null);
-                Aa.delay = a.m(this.aiN).C(a.q(this.aiN));
-                a aVar = this.aiN;
+                a.m(this.aiK).a(zU.aiR, null);
+                zU.delay = a.m(this.aiK).C(a.q(this.aiK));
+                a aVar = this.aiK;
                 a.a(aVar, a.q(aVar) + 1);
-                if (Aa.aiU == null) {
-                    a aVar2 = this.aiN;
+                if (zU.aiR == null) {
+                    a aVar2 = this.aiK;
                     a.a(aVar2, a.q(aVar2) + 1);
                 }
-                a aVar3 = this.aiN;
-                a.a(aVar3, a.q(aVar3) % a.n(this.aiN));
-                a.r(this.aiN).put(Aa);
-                if (a.c(this.aiN)) {
-                    this.aiN.mHandler.sendEmptyMessage(1);
+                a aVar3 = this.aiK;
+                a.a(aVar3, a.q(aVar3) % a.n(this.aiK));
+                a.r(this.aiK).put(zU);
+                if (a.c(this.aiK)) {
+                    this.aiK.mHandler.sendEmptyMessage(1);
                 }
             } catch (Exception e) {
                 return;

@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.util.bc;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements TextWatcher {
-    final /* synthetic */ SquareSearchActivity btb;
+    final /* synthetic */ SquareSearchActivity bta;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(SquareSearchActivity squareSearchActivity) {
-        this.btb = squareSearchActivity;
+        this.bta = squareSearchActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -28,40 +28,40 @@ public class s implements TextWatcher {
         int i6;
         int i7;
         String str2;
-        this.btb.bsO = charSequence.toString();
-        str = this.btb.bsO;
+        this.bta.bsN = charSequence.toString();
+        str = this.bta.bsN;
         if (str.trim().length() > 0) {
-            i6 = this.btb.mMode;
+            i6 = this.bta.mMode;
             if (i6 != 0) {
-                i7 = this.btb.mMode;
+                i7 = this.bta.mMode;
                 if (i7 == 1) {
-                    SquareSearchActivity squareSearchActivity = this.btb;
-                    str2 = this.btb.bsO;
+                    SquareSearchActivity squareSearchActivity = this.bta;
+                    str2 = this.bta.bsN;
                     squareSearchActivity.y(1, str2);
                     return;
                 }
                 return;
             }
-            this.btb.Ul();
+            this.bta.Ug();
             return;
         }
-        this.btb.rA();
-        i4 = this.btb.mMode;
+        this.bta.ru();
+        i4 = this.bta.mMode;
         if (i4 != 0) {
-            i5 = this.btb.mMode;
+            i5 = this.bta.mMode;
             if (i5 != 3) {
-                this.btb.Uj();
+                this.bta.Ue();
             } else {
-                this.btb.Uk();
+                this.bta.Uf();
             }
         } else {
-            this.btb.Ui();
+            this.bta.Ud();
         }
-        frameLayout = this.btb.bsC;
+        frameLayout = this.bta.bsB;
         frameLayout.setVisibility(0);
-        listView = this.btb.bsD;
+        listView = this.bta.bsC;
         listView.setVisibility(0);
-        xVar = this.btb.mNoDataView;
+        xVar = this.bta.mNoDataView;
         xVar.setVisibility(8);
     }
 
@@ -75,13 +75,13 @@ public class s implements TextWatcher {
         TextView textView;
         Button button2;
         if (editable.toString().trim().length() == 0) {
-            button2 = this.btb.bsx;
+            button2 = this.bta.bsw;
             button2.setVisibility(8);
         } else {
-            button = this.btb.bsx;
+            button = this.bta.bsw;
             button.setVisibility(0);
         }
-        textView = this.btb.bsy;
+        textView = this.bta.bsx;
         bc.b(textView, com.baidu.tieba.t.cp_cont_i, 1);
     }
 }

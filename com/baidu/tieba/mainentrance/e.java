@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.util.bf;
 /* loaded from: classes.dex */
 public class e extends BaseAdapter {
-    private SearchPostModel bsp = null;
-    private int bsq = 0;
+    private SearchPostModel bso = null;
+    private int bsp = 0;
     private Context mContext;
 
     public e(Context context) {
@@ -25,41 +25,41 @@ public class e extends BaseAdapter {
     }
 
     public void setRefreshing(int i) {
-        this.bsq = i;
+        this.bsp = i;
     }
 
-    public int TZ() {
-        return this.bsq;
+    public int TU() {
+        return this.bsp;
     }
 
-    public boolean Ua() {
-        if (this.bsp == null) {
+    public boolean TV() {
+        if (this.bso == null) {
             return false;
         }
-        return this.bsp.hasPre();
+        return this.bso.hasPre();
     }
 
-    public boolean Ub() {
-        if (this.bsp == null) {
+    public boolean TW() {
+        if (this.bso == null) {
             return false;
         }
-        return this.bsp.hasMore();
+        return this.bso.hasMore();
     }
 
     public void a(SearchPostModel searchPostModel) {
-        this.bsp = searchPostModel;
+        this.bso = searchPostModel;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bsp == null || this.bsp.getData() == null) {
+        if (this.bso == null || this.bso.getData() == null) {
             return 0;
         }
-        int size = this.bsp.getData().size();
-        if (Ua()) {
+        int size = this.bso.getData().size();
+        if (TV()) {
             size++;
         }
-        if (Ub()) {
+        if (TW()) {
             return size + 1;
         }
         return size;
@@ -68,10 +68,10 @@ public class e extends BaseAdapter {
     @Override // android.widget.Adapter
     public Object getItem(int i) {
         int itemId;
-        if (this.bsp == null || this.bsp.getData() == null || (itemId = (int) getItemId(i)) < 0 || itemId >= this.bsp.getData().size()) {
+        if (this.bso == null || this.bso.getData() == null || (itemId = (int) getItemId(i)) < 0 || itemId >= this.bso.getData().size()) {
             return null;
         }
-        return this.bsp.getData().get(itemId);
+        return this.bso.getData().get(itemId);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -81,15 +81,15 @@ public class e extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.bsp == null || this.bsp.getData() == null) {
+        if (this.bso == null || this.bso.getData() == null) {
             return -1L;
         }
-        if (Ua()) {
-            if (i <= this.bsp.getData().size()) {
+        if (TV()) {
+            if (i <= this.bso.getData().size()) {
                 return i - 1;
             }
             return -2L;
-        } else if (i < this.bsp.getData().size()) {
+        } else if (i < this.bso.getData().size()) {
             return i;
         } else {
             return -2L;
@@ -105,25 +105,25 @@ public class e extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         f fVar;
         g gVar;
-        if (this.bsp != null) {
+        if (this.bso != null) {
             if (view == null) {
                 if (getItemViewType(i) == 0) {
                     gVar = new g(this, null);
                     view = com.baidu.adp.lib.g.b.ei().inflate(this.mContext, com.baidu.tieba.x.search_post_item, null);
                     gVar.mTitle = (TextView) view.findViewById(com.baidu.tieba.w.title);
-                    gVar.Td = view.findViewById(com.baidu.tieba.w.search_post_lv_search_forum_divider);
-                    gVar.bsu = (TextView) view.findViewById(com.baidu.tieba.w.content);
-                    gVar.aQx = (TextView) view.findViewById(com.baidu.tieba.w.forum);
-                    gVar.ayA = (TextView) view.findViewById(com.baidu.tieba.w.time);
-                    gVar.bsv = (LinearLayout) view.findViewById(com.baidu.tieba.w.square_search_content_layout);
+                    gVar.Ta = view.findViewById(com.baidu.tieba.w.search_post_lv_search_forum_divider);
+                    gVar.bst = (TextView) view.findViewById(com.baidu.tieba.w.content);
+                    gVar.aQw = (TextView) view.findViewById(com.baidu.tieba.w.forum);
+                    gVar.ayx = (TextView) view.findViewById(com.baidu.tieba.w.time);
+                    gVar.bsu = (LinearLayout) view.findViewById(com.baidu.tieba.w.square_search_content_layout);
                     view.setTag(gVar);
                     fVar = null;
                 } else {
                     f fVar2 = new f(this, null);
                     view = com.baidu.adp.lib.g.b.ei().inflate(this.mContext, com.baidu.tieba.x.page_item, null);
-                    fVar2.bsr = (RelativeLayout) view.findViewById(com.baidu.tieba.w.page_container);
-                    fVar2.bss = (TextView) view.findViewById(com.baidu.tieba.w.page_text);
-                    fVar2.Bs = (ProgressBar) view.findViewById(com.baidu.tieba.w.progress);
+                    fVar2.bsq = (RelativeLayout) view.findViewById(com.baidu.tieba.w.page_container);
+                    fVar2.bsr = (TextView) view.findViewById(com.baidu.tieba.w.page_text);
+                    fVar2.Bp = (ProgressBar) view.findViewById(com.baidu.tieba.w.progress);
                     view.setTag(fVar2);
                     fVar = fVar2;
                     gVar = null;
@@ -139,50 +139,50 @@ public class e extends BaseAdapter {
             if (getItemViewType(i) == 0) {
                 h hVar = (h) getItem(i);
                 if (hVar != null) {
-                    gVar.aQx.setText(String.valueOf(hVar.Ud()) + this.mContext.getString(com.baidu.tieba.z.bar));
-                    gVar.ayA.setText(bf.n(hVar.getTime()));
+                    gVar.aQw.setText(String.valueOf(hVar.TY()) + this.mContext.getString(com.baidu.tieba.z.bar));
+                    gVar.ayx.setText(bf.n(hVar.getTime()));
                     if (hVar.getContent() == null || hVar.getContent().length() < 1) {
-                        gVar.bsv.setVisibility(8);
+                        gVar.bsu.setVisibility(8);
                     } else {
-                        gVar.bsv.setVisibility(0);
-                        gVar.bsu.setText(Html.fromHtml(bf.a(hVar.getContent(), (Color) null)));
+                        gVar.bsu.setVisibility(0);
+                        gVar.bst.setText(Html.fromHtml(bf.a(hVar.getContent(), (Color) null)));
                     }
                     gVar.mTitle.setText(Html.fromHtml(bf.a(hVar.getTitle(), (Color) null)));
-                    bc.c(gVar.bsu, skinType);
+                    bc.c(gVar.bst, skinType);
                     if (skinType == 0) {
-                        gVar.aQx.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.t.cp_cont_d));
-                        gVar.ayA.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.t.cp_cont_d));
-                        gVar.bsu.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.t.cp_cont_b));
+                        gVar.aQw.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.t.cp_cont_d));
+                        gVar.ayx.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.t.cp_cont_d));
+                        gVar.bst.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.t.cp_cont_b));
                     } else {
-                        gVar.aQx.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.t.cp_cont_d_1));
-                        gVar.ayA.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.t.cp_cont_d_1));
-                        gVar.bsu.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.t.cp_cont_b_1));
+                        gVar.aQw.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.t.cp_cont_d_1));
+                        gVar.ayx.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.t.cp_cont_d_1));
+                        gVar.bst.setTextColor(this.mContext.getResources().getColor(com.baidu.tieba.t.cp_cont_b_1));
                     }
-                    bc.j(gVar.Td, com.baidu.tieba.t.cp_bg_line_b);
-                    bc.i(gVar.bsv, com.baidu.tieba.v.bg_search_tiezi);
+                    bc.j(gVar.Ta, com.baidu.tieba.t.cp_bg_line_b);
+                    bc.i(gVar.bsu, com.baidu.tieba.v.bg_search_tiezi);
                     bc.b(gVar.mTitle, com.baidu.tieba.t.cp_cont_c, 1);
                 }
             } else {
                 if (getItemId(i) == -1) {
-                    if (this.bsq == 1) {
-                        fVar.Bs.setVisibility(0);
-                        fVar.bss.setText(this.mContext.getString(com.baidu.tieba.z.loading));
+                    if (this.bsp == 1) {
+                        fVar.Bp.setVisibility(0);
+                        fVar.bsr.setText(this.mContext.getString(com.baidu.tieba.z.loading));
                     } else {
-                        fVar.Bs.setVisibility(8);
-                        fVar.bss.setText(this.mContext.getString(com.baidu.tieba.z.pre_page));
+                        fVar.Bp.setVisibility(8);
+                        fVar.bsr.setText(this.mContext.getString(com.baidu.tieba.z.pre_page));
                     }
-                    bc.c(fVar.bss, skinType);
+                    bc.c(fVar.bsr, skinType);
                 } else {
-                    if (this.bsq == 2) {
-                        fVar.Bs.setVisibility(0);
-                        fVar.bss.setText(this.mContext.getString(com.baidu.tieba.z.loading));
+                    if (this.bsp == 2) {
+                        fVar.Bp.setVisibility(0);
+                        fVar.bsr.setText(this.mContext.getString(com.baidu.tieba.z.loading));
                     } else {
-                        fVar.Bs.setVisibility(8);
-                        fVar.bss.setText(this.mContext.getString(com.baidu.tieba.z.next_page));
+                        fVar.Bp.setVisibility(8);
+                        fVar.bsr.setText(this.mContext.getString(com.baidu.tieba.z.next_page));
                     }
-                    bc.c(fVar.bss, skinType);
+                    bc.c(fVar.bsr, skinType);
                 }
-                bc.i(fVar.bsr, com.baidu.tieba.v.list_item_selector);
+                bc.i(fVar.bsq, com.baidu.tieba.v.list_item_selector);
             }
         }
         return view;

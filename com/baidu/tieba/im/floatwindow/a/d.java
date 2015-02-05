@@ -3,111 +3,111 @@ package com.baidu.tieba.im.floatwindow.a;
 import android.graphics.Point;
 /* loaded from: classes.dex */
 public class d implements c {
+    private Point aZb;
     private Point aZc;
     private Point aZd;
-    private Point aZe;
+    private final int aZe;
     private final int aZf;
-    private final int aZg;
-    private e aZh;
-    private int aZi;
+    private e aZg;
+    private int aZh;
     private float k;
 
     private int fL(int i) {
-        return (int) (((this.k * i) + this.aZc.y) - (this.k * this.aZc.x));
+        return (int) (((this.k * i) + this.aZb.y) - (this.k * this.aZb.x));
     }
 
     @Override // com.baidu.tieba.im.floatwindow.a.c
     public boolean execute() {
-        if (!this.aZe.equals(this.aZd)) {
-            switch (this.aZi) {
+        if (!this.aZd.equals(this.aZc)) {
+            switch (this.aZh) {
                 case 0:
-                    NM();
+                    NH();
                     break;
                 case 1:
-                    NO();
+                    NJ();
                     break;
                 case 2:
-                    NN();
+                    NI();
                     break;
                 case 3:
-                    NP();
+                    NK();
                     break;
                 case 4:
-                    NQ();
+                    NL();
                     break;
                 case 5:
-                    NR();
+                    NM();
                     break;
             }
             return false;
         }
-        if (this.aZh != null) {
-            this.aZh.NF();
+        if (this.aZg != null) {
+            this.aZg.NA();
         }
         return true;
     }
 
+    private void NH() {
+        this.aZd.y += this.aZf;
+        if (this.aZd.y > this.aZc.y) {
+            this.aZd.y = this.aZc.y;
+        }
+        if (this.aZg != null) {
+            this.aZg.a(this.aZd);
+        }
+    }
+
+    private void NI() {
+        this.aZd.x += this.aZe;
+        if (this.aZd.x > this.aZc.x) {
+            this.aZd.x = this.aZc.x;
+        }
+        if (this.aZg != null) {
+            this.aZg.a(this.aZd);
+        }
+    }
+
+    private void NJ() {
+        this.aZd.y -= this.aZf;
+        if (this.aZd.y < this.aZc.y) {
+            this.aZd.y = this.aZc.y;
+        }
+        if (this.aZg != null) {
+            this.aZg.a(this.aZd);
+        }
+    }
+
+    private void NK() {
+        this.aZd.x -= this.aZe;
+        if (this.aZd.x < this.aZc.x) {
+            this.aZd.x = this.aZc.x;
+        }
+        if (this.aZg != null) {
+            this.aZg.a(this.aZd);
+        }
+    }
+
+    private void NL() {
+        this.aZd.x -= this.aZe;
+        this.aZd.y = fL(this.aZd.x);
+        if (this.aZd.x < this.aZc.x && this.aZd.y < this.aZc.y) {
+            this.aZd.x = this.aZc.x;
+            this.aZd.y = this.aZc.y;
+        }
+        if (this.aZg != null) {
+            this.aZg.a(this.aZd);
+        }
+    }
+
     private void NM() {
-        this.aZe.y += this.aZg;
-        if (this.aZe.y > this.aZd.y) {
-            this.aZe.y = this.aZd.y;
+        this.aZd.x += this.aZe;
+        this.aZd.y = fL(this.aZd.x);
+        if (this.aZd.x > this.aZc.x && this.aZd.y > this.aZc.y) {
+            this.aZd.x = this.aZc.x;
+            this.aZd.y = this.aZc.y;
         }
-        if (this.aZh != null) {
-            this.aZh.a(this.aZe);
-        }
-    }
-
-    private void NN() {
-        this.aZe.x += this.aZf;
-        if (this.aZe.x > this.aZd.x) {
-            this.aZe.x = this.aZd.x;
-        }
-        if (this.aZh != null) {
-            this.aZh.a(this.aZe);
-        }
-    }
-
-    private void NO() {
-        this.aZe.y -= this.aZg;
-        if (this.aZe.y < this.aZd.y) {
-            this.aZe.y = this.aZd.y;
-        }
-        if (this.aZh != null) {
-            this.aZh.a(this.aZe);
-        }
-    }
-
-    private void NP() {
-        this.aZe.x -= this.aZf;
-        if (this.aZe.x < this.aZd.x) {
-            this.aZe.x = this.aZd.x;
-        }
-        if (this.aZh != null) {
-            this.aZh.a(this.aZe);
-        }
-    }
-
-    private void NQ() {
-        this.aZe.x -= this.aZf;
-        this.aZe.y = fL(this.aZe.x);
-        if (this.aZe.x < this.aZd.x && this.aZe.y < this.aZd.y) {
-            this.aZe.x = this.aZd.x;
-            this.aZe.y = this.aZd.y;
-        }
-        if (this.aZh != null) {
-            this.aZh.a(this.aZe);
-        }
-    }
-
-    private void NR() {
-        this.aZe.x += this.aZf;
-        this.aZe.y = fL(this.aZe.x);
-        if (this.aZe.x > this.aZd.x && this.aZe.y > this.aZd.y) {
-            this.aZe.x = this.aZd.x;
-            this.aZe.y = this.aZd.y;
-        }
-        if (this.aZh != null) {
-            this.aZh.a(this.aZe);
+        if (this.aZg != null) {
+            this.aZg.a(this.aZd);
         }
     }
 }

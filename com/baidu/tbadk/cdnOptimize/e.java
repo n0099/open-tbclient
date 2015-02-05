@@ -1,11 +1,11 @@
 package com.baidu.tbadk.cdnOptimize;
 /* loaded from: classes.dex */
 class e implements o {
-    final /* synthetic */ TbCDNTachometerService BG;
+    final /* synthetic */ TbCDNTachometerService BD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(TbCDNTachometerService tbCDNTachometerService) {
-        this.BG = tbCDNTachometerService;
+        this.BD = tbCDNTachometerService;
     }
 
     @Override // com.baidu.tbadk.cdnOptimize.o
@@ -13,6 +13,6 @@ class e implements o {
         if (gVar == null) {
             return;
         }
-        this.BG.startTachometer(gVar);
+        this.BD.startTachometer(gVar);
     }
 }

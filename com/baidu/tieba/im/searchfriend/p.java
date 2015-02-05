@@ -10,11 +10,11 @@ import com.baidu.tieba.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnClickListener {
-    final /* synthetic */ n boi;
+    final /* synthetic */ n boh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(n nVar) {
-        this.boi = nVar;
+        this.boh = nVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,12 +24,12 @@ public class p implements View.OnClickListener {
         if (view.getTag() instanceof com.baidu.tieba.im.searchfriend.a.c) {
             com.baidu.tieba.im.searchfriend.a.c cVar = (com.baidu.tieba.im.searchfriend.a.c) view.getTag();
             if (!UtilHelper.isNetOk() || cVar == null) {
-                searchFriendActivity = this.boi.boh;
+                searchFriendActivity = this.boh.bog;
                 searchFriendActivity.showToast(z.im_error_default);
                 return;
             }
             MessageManager messageManager = MessageManager.getInstance();
-            searchFriendActivity2 = this.boi.boh;
+            searchFriendActivity2 = this.boh.bog;
             messageManager.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(searchFriendActivity2.getPageContext().getPageActivity(), String.valueOf(cVar.getUserId()), cVar.getName(), null, AddFriendActivityConfig.TYPE_ADD_FRD)));
         }
     }

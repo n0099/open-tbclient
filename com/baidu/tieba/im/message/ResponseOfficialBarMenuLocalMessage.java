@@ -62,10 +62,10 @@ public class ResponseOfficialBarMenuLocalMessage extends CustomResponsedMessage<
                                 dVar2.setName(subMenu.name);
                                 dVar2.fF(subMenu.parent_id.intValue());
                                 dVar2.T(subMenu.update_time.intValue());
-                                dVar.MI().add(dVar2);
+                                dVar.MD().add(dVar2);
                             }
                         }
-                        getOfficialBarMenuDatas().ML().add(dVar);
+                        getOfficialBarMenuDatas().MG().add(dVar);
                     }
                 }
             }

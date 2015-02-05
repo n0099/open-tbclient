@@ -13,15 +13,15 @@ import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 public class ar extends RelativeLayout {
-    private TextView aUY;
-    private View aUZ;
-    private TextView aVa;
-    private ImageView aVb;
-    private View aVc;
+    private TextView aUX;
+    private View aUY;
+    private TextView aUZ;
+    private ImageView aVa;
+    private View aVb;
+    private TextView aVc;
     private TextView aVd;
-    private TextView aVe;
-    private TextView ayA;
-    private TbImageView ayr;
+    private TbImageView ayo;
+    private TextView ayx;
     private Context mContext;
     private com.baidu.adp.lib.c.b mItemViewLongClickListener;
     private int mPosition;
@@ -45,16 +45,16 @@ public class ar extends RelativeLayout {
     private void initView() {
         com.baidu.adp.lib.g.b.ei().a(this.mContext, com.baidu.tieba.x.msg_single_pic_text_view, this, true);
         this.mTitle = (TextView) findViewById(com.baidu.tieba.w.single_title);
-        this.aUY = (TextView) findViewById(com.baidu.tieba.w.single_abstract);
-        this.ayr = (TbImageView) findViewById(com.baidu.tieba.w.single_content_pic);
-        this.ayr.setAutoChangeStyle(false);
-        this.aVa = (TextView) findViewById(com.baidu.tieba.w.read_all);
-        this.aVb = (ImageView) findViewById(com.baidu.tieba.w.arrow);
-        this.aUZ = findViewById(com.baidu.tieba.w.single_divider);
-        this.ayA = (TextView) findViewById(com.baidu.tieba.w.show_time_single);
-        this.aVc = findViewById(com.baidu.tieba.w.office_msg_priase_include);
-        this.aVd = (TextView) this.aVc.findViewById(com.baidu.tieba.w.office_msg_praise_text);
-        this.aVe = (TextView) this.aVc.findViewById(com.baidu.tieba.w.office_msg_praise_number);
+        this.aUX = (TextView) findViewById(com.baidu.tieba.w.single_abstract);
+        this.ayo = (TbImageView) findViewById(com.baidu.tieba.w.single_content_pic);
+        this.ayo.setAutoChangeStyle(false);
+        this.aUZ = (TextView) findViewById(com.baidu.tieba.w.read_all);
+        this.aVa = (ImageView) findViewById(com.baidu.tieba.w.arrow);
+        this.aUY = findViewById(com.baidu.tieba.w.single_divider);
+        this.ayx = (TextView) findViewById(com.baidu.tieba.w.show_time_single);
+        this.aVb = findViewById(com.baidu.tieba.w.office_msg_priase_include);
+        this.aVc = (TextView) this.aVb.findViewById(com.baidu.tieba.w.office_msg_praise_text);
+        this.aVd = (TextView) this.aVb.findViewById(com.baidu.tieba.w.office_msg_praise_number);
         setOnLongClickListener(new as(this));
     }
 
@@ -70,32 +70,32 @@ public class ar extends RelativeLayout {
             if (!TextUtils.isEmpty(pVar.text)) {
                 str2 = pVar.text;
             }
-            this.aUY.setText(str2);
+            this.aUX.setText(str2);
             if (!TextUtils.isEmpty(pVar.url)) {
                 setOnClickListener(new at(this, tbPageContext, pVar, i));
             }
             if (!TextUtils.isEmpty(pVar.src)) {
-                this.ayr.setTag(pVar.src);
-                this.ayr.d(pVar.src, 10, false);
+                this.ayo.setTag(pVar.src);
+                this.ayo.d(pVar.src, 10, false);
             }
-            long j = pVar.aUf;
-            long j2 = pVar.aUh;
+            long j = pVar.aUe;
+            long j2 = pVar.aUg;
             if (j <= 0 && j2 <= 0) {
-                this.aVc.setVisibility(8);
+                this.aVb.setVisibility(8);
                 return;
             }
             if (j <= 0) {
-                this.aVd.setVisibility(4);
+                this.aVc.setVisibility(4);
             } else {
-                this.aVd.setVisibility(0);
-                this.aVd.setText(a(pVar));
+                this.aVc.setVisibility(0);
+                this.aVc.setText(a(pVar));
             }
             if (j2 <= 0) {
-                this.aVe.setVisibility(4);
+                this.aVd.setVisibility(4);
                 return;
             }
-            this.aVe.setVisibility(0);
-            this.aVe.setText(new StringBuilder(String.valueOf(pVar.aUh)).toString());
+            this.aVd.setVisibility(0);
+            this.aVd.setText(new StringBuilder(String.valueOf(pVar.aUg)).toString());
         }
     }
 
@@ -103,16 +103,16 @@ public class ar extends RelativeLayout {
         if (pVar == null) {
             return null;
         }
-        return pVar.aUe + pVar.aUf + pVar.aUg;
+        return pVar.aUd + pVar.aUe + pVar.aUf;
     }
 
     public void reset() {
         this.mTitle.setText("");
-        this.aUY.setText("");
-        this.ayr.setBackgroundDrawable(null);
-        this.ayr.setImageDrawable(null);
-        this.ayA.setText("");
-        this.ayA.setVisibility(8);
+        this.aUX.setText("");
+        this.ayo.setBackgroundDrawable(null);
+        this.ayo.setImageDrawable(null);
+        this.ayx.setText("");
+        this.ayx.setVisibility(8);
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
@@ -128,22 +128,22 @@ public class ar extends RelativeLayout {
         if (skinType == 1 && !z) {
             skinType = 0;
         }
-        this.ayr.setAutoChangeStyle(z);
+        this.ayo.setAutoChangeStyle(z);
         bc.a(this.mTitle, com.baidu.tieba.t.official_msg_bottom_text, 1, skinType);
-        bc.a(this.aUY, com.baidu.tieba.t.cp_cont_c, 1, skinType);
-        bc.a(this.aVa, com.baidu.tieba.t.official_msg_bottom_text, 1, skinType);
-        bc.c(this.aVb, com.baidu.tieba.v.icon_ba_top_arrow_big, skinType);
-        bc.a(this.ayA, com.baidu.tieba.t.official_time_text, 1, skinType);
-        bc.c(this.aUZ, com.baidu.tieba.v.multi_single_divider_selector, skinType);
+        bc.a(this.aUX, com.baidu.tieba.t.cp_cont_c, 1, skinType);
+        bc.a(this.aUZ, com.baidu.tieba.t.official_msg_bottom_text, 1, skinType);
+        bc.c(this.aVa, com.baidu.tieba.v.icon_ba_top_arrow_big, skinType);
+        bc.a(this.ayx, com.baidu.tieba.t.official_time_text, 1, skinType);
+        bc.c(this.aUY, com.baidu.tieba.v.multi_single_divider_selector, skinType);
     }
 
     public void setTime(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.ayA.setVisibility(8);
-            this.ayA.setText("");
+            this.ayx.setVisibility(8);
+            this.ayx.setText("");
             return;
         }
-        this.ayA.setVisibility(0);
-        this.ayA.setText(str);
+        this.ayx.setVisibility(0);
+        this.ayx.setText(str);
     }
 }

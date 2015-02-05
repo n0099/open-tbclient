@@ -2,24 +2,24 @@ package com.baidu.tieba.im.floatwindow.view;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements m {
-    final /* synthetic */ i aZW;
+    final /* synthetic */ i aZV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar) {
-        this.aZW = iVar;
+        this.aZV = iVar;
     }
 
     @Override // com.baidu.tieba.im.floatwindow.view.m
-    public void Og() {
+    public void Ob() {
         ao aoVar;
         ao aoVar2;
         int i;
-        aoVar = this.aZW.aZV;
+        aoVar = this.aZV.aZU;
         if (aoVar == null) {
             return;
         }
-        aoVar2 = this.aZW.aZV;
-        i = this.aZW.index;
+        aoVar2 = this.aZV.aZU;
+        i = this.aZV.index;
         aoVar2.delete(i);
     }
 }

@@ -9,9 +9,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* loaded from: classes.dex */
 public class e {
-    private static ExecutorService abH = Executors.newFixedThreadPool(3);
-    private Queue<f> abI = new ConcurrentLinkedQueue();
-    private volatile g abJ;
+    private static ExecutorService abE = Executors.newFixedThreadPool(3);
+    private Queue<f> abF = new ConcurrentLinkedQueue();
+    private volatile g abG;
     public Context mContext;
 
     public e(Context context) {
@@ -22,7 +22,7 @@ public class e {
         if (imageFileInfo == null) {
             return null;
         }
-        return com.baidu.tbadk.imageManager.e.we().en(imageFileInfo.toCachedKey(z));
+        return com.baidu.tbadk.imageManager.e.vY().ek(imageFileInfo.toCachedKey(z));
     }
 
     public com.baidu.adp.widget.a.a a(ImageFileInfo imageFileInfo, com.baidu.tbadk.imageManager.d dVar, boolean z, boolean z2) {
@@ -32,11 +32,11 @@ public class e {
                 return null;
             }
             f fVar = new f(this, null);
-            fVar.abL = dVar;
-            fVar.abK = imageFileInfo;
-            fVar.abM = z;
-            this.abI.add(fVar);
-            wl();
+            fVar.abI = dVar;
+            fVar.abH = imageFileInfo;
+            fVar.abJ = z;
+            this.abF.add(fVar);
+            wf();
             return null;
         }
         return a;
@@ -47,18 +47,18 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void wl() {
-        if (!this.abI.isEmpty()) {
-            this.abJ = new g(this, this.abI);
-            this.abJ.executeOnExecutor(abH, new Void[0]);
+    public void wf() {
+        if (!this.abF.isEmpty()) {
+            this.abG = new g(this, this.abF);
+            this.abG.executeOnExecutor(abE, new Void[0]);
         }
     }
 
-    public void wm() {
-        this.abI = new ConcurrentLinkedQueue();
-        if (this.abJ != null) {
-            this.abJ.cancel(true);
-            this.abJ = null;
+    public void wg() {
+        this.abF = new ConcurrentLinkedQueue();
+        if (this.abG != null) {
+            this.abG.cancel(true);
+            this.abG = null;
         }
     }
 
@@ -75,20 +75,20 @@ public class e {
         }
         if (imageFileInfo.getOrginalBitmap() != null) {
             try {
-                return com.baidu.tbadk.img.effect.c.wn().a(imageFileInfo.getOrginalBitmap(), !imageFileInfo.isOrginalBitmapShared(), linkedList);
+                return com.baidu.tbadk.img.effect.c.wh().a(imageFileInfo.getOrginalBitmap(), !imageFileInfo.isOrginalBitmapShared(), linkedList);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
             }
         } else if (imageFileInfo.hasActions(z)) {
             try {
-                return com.baidu.tbadk.img.effect.c.wn().b(imageFileInfo.getFilePath(), linkedList);
+                return com.baidu.tbadk.img.effect.c.wh().b(imageFileInfo.getFilePath(), linkedList);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return null;
             }
         } else {
-            return com.baidu.tbadk.core.util.d.ca(imageFileInfo.getFilePath());
+            return com.baidu.tbadk.core.util.d.bX(imageFileInfo.getFilePath());
         }
     }
 }

@@ -9,8 +9,8 @@ import com.baidu.tieba.z;
 import java.io.FileNotFoundException;
 /* loaded from: classes.dex */
 public class w extends LinearLayout {
-    ImageView adG;
-    Bitmap adH;
+    ImageView adD;
+    Bitmap adE;
     Context mContext;
     Uri mUri;
 
@@ -22,7 +22,7 @@ public class w extends LinearLayout {
 
     private void init() {
         com.baidu.adp.lib.g.b.ei().inflate(this.mContext, com.baidu.tieba.x.motu_albums_selected_item, this);
-        this.adG = (ImageView) findViewById(com.baidu.tieba.w.image);
+        this.adD = (ImageView) findViewById(com.baidu.tieba.w.image);
     }
 
     public Uri getUri() {
@@ -35,7 +35,7 @@ public class w extends LinearLayout {
         int dimension = (int) this.mContext.getResources().getDimension(com.baidu.tieba.u.jigsawSelectedImageWidth);
         if (uri != null) {
             try {
-                this.adH = b.a(this.mContext, uri, dimension, dimension);
+                this.adE = b.a(this.mContext, uri, dimension, dimension);
             } catch (OtherException e) {
                 e.printStackTrace();
                 z = false;
@@ -47,8 +47,8 @@ public class w extends LinearLayout {
                 z = false;
             }
         }
-        if (this.adH != null) {
-            this.adG.setImageBitmap(this.adH);
+        if (this.adE != null) {
+            this.adD.setImageBitmap(this.adE);
         } else {
             z = false;
         }

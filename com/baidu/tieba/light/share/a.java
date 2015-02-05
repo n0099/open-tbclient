@@ -23,7 +23,7 @@ class a extends com.baidu.adp.framework.listener.e {
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 205001 && (chatMessage = (ChatMessage) socketResponsedMessage.getOrginalMessage()) != null && GameShareListenerStatic.z(chatMessage) == 1) {
             if (socketResponsedMessage.getError() == 0) {
                 GameShareListenerStatic.e(GameShareListenerStatic.mContext, com.baidu.adp.lib.g.b.ei().inflate(GameShareListenerStatic.mContext, x.tip_game_share, null));
-                TiebaStatic.eventStat(GameShareListenerStatic.mContext, "game_share_tbf_ok", "click", 1, "dev_id", com.baidu.tbadk.game.b.vN().getGameInfoData().getGameId(), "share_type", 5);
+                TiebaStatic.eventStat(GameShareListenerStatic.mContext, "game_share_tbf_ok", "click", 1, "dev_id", com.baidu.tbadk.game.b.vH().getGameInfoData().getGameId(), "share_type", 5);
                 return;
             }
             LinearLayout linearLayout = (LinearLayout) com.baidu.adp.lib.g.b.ei().inflate(GameShareListenerStatic.mContext, x.tip_game_share, null);

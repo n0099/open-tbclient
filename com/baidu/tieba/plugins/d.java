@@ -9,11 +9,11 @@ import com.baidu.tieba.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements com.baidu.adp.plugin.packageManager.e {
-    final /* synthetic */ PluginDetailActivity bMl;
+    final /* synthetic */ PluginDetailActivity bMk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(PluginDetailActivity pluginDetailActivity) {
-        this.bMl = pluginDetailActivity;
+        this.bMk = pluginDetailActivity;
     }
 
     @Override // com.baidu.adp.plugin.packageManager.e
@@ -25,15 +25,15 @@ public class d implements com.baidu.adp.plugin.packageManager.e {
         TextView textView3;
         if (bdFileDownloadData != null) {
             String id = bdFileDownloadData.getId();
-            pluginConfig = this.bMl.bMk;
+            pluginConfig = this.bMk.bMj;
             if (id.equals(pluginConfig.package_name)) {
-                z = this.bMl.mFinished;
+                z = this.bMk.mFinished;
                 if (!z) {
-                    textView = this.bMl.bMi;
+                    textView = this.bMk.bMh;
                     bc.b(textView, t.cp_cont_d, 1);
-                    textView2 = this.bMl.bMi;
-                    textView2.setText(this.bMl.getPageContext().getResources().getString(z.plugin_download_percent, Long.valueOf((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize())));
-                    textView3 = this.bMl.bMi;
+                    textView2 = this.bMk.bMh;
+                    textView2.setText(this.bMk.getPageContext().getResources().getString(z.plugin_download_percent, Long.valueOf((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize())));
+                    textView3 = this.bMk.bMh;
                     textView3.setEnabled(false);
                 }
             }
@@ -47,13 +47,13 @@ public class d implements com.baidu.adp.plugin.packageManager.e {
         TextView textView2;
         if (bdFileDownloadData != null) {
             String id = bdFileDownloadData.getId();
-            pluginConfig = this.bMl.bMk;
+            pluginConfig = this.bMk.bMj;
             if (id.equals(pluginConfig.package_name)) {
-                textView = this.bMl.bMi;
-                textView.setText(this.bMl.getPageContext().getString(z.plugin_download_finished));
-                textView2 = this.bMl.bMi;
+                textView = this.bMk.bMh;
+                textView.setText(this.bMk.getPageContext().getString(z.plugin_download_finished));
+                textView2 = this.bMk.bMh;
                 textView2.setEnabled(false);
-                this.bMl.mFinished = true;
+                this.bMk.mFinished = true;
             }
         }
     }
@@ -63,11 +63,11 @@ public class d implements com.baidu.adp.plugin.packageManager.e {
         PluginNetConfigInfos.PluginConfig pluginConfig;
         if (bdFileDownloadData != null) {
             String id = bdFileDownloadData.getId();
-            pluginConfig = this.bMl.bMk;
+            pluginConfig = this.bMk.bMj;
             if (id.equals(pluginConfig.package_name)) {
-                this.bMl.showToast(bdFileDownloadData.getStatusMsg());
-                this.bMl.ack();
-                this.bMl.mFinished = true;
+                this.bMk.showToast(bdFileDownloadData.getStatusMsg());
+                this.bMk.acf();
+                this.bMk.mFinished = true;
             }
         }
     }
@@ -75,11 +75,11 @@ public class d implements com.baidu.adp.plugin.packageManager.e {
     @Override // com.baidu.adp.plugin.packageManager.e
     public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
         if (i == 0) {
-            this.bMl.showToast(this.bMl.getPageContext().getString(z.plugin_installation_finished));
-            this.bMl.ack();
+            this.bMk.showToast(this.bMk.getPageContext().getString(z.plugin_installation_finished));
+            this.bMk.acf();
             return;
         }
-        this.bMl.showToast(String.valueOf(this.bMl.getPageContext().getString(z.plugin_installation_failed)) + str);
-        this.bMl.ack();
+        this.bMk.showToast(String.valueOf(this.bMk.getPageContext().getString(z.plugin_installation_failed)) + str);
+        this.bMk.acf();
     }
 }

@@ -5,19 +5,19 @@ import android.widget.FrameLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements Runnable {
-    final /* synthetic */ a aZC;
+    final /* synthetic */ a aZB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.aZC = aVar;
+        this.aZB = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         FrameLayout frameLayout;
-        Animation NW;
-        frameLayout = this.aZC.aZp;
-        NW = this.aZC.NW();
-        frameLayout.startAnimation(NW);
+        Animation NR;
+        frameLayout = this.aZB.aZo;
+        NR = this.aZB.NR();
+        frameLayout.startAnimation(NR);
     }
 }

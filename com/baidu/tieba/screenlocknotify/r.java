@@ -3,11 +3,11 @@ package com.baidu.tieba.screenlocknotify;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class r {
-    final /* synthetic */ o bOp;
-    TextView bOq;
+    final /* synthetic */ o bOo;
+    TextView bOp;
 
     private r(o oVar) {
-        this.bOp = oVar;
+        this.bOo = oVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

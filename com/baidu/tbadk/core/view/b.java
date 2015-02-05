@@ -8,33 +8,33 @@ import com.baidu.tbadk.core.view.CarouselRecommendView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter implements t {
-    private CarouselRecommendView LK;
+    private CarouselRecommendView LH;
     private TbPageContext<?> mContext;
-    private CarouselRecommendView.e LJ = null;
+    private CarouselRecommendView.e LG = null;
     private ArrayList<com.baidu.tbadk.core.data.v> datas = new ArrayList<>();
 
     public b(TbPageContext<?> tbPageContext) {
-        this.LK = null;
+        this.LH = null;
         this.mContext = tbPageContext;
-        this.LK = new CarouselRecommendView(tbPageContext.getContext(), false);
+        this.LH = new CarouselRecommendView(tbPageContext.getContext(), false);
     }
 
     public void s(ArrayList<com.baidu.tbadk.core.data.v> arrayList) {
         this.datas = arrayList;
-        this.LK.a(this.mContext, arrayList);
-        this.LJ = this.LK.getPagerAdapter();
+        this.LH.a(this.mContext, arrayList);
+        this.LG = this.LH.getPagerAdapter();
         notifyDataSetChanged();
     }
 
-    public void qv() {
-        if (this.LK != null) {
-            this.LK.qv();
+    public void qo() {
+        if (this.LH != null) {
+            this.LH.qo();
         }
     }
 
-    public void qw() {
-        if (this.LK != null) {
-            this.LK.qw();
+    public void qp() {
+        if (this.LH != null) {
+            this.LH.qp();
         }
     }
 
@@ -55,26 +55,26 @@ public class b extends BaseAdapter implements t {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return this.LK;
+        return this.LH;
     }
 
     @Override // com.baidu.tbadk.core.view.t
-    public void qx() {
-        if (this.LJ != null) {
-            this.LJ.qx();
+    public void qq() {
+        if (this.LG != null) {
+            this.LG.qq();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.t
     public void f(View view, int i, int i2) {
-        if (this.LJ != null) {
-            this.LJ.f(this.LK, 0, 0);
+        if (this.LG != null) {
+            this.LG.f(this.LH, 0, 0);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.LK != null) {
-            this.LK.onChangeSkinType(i);
+        if (this.LH != null) {
+            this.LH.onChangeSkinType(i);
         }
     }
 }

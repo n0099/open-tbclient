@@ -74,7 +74,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         MenuKeyUtils.hideSmartBarMenu(getPageContext().getPageActivity());
         super.onCreate(bundle);
         TbadkCoreApplication.setIsAppRunning(true);
-        bk.cI(getClass().getName());
+        bk.cF(getClass().getName());
         this.mLayoutMode = new c();
         registerListener(this.nightResourcesChangeListener);
     }
@@ -86,7 +86,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         super.onResume();
         changeSkinType(TbadkCoreApplication.m255getInst().getSkinType());
         TbadkCoreApplication.m255getInst().AddResumeNum();
-        bk.cI(getClass().getName());
+        bk.cF(getClass().getName());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -236,19 +236,19 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void showToastWithIcon(String str, int i) {
-        BdToast.a(getPageContext().getContext(), str, i).ob();
+        BdToast.a(getPageContext().getContext(), str, i).nU();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getPageContext().getContext(), str, i, i2).ob();
+        BdToast.a(getPageContext().getContext(), str, i, i2).nU();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getPageContext().getContext(), str, defaultIcon).ob();
+        BdToast.a(getPageContext().getContext(), str, defaultIcon).nU();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getPageContext().getContext(), str, defaultIcon, i).ob();
+        BdToast.a(getPageContext().getContext(), str, defaultIcon, i).nU();
     }
 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.view.LayoutInflater.Factory

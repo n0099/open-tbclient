@@ -5,17 +5,17 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements Runnable {
-    final /* synthetic */ z bLK;
-    private final /* synthetic */ EditText bLL;
+    final /* synthetic */ z bLJ;
+    private final /* synthetic */ EditText bLK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(z zVar, EditText editText) {
-        this.bLK = zVar;
-        this.bLL = editText;
+        this.bLJ = zVar;
+        this.bLK = editText;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        ((InputMethodManager) this.bLL.getContext().getSystemService("input_method")).toggleSoftInput(0, 2);
+        ((InputMethodManager) this.bLK.getContext().getSystemService("input_method")).toggleSoftInput(0, 2);
     }
 }

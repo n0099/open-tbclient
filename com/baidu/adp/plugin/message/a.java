@@ -3,10 +3,10 @@ package com.baidu.adp.plugin.message;
 public class a {
     public String errMsg;
     public int errNo;
-    public String sB;
+    public String sy;
 
     public a(String str, int i, String str2) {
-        this.sB = str;
+        this.sy = str;
         this.errNo = i;
         this.errMsg = str2;
     }

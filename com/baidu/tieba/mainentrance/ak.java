@@ -8,17 +8,17 @@ import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ak extends BdAsyncTask<Object, Integer, BarSuggestModel> {
-    private com.baidu.tbadk.core.util.ad CX = null;
-    final /* synthetic */ SquareSearchActivity btb;
-    BasicNameValuePair bte;
+    private com.baidu.tbadk.core.util.ad CU = null;
+    final /* synthetic */ SquareSearchActivity bta;
+    BasicNameValuePair btd;
     private String mUrl;
 
     public ak(SquareSearchActivity squareSearchActivity, String str, BasicNameValuePair basicNameValuePair, boolean z) {
-        this.btb = squareSearchActivity;
+        this.bta = squareSearchActivity;
         this.mUrl = null;
-        this.bte = null;
+        this.btd = null;
         this.mUrl = str;
-        this.bte = basicNameValuePair;
+        this.btd = basicNameValuePair;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -27,11 +27,11 @@ public class ak extends BdAsyncTask<Object, Integer, BarSuggestModel> {
         ProgressBar progressBar;
         com.baidu.tbadk.core.view.x xVar;
         FrameLayout frameLayout;
-        progressBar = this.btb.mProgress;
+        progressBar = this.bta.mProgress;
         progressBar.setVisibility(0);
-        xVar = this.btb.mNoDataView;
+        xVar = this.bta.mNoDataView;
         xVar.setVisibility(8);
-        frameLayout = this.btb.bsC;
+        frameLayout = this.bta.bsB;
         frameLayout.setVisibility(8);
     }
 
@@ -42,14 +42,14 @@ public class ak extends BdAsyncTask<Object, Integer, BarSuggestModel> {
     public BarSuggestModel doInBackground(Object... objArr) {
         BarSuggestModel barSuggestModel = null;
         try {
-            this.CX = new com.baidu.tbadk.core.util.ad(this.mUrl);
-            this.CX.a(this.bte);
-            String oy = this.CX.oy();
-            if (oy == null) {
+            this.CU = new com.baidu.tbadk.core.util.ad(this.mUrl);
+            this.CU.a(this.btd);
+            String or = this.CU.or();
+            if (or == null) {
                 return null;
             }
-            barSuggestModel = BarSuggestModel.parserJson(oy);
-            this.btb.bsP = this.bte.getValue();
+            barSuggestModel = BarSuggestModel.parserJson(or);
+            this.bta.bsO = this.btd.getValue();
             return barSuggestModel;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -63,23 +63,23 @@ public class ak extends BdAsyncTask<Object, Integer, BarSuggestModel> {
     /* renamed from: a */
     public void onPostExecute(BarSuggestModel barSuggestModel) {
         ProgressBar progressBar;
-        progressBar = this.btb.mProgress;
+        progressBar = this.bta.mProgress;
         progressBar.setVisibility(8);
         if (barSuggestModel != null) {
-            this.btb.bsK = barSuggestModel;
-            this.btb.refresh();
+            this.bta.bsJ = barSuggestModel;
+            this.bta.refresh();
         }
-        this.btb.bsM = null;
+        this.bta.bsL = null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        if (this.CX != null) {
-            this.CX.dJ();
-            this.CX = null;
+        if (this.CU != null) {
+            this.CU.dJ();
+            this.CU = null;
         }
-        progressBar = this.btb.mProgress;
+        progressBar = this.bta.mProgress;
         progressBar.setVisibility(8);
         super.cancel(true);
     }

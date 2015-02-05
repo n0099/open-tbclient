@@ -4,13 +4,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class j extends CustomMessageListener {
-    final /* synthetic */ SignAllForumActivity bRc;
+    final /* synthetic */ SignAllForumActivity bRb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(SignAllForumActivity signAllForumActivity, int i) {
         super(i);
-        this.bRc = signAllForumActivity;
+        this.bRb = signAllForumActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,8 +19,8 @@ class j extends CustomMessageListener {
         Integer num;
         ad adVar;
         if (customResponsedMessage != null && (num = (Integer) customResponsedMessage.getData()) != null && num.intValue() == 2) {
-            adVar = this.bRc.bQV;
-            adVar.aej().setHasPrivilege(true);
+            adVar = this.bRb.bQU;
+            adVar.aee().setHasPrivilege(true);
         }
     }
 }

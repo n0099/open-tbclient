@@ -8,38 +8,38 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class bf extends com.baidu.adp.base.f {
-    private BaseActivity.LoadDataCallBack AQ;
-    private bg byf;
-    private bh byg;
+    private BaseActivity.LoadDataCallBack AN;
+    private bg bye;
+    private bh byf;
     private Context mContext;
 
     public bf(SystemHelpSettingActivity systemHelpSettingActivity) {
         super(systemHelpSettingActivity.getPageContext());
+        this.bye = null;
         this.byf = null;
-        this.byg = null;
         this.mContext = null;
-        this.AQ = null;
+        this.AN = null;
         this.mContext = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
-    public void Wu() {
-        if (this.byf == null) {
-            this.byf = new bg(this, null);
-            this.byf.execute(new String[0]);
+    public void Wp() {
+        if (this.bye == null) {
+            this.bye = new bg(this, null);
+            this.bye.execute(new String[0]);
         }
     }
 
-    public void Wv() {
+    public void Wq() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!TextUtils.isEmpty(currentAccount)) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, currentAccount));
         }
     }
 
-    public void Ww() {
-        if (this.byg == null) {
-            this.byg = new bh(this, null);
-            this.byg.execute(new String[0]);
+    public void Wr() {
+        if (this.byf == null) {
+            this.byf = new bh(this, null);
+            this.byf.execute(new String[0]);
         }
     }
 
@@ -58,6 +58,6 @@ public class bf extends com.baidu.adp.base.f {
     }
 
     public void a(BaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.AQ = loadDataCallBack;
+        this.AN = loadDataCallBack;
     }
 }

@@ -6,13 +6,13 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tieba.tbadkCore.FrsPageHttpResponseMessage;
 /* loaded from: classes.dex */
 class ae extends HttpMessageListener {
-    final /* synthetic */ SquareSearchActivity btb;
+    final /* synthetic */ SquareSearchActivity bta;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ae(SquareSearchActivity squareSearchActivity, int i, boolean z) {
         super(i, z);
-        this.btb = squareSearchActivity;
+        this.bta = squareSearchActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,13 +20,13 @@ class ae extends HttpMessageListener {
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
         TextView textView;
         TextView textView2;
-        textView = this.btb.bsy;
+        textView = this.bta.bsx;
         if (textView != null) {
-            textView2 = this.btb.bsy;
+            textView2 = this.bta.bsx;
             textView2.setClickable(true);
         }
         if (httpResponsedMessage instanceof FrsPageHttpResponseMessage) {
-            this.btb.a(httpResponsedMessage, !((FrsPageHttpResponseMessage) httpResponsedMessage).hasNetworkError());
+            this.bta.a(httpResponsedMessage, !((FrsPageHttpResponseMessage) httpResponsedMessage).hasNetworkError());
         }
     }
 }

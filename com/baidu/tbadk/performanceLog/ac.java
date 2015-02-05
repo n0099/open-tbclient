@@ -7,32 +7,32 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class ac {
-    private static String ahn = "tb_perfor_samllflow_time";
-    private static volatile ac ahq;
-    private long ahp;
-    private boolean ahl = false;
-    private long aho = 86400;
-    private long ahm = com.baidu.tbadk.core.sharedPref.b.oj().getLong(ahn, 0);
+    private static String ahk = "tb_perfor_samllflow_time";
+    private static volatile ac ahn;
+    private long ahm;
+    private boolean ahi = false;
+    private long ahl = 86400;
+    private long ahj = com.baidu.tbadk.core.sharedPref.b.oc().getLong(ahk, 0);
 
-    public static ac zy() {
-        if (ahq == null) {
+    public static ac zs() {
+        if (ahn == null) {
             synchronized (ac.class) {
-                if (ahq == null) {
-                    ahq = new ac();
+                if (ahn == null) {
+                    ahn = new ac();
                 }
             }
         }
-        return ahq;
+        return ahn;
     }
 
     private ac() {
-        this.ahp = 0L;
-        this.ahp = this.aho;
+        this.ahm = 0L;
+        this.ahm = this.ahl;
     }
 
-    public boolean zz() {
-        if (!this.ahl || (System.currentTimeMillis() - this.ahm) / 1000 <= this.ahp) {
-            return this.ahl;
+    public boolean zt() {
+        if (!this.ahi || (System.currentTimeMillis() - this.ahj) / 1000 <= this.ahm) {
+            return this.ahi;
         }
         return false;
     }
@@ -40,18 +40,18 @@ public class ac {
     public void aY(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.ahm || currentTimeMillis - this.ahm >= this.ahp) {
-                this.ahm = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.oj().putLong(ahn, this.ahm);
+            if (0 == this.ahj || currentTimeMillis - this.ahj >= this.ahm) {
+                this.ahj = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.oc().putLong(ahk, this.ahj);
             }
         } else {
-            this.ahm = 0L;
-            com.baidu.tbadk.core.sharedPref.b.oj().putLong(ahn, this.ahm);
+            this.ahj = 0L;
+            com.baidu.tbadk.core.sharedPref.b.oc().putLong(ahk, this.ahj);
         }
-        this.ahl = z;
+        this.ahi = z;
     }
 
-    public String zA() {
+    public String zu() {
         try {
             Runtime runtime = Runtime.getRuntime();
             StringBuffer stringBuffer = new StringBuffer();
@@ -95,7 +95,7 @@ public class ac {
     }
 
     public ab dZ(int i) {
-        if (zz()) {
+        if (zt()) {
             switch (i) {
                 case 1000:
                     ae aeVar = new ae();
@@ -118,7 +118,7 @@ public class ac {
 
     public void v(long j) {
         if (j > 0) {
-            this.ahp = j;
+            this.ahm = j;
         }
     }
 
@@ -137,7 +137,7 @@ public class ac {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int zB() {
+    public int zv() {
         BufferedReader bufferedReader;
         Process process;
         String str;

@@ -8,28 +8,28 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class ba extends com.baidu.adp.base.f<NewFriendsActivity> {
-    private static final String blH = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/r/friend/getRecommendList";
-    private static TbHttpMessageTask blI = new TbHttpMessageTask(CmdConfigHttp.RECOMMOEND_FRIEND_CMD, blH);
-    private be blG;
-    private final HttpMessageListener blJ;
+    private static final String blG = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/r/friend/getRecommendList";
+    private static TbHttpMessageTask blH = new TbHttpMessageTask(CmdConfigHttp.RECOMMOEND_FRIEND_CMD, blG);
+    private be blF;
+    private final HttpMessageListener blI;
 
     static {
-        blI.setResponsedClass(RecommendFriendResponseMessage.class);
-        MessageManager.getInstance().registerTask(blI);
+        blH.setResponsedClass(RecommendFriendResponseMessage.class);
+        MessageManager.getInstance().registerTask(blH);
     }
 
     public ba(NewFriendsActivity newFriendsActivity, be beVar) {
         super(newFriendsActivity.getPageContext());
-        this.blG = null;
-        this.blJ = new bb(this, CmdConfigHttp.RECOMMOEND_FRIEND_CMD);
-        this.blG = beVar;
+        this.blF = null;
+        this.blI = new bb(this, CmdConfigHttp.RECOMMOEND_FRIEND_CMD);
+        this.blF = beVar;
     }
 
     public void registerListener() {
-        registerListener(this.blJ);
+        registerListener(this.blI);
     }
 
-    public void By() {
+    public void Bs() {
         sendMessage(new HttpMessage(CmdConfigHttp.RECOMMOEND_FRIEND_CMD));
     }
 

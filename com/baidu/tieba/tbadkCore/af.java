@@ -5,27 +5,27 @@ import android.widget.ListView;
 import com.baidu.tieba.tbadkCore.PbEditor.PbEditor;
 /* loaded from: classes.dex */
 public class af implements Runnable {
-    private PbEditor YU;
-    private ListView YV;
-    private Activity YW;
-    private int YX;
+    private PbEditor YR;
+    private ListView YS;
+    private Activity YT;
+    private int YU;
     private int distance;
     private int position;
 
     public af(Activity activity, int i, int i2, PbEditor pbEditor, ListView listView, int i3) {
         this.distance = i2;
         this.position = i;
-        this.YU = pbEditor;
-        this.YV = listView;
-        this.YX = i3;
-        this.YW = activity;
+        this.YR = pbEditor;
+        this.YS = listView;
+        this.YU = i3;
+        this.YT = activity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         int[] iArr = new int[2];
-        this.YU.getLocationInWindow(iArr);
-        this.YV.setSelectionFromTop(this.position + this.YV.getHeaderViewsCount(), ((iArr[1] - this.distance) - this.YX) - com.baidu.adp.lib.util.l.m(this.YW));
-        this.YV.invalidate();
+        this.YR.getLocationInWindow(iArr);
+        this.YS.setSelectionFromTop(this.position + this.YS.getHeaderViewsCount(), ((iArr[1] - this.distance) - this.YU) - com.baidu.adp.lib.util.l.m(this.YT));
+        this.YS.invalidate();
     }
 }

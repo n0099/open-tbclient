@@ -4,8 +4,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class af extends com.baidu.adp.base.f {
-    private ag boQ;
-    private ah boR;
+    private ag boP;
+    private ah boQ;
 
     public af(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -22,11 +22,11 @@ public class af extends com.baidu.adp.base.f {
     }
 
     public void b(String str, ChatMessage chatMessage) {
-        this.boQ = new ag(this, str, chatMessage);
-        this.boQ.execute(new Object[0]);
+        this.boP = new ag(this, str, chatMessage);
+        this.boP.execute(new Object[0]);
     }
 
     public void a(ah ahVar) {
-        this.boR = ahVar;
+        this.boQ = ahVar;
     }
 }

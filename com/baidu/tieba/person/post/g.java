@@ -5,11 +5,11 @@ import com.baidu.tieba.person.bq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements bq {
-    final /* synthetic */ f bJd;
+    final /* synthetic */ f bJc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.bJd = fVar;
+        this.bJc = fVar;
     }
 
     @Override // com.baidu.tieba.person.bq
@@ -19,19 +19,19 @@ public class g implements bq {
         bq bqVar;
         bq bqVar2;
         if (z) {
-            this.bJd.bJa = personPostModel;
+            this.bJc.bIZ = personPostModel;
         } else {
-            personPostModel2 = this.bJd.bJa;
+            personPostModel2 = this.bJc.bIZ;
             if (personPostModel2 != null) {
-                personPostModel3 = this.bJd.bJa;
+                personPostModel3 = this.bJc.bIZ;
                 personPostModel3.post_list.addAll(personPostModel.post_list);
             }
         }
-        bqVar = this.bJd.bIZ;
+        bqVar = this.bJc.bIY;
         if (bqVar != null) {
-            bqVar2 = this.bJd.bIZ;
+            bqVar2 = this.bJc.bIY;
             bqVar2.a(personPostModel, z);
         }
-        this.bJd.notifyDataSetChanged();
+        this.bJc.notifyDataSetChanged();
     }
 }

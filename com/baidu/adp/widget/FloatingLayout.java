@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 public class FloatingLayout extends LinearLayout {
+    private int uA;
     private int uB;
-    private int uC;
-    private int uD;
-    private int uE;
+    private int uy;
+    private int uz;
 
     public FloatingLayout(Context context) {
         this(context, null);
@@ -22,14 +22,14 @@ public class FloatingLayout extends LinearLayout {
 
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
-        this.uB = 0;
-        this.uC = 0;
+        this.uy = 0;
+        this.uz = 0;
         if (getOrientation() == 1) {
             e(i, i2);
         } else if (getOrientation() == 0) {
             f(i, i2);
         }
-        setMeasuredDimension(this.uD + getPaddingLeft() + getPaddingRight(), this.uE + getPaddingTop() + getPaddingBottom());
+        setMeasuredDimension(this.uA + getPaddingLeft() + getPaddingRight(), this.uB + getPaddingTop() + getPaddingBottom());
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x003f, code lost:
@@ -56,24 +56,24 @@ public class FloatingLayout extends LinearLayout {
             } else {
                 e eVar = (e) childAt.getLayoutParams();
                 e generateDefaultLayoutParams = eVar == null ? generateDefaultLayoutParams() : eVar;
-                if (i7 > this.uC) {
-                    i6 = generateDefaultLayoutParams.uF;
+                if (i7 > this.uz) {
+                    i6 = generateDefaultLayoutParams.uC;
                 }
-                this.uC = 0;
-                measureChildWithMargins(childAt, i, this.uB, i2, this.uC);
+                this.uz = 0;
+                measureChildWithMargins(childAt, i, this.uy, i2, this.uz);
                 i3 = Math.max(childAt.getMeasuredWidth() + generateDefaultLayoutParams.leftMargin + generateDefaultLayoutParams.rightMargin, i9);
-                this.uB = i3;
-                this.uC = childAt.getMeasuredHeight() + generateDefaultLayoutParams.topMargin + generateDefaultLayoutParams.bottomMargin + this.uC;
-                this.uE = Math.max(this.uC, this.uE);
-                i4 = generateDefaultLayoutParams.uF;
+                this.uy = i3;
+                this.uz = childAt.getMeasuredHeight() + generateDefaultLayoutParams.topMargin + generateDefaultLayoutParams.bottomMargin + this.uz;
+                this.uB = Math.max(this.uz, this.uB);
+                i4 = generateDefaultLayoutParams.uC;
                 if ((i4 & 2) == 2) {
-                    this.uC = 0;
-                    this.uB = i3 + this.uB;
+                    this.uz = 0;
+                    this.uy = i3 + this.uy;
                     i3 = 0;
                 } else {
-                    i5 = generateDefaultLayoutParams.uF;
+                    i5 = generateDefaultLayoutParams.uC;
                     if ((i5 & 1) == 1) {
-                        this.uB = i3 + this.uB;
+                        this.uy = i3 + this.uy;
                         i3 = 0;
                     }
                 }
@@ -81,7 +81,7 @@ public class FloatingLayout extends LinearLayout {
             i8++;
             i9 = i3;
         }
-        this.uD = this.uB;
+        this.uA = this.uy;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x003f, code lost:
@@ -108,25 +108,25 @@ public class FloatingLayout extends LinearLayout {
             } else {
                 e eVar = (e) childAt.getLayoutParams();
                 e generateDefaultLayoutParams = eVar == null ? generateDefaultLayoutParams() : eVar;
-                if (i7 > this.uB) {
-                    i6 = generateDefaultLayoutParams.uF;
+                if (i7 > this.uy) {
+                    i6 = generateDefaultLayoutParams.uC;
                 }
-                this.uB = 0;
-                measureChildWithMargins(childAt, i, this.uB, i2, this.uC);
+                this.uy = 0;
+                measureChildWithMargins(childAt, i, this.uy, i2, this.uz);
                 int measuredWidth = generateDefaultLayoutParams.rightMargin + childAt.getMeasuredWidth() + generateDefaultLayoutParams.leftMargin;
                 i3 = Math.max(childAt.getMeasuredHeight() + generateDefaultLayoutParams.topMargin + generateDefaultLayoutParams.bottomMargin, i9);
-                this.uC = i3;
-                this.uB += measuredWidth;
-                this.uD = Math.max(this.uD, this.uB);
-                i4 = generateDefaultLayoutParams.uF;
+                this.uz = i3;
+                this.uy += measuredWidth;
+                this.uA = Math.max(this.uA, this.uy);
+                i4 = generateDefaultLayoutParams.uC;
                 if ((i4 & 2) == 2) {
-                    this.uB = 0;
-                    this.uC = i3 + this.uC;
+                    this.uy = 0;
+                    this.uz = i3 + this.uz;
                     i3 = 0;
                 } else {
-                    i5 = generateDefaultLayoutParams.uF;
+                    i5 = generateDefaultLayoutParams.uC;
                     if ((i5 & 1) == 1) {
-                        this.uC = i3 + this.uC;
+                        this.uz = i3 + this.uz;
                         i3 = 0;
                     }
                 }
@@ -134,16 +134,16 @@ public class FloatingLayout extends LinearLayout {
             i8++;
             i9 = i3;
         }
-        this.uE = this.uC;
+        this.uB = this.uz;
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int orientation = getOrientation();
         if (orientation == 0) {
-            iP();
+            iI();
         } else if (orientation == 1) {
-            iQ();
+            iJ();
         }
     }
 
@@ -153,7 +153,7 @@ public class FloatingLayout extends LinearLayout {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void iP() {
+    private void iI() {
         int i;
         int i2;
         int childCount = getChildCount();
@@ -171,7 +171,7 @@ public class FloatingLayout extends LinearLayout {
                 int measuredWidth2 = childAt.getMeasuredWidth() + eVar.leftMargin + eVar.rightMargin;
                 int measuredHeight = eVar.topMargin + eVar.bottomMargin + childAt.getMeasuredHeight();
                 if (measuredWidth - paddingLeft >= measuredWidth2) {
-                    i2 = eVar.uF;
+                    i2 = eVar.uC;
                 }
                 paddingLeft = getPaddingLeft();
                 paddingTop += i3;
@@ -181,7 +181,7 @@ public class FloatingLayout extends LinearLayout {
                 if (measuredHeight > i3) {
                     i3 = measuredHeight;
                 }
-                i = eVar.uF;
+                i = eVar.uC;
                 if ((i & 2) == 2) {
                     paddingLeft = getPaddingLeft();
                     paddingTop += i3;
@@ -197,7 +197,7 @@ public class FloatingLayout extends LinearLayout {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void iQ() {
+    private void iJ() {
         e eVar;
         int i;
         int i2;
@@ -212,7 +212,7 @@ public class FloatingLayout extends LinearLayout {
                 int measuredWidth = eVar.leftMargin + eVar.rightMargin + childAt.getMeasuredWidth();
                 int measuredHeight2 = eVar.topMargin + eVar.bottomMargin + childAt.getMeasuredHeight();
                 if (measuredHeight - paddingTop >= measuredHeight2) {
-                    i2 = eVar.uF;
+                    i2 = eVar.uC;
                 }
                 paddingLeft += i3;
                 paddingTop = getPaddingTop();
@@ -222,7 +222,7 @@ public class FloatingLayout extends LinearLayout {
                 if (measuredWidth > i3) {
                     i3 = measuredWidth;
                 }
-                i = eVar.uF;
+                i = eVar.uC;
                 if ((i & 2) == 2) {
                     paddingLeft += i3;
                     paddingTop = getPaddingTop();
@@ -250,7 +250,7 @@ public class FloatingLayout extends LinearLayout {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.LinearLayout, android.view.ViewGroup
-    /* renamed from: iR */
+    /* renamed from: iK */
     public e generateDefaultLayoutParams() {
         return new e(-2, -2, 0);
     }

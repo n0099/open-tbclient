@@ -7,13 +7,13 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import java.io.File;
 /* loaded from: classes.dex */
 class w implements View.OnClickListener {
-    private final /* synthetic */ ViewGroup aqh;
-    final /* synthetic */ u bWe;
+    private final /* synthetic */ ViewGroup aqe;
+    final /* synthetic */ u bWd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(u uVar, ViewGroup viewGroup) {
-        this.bWe = uVar;
-        this.aqh = viewGroup;
+        this.bWd = uVar;
+        this.aqe = viewGroup;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,11 +26,11 @@ class w implements View.OnClickListener {
         EditorToolComponetContainer editorToolComponetContainer2;
         com.baidu.tbadk.editortool.w wVar;
         EditorToolComponetContainer editorToolComponetContainer3;
-        writeImagesInfo = this.bWe.bWd;
-        editorToolComponetContainer = this.bWe.bWa;
-        writeImagesInfo2 = editorToolComponetContainer.bVX;
-        if (writeImagesInfo == writeImagesInfo2 && (indexOfChild = this.aqh.indexOfChild(view)) >= 0) {
-            ImageFileInfo imageFileInfo = (ImageFileInfo) this.bWe.getItem(indexOfChild);
+        writeImagesInfo = this.bWd.bWc;
+        editorToolComponetContainer = this.bWd.bVZ;
+        writeImagesInfo2 = editorToolComponetContainer.bVW;
+        if (writeImagesInfo == writeImagesInfo2 && (indexOfChild = this.aqe.indexOfChild(view)) >= 0) {
+            ImageFileInfo imageFileInfo = (ImageFileInfo) this.bWd.getItem(indexOfChild);
             if (imageFileInfo == null) {
                 z = false;
             } else {
@@ -38,12 +38,12 @@ class w implements View.OnClickListener {
                 z = file.exists() && file.length() != 0;
             }
             if (!z) {
-                editorToolComponetContainer3 = this.bWe.bWa;
+                editorToolComponetContainer3 = this.bWd.bVZ;
                 com.baidu.adp.lib.util.l.c(editorToolComponetContainer3.getContext(), com.baidu.tieba.z.editor_mutiiamge_image_error);
                 return;
             }
-            editorToolComponetContainer2 = this.bWe.bWa;
-            wVar = editorToolComponetContainer2.Yj;
+            editorToolComponetContainer2 = this.bWd.bVZ;
+            wVar = editorToolComponetContainer2.Yg;
             wVar.handleAction(42, Integer.valueOf(indexOfChild));
         }
     }

@@ -6,11 +6,11 @@ import com.baidu.tieba.tbadkCore.PbEditor.PbEditor;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cc implements Animation.AnimationListener {
-    final /* synthetic */ bz bEC;
+    final /* synthetic */ bz bEB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cc(bz bzVar) {
-        this.bEC = bzVar;
+        this.bEB = bzVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -25,19 +25,19 @@ public class cc implements Animation.AnimationListener {
         View view3;
         PbActivity pbActivity;
         PbEditor pbEditor2;
-        bz bzVar = this.bEC;
-        view = this.bEC.bEi;
-        bzVar.bEo = view.getVisibility() == 0;
-        pbEditor = this.bEC.bEf;
+        bz bzVar = this.bEB;
+        view = this.bEB.bEh;
+        bzVar.bEn = view.getVisibility() == 0;
+        pbEditor = this.bEB.bEe;
         if (pbEditor != null) {
-            pbEditor2 = this.bEC.bEf;
+            pbEditor2 = this.bEB.bEe;
             pbEditor2.setVisibility(8);
         }
-        view2 = this.bEC.bEi;
+        view2 = this.bEB.bEh;
         view2.setVisibility(8);
-        view3 = this.bEC.bEh;
+        view3 = this.bEB.bEg;
         view3.setVisibility(8);
-        pbActivity = this.bEC.bCG;
+        pbActivity = this.bEB.bCF;
         pbActivity.showToast(com.baidu.tieba.z.pb_double_click_tips, 0);
     }
 

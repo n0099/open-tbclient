@@ -5,20 +5,20 @@ import com.baidu.tbadk.TbadkApplication;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    private static e arq;
+    private static e arn;
 
-    public static synchronized e Cb() {
+    public static synchronized e BV() {
         e eVar;
         synchronized (e.class) {
-            if (arq == null) {
-                arq = new e();
+            if (arn == null) {
+                arn = new e();
             }
-            eVar = arq;
+            eVar = arn;
         }
         return eVar;
     }
 
-    public a Cc() {
+    public a BW() {
         int i = 0;
         a aVar = new a();
         List<PackageInfo> installedPackages = TbadkApplication.getInst().getApp().getPackageManager().getInstalledPackages(0);
@@ -27,14 +27,14 @@ public class e {
             if (i2 < installedPackages.size()) {
                 PackageInfo packageInfo = installedPackages.get(i2);
                 b bVar = new b();
-                bVar.arm = packageInfo.applicationInfo.loadLabel(TbadkApplication.getInst().getApp().getPackageManager()).toString();
+                bVar.arj = packageInfo.applicationInfo.loadLabel(TbadkApplication.getInst().getApp().getPackageManager()).toString();
                 bVar.mPackageName = packageInfo.packageName;
-                bVar.arn = packageInfo.versionName;
-                bVar.aro = packageInfo.versionCode;
+                bVar.ark = packageInfo.versionName;
+                bVar.arl = packageInfo.versionCode;
                 if ((packageInfo.applicationInfo.flags & 1) == 0) {
-                    aVar.arl.add(bVar);
+                    aVar.ari.add(bVar);
                 } else {
-                    aVar.ark.add(bVar);
+                    aVar.arh.add(bVar);
                 }
                 i = i2 + 1;
             } else {

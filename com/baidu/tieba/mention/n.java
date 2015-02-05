@@ -18,15 +18,15 @@ import com.baidu.tbadk.data.NewsNotifyMessage;
 import com.baidu.tbadk.mvc.core.MvcActivity;
 /* loaded from: classes.dex */
 public class n extends com.baidu.tbadk.mvc.g.b.e {
-    private final CustomMessageListener aDP;
-    private int btA;
+    private final CustomMessageListener aDM;
+    private int btz;
     private View mBack;
 
     public n(MvcActivity<?, ?, ?> mvcActivity) {
         super(mvcActivity);
         this.mBack = null;
-        this.btA = 16;
-        this.aDP = new o(this, 2001124);
+        this.btz = 16;
+        this.aDM = new o(this, 2001124);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -34,26 +34,26 @@ public class n extends com.baidu.tbadk.mvc.g.b.e {
     public void g(Bundle bundle) {
         super.g(bundle);
         if (MentionActivityConfig.jumpInTab != -1) {
-            this.btA = MentionActivityConfig.jumpInTab;
+            this.btz = MentionActivityConfig.jumpInTab;
             MentionActivityConfig.jumpInTab = -1;
         } else if (bundle != null) {
-            this.btA = bundle.getInt(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, this.btA);
+            this.btz = bundle.getInt(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, this.btz);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.core.c
-    public void wU() {
+    public void wO() {
         int i = 1;
-        super.wU();
-        if (xc()) {
+        super.wO();
+        if (wW()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2012112, 0));
             if (MentionActivityConfig.newJumpIn) {
                 MentionActivityConfig.newJumpIn = false;
-                if (this.btA != 24) {
-                    if (this.btA == 25) {
+                if (this.btz != 24) {
+                    if (this.btz == 25) {
                         i = 2;
-                    } else if (com.baidu.tbadk.coreExtra.messageCenter.a.rY().getMsgReplyme() <= 0 && com.baidu.tbadk.coreExtra.messageCenter.a.rY().getMsgAtme() > 0) {
+                    } else if (com.baidu.tbadk.coreExtra.messageCenter.a.rS().getMsgReplyme() <= 0 && com.baidu.tbadk.coreExtra.messageCenter.a.rS().getMsgAtme() > 0) {
                         i = 2;
                     }
                 }
@@ -64,21 +64,21 @@ public class n extends com.baidu.tbadk.mvc.g.b.e {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.g.b.e, com.baidu.tbadk.mvc.core.c
-    public void kJ() {
-        super.kJ();
-        yF();
-        getPageContext().registerListener(this.aDP);
+    public void kC() {
+        super.kC();
+        yz();
+        getPageContext().registerListener(this.aDM);
     }
 
     @Override // com.baidu.tbadk.mvc.g.b.e
     protected com.baidu.tbadk.mvc.g.a.d a(NavigationBar navigationBar) {
-        com.baidu.tbadk.mvc.g.a.d dVar = new com.baidu.tbadk.mvc.g.a.d(getPageContext(), this.aeV, wN());
-        this.aeV.setTitleText(com.baidu.tieba.z.my_mention);
-        this.mBack = this.aeV.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        com.baidu.tbadk.mvc.g.a.d dVar = new com.baidu.tbadk.mvc.g.a.d(getPageContext(), this.aeS, wH());
+        this.aeS.setTitleText(com.baidu.tieba.z.my_mention);
+        this.mBack = this.aeS.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mBack.setOnClickListener(new p(this));
         com.baidu.tbadk.mvc.core.c dH = dH(1);
         if (dH instanceof af) {
-            ((af) dH).b(this.aeV);
+            ((af) dH).b(this.aeS);
         }
         return dVar;
     }
@@ -97,25 +97,25 @@ public class n extends com.baidu.tbadk.mvc.g.b.e {
     @Override // com.baidu.tbadk.mvc.i.a.a
     public void dN(int i) {
         super.dN(i);
-        Un();
+        Ui();
     }
 
     @Override // com.baidu.tbadk.mvc.i.a.a, android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         super.onPageSelected(i);
-        Un();
+        Ui();
     }
 
-    private void Un() {
+    private void Ui() {
         String str = null;
         if (getCurrentTabType() == 0) {
             str = "msg_chat_tab_click";
         } else if (getCurrentTabType() == 1) {
             str = "msg_reply_tab_click";
-            com.baidu.tbadk.coreExtra.messageCenter.a.rY().sn();
+            com.baidu.tbadk.coreExtra.messageCenter.a.rS().sh();
         } else if (getCurrentTabType() == 2) {
             str = "msg_atme_tab_click";
-            com.baidu.tbadk.coreExtra.messageCenter.a.rY().sn();
+            com.baidu.tbadk.coreExtra.messageCenter.a.rS().sh();
         }
         if (str != null) {
             TiebaStatic.eventStat(getActivity(), str, "click", 1, new Object[0]);
@@ -148,9 +148,9 @@ public class n extends com.baidu.tbadk.mvc.g.b.e {
                 }
                 com.baidu.tbadk.mvc.core.c dH = dH(i2);
                 if (dH instanceof com.baidu.tbadk.mvc.i.b.b) {
-                    com.baidu.tbadk.mvc.i.b.c yH = ((com.baidu.tbadk.mvc.i.b.b) dH).yH();
-                    if (yH.yL() == i) {
-                        TextView textView2 = (TextView) yH.yJ().view;
+                    com.baidu.tbadk.mvc.i.b.c yB = ((com.baidu.tbadk.mvc.i.b.b) dH).yB();
+                    if (yB.yF() == i) {
+                        TextView textView2 = (TextView) yB.yD().view;
                         lVar = dH;
                         textView = textView2;
                         break;
@@ -225,13 +225,13 @@ public class n extends com.baidu.tbadk.mvc.g.b.e {
     }
 
     public void r(int i, boolean z) {
-        int msgReplyme = com.baidu.tbadk.coreExtra.messageCenter.a.rY().getMsgReplyme();
-        int msgAtme = com.baidu.tbadk.coreExtra.messageCenter.a.rY().getMsgAtme();
-        int sq = com.baidu.tbadk.coreExtra.messageCenter.a.rY().sq();
-        int msgFans = com.baidu.tbadk.coreExtra.messageCenter.a.rY().getMsgFans();
-        int msgGiftNum = com.baidu.tbadk.coreExtra.messageCenter.a.rY().getMsgGiftNum();
+        int msgReplyme = com.baidu.tbadk.coreExtra.messageCenter.a.rS().getMsgReplyme();
+        int msgAtme = com.baidu.tbadk.coreExtra.messageCenter.a.rS().getMsgAtme();
+        int sk = com.baidu.tbadk.coreExtra.messageCenter.a.rS().sk();
+        int msgFans = com.baidu.tbadk.coreExtra.messageCenter.a.rS().getMsgFans();
+        int msgGiftNum = com.baidu.tbadk.coreExtra.messageCenter.a.rS().getMsgGiftNum();
         int[] iArr = new int[5];
-        iArr[0] = sq;
+        iArr[0] = sk;
         iArr[1] = msgReplyme;
         iArr[2] = msgAtme;
         iArr[3] = msgFans;
@@ -241,7 +241,7 @@ public class n extends com.baidu.tbadk.mvc.g.b.e {
         }
         c(iArr);
         if (i != 0 && z) {
-            com.baidu.tbadk.coreExtra.messageCenter.a.rY().a(iArr[1], iArr[2], iArr[0], iArr[3], iArr[4]);
+            com.baidu.tbadk.coreExtra.messageCenter.a.rS().a(iArr[1], iArr[2], iArr[0], iArr[3], iArr[4]);
         }
     }
 }

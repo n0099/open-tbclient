@@ -1,26 +1,26 @@
 package com.baidu.tieba.im.newFriend;
 /* loaded from: classes.dex */
 class p extends com.baidu.tieba.im.h<Void> {
-    private final /* synthetic */ long bjb;
-    private final /* synthetic */ com.baidu.tieba.im.data.b blb;
-    final /* synthetic */ o ble;
+    private final /* synthetic */ long bja;
+    private final /* synthetic */ com.baidu.tieba.im.data.b bla;
+    final /* synthetic */ o bld;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(o oVar, long j, com.baidu.tieba.im.data.b bVar) {
-        this.ble = oVar;
-        this.bjb = j;
-        this.blb = bVar;
+        this.bld = oVar;
+        this.bja = j;
+        this.bla = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.h
-    /* renamed from: KK */
+    /* renamed from: KF */
     public Void doInBackground() {
-        com.baidu.tieba.im.data.b X = com.baidu.tieba.im.db.m.Ne().X(this.bjb);
+        com.baidu.tieba.im.data.b X = com.baidu.tieba.im.db.m.MZ().X(this.bja);
         if (X != null) {
-            this.blb.setName(X.getName());
-            this.blb.setPortrait(X.getPortrait());
-            com.baidu.tieba.im.db.m.Ne().b(this.blb);
+            this.bla.setName(X.getName());
+            this.bla.setPortrait(X.getPortrait());
+            com.baidu.tieba.im.db.m.MZ().b(this.bla);
         }
         return null;
     }

@@ -8,7 +8,7 @@ public class m {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
     }
 
-    public static int eJ(String str) {
+    public static int eG(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }

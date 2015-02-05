@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class g {
-    private static g bOV = null;
-    private HttpMessageListener bOW = new h(this, CmdConfigHttp.MSG_REMINDER_CMD);
-    private long bNF = 0;
+    private static g bOU = null;
+    private HttpMessageListener bOV = new h(this, CmdConfigHttp.MSG_REMINDER_CMD);
+    private long bNE = 0;
     private final Handler mHandler = new i(this);
 
     static {
@@ -23,23 +23,23 @@ public class g {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public static synchronized g acS() {
+    public static synchronized g acN() {
         g gVar;
         synchronized (g.class) {
-            if (bOV == null) {
-                bOV = new g();
+            if (bOU == null) {
+                bOU = new g();
             }
-            gVar = bOV;
+            gVar = bOU;
         }
         return gVar;
     }
 
     public g() {
-        MessageManager.getInstance().registerListener(this.bOW);
+        MessageManager.getInstance().registerListener(this.bOV);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void acT() {
+    public void acO() {
         MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.MSG_REMINDER_CMD));
     }
 
@@ -48,21 +48,21 @@ public class g {
         return UtilHelper.getNetStatusInfo(TbadkApplication.getInst().getApp().getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL;
     }
 
-    public void acC() {
-        this.bNF = 0L;
+    public void acx() {
+        this.bNE = 0L;
         destroy();
         start();
     }
 
     public void start() {
-        long currentTimeMillis = System.currentTimeMillis() - this.bNF;
+        long currentTimeMillis = System.currentTimeMillis() - this.bNE;
         long j = currentTimeMillis > 0 ? currentTimeMillis : 0L;
         if (j >= 600000) {
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 10000L);
         } else {
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 600000 - j);
         }
-        this.bNF = System.currentTimeMillis();
+        this.bNE = System.currentTimeMillis();
     }
 
     public void destroy() {

@@ -31,12 +31,12 @@ import com.baidu.tieba.im.message.ResponseSendPVTJMessage;
 /* loaded from: classes.dex */
 public class FramworkMessageCenterHelperStatic {
     static {
-        Rk();
-        Rl();
-        Rm();
+        Rf();
+        Rg();
+        Rh();
     }
 
-    public static boolean Rk() {
+    public static boolean Rf() {
         b(103004, ResponseGroupInfoMessage.class, false);
         b(103003, ResponseGroupsByUidMessage.class, false);
         b(202101, ResponsePushCountMessage.class, false);
@@ -55,7 +55,7 @@ public class FramworkMessageCenterHelperStatic {
         return e.b(i, cls, z);
     }
 
-    private static boolean Rl() {
+    private static boolean Rg() {
         b(2001106, p.class);
         b(2001211, r.class);
         b(2001212, q.class);
@@ -73,7 +73,7 @@ public class FramworkMessageCenterHelperStatic {
         return e.b(i, cls);
     }
 
-    private static boolean Rm() {
+    private static boolean Rh() {
         MessageManager.getInstance().addResponsedMessageRule(new by());
         MessageManager.getInstance().addResponsedMessageRule(new cb());
         return true;

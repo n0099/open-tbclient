@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ FrsHeaderView aIT;
+    final /* synthetic */ FrsHeaderView aIQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(FrsHeaderView frsHeaderView) {
-        this.aIT = frsHeaderView;
+        this.aIQ = frsHeaderView;
     }
 
     @Override // com.baidu.tbadk.core.dialog.d
@@ -20,9 +20,9 @@ public class l implements com.baidu.tbadk.core.dialog.d {
         TbPageContext tbPageContext;
         int i;
         MessageManager messageManager = MessageManager.getInstance();
-        tbPageContext = this.aIT.mContext;
+        tbPageContext = this.aIQ.mContext;
         Activity pageActivity = tbPageContext.getPageActivity();
-        i = this.aIT.aII;
+        i = this.aIQ.aIF;
         messageManager.sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(pageActivity, i, "exp_acce")));
         aVar.dismiss();
     }

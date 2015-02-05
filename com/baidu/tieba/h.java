@@ -10,11 +10,11 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 class h implements Runnable {
-    final /* synthetic */ LogoActivity alk;
+    final /* synthetic */ LogoActivity alh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(LogoActivity logoActivity) {
-        this.alk = logoActivity;
+        this.alh = logoActivity;
     }
 
     @Override // java.lang.Runnable
@@ -27,55 +27,55 @@ class h implements Runnable {
         SnowView snowView2;
         ImageView imageView2;
         ImageView imageView3;
-        if (com.baidu.tbadk.core.sharedPref.b.oj().getBoolean("show_logo_anim_nexttime_", true)) {
-            if (this.alk.getResources() != null) {
-                Drawable drawable = this.alk.getResources().getDrawable(v.bg_startpage);
+        if (com.baidu.tbadk.core.sharedPref.b.oc().getBoolean("show_logo_anim_nexttime_", true)) {
+            if (this.alh.getResources() != null) {
+                Drawable drawable = this.alh.getResources().getDrawable(v.bg_startpage);
                 if (drawable instanceof BitmapDrawable) {
-                    this.alk.mBitmap = ((BitmapDrawable) drawable).getBitmap();
-                    bitmap = this.alk.mBitmap;
+                    this.alh.mBitmap = ((BitmapDrawable) drawable).getBitmap();
+                    bitmap = this.alh.mBitmap;
                     if (bitmap != null) {
-                        bitmap2 = this.alk.mBitmap;
+                        bitmap2 = this.alh.mBitmap;
                         if (!bitmap2.isRecycled()) {
-                            imageView = this.alk.alh;
-                            bitmap3 = this.alk.mBitmap;
+                            imageView = this.alh.ale;
+                            bitmap3 = this.alh.mBitmap;
                             imageView.setImageBitmap(bitmap3);
-                            int M = com.baidu.adp.lib.util.l.M(this.alk.getActivity());
-                            int N = com.baidu.adp.lib.util.l.N(this.alk.getActivity());
-                            snowView = this.alk.alf;
+                            int M = com.baidu.adp.lib.util.l.M(this.alh.getActivity());
+                            int N = com.baidu.adp.lib.util.l.N(this.alh.getActivity());
+                            snowView = this.alh.alc;
                             snowView.H(M, N);
-                            snowView2 = this.alk.alf;
-                            snowView2.AG();
-                            Drawable drawable2 = this.alk.getResources().getDrawable(v.logo_smoke_anim);
+                            snowView2 = this.alh.alc;
+                            snowView2.AA();
+                            Drawable drawable2 = this.alh.getResources().getDrawable(v.logo_smoke_anim);
                             if (drawable2 instanceof AnimationDrawable) {
                                 AnimationDrawable animationDrawable = (AnimationDrawable) drawable2;
-                                imageView3 = this.alk.alg;
+                                imageView3 = this.alh.ald;
                                 imageView3.setBackgroundDrawable(animationDrawable);
                                 animationDrawable.start();
                             }
-                            Animation loadAnimation = AnimationUtils.loadAnimation(this.alk.getActivity(), q.logo_post_anim);
+                            Animation loadAnimation = AnimationUtils.loadAnimation(this.alh.getActivity(), q.logo_post_anim);
                             if (loadAnimation instanceof AnimationSet) {
                                 ac acVar = new ac(6.0f, -8.0f, 200.0f, 0.0f, 8.0f, true);
                                 acVar.setDuration(3000L);
                                 acVar.setRepeatCount(-1);
                                 acVar.setRepeatMode(2);
                                 ((AnimationSet) loadAnimation).addAnimation(acVar);
-                                imageView2 = this.alk.ale;
+                                imageView2 = this.alh.alb;
                                 imageView2.startAnimation(loadAnimation);
                             }
-                            this.alk.alc = true;
+                            this.alh.akZ = true;
                             return;
                         }
                     }
-                    this.alk.mBitmap = null;
-                    this.alk.AC();
+                    this.alh.mBitmap = null;
+                    this.alh.Aw();
                     return;
                 }
-                this.alk.AC();
+                this.alh.Aw();
                 return;
             }
-            this.alk.AC();
+            this.alh.Aw();
             return;
         }
-        this.alk.AC();
+        this.alh.Aw();
     }
 }

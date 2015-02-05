@@ -8,14 +8,14 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<a, Integer, Boolean> {
-    private ad AR;
-    private h AS;
-    final /* synthetic */ a AT;
+    private ad AO;
+    private h AP;
+    final /* synthetic */ a AQ;
 
     private d(a aVar) {
-        this.AT = aVar;
-        this.AR = null;
-        this.AS = null;
+        this.AQ = aVar;
+        this.AO = null;
+        this.AP = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,7 +26,7 @@ public class d extends BdAsyncTask<a, Integer, Boolean> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
-        this.AS = new h();
+        this.AP = new h();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,25 +36,25 @@ public class d extends BdAsyncTask<a, Integer, Boolean> {
     public Boolean doInBackground(a... aVarArr) {
         a aVar = new a();
         try {
-            aVar.lg();
-            this.AR = new ad();
-            this.AR.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.MARK_ADDSTORE);
-            int lh = this.AT.lh();
-            if (aVar.getCount() - 1 <= lh) {
-                lh = aVar.getCount() - 1;
+            aVar.kZ();
+            this.AO = new ad();
+            this.AO.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.MARK_ADDSTORE);
+            int la = this.AQ.la();
+            if (aVar.getCount() - 1 <= la) {
+                la = aVar.getCount() - 1;
             }
-            while (lh >= 0) {
-                String m = aVar.m(lh, 20);
-                this.AR.r(new ArrayList<>());
-                this.AR.o("data", m);
-                this.AS.parserJson(this.AR.oy());
-                if (!this.AR.oZ().qh().ma() || this.AS.getErrorCode() != 0) {
+            while (la >= 0) {
+                String m = aVar.m(la, 20);
+                this.AO.r(new ArrayList<>());
+                this.AO.o("data", m);
+                this.AP.parserJson(this.AO.or());
+                if (!this.AO.oS().qa().lT() || this.AP.getErrorCode() != 0) {
                     break;
                 }
-                lh -= 20;
+                la -= 20;
             }
-            this.AT.aO(lh);
-            if (lh >= 0) {
+            this.AQ.aO(la);
+            if (la >= 0) {
                 return false;
             }
             return true;
@@ -67,12 +67,12 @@ public class d extends BdAsyncTask<a, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        if (this.AR != null) {
-            this.AR.dJ();
+        if (this.AO != null) {
+            this.AO.dJ();
         }
-        this.AT.AJ = null;
-        if (this.AT.AQ != null) {
-            this.AT.AQ.callback(1, false, null, false);
+        this.AQ.AG = null;
+        if (this.AQ.AN != null) {
+            this.AQ.AN.callback(1, false, null, false);
         }
     }
 
@@ -84,21 +84,21 @@ public class d extends BdAsyncTask<a, Integer, Boolean> {
         String str;
         boolean z;
         ArrayList arrayList;
-        this.AT.AJ = null;
+        this.AQ.AG = null;
         if (bool.booleanValue()) {
-            arrayList = this.AT.AM;
+            arrayList = this.AQ.AI;
             arrayList.clear();
             str = null;
             z = false;
-        } else if (this.AR.oZ().qh().ma()) {
-            str = this.AS.getErrorString();
+        } else if (this.AO.oS().qa().lT()) {
+            str = this.AP.getErrorString();
             z = false;
         } else {
             str = null;
             z = true;
         }
-        if (this.AT.AQ != null) {
-            this.AT.AQ.callback(1, bool, str, Boolean.valueOf(z));
+        if (this.AQ.AN != null) {
+            this.AQ.AN.callback(1, bool, str, Boolean.valueOf(z));
         }
     }
 }

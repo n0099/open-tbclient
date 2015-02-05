@@ -18,7 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class i {
-    private static Pattern JV = Pattern.compile("(#\\([^#\\)\\(]+\\))");
+    private static Pattern JS = Pattern.compile("(#\\([^#\\)\\(]+\\))");
 
     public static String s(String str, boolean z) {
         String str2 = null;
@@ -124,7 +124,7 @@ public class i {
         }
     }
 
-    private static final String hp(String str) {
+    private static final String hm(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -153,7 +153,7 @@ public class i {
         return sb.toString();
     }
 
-    private static final String hq(String str) {
+    private static final String hn(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -185,17 +185,17 @@ public class i {
             return null;
         }
         if (i == 1) {
-            String hp = (str.length() <= 1 || str.charAt(0) != '[') ? null : hp(str);
-            if (TextUtils.isEmpty(hp)) {
-                hp = str;
+            String hm = (str.length() <= 1 || str.charAt(0) != '[') ? null : hm(str);
+            if (TextUtils.isEmpty(hm)) {
+                hm = str;
             }
-            if (hp != null) {
-                Matcher matcher = JV.matcher(hp);
+            if (hm != null) {
+                Matcher matcher = JS.matcher(hm);
                 while (matcher.find()) {
                     String group = matcher.group();
-                    hp = hp.replace(group, group.replace("#(", "[").replace(")", "]"));
+                    hm = hm.replace(group, group.replace("#(", "[").replace(")", "]"));
                 }
-                return hp;
+                return hm;
             }
             return null;
         } else if (i == 2) {
@@ -205,7 +205,7 @@ public class i {
                 return TbadkCoreApplication.m255getInst().getApp().getString(z.last_msg_voice);
             }
             if (i == 11) {
-                return hr(str);
+                return ho(str);
             }
             if (i == 23) {
                 return TbadkCoreApplication.m255getInst().getApp().getString(z.last_msg_reply_card);
@@ -273,7 +273,7 @@ public class i {
                         return string;
                     }
                 } else if (i == 9) {
-                    return hq(str);
+                    return hn(str);
                 } else {
                     return null;
                 }
@@ -305,7 +305,7 @@ public class i {
         return v(chatMessage);
     }
 
-    private static String hr(String str) {
+    private static String ho(String str) {
         String str2 = null;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -425,19 +425,19 @@ public class i {
 
     public static com.baidu.tieba.im.data.g a(CommonMsgPojo commonMsgPojo) {
         if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 7) {
-            return hs(commonMsgPojo.getContent());
+            return hp(commonMsgPojo.getContent());
         }
         return null;
     }
 
-    public static com.baidu.tieba.im.data.g hs(String str) {
+    public static com.baidu.tieba.im.data.g hp(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
-                return ht(jSONArray.getJSONObject(0).optString("msg_src"));
+                return hq(jSONArray.getJSONObject(0).optString("msg_src"));
             }
             return null;
         } catch (Exception e) {
@@ -446,14 +446,14 @@ public class i {
         }
     }
 
-    public static com.baidu.tieba.im.data.g ht(String str) {
+    public static com.baidu.tieba.im.data.g hq(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split("_")) == null || split.length != 2) {
             return null;
         }
         com.baidu.tieba.im.data.g gVar = new com.baidu.tieba.im.data.g();
-        gVar.aXX = split[0];
-        gVar.aXY = split[1];
+        gVar.aXW = split[0];
+        gVar.aXX = split[1];
         return gVar;
     }
 }

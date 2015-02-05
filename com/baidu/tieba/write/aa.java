@@ -11,15 +11,15 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa extends BdAsyncTask<String, Integer, Bitmap> {
-    volatile com.baidu.tbadk.core.util.ad AR;
-    final /* synthetic */ VcodeActivity cgm;
-    com.baidu.tbadk.coreExtra.data.j cgn;
+    volatile com.baidu.tbadk.core.util.ad AO;
+    final /* synthetic */ VcodeActivity cgl;
+    com.baidu.tbadk.coreExtra.data.j cgm;
     private volatile boolean kN;
 
     private aa(VcodeActivity vcodeActivity) {
-        this.cgm = vcodeActivity;
-        this.AR = null;
-        this.cgn = null;
+        this.cgl = vcodeActivity;
+        this.AO = null;
+        this.cgm = null;
         this.kN = false;
     }
 
@@ -31,12 +31,12 @@ public class aa extends BdAsyncTask<String, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.cgm.cgl = null;
-        if (this.AR != null) {
-            this.AR.dJ();
+        this.cgl.cgk = null;
+        if (this.AO != null) {
+            this.AO.dJ();
         }
         this.kN = true;
-        progressBar = this.cgm.mProgressBar;
+        progressBar = this.cgl.mProgressBar;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -54,42 +54,42 @@ public class aa extends BdAsyncTask<String, Integer, Bitmap> {
         WriteData writeData6;
         String str = strArr[0];
         if (str == null || str.length() <= 0) {
-            this.AR = new com.baidu.tbadk.core.util.ad(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
-            com.baidu.tbadk.core.util.ad adVar = this.AR;
-            writeData = this.cgm.cfW;
+            this.AO = new com.baidu.tbadk.core.util.ad(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
+            com.baidu.tbadk.core.util.ad adVar = this.AO;
+            writeData = this.cgl.cfV;
             adVar.o(ImageViewerConfig.FORUM_ID, writeData.getForumId());
-            com.baidu.tbadk.core.util.ad adVar2 = this.AR;
-            writeData2 = this.cgm.cfW;
+            com.baidu.tbadk.core.util.ad adVar2 = this.AO;
+            writeData2 = this.cgl.cfV;
             adVar2.o("kw", writeData2.getForumName());
-            this.AR.o("new_vcode", "1");
-            com.baidu.tbadk.core.util.ad adVar3 = this.AR;
-            writeData3 = this.cgm.cfW;
+            this.AO.o("new_vcode", "1");
+            com.baidu.tbadk.core.util.ad adVar3 = this.AO;
+            writeData3 = this.cgl.cfV;
             adVar3.o("title", writeData3.getTitle());
-            com.baidu.tbadk.core.util.ad adVar4 = this.AR;
-            writeData4 = this.cgm.cfW;
+            com.baidu.tbadk.core.util.ad adVar4 = this.AO;
+            writeData4 = this.cgl.cfV;
             adVar4.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, writeData4.getContent());
-            writeData5 = this.cgm.cfW;
+            writeData5 = this.cgl.cfV;
             if (writeData5.getType() == 0) {
-                this.AR.o("pub_type", "1");
+                this.AO.o("pub_type", "1");
             } else {
-                this.AR.o("pub_type", "2");
-                com.baidu.tbadk.core.util.ad adVar5 = this.AR;
-                writeData6 = this.cgm.cfW;
+                this.AO.o("pub_type", "2");
+                com.baidu.tbadk.core.util.ad adVar5 = this.AO;
+                writeData6 = this.cgl.cfV;
                 adVar5.o("tid", writeData6.getThreadId());
             }
-            String oy = this.AR.oy();
-            if (!this.AR.oZ().qh().ma()) {
+            String or = this.AO.or();
+            if (!this.AO.oS().qa().lT()) {
                 return null;
             }
-            this.cgn = new com.baidu.tbadk.coreExtra.data.j();
-            this.cgn.parserJson(oy);
-            str = this.cgn.getVcode_pic_url();
+            this.cgm = new com.baidu.tbadk.coreExtra.data.j();
+            this.cgm.parserJson(or);
+            str = this.cgm.getVcode_pic_url();
         }
         if (this.kN) {
             return null;
         }
-        this.AR = new com.baidu.tbadk.core.util.ad(str);
-        return com.baidu.tbadk.core.util.d.v(this.AR.oz());
+        this.AO = new com.baidu.tbadk.core.util.ad(str);
+        return com.baidu.tbadk.core.util.d.v(this.AO.os());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -100,18 +100,18 @@ public class aa extends BdAsyncTask<String, Integer, Bitmap> {
         WriteData writeData;
         WriteData writeData2;
         ImageView imageView;
-        this.cgm.cgl = null;
+        this.cgl.cgk = null;
         if (bitmap != null) {
-            imageView = this.cgm.anr;
+            imageView = this.cgl.ano;
             imageView.setImageBitmap(bitmap);
         }
-        progressBar = this.cgm.mProgressBar;
+        progressBar = this.cgl.mProgressBar;
         progressBar.setVisibility(8);
-        if (this.cgn != null) {
-            writeData = this.cgm.cfW;
-            writeData.setVcodeMD5(this.cgn.getVcode_md5());
-            writeData2 = this.cgm.cfW;
-            writeData2.setVcodeUrl(this.cgn.getVcode_pic_url());
+        if (this.cgm != null) {
+            writeData = this.cgl.cfV;
+            writeData.setVcodeMD5(this.cgm.getVcode_md5());
+            writeData2 = this.cgl.cfV;
+            writeData2.setVcodeUrl(this.cgm.getVcode_pic_url());
         }
         super.onPostExecute((aa) bitmap);
     }

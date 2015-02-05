@@ -11,11 +11,11 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 class ai implements com.baidu.tieba.tbadkCore.f.c {
-    final /* synthetic */ FrsActivity aDW;
+    final /* synthetic */ FrsActivity aDT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(FrsActivity frsActivity) {
-        this.aDW = frsActivity;
+        this.aDT = frsActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.f.c
@@ -33,54 +33,54 @@ class ai implements com.baidu.tieba.tbadkCore.f.c {
         com.baidu.tbadk.core.data.x xVar2;
         com.baidu.tbadk.core.data.x xVar3;
         bp bpVar4;
-        this.aDW.hideProgressBar();
-        this.aDW.stopVoice();
-        bpVar = this.aDW.aCY;
+        this.aDT.hideProgressBar();
+        this.aDT.stopVoice();
+        bpVar = this.aDT.aCV;
         bpVar.bG(z);
-        bpVar2 = this.aDW.aCY;
-        writeImagesInfo = this.aDW.writeImagesInfo;
+        bpVar2 = this.aDT.aCV;
+        writeImagesInfo = this.aDT.writeImagesInfo;
         bpVar2.a(writeImagesInfo, true);
         String str = "";
         if (fVar != null) {
             str = fVar.getErrorString();
         }
         if (z) {
-            bpVar3 = this.aDW.aCY;
-            bpVar3.FH();
+            bpVar3 = this.aDT.aCV;
+            bpVar3.FB();
             TbadkCoreApplication.m255getInst().resetPbRecorder();
-            aVar = this.aDW.aBM;
-            aVar.Ft();
-            aVar2 = this.aDW.aBM;
+            aVar = this.aDT.aBJ;
+            aVar.Fn();
+            aVar2 = this.aDT.aBJ;
             aVar2.c((WriteData) null);
-            aVar3 = this.aDW.aBM;
+            aVar3 = this.aDT.aBJ;
             aVar3.eF(false);
-            writeImagesInfo2 = this.aDW.baobaoImagesInfo;
+            writeImagesInfo2 = this.aDT.baobaoImagesInfo;
             writeImagesInfo2.clear();
-            writeData2 = this.aDW.aDs;
+            writeData2 = this.aDT.aDp;
             writeData2.setIsBaobao(false);
-            this.aDW.a(antiData, fVar);
-            xVar = this.aDW.aDt;
+            this.aDT.a(antiData, fVar);
+            xVar = this.aDT.aDq;
             com.baidu.tieba.tbadkCore.al.b(xVar.getTid(), (WriteData) null);
-            xVar2 = this.aDW.aDt;
-            xVar3 = this.aDW.aDt;
+            xVar2 = this.aDT.aDq;
+            xVar3 = this.aDT.aDq;
             xVar2.setReply_num(xVar3.getReply_num() + 1);
-            bpVar4 = this.aDW.aCY;
-            bpVar4.GT();
+            bpVar4 = this.aDT.aCV;
+            bpVar4.GN();
         } else if (jVar != null && writeData != null && jVar.getVcode_pic_url() != null) {
             if (!AntiHelper.e(antiData)) {
                 writeData.setVcodeMD5(jVar.getVcode_md5());
                 writeData.setVcodeUrl(jVar.getVcode_pic_url());
-                if (jVar.rQ().equals("4")) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.aDW.getPageContext().getPageActivity(), 12006, writeData, false)));
+                if (jVar.rK().equals("4")) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.aDT.getPageContext().getPageActivity(), 12006, writeData, false)));
                     return;
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.aDW.getPageContext().getPageActivity(), writeData, 12006)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.aDT.getPageContext().getPageActivity(), writeData, 12006)));
                     return;
                 }
             }
-            this.aDW.a(antiData, str);
+            this.aDT.a(antiData, str);
         } else {
-            this.aDW.a(antiData, str);
+            this.aDT.a(antiData, str);
         }
     }
 }

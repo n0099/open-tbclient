@@ -7,11 +7,11 @@ import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInf
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 class j implements View.OnClickListener {
-    final /* synthetic */ g bMy;
+    final /* synthetic */ g bMx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(g gVar) {
-        this.bMy = gVar;
+        this.bMx = gVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,21 +24,21 @@ class j implements View.OnClickListener {
         PluginNetConfigInfos.PluginConfig pluginConfig;
         PluginDownloadActivity pluginDownloadActivity3;
         if (!com.baidu.adp.lib.util.i.ff()) {
-            pluginDownloadActivity3 = this.bMy.bMo;
+            pluginDownloadActivity3 = this.bMx.bMn;
             pluginDownloadActivity3.showToast(z.neterror);
             return;
         }
-        pluginDownloadActivity = this.bMy.bMo;
-        pluginDownloadActivity.bMn = true;
-        textView = this.bMy.bMr;
+        pluginDownloadActivity = this.bMx.bMn;
+        pluginDownloadActivity.bMm = true;
+        textView = this.bMx.bMq;
         textView.setVisibility(8);
-        textView2 = this.bMy.apf;
+        textView2 = this.bMx.apc;
         textView2.setVisibility(8);
-        textView3 = this.bMy.bMs;
+        textView3 = this.bMx.bMr;
         textView3.setVisibility(0);
-        PluginPackageManager ic = PluginPackageManager.ic();
-        pluginDownloadActivity2 = this.bMy.bMo;
-        pluginConfig = pluginDownloadActivity2.bMk;
-        ic.a(pluginConfig, new k(this));
+        PluginPackageManager hV = PluginPackageManager.hV();
+        pluginDownloadActivity2 = this.bMx.bMn;
+        pluginConfig = pluginDownloadActivity2.bMj;
+        hV.a(pluginConfig, new k(this));
     }
 }

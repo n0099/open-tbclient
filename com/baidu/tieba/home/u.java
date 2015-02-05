@@ -5,10 +5,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 final class u extends w {
-    u aQA;
-    LinearLayout aQv;
-    RelativeLayout aQw;
+    LinearLayout aQu;
+    RelativeLayout aQv;
+    TextView aQw;
     TextView aQx;
     TextView aQy;
-    TextView aQz;
+    u aQz;
 }

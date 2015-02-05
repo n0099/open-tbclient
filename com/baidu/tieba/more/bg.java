@@ -10,10 +10,10 @@ import com.baidu.tieba.model.MoreModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bg extends BdAsyncTask<String, Integer, String> {
-    final /* synthetic */ bf byh;
+    final /* synthetic */ bf byg;
 
     private bg(bf bfVar) {
-        this.byh = bfVar;
+        this.byg = bfVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,12 +28,12 @@ public class bg extends BdAsyncTask<String, Integer, String> {
         BaseActivity.LoadDataCallBack loadDataCallBack;
         BaseActivity.LoadDataCallBack loadDataCallBack2;
         super.onPostExecute((bg) str);
-        this.byh.byf = null;
-        loadDataCallBack = this.byh.AQ;
+        this.byg.bye = null;
+        loadDataCallBack = this.byg.AN;
         if (loadDataCallBack == null) {
             return;
         }
-        loadDataCallBack2 = this.byh.AQ;
+        loadDataCallBack2 = this.byg.AN;
         loadDataCallBack2.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
     }
 
@@ -43,10 +43,10 @@ public class bg extends BdAsyncTask<String, Integer, String> {
     /* renamed from: l */
     public String doInBackground(String... strArr) {
         TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().am();
-        com.baidu.tbadk.core.voice.a.b.qV();
+        com.baidu.tbadk.core.voice.a.b.qP();
         try {
-            com.baidu.tbadk.core.util.be.pD().pE();
-            com.baidu.tbadk.core.util.be.pD().pF();
+            com.baidu.tbadk.core.util.be.pw().px();
+            com.baidu.tbadk.core.util.be.pw().py();
             MessageManager.getInstance().sendMessageFromBackground(new CustomMessage(2802002, ""));
             return null;
         } catch (Exception e) {

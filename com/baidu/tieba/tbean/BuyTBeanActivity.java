@@ -21,15 +21,15 @@ import com.baidu.tieba.z;
 import tbclient.GetIconList.IconInfo;
 /* loaded from: classes.dex */
 public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements i {
-    private d cbH;
-    private j cbI;
-    private int cbJ;
-    private String cbK;
+    private d cbG;
+    private j cbH;
+    private int cbI;
+    private String cbJ;
 
     static {
         TbadkApplication.getInst().RegisterIntent(BuyTBeanActivityConfig.class, BuyTBeanActivity.class);
         com.baidu.tieba.tbadkCore.a.a.c(306001, GetYinJiResponseMessage.class, false);
-        aiM();
+        aiH();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -37,46 +37,46 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (bundle != null) {
-            this.cbJ = bundle.getInt(BuyTBeanActivityConfig.GIFT_TBEAN);
-            this.cbK = bundle.getString(BuyTBeanActivityConfig.JUMP_URL);
+            this.cbI = bundle.getInt(BuyTBeanActivityConfig.GIFT_TBEAN);
+            this.cbJ = bundle.getString(BuyTBeanActivityConfig.JUMP_URL);
         }
         X(getIntent());
-        this.cbK = getIntent().getStringExtra(BuyTBeanActivityConfig.JUMP_URL);
+        this.cbJ = getIntent().getStringExtra(BuyTBeanActivityConfig.JUMP_URL);
         showLoadingDialog(getPageContext().getString(z.flist_loading));
-        this.cbI = new j(this);
-        this.cbH = new d(this, this);
-        this.cbH.aiO();
-        this.cbH.aiP();
-        this.cbH.aiQ();
-        this.cbH.aiN();
+        this.cbH = new j(this);
+        this.cbG = new d(this, this);
+        this.cbG.aiJ();
+        this.cbG.aiK();
+        this.cbG.aiL();
+        this.cbG.aiI();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.cbI.onChangeSkinType(i);
+        this.cbH.onChangeSkinType(i);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putInt(BuyTBeanActivityConfig.GIFT_TBEAN, this.cbJ);
-        bundle.putString(BuyTBeanActivityConfig.JUMP_URL, this.cbK);
+        bundle.putInt(BuyTBeanActivityConfig.GIFT_TBEAN, this.cbI);
+        bundle.putString(BuyTBeanActivityConfig.JUMP_URL, this.cbJ);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        int aiU;
+        int aiP;
         IconInfo iconInfo;
-        if (this.cbI != null && this.cbH != null && this.cbH.getIconInfoList() != null && (aiU = this.cbI.aiU()) >= 0 && aiU < this.cbH.getIconInfoList().size() && (iconInfo = this.cbH.getIconInfoList().get(aiU)) != null) {
+        if (this.cbH != null && this.cbG != null && this.cbG.getIconInfoList() != null && (aiP = this.cbH.aiP()) >= 0 && aiP < this.cbG.getIconInfoList().size() && (iconInfo = this.cbG.getIconInfoList().get(aiP)) != null) {
             if (view.getId() == w.buy_btn_tv) {
-                if (this.cbI.aiW() <= 0) {
+                if (this.cbH.aiR() <= 0) {
                     showToast(z.buy_num_zeor_tip);
                     return;
                 }
                 String str = iconInfo.iconId;
-                String sb = new StringBuilder(String.valueOf(this.cbI.aiV())).toString();
-                String sb2 = new StringBuilder(String.valueOf(this.cbI.aiW())).toString();
+                String sb = new StringBuilder(String.valueOf(this.cbH.aiQ())).toString();
+                String sb2 = new StringBuilder(String.valueOf(this.cbH.aiR())).toString();
                 Intent intent = new Intent(getPageContext().getPageActivity(), DealIntentService.class);
                 intent.putExtra("class", 15);
                 intent.putExtra("pay_type", "2");
@@ -91,38 +91,38 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     }
 
     private void X(Intent intent) {
-        this.cbJ = intent.getIntExtra(BuyTBeanActivityConfig.GIFT_TBEAN, 0);
+        this.cbI = intent.getIntExtra(BuyTBeanActivityConfig.GIFT_TBEAN, 0);
     }
 
-    public int aiK() {
-        return this.cbJ;
+    public int aiF() {
+        return this.cbI;
     }
 
     @Override // com.baidu.tieba.tbean.i
     public void onFailed(String str) {
         showToast(str);
         closeLoadingDialog();
-        this.cbI.aiS();
+        this.cbH.aiN();
     }
 
     @Override // com.baidu.tieba.tbean.i
     public void onSuccess() {
         closeLoadingDialog();
-        this.cbI.e(this.cbH);
+        this.cbH.e(this.cbG);
     }
 
-    public String aiL() {
-        return this.cbK;
+    public String aiG() {
+        return this.cbJ;
     }
 
     public void refresh() {
-        if (this.cbH != null) {
+        if (this.cbG != null) {
             showLoadingDialog(getPageContext().getString(z.flist_loading));
-            this.cbH.aiN();
+            this.cbG.aiI();
         }
     }
 
-    private static void aiM() {
+    private static void aiH() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_YINJI, com.baidu.tieba.tbadkCore.a.a.O("c/e/pay/geticonlist", 306001));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
@@ -135,7 +135,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            this.cbI.eG(false);
+            this.cbH.eG(false);
             this.mHandler.postDelayed(new a(this), 100L);
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -144,8 +144,8 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            if (this.cbI.aiY()) {
-                this.cbI.aiX();
+            if (this.cbH.aiT()) {
+                this.cbH.aiS();
             } else {
                 finish();
             }

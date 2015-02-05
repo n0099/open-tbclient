@@ -6,18 +6,18 @@ import org.json.JSONObject;
 import tbclient.FrsPage.Banner;
 /* loaded from: classes.dex */
 public class j {
-    private int DU;
-    private String DV;
-    private String DW;
+    private int DQ;
+    private String DR;
+    private String DS;
     private int mType;
     private String mValue;
 
-    public int mK() {
-        return this.DU;
+    public int mD() {
+        return this.DQ;
     }
 
-    public String mL() {
-        return this.DV;
+    public String mE() {
+        return this.DR;
     }
 
     public String getValue() {
@@ -28,18 +28,18 @@ public class j {
         return this.mType;
     }
 
-    public String mM() {
-        return this.DW;
+    public String mF() {
+        return this.DS;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.DU = jSONObject.optInt("bannerType");
-                this.DV = jSONObject.optString("bannerUrl");
+                this.DQ = jSONObject.optInt("bannerType");
+                this.DR = jSONObject.optString("bannerUrl");
                 this.mValue = jSONObject.optString("value");
                 this.mType = jSONObject.optInt("type");
-                this.DW = jSONObject.optString("desc");
+                this.DS = jSONObject.optString("desc");
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -48,11 +48,11 @@ public class j {
 
     public void a(Banner banner) {
         if (banner != null) {
-            this.DU = banner.banner_type.intValue();
-            this.DV = banner.banner_url;
+            this.DQ = banner.banner_type.intValue();
+            this.DR = banner.banner_url;
             this.mValue = banner.value;
             this.mType = banner.type.intValue();
-            this.DW = banner.desc;
+            this.DS = banner.desc;
         }
     }
 
@@ -60,6 +60,6 @@ public class j {
         if (StringUtils.isNull(this.mValue)) {
             return false;
         }
-        return this.mType == 1 ? this.DU == 1 || this.DU == 4 || this.DU == 2 || this.DU == 3 : this.mType == 2 && !StringUtils.isNull(this.DW);
+        return this.mType == 1 ? this.DQ == 1 || this.DQ == 4 || this.DQ == 2 || this.DQ == 3 : this.mType == 2 && !StringUtils.isNull(this.DS);
     }
 }

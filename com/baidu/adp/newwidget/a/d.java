@@ -7,33 +7,33 @@ public class d {
     public BitmapDrawable rj;
     public com.baidu.adp.widget.a.a rk;
 
-    public boolean gD() {
+    public boolean gE() {
         return (this.rj == null || this.rj.getBitmap() == null) ? false : true;
     }
 
-    public boolean gE() {
-        return this.rk != null && this.rk.jk();
+    public boolean gF() {
+        return this.rk != null && this.rk.jd();
     }
 
     public boolean isAvailable() {
-        return gD() || gE();
+        return gE() || gF();
     }
 
     public int getWidth() {
-        if (gD()) {
+        if (gE()) {
             return this.rj.getIntrinsicWidth();
         }
-        if (gE()) {
+        if (gF()) {
             return this.rk.getWidth();
         }
         return 0;
     }
 
     public int getHeight() {
-        if (gD()) {
+        if (gE()) {
             return this.rj.getIntrinsicHeight();
         }
-        if (gE()) {
+        if (gF()) {
             return this.rk.getHeight();
         }
         return 0;
@@ -45,7 +45,7 @@ public class d {
     }
 
     public boolean ck() {
-        if (gE()) {
+        if (gF()) {
             return this.rk.ck();
         }
         return false;

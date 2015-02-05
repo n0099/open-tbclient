@@ -8,10 +8,10 @@ import android.widget.LinearLayout;
 import com.baidu.tbadk.core.util.bc;
 /* loaded from: classes.dex */
 public class ak extends LinearLayout implements View.OnClickListener {
-    private PbLocationInfoView bWB;
-    private ImageView bWC;
-    private View bWD;
-    private com.baidu.tbadk.editortool.w bWl;
+    private PbLocationInfoView bWA;
+    private ImageView bWB;
+    private View bWC;
+    private com.baidu.tbadk.editortool.w bWk;
 
     public ak(Context context) {
         this(context, null);
@@ -24,22 +24,22 @@ public class ak extends LinearLayout implements View.OnClickListener {
     }
 
     private void initView() {
-        this.bWB = (PbLocationInfoView) findViewById(com.baidu.tieba.w.location_info_view);
-        this.bWD = findViewById(com.baidu.tieba.w.pb_editor_location_divider);
-        this.bWC = (ImageView) findViewById(com.baidu.tieba.w.location_info_del);
+        this.bWA = (PbLocationInfoView) findViewById(com.baidu.tieba.w.location_info_view);
+        this.bWC = findViewById(com.baidu.tieba.w.pb_editor_location_divider);
+        this.bWB = (ImageView) findViewById(com.baidu.tieba.w.location_info_del);
+        this.bWA.setOnClickListener(this);
         this.bWB.setOnClickListener(this);
-        this.bWC.setOnClickListener(this);
     }
 
-    public void qL() {
-        this.bWB.wu();
-        bc.j(this.bWD, com.baidu.tieba.t.cp_cont_e);
+    public void qF() {
+        this.bWA.wo();
+        bc.j(this.bWC, com.baidu.tieba.t.cp_cont_e);
         bc.i(this, com.baidu.tieba.t.pb_editor_location_bg_alpha);
-        bc.c(this.bWC, com.baidu.tieba.v.icon_tips_close);
+        bc.c(this.bWB, com.baidu.tieba.v.icon_tips_close);
     }
 
     public void B(int i, String str) {
-        this.bWB.C(i, str);
+        this.bWA.C(i, str);
     }
 
     public void setLocationInfoViewState(int i) {
@@ -47,24 +47,24 @@ public class ak extends LinearLayout implements View.OnClickListener {
     }
 
     public int getLocationInfoViewState() {
-        return this.bWB.getState();
+        return this.bWA.getState();
     }
 
     public int getLocationInfoViewVisibility() {
-        return this.bWB.getVisibility();
+        return this.bWA.getVisibility();
     }
 
     public void setOnActionListener(com.baidu.tbadk.editortool.w wVar) {
-        this.bWl = wVar;
+        this.bWk = wVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.bWl != null) {
-            if (view == this.bWB) {
-                this.bWl.handleAction(52, null);
-            } else if (view == this.bWC) {
-                this.bWl.handleAction(53, null);
+        if (this.bWk != null) {
+            if (view == this.bWA) {
+                this.bWk.handleAction(52, null);
+            } else if (view == this.bWB) {
+                this.bWk.handleAction(53, null);
             }
         }
     }

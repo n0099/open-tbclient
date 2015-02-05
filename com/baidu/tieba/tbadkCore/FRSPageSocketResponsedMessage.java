@@ -41,8 +41,8 @@ public class FRSPageSocketResponsedMessage extends SocketResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        if (!hasError() && this.needCache && this.forumModel != null && this.forumModel.aeN() != null) {
-            d.aeH().a(this.forumModel.aeN().getName(), bArr, true);
+        if (!hasError() && this.needCache && this.forumModel != null && this.forumModel.aeI() != null) {
+            d.aeC().a(this.forumModel.aeI().getName(), bArr, true);
         }
     }
 

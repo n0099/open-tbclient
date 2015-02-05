@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.view.ad;
 import com.baidu.tieba.z;
 /* loaded from: classes.dex */
 class f implements ad {
-    final /* synthetic */ ForumDetailActivity baB;
+    final /* synthetic */ ForumDetailActivity baA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(ForumDetailActivity forumDetailActivity) {
-        this.baB = forumDetailActivity;
+        this.baA = forumDetailActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.ad
@@ -19,20 +19,20 @@ class f implements ad {
         m mVar4;
         h hVar;
         String str;
-        if (!this.baB.aKs) {
+        if (!this.baA.aKp) {
             if (z) {
-                mVar3 = this.baB.bax;
-                mVar3.Ic();
-                mVar4 = this.baB.bax;
+                mVar3 = this.baA.baw;
+                mVar3.HW();
+                mVar4 = this.baA.baw;
                 mVar4.showLoading();
-                hVar = this.baB.bay;
-                str = this.baB.mForumId;
-                hVar.gL(str);
+                hVar = this.baA.bax;
+                str = this.baA.mForumId;
+                hVar.gI(str);
                 return;
             }
-            mVar = this.baB.bax;
-            mVar.Oz();
-            mVar2 = this.baB.bax;
+            mVar = this.baA.baw;
+            mVar.Ou();
+            mVar2 = this.baA.baw;
             mVar2.fg(z.game_index_no_network_text);
         }
     }

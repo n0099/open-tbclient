@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.util.ad;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<String, Integer, Bitmap> {
-    private ad CX;
-    final /* synthetic */ CreateBarActivity aPx;
+    private ad CU;
+    final /* synthetic */ CreateBarActivity aPw;
     private volatile boolean kN;
 
     private d(CreateBarActivity createBarActivity) {
-        this.aPx = createBarActivity;
-        this.CX = null;
+        this.aPw = createBarActivity;
+        this.CU = null;
         this.kN = false;
     }
 
@@ -31,12 +31,12 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
         ProgressBar progressBar;
         super.cancel(true);
         this.kN = true;
-        if (this.CX != null) {
-            this.CX.dJ();
+        if (this.CU != null) {
+            this.CU.dJ();
         }
-        progressBar = this.aPx.aPo;
+        progressBar = this.aPw.aPn;
         progressBar.setVisibility(8);
-        this.aPx.aPq = null;
+        this.aPw.aPp = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,24 +45,24 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
     /* renamed from: n */
     public Bitmap doInBackground(String... strArr) {
         try {
-            this.CX = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
-            this.CX.o(ImageViewerConfig.FORUM_ID, "0");
-            this.CX.o("pub_type", "0");
-            this.CX.o(ImageViewerConfig.FORUM_NAME, "");
-            this.CX.o("tid", "0");
-            String oy = this.CX.oy();
-            if (this.CX.oZ().qh().ma()) {
+            this.CU = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
+            this.CU.o(ImageViewerConfig.FORUM_ID, "0");
+            this.CU.o("pub_type", "0");
+            this.CU.o(ImageViewerConfig.FORUM_NAME, "");
+            this.CU.o("tid", "0");
+            String or = this.CU.or();
+            if (this.CU.oS().qa().lT()) {
                 com.baidu.tbadk.coreExtra.data.j jVar = new com.baidu.tbadk.coreExtra.data.j();
-                jVar.parserJson(oy);
+                jVar.parserJson(or);
                 if (jVar.getVcode_pic_url() == null || jVar.getVcode_pic_url().length() <= 0) {
                     return null;
                 }
-                this.aPx.aPr = jVar.getVcode_md5();
+                this.aPw.aPq = jVar.getVcode_md5();
                 if (this.kN) {
                     return null;
                 }
-                this.CX = new ad(jVar.getVcode_pic_url());
-                return com.baidu.tbadk.core.util.d.v(this.CX.oz());
+                this.CU = new ad(jVar.getVcode_pic_url());
+                return com.baidu.tbadk.core.util.d.v(this.CU.os());
             }
             return null;
         } catch (Exception e) {
@@ -78,11 +78,11 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
         ProgressBar progressBar;
         ImageView imageView;
         super.onPostExecute((d) bitmap);
-        progressBar = this.aPx.aPo;
+        progressBar = this.aPw.aPn;
         progressBar.setVisibility(8);
-        this.aPx.aPq = null;
+        this.aPw.aPp = null;
         if (bitmap != null) {
-            imageView = this.aPx.anr;
+            imageView = this.aPw.ano;
             imageView.setImageBitmap(bitmap);
         }
     }
@@ -93,10 +93,10 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
         ProgressBar progressBar;
         ImageView imageView;
         super.onPreExecute();
-        this.aPx.aPr = null;
-        progressBar = this.aPx.aPo;
+        this.aPw.aPq = null;
+        progressBar = this.aPw.aPn;
         progressBar.setVisibility(0);
-        imageView = this.aPx.anr;
+        imageView = this.aPw.ano;
         imageView.setImageDrawable(null);
     }
 }

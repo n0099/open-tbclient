@@ -23,35 +23,35 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class a {
-    private String Fp;
-    private String Fq;
-    private String Fr;
-    private d Fs;
-    private d Ft;
-    private d Fu;
-    private DialogInterface.OnCancelListener Fv;
-    private ViewGroup Fw;
+    private String Fm;
+    private String Fn;
+    private String Fo;
+    private d Fp;
+    private d Fq;
+    private d Fr;
+    private DialogInterface.OnCancelListener Fs;
+    private ViewGroup Ft;
     protected final Activity mActivity;
     private View mContentView;
     private AlertDialog mDialog;
     private String mMessage;
     private final ViewGroup mRootView;
     private String mTitle;
-    private int Fo = -1;
-    private boolean Fx = false;
-    private boolean Fy = true;
+    private int Fl = -1;
+    private boolean Fu = false;
+    private boolean Fv = true;
 
-    public a bV(String str) {
+    public a bS(String str) {
         this.mTitle = str;
         return this;
     }
 
     public a bx(int i) {
-        bV(this.mActivity.getResources().getString(i));
+        bS(this.mActivity.getResources().getString(i));
         return this;
     }
 
-    public a bW(String str) {
+    public a bT(String str) {
         this.mMessage = str;
         return this;
     }
@@ -62,20 +62,20 @@ public class a {
     }
 
     public a a(String str, d dVar) {
-        this.Fp = str;
-        this.Fs = dVar;
+        this.Fm = str;
+        this.Fp = dVar;
         return this;
     }
 
     public a b(String str, d dVar) {
-        this.Fq = str;
-        this.Ft = dVar;
+        this.Fn = str;
+        this.Fq = dVar;
         return this;
     }
 
     public a c(String str, d dVar) {
-        this.Fr = str;
-        this.Fu = dVar;
+        this.Fo = str;
+        this.Fr = dVar;
         return this;
     }
 
@@ -88,39 +88,39 @@ public class a {
 
     public a a(int i, d dVar) {
         if (this.mActivity != null) {
-            this.Fp = this.mActivity.getResources().getString(i);
-            this.Fs = dVar;
+            this.Fm = this.mActivity.getResources().getString(i);
+            this.Fp = dVar;
         }
         return this;
     }
 
     public a b(int i, d dVar) {
         if (this.mActivity != null) {
-            this.Fq = this.mActivity.getResources().getString(i);
-            this.Ft = dVar;
+            this.Fn = this.mActivity.getResources().getString(i);
+            this.Fq = dVar;
         }
         return this;
     }
 
     public a ah(boolean z) {
-        this.Fy = z;
+        this.Fv = z;
         return this;
     }
 
     public a ai(boolean z) {
-        this.Fy = z;
+        this.Fv = z;
         return this;
     }
 
     public a(Activity activity) {
         this.mActivity = activity;
         this.mRootView = (ViewGroup) com.baidu.adp.lib.g.b.ei().inflate(activity, x.dialog_bdalert, null);
-        this.Fw = (ViewGroup) this.mRootView.findViewById(w.real_view);
+        this.Ft = (ViewGroup) this.mRootView.findViewById(w.real_view);
     }
 
     public void a(LinearLayout.LayoutParams layoutParams) {
-        if (this.Fw != null) {
-            this.Fw.setLayoutParams(layoutParams);
+        if (this.Ft != null) {
+            this.Ft.setLayoutParams(layoutParams);
         }
     }
 
@@ -128,8 +128,8 @@ public class a {
         boolean z;
         boolean z2;
         boolean z3 = true;
-        if (!this.Fx) {
-            this.Fx = true;
+        if (!this.Fu) {
+            this.Fu = true;
             c(jVar);
             TextView textView = (TextView) this.mRootView.findViewById(w.title);
             LinearLayout linearLayout = (LinearLayout) this.mRootView.findViewById(w.content);
@@ -149,30 +149,30 @@ public class a {
             if (!TextUtils.isEmpty(this.mMessage)) {
                 textView2.setText(this.mMessage);
             }
-            if (TextUtils.isEmpty(this.Fp)) {
+            if (TextUtils.isEmpty(this.Fm)) {
                 z = false;
             } else {
-                button.setText(this.Fp);
-                if (this.Fs != null) {
-                    button.setOnClickListener(new c(this, this, this.Fs));
+                button.setText(this.Fm);
+                if (this.Fp != null) {
+                    button.setOnClickListener(new c(this, this, this.Fp));
                 }
                 z = true;
             }
-            if (TextUtils.isEmpty(this.Fq)) {
+            if (TextUtils.isEmpty(this.Fn)) {
                 z2 = false;
             } else {
-                button2.setText(this.Fq);
-                if (this.Ft != null) {
-                    button2.setOnClickListener(new c(this, this, this.Ft));
+                button2.setText(this.Fn);
+                if (this.Fq != null) {
+                    button2.setOnClickListener(new c(this, this, this.Fq));
                 }
                 z2 = true;
             }
-            if (TextUtils.isEmpty(this.Fr)) {
+            if (TextUtils.isEmpty(this.Fo)) {
                 z3 = false;
             } else {
-                button3.setText(this.Fr);
-                if (this.Fu != null) {
-                    button3.setOnClickListener(new c(this, this, this.Fu));
+                button3.setText(this.Fo);
+                if (this.Fr != null) {
+                    button3.setOnClickListener(new c(this, this, this.Fr));
                 }
             }
             a(z, z2, z3, button, button2, button3);
@@ -187,8 +187,8 @@ public class a {
             ((TbPageContext) jVar).getLayoutMode().h(this.mRootView);
         } else if (this.mActivity instanceof ActivityProxy) {
             ActivityProxy activityProxy = (ActivityProxy) this.mActivity;
-            if (activityProxy.hg() != null && (activityProxy.hg() instanceof ProxyAdkBaseActivity)) {
-                ProxyAdkBaseActivity proxyAdkBaseActivity = (ProxyAdkBaseActivity) activityProxy.hg();
+            if (activityProxy.gZ() != null && (activityProxy.gZ() instanceof ProxyAdkBaseActivity)) {
+                ProxyAdkBaseActivity proxyAdkBaseActivity = (ProxyAdkBaseActivity) activityProxy.gZ();
                 proxyAdkBaseActivity.getLayoutMode().ab(skinType == 1);
                 proxyAdkBaseActivity.getLayoutMode().h(this.mRootView);
             }
@@ -242,12 +242,12 @@ public class a {
         button.setLayoutParams(layoutParams);
     }
 
-    public a nW() {
+    public a nP() {
         return aj(false);
     }
 
     private a aj(boolean z) {
-        if (!this.Fx) {
+        if (!this.Fu) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
         if (this.mDialog != null) {
@@ -258,9 +258,9 @@ public class a {
             }
         } else {
             this.mDialog = new AlertDialog.Builder(this.mActivity).create();
-            this.mDialog.setCanceledOnTouchOutside(this.Fy);
-            if (this.Fv != null) {
-                this.mDialog.setOnCancelListener(this.Fv);
+            this.mDialog.setCanceledOnTouchOutside(this.Fv);
+            if (this.Fs != null) {
+                this.mDialog.setOnCancelListener(this.Fs);
             }
             if (z) {
                 com.baidu.adp.lib.g.k.a(this.mDialog, this.mActivity);
@@ -268,10 +268,10 @@ public class a {
                 this.mDialog.show();
             }
             Window window = this.mDialog.getWindow();
-            if (this.Fo == -1) {
-                this.Fo = 17;
+            if (this.Fl == -1) {
+                this.Fl = 17;
             }
-            window.setGravity(this.Fo);
+            window.setGravity(this.Fl);
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.dimAmount = 0.5f;
             window.setAttributes(attributes);
@@ -287,7 +287,7 @@ public class a {
         return this;
     }
 
-    public a nX() {
+    public a nQ() {
         return aj(true);
     }
 

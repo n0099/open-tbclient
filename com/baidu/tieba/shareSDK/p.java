@@ -6,11 +6,11 @@ import com.baidu.tbadk.coreExtra.message.ShareSDKResultMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements Runnable {
-    final /* synthetic */ WriteShareActivity bPF;
+    final /* synthetic */ WriteShareActivity bPE;
     private Activity mActivity;
 
     public p(WriteShareActivity writeShareActivity, Activity activity) {
-        this.bPF = writeShareActivity;
+        this.bPE = writeShareActivity;
         this.mActivity = null;
         this.mActivity = activity;
     }

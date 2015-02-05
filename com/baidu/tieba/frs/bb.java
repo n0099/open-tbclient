@@ -4,18 +4,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 /* loaded from: classes.dex */
 class bb implements com.baidu.adp.lib.guide.b {
-    final /* synthetic */ ba aEu;
-    private final /* synthetic */ View aEv;
+    final /* synthetic */ ba aEr;
+    private final /* synthetic */ View aEs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(ba baVar, View view) {
-        this.aEu = baVar;
-        this.aEv = view;
+        this.aEr = baVar;
+        this.aEs = view;
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public View a(LayoutInflater layoutInflater) {
-        return this.aEv;
+        return this.aEs;
     }
 
     @Override // com.baidu.adp.lib.guide.b

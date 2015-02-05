@@ -12,21 +12,21 @@ import com.baidu.tbadk.data.MyGift;
 import java.util.List;
 /* loaded from: classes.dex */
 public class s extends BaseAdapter {
-    private List<MyGift> bKL;
-    final /* synthetic */ r bKM;
+    private List<MyGift> bKK;
+    final /* synthetic */ r bKL;
 
     public s(r rVar, List<MyGift> list) {
-        this.bKM = rVar;
-        this.bKL = list;
+        this.bKL = rVar;
+        this.bKK = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bKL == null) {
+        if (this.bKK == null) {
             return 0;
         }
-        if (this.bKL.size() <= 8) {
-            return this.bKL.size();
+        if (this.bKK.size() <= 8) {
+            return this.bKK.size();
         }
         return 8;
     }
@@ -48,11 +48,11 @@ public class s extends BaseAdapter {
         PersonInfoActivity personInfoActivity2;
         PersonInfoActivity personInfoActivity3;
         com.baidu.adp.lib.g.b ei = com.baidu.adp.lib.g.b.ei();
-        personInfoActivity = this.bKM.bJZ;
+        personInfoActivity = this.bKL.bJY;
         View inflate = ei.inflate(personInfoActivity.getPageContext().getPageActivity(), com.baidu.tieba.x.personinfo_gift_icon, null);
-        personInfoActivity2 = this.bKM.bJZ;
+        personInfoActivity2 = this.bKL.bJY;
         int dimensionPixelSize = personInfoActivity2.getResources().getDimensionPixelSize(com.baidu.tieba.u.ds86);
-        personInfoActivity3 = this.bKM.bJZ;
+        personInfoActivity3 = this.bKL.bJY;
         inflate.setLayoutParams(new AbsListView.LayoutParams(dimensionPixelSize, personInfoActivity3.getResources().getDimensionPixelSize(com.baidu.tieba.u.ds80)));
         HeadImageView headImageView = (HeadImageView) inflate.findViewById(com.baidu.tieba.w.gift_icon);
         headImageView.setIsRound(true);
@@ -61,7 +61,7 @@ public class s extends BaseAdapter {
         headImageView.setSupportNoImage(false);
         TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.w.gift_num);
         g(textView);
-        MyGift myGift = this.bKL.get(i);
+        MyGift myGift = this.bKK.get(i);
         if (myGift != null) {
             headImageView.d(myGift.getGiftIcon(), 10, false);
             textView.setText(new StringBuilder().append(myGift.getGiftNum()).toString());

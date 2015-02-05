@@ -9,10 +9,10 @@ import java.io.Serializable;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends Handler {
-    final /* synthetic */ h tI;
+    final /* synthetic */ h tF;
 
     private j(h hVar) {
-        this.tI = hVar;
+        this.tF = hVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -48,13 +48,13 @@ public class j extends Handler {
             case 5:
                 Bundle data = message.getData();
                 if (data != null && (serializable = data.getSerializable("plugin_settings")) != null && (serializable instanceof PluginSettings)) {
-                    this.tI.ty = (PluginSettings) data.getSerializable("plugin_settings");
+                    this.tF.tv = (PluginSettings) data.getSerializable("plugin_settings");
                 }
-                if (this.tI.tG != null) {
-                    m mVar = this.tI.tG;
-                    pluginSettings12 = this.tI.ty;
+                if (this.tF.tD != null) {
+                    m mVar = this.tF.tD;
+                    pluginSettings12 = this.tF.tv;
                     mVar.a(pluginSettings12);
-                    this.tI.tG = null;
+                    this.tF.tD = null;
                     return;
                 }
                 return;
@@ -63,13 +63,13 @@ public class j extends Handler {
                 if (data2 != null) {
                     boolean z = data2.getBoolean(PluginSettingIOService.KEY_FORBIDDEN);
                     String string = data2.getString(PluginSettingIOService.KEY_SETTING_NAME);
-                    pluginSettings9 = this.tI.ty;
+                    pluginSettings9 = this.tF.tv;
                     PluginSetting findPluginSetting = pluginSettings9.findPluginSetting(string);
                     if (findPluginSetting != null && findPluginSetting.forbidden != z) {
                         findPluginSetting.forbidden = z;
                     }
                     if (!z) {
-                        PluginCenter.gW().aP(string);
+                        PluginCenter.getInstance().launch(string);
                         return;
                     }
                     return;
@@ -79,7 +79,7 @@ public class j extends Handler {
                 Bundle data3 = message.getData();
                 if (data3 != null) {
                     String string2 = data3.getString(PluginSettingIOService.KEY_SETTING_NAME);
-                    pluginSettings7 = this.tI.ty;
+                    pluginSettings7 = this.tF.tv;
                     pluginSettings7.removePluginSetting(string2);
                     return;
                 }
@@ -88,7 +88,7 @@ public class j extends Handler {
                 Bundle data4 = message.getData();
                 if (data4 != null) {
                     boolean z2 = data4.getBoolean(PluginSettingIOService.KEY_ENABLE);
-                    pluginSettings10 = this.tI.ty;
+                    pluginSettings10 = this.tF.tv;
                     pluginSettings10.setAllPluginEnable(z2);
                     return;
                 }
@@ -98,7 +98,7 @@ public class j extends Handler {
                 if (data5 != null) {
                     boolean z3 = data5.getBoolean(PluginSettingIOService.KEY_ENABLE);
                     String string3 = data5.getString(PluginSettingIOService.KEY_SETTING_NAME);
-                    pluginSettings11 = this.tI.ty;
+                    pluginSettings11 = this.tF.tv;
                     PluginSetting findPluginSetting2 = pluginSettings11.findPluginSetting(string3);
                     if (findPluginSetting2 != null && findPluginSetting2.enable != z3) {
                         findPluginSetting2.enable = z3;
@@ -112,21 +112,21 @@ public class j extends Handler {
                 if (data6 != null) {
                     String string4 = data6.getString(PluginSettingIOService.KEY_VERSION);
                     if (TextUtils.isEmpty(string4)) {
-                        pluginSettings6 = this.tI.ty;
+                        pluginSettings6 = this.tF.tv;
                         break;
                     }
                     if (!TextUtils.isEmpty(string4)) {
-                        pluginSettings4 = this.tI.ty;
+                        pluginSettings4 = this.tF.tv;
                         break;
                     }
                     if (!TextUtils.isEmpty(string4)) {
-                        pluginSettings2 = this.tI.ty;
+                        pluginSettings2 = this.tF.tv;
                         if (!TextUtils.isEmpty(pluginSettings2.getContainerVersion())) {
-                            pluginSettings3 = this.tI.ty;
+                            pluginSettings3 = this.tF.tv;
                             if (string4.equals(pluginSettings3.getContainerVersion())) {
                                 return;
                             }
-                            pluginSettings5 = this.tI.ty;
+                            pluginSettings5 = this.tF.tv;
                             pluginSettings5.setContainerSetting(string4);
                             return;
                         }
@@ -140,7 +140,7 @@ public class j extends Handler {
                 if (data7 != null) {
                     int i = data7.getInt(PluginSettingIOService.KEY_INSTALL_STATUS);
                     String string5 = data7.getString(PluginSettingIOService.KEY_SETTING_NAME);
-                    pluginSettings8 = this.tI.ty;
+                    pluginSettings8 = this.tF.tv;
                     PluginSetting findPluginSetting3 = pluginSettings8.findPluginSetting(string5);
                     if (findPluginSetting3 != null && findPluginSetting3.installStatus != i) {
                         findPluginSetting3.installStatus = i;
@@ -153,7 +153,7 @@ public class j extends Handler {
                 Bundle data8 = message.getData();
                 if (data8 != null) {
                     String string6 = data8.getString(PluginSettingIOService.KEY_FORBIDDEN_FEATURE);
-                    pluginSettings = this.tI.ty;
+                    pluginSettings = this.tF.tv;
                     pluginSettings.setForbiddenFeatures(string6);
                     return;
                 }

@@ -8,25 +8,25 @@ import com.baidu.tbadk.core.util.ad;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<String, Integer, String> {
-    private ad CX = null;
-    private int bFv;
-    private boolean bze;
-    private int cay;
-    final /* synthetic */ a caz;
+    private ad CU = null;
+    private int bFu;
+    private boolean bzd;
+    private int cax;
+    final /* synthetic */ a cay;
     private String mForumId;
     private String mForumName;
     private String mPostId;
     private String mThreadId;
 
     public b(a aVar, String str, String str2, String str3, String str4, int i, int i2, boolean z) {
-        this.caz = aVar;
+        this.cay = aVar;
         this.mForumId = str;
         this.mForumName = str2;
         this.mThreadId = str3;
         this.mPostId = str4;
-        this.cay = i;
-        this.bFv = i2;
-        this.bze = z;
+        this.cax = i;
+        this.bFu = i2;
+        this.bzd = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,56 +36,56 @@ public class b extends BdAsyncTask<String, Integer, String> {
     public String doInBackground(String... strArr) {
         String str;
         String str2 = TbConfig.SERVER_ADDRESS;
-        if (this.cay == 0) {
+        if (this.cax == 0) {
             str = String.valueOf(str2) + TbConfig.DEL_THREAD_ADDRESS;
         } else {
             str = String.valueOf(str2) + TbConfig.DEL_POST_ADDRESS;
         }
-        this.CX = new ad(str);
-        this.CX.o(ImageViewerConfig.FORUM_ID, this.mForumId);
-        this.CX.o("word", this.mForumName);
-        this.CX.o("z", this.mThreadId);
-        if (this.cay == 0) {
-            if (this.bFv == 0) {
-                this.CX.o("delete_my_thread", "1");
+        this.CU = new ad(str);
+        this.CU.o(ImageViewerConfig.FORUM_ID, this.mForumId);
+        this.CU.o("word", this.mForumName);
+        this.CU.o("z", this.mThreadId);
+        if (this.cax == 0) {
+            if (this.bFu == 0) {
+                this.CU.o("delete_my_thread", "1");
             }
-        } else if (this.cay == 1) {
-            this.CX.o("pid", this.mPostId);
-            this.CX.o("isfloor", "0");
-            this.CX.o("src", "1");
-            if (this.bFv == 0 && this.bze) {
-                this.CX.o("delete_my_post", "1");
+        } else if (this.cax == 1) {
+            this.CU.o("pid", this.mPostId);
+            this.CU.o("isfloor", "0");
+            this.CU.o("src", "1");
+            if (this.bFu == 0 && this.bzd) {
+                this.CU.o("delete_my_post", "1");
             }
-        } else if (this.cay == 2) {
-            this.CX.o("pid", this.mPostId);
-            this.CX.o("isfloor", "1");
-            this.CX.o("src", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
-            if (this.bFv == 0 && this.bze) {
-                this.CX.o("delete_my_post", "1");
+        } else if (this.cax == 2) {
+            this.CU.o("pid", this.mPostId);
+            this.CU.o("isfloor", "1");
+            this.CU.o("src", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
+            if (this.bFu == 0 && this.bzd) {
+                this.CU.o("delete_my_post", "1");
             }
         }
-        if (this.bFv == 0 && !this.bze) {
-            this.CX.o("is_vipdel", "1");
+        if (this.bFu == 0 && !this.bzd) {
+            this.CU.o("is_vipdel", "1");
         } else {
-            this.CX.o("is_vipdel", "0");
+            this.CU.o("is_vipdel", "0");
         }
-        this.CX.oZ().qg().mIsNeedTbs = true;
-        this.CX.oy();
-        if (this.CX.oZ().qh().ma()) {
+        this.CU.oS().pZ().mIsNeedTbs = true;
+        this.CU.or();
+        if (this.CU.oS().qa().lT()) {
             return null;
         }
-        return this.CX.getErrorString();
+        return this.CU.getErrorString();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         i iVar;
-        if (this.CX != null) {
-            this.CX.dJ();
+        if (this.CU != null) {
+            this.CU.dJ();
         }
-        this.caz.cav = null;
+        this.cay.cau = null;
         super.cancel(true);
-        iVar = this.caz.mLoadDataCallBack;
+        iVar = this.cay.mLoadDataCallBack;
         iVar.c(null);
     }
 
@@ -96,22 +96,22 @@ public class b extends BdAsyncTask<String, Integer, String> {
         i iVar;
         i iVar2;
         super.onPostExecute((b) str);
-        this.caz.cav = null;
-        if (this.CX == null) {
-            iVar2 = this.caz.mLoadDataCallBack;
+        this.cay.cau = null;
+        if (this.CU == null) {
+            iVar2 = this.cay.mLoadDataCallBack;
             iVar2.c(null);
             return;
         }
-        c cVar = new c(this.caz);
-        cVar.cay = this.cay;
+        c cVar = new c(this.cay);
+        cVar.cax = this.cax;
         cVar.mPostId = this.mPostId;
-        cVar.caA = str;
+        cVar.caz = str;
         if (str == null) {
             cVar.qb = true;
         } else {
             cVar.qb = false;
         }
-        iVar = this.caz.mLoadDataCallBack;
+        iVar = this.cay.mLoadDataCallBack;
         iVar.c(cVar);
     }
 }

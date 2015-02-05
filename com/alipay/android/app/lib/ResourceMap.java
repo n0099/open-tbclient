@@ -16,7 +16,7 @@ public class ResourceMap {
     }
 
     public static int getString_cancel() {
-        return z.ali_cancel;
+        return z.cancel;
     }
 
     public static int getString_processing() {
@@ -36,7 +36,7 @@ public class ResourceMap {
     }
 
     public static int getString_download_fail() {
-        return z.ali_download_fail;
+        return z.download_fail;
     }
 
     public static int getString_redo() {

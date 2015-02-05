@@ -1,6 +1,9 @@
 package com.baidu.tbadk.performanceLog;
 /* loaded from: classes.dex */
 public class w extends u {
+    public long agJ;
+    public long agK;
+    public long agL;
     public long agM;
     public long agN;
     public long agO;
@@ -10,35 +13,32 @@ public class w extends u {
     public long agS;
     public long agT;
     public long agU;
-    public long agV;
-    public long agW;
-    public long agX;
-    public boolean agY;
+    public boolean agV;
     public boolean isSuccess;
 
-    public void zs() {
-        ae aeVar = (ae) ac.zy().dZ(this.mSubType);
+    public void zm() {
+        ae aeVar = (ae) ac.zs().dZ(this.mSubType);
         if (aeVar != null) {
             aeVar.b(this);
         }
     }
 
-    public void zt() {
-        ae aeVar = (ae) ac.zy().dZ(this.mSubType);
+    public void zn() {
+        ae aeVar = (ae) ac.zs().dZ(this.mSubType);
         if (aeVar != null) {
             aeVar.a(this);
         }
     }
 
-    public void zu() {
-        ae aeVar = (ae) ac.zy().dZ(this.mSubType);
+    public void zo() {
+        ae aeVar = (ae) ac.zs().dZ(this.mSubType);
         if (aeVar != null) {
             aeVar.c(this);
         }
     }
 
-    public void zv() {
-        ae aeVar = (ae) ac.zy().dZ(this.mSubType);
+    public void zp() {
+        ae aeVar = (ae) ac.zs().dZ(this.mSubType);
         if (aeVar != null) {
             aeVar.d(this);
         }

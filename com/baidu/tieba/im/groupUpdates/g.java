@@ -5,11 +5,11 @@ import com.baidu.tieba.im.data.UpdatesItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements DialogInterface.OnClickListener {
-    final /* synthetic */ UpdatesActivity bhj;
+    final /* synthetic */ UpdatesActivity bhi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(UpdatesActivity updatesActivity) {
-        this.bhj = updatesActivity;
+        this.bhi = updatesActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -18,10 +18,10 @@ public class g implements DialogInterface.OnClickListener {
         UpdatesItemData updatesItemData;
         switch (i) {
             case 0:
-                pVar = this.bhj.bhg;
+                pVar = this.bhi.bhf;
                 pVar.setLoadProgressBarVisable(true);
-                UpdatesActivity updatesActivity = this.bhj;
-                updatesItemData = this.bhj.pendingToDel;
+                UpdatesActivity updatesActivity = this.bhi;
+                updatesItemData = this.bhi.pendingToDel;
                 updatesActivity.processDel(updatesItemData);
                 return;
             default:

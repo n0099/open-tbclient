@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.data.AntiData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class f implements com.baidu.tieba.pb.sub.g {
-    final /* synthetic */ PbActivity bAT;
+    final /* synthetic */ PbActivity bAS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(PbActivity pbActivity) {
-        this.bAT = pbActivity;
+        this.bAS = pbActivity;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x00bb  */
@@ -25,7 +25,7 @@ class f implements com.baidu.tieba.pb.sub.g {
         com.baidu.tieba.pb.sub.e eVar2;
         bz bzVar3;
         bq bqVar2;
-        AntiData abT;
+        AntiData abO;
         com.baidu.tieba.pb.sub.e eVar3;
         String str2;
         bz bzVar4;
@@ -33,39 +33,39 @@ class f implements com.baidu.tieba.pb.sub.g {
         String str3;
         com.baidu.tieba.pb.sub.e eVar4;
         bq bqVar4;
-        this.bAT.stopVoice();
-        bzVar = this.bAT.bAx;
+        this.bAS.stopVoice();
+        bzVar = this.bAS.bAw;
         bzVar.showToast(str);
-        bzVar2 = this.bAT.bAx;
-        bzVar2.YR();
+        bzVar2 = this.bAS.bAw;
+        bzVar2.YM();
         if (!z) {
             if (i == 4 || i == 28) {
-                bqVar4 = this.bAT.bAs;
-                if (bqVar4.XO()) {
-                    this.bAT.closeActivity();
+                bqVar4 = this.bAS.bAr;
+                if (bqVar4.XJ()) {
+                    this.bAS.closeActivity();
                 }
             }
         } else if (oVar != null) {
-            eVar = this.bAT.bAv;
-            String lt = eVar.lt();
-            bqVar = this.bAT.bAs;
-            ArrayList<com.baidu.tieba.tbadkCore.b.k> ahk = bqVar.getPbData().ahk();
+            eVar = this.bAS.bAu;
+            String lm = eVar.lm();
+            bqVar = this.bAS.bAr;
+            ArrayList<com.baidu.tieba.tbadkCore.b.k> ahf = bqVar.getPbData().ahf();
             int i2 = 0;
             while (true) {
-                if (i2 < ahk.size()) {
-                    com.baidu.tieba.tbadkCore.b.k kVar = ahk.get(i2);
-                    if (kVar.getId() == null || !kVar.getId().equals(lt)) {
+                if (i2 < ahf.size()) {
+                    com.baidu.tieba.tbadkCore.b.k kVar = ahf.get(i2);
+                    if (kVar.getId() == null || !kVar.getId().equals(lm)) {
                         i2++;
                     } else {
-                        ArrayList<com.baidu.tieba.tbadkCore.b.k> ahJ = oVar.ahJ();
-                        kVar.hW(ahJ.size());
-                        int size = kVar.ahv().size();
+                        ArrayList<com.baidu.tieba.tbadkCore.b.k> ahE = oVar.ahE();
+                        kVar.hW(ahE.size());
+                        int size = kVar.ahq().size();
                         while (true) {
                             int i3 = size;
-                            if (i3 >= 2 || i3 >= ahJ.size()) {
+                            if (i3 >= 2 || i3 >= ahE.size()) {
                                 break;
                             }
-                            kVar.ahv().add(oVar.ahJ().get(i3));
+                            kVar.ahq().add(oVar.ahE().get(i3));
                             size = i3 + 1;
                         }
                     }
@@ -73,26 +73,26 @@ class f implements com.baidu.tieba.pb.sub.g {
                     break;
                 }
             }
-            eVar2 = this.bAT.bAv;
+            eVar2 = this.bAS.bAu;
             String stType = eVar2.getStType();
             if (stType != null) {
-                eVar3 = this.bAT.bAv;
+                eVar3 = this.bAS.bAu;
                 if ("mention".equals(eVar3.getStType()) || stType.equals("person_post_reply")) {
-                    str2 = this.bAT.bAD;
+                    str2 = this.bAS.bAC;
                     if (str2 != null) {
-                        bzVar4 = this.bAT.bAx;
-                        bqVar3 = this.bAT.bAs;
-                        int ahl = bqVar3.getPbData().ahl();
-                        str3 = this.bAT.bAD;
-                        boolean z2 = oVar.ahI() > 1;
-                        eVar4 = this.bAT.bAv;
-                        bzVar4.a(oVar, ahl, str3, z2, eVar4.UI() == 1);
-                        abT = oVar.abT();
-                        if (abT == null) {
-                            Boolean valueOf = Boolean.valueOf(abT.isIfvoice());
-                            this.bAT.bAr = abT.getVoice_message();
-                            if (oVar.ahL() != null) {
-                                this.bAT.a(oVar.ahL().getName(), valueOf);
+                        bzVar4 = this.bAS.bAw;
+                        bqVar3 = this.bAS.bAr;
+                        int ahg = bqVar3.getPbData().ahg();
+                        str3 = this.bAS.bAC;
+                        boolean z2 = oVar.ahD() > 1;
+                        eVar4 = this.bAS.bAu;
+                        bzVar4.a(oVar, ahg, str3, z2, eVar4.UD() == 1);
+                        abO = oVar.abO();
+                        if (abO == null) {
+                            Boolean valueOf = Boolean.valueOf(abO.isIfvoice());
+                            this.bAS.bAq = abO.getVoice_message();
+                            if (oVar.ahG() != null) {
+                                this.bAS.a(oVar.ahG().getName(), valueOf);
                                 return;
                             }
                             return;
@@ -101,11 +101,11 @@ class f implements com.baidu.tieba.pb.sub.g {
                     }
                 }
             }
-            bzVar3 = this.bAT.bAx;
-            bqVar2 = this.bAT.bAs;
-            bzVar3.a(oVar, bqVar2.getPbData().ahl());
-            abT = oVar.abT();
-            if (abT == null) {
+            bzVar3 = this.bAS.bAw;
+            bqVar2 = this.bAS.bAr;
+            bzVar3.a(oVar, bqVar2.getPbData().ahg());
+            abO = oVar.abO();
+            if (abO == null) {
             }
         }
     }

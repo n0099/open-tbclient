@@ -17,9 +17,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class e {
-    private final String apS = TbConfig.getTempDirName();
-    private f apT;
-    private g apU;
+    private final String apP = TbConfig.getTempDirName();
+    private f apQ;
+    private g apR;
     private final Context mContext;
 
     public e(Context context) {
@@ -30,10 +30,10 @@ public class e {
         if (mVar == null) {
             return false;
         }
-        BK();
-        this.apT = new f(this, mVar);
-        this.apT.setPriority(3);
-        this.apT.execute(new Object[0]);
+        BE();
+        this.apQ = new f(this, mVar);
+        this.apQ.setPriority(3);
+        this.apQ.execute(new Object[0]);
         return true;
     }
 
@@ -41,29 +41,29 @@ public class e {
         if (aqVar == null) {
             return false;
         }
-        BL();
-        this.apU = new g(this, str, aqVar);
-        this.apU.setPriority(3);
-        this.apU.execute(new Void[0]);
+        BF();
+        this.apR = new g(this, str, aqVar);
+        this.apR.setPriority(3);
+        this.apR.execute(new Void[0]);
         return true;
     }
 
-    public void BK() {
-        if (this.apT != null) {
-            this.apT.cancel();
-            this.apT = null;
+    public void BE() {
+        if (this.apQ != null) {
+            this.apQ.cancel();
+            this.apQ = null;
         }
     }
 
-    public void BL() {
-        if (this.apU != null) {
-            this.apU.cancel();
-            this.apU = null;
+    public void BF() {
+        if (this.apR != null) {
+            this.apR.cancel();
+            this.apR = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<a> BM() {
+    public List<a> BG() {
         return a(this.mContext, a(this.mContext, null, MediaStore.Images.Media.EXTERNAL_CONTENT_URI), MediaStore.Images.Media.INTERNAL_CONTENT_URI);
     }
 
@@ -96,8 +96,8 @@ public class e {
                             File file = new File(string3.substring(0, string3.lastIndexOf("/")));
                             if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
                                 for (File file2 : listFiles) {
-                                    String eV = eV(file2.getAbsolutePath());
-                                    if (eV != null && (matcher = compile.matcher(eV)) != null && matcher.matches()) {
+                                    String eS = eS(file2.getAbsolutePath());
+                                    if (eS != null && (matcher = compile.matcher(eS)) != null && matcher.matches()) {
                                         i++;
                                     }
                                 }
@@ -105,13 +105,13 @@ public class e {
                             if (i != 0) {
                                 String sb = new StringBuilder(String.valueOf(i)).toString();
                                 a aVar = new a();
-                                aVar.eT(string);
-                                aVar.eU(sb);
+                                aVar.eQ(string);
+                                aVar.eR(sb);
                                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                                 imageFileInfo.setFilePath(string3);
                                 aVar.d(imageFileInfo);
                                 aVar.setName(string2);
-                                if (string2 != null && string2.equals(this.apS)) {
+                                if (string2 != null && string2.equals(this.apP)) {
                                     list.add(0, aVar);
                                 } else {
                                     list.add(aVar);
@@ -145,7 +145,7 @@ public class e {
         }
     }
 
-    public String eV(String str) {
+    public String eS(String str) {
         String fileExtensionFromUrl = getFileExtensionFromUrl(str);
         if (fileExtensionFromUrl == null) {
             return null;

@@ -9,7 +9,7 @@ class as implements CustomMessageTask.CustomRunnable<InvokeOnCreateOnMainThreadM
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<InvokeOnCreateOnMainThreadMessageConfig> run(CustomMessage<InvokeOnCreateOnMainThreadMessageConfig> customMessage) {
         if (customMessage != null && customMessage.getData() != null) {
-            ao.AP().AQ();
+            ao.AJ().AK();
         }
         return null;
     }

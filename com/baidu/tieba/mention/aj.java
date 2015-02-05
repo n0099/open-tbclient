@@ -15,11 +15,11 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.tbadkCore.PbEditor.PbEditor;
 /* loaded from: classes.dex */
 class aj implements com.baidu.tbadk.editortool.w {
-    final /* synthetic */ af bub;
+    final /* synthetic */ af bua;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(af afVar) {
-        this.bub = afVar;
+        this.bua = afVar;
     }
 
     @Override // com.baidu.tbadk.editortool.w
@@ -45,60 +45,60 @@ class aj implements com.baidu.tbadk.editortool.w {
                         if (i != 23) {
                             if (i == 42) {
                                 int intValue = ((Integer) obj).intValue();
-                                writeImagesInfo = this.bub.aql;
+                                writeImagesInfo = this.bua.aqi;
                                 if (writeImagesInfo == null) {
                                     return;
                                 }
-                                writeImagesInfo2 = this.bub.aql;
+                                writeImagesInfo2 = this.bua.aqi;
                                 if (writeImagesInfo2.getChosedFiles() == null) {
                                     return;
                                 }
-                                writeImagesInfo3 = this.bub.aql;
+                                writeImagesInfo3 = this.bua.aqi;
                                 int size = writeImagesInfo3.getChosedFiles().size();
                                 if (size >= 1 && intValue >= 0 && intValue < size) {
                                     MessageManager messageManager = MessageManager.getInstance();
-                                    Activity activity = this.bub.getActivity();
-                                    writeImagesInfo4 = this.bub.aql;
+                                    Activity activity = this.bua.getActivity();
+                                    writeImagesInfo4 = this.bua.aqi;
                                     messageManager.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(activity, 12012, writeImagesInfo4, intValue)));
                                     return;
                                 }
                                 return;
                             } else if (i != 7) {
                                 if (i == 48) {
-                                    com.baidu.tieba.tbadkCore.PbEditor.a.afn();
-                                    if (!com.baidu.tieba.tbadkCore.PbEditor.a.afl()) {
-                                        this.bub.getPageContext().showToast(com.baidu.tieba.z.baobao_over_limit);
+                                    com.baidu.tieba.tbadkCore.PbEditor.a.afi();
+                                    if (!com.baidu.tieba.tbadkCore.PbEditor.a.afg()) {
+                                        this.bua.getPageContext().showToast(com.baidu.tieba.z.baobao_over_limit);
                                         return;
                                     }
-                                    com.baidu.tbadk.core.frameworkData.a aVar = new com.baidu.tbadk.core.frameworkData.a(this.bub.getActivity());
-                                    aVar.getIntent().putExtra("title", this.bub.getResources().getString(com.baidu.tieba.z.send_reply));
+                                    com.baidu.tbadk.core.frameworkData.a aVar = new com.baidu.tbadk.core.frameworkData.a(this.bua.getActivity());
+                                    aVar.getIntent().putExtra("title", this.bua.getResources().getString(com.baidu.tieba.z.send_reply));
                                     aVar.getIntent().putExtra(GroupInfoActivityConfig.REQUEST_CODE, 12013);
-                                    this.bub.getPageContext().sendMessage(new CustomMessage(2802001, aVar));
+                                    this.bua.getPageContext().sendMessage(new CustomMessage(2802001, aVar));
                                     return;
                                 }
                                 return;
                             } else {
-                                alertDialog = this.bub.aFr;
+                                alertDialog = this.bua.aFo;
                                 if (alertDialog == null) {
-                                    this.bub.Uq();
+                                    this.bua.Ul();
                                 }
-                                alertDialog2 = this.bub.aFr;
+                                alertDialog2 = this.bua.aFo;
                                 if (alertDialog2 == null) {
                                     return;
                                 }
-                                alertDialog3 = this.bub.aFr;
-                                com.baidu.adp.lib.g.k.a(alertDialog3, this.bub.getPageContext());
+                                alertDialog3 = this.bua.aFo;
+                                com.baidu.adp.lib.g.k.a(alertDialog3, this.bua.getPageContext());
                                 return;
                             }
                         }
-                        writeImagesInfo5 = this.bub.aql;
+                        writeImagesInfo5 = this.bua.aqi;
                         if (writeImagesInfo5 == null) {
                             return;
                         }
-                        writeImagesInfo6 = this.bub.aql;
+                        writeImagesInfo6 = this.bua.aqi;
                         if (!TextUtils.isEmpty(writeImagesInfo6.toJsonString())) {
-                            Activity activity2 = this.bub.getActivity();
-                            writeImagesInfo7 = this.bub.aql;
+                            Activity activity2 = this.bua.getActivity();
+                            writeImagesInfo7 = this.bua.aqi;
                             AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(activity2, writeImagesInfo7.toJsonString());
                             albumActivityConfig.setRequestCode(12002);
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
@@ -106,29 +106,29 @@ class aj implements com.baidu.tbadk.editortool.w {
                         }
                         return;
                     }
-                    writeImagesInfo8 = this.bub.aql;
+                    writeImagesInfo8 = this.bua.aqi;
                     int size2 = writeImagesInfo8.size();
-                    writeImagesInfo9 = this.bub.aql;
+                    writeImagesInfo9 = this.bua.aqi;
                     if (size2 >= writeImagesInfo9.getMaxImagesAllowed()) {
-                        this.bub.getPageContext().showToast(String.format(this.bub.getString(com.baidu.tieba.z.editor_mutiiamge_max), 10));
+                        this.bua.getPageContext().showToast(String.format(this.bua.getString(com.baidu.tieba.z.editor_mutiiamge_max), 10));
                         return;
                     }
-                    this.bub.aBK = String.valueOf(System.currentTimeMillis());
-                    TbPageContext pageContext = this.bub.getPageContext();
-                    str = this.bub.aBK;
+                    this.bua.aBH = String.valueOf(System.currentTimeMillis());
+                    TbPageContext pageContext = this.bua.getPageContext();
+                    str = this.bua.aBH;
                     bb.a(pageContext, str);
                     return;
                 }
                 return;
             }
-            this.bub.Ur();
+            this.bua.Um();
             return;
         }
-        pbEditor = this.bub.aCF;
-        if (pbEditor.FJ()) {
-            this.bub.getPageContext().showToast(com.baidu.tieba.z.over_limit_tip);
+        pbEditor = this.bua.aCC;
+        if (pbEditor.FD()) {
+            this.bua.getPageContext().showToast(com.baidu.tieba.z.over_limit_tip);
         } else {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.bub.getActivity(), 12004, true)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtListActivityConfig(this.bua.getActivity(), 12004, true)));
         }
     }
 }

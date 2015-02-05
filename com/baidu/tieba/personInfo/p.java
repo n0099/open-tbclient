@@ -7,22 +7,22 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 public class p extends BaseAdapter {
-    private PersonInfoActivity bJZ;
-    private z bKa;
-    private q bKb;
-    private r bKc;
-    private t bKd;
-    private x bKe;
+    private PersonInfoActivity bJY;
+    private z bJZ;
+    private q bKa;
+    private r bKb;
+    private t bKc;
+    private x bKd;
     private boolean mIsHost;
 
     public p(PersonInfoActivity personInfoActivity, boolean z) {
-        this.bJZ = personInfoActivity;
+        this.bJY = personInfoActivity;
         this.mIsHost = z;
-        this.bKa = new z(this.bJZ, this.mIsHost);
-        this.bKb = new q(this.bJZ, this.mIsHost);
-        this.bKc = new r(this.bJZ, this.mIsHost);
-        this.bKd = new t(this.bJZ, this.mIsHost);
-        this.bKe = new x(this.bJZ, this.mIsHost);
+        this.bJZ = new z(this.bJY, this.mIsHost);
+        this.bKa = new q(this.bJY, this.mIsHost);
+        this.bKb = new r(this.bJY, this.mIsHost);
+        this.bKc = new t(this.bJY, this.mIsHost);
+        this.bKd = new x(this.bJY, this.mIsHost);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -79,74 +79,74 @@ public class p extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         int itemViewType = getItemViewType(i);
         if (itemViewType == 0) {
-            this.bKa.abI();
-            return this.bKa.getRootView();
+            this.bJZ.abD();
+            return this.bJZ.getRootView();
         } else if (itemViewType == 1) {
-            this.bKb.abI();
-            return this.bKb.getRootView();
+            this.bKa.abD();
+            return this.bKa.getRootView();
         } else if (itemViewType == 2) {
-            this.bKc.abI();
-            return this.bKc.getRootView();
+            this.bKb.abD();
+            return this.bKb.getRootView();
         } else if (itemViewType == 3) {
-            this.bKd.abI();
-            return this.bKd.getRootView();
+            this.bKc.abD();
+            return this.bKc.getRootView();
         } else if (itemViewType == 4) {
-            this.bKe.abI();
-            return this.bKe.getRootView();
+            this.bKd.abD();
+            return this.bKd.getRootView();
         } else {
             return null;
         }
     }
 
-    public RelativeLayout abw() {
-        return this.bKc.abw();
+    public RelativeLayout abr() {
+        return this.bKb.abr();
     }
 
-    public void abx() {
-        this.bKc.abx();
+    public void abs() {
+        this.bKb.abs();
+    }
+
+    public RelativeLayout abt() {
+        return this.bKa.abC();
+    }
+
+    public RelativeLayout abu() {
+        return this.bKa.abu();
+    }
+
+    public TextView abv() {
+        return this.bKb.abv();
+    }
+
+    public RelativeLayout abw() {
+        return this.bKa.abw();
+    }
+
+    public RelativeLayout abx() {
+        return this.bKb.abx();
     }
 
     public RelativeLayout aby() {
-        return this.bKb.abH();
+        return this.bKb.aby();
     }
 
     public RelativeLayout abz() {
-        return this.bKb.abz();
+        return this.bKc.abz();
     }
 
-    public TextView abA() {
-        return this.bKc.abA();
+    public RelativeLayout abA() {
+        return this.bKc.abu();
     }
 
     public RelativeLayout abB() {
-        return this.bKb.abB();
-    }
-
-    public RelativeLayout abC() {
-        return this.bKc.abC();
-    }
-
-    public RelativeLayout abD() {
-        return this.bKc.abD();
-    }
-
-    public RelativeLayout abE() {
-        return this.bKd.abE();
-    }
-
-    public RelativeLayout abF() {
-        return this.bKd.abz();
-    }
-
-    public RelativeLayout abG() {
-        return this.bKe.abG();
+        return this.bKd.abB();
     }
 
     public void ek(boolean z) {
-        this.bKc.ek(z);
+        this.bKb.ek(z);
     }
 
     public void hu(int i) {
-        this.bKc.hu(i);
+        this.bKb.hu(i);
     }
 }

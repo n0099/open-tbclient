@@ -14,16 +14,16 @@ import com.baidu.tieba.t;
 import com.baidu.tieba.v;
 /* loaded from: classes.dex */
 public class FragmentTabWidget extends LinearLayout {
-    private int GT;
-    private int GU;
-    private d GV;
-    private final Rect GW;
-    private final Rect GX;
+    private int GQ;
+    private int GR;
+    private d GS;
+    private final Rect GT;
+    private final Rect GU;
+    private int GV;
+    private int GW;
+    private int GX;
     private int GY;
-    private int GZ;
-    private int Ha;
-    private int Hb;
-    private boolean Hc;
+    private boolean GZ;
     private int left;
     private int mChildCount;
     private int mHeight;
@@ -32,21 +32,21 @@ public class FragmentTabWidget extends LinearLayout {
 
     public FragmentTabWidget(Context context) {
         super(context);
-        this.GU = -1;
-        this.GW = new Rect();
-        this.GX = new Rect();
+        this.GR = -1;
+        this.GT = new Rect();
+        this.GU = new Rect();
         this.mPaint = new Paint();
-        this.Hc = true;
+        this.GZ = true;
         init();
     }
 
     public FragmentTabWidget(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.GU = -1;
-        this.GW = new Rect();
-        this.GX = new Rect();
+        this.GR = -1;
+        this.GT = new Rect();
+        this.GU = new Rect();
         this.mPaint = new Paint();
-        this.Hc = true;
+        this.GZ = true;
         init();
     }
 
@@ -54,21 +54,21 @@ public class FragmentTabWidget extends LinearLayout {
         this.mPaint = new Paint(6);
         this.mPaint.setAntiAlias(true);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.GY = l.dip2px(getContext(), 1.0f);
-        this.GZ = l.dip2px(getContext(), 3.0f);
+        this.GV = l.dip2px(getContext(), 1.0f);
+        this.GW = l.dip2px(getContext(), 3.0f);
         setWillNotDraw(false);
-        this.GT = v.bg_navigation_bar;
+        this.GQ = v.bg_navigation_bar;
     }
 
     public void d(int i, boolean z) {
-        if (i >= 0 && i < getChildCount() && this.GU != i) {
-            if (this.GU != -1) {
-                getChildAt(this.GU).setSelected(false);
+        if (i >= 0 && i < getChildCount() && this.GR != i) {
+            if (this.GR != -1) {
+                getChildAt(this.GR).setSelected(false);
             }
-            this.GU = i;
-            getChildAt(this.GU).setSelected(true);
+            this.GR = i;
+            getChildAt(this.GR).setSelected(true);
             if (z) {
-                a(this.GU, 0.0f);
+                a(this.GR, 0.0f);
             }
         }
     }
@@ -97,7 +97,7 @@ public class FragmentTabWidget extends LinearLayout {
 
     public void reset() {
         removeAllViews();
-        this.GU = -1;
+        this.GR = -1;
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
@@ -107,29 +107,29 @@ public class FragmentTabWidget extends LinearLayout {
         if (this.mChildCount != 0) {
             this.mWidth = i3 - i;
             this.mHeight = i4 - i2;
-            this.Hb = this.mWidth / this.mChildCount;
-            if (this.GU != -1) {
-                a(this.GU, 0.0f);
+            this.GY = this.mWidth / this.mChildCount;
+            if (this.GR != -1) {
+                a(this.GR, 0.0f);
             }
-            int i5 = this.mHeight - this.GY;
-            this.GX.set(0, i5, this.mWidth, this.GY + i5);
+            int i5 = this.mHeight - this.GV;
+            this.GU.set(0, i5, this.mWidth, this.GV + i5);
         }
     }
 
     public void a(int i, float f) {
-        this.left = this.Hb * i;
-        this.left += (int) (this.Hb * f);
-        this.GW.set(this.left, this.mHeight - this.GZ, this.left + this.Hb, this.mHeight);
+        this.left = this.GY * i;
+        this.left += (int) (this.GY * f);
+        this.GT.set(this.left, this.mHeight - this.GW, this.left + this.GY, this.mHeight);
         postInvalidateDelayed(16L);
     }
 
     public void setBackGroundDrawableResId(int i) {
-        this.GT = i;
+        this.GQ = i;
     }
 
     public void onChangeSkinType(int i) {
-        bc.i(this, this.GT);
-        this.Ha = bc.getColor(t.cp_link_tip_a);
+        bc.i(this, this.GQ);
+        this.GX = bc.getColor(t.cp_link_tip_a);
         int childCount = getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
             View childAt = getChildAt(i2);
@@ -143,17 +143,17 @@ public class FragmentTabWidget extends LinearLayout {
     @Override // android.view.View
     public void draw(Canvas canvas) {
         super.draw(canvas);
-        if (this.Hc) {
-            this.mPaint.setColor(this.Ha);
-            canvas.drawRect(this.GW, this.mPaint);
+        if (this.GZ) {
+            this.mPaint.setColor(this.GX);
+            canvas.drawRect(this.GT, this.mPaint);
         }
     }
 
     public void setShouldDrawIndicatorLine(boolean z) {
-        this.Hc = z;
+        this.GZ = z;
     }
 
     public void setTabSelectionListener(d dVar) {
-        this.GV = dVar;
+        this.GS = dVar;
     }
 }

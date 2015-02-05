@@ -14,33 +14,33 @@ import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes.dex */
 public class ToolMoreView extends FrameLayout {
-    private TextView ZA;
-    private int Zg;
-    private TextView Zh;
+    private int Zd;
+    private TextView Ze;
+    private TextView Zf;
+    private HeadImageView Zg;
+    private FrameLayout Zh;
     private TextView Zi;
-    private HeadImageView Zj;
-    private FrameLayout Zk;
+    private TextView Zj;
+    private TextView Zk;
     private TextView Zl;
     private TextView Zm;
-    private TextView Zn;
-    private TextView Zo;
-    private TextView Zp;
-    private boolean Zq;
-    private boolean Zr;
-    private boolean Zs;
-    private LinearLayout Zt;
-    private LinearLayout Zu;
+    private boolean Zn;
+    private boolean Zo;
+    private boolean Zp;
+    private LinearLayout Zq;
+    private LinearLayout Zr;
+    private TextView Zs;
+    private TextView Zt;
+    private TextView Zu;
     private TextView Zv;
     private TextView Zw;
     private TextView Zx;
-    private TextView Zy;
-    private TextView Zz;
     private boolean isFirst;
     private Context mContext;
 
     public ToolMoreView(Context context) {
         super(context);
-        this.Zg = 0;
+        this.Zd = 0;
         this.isFirst = true;
         this.mContext = context;
         init();
@@ -48,7 +48,7 @@ public class ToolMoreView extends FrameLayout {
 
     public ToolMoreView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Zg = 0;
+        this.Zd = 0;
         this.isFirst = true;
         this.mContext = context;
         init();
@@ -57,59 +57,59 @@ public class ToolMoreView extends FrameLayout {
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.Zv != null) {
-            if (this.Zk != null && this.Zk.getVisibility() == 0) {
-                int right = this.Zk.getRight() - (this.Zv.getMeasuredWidth() / 2);
-                int top = this.Zk.getTop() - (this.Zv.getMeasuredHeight() / 2);
-                this.Zv.layout(right, top, this.Zv.getMeasuredWidth() + right, this.Zv.getMeasuredHeight() + top);
+        if (this.Zs != null) {
+            if (this.Zh != null && this.Zh.getVisibility() == 0) {
+                int right = this.Zh.getRight() - (this.Zs.getMeasuredWidth() / 2);
+                int top = this.Zh.getTop() - (this.Zs.getMeasuredHeight() / 2);
+                this.Zs.layout(right, top, this.Zs.getMeasuredWidth() + right, this.Zs.getMeasuredHeight() + top);
             } else {
-                this.Zv.layout(0, 0, 0, 0);
+                this.Zs.layout(0, 0, 0, 0);
+            }
+        }
+        if (this.Zt != null) {
+            if (this.Ze != null && this.Ze.getVisibility() == 0) {
+                int right2 = this.Ze.getRight() - (this.Zt.getMeasuredWidth() / 2);
+                int top2 = this.Ze.getTop() - (this.Zt.getMeasuredHeight() / 2);
+                this.Zt.layout(right2, top2, this.Zt.getMeasuredWidth() + right2, this.Zt.getMeasuredHeight() + top2);
+            } else {
+                this.Zt.layout(0, 0, 0, 0);
+            }
+        }
+        if (this.Zu != null) {
+            if (this.Zl != null && this.Zl.getVisibility() == 0) {
+                int right3 = this.Zl.getRight() - (this.Zu.getMeasuredWidth() / 2);
+                int top3 = (this.Zl.getTop() + this.Zr.getTop()) - (this.Zu.getMeasuredHeight() / 2);
+                this.Zu.layout(right3, top3, this.Zu.getMeasuredWidth() + right3, this.Zu.getMeasuredHeight() + top3);
+            } else {
+                this.Zu.layout(0, 0, 0, 0);
             }
         }
         if (this.Zw != null) {
-            if (this.Zh != null && this.Zh.getVisibility() == 0) {
-                int right2 = this.Zh.getRight() - (this.Zw.getMeasuredWidth() / 2);
-                int top2 = this.Zh.getTop() - (this.Zw.getMeasuredHeight() / 2);
-                this.Zw.layout(right2, top2, this.Zw.getMeasuredWidth() + right2, this.Zw.getMeasuredHeight() + top2);
+            if (this.Zk != null && this.Zk.getVisibility() == 0) {
+                int right4 = this.Zk.getRight() - (this.Zw.getMeasuredWidth() / 2);
+                int top4 = this.Zk.getTop() - (this.Zw.getMeasuredHeight() / 2);
+                this.Zw.layout(right4, top4, this.Zw.getMeasuredWidth() + right4, this.Zw.getMeasuredHeight() + top4);
             } else {
                 this.Zw.layout(0, 0, 0, 0);
             }
         }
+        if (this.Zv != null) {
+            if (!this.Zp && this.Zj != null && this.Zj.getVisibility() == 0) {
+                int right5 = this.Zj.getRight() - (this.Zv.getMeasuredWidth() / 2);
+                int top5 = (this.Zj.getTop() + this.Zr.getTop()) - (this.Zv.getMeasuredHeight() / 2);
+                this.Zv.layout(right5, top5, this.Zv.getMeasuredWidth() + right5, this.Zv.getMeasuredHeight() + top5);
+            } else {
+                this.Zv.layout(0, 0, 0, 0);
+            }
+        }
         if (this.Zx != null) {
-            if (this.Zo != null && this.Zo.getVisibility() == 0) {
-                int right3 = this.Zo.getRight() - (this.Zx.getMeasuredWidth() / 2);
-                int top3 = (this.Zo.getTop() + this.Zu.getTop()) - (this.Zx.getMeasuredHeight() / 2);
-                this.Zx.layout(right3, top3, this.Zx.getMeasuredWidth() + right3, this.Zx.getMeasuredHeight() + top3);
-            } else {
-                this.Zx.layout(0, 0, 0, 0);
-            }
-        }
-        if (this.Zz != null) {
-            if (this.Zn != null && this.Zn.getVisibility() == 0) {
-                int right4 = this.Zn.getRight() - (this.Zz.getMeasuredWidth() / 2);
-                int top4 = this.Zn.getTop() - (this.Zz.getMeasuredHeight() / 2);
-                this.Zz.layout(right4, top4, this.Zz.getMeasuredWidth() + right4, this.Zz.getMeasuredHeight() + top4);
-            } else {
-                this.Zz.layout(0, 0, 0, 0);
-            }
-        }
-        if (this.Zy != null) {
-            if (!this.Zs && this.Zm != null && this.Zm.getVisibility() == 0) {
-                int right5 = this.Zm.getRight() - (this.Zy.getMeasuredWidth() / 2);
-                int top5 = (this.Zm.getTop() + this.Zu.getTop()) - (this.Zy.getMeasuredHeight() / 2);
-                this.Zy.layout(right5, top5, this.Zy.getMeasuredWidth() + right5, this.Zy.getMeasuredHeight() + top5);
-            } else {
-                this.Zy.layout(0, 0, 0, 0);
-            }
-        }
-        if (this.ZA != null) {
-            if (this.Zp != null && this.Zp.getVisibility() == 0) {
-                int right6 = this.Zp.getRight() - (this.ZA.getMeasuredWidth() / 2);
-                int top6 = this.Zp.getTop() - (this.ZA.getMeasuredHeight() / 2);
-                this.ZA.layout(right6, top6, this.ZA.getMeasuredWidth() + right6, this.ZA.getMeasuredHeight() + top6);
+            if (this.Zm != null && this.Zm.getVisibility() == 0) {
+                int right6 = this.Zm.getRight() - (this.Zx.getMeasuredWidth() / 2);
+                int top6 = this.Zm.getTop() - (this.Zx.getMeasuredHeight() / 2);
+                this.Zx.layout(right6, top6, this.Zx.getMeasuredWidth() + right6, this.Zx.getMeasuredHeight() + top6);
                 return;
             }
-            this.ZA.layout(0, 0, 0, 0);
+            this.Zx.layout(0, 0, 0, 0);
         }
     }
 
@@ -128,18 +128,82 @@ public class ToolMoreView extends FrameLayout {
     }
 
     public void setHideBaobao(boolean z) {
-        this.Zs = z;
-        if (this.Zm != null) {
-            if (this.Zs) {
-                this.Zm.setVisibility(4);
+        this.Zp = z;
+        if (this.Zj != null) {
+            if (this.Zp) {
+                this.Zj.setVisibility(4);
             } else {
-                this.Zm.setVisibility(0);
+                this.Zj.setVisibility(0);
             }
         }
     }
 
-    public void ee(String str) {
-        if (this.Zk.getVisibility() == 0) {
+    public void eb(String str) {
+        if (this.Zh.getVisibility() == 0) {
+            if (this.Zs == null) {
+                this.Zs = aJ(true);
+            }
+            this.Zs.setVisibility(0);
+            this.Zs.setText(str);
+        }
+    }
+
+    public void vr() {
+        if (this.Zs != null) {
+            this.Zs.setVisibility(8);
+        }
+    }
+
+    public void ec(String str) {
+        if (this.Zt == null) {
+            this.Zt = aJ(true);
+        }
+        this.Zt.setVisibility(0);
+        this.Zt.setText(str);
+    }
+
+    public void vs() {
+        if (this.Zt != null) {
+            this.Zt.setVisibility(8);
+        }
+    }
+
+    public void vt() {
+        if (this.Zl.getVisibility() == 0) {
+            if (this.Zu == null) {
+                this.Zu = aJ(false);
+            }
+            this.Zu.setVisibility(0);
+        }
+    }
+
+    public void vu() {
+        if (this.Zu != null) {
+            this.Zu.setVisibility(8);
+        }
+    }
+
+    public boolean vv() {
+        return this.Zx != null && this.Zx.getVisibility() == 0 && this.Zm != null && this.Zm.getVisibility() == 0;
+    }
+
+    public void vw() {
+        if (this.Zm.getVisibility() == 0) {
+            if (this.Zx == null) {
+                this.Zx = aJ(false);
+            }
+            this.Zx.setVisibility(0);
+        }
+    }
+
+    public void vx() {
+        if (this.Zx != null) {
+            this.Zx.setVisibility(8);
+        }
+    }
+
+    public void ed(String str) {
+        if (this.Zj.getVisibility() == 0) {
             if (this.Zv == null) {
                 this.Zv = aJ(true);
             }
@@ -148,145 +212,81 @@ public class ToolMoreView extends FrameLayout {
         }
     }
 
-    public void vx() {
+    public void vy() {
         if (this.Zv != null) {
             this.Zv.setVisibility(8);
         }
     }
 
-    public void ef(String str) {
-        if (this.Zw == null) {
-            this.Zw = aJ(true);
+    public void vz() {
+        if (this.Zk.getVisibility() == 0) {
+            if (this.Zw == null) {
+                this.Zw = aJ(false);
+            }
+            this.Zw.setVisibility(0);
         }
-        this.Zw.setVisibility(0);
-        this.Zw.setText(str);
     }
 
-    public void vy() {
+    public void vA() {
         if (this.Zw != null) {
             this.Zw.setVisibility(8);
         }
     }
 
-    public void vz() {
-        if (this.Zo.getVisibility() == 0) {
-            if (this.Zx == null) {
-                this.Zx = aJ(false);
-            }
-            this.Zx.setVisibility(0);
-        }
-    }
-
-    public void vA() {
-        if (this.Zx != null) {
-            this.Zx.setVisibility(8);
-        }
-    }
-
-    public boolean vB() {
-        return this.ZA != null && this.ZA.getVisibility() == 0 && this.Zp != null && this.Zp.getVisibility() == 0;
-    }
-
-    public void vC() {
-        if (this.Zp.getVisibility() == 0) {
-            if (this.ZA == null) {
-                this.ZA = aJ(false);
-            }
-            this.ZA.setVisibility(0);
-        }
-    }
-
-    public void vD() {
-        if (this.ZA != null) {
-            this.ZA.setVisibility(8);
-        }
-    }
-
-    public void eg(String str) {
-        if (this.Zm.getVisibility() == 0) {
-            if (this.Zy == null) {
-                this.Zy = aJ(true);
-            }
-            this.Zy.setVisibility(0);
-            this.Zy.setText(str);
-        }
-    }
-
-    public void vE() {
-        if (this.Zy != null) {
-            this.Zy.setVisibility(8);
-        }
-    }
-
-    public void vF() {
-        if (this.Zn.getVisibility() == 0) {
-            if (this.Zz == null) {
-                this.Zz = aJ(false);
-            }
-            this.Zz.setVisibility(0);
-        }
-    }
-
-    public void vG() {
-        if (this.Zz != null) {
-            this.Zz.setVisibility(8);
-        }
-    }
-
     private void init() {
         com.baidu.adp.lib.g.b.ei().a(this.mContext, com.baidu.tieba.x.editor_tool_more, this, true);
-        this.Zt = (LinearLayout) findViewById(com.baidu.tieba.w.lay_editor_more_line1);
-        this.Zu = (LinearLayout) findViewById(com.baidu.tieba.w.lay_editor_more_line2);
-        this.Zh = (TextView) findViewById(com.baidu.tieba.w.btn_tool_expression);
-        this.Zi = (TextView) findViewById(com.baidu.tieba.w.btn_tool_image);
-        this.Zj = (HeadImageView) findViewById(com.baidu.tieba.w.iv_tool_image);
-        this.Zj.setDrawBorder(false);
-        this.Zk = (FrameLayout) findViewById(com.baidu.tieba.w.lay_tool_image);
-        this.Zl = (TextView) findViewById(com.baidu.tieba.w.btn_tool_at);
-        this.Zo = (TextView) findViewById(com.baidu.tieba.w.btn_tool_privilege);
-        this.Zm = (TextView) findViewById(com.baidu.tieba.w.btn_tool_baobao);
-        this.Zn = (TextView) findViewById(com.baidu.tieba.w.btn_tool_record);
-        this.Zn.setVisibility(4);
-        this.Zp = (TextView) findViewById(com.baidu.tieba.w.btn_tool_location);
-        if (!TbadkCoreApplication.m255getInst().isBaobaoShouldOpen() || this.Zs) {
-            this.Zm.setVisibility(4);
-            this.Zm.setEnabled(false);
+        this.Zq = (LinearLayout) findViewById(com.baidu.tieba.w.lay_editor_more_line1);
+        this.Zr = (LinearLayout) findViewById(com.baidu.tieba.w.lay_editor_more_line2);
+        this.Ze = (TextView) findViewById(com.baidu.tieba.w.btn_tool_expression);
+        this.Zf = (TextView) findViewById(com.baidu.tieba.w.btn_tool_image);
+        this.Zg = (HeadImageView) findViewById(com.baidu.tieba.w.iv_tool_image);
+        this.Zg.setDrawBorder(false);
+        this.Zh = (FrameLayout) findViewById(com.baidu.tieba.w.lay_tool_image);
+        this.Zi = (TextView) findViewById(com.baidu.tieba.w.btn_tool_at);
+        this.Zl = (TextView) findViewById(com.baidu.tieba.w.btn_tool_privilege);
+        this.Zj = (TextView) findViewById(com.baidu.tieba.w.btn_tool_baobao);
+        this.Zk = (TextView) findViewById(com.baidu.tieba.w.btn_tool_record);
+        this.Zk.setVisibility(4);
+        this.Zm = (TextView) findViewById(com.baidu.tieba.w.btn_tool_location);
+        if (!TbadkCoreApplication.m255getInst().isBaobaoShouldOpen() || this.Zp) {
+            this.Zj.setVisibility(4);
+            this.Zj.setEnabled(false);
         }
         if (TbadkCoreApplication.m255getInst().isFaceShopNew()) {
-            ef("N");
+            ec("N");
         } else {
-            vy();
+            vs();
         }
     }
 
     @Override // android.view.View
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.Zh.setOnClickListener(onClickListener);
+        this.Ze.setOnClickListener(onClickListener);
+        this.Zf.setOnClickListener(onClickListener);
+        this.Zg.setOnClickListener(onClickListener);
         this.Zi.setOnClickListener(onClickListener);
-        this.Zj.setOnClickListener(onClickListener);
         this.Zl.setOnClickListener(onClickListener);
-        this.Zo.setOnClickListener(onClickListener);
+        this.Zj.setOnClickListener(onClickListener);
+        this.Zk.setOnClickListener(onClickListener);
         this.Zm.setOnClickListener(onClickListener);
-        this.Zn.setOnClickListener(onClickListener);
-        this.Zp.setOnClickListener(onClickListener);
     }
 
     public void setImage(Bitmap bitmap) {
-        if (this.Zg == 1) {
-            if (this.Zq) {
+        if (this.Zd == 1) {
+            if (this.Zn) {
                 setImageToImage(null);
             }
             setImageToCamera(bitmap);
-        } else if (this.Zg == 2) {
-            if (this.Zr) {
+        } else if (this.Zd == 2) {
+            if (this.Zo) {
                 setImageToCamera(null);
             }
             setImageToImage(bitmap);
-        } else if (this.Zg == 0) {
-            if (this.Zq) {
+        } else if (this.Zd == 0) {
+            if (this.Zn) {
                 setImageToImage(null);
             }
-            if (this.Zr) {
+            if (this.Zo) {
                 setImageToCamera(null);
             }
         }
@@ -294,167 +294,167 @@ public class ToolMoreView extends FrameLayout {
 
     private void setImageToImage(Bitmap bitmap) {
         if (bitmap != null) {
-            this.Zj.setImageBitmap(bitmap);
-            this.Zj.setVisibility(0);
-            this.Zi.setVisibility(4);
-            this.Zq = true;
+            this.Zg.setImageBitmap(bitmap);
+            this.Zg.setVisibility(0);
+            this.Zf.setVisibility(4);
+            this.Zn = true;
             return;
         }
-        this.Zq = false;
-        this.Zj.setImageDrawable(null);
-        this.Zj.setVisibility(4);
-        this.Zi.setVisibility(0);
+        this.Zn = false;
+        this.Zg.setImageDrawable(null);
+        this.Zg.setVisibility(4);
+        this.Zf.setVisibility(0);
     }
 
     private void setImageToCamera(Bitmap bitmap) {
         if (bitmap != null) {
-            this.Zr = true;
+            this.Zo = true;
         } else {
-            this.Zr = false;
+            this.Zo = false;
         }
     }
 
     public TextView getmFace() {
-        return this.Zh;
+        return this.Ze;
     }
 
     public TextView getmImage() {
-        return this.Zi;
+        return this.Zf;
     }
 
     public View getmIVImage() {
-        return this.Zj;
+        return this.Zg;
     }
 
     public TextView getmAt() {
-        return this.Zl;
+        return this.Zi;
     }
 
     public TextView getmPrivilege() {
-        return this.Zo;
+        return this.Zl;
     }
 
     public TextView getBaobao() {
-        return this.Zm;
+        return this.Zj;
     }
 
     public TextView getLocation() {
-        return this.Zp;
+        return this.Zm;
     }
 
     public void setmImagetype(int i) {
-        this.Zg = i;
+        this.Zd = i;
     }
 
     public void aK(boolean z) {
         if (this.isFirst) {
-            this.Zt.removeView(this.Zk);
-            this.Zt.addView(this.Zk);
-            this.Zu.removeView(this.Zn);
-            this.Zu.addView(this.Zn);
+            this.Zq.removeView(this.Zh);
+            this.Zq.addView(this.Zh);
+            this.Zr.removeView(this.Zk);
+            this.Zr.addView(this.Zk);
         }
         this.isFirst = false;
         if (z) {
-            this.Zt.removeView(this.Zp);
-            this.Zt.addView(this.Zp);
-            this.Zk.setVisibility(4);
-            this.Zo.setVisibility(4);
-            this.Zp.setVisibility(4);
-            if (TbadkCoreApplication.m255getInst().isBaobaoShouldOpen() && !this.Zs) {
-                this.Zm.setVisibility(4);
-                this.Zm.setEnabled(false);
+            this.Zq.removeView(this.Zm);
+            this.Zq.addView(this.Zm);
+            this.Zh.setVisibility(4);
+            this.Zl.setVisibility(4);
+            this.Zm.setVisibility(4);
+            if (TbadkCoreApplication.m255getInst().isBaobaoShouldOpen() && !this.Zp) {
+                this.Zj.setVisibility(4);
+                this.Zj.setEnabled(false);
                 return;
             }
             return;
         }
-        this.Zk.setVisibility(0);
-        this.Zo.setVisibility(0);
-        this.Zp.setVisibility(0);
-        if (TbadkCoreApplication.m255getInst().isBaobaoShouldOpen() && !this.Zs) {
-            this.Zm.setEnabled(true);
-            this.Zm.setVisibility(0);
+        this.Zh.setVisibility(0);
+        this.Zl.setVisibility(0);
+        this.Zm.setVisibility(0);
+        if (TbadkCoreApplication.m255getInst().isBaobaoShouldOpen() && !this.Zp) {
+            this.Zj.setEnabled(true);
+            this.Zj.setVisibility(0);
         }
-        if (this.Zs) {
-            this.Zu.removeView(this.Zm);
-            this.Zu.addView(this.Zm);
+        if (this.Zp) {
+            this.Zr.removeView(this.Zj);
+            this.Zr.addView(this.Zj);
         }
         if (TbadkCoreApplication.m255getInst().getIntentClass(MemberPrivilegeActivityConfig.class) == null) {
-            this.Zo.setEnabled(false);
-            this.Zo.setVisibility(4);
+            this.Zl.setEnabled(false);
+            this.Zl.setVisibility(4);
         }
     }
 
-    public void vH() {
+    public void vB() {
+        this.Zi.setVisibility(4);
         this.Zl.setVisibility(4);
-        this.Zo.setVisibility(4);
+        this.Zj.setVisibility(4);
         this.Zm.setVisibility(4);
-        this.Zp.setVisibility(4);
-        vE();
-        this.Zm.setEnabled(false);
+        vy();
+        this.Zj.setEnabled(false);
     }
 
-    public void vI() {
-        this.Zt.setVisibility(8);
-        this.Zh.setVisibility(4);
-        this.Zl.setVisibility(4);
-        if (this.Zu != null) {
-            if (this.Zo != null) {
-                this.Zu.removeView(this.Zo);
-                this.Zu.addView(this.Zo);
-                this.Zo.setVisibility(4);
+    public void vC() {
+        this.Zq.setVisibility(8);
+        this.Ze.setVisibility(4);
+        this.Zi.setVisibility(4);
+        if (this.Zr != null) {
+            if (this.Zl != null) {
+                this.Zr.removeView(this.Zl);
+                this.Zr.addView(this.Zl);
+                this.Zl.setVisibility(4);
             }
-            if (this.Zn != null) {
-                this.Zu.removeView(this.Zn);
-                this.Zu.addView(this.Zn, 0);
-                this.Zn.setVisibility(0);
+            if (this.Zk != null) {
+                this.Zr.removeView(this.Zk);
+                this.Zr.addView(this.Zk, 0);
+                this.Zk.setVisibility(0);
             }
         }
-        this.Zm.setVisibility(0);
-        this.Zp.setVisibility(4);
-        this.Zm.setEnabled(true);
-        this.Zk.setVisibility(4);
-        vE();
+        this.Zj.setVisibility(0);
+        this.Zm.setVisibility(4);
+        this.Zj.setEnabled(true);
+        this.Zh.setVisibility(4);
         vy();
+        vs();
     }
 
-    public void vJ() {
-        this.Zt.setVisibility(8);
-        this.Zh.setVisibility(4);
-        this.Zl.setVisibility(4);
-        if (this.Zu != null && this.Zo != null) {
-            this.Zu.removeView(this.Zo);
-            this.Zu.addView(this.Zo);
-            this.Zo.setVisibility(4);
+    public void vD() {
+        this.Zq.setVisibility(8);
+        this.Ze.setVisibility(4);
+        this.Zi.setVisibility(4);
+        if (this.Zr != null && this.Zl != null) {
+            this.Zr.removeView(this.Zl);
+            this.Zr.addView(this.Zl);
+            this.Zl.setVisibility(4);
         }
-        this.Zn.setVisibility(4);
-        this.Zm.setVisibility(0);
-        this.Zp.setVisibility(4);
-        this.Zm.setEnabled(true);
         this.Zk.setVisibility(4);
-        vE();
+        this.Zj.setVisibility(0);
+        this.Zm.setVisibility(4);
+        this.Zj.setEnabled(true);
+        this.Zh.setVisibility(4);
         vy();
+        vs();
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         super.setVisibility(i);
         if (TbadkCoreApplication.m255getInst().isFaceShopNew()) {
-            ef("N");
+            ec("N");
         } else {
-            vy();
+            vs();
         }
     }
 
     public View getFaceButton() {
-        return this.Zh;
+        return this.Ze;
     }
 
     public View getImageButton() {
-        return this.Zi;
+        return this.Zf;
     }
 
     public View getRecordButton() {
-        return this.Zn;
+        return this.Zk;
     }
 
     public void onChangeSkinType(int i) {
@@ -467,18 +467,18 @@ public class ToolMoreView extends FrameLayout {
         int i8 = com.baidu.tieba.v.btn_pb_add_baobao;
         int i9 = com.baidu.tieba.v.btn_pb_add_microphone;
         int i10 = com.baidu.tieba.v.btn_pb_add_pin;
-        a(this.Zh, i2, i5, i3, i);
-        a(this.Zi, i2, i4, i3, i);
-        a(this.Zl, i2, i6, i3, i);
-        a(this.Zo, i2, i7, i3, i);
-        a(this.Zm, i2, i8, i3, i);
-        a(this.Zn, i2, i9, i3, i);
-        a(this.Zp, i2, i10, i3, i);
-        l(this.Zw, i);
+        a(this.Ze, i2, i5, i3, i);
+        a(this.Zf, i2, i4, i3, i);
+        a(this.Zi, i2, i6, i3, i);
+        a(this.Zl, i2, i7, i3, i);
+        a(this.Zj, i2, i8, i3, i);
+        a(this.Zk, i2, i9, i3, i);
+        a(this.Zm, i2, i10, i3, i);
+        l(this.Zt, i);
+        l(this.Zs, i);
+        a(this.Zu, i, false);
         l(this.Zv, i);
-        a(this.Zx, i, false);
-        l(this.Zy, i);
-        l(this.Zz, i);
+        l(this.Zw, i);
     }
 
     private void l(TextView textView, int i) {

@@ -7,17 +7,17 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.CaptureActivityConfig;
 /* loaded from: classes.dex */
 class af implements View.OnClickListener {
-    final /* synthetic */ ae NR;
+    final /* synthetic */ ae NO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(ae aeVar) {
-        this.NR = aeVar;
+        this.NO = aeVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Activity activity;
-        activity = this.NR.mCurrentActivity;
+        activity = this.NO.mCurrentActivity;
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new CaptureActivityConfig(activity, 16003)));
     }
 }

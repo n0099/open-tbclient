@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.b.a;
 /* loaded from: classes.dex */
 public class ah implements a {
-    private h cdl;
+    private h cdk;
 
     @Override // com.baidu.tbadk.core.b.a
     public void e(Context context, int i) {
@@ -31,24 +31,24 @@ public class ah implements a {
     }
 
     @Override // com.baidu.tbadk.core.b.a
-    public Class<?> oc() {
+    public Class<?> nV() {
         return MainTabActivity.class;
     }
 
     @Override // com.baidu.tbadk.core.b.a
-    public String od() {
+    public String nW() {
         return MainTabActivity.class.getName();
     }
 
     @Override // com.baidu.tbadk.core.b.a
     public int getCurrentTabType() {
-        if (this.cdl != null) {
-            return this.cdl.getCurrentTabType();
+        if (this.cdk != null) {
+            return this.cdk.getCurrentTabType();
         }
         return -1;
     }
 
     public void a(h hVar) {
-        this.cdl = hVar;
+        this.cdk = hVar;
     }
 }

@@ -147,7 +147,7 @@ public class f extends BroadcastReceiver {
                     }
                     playView2 = this.this$0.getPlayView();
                     if (playView2 != null) {
-                        playView2.qT();
+                        playView2.qN();
                     }
                     MediaService.startPlay(context);
                     return;

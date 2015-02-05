@@ -3,11 +3,11 @@ package com.baidu.tbadk.core.view;
 import android.view.View;
 /* loaded from: classes.dex */
 class av implements View.OnClickListener {
-    final /* synthetic */ UserPhotoLayout Og;
+    final /* synthetic */ UserPhotoLayout Od;
     private final int mIndex;
 
     private av(UserPhotoLayout userPhotoLayout, int i) {
-        this.Og = userPhotoLayout;
+        this.Od = userPhotoLayout;
         this.mIndex = i;
     }
 
@@ -18,8 +18,8 @@ class av implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (UserPhotoLayout.access$0(this.Og) != null) {
-            UserPhotoLayout.access$0(this.Og).onChildClickCallback(this.mIndex);
+        if (UserPhotoLayout.access$0(this.Od) != null) {
+            UserPhotoLayout.access$0(this.Od).onChildClickCallback(this.mIndex);
         }
     }
 }

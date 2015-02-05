@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
 class d extends CustomMessageListener {
-    final /* synthetic */ FrsActivity aDW;
+    final /* synthetic */ FrsActivity aDT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(FrsActivity frsActivity, int i) {
         super(i);
-        this.aDW = frsActivity;
+        this.aDT = frsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,25 +26,25 @@ class d extends CustomMessageListener {
         bp bpVar2;
         bp bpVar3;
         if (customResponsedMessage != null && (num = (Integer) customResponsedMessage.getData()) != null) {
-            eVar = this.aDW.aDi;
+            eVar = this.aDT.aDf;
             if (eVar != null) {
-                eVar2 = this.aDW.aDi;
+                eVar2 = this.aDT.aDf;
                 UserData userData = eVar2.getUserData();
                 if (userData != null) {
                     userData.setIsMem(num.intValue());
                     if (num.intValue() != 0) {
-                        bpVar = this.aDW.aCY;
+                        bpVar = this.aDT.aCV;
                         bpVar.setIsMem(num.intValue());
-                        str = this.aDW.mPageType;
+                        str = this.aDT.mPageType;
                         if ("frs_page".equals(str)) {
-                            bpVar3 = this.aDW.aCY;
-                            bpVar3.Hi();
+                            bpVar3 = this.aDT.aCV;
+                            bpVar3.Hc();
                             return;
                         }
-                        str2 = this.aDW.mPageType;
+                        str2 = this.aDT.mPageType;
                         if ("normal_page".equals(str2)) {
-                            bpVar2 = this.aDW.aCY;
-                            bpVar2.Hh();
+                            bpVar2 = this.aDT.aCV;
+                            bpVar2.Hb();
                         }
                     }
                 }

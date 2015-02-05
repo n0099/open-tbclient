@@ -12,86 +12,86 @@ import com.baidu.tbadk.core.util.bc;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class FrsPraiseView extends LinearLayout {
-    private TextView aCs;
-    private View aOm;
+    private TextView aCp;
+    private View aOl;
+    private TextView bUs;
     private TextView bUt;
-    private TextView bUu;
-    private PraiseData bUv;
-    private boolean bUw;
+    private PraiseData bUu;
+    private boolean bUv;
     private Context mContext;
     private String mPostId;
     private String mThreadId;
 
     public FrsPraiseView(Context context) {
         super(context, null);
-        this.bUw = false;
+        this.bUv = false;
     }
 
     public FrsPraiseView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bUw = false;
+        this.bUv = false;
         setOrientation(0);
         this.mContext = context;
         initView();
     }
 
     private void initView() {
-        this.aOm = View.inflate(this.mContext, com.baidu.tieba.x.frs_item_praise, this);
-        this.aCs = (TextView) this.aOm.findViewById(com.baidu.tieba.w.frs_go_praise_list_num);
-        this.bUt = (TextView) this.aOm.findViewById(com.baidu.tieba.w.frs_praise_user_name_text1);
-        this.bUu = (TextView) this.aOm.findViewById(com.baidu.tieba.w.frs_praise_user_name_text2);
+        this.aOl = View.inflate(this.mContext, com.baidu.tieba.x.frs_item_praise, this);
+        this.aCp = (TextView) this.aOl.findViewById(com.baidu.tieba.w.frs_go_praise_list_num);
+        this.bUs = (TextView) this.aOl.findViewById(com.baidu.tieba.w.frs_praise_user_name_text1);
+        this.bUt = (TextView) this.aOl.findViewById(com.baidu.tieba.w.frs_praise_user_name_text2);
         setOnClickListener(new q(this));
-        this.bUu.setOnClickListener(new r(this));
-        this.bUt.setOnClickListener(new s(this));
+        this.bUt.setOnClickListener(new r(this));
+        this.bUs.setOnClickListener(new s(this));
     }
 
     public void a(PraiseData praiseData, String str, String str2, boolean z) {
         if (praiseData != null) {
             this.mThreadId = str;
             this.mPostId = str2;
-            this.bUv = praiseData;
+            this.bUu = praiseData;
             fresh(z);
         }
     }
 
     public void setIsFromPb(boolean z) {
-        this.bUw = z;
+        this.bUv = z;
     }
 
     private void fresh(boolean z) {
-        long num = this.bUv.getNum();
-        this.bUu.setVisibility(8);
+        long num = this.bUu.getNum();
         this.bUt.setVisibility(8);
+        this.bUs.setVisibility(8);
         if (num > 0) {
-            ArrayList<MetaData> user = this.bUv.getUser();
+            ArrayList<MetaData> user = this.bUu.getUser();
             if (user != null && user.size() > 0) {
                 if (user.size() == 1) {
                     if (user.get(0) != null) {
-                        this.bUt.setVisibility(0);
-                        this.bUt.setText(ic(user.get(0).getName_show()));
+                        this.bUs.setVisibility(0);
+                        this.bUs.setText(ia(user.get(0).getName_show()));
                     }
                 } else {
                     if (user.get(0) != null) {
-                        this.bUt.setVisibility(0);
-                        this.bUt.setText(ic(user.get(0).getName_show()));
+                        this.bUs.setVisibility(0);
+                        this.bUs.setText(ia(user.get(0).getName_show()));
                     }
                     if (user.get(1) != null) {
-                        this.bUu.setVisibility(0);
-                        this.bUu.setText("、" + ic(user.get(1).getName_show()));
+                        this.bUt.setVisibility(0);
+                        this.bUt.setText("、" + ia(user.get(1).getName_show()));
                     }
                 }
             }
             if (num <= 2) {
-                this.aCs.setText(this.mContext.getString(com.baidu.tieba.z.common_praise_view_text));
+                this.aCp.setText(this.mContext.getString(com.baidu.tieba.z.common_praise_view_text));
             } else if (num <= 999999) {
-                this.aCs.setText(String.valueOf(this.mContext.getString(com.baidu.tieba.z.common_praise_view_text1)) + num + this.mContext.getString(com.baidu.tieba.z.common_praise_view_text2));
+                this.aCp.setText(String.valueOf(this.mContext.getString(com.baidu.tieba.z.common_praise_view_text1)) + num + this.mContext.getString(com.baidu.tieba.z.common_praise_view_text2));
             } else {
-                this.aCs.setText(String.valueOf(this.mContext.getString(com.baidu.tieba.z.common_praise_view_text1)) + "999999+" + this.mContext.getString(com.baidu.tieba.z.common_praise_view_text2));
+                this.aCp.setText(String.valueOf(this.mContext.getString(com.baidu.tieba.z.common_praise_view_text1)) + "999999+" + this.mContext.getString(com.baidu.tieba.z.common_praise_view_text2));
             }
         }
     }
 
-    private String ic(String str) {
+    private String ia(String str) {
         if (!TextUtils.isEmpty(str) && str.length() > 14) {
             return str.substring(0, 14);
         }
@@ -99,16 +99,16 @@ public class FrsPraiseView extends LinearLayout {
     }
 
     public void ct(int i) {
-        if (this.bUw) {
-            bc.i(this.aOm, com.baidu.tieba.v.praise_head_selector);
-            bc.b(this.aCs, com.baidu.tieba.t.cp_cont_d, 1);
+        if (this.bUv) {
+            bc.i(this.aOl, com.baidu.tieba.v.praise_head_selector);
+            bc.b(this.aCp, com.baidu.tieba.t.cp_cont_d, 1);
+            bc.b(this.bUs, com.baidu.tieba.t.cp_cont_c, 1);
             bc.b(this.bUt, com.baidu.tieba.t.cp_cont_c, 1);
-            bc.b(this.bUu, com.baidu.tieba.t.cp_cont_c, 1);
             return;
         }
-        bc.i(this.aOm, com.baidu.tieba.v.praise_view_btn_color);
-        bc.b(this.aCs, com.baidu.tieba.t.cp_cont_d, 1);
+        bc.i(this.aOl, com.baidu.tieba.v.praise_view_btn_color);
+        bc.b(this.aCp, com.baidu.tieba.t.cp_cont_d, 1);
+        bc.b(this.bUs, com.baidu.tieba.t.cp_cont_c, 1);
         bc.b(this.bUt, com.baidu.tieba.t.cp_cont_c, 1);
-        bc.b(this.bUu, com.baidu.tieba.t.cp_cont_c, 1);
     }
 }

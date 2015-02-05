@@ -25,30 +25,30 @@ class h implements View.OnClickListener {
         AlphaAnimation alphaAnimation4;
         NavigationBar navigationBar3;
         MultiImageView multiImageView2;
-        z = this.this$0.aRb;
+        z = this.this$0.aRa;
         if (z) {
-            navigationBar = this.this$0.aJn;
+            navigationBar = this.this$0.aJk;
             if (navigationBar.getVisibility() != 0) {
-                navigationBar3 = this.this$0.aJn;
+                navigationBar3 = this.this$0.aJk;
                 navigationBar3.setVisibility(0);
-                multiImageView2 = this.this$0.brP;
-                multiImageView2.tS();
-                this.this$0.akZ = new AlphaAnimation(0.0f, 1.0f);
+                multiImageView2 = this.this$0.brO;
+                multiImageView2.tM();
+                this.this$0.akW = new AlphaAnimation(0.0f, 1.0f);
             } else {
-                this.this$0.akZ = new AlphaAnimation(1.0f, 0.0f);
-                this.this$0.aRc = true;
-                multiImageView = this.this$0.brP;
-                multiImageView.tT();
+                this.this$0.akW = new AlphaAnimation(1.0f, 0.0f);
+                this.this$0.aRb = true;
+                multiImageView = this.this$0.brO;
+                multiImageView.tN();
             }
-            alphaAnimation = this.this$0.akZ;
+            alphaAnimation = this.this$0.akW;
             alphaAnimation.setDuration(300L);
-            alphaAnimation2 = this.this$0.akZ;
+            alphaAnimation2 = this.this$0.akW;
             alphaAnimation2.setFillAfter(true);
-            alphaAnimation3 = this.this$0.akZ;
+            alphaAnimation3 = this.this$0.akW;
             alphaAnimation3.setAnimationListener(new i(this));
-            this.this$0.aRb = false;
-            navigationBar2 = this.this$0.aJn;
-            alphaAnimation4 = this.this$0.akZ;
+            this.this$0.aRa = false;
+            navigationBar2 = this.this$0.aJk;
+            alphaAnimation4 = this.this$0.akW;
             navigationBar2.startAnimation(alphaAnimation4);
         }
     }

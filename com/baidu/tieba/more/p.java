@@ -4,11 +4,11 @@ import android.content.DialogInterface;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 class p implements DialogInterface.OnClickListener {
-    final /* synthetic */ k bvC;
+    final /* synthetic */ k bvB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(k kVar) {
-        this.bvC = kVar;
+        this.bvB = kVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -24,6 +24,6 @@ class p implements DialogInterface.OnClickListener {
                 TbadkCoreApplication.m255getInst().setFontSize(3);
                 break;
         }
-        this.bvC.Vo();
+        this.bvB.Vj();
     }
 }

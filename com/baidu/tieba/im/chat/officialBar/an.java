@@ -5,13 +5,13 @@ import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.model.OfficialBarTipModel;
 /* loaded from: classes.dex */
 class an implements DialogInterface.OnClickListener {
-    final /* synthetic */ am aUS;
-    private final /* synthetic */ ImMessageCenterShowItemData aUT;
+    final /* synthetic */ am aUR;
+    private final /* synthetic */ ImMessageCenterShowItemData aUS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(am amVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        this.aUS = amVar;
-        this.aUT = imMessageCenterShowItemData;
+        this.aUR = amVar;
+        this.aUS = imMessageCenterShowItemData;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -20,11 +20,11 @@ class an implements DialogInterface.OnClickListener {
         OfficialBarTipModel officialBarTipModel;
         OfficialBarTipActivity officialBarTipActivity2;
         com.baidu.tieba.im.chat.notify.a aVar;
-        officialBarTipActivity = this.aUS.aUR;
-        officialBarTipModel = officialBarTipActivity.aUP;
-        ImMessageCenterShowItemData imMessageCenterShowItemData = this.aUT;
-        officialBarTipActivity2 = this.aUS.aUR;
-        aVar = officialBarTipActivity2.aTD;
+        officialBarTipActivity = this.aUR.aUQ;
+        officialBarTipModel = officialBarTipActivity.aUO;
+        ImMessageCenterShowItemData imMessageCenterShowItemData = this.aUS;
+        officialBarTipActivity2 = this.aUR.aUQ;
+        aVar = officialBarTipActivity2.aTC;
         officialBarTipModel.deleteItem(imMessageCenterShowItemData, aVar);
     }
 }

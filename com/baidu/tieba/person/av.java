@@ -7,16 +7,16 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class av extends com.baidu.adp.base.f {
-    private static final String blH = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/r/friend/listFriend";
-    private static TbHttpMessageTask blI = new TbHttpMessageTask(1002000, blH);
+    private static final String blG = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/r/friend/listFriend";
+    private static TbHttpMessageTask blH = new TbHttpMessageTask(1002000, blG);
     private com.baidu.tbadk.core.data.r mData;
     private String mId;
     private boolean mIsHost;
     private int mSex;
 
     static {
-        blI.setResponsedClass(PersonFriendResponseMessage.class);
-        MessageManager.getInstance().registerTask(blI);
+        blH.setResponsedClass(PersonFriendResponseMessage.class);
+        MessageManager.getInstance().registerTask(blH);
     }
 
     public av(TbPageContext tbPageContext, boolean z) {
@@ -45,7 +45,7 @@ public class av extends com.baidu.adp.base.f {
         return this.mData;
     }
 
-    public void Dj() {
+    public void Dd() {
         super.sendMessage(new PersonFriendByUidLocalMessage());
     }
 

@@ -8,10 +8,10 @@ import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai extends BdAsyncTask<Object, Integer, Bitmap> {
-    final /* synthetic */ PersonChangeActivity bHL;
+    final /* synthetic */ PersonChangeActivity bHK;
 
     private ai(PersonChangeActivity personChangeActivity) {
-        this.bHL = personChangeActivity;
+        this.bHK = personChangeActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -24,12 +24,12 @@ public class ai extends BdAsyncTask<Object, Integer, Bitmap> {
     public void onPreExecute() {
         ProgressBar progressBar;
         TextView textView;
-        progressBar = this.bHL.anT;
+        progressBar = this.bHK.anQ;
         progressBar.setVisibility(0);
-        textView = this.bHL.bfI;
+        textView = this.bHK.bfH;
         textView.setEnabled(false);
-        this.bHL.bHD.setImageDrawable(null);
-        this.bHL.aWC = null;
+        this.bHK.bHC.setImageDrawable(null);
+        this.bHK.aWB = null;
         super.onPreExecute();
     }
 
@@ -45,10 +45,10 @@ public class ai extends BdAsyncTask<Object, Integer, Bitmap> {
     public void cancel() {
         ProgressBar progressBar;
         TextView textView;
-        this.bHL.bHE = null;
-        progressBar = this.bHL.anT;
+        this.bHK.bHD = null;
+        progressBar = this.bHK.anQ;
         progressBar.setVisibility(8);
-        textView = this.bHL.bfI;
+        textView = this.bHK.bfH;
         textView.setEnabled(true);
         super.cancel(true);
     }
@@ -69,20 +69,20 @@ public class ai extends BdAsyncTask<Object, Integer, Bitmap> {
         com.baidu.tbadk.coreExtra.c.f fVar;
         com.baidu.adp.widget.a.a aVar2;
         super.onPostExecute((ai) bitmap);
-        this.bHL.bHE = null;
-        textView = this.bHL.bfI;
+        this.bHK.bHD = null;
+        textView = this.bHK.bfH;
         textView.setEnabled(true);
-        progressBar = this.bHL.anT;
+        progressBar = this.bHK.anQ;
         progressBar.setVisibility(8);
         if (bitmap != null) {
-            this.bHL.aWC = new com.baidu.adp.widget.a.a(bitmap, false, null);
-            aVar = this.bHL.aWC;
-            aVar.a(this.bHL.bHD);
-            com.baidu.tbadk.imageManager.e we = com.baidu.tbadk.imageManager.e.we();
-            fVar = this.bHL.bHC;
-            String portrait = fVar.sB().getPortrait();
-            aVar2 = this.bHL.aWC;
-            we.b(portrait, aVar2, true);
+            this.bHK.aWB = new com.baidu.adp.widget.a.a(bitmap, false, null);
+            aVar = this.bHK.aWB;
+            aVar.a(this.bHK.bHC);
+            com.baidu.tbadk.imageManager.e vY = com.baidu.tbadk.imageManager.e.vY();
+            fVar = this.bHK.bHB;
+            String portrait = fVar.sv().getPortrait();
+            aVar2 = this.bHK.aWB;
+            vY.b(portrait, aVar2, true);
         }
     }
 }

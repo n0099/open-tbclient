@@ -5,11 +5,11 @@ import android.view.View;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class am implements View.OnClickListener {
-    final /* synthetic */ ai alZ;
+    final /* synthetic */ ai alW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(ai aiVar) {
-        this.alZ = aiVar;
+        this.alW = aiVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,24 +18,24 @@ class am implements View.OnClickListener {
         boolean z2;
         TextView textView;
         TextView textView2;
-        z = this.alZ.alG;
+        z = this.alW.alD;
         if (!z) {
-            z2 = this.alZ.alF;
+            z2 = this.alW.alC;
             if (z2) {
                 Drawable drawable = com.baidu.tbadk.core.util.bc.getDrawable(v.btn_dailog_choose_n);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                textView2 = this.alZ.alN;
+                textView2 = this.alW.alK;
                 textView2.setCompoundDrawables(drawable, null, null, null);
-                this.alZ.alE = false;
-                this.alZ.alF = false;
+                this.alW.alB = false;
+                this.alW.alC = false;
                 return;
             }
             Drawable drawable2 = com.baidu.tbadk.core.util.bc.getDrawable(v.btn_dailog_choose_s);
             drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-            textView = this.alZ.alN;
+            textView = this.alW.alK;
             textView.setCompoundDrawables(drawable2, null, null, null);
-            this.alZ.alE = true;
-            this.alZ.alF = true;
+            this.alW.alB = true;
+            this.alW.alC = true;
         }
     }
 }

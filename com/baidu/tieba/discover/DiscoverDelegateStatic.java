@@ -8,7 +8,7 @@ import com.baidu.tieba.v;
 import com.baidu.tieba.x;
 /* loaded from: classes.dex */
 public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private static ImageView aue;
+    private static ImageView aub;
 
     static {
         n nVar = new n(2007002);
@@ -20,26 +20,26 @@ public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.d wv() {
+    public com.baidu.tbadk.mainTab.d wp() {
         com.baidu.tbadk.mainTab.d dVar = new com.baidu.tbadk.mainTab.d();
-        dVar.acz = new a();
+        dVar.acw = new a();
         dVar.type = 6;
-        dVar.acA = com.baidu.tieba.z.discover;
-        dVar.acp = v.icon_tabbar_discover;
+        dVar.acx = com.baidu.tieba.z.discover;
+        dVar.acm = v.icon_tabbar_discover;
         return dVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator W(Context context) {
-        this.acm = (FragmentTabIndicator) com.baidu.adp.lib.g.b.ei().inflate(context, x.fragmenttabindicator, null);
-        aue = new ImageView(context);
+        this.acj = (FragmentTabIndicator) com.baidu.adp.lib.g.b.ei().inflate(context, x.fragmenttabindicator, null);
+        aub = new ImageView(context);
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.acy = this.acm;
+        cVar.acv = this.acj;
         cVar.jO = com.baidu.adp.lib.util.l.dip2px(context, 3.0f);
-        cVar.view = aue;
-        cVar.acw = v.icon_news_down_bar_one;
-        aue.setVisibility(8);
-        this.acm.a("emotion", cVar);
-        return this.acm;
+        cVar.view = aub;
+        cVar.acs = v.icon_news_down_bar_one;
+        aub.setVisibility(8);
+        this.acj.a("emotion", cVar);
+        return this.acj;
     }
 }

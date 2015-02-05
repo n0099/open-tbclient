@@ -20,14 +20,14 @@ import com.baidu.tbadk.core.atomData.WriteShareActivityConfig;
 import com.baidu.tbadk.core.util.bh;
 /* loaded from: classes.dex */
 public class ShareToTBActivity extends BaseActivity<ShareToTBActivity> {
+    private String bPf;
     private String bPg;
     private String bPh;
     private String bPi;
     private String bPj;
-    private String bPk;
-    private PackageManager bPl;
-    private PackageInfo bPm;
-    private final CustomMessageListener bPn = new d(this, 2001256);
+    private PackageManager bPk;
+    private PackageInfo bPl;
+    private final CustomMessageListener bPm = new d(this, 2001256);
     private String mAppName;
     private String mShareContent;
     private String mShareTitle;
@@ -37,53 +37,53 @@ public class ShareToTBActivity extends BaseActivity<ShareToTBActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.bPl = getPageContext().getPageActivity().getPackageManager();
-        acW();
-        acX();
+        this.bPk = getPageContext().getPageActivity().getPackageManager();
+        acR();
+        acS();
         com.baidu.tbadk.core.i.A(getPageContext().getPageActivity(), "share4sdk");
-        registerListener(this.bPn);
+        registerListener(this.bPm);
     }
 
-    private void acW() {
+    private void acR() {
         this.packageName = getCallingPackage();
-        if (this.bPl != null && this.packageName != null) {
+        if (this.bPk != null && this.packageName != null) {
             try {
-                this.bPm = this.bPl.getPackageInfo(this.packageName, 64);
-                if (this.bPm != null) {
-                    if (this.bPm.applicationInfo != null && this.bPm.applicationInfo.loadLabel(this.bPl) != null) {
-                        this.mAppName = this.bPm.applicationInfo.loadLabel(this.bPl).toString();
+                this.bPl = this.bPk.getPackageInfo(this.packageName, 64);
+                if (this.bPl != null) {
+                    if (this.bPl.applicationInfo != null && this.bPl.applicationInfo.loadLabel(this.bPk) != null) {
+                        this.mAppName = this.bPl.applicationInfo.loadLabel(this.bPk).toString();
                     }
-                    if (this.bPm.signatures != null && this.bPm.signatures.length > 0 && this.bPm.signatures[0] != null) {
-                        this.bPk = bh.w(this.bPm.signatures[0].toByteArray());
+                    if (this.bPl.signatures != null && this.bPl.signatures.length > 0 && this.bPl.signatures[0] != null) {
+                        this.bPj = bh.w(this.bPl.signatures[0].toByteArray());
                     }
                 }
             } catch (PackageManager.NameNotFoundException e) {
                 BdLog.e(e.getMessage());
                 this.mAppName = null;
-                this.bPk = null;
+                this.bPj = null;
             }
         }
         try {
             Bundle extras = getIntent().getExtras();
-            this.bPg = extras.getString("ShareUrl");
-            this.bPh = extras.getString("ShareImageUrl");
+            this.bPf = extras.getString("ShareUrl");
+            this.bPg = extras.getString("ShareImageUrl");
             this.mShareTitle = extras.getString("ShareTitle");
             this.mShareContent = extras.getString("ShareContent");
-            this.bPi = extras.getString("mShareTargetBaName");
+            this.bPh = extras.getString("mShareTargetBaName");
             if (TextUtils.isEmpty(this.mAppName)) {
                 this.mAppName = extras.getString("appName");
             }
-            if (TextUtils.isEmpty(this.bPk)) {
-                this.bPk = extras.getString("appSign");
+            if (TextUtils.isEmpty(this.bPj)) {
+                this.bPj = extras.getString("appSign");
             }
-            this.bPj = extras.getString("appKey");
+            this.bPi = extras.getString("appKey");
         } catch (Exception e2) {
         }
     }
 
-    private void acX() {
+    private void acS() {
         if (TbadkApplication.isLogin()) {
-            acY();
+            acT();
             return;
         }
         TbadkApplication.isSDKLogin = true;
@@ -103,8 +103,8 @@ public class ShareToTBActivity extends BaseActivity<ShareToTBActivity> {
         if (i == 23008) {
             if (i2 == -1) {
                 if (intent != null) {
-                    this.bPi = intent.getStringExtra(PersonBarActivityConfig.BAR_NAME);
-                    acZ();
+                    this.bPh = intent.getStringExtra(PersonBarActivityConfig.BAR_NAME);
+                    acU();
                     return;
                 }
                 finish();
@@ -114,25 +114,25 @@ public class ShareToTBActivity extends BaseActivity<ShareToTBActivity> {
         } else if (i == 11003) {
             TbadkApplication.isSDKLogin = false;
             if (i2 == -1) {
-                acY();
+                acT();
             } else {
                 finish();
             }
         }
     }
 
-    private void acY() {
-        if (TextUtils.isEmpty(this.bPi)) {
+    private void acT() {
+        if (TextUtils.isEmpty(this.bPh)) {
             sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(getPageContext().getPageActivity(), TbadkCoreApplication.getCurrentAccount(), 0, true, 23008)));
         } else {
-            acZ();
+            acU();
         }
     }
 
-    private void acZ() {
-        if (this.bPg == null) {
-            this.bPg = "";
+    private void acU() {
+        if (this.bPf == null) {
+            this.bPf = "";
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteShareActivityConfig(getPageContext().getPageActivity(), this.bPi, this.mShareTitle, this.mShareContent, this.bPh, this.bPg, this.bPj, this.mAppName, this.bPk)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteShareActivityConfig(getPageContext().getPageActivity(), this.bPh, this.mShareTitle, this.mShareContent, this.bPg, this.bPf, this.bPi, this.mAppName, this.bPj)));
     }
 }

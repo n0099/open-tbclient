@@ -1,45 +1,45 @@
 package com.baidu.tbadk.performanceLog;
 /* loaded from: classes.dex */
 public class x extends ab {
-    public static int agZ = 100;
-    public static int aha = 10;
+    public static int agW = 100;
+    public static int agX = 10;
 
-    public static void zw() {
-        if (ac.zy().zz()) {
-            if (z.ahe > aha) {
-                z.zp();
+    public static void zq() {
+        if (ac.zs().zt()) {
+            if (z.ahb > agX) {
+                z.zj();
             }
-            if (y.ahb > aha) {
-                y.zp();
+            if (y.agY > agX) {
+                y.zj();
             }
         }
     }
 
     public static void a(boolean z, boolean z2, boolean z3) {
-        y.ahb++;
+        y.agY++;
         if (z2) {
-            y.ahc++;
+            y.agZ++;
         } else if (z3) {
-            y.ahd++;
+            y.aha++;
         }
-        if (y.ahb > agZ) {
-            y.zp();
+        if (y.agY > agW) {
+            y.zj();
         }
     }
 
     public void c(r rVar) {
-        if (ac.zy().zz()) {
-            if (z.ahe < agZ) {
-                z.ahf += rVar.ki;
-                z.ahg += rVar.agE;
-                z.ahh += rVar.agF;
-                z.ahi += rVar.agG;
-                z.ahk += rVar.vD;
-                z.ahj += rVar.agv;
-                z.ahe++;
+        if (ac.zs().zt()) {
+            if (z.ahb < agW) {
+                z.ahc += rVar.ki;
+                z.ahd += rVar.agB;
+                z.ahe += rVar.agC;
+                z.ahf += rVar.agD;
+                z.ahh += rVar.vA;
+                z.ahg += rVar.ags;
+                z.ahb++;
                 return;
             }
-            z.zp();
+            z.zj();
         }
     }
 }

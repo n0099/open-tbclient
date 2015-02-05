@@ -76,7 +76,7 @@ public class bh {
         return null;
     }
 
-    public static String cH(String str) {
+    public static String cE(String str) {
         return com.baidu.adp.lib.util.z.toMd5(str);
     }
 }

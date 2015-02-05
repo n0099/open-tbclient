@@ -1,13 +1,13 @@
 package com.baidu.tieba.tbadkCore.b;
 /* loaded from: classes.dex */
 public interface h {
-    String ahd();
+    String agY();
 
-    String ahe();
+    String agZ();
 
-    String ahf();
+    String aha();
 
-    String ahg();
+    String ahb();
 
-    long ahh();
+    long ahc();
 }

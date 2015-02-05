@@ -8,10 +8,10 @@ import android.widget.ImageView;
 import com.baidu.tbadk.core.util.bc;
 /* loaded from: classes.dex */
 public class a extends ImageView {
-    private static int acE = -1;
-    private int acF;
-    private int acG;
-    private boolean acH;
+    private static int acB = -1;
+    private int acC;
+    private int acD;
+    private boolean acE;
     private boolean isSelected;
 
     public void setIsSelected(boolean z) {
@@ -22,16 +22,16 @@ public class a extends ImageView {
     public a(Context context) {
         super(context);
         this.isSelected = false;
-        this.acF = 0;
-        this.acG = 0;
-        this.acH = false;
+        this.acC = 0;
+        this.acD = 0;
+        this.acE = false;
     }
 
     @Override // android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        this.acF = (i3 - i) - com.baidu.adp.lib.util.l.dip2px(getContext(), 5.0f);
-        this.acG = (i4 - i2) - com.baidu.adp.lib.util.l.dip2px(getContext(), 5.0f);
+        this.acC = (i3 - i) - com.baidu.adp.lib.util.l.dip2px(getContext(), 5.0f);
+        this.acD = (i4 - i2) - com.baidu.adp.lib.util.l.dip2px(getContext(), 5.0f);
     }
 
     private Bitmap getSelectIcon() {
@@ -48,9 +48,9 @@ public class a extends ImageView {
     public void setImageBitmap(Bitmap bitmap) {
         super.setImageBitmap(bitmap);
         if (bitmap != null) {
-            this.acH = true;
+            this.acE = true;
         } else {
-            this.acH = false;
+            this.acE = false;
         }
     }
 
@@ -58,8 +58,8 @@ public class a extends ImageView {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         Bitmap selectIcon = getSelectIcon();
-        if (selectIcon != null && this.acH) {
-            canvas.drawBitmap(selectIcon, this.acF - selectIcon.getWidth(), this.acG - selectIcon.getHeight(), (Paint) null);
+        if (selectIcon != null && this.acE) {
+            canvas.drawBitmap(selectIcon, this.acC - selectIcon.getWidth(), this.acD - selectIcon.getHeight(), (Paint) null);
         }
     }
 }

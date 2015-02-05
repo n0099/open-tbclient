@@ -39,8 +39,8 @@ public class g extends BroadcastReceiver {
                 str2 = intent.getExtras().getString("current_path");
             }
             String str4 = "";
-            if (PluginCenter.gW().aS(str) != null) {
-                str4 = PluginCenter.gW().aS(str).gJ();
+            if (PluginCenter.getInstance().getPlugin(str) != null) {
+                str4 = PluginCenter.getInstance().getPlugin(str).gK();
             }
             if (!TextUtils.isEmpty(str4)) {
                 if (TextUtils.isEmpty(str2)) {
@@ -69,7 +69,7 @@ public class g extends BroadcastReceiver {
             bundle.putString("package_name", str);
             bundle.putString("current_path", str2);
             setResultExtras(bundle);
-            z = this.this$0.sP;
+            z = this.this$0.sM;
             if (!z) {
                 return;
             }

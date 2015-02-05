@@ -3,11 +3,11 @@ package com.baidu.tieba.im.view;
 import android.view.animation.Animation;
 /* loaded from: classes.dex */
 class p implements Animation.AnimationListener {
-    final /* synthetic */ ShutDownValidateTipView bqC;
+    final /* synthetic */ ShutDownValidateTipView bqB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(ShutDownValidateTipView shutDownValidateTipView) {
-        this.bqC = shutDownValidateTipView;
+        this.bqB = shutDownValidateTipView;
     }
 
     @Override // android.view.animation.Animation.AnimationListener

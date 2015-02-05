@@ -6,11 +6,11 @@ import com.baidu.tieba.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements l {
-    final /* synthetic */ AppealActivity aon;
+    final /* synthetic */ AppealActivity aok;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(AppealActivity appealActivity) {
-        this.aon = appealActivity;
+        this.aok = appealActivity;
     }
 
     @Override // com.baidu.tieba.account.appeal.l
@@ -18,15 +18,15 @@ public class d implements l {
         TextView textView;
         String str;
         TextView textView2;
-        textView = this.aon.aog;
-        str = this.aon.mUserName;
+        textView = this.aok.aod;
+        str = this.aok.mUserName;
         textView.setText(str);
-        textView2 = this.aon.aoh;
-        textView2.setText(!bf.isEmpty(forbidReasonData.reason) ? forbidReasonData.reason : this.aon.getPageContext().getString(z.default_forbid_reason));
+        textView2 = this.aok.aoe;
+        textView2.setText(!bf.isEmpty(forbidReasonData.reason) ? forbidReasonData.reason : this.aok.getPageContext().getString(z.default_forbid_reason));
     }
 
     @Override // com.baidu.tieba.account.appeal.l
     public void b(ForbidReasonData forbidReasonData) {
-        this.aon.showToast(forbidReasonData.error.errMsg);
+        this.aok.showToast(forbidReasonData.error.errMsg);
     }
 }

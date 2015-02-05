@@ -10,21 +10,21 @@ import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aj extends BdAsyncTask<String, Integer, String> {
-    private com.baidu.tbadk.core.util.ad AR = null;
-    private com.baidu.tbadk.coreExtra.c.f bHC;
-    final /* synthetic */ PersonChangeActivity bHL;
+    private com.baidu.tbadk.core.util.ad AO = null;
+    private com.baidu.tbadk.coreExtra.c.f bHB;
+    final /* synthetic */ PersonChangeActivity bHK;
 
     public aj(PersonChangeActivity personChangeActivity, com.baidu.tbadk.coreExtra.c.f fVar) {
-        this.bHL = personChangeActivity;
-        this.bHC = null;
-        this.bHC = fVar;
+        this.bHK = personChangeActivity;
+        this.bHB = null;
+        this.bHB = fVar;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.bHL.bHF = null;
-        if (this.AR != null) {
-            this.AR.dJ();
+        this.bHK.bHE = null;
+        if (this.AO != null) {
+            this.AO.dJ();
         }
         super.cancel(true);
     }
@@ -34,23 +34,23 @@ public class aj extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
         Boolean bool;
-        this.bHL.bHF = null;
-        this.bHL.closeLoadingDialog();
-        if (this.AR != null) {
-            if (this.AR.oZ().qh().ma()) {
-                this.bHL.showToast(this.bHL.getPageContext().getString(com.baidu.tieba.z.success));
+        this.bHK.bHE = null;
+        this.bHK.closeLoadingDialog();
+        if (this.AO != null) {
+            if (this.AO.oS().qa().lT()) {
+                this.bHK.showToast(this.bHK.getPageContext().getString(com.baidu.tieba.z.success));
                 Intent intent = new Intent();
-                bool = this.bHL.bHr;
+                bool = this.bHK.bHq;
                 if (bool.booleanValue()) {
-                    intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.bHC.sB());
+                    intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.bHB.sv());
                 } else {
-                    intent.putExtra("data", this.bHC.sB());
+                    intent.putExtra("data", this.bHB.sv());
                 }
-                TbadkCoreApplication.m255getInst().setPersonChangeData(this.bHC.sB());
-                this.bHL.setResult(-1, intent);
-                this.bHL.finish();
+                TbadkCoreApplication.m255getInst().setPersonChangeData(this.bHB.sv());
+                this.bHK.setResult(-1, intent);
+                this.bHK.finish();
             } else {
-                this.bHL.showToast(this.AR.getErrorString());
+                this.bHK.showToast(this.AO.getErrorString());
             }
         }
         super.onPostExecute((aj) str);
@@ -60,9 +60,9 @@ public class aj extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPreExecute() {
         DialogInterface.OnCancelListener onCancelListener;
-        PersonChangeActivity personChangeActivity = this.bHL;
-        String string = this.bHL.getPageContext().getString(com.baidu.tieba.z.saving);
-        onCancelListener = this.bHL.bHG;
+        PersonChangeActivity personChangeActivity = this.bHK;
+        String string = this.bHK.getPageContext().getString(com.baidu.tieba.z.saving);
+        onCancelListener = this.bHK.bHF;
         personChangeActivity.showLoadingDialog(string, onCancelListener);
         super.onPreExecute();
     }
@@ -72,12 +72,12 @@ public class aj extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: l */
     public String doInBackground(String... strArr) {
-        if (this.bHC != null) {
-            this.AR = new com.baidu.tbadk.core.util.ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PROFILE_MODIFY);
-            this.AR.o(MyGiftListActivityConfig.USER_SEX, String.valueOf(this.bHC.sB().getSex()));
-            this.AR.o("intro", this.bHC.sB().getIntro());
-            this.AR.oB();
-            if (this.AR.oZ().qh().ma()) {
+        if (this.bHB != null) {
+            this.AO = new com.baidu.tbadk.core.util.ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PROFILE_MODIFY);
+            this.AO.o(MyGiftListActivityConfig.USER_SEX, String.valueOf(this.bHB.sv().getSex()));
+            this.AO.o("intro", this.bHB.sv().getIntro());
+            this.AO.ou();
+            if (this.AO.oS().qa().lT()) {
                 com.baidu.tieba.tbadkCore.util.j.delPersonData();
             }
         }

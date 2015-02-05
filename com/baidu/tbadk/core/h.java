@@ -4,59 +4,59 @@ import com.baidu.tbadk.core.data.NewErrorData;
 import com.baidu.tbadk.core.util.ad;
 /* loaded from: classes.dex */
 public class h {
-    protected ad AR;
-    protected NewErrorData CB = null;
+    protected ad AO;
+    protected NewErrorData Cy = null;
 
     public h() {
-        this.AR = null;
-        this.AR = new ad();
+        this.AO = null;
+        this.AO = new ad();
     }
 
     public void cancel() {
-        if (this.AR != null) {
-            this.AR.dJ();
+        if (this.AO != null) {
+            this.AO.dJ();
         }
     }
 
     protected void setUrl(String str) {
-        this.AR.setUrl(str);
+        this.AO.setUrl(str);
     }
 
     public void o(String str, String str2) {
-        this.AR.o(str, str2);
+        this.AO.o(str, str2);
     }
 
-    protected String lZ() {
-        String oy = this.AR.oy();
-        this.CB = new NewErrorData();
-        this.CB.parserJson(oy);
-        return oy;
+    protected String lS() {
+        String or = this.AO.or();
+        this.Cy = new NewErrorData();
+        this.Cy.parserJson(or);
+        return or;
     }
 
-    public boolean ma() {
-        if (this.AR != null) {
-            return this.AR.oZ().qh().ma();
+    public boolean lT() {
+        if (this.AO != null) {
+            return this.AO.oS().qa().lT();
         }
         return false;
     }
 
-    public String mb() {
-        if (this.AR != null) {
-            return this.AR.getErrorString();
+    public String lU() {
+        if (this.AO != null) {
+            return this.AO.getErrorString();
         }
         return null;
     }
 
     public int getErrorCode() {
-        if (this.CB != null) {
-            return this.CB.getErrorNumber();
+        if (this.Cy != null) {
+            return this.Cy.getErrorNumber();
         }
         return -1;
     }
 
     public String getErrorMsg() {
-        if (this.CB != null) {
-            return this.CB.getErrorMsg();
+        if (this.Cy != null) {
+            return this.Cy.getErrorMsg();
         }
         return null;
     }

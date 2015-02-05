@@ -14,7 +14,7 @@ public class ax implements DialogInterface.OnCancelListener {
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
         ai aiVar;
-        aiVar = this.this$0.amz;
+        aiVar = this.this$0.amw;
         aiVar.dismiss();
         this.this$0.finish();
     }

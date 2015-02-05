@@ -8,12 +8,12 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b implements f {
     private String threadId = "";
-    private String Bc = "";
+    private String AZ = "";
     private String forumName = "";
     private long time = System.currentTimeMillis();
-    private String Bd = "";
-    private boolean Be = false;
-    private boolean Bf = false;
+    private String Ba = "";
+    private boolean Bb = false;
+    private boolean Bc = false;
 
     public boolean equals(Object obj) {
         if (obj == null || !(obj instanceof b)) {
@@ -33,10 +33,10 @@ public class b implements f {
         } else {
             hashCode = this.threadId.hashCode() + 119;
         }
-        if (TextUtils.isEmpty(this.Bc)) {
+        if (TextUtils.isEmpty(this.AZ)) {
             hashCode2 = (hashCode * 7) + 1;
         } else {
-            hashCode2 = (hashCode * 7) + this.Bc.hashCode();
+            hashCode2 = (hashCode * 7) + this.AZ.hashCode();
         }
         if (TextUtils.isEmpty(this.forumName)) {
             hashCode3 = (hashCode2 * 7) + 1;
@@ -44,12 +44,12 @@ public class b implements f {
             hashCode3 = (hashCode2 * 7) + this.forumName.hashCode();
         }
         int i = (hashCode3 * 7) + ((int) this.time);
-        if (TextUtils.isEmpty(this.Bd)) {
+        if (TextUtils.isEmpty(this.Ba)) {
             hashCode4 = (i * 7) + 1;
         } else {
-            hashCode4 = (i * 7) + this.Bd.hashCode();
+            hashCode4 = (i * 7) + this.Ba.hashCode();
         }
-        return (((this.Be ? 1 : 0) + (hashCode4 * 7)) * 7) + (this.Bf ? 1 : 0);
+        return (((this.Bb ? 1 : 0) + (hashCode4 * 7)) * 7) + (this.Bc ? 1 : 0);
     }
 
     public boolean d(JSONObject jSONObject) {
@@ -58,9 +58,9 @@ public class b implements f {
             String string2 = jSONObject.getString("thread_id");
             String string3 = jSONObject.getString("thread_name");
             long j = jSONObject.getLong(PbActivityConfig.KEY_THREAD_TIME);
-            this.Bd = jSONObject.optString("post_id");
-            this.Be = jSONObject.optBoolean(PbActivityConfig.KEY_HOST_ONLY);
-            this.Bf = jSONObject.optBoolean(PbActivityConfig.KEY_SQUENCE);
+            this.Ba = jSONObject.optString("post_id");
+            this.Bb = jSONObject.optBoolean(PbActivityConfig.KEY_HOST_ONLY);
+            this.Bc = jSONObject.optBoolean(PbActivityConfig.KEY_SQUENCE);
             if (!TextUtils.isEmpty(string)) {
                 this.forumName = string;
             }
@@ -68,7 +68,7 @@ public class b implements f {
                 this.threadId = string2;
             }
             if (!TextUtils.isEmpty(string3)) {
-                this.Bc = string3;
+                this.AZ = string3;
             }
             if (j > 2000) {
                 this.time = j;
@@ -79,16 +79,16 @@ public class b implements f {
         }
     }
 
-    public JSONObject lr() {
+    public JSONObject lk() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("forum_name", this.forumName);
             jSONObject.put("thread_id", this.threadId);
             jSONObject.put(PbActivityConfig.KEY_THREAD_TIME, this.time);
-            jSONObject.put("thread_name", this.Bc);
-            jSONObject.put("post_id", this.Bd);
-            jSONObject.put(PbActivityConfig.KEY_HOST_ONLY, this.Be);
-            jSONObject.put(PbActivityConfig.KEY_SQUENCE, this.Bf);
+            jSONObject.put("thread_name", this.AZ);
+            jSONObject.put("post_id", this.Ba);
+            jSONObject.put(PbActivityConfig.KEY_HOST_ONLY, this.Bb);
+            jSONObject.put(PbActivityConfig.KEY_SQUENCE, this.Bc);
         } catch (JSONException e) {
         }
         return jSONObject;
@@ -98,8 +98,8 @@ public class b implements f {
         return this.threadId;
     }
 
-    public String ls() {
-        return this.Bc;
+    public String ll() {
+        return this.AZ;
     }
 
     public String getForumName() {
@@ -114,36 +114,36 @@ public class b implements f {
         this.threadId = str;
     }
 
-    public void bD(String str) {
-        this.Bc = str;
+    public void bA(String str) {
+        this.AZ = str;
     }
 
     public void setForumName(String str) {
         this.forumName = str;
     }
 
-    public String lt() {
-        return this.Bd;
+    public String lm() {
+        return this.Ba;
     }
 
-    public void bE(String str) {
-        this.Bd = str;
+    public void bB(String str) {
+        this.Ba = str;
     }
 
-    public boolean lu() {
-        return this.Be;
+    public boolean ln() {
+        return this.Bb;
     }
 
     public void Z(boolean z) {
-        this.Be = z;
+        this.Bb = z;
     }
 
-    public boolean lv() {
-        return this.Bf;
+    public boolean lo() {
+        return this.Bc;
     }
 
     public void aa(boolean z) {
-        this.Bf = z;
+        this.Bc = z;
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
@@ -152,12 +152,12 @@ public class b implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String lw() {
-        return lr().toString();
+    public String lp() {
+        return lk().toString();
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean bF(String str) {
+    public boolean bC(String str) {
         if (str != null) {
             try {
                 return d(new JSONObject(str));

@@ -6,11 +6,11 @@ import java.net.HttpURLConnection;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ah implements com.baidu.adp.lib.network.willdelete.d {
-    final /* synthetic */ ag IM;
+    final /* synthetic */ ag IJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(ag agVar) {
-        this.IM = agVar;
+        this.IJ = agVar;
     }
 
     @Override // com.baidu.adp.lib.network.willdelete.d
@@ -26,8 +26,8 @@ public class ah implements com.baidu.adp.lib.network.willdelete.d {
                     if (headerField == null || headerField.length() <= 0) {
                         z = false;
                     }
-                    cVar = this.IM.Iz;
-                    if (cVar.qg().qj().mIsBDImage || z) {
+                    cVar = this.IJ.Iw;
+                    if (cVar.pZ().qc().mIsBDImage || z) {
                         byte[] bArr = new byte[23];
                         int read = httpURLConnection.getInputStream().read(bArr, 0, 23);
                         if (!new String(bArr, 0, bArr.length).equalsIgnoreCase("app:tiebaclient;type:0;")) {
@@ -35,12 +35,12 @@ public class ah implements com.baidu.adp.lib.network.willdelete.d {
                         }
                     }
                     if ("image/gif".equalsIgnoreCase(httpURLConnection.getHeaderField("Src-Content-Type"))) {
-                        cVar3 = this.IM.Iz;
-                        cVar3.qh().gi = true;
+                        cVar3 = this.IJ.Iw;
+                        cVar3.qa().gi = true;
                         return;
                     }
-                    cVar2 = this.IM.Iz;
-                    cVar2.qh().gi = false;
+                    cVar2 = this.IJ.Iw;
+                    cVar2.qa().gi = false;
                 }
             } catch (IOException e) {
                 e.printStackTrace();

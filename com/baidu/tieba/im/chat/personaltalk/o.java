@@ -4,15 +4,15 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 /* loaded from: classes.dex */
 class o implements DialogInterface.OnClickListener {
-    final /* synthetic */ PersonalTalkSettingActivity aVk;
+    final /* synthetic */ PersonalTalkSettingActivity aVj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(PersonalTalkSettingActivity personalTalkSettingActivity) {
-        this.aVk = personalTalkSettingActivity;
+        this.aVj = personalTalkSettingActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.adp.lib.g.k.b((Dialog) dialogInterface, this.aVk.getPageContext());
+        com.baidu.adp.lib.g.k.b((Dialog) dialogInterface, this.aVj.getPageContext());
     }
 }

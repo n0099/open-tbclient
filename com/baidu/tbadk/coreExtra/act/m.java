@@ -53,13 +53,13 @@ public class m extends BdAsyncTask<Object, Integer, Bitmap> {
                 }
                 int dip2px = com.baidu.adp.lib.util.l.dip2px(this.this$0.getPageContext().getPageActivity(), 63.5f);
                 if (Build.VERSION.SDK_INT >= 7) {
-                    z = this.this$0.PE;
+                    z = this.this$0.PA;
                     if (z) {
                         Bitmap f = com.baidu.tbadk.core.util.d.f(X, dip2px);
                         Bitmap a = com.baidu.tbadk.core.util.d.a(f, com.baidu.adp.lib.util.l.dip2px(this.this$0.getPageContext().getPageActivity(), 5.0f), X != f);
-                        this.this$0.PJ = new HashMap();
-                        this.this$0.PK = new HashMap();
-                        hashMap = this.this$0.PJ;
+                        this.this$0.PF = new HashMap();
+                        this.this$0.PG = new HashMap();
+                        hashMap = this.this$0.PF;
                         hashMap.put(WriteImageActivityConfig.FILTER_NAME_NORMAL, a);
                         return X;
                     }
@@ -81,7 +81,7 @@ public class m extends BdAsyncTask<Object, Integer, Bitmap> {
         View view;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(0);
-        view = this.this$0.Po;
+        view = this.this$0.Pl;
         view.setClickable(false);
     }
 
@@ -90,12 +90,12 @@ public class m extends BdAsyncTask<Object, Integer, Bitmap> {
         ProgressBar progressBar;
         View view;
         View view2;
-        this.this$0.Ps = null;
+        this.this$0.Pp = null;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(8);
-        view = this.this$0.Po;
+        view = this.this$0.Pl;
         view.setClickable(true);
-        view2 = this.this$0.Po;
+        view2 = this.this$0.Pl;
         view2.setEnabled(true);
         super.cancel(true);
     }
@@ -112,25 +112,25 @@ public class m extends BdAsyncTask<Object, Integer, Bitmap> {
         boolean z;
         String[] strArr;
         super.onPostExecute((m) bitmap);
-        this.this$0.Ps = null;
+        this.this$0.Pp = null;
         this.this$0.mBitmap = bitmap;
         progressBar = this.this$0.mProgress;
         progressBar.setVisibility(8);
-        view = this.this$0.Po;
+        view = this.this$0.Pl;
         view.setClickable(true);
-        view2 = this.this$0.Po;
+        view2 = this.this$0.Pl;
         view2.setEnabled(true);
         if (bitmap == null || bitmap.isRecycled()) {
-            editHeadsImageView = this.this$0.Pl;
+            editHeadsImageView = this.this$0.Pi;
             editHeadsImageView.setImageDrawable(null);
         } else if (bitmap != null) {
-            editHeadsImageView2 = this.this$0.Pl;
+            editHeadsImageView2 = this.this$0.Pi;
             editHeadsImageView2.setImageBitmap(bitmap);
             if (Build.VERSION.SDK_INT >= 7) {
-                z = this.this$0.PE;
+                z = this.this$0.PA;
                 if (z) {
                     EditHeadActivity editHeadActivity = this.this$0;
-                    strArr = EditHeadActivity.Pk;
+                    strArr = EditHeadActivity.Ph;
                     editHeadActivity.m(strArr);
                 }
             }

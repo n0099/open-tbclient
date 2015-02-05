@@ -5,14 +5,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
 class d {
-    TextView Xo;
-    View abr;
-    ImageView apA;
-    final /* synthetic */ a apx;
-    ImageView apz;
+    TextView Xl;
+    View abo;
+    final /* synthetic */ a apu;
+    ImageView apw;
+    ImageView apx;
 
     private d(a aVar) {
-        this.apx = aVar;
+        this.apu = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

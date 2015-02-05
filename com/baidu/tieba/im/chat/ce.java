@@ -4,11 +4,11 @@ import android.os.Handler;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
 class ce implements Runnable {
-    final /* synthetic */ PersonalChatActivity aSN;
+    final /* synthetic */ PersonalChatActivity aSM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ce(PersonalChatActivity personalChatActivity) {
-        this.aSN = personalChatActivity;
+        this.aSM = personalChatActivity;
     }
 
     @Override // java.lang.Runnable
@@ -19,16 +19,16 @@ class ce implements Runnable {
         Handler handler;
         Runnable runnable;
         long j2;
-        AbsMsglistView absMsglistView = this.aSN.mListView;
-        userData = this.aSN.mUser;
+        AbsMsglistView absMsglistView = this.aSM.mListView;
+        userData = this.aSM.mUser;
         String userName = userData.getUserName();
-        fVar = this.aSN.aSF;
+        fVar = this.aSM.aSE;
         absMsglistView.refreshPersonalHeadFooter(userName, fVar);
-        j = this.aSN.aSE;
+        j = this.aSM.aSD;
         if (j != 0) {
-            handler = this.aSN.mHandler;
-            runnable = this.aSN.aSK;
-            j2 = this.aSN.aSE;
+            handler = this.aSM.mHandler;
+            runnable = this.aSM.aSJ;
+            j2 = this.aSM.aSD;
             handler.postDelayed(runnable, j2);
         }
     }

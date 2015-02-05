@@ -6,7 +6,7 @@ import android.widget.ProgressBar;
 import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
 public class z {
-    ProgressBar bJD;
+    ProgressBar bJC;
     BdListView mBdListView;
     com.baidu.tbadk.core.view.x mNoDataView = null;
 
@@ -17,6 +17,6 @@ public class z {
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(Context context, View view) {
         this.mBdListView = (BdListView) view.findViewById(com.baidu.tieba.w.list);
-        this.bJD = (ProgressBar) view.findViewById(com.baidu.tieba.w.progress);
+        this.bJC = (ProgressBar) view.findViewById(com.baidu.tieba.w.progress);
     }
 }

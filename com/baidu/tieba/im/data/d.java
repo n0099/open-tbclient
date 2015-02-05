@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
+    private int aXS;
     private int aXT;
-    private int aXU;
-    private long aXV;
+    private long aXU;
     private String content;
     private long create_time;
     private String forum_id;
@@ -32,7 +32,7 @@ public class d {
     }
 
     public void fF(int i) {
-        this.aXT = i;
+        this.aXS = i;
     }
 
     public String getName() {
@@ -43,12 +43,12 @@ public class d {
         this.name = str;
     }
 
-    public int MH() {
-        return this.aXU;
+    public int MC() {
+        return this.aXT;
     }
 
     public void fG(int i) {
-        this.aXU = i;
+        this.aXT = i;
     }
 
     public void setCreate_time(long j) {
@@ -56,7 +56,7 @@ public class d {
     }
 
     public void T(long j) {
-        this.aXV = j;
+        this.aXU = j;
     }
 
     public String getContent() {
@@ -67,7 +67,7 @@ public class d {
         this.content = str;
     }
 
-    public List<d> MI() {
+    public List<d> MD() {
         return this.sub_menu;
     }
 

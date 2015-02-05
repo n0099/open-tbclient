@@ -8,108 +8,108 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s {
+    float va;
+    float vb;
+    float vc;
     float vd;
-    float ve;
-    float vf;
-    float vg;
-    long vh;
-    long vi;
-    boolean vj;
-    final /* synthetic */ VerticalTranslateLayout yX;
+    long ve;
+    long vf;
+    boolean vg;
+    final /* synthetic */ VerticalTranslateLayout yU;
 
-    private void iT() {
+    private void iM() {
         long uptimeMillis = SystemClock.uptimeMillis();
-        this.vd = ((((float) (uptimeMillis - this.vh)) / 1000.0f) * this.ve) + this.vd;
-        this.vh = uptimeMillis;
-        this.vi += 16;
+        this.va = ((((float) (uptimeMillis - this.ve)) / 1000.0f) * this.vb) + this.va;
+        this.ve = uptimeMillis;
+        this.vf += 16;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void kp() {
+    public void ki() {
         r rVar;
         v vVar;
-        iT();
-        if (this.vd <= this.vf) {
-            vVar = this.yX.yU;
+        iM();
+        if (this.va <= this.vc) {
+            vVar = this.yU.yR;
             if (vVar != null) {
-                vVar.ku();
+                vVar.kn();
             }
-            this.vj = false;
-            this.yX.uN = TbConfig.BIG_IMAGE_MIN_CAPACITY;
-            this.yX.iS();
+            this.vg = false;
+            this.yU.uK = TbConfig.BIG_IMAGE_MIN_CAPACITY;
+            this.yU.iL();
             return;
         }
-        this.yX.yJ = (int) (a.a(this.vf, this.vd, false) + this.vg);
-        this.yX.invalidate();
-        rVar = this.yX.yR;
-        rVar.sendEmptyMessageAtTime(-100, this.vi);
+        this.yU.yG = (int) (a.a(this.vc, this.va, false) + this.vd);
+        this.yU.invalidate();
+        rVar = this.yU.yO;
+        rVar.sendEmptyMessageAtTime(-100, this.vf);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void kq() {
+    public void kj() {
         r rVar;
         t tVar;
-        iT();
-        if (this.vd >= this.vf) {
-            tVar = this.yX.yV;
+        iM();
+        if (this.va >= this.vc) {
+            tVar = this.yU.yS;
             if (tVar != null) {
-                tVar.kt();
+                tVar.km();
             }
-            this.vj = false;
-            this.yX.uN = 10001;
-            this.yX.iS();
+            this.vg = false;
+            this.yU.uK = 10001;
+            this.yU.iL();
             return;
         }
-        this.yX.yJ = (int) (a.a(this.vf, this.vd, false) + this.vg);
-        this.yX.invalidate();
-        rVar = this.yX.yR;
-        rVar.sendEmptyMessageAtTime(SapiErrorCode.SENT_SUCCEED, this.vi);
+        this.yU.yG = (int) (a.a(this.vc, this.va, false) + this.vd);
+        this.yU.invalidate();
+        rVar = this.yU.yO;
+        rVar.sendEmptyMessageAtTime(SapiErrorCode.SENT_SUCCEED, this.vf);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void kr() {
+    public void kk() {
         r rVar;
         List<u> list;
-        iT();
-        if (this.vd >= this.vf) {
-            list = this.yX.va;
+        iM();
+        if (this.va >= this.vc) {
+            list = this.yU.uX;
             for (u uVar : list) {
                 if (uVar != null) {
-                    uVar.jb();
+                    uVar.iU();
                 }
             }
-            this.vj = false;
-            this.yX.uN = 10004;
-            this.yX.iS();
+            this.vg = false;
+            this.yU.uK = 10004;
+            this.yU.iL();
             return;
         }
-        this.yX.yJ = (int) (a.a(this.vf, this.vd, false) + this.vg);
-        this.yX.invalidate();
-        rVar = this.yX.yR;
-        rVar.sendEmptyMessageAtTime(SapiErrorCode.GETTING_CERT, this.vi);
+        this.yU.yG = (int) (a.a(this.vc, this.va, false) + this.vd);
+        this.yU.invalidate();
+        rVar = this.yU.yO;
+        rVar.sendEmptyMessageAtTime(SapiErrorCode.GETTING_CERT, this.vf);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ks() {
+    public void kl() {
         r rVar;
         List<u> list;
-        iT();
-        if (this.vd <= this.vf) {
-            list = this.yX.va;
+        iM();
+        if (this.va <= this.vc) {
+            list = this.yU.uX;
             for (u uVar : list) {
                 if (uVar != null) {
-                    uVar.jb();
+                    uVar.iU();
                 }
             }
-            this.vj = false;
-            this.yX.uN = 10004;
-            this.yX.iS();
+            this.vg = false;
+            this.yU.uK = 10004;
+            this.yU.iL();
             return;
         }
-        this.yX.yJ = (int) (a.a(this.vf, this.vd, false) + this.vg);
-        this.yX.invalidate();
-        rVar = this.yX.yR;
-        rVar.sendEmptyMessageAtTime(SapiErrorCode.GET_CERT_FAIL, this.vi);
+        this.yU.yG = (int) (a.a(this.vc, this.va, false) + this.vd);
+        this.yU.invalidate();
+        rVar = this.yU.yO;
+        rVar.sendEmptyMessageAtTime(SapiErrorCode.GET_CERT_FAIL, this.vf);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -119,28 +119,28 @@ public class s {
         int i2;
         r rVar;
         r rVar2;
-        list = this.yX.va;
+        list = this.yU.uX;
         for (u uVar : list) {
             if (uVar != null) {
-                uVar.ja();
+                uVar.iT();
             }
         }
-        this.vj = true;
+        this.vg = true;
         long uptimeMillis = SystemClock.uptimeMillis();
-        this.vh = uptimeMillis;
-        this.vi = uptimeMillis + 16;
-        this.ve = f;
-        this.vd = 0.0f;
-        i = this.yX.yJ;
-        this.vf = 0 - i;
-        i2 = this.yX.yJ;
-        this.vg = i2;
-        rVar = this.yX.yR;
+        this.ve = uptimeMillis;
+        this.vf = uptimeMillis + 16;
+        this.vb = f;
+        this.va = 0.0f;
+        i = this.yU.yG;
+        this.vc = 0 - i;
+        i2 = this.yU.yG;
+        this.vd = i2;
+        rVar = this.yU.yO;
         rVar.removeMessages(SapiErrorCode.GETTING_CERT);
-        Log.d("Animator", "@animateTopOpen " + this.vf);
+        Log.d("Animator", "@animateTopOpen " + this.vc);
         Log.d("Animator", "@animateTopOpen " + f);
-        rVar2 = this.yX.yR;
-        rVar2.sendEmptyMessageAtTime(SapiErrorCode.GETTING_CERT, this.vi);
+        rVar2 = this.yU.yO;
+        rVar2.sendEmptyMessageAtTime(SapiErrorCode.GETTING_CERT, this.vf);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -150,28 +150,28 @@ public class s {
         int i2;
         r rVar;
         r rVar2;
-        list = this.yX.va;
+        list = this.yU.uX;
         for (u uVar : list) {
             if (uVar != null) {
-                uVar.ja();
+                uVar.iT();
             }
         }
-        this.vj = true;
+        this.vg = true;
         long uptimeMillis = SystemClock.uptimeMillis();
-        this.vh = uptimeMillis;
-        this.vi = uptimeMillis + 16;
-        this.ve = f;
-        this.vd = 0.0f;
-        i = this.yX.yJ;
-        this.vf = 0 - i;
-        i2 = this.yX.yJ;
-        this.vg = i2;
-        Log.d("Animator", "@animateBottomOpen " + this.vf);
+        this.ve = uptimeMillis;
+        this.vf = uptimeMillis + 16;
+        this.vb = f;
+        this.va = 0.0f;
+        i = this.yU.yG;
+        this.vc = 0 - i;
+        i2 = this.yU.yG;
+        this.vd = i2;
+        Log.d("Animator", "@animateBottomOpen " + this.vc);
         Log.d("Animator", "@animateBottomOpen " + f);
-        rVar = this.yX.yR;
+        rVar = this.yU.yO;
         rVar.removeMessages(SapiErrorCode.GET_CERT_FAIL);
-        rVar2 = this.yX.yR;
-        rVar2.sendEmptyMessageAtTime(SapiErrorCode.GET_CERT_FAIL, this.vi);
+        rVar2 = this.yU.yO;
+        rVar2.sendEmptyMessageAtTime(SapiErrorCode.GET_CERT_FAIL, this.vf);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -183,29 +183,29 @@ public class s {
         int i3;
         r rVar;
         r rVar2;
-        vVar = this.yX.yU;
+        vVar = this.yU.yR;
         if (vVar != null) {
-            vVar.iY();
+            vVar.iR();
         }
-        this.vj = true;
+        this.vg = true;
         long uptimeMillis = SystemClock.uptimeMillis();
-        this.vh = uptimeMillis;
-        this.vi = uptimeMillis + 16;
-        this.ve = f;
-        this.vd = 0.0f;
-        i = this.yX.uE;
-        f2 = this.yX.yF;
+        this.ve = uptimeMillis;
+        this.vf = uptimeMillis + 16;
+        this.vb = f;
+        this.va = 0.0f;
+        i = this.yU.uB;
+        f2 = this.yU.yC;
         float f3 = (-i) + f2;
-        i2 = this.yX.yJ;
-        this.vf = f3 - i2;
-        i3 = this.yX.yJ;
-        this.vg = i3;
-        Log.d("Animator", "@animateTop " + this.vf);
+        i2 = this.yU.yG;
+        this.vc = f3 - i2;
+        i3 = this.yU.yG;
+        this.vd = i3;
+        Log.d("Animator", "@animateTop " + this.vc);
         Log.d("Animator", "@animateTop " + f);
-        rVar = this.yX.yR;
+        rVar = this.yU.yO;
         rVar.removeMessages(-100);
-        rVar2 = this.yX.yR;
-        rVar2.sendEmptyMessageAtTime(-100, this.vi);
+        rVar2 = this.yU.yO;
+        rVar2.sendEmptyMessageAtTime(-100, this.vf);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -217,28 +217,28 @@ public class s {
         int i3;
         r rVar;
         r rVar2;
-        tVar = this.yX.yV;
+        tVar = this.yU.yS;
         if (tVar != null) {
-            tVar.jc();
+            tVar.iV();
         }
-        this.vj = true;
+        this.vg = true;
         long uptimeMillis = SystemClock.uptimeMillis();
-        this.vh = uptimeMillis;
-        this.vi = uptimeMillis + 16;
-        this.ve = f;
-        this.vd = 0.0f;
-        i = this.yX.uE;
-        f2 = this.yX.yH;
+        this.ve = uptimeMillis;
+        this.vf = uptimeMillis + 16;
+        this.vb = f;
+        this.va = 0.0f;
+        i = this.yU.uB;
+        f2 = this.yU.yE;
         float f3 = i - f2;
-        i2 = this.yX.yJ;
-        this.vf = f3 - i2;
-        i3 = this.yX.yJ;
-        this.vg = i3;
-        Log.d("Animator", "@animateBottom " + this.vf);
+        i2 = this.yU.yG;
+        this.vc = f3 - i2;
+        i3 = this.yU.yG;
+        this.vd = i3;
+        Log.d("Animator", "@animateBottom " + this.vc);
         Log.d("Animator", "@animateBottom " + f);
-        rVar = this.yX.yR;
+        rVar = this.yU.yO;
         rVar.removeMessages(SapiErrorCode.SENT_SUCCEED);
-        rVar2 = this.yX.yR;
-        rVar2.sendEmptyMessageAtTime(SapiErrorCode.SENT_SUCCEED, this.vi);
+        rVar2 = this.yU.yO;
+        rVar2.sendEmptyMessageAtTime(SapiErrorCode.SENT_SUCCEED, this.vf);
     }
 }

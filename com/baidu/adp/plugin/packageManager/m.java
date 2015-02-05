@@ -3,7 +3,7 @@ package com.baidu.adp.plugin.packageManager;
 /* loaded from: classes.dex */
 public class m {
     String packageName;
-    com.baidu.adp.plugin.install.b te;
+    com.baidu.adp.plugin.install.b tb;
     final /* synthetic */ PluginPackageManager this$0;
     long timestamp;
 

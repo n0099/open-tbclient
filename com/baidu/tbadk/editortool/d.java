@@ -5,7 +5,7 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d extends ae {
-    private ArrayList<String> XT = new ArrayList<>();
+    private ArrayList<String> XQ = new ArrayList<>();
     private String groupId;
     private String groupName;
     private int height;
@@ -22,41 +22,41 @@ public class d extends ae {
     private void init() {
         dq(2);
         dp(4);
-        Bitmap ai = ab.vt().ai(this.groupId, "panel.png");
-        Bitmap ai2 = ab.vt().ai(this.groupId, "panel_momo.png");
+        Bitmap ai = ab.vn().ai(this.groupId, "panel.png");
+        Bitmap ai2 = ab.vn().ai(this.groupId, "panel_momo.png");
         if (ai != null) {
             b(new com.baidu.adp.widget.a.a(ai, false));
         }
         if (ai2 != null) {
             c(new com.baidu.adp.widget.a.a(ai2, false));
         }
-        this.XT.clear();
-        for (EmotionData emotionData : u.vq().dY(this.groupId)) {
-            this.XT.add(emotionData.getSharpText());
+        this.XQ.clear();
+        for (EmotionData emotionData : u.vk().dV(this.groupId)) {
+            this.XQ.add(emotionData.getSharpText());
         }
     }
 
     @Override // com.baidu.tbadk.editortool.ae
     public String dl(int i) {
-        if (i >= this.XT.size()) {
+        if (i >= this.XQ.size()) {
             return null;
         }
-        return this.XT.get(i);
+        return this.XQ.get(i);
     }
 
     @Override // com.baidu.tbadk.editortool.ae
-    public boolean dU(String str) {
-        return this.XT.contains(str);
+    public boolean dR(String str) {
+        return this.XQ.contains(str);
     }
 
     @Override // com.baidu.tbadk.editortool.ae
-    public EmotionGroupType vl() {
+    public EmotionGroupType vf() {
         return EmotionGroupType.BIG_EMOTION;
     }
 
     @Override // com.baidu.tbadk.editortool.ae
-    public com.baidu.adp.widget.a.a dV(String str) {
-        Bitmap ai = ab.vt().ai(this.groupId, ab.vt().p(str, false));
+    public com.baidu.adp.widget.a.a dS(String str) {
+        Bitmap ai = ab.vn().ai(this.groupId, ab.vn().p(str, false));
         if (ai == null) {
             return null;
         }
@@ -64,13 +64,13 @@ public class d extends ae {
     }
 
     @Override // com.baidu.tbadk.editortool.ae
-    public com.baidu.adp.widget.a.a dW(String str) {
-        return ab.vt().aj(this.groupId, ab.vt().p(str, true));
+    public com.baidu.adp.widget.a.a dT(String str) {
+        return ab.vn().aj(this.groupId, ab.vn().p(str, true));
     }
 
     @Override // com.baidu.tbadk.editortool.ae
     public int getEmotionsCount() {
-        return this.XT.size();
+        return this.XQ.size();
     }
 
     @Override // com.baidu.tbadk.editortool.ae
@@ -94,7 +94,7 @@ public class d extends ae {
     }
 
     @Override // com.baidu.tbadk.editortool.ae
-    public boolean vm() {
+    public boolean vg() {
         return false;
     }
 }

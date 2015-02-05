@@ -29,7 +29,7 @@ public class l {
         return this.screatString;
     }
 
-    public void iq(String str) {
+    public void io(String str) {
         this.screatString = str;
     }
 }

@@ -6,11 +6,11 @@ import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 class k implements View.OnClickListener {
-    final /* synthetic */ TbRichTextView akM;
+    final /* synthetic */ TbRichTextView akJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(TbRichTextView tbRichTextView) {
-        this.akM = tbRichTextView;
+        this.akJ = tbRichTextView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,7 +18,7 @@ class k implements View.OnClickListener {
         s sVar;
         String str;
         s sVar2;
-        sVar = this.akM.akz;
+        sVar = this.akJ.akw;
         if (sVar != null && (view instanceof ImageView)) {
             Object tag = view.getTag();
             if (tag != null && (tag instanceof String)) {
@@ -28,10 +28,10 @@ class k implements View.OnClickListener {
             } else {
                 str = ((TbImageView) view).getUrl();
             }
-            int childCount = this.akM.getChildCount();
+            int childCount = this.akJ.getChildCount();
             int i = -1;
             for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = this.akM.getChildAt(i2);
+                View childAt = this.akJ.getChildAt(i2);
                 if ((childAt instanceof ImageView) && !(childAt instanceof GifView)) {
                     i++;
                 }
@@ -39,7 +39,7 @@ class k implements View.OnClickListener {
                     break;
                 }
             }
-            sVar2 = this.akM.akz;
+            sVar2 = this.akJ.akw;
             sVar2.onClick(view, str, i);
         }
     }

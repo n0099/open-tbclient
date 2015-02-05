@@ -46,11 +46,11 @@ public class PluginSetting implements Serializable {
     }
 
     public void setCmdRange(String str) {
-        this.cmdRangeInt = bp(str);
+        this.cmdRangeInt = bm(str);
         this.cmdRangeStr = str;
     }
 
-    private int[] bp(String str) {
+    private int[] bm(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(",")) == null) {
             return null;

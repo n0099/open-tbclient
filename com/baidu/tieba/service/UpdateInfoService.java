@@ -24,7 +24,7 @@ public class UpdateInfoService extends BdBaseService {
     public void onCreate() {
         super.onCreate();
         this.mModel = new com.baidu.tieba.model.r(null);
-        this.mModel.UQ();
+        this.mModel.UL();
         this.mModel.ah(540000L);
         this.mModel.a(new u(this));
     }

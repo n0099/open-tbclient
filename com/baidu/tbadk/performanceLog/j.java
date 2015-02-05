@@ -2,11 +2,11 @@ package com.baidu.tbadk.performanceLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements c {
-    final /* synthetic */ h agt;
+    final /* synthetic */ h agq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(h hVar) {
-        this.agt = hVar;
+        this.agq = hVar;
     }
 
     @Override // com.baidu.tbadk.performanceLog.c
@@ -16,18 +16,18 @@ public class j implements c {
         int i4;
         a aVar;
         a aVar2;
-        h hVar = this.agt;
-        i2 = hVar.agr;
-        hVar.agr = i2 + 1;
-        i3 = this.agt.agm;
-        i4 = this.agt.agr;
+        h hVar = this.agq;
+        i2 = hVar.ago;
+        hVar.ago = i2 + 1;
+        i3 = this.agq.agj;
+        i4 = this.agq.ago;
         if (i3 == i4) {
-            aVar = this.agt.agp;
+            aVar = this.agq.agm;
             aVar.a((c) null);
-            aVar2 = this.agt.agp;
+            aVar2 = this.agq.agm;
             aVar2.stop();
-            this.agt.zl();
+            this.agq.zf();
         }
-        this.agt.dV(i);
+        this.agq.dV(i);
     }
 }

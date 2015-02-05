@@ -8,9 +8,9 @@ public class s implements Runnable {
     public void run() {
         d dVar;
         d dVar2;
-        dVar = m.bXQ;
+        dVar = m.bXP;
         if (dVar != null) {
-            dVar2 = m.bXQ;
+            dVar2 = m.bXP;
             dVar2.dismiss();
         }
     }

@@ -13,5 +13,5 @@ public interface m {
 
     void onShowErr(int i, String str);
 
-    void qT();
+    void qN();
 }

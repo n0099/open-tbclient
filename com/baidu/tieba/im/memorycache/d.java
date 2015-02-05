@@ -11,13 +11,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
-    final /* synthetic */ c bhS;
+    final /* synthetic */ c bhR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(c cVar, int i) {
         super(i);
-        this.bhS = cVar;
+        this.bhR = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,31 +32,31 @@ public class d extends CustomMessageListener {
                 if (data != null) {
                     for (ImMessageCenterPojo imMessageCenterPojo : data) {
                         if (imMessageCenterPojo != null && ca.gk(imMessageCenterPojo.getCustomGroupType()) && imMessageCenterPojo.getPulled_msgId() > 0) {
-                            this.bhS.j(imMessageCenterPojo);
+                            this.bhR.j(imMessageCenterPojo);
                         }
                     }
                 }
-                this.bhS.bhM.set(true);
-                this.bhS.QS();
+                this.bhR.bhL.set(true);
+                this.bhR.QN();
                 return;
             }
             try {
                 for (ImMessageCenterPojo imMessageCenterPojo2 : memoryGetFromDBMessage.getData()) {
-                    q = this.bhS.q(imMessageCenterPojo2);
+                    q = this.bhR.q(imMessageCenterPojo2);
                     if (!q || imMessageCenterPojo2.getPulled_msgId() > 0) {
-                        this.bhS.j(imMessageCenterPojo2);
+                        this.bhR.j(imMessageCenterPojo2);
                     }
                 }
-                this.bhS.db(false);
-                this.bhS.dc(false);
-                this.bhS.QP();
-                this.bhS.QQ();
-                this.bhS.QR();
+                this.bhR.db(false);
+                this.bhR.dc(false);
+                this.bhR.QK();
+                this.bhR.QL();
+                this.bhR.QM();
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
-            this.bhS.bhM.set(true);
-            this.bhS.QS();
+            this.bhR.bhL.set(true);
+            this.bhR.QN();
         }
     }
 }

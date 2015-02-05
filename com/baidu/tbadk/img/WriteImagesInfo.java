@@ -192,7 +192,7 @@ public class WriteImagesInfo implements Parcelable, Serializable {
             for (int size = chosedFiles.size() - 1; size >= 0; size--) {
                 ImageFileInfo imageFileInfo = chosedFiles.get(size);
                 if (!imageFileInfo.isHasAddPostQualityAction()) {
-                    imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.z(bg.pI().pO(), bg.pI().pO()));
+                    imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.z(bg.pB().pH(), bg.pB().pH()));
                     imageFileInfo.setHasAddPostQualityAction(true);
                 }
             }

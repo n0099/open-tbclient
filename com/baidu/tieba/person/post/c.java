@@ -7,13 +7,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.bc;
 /* loaded from: classes.dex */
 class c extends HttpMessageListener {
-    final /* synthetic */ PersonPostActivity bIW;
+    final /* synthetic */ PersonPostActivity bIV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(PersonPostActivity personPostActivity, int i) {
         super(i);
-        this.bIW = personPostActivity;
+        this.bIV = personPostActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,20 +25,20 @@ class c extends HttpMessageListener {
         int[] iArr3;
         if (httpResponsedMessage.isSuccess()) {
             if (httpResponsedMessage.getError() == 0) {
-                iArr = PersonPostActivity.bkw;
-                com.baidu.tbadk.core.account.o.n(4, iArr[this.bIW.bkn]);
-                imageView = this.bIW.bkq;
-                iArr2 = PersonPostActivity.bku;
-                bc.c(imageView, iArr2[this.bIW.bkn]);
-                PersonPostActivity personPostActivity = this.bIW;
-                TbPageContext pageContext = this.bIW.getPageContext();
-                iArr3 = PersonPostActivity.bkv;
-                personPostActivity.showToastWithIcon(pageContext.getString(iArr3[this.bIW.bkn]), com.baidu.tieba.v.icon_toast_info);
+                iArr = PersonPostActivity.bkv;
+                com.baidu.tbadk.core.account.o.n(4, iArr[this.bIV.bkm]);
+                imageView = this.bIV.bkp;
+                iArr2 = PersonPostActivity.bkt;
+                bc.c(imageView, iArr2[this.bIV.bkm]);
+                PersonPostActivity personPostActivity = this.bIV;
+                TbPageContext pageContext = this.bIV.getPageContext();
+                iArr3 = PersonPostActivity.bku;
+                personPostActivity.showToastWithIcon(pageContext.getString(iArr3[this.bIV.bkm]), com.baidu.tieba.v.icon_toast_info);
                 return;
             }
-            this.bIW.showToast(httpResponsedMessage.getErrorString());
+            this.bIV.showToast(httpResponsedMessage.getErrorString());
             return;
         }
-        this.bIW.showToast(this.bIW.getPageContext().getString(com.baidu.tieba.z.neterror));
+        this.bIV.showToast(this.bIV.getPageContext().getString(com.baidu.tieba.z.neterror));
     }
 }

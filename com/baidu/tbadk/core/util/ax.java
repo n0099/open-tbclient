@@ -4,35 +4,35 @@ import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ax implements Runnable {
-    final /* synthetic */ av Js;
-    private final /* synthetic */ String Jt;
-    private final /* synthetic */ int Ju;
-    private final /* synthetic */ String Jv;
+    final /* synthetic */ av Jp;
+    private final /* synthetic */ String Jq;
+    private final /* synthetic */ int Jr;
+    private final /* synthetic */ String Js;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(av avVar, String str, int i, String str2) {
-        this.Js = avVar;
-        this.Jt = str;
-        this.Ju = i;
-        this.Jv = str2;
+        this.Jp = avVar;
+        this.Jq = str;
+        this.Jr = i;
+        this.Js = str2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        File pz;
+        File ps;
         boolean c;
         boolean ca;
-        pz = this.Js.pz();
-        c = this.Js.c(pz, this.Jt);
+        ps = this.Jp.ps();
+        c = this.Jp.c(ps, this.Jq);
         if (c) {
-            this.Js.o(pz);
-            ca = this.Js.ca(this.Ju);
+            this.Jp.o(ps);
+            ca = this.Jp.ca(this.Jr);
             if (ca) {
-                this.Js.px();
+                this.Jp.pq();
                 return;
             }
         }
-        this.Js.pB();
-        this.Js.d(this.Jv, this.Jt, this.Ju);
+        this.Jp.pu();
+        this.Jp.d(this.Js, this.Jq, this.Jr);
     }
 }

@@ -10,19 +10,19 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<Boolean, String, a> {
-    private h AS;
-    final /* synthetic */ a AT;
+    private h AP;
+    final /* synthetic */ a AQ;
     private int offset;
-    private ad AR = null;
-    private String AU = null;
-    Boolean AV = false;
+    private ad AO = null;
+    private String AR = null;
+    Boolean AS = false;
 
     public c(a aVar, int i) {
-        this.AT = aVar;
+        this.AQ = aVar;
         this.offset = 0;
-        this.AS = null;
+        this.AP = null;
         this.offset = i;
-        this.AS = new h();
+        this.AP = new h();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -38,47 +38,47 @@ public class c extends BdAsyncTask<Boolean, String, a> {
         boolean z;
         ArrayList arrayList;
         ArrayList arrayList2;
-        this.AV = boolArr[0];
+        this.AS = boolArr[0];
         a aVar = new a();
-        if (this.AV.booleanValue()) {
-            t<String> bT = com.baidu.tbadk.core.a.a.nV().bT("tb.my_bookmarks");
-            if (bT != null) {
-                publishProgress(bT.get(TbadkCoreApplication.getCurrentAccount()));
+        if (this.AS.booleanValue()) {
+            t<String> bQ = com.baidu.tbadk.core.a.a.nO().bQ("tb.my_bookmarks");
+            if (bQ != null) {
+                publishProgress(bQ.get(TbadkCoreApplication.getCurrentAccount()));
             }
-            arrayList = this.AT.AM;
+            arrayList = this.AQ.AI;
             if (arrayList == null) {
-                this.AT.AM = new ArrayList();
+                this.AQ.AI = new ArrayList();
             } else {
-                arrayList2 = this.AT.AM;
+                arrayList2 = this.AQ.AI;
                 arrayList2.clear();
             }
-            this.AT.AN = 0;
+            this.AQ.AJ = 0;
         }
-        this.AR = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.MARK_GETSTORE);
-        this.AR.o("user_id", TbadkCoreApplication.getCurrentAccount());
-        z = this.AT.AP;
+        this.AO = new ad(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.MARK_GETSTORE);
+        this.AO.o("user_id", TbadkCoreApplication.getCurrentAccount());
+        z = this.AQ.AM;
         if (z) {
-            this.AR.o("offset", String.valueOf(0));
+            this.AO.o("offset", String.valueOf(0));
         } else {
-            this.AR.o("offset", String.valueOf(this.offset));
+            this.AO.o("offset", String.valueOf(this.offset));
         }
-        this.AR.o("rn", String.valueOf(20));
-        this.AU = this.AR.oy();
-        this.AS.parserJson(this.AU);
-        if (this.AR.oZ().qh().ma()) {
-            aVar.bA(this.AU);
-            if (this.offset == 0 && this.AV.booleanValue()) {
-                bC(this.AU);
+        this.AO.o("rn", String.valueOf(20));
+        this.AR = this.AO.or();
+        this.AP.parserJson(this.AR);
+        if (this.AO.oS().qa().lT()) {
+            aVar.bx(this.AR);
+            if (this.offset == 0 && this.AS.booleanValue()) {
+                bz(this.AR);
             }
         }
         return aVar;
     }
 
-    private void bC(String str) {
-        t<String> bT;
+    private void bz(String str) {
+        t<String> bQ;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (currentAccount != null && (bT = com.baidu.tbadk.core.a.a.nV().bT("tb.my_bookmarks")) != null) {
-            bT.a(currentAccount, str, TbConfig.APP_OVERDUR_DRAFT_BOX);
+        if (currentAccount != null && (bQ = com.baidu.tbadk.core.a.a.nO().bQ("tb.my_bookmarks")) != null) {
+            bQ.a(currentAccount, str, TbConfig.APP_OVERDUR_DRAFT_BOX);
         }
     }
 
@@ -87,30 +87,30 @@ public class c extends BdAsyncTask<Boolean, String, a> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: j */
     public void onProgressUpdate(String... strArr) {
-        ArrayList<MarkData> bB;
+        ArrayList<MarkData> by;
         super.onProgressUpdate(strArr);
         String str = strArr[0];
         ArrayList<MarkData> arrayList = new ArrayList<>();
         if (str != null) {
-            bB = this.AT.bB(str);
-            if (this.AV.booleanValue()) {
-                this.AT.k(bB);
+            by = this.AQ.by(str);
+            if (this.AS.booleanValue()) {
+                this.AQ.k(by);
             } else {
-                this.AT.l(bB);
+                this.AQ.l(by);
             }
         } else {
-            this.AT.k(arrayList);
+            this.AQ.k(arrayList);
         }
-        this.AT.AQ.callback(0, null, true);
+        this.AQ.AN.callback(0, null, true);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        if (this.AR != null) {
-            this.AR.dJ();
+        if (this.AO != null) {
+            this.AO.dJ();
         }
-        this.AT.AI = null;
+        this.AQ.AF = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -121,32 +121,32 @@ public class c extends BdAsyncTask<Boolean, String, a> {
         if (aVar == null) {
             aVar = new a();
         }
-        this.AT.AI = null;
-        this.AT.AN = aVar.getCount();
-        ArrayList<MarkData> le = aVar.le();
-        if (this.AV.booleanValue()) {
-            if (le != null && le.size() != 0) {
-                this.AT.k(le);
+        this.AQ.AF = null;
+        this.AQ.AJ = aVar.getCount();
+        ArrayList<MarkData> kX = aVar.kX();
+        if (this.AS.booleanValue()) {
+            if (kX != null && kX.size() != 0) {
+                this.AQ.k(kX);
             }
         } else {
-            this.AT.l(le);
+            this.AQ.l(kX);
         }
-        Iterator<MarkData> it = le.iterator();
+        Iterator<MarkData> it = kX.iterator();
         int i = 0;
         while (it.hasNext()) {
             if (it.next().getNewCounts() > 0) {
                 int i2 = i + 1;
-                this.AT.aM(i2);
+                this.AQ.aM(i2);
                 i = i2;
             }
         }
-        if (this.AT.AQ != null) {
-            if (this.AR.oZ().qh().ma()) {
-                this.AT.AQ.callback(0, this.AS.getErrorString(), false);
+        if (this.AQ.AN != null) {
+            if (this.AO.oS().qa().lT()) {
+                this.AQ.AN.callback(0, this.AP.getErrorString(), false);
             } else {
-                this.AT.AQ.callback(3, this.AR.getErrorString());
+                this.AQ.AN.callback(3, this.AO.getErrorString());
             }
         }
-        this.AT.AP = false;
+        this.AQ.AM = false;
     }
 }

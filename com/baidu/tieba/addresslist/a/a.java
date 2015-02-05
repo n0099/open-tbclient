@@ -24,53 +24,53 @@ import com.baidu.tieba.z;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends BaseAdapter {
-    private List<com.baidu.tbadk.coreExtra.relationship.b> SU;
-    private int aoY;
-    private boolean apn;
-    private int apo = t.cp_cont_b;
-    private int apq = t.cp_cont_c;
-    private int apr = t.cp_cont_d;
-    private Drawable aps;
-    private Drawable apt;
-    private boolean apu;
+    private List<com.baidu.tbadk.coreExtra.relationship.b> SQ;
+    private int aoV;
+    private boolean apk;
+    private int apl = t.cp_cont_b;
+    private int apm = t.cp_cont_c;
+    private int apn = t.cp_cont_d;
+    private Drawable apo;
+    private Drawable apq;
+    private boolean apr;
     private Context mContext;
     private int size;
 
     public a(Context context, com.baidu.tbadk.core.c cVar) {
-        this.apu = true;
+        this.apr = true;
         this.mContext = context;
         this.size = l.d(this.mContext, u.ds24);
-        this.apu = TbadkCoreApplication.m255getInst().appResponseToIntentClass(PersonGroupActivityConfig.class);
+        this.apr = TbadkCoreApplication.m255getInst().appResponseToIntentClass(PersonGroupActivityConfig.class);
     }
 
     public void setContacts(List<com.baidu.tbadk.coreExtra.relationship.b> list) {
-        this.SU = list;
+        this.SQ = list;
         notifyDataSetChanged();
     }
 
     public void ej(int i) {
-        this.aoY = i;
+        this.aoV = i;
     }
 
     public void bk(boolean z) {
-        this.apn = z;
+        this.apk = z;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        int i = this.apu ? 3 : 2;
-        return this.SU == null ? i : i + this.SU.size();
+        int i = this.apr ? 3 : 2;
+        return this.SQ == null ? i : i + this.SQ.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: ei */
     public com.baidu.tbadk.coreExtra.relationship.b getItem(int i) {
-        int i2 = this.apu ? 3 : 2;
+        int i2 = this.apr ? 3 : 2;
         if (i < i2 || i >= getCount()) {
             return null;
         }
-        return this.SU.get(i - i2);
+        return this.SQ.get(i - i2);
     }
 
     @Override // android.widget.Adapter
@@ -92,13 +92,13 @@ public class a extends BaseAdapter {
         if (i == 1) {
             return 5;
         }
-        if (i == 2 && this.apu) {
+        if (i == 2 && this.apr) {
             return 1;
         }
         if (item == null) {
             return 4;
         }
-        return (!TextUtils.isEmpty(item.tn()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.getUserPortrait())) ? 2 : 3;
+        return (!TextUtils.isEmpty(item.th()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.getUserPortrait())) ? 2 : 3;
     }
 
     @Override // android.widget.Adapter
@@ -115,45 +115,45 @@ public class a extends BaseAdapter {
             if (view == 0 || view.getTag() == null || !(view.getTag() instanceof d)) {
                 view = com.baidu.adp.lib.g.b.ei().inflate(this.mContext, x.addresslist_header_new_friends, null);
                 d dVar4 = new d(this, null);
-                dVar4.apz = (ImageView) view.findViewById(w.addresslist_new_friend_icon);
-                dVar4.apA = (ImageView) view.findViewById(w.addresslist_new_friend_new_icon);
-                dVar4.Xo = (TextView) view.findViewById(w.addresslist_new_friend_text);
-                dVar4.abr = view.findViewById(w.addresslist_new_friend_divider);
+                dVar4.apw = (ImageView) view.findViewById(w.addresslist_new_friend_icon);
+                dVar4.apx = (ImageView) view.findViewById(w.addresslist_new_friend_new_icon);
+                dVar4.Xl = (TextView) view.findViewById(w.addresslist_new_friend_text);
+                dVar4.abo = view.findViewById(w.addresslist_new_friend_divider);
                 view.setTag(dVar4);
                 dVar3 = dVar4;
             } else {
                 dVar3 = (d) view.getTag();
             }
-            bc.c(dVar3.apz, v.icon_new_friend);
-            if (this.apn) {
-                dVar3.apA.setVisibility(0);
-                bc.c(dVar3.apA, v.icon_news_down_bar_one);
+            bc.c(dVar3.apw, v.icon_new_friend);
+            if (this.apk) {
+                dVar3.apx.setVisibility(0);
+                bc.c(dVar3.apx, v.icon_news_down_bar_one);
             } else {
-                dVar3.apA.setVisibility(8);
+                dVar3.apx.setVisibility(8);
             }
-            bc.b(dVar3.Xo, this.apo, 1);
-            bc.i(dVar3.abr, t.cp_bg_line_b);
+            bc.b(dVar3.Xl, this.apl, 1);
+            bc.i(dVar3.abo, t.cp_bg_line_b);
             bc.i(view, v.addresslist_item_bg);
-            m((TextView) view.findViewById(w.addresslist_new_friend_message), this.aoY);
+            m((TextView) view.findViewById(w.addresslist_new_friend_message), this.aoV);
             return view;
         } else if (getItemViewType(i) == 5) {
             if (view == 0 || view.getTag() == null || !(view.getTag() instanceof d)) {
                 view = com.baidu.adp.lib.g.b.ei().inflate(this.mContext, x.addresslist_header_new_friends, null);
                 d dVar5 = new d(this, null);
-                dVar5.apz = (ImageView) view.findViewById(w.addresslist_new_friend_icon);
-                dVar5.apA = (ImageView) view.findViewById(w.addresslist_new_friend_new_icon);
-                dVar5.Xo = (TextView) view.findViewById(w.addresslist_new_friend_text);
-                dVar5.abr = view.findViewById(w.addresslist_new_friend_divider);
+                dVar5.apw = (ImageView) view.findViewById(w.addresslist_new_friend_icon);
+                dVar5.apx = (ImageView) view.findViewById(w.addresslist_new_friend_new_icon);
+                dVar5.Xl = (TextView) view.findViewById(w.addresslist_new_friend_text);
+                dVar5.abo = view.findViewById(w.addresslist_new_friend_divider);
                 view.setTag(dVar5);
                 dVar2 = dVar5;
             } else {
                 dVar2 = (d) view.getTag();
             }
-            bc.c(dVar2.apz, v.icon_add_friend);
-            dVar2.apA.setVisibility(8);
-            bc.b(dVar2.Xo, this.apo, 1);
-            dVar2.Xo.setText(this.mContext.getResources().getString(z.find_new_friend));
-            bc.i(dVar2.abr, t.cp_bg_line_b);
+            bc.c(dVar2.apw, v.icon_add_friend);
+            dVar2.apx.setVisibility(8);
+            bc.b(dVar2.Xl, this.apl, 1);
+            dVar2.Xl.setText(this.mContext.getResources().getString(z.find_new_friend));
+            bc.i(dVar2.abo, t.cp_bg_line_b);
             bc.i(view, v.addresslist_item_bg);
             ((TextView) view.findViewById(w.addresslist_new_friend_message)).setVisibility(8);
             return view;
@@ -161,15 +161,15 @@ public class a extends BaseAdapter {
             if (view == 0 || view.getTag() == null || !(view.getTag() instanceof d)) {
                 view = com.baidu.adp.lib.g.b.ei().inflate(this.mContext, x.addresslist_header_my_groups, null);
                 d dVar6 = new d(this, null);
-                dVar6.apz = (ImageView) view.findViewById(w.addresslist_my_groups_icon);
-                dVar6.Xo = (TextView) view.findViewById(w.addresslist_my_groups_text);
+                dVar6.apw = (ImageView) view.findViewById(w.addresslist_my_groups_icon);
+                dVar6.Xl = (TextView) view.findViewById(w.addresslist_my_groups_text);
                 view.setTag(dVar6);
                 dVar = dVar6;
             } else {
                 dVar = (d) view.getTag();
             }
-            bc.c(dVar.apz, v.icon_me_group);
-            bc.b(dVar.Xo, this.apo, 1);
+            bc.c(dVar.apw, v.icon_me_group);
+            bc.b(dVar.Xl, this.apl, 1);
             bc.i(view, v.addresslist_item_bg);
             return view;
         } else {
@@ -178,82 +178,82 @@ public class a extends BaseAdapter {
                 if (view == null || view.getTag() == null || !(view.getTag() instanceof c)) {
                     view = com.baidu.adp.lib.g.b.ei().inflate(this.mContext, x.addresslist_group_item, null);
                     c cVar2 = new c(this, null);
-                    cVar2.apy = (TextView) view.findViewById(w.addresslist_group_item_key);
-                    cVar2.abr = view.findViewById(w.addresslist_group_item_divider);
+                    cVar2.apv = (TextView) view.findViewById(w.addresslist_group_item_key);
+                    cVar2.abo = view.findViewById(w.addresslist_group_item_divider);
                     view.setTag(cVar2);
                     cVar = cVar2;
                 } else {
                     cVar = (c) view.getTag();
                 }
-                if (item.tn() != null) {
-                    cVar.apy.setText(item.tn());
+                if (item.th() != null) {
+                    cVar.apv.setText(item.th());
                 }
-                bc.b(cVar.apy, this.apq, 1);
-                bc.i(cVar.abr, t.cp_bg_line_b);
+                bc.b(cVar.apv, this.apm, 1);
+                bc.i(cVar.abo, t.cp_bg_line_b);
                 return view;
             } else if (getItemViewType(i) == 3) {
                 if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
                     b bVar2 = new b(this, null);
                     view = com.baidu.adp.lib.g.b.ei().inflate(this.mContext, x.addresslist_child_item, null);
-                    bVar2.apl = (HeadImageView) view.findViewById(w.addresslist_child_item_icon);
-                    bVar2.apm = (TextView) view.findViewById(w.addresslist_child_item_name);
-                    bVar2.apv = (TextView) view.findViewById(w.detail_info_distance);
-                    bVar2.apw = (TextView) view.findViewById(w.detail_info_time);
-                    bVar2.abr = view.findViewById(w.addresslist_child_item_divider);
+                    bVar2.aph = (HeadImageView) view.findViewById(w.addresslist_child_item_icon);
+                    bVar2.apj = (TextView) view.findViewById(w.addresslist_child_item_name);
+                    bVar2.aps = (TextView) view.findViewById(w.detail_info_distance);
+                    bVar2.apt = (TextView) view.findViewById(w.detail_info_time);
+                    bVar2.abo = view.findViewById(w.addresslist_child_item_divider);
                     view.setTag(bVar2);
                     bVar = bVar2;
                 } else {
                     bVar = (b) view.getTag();
                 }
                 if (item.getUserName() != null) {
-                    bVar.apm.setText(item.getUserName());
-                    bVar.apl.d(item.getUserPortrait(), 12, false);
+                    bVar.apj.setText(item.getUserName());
+                    bVar.aph.d(item.getUserPortrait(), 12, false);
                 }
                 if (item.getLbsInfo() != null) {
-                    if (item.getLbsInfo().to() == 1) {
-                        bVar.apv.setVisibility(0);
-                        bc.b(bVar.apv, this.apr, 1);
-                        bVar.apv.setText(this.mContext.getResources().getString(z.contact_yinshen));
-                        bVar.apv.setCompoundDrawables(null, null, null, null);
-                        bVar.apw.setVisibility(8);
-                    } else if (item.getLbsInfo().to() == 0) {
+                    if (item.getLbsInfo().ti() == 1) {
+                        bVar.aps.setVisibility(0);
+                        bc.b(bVar.aps, this.apn, 1);
+                        bVar.aps.setText(this.mContext.getResources().getString(z.contact_yinshen));
+                        bVar.aps.setCompoundDrawables(null, null, null, null);
+                        bVar.apt.setVisibility(8);
+                    } else if (item.getLbsInfo().ti() == 0) {
                         if (StringUtils.isNull(item.getLbsInfo().getDistance()) || !F(item.getLbsInfo().getTime())) {
-                            bVar.apv.setVisibility(8);
-                            bVar.apw.setVisibility(8);
+                            bVar.aps.setVisibility(8);
+                            bVar.apt.setVisibility(8);
                         } else {
-                            bVar.apv.setVisibility(0);
-                            bVar.apw.setVisibility(0);
-                            bVar.apv.setText(item.getLbsInfo().getDistance());
-                            bVar.apw.setText(bf.m(item.getLbsInfo().getTime()));
-                            bc.b(bVar.apv, this.apr, 1);
-                            this.aps = bc.getDrawable(v.icon_friend_pin);
-                            this.aps.setBounds(0, 0, this.size, this.size);
-                            bVar.apv.setCompoundDrawables(this.aps, null, null, null);
-                            this.apt = bc.getDrawable(v.icon_friend_time);
-                            this.apt.setBounds(0, 0, this.size, this.size);
-                            bVar.apw.setCompoundDrawables(this.apt, null, null, null);
-                            bc.b(bVar.apw, this.apr, 1);
+                            bVar.aps.setVisibility(0);
+                            bVar.apt.setVisibility(0);
+                            bVar.aps.setText(item.getLbsInfo().getDistance());
+                            bVar.apt.setText(bf.m(item.getLbsInfo().getTime()));
+                            bc.b(bVar.aps, this.apn, 1);
+                            this.apo = bc.getDrawable(v.icon_friend_pin);
+                            this.apo.setBounds(0, 0, this.size, this.size);
+                            bVar.aps.setCompoundDrawables(this.apo, null, null, null);
+                            this.apq = bc.getDrawable(v.icon_friend_time);
+                            this.apq.setBounds(0, 0, this.size, this.size);
+                            bVar.apt.setCompoundDrawables(this.apq, null, null, null);
+                            bc.b(bVar.apt, this.apn, 1);
                         }
                     } else {
-                        bVar.apv.setVisibility(8);
-                        bVar.apw.setVisibility(8);
+                        bVar.aps.setVisibility(8);
+                        bVar.apt.setVisibility(8);
                     }
                 } else {
-                    bVar.apv.setVisibility(8);
-                    bVar.apw.setVisibility(8);
+                    bVar.aps.setVisibility(8);
+                    bVar.apt.setVisibility(8);
                 }
-                bc.b(bVar.apm, this.apo, 1);
-                String tn = item.tn();
+                bc.b(bVar.apj, this.apl, 1);
+                String th = item.th();
                 com.baidu.tbadk.coreExtra.relationship.b item2 = getItem(i + 1);
-                if ((TextUtils.isEmpty(tn) || item2 == null || tn.equals(item2.tn())) ? false : true) {
-                    bVar.abr.setVisibility(4);
+                if ((TextUtils.isEmpty(th) || item2 == null || th.equals(item2.th())) ? false : true) {
+                    bVar.abo.setVisibility(4);
                 } else {
-                    bVar.abr.setVisibility(0);
-                    bc.i(bVar.abr, t.cp_bg_line_b);
+                    bVar.abo.setVisibility(0);
+                    bc.i(bVar.abo, t.cp_bg_line_b);
                 }
                 bc.i(view, v.addresslist_item_bg);
-                bc.b(bVar.apm, this.apo, 1);
-                bc.i(bVar.abr, t.cp_bg_line_b);
+                bc.b(bVar.apj, this.apl, 1);
+                bc.i(bVar.abo, t.cp_bg_line_b);
                 bc.i(view, v.addresslist_item_bg);
                 return view;
             } else {

@@ -74,7 +74,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         SPEAKER,
         HEADSET;
 
-        /* JADX DEBUG: Replace access to removed values field (Om) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (Oj) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static PlayMode[] valuesCustom() {
             PlayMode[] valuesCustom = values();
@@ -88,7 +88,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public static synchronized void initConfig() {
         synchronized (VoiceManager.class) {
             if (!bInitConfig) {
-                bVoiceUseSoftDecoder = com.baidu.tbadk.core.sharedPref.b.oj().getBoolean("voice_use_soft_decoder", com.baidu.adp.lib.voice.q.fL());
+                bVoiceUseSoftDecoder = com.baidu.tbadk.core.sharedPref.b.oc().getBoolean("voice_use_soft_decoder", com.baidu.adp.lib.voice.q.fL());
             }
         }
     }
@@ -99,7 +99,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
 
     public static void setVoiceUseSoftDecoder(boolean z) {
         bVoiceUseSoftDecoder = true;
-        com.baidu.tbadk.core.sharedPref.b.oj().putBoolean("voice_use_soft_decoder", bVoiceUseSoftDecoder);
+        com.baidu.tbadk.core.sharedPref.b.oc().putBoolean("voice_use_soft_decoder", bVoiceUseSoftDecoder);
     }
 
     public static VoiceManager instance() {
@@ -117,22 +117,22 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         }
         this.recordView = nVar;
         if (!s.bL()) {
-            String os = s.os();
-            if (os == null) {
-                os = this.context.getString(z.voice_error_sdcard);
+            String ol = s.ol();
+            if (ol == null) {
+                ol = this.context.getString(z.voice_error_sdcard);
             }
-            this.recordView.onShowErr(0, os);
+            this.recordView.onShowErr(0, ol);
             return false;
         }
         stopPlay();
-        this.mCurRecordVid = r.qU();
-        String cU = r.cU(this.mCurRecordVid);
+        this.mCurRecordVid = r.qO();
+        String cR = r.cR(this.mCurRecordVid);
         if (this.mRecoreCall == null) {
             this.mRecoreCall = new q(this, null);
         }
         com.baidu.adp.lib.voice.f.stop();
         releaseWakeLock();
-        boolean a = com.baidu.adp.lib.voice.f.a(cU, i, this.mRecoreCall);
+        boolean a = com.baidu.adp.lib.voice.f.a(cR, i, this.mRecoreCall);
         if (a) {
             this.recordView.onStartedRecorder(true);
             this.currRecordState = 2;
@@ -229,14 +229,14 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             if (this.mResourceCall == null) {
                 this.mResourceCall = new h(this);
             }
-            Object cV = r.cV(voiceModel.getId());
-            if (cV == null) {
+            Object cS = r.cS(voiceModel.getId());
+            if (cS == null) {
                 if (this.context != null && (this.context.getOrignalPage() instanceof com.baidu.adp.base.l)) {
                     bdUniqueId = ((com.baidu.adp.base.l) this.context.getOrignalPage()).getUniqueId();
                 }
-                cV = com.baidu.adp.lib.f.d.ec().a(voiceModel.getId(), 23, this.mResourceCall, 0, 0, bdUniqueId, voiceModel.from);
+                cS = com.baidu.adp.lib.f.d.ec().a(voiceModel.getId(), 23, this.mResourceCall, 0, 0, bdUniqueId, voiceModel.from);
             }
-            if (voiceModel.isLocal && cV == null) {
+            if (voiceModel.isLocal && cS == null) {
                 if (this.mPlayCall == null) {
                     this.mPlayCall = new p(this, null);
                 }
@@ -247,8 +247,8 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     rVar.h("from", voiceModel.from);
                 }
                 TiebaStatic.voiceError("", TbErrInfo.ERR_VOI_FILE, "VoiceManager.setDownloading() error : record file not exists", rVar.toString());
-            } else if (cV != null) {
-                setPlaying(voiceModel, (String) cV);
+            } else if (cS != null) {
+                setPlaying(voiceModel, (String) cS);
             } else {
                 voiceModel.voice_status = 2;
                 m playView = getPlayView();

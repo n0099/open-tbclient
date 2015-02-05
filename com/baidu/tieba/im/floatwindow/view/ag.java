@@ -1,17 +1,16 @@
 package com.baidu.tieba.im.floatwindow.view;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag implements Runnable {
-    final /* synthetic */ FloatingPersonalChatView bas;
+class ag implements Runnable {
+    final /* synthetic */ FloatingPersonalChatView baq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(FloatingPersonalChatView floatingPersonalChatView) {
-        this.bas = floatingPersonalChatView;
+        this.baq = floatingPersonalChatView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tieba.im.floatwindow.b.Nt().cK(false);
-        this.bas.Ol();
+        com.baidu.tieba.im.floatwindow.b.No().cK(false);
+        this.baq.Og();
     }
 }
